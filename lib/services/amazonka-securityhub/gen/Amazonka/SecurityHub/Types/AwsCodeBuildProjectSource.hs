@@ -28,28 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsCodeBuildProjectSource' smart constructor.
 data AwsCodeBuildProjectSource = AwsCodeBuildProjectSource'
-  { -- | Whether to ignore SSL warnings while connecting to the project source
+  { -- | Information about the Git clone depth for the build project.
+    gitCloneDepth :: Prelude.Maybe Prelude.Int,
+    -- | Whether to ignore SSL warnings while connecting to the project source
     -- code.
     insecureSsl :: Prelude.Maybe Prelude.Bool,
-    -- | The type of repository that contains the source code to be built. Valid
-    -- values are:
-    --
-    -- -   @BITBUCKET@ - The source code is in a Bitbucket repository.
-    --
-    -- -   @CODECOMMIT@ - The source code is in an CodeCommit repository.
-    --
-    -- -   @CODEPIPELINE@ - The source code settings are specified in the
-    --     source action of a pipeline in CodePipeline.
-    --
-    -- -   @GITHUB@ - The source code is in a GitHub repository.
-    --
-    -- -   @GITHUB_ENTERPRISE@ - The source code is in a GitHub Enterprise
-    --     repository.
-    --
-    -- -   @NO_SOURCE@ - The project does not have input source code.
-    --
-    -- -   @S3@ - The source code is in an S3 input bucket.
-    type' :: Prelude.Maybe Prelude.Text,
     -- | Information about the location of the source code to be built.
     --
     -- Valid values include:
@@ -80,8 +63,25 @@ data AwsCodeBuildProjectSource = AwsCodeBuildProjectSource'
     -- -   For source code in a Bitbucket repository, the HTTPS clone URL to
     --     the repository that contains the source and the build spec file.
     location :: Prelude.Maybe Prelude.Text,
-    -- | Information about the Git clone depth for the build project.
-    gitCloneDepth :: Prelude.Maybe Prelude.Int
+    -- | The type of repository that contains the source code to be built. Valid
+    -- values are:
+    --
+    -- -   @BITBUCKET@ - The source code is in a Bitbucket repository.
+    --
+    -- -   @CODECOMMIT@ - The source code is in an CodeCommit repository.
+    --
+    -- -   @CODEPIPELINE@ - The source code settings are specified in the
+    --     source action of a pipeline in CodePipeline.
+    --
+    -- -   @GITHUB@ - The source code is in a GitHub repository.
+    --
+    -- -   @GITHUB_ENTERPRISE@ - The source code is in a GitHub Enterprise
+    --     repository.
+    --
+    -- -   @NO_SOURCE@ - The project does not have input source code.
+    --
+    -- -   @S3@ - The source code is in an S3 input bucket.
+    type' :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -93,27 +93,10 @@ data AwsCodeBuildProjectSource = AwsCodeBuildProjectSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'gitCloneDepth', 'awsCodeBuildProjectSource_gitCloneDepth' - Information about the Git clone depth for the build project.
+--
 -- 'insecureSsl', 'awsCodeBuildProjectSource_insecureSsl' - Whether to ignore SSL warnings while connecting to the project source
 -- code.
---
--- 'type'', 'awsCodeBuildProjectSource_type' - The type of repository that contains the source code to be built. Valid
--- values are:
---
--- -   @BITBUCKET@ - The source code is in a Bitbucket repository.
---
--- -   @CODECOMMIT@ - The source code is in an CodeCommit repository.
---
--- -   @CODEPIPELINE@ - The source code settings are specified in the
---     source action of a pipeline in CodePipeline.
---
--- -   @GITHUB@ - The source code is in a GitHub repository.
---
--- -   @GITHUB_ENTERPRISE@ - The source code is in a GitHub Enterprise
---     repository.
---
--- -   @NO_SOURCE@ - The project does not have input source code.
---
--- -   @S3@ - The source code is in an S3 input bucket.
 --
 -- 'location', 'awsCodeBuildProjectSource_location' - Information about the location of the source code to be built.
 --
@@ -145,24 +128,7 @@ data AwsCodeBuildProjectSource = AwsCodeBuildProjectSource'
 -- -   For source code in a Bitbucket repository, the HTTPS clone URL to
 --     the repository that contains the source and the build spec file.
 --
--- 'gitCloneDepth', 'awsCodeBuildProjectSource_gitCloneDepth' - Information about the Git clone depth for the build project.
-newAwsCodeBuildProjectSource ::
-  AwsCodeBuildProjectSource
-newAwsCodeBuildProjectSource =
-  AwsCodeBuildProjectSource'
-    { insecureSsl =
-        Prelude.Nothing,
-      type' = Prelude.Nothing,
-      location = Prelude.Nothing,
-      gitCloneDepth = Prelude.Nothing
-    }
-
--- | Whether to ignore SSL warnings while connecting to the project source
--- code.
-awsCodeBuildProjectSource_insecureSsl :: Lens.Lens' AwsCodeBuildProjectSource (Prelude.Maybe Prelude.Bool)
-awsCodeBuildProjectSource_insecureSsl = Lens.lens (\AwsCodeBuildProjectSource' {insecureSsl} -> insecureSsl) (\s@AwsCodeBuildProjectSource' {} a -> s {insecureSsl = a} :: AwsCodeBuildProjectSource)
-
--- | The type of repository that contains the source code to be built. Valid
+-- 'type'', 'awsCodeBuildProjectSource_type' - The type of repository that contains the source code to be built. Valid
 -- values are:
 --
 -- -   @BITBUCKET@ - The source code is in a Bitbucket repository.
@@ -180,8 +146,25 @@ awsCodeBuildProjectSource_insecureSsl = Lens.lens (\AwsCodeBuildProjectSource' {
 -- -   @NO_SOURCE@ - The project does not have input source code.
 --
 -- -   @S3@ - The source code is in an S3 input bucket.
-awsCodeBuildProjectSource_type :: Lens.Lens' AwsCodeBuildProjectSource (Prelude.Maybe Prelude.Text)
-awsCodeBuildProjectSource_type = Lens.lens (\AwsCodeBuildProjectSource' {type'} -> type') (\s@AwsCodeBuildProjectSource' {} a -> s {type' = a} :: AwsCodeBuildProjectSource)
+newAwsCodeBuildProjectSource ::
+  AwsCodeBuildProjectSource
+newAwsCodeBuildProjectSource =
+  AwsCodeBuildProjectSource'
+    { gitCloneDepth =
+        Prelude.Nothing,
+      insecureSsl = Prelude.Nothing,
+      location = Prelude.Nothing,
+      type' = Prelude.Nothing
+    }
+
+-- | Information about the Git clone depth for the build project.
+awsCodeBuildProjectSource_gitCloneDepth :: Lens.Lens' AwsCodeBuildProjectSource (Prelude.Maybe Prelude.Int)
+awsCodeBuildProjectSource_gitCloneDepth = Lens.lens (\AwsCodeBuildProjectSource' {gitCloneDepth} -> gitCloneDepth) (\s@AwsCodeBuildProjectSource' {} a -> s {gitCloneDepth = a} :: AwsCodeBuildProjectSource)
+
+-- | Whether to ignore SSL warnings while connecting to the project source
+-- code.
+awsCodeBuildProjectSource_insecureSsl :: Lens.Lens' AwsCodeBuildProjectSource (Prelude.Maybe Prelude.Bool)
+awsCodeBuildProjectSource_insecureSsl = Lens.lens (\AwsCodeBuildProjectSource' {insecureSsl} -> insecureSsl) (\s@AwsCodeBuildProjectSource' {} a -> s {insecureSsl = a} :: AwsCodeBuildProjectSource)
 
 -- | Information about the location of the source code to be built.
 --
@@ -215,9 +198,26 @@ awsCodeBuildProjectSource_type = Lens.lens (\AwsCodeBuildProjectSource' {type'} 
 awsCodeBuildProjectSource_location :: Lens.Lens' AwsCodeBuildProjectSource (Prelude.Maybe Prelude.Text)
 awsCodeBuildProjectSource_location = Lens.lens (\AwsCodeBuildProjectSource' {location} -> location) (\s@AwsCodeBuildProjectSource' {} a -> s {location = a} :: AwsCodeBuildProjectSource)
 
--- | Information about the Git clone depth for the build project.
-awsCodeBuildProjectSource_gitCloneDepth :: Lens.Lens' AwsCodeBuildProjectSource (Prelude.Maybe Prelude.Int)
-awsCodeBuildProjectSource_gitCloneDepth = Lens.lens (\AwsCodeBuildProjectSource' {gitCloneDepth} -> gitCloneDepth) (\s@AwsCodeBuildProjectSource' {} a -> s {gitCloneDepth = a} :: AwsCodeBuildProjectSource)
+-- | The type of repository that contains the source code to be built. Valid
+-- values are:
+--
+-- -   @BITBUCKET@ - The source code is in a Bitbucket repository.
+--
+-- -   @CODECOMMIT@ - The source code is in an CodeCommit repository.
+--
+-- -   @CODEPIPELINE@ - The source code settings are specified in the
+--     source action of a pipeline in CodePipeline.
+--
+-- -   @GITHUB@ - The source code is in a GitHub repository.
+--
+-- -   @GITHUB_ENTERPRISE@ - The source code is in a GitHub Enterprise
+--     repository.
+--
+-- -   @NO_SOURCE@ - The project does not have input source code.
+--
+-- -   @S3@ - The source code is in an S3 input bucket.
+awsCodeBuildProjectSource_type :: Lens.Lens' AwsCodeBuildProjectSource (Prelude.Maybe Prelude.Text)
+awsCodeBuildProjectSource_type = Lens.lens (\AwsCodeBuildProjectSource' {type'} -> type') (\s@AwsCodeBuildProjectSource' {} a -> s {type' = a} :: AwsCodeBuildProjectSource)
 
 instance Data.FromJSON AwsCodeBuildProjectSource where
   parseJSON =
@@ -225,33 +225,33 @@ instance Data.FromJSON AwsCodeBuildProjectSource where
       "AwsCodeBuildProjectSource"
       ( \x ->
           AwsCodeBuildProjectSource'
-            Prelude.<$> (x Data..:? "InsecureSsl")
-            Prelude.<*> (x Data..:? "Type")
+            Prelude.<$> (x Data..:? "GitCloneDepth")
+            Prelude.<*> (x Data..:? "InsecureSsl")
             Prelude.<*> (x Data..:? "Location")
-            Prelude.<*> (x Data..:? "GitCloneDepth")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable AwsCodeBuildProjectSource where
   hashWithSalt _salt AwsCodeBuildProjectSource' {..} =
-    _salt `Prelude.hashWithSalt` insecureSsl
-      `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` gitCloneDepth
+      `Prelude.hashWithSalt` insecureSsl
       `Prelude.hashWithSalt` location
-      `Prelude.hashWithSalt` gitCloneDepth
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData AwsCodeBuildProjectSource where
   rnf AwsCodeBuildProjectSource' {..} =
-    Prelude.rnf insecureSsl
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf gitCloneDepth
+      `Prelude.seq` Prelude.rnf insecureSsl
       `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf gitCloneDepth
+      `Prelude.seq` Prelude.rnf type'
 
 instance Data.ToJSON AwsCodeBuildProjectSource where
   toJSON AwsCodeBuildProjectSource' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("InsecureSsl" Data..=) Prelude.<$> insecureSsl,
-            ("Type" Data..=) Prelude.<$> type',
+          [ ("GitCloneDepth" Data..=) Prelude.<$> gitCloneDepth,
+            ("InsecureSsl" Data..=) Prelude.<$> insecureSsl,
             ("Location" Data..=) Prelude.<$> location,
-            ("GitCloneDepth" Data..=) Prelude.<$> gitCloneDepth
+            ("Type" Data..=) Prelude.<$> type'
           ]
       )

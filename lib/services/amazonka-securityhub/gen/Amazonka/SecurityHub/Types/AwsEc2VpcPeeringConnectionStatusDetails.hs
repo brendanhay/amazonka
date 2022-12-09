@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsEc2VpcPeeringConnectionStatusDetails' smart constructor.
 data AwsEc2VpcPeeringConnectionStatusDetails = AwsEc2VpcPeeringConnectionStatusDetails'
-  { -- | A message that provides more information about the status, if
+  { -- | The status of the VPC peering connection.
+    code :: Prelude.Maybe Prelude.Text,
+    -- | A message that provides more information about the status, if
     -- applicable.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The status of the VPC peering connection.
-    code :: Prelude.Maybe Prelude.Text
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,27 +44,27 @@ data AwsEc2VpcPeeringConnectionStatusDetails = AwsEc2VpcPeeringConnectionStatusD
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'code', 'awsEc2VpcPeeringConnectionStatusDetails_code' - The status of the VPC peering connection.
+--
 -- 'message', 'awsEc2VpcPeeringConnectionStatusDetails_message' - A message that provides more information about the status, if
 -- applicable.
---
--- 'code', 'awsEc2VpcPeeringConnectionStatusDetails_code' - The status of the VPC peering connection.
 newAwsEc2VpcPeeringConnectionStatusDetails ::
   AwsEc2VpcPeeringConnectionStatusDetails
 newAwsEc2VpcPeeringConnectionStatusDetails =
   AwsEc2VpcPeeringConnectionStatusDetails'
-    { message =
+    { code =
         Prelude.Nothing,
-      code = Prelude.Nothing
+      message = Prelude.Nothing
     }
+
+-- | The status of the VPC peering connection.
+awsEc2VpcPeeringConnectionStatusDetails_code :: Lens.Lens' AwsEc2VpcPeeringConnectionStatusDetails (Prelude.Maybe Prelude.Text)
+awsEc2VpcPeeringConnectionStatusDetails_code = Lens.lens (\AwsEc2VpcPeeringConnectionStatusDetails' {code} -> code) (\s@AwsEc2VpcPeeringConnectionStatusDetails' {} a -> s {code = a} :: AwsEc2VpcPeeringConnectionStatusDetails)
 
 -- | A message that provides more information about the status, if
 -- applicable.
 awsEc2VpcPeeringConnectionStatusDetails_message :: Lens.Lens' AwsEc2VpcPeeringConnectionStatusDetails (Prelude.Maybe Prelude.Text)
 awsEc2VpcPeeringConnectionStatusDetails_message = Lens.lens (\AwsEc2VpcPeeringConnectionStatusDetails' {message} -> message) (\s@AwsEc2VpcPeeringConnectionStatusDetails' {} a -> s {message = a} :: AwsEc2VpcPeeringConnectionStatusDetails)
-
--- | The status of the VPC peering connection.
-awsEc2VpcPeeringConnectionStatusDetails_code :: Lens.Lens' AwsEc2VpcPeeringConnectionStatusDetails (Prelude.Maybe Prelude.Text)
-awsEc2VpcPeeringConnectionStatusDetails_code = Lens.lens (\AwsEc2VpcPeeringConnectionStatusDetails' {code} -> code) (\s@AwsEc2VpcPeeringConnectionStatusDetails' {} a -> s {code = a} :: AwsEc2VpcPeeringConnectionStatusDetails)
 
 instance
   Data.FromJSON
@@ -75,8 +75,8 @@ instance
       "AwsEc2VpcPeeringConnectionStatusDetails"
       ( \x ->
           AwsEc2VpcPeeringConnectionStatusDetails'
-            Prelude.<$> (x Data..:? "Message")
-            Prelude.<*> (x Data..:? "Code")
+            Prelude.<$> (x Data..:? "Code")
+            Prelude.<*> (x Data..:? "Message")
       )
 
 instance
@@ -86,15 +86,15 @@ instance
   hashWithSalt
     _salt
     AwsEc2VpcPeeringConnectionStatusDetails' {..} =
-      _salt `Prelude.hashWithSalt` message
-        `Prelude.hashWithSalt` code
+      _salt `Prelude.hashWithSalt` code
+        `Prelude.hashWithSalt` message
 
 instance
   Prelude.NFData
     AwsEc2VpcPeeringConnectionStatusDetails
   where
   rnf AwsEc2VpcPeeringConnectionStatusDetails' {..} =
-    Prelude.rnf message `Prelude.seq` Prelude.rnf code
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message
 
 instance
   Data.ToJSON
@@ -103,7 +103,7 @@ instance
   toJSON AwsEc2VpcPeeringConnectionStatusDetails' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Message" Data..=) Prelude.<$> message,
-            ("Code" Data..=) Prelude.<$> code
+          [ ("Code" Data..=) Prelude.<$> code,
+            ("Message" Data..=) Prelude.<$> message
           ]
       )

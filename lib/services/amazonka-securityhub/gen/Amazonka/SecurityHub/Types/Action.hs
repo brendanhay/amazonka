@@ -51,15 +51,15 @@ data Action = Action'
     --
     -- -   @PORT_PROBE@
     actionType :: Prelude.Maybe Prelude.Text,
-    -- | Included if @ActionType@ is @NETWORK_CONNECTION@. Provides details about
-    -- the network connection that was detected.
-    networkConnectionAction :: Prelude.Maybe NetworkConnectionAction,
     -- | Included if @ActionType@ is @AWS_API_CALL@. Provides details about the
     -- API call that was detected.
     awsApiCallAction :: Prelude.Maybe AwsApiCallAction,
     -- | Included if @ActionType@ is @DNS_REQUEST@. Provides details about the
     -- DNS request that was detected.
     dnsRequestAction :: Prelude.Maybe DnsRequestAction,
+    -- | Included if @ActionType@ is @NETWORK_CONNECTION@. Provides details about
+    -- the network connection that was detected.
+    networkConnectionAction :: Prelude.Maybe NetworkConnectionAction,
     -- | Included if @ActionType@ is @PORT_PROBE@. Provides details about the
     -- port probe that was detected.
     portProbeAction :: Prelude.Maybe PortProbeAction
@@ -84,14 +84,14 @@ data Action = Action'
 --
 -- -   @PORT_PROBE@
 --
--- 'networkConnectionAction', 'action_networkConnectionAction' - Included if @ActionType@ is @NETWORK_CONNECTION@. Provides details about
--- the network connection that was detected.
---
 -- 'awsApiCallAction', 'action_awsApiCallAction' - Included if @ActionType@ is @AWS_API_CALL@. Provides details about the
 -- API call that was detected.
 --
 -- 'dnsRequestAction', 'action_dnsRequestAction' - Included if @ActionType@ is @DNS_REQUEST@. Provides details about the
 -- DNS request that was detected.
+--
+-- 'networkConnectionAction', 'action_networkConnectionAction' - Included if @ActionType@ is @NETWORK_CONNECTION@. Provides details about
+-- the network connection that was detected.
 --
 -- 'portProbeAction', 'action_portProbeAction' - Included if @ActionType@ is @PORT_PROBE@. Provides details about the
 -- port probe that was detected.
@@ -100,9 +100,9 @@ newAction ::
 newAction =
   Action'
     { actionType = Prelude.Nothing,
-      networkConnectionAction = Prelude.Nothing,
       awsApiCallAction = Prelude.Nothing,
       dnsRequestAction = Prelude.Nothing,
+      networkConnectionAction = Prelude.Nothing,
       portProbeAction = Prelude.Nothing
     }
 
@@ -118,11 +118,6 @@ newAction =
 action_actionType :: Lens.Lens' Action (Prelude.Maybe Prelude.Text)
 action_actionType = Lens.lens (\Action' {actionType} -> actionType) (\s@Action' {} a -> s {actionType = a} :: Action)
 
--- | Included if @ActionType@ is @NETWORK_CONNECTION@. Provides details about
--- the network connection that was detected.
-action_networkConnectionAction :: Lens.Lens' Action (Prelude.Maybe NetworkConnectionAction)
-action_networkConnectionAction = Lens.lens (\Action' {networkConnectionAction} -> networkConnectionAction) (\s@Action' {} a -> s {networkConnectionAction = a} :: Action)
-
 -- | Included if @ActionType@ is @AWS_API_CALL@. Provides details about the
 -- API call that was detected.
 action_awsApiCallAction :: Lens.Lens' Action (Prelude.Maybe AwsApiCallAction)
@@ -132,6 +127,11 @@ action_awsApiCallAction = Lens.lens (\Action' {awsApiCallAction} -> awsApiCallAc
 -- DNS request that was detected.
 action_dnsRequestAction :: Lens.Lens' Action (Prelude.Maybe DnsRequestAction)
 action_dnsRequestAction = Lens.lens (\Action' {dnsRequestAction} -> dnsRequestAction) (\s@Action' {} a -> s {dnsRequestAction = a} :: Action)
+
+-- | Included if @ActionType@ is @NETWORK_CONNECTION@. Provides details about
+-- the network connection that was detected.
+action_networkConnectionAction :: Lens.Lens' Action (Prelude.Maybe NetworkConnectionAction)
+action_networkConnectionAction = Lens.lens (\Action' {networkConnectionAction} -> networkConnectionAction) (\s@Action' {} a -> s {networkConnectionAction = a} :: Action)
 
 -- | Included if @ActionType@ is @PORT_PROBE@. Provides details about the
 -- port probe that was detected.
@@ -145,26 +145,26 @@ instance Data.FromJSON Action where
       ( \x ->
           Action'
             Prelude.<$> (x Data..:? "ActionType")
-            Prelude.<*> (x Data..:? "NetworkConnectionAction")
             Prelude.<*> (x Data..:? "AwsApiCallAction")
             Prelude.<*> (x Data..:? "DnsRequestAction")
+            Prelude.<*> (x Data..:? "NetworkConnectionAction")
             Prelude.<*> (x Data..:? "PortProbeAction")
       )
 
 instance Prelude.Hashable Action where
   hashWithSalt _salt Action' {..} =
     _salt `Prelude.hashWithSalt` actionType
-      `Prelude.hashWithSalt` networkConnectionAction
       `Prelude.hashWithSalt` awsApiCallAction
       `Prelude.hashWithSalt` dnsRequestAction
+      `Prelude.hashWithSalt` networkConnectionAction
       `Prelude.hashWithSalt` portProbeAction
 
 instance Prelude.NFData Action where
   rnf Action' {..} =
     Prelude.rnf actionType
-      `Prelude.seq` Prelude.rnf networkConnectionAction
       `Prelude.seq` Prelude.rnf awsApiCallAction
       `Prelude.seq` Prelude.rnf dnsRequestAction
+      `Prelude.seq` Prelude.rnf networkConnectionAction
       `Prelude.seq` Prelude.rnf portProbeAction
 
 instance Data.ToJSON Action where
@@ -172,12 +172,12 @@ instance Data.ToJSON Action where
     Data.object
       ( Prelude.catMaybes
           [ ("ActionType" Data..=) Prelude.<$> actionType,
-            ("NetworkConnectionAction" Data..=)
-              Prelude.<$> networkConnectionAction,
             ("AwsApiCallAction" Data..=)
               Prelude.<$> awsApiCallAction,
             ("DnsRequestAction" Data..=)
               Prelude.<$> dnsRequestAction,
+            ("NetworkConnectionAction" Data..=)
+              Prelude.<$> networkConnectionAction,
             ("PortProbeAction" Data..=)
               Prelude.<$> portProbeAction
           ]

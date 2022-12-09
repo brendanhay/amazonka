@@ -31,15 +31,9 @@ import Amazonka.SecurityHub.Types.ResourceDetails
 --
 -- /See:/ 'newResource' smart constructor.
 data Resource = Resource'
-  { -- | A list of Amazon Web Services tags associated with a resource at the
-    -- time the finding was processed.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Contains information about sensitive data that was detected on the
+  { -- | Contains information about sensitive data that was detected on the
     -- resource.
     dataClassification :: Prelude.Maybe DataClassificationDetails,
-    -- | Identifies the role of the resource in the finding. A resource is either
-    -- the actor or target of the finding activity,
-    resourceRole :: Prelude.Maybe Prelude.Text,
     -- | Additional details about the resource related to a finding.
     details :: Prelude.Maybe ResourceDetails,
     -- | The canonical Amazon Web Services partition name that the Region is
@@ -48,6 +42,12 @@ data Resource = Resource'
     -- | The canonical Amazon Web Services external Region name where this
     -- resource is located.
     region :: Prelude.Maybe Prelude.Text,
+    -- | Identifies the role of the resource in the finding. A resource is either
+    -- the actor or target of the finding activity,
+    resourceRole :: Prelude.Maybe Prelude.Text,
+    -- | A list of Amazon Web Services tags associated with a resource at the
+    -- time the finding was processed.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The type of the resource that details are provided for. If possible, set
     -- @Type@ to one of the supported resource types. For example, if the
     -- resource is an EC2 instance, then set @Type@ to @AwsEc2Instance@.
@@ -68,14 +68,8 @@ data Resource = Resource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'resource_tags' - A list of Amazon Web Services tags associated with a resource at the
--- time the finding was processed.
---
 -- 'dataClassification', 'resource_dataClassification' - Contains information about sensitive data that was detected on the
 -- resource.
---
--- 'resourceRole', 'resource_resourceRole' - Identifies the role of the resource in the finding. A resource is either
--- the actor or target of the finding activity,
 --
 -- 'details', 'resource_details' - Additional details about the resource related to a finding.
 --
@@ -84,6 +78,12 @@ data Resource = Resource'
 --
 -- 'region', 'resource_region' - The canonical Amazon Web Services external Region name where this
 -- resource is located.
+--
+-- 'resourceRole', 'resource_resourceRole' - Identifies the role of the resource in the finding. A resource is either
+-- the actor or target of the finding activity,
+--
+-- 'tags', 'resource_tags' - A list of Amazon Web Services tags associated with a resource at the
+-- time the finding was processed.
 --
 -- 'type'', 'resource_type' - The type of the resource that details are provided for. If possible, set
 -- @Type@ to one of the supported resource types. For example, if the
@@ -101,30 +101,20 @@ newResource ::
   Resource
 newResource pType_ pId_ =
   Resource'
-    { tags = Prelude.Nothing,
-      dataClassification = Prelude.Nothing,
-      resourceRole = Prelude.Nothing,
+    { dataClassification = Prelude.Nothing,
       details = Prelude.Nothing,
       partition = Prelude.Nothing,
       region = Prelude.Nothing,
+      resourceRole = Prelude.Nothing,
+      tags = Prelude.Nothing,
       type' = pType_,
       id = pId_
     }
-
--- | A list of Amazon Web Services tags associated with a resource at the
--- time the finding was processed.
-resource_tags :: Lens.Lens' Resource (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-resource_tags = Lens.lens (\Resource' {tags} -> tags) (\s@Resource' {} a -> s {tags = a} :: Resource) Prelude.. Lens.mapping Lens.coerced
 
 -- | Contains information about sensitive data that was detected on the
 -- resource.
 resource_dataClassification :: Lens.Lens' Resource (Prelude.Maybe DataClassificationDetails)
 resource_dataClassification = Lens.lens (\Resource' {dataClassification} -> dataClassification) (\s@Resource' {} a -> s {dataClassification = a} :: Resource)
-
--- | Identifies the role of the resource in the finding. A resource is either
--- the actor or target of the finding activity,
-resource_resourceRole :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
-resource_resourceRole = Lens.lens (\Resource' {resourceRole} -> resourceRole) (\s@Resource' {} a -> s {resourceRole = a} :: Resource)
 
 -- | Additional details about the resource related to a finding.
 resource_details :: Lens.Lens' Resource (Prelude.Maybe ResourceDetails)
@@ -139,6 +129,16 @@ resource_partition = Lens.lens (\Resource' {partition} -> partition) (\s@Resourc
 -- resource is located.
 resource_region :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
 resource_region = Lens.lens (\Resource' {region} -> region) (\s@Resource' {} a -> s {region = a} :: Resource)
+
+-- | Identifies the role of the resource in the finding. A resource is either
+-- the actor or target of the finding activity,
+resource_resourceRole :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
+resource_resourceRole = Lens.lens (\Resource' {resourceRole} -> resourceRole) (\s@Resource' {} a -> s {resourceRole = a} :: Resource)
+
+-- | A list of Amazon Web Services tags associated with a resource at the
+-- time the finding was processed.
+resource_tags :: Lens.Lens' Resource (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+resource_tags = Lens.lens (\Resource' {tags} -> tags) (\s@Resource' {} a -> s {tags = a} :: Resource) Prelude.. Lens.mapping Lens.coerced
 
 -- | The type of the resource that details are provided for. If possible, set
 -- @Type@ to one of the supported resource types. For example, if the
@@ -159,35 +159,35 @@ instance Data.FromJSON Resource where
       "Resource"
       ( \x ->
           Resource'
-            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "DataClassification")
-            Prelude.<*> (x Data..:? "ResourceRole")
+            Prelude.<$> (x Data..:? "DataClassification")
             Prelude.<*> (x Data..:? "Details")
             Prelude.<*> (x Data..:? "Partition")
             Prelude.<*> (x Data..:? "Region")
+            Prelude.<*> (x Data..:? "ResourceRole")
+            Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "Type")
             Prelude.<*> (x Data..: "Id")
       )
 
 instance Prelude.Hashable Resource where
   hashWithSalt _salt Resource' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` dataClassification
-      `Prelude.hashWithSalt` resourceRole
+    _salt `Prelude.hashWithSalt` dataClassification
       `Prelude.hashWithSalt` details
       `Prelude.hashWithSalt` partition
       `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` resourceRole
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData Resource where
   rnf Resource' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf dataClassification
-      `Prelude.seq` Prelude.rnf resourceRole
+    Prelude.rnf dataClassification
       `Prelude.seq` Prelude.rnf details
       `Prelude.seq` Prelude.rnf partition
       `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf resourceRole
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf id
 
@@ -195,13 +195,13 @@ instance Data.ToJSON Resource where
   toJSON Resource' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("DataClassification" Data..=)
+          [ ("DataClassification" Data..=)
               Prelude.<$> dataClassification,
-            ("ResourceRole" Data..=) Prelude.<$> resourceRole,
             ("Details" Data..=) Prelude.<$> details,
             ("Partition" Data..=) Prelude.<$> partition,
             ("Region" Data..=) Prelude.<$> region,
+            ("ResourceRole" Data..=) Prelude.<$> resourceRole,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Type" Data..= type'),
             Prelude.Just ("Id" Data..= id)
           ]

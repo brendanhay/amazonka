@@ -28,28 +28,28 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsEc2NetworkInterfaceAttachment' smart constructor.
 data AwsEc2NetworkInterfaceAttachment = AwsEc2NetworkInterfaceAttachment'
-  { -- | Indicates whether the network interface is deleted when the instance is
-    -- terminated.
-    deleteOnTermination :: Prelude.Maybe Prelude.Bool,
-    -- | The attachment state.
-    --
-    -- Valid values: @attaching@ | @attached@ | @detaching@ | @detached@
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the network interface attachment
-    attachmentId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the instance.
-    instanceId :: Prelude.Maybe Prelude.Text,
-    -- | Indicates when the attachment initiated.
+  { -- | Indicates when the attachment initiated.
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
     -- The value cannot contain spaces. For example,
     -- @2020-03-22T13:22:13.933Z@.
     attachTime :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the network interface attachment
+    attachmentId :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether the network interface is deleted when the instance is
+    -- terminated.
+    deleteOnTermination :: Prelude.Maybe Prelude.Bool,
     -- | The device index of the network interface attachment on the instance.
     deviceIndex :: Prelude.Maybe Prelude.Int,
+    -- | The ID of the instance.
+    instanceId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services account ID of the owner of the instance.
-    instanceOwnerId :: Prelude.Maybe Prelude.Text
+    instanceOwnerId :: Prelude.Maybe Prelude.Text,
+    -- | The attachment state.
+    --
+    -- Valid values: @attaching@ | @attached@ | @detaching@ | @detached@
+    status :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,17 +61,6 @@ data AwsEc2NetworkInterfaceAttachment = AwsEc2NetworkInterfaceAttachment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deleteOnTermination', 'awsEc2NetworkInterfaceAttachment_deleteOnTermination' - Indicates whether the network interface is deleted when the instance is
--- terminated.
---
--- 'status', 'awsEc2NetworkInterfaceAttachment_status' - The attachment state.
---
--- Valid values: @attaching@ | @attached@ | @detaching@ | @detached@
---
--- 'attachmentId', 'awsEc2NetworkInterfaceAttachment_attachmentId' - The identifier of the network interface attachment
---
--- 'instanceId', 'awsEc2NetworkInterfaceAttachment_instanceId' - The ID of the instance.
---
 -- 'attachTime', 'awsEc2NetworkInterfaceAttachment_attachTime' - Indicates when the attachment initiated.
 --
 -- Uses the @date-time@ format specified in
@@ -79,41 +68,33 @@ data AwsEc2NetworkInterfaceAttachment = AwsEc2NetworkInterfaceAttachment'
 -- The value cannot contain spaces. For example,
 -- @2020-03-22T13:22:13.933Z@.
 --
+-- 'attachmentId', 'awsEc2NetworkInterfaceAttachment_attachmentId' - The identifier of the network interface attachment
+--
+-- 'deleteOnTermination', 'awsEc2NetworkInterfaceAttachment_deleteOnTermination' - Indicates whether the network interface is deleted when the instance is
+-- terminated.
+--
 -- 'deviceIndex', 'awsEc2NetworkInterfaceAttachment_deviceIndex' - The device index of the network interface attachment on the instance.
 --
+-- 'instanceId', 'awsEc2NetworkInterfaceAttachment_instanceId' - The ID of the instance.
+--
 -- 'instanceOwnerId', 'awsEc2NetworkInterfaceAttachment_instanceOwnerId' - The Amazon Web Services account ID of the owner of the instance.
+--
+-- 'status', 'awsEc2NetworkInterfaceAttachment_status' - The attachment state.
+--
+-- Valid values: @attaching@ | @attached@ | @detaching@ | @detached@
 newAwsEc2NetworkInterfaceAttachment ::
   AwsEc2NetworkInterfaceAttachment
 newAwsEc2NetworkInterfaceAttachment =
   AwsEc2NetworkInterfaceAttachment'
-    { deleteOnTermination =
+    { attachTime =
         Prelude.Nothing,
-      status = Prelude.Nothing,
       attachmentId = Prelude.Nothing,
-      instanceId = Prelude.Nothing,
-      attachTime = Prelude.Nothing,
+      deleteOnTermination = Prelude.Nothing,
       deviceIndex = Prelude.Nothing,
-      instanceOwnerId = Prelude.Nothing
+      instanceId = Prelude.Nothing,
+      instanceOwnerId = Prelude.Nothing,
+      status = Prelude.Nothing
     }
-
--- | Indicates whether the network interface is deleted when the instance is
--- terminated.
-awsEc2NetworkInterfaceAttachment_deleteOnTermination :: Lens.Lens' AwsEc2NetworkInterfaceAttachment (Prelude.Maybe Prelude.Bool)
-awsEc2NetworkInterfaceAttachment_deleteOnTermination = Lens.lens (\AwsEc2NetworkInterfaceAttachment' {deleteOnTermination} -> deleteOnTermination) (\s@AwsEc2NetworkInterfaceAttachment' {} a -> s {deleteOnTermination = a} :: AwsEc2NetworkInterfaceAttachment)
-
--- | The attachment state.
---
--- Valid values: @attaching@ | @attached@ | @detaching@ | @detached@
-awsEc2NetworkInterfaceAttachment_status :: Lens.Lens' AwsEc2NetworkInterfaceAttachment (Prelude.Maybe Prelude.Text)
-awsEc2NetworkInterfaceAttachment_status = Lens.lens (\AwsEc2NetworkInterfaceAttachment' {status} -> status) (\s@AwsEc2NetworkInterfaceAttachment' {} a -> s {status = a} :: AwsEc2NetworkInterfaceAttachment)
-
--- | The identifier of the network interface attachment
-awsEc2NetworkInterfaceAttachment_attachmentId :: Lens.Lens' AwsEc2NetworkInterfaceAttachment (Prelude.Maybe Prelude.Text)
-awsEc2NetworkInterfaceAttachment_attachmentId = Lens.lens (\AwsEc2NetworkInterfaceAttachment' {attachmentId} -> attachmentId) (\s@AwsEc2NetworkInterfaceAttachment' {} a -> s {attachmentId = a} :: AwsEc2NetworkInterfaceAttachment)
-
--- | The ID of the instance.
-awsEc2NetworkInterfaceAttachment_instanceId :: Lens.Lens' AwsEc2NetworkInterfaceAttachment (Prelude.Maybe Prelude.Text)
-awsEc2NetworkInterfaceAttachment_instanceId = Lens.lens (\AwsEc2NetworkInterfaceAttachment' {instanceId} -> instanceId) (\s@AwsEc2NetworkInterfaceAttachment' {} a -> s {instanceId = a} :: AwsEc2NetworkInterfaceAttachment)
 
 -- | Indicates when the attachment initiated.
 --
@@ -124,13 +105,32 @@ awsEc2NetworkInterfaceAttachment_instanceId = Lens.lens (\AwsEc2NetworkInterface
 awsEc2NetworkInterfaceAttachment_attachTime :: Lens.Lens' AwsEc2NetworkInterfaceAttachment (Prelude.Maybe Prelude.Text)
 awsEc2NetworkInterfaceAttachment_attachTime = Lens.lens (\AwsEc2NetworkInterfaceAttachment' {attachTime} -> attachTime) (\s@AwsEc2NetworkInterfaceAttachment' {} a -> s {attachTime = a} :: AwsEc2NetworkInterfaceAttachment)
 
+-- | The identifier of the network interface attachment
+awsEc2NetworkInterfaceAttachment_attachmentId :: Lens.Lens' AwsEc2NetworkInterfaceAttachment (Prelude.Maybe Prelude.Text)
+awsEc2NetworkInterfaceAttachment_attachmentId = Lens.lens (\AwsEc2NetworkInterfaceAttachment' {attachmentId} -> attachmentId) (\s@AwsEc2NetworkInterfaceAttachment' {} a -> s {attachmentId = a} :: AwsEc2NetworkInterfaceAttachment)
+
+-- | Indicates whether the network interface is deleted when the instance is
+-- terminated.
+awsEc2NetworkInterfaceAttachment_deleteOnTermination :: Lens.Lens' AwsEc2NetworkInterfaceAttachment (Prelude.Maybe Prelude.Bool)
+awsEc2NetworkInterfaceAttachment_deleteOnTermination = Lens.lens (\AwsEc2NetworkInterfaceAttachment' {deleteOnTermination} -> deleteOnTermination) (\s@AwsEc2NetworkInterfaceAttachment' {} a -> s {deleteOnTermination = a} :: AwsEc2NetworkInterfaceAttachment)
+
 -- | The device index of the network interface attachment on the instance.
 awsEc2NetworkInterfaceAttachment_deviceIndex :: Lens.Lens' AwsEc2NetworkInterfaceAttachment (Prelude.Maybe Prelude.Int)
 awsEc2NetworkInterfaceAttachment_deviceIndex = Lens.lens (\AwsEc2NetworkInterfaceAttachment' {deviceIndex} -> deviceIndex) (\s@AwsEc2NetworkInterfaceAttachment' {} a -> s {deviceIndex = a} :: AwsEc2NetworkInterfaceAttachment)
 
+-- | The ID of the instance.
+awsEc2NetworkInterfaceAttachment_instanceId :: Lens.Lens' AwsEc2NetworkInterfaceAttachment (Prelude.Maybe Prelude.Text)
+awsEc2NetworkInterfaceAttachment_instanceId = Lens.lens (\AwsEc2NetworkInterfaceAttachment' {instanceId} -> instanceId) (\s@AwsEc2NetworkInterfaceAttachment' {} a -> s {instanceId = a} :: AwsEc2NetworkInterfaceAttachment)
+
 -- | The Amazon Web Services account ID of the owner of the instance.
 awsEc2NetworkInterfaceAttachment_instanceOwnerId :: Lens.Lens' AwsEc2NetworkInterfaceAttachment (Prelude.Maybe Prelude.Text)
 awsEc2NetworkInterfaceAttachment_instanceOwnerId = Lens.lens (\AwsEc2NetworkInterfaceAttachment' {instanceOwnerId} -> instanceOwnerId) (\s@AwsEc2NetworkInterfaceAttachment' {} a -> s {instanceOwnerId = a} :: AwsEc2NetworkInterfaceAttachment)
+
+-- | The attachment state.
+--
+-- Valid values: @attaching@ | @attached@ | @detaching@ | @detached@
+awsEc2NetworkInterfaceAttachment_status :: Lens.Lens' AwsEc2NetworkInterfaceAttachment (Prelude.Maybe Prelude.Text)
+awsEc2NetworkInterfaceAttachment_status = Lens.lens (\AwsEc2NetworkInterfaceAttachment' {status} -> status) (\s@AwsEc2NetworkInterfaceAttachment' {} a -> s {status = a} :: AwsEc2NetworkInterfaceAttachment)
 
 instance
   Data.FromJSON
@@ -141,13 +141,13 @@ instance
       "AwsEc2NetworkInterfaceAttachment"
       ( \x ->
           AwsEc2NetworkInterfaceAttachment'
-            Prelude.<$> (x Data..:? "DeleteOnTermination")
-            Prelude.<*> (x Data..:? "Status")
+            Prelude.<$> (x Data..:? "AttachTime")
             Prelude.<*> (x Data..:? "AttachmentId")
-            Prelude.<*> (x Data..:? "InstanceId")
-            Prelude.<*> (x Data..:? "AttachTime")
+            Prelude.<*> (x Data..:? "DeleteOnTermination")
             Prelude.<*> (x Data..:? "DeviceIndex")
+            Prelude.<*> (x Data..:? "InstanceId")
             Prelude.<*> (x Data..:? "InstanceOwnerId")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance
@@ -157,39 +157,39 @@ instance
   hashWithSalt
     _salt
     AwsEc2NetworkInterfaceAttachment' {..} =
-      _salt `Prelude.hashWithSalt` deleteOnTermination
-        `Prelude.hashWithSalt` status
+      _salt `Prelude.hashWithSalt` attachTime
         `Prelude.hashWithSalt` attachmentId
-        `Prelude.hashWithSalt` instanceId
-        `Prelude.hashWithSalt` attachTime
+        `Prelude.hashWithSalt` deleteOnTermination
         `Prelude.hashWithSalt` deviceIndex
+        `Prelude.hashWithSalt` instanceId
         `Prelude.hashWithSalt` instanceOwnerId
+        `Prelude.hashWithSalt` status
 
 instance
   Prelude.NFData
     AwsEc2NetworkInterfaceAttachment
   where
   rnf AwsEc2NetworkInterfaceAttachment' {..} =
-    Prelude.rnf deleteOnTermination
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf attachTime
       `Prelude.seq` Prelude.rnf attachmentId
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf attachTime
+      `Prelude.seq` Prelude.rnf deleteOnTermination
       `Prelude.seq` Prelude.rnf deviceIndex
+      `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf instanceOwnerId
+      `Prelude.seq` Prelude.rnf status
 
 instance Data.ToJSON AwsEc2NetworkInterfaceAttachment where
   toJSON AwsEc2NetworkInterfaceAttachment' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("DeleteOnTermination" Data..=)
-              Prelude.<$> deleteOnTermination,
-            ("Status" Data..=) Prelude.<$> status,
+          [ ("AttachTime" Data..=) Prelude.<$> attachTime,
             ("AttachmentId" Data..=) Prelude.<$> attachmentId,
-            ("InstanceId" Data..=) Prelude.<$> instanceId,
-            ("AttachTime" Data..=) Prelude.<$> attachTime,
+            ("DeleteOnTermination" Data..=)
+              Prelude.<$> deleteOnTermination,
             ("DeviceIndex" Data..=) Prelude.<$> deviceIndex,
+            ("InstanceId" Data..=) Prelude.<$> instanceId,
             ("InstanceOwnerId" Data..=)
-              Prelude.<$> instanceOwnerId
+              Prelude.<$> instanceOwnerId,
+            ("Status" Data..=) Prelude.<$> status
           ]
       )

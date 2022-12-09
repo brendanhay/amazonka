@@ -30,9 +30,8 @@ import Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionVolumesEfsVolumeConfigurat
 --
 -- /See:/ 'newAwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails' smart constructor.
 data AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails = AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails'
-  { -- | The port to use when sending encrypted data between the Amazon ECS host
-    -- and the Amazon EFS server.
-    transitEncryptionPort :: Prelude.Maybe Prelude.Int,
+  { -- | The authorization configuration details for the Amazon EFS file system.
+    authorizationConfig :: Prelude.Maybe AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails,
     -- | The Amazon EFS file system identifier to use.
     filesystemId :: Prelude.Maybe Prelude.Text,
     -- | The directory within the Amazon EFS file system to mount as the root
@@ -41,8 +40,9 @@ data AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails = AwsEcsTaskDefini
     -- | Whether to enable encryption for Amazon EFS data in transit between the
     -- Amazon ECS host and the Amazon EFS server.
     transitEncryption :: Prelude.Maybe Prelude.Text,
-    -- | The authorization configuration details for the Amazon EFS file system.
-    authorizationConfig :: Prelude.Maybe AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails
+    -- | The port to use when sending encrypted data between the Amazon ECS host
+    -- and the Amazon EFS server.
+    transitEncryptionPort :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,8 +54,7 @@ data AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails = AwsEcsTaskDefini
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'transitEncryptionPort', 'awsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails_transitEncryptionPort' - The port to use when sending encrypted data between the Amazon ECS host
--- and the Amazon EFS server.
+-- 'authorizationConfig', 'awsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails_authorizationConfig' - The authorization configuration details for the Amazon EFS file system.
 --
 -- 'filesystemId', 'awsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails_filesystemId' - The Amazon EFS file system identifier to use.
 --
@@ -65,12 +64,13 @@ data AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails = AwsEcsTaskDefini
 -- 'transitEncryption', 'awsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails_transitEncryption' - Whether to enable encryption for Amazon EFS data in transit between the
 -- Amazon ECS host and the Amazon EFS server.
 --
--- 'authorizationConfig', 'awsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails_authorizationConfig' - The authorization configuration details for the Amazon EFS file system.
+-- 'transitEncryptionPort', 'awsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails_transitEncryptionPort' - The port to use when sending encrypted data between the Amazon ECS host
+-- and the Amazon EFS server.
 newAwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails ::
   AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails
 newAwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails =
   AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails'
-    { transitEncryptionPort =
+    { authorizationConfig =
         Prelude.Nothing,
       filesystemId =
         Prelude.Nothing,
@@ -78,14 +78,13 @@ newAwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails =
         Prelude.Nothing,
       transitEncryption =
         Prelude.Nothing,
-      authorizationConfig =
+      transitEncryptionPort =
         Prelude.Nothing
     }
 
--- | The port to use when sending encrypted data between the Amazon ECS host
--- and the Amazon EFS server.
-awsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails_transitEncryptionPort :: Lens.Lens' AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails (Prelude.Maybe Prelude.Int)
-awsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails_transitEncryptionPort = Lens.lens (\AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails' {transitEncryptionPort} -> transitEncryptionPort) (\s@AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails' {} a -> s {transitEncryptionPort = a} :: AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails)
+-- | The authorization configuration details for the Amazon EFS file system.
+awsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails_authorizationConfig :: Lens.Lens' AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails (Prelude.Maybe AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails)
+awsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails_authorizationConfig = Lens.lens (\AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails' {authorizationConfig} -> authorizationConfig) (\s@AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails' {} a -> s {authorizationConfig = a} :: AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails)
 
 -- | The Amazon EFS file system identifier to use.
 awsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails_filesystemId :: Lens.Lens' AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails (Prelude.Maybe Prelude.Text)
@@ -101,9 +100,10 @@ awsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails_rootDirectory = Lens.le
 awsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails_transitEncryption :: Lens.Lens' AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails (Prelude.Maybe Prelude.Text)
 awsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails_transitEncryption = Lens.lens (\AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails' {transitEncryption} -> transitEncryption) (\s@AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails' {} a -> s {transitEncryption = a} :: AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails)
 
--- | The authorization configuration details for the Amazon EFS file system.
-awsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails_authorizationConfig :: Lens.Lens' AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails (Prelude.Maybe AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails)
-awsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails_authorizationConfig = Lens.lens (\AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails' {authorizationConfig} -> authorizationConfig) (\s@AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails' {} a -> s {authorizationConfig = a} :: AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails)
+-- | The port to use when sending encrypted data between the Amazon ECS host
+-- and the Amazon EFS server.
+awsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails_transitEncryptionPort :: Lens.Lens' AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails (Prelude.Maybe Prelude.Int)
+awsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails_transitEncryptionPort = Lens.lens (\AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails' {transitEncryptionPort} -> transitEncryptionPort) (\s@AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails' {} a -> s {transitEncryptionPort = a} :: AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails)
 
 instance
   Data.FromJSON
@@ -114,11 +114,11 @@ instance
       "AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails"
       ( \x ->
           AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails'
-            Prelude.<$> (x Data..:? "TransitEncryptionPort")
+            Prelude.<$> (x Data..:? "AuthorizationConfig")
               Prelude.<*> (x Data..:? "FilesystemId")
               Prelude.<*> (x Data..:? "RootDirectory")
               Prelude.<*> (x Data..:? "TransitEncryption")
-              Prelude.<*> (x Data..:? "AuthorizationConfig")
+              Prelude.<*> (x Data..:? "TransitEncryptionPort")
       )
 
 instance
@@ -128,11 +128,11 @@ instance
   hashWithSalt
     _salt
     AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails' {..} =
-      _salt `Prelude.hashWithSalt` transitEncryptionPort
+      _salt `Prelude.hashWithSalt` authorizationConfig
         `Prelude.hashWithSalt` filesystemId
         `Prelude.hashWithSalt` rootDirectory
         `Prelude.hashWithSalt` transitEncryption
-        `Prelude.hashWithSalt` authorizationConfig
+        `Prelude.hashWithSalt` transitEncryptionPort
 
 instance
   Prelude.NFData
@@ -140,11 +140,11 @@ instance
   where
   rnf
     AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails' {..} =
-      Prelude.rnf transitEncryptionPort
+      Prelude.rnf authorizationConfig
         `Prelude.seq` Prelude.rnf filesystemId
         `Prelude.seq` Prelude.rnf rootDirectory
         `Prelude.seq` Prelude.rnf transitEncryption
-        `Prelude.seq` Prelude.rnf authorizationConfig
+        `Prelude.seq` Prelude.rnf transitEncryptionPort
 
 instance
   Data.ToJSON
@@ -154,13 +154,13 @@ instance
     AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ ("TransitEncryptionPort" Data..=)
-                Prelude.<$> transitEncryptionPort,
+            [ ("AuthorizationConfig" Data..=)
+                Prelude.<$> authorizationConfig,
               ("FilesystemId" Data..=) Prelude.<$> filesystemId,
               ("RootDirectory" Data..=) Prelude.<$> rootDirectory,
               ("TransitEncryption" Data..=)
                 Prelude.<$> transitEncryption,
-              ("AuthorizationConfig" Data..=)
-                Prelude.<$> authorizationConfig
+              ("TransitEncryptionPort" Data..=)
+                Prelude.<$> transitEncryptionPort
             ]
         )

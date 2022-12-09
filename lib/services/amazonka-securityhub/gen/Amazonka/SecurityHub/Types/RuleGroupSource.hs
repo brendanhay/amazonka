@@ -31,14 +31,14 @@ import Amazonka.SecurityHub.Types.RuleGroupSourceStatelessRulesAndCustomActionsD
 --
 -- /See:/ 'newRuleGroupSource' smart constructor.
 data RuleGroupSource = RuleGroupSource'
-  { -- | Stateful inspection criteria, provided in Suricata compatible intrusion
+  { -- | Stateful inspection criteria for a domain list rule group. A domain list
+    -- rule group determines access by specific protocols to specific domains.
+    rulesSourceList :: Prelude.Maybe RuleGroupSourceListDetails,
+    -- | Stateful inspection criteria, provided in Suricata compatible intrusion
     -- prevention system (IPS) rules.
     rulesString :: Prelude.Maybe Prelude.Text,
     -- | Suricata rule specifications.
     statefulRules :: Prelude.Maybe [RuleGroupSourceStatefulRulesDetails],
-    -- | Stateful inspection criteria for a domain list rule group. A domain list
-    -- rule group determines access by specific protocols to specific domains.
-    rulesSourceList :: Prelude.Maybe RuleGroupSourceListDetails,
     -- | The stateless rules and custom actions used by a stateless rule group.
     statelessRulesAndCustomActions :: Prelude.Maybe RuleGroupSourceStatelessRulesAndCustomActionsDetails
   }
@@ -52,24 +52,29 @@ data RuleGroupSource = RuleGroupSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'rulesSourceList', 'ruleGroupSource_rulesSourceList' - Stateful inspection criteria for a domain list rule group. A domain list
+-- rule group determines access by specific protocols to specific domains.
+--
 -- 'rulesString', 'ruleGroupSource_rulesString' - Stateful inspection criteria, provided in Suricata compatible intrusion
 -- prevention system (IPS) rules.
 --
 -- 'statefulRules', 'ruleGroupSource_statefulRules' - Suricata rule specifications.
---
--- 'rulesSourceList', 'ruleGroupSource_rulesSourceList' - Stateful inspection criteria for a domain list rule group. A domain list
--- rule group determines access by specific protocols to specific domains.
 --
 -- 'statelessRulesAndCustomActions', 'ruleGroupSource_statelessRulesAndCustomActions' - The stateless rules and custom actions used by a stateless rule group.
 newRuleGroupSource ::
   RuleGroupSource
 newRuleGroupSource =
   RuleGroupSource'
-    { rulesString = Prelude.Nothing,
+    { rulesSourceList = Prelude.Nothing,
+      rulesString = Prelude.Nothing,
       statefulRules = Prelude.Nothing,
-      rulesSourceList = Prelude.Nothing,
       statelessRulesAndCustomActions = Prelude.Nothing
     }
+
+-- | Stateful inspection criteria for a domain list rule group. A domain list
+-- rule group determines access by specific protocols to specific domains.
+ruleGroupSource_rulesSourceList :: Lens.Lens' RuleGroupSource (Prelude.Maybe RuleGroupSourceListDetails)
+ruleGroupSource_rulesSourceList = Lens.lens (\RuleGroupSource' {rulesSourceList} -> rulesSourceList) (\s@RuleGroupSource' {} a -> s {rulesSourceList = a} :: RuleGroupSource)
 
 -- | Stateful inspection criteria, provided in Suricata compatible intrusion
 -- prevention system (IPS) rules.
@@ -79,11 +84,6 @@ ruleGroupSource_rulesString = Lens.lens (\RuleGroupSource' {rulesString} -> rule
 -- | Suricata rule specifications.
 ruleGroupSource_statefulRules :: Lens.Lens' RuleGroupSource (Prelude.Maybe [RuleGroupSourceStatefulRulesDetails])
 ruleGroupSource_statefulRules = Lens.lens (\RuleGroupSource' {statefulRules} -> statefulRules) (\s@RuleGroupSource' {} a -> s {statefulRules = a} :: RuleGroupSource) Prelude.. Lens.mapping Lens.coerced
-
--- | Stateful inspection criteria for a domain list rule group. A domain list
--- rule group determines access by specific protocols to specific domains.
-ruleGroupSource_rulesSourceList :: Lens.Lens' RuleGroupSource (Prelude.Maybe RuleGroupSourceListDetails)
-ruleGroupSource_rulesSourceList = Lens.lens (\RuleGroupSource' {rulesSourceList} -> rulesSourceList) (\s@RuleGroupSource' {} a -> s {rulesSourceList = a} :: RuleGroupSource)
 
 -- | The stateless rules and custom actions used by a stateless rule group.
 ruleGroupSource_statelessRulesAndCustomActions :: Lens.Lens' RuleGroupSource (Prelude.Maybe RuleGroupSourceStatelessRulesAndCustomActionsDetails)
@@ -95,34 +95,34 @@ instance Data.FromJSON RuleGroupSource where
       "RuleGroupSource"
       ( \x ->
           RuleGroupSource'
-            Prelude.<$> (x Data..:? "RulesString")
+            Prelude.<$> (x Data..:? "RulesSourceList")
+            Prelude.<*> (x Data..:? "RulesString")
             Prelude.<*> (x Data..:? "StatefulRules" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "RulesSourceList")
             Prelude.<*> (x Data..:? "StatelessRulesAndCustomActions")
       )
 
 instance Prelude.Hashable RuleGroupSource where
   hashWithSalt _salt RuleGroupSource' {..} =
-    _salt `Prelude.hashWithSalt` rulesString
+    _salt `Prelude.hashWithSalt` rulesSourceList
+      `Prelude.hashWithSalt` rulesString
       `Prelude.hashWithSalt` statefulRules
-      `Prelude.hashWithSalt` rulesSourceList
       `Prelude.hashWithSalt` statelessRulesAndCustomActions
 
 instance Prelude.NFData RuleGroupSource where
   rnf RuleGroupSource' {..} =
-    Prelude.rnf rulesString
+    Prelude.rnf rulesSourceList
+      `Prelude.seq` Prelude.rnf rulesString
       `Prelude.seq` Prelude.rnf statefulRules
-      `Prelude.seq` Prelude.rnf rulesSourceList
       `Prelude.seq` Prelude.rnf statelessRulesAndCustomActions
 
 instance Data.ToJSON RuleGroupSource where
   toJSON RuleGroupSource' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("RulesString" Data..=) Prelude.<$> rulesString,
-            ("StatefulRules" Data..=) Prelude.<$> statefulRules,
-            ("RulesSourceList" Data..=)
+          [ ("RulesSourceList" Data..=)
               Prelude.<$> rulesSourceList,
+            ("RulesString" Data..=) Prelude.<$> rulesString,
+            ("StatefulRules" Data..=) Prelude.<$> statefulRules,
             ("StatelessRulesAndCustomActions" Data..=)
               Prelude.<$> statelessRulesAndCustomActions
           ]

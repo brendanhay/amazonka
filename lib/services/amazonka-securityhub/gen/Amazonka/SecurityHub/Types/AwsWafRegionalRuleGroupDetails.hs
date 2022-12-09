@@ -30,15 +30,15 @@ import Amazonka.SecurityHub.Types.AwsWafRegionalRuleGroupRulesDetails
 --
 -- /See:/ 'newAwsWafRegionalRuleGroupDetails' smart constructor.
 data AwsWafRegionalRuleGroupDetails = AwsWafRegionalRuleGroupDetails'
-  { -- | The descriptive name of the rule group.
+  { -- | A name for the metrics for this rule group.
+    metricName :: Prelude.Maybe Prelude.Text,
+    -- | The descriptive name of the rule group.
     name :: Prelude.Maybe Prelude.Text,
-    -- | Provides information about the rule statements used to identify the web
-    -- requests that you want to allow, block, or count.
-    rules :: Prelude.Maybe [AwsWafRegionalRuleGroupRulesDetails],
     -- | The ID of the rule group.
     ruleGroupId :: Prelude.Maybe Prelude.Text,
-    -- | A name for the metrics for this rule group.
-    metricName :: Prelude.Maybe Prelude.Text
+    -- | Provides information about the rule statements used to identify the web
+    -- requests that you want to allow, block, or count.
+    rules :: Prelude.Maybe [AwsWafRegionalRuleGroupRulesDetails]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,41 +50,41 @@ data AwsWafRegionalRuleGroupDetails = AwsWafRegionalRuleGroupDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'awsWafRegionalRuleGroupDetails_name' - The descriptive name of the rule group.
+-- 'metricName', 'awsWafRegionalRuleGroupDetails_metricName' - A name for the metrics for this rule group.
 --
--- 'rules', 'awsWafRegionalRuleGroupDetails_rules' - Provides information about the rule statements used to identify the web
--- requests that you want to allow, block, or count.
+-- 'name', 'awsWafRegionalRuleGroupDetails_name' - The descriptive name of the rule group.
 --
 -- 'ruleGroupId', 'awsWafRegionalRuleGroupDetails_ruleGroupId' - The ID of the rule group.
 --
--- 'metricName', 'awsWafRegionalRuleGroupDetails_metricName' - A name for the metrics for this rule group.
+-- 'rules', 'awsWafRegionalRuleGroupDetails_rules' - Provides information about the rule statements used to identify the web
+-- requests that you want to allow, block, or count.
 newAwsWafRegionalRuleGroupDetails ::
   AwsWafRegionalRuleGroupDetails
 newAwsWafRegionalRuleGroupDetails =
   AwsWafRegionalRuleGroupDetails'
-    { name =
+    { metricName =
         Prelude.Nothing,
-      rules = Prelude.Nothing,
+      name = Prelude.Nothing,
       ruleGroupId = Prelude.Nothing,
-      metricName = Prelude.Nothing
+      rules = Prelude.Nothing
     }
+
+-- | A name for the metrics for this rule group.
+awsWafRegionalRuleGroupDetails_metricName :: Lens.Lens' AwsWafRegionalRuleGroupDetails (Prelude.Maybe Prelude.Text)
+awsWafRegionalRuleGroupDetails_metricName = Lens.lens (\AwsWafRegionalRuleGroupDetails' {metricName} -> metricName) (\s@AwsWafRegionalRuleGroupDetails' {} a -> s {metricName = a} :: AwsWafRegionalRuleGroupDetails)
 
 -- | The descriptive name of the rule group.
 awsWafRegionalRuleGroupDetails_name :: Lens.Lens' AwsWafRegionalRuleGroupDetails (Prelude.Maybe Prelude.Text)
 awsWafRegionalRuleGroupDetails_name = Lens.lens (\AwsWafRegionalRuleGroupDetails' {name} -> name) (\s@AwsWafRegionalRuleGroupDetails' {} a -> s {name = a} :: AwsWafRegionalRuleGroupDetails)
 
--- | Provides information about the rule statements used to identify the web
--- requests that you want to allow, block, or count.
-awsWafRegionalRuleGroupDetails_rules :: Lens.Lens' AwsWafRegionalRuleGroupDetails (Prelude.Maybe [AwsWafRegionalRuleGroupRulesDetails])
-awsWafRegionalRuleGroupDetails_rules = Lens.lens (\AwsWafRegionalRuleGroupDetails' {rules} -> rules) (\s@AwsWafRegionalRuleGroupDetails' {} a -> s {rules = a} :: AwsWafRegionalRuleGroupDetails) Prelude.. Lens.mapping Lens.coerced
-
 -- | The ID of the rule group.
 awsWafRegionalRuleGroupDetails_ruleGroupId :: Lens.Lens' AwsWafRegionalRuleGroupDetails (Prelude.Maybe Prelude.Text)
 awsWafRegionalRuleGroupDetails_ruleGroupId = Lens.lens (\AwsWafRegionalRuleGroupDetails' {ruleGroupId} -> ruleGroupId) (\s@AwsWafRegionalRuleGroupDetails' {} a -> s {ruleGroupId = a} :: AwsWafRegionalRuleGroupDetails)
 
--- | A name for the metrics for this rule group.
-awsWafRegionalRuleGroupDetails_metricName :: Lens.Lens' AwsWafRegionalRuleGroupDetails (Prelude.Maybe Prelude.Text)
-awsWafRegionalRuleGroupDetails_metricName = Lens.lens (\AwsWafRegionalRuleGroupDetails' {metricName} -> metricName) (\s@AwsWafRegionalRuleGroupDetails' {} a -> s {metricName = a} :: AwsWafRegionalRuleGroupDetails)
+-- | Provides information about the rule statements used to identify the web
+-- requests that you want to allow, block, or count.
+awsWafRegionalRuleGroupDetails_rules :: Lens.Lens' AwsWafRegionalRuleGroupDetails (Prelude.Maybe [AwsWafRegionalRuleGroupRulesDetails])
+awsWafRegionalRuleGroupDetails_rules = Lens.lens (\AwsWafRegionalRuleGroupDetails' {rules} -> rules) (\s@AwsWafRegionalRuleGroupDetails' {} a -> s {rules = a} :: AwsWafRegionalRuleGroupDetails) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON AwsWafRegionalRuleGroupDetails where
   parseJSON =
@@ -92,10 +92,10 @@ instance Data.FromJSON AwsWafRegionalRuleGroupDetails where
       "AwsWafRegionalRuleGroupDetails"
       ( \x ->
           AwsWafRegionalRuleGroupDetails'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "Rules" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "MetricName")
+            Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "RuleGroupId")
-            Prelude.<*> (x Data..:? "MetricName")
+            Prelude.<*> (x Data..:? "Rules" Data..!= Prelude.mempty)
       )
 
 instance
@@ -105,28 +105,28 @@ instance
   hashWithSalt
     _salt
     AwsWafRegionalRuleGroupDetails' {..} =
-      _salt `Prelude.hashWithSalt` name
-        `Prelude.hashWithSalt` rules
+      _salt `Prelude.hashWithSalt` metricName
+        `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` ruleGroupId
-        `Prelude.hashWithSalt` metricName
+        `Prelude.hashWithSalt` rules
 
 instance
   Prelude.NFData
     AwsWafRegionalRuleGroupDetails
   where
   rnf AwsWafRegionalRuleGroupDetails' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf rules
+    Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf ruleGroupId
-      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf rules
 
 instance Data.ToJSON AwsWafRegionalRuleGroupDetails where
   toJSON AwsWafRegionalRuleGroupDetails' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
-            ("Rules" Data..=) Prelude.<$> rules,
+          [ ("MetricName" Data..=) Prelude.<$> metricName,
+            ("Name" Data..=) Prelude.<$> name,
             ("RuleGroupId" Data..=) Prelude.<$> ruleGroupId,
-            ("MetricName" Data..=) Prelude.<$> metricName
+            ("Rules" Data..=) Prelude.<$> rules
           ]
       )

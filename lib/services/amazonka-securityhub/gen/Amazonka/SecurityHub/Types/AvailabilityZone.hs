@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAvailabilityZone' smart constructor.
 data AvailabilityZone = AvailabilityZone'
-  { -- | The name of the Availability Zone.
-    zoneName :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the subnet. You can specify one subnet per Availability Zone.
-    subnetId :: Prelude.Maybe Prelude.Text
+  { -- | The ID of the subnet. You can specify one subnet per Availability Zone.
+    subnetId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the Availability Zone.
+    zoneName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data AvailabilityZone = AvailabilityZone'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'zoneName', 'availabilityZone_zoneName' - The name of the Availability Zone.
---
 -- 'subnetId', 'availabilityZone_subnetId' - The ID of the subnet. You can specify one subnet per Availability Zone.
+--
+-- 'zoneName', 'availabilityZone_zoneName' - The name of the Availability Zone.
 newAvailabilityZone ::
   AvailabilityZone
 newAvailabilityZone =
   AvailabilityZone'
-    { zoneName = Prelude.Nothing,
-      subnetId = Prelude.Nothing
+    { subnetId = Prelude.Nothing,
+      zoneName = Prelude.Nothing
     }
-
--- | The name of the Availability Zone.
-availabilityZone_zoneName :: Lens.Lens' AvailabilityZone (Prelude.Maybe Prelude.Text)
-availabilityZone_zoneName = Lens.lens (\AvailabilityZone' {zoneName} -> zoneName) (\s@AvailabilityZone' {} a -> s {zoneName = a} :: AvailabilityZone)
 
 -- | The ID of the subnet. You can specify one subnet per Availability Zone.
 availabilityZone_subnetId :: Lens.Lens' AvailabilityZone (Prelude.Maybe Prelude.Text)
 availabilityZone_subnetId = Lens.lens (\AvailabilityZone' {subnetId} -> subnetId) (\s@AvailabilityZone' {} a -> s {subnetId = a} :: AvailabilityZone)
+
+-- | The name of the Availability Zone.
+availabilityZone_zoneName :: Lens.Lens' AvailabilityZone (Prelude.Maybe Prelude.Text)
+availabilityZone_zoneName = Lens.lens (\AvailabilityZone' {zoneName} -> zoneName) (\s@AvailabilityZone' {} a -> s {zoneName = a} :: AvailabilityZone)
 
 instance Data.FromJSON AvailabilityZone where
   parseJSON =
@@ -68,25 +68,25 @@ instance Data.FromJSON AvailabilityZone where
       "AvailabilityZone"
       ( \x ->
           AvailabilityZone'
-            Prelude.<$> (x Data..:? "ZoneName")
-            Prelude.<*> (x Data..:? "SubnetId")
+            Prelude.<$> (x Data..:? "SubnetId")
+            Prelude.<*> (x Data..:? "ZoneName")
       )
 
 instance Prelude.Hashable AvailabilityZone where
   hashWithSalt _salt AvailabilityZone' {..} =
-    _salt `Prelude.hashWithSalt` zoneName
-      `Prelude.hashWithSalt` subnetId
+    _salt `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` zoneName
 
 instance Prelude.NFData AvailabilityZone where
   rnf AvailabilityZone' {..} =
-    Prelude.rnf zoneName
-      `Prelude.seq` Prelude.rnf subnetId
+    Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf zoneName
 
 instance Data.ToJSON AvailabilityZone where
   toJSON AvailabilityZone' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ZoneName" Data..=) Prelude.<$> zoneName,
-            ("SubnetId" Data..=) Prelude.<$> subnetId
+          [ ("SubnetId" Data..=) Prelude.<$> subnetId,
+            ("ZoneName" Data..=) Prelude.<$> zoneName
           ]
       )

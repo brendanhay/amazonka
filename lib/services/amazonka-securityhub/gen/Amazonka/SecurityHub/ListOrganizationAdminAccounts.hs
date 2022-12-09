@@ -30,16 +30,16 @@ module Amazonka.SecurityHub.ListOrganizationAdminAccounts
     newListOrganizationAdminAccounts,
 
     -- * Request Lenses
-    listOrganizationAdminAccounts_nextToken,
     listOrganizationAdminAccounts_maxResults,
+    listOrganizationAdminAccounts_nextToken,
 
     -- * Destructuring the Response
     ListOrganizationAdminAccountsResponse (..),
     newListOrganizationAdminAccountsResponse,
 
     -- * Response Lenses
-    listOrganizationAdminAccountsResponse_nextToken,
     listOrganizationAdminAccountsResponse_adminAccounts,
+    listOrganizationAdminAccountsResponse_nextToken,
     listOrganizationAdminAccountsResponse_httpStatus,
   )
 where
@@ -54,14 +54,14 @@ import Amazonka.SecurityHub.Types
 
 -- | /See:/ 'newListOrganizationAdminAccounts' smart constructor.
 data ListOrganizationAdminAccounts = ListOrganizationAdminAccounts'
-  { -- | The token that is required for pagination. On your first call to the
+  { -- | The maximum number of items to return in the response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token that is required for pagination. On your first call to the
     -- @ListOrganizationAdminAccounts@ operation, set the value of this
     -- parameter to @NULL@. For subsequent calls to the operation, to continue
     -- listing data, set the value of this parameter to the value returned from
     -- the previous response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return in the response.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,21 +73,25 @@ data ListOrganizationAdminAccounts = ListOrganizationAdminAccounts'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listOrganizationAdminAccounts_maxResults' - The maximum number of items to return in the response.
+--
 -- 'nextToken', 'listOrganizationAdminAccounts_nextToken' - The token that is required for pagination. On your first call to the
 -- @ListOrganizationAdminAccounts@ operation, set the value of this
 -- parameter to @NULL@. For subsequent calls to the operation, to continue
 -- listing data, set the value of this parameter to the value returned from
 -- the previous response.
---
--- 'maxResults', 'listOrganizationAdminAccounts_maxResults' - The maximum number of items to return in the response.
 newListOrganizationAdminAccounts ::
   ListOrganizationAdminAccounts
 newListOrganizationAdminAccounts =
   ListOrganizationAdminAccounts'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of items to return in the response.
+listOrganizationAdminAccounts_maxResults :: Lens.Lens' ListOrganizationAdminAccounts (Prelude.Maybe Prelude.Natural)
+listOrganizationAdminAccounts_maxResults = Lens.lens (\ListOrganizationAdminAccounts' {maxResults} -> maxResults) (\s@ListOrganizationAdminAccounts' {} a -> s {maxResults = a} :: ListOrganizationAdminAccounts)
 
 -- | The token that is required for pagination. On your first call to the
 -- @ListOrganizationAdminAccounts@ operation, set the value of this
@@ -96,10 +100,6 @@ newListOrganizationAdminAccounts =
 -- the previous response.
 listOrganizationAdminAccounts_nextToken :: Lens.Lens' ListOrganizationAdminAccounts (Prelude.Maybe Prelude.Text)
 listOrganizationAdminAccounts_nextToken = Lens.lens (\ListOrganizationAdminAccounts' {nextToken} -> nextToken) (\s@ListOrganizationAdminAccounts' {} a -> s {nextToken = a} :: ListOrganizationAdminAccounts)
-
--- | The maximum number of items to return in the response.
-listOrganizationAdminAccounts_maxResults :: Lens.Lens' ListOrganizationAdminAccounts (Prelude.Maybe Prelude.Natural)
-listOrganizationAdminAccounts_maxResults = Lens.lens (\ListOrganizationAdminAccounts' {maxResults} -> maxResults) (\s@ListOrganizationAdminAccounts' {} a -> s {maxResults = a} :: ListOrganizationAdminAccounts)
 
 instance Core.AWSPager ListOrganizationAdminAccounts where
   page rq rs
@@ -136,8 +136,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListOrganizationAdminAccountsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "AdminAccounts" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "AdminAccounts" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,13 +146,13 @@ instance
     ListOrganizationAdminAccounts
   where
   hashWithSalt _salt ListOrganizationAdminAccounts' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListOrganizationAdminAccounts where
   rnf ListOrganizationAdminAccounts' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListOrganizationAdminAccounts where
   toHeaders =
@@ -171,16 +171,16 @@ instance Data.ToPath ListOrganizationAdminAccounts where
 instance Data.ToQuery ListOrganizationAdminAccounts where
   toQuery ListOrganizationAdminAccounts' {..} =
     Prelude.mconcat
-      [ "NextToken" Data.=: nextToken,
-        "MaxResults" Data.=: maxResults
+      [ "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListOrganizationAdminAccountsResponse' smart constructor.
 data ListOrganizationAdminAccountsResponse = ListOrganizationAdminAccountsResponse'
-  { -- | The pagination token to use to request the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of Security Hub administrator accounts.
+  { -- | The list of Security Hub administrator accounts.
     adminAccounts :: Prelude.Maybe [AdminAccount],
+    -- | The pagination token to use to request the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -194,9 +194,9 @@ data ListOrganizationAdminAccountsResponse = ListOrganizationAdminAccountsRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listOrganizationAdminAccountsResponse_nextToken' - The pagination token to use to request the next page of results.
---
 -- 'adminAccounts', 'listOrganizationAdminAccountsResponse_adminAccounts' - The list of Security Hub administrator accounts.
+--
+-- 'nextToken', 'listOrganizationAdminAccountsResponse_nextToken' - The pagination token to use to request the next page of results.
 --
 -- 'httpStatus', 'listOrganizationAdminAccountsResponse_httpStatus' - The response's http status code.
 newListOrganizationAdminAccountsResponse ::
@@ -205,19 +205,19 @@ newListOrganizationAdminAccountsResponse ::
   ListOrganizationAdminAccountsResponse
 newListOrganizationAdminAccountsResponse pHttpStatus_ =
   ListOrganizationAdminAccountsResponse'
-    { nextToken =
+    { adminAccounts =
         Prelude.Nothing,
-      adminAccounts = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The pagination token to use to request the next page of results.
-listOrganizationAdminAccountsResponse_nextToken :: Lens.Lens' ListOrganizationAdminAccountsResponse (Prelude.Maybe Prelude.Text)
-listOrganizationAdminAccountsResponse_nextToken = Lens.lens (\ListOrganizationAdminAccountsResponse' {nextToken} -> nextToken) (\s@ListOrganizationAdminAccountsResponse' {} a -> s {nextToken = a} :: ListOrganizationAdminAccountsResponse)
 
 -- | The list of Security Hub administrator accounts.
 listOrganizationAdminAccountsResponse_adminAccounts :: Lens.Lens' ListOrganizationAdminAccountsResponse (Prelude.Maybe [AdminAccount])
 listOrganizationAdminAccountsResponse_adminAccounts = Lens.lens (\ListOrganizationAdminAccountsResponse' {adminAccounts} -> adminAccounts) (\s@ListOrganizationAdminAccountsResponse' {} a -> s {adminAccounts = a} :: ListOrganizationAdminAccountsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The pagination token to use to request the next page of results.
+listOrganizationAdminAccountsResponse_nextToken :: Lens.Lens' ListOrganizationAdminAccountsResponse (Prelude.Maybe Prelude.Text)
+listOrganizationAdminAccountsResponse_nextToken = Lens.lens (\ListOrganizationAdminAccountsResponse' {nextToken} -> nextToken) (\s@ListOrganizationAdminAccountsResponse' {} a -> s {nextToken = a} :: ListOrganizationAdminAccountsResponse)
 
 -- | The response's http status code.
 listOrganizationAdminAccountsResponse_httpStatus :: Lens.Lens' ListOrganizationAdminAccountsResponse Prelude.Int
@@ -228,6 +228,6 @@ instance
     ListOrganizationAdminAccountsResponse
   where
   rnf ListOrganizationAdminAccountsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf adminAccounts
+    Prelude.rnf adminAccounts
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

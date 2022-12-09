@@ -29,13 +29,13 @@ import Amazonka.SecurityHub.Types.AwsRdsDbSubnetGroupSubnetAvailabilityZone
 --
 -- /See:/ 'newAwsRdsDbSubnetGroupSubnet' smart constructor.
 data AwsRdsDbSubnetGroupSubnet = AwsRdsDbSubnetGroupSubnet'
-  { -- | The identifier of a subnet in the subnet group.
+  { -- | Information about the Availability Zone for a subnet in the subnet
+    -- group.
+    subnetAvailabilityZone :: Prelude.Maybe AwsRdsDbSubnetGroupSubnetAvailabilityZone,
+    -- | The identifier of a subnet in the subnet group.
     subnetIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The status of a subnet in the subnet group.
-    subnetStatus :: Prelude.Maybe Prelude.Text,
-    -- | Information about the Availability Zone for a subnet in the subnet
-    -- group.
-    subnetAvailabilityZone :: Prelude.Maybe AwsRdsDbSubnetGroupSubnetAvailabilityZone
+    subnetStatus :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,21 +47,26 @@ data AwsRdsDbSubnetGroupSubnet = AwsRdsDbSubnetGroupSubnet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'subnetAvailabilityZone', 'awsRdsDbSubnetGroupSubnet_subnetAvailabilityZone' - Information about the Availability Zone for a subnet in the subnet
+-- group.
+--
 -- 'subnetIdentifier', 'awsRdsDbSubnetGroupSubnet_subnetIdentifier' - The identifier of a subnet in the subnet group.
 --
 -- 'subnetStatus', 'awsRdsDbSubnetGroupSubnet_subnetStatus' - The status of a subnet in the subnet group.
---
--- 'subnetAvailabilityZone', 'awsRdsDbSubnetGroupSubnet_subnetAvailabilityZone' - Information about the Availability Zone for a subnet in the subnet
--- group.
 newAwsRdsDbSubnetGroupSubnet ::
   AwsRdsDbSubnetGroupSubnet
 newAwsRdsDbSubnetGroupSubnet =
   AwsRdsDbSubnetGroupSubnet'
-    { subnetIdentifier =
+    { subnetAvailabilityZone =
         Prelude.Nothing,
-      subnetStatus = Prelude.Nothing,
-      subnetAvailabilityZone = Prelude.Nothing
+      subnetIdentifier = Prelude.Nothing,
+      subnetStatus = Prelude.Nothing
     }
+
+-- | Information about the Availability Zone for a subnet in the subnet
+-- group.
+awsRdsDbSubnetGroupSubnet_subnetAvailabilityZone :: Lens.Lens' AwsRdsDbSubnetGroupSubnet (Prelude.Maybe AwsRdsDbSubnetGroupSubnetAvailabilityZone)
+awsRdsDbSubnetGroupSubnet_subnetAvailabilityZone = Lens.lens (\AwsRdsDbSubnetGroupSubnet' {subnetAvailabilityZone} -> subnetAvailabilityZone) (\s@AwsRdsDbSubnetGroupSubnet' {} a -> s {subnetAvailabilityZone = a} :: AwsRdsDbSubnetGroupSubnet)
 
 -- | The identifier of a subnet in the subnet group.
 awsRdsDbSubnetGroupSubnet_subnetIdentifier :: Lens.Lens' AwsRdsDbSubnetGroupSubnet (Prelude.Maybe Prelude.Text)
@@ -71,42 +76,37 @@ awsRdsDbSubnetGroupSubnet_subnetIdentifier = Lens.lens (\AwsRdsDbSubnetGroupSubn
 awsRdsDbSubnetGroupSubnet_subnetStatus :: Lens.Lens' AwsRdsDbSubnetGroupSubnet (Prelude.Maybe Prelude.Text)
 awsRdsDbSubnetGroupSubnet_subnetStatus = Lens.lens (\AwsRdsDbSubnetGroupSubnet' {subnetStatus} -> subnetStatus) (\s@AwsRdsDbSubnetGroupSubnet' {} a -> s {subnetStatus = a} :: AwsRdsDbSubnetGroupSubnet)
 
--- | Information about the Availability Zone for a subnet in the subnet
--- group.
-awsRdsDbSubnetGroupSubnet_subnetAvailabilityZone :: Lens.Lens' AwsRdsDbSubnetGroupSubnet (Prelude.Maybe AwsRdsDbSubnetGroupSubnetAvailabilityZone)
-awsRdsDbSubnetGroupSubnet_subnetAvailabilityZone = Lens.lens (\AwsRdsDbSubnetGroupSubnet' {subnetAvailabilityZone} -> subnetAvailabilityZone) (\s@AwsRdsDbSubnetGroupSubnet' {} a -> s {subnetAvailabilityZone = a} :: AwsRdsDbSubnetGroupSubnet)
-
 instance Data.FromJSON AwsRdsDbSubnetGroupSubnet where
   parseJSON =
     Data.withObject
       "AwsRdsDbSubnetGroupSubnet"
       ( \x ->
           AwsRdsDbSubnetGroupSubnet'
-            Prelude.<$> (x Data..:? "SubnetIdentifier")
+            Prelude.<$> (x Data..:? "SubnetAvailabilityZone")
+            Prelude.<*> (x Data..:? "SubnetIdentifier")
             Prelude.<*> (x Data..:? "SubnetStatus")
-            Prelude.<*> (x Data..:? "SubnetAvailabilityZone")
       )
 
 instance Prelude.Hashable AwsRdsDbSubnetGroupSubnet where
   hashWithSalt _salt AwsRdsDbSubnetGroupSubnet' {..} =
-    _salt `Prelude.hashWithSalt` subnetIdentifier
+    _salt `Prelude.hashWithSalt` subnetAvailabilityZone
+      `Prelude.hashWithSalt` subnetIdentifier
       `Prelude.hashWithSalt` subnetStatus
-      `Prelude.hashWithSalt` subnetAvailabilityZone
 
 instance Prelude.NFData AwsRdsDbSubnetGroupSubnet where
   rnf AwsRdsDbSubnetGroupSubnet' {..} =
-    Prelude.rnf subnetIdentifier
+    Prelude.rnf subnetAvailabilityZone
+      `Prelude.seq` Prelude.rnf subnetIdentifier
       `Prelude.seq` Prelude.rnf subnetStatus
-      `Prelude.seq` Prelude.rnf subnetAvailabilityZone
 
 instance Data.ToJSON AwsRdsDbSubnetGroupSubnet where
   toJSON AwsRdsDbSubnetGroupSubnet' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SubnetIdentifier" Data..=)
+          [ ("SubnetAvailabilityZone" Data..=)
+              Prelude.<$> subnetAvailabilityZone,
+            ("SubnetIdentifier" Data..=)
               Prelude.<$> subnetIdentifier,
-            ("SubnetStatus" Data..=) Prelude.<$> subnetStatus,
-            ("SubnetAvailabilityZone" Data..=)
-              Prelude.<$> subnetAvailabilityZone
+            ("SubnetStatus" Data..=) Prelude.<$> subnetStatus
           ]
       )

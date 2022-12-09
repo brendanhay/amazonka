@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 data AwsRedshiftClusterClusterNode = AwsRedshiftClusterClusterNode'
   { -- | The role of the node. A node might be a leader node or a compute node.
     nodeRole :: Prelude.Maybe Prelude.Text,
-    -- | The public IP address of the node.
-    publicIpAddress :: Prelude.Maybe Prelude.Text,
     -- | The private IP address of the node.
-    privateIpAddress :: Prelude.Maybe Prelude.Text
+    privateIpAddress :: Prelude.Maybe Prelude.Text,
+    -- | The public IP address of the node.
+    publicIpAddress :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,30 +47,30 @@ data AwsRedshiftClusterClusterNode = AwsRedshiftClusterClusterNode'
 --
 -- 'nodeRole', 'awsRedshiftClusterClusterNode_nodeRole' - The role of the node. A node might be a leader node or a compute node.
 --
--- 'publicIpAddress', 'awsRedshiftClusterClusterNode_publicIpAddress' - The public IP address of the node.
---
 -- 'privateIpAddress', 'awsRedshiftClusterClusterNode_privateIpAddress' - The private IP address of the node.
+--
+-- 'publicIpAddress', 'awsRedshiftClusterClusterNode_publicIpAddress' - The public IP address of the node.
 newAwsRedshiftClusterClusterNode ::
   AwsRedshiftClusterClusterNode
 newAwsRedshiftClusterClusterNode =
   AwsRedshiftClusterClusterNode'
     { nodeRole =
         Prelude.Nothing,
-      publicIpAddress = Prelude.Nothing,
-      privateIpAddress = Prelude.Nothing
+      privateIpAddress = Prelude.Nothing,
+      publicIpAddress = Prelude.Nothing
     }
 
 -- | The role of the node. A node might be a leader node or a compute node.
 awsRedshiftClusterClusterNode_nodeRole :: Lens.Lens' AwsRedshiftClusterClusterNode (Prelude.Maybe Prelude.Text)
 awsRedshiftClusterClusterNode_nodeRole = Lens.lens (\AwsRedshiftClusterClusterNode' {nodeRole} -> nodeRole) (\s@AwsRedshiftClusterClusterNode' {} a -> s {nodeRole = a} :: AwsRedshiftClusterClusterNode)
 
--- | The public IP address of the node.
-awsRedshiftClusterClusterNode_publicIpAddress :: Lens.Lens' AwsRedshiftClusterClusterNode (Prelude.Maybe Prelude.Text)
-awsRedshiftClusterClusterNode_publicIpAddress = Lens.lens (\AwsRedshiftClusterClusterNode' {publicIpAddress} -> publicIpAddress) (\s@AwsRedshiftClusterClusterNode' {} a -> s {publicIpAddress = a} :: AwsRedshiftClusterClusterNode)
-
 -- | The private IP address of the node.
 awsRedshiftClusterClusterNode_privateIpAddress :: Lens.Lens' AwsRedshiftClusterClusterNode (Prelude.Maybe Prelude.Text)
 awsRedshiftClusterClusterNode_privateIpAddress = Lens.lens (\AwsRedshiftClusterClusterNode' {privateIpAddress} -> privateIpAddress) (\s@AwsRedshiftClusterClusterNode' {} a -> s {privateIpAddress = a} :: AwsRedshiftClusterClusterNode)
+
+-- | The public IP address of the node.
+awsRedshiftClusterClusterNode_publicIpAddress :: Lens.Lens' AwsRedshiftClusterClusterNode (Prelude.Maybe Prelude.Text)
+awsRedshiftClusterClusterNode_publicIpAddress = Lens.lens (\AwsRedshiftClusterClusterNode' {publicIpAddress} -> publicIpAddress) (\s@AwsRedshiftClusterClusterNode' {} a -> s {publicIpAddress = a} :: AwsRedshiftClusterClusterNode)
 
 instance Data.FromJSON AwsRedshiftClusterClusterNode where
   parseJSON =
@@ -79,8 +79,8 @@ instance Data.FromJSON AwsRedshiftClusterClusterNode where
       ( \x ->
           AwsRedshiftClusterClusterNode'
             Prelude.<$> (x Data..:? "NodeRole")
-            Prelude.<*> (x Data..:? "PublicIpAddress")
             Prelude.<*> (x Data..:? "PrivateIpAddress")
+            Prelude.<*> (x Data..:? "PublicIpAddress")
       )
 
 instance
@@ -89,23 +89,23 @@ instance
   where
   hashWithSalt _salt AwsRedshiftClusterClusterNode' {..} =
     _salt `Prelude.hashWithSalt` nodeRole
-      `Prelude.hashWithSalt` publicIpAddress
       `Prelude.hashWithSalt` privateIpAddress
+      `Prelude.hashWithSalt` publicIpAddress
 
 instance Prelude.NFData AwsRedshiftClusterClusterNode where
   rnf AwsRedshiftClusterClusterNode' {..} =
     Prelude.rnf nodeRole
-      `Prelude.seq` Prelude.rnf publicIpAddress
       `Prelude.seq` Prelude.rnf privateIpAddress
+      `Prelude.seq` Prelude.rnf publicIpAddress
 
 instance Data.ToJSON AwsRedshiftClusterClusterNode where
   toJSON AwsRedshiftClusterClusterNode' {..} =
     Data.object
       ( Prelude.catMaybes
           [ ("NodeRole" Data..=) Prelude.<$> nodeRole,
-            ("PublicIpAddress" Data..=)
-              Prelude.<$> publicIpAddress,
             ("PrivateIpAddress" Data..=)
-              Prelude.<$> privateIpAddress
+              Prelude.<$> privateIpAddress,
+            ("PublicIpAddress" Data..=)
+              Prelude.<$> publicIpAddress
           ]
       )

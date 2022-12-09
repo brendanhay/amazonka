@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCountry' smart constructor.
 data Country = Country'
-  { -- | The name of the country.
-    countryName :: Prelude.Maybe Prelude.Text,
-    -- | The 2-letter ISO 3166 country code for the country.
-    countryCode :: Prelude.Maybe Prelude.Text
+  { -- | The 2-letter ISO 3166 country code for the country.
+    countryCode :: Prelude.Maybe Prelude.Text,
+    -- | The name of the country.
+    countryName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data Country = Country'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'countryName', 'country_countryName' - The name of the country.
---
 -- 'countryCode', 'country_countryCode' - The 2-letter ISO 3166 country code for the country.
+--
+-- 'countryName', 'country_countryName' - The name of the country.
 newCountry ::
   Country
 newCountry =
   Country'
-    { countryName = Prelude.Nothing,
-      countryCode = Prelude.Nothing
+    { countryCode = Prelude.Nothing,
+      countryName = Prelude.Nothing
     }
-
--- | The name of the country.
-country_countryName :: Lens.Lens' Country (Prelude.Maybe Prelude.Text)
-country_countryName = Lens.lens (\Country' {countryName} -> countryName) (\s@Country' {} a -> s {countryName = a} :: Country)
 
 -- | The 2-letter ISO 3166 country code for the country.
 country_countryCode :: Lens.Lens' Country (Prelude.Maybe Prelude.Text)
 country_countryCode = Lens.lens (\Country' {countryCode} -> countryCode) (\s@Country' {} a -> s {countryCode = a} :: Country)
+
+-- | The name of the country.
+country_countryName :: Lens.Lens' Country (Prelude.Maybe Prelude.Text)
+country_countryName = Lens.lens (\Country' {countryName} -> countryName) (\s@Country' {} a -> s {countryName = a} :: Country)
 
 instance Data.FromJSON Country where
   parseJSON =
@@ -68,25 +68,25 @@ instance Data.FromJSON Country where
       "Country"
       ( \x ->
           Country'
-            Prelude.<$> (x Data..:? "CountryName")
-            Prelude.<*> (x Data..:? "CountryCode")
+            Prelude.<$> (x Data..:? "CountryCode")
+            Prelude.<*> (x Data..:? "CountryName")
       )
 
 instance Prelude.Hashable Country where
   hashWithSalt _salt Country' {..} =
-    _salt `Prelude.hashWithSalt` countryName
-      `Prelude.hashWithSalt` countryCode
+    _salt `Prelude.hashWithSalt` countryCode
+      `Prelude.hashWithSalt` countryName
 
 instance Prelude.NFData Country where
   rnf Country' {..} =
-    Prelude.rnf countryName
-      `Prelude.seq` Prelude.rnf countryCode
+    Prelude.rnf countryCode
+      `Prelude.seq` Prelude.rnf countryName
 
 instance Data.ToJSON Country where
   toJSON Country' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("CountryName" Data..=) Prelude.<$> countryName,
-            ("CountryCode" Data..=) Prelude.<$> countryCode
+          [ ("CountryCode" Data..=) Prelude.<$> countryCode,
+            ("CountryName" Data..=) Prelude.<$> countryName
           ]
       )

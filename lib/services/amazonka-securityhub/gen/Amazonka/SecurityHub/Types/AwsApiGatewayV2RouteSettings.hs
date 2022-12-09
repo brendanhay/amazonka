@@ -28,8 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsApiGatewayV2RouteSettings' smart constructor.
 data AwsApiGatewayV2RouteSettings = AwsApiGatewayV2RouteSettings'
-  { -- | The throttling rate limit.
-    throttlingRateLimit :: Prelude.Maybe Prelude.Double,
+  { -- | Indicates whether data trace logging is enabled. Data trace logging
+    -- affects the log entries that are pushed to CloudWatch Logs. Supported
+    -- only for WebSocket APIs.
+    dataTraceEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | Indicates whether detailed metrics are enabled.
+    detailedMetricsEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The logging level. The logging level affects the log entries that are
     -- pushed to CloudWatch Logs. Supported only for WebSocket APIs.
     --
@@ -43,12 +47,8 @@ data AwsApiGatewayV2RouteSettings = AwsApiGatewayV2RouteSettings'
     loggingLevel :: Prelude.Maybe Prelude.Text,
     -- | The throttling burst limit.
     throttlingBurstLimit :: Prelude.Maybe Prelude.Int,
-    -- | Indicates whether detailed metrics are enabled.
-    detailedMetricsEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | Indicates whether data trace logging is enabled. Data trace logging
-    -- affects the log entries that are pushed to CloudWatch Logs. Supported
-    -- only for WebSocket APIs.
-    dataTraceEnabled :: Prelude.Maybe Prelude.Bool
+    -- | The throttling rate limit.
+    throttlingRateLimit :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,7 +60,11 @@ data AwsApiGatewayV2RouteSettings = AwsApiGatewayV2RouteSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'throttlingRateLimit', 'awsApiGatewayV2RouteSettings_throttlingRateLimit' - The throttling rate limit.
+-- 'dataTraceEnabled', 'awsApiGatewayV2RouteSettings_dataTraceEnabled' - Indicates whether data trace logging is enabled. Data trace logging
+-- affects the log entries that are pushed to CloudWatch Logs. Supported
+-- only for WebSocket APIs.
+--
+-- 'detailedMetricsEnabled', 'awsApiGatewayV2RouteSettings_detailedMetricsEnabled' - Indicates whether detailed metrics are enabled.
 --
 -- 'loggingLevel', 'awsApiGatewayV2RouteSettings_loggingLevel' - The logging level. The logging level affects the log entries that are
 -- pushed to CloudWatch Logs. Supported only for WebSocket APIs.
@@ -75,26 +79,28 @@ data AwsApiGatewayV2RouteSettings = AwsApiGatewayV2RouteSettings'
 --
 -- 'throttlingBurstLimit', 'awsApiGatewayV2RouteSettings_throttlingBurstLimit' - The throttling burst limit.
 --
--- 'detailedMetricsEnabled', 'awsApiGatewayV2RouteSettings_detailedMetricsEnabled' - Indicates whether detailed metrics are enabled.
---
--- 'dataTraceEnabled', 'awsApiGatewayV2RouteSettings_dataTraceEnabled' - Indicates whether data trace logging is enabled. Data trace logging
--- affects the log entries that are pushed to CloudWatch Logs. Supported
--- only for WebSocket APIs.
+-- 'throttlingRateLimit', 'awsApiGatewayV2RouteSettings_throttlingRateLimit' - The throttling rate limit.
 newAwsApiGatewayV2RouteSettings ::
   AwsApiGatewayV2RouteSettings
 newAwsApiGatewayV2RouteSettings =
   AwsApiGatewayV2RouteSettings'
-    { throttlingRateLimit =
+    { dataTraceEnabled =
         Prelude.Nothing,
+      detailedMetricsEnabled = Prelude.Nothing,
       loggingLevel = Prelude.Nothing,
       throttlingBurstLimit = Prelude.Nothing,
-      detailedMetricsEnabled = Prelude.Nothing,
-      dataTraceEnabled = Prelude.Nothing
+      throttlingRateLimit = Prelude.Nothing
     }
 
--- | The throttling rate limit.
-awsApiGatewayV2RouteSettings_throttlingRateLimit :: Lens.Lens' AwsApiGatewayV2RouteSettings (Prelude.Maybe Prelude.Double)
-awsApiGatewayV2RouteSettings_throttlingRateLimit = Lens.lens (\AwsApiGatewayV2RouteSettings' {throttlingRateLimit} -> throttlingRateLimit) (\s@AwsApiGatewayV2RouteSettings' {} a -> s {throttlingRateLimit = a} :: AwsApiGatewayV2RouteSettings)
+-- | Indicates whether data trace logging is enabled. Data trace logging
+-- affects the log entries that are pushed to CloudWatch Logs. Supported
+-- only for WebSocket APIs.
+awsApiGatewayV2RouteSettings_dataTraceEnabled :: Lens.Lens' AwsApiGatewayV2RouteSettings (Prelude.Maybe Prelude.Bool)
+awsApiGatewayV2RouteSettings_dataTraceEnabled = Lens.lens (\AwsApiGatewayV2RouteSettings' {dataTraceEnabled} -> dataTraceEnabled) (\s@AwsApiGatewayV2RouteSettings' {} a -> s {dataTraceEnabled = a} :: AwsApiGatewayV2RouteSettings)
+
+-- | Indicates whether detailed metrics are enabled.
+awsApiGatewayV2RouteSettings_detailedMetricsEnabled :: Lens.Lens' AwsApiGatewayV2RouteSettings (Prelude.Maybe Prelude.Bool)
+awsApiGatewayV2RouteSettings_detailedMetricsEnabled = Lens.lens (\AwsApiGatewayV2RouteSettings' {detailedMetricsEnabled} -> detailedMetricsEnabled) (\s@AwsApiGatewayV2RouteSettings' {} a -> s {detailedMetricsEnabled = a} :: AwsApiGatewayV2RouteSettings)
 
 -- | The logging level. The logging level affects the log entries that are
 -- pushed to CloudWatch Logs. Supported only for WebSocket APIs.
@@ -113,15 +119,9 @@ awsApiGatewayV2RouteSettings_loggingLevel = Lens.lens (\AwsApiGatewayV2RouteSett
 awsApiGatewayV2RouteSettings_throttlingBurstLimit :: Lens.Lens' AwsApiGatewayV2RouteSettings (Prelude.Maybe Prelude.Int)
 awsApiGatewayV2RouteSettings_throttlingBurstLimit = Lens.lens (\AwsApiGatewayV2RouteSettings' {throttlingBurstLimit} -> throttlingBurstLimit) (\s@AwsApiGatewayV2RouteSettings' {} a -> s {throttlingBurstLimit = a} :: AwsApiGatewayV2RouteSettings)
 
--- | Indicates whether detailed metrics are enabled.
-awsApiGatewayV2RouteSettings_detailedMetricsEnabled :: Lens.Lens' AwsApiGatewayV2RouteSettings (Prelude.Maybe Prelude.Bool)
-awsApiGatewayV2RouteSettings_detailedMetricsEnabled = Lens.lens (\AwsApiGatewayV2RouteSettings' {detailedMetricsEnabled} -> detailedMetricsEnabled) (\s@AwsApiGatewayV2RouteSettings' {} a -> s {detailedMetricsEnabled = a} :: AwsApiGatewayV2RouteSettings)
-
--- | Indicates whether data trace logging is enabled. Data trace logging
--- affects the log entries that are pushed to CloudWatch Logs. Supported
--- only for WebSocket APIs.
-awsApiGatewayV2RouteSettings_dataTraceEnabled :: Lens.Lens' AwsApiGatewayV2RouteSettings (Prelude.Maybe Prelude.Bool)
-awsApiGatewayV2RouteSettings_dataTraceEnabled = Lens.lens (\AwsApiGatewayV2RouteSettings' {dataTraceEnabled} -> dataTraceEnabled) (\s@AwsApiGatewayV2RouteSettings' {} a -> s {dataTraceEnabled = a} :: AwsApiGatewayV2RouteSettings)
+-- | The throttling rate limit.
+awsApiGatewayV2RouteSettings_throttlingRateLimit :: Lens.Lens' AwsApiGatewayV2RouteSettings (Prelude.Maybe Prelude.Double)
+awsApiGatewayV2RouteSettings_throttlingRateLimit = Lens.lens (\AwsApiGatewayV2RouteSettings' {throttlingRateLimit} -> throttlingRateLimit) (\s@AwsApiGatewayV2RouteSettings' {} a -> s {throttlingRateLimit = a} :: AwsApiGatewayV2RouteSettings)
 
 instance Data.FromJSON AwsApiGatewayV2RouteSettings where
   parseJSON =
@@ -129,11 +129,11 @@ instance Data.FromJSON AwsApiGatewayV2RouteSettings where
       "AwsApiGatewayV2RouteSettings"
       ( \x ->
           AwsApiGatewayV2RouteSettings'
-            Prelude.<$> (x Data..:? "ThrottlingRateLimit")
+            Prelude.<$> (x Data..:? "DataTraceEnabled")
+            Prelude.<*> (x Data..:? "DetailedMetricsEnabled")
             Prelude.<*> (x Data..:? "LoggingLevel")
             Prelude.<*> (x Data..:? "ThrottlingBurstLimit")
-            Prelude.<*> (x Data..:? "DetailedMetricsEnabled")
-            Prelude.<*> (x Data..:? "DataTraceEnabled")
+            Prelude.<*> (x Data..:? "ThrottlingRateLimit")
       )
 
 instance
@@ -141,32 +141,32 @@ instance
     AwsApiGatewayV2RouteSettings
   where
   hashWithSalt _salt AwsApiGatewayV2RouteSettings' {..} =
-    _salt `Prelude.hashWithSalt` throttlingRateLimit
+    _salt `Prelude.hashWithSalt` dataTraceEnabled
+      `Prelude.hashWithSalt` detailedMetricsEnabled
       `Prelude.hashWithSalt` loggingLevel
       `Prelude.hashWithSalt` throttlingBurstLimit
-      `Prelude.hashWithSalt` detailedMetricsEnabled
-      `Prelude.hashWithSalt` dataTraceEnabled
+      `Prelude.hashWithSalt` throttlingRateLimit
 
 instance Prelude.NFData AwsApiGatewayV2RouteSettings where
   rnf AwsApiGatewayV2RouteSettings' {..} =
-    Prelude.rnf throttlingRateLimit
+    Prelude.rnf dataTraceEnabled
+      `Prelude.seq` Prelude.rnf detailedMetricsEnabled
       `Prelude.seq` Prelude.rnf loggingLevel
       `Prelude.seq` Prelude.rnf throttlingBurstLimit
-      `Prelude.seq` Prelude.rnf detailedMetricsEnabled
-      `Prelude.seq` Prelude.rnf dataTraceEnabled
+      `Prelude.seq` Prelude.rnf throttlingRateLimit
 
 instance Data.ToJSON AwsApiGatewayV2RouteSettings where
   toJSON AwsApiGatewayV2RouteSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ThrottlingRateLimit" Data..=)
-              Prelude.<$> throttlingRateLimit,
+          [ ("DataTraceEnabled" Data..=)
+              Prelude.<$> dataTraceEnabled,
+            ("DetailedMetricsEnabled" Data..=)
+              Prelude.<$> detailedMetricsEnabled,
             ("LoggingLevel" Data..=) Prelude.<$> loggingLevel,
             ("ThrottlingBurstLimit" Data..=)
               Prelude.<$> throttlingBurstLimit,
-            ("DetailedMetricsEnabled" Data..=)
-              Prelude.<$> detailedMetricsEnabled,
-            ("DataTraceEnabled" Data..=)
-              Prelude.<$> dataTraceEnabled
+            ("ThrottlingRateLimit" Data..=)
+              Prelude.<$> throttlingRateLimit
           ]
       )

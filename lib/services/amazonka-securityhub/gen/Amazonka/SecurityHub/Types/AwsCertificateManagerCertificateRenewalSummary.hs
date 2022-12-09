@@ -34,6 +34,12 @@ data AwsCertificateManagerCertificateRenewalSummary = AwsCertificateManagerCerti
     -- as it pertains to Certificate Manager managed renewal. Provided only
     -- when the certificate type is @AMAZON_ISSUED@.
     domainValidationOptions :: Prelude.Maybe [AwsCertificateManagerCertificateDomainValidationOption],
+    -- | The status of the Certificate Manager managed renewal of the
+    -- certificate.
+    --
+    -- Valid values: @PENDING_AUTO_RENEWAL@ | @PENDING_VALIDATION@ | @SUCCESS@
+    -- | @FAILED@
+    renewalStatus :: Prelude.Maybe Prelude.Text,
     -- | The reason that a renewal request was unsuccessful. This attribute is
     -- used only when @RenewalStatus@ is @FAILED@.
     --
@@ -45,12 +51,6 @@ data AwsCertificateManagerCertificateRenewalSummary = AwsCertificateManagerCerti
     -- @PCA_RESOURCE_NOT_FOUND@ | @PCA_INVALID_ARGS@ | @PCA_INVALID_DURATION@ |
     -- @PCA_ACCESS_DENIED@ | @SLR_NOT_FOUND@ | @OTHER@
     renewalStatusReason :: Prelude.Maybe Prelude.Text,
-    -- | The status of the Certificate Manager managed renewal of the
-    -- certificate.
-    --
-    -- Valid values: @PENDING_AUTO_RENEWAL@ | @PENDING_VALIDATION@ | @SUCCESS@
-    -- | @FAILED@
-    renewalStatus :: Prelude.Maybe Prelude.Text,
     -- | Indicates when the renewal summary was last updated.
     --
     -- Uses the @date-time@ format specified in
@@ -73,6 +73,12 @@ data AwsCertificateManagerCertificateRenewalSummary = AwsCertificateManagerCerti
 -- as it pertains to Certificate Manager managed renewal. Provided only
 -- when the certificate type is @AMAZON_ISSUED@.
 --
+-- 'renewalStatus', 'awsCertificateManagerCertificateRenewalSummary_renewalStatus' - The status of the Certificate Manager managed renewal of the
+-- certificate.
+--
+-- Valid values: @PENDING_AUTO_RENEWAL@ | @PENDING_VALIDATION@ | @SUCCESS@
+-- | @FAILED@
+--
 -- 'renewalStatusReason', 'awsCertificateManagerCertificateRenewalSummary_renewalStatusReason' - The reason that a renewal request was unsuccessful. This attribute is
 -- used only when @RenewalStatus@ is @FAILED@.
 --
@@ -83,12 +89,6 @@ data AwsCertificateManagerCertificateRenewalSummary = AwsCertificateManagerCerti
 -- @PCA_REQUEST_FAILED@ | @PCA_NAME_CONSTRAINTS_VALIDATION@ |
 -- @PCA_RESOURCE_NOT_FOUND@ | @PCA_INVALID_ARGS@ | @PCA_INVALID_DURATION@ |
 -- @PCA_ACCESS_DENIED@ | @SLR_NOT_FOUND@ | @OTHER@
---
--- 'renewalStatus', 'awsCertificateManagerCertificateRenewalSummary_renewalStatus' - The status of the Certificate Manager managed renewal of the
--- certificate.
---
--- Valid values: @PENDING_AUTO_RENEWAL@ | @PENDING_VALIDATION@ | @SUCCESS@
--- | @FAILED@
 --
 -- 'updatedAt', 'awsCertificateManagerCertificateRenewalSummary_updatedAt' - Indicates when the renewal summary was last updated.
 --
@@ -102,9 +102,9 @@ newAwsCertificateManagerCertificateRenewalSummary =
   AwsCertificateManagerCertificateRenewalSummary'
     { domainValidationOptions =
         Prelude.Nothing,
-      renewalStatusReason =
-        Prelude.Nothing,
       renewalStatus =
+        Prelude.Nothing,
+      renewalStatusReason =
         Prelude.Nothing,
       updatedAt = Prelude.Nothing
     }
@@ -114,6 +114,14 @@ newAwsCertificateManagerCertificateRenewalSummary =
 -- when the certificate type is @AMAZON_ISSUED@.
 awsCertificateManagerCertificateRenewalSummary_domainValidationOptions :: Lens.Lens' AwsCertificateManagerCertificateRenewalSummary (Prelude.Maybe [AwsCertificateManagerCertificateDomainValidationOption])
 awsCertificateManagerCertificateRenewalSummary_domainValidationOptions = Lens.lens (\AwsCertificateManagerCertificateRenewalSummary' {domainValidationOptions} -> domainValidationOptions) (\s@AwsCertificateManagerCertificateRenewalSummary' {} a -> s {domainValidationOptions = a} :: AwsCertificateManagerCertificateRenewalSummary) Prelude.. Lens.mapping Lens.coerced
+
+-- | The status of the Certificate Manager managed renewal of the
+-- certificate.
+--
+-- Valid values: @PENDING_AUTO_RENEWAL@ | @PENDING_VALIDATION@ | @SUCCESS@
+-- | @FAILED@
+awsCertificateManagerCertificateRenewalSummary_renewalStatus :: Lens.Lens' AwsCertificateManagerCertificateRenewalSummary (Prelude.Maybe Prelude.Text)
+awsCertificateManagerCertificateRenewalSummary_renewalStatus = Lens.lens (\AwsCertificateManagerCertificateRenewalSummary' {renewalStatus} -> renewalStatus) (\s@AwsCertificateManagerCertificateRenewalSummary' {} a -> s {renewalStatus = a} :: AwsCertificateManagerCertificateRenewalSummary)
 
 -- | The reason that a renewal request was unsuccessful. This attribute is
 -- used only when @RenewalStatus@ is @FAILED@.
@@ -127,14 +135,6 @@ awsCertificateManagerCertificateRenewalSummary_domainValidationOptions = Lens.le
 -- @PCA_ACCESS_DENIED@ | @SLR_NOT_FOUND@ | @OTHER@
 awsCertificateManagerCertificateRenewalSummary_renewalStatusReason :: Lens.Lens' AwsCertificateManagerCertificateRenewalSummary (Prelude.Maybe Prelude.Text)
 awsCertificateManagerCertificateRenewalSummary_renewalStatusReason = Lens.lens (\AwsCertificateManagerCertificateRenewalSummary' {renewalStatusReason} -> renewalStatusReason) (\s@AwsCertificateManagerCertificateRenewalSummary' {} a -> s {renewalStatusReason = a} :: AwsCertificateManagerCertificateRenewalSummary)
-
--- | The status of the Certificate Manager managed renewal of the
--- certificate.
---
--- Valid values: @PENDING_AUTO_RENEWAL@ | @PENDING_VALIDATION@ | @SUCCESS@
--- | @FAILED@
-awsCertificateManagerCertificateRenewalSummary_renewalStatus :: Lens.Lens' AwsCertificateManagerCertificateRenewalSummary (Prelude.Maybe Prelude.Text)
-awsCertificateManagerCertificateRenewalSummary_renewalStatus = Lens.lens (\AwsCertificateManagerCertificateRenewalSummary' {renewalStatus} -> renewalStatus) (\s@AwsCertificateManagerCertificateRenewalSummary' {} a -> s {renewalStatus = a} :: AwsCertificateManagerCertificateRenewalSummary)
 
 -- | Indicates when the renewal summary was last updated.
 --
@@ -157,8 +157,8 @@ instance
             Prelude.<$> ( x Data..:? "DomainValidationOptions"
                             Data..!= Prelude.mempty
                         )
-              Prelude.<*> (x Data..:? "RenewalStatusReason")
               Prelude.<*> (x Data..:? "RenewalStatus")
+              Prelude.<*> (x Data..:? "RenewalStatusReason")
               Prelude.<*> (x Data..:? "UpdatedAt")
       )
 
@@ -171,8 +171,8 @@ instance
     AwsCertificateManagerCertificateRenewalSummary' {..} =
       _salt
         `Prelude.hashWithSalt` domainValidationOptions
-        `Prelude.hashWithSalt` renewalStatusReason
         `Prelude.hashWithSalt` renewalStatus
+        `Prelude.hashWithSalt` renewalStatusReason
         `Prelude.hashWithSalt` updatedAt
 
 instance
@@ -182,8 +182,8 @@ instance
   rnf
     AwsCertificateManagerCertificateRenewalSummary' {..} =
       Prelude.rnf domainValidationOptions
-        `Prelude.seq` Prelude.rnf renewalStatusReason
         `Prelude.seq` Prelude.rnf renewalStatus
+        `Prelude.seq` Prelude.rnf renewalStatusReason
         `Prelude.seq` Prelude.rnf updatedAt
 
 instance
@@ -196,9 +196,9 @@ instance
         ( Prelude.catMaybes
             [ ("DomainValidationOptions" Data..=)
                 Prelude.<$> domainValidationOptions,
+              ("RenewalStatus" Data..=) Prelude.<$> renewalStatus,
               ("RenewalStatusReason" Data..=)
                 Prelude.<$> renewalStatusReason,
-              ("RenewalStatus" Data..=) Prelude.<$> renewalStatus,
               ("UpdatedAt" Data..=) Prelude.<$> updatedAt
             ]
         )

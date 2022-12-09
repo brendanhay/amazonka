@@ -32,33 +32,33 @@ import Amazonka.SecurityHub.Types.SeverityRating
 data StandardsControl = StandardsControl'
   { -- | The identifier of the security standard control.
     controlId :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the security standard control.
-    standardsControlArn :: Prelude.Maybe Prelude.Text,
-    -- | The severity of findings generated from this security standard control.
-    --
-    -- The finding severity is based on an assessment of how easy it would be
-    -- to compromise Amazon Web Services resources if the issue is detected.
-    severityRating :: Prelude.Maybe SeverityRating,
+    -- | The current status of the security standard control. Indicates whether
+    -- the control is enabled or disabled. Security Hub does not check against
+    -- disabled controls.
+    controlStatus :: Prelude.Maybe ControlStatus,
     -- | The date and time that the status of the security standard control was
     -- most recently updated.
     controlStatusUpdatedAt :: Prelude.Maybe Data.POSIX,
+    -- | The longer description of the security standard control. Provides
+    -- information about what the control is checking for.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The reason provided for the most recent change in status for the
     -- control.
     disabledReason :: Prelude.Maybe Prelude.Text,
     -- | The list of requirements that are related to this control.
     relatedRequirements :: Prelude.Maybe [Prelude.Text],
-    -- | The longer description of the security standard control. Provides
-    -- information about what the control is checking for.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The title of the security standard control.
-    title :: Prelude.Maybe Prelude.Text,
     -- | A link to remediation information for the control in the Security Hub
     -- user documentation.
     remediationUrl :: Prelude.Maybe Prelude.Text,
-    -- | The current status of the security standard control. Indicates whether
-    -- the control is enabled or disabled. Security Hub does not check against
-    -- disabled controls.
-    controlStatus :: Prelude.Maybe ControlStatus
+    -- | The severity of findings generated from this security standard control.
+    --
+    -- The finding severity is based on an assessment of how easy it would be
+    -- to compromise Amazon Web Services resources if the issue is detected.
+    severityRating :: Prelude.Maybe SeverityRating,
+    -- | The ARN of the security standard control.
+    standardsControlArn :: Prelude.Maybe Prelude.Text,
+    -- | The title of the security standard control.
+    title :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,67 +72,67 @@ data StandardsControl = StandardsControl'
 --
 -- 'controlId', 'standardsControl_controlId' - The identifier of the security standard control.
 --
--- 'standardsControlArn', 'standardsControl_standardsControlArn' - The ARN of the security standard control.
---
--- 'severityRating', 'standardsControl_severityRating' - The severity of findings generated from this security standard control.
---
--- The finding severity is based on an assessment of how easy it would be
--- to compromise Amazon Web Services resources if the issue is detected.
+-- 'controlStatus', 'standardsControl_controlStatus' - The current status of the security standard control. Indicates whether
+-- the control is enabled or disabled. Security Hub does not check against
+-- disabled controls.
 --
 -- 'controlStatusUpdatedAt', 'standardsControl_controlStatusUpdatedAt' - The date and time that the status of the security standard control was
 -- most recently updated.
+--
+-- 'description', 'standardsControl_description' - The longer description of the security standard control. Provides
+-- information about what the control is checking for.
 --
 -- 'disabledReason', 'standardsControl_disabledReason' - The reason provided for the most recent change in status for the
 -- control.
 --
 -- 'relatedRequirements', 'standardsControl_relatedRequirements' - The list of requirements that are related to this control.
 --
--- 'description', 'standardsControl_description' - The longer description of the security standard control. Provides
--- information about what the control is checking for.
---
--- 'title', 'standardsControl_title' - The title of the security standard control.
---
 -- 'remediationUrl', 'standardsControl_remediationUrl' - A link to remediation information for the control in the Security Hub
 -- user documentation.
 --
--- 'controlStatus', 'standardsControl_controlStatus' - The current status of the security standard control. Indicates whether
--- the control is enabled or disabled. Security Hub does not check against
--- disabled controls.
+-- 'severityRating', 'standardsControl_severityRating' - The severity of findings generated from this security standard control.
+--
+-- The finding severity is based on an assessment of how easy it would be
+-- to compromise Amazon Web Services resources if the issue is detected.
+--
+-- 'standardsControlArn', 'standardsControl_standardsControlArn' - The ARN of the security standard control.
+--
+-- 'title', 'standardsControl_title' - The title of the security standard control.
 newStandardsControl ::
   StandardsControl
 newStandardsControl =
   StandardsControl'
     { controlId = Prelude.Nothing,
-      standardsControlArn = Prelude.Nothing,
-      severityRating = Prelude.Nothing,
+      controlStatus = Prelude.Nothing,
       controlStatusUpdatedAt = Prelude.Nothing,
+      description = Prelude.Nothing,
       disabledReason = Prelude.Nothing,
       relatedRequirements = Prelude.Nothing,
-      description = Prelude.Nothing,
-      title = Prelude.Nothing,
       remediationUrl = Prelude.Nothing,
-      controlStatus = Prelude.Nothing
+      severityRating = Prelude.Nothing,
+      standardsControlArn = Prelude.Nothing,
+      title = Prelude.Nothing
     }
 
 -- | The identifier of the security standard control.
 standardsControl_controlId :: Lens.Lens' StandardsControl (Prelude.Maybe Prelude.Text)
 standardsControl_controlId = Lens.lens (\StandardsControl' {controlId} -> controlId) (\s@StandardsControl' {} a -> s {controlId = a} :: StandardsControl)
 
--- | The ARN of the security standard control.
-standardsControl_standardsControlArn :: Lens.Lens' StandardsControl (Prelude.Maybe Prelude.Text)
-standardsControl_standardsControlArn = Lens.lens (\StandardsControl' {standardsControlArn} -> standardsControlArn) (\s@StandardsControl' {} a -> s {standardsControlArn = a} :: StandardsControl)
-
--- | The severity of findings generated from this security standard control.
---
--- The finding severity is based on an assessment of how easy it would be
--- to compromise Amazon Web Services resources if the issue is detected.
-standardsControl_severityRating :: Lens.Lens' StandardsControl (Prelude.Maybe SeverityRating)
-standardsControl_severityRating = Lens.lens (\StandardsControl' {severityRating} -> severityRating) (\s@StandardsControl' {} a -> s {severityRating = a} :: StandardsControl)
+-- | The current status of the security standard control. Indicates whether
+-- the control is enabled or disabled. Security Hub does not check against
+-- disabled controls.
+standardsControl_controlStatus :: Lens.Lens' StandardsControl (Prelude.Maybe ControlStatus)
+standardsControl_controlStatus = Lens.lens (\StandardsControl' {controlStatus} -> controlStatus) (\s@StandardsControl' {} a -> s {controlStatus = a} :: StandardsControl)
 
 -- | The date and time that the status of the security standard control was
 -- most recently updated.
 standardsControl_controlStatusUpdatedAt :: Lens.Lens' StandardsControl (Prelude.Maybe Prelude.UTCTime)
 standardsControl_controlStatusUpdatedAt = Lens.lens (\StandardsControl' {controlStatusUpdatedAt} -> controlStatusUpdatedAt) (\s@StandardsControl' {} a -> s {controlStatusUpdatedAt = a} :: StandardsControl) Prelude.. Lens.mapping Data._Time
+
+-- | The longer description of the security standard control. Provides
+-- information about what the control is checking for.
+standardsControl_description :: Lens.Lens' StandardsControl (Prelude.Maybe Prelude.Text)
+standardsControl_description = Lens.lens (\StandardsControl' {description} -> description) (\s@StandardsControl' {} a -> s {description = a} :: StandardsControl)
 
 -- | The reason provided for the most recent change in status for the
 -- control.
@@ -143,25 +143,25 @@ standardsControl_disabledReason = Lens.lens (\StandardsControl' {disabledReason}
 standardsControl_relatedRequirements :: Lens.Lens' StandardsControl (Prelude.Maybe [Prelude.Text])
 standardsControl_relatedRequirements = Lens.lens (\StandardsControl' {relatedRequirements} -> relatedRequirements) (\s@StandardsControl' {} a -> s {relatedRequirements = a} :: StandardsControl) Prelude.. Lens.mapping Lens.coerced
 
--- | The longer description of the security standard control. Provides
--- information about what the control is checking for.
-standardsControl_description :: Lens.Lens' StandardsControl (Prelude.Maybe Prelude.Text)
-standardsControl_description = Lens.lens (\StandardsControl' {description} -> description) (\s@StandardsControl' {} a -> s {description = a} :: StandardsControl)
-
--- | The title of the security standard control.
-standardsControl_title :: Lens.Lens' StandardsControl (Prelude.Maybe Prelude.Text)
-standardsControl_title = Lens.lens (\StandardsControl' {title} -> title) (\s@StandardsControl' {} a -> s {title = a} :: StandardsControl)
-
 -- | A link to remediation information for the control in the Security Hub
 -- user documentation.
 standardsControl_remediationUrl :: Lens.Lens' StandardsControl (Prelude.Maybe Prelude.Text)
 standardsControl_remediationUrl = Lens.lens (\StandardsControl' {remediationUrl} -> remediationUrl) (\s@StandardsControl' {} a -> s {remediationUrl = a} :: StandardsControl)
 
--- | The current status of the security standard control. Indicates whether
--- the control is enabled or disabled. Security Hub does not check against
--- disabled controls.
-standardsControl_controlStatus :: Lens.Lens' StandardsControl (Prelude.Maybe ControlStatus)
-standardsControl_controlStatus = Lens.lens (\StandardsControl' {controlStatus} -> controlStatus) (\s@StandardsControl' {} a -> s {controlStatus = a} :: StandardsControl)
+-- | The severity of findings generated from this security standard control.
+--
+-- The finding severity is based on an assessment of how easy it would be
+-- to compromise Amazon Web Services resources if the issue is detected.
+standardsControl_severityRating :: Lens.Lens' StandardsControl (Prelude.Maybe SeverityRating)
+standardsControl_severityRating = Lens.lens (\StandardsControl' {severityRating} -> severityRating) (\s@StandardsControl' {} a -> s {severityRating = a} :: StandardsControl)
+
+-- | The ARN of the security standard control.
+standardsControl_standardsControlArn :: Lens.Lens' StandardsControl (Prelude.Maybe Prelude.Text)
+standardsControl_standardsControlArn = Lens.lens (\StandardsControl' {standardsControlArn} -> standardsControlArn) (\s@StandardsControl' {} a -> s {standardsControlArn = a} :: StandardsControl)
+
+-- | The title of the security standard control.
+standardsControl_title :: Lens.Lens' StandardsControl (Prelude.Maybe Prelude.Text)
+standardsControl_title = Lens.lens (\StandardsControl' {title} -> title) (\s@StandardsControl' {} a -> s {title = a} :: StandardsControl)
 
 instance Data.FromJSON StandardsControl where
   parseJSON =
@@ -170,41 +170,41 @@ instance Data.FromJSON StandardsControl where
       ( \x ->
           StandardsControl'
             Prelude.<$> (x Data..:? "ControlId")
-            Prelude.<*> (x Data..:? "StandardsControlArn")
-            Prelude.<*> (x Data..:? "SeverityRating")
+            Prelude.<*> (x Data..:? "ControlStatus")
             Prelude.<*> (x Data..:? "ControlStatusUpdatedAt")
+            Prelude.<*> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "DisabledReason")
             Prelude.<*> ( x Data..:? "RelatedRequirements"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "Description")
-            Prelude.<*> (x Data..:? "Title")
             Prelude.<*> (x Data..:? "RemediationUrl")
-            Prelude.<*> (x Data..:? "ControlStatus")
+            Prelude.<*> (x Data..:? "SeverityRating")
+            Prelude.<*> (x Data..:? "StandardsControlArn")
+            Prelude.<*> (x Data..:? "Title")
       )
 
 instance Prelude.Hashable StandardsControl where
   hashWithSalt _salt StandardsControl' {..} =
     _salt `Prelude.hashWithSalt` controlId
-      `Prelude.hashWithSalt` standardsControlArn
-      `Prelude.hashWithSalt` severityRating
+      `Prelude.hashWithSalt` controlStatus
       `Prelude.hashWithSalt` controlStatusUpdatedAt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` disabledReason
       `Prelude.hashWithSalt` relatedRequirements
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` title
       `Prelude.hashWithSalt` remediationUrl
-      `Prelude.hashWithSalt` controlStatus
+      `Prelude.hashWithSalt` severityRating
+      `Prelude.hashWithSalt` standardsControlArn
+      `Prelude.hashWithSalt` title
 
 instance Prelude.NFData StandardsControl where
   rnf StandardsControl' {..} =
     Prelude.rnf controlId
-      `Prelude.seq` Prelude.rnf standardsControlArn
-      `Prelude.seq` Prelude.rnf severityRating
+      `Prelude.seq` Prelude.rnf controlStatus
       `Prelude.seq` Prelude.rnf controlStatusUpdatedAt
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf disabledReason
       `Prelude.seq` Prelude.rnf relatedRequirements
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf title
       `Prelude.seq` Prelude.rnf remediationUrl
-      `Prelude.seq` Prelude.rnf controlStatus
+      `Prelude.seq` Prelude.rnf severityRating
+      `Prelude.seq` Prelude.rnf standardsControlArn
+      `Prelude.seq` Prelude.rnf title

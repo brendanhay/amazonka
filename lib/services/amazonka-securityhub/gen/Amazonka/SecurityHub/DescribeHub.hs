@@ -35,8 +35,8 @@ module Amazonka.SecurityHub.DescribeHub
     newDescribeHubResponse,
 
     -- * Response Lenses
-    describeHubResponse_hubArn,
     describeHubResponse_autoEnableControls,
+    describeHubResponse_hubArn,
     describeHubResponse_subscribedAt,
     describeHubResponse_httpStatus,
   )
@@ -83,8 +83,8 @@ instance Core.AWSRequest DescribeHub where
     Response.receiveJSON
       ( \s h x ->
           DescribeHubResponse'
-            Prelude.<$> (x Data..?> "HubArn")
-            Prelude.<*> (x Data..?> "AutoEnableControls")
+            Prelude.<$> (x Data..?> "AutoEnableControls")
+            Prelude.<*> (x Data..?> "HubArn")
             Prelude.<*> (x Data..?> "SubscribedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -116,14 +116,14 @@ instance Data.ToQuery DescribeHub where
 
 -- | /See:/ 'newDescribeHubResponse' smart constructor.
 data DescribeHubResponse = DescribeHubResponse'
-  { -- | The ARN of the Hub resource that was retrieved.
-    hubArn :: Prelude.Maybe Prelude.Text,
-    -- | Whether to automatically enable new controls when they are added to
+  { -- | Whether to automatically enable new controls when they are added to
     -- standards that are enabled.
     --
     -- If set to @true@, then new controls for enabled standards are enabled
     -- automatically. If set to @false@, then new controls are not enabled.
     autoEnableControls :: Prelude.Maybe Prelude.Bool,
+    -- | The ARN of the Hub resource that was retrieved.
+    hubArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time when Security Hub was enabled in the account.
     subscribedAt :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -139,13 +139,13 @@ data DescribeHubResponse = DescribeHubResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'hubArn', 'describeHubResponse_hubArn' - The ARN of the Hub resource that was retrieved.
---
 -- 'autoEnableControls', 'describeHubResponse_autoEnableControls' - Whether to automatically enable new controls when they are added to
 -- standards that are enabled.
 --
 -- If set to @true@, then new controls for enabled standards are enabled
 -- automatically. If set to @false@, then new controls are not enabled.
+--
+-- 'hubArn', 'describeHubResponse_hubArn' - The ARN of the Hub resource that was retrieved.
 --
 -- 'subscribedAt', 'describeHubResponse_subscribedAt' - The date and time when Security Hub was enabled in the account.
 --
@@ -156,15 +156,12 @@ newDescribeHubResponse ::
   DescribeHubResponse
 newDescribeHubResponse pHttpStatus_ =
   DescribeHubResponse'
-    { hubArn = Prelude.Nothing,
-      autoEnableControls = Prelude.Nothing,
+    { autoEnableControls =
+        Prelude.Nothing,
+      hubArn = Prelude.Nothing,
       subscribedAt = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ARN of the Hub resource that was retrieved.
-describeHubResponse_hubArn :: Lens.Lens' DescribeHubResponse (Prelude.Maybe Prelude.Text)
-describeHubResponse_hubArn = Lens.lens (\DescribeHubResponse' {hubArn} -> hubArn) (\s@DescribeHubResponse' {} a -> s {hubArn = a} :: DescribeHubResponse)
 
 -- | Whether to automatically enable new controls when they are added to
 -- standards that are enabled.
@@ -173,6 +170,10 @@ describeHubResponse_hubArn = Lens.lens (\DescribeHubResponse' {hubArn} -> hubArn
 -- automatically. If set to @false@, then new controls are not enabled.
 describeHubResponse_autoEnableControls :: Lens.Lens' DescribeHubResponse (Prelude.Maybe Prelude.Bool)
 describeHubResponse_autoEnableControls = Lens.lens (\DescribeHubResponse' {autoEnableControls} -> autoEnableControls) (\s@DescribeHubResponse' {} a -> s {autoEnableControls = a} :: DescribeHubResponse)
+
+-- | The ARN of the Hub resource that was retrieved.
+describeHubResponse_hubArn :: Lens.Lens' DescribeHubResponse (Prelude.Maybe Prelude.Text)
+describeHubResponse_hubArn = Lens.lens (\DescribeHubResponse' {hubArn} -> hubArn) (\s@DescribeHubResponse' {} a -> s {hubArn = a} :: DescribeHubResponse)
 
 -- | The date and time when Security Hub was enabled in the account.
 describeHubResponse_subscribedAt :: Lens.Lens' DescribeHubResponse (Prelude.Maybe Prelude.Text)
@@ -184,7 +185,7 @@ describeHubResponse_httpStatus = Lens.lens (\DescribeHubResponse' {httpStatus} -
 
 instance Prelude.NFData DescribeHubResponse where
   rnf DescribeHubResponse' {..} =
-    Prelude.rnf hubArn
-      `Prelude.seq` Prelude.rnf autoEnableControls
+    Prelude.rnf autoEnableControls
+      `Prelude.seq` Prelude.rnf hubArn
       `Prelude.seq` Prelude.rnf subscribedAt
       `Prelude.seq` Prelude.rnf httpStatus

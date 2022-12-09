@@ -29,34 +29,34 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsRedshiftClusterRestoreStatus' smart constructor.
 data AwsRedshiftClusterRestoreStatus = AwsRedshiftClusterRestoreStatus'
-  { -- | The size of the set of snapshot data that was used to restore the
-    -- cluster.
-    --
-    -- This field is only updated when you restore to DC2 and DS2 node types.
-    snapshotSizeInMegaBytes :: Prelude.Maybe Prelude.Integer,
-    -- | The number of megabytes per second being transferred from the backup
+  { -- | The number of megabytes per second being transferred from the backup
     -- storage. Returns the average rate for a completed backup.
     --
     -- This field is only updated when you restore to DC2 and DS2 node types.
     currentRestoreRateInMegaBytesPerSecond :: Prelude.Maybe Prelude.Double,
-    -- | The status of the restore action.
-    --
-    -- Valid values: @starting@ | @restoring@ | @completed@ | @failed@
-    status :: Prelude.Maybe Prelude.Text,
     -- | The amount of time an in-progress restore has been running, or the
     -- amount of time it took a completed restore to finish.
     --
     -- This field is only updated when you restore to DC2 and DS2 node types.
     elapsedTimeInSeconds :: Prelude.Maybe Prelude.Integer,
-    -- | The number of megabytes that were transferred from snapshot storage.
-    --
-    -- This field is only updated when you restore to DC2 and DS2 node types.
-    progressInMegaBytes :: Prelude.Maybe Prelude.Integer,
     -- | The estimate of the time remaining before the restore is complete.
     -- Returns 0 for a completed restore.
     --
     -- This field is only updated when you restore to DC2 and DS2 node types.
-    estimatedTimeToCompletionInSeconds :: Prelude.Maybe Prelude.Integer
+    estimatedTimeToCompletionInSeconds :: Prelude.Maybe Prelude.Integer,
+    -- | The number of megabytes that were transferred from snapshot storage.
+    --
+    -- This field is only updated when you restore to DC2 and DS2 node types.
+    progressInMegaBytes :: Prelude.Maybe Prelude.Integer,
+    -- | The size of the set of snapshot data that was used to restore the
+    -- cluster.
+    --
+    -- This field is only updated when you restore to DC2 and DS2 node types.
+    snapshotSizeInMegaBytes :: Prelude.Maybe Prelude.Integer,
+    -- | The status of the restore action.
+    --
+    -- Valid values: @starting@ | @restoring@ | @completed@ | @failed@
+    status :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,26 +68,13 @@ data AwsRedshiftClusterRestoreStatus = AwsRedshiftClusterRestoreStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'snapshotSizeInMegaBytes', 'awsRedshiftClusterRestoreStatus_snapshotSizeInMegaBytes' - The size of the set of snapshot data that was used to restore the
--- cluster.
---
--- This field is only updated when you restore to DC2 and DS2 node types.
---
 -- 'currentRestoreRateInMegaBytesPerSecond', 'awsRedshiftClusterRestoreStatus_currentRestoreRateInMegaBytesPerSecond' - The number of megabytes per second being transferred from the backup
 -- storage. Returns the average rate for a completed backup.
 --
 -- This field is only updated when you restore to DC2 and DS2 node types.
 --
--- 'status', 'awsRedshiftClusterRestoreStatus_status' - The status of the restore action.
---
--- Valid values: @starting@ | @restoring@ | @completed@ | @failed@
---
 -- 'elapsedTimeInSeconds', 'awsRedshiftClusterRestoreStatus_elapsedTimeInSeconds' - The amount of time an in-progress restore has been running, or the
 -- amount of time it took a completed restore to finish.
---
--- This field is only updated when you restore to DC2 and DS2 node types.
---
--- 'progressInMegaBytes', 'awsRedshiftClusterRestoreStatus_progressInMegaBytes' - The number of megabytes that were transferred from snapshot storage.
 --
 -- This field is only updated when you restore to DC2 and DS2 node types.
 --
@@ -95,27 +82,32 @@ data AwsRedshiftClusterRestoreStatus = AwsRedshiftClusterRestoreStatus'
 -- Returns 0 for a completed restore.
 --
 -- This field is only updated when you restore to DC2 and DS2 node types.
+--
+-- 'progressInMegaBytes', 'awsRedshiftClusterRestoreStatus_progressInMegaBytes' - The number of megabytes that were transferred from snapshot storage.
+--
+-- This field is only updated when you restore to DC2 and DS2 node types.
+--
+-- 'snapshotSizeInMegaBytes', 'awsRedshiftClusterRestoreStatus_snapshotSizeInMegaBytes' - The size of the set of snapshot data that was used to restore the
+-- cluster.
+--
+-- This field is only updated when you restore to DC2 and DS2 node types.
+--
+-- 'status', 'awsRedshiftClusterRestoreStatus_status' - The status of the restore action.
+--
+-- Valid values: @starting@ | @restoring@ | @completed@ | @failed@
 newAwsRedshiftClusterRestoreStatus ::
   AwsRedshiftClusterRestoreStatus
 newAwsRedshiftClusterRestoreStatus =
   AwsRedshiftClusterRestoreStatus'
-    { snapshotSizeInMegaBytes =
+    { currentRestoreRateInMegaBytesPerSecond =
         Prelude.Nothing,
-      currentRestoreRateInMegaBytesPerSecond =
-        Prelude.Nothing,
-      status = Prelude.Nothing,
       elapsedTimeInSeconds = Prelude.Nothing,
-      progressInMegaBytes = Prelude.Nothing,
       estimatedTimeToCompletionInSeconds =
-        Prelude.Nothing
+        Prelude.Nothing,
+      progressInMegaBytes = Prelude.Nothing,
+      snapshotSizeInMegaBytes = Prelude.Nothing,
+      status = Prelude.Nothing
     }
-
--- | The size of the set of snapshot data that was used to restore the
--- cluster.
---
--- This field is only updated when you restore to DC2 and DS2 node types.
-awsRedshiftClusterRestoreStatus_snapshotSizeInMegaBytes :: Lens.Lens' AwsRedshiftClusterRestoreStatus (Prelude.Maybe Prelude.Integer)
-awsRedshiftClusterRestoreStatus_snapshotSizeInMegaBytes = Lens.lens (\AwsRedshiftClusterRestoreStatus' {snapshotSizeInMegaBytes} -> snapshotSizeInMegaBytes) (\s@AwsRedshiftClusterRestoreStatus' {} a -> s {snapshotSizeInMegaBytes = a} :: AwsRedshiftClusterRestoreStatus)
 
 -- | The number of megabytes per second being transferred from the backup
 -- storage. Returns the average rate for a completed backup.
@@ -124,12 +116,6 @@ awsRedshiftClusterRestoreStatus_snapshotSizeInMegaBytes = Lens.lens (\AwsRedshif
 awsRedshiftClusterRestoreStatus_currentRestoreRateInMegaBytesPerSecond :: Lens.Lens' AwsRedshiftClusterRestoreStatus (Prelude.Maybe Prelude.Double)
 awsRedshiftClusterRestoreStatus_currentRestoreRateInMegaBytesPerSecond = Lens.lens (\AwsRedshiftClusterRestoreStatus' {currentRestoreRateInMegaBytesPerSecond} -> currentRestoreRateInMegaBytesPerSecond) (\s@AwsRedshiftClusterRestoreStatus' {} a -> s {currentRestoreRateInMegaBytesPerSecond = a} :: AwsRedshiftClusterRestoreStatus)
 
--- | The status of the restore action.
---
--- Valid values: @starting@ | @restoring@ | @completed@ | @failed@
-awsRedshiftClusterRestoreStatus_status :: Lens.Lens' AwsRedshiftClusterRestoreStatus (Prelude.Maybe Prelude.Text)
-awsRedshiftClusterRestoreStatus_status = Lens.lens (\AwsRedshiftClusterRestoreStatus' {status} -> status) (\s@AwsRedshiftClusterRestoreStatus' {} a -> s {status = a} :: AwsRedshiftClusterRestoreStatus)
-
 -- | The amount of time an in-progress restore has been running, or the
 -- amount of time it took a completed restore to finish.
 --
@@ -137,18 +123,31 @@ awsRedshiftClusterRestoreStatus_status = Lens.lens (\AwsRedshiftClusterRestoreSt
 awsRedshiftClusterRestoreStatus_elapsedTimeInSeconds :: Lens.Lens' AwsRedshiftClusterRestoreStatus (Prelude.Maybe Prelude.Integer)
 awsRedshiftClusterRestoreStatus_elapsedTimeInSeconds = Lens.lens (\AwsRedshiftClusterRestoreStatus' {elapsedTimeInSeconds} -> elapsedTimeInSeconds) (\s@AwsRedshiftClusterRestoreStatus' {} a -> s {elapsedTimeInSeconds = a} :: AwsRedshiftClusterRestoreStatus)
 
--- | The number of megabytes that were transferred from snapshot storage.
---
--- This field is only updated when you restore to DC2 and DS2 node types.
-awsRedshiftClusterRestoreStatus_progressInMegaBytes :: Lens.Lens' AwsRedshiftClusterRestoreStatus (Prelude.Maybe Prelude.Integer)
-awsRedshiftClusterRestoreStatus_progressInMegaBytes = Lens.lens (\AwsRedshiftClusterRestoreStatus' {progressInMegaBytes} -> progressInMegaBytes) (\s@AwsRedshiftClusterRestoreStatus' {} a -> s {progressInMegaBytes = a} :: AwsRedshiftClusterRestoreStatus)
-
 -- | The estimate of the time remaining before the restore is complete.
 -- Returns 0 for a completed restore.
 --
 -- This field is only updated when you restore to DC2 and DS2 node types.
 awsRedshiftClusterRestoreStatus_estimatedTimeToCompletionInSeconds :: Lens.Lens' AwsRedshiftClusterRestoreStatus (Prelude.Maybe Prelude.Integer)
 awsRedshiftClusterRestoreStatus_estimatedTimeToCompletionInSeconds = Lens.lens (\AwsRedshiftClusterRestoreStatus' {estimatedTimeToCompletionInSeconds} -> estimatedTimeToCompletionInSeconds) (\s@AwsRedshiftClusterRestoreStatus' {} a -> s {estimatedTimeToCompletionInSeconds = a} :: AwsRedshiftClusterRestoreStatus)
+
+-- | The number of megabytes that were transferred from snapshot storage.
+--
+-- This field is only updated when you restore to DC2 and DS2 node types.
+awsRedshiftClusterRestoreStatus_progressInMegaBytes :: Lens.Lens' AwsRedshiftClusterRestoreStatus (Prelude.Maybe Prelude.Integer)
+awsRedshiftClusterRestoreStatus_progressInMegaBytes = Lens.lens (\AwsRedshiftClusterRestoreStatus' {progressInMegaBytes} -> progressInMegaBytes) (\s@AwsRedshiftClusterRestoreStatus' {} a -> s {progressInMegaBytes = a} :: AwsRedshiftClusterRestoreStatus)
+
+-- | The size of the set of snapshot data that was used to restore the
+-- cluster.
+--
+-- This field is only updated when you restore to DC2 and DS2 node types.
+awsRedshiftClusterRestoreStatus_snapshotSizeInMegaBytes :: Lens.Lens' AwsRedshiftClusterRestoreStatus (Prelude.Maybe Prelude.Integer)
+awsRedshiftClusterRestoreStatus_snapshotSizeInMegaBytes = Lens.lens (\AwsRedshiftClusterRestoreStatus' {snapshotSizeInMegaBytes} -> snapshotSizeInMegaBytes) (\s@AwsRedshiftClusterRestoreStatus' {} a -> s {snapshotSizeInMegaBytes = a} :: AwsRedshiftClusterRestoreStatus)
+
+-- | The status of the restore action.
+--
+-- Valid values: @starting@ | @restoring@ | @completed@ | @failed@
+awsRedshiftClusterRestoreStatus_status :: Lens.Lens' AwsRedshiftClusterRestoreStatus (Prelude.Maybe Prelude.Text)
+awsRedshiftClusterRestoreStatus_status = Lens.lens (\AwsRedshiftClusterRestoreStatus' {status} -> status) (\s@AwsRedshiftClusterRestoreStatus' {} a -> s {status = a} :: AwsRedshiftClusterRestoreStatus)
 
 instance
   Data.FromJSON
@@ -159,12 +158,12 @@ instance
       "AwsRedshiftClusterRestoreStatus"
       ( \x ->
           AwsRedshiftClusterRestoreStatus'
-            Prelude.<$> (x Data..:? "SnapshotSizeInMegaBytes")
-            Prelude.<*> (x Data..:? "CurrentRestoreRateInMegaBytesPerSecond")
-            Prelude.<*> (x Data..:? "Status")
+            Prelude.<$> (x Data..:? "CurrentRestoreRateInMegaBytesPerSecond")
             Prelude.<*> (x Data..:? "ElapsedTimeInSeconds")
-            Prelude.<*> (x Data..:? "ProgressInMegaBytes")
             Prelude.<*> (x Data..:? "EstimatedTimeToCompletionInSeconds")
+            Prelude.<*> (x Data..:? "ProgressInMegaBytes")
+            Prelude.<*> (x Data..:? "SnapshotSizeInMegaBytes")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance
@@ -175,39 +174,39 @@ instance
     _salt
     AwsRedshiftClusterRestoreStatus' {..} =
       _salt
-        `Prelude.hashWithSalt` snapshotSizeInMegaBytes
         `Prelude.hashWithSalt` currentRestoreRateInMegaBytesPerSecond
-        `Prelude.hashWithSalt` status
         `Prelude.hashWithSalt` elapsedTimeInSeconds
-        `Prelude.hashWithSalt` progressInMegaBytes
         `Prelude.hashWithSalt` estimatedTimeToCompletionInSeconds
+        `Prelude.hashWithSalt` progressInMegaBytes
+        `Prelude.hashWithSalt` snapshotSizeInMegaBytes
+        `Prelude.hashWithSalt` status
 
 instance
   Prelude.NFData
     AwsRedshiftClusterRestoreStatus
   where
   rnf AwsRedshiftClusterRestoreStatus' {..} =
-    Prelude.rnf snapshotSizeInMegaBytes
-      `Prelude.seq` Prelude.rnf currentRestoreRateInMegaBytesPerSecond
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf currentRestoreRateInMegaBytesPerSecond
       `Prelude.seq` Prelude.rnf elapsedTimeInSeconds
-      `Prelude.seq` Prelude.rnf progressInMegaBytes
       `Prelude.seq` Prelude.rnf estimatedTimeToCompletionInSeconds
+      `Prelude.seq` Prelude.rnf progressInMegaBytes
+      `Prelude.seq` Prelude.rnf snapshotSizeInMegaBytes
+      `Prelude.seq` Prelude.rnf status
 
 instance Data.ToJSON AwsRedshiftClusterRestoreStatus where
   toJSON AwsRedshiftClusterRestoreStatus' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SnapshotSizeInMegaBytes" Data..=)
-              Prelude.<$> snapshotSizeInMegaBytes,
-            ("CurrentRestoreRateInMegaBytesPerSecond" Data..=)
+          [ ("CurrentRestoreRateInMegaBytesPerSecond" Data..=)
               Prelude.<$> currentRestoreRateInMegaBytesPerSecond,
-            ("Status" Data..=) Prelude.<$> status,
             ("ElapsedTimeInSeconds" Data..=)
               Prelude.<$> elapsedTimeInSeconds,
+            ("EstimatedTimeToCompletionInSeconds" Data..=)
+              Prelude.<$> estimatedTimeToCompletionInSeconds,
             ("ProgressInMegaBytes" Data..=)
               Prelude.<$> progressInMegaBytes,
-            ("EstimatedTimeToCompletionInSeconds" Data..=)
-              Prelude.<$> estimatedTimeToCompletionInSeconds
+            ("SnapshotSizeInMegaBytes" Data..=)
+              Prelude.<$> snapshotSizeInMegaBytes,
+            ("Status" Data..=) Prelude.<$> status
           ]
       )

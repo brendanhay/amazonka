@@ -32,22 +32,22 @@ import Amazonka.SecurityHub.Types.AwsCloudFrontDistributionOriginS3OriginConfig
 --
 -- /See:/ 'newAwsCloudFrontDistributionOriginItem' smart constructor.
 data AwsCloudFrontDistributionOriginItem = AwsCloudFrontDistributionOriginItem'
-  { -- | Amazon S3 origins: The DNS name of the S3 bucket from which you want
+  { -- | An origin that is not an Amazon S3 bucket, with one exception. If the
+    -- Amazon S3 bucket is configured with static website hosting, use this
+    -- attribute. If the Amazon S3 bucket is not configured with static website
+    -- hosting, use the @S3OriginConfig@ type instead.
+    customOriginConfig :: Prelude.Maybe AwsCloudFrontDistributionOriginCustomOriginConfig,
+    -- | Amazon S3 origins: The DNS name of the S3 bucket from which you want
     -- CloudFront to get objects for this origin.
     domainName :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the origin or origin group.
     id :: Prelude.Maybe Prelude.Text,
-    -- | An origin that is an S3 bucket that is not configured with static
-    -- website hosting.
-    s3OriginConfig :: Prelude.Maybe AwsCloudFrontDistributionOriginS3OriginConfig,
     -- | An optional element that causes CloudFront to request your content from
     -- a directory in your Amazon S3 bucket or your custom origin.
     originPath :: Prelude.Maybe Prelude.Text,
-    -- | An origin that is not an Amazon S3 bucket, with one exception. If the
-    -- Amazon S3 bucket is configured with static website hosting, use this
-    -- attribute. If the Amazon S3 bucket is not configured with static website
-    -- hosting, use the @S3OriginConfig@ type instead.
-    customOriginConfig :: Prelude.Maybe AwsCloudFrontDistributionOriginCustomOriginConfig
+    -- | An origin that is an S3 bucket that is not configured with static
+    -- website hosting.
+    s3OriginConfig :: Prelude.Maybe AwsCloudFrontDistributionOriginS3OriginConfig
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,32 +59,39 @@ data AwsCloudFrontDistributionOriginItem = AwsCloudFrontDistributionOriginItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'customOriginConfig', 'awsCloudFrontDistributionOriginItem_customOriginConfig' - An origin that is not an Amazon S3 bucket, with one exception. If the
+-- Amazon S3 bucket is configured with static website hosting, use this
+-- attribute. If the Amazon S3 bucket is not configured with static website
+-- hosting, use the @S3OriginConfig@ type instead.
+--
 -- 'domainName', 'awsCloudFrontDistributionOriginItem_domainName' - Amazon S3 origins: The DNS name of the S3 bucket from which you want
 -- CloudFront to get objects for this origin.
 --
 -- 'id', 'awsCloudFrontDistributionOriginItem_id' - A unique identifier for the origin or origin group.
 --
--- 's3OriginConfig', 'awsCloudFrontDistributionOriginItem_s3OriginConfig' - An origin that is an S3 bucket that is not configured with static
--- website hosting.
---
 -- 'originPath', 'awsCloudFrontDistributionOriginItem_originPath' - An optional element that causes CloudFront to request your content from
 -- a directory in your Amazon S3 bucket or your custom origin.
 --
--- 'customOriginConfig', 'awsCloudFrontDistributionOriginItem_customOriginConfig' - An origin that is not an Amazon S3 bucket, with one exception. If the
--- Amazon S3 bucket is configured with static website hosting, use this
--- attribute. If the Amazon S3 bucket is not configured with static website
--- hosting, use the @S3OriginConfig@ type instead.
+-- 's3OriginConfig', 'awsCloudFrontDistributionOriginItem_s3OriginConfig' - An origin that is an S3 bucket that is not configured with static
+-- website hosting.
 newAwsCloudFrontDistributionOriginItem ::
   AwsCloudFrontDistributionOriginItem
 newAwsCloudFrontDistributionOriginItem =
   AwsCloudFrontDistributionOriginItem'
-    { domainName =
+    { customOriginConfig =
         Prelude.Nothing,
+      domainName = Prelude.Nothing,
       id = Prelude.Nothing,
-      s3OriginConfig = Prelude.Nothing,
       originPath = Prelude.Nothing,
-      customOriginConfig = Prelude.Nothing
+      s3OriginConfig = Prelude.Nothing
     }
+
+-- | An origin that is not an Amazon S3 bucket, with one exception. If the
+-- Amazon S3 bucket is configured with static website hosting, use this
+-- attribute. If the Amazon S3 bucket is not configured with static website
+-- hosting, use the @S3OriginConfig@ type instead.
+awsCloudFrontDistributionOriginItem_customOriginConfig :: Lens.Lens' AwsCloudFrontDistributionOriginItem (Prelude.Maybe AwsCloudFrontDistributionOriginCustomOriginConfig)
+awsCloudFrontDistributionOriginItem_customOriginConfig = Lens.lens (\AwsCloudFrontDistributionOriginItem' {customOriginConfig} -> customOriginConfig) (\s@AwsCloudFrontDistributionOriginItem' {} a -> s {customOriginConfig = a} :: AwsCloudFrontDistributionOriginItem)
 
 -- | Amazon S3 origins: The DNS name of the S3 bucket from which you want
 -- CloudFront to get objects for this origin.
@@ -95,22 +102,15 @@ awsCloudFrontDistributionOriginItem_domainName = Lens.lens (\AwsCloudFrontDistri
 awsCloudFrontDistributionOriginItem_id :: Lens.Lens' AwsCloudFrontDistributionOriginItem (Prelude.Maybe Prelude.Text)
 awsCloudFrontDistributionOriginItem_id = Lens.lens (\AwsCloudFrontDistributionOriginItem' {id} -> id) (\s@AwsCloudFrontDistributionOriginItem' {} a -> s {id = a} :: AwsCloudFrontDistributionOriginItem)
 
--- | An origin that is an S3 bucket that is not configured with static
--- website hosting.
-awsCloudFrontDistributionOriginItem_s3OriginConfig :: Lens.Lens' AwsCloudFrontDistributionOriginItem (Prelude.Maybe AwsCloudFrontDistributionOriginS3OriginConfig)
-awsCloudFrontDistributionOriginItem_s3OriginConfig = Lens.lens (\AwsCloudFrontDistributionOriginItem' {s3OriginConfig} -> s3OriginConfig) (\s@AwsCloudFrontDistributionOriginItem' {} a -> s {s3OriginConfig = a} :: AwsCloudFrontDistributionOriginItem)
-
 -- | An optional element that causes CloudFront to request your content from
 -- a directory in your Amazon S3 bucket or your custom origin.
 awsCloudFrontDistributionOriginItem_originPath :: Lens.Lens' AwsCloudFrontDistributionOriginItem (Prelude.Maybe Prelude.Text)
 awsCloudFrontDistributionOriginItem_originPath = Lens.lens (\AwsCloudFrontDistributionOriginItem' {originPath} -> originPath) (\s@AwsCloudFrontDistributionOriginItem' {} a -> s {originPath = a} :: AwsCloudFrontDistributionOriginItem)
 
--- | An origin that is not an Amazon S3 bucket, with one exception. If the
--- Amazon S3 bucket is configured with static website hosting, use this
--- attribute. If the Amazon S3 bucket is not configured with static website
--- hosting, use the @S3OriginConfig@ type instead.
-awsCloudFrontDistributionOriginItem_customOriginConfig :: Lens.Lens' AwsCloudFrontDistributionOriginItem (Prelude.Maybe AwsCloudFrontDistributionOriginCustomOriginConfig)
-awsCloudFrontDistributionOriginItem_customOriginConfig = Lens.lens (\AwsCloudFrontDistributionOriginItem' {customOriginConfig} -> customOriginConfig) (\s@AwsCloudFrontDistributionOriginItem' {} a -> s {customOriginConfig = a} :: AwsCloudFrontDistributionOriginItem)
+-- | An origin that is an S3 bucket that is not configured with static
+-- website hosting.
+awsCloudFrontDistributionOriginItem_s3OriginConfig :: Lens.Lens' AwsCloudFrontDistributionOriginItem (Prelude.Maybe AwsCloudFrontDistributionOriginS3OriginConfig)
+awsCloudFrontDistributionOriginItem_s3OriginConfig = Lens.lens (\AwsCloudFrontDistributionOriginItem' {s3OriginConfig} -> s3OriginConfig) (\s@AwsCloudFrontDistributionOriginItem' {} a -> s {s3OriginConfig = a} :: AwsCloudFrontDistributionOriginItem)
 
 instance
   Data.FromJSON
@@ -121,11 +121,11 @@ instance
       "AwsCloudFrontDistributionOriginItem"
       ( \x ->
           AwsCloudFrontDistributionOriginItem'
-            Prelude.<$> (x Data..:? "DomainName")
+            Prelude.<$> (x Data..:? "CustomOriginConfig")
+            Prelude.<*> (x Data..:? "DomainName")
             Prelude.<*> (x Data..:? "Id")
-            Prelude.<*> (x Data..:? "S3OriginConfig")
             Prelude.<*> (x Data..:? "OriginPath")
-            Prelude.<*> (x Data..:? "CustomOriginConfig")
+            Prelude.<*> (x Data..:? "S3OriginConfig")
       )
 
 instance
@@ -135,22 +135,22 @@ instance
   hashWithSalt
     _salt
     AwsCloudFrontDistributionOriginItem' {..} =
-      _salt `Prelude.hashWithSalt` domainName
+      _salt `Prelude.hashWithSalt` customOriginConfig
+        `Prelude.hashWithSalt` domainName
         `Prelude.hashWithSalt` id
-        `Prelude.hashWithSalt` s3OriginConfig
         `Prelude.hashWithSalt` originPath
-        `Prelude.hashWithSalt` customOriginConfig
+        `Prelude.hashWithSalt` s3OriginConfig
 
 instance
   Prelude.NFData
     AwsCloudFrontDistributionOriginItem
   where
   rnf AwsCloudFrontDistributionOriginItem' {..} =
-    Prelude.rnf domainName
+    Prelude.rnf customOriginConfig
+      `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf s3OriginConfig
       `Prelude.seq` Prelude.rnf originPath
-      `Prelude.seq` Prelude.rnf customOriginConfig
+      `Prelude.seq` Prelude.rnf s3OriginConfig
 
 instance
   Data.ToJSON
@@ -159,12 +159,12 @@ instance
   toJSON AwsCloudFrontDistributionOriginItem' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("DomainName" Data..=) Prelude.<$> domainName,
+          [ ("CustomOriginConfig" Data..=)
+              Prelude.<$> customOriginConfig,
+            ("DomainName" Data..=) Prelude.<$> domainName,
             ("Id" Data..=) Prelude.<$> id,
-            ("S3OriginConfig" Data..=)
-              Prelude.<$> s3OriginConfig,
             ("OriginPath" Data..=) Prelude.<$> originPath,
-            ("CustomOriginConfig" Data..=)
-              Prelude.<$> customOriginConfig
+            ("S3OriginConfig" Data..=)
+              Prelude.<$> s3OriginConfig
           ]
       )

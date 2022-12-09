@@ -29,14 +29,14 @@ import Amazonka.SecurityHub.Types.RuleGroupSourceStatelessRuleMatchAttributes
 --
 -- /See:/ 'newRuleGroupSourceStatelessRuleDefinition' smart constructor.
 data RuleGroupSourceStatelessRuleDefinition = RuleGroupSourceStatelessRuleDefinition'
-  { -- | The criteria for Network Firewall to use to inspect an individual packet
-    -- in a stateless rule inspection.
-    matchAttributes :: Prelude.Maybe RuleGroupSourceStatelessRuleMatchAttributes,
-    -- | The actions to take on a packet that matches one of the stateless rule
+  { -- | The actions to take on a packet that matches one of the stateless rule
     -- definition\'s match attributes. You must specify a standard action
     -- (@aws:pass@, @aws:drop@, or @aws:forward_to_sfe@). You can then add
     -- custom actions.
-    actions :: Prelude.Maybe [Prelude.Text]
+    actions :: Prelude.Maybe [Prelude.Text],
+    -- | The criteria for Network Firewall to use to inspect an individual packet
+    -- in a stateless rule inspection.
+    matchAttributes :: Prelude.Maybe RuleGroupSourceStatelessRuleMatchAttributes
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,26 +48,21 @@ data RuleGroupSourceStatelessRuleDefinition = RuleGroupSourceStatelessRuleDefini
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'matchAttributes', 'ruleGroupSourceStatelessRuleDefinition_matchAttributes' - The criteria for Network Firewall to use to inspect an individual packet
--- in a stateless rule inspection.
---
 -- 'actions', 'ruleGroupSourceStatelessRuleDefinition_actions' - The actions to take on a packet that matches one of the stateless rule
 -- definition\'s match attributes. You must specify a standard action
 -- (@aws:pass@, @aws:drop@, or @aws:forward_to_sfe@). You can then add
 -- custom actions.
+--
+-- 'matchAttributes', 'ruleGroupSourceStatelessRuleDefinition_matchAttributes' - The criteria for Network Firewall to use to inspect an individual packet
+-- in a stateless rule inspection.
 newRuleGroupSourceStatelessRuleDefinition ::
   RuleGroupSourceStatelessRuleDefinition
 newRuleGroupSourceStatelessRuleDefinition =
   RuleGroupSourceStatelessRuleDefinition'
-    { matchAttributes =
+    { actions =
         Prelude.Nothing,
-      actions = Prelude.Nothing
+      matchAttributes = Prelude.Nothing
     }
-
--- | The criteria for Network Firewall to use to inspect an individual packet
--- in a stateless rule inspection.
-ruleGroupSourceStatelessRuleDefinition_matchAttributes :: Lens.Lens' RuleGroupSourceStatelessRuleDefinition (Prelude.Maybe RuleGroupSourceStatelessRuleMatchAttributes)
-ruleGroupSourceStatelessRuleDefinition_matchAttributes = Lens.lens (\RuleGroupSourceStatelessRuleDefinition' {matchAttributes} -> matchAttributes) (\s@RuleGroupSourceStatelessRuleDefinition' {} a -> s {matchAttributes = a} :: RuleGroupSourceStatelessRuleDefinition)
 
 -- | The actions to take on a packet that matches one of the stateless rule
 -- definition\'s match attributes. You must specify a standard action
@@ -75,6 +70,11 @@ ruleGroupSourceStatelessRuleDefinition_matchAttributes = Lens.lens (\RuleGroupSo
 -- custom actions.
 ruleGroupSourceStatelessRuleDefinition_actions :: Lens.Lens' RuleGroupSourceStatelessRuleDefinition (Prelude.Maybe [Prelude.Text])
 ruleGroupSourceStatelessRuleDefinition_actions = Lens.lens (\RuleGroupSourceStatelessRuleDefinition' {actions} -> actions) (\s@RuleGroupSourceStatelessRuleDefinition' {} a -> s {actions = a} :: RuleGroupSourceStatelessRuleDefinition) Prelude.. Lens.mapping Lens.coerced
+
+-- | The criteria for Network Firewall to use to inspect an individual packet
+-- in a stateless rule inspection.
+ruleGroupSourceStatelessRuleDefinition_matchAttributes :: Lens.Lens' RuleGroupSourceStatelessRuleDefinition (Prelude.Maybe RuleGroupSourceStatelessRuleMatchAttributes)
+ruleGroupSourceStatelessRuleDefinition_matchAttributes = Lens.lens (\RuleGroupSourceStatelessRuleDefinition' {matchAttributes} -> matchAttributes) (\s@RuleGroupSourceStatelessRuleDefinition' {} a -> s {matchAttributes = a} :: RuleGroupSourceStatelessRuleDefinition)
 
 instance
   Data.FromJSON
@@ -85,8 +85,8 @@ instance
       "RuleGroupSourceStatelessRuleDefinition"
       ( \x ->
           RuleGroupSourceStatelessRuleDefinition'
-            Prelude.<$> (x Data..:? "MatchAttributes")
-            Prelude.<*> (x Data..:? "Actions" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Actions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "MatchAttributes")
       )
 
 instance
@@ -96,16 +96,16 @@ instance
   hashWithSalt
     _salt
     RuleGroupSourceStatelessRuleDefinition' {..} =
-      _salt `Prelude.hashWithSalt` matchAttributes
-        `Prelude.hashWithSalt` actions
+      _salt `Prelude.hashWithSalt` actions
+        `Prelude.hashWithSalt` matchAttributes
 
 instance
   Prelude.NFData
     RuleGroupSourceStatelessRuleDefinition
   where
   rnf RuleGroupSourceStatelessRuleDefinition' {..} =
-    Prelude.rnf matchAttributes
-      `Prelude.seq` Prelude.rnf actions
+    Prelude.rnf actions
+      `Prelude.seq` Prelude.rnf matchAttributes
 
 instance
   Data.ToJSON
@@ -114,8 +114,8 @@ instance
   toJSON RuleGroupSourceStatelessRuleDefinition' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("MatchAttributes" Data..=)
-              Prelude.<$> matchAttributes,
-            ("Actions" Data..=) Prelude.<$> actions
+          [ ("Actions" Data..=) Prelude.<$> actions,
+            ("MatchAttributes" Data..=)
+              Prelude.<$> matchAttributes
           ]
       )

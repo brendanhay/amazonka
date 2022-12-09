@@ -30,7 +30,9 @@ import Amazonka.SecurityHub.Types.AwsWafRegionalRulePredicateListDetails
 --
 -- /See:/ 'newAwsWafRegionalRuleDetails' smart constructor.
 data AwsWafRegionalRuleDetails = AwsWafRegionalRuleDetails'
-  { -- | A descriptive name for the rule.
+  { -- | A name for the metrics for the rule.
+    metricName :: Prelude.Maybe Prelude.Text,
+    -- | A descriptive name for the rule.
     name :: Prelude.Maybe Prelude.Text,
     -- | Specifies the @ByteMatchSet@, @IPSet@, @SqlInjectionMatchSet@,
     -- @XssMatchSet@, @RegexMatchSet@, @GeoMatchSet@, and @SizeConstraintSet@
@@ -38,9 +40,7 @@ data AwsWafRegionalRuleDetails = AwsWafRegionalRuleDetails'
     -- whether you want to negate the settings.
     predicateList :: Prelude.Maybe [AwsWafRegionalRulePredicateListDetails],
     -- | The ID of the rule.
-    ruleId :: Prelude.Maybe Prelude.Text,
-    -- | A name for the metrics for the rule.
-    metricName :: Prelude.Maybe Prelude.Text
+    ruleId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,6 +52,8 @@ data AwsWafRegionalRuleDetails = AwsWafRegionalRuleDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'metricName', 'awsWafRegionalRuleDetails_metricName' - A name for the metrics for the rule.
+--
 -- 'name', 'awsWafRegionalRuleDetails_name' - A descriptive name for the rule.
 --
 -- 'predicateList', 'awsWafRegionalRuleDetails_predicateList' - Specifies the @ByteMatchSet@, @IPSet@, @SqlInjectionMatchSet@,
@@ -60,17 +62,20 @@ data AwsWafRegionalRuleDetails = AwsWafRegionalRuleDetails'
 -- whether you want to negate the settings.
 --
 -- 'ruleId', 'awsWafRegionalRuleDetails_ruleId' - The ID of the rule.
---
--- 'metricName', 'awsWafRegionalRuleDetails_metricName' - A name for the metrics for the rule.
 newAwsWafRegionalRuleDetails ::
   AwsWafRegionalRuleDetails
 newAwsWafRegionalRuleDetails =
   AwsWafRegionalRuleDetails'
-    { name = Prelude.Nothing,
+    { metricName =
+        Prelude.Nothing,
+      name = Prelude.Nothing,
       predicateList = Prelude.Nothing,
-      ruleId = Prelude.Nothing,
-      metricName = Prelude.Nothing
+      ruleId = Prelude.Nothing
     }
+
+-- | A name for the metrics for the rule.
+awsWafRegionalRuleDetails_metricName :: Lens.Lens' AwsWafRegionalRuleDetails (Prelude.Maybe Prelude.Text)
+awsWafRegionalRuleDetails_metricName = Lens.lens (\AwsWafRegionalRuleDetails' {metricName} -> metricName) (\s@AwsWafRegionalRuleDetails' {} a -> s {metricName = a} :: AwsWafRegionalRuleDetails)
 
 -- | A descriptive name for the rule.
 awsWafRegionalRuleDetails_name :: Lens.Lens' AwsWafRegionalRuleDetails (Prelude.Maybe Prelude.Text)
@@ -87,43 +92,39 @@ awsWafRegionalRuleDetails_predicateList = Lens.lens (\AwsWafRegionalRuleDetails'
 awsWafRegionalRuleDetails_ruleId :: Lens.Lens' AwsWafRegionalRuleDetails (Prelude.Maybe Prelude.Text)
 awsWafRegionalRuleDetails_ruleId = Lens.lens (\AwsWafRegionalRuleDetails' {ruleId} -> ruleId) (\s@AwsWafRegionalRuleDetails' {} a -> s {ruleId = a} :: AwsWafRegionalRuleDetails)
 
--- | A name for the metrics for the rule.
-awsWafRegionalRuleDetails_metricName :: Lens.Lens' AwsWafRegionalRuleDetails (Prelude.Maybe Prelude.Text)
-awsWafRegionalRuleDetails_metricName = Lens.lens (\AwsWafRegionalRuleDetails' {metricName} -> metricName) (\s@AwsWafRegionalRuleDetails' {} a -> s {metricName = a} :: AwsWafRegionalRuleDetails)
-
 instance Data.FromJSON AwsWafRegionalRuleDetails where
   parseJSON =
     Data.withObject
       "AwsWafRegionalRuleDetails"
       ( \x ->
           AwsWafRegionalRuleDetails'
-            Prelude.<$> (x Data..:? "Name")
+            Prelude.<$> (x Data..:? "MetricName")
+            Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "PredicateList" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "RuleId")
-            Prelude.<*> (x Data..:? "MetricName")
       )
 
 instance Prelude.Hashable AwsWafRegionalRuleDetails where
   hashWithSalt _salt AwsWafRegionalRuleDetails' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` predicateList
       `Prelude.hashWithSalt` ruleId
-      `Prelude.hashWithSalt` metricName
 
 instance Prelude.NFData AwsWafRegionalRuleDetails where
   rnf AwsWafRegionalRuleDetails' {..} =
-    Prelude.rnf name
+    Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf predicateList
       `Prelude.seq` Prelude.rnf ruleId
-      `Prelude.seq` Prelude.rnf metricName
 
 instance Data.ToJSON AwsWafRegionalRuleDetails where
   toJSON AwsWafRegionalRuleDetails' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
+          [ ("MetricName" Data..=) Prelude.<$> metricName,
+            ("Name" Data..=) Prelude.<$> name,
             ("PredicateList" Data..=) Prelude.<$> predicateList,
-            ("RuleId" Data..=) Prelude.<$> ruleId,
-            ("MetricName" Data..=) Prelude.<$> metricName
+            ("RuleId" Data..=) Prelude.<$> ruleId
           ]
       )

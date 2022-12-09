@@ -33,12 +33,12 @@ data AwsRdsDbDomainMembership = AwsRdsDbDomainMembership'
     domain :: Prelude.Maybe Prelude.Text,
     -- | The fully qualified domain name of the Active Directory domain.
     fqdn :: Prelude.Maybe Prelude.Text,
-    -- | The status of the Active Directory Domain membership for the DB
-    -- instance.
-    status :: Prelude.Maybe Prelude.Text,
     -- | The name of the IAM role to use when making API calls to the Directory
     -- Service.
-    iamRoleName :: Prelude.Maybe Prelude.Text
+    iamRoleName :: Prelude.Maybe Prelude.Text,
+    -- | The status of the Active Directory Domain membership for the DB
+    -- instance.
+    status :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,19 +54,19 @@ data AwsRdsDbDomainMembership = AwsRdsDbDomainMembership'
 --
 -- 'fqdn', 'awsRdsDbDomainMembership_fqdn' - The fully qualified domain name of the Active Directory domain.
 --
--- 'status', 'awsRdsDbDomainMembership_status' - The status of the Active Directory Domain membership for the DB
--- instance.
---
 -- 'iamRoleName', 'awsRdsDbDomainMembership_iamRoleName' - The name of the IAM role to use when making API calls to the Directory
 -- Service.
+--
+-- 'status', 'awsRdsDbDomainMembership_status' - The status of the Active Directory Domain membership for the DB
+-- instance.
 newAwsRdsDbDomainMembership ::
   AwsRdsDbDomainMembership
 newAwsRdsDbDomainMembership =
   AwsRdsDbDomainMembership'
     { domain = Prelude.Nothing,
       fqdn = Prelude.Nothing,
-      status = Prelude.Nothing,
-      iamRoleName = Prelude.Nothing
+      iamRoleName = Prelude.Nothing,
+      status = Prelude.Nothing
     }
 
 -- | The identifier of the Active Directory domain.
@@ -77,15 +77,15 @@ awsRdsDbDomainMembership_domain = Lens.lens (\AwsRdsDbDomainMembership' {domain}
 awsRdsDbDomainMembership_fqdn :: Lens.Lens' AwsRdsDbDomainMembership (Prelude.Maybe Prelude.Text)
 awsRdsDbDomainMembership_fqdn = Lens.lens (\AwsRdsDbDomainMembership' {fqdn} -> fqdn) (\s@AwsRdsDbDomainMembership' {} a -> s {fqdn = a} :: AwsRdsDbDomainMembership)
 
--- | The status of the Active Directory Domain membership for the DB
--- instance.
-awsRdsDbDomainMembership_status :: Lens.Lens' AwsRdsDbDomainMembership (Prelude.Maybe Prelude.Text)
-awsRdsDbDomainMembership_status = Lens.lens (\AwsRdsDbDomainMembership' {status} -> status) (\s@AwsRdsDbDomainMembership' {} a -> s {status = a} :: AwsRdsDbDomainMembership)
-
 -- | The name of the IAM role to use when making API calls to the Directory
 -- Service.
 awsRdsDbDomainMembership_iamRoleName :: Lens.Lens' AwsRdsDbDomainMembership (Prelude.Maybe Prelude.Text)
 awsRdsDbDomainMembership_iamRoleName = Lens.lens (\AwsRdsDbDomainMembership' {iamRoleName} -> iamRoleName) (\s@AwsRdsDbDomainMembership' {} a -> s {iamRoleName = a} :: AwsRdsDbDomainMembership)
+
+-- | The status of the Active Directory Domain membership for the DB
+-- instance.
+awsRdsDbDomainMembership_status :: Lens.Lens' AwsRdsDbDomainMembership (Prelude.Maybe Prelude.Text)
+awsRdsDbDomainMembership_status = Lens.lens (\AwsRdsDbDomainMembership' {status} -> status) (\s@AwsRdsDbDomainMembership' {} a -> s {status = a} :: AwsRdsDbDomainMembership)
 
 instance Data.FromJSON AwsRdsDbDomainMembership where
   parseJSON =
@@ -95,23 +95,23 @@ instance Data.FromJSON AwsRdsDbDomainMembership where
           AwsRdsDbDomainMembership'
             Prelude.<$> (x Data..:? "Domain")
             Prelude.<*> (x Data..:? "Fqdn")
-            Prelude.<*> (x Data..:? "Status")
             Prelude.<*> (x Data..:? "IamRoleName")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance Prelude.Hashable AwsRdsDbDomainMembership where
   hashWithSalt _salt AwsRdsDbDomainMembership' {..} =
     _salt `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` fqdn
-      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` iamRoleName
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData AwsRdsDbDomainMembership where
   rnf AwsRdsDbDomainMembership' {..} =
     Prelude.rnf domain
       `Prelude.seq` Prelude.rnf fqdn
-      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf iamRoleName
+      `Prelude.seq` Prelude.rnf status
 
 instance Data.ToJSON AwsRdsDbDomainMembership where
   toJSON AwsRdsDbDomainMembership' {..} =
@@ -119,7 +119,7 @@ instance Data.ToJSON AwsRdsDbDomainMembership where
       ( Prelude.catMaybes
           [ ("Domain" Data..=) Prelude.<$> domain,
             ("Fqdn" Data..=) Prelude.<$> fqdn,
-            ("Status" Data..=) Prelude.<$> status,
-            ("IamRoleName" Data..=) Prelude.<$> iamRoleName
+            ("IamRoleName" Data..=) Prelude.<$> iamRoleName,
+            ("Status" Data..=) Prelude.<$> status
           ]
       )

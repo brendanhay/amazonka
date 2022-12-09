@@ -34,14 +34,14 @@ import Amazonka.SecurityHub.Types.ActionRemoteIpDetails
 --
 -- /See:/ 'newPortProbeDetail' smart constructor.
 data PortProbeDetail = PortProbeDetail'
-  { -- | Provides information about the remote IP address that performed the
-    -- scan.
-    remoteIpDetails :: Prelude.Maybe ActionRemoteIpDetails,
+  { -- | Provides information about the IP address where the scanned port is
+    -- located.
+    localIpDetails :: Prelude.Maybe ActionLocalIpDetails,
     -- | Provides information about the port that was scanned.
     localPortDetails :: Prelude.Maybe ActionLocalPortDetails,
-    -- | Provides information about the IP address where the scanned port is
-    -- located.
-    localIpDetails :: Prelude.Maybe ActionLocalIpDetails
+    -- | Provides information about the remote IP address that performed the
+    -- scan.
+    remoteIpDetails :: Prelude.Maybe ActionRemoteIpDetails
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,35 +53,35 @@ data PortProbeDetail = PortProbeDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'remoteIpDetails', 'portProbeDetail_remoteIpDetails' - Provides information about the remote IP address that performed the
--- scan.
+-- 'localIpDetails', 'portProbeDetail_localIpDetails' - Provides information about the IP address where the scanned port is
+-- located.
 --
 -- 'localPortDetails', 'portProbeDetail_localPortDetails' - Provides information about the port that was scanned.
 --
--- 'localIpDetails', 'portProbeDetail_localIpDetails' - Provides information about the IP address where the scanned port is
--- located.
+-- 'remoteIpDetails', 'portProbeDetail_remoteIpDetails' - Provides information about the remote IP address that performed the
+-- scan.
 newPortProbeDetail ::
   PortProbeDetail
 newPortProbeDetail =
   PortProbeDetail'
-    { remoteIpDetails = Prelude.Nothing,
+    { localIpDetails = Prelude.Nothing,
       localPortDetails = Prelude.Nothing,
-      localIpDetails = Prelude.Nothing
+      remoteIpDetails = Prelude.Nothing
     }
-
--- | Provides information about the remote IP address that performed the
--- scan.
-portProbeDetail_remoteIpDetails :: Lens.Lens' PortProbeDetail (Prelude.Maybe ActionRemoteIpDetails)
-portProbeDetail_remoteIpDetails = Lens.lens (\PortProbeDetail' {remoteIpDetails} -> remoteIpDetails) (\s@PortProbeDetail' {} a -> s {remoteIpDetails = a} :: PortProbeDetail)
-
--- | Provides information about the port that was scanned.
-portProbeDetail_localPortDetails :: Lens.Lens' PortProbeDetail (Prelude.Maybe ActionLocalPortDetails)
-portProbeDetail_localPortDetails = Lens.lens (\PortProbeDetail' {localPortDetails} -> localPortDetails) (\s@PortProbeDetail' {} a -> s {localPortDetails = a} :: PortProbeDetail)
 
 -- | Provides information about the IP address where the scanned port is
 -- located.
 portProbeDetail_localIpDetails :: Lens.Lens' PortProbeDetail (Prelude.Maybe ActionLocalIpDetails)
 portProbeDetail_localIpDetails = Lens.lens (\PortProbeDetail' {localIpDetails} -> localIpDetails) (\s@PortProbeDetail' {} a -> s {localIpDetails = a} :: PortProbeDetail)
+
+-- | Provides information about the port that was scanned.
+portProbeDetail_localPortDetails :: Lens.Lens' PortProbeDetail (Prelude.Maybe ActionLocalPortDetails)
+portProbeDetail_localPortDetails = Lens.lens (\PortProbeDetail' {localPortDetails} -> localPortDetails) (\s@PortProbeDetail' {} a -> s {localPortDetails = a} :: PortProbeDetail)
+
+-- | Provides information about the remote IP address that performed the
+-- scan.
+portProbeDetail_remoteIpDetails :: Lens.Lens' PortProbeDetail (Prelude.Maybe ActionRemoteIpDetails)
+portProbeDetail_remoteIpDetails = Lens.lens (\PortProbeDetail' {remoteIpDetails} -> remoteIpDetails) (\s@PortProbeDetail' {} a -> s {remoteIpDetails = a} :: PortProbeDetail)
 
 instance Data.FromJSON PortProbeDetail where
   parseJSON =
@@ -89,32 +89,32 @@ instance Data.FromJSON PortProbeDetail where
       "PortProbeDetail"
       ( \x ->
           PortProbeDetail'
-            Prelude.<$> (x Data..:? "RemoteIpDetails")
+            Prelude.<$> (x Data..:? "LocalIpDetails")
             Prelude.<*> (x Data..:? "LocalPortDetails")
-            Prelude.<*> (x Data..:? "LocalIpDetails")
+            Prelude.<*> (x Data..:? "RemoteIpDetails")
       )
 
 instance Prelude.Hashable PortProbeDetail where
   hashWithSalt _salt PortProbeDetail' {..} =
-    _salt `Prelude.hashWithSalt` remoteIpDetails
+    _salt `Prelude.hashWithSalt` localIpDetails
       `Prelude.hashWithSalt` localPortDetails
-      `Prelude.hashWithSalt` localIpDetails
+      `Prelude.hashWithSalt` remoteIpDetails
 
 instance Prelude.NFData PortProbeDetail where
   rnf PortProbeDetail' {..} =
-    Prelude.rnf remoteIpDetails
+    Prelude.rnf localIpDetails
       `Prelude.seq` Prelude.rnf localPortDetails
-      `Prelude.seq` Prelude.rnf localIpDetails
+      `Prelude.seq` Prelude.rnf remoteIpDetails
 
 instance Data.ToJSON PortProbeDetail where
   toJSON PortProbeDetail' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("RemoteIpDetails" Data..=)
-              Prelude.<$> remoteIpDetails,
+          [ ("LocalIpDetails" Data..=)
+              Prelude.<$> localIpDetails,
             ("LocalPortDetails" Data..=)
               Prelude.<$> localPortDetails,
-            ("LocalIpDetails" Data..=)
-              Prelude.<$> localIpDetails
+            ("RemoteIpDetails" Data..=)
+              Prelude.<$> remoteIpDetails
           ]
       )

@@ -28,7 +28,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails' smart constructor.
 data AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails = AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails'
-  { -- | The type of the ulimit. Valid values are as follows:
+  { -- | The hard limit for the ulimit type.
+    hardLimit :: Prelude.Maybe Prelude.Int,
+    -- | The type of the ulimit. Valid values are as follows:
     --
     -- -   @core@
     --
@@ -61,9 +63,7 @@ data AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails = AwsEcsTaskDefiniti
     -- -   @stack@
     name :: Prelude.Maybe Prelude.Text,
     -- | The soft limit for the ulimit type.
-    softLimit :: Prelude.Maybe Prelude.Int,
-    -- | The hard limit for the ulimit type.
-    hardLimit :: Prelude.Maybe Prelude.Int
+    softLimit :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,6 +74,8 @@ data AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails = AwsEcsTaskDefiniti
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'hardLimit', 'awsEcsTaskDefinitionContainerDefinitionsUlimitsDetails_hardLimit' - The hard limit for the ulimit type.
 --
 -- 'name', 'awsEcsTaskDefinitionContainerDefinitionsUlimitsDetails_name' - The type of the ulimit. Valid values are as follows:
 --
@@ -108,19 +110,21 @@ data AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails = AwsEcsTaskDefiniti
 -- -   @stack@
 --
 -- 'softLimit', 'awsEcsTaskDefinitionContainerDefinitionsUlimitsDetails_softLimit' - The soft limit for the ulimit type.
---
--- 'hardLimit', 'awsEcsTaskDefinitionContainerDefinitionsUlimitsDetails_hardLimit' - The hard limit for the ulimit type.
 newAwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails ::
   AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
 newAwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails =
   AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails'
-    { name =
+    { hardLimit =
+        Prelude.Nothing,
+      name =
         Prelude.Nothing,
       softLimit =
-        Prelude.Nothing,
-      hardLimit =
         Prelude.Nothing
     }
+
+-- | The hard limit for the ulimit type.
+awsEcsTaskDefinitionContainerDefinitionsUlimitsDetails_hardLimit :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails (Prelude.Maybe Prelude.Int)
+awsEcsTaskDefinitionContainerDefinitionsUlimitsDetails_hardLimit = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails' {hardLimit} -> hardLimit) (\s@AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails' {} a -> s {hardLimit = a} :: AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails)
 
 -- | The type of the ulimit. Valid values are as follows:
 --
@@ -160,10 +164,6 @@ awsEcsTaskDefinitionContainerDefinitionsUlimitsDetails_name = Lens.lens (\AwsEcs
 awsEcsTaskDefinitionContainerDefinitionsUlimitsDetails_softLimit :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails (Prelude.Maybe Prelude.Int)
 awsEcsTaskDefinitionContainerDefinitionsUlimitsDetails_softLimit = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails' {softLimit} -> softLimit) (\s@AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails' {} a -> s {softLimit = a} :: AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails)
 
--- | The hard limit for the ulimit type.
-awsEcsTaskDefinitionContainerDefinitionsUlimitsDetails_hardLimit :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails (Prelude.Maybe Prelude.Int)
-awsEcsTaskDefinitionContainerDefinitionsUlimitsDetails_hardLimit = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails' {hardLimit} -> hardLimit) (\s@AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails' {} a -> s {hardLimit = a} :: AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails)
-
 instance
   Data.FromJSON
     AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
@@ -173,9 +173,9 @@ instance
       "AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails"
       ( \x ->
           AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails'
-            Prelude.<$> (x Data..:? "Name")
+            Prelude.<$> (x Data..:? "HardLimit")
+              Prelude.<*> (x Data..:? "Name")
               Prelude.<*> (x Data..:? "SoftLimit")
-              Prelude.<*> (x Data..:? "HardLimit")
       )
 
 instance
@@ -185,9 +185,9 @@ instance
   hashWithSalt
     _salt
     AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails' {..} =
-      _salt `Prelude.hashWithSalt` name
+      _salt `Prelude.hashWithSalt` hardLimit
+        `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` softLimit
-        `Prelude.hashWithSalt` hardLimit
 
 instance
   Prelude.NFData
@@ -195,9 +195,9 @@ instance
   where
   rnf
     AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails' {..} =
-      Prelude.rnf name
+      Prelude.rnf hardLimit
+        `Prelude.seq` Prelude.rnf name
         `Prelude.seq` Prelude.rnf softLimit
-        `Prelude.seq` Prelude.rnf hardLimit
 
 instance
   Data.ToJSON
@@ -207,8 +207,8 @@ instance
     AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ ("Name" Data..=) Prelude.<$> name,
-              ("SoftLimit" Data..=) Prelude.<$> softLimit,
-              ("HardLimit" Data..=) Prelude.<$> hardLimit
+            [ ("HardLimit" Data..=) Prelude.<$> hardLimit,
+              ("Name" Data..=) Prelude.<$> name,
+              ("SoftLimit" Data..=) Prelude.<$> softLimit
             ]
         )

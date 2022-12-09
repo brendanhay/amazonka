@@ -28,8 +28,8 @@ module Amazonka.SecurityHub.UpdateActionTarget
     newUpdateActionTarget,
 
     -- * Request Lenses
-    updateActionTarget_name,
     updateActionTarget_description,
+    updateActionTarget_name,
     updateActionTarget_actionTargetArn,
 
     -- * Destructuring the Response
@@ -51,10 +51,10 @@ import Amazonka.SecurityHub.Types
 
 -- | /See:/ 'newUpdateActionTarget' smart constructor.
 data UpdateActionTarget = UpdateActionTarget'
-  { -- | The updated name of the custom action target.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The updated description for the custom action target.
+  { -- | The updated description for the custom action target.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The updated name of the custom action target.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the custom action target to update.
     actionTargetArn :: Prelude.Text
   }
@@ -68,9 +68,9 @@ data UpdateActionTarget = UpdateActionTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateActionTarget_name' - The updated name of the custom action target.
---
 -- 'description', 'updateActionTarget_description' - The updated description for the custom action target.
+--
+-- 'name', 'updateActionTarget_name' - The updated name of the custom action target.
 --
 -- 'actionTargetArn', 'updateActionTarget_actionTargetArn' - The ARN of the custom action target to update.
 newUpdateActionTarget ::
@@ -79,18 +79,18 @@ newUpdateActionTarget ::
   UpdateActionTarget
 newUpdateActionTarget pActionTargetArn_ =
   UpdateActionTarget'
-    { name = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      name = Prelude.Nothing,
       actionTargetArn = pActionTargetArn_
     }
-
--- | The updated name of the custom action target.
-updateActionTarget_name :: Lens.Lens' UpdateActionTarget (Prelude.Maybe Prelude.Text)
-updateActionTarget_name = Lens.lens (\UpdateActionTarget' {name} -> name) (\s@UpdateActionTarget' {} a -> s {name = a} :: UpdateActionTarget)
 
 -- | The updated description for the custom action target.
 updateActionTarget_description :: Lens.Lens' UpdateActionTarget (Prelude.Maybe Prelude.Text)
 updateActionTarget_description = Lens.lens (\UpdateActionTarget' {description} -> description) (\s@UpdateActionTarget' {} a -> s {description = a} :: UpdateActionTarget)
+
+-- | The updated name of the custom action target.
+updateActionTarget_name :: Lens.Lens' UpdateActionTarget (Prelude.Maybe Prelude.Text)
+updateActionTarget_name = Lens.lens (\UpdateActionTarget' {name} -> name) (\s@UpdateActionTarget' {} a -> s {name = a} :: UpdateActionTarget)
 
 -- | The ARN of the custom action target to update.
 updateActionTarget_actionTargetArn :: Lens.Lens' UpdateActionTarget Prelude.Text
@@ -111,14 +111,14 @@ instance Core.AWSRequest UpdateActionTarget where
 
 instance Prelude.Hashable UpdateActionTarget where
   hashWithSalt _salt UpdateActionTarget' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` actionTargetArn
 
 instance Prelude.NFData UpdateActionTarget where
   rnf UpdateActionTarget' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf actionTargetArn
 
 instance Data.ToHeaders UpdateActionTarget where
@@ -136,8 +136,8 @@ instance Data.ToJSON UpdateActionTarget where
   toJSON UpdateActionTarget' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
-            ("Description" Data..=) Prelude.<$> description
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("Name" Data..=) Prelude.<$> name
           ]
       )
 

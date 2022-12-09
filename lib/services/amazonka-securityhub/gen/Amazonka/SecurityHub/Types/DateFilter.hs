@@ -29,12 +29,12 @@ import Amazonka.SecurityHub.Types.DateRange
 --
 -- /See:/ 'newDateFilter' smart constructor.
 data DateFilter = DateFilter'
-  { -- | A start date for the date filter.
-    start :: Prelude.Maybe Prelude.Text,
-    -- | A date range for the date filter.
+  { -- | A date range for the date filter.
     dateRange :: Prelude.Maybe DateRange,
     -- | An end date for the date filter.
-    end :: Prelude.Maybe Prelude.Text
+    end :: Prelude.Maybe Prelude.Text,
+    -- | A start date for the date filter.
+    start :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,23 +46,19 @@ data DateFilter = DateFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'start', 'dateFilter_start' - A start date for the date filter.
---
 -- 'dateRange', 'dateFilter_dateRange' - A date range for the date filter.
 --
 -- 'end', 'dateFilter_end' - An end date for the date filter.
+--
+-- 'start', 'dateFilter_start' - A start date for the date filter.
 newDateFilter ::
   DateFilter
 newDateFilter =
   DateFilter'
-    { start = Prelude.Nothing,
-      dateRange = Prelude.Nothing,
-      end = Prelude.Nothing
+    { dateRange = Prelude.Nothing,
+      end = Prelude.Nothing,
+      start = Prelude.Nothing
     }
-
--- | A start date for the date filter.
-dateFilter_start :: Lens.Lens' DateFilter (Prelude.Maybe Prelude.Text)
-dateFilter_start = Lens.lens (\DateFilter' {start} -> start) (\s@DateFilter' {} a -> s {start = a} :: DateFilter)
 
 -- | A date range for the date filter.
 dateFilter_dateRange :: Lens.Lens' DateFilter (Prelude.Maybe DateRange)
@@ -72,35 +68,39 @@ dateFilter_dateRange = Lens.lens (\DateFilter' {dateRange} -> dateRange) (\s@Dat
 dateFilter_end :: Lens.Lens' DateFilter (Prelude.Maybe Prelude.Text)
 dateFilter_end = Lens.lens (\DateFilter' {end} -> end) (\s@DateFilter' {} a -> s {end = a} :: DateFilter)
 
+-- | A start date for the date filter.
+dateFilter_start :: Lens.Lens' DateFilter (Prelude.Maybe Prelude.Text)
+dateFilter_start = Lens.lens (\DateFilter' {start} -> start) (\s@DateFilter' {} a -> s {start = a} :: DateFilter)
+
 instance Data.FromJSON DateFilter where
   parseJSON =
     Data.withObject
       "DateFilter"
       ( \x ->
           DateFilter'
-            Prelude.<$> (x Data..:? "Start")
-            Prelude.<*> (x Data..:? "DateRange")
+            Prelude.<$> (x Data..:? "DateRange")
             Prelude.<*> (x Data..:? "End")
+            Prelude.<*> (x Data..:? "Start")
       )
 
 instance Prelude.Hashable DateFilter where
   hashWithSalt _salt DateFilter' {..} =
-    _salt `Prelude.hashWithSalt` start
-      `Prelude.hashWithSalt` dateRange
+    _salt `Prelude.hashWithSalt` dateRange
       `Prelude.hashWithSalt` end
+      `Prelude.hashWithSalt` start
 
 instance Prelude.NFData DateFilter where
   rnf DateFilter' {..} =
-    Prelude.rnf start
-      `Prelude.seq` Prelude.rnf dateRange
+    Prelude.rnf dateRange
       `Prelude.seq` Prelude.rnf end
+      `Prelude.seq` Prelude.rnf start
 
 instance Data.ToJSON DateFilter where
   toJSON DateFilter' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Start" Data..=) Prelude.<$> start,
-            ("DateRange" Data..=) Prelude.<$> dateRange,
-            ("End" Data..=) Prelude.<$> end
+          [ ("DateRange" Data..=) Prelude.<$> dateRange,
+            ("End" Data..=) Prelude.<$> end,
+            ("Start" Data..=) Prelude.<$> start
           ]
       )

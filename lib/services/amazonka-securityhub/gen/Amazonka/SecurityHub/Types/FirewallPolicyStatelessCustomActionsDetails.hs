@@ -29,10 +29,10 @@ import Amazonka.SecurityHub.Types.StatelessCustomActionDefinition
 --
 -- /See:/ 'newFirewallPolicyStatelessCustomActionsDetails' smart constructor.
 data FirewallPolicyStatelessCustomActionsDetails = FirewallPolicyStatelessCustomActionsDetails'
-  { -- | The name of the custom action.
-    actionName :: Prelude.Maybe Prelude.Text,
-    -- | The definition of the custom action.
-    actionDefinition :: Prelude.Maybe StatelessCustomActionDefinition
+  { -- | The definition of the custom action.
+    actionDefinition :: Prelude.Maybe StatelessCustomActionDefinition,
+    -- | The name of the custom action.
+    actionName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,26 +44,25 @@ data FirewallPolicyStatelessCustomActionsDetails = FirewallPolicyStatelessCustom
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'actionName', 'firewallPolicyStatelessCustomActionsDetails_actionName' - The name of the custom action.
---
 -- 'actionDefinition', 'firewallPolicyStatelessCustomActionsDetails_actionDefinition' - The definition of the custom action.
+--
+-- 'actionName', 'firewallPolicyStatelessCustomActionsDetails_actionName' - The name of the custom action.
 newFirewallPolicyStatelessCustomActionsDetails ::
   FirewallPolicyStatelessCustomActionsDetails
 newFirewallPolicyStatelessCustomActionsDetails =
   FirewallPolicyStatelessCustomActionsDetails'
-    { actionName =
+    { actionDefinition =
         Prelude.Nothing,
-      actionDefinition =
-        Prelude.Nothing
+      actionName = Prelude.Nothing
     }
-
--- | The name of the custom action.
-firewallPolicyStatelessCustomActionsDetails_actionName :: Lens.Lens' FirewallPolicyStatelessCustomActionsDetails (Prelude.Maybe Prelude.Text)
-firewallPolicyStatelessCustomActionsDetails_actionName = Lens.lens (\FirewallPolicyStatelessCustomActionsDetails' {actionName} -> actionName) (\s@FirewallPolicyStatelessCustomActionsDetails' {} a -> s {actionName = a} :: FirewallPolicyStatelessCustomActionsDetails)
 
 -- | The definition of the custom action.
 firewallPolicyStatelessCustomActionsDetails_actionDefinition :: Lens.Lens' FirewallPolicyStatelessCustomActionsDetails (Prelude.Maybe StatelessCustomActionDefinition)
 firewallPolicyStatelessCustomActionsDetails_actionDefinition = Lens.lens (\FirewallPolicyStatelessCustomActionsDetails' {actionDefinition} -> actionDefinition) (\s@FirewallPolicyStatelessCustomActionsDetails' {} a -> s {actionDefinition = a} :: FirewallPolicyStatelessCustomActionsDetails)
+
+-- | The name of the custom action.
+firewallPolicyStatelessCustomActionsDetails_actionName :: Lens.Lens' FirewallPolicyStatelessCustomActionsDetails (Prelude.Maybe Prelude.Text)
+firewallPolicyStatelessCustomActionsDetails_actionName = Lens.lens (\FirewallPolicyStatelessCustomActionsDetails' {actionName} -> actionName) (\s@FirewallPolicyStatelessCustomActionsDetails' {} a -> s {actionName = a} :: FirewallPolicyStatelessCustomActionsDetails)
 
 instance
   Data.FromJSON
@@ -74,8 +73,8 @@ instance
       "FirewallPolicyStatelessCustomActionsDetails"
       ( \x ->
           FirewallPolicyStatelessCustomActionsDetails'
-            Prelude.<$> (x Data..:? "ActionName")
-              Prelude.<*> (x Data..:? "ActionDefinition")
+            Prelude.<$> (x Data..:? "ActionDefinition")
+              Prelude.<*> (x Data..:? "ActionName")
       )
 
 instance
@@ -85,16 +84,16 @@ instance
   hashWithSalt
     _salt
     FirewallPolicyStatelessCustomActionsDetails' {..} =
-      _salt `Prelude.hashWithSalt` actionName
-        `Prelude.hashWithSalt` actionDefinition
+      _salt `Prelude.hashWithSalt` actionDefinition
+        `Prelude.hashWithSalt` actionName
 
 instance
   Prelude.NFData
     FirewallPolicyStatelessCustomActionsDetails
   where
   rnf FirewallPolicyStatelessCustomActionsDetails' {..} =
-    Prelude.rnf actionName
-      `Prelude.seq` Prelude.rnf actionDefinition
+    Prelude.rnf actionDefinition
+      `Prelude.seq` Prelude.rnf actionName
 
 instance
   Data.ToJSON
@@ -104,8 +103,8 @@ instance
     FirewallPolicyStatelessCustomActionsDetails' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ ("ActionName" Data..=) Prelude.<$> actionName,
-              ("ActionDefinition" Data..=)
-                Prelude.<$> actionDefinition
+            [ ("ActionDefinition" Data..=)
+                Prelude.<$> actionDefinition,
+              ("ActionName" Data..=) Prelude.<$> actionName
             ]
         )

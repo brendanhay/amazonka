@@ -29,7 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsDynamoDbTableProjection' smart constructor.
 data AwsDynamoDbTableProjection = AwsDynamoDbTableProjection'
-  { -- | The types of attributes that are projected into the index. Valid values
+  { -- | The nonkey attributes that are projected into the index. For each
+    -- attribute, provide the attribute name.
+    nonKeyAttributes :: Prelude.Maybe [Prelude.Text],
+    -- | The types of attributes that are projected into the index. Valid values
     -- are as follows:
     --
     -- -   @ALL@
@@ -37,10 +40,7 @@ data AwsDynamoDbTableProjection = AwsDynamoDbTableProjection'
     -- -   @INCLUDE@
     --
     -- -   @KEYS_ONLY@
-    projectionType :: Prelude.Maybe Prelude.Text,
-    -- | The nonkey attributes that are projected into the index. For each
-    -- attribute, provide the attribute name.
-    nonKeyAttributes :: Prelude.Maybe [Prelude.Text]
+    projectionType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,6 +52,9 @@ data AwsDynamoDbTableProjection = AwsDynamoDbTableProjection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nonKeyAttributes', 'awsDynamoDbTableProjection_nonKeyAttributes' - The nonkey attributes that are projected into the index. For each
+-- attribute, provide the attribute name.
+--
 -- 'projectionType', 'awsDynamoDbTableProjection_projectionType' - The types of attributes that are projected into the index. Valid values
 -- are as follows:
 --
@@ -60,17 +63,19 @@ data AwsDynamoDbTableProjection = AwsDynamoDbTableProjection'
 -- -   @INCLUDE@
 --
 -- -   @KEYS_ONLY@
---
--- 'nonKeyAttributes', 'awsDynamoDbTableProjection_nonKeyAttributes' - The nonkey attributes that are projected into the index. For each
--- attribute, provide the attribute name.
 newAwsDynamoDbTableProjection ::
   AwsDynamoDbTableProjection
 newAwsDynamoDbTableProjection =
   AwsDynamoDbTableProjection'
-    { projectionType =
+    { nonKeyAttributes =
         Prelude.Nothing,
-      nonKeyAttributes = Prelude.Nothing
+      projectionType = Prelude.Nothing
     }
+
+-- | The nonkey attributes that are projected into the index. For each
+-- attribute, provide the attribute name.
+awsDynamoDbTableProjection_nonKeyAttributes :: Lens.Lens' AwsDynamoDbTableProjection (Prelude.Maybe [Prelude.Text])
+awsDynamoDbTableProjection_nonKeyAttributes = Lens.lens (\AwsDynamoDbTableProjection' {nonKeyAttributes} -> nonKeyAttributes) (\s@AwsDynamoDbTableProjection' {} a -> s {nonKeyAttributes = a} :: AwsDynamoDbTableProjection) Prelude.. Lens.mapping Lens.coerced
 
 -- | The types of attributes that are projected into the index. Valid values
 -- are as follows:
@@ -83,40 +88,35 @@ newAwsDynamoDbTableProjection =
 awsDynamoDbTableProjection_projectionType :: Lens.Lens' AwsDynamoDbTableProjection (Prelude.Maybe Prelude.Text)
 awsDynamoDbTableProjection_projectionType = Lens.lens (\AwsDynamoDbTableProjection' {projectionType} -> projectionType) (\s@AwsDynamoDbTableProjection' {} a -> s {projectionType = a} :: AwsDynamoDbTableProjection)
 
--- | The nonkey attributes that are projected into the index. For each
--- attribute, provide the attribute name.
-awsDynamoDbTableProjection_nonKeyAttributes :: Lens.Lens' AwsDynamoDbTableProjection (Prelude.Maybe [Prelude.Text])
-awsDynamoDbTableProjection_nonKeyAttributes = Lens.lens (\AwsDynamoDbTableProjection' {nonKeyAttributes} -> nonKeyAttributes) (\s@AwsDynamoDbTableProjection' {} a -> s {nonKeyAttributes = a} :: AwsDynamoDbTableProjection) Prelude.. Lens.mapping Lens.coerced
-
 instance Data.FromJSON AwsDynamoDbTableProjection where
   parseJSON =
     Data.withObject
       "AwsDynamoDbTableProjection"
       ( \x ->
           AwsDynamoDbTableProjection'
-            Prelude.<$> (x Data..:? "ProjectionType")
-            Prelude.<*> ( x Data..:? "NonKeyAttributes"
+            Prelude.<$> ( x Data..:? "NonKeyAttributes"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "ProjectionType")
       )
 
 instance Prelude.Hashable AwsDynamoDbTableProjection where
   hashWithSalt _salt AwsDynamoDbTableProjection' {..} =
-    _salt `Prelude.hashWithSalt` projectionType
-      `Prelude.hashWithSalt` nonKeyAttributes
+    _salt `Prelude.hashWithSalt` nonKeyAttributes
+      `Prelude.hashWithSalt` projectionType
 
 instance Prelude.NFData AwsDynamoDbTableProjection where
   rnf AwsDynamoDbTableProjection' {..} =
-    Prelude.rnf projectionType
-      `Prelude.seq` Prelude.rnf nonKeyAttributes
+    Prelude.rnf nonKeyAttributes
+      `Prelude.seq` Prelude.rnf projectionType
 
 instance Data.ToJSON AwsDynamoDbTableProjection where
   toJSON AwsDynamoDbTableProjection' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ProjectionType" Data..=)
-              Prelude.<$> projectionType,
-            ("NonKeyAttributes" Data..=)
-              Prelude.<$> nonKeyAttributes
+          [ ("NonKeyAttributes" Data..=)
+              Prelude.<$> nonKeyAttributes,
+            ("ProjectionType" Data..=)
+              Prelude.<$> projectionType
           ]
       )

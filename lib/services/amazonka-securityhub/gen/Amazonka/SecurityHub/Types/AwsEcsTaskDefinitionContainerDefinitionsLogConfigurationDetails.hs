@@ -29,9 +29,7 @@ import Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLogCon
 --
 -- /See:/ 'newAwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails' smart constructor.
 data AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails = AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails'
-  { -- | The secrets to pass to the log configuration.
-    secretOptions :: Prelude.Maybe [AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails],
-    -- | The log driver to use for the container.
+  { -- | The log driver to use for the container.
     --
     -- Valid values on Fargate are as follows:
     --
@@ -63,7 +61,9 @@ data AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails = AwsEcsTas
     logDriver :: Prelude.Maybe Prelude.Text,
     -- | The configuration options to send to the log driver. Requires version
     -- 1.19 of the Docker Remote API or greater on your container instance.
-    options :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    options :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The secrets to pass to the log configuration.
+    secretOptions :: Prelude.Maybe [AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,8 +74,6 @@ data AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails = AwsEcsTas
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'secretOptions', 'awsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails_secretOptions' - The secrets to pass to the log configuration.
 --
 -- 'logDriver', 'awsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails_logDriver' - The log driver to use for the container.
 --
@@ -109,21 +107,19 @@ data AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails = AwsEcsTas
 --
 -- 'options', 'awsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails_options' - The configuration options to send to the log driver. Requires version
 -- 1.19 of the Docker Remote API or greater on your container instance.
+--
+-- 'secretOptions', 'awsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails_secretOptions' - The secrets to pass to the log configuration.
 newAwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails ::
   AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails
 newAwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails =
   AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails'
-    { secretOptions =
-        Prelude.Nothing,
-      logDriver =
+    { logDriver =
         Prelude.Nothing,
       options =
+        Prelude.Nothing,
+      secretOptions =
         Prelude.Nothing
     }
-
--- | The secrets to pass to the log configuration.
-awsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails_secretOptions :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails (Prelude.Maybe [AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails])
-awsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails_secretOptions = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails' {secretOptions} -> secretOptions) (\s@AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails' {} a -> s {secretOptions = a} :: AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails) Prelude.. Lens.mapping Lens.coerced
 
 -- | The log driver to use for the container.
 --
@@ -162,6 +158,10 @@ awsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails_logDriver = Lens
 awsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails_options :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 awsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails_options = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails' {options} -> options) (\s@AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails' {} a -> s {options = a} :: AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails) Prelude.. Lens.mapping Lens.coerced
 
+-- | The secrets to pass to the log configuration.
+awsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails_secretOptions :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails (Prelude.Maybe [AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails])
+awsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails_secretOptions = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails' {secretOptions} -> secretOptions) (\s@AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails' {} a -> s {secretOptions = a} :: AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails) Prelude.. Lens.mapping Lens.coerced
+
 instance
   Data.FromJSON
     AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails
@@ -171,9 +171,9 @@ instance
       "AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails"
       ( \x ->
           AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails'
-            Prelude.<$> (x Data..:? "SecretOptions" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "LogDriver")
+            Prelude.<$> (x Data..:? "LogDriver")
               Prelude.<*> (x Data..:? "Options" Data..!= Prelude.mempty)
+              Prelude.<*> (x Data..:? "SecretOptions" Data..!= Prelude.mempty)
       )
 
 instance
@@ -183,9 +183,9 @@ instance
   hashWithSalt
     _salt
     AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails' {..} =
-      _salt `Prelude.hashWithSalt` secretOptions
-        `Prelude.hashWithSalt` logDriver
+      _salt `Prelude.hashWithSalt` logDriver
         `Prelude.hashWithSalt` options
+        `Prelude.hashWithSalt` secretOptions
 
 instance
   Prelude.NFData
@@ -193,9 +193,9 @@ instance
   where
   rnf
     AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails' {..} =
-      Prelude.rnf secretOptions
-        `Prelude.seq` Prelude.rnf logDriver
+      Prelude.rnf logDriver
         `Prelude.seq` Prelude.rnf options
+        `Prelude.seq` Prelude.rnf secretOptions
 
 instance
   Data.ToJSON
@@ -205,8 +205,8 @@ instance
     AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ ("SecretOptions" Data..=) Prelude.<$> secretOptions,
-              ("LogDriver" Data..=) Prelude.<$> logDriver,
-              ("Options" Data..=) Prelude.<$> options
+            [ ("LogDriver" Data..=) Prelude.<$> logDriver,
+              ("Options" Data..=) Prelude.<$> options,
+              ("SecretOptions" Data..=) Prelude.<$> secretOptions
             ]
         )

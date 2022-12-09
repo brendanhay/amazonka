@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResult' smart constructor.
 data Result = Result'
-  { -- | The reason that the account was not processed.
-    processingResult :: Prelude.Maybe Prelude.Text,
-    -- | An Amazon Web Services account ID of the account that was not processed.
-    accountId :: Prelude.Maybe Prelude.Text
+  { -- | An Amazon Web Services account ID of the account that was not processed.
+    accountId :: Prelude.Maybe Prelude.Text,
+    -- | The reason that the account was not processed.
+    processingResult :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data Result = Result'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'processingResult', 'result_processingResult' - The reason that the account was not processed.
---
 -- 'accountId', 'result_accountId' - An Amazon Web Services account ID of the account that was not processed.
+--
+-- 'processingResult', 'result_processingResult' - The reason that the account was not processed.
 newResult ::
   Result
 newResult =
   Result'
-    { processingResult = Prelude.Nothing,
-      accountId = Prelude.Nothing
+    { accountId = Prelude.Nothing,
+      processingResult = Prelude.Nothing
     }
-
--- | The reason that the account was not processed.
-result_processingResult :: Lens.Lens' Result (Prelude.Maybe Prelude.Text)
-result_processingResult = Lens.lens (\Result' {processingResult} -> processingResult) (\s@Result' {} a -> s {processingResult = a} :: Result)
 
 -- | An Amazon Web Services account ID of the account that was not processed.
 result_accountId :: Lens.Lens' Result (Prelude.Maybe Prelude.Text)
 result_accountId = Lens.lens (\Result' {accountId} -> accountId) (\s@Result' {} a -> s {accountId = a} :: Result)
+
+-- | The reason that the account was not processed.
+result_processingResult :: Lens.Lens' Result (Prelude.Maybe Prelude.Text)
+result_processingResult = Lens.lens (\Result' {processingResult} -> processingResult) (\s@Result' {} a -> s {processingResult = a} :: Result)
 
 instance Data.FromJSON Result where
   parseJSON =
@@ -68,16 +68,16 @@ instance Data.FromJSON Result where
       "Result"
       ( \x ->
           Result'
-            Prelude.<$> (x Data..:? "ProcessingResult")
-            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<$> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "ProcessingResult")
       )
 
 instance Prelude.Hashable Result where
   hashWithSalt _salt Result' {..} =
-    _salt `Prelude.hashWithSalt` processingResult
-      `Prelude.hashWithSalt` accountId
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` processingResult
 
 instance Prelude.NFData Result where
   rnf Result' {..} =
-    Prelude.rnf processingResult
-      `Prelude.seq` Prelude.rnf accountId
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf processingResult

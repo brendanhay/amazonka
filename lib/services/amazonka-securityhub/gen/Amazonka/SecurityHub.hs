@@ -63,17 +63,17 @@ module Amazonka.SecurityHub
     -- * Errors
     -- $errors
 
-    -- ** InvalidInputException
-    _InvalidInputException,
+    -- ** AccessDeniedException
+    _AccessDeniedException,
+
+    -- ** InternalException
+    _InternalException,
 
     -- ** InvalidAccessException
     _InvalidAccessException,
 
-    -- ** AccessDeniedException
-    _AccessDeniedException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
+    -- ** InvalidInputException
+    _InvalidInputException,
 
     -- ** LimitExceededException
     _LimitExceededException,
@@ -81,8 +81,8 @@ module Amazonka.SecurityHub
     -- ** ResourceConflictException
     _ResourceConflictException,
 
-    -- ** InternalException
-    _InternalException,
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- * Waiters
     -- $waiters
@@ -2347,6 +2347,10 @@ module Amazonka.SecurityHub
     -- ** StandardsControl
     StandardsControl (StandardsControl'),
     newStandardsControl,
+
+    -- ** StandardsManagedBy
+    StandardsManagedBy (StandardsManagedBy'),
+    newStandardsManagedBy,
 
     -- ** StandardsStatusReason
     StandardsStatusReason (StandardsStatusReason'),

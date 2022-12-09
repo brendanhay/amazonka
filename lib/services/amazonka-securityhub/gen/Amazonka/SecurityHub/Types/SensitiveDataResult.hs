@@ -30,12 +30,12 @@ import Amazonka.SecurityHub.Types.SensitiveDataDetections
 --
 -- /See:/ 'newSensitiveDataResult' smart constructor.
 data SensitiveDataResult = SensitiveDataResult'
-  { -- | The list of detected instances of sensitive data.
-    detections :: Prelude.Maybe [SensitiveDataDetections],
-    -- | The category of sensitive data that was detected. For example, the
+  { -- | The category of sensitive data that was detected. For example, the
     -- category can indicate that the sensitive data involved credentials,
     -- financial information, or personal information.
     category :: Prelude.Maybe Prelude.Text,
+    -- | The list of detected instances of sensitive data.
+    detections :: Prelude.Maybe [SensitiveDataDetections],
     -- | The total number of occurrences of sensitive data.
     totalCount :: Prelude.Maybe Prelude.Integer
   }
@@ -49,31 +49,31 @@ data SensitiveDataResult = SensitiveDataResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'detections', 'sensitiveDataResult_detections' - The list of detected instances of sensitive data.
---
 -- 'category', 'sensitiveDataResult_category' - The category of sensitive data that was detected. For example, the
 -- category can indicate that the sensitive data involved credentials,
 -- financial information, or personal information.
+--
+-- 'detections', 'sensitiveDataResult_detections' - The list of detected instances of sensitive data.
 --
 -- 'totalCount', 'sensitiveDataResult_totalCount' - The total number of occurrences of sensitive data.
 newSensitiveDataResult ::
   SensitiveDataResult
 newSensitiveDataResult =
   SensitiveDataResult'
-    { detections = Prelude.Nothing,
-      category = Prelude.Nothing,
+    { category = Prelude.Nothing,
+      detections = Prelude.Nothing,
       totalCount = Prelude.Nothing
     }
-
--- | The list of detected instances of sensitive data.
-sensitiveDataResult_detections :: Lens.Lens' SensitiveDataResult (Prelude.Maybe [SensitiveDataDetections])
-sensitiveDataResult_detections = Lens.lens (\SensitiveDataResult' {detections} -> detections) (\s@SensitiveDataResult' {} a -> s {detections = a} :: SensitiveDataResult) Prelude.. Lens.mapping Lens.coerced
 
 -- | The category of sensitive data that was detected. For example, the
 -- category can indicate that the sensitive data involved credentials,
 -- financial information, or personal information.
 sensitiveDataResult_category :: Lens.Lens' SensitiveDataResult (Prelude.Maybe Prelude.Text)
 sensitiveDataResult_category = Lens.lens (\SensitiveDataResult' {category} -> category) (\s@SensitiveDataResult' {} a -> s {category = a} :: SensitiveDataResult)
+
+-- | The list of detected instances of sensitive data.
+sensitiveDataResult_detections :: Lens.Lens' SensitiveDataResult (Prelude.Maybe [SensitiveDataDetections])
+sensitiveDataResult_detections = Lens.lens (\SensitiveDataResult' {detections} -> detections) (\s@SensitiveDataResult' {} a -> s {detections = a} :: SensitiveDataResult) Prelude.. Lens.mapping Lens.coerced
 
 -- | The total number of occurrences of sensitive data.
 sensitiveDataResult_totalCount :: Lens.Lens' SensitiveDataResult (Prelude.Maybe Prelude.Integer)
@@ -85,29 +85,29 @@ instance Data.FromJSON SensitiveDataResult where
       "SensitiveDataResult"
       ( \x ->
           SensitiveDataResult'
-            Prelude.<$> (x Data..:? "Detections" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "Category")
+            Prelude.<$> (x Data..:? "Category")
+            Prelude.<*> (x Data..:? "Detections" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "TotalCount")
       )
 
 instance Prelude.Hashable SensitiveDataResult where
   hashWithSalt _salt SensitiveDataResult' {..} =
-    _salt `Prelude.hashWithSalt` detections
-      `Prelude.hashWithSalt` category
+    _salt `Prelude.hashWithSalt` category
+      `Prelude.hashWithSalt` detections
       `Prelude.hashWithSalt` totalCount
 
 instance Prelude.NFData SensitiveDataResult where
   rnf SensitiveDataResult' {..} =
-    Prelude.rnf detections
-      `Prelude.seq` Prelude.rnf category
+    Prelude.rnf category
+      `Prelude.seq` Prelude.rnf detections
       `Prelude.seq` Prelude.rnf totalCount
 
 instance Data.ToJSON SensitiveDataResult where
   toJSON SensitiveDataResult' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Detections" Data..=) Prelude.<$> detections,
-            ("Category" Data..=) Prelude.<$> category,
+          [ ("Category" Data..=) Prelude.<$> category,
+            ("Detections" Data..=) Prelude.<$> detections,
             ("TotalCount" Data..=) Prelude.<$> totalCount
           ]
       )

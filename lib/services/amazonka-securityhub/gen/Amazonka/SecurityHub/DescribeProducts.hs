@@ -35,8 +35,8 @@ module Amazonka.SecurityHub.DescribeProducts
     newDescribeProducts,
 
     -- * Request Lenses
-    describeProducts_nextToken,
     describeProducts_maxResults,
+    describeProducts_nextToken,
     describeProducts_productArn,
 
     -- * Destructuring the Response
@@ -60,15 +60,15 @@ import Amazonka.SecurityHub.Types
 
 -- | /See:/ 'newDescribeProducts' smart constructor.
 data DescribeProducts = DescribeProducts'
-  { -- | The token that is required for pagination. On your first call to the
+  { -- | The maximum number of results to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token that is required for pagination. On your first call to the
     -- @DescribeProducts@ operation, set the value of this parameter to @NULL@.
     --
     -- For subsequent calls to the operation, to continue listing data, set the
     -- value of this parameter to the value returned from the previous
     -- response.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ARN of the integration to return.
     productArn :: Prelude.Maybe Prelude.Text
   }
@@ -82,6 +82,8 @@ data DescribeProducts = DescribeProducts'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'describeProducts_maxResults' - The maximum number of results to return.
+--
 -- 'nextToken', 'describeProducts_nextToken' - The token that is required for pagination. On your first call to the
 -- @DescribeProducts@ operation, set the value of this parameter to @NULL@.
 --
@@ -89,17 +91,19 @@ data DescribeProducts = DescribeProducts'
 -- value of this parameter to the value returned from the previous
 -- response.
 --
--- 'maxResults', 'describeProducts_maxResults' - The maximum number of results to return.
---
 -- 'productArn', 'describeProducts_productArn' - The ARN of the integration to return.
 newDescribeProducts ::
   DescribeProducts
 newDescribeProducts =
   DescribeProducts'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       productArn = Prelude.Nothing
     }
+
+-- | The maximum number of results to return.
+describeProducts_maxResults :: Lens.Lens' DescribeProducts (Prelude.Maybe Prelude.Natural)
+describeProducts_maxResults = Lens.lens (\DescribeProducts' {maxResults} -> maxResults) (\s@DescribeProducts' {} a -> s {maxResults = a} :: DescribeProducts)
 
 -- | The token that is required for pagination. On your first call to the
 -- @DescribeProducts@ operation, set the value of this parameter to @NULL@.
@@ -109,10 +113,6 @@ newDescribeProducts =
 -- response.
 describeProducts_nextToken :: Lens.Lens' DescribeProducts (Prelude.Maybe Prelude.Text)
 describeProducts_nextToken = Lens.lens (\DescribeProducts' {nextToken} -> nextToken) (\s@DescribeProducts' {} a -> s {nextToken = a} :: DescribeProducts)
-
--- | The maximum number of results to return.
-describeProducts_maxResults :: Lens.Lens' DescribeProducts (Prelude.Maybe Prelude.Natural)
-describeProducts_maxResults = Lens.lens (\DescribeProducts' {maxResults} -> maxResults) (\s@DescribeProducts' {} a -> s {maxResults = a} :: DescribeProducts)
 
 -- | The ARN of the integration to return.
 describeProducts_productArn :: Lens.Lens' DescribeProducts (Prelude.Maybe Prelude.Text)
@@ -154,14 +154,14 @@ instance Core.AWSRequest DescribeProducts where
 
 instance Prelude.Hashable DescribeProducts where
   hashWithSalt _salt DescribeProducts' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` productArn
 
 instance Prelude.NFData DescribeProducts where
   rnf DescribeProducts' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf productArn
 
 instance Data.ToHeaders DescribeProducts where
@@ -181,8 +181,8 @@ instance Data.ToPath DescribeProducts where
 instance Data.ToQuery DescribeProducts where
   toQuery DescribeProducts' {..} =
     Prelude.mconcat
-      [ "NextToken" Data.=: nextToken,
-        "MaxResults" Data.=: maxResults,
+      [ "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken,
         "ProductArn" Data.=: productArn
       ]
 

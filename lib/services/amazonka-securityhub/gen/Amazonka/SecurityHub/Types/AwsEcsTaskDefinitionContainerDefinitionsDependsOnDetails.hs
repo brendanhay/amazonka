@@ -28,9 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails' smart constructor.
 data AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails = AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails'
-  { -- | The name of the dependent container.
-    containerName :: Prelude.Maybe Prelude.Text,
-    -- | The dependency condition of the dependent container. Indicates the
+  { -- | The dependency condition of the dependent container. Indicates the
     -- required status of the dependent container before the current container
     -- can start. Valid values are as follows:
     --
@@ -41,7 +39,9 @@ data AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails = AwsEcsTaskDefini
     -- -   @SUCCESS@
     --
     -- -   @START@
-    condition :: Prelude.Maybe Prelude.Text
+    condition :: Prelude.Maybe Prelude.Text,
+    -- | The name of the dependent container.
+    containerName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,8 +52,6 @@ data AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails = AwsEcsTaskDefini
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'containerName', 'awsEcsTaskDefinitionContainerDefinitionsDependsOnDetails_containerName' - The name of the dependent container.
 --
 -- 'condition', 'awsEcsTaskDefinitionContainerDefinitionsDependsOnDetails_condition' - The dependency condition of the dependent container. Indicates the
 -- required status of the dependent container before the current container
@@ -66,19 +64,17 @@ data AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails = AwsEcsTaskDefini
 -- -   @SUCCESS@
 --
 -- -   @START@
+--
+-- 'containerName', 'awsEcsTaskDefinitionContainerDefinitionsDependsOnDetails_containerName' - The name of the dependent container.
 newAwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails ::
   AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails
 newAwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails =
   AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails'
-    { containerName =
+    { condition =
         Prelude.Nothing,
-      condition =
+      containerName =
         Prelude.Nothing
     }
-
--- | The name of the dependent container.
-awsEcsTaskDefinitionContainerDefinitionsDependsOnDetails_containerName :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails (Prelude.Maybe Prelude.Text)
-awsEcsTaskDefinitionContainerDefinitionsDependsOnDetails_containerName = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails' {containerName} -> containerName) (\s@AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails' {} a -> s {containerName = a} :: AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails)
 
 -- | The dependency condition of the dependent container. Indicates the
 -- required status of the dependent container before the current container
@@ -94,6 +90,10 @@ awsEcsTaskDefinitionContainerDefinitionsDependsOnDetails_containerName = Lens.le
 awsEcsTaskDefinitionContainerDefinitionsDependsOnDetails_condition :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails (Prelude.Maybe Prelude.Text)
 awsEcsTaskDefinitionContainerDefinitionsDependsOnDetails_condition = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails' {condition} -> condition) (\s@AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails' {} a -> s {condition = a} :: AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails)
 
+-- | The name of the dependent container.
+awsEcsTaskDefinitionContainerDefinitionsDependsOnDetails_containerName :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails (Prelude.Maybe Prelude.Text)
+awsEcsTaskDefinitionContainerDefinitionsDependsOnDetails_containerName = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails' {containerName} -> containerName) (\s@AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails' {} a -> s {containerName = a} :: AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails)
+
 instance
   Data.FromJSON
     AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails
@@ -103,8 +103,8 @@ instance
       "AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails"
       ( \x ->
           AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails'
-            Prelude.<$> (x Data..:? "ContainerName")
-              Prelude.<*> (x Data..:? "Condition")
+            Prelude.<$> (x Data..:? "Condition")
+              Prelude.<*> (x Data..:? "ContainerName")
       )
 
 instance
@@ -114,8 +114,8 @@ instance
   hashWithSalt
     _salt
     AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails' {..} =
-      _salt `Prelude.hashWithSalt` containerName
-        `Prelude.hashWithSalt` condition
+      _salt `Prelude.hashWithSalt` condition
+        `Prelude.hashWithSalt` containerName
 
 instance
   Prelude.NFData
@@ -123,8 +123,8 @@ instance
   where
   rnf
     AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails' {..} =
-      Prelude.rnf containerName
-        `Prelude.seq` Prelude.rnf condition
+      Prelude.rnf condition
+        `Prelude.seq` Prelude.rnf containerName
 
 instance
   Data.ToJSON
@@ -134,7 +134,7 @@ instance
     AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ ("ContainerName" Data..=) Prelude.<$> containerName,
-              ("Condition" Data..=) Prelude.<$> condition
+            [ ("Condition" Data..=) Prelude.<$> condition,
+              ("ContainerName" Data..=) Prelude.<$> containerName
             ]
         )

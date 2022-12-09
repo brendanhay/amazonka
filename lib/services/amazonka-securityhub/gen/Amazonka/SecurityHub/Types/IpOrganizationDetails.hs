@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newIpOrganizationDetails' smart constructor.
 data IpOrganizationDetails = IpOrganizationDetails'
-  { -- | The ISP information for the internet provider.
-    isp :: Prelude.Maybe Prelude.Text,
-    -- | The name of the internet provider.
-    org :: Prelude.Maybe Prelude.Text,
-    -- | The Autonomous System Number (ASN) of the internet provider
+  { -- | The Autonomous System Number (ASN) of the internet provider
     asn :: Prelude.Maybe Prelude.Int,
     -- | The name of the organization that registered the ASN.
-    asnOrg :: Prelude.Maybe Prelude.Text
+    asnOrg :: Prelude.Maybe Prelude.Text,
+    -- | The ISP information for the internet provider.
+    isp :: Prelude.Maybe Prelude.Text,
+    -- | The name of the internet provider.
+    org :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,30 +47,22 @@ data IpOrganizationDetails = IpOrganizationDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'isp', 'ipOrganizationDetails_isp' - The ISP information for the internet provider.
---
--- 'org', 'ipOrganizationDetails_org' - The name of the internet provider.
---
 -- 'asn', 'ipOrganizationDetails_asn' - The Autonomous System Number (ASN) of the internet provider
 --
 -- 'asnOrg', 'ipOrganizationDetails_asnOrg' - The name of the organization that registered the ASN.
+--
+-- 'isp', 'ipOrganizationDetails_isp' - The ISP information for the internet provider.
+--
+-- 'org', 'ipOrganizationDetails_org' - The name of the internet provider.
 newIpOrganizationDetails ::
   IpOrganizationDetails
 newIpOrganizationDetails =
   IpOrganizationDetails'
-    { isp = Prelude.Nothing,
-      org = Prelude.Nothing,
-      asn = Prelude.Nothing,
-      asnOrg = Prelude.Nothing
+    { asn = Prelude.Nothing,
+      asnOrg = Prelude.Nothing,
+      isp = Prelude.Nothing,
+      org = Prelude.Nothing
     }
-
--- | The ISP information for the internet provider.
-ipOrganizationDetails_isp :: Lens.Lens' IpOrganizationDetails (Prelude.Maybe Prelude.Text)
-ipOrganizationDetails_isp = Lens.lens (\IpOrganizationDetails' {isp} -> isp) (\s@IpOrganizationDetails' {} a -> s {isp = a} :: IpOrganizationDetails)
-
--- | The name of the internet provider.
-ipOrganizationDetails_org :: Lens.Lens' IpOrganizationDetails (Prelude.Maybe Prelude.Text)
-ipOrganizationDetails_org = Lens.lens (\IpOrganizationDetails' {org} -> org) (\s@IpOrganizationDetails' {} a -> s {org = a} :: IpOrganizationDetails)
 
 -- | The Autonomous System Number (ASN) of the internet provider
 ipOrganizationDetails_asn :: Lens.Lens' IpOrganizationDetails (Prelude.Maybe Prelude.Int)
@@ -80,39 +72,47 @@ ipOrganizationDetails_asn = Lens.lens (\IpOrganizationDetails' {asn} -> asn) (\s
 ipOrganizationDetails_asnOrg :: Lens.Lens' IpOrganizationDetails (Prelude.Maybe Prelude.Text)
 ipOrganizationDetails_asnOrg = Lens.lens (\IpOrganizationDetails' {asnOrg} -> asnOrg) (\s@IpOrganizationDetails' {} a -> s {asnOrg = a} :: IpOrganizationDetails)
 
+-- | The ISP information for the internet provider.
+ipOrganizationDetails_isp :: Lens.Lens' IpOrganizationDetails (Prelude.Maybe Prelude.Text)
+ipOrganizationDetails_isp = Lens.lens (\IpOrganizationDetails' {isp} -> isp) (\s@IpOrganizationDetails' {} a -> s {isp = a} :: IpOrganizationDetails)
+
+-- | The name of the internet provider.
+ipOrganizationDetails_org :: Lens.Lens' IpOrganizationDetails (Prelude.Maybe Prelude.Text)
+ipOrganizationDetails_org = Lens.lens (\IpOrganizationDetails' {org} -> org) (\s@IpOrganizationDetails' {} a -> s {org = a} :: IpOrganizationDetails)
+
 instance Data.FromJSON IpOrganizationDetails where
   parseJSON =
     Data.withObject
       "IpOrganizationDetails"
       ( \x ->
           IpOrganizationDetails'
-            Prelude.<$> (x Data..:? "Isp")
-            Prelude.<*> (x Data..:? "Org")
-            Prelude.<*> (x Data..:? "Asn")
+            Prelude.<$> (x Data..:? "Asn")
             Prelude.<*> (x Data..:? "AsnOrg")
+            Prelude.<*> (x Data..:? "Isp")
+            Prelude.<*> (x Data..:? "Org")
       )
 
 instance Prelude.Hashable IpOrganizationDetails where
   hashWithSalt _salt IpOrganizationDetails' {..} =
-    _salt `Prelude.hashWithSalt` isp
-      `Prelude.hashWithSalt` org
-      `Prelude.hashWithSalt` asn
+    _salt `Prelude.hashWithSalt` asn
       `Prelude.hashWithSalt` asnOrg
+      `Prelude.hashWithSalt` isp
+      `Prelude.hashWithSalt` org
 
 instance Prelude.NFData IpOrganizationDetails where
   rnf IpOrganizationDetails' {..} =
-    Prelude.rnf isp
-      `Prelude.seq` Prelude.rnf org
-      `Prelude.seq` Prelude.rnf asn
+    Prelude.rnf asn
       `Prelude.seq` Prelude.rnf asnOrg
+      `Prelude.seq` Prelude.rnf isp
+      `Prelude.seq` Prelude.rnf org
 
 instance Data.ToJSON IpOrganizationDetails where
   toJSON IpOrganizationDetails' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Isp" Data..=) Prelude.<$> isp,
-            ("Org" Data..=) Prelude.<$> org,
-            ("Asn" Data..=) Prelude.<$> asn,
-            ("AsnOrg" Data..=) Prelude.<$> asnOrg
+          [ ("Asn" Data..=) Prelude.<$> asn,
+            ("AsnOrg" Data..=) Prelude.<$> asnOrg,
+            ("Isp" Data..=) Prelude.<$> isp,
+            ("Org" Data..=) Prelude.<$> org
           ]
       )

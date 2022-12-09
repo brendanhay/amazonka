@@ -32,10 +32,10 @@ import Amazonka.SecurityHub.Types.AwsCloudFrontDistributionOriginSslProtocols
 --
 -- /See:/ 'newAwsCloudFrontDistributionOriginCustomOriginConfig' smart constructor.
 data AwsCloudFrontDistributionOriginCustomOriginConfig = AwsCloudFrontDistributionOriginCustomOriginConfig'
-  { -- | The HTTPS port that CloudFront uses to connect to the origin.
-    httpsPort :: Prelude.Maybe Prelude.Int,
-    -- | The HTTP port that CloudFront uses to connect to the origin.
+  { -- | The HTTP port that CloudFront uses to connect to the origin.
     httpPort :: Prelude.Maybe Prelude.Int,
+    -- | The HTTPS port that CloudFront uses to connect to the origin.
+    httpsPort :: Prelude.Maybe Prelude.Int,
     -- | Specifies how long, in seconds, CloudFront persists its connection to
     -- the origin.
     originKeepaliveTimeout :: Prelude.Maybe Prelude.Int,
@@ -59,9 +59,9 @@ data AwsCloudFrontDistributionOriginCustomOriginConfig = AwsCloudFrontDistributi
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'httpsPort', 'awsCloudFrontDistributionOriginCustomOriginConfig_httpsPort' - The HTTPS port that CloudFront uses to connect to the origin.
---
 -- 'httpPort', 'awsCloudFrontDistributionOriginCustomOriginConfig_httpPort' - The HTTP port that CloudFront uses to connect to the origin.
+--
+-- 'httpsPort', 'awsCloudFrontDistributionOriginCustomOriginConfig_httpsPort' - The HTTPS port that CloudFront uses to connect to the origin.
 --
 -- 'originKeepaliveTimeout', 'awsCloudFrontDistributionOriginCustomOriginConfig_originKeepaliveTimeout' - Specifies how long, in seconds, CloudFront persists its connection to
 -- the origin.
@@ -78,9 +78,9 @@ newAwsCloudFrontDistributionOriginCustomOriginConfig ::
   AwsCloudFrontDistributionOriginCustomOriginConfig
 newAwsCloudFrontDistributionOriginCustomOriginConfig =
   AwsCloudFrontDistributionOriginCustomOriginConfig'
-    { httpsPort =
+    { httpPort =
         Prelude.Nothing,
-      httpPort =
+      httpsPort =
         Prelude.Nothing,
       originKeepaliveTimeout =
         Prelude.Nothing,
@@ -92,13 +92,13 @@ newAwsCloudFrontDistributionOriginCustomOriginConfig =
         Prelude.Nothing
     }
 
--- | The HTTPS port that CloudFront uses to connect to the origin.
-awsCloudFrontDistributionOriginCustomOriginConfig_httpsPort :: Lens.Lens' AwsCloudFrontDistributionOriginCustomOriginConfig (Prelude.Maybe Prelude.Int)
-awsCloudFrontDistributionOriginCustomOriginConfig_httpsPort = Lens.lens (\AwsCloudFrontDistributionOriginCustomOriginConfig' {httpsPort} -> httpsPort) (\s@AwsCloudFrontDistributionOriginCustomOriginConfig' {} a -> s {httpsPort = a} :: AwsCloudFrontDistributionOriginCustomOriginConfig)
-
 -- | The HTTP port that CloudFront uses to connect to the origin.
 awsCloudFrontDistributionOriginCustomOriginConfig_httpPort :: Lens.Lens' AwsCloudFrontDistributionOriginCustomOriginConfig (Prelude.Maybe Prelude.Int)
 awsCloudFrontDistributionOriginCustomOriginConfig_httpPort = Lens.lens (\AwsCloudFrontDistributionOriginCustomOriginConfig' {httpPort} -> httpPort) (\s@AwsCloudFrontDistributionOriginCustomOriginConfig' {} a -> s {httpPort = a} :: AwsCloudFrontDistributionOriginCustomOriginConfig)
+
+-- | The HTTPS port that CloudFront uses to connect to the origin.
+awsCloudFrontDistributionOriginCustomOriginConfig_httpsPort :: Lens.Lens' AwsCloudFrontDistributionOriginCustomOriginConfig (Prelude.Maybe Prelude.Int)
+awsCloudFrontDistributionOriginCustomOriginConfig_httpsPort = Lens.lens (\AwsCloudFrontDistributionOriginCustomOriginConfig' {httpsPort} -> httpsPort) (\s@AwsCloudFrontDistributionOriginCustomOriginConfig' {} a -> s {httpsPort = a} :: AwsCloudFrontDistributionOriginCustomOriginConfig)
 
 -- | Specifies how long, in seconds, CloudFront persists its connection to
 -- the origin.
@@ -129,8 +129,8 @@ instance
       "AwsCloudFrontDistributionOriginCustomOriginConfig"
       ( \x ->
           AwsCloudFrontDistributionOriginCustomOriginConfig'
-            Prelude.<$> (x Data..:? "HttpsPort")
-              Prelude.<*> (x Data..:? "HttpPort")
+            Prelude.<$> (x Data..:? "HttpPort")
+              Prelude.<*> (x Data..:? "HttpsPort")
               Prelude.<*> (x Data..:? "OriginKeepaliveTimeout")
               Prelude.<*> (x Data..:? "OriginProtocolPolicy")
               Prelude.<*> (x Data..:? "OriginReadTimeout")
@@ -144,8 +144,8 @@ instance
   hashWithSalt
     _salt
     AwsCloudFrontDistributionOriginCustomOriginConfig' {..} =
-      _salt `Prelude.hashWithSalt` httpsPort
-        `Prelude.hashWithSalt` httpPort
+      _salt `Prelude.hashWithSalt` httpPort
+        `Prelude.hashWithSalt` httpsPort
         `Prelude.hashWithSalt` originKeepaliveTimeout
         `Prelude.hashWithSalt` originProtocolPolicy
         `Prelude.hashWithSalt` originReadTimeout
@@ -157,8 +157,8 @@ instance
   where
   rnf
     AwsCloudFrontDistributionOriginCustomOriginConfig' {..} =
-      Prelude.rnf httpsPort
-        `Prelude.seq` Prelude.rnf httpPort
+      Prelude.rnf httpPort
+        `Prelude.seq` Prelude.rnf httpsPort
         `Prelude.seq` Prelude.rnf originKeepaliveTimeout
         `Prelude.seq` Prelude.rnf originProtocolPolicy
         `Prelude.seq` Prelude.rnf originReadTimeout
@@ -172,8 +172,8 @@ instance
     AwsCloudFrontDistributionOriginCustomOriginConfig' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ ("HttpsPort" Data..=) Prelude.<$> httpsPort,
-              ("HttpPort" Data..=) Prelude.<$> httpPort,
+            [ ("HttpPort" Data..=) Prelude.<$> httpPort,
+              ("HttpsPort" Data..=) Prelude.<$> httpsPort,
               ("OriginKeepaliveTimeout" Data..=)
                 Prelude.<$> originKeepaliveTimeout,
               ("OriginProtocolPolicy" Data..=)

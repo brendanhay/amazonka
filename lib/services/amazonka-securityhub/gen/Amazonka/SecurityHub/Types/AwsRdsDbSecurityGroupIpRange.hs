@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsRdsDbSecurityGroupIpRange' smart constructor.
 data AwsRdsDbSecurityGroupIpRange = AwsRdsDbSecurityGroupIpRange'
-  { -- | Specifies the status of the IP range.
-    status :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the IP range.
-    cidrIp :: Prelude.Maybe Prelude.Text
+  { -- | Specifies the IP range.
+    cidrIp :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the status of the IP range.
+    status :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data AwsRdsDbSecurityGroupIpRange = AwsRdsDbSecurityGroupIpRange'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'awsRdsDbSecurityGroupIpRange_status' - Specifies the status of the IP range.
---
 -- 'cidrIp', 'awsRdsDbSecurityGroupIpRange_cidrIp' - Specifies the IP range.
+--
+-- 'status', 'awsRdsDbSecurityGroupIpRange_status' - Specifies the status of the IP range.
 newAwsRdsDbSecurityGroupIpRange ::
   AwsRdsDbSecurityGroupIpRange
 newAwsRdsDbSecurityGroupIpRange =
   AwsRdsDbSecurityGroupIpRange'
-    { status =
+    { cidrIp =
         Prelude.Nothing,
-      cidrIp = Prelude.Nothing
+      status = Prelude.Nothing
     }
-
--- | Specifies the status of the IP range.
-awsRdsDbSecurityGroupIpRange_status :: Lens.Lens' AwsRdsDbSecurityGroupIpRange (Prelude.Maybe Prelude.Text)
-awsRdsDbSecurityGroupIpRange_status = Lens.lens (\AwsRdsDbSecurityGroupIpRange' {status} -> status) (\s@AwsRdsDbSecurityGroupIpRange' {} a -> s {status = a} :: AwsRdsDbSecurityGroupIpRange)
 
 -- | Specifies the IP range.
 awsRdsDbSecurityGroupIpRange_cidrIp :: Lens.Lens' AwsRdsDbSecurityGroupIpRange (Prelude.Maybe Prelude.Text)
 awsRdsDbSecurityGroupIpRange_cidrIp = Lens.lens (\AwsRdsDbSecurityGroupIpRange' {cidrIp} -> cidrIp) (\s@AwsRdsDbSecurityGroupIpRange' {} a -> s {cidrIp = a} :: AwsRdsDbSecurityGroupIpRange)
+
+-- | Specifies the status of the IP range.
+awsRdsDbSecurityGroupIpRange_status :: Lens.Lens' AwsRdsDbSecurityGroupIpRange (Prelude.Maybe Prelude.Text)
+awsRdsDbSecurityGroupIpRange_status = Lens.lens (\AwsRdsDbSecurityGroupIpRange' {status} -> status) (\s@AwsRdsDbSecurityGroupIpRange' {} a -> s {status = a} :: AwsRdsDbSecurityGroupIpRange)
 
 instance Data.FromJSON AwsRdsDbSecurityGroupIpRange where
   parseJSON =
@@ -69,8 +69,8 @@ instance Data.FromJSON AwsRdsDbSecurityGroupIpRange where
       "AwsRdsDbSecurityGroupIpRange"
       ( \x ->
           AwsRdsDbSecurityGroupIpRange'
-            Prelude.<$> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "CidrIp")
+            Prelude.<$> (x Data..:? "CidrIp")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance
@@ -78,18 +78,18 @@ instance
     AwsRdsDbSecurityGroupIpRange
   where
   hashWithSalt _salt AwsRdsDbSecurityGroupIpRange' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` cidrIp
+    _salt `Prelude.hashWithSalt` cidrIp
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData AwsRdsDbSecurityGroupIpRange where
   rnf AwsRdsDbSecurityGroupIpRange' {..} =
-    Prelude.rnf status `Prelude.seq` Prelude.rnf cidrIp
+    Prelude.rnf cidrIp `Prelude.seq` Prelude.rnf status
 
 instance Data.ToJSON AwsRdsDbSecurityGroupIpRange where
   toJSON AwsRdsDbSecurityGroupIpRange' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Status" Data..=) Prelude.<$> status,
-            ("CidrIp" Data..=) Prelude.<$> cidrIp
+          [ ("CidrIp" Data..=) Prelude.<$> cidrIp,
+            ("Status" Data..=) Prelude.<$> status
           ]
       )

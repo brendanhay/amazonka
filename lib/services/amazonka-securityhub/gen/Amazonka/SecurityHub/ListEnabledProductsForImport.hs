@@ -30,8 +30,8 @@ module Amazonka.SecurityHub.ListEnabledProductsForImport
     newListEnabledProductsForImport,
 
     -- * Request Lenses
-    listEnabledProductsForImport_nextToken,
     listEnabledProductsForImport_maxResults,
+    listEnabledProductsForImport_nextToken,
 
     -- * Destructuring the Response
     ListEnabledProductsForImportResponse (..),
@@ -54,16 +54,16 @@ import Amazonka.SecurityHub.Types
 
 -- | /See:/ 'newListEnabledProductsForImport' smart constructor.
 data ListEnabledProductsForImport = ListEnabledProductsForImport'
-  { -- | The token that is required for pagination. On your first call to the
+  { -- | The maximum number of items to return in the response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token that is required for pagination. On your first call to the
     -- @ListEnabledProductsForImport@ operation, set the value of this
     -- parameter to @NULL@.
     --
     -- For subsequent calls to the operation, to continue listing data, set the
     -- value of this parameter to the value returned from the previous
     -- response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return in the response.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,6 +75,8 @@ data ListEnabledProductsForImport = ListEnabledProductsForImport'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listEnabledProductsForImport_maxResults' - The maximum number of items to return in the response.
+--
 -- 'nextToken', 'listEnabledProductsForImport_nextToken' - The token that is required for pagination. On your first call to the
 -- @ListEnabledProductsForImport@ operation, set the value of this
 -- parameter to @NULL@.
@@ -82,16 +84,18 @@ data ListEnabledProductsForImport = ListEnabledProductsForImport'
 -- For subsequent calls to the operation, to continue listing data, set the
 -- value of this parameter to the value returned from the previous
 -- response.
---
--- 'maxResults', 'listEnabledProductsForImport_maxResults' - The maximum number of items to return in the response.
 newListEnabledProductsForImport ::
   ListEnabledProductsForImport
 newListEnabledProductsForImport =
   ListEnabledProductsForImport'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of items to return in the response.
+listEnabledProductsForImport_maxResults :: Lens.Lens' ListEnabledProductsForImport (Prelude.Maybe Prelude.Natural)
+listEnabledProductsForImport_maxResults = Lens.lens (\ListEnabledProductsForImport' {maxResults} -> maxResults) (\s@ListEnabledProductsForImport' {} a -> s {maxResults = a} :: ListEnabledProductsForImport)
 
 -- | The token that is required for pagination. On your first call to the
 -- @ListEnabledProductsForImport@ operation, set the value of this
@@ -102,10 +106,6 @@ newListEnabledProductsForImport =
 -- response.
 listEnabledProductsForImport_nextToken :: Lens.Lens' ListEnabledProductsForImport (Prelude.Maybe Prelude.Text)
 listEnabledProductsForImport_nextToken = Lens.lens (\ListEnabledProductsForImport' {nextToken} -> nextToken) (\s@ListEnabledProductsForImport' {} a -> s {nextToken = a} :: ListEnabledProductsForImport)
-
--- | The maximum number of items to return in the response.
-listEnabledProductsForImport_maxResults :: Lens.Lens' ListEnabledProductsForImport (Prelude.Maybe Prelude.Natural)
-listEnabledProductsForImport_maxResults = Lens.lens (\ListEnabledProductsForImport' {maxResults} -> maxResults) (\s@ListEnabledProductsForImport' {} a -> s {maxResults = a} :: ListEnabledProductsForImport)
 
 instance Core.AWSPager ListEnabledProductsForImport where
   page rq rs
@@ -151,13 +151,13 @@ instance
     ListEnabledProductsForImport
   where
   hashWithSalt _salt ListEnabledProductsForImport' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListEnabledProductsForImport where
   rnf ListEnabledProductsForImport' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListEnabledProductsForImport where
   toHeaders =
@@ -176,8 +176,8 @@ instance Data.ToPath ListEnabledProductsForImport where
 instance Data.ToQuery ListEnabledProductsForImport where
   toQuery ListEnabledProductsForImport' {..} =
     Prelude.mconcat
-      [ "NextToken" Data.=: nextToken,
-        "MaxResults" Data.=: maxResults
+      [ "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListEnabledProductsForImportResponse' smart constructor.

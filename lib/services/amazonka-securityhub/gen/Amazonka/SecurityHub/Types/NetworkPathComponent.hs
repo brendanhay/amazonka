@@ -29,16 +29,16 @@ import Amazonka.SecurityHub.Types.NetworkHeader
 --
 -- /See:/ 'newNetworkPathComponent' smart constructor.
 data NetworkPathComponent = NetworkPathComponent'
-  { -- | Information about the component that comes after the current component
+  { -- | The identifier of a component in the network path.
+    componentId :: Prelude.Maybe Prelude.Text,
+    -- | The type of component.
+    componentType :: Prelude.Maybe Prelude.Text,
+    -- | Information about the component that comes after the current component
     -- in the network path.
     egress :: Prelude.Maybe NetworkHeader,
     -- | Information about the component that comes before the current node in
     -- the network path.
-    ingress :: Prelude.Maybe NetworkHeader,
-    -- | The identifier of a component in the network path.
-    componentId :: Prelude.Maybe Prelude.Text,
-    -- | The type of component.
-    componentType :: Prelude.Maybe Prelude.Text
+    ingress :: Prelude.Maybe NetworkHeader
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,24 +50,33 @@ data NetworkPathComponent = NetworkPathComponent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'componentId', 'networkPathComponent_componentId' - The identifier of a component in the network path.
+--
+-- 'componentType', 'networkPathComponent_componentType' - The type of component.
+--
 -- 'egress', 'networkPathComponent_egress' - Information about the component that comes after the current component
 -- in the network path.
 --
 -- 'ingress', 'networkPathComponent_ingress' - Information about the component that comes before the current node in
 -- the network path.
---
--- 'componentId', 'networkPathComponent_componentId' - The identifier of a component in the network path.
---
--- 'componentType', 'networkPathComponent_componentType' - The type of component.
 newNetworkPathComponent ::
   NetworkPathComponent
 newNetworkPathComponent =
   NetworkPathComponent'
-    { egress = Prelude.Nothing,
-      ingress = Prelude.Nothing,
-      componentId = Prelude.Nothing,
-      componentType = Prelude.Nothing
+    { componentId =
+        Prelude.Nothing,
+      componentType = Prelude.Nothing,
+      egress = Prelude.Nothing,
+      ingress = Prelude.Nothing
     }
+
+-- | The identifier of a component in the network path.
+networkPathComponent_componentId :: Lens.Lens' NetworkPathComponent (Prelude.Maybe Prelude.Text)
+networkPathComponent_componentId = Lens.lens (\NetworkPathComponent' {componentId} -> componentId) (\s@NetworkPathComponent' {} a -> s {componentId = a} :: NetworkPathComponent)
+
+-- | The type of component.
+networkPathComponent_componentType :: Lens.Lens' NetworkPathComponent (Prelude.Maybe Prelude.Text)
+networkPathComponent_componentType = Lens.lens (\NetworkPathComponent' {componentType} -> componentType) (\s@NetworkPathComponent' {} a -> s {componentType = a} :: NetworkPathComponent)
 
 -- | Information about the component that comes after the current component
 -- in the network path.
@@ -79,47 +88,39 @@ networkPathComponent_egress = Lens.lens (\NetworkPathComponent' {egress} -> egre
 networkPathComponent_ingress :: Lens.Lens' NetworkPathComponent (Prelude.Maybe NetworkHeader)
 networkPathComponent_ingress = Lens.lens (\NetworkPathComponent' {ingress} -> ingress) (\s@NetworkPathComponent' {} a -> s {ingress = a} :: NetworkPathComponent)
 
--- | The identifier of a component in the network path.
-networkPathComponent_componentId :: Lens.Lens' NetworkPathComponent (Prelude.Maybe Prelude.Text)
-networkPathComponent_componentId = Lens.lens (\NetworkPathComponent' {componentId} -> componentId) (\s@NetworkPathComponent' {} a -> s {componentId = a} :: NetworkPathComponent)
-
--- | The type of component.
-networkPathComponent_componentType :: Lens.Lens' NetworkPathComponent (Prelude.Maybe Prelude.Text)
-networkPathComponent_componentType = Lens.lens (\NetworkPathComponent' {componentType} -> componentType) (\s@NetworkPathComponent' {} a -> s {componentType = a} :: NetworkPathComponent)
-
 instance Data.FromJSON NetworkPathComponent where
   parseJSON =
     Data.withObject
       "NetworkPathComponent"
       ( \x ->
           NetworkPathComponent'
-            Prelude.<$> (x Data..:? "Egress")
-            Prelude.<*> (x Data..:? "Ingress")
-            Prelude.<*> (x Data..:? "ComponentId")
+            Prelude.<$> (x Data..:? "ComponentId")
             Prelude.<*> (x Data..:? "ComponentType")
+            Prelude.<*> (x Data..:? "Egress")
+            Prelude.<*> (x Data..:? "Ingress")
       )
 
 instance Prelude.Hashable NetworkPathComponent where
   hashWithSalt _salt NetworkPathComponent' {..} =
-    _salt `Prelude.hashWithSalt` egress
-      `Prelude.hashWithSalt` ingress
-      `Prelude.hashWithSalt` componentId
+    _salt `Prelude.hashWithSalt` componentId
       `Prelude.hashWithSalt` componentType
+      `Prelude.hashWithSalt` egress
+      `Prelude.hashWithSalt` ingress
 
 instance Prelude.NFData NetworkPathComponent where
   rnf NetworkPathComponent' {..} =
-    Prelude.rnf egress
-      `Prelude.seq` Prelude.rnf ingress
-      `Prelude.seq` Prelude.rnf componentId
+    Prelude.rnf componentId
       `Prelude.seq` Prelude.rnf componentType
+      `Prelude.seq` Prelude.rnf egress
+      `Prelude.seq` Prelude.rnf ingress
 
 instance Data.ToJSON NetworkPathComponent where
   toJSON NetworkPathComponent' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Egress" Data..=) Prelude.<$> egress,
-            ("Ingress" Data..=) Prelude.<$> ingress,
-            ("ComponentId" Data..=) Prelude.<$> componentId,
-            ("ComponentType" Data..=) Prelude.<$> componentType
+          [ ("ComponentId" Data..=) Prelude.<$> componentId,
+            ("ComponentType" Data..=) Prelude.<$> componentType,
+            ("Egress" Data..=) Prelude.<$> egress,
+            ("Ingress" Data..=) Prelude.<$> ingress
           ]
       )

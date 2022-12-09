@@ -40,11 +40,13 @@ data AwsKmsKeyDetails = AwsKmsKeyDetails'
     creationDate :: Prelude.Maybe Prelude.Double,
     -- | A description of the KMS key.
     description :: Prelude.Maybe Prelude.Text,
-    -- | Whether the key has key rotation enabled.
-    keyRotationStatus :: Prelude.Maybe Prelude.Bool,
+    -- | The globally unique identifier for the KMS key.
+    keyId :: Prelude.Maybe Prelude.Text,
     -- | The manager of the KMS key. KMS keys in your Amazon Web Services account
     -- are either customer managed or Amazon Web Services managed.
     keyManager :: Prelude.Maybe Prelude.Text,
+    -- | Whether the key has key rotation enabled.
+    keyRotationStatus :: Prelude.Maybe Prelude.Bool,
     -- | The state of the KMS key. Valid values are as follows:
     --
     -- -   @Disabled@
@@ -57,8 +59,6 @@ data AwsKmsKeyDetails = AwsKmsKeyDetails'
     --
     -- -   @Unavailable@
     keyState :: Prelude.Maybe Prelude.Text,
-    -- | The globally unique identifier for the KMS key.
-    keyId :: Prelude.Maybe Prelude.Text,
     -- | The source of the KMS key material.
     --
     -- When this value is @AWS_KMS@, KMS created the key material.
@@ -93,10 +93,12 @@ data AwsKmsKeyDetails = AwsKmsKeyDetails'
 --
 -- 'description', 'awsKmsKeyDetails_description' - A description of the KMS key.
 --
--- 'keyRotationStatus', 'awsKmsKeyDetails_keyRotationStatus' - Whether the key has key rotation enabled.
+-- 'keyId', 'awsKmsKeyDetails_keyId' - The globally unique identifier for the KMS key.
 --
 -- 'keyManager', 'awsKmsKeyDetails_keyManager' - The manager of the KMS key. KMS keys in your Amazon Web Services account
 -- are either customer managed or Amazon Web Services managed.
+--
+-- 'keyRotationStatus', 'awsKmsKeyDetails_keyRotationStatus' - Whether the key has key rotation enabled.
 --
 -- 'keyState', 'awsKmsKeyDetails_keyState' - The state of the KMS key. Valid values are as follows:
 --
@@ -109,8 +111,6 @@ data AwsKmsKeyDetails = AwsKmsKeyDetails'
 -- -   @PendingImport@
 --
 -- -   @Unavailable@
---
--- 'keyId', 'awsKmsKeyDetails_keyId' - The globally unique identifier for the KMS key.
 --
 -- 'origin', 'awsKmsKeyDetails_origin' - The source of the KMS key material.
 --
@@ -129,10 +129,10 @@ newAwsKmsKeyDetails =
     { aWSAccountId = Prelude.Nothing,
       creationDate = Prelude.Nothing,
       description = Prelude.Nothing,
-      keyRotationStatus = Prelude.Nothing,
-      keyManager = Prelude.Nothing,
-      keyState = Prelude.Nothing,
       keyId = Prelude.Nothing,
+      keyManager = Prelude.Nothing,
+      keyRotationStatus = Prelude.Nothing,
+      keyState = Prelude.Nothing,
       origin = Prelude.Nothing
     }
 
@@ -154,14 +154,18 @@ awsKmsKeyDetails_creationDate = Lens.lens (\AwsKmsKeyDetails' {creationDate} -> 
 awsKmsKeyDetails_description :: Lens.Lens' AwsKmsKeyDetails (Prelude.Maybe Prelude.Text)
 awsKmsKeyDetails_description = Lens.lens (\AwsKmsKeyDetails' {description} -> description) (\s@AwsKmsKeyDetails' {} a -> s {description = a} :: AwsKmsKeyDetails)
 
--- | Whether the key has key rotation enabled.
-awsKmsKeyDetails_keyRotationStatus :: Lens.Lens' AwsKmsKeyDetails (Prelude.Maybe Prelude.Bool)
-awsKmsKeyDetails_keyRotationStatus = Lens.lens (\AwsKmsKeyDetails' {keyRotationStatus} -> keyRotationStatus) (\s@AwsKmsKeyDetails' {} a -> s {keyRotationStatus = a} :: AwsKmsKeyDetails)
+-- | The globally unique identifier for the KMS key.
+awsKmsKeyDetails_keyId :: Lens.Lens' AwsKmsKeyDetails (Prelude.Maybe Prelude.Text)
+awsKmsKeyDetails_keyId = Lens.lens (\AwsKmsKeyDetails' {keyId} -> keyId) (\s@AwsKmsKeyDetails' {} a -> s {keyId = a} :: AwsKmsKeyDetails)
 
 -- | The manager of the KMS key. KMS keys in your Amazon Web Services account
 -- are either customer managed or Amazon Web Services managed.
 awsKmsKeyDetails_keyManager :: Lens.Lens' AwsKmsKeyDetails (Prelude.Maybe Prelude.Text)
 awsKmsKeyDetails_keyManager = Lens.lens (\AwsKmsKeyDetails' {keyManager} -> keyManager) (\s@AwsKmsKeyDetails' {} a -> s {keyManager = a} :: AwsKmsKeyDetails)
+
+-- | Whether the key has key rotation enabled.
+awsKmsKeyDetails_keyRotationStatus :: Lens.Lens' AwsKmsKeyDetails (Prelude.Maybe Prelude.Bool)
+awsKmsKeyDetails_keyRotationStatus = Lens.lens (\AwsKmsKeyDetails' {keyRotationStatus} -> keyRotationStatus) (\s@AwsKmsKeyDetails' {} a -> s {keyRotationStatus = a} :: AwsKmsKeyDetails)
 
 -- | The state of the KMS key. Valid values are as follows:
 --
@@ -176,10 +180,6 @@ awsKmsKeyDetails_keyManager = Lens.lens (\AwsKmsKeyDetails' {keyManager} -> keyM
 -- -   @Unavailable@
 awsKmsKeyDetails_keyState :: Lens.Lens' AwsKmsKeyDetails (Prelude.Maybe Prelude.Text)
 awsKmsKeyDetails_keyState = Lens.lens (\AwsKmsKeyDetails' {keyState} -> keyState) (\s@AwsKmsKeyDetails' {} a -> s {keyState = a} :: AwsKmsKeyDetails)
-
--- | The globally unique identifier for the KMS key.
-awsKmsKeyDetails_keyId :: Lens.Lens' AwsKmsKeyDetails (Prelude.Maybe Prelude.Text)
-awsKmsKeyDetails_keyId = Lens.lens (\AwsKmsKeyDetails' {keyId} -> keyId) (\s@AwsKmsKeyDetails' {} a -> s {keyId = a} :: AwsKmsKeyDetails)
 
 -- | The source of the KMS key material.
 --
@@ -203,10 +203,10 @@ instance Data.FromJSON AwsKmsKeyDetails where
             Prelude.<$> (x Data..:? "AWSAccountId")
             Prelude.<*> (x Data..:? "CreationDate")
             Prelude.<*> (x Data..:? "Description")
-            Prelude.<*> (x Data..:? "KeyRotationStatus")
-            Prelude.<*> (x Data..:? "KeyManager")
-            Prelude.<*> (x Data..:? "KeyState")
             Prelude.<*> (x Data..:? "KeyId")
+            Prelude.<*> (x Data..:? "KeyManager")
+            Prelude.<*> (x Data..:? "KeyRotationStatus")
+            Prelude.<*> (x Data..:? "KeyState")
             Prelude.<*> (x Data..:? "Origin")
       )
 
@@ -215,10 +215,10 @@ instance Prelude.Hashable AwsKmsKeyDetails where
     _salt `Prelude.hashWithSalt` aWSAccountId
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` keyRotationStatus
-      `Prelude.hashWithSalt` keyManager
-      `Prelude.hashWithSalt` keyState
       `Prelude.hashWithSalt` keyId
+      `Prelude.hashWithSalt` keyManager
+      `Prelude.hashWithSalt` keyRotationStatus
+      `Prelude.hashWithSalt` keyState
       `Prelude.hashWithSalt` origin
 
 instance Prelude.NFData AwsKmsKeyDetails where
@@ -226,10 +226,10 @@ instance Prelude.NFData AwsKmsKeyDetails where
     Prelude.rnf aWSAccountId
       `Prelude.seq` Prelude.rnf creationDate
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf keyRotationStatus
-      `Prelude.seq` Prelude.rnf keyManager
-      `Prelude.seq` Prelude.rnf keyState
       `Prelude.seq` Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf keyManager
+      `Prelude.seq` Prelude.rnf keyRotationStatus
+      `Prelude.seq` Prelude.rnf keyState
       `Prelude.seq` Prelude.rnf origin
 
 instance Data.ToJSON AwsKmsKeyDetails where
@@ -239,11 +239,11 @@ instance Data.ToJSON AwsKmsKeyDetails where
           [ ("AWSAccountId" Data..=) Prelude.<$> aWSAccountId,
             ("CreationDate" Data..=) Prelude.<$> creationDate,
             ("Description" Data..=) Prelude.<$> description,
+            ("KeyId" Data..=) Prelude.<$> keyId,
+            ("KeyManager" Data..=) Prelude.<$> keyManager,
             ("KeyRotationStatus" Data..=)
               Prelude.<$> keyRotationStatus,
-            ("KeyManager" Data..=) Prelude.<$> keyManager,
             ("KeyState" Data..=) Prelude.<$> keyState,
-            ("KeyId" Data..=) Prelude.<$> keyId,
             ("Origin" Data..=) Prelude.<$> origin
           ]
       )

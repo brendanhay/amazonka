@@ -29,12 +29,12 @@ import Amazonka.SecurityHub.Types.AwsAutoScalingLaunchConfigurationBlockDeviceMa
 --
 -- /See:/ 'newAwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails' smart constructor.
 data AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails = AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails'
-  { -- | Parameters that are used to automatically set up Amazon EBS volumes when
-    -- an instance is launched.
-    ebs :: Prelude.Maybe AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails,
-    -- | The device name that is exposed to the EC2 instance. For example,
+  { -- | The device name that is exposed to the EC2 instance. For example,
     -- @\/dev\/sdh@ or @xvdh@.
     deviceName :: Prelude.Maybe Prelude.Text,
+    -- | Parameters that are used to automatically set up Amazon EBS volumes when
+    -- an instance is launched.
+    ebs :: Prelude.Maybe AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails,
     -- | Whether to suppress the device that is included in the block device
     -- mapping of the Amazon Machine Image (AMI).
     --
@@ -55,11 +55,11 @@ data AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails = AwsAutoScalin
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ebs', 'awsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails_ebs' - Parameters that are used to automatically set up Amazon EBS volumes when
--- an instance is launched.
---
 -- 'deviceName', 'awsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails_deviceName' - The device name that is exposed to the EC2 instance. For example,
 -- @\/dev\/sdh@ or @xvdh@.
+--
+-- 'ebs', 'awsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails_ebs' - Parameters that are used to automatically set up Amazon EBS volumes when
+-- an instance is launched.
 --
 -- 'noDevice', 'awsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails_noDevice' - Whether to suppress the device that is included in the block device
 -- mapping of the Amazon Machine Image (AMI).
@@ -73,9 +73,9 @@ newAwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails ::
   AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails
 newAwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails =
   AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails'
-    { ebs =
+    { deviceName =
         Prelude.Nothing,
-      deviceName =
+      ebs =
         Prelude.Nothing,
       noDevice =
         Prelude.Nothing,
@@ -83,15 +83,15 @@ newAwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails =
         Prelude.Nothing
     }
 
--- | Parameters that are used to automatically set up Amazon EBS volumes when
--- an instance is launched.
-awsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails_ebs :: Lens.Lens' AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails (Prelude.Maybe AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails)
-awsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails_ebs = Lens.lens (\AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails' {ebs} -> ebs) (\s@AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails' {} a -> s {ebs = a} :: AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails)
-
 -- | The device name that is exposed to the EC2 instance. For example,
 -- @\/dev\/sdh@ or @xvdh@.
 awsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails_deviceName :: Lens.Lens' AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails (Prelude.Maybe Prelude.Text)
 awsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails_deviceName = Lens.lens (\AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails' {deviceName} -> deviceName) (\s@AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails' {} a -> s {deviceName = a} :: AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails)
+
+-- | Parameters that are used to automatically set up Amazon EBS volumes when
+-- an instance is launched.
+awsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails_ebs :: Lens.Lens' AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails (Prelude.Maybe AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails)
+awsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails_ebs = Lens.lens (\AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails' {ebs} -> ebs) (\s@AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails' {} a -> s {ebs = a} :: AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails)
 
 -- | Whether to suppress the device that is included in the block device
 -- mapping of the Amazon Machine Image (AMI).
@@ -115,8 +115,8 @@ instance
       "AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails"
       ( \x ->
           AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails'
-            Prelude.<$> (x Data..:? "Ebs")
-              Prelude.<*> (x Data..:? "DeviceName")
+            Prelude.<$> (x Data..:? "DeviceName")
+              Prelude.<*> (x Data..:? "Ebs")
               Prelude.<*> (x Data..:? "NoDevice")
               Prelude.<*> (x Data..:? "VirtualName")
       )
@@ -128,8 +128,8 @@ instance
   hashWithSalt
     _salt
     AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails' {..} =
-      _salt `Prelude.hashWithSalt` ebs
-        `Prelude.hashWithSalt` deviceName
+      _salt `Prelude.hashWithSalt` deviceName
+        `Prelude.hashWithSalt` ebs
         `Prelude.hashWithSalt` noDevice
         `Prelude.hashWithSalt` virtualName
 
@@ -139,8 +139,8 @@ instance
   where
   rnf
     AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails' {..} =
-      Prelude.rnf ebs
-        `Prelude.seq` Prelude.rnf deviceName
+      Prelude.rnf deviceName
+        `Prelude.seq` Prelude.rnf ebs
         `Prelude.seq` Prelude.rnf noDevice
         `Prelude.seq` Prelude.rnf virtualName
 
@@ -152,8 +152,8 @@ instance
     AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ ("Ebs" Data..=) Prelude.<$> ebs,
-              ("DeviceName" Data..=) Prelude.<$> deviceName,
+            [ ("DeviceName" Data..=) Prelude.<$> deviceName,
+              ("Ebs" Data..=) Prelude.<$> ebs,
               ("NoDevice" Data..=) Prelude.<$> noDevice,
               ("VirtualName" Data..=) Prelude.<$> virtualName
             ]

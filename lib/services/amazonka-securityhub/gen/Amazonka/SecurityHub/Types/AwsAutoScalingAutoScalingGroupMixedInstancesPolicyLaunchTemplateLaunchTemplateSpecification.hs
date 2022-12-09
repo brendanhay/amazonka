@@ -31,12 +31,12 @@ data AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTempl
   { -- | The identifier of the launch template. You must specify either
     -- @LaunchTemplateId@ or @LaunchTemplateName@.
     launchTemplateId :: Prelude.Maybe Prelude.Text,
-    -- | Identifies the version of the launch template. You can specify a version
-    -- identifier, or use the values @$Latest@ or @$Default@.
-    version :: Prelude.Maybe Prelude.Text,
     -- | The name of the launch template. You must specify either
     -- @LaunchTemplateId@ or @LaunchTemplateName@.
-    launchTemplateName :: Prelude.Maybe Prelude.Text
+    launchTemplateName :: Prelude.Maybe Prelude.Text,
+    -- | Identifies the version of the launch template. You can specify a version
+    -- identifier, or use the values @$Latest@ or @$Default@.
+    version :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,20 +51,20 @@ data AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTempl
 -- 'launchTemplateId', 'awsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification_launchTemplateId' - The identifier of the launch template. You must specify either
 -- @LaunchTemplateId@ or @LaunchTemplateName@.
 --
--- 'version', 'awsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification_version' - Identifies the version of the launch template. You can specify a version
--- identifier, or use the values @$Latest@ or @$Default@.
---
 -- 'launchTemplateName', 'awsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification_launchTemplateName' - The name of the launch template. You must specify either
 -- @LaunchTemplateId@ or @LaunchTemplateName@.
+--
+-- 'version', 'awsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification_version' - Identifies the version of the launch template. You can specify a version
+-- identifier, or use the values @$Latest@ or @$Default@.
 newAwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification ::
   AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification
 newAwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification =
   AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification'
     { launchTemplateId =
         Prelude.Nothing,
-      version =
-        Prelude.Nothing,
       launchTemplateName =
+        Prelude.Nothing,
+      version =
         Prelude.Nothing
     }
 
@@ -73,15 +73,15 @@ newAwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplat
 awsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification_launchTemplateId :: Lens.Lens' AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
 awsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification_launchTemplateId = Lens.lens (\AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification' {launchTemplateId} -> launchTemplateId) (\s@AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification' {} a -> s {launchTemplateId = a} :: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification)
 
--- | Identifies the version of the launch template. You can specify a version
--- identifier, or use the values @$Latest@ or @$Default@.
-awsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification_version :: Lens.Lens' AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
-awsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification_version = Lens.lens (\AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification' {version} -> version) (\s@AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification' {} a -> s {version = a} :: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification)
-
 -- | The name of the launch template. You must specify either
 -- @LaunchTemplateId@ or @LaunchTemplateName@.
 awsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification_launchTemplateName :: Lens.Lens' AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
 awsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification_launchTemplateName = Lens.lens (\AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification' {launchTemplateName} -> launchTemplateName) (\s@AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification' {} a -> s {launchTemplateName = a} :: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification)
+
+-- | Identifies the version of the launch template. You can specify a version
+-- identifier, or use the values @$Latest@ or @$Default@.
+awsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification_version :: Lens.Lens' AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
+awsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification_version = Lens.lens (\AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification' {version} -> version) (\s@AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification' {} a -> s {version = a} :: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification)
 
 instance
   Data.FromJSON
@@ -93,8 +93,8 @@ instance
       ( \x ->
           AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification'
             Prelude.<$> (x Data..:? "LaunchTemplateId")
-              Prelude.<*> (x Data..:? "Version")
               Prelude.<*> (x Data..:? "LaunchTemplateName")
+              Prelude.<*> (x Data..:? "Version")
       )
 
 instance
@@ -105,8 +105,8 @@ instance
     _salt
     AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification' {..} =
       _salt `Prelude.hashWithSalt` launchTemplateId
-        `Prelude.hashWithSalt` version
         `Prelude.hashWithSalt` launchTemplateName
+        `Prelude.hashWithSalt` version
 
 instance
   Prelude.NFData
@@ -115,8 +115,8 @@ instance
   rnf
     AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification' {..} =
       Prelude.rnf launchTemplateId
-        `Prelude.seq` Prelude.rnf version
         `Prelude.seq` Prelude.rnf launchTemplateName
+        `Prelude.seq` Prelude.rnf version
 
 instance
   Data.ToJSON
@@ -128,8 +128,8 @@ instance
         ( Prelude.catMaybes
             [ ("LaunchTemplateId" Data..=)
                 Prelude.<$> launchTemplateId,
-              ("Version" Data..=) Prelude.<$> version,
               ("LaunchTemplateName" Data..=)
-                Prelude.<$> launchTemplateName
+                Prelude.<$> launchTemplateName,
+              ("Version" Data..=) Prelude.<$> version
             ]
         )

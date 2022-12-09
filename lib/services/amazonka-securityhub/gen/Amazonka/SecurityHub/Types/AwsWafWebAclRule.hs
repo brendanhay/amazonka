@@ -31,14 +31,11 @@ import Amazonka.SecurityHub.Types.WafOverrideAction
 --
 -- /See:/ 'newAwsWafWebAclRule' smart constructor.
 data AwsWafWebAclRule = AwsWafWebAclRule'
-  { -- | The rule type.
-    --
-    -- Valid values: @REGULAR@ | @RATE_BASED@ | @GROUP@
-    --
-    -- The default is @REGULAR@.
-    type' :: Prelude.Maybe Prelude.Text,
-    -- | The identifier for a rule.
-    ruleId :: Prelude.Maybe Prelude.Text,
+  { -- | Specifies the action that CloudFront or WAF takes when a web request
+    -- matches the conditions in the rule.
+    action :: Prelude.Maybe WafAction,
+    -- | Rules to exclude from a rule group.
+    excludedRules :: Prelude.Maybe [WafExcludedRule],
     -- | Use the @OverrideAction@ to test your @RuleGroup@.
     --
     -- Any rule in a @RuleGroup@ can potentially block a request. If you set
@@ -61,11 +58,14 @@ data AwsWafWebAclRule = AwsWafWebAclRule'
     -- higher value. The value must be a unique integer. If you add multiple
     -- rules to a web ACL, the values do not need to be consecutive.
     priority :: Prelude.Maybe Prelude.Int,
-    -- | Specifies the action that CloudFront or WAF takes when a web request
-    -- matches the conditions in the rule.
-    action :: Prelude.Maybe WafAction,
-    -- | Rules to exclude from a rule group.
-    excludedRules :: Prelude.Maybe [WafExcludedRule]
+    -- | The identifier for a rule.
+    ruleId :: Prelude.Maybe Prelude.Text,
+    -- | The rule type.
+    --
+    -- Valid values: @REGULAR@ | @RATE_BASED@ | @GROUP@
+    --
+    -- The default is @REGULAR@.
+    type' :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,13 +77,10 @@ data AwsWafWebAclRule = AwsWafWebAclRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'awsWafWebAclRule_type' - The rule type.
+-- 'action', 'awsWafWebAclRule_action' - Specifies the action that CloudFront or WAF takes when a web request
+-- matches the conditions in the rule.
 --
--- Valid values: @REGULAR@ | @RATE_BASED@ | @GROUP@
---
--- The default is @REGULAR@.
---
--- 'ruleId', 'awsWafWebAclRule_ruleId' - The identifier for a rule.
+-- 'excludedRules', 'awsWafWebAclRule_excludedRules' - Rules to exclude from a rule group.
 --
 -- 'overrideAction', 'awsWafWebAclRule_overrideAction' - Use the @OverrideAction@ to test your @RuleGroup@.
 --
@@ -107,33 +104,33 @@ data AwsWafWebAclRule = AwsWafWebAclRule'
 -- higher value. The value must be a unique integer. If you add multiple
 -- rules to a web ACL, the values do not need to be consecutive.
 --
--- 'action', 'awsWafWebAclRule_action' - Specifies the action that CloudFront or WAF takes when a web request
--- matches the conditions in the rule.
+-- 'ruleId', 'awsWafWebAclRule_ruleId' - The identifier for a rule.
 --
--- 'excludedRules', 'awsWafWebAclRule_excludedRules' - Rules to exclude from a rule group.
-newAwsWafWebAclRule ::
-  AwsWafWebAclRule
-newAwsWafWebAclRule =
-  AwsWafWebAclRule'
-    { type' = Prelude.Nothing,
-      ruleId = Prelude.Nothing,
-      overrideAction = Prelude.Nothing,
-      priority = Prelude.Nothing,
-      action = Prelude.Nothing,
-      excludedRules = Prelude.Nothing
-    }
-
--- | The rule type.
+-- 'type'', 'awsWafWebAclRule_type' - The rule type.
 --
 -- Valid values: @REGULAR@ | @RATE_BASED@ | @GROUP@
 --
 -- The default is @REGULAR@.
-awsWafWebAclRule_type :: Lens.Lens' AwsWafWebAclRule (Prelude.Maybe Prelude.Text)
-awsWafWebAclRule_type = Lens.lens (\AwsWafWebAclRule' {type'} -> type') (\s@AwsWafWebAclRule' {} a -> s {type' = a} :: AwsWafWebAclRule)
+newAwsWafWebAclRule ::
+  AwsWafWebAclRule
+newAwsWafWebAclRule =
+  AwsWafWebAclRule'
+    { action = Prelude.Nothing,
+      excludedRules = Prelude.Nothing,
+      overrideAction = Prelude.Nothing,
+      priority = Prelude.Nothing,
+      ruleId = Prelude.Nothing,
+      type' = Prelude.Nothing
+    }
 
--- | The identifier for a rule.
-awsWafWebAclRule_ruleId :: Lens.Lens' AwsWafWebAclRule (Prelude.Maybe Prelude.Text)
-awsWafWebAclRule_ruleId = Lens.lens (\AwsWafWebAclRule' {ruleId} -> ruleId) (\s@AwsWafWebAclRule' {} a -> s {ruleId = a} :: AwsWafWebAclRule)
+-- | Specifies the action that CloudFront or WAF takes when a web request
+-- matches the conditions in the rule.
+awsWafWebAclRule_action :: Lens.Lens' AwsWafWebAclRule (Prelude.Maybe WafAction)
+awsWafWebAclRule_action = Lens.lens (\AwsWafWebAclRule' {action} -> action) (\s@AwsWafWebAclRule' {} a -> s {action = a} :: AwsWafWebAclRule)
+
+-- | Rules to exclude from a rule group.
+awsWafWebAclRule_excludedRules :: Lens.Lens' AwsWafWebAclRule (Prelude.Maybe [WafExcludedRule])
+awsWafWebAclRule_excludedRules = Lens.lens (\AwsWafWebAclRule' {excludedRules} -> excludedRules) (\s@AwsWafWebAclRule' {} a -> s {excludedRules = a} :: AwsWafWebAclRule) Prelude.. Lens.mapping Lens.coerced
 
 -- | Use the @OverrideAction@ to test your @RuleGroup@.
 --
@@ -161,14 +158,17 @@ awsWafWebAclRule_overrideAction = Lens.lens (\AwsWafWebAclRule' {overrideAction}
 awsWafWebAclRule_priority :: Lens.Lens' AwsWafWebAclRule (Prelude.Maybe Prelude.Int)
 awsWafWebAclRule_priority = Lens.lens (\AwsWafWebAclRule' {priority} -> priority) (\s@AwsWafWebAclRule' {} a -> s {priority = a} :: AwsWafWebAclRule)
 
--- | Specifies the action that CloudFront or WAF takes when a web request
--- matches the conditions in the rule.
-awsWafWebAclRule_action :: Lens.Lens' AwsWafWebAclRule (Prelude.Maybe WafAction)
-awsWafWebAclRule_action = Lens.lens (\AwsWafWebAclRule' {action} -> action) (\s@AwsWafWebAclRule' {} a -> s {action = a} :: AwsWafWebAclRule)
+-- | The identifier for a rule.
+awsWafWebAclRule_ruleId :: Lens.Lens' AwsWafWebAclRule (Prelude.Maybe Prelude.Text)
+awsWafWebAclRule_ruleId = Lens.lens (\AwsWafWebAclRule' {ruleId} -> ruleId) (\s@AwsWafWebAclRule' {} a -> s {ruleId = a} :: AwsWafWebAclRule)
 
--- | Rules to exclude from a rule group.
-awsWafWebAclRule_excludedRules :: Lens.Lens' AwsWafWebAclRule (Prelude.Maybe [WafExcludedRule])
-awsWafWebAclRule_excludedRules = Lens.lens (\AwsWafWebAclRule' {excludedRules} -> excludedRules) (\s@AwsWafWebAclRule' {} a -> s {excludedRules = a} :: AwsWafWebAclRule) Prelude.. Lens.mapping Lens.coerced
+-- | The rule type.
+--
+-- Valid values: @REGULAR@ | @RATE_BASED@ | @GROUP@
+--
+-- The default is @REGULAR@.
+awsWafWebAclRule_type :: Lens.Lens' AwsWafWebAclRule (Prelude.Maybe Prelude.Text)
+awsWafWebAclRule_type = Lens.lens (\AwsWafWebAclRule' {type'} -> type') (\s@AwsWafWebAclRule' {} a -> s {type' = a} :: AwsWafWebAclRule)
 
 instance Data.FromJSON AwsWafWebAclRule where
   parseJSON =
@@ -176,42 +176,42 @@ instance Data.FromJSON AwsWafWebAclRule where
       "AwsWafWebAclRule"
       ( \x ->
           AwsWafWebAclRule'
-            Prelude.<$> (x Data..:? "Type")
-            Prelude.<*> (x Data..:? "RuleId")
+            Prelude.<$> (x Data..:? "Action")
+            Prelude.<*> (x Data..:? "ExcludedRules" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "OverrideAction")
             Prelude.<*> (x Data..:? "Priority")
-            Prelude.<*> (x Data..:? "Action")
-            Prelude.<*> (x Data..:? "ExcludedRules" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "RuleId")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable AwsWafWebAclRule where
   hashWithSalt _salt AwsWafWebAclRule' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` ruleId
+    _salt `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` excludedRules
       `Prelude.hashWithSalt` overrideAction
       `Prelude.hashWithSalt` priority
-      `Prelude.hashWithSalt` action
-      `Prelude.hashWithSalt` excludedRules
+      `Prelude.hashWithSalt` ruleId
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData AwsWafWebAclRule where
   rnf AwsWafWebAclRule' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf ruleId
+    Prelude.rnf action
+      `Prelude.seq` Prelude.rnf excludedRules
       `Prelude.seq` Prelude.rnf overrideAction
       `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf action
-      `Prelude.seq` Prelude.rnf excludedRules
+      `Prelude.seq` Prelude.rnf ruleId
+      `Prelude.seq` Prelude.rnf type'
 
 instance Data.ToJSON AwsWafWebAclRule where
   toJSON AwsWafWebAclRule' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Type" Data..=) Prelude.<$> type',
-            ("RuleId" Data..=) Prelude.<$> ruleId,
+          [ ("Action" Data..=) Prelude.<$> action,
+            ("ExcludedRules" Data..=) Prelude.<$> excludedRules,
             ("OverrideAction" Data..=)
               Prelude.<$> overrideAction,
             ("Priority" Data..=) Prelude.<$> priority,
-            ("Action" Data..=) Prelude.<$> action,
-            ("ExcludedRules" Data..=) Prelude.<$> excludedRules
+            ("RuleId" Data..=) Prelude.<$> ruleId,
+            ("Type" Data..=) Prelude.<$> type'
           ]
       )

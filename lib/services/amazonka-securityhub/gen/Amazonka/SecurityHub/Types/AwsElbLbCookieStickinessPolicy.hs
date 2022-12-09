@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsElbLbCookieStickinessPolicy' smart constructor.
 data AwsElbLbCookieStickinessPolicy = AwsElbLbCookieStickinessPolicy'
-  { -- | The name of the policy. The name must be unique within the set of
-    -- policies for the load balancer.
-    policyName :: Prelude.Maybe Prelude.Text,
-    -- | The amount of time, in seconds, after which the cookie is considered
+  { -- | The amount of time, in seconds, after which the cookie is considered
     -- stale. If an expiration period is not specified, the stickiness session
     -- lasts for the duration of the browser session.
-    cookieExpirationPeriod :: Prelude.Maybe Prelude.Integer
+    cookieExpirationPeriod :: Prelude.Maybe Prelude.Integer,
+    -- | The name of the policy. The name must be unique within the set of
+    -- policies for the load balancer.
+    policyName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,25 +47,20 @@ data AwsElbLbCookieStickinessPolicy = AwsElbLbCookieStickinessPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policyName', 'awsElbLbCookieStickinessPolicy_policyName' - The name of the policy. The name must be unique within the set of
--- policies for the load balancer.
---
 -- 'cookieExpirationPeriod', 'awsElbLbCookieStickinessPolicy_cookieExpirationPeriod' - The amount of time, in seconds, after which the cookie is considered
 -- stale. If an expiration period is not specified, the stickiness session
 -- lasts for the duration of the browser session.
+--
+-- 'policyName', 'awsElbLbCookieStickinessPolicy_policyName' - The name of the policy. The name must be unique within the set of
+-- policies for the load balancer.
 newAwsElbLbCookieStickinessPolicy ::
   AwsElbLbCookieStickinessPolicy
 newAwsElbLbCookieStickinessPolicy =
   AwsElbLbCookieStickinessPolicy'
-    { policyName =
+    { cookieExpirationPeriod =
         Prelude.Nothing,
-      cookieExpirationPeriod = Prelude.Nothing
+      policyName = Prelude.Nothing
     }
-
--- | The name of the policy. The name must be unique within the set of
--- policies for the load balancer.
-awsElbLbCookieStickinessPolicy_policyName :: Lens.Lens' AwsElbLbCookieStickinessPolicy (Prelude.Maybe Prelude.Text)
-awsElbLbCookieStickinessPolicy_policyName = Lens.lens (\AwsElbLbCookieStickinessPolicy' {policyName} -> policyName) (\s@AwsElbLbCookieStickinessPolicy' {} a -> s {policyName = a} :: AwsElbLbCookieStickinessPolicy)
 
 -- | The amount of time, in seconds, after which the cookie is considered
 -- stale. If an expiration period is not specified, the stickiness session
@@ -73,14 +68,19 @@ awsElbLbCookieStickinessPolicy_policyName = Lens.lens (\AwsElbLbCookieStickiness
 awsElbLbCookieStickinessPolicy_cookieExpirationPeriod :: Lens.Lens' AwsElbLbCookieStickinessPolicy (Prelude.Maybe Prelude.Integer)
 awsElbLbCookieStickinessPolicy_cookieExpirationPeriod = Lens.lens (\AwsElbLbCookieStickinessPolicy' {cookieExpirationPeriod} -> cookieExpirationPeriod) (\s@AwsElbLbCookieStickinessPolicy' {} a -> s {cookieExpirationPeriod = a} :: AwsElbLbCookieStickinessPolicy)
 
+-- | The name of the policy. The name must be unique within the set of
+-- policies for the load balancer.
+awsElbLbCookieStickinessPolicy_policyName :: Lens.Lens' AwsElbLbCookieStickinessPolicy (Prelude.Maybe Prelude.Text)
+awsElbLbCookieStickinessPolicy_policyName = Lens.lens (\AwsElbLbCookieStickinessPolicy' {policyName} -> policyName) (\s@AwsElbLbCookieStickinessPolicy' {} a -> s {policyName = a} :: AwsElbLbCookieStickinessPolicy)
+
 instance Data.FromJSON AwsElbLbCookieStickinessPolicy where
   parseJSON =
     Data.withObject
       "AwsElbLbCookieStickinessPolicy"
       ( \x ->
           AwsElbLbCookieStickinessPolicy'
-            Prelude.<$> (x Data..:? "PolicyName")
-            Prelude.<*> (x Data..:? "CookieExpirationPeriod")
+            Prelude.<$> (x Data..:? "CookieExpirationPeriod")
+            Prelude.<*> (x Data..:? "PolicyName")
       )
 
 instance
@@ -90,23 +90,23 @@ instance
   hashWithSalt
     _salt
     AwsElbLbCookieStickinessPolicy' {..} =
-      _salt `Prelude.hashWithSalt` policyName
-        `Prelude.hashWithSalt` cookieExpirationPeriod
+      _salt `Prelude.hashWithSalt` cookieExpirationPeriod
+        `Prelude.hashWithSalt` policyName
 
 instance
   Prelude.NFData
     AwsElbLbCookieStickinessPolicy
   where
   rnf AwsElbLbCookieStickinessPolicy' {..} =
-    Prelude.rnf policyName
-      `Prelude.seq` Prelude.rnf cookieExpirationPeriod
+    Prelude.rnf cookieExpirationPeriod
+      `Prelude.seq` Prelude.rnf policyName
 
 instance Data.ToJSON AwsElbLbCookieStickinessPolicy where
   toJSON AwsElbLbCookieStickinessPolicy' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("PolicyName" Data..=) Prelude.<$> policyName,
-            ("CookieExpirationPeriod" Data..=)
-              Prelude.<$> cookieExpirationPeriod
+          [ ("CookieExpirationPeriod" Data..=)
+              Prelude.<$> cookieExpirationPeriod,
+            ("PolicyName" Data..=) Prelude.<$> policyName
           ]
       )

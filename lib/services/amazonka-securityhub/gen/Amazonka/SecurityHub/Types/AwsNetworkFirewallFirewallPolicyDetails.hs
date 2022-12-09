@@ -30,16 +30,16 @@ import Amazonka.SecurityHub.Types.FirewallPolicyDetails
 --
 -- /See:/ 'newAwsNetworkFirewallFirewallPolicyDetails' smart constructor.
 data AwsNetworkFirewallFirewallPolicyDetails = AwsNetworkFirewallFirewallPolicyDetails'
-  { -- | The name of the firewall policy.
-    firewallPolicyName :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the firewall policy.
-    firewallPolicyId :: Prelude.Maybe Prelude.Text,
-    -- | A description of the firewall policy.
+  { -- | A description of the firewall policy.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The firewall policy configuration.
+    firewallPolicy :: Prelude.Maybe FirewallPolicyDetails,
     -- | The ARN of the firewall policy.
     firewallPolicyArn :: Prelude.Maybe Prelude.Text,
-    -- | The firewall policy configuration.
-    firewallPolicy :: Prelude.Maybe FirewallPolicyDetails
+    -- | The identifier of the firewall policy.
+    firewallPolicyId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the firewall policy.
+    firewallPolicyName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,47 +51,48 @@ data AwsNetworkFirewallFirewallPolicyDetails = AwsNetworkFirewallFirewallPolicyD
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'firewallPolicyName', 'awsNetworkFirewallFirewallPolicyDetails_firewallPolicyName' - The name of the firewall policy.
---
--- 'firewallPolicyId', 'awsNetworkFirewallFirewallPolicyDetails_firewallPolicyId' - The identifier of the firewall policy.
---
 -- 'description', 'awsNetworkFirewallFirewallPolicyDetails_description' - A description of the firewall policy.
+--
+-- 'firewallPolicy', 'awsNetworkFirewallFirewallPolicyDetails_firewallPolicy' - The firewall policy configuration.
 --
 -- 'firewallPolicyArn', 'awsNetworkFirewallFirewallPolicyDetails_firewallPolicyArn' - The ARN of the firewall policy.
 --
--- 'firewallPolicy', 'awsNetworkFirewallFirewallPolicyDetails_firewallPolicy' - The firewall policy configuration.
+-- 'firewallPolicyId', 'awsNetworkFirewallFirewallPolicyDetails_firewallPolicyId' - The identifier of the firewall policy.
+--
+-- 'firewallPolicyName', 'awsNetworkFirewallFirewallPolicyDetails_firewallPolicyName' - The name of the firewall policy.
 newAwsNetworkFirewallFirewallPolicyDetails ::
   AwsNetworkFirewallFirewallPolicyDetails
 newAwsNetworkFirewallFirewallPolicyDetails =
   AwsNetworkFirewallFirewallPolicyDetails'
-    { firewallPolicyName =
+    { description =
         Prelude.Nothing,
-      firewallPolicyId = Prelude.Nothing,
-      description = Prelude.Nothing,
+      firewallPolicy = Prelude.Nothing,
       firewallPolicyArn =
         Prelude.Nothing,
-      firewallPolicy = Prelude.Nothing
+      firewallPolicyId = Prelude.Nothing,
+      firewallPolicyName =
+        Prelude.Nothing
     }
-
--- | The name of the firewall policy.
-awsNetworkFirewallFirewallPolicyDetails_firewallPolicyName :: Lens.Lens' AwsNetworkFirewallFirewallPolicyDetails (Prelude.Maybe Prelude.Text)
-awsNetworkFirewallFirewallPolicyDetails_firewallPolicyName = Lens.lens (\AwsNetworkFirewallFirewallPolicyDetails' {firewallPolicyName} -> firewallPolicyName) (\s@AwsNetworkFirewallFirewallPolicyDetails' {} a -> s {firewallPolicyName = a} :: AwsNetworkFirewallFirewallPolicyDetails)
-
--- | The identifier of the firewall policy.
-awsNetworkFirewallFirewallPolicyDetails_firewallPolicyId :: Lens.Lens' AwsNetworkFirewallFirewallPolicyDetails (Prelude.Maybe Prelude.Text)
-awsNetworkFirewallFirewallPolicyDetails_firewallPolicyId = Lens.lens (\AwsNetworkFirewallFirewallPolicyDetails' {firewallPolicyId} -> firewallPolicyId) (\s@AwsNetworkFirewallFirewallPolicyDetails' {} a -> s {firewallPolicyId = a} :: AwsNetworkFirewallFirewallPolicyDetails)
 
 -- | A description of the firewall policy.
 awsNetworkFirewallFirewallPolicyDetails_description :: Lens.Lens' AwsNetworkFirewallFirewallPolicyDetails (Prelude.Maybe Prelude.Text)
 awsNetworkFirewallFirewallPolicyDetails_description = Lens.lens (\AwsNetworkFirewallFirewallPolicyDetails' {description} -> description) (\s@AwsNetworkFirewallFirewallPolicyDetails' {} a -> s {description = a} :: AwsNetworkFirewallFirewallPolicyDetails)
 
+-- | The firewall policy configuration.
+awsNetworkFirewallFirewallPolicyDetails_firewallPolicy :: Lens.Lens' AwsNetworkFirewallFirewallPolicyDetails (Prelude.Maybe FirewallPolicyDetails)
+awsNetworkFirewallFirewallPolicyDetails_firewallPolicy = Lens.lens (\AwsNetworkFirewallFirewallPolicyDetails' {firewallPolicy} -> firewallPolicy) (\s@AwsNetworkFirewallFirewallPolicyDetails' {} a -> s {firewallPolicy = a} :: AwsNetworkFirewallFirewallPolicyDetails)
+
 -- | The ARN of the firewall policy.
 awsNetworkFirewallFirewallPolicyDetails_firewallPolicyArn :: Lens.Lens' AwsNetworkFirewallFirewallPolicyDetails (Prelude.Maybe Prelude.Text)
 awsNetworkFirewallFirewallPolicyDetails_firewallPolicyArn = Lens.lens (\AwsNetworkFirewallFirewallPolicyDetails' {firewallPolicyArn} -> firewallPolicyArn) (\s@AwsNetworkFirewallFirewallPolicyDetails' {} a -> s {firewallPolicyArn = a} :: AwsNetworkFirewallFirewallPolicyDetails)
 
--- | The firewall policy configuration.
-awsNetworkFirewallFirewallPolicyDetails_firewallPolicy :: Lens.Lens' AwsNetworkFirewallFirewallPolicyDetails (Prelude.Maybe FirewallPolicyDetails)
-awsNetworkFirewallFirewallPolicyDetails_firewallPolicy = Lens.lens (\AwsNetworkFirewallFirewallPolicyDetails' {firewallPolicy} -> firewallPolicy) (\s@AwsNetworkFirewallFirewallPolicyDetails' {} a -> s {firewallPolicy = a} :: AwsNetworkFirewallFirewallPolicyDetails)
+-- | The identifier of the firewall policy.
+awsNetworkFirewallFirewallPolicyDetails_firewallPolicyId :: Lens.Lens' AwsNetworkFirewallFirewallPolicyDetails (Prelude.Maybe Prelude.Text)
+awsNetworkFirewallFirewallPolicyDetails_firewallPolicyId = Lens.lens (\AwsNetworkFirewallFirewallPolicyDetails' {firewallPolicyId} -> firewallPolicyId) (\s@AwsNetworkFirewallFirewallPolicyDetails' {} a -> s {firewallPolicyId = a} :: AwsNetworkFirewallFirewallPolicyDetails)
+
+-- | The name of the firewall policy.
+awsNetworkFirewallFirewallPolicyDetails_firewallPolicyName :: Lens.Lens' AwsNetworkFirewallFirewallPolicyDetails (Prelude.Maybe Prelude.Text)
+awsNetworkFirewallFirewallPolicyDetails_firewallPolicyName = Lens.lens (\AwsNetworkFirewallFirewallPolicyDetails' {firewallPolicyName} -> firewallPolicyName) (\s@AwsNetworkFirewallFirewallPolicyDetails' {} a -> s {firewallPolicyName = a} :: AwsNetworkFirewallFirewallPolicyDetails)
 
 instance
   Data.FromJSON
@@ -102,11 +103,11 @@ instance
       "AwsNetworkFirewallFirewallPolicyDetails"
       ( \x ->
           AwsNetworkFirewallFirewallPolicyDetails'
-            Prelude.<$> (x Data..:? "FirewallPolicyName")
-            Prelude.<*> (x Data..:? "FirewallPolicyId")
-            Prelude.<*> (x Data..:? "Description")
-            Prelude.<*> (x Data..:? "FirewallPolicyArn")
+            Prelude.<$> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "FirewallPolicy")
+            Prelude.<*> (x Data..:? "FirewallPolicyArn")
+            Prelude.<*> (x Data..:? "FirewallPolicyId")
+            Prelude.<*> (x Data..:? "FirewallPolicyName")
       )
 
 instance
@@ -116,22 +117,22 @@ instance
   hashWithSalt
     _salt
     AwsNetworkFirewallFirewallPolicyDetails' {..} =
-      _salt `Prelude.hashWithSalt` firewallPolicyName
-        `Prelude.hashWithSalt` firewallPolicyId
-        `Prelude.hashWithSalt` description
-        `Prelude.hashWithSalt` firewallPolicyArn
+      _salt `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` firewallPolicy
+        `Prelude.hashWithSalt` firewallPolicyArn
+        `Prelude.hashWithSalt` firewallPolicyId
+        `Prelude.hashWithSalt` firewallPolicyName
 
 instance
   Prelude.NFData
     AwsNetworkFirewallFirewallPolicyDetails
   where
   rnf AwsNetworkFirewallFirewallPolicyDetails' {..} =
-    Prelude.rnf firewallPolicyName
-      `Prelude.seq` Prelude.rnf firewallPolicyId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf firewallPolicyArn
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf firewallPolicy
+      `Prelude.seq` Prelude.rnf firewallPolicyArn
+      `Prelude.seq` Prelude.rnf firewallPolicyId
+      `Prelude.seq` Prelude.rnf firewallPolicyName
 
 instance
   Data.ToJSON
@@ -140,14 +141,14 @@ instance
   toJSON AwsNetworkFirewallFirewallPolicyDetails' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("FirewallPolicyName" Data..=)
-              Prelude.<$> firewallPolicyName,
-            ("FirewallPolicyId" Data..=)
-              Prelude.<$> firewallPolicyId,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("FirewallPolicy" Data..=)
+              Prelude.<$> firewallPolicy,
             ("FirewallPolicyArn" Data..=)
               Prelude.<$> firewallPolicyArn,
-            ("FirewallPolicy" Data..=)
-              Prelude.<$> firewallPolicy
+            ("FirewallPolicyId" Data..=)
+              Prelude.<$> firewallPolicyId,
+            ("FirewallPolicyName" Data..=)
+              Prelude.<$> firewallPolicyName
           ]
       )

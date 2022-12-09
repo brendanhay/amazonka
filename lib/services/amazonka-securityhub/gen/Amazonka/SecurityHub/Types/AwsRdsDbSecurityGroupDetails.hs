@@ -30,19 +30,19 @@ import Amazonka.SecurityHub.Types.AwsRdsDbSecurityGroupIpRange
 --
 -- /See:/ 'newAwsRdsDbSecurityGroupDetails' smart constructor.
 data AwsRdsDbSecurityGroupDetails = AwsRdsDbSecurityGroupDetails'
-  { -- | Provides the Amazon Web Services ID of the owner of a specific DB
-    -- security group.
-    ownerId :: Prelude.Maybe Prelude.Text,
+  { -- | The ARN for the DB security group.
+    dbSecurityGroupArn :: Prelude.Maybe Prelude.Text,
     -- | Provides the description of the DB security group.
     dbSecurityGroupDescription :: Prelude.Maybe Prelude.Text,
     -- | Specifies the name of the DB security group.
     dbSecurityGroupName :: Prelude.Maybe Prelude.Text,
     -- | Contains a list of EC2 security groups.
     ec2SecurityGroups :: Prelude.Maybe [AwsRdsDbSecurityGroupEc2SecurityGroup],
-    -- | The ARN for the DB security group.
-    dbSecurityGroupArn :: Prelude.Maybe Prelude.Text,
     -- | Contains a list of IP ranges.
     ipRanges :: Prelude.Maybe [AwsRdsDbSecurityGroupIpRange],
+    -- | Provides the Amazon Web Services ID of the owner of a specific DB
+    -- security group.
+    ownerId :: Prelude.Maybe Prelude.Text,
     -- | Provides VPC ID associated with the DB security group.
     vpcId :: Prelude.Maybe Prelude.Text
   }
@@ -56,8 +56,7 @@ data AwsRdsDbSecurityGroupDetails = AwsRdsDbSecurityGroupDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ownerId', 'awsRdsDbSecurityGroupDetails_ownerId' - Provides the Amazon Web Services ID of the owner of a specific DB
--- security group.
+-- 'dbSecurityGroupArn', 'awsRdsDbSecurityGroupDetails_dbSecurityGroupArn' - The ARN for the DB security group.
 --
 -- 'dbSecurityGroupDescription', 'awsRdsDbSecurityGroupDetails_dbSecurityGroupDescription' - Provides the description of the DB security group.
 --
@@ -65,29 +64,29 @@ data AwsRdsDbSecurityGroupDetails = AwsRdsDbSecurityGroupDetails'
 --
 -- 'ec2SecurityGroups', 'awsRdsDbSecurityGroupDetails_ec2SecurityGroups' - Contains a list of EC2 security groups.
 --
--- 'dbSecurityGroupArn', 'awsRdsDbSecurityGroupDetails_dbSecurityGroupArn' - The ARN for the DB security group.
---
 -- 'ipRanges', 'awsRdsDbSecurityGroupDetails_ipRanges' - Contains a list of IP ranges.
+--
+-- 'ownerId', 'awsRdsDbSecurityGroupDetails_ownerId' - Provides the Amazon Web Services ID of the owner of a specific DB
+-- security group.
 --
 -- 'vpcId', 'awsRdsDbSecurityGroupDetails_vpcId' - Provides VPC ID associated with the DB security group.
 newAwsRdsDbSecurityGroupDetails ::
   AwsRdsDbSecurityGroupDetails
 newAwsRdsDbSecurityGroupDetails =
   AwsRdsDbSecurityGroupDetails'
-    { ownerId =
+    { dbSecurityGroupArn =
         Prelude.Nothing,
       dbSecurityGroupDescription = Prelude.Nothing,
       dbSecurityGroupName = Prelude.Nothing,
       ec2SecurityGroups = Prelude.Nothing,
-      dbSecurityGroupArn = Prelude.Nothing,
       ipRanges = Prelude.Nothing,
+      ownerId = Prelude.Nothing,
       vpcId = Prelude.Nothing
     }
 
--- | Provides the Amazon Web Services ID of the owner of a specific DB
--- security group.
-awsRdsDbSecurityGroupDetails_ownerId :: Lens.Lens' AwsRdsDbSecurityGroupDetails (Prelude.Maybe Prelude.Text)
-awsRdsDbSecurityGroupDetails_ownerId = Lens.lens (\AwsRdsDbSecurityGroupDetails' {ownerId} -> ownerId) (\s@AwsRdsDbSecurityGroupDetails' {} a -> s {ownerId = a} :: AwsRdsDbSecurityGroupDetails)
+-- | The ARN for the DB security group.
+awsRdsDbSecurityGroupDetails_dbSecurityGroupArn :: Lens.Lens' AwsRdsDbSecurityGroupDetails (Prelude.Maybe Prelude.Text)
+awsRdsDbSecurityGroupDetails_dbSecurityGroupArn = Lens.lens (\AwsRdsDbSecurityGroupDetails' {dbSecurityGroupArn} -> dbSecurityGroupArn) (\s@AwsRdsDbSecurityGroupDetails' {} a -> s {dbSecurityGroupArn = a} :: AwsRdsDbSecurityGroupDetails)
 
 -- | Provides the description of the DB security group.
 awsRdsDbSecurityGroupDetails_dbSecurityGroupDescription :: Lens.Lens' AwsRdsDbSecurityGroupDetails (Prelude.Maybe Prelude.Text)
@@ -101,13 +100,14 @@ awsRdsDbSecurityGroupDetails_dbSecurityGroupName = Lens.lens (\AwsRdsDbSecurityG
 awsRdsDbSecurityGroupDetails_ec2SecurityGroups :: Lens.Lens' AwsRdsDbSecurityGroupDetails (Prelude.Maybe [AwsRdsDbSecurityGroupEc2SecurityGroup])
 awsRdsDbSecurityGroupDetails_ec2SecurityGroups = Lens.lens (\AwsRdsDbSecurityGroupDetails' {ec2SecurityGroups} -> ec2SecurityGroups) (\s@AwsRdsDbSecurityGroupDetails' {} a -> s {ec2SecurityGroups = a} :: AwsRdsDbSecurityGroupDetails) Prelude.. Lens.mapping Lens.coerced
 
--- | The ARN for the DB security group.
-awsRdsDbSecurityGroupDetails_dbSecurityGroupArn :: Lens.Lens' AwsRdsDbSecurityGroupDetails (Prelude.Maybe Prelude.Text)
-awsRdsDbSecurityGroupDetails_dbSecurityGroupArn = Lens.lens (\AwsRdsDbSecurityGroupDetails' {dbSecurityGroupArn} -> dbSecurityGroupArn) (\s@AwsRdsDbSecurityGroupDetails' {} a -> s {dbSecurityGroupArn = a} :: AwsRdsDbSecurityGroupDetails)
-
 -- | Contains a list of IP ranges.
 awsRdsDbSecurityGroupDetails_ipRanges :: Lens.Lens' AwsRdsDbSecurityGroupDetails (Prelude.Maybe [AwsRdsDbSecurityGroupIpRange])
 awsRdsDbSecurityGroupDetails_ipRanges = Lens.lens (\AwsRdsDbSecurityGroupDetails' {ipRanges} -> ipRanges) (\s@AwsRdsDbSecurityGroupDetails' {} a -> s {ipRanges = a} :: AwsRdsDbSecurityGroupDetails) Prelude.. Lens.mapping Lens.coerced
+
+-- | Provides the Amazon Web Services ID of the owner of a specific DB
+-- security group.
+awsRdsDbSecurityGroupDetails_ownerId :: Lens.Lens' AwsRdsDbSecurityGroupDetails (Prelude.Maybe Prelude.Text)
+awsRdsDbSecurityGroupDetails_ownerId = Lens.lens (\AwsRdsDbSecurityGroupDetails' {ownerId} -> ownerId) (\s@AwsRdsDbSecurityGroupDetails' {} a -> s {ownerId = a} :: AwsRdsDbSecurityGroupDetails)
 
 -- | Provides VPC ID associated with the DB security group.
 awsRdsDbSecurityGroupDetails_vpcId :: Lens.Lens' AwsRdsDbSecurityGroupDetails (Prelude.Maybe Prelude.Text)
@@ -119,14 +119,14 @@ instance Data.FromJSON AwsRdsDbSecurityGroupDetails where
       "AwsRdsDbSecurityGroupDetails"
       ( \x ->
           AwsRdsDbSecurityGroupDetails'
-            Prelude.<$> (x Data..:? "OwnerId")
+            Prelude.<$> (x Data..:? "DbSecurityGroupArn")
             Prelude.<*> (x Data..:? "DbSecurityGroupDescription")
             Prelude.<*> (x Data..:? "DbSecurityGroupName")
             Prelude.<*> ( x Data..:? "Ec2SecurityGroups"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "DbSecurityGroupArn")
             Prelude.<*> (x Data..:? "IpRanges" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "OwnerId")
             Prelude.<*> (x Data..:? "VpcId")
       )
 
@@ -135,38 +135,38 @@ instance
     AwsRdsDbSecurityGroupDetails
   where
   hashWithSalt _salt AwsRdsDbSecurityGroupDetails' {..} =
-    _salt `Prelude.hashWithSalt` ownerId
+    _salt `Prelude.hashWithSalt` dbSecurityGroupArn
       `Prelude.hashWithSalt` dbSecurityGroupDescription
       `Prelude.hashWithSalt` dbSecurityGroupName
       `Prelude.hashWithSalt` ec2SecurityGroups
-      `Prelude.hashWithSalt` dbSecurityGroupArn
       `Prelude.hashWithSalt` ipRanges
+      `Prelude.hashWithSalt` ownerId
       `Prelude.hashWithSalt` vpcId
 
 instance Prelude.NFData AwsRdsDbSecurityGroupDetails where
   rnf AwsRdsDbSecurityGroupDetails' {..} =
-    Prelude.rnf ownerId
+    Prelude.rnf dbSecurityGroupArn
       `Prelude.seq` Prelude.rnf dbSecurityGroupDescription
       `Prelude.seq` Prelude.rnf dbSecurityGroupName
       `Prelude.seq` Prelude.rnf ec2SecurityGroups
-      `Prelude.seq` Prelude.rnf dbSecurityGroupArn
       `Prelude.seq` Prelude.rnf ipRanges
+      `Prelude.seq` Prelude.rnf ownerId
       `Prelude.seq` Prelude.rnf vpcId
 
 instance Data.ToJSON AwsRdsDbSecurityGroupDetails where
   toJSON AwsRdsDbSecurityGroupDetails' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("OwnerId" Data..=) Prelude.<$> ownerId,
+          [ ("DbSecurityGroupArn" Data..=)
+              Prelude.<$> dbSecurityGroupArn,
             ("DbSecurityGroupDescription" Data..=)
               Prelude.<$> dbSecurityGroupDescription,
             ("DbSecurityGroupName" Data..=)
               Prelude.<$> dbSecurityGroupName,
             ("Ec2SecurityGroups" Data..=)
               Prelude.<$> ec2SecurityGroups,
-            ("DbSecurityGroupArn" Data..=)
-              Prelude.<$> dbSecurityGroupArn,
             ("IpRanges" Data..=) Prelude.<$> ipRanges,
+            ("OwnerId" Data..=) Prelude.<$> ownerId,
             ("VpcId" Data..=) Prelude.<$> vpcId
           ]
       )

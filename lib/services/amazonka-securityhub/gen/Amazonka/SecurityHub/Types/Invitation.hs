@@ -28,16 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInvitation' smart constructor.
 data Invitation = Invitation'
-  { -- | The current status of the association between the member and
-    -- administrator accounts.
-    memberStatus :: Prelude.Maybe Prelude.Text,
-    -- | The account ID of the Security Hub administrator account that the
+  { -- | The account ID of the Security Hub administrator account that the
     -- invitation was sent from.
     accountId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the invitation sent to the member account.
+    invitationId :: Prelude.Maybe Prelude.Text,
     -- | The timestamp of when the invitation was sent.
     invitedAt :: Prelude.Maybe Data.POSIX,
-    -- | The ID of the invitation sent to the member account.
-    invitationId :: Prelude.Maybe Prelude.Text
+    -- | The current status of the association between the member and
+    -- administrator accounts.
+    memberStatus :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,42 +49,42 @@ data Invitation = Invitation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'memberStatus', 'invitation_memberStatus' - The current status of the association between the member and
--- administrator accounts.
---
 -- 'accountId', 'invitation_accountId' - The account ID of the Security Hub administrator account that the
 -- invitation was sent from.
 --
+-- 'invitationId', 'invitation_invitationId' - The ID of the invitation sent to the member account.
+--
 -- 'invitedAt', 'invitation_invitedAt' - The timestamp of when the invitation was sent.
 --
--- 'invitationId', 'invitation_invitationId' - The ID of the invitation sent to the member account.
+-- 'memberStatus', 'invitation_memberStatus' - The current status of the association between the member and
+-- administrator accounts.
 newInvitation ::
   Invitation
 newInvitation =
   Invitation'
-    { memberStatus = Prelude.Nothing,
-      accountId = Prelude.Nothing,
+    { accountId = Prelude.Nothing,
+      invitationId = Prelude.Nothing,
       invitedAt = Prelude.Nothing,
-      invitationId = Prelude.Nothing
+      memberStatus = Prelude.Nothing
     }
-
--- | The current status of the association between the member and
--- administrator accounts.
-invitation_memberStatus :: Lens.Lens' Invitation (Prelude.Maybe Prelude.Text)
-invitation_memberStatus = Lens.lens (\Invitation' {memberStatus} -> memberStatus) (\s@Invitation' {} a -> s {memberStatus = a} :: Invitation)
 
 -- | The account ID of the Security Hub administrator account that the
 -- invitation was sent from.
 invitation_accountId :: Lens.Lens' Invitation (Prelude.Maybe Prelude.Text)
 invitation_accountId = Lens.lens (\Invitation' {accountId} -> accountId) (\s@Invitation' {} a -> s {accountId = a} :: Invitation)
 
+-- | The ID of the invitation sent to the member account.
+invitation_invitationId :: Lens.Lens' Invitation (Prelude.Maybe Prelude.Text)
+invitation_invitationId = Lens.lens (\Invitation' {invitationId} -> invitationId) (\s@Invitation' {} a -> s {invitationId = a} :: Invitation)
+
 -- | The timestamp of when the invitation was sent.
 invitation_invitedAt :: Lens.Lens' Invitation (Prelude.Maybe Prelude.UTCTime)
 invitation_invitedAt = Lens.lens (\Invitation' {invitedAt} -> invitedAt) (\s@Invitation' {} a -> s {invitedAt = a} :: Invitation) Prelude.. Lens.mapping Data._Time
 
--- | The ID of the invitation sent to the member account.
-invitation_invitationId :: Lens.Lens' Invitation (Prelude.Maybe Prelude.Text)
-invitation_invitationId = Lens.lens (\Invitation' {invitationId} -> invitationId) (\s@Invitation' {} a -> s {invitationId = a} :: Invitation)
+-- | The current status of the association between the member and
+-- administrator accounts.
+invitation_memberStatus :: Lens.Lens' Invitation (Prelude.Maybe Prelude.Text)
+invitation_memberStatus = Lens.lens (\Invitation' {memberStatus} -> memberStatus) (\s@Invitation' {} a -> s {memberStatus = a} :: Invitation)
 
 instance Data.FromJSON Invitation where
   parseJSON =
@@ -92,22 +92,22 @@ instance Data.FromJSON Invitation where
       "Invitation"
       ( \x ->
           Invitation'
-            Prelude.<$> (x Data..:? "MemberStatus")
-            Prelude.<*> (x Data..:? "AccountId")
-            Prelude.<*> (x Data..:? "InvitedAt")
+            Prelude.<$> (x Data..:? "AccountId")
             Prelude.<*> (x Data..:? "InvitationId")
+            Prelude.<*> (x Data..:? "InvitedAt")
+            Prelude.<*> (x Data..:? "MemberStatus")
       )
 
 instance Prelude.Hashable Invitation where
   hashWithSalt _salt Invitation' {..} =
-    _salt `Prelude.hashWithSalt` memberStatus
-      `Prelude.hashWithSalt` accountId
-      `Prelude.hashWithSalt` invitedAt
+    _salt `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` invitationId
+      `Prelude.hashWithSalt` invitedAt
+      `Prelude.hashWithSalt` memberStatus
 
 instance Prelude.NFData Invitation where
   rnf Invitation' {..} =
-    Prelude.rnf memberStatus
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf invitedAt
+    Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf invitationId
+      `Prelude.seq` Prelude.rnf invitedAt
+      `Prelude.seq` Prelude.rnf memberStatus

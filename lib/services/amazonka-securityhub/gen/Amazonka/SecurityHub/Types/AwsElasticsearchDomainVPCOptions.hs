@@ -29,15 +29,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsElasticsearchDomainVPCOptions' smart constructor.
 data AwsElasticsearchDomainVPCOptions = AwsElasticsearchDomainVPCOptions'
-  { -- | The list of security group IDs associated with the VPC endpoints for the
+  { -- | The list of Availability Zones associated with the VPC subnets.
+    availabilityZones :: Prelude.Maybe [Prelude.Text],
+    -- | The list of security group IDs associated with the VPC endpoints for the
     -- domain.
     securityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | The list of Availability Zones associated with the VPC subnets.
-    availabilityZones :: Prelude.Maybe [Prelude.Text],
-    -- | ID for the VPC.
-    vPCId :: Prelude.Maybe Prelude.Text,
     -- | A list of subnet IDs associated with the VPC endpoints for the domain.
-    subnetIds :: Prelude.Maybe [Prelude.Text]
+    subnetIds :: Prelude.Maybe [Prelude.Text],
+    -- | ID for the VPC.
+    vPCId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,41 +49,41 @@ data AwsElasticsearchDomainVPCOptions = AwsElasticsearchDomainVPCOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'availabilityZones', 'awsElasticsearchDomainVPCOptions_availabilityZones' - The list of Availability Zones associated with the VPC subnets.
+--
 -- 'securityGroupIds', 'awsElasticsearchDomainVPCOptions_securityGroupIds' - The list of security group IDs associated with the VPC endpoints for the
 -- domain.
 --
--- 'availabilityZones', 'awsElasticsearchDomainVPCOptions_availabilityZones' - The list of Availability Zones associated with the VPC subnets.
+-- 'subnetIds', 'awsElasticsearchDomainVPCOptions_subnetIds' - A list of subnet IDs associated with the VPC endpoints for the domain.
 --
 -- 'vPCId', 'awsElasticsearchDomainVPCOptions_vPCId' - ID for the VPC.
---
--- 'subnetIds', 'awsElasticsearchDomainVPCOptions_subnetIds' - A list of subnet IDs associated with the VPC endpoints for the domain.
 newAwsElasticsearchDomainVPCOptions ::
   AwsElasticsearchDomainVPCOptions
 newAwsElasticsearchDomainVPCOptions =
   AwsElasticsearchDomainVPCOptions'
-    { securityGroupIds =
+    { availabilityZones =
         Prelude.Nothing,
-      availabilityZones = Prelude.Nothing,
-      vPCId = Prelude.Nothing,
-      subnetIds = Prelude.Nothing
+      securityGroupIds = Prelude.Nothing,
+      subnetIds = Prelude.Nothing,
+      vPCId = Prelude.Nothing
     }
+
+-- | The list of Availability Zones associated with the VPC subnets.
+awsElasticsearchDomainVPCOptions_availabilityZones :: Lens.Lens' AwsElasticsearchDomainVPCOptions (Prelude.Maybe [Prelude.Text])
+awsElasticsearchDomainVPCOptions_availabilityZones = Lens.lens (\AwsElasticsearchDomainVPCOptions' {availabilityZones} -> availabilityZones) (\s@AwsElasticsearchDomainVPCOptions' {} a -> s {availabilityZones = a} :: AwsElasticsearchDomainVPCOptions) Prelude.. Lens.mapping Lens.coerced
 
 -- | The list of security group IDs associated with the VPC endpoints for the
 -- domain.
 awsElasticsearchDomainVPCOptions_securityGroupIds :: Lens.Lens' AwsElasticsearchDomainVPCOptions (Prelude.Maybe [Prelude.Text])
 awsElasticsearchDomainVPCOptions_securityGroupIds = Lens.lens (\AwsElasticsearchDomainVPCOptions' {securityGroupIds} -> securityGroupIds) (\s@AwsElasticsearchDomainVPCOptions' {} a -> s {securityGroupIds = a} :: AwsElasticsearchDomainVPCOptions) Prelude.. Lens.mapping Lens.coerced
 
--- | The list of Availability Zones associated with the VPC subnets.
-awsElasticsearchDomainVPCOptions_availabilityZones :: Lens.Lens' AwsElasticsearchDomainVPCOptions (Prelude.Maybe [Prelude.Text])
-awsElasticsearchDomainVPCOptions_availabilityZones = Lens.lens (\AwsElasticsearchDomainVPCOptions' {availabilityZones} -> availabilityZones) (\s@AwsElasticsearchDomainVPCOptions' {} a -> s {availabilityZones = a} :: AwsElasticsearchDomainVPCOptions) Prelude.. Lens.mapping Lens.coerced
+-- | A list of subnet IDs associated with the VPC endpoints for the domain.
+awsElasticsearchDomainVPCOptions_subnetIds :: Lens.Lens' AwsElasticsearchDomainVPCOptions (Prelude.Maybe [Prelude.Text])
+awsElasticsearchDomainVPCOptions_subnetIds = Lens.lens (\AwsElasticsearchDomainVPCOptions' {subnetIds} -> subnetIds) (\s@AwsElasticsearchDomainVPCOptions' {} a -> s {subnetIds = a} :: AwsElasticsearchDomainVPCOptions) Prelude.. Lens.mapping Lens.coerced
 
 -- | ID for the VPC.
 awsElasticsearchDomainVPCOptions_vPCId :: Lens.Lens' AwsElasticsearchDomainVPCOptions (Prelude.Maybe Prelude.Text)
 awsElasticsearchDomainVPCOptions_vPCId = Lens.lens (\AwsElasticsearchDomainVPCOptions' {vPCId} -> vPCId) (\s@AwsElasticsearchDomainVPCOptions' {} a -> s {vPCId = a} :: AwsElasticsearchDomainVPCOptions)
-
--- | A list of subnet IDs associated with the VPC endpoints for the domain.
-awsElasticsearchDomainVPCOptions_subnetIds :: Lens.Lens' AwsElasticsearchDomainVPCOptions (Prelude.Maybe [Prelude.Text])
-awsElasticsearchDomainVPCOptions_subnetIds = Lens.lens (\AwsElasticsearchDomainVPCOptions' {subnetIds} -> subnetIds) (\s@AwsElasticsearchDomainVPCOptions' {} a -> s {subnetIds = a} :: AwsElasticsearchDomainVPCOptions) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Data.FromJSON
@@ -94,14 +94,14 @@ instance
       "AwsElasticsearchDomainVPCOptions"
       ( \x ->
           AwsElasticsearchDomainVPCOptions'
-            Prelude.<$> ( x Data..:? "SecurityGroupIds"
+            Prelude.<$> ( x Data..:? "AvailabilityZones"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "AvailabilityZones"
+            Prelude.<*> ( x Data..:? "SecurityGroupIds"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "VPCId")
             Prelude.<*> (x Data..:? "SubnetIds" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "VPCId")
       )
 
 instance
@@ -111,30 +111,30 @@ instance
   hashWithSalt
     _salt
     AwsElasticsearchDomainVPCOptions' {..} =
-      _salt `Prelude.hashWithSalt` securityGroupIds
-        `Prelude.hashWithSalt` availabilityZones
-        `Prelude.hashWithSalt` vPCId
+      _salt `Prelude.hashWithSalt` availabilityZones
+        `Prelude.hashWithSalt` securityGroupIds
         `Prelude.hashWithSalt` subnetIds
+        `Prelude.hashWithSalt` vPCId
 
 instance
   Prelude.NFData
     AwsElasticsearchDomainVPCOptions
   where
   rnf AwsElasticsearchDomainVPCOptions' {..} =
-    Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf availabilityZones
-      `Prelude.seq` Prelude.rnf vPCId
+    Prelude.rnf availabilityZones
+      `Prelude.seq` Prelude.rnf securityGroupIds
       `Prelude.seq` Prelude.rnf subnetIds
+      `Prelude.seq` Prelude.rnf vPCId
 
 instance Data.ToJSON AwsElasticsearchDomainVPCOptions where
   toJSON AwsElasticsearchDomainVPCOptions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SecurityGroupIds" Data..=)
-              Prelude.<$> securityGroupIds,
-            ("AvailabilityZones" Data..=)
+          [ ("AvailabilityZones" Data..=)
               Prelude.<$> availabilityZones,
-            ("VPCId" Data..=) Prelude.<$> vPCId,
-            ("SubnetIds" Data..=) Prelude.<$> subnetIds
+            ("SecurityGroupIds" Data..=)
+              Prelude.<$> securityGroupIds,
+            ("SubnetIds" Data..=) Prelude.<$> subnetIds,
+            ("VPCId" Data..=) Prelude.<$> vPCId
           ]
       )

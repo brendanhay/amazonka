@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newAwsBackupRecoveryPointCalculatedLifecycleDetails' smart constructor.
 data AwsBackupRecoveryPointCalculatedLifecycleDetails = AwsBackupRecoveryPointCalculatedLifecycleDetails'
   { -- | Specifies the number of days after creation that a recovery point is
-    -- moved to cold storage.
-    moveToColdStorageAt :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the number of days after creation that a recovery point is
     -- deleted. Must be greater than 90 days plus @MoveToColdStorageAfterDays@.
-    deleteAt :: Prelude.Maybe Prelude.Text
+    deleteAt :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the number of days after creation that a recovery point is
+    -- moved to cold storage.
+    moveToColdStorageAt :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,30 +46,30 @@ data AwsBackupRecoveryPointCalculatedLifecycleDetails = AwsBackupRecoveryPointCa
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'moveToColdStorageAt', 'awsBackupRecoveryPointCalculatedLifecycleDetails_moveToColdStorageAt' - Specifies the number of days after creation that a recovery point is
--- moved to cold storage.
---
 -- 'deleteAt', 'awsBackupRecoveryPointCalculatedLifecycleDetails_deleteAt' - Specifies the number of days after creation that a recovery point is
 -- deleted. Must be greater than 90 days plus @MoveToColdStorageAfterDays@.
+--
+-- 'moveToColdStorageAt', 'awsBackupRecoveryPointCalculatedLifecycleDetails_moveToColdStorageAt' - Specifies the number of days after creation that a recovery point is
+-- moved to cold storage.
 newAwsBackupRecoveryPointCalculatedLifecycleDetails ::
   AwsBackupRecoveryPointCalculatedLifecycleDetails
 newAwsBackupRecoveryPointCalculatedLifecycleDetails =
   AwsBackupRecoveryPointCalculatedLifecycleDetails'
-    { moveToColdStorageAt =
+    { deleteAt =
         Prelude.Nothing,
-      deleteAt =
+      moveToColdStorageAt =
         Prelude.Nothing
     }
-
--- | Specifies the number of days after creation that a recovery point is
--- moved to cold storage.
-awsBackupRecoveryPointCalculatedLifecycleDetails_moveToColdStorageAt :: Lens.Lens' AwsBackupRecoveryPointCalculatedLifecycleDetails (Prelude.Maybe Prelude.Text)
-awsBackupRecoveryPointCalculatedLifecycleDetails_moveToColdStorageAt = Lens.lens (\AwsBackupRecoveryPointCalculatedLifecycleDetails' {moveToColdStorageAt} -> moveToColdStorageAt) (\s@AwsBackupRecoveryPointCalculatedLifecycleDetails' {} a -> s {moveToColdStorageAt = a} :: AwsBackupRecoveryPointCalculatedLifecycleDetails)
 
 -- | Specifies the number of days after creation that a recovery point is
 -- deleted. Must be greater than 90 days plus @MoveToColdStorageAfterDays@.
 awsBackupRecoveryPointCalculatedLifecycleDetails_deleteAt :: Lens.Lens' AwsBackupRecoveryPointCalculatedLifecycleDetails (Prelude.Maybe Prelude.Text)
 awsBackupRecoveryPointCalculatedLifecycleDetails_deleteAt = Lens.lens (\AwsBackupRecoveryPointCalculatedLifecycleDetails' {deleteAt} -> deleteAt) (\s@AwsBackupRecoveryPointCalculatedLifecycleDetails' {} a -> s {deleteAt = a} :: AwsBackupRecoveryPointCalculatedLifecycleDetails)
+
+-- | Specifies the number of days after creation that a recovery point is
+-- moved to cold storage.
+awsBackupRecoveryPointCalculatedLifecycleDetails_moveToColdStorageAt :: Lens.Lens' AwsBackupRecoveryPointCalculatedLifecycleDetails (Prelude.Maybe Prelude.Text)
+awsBackupRecoveryPointCalculatedLifecycleDetails_moveToColdStorageAt = Lens.lens (\AwsBackupRecoveryPointCalculatedLifecycleDetails' {moveToColdStorageAt} -> moveToColdStorageAt) (\s@AwsBackupRecoveryPointCalculatedLifecycleDetails' {} a -> s {moveToColdStorageAt = a} :: AwsBackupRecoveryPointCalculatedLifecycleDetails)
 
 instance
   Data.FromJSON
@@ -80,8 +80,8 @@ instance
       "AwsBackupRecoveryPointCalculatedLifecycleDetails"
       ( \x ->
           AwsBackupRecoveryPointCalculatedLifecycleDetails'
-            Prelude.<$> (x Data..:? "MoveToColdStorageAt")
-              Prelude.<*> (x Data..:? "DeleteAt")
+            Prelude.<$> (x Data..:? "DeleteAt")
+              Prelude.<*> (x Data..:? "MoveToColdStorageAt")
       )
 
 instance
@@ -91,8 +91,8 @@ instance
   hashWithSalt
     _salt
     AwsBackupRecoveryPointCalculatedLifecycleDetails' {..} =
-      _salt `Prelude.hashWithSalt` moveToColdStorageAt
-        `Prelude.hashWithSalt` deleteAt
+      _salt `Prelude.hashWithSalt` deleteAt
+        `Prelude.hashWithSalt` moveToColdStorageAt
 
 instance
   Prelude.NFData
@@ -100,8 +100,8 @@ instance
   where
   rnf
     AwsBackupRecoveryPointCalculatedLifecycleDetails' {..} =
-      Prelude.rnf moveToColdStorageAt
-        `Prelude.seq` Prelude.rnf deleteAt
+      Prelude.rnf deleteAt
+        `Prelude.seq` Prelude.rnf moveToColdStorageAt
 
 instance
   Data.ToJSON
@@ -111,8 +111,8 @@ instance
     AwsBackupRecoveryPointCalculatedLifecycleDetails' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ ("MoveToColdStorageAt" Data..=)
-                Prelude.<$> moveToColdStorageAt,
-              ("DeleteAt" Data..=) Prelude.<$> deleteAt
+            [ ("DeleteAt" Data..=) Prelude.<$> deleteAt,
+              ("MoveToColdStorageAt" Data..=)
+                Prelude.<$> moveToColdStorageAt
             ]
         )

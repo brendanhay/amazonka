@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 data Range = Range'
   { -- | The number of lines (for a line range) or characters (for an offset
     -- range) from the beginning of the file to the end of the sensitive data.
-    start :: Prelude.Maybe Prelude.Integer,
+    end :: Prelude.Maybe Prelude.Integer,
     -- | The number of lines (for a line range) or characters (for an offset
     -- range) from the beginning of the file to the end of the sensitive data.
-    end :: Prelude.Maybe Prelude.Integer,
+    start :: Prelude.Maybe Prelude.Integer,
     -- | In the line where the sensitive data starts, the column within the line
     -- where the sensitive data starts.
     startColumn :: Prelude.Maybe Prelude.Integer
@@ -48,10 +48,10 @@ data Range = Range'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'start', 'range_start' - The number of lines (for a line range) or characters (for an offset
+-- 'end', 'range_end' - The number of lines (for a line range) or characters (for an offset
 -- range) from the beginning of the file to the end of the sensitive data.
 --
--- 'end', 'range_end' - The number of lines (for a line range) or characters (for an offset
+-- 'start', 'range_start' - The number of lines (for a line range) or characters (for an offset
 -- range) from the beginning of the file to the end of the sensitive data.
 --
 -- 'startColumn', 'range_startColumn' - In the line where the sensitive data starts, the column within the line
@@ -60,20 +60,20 @@ newRange ::
   Range
 newRange =
   Range'
-    { start = Prelude.Nothing,
-      end = Prelude.Nothing,
+    { end = Prelude.Nothing,
+      start = Prelude.Nothing,
       startColumn = Prelude.Nothing
     }
 
 -- | The number of lines (for a line range) or characters (for an offset
 -- range) from the beginning of the file to the end of the sensitive data.
-range_start :: Lens.Lens' Range (Prelude.Maybe Prelude.Integer)
-range_start = Lens.lens (\Range' {start} -> start) (\s@Range' {} a -> s {start = a} :: Range)
+range_end :: Lens.Lens' Range (Prelude.Maybe Prelude.Integer)
+range_end = Lens.lens (\Range' {end} -> end) (\s@Range' {} a -> s {end = a} :: Range)
 
 -- | The number of lines (for a line range) or characters (for an offset
 -- range) from the beginning of the file to the end of the sensitive data.
-range_end :: Lens.Lens' Range (Prelude.Maybe Prelude.Integer)
-range_end = Lens.lens (\Range' {end} -> end) (\s@Range' {} a -> s {end = a} :: Range)
+range_start :: Lens.Lens' Range (Prelude.Maybe Prelude.Integer)
+range_start = Lens.lens (\Range' {start} -> start) (\s@Range' {} a -> s {start = a} :: Range)
 
 -- | In the line where the sensitive data starts, the column within the line
 -- where the sensitive data starts.
@@ -86,29 +86,29 @@ instance Data.FromJSON Range where
       "Range"
       ( \x ->
           Range'
-            Prelude.<$> (x Data..:? "Start")
-            Prelude.<*> (x Data..:? "End")
+            Prelude.<$> (x Data..:? "End")
+            Prelude.<*> (x Data..:? "Start")
             Prelude.<*> (x Data..:? "StartColumn")
       )
 
 instance Prelude.Hashable Range where
   hashWithSalt _salt Range' {..} =
-    _salt `Prelude.hashWithSalt` start
-      `Prelude.hashWithSalt` end
+    _salt `Prelude.hashWithSalt` end
+      `Prelude.hashWithSalt` start
       `Prelude.hashWithSalt` startColumn
 
 instance Prelude.NFData Range where
   rnf Range' {..} =
-    Prelude.rnf start
-      `Prelude.seq` Prelude.rnf end
+    Prelude.rnf end
+      `Prelude.seq` Prelude.rnf start
       `Prelude.seq` Prelude.rnf startColumn
 
 instance Data.ToJSON Range where
   toJSON Range' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Start" Data..=) Prelude.<$> start,
-            ("End" Data..=) Prelude.<$> end,
+          [ ("End" Data..=) Prelude.<$> end,
+            ("Start" Data..=) Prelude.<$> start,
             ("StartColumn" Data..=) Prelude.<$> startColumn
           ]
       )

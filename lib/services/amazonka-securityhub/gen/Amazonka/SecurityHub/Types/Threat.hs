@@ -30,15 +30,15 @@ import Amazonka.SecurityHub.Types.FilePaths
 --
 -- /See:/ 'newThreat' smart constructor.
 data Threat = Threat'
-  { -- | The severity of the threat.
-    severity :: Prelude.Maybe Prelude.Text,
-    -- | The name of the threat.
-    name :: Prelude.Maybe Prelude.Text,
+  { -- | Provides information about the file paths that were affected by the
+    -- threat.
+    filePaths :: Prelude.Maybe [FilePaths],
     -- | This total number of items in which the threat has been detected.
     itemCount :: Prelude.Maybe Prelude.Int,
-    -- | Provides information about the file paths that were affected by the
-    -- threat.
-    filePaths :: Prelude.Maybe [FilePaths]
+    -- | The name of the threat.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The severity of the threat.
+    severity :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,40 +50,40 @@ data Threat = Threat'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'severity', 'threat_severity' - The severity of the threat.
---
--- 'name', 'threat_name' - The name of the threat.
+-- 'filePaths', 'threat_filePaths' - Provides information about the file paths that were affected by the
+-- threat.
 --
 -- 'itemCount', 'threat_itemCount' - This total number of items in which the threat has been detected.
 --
--- 'filePaths', 'threat_filePaths' - Provides information about the file paths that were affected by the
--- threat.
+-- 'name', 'threat_name' - The name of the threat.
+--
+-- 'severity', 'threat_severity' - The severity of the threat.
 newThreat ::
   Threat
 newThreat =
   Threat'
-    { severity = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { filePaths = Prelude.Nothing,
       itemCount = Prelude.Nothing,
-      filePaths = Prelude.Nothing
+      name = Prelude.Nothing,
+      severity = Prelude.Nothing
     }
-
--- | The severity of the threat.
-threat_severity :: Lens.Lens' Threat (Prelude.Maybe Prelude.Text)
-threat_severity = Lens.lens (\Threat' {severity} -> severity) (\s@Threat' {} a -> s {severity = a} :: Threat)
-
--- | The name of the threat.
-threat_name :: Lens.Lens' Threat (Prelude.Maybe Prelude.Text)
-threat_name = Lens.lens (\Threat' {name} -> name) (\s@Threat' {} a -> s {name = a} :: Threat)
-
--- | This total number of items in which the threat has been detected.
-threat_itemCount :: Lens.Lens' Threat (Prelude.Maybe Prelude.Int)
-threat_itemCount = Lens.lens (\Threat' {itemCount} -> itemCount) (\s@Threat' {} a -> s {itemCount = a} :: Threat)
 
 -- | Provides information about the file paths that were affected by the
 -- threat.
 threat_filePaths :: Lens.Lens' Threat (Prelude.Maybe [FilePaths])
 threat_filePaths = Lens.lens (\Threat' {filePaths} -> filePaths) (\s@Threat' {} a -> s {filePaths = a} :: Threat) Prelude.. Lens.mapping Lens.coerced
+
+-- | This total number of items in which the threat has been detected.
+threat_itemCount :: Lens.Lens' Threat (Prelude.Maybe Prelude.Int)
+threat_itemCount = Lens.lens (\Threat' {itemCount} -> itemCount) (\s@Threat' {} a -> s {itemCount = a} :: Threat)
+
+-- | The name of the threat.
+threat_name :: Lens.Lens' Threat (Prelude.Maybe Prelude.Text)
+threat_name = Lens.lens (\Threat' {name} -> name) (\s@Threat' {} a -> s {name = a} :: Threat)
+
+-- | The severity of the threat.
+threat_severity :: Lens.Lens' Threat (Prelude.Maybe Prelude.Text)
+threat_severity = Lens.lens (\Threat' {severity} -> severity) (\s@Threat' {} a -> s {severity = a} :: Threat)
 
 instance Data.FromJSON Threat where
   parseJSON =
@@ -91,33 +91,33 @@ instance Data.FromJSON Threat where
       "Threat"
       ( \x ->
           Threat'
-            Prelude.<$> (x Data..:? "Severity")
-            Prelude.<*> (x Data..:? "Name")
+            Prelude.<$> (x Data..:? "FilePaths" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "ItemCount")
-            Prelude.<*> (x Data..:? "FilePaths" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Severity")
       )
 
 instance Prelude.Hashable Threat where
   hashWithSalt _salt Threat' {..} =
-    _salt `Prelude.hashWithSalt` severity
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` filePaths
       `Prelude.hashWithSalt` itemCount
-      `Prelude.hashWithSalt` filePaths
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` severity
 
 instance Prelude.NFData Threat where
   rnf Threat' {..} =
-    Prelude.rnf severity
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf filePaths
       `Prelude.seq` Prelude.rnf itemCount
-      `Prelude.seq` Prelude.rnf filePaths
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf severity
 
 instance Data.ToJSON Threat where
   toJSON Threat' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Severity" Data..=) Prelude.<$> severity,
-            ("Name" Data..=) Prelude.<$> name,
+          [ ("FilePaths" Data..=) Prelude.<$> filePaths,
             ("ItemCount" Data..=) Prelude.<$> itemCount,
-            ("FilePaths" Data..=) Prelude.<$> filePaths
+            ("Name" Data..=) Prelude.<$> name,
+            ("Severity" Data..=) Prelude.<$> severity
           ]
       )

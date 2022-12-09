@@ -28,7 +28,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsEksClusterLoggingClusterLoggingDetails' smart constructor.
 data AwsEksClusterLoggingClusterLoggingDetails = AwsEksClusterLoggingClusterLoggingDetails'
-  { -- | A list of logging types. Valid values are as follows:
+  { -- | Whether the logging types that are listed in @Types@ are enabled.
+    enabled :: Prelude.Maybe Prelude.Bool,
+    -- | A list of logging types. Valid values are as follows:
     --
     -- -   @api@
     --
@@ -39,9 +41,7 @@ data AwsEksClusterLoggingClusterLoggingDetails = AwsEksClusterLoggingClusterLogg
     -- -   @controllerManager@
     --
     -- -   @scheduler@
-    types :: Prelude.Maybe [Prelude.Text],
-    -- | Whether the logging types that are listed in @Types@ are enabled.
-    enabled :: Prelude.Maybe Prelude.Bool
+    types :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,6 +52,8 @@ data AwsEksClusterLoggingClusterLoggingDetails = AwsEksClusterLoggingClusterLogg
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'enabled', 'awsEksClusterLoggingClusterLoggingDetails_enabled' - Whether the logging types that are listed in @Types@ are enabled.
 --
 -- 'types', 'awsEksClusterLoggingClusterLoggingDetails_types' - A list of logging types. Valid values are as follows:
 --
@@ -64,16 +66,18 @@ data AwsEksClusterLoggingClusterLoggingDetails = AwsEksClusterLoggingClusterLogg
 -- -   @controllerManager@
 --
 -- -   @scheduler@
---
--- 'enabled', 'awsEksClusterLoggingClusterLoggingDetails_enabled' - Whether the logging types that are listed in @Types@ are enabled.
 newAwsEksClusterLoggingClusterLoggingDetails ::
   AwsEksClusterLoggingClusterLoggingDetails
 newAwsEksClusterLoggingClusterLoggingDetails =
   AwsEksClusterLoggingClusterLoggingDetails'
-    { types =
+    { enabled =
         Prelude.Nothing,
-      enabled = Prelude.Nothing
+      types = Prelude.Nothing
     }
+
+-- | Whether the logging types that are listed in @Types@ are enabled.
+awsEksClusterLoggingClusterLoggingDetails_enabled :: Lens.Lens' AwsEksClusterLoggingClusterLoggingDetails (Prelude.Maybe Prelude.Bool)
+awsEksClusterLoggingClusterLoggingDetails_enabled = Lens.lens (\AwsEksClusterLoggingClusterLoggingDetails' {enabled} -> enabled) (\s@AwsEksClusterLoggingClusterLoggingDetails' {} a -> s {enabled = a} :: AwsEksClusterLoggingClusterLoggingDetails)
 
 -- | A list of logging types. Valid values are as follows:
 --
@@ -89,10 +93,6 @@ newAwsEksClusterLoggingClusterLoggingDetails =
 awsEksClusterLoggingClusterLoggingDetails_types :: Lens.Lens' AwsEksClusterLoggingClusterLoggingDetails (Prelude.Maybe [Prelude.Text])
 awsEksClusterLoggingClusterLoggingDetails_types = Lens.lens (\AwsEksClusterLoggingClusterLoggingDetails' {types} -> types) (\s@AwsEksClusterLoggingClusterLoggingDetails' {} a -> s {types = a} :: AwsEksClusterLoggingClusterLoggingDetails) Prelude.. Lens.mapping Lens.coerced
 
--- | Whether the logging types that are listed in @Types@ are enabled.
-awsEksClusterLoggingClusterLoggingDetails_enabled :: Lens.Lens' AwsEksClusterLoggingClusterLoggingDetails (Prelude.Maybe Prelude.Bool)
-awsEksClusterLoggingClusterLoggingDetails_enabled = Lens.lens (\AwsEksClusterLoggingClusterLoggingDetails' {enabled} -> enabled) (\s@AwsEksClusterLoggingClusterLoggingDetails' {} a -> s {enabled = a} :: AwsEksClusterLoggingClusterLoggingDetails)
-
 instance
   Data.FromJSON
     AwsEksClusterLoggingClusterLoggingDetails
@@ -102,8 +102,8 @@ instance
       "AwsEksClusterLoggingClusterLoggingDetails"
       ( \x ->
           AwsEksClusterLoggingClusterLoggingDetails'
-            Prelude.<$> (x Data..:? "Types" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "Enabled")
+            Prelude.<$> (x Data..:? "Enabled")
+              Prelude.<*> (x Data..:? "Types" Data..!= Prelude.mempty)
       )
 
 instance
@@ -113,15 +113,15 @@ instance
   hashWithSalt
     _salt
     AwsEksClusterLoggingClusterLoggingDetails' {..} =
-      _salt `Prelude.hashWithSalt` types
-        `Prelude.hashWithSalt` enabled
+      _salt `Prelude.hashWithSalt` enabled
+        `Prelude.hashWithSalt` types
 
 instance
   Prelude.NFData
     AwsEksClusterLoggingClusterLoggingDetails
   where
   rnf AwsEksClusterLoggingClusterLoggingDetails' {..} =
-    Prelude.rnf types `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf enabled `Prelude.seq` Prelude.rnf types
 
 instance
   Data.ToJSON
@@ -130,7 +130,7 @@ instance
   toJSON AwsEksClusterLoggingClusterLoggingDetails' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Types" Data..=) Prelude.<$> types,
-            ("Enabled" Data..=) Prelude.<$> enabled
+          [ ("Enabled" Data..=) Prelude.<$> enabled,
+            ("Types" Data..=) Prelude.<$> types
           ]
       )

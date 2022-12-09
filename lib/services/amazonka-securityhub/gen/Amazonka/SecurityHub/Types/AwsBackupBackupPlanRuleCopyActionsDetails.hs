@@ -30,7 +30,10 @@ import Amazonka.SecurityHub.Types.AwsBackupBackupPlanLifecycleDetails
 --
 -- /See:/ 'newAwsBackupBackupPlanRuleCopyActionsDetails' smart constructor.
 data AwsBackupBackupPlanRuleCopyActionsDetails = AwsBackupBackupPlanRuleCopyActionsDetails'
-  { -- | Defines when a protected resource is transitioned to cold storage and
+  { -- | An Amazon Resource Name (ARN) that uniquely identifies the destination
+    -- backup vault for the copied backup.
+    destinationBackupVaultArn :: Prelude.Maybe Prelude.Text,
+    -- | Defines when a protected resource is transitioned to cold storage and
     -- when it expires. Backup transitions and expires backups automatically
     -- according to the lifecycle that you define. If you do not specify a
     -- lifecycle, Backup applies the lifecycle policy of the source backup to
@@ -38,10 +41,7 @@ data AwsBackupBackupPlanRuleCopyActionsDetails = AwsBackupBackupPlanRuleCopyActi
     --
     -- Backups transitioned to cold storage must be stored in cold storage for
     -- a minimum of 90 days.
-    lifecycle :: Prelude.Maybe AwsBackupBackupPlanLifecycleDetails,
-    -- | An Amazon Resource Name (ARN) that uniquely identifies the destination
-    -- backup vault for the copied backup.
-    destinationBackupVaultArn :: Prelude.Maybe Prelude.Text
+    lifecycle :: Prelude.Maybe AwsBackupBackupPlanLifecycleDetails
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,6 +53,9 @@ data AwsBackupBackupPlanRuleCopyActionsDetails = AwsBackupBackupPlanRuleCopyActi
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'destinationBackupVaultArn', 'awsBackupBackupPlanRuleCopyActionsDetails_destinationBackupVaultArn' - An Amazon Resource Name (ARN) that uniquely identifies the destination
+-- backup vault for the copied backup.
+--
 -- 'lifecycle', 'awsBackupBackupPlanRuleCopyActionsDetails_lifecycle' - Defines when a protected resource is transitioned to cold storage and
 -- when it expires. Backup transitions and expires backups automatically
 -- according to the lifecycle that you define. If you do not specify a
@@ -61,18 +64,19 @@ data AwsBackupBackupPlanRuleCopyActionsDetails = AwsBackupBackupPlanRuleCopyActi
 --
 -- Backups transitioned to cold storage must be stored in cold storage for
 -- a minimum of 90 days.
---
--- 'destinationBackupVaultArn', 'awsBackupBackupPlanRuleCopyActionsDetails_destinationBackupVaultArn' - An Amazon Resource Name (ARN) that uniquely identifies the destination
--- backup vault for the copied backup.
 newAwsBackupBackupPlanRuleCopyActionsDetails ::
   AwsBackupBackupPlanRuleCopyActionsDetails
 newAwsBackupBackupPlanRuleCopyActionsDetails =
   AwsBackupBackupPlanRuleCopyActionsDetails'
-    { lifecycle =
+    { destinationBackupVaultArn =
         Prelude.Nothing,
-      destinationBackupVaultArn =
-        Prelude.Nothing
+      lifecycle = Prelude.Nothing
     }
+
+-- | An Amazon Resource Name (ARN) that uniquely identifies the destination
+-- backup vault for the copied backup.
+awsBackupBackupPlanRuleCopyActionsDetails_destinationBackupVaultArn :: Lens.Lens' AwsBackupBackupPlanRuleCopyActionsDetails (Prelude.Maybe Prelude.Text)
+awsBackupBackupPlanRuleCopyActionsDetails_destinationBackupVaultArn = Lens.lens (\AwsBackupBackupPlanRuleCopyActionsDetails' {destinationBackupVaultArn} -> destinationBackupVaultArn) (\s@AwsBackupBackupPlanRuleCopyActionsDetails' {} a -> s {destinationBackupVaultArn = a} :: AwsBackupBackupPlanRuleCopyActionsDetails)
 
 -- | Defines when a protected resource is transitioned to cold storage and
 -- when it expires. Backup transitions and expires backups automatically
@@ -85,11 +89,6 @@ newAwsBackupBackupPlanRuleCopyActionsDetails =
 awsBackupBackupPlanRuleCopyActionsDetails_lifecycle :: Lens.Lens' AwsBackupBackupPlanRuleCopyActionsDetails (Prelude.Maybe AwsBackupBackupPlanLifecycleDetails)
 awsBackupBackupPlanRuleCopyActionsDetails_lifecycle = Lens.lens (\AwsBackupBackupPlanRuleCopyActionsDetails' {lifecycle} -> lifecycle) (\s@AwsBackupBackupPlanRuleCopyActionsDetails' {} a -> s {lifecycle = a} :: AwsBackupBackupPlanRuleCopyActionsDetails)
 
--- | An Amazon Resource Name (ARN) that uniquely identifies the destination
--- backup vault for the copied backup.
-awsBackupBackupPlanRuleCopyActionsDetails_destinationBackupVaultArn :: Lens.Lens' AwsBackupBackupPlanRuleCopyActionsDetails (Prelude.Maybe Prelude.Text)
-awsBackupBackupPlanRuleCopyActionsDetails_destinationBackupVaultArn = Lens.lens (\AwsBackupBackupPlanRuleCopyActionsDetails' {destinationBackupVaultArn} -> destinationBackupVaultArn) (\s@AwsBackupBackupPlanRuleCopyActionsDetails' {} a -> s {destinationBackupVaultArn = a} :: AwsBackupBackupPlanRuleCopyActionsDetails)
-
 instance
   Data.FromJSON
     AwsBackupBackupPlanRuleCopyActionsDetails
@@ -99,8 +98,8 @@ instance
       "AwsBackupBackupPlanRuleCopyActionsDetails"
       ( \x ->
           AwsBackupBackupPlanRuleCopyActionsDetails'
-            Prelude.<$> (x Data..:? "Lifecycle")
-              Prelude.<*> (x Data..:? "DestinationBackupVaultArn")
+            Prelude.<$> (x Data..:? "DestinationBackupVaultArn")
+              Prelude.<*> (x Data..:? "Lifecycle")
       )
 
 instance
@@ -110,16 +109,17 @@ instance
   hashWithSalt
     _salt
     AwsBackupBackupPlanRuleCopyActionsDetails' {..} =
-      _salt `Prelude.hashWithSalt` lifecycle
+      _salt
         `Prelude.hashWithSalt` destinationBackupVaultArn
+        `Prelude.hashWithSalt` lifecycle
 
 instance
   Prelude.NFData
     AwsBackupBackupPlanRuleCopyActionsDetails
   where
   rnf AwsBackupBackupPlanRuleCopyActionsDetails' {..} =
-    Prelude.rnf lifecycle
-      `Prelude.seq` Prelude.rnf destinationBackupVaultArn
+    Prelude.rnf destinationBackupVaultArn
+      `Prelude.seq` Prelude.rnf lifecycle
 
 instance
   Data.ToJSON
@@ -128,8 +128,8 @@ instance
   toJSON AwsBackupBackupPlanRuleCopyActionsDetails' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Lifecycle" Data..=) Prelude.<$> lifecycle,
-            ("DestinationBackupVaultArn" Data..=)
-              Prelude.<$> destinationBackupVaultArn
+          [ ("DestinationBackupVaultArn" Data..=)
+              Prelude.<$> destinationBackupVaultArn,
+            ("Lifecycle" Data..=) Prelude.<$> lifecycle
           ]
       )

@@ -28,9 +28,9 @@ module Amazonka.SecurityHub.UpdateInsight
     newUpdateInsight,
 
     -- * Request Lenses
-    updateInsight_name,
     updateInsight_filters,
     updateInsight_groupByAttribute,
+    updateInsight_name,
     updateInsight_insightArn,
 
     -- * Destructuring the Response
@@ -52,12 +52,12 @@ import Amazonka.SecurityHub.Types
 
 -- | /See:/ 'newUpdateInsight' smart constructor.
 data UpdateInsight = UpdateInsight'
-  { -- | The updated name for the insight.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The updated filters that define this insight.
+  { -- | The updated filters that define this insight.
     filters :: Prelude.Maybe AwsSecurityFindingFilters,
     -- | The updated @GroupBy@ attribute that defines this insight.
     groupByAttribute :: Prelude.Maybe Prelude.Text,
+    -- | The updated name for the insight.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the insight that you want to update.
     insightArn :: Prelude.Text
   }
@@ -71,11 +71,11 @@ data UpdateInsight = UpdateInsight'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateInsight_name' - The updated name for the insight.
---
 -- 'filters', 'updateInsight_filters' - The updated filters that define this insight.
 --
 -- 'groupByAttribute', 'updateInsight_groupByAttribute' - The updated @GroupBy@ attribute that defines this insight.
+--
+-- 'name', 'updateInsight_name' - The updated name for the insight.
 --
 -- 'insightArn', 'updateInsight_insightArn' - The ARN of the insight that you want to update.
 newUpdateInsight ::
@@ -84,15 +84,11 @@ newUpdateInsight ::
   UpdateInsight
 newUpdateInsight pInsightArn_ =
   UpdateInsight'
-    { name = Prelude.Nothing,
-      filters = Prelude.Nothing,
+    { filters = Prelude.Nothing,
       groupByAttribute = Prelude.Nothing,
+      name = Prelude.Nothing,
       insightArn = pInsightArn_
     }
-
--- | The updated name for the insight.
-updateInsight_name :: Lens.Lens' UpdateInsight (Prelude.Maybe Prelude.Text)
-updateInsight_name = Lens.lens (\UpdateInsight' {name} -> name) (\s@UpdateInsight' {} a -> s {name = a} :: UpdateInsight)
 
 -- | The updated filters that define this insight.
 updateInsight_filters :: Lens.Lens' UpdateInsight (Prelude.Maybe AwsSecurityFindingFilters)
@@ -101,6 +97,10 @@ updateInsight_filters = Lens.lens (\UpdateInsight' {filters} -> filters) (\s@Upd
 -- | The updated @GroupBy@ attribute that defines this insight.
 updateInsight_groupByAttribute :: Lens.Lens' UpdateInsight (Prelude.Maybe Prelude.Text)
 updateInsight_groupByAttribute = Lens.lens (\UpdateInsight' {groupByAttribute} -> groupByAttribute) (\s@UpdateInsight' {} a -> s {groupByAttribute = a} :: UpdateInsight)
+
+-- | The updated name for the insight.
+updateInsight_name :: Lens.Lens' UpdateInsight (Prelude.Maybe Prelude.Text)
+updateInsight_name = Lens.lens (\UpdateInsight' {name} -> name) (\s@UpdateInsight' {} a -> s {name = a} :: UpdateInsight)
 
 -- | The ARN of the insight that you want to update.
 updateInsight_insightArn :: Lens.Lens' UpdateInsight Prelude.Text
@@ -121,16 +121,16 @@ instance Core.AWSRequest UpdateInsight where
 
 instance Prelude.Hashable UpdateInsight where
   hashWithSalt _salt UpdateInsight' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` groupByAttribute
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` insightArn
 
 instance Prelude.NFData UpdateInsight where
   rnf UpdateInsight' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf groupByAttribute
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf insightArn
 
 instance Data.ToHeaders UpdateInsight where
@@ -148,10 +148,10 @@ instance Data.ToJSON UpdateInsight where
   toJSON UpdateInsight' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
-            ("Filters" Data..=) Prelude.<$> filters,
+          [ ("Filters" Data..=) Prelude.<$> filters,
             ("GroupByAttribute" Data..=)
-              Prelude.<$> groupByAttribute
+              Prelude.<$> groupByAttribute,
+            ("Name" Data..=) Prelude.<$> name
           ]
       )
 

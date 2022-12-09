@@ -31,15 +31,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsWafRegionalRulePredicateListDetails' smart constructor.
 data AwsWafRegionalRulePredicateListDetails = AwsWafRegionalRulePredicateListDetails'
-  { -- | The type of predicate in a rule, such as @ByteMatch@ or @IPSet@.
-    type' :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for a predicate in a rule, such as @ByteMatchSetId@
+  { -- | A unique identifier for a predicate in a rule, such as @ByteMatchSetId@
     -- or @IPSetId@.
     dataId :: Prelude.Maybe Prelude.Text,
     -- | Specifies if you want WAF to allow, block, or count requests based on
     -- the settings in the @ByteMatchSet@, @IPSet@, @SqlInjectionMatchSet@,
     -- @XssMatchSet@, @RegexMatchSet@, @GeoMatchSet@, or @SizeConstraintSet@.
-    negated :: Prelude.Maybe Prelude.Bool
+    negated :: Prelude.Maybe Prelude.Bool,
+    -- | The type of predicate in a rule, such as @ByteMatch@ or @IPSet@.
+    type' :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,27 +51,23 @@ data AwsWafRegionalRulePredicateListDetails = AwsWafRegionalRulePredicateListDet
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'awsWafRegionalRulePredicateListDetails_type' - The type of predicate in a rule, such as @ByteMatch@ or @IPSet@.
---
 -- 'dataId', 'awsWafRegionalRulePredicateListDetails_dataId' - A unique identifier for a predicate in a rule, such as @ByteMatchSetId@
 -- or @IPSetId@.
 --
 -- 'negated', 'awsWafRegionalRulePredicateListDetails_negated' - Specifies if you want WAF to allow, block, or count requests based on
 -- the settings in the @ByteMatchSet@, @IPSet@, @SqlInjectionMatchSet@,
 -- @XssMatchSet@, @RegexMatchSet@, @GeoMatchSet@, or @SizeConstraintSet@.
+--
+-- 'type'', 'awsWafRegionalRulePredicateListDetails_type' - The type of predicate in a rule, such as @ByteMatch@ or @IPSet@.
 newAwsWafRegionalRulePredicateListDetails ::
   AwsWafRegionalRulePredicateListDetails
 newAwsWafRegionalRulePredicateListDetails =
   AwsWafRegionalRulePredicateListDetails'
-    { type' =
+    { dataId =
         Prelude.Nothing,
-      dataId = Prelude.Nothing,
-      negated = Prelude.Nothing
+      negated = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
-
--- | The type of predicate in a rule, such as @ByteMatch@ or @IPSet@.
-awsWafRegionalRulePredicateListDetails_type :: Lens.Lens' AwsWafRegionalRulePredicateListDetails (Prelude.Maybe Prelude.Text)
-awsWafRegionalRulePredicateListDetails_type = Lens.lens (\AwsWafRegionalRulePredicateListDetails' {type'} -> type') (\s@AwsWafRegionalRulePredicateListDetails' {} a -> s {type' = a} :: AwsWafRegionalRulePredicateListDetails)
 
 -- | A unique identifier for a predicate in a rule, such as @ByteMatchSetId@
 -- or @IPSetId@.
@@ -84,6 +80,10 @@ awsWafRegionalRulePredicateListDetails_dataId = Lens.lens (\AwsWafRegionalRulePr
 awsWafRegionalRulePredicateListDetails_negated :: Lens.Lens' AwsWafRegionalRulePredicateListDetails (Prelude.Maybe Prelude.Bool)
 awsWafRegionalRulePredicateListDetails_negated = Lens.lens (\AwsWafRegionalRulePredicateListDetails' {negated} -> negated) (\s@AwsWafRegionalRulePredicateListDetails' {} a -> s {negated = a} :: AwsWafRegionalRulePredicateListDetails)
 
+-- | The type of predicate in a rule, such as @ByteMatch@ or @IPSet@.
+awsWafRegionalRulePredicateListDetails_type :: Lens.Lens' AwsWafRegionalRulePredicateListDetails (Prelude.Maybe Prelude.Text)
+awsWafRegionalRulePredicateListDetails_type = Lens.lens (\AwsWafRegionalRulePredicateListDetails' {type'} -> type') (\s@AwsWafRegionalRulePredicateListDetails' {} a -> s {type' = a} :: AwsWafRegionalRulePredicateListDetails)
+
 instance
   Data.FromJSON
     AwsWafRegionalRulePredicateListDetails
@@ -93,9 +93,9 @@ instance
       "AwsWafRegionalRulePredicateListDetails"
       ( \x ->
           AwsWafRegionalRulePredicateListDetails'
-            Prelude.<$> (x Data..:? "Type")
-            Prelude.<*> (x Data..:? "DataId")
+            Prelude.<$> (x Data..:? "DataId")
             Prelude.<*> (x Data..:? "Negated")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance
@@ -105,18 +105,18 @@ instance
   hashWithSalt
     _salt
     AwsWafRegionalRulePredicateListDetails' {..} =
-      _salt `Prelude.hashWithSalt` type'
-        `Prelude.hashWithSalt` dataId
+      _salt `Prelude.hashWithSalt` dataId
         `Prelude.hashWithSalt` negated
+        `Prelude.hashWithSalt` type'
 
 instance
   Prelude.NFData
     AwsWafRegionalRulePredicateListDetails
   where
   rnf AwsWafRegionalRulePredicateListDetails' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf dataId
+    Prelude.rnf dataId
       `Prelude.seq` Prelude.rnf negated
+      `Prelude.seq` Prelude.rnf type'
 
 instance
   Data.ToJSON
@@ -125,8 +125,8 @@ instance
   toJSON AwsWafRegionalRulePredicateListDetails' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Type" Data..=) Prelude.<$> type',
-            ("DataId" Data..=) Prelude.<$> dataId,
-            ("Negated" Data..=) Prelude.<$> negated
+          [ ("DataId" Data..=) Prelude.<$> dataId,
+            ("Negated" Data..=) Prelude.<$> negated,
+            ("Type" Data..=) Prelude.<$> type'
           ]
       )

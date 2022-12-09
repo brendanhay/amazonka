@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsIamPermissionsBoundary' smart constructor.
 data AwsIamPermissionsBoundary = AwsIamPermissionsBoundary'
-  { -- | The usage type for the permissions boundary.
-    permissionsBoundaryType :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the policy used to set the permissions boundary.
-    permissionsBoundaryArn :: Prelude.Maybe Prelude.Text
+  { -- | The ARN of the policy used to set the permissions boundary.
+    permissionsBoundaryArn :: Prelude.Maybe Prelude.Text,
+    -- | The usage type for the permissions boundary.
+    permissionsBoundaryType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data AwsIamPermissionsBoundary = AwsIamPermissionsBoundary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'permissionsBoundaryType', 'awsIamPermissionsBoundary_permissionsBoundaryType' - The usage type for the permissions boundary.
---
 -- 'permissionsBoundaryArn', 'awsIamPermissionsBoundary_permissionsBoundaryArn' - The ARN of the policy used to set the permissions boundary.
+--
+-- 'permissionsBoundaryType', 'awsIamPermissionsBoundary_permissionsBoundaryType' - The usage type for the permissions boundary.
 newAwsIamPermissionsBoundary ::
   AwsIamPermissionsBoundary
 newAwsIamPermissionsBoundary =
   AwsIamPermissionsBoundary'
-    { permissionsBoundaryType =
+    { permissionsBoundaryArn =
         Prelude.Nothing,
-      permissionsBoundaryArn = Prelude.Nothing
+      permissionsBoundaryType = Prelude.Nothing
     }
-
--- | The usage type for the permissions boundary.
-awsIamPermissionsBoundary_permissionsBoundaryType :: Lens.Lens' AwsIamPermissionsBoundary (Prelude.Maybe Prelude.Text)
-awsIamPermissionsBoundary_permissionsBoundaryType = Lens.lens (\AwsIamPermissionsBoundary' {permissionsBoundaryType} -> permissionsBoundaryType) (\s@AwsIamPermissionsBoundary' {} a -> s {permissionsBoundaryType = a} :: AwsIamPermissionsBoundary)
 
 -- | The ARN of the policy used to set the permissions boundary.
 awsIamPermissionsBoundary_permissionsBoundaryArn :: Lens.Lens' AwsIamPermissionsBoundary (Prelude.Maybe Prelude.Text)
 awsIamPermissionsBoundary_permissionsBoundaryArn = Lens.lens (\AwsIamPermissionsBoundary' {permissionsBoundaryArn} -> permissionsBoundaryArn) (\s@AwsIamPermissionsBoundary' {} a -> s {permissionsBoundaryArn = a} :: AwsIamPermissionsBoundary)
+
+-- | The usage type for the permissions boundary.
+awsIamPermissionsBoundary_permissionsBoundaryType :: Lens.Lens' AwsIamPermissionsBoundary (Prelude.Maybe Prelude.Text)
+awsIamPermissionsBoundary_permissionsBoundaryType = Lens.lens (\AwsIamPermissionsBoundary' {permissionsBoundaryType} -> permissionsBoundaryType) (\s@AwsIamPermissionsBoundary' {} a -> s {permissionsBoundaryType = a} :: AwsIamPermissionsBoundary)
 
 instance Data.FromJSON AwsIamPermissionsBoundary where
   parseJSON =
@@ -70,28 +70,27 @@ instance Data.FromJSON AwsIamPermissionsBoundary where
       "AwsIamPermissionsBoundary"
       ( \x ->
           AwsIamPermissionsBoundary'
-            Prelude.<$> (x Data..:? "PermissionsBoundaryType")
-            Prelude.<*> (x Data..:? "PermissionsBoundaryArn")
+            Prelude.<$> (x Data..:? "PermissionsBoundaryArn")
+            Prelude.<*> (x Data..:? "PermissionsBoundaryType")
       )
 
 instance Prelude.Hashable AwsIamPermissionsBoundary where
   hashWithSalt _salt AwsIamPermissionsBoundary' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` permissionsBoundaryArn
       `Prelude.hashWithSalt` permissionsBoundaryType
-      `Prelude.hashWithSalt` permissionsBoundaryArn
 
 instance Prelude.NFData AwsIamPermissionsBoundary where
   rnf AwsIamPermissionsBoundary' {..} =
-    Prelude.rnf permissionsBoundaryType
-      `Prelude.seq` Prelude.rnf permissionsBoundaryArn
+    Prelude.rnf permissionsBoundaryArn
+      `Prelude.seq` Prelude.rnf permissionsBoundaryType
 
 instance Data.ToJSON AwsIamPermissionsBoundary where
   toJSON AwsIamPermissionsBoundary' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("PermissionsBoundaryType" Data..=)
-              Prelude.<$> permissionsBoundaryType,
-            ("PermissionsBoundaryArn" Data..=)
-              Prelude.<$> permissionsBoundaryArn
+          [ ("PermissionsBoundaryArn" Data..=)
+              Prelude.<$> permissionsBoundaryArn,
+            ("PermissionsBoundaryType" Data..=)
+              Prelude.<$> permissionsBoundaryType
           ]
       )

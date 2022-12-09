@@ -29,10 +29,10 @@ import Amazonka.SecurityHub.Types.AwsOpenSearchServiceDomainMasterUserOptionsDet
 --
 -- /See:/ 'newAwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails' smart constructor.
 data AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails = AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails'
-  { -- | Enables the internal user database.
-    internalUserDatabaseEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | Enables fine-grained access control.
+  { -- | Enables fine-grained access control.
     enabled :: Prelude.Maybe Prelude.Bool,
+    -- | Enables the internal user database.
+    internalUserDatabaseEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Specifies information about the master user of the domain.
     masterUserOptions :: Prelude.Maybe AwsOpenSearchServiceDomainMasterUserOptionsDetails
   }
@@ -46,30 +46,30 @@ data AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails = AwsOpenSearchSer
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'internalUserDatabaseEnabled', 'awsOpenSearchServiceDomainAdvancedSecurityOptionsDetails_internalUserDatabaseEnabled' - Enables the internal user database.
---
 -- 'enabled', 'awsOpenSearchServiceDomainAdvancedSecurityOptionsDetails_enabled' - Enables fine-grained access control.
+--
+-- 'internalUserDatabaseEnabled', 'awsOpenSearchServiceDomainAdvancedSecurityOptionsDetails_internalUserDatabaseEnabled' - Enables the internal user database.
 --
 -- 'masterUserOptions', 'awsOpenSearchServiceDomainAdvancedSecurityOptionsDetails_masterUserOptions' - Specifies information about the master user of the domain.
 newAwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails ::
   AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails
 newAwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails =
   AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails'
-    { internalUserDatabaseEnabled =
+    { enabled =
         Prelude.Nothing,
-      enabled =
+      internalUserDatabaseEnabled =
         Prelude.Nothing,
       masterUserOptions =
         Prelude.Nothing
     }
 
--- | Enables the internal user database.
-awsOpenSearchServiceDomainAdvancedSecurityOptionsDetails_internalUserDatabaseEnabled :: Lens.Lens' AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails (Prelude.Maybe Prelude.Bool)
-awsOpenSearchServiceDomainAdvancedSecurityOptionsDetails_internalUserDatabaseEnabled = Lens.lens (\AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails' {internalUserDatabaseEnabled} -> internalUserDatabaseEnabled) (\s@AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails' {} a -> s {internalUserDatabaseEnabled = a} :: AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails)
-
 -- | Enables fine-grained access control.
 awsOpenSearchServiceDomainAdvancedSecurityOptionsDetails_enabled :: Lens.Lens' AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails (Prelude.Maybe Prelude.Bool)
 awsOpenSearchServiceDomainAdvancedSecurityOptionsDetails_enabled = Lens.lens (\AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails' {enabled} -> enabled) (\s@AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails' {} a -> s {enabled = a} :: AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails)
+
+-- | Enables the internal user database.
+awsOpenSearchServiceDomainAdvancedSecurityOptionsDetails_internalUserDatabaseEnabled :: Lens.Lens' AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails (Prelude.Maybe Prelude.Bool)
+awsOpenSearchServiceDomainAdvancedSecurityOptionsDetails_internalUserDatabaseEnabled = Lens.lens (\AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails' {internalUserDatabaseEnabled} -> internalUserDatabaseEnabled) (\s@AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails' {} a -> s {internalUserDatabaseEnabled = a} :: AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails)
 
 -- | Specifies information about the master user of the domain.
 awsOpenSearchServiceDomainAdvancedSecurityOptionsDetails_masterUserOptions :: Lens.Lens' AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails (Prelude.Maybe AwsOpenSearchServiceDomainMasterUserOptionsDetails)
@@ -84,8 +84,8 @@ instance
       "AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails"
       ( \x ->
           AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails'
-            Prelude.<$> (x Data..:? "InternalUserDatabaseEnabled")
-              Prelude.<*> (x Data..:? "Enabled")
+            Prelude.<$> (x Data..:? "Enabled")
+              Prelude.<*> (x Data..:? "InternalUserDatabaseEnabled")
               Prelude.<*> (x Data..:? "MasterUserOptions")
       )
 
@@ -96,9 +96,8 @@ instance
   hashWithSalt
     _salt
     AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails' {..} =
-      _salt
+      _salt `Prelude.hashWithSalt` enabled
         `Prelude.hashWithSalt` internalUserDatabaseEnabled
-        `Prelude.hashWithSalt` enabled
         `Prelude.hashWithSalt` masterUserOptions
 
 instance
@@ -107,8 +106,8 @@ instance
   where
   rnf
     AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails' {..} =
-      Prelude.rnf internalUserDatabaseEnabled
-        `Prelude.seq` Prelude.rnf enabled
+      Prelude.rnf enabled
+        `Prelude.seq` Prelude.rnf internalUserDatabaseEnabled
         `Prelude.seq` Prelude.rnf masterUserOptions
 
 instance
@@ -119,9 +118,9 @@ instance
     AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ ("InternalUserDatabaseEnabled" Data..=)
+            [ ("Enabled" Data..=) Prelude.<$> enabled,
+              ("InternalUserDatabaseEnabled" Data..=)
                 Prelude.<$> internalUserDatabaseEnabled,
-              ("Enabled" Data..=) Prelude.<$> enabled,
               ("MasterUserOptions" Data..=)
                 Prelude.<$> masterUserOptions
             ]

@@ -31,9 +31,7 @@ import Amazonka.SecurityHub.Types.SensitiveDataResult
 --
 -- /See:/ 'newClassificationResult' smart constructor.
 data ClassificationResult = ClassificationResult'
-  { -- | The current status of the sensitive data detection.
-    status :: Prelude.Maybe ClassificationStatus,
-    -- | Indicates whether there are additional occurrences of sensitive data
+  { -- | Indicates whether there are additional occurrences of sensitive data
     -- that are not included in the finding. This occurs when the number of
     -- occurrences exceeds the maximum that can be included.
     additionalOccurrences :: Prelude.Maybe Prelude.Bool,
@@ -42,11 +40,13 @@ data ClassificationResult = ClassificationResult'
     customDataIdentifiers :: Prelude.Maybe CustomDataIdentifiersResult,
     -- | The type of content that the finding applies to.
     mimeType :: Prelude.Maybe Prelude.Text,
-    -- | The total size in bytes of the affected data.
-    sizeClassified :: Prelude.Maybe Prelude.Integer,
     -- | Provides details about sensitive data that was identified based on
     -- built-in configuration.
-    sensitiveData :: Prelude.Maybe [SensitiveDataResult]
+    sensitiveData :: Prelude.Maybe [SensitiveDataResult],
+    -- | The total size in bytes of the affected data.
+    sizeClassified :: Prelude.Maybe Prelude.Integer,
+    -- | The current status of the sensitive data detection.
+    status :: Prelude.Maybe ClassificationStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,8 +58,6 @@ data ClassificationResult = ClassificationResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'classificationResult_status' - The current status of the sensitive data detection.
---
 -- 'additionalOccurrences', 'classificationResult_additionalOccurrences' - Indicates whether there are additional occurrences of sensitive data
 -- that are not included in the finding. This occurs when the number of
 -- occurrences exceeds the maximum that can be included.
@@ -69,25 +67,24 @@ data ClassificationResult = ClassificationResult'
 --
 -- 'mimeType', 'classificationResult_mimeType' - The type of content that the finding applies to.
 --
--- 'sizeClassified', 'classificationResult_sizeClassified' - The total size in bytes of the affected data.
---
 -- 'sensitiveData', 'classificationResult_sensitiveData' - Provides details about sensitive data that was identified based on
 -- built-in configuration.
+--
+-- 'sizeClassified', 'classificationResult_sizeClassified' - The total size in bytes of the affected data.
+--
+-- 'status', 'classificationResult_status' - The current status of the sensitive data detection.
 newClassificationResult ::
   ClassificationResult
 newClassificationResult =
   ClassificationResult'
-    { status = Prelude.Nothing,
-      additionalOccurrences = Prelude.Nothing,
+    { additionalOccurrences =
+        Prelude.Nothing,
       customDataIdentifiers = Prelude.Nothing,
       mimeType = Prelude.Nothing,
+      sensitiveData = Prelude.Nothing,
       sizeClassified = Prelude.Nothing,
-      sensitiveData = Prelude.Nothing
+      status = Prelude.Nothing
     }
-
--- | The current status of the sensitive data detection.
-classificationResult_status :: Lens.Lens' ClassificationResult (Prelude.Maybe ClassificationStatus)
-classificationResult_status = Lens.lens (\ClassificationResult' {status} -> status) (\s@ClassificationResult' {} a -> s {status = a} :: ClassificationResult)
 
 -- | Indicates whether there are additional occurrences of sensitive data
 -- that are not included in the finding. This occurs when the number of
@@ -104,14 +101,18 @@ classificationResult_customDataIdentifiers = Lens.lens (\ClassificationResult' {
 classificationResult_mimeType :: Lens.Lens' ClassificationResult (Prelude.Maybe Prelude.Text)
 classificationResult_mimeType = Lens.lens (\ClassificationResult' {mimeType} -> mimeType) (\s@ClassificationResult' {} a -> s {mimeType = a} :: ClassificationResult)
 
--- | The total size in bytes of the affected data.
-classificationResult_sizeClassified :: Lens.Lens' ClassificationResult (Prelude.Maybe Prelude.Integer)
-classificationResult_sizeClassified = Lens.lens (\ClassificationResult' {sizeClassified} -> sizeClassified) (\s@ClassificationResult' {} a -> s {sizeClassified = a} :: ClassificationResult)
-
 -- | Provides details about sensitive data that was identified based on
 -- built-in configuration.
 classificationResult_sensitiveData :: Lens.Lens' ClassificationResult (Prelude.Maybe [SensitiveDataResult])
 classificationResult_sensitiveData = Lens.lens (\ClassificationResult' {sensitiveData} -> sensitiveData) (\s@ClassificationResult' {} a -> s {sensitiveData = a} :: ClassificationResult) Prelude.. Lens.mapping Lens.coerced
+
+-- | The total size in bytes of the affected data.
+classificationResult_sizeClassified :: Lens.Lens' ClassificationResult (Prelude.Maybe Prelude.Integer)
+classificationResult_sizeClassified = Lens.lens (\ClassificationResult' {sizeClassified} -> sizeClassified) (\s@ClassificationResult' {} a -> s {sizeClassified = a} :: ClassificationResult)
+
+-- | The current status of the sensitive data detection.
+classificationResult_status :: Lens.Lens' ClassificationResult (Prelude.Maybe ClassificationStatus)
+classificationResult_status = Lens.lens (\ClassificationResult' {status} -> status) (\s@ClassificationResult' {} a -> s {status = a} :: ClassificationResult)
 
 instance Data.FromJSON ClassificationResult where
   parseJSON =
@@ -119,44 +120,44 @@ instance Data.FromJSON ClassificationResult where
       "ClassificationResult"
       ( \x ->
           ClassificationResult'
-            Prelude.<$> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "AdditionalOccurrences")
+            Prelude.<$> (x Data..:? "AdditionalOccurrences")
             Prelude.<*> (x Data..:? "CustomDataIdentifiers")
             Prelude.<*> (x Data..:? "MimeType")
-            Prelude.<*> (x Data..:? "SizeClassified")
             Prelude.<*> (x Data..:? "SensitiveData" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "SizeClassified")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance Prelude.Hashable ClassificationResult where
   hashWithSalt _salt ClassificationResult' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` additionalOccurrences
+    _salt `Prelude.hashWithSalt` additionalOccurrences
       `Prelude.hashWithSalt` customDataIdentifiers
       `Prelude.hashWithSalt` mimeType
-      `Prelude.hashWithSalt` sizeClassified
       `Prelude.hashWithSalt` sensitiveData
+      `Prelude.hashWithSalt` sizeClassified
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData ClassificationResult where
   rnf ClassificationResult' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf additionalOccurrences
+    Prelude.rnf additionalOccurrences
       `Prelude.seq` Prelude.rnf customDataIdentifiers
       `Prelude.seq` Prelude.rnf mimeType
-      `Prelude.seq` Prelude.rnf sizeClassified
       `Prelude.seq` Prelude.rnf sensitiveData
+      `Prelude.seq` Prelude.rnf sizeClassified
+      `Prelude.seq` Prelude.rnf status
 
 instance Data.ToJSON ClassificationResult where
   toJSON ClassificationResult' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Status" Data..=) Prelude.<$> status,
-            ("AdditionalOccurrences" Data..=)
+          [ ("AdditionalOccurrences" Data..=)
               Prelude.<$> additionalOccurrences,
             ("CustomDataIdentifiers" Data..=)
               Prelude.<$> customDataIdentifiers,
             ("MimeType" Data..=) Prelude.<$> mimeType,
+            ("SensitiveData" Data..=) Prelude.<$> sensitiveData,
             ("SizeClassified" Data..=)
               Prelude.<$> sizeClassified,
-            ("SensitiveData" Data..=) Prelude.<$> sensitiveData
+            ("Status" Data..=) Prelude.<$> status
           ]
       )

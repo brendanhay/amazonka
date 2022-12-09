@@ -30,16 +30,16 @@ import Amazonka.SecurityHub.Types.AwsWafRuleGroupRulesActionDetails
 --
 -- /See:/ 'newAwsWafRuleGroupRulesDetails' smart constructor.
 data AwsWafRuleGroupRulesDetails = AwsWafRuleGroupRulesDetails'
-  { -- | The type of rule.
-    type' :: Prelude.Maybe Prelude.Text,
-    -- | The rule ID for a rule.
-    ruleId :: Prelude.Maybe Prelude.Text,
+  { -- | Provides information about what action WAF should take on a web request
+    -- when it matches the criteria defined in the rule.
+    action :: Prelude.Maybe AwsWafRuleGroupRulesActionDetails,
     -- | If you define more than one rule in a web ACL, WAF evaluates each
     -- request against the rules in order based on the value of @Priority@.
     priority :: Prelude.Maybe Prelude.Int,
-    -- | Provides information about what action WAF should take on a web request
-    -- when it matches the criteria defined in the rule.
-    action :: Prelude.Maybe AwsWafRuleGroupRulesActionDetails
+    -- | The rule ID for a rule.
+    ruleId :: Prelude.Maybe Prelude.Text,
+    -- | The type of rule.
+    type' :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,43 +51,43 @@ data AwsWafRuleGroupRulesDetails = AwsWafRuleGroupRulesDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'awsWafRuleGroupRulesDetails_type' - The type of rule.
---
--- 'ruleId', 'awsWafRuleGroupRulesDetails_ruleId' - The rule ID for a rule.
+-- 'action', 'awsWafRuleGroupRulesDetails_action' - Provides information about what action WAF should take on a web request
+-- when it matches the criteria defined in the rule.
 --
 -- 'priority', 'awsWafRuleGroupRulesDetails_priority' - If you define more than one rule in a web ACL, WAF evaluates each
 -- request against the rules in order based on the value of @Priority@.
 --
--- 'action', 'awsWafRuleGroupRulesDetails_action' - Provides information about what action WAF should take on a web request
--- when it matches the criteria defined in the rule.
+-- 'ruleId', 'awsWafRuleGroupRulesDetails_ruleId' - The rule ID for a rule.
+--
+-- 'type'', 'awsWafRuleGroupRulesDetails_type' - The type of rule.
 newAwsWafRuleGroupRulesDetails ::
   AwsWafRuleGroupRulesDetails
 newAwsWafRuleGroupRulesDetails =
   AwsWafRuleGroupRulesDetails'
-    { type' =
+    { action =
         Prelude.Nothing,
-      ruleId = Prelude.Nothing,
       priority = Prelude.Nothing,
-      action = Prelude.Nothing
+      ruleId = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
--- | The type of rule.
-awsWafRuleGroupRulesDetails_type :: Lens.Lens' AwsWafRuleGroupRulesDetails (Prelude.Maybe Prelude.Text)
-awsWafRuleGroupRulesDetails_type = Lens.lens (\AwsWafRuleGroupRulesDetails' {type'} -> type') (\s@AwsWafRuleGroupRulesDetails' {} a -> s {type' = a} :: AwsWafRuleGroupRulesDetails)
-
--- | The rule ID for a rule.
-awsWafRuleGroupRulesDetails_ruleId :: Lens.Lens' AwsWafRuleGroupRulesDetails (Prelude.Maybe Prelude.Text)
-awsWafRuleGroupRulesDetails_ruleId = Lens.lens (\AwsWafRuleGroupRulesDetails' {ruleId} -> ruleId) (\s@AwsWafRuleGroupRulesDetails' {} a -> s {ruleId = a} :: AwsWafRuleGroupRulesDetails)
+-- | Provides information about what action WAF should take on a web request
+-- when it matches the criteria defined in the rule.
+awsWafRuleGroupRulesDetails_action :: Lens.Lens' AwsWafRuleGroupRulesDetails (Prelude.Maybe AwsWafRuleGroupRulesActionDetails)
+awsWafRuleGroupRulesDetails_action = Lens.lens (\AwsWafRuleGroupRulesDetails' {action} -> action) (\s@AwsWafRuleGroupRulesDetails' {} a -> s {action = a} :: AwsWafRuleGroupRulesDetails)
 
 -- | If you define more than one rule in a web ACL, WAF evaluates each
 -- request against the rules in order based on the value of @Priority@.
 awsWafRuleGroupRulesDetails_priority :: Lens.Lens' AwsWafRuleGroupRulesDetails (Prelude.Maybe Prelude.Int)
 awsWafRuleGroupRulesDetails_priority = Lens.lens (\AwsWafRuleGroupRulesDetails' {priority} -> priority) (\s@AwsWafRuleGroupRulesDetails' {} a -> s {priority = a} :: AwsWafRuleGroupRulesDetails)
 
--- | Provides information about what action WAF should take on a web request
--- when it matches the criteria defined in the rule.
-awsWafRuleGroupRulesDetails_action :: Lens.Lens' AwsWafRuleGroupRulesDetails (Prelude.Maybe AwsWafRuleGroupRulesActionDetails)
-awsWafRuleGroupRulesDetails_action = Lens.lens (\AwsWafRuleGroupRulesDetails' {action} -> action) (\s@AwsWafRuleGroupRulesDetails' {} a -> s {action = a} :: AwsWafRuleGroupRulesDetails)
+-- | The rule ID for a rule.
+awsWafRuleGroupRulesDetails_ruleId :: Lens.Lens' AwsWafRuleGroupRulesDetails (Prelude.Maybe Prelude.Text)
+awsWafRuleGroupRulesDetails_ruleId = Lens.lens (\AwsWafRuleGroupRulesDetails' {ruleId} -> ruleId) (\s@AwsWafRuleGroupRulesDetails' {} a -> s {ruleId = a} :: AwsWafRuleGroupRulesDetails)
+
+-- | The type of rule.
+awsWafRuleGroupRulesDetails_type :: Lens.Lens' AwsWafRuleGroupRulesDetails (Prelude.Maybe Prelude.Text)
+awsWafRuleGroupRulesDetails_type = Lens.lens (\AwsWafRuleGroupRulesDetails' {type'} -> type') (\s@AwsWafRuleGroupRulesDetails' {} a -> s {type' = a} :: AwsWafRuleGroupRulesDetails)
 
 instance Data.FromJSON AwsWafRuleGroupRulesDetails where
   parseJSON =
@@ -95,33 +95,33 @@ instance Data.FromJSON AwsWafRuleGroupRulesDetails where
       "AwsWafRuleGroupRulesDetails"
       ( \x ->
           AwsWafRuleGroupRulesDetails'
-            Prelude.<$> (x Data..:? "Type")
-            Prelude.<*> (x Data..:? "RuleId")
+            Prelude.<$> (x Data..:? "Action")
             Prelude.<*> (x Data..:? "Priority")
-            Prelude.<*> (x Data..:? "Action")
+            Prelude.<*> (x Data..:? "RuleId")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable AwsWafRuleGroupRulesDetails where
   hashWithSalt _salt AwsWafRuleGroupRulesDetails' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` ruleId
+    _salt `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` priority
-      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` ruleId
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData AwsWafRuleGroupRulesDetails where
   rnf AwsWafRuleGroupRulesDetails' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf ruleId
+    Prelude.rnf action
       `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf ruleId
+      `Prelude.seq` Prelude.rnf type'
 
 instance Data.ToJSON AwsWafRuleGroupRulesDetails where
   toJSON AwsWafRuleGroupRulesDetails' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Type" Data..=) Prelude.<$> type',
-            ("RuleId" Data..=) Prelude.<$> ruleId,
+          [ ("Action" Data..=) Prelude.<$> action,
             ("Priority" Data..=) Prelude.<$> priority,
-            ("Action" Data..=) Prelude.<$> action
+            ("RuleId" Data..=) Prelude.<$> ruleId,
+            ("Type" Data..=) Prelude.<$> type'
           ]
       )

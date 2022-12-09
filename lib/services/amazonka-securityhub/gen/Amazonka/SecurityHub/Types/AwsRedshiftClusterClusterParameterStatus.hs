@@ -32,15 +32,15 @@ data AwsRedshiftClusterClusterParameterStatus = AwsRedshiftClusterClusterParamet
   { -- | The error that prevented the parameter from being applied to the
     -- database.
     parameterApplyErrorDescription :: Prelude.Maybe Prelude.Text,
-    -- | The name of the parameter.
-    parameterName :: Prelude.Maybe Prelude.Text,
     -- | The status of the parameter. Indicates whether the parameter is in sync
     -- with the database, waiting for a cluster reboot, or encountered an error
     -- when it was applied.
     --
     -- Valid values: @in-sync@ | @pending-reboot@ | @applying@ |
     -- @invalid-parameter@ | @apply-deferred@ | @apply-error@ | @unknown-error@
-    parameterApplyStatus :: Prelude.Maybe Prelude.Text
+    parameterApplyStatus :: Prelude.Maybe Prelude.Text,
+    -- | The name of the parameter.
+    parameterName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,33 +55,29 @@ data AwsRedshiftClusterClusterParameterStatus = AwsRedshiftClusterClusterParamet
 -- 'parameterApplyErrorDescription', 'awsRedshiftClusterClusterParameterStatus_parameterApplyErrorDescription' - The error that prevented the parameter from being applied to the
 -- database.
 --
--- 'parameterName', 'awsRedshiftClusterClusterParameterStatus_parameterName' - The name of the parameter.
---
 -- 'parameterApplyStatus', 'awsRedshiftClusterClusterParameterStatus_parameterApplyStatus' - The status of the parameter. Indicates whether the parameter is in sync
 -- with the database, waiting for a cluster reboot, or encountered an error
 -- when it was applied.
 --
 -- Valid values: @in-sync@ | @pending-reboot@ | @applying@ |
 -- @invalid-parameter@ | @apply-deferred@ | @apply-error@ | @unknown-error@
+--
+-- 'parameterName', 'awsRedshiftClusterClusterParameterStatus_parameterName' - The name of the parameter.
 newAwsRedshiftClusterClusterParameterStatus ::
   AwsRedshiftClusterClusterParameterStatus
 newAwsRedshiftClusterClusterParameterStatus =
   AwsRedshiftClusterClusterParameterStatus'
     { parameterApplyErrorDescription =
         Prelude.Nothing,
-      parameterName = Prelude.Nothing,
       parameterApplyStatus =
-        Prelude.Nothing
+        Prelude.Nothing,
+      parameterName = Prelude.Nothing
     }
 
 -- | The error that prevented the parameter from being applied to the
 -- database.
 awsRedshiftClusterClusterParameterStatus_parameterApplyErrorDescription :: Lens.Lens' AwsRedshiftClusterClusterParameterStatus (Prelude.Maybe Prelude.Text)
 awsRedshiftClusterClusterParameterStatus_parameterApplyErrorDescription = Lens.lens (\AwsRedshiftClusterClusterParameterStatus' {parameterApplyErrorDescription} -> parameterApplyErrorDescription) (\s@AwsRedshiftClusterClusterParameterStatus' {} a -> s {parameterApplyErrorDescription = a} :: AwsRedshiftClusterClusterParameterStatus)
-
--- | The name of the parameter.
-awsRedshiftClusterClusterParameterStatus_parameterName :: Lens.Lens' AwsRedshiftClusterClusterParameterStatus (Prelude.Maybe Prelude.Text)
-awsRedshiftClusterClusterParameterStatus_parameterName = Lens.lens (\AwsRedshiftClusterClusterParameterStatus' {parameterName} -> parameterName) (\s@AwsRedshiftClusterClusterParameterStatus' {} a -> s {parameterName = a} :: AwsRedshiftClusterClusterParameterStatus)
 
 -- | The status of the parameter. Indicates whether the parameter is in sync
 -- with the database, waiting for a cluster reboot, or encountered an error
@@ -91,6 +87,10 @@ awsRedshiftClusterClusterParameterStatus_parameterName = Lens.lens (\AwsRedshift
 -- @invalid-parameter@ | @apply-deferred@ | @apply-error@ | @unknown-error@
 awsRedshiftClusterClusterParameterStatus_parameterApplyStatus :: Lens.Lens' AwsRedshiftClusterClusterParameterStatus (Prelude.Maybe Prelude.Text)
 awsRedshiftClusterClusterParameterStatus_parameterApplyStatus = Lens.lens (\AwsRedshiftClusterClusterParameterStatus' {parameterApplyStatus} -> parameterApplyStatus) (\s@AwsRedshiftClusterClusterParameterStatus' {} a -> s {parameterApplyStatus = a} :: AwsRedshiftClusterClusterParameterStatus)
+
+-- | The name of the parameter.
+awsRedshiftClusterClusterParameterStatus_parameterName :: Lens.Lens' AwsRedshiftClusterClusterParameterStatus (Prelude.Maybe Prelude.Text)
+awsRedshiftClusterClusterParameterStatus_parameterName = Lens.lens (\AwsRedshiftClusterClusterParameterStatus' {parameterName} -> parameterName) (\s@AwsRedshiftClusterClusterParameterStatus' {} a -> s {parameterName = a} :: AwsRedshiftClusterClusterParameterStatus)
 
 instance
   Data.FromJSON
@@ -102,8 +102,8 @@ instance
       ( \x ->
           AwsRedshiftClusterClusterParameterStatus'
             Prelude.<$> (x Data..:? "ParameterApplyErrorDescription")
-            Prelude.<*> (x Data..:? "ParameterName")
             Prelude.<*> (x Data..:? "ParameterApplyStatus")
+            Prelude.<*> (x Data..:? "ParameterName")
       )
 
 instance
@@ -115,8 +115,8 @@ instance
     AwsRedshiftClusterClusterParameterStatus' {..} =
       _salt
         `Prelude.hashWithSalt` parameterApplyErrorDescription
-        `Prelude.hashWithSalt` parameterName
         `Prelude.hashWithSalt` parameterApplyStatus
+        `Prelude.hashWithSalt` parameterName
 
 instance
   Prelude.NFData
@@ -124,8 +124,8 @@ instance
   where
   rnf AwsRedshiftClusterClusterParameterStatus' {..} =
     Prelude.rnf parameterApplyErrorDescription
-      `Prelude.seq` Prelude.rnf parameterName
       `Prelude.seq` Prelude.rnf parameterApplyStatus
+      `Prelude.seq` Prelude.rnf parameterName
 
 instance
   Data.ToJSON
@@ -136,8 +136,8 @@ instance
       ( Prelude.catMaybes
           [ ("ParameterApplyErrorDescription" Data..=)
               Prelude.<$> parameterApplyErrorDescription,
-            ("ParameterName" Data..=) Prelude.<$> parameterName,
             ("ParameterApplyStatus" Data..=)
-              Prelude.<$> parameterApplyStatus
+              Prelude.<$> parameterApplyStatus,
+            ("ParameterName" Data..=) Prelude.<$> parameterName
           ]
       )

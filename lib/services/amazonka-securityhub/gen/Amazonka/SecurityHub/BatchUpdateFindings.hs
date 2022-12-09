@@ -61,15 +61,15 @@ module Amazonka.SecurityHub.BatchUpdateFindings
     newBatchUpdateFindings,
 
     -- * Request Lenses
-    batchUpdateFindings_criticality,
-    batchUpdateFindings_severity,
-    batchUpdateFindings_relatedFindings,
     batchUpdateFindings_confidence,
-    batchUpdateFindings_userDefinedFields,
+    batchUpdateFindings_criticality,
+    batchUpdateFindings_note,
+    batchUpdateFindings_relatedFindings,
+    batchUpdateFindings_severity,
     batchUpdateFindings_types,
+    batchUpdateFindings_userDefinedFields,
     batchUpdateFindings_verificationState,
     batchUpdateFindings_workflow,
-    batchUpdateFindings_note,
     batchUpdateFindings_findingIdentifiers,
 
     -- * Destructuring the Response
@@ -93,26 +93,24 @@ import Amazonka.SecurityHub.Types
 
 -- | /See:/ 'newBatchUpdateFindings' smart constructor.
 data BatchUpdateFindings = BatchUpdateFindings'
-  { -- | The updated value for the level of importance assigned to the resources
-    -- associated with the findings.
-    --
-    -- A score of 0 means that the underlying resources have no criticality,
-    -- and a score of 100 is reserved for the most critical resources.
-    criticality :: Prelude.Maybe Prelude.Natural,
-    -- | Used to update the finding severity.
-    severity :: Prelude.Maybe SeverityUpdate,
-    -- | A list of findings that are related to the updated findings.
-    relatedFindings :: Prelude.Maybe [RelatedFinding],
-    -- | The updated value for the finding confidence. Confidence is defined as
+  { -- | The updated value for the finding confidence. Confidence is defined as
     -- the likelihood that a finding accurately identifies the behavior or
     -- issue that it was intended to identify.
     --
     -- Confidence is scored on a 0-100 basis using a ratio scale, where 0 means
     -- zero percent confidence and 100 means 100 percent confidence.
     confidence :: Prelude.Maybe Prelude.Natural,
-    -- | A list of name\/value string pairs associated with the finding. These
-    -- are custom, user-defined fields added to a finding.
-    userDefinedFields :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The updated value for the level of importance assigned to the resources
+    -- associated with the findings.
+    --
+    -- A score of 0 means that the underlying resources have no criticality,
+    -- and a score of 100 is reserved for the most critical resources.
+    criticality :: Prelude.Maybe Prelude.Natural,
+    note :: Prelude.Maybe NoteUpdate,
+    -- | A list of findings that are related to the updated findings.
+    relatedFindings :: Prelude.Maybe [RelatedFinding],
+    -- | Used to update the finding severity.
+    severity :: Prelude.Maybe SeverityUpdate,
     -- | One or more finding types in the format of
     -- namespace\/category\/classifier that classify a finding.
     --
@@ -128,6 +126,9 @@ data BatchUpdateFindings = BatchUpdateFindings'
     --
     -- -   Sensitive Data Identifications
     types :: Prelude.Maybe [Prelude.Text],
+    -- | A list of name\/value string pairs associated with the finding. These
+    -- are custom, user-defined fields added to a finding.
+    userDefinedFields :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Indicates the veracity of a finding.
     --
     -- The available values for @VerificationState@ are as follows.
@@ -147,7 +148,6 @@ data BatchUpdateFindings = BatchUpdateFindings'
     -- The workflow status indicates the progress of the investigation into the
     -- finding.
     workflow :: Prelude.Maybe WorkflowUpdate,
-    note :: Prelude.Maybe NoteUpdate,
     -- | The list of findings to update. @BatchUpdateFindings@ can be used to
     -- update up to 100 findings at a time.
     --
@@ -165,16 +165,6 @@ data BatchUpdateFindings = BatchUpdateFindings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'criticality', 'batchUpdateFindings_criticality' - The updated value for the level of importance assigned to the resources
--- associated with the findings.
---
--- A score of 0 means that the underlying resources have no criticality,
--- and a score of 100 is reserved for the most critical resources.
---
--- 'severity', 'batchUpdateFindings_severity' - Used to update the finding severity.
---
--- 'relatedFindings', 'batchUpdateFindings_relatedFindings' - A list of findings that are related to the updated findings.
---
 -- 'confidence', 'batchUpdateFindings_confidence' - The updated value for the finding confidence. Confidence is defined as
 -- the likelihood that a finding accurately identifies the behavior or
 -- issue that it was intended to identify.
@@ -182,8 +172,17 @@ data BatchUpdateFindings = BatchUpdateFindings'
 -- Confidence is scored on a 0-100 basis using a ratio scale, where 0 means
 -- zero percent confidence and 100 means 100 percent confidence.
 --
--- 'userDefinedFields', 'batchUpdateFindings_userDefinedFields' - A list of name\/value string pairs associated with the finding. These
--- are custom, user-defined fields added to a finding.
+-- 'criticality', 'batchUpdateFindings_criticality' - The updated value for the level of importance assigned to the resources
+-- associated with the findings.
+--
+-- A score of 0 means that the underlying resources have no criticality,
+-- and a score of 100 is reserved for the most critical resources.
+--
+-- 'note', 'batchUpdateFindings_note' - Undocumented member.
+--
+-- 'relatedFindings', 'batchUpdateFindings_relatedFindings' - A list of findings that are related to the updated findings.
+--
+-- 'severity', 'batchUpdateFindings_severity' - Used to update the finding severity.
 --
 -- 'types', 'batchUpdateFindings_types' - One or more finding types in the format of
 -- namespace\/category\/classifier that classify a finding.
@@ -199,6 +198,9 @@ data BatchUpdateFindings = BatchUpdateFindings'
 -- -   Unusual Behaviors
 --
 -- -   Sensitive Data Identifications
+--
+-- 'userDefinedFields', 'batchUpdateFindings_userDefinedFields' - A list of name\/value string pairs associated with the finding. These
+-- are custom, user-defined fields added to a finding.
 --
 -- 'verificationState', 'batchUpdateFindings_verificationState' - Indicates the veracity of a finding.
 --
@@ -219,8 +221,6 @@ data BatchUpdateFindings = BatchUpdateFindings'
 -- The workflow status indicates the progress of the investigation into the
 -- finding.
 --
--- 'note', 'batchUpdateFindings_note' - Undocumented member.
---
 -- 'findingIdentifiers', 'batchUpdateFindings_findingIdentifiers' - The list of findings to update. @BatchUpdateFindings@ can be used to
 -- update up to 100 findings at a time.
 --
@@ -230,33 +230,17 @@ newBatchUpdateFindings ::
   BatchUpdateFindings
 newBatchUpdateFindings =
   BatchUpdateFindings'
-    { criticality = Prelude.Nothing,
-      severity = Prelude.Nothing,
+    { confidence = Prelude.Nothing,
+      criticality = Prelude.Nothing,
+      note = Prelude.Nothing,
       relatedFindings = Prelude.Nothing,
-      confidence = Prelude.Nothing,
-      userDefinedFields = Prelude.Nothing,
+      severity = Prelude.Nothing,
       types = Prelude.Nothing,
+      userDefinedFields = Prelude.Nothing,
       verificationState = Prelude.Nothing,
       workflow = Prelude.Nothing,
-      note = Prelude.Nothing,
       findingIdentifiers = Prelude.mempty
     }
-
--- | The updated value for the level of importance assigned to the resources
--- associated with the findings.
---
--- A score of 0 means that the underlying resources have no criticality,
--- and a score of 100 is reserved for the most critical resources.
-batchUpdateFindings_criticality :: Lens.Lens' BatchUpdateFindings (Prelude.Maybe Prelude.Natural)
-batchUpdateFindings_criticality = Lens.lens (\BatchUpdateFindings' {criticality} -> criticality) (\s@BatchUpdateFindings' {} a -> s {criticality = a} :: BatchUpdateFindings)
-
--- | Used to update the finding severity.
-batchUpdateFindings_severity :: Lens.Lens' BatchUpdateFindings (Prelude.Maybe SeverityUpdate)
-batchUpdateFindings_severity = Lens.lens (\BatchUpdateFindings' {severity} -> severity) (\s@BatchUpdateFindings' {} a -> s {severity = a} :: BatchUpdateFindings)
-
--- | A list of findings that are related to the updated findings.
-batchUpdateFindings_relatedFindings :: Lens.Lens' BatchUpdateFindings (Prelude.Maybe [RelatedFinding])
-batchUpdateFindings_relatedFindings = Lens.lens (\BatchUpdateFindings' {relatedFindings} -> relatedFindings) (\s@BatchUpdateFindings' {} a -> s {relatedFindings = a} :: BatchUpdateFindings) Prelude.. Lens.mapping Lens.coerced
 
 -- | The updated value for the finding confidence. Confidence is defined as
 -- the likelihood that a finding accurately identifies the behavior or
@@ -267,10 +251,25 @@ batchUpdateFindings_relatedFindings = Lens.lens (\BatchUpdateFindings' {relatedF
 batchUpdateFindings_confidence :: Lens.Lens' BatchUpdateFindings (Prelude.Maybe Prelude.Natural)
 batchUpdateFindings_confidence = Lens.lens (\BatchUpdateFindings' {confidence} -> confidence) (\s@BatchUpdateFindings' {} a -> s {confidence = a} :: BatchUpdateFindings)
 
--- | A list of name\/value string pairs associated with the finding. These
--- are custom, user-defined fields added to a finding.
-batchUpdateFindings_userDefinedFields :: Lens.Lens' BatchUpdateFindings (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-batchUpdateFindings_userDefinedFields = Lens.lens (\BatchUpdateFindings' {userDefinedFields} -> userDefinedFields) (\s@BatchUpdateFindings' {} a -> s {userDefinedFields = a} :: BatchUpdateFindings) Prelude.. Lens.mapping Lens.coerced
+-- | The updated value for the level of importance assigned to the resources
+-- associated with the findings.
+--
+-- A score of 0 means that the underlying resources have no criticality,
+-- and a score of 100 is reserved for the most critical resources.
+batchUpdateFindings_criticality :: Lens.Lens' BatchUpdateFindings (Prelude.Maybe Prelude.Natural)
+batchUpdateFindings_criticality = Lens.lens (\BatchUpdateFindings' {criticality} -> criticality) (\s@BatchUpdateFindings' {} a -> s {criticality = a} :: BatchUpdateFindings)
+
+-- | Undocumented member.
+batchUpdateFindings_note :: Lens.Lens' BatchUpdateFindings (Prelude.Maybe NoteUpdate)
+batchUpdateFindings_note = Lens.lens (\BatchUpdateFindings' {note} -> note) (\s@BatchUpdateFindings' {} a -> s {note = a} :: BatchUpdateFindings)
+
+-- | A list of findings that are related to the updated findings.
+batchUpdateFindings_relatedFindings :: Lens.Lens' BatchUpdateFindings (Prelude.Maybe [RelatedFinding])
+batchUpdateFindings_relatedFindings = Lens.lens (\BatchUpdateFindings' {relatedFindings} -> relatedFindings) (\s@BatchUpdateFindings' {} a -> s {relatedFindings = a} :: BatchUpdateFindings) Prelude.. Lens.mapping Lens.coerced
+
+-- | Used to update the finding severity.
+batchUpdateFindings_severity :: Lens.Lens' BatchUpdateFindings (Prelude.Maybe SeverityUpdate)
+batchUpdateFindings_severity = Lens.lens (\BatchUpdateFindings' {severity} -> severity) (\s@BatchUpdateFindings' {} a -> s {severity = a} :: BatchUpdateFindings)
 
 -- | One or more finding types in the format of
 -- namespace\/category\/classifier that classify a finding.
@@ -288,6 +287,11 @@ batchUpdateFindings_userDefinedFields = Lens.lens (\BatchUpdateFindings' {userDe
 -- -   Sensitive Data Identifications
 batchUpdateFindings_types :: Lens.Lens' BatchUpdateFindings (Prelude.Maybe [Prelude.Text])
 batchUpdateFindings_types = Lens.lens (\BatchUpdateFindings' {types} -> types) (\s@BatchUpdateFindings' {} a -> s {types = a} :: BatchUpdateFindings) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of name\/value string pairs associated with the finding. These
+-- are custom, user-defined fields added to a finding.
+batchUpdateFindings_userDefinedFields :: Lens.Lens' BatchUpdateFindings (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+batchUpdateFindings_userDefinedFields = Lens.lens (\BatchUpdateFindings' {userDefinedFields} -> userDefinedFields) (\s@BatchUpdateFindings' {} a -> s {userDefinedFields = a} :: BatchUpdateFindings) Prelude.. Lens.mapping Lens.coerced
 
 -- | Indicates the veracity of a finding.
 --
@@ -311,10 +315,6 @@ batchUpdateFindings_verificationState = Lens.lens (\BatchUpdateFindings' {verifi
 -- finding.
 batchUpdateFindings_workflow :: Lens.Lens' BatchUpdateFindings (Prelude.Maybe WorkflowUpdate)
 batchUpdateFindings_workflow = Lens.lens (\BatchUpdateFindings' {workflow} -> workflow) (\s@BatchUpdateFindings' {} a -> s {workflow = a} :: BatchUpdateFindings)
-
--- | Undocumented member.
-batchUpdateFindings_note :: Lens.Lens' BatchUpdateFindings (Prelude.Maybe NoteUpdate)
-batchUpdateFindings_note = Lens.lens (\BatchUpdateFindings' {note} -> note) (\s@BatchUpdateFindings' {} a -> s {note = a} :: BatchUpdateFindings)
 
 -- | The list of findings to update. @BatchUpdateFindings@ can be used to
 -- update up to 100 findings at a time.
@@ -345,28 +345,28 @@ instance Core.AWSRequest BatchUpdateFindings where
 
 instance Prelude.Hashable BatchUpdateFindings where
   hashWithSalt _salt BatchUpdateFindings' {..} =
-    _salt `Prelude.hashWithSalt` criticality
-      `Prelude.hashWithSalt` severity
+    _salt `Prelude.hashWithSalt` confidence
+      `Prelude.hashWithSalt` criticality
+      `Prelude.hashWithSalt` note
       `Prelude.hashWithSalt` relatedFindings
-      `Prelude.hashWithSalt` confidence
-      `Prelude.hashWithSalt` userDefinedFields
+      `Prelude.hashWithSalt` severity
       `Prelude.hashWithSalt` types
+      `Prelude.hashWithSalt` userDefinedFields
       `Prelude.hashWithSalt` verificationState
       `Prelude.hashWithSalt` workflow
-      `Prelude.hashWithSalt` note
       `Prelude.hashWithSalt` findingIdentifiers
 
 instance Prelude.NFData BatchUpdateFindings where
   rnf BatchUpdateFindings' {..} =
-    Prelude.rnf criticality
-      `Prelude.seq` Prelude.rnf severity
+    Prelude.rnf confidence
+      `Prelude.seq` Prelude.rnf criticality
+      `Prelude.seq` Prelude.rnf note
       `Prelude.seq` Prelude.rnf relatedFindings
-      `Prelude.seq` Prelude.rnf confidence
-      `Prelude.seq` Prelude.rnf userDefinedFields
+      `Prelude.seq` Prelude.rnf severity
       `Prelude.seq` Prelude.rnf types
+      `Prelude.seq` Prelude.rnf userDefinedFields
       `Prelude.seq` Prelude.rnf verificationState
       `Prelude.seq` Prelude.rnf workflow
-      `Prelude.seq` Prelude.rnf note
       `Prelude.seq` Prelude.rnf findingIdentifiers
 
 instance Data.ToHeaders BatchUpdateFindings where
@@ -384,18 +384,18 @@ instance Data.ToJSON BatchUpdateFindings where
   toJSON BatchUpdateFindings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Criticality" Data..=) Prelude.<$> criticality,
-            ("Severity" Data..=) Prelude.<$> severity,
+          [ ("Confidence" Data..=) Prelude.<$> confidence,
+            ("Criticality" Data..=) Prelude.<$> criticality,
+            ("Note" Data..=) Prelude.<$> note,
             ("RelatedFindings" Data..=)
               Prelude.<$> relatedFindings,
-            ("Confidence" Data..=) Prelude.<$> confidence,
+            ("Severity" Data..=) Prelude.<$> severity,
+            ("Types" Data..=) Prelude.<$> types,
             ("UserDefinedFields" Data..=)
               Prelude.<$> userDefinedFields,
-            ("Types" Data..=) Prelude.<$> types,
             ("VerificationState" Data..=)
               Prelude.<$> verificationState,
             ("Workflow" Data..=) Prelude.<$> workflow,
-            ("Note" Data..=) Prelude.<$> note,
             Prelude.Just
               ("FindingIdentifiers" Data..= findingIdentifiers)
           ]

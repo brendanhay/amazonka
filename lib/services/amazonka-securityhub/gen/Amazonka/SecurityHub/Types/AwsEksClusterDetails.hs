@@ -30,14 +30,10 @@ import Amazonka.SecurityHub.Types.AwsEksClusterResourcesVpcConfigDetails
 --
 -- /See:/ 'newAwsEksClusterDetails' smart constructor.
 data AwsEksClusterDetails = AwsEksClusterDetails'
-  { -- | The name of the cluster.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the IAM role that provides permissions for the Amazon EKS
-    -- control plane to make calls to Amazon Web Services API operations on
-    -- your behalf.
-    roleArn :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the cluster.
+  { -- | The ARN of the cluster.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The certificate authority data for the cluster.
+    certificateAuthorityData :: Prelude.Maybe Prelude.Text,
     -- | The status of the cluster. Valid values are as follows:
     --
     -- -   @ACTIVE@
@@ -52,14 +48,18 @@ data AwsEksClusterDetails = AwsEksClusterDetails'
     --
     -- -   @UPDATING@
     clusterStatus :: Prelude.Maybe Prelude.Text,
-    -- | The logging configuration for the cluster.
-    logging :: Prelude.Maybe AwsEksClusterLoggingDetails,
     -- | The endpoint for the Amazon EKS API server.
     endpoint :: Prelude.Maybe Prelude.Text,
+    -- | The logging configuration for the cluster.
+    logging :: Prelude.Maybe AwsEksClusterLoggingDetails,
+    -- | The name of the cluster.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The VPC configuration used by the cluster control plane.
     resourcesVpcConfig :: Prelude.Maybe AwsEksClusterResourcesVpcConfigDetails,
-    -- | The certificate authority data for the cluster.
-    certificateAuthorityData :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the IAM role that provides permissions for the Amazon EKS
+    -- control plane to make calls to Amazon Web Services API operations on
+    -- your behalf.
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon EKS server version for the cluster.
     version :: Prelude.Maybe Prelude.Text
   }
@@ -73,13 +73,9 @@ data AwsEksClusterDetails = AwsEksClusterDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'awsEksClusterDetails_name' - The name of the cluster.
---
--- 'roleArn', 'awsEksClusterDetails_roleArn' - The ARN of the IAM role that provides permissions for the Amazon EKS
--- control plane to make calls to Amazon Web Services API operations on
--- your behalf.
---
 -- 'arn', 'awsEksClusterDetails_arn' - The ARN of the cluster.
+--
+-- 'certificateAuthorityData', 'awsEksClusterDetails_certificateAuthorityData' - The certificate authority data for the cluster.
 --
 -- 'clusterStatus', 'awsEksClusterDetails_clusterStatus' - The status of the cluster. Valid values are as follows:
 --
@@ -95,43 +91,41 @@ data AwsEksClusterDetails = AwsEksClusterDetails'
 --
 -- -   @UPDATING@
 --
+-- 'endpoint', 'awsEksClusterDetails_endpoint' - The endpoint for the Amazon EKS API server.
+--
 -- 'logging', 'awsEksClusterDetails_logging' - The logging configuration for the cluster.
 --
--- 'endpoint', 'awsEksClusterDetails_endpoint' - The endpoint for the Amazon EKS API server.
+-- 'name', 'awsEksClusterDetails_name' - The name of the cluster.
 --
 -- 'resourcesVpcConfig', 'awsEksClusterDetails_resourcesVpcConfig' - The VPC configuration used by the cluster control plane.
 --
--- 'certificateAuthorityData', 'awsEksClusterDetails_certificateAuthorityData' - The certificate authority data for the cluster.
+-- 'roleArn', 'awsEksClusterDetails_roleArn' - The ARN of the IAM role that provides permissions for the Amazon EKS
+-- control plane to make calls to Amazon Web Services API operations on
+-- your behalf.
 --
 -- 'version', 'awsEksClusterDetails_version' - The Amazon EKS server version for the cluster.
 newAwsEksClusterDetails ::
   AwsEksClusterDetails
 newAwsEksClusterDetails =
   AwsEksClusterDetails'
-    { name = Prelude.Nothing,
-      roleArn = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      clusterStatus = Prelude.Nothing,
-      logging = Prelude.Nothing,
-      endpoint = Prelude.Nothing,
-      resourcesVpcConfig = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       certificateAuthorityData = Prelude.Nothing,
+      clusterStatus = Prelude.Nothing,
+      endpoint = Prelude.Nothing,
+      logging = Prelude.Nothing,
+      name = Prelude.Nothing,
+      resourcesVpcConfig = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
       version = Prelude.Nothing
     }
-
--- | The name of the cluster.
-awsEksClusterDetails_name :: Lens.Lens' AwsEksClusterDetails (Prelude.Maybe Prelude.Text)
-awsEksClusterDetails_name = Lens.lens (\AwsEksClusterDetails' {name} -> name) (\s@AwsEksClusterDetails' {} a -> s {name = a} :: AwsEksClusterDetails)
-
--- | The ARN of the IAM role that provides permissions for the Amazon EKS
--- control plane to make calls to Amazon Web Services API operations on
--- your behalf.
-awsEksClusterDetails_roleArn :: Lens.Lens' AwsEksClusterDetails (Prelude.Maybe Prelude.Text)
-awsEksClusterDetails_roleArn = Lens.lens (\AwsEksClusterDetails' {roleArn} -> roleArn) (\s@AwsEksClusterDetails' {} a -> s {roleArn = a} :: AwsEksClusterDetails)
 
 -- | The ARN of the cluster.
 awsEksClusterDetails_arn :: Lens.Lens' AwsEksClusterDetails (Prelude.Maybe Prelude.Text)
 awsEksClusterDetails_arn = Lens.lens (\AwsEksClusterDetails' {arn} -> arn) (\s@AwsEksClusterDetails' {} a -> s {arn = a} :: AwsEksClusterDetails)
+
+-- | The certificate authority data for the cluster.
+awsEksClusterDetails_certificateAuthorityData :: Lens.Lens' AwsEksClusterDetails (Prelude.Maybe Prelude.Text)
+awsEksClusterDetails_certificateAuthorityData = Lens.lens (\AwsEksClusterDetails' {certificateAuthorityData} -> certificateAuthorityData) (\s@AwsEksClusterDetails' {} a -> s {certificateAuthorityData = a} :: AwsEksClusterDetails)
 
 -- | The status of the cluster. Valid values are as follows:
 --
@@ -149,21 +143,27 @@ awsEksClusterDetails_arn = Lens.lens (\AwsEksClusterDetails' {arn} -> arn) (\s@A
 awsEksClusterDetails_clusterStatus :: Lens.Lens' AwsEksClusterDetails (Prelude.Maybe Prelude.Text)
 awsEksClusterDetails_clusterStatus = Lens.lens (\AwsEksClusterDetails' {clusterStatus} -> clusterStatus) (\s@AwsEksClusterDetails' {} a -> s {clusterStatus = a} :: AwsEksClusterDetails)
 
+-- | The endpoint for the Amazon EKS API server.
+awsEksClusterDetails_endpoint :: Lens.Lens' AwsEksClusterDetails (Prelude.Maybe Prelude.Text)
+awsEksClusterDetails_endpoint = Lens.lens (\AwsEksClusterDetails' {endpoint} -> endpoint) (\s@AwsEksClusterDetails' {} a -> s {endpoint = a} :: AwsEksClusterDetails)
+
 -- | The logging configuration for the cluster.
 awsEksClusterDetails_logging :: Lens.Lens' AwsEksClusterDetails (Prelude.Maybe AwsEksClusterLoggingDetails)
 awsEksClusterDetails_logging = Lens.lens (\AwsEksClusterDetails' {logging} -> logging) (\s@AwsEksClusterDetails' {} a -> s {logging = a} :: AwsEksClusterDetails)
 
--- | The endpoint for the Amazon EKS API server.
-awsEksClusterDetails_endpoint :: Lens.Lens' AwsEksClusterDetails (Prelude.Maybe Prelude.Text)
-awsEksClusterDetails_endpoint = Lens.lens (\AwsEksClusterDetails' {endpoint} -> endpoint) (\s@AwsEksClusterDetails' {} a -> s {endpoint = a} :: AwsEksClusterDetails)
+-- | The name of the cluster.
+awsEksClusterDetails_name :: Lens.Lens' AwsEksClusterDetails (Prelude.Maybe Prelude.Text)
+awsEksClusterDetails_name = Lens.lens (\AwsEksClusterDetails' {name} -> name) (\s@AwsEksClusterDetails' {} a -> s {name = a} :: AwsEksClusterDetails)
 
 -- | The VPC configuration used by the cluster control plane.
 awsEksClusterDetails_resourcesVpcConfig :: Lens.Lens' AwsEksClusterDetails (Prelude.Maybe AwsEksClusterResourcesVpcConfigDetails)
 awsEksClusterDetails_resourcesVpcConfig = Lens.lens (\AwsEksClusterDetails' {resourcesVpcConfig} -> resourcesVpcConfig) (\s@AwsEksClusterDetails' {} a -> s {resourcesVpcConfig = a} :: AwsEksClusterDetails)
 
--- | The certificate authority data for the cluster.
-awsEksClusterDetails_certificateAuthorityData :: Lens.Lens' AwsEksClusterDetails (Prelude.Maybe Prelude.Text)
-awsEksClusterDetails_certificateAuthorityData = Lens.lens (\AwsEksClusterDetails' {certificateAuthorityData} -> certificateAuthorityData) (\s@AwsEksClusterDetails' {} a -> s {certificateAuthorityData = a} :: AwsEksClusterDetails)
+-- | The ARN of the IAM role that provides permissions for the Amazon EKS
+-- control plane to make calls to Amazon Web Services API operations on
+-- your behalf.
+awsEksClusterDetails_roleArn :: Lens.Lens' AwsEksClusterDetails (Prelude.Maybe Prelude.Text)
+awsEksClusterDetails_roleArn = Lens.lens (\AwsEksClusterDetails' {roleArn} -> roleArn) (\s@AwsEksClusterDetails' {} a -> s {roleArn = a} :: AwsEksClusterDetails)
 
 -- | The Amazon EKS server version for the cluster.
 awsEksClusterDetails_version :: Lens.Lens' AwsEksClusterDetails (Prelude.Maybe Prelude.Text)
@@ -175,55 +175,55 @@ instance Data.FromJSON AwsEksClusterDetails where
       "AwsEksClusterDetails"
       ( \x ->
           AwsEksClusterDetails'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "RoleArn")
-            Prelude.<*> (x Data..:? "Arn")
-            Prelude.<*> (x Data..:? "ClusterStatus")
-            Prelude.<*> (x Data..:? "Logging")
-            Prelude.<*> (x Data..:? "Endpoint")
-            Prelude.<*> (x Data..:? "ResourcesVpcConfig")
+            Prelude.<$> (x Data..:? "Arn")
             Prelude.<*> (x Data..:? "CertificateAuthorityData")
+            Prelude.<*> (x Data..:? "ClusterStatus")
+            Prelude.<*> (x Data..:? "Endpoint")
+            Prelude.<*> (x Data..:? "Logging")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ResourcesVpcConfig")
+            Prelude.<*> (x Data..:? "RoleArn")
             Prelude.<*> (x Data..:? "Version")
       )
 
 instance Prelude.Hashable AwsEksClusterDetails where
   hashWithSalt _salt AwsEksClusterDetails' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` roleArn
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` clusterStatus
-      `Prelude.hashWithSalt` logging
-      `Prelude.hashWithSalt` endpoint
-      `Prelude.hashWithSalt` resourcesVpcConfig
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` certificateAuthorityData
+      `Prelude.hashWithSalt` clusterStatus
+      `Prelude.hashWithSalt` endpoint
+      `Prelude.hashWithSalt` logging
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` resourcesVpcConfig
+      `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData AwsEksClusterDetails where
   rnf AwsEksClusterDetails' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf clusterStatus
-      `Prelude.seq` Prelude.rnf logging
-      `Prelude.seq` Prelude.rnf endpoint
-      `Prelude.seq` Prelude.rnf resourcesVpcConfig
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf certificateAuthorityData
+      `Prelude.seq` Prelude.rnf clusterStatus
+      `Prelude.seq` Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf logging
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf resourcesVpcConfig
+      `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf version
 
 instance Data.ToJSON AwsEksClusterDetails where
   toJSON AwsEksClusterDetails' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
-            ("RoleArn" Data..=) Prelude.<$> roleArn,
-            ("Arn" Data..=) Prelude.<$> arn,
-            ("ClusterStatus" Data..=) Prelude.<$> clusterStatus,
-            ("Logging" Data..=) Prelude.<$> logging,
-            ("Endpoint" Data..=) Prelude.<$> endpoint,
-            ("ResourcesVpcConfig" Data..=)
-              Prelude.<$> resourcesVpcConfig,
+          [ ("Arn" Data..=) Prelude.<$> arn,
             ("CertificateAuthorityData" Data..=)
               Prelude.<$> certificateAuthorityData,
+            ("ClusterStatus" Data..=) Prelude.<$> clusterStatus,
+            ("Endpoint" Data..=) Prelude.<$> endpoint,
+            ("Logging" Data..=) Prelude.<$> logging,
+            ("Name" Data..=) Prelude.<$> name,
+            ("ResourcesVpcConfig" Data..=)
+              Prelude.<$> resourcesVpcConfig,
+            ("RoleArn" Data..=) Prelude.<$> roleArn,
             ("Version" Data..=) Prelude.<$> version
           ]
       )

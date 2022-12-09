@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRuleGroupSourceStatelessRuleMatchAttributesDestinationPorts' smart constructor.
 data RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts = RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts'
-  { -- | The ending port value for the port range.
-    toPort :: Prelude.Maybe Prelude.Int,
-    -- | The starting port value for the port range.
-    fromPort :: Prelude.Maybe Prelude.Int
+  { -- | The starting port value for the port range.
+    fromPort :: Prelude.Maybe Prelude.Int,
+    -- | The ending port value for the port range.
+    toPort :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,26 +43,26 @@ data RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts = RuleGroupSour
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'toPort', 'ruleGroupSourceStatelessRuleMatchAttributesDestinationPorts_toPort' - The ending port value for the port range.
---
 -- 'fromPort', 'ruleGroupSourceStatelessRuleMatchAttributesDestinationPorts_fromPort' - The starting port value for the port range.
+--
+-- 'toPort', 'ruleGroupSourceStatelessRuleMatchAttributesDestinationPorts_toPort' - The ending port value for the port range.
 newRuleGroupSourceStatelessRuleMatchAttributesDestinationPorts ::
   RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts
 newRuleGroupSourceStatelessRuleMatchAttributesDestinationPorts =
   RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts'
-    { toPort =
+    { fromPort =
         Prelude.Nothing,
-      fromPort =
+      toPort =
         Prelude.Nothing
     }
-
--- | The ending port value for the port range.
-ruleGroupSourceStatelessRuleMatchAttributesDestinationPorts_toPort :: Lens.Lens' RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts (Prelude.Maybe Prelude.Int)
-ruleGroupSourceStatelessRuleMatchAttributesDestinationPorts_toPort = Lens.lens (\RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts' {toPort} -> toPort) (\s@RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts' {} a -> s {toPort = a} :: RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts)
 
 -- | The starting port value for the port range.
 ruleGroupSourceStatelessRuleMatchAttributesDestinationPorts_fromPort :: Lens.Lens' RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts (Prelude.Maybe Prelude.Int)
 ruleGroupSourceStatelessRuleMatchAttributesDestinationPorts_fromPort = Lens.lens (\RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts' {fromPort} -> fromPort) (\s@RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts' {} a -> s {fromPort = a} :: RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts)
+
+-- | The ending port value for the port range.
+ruleGroupSourceStatelessRuleMatchAttributesDestinationPorts_toPort :: Lens.Lens' RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts (Prelude.Maybe Prelude.Int)
+ruleGroupSourceStatelessRuleMatchAttributesDestinationPorts_toPort = Lens.lens (\RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts' {toPort} -> toPort) (\s@RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts' {} a -> s {toPort = a} :: RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts)
 
 instance
   Data.FromJSON
@@ -73,8 +73,8 @@ instance
       "RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts"
       ( \x ->
           RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts'
-            Prelude.<$> (x Data..:? "ToPort")
-              Prelude.<*> (x Data..:? "FromPort")
+            Prelude.<$> (x Data..:? "FromPort")
+              Prelude.<*> (x Data..:? "ToPort")
       )
 
 instance
@@ -84,8 +84,8 @@ instance
   hashWithSalt
     _salt
     RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts' {..} =
-      _salt `Prelude.hashWithSalt` toPort
-        `Prelude.hashWithSalt` fromPort
+      _salt `Prelude.hashWithSalt` fromPort
+        `Prelude.hashWithSalt` toPort
 
 instance
   Prelude.NFData
@@ -93,8 +93,8 @@ instance
   where
   rnf
     RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts' {..} =
-      Prelude.rnf toPort
-        `Prelude.seq` Prelude.rnf fromPort
+      Prelude.rnf fromPort
+        `Prelude.seq` Prelude.rnf toPort
 
 instance
   Data.ToJSON
@@ -104,7 +104,7 @@ instance
     RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ ("ToPort" Data..=) Prelude.<$> toPort,
-              ("FromPort" Data..=) Prelude.<$> fromPort
+            [ ("FromPort" Data..=) Prelude.<$> fromPort,
+              ("ToPort" Data..=) Prelude.<$> toPort
             ]
         )

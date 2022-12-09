@@ -32,14 +32,12 @@ import Amazonka.SecurityHub.Types.AwsEc2SecurityGroupUserIdGroupPair
 --
 -- /See:/ 'newAwsEc2SecurityGroupIpPermission' smart constructor.
 data AwsEc2SecurityGroupIpPermission = AwsEc2SecurityGroupIpPermission'
-  { -- | The end of the port range for the TCP and UDP protocols, or an
-    -- ICMP\/ICMPv6 code.
+  { -- | The start of the port range for the TCP and UDP protocols, or an
+    -- ICMP\/ICMPv6 type number.
     --
-    -- A value of @-1@ indicates all ICMP\/ICMPv6 codes. If you specify all
+    -- A value of -1 indicates all ICMP\/ICMPv6 types. If you specify all
     -- ICMP\/ICMPv6 types, you must specify all codes.
-    toPort :: Prelude.Maybe Prelude.Int,
-    -- | The IPv6 ranges.
-    ipv6Ranges :: Prelude.Maybe [AwsEc2SecurityGroupIpv6Range],
+    fromPort :: Prelude.Maybe Prelude.Int,
     -- | The IP protocol name (@tcp@, @udp@, @icmp@, @icmpv6@) or number.
     --
     -- [VPC only] Use @-1@ to specify all protocols.
@@ -53,21 +51,23 @@ data AwsEc2SecurityGroupIpPermission = AwsEc2SecurityGroupIpPermission'
     -- For @icmpv6@, the port range is optional. If you omit the port range,
     -- traffic for all types and codes is allowed.
     ipProtocol :: Prelude.Maybe Prelude.Text,
+    -- | The IPv4 ranges.
+    ipRanges :: Prelude.Maybe [AwsEc2SecurityGroupIpRange],
+    -- | The IPv6 ranges.
+    ipv6Ranges :: Prelude.Maybe [AwsEc2SecurityGroupIpv6Range],
     -- | [VPC only] The prefix list IDs for an Amazon Web Services service. With
     -- outbound rules, this is the Amazon Web Services service to access
     -- through a VPC endpoint from instances associated with the security
     -- group.
     prefixListIds :: Prelude.Maybe [AwsEc2SecurityGroupPrefixListId],
-    -- | The IPv4 ranges.
-    ipRanges :: Prelude.Maybe [AwsEc2SecurityGroupIpRange],
-    -- | The security group and Amazon Web Services account ID pairs.
-    userIdGroupPairs :: Prelude.Maybe [AwsEc2SecurityGroupUserIdGroupPair],
-    -- | The start of the port range for the TCP and UDP protocols, or an
-    -- ICMP\/ICMPv6 type number.
+    -- | The end of the port range for the TCP and UDP protocols, or an
+    -- ICMP\/ICMPv6 code.
     --
-    -- A value of -1 indicates all ICMP\/ICMPv6 types. If you specify all
+    -- A value of @-1@ indicates all ICMP\/ICMPv6 codes. If you specify all
     -- ICMP\/ICMPv6 types, you must specify all codes.
-    fromPort :: Prelude.Maybe Prelude.Int
+    toPort :: Prelude.Maybe Prelude.Int,
+    -- | The security group and Amazon Web Services account ID pairs.
+    userIdGroupPairs :: Prelude.Maybe [AwsEc2SecurityGroupUserIdGroupPair]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,13 +79,11 @@ data AwsEc2SecurityGroupIpPermission = AwsEc2SecurityGroupIpPermission'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'toPort', 'awsEc2SecurityGroupIpPermission_toPort' - The end of the port range for the TCP and UDP protocols, or an
--- ICMP\/ICMPv6 code.
+-- 'fromPort', 'awsEc2SecurityGroupIpPermission_fromPort' - The start of the port range for the TCP and UDP protocols, or an
+-- ICMP\/ICMPv6 type number.
 --
--- A value of @-1@ indicates all ICMP\/ICMPv6 codes. If you specify all
+-- A value of -1 indicates all ICMP\/ICMPv6 types. If you specify all
 -- ICMP\/ICMPv6 types, you must specify all codes.
---
--- 'ipv6Ranges', 'awsEc2SecurityGroupIpPermission_ipv6Ranges' - The IPv6 ranges.
 --
 -- 'ipProtocol', 'awsEc2SecurityGroupIpPermission_ipProtocol' - The IP protocol name (@tcp@, @udp@, @icmp@, @icmpv6@) or number.
 --
@@ -100,45 +98,43 @@ data AwsEc2SecurityGroupIpPermission = AwsEc2SecurityGroupIpPermission'
 -- For @icmpv6@, the port range is optional. If you omit the port range,
 -- traffic for all types and codes is allowed.
 --
+-- 'ipRanges', 'awsEc2SecurityGroupIpPermission_ipRanges' - The IPv4 ranges.
+--
+-- 'ipv6Ranges', 'awsEc2SecurityGroupIpPermission_ipv6Ranges' - The IPv6 ranges.
+--
 -- 'prefixListIds', 'awsEc2SecurityGroupIpPermission_prefixListIds' - [VPC only] The prefix list IDs for an Amazon Web Services service. With
 -- outbound rules, this is the Amazon Web Services service to access
 -- through a VPC endpoint from instances associated with the security
 -- group.
 --
--- 'ipRanges', 'awsEc2SecurityGroupIpPermission_ipRanges' - The IPv4 ranges.
---
--- 'userIdGroupPairs', 'awsEc2SecurityGroupIpPermission_userIdGroupPairs' - The security group and Amazon Web Services account ID pairs.
---
--- 'fromPort', 'awsEc2SecurityGroupIpPermission_fromPort' - The start of the port range for the TCP and UDP protocols, or an
--- ICMP\/ICMPv6 type number.
---
--- A value of -1 indicates all ICMP\/ICMPv6 types. If you specify all
--- ICMP\/ICMPv6 types, you must specify all codes.
-newAwsEc2SecurityGroupIpPermission ::
-  AwsEc2SecurityGroupIpPermission
-newAwsEc2SecurityGroupIpPermission =
-  AwsEc2SecurityGroupIpPermission'
-    { toPort =
-        Prelude.Nothing,
-      ipv6Ranges = Prelude.Nothing,
-      ipProtocol = Prelude.Nothing,
-      prefixListIds = Prelude.Nothing,
-      ipRanges = Prelude.Nothing,
-      userIdGroupPairs = Prelude.Nothing,
-      fromPort = Prelude.Nothing
-    }
-
--- | The end of the port range for the TCP and UDP protocols, or an
+-- 'toPort', 'awsEc2SecurityGroupIpPermission_toPort' - The end of the port range for the TCP and UDP protocols, or an
 -- ICMP\/ICMPv6 code.
 --
 -- A value of @-1@ indicates all ICMP\/ICMPv6 codes. If you specify all
 -- ICMP\/ICMPv6 types, you must specify all codes.
-awsEc2SecurityGroupIpPermission_toPort :: Lens.Lens' AwsEc2SecurityGroupIpPermission (Prelude.Maybe Prelude.Int)
-awsEc2SecurityGroupIpPermission_toPort = Lens.lens (\AwsEc2SecurityGroupIpPermission' {toPort} -> toPort) (\s@AwsEc2SecurityGroupIpPermission' {} a -> s {toPort = a} :: AwsEc2SecurityGroupIpPermission)
+--
+-- 'userIdGroupPairs', 'awsEc2SecurityGroupIpPermission_userIdGroupPairs' - The security group and Amazon Web Services account ID pairs.
+newAwsEc2SecurityGroupIpPermission ::
+  AwsEc2SecurityGroupIpPermission
+newAwsEc2SecurityGroupIpPermission =
+  AwsEc2SecurityGroupIpPermission'
+    { fromPort =
+        Prelude.Nothing,
+      ipProtocol = Prelude.Nothing,
+      ipRanges = Prelude.Nothing,
+      ipv6Ranges = Prelude.Nothing,
+      prefixListIds = Prelude.Nothing,
+      toPort = Prelude.Nothing,
+      userIdGroupPairs = Prelude.Nothing
+    }
 
--- | The IPv6 ranges.
-awsEc2SecurityGroupIpPermission_ipv6Ranges :: Lens.Lens' AwsEc2SecurityGroupIpPermission (Prelude.Maybe [AwsEc2SecurityGroupIpv6Range])
-awsEc2SecurityGroupIpPermission_ipv6Ranges = Lens.lens (\AwsEc2SecurityGroupIpPermission' {ipv6Ranges} -> ipv6Ranges) (\s@AwsEc2SecurityGroupIpPermission' {} a -> s {ipv6Ranges = a} :: AwsEc2SecurityGroupIpPermission) Prelude.. Lens.mapping Lens.coerced
+-- | The start of the port range for the TCP and UDP protocols, or an
+-- ICMP\/ICMPv6 type number.
+--
+-- A value of -1 indicates all ICMP\/ICMPv6 types. If you specify all
+-- ICMP\/ICMPv6 types, you must specify all codes.
+awsEc2SecurityGroupIpPermission_fromPort :: Lens.Lens' AwsEc2SecurityGroupIpPermission (Prelude.Maybe Prelude.Int)
+awsEc2SecurityGroupIpPermission_fromPort = Lens.lens (\AwsEc2SecurityGroupIpPermission' {fromPort} -> fromPort) (\s@AwsEc2SecurityGroupIpPermission' {} a -> s {fromPort = a} :: AwsEc2SecurityGroupIpPermission)
 
 -- | The IP protocol name (@tcp@, @udp@, @icmp@, @icmpv6@) or number.
 --
@@ -155,6 +151,14 @@ awsEc2SecurityGroupIpPermission_ipv6Ranges = Lens.lens (\AwsEc2SecurityGroupIpPe
 awsEc2SecurityGroupIpPermission_ipProtocol :: Lens.Lens' AwsEc2SecurityGroupIpPermission (Prelude.Maybe Prelude.Text)
 awsEc2SecurityGroupIpPermission_ipProtocol = Lens.lens (\AwsEc2SecurityGroupIpPermission' {ipProtocol} -> ipProtocol) (\s@AwsEc2SecurityGroupIpPermission' {} a -> s {ipProtocol = a} :: AwsEc2SecurityGroupIpPermission)
 
+-- | The IPv4 ranges.
+awsEc2SecurityGroupIpPermission_ipRanges :: Lens.Lens' AwsEc2SecurityGroupIpPermission (Prelude.Maybe [AwsEc2SecurityGroupIpRange])
+awsEc2SecurityGroupIpPermission_ipRanges = Lens.lens (\AwsEc2SecurityGroupIpPermission' {ipRanges} -> ipRanges) (\s@AwsEc2SecurityGroupIpPermission' {} a -> s {ipRanges = a} :: AwsEc2SecurityGroupIpPermission) Prelude.. Lens.mapping Lens.coerced
+
+-- | The IPv6 ranges.
+awsEc2SecurityGroupIpPermission_ipv6Ranges :: Lens.Lens' AwsEc2SecurityGroupIpPermission (Prelude.Maybe [AwsEc2SecurityGroupIpv6Range])
+awsEc2SecurityGroupIpPermission_ipv6Ranges = Lens.lens (\AwsEc2SecurityGroupIpPermission' {ipv6Ranges} -> ipv6Ranges) (\s@AwsEc2SecurityGroupIpPermission' {} a -> s {ipv6Ranges = a} :: AwsEc2SecurityGroupIpPermission) Prelude.. Lens.mapping Lens.coerced
+
 -- | [VPC only] The prefix list IDs for an Amazon Web Services service. With
 -- outbound rules, this is the Amazon Web Services service to access
 -- through a VPC endpoint from instances associated with the security
@@ -162,21 +166,17 @@ awsEc2SecurityGroupIpPermission_ipProtocol = Lens.lens (\AwsEc2SecurityGroupIpPe
 awsEc2SecurityGroupIpPermission_prefixListIds :: Lens.Lens' AwsEc2SecurityGroupIpPermission (Prelude.Maybe [AwsEc2SecurityGroupPrefixListId])
 awsEc2SecurityGroupIpPermission_prefixListIds = Lens.lens (\AwsEc2SecurityGroupIpPermission' {prefixListIds} -> prefixListIds) (\s@AwsEc2SecurityGroupIpPermission' {} a -> s {prefixListIds = a} :: AwsEc2SecurityGroupIpPermission) Prelude.. Lens.mapping Lens.coerced
 
--- | The IPv4 ranges.
-awsEc2SecurityGroupIpPermission_ipRanges :: Lens.Lens' AwsEc2SecurityGroupIpPermission (Prelude.Maybe [AwsEc2SecurityGroupIpRange])
-awsEc2SecurityGroupIpPermission_ipRanges = Lens.lens (\AwsEc2SecurityGroupIpPermission' {ipRanges} -> ipRanges) (\s@AwsEc2SecurityGroupIpPermission' {} a -> s {ipRanges = a} :: AwsEc2SecurityGroupIpPermission) Prelude.. Lens.mapping Lens.coerced
+-- | The end of the port range for the TCP and UDP protocols, or an
+-- ICMP\/ICMPv6 code.
+--
+-- A value of @-1@ indicates all ICMP\/ICMPv6 codes. If you specify all
+-- ICMP\/ICMPv6 types, you must specify all codes.
+awsEc2SecurityGroupIpPermission_toPort :: Lens.Lens' AwsEc2SecurityGroupIpPermission (Prelude.Maybe Prelude.Int)
+awsEc2SecurityGroupIpPermission_toPort = Lens.lens (\AwsEc2SecurityGroupIpPermission' {toPort} -> toPort) (\s@AwsEc2SecurityGroupIpPermission' {} a -> s {toPort = a} :: AwsEc2SecurityGroupIpPermission)
 
 -- | The security group and Amazon Web Services account ID pairs.
 awsEc2SecurityGroupIpPermission_userIdGroupPairs :: Lens.Lens' AwsEc2SecurityGroupIpPermission (Prelude.Maybe [AwsEc2SecurityGroupUserIdGroupPair])
 awsEc2SecurityGroupIpPermission_userIdGroupPairs = Lens.lens (\AwsEc2SecurityGroupIpPermission' {userIdGroupPairs} -> userIdGroupPairs) (\s@AwsEc2SecurityGroupIpPermission' {} a -> s {userIdGroupPairs = a} :: AwsEc2SecurityGroupIpPermission) Prelude.. Lens.mapping Lens.coerced
-
--- | The start of the port range for the TCP and UDP protocols, or an
--- ICMP\/ICMPv6 type number.
---
--- A value of -1 indicates all ICMP\/ICMPv6 types. If you specify all
--- ICMP\/ICMPv6 types, you must specify all codes.
-awsEc2SecurityGroupIpPermission_fromPort :: Lens.Lens' AwsEc2SecurityGroupIpPermission (Prelude.Maybe Prelude.Int)
-awsEc2SecurityGroupIpPermission_fromPort = Lens.lens (\AwsEc2SecurityGroupIpPermission' {fromPort} -> fromPort) (\s@AwsEc2SecurityGroupIpPermission' {} a -> s {fromPort = a} :: AwsEc2SecurityGroupIpPermission)
 
 instance
   Data.FromJSON
@@ -187,15 +187,15 @@ instance
       "AwsEc2SecurityGroupIpPermission"
       ( \x ->
           AwsEc2SecurityGroupIpPermission'
-            Prelude.<$> (x Data..:? "ToPort")
-            Prelude.<*> (x Data..:? "Ipv6Ranges" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "FromPort")
             Prelude.<*> (x Data..:? "IpProtocol")
-            Prelude.<*> (x Data..:? "PrefixListIds" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "IpRanges" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Ipv6Ranges" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "PrefixListIds" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ToPort")
             Prelude.<*> ( x Data..:? "UserIdGroupPairs"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "FromPort")
       )
 
 instance
@@ -205,38 +205,38 @@ instance
   hashWithSalt
     _salt
     AwsEc2SecurityGroupIpPermission' {..} =
-      _salt `Prelude.hashWithSalt` toPort
-        `Prelude.hashWithSalt` ipv6Ranges
+      _salt `Prelude.hashWithSalt` fromPort
         `Prelude.hashWithSalt` ipProtocol
-        `Prelude.hashWithSalt` prefixListIds
         `Prelude.hashWithSalt` ipRanges
+        `Prelude.hashWithSalt` ipv6Ranges
+        `Prelude.hashWithSalt` prefixListIds
+        `Prelude.hashWithSalt` toPort
         `Prelude.hashWithSalt` userIdGroupPairs
-        `Prelude.hashWithSalt` fromPort
 
 instance
   Prelude.NFData
     AwsEc2SecurityGroupIpPermission
   where
   rnf AwsEc2SecurityGroupIpPermission' {..} =
-    Prelude.rnf toPort
-      `Prelude.seq` Prelude.rnf ipv6Ranges
+    Prelude.rnf fromPort
       `Prelude.seq` Prelude.rnf ipProtocol
-      `Prelude.seq` Prelude.rnf prefixListIds
       `Prelude.seq` Prelude.rnf ipRanges
+      `Prelude.seq` Prelude.rnf ipv6Ranges
+      `Prelude.seq` Prelude.rnf prefixListIds
+      `Prelude.seq` Prelude.rnf toPort
       `Prelude.seq` Prelude.rnf userIdGroupPairs
-      `Prelude.seq` Prelude.rnf fromPort
 
 instance Data.ToJSON AwsEc2SecurityGroupIpPermission where
   toJSON AwsEc2SecurityGroupIpPermission' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ToPort" Data..=) Prelude.<$> toPort,
-            ("Ipv6Ranges" Data..=) Prelude.<$> ipv6Ranges,
+          [ ("FromPort" Data..=) Prelude.<$> fromPort,
             ("IpProtocol" Data..=) Prelude.<$> ipProtocol,
-            ("PrefixListIds" Data..=) Prelude.<$> prefixListIds,
             ("IpRanges" Data..=) Prelude.<$> ipRanges,
+            ("Ipv6Ranges" Data..=) Prelude.<$> ipv6Ranges,
+            ("PrefixListIds" Data..=) Prelude.<$> prefixListIds,
+            ("ToPort" Data..=) Prelude.<$> toPort,
             ("UserIdGroupPairs" Data..=)
-              Prelude.<$> userIdGroupPairs,
-            ("FromPort" Data..=) Prelude.<$> fromPort
+              Prelude.<$> userIdGroupPairs
           ]
       )

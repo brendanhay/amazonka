@@ -28,13 +28,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsEcsServiceCapacityProviderStrategyDetails' smart constructor.
 data AwsEcsServiceCapacityProviderStrategyDetails = AwsEcsServiceCapacityProviderStrategyDetails'
-  { -- | The short name of the capacity provider.
-    capacityProvider :: Prelude.Maybe Prelude.Text,
-    -- | The minimum number of tasks to run on the capacity provider. Only one
+  { -- | The minimum number of tasks to run on the capacity provider. Only one
     -- strategy item can specify a value for @Base@.
     --
     -- The value must be between 0 and 100000.
     base :: Prelude.Maybe Prelude.Int,
+    -- | The short name of the capacity provider.
+    capacityProvider :: Prelude.Maybe Prelude.Text,
     -- | The relative percentage of the total number of tasks that should use the
     -- capacity provider.
     --
@@ -54,12 +54,12 @@ data AwsEcsServiceCapacityProviderStrategyDetails = AwsEcsServiceCapacityProvide
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'capacityProvider', 'awsEcsServiceCapacityProviderStrategyDetails_capacityProvider' - The short name of the capacity provider.
---
 -- 'base', 'awsEcsServiceCapacityProviderStrategyDetails_base' - The minimum number of tasks to run on the capacity provider. Only one
 -- strategy item can specify a value for @Base@.
 --
 -- The value must be between 0 and 100000.
+--
+-- 'capacityProvider', 'awsEcsServiceCapacityProviderStrategyDetails_capacityProvider' - The short name of the capacity provider.
 --
 -- 'weight', 'awsEcsServiceCapacityProviderStrategyDetails_weight' - The relative percentage of the total number of tasks that should use the
 -- capacity provider.
@@ -72,15 +72,12 @@ newAwsEcsServiceCapacityProviderStrategyDetails ::
   AwsEcsServiceCapacityProviderStrategyDetails
 newAwsEcsServiceCapacityProviderStrategyDetails =
   AwsEcsServiceCapacityProviderStrategyDetails'
-    { capacityProvider =
+    { base =
         Prelude.Nothing,
-      base = Prelude.Nothing,
+      capacityProvider =
+        Prelude.Nothing,
       weight = Prelude.Nothing
     }
-
--- | The short name of the capacity provider.
-awsEcsServiceCapacityProviderStrategyDetails_capacityProvider :: Lens.Lens' AwsEcsServiceCapacityProviderStrategyDetails (Prelude.Maybe Prelude.Text)
-awsEcsServiceCapacityProviderStrategyDetails_capacityProvider = Lens.lens (\AwsEcsServiceCapacityProviderStrategyDetails' {capacityProvider} -> capacityProvider) (\s@AwsEcsServiceCapacityProviderStrategyDetails' {} a -> s {capacityProvider = a} :: AwsEcsServiceCapacityProviderStrategyDetails)
 
 -- | The minimum number of tasks to run on the capacity provider. Only one
 -- strategy item can specify a value for @Base@.
@@ -88,6 +85,10 @@ awsEcsServiceCapacityProviderStrategyDetails_capacityProvider = Lens.lens (\AwsE
 -- The value must be between 0 and 100000.
 awsEcsServiceCapacityProviderStrategyDetails_base :: Lens.Lens' AwsEcsServiceCapacityProviderStrategyDetails (Prelude.Maybe Prelude.Int)
 awsEcsServiceCapacityProviderStrategyDetails_base = Lens.lens (\AwsEcsServiceCapacityProviderStrategyDetails' {base} -> base) (\s@AwsEcsServiceCapacityProviderStrategyDetails' {} a -> s {base = a} :: AwsEcsServiceCapacityProviderStrategyDetails)
+
+-- | The short name of the capacity provider.
+awsEcsServiceCapacityProviderStrategyDetails_capacityProvider :: Lens.Lens' AwsEcsServiceCapacityProviderStrategyDetails (Prelude.Maybe Prelude.Text)
+awsEcsServiceCapacityProviderStrategyDetails_capacityProvider = Lens.lens (\AwsEcsServiceCapacityProviderStrategyDetails' {capacityProvider} -> capacityProvider) (\s@AwsEcsServiceCapacityProviderStrategyDetails' {} a -> s {capacityProvider = a} :: AwsEcsServiceCapacityProviderStrategyDetails)
 
 -- | The relative percentage of the total number of tasks that should use the
 -- capacity provider.
@@ -108,8 +109,8 @@ instance
       "AwsEcsServiceCapacityProviderStrategyDetails"
       ( \x ->
           AwsEcsServiceCapacityProviderStrategyDetails'
-            Prelude.<$> (x Data..:? "CapacityProvider")
-              Prelude.<*> (x Data..:? "Base")
+            Prelude.<$> (x Data..:? "Base")
+              Prelude.<*> (x Data..:? "CapacityProvider")
               Prelude.<*> (x Data..:? "Weight")
       )
 
@@ -120,8 +121,8 @@ instance
   hashWithSalt
     _salt
     AwsEcsServiceCapacityProviderStrategyDetails' {..} =
-      _salt `Prelude.hashWithSalt` capacityProvider
-        `Prelude.hashWithSalt` base
+      _salt `Prelude.hashWithSalt` base
+        `Prelude.hashWithSalt` capacityProvider
         `Prelude.hashWithSalt` weight
 
 instance
@@ -129,8 +130,8 @@ instance
     AwsEcsServiceCapacityProviderStrategyDetails
   where
   rnf AwsEcsServiceCapacityProviderStrategyDetails' {..} =
-    Prelude.rnf capacityProvider
-      `Prelude.seq` Prelude.rnf base
+    Prelude.rnf base
+      `Prelude.seq` Prelude.rnf capacityProvider
       `Prelude.seq` Prelude.rnf weight
 
 instance
@@ -141,9 +142,9 @@ instance
     AwsEcsServiceCapacityProviderStrategyDetails' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ ("CapacityProvider" Data..=)
+            [ ("Base" Data..=) Prelude.<$> base,
+              ("CapacityProvider" Data..=)
                 Prelude.<$> capacityProvider,
-              ("Base" Data..=) Prelude.<$> base,
               ("Weight" Data..=) Prelude.<$> weight
             ]
         )

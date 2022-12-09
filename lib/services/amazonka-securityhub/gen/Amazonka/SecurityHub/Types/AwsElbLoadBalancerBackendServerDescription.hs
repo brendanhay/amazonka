@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsElbLoadBalancerBackendServerDescription' smart constructor.
 data AwsElbLoadBalancerBackendServerDescription = AwsElbLoadBalancerBackendServerDescription'
-  { -- | The names of the policies that are enabled for the EC2 instance.
-    policyNames :: Prelude.Maybe [Prelude.Text],
-    -- | The port on which the EC2 instance is listening.
-    instancePort :: Prelude.Maybe Prelude.Int
+  { -- | The port on which the EC2 instance is listening.
+    instancePort :: Prelude.Maybe Prelude.Int,
+    -- | The names of the policies that are enabled for the EC2 instance.
+    policyNames :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data AwsElbLoadBalancerBackendServerDescription = AwsElbLoadBalancerBackendServe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policyNames', 'awsElbLoadBalancerBackendServerDescription_policyNames' - The names of the policies that are enabled for the EC2 instance.
---
 -- 'instancePort', 'awsElbLoadBalancerBackendServerDescription_instancePort' - The port on which the EC2 instance is listening.
+--
+-- 'policyNames', 'awsElbLoadBalancerBackendServerDescription_policyNames' - The names of the policies that are enabled for the EC2 instance.
 newAwsElbLoadBalancerBackendServerDescription ::
   AwsElbLoadBalancerBackendServerDescription
 newAwsElbLoadBalancerBackendServerDescription =
   AwsElbLoadBalancerBackendServerDescription'
-    { policyNames =
+    { instancePort =
         Prelude.Nothing,
-      instancePort = Prelude.Nothing
+      policyNames = Prelude.Nothing
     }
-
--- | The names of the policies that are enabled for the EC2 instance.
-awsElbLoadBalancerBackendServerDescription_policyNames :: Lens.Lens' AwsElbLoadBalancerBackendServerDescription (Prelude.Maybe [Prelude.Text])
-awsElbLoadBalancerBackendServerDescription_policyNames = Lens.lens (\AwsElbLoadBalancerBackendServerDescription' {policyNames} -> policyNames) (\s@AwsElbLoadBalancerBackendServerDescription' {} a -> s {policyNames = a} :: AwsElbLoadBalancerBackendServerDescription) Prelude.. Lens.mapping Lens.coerced
 
 -- | The port on which the EC2 instance is listening.
 awsElbLoadBalancerBackendServerDescription_instancePort :: Lens.Lens' AwsElbLoadBalancerBackendServerDescription (Prelude.Maybe Prelude.Int)
 awsElbLoadBalancerBackendServerDescription_instancePort = Lens.lens (\AwsElbLoadBalancerBackendServerDescription' {instancePort} -> instancePort) (\s@AwsElbLoadBalancerBackendServerDescription' {} a -> s {instancePort = a} :: AwsElbLoadBalancerBackendServerDescription)
+
+-- | The names of the policies that are enabled for the EC2 instance.
+awsElbLoadBalancerBackendServerDescription_policyNames :: Lens.Lens' AwsElbLoadBalancerBackendServerDescription (Prelude.Maybe [Prelude.Text])
+awsElbLoadBalancerBackendServerDescription_policyNames = Lens.lens (\AwsElbLoadBalancerBackendServerDescription' {policyNames} -> policyNames) (\s@AwsElbLoadBalancerBackendServerDescription' {} a -> s {policyNames = a} :: AwsElbLoadBalancerBackendServerDescription) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Data.FromJSON
@@ -73,8 +73,8 @@ instance
       "AwsElbLoadBalancerBackendServerDescription"
       ( \x ->
           AwsElbLoadBalancerBackendServerDescription'
-            Prelude.<$> (x Data..:? "PolicyNames" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "InstancePort")
+            Prelude.<$> (x Data..:? "InstancePort")
+              Prelude.<*> (x Data..:? "PolicyNames" Data..!= Prelude.mempty)
       )
 
 instance
@@ -84,16 +84,16 @@ instance
   hashWithSalt
     _salt
     AwsElbLoadBalancerBackendServerDescription' {..} =
-      _salt `Prelude.hashWithSalt` policyNames
-        `Prelude.hashWithSalt` instancePort
+      _salt `Prelude.hashWithSalt` instancePort
+        `Prelude.hashWithSalt` policyNames
 
 instance
   Prelude.NFData
     AwsElbLoadBalancerBackendServerDescription
   where
   rnf AwsElbLoadBalancerBackendServerDescription' {..} =
-    Prelude.rnf policyNames
-      `Prelude.seq` Prelude.rnf instancePort
+    Prelude.rnf instancePort
+      `Prelude.seq` Prelude.rnf policyNames
 
 instance
   Data.ToJSON
@@ -103,7 +103,7 @@ instance
     AwsElbLoadBalancerBackendServerDescription' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ ("PolicyNames" Data..=) Prelude.<$> policyNames,
-              ("InstancePort" Data..=) Prelude.<$> instancePort
+            [ ("InstancePort" Data..=) Prelude.<$> instancePort,
+              ("PolicyNames" Data..=) Prelude.<$> policyNames
             ]
         )

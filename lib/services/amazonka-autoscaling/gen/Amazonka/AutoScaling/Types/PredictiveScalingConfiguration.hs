@@ -32,20 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPredictiveScalingConfiguration' smart constructor.
 data PredictiveScalingConfiguration = PredictiveScalingConfiguration'
-  { -- | The size of the capacity buffer to use when the forecast capacity is
-    -- close to or exceeds the maximum capacity. The value is specified as a
-    -- percentage relative to the forecast capacity. For example, if the buffer
-    -- is 10, this means a 10 percent buffer, such that if the forecast
-    -- capacity is 50, and the maximum capacity is 40, then the effective
-    -- maximum capacity is 55.
-    --
-    -- If set to 0, Amazon EC2 Auto Scaling may scale capacity higher than the
-    -- maximum capacity to equal but not exceed forecast capacity.
-    --
-    -- Required if the @MaxCapacityBreachBehavior@ property is set to
-    -- @IncreaseMaxCapacity@, and cannot be used otherwise.
-    maxCapacityBuffer :: Prelude.Maybe Prelude.Natural,
-    -- | Defines the behavior that should be applied if the forecast capacity
+  { -- | Defines the behavior that should be applied if the forecast capacity
     -- approaches or exceeds the maximum capacity of the Auto Scaling group.
     -- Defaults to @HonorMaxCapacity@ if not specified.
     --
@@ -61,6 +48,19 @@ data PredictiveScalingConfiguration = PredictiveScalingConfiguration'
     --     determined by the forecasted capacity and the value for
     --     @MaxCapacityBuffer@.
     maxCapacityBreachBehavior :: Prelude.Maybe PredictiveScalingMaxCapacityBreachBehavior,
+    -- | The size of the capacity buffer to use when the forecast capacity is
+    -- close to or exceeds the maximum capacity. The value is specified as a
+    -- percentage relative to the forecast capacity. For example, if the buffer
+    -- is 10, this means a 10 percent buffer, such that if the forecast
+    -- capacity is 50, and the maximum capacity is 40, then the effective
+    -- maximum capacity is 55.
+    --
+    -- If set to 0, Amazon EC2 Auto Scaling may scale capacity higher than the
+    -- maximum capacity to equal but not exceed forecast capacity.
+    --
+    -- Required if the @MaxCapacityBreachBehavior@ property is set to
+    -- @IncreaseMaxCapacity@, and cannot be used otherwise.
+    maxCapacityBuffer :: Prelude.Maybe Prelude.Natural,
     -- | The predictive scaling mode. Defaults to @ForecastOnly@ if not
     -- specified.
     mode :: Prelude.Maybe PredictiveScalingMode,
@@ -95,19 +95,6 @@ data PredictiveScalingConfiguration = PredictiveScalingConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxCapacityBuffer', 'predictiveScalingConfiguration_maxCapacityBuffer' - The size of the capacity buffer to use when the forecast capacity is
--- close to or exceeds the maximum capacity. The value is specified as a
--- percentage relative to the forecast capacity. For example, if the buffer
--- is 10, this means a 10 percent buffer, such that if the forecast
--- capacity is 50, and the maximum capacity is 40, then the effective
--- maximum capacity is 55.
---
--- If set to 0, Amazon EC2 Auto Scaling may scale capacity higher than the
--- maximum capacity to equal but not exceed forecast capacity.
---
--- Required if the @MaxCapacityBreachBehavior@ property is set to
--- @IncreaseMaxCapacity@, and cannot be used otherwise.
---
 -- 'maxCapacityBreachBehavior', 'predictiveScalingConfiguration_maxCapacityBreachBehavior' - Defines the behavior that should be applied if the forecast capacity
 -- approaches or exceeds the maximum capacity of the Auto Scaling group.
 -- Defaults to @HonorMaxCapacity@ if not specified.
@@ -123,6 +110,19 @@ data PredictiveScalingConfiguration = PredictiveScalingConfiguration'
 --     is close to or exceeds the maximum capacity. The upper limit is
 --     determined by the forecasted capacity and the value for
 --     @MaxCapacityBuffer@.
+--
+-- 'maxCapacityBuffer', 'predictiveScalingConfiguration_maxCapacityBuffer' - The size of the capacity buffer to use when the forecast capacity is
+-- close to or exceeds the maximum capacity. The value is specified as a
+-- percentage relative to the forecast capacity. For example, if the buffer
+-- is 10, this means a 10 percent buffer, such that if the forecast
+-- capacity is 50, and the maximum capacity is 40, then the effective
+-- maximum capacity is 55.
+--
+-- If set to 0, Amazon EC2 Auto Scaling may scale capacity higher than the
+-- maximum capacity to equal but not exceed forecast capacity.
+--
+-- Required if the @MaxCapacityBreachBehavior@ property is set to
+-- @IncreaseMaxCapacity@, and cannot be used otherwise.
 --
 -- 'mode', 'predictiveScalingConfiguration_mode' - The predictive scaling mode. Defaults to @ForecastOnly@ if not
 -- specified.
@@ -150,28 +150,13 @@ newPredictiveScalingConfiguration ::
   PredictiveScalingConfiguration
 newPredictiveScalingConfiguration =
   PredictiveScalingConfiguration'
-    { maxCapacityBuffer =
+    { maxCapacityBreachBehavior =
         Prelude.Nothing,
-      maxCapacityBreachBehavior = Prelude.Nothing,
+      maxCapacityBuffer = Prelude.Nothing,
       mode = Prelude.Nothing,
       schedulingBufferTime = Prelude.Nothing,
       metricSpecifications = Prelude.mempty
     }
-
--- | The size of the capacity buffer to use when the forecast capacity is
--- close to or exceeds the maximum capacity. The value is specified as a
--- percentage relative to the forecast capacity. For example, if the buffer
--- is 10, this means a 10 percent buffer, such that if the forecast
--- capacity is 50, and the maximum capacity is 40, then the effective
--- maximum capacity is 55.
---
--- If set to 0, Amazon EC2 Auto Scaling may scale capacity higher than the
--- maximum capacity to equal but not exceed forecast capacity.
---
--- Required if the @MaxCapacityBreachBehavior@ property is set to
--- @IncreaseMaxCapacity@, and cannot be used otherwise.
-predictiveScalingConfiguration_maxCapacityBuffer :: Lens.Lens' PredictiveScalingConfiguration (Prelude.Maybe Prelude.Natural)
-predictiveScalingConfiguration_maxCapacityBuffer = Lens.lens (\PredictiveScalingConfiguration' {maxCapacityBuffer} -> maxCapacityBuffer) (\s@PredictiveScalingConfiguration' {} a -> s {maxCapacityBuffer = a} :: PredictiveScalingConfiguration)
 
 -- | Defines the behavior that should be applied if the forecast capacity
 -- approaches or exceeds the maximum capacity of the Auto Scaling group.
@@ -190,6 +175,21 @@ predictiveScalingConfiguration_maxCapacityBuffer = Lens.lens (\PredictiveScaling
 --     @MaxCapacityBuffer@.
 predictiveScalingConfiguration_maxCapacityBreachBehavior :: Lens.Lens' PredictiveScalingConfiguration (Prelude.Maybe PredictiveScalingMaxCapacityBreachBehavior)
 predictiveScalingConfiguration_maxCapacityBreachBehavior = Lens.lens (\PredictiveScalingConfiguration' {maxCapacityBreachBehavior} -> maxCapacityBreachBehavior) (\s@PredictiveScalingConfiguration' {} a -> s {maxCapacityBreachBehavior = a} :: PredictiveScalingConfiguration)
+
+-- | The size of the capacity buffer to use when the forecast capacity is
+-- close to or exceeds the maximum capacity. The value is specified as a
+-- percentage relative to the forecast capacity. For example, if the buffer
+-- is 10, this means a 10 percent buffer, such that if the forecast
+-- capacity is 50, and the maximum capacity is 40, then the effective
+-- maximum capacity is 55.
+--
+-- If set to 0, Amazon EC2 Auto Scaling may scale capacity higher than the
+-- maximum capacity to equal but not exceed forecast capacity.
+--
+-- Required if the @MaxCapacityBreachBehavior@ property is set to
+-- @IncreaseMaxCapacity@, and cannot be used otherwise.
+predictiveScalingConfiguration_maxCapacityBuffer :: Lens.Lens' PredictiveScalingConfiguration (Prelude.Maybe Prelude.Natural)
+predictiveScalingConfiguration_maxCapacityBuffer = Lens.lens (\PredictiveScalingConfiguration' {maxCapacityBuffer} -> maxCapacityBuffer) (\s@PredictiveScalingConfiguration' {} a -> s {maxCapacityBuffer = a} :: PredictiveScalingConfiguration)
 
 -- | The predictive scaling mode. Defaults to @ForecastOnly@ if not
 -- specified.
@@ -223,8 +223,8 @@ predictiveScalingConfiguration_metricSpecifications = Lens.lens (\PredictiveScal
 instance Data.FromXML PredictiveScalingConfiguration where
   parseXML x =
     PredictiveScalingConfiguration'
-      Prelude.<$> (x Data..@? "MaxCapacityBuffer")
-      Prelude.<*> (x Data..@? "MaxCapacityBreachBehavior")
+      Prelude.<$> (x Data..@? "MaxCapacityBreachBehavior")
+      Prelude.<*> (x Data..@? "MaxCapacityBuffer")
       Prelude.<*> (x Data..@? "Mode")
       Prelude.<*> (x Data..@? "SchedulingBufferTime")
       Prelude.<*> ( x Data..@? "MetricSpecifications"
@@ -239,8 +239,9 @@ instance
   hashWithSalt
     _salt
     PredictiveScalingConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` maxCapacityBuffer
+      _salt
         `Prelude.hashWithSalt` maxCapacityBreachBehavior
+        `Prelude.hashWithSalt` maxCapacityBuffer
         `Prelude.hashWithSalt` mode
         `Prelude.hashWithSalt` schedulingBufferTime
         `Prelude.hashWithSalt` metricSpecifications
@@ -250,8 +251,8 @@ instance
     PredictiveScalingConfiguration
   where
   rnf PredictiveScalingConfiguration' {..} =
-    Prelude.rnf maxCapacityBuffer
-      `Prelude.seq` Prelude.rnf maxCapacityBreachBehavior
+    Prelude.rnf maxCapacityBreachBehavior
+      `Prelude.seq` Prelude.rnf maxCapacityBuffer
       `Prelude.seq` Prelude.rnf mode
       `Prelude.seq` Prelude.rnf schedulingBufferTime
       `Prelude.seq` Prelude.rnf metricSpecifications
@@ -259,9 +260,9 @@ instance
 instance Data.ToQuery PredictiveScalingConfiguration where
   toQuery PredictiveScalingConfiguration' {..} =
     Prelude.mconcat
-      [ "MaxCapacityBuffer" Data.=: maxCapacityBuffer,
-        "MaxCapacityBreachBehavior"
+      [ "MaxCapacityBreachBehavior"
           Data.=: maxCapacityBreachBehavior,
+        "MaxCapacityBuffer" Data.=: maxCapacityBuffer,
         "Mode" Data.=: mode,
         "SchedulingBufferTime" Data.=: schedulingBufferTime,
         "MetricSpecifications"

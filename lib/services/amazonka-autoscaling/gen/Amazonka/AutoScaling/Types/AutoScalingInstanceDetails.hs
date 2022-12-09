@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAutoScalingInstanceDetails' smart constructor.
 data AutoScalingInstanceDetails = AutoScalingInstanceDetails'
-  { -- | The launch template for the instance.
-    launchTemplate :: Prelude.Maybe LaunchTemplateSpecification,
+  { -- | The instance type of the EC2 instance.
+    instanceType :: Prelude.Maybe Prelude.Text,
     -- | The launch configuration used to launch the instance. This value is not
     -- available if you attached the instance to the Auto Scaling group.
     launchConfigurationName :: Prelude.Maybe Prelude.Text,
-    -- | The instance type of the EC2 instance.
-    instanceType :: Prelude.Maybe Prelude.Text,
+    -- | The launch template for the instance.
+    launchTemplate :: Prelude.Maybe LaunchTemplateSpecification,
     -- | The number of capacity units contributed by the instance based on its
     -- instance type.
     --
@@ -79,12 +79,12 @@ data AutoScalingInstanceDetails = AutoScalingInstanceDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'launchTemplate', 'autoScalingInstanceDetails_launchTemplate' - The launch template for the instance.
+-- 'instanceType', 'autoScalingInstanceDetails_instanceType' - The instance type of the EC2 instance.
 --
 -- 'launchConfigurationName', 'autoScalingInstanceDetails_launchConfigurationName' - The launch configuration used to launch the instance. This value is not
 -- available if you attached the instance to the Auto Scaling group.
 --
--- 'instanceType', 'autoScalingInstanceDetails_instanceType' - The instance type of the EC2 instance.
+-- 'launchTemplate', 'autoScalingInstanceDetails_launchTemplate' - The launch template for the instance.
 --
 -- 'weightedCapacity', 'autoScalingInstanceDetails_weightedCapacity' - The number of capacity units contributed by the instance based on its
 -- instance type.
@@ -139,10 +139,10 @@ newAutoScalingInstanceDetails
   pHealthStatus_
   pProtectedFromScaleIn_ =
     AutoScalingInstanceDetails'
-      { launchTemplate =
+      { instanceType =
           Prelude.Nothing,
         launchConfigurationName = Prelude.Nothing,
-        instanceType = Prelude.Nothing,
+        launchTemplate = Prelude.Nothing,
         weightedCapacity = Prelude.Nothing,
         instanceId = pInstanceId_,
         autoScalingGroupName = pAutoScalingGroupName_,
@@ -152,18 +152,18 @@ newAutoScalingInstanceDetails
         protectedFromScaleIn = pProtectedFromScaleIn_
       }
 
--- | The launch template for the instance.
-autoScalingInstanceDetails_launchTemplate :: Lens.Lens' AutoScalingInstanceDetails (Prelude.Maybe LaunchTemplateSpecification)
-autoScalingInstanceDetails_launchTemplate = Lens.lens (\AutoScalingInstanceDetails' {launchTemplate} -> launchTemplate) (\s@AutoScalingInstanceDetails' {} a -> s {launchTemplate = a} :: AutoScalingInstanceDetails)
+-- | The instance type of the EC2 instance.
+autoScalingInstanceDetails_instanceType :: Lens.Lens' AutoScalingInstanceDetails (Prelude.Maybe Prelude.Text)
+autoScalingInstanceDetails_instanceType = Lens.lens (\AutoScalingInstanceDetails' {instanceType} -> instanceType) (\s@AutoScalingInstanceDetails' {} a -> s {instanceType = a} :: AutoScalingInstanceDetails)
 
 -- | The launch configuration used to launch the instance. This value is not
 -- available if you attached the instance to the Auto Scaling group.
 autoScalingInstanceDetails_launchConfigurationName :: Lens.Lens' AutoScalingInstanceDetails (Prelude.Maybe Prelude.Text)
 autoScalingInstanceDetails_launchConfigurationName = Lens.lens (\AutoScalingInstanceDetails' {launchConfigurationName} -> launchConfigurationName) (\s@AutoScalingInstanceDetails' {} a -> s {launchConfigurationName = a} :: AutoScalingInstanceDetails)
 
--- | The instance type of the EC2 instance.
-autoScalingInstanceDetails_instanceType :: Lens.Lens' AutoScalingInstanceDetails (Prelude.Maybe Prelude.Text)
-autoScalingInstanceDetails_instanceType = Lens.lens (\AutoScalingInstanceDetails' {instanceType} -> instanceType) (\s@AutoScalingInstanceDetails' {} a -> s {instanceType = a} :: AutoScalingInstanceDetails)
+-- | The launch template for the instance.
+autoScalingInstanceDetails_launchTemplate :: Lens.Lens' AutoScalingInstanceDetails (Prelude.Maybe LaunchTemplateSpecification)
+autoScalingInstanceDetails_launchTemplate = Lens.lens (\AutoScalingInstanceDetails' {launchTemplate} -> launchTemplate) (\s@AutoScalingInstanceDetails' {} a -> s {launchTemplate = a} :: AutoScalingInstanceDetails)
 
 -- | The number of capacity units contributed by the instance based on its
 -- instance type.
@@ -214,9 +214,9 @@ autoScalingInstanceDetails_protectedFromScaleIn = Lens.lens (\AutoScalingInstanc
 instance Data.FromXML AutoScalingInstanceDetails where
   parseXML x =
     AutoScalingInstanceDetails'
-      Prelude.<$> (x Data..@? "LaunchTemplate")
+      Prelude.<$> (x Data..@? "InstanceType")
       Prelude.<*> (x Data..@? "LaunchConfigurationName")
-      Prelude.<*> (x Data..@? "InstanceType")
+      Prelude.<*> (x Data..@? "LaunchTemplate")
       Prelude.<*> (x Data..@? "WeightedCapacity")
       Prelude.<*> (x Data..@ "InstanceId")
       Prelude.<*> (x Data..@ "AutoScalingGroupName")
@@ -227,9 +227,9 @@ instance Data.FromXML AutoScalingInstanceDetails where
 
 instance Prelude.Hashable AutoScalingInstanceDetails where
   hashWithSalt _salt AutoScalingInstanceDetails' {..} =
-    _salt `Prelude.hashWithSalt` launchTemplate
+    _salt `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` launchConfigurationName
-      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` launchTemplate
       `Prelude.hashWithSalt` weightedCapacity
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` autoScalingGroupName
@@ -240,9 +240,9 @@ instance Prelude.Hashable AutoScalingInstanceDetails where
 
 instance Prelude.NFData AutoScalingInstanceDetails where
   rnf AutoScalingInstanceDetails' {..} =
-    Prelude.rnf launchTemplate
+    Prelude.rnf instanceType
       `Prelude.seq` Prelude.rnf launchConfigurationName
-      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf launchTemplate
       `Prelude.seq` Prelude.rnf weightedCapacity
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf autoScalingGroupName

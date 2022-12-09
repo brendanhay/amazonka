@@ -57,8 +57,8 @@ module Amazonka.AutoScaling.CompleteLifecycleAction
     newCompleteLifecycleAction,
 
     -- * Request Lenses
-    completeLifecycleAction_lifecycleActionToken,
     completeLifecycleAction_instanceId,
+    completeLifecycleAction_lifecycleActionToken,
     completeLifecycleAction_lifecycleHookName,
     completeLifecycleAction_autoScalingGroupName,
     completeLifecycleAction_lifecycleActionResult,
@@ -82,13 +82,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCompleteLifecycleAction' smart constructor.
 data CompleteLifecycleAction = CompleteLifecycleAction'
-  { -- | A universally unique identifier (UUID) that identifies a specific
+  { -- | The ID of the instance.
+    instanceId :: Prelude.Maybe Prelude.Text,
+    -- | A universally unique identifier (UUID) that identifies a specific
     -- lifecycle action associated with an instance. Amazon EC2 Auto Scaling
     -- sends this token to the notification target you specified when you
     -- created the lifecycle hook.
     lifecycleActionToken :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the instance.
-    instanceId :: Prelude.Maybe Prelude.Text,
     -- | The name of the lifecycle hook.
     lifecycleHookName :: Prelude.Text,
     -- | The name of the Auto Scaling group.
@@ -107,12 +107,12 @@ data CompleteLifecycleAction = CompleteLifecycleAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'instanceId', 'completeLifecycleAction_instanceId' - The ID of the instance.
+--
 -- 'lifecycleActionToken', 'completeLifecycleAction_lifecycleActionToken' - A universally unique identifier (UUID) that identifies a specific
 -- lifecycle action associated with an instance. Amazon EC2 Auto Scaling
 -- sends this token to the notification target you specified when you
 -- created the lifecycle hook.
---
--- 'instanceId', 'completeLifecycleAction_instanceId' - The ID of the instance.
 --
 -- 'lifecycleHookName', 'completeLifecycleAction_lifecycleHookName' - The name of the lifecycle hook.
 --
@@ -133,13 +133,17 @@ newCompleteLifecycleAction
   pAutoScalingGroupName_
   pLifecycleActionResult_ =
     CompleteLifecycleAction'
-      { lifecycleActionToken =
+      { instanceId =
           Prelude.Nothing,
-        instanceId = Prelude.Nothing,
+        lifecycleActionToken = Prelude.Nothing,
         lifecycleHookName = pLifecycleHookName_,
         autoScalingGroupName = pAutoScalingGroupName_,
         lifecycleActionResult = pLifecycleActionResult_
       }
+
+-- | The ID of the instance.
+completeLifecycleAction_instanceId :: Lens.Lens' CompleteLifecycleAction (Prelude.Maybe Prelude.Text)
+completeLifecycleAction_instanceId = Lens.lens (\CompleteLifecycleAction' {instanceId} -> instanceId) (\s@CompleteLifecycleAction' {} a -> s {instanceId = a} :: CompleteLifecycleAction)
 
 -- | A universally unique identifier (UUID) that identifies a specific
 -- lifecycle action associated with an instance. Amazon EC2 Auto Scaling
@@ -147,10 +151,6 @@ newCompleteLifecycleAction
 -- created the lifecycle hook.
 completeLifecycleAction_lifecycleActionToken :: Lens.Lens' CompleteLifecycleAction (Prelude.Maybe Prelude.Text)
 completeLifecycleAction_lifecycleActionToken = Lens.lens (\CompleteLifecycleAction' {lifecycleActionToken} -> lifecycleActionToken) (\s@CompleteLifecycleAction' {} a -> s {lifecycleActionToken = a} :: CompleteLifecycleAction)
-
--- | The ID of the instance.
-completeLifecycleAction_instanceId :: Lens.Lens' CompleteLifecycleAction (Prelude.Maybe Prelude.Text)
-completeLifecycleAction_instanceId = Lens.lens (\CompleteLifecycleAction' {instanceId} -> instanceId) (\s@CompleteLifecycleAction' {} a -> s {instanceId = a} :: CompleteLifecycleAction)
 
 -- | The name of the lifecycle hook.
 completeLifecycleAction_lifecycleHookName :: Lens.Lens' CompleteLifecycleAction Prelude.Text
@@ -181,16 +181,16 @@ instance Core.AWSRequest CompleteLifecycleAction where
 
 instance Prelude.Hashable CompleteLifecycleAction where
   hashWithSalt _salt CompleteLifecycleAction' {..} =
-    _salt `Prelude.hashWithSalt` lifecycleActionToken
-      `Prelude.hashWithSalt` instanceId
+    _salt `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` lifecycleActionToken
       `Prelude.hashWithSalt` lifecycleHookName
       `Prelude.hashWithSalt` autoScalingGroupName
       `Prelude.hashWithSalt` lifecycleActionResult
 
 instance Prelude.NFData CompleteLifecycleAction where
   rnf CompleteLifecycleAction' {..} =
-    Prelude.rnf lifecycleActionToken
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf lifecycleActionToken
       `Prelude.seq` Prelude.rnf lifecycleHookName
       `Prelude.seq` Prelude.rnf autoScalingGroupName
       `Prelude.seq` Prelude.rnf lifecycleActionResult
@@ -208,8 +208,8 @@ instance Data.ToQuery CompleteLifecycleAction where
           Data.=: ("CompleteLifecycleAction" :: Prelude.ByteString),
         "Version"
           Data.=: ("2011-01-01" :: Prelude.ByteString),
-        "LifecycleActionToken" Data.=: lifecycleActionToken,
         "InstanceId" Data.=: instanceId,
+        "LifecycleActionToken" Data.=: lifecycleActionToken,
         "LifecycleHookName" Data.=: lifecycleHookName,
         "AutoScalingGroupName" Data.=: autoScalingGroupName,
         "LifecycleActionResult"

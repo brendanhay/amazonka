@@ -11,15 +11,15 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.AutoScaling.Types.MetricDataQuery
+-- Module      : Amazonka.AutoScaling.Types.TargetTrackingMetricDataQuery
 -- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.AutoScaling.Types.MetricDataQuery where
+module Amazonka.AutoScaling.Types.TargetTrackingMetricDataQuery where
 
-import Amazonka.AutoScaling.Types.MetricStat
+import Amazonka.AutoScaling.Types.TargetTrackingMetricStat
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
@@ -31,19 +31,15 @@ import qualified Amazonka.Prelude as Prelude
 -- A time series is a series of data points, each of which is associated
 -- with a timestamp.
 --
--- For more information and examples, see
--- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/predictive-scaling-customized-metric-specification.html Advanced predictive scaling policy configurations using custom metrics>
--- in the /Amazon EC2 Auto Scaling User Guide/.
---
--- /See:/ 'newMetricDataQuery' smart constructor.
-data MetricDataQuery = MetricDataQuery'
+-- /See:/ 'newTargetTrackingMetricDataQuery' smart constructor.
+data TargetTrackingMetricDataQuery = TargetTrackingMetricDataQuery'
   { -- | The math expression to perform on the returned data, if this object is
     -- performing a math expression. This expression can use the @Id@ of the
     -- other metrics to refer to those metrics, and can also use the @Id@ of
     -- other expressions to use the result of those expressions.
     --
-    -- Conditional: Within each @MetricDataQuery@ object, you must specify
-    -- either @Expression@ or @MetricStat@, but not both.
+    -- Conditional: Within each @TargetTrackingMetricDataQuery@ object, you
+    -- must specify either @Expression@ or @MetricStat@, but not both.
     expression :: Prelude.Maybe Prelude.Text,
     -- | A human-readable label for this metric or expression. This is especially
     -- useful if this is a math expression, so that you know what the value
@@ -51,9 +47,9 @@ data MetricDataQuery = MetricDataQuery'
     label :: Prelude.Maybe Prelude.Text,
     -- | Information about the metric data to return.
     --
-    -- Conditional: Within each @MetricDataQuery@ object, you must specify
-    -- either @Expression@ or @MetricStat@, but not both.
-    metricStat :: Prelude.Maybe MetricStat,
+    -- Conditional: Within each @TargetTrackingMetricDataQuery@ object, you
+    -- must specify either @Expression@ or @MetricStat@, but not both.
+    metricStat :: Prelude.Maybe TargetTrackingMetricStat,
     -- | Indicates whether to return the timestamps and raw data values of this
     -- metric.
     --
@@ -67,42 +63,42 @@ data MetricDataQuery = MetricDataQuery'
     -- its default (@true@).
     returnData :: Prelude.Maybe Prelude.Bool,
     -- | A short name that identifies the object\'s results in the response. This
-    -- name must be unique among all @MetricDataQuery@ objects specified for a
-    -- single scaling policy. If you are performing math expressions on this
-    -- set of data, this name represents that data and can serve as a variable
-    -- in the mathematical expression. The valid characters are letters,
-    -- numbers, and underscores. The first character must be a lowercase
-    -- letter.
+    -- name must be unique among all @TargetTrackingMetricDataQuery@ objects
+    -- specified for a single scaling policy. If you are performing math
+    -- expressions on this set of data, this name represents that data and can
+    -- serve as a variable in the mathematical expression. The valid characters
+    -- are letters, numbers, and underscores. The first character must be a
+    -- lowercase letter.
     id :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
--- Create a value of 'MetricDataQuery' with all optional fields omitted.
+-- Create a value of 'TargetTrackingMetricDataQuery' with all optional fields omitted.
 --
 -- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expression', 'metricDataQuery_expression' - The math expression to perform on the returned data, if this object is
+-- 'expression', 'targetTrackingMetricDataQuery_expression' - The math expression to perform on the returned data, if this object is
 -- performing a math expression. This expression can use the @Id@ of the
 -- other metrics to refer to those metrics, and can also use the @Id@ of
 -- other expressions to use the result of those expressions.
 --
--- Conditional: Within each @MetricDataQuery@ object, you must specify
--- either @Expression@ or @MetricStat@, but not both.
+-- Conditional: Within each @TargetTrackingMetricDataQuery@ object, you
+-- must specify either @Expression@ or @MetricStat@, but not both.
 --
--- 'label', 'metricDataQuery_label' - A human-readable label for this metric or expression. This is especially
+-- 'label', 'targetTrackingMetricDataQuery_label' - A human-readable label for this metric or expression. This is especially
 -- useful if this is a math expression, so that you know what the value
 -- represents.
 --
--- 'metricStat', 'metricDataQuery_metricStat' - Information about the metric data to return.
+-- 'metricStat', 'targetTrackingMetricDataQuery_metricStat' - Information about the metric data to return.
 --
--- Conditional: Within each @MetricDataQuery@ object, you must specify
--- either @Expression@ or @MetricStat@, but not both.
+-- Conditional: Within each @TargetTrackingMetricDataQuery@ object, you
+-- must specify either @Expression@ or @MetricStat@, but not both.
 --
--- 'returnData', 'metricDataQuery_returnData' - Indicates whether to return the timestamps and raw data values of this
+-- 'returnData', 'targetTrackingMetricDataQuery_returnData' - Indicates whether to return the timestamps and raw data values of this
 -- metric.
 --
 -- If you use any math expressions, specify @true@ for this value for only
@@ -114,20 +110,21 @@ data MetricDataQuery = MetricDataQuery'
 -- expressions, do not specify anything for @ReturnData@. This sets it to
 -- its default (@true@).
 --
--- 'id', 'metricDataQuery_id' - A short name that identifies the object\'s results in the response. This
--- name must be unique among all @MetricDataQuery@ objects specified for a
--- single scaling policy. If you are performing math expressions on this
--- set of data, this name represents that data and can serve as a variable
--- in the mathematical expression. The valid characters are letters,
--- numbers, and underscores. The first character must be a lowercase
--- letter.
-newMetricDataQuery ::
+-- 'id', 'targetTrackingMetricDataQuery_id' - A short name that identifies the object\'s results in the response. This
+-- name must be unique among all @TargetTrackingMetricDataQuery@ objects
+-- specified for a single scaling policy. If you are performing math
+-- expressions on this set of data, this name represents that data and can
+-- serve as a variable in the mathematical expression. The valid characters
+-- are letters, numbers, and underscores. The first character must be a
+-- lowercase letter.
+newTargetTrackingMetricDataQuery ::
   -- | 'id'
   Prelude.Text ->
-  MetricDataQuery
-newMetricDataQuery pId_ =
-  MetricDataQuery'
-    { expression = Prelude.Nothing,
+  TargetTrackingMetricDataQuery
+newTargetTrackingMetricDataQuery pId_ =
+  TargetTrackingMetricDataQuery'
+    { expression =
+        Prelude.Nothing,
       label = Prelude.Nothing,
       metricStat = Prelude.Nothing,
       returnData = Prelude.Nothing,
@@ -139,23 +136,23 @@ newMetricDataQuery pId_ =
 -- other metrics to refer to those metrics, and can also use the @Id@ of
 -- other expressions to use the result of those expressions.
 --
--- Conditional: Within each @MetricDataQuery@ object, you must specify
--- either @Expression@ or @MetricStat@, but not both.
-metricDataQuery_expression :: Lens.Lens' MetricDataQuery (Prelude.Maybe Prelude.Text)
-metricDataQuery_expression = Lens.lens (\MetricDataQuery' {expression} -> expression) (\s@MetricDataQuery' {} a -> s {expression = a} :: MetricDataQuery)
+-- Conditional: Within each @TargetTrackingMetricDataQuery@ object, you
+-- must specify either @Expression@ or @MetricStat@, but not both.
+targetTrackingMetricDataQuery_expression :: Lens.Lens' TargetTrackingMetricDataQuery (Prelude.Maybe Prelude.Text)
+targetTrackingMetricDataQuery_expression = Lens.lens (\TargetTrackingMetricDataQuery' {expression} -> expression) (\s@TargetTrackingMetricDataQuery' {} a -> s {expression = a} :: TargetTrackingMetricDataQuery)
 
 -- | A human-readable label for this metric or expression. This is especially
 -- useful if this is a math expression, so that you know what the value
 -- represents.
-metricDataQuery_label :: Lens.Lens' MetricDataQuery (Prelude.Maybe Prelude.Text)
-metricDataQuery_label = Lens.lens (\MetricDataQuery' {label} -> label) (\s@MetricDataQuery' {} a -> s {label = a} :: MetricDataQuery)
+targetTrackingMetricDataQuery_label :: Lens.Lens' TargetTrackingMetricDataQuery (Prelude.Maybe Prelude.Text)
+targetTrackingMetricDataQuery_label = Lens.lens (\TargetTrackingMetricDataQuery' {label} -> label) (\s@TargetTrackingMetricDataQuery' {} a -> s {label = a} :: TargetTrackingMetricDataQuery)
 
 -- | Information about the metric data to return.
 --
--- Conditional: Within each @MetricDataQuery@ object, you must specify
--- either @Expression@ or @MetricStat@, but not both.
-metricDataQuery_metricStat :: Lens.Lens' MetricDataQuery (Prelude.Maybe MetricStat)
-metricDataQuery_metricStat = Lens.lens (\MetricDataQuery' {metricStat} -> metricStat) (\s@MetricDataQuery' {} a -> s {metricStat = a} :: MetricDataQuery)
+-- Conditional: Within each @TargetTrackingMetricDataQuery@ object, you
+-- must specify either @Expression@ or @MetricStat@, but not both.
+targetTrackingMetricDataQuery_metricStat :: Lens.Lens' TargetTrackingMetricDataQuery (Prelude.Maybe TargetTrackingMetricStat)
+targetTrackingMetricDataQuery_metricStat = Lens.lens (\TargetTrackingMetricDataQuery' {metricStat} -> metricStat) (\s@TargetTrackingMetricDataQuery' {} a -> s {metricStat = a} :: TargetTrackingMetricDataQuery)
 
 -- | Indicates whether to return the timestamps and raw data values of this
 -- metric.
@@ -168,46 +165,49 @@ metricDataQuery_metricStat = Lens.lens (\MetricDataQuery' {metricStat} -> metric
 -- If you are only retrieving metrics and not performing any math
 -- expressions, do not specify anything for @ReturnData@. This sets it to
 -- its default (@true@).
-metricDataQuery_returnData :: Lens.Lens' MetricDataQuery (Prelude.Maybe Prelude.Bool)
-metricDataQuery_returnData = Lens.lens (\MetricDataQuery' {returnData} -> returnData) (\s@MetricDataQuery' {} a -> s {returnData = a} :: MetricDataQuery)
+targetTrackingMetricDataQuery_returnData :: Lens.Lens' TargetTrackingMetricDataQuery (Prelude.Maybe Prelude.Bool)
+targetTrackingMetricDataQuery_returnData = Lens.lens (\TargetTrackingMetricDataQuery' {returnData} -> returnData) (\s@TargetTrackingMetricDataQuery' {} a -> s {returnData = a} :: TargetTrackingMetricDataQuery)
 
 -- | A short name that identifies the object\'s results in the response. This
--- name must be unique among all @MetricDataQuery@ objects specified for a
--- single scaling policy. If you are performing math expressions on this
--- set of data, this name represents that data and can serve as a variable
--- in the mathematical expression. The valid characters are letters,
--- numbers, and underscores. The first character must be a lowercase
--- letter.
-metricDataQuery_id :: Lens.Lens' MetricDataQuery Prelude.Text
-metricDataQuery_id = Lens.lens (\MetricDataQuery' {id} -> id) (\s@MetricDataQuery' {} a -> s {id = a} :: MetricDataQuery)
+-- name must be unique among all @TargetTrackingMetricDataQuery@ objects
+-- specified for a single scaling policy. If you are performing math
+-- expressions on this set of data, this name represents that data and can
+-- serve as a variable in the mathematical expression. The valid characters
+-- are letters, numbers, and underscores. The first character must be a
+-- lowercase letter.
+targetTrackingMetricDataQuery_id :: Lens.Lens' TargetTrackingMetricDataQuery Prelude.Text
+targetTrackingMetricDataQuery_id = Lens.lens (\TargetTrackingMetricDataQuery' {id} -> id) (\s@TargetTrackingMetricDataQuery' {} a -> s {id = a} :: TargetTrackingMetricDataQuery)
 
-instance Data.FromXML MetricDataQuery where
+instance Data.FromXML TargetTrackingMetricDataQuery where
   parseXML x =
-    MetricDataQuery'
+    TargetTrackingMetricDataQuery'
       Prelude.<$> (x Data..@? "Expression")
       Prelude.<*> (x Data..@? "Label")
       Prelude.<*> (x Data..@? "MetricStat")
       Prelude.<*> (x Data..@? "ReturnData")
       Prelude.<*> (x Data..@ "Id")
 
-instance Prelude.Hashable MetricDataQuery where
-  hashWithSalt _salt MetricDataQuery' {..} =
+instance
+  Prelude.Hashable
+    TargetTrackingMetricDataQuery
+  where
+  hashWithSalt _salt TargetTrackingMetricDataQuery' {..} =
     _salt `Prelude.hashWithSalt` expression
       `Prelude.hashWithSalt` label
       `Prelude.hashWithSalt` metricStat
       `Prelude.hashWithSalt` returnData
       `Prelude.hashWithSalt` id
 
-instance Prelude.NFData MetricDataQuery where
-  rnf MetricDataQuery' {..} =
+instance Prelude.NFData TargetTrackingMetricDataQuery where
+  rnf TargetTrackingMetricDataQuery' {..} =
     Prelude.rnf expression
       `Prelude.seq` Prelude.rnf label
       `Prelude.seq` Prelude.rnf metricStat
       `Prelude.seq` Prelude.rnf returnData
       `Prelude.seq` Prelude.rnf id
 
-instance Data.ToQuery MetricDataQuery where
-  toQuery MetricDataQuery' {..} =
+instance Data.ToQuery TargetTrackingMetricDataQuery where
+  toQuery TargetTrackingMetricDataQuery' {..} =
     Prelude.mconcat
       [ "Expression" Data.=: expression,
         "Label" Data.=: label,

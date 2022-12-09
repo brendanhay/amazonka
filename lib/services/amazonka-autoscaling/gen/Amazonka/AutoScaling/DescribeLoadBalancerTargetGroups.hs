@@ -47,6 +47,10 @@
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
 --
+-- You can use this operation to describe target groups that were attached
+-- by using AttachLoadBalancerTargetGroups, but not for target groups that
+-- were attached by using AttachTrafficSources.
+--
 -- This operation returns paginated results.
 module Amazonka.AutoScaling.DescribeLoadBalancerTargetGroups
   ( -- * Creating a Request
@@ -54,8 +58,8 @@ module Amazonka.AutoScaling.DescribeLoadBalancerTargetGroups
     newDescribeLoadBalancerTargetGroups,
 
     -- * Request Lenses
-    describeLoadBalancerTargetGroups_nextToken,
     describeLoadBalancerTargetGroups_maxRecords,
+    describeLoadBalancerTargetGroups_nextToken,
     describeLoadBalancerTargetGroups_autoScalingGroupName,
 
     -- * Destructuring the Response
@@ -63,8 +67,8 @@ module Amazonka.AutoScaling.DescribeLoadBalancerTargetGroups
     newDescribeLoadBalancerTargetGroupsResponse,
 
     -- * Response Lenses
-    describeLoadBalancerTargetGroupsResponse_nextToken,
     describeLoadBalancerTargetGroupsResponse_loadBalancerTargetGroups,
+    describeLoadBalancerTargetGroupsResponse_nextToken,
     describeLoadBalancerTargetGroupsResponse_httpStatus,
   )
 where
@@ -79,12 +83,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeLoadBalancerTargetGroups' smart constructor.
 data DescribeLoadBalancerTargetGroups = DescribeLoadBalancerTargetGroups'
-  { -- | The token for the next set of items to return. (You received this token
-    -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return with this call. The default value
+  { -- | The maximum number of items to return with this call. The default value
     -- is @100@ and the maximum value is @100@.
     maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the Auto Scaling group.
     autoScalingGroupName :: Prelude.Text
   }
@@ -98,11 +102,11 @@ data DescribeLoadBalancerTargetGroups = DescribeLoadBalancerTargetGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeLoadBalancerTargetGroups_nextToken' - The token for the next set of items to return. (You received this token
--- from a previous call.)
---
 -- 'maxRecords', 'describeLoadBalancerTargetGroups_maxRecords' - The maximum number of items to return with this call. The default value
 -- is @100@ and the maximum value is @100@.
+--
+-- 'nextToken', 'describeLoadBalancerTargetGroups_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
 --
 -- 'autoScalingGroupName', 'describeLoadBalancerTargetGroups_autoScalingGroupName' - The name of the Auto Scaling group.
 newDescribeLoadBalancerTargetGroups ::
@@ -112,22 +116,22 @@ newDescribeLoadBalancerTargetGroups ::
 newDescribeLoadBalancerTargetGroups
   pAutoScalingGroupName_ =
     DescribeLoadBalancerTargetGroups'
-      { nextToken =
+      { maxRecords =
           Prelude.Nothing,
-        maxRecords = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         autoScalingGroupName =
           pAutoScalingGroupName_
       }
-
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
-describeLoadBalancerTargetGroups_nextToken :: Lens.Lens' DescribeLoadBalancerTargetGroups (Prelude.Maybe Prelude.Text)
-describeLoadBalancerTargetGroups_nextToken = Lens.lens (\DescribeLoadBalancerTargetGroups' {nextToken} -> nextToken) (\s@DescribeLoadBalancerTargetGroups' {} a -> s {nextToken = a} :: DescribeLoadBalancerTargetGroups)
 
 -- | The maximum number of items to return with this call. The default value
 -- is @100@ and the maximum value is @100@.
 describeLoadBalancerTargetGroups_maxRecords :: Lens.Lens' DescribeLoadBalancerTargetGroups (Prelude.Maybe Prelude.Int)
 describeLoadBalancerTargetGroups_maxRecords = Lens.lens (\DescribeLoadBalancerTargetGroups' {maxRecords} -> maxRecords) (\s@DescribeLoadBalancerTargetGroups' {} a -> s {maxRecords = a} :: DescribeLoadBalancerTargetGroups)
+
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+describeLoadBalancerTargetGroups_nextToken :: Lens.Lens' DescribeLoadBalancerTargetGroups (Prelude.Maybe Prelude.Text)
+describeLoadBalancerTargetGroups_nextToken = Lens.lens (\DescribeLoadBalancerTargetGroups' {nextToken} -> nextToken) (\s@DescribeLoadBalancerTargetGroups' {} a -> s {nextToken = a} :: DescribeLoadBalancerTargetGroups)
 
 -- | The name of the Auto Scaling group.
 describeLoadBalancerTargetGroups_autoScalingGroupName :: Lens.Lens' DescribeLoadBalancerTargetGroups Prelude.Text
@@ -172,11 +176,11 @@ instance
       "DescribeLoadBalancerTargetGroupsResult"
       ( \s h x ->
           DescribeLoadBalancerTargetGroupsResponse'
-            Prelude.<$> (x Data..@? "NextToken")
-            Prelude.<*> ( x Data..@? "LoadBalancerTargetGroups"
+            Prelude.<$> ( x Data..@? "LoadBalancerTargetGroups"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
+            Prelude.<*> (x Data..@? "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -187,8 +191,8 @@ instance
   hashWithSalt
     _salt
     DescribeLoadBalancerTargetGroups' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxRecords
+      _salt `Prelude.hashWithSalt` maxRecords
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` autoScalingGroupName
 
 instance
@@ -196,8 +200,8 @@ instance
     DescribeLoadBalancerTargetGroups
   where
   rnf DescribeLoadBalancerTargetGroups' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxRecords
+    Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf autoScalingGroupName
 
 instance
@@ -221,20 +225,20 @@ instance
                   ),
         "Version"
           Data.=: ("2011-01-01" :: Prelude.ByteString),
-        "NextToken" Data.=: nextToken,
         "MaxRecords" Data.=: maxRecords,
+        "NextToken" Data.=: nextToken,
         "AutoScalingGroupName" Data.=: autoScalingGroupName
       ]
 
 -- | /See:/ 'newDescribeLoadBalancerTargetGroupsResponse' smart constructor.
 data DescribeLoadBalancerTargetGroupsResponse = DescribeLoadBalancerTargetGroupsResponse'
-  { -- | A string that indicates that the response contains more items than can
+  { -- | Information about the target groups.
+    loadBalancerTargetGroups :: Prelude.Maybe [LoadBalancerTargetGroupState],
+    -- | A string that indicates that the response contains more items than can
     -- be returned in a single response. To receive additional items, specify
     -- this string for the @NextToken@ value when requesting the next set of
     -- items. This value is null when there are no more items to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the target groups.
-    loadBalancerTargetGroups :: Prelude.Maybe [LoadBalancerTargetGroupState],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -248,12 +252,12 @@ data DescribeLoadBalancerTargetGroupsResponse = DescribeLoadBalancerTargetGroups
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'loadBalancerTargetGroups', 'describeLoadBalancerTargetGroupsResponse_loadBalancerTargetGroups' - Information about the target groups.
+--
 -- 'nextToken', 'describeLoadBalancerTargetGroupsResponse_nextToken' - A string that indicates that the response contains more items than can
 -- be returned in a single response. To receive additional items, specify
 -- this string for the @NextToken@ value when requesting the next set of
 -- items. This value is null when there are no more items to return.
---
--- 'loadBalancerTargetGroups', 'describeLoadBalancerTargetGroupsResponse_loadBalancerTargetGroups' - Information about the target groups.
 --
 -- 'httpStatus', 'describeLoadBalancerTargetGroupsResponse_httpStatus' - The response's http status code.
 newDescribeLoadBalancerTargetGroupsResponse ::
@@ -263,12 +267,15 @@ newDescribeLoadBalancerTargetGroupsResponse ::
 newDescribeLoadBalancerTargetGroupsResponse
   pHttpStatus_ =
     DescribeLoadBalancerTargetGroupsResponse'
-      { nextToken =
+      { loadBalancerTargetGroups =
           Prelude.Nothing,
-        loadBalancerTargetGroups =
-          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | Information about the target groups.
+describeLoadBalancerTargetGroupsResponse_loadBalancerTargetGroups :: Lens.Lens' DescribeLoadBalancerTargetGroupsResponse (Prelude.Maybe [LoadBalancerTargetGroupState])
+describeLoadBalancerTargetGroupsResponse_loadBalancerTargetGroups = Lens.lens (\DescribeLoadBalancerTargetGroupsResponse' {loadBalancerTargetGroups} -> loadBalancerTargetGroups) (\s@DescribeLoadBalancerTargetGroupsResponse' {} a -> s {loadBalancerTargetGroups = a} :: DescribeLoadBalancerTargetGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A string that indicates that the response contains more items than can
 -- be returned in a single response. To receive additional items, specify
@@ -276,10 +283,6 @@ newDescribeLoadBalancerTargetGroupsResponse
 -- items. This value is null when there are no more items to return.
 describeLoadBalancerTargetGroupsResponse_nextToken :: Lens.Lens' DescribeLoadBalancerTargetGroupsResponse (Prelude.Maybe Prelude.Text)
 describeLoadBalancerTargetGroupsResponse_nextToken = Lens.lens (\DescribeLoadBalancerTargetGroupsResponse' {nextToken} -> nextToken) (\s@DescribeLoadBalancerTargetGroupsResponse' {} a -> s {nextToken = a} :: DescribeLoadBalancerTargetGroupsResponse)
-
--- | Information about the target groups.
-describeLoadBalancerTargetGroupsResponse_loadBalancerTargetGroups :: Lens.Lens' DescribeLoadBalancerTargetGroupsResponse (Prelude.Maybe [LoadBalancerTargetGroupState])
-describeLoadBalancerTargetGroupsResponse_loadBalancerTargetGroups = Lens.lens (\DescribeLoadBalancerTargetGroupsResponse' {loadBalancerTargetGroups} -> loadBalancerTargetGroups) (\s@DescribeLoadBalancerTargetGroupsResponse' {} a -> s {loadBalancerTargetGroups = a} :: DescribeLoadBalancerTargetGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeLoadBalancerTargetGroupsResponse_httpStatus :: Lens.Lens' DescribeLoadBalancerTargetGroupsResponse Prelude.Int
@@ -290,6 +293,6 @@ instance
     DescribeLoadBalancerTargetGroupsResponse
   where
   rnf DescribeLoadBalancerTargetGroupsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf loadBalancerTargetGroups
+    Prelude.rnf loadBalancerTargetGroups
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

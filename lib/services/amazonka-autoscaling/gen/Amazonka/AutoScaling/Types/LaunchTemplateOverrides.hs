@@ -63,6 +63,14 @@ data LaunchTemplateOverrides = LaunchTemplateOverrides'
     -- If you specify @InstanceRequirements@, you can\'t specify
     -- @InstanceType@.
     instanceRequirements :: Prelude.Maybe InstanceRequirements,
+    -- | The instance type, such as @m3.xlarge@. You must specify an instance
+    -- type that is supported in your requested Region and Availability Zones.
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
+    -- in the /Amazon Elastic Compute Cloud User Guide/.
+    --
+    -- You can specify up to 40 instance types per Auto Scaling group.
+    instanceType :: Prelude.Maybe Prelude.Text,
     -- | Provides a launch template for the specified instance type or set of
     -- instance requirements. For example, some instance types might require a
     -- launch template with a different AMI. If not provided, Amazon EC2 Auto
@@ -75,14 +83,6 @@ data LaunchTemplateOverrides = LaunchTemplateOverrides'
     -- launch templates specified in the overrides and in the @LaunchTemplate@
     -- definition count towards this limit.
     launchTemplateSpecification :: Prelude.Maybe LaunchTemplateSpecification,
-    -- | The instance type, such as @m3.xlarge@. You must specify an instance
-    -- type that is supported in your requested Region and Availability Zones.
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
-    -- in the /Amazon Elastic Compute Cloud User Guide/.
-    --
-    -- You can specify up to 40 instance types per Auto Scaling group.
-    instanceType :: Prelude.Maybe Prelude.Text,
     -- | If you provide a list of instance types to use, you can specify the
     -- number of capacity units provided by each instance type in terms of
     -- virtual CPUs, memory, storage, throughput, or other relative performance
@@ -134,6 +134,14 @@ data LaunchTemplateOverrides = LaunchTemplateOverrides'
 -- If you specify @InstanceRequirements@, you can\'t specify
 -- @InstanceType@.
 --
+-- 'instanceType', 'launchTemplateOverrides_instanceType' - The instance type, such as @m3.xlarge@. You must specify an instance
+-- type that is supported in your requested Region and Availability Zones.
+-- For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+--
+-- You can specify up to 40 instance types per Auto Scaling group.
+--
 -- 'launchTemplateSpecification', 'launchTemplateOverrides_launchTemplateSpecification' - Provides a launch template for the specified instance type or set of
 -- instance requirements. For example, some instance types might require a
 -- launch template with a different AMI. If not provided, Amazon EC2 Auto
@@ -145,14 +153,6 @@ data LaunchTemplateOverrides = LaunchTemplateOverrides'
 -- You can specify up to 20 launch templates per Auto Scaling group. The
 -- launch templates specified in the overrides and in the @LaunchTemplate@
 -- definition count towards this limit.
---
--- 'instanceType', 'launchTemplateOverrides_instanceType' - The instance type, such as @m3.xlarge@. You must specify an instance
--- type that is supported in your requested Region and Availability Zones.
--- For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
--- in the /Amazon Elastic Compute Cloud User Guide/.
---
--- You can specify up to 40 instance types per Auto Scaling group.
 --
 -- 'weightedCapacity', 'launchTemplateOverrides_weightedCapacity' - If you provide a list of instance types to use, you can specify the
 -- number of capacity units provided by each instance type in terms of
@@ -184,8 +184,8 @@ newLaunchTemplateOverrides =
   LaunchTemplateOverrides'
     { instanceRequirements =
         Prelude.Nothing,
-      launchTemplateSpecification = Prelude.Nothing,
       instanceType = Prelude.Nothing,
+      launchTemplateSpecification = Prelude.Nothing,
       weightedCapacity = Prelude.Nothing
     }
 
@@ -206,6 +206,16 @@ newLaunchTemplateOverrides =
 launchTemplateOverrides_instanceRequirements :: Lens.Lens' LaunchTemplateOverrides (Prelude.Maybe InstanceRequirements)
 launchTemplateOverrides_instanceRequirements = Lens.lens (\LaunchTemplateOverrides' {instanceRequirements} -> instanceRequirements) (\s@LaunchTemplateOverrides' {} a -> s {instanceRequirements = a} :: LaunchTemplateOverrides)
 
+-- | The instance type, such as @m3.xlarge@. You must specify an instance
+-- type that is supported in your requested Region and Availability Zones.
+-- For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+--
+-- You can specify up to 40 instance types per Auto Scaling group.
+launchTemplateOverrides_instanceType :: Lens.Lens' LaunchTemplateOverrides (Prelude.Maybe Prelude.Text)
+launchTemplateOverrides_instanceType = Lens.lens (\LaunchTemplateOverrides' {instanceType} -> instanceType) (\s@LaunchTemplateOverrides' {} a -> s {instanceType = a} :: LaunchTemplateOverrides)
+
 -- | Provides a launch template for the specified instance type or set of
 -- instance requirements. For example, some instance types might require a
 -- launch template with a different AMI. If not provided, Amazon EC2 Auto
@@ -219,16 +229,6 @@ launchTemplateOverrides_instanceRequirements = Lens.lens (\LaunchTemplateOverrid
 -- definition count towards this limit.
 launchTemplateOverrides_launchTemplateSpecification :: Lens.Lens' LaunchTemplateOverrides (Prelude.Maybe LaunchTemplateSpecification)
 launchTemplateOverrides_launchTemplateSpecification = Lens.lens (\LaunchTemplateOverrides' {launchTemplateSpecification} -> launchTemplateSpecification) (\s@LaunchTemplateOverrides' {} a -> s {launchTemplateSpecification = a} :: LaunchTemplateOverrides)
-
--- | The instance type, such as @m3.xlarge@. You must specify an instance
--- type that is supported in your requested Region and Availability Zones.
--- For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
--- in the /Amazon Elastic Compute Cloud User Guide/.
---
--- You can specify up to 40 instance types per Auto Scaling group.
-launchTemplateOverrides_instanceType :: Lens.Lens' LaunchTemplateOverrides (Prelude.Maybe Prelude.Text)
-launchTemplateOverrides_instanceType = Lens.lens (\LaunchTemplateOverrides' {instanceType} -> instanceType) (\s@LaunchTemplateOverrides' {} a -> s {instanceType = a} :: LaunchTemplateOverrides)
 
 -- | If you provide a list of instance types to use, you can specify the
 -- number of capacity units provided by each instance type in terms of
@@ -261,30 +261,30 @@ instance Data.FromXML LaunchTemplateOverrides where
   parseXML x =
     LaunchTemplateOverrides'
       Prelude.<$> (x Data..@? "InstanceRequirements")
-      Prelude.<*> (x Data..@? "LaunchTemplateSpecification")
       Prelude.<*> (x Data..@? "InstanceType")
+      Prelude.<*> (x Data..@? "LaunchTemplateSpecification")
       Prelude.<*> (x Data..@? "WeightedCapacity")
 
 instance Prelude.Hashable LaunchTemplateOverrides where
   hashWithSalt _salt LaunchTemplateOverrides' {..} =
     _salt `Prelude.hashWithSalt` instanceRequirements
-      `Prelude.hashWithSalt` launchTemplateSpecification
       `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` launchTemplateSpecification
       `Prelude.hashWithSalt` weightedCapacity
 
 instance Prelude.NFData LaunchTemplateOverrides where
   rnf LaunchTemplateOverrides' {..} =
     Prelude.rnf instanceRequirements
-      `Prelude.seq` Prelude.rnf launchTemplateSpecification
       `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf launchTemplateSpecification
       `Prelude.seq` Prelude.rnf weightedCapacity
 
 instance Data.ToQuery LaunchTemplateOverrides where
   toQuery LaunchTemplateOverrides' {..} =
     Prelude.mconcat
       [ "InstanceRequirements" Data.=: instanceRequirements,
+        "InstanceType" Data.=: instanceType,
         "LaunchTemplateSpecification"
           Data.=: launchTemplateSpecification,
-        "InstanceType" Data.=: instanceType,
         "WeightedCapacity" Data.=: weightedCapacity
       ]

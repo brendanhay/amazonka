@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstance' smart constructor.
 data Instance = Instance'
-  { -- | The launch template for the instance.
-    launchTemplate :: Prelude.Maybe LaunchTemplateSpecification,
+  { -- | The instance type of the EC2 instance.
+    instanceType :: Prelude.Maybe Prelude.Text,
     -- | The launch configuration associated with the instance.
     launchConfigurationName :: Prelude.Maybe Prelude.Text,
-    -- | The instance type of the EC2 instance.
-    instanceType :: Prelude.Maybe Prelude.Text,
+    -- | The launch template for the instance.
+    launchTemplate :: Prelude.Maybe LaunchTemplateSpecification,
     -- | The number of capacity units contributed by the instance based on its
     -- instance type.
     --
@@ -69,11 +69,11 @@ data Instance = Instance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'launchTemplate', 'instance_launchTemplate' - The launch template for the instance.
+-- 'instanceType', 'instance_instanceType' - The instance type of the EC2 instance.
 --
 -- 'launchConfigurationName', 'instance_launchConfigurationName' - The launch configuration associated with the instance.
 --
--- 'instanceType', 'instance_instanceType' - The instance type of the EC2 instance.
+-- 'launchTemplate', 'instance_launchTemplate' - The launch template for the instance.
 --
 -- 'weightedCapacity', 'instance_weightedCapacity' - The number of capacity units contributed by the instance based on its
 -- instance type.
@@ -115,9 +115,9 @@ newInstance
   pHealthStatus_
   pProtectedFromScaleIn_ =
     Instance'
-      { launchTemplate = Prelude.Nothing,
+      { instanceType = Prelude.Nothing,
         launchConfigurationName = Prelude.Nothing,
-        instanceType = Prelude.Nothing,
+        launchTemplate = Prelude.Nothing,
         weightedCapacity = Prelude.Nothing,
         instanceId = pInstanceId_,
         availabilityZone = pAvailabilityZone_,
@@ -126,17 +126,17 @@ newInstance
         protectedFromScaleIn = pProtectedFromScaleIn_
       }
 
--- | The launch template for the instance.
-instance_launchTemplate :: Lens.Lens' Instance (Prelude.Maybe LaunchTemplateSpecification)
-instance_launchTemplate = Lens.lens (\Instance' {launchTemplate} -> launchTemplate) (\s@Instance' {} a -> s {launchTemplate = a} :: Instance)
+-- | The instance type of the EC2 instance.
+instance_instanceType :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
+instance_instanceType = Lens.lens (\Instance' {instanceType} -> instanceType) (\s@Instance' {} a -> s {instanceType = a} :: Instance)
 
 -- | The launch configuration associated with the instance.
 instance_launchConfigurationName :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_launchConfigurationName = Lens.lens (\Instance' {launchConfigurationName} -> launchConfigurationName) (\s@Instance' {} a -> s {launchConfigurationName = a} :: Instance)
 
--- | The instance type of the EC2 instance.
-instance_instanceType :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
-instance_instanceType = Lens.lens (\Instance' {instanceType} -> instanceType) (\s@Instance' {} a -> s {instanceType = a} :: Instance)
+-- | The launch template for the instance.
+instance_launchTemplate :: Lens.Lens' Instance (Prelude.Maybe LaunchTemplateSpecification)
+instance_launchTemplate = Lens.lens (\Instance' {launchTemplate} -> launchTemplate) (\s@Instance' {} a -> s {launchTemplate = a} :: Instance)
 
 -- | The number of capacity units contributed by the instance based on its
 -- instance type.
@@ -175,9 +175,9 @@ instance_protectedFromScaleIn = Lens.lens (\Instance' {protectedFromScaleIn} -> 
 instance Data.FromXML Instance where
   parseXML x =
     Instance'
-      Prelude.<$> (x Data..@? "LaunchTemplate")
+      Prelude.<$> (x Data..@? "InstanceType")
       Prelude.<*> (x Data..@? "LaunchConfigurationName")
-      Prelude.<*> (x Data..@? "InstanceType")
+      Prelude.<*> (x Data..@? "LaunchTemplate")
       Prelude.<*> (x Data..@? "WeightedCapacity")
       Prelude.<*> (x Data..@ "InstanceId")
       Prelude.<*> (x Data..@ "AvailabilityZone")
@@ -187,9 +187,9 @@ instance Data.FromXML Instance where
 
 instance Prelude.Hashable Instance where
   hashWithSalt _salt Instance' {..} =
-    _salt `Prelude.hashWithSalt` launchTemplate
+    _salt `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` launchConfigurationName
-      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` launchTemplate
       `Prelude.hashWithSalt` weightedCapacity
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` availabilityZone
@@ -199,9 +199,9 @@ instance Prelude.Hashable Instance where
 
 instance Prelude.NFData Instance where
   rnf Instance' {..} =
-    Prelude.rnf launchTemplate
+    Prelude.rnf instanceType
       `Prelude.seq` Prelude.rnf launchConfigurationName
-      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf launchTemplate
       `Prelude.seq` Prelude.rnf weightedCapacity
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf availabilityZone

@@ -46,9 +46,9 @@ module Amazonka.AutoScaling.StartInstanceRefresh
     newStartInstanceRefresh,
 
     -- * Request Lenses
+    startInstanceRefresh_desiredConfiguration,
     startInstanceRefresh_preferences,
     startInstanceRefresh_strategy,
-    startInstanceRefresh_desiredConfiguration,
     startInstanceRefresh_autoScalingGroupName,
 
     -- * Destructuring the Response
@@ -71,19 +71,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartInstanceRefresh' smart constructor.
 data StartInstanceRefresh = StartInstanceRefresh'
-  { -- | Set of preferences associated with the instance refresh request. If not
-    -- provided, the default values are used.
-    preferences :: Prelude.Maybe RefreshPreferences,
-    -- | The strategy to use for the instance refresh. The only valid value is
-    -- @Rolling@.
-    --
-    -- A rolling update helps you update your instances gradually. A rolling
-    -- update can fail due to failed health checks or if instances are on
-    -- standby or are protected from scale in. If the rolling update process
-    -- fails, any instances that are replaced are not rolled back to their
-    -- previous configuration.
-    strategy :: Prelude.Maybe RefreshStrategy,
-    -- | The desired configuration. For example, the desired configuration can
+  { -- | The desired configuration. For example, the desired configuration can
     -- specify a new launch template or a new version of the current launch
     -- template.
     --
@@ -98,6 +86,18 @@ data StartInstanceRefresh = StartInstanceRefresh'
     -- launch template and version. This can help you reduce the number of
     -- replacements that are required to apply updates.
     desiredConfiguration :: Prelude.Maybe DesiredConfiguration,
+    -- | Set of preferences associated with the instance refresh request. If not
+    -- provided, the default values are used.
+    preferences :: Prelude.Maybe RefreshPreferences,
+    -- | The strategy to use for the instance refresh. The only valid value is
+    -- @Rolling@.
+    --
+    -- A rolling update helps you update your instances gradually. A rolling
+    -- update can fail due to failed health checks or if instances are on
+    -- standby or are protected from scale in. If the rolling update process
+    -- fails, any instances that are replaced are not rolled back to their
+    -- previous configuration.
+    strategy :: Prelude.Maybe RefreshStrategy,
     -- | The name of the Auto Scaling group.
     autoScalingGroupName :: Prelude.Text
   }
@@ -110,18 +110,6 @@ data StartInstanceRefresh = StartInstanceRefresh'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'preferences', 'startInstanceRefresh_preferences' - Set of preferences associated with the instance refresh request. If not
--- provided, the default values are used.
---
--- 'strategy', 'startInstanceRefresh_strategy' - The strategy to use for the instance refresh. The only valid value is
--- @Rolling@.
---
--- A rolling update helps you update your instances gradually. A rolling
--- update can fail due to failed health checks or if instances are on
--- standby or are protected from scale in. If the rolling update process
--- fails, any instances that are replaced are not rolled back to their
--- previous configuration.
 --
 -- 'desiredConfiguration', 'startInstanceRefresh_desiredConfiguration' - The desired configuration. For example, the desired configuration can
 -- specify a new launch template or a new version of the current launch
@@ -138,26 +126,10 @@ data StartInstanceRefresh = StartInstanceRefresh'
 -- launch template and version. This can help you reduce the number of
 -- replacements that are required to apply updates.
 --
--- 'autoScalingGroupName', 'startInstanceRefresh_autoScalingGroupName' - The name of the Auto Scaling group.
-newStartInstanceRefresh ::
-  -- | 'autoScalingGroupName'
-  Prelude.Text ->
-  StartInstanceRefresh
-newStartInstanceRefresh pAutoScalingGroupName_ =
-  StartInstanceRefresh'
-    { preferences =
-        Prelude.Nothing,
-      strategy = Prelude.Nothing,
-      desiredConfiguration = Prelude.Nothing,
-      autoScalingGroupName = pAutoScalingGroupName_
-    }
-
--- | Set of preferences associated with the instance refresh request. If not
+-- 'preferences', 'startInstanceRefresh_preferences' - Set of preferences associated with the instance refresh request. If not
 -- provided, the default values are used.
-startInstanceRefresh_preferences :: Lens.Lens' StartInstanceRefresh (Prelude.Maybe RefreshPreferences)
-startInstanceRefresh_preferences = Lens.lens (\StartInstanceRefresh' {preferences} -> preferences) (\s@StartInstanceRefresh' {} a -> s {preferences = a} :: StartInstanceRefresh)
-
--- | The strategy to use for the instance refresh. The only valid value is
+--
+-- 'strategy', 'startInstanceRefresh_strategy' - The strategy to use for the instance refresh. The only valid value is
 -- @Rolling@.
 --
 -- A rolling update helps you update your instances gradually. A rolling
@@ -165,8 +137,20 @@ startInstanceRefresh_preferences = Lens.lens (\StartInstanceRefresh' {preference
 -- standby or are protected from scale in. If the rolling update process
 -- fails, any instances that are replaced are not rolled back to their
 -- previous configuration.
-startInstanceRefresh_strategy :: Lens.Lens' StartInstanceRefresh (Prelude.Maybe RefreshStrategy)
-startInstanceRefresh_strategy = Lens.lens (\StartInstanceRefresh' {strategy} -> strategy) (\s@StartInstanceRefresh' {} a -> s {strategy = a} :: StartInstanceRefresh)
+--
+-- 'autoScalingGroupName', 'startInstanceRefresh_autoScalingGroupName' - The name of the Auto Scaling group.
+newStartInstanceRefresh ::
+  -- | 'autoScalingGroupName'
+  Prelude.Text ->
+  StartInstanceRefresh
+newStartInstanceRefresh pAutoScalingGroupName_ =
+  StartInstanceRefresh'
+    { desiredConfiguration =
+        Prelude.Nothing,
+      preferences = Prelude.Nothing,
+      strategy = Prelude.Nothing,
+      autoScalingGroupName = pAutoScalingGroupName_
+    }
 
 -- | The desired configuration. For example, the desired configuration can
 -- specify a new launch template or a new version of the current launch
@@ -184,6 +168,22 @@ startInstanceRefresh_strategy = Lens.lens (\StartInstanceRefresh' {strategy} -> 
 -- replacements that are required to apply updates.
 startInstanceRefresh_desiredConfiguration :: Lens.Lens' StartInstanceRefresh (Prelude.Maybe DesiredConfiguration)
 startInstanceRefresh_desiredConfiguration = Lens.lens (\StartInstanceRefresh' {desiredConfiguration} -> desiredConfiguration) (\s@StartInstanceRefresh' {} a -> s {desiredConfiguration = a} :: StartInstanceRefresh)
+
+-- | Set of preferences associated with the instance refresh request. If not
+-- provided, the default values are used.
+startInstanceRefresh_preferences :: Lens.Lens' StartInstanceRefresh (Prelude.Maybe RefreshPreferences)
+startInstanceRefresh_preferences = Lens.lens (\StartInstanceRefresh' {preferences} -> preferences) (\s@StartInstanceRefresh' {} a -> s {preferences = a} :: StartInstanceRefresh)
+
+-- | The strategy to use for the instance refresh. The only valid value is
+-- @Rolling@.
+--
+-- A rolling update helps you update your instances gradually. A rolling
+-- update can fail due to failed health checks or if instances are on
+-- standby or are protected from scale in. If the rolling update process
+-- fails, any instances that are replaced are not rolled back to their
+-- previous configuration.
+startInstanceRefresh_strategy :: Lens.Lens' StartInstanceRefresh (Prelude.Maybe RefreshStrategy)
+startInstanceRefresh_strategy = Lens.lens (\StartInstanceRefresh' {strategy} -> strategy) (\s@StartInstanceRefresh' {} a -> s {strategy = a} :: StartInstanceRefresh)
 
 -- | The name of the Auto Scaling group.
 startInstanceRefresh_autoScalingGroupName :: Lens.Lens' StartInstanceRefresh Prelude.Text
@@ -206,16 +206,16 @@ instance Core.AWSRequest StartInstanceRefresh where
 
 instance Prelude.Hashable StartInstanceRefresh where
   hashWithSalt _salt StartInstanceRefresh' {..} =
-    _salt `Prelude.hashWithSalt` preferences
+    _salt `Prelude.hashWithSalt` desiredConfiguration
+      `Prelude.hashWithSalt` preferences
       `Prelude.hashWithSalt` strategy
-      `Prelude.hashWithSalt` desiredConfiguration
       `Prelude.hashWithSalt` autoScalingGroupName
 
 instance Prelude.NFData StartInstanceRefresh where
   rnf StartInstanceRefresh' {..} =
-    Prelude.rnf preferences
+    Prelude.rnf desiredConfiguration
+      `Prelude.seq` Prelude.rnf preferences
       `Prelude.seq` Prelude.rnf strategy
-      `Prelude.seq` Prelude.rnf desiredConfiguration
       `Prelude.seq` Prelude.rnf autoScalingGroupName
 
 instance Data.ToHeaders StartInstanceRefresh where
@@ -231,9 +231,9 @@ instance Data.ToQuery StartInstanceRefresh where
           Data.=: ("StartInstanceRefresh" :: Prelude.ByteString),
         "Version"
           Data.=: ("2011-01-01" :: Prelude.ByteString),
+        "DesiredConfiguration" Data.=: desiredConfiguration,
         "Preferences" Data.=: preferences,
         "Strategy" Data.=: strategy,
-        "DesiredConfiguration" Data.=: desiredConfiguration,
         "AutoScalingGroupName" Data.=: autoScalingGroupName
       ]
 

@@ -76,20 +76,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPredictiveScalingMetricSpecification' smart constructor.
 data PredictiveScalingMetricSpecification = PredictiveScalingMetricSpecification'
-  { -- | The customized scaling metric specification.
+  { -- | The customized capacity metric specification.
+    customizedCapacityMetricSpecification :: Prelude.Maybe PredictiveScalingCustomizedCapacityMetric,
+    -- | The customized load metric specification.
+    customizedLoadMetricSpecification :: Prelude.Maybe PredictiveScalingCustomizedLoadMetric,
+    -- | The customized scaling metric specification.
     customizedScalingMetricSpecification :: Prelude.Maybe PredictiveScalingCustomizedScalingMetric,
     -- | The predefined load metric specification.
     predefinedLoadMetricSpecification :: Prelude.Maybe PredictiveScalingPredefinedLoadMetric,
-    -- | The customized load metric specification.
-    customizedLoadMetricSpecification :: Prelude.Maybe PredictiveScalingCustomizedLoadMetric,
-    -- | The customized capacity metric specification.
-    customizedCapacityMetricSpecification :: Prelude.Maybe PredictiveScalingCustomizedCapacityMetric,
-    -- | The predefined scaling metric specification.
-    predefinedScalingMetricSpecification :: Prelude.Maybe PredictiveScalingPredefinedScalingMetric,
     -- | The predefined metric pair specification from which Amazon EC2 Auto
     -- Scaling determines the appropriate scaling metric and load metric to
     -- use.
     predefinedMetricPairSpecification :: Prelude.Maybe PredictiveScalingPredefinedMetricPair,
+    -- | The predefined scaling metric specification.
+    predefinedScalingMetricSpecification :: Prelude.Maybe PredictiveScalingPredefinedScalingMetric,
     -- | Specifies the target utilization.
     --
     -- Some metrics are based on a count instead of a percentage, such as the
@@ -109,19 +109,19 @@ data PredictiveScalingMetricSpecification = PredictiveScalingMetricSpecification
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'customizedCapacityMetricSpecification', 'predictiveScalingMetricSpecification_customizedCapacityMetricSpecification' - The customized capacity metric specification.
+--
+-- 'customizedLoadMetricSpecification', 'predictiveScalingMetricSpecification_customizedLoadMetricSpecification' - The customized load metric specification.
+--
 -- 'customizedScalingMetricSpecification', 'predictiveScalingMetricSpecification_customizedScalingMetricSpecification' - The customized scaling metric specification.
 --
 -- 'predefinedLoadMetricSpecification', 'predictiveScalingMetricSpecification_predefinedLoadMetricSpecification' - The predefined load metric specification.
 --
--- 'customizedLoadMetricSpecification', 'predictiveScalingMetricSpecification_customizedLoadMetricSpecification' - The customized load metric specification.
---
--- 'customizedCapacityMetricSpecification', 'predictiveScalingMetricSpecification_customizedCapacityMetricSpecification' - The customized capacity metric specification.
---
--- 'predefinedScalingMetricSpecification', 'predictiveScalingMetricSpecification_predefinedScalingMetricSpecification' - The predefined scaling metric specification.
---
 -- 'predefinedMetricPairSpecification', 'predictiveScalingMetricSpecification_predefinedMetricPairSpecification' - The predefined metric pair specification from which Amazon EC2 Auto
 -- Scaling determines the appropriate scaling metric and load metric to
 -- use.
+--
+-- 'predefinedScalingMetricSpecification', 'predictiveScalingMetricSpecification_predefinedScalingMetricSpecification' - The predefined scaling metric specification.
 --
 -- 'targetValue', 'predictiveScalingMetricSpecification_targetValue' - Specifies the target utilization.
 --
@@ -136,20 +136,28 @@ newPredictiveScalingMetricSpecification ::
   PredictiveScalingMetricSpecification
 newPredictiveScalingMetricSpecification pTargetValue_ =
   PredictiveScalingMetricSpecification'
-    { customizedScalingMetricSpecification =
-        Prelude.Nothing,
-      predefinedLoadMetricSpecification =
+    { customizedCapacityMetricSpecification =
         Prelude.Nothing,
       customizedLoadMetricSpecification =
         Prelude.Nothing,
-      customizedCapacityMetricSpecification =
+      customizedScalingMetricSpecification =
         Prelude.Nothing,
-      predefinedScalingMetricSpecification =
+      predefinedLoadMetricSpecification =
         Prelude.Nothing,
       predefinedMetricPairSpecification =
         Prelude.Nothing,
+      predefinedScalingMetricSpecification =
+        Prelude.Nothing,
       targetValue = pTargetValue_
     }
+
+-- | The customized capacity metric specification.
+predictiveScalingMetricSpecification_customizedCapacityMetricSpecification :: Lens.Lens' PredictiveScalingMetricSpecification (Prelude.Maybe PredictiveScalingCustomizedCapacityMetric)
+predictiveScalingMetricSpecification_customizedCapacityMetricSpecification = Lens.lens (\PredictiveScalingMetricSpecification' {customizedCapacityMetricSpecification} -> customizedCapacityMetricSpecification) (\s@PredictiveScalingMetricSpecification' {} a -> s {customizedCapacityMetricSpecification = a} :: PredictiveScalingMetricSpecification)
+
+-- | The customized load metric specification.
+predictiveScalingMetricSpecification_customizedLoadMetricSpecification :: Lens.Lens' PredictiveScalingMetricSpecification (Prelude.Maybe PredictiveScalingCustomizedLoadMetric)
+predictiveScalingMetricSpecification_customizedLoadMetricSpecification = Lens.lens (\PredictiveScalingMetricSpecification' {customizedLoadMetricSpecification} -> customizedLoadMetricSpecification) (\s@PredictiveScalingMetricSpecification' {} a -> s {customizedLoadMetricSpecification = a} :: PredictiveScalingMetricSpecification)
 
 -- | The customized scaling metric specification.
 predictiveScalingMetricSpecification_customizedScalingMetricSpecification :: Lens.Lens' PredictiveScalingMetricSpecification (Prelude.Maybe PredictiveScalingCustomizedScalingMetric)
@@ -159,23 +167,15 @@ predictiveScalingMetricSpecification_customizedScalingMetricSpecification = Lens
 predictiveScalingMetricSpecification_predefinedLoadMetricSpecification :: Lens.Lens' PredictiveScalingMetricSpecification (Prelude.Maybe PredictiveScalingPredefinedLoadMetric)
 predictiveScalingMetricSpecification_predefinedLoadMetricSpecification = Lens.lens (\PredictiveScalingMetricSpecification' {predefinedLoadMetricSpecification} -> predefinedLoadMetricSpecification) (\s@PredictiveScalingMetricSpecification' {} a -> s {predefinedLoadMetricSpecification = a} :: PredictiveScalingMetricSpecification)
 
--- | The customized load metric specification.
-predictiveScalingMetricSpecification_customizedLoadMetricSpecification :: Lens.Lens' PredictiveScalingMetricSpecification (Prelude.Maybe PredictiveScalingCustomizedLoadMetric)
-predictiveScalingMetricSpecification_customizedLoadMetricSpecification = Lens.lens (\PredictiveScalingMetricSpecification' {customizedLoadMetricSpecification} -> customizedLoadMetricSpecification) (\s@PredictiveScalingMetricSpecification' {} a -> s {customizedLoadMetricSpecification = a} :: PredictiveScalingMetricSpecification)
-
--- | The customized capacity metric specification.
-predictiveScalingMetricSpecification_customizedCapacityMetricSpecification :: Lens.Lens' PredictiveScalingMetricSpecification (Prelude.Maybe PredictiveScalingCustomizedCapacityMetric)
-predictiveScalingMetricSpecification_customizedCapacityMetricSpecification = Lens.lens (\PredictiveScalingMetricSpecification' {customizedCapacityMetricSpecification} -> customizedCapacityMetricSpecification) (\s@PredictiveScalingMetricSpecification' {} a -> s {customizedCapacityMetricSpecification = a} :: PredictiveScalingMetricSpecification)
-
--- | The predefined scaling metric specification.
-predictiveScalingMetricSpecification_predefinedScalingMetricSpecification :: Lens.Lens' PredictiveScalingMetricSpecification (Prelude.Maybe PredictiveScalingPredefinedScalingMetric)
-predictiveScalingMetricSpecification_predefinedScalingMetricSpecification = Lens.lens (\PredictiveScalingMetricSpecification' {predefinedScalingMetricSpecification} -> predefinedScalingMetricSpecification) (\s@PredictiveScalingMetricSpecification' {} a -> s {predefinedScalingMetricSpecification = a} :: PredictiveScalingMetricSpecification)
-
 -- | The predefined metric pair specification from which Amazon EC2 Auto
 -- Scaling determines the appropriate scaling metric and load metric to
 -- use.
 predictiveScalingMetricSpecification_predefinedMetricPairSpecification :: Lens.Lens' PredictiveScalingMetricSpecification (Prelude.Maybe PredictiveScalingPredefinedMetricPair)
 predictiveScalingMetricSpecification_predefinedMetricPairSpecification = Lens.lens (\PredictiveScalingMetricSpecification' {predefinedMetricPairSpecification} -> predefinedMetricPairSpecification) (\s@PredictiveScalingMetricSpecification' {} a -> s {predefinedMetricPairSpecification = a} :: PredictiveScalingMetricSpecification)
+
+-- | The predefined scaling metric specification.
+predictiveScalingMetricSpecification_predefinedScalingMetricSpecification :: Lens.Lens' PredictiveScalingMetricSpecification (Prelude.Maybe PredictiveScalingPredefinedScalingMetric)
+predictiveScalingMetricSpecification_predefinedScalingMetricSpecification = Lens.lens (\PredictiveScalingMetricSpecification' {predefinedScalingMetricSpecification} -> predefinedScalingMetricSpecification) (\s@PredictiveScalingMetricSpecification' {} a -> s {predefinedScalingMetricSpecification = a} :: PredictiveScalingMetricSpecification)
 
 -- | Specifies the target utilization.
 --
@@ -193,12 +193,12 @@ instance
   where
   parseXML x =
     PredictiveScalingMetricSpecification'
-      Prelude.<$> (x Data..@? "CustomizedScalingMetricSpecification")
-      Prelude.<*> (x Data..@? "PredefinedLoadMetricSpecification")
+      Prelude.<$> (x Data..@? "CustomizedCapacityMetricSpecification")
       Prelude.<*> (x Data..@? "CustomizedLoadMetricSpecification")
-      Prelude.<*> (x Data..@? "CustomizedCapacityMetricSpecification")
-      Prelude.<*> (x Data..@? "PredefinedScalingMetricSpecification")
+      Prelude.<*> (x Data..@? "CustomizedScalingMetricSpecification")
+      Prelude.<*> (x Data..@? "PredefinedLoadMetricSpecification")
       Prelude.<*> (x Data..@? "PredefinedMetricPairSpecification")
+      Prelude.<*> (x Data..@? "PredefinedScalingMetricSpecification")
       Prelude.<*> (x Data..@ "TargetValue")
 
 instance
@@ -209,12 +209,12 @@ instance
     _salt
     PredictiveScalingMetricSpecification' {..} =
       _salt
+        `Prelude.hashWithSalt` customizedCapacityMetricSpecification
+        `Prelude.hashWithSalt` customizedLoadMetricSpecification
         `Prelude.hashWithSalt` customizedScalingMetricSpecification
         `Prelude.hashWithSalt` predefinedLoadMetricSpecification
-        `Prelude.hashWithSalt` customizedLoadMetricSpecification
-        `Prelude.hashWithSalt` customizedCapacityMetricSpecification
-        `Prelude.hashWithSalt` predefinedScalingMetricSpecification
         `Prelude.hashWithSalt` predefinedMetricPairSpecification
+        `Prelude.hashWithSalt` predefinedScalingMetricSpecification
         `Prelude.hashWithSalt` targetValue
 
 instance
@@ -222,12 +222,12 @@ instance
     PredictiveScalingMetricSpecification
   where
   rnf PredictiveScalingMetricSpecification' {..} =
-    Prelude.rnf customizedScalingMetricSpecification
-      `Prelude.seq` Prelude.rnf predefinedLoadMetricSpecification
+    Prelude.rnf customizedCapacityMetricSpecification
       `Prelude.seq` Prelude.rnf customizedLoadMetricSpecification
-      `Prelude.seq` Prelude.rnf customizedCapacityMetricSpecification
-      `Prelude.seq` Prelude.rnf predefinedScalingMetricSpecification
+      `Prelude.seq` Prelude.rnf customizedScalingMetricSpecification
+      `Prelude.seq` Prelude.rnf predefinedLoadMetricSpecification
       `Prelude.seq` Prelude.rnf predefinedMetricPairSpecification
+      `Prelude.seq` Prelude.rnf predefinedScalingMetricSpecification
       `Prelude.seq` Prelude.rnf targetValue
 
 instance
@@ -236,17 +236,17 @@ instance
   where
   toQuery PredictiveScalingMetricSpecification' {..} =
     Prelude.mconcat
-      [ "CustomizedScalingMetricSpecification"
+      [ "CustomizedCapacityMetricSpecification"
+          Data.=: customizedCapacityMetricSpecification,
+        "CustomizedLoadMetricSpecification"
+          Data.=: customizedLoadMetricSpecification,
+        "CustomizedScalingMetricSpecification"
           Data.=: customizedScalingMetricSpecification,
         "PredefinedLoadMetricSpecification"
           Data.=: predefinedLoadMetricSpecification,
-        "CustomizedLoadMetricSpecification"
-          Data.=: customizedLoadMetricSpecification,
-        "CustomizedCapacityMetricSpecification"
-          Data.=: customizedCapacityMetricSpecification,
-        "PredefinedScalingMetricSpecification"
-          Data.=: predefinedScalingMetricSpecification,
         "PredefinedMetricPairSpecification"
           Data.=: predefinedMetricPairSpecification,
+        "PredefinedScalingMetricSpecification"
+          Data.=: predefinedScalingMetricSpecification,
         "TargetValue" Data.=: targetValue
       ]

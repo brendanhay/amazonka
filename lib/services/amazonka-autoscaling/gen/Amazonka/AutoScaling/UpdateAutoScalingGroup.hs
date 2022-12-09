@@ -74,25 +74,25 @@ module Amazonka.AutoScaling.UpdateAutoScalingGroup
 
     -- * Request Lenses
     updateAutoScalingGroup_availabilityZones,
-    updateAutoScalingGroup_healthCheckGracePeriod,
-    updateAutoScalingGroup_launchTemplate,
-    updateAutoScalingGroup_serviceLinkedRoleARN,
-    updateAutoScalingGroup_context,
-    updateAutoScalingGroup_maxInstanceLifetime,
-    updateAutoScalingGroup_vPCZoneIdentifier,
-    updateAutoScalingGroup_launchConfigurationName,
-    updateAutoScalingGroup_defaultInstanceWarmup,
-    updateAutoScalingGroup_mixedInstancesPolicy,
-    updateAutoScalingGroup_minSize,
-    updateAutoScalingGroup_healthCheckType,
-    updateAutoScalingGroup_placementGroup,
-    updateAutoScalingGroup_desiredCapacityType,
-    updateAutoScalingGroup_newInstancesProtectedFromScaleIn,
-    updateAutoScalingGroup_defaultCooldown,
-    updateAutoScalingGroup_terminationPolicies,
-    updateAutoScalingGroup_maxSize,
-    updateAutoScalingGroup_desiredCapacity,
     updateAutoScalingGroup_capacityRebalance,
+    updateAutoScalingGroup_context,
+    updateAutoScalingGroup_defaultCooldown,
+    updateAutoScalingGroup_defaultInstanceWarmup,
+    updateAutoScalingGroup_desiredCapacity,
+    updateAutoScalingGroup_desiredCapacityType,
+    updateAutoScalingGroup_healthCheckGracePeriod,
+    updateAutoScalingGroup_healthCheckType,
+    updateAutoScalingGroup_launchConfigurationName,
+    updateAutoScalingGroup_launchTemplate,
+    updateAutoScalingGroup_maxInstanceLifetime,
+    updateAutoScalingGroup_maxSize,
+    updateAutoScalingGroup_minSize,
+    updateAutoScalingGroup_mixedInstancesPolicy,
+    updateAutoScalingGroup_newInstancesProtectedFromScaleIn,
+    updateAutoScalingGroup_placementGroup,
+    updateAutoScalingGroup_serviceLinkedRoleARN,
+    updateAutoScalingGroup_terminationPolicies,
+    updateAutoScalingGroup_vPCZoneIdentifier,
     updateAutoScalingGroup_autoScalingGroupName,
 
     -- * Destructuring the Response
@@ -113,43 +113,20 @@ import qualified Amazonka.Response as Response
 data UpdateAutoScalingGroup = UpdateAutoScalingGroup'
   { -- | One or more Availability Zones for the group.
     availabilityZones :: Prelude.Maybe [Prelude.Text],
-    -- | The amount of time, in seconds, that Amazon EC2 Auto Scaling waits
-    -- before checking the health status of an EC2 instance that has come into
-    -- service and marking it unhealthy due to a failed Elastic Load Balancing
-    -- or custom health check. This is useful if your instances do not
-    -- immediately pass these health checks after they enter the @InService@
-    -- state. For more information, see
-    -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/health-check-grace-period.html Set the health check grace period for an Auto Scaling group>
+    -- | Enables or disables Capacity Rebalancing. For more information, see
+    -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions>
     -- in the /Amazon EC2 Auto Scaling User Guide/.
-    healthCheckGracePeriod :: Prelude.Maybe Prelude.Int,
-    -- | The launch template and version to use to specify the updates. If you
-    -- specify @LaunchTemplate@ in your update request, you can\'t specify
-    -- @LaunchConfigurationName@ or @MixedInstancesPolicy@.
-    launchTemplate :: Prelude.Maybe LaunchTemplateSpecification,
-    -- | The Amazon Resource Name (ARN) of the service-linked role that the Auto
-    -- Scaling group uses to call other Amazon Web Services on your behalf. For
-    -- more information, see
-    -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html Service-linked roles>
-    -- in the /Amazon EC2 Auto Scaling User Guide/.
-    serviceLinkedRoleARN :: Prelude.Maybe Prelude.Text,
+    capacityRebalance :: Prelude.Maybe Prelude.Bool,
     -- | Reserved.
     context :: Prelude.Maybe Prelude.Text,
-    -- | The maximum amount of time, in seconds, that an instance can be in
-    -- service. The default is null. If specified, the value must be either 0
-    -- or a number equal to or greater than 86,400 seconds (1 day). To clear a
-    -- previously set value, specify a new value of 0. For more information,
-    -- see
-    -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html Replacing Auto Scaling instances based on maximum instance lifetime>
+    -- | /Only needed if you use simple scaling policies./
+    --
+    -- The amount of time, in seconds, between one scaling activity ending and
+    -- another one starting due to simple scaling policies. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html Scaling cooldowns for Amazon EC2 Auto Scaling>
     -- in the /Amazon EC2 Auto Scaling User Guide/.
-    maxInstanceLifetime :: Prelude.Maybe Prelude.Int,
-    -- | A comma-separated list of subnet IDs for a virtual private cloud (VPC).
-    -- If you specify @VPCZoneIdentifier@ with @AvailabilityZones@, the subnets
-    -- that you specify must reside in those Availability Zones.
-    vPCZoneIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | The name of the launch configuration. If you specify
-    -- @LaunchConfigurationName@ in your update request, you can\'t specify
-    -- @LaunchTemplate@ or @MixedInstancesPolicy@.
-    launchConfigurationName :: Prelude.Maybe Prelude.Text,
+    defaultCooldown :: Prelude.Maybe Prelude.Int,
     -- | The amount of time, in seconds, until a newly launched instance can
     -- contribute to the Amazon CloudWatch metrics. This delay lets an instance
     -- finish initializing before Amazon EC2 Auto Scaling aggregates instance
@@ -170,26 +147,11 @@ data UpdateAutoScalingGroup = UpdateAutoScalingGroup'
     -- keeping the default instance warmup enabled by specifying a minimum
     -- value of @0@.
     defaultInstanceWarmup :: Prelude.Maybe Prelude.Int,
-    -- | The mixed instances policy. For more information, see
-    -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html Auto Scaling groups with multiple instance types and purchase options>
-    -- in the /Amazon EC2 Auto Scaling User Guide/.
-    mixedInstancesPolicy :: Prelude.Maybe MixedInstancesPolicy,
-    -- | The minimum size of the Auto Scaling group.
-    minSize :: Prelude.Maybe Prelude.Int,
-    -- | The service to use for the health checks. The valid values are @EC2@ and
-    -- @ELB@. If you configure an Auto Scaling group to use @ELB@ health
-    -- checks, it considers the instance unhealthy if it fails either the EC2
-    -- status checks or the load balancer health checks.
-    healthCheckType :: Prelude.Maybe Prelude.Text,
-    -- | The name of an existing placement group into which to launch your
-    -- instances. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement groups>
-    -- in the /Amazon EC2 User Guide for Linux Instances/.
-    --
-    -- A /cluster/ placement group is a logical grouping of instances within a
-    -- single Availability Zone. You cannot specify multiple Availability Zones
-    -- and a cluster placement group.
-    placementGroup :: Prelude.Maybe Prelude.Text,
+    -- | The desired capacity is the initial capacity of the Auto Scaling group
+    -- after this operation completes and the capacity it attempts to maintain.
+    -- This number must be greater than or equal to the minimum size of the
+    -- group and less than or equal to the maximum size of the group.
+    desiredCapacity :: Prelude.Maybe Prelude.Int,
     -- | The unit of measurement for the value specified for desired capacity.
     -- Amazon EC2 Auto Scaling supports @DesiredCapacityType@ for
     -- attribute-based instance type selection only. For more information, see
@@ -201,20 +163,73 @@ data UpdateAutoScalingGroup = UpdateAutoScalingGroup'
     --
     -- Valid values: @units@ | @vcpu@ | @memory-mib@
     desiredCapacityType :: Prelude.Maybe Prelude.Text,
+    -- | The amount of time, in seconds, that Amazon EC2 Auto Scaling waits
+    -- before checking the health status of an EC2 instance that has come into
+    -- service and marking it unhealthy due to a failed health check. This is
+    -- useful if your instances do not immediately pass their health checks
+    -- after they enter the @InService@ state. For more information, see
+    -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/health-check-grace-period.html Set the health check grace period for an Auto Scaling group>
+    -- in the /Amazon EC2 Auto Scaling User Guide/.
+    healthCheckGracePeriod :: Prelude.Maybe Prelude.Int,
+    -- | Determines whether any additional health checks are performed on the
+    -- instances in this group. Amazon EC2 health checks are always on.
+    --
+    -- The valid values are @EC2@ (default), @ELB@, and @VPC_LATTICE@. The
+    -- @VPC_LATTICE@ health check type is reserved for use with VPC Lattice,
+    -- which is in preview release and is subject to change.
+    healthCheckType :: Prelude.Maybe Prelude.Text,
+    -- | The name of the launch configuration. If you specify
+    -- @LaunchConfigurationName@ in your update request, you can\'t specify
+    -- @LaunchTemplate@ or @MixedInstancesPolicy@.
+    launchConfigurationName :: Prelude.Maybe Prelude.Text,
+    -- | The launch template and version to use to specify the updates. If you
+    -- specify @LaunchTemplate@ in your update request, you can\'t specify
+    -- @LaunchConfigurationName@ or @MixedInstancesPolicy@.
+    launchTemplate :: Prelude.Maybe LaunchTemplateSpecification,
+    -- | The maximum amount of time, in seconds, that an instance can be in
+    -- service. The default is null. If specified, the value must be either 0
+    -- or a number equal to or greater than 86,400 seconds (1 day). To clear a
+    -- previously set value, specify a new value of 0. For more information,
+    -- see
+    -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html Replacing Auto Scaling instances based on maximum instance lifetime>
+    -- in the /Amazon EC2 Auto Scaling User Guide/.
+    maxInstanceLifetime :: Prelude.Maybe Prelude.Int,
+    -- | The maximum size of the Auto Scaling group.
+    --
+    -- With a mixed instances policy that uses instance weighting, Amazon EC2
+    -- Auto Scaling may need to go above @MaxSize@ to meet your capacity
+    -- requirements. In this event, Amazon EC2 Auto Scaling will never go above
+    -- @MaxSize@ by more than your largest instance weight (weights that define
+    -- how many units each instance contributes to the desired capacity of the
+    -- group).
+    maxSize :: Prelude.Maybe Prelude.Int,
+    -- | The minimum size of the Auto Scaling group.
+    minSize :: Prelude.Maybe Prelude.Int,
+    -- | The mixed instances policy. For more information, see
+    -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html Auto Scaling groups with multiple instance types and purchase options>
+    -- in the /Amazon EC2 Auto Scaling User Guide/.
+    mixedInstancesPolicy :: Prelude.Maybe MixedInstancesPolicy,
     -- | Indicates whether newly launched instances are protected from
     -- termination by Amazon EC2 Auto Scaling when scaling in. For more
     -- information about preventing instances from terminating on scale in, see
     -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html Using instance scale-in protection>
     -- in the /Amazon EC2 Auto Scaling User Guide/.
     newInstancesProtectedFromScaleIn' :: Prelude.Maybe Prelude.Bool,
-    -- | /Only needed if you use simple scaling policies./
+    -- | The name of an existing placement group into which to launch your
+    -- instances. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement groups>
+    -- in the /Amazon EC2 User Guide for Linux Instances/.
     --
-    -- The amount of time, in seconds, between one scaling activity ending and
-    -- another one starting due to simple scaling policies. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html Scaling cooldowns for Amazon EC2 Auto Scaling>
+    -- A /cluster/ placement group is a logical grouping of instances within a
+    -- single Availability Zone. You cannot specify multiple Availability Zones
+    -- and a cluster placement group.
+    placementGroup :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the service-linked role that the Auto
+    -- Scaling group uses to call other Amazon Web Services on your behalf. For
+    -- more information, see
+    -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html Service-linked roles>
     -- in the /Amazon EC2 Auto Scaling User Guide/.
-    defaultCooldown :: Prelude.Maybe Prelude.Int,
+    serviceLinkedRoleARN :: Prelude.Maybe Prelude.Text,
     -- | A policy or a list of policies that are used to select the instances to
     -- terminate. The policies are executed in the order that you list them.
     -- For more information, see
@@ -226,24 +241,10 @@ data UpdateAutoScalingGroup = UpdateAutoScalingGroup'
     -- @OldestLaunchConfiguration@ | @OldestLaunchTemplate@ |
     -- @arn:aws:lambda:region:account-id:function:my-function:my-alias@
     terminationPolicies :: Prelude.Maybe [Prelude.Text],
-    -- | The maximum size of the Auto Scaling group.
-    --
-    -- With a mixed instances policy that uses instance weighting, Amazon EC2
-    -- Auto Scaling may need to go above @MaxSize@ to meet your capacity
-    -- requirements. In this event, Amazon EC2 Auto Scaling will never go above
-    -- @MaxSize@ by more than your largest instance weight (weights that define
-    -- how many units each instance contributes to the desired capacity of the
-    -- group).
-    maxSize :: Prelude.Maybe Prelude.Int,
-    -- | The desired capacity is the initial capacity of the Auto Scaling group
-    -- after this operation completes and the capacity it attempts to maintain.
-    -- This number must be greater than or equal to the minimum size of the
-    -- group and less than or equal to the maximum size of the group.
-    desiredCapacity :: Prelude.Maybe Prelude.Int,
-    -- | Enables or disables Capacity Rebalancing. For more information, see
-    -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions>
-    -- in the /Amazon EC2 Auto Scaling User Guide/.
-    capacityRebalance :: Prelude.Maybe Prelude.Bool,
+    -- | A comma-separated list of subnet IDs for a virtual private cloud (VPC).
+    -- If you specify @VPCZoneIdentifier@ with @AvailabilityZones@, the subnets
+    -- that you specify must reside in those Availability Zones.
+    vPCZoneIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The name of the Auto Scaling group.
     autoScalingGroupName :: Prelude.Text
   }
@@ -259,42 +260,19 @@ data UpdateAutoScalingGroup = UpdateAutoScalingGroup'
 --
 -- 'availabilityZones', 'updateAutoScalingGroup_availabilityZones' - One or more Availability Zones for the group.
 --
--- 'healthCheckGracePeriod', 'updateAutoScalingGroup_healthCheckGracePeriod' - The amount of time, in seconds, that Amazon EC2 Auto Scaling waits
--- before checking the health status of an EC2 instance that has come into
--- service and marking it unhealthy due to a failed Elastic Load Balancing
--- or custom health check. This is useful if your instances do not
--- immediately pass these health checks after they enter the @InService@
--- state. For more information, see
--- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/health-check-grace-period.html Set the health check grace period for an Auto Scaling group>
--- in the /Amazon EC2 Auto Scaling User Guide/.
---
--- 'launchTemplate', 'updateAutoScalingGroup_launchTemplate' - The launch template and version to use to specify the updates. If you
--- specify @LaunchTemplate@ in your update request, you can\'t specify
--- @LaunchConfigurationName@ or @MixedInstancesPolicy@.
---
--- 'serviceLinkedRoleARN', 'updateAutoScalingGroup_serviceLinkedRoleARN' - The Amazon Resource Name (ARN) of the service-linked role that the Auto
--- Scaling group uses to call other Amazon Web Services on your behalf. For
--- more information, see
--- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html Service-linked roles>
+-- 'capacityRebalance', 'updateAutoScalingGroup_capacityRebalance' - Enables or disables Capacity Rebalancing. For more information, see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
 --
 -- 'context', 'updateAutoScalingGroup_context' - Reserved.
 --
--- 'maxInstanceLifetime', 'updateAutoScalingGroup_maxInstanceLifetime' - The maximum amount of time, in seconds, that an instance can be in
--- service. The default is null. If specified, the value must be either 0
--- or a number equal to or greater than 86,400 seconds (1 day). To clear a
--- previously set value, specify a new value of 0. For more information,
--- see
--- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html Replacing Auto Scaling instances based on maximum instance lifetime>
+-- 'defaultCooldown', 'updateAutoScalingGroup_defaultCooldown' - /Only needed if you use simple scaling policies./
+--
+-- The amount of time, in seconds, between one scaling activity ending and
+-- another one starting due to simple scaling policies. For more
+-- information, see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html Scaling cooldowns for Amazon EC2 Auto Scaling>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
---
--- 'vPCZoneIdentifier', 'updateAutoScalingGroup_vPCZoneIdentifier' - A comma-separated list of subnet IDs for a virtual private cloud (VPC).
--- If you specify @VPCZoneIdentifier@ with @AvailabilityZones@, the subnets
--- that you specify must reside in those Availability Zones.
---
--- 'launchConfigurationName', 'updateAutoScalingGroup_launchConfigurationName' - The name of the launch configuration. If you specify
--- @LaunchConfigurationName@ in your update request, you can\'t specify
--- @LaunchTemplate@ or @MixedInstancesPolicy@.
 --
 -- 'defaultInstanceWarmup', 'updateAutoScalingGroup_defaultInstanceWarmup' - The amount of time, in seconds, until a newly launched instance can
 -- contribute to the Amazon CloudWatch metrics. This delay lets an instance
@@ -316,25 +294,10 @@ data UpdateAutoScalingGroup = UpdateAutoScalingGroup'
 -- keeping the default instance warmup enabled by specifying a minimum
 -- value of @0@.
 --
--- 'mixedInstancesPolicy', 'updateAutoScalingGroup_mixedInstancesPolicy' - The mixed instances policy. For more information, see
--- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html Auto Scaling groups with multiple instance types and purchase options>
--- in the /Amazon EC2 Auto Scaling User Guide/.
---
--- 'minSize', 'updateAutoScalingGroup_minSize' - The minimum size of the Auto Scaling group.
---
--- 'healthCheckType', 'updateAutoScalingGroup_healthCheckType' - The service to use for the health checks. The valid values are @EC2@ and
--- @ELB@. If you configure an Auto Scaling group to use @ELB@ health
--- checks, it considers the instance unhealthy if it fails either the EC2
--- status checks or the load balancer health checks.
---
--- 'placementGroup', 'updateAutoScalingGroup_placementGroup' - The name of an existing placement group into which to launch your
--- instances. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement groups>
--- in the /Amazon EC2 User Guide for Linux Instances/.
---
--- A /cluster/ placement group is a logical grouping of instances within a
--- single Availability Zone. You cannot specify multiple Availability Zones
--- and a cluster placement group.
+-- 'desiredCapacity', 'updateAutoScalingGroup_desiredCapacity' - The desired capacity is the initial capacity of the Auto Scaling group
+-- after this operation completes and the capacity it attempts to maintain.
+-- This number must be greater than or equal to the minimum size of the
+-- group and less than or equal to the maximum size of the group.
 --
 -- 'desiredCapacityType', 'updateAutoScalingGroup_desiredCapacityType' - The unit of measurement for the value specified for desired capacity.
 -- Amazon EC2 Auto Scaling supports @DesiredCapacityType@ for
@@ -347,18 +310,71 @@ data UpdateAutoScalingGroup = UpdateAutoScalingGroup'
 --
 -- Valid values: @units@ | @vcpu@ | @memory-mib@
 --
+-- 'healthCheckGracePeriod', 'updateAutoScalingGroup_healthCheckGracePeriod' - The amount of time, in seconds, that Amazon EC2 Auto Scaling waits
+-- before checking the health status of an EC2 instance that has come into
+-- service and marking it unhealthy due to a failed health check. This is
+-- useful if your instances do not immediately pass their health checks
+-- after they enter the @InService@ state. For more information, see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/health-check-grace-period.html Set the health check grace period for an Auto Scaling group>
+-- in the /Amazon EC2 Auto Scaling User Guide/.
+--
+-- 'healthCheckType', 'updateAutoScalingGroup_healthCheckType' - Determines whether any additional health checks are performed on the
+-- instances in this group. Amazon EC2 health checks are always on.
+--
+-- The valid values are @EC2@ (default), @ELB@, and @VPC_LATTICE@. The
+-- @VPC_LATTICE@ health check type is reserved for use with VPC Lattice,
+-- which is in preview release and is subject to change.
+--
+-- 'launchConfigurationName', 'updateAutoScalingGroup_launchConfigurationName' - The name of the launch configuration. If you specify
+-- @LaunchConfigurationName@ in your update request, you can\'t specify
+-- @LaunchTemplate@ or @MixedInstancesPolicy@.
+--
+-- 'launchTemplate', 'updateAutoScalingGroup_launchTemplate' - The launch template and version to use to specify the updates. If you
+-- specify @LaunchTemplate@ in your update request, you can\'t specify
+-- @LaunchConfigurationName@ or @MixedInstancesPolicy@.
+--
+-- 'maxInstanceLifetime', 'updateAutoScalingGroup_maxInstanceLifetime' - The maximum amount of time, in seconds, that an instance can be in
+-- service. The default is null. If specified, the value must be either 0
+-- or a number equal to or greater than 86,400 seconds (1 day). To clear a
+-- previously set value, specify a new value of 0. For more information,
+-- see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html Replacing Auto Scaling instances based on maximum instance lifetime>
+-- in the /Amazon EC2 Auto Scaling User Guide/.
+--
+-- 'maxSize', 'updateAutoScalingGroup_maxSize' - The maximum size of the Auto Scaling group.
+--
+-- With a mixed instances policy that uses instance weighting, Amazon EC2
+-- Auto Scaling may need to go above @MaxSize@ to meet your capacity
+-- requirements. In this event, Amazon EC2 Auto Scaling will never go above
+-- @MaxSize@ by more than your largest instance weight (weights that define
+-- how many units each instance contributes to the desired capacity of the
+-- group).
+--
+-- 'minSize', 'updateAutoScalingGroup_minSize' - The minimum size of the Auto Scaling group.
+--
+-- 'mixedInstancesPolicy', 'updateAutoScalingGroup_mixedInstancesPolicy' - The mixed instances policy. For more information, see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html Auto Scaling groups with multiple instance types and purchase options>
+-- in the /Amazon EC2 Auto Scaling User Guide/.
+--
 -- 'newInstancesProtectedFromScaleIn'', 'updateAutoScalingGroup_newInstancesProtectedFromScaleIn' - Indicates whether newly launched instances are protected from
 -- termination by Amazon EC2 Auto Scaling when scaling in. For more
 -- information about preventing instances from terminating on scale in, see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html Using instance scale-in protection>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
 --
--- 'defaultCooldown', 'updateAutoScalingGroup_defaultCooldown' - /Only needed if you use simple scaling policies./
+-- 'placementGroup', 'updateAutoScalingGroup_placementGroup' - The name of an existing placement group into which to launch your
+-- instances. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement groups>
+-- in the /Amazon EC2 User Guide for Linux Instances/.
 --
--- The amount of time, in seconds, between one scaling activity ending and
--- another one starting due to simple scaling policies. For more
--- information, see
--- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html Scaling cooldowns for Amazon EC2 Auto Scaling>
+-- A /cluster/ placement group is a logical grouping of instances within a
+-- single Availability Zone. You cannot specify multiple Availability Zones
+-- and a cluster placement group.
+--
+-- 'serviceLinkedRoleARN', 'updateAutoScalingGroup_serviceLinkedRoleARN' - The Amazon Resource Name (ARN) of the service-linked role that the Auto
+-- Scaling group uses to call other Amazon Web Services on your behalf. For
+-- more information, see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html Service-linked roles>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
 --
 -- 'terminationPolicies', 'updateAutoScalingGroup_terminationPolicies' - A policy or a list of policies that are used to select the instances to
@@ -372,23 +388,9 @@ data UpdateAutoScalingGroup = UpdateAutoScalingGroup'
 -- @OldestLaunchConfiguration@ | @OldestLaunchTemplate@ |
 -- @arn:aws:lambda:region:account-id:function:my-function:my-alias@
 --
--- 'maxSize', 'updateAutoScalingGroup_maxSize' - The maximum size of the Auto Scaling group.
---
--- With a mixed instances policy that uses instance weighting, Amazon EC2
--- Auto Scaling may need to go above @MaxSize@ to meet your capacity
--- requirements. In this event, Amazon EC2 Auto Scaling will never go above
--- @MaxSize@ by more than your largest instance weight (weights that define
--- how many units each instance contributes to the desired capacity of the
--- group).
---
--- 'desiredCapacity', 'updateAutoScalingGroup_desiredCapacity' - The desired capacity is the initial capacity of the Auto Scaling group
--- after this operation completes and the capacity it attempts to maintain.
--- This number must be greater than or equal to the minimum size of the
--- group and less than or equal to the maximum size of the group.
---
--- 'capacityRebalance', 'updateAutoScalingGroup_capacityRebalance' - Enables or disables Capacity Rebalancing. For more information, see
--- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions>
--- in the /Amazon EC2 Auto Scaling User Guide/.
+-- 'vPCZoneIdentifier', 'updateAutoScalingGroup_vPCZoneIdentifier' - A comma-separated list of subnet IDs for a virtual private cloud (VPC).
+-- If you specify @VPCZoneIdentifier@ with @AvailabilityZones@, the subnets
+-- that you specify must reside in those Availability Zones.
 --
 -- 'autoScalingGroupName', 'updateAutoScalingGroup_autoScalingGroupName' - The name of the Auto Scaling group.
 newUpdateAutoScalingGroup ::
@@ -399,25 +401,25 @@ newUpdateAutoScalingGroup pAutoScalingGroupName_ =
   UpdateAutoScalingGroup'
     { availabilityZones =
         Prelude.Nothing,
-      healthCheckGracePeriod = Prelude.Nothing,
-      launchTemplate = Prelude.Nothing,
-      serviceLinkedRoleARN = Prelude.Nothing,
-      context = Prelude.Nothing,
-      maxInstanceLifetime = Prelude.Nothing,
-      vPCZoneIdentifier = Prelude.Nothing,
-      launchConfigurationName = Prelude.Nothing,
-      defaultInstanceWarmup = Prelude.Nothing,
-      mixedInstancesPolicy = Prelude.Nothing,
-      minSize = Prelude.Nothing,
-      healthCheckType = Prelude.Nothing,
-      placementGroup = Prelude.Nothing,
-      desiredCapacityType = Prelude.Nothing,
-      newInstancesProtectedFromScaleIn' = Prelude.Nothing,
-      defaultCooldown = Prelude.Nothing,
-      terminationPolicies = Prelude.Nothing,
-      maxSize = Prelude.Nothing,
-      desiredCapacity = Prelude.Nothing,
       capacityRebalance = Prelude.Nothing,
+      context = Prelude.Nothing,
+      defaultCooldown = Prelude.Nothing,
+      defaultInstanceWarmup = Prelude.Nothing,
+      desiredCapacity = Prelude.Nothing,
+      desiredCapacityType = Prelude.Nothing,
+      healthCheckGracePeriod = Prelude.Nothing,
+      healthCheckType = Prelude.Nothing,
+      launchConfigurationName = Prelude.Nothing,
+      launchTemplate = Prelude.Nothing,
+      maxInstanceLifetime = Prelude.Nothing,
+      maxSize = Prelude.Nothing,
+      minSize = Prelude.Nothing,
+      mixedInstancesPolicy = Prelude.Nothing,
+      newInstancesProtectedFromScaleIn' = Prelude.Nothing,
+      placementGroup = Prelude.Nothing,
+      serviceLinkedRoleARN = Prelude.Nothing,
+      terminationPolicies = Prelude.Nothing,
+      vPCZoneIdentifier = Prelude.Nothing,
       autoScalingGroupName = pAutoScalingGroupName_
     }
 
@@ -425,56 +427,25 @@ newUpdateAutoScalingGroup pAutoScalingGroupName_ =
 updateAutoScalingGroup_availabilityZones :: Lens.Lens' UpdateAutoScalingGroup (Prelude.Maybe [Prelude.Text])
 updateAutoScalingGroup_availabilityZones = Lens.lens (\UpdateAutoScalingGroup' {availabilityZones} -> availabilityZones) (\s@UpdateAutoScalingGroup' {} a -> s {availabilityZones = a} :: UpdateAutoScalingGroup) Prelude.. Lens.mapping Lens.coerced
 
--- | The amount of time, in seconds, that Amazon EC2 Auto Scaling waits
--- before checking the health status of an EC2 instance that has come into
--- service and marking it unhealthy due to a failed Elastic Load Balancing
--- or custom health check. This is useful if your instances do not
--- immediately pass these health checks after they enter the @InService@
--- state. For more information, see
--- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/health-check-grace-period.html Set the health check grace period for an Auto Scaling group>
+-- | Enables or disables Capacity Rebalancing. For more information, see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
-updateAutoScalingGroup_healthCheckGracePeriod :: Lens.Lens' UpdateAutoScalingGroup (Prelude.Maybe Prelude.Int)
-updateAutoScalingGroup_healthCheckGracePeriod = Lens.lens (\UpdateAutoScalingGroup' {healthCheckGracePeriod} -> healthCheckGracePeriod) (\s@UpdateAutoScalingGroup' {} a -> s {healthCheckGracePeriod = a} :: UpdateAutoScalingGroup)
-
--- | The launch template and version to use to specify the updates. If you
--- specify @LaunchTemplate@ in your update request, you can\'t specify
--- @LaunchConfigurationName@ or @MixedInstancesPolicy@.
-updateAutoScalingGroup_launchTemplate :: Lens.Lens' UpdateAutoScalingGroup (Prelude.Maybe LaunchTemplateSpecification)
-updateAutoScalingGroup_launchTemplate = Lens.lens (\UpdateAutoScalingGroup' {launchTemplate} -> launchTemplate) (\s@UpdateAutoScalingGroup' {} a -> s {launchTemplate = a} :: UpdateAutoScalingGroup)
-
--- | The Amazon Resource Name (ARN) of the service-linked role that the Auto
--- Scaling group uses to call other Amazon Web Services on your behalf. For
--- more information, see
--- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html Service-linked roles>
--- in the /Amazon EC2 Auto Scaling User Guide/.
-updateAutoScalingGroup_serviceLinkedRoleARN :: Lens.Lens' UpdateAutoScalingGroup (Prelude.Maybe Prelude.Text)
-updateAutoScalingGroup_serviceLinkedRoleARN = Lens.lens (\UpdateAutoScalingGroup' {serviceLinkedRoleARN} -> serviceLinkedRoleARN) (\s@UpdateAutoScalingGroup' {} a -> s {serviceLinkedRoleARN = a} :: UpdateAutoScalingGroup)
+updateAutoScalingGroup_capacityRebalance :: Lens.Lens' UpdateAutoScalingGroup (Prelude.Maybe Prelude.Bool)
+updateAutoScalingGroup_capacityRebalance = Lens.lens (\UpdateAutoScalingGroup' {capacityRebalance} -> capacityRebalance) (\s@UpdateAutoScalingGroup' {} a -> s {capacityRebalance = a} :: UpdateAutoScalingGroup)
 
 -- | Reserved.
 updateAutoScalingGroup_context :: Lens.Lens' UpdateAutoScalingGroup (Prelude.Maybe Prelude.Text)
 updateAutoScalingGroup_context = Lens.lens (\UpdateAutoScalingGroup' {context} -> context) (\s@UpdateAutoScalingGroup' {} a -> s {context = a} :: UpdateAutoScalingGroup)
 
--- | The maximum amount of time, in seconds, that an instance can be in
--- service. The default is null. If specified, the value must be either 0
--- or a number equal to or greater than 86,400 seconds (1 day). To clear a
--- previously set value, specify a new value of 0. For more information,
--- see
--- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html Replacing Auto Scaling instances based on maximum instance lifetime>
+-- | /Only needed if you use simple scaling policies./
+--
+-- The amount of time, in seconds, between one scaling activity ending and
+-- another one starting due to simple scaling policies. For more
+-- information, see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html Scaling cooldowns for Amazon EC2 Auto Scaling>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
-updateAutoScalingGroup_maxInstanceLifetime :: Lens.Lens' UpdateAutoScalingGroup (Prelude.Maybe Prelude.Int)
-updateAutoScalingGroup_maxInstanceLifetime = Lens.lens (\UpdateAutoScalingGroup' {maxInstanceLifetime} -> maxInstanceLifetime) (\s@UpdateAutoScalingGroup' {} a -> s {maxInstanceLifetime = a} :: UpdateAutoScalingGroup)
-
--- | A comma-separated list of subnet IDs for a virtual private cloud (VPC).
--- If you specify @VPCZoneIdentifier@ with @AvailabilityZones@, the subnets
--- that you specify must reside in those Availability Zones.
-updateAutoScalingGroup_vPCZoneIdentifier :: Lens.Lens' UpdateAutoScalingGroup (Prelude.Maybe Prelude.Text)
-updateAutoScalingGroup_vPCZoneIdentifier = Lens.lens (\UpdateAutoScalingGroup' {vPCZoneIdentifier} -> vPCZoneIdentifier) (\s@UpdateAutoScalingGroup' {} a -> s {vPCZoneIdentifier = a} :: UpdateAutoScalingGroup)
-
--- | The name of the launch configuration. If you specify
--- @LaunchConfigurationName@ in your update request, you can\'t specify
--- @LaunchTemplate@ or @MixedInstancesPolicy@.
-updateAutoScalingGroup_launchConfigurationName :: Lens.Lens' UpdateAutoScalingGroup (Prelude.Maybe Prelude.Text)
-updateAutoScalingGroup_launchConfigurationName = Lens.lens (\UpdateAutoScalingGroup' {launchConfigurationName} -> launchConfigurationName) (\s@UpdateAutoScalingGroup' {} a -> s {launchConfigurationName = a} :: UpdateAutoScalingGroup)
+updateAutoScalingGroup_defaultCooldown :: Lens.Lens' UpdateAutoScalingGroup (Prelude.Maybe Prelude.Int)
+updateAutoScalingGroup_defaultCooldown = Lens.lens (\UpdateAutoScalingGroup' {defaultCooldown} -> defaultCooldown) (\s@UpdateAutoScalingGroup' {} a -> s {defaultCooldown = a} :: UpdateAutoScalingGroup)
 
 -- | The amount of time, in seconds, until a newly launched instance can
 -- contribute to the Amazon CloudWatch metrics. This delay lets an instance
@@ -498,33 +469,12 @@ updateAutoScalingGroup_launchConfigurationName = Lens.lens (\UpdateAutoScalingGr
 updateAutoScalingGroup_defaultInstanceWarmup :: Lens.Lens' UpdateAutoScalingGroup (Prelude.Maybe Prelude.Int)
 updateAutoScalingGroup_defaultInstanceWarmup = Lens.lens (\UpdateAutoScalingGroup' {defaultInstanceWarmup} -> defaultInstanceWarmup) (\s@UpdateAutoScalingGroup' {} a -> s {defaultInstanceWarmup = a} :: UpdateAutoScalingGroup)
 
--- | The mixed instances policy. For more information, see
--- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html Auto Scaling groups with multiple instance types and purchase options>
--- in the /Amazon EC2 Auto Scaling User Guide/.
-updateAutoScalingGroup_mixedInstancesPolicy :: Lens.Lens' UpdateAutoScalingGroup (Prelude.Maybe MixedInstancesPolicy)
-updateAutoScalingGroup_mixedInstancesPolicy = Lens.lens (\UpdateAutoScalingGroup' {mixedInstancesPolicy} -> mixedInstancesPolicy) (\s@UpdateAutoScalingGroup' {} a -> s {mixedInstancesPolicy = a} :: UpdateAutoScalingGroup)
-
--- | The minimum size of the Auto Scaling group.
-updateAutoScalingGroup_minSize :: Lens.Lens' UpdateAutoScalingGroup (Prelude.Maybe Prelude.Int)
-updateAutoScalingGroup_minSize = Lens.lens (\UpdateAutoScalingGroup' {minSize} -> minSize) (\s@UpdateAutoScalingGroup' {} a -> s {minSize = a} :: UpdateAutoScalingGroup)
-
--- | The service to use for the health checks. The valid values are @EC2@ and
--- @ELB@. If you configure an Auto Scaling group to use @ELB@ health
--- checks, it considers the instance unhealthy if it fails either the EC2
--- status checks or the load balancer health checks.
-updateAutoScalingGroup_healthCheckType :: Lens.Lens' UpdateAutoScalingGroup (Prelude.Maybe Prelude.Text)
-updateAutoScalingGroup_healthCheckType = Lens.lens (\UpdateAutoScalingGroup' {healthCheckType} -> healthCheckType) (\s@UpdateAutoScalingGroup' {} a -> s {healthCheckType = a} :: UpdateAutoScalingGroup)
-
--- | The name of an existing placement group into which to launch your
--- instances. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement groups>
--- in the /Amazon EC2 User Guide for Linux Instances/.
---
--- A /cluster/ placement group is a logical grouping of instances within a
--- single Availability Zone. You cannot specify multiple Availability Zones
--- and a cluster placement group.
-updateAutoScalingGroup_placementGroup :: Lens.Lens' UpdateAutoScalingGroup (Prelude.Maybe Prelude.Text)
-updateAutoScalingGroup_placementGroup = Lens.lens (\UpdateAutoScalingGroup' {placementGroup} -> placementGroup) (\s@UpdateAutoScalingGroup' {} a -> s {placementGroup = a} :: UpdateAutoScalingGroup)
+-- | The desired capacity is the initial capacity of the Auto Scaling group
+-- after this operation completes and the capacity it attempts to maintain.
+-- This number must be greater than or equal to the minimum size of the
+-- group and less than or equal to the maximum size of the group.
+updateAutoScalingGroup_desiredCapacity :: Lens.Lens' UpdateAutoScalingGroup (Prelude.Maybe Prelude.Int)
+updateAutoScalingGroup_desiredCapacity = Lens.lens (\UpdateAutoScalingGroup' {desiredCapacity} -> desiredCapacity) (\s@UpdateAutoScalingGroup' {} a -> s {desiredCapacity = a} :: UpdateAutoScalingGroup)
 
 -- | The unit of measurement for the value specified for desired capacity.
 -- Amazon EC2 Auto Scaling supports @DesiredCapacityType@ for
@@ -539,6 +489,68 @@ updateAutoScalingGroup_placementGroup = Lens.lens (\UpdateAutoScalingGroup' {pla
 updateAutoScalingGroup_desiredCapacityType :: Lens.Lens' UpdateAutoScalingGroup (Prelude.Maybe Prelude.Text)
 updateAutoScalingGroup_desiredCapacityType = Lens.lens (\UpdateAutoScalingGroup' {desiredCapacityType} -> desiredCapacityType) (\s@UpdateAutoScalingGroup' {} a -> s {desiredCapacityType = a} :: UpdateAutoScalingGroup)
 
+-- | The amount of time, in seconds, that Amazon EC2 Auto Scaling waits
+-- before checking the health status of an EC2 instance that has come into
+-- service and marking it unhealthy due to a failed health check. This is
+-- useful if your instances do not immediately pass their health checks
+-- after they enter the @InService@ state. For more information, see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/health-check-grace-period.html Set the health check grace period for an Auto Scaling group>
+-- in the /Amazon EC2 Auto Scaling User Guide/.
+updateAutoScalingGroup_healthCheckGracePeriod :: Lens.Lens' UpdateAutoScalingGroup (Prelude.Maybe Prelude.Int)
+updateAutoScalingGroup_healthCheckGracePeriod = Lens.lens (\UpdateAutoScalingGroup' {healthCheckGracePeriod} -> healthCheckGracePeriod) (\s@UpdateAutoScalingGroup' {} a -> s {healthCheckGracePeriod = a} :: UpdateAutoScalingGroup)
+
+-- | Determines whether any additional health checks are performed on the
+-- instances in this group. Amazon EC2 health checks are always on.
+--
+-- The valid values are @EC2@ (default), @ELB@, and @VPC_LATTICE@. The
+-- @VPC_LATTICE@ health check type is reserved for use with VPC Lattice,
+-- which is in preview release and is subject to change.
+updateAutoScalingGroup_healthCheckType :: Lens.Lens' UpdateAutoScalingGroup (Prelude.Maybe Prelude.Text)
+updateAutoScalingGroup_healthCheckType = Lens.lens (\UpdateAutoScalingGroup' {healthCheckType} -> healthCheckType) (\s@UpdateAutoScalingGroup' {} a -> s {healthCheckType = a} :: UpdateAutoScalingGroup)
+
+-- | The name of the launch configuration. If you specify
+-- @LaunchConfigurationName@ in your update request, you can\'t specify
+-- @LaunchTemplate@ or @MixedInstancesPolicy@.
+updateAutoScalingGroup_launchConfigurationName :: Lens.Lens' UpdateAutoScalingGroup (Prelude.Maybe Prelude.Text)
+updateAutoScalingGroup_launchConfigurationName = Lens.lens (\UpdateAutoScalingGroup' {launchConfigurationName} -> launchConfigurationName) (\s@UpdateAutoScalingGroup' {} a -> s {launchConfigurationName = a} :: UpdateAutoScalingGroup)
+
+-- | The launch template and version to use to specify the updates. If you
+-- specify @LaunchTemplate@ in your update request, you can\'t specify
+-- @LaunchConfigurationName@ or @MixedInstancesPolicy@.
+updateAutoScalingGroup_launchTemplate :: Lens.Lens' UpdateAutoScalingGroup (Prelude.Maybe LaunchTemplateSpecification)
+updateAutoScalingGroup_launchTemplate = Lens.lens (\UpdateAutoScalingGroup' {launchTemplate} -> launchTemplate) (\s@UpdateAutoScalingGroup' {} a -> s {launchTemplate = a} :: UpdateAutoScalingGroup)
+
+-- | The maximum amount of time, in seconds, that an instance can be in
+-- service. The default is null. If specified, the value must be either 0
+-- or a number equal to or greater than 86,400 seconds (1 day). To clear a
+-- previously set value, specify a new value of 0. For more information,
+-- see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html Replacing Auto Scaling instances based on maximum instance lifetime>
+-- in the /Amazon EC2 Auto Scaling User Guide/.
+updateAutoScalingGroup_maxInstanceLifetime :: Lens.Lens' UpdateAutoScalingGroup (Prelude.Maybe Prelude.Int)
+updateAutoScalingGroup_maxInstanceLifetime = Lens.lens (\UpdateAutoScalingGroup' {maxInstanceLifetime} -> maxInstanceLifetime) (\s@UpdateAutoScalingGroup' {} a -> s {maxInstanceLifetime = a} :: UpdateAutoScalingGroup)
+
+-- | The maximum size of the Auto Scaling group.
+--
+-- With a mixed instances policy that uses instance weighting, Amazon EC2
+-- Auto Scaling may need to go above @MaxSize@ to meet your capacity
+-- requirements. In this event, Amazon EC2 Auto Scaling will never go above
+-- @MaxSize@ by more than your largest instance weight (weights that define
+-- how many units each instance contributes to the desired capacity of the
+-- group).
+updateAutoScalingGroup_maxSize :: Lens.Lens' UpdateAutoScalingGroup (Prelude.Maybe Prelude.Int)
+updateAutoScalingGroup_maxSize = Lens.lens (\UpdateAutoScalingGroup' {maxSize} -> maxSize) (\s@UpdateAutoScalingGroup' {} a -> s {maxSize = a} :: UpdateAutoScalingGroup)
+
+-- | The minimum size of the Auto Scaling group.
+updateAutoScalingGroup_minSize :: Lens.Lens' UpdateAutoScalingGroup (Prelude.Maybe Prelude.Int)
+updateAutoScalingGroup_minSize = Lens.lens (\UpdateAutoScalingGroup' {minSize} -> minSize) (\s@UpdateAutoScalingGroup' {} a -> s {minSize = a} :: UpdateAutoScalingGroup)
+
+-- | The mixed instances policy. For more information, see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html Auto Scaling groups with multiple instance types and purchase options>
+-- in the /Amazon EC2 Auto Scaling User Guide/.
+updateAutoScalingGroup_mixedInstancesPolicy :: Lens.Lens' UpdateAutoScalingGroup (Prelude.Maybe MixedInstancesPolicy)
+updateAutoScalingGroup_mixedInstancesPolicy = Lens.lens (\UpdateAutoScalingGroup' {mixedInstancesPolicy} -> mixedInstancesPolicy) (\s@UpdateAutoScalingGroup' {} a -> s {mixedInstancesPolicy = a} :: UpdateAutoScalingGroup)
+
 -- | Indicates whether newly launched instances are protected from
 -- termination by Amazon EC2 Auto Scaling when scaling in. For more
 -- information about preventing instances from terminating on scale in, see
@@ -547,15 +559,24 @@ updateAutoScalingGroup_desiredCapacityType = Lens.lens (\UpdateAutoScalingGroup'
 updateAutoScalingGroup_newInstancesProtectedFromScaleIn :: Lens.Lens' UpdateAutoScalingGroup (Prelude.Maybe Prelude.Bool)
 updateAutoScalingGroup_newInstancesProtectedFromScaleIn = Lens.lens (\UpdateAutoScalingGroup' {newInstancesProtectedFromScaleIn'} -> newInstancesProtectedFromScaleIn') (\s@UpdateAutoScalingGroup' {} a -> s {newInstancesProtectedFromScaleIn' = a} :: UpdateAutoScalingGroup)
 
--- | /Only needed if you use simple scaling policies./
+-- | The name of an existing placement group into which to launch your
+-- instances. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement groups>
+-- in the /Amazon EC2 User Guide for Linux Instances/.
 --
--- The amount of time, in seconds, between one scaling activity ending and
--- another one starting due to simple scaling policies. For more
--- information, see
--- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html Scaling cooldowns for Amazon EC2 Auto Scaling>
+-- A /cluster/ placement group is a logical grouping of instances within a
+-- single Availability Zone. You cannot specify multiple Availability Zones
+-- and a cluster placement group.
+updateAutoScalingGroup_placementGroup :: Lens.Lens' UpdateAutoScalingGroup (Prelude.Maybe Prelude.Text)
+updateAutoScalingGroup_placementGroup = Lens.lens (\UpdateAutoScalingGroup' {placementGroup} -> placementGroup) (\s@UpdateAutoScalingGroup' {} a -> s {placementGroup = a} :: UpdateAutoScalingGroup)
+
+-- | The Amazon Resource Name (ARN) of the service-linked role that the Auto
+-- Scaling group uses to call other Amazon Web Services on your behalf. For
+-- more information, see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html Service-linked roles>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
-updateAutoScalingGroup_defaultCooldown :: Lens.Lens' UpdateAutoScalingGroup (Prelude.Maybe Prelude.Int)
-updateAutoScalingGroup_defaultCooldown = Lens.lens (\UpdateAutoScalingGroup' {defaultCooldown} -> defaultCooldown) (\s@UpdateAutoScalingGroup' {} a -> s {defaultCooldown = a} :: UpdateAutoScalingGroup)
+updateAutoScalingGroup_serviceLinkedRoleARN :: Lens.Lens' UpdateAutoScalingGroup (Prelude.Maybe Prelude.Text)
+updateAutoScalingGroup_serviceLinkedRoleARN = Lens.lens (\UpdateAutoScalingGroup' {serviceLinkedRoleARN} -> serviceLinkedRoleARN) (\s@UpdateAutoScalingGroup' {} a -> s {serviceLinkedRoleARN = a} :: UpdateAutoScalingGroup)
 
 -- | A policy or a list of policies that are used to select the instances to
 -- terminate. The policies are executed in the order that you list them.
@@ -570,29 +591,11 @@ updateAutoScalingGroup_defaultCooldown = Lens.lens (\UpdateAutoScalingGroup' {de
 updateAutoScalingGroup_terminationPolicies :: Lens.Lens' UpdateAutoScalingGroup (Prelude.Maybe [Prelude.Text])
 updateAutoScalingGroup_terminationPolicies = Lens.lens (\UpdateAutoScalingGroup' {terminationPolicies} -> terminationPolicies) (\s@UpdateAutoScalingGroup' {} a -> s {terminationPolicies = a} :: UpdateAutoScalingGroup) Prelude.. Lens.mapping Lens.coerced
 
--- | The maximum size of the Auto Scaling group.
---
--- With a mixed instances policy that uses instance weighting, Amazon EC2
--- Auto Scaling may need to go above @MaxSize@ to meet your capacity
--- requirements. In this event, Amazon EC2 Auto Scaling will never go above
--- @MaxSize@ by more than your largest instance weight (weights that define
--- how many units each instance contributes to the desired capacity of the
--- group).
-updateAutoScalingGroup_maxSize :: Lens.Lens' UpdateAutoScalingGroup (Prelude.Maybe Prelude.Int)
-updateAutoScalingGroup_maxSize = Lens.lens (\UpdateAutoScalingGroup' {maxSize} -> maxSize) (\s@UpdateAutoScalingGroup' {} a -> s {maxSize = a} :: UpdateAutoScalingGroup)
-
--- | The desired capacity is the initial capacity of the Auto Scaling group
--- after this operation completes and the capacity it attempts to maintain.
--- This number must be greater than or equal to the minimum size of the
--- group and less than or equal to the maximum size of the group.
-updateAutoScalingGroup_desiredCapacity :: Lens.Lens' UpdateAutoScalingGroup (Prelude.Maybe Prelude.Int)
-updateAutoScalingGroup_desiredCapacity = Lens.lens (\UpdateAutoScalingGroup' {desiredCapacity} -> desiredCapacity) (\s@UpdateAutoScalingGroup' {} a -> s {desiredCapacity = a} :: UpdateAutoScalingGroup)
-
--- | Enables or disables Capacity Rebalancing. For more information, see
--- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions>
--- in the /Amazon EC2 Auto Scaling User Guide/.
-updateAutoScalingGroup_capacityRebalance :: Lens.Lens' UpdateAutoScalingGroup (Prelude.Maybe Prelude.Bool)
-updateAutoScalingGroup_capacityRebalance = Lens.lens (\UpdateAutoScalingGroup' {capacityRebalance} -> capacityRebalance) (\s@UpdateAutoScalingGroup' {} a -> s {capacityRebalance = a} :: UpdateAutoScalingGroup)
+-- | A comma-separated list of subnet IDs for a virtual private cloud (VPC).
+-- If you specify @VPCZoneIdentifier@ with @AvailabilityZones@, the subnets
+-- that you specify must reside in those Availability Zones.
+updateAutoScalingGroup_vPCZoneIdentifier :: Lens.Lens' UpdateAutoScalingGroup (Prelude.Maybe Prelude.Text)
+updateAutoScalingGroup_vPCZoneIdentifier = Lens.lens (\UpdateAutoScalingGroup' {vPCZoneIdentifier} -> vPCZoneIdentifier) (\s@UpdateAutoScalingGroup' {} a -> s {vPCZoneIdentifier = a} :: UpdateAutoScalingGroup)
 
 -- | The name of the Auto Scaling group.
 updateAutoScalingGroup_autoScalingGroupName :: Lens.Lens' UpdateAutoScalingGroup Prelude.Text
@@ -611,50 +614,50 @@ instance Core.AWSRequest UpdateAutoScalingGroup where
 instance Prelude.Hashable UpdateAutoScalingGroup where
   hashWithSalt _salt UpdateAutoScalingGroup' {..} =
     _salt `Prelude.hashWithSalt` availabilityZones
-      `Prelude.hashWithSalt` healthCheckGracePeriod
-      `Prelude.hashWithSalt` launchTemplate
-      `Prelude.hashWithSalt` serviceLinkedRoleARN
-      `Prelude.hashWithSalt` context
-      `Prelude.hashWithSalt` maxInstanceLifetime
-      `Prelude.hashWithSalt` vPCZoneIdentifier
-      `Prelude.hashWithSalt` launchConfigurationName
-      `Prelude.hashWithSalt` defaultInstanceWarmup
-      `Prelude.hashWithSalt` mixedInstancesPolicy
-      `Prelude.hashWithSalt` minSize
-      `Prelude.hashWithSalt` healthCheckType
-      `Prelude.hashWithSalt` placementGroup
-      `Prelude.hashWithSalt` desiredCapacityType
-      `Prelude.hashWithSalt` newInstancesProtectedFromScaleIn'
-      `Prelude.hashWithSalt` defaultCooldown
-      `Prelude.hashWithSalt` terminationPolicies
-      `Prelude.hashWithSalt` maxSize
-      `Prelude.hashWithSalt` desiredCapacity
       `Prelude.hashWithSalt` capacityRebalance
+      `Prelude.hashWithSalt` context
+      `Prelude.hashWithSalt` defaultCooldown
+      `Prelude.hashWithSalt` defaultInstanceWarmup
+      `Prelude.hashWithSalt` desiredCapacity
+      `Prelude.hashWithSalt` desiredCapacityType
+      `Prelude.hashWithSalt` healthCheckGracePeriod
+      `Prelude.hashWithSalt` healthCheckType
+      `Prelude.hashWithSalt` launchConfigurationName
+      `Prelude.hashWithSalt` launchTemplate
+      `Prelude.hashWithSalt` maxInstanceLifetime
+      `Prelude.hashWithSalt` maxSize
+      `Prelude.hashWithSalt` minSize
+      `Prelude.hashWithSalt` mixedInstancesPolicy
+      `Prelude.hashWithSalt` newInstancesProtectedFromScaleIn'
+      `Prelude.hashWithSalt` placementGroup
+      `Prelude.hashWithSalt` serviceLinkedRoleARN
+      `Prelude.hashWithSalt` terminationPolicies
+      `Prelude.hashWithSalt` vPCZoneIdentifier
       `Prelude.hashWithSalt` autoScalingGroupName
 
 instance Prelude.NFData UpdateAutoScalingGroup where
   rnf UpdateAutoScalingGroup' {..} =
     Prelude.rnf availabilityZones
-      `Prelude.seq` Prelude.rnf healthCheckGracePeriod
-      `Prelude.seq` Prelude.rnf launchTemplate
-      `Prelude.seq` Prelude.rnf serviceLinkedRoleARN
+      `Prelude.seq` Prelude.rnf capacityRebalance
       `Prelude.seq` Prelude.rnf context
-      `Prelude.seq` Prelude.rnf maxInstanceLifetime
-      `Prelude.seq` Prelude.rnf vPCZoneIdentifier
-      `Prelude.seq` Prelude.rnf launchConfigurationName
+      `Prelude.seq` Prelude.rnf defaultCooldown
       `Prelude.seq` Prelude.rnf defaultInstanceWarmup
-      `Prelude.seq` Prelude.rnf mixedInstancesPolicy
-      `Prelude.seq` Prelude.rnf minSize
-      `Prelude.seq` Prelude.rnf healthCheckType
-      `Prelude.seq` Prelude.rnf placementGroup
+      `Prelude.seq` Prelude.rnf desiredCapacity
       `Prelude.seq` Prelude.rnf desiredCapacityType
+      `Prelude.seq` Prelude.rnf healthCheckGracePeriod
+      `Prelude.seq` Prelude.rnf healthCheckType
+      `Prelude.seq` Prelude.rnf launchConfigurationName
+      `Prelude.seq` Prelude.rnf launchTemplate
+      `Prelude.seq` Prelude.rnf maxInstanceLifetime
+      `Prelude.seq` Prelude.rnf maxSize
+      `Prelude.seq` Prelude.rnf minSize
+      `Prelude.seq` Prelude.rnf mixedInstancesPolicy
       `Prelude.seq` Prelude.rnf
         newInstancesProtectedFromScaleIn'
-      `Prelude.seq` Prelude.rnf defaultCooldown
+      `Prelude.seq` Prelude.rnf placementGroup
+      `Prelude.seq` Prelude.rnf serviceLinkedRoleARN
       `Prelude.seq` Prelude.rnf terminationPolicies
-      `Prelude.seq` Prelude.rnf maxSize
-      `Prelude.seq` Prelude.rnf desiredCapacity
-      `Prelude.seq` Prelude.rnf capacityRebalance
+      `Prelude.seq` Prelude.rnf vPCZoneIdentifier
       `Prelude.seq` Prelude.rnf
         autoScalingGroupName
 
@@ -676,33 +679,33 @@ instance Data.ToQuery UpdateAutoScalingGroup where
             ( Data.toQueryList "member"
                 Prelude.<$> availabilityZones
             ),
-        "HealthCheckGracePeriod"
-          Data.=: healthCheckGracePeriod,
-        "LaunchTemplate" Data.=: launchTemplate,
-        "ServiceLinkedRoleARN" Data.=: serviceLinkedRoleARN,
+        "CapacityRebalance" Data.=: capacityRebalance,
         "Context" Data.=: context,
-        "MaxInstanceLifetime" Data.=: maxInstanceLifetime,
-        "VPCZoneIdentifier" Data.=: vPCZoneIdentifier,
-        "LaunchConfigurationName"
-          Data.=: launchConfigurationName,
+        "DefaultCooldown" Data.=: defaultCooldown,
         "DefaultInstanceWarmup"
           Data.=: defaultInstanceWarmup,
-        "MixedInstancesPolicy" Data.=: mixedInstancesPolicy,
-        "MinSize" Data.=: minSize,
-        "HealthCheckType" Data.=: healthCheckType,
-        "PlacementGroup" Data.=: placementGroup,
+        "DesiredCapacity" Data.=: desiredCapacity,
         "DesiredCapacityType" Data.=: desiredCapacityType,
+        "HealthCheckGracePeriod"
+          Data.=: healthCheckGracePeriod,
+        "HealthCheckType" Data.=: healthCheckType,
+        "LaunchConfigurationName"
+          Data.=: launchConfigurationName,
+        "LaunchTemplate" Data.=: launchTemplate,
+        "MaxInstanceLifetime" Data.=: maxInstanceLifetime,
+        "MaxSize" Data.=: maxSize,
+        "MinSize" Data.=: minSize,
+        "MixedInstancesPolicy" Data.=: mixedInstancesPolicy,
         "NewInstancesProtectedFromScaleIn"
           Data.=: newInstancesProtectedFromScaleIn',
-        "DefaultCooldown" Data.=: defaultCooldown,
+        "PlacementGroup" Data.=: placementGroup,
+        "ServiceLinkedRoleARN" Data.=: serviceLinkedRoleARN,
         "TerminationPolicies"
           Data.=: Data.toQuery
             ( Data.toQueryList "member"
                 Prelude.<$> terminationPolicies
             ),
-        "MaxSize" Data.=: maxSize,
-        "DesiredCapacity" Data.=: desiredCapacity,
-        "CapacityRebalance" Data.=: capacityRebalance,
+        "VPCZoneIdentifier" Data.=: vPCZoneIdentifier,
         "AutoScalingGroupName" Data.=: autoScalingGroupName
       ]
 

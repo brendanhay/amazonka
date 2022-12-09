@@ -33,7 +33,25 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLifecycleHookSpecification' smart constructor.
 data LifecycleHookSpecification = LifecycleHookSpecification'
-  { -- | The ARN of the IAM role that allows the Auto Scaling group to publish to
+  { -- | The action the Auto Scaling group takes when the lifecycle hook timeout
+    -- elapses or if an unexpected failure occurs. The default value is
+    -- @ABANDON@.
+    --
+    -- Valid values: @CONTINUE@ | @ABANDON@
+    defaultResult :: Prelude.Maybe Prelude.Text,
+    -- | The maximum time, in seconds, that can elapse before the lifecycle hook
+    -- times out. The range is from @30@ to @7200@ seconds. The default value
+    -- is @3600@ seconds (1 hour).
+    heartbeatTimeout :: Prelude.Maybe Prelude.Int,
+    -- | Additional information that you want to include any time Amazon EC2 Auto
+    -- Scaling sends a message to the notification target.
+    notificationMetadata :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the notification target that Amazon
+    -- EC2 Auto Scaling sends notifications to when an instance is in a wait
+    -- state for the lifecycle hook. You can specify an Amazon SNS topic or an
+    -- Amazon SQS queue.
+    notificationTargetARN :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the IAM role that allows the Auto Scaling group to publish to
     -- the specified notification target. For information about creating this
     -- role, see
     -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/prepare-for-lifecycle-notifications.html#lifecycle-hook-notification-target Configure a notification target for a lifecycle hook>
@@ -42,24 +60,6 @@ data LifecycleHookSpecification = LifecycleHookSpecification'
     -- Valid only if the notification target is an Amazon SNS topic or an
     -- Amazon SQS queue.
     roleARN :: Prelude.Maybe Prelude.Text,
-    -- | Additional information that you want to include any time Amazon EC2 Auto
-    -- Scaling sends a message to the notification target.
-    notificationMetadata :: Prelude.Maybe Prelude.Text,
-    -- | The action the Auto Scaling group takes when the lifecycle hook timeout
-    -- elapses or if an unexpected failure occurs. The default value is
-    -- @ABANDON@.
-    --
-    -- Valid values: @CONTINUE@ | @ABANDON@
-    defaultResult :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the notification target that Amazon
-    -- EC2 Auto Scaling sends notifications to when an instance is in a wait
-    -- state for the lifecycle hook. You can specify an Amazon SNS topic or an
-    -- Amazon SQS queue.
-    notificationTargetARN :: Prelude.Maybe Prelude.Text,
-    -- | The maximum time, in seconds, that can elapse before the lifecycle hook
-    -- times out. The range is from @30@ to @7200@ seconds. The default value
-    -- is @3600@ seconds (1 hour).
-    heartbeatTimeout :: Prelude.Maybe Prelude.Int,
     -- | The name of the lifecycle hook.
     lifecycleHookName :: Prelude.Text,
     -- | The lifecycle transition. For Auto Scaling groups, there are two major
@@ -82,6 +82,24 @@ data LifecycleHookSpecification = LifecycleHookSpecification'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'defaultResult', 'lifecycleHookSpecification_defaultResult' - The action the Auto Scaling group takes when the lifecycle hook timeout
+-- elapses or if an unexpected failure occurs. The default value is
+-- @ABANDON@.
+--
+-- Valid values: @CONTINUE@ | @ABANDON@
+--
+-- 'heartbeatTimeout', 'lifecycleHookSpecification_heartbeatTimeout' - The maximum time, in seconds, that can elapse before the lifecycle hook
+-- times out. The range is from @30@ to @7200@ seconds. The default value
+-- is @3600@ seconds (1 hour).
+--
+-- 'notificationMetadata', 'lifecycleHookSpecification_notificationMetadata' - Additional information that you want to include any time Amazon EC2 Auto
+-- Scaling sends a message to the notification target.
+--
+-- 'notificationTargetARN', 'lifecycleHookSpecification_notificationTargetARN' - The Amazon Resource Name (ARN) of the notification target that Amazon
+-- EC2 Auto Scaling sends notifications to when an instance is in a wait
+-- state for the lifecycle hook. You can specify an Amazon SNS topic or an
+-- Amazon SQS queue.
+--
 -- 'roleARN', 'lifecycleHookSpecification_roleARN' - The ARN of the IAM role that allows the Auto Scaling group to publish to
 -- the specified notification target. For information about creating this
 -- role, see
@@ -90,24 +108,6 @@ data LifecycleHookSpecification = LifecycleHookSpecification'
 --
 -- Valid only if the notification target is an Amazon SNS topic or an
 -- Amazon SQS queue.
---
--- 'notificationMetadata', 'lifecycleHookSpecification_notificationMetadata' - Additional information that you want to include any time Amazon EC2 Auto
--- Scaling sends a message to the notification target.
---
--- 'defaultResult', 'lifecycleHookSpecification_defaultResult' - The action the Auto Scaling group takes when the lifecycle hook timeout
--- elapses or if an unexpected failure occurs. The default value is
--- @ABANDON@.
---
--- Valid values: @CONTINUE@ | @ABANDON@
---
--- 'notificationTargetARN', 'lifecycleHookSpecification_notificationTargetARN' - The Amazon Resource Name (ARN) of the notification target that Amazon
--- EC2 Auto Scaling sends notifications to when an instance is in a wait
--- state for the lifecycle hook. You can specify an Amazon SNS topic or an
--- Amazon SQS queue.
---
--- 'heartbeatTimeout', 'lifecycleHookSpecification_heartbeatTimeout' - The maximum time, in seconds, that can elapse before the lifecycle hook
--- times out. The range is from @30@ to @7200@ seconds. The default value
--- is @3600@ seconds (1 hour).
 --
 -- 'lifecycleHookName', 'lifecycleHookSpecification_lifecycleHookName' - The name of the lifecycle hook.
 --
@@ -129,15 +129,41 @@ newLifecycleHookSpecification
   pLifecycleHookName_
   pLifecycleTransition_ =
     LifecycleHookSpecification'
-      { roleARN =
+      { defaultResult =
           Prelude.Nothing,
-        notificationMetadata = Prelude.Nothing,
-        defaultResult = Prelude.Nothing,
-        notificationTargetARN = Prelude.Nothing,
         heartbeatTimeout = Prelude.Nothing,
+        notificationMetadata = Prelude.Nothing,
+        notificationTargetARN = Prelude.Nothing,
+        roleARN = Prelude.Nothing,
         lifecycleHookName = pLifecycleHookName_,
         lifecycleTransition = pLifecycleTransition_
       }
+
+-- | The action the Auto Scaling group takes when the lifecycle hook timeout
+-- elapses or if an unexpected failure occurs. The default value is
+-- @ABANDON@.
+--
+-- Valid values: @CONTINUE@ | @ABANDON@
+lifecycleHookSpecification_defaultResult :: Lens.Lens' LifecycleHookSpecification (Prelude.Maybe Prelude.Text)
+lifecycleHookSpecification_defaultResult = Lens.lens (\LifecycleHookSpecification' {defaultResult} -> defaultResult) (\s@LifecycleHookSpecification' {} a -> s {defaultResult = a} :: LifecycleHookSpecification)
+
+-- | The maximum time, in seconds, that can elapse before the lifecycle hook
+-- times out. The range is from @30@ to @7200@ seconds. The default value
+-- is @3600@ seconds (1 hour).
+lifecycleHookSpecification_heartbeatTimeout :: Lens.Lens' LifecycleHookSpecification (Prelude.Maybe Prelude.Int)
+lifecycleHookSpecification_heartbeatTimeout = Lens.lens (\LifecycleHookSpecification' {heartbeatTimeout} -> heartbeatTimeout) (\s@LifecycleHookSpecification' {} a -> s {heartbeatTimeout = a} :: LifecycleHookSpecification)
+
+-- | Additional information that you want to include any time Amazon EC2 Auto
+-- Scaling sends a message to the notification target.
+lifecycleHookSpecification_notificationMetadata :: Lens.Lens' LifecycleHookSpecification (Prelude.Maybe Prelude.Text)
+lifecycleHookSpecification_notificationMetadata = Lens.lens (\LifecycleHookSpecification' {notificationMetadata} -> notificationMetadata) (\s@LifecycleHookSpecification' {} a -> s {notificationMetadata = a} :: LifecycleHookSpecification)
+
+-- | The Amazon Resource Name (ARN) of the notification target that Amazon
+-- EC2 Auto Scaling sends notifications to when an instance is in a wait
+-- state for the lifecycle hook. You can specify an Amazon SNS topic or an
+-- Amazon SQS queue.
+lifecycleHookSpecification_notificationTargetARN :: Lens.Lens' LifecycleHookSpecification (Prelude.Maybe Prelude.Text)
+lifecycleHookSpecification_notificationTargetARN = Lens.lens (\LifecycleHookSpecification' {notificationTargetARN} -> notificationTargetARN) (\s@LifecycleHookSpecification' {} a -> s {notificationTargetARN = a} :: LifecycleHookSpecification)
 
 -- | The ARN of the IAM role that allows the Auto Scaling group to publish to
 -- the specified notification target. For information about creating this
@@ -149,32 +175,6 @@ newLifecycleHookSpecification
 -- Amazon SQS queue.
 lifecycleHookSpecification_roleARN :: Lens.Lens' LifecycleHookSpecification (Prelude.Maybe Prelude.Text)
 lifecycleHookSpecification_roleARN = Lens.lens (\LifecycleHookSpecification' {roleARN} -> roleARN) (\s@LifecycleHookSpecification' {} a -> s {roleARN = a} :: LifecycleHookSpecification)
-
--- | Additional information that you want to include any time Amazon EC2 Auto
--- Scaling sends a message to the notification target.
-lifecycleHookSpecification_notificationMetadata :: Lens.Lens' LifecycleHookSpecification (Prelude.Maybe Prelude.Text)
-lifecycleHookSpecification_notificationMetadata = Lens.lens (\LifecycleHookSpecification' {notificationMetadata} -> notificationMetadata) (\s@LifecycleHookSpecification' {} a -> s {notificationMetadata = a} :: LifecycleHookSpecification)
-
--- | The action the Auto Scaling group takes when the lifecycle hook timeout
--- elapses or if an unexpected failure occurs. The default value is
--- @ABANDON@.
---
--- Valid values: @CONTINUE@ | @ABANDON@
-lifecycleHookSpecification_defaultResult :: Lens.Lens' LifecycleHookSpecification (Prelude.Maybe Prelude.Text)
-lifecycleHookSpecification_defaultResult = Lens.lens (\LifecycleHookSpecification' {defaultResult} -> defaultResult) (\s@LifecycleHookSpecification' {} a -> s {defaultResult = a} :: LifecycleHookSpecification)
-
--- | The Amazon Resource Name (ARN) of the notification target that Amazon
--- EC2 Auto Scaling sends notifications to when an instance is in a wait
--- state for the lifecycle hook. You can specify an Amazon SNS topic or an
--- Amazon SQS queue.
-lifecycleHookSpecification_notificationTargetARN :: Lens.Lens' LifecycleHookSpecification (Prelude.Maybe Prelude.Text)
-lifecycleHookSpecification_notificationTargetARN = Lens.lens (\LifecycleHookSpecification' {notificationTargetARN} -> notificationTargetARN) (\s@LifecycleHookSpecification' {} a -> s {notificationTargetARN = a} :: LifecycleHookSpecification)
-
--- | The maximum time, in seconds, that can elapse before the lifecycle hook
--- times out. The range is from @30@ to @7200@ seconds. The default value
--- is @3600@ seconds (1 hour).
-lifecycleHookSpecification_heartbeatTimeout :: Lens.Lens' LifecycleHookSpecification (Prelude.Maybe Prelude.Int)
-lifecycleHookSpecification_heartbeatTimeout = Lens.lens (\LifecycleHookSpecification' {heartbeatTimeout} -> heartbeatTimeout) (\s@LifecycleHookSpecification' {} a -> s {heartbeatTimeout = a} :: LifecycleHookSpecification)
 
 -- | The name of the lifecycle hook.
 lifecycleHookSpecification_lifecycleHookName :: Lens.Lens' LifecycleHookSpecification Prelude.Text
@@ -193,33 +193,33 @@ lifecycleHookSpecification_lifecycleTransition = Lens.lens (\LifecycleHookSpecif
 
 instance Prelude.Hashable LifecycleHookSpecification where
   hashWithSalt _salt LifecycleHookSpecification' {..} =
-    _salt `Prelude.hashWithSalt` roleARN
-      `Prelude.hashWithSalt` notificationMetadata
-      `Prelude.hashWithSalt` defaultResult
-      `Prelude.hashWithSalt` notificationTargetARN
+    _salt `Prelude.hashWithSalt` defaultResult
       `Prelude.hashWithSalt` heartbeatTimeout
+      `Prelude.hashWithSalt` notificationMetadata
+      `Prelude.hashWithSalt` notificationTargetARN
+      `Prelude.hashWithSalt` roleARN
       `Prelude.hashWithSalt` lifecycleHookName
       `Prelude.hashWithSalt` lifecycleTransition
 
 instance Prelude.NFData LifecycleHookSpecification where
   rnf LifecycleHookSpecification' {..} =
-    Prelude.rnf roleARN
-      `Prelude.seq` Prelude.rnf notificationMetadata
-      `Prelude.seq` Prelude.rnf defaultResult
-      `Prelude.seq` Prelude.rnf notificationTargetARN
+    Prelude.rnf defaultResult
       `Prelude.seq` Prelude.rnf heartbeatTimeout
+      `Prelude.seq` Prelude.rnf notificationMetadata
+      `Prelude.seq` Prelude.rnf notificationTargetARN
+      `Prelude.seq` Prelude.rnf roleARN
       `Prelude.seq` Prelude.rnf lifecycleHookName
       `Prelude.seq` Prelude.rnf lifecycleTransition
 
 instance Data.ToQuery LifecycleHookSpecification where
   toQuery LifecycleHookSpecification' {..} =
     Prelude.mconcat
-      [ "RoleARN" Data.=: roleARN,
+      [ "DefaultResult" Data.=: defaultResult,
+        "HeartbeatTimeout" Data.=: heartbeatTimeout,
         "NotificationMetadata" Data.=: notificationMetadata,
-        "DefaultResult" Data.=: defaultResult,
         "NotificationTargetARN"
           Data.=: notificationTargetARN,
-        "HeartbeatTimeout" Data.=: heartbeatTimeout,
+        "RoleARN" Data.=: roleARN,
         "LifecycleHookName" Data.=: lifecycleHookName,
         "LifecycleTransition" Data.=: lifecycleTransition
       ]

@@ -63,7 +63,7 @@ instance FromJSON Delay where
 data Retry = Retry'
   { _retryAttempts :: Integer,
     _retryDelay :: Delay,
-    _retryPolicies :: HashMap Text Policy
+    _retryPolicies :: Map Text Policy
   }
   deriving (Eq, Show)
 
@@ -98,8 +98,8 @@ instance FromJSON (Retry -> Retry) where
 
 parseRetry :: Text -> Aeson.Object -> Aeson.Types.Parser Retry
 parseRetry svc o = do
-  p <- o .: "definitions" :: Aeson.Types.Parser (HashMap Text Policy)
-  r <- o .: "retry" :: Aeson.Types.Parser (HashMap Text Aeson.Object)
+  p <- o .: "definitions" :: Aeson.Types.Parser (Map Text Policy)
+  r <- o .: "retry" :: Aeson.Types.Parser (Map Text Aeson.Object)
 
   -- Since the __default__ policy is everything in
   -- definitions, just add them all rather than dealing

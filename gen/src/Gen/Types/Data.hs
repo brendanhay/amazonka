@@ -49,7 +49,7 @@ data Prod = Prod'
   }
   deriving (Eq, Show)
 
-prodToJSON :: ToJSON a => Solved -> Prod -> HashMap Text a -> [Pair]
+prodToJSON :: ToJSON a => Solved -> Prod -> Map Text a -> [Pair]
 prodToJSON s Prod' {..} is =
   [ "type" .= Text.pack "product",
     "name" .= _prodName,
@@ -68,7 +68,7 @@ data Sum = Sum'
     _sumDoc :: Maybe Help,
     _sumDecl :: Rendered,
     _sumCtor :: Text,
-    _sumCtors :: HashMap Text Text
+    _sumCtors :: Map Text Text
   }
   deriving (Eq, Show)
 
@@ -103,7 +103,7 @@ instance ToJSON Gen where
 
 data SData
   = -- | A product type (record).
-    Prod !Solved Prod (HashMap Text Rendered)
+    Prod !Solved Prod (Map Text Rendered)
   | -- | A nullary sum type.
     Sum !Solved Sum [Text]
   | -- | A function declaration.

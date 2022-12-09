@@ -5,7 +5,7 @@ import qualified Control.Lens as Lens
 import qualified Control.Monad.Except as Except
 import Control.Monad.State.Strict (execState, modify)
 import qualified Control.Monad.State.Strict as State
-import qualified Data.HashMap.Strict as HashMap
+import qualified Data.Map.Strict as Map
 import qualified Data.HashSet as HashSet
 import qualified Data.Set as Set
 import qualified Data.Text as Text
@@ -69,13 +69,13 @@ rewrite _versions' _config' s' = do
   pure $ Library {_versions', _config', _service', _cuts', _instance'}
 
 deprecate :: Service f a b c -> Service f a b c
-deprecate = operations %~ HashMap.filter (not . Lens.view opDeprecated)
+deprecate = operations %~ Map.filter (not . Lens.view opDeprecated)
 
 ignore :: Config -> Service f a b c -> Service f a b c
 ignore c srv =
   srv
-    & waiters %~ HashMap.filterWithKey (const . validWaiter)
-    & operations %~ HashMap.mapWithKey (\k v -> if validPager k then v else (opPager .~ Nothing) v)
+    & waiters %~ Map.filterWithKey (const . validWaiter)
+    & operations %~ Map.mapWithKey (\k v -> if validPager k then v else (opPager .~ Nothing) v)
   where
     validWaiter k = not $ HashSet.member k (c ^. ignoredWaiters)
     validPager k = not $ HashSet.member k (c ^. ignoredPaginators)
@@ -116,12 +116,12 @@ renderShapes cfg svc = do
       >>= separate (svc ^. operations)
 
   -- Prune anything that is an orphan, or not an exception
-  let prune = HashMap.filter $ \s -> not (isOrphan s) || s ^. infoException
+  let prune = Map.filter $ \s -> not (isOrphan s) || s ^. infoException
 
   -- Convert shape ASTs into a rendered Haskell AST declaration,
   xs <- traverse (operationData cfg svc) x
   ys <- kvTraverseMaybe (const (shapeData svc)) (prune y)
-  zs <- HashMap.traverseWithKey (waiterData svc x) (svc ^. waiters)
+  zs <- Map.traverseWithKey (waiterData svc x) (svc ^. waiters)
 
   return
     $! svc
@@ -130,7 +130,7 @@ renderShapes cfg svc = do
         _waiters = zs
       }
 
-type MemoR = StateT (HashMap Id Relation, HashSet (Id, Direction, Id)) (Either String)
+type MemoR = StateT (Map Id Relation, HashSet (Id, Direction, Id)) (Either String)
 
 -- | Determine the relation for operation payloads, both input and output.
 --
@@ -138,9 +138,9 @@ type MemoR = StateT (HashMap Id Relation, HashSet (Id, Direction, Id)) (Either S
 -- used by 'setDefaults'.
 relations ::
   Show a =>
-  HashMap Id (Operation Maybe (RefF b) c) ->
-  HashMap Id (ShapeF a) ->
-  Either String (HashMap Id Relation)
+  Map Id (Operation Maybe (RefF b) c) ->
+  Map Id (ShapeF a) ->
+  Either String (Map Id Relation)
 relations os ss = fst <$> State.execStateT (traverse go os) (mempty, mempty)
   where
     -- FIXME: opName here is incorrect as a parent.
@@ -152,7 +152,7 @@ relations os ss = fst <$> State.execStateT (traverse go os) (mempty, mempty)
     count :: Maybe Id -> Direction -> Maybe Id -> MemoR ()
     count _ _ Nothing = pure ()
     count p d (Just n) = do
-      Lens._1 %= HashMap.insertWith (<>) n (mkRelation p d)
+      Lens._1 %= Map.insertWith (<>) n (mkRelation p d)
 
       check p d n $ do
         s <- lift (safe n)
@@ -181,7 +181,7 @@ relations os ss = fst <$> State.execStateT (traverse go os) (mempty, mempty)
             ++ ", possible matches: "
             ++ partial n ss
         )
-        (HashMap.lookup n ss)
+        (Map.lookup n ss)
 
 -- FIXME: Necessary to update the Relation?
 solve ::
@@ -193,26 +193,26 @@ solve cfg ss = State.evalState (go ss) (replaced typeOf cfg)
   where
     go = traverse (annotate Solved id (pure . typeOf))
 
-    replaced :: (Replace -> a) -> Config -> HashMap Id a
+    replaced :: (Replace -> a) -> Config -> Map Id a
     replaced f =
-      HashMap.fromList
+      Map.fromList
         . map (_replaceName &&& f)
-        . HashMap.elems
+        . Map.elems
         . vMapMaybe _replacedBy
         . _typeOverrides
 
-type MemoS a = StateT (HashMap Id a) (Either String)
+type MemoS a = StateT (Map Id a) (Either String)
 
 -- | Filter the ids representing operation input/outputs from the supplied map,
 -- and attach the associated shape to the appropriate operation.
 separate ::
   (Show a, HasRelation a) =>
-  HashMap Id (Operation Identity (RefF b) c) ->
-  HashMap Id a ->
+  Map Id (Operation Identity (RefF b) c) ->
+  Map Id a ->
   Either
     String
-    ( HashMap Id (Operation Identity (RefF a) c), -- Operations.
-      HashMap Id a -- Data Types.
+    ( Map Id (Operation Identity (RefF a) c), -- Operations.
+      Map Id a -- Data Types.
     )
 separate os = State.runStateT (traverse go os)
   where
@@ -234,16 +234,16 @@ separate os = State.runStateT (traverse go os)
     remove d n = do
       s <- State.get
 
-      case HashMap.lookup n s of
+      case Map.lookup n s of
         Nothing ->
           Except.throwError $
             "Failure separating operation wrapper " ++ Text.unpack (memberId n)
               ++ " from "
-              ++ show (HashMap.map (const ()) s)
+              ++ show (Map.map (const ()) s)
         --
         Just x -> do
           when (d == Input || not (isShared x)) $
-            State.modify' (HashMap.delete n)
+            State.modify' (Map.delete n)
 
           pure x
 

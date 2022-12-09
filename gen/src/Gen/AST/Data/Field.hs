@@ -4,7 +4,7 @@ module Gen.AST.Data.Field where
 
 import qualified Control.Comonad.Cofree as Cofree
 import qualified Control.Lens as Lens
-import qualified Data.HashMap.Strict as HashMap
+import qualified Data.Map.Strict as Map
 import qualified Data.List as List
 import qualified Data.Ord as Ord
 import qualified Data.Text as Text
@@ -77,8 +77,7 @@ mkFields ::
   StructF (Shape Solved) ->
   [Field]
 mkFields (Lens.view metadata -> m) s st =
-  sortFields rs $
-    zipWith mk [1 ..] $ HashMap.toList (st ^. members)
+  sortFields rs $ zipWith mk [1 ..] $ Map.toList (st ^. members)
   where
     mk :: Int -> (Id, Ref) -> Field
     mk i (k, v) =

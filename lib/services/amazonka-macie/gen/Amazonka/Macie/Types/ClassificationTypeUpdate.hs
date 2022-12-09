@@ -32,14 +32,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newClassificationTypeUpdate' smart constructor.
 data ClassificationTypeUpdate = ClassificationTypeUpdate'
-  { -- | (Discontinued) A one-time classification of all of the existing objects
-    -- in a specified S3 bucket.
-    oneTime :: Prelude.Maybe S3OneTimeClassificationType,
-    -- | (Discontinued) A continuous classification of the objects that are added
+  { -- | (Discontinued) A continuous classification of the objects that are added
     -- to a specified S3 bucket. Amazon Macie Classic begins performing
     -- continuous classification after a bucket is successfully associated with
     -- Macie Classic.
-    continuous :: Prelude.Maybe S3ContinuousClassificationType
+    continuous :: Prelude.Maybe S3ContinuousClassificationType,
+    -- | (Discontinued) A one-time classification of all of the existing objects
+    -- in a specified S3 bucket.
+    oneTime :: Prelude.Maybe S3OneTimeClassificationType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,26 +51,21 @@ data ClassificationTypeUpdate = ClassificationTypeUpdate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'oneTime', 'classificationTypeUpdate_oneTime' - (Discontinued) A one-time classification of all of the existing objects
--- in a specified S3 bucket.
---
 -- 'continuous', 'classificationTypeUpdate_continuous' - (Discontinued) A continuous classification of the objects that are added
 -- to a specified S3 bucket. Amazon Macie Classic begins performing
 -- continuous classification after a bucket is successfully associated with
 -- Macie Classic.
+--
+-- 'oneTime', 'classificationTypeUpdate_oneTime' - (Discontinued) A one-time classification of all of the existing objects
+-- in a specified S3 bucket.
 newClassificationTypeUpdate ::
   ClassificationTypeUpdate
 newClassificationTypeUpdate =
   ClassificationTypeUpdate'
-    { oneTime =
+    { continuous =
         Prelude.Nothing,
-      continuous = Prelude.Nothing
+      oneTime = Prelude.Nothing
     }
-
--- | (Discontinued) A one-time classification of all of the existing objects
--- in a specified S3 bucket.
-classificationTypeUpdate_oneTime :: Lens.Lens' ClassificationTypeUpdate (Prelude.Maybe S3OneTimeClassificationType)
-classificationTypeUpdate_oneTime = Lens.lens (\ClassificationTypeUpdate' {oneTime} -> oneTime) (\s@ClassificationTypeUpdate' {} a -> s {oneTime = a} :: ClassificationTypeUpdate)
 
 -- | (Discontinued) A continuous classification of the objects that are added
 -- to a specified S3 bucket. Amazon Macie Classic begins performing
@@ -79,21 +74,26 @@ classificationTypeUpdate_oneTime = Lens.lens (\ClassificationTypeUpdate' {oneTim
 classificationTypeUpdate_continuous :: Lens.Lens' ClassificationTypeUpdate (Prelude.Maybe S3ContinuousClassificationType)
 classificationTypeUpdate_continuous = Lens.lens (\ClassificationTypeUpdate' {continuous} -> continuous) (\s@ClassificationTypeUpdate' {} a -> s {continuous = a} :: ClassificationTypeUpdate)
 
+-- | (Discontinued) A one-time classification of all of the existing objects
+-- in a specified S3 bucket.
+classificationTypeUpdate_oneTime :: Lens.Lens' ClassificationTypeUpdate (Prelude.Maybe S3OneTimeClassificationType)
+classificationTypeUpdate_oneTime = Lens.lens (\ClassificationTypeUpdate' {oneTime} -> oneTime) (\s@ClassificationTypeUpdate' {} a -> s {oneTime = a} :: ClassificationTypeUpdate)
+
 instance Prelude.Hashable ClassificationTypeUpdate where
   hashWithSalt _salt ClassificationTypeUpdate' {..} =
-    _salt `Prelude.hashWithSalt` oneTime
-      `Prelude.hashWithSalt` continuous
+    _salt `Prelude.hashWithSalt` continuous
+      `Prelude.hashWithSalt` oneTime
 
 instance Prelude.NFData ClassificationTypeUpdate where
   rnf ClassificationTypeUpdate' {..} =
-    Prelude.rnf oneTime
-      `Prelude.seq` Prelude.rnf continuous
+    Prelude.rnf continuous
+      `Prelude.seq` Prelude.rnf oneTime
 
 instance Data.ToJSON ClassificationTypeUpdate where
   toJSON ClassificationTypeUpdate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("oneTime" Data..=) Prelude.<$> oneTime,
-            ("continuous" Data..=) Prelude.<$> continuous
+          [ ("continuous" Data..=) Prelude.<$> continuous,
+            ("oneTime" Data..=) Prelude.<$> oneTime
           ]
       )

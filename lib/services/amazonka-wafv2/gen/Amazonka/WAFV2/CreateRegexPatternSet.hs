@@ -29,8 +29,8 @@ module Amazonka.WAFV2.CreateRegexPatternSet
     newCreateRegexPatternSet,
 
     -- * Request Lenses
-    createRegexPatternSet_tags,
     createRegexPatternSet_description,
+    createRegexPatternSet_tags,
     createRegexPatternSet_name,
     createRegexPatternSet_scope,
     createRegexPatternSet_regularExpressionList,
@@ -55,10 +55,10 @@ import Amazonka.WAFV2.Types
 
 -- | /See:/ 'newCreateRegexPatternSet' smart constructor.
 data CreateRegexPatternSet = CreateRegexPatternSet'
-  { -- | An array of key:value pairs to associate with the resource.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | A description of the set that helps with identification.
+  { -- | A description of the set that helps with identification.
     description :: Prelude.Maybe Prelude.Text,
+    -- | An array of key:value pairs to associate with the resource.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The name of the set. You cannot change the name after you create the
     -- set.
     name :: Prelude.Text,
@@ -88,9 +88,9 @@ data CreateRegexPatternSet = CreateRegexPatternSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createRegexPatternSet_tags' - An array of key:value pairs to associate with the resource.
---
 -- 'description', 'createRegexPatternSet_description' - A description of the set that helps with identification.
+--
+-- 'tags', 'createRegexPatternSet_tags' - An array of key:value pairs to associate with the resource.
 --
 -- 'name', 'createRegexPatternSet_name' - The name of the set. You cannot change the name after you create the
 -- set.
@@ -117,20 +117,21 @@ newCreateRegexPatternSet ::
   CreateRegexPatternSet
 newCreateRegexPatternSet pName_ pScope_ =
   CreateRegexPatternSet'
-    { tags = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description =
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_,
       scope = pScope_,
       regularExpressionList = Prelude.mempty
     }
 
--- | An array of key:value pairs to associate with the resource.
-createRegexPatternSet_tags :: Lens.Lens' CreateRegexPatternSet (Prelude.Maybe (Prelude.NonEmpty Tag))
-createRegexPatternSet_tags = Lens.lens (\CreateRegexPatternSet' {tags} -> tags) (\s@CreateRegexPatternSet' {} a -> s {tags = a} :: CreateRegexPatternSet) Prelude.. Lens.mapping Lens.coerced
-
 -- | A description of the set that helps with identification.
 createRegexPatternSet_description :: Lens.Lens' CreateRegexPatternSet (Prelude.Maybe Prelude.Text)
 createRegexPatternSet_description = Lens.lens (\CreateRegexPatternSet' {description} -> description) (\s@CreateRegexPatternSet' {} a -> s {description = a} :: CreateRegexPatternSet)
+
+-- | An array of key:value pairs to associate with the resource.
+createRegexPatternSet_tags :: Lens.Lens' CreateRegexPatternSet (Prelude.Maybe (Prelude.NonEmpty Tag))
+createRegexPatternSet_tags = Lens.lens (\CreateRegexPatternSet' {tags} -> tags) (\s@CreateRegexPatternSet' {} a -> s {tags = a} :: CreateRegexPatternSet) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the set. You cannot change the name after you create the
 -- set.
@@ -172,16 +173,16 @@ instance Core.AWSRequest CreateRegexPatternSet where
 
 instance Prelude.Hashable CreateRegexPatternSet where
   hashWithSalt _salt CreateRegexPatternSet' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` scope
       `Prelude.hashWithSalt` regularExpressionList
 
 instance Prelude.NFData CreateRegexPatternSet where
   rnf CreateRegexPatternSet' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf scope
       `Prelude.seq` Prelude.rnf regularExpressionList
@@ -205,8 +206,8 @@ instance Data.ToJSON CreateRegexPatternSet where
   toJSON CreateRegexPatternSet' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("Scope" Data..= scope),
             Prelude.Just

@@ -37,8 +37,8 @@ module Amazonka.WAFV2.ListRuleGroups
     newListRuleGroupsResponse,
 
     -- * Response Lenses
-    listRuleGroupsResponse_ruleGroups,
     listRuleGroupsResponse_nextMarker,
+    listRuleGroupsResponse_ruleGroups,
     listRuleGroupsResponse_httpStatus,
   )
 where
@@ -159,8 +159,8 @@ instance Core.AWSRequest ListRuleGroups where
     Response.receiveJSON
       ( \s h x ->
           ListRuleGroupsResponse'
-            Prelude.<$> (x Data..?> "RuleGroups" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "NextMarker")
+            Prelude.<$> (x Data..?> "NextMarker")
+            Prelude.<*> (x Data..?> "RuleGroups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -209,12 +209,12 @@ instance Data.ToQuery ListRuleGroups where
 
 -- | /See:/ 'newListRuleGroupsResponse' smart constructor.
 data ListRuleGroupsResponse = ListRuleGroupsResponse'
-  { ruleGroups :: Prelude.Maybe [RuleGroupSummary],
-    -- | When you request a list of objects with a @Limit@ setting, if the number
+  { -- | When you request a list of objects with a @Limit@ setting, if the number
     -- of objects that are still available for retrieval exceeds the limit, WAF
     -- returns a @NextMarker@ value in the response. To retrieve the next batch
     -- of objects, provide the marker from the prior call in your next request.
     nextMarker :: Prelude.Maybe Prelude.Text,
+    ruleGroups :: Prelude.Maybe [RuleGroupSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -228,12 +228,12 @@ data ListRuleGroupsResponse = ListRuleGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ruleGroups', 'listRuleGroupsResponse_ruleGroups' -
---
 -- 'nextMarker', 'listRuleGroupsResponse_nextMarker' - When you request a list of objects with a @Limit@ setting, if the number
 -- of objects that are still available for retrieval exceeds the limit, WAF
 -- returns a @NextMarker@ value in the response. To retrieve the next batch
 -- of objects, provide the marker from the prior call in your next request.
+--
+-- 'ruleGroups', 'listRuleGroupsResponse_ruleGroups' -
 --
 -- 'httpStatus', 'listRuleGroupsResponse_httpStatus' - The response's http status code.
 newListRuleGroupsResponse ::
@@ -242,15 +242,11 @@ newListRuleGroupsResponse ::
   ListRuleGroupsResponse
 newListRuleGroupsResponse pHttpStatus_ =
   ListRuleGroupsResponse'
-    { ruleGroups =
+    { nextMarker =
         Prelude.Nothing,
-      nextMarker = Prelude.Nothing,
+      ruleGroups = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- |
-listRuleGroupsResponse_ruleGroups :: Lens.Lens' ListRuleGroupsResponse (Prelude.Maybe [RuleGroupSummary])
-listRuleGroupsResponse_ruleGroups = Lens.lens (\ListRuleGroupsResponse' {ruleGroups} -> ruleGroups) (\s@ListRuleGroupsResponse' {} a -> s {ruleGroups = a} :: ListRuleGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | When you request a list of objects with a @Limit@ setting, if the number
 -- of objects that are still available for retrieval exceeds the limit, WAF
@@ -259,12 +255,16 @@ listRuleGroupsResponse_ruleGroups = Lens.lens (\ListRuleGroupsResponse' {ruleGro
 listRuleGroupsResponse_nextMarker :: Lens.Lens' ListRuleGroupsResponse (Prelude.Maybe Prelude.Text)
 listRuleGroupsResponse_nextMarker = Lens.lens (\ListRuleGroupsResponse' {nextMarker} -> nextMarker) (\s@ListRuleGroupsResponse' {} a -> s {nextMarker = a} :: ListRuleGroupsResponse)
 
+-- |
+listRuleGroupsResponse_ruleGroups :: Lens.Lens' ListRuleGroupsResponse (Prelude.Maybe [RuleGroupSummary])
+listRuleGroupsResponse_ruleGroups = Lens.lens (\ListRuleGroupsResponse' {ruleGroups} -> ruleGroups) (\s@ListRuleGroupsResponse' {} a -> s {ruleGroups = a} :: ListRuleGroupsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listRuleGroupsResponse_httpStatus :: Lens.Lens' ListRuleGroupsResponse Prelude.Int
 listRuleGroupsResponse_httpStatus = Lens.lens (\ListRuleGroupsResponse' {httpStatus} -> httpStatus) (\s@ListRuleGroupsResponse' {} a -> s {httpStatus = a} :: ListRuleGroupsResponse)
 
 instance Prelude.NFData ListRuleGroupsResponse where
   rnf ListRuleGroupsResponse' {..} =
-    Prelude.rnf ruleGroups
-      `Prelude.seq` Prelude.rnf nextMarker
+    Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf ruleGroups
       `Prelude.seq` Prelude.rnf httpStatus

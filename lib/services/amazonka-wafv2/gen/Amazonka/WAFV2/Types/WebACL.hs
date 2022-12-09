@@ -44,38 +44,40 @@ import Amazonka.WAFV2.Types.VisibilityConfig
 --
 -- /See:/ 'newWebACL' smart constructor.
 data WebACL = WebACL'
-  { -- | Indicates whether this web ACL is managed by Firewall Manager. If true,
-    -- then only Firewall Manager can delete the web ACL or any Firewall
-    -- Manager rule groups in the web ACL.
-    managedByFirewallManager :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies the domains that WAF should accept in a web request token.
-    -- This enables the use of tokens across multiple protected websites. When
-    -- WAF provides a token, it uses the domain of the Amazon Web Services
-    -- resource that the web ACL is protecting. If you don\'t specify a list of
-    -- token domains, WAF accepts tokens only for the domain of the protected
-    -- resource. With a token domain list, WAF accepts the resource\'s host
-    -- domain plus all domains in the token domain list, including their
-    -- prefixed subdomains.
-    tokenDomains :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+  { -- | The web ACL capacity units (WCUs) currently being used by this web ACL.
+    --
+    -- WAF uses WCUs to calculate and control the operating resources that are
+    -- used to run your rules, rule groups, and web ACLs. WAF calculates
+    -- capacity differently for each rule type, to reflect the relative cost of
+    -- each rule. Simple rules that cost little to run use fewer WCUs than more
+    -- complex rules that use more processing power. Rule group capacity is
+    -- fixed at creation, which helps users plan their web ACL WCU usage when
+    -- they use a rule group. The WCU limit for web ACLs is 1,500.
+    capacity :: Prelude.Maybe Prelude.Natural,
     -- | Specifies how WAF should handle @CAPTCHA@ evaluations for rules that
     -- don\'t have their own @CaptchaConfig@ settings. If you don\'t specify
     -- this, WAF uses its default settings for @CaptchaConfig@.
     captchaConfig :: Prelude.Maybe CaptchaConfig,
-    -- | The Rule statements used to identify the web requests that you want to
-    -- allow, block, or count. Each rule includes one top-level statement that
-    -- WAF uses to identify matching web requests, and parameters that govern
-    -- how WAF handles them.
-    rules :: Prelude.Maybe [Rule],
-    -- | The first set of rules for WAF to process in the web ACL. This is
-    -- defined in an Firewall Manager WAF policy and contains only rule group
-    -- references. You can\'t alter these. Any rules and rule groups that you
-    -- define for the web ACL are prioritized after these.
+    -- | Specifies how WAF should handle challenge evaluations for rules that
+    -- don\'t have their own @ChallengeConfig@ settings. If you don\'t specify
+    -- this, WAF uses its default settings for @ChallengeConfig@.
+    challengeConfig :: Prelude.Maybe ChallengeConfig,
+    -- | A map of custom response keys and content bodies. When you create a rule
+    -- with a block action, you can send a custom response to the web request.
+    -- You define these for the web ACL, and then use them in the rules and
+    -- default actions that you define in the web ACL.
     --
-    -- In the Firewall Manager WAF policy, the Firewall Manager administrator
-    -- can define a set of rule groups to run first in the web ACL and a set of
-    -- rule groups to run last. Within each set, the administrator prioritizes
-    -- the rule groups, to determine their relative processing order.
-    preProcessFirewallManagerRuleGroups :: Prelude.Maybe [FirewallManagerRuleGroup],
+    -- For information about customizing web requests and responses, see
+    -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html Customizing web requests and responses in WAF>
+    -- in the
+    -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+    --
+    -- For information about the limits on count and size for custom request
+    -- and response settings, see
+    -- <https://docs.aws.amazon.com/waf/latest/developerguide/limits.html WAF quotas>
+    -- in the
+    -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+    customResponseBodies :: Prelude.Maybe (Prelude.HashMap Prelude.Text CustomResponseBody),
     -- | A description of the web ACL that helps with identification.
     description :: Prelude.Maybe Prelude.Text,
     -- | The label namespace prefix for this web ACL. All labels added by rules
@@ -93,36 +95,10 @@ data WebACL = WebACL'
     --
     --     @\<label namespace>:\<label from rule>@
     labelNamespace :: Prelude.Maybe Prelude.Text,
-    -- | A map of custom response keys and content bodies. When you create a rule
-    -- with a block action, you can send a custom response to the web request.
-    -- You define these for the web ACL, and then use them in the rules and
-    -- default actions that you define in the web ACL.
-    --
-    -- For information about customizing web requests and responses, see
-    -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html Customizing web requests and responses in WAF>
-    -- in the
-    -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
-    --
-    -- For information about the limits on count and size for custom request
-    -- and response settings, see
-    -- <https://docs.aws.amazon.com/waf/latest/developerguide/limits.html WAF quotas>
-    -- in the
-    -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
-    customResponseBodies :: Prelude.Maybe (Prelude.HashMap Prelude.Text CustomResponseBody),
-    -- | The web ACL capacity units (WCUs) currently being used by this web ACL.
-    --
-    -- WAF uses WCUs to calculate and control the operating resources that are
-    -- used to run your rules, rule groups, and web ACLs. WAF calculates
-    -- capacity differently for each rule type, to reflect the relative cost of
-    -- each rule. Simple rules that cost little to run use fewer WCUs than more
-    -- complex rules that use more processing power. Rule group capacity is
-    -- fixed at creation, which helps users plan their web ACL WCU usage when
-    -- they use a rule group. The WCU limit for web ACLs is 1,500.
-    capacity :: Prelude.Maybe Prelude.Natural,
-    -- | Specifies how WAF should handle challenge evaluations for rules that
-    -- don\'t have their own @ChallengeConfig@ settings. If you don\'t specify
-    -- this, WAF uses its default settings for @ChallengeConfig@.
-    challengeConfig :: Prelude.Maybe ChallengeConfig,
+    -- | Indicates whether this web ACL is managed by Firewall Manager. If true,
+    -- then only Firewall Manager can delete the web ACL or any Firewall
+    -- Manager rule groups in the web ACL.
+    managedByFirewallManager :: Prelude.Maybe Prelude.Bool,
     -- | The last set of rules for WAF to process in the web ACL. This is defined
     -- in an Firewall Manager WAF policy and contains only rule group
     -- references. You can\'t alter these. Any rules and rule groups that you
@@ -133,6 +109,30 @@ data WebACL = WebACL'
     -- rule groups to run last. Within each set, the administrator prioritizes
     -- the rule groups, to determine their relative processing order.
     postProcessFirewallManagerRuleGroups :: Prelude.Maybe [FirewallManagerRuleGroup],
+    -- | The first set of rules for WAF to process in the web ACL. This is
+    -- defined in an Firewall Manager WAF policy and contains only rule group
+    -- references. You can\'t alter these. Any rules and rule groups that you
+    -- define for the web ACL are prioritized after these.
+    --
+    -- In the Firewall Manager WAF policy, the Firewall Manager administrator
+    -- can define a set of rule groups to run first in the web ACL and a set of
+    -- rule groups to run last. Within each set, the administrator prioritizes
+    -- the rule groups, to determine their relative processing order.
+    preProcessFirewallManagerRuleGroups :: Prelude.Maybe [FirewallManagerRuleGroup],
+    -- | The Rule statements used to identify the web requests that you want to
+    -- allow, block, or count. Each rule includes one top-level statement that
+    -- WAF uses to identify matching web requests, and parameters that govern
+    -- how WAF handles them.
+    rules :: Prelude.Maybe [Rule],
+    -- | Specifies the domains that WAF should accept in a web request token.
+    -- This enables the use of tokens across multiple protected websites. When
+    -- WAF provides a token, it uses the domain of the Amazon Web Services
+    -- resource that the web ACL is protecting. If you don\'t specify a list of
+    -- token domains, WAF accepts tokens only for the domain of the protected
+    -- resource. With a token domain list, WAF accepts the resource\'s host
+    -- domain plus all domains in the token domain list, including their
+    -- prefixed subdomains.
+    tokenDomains :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The name of the web ACL. You cannot change the name of a web ACL after
     -- you create it.
     name :: Prelude.Text,
@@ -160,37 +160,39 @@ data WebACL = WebACL'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'managedByFirewallManager', 'webACL_managedByFirewallManager' - Indicates whether this web ACL is managed by Firewall Manager. If true,
--- then only Firewall Manager can delete the web ACL or any Firewall
--- Manager rule groups in the web ACL.
+-- 'capacity', 'webACL_capacity' - The web ACL capacity units (WCUs) currently being used by this web ACL.
 --
--- 'tokenDomains', 'webACL_tokenDomains' - Specifies the domains that WAF should accept in a web request token.
--- This enables the use of tokens across multiple protected websites. When
--- WAF provides a token, it uses the domain of the Amazon Web Services
--- resource that the web ACL is protecting. If you don\'t specify a list of
--- token domains, WAF accepts tokens only for the domain of the protected
--- resource. With a token domain list, WAF accepts the resource\'s host
--- domain plus all domains in the token domain list, including their
--- prefixed subdomains.
+-- WAF uses WCUs to calculate and control the operating resources that are
+-- used to run your rules, rule groups, and web ACLs. WAF calculates
+-- capacity differently for each rule type, to reflect the relative cost of
+-- each rule. Simple rules that cost little to run use fewer WCUs than more
+-- complex rules that use more processing power. Rule group capacity is
+-- fixed at creation, which helps users plan their web ACL WCU usage when
+-- they use a rule group. The WCU limit for web ACLs is 1,500.
 --
 -- 'captchaConfig', 'webACL_captchaConfig' - Specifies how WAF should handle @CAPTCHA@ evaluations for rules that
 -- don\'t have their own @CaptchaConfig@ settings. If you don\'t specify
 -- this, WAF uses its default settings for @CaptchaConfig@.
 --
--- 'rules', 'webACL_rules' - The Rule statements used to identify the web requests that you want to
--- allow, block, or count. Each rule includes one top-level statement that
--- WAF uses to identify matching web requests, and parameters that govern
--- how WAF handles them.
+-- 'challengeConfig', 'webACL_challengeConfig' - Specifies how WAF should handle challenge evaluations for rules that
+-- don\'t have their own @ChallengeConfig@ settings. If you don\'t specify
+-- this, WAF uses its default settings for @ChallengeConfig@.
 --
--- 'preProcessFirewallManagerRuleGroups', 'webACL_preProcessFirewallManagerRuleGroups' - The first set of rules for WAF to process in the web ACL. This is
--- defined in an Firewall Manager WAF policy and contains only rule group
--- references. You can\'t alter these. Any rules and rule groups that you
--- define for the web ACL are prioritized after these.
+-- 'customResponseBodies', 'webACL_customResponseBodies' - A map of custom response keys and content bodies. When you create a rule
+-- with a block action, you can send a custom response to the web request.
+-- You define these for the web ACL, and then use them in the rules and
+-- default actions that you define in the web ACL.
 --
--- In the Firewall Manager WAF policy, the Firewall Manager administrator
--- can define a set of rule groups to run first in the web ACL and a set of
--- rule groups to run last. Within each set, the administrator prioritizes
--- the rule groups, to determine their relative processing order.
+-- For information about customizing web requests and responses, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html Customizing web requests and responses in WAF>
+-- in the
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+--
+-- For information about the limits on count and size for custom request
+-- and response settings, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/limits.html WAF quotas>
+-- in the
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
 --
 -- 'description', 'webACL_description' - A description of the web ACL that helps with identification.
 --
@@ -209,35 +211,9 @@ data WebACL = WebACL'
 --
 --     @\<label namespace>:\<label from rule>@
 --
--- 'customResponseBodies', 'webACL_customResponseBodies' - A map of custom response keys and content bodies. When you create a rule
--- with a block action, you can send a custom response to the web request.
--- You define these for the web ACL, and then use them in the rules and
--- default actions that you define in the web ACL.
---
--- For information about customizing web requests and responses, see
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html Customizing web requests and responses in WAF>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
---
--- For information about the limits on count and size for custom request
--- and response settings, see
--- <https://docs.aws.amazon.com/waf/latest/developerguide/limits.html WAF quotas>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
---
--- 'capacity', 'webACL_capacity' - The web ACL capacity units (WCUs) currently being used by this web ACL.
---
--- WAF uses WCUs to calculate and control the operating resources that are
--- used to run your rules, rule groups, and web ACLs. WAF calculates
--- capacity differently for each rule type, to reflect the relative cost of
--- each rule. Simple rules that cost little to run use fewer WCUs than more
--- complex rules that use more processing power. Rule group capacity is
--- fixed at creation, which helps users plan their web ACL WCU usage when
--- they use a rule group. The WCU limit for web ACLs is 1,500.
---
--- 'challengeConfig', 'webACL_challengeConfig' - Specifies how WAF should handle challenge evaluations for rules that
--- don\'t have their own @ChallengeConfig@ settings. If you don\'t specify
--- this, WAF uses its default settings for @ChallengeConfig@.
+-- 'managedByFirewallManager', 'webACL_managedByFirewallManager' - Indicates whether this web ACL is managed by Firewall Manager. If true,
+-- then only Firewall Manager can delete the web ACL or any Firewall
+-- Manager rule groups in the web ACL.
 --
 -- 'postProcessFirewallManagerRuleGroups', 'webACL_postProcessFirewallManagerRuleGroups' - The last set of rules for WAF to process in the web ACL. This is defined
 -- in an Firewall Manager WAF policy and contains only rule group
@@ -248,6 +224,30 @@ data WebACL = WebACL'
 -- can define a set of rule groups to run first in the web ACL and a set of
 -- rule groups to run last. Within each set, the administrator prioritizes
 -- the rule groups, to determine their relative processing order.
+--
+-- 'preProcessFirewallManagerRuleGroups', 'webACL_preProcessFirewallManagerRuleGroups' - The first set of rules for WAF to process in the web ACL. This is
+-- defined in an Firewall Manager WAF policy and contains only rule group
+-- references. You can\'t alter these. Any rules and rule groups that you
+-- define for the web ACL are prioritized after these.
+--
+-- In the Firewall Manager WAF policy, the Firewall Manager administrator
+-- can define a set of rule groups to run first in the web ACL and a set of
+-- rule groups to run last. Within each set, the administrator prioritizes
+-- the rule groups, to determine their relative processing order.
+--
+-- 'rules', 'webACL_rules' - The Rule statements used to identify the web requests that you want to
+-- allow, block, or count. Each rule includes one top-level statement that
+-- WAF uses to identify matching web requests, and parameters that govern
+-- how WAF handles them.
+--
+-- 'tokenDomains', 'webACL_tokenDomains' - Specifies the domains that WAF should accept in a web request token.
+-- This enables the use of tokens across multiple protected websites. When
+-- WAF provides a token, it uses the domain of the Amazon Web Services
+-- resource that the web ACL is protecting. If you don\'t specify a list of
+-- token domains, WAF accepts tokens only for the domain of the protected
+-- resource. With a token domain list, WAF accepts the resource\'s host
+-- domain plus all domains in the token domain list, including their
+-- prefixed subdomains.
 --
 -- 'name', 'webACL_name' - The name of the web ACL. You cannot change the name of a web ACL after
 -- you create it.
@@ -283,19 +283,19 @@ newWebACL
   pDefaultAction_
   pVisibilityConfig_ =
     WebACL'
-      { managedByFirewallManager = Prelude.Nothing,
-        tokenDomains = Prelude.Nothing,
+      { capacity = Prelude.Nothing,
         captchaConfig = Prelude.Nothing,
-        rules = Prelude.Nothing,
-        preProcessFirewallManagerRuleGroups =
-          Prelude.Nothing,
+        challengeConfig = Prelude.Nothing,
+        customResponseBodies = Prelude.Nothing,
         description = Prelude.Nothing,
         labelNamespace = Prelude.Nothing,
-        customResponseBodies = Prelude.Nothing,
-        capacity = Prelude.Nothing,
-        challengeConfig = Prelude.Nothing,
+        managedByFirewallManager = Prelude.Nothing,
         postProcessFirewallManagerRuleGroups =
           Prelude.Nothing,
+        preProcessFirewallManagerRuleGroups =
+          Prelude.Nothing,
+        rules = Prelude.Nothing,
+        tokenDomains = Prelude.Nothing,
         name = pName_,
         id = pId_,
         arn = pARN_,
@@ -303,22 +303,17 @@ newWebACL
         visibilityConfig = pVisibilityConfig_
       }
 
--- | Indicates whether this web ACL is managed by Firewall Manager. If true,
--- then only Firewall Manager can delete the web ACL or any Firewall
--- Manager rule groups in the web ACL.
-webACL_managedByFirewallManager :: Lens.Lens' WebACL (Prelude.Maybe Prelude.Bool)
-webACL_managedByFirewallManager = Lens.lens (\WebACL' {managedByFirewallManager} -> managedByFirewallManager) (\s@WebACL' {} a -> s {managedByFirewallManager = a} :: WebACL)
-
--- | Specifies the domains that WAF should accept in a web request token.
--- This enables the use of tokens across multiple protected websites. When
--- WAF provides a token, it uses the domain of the Amazon Web Services
--- resource that the web ACL is protecting. If you don\'t specify a list of
--- token domains, WAF accepts tokens only for the domain of the protected
--- resource. With a token domain list, WAF accepts the resource\'s host
--- domain plus all domains in the token domain list, including their
--- prefixed subdomains.
-webACL_tokenDomains :: Lens.Lens' WebACL (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-webACL_tokenDomains = Lens.lens (\WebACL' {tokenDomains} -> tokenDomains) (\s@WebACL' {} a -> s {tokenDomains = a} :: WebACL) Prelude.. Lens.mapping Lens.coerced
+-- | The web ACL capacity units (WCUs) currently being used by this web ACL.
+--
+-- WAF uses WCUs to calculate and control the operating resources that are
+-- used to run your rules, rule groups, and web ACLs. WAF calculates
+-- capacity differently for each rule type, to reflect the relative cost of
+-- each rule. Simple rules that cost little to run use fewer WCUs than more
+-- complex rules that use more processing power. Rule group capacity is
+-- fixed at creation, which helps users plan their web ACL WCU usage when
+-- they use a rule group. The WCU limit for web ACLs is 1,500.
+webACL_capacity :: Lens.Lens' WebACL (Prelude.Maybe Prelude.Natural)
+webACL_capacity = Lens.lens (\WebACL' {capacity} -> capacity) (\s@WebACL' {} a -> s {capacity = a} :: WebACL)
 
 -- | Specifies how WAF should handle @CAPTCHA@ evaluations for rules that
 -- don\'t have their own @CaptchaConfig@ settings. If you don\'t specify
@@ -326,24 +321,29 @@ webACL_tokenDomains = Lens.lens (\WebACL' {tokenDomains} -> tokenDomains) (\s@We
 webACL_captchaConfig :: Lens.Lens' WebACL (Prelude.Maybe CaptchaConfig)
 webACL_captchaConfig = Lens.lens (\WebACL' {captchaConfig} -> captchaConfig) (\s@WebACL' {} a -> s {captchaConfig = a} :: WebACL)
 
--- | The Rule statements used to identify the web requests that you want to
--- allow, block, or count. Each rule includes one top-level statement that
--- WAF uses to identify matching web requests, and parameters that govern
--- how WAF handles them.
-webACL_rules :: Lens.Lens' WebACL (Prelude.Maybe [Rule])
-webACL_rules = Lens.lens (\WebACL' {rules} -> rules) (\s@WebACL' {} a -> s {rules = a} :: WebACL) Prelude.. Lens.mapping Lens.coerced
+-- | Specifies how WAF should handle challenge evaluations for rules that
+-- don\'t have their own @ChallengeConfig@ settings. If you don\'t specify
+-- this, WAF uses its default settings for @ChallengeConfig@.
+webACL_challengeConfig :: Lens.Lens' WebACL (Prelude.Maybe ChallengeConfig)
+webACL_challengeConfig = Lens.lens (\WebACL' {challengeConfig} -> challengeConfig) (\s@WebACL' {} a -> s {challengeConfig = a} :: WebACL)
 
--- | The first set of rules for WAF to process in the web ACL. This is
--- defined in an Firewall Manager WAF policy and contains only rule group
--- references. You can\'t alter these. Any rules and rule groups that you
--- define for the web ACL are prioritized after these.
+-- | A map of custom response keys and content bodies. When you create a rule
+-- with a block action, you can send a custom response to the web request.
+-- You define these for the web ACL, and then use them in the rules and
+-- default actions that you define in the web ACL.
 --
--- In the Firewall Manager WAF policy, the Firewall Manager administrator
--- can define a set of rule groups to run first in the web ACL and a set of
--- rule groups to run last. Within each set, the administrator prioritizes
--- the rule groups, to determine their relative processing order.
-webACL_preProcessFirewallManagerRuleGroups :: Lens.Lens' WebACL (Prelude.Maybe [FirewallManagerRuleGroup])
-webACL_preProcessFirewallManagerRuleGroups = Lens.lens (\WebACL' {preProcessFirewallManagerRuleGroups} -> preProcessFirewallManagerRuleGroups) (\s@WebACL' {} a -> s {preProcessFirewallManagerRuleGroups = a} :: WebACL) Prelude.. Lens.mapping Lens.coerced
+-- For information about customizing web requests and responses, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html Customizing web requests and responses in WAF>
+-- in the
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+--
+-- For information about the limits on count and size for custom request
+-- and response settings, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/limits.html WAF quotas>
+-- in the
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+webACL_customResponseBodies :: Lens.Lens' WebACL (Prelude.Maybe (Prelude.HashMap Prelude.Text CustomResponseBody))
+webACL_customResponseBodies = Lens.lens (\WebACL' {customResponseBodies} -> customResponseBodies) (\s@WebACL' {} a -> s {customResponseBodies = a} :: WebACL) Prelude.. Lens.mapping Lens.coerced
 
 -- | A description of the web ACL that helps with identification.
 webACL_description :: Lens.Lens' WebACL (Prelude.Maybe Prelude.Text)
@@ -366,41 +366,11 @@ webACL_description = Lens.lens (\WebACL' {description} -> description) (\s@WebAC
 webACL_labelNamespace :: Lens.Lens' WebACL (Prelude.Maybe Prelude.Text)
 webACL_labelNamespace = Lens.lens (\WebACL' {labelNamespace} -> labelNamespace) (\s@WebACL' {} a -> s {labelNamespace = a} :: WebACL)
 
--- | A map of custom response keys and content bodies. When you create a rule
--- with a block action, you can send a custom response to the web request.
--- You define these for the web ACL, and then use them in the rules and
--- default actions that you define in the web ACL.
---
--- For information about customizing web requests and responses, see
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html Customizing web requests and responses in WAF>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
---
--- For information about the limits on count and size for custom request
--- and response settings, see
--- <https://docs.aws.amazon.com/waf/latest/developerguide/limits.html WAF quotas>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
-webACL_customResponseBodies :: Lens.Lens' WebACL (Prelude.Maybe (Prelude.HashMap Prelude.Text CustomResponseBody))
-webACL_customResponseBodies = Lens.lens (\WebACL' {customResponseBodies} -> customResponseBodies) (\s@WebACL' {} a -> s {customResponseBodies = a} :: WebACL) Prelude.. Lens.mapping Lens.coerced
-
--- | The web ACL capacity units (WCUs) currently being used by this web ACL.
---
--- WAF uses WCUs to calculate and control the operating resources that are
--- used to run your rules, rule groups, and web ACLs. WAF calculates
--- capacity differently for each rule type, to reflect the relative cost of
--- each rule. Simple rules that cost little to run use fewer WCUs than more
--- complex rules that use more processing power. Rule group capacity is
--- fixed at creation, which helps users plan their web ACL WCU usage when
--- they use a rule group. The WCU limit for web ACLs is 1,500.
-webACL_capacity :: Lens.Lens' WebACL (Prelude.Maybe Prelude.Natural)
-webACL_capacity = Lens.lens (\WebACL' {capacity} -> capacity) (\s@WebACL' {} a -> s {capacity = a} :: WebACL)
-
--- | Specifies how WAF should handle challenge evaluations for rules that
--- don\'t have their own @ChallengeConfig@ settings. If you don\'t specify
--- this, WAF uses its default settings for @ChallengeConfig@.
-webACL_challengeConfig :: Lens.Lens' WebACL (Prelude.Maybe ChallengeConfig)
-webACL_challengeConfig = Lens.lens (\WebACL' {challengeConfig} -> challengeConfig) (\s@WebACL' {} a -> s {challengeConfig = a} :: WebACL)
+-- | Indicates whether this web ACL is managed by Firewall Manager. If true,
+-- then only Firewall Manager can delete the web ACL or any Firewall
+-- Manager rule groups in the web ACL.
+webACL_managedByFirewallManager :: Lens.Lens' WebACL (Prelude.Maybe Prelude.Bool)
+webACL_managedByFirewallManager = Lens.lens (\WebACL' {managedByFirewallManager} -> managedByFirewallManager) (\s@WebACL' {} a -> s {managedByFirewallManager = a} :: WebACL)
 
 -- | The last set of rules for WAF to process in the web ACL. This is defined
 -- in an Firewall Manager WAF policy and contains only rule group
@@ -413,6 +383,36 @@ webACL_challengeConfig = Lens.lens (\WebACL' {challengeConfig} -> challengeConfi
 -- the rule groups, to determine their relative processing order.
 webACL_postProcessFirewallManagerRuleGroups :: Lens.Lens' WebACL (Prelude.Maybe [FirewallManagerRuleGroup])
 webACL_postProcessFirewallManagerRuleGroups = Lens.lens (\WebACL' {postProcessFirewallManagerRuleGroups} -> postProcessFirewallManagerRuleGroups) (\s@WebACL' {} a -> s {postProcessFirewallManagerRuleGroups = a} :: WebACL) Prelude.. Lens.mapping Lens.coerced
+
+-- | The first set of rules for WAF to process in the web ACL. This is
+-- defined in an Firewall Manager WAF policy and contains only rule group
+-- references. You can\'t alter these. Any rules and rule groups that you
+-- define for the web ACL are prioritized after these.
+--
+-- In the Firewall Manager WAF policy, the Firewall Manager administrator
+-- can define a set of rule groups to run first in the web ACL and a set of
+-- rule groups to run last. Within each set, the administrator prioritizes
+-- the rule groups, to determine their relative processing order.
+webACL_preProcessFirewallManagerRuleGroups :: Lens.Lens' WebACL (Prelude.Maybe [FirewallManagerRuleGroup])
+webACL_preProcessFirewallManagerRuleGroups = Lens.lens (\WebACL' {preProcessFirewallManagerRuleGroups} -> preProcessFirewallManagerRuleGroups) (\s@WebACL' {} a -> s {preProcessFirewallManagerRuleGroups = a} :: WebACL) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Rule statements used to identify the web requests that you want to
+-- allow, block, or count. Each rule includes one top-level statement that
+-- WAF uses to identify matching web requests, and parameters that govern
+-- how WAF handles them.
+webACL_rules :: Lens.Lens' WebACL (Prelude.Maybe [Rule])
+webACL_rules = Lens.lens (\WebACL' {rules} -> rules) (\s@WebACL' {} a -> s {rules = a} :: WebACL) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specifies the domains that WAF should accept in a web request token.
+-- This enables the use of tokens across multiple protected websites. When
+-- WAF provides a token, it uses the domain of the Amazon Web Services
+-- resource that the web ACL is protecting. If you don\'t specify a list of
+-- token domains, WAF accepts tokens only for the domain of the protected
+-- resource. With a token domain list, WAF accepts the resource\'s host
+-- domain plus all domains in the token domain list, including their
+-- prefixed subdomains.
+webACL_tokenDomains :: Lens.Lens' WebACL (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+webACL_tokenDomains = Lens.lens (\WebACL' {tokenDomains} -> tokenDomains) (\s@WebACL' {} a -> s {tokenDomains = a} :: WebACL) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the web ACL. You cannot change the name of a web ACL after
 -- you create it.
@@ -446,23 +446,23 @@ instance Data.FromJSON WebACL where
       "WebACL"
       ( \x ->
           WebACL'
-            Prelude.<$> (x Data..:? "ManagedByFirewallManager")
-            Prelude.<*> (x Data..:? "TokenDomains")
+            Prelude.<$> (x Data..:? "Capacity")
             Prelude.<*> (x Data..:? "CaptchaConfig")
-            Prelude.<*> (x Data..:? "Rules" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "PreProcessFirewallManagerRuleGroups"
+            Prelude.<*> (x Data..:? "ChallengeConfig")
+            Prelude.<*> ( x Data..:? "CustomResponseBodies"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "LabelNamespace")
-            Prelude.<*> ( x Data..:? "CustomResponseBodies"
-                            Data..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Data..:? "Capacity")
-            Prelude.<*> (x Data..:? "ChallengeConfig")
+            Prelude.<*> (x Data..:? "ManagedByFirewallManager")
             Prelude.<*> ( x Data..:? "PostProcessFirewallManagerRuleGroups"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> ( x Data..:? "PreProcessFirewallManagerRuleGroups"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "Rules" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "TokenDomains")
             Prelude.<*> (x Data..: "Name")
             Prelude.<*> (x Data..: "Id")
             Prelude.<*> (x Data..: "ARN")
@@ -472,18 +472,17 @@ instance Data.FromJSON WebACL where
 
 instance Prelude.Hashable WebACL where
   hashWithSalt _salt WebACL' {..} =
-    _salt
-      `Prelude.hashWithSalt` managedByFirewallManager
-      `Prelude.hashWithSalt` tokenDomains
+    _salt `Prelude.hashWithSalt` capacity
       `Prelude.hashWithSalt` captchaConfig
-      `Prelude.hashWithSalt` rules
-      `Prelude.hashWithSalt` preProcessFirewallManagerRuleGroups
+      `Prelude.hashWithSalt` challengeConfig
+      `Prelude.hashWithSalt` customResponseBodies
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` labelNamespace
-      `Prelude.hashWithSalt` customResponseBodies
-      `Prelude.hashWithSalt` capacity
-      `Prelude.hashWithSalt` challengeConfig
+      `Prelude.hashWithSalt` managedByFirewallManager
       `Prelude.hashWithSalt` postProcessFirewallManagerRuleGroups
+      `Prelude.hashWithSalt` preProcessFirewallManagerRuleGroups
+      `Prelude.hashWithSalt` rules
+      `Prelude.hashWithSalt` tokenDomains
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` arn
@@ -492,17 +491,17 @@ instance Prelude.Hashable WebACL where
 
 instance Prelude.NFData WebACL where
   rnf WebACL' {..} =
-    Prelude.rnf managedByFirewallManager
-      `Prelude.seq` Prelude.rnf tokenDomains
+    Prelude.rnf capacity
       `Prelude.seq` Prelude.rnf captchaConfig
-      `Prelude.seq` Prelude.rnf rules
-      `Prelude.seq` Prelude.rnf preProcessFirewallManagerRuleGroups
+      `Prelude.seq` Prelude.rnf challengeConfig
+      `Prelude.seq` Prelude.rnf customResponseBodies
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf labelNamespace
-      `Prelude.seq` Prelude.rnf customResponseBodies
-      `Prelude.seq` Prelude.rnf capacity
-      `Prelude.seq` Prelude.rnf challengeConfig
+      `Prelude.seq` Prelude.rnf managedByFirewallManager
       `Prelude.seq` Prelude.rnf postProcessFirewallManagerRuleGroups
+      `Prelude.seq` Prelude.rnf preProcessFirewallManagerRuleGroups
+      `Prelude.seq` Prelude.rnf rules
+      `Prelude.seq` Prelude.rnf tokenDomains
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf arn

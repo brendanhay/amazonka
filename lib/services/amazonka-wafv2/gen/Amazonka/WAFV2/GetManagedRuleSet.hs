@@ -45,8 +45,8 @@ module Amazonka.WAFV2.GetManagedRuleSet
     newGetManagedRuleSetResponse,
 
     -- * Response Lenses
-    getManagedRuleSetResponse_managedRuleSet,
     getManagedRuleSetResponse_lockToken,
+    getManagedRuleSetResponse_managedRuleSet,
     getManagedRuleSetResponse_httpStatus,
   )
 where
@@ -171,8 +171,8 @@ instance Core.AWSRequest GetManagedRuleSet where
     Response.receiveJSON
       ( \s h x ->
           GetManagedRuleSetResponse'
-            Prelude.<$> (x Data..?> "ManagedRuleSet")
-            Prelude.<*> (x Data..?> "LockToken")
+            Prelude.<$> (x Data..?> "LockToken")
+            Prelude.<*> (x Data..?> "ManagedRuleSet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -221,9 +221,7 @@ instance Data.ToQuery GetManagedRuleSet where
 
 -- | /See:/ 'newGetManagedRuleSetResponse' smart constructor.
 data GetManagedRuleSetResponse = GetManagedRuleSetResponse'
-  { -- | The managed rule set that you requested.
-    managedRuleSet :: Prelude.Maybe ManagedRuleSet,
-    -- | A token used for optimistic locking. WAF returns a token to your @get@
+  { -- | A token used for optimistic locking. WAF returns a token to your @get@
     -- and @list@ requests, to mark the state of the entity at the time of the
     -- request. To make changes to the entity associated with the token, you
     -- provide the token to operations like @update@ and @delete@. WAF uses the
@@ -232,6 +230,8 @@ data GetManagedRuleSetResponse = GetManagedRuleSetResponse'
     -- @WAFOptimisticLockException@. If this happens, perform another @get@,
     -- and use the new token returned by that operation.
     lockToken :: Prelude.Maybe Prelude.Text,
+    -- | The managed rule set that you requested.
+    managedRuleSet :: Prelude.Maybe ManagedRuleSet,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -245,8 +245,6 @@ data GetManagedRuleSetResponse = GetManagedRuleSetResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'managedRuleSet', 'getManagedRuleSetResponse_managedRuleSet' - The managed rule set that you requested.
---
 -- 'lockToken', 'getManagedRuleSetResponse_lockToken' - A token used for optimistic locking. WAF returns a token to your @get@
 -- and @list@ requests, to mark the state of the entity at the time of the
 -- request. To make changes to the entity associated with the token, you
@@ -256,6 +254,8 @@ data GetManagedRuleSetResponse = GetManagedRuleSetResponse'
 -- @WAFOptimisticLockException@. If this happens, perform another @get@,
 -- and use the new token returned by that operation.
 --
+-- 'managedRuleSet', 'getManagedRuleSetResponse_managedRuleSet' - The managed rule set that you requested.
+--
 -- 'httpStatus', 'getManagedRuleSetResponse_httpStatus' - The response's http status code.
 newGetManagedRuleSetResponse ::
   -- | 'httpStatus'
@@ -263,15 +263,11 @@ newGetManagedRuleSetResponse ::
   GetManagedRuleSetResponse
 newGetManagedRuleSetResponse pHttpStatus_ =
   GetManagedRuleSetResponse'
-    { managedRuleSet =
+    { lockToken =
         Prelude.Nothing,
-      lockToken = Prelude.Nothing,
+      managedRuleSet = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The managed rule set that you requested.
-getManagedRuleSetResponse_managedRuleSet :: Lens.Lens' GetManagedRuleSetResponse (Prelude.Maybe ManagedRuleSet)
-getManagedRuleSetResponse_managedRuleSet = Lens.lens (\GetManagedRuleSetResponse' {managedRuleSet} -> managedRuleSet) (\s@GetManagedRuleSetResponse' {} a -> s {managedRuleSet = a} :: GetManagedRuleSetResponse)
 
 -- | A token used for optimistic locking. WAF returns a token to your @get@
 -- and @list@ requests, to mark the state of the entity at the time of the
@@ -284,12 +280,16 @@ getManagedRuleSetResponse_managedRuleSet = Lens.lens (\GetManagedRuleSetResponse
 getManagedRuleSetResponse_lockToken :: Lens.Lens' GetManagedRuleSetResponse (Prelude.Maybe Prelude.Text)
 getManagedRuleSetResponse_lockToken = Lens.lens (\GetManagedRuleSetResponse' {lockToken} -> lockToken) (\s@GetManagedRuleSetResponse' {} a -> s {lockToken = a} :: GetManagedRuleSetResponse)
 
+-- | The managed rule set that you requested.
+getManagedRuleSetResponse_managedRuleSet :: Lens.Lens' GetManagedRuleSetResponse (Prelude.Maybe ManagedRuleSet)
+getManagedRuleSetResponse_managedRuleSet = Lens.lens (\GetManagedRuleSetResponse' {managedRuleSet} -> managedRuleSet) (\s@GetManagedRuleSetResponse' {} a -> s {managedRuleSet = a} :: GetManagedRuleSetResponse)
+
 -- | The response's http status code.
 getManagedRuleSetResponse_httpStatus :: Lens.Lens' GetManagedRuleSetResponse Prelude.Int
 getManagedRuleSetResponse_httpStatus = Lens.lens (\GetManagedRuleSetResponse' {httpStatus} -> httpStatus) (\s@GetManagedRuleSetResponse' {} a -> s {httpStatus = a} :: GetManagedRuleSetResponse)
 
 instance Prelude.NFData GetManagedRuleSetResponse where
   rnf GetManagedRuleSetResponse' {..} =
-    Prelude.rnf managedRuleSet
-      `Prelude.seq` Prelude.rnf lockToken
+    Prelude.rnf lockToken
+      `Prelude.seq` Prelude.rnf managedRuleSet
       `Prelude.seq` Prelude.rnf httpStatus

@@ -30,15 +30,15 @@ import Amazonka.WAFV2.Types.LabelNameCondition
 --
 -- /See:/ 'newCondition' smart constructor.
 data Condition = Condition'
-  { -- | A single label name condition. This is the fully qualified label name
+  { -- | A single action condition. This is the action setting that a log record
+    -- must contain in order to meet the condition.
+    actionCondition :: Prelude.Maybe ActionCondition,
+    -- | A single label name condition. This is the fully qualified label name
     -- that a log record must contain in order to meet the condition. Fully
     -- qualified labels have a prefix, optional namespaces, and label name. The
     -- prefix identifies the rule group or web ACL context of the rule that
     -- added the label.
-    labelNameCondition :: Prelude.Maybe LabelNameCondition,
-    -- | A single action condition. This is the action setting that a log record
-    -- must contain in order to meet the condition.
-    actionCondition :: Prelude.Maybe ActionCondition
+    labelNameCondition :: Prelude.Maybe LabelNameCondition
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,21 +50,26 @@ data Condition = Condition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'actionCondition', 'condition_actionCondition' - A single action condition. This is the action setting that a log record
+-- must contain in order to meet the condition.
+--
 -- 'labelNameCondition', 'condition_labelNameCondition' - A single label name condition. This is the fully qualified label name
 -- that a log record must contain in order to meet the condition. Fully
 -- qualified labels have a prefix, optional namespaces, and label name. The
 -- prefix identifies the rule group or web ACL context of the rule that
 -- added the label.
---
--- 'actionCondition', 'condition_actionCondition' - A single action condition. This is the action setting that a log record
--- must contain in order to meet the condition.
 newCondition ::
   Condition
 newCondition =
   Condition'
-    { labelNameCondition = Prelude.Nothing,
-      actionCondition = Prelude.Nothing
+    { actionCondition = Prelude.Nothing,
+      labelNameCondition = Prelude.Nothing
     }
+
+-- | A single action condition. This is the action setting that a log record
+-- must contain in order to meet the condition.
+condition_actionCondition :: Lens.Lens' Condition (Prelude.Maybe ActionCondition)
+condition_actionCondition = Lens.lens (\Condition' {actionCondition} -> actionCondition) (\s@Condition' {} a -> s {actionCondition = a} :: Condition)
 
 -- | A single label name condition. This is the fully qualified label name
 -- that a log record must contain in order to meet the condition. Fully
@@ -74,38 +79,33 @@ newCondition =
 condition_labelNameCondition :: Lens.Lens' Condition (Prelude.Maybe LabelNameCondition)
 condition_labelNameCondition = Lens.lens (\Condition' {labelNameCondition} -> labelNameCondition) (\s@Condition' {} a -> s {labelNameCondition = a} :: Condition)
 
--- | A single action condition. This is the action setting that a log record
--- must contain in order to meet the condition.
-condition_actionCondition :: Lens.Lens' Condition (Prelude.Maybe ActionCondition)
-condition_actionCondition = Lens.lens (\Condition' {actionCondition} -> actionCondition) (\s@Condition' {} a -> s {actionCondition = a} :: Condition)
-
 instance Data.FromJSON Condition where
   parseJSON =
     Data.withObject
       "Condition"
       ( \x ->
           Condition'
-            Prelude.<$> (x Data..:? "LabelNameCondition")
-            Prelude.<*> (x Data..:? "ActionCondition")
+            Prelude.<$> (x Data..:? "ActionCondition")
+            Prelude.<*> (x Data..:? "LabelNameCondition")
       )
 
 instance Prelude.Hashable Condition where
   hashWithSalt _salt Condition' {..} =
-    _salt `Prelude.hashWithSalt` labelNameCondition
-      `Prelude.hashWithSalt` actionCondition
+    _salt `Prelude.hashWithSalt` actionCondition
+      `Prelude.hashWithSalt` labelNameCondition
 
 instance Prelude.NFData Condition where
   rnf Condition' {..} =
-    Prelude.rnf labelNameCondition
-      `Prelude.seq` Prelude.rnf actionCondition
+    Prelude.rnf actionCondition
+      `Prelude.seq` Prelude.rnf labelNameCondition
 
 instance Data.ToJSON Condition where
   toJSON Condition' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("LabelNameCondition" Data..=)
-              Prelude.<$> labelNameCondition,
-            ("ActionCondition" Data..=)
-              Prelude.<$> actionCondition
+          [ ("ActionCondition" Data..=)
+              Prelude.<$> actionCondition,
+            ("LabelNameCondition" Data..=)
+              Prelude.<$> labelNameCondition
           ]
       )

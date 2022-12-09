@@ -49,8 +49,8 @@ module Amazonka.WAFV2.GetSampledRequests
     newGetSampledRequestsResponse,
 
     -- * Response Lenses
-    getSampledRequestsResponse_sampledRequests,
     getSampledRequestsResponse_populationSize,
+    getSampledRequestsResponse_sampledRequests,
     getSampledRequestsResponse_timeWindow,
     getSampledRequestsResponse_httpStatus,
   )
@@ -221,10 +221,10 @@ instance Core.AWSRequest GetSampledRequests where
     Response.receiveJSON
       ( \s h x ->
           GetSampledRequestsResponse'
-            Prelude.<$> ( x Data..?> "SampledRequests"
+            Prelude.<$> (x Data..?> "PopulationSize")
+            Prelude.<*> ( x Data..?> "SampledRequests"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "PopulationSize")
             Prelude.<*> (x Data..?> "TimeWindow")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -281,14 +281,14 @@ instance Data.ToQuery GetSampledRequests where
 
 -- | /See:/ 'newGetSampledRequestsResponse' smart constructor.
 data GetSampledRequestsResponse = GetSampledRequestsResponse'
-  { -- | A complex type that contains detailed information about each of the
-    -- requests in the sample.
-    sampledRequests :: Prelude.Maybe [SampledHTTPRequest],
-    -- | The total number of requests from which @GetSampledRequests@ got a
+  { -- | The total number of requests from which @GetSampledRequests@ got a
     -- sample of @MaxItems@ requests. If @PopulationSize@ is less than
     -- @MaxItems@, the sample includes every request that your Amazon Web
     -- Services resource received during the specified time range.
     populationSize :: Prelude.Maybe Prelude.Integer,
+    -- | A complex type that contains detailed information about each of the
+    -- requests in the sample.
+    sampledRequests :: Prelude.Maybe [SampledHTTPRequest],
     -- | Usually, @TimeWindow@ is the time range that you specified in the
     -- @GetSampledRequests@ request. However, if your Amazon Web Services
     -- resource received more than 5,000 requests during the time range that
@@ -309,13 +309,13 @@ data GetSampledRequestsResponse = GetSampledRequestsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sampledRequests', 'getSampledRequestsResponse_sampledRequests' - A complex type that contains detailed information about each of the
--- requests in the sample.
---
 -- 'populationSize', 'getSampledRequestsResponse_populationSize' - The total number of requests from which @GetSampledRequests@ got a
 -- sample of @MaxItems@ requests. If @PopulationSize@ is less than
 -- @MaxItems@, the sample includes every request that your Amazon Web
 -- Services resource received during the specified time range.
+--
+-- 'sampledRequests', 'getSampledRequestsResponse_sampledRequests' - A complex type that contains detailed information about each of the
+-- requests in the sample.
 --
 -- 'timeWindow', 'getSampledRequestsResponse_timeWindow' - Usually, @TimeWindow@ is the time range that you specified in the
 -- @GetSampledRequests@ request. However, if your Amazon Web Services
@@ -331,17 +331,12 @@ newGetSampledRequestsResponse ::
   GetSampledRequestsResponse
 newGetSampledRequestsResponse pHttpStatus_ =
   GetSampledRequestsResponse'
-    { sampledRequests =
+    { populationSize =
         Prelude.Nothing,
-      populationSize = Prelude.Nothing,
+      sampledRequests = Prelude.Nothing,
       timeWindow = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A complex type that contains detailed information about each of the
--- requests in the sample.
-getSampledRequestsResponse_sampledRequests :: Lens.Lens' GetSampledRequestsResponse (Prelude.Maybe [SampledHTTPRequest])
-getSampledRequestsResponse_sampledRequests = Lens.lens (\GetSampledRequestsResponse' {sampledRequests} -> sampledRequests) (\s@GetSampledRequestsResponse' {} a -> s {sampledRequests = a} :: GetSampledRequestsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The total number of requests from which @GetSampledRequests@ got a
 -- sample of @MaxItems@ requests. If @PopulationSize@ is less than
@@ -349,6 +344,11 @@ getSampledRequestsResponse_sampledRequests = Lens.lens (\GetSampledRequestsRespo
 -- Services resource received during the specified time range.
 getSampledRequestsResponse_populationSize :: Lens.Lens' GetSampledRequestsResponse (Prelude.Maybe Prelude.Integer)
 getSampledRequestsResponse_populationSize = Lens.lens (\GetSampledRequestsResponse' {populationSize} -> populationSize) (\s@GetSampledRequestsResponse' {} a -> s {populationSize = a} :: GetSampledRequestsResponse)
+
+-- | A complex type that contains detailed information about each of the
+-- requests in the sample.
+getSampledRequestsResponse_sampledRequests :: Lens.Lens' GetSampledRequestsResponse (Prelude.Maybe [SampledHTTPRequest])
+getSampledRequestsResponse_sampledRequests = Lens.lens (\GetSampledRequestsResponse' {sampledRequests} -> sampledRequests) (\s@GetSampledRequestsResponse' {} a -> s {sampledRequests = a} :: GetSampledRequestsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Usually, @TimeWindow@ is the time range that you specified in the
 -- @GetSampledRequests@ request. However, if your Amazon Web Services
@@ -365,7 +365,7 @@ getSampledRequestsResponse_httpStatus = Lens.lens (\GetSampledRequestsResponse' 
 
 instance Prelude.NFData GetSampledRequestsResponse where
   rnf GetSampledRequestsResponse' {..} =
-    Prelude.rnf sampledRequests
-      `Prelude.seq` Prelude.rnf populationSize
+    Prelude.rnf populationSize
+      `Prelude.seq` Prelude.rnf sampledRequests
       `Prelude.seq` Prelude.rnf timeWindow
       `Prelude.seq` Prelude.rnf httpStatus

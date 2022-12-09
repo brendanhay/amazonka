@@ -37,20 +37,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newManagedRuleSetSummary' smart constructor.
 data ManagedRuleSetSummary = ManagedRuleSetSummary'
-  { -- | The name of the managed rule set. You use this, along with the rule set
-    -- ID, to identify the rule set.
-    --
-    -- This name is assigned to the corresponding managed rule group, which
-    -- your customers can access and use.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the entity.
+  { -- | The Amazon Resource Name (ARN) of the entity.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | A description of the set that helps with identification.
+    description :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the managed rule set. The ID is returned in the
     -- responses to commands like @list@. You provide it to operations like
     -- @get@ and @update@.
     id :: Prelude.Maybe Prelude.Text,
-    -- | A description of the set that helps with identification.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The label namespace prefix for the managed rule groups that are offered
     -- to customers from this managed rule set. All labels that are added by
     -- rules in the managed rule group have this prefix.
@@ -75,7 +69,13 @@ data ManagedRuleSetSummary = ManagedRuleSetSummary'
     -- last retrieved it. If a change has been made, the update fails with a
     -- @WAFOptimisticLockException@. If this happens, perform another @get@,
     -- and use the new token returned by that operation.
-    lockToken :: Prelude.Maybe Prelude.Text
+    lockToken :: Prelude.Maybe Prelude.Text,
+    -- | The name of the managed rule set. You use this, along with the rule set
+    -- ID, to identify the rule set.
+    --
+    -- This name is assigned to the corresponding managed rule group, which
+    -- your customers can access and use.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -87,19 +87,13 @@ data ManagedRuleSetSummary = ManagedRuleSetSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'managedRuleSetSummary_name' - The name of the managed rule set. You use this, along with the rule set
--- ID, to identify the rule set.
---
--- This name is assigned to the corresponding managed rule group, which
--- your customers can access and use.
---
 -- 'arn', 'managedRuleSetSummary_arn' - The Amazon Resource Name (ARN) of the entity.
+--
+-- 'description', 'managedRuleSetSummary_description' - A description of the set that helps with identification.
 --
 -- 'id', 'managedRuleSetSummary_id' - A unique identifier for the managed rule set. The ID is returned in the
 -- responses to commands like @list@. You provide it to operations like
 -- @get@ and @update@.
---
--- 'description', 'managedRuleSetSummary_description' - A description of the set that helps with identification.
 --
 -- 'labelNamespace', 'managedRuleSetSummary_labelNamespace' - The label namespace prefix for the managed rule groups that are offered
 -- to customers from this managed rule set. All labels that are added by
@@ -125,39 +119,37 @@ data ManagedRuleSetSummary = ManagedRuleSetSummary'
 -- last retrieved it. If a change has been made, the update fails with a
 -- @WAFOptimisticLockException@. If this happens, perform another @get@,
 -- and use the new token returned by that operation.
-newManagedRuleSetSummary ::
-  ManagedRuleSetSummary
-newManagedRuleSetSummary =
-  ManagedRuleSetSummary'
-    { name = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      id = Prelude.Nothing,
-      description = Prelude.Nothing,
-      labelNamespace = Prelude.Nothing,
-      lockToken = Prelude.Nothing
-    }
-
--- | The name of the managed rule set. You use this, along with the rule set
+--
+-- 'name', 'managedRuleSetSummary_name' - The name of the managed rule set. You use this, along with the rule set
 -- ID, to identify the rule set.
 --
 -- This name is assigned to the corresponding managed rule group, which
 -- your customers can access and use.
-managedRuleSetSummary_name :: Lens.Lens' ManagedRuleSetSummary (Prelude.Maybe Prelude.Text)
-managedRuleSetSummary_name = Lens.lens (\ManagedRuleSetSummary' {name} -> name) (\s@ManagedRuleSetSummary' {} a -> s {name = a} :: ManagedRuleSetSummary)
+newManagedRuleSetSummary ::
+  ManagedRuleSetSummary
+newManagedRuleSetSummary =
+  ManagedRuleSetSummary'
+    { arn = Prelude.Nothing,
+      description = Prelude.Nothing,
+      id = Prelude.Nothing,
+      labelNamespace = Prelude.Nothing,
+      lockToken = Prelude.Nothing,
+      name = Prelude.Nothing
+    }
 
 -- | The Amazon Resource Name (ARN) of the entity.
 managedRuleSetSummary_arn :: Lens.Lens' ManagedRuleSetSummary (Prelude.Maybe Prelude.Text)
 managedRuleSetSummary_arn = Lens.lens (\ManagedRuleSetSummary' {arn} -> arn) (\s@ManagedRuleSetSummary' {} a -> s {arn = a} :: ManagedRuleSetSummary)
+
+-- | A description of the set that helps with identification.
+managedRuleSetSummary_description :: Lens.Lens' ManagedRuleSetSummary (Prelude.Maybe Prelude.Text)
+managedRuleSetSummary_description = Lens.lens (\ManagedRuleSetSummary' {description} -> description) (\s@ManagedRuleSetSummary' {} a -> s {description = a} :: ManagedRuleSetSummary)
 
 -- | A unique identifier for the managed rule set. The ID is returned in the
 -- responses to commands like @list@. You provide it to operations like
 -- @get@ and @update@.
 managedRuleSetSummary_id :: Lens.Lens' ManagedRuleSetSummary (Prelude.Maybe Prelude.Text)
 managedRuleSetSummary_id = Lens.lens (\ManagedRuleSetSummary' {id} -> id) (\s@ManagedRuleSetSummary' {} a -> s {id = a} :: ManagedRuleSetSummary)
-
--- | A description of the set that helps with identification.
-managedRuleSetSummary_description :: Lens.Lens' ManagedRuleSetSummary (Prelude.Maybe Prelude.Text)
-managedRuleSetSummary_description = Lens.lens (\ManagedRuleSetSummary' {description} -> description) (\s@ManagedRuleSetSummary' {} a -> s {description = a} :: ManagedRuleSetSummary)
 
 -- | The label namespace prefix for the managed rule groups that are offered
 -- to customers from this managed rule set. All labels that are added by
@@ -188,34 +180,42 @@ managedRuleSetSummary_labelNamespace = Lens.lens (\ManagedRuleSetSummary' {label
 managedRuleSetSummary_lockToken :: Lens.Lens' ManagedRuleSetSummary (Prelude.Maybe Prelude.Text)
 managedRuleSetSummary_lockToken = Lens.lens (\ManagedRuleSetSummary' {lockToken} -> lockToken) (\s@ManagedRuleSetSummary' {} a -> s {lockToken = a} :: ManagedRuleSetSummary)
 
+-- | The name of the managed rule set. You use this, along with the rule set
+-- ID, to identify the rule set.
+--
+-- This name is assigned to the corresponding managed rule group, which
+-- your customers can access and use.
+managedRuleSetSummary_name :: Lens.Lens' ManagedRuleSetSummary (Prelude.Maybe Prelude.Text)
+managedRuleSetSummary_name = Lens.lens (\ManagedRuleSetSummary' {name} -> name) (\s@ManagedRuleSetSummary' {} a -> s {name = a} :: ManagedRuleSetSummary)
+
 instance Data.FromJSON ManagedRuleSetSummary where
   parseJSON =
     Data.withObject
       "ManagedRuleSetSummary"
       ( \x ->
           ManagedRuleSetSummary'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "ARN")
-            Prelude.<*> (x Data..:? "Id")
+            Prelude.<$> (x Data..:? "ARN")
             Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "Id")
             Prelude.<*> (x Data..:? "LabelNamespace")
             Prelude.<*> (x Data..:? "LockToken")
+            Prelude.<*> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable ManagedRuleSetSummary where
   hashWithSalt _salt ManagedRuleSetSummary' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` id
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` labelNamespace
       `Prelude.hashWithSalt` lockToken
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData ManagedRuleSetSummary where
   rnf ManagedRuleSetSummary' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf labelNamespace
       `Prelude.seq` Prelude.rnf lockToken
+      `Prelude.seq` Prelude.rnf name

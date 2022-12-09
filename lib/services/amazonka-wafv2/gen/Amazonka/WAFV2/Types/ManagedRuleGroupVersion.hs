@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newManagedRuleGroupVersion' smart constructor.
 data ManagedRuleGroupVersion = ManagedRuleGroupVersion'
-  { -- | The version name.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The date and time that the managed rule group owner updated the rule
+  { -- | The date and time that the managed rule group owner updated the rule
     -- group version information.
-    lastUpdateTimestamp :: Prelude.Maybe Data.POSIX
+    lastUpdateTimestamp :: Prelude.Maybe Data.POSIX,
+    -- | The version name.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,26 +44,27 @@ data ManagedRuleGroupVersion = ManagedRuleGroupVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'managedRuleGroupVersion_name' - The version name.
---
 -- 'lastUpdateTimestamp', 'managedRuleGroupVersion_lastUpdateTimestamp' - The date and time that the managed rule group owner updated the rule
 -- group version information.
+--
+-- 'name', 'managedRuleGroupVersion_name' - The version name.
 newManagedRuleGroupVersion ::
   ManagedRuleGroupVersion
 newManagedRuleGroupVersion =
   ManagedRuleGroupVersion'
-    { name = Prelude.Nothing,
-      lastUpdateTimestamp = Prelude.Nothing
+    { lastUpdateTimestamp =
+        Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | The version name.
-managedRuleGroupVersion_name :: Lens.Lens' ManagedRuleGroupVersion (Prelude.Maybe Prelude.Text)
-managedRuleGroupVersion_name = Lens.lens (\ManagedRuleGroupVersion' {name} -> name) (\s@ManagedRuleGroupVersion' {} a -> s {name = a} :: ManagedRuleGroupVersion)
 
 -- | The date and time that the managed rule group owner updated the rule
 -- group version information.
 managedRuleGroupVersion_lastUpdateTimestamp :: Lens.Lens' ManagedRuleGroupVersion (Prelude.Maybe Prelude.UTCTime)
 managedRuleGroupVersion_lastUpdateTimestamp = Lens.lens (\ManagedRuleGroupVersion' {lastUpdateTimestamp} -> lastUpdateTimestamp) (\s@ManagedRuleGroupVersion' {} a -> s {lastUpdateTimestamp = a} :: ManagedRuleGroupVersion) Prelude.. Lens.mapping Data._Time
+
+-- | The version name.
+managedRuleGroupVersion_name :: Lens.Lens' ManagedRuleGroupVersion (Prelude.Maybe Prelude.Text)
+managedRuleGroupVersion_name = Lens.lens (\ManagedRuleGroupVersion' {name} -> name) (\s@ManagedRuleGroupVersion' {} a -> s {name = a} :: ManagedRuleGroupVersion)
 
 instance Data.FromJSON ManagedRuleGroupVersion where
   parseJSON =
@@ -71,16 +72,16 @@ instance Data.FromJSON ManagedRuleGroupVersion where
       "ManagedRuleGroupVersion"
       ( \x ->
           ManagedRuleGroupVersion'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "LastUpdateTimestamp")
+            Prelude.<$> (x Data..:? "LastUpdateTimestamp")
+            Prelude.<*> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable ManagedRuleGroupVersion where
   hashWithSalt _salt ManagedRuleGroupVersion' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` lastUpdateTimestamp
+    _salt `Prelude.hashWithSalt` lastUpdateTimestamp
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData ManagedRuleGroupVersion where
   rnf ManagedRuleGroupVersion' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf lastUpdateTimestamp
+    Prelude.rnf lastUpdateTimestamp
+      `Prelude.seq` Prelude.rnf name

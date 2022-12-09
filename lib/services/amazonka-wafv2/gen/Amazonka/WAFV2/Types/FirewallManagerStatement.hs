@@ -31,15 +31,7 @@ import Amazonka.WAFV2.Types.RuleGroupReferenceStatement
 --
 -- /See:/ 'newFirewallManagerStatement' smart constructor.
 data FirewallManagerStatement = FirewallManagerStatement'
-  { -- | A rule statement used to run the rules that are defined in a RuleGroup.
-    -- To use this, create a rule group with your rules, then provide the ARN
-    -- of the rule group in this statement.
-    --
-    -- You cannot nest a @RuleGroupReferenceStatement@, for example for use
-    -- inside a @NotStatement@ or @OrStatement@. You can only use a rule group
-    -- reference statement at the top level inside a web ACL.
-    ruleGroupReferenceStatement :: Prelude.Maybe RuleGroupReferenceStatement,
-    -- | A rule statement used to run the rules that are defined in a managed
+  { -- | A rule statement used to run the rules that are defined in a managed
     -- rule group. To use this, provide the vendor name and the name of the
     -- rule group in this statement. You can retrieve the required names by
     -- calling ListAvailableManagedRuleGroups.
@@ -53,7 +45,15 @@ data FirewallManagerStatement = FirewallManagerStatement'
     -- account takeover prevention (ATP) managed rule group
     -- @AWSManagedRulesATPRuleSet@. For more information, see
     -- <http://aws.amazon.com/waf/pricing/ WAF Pricing>.
-    managedRuleGroupStatement :: Prelude.Maybe ManagedRuleGroupStatement
+    managedRuleGroupStatement :: Prelude.Maybe ManagedRuleGroupStatement,
+    -- | A rule statement used to run the rules that are defined in a RuleGroup.
+    -- To use this, create a rule group with your rules, then provide the ARN
+    -- of the rule group in this statement.
+    --
+    -- You cannot nest a @RuleGroupReferenceStatement@, for example for use
+    -- inside a @NotStatement@ or @OrStatement@. You can only use a rule group
+    -- reference statement at the top level inside a web ACL.
+    ruleGroupReferenceStatement :: Prelude.Maybe RuleGroupReferenceStatement
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -64,14 +64,6 @@ data FirewallManagerStatement = FirewallManagerStatement'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'ruleGroupReferenceStatement', 'firewallManagerStatement_ruleGroupReferenceStatement' - A rule statement used to run the rules that are defined in a RuleGroup.
--- To use this, create a rule group with your rules, then provide the ARN
--- of the rule group in this statement.
---
--- You cannot nest a @RuleGroupReferenceStatement@, for example for use
--- inside a @NotStatement@ or @OrStatement@. You can only use a rule group
--- reference statement at the top level inside a web ACL.
 --
 -- 'managedRuleGroupStatement', 'firewallManagerStatement_managedRuleGroupStatement' - A rule statement used to run the rules that are defined in a managed
 -- rule group. To use this, provide the vendor name and the name of the
@@ -87,24 +79,22 @@ data FirewallManagerStatement = FirewallManagerStatement'
 -- account takeover prevention (ATP) managed rule group
 -- @AWSManagedRulesATPRuleSet@. For more information, see
 -- <http://aws.amazon.com/waf/pricing/ WAF Pricing>.
-newFirewallManagerStatement ::
-  FirewallManagerStatement
-newFirewallManagerStatement =
-  FirewallManagerStatement'
-    { ruleGroupReferenceStatement =
-        Prelude.Nothing,
-      managedRuleGroupStatement = Prelude.Nothing
-    }
-
--- | A rule statement used to run the rules that are defined in a RuleGroup.
+--
+-- 'ruleGroupReferenceStatement', 'firewallManagerStatement_ruleGroupReferenceStatement' - A rule statement used to run the rules that are defined in a RuleGroup.
 -- To use this, create a rule group with your rules, then provide the ARN
 -- of the rule group in this statement.
 --
 -- You cannot nest a @RuleGroupReferenceStatement@, for example for use
 -- inside a @NotStatement@ or @OrStatement@. You can only use a rule group
 -- reference statement at the top level inside a web ACL.
-firewallManagerStatement_ruleGroupReferenceStatement :: Lens.Lens' FirewallManagerStatement (Prelude.Maybe RuleGroupReferenceStatement)
-firewallManagerStatement_ruleGroupReferenceStatement = Lens.lens (\FirewallManagerStatement' {ruleGroupReferenceStatement} -> ruleGroupReferenceStatement) (\s@FirewallManagerStatement' {} a -> s {ruleGroupReferenceStatement = a} :: FirewallManagerStatement)
+newFirewallManagerStatement ::
+  FirewallManagerStatement
+newFirewallManagerStatement =
+  FirewallManagerStatement'
+    { managedRuleGroupStatement =
+        Prelude.Nothing,
+      ruleGroupReferenceStatement = Prelude.Nothing
+    }
 
 -- | A rule statement used to run the rules that are defined in a managed
 -- rule group. To use this, provide the vendor name and the name of the
@@ -123,23 +113,33 @@ firewallManagerStatement_ruleGroupReferenceStatement = Lens.lens (\FirewallManag
 firewallManagerStatement_managedRuleGroupStatement :: Lens.Lens' FirewallManagerStatement (Prelude.Maybe ManagedRuleGroupStatement)
 firewallManagerStatement_managedRuleGroupStatement = Lens.lens (\FirewallManagerStatement' {managedRuleGroupStatement} -> managedRuleGroupStatement) (\s@FirewallManagerStatement' {} a -> s {managedRuleGroupStatement = a} :: FirewallManagerStatement)
 
+-- | A rule statement used to run the rules that are defined in a RuleGroup.
+-- To use this, create a rule group with your rules, then provide the ARN
+-- of the rule group in this statement.
+--
+-- You cannot nest a @RuleGroupReferenceStatement@, for example for use
+-- inside a @NotStatement@ or @OrStatement@. You can only use a rule group
+-- reference statement at the top level inside a web ACL.
+firewallManagerStatement_ruleGroupReferenceStatement :: Lens.Lens' FirewallManagerStatement (Prelude.Maybe RuleGroupReferenceStatement)
+firewallManagerStatement_ruleGroupReferenceStatement = Lens.lens (\FirewallManagerStatement' {ruleGroupReferenceStatement} -> ruleGroupReferenceStatement) (\s@FirewallManagerStatement' {} a -> s {ruleGroupReferenceStatement = a} :: FirewallManagerStatement)
+
 instance Data.FromJSON FirewallManagerStatement where
   parseJSON =
     Data.withObject
       "FirewallManagerStatement"
       ( \x ->
           FirewallManagerStatement'
-            Prelude.<$> (x Data..:? "RuleGroupReferenceStatement")
-            Prelude.<*> (x Data..:? "ManagedRuleGroupStatement")
+            Prelude.<$> (x Data..:? "ManagedRuleGroupStatement")
+            Prelude.<*> (x Data..:? "RuleGroupReferenceStatement")
       )
 
 instance Prelude.Hashable FirewallManagerStatement where
   hashWithSalt _salt FirewallManagerStatement' {..} =
     _salt
-      `Prelude.hashWithSalt` ruleGroupReferenceStatement
       `Prelude.hashWithSalt` managedRuleGroupStatement
+      `Prelude.hashWithSalt` ruleGroupReferenceStatement
 
 instance Prelude.NFData FirewallManagerStatement where
   rnf FirewallManagerStatement' {..} =
-    Prelude.rnf ruleGroupReferenceStatement
-      `Prelude.seq` Prelude.rnf managedRuleGroupStatement
+    Prelude.rnf managedRuleGroupStatement
+      `Prelude.seq` Prelude.rnf ruleGroupReferenceStatement

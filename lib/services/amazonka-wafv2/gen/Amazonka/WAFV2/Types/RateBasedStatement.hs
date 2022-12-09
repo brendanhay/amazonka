@@ -71,14 +71,7 @@ import {-# SOURCE #-} Amazonka.WAFV2.Types.Statement
 --
 -- /See:/ 'newRateBasedStatement' smart constructor.
 data RateBasedStatement = RateBasedStatement'
-  { -- | An optional nested statement that narrows the scope of the web requests
-    -- that are evaluated by the rate-based statement. Requests are only
-    -- tracked by the rate-based statement if they match the scope-down
-    -- statement. You can use any nestable Statement in the scope-down
-    -- statement, and you can nest statements at any level, the same as you can
-    -- for a rule statement.
-    scopeDownStatement :: Prelude.Maybe Statement,
-    -- | The configuration for inspecting IP addresses in an HTTP header that you
+  { -- | The configuration for inspecting IP addresses in an HTTP header that you
     -- specify, instead of using the IP address that\'s reported by the web
     -- request origin. Commonly, this is the X-Forwarded-For (XFF) header, but
     -- you can specify any header name.
@@ -88,6 +81,13 @@ data RateBasedStatement = RateBasedStatement'
     --
     -- This is required if @AggregateKeyType@ is set to @FORWARDED_IP@.
     forwardedIPConfig :: Prelude.Maybe ForwardedIPConfig,
+    -- | An optional nested statement that narrows the scope of the web requests
+    -- that are evaluated by the rate-based statement. Requests are only
+    -- tracked by the rate-based statement if they match the scope-down
+    -- statement. You can use any nestable Statement in the scope-down
+    -- statement, and you can nest statements at any level, the same as you can
+    -- for a rule statement.
+    scopeDownStatement :: Prelude.Maybe Statement,
     -- | The limit on requests per 5-minute period for a single originating IP
     -- address. If the statement includes a @ScopeDownStatement@, this limit is
     -- applied only to the requests that match the statement.
@@ -113,13 +113,6 @@ data RateBasedStatement = RateBasedStatement'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'scopeDownStatement', 'rateBasedStatement_scopeDownStatement' - An optional nested statement that narrows the scope of the web requests
--- that are evaluated by the rate-based statement. Requests are only
--- tracked by the rate-based statement if they match the scope-down
--- statement. You can use any nestable Statement in the scope-down
--- statement, and you can nest statements at any level, the same as you can
--- for a rule statement.
---
 -- 'forwardedIPConfig', 'rateBasedStatement_forwardedIPConfig' - The configuration for inspecting IP addresses in an HTTP header that you
 -- specify, instead of using the IP address that\'s reported by the web
 -- request origin. Commonly, this is the X-Forwarded-For (XFF) header, but
@@ -129,6 +122,13 @@ data RateBasedStatement = RateBasedStatement'
 -- apply the rule to the web request at all.
 --
 -- This is required if @AggregateKeyType@ is set to @FORWARDED_IP@.
+--
+-- 'scopeDownStatement', 'rateBasedStatement_scopeDownStatement' - An optional nested statement that narrows the scope of the web requests
+-- that are evaluated by the rate-based statement. Requests are only
+-- tracked by the rate-based statement if they match the scope-down
+-- statement. You can use any nestable Statement in the scope-down
+-- statement, and you can nest statements at any level, the same as you can
+-- for a rule statement.
 --
 -- 'limit', 'rateBasedStatement_limit' - The limit on requests per 5-minute period for a single originating IP
 -- address. If the statement includes a @ScopeDownStatement@, this limit is
@@ -151,21 +151,12 @@ newRateBasedStatement ::
   RateBasedStatement
 newRateBasedStatement pLimit_ pAggregateKeyType_ =
   RateBasedStatement'
-    { scopeDownStatement =
+    { forwardedIPConfig =
         Prelude.Nothing,
-      forwardedIPConfig = Prelude.Nothing,
+      scopeDownStatement = Prelude.Nothing,
       limit = pLimit_,
       aggregateKeyType = pAggregateKeyType_
     }
-
--- | An optional nested statement that narrows the scope of the web requests
--- that are evaluated by the rate-based statement. Requests are only
--- tracked by the rate-based statement if they match the scope-down
--- statement. You can use any nestable Statement in the scope-down
--- statement, and you can nest statements at any level, the same as you can
--- for a rule statement.
-rateBasedStatement_scopeDownStatement :: Lens.Lens' RateBasedStatement (Prelude.Maybe Statement)
-rateBasedStatement_scopeDownStatement = Lens.lens (\RateBasedStatement' {scopeDownStatement} -> scopeDownStatement) (\s@RateBasedStatement' {} a -> s {scopeDownStatement = a} :: RateBasedStatement)
 
 -- | The configuration for inspecting IP addresses in an HTTP header that you
 -- specify, instead of using the IP address that\'s reported by the web
@@ -178,6 +169,15 @@ rateBasedStatement_scopeDownStatement = Lens.lens (\RateBasedStatement' {scopeDo
 -- This is required if @AggregateKeyType@ is set to @FORWARDED_IP@.
 rateBasedStatement_forwardedIPConfig :: Lens.Lens' RateBasedStatement (Prelude.Maybe ForwardedIPConfig)
 rateBasedStatement_forwardedIPConfig = Lens.lens (\RateBasedStatement' {forwardedIPConfig} -> forwardedIPConfig) (\s@RateBasedStatement' {} a -> s {forwardedIPConfig = a} :: RateBasedStatement)
+
+-- | An optional nested statement that narrows the scope of the web requests
+-- that are evaluated by the rate-based statement. Requests are only
+-- tracked by the rate-based statement if they match the scope-down
+-- statement. You can use any nestable Statement in the scope-down
+-- statement, and you can nest statements at any level, the same as you can
+-- for a rule statement.
+rateBasedStatement_scopeDownStatement :: Lens.Lens' RateBasedStatement (Prelude.Maybe Statement)
+rateBasedStatement_scopeDownStatement = Lens.lens (\RateBasedStatement' {scopeDownStatement} -> scopeDownStatement) (\s@RateBasedStatement' {} a -> s {scopeDownStatement = a} :: RateBasedStatement)
 
 -- | The limit on requests per 5-minute period for a single originating IP
 -- address. If the statement includes a @ScopeDownStatement@, this limit is
@@ -203,23 +203,23 @@ instance Data.FromJSON RateBasedStatement where
       "RateBasedStatement"
       ( \x ->
           RateBasedStatement'
-            Prelude.<$> (x Data..:? "ScopeDownStatement")
-            Prelude.<*> (x Data..:? "ForwardedIPConfig")
+            Prelude.<$> (x Data..:? "ForwardedIPConfig")
+            Prelude.<*> (x Data..:? "ScopeDownStatement")
             Prelude.<*> (x Data..: "Limit")
             Prelude.<*> (x Data..: "AggregateKeyType")
       )
 
 instance Prelude.Hashable RateBasedStatement where
   hashWithSalt _salt RateBasedStatement' {..} =
-    _salt `Prelude.hashWithSalt` scopeDownStatement
-      `Prelude.hashWithSalt` forwardedIPConfig
+    _salt `Prelude.hashWithSalt` forwardedIPConfig
+      `Prelude.hashWithSalt` scopeDownStatement
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` aggregateKeyType
 
 instance Prelude.NFData RateBasedStatement where
   rnf RateBasedStatement' {..} =
-    Prelude.rnf scopeDownStatement
-      `Prelude.seq` Prelude.rnf forwardedIPConfig
+    Prelude.rnf forwardedIPConfig
+      `Prelude.seq` Prelude.rnf scopeDownStatement
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf aggregateKeyType
 
@@ -227,10 +227,10 @@ instance Data.ToJSON RateBasedStatement where
   toJSON RateBasedStatement' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ScopeDownStatement" Data..=)
-              Prelude.<$> scopeDownStatement,
-            ("ForwardedIPConfig" Data..=)
+          [ ("ForwardedIPConfig" Data..=)
               Prelude.<$> forwardedIPConfig,
+            ("ScopeDownStatement" Data..=)
+              Prelude.<$> scopeDownStatement,
             Prelude.Just ("Limit" Data..= limit),
             Prelude.Just
               ("AggregateKeyType" Data..= aggregateKeyType)

@@ -45,7 +45,12 @@ import {-# SOURCE #-} Amazonka.WAFV2.Types.Statement
 --
 -- /See:/ 'newManagedRuleGroupStatement' smart constructor.
 data ManagedRuleGroupStatement = ManagedRuleGroupStatement'
-  { -- | Additional information that\'s used by a managed rule group. Many
+  { -- | Rules in the referenced rule group whose actions are set to @Count@.
+    --
+    -- Instead of this option, use @RuleActionOverrides@. It accepts any valid
+    -- action setting, including @Count@.
+    excludedRules :: Prelude.Maybe [ExcludedRule],
+    -- | Additional information that\'s used by a managed rule group. Many
     -- managed rule groups don\'t require this.
     --
     -- Use the @AWSManagedRulesBotControlRuleSet@ configuration object to
@@ -68,11 +73,6 @@ data ManagedRuleGroupStatement = ManagedRuleGroupStatement'
     -- can use any nestable Statement in the scope-down statement, and you can
     -- nest statements at any level, the same as you can for a rule statement.
     scopeDownStatement :: Prelude.Maybe Statement,
-    -- | Rules in the referenced rule group whose actions are set to @Count@.
-    --
-    -- Instead of this option, use @RuleActionOverrides@. It accepts any valid
-    -- action setting, including @Count@.
-    excludedRules :: Prelude.Maybe [ExcludedRule],
     -- | The version of the managed rule group to use. If you specify this, the
     -- version setting is fixed until you change it. If you don\'t specify
     -- this, WAF uses the vendor\'s default version, and then keeps the version
@@ -95,6 +95,11 @@ data ManagedRuleGroupStatement = ManagedRuleGroupStatement'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'excludedRules', 'managedRuleGroupStatement_excludedRules' - Rules in the referenced rule group whose actions are set to @Count@.
+--
+-- Instead of this option, use @RuleActionOverrides@. It accepts any valid
+-- action setting, including @Count@.
 --
 -- 'managedRuleGroupConfigs', 'managedRuleGroupStatement_managedRuleGroupConfigs' - Additional information that\'s used by a managed rule group. Many
 -- managed rule groups don\'t require this.
@@ -119,11 +124,6 @@ data ManagedRuleGroupStatement = ManagedRuleGroupStatement'
 -- can use any nestable Statement in the scope-down statement, and you can
 -- nest statements at any level, the same as you can for a rule statement.
 --
--- 'excludedRules', 'managedRuleGroupStatement_excludedRules' - Rules in the referenced rule group whose actions are set to @Count@.
---
--- Instead of this option, use @RuleActionOverrides@. It accepts any valid
--- action setting, including @Count@.
---
 -- 'version', 'managedRuleGroupStatement_version' - The version of the managed rule group to use. If you specify this, the
 -- version setting is fixed until you change it. If you don\'t specify
 -- this, WAF uses the vendor\'s default version, and then keeps the version
@@ -143,15 +143,22 @@ newManagedRuleGroupStatement ::
   ManagedRuleGroupStatement
 newManagedRuleGroupStatement pVendorName_ pName_ =
   ManagedRuleGroupStatement'
-    { managedRuleGroupConfigs =
+    { excludedRules =
         Prelude.Nothing,
+      managedRuleGroupConfigs = Prelude.Nothing,
       ruleActionOverrides = Prelude.Nothing,
       scopeDownStatement = Prelude.Nothing,
-      excludedRules = Prelude.Nothing,
       version = Prelude.Nothing,
       vendorName = pVendorName_,
       name = pName_
     }
+
+-- | Rules in the referenced rule group whose actions are set to @Count@.
+--
+-- Instead of this option, use @RuleActionOverrides@. It accepts any valid
+-- action setting, including @Count@.
+managedRuleGroupStatement_excludedRules :: Lens.Lens' ManagedRuleGroupStatement (Prelude.Maybe [ExcludedRule])
+managedRuleGroupStatement_excludedRules = Lens.lens (\ManagedRuleGroupStatement' {excludedRules} -> excludedRules) (\s@ManagedRuleGroupStatement' {} a -> s {excludedRules = a} :: ManagedRuleGroupStatement) Prelude.. Lens.mapping Lens.coerced
 
 -- | Additional information that\'s used by a managed rule group. Many
 -- managed rule groups don\'t require this.
@@ -182,13 +189,6 @@ managedRuleGroupStatement_ruleActionOverrides = Lens.lens (\ManagedRuleGroupStat
 managedRuleGroupStatement_scopeDownStatement :: Lens.Lens' ManagedRuleGroupStatement (Prelude.Maybe Statement)
 managedRuleGroupStatement_scopeDownStatement = Lens.lens (\ManagedRuleGroupStatement' {scopeDownStatement} -> scopeDownStatement) (\s@ManagedRuleGroupStatement' {} a -> s {scopeDownStatement = a} :: ManagedRuleGroupStatement)
 
--- | Rules in the referenced rule group whose actions are set to @Count@.
---
--- Instead of this option, use @RuleActionOverrides@. It accepts any valid
--- action setting, including @Count@.
-managedRuleGroupStatement_excludedRules :: Lens.Lens' ManagedRuleGroupStatement (Prelude.Maybe [ExcludedRule])
-managedRuleGroupStatement_excludedRules = Lens.lens (\ManagedRuleGroupStatement' {excludedRules} -> excludedRules) (\s@ManagedRuleGroupStatement' {} a -> s {excludedRules = a} :: ManagedRuleGroupStatement) Prelude.. Lens.mapping Lens.coerced
-
 -- | The version of the managed rule group to use. If you specify this, the
 -- version setting is fixed until you change it. If you don\'t specify
 -- this, WAF uses the vendor\'s default version, and then keeps the version
@@ -213,10 +213,10 @@ instance Data.FromJSON ManagedRuleGroupStatement where
       "ManagedRuleGroupStatement"
       ( \x ->
           ManagedRuleGroupStatement'
-            Prelude.<$> (x Data..:? "ManagedRuleGroupConfigs")
+            Prelude.<$> (x Data..:? "ExcludedRules" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ManagedRuleGroupConfigs")
             Prelude.<*> (x Data..:? "RuleActionOverrides")
             Prelude.<*> (x Data..:? "ScopeDownStatement")
-            Prelude.<*> (x Data..:? "ExcludedRules" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "Version")
             Prelude.<*> (x Data..: "VendorName")
             Prelude.<*> (x Data..: "Name")
@@ -224,21 +224,20 @@ instance Data.FromJSON ManagedRuleGroupStatement where
 
 instance Prelude.Hashable ManagedRuleGroupStatement where
   hashWithSalt _salt ManagedRuleGroupStatement' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` excludedRules
       `Prelude.hashWithSalt` managedRuleGroupConfigs
       `Prelude.hashWithSalt` ruleActionOverrides
       `Prelude.hashWithSalt` scopeDownStatement
-      `Prelude.hashWithSalt` excludedRules
       `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` vendorName
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData ManagedRuleGroupStatement where
   rnf ManagedRuleGroupStatement' {..} =
-    Prelude.rnf managedRuleGroupConfigs
+    Prelude.rnf excludedRules
+      `Prelude.seq` Prelude.rnf managedRuleGroupConfigs
       `Prelude.seq` Prelude.rnf ruleActionOverrides
       `Prelude.seq` Prelude.rnf scopeDownStatement
-      `Prelude.seq` Prelude.rnf excludedRules
       `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf vendorName
       `Prelude.seq` Prelude.rnf name
@@ -247,13 +246,13 @@ instance Data.ToJSON ManagedRuleGroupStatement where
   toJSON ManagedRuleGroupStatement' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ManagedRuleGroupConfigs" Data..=)
+          [ ("ExcludedRules" Data..=) Prelude.<$> excludedRules,
+            ("ManagedRuleGroupConfigs" Data..=)
               Prelude.<$> managedRuleGroupConfigs,
             ("RuleActionOverrides" Data..=)
               Prelude.<$> ruleActionOverrides,
             ("ScopeDownStatement" Data..=)
               Prelude.<$> scopeDownStatement,
-            ("ExcludedRules" Data..=) Prelude.<$> excludedRules,
             ("Version" Data..=) Prelude.<$> version,
             Prelude.Just ("VendorName" Data..= vendorName),
             Prelude.Just ("Name" Data..= name)

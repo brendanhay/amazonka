@@ -39,11 +39,27 @@ data RuleGroup = RuleGroup'
   { -- | The labels that one or more rules in this rule group add to matching web
     -- requests. These labels are defined in the @RuleLabels@ for a Rule.
     availableLabels :: Prelude.Maybe [LabelSummary],
-    -- | The Rule statements used to identify the web requests that you want to
-    -- allow, block, or count. Each rule includes one top-level statement that
-    -- WAF uses to identify matching web requests, and parameters that govern
-    -- how WAF handles them.
-    rules :: Prelude.Maybe [Rule],
+    -- | The labels that one or more rules in this rule group match against in
+    -- label match statements. These labels are defined in a
+    -- @LabelMatchStatement@ specification, in the Statement definition of a
+    -- rule.
+    consumedLabels :: Prelude.Maybe [LabelSummary],
+    -- | A map of custom response keys and content bodies. When you create a rule
+    -- with a block action, you can send a custom response to the web request.
+    -- You define these for the rule group, and then use them in the rules that
+    -- you define in the rule group.
+    --
+    -- For information about customizing web requests and responses, see
+    -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html Customizing web requests and responses in WAF>
+    -- in the
+    -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+    --
+    -- For information about the limits on count and size for custom request
+    -- and response settings, see
+    -- <https://docs.aws.amazon.com/waf/latest/developerguide/limits.html WAF quotas>
+    -- in the
+    -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+    customResponseBodies :: Prelude.Maybe (Prelude.HashMap Prelude.Text CustomResponseBody),
     -- | A description of the rule group that helps with identification.
     description :: Prelude.Maybe Prelude.Text,
     -- | The label namespace prefix for this rule group. All labels added by
@@ -61,27 +77,11 @@ data RuleGroup = RuleGroup'
     --
     --     @\<label namespace>:\<label from rule>@
     labelNamespace :: Prelude.Maybe Prelude.Text,
-    -- | A map of custom response keys and content bodies. When you create a rule
-    -- with a block action, you can send a custom response to the web request.
-    -- You define these for the rule group, and then use them in the rules that
-    -- you define in the rule group.
-    --
-    -- For information about customizing web requests and responses, see
-    -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html Customizing web requests and responses in WAF>
-    -- in the
-    -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
-    --
-    -- For information about the limits on count and size for custom request
-    -- and response settings, see
-    -- <https://docs.aws.amazon.com/waf/latest/developerguide/limits.html WAF quotas>
-    -- in the
-    -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
-    customResponseBodies :: Prelude.Maybe (Prelude.HashMap Prelude.Text CustomResponseBody),
-    -- | The labels that one or more rules in this rule group match against in
-    -- label match statements. These labels are defined in a
-    -- @LabelMatchStatement@ specification, in the Statement definition of a
-    -- rule.
-    consumedLabels :: Prelude.Maybe [LabelSummary],
+    -- | The Rule statements used to identify the web requests that you want to
+    -- allow, block, or count. Each rule includes one top-level statement that
+    -- WAF uses to identify matching web requests, and parameters that govern
+    -- how WAF handles them.
+    rules :: Prelude.Maybe [Rule],
     -- | The name of the rule group. You cannot change the name of a rule group
     -- after you create it.
     name :: Prelude.Text,
@@ -123,10 +123,26 @@ data RuleGroup = RuleGroup'
 -- 'availableLabels', 'ruleGroup_availableLabels' - The labels that one or more rules in this rule group add to matching web
 -- requests. These labels are defined in the @RuleLabels@ for a Rule.
 --
--- 'rules', 'ruleGroup_rules' - The Rule statements used to identify the web requests that you want to
--- allow, block, or count. Each rule includes one top-level statement that
--- WAF uses to identify matching web requests, and parameters that govern
--- how WAF handles them.
+-- 'consumedLabels', 'ruleGroup_consumedLabels' - The labels that one or more rules in this rule group match against in
+-- label match statements. These labels are defined in a
+-- @LabelMatchStatement@ specification, in the Statement definition of a
+-- rule.
+--
+-- 'customResponseBodies', 'ruleGroup_customResponseBodies' - A map of custom response keys and content bodies. When you create a rule
+-- with a block action, you can send a custom response to the web request.
+-- You define these for the rule group, and then use them in the rules that
+-- you define in the rule group.
+--
+-- For information about customizing web requests and responses, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html Customizing web requests and responses in WAF>
+-- in the
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+--
+-- For information about the limits on count and size for custom request
+-- and response settings, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/limits.html WAF quotas>
+-- in the
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
 --
 -- 'description', 'ruleGroup_description' - A description of the rule group that helps with identification.
 --
@@ -145,26 +161,10 @@ data RuleGroup = RuleGroup'
 --
 --     @\<label namespace>:\<label from rule>@
 --
--- 'customResponseBodies', 'ruleGroup_customResponseBodies' - A map of custom response keys and content bodies. When you create a rule
--- with a block action, you can send a custom response to the web request.
--- You define these for the rule group, and then use them in the rules that
--- you define in the rule group.
---
--- For information about customizing web requests and responses, see
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html Customizing web requests and responses in WAF>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
---
--- For information about the limits on count and size for custom request
--- and response settings, see
--- <https://docs.aws.amazon.com/waf/latest/developerguide/limits.html WAF quotas>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
---
--- 'consumedLabels', 'ruleGroup_consumedLabels' - The labels that one or more rules in this rule group match against in
--- label match statements. These labels are defined in a
--- @LabelMatchStatement@ specification, in the Statement definition of a
--- rule.
+-- 'rules', 'ruleGroup_rules' - The Rule statements used to identify the web requests that you want to
+-- allow, block, or count. Each rule includes one top-level statement that
+-- WAF uses to identify matching web requests, and parameters that govern
+-- how WAF handles them.
 --
 -- 'name', 'ruleGroup_name' - The name of the rule group. You cannot change the name of a rule group
 -- after you create it.
@@ -212,11 +212,11 @@ newRuleGroup
   pVisibilityConfig_ =
     RuleGroup'
       { availableLabels = Prelude.Nothing,
-        rules = Prelude.Nothing,
+        consumedLabels = Prelude.Nothing,
+        customResponseBodies = Prelude.Nothing,
         description = Prelude.Nothing,
         labelNamespace = Prelude.Nothing,
-        customResponseBodies = Prelude.Nothing,
-        consumedLabels = Prelude.Nothing,
+        rules = Prelude.Nothing,
         name = pName_,
         id = pId_,
         capacity = pCapacity_,
@@ -229,12 +229,30 @@ newRuleGroup
 ruleGroup_availableLabels :: Lens.Lens' RuleGroup (Prelude.Maybe [LabelSummary])
 ruleGroup_availableLabels = Lens.lens (\RuleGroup' {availableLabels} -> availableLabels) (\s@RuleGroup' {} a -> s {availableLabels = a} :: RuleGroup) Prelude.. Lens.mapping Lens.coerced
 
--- | The Rule statements used to identify the web requests that you want to
--- allow, block, or count. Each rule includes one top-level statement that
--- WAF uses to identify matching web requests, and parameters that govern
--- how WAF handles them.
-ruleGroup_rules :: Lens.Lens' RuleGroup (Prelude.Maybe [Rule])
-ruleGroup_rules = Lens.lens (\RuleGroup' {rules} -> rules) (\s@RuleGroup' {} a -> s {rules = a} :: RuleGroup) Prelude.. Lens.mapping Lens.coerced
+-- | The labels that one or more rules in this rule group match against in
+-- label match statements. These labels are defined in a
+-- @LabelMatchStatement@ specification, in the Statement definition of a
+-- rule.
+ruleGroup_consumedLabels :: Lens.Lens' RuleGroup (Prelude.Maybe [LabelSummary])
+ruleGroup_consumedLabels = Lens.lens (\RuleGroup' {consumedLabels} -> consumedLabels) (\s@RuleGroup' {} a -> s {consumedLabels = a} :: RuleGroup) Prelude.. Lens.mapping Lens.coerced
+
+-- | A map of custom response keys and content bodies. When you create a rule
+-- with a block action, you can send a custom response to the web request.
+-- You define these for the rule group, and then use them in the rules that
+-- you define in the rule group.
+--
+-- For information about customizing web requests and responses, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html Customizing web requests and responses in WAF>
+-- in the
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+--
+-- For information about the limits on count and size for custom request
+-- and response settings, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/limits.html WAF quotas>
+-- in the
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+ruleGroup_customResponseBodies :: Lens.Lens' RuleGroup (Prelude.Maybe (Prelude.HashMap Prelude.Text CustomResponseBody))
+ruleGroup_customResponseBodies = Lens.lens (\RuleGroup' {customResponseBodies} -> customResponseBodies) (\s@RuleGroup' {} a -> s {customResponseBodies = a} :: RuleGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | A description of the rule group that helps with identification.
 ruleGroup_description :: Lens.Lens' RuleGroup (Prelude.Maybe Prelude.Text)
@@ -257,30 +275,12 @@ ruleGroup_description = Lens.lens (\RuleGroup' {description} -> description) (\s
 ruleGroup_labelNamespace :: Lens.Lens' RuleGroup (Prelude.Maybe Prelude.Text)
 ruleGroup_labelNamespace = Lens.lens (\RuleGroup' {labelNamespace} -> labelNamespace) (\s@RuleGroup' {} a -> s {labelNamespace = a} :: RuleGroup)
 
--- | A map of custom response keys and content bodies. When you create a rule
--- with a block action, you can send a custom response to the web request.
--- You define these for the rule group, and then use them in the rules that
--- you define in the rule group.
---
--- For information about customizing web requests and responses, see
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html Customizing web requests and responses in WAF>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
---
--- For information about the limits on count and size for custom request
--- and response settings, see
--- <https://docs.aws.amazon.com/waf/latest/developerguide/limits.html WAF quotas>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
-ruleGroup_customResponseBodies :: Lens.Lens' RuleGroup (Prelude.Maybe (Prelude.HashMap Prelude.Text CustomResponseBody))
-ruleGroup_customResponseBodies = Lens.lens (\RuleGroup' {customResponseBodies} -> customResponseBodies) (\s@RuleGroup' {} a -> s {customResponseBodies = a} :: RuleGroup) Prelude.. Lens.mapping Lens.coerced
-
--- | The labels that one or more rules in this rule group match against in
--- label match statements. These labels are defined in a
--- @LabelMatchStatement@ specification, in the Statement definition of a
--- rule.
-ruleGroup_consumedLabels :: Lens.Lens' RuleGroup (Prelude.Maybe [LabelSummary])
-ruleGroup_consumedLabels = Lens.lens (\RuleGroup' {consumedLabels} -> consumedLabels) (\s@RuleGroup' {} a -> s {consumedLabels = a} :: RuleGroup) Prelude.. Lens.mapping Lens.coerced
+-- | The Rule statements used to identify the web requests that you want to
+-- allow, block, or count. Each rule includes one top-level statement that
+-- WAF uses to identify matching web requests, and parameters that govern
+-- how WAF handles them.
+ruleGroup_rules :: Lens.Lens' RuleGroup (Prelude.Maybe [Rule])
+ruleGroup_rules = Lens.lens (\RuleGroup' {rules} -> rules) (\s@RuleGroup' {} a -> s {rules = a} :: RuleGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the rule group. You cannot change the name of a rule group
 -- after you create it.
@@ -328,13 +328,13 @@ instance Data.FromJSON RuleGroup where
             Prelude.<$> ( x Data..:? "AvailableLabels"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "Rules" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "Description")
-            Prelude.<*> (x Data..:? "LabelNamespace")
+            Prelude.<*> (x Data..:? "ConsumedLabels" Data..!= Prelude.mempty)
             Prelude.<*> ( x Data..:? "CustomResponseBodies"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "ConsumedLabels" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "LabelNamespace")
+            Prelude.<*> (x Data..:? "Rules" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "Name")
             Prelude.<*> (x Data..: "Id")
             Prelude.<*> (x Data..: "Capacity")
@@ -345,11 +345,11 @@ instance Data.FromJSON RuleGroup where
 instance Prelude.Hashable RuleGroup where
   hashWithSalt _salt RuleGroup' {..} =
     _salt `Prelude.hashWithSalt` availableLabels
-      `Prelude.hashWithSalt` rules
+      `Prelude.hashWithSalt` consumedLabels
+      `Prelude.hashWithSalt` customResponseBodies
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` labelNamespace
-      `Prelude.hashWithSalt` customResponseBodies
-      `Prelude.hashWithSalt` consumedLabels
+      `Prelude.hashWithSalt` rules
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` capacity
@@ -359,11 +359,11 @@ instance Prelude.Hashable RuleGroup where
 instance Prelude.NFData RuleGroup where
   rnf RuleGroup' {..} =
     Prelude.rnf availableLabels
-      `Prelude.seq` Prelude.rnf rules
+      `Prelude.seq` Prelude.rnf consumedLabels
+      `Prelude.seq` Prelude.rnf customResponseBodies
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf labelNamespace
-      `Prelude.seq` Prelude.rnf customResponseBodies
-      `Prelude.seq` Prelude.rnf consumedLabels
+      `Prelude.seq` Prelude.rnf rules
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf capacity

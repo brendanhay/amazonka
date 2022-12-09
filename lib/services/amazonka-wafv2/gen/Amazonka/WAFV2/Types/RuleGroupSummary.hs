@@ -31,17 +31,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRuleGroupSummary' smart constructor.
 data RuleGroupSummary = RuleGroupSummary'
-  { -- | The name of the data type instance. You cannot change the name after you
-    -- create the instance.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the entity.
+  { -- | The Amazon Resource Name (ARN) of the entity.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | A description of the rule group that helps with identification.
+    description :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the rule group. This ID is returned in the
     -- responses to create and list commands. You provide it to operations like
     -- update and delete.
     id :: Prelude.Maybe Prelude.Text,
-    -- | A description of the rule group that helps with identification.
-    description :: Prelude.Maybe Prelude.Text,
     -- | A token used for optimistic locking. WAF returns a token to your @get@
     -- and @list@ requests, to mark the state of the entity at the time of the
     -- request. To make changes to the entity associated with the token, you
@@ -50,7 +47,10 @@ data RuleGroupSummary = RuleGroupSummary'
     -- last retrieved it. If a change has been made, the update fails with a
     -- @WAFOptimisticLockException@. If this happens, perform another @get@,
     -- and use the new token returned by that operation.
-    lockToken :: Prelude.Maybe Prelude.Text
+    lockToken :: Prelude.Maybe Prelude.Text,
+    -- | The name of the data type instance. You cannot change the name after you
+    -- create the instance.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,16 +62,13 @@ data RuleGroupSummary = RuleGroupSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'ruleGroupSummary_name' - The name of the data type instance. You cannot change the name after you
--- create the instance.
---
 -- 'arn', 'ruleGroupSummary_arn' - The Amazon Resource Name (ARN) of the entity.
+--
+-- 'description', 'ruleGroupSummary_description' - A description of the rule group that helps with identification.
 --
 -- 'id', 'ruleGroupSummary_id' - A unique identifier for the rule group. This ID is returned in the
 -- responses to create and list commands. You provide it to operations like
 -- update and delete.
---
--- 'description', 'ruleGroupSummary_description' - A description of the rule group that helps with identification.
 --
 -- 'lockToken', 'ruleGroupSummary_lockToken' - A token used for optimistic locking. WAF returns a token to your @get@
 -- and @list@ requests, to mark the state of the entity at the time of the
@@ -81,35 +78,33 @@ data RuleGroupSummary = RuleGroupSummary'
 -- last retrieved it. If a change has been made, the update fails with a
 -- @WAFOptimisticLockException@. If this happens, perform another @get@,
 -- and use the new token returned by that operation.
+--
+-- 'name', 'ruleGroupSummary_name' - The name of the data type instance. You cannot change the name after you
+-- create the instance.
 newRuleGroupSummary ::
   RuleGroupSummary
 newRuleGroupSummary =
   RuleGroupSummary'
-    { name = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      id = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       description = Prelude.Nothing,
-      lockToken = Prelude.Nothing
+      id = Prelude.Nothing,
+      lockToken = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | The name of the data type instance. You cannot change the name after you
--- create the instance.
-ruleGroupSummary_name :: Lens.Lens' RuleGroupSummary (Prelude.Maybe Prelude.Text)
-ruleGroupSummary_name = Lens.lens (\RuleGroupSummary' {name} -> name) (\s@RuleGroupSummary' {} a -> s {name = a} :: RuleGroupSummary)
 
 -- | The Amazon Resource Name (ARN) of the entity.
 ruleGroupSummary_arn :: Lens.Lens' RuleGroupSummary (Prelude.Maybe Prelude.Text)
 ruleGroupSummary_arn = Lens.lens (\RuleGroupSummary' {arn} -> arn) (\s@RuleGroupSummary' {} a -> s {arn = a} :: RuleGroupSummary)
+
+-- | A description of the rule group that helps with identification.
+ruleGroupSummary_description :: Lens.Lens' RuleGroupSummary (Prelude.Maybe Prelude.Text)
+ruleGroupSummary_description = Lens.lens (\RuleGroupSummary' {description} -> description) (\s@RuleGroupSummary' {} a -> s {description = a} :: RuleGroupSummary)
 
 -- | A unique identifier for the rule group. This ID is returned in the
 -- responses to create and list commands. You provide it to operations like
 -- update and delete.
 ruleGroupSummary_id :: Lens.Lens' RuleGroupSummary (Prelude.Maybe Prelude.Text)
 ruleGroupSummary_id = Lens.lens (\RuleGroupSummary' {id} -> id) (\s@RuleGroupSummary' {} a -> s {id = a} :: RuleGroupSummary)
-
--- | A description of the rule group that helps with identification.
-ruleGroupSummary_description :: Lens.Lens' RuleGroupSummary (Prelude.Maybe Prelude.Text)
-ruleGroupSummary_description = Lens.lens (\RuleGroupSummary' {description} -> description) (\s@RuleGroupSummary' {} a -> s {description = a} :: RuleGroupSummary)
 
 -- | A token used for optimistic locking. WAF returns a token to your @get@
 -- and @list@ requests, to mark the state of the entity at the time of the
@@ -122,31 +117,36 @@ ruleGroupSummary_description = Lens.lens (\RuleGroupSummary' {description} -> de
 ruleGroupSummary_lockToken :: Lens.Lens' RuleGroupSummary (Prelude.Maybe Prelude.Text)
 ruleGroupSummary_lockToken = Lens.lens (\RuleGroupSummary' {lockToken} -> lockToken) (\s@RuleGroupSummary' {} a -> s {lockToken = a} :: RuleGroupSummary)
 
+-- | The name of the data type instance. You cannot change the name after you
+-- create the instance.
+ruleGroupSummary_name :: Lens.Lens' RuleGroupSummary (Prelude.Maybe Prelude.Text)
+ruleGroupSummary_name = Lens.lens (\RuleGroupSummary' {name} -> name) (\s@RuleGroupSummary' {} a -> s {name = a} :: RuleGroupSummary)
+
 instance Data.FromJSON RuleGroupSummary where
   parseJSON =
     Data.withObject
       "RuleGroupSummary"
       ( \x ->
           RuleGroupSummary'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "ARN")
-            Prelude.<*> (x Data..:? "Id")
+            Prelude.<$> (x Data..:? "ARN")
             Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "Id")
             Prelude.<*> (x Data..:? "LockToken")
+            Prelude.<*> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable RuleGroupSummary where
   hashWithSalt _salt RuleGroupSummary' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` id
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` lockToken
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData RuleGroupSummary where
   rnf RuleGroupSummary' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf lockToken
+      `Prelude.seq` Prelude.rnf name

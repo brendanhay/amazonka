@@ -87,59 +87,59 @@ module Amazonka.WAFV2
     -- * Errors
     -- $errors
 
-    -- ** WAFConfigurationWarningException
-    _WAFConfigurationWarningException,
-
-    -- ** WAFUnavailableEntityException
-    _WAFUnavailableEntityException,
-
-    -- ** WAFServiceLinkedRoleErrorException
-    _WAFServiceLinkedRoleErrorException,
-
-    -- ** WAFOptimisticLockException
-    _WAFOptimisticLockException,
-
-    -- ** WAFTagOperationInternalErrorException
-    _WAFTagOperationInternalErrorException,
-
-    -- ** WAFInvalidPermissionPolicyException
-    _WAFInvalidPermissionPolicyException,
-
-    -- ** WAFExpiredManagedRuleGroupVersionException
-    _WAFExpiredManagedRuleGroupVersionException,
-
-    -- ** WAFSubscriptionNotFoundException
-    _WAFSubscriptionNotFoundException,
-
-    -- ** WAFNonexistentItemException
-    _WAFNonexistentItemException,
-
     -- ** WAFAssociatedItemException
     _WAFAssociatedItemException,
 
-    -- ** WAFInvalidResourceException
-    _WAFInvalidResourceException,
+    -- ** WAFConfigurationWarningException
+    _WAFConfigurationWarningException,
 
     -- ** WAFDuplicateItemException
     _WAFDuplicateItemException,
 
-    -- ** WAFTagOperationException
-    _WAFTagOperationException,
-
-    -- ** WAFInvalidParameterException
-    _WAFInvalidParameterException,
-
-    -- ** WAFLogDestinationPermissionIssueException
-    _WAFLogDestinationPermissionIssueException,
-
-    -- ** WAFInvalidOperationException
-    _WAFInvalidOperationException,
+    -- ** WAFExpiredManagedRuleGroupVersionException
+    _WAFExpiredManagedRuleGroupVersionException,
 
     -- ** WAFInternalErrorException
     _WAFInternalErrorException,
 
+    -- ** WAFInvalidOperationException
+    _WAFInvalidOperationException,
+
+    -- ** WAFInvalidParameterException
+    _WAFInvalidParameterException,
+
+    -- ** WAFInvalidPermissionPolicyException
+    _WAFInvalidPermissionPolicyException,
+
+    -- ** WAFInvalidResourceException
+    _WAFInvalidResourceException,
+
     -- ** WAFLimitsExceededException
     _WAFLimitsExceededException,
+
+    -- ** WAFLogDestinationPermissionIssueException
+    _WAFLogDestinationPermissionIssueException,
+
+    -- ** WAFNonexistentItemException
+    _WAFNonexistentItemException,
+
+    -- ** WAFOptimisticLockException
+    _WAFOptimisticLockException,
+
+    -- ** WAFServiceLinkedRoleErrorException
+    _WAFServiceLinkedRoleErrorException,
+
+    -- ** WAFSubscriptionNotFoundException
+    _WAFSubscriptionNotFoundException,
+
+    -- ** WAFTagOperationException
+    _WAFTagOperationException,
+
+    -- ** WAFTagOperationInternalErrorException
+    _WAFTagOperationInternalErrorException,
+
+    -- ** WAFUnavailableEntityException
+    _WAFUnavailableEntityException,
 
     -- * Waiters
     -- $waiters

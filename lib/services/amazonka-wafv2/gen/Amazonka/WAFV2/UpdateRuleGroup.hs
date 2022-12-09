@@ -53,9 +53,9 @@ module Amazonka.WAFV2.UpdateRuleGroup
     newUpdateRuleGroup,
 
     -- * Request Lenses
-    updateRuleGroup_rules,
-    updateRuleGroup_description,
     updateRuleGroup_customResponseBodies,
+    updateRuleGroup_description,
+    updateRuleGroup_rules,
     updateRuleGroup_name,
     updateRuleGroup_scope,
     updateRuleGroup_id,
@@ -82,14 +82,7 @@ import Amazonka.WAFV2.Types
 
 -- | /See:/ 'newUpdateRuleGroup' smart constructor.
 data UpdateRuleGroup = UpdateRuleGroup'
-  { -- | The Rule statements used to identify the web requests that you want to
-    -- allow, block, or count. Each rule includes one top-level statement that
-    -- WAF uses to identify matching web requests, and parameters that govern
-    -- how WAF handles them.
-    rules :: Prelude.Maybe [Rule],
-    -- | A description of the rule group that helps with identification.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | A map of custom response keys and content bodies. When you create a rule
+  { -- | A map of custom response keys and content bodies. When you create a rule
     -- with a block action, you can send a custom response to the web request.
     -- You define these for the rule group, and then use them in the rules that
     -- you define in the rule group.
@@ -105,6 +98,13 @@ data UpdateRuleGroup = UpdateRuleGroup'
     -- in the
     -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
     customResponseBodies :: Prelude.Maybe (Prelude.HashMap Prelude.Text CustomResponseBody),
+    -- | A description of the rule group that helps with identification.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The Rule statements used to identify the web requests that you want to
+    -- allow, block, or count. Each rule includes one top-level statement that
+    -- WAF uses to identify matching web requests, and parameters that govern
+    -- how WAF handles them.
+    rules :: Prelude.Maybe [Rule],
     -- | The name of the rule group. You cannot change the name of a rule group
     -- after you create it.
     name :: Prelude.Text,
@@ -148,13 +148,6 @@ data UpdateRuleGroup = UpdateRuleGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'rules', 'updateRuleGroup_rules' - The Rule statements used to identify the web requests that you want to
--- allow, block, or count. Each rule includes one top-level statement that
--- WAF uses to identify matching web requests, and parameters that govern
--- how WAF handles them.
---
--- 'description', 'updateRuleGroup_description' - A description of the rule group that helps with identification.
---
 -- 'customResponseBodies', 'updateRuleGroup_customResponseBodies' - A map of custom response keys and content bodies. When you create a rule
 -- with a block action, you can send a custom response to the web request.
 -- You define these for the rule group, and then use them in the rules that
@@ -170,6 +163,13 @@ data UpdateRuleGroup = UpdateRuleGroup'
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/limits.html WAF quotas>
 -- in the
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+--
+-- 'description', 'updateRuleGroup_description' - A description of the rule group that helps with identification.
+--
+-- 'rules', 'updateRuleGroup_rules' - The Rule statements used to identify the web requests that you want to
+-- allow, block, or count. Each rule includes one top-level statement that
+-- WAF uses to identify matching web requests, and parameters that govern
+-- how WAF handles them.
 --
 -- 'name', 'updateRuleGroup_name' - The name of the rule group. You cannot change the name of a rule group
 -- after you create it.
@@ -221,26 +221,16 @@ newUpdateRuleGroup
   pVisibilityConfig_
   pLockToken_ =
     UpdateRuleGroup'
-      { rules = Prelude.Nothing,
+      { customResponseBodies =
+          Prelude.Nothing,
         description = Prelude.Nothing,
-        customResponseBodies = Prelude.Nothing,
+        rules = Prelude.Nothing,
         name = pName_,
         scope = pScope_,
         id = pId_,
         visibilityConfig = pVisibilityConfig_,
         lockToken = pLockToken_
       }
-
--- | The Rule statements used to identify the web requests that you want to
--- allow, block, or count. Each rule includes one top-level statement that
--- WAF uses to identify matching web requests, and parameters that govern
--- how WAF handles them.
-updateRuleGroup_rules :: Lens.Lens' UpdateRuleGroup (Prelude.Maybe [Rule])
-updateRuleGroup_rules = Lens.lens (\UpdateRuleGroup' {rules} -> rules) (\s@UpdateRuleGroup' {} a -> s {rules = a} :: UpdateRuleGroup) Prelude.. Lens.mapping Lens.coerced
-
--- | A description of the rule group that helps with identification.
-updateRuleGroup_description :: Lens.Lens' UpdateRuleGroup (Prelude.Maybe Prelude.Text)
-updateRuleGroup_description = Lens.lens (\UpdateRuleGroup' {description} -> description) (\s@UpdateRuleGroup' {} a -> s {description = a} :: UpdateRuleGroup)
 
 -- | A map of custom response keys and content bodies. When you create a rule
 -- with a block action, you can send a custom response to the web request.
@@ -259,6 +249,17 @@ updateRuleGroup_description = Lens.lens (\UpdateRuleGroup' {description} -> desc
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
 updateRuleGroup_customResponseBodies :: Lens.Lens' UpdateRuleGroup (Prelude.Maybe (Prelude.HashMap Prelude.Text CustomResponseBody))
 updateRuleGroup_customResponseBodies = Lens.lens (\UpdateRuleGroup' {customResponseBodies} -> customResponseBodies) (\s@UpdateRuleGroup' {} a -> s {customResponseBodies = a} :: UpdateRuleGroup) Prelude.. Lens.mapping Lens.coerced
+
+-- | A description of the rule group that helps with identification.
+updateRuleGroup_description :: Lens.Lens' UpdateRuleGroup (Prelude.Maybe Prelude.Text)
+updateRuleGroup_description = Lens.lens (\UpdateRuleGroup' {description} -> description) (\s@UpdateRuleGroup' {} a -> s {description = a} :: UpdateRuleGroup)
+
+-- | The Rule statements used to identify the web requests that you want to
+-- allow, block, or count. Each rule includes one top-level statement that
+-- WAF uses to identify matching web requests, and parameters that govern
+-- how WAF handles them.
+updateRuleGroup_rules :: Lens.Lens' UpdateRuleGroup (Prelude.Maybe [Rule])
+updateRuleGroup_rules = Lens.lens (\UpdateRuleGroup' {rules} -> rules) (\s@UpdateRuleGroup' {} a -> s {rules = a} :: UpdateRuleGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the rule group. You cannot change the name of a rule group
 -- after you create it.
@@ -318,9 +319,9 @@ instance Core.AWSRequest UpdateRuleGroup where
 
 instance Prelude.Hashable UpdateRuleGroup where
   hashWithSalt _salt UpdateRuleGroup' {..} =
-    _salt `Prelude.hashWithSalt` rules
+    _salt `Prelude.hashWithSalt` customResponseBodies
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` customResponseBodies
+      `Prelude.hashWithSalt` rules
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` scope
       `Prelude.hashWithSalt` id
@@ -329,9 +330,9 @@ instance Prelude.Hashable UpdateRuleGroup where
 
 instance Prelude.NFData UpdateRuleGroup where
   rnf UpdateRuleGroup' {..} =
-    Prelude.rnf rules
+    Prelude.rnf customResponseBodies
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf customResponseBodies
+      `Prelude.seq` Prelude.rnf rules
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf scope
       `Prelude.seq` Prelude.rnf id
@@ -357,10 +358,10 @@ instance Data.ToJSON UpdateRuleGroup where
   toJSON UpdateRuleGroup' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Rules" Data..=) Prelude.<$> rules,
-            ("Description" Data..=) Prelude.<$> description,
-            ("CustomResponseBodies" Data..=)
+          [ ("CustomResponseBodies" Data..=)
               Prelude.<$> customResponseBodies,
+            ("Description" Data..=) Prelude.<$> description,
+            ("Rules" Data..=) Prelude.<$> rules,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("Scope" Data..= scope),
             Prelude.Just ("Id" Data..= id),

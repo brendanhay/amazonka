@@ -30,15 +30,15 @@ import Amazonka.WAFV2.Types.FailureReason
 --
 -- /See:/ 'newCaptchaResponse' smart constructor.
 data CaptchaResponse = CaptchaResponse'
-  { -- | The time that the @CAPTCHA@ was last solved for the supplied token.
-    solveTimestamp :: Prelude.Maybe Prelude.Integer,
+  { -- | The reason for failure, populated when the evaluation of the token
+    -- fails.
+    failureReason :: Prelude.Maybe FailureReason,
     -- | The HTTP response code indicating the status of the @CAPTCHA@ token in
     -- the web request. If the token is missing, invalid, or expired, this code
     -- is @405 Method Not Allowed@.
     responseCode :: Prelude.Maybe Prelude.Int,
-    -- | The reason for failure, populated when the evaluation of the token
-    -- fails.
-    failureReason :: Prelude.Maybe FailureReason
+    -- | The time that the @CAPTCHA@ was last solved for the supplied token.
+    solveTimestamp :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,26 +50,27 @@ data CaptchaResponse = CaptchaResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'solveTimestamp', 'captchaResponse_solveTimestamp' - The time that the @CAPTCHA@ was last solved for the supplied token.
+-- 'failureReason', 'captchaResponse_failureReason' - The reason for failure, populated when the evaluation of the token
+-- fails.
 --
 -- 'responseCode', 'captchaResponse_responseCode' - The HTTP response code indicating the status of the @CAPTCHA@ token in
 -- the web request. If the token is missing, invalid, or expired, this code
 -- is @405 Method Not Allowed@.
 --
--- 'failureReason', 'captchaResponse_failureReason' - The reason for failure, populated when the evaluation of the token
--- fails.
+-- 'solveTimestamp', 'captchaResponse_solveTimestamp' - The time that the @CAPTCHA@ was last solved for the supplied token.
 newCaptchaResponse ::
   CaptchaResponse
 newCaptchaResponse =
   CaptchaResponse'
-    { solveTimestamp = Prelude.Nothing,
+    { failureReason = Prelude.Nothing,
       responseCode = Prelude.Nothing,
-      failureReason = Prelude.Nothing
+      solveTimestamp = Prelude.Nothing
     }
 
--- | The time that the @CAPTCHA@ was last solved for the supplied token.
-captchaResponse_solveTimestamp :: Lens.Lens' CaptchaResponse (Prelude.Maybe Prelude.Integer)
-captchaResponse_solveTimestamp = Lens.lens (\CaptchaResponse' {solveTimestamp} -> solveTimestamp) (\s@CaptchaResponse' {} a -> s {solveTimestamp = a} :: CaptchaResponse)
+-- | The reason for failure, populated when the evaluation of the token
+-- fails.
+captchaResponse_failureReason :: Lens.Lens' CaptchaResponse (Prelude.Maybe FailureReason)
+captchaResponse_failureReason = Lens.lens (\CaptchaResponse' {failureReason} -> failureReason) (\s@CaptchaResponse' {} a -> s {failureReason = a} :: CaptchaResponse)
 
 -- | The HTTP response code indicating the status of the @CAPTCHA@ token in
 -- the web request. If the token is missing, invalid, or expired, this code
@@ -77,10 +78,9 @@ captchaResponse_solveTimestamp = Lens.lens (\CaptchaResponse' {solveTimestamp} -
 captchaResponse_responseCode :: Lens.Lens' CaptchaResponse (Prelude.Maybe Prelude.Int)
 captchaResponse_responseCode = Lens.lens (\CaptchaResponse' {responseCode} -> responseCode) (\s@CaptchaResponse' {} a -> s {responseCode = a} :: CaptchaResponse)
 
--- | The reason for failure, populated when the evaluation of the token
--- fails.
-captchaResponse_failureReason :: Lens.Lens' CaptchaResponse (Prelude.Maybe FailureReason)
-captchaResponse_failureReason = Lens.lens (\CaptchaResponse' {failureReason} -> failureReason) (\s@CaptchaResponse' {} a -> s {failureReason = a} :: CaptchaResponse)
+-- | The time that the @CAPTCHA@ was last solved for the supplied token.
+captchaResponse_solveTimestamp :: Lens.Lens' CaptchaResponse (Prelude.Maybe Prelude.Integer)
+captchaResponse_solveTimestamp = Lens.lens (\CaptchaResponse' {solveTimestamp} -> solveTimestamp) (\s@CaptchaResponse' {} a -> s {solveTimestamp = a} :: CaptchaResponse)
 
 instance Data.FromJSON CaptchaResponse where
   parseJSON =
@@ -88,19 +88,19 @@ instance Data.FromJSON CaptchaResponse where
       "CaptchaResponse"
       ( \x ->
           CaptchaResponse'
-            Prelude.<$> (x Data..:? "SolveTimestamp")
+            Prelude.<$> (x Data..:? "FailureReason")
             Prelude.<*> (x Data..:? "ResponseCode")
-            Prelude.<*> (x Data..:? "FailureReason")
+            Prelude.<*> (x Data..:? "SolveTimestamp")
       )
 
 instance Prelude.Hashable CaptchaResponse where
   hashWithSalt _salt CaptchaResponse' {..} =
-    _salt `Prelude.hashWithSalt` solveTimestamp
+    _salt `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` responseCode
-      `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` solveTimestamp
 
 instance Prelude.NFData CaptchaResponse where
   rnf CaptchaResponse' {..} =
-    Prelude.rnf solveTimestamp
+    Prelude.rnf failureReason
       `Prelude.seq` Prelude.rnf responseCode
-      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf solveTimestamp

@@ -33,17 +33,17 @@ import Amazonka.WAFV2.Types.Regex
 --
 -- /See:/ 'newRegexPatternSet' smart constructor.
 data RegexPatternSet = RegexPatternSet'
-  { -- | The name of the set. You cannot change the name after you create the
-    -- set.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the entity.
+  { -- | The Amazon Resource Name (ARN) of the entity.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | A description of the set that helps with identification.
+    description :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the set. This ID is returned in the responses to
     -- create and list commands. You provide it to operations like update and
     -- delete.
     id :: Prelude.Maybe Prelude.Text,
-    -- | A description of the set that helps with identification.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | The name of the set. You cannot change the name after you create the
+    -- set.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The regular expression patterns in the set.
     regularExpressionList :: Prelude.Maybe [Regex]
   }
@@ -57,37 +57,36 @@ data RegexPatternSet = RegexPatternSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'regexPatternSet_name' - The name of the set. You cannot change the name after you create the
--- set.
---
 -- 'arn', 'regexPatternSet_arn' - The Amazon Resource Name (ARN) of the entity.
+--
+-- 'description', 'regexPatternSet_description' - A description of the set that helps with identification.
 --
 -- 'id', 'regexPatternSet_id' - A unique identifier for the set. This ID is returned in the responses to
 -- create and list commands. You provide it to operations like update and
 -- delete.
 --
--- 'description', 'regexPatternSet_description' - A description of the set that helps with identification.
+-- 'name', 'regexPatternSet_name' - The name of the set. You cannot change the name after you create the
+-- set.
 --
 -- 'regularExpressionList', 'regexPatternSet_regularExpressionList' - The regular expression patterns in the set.
 newRegexPatternSet ::
   RegexPatternSet
 newRegexPatternSet =
   RegexPatternSet'
-    { name = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      id = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       description = Prelude.Nothing,
+      id = Prelude.Nothing,
+      name = Prelude.Nothing,
       regularExpressionList = Prelude.Nothing
     }
-
--- | The name of the set. You cannot change the name after you create the
--- set.
-regexPatternSet_name :: Lens.Lens' RegexPatternSet (Prelude.Maybe Prelude.Text)
-regexPatternSet_name = Lens.lens (\RegexPatternSet' {name} -> name) (\s@RegexPatternSet' {} a -> s {name = a} :: RegexPatternSet)
 
 -- | The Amazon Resource Name (ARN) of the entity.
 regexPatternSet_arn :: Lens.Lens' RegexPatternSet (Prelude.Maybe Prelude.Text)
 regexPatternSet_arn = Lens.lens (\RegexPatternSet' {arn} -> arn) (\s@RegexPatternSet' {} a -> s {arn = a} :: RegexPatternSet)
+
+-- | A description of the set that helps with identification.
+regexPatternSet_description :: Lens.Lens' RegexPatternSet (Prelude.Maybe Prelude.Text)
+regexPatternSet_description = Lens.lens (\RegexPatternSet' {description} -> description) (\s@RegexPatternSet' {} a -> s {description = a} :: RegexPatternSet)
 
 -- | A unique identifier for the set. This ID is returned in the responses to
 -- create and list commands. You provide it to operations like update and
@@ -95,9 +94,10 @@ regexPatternSet_arn = Lens.lens (\RegexPatternSet' {arn} -> arn) (\s@RegexPatter
 regexPatternSet_id :: Lens.Lens' RegexPatternSet (Prelude.Maybe Prelude.Text)
 regexPatternSet_id = Lens.lens (\RegexPatternSet' {id} -> id) (\s@RegexPatternSet' {} a -> s {id = a} :: RegexPatternSet)
 
--- | A description of the set that helps with identification.
-regexPatternSet_description :: Lens.Lens' RegexPatternSet (Prelude.Maybe Prelude.Text)
-regexPatternSet_description = Lens.lens (\RegexPatternSet' {description} -> description) (\s@RegexPatternSet' {} a -> s {description = a} :: RegexPatternSet)
+-- | The name of the set. You cannot change the name after you create the
+-- set.
+regexPatternSet_name :: Lens.Lens' RegexPatternSet (Prelude.Maybe Prelude.Text)
+regexPatternSet_name = Lens.lens (\RegexPatternSet' {name} -> name) (\s@RegexPatternSet' {} a -> s {name = a} :: RegexPatternSet)
 
 -- | The regular expression patterns in the set.
 regexPatternSet_regularExpressionList :: Lens.Lens' RegexPatternSet (Prelude.Maybe [Regex])
@@ -109,10 +109,10 @@ instance Data.FromJSON RegexPatternSet where
       "RegexPatternSet"
       ( \x ->
           RegexPatternSet'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "ARN")
-            Prelude.<*> (x Data..:? "Id")
+            Prelude.<$> (x Data..:? "ARN")
             Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Name")
             Prelude.<*> ( x Data..:? "RegularExpressionList"
                             Data..!= Prelude.mempty
                         )
@@ -120,16 +120,16 @@ instance Data.FromJSON RegexPatternSet where
 
 instance Prelude.Hashable RegexPatternSet where
   hashWithSalt _salt RegexPatternSet' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` id
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` regularExpressionList
 
 instance Prelude.NFData RegexPatternSet where
   rnf RegexPatternSet' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf regularExpressionList

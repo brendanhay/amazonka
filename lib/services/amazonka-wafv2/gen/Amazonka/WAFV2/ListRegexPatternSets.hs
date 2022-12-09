@@ -37,8 +37,8 @@ module Amazonka.WAFV2.ListRegexPatternSets
     newListRegexPatternSetsResponse,
 
     -- * Response Lenses
-    listRegexPatternSetsResponse_regexPatternSets,
     listRegexPatternSetsResponse_nextMarker,
+    listRegexPatternSetsResponse_regexPatternSets,
     listRegexPatternSetsResponse_httpStatus,
   )
 where
@@ -159,10 +159,10 @@ instance Core.AWSRequest ListRegexPatternSets where
     Response.receiveJSON
       ( \s h x ->
           ListRegexPatternSetsResponse'
-            Prelude.<$> ( x Data..?> "RegexPatternSets"
+            Prelude.<$> (x Data..?> "NextMarker")
+            Prelude.<*> ( x Data..?> "RegexPatternSets"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -211,12 +211,12 @@ instance Data.ToQuery ListRegexPatternSets where
 
 -- | /See:/ 'newListRegexPatternSetsResponse' smart constructor.
 data ListRegexPatternSetsResponse = ListRegexPatternSetsResponse'
-  { regexPatternSets :: Prelude.Maybe [RegexPatternSetSummary],
-    -- | When you request a list of objects with a @Limit@ setting, if the number
+  { -- | When you request a list of objects with a @Limit@ setting, if the number
     -- of objects that are still available for retrieval exceeds the limit, WAF
     -- returns a @NextMarker@ value in the response. To retrieve the next batch
     -- of objects, provide the marker from the prior call in your next request.
     nextMarker :: Prelude.Maybe Prelude.Text,
+    regexPatternSets :: Prelude.Maybe [RegexPatternSetSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -230,12 +230,12 @@ data ListRegexPatternSetsResponse = ListRegexPatternSetsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'regexPatternSets', 'listRegexPatternSetsResponse_regexPatternSets' -
---
 -- 'nextMarker', 'listRegexPatternSetsResponse_nextMarker' - When you request a list of objects with a @Limit@ setting, if the number
 -- of objects that are still available for retrieval exceeds the limit, WAF
 -- returns a @NextMarker@ value in the response. To retrieve the next batch
 -- of objects, provide the marker from the prior call in your next request.
+--
+-- 'regexPatternSets', 'listRegexPatternSetsResponse_regexPatternSets' -
 --
 -- 'httpStatus', 'listRegexPatternSetsResponse_httpStatus' - The response's http status code.
 newListRegexPatternSetsResponse ::
@@ -244,15 +244,11 @@ newListRegexPatternSetsResponse ::
   ListRegexPatternSetsResponse
 newListRegexPatternSetsResponse pHttpStatus_ =
   ListRegexPatternSetsResponse'
-    { regexPatternSets =
+    { nextMarker =
         Prelude.Nothing,
-      nextMarker = Prelude.Nothing,
+      regexPatternSets = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- |
-listRegexPatternSetsResponse_regexPatternSets :: Lens.Lens' ListRegexPatternSetsResponse (Prelude.Maybe [RegexPatternSetSummary])
-listRegexPatternSetsResponse_regexPatternSets = Lens.lens (\ListRegexPatternSetsResponse' {regexPatternSets} -> regexPatternSets) (\s@ListRegexPatternSetsResponse' {} a -> s {regexPatternSets = a} :: ListRegexPatternSetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | When you request a list of objects with a @Limit@ setting, if the number
 -- of objects that are still available for retrieval exceeds the limit, WAF
@@ -261,12 +257,16 @@ listRegexPatternSetsResponse_regexPatternSets = Lens.lens (\ListRegexPatternSets
 listRegexPatternSetsResponse_nextMarker :: Lens.Lens' ListRegexPatternSetsResponse (Prelude.Maybe Prelude.Text)
 listRegexPatternSetsResponse_nextMarker = Lens.lens (\ListRegexPatternSetsResponse' {nextMarker} -> nextMarker) (\s@ListRegexPatternSetsResponse' {} a -> s {nextMarker = a} :: ListRegexPatternSetsResponse)
 
+-- |
+listRegexPatternSetsResponse_regexPatternSets :: Lens.Lens' ListRegexPatternSetsResponse (Prelude.Maybe [RegexPatternSetSummary])
+listRegexPatternSetsResponse_regexPatternSets = Lens.lens (\ListRegexPatternSetsResponse' {regexPatternSets} -> regexPatternSets) (\s@ListRegexPatternSetsResponse' {} a -> s {regexPatternSets = a} :: ListRegexPatternSetsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listRegexPatternSetsResponse_httpStatus :: Lens.Lens' ListRegexPatternSetsResponse Prelude.Int
 listRegexPatternSetsResponse_httpStatus = Lens.lens (\ListRegexPatternSetsResponse' {httpStatus} -> httpStatus) (\s@ListRegexPatternSetsResponse' {} a -> s {httpStatus = a} :: ListRegexPatternSetsResponse)
 
 instance Prelude.NFData ListRegexPatternSetsResponse where
   rnf ListRegexPatternSetsResponse' {..} =
-    Prelude.rnf regexPatternSets
-      `Prelude.seq` Prelude.rnf nextMarker
+    Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf regexPatternSets
       `Prelude.seq` Prelude.rnf httpStatus

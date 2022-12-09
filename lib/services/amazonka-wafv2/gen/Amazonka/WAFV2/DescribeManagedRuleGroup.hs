@@ -39,12 +39,12 @@ module Amazonka.WAFV2.DescribeManagedRuleGroup
 
     -- * Response Lenses
     describeManagedRuleGroupResponse_availableLabels,
+    describeManagedRuleGroupResponse_capacity,
+    describeManagedRuleGroupResponse_consumedLabels,
+    describeManagedRuleGroupResponse_labelNamespace,
     describeManagedRuleGroupResponse_rules,
     describeManagedRuleGroupResponse_snsTopicArn,
-    describeManagedRuleGroupResponse_labelNamespace,
     describeManagedRuleGroupResponse_versionName,
-    describeManagedRuleGroupResponse_consumedLabels,
-    describeManagedRuleGroupResponse_capacity,
     describeManagedRuleGroupResponse_httpStatus,
   )
 where
@@ -179,12 +179,12 @@ instance Core.AWSRequest DescribeManagedRuleGroup where
             Prelude.<$> ( x Data..?> "AvailableLabels"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "Capacity")
+            Prelude.<*> (x Data..?> "ConsumedLabels" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "LabelNamespace")
             Prelude.<*> (x Data..?> "Rules" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "SnsTopicArn")
-            Prelude.<*> (x Data..?> "LabelNamespace")
             Prelude.<*> (x Data..?> "VersionName")
-            Prelude.<*> (x Data..?> "ConsumedLabels" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "Capacity")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -239,14 +239,19 @@ data DescribeManagedRuleGroupResponse = DescribeManagedRuleGroupResponse'
   { -- | The labels that one or more rules in this rule group add to matching web
     -- requests. These labels are defined in the @RuleLabels@ for a Rule.
     availableLabels :: Prelude.Maybe [LabelSummary],
-    rules :: Prelude.Maybe [RuleSummary],
-    -- | The Amazon resource name (ARN) of the Amazon Simple Notification Service
-    -- SNS topic that\'s used to record changes to the managed rule group. You
-    -- can subscribe to the SNS topic to receive notifications when the managed
-    -- rule group is modified, such as for new versions and for version
-    -- expiration. For more information, see the
-    -- <https://docs.aws.amazon.com/sns/latest/dg/welcome.html Amazon Simple Notification Service Developer Guide>.
-    snsTopicArn :: Prelude.Maybe Prelude.Text,
+    -- | The web ACL capacity units (WCUs) required for this rule group. WAF uses
+    -- web ACL capacity units (WCU) to calculate and control the operating
+    -- resources that are used to run your rules, rule groups, and web ACLs.
+    -- WAF calculates capacity differently for each rule type, to reflect each
+    -- rule\'s relative cost. Rule group capacity is fixed at creation, so
+    -- users can plan their web ACL WCU usage when they use a rule group. The
+    -- WCU limit for web ACLs is 1,500.
+    capacity :: Prelude.Maybe Prelude.Natural,
+    -- | The labels that one or more rules in this rule group match against in
+    -- label match statements. These labels are defined in a
+    -- @LabelMatchStatement@ specification, in the Statement definition of a
+    -- rule.
+    consumedLabels :: Prelude.Maybe [LabelSummary],
     -- | The label namespace prefix for this rule group. All labels added by
     -- rules in this rule group have this prefix.
     --
@@ -262,21 +267,16 @@ data DescribeManagedRuleGroupResponse = DescribeManagedRuleGroupResponse'
     --
     --     @\<label namespace>:\<label from rule>@
     labelNamespace :: Prelude.Maybe Prelude.Text,
+    rules :: Prelude.Maybe [RuleSummary],
+    -- | The Amazon resource name (ARN) of the Amazon Simple Notification Service
+    -- SNS topic that\'s used to record changes to the managed rule group. You
+    -- can subscribe to the SNS topic to receive notifications when the managed
+    -- rule group is modified, such as for new versions and for version
+    -- expiration. For more information, see the
+    -- <https://docs.aws.amazon.com/sns/latest/dg/welcome.html Amazon Simple Notification Service Developer Guide>.
+    snsTopicArn :: Prelude.Maybe Prelude.Text,
     -- | The managed rule group\'s version.
     versionName :: Prelude.Maybe Prelude.Text,
-    -- | The labels that one or more rules in this rule group match against in
-    -- label match statements. These labels are defined in a
-    -- @LabelMatchStatement@ specification, in the Statement definition of a
-    -- rule.
-    consumedLabels :: Prelude.Maybe [LabelSummary],
-    -- | The web ACL capacity units (WCUs) required for this rule group. WAF uses
-    -- web ACL capacity units (WCU) to calculate and control the operating
-    -- resources that are used to run your rules, rule groups, and web ACLs.
-    -- WAF calculates capacity differently for each rule type, to reflect each
-    -- rule\'s relative cost. Rule group capacity is fixed at creation, so
-    -- users can plan their web ACL WCU usage when they use a rule group. The
-    -- WCU limit for web ACLs is 1,500.
-    capacity :: Prelude.Maybe Prelude.Natural,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -293,14 +293,18 @@ data DescribeManagedRuleGroupResponse = DescribeManagedRuleGroupResponse'
 -- 'availableLabels', 'describeManagedRuleGroupResponse_availableLabels' - The labels that one or more rules in this rule group add to matching web
 -- requests. These labels are defined in the @RuleLabels@ for a Rule.
 --
--- 'rules', 'describeManagedRuleGroupResponse_rules' -
+-- 'capacity', 'describeManagedRuleGroupResponse_capacity' - The web ACL capacity units (WCUs) required for this rule group. WAF uses
+-- web ACL capacity units (WCU) to calculate and control the operating
+-- resources that are used to run your rules, rule groups, and web ACLs.
+-- WAF calculates capacity differently for each rule type, to reflect each
+-- rule\'s relative cost. Rule group capacity is fixed at creation, so
+-- users can plan their web ACL WCU usage when they use a rule group. The
+-- WCU limit for web ACLs is 1,500.
 --
--- 'snsTopicArn', 'describeManagedRuleGroupResponse_snsTopicArn' - The Amazon resource name (ARN) of the Amazon Simple Notification Service
--- SNS topic that\'s used to record changes to the managed rule group. You
--- can subscribe to the SNS topic to receive notifications when the managed
--- rule group is modified, such as for new versions and for version
--- expiration. For more information, see the
--- <https://docs.aws.amazon.com/sns/latest/dg/welcome.html Amazon Simple Notification Service Developer Guide>.
+-- 'consumedLabels', 'describeManagedRuleGroupResponse_consumedLabels' - The labels that one or more rules in this rule group match against in
+-- label match statements. These labels are defined in a
+-- @LabelMatchStatement@ specification, in the Statement definition of a
+-- rule.
 --
 -- 'labelNamespace', 'describeManagedRuleGroupResponse_labelNamespace' - The label namespace prefix for this rule group. All labels added by
 -- rules in this rule group have this prefix.
@@ -317,20 +321,16 @@ data DescribeManagedRuleGroupResponse = DescribeManagedRuleGroupResponse'
 --
 --     @\<label namespace>:\<label from rule>@
 --
+-- 'rules', 'describeManagedRuleGroupResponse_rules' -
+--
+-- 'snsTopicArn', 'describeManagedRuleGroupResponse_snsTopicArn' - The Amazon resource name (ARN) of the Amazon Simple Notification Service
+-- SNS topic that\'s used to record changes to the managed rule group. You
+-- can subscribe to the SNS topic to receive notifications when the managed
+-- rule group is modified, such as for new versions and for version
+-- expiration. For more information, see the
+-- <https://docs.aws.amazon.com/sns/latest/dg/welcome.html Amazon Simple Notification Service Developer Guide>.
+--
 -- 'versionName', 'describeManagedRuleGroupResponse_versionName' - The managed rule group\'s version.
---
--- 'consumedLabels', 'describeManagedRuleGroupResponse_consumedLabels' - The labels that one or more rules in this rule group match against in
--- label match statements. These labels are defined in a
--- @LabelMatchStatement@ specification, in the Statement definition of a
--- rule.
---
--- 'capacity', 'describeManagedRuleGroupResponse_capacity' - The web ACL capacity units (WCUs) required for this rule group. WAF uses
--- web ACL capacity units (WCU) to calculate and control the operating
--- resources that are used to run your rules, rule groups, and web ACLs.
--- WAF calculates capacity differently for each rule type, to reflect each
--- rule\'s relative cost. Rule group capacity is fixed at creation, so
--- users can plan their web ACL WCU usage when they use a rule group. The
--- WCU limit for web ACLs is 1,500.
 --
 -- 'httpStatus', 'describeManagedRuleGroupResponse_httpStatus' - The response's http status code.
 newDescribeManagedRuleGroupResponse ::
@@ -341,12 +341,12 @@ newDescribeManagedRuleGroupResponse pHttpStatus_ =
   DescribeManagedRuleGroupResponse'
     { availableLabels =
         Prelude.Nothing,
+      capacity = Prelude.Nothing,
+      consumedLabels = Prelude.Nothing,
+      labelNamespace = Prelude.Nothing,
       rules = Prelude.Nothing,
       snsTopicArn = Prelude.Nothing,
-      labelNamespace = Prelude.Nothing,
       versionName = Prelude.Nothing,
-      consumedLabels = Prelude.Nothing,
-      capacity = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -355,18 +355,22 @@ newDescribeManagedRuleGroupResponse pHttpStatus_ =
 describeManagedRuleGroupResponse_availableLabels :: Lens.Lens' DescribeManagedRuleGroupResponse (Prelude.Maybe [LabelSummary])
 describeManagedRuleGroupResponse_availableLabels = Lens.lens (\DescribeManagedRuleGroupResponse' {availableLabels} -> availableLabels) (\s@DescribeManagedRuleGroupResponse' {} a -> s {availableLabels = a} :: DescribeManagedRuleGroupResponse) Prelude.. Lens.mapping Lens.coerced
 
--- |
-describeManagedRuleGroupResponse_rules :: Lens.Lens' DescribeManagedRuleGroupResponse (Prelude.Maybe [RuleSummary])
-describeManagedRuleGroupResponse_rules = Lens.lens (\DescribeManagedRuleGroupResponse' {rules} -> rules) (\s@DescribeManagedRuleGroupResponse' {} a -> s {rules = a} :: DescribeManagedRuleGroupResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The web ACL capacity units (WCUs) required for this rule group. WAF uses
+-- web ACL capacity units (WCU) to calculate and control the operating
+-- resources that are used to run your rules, rule groups, and web ACLs.
+-- WAF calculates capacity differently for each rule type, to reflect each
+-- rule\'s relative cost. Rule group capacity is fixed at creation, so
+-- users can plan their web ACL WCU usage when they use a rule group. The
+-- WCU limit for web ACLs is 1,500.
+describeManagedRuleGroupResponse_capacity :: Lens.Lens' DescribeManagedRuleGroupResponse (Prelude.Maybe Prelude.Natural)
+describeManagedRuleGroupResponse_capacity = Lens.lens (\DescribeManagedRuleGroupResponse' {capacity} -> capacity) (\s@DescribeManagedRuleGroupResponse' {} a -> s {capacity = a} :: DescribeManagedRuleGroupResponse)
 
--- | The Amazon resource name (ARN) of the Amazon Simple Notification Service
--- SNS topic that\'s used to record changes to the managed rule group. You
--- can subscribe to the SNS topic to receive notifications when the managed
--- rule group is modified, such as for new versions and for version
--- expiration. For more information, see the
--- <https://docs.aws.amazon.com/sns/latest/dg/welcome.html Amazon Simple Notification Service Developer Guide>.
-describeManagedRuleGroupResponse_snsTopicArn :: Lens.Lens' DescribeManagedRuleGroupResponse (Prelude.Maybe Prelude.Text)
-describeManagedRuleGroupResponse_snsTopicArn = Lens.lens (\DescribeManagedRuleGroupResponse' {snsTopicArn} -> snsTopicArn) (\s@DescribeManagedRuleGroupResponse' {} a -> s {snsTopicArn = a} :: DescribeManagedRuleGroupResponse)
+-- | The labels that one or more rules in this rule group match against in
+-- label match statements. These labels are defined in a
+-- @LabelMatchStatement@ specification, in the Statement definition of a
+-- rule.
+describeManagedRuleGroupResponse_consumedLabels :: Lens.Lens' DescribeManagedRuleGroupResponse (Prelude.Maybe [LabelSummary])
+describeManagedRuleGroupResponse_consumedLabels = Lens.lens (\DescribeManagedRuleGroupResponse' {consumedLabels} -> consumedLabels) (\s@DescribeManagedRuleGroupResponse' {} a -> s {consumedLabels = a} :: DescribeManagedRuleGroupResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The label namespace prefix for this rule group. All labels added by
 -- rules in this rule group have this prefix.
@@ -385,26 +389,22 @@ describeManagedRuleGroupResponse_snsTopicArn = Lens.lens (\DescribeManagedRuleGr
 describeManagedRuleGroupResponse_labelNamespace :: Lens.Lens' DescribeManagedRuleGroupResponse (Prelude.Maybe Prelude.Text)
 describeManagedRuleGroupResponse_labelNamespace = Lens.lens (\DescribeManagedRuleGroupResponse' {labelNamespace} -> labelNamespace) (\s@DescribeManagedRuleGroupResponse' {} a -> s {labelNamespace = a} :: DescribeManagedRuleGroupResponse)
 
+-- |
+describeManagedRuleGroupResponse_rules :: Lens.Lens' DescribeManagedRuleGroupResponse (Prelude.Maybe [RuleSummary])
+describeManagedRuleGroupResponse_rules = Lens.lens (\DescribeManagedRuleGroupResponse' {rules} -> rules) (\s@DescribeManagedRuleGroupResponse' {} a -> s {rules = a} :: DescribeManagedRuleGroupResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon resource name (ARN) of the Amazon Simple Notification Service
+-- SNS topic that\'s used to record changes to the managed rule group. You
+-- can subscribe to the SNS topic to receive notifications when the managed
+-- rule group is modified, such as for new versions and for version
+-- expiration. For more information, see the
+-- <https://docs.aws.amazon.com/sns/latest/dg/welcome.html Amazon Simple Notification Service Developer Guide>.
+describeManagedRuleGroupResponse_snsTopicArn :: Lens.Lens' DescribeManagedRuleGroupResponse (Prelude.Maybe Prelude.Text)
+describeManagedRuleGroupResponse_snsTopicArn = Lens.lens (\DescribeManagedRuleGroupResponse' {snsTopicArn} -> snsTopicArn) (\s@DescribeManagedRuleGroupResponse' {} a -> s {snsTopicArn = a} :: DescribeManagedRuleGroupResponse)
+
 -- | The managed rule group\'s version.
 describeManagedRuleGroupResponse_versionName :: Lens.Lens' DescribeManagedRuleGroupResponse (Prelude.Maybe Prelude.Text)
 describeManagedRuleGroupResponse_versionName = Lens.lens (\DescribeManagedRuleGroupResponse' {versionName} -> versionName) (\s@DescribeManagedRuleGroupResponse' {} a -> s {versionName = a} :: DescribeManagedRuleGroupResponse)
-
--- | The labels that one or more rules in this rule group match against in
--- label match statements. These labels are defined in a
--- @LabelMatchStatement@ specification, in the Statement definition of a
--- rule.
-describeManagedRuleGroupResponse_consumedLabels :: Lens.Lens' DescribeManagedRuleGroupResponse (Prelude.Maybe [LabelSummary])
-describeManagedRuleGroupResponse_consumedLabels = Lens.lens (\DescribeManagedRuleGroupResponse' {consumedLabels} -> consumedLabels) (\s@DescribeManagedRuleGroupResponse' {} a -> s {consumedLabels = a} :: DescribeManagedRuleGroupResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The web ACL capacity units (WCUs) required for this rule group. WAF uses
--- web ACL capacity units (WCU) to calculate and control the operating
--- resources that are used to run your rules, rule groups, and web ACLs.
--- WAF calculates capacity differently for each rule type, to reflect each
--- rule\'s relative cost. Rule group capacity is fixed at creation, so
--- users can plan their web ACL WCU usage when they use a rule group. The
--- WCU limit for web ACLs is 1,500.
-describeManagedRuleGroupResponse_capacity :: Lens.Lens' DescribeManagedRuleGroupResponse (Prelude.Maybe Prelude.Natural)
-describeManagedRuleGroupResponse_capacity = Lens.lens (\DescribeManagedRuleGroupResponse' {capacity} -> capacity) (\s@DescribeManagedRuleGroupResponse' {} a -> s {capacity = a} :: DescribeManagedRuleGroupResponse)
 
 -- | The response's http status code.
 describeManagedRuleGroupResponse_httpStatus :: Lens.Lens' DescribeManagedRuleGroupResponse Prelude.Int
@@ -416,10 +416,10 @@ instance
   where
   rnf DescribeManagedRuleGroupResponse' {..} =
     Prelude.rnf availableLabels
+      `Prelude.seq` Prelude.rnf capacity
+      `Prelude.seq` Prelude.rnf consumedLabels
+      `Prelude.seq` Prelude.rnf labelNamespace
       `Prelude.seq` Prelude.rnf rules
       `Prelude.seq` Prelude.rnf snsTopicArn
-      `Prelude.seq` Prelude.rnf labelNamespace
       `Prelude.seq` Prelude.rnf versionName
-      `Prelude.seq` Prelude.rnf consumedLabels
-      `Prelude.seq` Prelude.rnf capacity
       `Prelude.seq` Prelude.rnf httpStatus

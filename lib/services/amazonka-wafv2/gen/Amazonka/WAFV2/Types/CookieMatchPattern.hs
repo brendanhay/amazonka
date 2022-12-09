@@ -38,12 +38,12 @@ import Amazonka.WAFV2.Types.All
 data CookieMatchPattern = CookieMatchPattern'
   { -- | Inspect all cookies.
     all :: Prelude.Maybe All,
-    -- | Inspect only the cookies that have a key that matches one of the strings
-    -- specified here.
-    includedCookies :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | Inspect only the cookies whose keys don\'t match any of the strings
     -- specified here.
-    excludedCookies :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
+    excludedCookies :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | Inspect only the cookies that have a key that matches one of the strings
+    -- specified here.
+    includedCookies :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,33 +57,33 @@ data CookieMatchPattern = CookieMatchPattern'
 --
 -- 'all', 'cookieMatchPattern_all' - Inspect all cookies.
 --
--- 'includedCookies', 'cookieMatchPattern_includedCookies' - Inspect only the cookies that have a key that matches one of the strings
+-- 'excludedCookies', 'cookieMatchPattern_excludedCookies' - Inspect only the cookies whose keys don\'t match any of the strings
 -- specified here.
 --
--- 'excludedCookies', 'cookieMatchPattern_excludedCookies' - Inspect only the cookies whose keys don\'t match any of the strings
+-- 'includedCookies', 'cookieMatchPattern_includedCookies' - Inspect only the cookies that have a key that matches one of the strings
 -- specified here.
 newCookieMatchPattern ::
   CookieMatchPattern
 newCookieMatchPattern =
   CookieMatchPattern'
     { all = Prelude.Nothing,
-      includedCookies = Prelude.Nothing,
-      excludedCookies = Prelude.Nothing
+      excludedCookies = Prelude.Nothing,
+      includedCookies = Prelude.Nothing
     }
 
 -- | Inspect all cookies.
 cookieMatchPattern_all :: Lens.Lens' CookieMatchPattern (Prelude.Maybe All)
 cookieMatchPattern_all = Lens.lens (\CookieMatchPattern' {all} -> all) (\s@CookieMatchPattern' {} a -> s {all = a} :: CookieMatchPattern)
 
--- | Inspect only the cookies that have a key that matches one of the strings
--- specified here.
-cookieMatchPattern_includedCookies :: Lens.Lens' CookieMatchPattern (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-cookieMatchPattern_includedCookies = Lens.lens (\CookieMatchPattern' {includedCookies} -> includedCookies) (\s@CookieMatchPattern' {} a -> s {includedCookies = a} :: CookieMatchPattern) Prelude.. Lens.mapping Lens.coerced
-
 -- | Inspect only the cookies whose keys don\'t match any of the strings
 -- specified here.
 cookieMatchPattern_excludedCookies :: Lens.Lens' CookieMatchPattern (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 cookieMatchPattern_excludedCookies = Lens.lens (\CookieMatchPattern' {excludedCookies} -> excludedCookies) (\s@CookieMatchPattern' {} a -> s {excludedCookies = a} :: CookieMatchPattern) Prelude.. Lens.mapping Lens.coerced
+
+-- | Inspect only the cookies that have a key that matches one of the strings
+-- specified here.
+cookieMatchPattern_includedCookies :: Lens.Lens' CookieMatchPattern (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+cookieMatchPattern_includedCookies = Lens.lens (\CookieMatchPattern' {includedCookies} -> includedCookies) (\s@CookieMatchPattern' {} a -> s {includedCookies = a} :: CookieMatchPattern) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON CookieMatchPattern where
   parseJSON =
@@ -92,30 +92,30 @@ instance Data.FromJSON CookieMatchPattern where
       ( \x ->
           CookieMatchPattern'
             Prelude.<$> (x Data..:? "All")
-            Prelude.<*> (x Data..:? "IncludedCookies")
             Prelude.<*> (x Data..:? "ExcludedCookies")
+            Prelude.<*> (x Data..:? "IncludedCookies")
       )
 
 instance Prelude.Hashable CookieMatchPattern where
   hashWithSalt _salt CookieMatchPattern' {..} =
     _salt `Prelude.hashWithSalt` all
-      `Prelude.hashWithSalt` includedCookies
       `Prelude.hashWithSalt` excludedCookies
+      `Prelude.hashWithSalt` includedCookies
 
 instance Prelude.NFData CookieMatchPattern where
   rnf CookieMatchPattern' {..} =
     Prelude.rnf all
-      `Prelude.seq` Prelude.rnf includedCookies
       `Prelude.seq` Prelude.rnf excludedCookies
+      `Prelude.seq` Prelude.rnf includedCookies
 
 instance Data.ToJSON CookieMatchPattern where
   toJSON CookieMatchPattern' {..} =
     Data.object
       ( Prelude.catMaybes
           [ ("All" Data..=) Prelude.<$> all,
-            ("IncludedCookies" Data..=)
-              Prelude.<$> includedCookies,
             ("ExcludedCookies" Data..=)
-              Prelude.<$> excludedCookies
+              Prelude.<$> excludedCookies,
+            ("IncludedCookies" Data..=)
+              Prelude.<$> includedCookies
           ]
       )

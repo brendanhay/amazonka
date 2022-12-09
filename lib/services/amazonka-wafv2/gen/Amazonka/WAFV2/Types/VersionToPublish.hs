@@ -38,12 +38,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVersionToPublish' smart constructor.
 data VersionToPublish = VersionToPublish'
-  { -- | The amount of time the vendor expects this version of the managed rule
-    -- group to last, in days.
-    forecastedLifetime :: Prelude.Maybe Prelude.Natural,
-    -- | The Amazon Resource Name (ARN) of the vendor\'s rule group that\'s used
+  { -- | The Amazon Resource Name (ARN) of the vendor\'s rule group that\'s used
     -- in the published managed rule group version.
-    associatedRuleGroupArn :: Prelude.Maybe Prelude.Text
+    associatedRuleGroupArn :: Prelude.Maybe Prelude.Text,
+    -- | The amount of time the vendor expects this version of the managed rule
+    -- group to last, in days.
+    forecastedLifetime :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,47 +55,47 @@ data VersionToPublish = VersionToPublish'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'forecastedLifetime', 'versionToPublish_forecastedLifetime' - The amount of time the vendor expects this version of the managed rule
--- group to last, in days.
---
 -- 'associatedRuleGroupArn', 'versionToPublish_associatedRuleGroupArn' - The Amazon Resource Name (ARN) of the vendor\'s rule group that\'s used
 -- in the published managed rule group version.
+--
+-- 'forecastedLifetime', 'versionToPublish_forecastedLifetime' - The amount of time the vendor expects this version of the managed rule
+-- group to last, in days.
 newVersionToPublish ::
   VersionToPublish
 newVersionToPublish =
   VersionToPublish'
-    { forecastedLifetime =
+    { associatedRuleGroupArn =
         Prelude.Nothing,
-      associatedRuleGroupArn = Prelude.Nothing
+      forecastedLifetime = Prelude.Nothing
     }
-
--- | The amount of time the vendor expects this version of the managed rule
--- group to last, in days.
-versionToPublish_forecastedLifetime :: Lens.Lens' VersionToPublish (Prelude.Maybe Prelude.Natural)
-versionToPublish_forecastedLifetime = Lens.lens (\VersionToPublish' {forecastedLifetime} -> forecastedLifetime) (\s@VersionToPublish' {} a -> s {forecastedLifetime = a} :: VersionToPublish)
 
 -- | The Amazon Resource Name (ARN) of the vendor\'s rule group that\'s used
 -- in the published managed rule group version.
 versionToPublish_associatedRuleGroupArn :: Lens.Lens' VersionToPublish (Prelude.Maybe Prelude.Text)
 versionToPublish_associatedRuleGroupArn = Lens.lens (\VersionToPublish' {associatedRuleGroupArn} -> associatedRuleGroupArn) (\s@VersionToPublish' {} a -> s {associatedRuleGroupArn = a} :: VersionToPublish)
 
+-- | The amount of time the vendor expects this version of the managed rule
+-- group to last, in days.
+versionToPublish_forecastedLifetime :: Lens.Lens' VersionToPublish (Prelude.Maybe Prelude.Natural)
+versionToPublish_forecastedLifetime = Lens.lens (\VersionToPublish' {forecastedLifetime} -> forecastedLifetime) (\s@VersionToPublish' {} a -> s {forecastedLifetime = a} :: VersionToPublish)
+
 instance Prelude.Hashable VersionToPublish where
   hashWithSalt _salt VersionToPublish' {..} =
-    _salt `Prelude.hashWithSalt` forecastedLifetime
-      `Prelude.hashWithSalt` associatedRuleGroupArn
+    _salt `Prelude.hashWithSalt` associatedRuleGroupArn
+      `Prelude.hashWithSalt` forecastedLifetime
 
 instance Prelude.NFData VersionToPublish where
   rnf VersionToPublish' {..} =
-    Prelude.rnf forecastedLifetime
-      `Prelude.seq` Prelude.rnf associatedRuleGroupArn
+    Prelude.rnf associatedRuleGroupArn
+      `Prelude.seq` Prelude.rnf forecastedLifetime
 
 instance Data.ToJSON VersionToPublish where
   toJSON VersionToPublish' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ForecastedLifetime" Data..=)
-              Prelude.<$> forecastedLifetime,
-            ("AssociatedRuleGroupArn" Data..=)
-              Prelude.<$> associatedRuleGroupArn
+          [ ("AssociatedRuleGroupArn" Data..=)
+              Prelude.<$> associatedRuleGroupArn,
+            ("ForecastedLifetime" Data..=)
+              Prelude.<$> forecastedLifetime
           ]
       )

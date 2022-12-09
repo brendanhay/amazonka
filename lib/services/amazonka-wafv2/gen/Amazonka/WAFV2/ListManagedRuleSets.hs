@@ -45,8 +45,8 @@ module Amazonka.WAFV2.ListManagedRuleSets
     newListManagedRuleSetsResponse,
 
     -- * Response Lenses
-    listManagedRuleSetsResponse_nextMarker,
     listManagedRuleSetsResponse_managedRuleSets,
+    listManagedRuleSetsResponse_nextMarker,
     listManagedRuleSetsResponse_httpStatus,
   )
 where
@@ -167,10 +167,10 @@ instance Core.AWSRequest ListManagedRuleSets where
     Response.receiveJSON
       ( \s h x ->
           ListManagedRuleSetsResponse'
-            Prelude.<$> (x Data..?> "NextMarker")
-            Prelude.<*> ( x Data..?> "ManagedRuleSets"
+            Prelude.<$> ( x Data..?> "ManagedRuleSets"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -219,13 +219,13 @@ instance Data.ToQuery ListManagedRuleSets where
 
 -- | /See:/ 'newListManagedRuleSetsResponse' smart constructor.
 data ListManagedRuleSetsResponse = ListManagedRuleSetsResponse'
-  { -- | When you request a list of objects with a @Limit@ setting, if the number
+  { -- | Your managed rule sets.
+    managedRuleSets :: Prelude.Maybe [ManagedRuleSetSummary],
+    -- | When you request a list of objects with a @Limit@ setting, if the number
     -- of objects that are still available for retrieval exceeds the limit, WAF
     -- returns a @NextMarker@ value in the response. To retrieve the next batch
     -- of objects, provide the marker from the prior call in your next request.
     nextMarker :: Prelude.Maybe Prelude.Text,
-    -- | Your managed rule sets.
-    managedRuleSets :: Prelude.Maybe [ManagedRuleSetSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -239,12 +239,12 @@ data ListManagedRuleSetsResponse = ListManagedRuleSetsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'managedRuleSets', 'listManagedRuleSetsResponse_managedRuleSets' - Your managed rule sets.
+--
 -- 'nextMarker', 'listManagedRuleSetsResponse_nextMarker' - When you request a list of objects with a @Limit@ setting, if the number
 -- of objects that are still available for retrieval exceeds the limit, WAF
 -- returns a @NextMarker@ value in the response. To retrieve the next batch
 -- of objects, provide the marker from the prior call in your next request.
---
--- 'managedRuleSets', 'listManagedRuleSetsResponse_managedRuleSets' - Your managed rule sets.
 --
 -- 'httpStatus', 'listManagedRuleSetsResponse_httpStatus' - The response's http status code.
 newListManagedRuleSetsResponse ::
@@ -253,11 +253,15 @@ newListManagedRuleSetsResponse ::
   ListManagedRuleSetsResponse
 newListManagedRuleSetsResponse pHttpStatus_ =
   ListManagedRuleSetsResponse'
-    { nextMarker =
+    { managedRuleSets =
         Prelude.Nothing,
-      managedRuleSets = Prelude.Nothing,
+      nextMarker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Your managed rule sets.
+listManagedRuleSetsResponse_managedRuleSets :: Lens.Lens' ListManagedRuleSetsResponse (Prelude.Maybe [ManagedRuleSetSummary])
+listManagedRuleSetsResponse_managedRuleSets = Lens.lens (\ListManagedRuleSetsResponse' {managedRuleSets} -> managedRuleSets) (\s@ListManagedRuleSetsResponse' {} a -> s {managedRuleSets = a} :: ListManagedRuleSetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | When you request a list of objects with a @Limit@ setting, if the number
 -- of objects that are still available for retrieval exceeds the limit, WAF
@@ -266,16 +270,12 @@ newListManagedRuleSetsResponse pHttpStatus_ =
 listManagedRuleSetsResponse_nextMarker :: Lens.Lens' ListManagedRuleSetsResponse (Prelude.Maybe Prelude.Text)
 listManagedRuleSetsResponse_nextMarker = Lens.lens (\ListManagedRuleSetsResponse' {nextMarker} -> nextMarker) (\s@ListManagedRuleSetsResponse' {} a -> s {nextMarker = a} :: ListManagedRuleSetsResponse)
 
--- | Your managed rule sets.
-listManagedRuleSetsResponse_managedRuleSets :: Lens.Lens' ListManagedRuleSetsResponse (Prelude.Maybe [ManagedRuleSetSummary])
-listManagedRuleSetsResponse_managedRuleSets = Lens.lens (\ListManagedRuleSetsResponse' {managedRuleSets} -> managedRuleSets) (\s@ListManagedRuleSetsResponse' {} a -> s {managedRuleSets = a} :: ListManagedRuleSetsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listManagedRuleSetsResponse_httpStatus :: Lens.Lens' ListManagedRuleSetsResponse Prelude.Int
 listManagedRuleSetsResponse_httpStatus = Lens.lens (\ListManagedRuleSetsResponse' {httpStatus} -> httpStatus) (\s@ListManagedRuleSetsResponse' {} a -> s {httpStatus = a} :: ListManagedRuleSetsResponse)
 
 instance Prelude.NFData ListManagedRuleSetsResponse where
   rnf ListManagedRuleSetsResponse' {..} =
-    Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf managedRuleSets
+    Prelude.rnf managedRuleSets
+      `Prelude.seq` Prelude.rnf nextMarker
       `Prelude.seq` Prelude.rnf httpStatus

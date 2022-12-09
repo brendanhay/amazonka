@@ -92,6 +92,7 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 - `amazonka-resource-explorer-v2`: Search for and discover relevant resources across AWS. [Overview](https://aws.amazon.com/resourceexplorer/)
 - `amazonka-rolesanywhere`: You can use AWS Identity and Access Management Roles Anywhere to obtain temporary security credentials in IAM for workloads such as servers, containers, and applications that run outside of AWS. [Overview](https://docs.aws.amazon.com/rolesanywhere/latest/userguide/introduction.html)
 - `amazonka-rum`: With CloudWatch RUM (Real User Monitoring), you can perform real user monitoring to collect and view client-side data about your web application performance from actual user sessions in near real time. [Overview](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM.html)
+- `amazonka-sagemaker-geospatial`: Build, train, and deploy ML models using geospatial data. [Overview](https://aws.amazon.com/sagemaker/geospatial/)
 - `amazonka-scheduler`: Amazon EventBridge Scheduler is a serverless scheduler that allows you to create, run, and manage tasks from one central, managed service. [Overview](https://docs.aws.amazon.com/scheduler/latest/UserGuide/what-is-scheduler.html)
 - `amazonka-sms-voice`: Looks like an alternate binding to the Pinpoint SMS and Voice API. Maybe stick with `amazonka-pinpoint-sms-voice-v2`? [Overview](https://docs.aws.amazon.com/pinpoint-sms-voice/latest/APIReference/welcome.html)
 - `amazonka-ssm-sap`: Actions and data types for AWS Systems Manager for SAP.

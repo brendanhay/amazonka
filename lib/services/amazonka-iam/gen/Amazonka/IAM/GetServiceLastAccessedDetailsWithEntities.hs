@@ -59,9 +59,9 @@ module Amazonka.IAM.GetServiceLastAccessedDetailsWithEntities
     newGetServiceLastAccessedDetailsWithEntitiesResponse,
 
     -- * Response Lenses
-    getServiceLastAccessedDetailsWithEntitiesResponse_marker,
-    getServiceLastAccessedDetailsWithEntitiesResponse_isTruncated,
     getServiceLastAccessedDetailsWithEntitiesResponse_error,
+    getServiceLastAccessedDetailsWithEntitiesResponse_isTruncated,
+    getServiceLastAccessedDetailsWithEntitiesResponse_marker,
     getServiceLastAccessedDetailsWithEntitiesResponse_httpStatus,
     getServiceLastAccessedDetailsWithEntitiesResponse_jobStatus,
     getServiceLastAccessedDetailsWithEntitiesResponse_jobCreationDate,
@@ -224,9 +224,9 @@ instance
       "GetServiceLastAccessedDetailsWithEntitiesResult"
       ( \s h x ->
           GetServiceLastAccessedDetailsWithEntitiesResponse'
-            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<$> (x Data..@? "Error")
               Prelude.<*> (x Data..@? "IsTruncated")
-              Prelude.<*> (x Data..@? "Error")
+              Prelude.<*> (x Data..@? "Marker")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
               Prelude.<*> (x Data..@ "JobStatus")
               Prelude.<*> (x Data..@ "JobCreationDate")
@@ -292,10 +292,8 @@ instance
 
 -- | /See:/ 'newGetServiceLastAccessedDetailsWithEntitiesResponse' smart constructor.
 data GetServiceLastAccessedDetailsWithEntitiesResponse = GetServiceLastAccessedDetailsWithEntitiesResponse'
-  { -- | When @IsTruncated@ is @true@, this element is present and contains the
-    -- value to use for the @Marker@ parameter in a subsequent pagination
-    -- request.
-    marker :: Prelude.Maybe Prelude.Text,
+  { -- | An object that contains details about the reason the operation failed.
+    error :: Prelude.Maybe ErrorDetails,
     -- | A flag that indicates whether there are more items to return. If your
     -- results were truncated, you can make a subsequent pagination request
     -- using the @Marker@ request parameter to retrieve more items. Note that
@@ -304,8 +302,10 @@ data GetServiceLastAccessedDetailsWithEntitiesResponse = GetServiceLastAccessedD
     -- @IsTruncated@ after every call to ensure that you receive all your
     -- results.
     isTruncated :: Prelude.Maybe Prelude.Bool,
-    -- | An object that contains details about the reason the operation failed.
-    error :: Prelude.Maybe ErrorDetails,
+    -- | When @IsTruncated@ is @true@, this element is present and contains the
+    -- value to use for the @Marker@ parameter in a subsequent pagination
+    -- request.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The status of the job.
@@ -336,9 +336,7 @@ data GetServiceLastAccessedDetailsWithEntitiesResponse = GetServiceLastAccessedD
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'marker', 'getServiceLastAccessedDetailsWithEntitiesResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
--- request.
+-- 'error', 'getServiceLastAccessedDetailsWithEntitiesResponse_error' - An object that contains details about the reason the operation failed.
 --
 -- 'isTruncated', 'getServiceLastAccessedDetailsWithEntitiesResponse_isTruncated' - A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
@@ -348,7 +346,9 @@ data GetServiceLastAccessedDetailsWithEntitiesResponse = GetServiceLastAccessedD
 -- @IsTruncated@ after every call to ensure that you receive all your
 -- results.
 --
--- 'error', 'getServiceLastAccessedDetailsWithEntitiesResponse_error' - An object that contains details about the reason the operation failed.
+-- 'marker', 'getServiceLastAccessedDetailsWithEntitiesResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
 --
 -- 'httpStatus', 'getServiceLastAccessedDetailsWithEntitiesResponse_httpStatus' - The response's http status code.
 --
@@ -384,11 +384,11 @@ newGetServiceLastAccessedDetailsWithEntitiesResponse
   pJobCreationDate_
   pJobCompletionDate_ =
     GetServiceLastAccessedDetailsWithEntitiesResponse'
-      { marker =
+      { error =
           Prelude.Nothing,
         isTruncated =
           Prelude.Nothing,
-        error = Prelude.Nothing,
+        marker = Prelude.Nothing,
         httpStatus =
           pHttpStatus_,
         jobStatus = pJobStatus_,
@@ -402,11 +402,9 @@ newGetServiceLastAccessedDetailsWithEntitiesResponse
           Prelude.mempty
       }
 
--- | When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
--- request.
-getServiceLastAccessedDetailsWithEntitiesResponse_marker :: Lens.Lens' GetServiceLastAccessedDetailsWithEntitiesResponse (Prelude.Maybe Prelude.Text)
-getServiceLastAccessedDetailsWithEntitiesResponse_marker = Lens.lens (\GetServiceLastAccessedDetailsWithEntitiesResponse' {marker} -> marker) (\s@GetServiceLastAccessedDetailsWithEntitiesResponse' {} a -> s {marker = a} :: GetServiceLastAccessedDetailsWithEntitiesResponse)
+-- | An object that contains details about the reason the operation failed.
+getServiceLastAccessedDetailsWithEntitiesResponse_error :: Lens.Lens' GetServiceLastAccessedDetailsWithEntitiesResponse (Prelude.Maybe ErrorDetails)
+getServiceLastAccessedDetailsWithEntitiesResponse_error = Lens.lens (\GetServiceLastAccessedDetailsWithEntitiesResponse' {error} -> error) (\s@GetServiceLastAccessedDetailsWithEntitiesResponse' {} a -> s {error = a} :: GetServiceLastAccessedDetailsWithEntitiesResponse)
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
@@ -418,9 +416,11 @@ getServiceLastAccessedDetailsWithEntitiesResponse_marker = Lens.lens (\GetServic
 getServiceLastAccessedDetailsWithEntitiesResponse_isTruncated :: Lens.Lens' GetServiceLastAccessedDetailsWithEntitiesResponse (Prelude.Maybe Prelude.Bool)
 getServiceLastAccessedDetailsWithEntitiesResponse_isTruncated = Lens.lens (\GetServiceLastAccessedDetailsWithEntitiesResponse' {isTruncated} -> isTruncated) (\s@GetServiceLastAccessedDetailsWithEntitiesResponse' {} a -> s {isTruncated = a} :: GetServiceLastAccessedDetailsWithEntitiesResponse)
 
--- | An object that contains details about the reason the operation failed.
-getServiceLastAccessedDetailsWithEntitiesResponse_error :: Lens.Lens' GetServiceLastAccessedDetailsWithEntitiesResponse (Prelude.Maybe ErrorDetails)
-getServiceLastAccessedDetailsWithEntitiesResponse_error = Lens.lens (\GetServiceLastAccessedDetailsWithEntitiesResponse' {error} -> error) (\s@GetServiceLastAccessedDetailsWithEntitiesResponse' {} a -> s {error = a} :: GetServiceLastAccessedDetailsWithEntitiesResponse)
+-- | When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
+getServiceLastAccessedDetailsWithEntitiesResponse_marker :: Lens.Lens' GetServiceLastAccessedDetailsWithEntitiesResponse (Prelude.Maybe Prelude.Text)
+getServiceLastAccessedDetailsWithEntitiesResponse_marker = Lens.lens (\GetServiceLastAccessedDetailsWithEntitiesResponse' {marker} -> marker) (\s@GetServiceLastAccessedDetailsWithEntitiesResponse' {} a -> s {marker = a} :: GetServiceLastAccessedDetailsWithEntitiesResponse)
 
 -- | The response's http status code.
 getServiceLastAccessedDetailsWithEntitiesResponse_httpStatus :: Lens.Lens' GetServiceLastAccessedDetailsWithEntitiesResponse Prelude.Int
@@ -457,9 +457,9 @@ instance
   where
   rnf
     GetServiceLastAccessedDetailsWithEntitiesResponse' {..} =
-      Prelude.rnf marker
+      Prelude.rnf error
         `Prelude.seq` Prelude.rnf isTruncated
-        `Prelude.seq` Prelude.rnf error
+        `Prelude.seq` Prelude.rnf marker
         `Prelude.seq` Prelude.rnf httpStatus
         `Prelude.seq` Prelude.rnf jobStatus
         `Prelude.seq` Prelude.rnf jobCreationDate

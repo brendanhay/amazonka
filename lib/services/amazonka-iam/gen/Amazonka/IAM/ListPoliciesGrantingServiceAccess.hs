@@ -73,8 +73,8 @@ module Amazonka.IAM.ListPoliciesGrantingServiceAccess
     newListPoliciesGrantingServiceAccessResponse,
 
     -- * Response Lenses
-    listPoliciesGrantingServiceAccessResponse_marker,
     listPoliciesGrantingServiceAccessResponse_isTruncated,
+    listPoliciesGrantingServiceAccessResponse_marker,
     listPoliciesGrantingServiceAccessResponse_httpStatus,
     listPoliciesGrantingServiceAccessResponse_policiesGrantingServiceAccess,
   )
@@ -198,8 +198,8 @@ instance
       "ListPoliciesGrantingServiceAccessResult"
       ( \s h x ->
           ListPoliciesGrantingServiceAccessResponse'
-            Prelude.<$> (x Data..@? "Marker")
-              Prelude.<*> (x Data..@? "IsTruncated")
+            Prelude.<$> (x Data..@? "IsTruncated")
+              Prelude.<*> (x Data..@? "Marker")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
               Prelude.<*> ( x Data..@? "PoliciesGrantingServiceAccess"
                               Core..!@ Prelude.mempty
@@ -259,16 +259,16 @@ instance
 
 -- | /See:/ 'newListPoliciesGrantingServiceAccessResponse' smart constructor.
 data ListPoliciesGrantingServiceAccessResponse = ListPoliciesGrantingServiceAccessResponse'
-  { -- | When @IsTruncated@ is @true@, this element is present and contains the
-    -- value to use for the @Marker@ parameter in a subsequent pagination
-    -- request.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | A flag that indicates whether there are more items to return. If your
+  { -- | A flag that indicates whether there are more items to return. If your
     -- results were truncated, you can make a subsequent pagination request
     -- using the @Marker@ request parameter to retrieve more items. We
     -- recommend that you check @IsTruncated@ after every call to ensure that
     -- you receive all your results.
     isTruncated :: Prelude.Maybe Prelude.Bool,
+    -- | When @IsTruncated@ is @true@, this element is present and contains the
+    -- value to use for the @Marker@ parameter in a subsequent pagination
+    -- request.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | A @ListPoliciesGrantingServiceAccess@ object that contains details about
@@ -286,15 +286,15 @@ data ListPoliciesGrantingServiceAccessResponse = ListPoliciesGrantingServiceAcce
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'marker', 'listPoliciesGrantingServiceAccessResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
--- request.
---
 -- 'isTruncated', 'listPoliciesGrantingServiceAccessResponse_isTruncated' - A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
 -- using the @Marker@ request parameter to retrieve more items. We
 -- recommend that you check @IsTruncated@ after every call to ensure that
 -- you receive all your results.
+--
+-- 'marker', 'listPoliciesGrantingServiceAccessResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
 --
 -- 'httpStatus', 'listPoliciesGrantingServiceAccessResponse_httpStatus' - The response's http status code.
 --
@@ -308,19 +308,13 @@ newListPoliciesGrantingServiceAccessResponse ::
 newListPoliciesGrantingServiceAccessResponse
   pHttpStatus_ =
     ListPoliciesGrantingServiceAccessResponse'
-      { marker =
+      { isTruncated =
           Prelude.Nothing,
-        isTruncated = Prelude.Nothing,
+        marker = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         policiesGrantingServiceAccess =
           Prelude.mempty
       }
-
--- | When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
--- request.
-listPoliciesGrantingServiceAccessResponse_marker :: Lens.Lens' ListPoliciesGrantingServiceAccessResponse (Prelude.Maybe Prelude.Text)
-listPoliciesGrantingServiceAccessResponse_marker = Lens.lens (\ListPoliciesGrantingServiceAccessResponse' {marker} -> marker) (\s@ListPoliciesGrantingServiceAccessResponse' {} a -> s {marker = a} :: ListPoliciesGrantingServiceAccessResponse)
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
@@ -329,6 +323,12 @@ listPoliciesGrantingServiceAccessResponse_marker = Lens.lens (\ListPoliciesGrant
 -- you receive all your results.
 listPoliciesGrantingServiceAccessResponse_isTruncated :: Lens.Lens' ListPoliciesGrantingServiceAccessResponse (Prelude.Maybe Prelude.Bool)
 listPoliciesGrantingServiceAccessResponse_isTruncated = Lens.lens (\ListPoliciesGrantingServiceAccessResponse' {isTruncated} -> isTruncated) (\s@ListPoliciesGrantingServiceAccessResponse' {} a -> s {isTruncated = a} :: ListPoliciesGrantingServiceAccessResponse)
+
+-- | When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
+listPoliciesGrantingServiceAccessResponse_marker :: Lens.Lens' ListPoliciesGrantingServiceAccessResponse (Prelude.Maybe Prelude.Text)
+listPoliciesGrantingServiceAccessResponse_marker = Lens.lens (\ListPoliciesGrantingServiceAccessResponse' {marker} -> marker) (\s@ListPoliciesGrantingServiceAccessResponse' {} a -> s {marker = a} :: ListPoliciesGrantingServiceAccessResponse)
 
 -- | The response's http status code.
 listPoliciesGrantingServiceAccessResponse_httpStatus :: Lens.Lens' ListPoliciesGrantingServiceAccessResponse Prelude.Int
@@ -345,7 +345,7 @@ instance
     ListPoliciesGrantingServiceAccessResponse
   where
   rnf ListPoliciesGrantingServiceAccessResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf isTruncated
+    Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf policiesGrantingServiceAccess

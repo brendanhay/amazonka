@@ -60,13 +60,13 @@ module Amazonka.IAM.GetOrganizationsAccessReport
     newGetOrganizationsAccessReportResponse,
 
     -- * Response Lenses
-    getOrganizationsAccessReportResponse_numberOfServicesNotAccessed,
-    getOrganizationsAccessReportResponse_marker,
     getOrganizationsAccessReportResponse_accessDetails,
     getOrganizationsAccessReportResponse_errorDetails,
     getOrganizationsAccessReportResponse_isTruncated,
-    getOrganizationsAccessReportResponse_numberOfServicesAccessible,
     getOrganizationsAccessReportResponse_jobCompletionDate,
+    getOrganizationsAccessReportResponse_marker,
+    getOrganizationsAccessReportResponse_numberOfServicesAccessible,
+    getOrganizationsAccessReportResponse_numberOfServicesNotAccessed,
     getOrganizationsAccessReportResponse_httpStatus,
     getOrganizationsAccessReportResponse_jobStatus,
     getOrganizationsAccessReportResponse_jobCreationDate,
@@ -191,15 +191,15 @@ instance Core.AWSRequest GetOrganizationsAccessReport where
       "GetOrganizationsAccessReportResult"
       ( \s h x ->
           GetOrganizationsAccessReportResponse'
-            Prelude.<$> (x Data..@? "NumberOfServicesNotAccessed")
-            Prelude.<*> (x Data..@? "Marker")
-            Prelude.<*> ( x Data..@? "AccessDetails" Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "AccessDetails" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "ErrorDetails")
             Prelude.<*> (x Data..@? "IsTruncated")
-            Prelude.<*> (x Data..@? "NumberOfServicesAccessible")
             Prelude.<*> (x Data..@? "JobCompletionDate")
+            Prelude.<*> (x Data..@? "Marker")
+            Prelude.<*> (x Data..@? "NumberOfServicesAccessible")
+            Prelude.<*> (x Data..@? "NumberOfServicesNotAccessed")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..@ "JobStatus")
             Prelude.<*> (x Data..@ "JobCreationDate")
@@ -245,14 +245,7 @@ instance Data.ToQuery GetOrganizationsAccessReport where
 
 -- | /See:/ 'newGetOrganizationsAccessReportResponse' smart constructor.
 data GetOrganizationsAccessReportResponse = GetOrganizationsAccessReportResponse'
-  { -- | The number of services that account principals are allowed but did not
-    -- attempt to access.
-    numberOfServicesNotAccessed :: Prelude.Maybe Prelude.Int,
-    -- | When @IsTruncated@ is @true@, this element is present and contains the
-    -- value to use for the @Marker@ parameter in a subsequent pagination
-    -- request.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | An object that contains details about the most recent attempt to access
+  { -- | An object that contains details about the most recent attempt to access
     -- the service.
     accessDetails :: Prelude.Maybe [AccessDetail],
     errorDetails :: Prelude.Maybe ErrorDetails,
@@ -264,9 +257,6 @@ data GetOrganizationsAccessReportResponse = GetOrganizationsAccessReportResponse
     -- @IsTruncated@ after every call to ensure that you receive all your
     -- results.
     isTruncated :: Prelude.Maybe Prelude.Bool,
-    -- | The number of services that the applicable SCPs allow account principals
-    -- to access.
-    numberOfServicesAccessible :: Prelude.Maybe Prelude.Int,
     -- | The date and time,
     -- in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
     -- generated report job was completed or failed.
@@ -274,6 +264,16 @@ data GetOrganizationsAccessReportResponse = GetOrganizationsAccessReportResponse
     -- This field is null if the job is still in progress, as indicated by a
     -- job status value of @IN_PROGRESS@.
     jobCompletionDate :: Prelude.Maybe Data.ISO8601,
+    -- | When @IsTruncated@ is @true@, this element is present and contains the
+    -- value to use for the @Marker@ parameter in a subsequent pagination
+    -- request.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The number of services that the applicable SCPs allow account principals
+    -- to access.
+    numberOfServicesAccessible :: Prelude.Maybe Prelude.Int,
+    -- | The number of services that account principals are allowed but did not
+    -- attempt to access.
+    numberOfServicesNotAccessed :: Prelude.Maybe Prelude.Int,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The status of the job.
@@ -293,13 +293,6 @@ data GetOrganizationsAccessReportResponse = GetOrganizationsAccessReportResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'numberOfServicesNotAccessed', 'getOrganizationsAccessReportResponse_numberOfServicesNotAccessed' - The number of services that account principals are allowed but did not
--- attempt to access.
---
--- 'marker', 'getOrganizationsAccessReportResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
--- request.
---
 -- 'accessDetails', 'getOrganizationsAccessReportResponse_accessDetails' - An object that contains details about the most recent attempt to access
 -- the service.
 --
@@ -313,15 +306,22 @@ data GetOrganizationsAccessReportResponse = GetOrganizationsAccessReportResponse
 -- @IsTruncated@ after every call to ensure that you receive all your
 -- results.
 --
--- 'numberOfServicesAccessible', 'getOrganizationsAccessReportResponse_numberOfServicesAccessible' - The number of services that the applicable SCPs allow account principals
--- to access.
---
 -- 'jobCompletionDate', 'getOrganizationsAccessReportResponse_jobCompletionDate' - The date and time,
 -- in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
 -- generated report job was completed or failed.
 --
 -- This field is null if the job is still in progress, as indicated by a
 -- job status value of @IN_PROGRESS@.
+--
+-- 'marker', 'getOrganizationsAccessReportResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
+--
+-- 'numberOfServicesAccessible', 'getOrganizationsAccessReportResponse_numberOfServicesAccessible' - The number of services that the applicable SCPs allow account principals
+-- to access.
+--
+-- 'numberOfServicesNotAccessed', 'getOrganizationsAccessReportResponse_numberOfServicesNotAccessed' - The number of services that account principals are allowed but did not
+-- attempt to access.
 --
 -- 'httpStatus', 'getOrganizationsAccessReportResponse_httpStatus' - The response's http status code.
 --
@@ -343,31 +343,21 @@ newGetOrganizationsAccessReportResponse
   pJobStatus_
   pJobCreationDate_ =
     GetOrganizationsAccessReportResponse'
-      { numberOfServicesNotAccessed =
+      { accessDetails =
           Prelude.Nothing,
-        marker = Prelude.Nothing,
-        accessDetails = Prelude.Nothing,
         errorDetails = Prelude.Nothing,
         isTruncated = Prelude.Nothing,
+        jobCompletionDate = Prelude.Nothing,
+        marker = Prelude.Nothing,
         numberOfServicesAccessible =
           Prelude.Nothing,
-        jobCompletionDate = Prelude.Nothing,
+        numberOfServicesNotAccessed =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_,
         jobStatus = pJobStatus_,
         jobCreationDate =
           Data._Time Lens.# pJobCreationDate_
       }
-
--- | The number of services that account principals are allowed but did not
--- attempt to access.
-getOrganizationsAccessReportResponse_numberOfServicesNotAccessed :: Lens.Lens' GetOrganizationsAccessReportResponse (Prelude.Maybe Prelude.Int)
-getOrganizationsAccessReportResponse_numberOfServicesNotAccessed = Lens.lens (\GetOrganizationsAccessReportResponse' {numberOfServicesNotAccessed} -> numberOfServicesNotAccessed) (\s@GetOrganizationsAccessReportResponse' {} a -> s {numberOfServicesNotAccessed = a} :: GetOrganizationsAccessReportResponse)
-
--- | When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
--- request.
-getOrganizationsAccessReportResponse_marker :: Lens.Lens' GetOrganizationsAccessReportResponse (Prelude.Maybe Prelude.Text)
-getOrganizationsAccessReportResponse_marker = Lens.lens (\GetOrganizationsAccessReportResponse' {marker} -> marker) (\s@GetOrganizationsAccessReportResponse' {} a -> s {marker = a} :: GetOrganizationsAccessReportResponse)
 
 -- | An object that contains details about the most recent attempt to access
 -- the service.
@@ -388,11 +378,6 @@ getOrganizationsAccessReportResponse_errorDetails = Lens.lens (\GetOrganizations
 getOrganizationsAccessReportResponse_isTruncated :: Lens.Lens' GetOrganizationsAccessReportResponse (Prelude.Maybe Prelude.Bool)
 getOrganizationsAccessReportResponse_isTruncated = Lens.lens (\GetOrganizationsAccessReportResponse' {isTruncated} -> isTruncated) (\s@GetOrganizationsAccessReportResponse' {} a -> s {isTruncated = a} :: GetOrganizationsAccessReportResponse)
 
--- | The number of services that the applicable SCPs allow account principals
--- to access.
-getOrganizationsAccessReportResponse_numberOfServicesAccessible :: Lens.Lens' GetOrganizationsAccessReportResponse (Prelude.Maybe Prelude.Int)
-getOrganizationsAccessReportResponse_numberOfServicesAccessible = Lens.lens (\GetOrganizationsAccessReportResponse' {numberOfServicesAccessible} -> numberOfServicesAccessible) (\s@GetOrganizationsAccessReportResponse' {} a -> s {numberOfServicesAccessible = a} :: GetOrganizationsAccessReportResponse)
-
 -- | The date and time,
 -- in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
 -- generated report job was completed or failed.
@@ -401,6 +386,22 @@ getOrganizationsAccessReportResponse_numberOfServicesAccessible = Lens.lens (\Ge
 -- job status value of @IN_PROGRESS@.
 getOrganizationsAccessReportResponse_jobCompletionDate :: Lens.Lens' GetOrganizationsAccessReportResponse (Prelude.Maybe Prelude.UTCTime)
 getOrganizationsAccessReportResponse_jobCompletionDate = Lens.lens (\GetOrganizationsAccessReportResponse' {jobCompletionDate} -> jobCompletionDate) (\s@GetOrganizationsAccessReportResponse' {} a -> s {jobCompletionDate = a} :: GetOrganizationsAccessReportResponse) Prelude.. Lens.mapping Data._Time
+
+-- | When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
+getOrganizationsAccessReportResponse_marker :: Lens.Lens' GetOrganizationsAccessReportResponse (Prelude.Maybe Prelude.Text)
+getOrganizationsAccessReportResponse_marker = Lens.lens (\GetOrganizationsAccessReportResponse' {marker} -> marker) (\s@GetOrganizationsAccessReportResponse' {} a -> s {marker = a} :: GetOrganizationsAccessReportResponse)
+
+-- | The number of services that the applicable SCPs allow account principals
+-- to access.
+getOrganizationsAccessReportResponse_numberOfServicesAccessible :: Lens.Lens' GetOrganizationsAccessReportResponse (Prelude.Maybe Prelude.Int)
+getOrganizationsAccessReportResponse_numberOfServicesAccessible = Lens.lens (\GetOrganizationsAccessReportResponse' {numberOfServicesAccessible} -> numberOfServicesAccessible) (\s@GetOrganizationsAccessReportResponse' {} a -> s {numberOfServicesAccessible = a} :: GetOrganizationsAccessReportResponse)
+
+-- | The number of services that account principals are allowed but did not
+-- attempt to access.
+getOrganizationsAccessReportResponse_numberOfServicesNotAccessed :: Lens.Lens' GetOrganizationsAccessReportResponse (Prelude.Maybe Prelude.Int)
+getOrganizationsAccessReportResponse_numberOfServicesNotAccessed = Lens.lens (\GetOrganizationsAccessReportResponse' {numberOfServicesNotAccessed} -> numberOfServicesNotAccessed) (\s@GetOrganizationsAccessReportResponse' {} a -> s {numberOfServicesNotAccessed = a} :: GetOrganizationsAccessReportResponse)
 
 -- | The response's http status code.
 getOrganizationsAccessReportResponse_httpStatus :: Lens.Lens' GetOrganizationsAccessReportResponse Prelude.Int
@@ -421,13 +422,13 @@ instance
     GetOrganizationsAccessReportResponse
   where
   rnf GetOrganizationsAccessReportResponse' {..} =
-    Prelude.rnf numberOfServicesNotAccessed
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf accessDetails
+    Prelude.rnf accessDetails
       `Prelude.seq` Prelude.rnf errorDetails
       `Prelude.seq` Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf numberOfServicesAccessible
       `Prelude.seq` Prelude.rnf jobCompletionDate
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf numberOfServicesAccessible
+      `Prelude.seq` Prelude.rnf numberOfServicesNotAccessed
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf jobStatus
       `Prelude.seq` Prelude.rnf jobCreationDate

@@ -35,11 +35,11 @@ module Amazonka.IAM.GetOpenIDConnectProvider
     newGetOpenIDConnectProviderResponse,
 
     -- * Response Lenses
-    getOpenIDConnectProviderResponse_tags,
     getOpenIDConnectProviderResponse_clientIDList,
+    getOpenIDConnectProviderResponse_createDate,
+    getOpenIDConnectProviderResponse_tags,
     getOpenIDConnectProviderResponse_thumbprintList,
     getOpenIDConnectProviderResponse_url,
-    getOpenIDConnectProviderResponse_createDate,
     getOpenIDConnectProviderResponse_httpStatus,
   )
 where
@@ -112,17 +112,17 @@ instance Core.AWSRequest GetOpenIDConnectProvider where
       "GetOpenIDConnectProviderResult"
       ( \s h x ->
           GetOpenIDConnectProviderResponse'
-            Prelude.<$> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "ClientIDList" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x Data..@? "ClientIDList" Core..!@ Prelude.mempty
+            Prelude.<*> (x Data..@? "CreateDate")
+            Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> ( x Data..@? "ThumbprintList" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "Url")
-            Prelude.<*> (x Data..@? "CreateDate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,16 +156,19 @@ instance Data.ToQuery GetOpenIDConnectProvider where
 --
 -- /See:/ 'newGetOpenIDConnectProviderResponse' smart constructor.
 data GetOpenIDConnectProviderResponse = GetOpenIDConnectProviderResponse'
-  { -- | A list of tags that are attached to the specified IAM OIDC provider. The
+  { -- | A list of client IDs (also known as audiences) that are associated with
+    -- the specified IAM OIDC provider resource object. For more information,
+    -- see CreateOpenIDConnectProvider.
+    clientIDList :: Prelude.Maybe [Prelude.Text],
+    -- | The date and time when the IAM OIDC provider resource object was created
+    -- in the Amazon Web Services account.
+    createDate :: Prelude.Maybe Data.ISO8601,
+    -- | A list of tags that are attached to the specified IAM OIDC provider. The
     -- returned list of tags is sorted by tag key. For more information about
     -- tagging, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
     -- in the /IAM User Guide/.
     tags :: Prelude.Maybe [Tag],
-    -- | A list of client IDs (also known as audiences) that are associated with
-    -- the specified IAM OIDC provider resource object. For more information,
-    -- see CreateOpenIDConnectProvider.
-    clientIDList :: Prelude.Maybe [Prelude.Text],
     -- | A list of certificate thumbprints that are associated with the specified
     -- IAM OIDC provider resource object. For more information, see
     -- CreateOpenIDConnectProvider.
@@ -173,9 +176,6 @@ data GetOpenIDConnectProviderResponse = GetOpenIDConnectProviderResponse'
     -- | The URL that the IAM OIDC provider resource object is associated with.
     -- For more information, see CreateOpenIDConnectProvider.
     url :: Prelude.Maybe Prelude.Text,
-    -- | The date and time when the IAM OIDC provider resource object was created
-    -- in the Amazon Web Services account.
-    createDate :: Prelude.Maybe Data.ISO8601,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -189,15 +189,18 @@ data GetOpenIDConnectProviderResponse = GetOpenIDConnectProviderResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clientIDList', 'getOpenIDConnectProviderResponse_clientIDList' - A list of client IDs (also known as audiences) that are associated with
+-- the specified IAM OIDC provider resource object. For more information,
+-- see CreateOpenIDConnectProvider.
+--
+-- 'createDate', 'getOpenIDConnectProviderResponse_createDate' - The date and time when the IAM OIDC provider resource object was created
+-- in the Amazon Web Services account.
+--
 -- 'tags', 'getOpenIDConnectProviderResponse_tags' - A list of tags that are attached to the specified IAM OIDC provider. The
 -- returned list of tags is sorted by tag key. For more information about
 -- tagging, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
 -- in the /IAM User Guide/.
---
--- 'clientIDList', 'getOpenIDConnectProviderResponse_clientIDList' - A list of client IDs (also known as audiences) that are associated with
--- the specified IAM OIDC provider resource object. For more information,
--- see CreateOpenIDConnectProvider.
 --
 -- 'thumbprintList', 'getOpenIDConnectProviderResponse_thumbprintList' - A list of certificate thumbprints that are associated with the specified
 -- IAM OIDC provider resource object. For more information, see
@@ -206,9 +209,6 @@ data GetOpenIDConnectProviderResponse = GetOpenIDConnectProviderResponse'
 -- 'url', 'getOpenIDConnectProviderResponse_url' - The URL that the IAM OIDC provider resource object is associated with.
 -- For more information, see CreateOpenIDConnectProvider.
 --
--- 'createDate', 'getOpenIDConnectProviderResponse_createDate' - The date and time when the IAM OIDC provider resource object was created
--- in the Amazon Web Services account.
---
 -- 'httpStatus', 'getOpenIDConnectProviderResponse_httpStatus' - The response's http status code.
 newGetOpenIDConnectProviderResponse ::
   -- | 'httpStatus'
@@ -216,14 +216,25 @@ newGetOpenIDConnectProviderResponse ::
   GetOpenIDConnectProviderResponse
 newGetOpenIDConnectProviderResponse pHttpStatus_ =
   GetOpenIDConnectProviderResponse'
-    { tags =
+    { clientIDList =
         Prelude.Nothing,
-      clientIDList = Prelude.Nothing,
+      createDate = Prelude.Nothing,
+      tags = Prelude.Nothing,
       thumbprintList = Prelude.Nothing,
       url = Prelude.Nothing,
-      createDate = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of client IDs (also known as audiences) that are associated with
+-- the specified IAM OIDC provider resource object. For more information,
+-- see CreateOpenIDConnectProvider.
+getOpenIDConnectProviderResponse_clientIDList :: Lens.Lens' GetOpenIDConnectProviderResponse (Prelude.Maybe [Prelude.Text])
+getOpenIDConnectProviderResponse_clientIDList = Lens.lens (\GetOpenIDConnectProviderResponse' {clientIDList} -> clientIDList) (\s@GetOpenIDConnectProviderResponse' {} a -> s {clientIDList = a} :: GetOpenIDConnectProviderResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The date and time when the IAM OIDC provider resource object was created
+-- in the Amazon Web Services account.
+getOpenIDConnectProviderResponse_createDate :: Lens.Lens' GetOpenIDConnectProviderResponse (Prelude.Maybe Prelude.UTCTime)
+getOpenIDConnectProviderResponse_createDate = Lens.lens (\GetOpenIDConnectProviderResponse' {createDate} -> createDate) (\s@GetOpenIDConnectProviderResponse' {} a -> s {createDate = a} :: GetOpenIDConnectProviderResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A list of tags that are attached to the specified IAM OIDC provider. The
 -- returned list of tags is sorted by tag key. For more information about
@@ -232,12 +243,6 @@ newGetOpenIDConnectProviderResponse pHttpStatus_ =
 -- in the /IAM User Guide/.
 getOpenIDConnectProviderResponse_tags :: Lens.Lens' GetOpenIDConnectProviderResponse (Prelude.Maybe [Tag])
 getOpenIDConnectProviderResponse_tags = Lens.lens (\GetOpenIDConnectProviderResponse' {tags} -> tags) (\s@GetOpenIDConnectProviderResponse' {} a -> s {tags = a} :: GetOpenIDConnectProviderResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | A list of client IDs (also known as audiences) that are associated with
--- the specified IAM OIDC provider resource object. For more information,
--- see CreateOpenIDConnectProvider.
-getOpenIDConnectProviderResponse_clientIDList :: Lens.Lens' GetOpenIDConnectProviderResponse (Prelude.Maybe [Prelude.Text])
-getOpenIDConnectProviderResponse_clientIDList = Lens.lens (\GetOpenIDConnectProviderResponse' {clientIDList} -> clientIDList) (\s@GetOpenIDConnectProviderResponse' {} a -> s {clientIDList = a} :: GetOpenIDConnectProviderResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of certificate thumbprints that are associated with the specified
 -- IAM OIDC provider resource object. For more information, see
@@ -250,11 +255,6 @@ getOpenIDConnectProviderResponse_thumbprintList = Lens.lens (\GetOpenIDConnectPr
 getOpenIDConnectProviderResponse_url :: Lens.Lens' GetOpenIDConnectProviderResponse (Prelude.Maybe Prelude.Text)
 getOpenIDConnectProviderResponse_url = Lens.lens (\GetOpenIDConnectProviderResponse' {url} -> url) (\s@GetOpenIDConnectProviderResponse' {} a -> s {url = a} :: GetOpenIDConnectProviderResponse)
 
--- | The date and time when the IAM OIDC provider resource object was created
--- in the Amazon Web Services account.
-getOpenIDConnectProviderResponse_createDate :: Lens.Lens' GetOpenIDConnectProviderResponse (Prelude.Maybe Prelude.UTCTime)
-getOpenIDConnectProviderResponse_createDate = Lens.lens (\GetOpenIDConnectProviderResponse' {createDate} -> createDate) (\s@GetOpenIDConnectProviderResponse' {} a -> s {createDate = a} :: GetOpenIDConnectProviderResponse) Prelude.. Lens.mapping Data._Time
-
 -- | The response's http status code.
 getOpenIDConnectProviderResponse_httpStatus :: Lens.Lens' GetOpenIDConnectProviderResponse Prelude.Int
 getOpenIDConnectProviderResponse_httpStatus = Lens.lens (\GetOpenIDConnectProviderResponse' {httpStatus} -> httpStatus) (\s@GetOpenIDConnectProviderResponse' {} a -> s {httpStatus = a} :: GetOpenIDConnectProviderResponse)
@@ -264,9 +264,9 @@ instance
     GetOpenIDConnectProviderResponse
   where
   rnf GetOpenIDConnectProviderResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientIDList
+    Prelude.rnf clientIDList
+      `Prelude.seq` Prelude.rnf createDate
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf thumbprintList
       `Prelude.seq` Prelude.rnf url
-      `Prelude.seq` Prelude.rnf createDate
       `Prelude.seq` Prelude.rnf httpStatus

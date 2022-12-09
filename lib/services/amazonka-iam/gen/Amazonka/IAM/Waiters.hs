@@ -27,16 +27,16 @@ import Amazonka.IAM.Lens
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 
--- | Polls 'Amazonka.IAM.GetRole' every 1 seconds until a successful state is reached. An error is returned after 20 failed checks.
-newRoleExists :: Core.Wait GetRole
-newRoleExists =
+-- | Polls 'Amazonka.IAM.GetInstanceProfile' every 1 seconds until a successful state is reached. An error is returned after 40 failed checks.
+newInstanceProfileExists :: Core.Wait GetInstanceProfile
+newInstanceProfileExists =
   Core.Wait
-    { Core.name = "RoleExists",
-      Core.attempts = 20,
+    { Core.name = "InstanceProfileExists",
+      Core.attempts = 40,
       Core.delay = 1,
       Core.acceptors =
         [ Core.matchStatus 200 Core.AcceptSuccess,
-          Core.matchError "NoSuchEntity" Core.AcceptRetry
+          Core.matchStatus 404 Core.AcceptRetry
         ]
     }
 
@@ -45,6 +45,19 @@ newPolicyExists :: Core.Wait GetPolicy
 newPolicyExists =
   Core.Wait
     { Core.name = "PolicyExists",
+      Core.attempts = 20,
+      Core.delay = 1,
+      Core.acceptors =
+        [ Core.matchStatus 200 Core.AcceptSuccess,
+          Core.matchError "NoSuchEntity" Core.AcceptRetry
+        ]
+    }
+
+-- | Polls 'Amazonka.IAM.GetRole' every 1 seconds until a successful state is reached. An error is returned after 20 failed checks.
+newRoleExists :: Core.Wait GetRole
+newRoleExists =
+  Core.Wait
+    { Core.name = "RoleExists",
       Core.attempts = 20,
       Core.delay = 1,
       Core.acceptors =
@@ -63,18 +76,5 @@ newUserExists =
       Core.acceptors =
         [ Core.matchStatus 200 Core.AcceptSuccess,
           Core.matchError "NoSuchEntity" Core.AcceptRetry
-        ]
-    }
-
--- | Polls 'Amazonka.IAM.GetInstanceProfile' every 1 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newInstanceProfileExists :: Core.Wait GetInstanceProfile
-newInstanceProfileExists =
-  Core.Wait
-    { Core.name = "InstanceProfileExists",
-      Core.attempts = 40,
-      Core.delay = 1,
-      Core.acceptors =
-        [ Core.matchStatus 200 Core.AcceptSuccess,
-          Core.matchStatus 404 Core.AcceptRetry
         ]
     }

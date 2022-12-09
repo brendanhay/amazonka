@@ -44,8 +44,8 @@ module Amazonka.IAM.ListInstanceProfilesForRole
     newListInstanceProfilesForRoleResponse,
 
     -- * Response Lenses
-    listInstanceProfilesForRoleResponse_marker,
     listInstanceProfilesForRoleResponse_isTruncated,
+    listInstanceProfilesForRoleResponse_marker,
     listInstanceProfilesForRoleResponse_httpStatus,
     listInstanceProfilesForRoleResponse_instanceProfiles,
   )
@@ -188,8 +188,8 @@ instance Core.AWSRequest ListInstanceProfilesForRole where
       "ListInstanceProfilesForRoleResult"
       ( \s h x ->
           ListInstanceProfilesForRoleResponse'
-            Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> (x Data..@? "IsTruncated")
+            Prelude.<$> (x Data..@? "IsTruncated")
+            Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> ( x Data..@? "InstanceProfiles"
                             Core..!@ Prelude.mempty
@@ -234,11 +234,7 @@ instance Data.ToQuery ListInstanceProfilesForRole where
 --
 -- /See:/ 'newListInstanceProfilesForRoleResponse' smart constructor.
 data ListInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse'
-  { -- | When @IsTruncated@ is @true@, this element is present and contains the
-    -- value to use for the @Marker@ parameter in a subsequent pagination
-    -- request.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | A flag that indicates whether there are more items to return. If your
+  { -- | A flag that indicates whether there are more items to return. If your
     -- results were truncated, you can make a subsequent pagination request
     -- using the @Marker@ request parameter to retrieve more items. Note that
     -- IAM might return fewer than the @MaxItems@ number of results even when
@@ -246,6 +242,10 @@ data ListInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse'
     -- @IsTruncated@ after every call to ensure that you receive all your
     -- results.
     isTruncated :: Prelude.Maybe Prelude.Bool,
+    -- | When @IsTruncated@ is @true@, this element is present and contains the
+    -- value to use for the @Marker@ parameter in a subsequent pagination
+    -- request.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | A list of instance profiles.
@@ -261,10 +261,6 @@ data ListInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'marker', 'listInstanceProfilesForRoleResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
--- request.
---
 -- 'isTruncated', 'listInstanceProfilesForRoleResponse_isTruncated' - A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
 -- using the @Marker@ request parameter to retrieve more items. Note that
@@ -272,6 +268,10 @@ data ListInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse'
 -- there are more results available. We recommend that you check
 -- @IsTruncated@ after every call to ensure that you receive all your
 -- results.
+--
+-- 'marker', 'listInstanceProfilesForRoleResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
 --
 -- 'httpStatus', 'listInstanceProfilesForRoleResponse_httpStatus' - The response's http status code.
 --
@@ -282,18 +282,12 @@ newListInstanceProfilesForRoleResponse ::
   ListInstanceProfilesForRoleResponse
 newListInstanceProfilesForRoleResponse pHttpStatus_ =
   ListInstanceProfilesForRoleResponse'
-    { marker =
+    { isTruncated =
         Prelude.Nothing,
-      isTruncated = Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_,
       instanceProfiles = Prelude.mempty
     }
-
--- | When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
--- request.
-listInstanceProfilesForRoleResponse_marker :: Lens.Lens' ListInstanceProfilesForRoleResponse (Prelude.Maybe Prelude.Text)
-listInstanceProfilesForRoleResponse_marker = Lens.lens (\ListInstanceProfilesForRoleResponse' {marker} -> marker) (\s@ListInstanceProfilesForRoleResponse' {} a -> s {marker = a} :: ListInstanceProfilesForRoleResponse)
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
@@ -304,6 +298,12 @@ listInstanceProfilesForRoleResponse_marker = Lens.lens (\ListInstanceProfilesFor
 -- results.
 listInstanceProfilesForRoleResponse_isTruncated :: Lens.Lens' ListInstanceProfilesForRoleResponse (Prelude.Maybe Prelude.Bool)
 listInstanceProfilesForRoleResponse_isTruncated = Lens.lens (\ListInstanceProfilesForRoleResponse' {isTruncated} -> isTruncated) (\s@ListInstanceProfilesForRoleResponse' {} a -> s {isTruncated = a} :: ListInstanceProfilesForRoleResponse)
+
+-- | When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
+listInstanceProfilesForRoleResponse_marker :: Lens.Lens' ListInstanceProfilesForRoleResponse (Prelude.Maybe Prelude.Text)
+listInstanceProfilesForRoleResponse_marker = Lens.lens (\ListInstanceProfilesForRoleResponse' {marker} -> marker) (\s@ListInstanceProfilesForRoleResponse' {} a -> s {marker = a} :: ListInstanceProfilesForRoleResponse)
 
 -- | The response's http status code.
 listInstanceProfilesForRoleResponse_httpStatus :: Lens.Lens' ListInstanceProfilesForRoleResponse Prelude.Int
@@ -318,7 +318,7 @@ instance
     ListInstanceProfilesForRoleResponse
   where
   rnf ListInstanceProfilesForRoleResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf isTruncated
+    Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf instanceProfiles

@@ -35,13 +35,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPolicyRole' smart constructor.
 data PolicyRole = PolicyRole'
-  { -- | The name (friendly name, not ARN) identifying the role.
-    roleName :: Prelude.Maybe Prelude.Text,
-    -- | The stable and unique string identifying the role. For more information
+  { -- | The stable and unique string identifying the role. For more information
     -- about IDs, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM identifiers>
     -- in the /IAM User Guide/.
-    roleId :: Prelude.Maybe Prelude.Text
+    roleId :: Prelude.Maybe Prelude.Text,
+    -- | The name (friendly name, not ARN) identifying the role.
+    roleName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,23 +53,19 @@ data PolicyRole = PolicyRole'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleName', 'policyRole_roleName' - The name (friendly name, not ARN) identifying the role.
---
 -- 'roleId', 'policyRole_roleId' - The stable and unique string identifying the role. For more information
 -- about IDs, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM identifiers>
 -- in the /IAM User Guide/.
+--
+-- 'roleName', 'policyRole_roleName' - The name (friendly name, not ARN) identifying the role.
 newPolicyRole ::
   PolicyRole
 newPolicyRole =
   PolicyRole'
-    { roleName = Prelude.Nothing,
-      roleId = Prelude.Nothing
+    { roleId = Prelude.Nothing,
+      roleName = Prelude.Nothing
     }
-
--- | The name (friendly name, not ARN) identifying the role.
-policyRole_roleName :: Lens.Lens' PolicyRole (Prelude.Maybe Prelude.Text)
-policyRole_roleName = Lens.lens (\PolicyRole' {roleName} -> roleName) (\s@PolicyRole' {} a -> s {roleName = a} :: PolicyRole)
 
 -- | The stable and unique string identifying the role. For more information
 -- about IDs, see
@@ -78,18 +74,22 @@ policyRole_roleName = Lens.lens (\PolicyRole' {roleName} -> roleName) (\s@Policy
 policyRole_roleId :: Lens.Lens' PolicyRole (Prelude.Maybe Prelude.Text)
 policyRole_roleId = Lens.lens (\PolicyRole' {roleId} -> roleId) (\s@PolicyRole' {} a -> s {roleId = a} :: PolicyRole)
 
+-- | The name (friendly name, not ARN) identifying the role.
+policyRole_roleName :: Lens.Lens' PolicyRole (Prelude.Maybe Prelude.Text)
+policyRole_roleName = Lens.lens (\PolicyRole' {roleName} -> roleName) (\s@PolicyRole' {} a -> s {roleName = a} :: PolicyRole)
+
 instance Data.FromXML PolicyRole where
   parseXML x =
     PolicyRole'
-      Prelude.<$> (x Data..@? "RoleName")
-      Prelude.<*> (x Data..@? "RoleId")
+      Prelude.<$> (x Data..@? "RoleId")
+      Prelude.<*> (x Data..@? "RoleName")
 
 instance Prelude.Hashable PolicyRole where
   hashWithSalt _salt PolicyRole' {..} =
-    _salt `Prelude.hashWithSalt` roleName
-      `Prelude.hashWithSalt` roleId
+    _salt `Prelude.hashWithSalt` roleId
+      `Prelude.hashWithSalt` roleName
 
 instance Prelude.NFData PolicyRole where
   rnf PolicyRole' {..} =
-    Prelude.rnf roleName
-      `Prelude.seq` Prelude.rnf roleId
+    Prelude.rnf roleId
+      `Prelude.seq` Prelude.rnf roleName

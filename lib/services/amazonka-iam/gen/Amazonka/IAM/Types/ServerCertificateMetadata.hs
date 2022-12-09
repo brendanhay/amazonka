@@ -32,10 +32,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newServerCertificateMetadata' smart constructor.
 data ServerCertificateMetadata = ServerCertificateMetadata'
-  { -- | The date when the server certificate was uploaded.
-    uploadDate :: Prelude.Maybe Data.ISO8601,
-    -- | The date on which the certificate is set to expire.
+  { -- | The date on which the certificate is set to expire.
     expiration :: Prelude.Maybe Data.ISO8601,
+    -- | The date when the server certificate was uploaded.
+    uploadDate :: Prelude.Maybe Data.ISO8601,
     -- | The path to the server certificate. For more information about paths,
     -- see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
@@ -64,9 +64,9 @@ data ServerCertificateMetadata = ServerCertificateMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'uploadDate', 'serverCertificateMetadata_uploadDate' - The date when the server certificate was uploaded.
---
 -- 'expiration', 'serverCertificateMetadata_expiration' - The date on which the certificate is set to expire.
+--
+-- 'uploadDate', 'serverCertificateMetadata_uploadDate' - The date when the server certificate was uploaded.
 --
 -- 'path', 'serverCertificateMetadata_path' - The path to the server certificate. For more information about paths,
 -- see
@@ -100,22 +100,22 @@ newServerCertificateMetadata
   pServerCertificateId_
   pArn_ =
     ServerCertificateMetadata'
-      { uploadDate =
+      { expiration =
           Prelude.Nothing,
-        expiration = Prelude.Nothing,
+        uploadDate = Prelude.Nothing,
         path = pPath_,
         serverCertificateName = pServerCertificateName_,
         serverCertificateId = pServerCertificateId_,
         arn = pArn_
       }
 
--- | The date when the server certificate was uploaded.
-serverCertificateMetadata_uploadDate :: Lens.Lens' ServerCertificateMetadata (Prelude.Maybe Prelude.UTCTime)
-serverCertificateMetadata_uploadDate = Lens.lens (\ServerCertificateMetadata' {uploadDate} -> uploadDate) (\s@ServerCertificateMetadata' {} a -> s {uploadDate = a} :: ServerCertificateMetadata) Prelude.. Lens.mapping Data._Time
-
 -- | The date on which the certificate is set to expire.
 serverCertificateMetadata_expiration :: Lens.Lens' ServerCertificateMetadata (Prelude.Maybe Prelude.UTCTime)
 serverCertificateMetadata_expiration = Lens.lens (\ServerCertificateMetadata' {expiration} -> expiration) (\s@ServerCertificateMetadata' {} a -> s {expiration = a} :: ServerCertificateMetadata) Prelude.. Lens.mapping Data._Time
+
+-- | The date when the server certificate was uploaded.
+serverCertificateMetadata_uploadDate :: Lens.Lens' ServerCertificateMetadata (Prelude.Maybe Prelude.UTCTime)
+serverCertificateMetadata_uploadDate = Lens.lens (\ServerCertificateMetadata' {uploadDate} -> uploadDate) (\s@ServerCertificateMetadata' {} a -> s {uploadDate = a} :: ServerCertificateMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | The path to the server certificate. For more information about paths,
 -- see
@@ -145,8 +145,8 @@ serverCertificateMetadata_arn = Lens.lens (\ServerCertificateMetadata' {arn} -> 
 instance Data.FromXML ServerCertificateMetadata where
   parseXML x =
     ServerCertificateMetadata'
-      Prelude.<$> (x Data..@? "UploadDate")
-      Prelude.<*> (x Data..@? "Expiration")
+      Prelude.<$> (x Data..@? "Expiration")
+      Prelude.<*> (x Data..@? "UploadDate")
       Prelude.<*> (x Data..@ "Path")
       Prelude.<*> (x Data..@ "ServerCertificateName")
       Prelude.<*> (x Data..@ "ServerCertificateId")
@@ -154,8 +154,8 @@ instance Data.FromXML ServerCertificateMetadata where
 
 instance Prelude.Hashable ServerCertificateMetadata where
   hashWithSalt _salt ServerCertificateMetadata' {..} =
-    _salt `Prelude.hashWithSalt` uploadDate
-      `Prelude.hashWithSalt` expiration
+    _salt `Prelude.hashWithSalt` expiration
+      `Prelude.hashWithSalt` uploadDate
       `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` serverCertificateName
       `Prelude.hashWithSalt` serverCertificateId
@@ -163,8 +163,8 @@ instance Prelude.Hashable ServerCertificateMetadata where
 
 instance Prelude.NFData ServerCertificateMetadata where
   rnf ServerCertificateMetadata' {..} =
-    Prelude.rnf uploadDate
-      `Prelude.seq` Prelude.rnf expiration
+    Prelude.rnf expiration
+      `Prelude.seq` Prelude.rnf uploadDate
       `Prelude.seq` Prelude.rnf path
       `Prelude.seq` Prelude.rnf serverCertificateName
       `Prelude.seq` Prelude.rnf serverCertificateId

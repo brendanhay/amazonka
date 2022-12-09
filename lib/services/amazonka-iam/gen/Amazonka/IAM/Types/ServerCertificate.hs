@@ -33,13 +33,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newServerCertificate' smart constructor.
 data ServerCertificate = ServerCertificate'
-  { -- | A list of tags that are attached to the server certificate. For more
+  { -- | The contents of the public key certificate chain.
+    certificateChain :: Prelude.Maybe Prelude.Text,
+    -- | A list of tags that are attached to the server certificate. For more
     -- information about tagging, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
     -- in the /IAM User Guide/.
     tags :: Prelude.Maybe [Tag],
-    -- | The contents of the public key certificate chain.
-    certificateChain :: Prelude.Maybe Prelude.Text,
     -- | The meta information of the server certificate, such as its name, path,
     -- ID, and ARN.
     serverCertificateMetadata :: ServerCertificateMetadata,
@@ -56,12 +56,12 @@ data ServerCertificate = ServerCertificate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'certificateChain', 'serverCertificate_certificateChain' - The contents of the public key certificate chain.
+--
 -- 'tags', 'serverCertificate_tags' - A list of tags that are attached to the server certificate. For more
 -- information about tagging, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
 -- in the /IAM User Guide/.
---
--- 'certificateChain', 'serverCertificate_certificateChain' - The contents of the public key certificate chain.
 --
 -- 'serverCertificateMetadata', 'serverCertificate_serverCertificateMetadata' - The meta information of the server certificate, such as its name, path,
 -- ID, and ARN.
@@ -77,12 +77,17 @@ newServerCertificate
   pServerCertificateMetadata_
   pCertificateBody_ =
     ServerCertificate'
-      { tags = Prelude.Nothing,
-        certificateChain = Prelude.Nothing,
+      { certificateChain =
+          Prelude.Nothing,
+        tags = Prelude.Nothing,
         serverCertificateMetadata =
           pServerCertificateMetadata_,
         certificateBody = pCertificateBody_
       }
+
+-- | The contents of the public key certificate chain.
+serverCertificate_certificateChain :: Lens.Lens' ServerCertificate (Prelude.Maybe Prelude.Text)
+serverCertificate_certificateChain = Lens.lens (\ServerCertificate' {certificateChain} -> certificateChain) (\s@ServerCertificate' {} a -> s {certificateChain = a} :: ServerCertificate)
 
 -- | A list of tags that are attached to the server certificate. For more
 -- information about tagging, see
@@ -90,10 +95,6 @@ newServerCertificate
 -- in the /IAM User Guide/.
 serverCertificate_tags :: Lens.Lens' ServerCertificate (Prelude.Maybe [Tag])
 serverCertificate_tags = Lens.lens (\ServerCertificate' {tags} -> tags) (\s@ServerCertificate' {} a -> s {tags = a} :: ServerCertificate) Prelude.. Lens.mapping Lens.coerced
-
--- | The contents of the public key certificate chain.
-serverCertificate_certificateChain :: Lens.Lens' ServerCertificate (Prelude.Maybe Prelude.Text)
-serverCertificate_certificateChain = Lens.lens (\ServerCertificate' {certificateChain} -> certificateChain) (\s@ServerCertificate' {} a -> s {certificateChain = a} :: ServerCertificate)
 
 -- | The meta information of the server certificate, such as its name, path,
 -- ID, and ARN.
@@ -107,23 +108,23 @@ serverCertificate_certificateBody = Lens.lens (\ServerCertificate' {certificateB
 instance Data.FromXML ServerCertificate where
   parseXML x =
     ServerCertificate'
-      Prelude.<$> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+      Prelude.<$> (x Data..@? "CertificateChain")
+      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Data..@? "CertificateChain")
       Prelude.<*> (x Data..@ "ServerCertificateMetadata")
       Prelude.<*> (x Data..@ "CertificateBody")
 
 instance Prelude.Hashable ServerCertificate where
   hashWithSalt _salt ServerCertificate' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` certificateChain
+    _salt `Prelude.hashWithSalt` certificateChain
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` serverCertificateMetadata
       `Prelude.hashWithSalt` certificateBody
 
 instance Prelude.NFData ServerCertificate where
   rnf ServerCertificate' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf certificateChain
+    Prelude.rnf certificateChain
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf serverCertificateMetadata
       `Prelude.seq` Prelude.rnf certificateBody

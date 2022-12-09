@@ -51,9 +51,9 @@ module Amazonka.IAM.ListAttachedGroupPolicies
     newListAttachedGroupPoliciesResponse,
 
     -- * Response Lenses
-    listAttachedGroupPoliciesResponse_marker,
-    listAttachedGroupPoliciesResponse_isTruncated,
     listAttachedGroupPoliciesResponse_attachedPolicies,
+    listAttachedGroupPoliciesResponse_isTruncated,
+    listAttachedGroupPoliciesResponse_marker,
     listAttachedGroupPoliciesResponse_httpStatus,
   )
 where
@@ -237,12 +237,12 @@ instance Core.AWSRequest ListAttachedGroupPolicies where
       "ListAttachedGroupPoliciesResult"
       ( \s h x ->
           ListAttachedGroupPoliciesResponse'
-            Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> (x Data..@? "IsTruncated")
-            Prelude.<*> ( x Data..@? "AttachedPolicies"
+            Prelude.<$> ( x Data..@? "AttachedPolicies"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
+            Prelude.<*> (x Data..@? "IsTruncated")
+            Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -283,10 +283,8 @@ instance Data.ToQuery ListAttachedGroupPolicies where
 --
 -- /See:/ 'newListAttachedGroupPoliciesResponse' smart constructor.
 data ListAttachedGroupPoliciesResponse = ListAttachedGroupPoliciesResponse'
-  { -- | When @IsTruncated@ is @true@, this element is present and contains the
-    -- value to use for the @Marker@ parameter in a subsequent pagination
-    -- request.
-    marker :: Prelude.Maybe Prelude.Text,
+  { -- | A list of the attached policies.
+    attachedPolicies :: Prelude.Maybe [AttachedPolicy],
     -- | A flag that indicates whether there are more items to return. If your
     -- results were truncated, you can make a subsequent pagination request
     -- using the @Marker@ request parameter to retrieve more items. Note that
@@ -295,8 +293,10 @@ data ListAttachedGroupPoliciesResponse = ListAttachedGroupPoliciesResponse'
     -- @IsTruncated@ after every call to ensure that you receive all your
     -- results.
     isTruncated :: Prelude.Maybe Prelude.Bool,
-    -- | A list of the attached policies.
-    attachedPolicies :: Prelude.Maybe [AttachedPolicy],
+    -- | When @IsTruncated@ is @true@, this element is present and contains the
+    -- value to use for the @Marker@ parameter in a subsequent pagination
+    -- request.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -310,9 +310,7 @@ data ListAttachedGroupPoliciesResponse = ListAttachedGroupPoliciesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'marker', 'listAttachedGroupPoliciesResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
--- request.
+-- 'attachedPolicies', 'listAttachedGroupPoliciesResponse_attachedPolicies' - A list of the attached policies.
 --
 -- 'isTruncated', 'listAttachedGroupPoliciesResponse_isTruncated' - A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
@@ -322,7 +320,9 @@ data ListAttachedGroupPoliciesResponse = ListAttachedGroupPoliciesResponse'
 -- @IsTruncated@ after every call to ensure that you receive all your
 -- results.
 --
--- 'attachedPolicies', 'listAttachedGroupPoliciesResponse_attachedPolicies' - A list of the attached policies.
+-- 'marker', 'listAttachedGroupPoliciesResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
 --
 -- 'httpStatus', 'listAttachedGroupPoliciesResponse_httpStatus' - The response's http status code.
 newListAttachedGroupPoliciesResponse ::
@@ -331,18 +331,16 @@ newListAttachedGroupPoliciesResponse ::
   ListAttachedGroupPoliciesResponse
 newListAttachedGroupPoliciesResponse pHttpStatus_ =
   ListAttachedGroupPoliciesResponse'
-    { marker =
+    { attachedPolicies =
         Prelude.Nothing,
       isTruncated = Prelude.Nothing,
-      attachedPolicies = Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
--- request.
-listAttachedGroupPoliciesResponse_marker :: Lens.Lens' ListAttachedGroupPoliciesResponse (Prelude.Maybe Prelude.Text)
-listAttachedGroupPoliciesResponse_marker = Lens.lens (\ListAttachedGroupPoliciesResponse' {marker} -> marker) (\s@ListAttachedGroupPoliciesResponse' {} a -> s {marker = a} :: ListAttachedGroupPoliciesResponse)
+-- | A list of the attached policies.
+listAttachedGroupPoliciesResponse_attachedPolicies :: Lens.Lens' ListAttachedGroupPoliciesResponse (Prelude.Maybe [AttachedPolicy])
+listAttachedGroupPoliciesResponse_attachedPolicies = Lens.lens (\ListAttachedGroupPoliciesResponse' {attachedPolicies} -> attachedPolicies) (\s@ListAttachedGroupPoliciesResponse' {} a -> s {attachedPolicies = a} :: ListAttachedGroupPoliciesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
@@ -354,9 +352,11 @@ listAttachedGroupPoliciesResponse_marker = Lens.lens (\ListAttachedGroupPolicies
 listAttachedGroupPoliciesResponse_isTruncated :: Lens.Lens' ListAttachedGroupPoliciesResponse (Prelude.Maybe Prelude.Bool)
 listAttachedGroupPoliciesResponse_isTruncated = Lens.lens (\ListAttachedGroupPoliciesResponse' {isTruncated} -> isTruncated) (\s@ListAttachedGroupPoliciesResponse' {} a -> s {isTruncated = a} :: ListAttachedGroupPoliciesResponse)
 
--- | A list of the attached policies.
-listAttachedGroupPoliciesResponse_attachedPolicies :: Lens.Lens' ListAttachedGroupPoliciesResponse (Prelude.Maybe [AttachedPolicy])
-listAttachedGroupPoliciesResponse_attachedPolicies = Lens.lens (\ListAttachedGroupPoliciesResponse' {attachedPolicies} -> attachedPolicies) (\s@ListAttachedGroupPoliciesResponse' {} a -> s {attachedPolicies = a} :: ListAttachedGroupPoliciesResponse) Prelude.. Lens.mapping Lens.coerced
+-- | When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
+listAttachedGroupPoliciesResponse_marker :: Lens.Lens' ListAttachedGroupPoliciesResponse (Prelude.Maybe Prelude.Text)
+listAttachedGroupPoliciesResponse_marker = Lens.lens (\ListAttachedGroupPoliciesResponse' {marker} -> marker) (\s@ListAttachedGroupPoliciesResponse' {} a -> s {marker = a} :: ListAttachedGroupPoliciesResponse)
 
 -- | The response's http status code.
 listAttachedGroupPoliciesResponse_httpStatus :: Lens.Lens' ListAttachedGroupPoliciesResponse Prelude.Int
@@ -367,7 +367,7 @@ instance
     ListAttachedGroupPoliciesResponse
   where
   rnf ListAttachedGroupPoliciesResponse' {..} =
-    Prelude.rnf marker
+    Prelude.rnf attachedPolicies
       `Prelude.seq` Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf attachedPolicies
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf httpStatus

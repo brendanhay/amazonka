@@ -59,9 +59,9 @@ module Amazonka.IAM.UploadServerCertificate
     newUploadServerCertificate,
 
     -- * Request Lenses
-    uploadServerCertificate_tags,
-    uploadServerCertificate_path,
     uploadServerCertificate_certificateChain,
+    uploadServerCertificate_path,
+    uploadServerCertificate_tags,
     uploadServerCertificate_serverCertificateName,
     uploadServerCertificate_certificateBody,
     uploadServerCertificate_privateKey,
@@ -71,8 +71,8 @@ module Amazonka.IAM.UploadServerCertificate
     newUploadServerCertificateResponse,
 
     -- * Response Lenses
-    uploadServerCertificateResponse_tags,
     uploadServerCertificateResponse_serverCertificateMetadata,
+    uploadServerCertificateResponse_tags,
     uploadServerCertificateResponse_httpStatus,
   )
 where
@@ -87,16 +87,21 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUploadServerCertificate' smart constructor.
 data UploadServerCertificate = UploadServerCertificate'
-  { -- | A list of tags that you want to attach to the new IAM server certificate
-    -- resource. Each tag consists of a key name and an associated value. For
-    -- more information about tagging, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
-    -- in the /IAM User Guide/.
+  { -- | The contents of the certificate chain. This is typically a concatenation
+    -- of the PEM-encoded public key certificates of the chain.
     --
-    -- If any one of the tags is invalid or if you exceed the allowed maximum
-    -- number of tags, then the entire request fails and the resource is not
-    -- created.
-    tags :: Prelude.Maybe [Tag],
+    -- The <http://wikipedia.org/wiki/regex regex pattern> used to validate
+    -- this parameter is a string of characters consisting of the following:
+    --
+    -- -   Any printable ASCII character ranging from the space character
+    --     (@\\u0020@) through the end of the ASCII character range
+    --
+    -- -   The printable characters in the Basic Latin and Latin-1 Supplement
+    --     character set (through @\\u00FF@)
+    --
+    -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
+    --     carriage return (@\\u000D@)
+    certificateChain :: Prelude.Maybe Prelude.Text,
     -- | The path for the server certificate. For more information about paths,
     -- see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
@@ -116,21 +121,16 @@ data UploadServerCertificate = UploadServerCertificate'
     -- @path@ parameter. The path must begin with @\/cloudfront@ and must
     -- include a trailing slash (for example, @\/cloudfront\/test\/@).
     path :: Prelude.Maybe Prelude.Text,
-    -- | The contents of the certificate chain. This is typically a concatenation
-    -- of the PEM-encoded public key certificates of the chain.
+    -- | A list of tags that you want to attach to the new IAM server certificate
+    -- resource. Each tag consists of a key name and an associated value. For
+    -- more information about tagging, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
+    -- in the /IAM User Guide/.
     --
-    -- The <http://wikipedia.org/wiki/regex regex pattern> used to validate
-    -- this parameter is a string of characters consisting of the following:
-    --
-    -- -   Any printable ASCII character ranging from the space character
-    --     (@\\u0020@) through the end of the ASCII character range
-    --
-    -- -   The printable characters in the Basic Latin and Latin-1 Supplement
-    --     character set (through @\\u00FF@)
-    --
-    -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
-    --     carriage return (@\\u000D@)
-    certificateChain :: Prelude.Maybe Prelude.Text,
+    -- If any one of the tags is invalid or if you exceed the allowed maximum
+    -- number of tags, then the entire request fails and the resource is not
+    -- created.
+    tags :: Prelude.Maybe [Tag],
     -- | The name for the server certificate. Do not include the path in this
     -- value. The name of the certificate cannot contain any spaces.
     --
@@ -178,15 +178,20 @@ data UploadServerCertificate = UploadServerCertificate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'uploadServerCertificate_tags' - A list of tags that you want to attach to the new IAM server certificate
--- resource. Each tag consists of a key name and an associated value. For
--- more information about tagging, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
--- in the /IAM User Guide/.
+-- 'certificateChain', 'uploadServerCertificate_certificateChain' - The contents of the certificate chain. This is typically a concatenation
+-- of the PEM-encoded public key certificates of the chain.
 --
--- If any one of the tags is invalid or if you exceed the allowed maximum
--- number of tags, then the entire request fails and the resource is not
--- created.
+-- The <http://wikipedia.org/wiki/regex regex pattern> used to validate
+-- this parameter is a string of characters consisting of the following:
+--
+-- -   Any printable ASCII character ranging from the space character
+--     (@\\u0020@) through the end of the ASCII character range
+--
+-- -   The printable characters in the Basic Latin and Latin-1 Supplement
+--     character set (through @\\u00FF@)
+--
+-- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
+--     carriage return (@\\u000D@)
 --
 -- 'path', 'uploadServerCertificate_path' - The path for the server certificate. For more information about paths,
 -- see
@@ -207,20 +212,15 @@ data UploadServerCertificate = UploadServerCertificate'
 -- @path@ parameter. The path must begin with @\/cloudfront@ and must
 -- include a trailing slash (for example, @\/cloudfront\/test\/@).
 --
--- 'certificateChain', 'uploadServerCertificate_certificateChain' - The contents of the certificate chain. This is typically a concatenation
--- of the PEM-encoded public key certificates of the chain.
+-- 'tags', 'uploadServerCertificate_tags' - A list of tags that you want to attach to the new IAM server certificate
+-- resource. Each tag consists of a key name and an associated value. For
+-- more information about tagging, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
+-- in the /IAM User Guide/.
 --
--- The <http://wikipedia.org/wiki/regex regex pattern> used to validate
--- this parameter is a string of characters consisting of the following:
---
--- -   Any printable ASCII character ranging from the space character
---     (@\\u0020@) through the end of the ASCII character range
---
--- -   The printable characters in the Basic Latin and Latin-1 Supplement
---     character set (through @\\u00FF@)
---
--- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
---     carriage return (@\\u000D@)
+-- If any one of the tags is invalid or if you exceed the allowed maximum
+-- number of tags, then the entire request fails and the resource is not
+-- created.
 --
 -- 'serverCertificateName', 'uploadServerCertificate_serverCertificateName' - The name for the server certificate. Do not include the path in this
 -- value. The name of the certificate cannot contain any spaces.
@@ -270,25 +270,31 @@ newUploadServerCertificate
   pCertificateBody_
   pPrivateKey_ =
     UploadServerCertificate'
-      { tags = Prelude.Nothing,
+      { certificateChain =
+          Prelude.Nothing,
         path = Prelude.Nothing,
-        certificateChain = Prelude.Nothing,
+        tags = Prelude.Nothing,
         serverCertificateName = pServerCertificateName_,
         certificateBody = pCertificateBody_,
         privateKey = Data._Sensitive Lens.# pPrivateKey_
       }
 
--- | A list of tags that you want to attach to the new IAM server certificate
--- resource. Each tag consists of a key name and an associated value. For
--- more information about tagging, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
--- in the /IAM User Guide/.
+-- | The contents of the certificate chain. This is typically a concatenation
+-- of the PEM-encoded public key certificates of the chain.
 --
--- If any one of the tags is invalid or if you exceed the allowed maximum
--- number of tags, then the entire request fails and the resource is not
--- created.
-uploadServerCertificate_tags :: Lens.Lens' UploadServerCertificate (Prelude.Maybe [Tag])
-uploadServerCertificate_tags = Lens.lens (\UploadServerCertificate' {tags} -> tags) (\s@UploadServerCertificate' {} a -> s {tags = a} :: UploadServerCertificate) Prelude.. Lens.mapping Lens.coerced
+-- The <http://wikipedia.org/wiki/regex regex pattern> used to validate
+-- this parameter is a string of characters consisting of the following:
+--
+-- -   Any printable ASCII character ranging from the space character
+--     (@\\u0020@) through the end of the ASCII character range
+--
+-- -   The printable characters in the Basic Latin and Latin-1 Supplement
+--     character set (through @\\u00FF@)
+--
+-- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
+--     carriage return (@\\u000D@)
+uploadServerCertificate_certificateChain :: Lens.Lens' UploadServerCertificate (Prelude.Maybe Prelude.Text)
+uploadServerCertificate_certificateChain = Lens.lens (\UploadServerCertificate' {certificateChain} -> certificateChain) (\s@UploadServerCertificate' {} a -> s {certificateChain = a} :: UploadServerCertificate)
 
 -- | The path for the server certificate. For more information about paths,
 -- see
@@ -311,22 +317,17 @@ uploadServerCertificate_tags = Lens.lens (\UploadServerCertificate' {tags} -> ta
 uploadServerCertificate_path :: Lens.Lens' UploadServerCertificate (Prelude.Maybe Prelude.Text)
 uploadServerCertificate_path = Lens.lens (\UploadServerCertificate' {path} -> path) (\s@UploadServerCertificate' {} a -> s {path = a} :: UploadServerCertificate)
 
--- | The contents of the certificate chain. This is typically a concatenation
--- of the PEM-encoded public key certificates of the chain.
+-- | A list of tags that you want to attach to the new IAM server certificate
+-- resource. Each tag consists of a key name and an associated value. For
+-- more information about tagging, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
+-- in the /IAM User Guide/.
 --
--- The <http://wikipedia.org/wiki/regex regex pattern> used to validate
--- this parameter is a string of characters consisting of the following:
---
--- -   Any printable ASCII character ranging from the space character
---     (@\\u0020@) through the end of the ASCII character range
---
--- -   The printable characters in the Basic Latin and Latin-1 Supplement
---     character set (through @\\u00FF@)
---
--- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
---     carriage return (@\\u000D@)
-uploadServerCertificate_certificateChain :: Lens.Lens' UploadServerCertificate (Prelude.Maybe Prelude.Text)
-uploadServerCertificate_certificateChain = Lens.lens (\UploadServerCertificate' {certificateChain} -> certificateChain) (\s@UploadServerCertificate' {} a -> s {certificateChain = a} :: UploadServerCertificate)
+-- If any one of the tags is invalid or if you exceed the allowed maximum
+-- number of tags, then the entire request fails and the resource is not
+-- created.
+uploadServerCertificate_tags :: Lens.Lens' UploadServerCertificate (Prelude.Maybe [Tag])
+uploadServerCertificate_tags = Lens.lens (\UploadServerCertificate' {tags} -> tags) (\s@UploadServerCertificate' {} a -> s {tags = a} :: UploadServerCertificate) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name for the server certificate. Do not include the path in this
 -- value. The name of the certificate cannot contain any spaces.
@@ -381,27 +382,27 @@ instance Core.AWSRequest UploadServerCertificate where
       "UploadServerCertificateResult"
       ( \s h x ->
           UploadServerCertificateResponse'
-            Prelude.<$> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+            Prelude.<$> (x Data..@? "ServerCertificateMetadata")
+            Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> (x Data..@? "ServerCertificateMetadata")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UploadServerCertificate where
   hashWithSalt _salt UploadServerCertificate' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` certificateChain
       `Prelude.hashWithSalt` path
-      `Prelude.hashWithSalt` certificateChain
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` serverCertificateName
       `Prelude.hashWithSalt` certificateBody
       `Prelude.hashWithSalt` privateKey
 
 instance Prelude.NFData UploadServerCertificate where
   rnf UploadServerCertificate' {..} =
-    Prelude.rnf tags
+    Prelude.rnf certificateChain
       `Prelude.seq` Prelude.rnf path
-      `Prelude.seq` Prelude.rnf certificateChain
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf serverCertificateName
       `Prelude.seq` Prelude.rnf certificateBody
       `Prelude.seq` Prelude.rnf privateKey
@@ -419,11 +420,11 @@ instance Data.ToQuery UploadServerCertificate where
           Data.=: ("UploadServerCertificate" :: Prelude.ByteString),
         "Version"
           Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "CertificateChain" Data.=: certificateChain,
+        "Path" Data.=: path,
         "Tags"
           Data.=: Data.toQuery
             (Data.toQueryList "member" Prelude.<$> tags),
-        "Path" Data.=: path,
-        "CertificateChain" Data.=: certificateChain,
         "ServerCertificateName"
           Data.=: serverCertificateName,
         "CertificateBody" Data.=: certificateBody,
@@ -434,15 +435,15 @@ instance Data.ToQuery UploadServerCertificate where
 --
 -- /See:/ 'newUploadServerCertificateResponse' smart constructor.
 data UploadServerCertificateResponse = UploadServerCertificateResponse'
-  { -- | A list of tags that are attached to the new IAM server certificate. The
+  { -- | The meta information of the uploaded server certificate without its
+    -- certificate body, certificate chain, and private key.
+    serverCertificateMetadata :: Prelude.Maybe ServerCertificateMetadata,
+    -- | A list of tags that are attached to the new IAM server certificate. The
     -- returned list of tags is sorted by tag key. For more information about
     -- tagging, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
     -- in the /IAM User Guide/.
     tags :: Prelude.Maybe [Tag],
-    -- | The meta information of the uploaded server certificate without its
-    -- certificate body, certificate chain, and private key.
-    serverCertificateMetadata :: Prelude.Maybe ServerCertificateMetadata,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -456,14 +457,14 @@ data UploadServerCertificateResponse = UploadServerCertificateResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'serverCertificateMetadata', 'uploadServerCertificateResponse_serverCertificateMetadata' - The meta information of the uploaded server certificate without its
+-- certificate body, certificate chain, and private key.
+--
 -- 'tags', 'uploadServerCertificateResponse_tags' - A list of tags that are attached to the new IAM server certificate. The
 -- returned list of tags is sorted by tag key. For more information about
 -- tagging, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
 -- in the /IAM User Guide/.
---
--- 'serverCertificateMetadata', 'uploadServerCertificateResponse_serverCertificateMetadata' - The meta information of the uploaded server certificate without its
--- certificate body, certificate chain, and private key.
 --
 -- 'httpStatus', 'uploadServerCertificateResponse_httpStatus' - The response's http status code.
 newUploadServerCertificateResponse ::
@@ -472,12 +473,16 @@ newUploadServerCertificateResponse ::
   UploadServerCertificateResponse
 newUploadServerCertificateResponse pHttpStatus_ =
   UploadServerCertificateResponse'
-    { tags =
+    { serverCertificateMetadata =
         Prelude.Nothing,
-      serverCertificateMetadata =
-        Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The meta information of the uploaded server certificate without its
+-- certificate body, certificate chain, and private key.
+uploadServerCertificateResponse_serverCertificateMetadata :: Lens.Lens' UploadServerCertificateResponse (Prelude.Maybe ServerCertificateMetadata)
+uploadServerCertificateResponse_serverCertificateMetadata = Lens.lens (\UploadServerCertificateResponse' {serverCertificateMetadata} -> serverCertificateMetadata) (\s@UploadServerCertificateResponse' {} a -> s {serverCertificateMetadata = a} :: UploadServerCertificateResponse)
 
 -- | A list of tags that are attached to the new IAM server certificate. The
 -- returned list of tags is sorted by tag key. For more information about
@@ -486,11 +491,6 @@ newUploadServerCertificateResponse pHttpStatus_ =
 -- in the /IAM User Guide/.
 uploadServerCertificateResponse_tags :: Lens.Lens' UploadServerCertificateResponse (Prelude.Maybe [Tag])
 uploadServerCertificateResponse_tags = Lens.lens (\UploadServerCertificateResponse' {tags} -> tags) (\s@UploadServerCertificateResponse' {} a -> s {tags = a} :: UploadServerCertificateResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The meta information of the uploaded server certificate without its
--- certificate body, certificate chain, and private key.
-uploadServerCertificateResponse_serverCertificateMetadata :: Lens.Lens' UploadServerCertificateResponse (Prelude.Maybe ServerCertificateMetadata)
-uploadServerCertificateResponse_serverCertificateMetadata = Lens.lens (\UploadServerCertificateResponse' {serverCertificateMetadata} -> serverCertificateMetadata) (\s@UploadServerCertificateResponse' {} a -> s {serverCertificateMetadata = a} :: UploadServerCertificateResponse)
 
 -- | The response's http status code.
 uploadServerCertificateResponse_httpStatus :: Lens.Lens' UploadServerCertificateResponse Prelude.Int
@@ -501,6 +501,6 @@ instance
     UploadServerCertificateResponse
   where
   rnf UploadServerCertificateResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf serverCertificateMetadata
+    Prelude.rnf serverCertificateMetadata
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

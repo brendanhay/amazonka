@@ -36,10 +36,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPolicyVersion' smart constructor.
 data PolicyVersion = PolicyVersion'
-  { -- | Specifies whether the policy version is set as the policy\'s default
-    -- version.
-    isDefaultVersion :: Prelude.Maybe Prelude.Bool,
-    -- | The date and time, in
+  { -- | The date and time, in
     -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
     -- policy version was created.
     createDate :: Prelude.Maybe Data.ISO8601,
@@ -56,6 +53,9 @@ data PolicyVersion = PolicyVersion'
     -- @java.net.URLDecoder@ utility class in the Java SDK. Other languages and
     -- SDKs provide similar functionality.
     document :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether the policy version is set as the policy\'s default
+    -- version.
+    isDefaultVersion :: Prelude.Maybe Prelude.Bool,
     -- | The identifier for the policy version.
     --
     -- Policy version identifiers always begin with @v@ (always lowercase).
@@ -71,9 +71,6 @@ data PolicyVersion = PolicyVersion'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'isDefaultVersion', 'policyVersion_isDefaultVersion' - Specifies whether the policy version is set as the policy\'s default
--- version.
 --
 -- 'createDate', 'policyVersion_createDate' - The date and time, in
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
@@ -92,6 +89,9 @@ data PolicyVersion = PolicyVersion'
 -- @java.net.URLDecoder@ utility class in the Java SDK. Other languages and
 -- SDKs provide similar functionality.
 --
+-- 'isDefaultVersion', 'policyVersion_isDefaultVersion' - Specifies whether the policy version is set as the policy\'s default
+-- version.
+--
 -- 'versionId', 'policyVersion_versionId' - The identifier for the policy version.
 --
 -- Policy version identifiers always begin with @v@ (always lowercase).
@@ -100,16 +100,11 @@ newPolicyVersion ::
   PolicyVersion
 newPolicyVersion =
   PolicyVersion'
-    { isDefaultVersion = Prelude.Nothing,
-      createDate = Prelude.Nothing,
+    { createDate = Prelude.Nothing,
       document = Prelude.Nothing,
+      isDefaultVersion = Prelude.Nothing,
       versionId = Prelude.Nothing
     }
-
--- | Specifies whether the policy version is set as the policy\'s default
--- version.
-policyVersion_isDefaultVersion :: Lens.Lens' PolicyVersion (Prelude.Maybe Prelude.Bool)
-policyVersion_isDefaultVersion = Lens.lens (\PolicyVersion' {isDefaultVersion} -> isDefaultVersion) (\s@PolicyVersion' {} a -> s {isDefaultVersion = a} :: PolicyVersion)
 
 -- | The date and time, in
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
@@ -132,6 +127,11 @@ policyVersion_createDate = Lens.lens (\PolicyVersion' {createDate} -> createDate
 policyVersion_document :: Lens.Lens' PolicyVersion (Prelude.Maybe Prelude.Text)
 policyVersion_document = Lens.lens (\PolicyVersion' {document} -> document) (\s@PolicyVersion' {} a -> s {document = a} :: PolicyVersion)
 
+-- | Specifies whether the policy version is set as the policy\'s default
+-- version.
+policyVersion_isDefaultVersion :: Lens.Lens' PolicyVersion (Prelude.Maybe Prelude.Bool)
+policyVersion_isDefaultVersion = Lens.lens (\PolicyVersion' {isDefaultVersion} -> isDefaultVersion) (\s@PolicyVersion' {} a -> s {isDefaultVersion = a} :: PolicyVersion)
+
 -- | The identifier for the policy version.
 --
 -- Policy version identifiers always begin with @v@ (always lowercase).
@@ -142,21 +142,21 @@ policyVersion_versionId = Lens.lens (\PolicyVersion' {versionId} -> versionId) (
 instance Data.FromXML PolicyVersion where
   parseXML x =
     PolicyVersion'
-      Prelude.<$> (x Data..@? "IsDefaultVersion")
-      Prelude.<*> (x Data..@? "CreateDate")
+      Prelude.<$> (x Data..@? "CreateDate")
       Prelude.<*> (x Data..@? "Document")
+      Prelude.<*> (x Data..@? "IsDefaultVersion")
       Prelude.<*> (x Data..@? "VersionId")
 
 instance Prelude.Hashable PolicyVersion where
   hashWithSalt _salt PolicyVersion' {..} =
-    _salt `Prelude.hashWithSalt` isDefaultVersion
-      `Prelude.hashWithSalt` createDate
+    _salt `Prelude.hashWithSalt` createDate
       `Prelude.hashWithSalt` document
+      `Prelude.hashWithSalt` isDefaultVersion
       `Prelude.hashWithSalt` versionId
 
 instance Prelude.NFData PolicyVersion where
   rnf PolicyVersion' {..} =
-    Prelude.rnf isDefaultVersion
-      `Prelude.seq` Prelude.rnf createDate
+    Prelude.rnf createDate
       `Prelude.seq` Prelude.rnf document
+      `Prelude.seq` Prelude.rnf isDefaultVersion
       `Prelude.seq` Prelude.rnf versionId

@@ -43,8 +43,8 @@ module Amazonka.IAM.ListSAMLProviderTags
     newListSAMLProviderTagsResponse,
 
     -- * Response Lenses
-    listSAMLProviderTagsResponse_marker,
     listSAMLProviderTagsResponse_isTruncated,
+    listSAMLProviderTagsResponse_marker,
     listSAMLProviderTagsResponse_httpStatus,
     listSAMLProviderTagsResponse_tags,
   )
@@ -167,8 +167,8 @@ instance Core.AWSRequest ListSAMLProviderTags where
       "ListSAMLProviderTagsResult"
       ( \s h x ->
           ListSAMLProviderTagsResponse'
-            Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> (x Data..@? "IsTruncated")
+            Prelude.<$> (x Data..@? "IsTruncated")
+            Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
@@ -207,11 +207,7 @@ instance Data.ToQuery ListSAMLProviderTags where
 
 -- | /See:/ 'newListSAMLProviderTagsResponse' smart constructor.
 data ListSAMLProviderTagsResponse = ListSAMLProviderTagsResponse'
-  { -- | When @IsTruncated@ is @true@, this element is present and contains the
-    -- value to use for the @Marker@ parameter in a subsequent pagination
-    -- request.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | A flag that indicates whether there are more items to return. If your
+  { -- | A flag that indicates whether there are more items to return. If your
     -- results were truncated, you can make a subsequent pagination request
     -- using the @Marker@ request parameter to retrieve more items. Note that
     -- IAM might return fewer than the @MaxItems@ number of results even when
@@ -219,6 +215,10 @@ data ListSAMLProviderTagsResponse = ListSAMLProviderTagsResponse'
     -- @IsTruncated@ after every call to ensure that you receive all your
     -- results.
     isTruncated :: Prelude.Maybe Prelude.Bool,
+    -- | When @IsTruncated@ is @true@, this element is present and contains the
+    -- value to use for the @Marker@ parameter in a subsequent pagination
+    -- request.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The list of tags that are currently attached to the Security Assertion
@@ -237,10 +237,6 @@ data ListSAMLProviderTagsResponse = ListSAMLProviderTagsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'marker', 'listSAMLProviderTagsResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
--- request.
---
 -- 'isTruncated', 'listSAMLProviderTagsResponse_isTruncated' - A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
 -- using the @Marker@ request parameter to retrieve more items. Note that
@@ -248,6 +244,10 @@ data ListSAMLProviderTagsResponse = ListSAMLProviderTagsResponse'
 -- there are more results available. We recommend that you check
 -- @IsTruncated@ after every call to ensure that you receive all your
 -- results.
+--
+-- 'marker', 'listSAMLProviderTagsResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
 --
 -- 'httpStatus', 'listSAMLProviderTagsResponse_httpStatus' - The response's http status code.
 --
@@ -261,18 +261,12 @@ newListSAMLProviderTagsResponse ::
   ListSAMLProviderTagsResponse
 newListSAMLProviderTagsResponse pHttpStatus_ =
   ListSAMLProviderTagsResponse'
-    { marker =
+    { isTruncated =
         Prelude.Nothing,
-      isTruncated = Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_,
       tags = Prelude.mempty
     }
-
--- | When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
--- request.
-listSAMLProviderTagsResponse_marker :: Lens.Lens' ListSAMLProviderTagsResponse (Prelude.Maybe Prelude.Text)
-listSAMLProviderTagsResponse_marker = Lens.lens (\ListSAMLProviderTagsResponse' {marker} -> marker) (\s@ListSAMLProviderTagsResponse' {} a -> s {marker = a} :: ListSAMLProviderTagsResponse)
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
@@ -283,6 +277,12 @@ listSAMLProviderTagsResponse_marker = Lens.lens (\ListSAMLProviderTagsResponse' 
 -- results.
 listSAMLProviderTagsResponse_isTruncated :: Lens.Lens' ListSAMLProviderTagsResponse (Prelude.Maybe Prelude.Bool)
 listSAMLProviderTagsResponse_isTruncated = Lens.lens (\ListSAMLProviderTagsResponse' {isTruncated} -> isTruncated) (\s@ListSAMLProviderTagsResponse' {} a -> s {isTruncated = a} :: ListSAMLProviderTagsResponse)
+
+-- | When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
+listSAMLProviderTagsResponse_marker :: Lens.Lens' ListSAMLProviderTagsResponse (Prelude.Maybe Prelude.Text)
+listSAMLProviderTagsResponse_marker = Lens.lens (\ListSAMLProviderTagsResponse' {marker} -> marker) (\s@ListSAMLProviderTagsResponse' {} a -> s {marker = a} :: ListSAMLProviderTagsResponse)
 
 -- | The response's http status code.
 listSAMLProviderTagsResponse_httpStatus :: Lens.Lens' ListSAMLProviderTagsResponse Prelude.Int
@@ -297,7 +297,7 @@ listSAMLProviderTagsResponse_tags = Lens.lens (\ListSAMLProviderTagsResponse' {t
 
 instance Prelude.NFData ListSAMLProviderTagsResponse where
   rnf ListSAMLProviderTagsResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf isTruncated
+    Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf tags

@@ -47,16 +47,16 @@ module Amazonka.IAM.ListAccessKeys
 
     -- * Request Lenses
     listAccessKeys_marker,
-    listAccessKeys_userName,
     listAccessKeys_maxItems,
+    listAccessKeys_userName,
 
     -- * Destructuring the Response
     ListAccessKeysResponse (..),
     newListAccessKeysResponse,
 
     -- * Response Lenses
-    listAccessKeysResponse_marker,
     listAccessKeysResponse_isTruncated,
+    listAccessKeysResponse_marker,
     listAccessKeysResponse_httpStatus,
     listAccessKeysResponse_accessKeyMetadata,
   )
@@ -77,13 +77,6 @@ data ListAccessKeys = ListAccessKeys'
     -- the value of the @Marker@ element in the response that you received to
     -- indicate where the next call should start.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | The name of the user.
-    --
-    -- This parameter allows (through its
-    -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
-    -- consisting of upper and lowercase alphanumeric characters with no
-    -- spaces. You can also include any of the following characters: _+=,.\@-
-    userName :: Prelude.Maybe Prelude.Text,
     -- | Use this only when paginating results to indicate the maximum number of
     -- items you want in the response. If additional items exist beyond the
     -- maximum you specify, the @IsTruncated@ response element is @true@.
@@ -93,7 +86,14 @@ data ListAccessKeys = ListAccessKeys'
     -- results available. In that case, the @IsTruncated@ response element
     -- returns @true@, and @Marker@ contains a value to include in the
     -- subsequent call that tells the service where to continue from.
-    maxItems :: Prelude.Maybe Prelude.Natural
+    maxItems :: Prelude.Maybe Prelude.Natural,
+    -- | The name of the user.
+    --
+    -- This parameter allows (through its
+    -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+    -- consisting of upper and lowercase alphanumeric characters with no
+    -- spaces. You can also include any of the following characters: _+=,.\@-
+    userName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -110,13 +110,6 @@ data ListAccessKeys = ListAccessKeys'
 -- the value of the @Marker@ element in the response that you received to
 -- indicate where the next call should start.
 --
--- 'userName', 'listAccessKeys_userName' - The name of the user.
---
--- This parameter allows (through its
--- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
--- consisting of upper and lowercase alphanumeric characters with no
--- spaces. You can also include any of the following characters: _+=,.\@-
---
 -- 'maxItems', 'listAccessKeys_maxItems' - Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If additional items exist beyond the
 -- maximum you specify, the @IsTruncated@ response element is @true@.
@@ -126,13 +119,20 @@ data ListAccessKeys = ListAccessKeys'
 -- results available. In that case, the @IsTruncated@ response element
 -- returns @true@, and @Marker@ contains a value to include in the
 -- subsequent call that tells the service where to continue from.
+--
+-- 'userName', 'listAccessKeys_userName' - The name of the user.
+--
+-- This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
 newListAccessKeys ::
   ListAccessKeys
 newListAccessKeys =
   ListAccessKeys'
     { marker = Prelude.Nothing,
-      userName = Prelude.Nothing,
-      maxItems = Prelude.Nothing
+      maxItems = Prelude.Nothing,
+      userName = Prelude.Nothing
     }
 
 -- | Use this parameter only when paginating results and only after you
@@ -141,15 +141,6 @@ newListAccessKeys =
 -- indicate where the next call should start.
 listAccessKeys_marker :: Lens.Lens' ListAccessKeys (Prelude.Maybe Prelude.Text)
 listAccessKeys_marker = Lens.lens (\ListAccessKeys' {marker} -> marker) (\s@ListAccessKeys' {} a -> s {marker = a} :: ListAccessKeys)
-
--- | The name of the user.
---
--- This parameter allows (through its
--- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
--- consisting of upper and lowercase alphanumeric characters with no
--- spaces. You can also include any of the following characters: _+=,.\@-
-listAccessKeys_userName :: Lens.Lens' ListAccessKeys (Prelude.Maybe Prelude.Text)
-listAccessKeys_userName = Lens.lens (\ListAccessKeys' {userName} -> userName) (\s@ListAccessKeys' {} a -> s {userName = a} :: ListAccessKeys)
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If additional items exist beyond the
@@ -162,6 +153,15 @@ listAccessKeys_userName = Lens.lens (\ListAccessKeys' {userName} -> userName) (\
 -- subsequent call that tells the service where to continue from.
 listAccessKeys_maxItems :: Lens.Lens' ListAccessKeys (Prelude.Maybe Prelude.Natural)
 listAccessKeys_maxItems = Lens.lens (\ListAccessKeys' {maxItems} -> maxItems) (\s@ListAccessKeys' {} a -> s {maxItems = a} :: ListAccessKeys)
+
+-- | The name of the user.
+--
+-- This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
+listAccessKeys_userName :: Lens.Lens' ListAccessKeys (Prelude.Maybe Prelude.Text)
+listAccessKeys_userName = Lens.lens (\ListAccessKeys' {userName} -> userName) (\s@ListAccessKeys' {} a -> s {userName = a} :: ListAccessKeys)
 
 instance Core.AWSPager ListAccessKeys where
   page rq rs
@@ -194,8 +194,8 @@ instance Core.AWSRequest ListAccessKeys where
       "ListAccessKeysResult"
       ( \s h x ->
           ListAccessKeysResponse'
-            Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> (x Data..@? "IsTruncated")
+            Prelude.<$> (x Data..@? "IsTruncated")
+            Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> ( x Data..@? "AccessKeyMetadata"
                             Core..!@ Prelude.mempty
@@ -206,14 +206,14 @@ instance Core.AWSRequest ListAccessKeys where
 instance Prelude.Hashable ListAccessKeys where
   hashWithSalt _salt ListAccessKeys' {..} =
     _salt `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` userName
       `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` userName
 
 instance Prelude.NFData ListAccessKeys where
   rnf ListAccessKeys' {..} =
     Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf userName
       `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf userName
 
 instance Data.ToHeaders ListAccessKeys where
   toHeaders = Prelude.const Prelude.mempty
@@ -229,19 +229,15 @@ instance Data.ToQuery ListAccessKeys where
         "Version"
           Data.=: ("2010-05-08" :: Prelude.ByteString),
         "Marker" Data.=: marker,
-        "UserName" Data.=: userName,
-        "MaxItems" Data.=: maxItems
+        "MaxItems" Data.=: maxItems,
+        "UserName" Data.=: userName
       ]
 
 -- | Contains the response to a successful ListAccessKeys request.
 --
 -- /See:/ 'newListAccessKeysResponse' smart constructor.
 data ListAccessKeysResponse = ListAccessKeysResponse'
-  { -- | When @IsTruncated@ is @true@, this element is present and contains the
-    -- value to use for the @Marker@ parameter in a subsequent pagination
-    -- request.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | A flag that indicates whether there are more items to return. If your
+  { -- | A flag that indicates whether there are more items to return. If your
     -- results were truncated, you can make a subsequent pagination request
     -- using the @Marker@ request parameter to retrieve more items. Note that
     -- IAM might return fewer than the @MaxItems@ number of results even when
@@ -249,6 +245,10 @@ data ListAccessKeysResponse = ListAccessKeysResponse'
     -- @IsTruncated@ after every call to ensure that you receive all your
     -- results.
     isTruncated :: Prelude.Maybe Prelude.Bool,
+    -- | When @IsTruncated@ is @true@, this element is present and contains the
+    -- value to use for the @Marker@ parameter in a subsequent pagination
+    -- request.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | A list of objects containing metadata about the access keys.
@@ -264,10 +264,6 @@ data ListAccessKeysResponse = ListAccessKeysResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'marker', 'listAccessKeysResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
--- request.
---
 -- 'isTruncated', 'listAccessKeysResponse_isTruncated' - A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
 -- using the @Marker@ request parameter to retrieve more items. Note that
@@ -275,6 +271,10 @@ data ListAccessKeysResponse = ListAccessKeysResponse'
 -- there are more results available. We recommend that you check
 -- @IsTruncated@ after every call to ensure that you receive all your
 -- results.
+--
+-- 'marker', 'listAccessKeysResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
 --
 -- 'httpStatus', 'listAccessKeysResponse_httpStatus' - The response's http status code.
 --
@@ -285,17 +285,12 @@ newListAccessKeysResponse ::
   ListAccessKeysResponse
 newListAccessKeysResponse pHttpStatus_ =
   ListAccessKeysResponse'
-    { marker = Prelude.Nothing,
-      isTruncated = Prelude.Nothing,
+    { isTruncated =
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_,
       accessKeyMetadata = Prelude.mempty
     }
-
--- | When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
--- request.
-listAccessKeysResponse_marker :: Lens.Lens' ListAccessKeysResponse (Prelude.Maybe Prelude.Text)
-listAccessKeysResponse_marker = Lens.lens (\ListAccessKeysResponse' {marker} -> marker) (\s@ListAccessKeysResponse' {} a -> s {marker = a} :: ListAccessKeysResponse)
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
@@ -307,6 +302,12 @@ listAccessKeysResponse_marker = Lens.lens (\ListAccessKeysResponse' {marker} -> 
 listAccessKeysResponse_isTruncated :: Lens.Lens' ListAccessKeysResponse (Prelude.Maybe Prelude.Bool)
 listAccessKeysResponse_isTruncated = Lens.lens (\ListAccessKeysResponse' {isTruncated} -> isTruncated) (\s@ListAccessKeysResponse' {} a -> s {isTruncated = a} :: ListAccessKeysResponse)
 
+-- | When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
+listAccessKeysResponse_marker :: Lens.Lens' ListAccessKeysResponse (Prelude.Maybe Prelude.Text)
+listAccessKeysResponse_marker = Lens.lens (\ListAccessKeysResponse' {marker} -> marker) (\s@ListAccessKeysResponse' {} a -> s {marker = a} :: ListAccessKeysResponse)
+
 -- | The response's http status code.
 listAccessKeysResponse_httpStatus :: Lens.Lens' ListAccessKeysResponse Prelude.Int
 listAccessKeysResponse_httpStatus = Lens.lens (\ListAccessKeysResponse' {httpStatus} -> httpStatus) (\s@ListAccessKeysResponse' {} a -> s {httpStatus = a} :: ListAccessKeysResponse)
@@ -317,7 +318,7 @@ listAccessKeysResponse_accessKeyMetadata = Lens.lens (\ListAccessKeysResponse' {
 
 instance Prelude.NFData ListAccessKeysResponse where
   rnf ListAccessKeysResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf isTruncated
+    Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf accessKeyMetadata

@@ -31,12 +31,12 @@ module Amazonka.CostExplorer.GetReservationUtilization
     newGetReservationUtilization,
 
     -- * Request Lenses
-    getReservationUtilization_nextPageToken,
+    getReservationUtilization_filter,
     getReservationUtilization_granularity,
     getReservationUtilization_groupBy,
-    getReservationUtilization_sortBy,
-    getReservationUtilization_filter,
     getReservationUtilization_maxResults,
+    getReservationUtilization_nextPageToken,
+    getReservationUtilization_sortBy,
     getReservationUtilization_timePeriod,
 
     -- * Destructuring the Response
@@ -61,10 +61,37 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetReservationUtilization' smart constructor.
 data GetReservationUtilization = GetReservationUtilization'
-  { -- | The token to retrieve the next set of results. Amazon Web Services
-    -- provides the token when the response from a previous call has more
-    -- results than the maximum page size.
-    nextPageToken :: Prelude.Maybe Prelude.Text,
+  { -- | Filters utilization data by dimensions. You can filter by the following
+    -- dimensions:
+    --
+    -- -   AZ
+    --
+    -- -   CACHE_ENGINE
+    --
+    -- -   DEPLOYMENT_OPTION
+    --
+    -- -   INSTANCE_TYPE
+    --
+    -- -   LINKED_ACCOUNT
+    --
+    -- -   OPERATING_SYSTEM
+    --
+    -- -   PLATFORM
+    --
+    -- -   REGION
+    --
+    -- -   SERVICE
+    --
+    -- -   SCOPE
+    --
+    -- -   TENANCY
+    --
+    -- @GetReservationUtilization@ uses the same
+    -- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression>
+    -- object as the other operations, but only @AND@ is supported among each
+    -- dimension, and nesting is supported up to only one level deep. If there
+    -- are multiple values for a dimension, they are OR\'d together.
+    filter' :: Prelude.Maybe Expression,
     -- | If @GroupBy@ is set, @Granularity@ can\'t be set. If @Granularity@
     -- isn\'t set, the response object doesn\'t include @Granularity@, either
     -- @MONTHLY@ or @DAILY@. If both @GroupBy@ and @Granularity@ aren\'t set,
@@ -75,6 +102,15 @@ data GetReservationUtilization = GetReservationUtilization'
     granularity :: Prelude.Maybe Granularity,
     -- | Groups only by @SUBSCRIPTION_ID@. Metadata is included.
     groupBy :: Prelude.Maybe [GroupDefinition],
+    -- | The maximum number of objects that you returned for this request. If
+    -- more objects are available, in the response, Amazon Web Services
+    -- provides a NextPageToken value that you can use in a subsequent call to
+    -- get the next batch of objects.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to retrieve the next set of results. Amazon Web Services
+    -- provides the token when the response from a previous call has more
+    -- results than the maximum page size.
+    nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | The value that you want to sort the data by.
     --
     -- The following values are supported for @Key@:
@@ -115,42 +151,6 @@ data GetReservationUtilization = GetReservationUtilization'
     --
     -- The supported values for @SortOrder@ are @ASCENDING@ and @DESCENDING@.
     sortBy :: Prelude.Maybe SortDefinition,
-    -- | Filters utilization data by dimensions. You can filter by the following
-    -- dimensions:
-    --
-    -- -   AZ
-    --
-    -- -   CACHE_ENGINE
-    --
-    -- -   DEPLOYMENT_OPTION
-    --
-    -- -   INSTANCE_TYPE
-    --
-    -- -   LINKED_ACCOUNT
-    --
-    -- -   OPERATING_SYSTEM
-    --
-    -- -   PLATFORM
-    --
-    -- -   REGION
-    --
-    -- -   SERVICE
-    --
-    -- -   SCOPE
-    --
-    -- -   TENANCY
-    --
-    -- @GetReservationUtilization@ uses the same
-    -- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression>
-    -- object as the other operations, but only @AND@ is supported among each
-    -- dimension, and nesting is supported up to only one level deep. If there
-    -- are multiple values for a dimension, they are OR\'d together.
-    filter' :: Prelude.Maybe Expression,
-    -- | The maximum number of objects that you returned for this request. If
-    -- more objects are available, in the response, Amazon Web Services
-    -- provides a NextPageToken value that you can use in a subsequent call to
-    -- get the next batch of objects.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Sets the start and end dates for retrieving Reserved Instance (RI)
     -- utilization. The start date is inclusive, but the end date is exclusive.
     -- For example, if @start@ is @2017-01-01@ and @end@ is @2017-05-01@, then
@@ -168,9 +168,36 @@ data GetReservationUtilization = GetReservationUtilization'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextPageToken', 'getReservationUtilization_nextPageToken' - The token to retrieve the next set of results. Amazon Web Services
--- provides the token when the response from a previous call has more
--- results than the maximum page size.
+-- 'filter'', 'getReservationUtilization_filter' - Filters utilization data by dimensions. You can filter by the following
+-- dimensions:
+--
+-- -   AZ
+--
+-- -   CACHE_ENGINE
+--
+-- -   DEPLOYMENT_OPTION
+--
+-- -   INSTANCE_TYPE
+--
+-- -   LINKED_ACCOUNT
+--
+-- -   OPERATING_SYSTEM
+--
+-- -   PLATFORM
+--
+-- -   REGION
+--
+-- -   SERVICE
+--
+-- -   SCOPE
+--
+-- -   TENANCY
+--
+-- @GetReservationUtilization@ uses the same
+-- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression>
+-- object as the other operations, but only @AND@ is supported among each
+-- dimension, and nesting is supported up to only one level deep. If there
+-- are multiple values for a dimension, they are OR\'d together.
 --
 -- 'granularity', 'getReservationUtilization_granularity' - If @GroupBy@ is set, @Granularity@ can\'t be set. If @Granularity@
 -- isn\'t set, the response object doesn\'t include @Granularity@, either
@@ -181,6 +208,15 @@ data GetReservationUtilization = GetReservationUtilization'
 -- @MONTHLY@ granularities.
 --
 -- 'groupBy', 'getReservationUtilization_groupBy' - Groups only by @SUBSCRIPTION_ID@. Metadata is included.
+--
+-- 'maxResults', 'getReservationUtilization_maxResults' - The maximum number of objects that you returned for this request. If
+-- more objects are available, in the response, Amazon Web Services
+-- provides a NextPageToken value that you can use in a subsequent call to
+-- get the next batch of objects.
+--
+-- 'nextPageToken', 'getReservationUtilization_nextPageToken' - The token to retrieve the next set of results. Amazon Web Services
+-- provides the token when the response from a previous call has more
+-- results than the maximum page size.
 --
 -- 'sortBy', 'getReservationUtilization_sortBy' - The value that you want to sort the data by.
 --
@@ -222,7 +258,28 @@ data GetReservationUtilization = GetReservationUtilization'
 --
 -- The supported values for @SortOrder@ are @ASCENDING@ and @DESCENDING@.
 --
--- 'filter'', 'getReservationUtilization_filter' - Filters utilization data by dimensions. You can filter by the following
+-- 'timePeriod', 'getReservationUtilization_timePeriod' - Sets the start and end dates for retrieving Reserved Instance (RI)
+-- utilization. The start date is inclusive, but the end date is exclusive.
+-- For example, if @start@ is @2017-01-01@ and @end@ is @2017-05-01@, then
+-- the cost and usage data is retrieved from @2017-01-01@ up to and
+-- including @2017-04-30@ but not including @2017-05-01@.
+newGetReservationUtilization ::
+  -- | 'timePeriod'
+  DateInterval ->
+  GetReservationUtilization
+newGetReservationUtilization pTimePeriod_ =
+  GetReservationUtilization'
+    { filter' =
+        Prelude.Nothing,
+      granularity = Prelude.Nothing,
+      groupBy = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextPageToken = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
+      timePeriod = pTimePeriod_
+    }
+
+-- | Filters utilization data by dimensions. You can filter by the following
 -- dimensions:
 --
 -- -   AZ
@@ -252,38 +309,8 @@ data GetReservationUtilization = GetReservationUtilization'
 -- object as the other operations, but only @AND@ is supported among each
 -- dimension, and nesting is supported up to only one level deep. If there
 -- are multiple values for a dimension, they are OR\'d together.
---
--- 'maxResults', 'getReservationUtilization_maxResults' - The maximum number of objects that you returned for this request. If
--- more objects are available, in the response, Amazon Web Services
--- provides a NextPageToken value that you can use in a subsequent call to
--- get the next batch of objects.
---
--- 'timePeriod', 'getReservationUtilization_timePeriod' - Sets the start and end dates for retrieving Reserved Instance (RI)
--- utilization. The start date is inclusive, but the end date is exclusive.
--- For example, if @start@ is @2017-01-01@ and @end@ is @2017-05-01@, then
--- the cost and usage data is retrieved from @2017-01-01@ up to and
--- including @2017-04-30@ but not including @2017-05-01@.
-newGetReservationUtilization ::
-  -- | 'timePeriod'
-  DateInterval ->
-  GetReservationUtilization
-newGetReservationUtilization pTimePeriod_ =
-  GetReservationUtilization'
-    { nextPageToken =
-        Prelude.Nothing,
-      granularity = Prelude.Nothing,
-      groupBy = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
-      filter' = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      timePeriod = pTimePeriod_
-    }
-
--- | The token to retrieve the next set of results. Amazon Web Services
--- provides the token when the response from a previous call has more
--- results than the maximum page size.
-getReservationUtilization_nextPageToken :: Lens.Lens' GetReservationUtilization (Prelude.Maybe Prelude.Text)
-getReservationUtilization_nextPageToken = Lens.lens (\GetReservationUtilization' {nextPageToken} -> nextPageToken) (\s@GetReservationUtilization' {} a -> s {nextPageToken = a} :: GetReservationUtilization)
+getReservationUtilization_filter :: Lens.Lens' GetReservationUtilization (Prelude.Maybe Expression)
+getReservationUtilization_filter = Lens.lens (\GetReservationUtilization' {filter'} -> filter') (\s@GetReservationUtilization' {} a -> s {filter' = a} :: GetReservationUtilization)
 
 -- | If @GroupBy@ is set, @Granularity@ can\'t be set. If @Granularity@
 -- isn\'t set, the response object doesn\'t include @Granularity@, either
@@ -298,6 +325,19 @@ getReservationUtilization_granularity = Lens.lens (\GetReservationUtilization' {
 -- | Groups only by @SUBSCRIPTION_ID@. Metadata is included.
 getReservationUtilization_groupBy :: Lens.Lens' GetReservationUtilization (Prelude.Maybe [GroupDefinition])
 getReservationUtilization_groupBy = Lens.lens (\GetReservationUtilization' {groupBy} -> groupBy) (\s@GetReservationUtilization' {} a -> s {groupBy = a} :: GetReservationUtilization) Prelude.. Lens.mapping Lens.coerced
+
+-- | The maximum number of objects that you returned for this request. If
+-- more objects are available, in the response, Amazon Web Services
+-- provides a NextPageToken value that you can use in a subsequent call to
+-- get the next batch of objects.
+getReservationUtilization_maxResults :: Lens.Lens' GetReservationUtilization (Prelude.Maybe Prelude.Natural)
+getReservationUtilization_maxResults = Lens.lens (\GetReservationUtilization' {maxResults} -> maxResults) (\s@GetReservationUtilization' {} a -> s {maxResults = a} :: GetReservationUtilization)
+
+-- | The token to retrieve the next set of results. Amazon Web Services
+-- provides the token when the response from a previous call has more
+-- results than the maximum page size.
+getReservationUtilization_nextPageToken :: Lens.Lens' GetReservationUtilization (Prelude.Maybe Prelude.Text)
+getReservationUtilization_nextPageToken = Lens.lens (\GetReservationUtilization' {nextPageToken} -> nextPageToken) (\s@GetReservationUtilization' {} a -> s {nextPageToken = a} :: GetReservationUtilization)
 
 -- | The value that you want to sort the data by.
 --
@@ -341,46 +381,6 @@ getReservationUtilization_groupBy = Lens.lens (\GetReservationUtilization' {grou
 getReservationUtilization_sortBy :: Lens.Lens' GetReservationUtilization (Prelude.Maybe SortDefinition)
 getReservationUtilization_sortBy = Lens.lens (\GetReservationUtilization' {sortBy} -> sortBy) (\s@GetReservationUtilization' {} a -> s {sortBy = a} :: GetReservationUtilization)
 
--- | Filters utilization data by dimensions. You can filter by the following
--- dimensions:
---
--- -   AZ
---
--- -   CACHE_ENGINE
---
--- -   DEPLOYMENT_OPTION
---
--- -   INSTANCE_TYPE
---
--- -   LINKED_ACCOUNT
---
--- -   OPERATING_SYSTEM
---
--- -   PLATFORM
---
--- -   REGION
---
--- -   SERVICE
---
--- -   SCOPE
---
--- -   TENANCY
---
--- @GetReservationUtilization@ uses the same
--- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression>
--- object as the other operations, but only @AND@ is supported among each
--- dimension, and nesting is supported up to only one level deep. If there
--- are multiple values for a dimension, they are OR\'d together.
-getReservationUtilization_filter :: Lens.Lens' GetReservationUtilization (Prelude.Maybe Expression)
-getReservationUtilization_filter = Lens.lens (\GetReservationUtilization' {filter'} -> filter') (\s@GetReservationUtilization' {} a -> s {filter' = a} :: GetReservationUtilization)
-
--- | The maximum number of objects that you returned for this request. If
--- more objects are available, in the response, Amazon Web Services
--- provides a NextPageToken value that you can use in a subsequent call to
--- get the next batch of objects.
-getReservationUtilization_maxResults :: Lens.Lens' GetReservationUtilization (Prelude.Maybe Prelude.Natural)
-getReservationUtilization_maxResults = Lens.lens (\GetReservationUtilization' {maxResults} -> maxResults) (\s@GetReservationUtilization' {} a -> s {maxResults = a} :: GetReservationUtilization)
-
 -- | Sets the start and end dates for retrieving Reserved Instance (RI)
 -- utilization. The start date is inclusive, but the end date is exclusive.
 -- For example, if @start@ is @2017-01-01@ and @end@ is @2017-05-01@, then
@@ -409,22 +409,22 @@ instance Core.AWSRequest GetReservationUtilization where
 
 instance Prelude.Hashable GetReservationUtilization where
   hashWithSalt _salt GetReservationUtilization' {..} =
-    _salt `Prelude.hashWithSalt` nextPageToken
+    _salt `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` granularity
       `Prelude.hashWithSalt` groupBy
-      `Prelude.hashWithSalt` sortBy
-      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextPageToken
+      `Prelude.hashWithSalt` sortBy
       `Prelude.hashWithSalt` timePeriod
 
 instance Prelude.NFData GetReservationUtilization where
   rnf GetReservationUtilization' {..} =
-    Prelude.rnf nextPageToken
+    Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf granularity
       `Prelude.seq` Prelude.rnf groupBy
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf sortBy
       `Prelude.seq` Prelude.rnf timePeriod
 
 instance Data.ToHeaders GetReservationUtilization where
@@ -446,12 +446,12 @@ instance Data.ToJSON GetReservationUtilization where
   toJSON GetReservationUtilization' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextPageToken" Data..=) Prelude.<$> nextPageToken,
+          [ ("Filter" Data..=) Prelude.<$> filter',
             ("Granularity" Data..=) Prelude.<$> granularity,
             ("GroupBy" Data..=) Prelude.<$> groupBy,
-            ("SortBy" Data..=) Prelude.<$> sortBy,
-            ("Filter" Data..=) Prelude.<$> filter',
             ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextPageToken" Data..=) Prelude.<$> nextPageToken,
+            ("SortBy" Data..=) Prelude.<$> sortBy,
             Prelude.Just ("TimePeriod" Data..= timePeriod)
           ]
       )

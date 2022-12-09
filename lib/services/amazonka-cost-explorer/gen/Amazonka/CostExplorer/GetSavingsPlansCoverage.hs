@@ -43,13 +43,13 @@ module Amazonka.CostExplorer.GetSavingsPlansCoverage
     newGetSavingsPlansCoverage,
 
     -- * Request Lenses
-    getSavingsPlansCoverage_nextToken,
+    getSavingsPlansCoverage_filter,
     getSavingsPlansCoverage_granularity,
     getSavingsPlansCoverage_groupBy,
-    getSavingsPlansCoverage_metrics,
-    getSavingsPlansCoverage_sortBy,
-    getSavingsPlansCoverage_filter,
     getSavingsPlansCoverage_maxResults,
+    getSavingsPlansCoverage_metrics,
+    getSavingsPlansCoverage_nextToken,
+    getSavingsPlansCoverage_sortBy,
     getSavingsPlansCoverage_timePeriod,
 
     -- * Destructuring the Response
@@ -73,10 +73,25 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetSavingsPlansCoverage' smart constructor.
 data GetSavingsPlansCoverage = GetSavingsPlansCoverage'
-  { -- | The token to retrieve the next set of results. Amazon Web Services
-    -- provides the token when the response from a previous call has more
-    -- results than the maximum page size.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | Filters Savings Plans coverage data by dimensions. You can filter data
+    -- for Savings Plans usage with the following dimensions:
+    --
+    -- -   @LINKED_ACCOUNT@
+    --
+    -- -   @REGION@
+    --
+    -- -   @SERVICE@
+    --
+    -- -   @INSTANCE_FAMILY@
+    --
+    -- @GetSavingsPlansCoverage@ uses the same
+    -- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression>
+    -- object as the other operations, but only @AND@ is supported among each
+    -- dimension. If there are multiple values for a dimension, they are OR\'d
+    -- together.
+    --
+    -- Cost category is also supported.
+    filter' :: Prelude.Maybe Expression,
     -- | The granularity of the Amazon Web Services cost data for your Savings
     -- Plans. @Granularity@ can\'t be set if @GroupBy@ is set.
     --
@@ -86,9 +101,16 @@ data GetSavingsPlansCoverage = GetSavingsPlansCoverage'
     -- | You can group the data using the attributes @INSTANCE_FAMILY@, @REGION@,
     -- or @SERVICE@.
     groupBy :: Prelude.Maybe [GroupDefinition],
+    -- | The number of items to be returned in a response. The default is @20@,
+    -- with a minimum value of @1@.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The measurement that you want your Savings Plans coverage reported in.
     -- The only valid value is @SpendCoveredBySavingsPlans@.
     metrics :: Prelude.Maybe [Prelude.Text],
+    -- | The token to retrieve the next set of results. Amazon Web Services
+    -- provides the token when the response from a previous call has more
+    -- results than the maximum page size.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The value that you want to sort the data by.
     --
     -- The following values are supported for @Key@:
@@ -109,28 +131,6 @@ data GetSavingsPlansCoverage = GetSavingsPlansCoverage'
     --
     -- The supported values for @SortOrder@ are @ASCENDING@ and @DESCENDING@.
     sortBy :: Prelude.Maybe SortDefinition,
-    -- | Filters Savings Plans coverage data by dimensions. You can filter data
-    -- for Savings Plans usage with the following dimensions:
-    --
-    -- -   @LINKED_ACCOUNT@
-    --
-    -- -   @REGION@
-    --
-    -- -   @SERVICE@
-    --
-    -- -   @INSTANCE_FAMILY@
-    --
-    -- @GetSavingsPlansCoverage@ uses the same
-    -- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression>
-    -- object as the other operations, but only @AND@ is supported among each
-    -- dimension. If there are multiple values for a dimension, they are OR\'d
-    -- together.
-    --
-    -- Cost category is also supported.
-    filter' :: Prelude.Maybe Expression,
-    -- | The number of items to be returned in a response. The default is @20@,
-    -- with a minimum value of @1@.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The time period that you want the usage and costs for. The @Start@ date
     -- must be within 13 months. The @End@ date must be after the @Start@ date,
     -- and before the current date. Future dates can\'t be used as an @End@
@@ -147,9 +147,24 @@ data GetSavingsPlansCoverage = GetSavingsPlansCoverage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getSavingsPlansCoverage_nextToken' - The token to retrieve the next set of results. Amazon Web Services
--- provides the token when the response from a previous call has more
--- results than the maximum page size.
+-- 'filter'', 'getSavingsPlansCoverage_filter' - Filters Savings Plans coverage data by dimensions. You can filter data
+-- for Savings Plans usage with the following dimensions:
+--
+-- -   @LINKED_ACCOUNT@
+--
+-- -   @REGION@
+--
+-- -   @SERVICE@
+--
+-- -   @INSTANCE_FAMILY@
+--
+-- @GetSavingsPlansCoverage@ uses the same
+-- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression>
+-- object as the other operations, but only @AND@ is supported among each
+-- dimension. If there are multiple values for a dimension, they are OR\'d
+-- together.
+--
+-- Cost category is also supported.
 --
 -- 'granularity', 'getSavingsPlansCoverage_granularity' - The granularity of the Amazon Web Services cost data for your Savings
 -- Plans. @Granularity@ can\'t be set if @GroupBy@ is set.
@@ -160,8 +175,15 @@ data GetSavingsPlansCoverage = GetSavingsPlansCoverage'
 -- 'groupBy', 'getSavingsPlansCoverage_groupBy' - You can group the data using the attributes @INSTANCE_FAMILY@, @REGION@,
 -- or @SERVICE@.
 --
+-- 'maxResults', 'getSavingsPlansCoverage_maxResults' - The number of items to be returned in a response. The default is @20@,
+-- with a minimum value of @1@.
+--
 -- 'metrics', 'getSavingsPlansCoverage_metrics' - The measurement that you want your Savings Plans coverage reported in.
 -- The only valid value is @SpendCoveredBySavingsPlans@.
+--
+-- 'nextToken', 'getSavingsPlansCoverage_nextToken' - The token to retrieve the next set of results. Amazon Web Services
+-- provides the token when the response from a previous call has more
+-- results than the maximum page size.
 --
 -- 'sortBy', 'getSavingsPlansCoverage_sortBy' - The value that you want to sort the data by.
 --
@@ -183,28 +205,6 @@ data GetSavingsPlansCoverage = GetSavingsPlansCoverage'
 --
 -- The supported values for @SortOrder@ are @ASCENDING@ and @DESCENDING@.
 --
--- 'filter'', 'getSavingsPlansCoverage_filter' - Filters Savings Plans coverage data by dimensions. You can filter data
--- for Savings Plans usage with the following dimensions:
---
--- -   @LINKED_ACCOUNT@
---
--- -   @REGION@
---
--- -   @SERVICE@
---
--- -   @INSTANCE_FAMILY@
---
--- @GetSavingsPlansCoverage@ uses the same
--- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression>
--- object as the other operations, but only @AND@ is supported among each
--- dimension. If there are multiple values for a dimension, they are OR\'d
--- together.
---
--- Cost category is also supported.
---
--- 'maxResults', 'getSavingsPlansCoverage_maxResults' - The number of items to be returned in a response. The default is @20@,
--- with a minimum value of @1@.
---
 -- 'timePeriod', 'getSavingsPlansCoverage_timePeriod' - The time period that you want the usage and costs for. The @Start@ date
 -- must be within 13 months. The @End@ date must be after the @Start@ date,
 -- and before the current date. Future dates can\'t be used as an @End@
@@ -215,62 +215,15 @@ newGetSavingsPlansCoverage ::
   GetSavingsPlansCoverage
 newGetSavingsPlansCoverage pTimePeriod_ =
   GetSavingsPlansCoverage'
-    { nextToken =
-        Prelude.Nothing,
+    { filter' = Prelude.Nothing,
       granularity = Prelude.Nothing,
       groupBy = Prelude.Nothing,
-      metrics = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
-      filter' = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      metrics = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
       timePeriod = pTimePeriod_
     }
-
--- | The token to retrieve the next set of results. Amazon Web Services
--- provides the token when the response from a previous call has more
--- results than the maximum page size.
-getSavingsPlansCoverage_nextToken :: Lens.Lens' GetSavingsPlansCoverage (Prelude.Maybe Prelude.Text)
-getSavingsPlansCoverage_nextToken = Lens.lens (\GetSavingsPlansCoverage' {nextToken} -> nextToken) (\s@GetSavingsPlansCoverage' {} a -> s {nextToken = a} :: GetSavingsPlansCoverage)
-
--- | The granularity of the Amazon Web Services cost data for your Savings
--- Plans. @Granularity@ can\'t be set if @GroupBy@ is set.
---
--- The @GetSavingsPlansCoverage@ operation supports only @DAILY@ and
--- @MONTHLY@ granularities.
-getSavingsPlansCoverage_granularity :: Lens.Lens' GetSavingsPlansCoverage (Prelude.Maybe Granularity)
-getSavingsPlansCoverage_granularity = Lens.lens (\GetSavingsPlansCoverage' {granularity} -> granularity) (\s@GetSavingsPlansCoverage' {} a -> s {granularity = a} :: GetSavingsPlansCoverage)
-
--- | You can group the data using the attributes @INSTANCE_FAMILY@, @REGION@,
--- or @SERVICE@.
-getSavingsPlansCoverage_groupBy :: Lens.Lens' GetSavingsPlansCoverage (Prelude.Maybe [GroupDefinition])
-getSavingsPlansCoverage_groupBy = Lens.lens (\GetSavingsPlansCoverage' {groupBy} -> groupBy) (\s@GetSavingsPlansCoverage' {} a -> s {groupBy = a} :: GetSavingsPlansCoverage) Prelude.. Lens.mapping Lens.coerced
-
--- | The measurement that you want your Savings Plans coverage reported in.
--- The only valid value is @SpendCoveredBySavingsPlans@.
-getSavingsPlansCoverage_metrics :: Lens.Lens' GetSavingsPlansCoverage (Prelude.Maybe [Prelude.Text])
-getSavingsPlansCoverage_metrics = Lens.lens (\GetSavingsPlansCoverage' {metrics} -> metrics) (\s@GetSavingsPlansCoverage' {} a -> s {metrics = a} :: GetSavingsPlansCoverage) Prelude.. Lens.mapping Lens.coerced
-
--- | The value that you want to sort the data by.
---
--- The following values are supported for @Key@:
---
--- -   @SpendCoveredBySavingsPlan@
---
--- -   @OnDemandCost@
---
--- -   @CoveragePercentage@
---
--- -   @TotalCost@
---
--- -   @InstanceFamily@
---
--- -   @Region@
---
--- -   @Service@
---
--- The supported values for @SortOrder@ are @ASCENDING@ and @DESCENDING@.
-getSavingsPlansCoverage_sortBy :: Lens.Lens' GetSavingsPlansCoverage (Prelude.Maybe SortDefinition)
-getSavingsPlansCoverage_sortBy = Lens.lens (\GetSavingsPlansCoverage' {sortBy} -> sortBy) (\s@GetSavingsPlansCoverage' {} a -> s {sortBy = a} :: GetSavingsPlansCoverage)
 
 -- | Filters Savings Plans coverage data by dimensions. You can filter data
 -- for Savings Plans usage with the following dimensions:
@@ -293,10 +246,56 @@ getSavingsPlansCoverage_sortBy = Lens.lens (\GetSavingsPlansCoverage' {sortBy} -
 getSavingsPlansCoverage_filter :: Lens.Lens' GetSavingsPlansCoverage (Prelude.Maybe Expression)
 getSavingsPlansCoverage_filter = Lens.lens (\GetSavingsPlansCoverage' {filter'} -> filter') (\s@GetSavingsPlansCoverage' {} a -> s {filter' = a} :: GetSavingsPlansCoverage)
 
+-- | The granularity of the Amazon Web Services cost data for your Savings
+-- Plans. @Granularity@ can\'t be set if @GroupBy@ is set.
+--
+-- The @GetSavingsPlansCoverage@ operation supports only @DAILY@ and
+-- @MONTHLY@ granularities.
+getSavingsPlansCoverage_granularity :: Lens.Lens' GetSavingsPlansCoverage (Prelude.Maybe Granularity)
+getSavingsPlansCoverage_granularity = Lens.lens (\GetSavingsPlansCoverage' {granularity} -> granularity) (\s@GetSavingsPlansCoverage' {} a -> s {granularity = a} :: GetSavingsPlansCoverage)
+
+-- | You can group the data using the attributes @INSTANCE_FAMILY@, @REGION@,
+-- or @SERVICE@.
+getSavingsPlansCoverage_groupBy :: Lens.Lens' GetSavingsPlansCoverage (Prelude.Maybe [GroupDefinition])
+getSavingsPlansCoverage_groupBy = Lens.lens (\GetSavingsPlansCoverage' {groupBy} -> groupBy) (\s@GetSavingsPlansCoverage' {} a -> s {groupBy = a} :: GetSavingsPlansCoverage) Prelude.. Lens.mapping Lens.coerced
+
 -- | The number of items to be returned in a response. The default is @20@,
 -- with a minimum value of @1@.
 getSavingsPlansCoverage_maxResults :: Lens.Lens' GetSavingsPlansCoverage (Prelude.Maybe Prelude.Natural)
 getSavingsPlansCoverage_maxResults = Lens.lens (\GetSavingsPlansCoverage' {maxResults} -> maxResults) (\s@GetSavingsPlansCoverage' {} a -> s {maxResults = a} :: GetSavingsPlansCoverage)
+
+-- | The measurement that you want your Savings Plans coverage reported in.
+-- The only valid value is @SpendCoveredBySavingsPlans@.
+getSavingsPlansCoverage_metrics :: Lens.Lens' GetSavingsPlansCoverage (Prelude.Maybe [Prelude.Text])
+getSavingsPlansCoverage_metrics = Lens.lens (\GetSavingsPlansCoverage' {metrics} -> metrics) (\s@GetSavingsPlansCoverage' {} a -> s {metrics = a} :: GetSavingsPlansCoverage) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token to retrieve the next set of results. Amazon Web Services
+-- provides the token when the response from a previous call has more
+-- results than the maximum page size.
+getSavingsPlansCoverage_nextToken :: Lens.Lens' GetSavingsPlansCoverage (Prelude.Maybe Prelude.Text)
+getSavingsPlansCoverage_nextToken = Lens.lens (\GetSavingsPlansCoverage' {nextToken} -> nextToken) (\s@GetSavingsPlansCoverage' {} a -> s {nextToken = a} :: GetSavingsPlansCoverage)
+
+-- | The value that you want to sort the data by.
+--
+-- The following values are supported for @Key@:
+--
+-- -   @SpendCoveredBySavingsPlan@
+--
+-- -   @OnDemandCost@
+--
+-- -   @CoveragePercentage@
+--
+-- -   @TotalCost@
+--
+-- -   @InstanceFamily@
+--
+-- -   @Region@
+--
+-- -   @Service@
+--
+-- The supported values for @SortOrder@ are @ASCENDING@ and @DESCENDING@.
+getSavingsPlansCoverage_sortBy :: Lens.Lens' GetSavingsPlansCoverage (Prelude.Maybe SortDefinition)
+getSavingsPlansCoverage_sortBy = Lens.lens (\GetSavingsPlansCoverage' {sortBy} -> sortBy) (\s@GetSavingsPlansCoverage' {} a -> s {sortBy = a} :: GetSavingsPlansCoverage)
 
 -- | The time period that you want the usage and costs for. The @Start@ date
 -- must be within 13 months. The @End@ date must be after the @Start@ date,
@@ -324,24 +323,24 @@ instance Core.AWSRequest GetSavingsPlansCoverage where
 
 instance Prelude.Hashable GetSavingsPlansCoverage where
   hashWithSalt _salt GetSavingsPlansCoverage' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` granularity
       `Prelude.hashWithSalt` groupBy
-      `Prelude.hashWithSalt` metrics
-      `Prelude.hashWithSalt` sortBy
-      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` metrics
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortBy
       `Prelude.hashWithSalt` timePeriod
 
 instance Prelude.NFData GetSavingsPlansCoverage where
   rnf GetSavingsPlansCoverage' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf granularity
       `Prelude.seq` Prelude.rnf groupBy
-      `Prelude.seq` Prelude.rnf metrics
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf metrics
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortBy
       `Prelude.seq` Prelude.rnf timePeriod
 
 instance Data.ToHeaders GetSavingsPlansCoverage where
@@ -363,13 +362,13 @@ instance Data.ToJSON GetSavingsPlansCoverage where
   toJSON GetSavingsPlansCoverage' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("Filter" Data..=) Prelude.<$> filter',
             ("Granularity" Data..=) Prelude.<$> granularity,
             ("GroupBy" Data..=) Prelude.<$> groupBy,
-            ("Metrics" Data..=) Prelude.<$> metrics,
-            ("SortBy" Data..=) Prelude.<$> sortBy,
-            ("Filter" Data..=) Prelude.<$> filter',
             ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("Metrics" Data..=) Prelude.<$> metrics,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("SortBy" Data..=) Prelude.<$> sortBy,
             Prelude.Just ("TimePeriod" Data..= timePeriod)
           ]
       )

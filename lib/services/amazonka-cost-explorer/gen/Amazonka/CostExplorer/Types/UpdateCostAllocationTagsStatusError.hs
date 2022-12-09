@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUpdateCostAllocationTagsStatusError' smart constructor.
 data UpdateCostAllocationTagsStatusError = UpdateCostAllocationTagsStatusError'
-  { -- | A message explaining why the action failed on this entry.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | An error code representing why the action failed on this entry.
+  { -- | An error code representing why the action failed on this entry.
     code :: Prelude.Maybe Prelude.Text,
+    -- | A message explaining why the action failed on this entry.
+    message :: Prelude.Maybe Prelude.Text,
     -- | The key for the cost allocation tag.
     tagKey :: Prelude.Maybe Prelude.Text
   }
@@ -46,28 +46,28 @@ data UpdateCostAllocationTagsStatusError = UpdateCostAllocationTagsStatusError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'updateCostAllocationTagsStatusError_message' - A message explaining why the action failed on this entry.
---
 -- 'code', 'updateCostAllocationTagsStatusError_code' - An error code representing why the action failed on this entry.
+--
+-- 'message', 'updateCostAllocationTagsStatusError_message' - A message explaining why the action failed on this entry.
 --
 -- 'tagKey', 'updateCostAllocationTagsStatusError_tagKey' - The key for the cost allocation tag.
 newUpdateCostAllocationTagsStatusError ::
   UpdateCostAllocationTagsStatusError
 newUpdateCostAllocationTagsStatusError =
   UpdateCostAllocationTagsStatusError'
-    { message =
+    { code =
         Prelude.Nothing,
-      code = Prelude.Nothing,
+      message = Prelude.Nothing,
       tagKey = Prelude.Nothing
     }
-
--- | A message explaining why the action failed on this entry.
-updateCostAllocationTagsStatusError_message :: Lens.Lens' UpdateCostAllocationTagsStatusError (Prelude.Maybe Prelude.Text)
-updateCostAllocationTagsStatusError_message = Lens.lens (\UpdateCostAllocationTagsStatusError' {message} -> message) (\s@UpdateCostAllocationTagsStatusError' {} a -> s {message = a} :: UpdateCostAllocationTagsStatusError)
 
 -- | An error code representing why the action failed on this entry.
 updateCostAllocationTagsStatusError_code :: Lens.Lens' UpdateCostAllocationTagsStatusError (Prelude.Maybe Prelude.Text)
 updateCostAllocationTagsStatusError_code = Lens.lens (\UpdateCostAllocationTagsStatusError' {code} -> code) (\s@UpdateCostAllocationTagsStatusError' {} a -> s {code = a} :: UpdateCostAllocationTagsStatusError)
+
+-- | A message explaining why the action failed on this entry.
+updateCostAllocationTagsStatusError_message :: Lens.Lens' UpdateCostAllocationTagsStatusError (Prelude.Maybe Prelude.Text)
+updateCostAllocationTagsStatusError_message = Lens.lens (\UpdateCostAllocationTagsStatusError' {message} -> message) (\s@UpdateCostAllocationTagsStatusError' {} a -> s {message = a} :: UpdateCostAllocationTagsStatusError)
 
 -- | The key for the cost allocation tag.
 updateCostAllocationTagsStatusError_tagKey :: Lens.Lens' UpdateCostAllocationTagsStatusError (Prelude.Maybe Prelude.Text)
@@ -82,8 +82,8 @@ instance
       "UpdateCostAllocationTagsStatusError"
       ( \x ->
           UpdateCostAllocationTagsStatusError'
-            Prelude.<$> (x Data..:? "Message")
-            Prelude.<*> (x Data..:? "Code")
+            Prelude.<$> (x Data..:? "Code")
+            Prelude.<*> (x Data..:? "Message")
             Prelude.<*> (x Data..:? "TagKey")
       )
 
@@ -94,8 +94,8 @@ instance
   hashWithSalt
     _salt
     UpdateCostAllocationTagsStatusError' {..} =
-      _salt `Prelude.hashWithSalt` message
-        `Prelude.hashWithSalt` code
+      _salt `Prelude.hashWithSalt` code
+        `Prelude.hashWithSalt` message
         `Prelude.hashWithSalt` tagKey
 
 instance
@@ -103,6 +103,6 @@ instance
     UpdateCostAllocationTagsStatusError
   where
   rnf UpdateCostAllocationTagsStatusError' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf code
+    Prelude.rnf code
+      `Prelude.seq` Prelude.rnf message
       `Prelude.seq` Prelude.rnf tagKey

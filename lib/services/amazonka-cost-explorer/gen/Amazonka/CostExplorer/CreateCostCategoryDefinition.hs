@@ -27,10 +27,10 @@ module Amazonka.CostExplorer.CreateCostCategoryDefinition
     newCreateCostCategoryDefinition,
 
     -- * Request Lenses
-    createCostCategoryDefinition_splitChargeRules,
     createCostCategoryDefinition_defaultValue,
-    createCostCategoryDefinition_resourceTags,
     createCostCategoryDefinition_effectiveStart,
+    createCostCategoryDefinition_resourceTags,
+    createCostCategoryDefinition_splitChargeRules,
     createCostCategoryDefinition_name,
     createCostCategoryDefinition_ruleVersion,
     createCostCategoryDefinition_rules,
@@ -40,8 +40,8 @@ module Amazonka.CostExplorer.CreateCostCategoryDefinition
     newCreateCostCategoryDefinitionResponse,
 
     -- * Response Lenses
-    createCostCategoryDefinitionResponse_effectiveStart,
     createCostCategoryDefinitionResponse_costCategoryArn,
+    createCostCategoryDefinitionResponse_effectiveStart,
     createCostCategoryDefinitionResponse_httpStatus,
   )
 where
@@ -56,10 +56,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateCostCategoryDefinition' smart constructor.
 data CreateCostCategoryDefinition = CreateCostCategoryDefinition'
-  { -- | The split charge rules used to allocate your charges between your Cost
-    -- Category values.
-    splitChargeRules :: Prelude.Maybe (Prelude.NonEmpty CostCategorySplitChargeRule),
-    defaultValue :: Prelude.Maybe Prelude.Text,
+  { defaultValue :: Prelude.Maybe Prelude.Text,
+    -- | The Cost Category\'s effective start date. It can only be a billing
+    -- start date (first day of the month). If the date isn\'t provided, it\'s
+    -- the first day of the current month. Dates can\'t be before the previous
+    -- twelve months, or in the future.
+    effectiveStart :: Prelude.Maybe Prelude.Text,
     -- | An optional list of tags to associate with the specified
     -- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategory.html CostCategory>
     -- . You can use resource tags to control access to your @cost category@
@@ -86,11 +88,9 @@ data CreateCostCategoryDefinition = CreateCostCategoryDefinition'
     -- -   Don’t use @aws:@ as a prefix for your keys. This prefix is reserved
     --     for Amazon Web Services use
     resourceTags :: Prelude.Maybe [ResourceTag],
-    -- | The Cost Category\'s effective start date. It can only be a billing
-    -- start date (first day of the month). If the date isn\'t provided, it\'s
-    -- the first day of the current month. Dates can\'t be before the previous
-    -- twelve months, or in the future.
-    effectiveStart :: Prelude.Maybe Prelude.Text,
+    -- | The split charge rules used to allocate your charges between your Cost
+    -- Category values.
+    splitChargeRules :: Prelude.Maybe (Prelude.NonEmpty CostCategorySplitChargeRule),
     name :: Prelude.Text,
     ruleVersion :: CostCategoryRuleVersion,
     -- | The Cost Category rules used to categorize costs. For more information,
@@ -108,10 +108,12 @@ data CreateCostCategoryDefinition = CreateCostCategoryDefinition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'splitChargeRules', 'createCostCategoryDefinition_splitChargeRules' - The split charge rules used to allocate your charges between your Cost
--- Category values.
---
 -- 'defaultValue', 'createCostCategoryDefinition_defaultValue' - Undocumented member.
+--
+-- 'effectiveStart', 'createCostCategoryDefinition_effectiveStart' - The Cost Category\'s effective start date. It can only be a billing
+-- start date (first day of the month). If the date isn\'t provided, it\'s
+-- the first day of the current month. Dates can\'t be before the previous
+-- twelve months, or in the future.
 --
 -- 'resourceTags', 'createCostCategoryDefinition_resourceTags' - An optional list of tags to associate with the specified
 -- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategory.html CostCategory>
@@ -139,10 +141,8 @@ data CreateCostCategoryDefinition = CreateCostCategoryDefinition'
 -- -   Don’t use @aws:@ as a prefix for your keys. This prefix is reserved
 --     for Amazon Web Services use
 --
--- 'effectiveStart', 'createCostCategoryDefinition_effectiveStart' - The Cost Category\'s effective start date. It can only be a billing
--- start date (first day of the month). If the date isn\'t provided, it\'s
--- the first day of the current month. Dates can\'t be before the previous
--- twelve months, or in the future.
+-- 'splitChargeRules', 'createCostCategoryDefinition_splitChargeRules' - The split charge rules used to allocate your charges between your Cost
+-- Category values.
 --
 -- 'name', 'createCostCategoryDefinition_name' - Undocumented member.
 --
@@ -164,24 +164,26 @@ newCreateCostCategoryDefinition
   pRuleVersion_
   pRules_ =
     CreateCostCategoryDefinition'
-      { splitChargeRules =
+      { defaultValue =
           Prelude.Nothing,
-        defaultValue = Prelude.Nothing,
-        resourceTags = Prelude.Nothing,
         effectiveStart = Prelude.Nothing,
+        resourceTags = Prelude.Nothing,
+        splitChargeRules = Prelude.Nothing,
         name = pName_,
         ruleVersion = pRuleVersion_,
         rules = Lens.coerced Lens.# pRules_
       }
 
--- | The split charge rules used to allocate your charges between your Cost
--- Category values.
-createCostCategoryDefinition_splitChargeRules :: Lens.Lens' CreateCostCategoryDefinition (Prelude.Maybe (Prelude.NonEmpty CostCategorySplitChargeRule))
-createCostCategoryDefinition_splitChargeRules = Lens.lens (\CreateCostCategoryDefinition' {splitChargeRules} -> splitChargeRules) (\s@CreateCostCategoryDefinition' {} a -> s {splitChargeRules = a} :: CreateCostCategoryDefinition) Prelude.. Lens.mapping Lens.coerced
-
 -- | Undocumented member.
 createCostCategoryDefinition_defaultValue :: Lens.Lens' CreateCostCategoryDefinition (Prelude.Maybe Prelude.Text)
 createCostCategoryDefinition_defaultValue = Lens.lens (\CreateCostCategoryDefinition' {defaultValue} -> defaultValue) (\s@CreateCostCategoryDefinition' {} a -> s {defaultValue = a} :: CreateCostCategoryDefinition)
+
+-- | The Cost Category\'s effective start date. It can only be a billing
+-- start date (first day of the month). If the date isn\'t provided, it\'s
+-- the first day of the current month. Dates can\'t be before the previous
+-- twelve months, or in the future.
+createCostCategoryDefinition_effectiveStart :: Lens.Lens' CreateCostCategoryDefinition (Prelude.Maybe Prelude.Text)
+createCostCategoryDefinition_effectiveStart = Lens.lens (\CreateCostCategoryDefinition' {effectiveStart} -> effectiveStart) (\s@CreateCostCategoryDefinition' {} a -> s {effectiveStart = a} :: CreateCostCategoryDefinition)
 
 -- | An optional list of tags to associate with the specified
 -- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategory.html CostCategory>
@@ -211,12 +213,10 @@ createCostCategoryDefinition_defaultValue = Lens.lens (\CreateCostCategoryDefini
 createCostCategoryDefinition_resourceTags :: Lens.Lens' CreateCostCategoryDefinition (Prelude.Maybe [ResourceTag])
 createCostCategoryDefinition_resourceTags = Lens.lens (\CreateCostCategoryDefinition' {resourceTags} -> resourceTags) (\s@CreateCostCategoryDefinition' {} a -> s {resourceTags = a} :: CreateCostCategoryDefinition) Prelude.. Lens.mapping Lens.coerced
 
--- | The Cost Category\'s effective start date. It can only be a billing
--- start date (first day of the month). If the date isn\'t provided, it\'s
--- the first day of the current month. Dates can\'t be before the previous
--- twelve months, or in the future.
-createCostCategoryDefinition_effectiveStart :: Lens.Lens' CreateCostCategoryDefinition (Prelude.Maybe Prelude.Text)
-createCostCategoryDefinition_effectiveStart = Lens.lens (\CreateCostCategoryDefinition' {effectiveStart} -> effectiveStart) (\s@CreateCostCategoryDefinition' {} a -> s {effectiveStart = a} :: CreateCostCategoryDefinition)
+-- | The split charge rules used to allocate your charges between your Cost
+-- Category values.
+createCostCategoryDefinition_splitChargeRules :: Lens.Lens' CreateCostCategoryDefinition (Prelude.Maybe (Prelude.NonEmpty CostCategorySplitChargeRule))
+createCostCategoryDefinition_splitChargeRules = Lens.lens (\CreateCostCategoryDefinition' {splitChargeRules} -> splitChargeRules) (\s@CreateCostCategoryDefinition' {} a -> s {splitChargeRules = a} :: CreateCostCategoryDefinition) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 createCostCategoryDefinition_name :: Lens.Lens' CreateCostCategoryDefinition Prelude.Text
@@ -242,8 +242,8 @@ instance Core.AWSRequest CreateCostCategoryDefinition where
     Response.receiveJSON
       ( \s h x ->
           CreateCostCategoryDefinitionResponse'
-            Prelude.<$> (x Data..?> "EffectiveStart")
-            Prelude.<*> (x Data..?> "CostCategoryArn")
+            Prelude.<$> (x Data..?> "CostCategoryArn")
+            Prelude.<*> (x Data..?> "EffectiveStart")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -252,20 +252,20 @@ instance
     CreateCostCategoryDefinition
   where
   hashWithSalt _salt CreateCostCategoryDefinition' {..} =
-    _salt `Prelude.hashWithSalt` splitChargeRules
-      `Prelude.hashWithSalt` defaultValue
-      `Prelude.hashWithSalt` resourceTags
+    _salt `Prelude.hashWithSalt` defaultValue
       `Prelude.hashWithSalt` effectiveStart
+      `Prelude.hashWithSalt` resourceTags
+      `Prelude.hashWithSalt` splitChargeRules
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` ruleVersion
       `Prelude.hashWithSalt` rules
 
 instance Prelude.NFData CreateCostCategoryDefinition where
   rnf CreateCostCategoryDefinition' {..} =
-    Prelude.rnf splitChargeRules
-      `Prelude.seq` Prelude.rnf defaultValue
-      `Prelude.seq` Prelude.rnf resourceTags
+    Prelude.rnf defaultValue
       `Prelude.seq` Prelude.rnf effectiveStart
+      `Prelude.seq` Prelude.rnf resourceTags
+      `Prelude.seq` Prelude.rnf splitChargeRules
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf ruleVersion
       `Prelude.seq` Prelude.rnf rules
@@ -289,12 +289,12 @@ instance Data.ToJSON CreateCostCategoryDefinition where
   toJSON CreateCostCategoryDefinition' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SplitChargeRules" Data..=)
-              Prelude.<$> splitChargeRules,
-            ("DefaultValue" Data..=) Prelude.<$> defaultValue,
-            ("ResourceTags" Data..=) Prelude.<$> resourceTags,
+          [ ("DefaultValue" Data..=) Prelude.<$> defaultValue,
             ("EffectiveStart" Data..=)
               Prelude.<$> effectiveStart,
+            ("ResourceTags" Data..=) Prelude.<$> resourceTags,
+            ("SplitChargeRules" Data..=)
+              Prelude.<$> splitChargeRules,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("RuleVersion" Data..= ruleVersion),
             Prelude.Just ("Rules" Data..= rules)
@@ -309,11 +309,11 @@ instance Data.ToQuery CreateCostCategoryDefinition where
 
 -- | /See:/ 'newCreateCostCategoryDefinitionResponse' smart constructor.
 data CreateCostCategoryDefinitionResponse = CreateCostCategoryDefinitionResponse'
-  { -- | The Cost Category\'s effective start date. It can only be a billing
+  { -- | The unique identifier for your newly created Cost Category.
+    costCategoryArn :: Prelude.Maybe Prelude.Text,
+    -- | The Cost Category\'s effective start date. It can only be a billing
     -- start date (first day of the month).
     effectiveStart :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for your newly created Cost Category.
-    costCategoryArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -327,10 +327,10 @@ data CreateCostCategoryDefinitionResponse = CreateCostCategoryDefinitionResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'costCategoryArn', 'createCostCategoryDefinitionResponse_costCategoryArn' - The unique identifier for your newly created Cost Category.
+--
 -- 'effectiveStart', 'createCostCategoryDefinitionResponse_effectiveStart' - The Cost Category\'s effective start date. It can only be a billing
 -- start date (first day of the month).
---
--- 'costCategoryArn', 'createCostCategoryDefinitionResponse_costCategoryArn' - The unique identifier for your newly created Cost Category.
 --
 -- 'httpStatus', 'createCostCategoryDefinitionResponse_httpStatus' - The response's http status code.
 newCreateCostCategoryDefinitionResponse ::
@@ -339,20 +339,20 @@ newCreateCostCategoryDefinitionResponse ::
   CreateCostCategoryDefinitionResponse
 newCreateCostCategoryDefinitionResponse pHttpStatus_ =
   CreateCostCategoryDefinitionResponse'
-    { effectiveStart =
+    { costCategoryArn =
         Prelude.Nothing,
-      costCategoryArn = Prelude.Nothing,
+      effectiveStart = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The unique identifier for your newly created Cost Category.
+createCostCategoryDefinitionResponse_costCategoryArn :: Lens.Lens' CreateCostCategoryDefinitionResponse (Prelude.Maybe Prelude.Text)
+createCostCategoryDefinitionResponse_costCategoryArn = Lens.lens (\CreateCostCategoryDefinitionResponse' {costCategoryArn} -> costCategoryArn) (\s@CreateCostCategoryDefinitionResponse' {} a -> s {costCategoryArn = a} :: CreateCostCategoryDefinitionResponse)
 
 -- | The Cost Category\'s effective start date. It can only be a billing
 -- start date (first day of the month).
 createCostCategoryDefinitionResponse_effectiveStart :: Lens.Lens' CreateCostCategoryDefinitionResponse (Prelude.Maybe Prelude.Text)
 createCostCategoryDefinitionResponse_effectiveStart = Lens.lens (\CreateCostCategoryDefinitionResponse' {effectiveStart} -> effectiveStart) (\s@CreateCostCategoryDefinitionResponse' {} a -> s {effectiveStart = a} :: CreateCostCategoryDefinitionResponse)
-
--- | The unique identifier for your newly created Cost Category.
-createCostCategoryDefinitionResponse_costCategoryArn :: Lens.Lens' CreateCostCategoryDefinitionResponse (Prelude.Maybe Prelude.Text)
-createCostCategoryDefinitionResponse_costCategoryArn = Lens.lens (\CreateCostCategoryDefinitionResponse' {costCategoryArn} -> costCategoryArn) (\s@CreateCostCategoryDefinitionResponse' {} a -> s {costCategoryArn = a} :: CreateCostCategoryDefinitionResponse)
 
 -- | The response's http status code.
 createCostCategoryDefinitionResponse_httpStatus :: Lens.Lens' CreateCostCategoryDefinitionResponse Prelude.Int
@@ -363,6 +363,6 @@ instance
     CreateCostCategoryDefinitionResponse
   where
   rnf CreateCostCategoryDefinitionResponse' {..} =
-    Prelude.rnf effectiveStart
-      `Prelude.seq` Prelude.rnf costCategoryArn
+    Prelude.rnf costCategoryArn
+      `Prelude.seq` Prelude.rnf effectiveStart
       `Prelude.seq` Prelude.rnf httpStatus

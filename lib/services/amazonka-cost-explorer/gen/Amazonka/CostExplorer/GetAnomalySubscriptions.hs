@@ -29,10 +29,10 @@ module Amazonka.CostExplorer.GetAnomalySubscriptions
     newGetAnomalySubscriptions,
 
     -- * Request Lenses
+    getAnomalySubscriptions_maxResults,
+    getAnomalySubscriptions_monitorArn,
     getAnomalySubscriptions_nextPageToken,
     getAnomalySubscriptions_subscriptionArnList,
-    getAnomalySubscriptions_monitorArn,
-    getAnomalySubscriptions_maxResults,
 
     -- * Destructuring the Response
     GetAnomalySubscriptionsResponse (..),
@@ -55,16 +55,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetAnomalySubscriptions' smart constructor.
 data GetAnomalySubscriptions = GetAnomalySubscriptions'
-  { -- | The token to retrieve the next set of results. Amazon Web Services
+  { -- | The number of entries a paginated response contains.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | Cost anomaly monitor ARNs.
+    monitorArn :: Prelude.Maybe Prelude.Text,
+    -- | The token to retrieve the next set of results. Amazon Web Services
     -- provides the token when the response from a previous call has more
     -- results than the maximum page size.
     nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | A list of cost anomaly subscription ARNs.
-    subscriptionArnList :: Prelude.Maybe [Prelude.Text],
-    -- | Cost anomaly monitor ARNs.
-    monitorArn :: Prelude.Maybe Prelude.Text,
-    -- | The number of entries a paginated response contains.
-    maxResults :: Prelude.Maybe Prelude.Int
+    subscriptionArnList :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,25 +76,33 @@ data GetAnomalySubscriptions = GetAnomalySubscriptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'getAnomalySubscriptions_maxResults' - The number of entries a paginated response contains.
+--
+-- 'monitorArn', 'getAnomalySubscriptions_monitorArn' - Cost anomaly monitor ARNs.
+--
 -- 'nextPageToken', 'getAnomalySubscriptions_nextPageToken' - The token to retrieve the next set of results. Amazon Web Services
 -- provides the token when the response from a previous call has more
 -- results than the maximum page size.
 --
 -- 'subscriptionArnList', 'getAnomalySubscriptions_subscriptionArnList' - A list of cost anomaly subscription ARNs.
---
--- 'monitorArn', 'getAnomalySubscriptions_monitorArn' - Cost anomaly monitor ARNs.
---
--- 'maxResults', 'getAnomalySubscriptions_maxResults' - The number of entries a paginated response contains.
 newGetAnomalySubscriptions ::
   GetAnomalySubscriptions
 newGetAnomalySubscriptions =
   GetAnomalySubscriptions'
-    { nextPageToken =
+    { maxResults =
         Prelude.Nothing,
-      subscriptionArnList = Prelude.Nothing,
       monitorArn = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextPageToken = Prelude.Nothing,
+      subscriptionArnList = Prelude.Nothing
     }
+
+-- | The number of entries a paginated response contains.
+getAnomalySubscriptions_maxResults :: Lens.Lens' GetAnomalySubscriptions (Prelude.Maybe Prelude.Int)
+getAnomalySubscriptions_maxResults = Lens.lens (\GetAnomalySubscriptions' {maxResults} -> maxResults) (\s@GetAnomalySubscriptions' {} a -> s {maxResults = a} :: GetAnomalySubscriptions)
+
+-- | Cost anomaly monitor ARNs.
+getAnomalySubscriptions_monitorArn :: Lens.Lens' GetAnomalySubscriptions (Prelude.Maybe Prelude.Text)
+getAnomalySubscriptions_monitorArn = Lens.lens (\GetAnomalySubscriptions' {monitorArn} -> monitorArn) (\s@GetAnomalySubscriptions' {} a -> s {monitorArn = a} :: GetAnomalySubscriptions)
 
 -- | The token to retrieve the next set of results. Amazon Web Services
 -- provides the token when the response from a previous call has more
@@ -105,14 +113,6 @@ getAnomalySubscriptions_nextPageToken = Lens.lens (\GetAnomalySubscriptions' {ne
 -- | A list of cost anomaly subscription ARNs.
 getAnomalySubscriptions_subscriptionArnList :: Lens.Lens' GetAnomalySubscriptions (Prelude.Maybe [Prelude.Text])
 getAnomalySubscriptions_subscriptionArnList = Lens.lens (\GetAnomalySubscriptions' {subscriptionArnList} -> subscriptionArnList) (\s@GetAnomalySubscriptions' {} a -> s {subscriptionArnList = a} :: GetAnomalySubscriptions) Prelude.. Lens.mapping Lens.coerced
-
--- | Cost anomaly monitor ARNs.
-getAnomalySubscriptions_monitorArn :: Lens.Lens' GetAnomalySubscriptions (Prelude.Maybe Prelude.Text)
-getAnomalySubscriptions_monitorArn = Lens.lens (\GetAnomalySubscriptions' {monitorArn} -> monitorArn) (\s@GetAnomalySubscriptions' {} a -> s {monitorArn = a} :: GetAnomalySubscriptions)
-
--- | The number of entries a paginated response contains.
-getAnomalySubscriptions_maxResults :: Lens.Lens' GetAnomalySubscriptions (Prelude.Maybe Prelude.Int)
-getAnomalySubscriptions_maxResults = Lens.lens (\GetAnomalySubscriptions' {maxResults} -> maxResults) (\s@GetAnomalySubscriptions' {} a -> s {maxResults = a} :: GetAnomalySubscriptions)
 
 instance Core.AWSRequest GetAnomalySubscriptions where
   type
@@ -133,17 +133,17 @@ instance Core.AWSRequest GetAnomalySubscriptions where
 
 instance Prelude.Hashable GetAnomalySubscriptions where
   hashWithSalt _salt GetAnomalySubscriptions' {..} =
-    _salt `Prelude.hashWithSalt` nextPageToken
-      `Prelude.hashWithSalt` subscriptionArnList
+    _salt `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` monitorArn
-      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextPageToken
+      `Prelude.hashWithSalt` subscriptionArnList
 
 instance Prelude.NFData GetAnomalySubscriptions where
   rnf GetAnomalySubscriptions' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf subscriptionArnList
+    Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf monitorArn
-      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf subscriptionArnList
 
 instance Data.ToHeaders GetAnomalySubscriptions where
   toHeaders =
@@ -164,11 +164,11 @@ instance Data.ToJSON GetAnomalySubscriptions where
   toJSON GetAnomalySubscriptions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextPageToken" Data..=) Prelude.<$> nextPageToken,
-            ("SubscriptionArnList" Data..=)
-              Prelude.<$> subscriptionArnList,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("MonitorArn" Data..=) Prelude.<$> monitorArn,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+            ("NextPageToken" Data..=) Prelude.<$> nextPageToken,
+            ("SubscriptionArnList" Data..=)
+              Prelude.<$> subscriptionArnList
           ]
       )
 

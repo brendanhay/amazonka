@@ -33,11 +33,11 @@ data ReservationPurchaseRecommendationSummary = ReservationPurchaseRecommendatio
   { -- | The currency code used for this recommendation.
     currencyCode :: Prelude.Maybe Prelude.Text,
     -- | The total amount that Amazon Web Services estimates that this
-    -- recommendation could save you in a month, as a percentage of your costs.
-    totalEstimatedMonthlySavingsPercentage :: Prelude.Maybe Prelude.Text,
-    -- | The total amount that Amazon Web Services estimates that this
     -- recommendation could save you in a month.
-    totalEstimatedMonthlySavingsAmount :: Prelude.Maybe Prelude.Text
+    totalEstimatedMonthlySavingsAmount :: Prelude.Maybe Prelude.Text,
+    -- | The total amount that Amazon Web Services estimates that this
+    -- recommendation could save you in a month, as a percentage of your costs.
+    totalEstimatedMonthlySavingsPercentage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,20 +51,20 @@ data ReservationPurchaseRecommendationSummary = ReservationPurchaseRecommendatio
 --
 -- 'currencyCode', 'reservationPurchaseRecommendationSummary_currencyCode' - The currency code used for this recommendation.
 --
--- 'totalEstimatedMonthlySavingsPercentage', 'reservationPurchaseRecommendationSummary_totalEstimatedMonthlySavingsPercentage' - The total amount that Amazon Web Services estimates that this
--- recommendation could save you in a month, as a percentage of your costs.
---
 -- 'totalEstimatedMonthlySavingsAmount', 'reservationPurchaseRecommendationSummary_totalEstimatedMonthlySavingsAmount' - The total amount that Amazon Web Services estimates that this
 -- recommendation could save you in a month.
+--
+-- 'totalEstimatedMonthlySavingsPercentage', 'reservationPurchaseRecommendationSummary_totalEstimatedMonthlySavingsPercentage' - The total amount that Amazon Web Services estimates that this
+-- recommendation could save you in a month, as a percentage of your costs.
 newReservationPurchaseRecommendationSummary ::
   ReservationPurchaseRecommendationSummary
 newReservationPurchaseRecommendationSummary =
   ReservationPurchaseRecommendationSummary'
     { currencyCode =
         Prelude.Nothing,
-      totalEstimatedMonthlySavingsPercentage =
-        Prelude.Nothing,
       totalEstimatedMonthlySavingsAmount =
+        Prelude.Nothing,
+      totalEstimatedMonthlySavingsPercentage =
         Prelude.Nothing
     }
 
@@ -73,14 +73,14 @@ reservationPurchaseRecommendationSummary_currencyCode :: Lens.Lens' ReservationP
 reservationPurchaseRecommendationSummary_currencyCode = Lens.lens (\ReservationPurchaseRecommendationSummary' {currencyCode} -> currencyCode) (\s@ReservationPurchaseRecommendationSummary' {} a -> s {currencyCode = a} :: ReservationPurchaseRecommendationSummary)
 
 -- | The total amount that Amazon Web Services estimates that this
--- recommendation could save you in a month, as a percentage of your costs.
-reservationPurchaseRecommendationSummary_totalEstimatedMonthlySavingsPercentage :: Lens.Lens' ReservationPurchaseRecommendationSummary (Prelude.Maybe Prelude.Text)
-reservationPurchaseRecommendationSummary_totalEstimatedMonthlySavingsPercentage = Lens.lens (\ReservationPurchaseRecommendationSummary' {totalEstimatedMonthlySavingsPercentage} -> totalEstimatedMonthlySavingsPercentage) (\s@ReservationPurchaseRecommendationSummary' {} a -> s {totalEstimatedMonthlySavingsPercentage = a} :: ReservationPurchaseRecommendationSummary)
-
--- | The total amount that Amazon Web Services estimates that this
 -- recommendation could save you in a month.
 reservationPurchaseRecommendationSummary_totalEstimatedMonthlySavingsAmount :: Lens.Lens' ReservationPurchaseRecommendationSummary (Prelude.Maybe Prelude.Text)
 reservationPurchaseRecommendationSummary_totalEstimatedMonthlySavingsAmount = Lens.lens (\ReservationPurchaseRecommendationSummary' {totalEstimatedMonthlySavingsAmount} -> totalEstimatedMonthlySavingsAmount) (\s@ReservationPurchaseRecommendationSummary' {} a -> s {totalEstimatedMonthlySavingsAmount = a} :: ReservationPurchaseRecommendationSummary)
+
+-- | The total amount that Amazon Web Services estimates that this
+-- recommendation could save you in a month, as a percentage of your costs.
+reservationPurchaseRecommendationSummary_totalEstimatedMonthlySavingsPercentage :: Lens.Lens' ReservationPurchaseRecommendationSummary (Prelude.Maybe Prelude.Text)
+reservationPurchaseRecommendationSummary_totalEstimatedMonthlySavingsPercentage = Lens.lens (\ReservationPurchaseRecommendationSummary' {totalEstimatedMonthlySavingsPercentage} -> totalEstimatedMonthlySavingsPercentage) (\s@ReservationPurchaseRecommendationSummary' {} a -> s {totalEstimatedMonthlySavingsPercentage = a} :: ReservationPurchaseRecommendationSummary)
 
 instance
   Data.FromJSON
@@ -92,8 +92,10 @@ instance
       ( \x ->
           ReservationPurchaseRecommendationSummary'
             Prelude.<$> (x Data..:? "CurrencyCode")
-            Prelude.<*> (x Data..:? "TotalEstimatedMonthlySavingsPercentage")
             Prelude.<*> (x Data..:? "TotalEstimatedMonthlySavingsAmount")
+            Prelude.<*> ( x
+                            Data..:? "TotalEstimatedMonthlySavingsPercentage"
+                        )
       )
 
 instance
@@ -104,8 +106,8 @@ instance
     _salt
     ReservationPurchaseRecommendationSummary' {..} =
       _salt `Prelude.hashWithSalt` currencyCode
-        `Prelude.hashWithSalt` totalEstimatedMonthlySavingsPercentage
         `Prelude.hashWithSalt` totalEstimatedMonthlySavingsAmount
+        `Prelude.hashWithSalt` totalEstimatedMonthlySavingsPercentage
 
 instance
   Prelude.NFData
@@ -113,5 +115,5 @@ instance
   where
   rnf ReservationPurchaseRecommendationSummary' {..} =
     Prelude.rnf currencyCode
-      `Prelude.seq` Prelude.rnf totalEstimatedMonthlySavingsPercentage
       `Prelude.seq` Prelude.rnf totalEstimatedMonthlySavingsAmount
+      `Prelude.seq` Prelude.rnf totalEstimatedMonthlySavingsPercentage

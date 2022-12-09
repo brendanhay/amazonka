@@ -37,17 +37,17 @@ data SavingsPlansUtilizationDetail = SavingsPlansUtilizationDetail'
   { -- | The total amortized commitment for a Savings Plans. Includes the sum of
     -- the upfront and recurring Savings Plans fees.
     amortizedCommitment :: Prelude.Maybe SavingsPlansAmortizedCommitment,
-    -- | A ratio of your effectiveness of using existing Savings Plans to apply
-    -- to workloads that are Savings Plans eligible.
-    utilization :: Prelude.Maybe SavingsPlansUtilization,
+    -- | The attribute that applies to a specific @Dimension@.
+    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The amount saved by using existing Savings Plans. Savings returns both
     -- net savings from savings plans and also the @onDemandCostEquivalent@ of
     -- the Savings Plans when considering the utilization rate.
     savings :: Prelude.Maybe SavingsPlansSavings,
     -- | The unique Amazon Resource Name (ARN) for a particular Savings Plan.
     savingsPlanArn :: Prelude.Maybe Prelude.Text,
-    -- | The attribute that applies to a specific @Dimension@.
-    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    -- | A ratio of your effectiveness of using existing Savings Plans to apply
+    -- to workloads that are Savings Plans eligible.
+    utilization :: Prelude.Maybe SavingsPlansUtilization
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,8 +62,7 @@ data SavingsPlansUtilizationDetail = SavingsPlansUtilizationDetail'
 -- 'amortizedCommitment', 'savingsPlansUtilizationDetail_amortizedCommitment' - The total amortized commitment for a Savings Plans. Includes the sum of
 -- the upfront and recurring Savings Plans fees.
 --
--- 'utilization', 'savingsPlansUtilizationDetail_utilization' - A ratio of your effectiveness of using existing Savings Plans to apply
--- to workloads that are Savings Plans eligible.
+-- 'attributes', 'savingsPlansUtilizationDetail_attributes' - The attribute that applies to a specific @Dimension@.
 --
 -- 'savings', 'savingsPlansUtilizationDetail_savings' - The amount saved by using existing Savings Plans. Savings returns both
 -- net savings from savings plans and also the @onDemandCostEquivalent@ of
@@ -71,17 +70,18 @@ data SavingsPlansUtilizationDetail = SavingsPlansUtilizationDetail'
 --
 -- 'savingsPlanArn', 'savingsPlansUtilizationDetail_savingsPlanArn' - The unique Amazon Resource Name (ARN) for a particular Savings Plan.
 --
--- 'attributes', 'savingsPlansUtilizationDetail_attributes' - The attribute that applies to a specific @Dimension@.
+-- 'utilization', 'savingsPlansUtilizationDetail_utilization' - A ratio of your effectiveness of using existing Savings Plans to apply
+-- to workloads that are Savings Plans eligible.
 newSavingsPlansUtilizationDetail ::
   SavingsPlansUtilizationDetail
 newSavingsPlansUtilizationDetail =
   SavingsPlansUtilizationDetail'
     { amortizedCommitment =
         Prelude.Nothing,
-      utilization = Prelude.Nothing,
+      attributes = Prelude.Nothing,
       savings = Prelude.Nothing,
       savingsPlanArn = Prelude.Nothing,
-      attributes = Prelude.Nothing
+      utilization = Prelude.Nothing
     }
 
 -- | The total amortized commitment for a Savings Plans. Includes the sum of
@@ -89,10 +89,9 @@ newSavingsPlansUtilizationDetail =
 savingsPlansUtilizationDetail_amortizedCommitment :: Lens.Lens' SavingsPlansUtilizationDetail (Prelude.Maybe SavingsPlansAmortizedCommitment)
 savingsPlansUtilizationDetail_amortizedCommitment = Lens.lens (\SavingsPlansUtilizationDetail' {amortizedCommitment} -> amortizedCommitment) (\s@SavingsPlansUtilizationDetail' {} a -> s {amortizedCommitment = a} :: SavingsPlansUtilizationDetail)
 
--- | A ratio of your effectiveness of using existing Savings Plans to apply
--- to workloads that are Savings Plans eligible.
-savingsPlansUtilizationDetail_utilization :: Lens.Lens' SavingsPlansUtilizationDetail (Prelude.Maybe SavingsPlansUtilization)
-savingsPlansUtilizationDetail_utilization = Lens.lens (\SavingsPlansUtilizationDetail' {utilization} -> utilization) (\s@SavingsPlansUtilizationDetail' {} a -> s {utilization = a} :: SavingsPlansUtilizationDetail)
+-- | The attribute that applies to a specific @Dimension@.
+savingsPlansUtilizationDetail_attributes :: Lens.Lens' SavingsPlansUtilizationDetail (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+savingsPlansUtilizationDetail_attributes = Lens.lens (\SavingsPlansUtilizationDetail' {attributes} -> attributes) (\s@SavingsPlansUtilizationDetail' {} a -> s {attributes = a} :: SavingsPlansUtilizationDetail) Prelude.. Lens.mapping Lens.coerced
 
 -- | The amount saved by using existing Savings Plans. Savings returns both
 -- net savings from savings plans and also the @onDemandCostEquivalent@ of
@@ -104,9 +103,10 @@ savingsPlansUtilizationDetail_savings = Lens.lens (\SavingsPlansUtilizationDetai
 savingsPlansUtilizationDetail_savingsPlanArn :: Lens.Lens' SavingsPlansUtilizationDetail (Prelude.Maybe Prelude.Text)
 savingsPlansUtilizationDetail_savingsPlanArn = Lens.lens (\SavingsPlansUtilizationDetail' {savingsPlanArn} -> savingsPlanArn) (\s@SavingsPlansUtilizationDetail' {} a -> s {savingsPlanArn = a} :: SavingsPlansUtilizationDetail)
 
--- | The attribute that applies to a specific @Dimension@.
-savingsPlansUtilizationDetail_attributes :: Lens.Lens' SavingsPlansUtilizationDetail (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-savingsPlansUtilizationDetail_attributes = Lens.lens (\SavingsPlansUtilizationDetail' {attributes} -> attributes) (\s@SavingsPlansUtilizationDetail' {} a -> s {attributes = a} :: SavingsPlansUtilizationDetail) Prelude.. Lens.mapping Lens.coerced
+-- | A ratio of your effectiveness of using existing Savings Plans to apply
+-- to workloads that are Savings Plans eligible.
+savingsPlansUtilizationDetail_utilization :: Lens.Lens' SavingsPlansUtilizationDetail (Prelude.Maybe SavingsPlansUtilization)
+savingsPlansUtilizationDetail_utilization = Lens.lens (\SavingsPlansUtilizationDetail' {utilization} -> utilization) (\s@SavingsPlansUtilizationDetail' {} a -> s {utilization = a} :: SavingsPlansUtilizationDetail)
 
 instance Data.FromJSON SavingsPlansUtilizationDetail where
   parseJSON =
@@ -115,10 +115,10 @@ instance Data.FromJSON SavingsPlansUtilizationDetail where
       ( \x ->
           SavingsPlansUtilizationDetail'
             Prelude.<$> (x Data..:? "AmortizedCommitment")
-            Prelude.<*> (x Data..:? "Utilization")
+            Prelude.<*> (x Data..:? "Attributes" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "Savings")
             Prelude.<*> (x Data..:? "SavingsPlanArn")
-            Prelude.<*> (x Data..:? "Attributes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Utilization")
       )
 
 instance
@@ -127,15 +127,15 @@ instance
   where
   hashWithSalt _salt SavingsPlansUtilizationDetail' {..} =
     _salt `Prelude.hashWithSalt` amortizedCommitment
-      `Prelude.hashWithSalt` utilization
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` savings
       `Prelude.hashWithSalt` savingsPlanArn
-      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` utilization
 
 instance Prelude.NFData SavingsPlansUtilizationDetail where
   rnf SavingsPlansUtilizationDetail' {..} =
     Prelude.rnf amortizedCommitment
-      `Prelude.seq` Prelude.rnf utilization
+      `Prelude.seq` Prelude.rnf attributes
       `Prelude.seq` Prelude.rnf savings
       `Prelude.seq` Prelude.rnf savingsPlanArn
-      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf utilization

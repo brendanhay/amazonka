@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCoverageByTime' smart constructor.
 data CoverageByTime = CoverageByTime'
-  { -- | The total reservation coverage, in hours.
-    total :: Prelude.Maybe Coverage,
+  { -- | The groups of instances that the reservation covered.
+    groups :: Prelude.Maybe [ReservationCoverageGroup],
     -- | The period that this coverage was used over.
     timePeriod :: Prelude.Maybe DateInterval,
-    -- | The groups of instances that the reservation covered.
-    groups :: Prelude.Maybe [ReservationCoverageGroup]
+    -- | The total reservation coverage, in hours.
+    total :: Prelude.Maybe Coverage
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,31 +48,31 @@ data CoverageByTime = CoverageByTime'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'total', 'coverageByTime_total' - The total reservation coverage, in hours.
+-- 'groups', 'coverageByTime_groups' - The groups of instances that the reservation covered.
 --
 -- 'timePeriod', 'coverageByTime_timePeriod' - The period that this coverage was used over.
 --
--- 'groups', 'coverageByTime_groups' - The groups of instances that the reservation covered.
+-- 'total', 'coverageByTime_total' - The total reservation coverage, in hours.
 newCoverageByTime ::
   CoverageByTime
 newCoverageByTime =
   CoverageByTime'
-    { total = Prelude.Nothing,
+    { groups = Prelude.Nothing,
       timePeriod = Prelude.Nothing,
-      groups = Prelude.Nothing
+      total = Prelude.Nothing
     }
 
--- | The total reservation coverage, in hours.
-coverageByTime_total :: Lens.Lens' CoverageByTime (Prelude.Maybe Coverage)
-coverageByTime_total = Lens.lens (\CoverageByTime' {total} -> total) (\s@CoverageByTime' {} a -> s {total = a} :: CoverageByTime)
+-- | The groups of instances that the reservation covered.
+coverageByTime_groups :: Lens.Lens' CoverageByTime (Prelude.Maybe [ReservationCoverageGroup])
+coverageByTime_groups = Lens.lens (\CoverageByTime' {groups} -> groups) (\s@CoverageByTime' {} a -> s {groups = a} :: CoverageByTime) Prelude.. Lens.mapping Lens.coerced
 
 -- | The period that this coverage was used over.
 coverageByTime_timePeriod :: Lens.Lens' CoverageByTime (Prelude.Maybe DateInterval)
 coverageByTime_timePeriod = Lens.lens (\CoverageByTime' {timePeriod} -> timePeriod) (\s@CoverageByTime' {} a -> s {timePeriod = a} :: CoverageByTime)
 
--- | The groups of instances that the reservation covered.
-coverageByTime_groups :: Lens.Lens' CoverageByTime (Prelude.Maybe [ReservationCoverageGroup])
-coverageByTime_groups = Lens.lens (\CoverageByTime' {groups} -> groups) (\s@CoverageByTime' {} a -> s {groups = a} :: CoverageByTime) Prelude.. Lens.mapping Lens.coerced
+-- | The total reservation coverage, in hours.
+coverageByTime_total :: Lens.Lens' CoverageByTime (Prelude.Maybe Coverage)
+coverageByTime_total = Lens.lens (\CoverageByTime' {total} -> total) (\s@CoverageByTime' {} a -> s {total = a} :: CoverageByTime)
 
 instance Data.FromJSON CoverageByTime where
   parseJSON =
@@ -80,19 +80,19 @@ instance Data.FromJSON CoverageByTime where
       "CoverageByTime"
       ( \x ->
           CoverageByTime'
-            Prelude.<$> (x Data..:? "Total")
+            Prelude.<$> (x Data..:? "Groups" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "TimePeriod")
-            Prelude.<*> (x Data..:? "Groups" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Total")
       )
 
 instance Prelude.Hashable CoverageByTime where
   hashWithSalt _salt CoverageByTime' {..} =
-    _salt `Prelude.hashWithSalt` total
+    _salt `Prelude.hashWithSalt` groups
       `Prelude.hashWithSalt` timePeriod
-      `Prelude.hashWithSalt` groups
+      `Prelude.hashWithSalt` total
 
 instance Prelude.NFData CoverageByTime where
   rnf CoverageByTime' {..} =
-    Prelude.rnf total
+    Prelude.rnf groups
       `Prelude.seq` Prelude.rnf timePeriod
-      `Prelude.seq` Prelude.rnf groups
+      `Prelude.seq` Prelude.rnf total

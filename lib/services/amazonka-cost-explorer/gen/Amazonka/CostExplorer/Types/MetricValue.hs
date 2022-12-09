@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMetricValue' smart constructor.
 data MetricValue = MetricValue'
-  { -- | The unit that the metric is given in.
-    unit :: Prelude.Maybe Prelude.Text,
-    -- | The actual number that represents the metric.
-    amount :: Prelude.Maybe Prelude.Text
+  { -- | The actual number that represents the metric.
+    amount :: Prelude.Maybe Prelude.Text,
+    -- | The unit that the metric is given in.
+    unit :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data MetricValue = MetricValue'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'unit', 'metricValue_unit' - The unit that the metric is given in.
---
 -- 'amount', 'metricValue_amount' - The actual number that represents the metric.
+--
+-- 'unit', 'metricValue_unit' - The unit that the metric is given in.
 newMetricValue ::
   MetricValue
 newMetricValue =
   MetricValue'
-    { unit = Prelude.Nothing,
-      amount = Prelude.Nothing
+    { amount = Prelude.Nothing,
+      unit = Prelude.Nothing
     }
-
--- | The unit that the metric is given in.
-metricValue_unit :: Lens.Lens' MetricValue (Prelude.Maybe Prelude.Text)
-metricValue_unit = Lens.lens (\MetricValue' {unit} -> unit) (\s@MetricValue' {} a -> s {unit = a} :: MetricValue)
 
 -- | The actual number that represents the metric.
 metricValue_amount :: Lens.Lens' MetricValue (Prelude.Maybe Prelude.Text)
 metricValue_amount = Lens.lens (\MetricValue' {amount} -> amount) (\s@MetricValue' {} a -> s {amount = a} :: MetricValue)
+
+-- | The unit that the metric is given in.
+metricValue_unit :: Lens.Lens' MetricValue (Prelude.Maybe Prelude.Text)
+metricValue_unit = Lens.lens (\MetricValue' {unit} -> unit) (\s@MetricValue' {} a -> s {unit = a} :: MetricValue)
 
 instance Data.FromJSON MetricValue where
   parseJSON =
@@ -68,15 +68,15 @@ instance Data.FromJSON MetricValue where
       "MetricValue"
       ( \x ->
           MetricValue'
-            Prelude.<$> (x Data..:? "Unit")
-            Prelude.<*> (x Data..:? "Amount")
+            Prelude.<$> (x Data..:? "Amount")
+            Prelude.<*> (x Data..:? "Unit")
       )
 
 instance Prelude.Hashable MetricValue where
   hashWithSalt _salt MetricValue' {..} =
-    _salt `Prelude.hashWithSalt` unit
-      `Prelude.hashWithSalt` amount
+    _salt `Prelude.hashWithSalt` amount
+      `Prelude.hashWithSalt` unit
 
 instance Prelude.NFData MetricValue where
   rnf MetricValue' {..} =
-    Prelude.rnf unit `Prelude.seq` Prelude.rnf amount
+    Prelude.rnf amount `Prelude.seq` Prelude.rnf unit

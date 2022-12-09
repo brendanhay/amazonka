@@ -33,20 +33,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRightsizingRecommendation' smart constructor.
 data RightsizingRecommendation = RightsizingRecommendation'
-  { -- | The list of possible reasons why the recommendation is generated, such
-    -- as under- or over-utilization of specific metrics (for example, CPU,
-    -- Memory, Network).
-    findingReasonCodes :: Prelude.Maybe [FindingReasonCode],
-    -- | The details for termination recommendations.
-    terminateRecommendationDetail :: Prelude.Maybe TerminateRecommendationDetail,
-    -- | The details for the modification recommendations.
-    modifyRecommendationDetail :: Prelude.Maybe ModifyRecommendationDetail,
-    -- | The account that this recommendation is for.
+  { -- | The account that this recommendation is for.
     accountId :: Prelude.Maybe Prelude.Text,
     -- | Context regarding the current instance.
     currentInstance :: Prelude.Maybe CurrentInstance,
+    -- | The list of possible reasons why the recommendation is generated, such
+    -- as under- or over-utilization of specific metrics (for example, CPU,
+    -- Memory, Network).
+    findingReasonCodes :: Prelude.Maybe [FindingReasonCode],
+    -- | The details for the modification recommendations.
+    modifyRecommendationDetail :: Prelude.Maybe ModifyRecommendationDetail,
     -- | A recommendation to either terminate or modify the resource.
-    rightsizingType :: Prelude.Maybe RightsizingType
+    rightsizingType :: Prelude.Maybe RightsizingType,
+    -- | The details for termination recommendations.
+    terminateRecommendationDetail :: Prelude.Maybe TerminateRecommendationDetail
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,45 +58,31 @@ data RightsizingRecommendation = RightsizingRecommendation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'findingReasonCodes', 'rightsizingRecommendation_findingReasonCodes' - The list of possible reasons why the recommendation is generated, such
--- as under- or over-utilization of specific metrics (for example, CPU,
--- Memory, Network).
---
--- 'terminateRecommendationDetail', 'rightsizingRecommendation_terminateRecommendationDetail' - The details for termination recommendations.
---
--- 'modifyRecommendationDetail', 'rightsizingRecommendation_modifyRecommendationDetail' - The details for the modification recommendations.
---
 -- 'accountId', 'rightsizingRecommendation_accountId' - The account that this recommendation is for.
 --
 -- 'currentInstance', 'rightsizingRecommendation_currentInstance' - Context regarding the current instance.
 --
+-- 'findingReasonCodes', 'rightsizingRecommendation_findingReasonCodes' - The list of possible reasons why the recommendation is generated, such
+-- as under- or over-utilization of specific metrics (for example, CPU,
+-- Memory, Network).
+--
+-- 'modifyRecommendationDetail', 'rightsizingRecommendation_modifyRecommendationDetail' - The details for the modification recommendations.
+--
 -- 'rightsizingType', 'rightsizingRecommendation_rightsizingType' - A recommendation to either terminate or modify the resource.
+--
+-- 'terminateRecommendationDetail', 'rightsizingRecommendation_terminateRecommendationDetail' - The details for termination recommendations.
 newRightsizingRecommendation ::
   RightsizingRecommendation
 newRightsizingRecommendation =
   RightsizingRecommendation'
-    { findingReasonCodes =
+    { accountId =
         Prelude.Nothing,
-      terminateRecommendationDetail = Prelude.Nothing,
-      modifyRecommendationDetail = Prelude.Nothing,
-      accountId = Prelude.Nothing,
       currentInstance = Prelude.Nothing,
-      rightsizingType = Prelude.Nothing
+      findingReasonCodes = Prelude.Nothing,
+      modifyRecommendationDetail = Prelude.Nothing,
+      rightsizingType = Prelude.Nothing,
+      terminateRecommendationDetail = Prelude.Nothing
     }
-
--- | The list of possible reasons why the recommendation is generated, such
--- as under- or over-utilization of specific metrics (for example, CPU,
--- Memory, Network).
-rightsizingRecommendation_findingReasonCodes :: Lens.Lens' RightsizingRecommendation (Prelude.Maybe [FindingReasonCode])
-rightsizingRecommendation_findingReasonCodes = Lens.lens (\RightsizingRecommendation' {findingReasonCodes} -> findingReasonCodes) (\s@RightsizingRecommendation' {} a -> s {findingReasonCodes = a} :: RightsizingRecommendation) Prelude.. Lens.mapping Lens.coerced
-
--- | The details for termination recommendations.
-rightsizingRecommendation_terminateRecommendationDetail :: Lens.Lens' RightsizingRecommendation (Prelude.Maybe TerminateRecommendationDetail)
-rightsizingRecommendation_terminateRecommendationDetail = Lens.lens (\RightsizingRecommendation' {terminateRecommendationDetail} -> terminateRecommendationDetail) (\s@RightsizingRecommendation' {} a -> s {terminateRecommendationDetail = a} :: RightsizingRecommendation)
-
--- | The details for the modification recommendations.
-rightsizingRecommendation_modifyRecommendationDetail :: Lens.Lens' RightsizingRecommendation (Prelude.Maybe ModifyRecommendationDetail)
-rightsizingRecommendation_modifyRecommendationDetail = Lens.lens (\RightsizingRecommendation' {modifyRecommendationDetail} -> modifyRecommendationDetail) (\s@RightsizingRecommendation' {} a -> s {modifyRecommendationDetail = a} :: RightsizingRecommendation)
 
 -- | The account that this recommendation is for.
 rightsizingRecommendation_accountId :: Lens.Lens' RightsizingRecommendation (Prelude.Maybe Prelude.Text)
@@ -106,9 +92,23 @@ rightsizingRecommendation_accountId = Lens.lens (\RightsizingRecommendation' {ac
 rightsizingRecommendation_currentInstance :: Lens.Lens' RightsizingRecommendation (Prelude.Maybe CurrentInstance)
 rightsizingRecommendation_currentInstance = Lens.lens (\RightsizingRecommendation' {currentInstance} -> currentInstance) (\s@RightsizingRecommendation' {} a -> s {currentInstance = a} :: RightsizingRecommendation)
 
+-- | The list of possible reasons why the recommendation is generated, such
+-- as under- or over-utilization of specific metrics (for example, CPU,
+-- Memory, Network).
+rightsizingRecommendation_findingReasonCodes :: Lens.Lens' RightsizingRecommendation (Prelude.Maybe [FindingReasonCode])
+rightsizingRecommendation_findingReasonCodes = Lens.lens (\RightsizingRecommendation' {findingReasonCodes} -> findingReasonCodes) (\s@RightsizingRecommendation' {} a -> s {findingReasonCodes = a} :: RightsizingRecommendation) Prelude.. Lens.mapping Lens.coerced
+
+-- | The details for the modification recommendations.
+rightsizingRecommendation_modifyRecommendationDetail :: Lens.Lens' RightsizingRecommendation (Prelude.Maybe ModifyRecommendationDetail)
+rightsizingRecommendation_modifyRecommendationDetail = Lens.lens (\RightsizingRecommendation' {modifyRecommendationDetail} -> modifyRecommendationDetail) (\s@RightsizingRecommendation' {} a -> s {modifyRecommendationDetail = a} :: RightsizingRecommendation)
+
 -- | A recommendation to either terminate or modify the resource.
 rightsizingRecommendation_rightsizingType :: Lens.Lens' RightsizingRecommendation (Prelude.Maybe RightsizingType)
 rightsizingRecommendation_rightsizingType = Lens.lens (\RightsizingRecommendation' {rightsizingType} -> rightsizingType) (\s@RightsizingRecommendation' {} a -> s {rightsizingType = a} :: RightsizingRecommendation)
+
+-- | The details for termination recommendations.
+rightsizingRecommendation_terminateRecommendationDetail :: Lens.Lens' RightsizingRecommendation (Prelude.Maybe TerminateRecommendationDetail)
+rightsizingRecommendation_terminateRecommendationDetail = Lens.lens (\RightsizingRecommendation' {terminateRecommendationDetail} -> terminateRecommendationDetail) (\s@RightsizingRecommendation' {} a -> s {terminateRecommendationDetail = a} :: RightsizingRecommendation)
 
 instance Data.FromJSON RightsizingRecommendation where
   parseJSON =
@@ -116,30 +116,30 @@ instance Data.FromJSON RightsizingRecommendation where
       "RightsizingRecommendation"
       ( \x ->
           RightsizingRecommendation'
-            Prelude.<$> ( x Data..:? "FindingReasonCodes"
+            Prelude.<$> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "CurrentInstance")
+            Prelude.<*> ( x Data..:? "FindingReasonCodes"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "TerminateRecommendationDetail")
             Prelude.<*> (x Data..:? "ModifyRecommendationDetail")
-            Prelude.<*> (x Data..:? "AccountId")
-            Prelude.<*> (x Data..:? "CurrentInstance")
             Prelude.<*> (x Data..:? "RightsizingType")
+            Prelude.<*> (x Data..:? "TerminateRecommendationDetail")
       )
 
 instance Prelude.Hashable RightsizingRecommendation where
   hashWithSalt _salt RightsizingRecommendation' {..} =
-    _salt `Prelude.hashWithSalt` findingReasonCodes
-      `Prelude.hashWithSalt` terminateRecommendationDetail
-      `Prelude.hashWithSalt` modifyRecommendationDetail
-      `Prelude.hashWithSalt` accountId
+    _salt `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` currentInstance
+      `Prelude.hashWithSalt` findingReasonCodes
+      `Prelude.hashWithSalt` modifyRecommendationDetail
       `Prelude.hashWithSalt` rightsizingType
+      `Prelude.hashWithSalt` terminateRecommendationDetail
 
 instance Prelude.NFData RightsizingRecommendation where
   rnf RightsizingRecommendation' {..} =
-    Prelude.rnf findingReasonCodes
-      `Prelude.seq` Prelude.rnf terminateRecommendationDetail
-      `Prelude.seq` Prelude.rnf modifyRecommendationDetail
-      `Prelude.seq` Prelude.rnf accountId
+    Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf currentInstance
+      `Prelude.seq` Prelude.rnf findingReasonCodes
+      `Prelude.seq` Prelude.rnf modifyRecommendationDetail
       `Prelude.seq` Prelude.rnf rightsizingType
+      `Prelude.seq` Prelude.rnf terminateRecommendationDetail

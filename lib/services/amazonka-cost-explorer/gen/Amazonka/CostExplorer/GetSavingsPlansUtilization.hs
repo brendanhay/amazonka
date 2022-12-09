@@ -34,9 +34,9 @@ module Amazonka.CostExplorer.GetSavingsPlansUtilization
     newGetSavingsPlansUtilization,
 
     -- * Request Lenses
+    getSavingsPlansUtilization_filter,
     getSavingsPlansUtilization_granularity,
     getSavingsPlansUtilization_sortBy,
-    getSavingsPlansUtilization_filter,
     getSavingsPlansUtilization_timePeriod,
 
     -- * Destructuring the Response
@@ -60,7 +60,27 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetSavingsPlansUtilization' smart constructor.
 data GetSavingsPlansUtilization = GetSavingsPlansUtilization'
-  { -- | The granularity of the Amazon Web Services utillization data for your
+  { -- | Filters Savings Plans utilization coverage data for active Savings Plans
+    -- dimensions. You can filter data with the following dimensions:
+    --
+    -- -   @LINKED_ACCOUNT@
+    --
+    -- -   @SAVINGS_PLAN_ARN@
+    --
+    -- -   @SAVINGS_PLANS_TYPE@
+    --
+    -- -   @REGION@
+    --
+    -- -   @PAYMENT_OPTION@
+    --
+    -- -   @INSTANCE_TYPE_FAMILY@
+    --
+    -- @GetSavingsPlansUtilization@ uses the same
+    -- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression>
+    -- object as the other operations, but only @AND@ is supported among each
+    -- dimension.
+    filter' :: Prelude.Maybe Expression,
+    -- | The granularity of the Amazon Web Services utillization data for your
     -- Savings Plans.
     --
     -- The @GetSavingsPlansUtilization@ operation supports only @DAILY@ and
@@ -82,26 +102,6 @@ data GetSavingsPlansUtilization = GetSavingsPlansUtilization'
     --
     -- The supported values for @SortOrder@ are @ASCENDING@ and @DESCENDING@.
     sortBy :: Prelude.Maybe SortDefinition,
-    -- | Filters Savings Plans utilization coverage data for active Savings Plans
-    -- dimensions. You can filter data with the following dimensions:
-    --
-    -- -   @LINKED_ACCOUNT@
-    --
-    -- -   @SAVINGS_PLAN_ARN@
-    --
-    -- -   @SAVINGS_PLANS_TYPE@
-    --
-    -- -   @REGION@
-    --
-    -- -   @PAYMENT_OPTION@
-    --
-    -- -   @INSTANCE_TYPE_FAMILY@
-    --
-    -- @GetSavingsPlansUtilization@ uses the same
-    -- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression>
-    -- object as the other operations, but only @AND@ is supported among each
-    -- dimension.
-    filter' :: Prelude.Maybe Expression,
     -- | The time period that you want the usage and costs for. The @Start@ date
     -- must be within 13 months. The @End@ date must be after the @Start@ date,
     -- and before the current date. Future dates can\'t be used as an @End@
@@ -117,6 +117,26 @@ data GetSavingsPlansUtilization = GetSavingsPlansUtilization'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'filter'', 'getSavingsPlansUtilization_filter' - Filters Savings Plans utilization coverage data for active Savings Plans
+-- dimensions. You can filter data with the following dimensions:
+--
+-- -   @LINKED_ACCOUNT@
+--
+-- -   @SAVINGS_PLAN_ARN@
+--
+-- -   @SAVINGS_PLANS_TYPE@
+--
+-- -   @REGION@
+--
+-- -   @PAYMENT_OPTION@
+--
+-- -   @INSTANCE_TYPE_FAMILY@
+--
+-- @GetSavingsPlansUtilization@ uses the same
+-- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression>
+-- object as the other operations, but only @AND@ is supported among each
+-- dimension.
 --
 -- 'granularity', 'getSavingsPlansUtilization_granularity' - The granularity of the Amazon Web Services utillization data for your
 -- Savings Plans.
@@ -140,7 +160,24 @@ data GetSavingsPlansUtilization = GetSavingsPlansUtilization'
 --
 -- The supported values for @SortOrder@ are @ASCENDING@ and @DESCENDING@.
 --
--- 'filter'', 'getSavingsPlansUtilization_filter' - Filters Savings Plans utilization coverage data for active Savings Plans
+-- 'timePeriod', 'getSavingsPlansUtilization_timePeriod' - The time period that you want the usage and costs for. The @Start@ date
+-- must be within 13 months. The @End@ date must be after the @Start@ date,
+-- and before the current date. Future dates can\'t be used as an @End@
+-- date.
+newGetSavingsPlansUtilization ::
+  -- | 'timePeriod'
+  DateInterval ->
+  GetSavingsPlansUtilization
+newGetSavingsPlansUtilization pTimePeriod_ =
+  GetSavingsPlansUtilization'
+    { filter' =
+        Prelude.Nothing,
+      granularity = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
+      timePeriod = pTimePeriod_
+    }
+
+-- | Filters Savings Plans utilization coverage data for active Savings Plans
 -- dimensions. You can filter data with the following dimensions:
 --
 -- -   @LINKED_ACCOUNT@
@@ -159,23 +196,8 @@ data GetSavingsPlansUtilization = GetSavingsPlansUtilization'
 -- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression>
 -- object as the other operations, but only @AND@ is supported among each
 -- dimension.
---
--- 'timePeriod', 'getSavingsPlansUtilization_timePeriod' - The time period that you want the usage and costs for. The @Start@ date
--- must be within 13 months. The @End@ date must be after the @Start@ date,
--- and before the current date. Future dates can\'t be used as an @End@
--- date.
-newGetSavingsPlansUtilization ::
-  -- | 'timePeriod'
-  DateInterval ->
-  GetSavingsPlansUtilization
-newGetSavingsPlansUtilization pTimePeriod_ =
-  GetSavingsPlansUtilization'
-    { granularity =
-        Prelude.Nothing,
-      sortBy = Prelude.Nothing,
-      filter' = Prelude.Nothing,
-      timePeriod = pTimePeriod_
-    }
+getSavingsPlansUtilization_filter :: Lens.Lens' GetSavingsPlansUtilization (Prelude.Maybe Expression)
+getSavingsPlansUtilization_filter = Lens.lens (\GetSavingsPlansUtilization' {filter'} -> filter') (\s@GetSavingsPlansUtilization' {} a -> s {filter' = a} :: GetSavingsPlansUtilization)
 
 -- | The granularity of the Amazon Web Services utillization data for your
 -- Savings Plans.
@@ -203,28 +225,6 @@ getSavingsPlansUtilization_granularity = Lens.lens (\GetSavingsPlansUtilization'
 getSavingsPlansUtilization_sortBy :: Lens.Lens' GetSavingsPlansUtilization (Prelude.Maybe SortDefinition)
 getSavingsPlansUtilization_sortBy = Lens.lens (\GetSavingsPlansUtilization' {sortBy} -> sortBy) (\s@GetSavingsPlansUtilization' {} a -> s {sortBy = a} :: GetSavingsPlansUtilization)
 
--- | Filters Savings Plans utilization coverage data for active Savings Plans
--- dimensions. You can filter data with the following dimensions:
---
--- -   @LINKED_ACCOUNT@
---
--- -   @SAVINGS_PLAN_ARN@
---
--- -   @SAVINGS_PLANS_TYPE@
---
--- -   @REGION@
---
--- -   @PAYMENT_OPTION@
---
--- -   @INSTANCE_TYPE_FAMILY@
---
--- @GetSavingsPlansUtilization@ uses the same
--- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression>
--- object as the other operations, but only @AND@ is supported among each
--- dimension.
-getSavingsPlansUtilization_filter :: Lens.Lens' GetSavingsPlansUtilization (Prelude.Maybe Expression)
-getSavingsPlansUtilization_filter = Lens.lens (\GetSavingsPlansUtilization' {filter'} -> filter') (\s@GetSavingsPlansUtilization' {} a -> s {filter' = a} :: GetSavingsPlansUtilization)
-
 -- | The time period that you want the usage and costs for. The @Start@ date
 -- must be within 13 months. The @End@ date must be after the @Start@ date,
 -- and before the current date. Future dates can\'t be used as an @End@
@@ -251,16 +251,16 @@ instance Core.AWSRequest GetSavingsPlansUtilization where
 
 instance Prelude.Hashable GetSavingsPlansUtilization where
   hashWithSalt _salt GetSavingsPlansUtilization' {..} =
-    _salt `Prelude.hashWithSalt` granularity
+    _salt `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` granularity
       `Prelude.hashWithSalt` sortBy
-      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` timePeriod
 
 instance Prelude.NFData GetSavingsPlansUtilization where
   rnf GetSavingsPlansUtilization' {..} =
-    Prelude.rnf granularity
+    Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf granularity
       `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf timePeriod
 
 instance Data.ToHeaders GetSavingsPlansUtilization where
@@ -282,9 +282,9 @@ instance Data.ToJSON GetSavingsPlansUtilization where
   toJSON GetSavingsPlansUtilization' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Granularity" Data..=) Prelude.<$> granularity,
+          [ ("Filter" Data..=) Prelude.<$> filter',
+            ("Granularity" Data..=) Prelude.<$> granularity,
             ("SortBy" Data..=) Prelude.<$> sortBy,
-            ("Filter" Data..=) Prelude.<$> filter',
             Prelude.Just ("TimePeriod" Data..= timePeriod)
           ]
       )

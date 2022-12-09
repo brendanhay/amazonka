@@ -29,8 +29,8 @@ module Amazonka.CostExplorer.GetCostForecast
     newGetCostForecast,
 
     -- * Request Lenses
-    getCostForecast_predictionIntervalLevel,
     getCostForecast_filter,
+    getCostForecast_predictionIntervalLevel,
     getCostForecast_timePeriod,
     getCostForecast_metric,
     getCostForecast_granularity,
@@ -56,13 +56,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetCostForecast' smart constructor.
 data GetCostForecast = GetCostForecast'
-  { -- | Cost Explorer always returns the mean forecast as a single point. You
-    -- can request a prediction interval around the mean by specifying a
-    -- confidence level. The higher the confidence level, the more confident
-    -- Cost Explorer is about the actual value falling in the prediction
-    -- interval. Higher confidence levels result in wider prediction intervals.
-    predictionIntervalLevel :: Prelude.Maybe Prelude.Natural,
-    -- | The filters that you want to use to filter your forecast. The
+  { -- | The filters that you want to use to filter your forecast. The
     -- @GetCostForecast@ API supports filtering by the following dimensions:
     --
     -- -   @AZ@
@@ -111,6 +105,12 @@ data GetCostForecast = GetCostForecast'
     --
     -- -   @SAVINGS_PLAN_ARN@
     filter' :: Prelude.Maybe Expression,
+    -- | Cost Explorer always returns the mean forecast as a single point. You
+    -- can request a prediction interval around the mean by specifying a
+    -- confidence level. The higher the confidence level, the more confident
+    -- Cost Explorer is about the actual value falling in the prediction
+    -- interval. Higher confidence levels result in wider prediction intervals.
+    predictionIntervalLevel :: Prelude.Maybe Prelude.Natural,
     -- | The period of time that you want the forecast to cover. The start date
     -- must be equal to or no later than the current date to avoid a validation
     -- error.
@@ -147,12 +147,6 @@ data GetCostForecast = GetCostForecast'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'predictionIntervalLevel', 'getCostForecast_predictionIntervalLevel' - Cost Explorer always returns the mean forecast as a single point. You
--- can request a prediction interval around the mean by specifying a
--- confidence level. The higher the confidence level, the more confident
--- Cost Explorer is about the actual value falling in the prediction
--- interval. Higher confidence levels result in wider prediction intervals.
 --
 -- 'filter'', 'getCostForecast_filter' - The filters that you want to use to filter your forecast. The
 -- @GetCostForecast@ API supports filtering by the following dimensions:
@@ -203,6 +197,12 @@ data GetCostForecast = GetCostForecast'
 --
 -- -   @SAVINGS_PLAN_ARN@
 --
+-- 'predictionIntervalLevel', 'getCostForecast_predictionIntervalLevel' - Cost Explorer always returns the mean forecast as a single point. You
+-- can request a prediction interval around the mean by specifying a
+-- confidence level. The higher the confidence level, the more confident
+-- Cost Explorer is about the actual value falling in the prediction
+-- interval. Higher confidence levels result in wider prediction intervals.
+--
 -- 'timePeriod', 'getCostForecast_timePeriod' - The period of time that you want the forecast to cover. The start date
 -- must be equal to or no later than the current date to avoid a validation
 -- error.
@@ -241,21 +241,12 @@ newGetCostForecast
   pMetric_
   pGranularity_ =
     GetCostForecast'
-      { predictionIntervalLevel =
-          Prelude.Nothing,
-        filter' = Prelude.Nothing,
+      { filter' = Prelude.Nothing,
+        predictionIntervalLevel = Prelude.Nothing,
         timePeriod = pTimePeriod_,
         metric = pMetric_,
         granularity = pGranularity_
       }
-
--- | Cost Explorer always returns the mean forecast as a single point. You
--- can request a prediction interval around the mean by specifying a
--- confidence level. The higher the confidence level, the more confident
--- Cost Explorer is about the actual value falling in the prediction
--- interval. Higher confidence levels result in wider prediction intervals.
-getCostForecast_predictionIntervalLevel :: Lens.Lens' GetCostForecast (Prelude.Maybe Prelude.Natural)
-getCostForecast_predictionIntervalLevel = Lens.lens (\GetCostForecast' {predictionIntervalLevel} -> predictionIntervalLevel) (\s@GetCostForecast' {} a -> s {predictionIntervalLevel = a} :: GetCostForecast)
 
 -- | The filters that you want to use to filter your forecast. The
 -- @GetCostForecast@ API supports filtering by the following dimensions:
@@ -308,6 +299,14 @@ getCostForecast_predictionIntervalLevel = Lens.lens (\GetCostForecast' {predicti
 getCostForecast_filter :: Lens.Lens' GetCostForecast (Prelude.Maybe Expression)
 getCostForecast_filter = Lens.lens (\GetCostForecast' {filter'} -> filter') (\s@GetCostForecast' {} a -> s {filter' = a} :: GetCostForecast)
 
+-- | Cost Explorer always returns the mean forecast as a single point. You
+-- can request a prediction interval around the mean by specifying a
+-- confidence level. The higher the confidence level, the more confident
+-- Cost Explorer is about the actual value falling in the prediction
+-- interval. Higher confidence levels result in wider prediction intervals.
+getCostForecast_predictionIntervalLevel :: Lens.Lens' GetCostForecast (Prelude.Maybe Prelude.Natural)
+getCostForecast_predictionIntervalLevel = Lens.lens (\GetCostForecast' {predictionIntervalLevel} -> predictionIntervalLevel) (\s@GetCostForecast' {} a -> s {predictionIntervalLevel = a} :: GetCostForecast)
+
 -- | The period of time that you want the forecast to cover. The start date
 -- must be equal to or no later than the current date to avoid a validation
 -- error.
@@ -359,17 +358,16 @@ instance Core.AWSRequest GetCostForecast where
 
 instance Prelude.Hashable GetCostForecast where
   hashWithSalt _salt GetCostForecast' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` predictionIntervalLevel
-      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` timePeriod
       `Prelude.hashWithSalt` metric
       `Prelude.hashWithSalt` granularity
 
 instance Prelude.NFData GetCostForecast where
   rnf GetCostForecast' {..} =
-    Prelude.rnf predictionIntervalLevel
-      `Prelude.seq` Prelude.rnf filter'
+    Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf predictionIntervalLevel
       `Prelude.seq` Prelude.rnf timePeriod
       `Prelude.seq` Prelude.rnf metric
       `Prelude.seq` Prelude.rnf granularity
@@ -393,9 +391,9 @@ instance Data.ToJSON GetCostForecast where
   toJSON GetCostForecast' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("PredictionIntervalLevel" Data..=)
+          [ ("Filter" Data..=) Prelude.<$> filter',
+            ("PredictionIntervalLevel" Data..=)
               Prelude.<$> predictionIntervalLevel,
-            ("Filter" Data..=) Prelude.<$> filter',
             Prelude.Just ("TimePeriod" Data..= timePeriod),
             Prelude.Just ("Metric" Data..= metric),
             Prelude.Just ("Granularity" Data..= granularity)

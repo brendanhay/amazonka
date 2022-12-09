@@ -32,7 +32,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAlarmState' smart constructor.
 data AlarmState = AlarmState'
-  { -- | Information needed to evaluate data.
+  { -- | Contains information about the action that you can take to respond to
+    -- the alarm.
+    customerAction :: Prelude.Maybe CustomerAction,
+    -- | Information needed to evaluate data.
     ruleEvaluation :: Prelude.Maybe RuleEvaluation,
     -- | The name of the alarm state. The state name can be one of the following
     -- values:
@@ -61,10 +64,7 @@ data AlarmState = AlarmState'
     --     state, you must acknowledge the alarm.
     stateName :: Prelude.Maybe AlarmStateName,
     -- | Contains information about alarm state changes.
-    systemEvent :: Prelude.Maybe SystemEvent,
-    -- | Contains information about the action that you can take to respond to
-    -- the alarm.
-    customerAction :: Prelude.Maybe CustomerAction
+    systemEvent :: Prelude.Maybe SystemEvent
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,6 +75,9 @@ data AlarmState = AlarmState'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'customerAction', 'alarmState_customerAction' - Contains information about the action that you can take to respond to
+-- the alarm.
 --
 -- 'ruleEvaluation', 'alarmState_ruleEvaluation' - Information needed to evaluate data.
 --
@@ -105,18 +108,20 @@ data AlarmState = AlarmState'
 --     state, you must acknowledge the alarm.
 --
 -- 'systemEvent', 'alarmState_systemEvent' - Contains information about alarm state changes.
---
--- 'customerAction', 'alarmState_customerAction' - Contains information about the action that you can take to respond to
--- the alarm.
 newAlarmState ::
   AlarmState
 newAlarmState =
   AlarmState'
-    { ruleEvaluation = Prelude.Nothing,
+    { customerAction = Prelude.Nothing,
+      ruleEvaluation = Prelude.Nothing,
       stateName = Prelude.Nothing,
-      systemEvent = Prelude.Nothing,
-      customerAction = Prelude.Nothing
+      systemEvent = Prelude.Nothing
     }
+
+-- | Contains information about the action that you can take to respond to
+-- the alarm.
+alarmState_customerAction :: Lens.Lens' AlarmState (Prelude.Maybe CustomerAction)
+alarmState_customerAction = Lens.lens (\AlarmState' {customerAction} -> customerAction) (\s@AlarmState' {} a -> s {customerAction = a} :: AlarmState)
 
 -- | Information needed to evaluate data.
 alarmState_ruleEvaluation :: Lens.Lens' AlarmState (Prelude.Maybe RuleEvaluation)
@@ -154,33 +159,28 @@ alarmState_stateName = Lens.lens (\AlarmState' {stateName} -> stateName) (\s@Ala
 alarmState_systemEvent :: Lens.Lens' AlarmState (Prelude.Maybe SystemEvent)
 alarmState_systemEvent = Lens.lens (\AlarmState' {systemEvent} -> systemEvent) (\s@AlarmState' {} a -> s {systemEvent = a} :: AlarmState)
 
--- | Contains information about the action that you can take to respond to
--- the alarm.
-alarmState_customerAction :: Lens.Lens' AlarmState (Prelude.Maybe CustomerAction)
-alarmState_customerAction = Lens.lens (\AlarmState' {customerAction} -> customerAction) (\s@AlarmState' {} a -> s {customerAction = a} :: AlarmState)
-
 instance Data.FromJSON AlarmState where
   parseJSON =
     Data.withObject
       "AlarmState"
       ( \x ->
           AlarmState'
-            Prelude.<$> (x Data..:? "ruleEvaluation")
+            Prelude.<$> (x Data..:? "customerAction")
+            Prelude.<*> (x Data..:? "ruleEvaluation")
             Prelude.<*> (x Data..:? "stateName")
             Prelude.<*> (x Data..:? "systemEvent")
-            Prelude.<*> (x Data..:? "customerAction")
       )
 
 instance Prelude.Hashable AlarmState where
   hashWithSalt _salt AlarmState' {..} =
-    _salt `Prelude.hashWithSalt` ruleEvaluation
+    _salt `Prelude.hashWithSalt` customerAction
+      `Prelude.hashWithSalt` ruleEvaluation
       `Prelude.hashWithSalt` stateName
       `Prelude.hashWithSalt` systemEvent
-      `Prelude.hashWithSalt` customerAction
 
 instance Prelude.NFData AlarmState where
   rnf AlarmState' {..} =
-    Prelude.rnf ruleEvaluation
+    Prelude.rnf customerAction
+      `Prelude.seq` Prelude.rnf ruleEvaluation
       `Prelude.seq` Prelude.rnf stateName
       `Prelude.seq` Prelude.rnf systemEvent
-      `Prelude.seq` Prelude.rnf customerAction

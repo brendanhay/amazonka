@@ -28,8 +28,8 @@ module Amazonka.IoTEventsData.ListAlarms
     newListAlarms,
 
     -- * Request Lenses
-    listAlarms_nextToken,
     listAlarms_maxResults,
+    listAlarms_nextToken,
     listAlarms_alarmModelName,
 
     -- * Destructuring the Response
@@ -37,8 +37,8 @@ module Amazonka.IoTEventsData.ListAlarms
     newListAlarmsResponse,
 
     -- * Response Lenses
-    listAlarmsResponse_nextToken,
     listAlarmsResponse_alarmSummaries,
+    listAlarmsResponse_nextToken,
     listAlarmsResponse_httpStatus,
   )
 where
@@ -53,10 +53,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAlarms' smart constructor.
 data ListAlarms = ListAlarms'
-  { -- | The token that you can use to return the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to be returned per request.
+  { -- | The maximum number of results to be returned per request.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token that you can use to return the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the alarm model.
     alarmModelName :: Prelude.Text
   }
@@ -70,9 +70,9 @@ data ListAlarms = ListAlarms'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAlarms_nextToken' - The token that you can use to return the next set of results.
---
 -- 'maxResults', 'listAlarms_maxResults' - The maximum number of results to be returned per request.
+--
+-- 'nextToken', 'listAlarms_nextToken' - The token that you can use to return the next set of results.
 --
 -- 'alarmModelName', 'listAlarms_alarmModelName' - The name of the alarm model.
 newListAlarms ::
@@ -81,18 +81,18 @@ newListAlarms ::
   ListAlarms
 newListAlarms pAlarmModelName_ =
   ListAlarms'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       alarmModelName = pAlarmModelName_
     }
-
--- | The token that you can use to return the next set of results.
-listAlarms_nextToken :: Lens.Lens' ListAlarms (Prelude.Maybe Prelude.Text)
-listAlarms_nextToken = Lens.lens (\ListAlarms' {nextToken} -> nextToken) (\s@ListAlarms' {} a -> s {nextToken = a} :: ListAlarms)
 
 -- | The maximum number of results to be returned per request.
 listAlarms_maxResults :: Lens.Lens' ListAlarms (Prelude.Maybe Prelude.Natural)
 listAlarms_maxResults = Lens.lens (\ListAlarms' {maxResults} -> maxResults) (\s@ListAlarms' {} a -> s {maxResults = a} :: ListAlarms)
+
+-- | The token that you can use to return the next set of results.
+listAlarms_nextToken :: Lens.Lens' ListAlarms (Prelude.Maybe Prelude.Text)
+listAlarms_nextToken = Lens.lens (\ListAlarms' {nextToken} -> nextToken) (\s@ListAlarms' {} a -> s {nextToken = a} :: ListAlarms)
 
 -- | The name of the alarm model.
 listAlarms_alarmModelName :: Lens.Lens' ListAlarms Prelude.Text
@@ -106,21 +106,21 @@ instance Core.AWSRequest ListAlarms where
     Response.receiveJSON
       ( \s h x ->
           ListAlarmsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "alarmSummaries" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "alarmSummaries" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListAlarms where
   hashWithSalt _salt ListAlarms' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` alarmModelName
 
 instance Prelude.NFData ListAlarms where
   rnf ListAlarms' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf alarmModelName
 
 instance Data.ToHeaders ListAlarms where
@@ -134,17 +134,17 @@ instance Data.ToPath ListAlarms where
 instance Data.ToQuery ListAlarms where
   toQuery ListAlarms' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListAlarmsResponse' smart constructor.
 data ListAlarmsResponse = ListAlarmsResponse'
-  { -- | The token that you can use to return the next set of results, or @null@
+  { -- | A list that summarizes each alarm.
+    alarmSummaries :: Prelude.Maybe [AlarmSummary],
+    -- | The token that you can use to return the next set of results, or @null@
     -- if there are no more results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list that summarizes each alarm.
-    alarmSummaries :: Prelude.Maybe [AlarmSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -158,10 +158,10 @@ data ListAlarmsResponse = ListAlarmsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'alarmSummaries', 'listAlarmsResponse_alarmSummaries' - A list that summarizes each alarm.
+--
 -- 'nextToken', 'listAlarmsResponse_nextToken' - The token that you can use to return the next set of results, or @null@
 -- if there are no more results.
---
--- 'alarmSummaries', 'listAlarmsResponse_alarmSummaries' - A list that summarizes each alarm.
 --
 -- 'httpStatus', 'listAlarmsResponse_httpStatus' - The response's http status code.
 newListAlarmsResponse ::
@@ -170,19 +170,20 @@ newListAlarmsResponse ::
   ListAlarmsResponse
 newListAlarmsResponse pHttpStatus_ =
   ListAlarmsResponse'
-    { nextToken = Prelude.Nothing,
-      alarmSummaries = Prelude.Nothing,
+    { alarmSummaries =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list that summarizes each alarm.
+listAlarmsResponse_alarmSummaries :: Lens.Lens' ListAlarmsResponse (Prelude.Maybe [AlarmSummary])
+listAlarmsResponse_alarmSummaries = Lens.lens (\ListAlarmsResponse' {alarmSummaries} -> alarmSummaries) (\s@ListAlarmsResponse' {} a -> s {alarmSummaries = a} :: ListAlarmsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token that you can use to return the next set of results, or @null@
 -- if there are no more results.
 listAlarmsResponse_nextToken :: Lens.Lens' ListAlarmsResponse (Prelude.Maybe Prelude.Text)
 listAlarmsResponse_nextToken = Lens.lens (\ListAlarmsResponse' {nextToken} -> nextToken) (\s@ListAlarmsResponse' {} a -> s {nextToken = a} :: ListAlarmsResponse)
-
--- | A list that summarizes each alarm.
-listAlarmsResponse_alarmSummaries :: Lens.Lens' ListAlarmsResponse (Prelude.Maybe [AlarmSummary])
-listAlarmsResponse_alarmSummaries = Lens.lens (\ListAlarmsResponse' {alarmSummaries} -> alarmSummaries) (\s@ListAlarmsResponse' {} a -> s {alarmSummaries = a} :: ListAlarmsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listAlarmsResponse_httpStatus :: Lens.Lens' ListAlarmsResponse Prelude.Int
@@ -190,6 +191,6 @@ listAlarmsResponse_httpStatus = Lens.lens (\ListAlarmsResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListAlarmsResponse where
   rnf ListAlarmsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf alarmSummaries
+    Prelude.rnf alarmSummaries
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

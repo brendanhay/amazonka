@@ -67,20 +67,20 @@ module Amazonka.IoTEventsData.Lens
     describeDetectorResponse_httpStatus,
 
     -- ** ListAlarms
-    listAlarms_nextToken,
     listAlarms_maxResults,
+    listAlarms_nextToken,
     listAlarms_alarmModelName,
-    listAlarmsResponse_nextToken,
     listAlarmsResponse_alarmSummaries,
+    listAlarmsResponse_nextToken,
     listAlarmsResponse_httpStatus,
 
     -- ** ListDetectors
+    listDetectors_maxResults,
     listDetectors_nextToken,
     listDetectors_stateName,
-    listDetectors_maxResults,
     listDetectors_detectorModelName,
-    listDetectorsResponse_nextToken,
     listDetectorsResponse_detectorSummaries,
+    listDetectorsResponse_nextToken,
     listDetectorsResponse_httpStatus,
 
     -- * Types
@@ -96,54 +96,54 @@ module Amazonka.IoTEventsData.Lens
 
     -- ** Alarm
     alarm_alarmModelName,
-    alarm_alarmState,
-    alarm_severity,
     alarm_alarmModelVersion,
-    alarm_keyValue,
+    alarm_alarmState,
     alarm_creationTime,
+    alarm_keyValue,
     alarm_lastUpdateTime,
+    alarm_severity,
 
     -- ** AlarmState
+    alarmState_customerAction,
     alarmState_ruleEvaluation,
     alarmState_stateName,
     alarmState_systemEvent,
-    alarmState_customerAction,
 
     -- ** AlarmSummary
     alarmSummary_alarmModelName,
     alarmSummary_alarmModelVersion,
-    alarmSummary_stateName,
-    alarmSummary_keyValue,
     alarmSummary_creationTime,
+    alarmSummary_keyValue,
     alarmSummary_lastUpdateTime,
+    alarmSummary_stateName,
 
     -- ** BatchAlarmActionErrorEntry
+    batchAlarmActionErrorEntry_errorCode,
     batchAlarmActionErrorEntry_errorMessage,
     batchAlarmActionErrorEntry_requestId,
-    batchAlarmActionErrorEntry_errorCode,
 
     -- ** BatchDeleteDetectorErrorEntry
+    batchDeleteDetectorErrorEntry_errorCode,
     batchDeleteDetectorErrorEntry_errorMessage,
     batchDeleteDetectorErrorEntry_messageId,
-    batchDeleteDetectorErrorEntry_errorCode,
 
     -- ** BatchPutMessageErrorEntry
+    batchPutMessageErrorEntry_errorCode,
     batchPutMessageErrorEntry_errorMessage,
     batchPutMessageErrorEntry_messageId,
-    batchPutMessageErrorEntry_errorCode,
 
     -- ** BatchUpdateDetectorErrorEntry
+    batchUpdateDetectorErrorEntry_errorCode,
     batchUpdateDetectorErrorEntry_errorMessage,
     batchUpdateDetectorErrorEntry_messageId,
-    batchUpdateDetectorErrorEntry_errorCode,
 
     -- ** CustomerAction
-    customerAction_resetActionConfiguration,
-    customerAction_actionName,
-    customerAction_enableActionConfiguration,
-    customerAction_disableActionConfiguration,
-    customerAction_snoozeActionConfiguration,
     customerAction_acknowledgeActionConfiguration,
+    customerAction_actionName,
+    customerAction_disableActionConfiguration,
+    customerAction_enableActionConfiguration,
+    customerAction_resetActionConfiguration,
+    customerAction_snoozeActionConfiguration,
 
     -- ** DeleteDetectorRequest
     deleteDetectorRequest_keyValue,
@@ -151,12 +151,12 @@ module Amazonka.IoTEventsData.Lens
     deleteDetectorRequest_detectorModelName,
 
     -- ** Detector
-    detector_state,
+    detector_creationTime,
     detector_detectorModelName,
     detector_detectorModelVersion,
     detector_keyValue,
-    detector_creationTime,
     detector_lastUpdateTime,
+    detector_state,
 
     -- ** DetectorState
     detectorState_stateName,
@@ -172,12 +172,12 @@ module Amazonka.IoTEventsData.Lens
     detectorStateSummary_stateName,
 
     -- ** DetectorSummary
-    detectorSummary_state,
+    detectorSummary_creationTime,
     detectorSummary_detectorModelName,
     detectorSummary_detectorModelVersion,
     detectorSummary_keyValue,
-    detectorSummary_creationTime,
     detectorSummary_lastUpdateTime,
+    detectorSummary_state,
 
     -- ** DisableActionConfiguration
     disableActionConfiguration_note,
@@ -216,9 +216,9 @@ module Amazonka.IoTEventsData.Lens
     ruleEvaluation_simpleRuleEvaluation,
 
     -- ** SimpleRuleEvaluation
-    simpleRuleEvaluation_thresholdValue,
     simpleRuleEvaluation_inputPropertyValue,
     simpleRuleEvaluation_operator,
+    simpleRuleEvaluation_thresholdValue,
 
     -- ** SnoozeActionConfiguration
     snoozeActionConfiguration_note,

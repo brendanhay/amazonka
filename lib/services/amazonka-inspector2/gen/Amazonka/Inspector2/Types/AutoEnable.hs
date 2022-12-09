@@ -29,7 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAutoEnable' smart constructor.
 data AutoEnable = AutoEnable'
-  { -- | Represents whether Amazon EC2 scans are automatically enabled for new
+  { -- | Represents whether AWS Lambda scans are automatically enabled for new
+    -- members of your Amazon Inspector organization.
+    lambda :: Prelude.Maybe Prelude.Bool,
+    -- | Represents whether Amazon EC2 scans are automatically enabled for new
     -- members of your Amazon Inspector organization.
     ec2 :: Prelude.Bool,
     -- | Represents whether Amazon ECR scans are automatically enabled for new
@@ -46,6 +49,9 @@ data AutoEnable = AutoEnable'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'lambda', 'autoEnable_lambda' - Represents whether AWS Lambda scans are automatically enabled for new
+-- members of your Amazon Inspector organization.
+--
 -- 'ec2', 'autoEnable_ec2' - Represents whether Amazon EC2 scans are automatically enabled for new
 -- members of your Amazon Inspector organization.
 --
@@ -58,7 +64,16 @@ newAutoEnable ::
   Prelude.Bool ->
   AutoEnable
 newAutoEnable pEc2_ pEcr_ =
-  AutoEnable' {ec2 = pEc2_, ecr = pEcr_}
+  AutoEnable'
+    { lambda = Prelude.Nothing,
+      ec2 = pEc2_,
+      ecr = pEcr_
+    }
+
+-- | Represents whether AWS Lambda scans are automatically enabled for new
+-- members of your Amazon Inspector organization.
+autoEnable_lambda :: Lens.Lens' AutoEnable (Prelude.Maybe Prelude.Bool)
+autoEnable_lambda = Lens.lens (\AutoEnable' {lambda} -> lambda) (\s@AutoEnable' {} a -> s {lambda = a} :: AutoEnable)
 
 -- | Represents whether Amazon EC2 scans are automatically enabled for new
 -- members of your Amazon Inspector organization.
@@ -76,23 +91,29 @@ instance Data.FromJSON AutoEnable where
       "AutoEnable"
       ( \x ->
           AutoEnable'
-            Prelude.<$> (x Data..: "ec2") Prelude.<*> (x Data..: "ecr")
+            Prelude.<$> (x Data..:? "lambda")
+            Prelude.<*> (x Data..: "ec2")
+            Prelude.<*> (x Data..: "ecr")
       )
 
 instance Prelude.Hashable AutoEnable where
   hashWithSalt _salt AutoEnable' {..} =
-    _salt `Prelude.hashWithSalt` ec2
+    _salt `Prelude.hashWithSalt` lambda
+      `Prelude.hashWithSalt` ec2
       `Prelude.hashWithSalt` ecr
 
 instance Prelude.NFData AutoEnable where
   rnf AutoEnable' {..} =
-    Prelude.rnf ec2 `Prelude.seq` Prelude.rnf ecr
+    Prelude.rnf lambda
+      `Prelude.seq` Prelude.rnf ec2
+      `Prelude.seq` Prelude.rnf ecr
 
 instance Data.ToJSON AutoEnable where
   toJSON AutoEnable' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ec2" Data..= ec2),
+          [ ("lambda" Data..=) Prelude.<$> lambda,
+            Prelude.Just ("ec2" Data..= ec2),
             Prelude.Just ("ecr" Data..= ecr)
           ]
       )

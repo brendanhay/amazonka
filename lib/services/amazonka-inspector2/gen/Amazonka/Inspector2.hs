@@ -24,23 +24,23 @@ module Amazonka.Inspector2
     -- ** AccessDeniedException
     _AccessDeniedException,
 
-    -- ** InternalServerException
-    _InternalServerException,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
+    -- ** BadRequestException
+    _BadRequestException,
 
     -- ** ConflictException
     _ConflictException,
 
+    -- ** InternalServerException
+    _InternalServerException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
+
     -- ** ThrottlingException
     _ThrottlingException,
-
-    -- ** BadRequestException
-    _BadRequestException,
 
     -- ** ValidationException
     _ValidationException,
@@ -260,6 +260,9 @@ module Amazonka.Inspector2
     -- ** AmiSortBy
     AmiSortBy (..),
 
+    -- ** Architecture
+    Architecture (..),
+
     -- ** AwsEcrContainerSortBy
     AwsEcrContainerSortBy (..),
 
@@ -296,6 +299,9 @@ module Amazonka.Inspector2
     -- ** ErrorCode
     ErrorCode (..),
 
+    -- ** ExploitAvailable
+    ExploitAvailable (..),
+
     -- ** ExternalReportStatus
     ExternalReportStatus (..),
 
@@ -329,6 +335,12 @@ module Amazonka.Inspector2
     -- ** ImageLayerSortBy
     ImageLayerSortBy (..),
 
+    -- ** LambdaFunctionSortBy
+    LambdaFunctionSortBy (..),
+
+    -- ** LambdaLayerSortBy
+    LambdaLayerSortBy (..),
+
     -- ** MapComparison
     MapComparison (..),
 
@@ -343,6 +355,9 @@ module Amazonka.Inspector2
 
     -- ** PackageSortBy
     PackageSortBy (..),
+
+    -- ** PackageType
+    PackageType (..),
 
     -- ** RelationshipStatus
     RelationshipStatus (..),
@@ -361,6 +376,9 @@ module Amazonka.Inspector2
 
     -- ** ResourceType
     ResourceType (..),
+
+    -- ** Runtime
+    Runtime (..),
 
     -- ** ScanStatusCode
     ScanStatusCode (..),
@@ -447,6 +465,10 @@ module Amazonka.Inspector2
     AwsEcrContainerImageDetails (AwsEcrContainerImageDetails'),
     newAwsEcrContainerImageDetails,
 
+    -- ** AwsLambdaFunctionDetails
+    AwsLambdaFunctionDetails (AwsLambdaFunctionDetails'),
+    newAwsLambdaFunctionDetails,
+
     -- ** Counts
     Counts (Counts'),
     newCounts,
@@ -527,6 +549,10 @@ module Amazonka.Inspector2
     EcrRescanDurationState (EcrRescanDurationState'),
     newEcrRescanDurationState,
 
+    -- ** ExploitabilityDetails
+    ExploitabilityDetails (ExploitabilityDetails'),
+    newExploitabilityDetails,
+
     -- ** FailedAccount
     FailedAccount (FailedAccount'),
     newFailedAccount,
@@ -574,6 +600,30 @@ module Amazonka.Inspector2
     -- ** InspectorScoreDetails
     InspectorScoreDetails (InspectorScoreDetails'),
     newInspectorScoreDetails,
+
+    -- ** LambdaFunctionAggregation
+    LambdaFunctionAggregation (LambdaFunctionAggregation'),
+    newLambdaFunctionAggregation,
+
+    -- ** LambdaFunctionAggregationResponse
+    LambdaFunctionAggregationResponse (LambdaFunctionAggregationResponse'),
+    newLambdaFunctionAggregationResponse,
+
+    -- ** LambdaFunctionMetadata
+    LambdaFunctionMetadata (LambdaFunctionMetadata'),
+    newLambdaFunctionMetadata,
+
+    -- ** LambdaLayerAggregation
+    LambdaLayerAggregation (LambdaLayerAggregation'),
+    newLambdaLayerAggregation,
+
+    -- ** LambdaLayerAggregationResponse
+    LambdaLayerAggregationResponse (LambdaLayerAggregationResponse'),
+    newLambdaLayerAggregationResponse,
+
+    -- ** LambdaVpcConfig
+    LambdaVpcConfig (LambdaVpcConfig'),
+    newLambdaVpcConfig,
 
     -- ** MapFilter
     MapFilter (MapFilter'),

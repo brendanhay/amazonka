@@ -30,15 +30,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResource' smart constructor.
 data Resource = Resource'
-  { -- | The tags attached to the resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | An object that contains details about the resource involved in a
+  { -- | An object that contains details about the resource involved in a
     -- finding.
     details :: Prelude.Maybe ResourceDetails,
     -- | The partition of the resource.
     partition :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services Region the impacted resource is located in.
     region :: Prelude.Maybe Prelude.Text,
+    -- | The tags attached to the resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The ID of the resource.
     id :: Prelude.Text,
     -- | The type of resource.
@@ -54,14 +54,14 @@ data Resource = Resource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'resource_tags' - The tags attached to the resource.
---
 -- 'details', 'resource_details' - An object that contains details about the resource involved in a
 -- finding.
 --
 -- 'partition', 'resource_partition' - The partition of the resource.
 --
 -- 'region', 'resource_region' - The Amazon Web Services Region the impacted resource is located in.
+--
+-- 'tags', 'resource_tags' - The tags attached to the resource.
 --
 -- 'id', 'resource_id' - The ID of the resource.
 --
@@ -74,17 +74,13 @@ newResource ::
   Resource
 newResource pId_ pType_ =
   Resource'
-    { tags = Prelude.Nothing,
-      details = Prelude.Nothing,
+    { details = Prelude.Nothing,
       partition = Prelude.Nothing,
       region = Prelude.Nothing,
+      tags = Prelude.Nothing,
       id = pId_,
       type' = pType_
     }
-
--- | The tags attached to the resource.
-resource_tags :: Lens.Lens' Resource (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-resource_tags = Lens.lens (\Resource' {tags} -> tags) (\s@Resource' {} a -> s {tags = a} :: Resource) Prelude.. Lens.mapping Lens.coerced
 
 -- | An object that contains details about the resource involved in a
 -- finding.
@@ -98,6 +94,10 @@ resource_partition = Lens.lens (\Resource' {partition} -> partition) (\s@Resourc
 -- | The Amazon Web Services Region the impacted resource is located in.
 resource_region :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
 resource_region = Lens.lens (\Resource' {region} -> region) (\s@Resource' {} a -> s {region = a} :: Resource)
+
+-- | The tags attached to the resource.
+resource_tags :: Lens.Lens' Resource (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+resource_tags = Lens.lens (\Resource' {tags} -> tags) (\s@Resource' {} a -> s {tags = a} :: Resource) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the resource.
 resource_id :: Lens.Lens' Resource Prelude.Text
@@ -113,28 +113,28 @@ instance Data.FromJSON Resource where
       "Resource"
       ( \x ->
           Resource'
-            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "details")
+            Prelude.<$> (x Data..:? "details")
             Prelude.<*> (x Data..:? "partition")
             Prelude.<*> (x Data..:? "region")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "id")
             Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable Resource where
   hashWithSalt _salt Resource' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` details
+    _salt `Prelude.hashWithSalt` details
       `Prelude.hashWithSalt` partition
       `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData Resource where
   rnf Resource' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf details
+    Prelude.rnf details
       `Prelude.seq` Prelude.rnf partition
       `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf type'

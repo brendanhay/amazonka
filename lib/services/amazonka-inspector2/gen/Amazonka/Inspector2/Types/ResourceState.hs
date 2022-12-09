@@ -30,7 +30,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResourceState' smart constructor.
 data ResourceState = ResourceState'
-  { -- | An object detailing the state of Amazon Inspector scanning for Amazon
+  { lambda :: Prelude.Maybe State,
+    -- | An object detailing the state of Amazon Inspector scanning for Amazon
     -- EC2 resources.
     ec2 :: State,
     -- | An object detailing the state of Amazon Inspector scanning for Amazon
@@ -47,6 +48,8 @@ data ResourceState = ResourceState'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'lambda', 'resourceState_lambda' - Undocumented member.
+--
 -- 'ec2', 'resourceState_ec2' - An object detailing the state of Amazon Inspector scanning for Amazon
 -- EC2 resources.
 --
@@ -59,7 +62,15 @@ newResourceState ::
   State ->
   ResourceState
 newResourceState pEc2_ pEcr_ =
-  ResourceState' {ec2 = pEc2_, ecr = pEcr_}
+  ResourceState'
+    { lambda = Prelude.Nothing,
+      ec2 = pEc2_,
+      ecr = pEcr_
+    }
+
+-- | Undocumented member.
+resourceState_lambda :: Lens.Lens' ResourceState (Prelude.Maybe State)
+resourceState_lambda = Lens.lens (\ResourceState' {lambda} -> lambda) (\s@ResourceState' {} a -> s {lambda = a} :: ResourceState)
 
 -- | An object detailing the state of Amazon Inspector scanning for Amazon
 -- EC2 resources.
@@ -77,14 +88,19 @@ instance Data.FromJSON ResourceState where
       "ResourceState"
       ( \x ->
           ResourceState'
-            Prelude.<$> (x Data..: "ec2") Prelude.<*> (x Data..: "ecr")
+            Prelude.<$> (x Data..:? "lambda")
+            Prelude.<*> (x Data..: "ec2")
+            Prelude.<*> (x Data..: "ecr")
       )
 
 instance Prelude.Hashable ResourceState where
   hashWithSalt _salt ResourceState' {..} =
-    _salt `Prelude.hashWithSalt` ec2
+    _salt `Prelude.hashWithSalt` lambda
+      `Prelude.hashWithSalt` ec2
       `Prelude.hashWithSalt` ecr
 
 instance Prelude.NFData ResourceState where
   rnf ResourceState' {..} =
-    Prelude.rnf ec2 `Prelude.seq` Prelude.rnf ecr
+    Prelude.rnf lambda
+      `Prelude.seq` Prelude.rnf ec2
+      `Prelude.seq` Prelude.rnf ecr

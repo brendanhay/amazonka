@@ -30,7 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResourceStatus' smart constructor.
 data ResourceStatus = ResourceStatus'
-  { -- | The status of Amazon Inspector scanning for Amazon EC2 resources.
+  { -- | The status of Amazon Inspector scanning for AWS Lambda function
+    -- resources.
+    lambda :: Prelude.Maybe Status,
+    -- | The status of Amazon Inspector scanning for Amazon EC2 resources.
     ec2 :: Status,
     -- | The status of Amazon Inspector scanning for Amazon ECR resources.
     ecr :: Status
@@ -45,6 +48,9 @@ data ResourceStatus = ResourceStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'lambda', 'resourceStatus_lambda' - The status of Amazon Inspector scanning for AWS Lambda function
+-- resources.
+--
 -- 'ec2', 'resourceStatus_ec2' - The status of Amazon Inspector scanning for Amazon EC2 resources.
 --
 -- 'ecr', 'resourceStatus_ecr' - The status of Amazon Inspector scanning for Amazon ECR resources.
@@ -55,7 +61,16 @@ newResourceStatus ::
   Status ->
   ResourceStatus
 newResourceStatus pEc2_ pEcr_ =
-  ResourceStatus' {ec2 = pEc2_, ecr = pEcr_}
+  ResourceStatus'
+    { lambda = Prelude.Nothing,
+      ec2 = pEc2_,
+      ecr = pEcr_
+    }
+
+-- | The status of Amazon Inspector scanning for AWS Lambda function
+-- resources.
+resourceStatus_lambda :: Lens.Lens' ResourceStatus (Prelude.Maybe Status)
+resourceStatus_lambda = Lens.lens (\ResourceStatus' {lambda} -> lambda) (\s@ResourceStatus' {} a -> s {lambda = a} :: ResourceStatus)
 
 -- | The status of Amazon Inspector scanning for Amazon EC2 resources.
 resourceStatus_ec2 :: Lens.Lens' ResourceStatus Status
@@ -71,14 +86,19 @@ instance Data.FromJSON ResourceStatus where
       "ResourceStatus"
       ( \x ->
           ResourceStatus'
-            Prelude.<$> (x Data..: "ec2") Prelude.<*> (x Data..: "ecr")
+            Prelude.<$> (x Data..:? "lambda")
+            Prelude.<*> (x Data..: "ec2")
+            Prelude.<*> (x Data..: "ecr")
       )
 
 instance Prelude.Hashable ResourceStatus where
   hashWithSalt _salt ResourceStatus' {..} =
-    _salt `Prelude.hashWithSalt` ec2
+    _salt `Prelude.hashWithSalt` lambda
+      `Prelude.hashWithSalt` ec2
       `Prelude.hashWithSalt` ecr
 
 instance Prelude.NFData ResourceStatus where
   rnf ResourceStatus' {..} =
-    Prelude.rnf ec2 `Prelude.seq` Prelude.rnf ecr
+    Prelude.rnf lambda
+      `Prelude.seq` Prelude.rnf ec2
+      `Prelude.seq` Prelude.rnf ecr

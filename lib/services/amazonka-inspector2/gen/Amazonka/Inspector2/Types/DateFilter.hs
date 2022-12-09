@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDateFilter' smart constructor.
 data DateFilter = DateFilter'
-  { -- | A timestamp representing the start of the time period filtered on.
-    startInclusive :: Prelude.Maybe Data.POSIX,
-    -- | A timestamp representing the end of the time period filtered on.
-    endInclusive :: Prelude.Maybe Data.POSIX
+  { -- | A timestamp representing the end of the time period filtered on.
+    endInclusive :: Prelude.Maybe Data.POSIX,
+    -- | A timestamp representing the start of the time period filtered on.
+    startInclusive :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data DateFilter = DateFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'startInclusive', 'dateFilter_startInclusive' - A timestamp representing the start of the time period filtered on.
---
 -- 'endInclusive', 'dateFilter_endInclusive' - A timestamp representing the end of the time period filtered on.
+--
+-- 'startInclusive', 'dateFilter_startInclusive' - A timestamp representing the start of the time period filtered on.
 newDateFilter ::
   DateFilter
 newDateFilter =
   DateFilter'
-    { startInclusive = Prelude.Nothing,
-      endInclusive = Prelude.Nothing
+    { endInclusive = Prelude.Nothing,
+      startInclusive = Prelude.Nothing
     }
-
--- | A timestamp representing the start of the time period filtered on.
-dateFilter_startInclusive :: Lens.Lens' DateFilter (Prelude.Maybe Prelude.UTCTime)
-dateFilter_startInclusive = Lens.lens (\DateFilter' {startInclusive} -> startInclusive) (\s@DateFilter' {} a -> s {startInclusive = a} :: DateFilter) Prelude.. Lens.mapping Data._Time
 
 -- | A timestamp representing the end of the time period filtered on.
 dateFilter_endInclusive :: Lens.Lens' DateFilter (Prelude.Maybe Prelude.UTCTime)
 dateFilter_endInclusive = Lens.lens (\DateFilter' {endInclusive} -> endInclusive) (\s@DateFilter' {} a -> s {endInclusive = a} :: DateFilter) Prelude.. Lens.mapping Data._Time
+
+-- | A timestamp representing the start of the time period filtered on.
+dateFilter_startInclusive :: Lens.Lens' DateFilter (Prelude.Maybe Prelude.UTCTime)
+dateFilter_startInclusive = Lens.lens (\DateFilter' {startInclusive} -> startInclusive) (\s@DateFilter' {} a -> s {startInclusive = a} :: DateFilter) Prelude.. Lens.mapping Data._Time
 
 instance Data.FromJSON DateFilter where
   parseJSON =
@@ -68,26 +68,26 @@ instance Data.FromJSON DateFilter where
       "DateFilter"
       ( \x ->
           DateFilter'
-            Prelude.<$> (x Data..:? "startInclusive")
-            Prelude.<*> (x Data..:? "endInclusive")
+            Prelude.<$> (x Data..:? "endInclusive")
+            Prelude.<*> (x Data..:? "startInclusive")
       )
 
 instance Prelude.Hashable DateFilter where
   hashWithSalt _salt DateFilter' {..} =
-    _salt `Prelude.hashWithSalt` startInclusive
-      `Prelude.hashWithSalt` endInclusive
+    _salt `Prelude.hashWithSalt` endInclusive
+      `Prelude.hashWithSalt` startInclusive
 
 instance Prelude.NFData DateFilter where
   rnf DateFilter' {..} =
-    Prelude.rnf startInclusive
-      `Prelude.seq` Prelude.rnf endInclusive
+    Prelude.rnf endInclusive
+      `Prelude.seq` Prelude.rnf startInclusive
 
 instance Data.ToJSON DateFilter where
   toJSON DateFilter' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("startInclusive" Data..=)
-              Prelude.<$> startInclusive,
-            ("endInclusive" Data..=) Prelude.<$> endInclusive
+          [ ("endInclusive" Data..=) Prelude.<$> endInclusive,
+            ("startInclusive" Data..=)
+              Prelude.<$> startInclusive
           ]
       )

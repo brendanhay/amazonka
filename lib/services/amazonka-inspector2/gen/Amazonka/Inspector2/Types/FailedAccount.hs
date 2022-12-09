@@ -32,11 +32,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFailedAccount' smart constructor.
 data FailedAccount = FailedAccount'
-  { -- | The status of Amazon Inspector for the account.
-    status :: Prelude.Maybe Status,
-    -- | An object detailing which resources Amazon Inspector is enabled to scan
+  { -- | An object detailing which resources Amazon Inspector is enabled to scan
     -- for the account.
     resourceStatus :: Prelude.Maybe ResourceStatus,
+    -- | The status of Amazon Inspector for the account.
+    status :: Prelude.Maybe Status,
     -- | The Amazon Web Services account ID.
     accountId :: Prelude.Text,
     -- | The error code explaining why the account failed to enable Amazon
@@ -56,10 +56,10 @@ data FailedAccount = FailedAccount'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'failedAccount_status' - The status of Amazon Inspector for the account.
---
 -- 'resourceStatus', 'failedAccount_resourceStatus' - An object detailing which resources Amazon Inspector is enabled to scan
 -- for the account.
+--
+-- 'status', 'failedAccount_status' - The status of Amazon Inspector for the account.
 --
 -- 'accountId', 'failedAccount_accountId' - The Amazon Web Services account ID.
 --
@@ -81,21 +81,21 @@ newFailedAccount
   pErrorCode_
   pErrorMessage_ =
     FailedAccount'
-      { status = Prelude.Nothing,
-        resourceStatus = Prelude.Nothing,
+      { resourceStatus = Prelude.Nothing,
+        status = Prelude.Nothing,
         accountId = pAccountId_,
         errorCode = pErrorCode_,
         errorMessage = pErrorMessage_
       }
 
--- | The status of Amazon Inspector for the account.
-failedAccount_status :: Lens.Lens' FailedAccount (Prelude.Maybe Status)
-failedAccount_status = Lens.lens (\FailedAccount' {status} -> status) (\s@FailedAccount' {} a -> s {status = a} :: FailedAccount)
-
 -- | An object detailing which resources Amazon Inspector is enabled to scan
 -- for the account.
 failedAccount_resourceStatus :: Lens.Lens' FailedAccount (Prelude.Maybe ResourceStatus)
 failedAccount_resourceStatus = Lens.lens (\FailedAccount' {resourceStatus} -> resourceStatus) (\s@FailedAccount' {} a -> s {resourceStatus = a} :: FailedAccount)
+
+-- | The status of Amazon Inspector for the account.
+failedAccount_status :: Lens.Lens' FailedAccount (Prelude.Maybe Status)
+failedAccount_status = Lens.lens (\FailedAccount' {status} -> status) (\s@FailedAccount' {} a -> s {status = a} :: FailedAccount)
 
 -- | The Amazon Web Services account ID.
 failedAccount_accountId :: Lens.Lens' FailedAccount Prelude.Text
@@ -117,8 +117,8 @@ instance Data.FromJSON FailedAccount where
       "FailedAccount"
       ( \x ->
           FailedAccount'
-            Prelude.<$> (x Data..:? "status")
-            Prelude.<*> (x Data..:? "resourceStatus")
+            Prelude.<$> (x Data..:? "resourceStatus")
+            Prelude.<*> (x Data..:? "status")
             Prelude.<*> (x Data..: "accountId")
             Prelude.<*> (x Data..: "errorCode")
             Prelude.<*> (x Data..: "errorMessage")
@@ -126,16 +126,16 @@ instance Data.FromJSON FailedAccount where
 
 instance Prelude.Hashable FailedAccount where
   hashWithSalt _salt FailedAccount' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` resourceStatus
+    _salt `Prelude.hashWithSalt` resourceStatus
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorMessage
 
 instance Prelude.NFData FailedAccount where
   rnf FailedAccount' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf resourceStatus
+    Prelude.rnf resourceStatus
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf errorCode
       `Prelude.seq` Prelude.rnf errorMessage

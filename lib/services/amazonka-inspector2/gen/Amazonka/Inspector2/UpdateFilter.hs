@@ -28,11 +28,11 @@ module Amazonka.Inspector2.UpdateFilter
     newUpdateFilter,
 
     -- * Request Lenses
-    updateFilter_name,
+    updateFilter_action,
     updateFilter_description,
     updateFilter_filterCriteria,
+    updateFilter_name,
     updateFilter_reason,
-    updateFilter_action,
     updateFilter_filterArn,
 
     -- * Destructuring the Response
@@ -55,17 +55,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateFilter' smart constructor.
 data UpdateFilter = UpdateFilter'
-  { -- | The name of the filter.
-    name :: Prelude.Maybe Prelude.Text,
+  { -- | Specifies the action that is to be applied to the findings that match
+    -- the filter.
+    action :: Prelude.Maybe FilterAction,
     -- | A description of the filter.
     description :: Prelude.Maybe Prelude.Text,
     -- | Defines the criteria to be update in the filter.
     filterCriteria :: Prelude.Maybe FilterCriteria,
+    -- | The name of the filter.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The reason the filter was updated.
     reason :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the action that is to be applied to the findings that match
-    -- the filter.
-    action :: Prelude.Maybe FilterAction,
     -- | The Amazon Resource Number (ARN) of the filter to update.
     filterArn :: Prelude.Text
   }
@@ -79,16 +79,16 @@ data UpdateFilter = UpdateFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateFilter_name' - The name of the filter.
+-- 'action', 'updateFilter_action' - Specifies the action that is to be applied to the findings that match
+-- the filter.
 --
 -- 'description', 'updateFilter_description' - A description of the filter.
 --
 -- 'filterCriteria', 'updateFilter_filterCriteria' - Defines the criteria to be update in the filter.
 --
--- 'reason', 'updateFilter_reason' - The reason the filter was updated.
+-- 'name', 'updateFilter_name' - The name of the filter.
 --
--- 'action', 'updateFilter_action' - Specifies the action that is to be applied to the findings that match
--- the filter.
+-- 'reason', 'updateFilter_reason' - The reason the filter was updated.
 --
 -- 'filterArn', 'updateFilter_filterArn' - The Amazon Resource Number (ARN) of the filter to update.
 newUpdateFilter ::
@@ -97,17 +97,18 @@ newUpdateFilter ::
   UpdateFilter
 newUpdateFilter pFilterArn_ =
   UpdateFilter'
-    { name = Prelude.Nothing,
+    { action = Prelude.Nothing,
       description = Prelude.Nothing,
       filterCriteria = Prelude.Nothing,
+      name = Prelude.Nothing,
       reason = Prelude.Nothing,
-      action = Prelude.Nothing,
       filterArn = pFilterArn_
     }
 
--- | The name of the filter.
-updateFilter_name :: Lens.Lens' UpdateFilter (Prelude.Maybe Prelude.Text)
-updateFilter_name = Lens.lens (\UpdateFilter' {name} -> name) (\s@UpdateFilter' {} a -> s {name = a} :: UpdateFilter)
+-- | Specifies the action that is to be applied to the findings that match
+-- the filter.
+updateFilter_action :: Lens.Lens' UpdateFilter (Prelude.Maybe FilterAction)
+updateFilter_action = Lens.lens (\UpdateFilter' {action} -> action) (\s@UpdateFilter' {} a -> s {action = a} :: UpdateFilter)
 
 -- | A description of the filter.
 updateFilter_description :: Lens.Lens' UpdateFilter (Prelude.Maybe Prelude.Text)
@@ -117,14 +118,13 @@ updateFilter_description = Lens.lens (\UpdateFilter' {description} -> descriptio
 updateFilter_filterCriteria :: Lens.Lens' UpdateFilter (Prelude.Maybe FilterCriteria)
 updateFilter_filterCriteria = Lens.lens (\UpdateFilter' {filterCriteria} -> filterCriteria) (\s@UpdateFilter' {} a -> s {filterCriteria = a} :: UpdateFilter)
 
+-- | The name of the filter.
+updateFilter_name :: Lens.Lens' UpdateFilter (Prelude.Maybe Prelude.Text)
+updateFilter_name = Lens.lens (\UpdateFilter' {name} -> name) (\s@UpdateFilter' {} a -> s {name = a} :: UpdateFilter)
+
 -- | The reason the filter was updated.
 updateFilter_reason :: Lens.Lens' UpdateFilter (Prelude.Maybe Prelude.Text)
 updateFilter_reason = Lens.lens (\UpdateFilter' {reason} -> reason) (\s@UpdateFilter' {} a -> s {reason = a} :: UpdateFilter)
-
--- | Specifies the action that is to be applied to the findings that match
--- the filter.
-updateFilter_action :: Lens.Lens' UpdateFilter (Prelude.Maybe FilterAction)
-updateFilter_action = Lens.lens (\UpdateFilter' {action} -> action) (\s@UpdateFilter' {} a -> s {action = a} :: UpdateFilter)
 
 -- | The Amazon Resource Number (ARN) of the filter to update.
 updateFilter_filterArn :: Lens.Lens' UpdateFilter Prelude.Text
@@ -144,20 +144,20 @@ instance Core.AWSRequest UpdateFilter where
 
 instance Prelude.Hashable UpdateFilter where
   hashWithSalt _salt UpdateFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` filterCriteria
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` reason
-      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` filterArn
 
 instance Prelude.NFData UpdateFilter where
   rnf UpdateFilter' {..} =
-    Prelude.rnf name
+    Prelude.rnf action
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf filterCriteria
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf action
       `Prelude.seq` Prelude.rnf filterArn
 
 instance Data.ToHeaders UpdateFilter where
@@ -175,12 +175,12 @@ instance Data.ToJSON UpdateFilter where
   toJSON UpdateFilter' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("name" Data..=) Prelude.<$> name,
+          [ ("action" Data..=) Prelude.<$> action,
             ("description" Data..=) Prelude.<$> description,
             ("filterCriteria" Data..=)
               Prelude.<$> filterCriteria,
+            ("name" Data..=) Prelude.<$> name,
             ("reason" Data..=) Prelude.<$> reason,
-            ("action" Data..=) Prelude.<$> action,
             Prelude.Just ("filterArn" Data..= filterArn)
           ]
       )

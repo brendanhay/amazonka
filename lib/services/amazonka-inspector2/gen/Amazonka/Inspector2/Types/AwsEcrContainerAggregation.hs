@@ -31,20 +31,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsEcrContainerAggregation' smart constructor.
 data AwsEcrContainerAggregation = AwsEcrContainerAggregation'
-  { -- | The sort order (ascending or descending).
-    sortOrder :: Prelude.Maybe SortOrder,
+  { -- | The architecture of the containers.
+    architectures :: Prelude.Maybe (Prelude.NonEmpty StringFilter),
     -- | The image SHA values.
     imageShas :: Prelude.Maybe (Prelude.NonEmpty StringFilter),
-    -- | The value to sort by.
-    sortBy :: Prelude.Maybe AwsEcrContainerSortBy,
+    -- | The image tags.
+    imageTags :: Prelude.Maybe (Prelude.NonEmpty StringFilter),
     -- | The container repositories.
     repositories :: Prelude.Maybe (Prelude.NonEmpty StringFilter),
     -- | The container resource IDs.
     resourceIds :: Prelude.Maybe (Prelude.NonEmpty StringFilter),
-    -- | The image tags.
-    imageTags :: Prelude.Maybe (Prelude.NonEmpty StringFilter),
-    -- | The architecture of the containers.
-    architectures :: Prelude.Maybe (Prelude.NonEmpty StringFilter)
+    -- | The value to sort by.
+    sortBy :: Prelude.Maybe AwsEcrContainerSortBy,
+    -- | The sort order (ascending or descending).
+    sortOrder :: Prelude.Maybe SortOrder
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,44 +56,44 @@ data AwsEcrContainerAggregation = AwsEcrContainerAggregation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'awsEcrContainerAggregation_sortOrder' - The sort order (ascending or descending).
+-- 'architectures', 'awsEcrContainerAggregation_architectures' - The architecture of the containers.
 --
 -- 'imageShas', 'awsEcrContainerAggregation_imageShas' - The image SHA values.
 --
--- 'sortBy', 'awsEcrContainerAggregation_sortBy' - The value to sort by.
+-- 'imageTags', 'awsEcrContainerAggregation_imageTags' - The image tags.
 --
 -- 'repositories', 'awsEcrContainerAggregation_repositories' - The container repositories.
 --
 -- 'resourceIds', 'awsEcrContainerAggregation_resourceIds' - The container resource IDs.
 --
--- 'imageTags', 'awsEcrContainerAggregation_imageTags' - The image tags.
+-- 'sortBy', 'awsEcrContainerAggregation_sortBy' - The value to sort by.
 --
--- 'architectures', 'awsEcrContainerAggregation_architectures' - The architecture of the containers.
+-- 'sortOrder', 'awsEcrContainerAggregation_sortOrder' - The sort order (ascending or descending).
 newAwsEcrContainerAggregation ::
   AwsEcrContainerAggregation
 newAwsEcrContainerAggregation =
   AwsEcrContainerAggregation'
-    { sortOrder =
+    { architectures =
         Prelude.Nothing,
       imageShas = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
+      imageTags = Prelude.Nothing,
       repositories = Prelude.Nothing,
       resourceIds = Prelude.Nothing,
-      imageTags = Prelude.Nothing,
-      architectures = Prelude.Nothing
+      sortBy = Prelude.Nothing,
+      sortOrder = Prelude.Nothing
     }
 
--- | The sort order (ascending or descending).
-awsEcrContainerAggregation_sortOrder :: Lens.Lens' AwsEcrContainerAggregation (Prelude.Maybe SortOrder)
-awsEcrContainerAggregation_sortOrder = Lens.lens (\AwsEcrContainerAggregation' {sortOrder} -> sortOrder) (\s@AwsEcrContainerAggregation' {} a -> s {sortOrder = a} :: AwsEcrContainerAggregation)
+-- | The architecture of the containers.
+awsEcrContainerAggregation_architectures :: Lens.Lens' AwsEcrContainerAggregation (Prelude.Maybe (Prelude.NonEmpty StringFilter))
+awsEcrContainerAggregation_architectures = Lens.lens (\AwsEcrContainerAggregation' {architectures} -> architectures) (\s@AwsEcrContainerAggregation' {} a -> s {architectures = a} :: AwsEcrContainerAggregation) Prelude.. Lens.mapping Lens.coerced
 
 -- | The image SHA values.
 awsEcrContainerAggregation_imageShas :: Lens.Lens' AwsEcrContainerAggregation (Prelude.Maybe (Prelude.NonEmpty StringFilter))
 awsEcrContainerAggregation_imageShas = Lens.lens (\AwsEcrContainerAggregation' {imageShas} -> imageShas) (\s@AwsEcrContainerAggregation' {} a -> s {imageShas = a} :: AwsEcrContainerAggregation) Prelude.. Lens.mapping Lens.coerced
 
--- | The value to sort by.
-awsEcrContainerAggregation_sortBy :: Lens.Lens' AwsEcrContainerAggregation (Prelude.Maybe AwsEcrContainerSortBy)
-awsEcrContainerAggregation_sortBy = Lens.lens (\AwsEcrContainerAggregation' {sortBy} -> sortBy) (\s@AwsEcrContainerAggregation' {} a -> s {sortBy = a} :: AwsEcrContainerAggregation)
+-- | The image tags.
+awsEcrContainerAggregation_imageTags :: Lens.Lens' AwsEcrContainerAggregation (Prelude.Maybe (Prelude.NonEmpty StringFilter))
+awsEcrContainerAggregation_imageTags = Lens.lens (\AwsEcrContainerAggregation' {imageTags} -> imageTags) (\s@AwsEcrContainerAggregation' {} a -> s {imageTags = a} :: AwsEcrContainerAggregation) Prelude.. Lens.mapping Lens.coerced
 
 -- | The container repositories.
 awsEcrContainerAggregation_repositories :: Lens.Lens' AwsEcrContainerAggregation (Prelude.Maybe (Prelude.NonEmpty StringFilter))
@@ -103,44 +103,44 @@ awsEcrContainerAggregation_repositories = Lens.lens (\AwsEcrContainerAggregation
 awsEcrContainerAggregation_resourceIds :: Lens.Lens' AwsEcrContainerAggregation (Prelude.Maybe (Prelude.NonEmpty StringFilter))
 awsEcrContainerAggregation_resourceIds = Lens.lens (\AwsEcrContainerAggregation' {resourceIds} -> resourceIds) (\s@AwsEcrContainerAggregation' {} a -> s {resourceIds = a} :: AwsEcrContainerAggregation) Prelude.. Lens.mapping Lens.coerced
 
--- | The image tags.
-awsEcrContainerAggregation_imageTags :: Lens.Lens' AwsEcrContainerAggregation (Prelude.Maybe (Prelude.NonEmpty StringFilter))
-awsEcrContainerAggregation_imageTags = Lens.lens (\AwsEcrContainerAggregation' {imageTags} -> imageTags) (\s@AwsEcrContainerAggregation' {} a -> s {imageTags = a} :: AwsEcrContainerAggregation) Prelude.. Lens.mapping Lens.coerced
+-- | The value to sort by.
+awsEcrContainerAggregation_sortBy :: Lens.Lens' AwsEcrContainerAggregation (Prelude.Maybe AwsEcrContainerSortBy)
+awsEcrContainerAggregation_sortBy = Lens.lens (\AwsEcrContainerAggregation' {sortBy} -> sortBy) (\s@AwsEcrContainerAggregation' {} a -> s {sortBy = a} :: AwsEcrContainerAggregation)
 
--- | The architecture of the containers.
-awsEcrContainerAggregation_architectures :: Lens.Lens' AwsEcrContainerAggregation (Prelude.Maybe (Prelude.NonEmpty StringFilter))
-awsEcrContainerAggregation_architectures = Lens.lens (\AwsEcrContainerAggregation' {architectures} -> architectures) (\s@AwsEcrContainerAggregation' {} a -> s {architectures = a} :: AwsEcrContainerAggregation) Prelude.. Lens.mapping Lens.coerced
+-- | The sort order (ascending or descending).
+awsEcrContainerAggregation_sortOrder :: Lens.Lens' AwsEcrContainerAggregation (Prelude.Maybe SortOrder)
+awsEcrContainerAggregation_sortOrder = Lens.lens (\AwsEcrContainerAggregation' {sortOrder} -> sortOrder) (\s@AwsEcrContainerAggregation' {} a -> s {sortOrder = a} :: AwsEcrContainerAggregation)
 
 instance Prelude.Hashable AwsEcrContainerAggregation where
   hashWithSalt _salt AwsEcrContainerAggregation' {..} =
-    _salt `Prelude.hashWithSalt` sortOrder
+    _salt `Prelude.hashWithSalt` architectures
       `Prelude.hashWithSalt` imageShas
-      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` imageTags
       `Prelude.hashWithSalt` repositories
       `Prelude.hashWithSalt` resourceIds
-      `Prelude.hashWithSalt` imageTags
-      `Prelude.hashWithSalt` architectures
+      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` sortOrder
 
 instance Prelude.NFData AwsEcrContainerAggregation where
   rnf AwsEcrContainerAggregation' {..} =
-    Prelude.rnf sortOrder
+    Prelude.rnf architectures
       `Prelude.seq` Prelude.rnf imageShas
-      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf imageTags
       `Prelude.seq` Prelude.rnf repositories
       `Prelude.seq` Prelude.rnf resourceIds
-      `Prelude.seq` Prelude.rnf imageTags
-      `Prelude.seq` Prelude.rnf architectures
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf sortOrder
 
 instance Data.ToJSON AwsEcrContainerAggregation where
   toJSON AwsEcrContainerAggregation' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("sortOrder" Data..=) Prelude.<$> sortOrder,
+          [ ("architectures" Data..=) Prelude.<$> architectures,
             ("imageShas" Data..=) Prelude.<$> imageShas,
-            ("sortBy" Data..=) Prelude.<$> sortBy,
+            ("imageTags" Data..=) Prelude.<$> imageTags,
             ("repositories" Data..=) Prelude.<$> repositories,
             ("resourceIds" Data..=) Prelude.<$> resourceIds,
-            ("imageTags" Data..=) Prelude.<$> imageTags,
-            ("architectures" Data..=) Prelude.<$> architectures
+            ("sortBy" Data..=) Prelude.<$> sortBy,
+            ("sortOrder" Data..=) Prelude.<$> sortOrder
           ]
       )

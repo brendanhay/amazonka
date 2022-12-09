@@ -34,14 +34,14 @@ import qualified Amazonka.Prelude as Prelude
 data TitleAggregation = TitleAggregation'
   { -- | The resource type to aggregate on.
     resourceType :: Prelude.Maybe AggregationResourceType,
-    -- | The order to sort results by.
-    sortOrder :: Prelude.Maybe SortOrder,
-    -- | The vulnerability IDs of the findings.
-    vulnerabilityIds :: Prelude.Maybe (Prelude.NonEmpty StringFilter),
     -- | The value to sort results by.
     sortBy :: Prelude.Maybe TitleSortBy,
+    -- | The order to sort results by.
+    sortOrder :: Prelude.Maybe SortOrder,
     -- | The finding titles to aggregate on.
-    titles :: Prelude.Maybe (Prelude.NonEmpty StringFilter)
+    titles :: Prelude.Maybe (Prelude.NonEmpty StringFilter),
+    -- | The vulnerability IDs of the findings.
+    vulnerabilityIds :: Prelude.Maybe (Prelude.NonEmpty StringFilter)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,69 +55,69 @@ data TitleAggregation = TitleAggregation'
 --
 -- 'resourceType', 'titleAggregation_resourceType' - The resource type to aggregate on.
 --
--- 'sortOrder', 'titleAggregation_sortOrder' - The order to sort results by.
---
--- 'vulnerabilityIds', 'titleAggregation_vulnerabilityIds' - The vulnerability IDs of the findings.
---
 -- 'sortBy', 'titleAggregation_sortBy' - The value to sort results by.
 --
+-- 'sortOrder', 'titleAggregation_sortOrder' - The order to sort results by.
+--
 -- 'titles', 'titleAggregation_titles' - The finding titles to aggregate on.
+--
+-- 'vulnerabilityIds', 'titleAggregation_vulnerabilityIds' - The vulnerability IDs of the findings.
 newTitleAggregation ::
   TitleAggregation
 newTitleAggregation =
   TitleAggregation'
     { resourceType = Prelude.Nothing,
-      sortOrder = Prelude.Nothing,
-      vulnerabilityIds = Prelude.Nothing,
       sortBy = Prelude.Nothing,
-      titles = Prelude.Nothing
+      sortOrder = Prelude.Nothing,
+      titles = Prelude.Nothing,
+      vulnerabilityIds = Prelude.Nothing
     }
 
 -- | The resource type to aggregate on.
 titleAggregation_resourceType :: Lens.Lens' TitleAggregation (Prelude.Maybe AggregationResourceType)
 titleAggregation_resourceType = Lens.lens (\TitleAggregation' {resourceType} -> resourceType) (\s@TitleAggregation' {} a -> s {resourceType = a} :: TitleAggregation)
 
--- | The order to sort results by.
-titleAggregation_sortOrder :: Lens.Lens' TitleAggregation (Prelude.Maybe SortOrder)
-titleAggregation_sortOrder = Lens.lens (\TitleAggregation' {sortOrder} -> sortOrder) (\s@TitleAggregation' {} a -> s {sortOrder = a} :: TitleAggregation)
-
--- | The vulnerability IDs of the findings.
-titleAggregation_vulnerabilityIds :: Lens.Lens' TitleAggregation (Prelude.Maybe (Prelude.NonEmpty StringFilter))
-titleAggregation_vulnerabilityIds = Lens.lens (\TitleAggregation' {vulnerabilityIds} -> vulnerabilityIds) (\s@TitleAggregation' {} a -> s {vulnerabilityIds = a} :: TitleAggregation) Prelude.. Lens.mapping Lens.coerced
-
 -- | The value to sort results by.
 titleAggregation_sortBy :: Lens.Lens' TitleAggregation (Prelude.Maybe TitleSortBy)
 titleAggregation_sortBy = Lens.lens (\TitleAggregation' {sortBy} -> sortBy) (\s@TitleAggregation' {} a -> s {sortBy = a} :: TitleAggregation)
+
+-- | The order to sort results by.
+titleAggregation_sortOrder :: Lens.Lens' TitleAggregation (Prelude.Maybe SortOrder)
+titleAggregation_sortOrder = Lens.lens (\TitleAggregation' {sortOrder} -> sortOrder) (\s@TitleAggregation' {} a -> s {sortOrder = a} :: TitleAggregation)
 
 -- | The finding titles to aggregate on.
 titleAggregation_titles :: Lens.Lens' TitleAggregation (Prelude.Maybe (Prelude.NonEmpty StringFilter))
 titleAggregation_titles = Lens.lens (\TitleAggregation' {titles} -> titles) (\s@TitleAggregation' {} a -> s {titles = a} :: TitleAggregation) Prelude.. Lens.mapping Lens.coerced
 
+-- | The vulnerability IDs of the findings.
+titleAggregation_vulnerabilityIds :: Lens.Lens' TitleAggregation (Prelude.Maybe (Prelude.NonEmpty StringFilter))
+titleAggregation_vulnerabilityIds = Lens.lens (\TitleAggregation' {vulnerabilityIds} -> vulnerabilityIds) (\s@TitleAggregation' {} a -> s {vulnerabilityIds = a} :: TitleAggregation) Prelude.. Lens.mapping Lens.coerced
+
 instance Prelude.Hashable TitleAggregation where
   hashWithSalt _salt TitleAggregation' {..} =
     _salt `Prelude.hashWithSalt` resourceType
-      `Prelude.hashWithSalt` sortOrder
-      `Prelude.hashWithSalt` vulnerabilityIds
       `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` sortOrder
       `Prelude.hashWithSalt` titles
+      `Prelude.hashWithSalt` vulnerabilityIds
 
 instance Prelude.NFData TitleAggregation where
   rnf TitleAggregation' {..} =
     Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf vulnerabilityIds
       `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf sortOrder
       `Prelude.seq` Prelude.rnf titles
+      `Prelude.seq` Prelude.rnf vulnerabilityIds
 
 instance Data.ToJSON TitleAggregation where
   toJSON TitleAggregation' {..} =
     Data.object
       ( Prelude.catMaybes
           [ ("resourceType" Data..=) Prelude.<$> resourceType,
-            ("sortOrder" Data..=) Prelude.<$> sortOrder,
-            ("vulnerabilityIds" Data..=)
-              Prelude.<$> vulnerabilityIds,
             ("sortBy" Data..=) Prelude.<$> sortBy,
-            ("titles" Data..=) Prelude.<$> titles
+            ("sortOrder" Data..=) Prelude.<$> sortOrder,
+            ("titles" Data..=) Prelude.<$> titles,
+            ("vulnerabilityIds" Data..=)
+              Prelude.<$> vulnerabilityIds
           ]
       )

@@ -29,9 +29,9 @@ module Amazonka.Inspector2.ListCoverage
     newListCoverage,
 
     -- * Request Lenses
-    listCoverage_nextToken,
     listCoverage_filterCriteria,
     listCoverage_maxResults,
+    listCoverage_nextToken,
 
     -- * Destructuring the Response
     ListCoverageResponse (..),
@@ -54,16 +54,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListCoverage' smart constructor.
 data ListCoverage = ListCoverage'
-  { -- | A token to use for paginating results that are returned in the response.
-    -- Set the value of this parameter to null for the first request to a list
-    -- action. For subsequent calls, use the @NextToken@ value returned from
-    -- the previous request to continue listing results after the first page.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An object that contains details on the filters to apply to the coverage
+  { -- | An object that contains details on the filters to apply to the coverage
     -- data for your environment.
     filterCriteria :: Prelude.Maybe CoverageFilterCriteria,
     -- | The maximum number of results to return in the response.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token to use for paginating results that are returned in the response.
+    -- Set the value of this parameter to null for the first request to a list
+    -- action. For subsequent calls, use the @NextToken@ value returned from
+    -- the previous request to continue listing results after the first page.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,30 +75,23 @@ data ListCoverage = ListCoverage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listCoverage_nextToken' - A token to use for paginating results that are returned in the response.
--- Set the value of this parameter to null for the first request to a list
--- action. For subsequent calls, use the @NextToken@ value returned from
--- the previous request to continue listing results after the first page.
---
 -- 'filterCriteria', 'listCoverage_filterCriteria' - An object that contains details on the filters to apply to the coverage
 -- data for your environment.
 --
 -- 'maxResults', 'listCoverage_maxResults' - The maximum number of results to return in the response.
+--
+-- 'nextToken', 'listCoverage_nextToken' - A token to use for paginating results that are returned in the response.
+-- Set the value of this parameter to null for the first request to a list
+-- action. For subsequent calls, use the @NextToken@ value returned from
+-- the previous request to continue listing results after the first page.
 newListCoverage ::
   ListCoverage
 newListCoverage =
   ListCoverage'
-    { nextToken = Prelude.Nothing,
-      filterCriteria = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { filterCriteria = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | A token to use for paginating results that are returned in the response.
--- Set the value of this parameter to null for the first request to a list
--- action. For subsequent calls, use the @NextToken@ value returned from
--- the previous request to continue listing results after the first page.
-listCoverage_nextToken :: Lens.Lens' ListCoverage (Prelude.Maybe Prelude.Text)
-listCoverage_nextToken = Lens.lens (\ListCoverage' {nextToken} -> nextToken) (\s@ListCoverage' {} a -> s {nextToken = a} :: ListCoverage)
 
 -- | An object that contains details on the filters to apply to the coverage
 -- data for your environment.
@@ -108,6 +101,13 @@ listCoverage_filterCriteria = Lens.lens (\ListCoverage' {filterCriteria} -> filt
 -- | The maximum number of results to return in the response.
 listCoverage_maxResults :: Lens.Lens' ListCoverage (Prelude.Maybe Prelude.Natural)
 listCoverage_maxResults = Lens.lens (\ListCoverage' {maxResults} -> maxResults) (\s@ListCoverage' {} a -> s {maxResults = a} :: ListCoverage)
+
+-- | A token to use for paginating results that are returned in the response.
+-- Set the value of this parameter to null for the first request to a list
+-- action. For subsequent calls, use the @NextToken@ value returned from
+-- the previous request to continue listing results after the first page.
+listCoverage_nextToken :: Lens.Lens' ListCoverage (Prelude.Maybe Prelude.Text)
+listCoverage_nextToken = Lens.lens (\ListCoverage' {nextToken} -> nextToken) (\s@ListCoverage' {} a -> s {nextToken = a} :: ListCoverage)
 
 instance Core.AWSPager ListCoverage where
   page rq rs
@@ -146,15 +146,15 @@ instance Core.AWSRequest ListCoverage where
 
 instance Prelude.Hashable ListCoverage where
   hashWithSalt _salt ListCoverage' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filterCriteria
+    _salt `Prelude.hashWithSalt` filterCriteria
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListCoverage where
   rnf ListCoverage' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filterCriteria
+    Prelude.rnf filterCriteria
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListCoverage where
   toHeaders =
@@ -171,10 +171,10 @@ instance Data.ToJSON ListCoverage where
   toJSON ListCoverage' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("filterCriteria" Data..=)
+          [ ("filterCriteria" Data..=)
               Prelude.<$> filterCriteria,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

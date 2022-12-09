@@ -30,14 +30,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUsage' smart constructor.
 data Usage = Usage'
-  { -- | The type scan.
-    type' :: Prelude.Maybe UsageType,
-    -- | The total of usage.
-    total :: Prelude.Maybe Prelude.Double,
+  { -- | The currency type used when calculating usage data.
+    currency :: Prelude.Maybe Currency,
     -- | The estimated monthly cost of Amazon Inspector.
     estimatedMonthlyCost :: Prelude.Maybe Prelude.Double,
-    -- | The currency type used when calculating usage data.
-    currency :: Prelude.Maybe Currency
+    -- | The total of usage.
+    total :: Prelude.Maybe Prelude.Double,
+    -- | The type scan.
+    type' :: Prelude.Maybe UsageType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,38 +49,38 @@ data Usage = Usage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'usage_type' - The type scan.
---
--- 'total', 'usage_total' - The total of usage.
+-- 'currency', 'usage_currency' - The currency type used when calculating usage data.
 --
 -- 'estimatedMonthlyCost', 'usage_estimatedMonthlyCost' - The estimated monthly cost of Amazon Inspector.
 --
--- 'currency', 'usage_currency' - The currency type used when calculating usage data.
+-- 'total', 'usage_total' - The total of usage.
+--
+-- 'type'', 'usage_type' - The type scan.
 newUsage ::
   Usage
 newUsage =
   Usage'
-    { type' = Prelude.Nothing,
-      total = Prelude.Nothing,
+    { currency = Prelude.Nothing,
       estimatedMonthlyCost = Prelude.Nothing,
-      currency = Prelude.Nothing
+      total = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
--- | The type scan.
-usage_type :: Lens.Lens' Usage (Prelude.Maybe UsageType)
-usage_type = Lens.lens (\Usage' {type'} -> type') (\s@Usage' {} a -> s {type' = a} :: Usage)
-
--- | The total of usage.
-usage_total :: Lens.Lens' Usage (Prelude.Maybe Prelude.Double)
-usage_total = Lens.lens (\Usage' {total} -> total) (\s@Usage' {} a -> s {total = a} :: Usage)
+-- | The currency type used when calculating usage data.
+usage_currency :: Lens.Lens' Usage (Prelude.Maybe Currency)
+usage_currency = Lens.lens (\Usage' {currency} -> currency) (\s@Usage' {} a -> s {currency = a} :: Usage)
 
 -- | The estimated monthly cost of Amazon Inspector.
 usage_estimatedMonthlyCost :: Lens.Lens' Usage (Prelude.Maybe Prelude.Double)
 usage_estimatedMonthlyCost = Lens.lens (\Usage' {estimatedMonthlyCost} -> estimatedMonthlyCost) (\s@Usage' {} a -> s {estimatedMonthlyCost = a} :: Usage)
 
--- | The currency type used when calculating usage data.
-usage_currency :: Lens.Lens' Usage (Prelude.Maybe Currency)
-usage_currency = Lens.lens (\Usage' {currency} -> currency) (\s@Usage' {} a -> s {currency = a} :: Usage)
+-- | The total of usage.
+usage_total :: Lens.Lens' Usage (Prelude.Maybe Prelude.Double)
+usage_total = Lens.lens (\Usage' {total} -> total) (\s@Usage' {} a -> s {total = a} :: Usage)
+
+-- | The type scan.
+usage_type :: Lens.Lens' Usage (Prelude.Maybe UsageType)
+usage_type = Lens.lens (\Usage' {type'} -> type') (\s@Usage' {} a -> s {type' = a} :: Usage)
 
 instance Data.FromJSON Usage where
   parseJSON =
@@ -88,22 +88,22 @@ instance Data.FromJSON Usage where
       "Usage"
       ( \x ->
           Usage'
-            Prelude.<$> (x Data..:? "type")
-            Prelude.<*> (x Data..:? "total")
+            Prelude.<$> (x Data..:? "currency")
             Prelude.<*> (x Data..:? "estimatedMonthlyCost")
-            Prelude.<*> (x Data..:? "currency")
+            Prelude.<*> (x Data..:? "total")
+            Prelude.<*> (x Data..:? "type")
       )
 
 instance Prelude.Hashable Usage where
   hashWithSalt _salt Usage' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` total
+    _salt `Prelude.hashWithSalt` currency
       `Prelude.hashWithSalt` estimatedMonthlyCost
-      `Prelude.hashWithSalt` currency
+      `Prelude.hashWithSalt` total
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData Usage where
   rnf Usage' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf total
+    Prelude.rnf currency
       `Prelude.seq` Prelude.rnf estimatedMonthlyCost
-      `Prelude.seq` Prelude.rnf currency
+      `Prelude.seq` Prelude.rnf total
+      `Prelude.seq` Prelude.rnf type'

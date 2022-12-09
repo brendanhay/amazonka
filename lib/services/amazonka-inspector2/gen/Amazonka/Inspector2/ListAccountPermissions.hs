@@ -29,9 +29,9 @@ module Amazonka.Inspector2.ListAccountPermissions
     newListAccountPermissions,
 
     -- * Request Lenses
+    listAccountPermissions_maxResults,
     listAccountPermissions_nextToken,
     listAccountPermissions_service,
-    listAccountPermissions_maxResults,
 
     -- * Destructuring the Response
     ListAccountPermissionsResponse (..),
@@ -54,15 +54,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAccountPermissions' smart constructor.
 data ListAccountPermissions = ListAccountPermissions'
-  { -- | A token to use for paginating results that are returned in the response.
+  { -- | The maximum number of results to return in the response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token to use for paginating results that are returned in the response.
     -- Set the value of this parameter to null for the first request to a list
     -- action. For subsequent calls, use the @NextToken@ value returned from
     -- the previous request to continue listing results after the first page.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The service scan type to check permissions for.
-    service :: Prelude.Maybe Service,
-    -- | The maximum number of results to return in the response.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    service :: Prelude.Maybe Service
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,23 +74,27 @@ data ListAccountPermissions = ListAccountPermissions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listAccountPermissions_maxResults' - The maximum number of results to return in the response.
+--
 -- 'nextToken', 'listAccountPermissions_nextToken' - A token to use for paginating results that are returned in the response.
 -- Set the value of this parameter to null for the first request to a list
 -- action. For subsequent calls, use the @NextToken@ value returned from
 -- the previous request to continue listing results after the first page.
 --
 -- 'service', 'listAccountPermissions_service' - The service scan type to check permissions for.
---
--- 'maxResults', 'listAccountPermissions_maxResults' - The maximum number of results to return in the response.
 newListAccountPermissions ::
   ListAccountPermissions
 newListAccountPermissions =
   ListAccountPermissions'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      service = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      service = Prelude.Nothing
     }
+
+-- | The maximum number of results to return in the response.
+listAccountPermissions_maxResults :: Lens.Lens' ListAccountPermissions (Prelude.Maybe Prelude.Natural)
+listAccountPermissions_maxResults = Lens.lens (\ListAccountPermissions' {maxResults} -> maxResults) (\s@ListAccountPermissions' {} a -> s {maxResults = a} :: ListAccountPermissions)
 
 -- | A token to use for paginating results that are returned in the response.
 -- Set the value of this parameter to null for the first request to a list
@@ -102,10 +106,6 @@ listAccountPermissions_nextToken = Lens.lens (\ListAccountPermissions' {nextToke
 -- | The service scan type to check permissions for.
 listAccountPermissions_service :: Lens.Lens' ListAccountPermissions (Prelude.Maybe Service)
 listAccountPermissions_service = Lens.lens (\ListAccountPermissions' {service} -> service) (\s@ListAccountPermissions' {} a -> s {service = a} :: ListAccountPermissions)
-
--- | The maximum number of results to return in the response.
-listAccountPermissions_maxResults :: Lens.Lens' ListAccountPermissions (Prelude.Maybe Prelude.Natural)
-listAccountPermissions_maxResults = Lens.lens (\ListAccountPermissions' {maxResults} -> maxResults) (\s@ListAccountPermissions' {} a -> s {maxResults = a} :: ListAccountPermissions)
 
 instance Core.AWSPager ListAccountPermissions where
   page rq rs
@@ -145,15 +145,15 @@ instance Core.AWSRequest ListAccountPermissions where
 
 instance Prelude.Hashable ListAccountPermissions where
   hashWithSalt _salt ListAccountPermissions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` service
-      `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListAccountPermissions where
   rnf ListAccountPermissions' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf service
-      `Prelude.seq` Prelude.rnf maxResults
 
 instance Data.ToHeaders ListAccountPermissions where
   toHeaders =
@@ -170,9 +170,9 @@ instance Data.ToJSON ListAccountPermissions where
   toJSON ListAccountPermissions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("service" Data..=) Prelude.<$> service,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("service" Data..=) Prelude.<$> service
           ]
       )
 

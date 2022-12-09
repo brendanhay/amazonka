@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPackageAggregationResponse' smart constructor.
 data PackageAggregationResponse = PackageAggregationResponse'
-  { -- | An object that contains the count of matched findings per severity.
-    severityCounts :: Prelude.Maybe SeverityCounts,
-    -- | The ID of the Amazon Web Services account associated with the findings.
+  { -- | The ID of the Amazon Web Services account associated with the findings.
     accountId :: Prelude.Maybe Prelude.Text,
+    -- | An object that contains the count of matched findings per severity.
+    severityCounts :: Prelude.Maybe SeverityCounts,
     -- | The name of the operating system package.
     packageName :: Prelude.Text
   }
@@ -47,9 +47,9 @@ data PackageAggregationResponse = PackageAggregationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'severityCounts', 'packageAggregationResponse_severityCounts' - An object that contains the count of matched findings per severity.
---
 -- 'accountId', 'packageAggregationResponse_accountId' - The ID of the Amazon Web Services account associated with the findings.
+--
+-- 'severityCounts', 'packageAggregationResponse_severityCounts' - An object that contains the count of matched findings per severity.
 --
 -- 'packageName', 'packageAggregationResponse_packageName' - The name of the operating system package.
 newPackageAggregationResponse ::
@@ -58,19 +58,19 @@ newPackageAggregationResponse ::
   PackageAggregationResponse
 newPackageAggregationResponse pPackageName_ =
   PackageAggregationResponse'
-    { severityCounts =
+    { accountId =
         Prelude.Nothing,
-      accountId = Prelude.Nothing,
+      severityCounts = Prelude.Nothing,
       packageName = pPackageName_
     }
-
--- | An object that contains the count of matched findings per severity.
-packageAggregationResponse_severityCounts :: Lens.Lens' PackageAggregationResponse (Prelude.Maybe SeverityCounts)
-packageAggregationResponse_severityCounts = Lens.lens (\PackageAggregationResponse' {severityCounts} -> severityCounts) (\s@PackageAggregationResponse' {} a -> s {severityCounts = a} :: PackageAggregationResponse)
 
 -- | The ID of the Amazon Web Services account associated with the findings.
 packageAggregationResponse_accountId :: Lens.Lens' PackageAggregationResponse (Prelude.Maybe Prelude.Text)
 packageAggregationResponse_accountId = Lens.lens (\PackageAggregationResponse' {accountId} -> accountId) (\s@PackageAggregationResponse' {} a -> s {accountId = a} :: PackageAggregationResponse)
+
+-- | An object that contains the count of matched findings per severity.
+packageAggregationResponse_severityCounts :: Lens.Lens' PackageAggregationResponse (Prelude.Maybe SeverityCounts)
+packageAggregationResponse_severityCounts = Lens.lens (\PackageAggregationResponse' {severityCounts} -> severityCounts) (\s@PackageAggregationResponse' {} a -> s {severityCounts = a} :: PackageAggregationResponse)
 
 -- | The name of the operating system package.
 packageAggregationResponse_packageName :: Lens.Lens' PackageAggregationResponse Prelude.Text
@@ -82,19 +82,19 @@ instance Data.FromJSON PackageAggregationResponse where
       "PackageAggregationResponse"
       ( \x ->
           PackageAggregationResponse'
-            Prelude.<$> (x Data..:? "severityCounts")
-            Prelude.<*> (x Data..:? "accountId")
+            Prelude.<$> (x Data..:? "accountId")
+            Prelude.<*> (x Data..:? "severityCounts")
             Prelude.<*> (x Data..: "packageName")
       )
 
 instance Prelude.Hashable PackageAggregationResponse where
   hashWithSalt _salt PackageAggregationResponse' {..} =
-    _salt `Prelude.hashWithSalt` severityCounts
-      `Prelude.hashWithSalt` accountId
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` severityCounts
       `Prelude.hashWithSalt` packageName
 
 instance Prelude.NFData PackageAggregationResponse where
   rnf PackageAggregationResponse' {..} =
-    Prelude.rnf severityCounts
-      `Prelude.seq` Prelude.rnf accountId
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf severityCounts
       `Prelude.seq` Prelude.rnf packageName

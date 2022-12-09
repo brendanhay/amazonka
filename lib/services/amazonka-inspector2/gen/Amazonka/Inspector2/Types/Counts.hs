@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCounts' smart constructor.
 data Counts = Counts'
-  { -- | The key associated with this group
-    groupKey :: Prelude.Maybe GroupKey,
-    -- | The number of resources.
-    count :: Prelude.Maybe Prelude.Integer
+  { -- | The number of resources.
+    count :: Prelude.Maybe Prelude.Integer,
+    -- | The key associated with this group
+    groupKey :: Prelude.Maybe GroupKey
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,24 @@ data Counts = Counts'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'groupKey', 'counts_groupKey' - The key associated with this group
---
 -- 'count', 'counts_count' - The number of resources.
+--
+-- 'groupKey', 'counts_groupKey' - The key associated with this group
 newCounts ::
   Counts
 newCounts =
   Counts'
-    { groupKey = Prelude.Nothing,
-      count = Prelude.Nothing
+    { count = Prelude.Nothing,
+      groupKey = Prelude.Nothing
     }
-
--- | The key associated with this group
-counts_groupKey :: Lens.Lens' Counts (Prelude.Maybe GroupKey)
-counts_groupKey = Lens.lens (\Counts' {groupKey} -> groupKey) (\s@Counts' {} a -> s {groupKey = a} :: Counts)
 
 -- | The number of resources.
 counts_count :: Lens.Lens' Counts (Prelude.Maybe Prelude.Integer)
 counts_count = Lens.lens (\Counts' {count} -> count) (\s@Counts' {} a -> s {count = a} :: Counts)
+
+-- | The key associated with this group
+counts_groupKey :: Lens.Lens' Counts (Prelude.Maybe GroupKey)
+counts_groupKey = Lens.lens (\Counts' {groupKey} -> groupKey) (\s@Counts' {} a -> s {groupKey = a} :: Counts)
 
 instance Data.FromJSON Counts where
   parseJSON =
@@ -70,16 +70,16 @@ instance Data.FromJSON Counts where
       "Counts"
       ( \x ->
           Counts'
-            Prelude.<$> (x Data..:? "groupKey")
-            Prelude.<*> (x Data..:? "count")
+            Prelude.<$> (x Data..:? "count")
+            Prelude.<*> (x Data..:? "groupKey")
       )
 
 instance Prelude.Hashable Counts where
   hashWithSalt _salt Counts' {..} =
-    _salt `Prelude.hashWithSalt` groupKey
-      `Prelude.hashWithSalt` count
+    _salt `Prelude.hashWithSalt` count
+      `Prelude.hashWithSalt` groupKey
 
 instance Prelude.NFData Counts where
   rnf Counts' {..} =
-    Prelude.rnf groupKey
-      `Prelude.seq` Prelude.rnf count
+    Prelude.rnf count
+      `Prelude.seq` Prelude.rnf groupKey

@@ -31,16 +31,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newImageLayerAggregation' smart constructor.
 data ImageLayerAggregation = ImageLayerAggregation'
-  { -- | The order to sort results by.
-    sortOrder :: Prelude.Maybe SortOrder,
-    -- | The value to sort results by.
-    sortBy :: Prelude.Maybe ImageLayerSortBy,
+  { -- | The hashes associated with the layers.
+    layerHashes :: Prelude.Maybe (Prelude.NonEmpty StringFilter),
     -- | The repository associated with the container image hosting the layers.
     repositories :: Prelude.Maybe (Prelude.NonEmpty StringFilter),
     -- | The ID of the container image layer.
     resourceIds :: Prelude.Maybe (Prelude.NonEmpty StringFilter),
-    -- | The hashes associated with the layers.
-    layerHashes :: Prelude.Maybe (Prelude.NonEmpty StringFilter)
+    -- | The value to sort results by.
+    sortBy :: Prelude.Maybe ImageLayerSortBy,
+    -- | The order to sort results by.
+    sortOrder :: Prelude.Maybe SortOrder
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,33 +52,30 @@ data ImageLayerAggregation = ImageLayerAggregation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'imageLayerAggregation_sortOrder' - The order to sort results by.
---
--- 'sortBy', 'imageLayerAggregation_sortBy' - The value to sort results by.
+-- 'layerHashes', 'imageLayerAggregation_layerHashes' - The hashes associated with the layers.
 --
 -- 'repositories', 'imageLayerAggregation_repositories' - The repository associated with the container image hosting the layers.
 --
 -- 'resourceIds', 'imageLayerAggregation_resourceIds' - The ID of the container image layer.
 --
--- 'layerHashes', 'imageLayerAggregation_layerHashes' - The hashes associated with the layers.
+-- 'sortBy', 'imageLayerAggregation_sortBy' - The value to sort results by.
+--
+-- 'sortOrder', 'imageLayerAggregation_sortOrder' - The order to sort results by.
 newImageLayerAggregation ::
   ImageLayerAggregation
 newImageLayerAggregation =
   ImageLayerAggregation'
-    { sortOrder = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
+    { layerHashes =
+        Prelude.Nothing,
       repositories = Prelude.Nothing,
       resourceIds = Prelude.Nothing,
-      layerHashes = Prelude.Nothing
+      sortBy = Prelude.Nothing,
+      sortOrder = Prelude.Nothing
     }
 
--- | The order to sort results by.
-imageLayerAggregation_sortOrder :: Lens.Lens' ImageLayerAggregation (Prelude.Maybe SortOrder)
-imageLayerAggregation_sortOrder = Lens.lens (\ImageLayerAggregation' {sortOrder} -> sortOrder) (\s@ImageLayerAggregation' {} a -> s {sortOrder = a} :: ImageLayerAggregation)
-
--- | The value to sort results by.
-imageLayerAggregation_sortBy :: Lens.Lens' ImageLayerAggregation (Prelude.Maybe ImageLayerSortBy)
-imageLayerAggregation_sortBy = Lens.lens (\ImageLayerAggregation' {sortBy} -> sortBy) (\s@ImageLayerAggregation' {} a -> s {sortBy = a} :: ImageLayerAggregation)
+-- | The hashes associated with the layers.
+imageLayerAggregation_layerHashes :: Lens.Lens' ImageLayerAggregation (Prelude.Maybe (Prelude.NonEmpty StringFilter))
+imageLayerAggregation_layerHashes = Lens.lens (\ImageLayerAggregation' {layerHashes} -> layerHashes) (\s@ImageLayerAggregation' {} a -> s {layerHashes = a} :: ImageLayerAggregation) Prelude.. Lens.mapping Lens.coerced
 
 -- | The repository associated with the container image hosting the layers.
 imageLayerAggregation_repositories :: Lens.Lens' ImageLayerAggregation (Prelude.Maybe (Prelude.NonEmpty StringFilter))
@@ -88,34 +85,38 @@ imageLayerAggregation_repositories = Lens.lens (\ImageLayerAggregation' {reposit
 imageLayerAggregation_resourceIds :: Lens.Lens' ImageLayerAggregation (Prelude.Maybe (Prelude.NonEmpty StringFilter))
 imageLayerAggregation_resourceIds = Lens.lens (\ImageLayerAggregation' {resourceIds} -> resourceIds) (\s@ImageLayerAggregation' {} a -> s {resourceIds = a} :: ImageLayerAggregation) Prelude.. Lens.mapping Lens.coerced
 
--- | The hashes associated with the layers.
-imageLayerAggregation_layerHashes :: Lens.Lens' ImageLayerAggregation (Prelude.Maybe (Prelude.NonEmpty StringFilter))
-imageLayerAggregation_layerHashes = Lens.lens (\ImageLayerAggregation' {layerHashes} -> layerHashes) (\s@ImageLayerAggregation' {} a -> s {layerHashes = a} :: ImageLayerAggregation) Prelude.. Lens.mapping Lens.coerced
+-- | The value to sort results by.
+imageLayerAggregation_sortBy :: Lens.Lens' ImageLayerAggregation (Prelude.Maybe ImageLayerSortBy)
+imageLayerAggregation_sortBy = Lens.lens (\ImageLayerAggregation' {sortBy} -> sortBy) (\s@ImageLayerAggregation' {} a -> s {sortBy = a} :: ImageLayerAggregation)
+
+-- | The order to sort results by.
+imageLayerAggregation_sortOrder :: Lens.Lens' ImageLayerAggregation (Prelude.Maybe SortOrder)
+imageLayerAggregation_sortOrder = Lens.lens (\ImageLayerAggregation' {sortOrder} -> sortOrder) (\s@ImageLayerAggregation' {} a -> s {sortOrder = a} :: ImageLayerAggregation)
 
 instance Prelude.Hashable ImageLayerAggregation where
   hashWithSalt _salt ImageLayerAggregation' {..} =
-    _salt `Prelude.hashWithSalt` sortOrder
-      `Prelude.hashWithSalt` sortBy
+    _salt `Prelude.hashWithSalt` layerHashes
       `Prelude.hashWithSalt` repositories
       `Prelude.hashWithSalt` resourceIds
-      `Prelude.hashWithSalt` layerHashes
+      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` sortOrder
 
 instance Prelude.NFData ImageLayerAggregation where
   rnf ImageLayerAggregation' {..} =
-    Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf sortBy
+    Prelude.rnf layerHashes
       `Prelude.seq` Prelude.rnf repositories
       `Prelude.seq` Prelude.rnf resourceIds
-      `Prelude.seq` Prelude.rnf layerHashes
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf sortOrder
 
 instance Data.ToJSON ImageLayerAggregation where
   toJSON ImageLayerAggregation' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("sortOrder" Data..=) Prelude.<$> sortOrder,
-            ("sortBy" Data..=) Prelude.<$> sortBy,
+          [ ("layerHashes" Data..=) Prelude.<$> layerHashes,
             ("repositories" Data..=) Prelude.<$> repositories,
             ("resourceIds" Data..=) Prelude.<$> resourceIds,
-            ("layerHashes" Data..=) Prelude.<$> layerHashes
+            ("sortBy" Data..=) Prelude.<$> sortBy,
+            ("sortOrder" Data..=) Prelude.<$> sortOrder
           ]
       )

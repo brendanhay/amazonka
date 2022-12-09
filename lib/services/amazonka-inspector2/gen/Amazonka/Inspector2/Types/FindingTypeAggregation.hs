@@ -32,14 +32,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFindingTypeAggregation' smart constructor.
 data FindingTypeAggregation = FindingTypeAggregation'
-  { -- | The resource type to aggregate.
+  { -- | The finding type to aggregate.
+    findingType :: Prelude.Maybe AggregationFindingType,
+    -- | The resource type to aggregate.
     resourceType :: Prelude.Maybe AggregationResourceType,
-    -- | The order to sort results by.
-    sortOrder :: Prelude.Maybe SortOrder,
     -- | The value to sort results by.
     sortBy :: Prelude.Maybe FindingTypeSortBy,
-    -- | The finding type to aggregate.
-    findingType :: Prelude.Maybe AggregationFindingType
+    -- | The order to sort results by.
+    sortOrder :: Prelude.Maybe SortOrder
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,61 +51,61 @@ data FindingTypeAggregation = FindingTypeAggregation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceType', 'findingTypeAggregation_resourceType' - The resource type to aggregate.
+-- 'findingType', 'findingTypeAggregation_findingType' - The finding type to aggregate.
 --
--- 'sortOrder', 'findingTypeAggregation_sortOrder' - The order to sort results by.
+-- 'resourceType', 'findingTypeAggregation_resourceType' - The resource type to aggregate.
 --
 -- 'sortBy', 'findingTypeAggregation_sortBy' - The value to sort results by.
 --
--- 'findingType', 'findingTypeAggregation_findingType' - The finding type to aggregate.
+-- 'sortOrder', 'findingTypeAggregation_sortOrder' - The order to sort results by.
 newFindingTypeAggregation ::
   FindingTypeAggregation
 newFindingTypeAggregation =
   FindingTypeAggregation'
-    { resourceType =
+    { findingType =
         Prelude.Nothing,
-      sortOrder = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
       sortBy = Prelude.Nothing,
-      findingType = Prelude.Nothing
+      sortOrder = Prelude.Nothing
     }
-
--- | The resource type to aggregate.
-findingTypeAggregation_resourceType :: Lens.Lens' FindingTypeAggregation (Prelude.Maybe AggregationResourceType)
-findingTypeAggregation_resourceType = Lens.lens (\FindingTypeAggregation' {resourceType} -> resourceType) (\s@FindingTypeAggregation' {} a -> s {resourceType = a} :: FindingTypeAggregation)
-
--- | The order to sort results by.
-findingTypeAggregation_sortOrder :: Lens.Lens' FindingTypeAggregation (Prelude.Maybe SortOrder)
-findingTypeAggregation_sortOrder = Lens.lens (\FindingTypeAggregation' {sortOrder} -> sortOrder) (\s@FindingTypeAggregation' {} a -> s {sortOrder = a} :: FindingTypeAggregation)
-
--- | The value to sort results by.
-findingTypeAggregation_sortBy :: Lens.Lens' FindingTypeAggregation (Prelude.Maybe FindingTypeSortBy)
-findingTypeAggregation_sortBy = Lens.lens (\FindingTypeAggregation' {sortBy} -> sortBy) (\s@FindingTypeAggregation' {} a -> s {sortBy = a} :: FindingTypeAggregation)
 
 -- | The finding type to aggregate.
 findingTypeAggregation_findingType :: Lens.Lens' FindingTypeAggregation (Prelude.Maybe AggregationFindingType)
 findingTypeAggregation_findingType = Lens.lens (\FindingTypeAggregation' {findingType} -> findingType) (\s@FindingTypeAggregation' {} a -> s {findingType = a} :: FindingTypeAggregation)
 
+-- | The resource type to aggregate.
+findingTypeAggregation_resourceType :: Lens.Lens' FindingTypeAggregation (Prelude.Maybe AggregationResourceType)
+findingTypeAggregation_resourceType = Lens.lens (\FindingTypeAggregation' {resourceType} -> resourceType) (\s@FindingTypeAggregation' {} a -> s {resourceType = a} :: FindingTypeAggregation)
+
+-- | The value to sort results by.
+findingTypeAggregation_sortBy :: Lens.Lens' FindingTypeAggregation (Prelude.Maybe FindingTypeSortBy)
+findingTypeAggregation_sortBy = Lens.lens (\FindingTypeAggregation' {sortBy} -> sortBy) (\s@FindingTypeAggregation' {} a -> s {sortBy = a} :: FindingTypeAggregation)
+
+-- | The order to sort results by.
+findingTypeAggregation_sortOrder :: Lens.Lens' FindingTypeAggregation (Prelude.Maybe SortOrder)
+findingTypeAggregation_sortOrder = Lens.lens (\FindingTypeAggregation' {sortOrder} -> sortOrder) (\s@FindingTypeAggregation' {} a -> s {sortOrder = a} :: FindingTypeAggregation)
+
 instance Prelude.Hashable FindingTypeAggregation where
   hashWithSalt _salt FindingTypeAggregation' {..} =
-    _salt `Prelude.hashWithSalt` resourceType
-      `Prelude.hashWithSalt` sortOrder
+    _salt `Prelude.hashWithSalt` findingType
+      `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` sortBy
-      `Prelude.hashWithSalt` findingType
+      `Prelude.hashWithSalt` sortOrder
 
 instance Prelude.NFData FindingTypeAggregation where
   rnf FindingTypeAggregation' {..} =
-    Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf findingType
+      `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf findingType
+      `Prelude.seq` Prelude.rnf sortOrder
 
 instance Data.ToJSON FindingTypeAggregation where
   toJSON FindingTypeAggregation' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("resourceType" Data..=) Prelude.<$> resourceType,
-            ("sortOrder" Data..=) Prelude.<$> sortOrder,
+          [ ("findingType" Data..=) Prelude.<$> findingType,
+            ("resourceType" Data..=) Prelude.<$> resourceType,
             ("sortBy" Data..=) Prelude.<$> sortBy,
-            ("findingType" Data..=) Prelude.<$> findingType
+            ("sortOrder" Data..=) Prelude.<$> sortOrder
           ]
       )

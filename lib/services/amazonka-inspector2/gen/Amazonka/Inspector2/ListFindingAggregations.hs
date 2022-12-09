@@ -31,9 +31,9 @@ module Amazonka.Inspector2.ListFindingAggregations
 
     -- * Request Lenses
     listFindingAggregations_accountIds,
-    listFindingAggregations_nextToken,
     listFindingAggregations_aggregationRequest,
     listFindingAggregations_maxResults,
+    listFindingAggregations_nextToken,
     listFindingAggregations_aggregationType,
 
     -- * Destructuring the Response
@@ -61,16 +61,16 @@ data ListFindingAggregations = ListFindingAggregations'
   { -- | The Amazon Web Services account IDs to retrieve finding aggregation data
     -- for.
     accountIds :: Prelude.Maybe (Prelude.NonEmpty StringFilter),
-    -- | A token to use for paginating results that are returned in the response.
-    -- Set the value of this parameter to null for the first request to a list
-    -- action. For subsequent calls, use the @NextToken@ value returned from
-    -- the previous request to continue listing results after the first page.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Details of the aggregation request that is used to filter your
     -- aggregation results.
     aggregationRequest :: Prelude.Maybe AggregationRequest,
     -- | The maximum number of results to return in the response.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token to use for paginating results that are returned in the response.
+    -- Set the value of this parameter to null for the first request to a list
+    -- action. For subsequent calls, use the @NextToken@ value returned from
+    -- the previous request to continue listing results after the first page.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The type of the aggregation request.
     aggregationType :: AggregationType
   }
@@ -87,15 +87,15 @@ data ListFindingAggregations = ListFindingAggregations'
 -- 'accountIds', 'listFindingAggregations_accountIds' - The Amazon Web Services account IDs to retrieve finding aggregation data
 -- for.
 --
--- 'nextToken', 'listFindingAggregations_nextToken' - A token to use for paginating results that are returned in the response.
--- Set the value of this parameter to null for the first request to a list
--- action. For subsequent calls, use the @NextToken@ value returned from
--- the previous request to continue listing results after the first page.
---
 -- 'aggregationRequest', 'listFindingAggregations_aggregationRequest' - Details of the aggregation request that is used to filter your
 -- aggregation results.
 --
 -- 'maxResults', 'listFindingAggregations_maxResults' - The maximum number of results to return in the response.
+--
+-- 'nextToken', 'listFindingAggregations_nextToken' - A token to use for paginating results that are returned in the response.
+-- Set the value of this parameter to null for the first request to a list
+-- action. For subsequent calls, use the @NextToken@ value returned from
+-- the previous request to continue listing results after the first page.
 --
 -- 'aggregationType', 'listFindingAggregations_aggregationType' - The type of the aggregation request.
 newListFindingAggregations ::
@@ -106,9 +106,9 @@ newListFindingAggregations pAggregationType_ =
   ListFindingAggregations'
     { accountIds =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       aggregationRequest = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       aggregationType = pAggregationType_
     }
 
@@ -116,13 +116,6 @@ newListFindingAggregations pAggregationType_ =
 -- for.
 listFindingAggregations_accountIds :: Lens.Lens' ListFindingAggregations (Prelude.Maybe (Prelude.NonEmpty StringFilter))
 listFindingAggregations_accountIds = Lens.lens (\ListFindingAggregations' {accountIds} -> accountIds) (\s@ListFindingAggregations' {} a -> s {accountIds = a} :: ListFindingAggregations) Prelude.. Lens.mapping Lens.coerced
-
--- | A token to use for paginating results that are returned in the response.
--- Set the value of this parameter to null for the first request to a list
--- action. For subsequent calls, use the @NextToken@ value returned from
--- the previous request to continue listing results after the first page.
-listFindingAggregations_nextToken :: Lens.Lens' ListFindingAggregations (Prelude.Maybe Prelude.Text)
-listFindingAggregations_nextToken = Lens.lens (\ListFindingAggregations' {nextToken} -> nextToken) (\s@ListFindingAggregations' {} a -> s {nextToken = a} :: ListFindingAggregations)
 
 -- | Details of the aggregation request that is used to filter your
 -- aggregation results.
@@ -132,6 +125,13 @@ listFindingAggregations_aggregationRequest = Lens.lens (\ListFindingAggregations
 -- | The maximum number of results to return in the response.
 listFindingAggregations_maxResults :: Lens.Lens' ListFindingAggregations (Prelude.Maybe Prelude.Natural)
 listFindingAggregations_maxResults = Lens.lens (\ListFindingAggregations' {maxResults} -> maxResults) (\s@ListFindingAggregations' {} a -> s {maxResults = a} :: ListFindingAggregations)
+
+-- | A token to use for paginating results that are returned in the response.
+-- Set the value of this parameter to null for the first request to a list
+-- action. For subsequent calls, use the @NextToken@ value returned from
+-- the previous request to continue listing results after the first page.
+listFindingAggregations_nextToken :: Lens.Lens' ListFindingAggregations (Prelude.Maybe Prelude.Text)
+listFindingAggregations_nextToken = Lens.lens (\ListFindingAggregations' {nextToken} -> nextToken) (\s@ListFindingAggregations' {} a -> s {nextToken = a} :: ListFindingAggregations)
 
 -- | The type of the aggregation request.
 listFindingAggregations_aggregationType :: Lens.Lens' ListFindingAggregations AggregationType
@@ -178,17 +178,17 @@ instance Core.AWSRequest ListFindingAggregations where
 instance Prelude.Hashable ListFindingAggregations where
   hashWithSalt _salt ListFindingAggregations' {..} =
     _salt `Prelude.hashWithSalt` accountIds
-      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` aggregationRequest
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` aggregationType
 
 instance Prelude.NFData ListFindingAggregations where
   rnf ListFindingAggregations' {..} =
     Prelude.rnf accountIds
-      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf aggregationRequest
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf aggregationType
 
 instance Data.ToHeaders ListFindingAggregations where
@@ -207,10 +207,10 @@ instance Data.ToJSON ListFindingAggregations where
     Data.object
       ( Prelude.catMaybes
           [ ("accountIds" Data..=) Prelude.<$> accountIds,
-            ("nextToken" Data..=) Prelude.<$> nextToken,
             ("aggregationRequest" Data..=)
               Prelude.<$> aggregationRequest,
             ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("aggregationType" Data..= aggregationType)
           ]

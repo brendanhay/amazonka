@@ -24,6 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.AwsEc2InstanceDetails
 import Amazonka.Inspector2.Types.AwsEcrContainerImageDetails
+import Amazonka.Inspector2.Types.AwsLambdaFunctionDetails
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details about the resource involved in the finding.
@@ -35,7 +36,10 @@ data ResourceDetails = ResourceDetails'
     awsEc2Instance :: Prelude.Maybe AwsEc2InstanceDetails,
     -- | An object that contains details about the Amazon ECR container image
     -- involved in the finding.
-    awsEcrContainerImage :: Prelude.Maybe AwsEcrContainerImageDetails
+    awsEcrContainerImage :: Prelude.Maybe AwsEcrContainerImageDetails,
+    -- | A summary of the information about an AWS Lambda function affected by a
+    -- finding.
+    awsLambdaFunction :: Prelude.Maybe AwsLambdaFunctionDetails
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,12 +56,16 @@ data ResourceDetails = ResourceDetails'
 --
 -- 'awsEcrContainerImage', 'resourceDetails_awsEcrContainerImage' - An object that contains details about the Amazon ECR container image
 -- involved in the finding.
+--
+-- 'awsLambdaFunction', 'resourceDetails_awsLambdaFunction' - A summary of the information about an AWS Lambda function affected by a
+-- finding.
 newResourceDetails ::
   ResourceDetails
 newResourceDetails =
   ResourceDetails'
     { awsEc2Instance = Prelude.Nothing,
-      awsEcrContainerImage = Prelude.Nothing
+      awsEcrContainerImage = Prelude.Nothing,
+      awsLambdaFunction = Prelude.Nothing
     }
 
 -- | An object that contains details about the Amazon EC2 instance involved
@@ -70,6 +78,11 @@ resourceDetails_awsEc2Instance = Lens.lens (\ResourceDetails' {awsEc2Instance} -
 resourceDetails_awsEcrContainerImage :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsEcrContainerImageDetails)
 resourceDetails_awsEcrContainerImage = Lens.lens (\ResourceDetails' {awsEcrContainerImage} -> awsEcrContainerImage) (\s@ResourceDetails' {} a -> s {awsEcrContainerImage = a} :: ResourceDetails)
 
+-- | A summary of the information about an AWS Lambda function affected by a
+-- finding.
+resourceDetails_awsLambdaFunction :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsLambdaFunctionDetails)
+resourceDetails_awsLambdaFunction = Lens.lens (\ResourceDetails' {awsLambdaFunction} -> awsLambdaFunction) (\s@ResourceDetails' {} a -> s {awsLambdaFunction = a} :: ResourceDetails)
+
 instance Data.FromJSON ResourceDetails where
   parseJSON =
     Data.withObject
@@ -78,14 +91,17 @@ instance Data.FromJSON ResourceDetails where
           ResourceDetails'
             Prelude.<$> (x Data..:? "awsEc2Instance")
             Prelude.<*> (x Data..:? "awsEcrContainerImage")
+            Prelude.<*> (x Data..:? "awsLambdaFunction")
       )
 
 instance Prelude.Hashable ResourceDetails where
   hashWithSalt _salt ResourceDetails' {..} =
     _salt `Prelude.hashWithSalt` awsEc2Instance
       `Prelude.hashWithSalt` awsEcrContainerImage
+      `Prelude.hashWithSalt` awsLambdaFunction
 
 instance Prelude.NFData ResourceDetails where
   rnf ResourceDetails' {..} =
     Prelude.rnf awsEc2Instance
       `Prelude.seq` Prelude.rnf awsEcrContainerImage
+      `Prelude.seq` Prelude.rnf awsLambdaFunction

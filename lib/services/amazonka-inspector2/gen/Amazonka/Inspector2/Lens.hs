@@ -37,9 +37,9 @@ module Amazonka.Inspector2.Lens
     cancelFindingsReportResponse_reportId,
 
     -- ** CreateFilter
-    createFilter_tags,
     createFilter_description,
     createFilter_reason,
+    createFilter_tags,
     createFilter_action,
     createFilter_filterCriteria,
     createFilter_name,
@@ -59,8 +59,8 @@ module Amazonka.Inspector2.Lens
     deleteFilterResponse_arn,
 
     -- ** DescribeOrganizationConfiguration
-    describeOrganizationConfigurationResponse_maxAccountLimitReached,
     describeOrganizationConfigurationResponse_autoEnable,
+    describeOrganizationConfigurationResponse_maxAccountLimitReached,
     describeOrganizationConfigurationResponse_httpStatus,
 
     -- ** Disable
@@ -105,11 +105,11 @@ module Amazonka.Inspector2.Lens
     -- ** GetFindingsReportStatus
     getFindingsReportStatus_reportId,
     getFindingsReportStatusResponse_destination,
+    getFindingsReportStatusResponse_errorCode,
     getFindingsReportStatusResponse_errorMessage,
-    getFindingsReportStatusResponse_status,
     getFindingsReportStatusResponse_filterCriteria,
     getFindingsReportStatusResponse_reportId,
-    getFindingsReportStatusResponse_errorCode,
+    getFindingsReportStatusResponse_status,
     getFindingsReportStatusResponse_httpStatus,
 
     -- ** GetMember
@@ -118,51 +118,51 @@ module Amazonka.Inspector2.Lens
     getMemberResponse_httpStatus,
 
     -- ** ListAccountPermissions
+    listAccountPermissions_maxResults,
     listAccountPermissions_nextToken,
     listAccountPermissions_service,
-    listAccountPermissions_maxResults,
     listAccountPermissionsResponse_nextToken,
     listAccountPermissionsResponse_httpStatus,
     listAccountPermissionsResponse_permissions,
 
     -- ** ListCoverage
-    listCoverage_nextToken,
     listCoverage_filterCriteria,
     listCoverage_maxResults,
+    listCoverage_nextToken,
     listCoverageResponse_coveredResources,
     listCoverageResponse_nextToken,
     listCoverageResponse_httpStatus,
 
     -- ** ListCoverageStatistics
-    listCoverageStatistics_nextToken,
-    listCoverageStatistics_groupBy,
     listCoverageStatistics_filterCriteria,
-    listCoverageStatisticsResponse_nextToken,
+    listCoverageStatistics_groupBy,
+    listCoverageStatistics_nextToken,
     listCoverageStatisticsResponse_countsByGroup,
+    listCoverageStatisticsResponse_nextToken,
     listCoverageStatisticsResponse_httpStatus,
     listCoverageStatisticsResponse_totalCounts,
 
     -- ** ListDelegatedAdminAccounts
-    listDelegatedAdminAccounts_nextToken,
     listDelegatedAdminAccounts_maxResults,
-    listDelegatedAdminAccountsResponse_nextToken,
+    listDelegatedAdminAccounts_nextToken,
     listDelegatedAdminAccountsResponse_delegatedAdminAccounts,
+    listDelegatedAdminAccountsResponse_nextToken,
     listDelegatedAdminAccountsResponse_httpStatus,
 
     -- ** ListFilters
-    listFilters_nextToken,
+    listFilters_action,
     listFilters_arns,
     listFilters_maxResults,
-    listFilters_action,
+    listFilters_nextToken,
     listFiltersResponse_nextToken,
     listFiltersResponse_httpStatus,
     listFiltersResponse_filters,
 
     -- ** ListFindingAggregations
     listFindingAggregations_accountIds,
-    listFindingAggregations_nextToken,
     listFindingAggregations_aggregationRequest,
     listFindingAggregations_maxResults,
+    listFindingAggregations_nextToken,
     listFindingAggregations_aggregationType,
     listFindingAggregationsResponse_nextToken,
     listFindingAggregationsResponse_responses,
@@ -170,20 +170,20 @@ module Amazonka.Inspector2.Lens
     listFindingAggregationsResponse_aggregationType,
 
     -- ** ListFindings
-    listFindings_sortCriteria,
-    listFindings_nextToken,
     listFindings_filterCriteria,
     listFindings_maxResults,
+    listFindings_nextToken,
+    listFindings_sortCriteria,
     listFindingsResponse_findings,
     listFindingsResponse_nextToken,
     listFindingsResponse_httpStatus,
 
     -- ** ListMembers
+    listMembers_maxResults,
     listMembers_nextToken,
     listMembers_onlyAssociated,
-    listMembers_maxResults,
-    listMembersResponse_nextToken,
     listMembersResponse_members,
+    listMembersResponse_nextToken,
     listMembersResponse_httpStatus,
 
     -- ** ListTagsForResource
@@ -193,8 +193,8 @@ module Amazonka.Inspector2.Lens
 
     -- ** ListUsageTotals
     listUsageTotals_accountIds,
-    listUsageTotals_nextToken,
     listUsageTotals_maxResults,
+    listUsageTotals_nextToken,
     listUsageTotalsResponse_nextToken,
     listUsageTotalsResponse_totals,
     listUsageTotalsResponse_httpStatus,
@@ -214,11 +214,11 @@ module Amazonka.Inspector2.Lens
     updateConfigurationResponse_httpStatus,
 
     -- ** UpdateFilter
-    updateFilter_name,
+    updateFilter_action,
     updateFilter_description,
     updateFilter_filterCriteria,
+    updateFilter_name,
     updateFilter_reason,
-    updateFilter_action,
     updateFilter_filterArn,
     updateFilterResponse_httpStatus,
     updateFilterResponse_arn,
@@ -236,14 +236,14 @@ module Amazonka.Inspector2.Lens
     account_status,
 
     -- ** AccountAggregation
-    accountAggregation_resourceType,
-    accountAggregation_sortOrder,
-    accountAggregation_sortBy,
     accountAggregation_findingType,
+    accountAggregation_resourceType,
+    accountAggregation_sortBy,
+    accountAggregation_sortOrder,
 
     -- ** AccountAggregationResponse
-    accountAggregationResponse_severityCounts,
     accountAggregationResponse_accountId,
+    accountAggregationResponse_severityCounts,
 
     -- ** AccountState
     accountState_accountId,
@@ -251,96 +251,116 @@ module Amazonka.Inspector2.Lens
     accountState_state,
 
     -- ** AggregationRequest
-    aggregationRequest_repositoryAggregation,
-    aggregationRequest_imageLayerAggregation,
     aggregationRequest_accountAggregation,
+    aggregationRequest_amiAggregation,
     aggregationRequest_awsEcrContainerAggregation,
     aggregationRequest_ec2InstanceAggregation,
     aggregationRequest_findingTypeAggregation,
+    aggregationRequest_imageLayerAggregation,
+    aggregationRequest_lambdaFunctionAggregation,
+    aggregationRequest_lambdaLayerAggregation,
     aggregationRequest_packageAggregation,
+    aggregationRequest_repositoryAggregation,
     aggregationRequest_titleAggregation,
-    aggregationRequest_amiAggregation,
 
     -- ** AggregationResponse
-    aggregationResponse_repositoryAggregation,
-    aggregationResponse_imageLayerAggregation,
     aggregationResponse_accountAggregation,
+    aggregationResponse_amiAggregation,
     aggregationResponse_awsEcrContainerAggregation,
     aggregationResponse_ec2InstanceAggregation,
     aggregationResponse_findingTypeAggregation,
+    aggregationResponse_imageLayerAggregation,
+    aggregationResponse_lambdaFunctionAggregation,
+    aggregationResponse_lambdaLayerAggregation,
     aggregationResponse_packageAggregation,
+    aggregationResponse_repositoryAggregation,
     aggregationResponse_titleAggregation,
-    aggregationResponse_amiAggregation,
 
     -- ** AmiAggregation
-    amiAggregation_sortOrder,
-    amiAggregation_sortBy,
     amiAggregation_amis,
+    amiAggregation_sortBy,
+    amiAggregation_sortOrder,
 
     -- ** AmiAggregationResponse
-    amiAggregationResponse_severityCounts,
     amiAggregationResponse_accountId,
     amiAggregationResponse_affectedInstances,
+    amiAggregationResponse_severityCounts,
     amiAggregationResponse_ami,
 
     -- ** AutoEnable
+    autoEnable_lambda,
     autoEnable_ec2,
     autoEnable_ecr,
 
     -- ** AwsEc2InstanceDetails
-    awsEc2InstanceDetails_type,
-    awsEc2InstanceDetails_ipV4Addresses,
-    awsEc2InstanceDetails_subnetId,
     awsEc2InstanceDetails_iamInstanceProfileArn,
-    awsEc2InstanceDetails_platform,
+    awsEc2InstanceDetails_imageId,
+    awsEc2InstanceDetails_ipV4Addresses,
+    awsEc2InstanceDetails_ipV6Addresses,
     awsEc2InstanceDetails_keyName,
     awsEc2InstanceDetails_launchedAt,
+    awsEc2InstanceDetails_platform,
+    awsEc2InstanceDetails_subnetId,
+    awsEc2InstanceDetails_type,
     awsEc2InstanceDetails_vpcId,
-    awsEc2InstanceDetails_ipV6Addresses,
-    awsEc2InstanceDetails_imageId,
 
     -- ** AwsEcrContainerAggregation
-    awsEcrContainerAggregation_sortOrder,
+    awsEcrContainerAggregation_architectures,
     awsEcrContainerAggregation_imageShas,
-    awsEcrContainerAggregation_sortBy,
+    awsEcrContainerAggregation_imageTags,
     awsEcrContainerAggregation_repositories,
     awsEcrContainerAggregation_resourceIds,
-    awsEcrContainerAggregation_imageTags,
-    awsEcrContainerAggregation_architectures,
+    awsEcrContainerAggregation_sortBy,
+    awsEcrContainerAggregation_sortOrder,
 
     -- ** AwsEcrContainerAggregationResponse
-    awsEcrContainerAggregationResponse_severityCounts,
-    awsEcrContainerAggregationResponse_repository,
-    awsEcrContainerAggregationResponse_imageSha,
     awsEcrContainerAggregationResponse_accountId,
-    awsEcrContainerAggregationResponse_imageTags,
     awsEcrContainerAggregationResponse_architecture,
+    awsEcrContainerAggregationResponse_imageSha,
+    awsEcrContainerAggregationResponse_imageTags,
+    awsEcrContainerAggregationResponse_repository,
+    awsEcrContainerAggregationResponse_severityCounts,
     awsEcrContainerAggregationResponse_resourceId,
 
     -- ** AwsEcrContainerImageDetails
-    awsEcrContainerImageDetails_author,
-    awsEcrContainerImageDetails_platform,
-    awsEcrContainerImageDetails_imageTags,
     awsEcrContainerImageDetails_architecture,
+    awsEcrContainerImageDetails_author,
+    awsEcrContainerImageDetails_imageTags,
+    awsEcrContainerImageDetails_platform,
     awsEcrContainerImageDetails_pushedAt,
     awsEcrContainerImageDetails_imageHash,
     awsEcrContainerImageDetails_registry,
     awsEcrContainerImageDetails_repositoryName,
 
+    -- ** AwsLambdaFunctionDetails
+    awsLambdaFunctionDetails_architectures,
+    awsLambdaFunctionDetails_lastModifiedAt,
+    awsLambdaFunctionDetails_layers,
+    awsLambdaFunctionDetails_packageType,
+    awsLambdaFunctionDetails_vpcConfig,
+    awsLambdaFunctionDetails_codeSha256,
+    awsLambdaFunctionDetails_executionRoleArn,
+    awsLambdaFunctionDetails_functionName,
+    awsLambdaFunctionDetails_runtime,
+    awsLambdaFunctionDetails_version,
+
     -- ** Counts
-    counts_groupKey,
     counts_count,
+    counts_groupKey,
 
     -- ** CoverageFilterCriteria
-    coverageFilterCriteria_resourceId,
-    coverageFilterCriteria_resourceType,
-    coverageFilterCriteria_ecrImageTags,
-    coverageFilterCriteria_scanType,
     coverageFilterCriteria_accountId,
     coverageFilterCriteria_ec2InstanceTags,
-    coverageFilterCriteria_scanStatusReason,
-    coverageFilterCriteria_scanStatusCode,
+    coverageFilterCriteria_ecrImageTags,
     coverageFilterCriteria_ecrRepositoryName,
+    coverageFilterCriteria_lambdaFunctionName,
+    coverageFilterCriteria_lambdaFunctionRuntime,
+    coverageFilterCriteria_lambdaFunctionTags,
+    coverageFilterCriteria_resourceId,
+    coverageFilterCriteria_resourceType,
+    coverageFilterCriteria_scanStatusCode,
+    coverageFilterCriteria_scanStatusReason,
+    coverageFilterCriteria_scanType,
 
     -- ** CoverageMapFilter
     coverageMapFilter_value,
@@ -378,16 +398,16 @@ module Amazonka.Inspector2.Lens
     cvssScoreDetails_version,
 
     -- ** DateFilter
-    dateFilter_startInclusive,
     dateFilter_endInclusive,
+    dateFilter_startInclusive,
 
     -- ** DelegatedAdmin
     delegatedAdmin_accountId,
     delegatedAdmin_relationshipStatus,
 
     -- ** DelegatedAdminAccount
-    delegatedAdminAccount_status,
     delegatedAdminAccount_accountId,
+    delegatedAdminAccount_status,
 
     -- ** Destination
     destination_keyPrefix,
@@ -395,26 +415,26 @@ module Amazonka.Inspector2.Lens
     destination_kmsKeyArn,
 
     -- ** Ec2InstanceAggregation
-    ec2InstanceAggregation_sortOrder,
-    ec2InstanceAggregation_instanceTags,
-    ec2InstanceAggregation_sortBy,
-    ec2InstanceAggregation_operatingSystems,
-    ec2InstanceAggregation_instanceIds,
     ec2InstanceAggregation_amis,
+    ec2InstanceAggregation_instanceIds,
+    ec2InstanceAggregation_instanceTags,
+    ec2InstanceAggregation_operatingSystems,
+    ec2InstanceAggregation_sortBy,
+    ec2InstanceAggregation_sortOrder,
 
     -- ** Ec2InstanceAggregationResponse
-    ec2InstanceAggregationResponse_severityCounts,
-    ec2InstanceAggregationResponse_operatingSystem,
-    ec2InstanceAggregationResponse_instanceTags,
-    ec2InstanceAggregationResponse_networkFindings,
     ec2InstanceAggregationResponse_accountId,
     ec2InstanceAggregationResponse_ami,
+    ec2InstanceAggregationResponse_instanceTags,
+    ec2InstanceAggregationResponse_networkFindings,
+    ec2InstanceAggregationResponse_operatingSystem,
+    ec2InstanceAggregationResponse_severityCounts,
     ec2InstanceAggregationResponse_instanceId,
 
     -- ** Ec2Metadata
-    ec2Metadata_tags,
     ec2Metadata_amiId,
     ec2Metadata_platform,
+    ec2Metadata_tags,
 
     -- ** EcrConfiguration
     ecrConfiguration_rescanDuration,
@@ -430,21 +450,24 @@ module Amazonka.Inspector2.Lens
     ecrRepositoryMetadata_scanFrequency,
 
     -- ** EcrRescanDurationState
-    ecrRescanDurationState_status,
     ecrRescanDurationState_rescanDuration,
+    ecrRescanDurationState_status,
     ecrRescanDurationState_updatedAt,
 
+    -- ** ExploitabilityDetails
+    exploitabilityDetails_lastKnownExploitAt,
+
     -- ** FailedAccount
-    failedAccount_status,
     failedAccount_resourceStatus,
+    failedAccount_status,
     failedAccount_accountId,
     failedAccount_errorCode,
     failedAccount_errorMessage,
 
     -- ** Filter
-    filter_tags,
     filter_description,
     filter_reason,
+    filter_tags,
     filter_action,
     filter_arn,
     filter_createdAt,
@@ -455,45 +478,53 @@ module Amazonka.Inspector2.Lens
 
     -- ** FilterCriteria
     filterCriteria_awsAccountId,
-    filterCriteria_ec2InstanceImageId,
-    filterCriteria_networkProtocol,
-    filterCriteria_resourceId,
-    filterCriteria_resourceType,
-    filterCriteria_ecrImageRegistry,
-    filterCriteria_severity,
-    filterCriteria_portRange,
-    filterCriteria_ecrImageArchitecture,
-    filterCriteria_findingStatus,
-    filterCriteria_vulnerablePackages,
-    filterCriteria_vulnerabilitySource,
-    filterCriteria_ecrImageRepositoryName,
-    filterCriteria_inspectorScore,
-    filterCriteria_ecrImageTags,
-    filterCriteria_resourceTags,
-    filterCriteria_ecrImageHash,
-    filterCriteria_title,
-    filterCriteria_firstObservedAt,
-    filterCriteria_ecrImagePushedAt,
-    filterCriteria_vendorSeverity,
-    filterCriteria_lastObservedAt,
-    filterCriteria_ec2InstanceVpcId,
     filterCriteria_componentId,
-    filterCriteria_relatedVulnerabilities,
-    filterCriteria_findingType,
     filterCriteria_componentType,
-    filterCriteria_vulnerabilityId,
-    filterCriteria_fixAvailable,
-    filterCriteria_findingArn,
+    filterCriteria_ec2InstanceImageId,
     filterCriteria_ec2InstanceSubnetId,
+    filterCriteria_ec2InstanceVpcId,
+    filterCriteria_ecrImageArchitecture,
+    filterCriteria_ecrImageHash,
+    filterCriteria_ecrImagePushedAt,
+    filterCriteria_ecrImageRegistry,
+    filterCriteria_ecrImageRepositoryName,
+    filterCriteria_ecrImageTags,
+    filterCriteria_exploitAvailable,
+    filterCriteria_findingArn,
+    filterCriteria_findingStatus,
+    filterCriteria_findingType,
+    filterCriteria_firstObservedAt,
+    filterCriteria_fixAvailable,
+    filterCriteria_inspectorScore,
+    filterCriteria_lambdaFunctionExecutionRoleArn,
+    filterCriteria_lambdaFunctionLastModifiedAt,
+    filterCriteria_lambdaFunctionLayers,
+    filterCriteria_lambdaFunctionName,
+    filterCriteria_lambdaFunctionRuntime,
+    filterCriteria_lastObservedAt,
+    filterCriteria_networkProtocol,
+    filterCriteria_portRange,
+    filterCriteria_relatedVulnerabilities,
+    filterCriteria_resourceId,
+    filterCriteria_resourceTags,
+    filterCriteria_resourceType,
+    filterCriteria_severity,
+    filterCriteria_title,
     filterCriteria_updatedAt,
+    filterCriteria_vendorSeverity,
+    filterCriteria_vulnerabilityId,
+    filterCriteria_vulnerabilitySource,
+    filterCriteria_vulnerablePackages,
 
     -- ** Finding
+    finding_exploitAvailable,
+    finding_exploitabilityDetails,
+    finding_fixAvailable,
     finding_inspectorScore,
-    finding_packageVulnerabilityDetails,
-    finding_title,
     finding_inspectorScoreDetails,
     finding_networkReachabilityDetails,
-    finding_fixAvailable,
+    finding_packageVulnerabilityDetails,
+    finding_title,
     finding_updatedAt,
     finding_awsAccountId,
     finding_description,
@@ -507,14 +538,14 @@ module Amazonka.Inspector2.Lens
     finding_type,
 
     -- ** FindingTypeAggregation
-    findingTypeAggregation_resourceType,
-    findingTypeAggregation_sortOrder,
-    findingTypeAggregation_sortBy,
     findingTypeAggregation_findingType,
+    findingTypeAggregation_resourceType,
+    findingTypeAggregation_sortBy,
+    findingTypeAggregation_sortOrder,
 
     -- ** FindingTypeAggregationResponse
-    findingTypeAggregationResponse_severityCounts,
     findingTypeAggregationResponse_accountId,
+    findingTypeAggregationResponse_severityCounts,
 
     -- ** FreeTrialAccountInfo
     freeTrialAccountInfo_accountId,
@@ -532,11 +563,11 @@ module Amazonka.Inspector2.Lens
     freeTrialInfoError_message,
 
     -- ** ImageLayerAggregation
-    imageLayerAggregation_sortOrder,
-    imageLayerAggregation_sortBy,
+    imageLayerAggregation_layerHashes,
     imageLayerAggregation_repositories,
     imageLayerAggregation_resourceIds,
-    imageLayerAggregation_layerHashes,
+    imageLayerAggregation_sortBy,
+    imageLayerAggregation_sortOrder,
 
     -- ** ImageLayerAggregationResponse
     imageLayerAggregationResponse_severityCounts,
@@ -548,14 +579,56 @@ module Amazonka.Inspector2.Lens
     -- ** InspectorScoreDetails
     inspectorScoreDetails_adjustedCvss,
 
+    -- ** LambdaFunctionAggregation
+    lambdaFunctionAggregation_functionNames,
+    lambdaFunctionAggregation_functionTags,
+    lambdaFunctionAggregation_resourceIds,
+    lambdaFunctionAggregation_runtimes,
+    lambdaFunctionAggregation_sortBy,
+    lambdaFunctionAggregation_sortOrder,
+
+    -- ** LambdaFunctionAggregationResponse
+    lambdaFunctionAggregationResponse_accountId,
+    lambdaFunctionAggregationResponse_functionName,
+    lambdaFunctionAggregationResponse_lambdaTags,
+    lambdaFunctionAggregationResponse_lastModifiedAt,
+    lambdaFunctionAggregationResponse_runtime,
+    lambdaFunctionAggregationResponse_severityCounts,
+    lambdaFunctionAggregationResponse_resourceId,
+
+    -- ** LambdaFunctionMetadata
+    lambdaFunctionMetadata_functionName,
+    lambdaFunctionMetadata_functionTags,
+    lambdaFunctionMetadata_layers,
+    lambdaFunctionMetadata_runtime,
+
+    -- ** LambdaLayerAggregation
+    lambdaLayerAggregation_functionNames,
+    lambdaLayerAggregation_layerArns,
+    lambdaLayerAggregation_resourceIds,
+    lambdaLayerAggregation_sortBy,
+    lambdaLayerAggregation_sortOrder,
+
+    -- ** LambdaLayerAggregationResponse
+    lambdaLayerAggregationResponse_severityCounts,
+    lambdaLayerAggregationResponse_accountId,
+    lambdaLayerAggregationResponse_functionName,
+    lambdaLayerAggregationResponse_layerArn,
+    lambdaLayerAggregationResponse_resourceId,
+
+    -- ** LambdaVpcConfig
+    lambdaVpcConfig_securityGroupIds,
+    lambdaVpcConfig_subnetIds,
+    lambdaVpcConfig_vpcId,
+
     -- ** MapFilter
     mapFilter_value,
     mapFilter_comparison,
     mapFilter_key,
 
     -- ** Member
-    member_delegatedAdminAccountId,
     member_accountId,
+    member_delegatedAdminAccountId,
     member_relationshipStatus,
     member_updatedAt,
 
@@ -572,32 +645,33 @@ module Amazonka.Inspector2.Lens
     numberFilter_upperInclusive,
 
     -- ** PackageAggregation
-    packageAggregation_sortOrder,
-    packageAggregation_sortBy,
     packageAggregation_packageNames,
+    packageAggregation_sortBy,
+    packageAggregation_sortOrder,
 
     -- ** PackageAggregationResponse
-    packageAggregationResponse_severityCounts,
     packageAggregationResponse_accountId,
+    packageAggregationResponse_severityCounts,
     packageAggregationResponse_packageName,
 
     -- ** PackageFilter
-    packageFilter_name,
-    packageFilter_epoch,
-    packageFilter_release,
-    packageFilter_sourceLayerHash,
     packageFilter_architecture,
+    packageFilter_epoch,
+    packageFilter_name,
+    packageFilter_release,
+    packageFilter_sourceLambdaLayerArn,
+    packageFilter_sourceLayerHash,
     packageFilter_version,
 
     -- ** PackageVulnerabilityDetails
-    packageVulnerabilityDetails_vulnerablePackages,
-    packageVulnerabilityDetails_referenceUrls,
-    packageVulnerabilityDetails_vendorUpdatedAt,
-    packageVulnerabilityDetails_vendorCreatedAt,
     packageVulnerabilityDetails_cvss,
-    packageVulnerabilityDetails_vendorSeverity,
+    packageVulnerabilityDetails_referenceUrls,
     packageVulnerabilityDetails_relatedVulnerabilities,
     packageVulnerabilityDetails_sourceUrl,
+    packageVulnerabilityDetails_vendorCreatedAt,
+    packageVulnerabilityDetails_vendorSeverity,
+    packageVulnerabilityDetails_vendorUpdatedAt,
+    packageVulnerabilityDetails_vulnerablePackages,
     packageVulnerabilityDetails_source,
     packageVulnerabilityDetails_vulnerabilityId,
 
@@ -621,38 +695,42 @@ module Amazonka.Inspector2.Lens
     remediation_recommendation,
 
     -- ** RepositoryAggregation
-    repositoryAggregation_sortOrder,
-    repositoryAggregation_sortBy,
     repositoryAggregation_repositories,
+    repositoryAggregation_sortBy,
+    repositoryAggregation_sortOrder,
 
     -- ** RepositoryAggregationResponse
-    repositoryAggregationResponse_severityCounts,
-    repositoryAggregationResponse_affectedImages,
     repositoryAggregationResponse_accountId,
+    repositoryAggregationResponse_affectedImages,
+    repositoryAggregationResponse_severityCounts,
     repositoryAggregationResponse_repository,
 
     -- ** Resource
-    resource_tags,
     resource_details,
     resource_partition,
     resource_region,
+    resource_tags,
     resource_id,
     resource_type,
 
     -- ** ResourceDetails
     resourceDetails_awsEc2Instance,
     resourceDetails_awsEcrContainerImage,
+    resourceDetails_awsLambdaFunction,
 
     -- ** ResourceScanMetadata
-    resourceScanMetadata_ecrRepository,
     resourceScanMetadata_ec2,
     resourceScanMetadata_ecrImage,
+    resourceScanMetadata_ecrRepository,
+    resourceScanMetadata_lambdaFunction,
 
     -- ** ResourceState
+    resourceState_lambda,
     resourceState_ec2,
     resourceState_ecr,
 
     -- ** ResourceStatus
+    resourceStatus_lambda,
     resourceStatus_ec2,
     resourceStatus_ecr,
 
@@ -661,9 +739,9 @@ module Amazonka.Inspector2.Lens
     scanStatus_statusCode,
 
     -- ** SeverityCounts
+    severityCounts_all,
     severityCounts_critical,
     severityCounts_high,
-    severityCounts_all,
     severityCounts_medium,
 
     -- ** SortCriteria
@@ -685,35 +763,36 @@ module Amazonka.Inspector2.Lens
 
     -- ** TitleAggregation
     titleAggregation_resourceType,
-    titleAggregation_sortOrder,
-    titleAggregation_vulnerabilityIds,
     titleAggregation_sortBy,
+    titleAggregation_sortOrder,
     titleAggregation_titles,
+    titleAggregation_vulnerabilityIds,
 
     -- ** TitleAggregationResponse
-    titleAggregationResponse_severityCounts,
     titleAggregationResponse_accountId,
+    titleAggregationResponse_severityCounts,
     titleAggregationResponse_vulnerabilityId,
     titleAggregationResponse_title,
 
     -- ** Usage
-    usage_type,
-    usage_total,
-    usage_estimatedMonthlyCost,
     usage_currency,
+    usage_estimatedMonthlyCost,
+    usage_total,
+    usage_type,
 
     -- ** UsageTotal
-    usageTotal_usage,
     usageTotal_accountId,
+    usageTotal_usage,
 
     -- ** VulnerablePackage
-    vulnerablePackage_filePath,
-    vulnerablePackage_fixedInVersion,
-    vulnerablePackage_remediation,
     vulnerablePackage_arch,
     vulnerablePackage_epoch,
+    vulnerablePackage_filePath,
+    vulnerablePackage_fixedInVersion,
     vulnerablePackage_packageManager,
     vulnerablePackage_release,
+    vulnerablePackage_remediation,
+    vulnerablePackage_sourceLambdaLayerArn,
     vulnerablePackage_sourceLayerHash,
     vulnerablePackage_name,
     vulnerablePackage_version,
@@ -761,6 +840,7 @@ import Amazonka.Inspector2.Types.AwsEc2InstanceDetails
 import Amazonka.Inspector2.Types.AwsEcrContainerAggregation
 import Amazonka.Inspector2.Types.AwsEcrContainerAggregationResponse
 import Amazonka.Inspector2.Types.AwsEcrContainerImageDetails
+import Amazonka.Inspector2.Types.AwsLambdaFunctionDetails
 import Amazonka.Inspector2.Types.Counts
 import Amazonka.Inspector2.Types.CoverageFilterCriteria
 import Amazonka.Inspector2.Types.CoverageMapFilter
@@ -781,6 +861,7 @@ import Amazonka.Inspector2.Types.EcrConfigurationState
 import Amazonka.Inspector2.Types.EcrContainerImageMetadata
 import Amazonka.Inspector2.Types.EcrRepositoryMetadata
 import Amazonka.Inspector2.Types.EcrRescanDurationState
+import Amazonka.Inspector2.Types.ExploitabilityDetails
 import Amazonka.Inspector2.Types.FailedAccount
 import Amazonka.Inspector2.Types.Filter
 import Amazonka.Inspector2.Types.FilterCriteria
@@ -793,6 +874,12 @@ import Amazonka.Inspector2.Types.FreeTrialInfoError
 import Amazonka.Inspector2.Types.ImageLayerAggregation
 import Amazonka.Inspector2.Types.ImageLayerAggregationResponse
 import Amazonka.Inspector2.Types.InspectorScoreDetails
+import Amazonka.Inspector2.Types.LambdaFunctionAggregation
+import Amazonka.Inspector2.Types.LambdaFunctionAggregationResponse
+import Amazonka.Inspector2.Types.LambdaFunctionMetadata
+import Amazonka.Inspector2.Types.LambdaLayerAggregation
+import Amazonka.Inspector2.Types.LambdaLayerAggregationResponse
+import Amazonka.Inspector2.Types.LambdaVpcConfig
 import Amazonka.Inspector2.Types.MapFilter
 import Amazonka.Inspector2.Types.Member
 import Amazonka.Inspector2.Types.NetworkPath

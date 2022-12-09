@@ -27,7 +27,7 @@ import Amazonka.Inspector2.Types.State
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object with details the status of an Amazon Web Services account
--- within your Amazon Inspector environment
+-- within your Amazon Inspector environment.
 --
 -- /See:/ 'newAccountState' smart constructor.
 data AccountState = AccountState'

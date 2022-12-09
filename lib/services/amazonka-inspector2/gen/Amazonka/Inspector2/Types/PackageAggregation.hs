@@ -32,12 +32,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPackageAggregation' smart constructor.
 data PackageAggregation = PackageAggregation'
-  { -- | The order to sort results by.
-    sortOrder :: Prelude.Maybe SortOrder,
+  { -- | The names of packages to aggregate findings on.
+    packageNames :: Prelude.Maybe (Prelude.NonEmpty StringFilter),
     -- | The value to sort results by.
     sortBy :: Prelude.Maybe PackageSortBy,
-    -- | The names of packages to aggregate findings on.
-    packageNames :: Prelude.Maybe (Prelude.NonEmpty StringFilter)
+    -- | The order to sort results by.
+    sortOrder :: Prelude.Maybe SortOrder
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,50 +49,50 @@ data PackageAggregation = PackageAggregation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'packageAggregation_sortOrder' - The order to sort results by.
+-- 'packageNames', 'packageAggregation_packageNames' - The names of packages to aggregate findings on.
 --
 -- 'sortBy', 'packageAggregation_sortBy' - The value to sort results by.
 --
--- 'packageNames', 'packageAggregation_packageNames' - The names of packages to aggregate findings on.
+-- 'sortOrder', 'packageAggregation_sortOrder' - The order to sort results by.
 newPackageAggregation ::
   PackageAggregation
 newPackageAggregation =
   PackageAggregation'
-    { sortOrder = Prelude.Nothing,
+    { packageNames = Prelude.Nothing,
       sortBy = Prelude.Nothing,
-      packageNames = Prelude.Nothing
+      sortOrder = Prelude.Nothing
     }
-
--- | The order to sort results by.
-packageAggregation_sortOrder :: Lens.Lens' PackageAggregation (Prelude.Maybe SortOrder)
-packageAggregation_sortOrder = Lens.lens (\PackageAggregation' {sortOrder} -> sortOrder) (\s@PackageAggregation' {} a -> s {sortOrder = a} :: PackageAggregation)
-
--- | The value to sort results by.
-packageAggregation_sortBy :: Lens.Lens' PackageAggregation (Prelude.Maybe PackageSortBy)
-packageAggregation_sortBy = Lens.lens (\PackageAggregation' {sortBy} -> sortBy) (\s@PackageAggregation' {} a -> s {sortBy = a} :: PackageAggregation)
 
 -- | The names of packages to aggregate findings on.
 packageAggregation_packageNames :: Lens.Lens' PackageAggregation (Prelude.Maybe (Prelude.NonEmpty StringFilter))
 packageAggregation_packageNames = Lens.lens (\PackageAggregation' {packageNames} -> packageNames) (\s@PackageAggregation' {} a -> s {packageNames = a} :: PackageAggregation) Prelude.. Lens.mapping Lens.coerced
 
+-- | The value to sort results by.
+packageAggregation_sortBy :: Lens.Lens' PackageAggregation (Prelude.Maybe PackageSortBy)
+packageAggregation_sortBy = Lens.lens (\PackageAggregation' {sortBy} -> sortBy) (\s@PackageAggregation' {} a -> s {sortBy = a} :: PackageAggregation)
+
+-- | The order to sort results by.
+packageAggregation_sortOrder :: Lens.Lens' PackageAggregation (Prelude.Maybe SortOrder)
+packageAggregation_sortOrder = Lens.lens (\PackageAggregation' {sortOrder} -> sortOrder) (\s@PackageAggregation' {} a -> s {sortOrder = a} :: PackageAggregation)
+
 instance Prelude.Hashable PackageAggregation where
   hashWithSalt _salt PackageAggregation' {..} =
-    _salt `Prelude.hashWithSalt` sortOrder
+    _salt `Prelude.hashWithSalt` packageNames
       `Prelude.hashWithSalt` sortBy
-      `Prelude.hashWithSalt` packageNames
+      `Prelude.hashWithSalt` sortOrder
 
 instance Prelude.NFData PackageAggregation where
   rnf PackageAggregation' {..} =
-    Prelude.rnf sortOrder
+    Prelude.rnf packageNames
       `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf packageNames
+      `Prelude.seq` Prelude.rnf sortOrder
 
 instance Data.ToJSON PackageAggregation where
   toJSON PackageAggregation' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("sortOrder" Data..=) Prelude.<$> sortOrder,
+          [ ("packageNames" Data..=) Prelude.<$> packageNames,
             ("sortBy" Data..=) Prelude.<$> sortBy,
-            ("packageNames" Data..=) Prelude.<$> packageNames
+            ("sortOrder" Data..=) Prelude.<$> sortOrder
           ]
       )

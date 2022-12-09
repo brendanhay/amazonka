@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAmiAggregationResponse' smart constructor.
 data AmiAggregationResponse = AmiAggregationResponse'
-  { -- | An object that contains the count of matched findings per severity.
-    severityCounts :: Prelude.Maybe SeverityCounts,
-    -- | The Amazon Web Services account ID that the AMI belongs.
+  { -- | The Amazon Web Services account ID for the AMI.
     accountId :: Prelude.Maybe Prelude.Text,
     -- | The IDs of Amazon EC2 instances using this AMI.
     affectedInstances :: Prelude.Maybe Prelude.Integer,
+    -- | An object that contains the count of matched findings per severity.
+    severityCounts :: Prelude.Maybe SeverityCounts,
     -- | The ID of the AMI that findings were aggregated for.
     ami :: Prelude.Text
   }
@@ -48,11 +48,11 @@ data AmiAggregationResponse = AmiAggregationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'severityCounts', 'amiAggregationResponse_severityCounts' - An object that contains the count of matched findings per severity.
---
--- 'accountId', 'amiAggregationResponse_accountId' - The Amazon Web Services account ID that the AMI belongs.
+-- 'accountId', 'amiAggregationResponse_accountId' - The Amazon Web Services account ID for the AMI.
 --
 -- 'affectedInstances', 'amiAggregationResponse_affectedInstances' - The IDs of Amazon EC2 instances using this AMI.
+--
+-- 'severityCounts', 'amiAggregationResponse_severityCounts' - An object that contains the count of matched findings per severity.
 --
 -- 'ami', 'amiAggregationResponse_ami' - The ID of the AMI that findings were aggregated for.
 newAmiAggregationResponse ::
@@ -61,24 +61,24 @@ newAmiAggregationResponse ::
   AmiAggregationResponse
 newAmiAggregationResponse pAmi_ =
   AmiAggregationResponse'
-    { severityCounts =
+    { accountId =
         Prelude.Nothing,
-      accountId = Prelude.Nothing,
       affectedInstances = Prelude.Nothing,
+      severityCounts = Prelude.Nothing,
       ami = pAmi_
     }
 
--- | An object that contains the count of matched findings per severity.
-amiAggregationResponse_severityCounts :: Lens.Lens' AmiAggregationResponse (Prelude.Maybe SeverityCounts)
-amiAggregationResponse_severityCounts = Lens.lens (\AmiAggregationResponse' {severityCounts} -> severityCounts) (\s@AmiAggregationResponse' {} a -> s {severityCounts = a} :: AmiAggregationResponse)
-
--- | The Amazon Web Services account ID that the AMI belongs.
+-- | The Amazon Web Services account ID for the AMI.
 amiAggregationResponse_accountId :: Lens.Lens' AmiAggregationResponse (Prelude.Maybe Prelude.Text)
 amiAggregationResponse_accountId = Lens.lens (\AmiAggregationResponse' {accountId} -> accountId) (\s@AmiAggregationResponse' {} a -> s {accountId = a} :: AmiAggregationResponse)
 
 -- | The IDs of Amazon EC2 instances using this AMI.
 amiAggregationResponse_affectedInstances :: Lens.Lens' AmiAggregationResponse (Prelude.Maybe Prelude.Integer)
 amiAggregationResponse_affectedInstances = Lens.lens (\AmiAggregationResponse' {affectedInstances} -> affectedInstances) (\s@AmiAggregationResponse' {} a -> s {affectedInstances = a} :: AmiAggregationResponse)
+
+-- | An object that contains the count of matched findings per severity.
+amiAggregationResponse_severityCounts :: Lens.Lens' AmiAggregationResponse (Prelude.Maybe SeverityCounts)
+amiAggregationResponse_severityCounts = Lens.lens (\AmiAggregationResponse' {severityCounts} -> severityCounts) (\s@AmiAggregationResponse' {} a -> s {severityCounts = a} :: AmiAggregationResponse)
 
 -- | The ID of the AMI that findings were aggregated for.
 amiAggregationResponse_ami :: Lens.Lens' AmiAggregationResponse Prelude.Text
@@ -90,22 +90,22 @@ instance Data.FromJSON AmiAggregationResponse where
       "AmiAggregationResponse"
       ( \x ->
           AmiAggregationResponse'
-            Prelude.<$> (x Data..:? "severityCounts")
-            Prelude.<*> (x Data..:? "accountId")
+            Prelude.<$> (x Data..:? "accountId")
             Prelude.<*> (x Data..:? "affectedInstances")
+            Prelude.<*> (x Data..:? "severityCounts")
             Prelude.<*> (x Data..: "ami")
       )
 
 instance Prelude.Hashable AmiAggregationResponse where
   hashWithSalt _salt AmiAggregationResponse' {..} =
-    _salt `Prelude.hashWithSalt` severityCounts
-      `Prelude.hashWithSalt` accountId
+    _salt `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` affectedInstances
+      `Prelude.hashWithSalt` severityCounts
       `Prelude.hashWithSalt` ami
 
 instance Prelude.NFData AmiAggregationResponse where
   rnf AmiAggregationResponse' {..} =
-    Prelude.rnf severityCounts
-      `Prelude.seq` Prelude.rnf accountId
+    Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf affectedInstances
+      `Prelude.seq` Prelude.rnf severityCounts
       `Prelude.seq` Prelude.rnf ami

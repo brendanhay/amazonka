@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAccountAggregationResponse' smart constructor.
 data AccountAggregationResponse = AccountAggregationResponse'
-  { -- | The number of findings by severity.
-    severityCounts :: Prelude.Maybe SeverityCounts,
-    -- | The Amazon Web Services account ID.
-    accountId :: Prelude.Maybe Prelude.Text
+  { -- | The Amazon Web Services account ID.
+    accountId :: Prelude.Maybe Prelude.Text,
+    -- | The number of findings by severity.
+    severityCounts :: Prelude.Maybe SeverityCounts
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data AccountAggregationResponse = AccountAggregationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'severityCounts', 'accountAggregationResponse_severityCounts' - The number of findings by severity.
---
 -- 'accountId', 'accountAggregationResponse_accountId' - The Amazon Web Services account ID.
+--
+-- 'severityCounts', 'accountAggregationResponse_severityCounts' - The number of findings by severity.
 newAccountAggregationResponse ::
   AccountAggregationResponse
 newAccountAggregationResponse =
   AccountAggregationResponse'
-    { severityCounts =
+    { accountId =
         Prelude.Nothing,
-      accountId = Prelude.Nothing
+      severityCounts = Prelude.Nothing
     }
-
--- | The number of findings by severity.
-accountAggregationResponse_severityCounts :: Lens.Lens' AccountAggregationResponse (Prelude.Maybe SeverityCounts)
-accountAggregationResponse_severityCounts = Lens.lens (\AccountAggregationResponse' {severityCounts} -> severityCounts) (\s@AccountAggregationResponse' {} a -> s {severityCounts = a} :: AccountAggregationResponse)
 
 -- | The Amazon Web Services account ID.
 accountAggregationResponse_accountId :: Lens.Lens' AccountAggregationResponse (Prelude.Maybe Prelude.Text)
 accountAggregationResponse_accountId = Lens.lens (\AccountAggregationResponse' {accountId} -> accountId) (\s@AccountAggregationResponse' {} a -> s {accountId = a} :: AccountAggregationResponse)
+
+-- | The number of findings by severity.
+accountAggregationResponse_severityCounts :: Lens.Lens' AccountAggregationResponse (Prelude.Maybe SeverityCounts)
+accountAggregationResponse_severityCounts = Lens.lens (\AccountAggregationResponse' {severityCounts} -> severityCounts) (\s@AccountAggregationResponse' {} a -> s {severityCounts = a} :: AccountAggregationResponse)
 
 instance Data.FromJSON AccountAggregationResponse where
   parseJSON =
@@ -70,16 +70,16 @@ instance Data.FromJSON AccountAggregationResponse where
       "AccountAggregationResponse"
       ( \x ->
           AccountAggregationResponse'
-            Prelude.<$> (x Data..:? "severityCounts")
-            Prelude.<*> (x Data..:? "accountId")
+            Prelude.<$> (x Data..:? "accountId")
+            Prelude.<*> (x Data..:? "severityCounts")
       )
 
 instance Prelude.Hashable AccountAggregationResponse where
   hashWithSalt _salt AccountAggregationResponse' {..} =
-    _salt `Prelude.hashWithSalt` severityCounts
-      `Prelude.hashWithSalt` accountId
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` severityCounts
 
 instance Prelude.NFData AccountAggregationResponse where
   rnf AccountAggregationResponse' {..} =
-    Prelude.rnf severityCounts
-      `Prelude.seq` Prelude.rnf accountId
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf severityCounts

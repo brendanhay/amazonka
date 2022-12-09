@@ -30,8 +30,8 @@ module Amazonka.Inspector2.ListUsageTotals
 
     -- * Request Lenses
     listUsageTotals_accountIds,
-    listUsageTotals_nextToken,
     listUsageTotals_maxResults,
+    listUsageTotals_nextToken,
 
     -- * Destructuring the Response
     ListUsageTotalsResponse (..),
@@ -56,13 +56,13 @@ import qualified Amazonka.Response as Response
 data ListUsageTotals = ListUsageTotals'
   { -- | The Amazon Web Services account IDs to retrieve usage totals for.
     accountIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The maximum number of results to return in the response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A token to use for paginating results that are returned in the response.
     -- Set the value of this parameter to null for the first request to a list
     -- action. For subsequent calls, use the @NextToken@ value returned from
     -- the previous request to continue listing results after the first page.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in the response.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,24 +76,28 @@ data ListUsageTotals = ListUsageTotals'
 --
 -- 'accountIds', 'listUsageTotals_accountIds' - The Amazon Web Services account IDs to retrieve usage totals for.
 --
+-- 'maxResults', 'listUsageTotals_maxResults' - The maximum number of results to return in the response.
+--
 -- 'nextToken', 'listUsageTotals_nextToken' - A token to use for paginating results that are returned in the response.
 -- Set the value of this parameter to null for the first request to a list
 -- action. For subsequent calls, use the @NextToken@ value returned from
 -- the previous request to continue listing results after the first page.
---
--- 'maxResults', 'listUsageTotals_maxResults' - The maximum number of results to return in the response.
 newListUsageTotals ::
   ListUsageTotals
 newListUsageTotals =
   ListUsageTotals'
     { accountIds = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
 
 -- | The Amazon Web Services account IDs to retrieve usage totals for.
 listUsageTotals_accountIds :: Lens.Lens' ListUsageTotals (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 listUsageTotals_accountIds = Lens.lens (\ListUsageTotals' {accountIds} -> accountIds) (\s@ListUsageTotals' {} a -> s {accountIds = a} :: ListUsageTotals) Prelude.. Lens.mapping Lens.coerced
+
+-- | The maximum number of results to return in the response.
+listUsageTotals_maxResults :: Lens.Lens' ListUsageTotals (Prelude.Maybe Prelude.Natural)
+listUsageTotals_maxResults = Lens.lens (\ListUsageTotals' {maxResults} -> maxResults) (\s@ListUsageTotals' {} a -> s {maxResults = a} :: ListUsageTotals)
 
 -- | A token to use for paginating results that are returned in the response.
 -- Set the value of this parameter to null for the first request to a list
@@ -101,10 +105,6 @@ listUsageTotals_accountIds = Lens.lens (\ListUsageTotals' {accountIds} -> accoun
 -- the previous request to continue listing results after the first page.
 listUsageTotals_nextToken :: Lens.Lens' ListUsageTotals (Prelude.Maybe Prelude.Text)
 listUsageTotals_nextToken = Lens.lens (\ListUsageTotals' {nextToken} -> nextToken) (\s@ListUsageTotals' {} a -> s {nextToken = a} :: ListUsageTotals)
-
--- | The maximum number of results to return in the response.
-listUsageTotals_maxResults :: Lens.Lens' ListUsageTotals (Prelude.Maybe Prelude.Natural)
-listUsageTotals_maxResults = Lens.lens (\ListUsageTotals' {maxResults} -> maxResults) (\s@ListUsageTotals' {} a -> s {maxResults = a} :: ListUsageTotals)
 
 instance Core.AWSPager ListUsageTotals where
   page rq rs
@@ -145,14 +145,14 @@ instance Core.AWSRequest ListUsageTotals where
 instance Prelude.Hashable ListUsageTotals where
   hashWithSalt _salt ListUsageTotals' {..} =
     _salt `Prelude.hashWithSalt` accountIds
-      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListUsageTotals where
   rnf ListUsageTotals' {..} =
     Prelude.rnf accountIds
-      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListUsageTotals where
   toHeaders =
@@ -170,8 +170,8 @@ instance Data.ToJSON ListUsageTotals where
     Data.object
       ( Prelude.catMaybes
           [ ("accountIds" Data..=) Prelude.<$> accountIds,
-            ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

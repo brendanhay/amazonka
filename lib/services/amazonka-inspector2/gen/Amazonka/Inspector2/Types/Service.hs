@@ -21,7 +21,8 @@ module Amazonka.Inspector2.Types.Service
   ( Service
       ( ..,
         Service_EC2,
-        Service_ECR
+        Service_ECR,
+        Service_LAMBDA
       ),
   )
 where
@@ -61,8 +62,12 @@ pattern Service_EC2 = Service' "EC2"
 pattern Service_ECR :: Service
 pattern Service_ECR = Service' "ECR"
 
+pattern Service_LAMBDA :: Service
+pattern Service_LAMBDA = Service' "LAMBDA"
+
 {-# COMPLETE
   Service_EC2,
   Service_ECR,
+  Service_LAMBDA,
   Service'
   #-}

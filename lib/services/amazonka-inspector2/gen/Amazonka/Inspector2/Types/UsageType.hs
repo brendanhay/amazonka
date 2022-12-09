@@ -22,7 +22,8 @@ module Amazonka.Inspector2.Types.UsageType
       ( ..,
         UsageType_EC2_INSTANCE_HOURS,
         UsageType_ECR_INITIAL_SCAN,
-        UsageType_ECR_RESCAN
+        UsageType_ECR_RESCAN,
+        UsageType_LAMBDA_FUNCTION_HOURS
       ),
   )
 where
@@ -68,9 +69,13 @@ pattern UsageType_ECR_INITIAL_SCAN = UsageType' "ECR_INITIAL_SCAN"
 pattern UsageType_ECR_RESCAN :: UsageType
 pattern UsageType_ECR_RESCAN = UsageType' "ECR_RESCAN"
 
+pattern UsageType_LAMBDA_FUNCTION_HOURS :: UsageType
+pattern UsageType_LAMBDA_FUNCTION_HOURS = UsageType' "LAMBDA_FUNCTION_HOURS"
+
 {-# COMPLETE
   UsageType_EC2_INSTANCE_HOURS,
   UsageType_ECR_INITIAL_SCAN,
   UsageType_ECR_RESCAN,
+  UsageType_LAMBDA_FUNCTION_HOURS,
   UsageType'
   #-}

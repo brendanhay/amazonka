@@ -34,9 +34,9 @@ module Amazonka.ResourceGroups.UpdateGroup
     newUpdateGroup,
 
     -- * Request Lenses
-    updateGroup_groupName,
     updateGroup_description,
     updateGroup_group,
+    updateGroup_groupName,
 
     -- * Destructuring the Response
     UpdateGroupResponse (..),
@@ -58,14 +58,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateGroup' smart constructor.
 data UpdateGroup = UpdateGroup'
-  { -- | Don\'t use this parameter. Use @Group@ instead.
-    groupName :: Prelude.Maybe Prelude.Text,
-    -- | The new description that you want to update the resource group with.
+  { -- | The new description that you want to update the resource group with.
     -- Descriptions can contain letters, numbers, hyphens, underscores,
     -- periods, and spaces.
     description :: Prelude.Maybe Prelude.Text,
     -- | The name or the ARN of the resource group to modify.
-    group' :: Prelude.Maybe Prelude.Text
+    group' :: Prelude.Maybe Prelude.Text,
+    -- | Don\'t use this parameter. Use @Group@ instead.
+    groupName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,25 +77,21 @@ data UpdateGroup = UpdateGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'groupName', 'updateGroup_groupName' - Don\'t use this parameter. Use @Group@ instead.
---
 -- 'description', 'updateGroup_description' - The new description that you want to update the resource group with.
 -- Descriptions can contain letters, numbers, hyphens, underscores,
 -- periods, and spaces.
 --
 -- 'group'', 'updateGroup_group' - The name or the ARN of the resource group to modify.
+--
+-- 'groupName', 'updateGroup_groupName' - Don\'t use this parameter. Use @Group@ instead.
 newUpdateGroup ::
   UpdateGroup
 newUpdateGroup =
   UpdateGroup'
-    { groupName = Prelude.Nothing,
-      description = Prelude.Nothing,
-      group' = Prelude.Nothing
+    { description = Prelude.Nothing,
+      group' = Prelude.Nothing,
+      groupName = Prelude.Nothing
     }
-
--- | Don\'t use this parameter. Use @Group@ instead.
-updateGroup_groupName :: Lens.Lens' UpdateGroup (Prelude.Maybe Prelude.Text)
-updateGroup_groupName = Lens.lens (\UpdateGroup' {groupName} -> groupName) (\s@UpdateGroup' {} a -> s {groupName = a} :: UpdateGroup)
 
 -- | The new description that you want to update the resource group with.
 -- Descriptions can contain letters, numbers, hyphens, underscores,
@@ -106,6 +102,10 @@ updateGroup_description = Lens.lens (\UpdateGroup' {description} -> description)
 -- | The name or the ARN of the resource group to modify.
 updateGroup_group :: Lens.Lens' UpdateGroup (Prelude.Maybe Prelude.Text)
 updateGroup_group = Lens.lens (\UpdateGroup' {group'} -> group') (\s@UpdateGroup' {} a -> s {group' = a} :: UpdateGroup)
+
+-- | Don\'t use this parameter. Use @Group@ instead.
+updateGroup_groupName :: Lens.Lens' UpdateGroup (Prelude.Maybe Prelude.Text)
+updateGroup_groupName = Lens.lens (\UpdateGroup' {groupName} -> groupName) (\s@UpdateGroup' {} a -> s {groupName = a} :: UpdateGroup)
 
 instance Core.AWSRequest UpdateGroup where
   type AWSResponse UpdateGroup = UpdateGroupResponse
@@ -121,15 +121,15 @@ instance Core.AWSRequest UpdateGroup where
 
 instance Prelude.Hashable UpdateGroup where
   hashWithSalt _salt UpdateGroup' {..} =
-    _salt `Prelude.hashWithSalt` groupName
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` group'
+      `Prelude.hashWithSalt` groupName
 
 instance Prelude.NFData UpdateGroup where
   rnf UpdateGroup' {..} =
-    Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf group'
+      `Prelude.seq` Prelude.rnf groupName
 
 instance Data.ToHeaders UpdateGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -138,9 +138,9 @@ instance Data.ToJSON UpdateGroup where
   toJSON UpdateGroup' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("GroupName" Data..=) Prelude.<$> groupName,
-            ("Description" Data..=) Prelude.<$> description,
-            ("Group" Data..=) Prelude.<$> group'
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("Group" Data..=) Prelude.<$> group',
+            ("GroupName" Data..=) Prelude.<$> groupName
           ]
       )
 

@@ -32,13 +32,13 @@ import Amazonka.ResourceGroups.Types.ResourceStatus
 --
 -- /See:/ 'newListGroupResourcesItem' smart constructor.
 data ListGroupResourcesItem = ListGroupResourcesItem'
-  { -- | A structure that contains the status of this resource\'s membership in
+  { identifier :: Prelude.Maybe ResourceIdentifier,
+    -- | A structure that contains the status of this resource\'s membership in
     -- the group.
     --
     -- This field is present in the response only if the group is of type
     -- @AWS::EC2::HostManagement@.
-    status :: Prelude.Maybe ResourceStatus,
-    identifier :: Prelude.Maybe ResourceIdentifier
+    status :: Prelude.Maybe ResourceStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,20 +50,25 @@ data ListGroupResourcesItem = ListGroupResourcesItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'identifier', 'listGroupResourcesItem_identifier' - Undocumented member.
+--
 -- 'status', 'listGroupResourcesItem_status' - A structure that contains the status of this resource\'s membership in
 -- the group.
 --
 -- This field is present in the response only if the group is of type
 -- @AWS::EC2::HostManagement@.
---
--- 'identifier', 'listGroupResourcesItem_identifier' - Undocumented member.
 newListGroupResourcesItem ::
   ListGroupResourcesItem
 newListGroupResourcesItem =
   ListGroupResourcesItem'
-    { status = Prelude.Nothing,
-      identifier = Prelude.Nothing
+    { identifier =
+        Prelude.Nothing,
+      status = Prelude.Nothing
     }
+
+-- | Undocumented member.
+listGroupResourcesItem_identifier :: Lens.Lens' ListGroupResourcesItem (Prelude.Maybe ResourceIdentifier)
+listGroupResourcesItem_identifier = Lens.lens (\ListGroupResourcesItem' {identifier} -> identifier) (\s@ListGroupResourcesItem' {} a -> s {identifier = a} :: ListGroupResourcesItem)
 
 -- | A structure that contains the status of this resource\'s membership in
 -- the group.
@@ -73,26 +78,22 @@ newListGroupResourcesItem =
 listGroupResourcesItem_status :: Lens.Lens' ListGroupResourcesItem (Prelude.Maybe ResourceStatus)
 listGroupResourcesItem_status = Lens.lens (\ListGroupResourcesItem' {status} -> status) (\s@ListGroupResourcesItem' {} a -> s {status = a} :: ListGroupResourcesItem)
 
--- | Undocumented member.
-listGroupResourcesItem_identifier :: Lens.Lens' ListGroupResourcesItem (Prelude.Maybe ResourceIdentifier)
-listGroupResourcesItem_identifier = Lens.lens (\ListGroupResourcesItem' {identifier} -> identifier) (\s@ListGroupResourcesItem' {} a -> s {identifier = a} :: ListGroupResourcesItem)
-
 instance Data.FromJSON ListGroupResourcesItem where
   parseJSON =
     Data.withObject
       "ListGroupResourcesItem"
       ( \x ->
           ListGroupResourcesItem'
-            Prelude.<$> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "Identifier")
+            Prelude.<$> (x Data..:? "Identifier")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance Prelude.Hashable ListGroupResourcesItem where
   hashWithSalt _salt ListGroupResourcesItem' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` identifier
+    _salt `Prelude.hashWithSalt` identifier
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData ListGroupResourcesItem where
   rnf ListGroupResourcesItem' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf identifier
+    Prelude.rnf identifier
+      `Prelude.seq` Prelude.rnf status

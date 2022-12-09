@@ -36,16 +36,16 @@ import Amazonka.ResourceGroups.Types.GroupConfigurationStatus
 --
 -- /See:/ 'newGroupConfiguration' smart constructor.
 data GroupConfiguration = GroupConfiguration'
-  { -- | If present, the new configuration that is in the process of being
-    -- applied to the group.
-    proposedConfiguration :: Prelude.Maybe [GroupConfigurationItem],
-    -- | The configuration currently associated with the group and in effect.
+  { -- | The configuration currently associated with the group and in effect.
     configuration :: Prelude.Maybe [GroupConfigurationItem],
-    -- | The current status of an attempt to update the group configuration.
-    status :: Prelude.Maybe GroupConfigurationStatus,
     -- | If present, the reason why a request to update the group configuration
     -- failed.
-    failureReason :: Prelude.Maybe Prelude.Text
+    failureReason :: Prelude.Maybe Prelude.Text,
+    -- | If present, the new configuration that is in the process of being
+    -- applied to the group.
+    proposedConfiguration :: Prelude.Maybe [GroupConfigurationItem],
+    -- | The current status of an attempt to update the group configuration.
+    status :: Prelude.Maybe GroupConfigurationStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,43 +57,43 @@ data GroupConfiguration = GroupConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'proposedConfiguration', 'groupConfiguration_proposedConfiguration' - If present, the new configuration that is in the process of being
--- applied to the group.
---
 -- 'configuration', 'groupConfiguration_configuration' - The configuration currently associated with the group and in effect.
---
--- 'status', 'groupConfiguration_status' - The current status of an attempt to update the group configuration.
 --
 -- 'failureReason', 'groupConfiguration_failureReason' - If present, the reason why a request to update the group configuration
 -- failed.
+--
+-- 'proposedConfiguration', 'groupConfiguration_proposedConfiguration' - If present, the new configuration that is in the process of being
+-- applied to the group.
+--
+-- 'status', 'groupConfiguration_status' - The current status of an attempt to update the group configuration.
 newGroupConfiguration ::
   GroupConfiguration
 newGroupConfiguration =
   GroupConfiguration'
-    { proposedConfiguration =
+    { configuration =
         Prelude.Nothing,
-      configuration = Prelude.Nothing,
-      status = Prelude.Nothing,
-      failureReason = Prelude.Nothing
+      failureReason = Prelude.Nothing,
+      proposedConfiguration = Prelude.Nothing,
+      status = Prelude.Nothing
     }
+
+-- | The configuration currently associated with the group and in effect.
+groupConfiguration_configuration :: Lens.Lens' GroupConfiguration (Prelude.Maybe [GroupConfigurationItem])
+groupConfiguration_configuration = Lens.lens (\GroupConfiguration' {configuration} -> configuration) (\s@GroupConfiguration' {} a -> s {configuration = a} :: GroupConfiguration) Prelude.. Lens.mapping Lens.coerced
+
+-- | If present, the reason why a request to update the group configuration
+-- failed.
+groupConfiguration_failureReason :: Lens.Lens' GroupConfiguration (Prelude.Maybe Prelude.Text)
+groupConfiguration_failureReason = Lens.lens (\GroupConfiguration' {failureReason} -> failureReason) (\s@GroupConfiguration' {} a -> s {failureReason = a} :: GroupConfiguration)
 
 -- | If present, the new configuration that is in the process of being
 -- applied to the group.
 groupConfiguration_proposedConfiguration :: Lens.Lens' GroupConfiguration (Prelude.Maybe [GroupConfigurationItem])
 groupConfiguration_proposedConfiguration = Lens.lens (\GroupConfiguration' {proposedConfiguration} -> proposedConfiguration) (\s@GroupConfiguration' {} a -> s {proposedConfiguration = a} :: GroupConfiguration) Prelude.. Lens.mapping Lens.coerced
 
--- | The configuration currently associated with the group and in effect.
-groupConfiguration_configuration :: Lens.Lens' GroupConfiguration (Prelude.Maybe [GroupConfigurationItem])
-groupConfiguration_configuration = Lens.lens (\GroupConfiguration' {configuration} -> configuration) (\s@GroupConfiguration' {} a -> s {configuration = a} :: GroupConfiguration) Prelude.. Lens.mapping Lens.coerced
-
 -- | The current status of an attempt to update the group configuration.
 groupConfiguration_status :: Lens.Lens' GroupConfiguration (Prelude.Maybe GroupConfigurationStatus)
 groupConfiguration_status = Lens.lens (\GroupConfiguration' {status} -> status) (\s@GroupConfiguration' {} a -> s {status = a} :: GroupConfiguration)
-
--- | If present, the reason why a request to update the group configuration
--- failed.
-groupConfiguration_failureReason :: Lens.Lens' GroupConfiguration (Prelude.Maybe Prelude.Text)
-groupConfiguration_failureReason = Lens.lens (\GroupConfiguration' {failureReason} -> failureReason) (\s@GroupConfiguration' {} a -> s {failureReason = a} :: GroupConfiguration)
 
 instance Data.FromJSON GroupConfiguration where
   parseJSON =
@@ -101,24 +101,24 @@ instance Data.FromJSON GroupConfiguration where
       "GroupConfiguration"
       ( \x ->
           GroupConfiguration'
-            Prelude.<$> ( x Data..:? "ProposedConfiguration"
+            Prelude.<$> (x Data..:? "Configuration" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "FailureReason")
+            Prelude.<*> ( x Data..:? "ProposedConfiguration"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "Configuration" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "FailureReason")
       )
 
 instance Prelude.Hashable GroupConfiguration where
   hashWithSalt _salt GroupConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` proposedConfiguration
-      `Prelude.hashWithSalt` configuration
-      `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` proposedConfiguration
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData GroupConfiguration where
   rnf GroupConfiguration' {..} =
-    Prelude.rnf proposedConfiguration
-      `Prelude.seq` Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf configuration
       `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf proposedConfiguration
+      `Prelude.seq` Prelude.rnf status

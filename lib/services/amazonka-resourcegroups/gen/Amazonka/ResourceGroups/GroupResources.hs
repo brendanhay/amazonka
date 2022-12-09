@@ -42,8 +42,8 @@ module Amazonka.ResourceGroups.GroupResources
 
     -- * Response Lenses
     groupResourcesResponse_failed,
-    groupResourcesResponse_succeeded,
     groupResourcesResponse_pending,
+    groupResourcesResponse_succeeded,
     groupResourcesResponse_httpStatus,
   )
 where
@@ -107,8 +107,8 @@ instance Core.AWSRequest GroupResources where
       ( \s h x ->
           GroupResourcesResponse'
             Prelude.<$> (x Data..?> "Failed" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "Succeeded")
             Prelude.<*> (x Data..?> "Pending" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Succeeded")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,15 +145,15 @@ data GroupResourcesResponse = GroupResourcesResponse'
   { -- | A list of ARNs of any resources that failed to be added to the group by
     -- this operation.
     failed :: Prelude.Maybe [FailedResource],
-    -- | A list of ARNs of resources that were successfully added to the group by
-    -- this operation.
-    succeeded :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | A list of ARNs of any resources that are still in the process of being
     -- added to the group by this operation. These pending additions continue
     -- asynchronously. You can check the status of pending additions by using
     -- the @ ListGroupResources @ operation, and checking the @Resources@ array
     -- in the response and the @Status@ field of each object in that array.
     pending :: Prelude.Maybe [PendingResource],
+    -- | A list of ARNs of resources that were successfully added to the group by
+    -- this operation.
+    succeeded :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -170,14 +170,14 @@ data GroupResourcesResponse = GroupResourcesResponse'
 -- 'failed', 'groupResourcesResponse_failed' - A list of ARNs of any resources that failed to be added to the group by
 -- this operation.
 --
--- 'succeeded', 'groupResourcesResponse_succeeded' - A list of ARNs of resources that were successfully added to the group by
--- this operation.
---
 -- 'pending', 'groupResourcesResponse_pending' - A list of ARNs of any resources that are still in the process of being
 -- added to the group by this operation. These pending additions continue
 -- asynchronously. You can check the status of pending additions by using
 -- the @ ListGroupResources @ operation, and checking the @Resources@ array
 -- in the response and the @Status@ field of each object in that array.
+--
+-- 'succeeded', 'groupResourcesResponse_succeeded' - A list of ARNs of resources that were successfully added to the group by
+-- this operation.
 --
 -- 'httpStatus', 'groupResourcesResponse_httpStatus' - The response's http status code.
 newGroupResourcesResponse ::
@@ -187,8 +187,8 @@ newGroupResourcesResponse ::
 newGroupResourcesResponse pHttpStatus_ =
   GroupResourcesResponse'
     { failed = Prelude.Nothing,
-      succeeded = Prelude.Nothing,
       pending = Prelude.Nothing,
+      succeeded = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -196,11 +196,6 @@ newGroupResourcesResponse pHttpStatus_ =
 -- this operation.
 groupResourcesResponse_failed :: Lens.Lens' GroupResourcesResponse (Prelude.Maybe [FailedResource])
 groupResourcesResponse_failed = Lens.lens (\GroupResourcesResponse' {failed} -> failed) (\s@GroupResourcesResponse' {} a -> s {failed = a} :: GroupResourcesResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | A list of ARNs of resources that were successfully added to the group by
--- this operation.
-groupResourcesResponse_succeeded :: Lens.Lens' GroupResourcesResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-groupResourcesResponse_succeeded = Lens.lens (\GroupResourcesResponse' {succeeded} -> succeeded) (\s@GroupResourcesResponse' {} a -> s {succeeded = a} :: GroupResourcesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of ARNs of any resources that are still in the process of being
 -- added to the group by this operation. These pending additions continue
@@ -210,6 +205,11 @@ groupResourcesResponse_succeeded = Lens.lens (\GroupResourcesResponse' {succeede
 groupResourcesResponse_pending :: Lens.Lens' GroupResourcesResponse (Prelude.Maybe [PendingResource])
 groupResourcesResponse_pending = Lens.lens (\GroupResourcesResponse' {pending} -> pending) (\s@GroupResourcesResponse' {} a -> s {pending = a} :: GroupResourcesResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | A list of ARNs of resources that were successfully added to the group by
+-- this operation.
+groupResourcesResponse_succeeded :: Lens.Lens' GroupResourcesResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+groupResourcesResponse_succeeded = Lens.lens (\GroupResourcesResponse' {succeeded} -> succeeded) (\s@GroupResourcesResponse' {} a -> s {succeeded = a} :: GroupResourcesResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 groupResourcesResponse_httpStatus :: Lens.Lens' GroupResourcesResponse Prelude.Int
 groupResourcesResponse_httpStatus = Lens.lens (\GroupResourcesResponse' {httpStatus} -> httpStatus) (\s@GroupResourcesResponse' {} a -> s {httpStatus = a} :: GroupResourcesResponse)
@@ -217,6 +217,6 @@ groupResourcesResponse_httpStatus = Lens.lens (\GroupResourcesResponse' {httpSta
 instance Prelude.NFData GroupResourcesResponse where
   rnf GroupResourcesResponse' {..} =
     Prelude.rnf failed
-      `Prelude.seq` Prelude.rnf succeeded
       `Prelude.seq` Prelude.rnf pending
+      `Prelude.seq` Prelude.rnf succeeded
       `Prelude.seq` Prelude.rnf httpStatus

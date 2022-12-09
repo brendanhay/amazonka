@@ -41,8 +41,8 @@ module Amazonka.ResourceGroups.GetTags
     newGetTagsResponse,
 
     -- * Response Lenses
-    getTagsResponse_tags,
     getTagsResponse_arn,
+    getTagsResponse_tags,
     getTagsResponse_httpStatus,
   )
 where
@@ -89,8 +89,8 @@ instance Core.AWSRequest GetTags where
     Response.receiveJSON
       ( \s h x ->
           GetTagsResponse'
-            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<$> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,10 +114,10 @@ instance Data.ToQuery GetTags where
 
 -- | /See:/ 'newGetTagsResponse' smart constructor.
 data GetTagsResponse = GetTagsResponse'
-  { -- | The tags associated with the specified resource group.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The ARN of the tagged resource group.
+  { -- | The ARN of the tagged resource group.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The tags associated with the specified resource group.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -131,9 +131,9 @@ data GetTagsResponse = GetTagsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'getTagsResponse_tags' - The tags associated with the specified resource group.
---
 -- 'arn', 'getTagsResponse_arn' - The ARN of the tagged resource group.
+--
+-- 'tags', 'getTagsResponse_tags' - The tags associated with the specified resource group.
 --
 -- 'httpStatus', 'getTagsResponse_httpStatus' - The response's http status code.
 newGetTagsResponse ::
@@ -142,18 +142,18 @@ newGetTagsResponse ::
   GetTagsResponse
 newGetTagsResponse pHttpStatus_ =
   GetTagsResponse'
-    { tags = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The tags associated with the specified resource group.
-getTagsResponse_tags :: Lens.Lens' GetTagsResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getTagsResponse_tags = Lens.lens (\GetTagsResponse' {tags} -> tags) (\s@GetTagsResponse' {} a -> s {tags = a} :: GetTagsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN of the tagged resource group.
 getTagsResponse_arn :: Lens.Lens' GetTagsResponse (Prelude.Maybe Prelude.Text)
 getTagsResponse_arn = Lens.lens (\GetTagsResponse' {arn} -> arn) (\s@GetTagsResponse' {} a -> s {arn = a} :: GetTagsResponse)
+
+-- | The tags associated with the specified resource group.
+getTagsResponse_tags :: Lens.Lens' GetTagsResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getTagsResponse_tags = Lens.lens (\GetTagsResponse' {tags} -> tags) (\s@GetTagsResponse' {} a -> s {tags = a} :: GetTagsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getTagsResponse_httpStatus :: Lens.Lens' GetTagsResponse Prelude.Int
@@ -161,6 +161,6 @@ getTagsResponse_httpStatus = Lens.lens (\GetTagsResponse' {httpStatus} -> httpSt
 
 instance Prelude.NFData GetTagsResponse where
   rnf GetTagsResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

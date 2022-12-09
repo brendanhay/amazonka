@@ -40,8 +40,8 @@ module Amazonka.DirectConnect.StartBgpFailoverTest
     newStartBgpFailoverTest,
 
     -- * Request Lenses
-    startBgpFailoverTest_testDurationInMinutes,
     startBgpFailoverTest_bgpPeers,
+    startBgpFailoverTest_testDurationInMinutes,
     startBgpFailoverTest_virtualInterfaceId,
 
     -- * Destructuring the Response
@@ -64,14 +64,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartBgpFailoverTest' smart constructor.
 data StartBgpFailoverTest = StartBgpFailoverTest'
-  { -- | The time in minutes that the virtual interface failover test will last.
+  { -- | The BGP peers to place in the DOWN state.
+    bgpPeers :: Prelude.Maybe [Prelude.Text],
+    -- | The time in minutes that the virtual interface failover test will last.
     --
     -- Maximum value: 180 minutes (3 hours).
     --
     -- Default: 180 minutes (3 hours).
     testDurationInMinutes :: Prelude.Maybe Prelude.Int,
-    -- | The BGP peers to place in the DOWN state.
-    bgpPeers :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the virtual interface you want to test.
     virtualInterfaceId :: Prelude.Text
   }
@@ -85,13 +85,13 @@ data StartBgpFailoverTest = StartBgpFailoverTest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'bgpPeers', 'startBgpFailoverTest_bgpPeers' - The BGP peers to place in the DOWN state.
+--
 -- 'testDurationInMinutes', 'startBgpFailoverTest_testDurationInMinutes' - The time in minutes that the virtual interface failover test will last.
 --
 -- Maximum value: 180 minutes (3 hours).
 --
 -- Default: 180 minutes (3 hours).
---
--- 'bgpPeers', 'startBgpFailoverTest_bgpPeers' - The BGP peers to place in the DOWN state.
 --
 -- 'virtualInterfaceId', 'startBgpFailoverTest_virtualInterfaceId' - The ID of the virtual interface you want to test.
 newStartBgpFailoverTest ::
@@ -100,11 +100,14 @@ newStartBgpFailoverTest ::
   StartBgpFailoverTest
 newStartBgpFailoverTest pVirtualInterfaceId_ =
   StartBgpFailoverTest'
-    { testDurationInMinutes =
-        Prelude.Nothing,
-      bgpPeers = Prelude.Nothing,
+    { bgpPeers = Prelude.Nothing,
+      testDurationInMinutes = Prelude.Nothing,
       virtualInterfaceId = pVirtualInterfaceId_
     }
+
+-- | The BGP peers to place in the DOWN state.
+startBgpFailoverTest_bgpPeers :: Lens.Lens' StartBgpFailoverTest (Prelude.Maybe [Prelude.Text])
+startBgpFailoverTest_bgpPeers = Lens.lens (\StartBgpFailoverTest' {bgpPeers} -> bgpPeers) (\s@StartBgpFailoverTest' {} a -> s {bgpPeers = a} :: StartBgpFailoverTest) Prelude.. Lens.mapping Lens.coerced
 
 -- | The time in minutes that the virtual interface failover test will last.
 --
@@ -113,10 +116,6 @@ newStartBgpFailoverTest pVirtualInterfaceId_ =
 -- Default: 180 minutes (3 hours).
 startBgpFailoverTest_testDurationInMinutes :: Lens.Lens' StartBgpFailoverTest (Prelude.Maybe Prelude.Int)
 startBgpFailoverTest_testDurationInMinutes = Lens.lens (\StartBgpFailoverTest' {testDurationInMinutes} -> testDurationInMinutes) (\s@StartBgpFailoverTest' {} a -> s {testDurationInMinutes = a} :: StartBgpFailoverTest)
-
--- | The BGP peers to place in the DOWN state.
-startBgpFailoverTest_bgpPeers :: Lens.Lens' StartBgpFailoverTest (Prelude.Maybe [Prelude.Text])
-startBgpFailoverTest_bgpPeers = Lens.lens (\StartBgpFailoverTest' {bgpPeers} -> bgpPeers) (\s@StartBgpFailoverTest' {} a -> s {bgpPeers = a} :: StartBgpFailoverTest) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the virtual interface you want to test.
 startBgpFailoverTest_virtualInterfaceId :: Lens.Lens' StartBgpFailoverTest Prelude.Text
@@ -138,14 +137,14 @@ instance Core.AWSRequest StartBgpFailoverTest where
 
 instance Prelude.Hashable StartBgpFailoverTest where
   hashWithSalt _salt StartBgpFailoverTest' {..} =
-    _salt `Prelude.hashWithSalt` testDurationInMinutes
-      `Prelude.hashWithSalt` bgpPeers
+    _salt `Prelude.hashWithSalt` bgpPeers
+      `Prelude.hashWithSalt` testDurationInMinutes
       `Prelude.hashWithSalt` virtualInterfaceId
 
 instance Prelude.NFData StartBgpFailoverTest where
   rnf StartBgpFailoverTest' {..} =
-    Prelude.rnf testDurationInMinutes
-      `Prelude.seq` Prelude.rnf bgpPeers
+    Prelude.rnf bgpPeers
+      `Prelude.seq` Prelude.rnf testDurationInMinutes
       `Prelude.seq` Prelude.rnf virtualInterfaceId
 
 instance Data.ToHeaders StartBgpFailoverTest where
@@ -167,9 +166,9 @@ instance Data.ToJSON StartBgpFailoverTest where
   toJSON StartBgpFailoverTest' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("testDurationInMinutes" Data..=)
+          [ ("bgpPeers" Data..=) Prelude.<$> bgpPeers,
+            ("testDurationInMinutes" Data..=)
               Prelude.<$> testDurationInMinutes,
-            ("bgpPeers" Data..=) Prelude.<$> bgpPeers,
             Prelude.Just
               ("virtualInterfaceId" Data..= virtualInterfaceId)
           ]

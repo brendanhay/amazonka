@@ -30,17 +30,17 @@ module Amazonka.DirectConnect.DescribeDirectConnectGateways
     newDescribeDirectConnectGateways,
 
     -- * Request Lenses
-    describeDirectConnectGateways_nextToken,
     describeDirectConnectGateways_directConnectGatewayId,
     describeDirectConnectGateways_maxResults,
+    describeDirectConnectGateways_nextToken,
 
     -- * Destructuring the Response
     DescribeDirectConnectGatewaysResponse (..),
     newDescribeDirectConnectGatewaysResponse,
 
     -- * Response Lenses
-    describeDirectConnectGatewaysResponse_nextToken,
     describeDirectConnectGatewaysResponse_directConnectGateways,
+    describeDirectConnectGatewaysResponse_nextToken,
     describeDirectConnectGatewaysResponse_httpStatus,
   )
 where
@@ -55,9 +55,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeDirectConnectGateways' smart constructor.
 data DescribeDirectConnectGateways = DescribeDirectConnectGateways'
-  { -- | The token provided in the previous call to retrieve the next page.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the Direct Connect gateway.
+  { -- | The ID of the Direct Connect gateway.
     directConnectGatewayId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
@@ -65,7 +63,9 @@ data DescribeDirectConnectGateways = DescribeDirectConnectGateways'
     --
     -- If @MaxResults@ is given a value larger than 100, only 100 results are
     -- returned.
-    maxResults :: Prelude.Maybe Prelude.Int
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The token provided in the previous call to retrieve the next page.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,8 +77,6 @@ data DescribeDirectConnectGateways = DescribeDirectConnectGateways'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeDirectConnectGateways_nextToken' - The token provided in the previous call to retrieve the next page.
---
 -- 'directConnectGatewayId', 'describeDirectConnectGateways_directConnectGatewayId' - The ID of the Direct Connect gateway.
 --
 -- 'maxResults', 'describeDirectConnectGateways_maxResults' - The maximum number of results to return with a single call. To retrieve
@@ -87,19 +85,17 @@ data DescribeDirectConnectGateways = DescribeDirectConnectGateways'
 --
 -- If @MaxResults@ is given a value larger than 100, only 100 results are
 -- returned.
+--
+-- 'nextToken', 'describeDirectConnectGateways_nextToken' - The token provided in the previous call to retrieve the next page.
 newDescribeDirectConnectGateways ::
   DescribeDirectConnectGateways
 newDescribeDirectConnectGateways =
   DescribeDirectConnectGateways'
-    { nextToken =
+    { directConnectGatewayId =
         Prelude.Nothing,
-      directConnectGatewayId = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token provided in the previous call to retrieve the next page.
-describeDirectConnectGateways_nextToken :: Lens.Lens' DescribeDirectConnectGateways (Prelude.Maybe Prelude.Text)
-describeDirectConnectGateways_nextToken = Lens.lens (\DescribeDirectConnectGateways' {nextToken} -> nextToken) (\s@DescribeDirectConnectGateways' {} a -> s {nextToken = a} :: DescribeDirectConnectGateways)
 
 -- | The ID of the Direct Connect gateway.
 describeDirectConnectGateways_directConnectGatewayId :: Lens.Lens' DescribeDirectConnectGateways (Prelude.Maybe Prelude.Text)
@@ -113,6 +109,10 @@ describeDirectConnectGateways_directConnectGatewayId = Lens.lens (\DescribeDirec
 -- returned.
 describeDirectConnectGateways_maxResults :: Lens.Lens' DescribeDirectConnectGateways (Prelude.Maybe Prelude.Int)
 describeDirectConnectGateways_maxResults = Lens.lens (\DescribeDirectConnectGateways' {maxResults} -> maxResults) (\s@DescribeDirectConnectGateways' {} a -> s {maxResults = a} :: DescribeDirectConnectGateways)
+
+-- | The token provided in the previous call to retrieve the next page.
+describeDirectConnectGateways_nextToken :: Lens.Lens' DescribeDirectConnectGateways (Prelude.Maybe Prelude.Text)
+describeDirectConnectGateways_nextToken = Lens.lens (\DescribeDirectConnectGateways' {nextToken} -> nextToken) (\s@DescribeDirectConnectGateways' {} a -> s {nextToken = a} :: DescribeDirectConnectGateways)
 
 instance Core.AWSPager DescribeDirectConnectGateways where
   page rq rs
@@ -149,10 +149,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeDirectConnectGatewaysResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "directConnectGateways"
+            Prelude.<$> ( x Data..?> "directConnectGateways"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,15 +161,15 @@ instance
     DescribeDirectConnectGateways
   where
   hashWithSalt _salt DescribeDirectConnectGateways' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` directConnectGatewayId
+    _salt `Prelude.hashWithSalt` directConnectGatewayId
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeDirectConnectGateways where
   rnf DescribeDirectConnectGateways' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf directConnectGatewayId
+    Prelude.rnf directConnectGatewayId
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeDirectConnectGateways where
   toHeaders =
@@ -190,10 +190,10 @@ instance Data.ToJSON DescribeDirectConnectGateways where
   toJSON DescribeDirectConnectGateways' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("directConnectGatewayId" Data..=)
+          [ ("directConnectGatewayId" Data..=)
               Prelude.<$> directConnectGatewayId,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -205,10 +205,10 @@ instance Data.ToQuery DescribeDirectConnectGateways where
 
 -- | /See:/ 'newDescribeDirectConnectGatewaysResponse' smart constructor.
 data DescribeDirectConnectGatewaysResponse = DescribeDirectConnectGatewaysResponse'
-  { -- | The token to retrieve the next page.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The Direct Connect gateways.
+  { -- | The Direct Connect gateways.
     directConnectGateways :: Prelude.Maybe [DirectConnectGateway],
+    -- | The token to retrieve the next page.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -222,9 +222,9 @@ data DescribeDirectConnectGatewaysResponse = DescribeDirectConnectGatewaysRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeDirectConnectGatewaysResponse_nextToken' - The token to retrieve the next page.
---
 -- 'directConnectGateways', 'describeDirectConnectGatewaysResponse_directConnectGateways' - The Direct Connect gateways.
+--
+-- 'nextToken', 'describeDirectConnectGatewaysResponse_nextToken' - The token to retrieve the next page.
 --
 -- 'httpStatus', 'describeDirectConnectGatewaysResponse_httpStatus' - The response's http status code.
 newDescribeDirectConnectGatewaysResponse ::
@@ -233,20 +233,19 @@ newDescribeDirectConnectGatewaysResponse ::
   DescribeDirectConnectGatewaysResponse
 newDescribeDirectConnectGatewaysResponse pHttpStatus_ =
   DescribeDirectConnectGatewaysResponse'
-    { nextToken =
+    { directConnectGateways =
         Prelude.Nothing,
-      directConnectGateways =
-        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token to retrieve the next page.
-describeDirectConnectGatewaysResponse_nextToken :: Lens.Lens' DescribeDirectConnectGatewaysResponse (Prelude.Maybe Prelude.Text)
-describeDirectConnectGatewaysResponse_nextToken = Lens.lens (\DescribeDirectConnectGatewaysResponse' {nextToken} -> nextToken) (\s@DescribeDirectConnectGatewaysResponse' {} a -> s {nextToken = a} :: DescribeDirectConnectGatewaysResponse)
 
 -- | The Direct Connect gateways.
 describeDirectConnectGatewaysResponse_directConnectGateways :: Lens.Lens' DescribeDirectConnectGatewaysResponse (Prelude.Maybe [DirectConnectGateway])
 describeDirectConnectGatewaysResponse_directConnectGateways = Lens.lens (\DescribeDirectConnectGatewaysResponse' {directConnectGateways} -> directConnectGateways) (\s@DescribeDirectConnectGatewaysResponse' {} a -> s {directConnectGateways = a} :: DescribeDirectConnectGatewaysResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token to retrieve the next page.
+describeDirectConnectGatewaysResponse_nextToken :: Lens.Lens' DescribeDirectConnectGatewaysResponse (Prelude.Maybe Prelude.Text)
+describeDirectConnectGatewaysResponse_nextToken = Lens.lens (\DescribeDirectConnectGatewaysResponse' {nextToken} -> nextToken) (\s@DescribeDirectConnectGatewaysResponse' {} a -> s {nextToken = a} :: DescribeDirectConnectGatewaysResponse)
 
 -- | The response's http status code.
 describeDirectConnectGatewaysResponse_httpStatus :: Lens.Lens' DescribeDirectConnectGatewaysResponse Prelude.Int
@@ -257,6 +256,6 @@ instance
     DescribeDirectConnectGatewaysResponse
   where
   rnf DescribeDirectConnectGatewaysResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf directConnectGateways
+    Prelude.rnf directConnectGateways
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

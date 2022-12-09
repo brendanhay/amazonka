@@ -33,9 +33,9 @@ module Amazonka.DirectConnect.DeleteDirectConnectGatewayAssociation
     newDeleteDirectConnectGatewayAssociation,
 
     -- * Request Lenses
+    deleteDirectConnectGatewayAssociation_associationId,
     deleteDirectConnectGatewayAssociation_directConnectGatewayId,
     deleteDirectConnectGatewayAssociation_virtualGatewayId,
-    deleteDirectConnectGatewayAssociation_associationId,
 
     -- * Destructuring the Response
     DeleteDirectConnectGatewayAssociationResponse (..),
@@ -57,12 +57,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteDirectConnectGatewayAssociation' smart constructor.
 data DeleteDirectConnectGatewayAssociation = DeleteDirectConnectGatewayAssociation'
-  { -- | The ID of the Direct Connect gateway.
+  { -- | The ID of the Direct Connect gateway association.
+    associationId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the Direct Connect gateway.
     directConnectGatewayId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the virtual private gateway.
-    virtualGatewayId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the Direct Connect gateway association.
-    associationId :: Prelude.Maybe Prelude.Text
+    virtualGatewayId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,20 +74,25 @@ data DeleteDirectConnectGatewayAssociation = DeleteDirectConnectGatewayAssociati
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'associationId', 'deleteDirectConnectGatewayAssociation_associationId' - The ID of the Direct Connect gateway association.
+--
 -- 'directConnectGatewayId', 'deleteDirectConnectGatewayAssociation_directConnectGatewayId' - The ID of the Direct Connect gateway.
 --
 -- 'virtualGatewayId', 'deleteDirectConnectGatewayAssociation_virtualGatewayId' - The ID of the virtual private gateway.
---
--- 'associationId', 'deleteDirectConnectGatewayAssociation_associationId' - The ID of the Direct Connect gateway association.
 newDeleteDirectConnectGatewayAssociation ::
   DeleteDirectConnectGatewayAssociation
 newDeleteDirectConnectGatewayAssociation =
   DeleteDirectConnectGatewayAssociation'
-    { directConnectGatewayId =
+    { associationId =
         Prelude.Nothing,
-      virtualGatewayId = Prelude.Nothing,
-      associationId = Prelude.Nothing
+      directConnectGatewayId =
+        Prelude.Nothing,
+      virtualGatewayId = Prelude.Nothing
     }
+
+-- | The ID of the Direct Connect gateway association.
+deleteDirectConnectGatewayAssociation_associationId :: Lens.Lens' DeleteDirectConnectGatewayAssociation (Prelude.Maybe Prelude.Text)
+deleteDirectConnectGatewayAssociation_associationId = Lens.lens (\DeleteDirectConnectGatewayAssociation' {associationId} -> associationId) (\s@DeleteDirectConnectGatewayAssociation' {} a -> s {associationId = a} :: DeleteDirectConnectGatewayAssociation)
 
 -- | The ID of the Direct Connect gateway.
 deleteDirectConnectGatewayAssociation_directConnectGatewayId :: Lens.Lens' DeleteDirectConnectGatewayAssociation (Prelude.Maybe Prelude.Text)
@@ -96,10 +101,6 @@ deleteDirectConnectGatewayAssociation_directConnectGatewayId = Lens.lens (\Delet
 -- | The ID of the virtual private gateway.
 deleteDirectConnectGatewayAssociation_virtualGatewayId :: Lens.Lens' DeleteDirectConnectGatewayAssociation (Prelude.Maybe Prelude.Text)
 deleteDirectConnectGatewayAssociation_virtualGatewayId = Lens.lens (\DeleteDirectConnectGatewayAssociation' {virtualGatewayId} -> virtualGatewayId) (\s@DeleteDirectConnectGatewayAssociation' {} a -> s {virtualGatewayId = a} :: DeleteDirectConnectGatewayAssociation)
-
--- | The ID of the Direct Connect gateway association.
-deleteDirectConnectGatewayAssociation_associationId :: Lens.Lens' DeleteDirectConnectGatewayAssociation (Prelude.Maybe Prelude.Text)
-deleteDirectConnectGatewayAssociation_associationId = Lens.lens (\DeleteDirectConnectGatewayAssociation' {associationId} -> associationId) (\s@DeleteDirectConnectGatewayAssociation' {} a -> s {associationId = a} :: DeleteDirectConnectGatewayAssociation)
 
 instance
   Core.AWSRequest
@@ -126,18 +127,18 @@ instance
   hashWithSalt
     _salt
     DeleteDirectConnectGatewayAssociation' {..} =
-      _salt `Prelude.hashWithSalt` directConnectGatewayId
+      _salt `Prelude.hashWithSalt` associationId
+        `Prelude.hashWithSalt` directConnectGatewayId
         `Prelude.hashWithSalt` virtualGatewayId
-        `Prelude.hashWithSalt` associationId
 
 instance
   Prelude.NFData
     DeleteDirectConnectGatewayAssociation
   where
   rnf DeleteDirectConnectGatewayAssociation' {..} =
-    Prelude.rnf directConnectGatewayId
+    Prelude.rnf associationId
+      `Prelude.seq` Prelude.rnf directConnectGatewayId
       `Prelude.seq` Prelude.rnf virtualGatewayId
-      `Prelude.seq` Prelude.rnf associationId
 
 instance
   Data.ToHeaders
@@ -164,11 +165,11 @@ instance
   toJSON DeleteDirectConnectGatewayAssociation' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("directConnectGatewayId" Data..=)
+          [ ("associationId" Data..=) Prelude.<$> associationId,
+            ("directConnectGatewayId" Data..=)
               Prelude.<$> directConnectGatewayId,
             ("virtualGatewayId" Data..=)
-              Prelude.<$> virtualGatewayId,
-            ("associationId" Data..=) Prelude.<$> associationId
+              Prelude.<$> virtualGatewayId
           ]
       )
 

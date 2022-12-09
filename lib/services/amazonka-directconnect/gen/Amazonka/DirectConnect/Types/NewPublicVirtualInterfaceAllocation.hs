@@ -32,20 +32,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNewPublicVirtualInterfaceAllocation' smart constructor.
 data NewPublicVirtualInterfaceAllocation = NewPublicVirtualInterfaceAllocation'
-  { -- | The tags associated with the public virtual interface.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | The address family for the BGP peer.
+  { -- | The address family for the BGP peer.
     addressFamily :: Prelude.Maybe AddressFamily,
+    -- | The IP address assigned to the Amazon interface.
+    amazonAddress :: Prelude.Maybe Prelude.Text,
     -- | The authentication key for BGP configuration. This string has a minimum
     -- length of 6 characters and and a maximun lenth of 80 characters.
     authKey :: Prelude.Maybe Prelude.Text,
+    -- | The IP address assigned to the customer interface.
+    customerAddress :: Prelude.Maybe Prelude.Text,
     -- | The routes to be advertised to the Amazon Web Services network in this
     -- Region. Applies to public virtual interfaces.
     routeFilterPrefixes :: Prelude.Maybe [RouteFilterPrefix],
-    -- | The IP address assigned to the customer interface.
-    customerAddress :: Prelude.Maybe Prelude.Text,
-    -- | The IP address assigned to the Amazon interface.
-    amazonAddress :: Prelude.Maybe Prelude.Text,
+    -- | The tags associated with the public virtual interface.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The name of the virtual interface assigned by the customer network. The
     -- name has a maximum of 100 characters. The following are valid
     -- characters: a-z, 0-9 and a hyphen (-).
@@ -68,19 +68,19 @@ data NewPublicVirtualInterfaceAllocation = NewPublicVirtualInterfaceAllocation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'newPublicVirtualInterfaceAllocation_tags' - The tags associated with the public virtual interface.
---
 -- 'addressFamily', 'newPublicVirtualInterfaceAllocation_addressFamily' - The address family for the BGP peer.
+--
+-- 'amazonAddress', 'newPublicVirtualInterfaceAllocation_amazonAddress' - The IP address assigned to the Amazon interface.
 --
 -- 'authKey', 'newPublicVirtualInterfaceAllocation_authKey' - The authentication key for BGP configuration. This string has a minimum
 -- length of 6 characters and and a maximun lenth of 80 characters.
 --
+-- 'customerAddress', 'newPublicVirtualInterfaceAllocation_customerAddress' - The IP address assigned to the customer interface.
+--
 -- 'routeFilterPrefixes', 'newPublicVirtualInterfaceAllocation_routeFilterPrefixes' - The routes to be advertised to the Amazon Web Services network in this
 -- Region. Applies to public virtual interfaces.
 --
--- 'customerAddress', 'newPublicVirtualInterfaceAllocation_customerAddress' - The IP address assigned to the customer interface.
---
--- 'amazonAddress', 'newPublicVirtualInterfaceAllocation_amazonAddress' - The IP address assigned to the Amazon interface.
+-- 'tags', 'newPublicVirtualInterfaceAllocation_tags' - The tags associated with the public virtual interface.
 --
 -- 'virtualInterfaceName', 'newPublicVirtualInterfaceAllocation_virtualInterfaceName' - The name of the virtual interface assigned by the customer network. The
 -- name has a maximum of 100 characters. The following are valid
@@ -105,44 +105,44 @@ newNewPublicVirtualInterfaceAllocation
   pVlan_
   pAsn_ =
     NewPublicVirtualInterfaceAllocation'
-      { tags =
+      { addressFamily =
           Prelude.Nothing,
-        addressFamily = Prelude.Nothing,
-        authKey = Prelude.Nothing,
-        routeFilterPrefixes = Prelude.Nothing,
-        customerAddress = Prelude.Nothing,
         amazonAddress = Prelude.Nothing,
+        authKey = Prelude.Nothing,
+        customerAddress = Prelude.Nothing,
+        routeFilterPrefixes = Prelude.Nothing,
+        tags = Prelude.Nothing,
         virtualInterfaceName =
           pVirtualInterfaceName_,
         vlan = pVlan_,
         asn = pAsn_
       }
 
--- | The tags associated with the public virtual interface.
-newPublicVirtualInterfaceAllocation_tags :: Lens.Lens' NewPublicVirtualInterfaceAllocation (Prelude.Maybe (Prelude.NonEmpty Tag))
-newPublicVirtualInterfaceAllocation_tags = Lens.lens (\NewPublicVirtualInterfaceAllocation' {tags} -> tags) (\s@NewPublicVirtualInterfaceAllocation' {} a -> s {tags = a} :: NewPublicVirtualInterfaceAllocation) Prelude.. Lens.mapping Lens.coerced
-
 -- | The address family for the BGP peer.
 newPublicVirtualInterfaceAllocation_addressFamily :: Lens.Lens' NewPublicVirtualInterfaceAllocation (Prelude.Maybe AddressFamily)
 newPublicVirtualInterfaceAllocation_addressFamily = Lens.lens (\NewPublicVirtualInterfaceAllocation' {addressFamily} -> addressFamily) (\s@NewPublicVirtualInterfaceAllocation' {} a -> s {addressFamily = a} :: NewPublicVirtualInterfaceAllocation)
+
+-- | The IP address assigned to the Amazon interface.
+newPublicVirtualInterfaceAllocation_amazonAddress :: Lens.Lens' NewPublicVirtualInterfaceAllocation (Prelude.Maybe Prelude.Text)
+newPublicVirtualInterfaceAllocation_amazonAddress = Lens.lens (\NewPublicVirtualInterfaceAllocation' {amazonAddress} -> amazonAddress) (\s@NewPublicVirtualInterfaceAllocation' {} a -> s {amazonAddress = a} :: NewPublicVirtualInterfaceAllocation)
 
 -- | The authentication key for BGP configuration. This string has a minimum
 -- length of 6 characters and and a maximun lenth of 80 characters.
 newPublicVirtualInterfaceAllocation_authKey :: Lens.Lens' NewPublicVirtualInterfaceAllocation (Prelude.Maybe Prelude.Text)
 newPublicVirtualInterfaceAllocation_authKey = Lens.lens (\NewPublicVirtualInterfaceAllocation' {authKey} -> authKey) (\s@NewPublicVirtualInterfaceAllocation' {} a -> s {authKey = a} :: NewPublicVirtualInterfaceAllocation)
 
+-- | The IP address assigned to the customer interface.
+newPublicVirtualInterfaceAllocation_customerAddress :: Lens.Lens' NewPublicVirtualInterfaceAllocation (Prelude.Maybe Prelude.Text)
+newPublicVirtualInterfaceAllocation_customerAddress = Lens.lens (\NewPublicVirtualInterfaceAllocation' {customerAddress} -> customerAddress) (\s@NewPublicVirtualInterfaceAllocation' {} a -> s {customerAddress = a} :: NewPublicVirtualInterfaceAllocation)
+
 -- | The routes to be advertised to the Amazon Web Services network in this
 -- Region. Applies to public virtual interfaces.
 newPublicVirtualInterfaceAllocation_routeFilterPrefixes :: Lens.Lens' NewPublicVirtualInterfaceAllocation (Prelude.Maybe [RouteFilterPrefix])
 newPublicVirtualInterfaceAllocation_routeFilterPrefixes = Lens.lens (\NewPublicVirtualInterfaceAllocation' {routeFilterPrefixes} -> routeFilterPrefixes) (\s@NewPublicVirtualInterfaceAllocation' {} a -> s {routeFilterPrefixes = a} :: NewPublicVirtualInterfaceAllocation) Prelude.. Lens.mapping Lens.coerced
 
--- | The IP address assigned to the customer interface.
-newPublicVirtualInterfaceAllocation_customerAddress :: Lens.Lens' NewPublicVirtualInterfaceAllocation (Prelude.Maybe Prelude.Text)
-newPublicVirtualInterfaceAllocation_customerAddress = Lens.lens (\NewPublicVirtualInterfaceAllocation' {customerAddress} -> customerAddress) (\s@NewPublicVirtualInterfaceAllocation' {} a -> s {customerAddress = a} :: NewPublicVirtualInterfaceAllocation)
-
--- | The IP address assigned to the Amazon interface.
-newPublicVirtualInterfaceAllocation_amazonAddress :: Lens.Lens' NewPublicVirtualInterfaceAllocation (Prelude.Maybe Prelude.Text)
-newPublicVirtualInterfaceAllocation_amazonAddress = Lens.lens (\NewPublicVirtualInterfaceAllocation' {amazonAddress} -> amazonAddress) (\s@NewPublicVirtualInterfaceAllocation' {} a -> s {amazonAddress = a} :: NewPublicVirtualInterfaceAllocation)
+-- | The tags associated with the public virtual interface.
+newPublicVirtualInterfaceAllocation_tags :: Lens.Lens' NewPublicVirtualInterfaceAllocation (Prelude.Maybe (Prelude.NonEmpty Tag))
+newPublicVirtualInterfaceAllocation_tags = Lens.lens (\NewPublicVirtualInterfaceAllocation' {tags} -> tags) (\s@NewPublicVirtualInterfaceAllocation' {} a -> s {tags = a} :: NewPublicVirtualInterfaceAllocation) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the virtual interface assigned by the customer network. The
 -- name has a maximum of 100 characters. The following are valid
@@ -168,12 +168,12 @@ instance
   hashWithSalt
     _salt
     NewPublicVirtualInterfaceAllocation' {..} =
-      _salt `Prelude.hashWithSalt` tags
-        `Prelude.hashWithSalt` addressFamily
-        `Prelude.hashWithSalt` authKey
-        `Prelude.hashWithSalt` routeFilterPrefixes
-        `Prelude.hashWithSalt` customerAddress
+      _salt `Prelude.hashWithSalt` addressFamily
         `Prelude.hashWithSalt` amazonAddress
+        `Prelude.hashWithSalt` authKey
+        `Prelude.hashWithSalt` customerAddress
+        `Prelude.hashWithSalt` routeFilterPrefixes
+        `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` virtualInterfaceName
         `Prelude.hashWithSalt` vlan
         `Prelude.hashWithSalt` asn
@@ -183,12 +183,12 @@ instance
     NewPublicVirtualInterfaceAllocation
   where
   rnf NewPublicVirtualInterfaceAllocation' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf addressFamily
-      `Prelude.seq` Prelude.rnf authKey
-      `Prelude.seq` Prelude.rnf routeFilterPrefixes
-      `Prelude.seq` Prelude.rnf customerAddress
+    Prelude.rnf addressFamily
       `Prelude.seq` Prelude.rnf amazonAddress
+      `Prelude.seq` Prelude.rnf authKey
+      `Prelude.seq` Prelude.rnf customerAddress
+      `Prelude.seq` Prelude.rnf routeFilterPrefixes
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf virtualInterfaceName
       `Prelude.seq` Prelude.rnf vlan
       `Prelude.seq` Prelude.rnf asn
@@ -200,14 +200,14 @@ instance
   toJSON NewPublicVirtualInterfaceAllocation' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("addressFamily" Data..=) Prelude.<$> addressFamily,
+          [ ("addressFamily" Data..=) Prelude.<$> addressFamily,
+            ("amazonAddress" Data..=) Prelude.<$> amazonAddress,
             ("authKey" Data..=) Prelude.<$> authKey,
-            ("routeFilterPrefixes" Data..=)
-              Prelude.<$> routeFilterPrefixes,
             ("customerAddress" Data..=)
               Prelude.<$> customerAddress,
-            ("amazonAddress" Data..=) Prelude.<$> amazonAddress,
+            ("routeFilterPrefixes" Data..=)
+              Prelude.<$> routeFilterPrefixes,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ( "virtualInterfaceName"
                   Data..= virtualInterfaceName

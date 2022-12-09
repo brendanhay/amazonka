@@ -28,6 +28,9 @@ module Amazonka.DirectConnect
     -- * Errors
     -- $errors
 
+    -- ** DirectConnectClientException
+    _DirectConnectClientException,
+
     -- ** DirectConnectServerException
     _DirectConnectServerException,
 
@@ -36,9 +39,6 @@ module Amazonka.DirectConnect
 
     -- ** TooManyTagsException
     _TooManyTagsException,
-
-    -- ** DirectConnectClientException
-    _DirectConnectClientException,
 
     -- * Waiters
     -- $waiters

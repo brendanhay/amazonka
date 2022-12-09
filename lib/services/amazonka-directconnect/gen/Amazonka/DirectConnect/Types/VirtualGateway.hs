@@ -29,7 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVirtualGateway' smart constructor.
 data VirtualGateway = VirtualGateway'
-  { -- | The state of the virtual private gateway. The following are the possible
+  { -- | The ID of the virtual private gateway.
+    virtualGatewayId :: Prelude.Maybe Prelude.Text,
+    -- | The state of the virtual private gateway. The following are the possible
     -- values:
     --
     -- -   @pending@: Initial state after creating the virtual private gateway.
@@ -41,9 +43,7 @@ data VirtualGateway = VirtualGateway'
     --
     -- -   @deleted@: The virtual private gateway is deleted. The private
     --     virtual interface is unable to send traffic over this gateway.
-    virtualGatewayState :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the virtual private gateway.
-    virtualGatewayId :: Prelude.Maybe Prelude.Text
+    virtualGatewayState :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,6 +54,8 @@ data VirtualGateway = VirtualGateway'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'virtualGatewayId', 'virtualGateway_virtualGatewayId' - The ID of the virtual private gateway.
 --
 -- 'virtualGatewayState', 'virtualGateway_virtualGatewayState' - The state of the virtual private gateway. The following are the possible
 -- values:
@@ -67,16 +69,17 @@ data VirtualGateway = VirtualGateway'
 --
 -- -   @deleted@: The virtual private gateway is deleted. The private
 --     virtual interface is unable to send traffic over this gateway.
---
--- 'virtualGatewayId', 'virtualGateway_virtualGatewayId' - The ID of the virtual private gateway.
 newVirtualGateway ::
   VirtualGateway
 newVirtualGateway =
   VirtualGateway'
-    { virtualGatewayState =
-        Prelude.Nothing,
-      virtualGatewayId = Prelude.Nothing
+    { virtualGatewayId = Prelude.Nothing,
+      virtualGatewayState = Prelude.Nothing
     }
+
+-- | The ID of the virtual private gateway.
+virtualGateway_virtualGatewayId :: Lens.Lens' VirtualGateway (Prelude.Maybe Prelude.Text)
+virtualGateway_virtualGatewayId = Lens.lens (\VirtualGateway' {virtualGatewayId} -> virtualGatewayId) (\s@VirtualGateway' {} a -> s {virtualGatewayId = a} :: VirtualGateway)
 
 -- | The state of the virtual private gateway. The following are the possible
 -- values:
@@ -93,26 +96,22 @@ newVirtualGateway =
 virtualGateway_virtualGatewayState :: Lens.Lens' VirtualGateway (Prelude.Maybe Prelude.Text)
 virtualGateway_virtualGatewayState = Lens.lens (\VirtualGateway' {virtualGatewayState} -> virtualGatewayState) (\s@VirtualGateway' {} a -> s {virtualGatewayState = a} :: VirtualGateway)
 
--- | The ID of the virtual private gateway.
-virtualGateway_virtualGatewayId :: Lens.Lens' VirtualGateway (Prelude.Maybe Prelude.Text)
-virtualGateway_virtualGatewayId = Lens.lens (\VirtualGateway' {virtualGatewayId} -> virtualGatewayId) (\s@VirtualGateway' {} a -> s {virtualGatewayId = a} :: VirtualGateway)
-
 instance Data.FromJSON VirtualGateway where
   parseJSON =
     Data.withObject
       "VirtualGateway"
       ( \x ->
           VirtualGateway'
-            Prelude.<$> (x Data..:? "virtualGatewayState")
-            Prelude.<*> (x Data..:? "virtualGatewayId")
+            Prelude.<$> (x Data..:? "virtualGatewayId")
+            Prelude.<*> (x Data..:? "virtualGatewayState")
       )
 
 instance Prelude.Hashable VirtualGateway where
   hashWithSalt _salt VirtualGateway' {..} =
-    _salt `Prelude.hashWithSalt` virtualGatewayState
-      `Prelude.hashWithSalt` virtualGatewayId
+    _salt `Prelude.hashWithSalt` virtualGatewayId
+      `Prelude.hashWithSalt` virtualGatewayState
 
 instance Prelude.NFData VirtualGateway where
   rnf VirtualGateway' {..} =
-    Prelude.rnf virtualGatewayState
-      `Prelude.seq` Prelude.rnf virtualGatewayId
+    Prelude.rnf virtualGatewayId
+      `Prelude.seq` Prelude.rnf virtualGatewayState

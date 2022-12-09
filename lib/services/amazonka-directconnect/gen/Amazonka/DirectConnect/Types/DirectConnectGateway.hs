@@ -30,10 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDirectConnectGateway' smart constructor.
 data DirectConnectGateway = DirectConnectGateway'
-  { -- | The ID of the Direct Connect gateway.
+  { -- | The autonomous system number (ASN) for the Amazon side of the
+    -- connection.
+    amazonSideAsn :: Prelude.Maybe Prelude.Integer,
+    -- | The ID of the Direct Connect gateway.
     directConnectGatewayId :: Prelude.Maybe Prelude.Text,
-    -- | The error message if the state of an object failed to advance.
-    stateChangeError :: Prelude.Maybe Prelude.Text,
+    -- | The name of the Direct Connect gateway.
+    directConnectGatewayName :: Prelude.Maybe Prelude.Text,
     -- | The state of the Direct Connect gateway. The following are the possible
     -- values:
     --
@@ -48,14 +51,11 @@ data DirectConnectGateway = DirectConnectGateway'
     -- -   @deleted@: The Direct Connect gateway is deleted and cannot pass
     --     traffic.
     directConnectGatewayState :: Prelude.Maybe DirectConnectGatewayState,
-    -- | The autonomous system number (ASN) for the Amazon side of the
-    -- connection.
-    amazonSideAsn :: Prelude.Maybe Prelude.Integer,
-    -- | The name of the Direct Connect gateway.
-    directConnectGatewayName :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Amazon Web Services account that owns the Direct Connect
     -- gateway.
-    ownerAccount :: Prelude.Maybe Prelude.Text
+    ownerAccount :: Prelude.Maybe Prelude.Text,
+    -- | The error message if the state of an object failed to advance.
+    stateChangeError :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,9 +67,12 @@ data DirectConnectGateway = DirectConnectGateway'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'amazonSideAsn', 'directConnectGateway_amazonSideAsn' - The autonomous system number (ASN) for the Amazon side of the
+-- connection.
+--
 -- 'directConnectGatewayId', 'directConnectGateway_directConnectGatewayId' - The ID of the Direct Connect gateway.
 --
--- 'stateChangeError', 'directConnectGateway_stateChangeError' - The error message if the state of an object failed to advance.
+-- 'directConnectGatewayName', 'directConnectGateway_directConnectGatewayName' - The name of the Direct Connect gateway.
 --
 -- 'directConnectGatewayState', 'directConnectGateway_directConnectGatewayState' - The state of the Direct Connect gateway. The following are the possible
 -- values:
@@ -85,33 +88,35 @@ data DirectConnectGateway = DirectConnectGateway'
 -- -   @deleted@: The Direct Connect gateway is deleted and cannot pass
 --     traffic.
 --
--- 'amazonSideAsn', 'directConnectGateway_amazonSideAsn' - The autonomous system number (ASN) for the Amazon side of the
--- connection.
---
--- 'directConnectGatewayName', 'directConnectGateway_directConnectGatewayName' - The name of the Direct Connect gateway.
---
 -- 'ownerAccount', 'directConnectGateway_ownerAccount' - The ID of the Amazon Web Services account that owns the Direct Connect
 -- gateway.
+--
+-- 'stateChangeError', 'directConnectGateway_stateChangeError' - The error message if the state of an object failed to advance.
 newDirectConnectGateway ::
   DirectConnectGateway
 newDirectConnectGateway =
   DirectConnectGateway'
-    { directConnectGatewayId =
+    { amazonSideAsn =
         Prelude.Nothing,
-      stateChangeError = Prelude.Nothing,
-      directConnectGatewayState = Prelude.Nothing,
-      amazonSideAsn = Prelude.Nothing,
+      directConnectGatewayId = Prelude.Nothing,
       directConnectGatewayName = Prelude.Nothing,
-      ownerAccount = Prelude.Nothing
+      directConnectGatewayState = Prelude.Nothing,
+      ownerAccount = Prelude.Nothing,
+      stateChangeError = Prelude.Nothing
     }
+
+-- | The autonomous system number (ASN) for the Amazon side of the
+-- connection.
+directConnectGateway_amazonSideAsn :: Lens.Lens' DirectConnectGateway (Prelude.Maybe Prelude.Integer)
+directConnectGateway_amazonSideAsn = Lens.lens (\DirectConnectGateway' {amazonSideAsn} -> amazonSideAsn) (\s@DirectConnectGateway' {} a -> s {amazonSideAsn = a} :: DirectConnectGateway)
 
 -- | The ID of the Direct Connect gateway.
 directConnectGateway_directConnectGatewayId :: Lens.Lens' DirectConnectGateway (Prelude.Maybe Prelude.Text)
 directConnectGateway_directConnectGatewayId = Lens.lens (\DirectConnectGateway' {directConnectGatewayId} -> directConnectGatewayId) (\s@DirectConnectGateway' {} a -> s {directConnectGatewayId = a} :: DirectConnectGateway)
 
--- | The error message if the state of an object failed to advance.
-directConnectGateway_stateChangeError :: Lens.Lens' DirectConnectGateway (Prelude.Maybe Prelude.Text)
-directConnectGateway_stateChangeError = Lens.lens (\DirectConnectGateway' {stateChangeError} -> stateChangeError) (\s@DirectConnectGateway' {} a -> s {stateChangeError = a} :: DirectConnectGateway)
+-- | The name of the Direct Connect gateway.
+directConnectGateway_directConnectGatewayName :: Lens.Lens' DirectConnectGateway (Prelude.Maybe Prelude.Text)
+directConnectGateway_directConnectGatewayName = Lens.lens (\DirectConnectGateway' {directConnectGatewayName} -> directConnectGatewayName) (\s@DirectConnectGateway' {} a -> s {directConnectGatewayName = a} :: DirectConnectGateway)
 
 -- | The state of the Direct Connect gateway. The following are the possible
 -- values:
@@ -129,19 +134,14 @@ directConnectGateway_stateChangeError = Lens.lens (\DirectConnectGateway' {state
 directConnectGateway_directConnectGatewayState :: Lens.Lens' DirectConnectGateway (Prelude.Maybe DirectConnectGatewayState)
 directConnectGateway_directConnectGatewayState = Lens.lens (\DirectConnectGateway' {directConnectGatewayState} -> directConnectGatewayState) (\s@DirectConnectGateway' {} a -> s {directConnectGatewayState = a} :: DirectConnectGateway)
 
--- | The autonomous system number (ASN) for the Amazon side of the
--- connection.
-directConnectGateway_amazonSideAsn :: Lens.Lens' DirectConnectGateway (Prelude.Maybe Prelude.Integer)
-directConnectGateway_amazonSideAsn = Lens.lens (\DirectConnectGateway' {amazonSideAsn} -> amazonSideAsn) (\s@DirectConnectGateway' {} a -> s {amazonSideAsn = a} :: DirectConnectGateway)
-
--- | The name of the Direct Connect gateway.
-directConnectGateway_directConnectGatewayName :: Lens.Lens' DirectConnectGateway (Prelude.Maybe Prelude.Text)
-directConnectGateway_directConnectGatewayName = Lens.lens (\DirectConnectGateway' {directConnectGatewayName} -> directConnectGatewayName) (\s@DirectConnectGateway' {} a -> s {directConnectGatewayName = a} :: DirectConnectGateway)
-
 -- | The ID of the Amazon Web Services account that owns the Direct Connect
 -- gateway.
 directConnectGateway_ownerAccount :: Lens.Lens' DirectConnectGateway (Prelude.Maybe Prelude.Text)
 directConnectGateway_ownerAccount = Lens.lens (\DirectConnectGateway' {ownerAccount} -> ownerAccount) (\s@DirectConnectGateway' {} a -> s {ownerAccount = a} :: DirectConnectGateway)
+
+-- | The error message if the state of an object failed to advance.
+directConnectGateway_stateChangeError :: Lens.Lens' DirectConnectGateway (Prelude.Maybe Prelude.Text)
+directConnectGateway_stateChangeError = Lens.lens (\DirectConnectGateway' {stateChangeError} -> stateChangeError) (\s@DirectConnectGateway' {} a -> s {stateChangeError = a} :: DirectConnectGateway)
 
 instance Data.FromJSON DirectConnectGateway where
   parseJSON =
@@ -149,28 +149,28 @@ instance Data.FromJSON DirectConnectGateway where
       "DirectConnectGateway"
       ( \x ->
           DirectConnectGateway'
-            Prelude.<$> (x Data..:? "directConnectGatewayId")
-            Prelude.<*> (x Data..:? "stateChangeError")
-            Prelude.<*> (x Data..:? "directConnectGatewayState")
-            Prelude.<*> (x Data..:? "amazonSideAsn")
+            Prelude.<$> (x Data..:? "amazonSideAsn")
+            Prelude.<*> (x Data..:? "directConnectGatewayId")
             Prelude.<*> (x Data..:? "directConnectGatewayName")
+            Prelude.<*> (x Data..:? "directConnectGatewayState")
             Prelude.<*> (x Data..:? "ownerAccount")
+            Prelude.<*> (x Data..:? "stateChangeError")
       )
 
 instance Prelude.Hashable DirectConnectGateway where
   hashWithSalt _salt DirectConnectGateway' {..} =
-    _salt `Prelude.hashWithSalt` directConnectGatewayId
-      `Prelude.hashWithSalt` stateChangeError
-      `Prelude.hashWithSalt` directConnectGatewayState
-      `Prelude.hashWithSalt` amazonSideAsn
+    _salt `Prelude.hashWithSalt` amazonSideAsn
+      `Prelude.hashWithSalt` directConnectGatewayId
       `Prelude.hashWithSalt` directConnectGatewayName
+      `Prelude.hashWithSalt` directConnectGatewayState
       `Prelude.hashWithSalt` ownerAccount
+      `Prelude.hashWithSalt` stateChangeError
 
 instance Prelude.NFData DirectConnectGateway where
   rnf DirectConnectGateway' {..} =
-    Prelude.rnf directConnectGatewayId
-      `Prelude.seq` Prelude.rnf stateChangeError
-      `Prelude.seq` Prelude.rnf directConnectGatewayState
-      `Prelude.seq` Prelude.rnf amazonSideAsn
+    Prelude.rnf amazonSideAsn
+      `Prelude.seq` Prelude.rnf directConnectGatewayId
       `Prelude.seq` Prelude.rnf directConnectGatewayName
+      `Prelude.seq` Prelude.rnf directConnectGatewayState
       `Prelude.seq` Prelude.rnf ownerAccount
+      `Prelude.seq` Prelude.rnf stateChangeError

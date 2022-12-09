@@ -17,69 +17,69 @@ module Amazonka.MarketplaceCatalog.Lens
     -- ** CancelChangeSet
     cancelChangeSet_catalog,
     cancelChangeSet_changeSetId,
-    cancelChangeSetResponse_changeSetId,
     cancelChangeSetResponse_changeSetArn,
+    cancelChangeSetResponse_changeSetId,
     cancelChangeSetResponse_httpStatus,
 
     -- ** DescribeChangeSet
     describeChangeSet_catalog,
     describeChangeSet_changeSetId,
-    describeChangeSetResponse_failureDescription,
-    describeChangeSetResponse_failureCode,
+    describeChangeSetResponse_changeSet,
+    describeChangeSetResponse_changeSetArn,
     describeChangeSetResponse_changeSetId,
     describeChangeSetResponse_changeSetName,
-    describeChangeSetResponse_changeSetArn,
-    describeChangeSetResponse_status,
     describeChangeSetResponse_endTime,
-    describeChangeSetResponse_changeSet,
+    describeChangeSetResponse_failureCode,
+    describeChangeSetResponse_failureDescription,
     describeChangeSetResponse_startTime,
+    describeChangeSetResponse_status,
     describeChangeSetResponse_httpStatus,
 
     -- ** DescribeEntity
     describeEntity_catalog,
     describeEntity_entityId,
-    describeEntityResponse_lastModifiedDate,
     describeEntityResponse_details,
-    describeEntityResponse_entityType,
-    describeEntityResponse_entityIdentifier,
     describeEntityResponse_entityArn,
+    describeEntityResponse_entityIdentifier,
+    describeEntityResponse_entityType,
+    describeEntityResponse_lastModifiedDate,
     describeEntityResponse_httpStatus,
 
     -- ** ListChangeSets
-    listChangeSets_nextToken,
     listChangeSets_filterList,
-    listChangeSets_sort,
     listChangeSets_maxResults,
+    listChangeSets_nextToken,
+    listChangeSets_sort,
     listChangeSets_catalog,
-    listChangeSetsResponse_nextToken,
     listChangeSetsResponse_changeSetSummaryList,
+    listChangeSetsResponse_nextToken,
     listChangeSetsResponse_httpStatus,
 
     -- ** ListEntities
-    listEntities_nextToken,
     listEntities_filterList,
-    listEntities_sort,
     listEntities_maxResults,
+    listEntities_nextToken,
+    listEntities_sort,
     listEntities_catalog,
     listEntities_entityType,
-    listEntitiesResponse_nextToken,
     listEntitiesResponse_entitySummaryList,
+    listEntitiesResponse_nextToken,
     listEntitiesResponse_httpStatus,
 
     -- ** ListTagsForResource
     listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
     listTagsForResourceResponse_resourceArn,
+    listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
 
     -- ** StartChangeSet
-    startChangeSet_clientRequestToken,
     startChangeSet_changeSetName,
     startChangeSet_changeSetTags,
+    startChangeSet_clientRequestToken,
     startChangeSet_catalog,
     startChangeSet_changeSet,
-    startChangeSetResponse_changeSetId,
     startChangeSetResponse_changeSetArn,
+    startChangeSetResponse_changeSetId,
     startChangeSetResponse_httpStatus,
 
     -- ** TagResource
@@ -102,20 +102,20 @@ module Amazonka.MarketplaceCatalog.Lens
     change_details,
 
     -- ** ChangeSetSummaryListItem
-    changeSetSummaryListItem_failureCode,
+    changeSetSummaryListItem_changeSetArn,
     changeSetSummaryListItem_changeSetId,
     changeSetSummaryListItem_changeSetName,
-    changeSetSummaryListItem_changeSetArn,
-    changeSetSummaryListItem_status,
     changeSetSummaryListItem_endTime,
     changeSetSummaryListItem_entityIdList,
+    changeSetSummaryListItem_failureCode,
     changeSetSummaryListItem_startTime,
+    changeSetSummaryListItem_status,
 
     -- ** ChangeSummary
-    changeSummary_entity,
     changeSummary_changeName,
     changeSummary_changeType,
     changeSummary_details,
+    changeSummary_entity,
     changeSummary_errorDetailList,
 
     -- ** Entity
@@ -123,24 +123,24 @@ module Amazonka.MarketplaceCatalog.Lens
     entity_type,
 
     -- ** EntitySummary
-    entitySummary_entityId,
-    entitySummary_name,
-    entitySummary_lastModifiedDate,
-    entitySummary_visibility,
-    entitySummary_entityType,
     entitySummary_entityArn,
+    entitySummary_entityId,
+    entitySummary_entityType,
+    entitySummary_lastModifiedDate,
+    entitySummary_name,
+    entitySummary_visibility,
 
     -- ** ErrorDetail
-    errorDetail_errorMessage,
     errorDetail_errorCode,
+    errorDetail_errorMessage,
 
     -- ** Filter
     filter_name,
     filter_valueList,
 
     -- ** Sort
-    sort_sortOrder,
     sort_sortBy,
+    sort_sortOrder,
 
     -- ** Tag
     tag_key,

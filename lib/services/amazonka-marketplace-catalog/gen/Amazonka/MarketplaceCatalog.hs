@@ -26,29 +26,29 @@ module Amazonka.MarketplaceCatalog
     -- * Errors
     -- $errors
 
-    -- ** ResourceNotSupportedException
-    _ResourceNotSupportedException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
 
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
+    -- ** InternalServiceException
+    _InternalServiceException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
-    -- ** ResourceInUseException
-    _ResourceInUseException,
+    -- ** ResourceNotSupportedException
+    _ResourceNotSupportedException,
+
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
 
     -- ** ThrottlingException
     _ThrottlingException,
 
     -- ** ValidationException
     _ValidationException,
-
-    -- ** InternalServiceException
-    _InternalServiceException,
 
     -- * Waiters
     -- $waiters

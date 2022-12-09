@@ -33,10 +33,10 @@ module Amazonka.MarketplaceCatalog.ListChangeSets
     newListChangeSets,
 
     -- * Request Lenses
-    listChangeSets_nextToken,
     listChangeSets_filterList,
-    listChangeSets_sort,
     listChangeSets_maxResults,
+    listChangeSets_nextToken,
+    listChangeSets_sort,
     listChangeSets_catalog,
 
     -- * Destructuring the Response
@@ -44,8 +44,8 @@ module Amazonka.MarketplaceCatalog.ListChangeSets
     newListChangeSetsResponse,
 
     -- * Response Lenses
-    listChangeSetsResponse_nextToken,
     listChangeSetsResponse_changeSetSummaryList,
+    listChangeSetsResponse_nextToken,
     listChangeSetsResponse_httpStatus,
   )
 where
@@ -60,17 +60,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListChangeSets' smart constructor.
 data ListChangeSets = ListChangeSets'
-  { -- | The token value retrieved from a previous call to access the next page
-    -- of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of filter objects.
+  { -- | An array of filter objects.
     filterList :: Prelude.Maybe (Prelude.NonEmpty Filter),
-    -- | An object that contains two attributes, @SortBy@ and @SortOrder@.
-    sort :: Prelude.Maybe Sort,
     -- | The maximum number of results returned by a single call. This value must
     -- be provided in the next call to retrieve the next set of results. By
     -- default, this value is 20.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token value retrieved from a previous call to access the next page
+    -- of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An object that contains two attributes, @SortBy@ and @SortOrder@.
+    sort :: Prelude.Maybe Sort,
     -- | The catalog related to the request. Fixed value: @AWSMarketplace@
     catalog :: Prelude.Text
   }
@@ -84,16 +84,16 @@ data ListChangeSets = ListChangeSets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listChangeSets_nextToken' - The token value retrieved from a previous call to access the next page
--- of results.
---
 -- 'filterList', 'listChangeSets_filterList' - An array of filter objects.
---
--- 'sort', 'listChangeSets_sort' - An object that contains two attributes, @SortBy@ and @SortOrder@.
 --
 -- 'maxResults', 'listChangeSets_maxResults' - The maximum number of results returned by a single call. This value must
 -- be provided in the next call to retrieve the next set of results. By
 -- default, this value is 20.
+--
+-- 'nextToken', 'listChangeSets_nextToken' - The token value retrieved from a previous call to access the next page
+-- of results.
+--
+-- 'sort', 'listChangeSets_sort' - An object that contains two attributes, @SortBy@ and @SortOrder@.
 --
 -- 'catalog', 'listChangeSets_catalog' - The catalog related to the request. Fixed value: @AWSMarketplace@
 newListChangeSets ::
@@ -102,31 +102,31 @@ newListChangeSets ::
   ListChangeSets
 newListChangeSets pCatalog_ =
   ListChangeSets'
-    { nextToken = Prelude.Nothing,
-      filterList = Prelude.Nothing,
-      sort = Prelude.Nothing,
+    { filterList = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      sort = Prelude.Nothing,
       catalog = pCatalog_
     }
-
--- | The token value retrieved from a previous call to access the next page
--- of results.
-listChangeSets_nextToken :: Lens.Lens' ListChangeSets (Prelude.Maybe Prelude.Text)
-listChangeSets_nextToken = Lens.lens (\ListChangeSets' {nextToken} -> nextToken) (\s@ListChangeSets' {} a -> s {nextToken = a} :: ListChangeSets)
 
 -- | An array of filter objects.
 listChangeSets_filterList :: Lens.Lens' ListChangeSets (Prelude.Maybe (Prelude.NonEmpty Filter))
 listChangeSets_filterList = Lens.lens (\ListChangeSets' {filterList} -> filterList) (\s@ListChangeSets' {} a -> s {filterList = a} :: ListChangeSets) Prelude.. Lens.mapping Lens.coerced
-
--- | An object that contains two attributes, @SortBy@ and @SortOrder@.
-listChangeSets_sort :: Lens.Lens' ListChangeSets (Prelude.Maybe Sort)
-listChangeSets_sort = Lens.lens (\ListChangeSets' {sort} -> sort) (\s@ListChangeSets' {} a -> s {sort = a} :: ListChangeSets)
 
 -- | The maximum number of results returned by a single call. This value must
 -- be provided in the next call to retrieve the next set of results. By
 -- default, this value is 20.
 listChangeSets_maxResults :: Lens.Lens' ListChangeSets (Prelude.Maybe Prelude.Natural)
 listChangeSets_maxResults = Lens.lens (\ListChangeSets' {maxResults} -> maxResults) (\s@ListChangeSets' {} a -> s {maxResults = a} :: ListChangeSets)
+
+-- | The token value retrieved from a previous call to access the next page
+-- of results.
+listChangeSets_nextToken :: Lens.Lens' ListChangeSets (Prelude.Maybe Prelude.Text)
+listChangeSets_nextToken = Lens.lens (\ListChangeSets' {nextToken} -> nextToken) (\s@ListChangeSets' {} a -> s {nextToken = a} :: ListChangeSets)
+
+-- | An object that contains two attributes, @SortBy@ and @SortOrder@.
+listChangeSets_sort :: Lens.Lens' ListChangeSets (Prelude.Maybe Sort)
+listChangeSets_sort = Lens.lens (\ListChangeSets' {sort} -> sort) (\s@ListChangeSets' {} a -> s {sort = a} :: ListChangeSets)
 
 -- | The catalog related to the request. Fixed value: @AWSMarketplace@
 listChangeSets_catalog :: Lens.Lens' ListChangeSets Prelude.Text
@@ -142,27 +142,27 @@ instance Core.AWSRequest ListChangeSets where
     Response.receiveJSON
       ( \s h x ->
           ListChangeSetsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ChangeSetSummaryList"
+            Prelude.<$> ( x Data..?> "ChangeSetSummaryList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListChangeSets where
   hashWithSalt _salt ListChangeSets' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filterList
-      `Prelude.hashWithSalt` sort
+    _salt `Prelude.hashWithSalt` filterList
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sort
       `Prelude.hashWithSalt` catalog
 
 instance Prelude.NFData ListChangeSets where
   rnf ListChangeSets' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filterList
-      `Prelude.seq` Prelude.rnf sort
+    Prelude.rnf filterList
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sort
       `Prelude.seq` Prelude.rnf catalog
 
 instance Data.ToHeaders ListChangeSets where
@@ -180,10 +180,10 @@ instance Data.ToJSON ListChangeSets where
   toJSON ListChangeSets' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("FilterList" Data..=) Prelude.<$> filterList,
-            ("Sort" Data..=) Prelude.<$> sort,
+          [ ("FilterList" Data..=) Prelude.<$> filterList,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Sort" Data..=) Prelude.<$> sort,
             Prelude.Just ("Catalog" Data..= catalog)
           ]
       )
@@ -196,11 +196,11 @@ instance Data.ToQuery ListChangeSets where
 
 -- | /See:/ 'newListChangeSetsResponse' smart constructor.
 data ListChangeSetsResponse = ListChangeSetsResponse'
-  { -- | The value of the next token, if it exists. Null if there are no more
+  { -- | Array of @ChangeSetSummaryListItem@ objects.
+    changeSetSummaryList :: Prelude.Maybe [ChangeSetSummaryListItem],
+    -- | The value of the next token, if it exists. Null if there are no more
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Array of @ChangeSetSummaryListItem@ objects.
-    changeSetSummaryList :: Prelude.Maybe [ChangeSetSummaryListItem],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -214,10 +214,10 @@ data ListChangeSetsResponse = ListChangeSetsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'changeSetSummaryList', 'listChangeSetsResponse_changeSetSummaryList' - Array of @ChangeSetSummaryListItem@ objects.
+--
 -- 'nextToken', 'listChangeSetsResponse_nextToken' - The value of the next token, if it exists. Null if there are no more
 -- results.
---
--- 'changeSetSummaryList', 'listChangeSetsResponse_changeSetSummaryList' - Array of @ChangeSetSummaryListItem@ objects.
 --
 -- 'httpStatus', 'listChangeSetsResponse_httpStatus' - The response's http status code.
 newListChangeSetsResponse ::
@@ -226,20 +226,20 @@ newListChangeSetsResponse ::
   ListChangeSetsResponse
 newListChangeSetsResponse pHttpStatus_ =
   ListChangeSetsResponse'
-    { nextToken =
+    { changeSetSummaryList =
         Prelude.Nothing,
-      changeSetSummaryList = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Array of @ChangeSetSummaryListItem@ objects.
+listChangeSetsResponse_changeSetSummaryList :: Lens.Lens' ListChangeSetsResponse (Prelude.Maybe [ChangeSetSummaryListItem])
+listChangeSetsResponse_changeSetSummaryList = Lens.lens (\ListChangeSetsResponse' {changeSetSummaryList} -> changeSetSummaryList) (\s@ListChangeSetsResponse' {} a -> s {changeSetSummaryList = a} :: ListChangeSetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The value of the next token, if it exists. Null if there are no more
 -- results.
 listChangeSetsResponse_nextToken :: Lens.Lens' ListChangeSetsResponse (Prelude.Maybe Prelude.Text)
 listChangeSetsResponse_nextToken = Lens.lens (\ListChangeSetsResponse' {nextToken} -> nextToken) (\s@ListChangeSetsResponse' {} a -> s {nextToken = a} :: ListChangeSetsResponse)
-
--- | Array of @ChangeSetSummaryListItem@ objects.
-listChangeSetsResponse_changeSetSummaryList :: Lens.Lens' ListChangeSetsResponse (Prelude.Maybe [ChangeSetSummaryListItem])
-listChangeSetsResponse_changeSetSummaryList = Lens.lens (\ListChangeSetsResponse' {changeSetSummaryList} -> changeSetSummaryList) (\s@ListChangeSetsResponse' {} a -> s {changeSetSummaryList = a} :: ListChangeSetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listChangeSetsResponse_httpStatus :: Lens.Lens' ListChangeSetsResponse Prelude.Int
@@ -247,6 +247,6 @@ listChangeSetsResponse_httpStatus = Lens.lens (\ListChangeSetsResponse' {httpSta
 
 instance Prelude.NFData ListChangeSetsResponse where
   rnf ListChangeSetsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf changeSetSummaryList
+    Prelude.rnf changeSetSummaryList
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

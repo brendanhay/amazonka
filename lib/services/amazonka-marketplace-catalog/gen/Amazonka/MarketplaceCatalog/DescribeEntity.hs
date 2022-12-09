@@ -35,11 +35,11 @@ module Amazonka.MarketplaceCatalog.DescribeEntity
     newDescribeEntityResponse,
 
     -- * Response Lenses
-    describeEntityResponse_lastModifiedDate,
     describeEntityResponse_details,
-    describeEntityResponse_entityType,
-    describeEntityResponse_entityIdentifier,
     describeEntityResponse_entityArn,
+    describeEntityResponse_entityIdentifier,
+    describeEntityResponse_entityType,
+    describeEntityResponse_lastModifiedDate,
     describeEntityResponse_httpStatus,
   )
 where
@@ -105,11 +105,11 @@ instance Core.AWSRequest DescribeEntity where
     Response.receiveJSON
       ( \s h x ->
           DescribeEntityResponse'
-            Prelude.<$> (x Data..?> "LastModifiedDate")
-            Prelude.<*> (x Data..?> "Details")
-            Prelude.<*> (x Data..?> "EntityType")
-            Prelude.<*> (x Data..?> "EntityIdentifier")
+            Prelude.<$> (x Data..?> "Details")
             Prelude.<*> (x Data..?> "EntityArn")
+            Prelude.<*> (x Data..?> "EntityIdentifier")
+            Prelude.<*> (x Data..?> "EntityType")
+            Prelude.<*> (x Data..?> "LastModifiedDate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,18 +146,18 @@ instance Data.ToQuery DescribeEntity where
 
 -- | /See:/ 'newDescribeEntityResponse' smart constructor.
 data DescribeEntityResponse = DescribeEntityResponse'
-  { -- | The last modified date of the entity, in ISO 8601 format
-    -- (2018-02-27T13:45:22Z).
-    lastModifiedDate :: Prelude.Maybe Prelude.Text,
-    -- | This stringified JSON object includes the details of the entity.
+  { -- | This stringified JSON object includes the details of the entity.
     details :: Prelude.Maybe Prelude.Text,
-    -- | The named type of the entity, in the format of @EntityType\@Version@.
-    entityType :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the entity, in the format of @EntityId\@RevisionId@.
-    entityIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The ARN associated to the unique identifier for the entity referenced in
     -- this request.
     entityArn :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the entity, in the format of @EntityId\@RevisionId@.
+    entityIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The named type of the entity, in the format of @EntityType\@Version@.
+    entityType :: Prelude.Maybe Prelude.Text,
+    -- | The last modified date of the entity, in ISO 8601 format
+    -- (2018-02-27T13:45:22Z).
+    lastModifiedDate :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -171,17 +171,17 @@ data DescribeEntityResponse = DescribeEntityResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastModifiedDate', 'describeEntityResponse_lastModifiedDate' - The last modified date of the entity, in ISO 8601 format
--- (2018-02-27T13:45:22Z).
---
 -- 'details', 'describeEntityResponse_details' - This stringified JSON object includes the details of the entity.
---
--- 'entityType', 'describeEntityResponse_entityType' - The named type of the entity, in the format of @EntityType\@Version@.
---
--- 'entityIdentifier', 'describeEntityResponse_entityIdentifier' - The identifier of the entity, in the format of @EntityId\@RevisionId@.
 --
 -- 'entityArn', 'describeEntityResponse_entityArn' - The ARN associated to the unique identifier for the entity referenced in
 -- this request.
+--
+-- 'entityIdentifier', 'describeEntityResponse_entityIdentifier' - The identifier of the entity, in the format of @EntityId\@RevisionId@.
+--
+-- 'entityType', 'describeEntityResponse_entityType' - The named type of the entity, in the format of @EntityType\@Version@.
+--
+-- 'lastModifiedDate', 'describeEntityResponse_lastModifiedDate' - The last modified date of the entity, in ISO 8601 format
+-- (2018-02-27T13:45:22Z).
 --
 -- 'httpStatus', 'describeEntityResponse_httpStatus' - The response's http status code.
 newDescribeEntityResponse ::
@@ -190,36 +190,35 @@ newDescribeEntityResponse ::
   DescribeEntityResponse
 newDescribeEntityResponse pHttpStatus_ =
   DescribeEntityResponse'
-    { lastModifiedDate =
-        Prelude.Nothing,
-      details = Prelude.Nothing,
-      entityType = Prelude.Nothing,
-      entityIdentifier = Prelude.Nothing,
+    { details = Prelude.Nothing,
       entityArn = Prelude.Nothing,
+      entityIdentifier = Prelude.Nothing,
+      entityType = Prelude.Nothing,
+      lastModifiedDate = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The last modified date of the entity, in ISO 8601 format
--- (2018-02-27T13:45:22Z).
-describeEntityResponse_lastModifiedDate :: Lens.Lens' DescribeEntityResponse (Prelude.Maybe Prelude.Text)
-describeEntityResponse_lastModifiedDate = Lens.lens (\DescribeEntityResponse' {lastModifiedDate} -> lastModifiedDate) (\s@DescribeEntityResponse' {} a -> s {lastModifiedDate = a} :: DescribeEntityResponse)
 
 -- | This stringified JSON object includes the details of the entity.
 describeEntityResponse_details :: Lens.Lens' DescribeEntityResponse (Prelude.Maybe Prelude.Text)
 describeEntityResponse_details = Lens.lens (\DescribeEntityResponse' {details} -> details) (\s@DescribeEntityResponse' {} a -> s {details = a} :: DescribeEntityResponse)
 
--- | The named type of the entity, in the format of @EntityType\@Version@.
-describeEntityResponse_entityType :: Lens.Lens' DescribeEntityResponse (Prelude.Maybe Prelude.Text)
-describeEntityResponse_entityType = Lens.lens (\DescribeEntityResponse' {entityType} -> entityType) (\s@DescribeEntityResponse' {} a -> s {entityType = a} :: DescribeEntityResponse)
+-- | The ARN associated to the unique identifier for the entity referenced in
+-- this request.
+describeEntityResponse_entityArn :: Lens.Lens' DescribeEntityResponse (Prelude.Maybe Prelude.Text)
+describeEntityResponse_entityArn = Lens.lens (\DescribeEntityResponse' {entityArn} -> entityArn) (\s@DescribeEntityResponse' {} a -> s {entityArn = a} :: DescribeEntityResponse)
 
 -- | The identifier of the entity, in the format of @EntityId\@RevisionId@.
 describeEntityResponse_entityIdentifier :: Lens.Lens' DescribeEntityResponse (Prelude.Maybe Prelude.Text)
 describeEntityResponse_entityIdentifier = Lens.lens (\DescribeEntityResponse' {entityIdentifier} -> entityIdentifier) (\s@DescribeEntityResponse' {} a -> s {entityIdentifier = a} :: DescribeEntityResponse)
 
--- | The ARN associated to the unique identifier for the entity referenced in
--- this request.
-describeEntityResponse_entityArn :: Lens.Lens' DescribeEntityResponse (Prelude.Maybe Prelude.Text)
-describeEntityResponse_entityArn = Lens.lens (\DescribeEntityResponse' {entityArn} -> entityArn) (\s@DescribeEntityResponse' {} a -> s {entityArn = a} :: DescribeEntityResponse)
+-- | The named type of the entity, in the format of @EntityType\@Version@.
+describeEntityResponse_entityType :: Lens.Lens' DescribeEntityResponse (Prelude.Maybe Prelude.Text)
+describeEntityResponse_entityType = Lens.lens (\DescribeEntityResponse' {entityType} -> entityType) (\s@DescribeEntityResponse' {} a -> s {entityType = a} :: DescribeEntityResponse)
+
+-- | The last modified date of the entity, in ISO 8601 format
+-- (2018-02-27T13:45:22Z).
+describeEntityResponse_lastModifiedDate :: Lens.Lens' DescribeEntityResponse (Prelude.Maybe Prelude.Text)
+describeEntityResponse_lastModifiedDate = Lens.lens (\DescribeEntityResponse' {lastModifiedDate} -> lastModifiedDate) (\s@DescribeEntityResponse' {} a -> s {lastModifiedDate = a} :: DescribeEntityResponse)
 
 -- | The response's http status code.
 describeEntityResponse_httpStatus :: Lens.Lens' DescribeEntityResponse Prelude.Int
@@ -227,9 +226,9 @@ describeEntityResponse_httpStatus = Lens.lens (\DescribeEntityResponse' {httpSta
 
 instance Prelude.NFData DescribeEntityResponse where
   rnf DescribeEntityResponse' {..} =
-    Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf details
-      `Prelude.seq` Prelude.rnf entityType
-      `Prelude.seq` Prelude.rnf entityIdentifier
+    Prelude.rnf details
       `Prelude.seq` Prelude.rnf entityArn
+      `Prelude.seq` Prelude.rnf entityIdentifier
+      `Prelude.seq` Prelude.rnf entityType
+      `Prelude.seq` Prelude.rnf lastModifiedDate
       `Prelude.seq` Prelude.rnf httpStatus

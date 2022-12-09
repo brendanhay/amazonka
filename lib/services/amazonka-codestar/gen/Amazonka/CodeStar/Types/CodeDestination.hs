@@ -33,14 +33,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCodeDestination' smart constructor.
 data CodeDestination = CodeDestination'
-  { -- | Information about the GitHub repository to be created in AWS CodeStar.
-    -- This is where the source code files provided with the project request
-    -- will be uploaded after project creation.
-    gitHub :: Prelude.Maybe GitHubCodeDestination,
-    -- | Information about the AWS CodeCommit repository to be created in AWS
+  { -- | Information about the AWS CodeCommit repository to be created in AWS
     -- CodeStar. This is where the source code files provided with the project
     -- request will be uploaded after project creation.
-    codeCommit :: Prelude.Maybe CodeCommitCodeDestination
+    codeCommit :: Prelude.Maybe CodeCommitCodeDestination,
+    -- | Information about the GitHub repository to be created in AWS CodeStar.
+    -- This is where the source code files provided with the project request
+    -- will be uploaded after project creation.
+    gitHub :: Prelude.Maybe GitHubCodeDestination
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -52,26 +52,20 @@ data CodeDestination = CodeDestination'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'gitHub', 'codeDestination_gitHub' - Information about the GitHub repository to be created in AWS CodeStar.
--- This is where the source code files provided with the project request
--- will be uploaded after project creation.
---
 -- 'codeCommit', 'codeDestination_codeCommit' - Information about the AWS CodeCommit repository to be created in AWS
 -- CodeStar. This is where the source code files provided with the project
 -- request will be uploaded after project creation.
+--
+-- 'gitHub', 'codeDestination_gitHub' - Information about the GitHub repository to be created in AWS CodeStar.
+-- This is where the source code files provided with the project request
+-- will be uploaded after project creation.
 newCodeDestination ::
   CodeDestination
 newCodeDestination =
   CodeDestination'
-    { gitHub = Prelude.Nothing,
-      codeCommit = Prelude.Nothing
+    { codeCommit = Prelude.Nothing,
+      gitHub = Prelude.Nothing
     }
-
--- | Information about the GitHub repository to be created in AWS CodeStar.
--- This is where the source code files provided with the project request
--- will be uploaded after project creation.
-codeDestination_gitHub :: Lens.Lens' CodeDestination (Prelude.Maybe GitHubCodeDestination)
-codeDestination_gitHub = Lens.lens (\CodeDestination' {gitHub} -> gitHub) (\s@CodeDestination' {} a -> s {gitHub = a} :: CodeDestination)
 
 -- | Information about the AWS CodeCommit repository to be created in AWS
 -- CodeStar. This is where the source code files provided with the project
@@ -79,21 +73,27 @@ codeDestination_gitHub = Lens.lens (\CodeDestination' {gitHub} -> gitHub) (\s@Co
 codeDestination_codeCommit :: Lens.Lens' CodeDestination (Prelude.Maybe CodeCommitCodeDestination)
 codeDestination_codeCommit = Lens.lens (\CodeDestination' {codeCommit} -> codeCommit) (\s@CodeDestination' {} a -> s {codeCommit = a} :: CodeDestination)
 
+-- | Information about the GitHub repository to be created in AWS CodeStar.
+-- This is where the source code files provided with the project request
+-- will be uploaded after project creation.
+codeDestination_gitHub :: Lens.Lens' CodeDestination (Prelude.Maybe GitHubCodeDestination)
+codeDestination_gitHub = Lens.lens (\CodeDestination' {gitHub} -> gitHub) (\s@CodeDestination' {} a -> s {gitHub = a} :: CodeDestination)
+
 instance Prelude.Hashable CodeDestination where
   hashWithSalt _salt CodeDestination' {..} =
-    _salt `Prelude.hashWithSalt` gitHub
-      `Prelude.hashWithSalt` codeCommit
+    _salt `Prelude.hashWithSalt` codeCommit
+      `Prelude.hashWithSalt` gitHub
 
 instance Prelude.NFData CodeDestination where
   rnf CodeDestination' {..} =
-    Prelude.rnf gitHub
-      `Prelude.seq` Prelude.rnf codeCommit
+    Prelude.rnf codeCommit
+      `Prelude.seq` Prelude.rnf gitHub
 
 instance Data.ToJSON CodeDestination where
   toJSON CodeDestination' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("gitHub" Data..=) Prelude.<$> gitHub,
-            ("codeCommit" Data..=) Prelude.<$> codeCommit
+          [ ("codeCommit" Data..=) Prelude.<$> codeCommit,
+            ("gitHub" Data..=) Prelude.<$> gitHub
           ]
       )

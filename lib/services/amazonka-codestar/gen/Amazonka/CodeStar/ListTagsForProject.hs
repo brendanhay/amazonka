@@ -27,8 +27,8 @@ module Amazonka.CodeStar.ListTagsForProject
     newListTagsForProject,
 
     -- * Request Lenses
-    listTagsForProject_nextToken,
     listTagsForProject_maxResults,
+    listTagsForProject_nextToken,
     listTagsForProject_id,
 
     -- * Destructuring the Response
@@ -36,8 +36,8 @@ module Amazonka.CodeStar.ListTagsForProject
     newListTagsForProjectResponse,
 
     -- * Response Lenses
-    listTagsForProjectResponse_tags,
     listTagsForProjectResponse_nextToken,
+    listTagsForProjectResponse_tags,
     listTagsForProjectResponse_httpStatus,
   )
 where
@@ -53,9 +53,9 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newListTagsForProject' smart constructor.
 data ListTagsForProject = ListTagsForProject'
   { -- | Reserved for future use.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Reserved for future use.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Reserved for future use.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the project to get tags for.
     id :: Prelude.Text
   }
@@ -69,9 +69,9 @@ data ListTagsForProject = ListTagsForProject'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listTagsForProject_nextToken' - Reserved for future use.
---
 -- 'maxResults', 'listTagsForProject_maxResults' - Reserved for future use.
+--
+-- 'nextToken', 'listTagsForProject_nextToken' - Reserved for future use.
 --
 -- 'id', 'listTagsForProject_id' - The ID of the project to get tags for.
 newListTagsForProject ::
@@ -80,18 +80,18 @@ newListTagsForProject ::
   ListTagsForProject
 newListTagsForProject pId_ =
   ListTagsForProject'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       id = pId_
     }
 
 -- | Reserved for future use.
-listTagsForProject_nextToken :: Lens.Lens' ListTagsForProject (Prelude.Maybe Prelude.Text)
-listTagsForProject_nextToken = Lens.lens (\ListTagsForProject' {nextToken} -> nextToken) (\s@ListTagsForProject' {} a -> s {nextToken = a} :: ListTagsForProject)
-
--- | Reserved for future use.
 listTagsForProject_maxResults :: Lens.Lens' ListTagsForProject (Prelude.Maybe Prelude.Natural)
 listTagsForProject_maxResults = Lens.lens (\ListTagsForProject' {maxResults} -> maxResults) (\s@ListTagsForProject' {} a -> s {maxResults = a} :: ListTagsForProject)
+
+-- | Reserved for future use.
+listTagsForProject_nextToken :: Lens.Lens' ListTagsForProject (Prelude.Maybe Prelude.Text)
+listTagsForProject_nextToken = Lens.lens (\ListTagsForProject' {nextToken} -> nextToken) (\s@ListTagsForProject' {} a -> s {nextToken = a} :: ListTagsForProject)
 
 -- | The ID of the project to get tags for.
 listTagsForProject_id :: Lens.Lens' ListTagsForProject Prelude.Text
@@ -107,21 +107,21 @@ instance Core.AWSRequest ListTagsForProject where
     Response.receiveJSON
       ( \s h x ->
           ListTagsForProjectResponse'
-            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListTagsForProject where
   hashWithSalt _salt ListTagsForProject' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData ListTagsForProject where
   rnf ListTagsForProject' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf id
 
 instance Data.ToHeaders ListTagsForProject where
@@ -143,8 +143,8 @@ instance Data.ToJSON ListTagsForProject where
   toJSON ListTagsForProject' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("id" Data..= id)
           ]
       )
@@ -157,10 +157,10 @@ instance Data.ToQuery ListTagsForProject where
 
 -- | /See:/ 'newListTagsForProjectResponse' smart constructor.
 data ListTagsForProjectResponse = ListTagsForProjectResponse'
-  { -- | The tags for the project.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Reserved for future use.
+  { -- | Reserved for future use.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The tags for the project.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -174,9 +174,9 @@ data ListTagsForProjectResponse = ListTagsForProjectResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'listTagsForProjectResponse_tags' - The tags for the project.
---
 -- 'nextToken', 'listTagsForProjectResponse_nextToken' - Reserved for future use.
+--
+-- 'tags', 'listTagsForProjectResponse_tags' - The tags for the project.
 --
 -- 'httpStatus', 'listTagsForProjectResponse_httpStatus' - The response's http status code.
 newListTagsForProjectResponse ::
@@ -185,18 +185,19 @@ newListTagsForProjectResponse ::
   ListTagsForProjectResponse
 newListTagsForProjectResponse pHttpStatus_ =
   ListTagsForProjectResponse'
-    { tags = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The tags for the project.
-listTagsForProjectResponse_tags :: Lens.Lens' ListTagsForProjectResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-listTagsForProjectResponse_tags = Lens.lens (\ListTagsForProjectResponse' {tags} -> tags) (\s@ListTagsForProjectResponse' {} a -> s {tags = a} :: ListTagsForProjectResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Reserved for future use.
 listTagsForProjectResponse_nextToken :: Lens.Lens' ListTagsForProjectResponse (Prelude.Maybe Prelude.Text)
 listTagsForProjectResponse_nextToken = Lens.lens (\ListTagsForProjectResponse' {nextToken} -> nextToken) (\s@ListTagsForProjectResponse' {} a -> s {nextToken = a} :: ListTagsForProjectResponse)
+
+-- | The tags for the project.
+listTagsForProjectResponse_tags :: Lens.Lens' ListTagsForProjectResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+listTagsForProjectResponse_tags = Lens.lens (\ListTagsForProjectResponse' {tags} -> tags) (\s@ListTagsForProjectResponse' {} a -> s {tags = a} :: ListTagsForProjectResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listTagsForProjectResponse_httpStatus :: Lens.Lens' ListTagsForProjectResponse Prelude.Int
@@ -204,6 +205,6 @@ listTagsForProjectResponse_httpStatus = Lens.lens (\ListTagsForProjectResponse' 
 
 instance Prelude.NFData ListTagsForProjectResponse where
   rnf ListTagsForProjectResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

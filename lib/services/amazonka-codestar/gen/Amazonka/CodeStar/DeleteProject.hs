@@ -38,8 +38,8 @@ module Amazonka.CodeStar.DeleteProject
     newDeleteProjectResponse,
 
     -- * Response Lenses
-    deleteProjectResponse_stackId,
     deleteProjectResponse_projectArn,
+    deleteProjectResponse_stackId,
     deleteProjectResponse_httpStatus,
   )
 where
@@ -128,8 +128,8 @@ instance Core.AWSRequest DeleteProject where
     Response.receiveJSON
       ( \s h x ->
           DeleteProjectResponse'
-            Prelude.<$> (x Data..?> "stackId")
-            Prelude.<*> (x Data..?> "projectArn")
+            Prelude.<$> (x Data..?> "projectArn")
+            Prelude.<*> (x Data..?> "stackId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -179,11 +179,11 @@ instance Data.ToQuery DeleteProject where
 
 -- | /See:/ 'newDeleteProjectResponse' smart constructor.
 data DeleteProjectResponse = DeleteProjectResponse'
-  { -- | The ID of the primary stack in AWS CloudFormation that will be deleted
+  { -- | The Amazon Resource Name (ARN) of the deleted project.
+    projectArn :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the primary stack in AWS CloudFormation that will be deleted
     -- as part of deleting the project and its resources.
     stackId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the deleted project.
-    projectArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -197,10 +197,10 @@ data DeleteProjectResponse = DeleteProjectResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'projectArn', 'deleteProjectResponse_projectArn' - The Amazon Resource Name (ARN) of the deleted project.
+--
 -- 'stackId', 'deleteProjectResponse_stackId' - The ID of the primary stack in AWS CloudFormation that will be deleted
 -- as part of deleting the project and its resources.
---
--- 'projectArn', 'deleteProjectResponse_projectArn' - The Amazon Resource Name (ARN) of the deleted project.
 --
 -- 'httpStatus', 'deleteProjectResponse_httpStatus' - The response's http status code.
 newDeleteProjectResponse ::
@@ -209,19 +209,20 @@ newDeleteProjectResponse ::
   DeleteProjectResponse
 newDeleteProjectResponse pHttpStatus_ =
   DeleteProjectResponse'
-    { stackId = Prelude.Nothing,
-      projectArn = Prelude.Nothing,
+    { projectArn =
+        Prelude.Nothing,
+      stackId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The Amazon Resource Name (ARN) of the deleted project.
+deleteProjectResponse_projectArn :: Lens.Lens' DeleteProjectResponse (Prelude.Maybe Prelude.Text)
+deleteProjectResponse_projectArn = Lens.lens (\DeleteProjectResponse' {projectArn} -> projectArn) (\s@DeleteProjectResponse' {} a -> s {projectArn = a} :: DeleteProjectResponse)
 
 -- | The ID of the primary stack in AWS CloudFormation that will be deleted
 -- as part of deleting the project and its resources.
 deleteProjectResponse_stackId :: Lens.Lens' DeleteProjectResponse (Prelude.Maybe Prelude.Text)
 deleteProjectResponse_stackId = Lens.lens (\DeleteProjectResponse' {stackId} -> stackId) (\s@DeleteProjectResponse' {} a -> s {stackId = a} :: DeleteProjectResponse)
-
--- | The Amazon Resource Name (ARN) of the deleted project.
-deleteProjectResponse_projectArn :: Lens.Lens' DeleteProjectResponse (Prelude.Maybe Prelude.Text)
-deleteProjectResponse_projectArn = Lens.lens (\DeleteProjectResponse' {projectArn} -> projectArn) (\s@DeleteProjectResponse' {} a -> s {projectArn = a} :: DeleteProjectResponse)
 
 -- | The response's http status code.
 deleteProjectResponse_httpStatus :: Lens.Lens' DeleteProjectResponse Prelude.Int
@@ -229,6 +230,6 @@ deleteProjectResponse_httpStatus = Lens.lens (\DeleteProjectResponse' {httpStatu
 
 instance Prelude.NFData DeleteProjectResponse where
   rnf DeleteProjectResponse' {..} =
-    Prelude.rnf stackId
-      `Prelude.seq` Prelude.rnf projectArn
+    Prelude.rnf projectArn
+      `Prelude.seq` Prelude.rnf stackId
       `Prelude.seq` Prelude.rnf httpStatus

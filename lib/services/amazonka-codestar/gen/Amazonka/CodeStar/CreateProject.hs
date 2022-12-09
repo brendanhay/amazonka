@@ -30,10 +30,10 @@ module Amazonka.CodeStar.CreateProject
     newCreateProject,
 
     -- * Request Lenses
-    createProject_tags,
     createProject_clientRequestToken,
-    createProject_sourceCode,
     createProject_description,
+    createProject_sourceCode,
+    createProject_tags,
     createProject_toolchain,
     createProject_name,
     createProject_id,
@@ -61,18 +61,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateProject' smart constructor.
 data CreateProject = CreateProject'
-  { -- | The tags created for the project.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A user- or system-generated token that identifies the entity that
+  { -- | A user- or system-generated token that identifies the entity that
     -- requested project creation. This token can be used to repeat the
     -- request.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | The description of the project, if any.
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A list of the Code objects submitted with the project request. If this
     -- parameter is specified, the request must also include the toolchain
     -- parameter.
     sourceCode :: Prelude.Maybe [Code],
-    -- | The description of the project, if any.
-    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The tags created for the project.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the toolchain template file submitted with the project
     -- request. If this parameter is specified, the request must also include
     -- the sourceCode parameter.
@@ -92,17 +92,17 @@ data CreateProject = CreateProject'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createProject_tags' - The tags created for the project.
---
 -- 'clientRequestToken', 'createProject_clientRequestToken' - A user- or system-generated token that identifies the entity that
 -- requested project creation. This token can be used to repeat the
 -- request.
+--
+-- 'description', 'createProject_description' - The description of the project, if any.
 --
 -- 'sourceCode', 'createProject_sourceCode' - A list of the Code objects submitted with the project request. If this
 -- parameter is specified, the request must also include the toolchain
 -- parameter.
 --
--- 'description', 'createProject_description' - The description of the project, if any.
+-- 'tags', 'createProject_tags' - The tags created for the project.
 --
 -- 'toolchain', 'createProject_toolchain' - The name of the toolchain template file submitted with the project
 -- request. If this parameter is specified, the request must also include
@@ -119,18 +119,15 @@ newCreateProject ::
   CreateProject
 newCreateProject pName_ pId_ =
   CreateProject'
-    { tags = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
-      sourceCode = Prelude.Nothing,
+    { clientRequestToken =
+        Prelude.Nothing,
       description = Prelude.Nothing,
+      sourceCode = Prelude.Nothing,
+      tags = Prelude.Nothing,
       toolchain = Prelude.Nothing,
       name = Data._Sensitive Lens.# pName_,
       id = pId_
     }
-
--- | The tags created for the project.
-createProject_tags :: Lens.Lens' CreateProject (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createProject_tags = Lens.lens (\CreateProject' {tags} -> tags) (\s@CreateProject' {} a -> s {tags = a} :: CreateProject) Prelude.. Lens.mapping Lens.coerced
 
 -- | A user- or system-generated token that identifies the entity that
 -- requested project creation. This token can be used to repeat the
@@ -138,15 +135,19 @@ createProject_tags = Lens.lens (\CreateProject' {tags} -> tags) (\s@CreateProjec
 createProject_clientRequestToken :: Lens.Lens' CreateProject (Prelude.Maybe Prelude.Text)
 createProject_clientRequestToken = Lens.lens (\CreateProject' {clientRequestToken} -> clientRequestToken) (\s@CreateProject' {} a -> s {clientRequestToken = a} :: CreateProject)
 
+-- | The description of the project, if any.
+createProject_description :: Lens.Lens' CreateProject (Prelude.Maybe Prelude.Text)
+createProject_description = Lens.lens (\CreateProject' {description} -> description) (\s@CreateProject' {} a -> s {description = a} :: CreateProject) Prelude.. Lens.mapping Data._Sensitive
+
 -- | A list of the Code objects submitted with the project request. If this
 -- parameter is specified, the request must also include the toolchain
 -- parameter.
 createProject_sourceCode :: Lens.Lens' CreateProject (Prelude.Maybe [Code])
 createProject_sourceCode = Lens.lens (\CreateProject' {sourceCode} -> sourceCode) (\s@CreateProject' {} a -> s {sourceCode = a} :: CreateProject) Prelude.. Lens.mapping Lens.coerced
 
--- | The description of the project, if any.
-createProject_description :: Lens.Lens' CreateProject (Prelude.Maybe Prelude.Text)
-createProject_description = Lens.lens (\CreateProject' {description} -> description) (\s@CreateProject' {} a -> s {description = a} :: CreateProject) Prelude.. Lens.mapping Data._Sensitive
+-- | The tags created for the project.
+createProject_tags :: Lens.Lens' CreateProject (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createProject_tags = Lens.lens (\CreateProject' {tags} -> tags) (\s@CreateProject' {} a -> s {tags = a} :: CreateProject) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the toolchain template file submitted with the project
 -- request. If this parameter is specified, the request must also include
@@ -181,20 +182,20 @@ instance Core.AWSRequest CreateProject where
 
 instance Prelude.Hashable CreateProject where
   hashWithSalt _salt CreateProject' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientRequestToken
-      `Prelude.hashWithSalt` sourceCode
+    _salt `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` sourceCode
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` toolchain
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData CreateProject where
   rnf CreateProject' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf sourceCode
+    Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf sourceCode
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf toolchain
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf id
@@ -218,11 +219,11 @@ instance Data.ToJSON CreateProject where
   toJSON CreateProject' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("clientRequestToken" Data..=)
+          [ ("clientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("sourceCode" Data..=) Prelude.<$> sourceCode,
             ("description" Data..=) Prelude.<$> description,
+            ("sourceCode" Data..=) Prelude.<$> sourceCode,
+            ("tags" Data..=) Prelude.<$> tags,
             ("toolchain" Data..=) Prelude.<$> toolchain,
             Prelude.Just ("name" Data..= name),
             Prelude.Just ("id" Data..= id)

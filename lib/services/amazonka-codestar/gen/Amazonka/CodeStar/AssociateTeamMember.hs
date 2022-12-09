@@ -27,8 +27,8 @@ module Amazonka.CodeStar.AssociateTeamMember
     newAssociateTeamMember,
 
     -- * Request Lenses
-    associateTeamMember_remoteAccessAllowed,
     associateTeamMember_clientRequestToken,
+    associateTeamMember_remoteAccessAllowed,
     associateTeamMember_projectId,
     associateTeamMember_userArn,
     associateTeamMember_projectRole,
@@ -53,14 +53,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAssociateTeamMember' smart constructor.
 data AssociateTeamMember = AssociateTeamMember'
-  { -- | Whether the team member is allowed to use an SSH public\/private key
-    -- pair to remotely access project resources, for example Amazon EC2
-    -- instances.
-    remoteAccessAllowed :: Prelude.Maybe Prelude.Bool,
-    -- | A user- or system-generated token that identifies the entity that
+  { -- | A user- or system-generated token that identifies the entity that
     -- requested the team member association to the project. This token can be
     -- used to repeat the request.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | Whether the team member is allowed to use an SSH public\/private key
+    -- pair to remotely access project resources, for example Amazon EC2
+    -- instances.
+    remoteAccessAllowed :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the project to which you will add the IAM user.
     projectId :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) for the IAM user you want to add to the
@@ -80,13 +80,13 @@ data AssociateTeamMember = AssociateTeamMember'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'remoteAccessAllowed', 'associateTeamMember_remoteAccessAllowed' - Whether the team member is allowed to use an SSH public\/private key
--- pair to remotely access project resources, for example Amazon EC2
--- instances.
---
 -- 'clientRequestToken', 'associateTeamMember_clientRequestToken' - A user- or system-generated token that identifies the entity that
 -- requested the team member association to the project. This token can be
 -- used to repeat the request.
+--
+-- 'remoteAccessAllowed', 'associateTeamMember_remoteAccessAllowed' - Whether the team member is allowed to use an SSH public\/private key
+-- pair to remotely access project resources, for example Amazon EC2
+-- instances.
 --
 -- 'projectId', 'associateTeamMember_projectId' - The ID of the project to which you will add the IAM user.
 --
@@ -108,25 +108,25 @@ newAssociateTeamMember
   pUserArn_
   pProjectRole_ =
     AssociateTeamMember'
-      { remoteAccessAllowed =
+      { clientRequestToken =
           Prelude.Nothing,
-        clientRequestToken = Prelude.Nothing,
+        remoteAccessAllowed = Prelude.Nothing,
         projectId = pProjectId_,
         userArn = pUserArn_,
         projectRole = pProjectRole_
       }
-
--- | Whether the team member is allowed to use an SSH public\/private key
--- pair to remotely access project resources, for example Amazon EC2
--- instances.
-associateTeamMember_remoteAccessAllowed :: Lens.Lens' AssociateTeamMember (Prelude.Maybe Prelude.Bool)
-associateTeamMember_remoteAccessAllowed = Lens.lens (\AssociateTeamMember' {remoteAccessAllowed} -> remoteAccessAllowed) (\s@AssociateTeamMember' {} a -> s {remoteAccessAllowed = a} :: AssociateTeamMember)
 
 -- | A user- or system-generated token that identifies the entity that
 -- requested the team member association to the project. This token can be
 -- used to repeat the request.
 associateTeamMember_clientRequestToken :: Lens.Lens' AssociateTeamMember (Prelude.Maybe Prelude.Text)
 associateTeamMember_clientRequestToken = Lens.lens (\AssociateTeamMember' {clientRequestToken} -> clientRequestToken) (\s@AssociateTeamMember' {} a -> s {clientRequestToken = a} :: AssociateTeamMember)
+
+-- | Whether the team member is allowed to use an SSH public\/private key
+-- pair to remotely access project resources, for example Amazon EC2
+-- instances.
+associateTeamMember_remoteAccessAllowed :: Lens.Lens' AssociateTeamMember (Prelude.Maybe Prelude.Bool)
+associateTeamMember_remoteAccessAllowed = Lens.lens (\AssociateTeamMember' {remoteAccessAllowed} -> remoteAccessAllowed) (\s@AssociateTeamMember' {} a -> s {remoteAccessAllowed = a} :: AssociateTeamMember)
 
 -- | The ID of the project to which you will add the IAM user.
 associateTeamMember_projectId :: Lens.Lens' AssociateTeamMember Prelude.Text
@@ -158,16 +158,16 @@ instance Core.AWSRequest AssociateTeamMember where
 
 instance Prelude.Hashable AssociateTeamMember where
   hashWithSalt _salt AssociateTeamMember' {..} =
-    _salt `Prelude.hashWithSalt` remoteAccessAllowed
-      `Prelude.hashWithSalt` clientRequestToken
+    _salt `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` remoteAccessAllowed
       `Prelude.hashWithSalt` projectId
       `Prelude.hashWithSalt` userArn
       `Prelude.hashWithSalt` projectRole
 
 instance Prelude.NFData AssociateTeamMember where
   rnf AssociateTeamMember' {..} =
-    Prelude.rnf remoteAccessAllowed
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf remoteAccessAllowed
       `Prelude.seq` Prelude.rnf projectId
       `Prelude.seq` Prelude.rnf userArn
       `Prelude.seq` Prelude.rnf projectRole
@@ -191,10 +191,10 @@ instance Data.ToJSON AssociateTeamMember where
   toJSON AssociateTeamMember' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("remoteAccessAllowed" Data..=)
-              Prelude.<$> remoteAccessAllowed,
-            ("clientRequestToken" Data..=)
+          [ ("clientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
+            ("remoteAccessAllowed" Data..=)
+              Prelude.<$> remoteAccessAllowed,
             Prelude.Just ("projectId" Data..= projectId),
             Prelude.Just ("userArn" Data..= userArn),
             Prelude.Just ("projectRole" Data..= projectRole)

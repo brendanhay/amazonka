@@ -35,14 +35,14 @@ data EntityRecognizerEvaluationMetrics = EntityRecognizerEvaluationMetrics'
     -- PDF\/Word entity recognizer models, the range is 0 to 1, where 1 is the
     -- best score.
     f1Score :: Prelude.Maybe Prelude.Double,
-    -- | A measure of how complete the recognizer results are for the test data.
-    -- High recall means that the recognizer returned most of the relevant
-    -- results.
-    recall :: Prelude.Maybe Prelude.Double,
     -- | A measure of the usefulness of the recognizer results in the test data.
     -- High precision means that the recognizer returned substantially more
     -- relevant results than irrelevant ones.
-    precision :: Prelude.Maybe Prelude.Double
+    precision :: Prelude.Maybe Prelude.Double,
+    -- | A measure of how complete the recognizer results are for the test data.
+    -- High recall means that the recognizer returned most of the relevant
+    -- results.
+    recall :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,21 +61,21 @@ data EntityRecognizerEvaluationMetrics = EntityRecognizerEvaluationMetrics'
 -- PDF\/Word entity recognizer models, the range is 0 to 1, where 1 is the
 -- best score.
 --
--- 'recall', 'entityRecognizerEvaluationMetrics_recall' - A measure of how complete the recognizer results are for the test data.
--- High recall means that the recognizer returned most of the relevant
--- results.
---
 -- 'precision', 'entityRecognizerEvaluationMetrics_precision' - A measure of the usefulness of the recognizer results in the test data.
 -- High precision means that the recognizer returned substantially more
 -- relevant results than irrelevant ones.
+--
+-- 'recall', 'entityRecognizerEvaluationMetrics_recall' - A measure of how complete the recognizer results are for the test data.
+-- High recall means that the recognizer returned most of the relevant
+-- results.
 newEntityRecognizerEvaluationMetrics ::
   EntityRecognizerEvaluationMetrics
 newEntityRecognizerEvaluationMetrics =
   EntityRecognizerEvaluationMetrics'
     { f1Score =
         Prelude.Nothing,
-      recall = Prelude.Nothing,
-      precision = Prelude.Nothing
+      precision = Prelude.Nothing,
+      recall = Prelude.Nothing
     }
 
 -- | A measure of how accurate the recognizer results are for the test data.
@@ -87,17 +87,17 @@ newEntityRecognizerEvaluationMetrics =
 entityRecognizerEvaluationMetrics_f1Score :: Lens.Lens' EntityRecognizerEvaluationMetrics (Prelude.Maybe Prelude.Double)
 entityRecognizerEvaluationMetrics_f1Score = Lens.lens (\EntityRecognizerEvaluationMetrics' {f1Score} -> f1Score) (\s@EntityRecognizerEvaluationMetrics' {} a -> s {f1Score = a} :: EntityRecognizerEvaluationMetrics)
 
--- | A measure of how complete the recognizer results are for the test data.
--- High recall means that the recognizer returned most of the relevant
--- results.
-entityRecognizerEvaluationMetrics_recall :: Lens.Lens' EntityRecognizerEvaluationMetrics (Prelude.Maybe Prelude.Double)
-entityRecognizerEvaluationMetrics_recall = Lens.lens (\EntityRecognizerEvaluationMetrics' {recall} -> recall) (\s@EntityRecognizerEvaluationMetrics' {} a -> s {recall = a} :: EntityRecognizerEvaluationMetrics)
-
 -- | A measure of the usefulness of the recognizer results in the test data.
 -- High precision means that the recognizer returned substantially more
 -- relevant results than irrelevant ones.
 entityRecognizerEvaluationMetrics_precision :: Lens.Lens' EntityRecognizerEvaluationMetrics (Prelude.Maybe Prelude.Double)
 entityRecognizerEvaluationMetrics_precision = Lens.lens (\EntityRecognizerEvaluationMetrics' {precision} -> precision) (\s@EntityRecognizerEvaluationMetrics' {} a -> s {precision = a} :: EntityRecognizerEvaluationMetrics)
+
+-- | A measure of how complete the recognizer results are for the test data.
+-- High recall means that the recognizer returned most of the relevant
+-- results.
+entityRecognizerEvaluationMetrics_recall :: Lens.Lens' EntityRecognizerEvaluationMetrics (Prelude.Maybe Prelude.Double)
+entityRecognizerEvaluationMetrics_recall = Lens.lens (\EntityRecognizerEvaluationMetrics' {recall} -> recall) (\s@EntityRecognizerEvaluationMetrics' {} a -> s {recall = a} :: EntityRecognizerEvaluationMetrics)
 
 instance
   Data.FromJSON
@@ -109,8 +109,8 @@ instance
       ( \x ->
           EntityRecognizerEvaluationMetrics'
             Prelude.<$> (x Data..:? "F1Score")
-            Prelude.<*> (x Data..:? "Recall")
             Prelude.<*> (x Data..:? "Precision")
+            Prelude.<*> (x Data..:? "Recall")
       )
 
 instance
@@ -121,8 +121,8 @@ instance
     _salt
     EntityRecognizerEvaluationMetrics' {..} =
       _salt `Prelude.hashWithSalt` f1Score
-        `Prelude.hashWithSalt` recall
         `Prelude.hashWithSalt` precision
+        `Prelude.hashWithSalt` recall
 
 instance
   Prelude.NFData
@@ -130,5 +130,5 @@ instance
   where
   rnf EntityRecognizerEvaluationMetrics' {..} =
     Prelude.rnf f1Score
-      `Prelude.seq` Prelude.rnf recall
       `Prelude.seq` Prelude.rnf precision
+      `Prelude.seq` Prelude.rnf recall

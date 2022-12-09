@@ -27,17 +27,17 @@ module Amazonka.Comprehend.ListEventsDetectionJobs
     newListEventsDetectionJobs,
 
     -- * Request Lenses
-    listEventsDetectionJobs_nextToken,
     listEventsDetectionJobs_filter,
     listEventsDetectionJobs_maxResults,
+    listEventsDetectionJobs_nextToken,
 
     -- * Destructuring the Response
     ListEventsDetectionJobsResponse (..),
     newListEventsDetectionJobsResponse,
 
     -- * Response Lenses
-    listEventsDetectionJobsResponse_nextToken,
     listEventsDetectionJobsResponse_eventsDetectionJobPropertiesList,
+    listEventsDetectionJobsResponse_nextToken,
     listEventsDetectionJobsResponse_httpStatus,
   )
 where
@@ -52,14 +52,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListEventsDetectionJobs' smart constructor.
 data ListEventsDetectionJobs = ListEventsDetectionJobs'
-  { -- | Identifies the next page of results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filters the jobs that are returned. You can filter jobs on their name,
+  { -- | Filters the jobs that are returned. You can filter jobs on their name,
     -- status, or the date and time that they were submitted. You can only set
     -- one filter at a time.
     filter' :: Prelude.Maybe EventsDetectionJobFilter,
     -- | The maximum number of results to return in each page.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Identifies the next page of results to return.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,26 +71,21 @@ data ListEventsDetectionJobs = ListEventsDetectionJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listEventsDetectionJobs_nextToken' - Identifies the next page of results to return.
---
 -- 'filter'', 'listEventsDetectionJobs_filter' - Filters the jobs that are returned. You can filter jobs on their name,
 -- status, or the date and time that they were submitted. You can only set
 -- one filter at a time.
 --
 -- 'maxResults', 'listEventsDetectionJobs_maxResults' - The maximum number of results to return in each page.
+--
+-- 'nextToken', 'listEventsDetectionJobs_nextToken' - Identifies the next page of results to return.
 newListEventsDetectionJobs ::
   ListEventsDetectionJobs
 newListEventsDetectionJobs =
   ListEventsDetectionJobs'
-    { nextToken =
-        Prelude.Nothing,
-      filter' = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { filter' = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | Identifies the next page of results to return.
-listEventsDetectionJobs_nextToken :: Lens.Lens' ListEventsDetectionJobs (Prelude.Maybe Prelude.Text)
-listEventsDetectionJobs_nextToken = Lens.lens (\ListEventsDetectionJobs' {nextToken} -> nextToken) (\s@ListEventsDetectionJobs' {} a -> s {nextToken = a} :: ListEventsDetectionJobs)
 
 -- | Filters the jobs that are returned. You can filter jobs on their name,
 -- status, or the date and time that they were submitted. You can only set
@@ -102,6 +97,10 @@ listEventsDetectionJobs_filter = Lens.lens (\ListEventsDetectionJobs' {filter'} 
 listEventsDetectionJobs_maxResults :: Lens.Lens' ListEventsDetectionJobs (Prelude.Maybe Prelude.Natural)
 listEventsDetectionJobs_maxResults = Lens.lens (\ListEventsDetectionJobs' {maxResults} -> maxResults) (\s@ListEventsDetectionJobs' {} a -> s {maxResults = a} :: ListEventsDetectionJobs)
 
+-- | Identifies the next page of results to return.
+listEventsDetectionJobs_nextToken :: Lens.Lens' ListEventsDetectionJobs (Prelude.Maybe Prelude.Text)
+listEventsDetectionJobs_nextToken = Lens.lens (\ListEventsDetectionJobs' {nextToken} -> nextToken) (\s@ListEventsDetectionJobs' {} a -> s {nextToken = a} :: ListEventsDetectionJobs)
+
 instance Core.AWSRequest ListEventsDetectionJobs where
   type
     AWSResponse ListEventsDetectionJobs =
@@ -112,24 +111,24 @@ instance Core.AWSRequest ListEventsDetectionJobs where
     Response.receiveJSON
       ( \s h x ->
           ListEventsDetectionJobsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "EventsDetectionJobPropertiesList"
+            Prelude.<$> ( x Data..?> "EventsDetectionJobPropertiesList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListEventsDetectionJobs where
   hashWithSalt _salt ListEventsDetectionJobs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filter'
+    _salt `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListEventsDetectionJobs where
   rnf ListEventsDetectionJobs' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filter'
+    Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListEventsDetectionJobs where
   toHeaders =
@@ -150,9 +149,9 @@ instance Data.ToJSON ListEventsDetectionJobs where
   toJSON ListEventsDetectionJobs' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filter" Data..=) Prelude.<$> filter',
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("Filter" Data..=) Prelude.<$> filter',
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -164,10 +163,10 @@ instance Data.ToQuery ListEventsDetectionJobs where
 
 -- | /See:/ 'newListEventsDetectionJobsResponse' smart constructor.
 data ListEventsDetectionJobsResponse = ListEventsDetectionJobsResponse'
-  { -- | Identifies the next page of results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list containing the properties of each job that is returned.
+  { -- | A list containing the properties of each job that is returned.
     eventsDetectionJobPropertiesList :: Prelude.Maybe [EventsDetectionJobProperties],
+    -- | Identifies the next page of results to return.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -181,9 +180,9 @@ data ListEventsDetectionJobsResponse = ListEventsDetectionJobsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listEventsDetectionJobsResponse_nextToken' - Identifies the next page of results to return.
---
 -- 'eventsDetectionJobPropertiesList', 'listEventsDetectionJobsResponse_eventsDetectionJobPropertiesList' - A list containing the properties of each job that is returned.
+--
+-- 'nextToken', 'listEventsDetectionJobsResponse_nextToken' - Identifies the next page of results to return.
 --
 -- 'httpStatus', 'listEventsDetectionJobsResponse_httpStatus' - The response's http status code.
 newListEventsDetectionJobsResponse ::
@@ -192,20 +191,19 @@ newListEventsDetectionJobsResponse ::
   ListEventsDetectionJobsResponse
 newListEventsDetectionJobsResponse pHttpStatus_ =
   ListEventsDetectionJobsResponse'
-    { nextToken =
+    { eventsDetectionJobPropertiesList =
         Prelude.Nothing,
-      eventsDetectionJobPropertiesList =
-        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Identifies the next page of results to return.
-listEventsDetectionJobsResponse_nextToken :: Lens.Lens' ListEventsDetectionJobsResponse (Prelude.Maybe Prelude.Text)
-listEventsDetectionJobsResponse_nextToken = Lens.lens (\ListEventsDetectionJobsResponse' {nextToken} -> nextToken) (\s@ListEventsDetectionJobsResponse' {} a -> s {nextToken = a} :: ListEventsDetectionJobsResponse)
 
 -- | A list containing the properties of each job that is returned.
 listEventsDetectionJobsResponse_eventsDetectionJobPropertiesList :: Lens.Lens' ListEventsDetectionJobsResponse (Prelude.Maybe [EventsDetectionJobProperties])
 listEventsDetectionJobsResponse_eventsDetectionJobPropertiesList = Lens.lens (\ListEventsDetectionJobsResponse' {eventsDetectionJobPropertiesList} -> eventsDetectionJobPropertiesList) (\s@ListEventsDetectionJobsResponse' {} a -> s {eventsDetectionJobPropertiesList = a} :: ListEventsDetectionJobsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Identifies the next page of results to return.
+listEventsDetectionJobsResponse_nextToken :: Lens.Lens' ListEventsDetectionJobsResponse (Prelude.Maybe Prelude.Text)
+listEventsDetectionJobsResponse_nextToken = Lens.lens (\ListEventsDetectionJobsResponse' {nextToken} -> nextToken) (\s@ListEventsDetectionJobsResponse' {} a -> s {nextToken = a} :: ListEventsDetectionJobsResponse)
 
 -- | The response's http status code.
 listEventsDetectionJobsResponse_httpStatus :: Lens.Lens' ListEventsDetectionJobsResponse Prelude.Int
@@ -216,6 +214,6 @@ instance
     ListEventsDetectionJobsResponse
   where
   rnf ListEventsDetectionJobsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf eventsDetectionJobPropertiesList
+    Prelude.rnf eventsDetectionJobPropertiesList
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

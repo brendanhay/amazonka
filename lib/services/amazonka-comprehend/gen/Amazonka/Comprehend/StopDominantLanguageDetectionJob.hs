@@ -46,8 +46,8 @@ module Amazonka.Comprehend.StopDominantLanguageDetectionJob
     newStopDominantLanguageDetectionJobResponse,
 
     -- * Response Lenses
-    stopDominantLanguageDetectionJobResponse_jobStatus,
     stopDominantLanguageDetectionJobResponse_jobId,
+    stopDominantLanguageDetectionJobResponse_jobStatus,
     stopDominantLanguageDetectionJobResponse_httpStatus,
   )
 where
@@ -100,8 +100,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           StopDominantLanguageDetectionJobResponse'
-            Prelude.<$> (x Data..?> "JobStatus")
-            Prelude.<*> (x Data..?> "JobId")
+            Prelude.<$> (x Data..?> "JobId")
+            Prelude.<*> (x Data..?> "JobStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,12 +157,12 @@ instance
 
 -- | /See:/ 'newStopDominantLanguageDetectionJobResponse' smart constructor.
 data StopDominantLanguageDetectionJobResponse = StopDominantLanguageDetectionJobResponse'
-  { -- | Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if
+  { -- | The identifier of the dominant language detection job to stop.
+    jobId :: Prelude.Maybe Prelude.Text,
+    -- | Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if
     -- the job was previously stopped with the
     -- @StopDominantLanguageDetectionJob@ operation.
     jobStatus :: Prelude.Maybe JobStatus,
-    -- | The identifier of the dominant language detection job to stop.
-    jobId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -176,11 +176,11 @@ data StopDominantLanguageDetectionJobResponse = StopDominantLanguageDetectionJob
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'jobId', 'stopDominantLanguageDetectionJobResponse_jobId' - The identifier of the dominant language detection job to stop.
+--
 -- 'jobStatus', 'stopDominantLanguageDetectionJobResponse_jobStatus' - Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if
 -- the job was previously stopped with the
 -- @StopDominantLanguageDetectionJob@ operation.
---
--- 'jobId', 'stopDominantLanguageDetectionJobResponse_jobId' - The identifier of the dominant language detection job to stop.
 --
 -- 'httpStatus', 'stopDominantLanguageDetectionJobResponse_httpStatus' - The response's http status code.
 newStopDominantLanguageDetectionJobResponse ::
@@ -190,21 +190,21 @@ newStopDominantLanguageDetectionJobResponse ::
 newStopDominantLanguageDetectionJobResponse
   pHttpStatus_ =
     StopDominantLanguageDetectionJobResponse'
-      { jobStatus =
+      { jobId =
           Prelude.Nothing,
-        jobId = Prelude.Nothing,
+        jobStatus = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | The identifier of the dominant language detection job to stop.
+stopDominantLanguageDetectionJobResponse_jobId :: Lens.Lens' StopDominantLanguageDetectionJobResponse (Prelude.Maybe Prelude.Text)
+stopDominantLanguageDetectionJobResponse_jobId = Lens.lens (\StopDominantLanguageDetectionJobResponse' {jobId} -> jobId) (\s@StopDominantLanguageDetectionJobResponse' {} a -> s {jobId = a} :: StopDominantLanguageDetectionJobResponse)
 
 -- | Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if
 -- the job was previously stopped with the
 -- @StopDominantLanguageDetectionJob@ operation.
 stopDominantLanguageDetectionJobResponse_jobStatus :: Lens.Lens' StopDominantLanguageDetectionJobResponse (Prelude.Maybe JobStatus)
 stopDominantLanguageDetectionJobResponse_jobStatus = Lens.lens (\StopDominantLanguageDetectionJobResponse' {jobStatus} -> jobStatus) (\s@StopDominantLanguageDetectionJobResponse' {} a -> s {jobStatus = a} :: StopDominantLanguageDetectionJobResponse)
-
--- | The identifier of the dominant language detection job to stop.
-stopDominantLanguageDetectionJobResponse_jobId :: Lens.Lens' StopDominantLanguageDetectionJobResponse (Prelude.Maybe Prelude.Text)
-stopDominantLanguageDetectionJobResponse_jobId = Lens.lens (\StopDominantLanguageDetectionJobResponse' {jobId} -> jobId) (\s@StopDominantLanguageDetectionJobResponse' {} a -> s {jobId = a} :: StopDominantLanguageDetectionJobResponse)
 
 -- | The response's http status code.
 stopDominantLanguageDetectionJobResponse_httpStatus :: Lens.Lens' StopDominantLanguageDetectionJobResponse Prelude.Int
@@ -215,6 +215,6 @@ instance
     StopDominantLanguageDetectionJobResponse
   where
   rnf StopDominantLanguageDetectionJobResponse' {..} =
-    Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf jobStatus
       `Prelude.seq` Prelude.rnf httpStatus

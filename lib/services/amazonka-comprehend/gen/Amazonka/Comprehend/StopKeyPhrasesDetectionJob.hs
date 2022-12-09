@@ -46,8 +46,8 @@ module Amazonka.Comprehend.StopKeyPhrasesDetectionJob
     newStopKeyPhrasesDetectionJobResponse,
 
     -- * Response Lenses
-    stopKeyPhrasesDetectionJobResponse_jobStatus,
     stopKeyPhrasesDetectionJobResponse_jobId,
+    stopKeyPhrasesDetectionJobResponse_jobStatus,
     stopKeyPhrasesDetectionJobResponse_httpStatus,
   )
 where
@@ -97,8 +97,8 @@ instance Core.AWSRequest StopKeyPhrasesDetectionJob where
     Response.receiveJSON
       ( \s h x ->
           StopKeyPhrasesDetectionJobResponse'
-            Prelude.<$> (x Data..?> "JobStatus")
-            Prelude.<*> (x Data..?> "JobId")
+            Prelude.<$> (x Data..?> "JobId")
+            Prelude.<*> (x Data..?> "JobStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -140,12 +140,12 @@ instance Data.ToQuery StopKeyPhrasesDetectionJob where
 
 -- | /See:/ 'newStopKeyPhrasesDetectionJobResponse' smart constructor.
 data StopKeyPhrasesDetectionJobResponse = StopKeyPhrasesDetectionJobResponse'
-  { -- | Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if
+  { -- | The identifier of the key phrases detection job to stop.
+    jobId :: Prelude.Maybe Prelude.Text,
+    -- | Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if
     -- the job was previously stopped with the @StopKeyPhrasesDetectionJob@
     -- operation.
     jobStatus :: Prelude.Maybe JobStatus,
-    -- | The identifier of the key phrases detection job to stop.
-    jobId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -159,11 +159,11 @@ data StopKeyPhrasesDetectionJobResponse = StopKeyPhrasesDetectionJobResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'jobId', 'stopKeyPhrasesDetectionJobResponse_jobId' - The identifier of the key phrases detection job to stop.
+--
 -- 'jobStatus', 'stopKeyPhrasesDetectionJobResponse_jobStatus' - Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if
 -- the job was previously stopped with the @StopKeyPhrasesDetectionJob@
 -- operation.
---
--- 'jobId', 'stopKeyPhrasesDetectionJobResponse_jobId' - The identifier of the key phrases detection job to stop.
 --
 -- 'httpStatus', 'stopKeyPhrasesDetectionJobResponse_httpStatus' - The response's http status code.
 newStopKeyPhrasesDetectionJobResponse ::
@@ -172,21 +172,21 @@ newStopKeyPhrasesDetectionJobResponse ::
   StopKeyPhrasesDetectionJobResponse
 newStopKeyPhrasesDetectionJobResponse pHttpStatus_ =
   StopKeyPhrasesDetectionJobResponse'
-    { jobStatus =
+    { jobId =
         Prelude.Nothing,
-      jobId = Prelude.Nothing,
+      jobStatus = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The identifier of the key phrases detection job to stop.
+stopKeyPhrasesDetectionJobResponse_jobId :: Lens.Lens' StopKeyPhrasesDetectionJobResponse (Prelude.Maybe Prelude.Text)
+stopKeyPhrasesDetectionJobResponse_jobId = Lens.lens (\StopKeyPhrasesDetectionJobResponse' {jobId} -> jobId) (\s@StopKeyPhrasesDetectionJobResponse' {} a -> s {jobId = a} :: StopKeyPhrasesDetectionJobResponse)
 
 -- | Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if
 -- the job was previously stopped with the @StopKeyPhrasesDetectionJob@
 -- operation.
 stopKeyPhrasesDetectionJobResponse_jobStatus :: Lens.Lens' StopKeyPhrasesDetectionJobResponse (Prelude.Maybe JobStatus)
 stopKeyPhrasesDetectionJobResponse_jobStatus = Lens.lens (\StopKeyPhrasesDetectionJobResponse' {jobStatus} -> jobStatus) (\s@StopKeyPhrasesDetectionJobResponse' {} a -> s {jobStatus = a} :: StopKeyPhrasesDetectionJobResponse)
-
--- | The identifier of the key phrases detection job to stop.
-stopKeyPhrasesDetectionJobResponse_jobId :: Lens.Lens' StopKeyPhrasesDetectionJobResponse (Prelude.Maybe Prelude.Text)
-stopKeyPhrasesDetectionJobResponse_jobId = Lens.lens (\StopKeyPhrasesDetectionJobResponse' {jobId} -> jobId) (\s@StopKeyPhrasesDetectionJobResponse' {} a -> s {jobId = a} :: StopKeyPhrasesDetectionJobResponse)
 
 -- | The response's http status code.
 stopKeyPhrasesDetectionJobResponse_httpStatus :: Lens.Lens' StopKeyPhrasesDetectionJobResponse Prelude.Int
@@ -197,6 +197,6 @@ instance
     StopKeyPhrasesDetectionJobResponse
   where
   rnf StopKeyPhrasesDetectionJobResponse' {..} =
-    Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf jobStatus
       `Prelude.seq` Prelude.rnf httpStatus

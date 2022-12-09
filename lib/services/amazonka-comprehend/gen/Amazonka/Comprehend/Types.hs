@@ -18,25 +18,28 @@ module Amazonka.Comprehend.Types
     defaultService,
 
     -- * Errors
-    _ResourceUnavailableException,
+    _BatchSizeLimitExceededException,
     _ConcurrentModificationException,
     _InternalServerException,
-    _TooManyTagsException,
-    _TooManyTagKeysException,
-    _UnsupportedLanguageException,
-    _ResourceNotFoundException,
-    _ResourceInUseException,
     _InvalidFilterException,
-    _ResourceLimitExceededException,
-    _TextSizeLimitExceededException,
-    _BatchSizeLimitExceededException,
-    _KmsKeyValidationException,
-    _TooManyRequestsException,
     _InvalidRequestException,
     _JobNotFoundException,
+    _KmsKeyValidationException,
+    _ResourceInUseException,
+    _ResourceLimitExceededException,
+    _ResourceNotFoundException,
+    _ResourceUnavailableException,
+    _TextSizeLimitExceededException,
+    _TooManyRequestsException,
+    _TooManyTagKeysException,
+    _TooManyTagsException,
+    _UnsupportedLanguageException,
 
     -- * AugmentedManifestsDocumentTypeFormat
     AugmentedManifestsDocumentTypeFormat (..),
+
+    -- * BlockType
+    BlockType (..),
 
     -- * DocumentClassifierDataFormat
     DocumentClassifierDataFormat (..),
@@ -52,6 +55,9 @@ module Amazonka.Comprehend.Types
 
     -- * DocumentReadMode
     DocumentReadMode (..),
+
+    -- * DocumentType
+    DocumentType (..),
 
     -- * EndpointStatus
     EndpointStatus (..),
@@ -74,6 +80,9 @@ module Amazonka.Comprehend.Types
     -- * ModelStatus
     ModelStatus (..),
 
+    -- * PageBasedErrorCode
+    PageBasedErrorCode (..),
+
     -- * PartOfSpeechTagType
     PartOfSpeechTagType (..),
 
@@ -85,6 +94,9 @@ module Amazonka.Comprehend.Types
 
     -- * PiiEntityType
     PiiEntityType (..),
+
+    -- * RelationshipType
+    RelationshipType (..),
 
     -- * SentimentType
     SentimentType (..),
@@ -101,8 +113,8 @@ module Amazonka.Comprehend.Types
     -- * AugmentedManifestsListItem
     AugmentedManifestsListItem (..),
     newAugmentedManifestsListItem,
-    augmentedManifestsListItem_documentType,
     augmentedManifestsListItem_annotationDataS3Uri,
+    augmentedManifestsListItem_documentType,
     augmentedManifestsListItem_sourceDocumentsS3Uri,
     augmentedManifestsListItem_split,
     augmentedManifestsListItem_s3Uri,
@@ -130,8 +142,8 @@ module Amazonka.Comprehend.Types
     BatchDetectSentimentItemResult (..),
     newBatchDetectSentimentItemResult,
     batchDetectSentimentItemResult_index,
-    batchDetectSentimentItemResult_sentimentScore,
     batchDetectSentimentItemResult_sentiment,
+    batchDetectSentimentItemResult_sentimentScore,
 
     -- * BatchDetectSyntaxItemResult
     BatchDetectSyntaxItemResult (..),
@@ -148,77 +160,111 @@ module Amazonka.Comprehend.Types
     -- * BatchItemError
     BatchItemError (..),
     newBatchItemError,
+    batchItemError_errorCode,
     batchItemError_errorMessage,
     batchItemError_index,
-    batchItemError_errorCode,
+
+    -- * Block
+    Block (..),
+    newBlock,
+    block_blockType,
+    block_geometry,
+    block_id,
+    block_page,
+    block_relationships,
+    block_text,
+
+    -- * BlockReference
+    BlockReference (..),
+    newBlockReference,
+    blockReference_beginOffset,
+    blockReference_blockId,
+    blockReference_childBlocks,
+    blockReference_endOffset,
+
+    -- * BoundingBox
+    BoundingBox (..),
+    newBoundingBox,
+    boundingBox_height,
+    boundingBox_left,
+    boundingBox_top,
+    boundingBox_width,
+
+    -- * ChildBlock
+    ChildBlock (..),
+    newChildBlock,
+    childBlock_beginOffset,
+    childBlock_childBlockId,
+    childBlock_endOffset,
 
     -- * ClassifierEvaluationMetrics
     ClassifierEvaluationMetrics (..),
     newClassifierEvaluationMetrics,
-    classifierEvaluationMetrics_microF1Score,
-    classifierEvaluationMetrics_f1Score,
-    classifierEvaluationMetrics_microPrecision,
     classifierEvaluationMetrics_accuracy,
+    classifierEvaluationMetrics_f1Score,
     classifierEvaluationMetrics_hammingLoss,
-    classifierEvaluationMetrics_recall,
-    classifierEvaluationMetrics_precision,
+    classifierEvaluationMetrics_microF1Score,
+    classifierEvaluationMetrics_microPrecision,
     classifierEvaluationMetrics_microRecall,
+    classifierEvaluationMetrics_precision,
+    classifierEvaluationMetrics_recall,
 
     -- * ClassifierMetadata
     ClassifierMetadata (..),
     newClassifierMetadata,
     classifierMetadata_evaluationMetrics,
-    classifierMetadata_numberOfTestDocuments,
     classifierMetadata_numberOfLabels,
+    classifierMetadata_numberOfTestDocuments,
     classifierMetadata_numberOfTrainedDocuments,
 
     -- * DocumentClass
     DocumentClass (..),
     newDocumentClass,
     documentClass_name,
+    documentClass_page,
     documentClass_score,
 
     -- * DocumentClassificationJobFilter
     DocumentClassificationJobFilter (..),
     newDocumentClassificationJobFilter,
-    documentClassificationJobFilter_jobStatus,
     documentClassificationJobFilter_jobName,
-    documentClassificationJobFilter_submitTimeBefore,
+    documentClassificationJobFilter_jobStatus,
     documentClassificationJobFilter_submitTimeAfter,
+    documentClassificationJobFilter_submitTimeBefore,
 
     -- * DocumentClassificationJobProperties
     DocumentClassificationJobProperties (..),
     newDocumentClassificationJobProperties,
-    documentClassificationJobProperties_outputDataConfig,
-    documentClassificationJobProperties_message,
-    documentClassificationJobProperties_jobStatus,
-    documentClassificationJobProperties_vpcConfig,
-    documentClassificationJobProperties_jobName,
-    documentClassificationJobProperties_submitTime,
-    documentClassificationJobProperties_jobId,
-    documentClassificationJobProperties_volumeKmsKeyId,
     documentClassificationJobProperties_dataAccessRoleArn,
-    documentClassificationJobProperties_endTime,
     documentClassificationJobProperties_documentClassifierArn,
-    documentClassificationJobProperties_jobArn,
+    documentClassificationJobProperties_endTime,
     documentClassificationJobProperties_inputDataConfig,
+    documentClassificationJobProperties_jobArn,
+    documentClassificationJobProperties_jobId,
+    documentClassificationJobProperties_jobName,
+    documentClassificationJobProperties_jobStatus,
+    documentClassificationJobProperties_message,
+    documentClassificationJobProperties_outputDataConfig,
+    documentClassificationJobProperties_submitTime,
+    documentClassificationJobProperties_volumeKmsKeyId,
+    documentClassificationJobProperties_vpcConfig,
 
     -- * DocumentClassifierFilter
     DocumentClassifierFilter (..),
     newDocumentClassifierFilter,
-    documentClassifierFilter_status,
-    documentClassifierFilter_submitTimeBefore,
     documentClassifierFilter_documentClassifierName,
+    documentClassifierFilter_status,
     documentClassifierFilter_submitTimeAfter,
+    documentClassifierFilter_submitTimeBefore,
 
     -- * DocumentClassifierInputDataConfig
     DocumentClassifierInputDataConfig (..),
     newDocumentClassifierInputDataConfig,
-    documentClassifierInputDataConfig_dataFormat,
-    documentClassifierInputDataConfig_testS3Uri,
-    documentClassifierInputDataConfig_s3Uri,
     documentClassifierInputDataConfig_augmentedManifests,
+    documentClassifierInputDataConfig_dataFormat,
     documentClassifierInputDataConfig_labelDelimiter,
+    documentClassifierInputDataConfig_s3Uri,
+    documentClassifierInputDataConfig_testS3Uri,
 
     -- * DocumentClassifierOutputDataConfig
     DocumentClassifierOutputDataConfig (..),
@@ -229,39 +275,46 @@ module Amazonka.Comprehend.Types
     -- * DocumentClassifierProperties
     DocumentClassifierProperties (..),
     newDocumentClassifierProperties,
-    documentClassifierProperties_outputDataConfig,
-    documentClassifierProperties_message,
-    documentClassifierProperties_modelKmsKeyId,
-    documentClassifierProperties_vpcConfig,
-    documentClassifierProperties_submitTime,
-    documentClassifierProperties_volumeKmsKeyId,
-    documentClassifierProperties_trainingStartTime,
-    documentClassifierProperties_dataAccessRoleArn,
-    documentClassifierProperties_status,
-    documentClassifierProperties_endTime,
-    documentClassifierProperties_languageCode,
-    documentClassifierProperties_versionName,
-    documentClassifierProperties_mode,
-    documentClassifierProperties_documentClassifierArn,
-    documentClassifierProperties_sourceModelArn,
-    documentClassifierProperties_inputDataConfig,
-    documentClassifierProperties_trainingEndTime,
     documentClassifierProperties_classifierMetadata,
+    documentClassifierProperties_dataAccessRoleArn,
+    documentClassifierProperties_documentClassifierArn,
+    documentClassifierProperties_endTime,
+    documentClassifierProperties_inputDataConfig,
+    documentClassifierProperties_languageCode,
+    documentClassifierProperties_message,
+    documentClassifierProperties_mode,
+    documentClassifierProperties_modelKmsKeyId,
+    documentClassifierProperties_outputDataConfig,
+    documentClassifierProperties_sourceModelArn,
+    documentClassifierProperties_status,
+    documentClassifierProperties_submitTime,
+    documentClassifierProperties_trainingEndTime,
+    documentClassifierProperties_trainingStartTime,
+    documentClassifierProperties_versionName,
+    documentClassifierProperties_volumeKmsKeyId,
+    documentClassifierProperties_vpcConfig,
 
     -- * DocumentClassifierSummary
     DocumentClassifierSummary (..),
     newDocumentClassifierSummary,
-    documentClassifierSummary_numberOfVersions,
-    documentClassifierSummary_latestVersionName,
-    documentClassifierSummary_latestVersionStatus,
     documentClassifierSummary_documentClassifierName,
     documentClassifierSummary_latestVersionCreatedAt,
+    documentClassifierSummary_latestVersionName,
+    documentClassifierSummary_latestVersionStatus,
+    documentClassifierSummary_numberOfVersions,
 
     -- * DocumentLabel
     DocumentLabel (..),
     newDocumentLabel,
     documentLabel_name,
+    documentLabel_page,
     documentLabel_score,
+
+    -- * DocumentMetadata
+    DocumentMetadata (..),
+    newDocumentMetadata,
+    documentMetadata_extractedCharacters,
+    documentMetadata_pages,
 
     -- * DocumentReaderConfig
     DocumentReaderConfig (..),
@@ -270,93 +323,100 @@ module Amazonka.Comprehend.Types
     documentReaderConfig_featureTypes,
     documentReaderConfig_documentReadAction,
 
+    -- * DocumentTypeListItem
+    DocumentTypeListItem (..),
+    newDocumentTypeListItem,
+    documentTypeListItem_page,
+    documentTypeListItem_type,
+
     -- * DominantLanguage
     DominantLanguage (..),
     newDominantLanguage,
-    dominantLanguage_score,
     dominantLanguage_languageCode,
+    dominantLanguage_score,
 
     -- * DominantLanguageDetectionJobFilter
     DominantLanguageDetectionJobFilter (..),
     newDominantLanguageDetectionJobFilter,
-    dominantLanguageDetectionJobFilter_jobStatus,
     dominantLanguageDetectionJobFilter_jobName,
-    dominantLanguageDetectionJobFilter_submitTimeBefore,
+    dominantLanguageDetectionJobFilter_jobStatus,
     dominantLanguageDetectionJobFilter_submitTimeAfter,
+    dominantLanguageDetectionJobFilter_submitTimeBefore,
 
     -- * DominantLanguageDetectionJobProperties
     DominantLanguageDetectionJobProperties (..),
     newDominantLanguageDetectionJobProperties,
-    dominantLanguageDetectionJobProperties_outputDataConfig,
-    dominantLanguageDetectionJobProperties_message,
-    dominantLanguageDetectionJobProperties_jobStatus,
-    dominantLanguageDetectionJobProperties_vpcConfig,
-    dominantLanguageDetectionJobProperties_jobName,
-    dominantLanguageDetectionJobProperties_submitTime,
-    dominantLanguageDetectionJobProperties_jobId,
-    dominantLanguageDetectionJobProperties_volumeKmsKeyId,
     dominantLanguageDetectionJobProperties_dataAccessRoleArn,
     dominantLanguageDetectionJobProperties_endTime,
-    dominantLanguageDetectionJobProperties_jobArn,
     dominantLanguageDetectionJobProperties_inputDataConfig,
+    dominantLanguageDetectionJobProperties_jobArn,
+    dominantLanguageDetectionJobProperties_jobId,
+    dominantLanguageDetectionJobProperties_jobName,
+    dominantLanguageDetectionJobProperties_jobStatus,
+    dominantLanguageDetectionJobProperties_message,
+    dominantLanguageDetectionJobProperties_outputDataConfig,
+    dominantLanguageDetectionJobProperties_submitTime,
+    dominantLanguageDetectionJobProperties_volumeKmsKeyId,
+    dominantLanguageDetectionJobProperties_vpcConfig,
 
     -- * EndpointFilter
     EndpointFilter (..),
     newEndpointFilter,
-    endpointFilter_status,
+    endpointFilter_creationTimeAfter,
     endpointFilter_creationTimeBefore,
     endpointFilter_modelArn,
-    endpointFilter_creationTimeAfter,
+    endpointFilter_status,
 
     -- * EndpointProperties
     EndpointProperties (..),
     newEndpointProperties,
-    endpointProperties_desiredInferenceUnits,
-    endpointProperties_message,
-    endpointProperties_currentInferenceUnits,
-    endpointProperties_desiredDataAccessRoleArn,
-    endpointProperties_dataAccessRoleArn,
-    endpointProperties_status,
-    endpointProperties_desiredModelArn,
-    endpointProperties_lastModifiedTime,
-    endpointProperties_modelArn,
     endpointProperties_creationTime,
+    endpointProperties_currentInferenceUnits,
+    endpointProperties_dataAccessRoleArn,
+    endpointProperties_desiredDataAccessRoleArn,
+    endpointProperties_desiredInferenceUnits,
+    endpointProperties_desiredModelArn,
     endpointProperties_endpointArn,
+    endpointProperties_lastModifiedTime,
+    endpointProperties_message,
+    endpointProperties_modelArn,
+    endpointProperties_status,
 
     -- * EntitiesDetectionJobFilter
     EntitiesDetectionJobFilter (..),
     newEntitiesDetectionJobFilter,
-    entitiesDetectionJobFilter_jobStatus,
     entitiesDetectionJobFilter_jobName,
-    entitiesDetectionJobFilter_submitTimeBefore,
+    entitiesDetectionJobFilter_jobStatus,
     entitiesDetectionJobFilter_submitTimeAfter,
+    entitiesDetectionJobFilter_submitTimeBefore,
 
     -- * EntitiesDetectionJobProperties
     EntitiesDetectionJobProperties (..),
     newEntitiesDetectionJobProperties,
-    entitiesDetectionJobProperties_outputDataConfig,
-    entitiesDetectionJobProperties_message,
-    entitiesDetectionJobProperties_jobStatus,
-    entitiesDetectionJobProperties_vpcConfig,
-    entitiesDetectionJobProperties_jobName,
-    entitiesDetectionJobProperties_submitTime,
-    entitiesDetectionJobProperties_jobId,
-    entitiesDetectionJobProperties_entityRecognizerArn,
-    entitiesDetectionJobProperties_volumeKmsKeyId,
     entitiesDetectionJobProperties_dataAccessRoleArn,
     entitiesDetectionJobProperties_endTime,
-    entitiesDetectionJobProperties_languageCode,
-    entitiesDetectionJobProperties_jobArn,
+    entitiesDetectionJobProperties_entityRecognizerArn,
     entitiesDetectionJobProperties_inputDataConfig,
+    entitiesDetectionJobProperties_jobArn,
+    entitiesDetectionJobProperties_jobId,
+    entitiesDetectionJobProperties_jobName,
+    entitiesDetectionJobProperties_jobStatus,
+    entitiesDetectionJobProperties_languageCode,
+    entitiesDetectionJobProperties_message,
+    entitiesDetectionJobProperties_outputDataConfig,
+    entitiesDetectionJobProperties_submitTime,
+    entitiesDetectionJobProperties_volumeKmsKeyId,
+    entitiesDetectionJobProperties_vpcConfig,
 
     -- * Entity
     Entity (..),
     newEntity,
     entity_beginOffset,
-    entity_type,
-    entity_score,
+    entity_blockReferences,
     entity_endOffset,
+    entity_score,
     entity_text,
+    entity_type,
 
     -- * EntityLabel
     EntityLabel (..),
@@ -373,8 +433,8 @@ module Amazonka.Comprehend.Types
     -- * EntityRecognizerDocuments
     EntityRecognizerDocuments (..),
     newEntityRecognizerDocuments,
-    entityRecognizerDocuments_testS3Uri,
     entityRecognizerDocuments_inputFormat,
+    entityRecognizerDocuments_testS3Uri,
     entityRecognizerDocuments_s3Uri,
 
     -- * EntityRecognizerEntityList
@@ -386,106 +446,125 @@ module Amazonka.Comprehend.Types
     EntityRecognizerEvaluationMetrics (..),
     newEntityRecognizerEvaluationMetrics,
     entityRecognizerEvaluationMetrics_f1Score,
-    entityRecognizerEvaluationMetrics_recall,
     entityRecognizerEvaluationMetrics_precision,
+    entityRecognizerEvaluationMetrics_recall,
 
     -- * EntityRecognizerFilter
     EntityRecognizerFilter (..),
     newEntityRecognizerFilter,
     entityRecognizerFilter_recognizerName,
     entityRecognizerFilter_status,
-    entityRecognizerFilter_submitTimeBefore,
     entityRecognizerFilter_submitTimeAfter,
+    entityRecognizerFilter_submitTimeBefore,
 
     -- * EntityRecognizerInputDataConfig
     EntityRecognizerInputDataConfig (..),
     newEntityRecognizerInputDataConfig,
-    entityRecognizerInputDataConfig_dataFormat,
-    entityRecognizerInputDataConfig_entityList,
     entityRecognizerInputDataConfig_annotations,
-    entityRecognizerInputDataConfig_documents,
     entityRecognizerInputDataConfig_augmentedManifests,
+    entityRecognizerInputDataConfig_dataFormat,
+    entityRecognizerInputDataConfig_documents,
+    entityRecognizerInputDataConfig_entityList,
     entityRecognizerInputDataConfig_entityTypes,
 
     -- * EntityRecognizerMetadata
     EntityRecognizerMetadata (..),
     newEntityRecognizerMetadata,
+    entityRecognizerMetadata_entityTypes,
     entityRecognizerMetadata_evaluationMetrics,
     entityRecognizerMetadata_numberOfTestDocuments,
-    entityRecognizerMetadata_entityTypes,
     entityRecognizerMetadata_numberOfTrainedDocuments,
 
     -- * EntityRecognizerMetadataEntityTypesListItem
     EntityRecognizerMetadataEntityTypesListItem (..),
     newEntityRecognizerMetadataEntityTypesListItem,
     entityRecognizerMetadataEntityTypesListItem_evaluationMetrics,
-    entityRecognizerMetadataEntityTypesListItem_type,
     entityRecognizerMetadataEntityTypesListItem_numberOfTrainMentions,
+    entityRecognizerMetadataEntityTypesListItem_type,
 
     -- * EntityRecognizerProperties
     EntityRecognizerProperties (..),
     newEntityRecognizerProperties,
+    entityRecognizerProperties_dataAccessRoleArn,
+    entityRecognizerProperties_endTime,
+    entityRecognizerProperties_entityRecognizerArn,
+    entityRecognizerProperties_inputDataConfig,
+    entityRecognizerProperties_languageCode,
     entityRecognizerProperties_message,
     entityRecognizerProperties_modelKmsKeyId,
     entityRecognizerProperties_recognizerMetadata,
-    entityRecognizerProperties_vpcConfig,
-    entityRecognizerProperties_submitTime,
-    entityRecognizerProperties_entityRecognizerArn,
-    entityRecognizerProperties_volumeKmsKeyId,
-    entityRecognizerProperties_trainingStartTime,
-    entityRecognizerProperties_dataAccessRoleArn,
-    entityRecognizerProperties_status,
-    entityRecognizerProperties_endTime,
-    entityRecognizerProperties_languageCode,
-    entityRecognizerProperties_versionName,
     entityRecognizerProperties_sourceModelArn,
-    entityRecognizerProperties_inputDataConfig,
+    entityRecognizerProperties_status,
+    entityRecognizerProperties_submitTime,
     entityRecognizerProperties_trainingEndTime,
+    entityRecognizerProperties_trainingStartTime,
+    entityRecognizerProperties_versionName,
+    entityRecognizerProperties_volumeKmsKeyId,
+    entityRecognizerProperties_vpcConfig,
 
     -- * EntityRecognizerSummary
     EntityRecognizerSummary (..),
     newEntityRecognizerSummary,
-    entityRecognizerSummary_numberOfVersions,
-    entityRecognizerSummary_latestVersionName,
-    entityRecognizerSummary_recognizerName,
-    entityRecognizerSummary_latestVersionStatus,
     entityRecognizerSummary_latestVersionCreatedAt,
+    entityRecognizerSummary_latestVersionName,
+    entityRecognizerSummary_latestVersionStatus,
+    entityRecognizerSummary_numberOfVersions,
+    entityRecognizerSummary_recognizerName,
 
     -- * EntityTypesEvaluationMetrics
     EntityTypesEvaluationMetrics (..),
     newEntityTypesEvaluationMetrics,
     entityTypesEvaluationMetrics_f1Score,
-    entityTypesEvaluationMetrics_recall,
     entityTypesEvaluationMetrics_precision,
+    entityTypesEvaluationMetrics_recall,
 
     -- * EntityTypesListItem
     EntityTypesListItem (..),
     newEntityTypesListItem,
     entityTypesListItem_type,
 
+    -- * ErrorsListItem
+    ErrorsListItem (..),
+    newErrorsListItem,
+    errorsListItem_errorCode,
+    errorsListItem_errorMessage,
+    errorsListItem_page,
+
     -- * EventsDetectionJobFilter
     EventsDetectionJobFilter (..),
     newEventsDetectionJobFilter,
-    eventsDetectionJobFilter_jobStatus,
     eventsDetectionJobFilter_jobName,
-    eventsDetectionJobFilter_submitTimeBefore,
+    eventsDetectionJobFilter_jobStatus,
     eventsDetectionJobFilter_submitTimeAfter,
+    eventsDetectionJobFilter_submitTimeBefore,
 
     -- * EventsDetectionJobProperties
     EventsDetectionJobProperties (..),
     newEventsDetectionJobProperties,
-    eventsDetectionJobProperties_outputDataConfig,
-    eventsDetectionJobProperties_message,
-    eventsDetectionJobProperties_jobStatus,
-    eventsDetectionJobProperties_jobName,
-    eventsDetectionJobProperties_submitTime,
-    eventsDetectionJobProperties_jobId,
     eventsDetectionJobProperties_dataAccessRoleArn,
     eventsDetectionJobProperties_endTime,
-    eventsDetectionJobProperties_targetEventTypes,
-    eventsDetectionJobProperties_languageCode,
-    eventsDetectionJobProperties_jobArn,
     eventsDetectionJobProperties_inputDataConfig,
+    eventsDetectionJobProperties_jobArn,
+    eventsDetectionJobProperties_jobId,
+    eventsDetectionJobProperties_jobName,
+    eventsDetectionJobProperties_jobStatus,
+    eventsDetectionJobProperties_languageCode,
+    eventsDetectionJobProperties_message,
+    eventsDetectionJobProperties_outputDataConfig,
+    eventsDetectionJobProperties_submitTime,
+    eventsDetectionJobProperties_targetEventTypes,
+
+    -- * ExtractedCharactersListItem
+    ExtractedCharactersListItem (..),
+    newExtractedCharactersListItem,
+    extractedCharactersListItem_count,
+    extractedCharactersListItem_page,
+
+    -- * Geometry
+    Geometry (..),
+    newGeometry,
+    geometry_boundingBox,
+    geometry_polygon,
 
     -- * InputDataConfig
     InputDataConfig (..),
@@ -498,40 +577,40 @@ module Amazonka.Comprehend.Types
     KeyPhrase (..),
     newKeyPhrase,
     keyPhrase_beginOffset,
-    keyPhrase_score,
     keyPhrase_endOffset,
+    keyPhrase_score,
     keyPhrase_text,
 
     -- * KeyPhrasesDetectionJobFilter
     KeyPhrasesDetectionJobFilter (..),
     newKeyPhrasesDetectionJobFilter,
-    keyPhrasesDetectionJobFilter_jobStatus,
     keyPhrasesDetectionJobFilter_jobName,
-    keyPhrasesDetectionJobFilter_submitTimeBefore,
+    keyPhrasesDetectionJobFilter_jobStatus,
     keyPhrasesDetectionJobFilter_submitTimeAfter,
+    keyPhrasesDetectionJobFilter_submitTimeBefore,
 
     -- * KeyPhrasesDetectionJobProperties
     KeyPhrasesDetectionJobProperties (..),
     newKeyPhrasesDetectionJobProperties,
-    keyPhrasesDetectionJobProperties_outputDataConfig,
-    keyPhrasesDetectionJobProperties_message,
-    keyPhrasesDetectionJobProperties_jobStatus,
-    keyPhrasesDetectionJobProperties_vpcConfig,
-    keyPhrasesDetectionJobProperties_jobName,
-    keyPhrasesDetectionJobProperties_submitTime,
-    keyPhrasesDetectionJobProperties_jobId,
-    keyPhrasesDetectionJobProperties_volumeKmsKeyId,
     keyPhrasesDetectionJobProperties_dataAccessRoleArn,
     keyPhrasesDetectionJobProperties_endTime,
-    keyPhrasesDetectionJobProperties_languageCode,
-    keyPhrasesDetectionJobProperties_jobArn,
     keyPhrasesDetectionJobProperties_inputDataConfig,
+    keyPhrasesDetectionJobProperties_jobArn,
+    keyPhrasesDetectionJobProperties_jobId,
+    keyPhrasesDetectionJobProperties_jobName,
+    keyPhrasesDetectionJobProperties_jobStatus,
+    keyPhrasesDetectionJobProperties_languageCode,
+    keyPhrasesDetectionJobProperties_message,
+    keyPhrasesDetectionJobProperties_outputDataConfig,
+    keyPhrasesDetectionJobProperties_submitTime,
+    keyPhrasesDetectionJobProperties_volumeKmsKeyId,
+    keyPhrasesDetectionJobProperties_vpcConfig,
 
     -- * MentionSentiment
     MentionSentiment (..),
     newMentionSentiment,
-    mentionSentiment_sentimentScore,
     mentionSentiment_sentiment,
+    mentionSentiment_sentimentScore,
 
     -- * OutputDataConfig
     OutputDataConfig (..),
@@ -542,41 +621,41 @@ module Amazonka.Comprehend.Types
     -- * PartOfSpeechTag
     PartOfSpeechTag (..),
     newPartOfSpeechTag,
-    partOfSpeechTag_tag,
     partOfSpeechTag_score,
+    partOfSpeechTag_tag,
 
     -- * PiiEntitiesDetectionJobFilter
     PiiEntitiesDetectionJobFilter (..),
     newPiiEntitiesDetectionJobFilter,
-    piiEntitiesDetectionJobFilter_jobStatus,
     piiEntitiesDetectionJobFilter_jobName,
-    piiEntitiesDetectionJobFilter_submitTimeBefore,
+    piiEntitiesDetectionJobFilter_jobStatus,
     piiEntitiesDetectionJobFilter_submitTimeAfter,
+    piiEntitiesDetectionJobFilter_submitTimeBefore,
 
     -- * PiiEntitiesDetectionJobProperties
     PiiEntitiesDetectionJobProperties (..),
     newPiiEntitiesDetectionJobProperties,
-    piiEntitiesDetectionJobProperties_outputDataConfig,
-    piiEntitiesDetectionJobProperties_message,
-    piiEntitiesDetectionJobProperties_jobStatus,
-    piiEntitiesDetectionJobProperties_jobName,
-    piiEntitiesDetectionJobProperties_submitTime,
-    piiEntitiesDetectionJobProperties_jobId,
-    piiEntitiesDetectionJobProperties_redactionConfig,
     piiEntitiesDetectionJobProperties_dataAccessRoleArn,
     piiEntitiesDetectionJobProperties_endTime,
-    piiEntitiesDetectionJobProperties_languageCode,
-    piiEntitiesDetectionJobProperties_mode,
-    piiEntitiesDetectionJobProperties_jobArn,
     piiEntitiesDetectionJobProperties_inputDataConfig,
+    piiEntitiesDetectionJobProperties_jobArn,
+    piiEntitiesDetectionJobProperties_jobId,
+    piiEntitiesDetectionJobProperties_jobName,
+    piiEntitiesDetectionJobProperties_jobStatus,
+    piiEntitiesDetectionJobProperties_languageCode,
+    piiEntitiesDetectionJobProperties_message,
+    piiEntitiesDetectionJobProperties_mode,
+    piiEntitiesDetectionJobProperties_outputDataConfig,
+    piiEntitiesDetectionJobProperties_redactionConfig,
+    piiEntitiesDetectionJobProperties_submitTime,
 
     -- * PiiEntity
     PiiEntity (..),
     newPiiEntity,
     piiEntity_beginOffset,
-    piiEntity_type,
-    piiEntity_score,
     piiEntity_endOffset,
+    piiEntity_score,
+    piiEntity_type,
 
     -- * PiiOutputDataConfig
     PiiOutputDataConfig (..),
@@ -584,54 +663,66 @@ module Amazonka.Comprehend.Types
     piiOutputDataConfig_kmsKeyId,
     piiOutputDataConfig_s3Uri,
 
+    -- * Point
+    Point (..),
+    newPoint,
+    point_x,
+    point_y,
+
     -- * RedactionConfig
     RedactionConfig (..),
     newRedactionConfig,
+    redactionConfig_maskCharacter,
     redactionConfig_maskMode,
     redactionConfig_piiEntityTypes,
-    redactionConfig_maskCharacter,
+
+    -- * RelationshipsListItem
+    RelationshipsListItem (..),
+    newRelationshipsListItem,
+    relationshipsListItem_ids,
+    relationshipsListItem_type,
 
     -- * SentimentDetectionJobFilter
     SentimentDetectionJobFilter (..),
     newSentimentDetectionJobFilter,
-    sentimentDetectionJobFilter_jobStatus,
     sentimentDetectionJobFilter_jobName,
-    sentimentDetectionJobFilter_submitTimeBefore,
+    sentimentDetectionJobFilter_jobStatus,
     sentimentDetectionJobFilter_submitTimeAfter,
+    sentimentDetectionJobFilter_submitTimeBefore,
 
     -- * SentimentDetectionJobProperties
     SentimentDetectionJobProperties (..),
     newSentimentDetectionJobProperties,
-    sentimentDetectionJobProperties_outputDataConfig,
-    sentimentDetectionJobProperties_message,
-    sentimentDetectionJobProperties_jobStatus,
-    sentimentDetectionJobProperties_vpcConfig,
-    sentimentDetectionJobProperties_jobName,
-    sentimentDetectionJobProperties_submitTime,
-    sentimentDetectionJobProperties_jobId,
-    sentimentDetectionJobProperties_volumeKmsKeyId,
     sentimentDetectionJobProperties_dataAccessRoleArn,
     sentimentDetectionJobProperties_endTime,
-    sentimentDetectionJobProperties_languageCode,
-    sentimentDetectionJobProperties_jobArn,
     sentimentDetectionJobProperties_inputDataConfig,
+    sentimentDetectionJobProperties_jobArn,
+    sentimentDetectionJobProperties_jobId,
+    sentimentDetectionJobProperties_jobName,
+    sentimentDetectionJobProperties_jobStatus,
+    sentimentDetectionJobProperties_languageCode,
+    sentimentDetectionJobProperties_message,
+    sentimentDetectionJobProperties_outputDataConfig,
+    sentimentDetectionJobProperties_submitTime,
+    sentimentDetectionJobProperties_volumeKmsKeyId,
+    sentimentDetectionJobProperties_vpcConfig,
 
     -- * SentimentScore
     SentimentScore (..),
     newSentimentScore,
-    sentimentScore_positive,
+    sentimentScore_mixed,
     sentimentScore_negative,
     sentimentScore_neutral,
-    sentimentScore_mixed,
+    sentimentScore_positive,
 
     -- * SyntaxToken
     SyntaxToken (..),
     newSyntaxToken,
     syntaxToken_beginOffset,
-    syntaxToken_partOfSpeech,
     syntaxToken_endOffset,
-    syntaxToken_tokenId,
+    syntaxToken_partOfSpeech,
     syntaxToken_text,
+    syntaxToken_tokenId,
 
     -- * Tag
     Tag (..),
@@ -642,27 +733,27 @@ module Amazonka.Comprehend.Types
     -- * TargetedSentimentDetectionJobFilter
     TargetedSentimentDetectionJobFilter (..),
     newTargetedSentimentDetectionJobFilter,
-    targetedSentimentDetectionJobFilter_jobStatus,
     targetedSentimentDetectionJobFilter_jobName,
-    targetedSentimentDetectionJobFilter_submitTimeBefore,
+    targetedSentimentDetectionJobFilter_jobStatus,
     targetedSentimentDetectionJobFilter_submitTimeAfter,
+    targetedSentimentDetectionJobFilter_submitTimeBefore,
 
     -- * TargetedSentimentDetectionJobProperties
     TargetedSentimentDetectionJobProperties (..),
     newTargetedSentimentDetectionJobProperties,
-    targetedSentimentDetectionJobProperties_outputDataConfig,
-    targetedSentimentDetectionJobProperties_message,
-    targetedSentimentDetectionJobProperties_jobStatus,
-    targetedSentimentDetectionJobProperties_vpcConfig,
-    targetedSentimentDetectionJobProperties_jobName,
-    targetedSentimentDetectionJobProperties_submitTime,
-    targetedSentimentDetectionJobProperties_jobId,
-    targetedSentimentDetectionJobProperties_volumeKmsKeyId,
     targetedSentimentDetectionJobProperties_dataAccessRoleArn,
     targetedSentimentDetectionJobProperties_endTime,
-    targetedSentimentDetectionJobProperties_languageCode,
-    targetedSentimentDetectionJobProperties_jobArn,
     targetedSentimentDetectionJobProperties_inputDataConfig,
+    targetedSentimentDetectionJobProperties_jobArn,
+    targetedSentimentDetectionJobProperties_jobId,
+    targetedSentimentDetectionJobProperties_jobName,
+    targetedSentimentDetectionJobProperties_jobStatus,
+    targetedSentimentDetectionJobProperties_languageCode,
+    targetedSentimentDetectionJobProperties_message,
+    targetedSentimentDetectionJobProperties_outputDataConfig,
+    targetedSentimentDetectionJobProperties_submitTime,
+    targetedSentimentDetectionJobProperties_volumeKmsKeyId,
+    targetedSentimentDetectionJobProperties_vpcConfig,
 
     -- * TargetedSentimentEntity
     TargetedSentimentEntity (..),
@@ -674,37 +765,37 @@ module Amazonka.Comprehend.Types
     TargetedSentimentMention (..),
     newTargetedSentimentMention,
     targetedSentimentMention_beginOffset,
-    targetedSentimentMention_type,
-    targetedSentimentMention_score,
     targetedSentimentMention_endOffset,
-    targetedSentimentMention_mentionSentiment,
     targetedSentimentMention_groupScore,
+    targetedSentimentMention_mentionSentiment,
+    targetedSentimentMention_score,
     targetedSentimentMention_text,
+    targetedSentimentMention_type,
 
     -- * TopicsDetectionJobFilter
     TopicsDetectionJobFilter (..),
     newTopicsDetectionJobFilter,
-    topicsDetectionJobFilter_jobStatus,
     topicsDetectionJobFilter_jobName,
-    topicsDetectionJobFilter_submitTimeBefore,
+    topicsDetectionJobFilter_jobStatus,
     topicsDetectionJobFilter_submitTimeAfter,
+    topicsDetectionJobFilter_submitTimeBefore,
 
     -- * TopicsDetectionJobProperties
     TopicsDetectionJobProperties (..),
     newTopicsDetectionJobProperties,
-    topicsDetectionJobProperties_outputDataConfig,
-    topicsDetectionJobProperties_message,
-    topicsDetectionJobProperties_jobStatus,
-    topicsDetectionJobProperties_vpcConfig,
-    topicsDetectionJobProperties_jobName,
-    topicsDetectionJobProperties_numberOfTopics,
-    topicsDetectionJobProperties_submitTime,
-    topicsDetectionJobProperties_jobId,
-    topicsDetectionJobProperties_volumeKmsKeyId,
     topicsDetectionJobProperties_dataAccessRoleArn,
     topicsDetectionJobProperties_endTime,
-    topicsDetectionJobProperties_jobArn,
     topicsDetectionJobProperties_inputDataConfig,
+    topicsDetectionJobProperties_jobArn,
+    topicsDetectionJobProperties_jobId,
+    topicsDetectionJobProperties_jobName,
+    topicsDetectionJobProperties_jobStatus,
+    topicsDetectionJobProperties_message,
+    topicsDetectionJobProperties_numberOfTopics,
+    topicsDetectionJobProperties_outputDataConfig,
+    topicsDetectionJobProperties_submitTime,
+    topicsDetectionJobProperties_volumeKmsKeyId,
+    topicsDetectionJobProperties_vpcConfig,
 
     -- * VpcConfig
     VpcConfig (..),
@@ -723,6 +814,11 @@ import Amazonka.Comprehend.Types.BatchDetectSentimentItemResult
 import Amazonka.Comprehend.Types.BatchDetectSyntaxItemResult
 import Amazonka.Comprehend.Types.BatchDetectTargetedSentimentItemResult
 import Amazonka.Comprehend.Types.BatchItemError
+import Amazonka.Comprehend.Types.Block
+import Amazonka.Comprehend.Types.BlockReference
+import Amazonka.Comprehend.Types.BlockType
+import Amazonka.Comprehend.Types.BoundingBox
+import Amazonka.Comprehend.Types.ChildBlock
 import Amazonka.Comprehend.Types.ClassifierEvaluationMetrics
 import Amazonka.Comprehend.Types.ClassifierMetadata
 import Amazonka.Comprehend.Types.DocumentClass
@@ -736,10 +832,13 @@ import Amazonka.Comprehend.Types.DocumentClassifierOutputDataConfig
 import Amazonka.Comprehend.Types.DocumentClassifierProperties
 import Amazonka.Comprehend.Types.DocumentClassifierSummary
 import Amazonka.Comprehend.Types.DocumentLabel
+import Amazonka.Comprehend.Types.DocumentMetadata
 import Amazonka.Comprehend.Types.DocumentReadAction
 import Amazonka.Comprehend.Types.DocumentReadFeatureTypes
 import Amazonka.Comprehend.Types.DocumentReadMode
 import Amazonka.Comprehend.Types.DocumentReaderConfig
+import Amazonka.Comprehend.Types.DocumentType
+import Amazonka.Comprehend.Types.DocumentTypeListItem
 import Amazonka.Comprehend.Types.DominantLanguage
 import Amazonka.Comprehend.Types.DominantLanguageDetectionJobFilter
 import Amazonka.Comprehend.Types.DominantLanguageDetectionJobProperties
@@ -764,8 +863,11 @@ import Amazonka.Comprehend.Types.EntityRecognizerSummary
 import Amazonka.Comprehend.Types.EntityType
 import Amazonka.Comprehend.Types.EntityTypesEvaluationMetrics
 import Amazonka.Comprehend.Types.EntityTypesListItem
+import Amazonka.Comprehend.Types.ErrorsListItem
 import Amazonka.Comprehend.Types.EventsDetectionJobFilter
 import Amazonka.Comprehend.Types.EventsDetectionJobProperties
+import Amazonka.Comprehend.Types.ExtractedCharactersListItem
+import Amazonka.Comprehend.Types.Geometry
 import Amazonka.Comprehend.Types.InputDataConfig
 import Amazonka.Comprehend.Types.InputFormat
 import Amazonka.Comprehend.Types.JobStatus
@@ -776,6 +878,7 @@ import Amazonka.Comprehend.Types.LanguageCode
 import Amazonka.Comprehend.Types.MentionSentiment
 import Amazonka.Comprehend.Types.ModelStatus
 import Amazonka.Comprehend.Types.OutputDataConfig
+import Amazonka.Comprehend.Types.PageBasedErrorCode
 import Amazonka.Comprehend.Types.PartOfSpeechTag
 import Amazonka.Comprehend.Types.PartOfSpeechTagType
 import Amazonka.Comprehend.Types.PiiEntitiesDetectionJobFilter
@@ -785,7 +888,10 @@ import Amazonka.Comprehend.Types.PiiEntitiesDetectionMode
 import Amazonka.Comprehend.Types.PiiEntity
 import Amazonka.Comprehend.Types.PiiEntityType
 import Amazonka.Comprehend.Types.PiiOutputDataConfig
+import Amazonka.Comprehend.Types.Point
 import Amazonka.Comprehend.Types.RedactionConfig
+import Amazonka.Comprehend.Types.RelationshipType
+import Amazonka.Comprehend.Types.RelationshipsListItem
 import Amazonka.Comprehend.Types.SentimentDetectionJobFilter
 import Amazonka.Comprehend.Types.SentimentDetectionJobProperties
 import Amazonka.Comprehend.Types.SentimentScore
@@ -832,28 +938,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -861,13 +961,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -875,15 +979,17 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
--- | The specified resource is not available. Check the resource and try your
--- request again.
-_ResourceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceUnavailableException =
+-- | The number of documents in the request exceeds the limit of 25. Try your
+-- request again with fewer documents.
+_BatchSizeLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BatchSizeLimitExceededException =
   Core._MatchServiceError
     defaultService
-    "ResourceUnavailableException"
+    "BatchSizeLimitExceededException"
 
 -- | Concurrent modification of the tags associated with an Amazon Comprehend
 -- resource is not supported.
@@ -900,50 +1006,6 @@ _InternalServerException =
     defaultService
     "InternalServerException"
 
--- | The request contains more tags than can be associated with a resource
--- (50 tags per resource). The maximum number of tags includes both
--- existing tags and those included in your current request.
-_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyTagsException =
-  Core._MatchServiceError
-    defaultService
-    "TooManyTagsException"
-
--- | The request contains more tag keys than can be associated with a
--- resource (50 tag keys per resource).
-_TooManyTagKeysException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyTagKeysException =
-  Core._MatchServiceError
-    defaultService
-    "TooManyTagKeysException"
-
--- | Amazon Comprehend can\'t process the language of the input text. For
--- custom entity recognition APIs, only English, Spanish, French, Italian,
--- German, or Portuguese are accepted. For a list of supported languages,
--- <https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html Supported languages>
--- in the Comprehend Developer Guide.
-_UnsupportedLanguageException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnsupportedLanguageException =
-  Core._MatchServiceError
-    defaultService
-    "UnsupportedLanguageException"
-
--- | The specified resource ARN was not found. Check the ARN and try your
--- request again.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-
--- | The specified resource name is already in use. Use a different name and
--- try your request again.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceInUseException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceInUseException"
-
 -- | The filter specified for the operation is invalid. Specify a different
 -- filter.
 _InvalidFilterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -951,44 +1013,6 @@ _InvalidFilterException =
   Core._MatchServiceError
     defaultService
     "InvalidFilterException"
-
--- | The maximum number of resources per account has been exceeded. Review
--- the resources, and then try your request again.
-_ResourceLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceLimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceLimitExceededException"
-
--- | The size of the input text exceeds the limit. Use a smaller document.
-_TextSizeLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TextSizeLimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "TextSizeLimitExceededException"
-
--- | The number of documents in the request exceeds the limit of 25. Try your
--- request again with fewer documents.
-_BatchSizeLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_BatchSizeLimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "BatchSizeLimitExceededException"
-
--- | The KMS customer managed key (CMK) entered cannot be validated. Verify
--- the key and re-enter it.
-_KmsKeyValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_KmsKeyValidationException =
-  Core._MatchServiceError
-    defaultService
-    "KmsKeyValidationException"
-
--- | The number of requests exceeds the limit. Resubmit your request later.
-_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyRequestsException =
-  Core._MatchServiceError
-    defaultService
-    "TooManyRequestsException"
 
 -- | The request is invalid.
 _InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1003,3 +1027,85 @@ _JobNotFoundException =
   Core._MatchServiceError
     defaultService
     "JobNotFoundException"
+
+-- | The KMS customer managed key (CMK) entered cannot be validated. Verify
+-- the key and re-enter it.
+_KmsKeyValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KmsKeyValidationException =
+  Core._MatchServiceError
+    defaultService
+    "KmsKeyValidationException"
+
+-- | The specified resource name is already in use. Use a different name and
+-- try your request again.
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceInUseException"
+
+-- | The maximum number of resources per account has been exceeded. Review
+-- the resources, and then try your request again.
+_ResourceLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceLimitExceededException"
+
+-- | The specified resource ARN was not found. Check the ARN and try your
+-- request again.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+
+-- | The specified resource is not available. Check the resource and try your
+-- request again.
+_ResourceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceUnavailableException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceUnavailableException"
+
+-- | The size of the input text exceeds the limit. Use a smaller document.
+_TextSizeLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TextSizeLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "TextSizeLimitExceededException"
+
+-- | The number of requests exceeds the limit. Resubmit your request later.
+_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyRequestsException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyRequestsException"
+
+-- | The request contains more tag keys than can be associated with a
+-- resource (50 tag keys per resource).
+_TooManyTagKeysException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagKeysException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyTagKeysException"
+
+-- | The request contains more tags than can be associated with a resource
+-- (50 tags per resource). The maximum number of tags includes both
+-- existing tags and those included in your current request.
+_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyTagsException"
+
+-- | Amazon Comprehend can\'t process the language of the input text. For
+-- custom entity recognition APIs, only English, Spanish, French, Italian,
+-- German, or Portuguese are accepted. For a list of supported languages,
+-- <https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html Supported languages>
+-- in the Comprehend Developer Guide.
+_UnsupportedLanguageException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedLanguageException =
+  Core._MatchServiceError
+    defaultService
+    "UnsupportedLanguageException"

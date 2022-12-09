@@ -126,6 +126,11 @@ library
     Amazonka.Comprehend.Types.BatchDetectSyntaxItemResult
     Amazonka.Comprehend.Types.BatchDetectTargetedSentimentItemResult
     Amazonka.Comprehend.Types.BatchItemError
+    Amazonka.Comprehend.Types.Block
+    Amazonka.Comprehend.Types.BlockReference
+    Amazonka.Comprehend.Types.BlockType
+    Amazonka.Comprehend.Types.BoundingBox
+    Amazonka.Comprehend.Types.ChildBlock
     Amazonka.Comprehend.Types.ClassifierEvaluationMetrics
     Amazonka.Comprehend.Types.ClassifierMetadata
     Amazonka.Comprehend.Types.DocumentClass
@@ -139,10 +144,13 @@ library
     Amazonka.Comprehend.Types.DocumentClassifierProperties
     Amazonka.Comprehend.Types.DocumentClassifierSummary
     Amazonka.Comprehend.Types.DocumentLabel
+    Amazonka.Comprehend.Types.DocumentMetadata
     Amazonka.Comprehend.Types.DocumentReadAction
     Amazonka.Comprehend.Types.DocumentReaderConfig
     Amazonka.Comprehend.Types.DocumentReadFeatureTypes
     Amazonka.Comprehend.Types.DocumentReadMode
+    Amazonka.Comprehend.Types.DocumentType
+    Amazonka.Comprehend.Types.DocumentTypeListItem
     Amazonka.Comprehend.Types.DominantLanguage
     Amazonka.Comprehend.Types.DominantLanguageDetectionJobFilter
     Amazonka.Comprehend.Types.DominantLanguageDetectionJobProperties
@@ -167,8 +175,11 @@ library
     Amazonka.Comprehend.Types.EntityType
     Amazonka.Comprehend.Types.EntityTypesEvaluationMetrics
     Amazonka.Comprehend.Types.EntityTypesListItem
+    Amazonka.Comprehend.Types.ErrorsListItem
     Amazonka.Comprehend.Types.EventsDetectionJobFilter
     Amazonka.Comprehend.Types.EventsDetectionJobProperties
+    Amazonka.Comprehend.Types.ExtractedCharactersListItem
+    Amazonka.Comprehend.Types.Geometry
     Amazonka.Comprehend.Types.InputDataConfig
     Amazonka.Comprehend.Types.InputFormat
     Amazonka.Comprehend.Types.JobStatus
@@ -179,6 +190,7 @@ library
     Amazonka.Comprehend.Types.MentionSentiment
     Amazonka.Comprehend.Types.ModelStatus
     Amazonka.Comprehend.Types.OutputDataConfig
+    Amazonka.Comprehend.Types.PageBasedErrorCode
     Amazonka.Comprehend.Types.PartOfSpeechTag
     Amazonka.Comprehend.Types.PartOfSpeechTagType
     Amazonka.Comprehend.Types.PiiEntitiesDetectionJobFilter
@@ -188,7 +200,10 @@ library
     Amazonka.Comprehend.Types.PiiEntity
     Amazonka.Comprehend.Types.PiiEntityType
     Amazonka.Comprehend.Types.PiiOutputDataConfig
+    Amazonka.Comprehend.Types.Point
     Amazonka.Comprehend.Types.RedactionConfig
+    Amazonka.Comprehend.Types.RelationshipsListItem
+    Amazonka.Comprehend.Types.RelationshipType
     Amazonka.Comprehend.Types.SentimentDetectionJobFilter
     Amazonka.Comprehend.Types.SentimentDetectionJobProperties
     Amazonka.Comprehend.Types.SentimentScore

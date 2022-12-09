@@ -46,8 +46,8 @@ module Amazonka.Comprehend.StopEntitiesDetectionJob
     newStopEntitiesDetectionJobResponse,
 
     -- * Response Lenses
-    stopEntitiesDetectionJobResponse_jobStatus,
     stopEntitiesDetectionJobResponse_jobId,
+    stopEntitiesDetectionJobResponse_jobStatus,
     stopEntitiesDetectionJobResponse_httpStatus,
   )
 where
@@ -97,8 +97,8 @@ instance Core.AWSRequest StopEntitiesDetectionJob where
     Response.receiveJSON
       ( \s h x ->
           StopEntitiesDetectionJobResponse'
-            Prelude.<$> (x Data..?> "JobStatus")
-            Prelude.<*> (x Data..?> "JobId")
+            Prelude.<$> (x Data..?> "JobId")
+            Prelude.<*> (x Data..?> "JobStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,12 +139,12 @@ instance Data.ToQuery StopEntitiesDetectionJob where
 
 -- | /See:/ 'newStopEntitiesDetectionJobResponse' smart constructor.
 data StopEntitiesDetectionJobResponse = StopEntitiesDetectionJobResponse'
-  { -- | Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if
+  { -- | The identifier of the entities detection job to stop.
+    jobId :: Prelude.Maybe Prelude.Text,
+    -- | Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if
     -- the job was previously stopped with the @StopEntitiesDetectionJob@
     -- operation.
     jobStatus :: Prelude.Maybe JobStatus,
-    -- | The identifier of the entities detection job to stop.
-    jobId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -158,11 +158,11 @@ data StopEntitiesDetectionJobResponse = StopEntitiesDetectionJobResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'jobId', 'stopEntitiesDetectionJobResponse_jobId' - The identifier of the entities detection job to stop.
+--
 -- 'jobStatus', 'stopEntitiesDetectionJobResponse_jobStatus' - Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if
 -- the job was previously stopped with the @StopEntitiesDetectionJob@
 -- operation.
---
--- 'jobId', 'stopEntitiesDetectionJobResponse_jobId' - The identifier of the entities detection job to stop.
 --
 -- 'httpStatus', 'stopEntitiesDetectionJobResponse_httpStatus' - The response's http status code.
 newStopEntitiesDetectionJobResponse ::
@@ -171,21 +171,21 @@ newStopEntitiesDetectionJobResponse ::
   StopEntitiesDetectionJobResponse
 newStopEntitiesDetectionJobResponse pHttpStatus_ =
   StopEntitiesDetectionJobResponse'
-    { jobStatus =
+    { jobId =
         Prelude.Nothing,
-      jobId = Prelude.Nothing,
+      jobStatus = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The identifier of the entities detection job to stop.
+stopEntitiesDetectionJobResponse_jobId :: Lens.Lens' StopEntitiesDetectionJobResponse (Prelude.Maybe Prelude.Text)
+stopEntitiesDetectionJobResponse_jobId = Lens.lens (\StopEntitiesDetectionJobResponse' {jobId} -> jobId) (\s@StopEntitiesDetectionJobResponse' {} a -> s {jobId = a} :: StopEntitiesDetectionJobResponse)
 
 -- | Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if
 -- the job was previously stopped with the @StopEntitiesDetectionJob@
 -- operation.
 stopEntitiesDetectionJobResponse_jobStatus :: Lens.Lens' StopEntitiesDetectionJobResponse (Prelude.Maybe JobStatus)
 stopEntitiesDetectionJobResponse_jobStatus = Lens.lens (\StopEntitiesDetectionJobResponse' {jobStatus} -> jobStatus) (\s@StopEntitiesDetectionJobResponse' {} a -> s {jobStatus = a} :: StopEntitiesDetectionJobResponse)
-
--- | The identifier of the entities detection job to stop.
-stopEntitiesDetectionJobResponse_jobId :: Lens.Lens' StopEntitiesDetectionJobResponse (Prelude.Maybe Prelude.Text)
-stopEntitiesDetectionJobResponse_jobId = Lens.lens (\StopEntitiesDetectionJobResponse' {jobId} -> jobId) (\s@StopEntitiesDetectionJobResponse' {} a -> s {jobId = a} :: StopEntitiesDetectionJobResponse)
 
 -- | The response's http status code.
 stopEntitiesDetectionJobResponse_httpStatus :: Lens.Lens' StopEntitiesDetectionJobResponse Prelude.Int
@@ -196,6 +196,6 @@ instance
     StopEntitiesDetectionJobResponse
   where
   rnf StopEntitiesDetectionJobResponse' {..} =
-    Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf jobStatus
       `Prelude.seq` Prelude.rnf httpStatus

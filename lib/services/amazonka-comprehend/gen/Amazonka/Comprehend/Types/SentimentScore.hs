@@ -30,8 +30,8 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newSentimentScore' smart constructor.
 data SentimentScore = SentimentScore'
   { -- | The level of confidence that Amazon Comprehend has in the accuracy of
-    -- its detection of the @POSITIVE@ sentiment.
-    positive :: Prelude.Maybe Prelude.Double,
+    -- its detection of the @MIXED@ sentiment.
+    mixed :: Prelude.Maybe Prelude.Double,
     -- | The level of confidence that Amazon Comprehend has in the accuracy of
     -- its detection of the @NEGATIVE@ sentiment.
     negative :: Prelude.Maybe Prelude.Double,
@@ -39,8 +39,8 @@ data SentimentScore = SentimentScore'
     -- its detection of the @NEUTRAL@ sentiment.
     neutral :: Prelude.Maybe Prelude.Double,
     -- | The level of confidence that Amazon Comprehend has in the accuracy of
-    -- its detection of the @MIXED@ sentiment.
-    mixed :: Prelude.Maybe Prelude.Double
+    -- its detection of the @POSITIVE@ sentiment.
+    positive :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,8 +52,8 @@ data SentimentScore = SentimentScore'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'positive', 'sentimentScore_positive' - The level of confidence that Amazon Comprehend has in the accuracy of
--- its detection of the @POSITIVE@ sentiment.
+-- 'mixed', 'sentimentScore_mixed' - The level of confidence that Amazon Comprehend has in the accuracy of
+-- its detection of the @MIXED@ sentiment.
 --
 -- 'negative', 'sentimentScore_negative' - The level of confidence that Amazon Comprehend has in the accuracy of
 -- its detection of the @NEGATIVE@ sentiment.
@@ -61,22 +61,22 @@ data SentimentScore = SentimentScore'
 -- 'neutral', 'sentimentScore_neutral' - The level of confidence that Amazon Comprehend has in the accuracy of
 -- its detection of the @NEUTRAL@ sentiment.
 --
--- 'mixed', 'sentimentScore_mixed' - The level of confidence that Amazon Comprehend has in the accuracy of
--- its detection of the @MIXED@ sentiment.
+-- 'positive', 'sentimentScore_positive' - The level of confidence that Amazon Comprehend has in the accuracy of
+-- its detection of the @POSITIVE@ sentiment.
 newSentimentScore ::
   SentimentScore
 newSentimentScore =
   SentimentScore'
-    { positive = Prelude.Nothing,
+    { mixed = Prelude.Nothing,
       negative = Prelude.Nothing,
       neutral = Prelude.Nothing,
-      mixed = Prelude.Nothing
+      positive = Prelude.Nothing
     }
 
 -- | The level of confidence that Amazon Comprehend has in the accuracy of
--- its detection of the @POSITIVE@ sentiment.
-sentimentScore_positive :: Lens.Lens' SentimentScore (Prelude.Maybe Prelude.Double)
-sentimentScore_positive = Lens.lens (\SentimentScore' {positive} -> positive) (\s@SentimentScore' {} a -> s {positive = a} :: SentimentScore)
+-- its detection of the @MIXED@ sentiment.
+sentimentScore_mixed :: Lens.Lens' SentimentScore (Prelude.Maybe Prelude.Double)
+sentimentScore_mixed = Lens.lens (\SentimentScore' {mixed} -> mixed) (\s@SentimentScore' {} a -> s {mixed = a} :: SentimentScore)
 
 -- | The level of confidence that Amazon Comprehend has in the accuracy of
 -- its detection of the @NEGATIVE@ sentiment.
@@ -89,9 +89,9 @@ sentimentScore_neutral :: Lens.Lens' SentimentScore (Prelude.Maybe Prelude.Doubl
 sentimentScore_neutral = Lens.lens (\SentimentScore' {neutral} -> neutral) (\s@SentimentScore' {} a -> s {neutral = a} :: SentimentScore)
 
 -- | The level of confidence that Amazon Comprehend has in the accuracy of
--- its detection of the @MIXED@ sentiment.
-sentimentScore_mixed :: Lens.Lens' SentimentScore (Prelude.Maybe Prelude.Double)
-sentimentScore_mixed = Lens.lens (\SentimentScore' {mixed} -> mixed) (\s@SentimentScore' {} a -> s {mixed = a} :: SentimentScore)
+-- its detection of the @POSITIVE@ sentiment.
+sentimentScore_positive :: Lens.Lens' SentimentScore (Prelude.Maybe Prelude.Double)
+sentimentScore_positive = Lens.lens (\SentimentScore' {positive} -> positive) (\s@SentimentScore' {} a -> s {positive = a} :: SentimentScore)
 
 instance Data.FromJSON SentimentScore where
   parseJSON =
@@ -99,22 +99,22 @@ instance Data.FromJSON SentimentScore where
       "SentimentScore"
       ( \x ->
           SentimentScore'
-            Prelude.<$> (x Data..:? "Positive")
+            Prelude.<$> (x Data..:? "Mixed")
             Prelude.<*> (x Data..:? "Negative")
             Prelude.<*> (x Data..:? "Neutral")
-            Prelude.<*> (x Data..:? "Mixed")
+            Prelude.<*> (x Data..:? "Positive")
       )
 
 instance Prelude.Hashable SentimentScore where
   hashWithSalt _salt SentimentScore' {..} =
-    _salt `Prelude.hashWithSalt` positive
+    _salt `Prelude.hashWithSalt` mixed
       `Prelude.hashWithSalt` negative
       `Prelude.hashWithSalt` neutral
-      `Prelude.hashWithSalt` mixed
+      `Prelude.hashWithSalt` positive
 
 instance Prelude.NFData SentimentScore where
   rnf SentimentScore' {..} =
-    Prelude.rnf positive
+    Prelude.rnf mixed
       `Prelude.seq` Prelude.rnf negative
       `Prelude.seq` Prelude.rnf neutral
-      `Prelude.seq` Prelude.rnf mixed
+      `Prelude.seq` Prelude.rnf positive

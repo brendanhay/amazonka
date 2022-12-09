@@ -33,11 +33,11 @@ import qualified Amazonka.Prelude as Prelude
 data BatchDetectSentimentItemResult = BatchDetectSentimentItemResult'
   { -- | The zero-based index of the document in the input list.
     index :: Prelude.Maybe Prelude.Int,
+    -- | The sentiment detected in the document.
+    sentiment :: Prelude.Maybe SentimentType,
     -- | The level of confidence that Amazon Comprehend has in the accuracy of
     -- its sentiment detection.
-    sentimentScore :: Prelude.Maybe SentimentScore,
-    -- | The sentiment detected in the document.
-    sentiment :: Prelude.Maybe SentimentType
+    sentimentScore :: Prelude.Maybe SentimentScore
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,32 +51,32 @@ data BatchDetectSentimentItemResult = BatchDetectSentimentItemResult'
 --
 -- 'index', 'batchDetectSentimentItemResult_index' - The zero-based index of the document in the input list.
 --
+-- 'sentiment', 'batchDetectSentimentItemResult_sentiment' - The sentiment detected in the document.
+--
 -- 'sentimentScore', 'batchDetectSentimentItemResult_sentimentScore' - The level of confidence that Amazon Comprehend has in the accuracy of
 -- its sentiment detection.
---
--- 'sentiment', 'batchDetectSentimentItemResult_sentiment' - The sentiment detected in the document.
 newBatchDetectSentimentItemResult ::
   BatchDetectSentimentItemResult
 newBatchDetectSentimentItemResult =
   BatchDetectSentimentItemResult'
     { index =
         Prelude.Nothing,
-      sentimentScore = Prelude.Nothing,
-      sentiment = Prelude.Nothing
+      sentiment = Prelude.Nothing,
+      sentimentScore = Prelude.Nothing
     }
 
 -- | The zero-based index of the document in the input list.
 batchDetectSentimentItemResult_index :: Lens.Lens' BatchDetectSentimentItemResult (Prelude.Maybe Prelude.Int)
 batchDetectSentimentItemResult_index = Lens.lens (\BatchDetectSentimentItemResult' {index} -> index) (\s@BatchDetectSentimentItemResult' {} a -> s {index = a} :: BatchDetectSentimentItemResult)
 
+-- | The sentiment detected in the document.
+batchDetectSentimentItemResult_sentiment :: Lens.Lens' BatchDetectSentimentItemResult (Prelude.Maybe SentimentType)
+batchDetectSentimentItemResult_sentiment = Lens.lens (\BatchDetectSentimentItemResult' {sentiment} -> sentiment) (\s@BatchDetectSentimentItemResult' {} a -> s {sentiment = a} :: BatchDetectSentimentItemResult)
+
 -- | The level of confidence that Amazon Comprehend has in the accuracy of
 -- its sentiment detection.
 batchDetectSentimentItemResult_sentimentScore :: Lens.Lens' BatchDetectSentimentItemResult (Prelude.Maybe SentimentScore)
 batchDetectSentimentItemResult_sentimentScore = Lens.lens (\BatchDetectSentimentItemResult' {sentimentScore} -> sentimentScore) (\s@BatchDetectSentimentItemResult' {} a -> s {sentimentScore = a} :: BatchDetectSentimentItemResult)
-
--- | The sentiment detected in the document.
-batchDetectSentimentItemResult_sentiment :: Lens.Lens' BatchDetectSentimentItemResult (Prelude.Maybe SentimentType)
-batchDetectSentimentItemResult_sentiment = Lens.lens (\BatchDetectSentimentItemResult' {sentiment} -> sentiment) (\s@BatchDetectSentimentItemResult' {} a -> s {sentiment = a} :: BatchDetectSentimentItemResult)
 
 instance Data.FromJSON BatchDetectSentimentItemResult where
   parseJSON =
@@ -85,8 +85,8 @@ instance Data.FromJSON BatchDetectSentimentItemResult where
       ( \x ->
           BatchDetectSentimentItemResult'
             Prelude.<$> (x Data..:? "Index")
-            Prelude.<*> (x Data..:? "SentimentScore")
             Prelude.<*> (x Data..:? "Sentiment")
+            Prelude.<*> (x Data..:? "SentimentScore")
       )
 
 instance
@@ -97,8 +97,8 @@ instance
     _salt
     BatchDetectSentimentItemResult' {..} =
       _salt `Prelude.hashWithSalt` index
-        `Prelude.hashWithSalt` sentimentScore
         `Prelude.hashWithSalt` sentiment
+        `Prelude.hashWithSalt` sentimentScore
 
 instance
   Prelude.NFData
@@ -106,5 +106,5 @@ instance
   where
   rnf BatchDetectSentimentItemResult' {..} =
     Prelude.rnf index
-      `Prelude.seq` Prelude.rnf sentimentScore
       `Prelude.seq` Prelude.rnf sentiment
+      `Prelude.seq` Prelude.rnf sentimentScore

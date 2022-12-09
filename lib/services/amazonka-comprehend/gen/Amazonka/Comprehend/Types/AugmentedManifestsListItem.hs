@@ -32,7 +32,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAugmentedManifestsListItem' smart constructor.
 data AugmentedManifestsListItem = AugmentedManifestsListItem'
-  { -- | The type of augmented manifest. PlainTextDocument or
+  { -- | The S3 prefix to the annotation files that are referred in the augmented
+    -- manifest file.
+    annotationDataS3Uri :: Prelude.Maybe Prelude.Text,
+    -- | The type of augmented manifest. PlainTextDocument or
     -- SemiStructuredDocument. If you don\'t specify, the default is
     -- PlainTextDocument.
     --
@@ -44,9 +47,6 @@ data AugmentedManifestsListItem = AugmentedManifestsListItem'
     --     only PDFs are supported. For inference, Amazon Comprehend support
     --     PDFs, DOCX and TXT.
     documentType :: Prelude.Maybe AugmentedManifestsDocumentTypeFormat,
-    -- | The S3 prefix to the annotation files that are referred in the augmented
-    -- manifest file.
-    annotationDataS3Uri :: Prelude.Maybe Prelude.Text,
     -- | The S3 prefix to the source files (PDFs) that are referred to in the
     -- augmented manifest file.
     sourceDocumentsS3Uri :: Prelude.Maybe Prelude.Text,
@@ -86,6 +86,9 @@ data AugmentedManifestsListItem = AugmentedManifestsListItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'annotationDataS3Uri', 'augmentedManifestsListItem_annotationDataS3Uri' - The S3 prefix to the annotation files that are referred in the augmented
+-- manifest file.
+--
 -- 'documentType', 'augmentedManifestsListItem_documentType' - The type of augmented manifest. PlainTextDocument or
 -- SemiStructuredDocument. If you don\'t specify, the default is
 -- PlainTextDocument.
@@ -97,9 +100,6 @@ data AugmentedManifestsListItem = AugmentedManifestsListItem'
 --     structural context, like a PDF. For training with Amazon Comprehend,
 --     only PDFs are supported. For inference, Amazon Comprehend support
 --     PDFs, DOCX and TXT.
---
--- 'annotationDataS3Uri', 'augmentedManifestsListItem_annotationDataS3Uri' - The S3 prefix to the annotation files that are referred in the augmented
--- manifest file.
 --
 -- 'sourceDocumentsS3Uri', 'augmentedManifestsListItem_sourceDocumentsS3Uri' - The S3 prefix to the source files (PDFs) that are referred to in the
 -- augmented manifest file.
@@ -134,14 +134,19 @@ newAugmentedManifestsListItem ::
   AugmentedManifestsListItem
 newAugmentedManifestsListItem pS3Uri_ =
   AugmentedManifestsListItem'
-    { documentType =
+    { annotationDataS3Uri =
         Prelude.Nothing,
-      annotationDataS3Uri = Prelude.Nothing,
+      documentType = Prelude.Nothing,
       sourceDocumentsS3Uri = Prelude.Nothing,
       split = Prelude.Nothing,
       s3Uri = pS3Uri_,
       attributeNames = Prelude.mempty
     }
+
+-- | The S3 prefix to the annotation files that are referred in the augmented
+-- manifest file.
+augmentedManifestsListItem_annotationDataS3Uri :: Lens.Lens' AugmentedManifestsListItem (Prelude.Maybe Prelude.Text)
+augmentedManifestsListItem_annotationDataS3Uri = Lens.lens (\AugmentedManifestsListItem' {annotationDataS3Uri} -> annotationDataS3Uri) (\s@AugmentedManifestsListItem' {} a -> s {annotationDataS3Uri = a} :: AugmentedManifestsListItem)
 
 -- | The type of augmented manifest. PlainTextDocument or
 -- SemiStructuredDocument. If you don\'t specify, the default is
@@ -156,11 +161,6 @@ newAugmentedManifestsListItem pS3Uri_ =
 --     PDFs, DOCX and TXT.
 augmentedManifestsListItem_documentType :: Lens.Lens' AugmentedManifestsListItem (Prelude.Maybe AugmentedManifestsDocumentTypeFormat)
 augmentedManifestsListItem_documentType = Lens.lens (\AugmentedManifestsListItem' {documentType} -> documentType) (\s@AugmentedManifestsListItem' {} a -> s {documentType = a} :: AugmentedManifestsListItem)
-
--- | The S3 prefix to the annotation files that are referred in the augmented
--- manifest file.
-augmentedManifestsListItem_annotationDataS3Uri :: Lens.Lens' AugmentedManifestsListItem (Prelude.Maybe Prelude.Text)
-augmentedManifestsListItem_annotationDataS3Uri = Lens.lens (\AugmentedManifestsListItem' {annotationDataS3Uri} -> annotationDataS3Uri) (\s@AugmentedManifestsListItem' {} a -> s {annotationDataS3Uri = a} :: AugmentedManifestsListItem)
 
 -- | The S3 prefix to the source files (PDFs) that are referred to in the
 -- augmented manifest file.
@@ -204,8 +204,8 @@ instance Data.FromJSON AugmentedManifestsListItem where
       "AugmentedManifestsListItem"
       ( \x ->
           AugmentedManifestsListItem'
-            Prelude.<$> (x Data..:? "DocumentType")
-            Prelude.<*> (x Data..:? "AnnotationDataS3Uri")
+            Prelude.<$> (x Data..:? "AnnotationDataS3Uri")
+            Prelude.<*> (x Data..:? "DocumentType")
             Prelude.<*> (x Data..:? "SourceDocumentsS3Uri")
             Prelude.<*> (x Data..:? "Split")
             Prelude.<*> (x Data..: "S3Uri")
@@ -216,8 +216,8 @@ instance Data.FromJSON AugmentedManifestsListItem where
 
 instance Prelude.Hashable AugmentedManifestsListItem where
   hashWithSalt _salt AugmentedManifestsListItem' {..} =
-    _salt `Prelude.hashWithSalt` documentType
-      `Prelude.hashWithSalt` annotationDataS3Uri
+    _salt `Prelude.hashWithSalt` annotationDataS3Uri
+      `Prelude.hashWithSalt` documentType
       `Prelude.hashWithSalt` sourceDocumentsS3Uri
       `Prelude.hashWithSalt` split
       `Prelude.hashWithSalt` s3Uri
@@ -225,8 +225,8 @@ instance Prelude.Hashable AugmentedManifestsListItem where
 
 instance Prelude.NFData AugmentedManifestsListItem where
   rnf AugmentedManifestsListItem' {..} =
-    Prelude.rnf documentType
-      `Prelude.seq` Prelude.rnf annotationDataS3Uri
+    Prelude.rnf annotationDataS3Uri
+      `Prelude.seq` Prelude.rnf documentType
       `Prelude.seq` Prelude.rnf sourceDocumentsS3Uri
       `Prelude.seq` Prelude.rnf split
       `Prelude.seq` Prelude.rnf s3Uri
@@ -236,9 +236,9 @@ instance Data.ToJSON AugmentedManifestsListItem where
   toJSON AugmentedManifestsListItem' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("DocumentType" Data..=) Prelude.<$> documentType,
-            ("AnnotationDataS3Uri" Data..=)
+          [ ("AnnotationDataS3Uri" Data..=)
               Prelude.<$> annotationDataS3Uri,
+            ("DocumentType" Data..=) Prelude.<$> documentType,
             ("SourceDocumentsS3Uri" Data..=)
               Prelude.<$> sourceDocumentsS3Uri,
             ("Split" Data..=) Prelude.<$> split,

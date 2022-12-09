@@ -28,9 +28,9 @@ module Amazonka.Comprehend.ListTargetedSentimentDetectionJobs
     newListTargetedSentimentDetectionJobs,
 
     -- * Request Lenses
-    listTargetedSentimentDetectionJobs_nextToken,
     listTargetedSentimentDetectionJobs_filter,
     listTargetedSentimentDetectionJobs_maxResults,
+    listTargetedSentimentDetectionJobs_nextToken,
 
     -- * Destructuring the Response
     ListTargetedSentimentDetectionJobsResponse (..),
@@ -53,15 +53,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListTargetedSentimentDetectionJobs' smart constructor.
 data ListTargetedSentimentDetectionJobs = ListTargetedSentimentDetectionJobs'
-  { -- | Identifies the next page of results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filters the jobs that are returned. You can filter jobs on their name,
+  { -- | Filters the jobs that are returned. You can filter jobs on their name,
     -- status, or the date and time that they were submitted. You can only set
     -- one filter at a time.
     filter' :: Prelude.Maybe TargetedSentimentDetectionJobFilter,
     -- | The maximum number of results to return in each page. The default is
     -- 100.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Identifies the next page of results to return.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,27 +73,23 @@ data ListTargetedSentimentDetectionJobs = ListTargetedSentimentDetectionJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listTargetedSentimentDetectionJobs_nextToken' - Identifies the next page of results to return.
---
 -- 'filter'', 'listTargetedSentimentDetectionJobs_filter' - Filters the jobs that are returned. You can filter jobs on their name,
 -- status, or the date and time that they were submitted. You can only set
 -- one filter at a time.
 --
 -- 'maxResults', 'listTargetedSentimentDetectionJobs_maxResults' - The maximum number of results to return in each page. The default is
 -- 100.
+--
+-- 'nextToken', 'listTargetedSentimentDetectionJobs_nextToken' - Identifies the next page of results to return.
 newListTargetedSentimentDetectionJobs ::
   ListTargetedSentimentDetectionJobs
 newListTargetedSentimentDetectionJobs =
   ListTargetedSentimentDetectionJobs'
-    { nextToken =
+    { filter' =
         Prelude.Nothing,
-      filter' = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | Identifies the next page of results to return.
-listTargetedSentimentDetectionJobs_nextToken :: Lens.Lens' ListTargetedSentimentDetectionJobs (Prelude.Maybe Prelude.Text)
-listTargetedSentimentDetectionJobs_nextToken = Lens.lens (\ListTargetedSentimentDetectionJobs' {nextToken} -> nextToken) (\s@ListTargetedSentimentDetectionJobs' {} a -> s {nextToken = a} :: ListTargetedSentimentDetectionJobs)
 
 -- | Filters the jobs that are returned. You can filter jobs on their name,
 -- status, or the date and time that they were submitted. You can only set
@@ -105,6 +101,10 @@ listTargetedSentimentDetectionJobs_filter = Lens.lens (\ListTargetedSentimentDet
 -- 100.
 listTargetedSentimentDetectionJobs_maxResults :: Lens.Lens' ListTargetedSentimentDetectionJobs (Prelude.Maybe Prelude.Natural)
 listTargetedSentimentDetectionJobs_maxResults = Lens.lens (\ListTargetedSentimentDetectionJobs' {maxResults} -> maxResults) (\s@ListTargetedSentimentDetectionJobs' {} a -> s {maxResults = a} :: ListTargetedSentimentDetectionJobs)
+
+-- | Identifies the next page of results to return.
+listTargetedSentimentDetectionJobs_nextToken :: Lens.Lens' ListTargetedSentimentDetectionJobs (Prelude.Maybe Prelude.Text)
+listTargetedSentimentDetectionJobs_nextToken = Lens.lens (\ListTargetedSentimentDetectionJobs' {nextToken} -> nextToken) (\s@ListTargetedSentimentDetectionJobs' {} a -> s {nextToken = a} :: ListTargetedSentimentDetectionJobs)
 
 instance
   Core.AWSRequest
@@ -134,18 +134,18 @@ instance
   hashWithSalt
     _salt
     ListTargetedSentimentDetectionJobs' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` filter'
+      _salt `Prelude.hashWithSalt` filter'
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     ListTargetedSentimentDetectionJobs
   where
   rnf ListTargetedSentimentDetectionJobs' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filter'
+    Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -172,9 +172,9 @@ instance
   toJSON ListTargetedSentimentDetectionJobs' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filter" Data..=) Prelude.<$> filter',
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("Filter" Data..=) Prelude.<$> filter',
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

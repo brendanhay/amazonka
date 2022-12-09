@@ -31,6 +31,9 @@ import qualified Amazonka.Prelude as Prelude
 data DocumentLabel = DocumentLabel'
   { -- | The name of the label.
     name :: Prelude.Maybe Prelude.Text,
+    -- | Page number where the label occurs. This field is present in the
+    -- response only if your request includes the @Byte@ parameter.
+    page :: Prelude.Maybe Prelude.Int,
     -- | The confidence score that Amazon Comprehend has this label correctly
     -- attributed.
     score :: Prelude.Maybe Prelude.Double
@@ -47,6 +50,9 @@ data DocumentLabel = DocumentLabel'
 --
 -- 'name', 'documentLabel_name' - The name of the label.
 --
+-- 'page', 'documentLabel_page' - Page number where the label occurs. This field is present in the
+-- response only if your request includes the @Byte@ parameter.
+--
 -- 'score', 'documentLabel_score' - The confidence score that Amazon Comprehend has this label correctly
 -- attributed.
 newDocumentLabel ::
@@ -54,12 +60,18 @@ newDocumentLabel ::
 newDocumentLabel =
   DocumentLabel'
     { name = Prelude.Nothing,
+      page = Prelude.Nothing,
       score = Prelude.Nothing
     }
 
 -- | The name of the label.
 documentLabel_name :: Lens.Lens' DocumentLabel (Prelude.Maybe Prelude.Text)
 documentLabel_name = Lens.lens (\DocumentLabel' {name} -> name) (\s@DocumentLabel' {} a -> s {name = a} :: DocumentLabel)
+
+-- | Page number where the label occurs. This field is present in the
+-- response only if your request includes the @Byte@ parameter.
+documentLabel_page :: Lens.Lens' DocumentLabel (Prelude.Maybe Prelude.Int)
+documentLabel_page = Lens.lens (\DocumentLabel' {page} -> page) (\s@DocumentLabel' {} a -> s {page = a} :: DocumentLabel)
 
 -- | The confidence score that Amazon Comprehend has this label correctly
 -- attributed.
@@ -72,14 +84,19 @@ instance Data.FromJSON DocumentLabel where
       "DocumentLabel"
       ( \x ->
           DocumentLabel'
-            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Score")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Page")
+            Prelude.<*> (x Data..:? "Score")
       )
 
 instance Prelude.Hashable DocumentLabel where
   hashWithSalt _salt DocumentLabel' {..} =
     _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` page
       `Prelude.hashWithSalt` score
 
 instance Prelude.NFData DocumentLabel where
   rnf DocumentLabel' {..} =
-    Prelude.rnf name `Prelude.seq` Prelude.rnf score
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf page
+      `Prelude.seq` Prelude.rnf score

@@ -35,10 +35,10 @@ module Amazonka.Comprehend.DescribeResourcePolicy
     newDescribeResourcePolicyResponse,
 
     -- * Response Lenses
+    describeResourcePolicyResponse_creationTime,
     describeResourcePolicyResponse_lastModifiedTime,
     describeResourcePolicyResponse_policyRevisionId,
     describeResourcePolicyResponse_resourcePolicy,
-    describeResourcePolicyResponse_creationTime,
     describeResourcePolicyResponse_httpStatus,
   )
 where
@@ -53,7 +53,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeResourcePolicy' smart constructor.
 data DescribeResourcePolicy = DescribeResourcePolicy'
-  { -- | The Amazon Resource Name (ARN) of the policy to describe.
+  { -- | The Amazon Resource Name (ARN) of the custom model version that has the
+    -- resource policy.
     resourceArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -66,7 +67,8 @@ data DescribeResourcePolicy = DescribeResourcePolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'describeResourcePolicy_resourceArn' - The Amazon Resource Name (ARN) of the policy to describe.
+-- 'resourceArn', 'describeResourcePolicy_resourceArn' - The Amazon Resource Name (ARN) of the custom model version that has the
+-- resource policy.
 newDescribeResourcePolicy ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -77,7 +79,8 @@ newDescribeResourcePolicy pResourceArn_ =
         pResourceArn_
     }
 
--- | The Amazon Resource Name (ARN) of the policy to describe.
+-- | The Amazon Resource Name (ARN) of the custom model version that has the
+-- resource policy.
 describeResourcePolicy_resourceArn :: Lens.Lens' DescribeResourcePolicy Prelude.Text
 describeResourcePolicy_resourceArn = Lens.lens (\DescribeResourcePolicy' {resourceArn} -> resourceArn) (\s@DescribeResourcePolicy' {} a -> s {resourceArn = a} :: DescribeResourcePolicy)
 
@@ -91,10 +94,10 @@ instance Core.AWSRequest DescribeResourcePolicy where
     Response.receiveJSON
       ( \s h x ->
           DescribeResourcePolicyResponse'
-            Prelude.<$> (x Data..?> "LastModifiedTime")
+            Prelude.<$> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
             Prelude.<*> (x Data..?> "PolicyRevisionId")
             Prelude.<*> (x Data..?> "ResourcePolicy")
-            Prelude.<*> (x Data..?> "CreationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,7 +139,9 @@ instance Data.ToQuery DescribeResourcePolicy where
 
 -- | /See:/ 'newDescribeResourcePolicyResponse' smart constructor.
 data DescribeResourcePolicyResponse = DescribeResourcePolicyResponse'
-  { -- | The time at which the policy was last modified.
+  { -- | The time at which the policy was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
+    -- | The time at which the policy was last modified.
     lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The revision ID of the policy. Each time you modify a policy, Amazon
     -- Comprehend assigns a new revision ID, and it deletes the prior version
@@ -144,8 +149,6 @@ data DescribeResourcePolicyResponse = DescribeResourcePolicyResponse'
     policyRevisionId :: Prelude.Maybe Prelude.Text,
     -- | The JSON body of the resource-based policy.
     resourcePolicy :: Prelude.Maybe Prelude.Text,
-    -- | The time at which the policy was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -159,6 +162,8 @@ data DescribeResourcePolicyResponse = DescribeResourcePolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'creationTime', 'describeResourcePolicyResponse_creationTime' - The time at which the policy was created.
+--
 -- 'lastModifiedTime', 'describeResourcePolicyResponse_lastModifiedTime' - The time at which the policy was last modified.
 --
 -- 'policyRevisionId', 'describeResourcePolicyResponse_policyRevisionId' - The revision ID of the policy. Each time you modify a policy, Amazon
@@ -167,8 +172,6 @@ data DescribeResourcePolicyResponse = DescribeResourcePolicyResponse'
 --
 -- 'resourcePolicy', 'describeResourcePolicyResponse_resourcePolicy' - The JSON body of the resource-based policy.
 --
--- 'creationTime', 'describeResourcePolicyResponse_creationTime' - The time at which the policy was created.
---
 -- 'httpStatus', 'describeResourcePolicyResponse_httpStatus' - The response's http status code.
 newDescribeResourcePolicyResponse ::
   -- | 'httpStatus'
@@ -176,13 +179,17 @@ newDescribeResourcePolicyResponse ::
   DescribeResourcePolicyResponse
 newDescribeResourcePolicyResponse pHttpStatus_ =
   DescribeResourcePolicyResponse'
-    { lastModifiedTime =
+    { creationTime =
         Prelude.Nothing,
+      lastModifiedTime = Prelude.Nothing,
       policyRevisionId = Prelude.Nothing,
       resourcePolicy = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The time at which the policy was created.
+describeResourcePolicyResponse_creationTime :: Lens.Lens' DescribeResourcePolicyResponse (Prelude.Maybe Prelude.UTCTime)
+describeResourcePolicyResponse_creationTime = Lens.lens (\DescribeResourcePolicyResponse' {creationTime} -> creationTime) (\s@DescribeResourcePolicyResponse' {} a -> s {creationTime = a} :: DescribeResourcePolicyResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The time at which the policy was last modified.
 describeResourcePolicyResponse_lastModifiedTime :: Lens.Lens' DescribeResourcePolicyResponse (Prelude.Maybe Prelude.UTCTime)
@@ -198,10 +205,6 @@ describeResourcePolicyResponse_policyRevisionId = Lens.lens (\DescribeResourcePo
 describeResourcePolicyResponse_resourcePolicy :: Lens.Lens' DescribeResourcePolicyResponse (Prelude.Maybe Prelude.Text)
 describeResourcePolicyResponse_resourcePolicy = Lens.lens (\DescribeResourcePolicyResponse' {resourcePolicy} -> resourcePolicy) (\s@DescribeResourcePolicyResponse' {} a -> s {resourcePolicy = a} :: DescribeResourcePolicyResponse)
 
--- | The time at which the policy was created.
-describeResourcePolicyResponse_creationTime :: Lens.Lens' DescribeResourcePolicyResponse (Prelude.Maybe Prelude.UTCTime)
-describeResourcePolicyResponse_creationTime = Lens.lens (\DescribeResourcePolicyResponse' {creationTime} -> creationTime) (\s@DescribeResourcePolicyResponse' {} a -> s {creationTime = a} :: DescribeResourcePolicyResponse) Prelude.. Lens.mapping Data._Time
-
 -- | The response's http status code.
 describeResourcePolicyResponse_httpStatus :: Lens.Lens' DescribeResourcePolicyResponse Prelude.Int
 describeResourcePolicyResponse_httpStatus = Lens.lens (\DescribeResourcePolicyResponse' {httpStatus} -> httpStatus) (\s@DescribeResourcePolicyResponse' {} a -> s {httpStatus = a} :: DescribeResourcePolicyResponse)
@@ -211,8 +214,8 @@ instance
     DescribeResourcePolicyResponse
   where
   rnf DescribeResourcePolicyResponse' {..} =
-    Prelude.rnf lastModifiedTime
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf lastModifiedTime
       `Prelude.seq` Prelude.rnf policyRevisionId
       `Prelude.seq` Prelude.rnf resourcePolicy
-      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf httpStatus

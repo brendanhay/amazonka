@@ -33,9 +33,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMentionSentiment' smart constructor.
 data MentionSentiment = MentionSentiment'
-  { sentimentScore :: Prelude.Maybe SentimentScore,
-    -- | The sentiment of the mention.
-    sentiment :: Prelude.Maybe SentimentType
+  { -- | The sentiment of the mention.
+    sentiment :: Prelude.Maybe SentimentType,
+    sentimentScore :: Prelude.Maybe SentimentScore
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,24 +47,24 @@ data MentionSentiment = MentionSentiment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sentimentScore', 'mentionSentiment_sentimentScore' - Undocumented member.
---
 -- 'sentiment', 'mentionSentiment_sentiment' - The sentiment of the mention.
+--
+-- 'sentimentScore', 'mentionSentiment_sentimentScore' - Undocumented member.
 newMentionSentiment ::
   MentionSentiment
 newMentionSentiment =
   MentionSentiment'
-    { sentimentScore = Prelude.Nothing,
-      sentiment = Prelude.Nothing
+    { sentiment = Prelude.Nothing,
+      sentimentScore = Prelude.Nothing
     }
-
--- | Undocumented member.
-mentionSentiment_sentimentScore :: Lens.Lens' MentionSentiment (Prelude.Maybe SentimentScore)
-mentionSentiment_sentimentScore = Lens.lens (\MentionSentiment' {sentimentScore} -> sentimentScore) (\s@MentionSentiment' {} a -> s {sentimentScore = a} :: MentionSentiment)
 
 -- | The sentiment of the mention.
 mentionSentiment_sentiment :: Lens.Lens' MentionSentiment (Prelude.Maybe SentimentType)
 mentionSentiment_sentiment = Lens.lens (\MentionSentiment' {sentiment} -> sentiment) (\s@MentionSentiment' {} a -> s {sentiment = a} :: MentionSentiment)
+
+-- | Undocumented member.
+mentionSentiment_sentimentScore :: Lens.Lens' MentionSentiment (Prelude.Maybe SentimentScore)
+mentionSentiment_sentimentScore = Lens.lens (\MentionSentiment' {sentimentScore} -> sentimentScore) (\s@MentionSentiment' {} a -> s {sentimentScore = a} :: MentionSentiment)
 
 instance Data.FromJSON MentionSentiment where
   parseJSON =
@@ -72,16 +72,16 @@ instance Data.FromJSON MentionSentiment where
       "MentionSentiment"
       ( \x ->
           MentionSentiment'
-            Prelude.<$> (x Data..:? "SentimentScore")
-            Prelude.<*> (x Data..:? "Sentiment")
+            Prelude.<$> (x Data..:? "Sentiment")
+            Prelude.<*> (x Data..:? "SentimentScore")
       )
 
 instance Prelude.Hashable MentionSentiment where
   hashWithSalt _salt MentionSentiment' {..} =
-    _salt `Prelude.hashWithSalt` sentimentScore
-      `Prelude.hashWithSalt` sentiment
+    _salt `Prelude.hashWithSalt` sentiment
+      `Prelude.hashWithSalt` sentimentScore
 
 instance Prelude.NFData MentionSentiment where
   rnf MentionSentiment' {..} =
-    Prelude.rnf sentimentScore
-      `Prelude.seq` Prelude.rnf sentiment
+    Prelude.rnf sentiment
+      `Prelude.seq` Prelude.rnf sentimentScore

@@ -26,16 +26,13 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | The input properties for an inference job.
+-- | The input properties for an inference job. The document reader config
+-- field applies only to non-text inputs for custom analysis.
 --
 -- /See:/ 'newInputDataConfig' smart constructor.
 data InputDataConfig = InputDataConfig'
-  { -- | The document reader config field applies only for InputDataConfig of
-    -- StartEntitiesDetectionJob.
-    --
-    -- Use DocumentReaderConfig to provide specifications about how you want
-    -- your inference documents read. Currently it applies for PDF documents in
-    -- StartEntitiesDetectionJob custom inference.
+  { -- | Provides configuration parameters to override the default actions for
+    -- extracting text from PDF documents and image files.
     documentReaderConfig :: Prelude.Maybe DocumentReaderConfig,
     -- | Specifies how the text in an input file should be processed:
     --
@@ -67,12 +64,8 @@ data InputDataConfig = InputDataConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'documentReaderConfig', 'inputDataConfig_documentReaderConfig' - The document reader config field applies only for InputDataConfig of
--- StartEntitiesDetectionJob.
---
--- Use DocumentReaderConfig to provide specifications about how you want
--- your inference documents read. Currently it applies for PDF documents in
--- StartEntitiesDetectionJob custom inference.
+-- 'documentReaderConfig', 'inputDataConfig_documentReaderConfig' - Provides configuration parameters to override the default actions for
+-- extracting text from PDF documents and image files.
 --
 -- 'inputFormat', 'inputDataConfig_inputFormat' - Specifies how the text in an input file should be processed:
 --
@@ -104,12 +97,8 @@ newInputDataConfig pS3Uri_ =
       s3Uri = pS3Uri_
     }
 
--- | The document reader config field applies only for InputDataConfig of
--- StartEntitiesDetectionJob.
---
--- Use DocumentReaderConfig to provide specifications about how you want
--- your inference documents read. Currently it applies for PDF documents in
--- StartEntitiesDetectionJob custom inference.
+-- | Provides configuration parameters to override the default actions for
+-- extracting text from PDF documents and image files.
 inputDataConfig_documentReaderConfig :: Lens.Lens' InputDataConfig (Prelude.Maybe DocumentReaderConfig)
 inputDataConfig_documentReaderConfig = Lens.lens (\InputDataConfig' {documentReaderConfig} -> documentReaderConfig) (\s@InputDataConfig' {} a -> s {documentReaderConfig = a} :: InputDataConfig)
 

@@ -29,8 +29,8 @@ module Amazonka.Budgets.DescribeBudgetActionsForAccount
     newDescribeBudgetActionsForAccount,
 
     -- * Request Lenses
-    describeBudgetActionsForAccount_nextToken,
     describeBudgetActionsForAccount_maxResults,
+    describeBudgetActionsForAccount_nextToken,
     describeBudgetActionsForAccount_accountId,
 
     -- * Destructuring the Response
@@ -54,8 +54,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeBudgetActionsForAccount' smart constructor.
 data DescribeBudgetActionsForAccount = DescribeBudgetActionsForAccount'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    maxResults :: Prelude.Maybe Prelude.Natural,
+  { maxResults :: Prelude.Maybe Prelude.Natural,
+    nextToken :: Prelude.Maybe Prelude.Text,
     accountId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,9 +68,9 @@ data DescribeBudgetActionsForAccount = DescribeBudgetActionsForAccount'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeBudgetActionsForAccount_nextToken' - Undocumented member.
---
 -- 'maxResults', 'describeBudgetActionsForAccount_maxResults' - Undocumented member.
+--
+-- 'nextToken', 'describeBudgetActionsForAccount_nextToken' - Undocumented member.
 --
 -- 'accountId', 'describeBudgetActionsForAccount_accountId' - Undocumented member.
 newDescribeBudgetActionsForAccount ::
@@ -79,19 +79,19 @@ newDescribeBudgetActionsForAccount ::
   DescribeBudgetActionsForAccount
 newDescribeBudgetActionsForAccount pAccountId_ =
   DescribeBudgetActionsForAccount'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       accountId = pAccountId_
     }
 
 -- | Undocumented member.
-describeBudgetActionsForAccount_nextToken :: Lens.Lens' DescribeBudgetActionsForAccount (Prelude.Maybe Prelude.Text)
-describeBudgetActionsForAccount_nextToken = Lens.lens (\DescribeBudgetActionsForAccount' {nextToken} -> nextToken) (\s@DescribeBudgetActionsForAccount' {} a -> s {nextToken = a} :: DescribeBudgetActionsForAccount)
-
--- | Undocumented member.
 describeBudgetActionsForAccount_maxResults :: Lens.Lens' DescribeBudgetActionsForAccount (Prelude.Maybe Prelude.Natural)
 describeBudgetActionsForAccount_maxResults = Lens.lens (\DescribeBudgetActionsForAccount' {maxResults} -> maxResults) (\s@DescribeBudgetActionsForAccount' {} a -> s {maxResults = a} :: DescribeBudgetActionsForAccount)
+
+-- | Undocumented member.
+describeBudgetActionsForAccount_nextToken :: Lens.Lens' DescribeBudgetActionsForAccount (Prelude.Maybe Prelude.Text)
+describeBudgetActionsForAccount_nextToken = Lens.lens (\DescribeBudgetActionsForAccount' {nextToken} -> nextToken) (\s@DescribeBudgetActionsForAccount' {} a -> s {nextToken = a} :: DescribeBudgetActionsForAccount)
 
 -- | Undocumented member.
 describeBudgetActionsForAccount_accountId :: Lens.Lens' DescribeBudgetActionsForAccount Prelude.Text
@@ -146,8 +146,8 @@ instance
   hashWithSalt
     _salt
     DescribeBudgetActionsForAccount' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` accountId
 
 instance
@@ -155,8 +155,8 @@ instance
     DescribeBudgetActionsForAccount
   where
   rnf DescribeBudgetActionsForAccount' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf accountId
 
 instance
@@ -181,8 +181,8 @@ instance Data.ToJSON DescribeBudgetActionsForAccount where
   toJSON DescribeBudgetActionsForAccount' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("AccountId" Data..= accountId)
           ]
       )

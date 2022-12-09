@@ -29,8 +29,8 @@ module Amazonka.Budgets.DescribeNotificationsForBudget
     newDescribeNotificationsForBudget,
 
     -- * Request Lenses
-    describeNotificationsForBudget_nextToken,
     describeNotificationsForBudget_maxResults,
+    describeNotificationsForBudget_nextToken,
     describeNotificationsForBudget_accountId,
     describeNotificationsForBudget_budgetName,
 
@@ -39,8 +39,8 @@ module Amazonka.Budgets.DescribeNotificationsForBudget
     newDescribeNotificationsForBudgetResponse,
 
     -- * Response Lenses
-    describeNotificationsForBudgetResponse_notifications,
     describeNotificationsForBudgetResponse_nextToken,
+    describeNotificationsForBudgetResponse_notifications,
     describeNotificationsForBudgetResponse_httpStatus,
   )
 where
@@ -57,12 +57,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeNotificationsForBudget' smart constructor.
 data DescribeNotificationsForBudget = DescribeNotificationsForBudget'
-  { -- | The pagination token that you include in your request to indicate the
-    -- next set of results that you want to retrieve.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An optional integer that represents how many entries a paginated
+  { -- | An optional integer that represents how many entries a paginated
     -- response contains. The maximum is 100.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token that you include in your request to indicate the
+    -- next set of results that you want to retrieve.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The @accountId@ that is associated with the budget whose notifications
     -- you want descriptions of.
     accountId :: Prelude.Text,
@@ -79,11 +79,11 @@ data DescribeNotificationsForBudget = DescribeNotificationsForBudget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeNotificationsForBudget_nextToken' - The pagination token that you include in your request to indicate the
--- next set of results that you want to retrieve.
---
 -- 'maxResults', 'describeNotificationsForBudget_maxResults' - An optional integer that represents how many entries a paginated
 -- response contains. The maximum is 100.
+--
+-- 'nextToken', 'describeNotificationsForBudget_nextToken' - The pagination token that you include in your request to indicate the
+-- next set of results that you want to retrieve.
 --
 -- 'accountId', 'describeNotificationsForBudget_accountId' - The @accountId@ that is associated with the budget whose notifications
 -- you want descriptions of.
@@ -99,22 +99,22 @@ newDescribeNotificationsForBudget
   pAccountId_
   pBudgetName_ =
     DescribeNotificationsForBudget'
-      { nextToken =
+      { maxResults =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         accountId = pAccountId_,
         budgetName = pBudgetName_
       }
-
--- | The pagination token that you include in your request to indicate the
--- next set of results that you want to retrieve.
-describeNotificationsForBudget_nextToken :: Lens.Lens' DescribeNotificationsForBudget (Prelude.Maybe Prelude.Text)
-describeNotificationsForBudget_nextToken = Lens.lens (\DescribeNotificationsForBudget' {nextToken} -> nextToken) (\s@DescribeNotificationsForBudget' {} a -> s {nextToken = a} :: DescribeNotificationsForBudget)
 
 -- | An optional integer that represents how many entries a paginated
 -- response contains. The maximum is 100.
 describeNotificationsForBudget_maxResults :: Lens.Lens' DescribeNotificationsForBudget (Prelude.Maybe Prelude.Natural)
 describeNotificationsForBudget_maxResults = Lens.lens (\DescribeNotificationsForBudget' {maxResults} -> maxResults) (\s@DescribeNotificationsForBudget' {} a -> s {maxResults = a} :: DescribeNotificationsForBudget)
+
+-- | The pagination token that you include in your request to indicate the
+-- next set of results that you want to retrieve.
+describeNotificationsForBudget_nextToken :: Lens.Lens' DescribeNotificationsForBudget (Prelude.Maybe Prelude.Text)
+describeNotificationsForBudget_nextToken = Lens.lens (\DescribeNotificationsForBudget' {nextToken} -> nextToken) (\s@DescribeNotificationsForBudget' {} a -> s {nextToken = a} :: DescribeNotificationsForBudget)
 
 -- | The @accountId@ that is associated with the budget whose notifications
 -- you want descriptions of.
@@ -160,8 +160,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeNotificationsForBudgetResponse'
-            Prelude.<$> (x Data..?> "Notifications" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Notifications" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -172,8 +172,8 @@ instance
   hashWithSalt
     _salt
     DescribeNotificationsForBudget' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` accountId
         `Prelude.hashWithSalt` budgetName
 
@@ -182,8 +182,8 @@ instance
     DescribeNotificationsForBudget
   where
   rnf DescribeNotificationsForBudget' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf budgetName
 
@@ -209,8 +209,8 @@ instance Data.ToJSON DescribeNotificationsForBudget where
   toJSON DescribeNotificationsForBudget' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("AccountId" Data..= accountId),
             Prelude.Just ("BudgetName" Data..= budgetName)
           ]
@@ -226,11 +226,11 @@ instance Data.ToQuery DescribeNotificationsForBudget where
 --
 -- /See:/ 'newDescribeNotificationsForBudgetResponse' smart constructor.
 data DescribeNotificationsForBudgetResponse = DescribeNotificationsForBudgetResponse'
-  { -- | A list of notifications that are associated with a budget.
-    notifications :: Prelude.Maybe [Notification],
-    -- | The pagination token in the service response that indicates the next set
+  { -- | The pagination token in the service response that indicates the next set
     -- of results that you can retrieve.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of notifications that are associated with a budget.
+    notifications :: Prelude.Maybe [Notification],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -244,10 +244,10 @@ data DescribeNotificationsForBudgetResponse = DescribeNotificationsForBudgetResp
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'notifications', 'describeNotificationsForBudgetResponse_notifications' - A list of notifications that are associated with a budget.
---
 -- 'nextToken', 'describeNotificationsForBudgetResponse_nextToken' - The pagination token in the service response that indicates the next set
 -- of results that you can retrieve.
+--
+-- 'notifications', 'describeNotificationsForBudgetResponse_notifications' - A list of notifications that are associated with a budget.
 --
 -- 'httpStatus', 'describeNotificationsForBudgetResponse_httpStatus' - The response's http status code.
 newDescribeNotificationsForBudgetResponse ::
@@ -257,20 +257,20 @@ newDescribeNotificationsForBudgetResponse ::
 newDescribeNotificationsForBudgetResponse
   pHttpStatus_ =
     DescribeNotificationsForBudgetResponse'
-      { notifications =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        notifications = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | A list of notifications that are associated with a budget.
-describeNotificationsForBudgetResponse_notifications :: Lens.Lens' DescribeNotificationsForBudgetResponse (Prelude.Maybe [Notification])
-describeNotificationsForBudgetResponse_notifications = Lens.lens (\DescribeNotificationsForBudgetResponse' {notifications} -> notifications) (\s@DescribeNotificationsForBudgetResponse' {} a -> s {notifications = a} :: DescribeNotificationsForBudgetResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token in the service response that indicates the next set
 -- of results that you can retrieve.
 describeNotificationsForBudgetResponse_nextToken :: Lens.Lens' DescribeNotificationsForBudgetResponse (Prelude.Maybe Prelude.Text)
 describeNotificationsForBudgetResponse_nextToken = Lens.lens (\DescribeNotificationsForBudgetResponse' {nextToken} -> nextToken) (\s@DescribeNotificationsForBudgetResponse' {} a -> s {nextToken = a} :: DescribeNotificationsForBudgetResponse)
+
+-- | A list of notifications that are associated with a budget.
+describeNotificationsForBudgetResponse_notifications :: Lens.Lens' DescribeNotificationsForBudgetResponse (Prelude.Maybe [Notification])
+describeNotificationsForBudgetResponse_notifications = Lens.lens (\DescribeNotificationsForBudgetResponse' {notifications} -> notifications) (\s@DescribeNotificationsForBudgetResponse' {} a -> s {notifications = a} :: DescribeNotificationsForBudgetResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeNotificationsForBudgetResponse_httpStatus :: Lens.Lens' DescribeNotificationsForBudgetResponse Prelude.Int
@@ -281,6 +281,6 @@ instance
     DescribeNotificationsForBudgetResponse
   where
   rnf DescribeNotificationsForBudgetResponse' {..} =
-    Prelude.rnf notifications
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf notifications
       `Prelude.seq` Prelude.rnf httpStatus

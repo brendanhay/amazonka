@@ -55,6 +55,31 @@ data Budget = Budget'
     -- can\'t use @BudgetLimit@ with @PlannedBudgetLimits@ for @CreateBudget@
     -- and @UpdateBudget@ actions.
     budgetLimit :: Prelude.Maybe Spend,
+    -- | The actual and forecasted cost or usage that the budget tracks.
+    calculatedSpend :: Prelude.Maybe CalculatedSpend,
+    -- | The cost filters, such as @Region@, @Service@, @member account@, @Tag@,
+    -- or @Cost Category@, that are applied to a budget.
+    --
+    -- Amazon Web Services Budgets supports the following services as a
+    -- @Service@ filter for RI budgets:
+    --
+    -- -   Amazon EC2
+    --
+    -- -   Amazon Redshift
+    --
+    -- -   Amazon Relational Database Service
+    --
+    -- -   Amazon ElastiCache
+    --
+    -- -   Amazon OpenSearch Service
+    costFilters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
+    -- | The types of costs that are included in this @COST@ budget.
+    --
+    -- @USAGE@, @RI_UTILIZATION@, @RI_COVERAGE@, @SAVINGS_PLANS_UTILIZATION@,
+    -- and @SAVINGS_PLANS_COVERAGE@ budgets do not have @CostTypes@.
+    costTypes :: Prelude.Maybe CostTypes,
+    -- | The last time that you updated this budget.
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | A map containing multiple @BudgetLimit@, including current or future
     -- limits.
     --
@@ -89,26 +114,6 @@ data Budget = Budget'
     -- Budgets that are created without @PlannedBudgetLimits@ only contain
     -- @BudgetLimit@. They don\'t contain @PlannedBudgetLimits@.
     plannedBudgetLimits :: Prelude.Maybe (Prelude.HashMap Prelude.Text Spend),
-    -- | The cost filters, such as @Region@, @Service@, @member account@, @Tag@,
-    -- or @Cost Category@, that are applied to a budget.
-    --
-    -- Amazon Web Services Budgets supports the following services as a
-    -- @Service@ filter for RI budgets:
-    --
-    -- -   Amazon EC2
-    --
-    -- -   Amazon Redshift
-    --
-    -- -   Amazon Relational Database Service
-    --
-    -- -   Amazon ElastiCache
-    --
-    -- -   Amazon OpenSearch Service
-    costFilters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
-    -- | The last time that you updated this budget.
-    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
-    -- | The actual and forecasted cost or usage that the budget tracks.
-    calculatedSpend :: Prelude.Maybe CalculatedSpend,
     -- | The period of time that\'s covered by a budget. You setthe start date
     -- and end date. The start date must come before the end date. The end date
     -- must come before @06\/15\/87 00:00 UTC@.
@@ -128,11 +133,6 @@ data Budget = Budget'
     -- After the end date, Amazon Web Services deletes the budget and all the
     -- associated notifications and subscribers.
     timePeriod :: Prelude.Maybe TimePeriod,
-    -- | The types of costs that are included in this @COST@ budget.
-    --
-    -- @USAGE@, @RI_UTILIZATION@, @RI_COVERAGE@, @SAVINGS_PLANS_UTILIZATION@,
-    -- and @SAVINGS_PLANS_COVERAGE@ budgets do not have @CostTypes@.
-    costTypes :: Prelude.Maybe CostTypes,
     -- | The name of a budget. The name must be unique within an account. The @:@
     -- and @\\@ characters aren\'t allowed in @BudgetName@.
     budgetName :: Prelude.Text,
@@ -166,6 +166,31 @@ data Budget = Budget'
 -- value for RI or Savings Plans utilization or coverage budgets. You
 -- can\'t use @BudgetLimit@ with @PlannedBudgetLimits@ for @CreateBudget@
 -- and @UpdateBudget@ actions.
+--
+-- 'calculatedSpend', 'budget_calculatedSpend' - The actual and forecasted cost or usage that the budget tracks.
+--
+-- 'costFilters', 'budget_costFilters' - The cost filters, such as @Region@, @Service@, @member account@, @Tag@,
+-- or @Cost Category@, that are applied to a budget.
+--
+-- Amazon Web Services Budgets supports the following services as a
+-- @Service@ filter for RI budgets:
+--
+-- -   Amazon EC2
+--
+-- -   Amazon Redshift
+--
+-- -   Amazon Relational Database Service
+--
+-- -   Amazon ElastiCache
+--
+-- -   Amazon OpenSearch Service
+--
+-- 'costTypes', 'budget_costTypes' - The types of costs that are included in this @COST@ budget.
+--
+-- @USAGE@, @RI_UTILIZATION@, @RI_COVERAGE@, @SAVINGS_PLANS_UTILIZATION@,
+-- and @SAVINGS_PLANS_COVERAGE@ budgets do not have @CostTypes@.
+--
+-- 'lastUpdatedTime', 'budget_lastUpdatedTime' - The last time that you updated this budget.
 --
 -- 'plannedBudgetLimits', 'budget_plannedBudgetLimits' - A map containing multiple @BudgetLimit@, including current or future
 -- limits.
@@ -201,26 +226,6 @@ data Budget = Budget'
 -- Budgets that are created without @PlannedBudgetLimits@ only contain
 -- @BudgetLimit@. They don\'t contain @PlannedBudgetLimits@.
 --
--- 'costFilters', 'budget_costFilters' - The cost filters, such as @Region@, @Service@, @member account@, @Tag@,
--- or @Cost Category@, that are applied to a budget.
---
--- Amazon Web Services Budgets supports the following services as a
--- @Service@ filter for RI budgets:
---
--- -   Amazon EC2
---
--- -   Amazon Redshift
---
--- -   Amazon Relational Database Service
---
--- -   Amazon ElastiCache
---
--- -   Amazon OpenSearch Service
---
--- 'lastUpdatedTime', 'budget_lastUpdatedTime' - The last time that you updated this budget.
---
--- 'calculatedSpend', 'budget_calculatedSpend' - The actual and forecasted cost or usage that the budget tracks.
---
 -- 'timePeriod', 'budget_timePeriod' - The period of time that\'s covered by a budget. You setthe start date
 -- and end date. The start date must come before the end date. The end date
 -- must come before @06\/15\/87 00:00 UTC@.
@@ -239,11 +244,6 @@ data Budget = Budget'
 --
 -- After the end date, Amazon Web Services deletes the budget and all the
 -- associated notifications and subscribers.
---
--- 'costTypes', 'budget_costTypes' - The types of costs that are included in this @COST@ budget.
---
--- @USAGE@, @RI_UTILIZATION@, @RI_COVERAGE@, @SAVINGS_PLANS_UTILIZATION@,
--- and @SAVINGS_PLANS_COVERAGE@ budgets do not have @CostTypes@.
 --
 -- 'budgetName', 'budget_budgetName' - The name of a budget. The name must be unique within an account. The @:@
 -- and @\\@ characters aren\'t allowed in @BudgetName@.
@@ -265,12 +265,12 @@ newBudget pBudgetName_ pTimeUnit_ pBudgetType_ =
   Budget'
     { autoAdjustData = Prelude.Nothing,
       budgetLimit = Prelude.Nothing,
-      plannedBudgetLimits = Prelude.Nothing,
-      costFilters = Prelude.Nothing,
-      lastUpdatedTime = Prelude.Nothing,
       calculatedSpend = Prelude.Nothing,
-      timePeriod = Prelude.Nothing,
+      costFilters = Prelude.Nothing,
       costTypes = Prelude.Nothing,
+      lastUpdatedTime = Prelude.Nothing,
+      plannedBudgetLimits = Prelude.Nothing,
+      timePeriod = Prelude.Nothing,
       budgetName = pBudgetName_,
       timeUnit = pTimeUnit_,
       budgetType = pBudgetType_
@@ -293,6 +293,39 @@ budget_autoAdjustData = Lens.lens (\Budget' {autoAdjustData} -> autoAdjustData) 
 -- and @UpdateBudget@ actions.
 budget_budgetLimit :: Lens.Lens' Budget (Prelude.Maybe Spend)
 budget_budgetLimit = Lens.lens (\Budget' {budgetLimit} -> budgetLimit) (\s@Budget' {} a -> s {budgetLimit = a} :: Budget)
+
+-- | The actual and forecasted cost or usage that the budget tracks.
+budget_calculatedSpend :: Lens.Lens' Budget (Prelude.Maybe CalculatedSpend)
+budget_calculatedSpend = Lens.lens (\Budget' {calculatedSpend} -> calculatedSpend) (\s@Budget' {} a -> s {calculatedSpend = a} :: Budget)
+
+-- | The cost filters, such as @Region@, @Service@, @member account@, @Tag@,
+-- or @Cost Category@, that are applied to a budget.
+--
+-- Amazon Web Services Budgets supports the following services as a
+-- @Service@ filter for RI budgets:
+--
+-- -   Amazon EC2
+--
+-- -   Amazon Redshift
+--
+-- -   Amazon Relational Database Service
+--
+-- -   Amazon ElastiCache
+--
+-- -   Amazon OpenSearch Service
+budget_costFilters :: Lens.Lens' Budget (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
+budget_costFilters = Lens.lens (\Budget' {costFilters} -> costFilters) (\s@Budget' {} a -> s {costFilters = a} :: Budget) Prelude.. Lens.mapping Lens.coerced
+
+-- | The types of costs that are included in this @COST@ budget.
+--
+-- @USAGE@, @RI_UTILIZATION@, @RI_COVERAGE@, @SAVINGS_PLANS_UTILIZATION@,
+-- and @SAVINGS_PLANS_COVERAGE@ budgets do not have @CostTypes@.
+budget_costTypes :: Lens.Lens' Budget (Prelude.Maybe CostTypes)
+budget_costTypes = Lens.lens (\Budget' {costTypes} -> costTypes) (\s@Budget' {} a -> s {costTypes = a} :: Budget)
+
+-- | The last time that you updated this budget.
+budget_lastUpdatedTime :: Lens.Lens' Budget (Prelude.Maybe Prelude.UTCTime)
+budget_lastUpdatedTime = Lens.lens (\Budget' {lastUpdatedTime} -> lastUpdatedTime) (\s@Budget' {} a -> s {lastUpdatedTime = a} :: Budget) Prelude.. Lens.mapping Data._Time
 
 -- | A map containing multiple @BudgetLimit@, including current or future
 -- limits.
@@ -330,32 +363,6 @@ budget_budgetLimit = Lens.lens (\Budget' {budgetLimit} -> budgetLimit) (\s@Budge
 budget_plannedBudgetLimits :: Lens.Lens' Budget (Prelude.Maybe (Prelude.HashMap Prelude.Text Spend))
 budget_plannedBudgetLimits = Lens.lens (\Budget' {plannedBudgetLimits} -> plannedBudgetLimits) (\s@Budget' {} a -> s {plannedBudgetLimits = a} :: Budget) Prelude.. Lens.mapping Lens.coerced
 
--- | The cost filters, such as @Region@, @Service@, @member account@, @Tag@,
--- or @Cost Category@, that are applied to a budget.
---
--- Amazon Web Services Budgets supports the following services as a
--- @Service@ filter for RI budgets:
---
--- -   Amazon EC2
---
--- -   Amazon Redshift
---
--- -   Amazon Relational Database Service
---
--- -   Amazon ElastiCache
---
--- -   Amazon OpenSearch Service
-budget_costFilters :: Lens.Lens' Budget (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-budget_costFilters = Lens.lens (\Budget' {costFilters} -> costFilters) (\s@Budget' {} a -> s {costFilters = a} :: Budget) Prelude.. Lens.mapping Lens.coerced
-
--- | The last time that you updated this budget.
-budget_lastUpdatedTime :: Lens.Lens' Budget (Prelude.Maybe Prelude.UTCTime)
-budget_lastUpdatedTime = Lens.lens (\Budget' {lastUpdatedTime} -> lastUpdatedTime) (\s@Budget' {} a -> s {lastUpdatedTime = a} :: Budget) Prelude.. Lens.mapping Data._Time
-
--- | The actual and forecasted cost or usage that the budget tracks.
-budget_calculatedSpend :: Lens.Lens' Budget (Prelude.Maybe CalculatedSpend)
-budget_calculatedSpend = Lens.lens (\Budget' {calculatedSpend} -> calculatedSpend) (\s@Budget' {} a -> s {calculatedSpend = a} :: Budget)
-
 -- | The period of time that\'s covered by a budget. You setthe start date
 -- and end date. The start date must come before the end date. The end date
 -- must come before @06\/15\/87 00:00 UTC@.
@@ -376,13 +383,6 @@ budget_calculatedSpend = Lens.lens (\Budget' {calculatedSpend} -> calculatedSpen
 -- associated notifications and subscribers.
 budget_timePeriod :: Lens.Lens' Budget (Prelude.Maybe TimePeriod)
 budget_timePeriod = Lens.lens (\Budget' {timePeriod} -> timePeriod) (\s@Budget' {} a -> s {timePeriod = a} :: Budget)
-
--- | The types of costs that are included in this @COST@ budget.
---
--- @USAGE@, @RI_UTILIZATION@, @RI_COVERAGE@, @SAVINGS_PLANS_UTILIZATION@,
--- and @SAVINGS_PLANS_COVERAGE@ budgets do not have @CostTypes@.
-budget_costTypes :: Lens.Lens' Budget (Prelude.Maybe CostTypes)
-budget_costTypes = Lens.lens (\Budget' {costTypes} -> costTypes) (\s@Budget' {} a -> s {costTypes = a} :: Budget)
 
 -- | The name of a budget. The name must be unique within an account. The @:@
 -- and @\\@ characters aren\'t allowed in @BudgetName@.
@@ -407,14 +407,14 @@ instance Data.FromJSON Budget where
           Budget'
             Prelude.<$> (x Data..:? "AutoAdjustData")
             Prelude.<*> (x Data..:? "BudgetLimit")
+            Prelude.<*> (x Data..:? "CalculatedSpend")
+            Prelude.<*> (x Data..:? "CostFilters" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CostTypes")
+            Prelude.<*> (x Data..:? "LastUpdatedTime")
             Prelude.<*> ( x Data..:? "PlannedBudgetLimits"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "CostFilters" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "LastUpdatedTime")
-            Prelude.<*> (x Data..:? "CalculatedSpend")
             Prelude.<*> (x Data..:? "TimePeriod")
-            Prelude.<*> (x Data..:? "CostTypes")
             Prelude.<*> (x Data..: "BudgetName")
             Prelude.<*> (x Data..: "TimeUnit")
             Prelude.<*> (x Data..: "BudgetType")
@@ -424,12 +424,12 @@ instance Prelude.Hashable Budget where
   hashWithSalt _salt Budget' {..} =
     _salt `Prelude.hashWithSalt` autoAdjustData
       `Prelude.hashWithSalt` budgetLimit
-      `Prelude.hashWithSalt` plannedBudgetLimits
-      `Prelude.hashWithSalt` costFilters
-      `Prelude.hashWithSalt` lastUpdatedTime
       `Prelude.hashWithSalt` calculatedSpend
-      `Prelude.hashWithSalt` timePeriod
+      `Prelude.hashWithSalt` costFilters
       `Prelude.hashWithSalt` costTypes
+      `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` plannedBudgetLimits
+      `Prelude.hashWithSalt` timePeriod
       `Prelude.hashWithSalt` budgetName
       `Prelude.hashWithSalt` timeUnit
       `Prelude.hashWithSalt` budgetType
@@ -438,12 +438,12 @@ instance Prelude.NFData Budget where
   rnf Budget' {..} =
     Prelude.rnf autoAdjustData
       `Prelude.seq` Prelude.rnf budgetLimit
-      `Prelude.seq` Prelude.rnf plannedBudgetLimits
-      `Prelude.seq` Prelude.rnf costFilters
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
       `Prelude.seq` Prelude.rnf calculatedSpend
-      `Prelude.seq` Prelude.rnf timePeriod
+      `Prelude.seq` Prelude.rnf costFilters
       `Prelude.seq` Prelude.rnf costTypes
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf plannedBudgetLimits
+      `Prelude.seq` Prelude.rnf timePeriod
       `Prelude.seq` Prelude.rnf budgetName
       `Prelude.seq` Prelude.rnf timeUnit
       `Prelude.seq` Prelude.rnf budgetType
@@ -455,15 +455,15 @@ instance Data.ToJSON Budget where
           [ ("AutoAdjustData" Data..=)
               Prelude.<$> autoAdjustData,
             ("BudgetLimit" Data..=) Prelude.<$> budgetLimit,
-            ("PlannedBudgetLimits" Data..=)
-              Prelude.<$> plannedBudgetLimits,
-            ("CostFilters" Data..=) Prelude.<$> costFilters,
-            ("LastUpdatedTime" Data..=)
-              Prelude.<$> lastUpdatedTime,
             ("CalculatedSpend" Data..=)
               Prelude.<$> calculatedSpend,
-            ("TimePeriod" Data..=) Prelude.<$> timePeriod,
+            ("CostFilters" Data..=) Prelude.<$> costFilters,
             ("CostTypes" Data..=) Prelude.<$> costTypes,
+            ("LastUpdatedTime" Data..=)
+              Prelude.<$> lastUpdatedTime,
+            ("PlannedBudgetLimits" Data..=)
+              Prelude.<$> plannedBudgetLimits,
+            ("TimePeriod" Data..=) Prelude.<$> timePeriod,
             Prelude.Just ("BudgetName" Data..= budgetName),
             Prelude.Just ("TimeUnit" Data..= timeUnit),
             Prelude.Just ("BudgetType" Data..= budgetType)

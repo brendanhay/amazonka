@@ -49,7 +49,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNotification' smart constructor.
 data Notification = Notification'
-  { -- | The type of threshold for a notification. For @ABSOLUTE_VALUE@
+  { -- | Specifies whether this notification is in alarm. If a budget
+    -- notification is in the @ALARM@ state, you passed the set threshold for
+    -- the budget.
+    notificationState :: Prelude.Maybe NotificationState,
+    -- | The type of threshold for a notification. For @ABSOLUTE_VALUE@
     -- thresholds, Amazon Web Services notifies you when you go over or are
     -- forecasted to go over your total cost threshold. For @PERCENTAGE@
     -- thresholds, Amazon Web Services notifies you when you go over or are
@@ -58,10 +62,6 @@ data Notification = Notification'
     -- @PERCENTAGE@ threshold of 80%, Amazon Web Services notifies you when you
     -- go over 160 dollars.
     thresholdType :: Prelude.Maybe ThresholdType,
-    -- | Specifies whether this notification is in alarm. If a budget
-    -- notification is in the @ALARM@ state, you passed the set threshold for
-    -- the budget.
-    notificationState :: Prelude.Maybe NotificationState,
     -- | Specifies whether the notification is for how much you have spent
     -- (@ACTUAL@) or for how much that you\'re forecasted to spend
     -- (@FORECASTED@).
@@ -84,6 +84,10 @@ data Notification = Notification'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'notificationState', 'notification_notificationState' - Specifies whether this notification is in alarm. If a budget
+-- notification is in the @ALARM@ state, you passed the set threshold for
+-- the budget.
+--
 -- 'thresholdType', 'notification_thresholdType' - The type of threshold for a notification. For @ABSOLUTE_VALUE@
 -- thresholds, Amazon Web Services notifies you when you go over or are
 -- forecasted to go over your total cost threshold. For @PERCENTAGE@
@@ -92,10 +96,6 @@ data Notification = Notification'
 -- example, if you have a budget for 200 dollars and you have a
 -- @PERCENTAGE@ threshold of 80%, Amazon Web Services notifies you when you
 -- go over 160 dollars.
---
--- 'notificationState', 'notification_notificationState' - Specifies whether this notification is in alarm. If a budget
--- notification is in the @ALARM@ state, you passed the set threshold for
--- the budget.
 --
 -- 'notificationType', 'notification_notificationType' - Specifies whether the notification is for how much you have spent
 -- (@ACTUAL@) or for how much that you\'re forecasted to spend
@@ -120,12 +120,18 @@ newNotification
   pComparisonOperator_
   pThreshold_ =
     Notification'
-      { thresholdType = Prelude.Nothing,
-        notificationState = Prelude.Nothing,
+      { notificationState = Prelude.Nothing,
+        thresholdType = Prelude.Nothing,
         notificationType = pNotificationType_,
         comparisonOperator = pComparisonOperator_,
         threshold = pThreshold_
       }
+
+-- | Specifies whether this notification is in alarm. If a budget
+-- notification is in the @ALARM@ state, you passed the set threshold for
+-- the budget.
+notification_notificationState :: Lens.Lens' Notification (Prelude.Maybe NotificationState)
+notification_notificationState = Lens.lens (\Notification' {notificationState} -> notificationState) (\s@Notification' {} a -> s {notificationState = a} :: Notification)
 
 -- | The type of threshold for a notification. For @ABSOLUTE_VALUE@
 -- thresholds, Amazon Web Services notifies you when you go over or are
@@ -137,12 +143,6 @@ newNotification
 -- go over 160 dollars.
 notification_thresholdType :: Lens.Lens' Notification (Prelude.Maybe ThresholdType)
 notification_thresholdType = Lens.lens (\Notification' {thresholdType} -> thresholdType) (\s@Notification' {} a -> s {thresholdType = a} :: Notification)
-
--- | Specifies whether this notification is in alarm. If a budget
--- notification is in the @ALARM@ state, you passed the set threshold for
--- the budget.
-notification_notificationState :: Lens.Lens' Notification (Prelude.Maybe NotificationState)
-notification_notificationState = Lens.lens (\Notification' {notificationState} -> notificationState) (\s@Notification' {} a -> s {notificationState = a} :: Notification)
 
 -- | Specifies whether the notification is for how much you have spent
 -- (@ACTUAL@) or for how much that you\'re forecasted to spend
@@ -167,8 +167,8 @@ instance Data.FromJSON Notification where
       "Notification"
       ( \x ->
           Notification'
-            Prelude.<$> (x Data..:? "ThresholdType")
-            Prelude.<*> (x Data..:? "NotificationState")
+            Prelude.<$> (x Data..:? "NotificationState")
+            Prelude.<*> (x Data..:? "ThresholdType")
             Prelude.<*> (x Data..: "NotificationType")
             Prelude.<*> (x Data..: "ComparisonOperator")
             Prelude.<*> (x Data..: "Threshold")
@@ -176,16 +176,16 @@ instance Data.FromJSON Notification where
 
 instance Prelude.Hashable Notification where
   hashWithSalt _salt Notification' {..} =
-    _salt `Prelude.hashWithSalt` thresholdType
-      `Prelude.hashWithSalt` notificationState
+    _salt `Prelude.hashWithSalt` notificationState
+      `Prelude.hashWithSalt` thresholdType
       `Prelude.hashWithSalt` notificationType
       `Prelude.hashWithSalt` comparisonOperator
       `Prelude.hashWithSalt` threshold
 
 instance Prelude.NFData Notification where
   rnf Notification' {..} =
-    Prelude.rnf thresholdType
-      `Prelude.seq` Prelude.rnf notificationState
+    Prelude.rnf notificationState
+      `Prelude.seq` Prelude.rnf thresholdType
       `Prelude.seq` Prelude.rnf notificationType
       `Prelude.seq` Prelude.rnf comparisonOperator
       `Prelude.seq` Prelude.rnf threshold
@@ -194,9 +194,9 @@ instance Data.ToJSON Notification where
   toJSON Notification' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ThresholdType" Data..=) Prelude.<$> thresholdType,
-            ("NotificationState" Data..=)
+          [ ("NotificationState" Data..=)
               Prelude.<$> notificationState,
+            ("ThresholdType" Data..=) Prelude.<$> thresholdType,
             Prelude.Just
               ("NotificationType" Data..= notificationType),
             Prelude.Just

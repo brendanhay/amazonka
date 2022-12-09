@@ -29,8 +29,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBudgetNotificationsForAccount' smart constructor.
 data BudgetNotificationsForAccount = BudgetNotificationsForAccount'
-  { notifications :: Prelude.Maybe [Notification],
-    budgetName :: Prelude.Maybe Prelude.Text
+  { budgetName :: Prelude.Maybe Prelude.Text,
+    notifications :: Prelude.Maybe [Notification]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,25 +42,25 @@ data BudgetNotificationsForAccount = BudgetNotificationsForAccount'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'notifications', 'budgetNotificationsForAccount_notifications' - Undocumented member.
---
 -- 'budgetName', 'budgetNotificationsForAccount_budgetName' - Undocumented member.
+--
+-- 'notifications', 'budgetNotificationsForAccount_notifications' - Undocumented member.
 newBudgetNotificationsForAccount ::
   BudgetNotificationsForAccount
 newBudgetNotificationsForAccount =
   BudgetNotificationsForAccount'
-    { notifications =
+    { budgetName =
         Prelude.Nothing,
-      budgetName = Prelude.Nothing
+      notifications = Prelude.Nothing
     }
-
--- | Undocumented member.
-budgetNotificationsForAccount_notifications :: Lens.Lens' BudgetNotificationsForAccount (Prelude.Maybe [Notification])
-budgetNotificationsForAccount_notifications = Lens.lens (\BudgetNotificationsForAccount' {notifications} -> notifications) (\s@BudgetNotificationsForAccount' {} a -> s {notifications = a} :: BudgetNotificationsForAccount) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 budgetNotificationsForAccount_budgetName :: Lens.Lens' BudgetNotificationsForAccount (Prelude.Maybe Prelude.Text)
 budgetNotificationsForAccount_budgetName = Lens.lens (\BudgetNotificationsForAccount' {budgetName} -> budgetName) (\s@BudgetNotificationsForAccount' {} a -> s {budgetName = a} :: BudgetNotificationsForAccount)
+
+-- | Undocumented member.
+budgetNotificationsForAccount_notifications :: Lens.Lens' BudgetNotificationsForAccount (Prelude.Maybe [Notification])
+budgetNotificationsForAccount_notifications = Lens.lens (\BudgetNotificationsForAccount' {notifications} -> notifications) (\s@BudgetNotificationsForAccount' {} a -> s {notifications = a} :: BudgetNotificationsForAccount) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON BudgetNotificationsForAccount where
   parseJSON =
@@ -68,8 +68,8 @@ instance Data.FromJSON BudgetNotificationsForAccount where
       "BudgetNotificationsForAccount"
       ( \x ->
           BudgetNotificationsForAccount'
-            Prelude.<$> (x Data..:? "Notifications" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "BudgetName")
+            Prelude.<$> (x Data..:? "BudgetName")
+            Prelude.<*> (x Data..:? "Notifications" Data..!= Prelude.mempty)
       )
 
 instance
@@ -77,10 +77,10 @@ instance
     BudgetNotificationsForAccount
   where
   hashWithSalt _salt BudgetNotificationsForAccount' {..} =
-    _salt `Prelude.hashWithSalt` notifications
-      `Prelude.hashWithSalt` budgetName
+    _salt `Prelude.hashWithSalt` budgetName
+      `Prelude.hashWithSalt` notifications
 
 instance Prelude.NFData BudgetNotificationsForAccount where
   rnf BudgetNotificationsForAccount' {..} =
-    Prelude.rnf notifications
-      `Prelude.seq` Prelude.rnf budgetName
+    Prelude.rnf budgetName
+      `Prelude.seq` Prelude.rnf notifications

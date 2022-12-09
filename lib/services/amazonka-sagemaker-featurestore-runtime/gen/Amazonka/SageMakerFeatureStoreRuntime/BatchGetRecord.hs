@@ -140,7 +140,7 @@ data BatchGetRecordResponse = BatchGetRecordResponse'
     httpStatus :: Prelude.Int,
     -- | A list of Records you requested to be retrieved in batch.
     records :: [BatchGetRecordResultDetail],
-    -- | A list of errors that have occured when retrieving a batch of Records.
+    -- | A list of errors that have occurred when retrieving a batch of Records.
     errors :: [BatchGetRecordError],
     -- | A unprocessed list of @FeatureGroup@ names, with their corresponding
     -- @RecordIdentifier@ value, and Feature name.
@@ -160,7 +160,7 @@ data BatchGetRecordResponse = BatchGetRecordResponse'
 --
 -- 'records', 'batchGetRecordResponse_records' - A list of Records you requested to be retrieved in batch.
 --
--- 'errors', 'batchGetRecordResponse_errors' - A list of errors that have occured when retrieving a batch of Records.
+-- 'errors', 'batchGetRecordResponse_errors' - A list of errors that have occurred when retrieving a batch of Records.
 --
 -- 'unprocessedIdentifiers', 'batchGetRecordResponse_unprocessedIdentifiers' - A unprocessed list of @FeatureGroup@ names, with their corresponding
 -- @RecordIdentifier@ value, and Feature name.
@@ -184,7 +184,7 @@ batchGetRecordResponse_httpStatus = Lens.lens (\BatchGetRecordResponse' {httpSta
 batchGetRecordResponse_records :: Lens.Lens' BatchGetRecordResponse [BatchGetRecordResultDetail]
 batchGetRecordResponse_records = Lens.lens (\BatchGetRecordResponse' {records} -> records) (\s@BatchGetRecordResponse' {} a -> s {records = a} :: BatchGetRecordResponse) Prelude.. Lens.coerced
 
--- | A list of errors that have occured when retrieving a batch of Records.
+-- | A list of errors that have occurred when retrieving a batch of Records.
 batchGetRecordResponse_errors :: Lens.Lens' BatchGetRecordResponse [BatchGetRecordError]
 batchGetRecordResponse_errors = Lens.lens (\BatchGetRecordResponse' {errors} -> errors) (\s@BatchGetRecordResponse' {} a -> s {errors = a} :: BatchGetRecordResponse) Prelude.. Lens.coerced
 

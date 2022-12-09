@@ -15,6 +15,7 @@ haskell_library(
         "gen/Amazonka/SageMakerFeatureStoreRuntime/Types/BatchGetRecordIdentifier.hs",
         "gen/Amazonka/SageMakerFeatureStoreRuntime/Types/BatchGetRecordResultDetail.hs",
         "gen/Amazonka/SageMakerFeatureStoreRuntime/Types/FeatureValue.hs",
+        "gen/Amazonka/SageMakerFeatureStoreRuntime/Types/TargetStore.hs",
         "gen/Amazonka/SageMakerFeatureStoreRuntime/Waiters.hs",
     ],
     ghcopts = [

@@ -22,6 +22,7 @@ module Amazonka.SageMakerFeatureStoreRuntime.Lens
     batchGetRecordResponse_unprocessedIdentifiers,
 
     -- ** DeleteRecord
+    deleteRecord_targetStores,
     deleteRecord_featureGroupName,
     deleteRecord_recordIdentifierValueAsString,
     deleteRecord_eventTime,
@@ -34,6 +35,7 @@ module Amazonka.SageMakerFeatureStoreRuntime.Lens
     getRecordResponse_httpStatus,
 
     -- ** PutRecord
+    putRecord_targetStores,
     putRecord_featureGroupName,
     putRecord_record,
 

@@ -33,9 +33,9 @@ module Amazonka.IoTSecureTunneling.ListTunnels
     newListTunnels,
 
     -- * Request Lenses
+    listTunnels_maxResults,
     listTunnels_nextToken,
     listTunnels_thingName,
-    listTunnels_maxResults,
 
     -- * Destructuring the Response
     ListTunnelsResponse (..),
@@ -58,13 +58,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListTunnels' smart constructor.
 data ListTunnels = ListTunnels'
-  { -- | To retrieve the next set of results, the nextToken value from a previous
+  { -- | The maximum number of results to return at once.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | To retrieve the next set of results, the nextToken value from a previous
     -- response; otherwise null to receive the first set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the IoT thing associated with the destination device.
-    thingName :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return at once.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    thingName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,20 +76,24 @@ data ListTunnels = ListTunnels'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listTunnels_maxResults' - The maximum number of results to return at once.
+--
 -- 'nextToken', 'listTunnels_nextToken' - To retrieve the next set of results, the nextToken value from a previous
 -- response; otherwise null to receive the first set of results.
 --
 -- 'thingName', 'listTunnels_thingName' - The name of the IoT thing associated with the destination device.
---
--- 'maxResults', 'listTunnels_maxResults' - The maximum number of results to return at once.
 newListTunnels ::
   ListTunnels
 newListTunnels =
   ListTunnels'
-    { nextToken = Prelude.Nothing,
-      thingName = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      thingName = Prelude.Nothing
     }
+
+-- | The maximum number of results to return at once.
+listTunnels_maxResults :: Lens.Lens' ListTunnels (Prelude.Maybe Prelude.Natural)
+listTunnels_maxResults = Lens.lens (\ListTunnels' {maxResults} -> maxResults) (\s@ListTunnels' {} a -> s {maxResults = a} :: ListTunnels)
 
 -- | To retrieve the next set of results, the nextToken value from a previous
 -- response; otherwise null to receive the first set of results.
@@ -99,10 +103,6 @@ listTunnels_nextToken = Lens.lens (\ListTunnels' {nextToken} -> nextToken) (\s@L
 -- | The name of the IoT thing associated with the destination device.
 listTunnels_thingName :: Lens.Lens' ListTunnels (Prelude.Maybe Prelude.Text)
 listTunnels_thingName = Lens.lens (\ListTunnels' {thingName} -> thingName) (\s@ListTunnels' {} a -> s {thingName = a} :: ListTunnels)
-
--- | The maximum number of results to return at once.
-listTunnels_maxResults :: Lens.Lens' ListTunnels (Prelude.Maybe Prelude.Natural)
-listTunnels_maxResults = Lens.lens (\ListTunnels' {maxResults} -> maxResults) (\s@ListTunnels' {} a -> s {maxResults = a} :: ListTunnels)
 
 instance Core.AWSRequest ListTunnels where
   type AWSResponse ListTunnels = ListTunnelsResponse
@@ -121,15 +121,15 @@ instance Core.AWSRequest ListTunnels where
 
 instance Prelude.Hashable ListTunnels where
   hashWithSalt _salt ListTunnels' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` thingName
-      `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListTunnels where
   rnf ListTunnels' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf thingName
-      `Prelude.seq` Prelude.rnf maxResults
 
 instance Data.ToHeaders ListTunnels where
   toHeaders =
@@ -150,9 +150,9 @@ instance Data.ToJSON ListTunnels where
   toJSON ListTunnels' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("thingName" Data..=) Prelude.<$> thingName,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("thingName" Data..=) Prelude.<$> thingName
           ]
       )
 

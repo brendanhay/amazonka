@@ -29,18 +29,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTunnelSummary' smart constructor.
 data TunnelSummary = TunnelSummary'
-  { -- | The time the tunnel was last updated.
+  { -- | The time the tunnel was created.
+    createdAt :: Prelude.Maybe Data.POSIX,
+    -- | A description of the tunnel.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The time the tunnel was last updated.
     lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The status of a tunnel. Valid values are: Open and Closed.
     status :: Prelude.Maybe TunnelStatus,
-    -- | A description of the tunnel.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The unique alpha-numeric identifier for the tunnel.
-    tunnelId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name of the tunnel.
     tunnelArn :: Prelude.Maybe Prelude.Text,
-    -- | The time the tunnel was created.
-    createdAt :: Prelude.Maybe Data.POSIX
+    -- | The unique alpha-numeric identifier for the tunnel.
+    tunnelId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,28 +52,36 @@ data TunnelSummary = TunnelSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'createdAt', 'tunnelSummary_createdAt' - The time the tunnel was created.
+--
+-- 'description', 'tunnelSummary_description' - A description of the tunnel.
+--
 -- 'lastUpdatedAt', 'tunnelSummary_lastUpdatedAt' - The time the tunnel was last updated.
 --
 -- 'status', 'tunnelSummary_status' - The status of a tunnel. Valid values are: Open and Closed.
 --
--- 'description', 'tunnelSummary_description' - A description of the tunnel.
---
--- 'tunnelId', 'tunnelSummary_tunnelId' - The unique alpha-numeric identifier for the tunnel.
---
 -- 'tunnelArn', 'tunnelSummary_tunnelArn' - The Amazon Resource Name of the tunnel.
 --
--- 'createdAt', 'tunnelSummary_createdAt' - The time the tunnel was created.
+-- 'tunnelId', 'tunnelSummary_tunnelId' - The unique alpha-numeric identifier for the tunnel.
 newTunnelSummary ::
   TunnelSummary
 newTunnelSummary =
   TunnelSummary'
-    { lastUpdatedAt = Prelude.Nothing,
-      status = Prelude.Nothing,
+    { createdAt = Prelude.Nothing,
       description = Prelude.Nothing,
-      tunnelId = Prelude.Nothing,
+      lastUpdatedAt = Prelude.Nothing,
+      status = Prelude.Nothing,
       tunnelArn = Prelude.Nothing,
-      createdAt = Prelude.Nothing
+      tunnelId = Prelude.Nothing
     }
+
+-- | The time the tunnel was created.
+tunnelSummary_createdAt :: Lens.Lens' TunnelSummary (Prelude.Maybe Prelude.UTCTime)
+tunnelSummary_createdAt = Lens.lens (\TunnelSummary' {createdAt} -> createdAt) (\s@TunnelSummary' {} a -> s {createdAt = a} :: TunnelSummary) Prelude.. Lens.mapping Data._Time
+
+-- | A description of the tunnel.
+tunnelSummary_description :: Lens.Lens' TunnelSummary (Prelude.Maybe Prelude.Text)
+tunnelSummary_description = Lens.lens (\TunnelSummary' {description} -> description) (\s@TunnelSummary' {} a -> s {description = a} :: TunnelSummary)
 
 -- | The time the tunnel was last updated.
 tunnelSummary_lastUpdatedAt :: Lens.Lens' TunnelSummary (Prelude.Maybe Prelude.UTCTime)
@@ -83,21 +91,13 @@ tunnelSummary_lastUpdatedAt = Lens.lens (\TunnelSummary' {lastUpdatedAt} -> last
 tunnelSummary_status :: Lens.Lens' TunnelSummary (Prelude.Maybe TunnelStatus)
 tunnelSummary_status = Lens.lens (\TunnelSummary' {status} -> status) (\s@TunnelSummary' {} a -> s {status = a} :: TunnelSummary)
 
--- | A description of the tunnel.
-tunnelSummary_description :: Lens.Lens' TunnelSummary (Prelude.Maybe Prelude.Text)
-tunnelSummary_description = Lens.lens (\TunnelSummary' {description} -> description) (\s@TunnelSummary' {} a -> s {description = a} :: TunnelSummary)
-
--- | The unique alpha-numeric identifier for the tunnel.
-tunnelSummary_tunnelId :: Lens.Lens' TunnelSummary (Prelude.Maybe Prelude.Text)
-tunnelSummary_tunnelId = Lens.lens (\TunnelSummary' {tunnelId} -> tunnelId) (\s@TunnelSummary' {} a -> s {tunnelId = a} :: TunnelSummary)
-
 -- | The Amazon Resource Name of the tunnel.
 tunnelSummary_tunnelArn :: Lens.Lens' TunnelSummary (Prelude.Maybe Prelude.Text)
 tunnelSummary_tunnelArn = Lens.lens (\TunnelSummary' {tunnelArn} -> tunnelArn) (\s@TunnelSummary' {} a -> s {tunnelArn = a} :: TunnelSummary)
 
--- | The time the tunnel was created.
-tunnelSummary_createdAt :: Lens.Lens' TunnelSummary (Prelude.Maybe Prelude.UTCTime)
-tunnelSummary_createdAt = Lens.lens (\TunnelSummary' {createdAt} -> createdAt) (\s@TunnelSummary' {} a -> s {createdAt = a} :: TunnelSummary) Prelude.. Lens.mapping Data._Time
+-- | The unique alpha-numeric identifier for the tunnel.
+tunnelSummary_tunnelId :: Lens.Lens' TunnelSummary (Prelude.Maybe Prelude.Text)
+tunnelSummary_tunnelId = Lens.lens (\TunnelSummary' {tunnelId} -> tunnelId) (\s@TunnelSummary' {} a -> s {tunnelId = a} :: TunnelSummary)
 
 instance Data.FromJSON TunnelSummary where
   parseJSON =
@@ -105,28 +105,28 @@ instance Data.FromJSON TunnelSummary where
       "TunnelSummary"
       ( \x ->
           TunnelSummary'
-            Prelude.<$> (x Data..:? "lastUpdatedAt")
-            Prelude.<*> (x Data..:? "status")
+            Prelude.<$> (x Data..:? "createdAt")
             Prelude.<*> (x Data..:? "description")
-            Prelude.<*> (x Data..:? "tunnelId")
+            Prelude.<*> (x Data..:? "lastUpdatedAt")
+            Prelude.<*> (x Data..:? "status")
             Prelude.<*> (x Data..:? "tunnelArn")
-            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "tunnelId")
       )
 
 instance Prelude.Hashable TunnelSummary where
   hashWithSalt _salt TunnelSummary' {..} =
-    _salt `Prelude.hashWithSalt` lastUpdatedAt
-      `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tunnelId
+      `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` tunnelArn
-      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` tunnelId
 
 instance Prelude.NFData TunnelSummary where
   rnf TunnelSummary' {..} =
-    Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tunnelId
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf tunnelArn
-      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf tunnelId

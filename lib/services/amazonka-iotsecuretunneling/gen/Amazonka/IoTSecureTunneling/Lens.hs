@@ -30,30 +30,30 @@ module Amazonka.IoTSecureTunneling.Lens
     listTagsForResourceResponse_httpStatus,
 
     -- ** ListTunnels
+    listTunnels_maxResults,
     listTunnels_nextToken,
     listTunnels_thingName,
-    listTunnels_maxResults,
     listTunnelsResponse_nextToken,
     listTunnelsResponse_tunnelSummaries,
     listTunnelsResponse_httpStatus,
 
     -- ** OpenTunnel
-    openTunnel_tags,
     openTunnel_description,
     openTunnel_destinationConfig,
+    openTunnel_tags,
     openTunnel_timeoutConfig,
-    openTunnelResponse_sourceAccessToken,
     openTunnelResponse_destinationAccessToken,
-    openTunnelResponse_tunnelId,
+    openTunnelResponse_sourceAccessToken,
     openTunnelResponse_tunnelArn,
+    openTunnelResponse_tunnelId,
     openTunnelResponse_httpStatus,
 
     -- ** RotateTunnelAccessToken
     rotateTunnelAccessToken_destinationConfig,
     rotateTunnelAccessToken_tunnelId,
     rotateTunnelAccessToken_clientMode,
-    rotateTunnelAccessTokenResponse_sourceAccessToken,
     rotateTunnelAccessTokenResponse_destinationAccessToken,
+    rotateTunnelAccessTokenResponse_sourceAccessToken,
     rotateTunnelAccessTokenResponse_tunnelArn,
     rotateTunnelAccessTokenResponse_httpStatus,
 
@@ -85,25 +85,25 @@ module Amazonka.IoTSecureTunneling.Lens
     timeoutConfig_maxLifetimeTimeoutMinutes,
 
     -- ** Tunnel
-    tunnel_tags,
-    tunnel_lastUpdatedAt,
-    tunnel_destinationConnectionState,
-    tunnel_status,
+    tunnel_createdAt,
     tunnel_description,
     tunnel_destinationConfig,
-    tunnel_tunnelId,
+    tunnel_destinationConnectionState,
+    tunnel_lastUpdatedAt,
+    tunnel_sourceConnectionState,
+    tunnel_status,
+    tunnel_tags,
     tunnel_timeoutConfig,
     tunnel_tunnelArn,
-    tunnel_createdAt,
-    tunnel_sourceConnectionState,
+    tunnel_tunnelId,
 
     -- ** TunnelSummary
+    tunnelSummary_createdAt,
+    tunnelSummary_description,
     tunnelSummary_lastUpdatedAt,
     tunnelSummary_status,
-    tunnelSummary_description,
-    tunnelSummary_tunnelId,
     tunnelSummary_tunnelArn,
-    tunnelSummary_createdAt,
+    tunnelSummary_tunnelId,
   )
 where
 

@@ -47,8 +47,8 @@ module Amazonka.IoTSecureTunneling.RotateTunnelAccessToken
     newRotateTunnelAccessTokenResponse,
 
     -- * Response Lenses
-    rotateTunnelAccessTokenResponse_sourceAccessToken,
     rotateTunnelAccessTokenResponse_destinationAccessToken,
+    rotateTunnelAccessTokenResponse_sourceAccessToken,
     rotateTunnelAccessTokenResponse_tunnelArn,
     rotateTunnelAccessTokenResponse_httpStatus,
   )
@@ -124,8 +124,8 @@ instance Core.AWSRequest RotateTunnelAccessToken where
     Response.receiveJSON
       ( \s h x ->
           RotateTunnelAccessTokenResponse'
-            Prelude.<$> (x Data..?> "sourceAccessToken")
-            Prelude.<*> (x Data..?> "destinationAccessToken")
+            Prelude.<$> (x Data..?> "destinationAccessToken")
+            Prelude.<*> (x Data..?> "sourceAccessToken")
             Prelude.<*> (x Data..?> "tunnelArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -176,12 +176,12 @@ instance Data.ToQuery RotateTunnelAccessToken where
 
 -- | /See:/ 'newRotateTunnelAccessTokenResponse' smart constructor.
 data RotateTunnelAccessTokenResponse = RotateTunnelAccessTokenResponse'
-  { -- | The client access token that the source local proxy uses to connect to
-    -- IoT Secure Tunneling.
-    sourceAccessToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The client access token that the destination local proxy uses to connect
+  { -- | The client access token that the destination local proxy uses to connect
     -- to IoT Secure Tunneling.
     destinationAccessToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The client access token that the source local proxy uses to connect to
+    -- IoT Secure Tunneling.
+    sourceAccessToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Amazon Resource Name for the tunnel.
     tunnelArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -197,11 +197,11 @@ data RotateTunnelAccessTokenResponse = RotateTunnelAccessTokenResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceAccessToken', 'rotateTunnelAccessTokenResponse_sourceAccessToken' - The client access token that the source local proxy uses to connect to
--- IoT Secure Tunneling.
---
 -- 'destinationAccessToken', 'rotateTunnelAccessTokenResponse_destinationAccessToken' - The client access token that the destination local proxy uses to connect
 -- to IoT Secure Tunneling.
+--
+-- 'sourceAccessToken', 'rotateTunnelAccessTokenResponse_sourceAccessToken' - The client access token that the source local proxy uses to connect to
+-- IoT Secure Tunneling.
 --
 -- 'tunnelArn', 'rotateTunnelAccessTokenResponse_tunnelArn' - The Amazon Resource Name for the tunnel.
 --
@@ -212,22 +212,22 @@ newRotateTunnelAccessTokenResponse ::
   RotateTunnelAccessTokenResponse
 newRotateTunnelAccessTokenResponse pHttpStatus_ =
   RotateTunnelAccessTokenResponse'
-    { sourceAccessToken =
+    { destinationAccessToken =
         Prelude.Nothing,
-      destinationAccessToken = Prelude.Nothing,
+      sourceAccessToken = Prelude.Nothing,
       tunnelArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The client access token that the source local proxy uses to connect to
--- IoT Secure Tunneling.
-rotateTunnelAccessTokenResponse_sourceAccessToken :: Lens.Lens' RotateTunnelAccessTokenResponse (Prelude.Maybe Prelude.Text)
-rotateTunnelAccessTokenResponse_sourceAccessToken = Lens.lens (\RotateTunnelAccessTokenResponse' {sourceAccessToken} -> sourceAccessToken) (\s@RotateTunnelAccessTokenResponse' {} a -> s {sourceAccessToken = a} :: RotateTunnelAccessTokenResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The client access token that the destination local proxy uses to connect
 -- to IoT Secure Tunneling.
 rotateTunnelAccessTokenResponse_destinationAccessToken :: Lens.Lens' RotateTunnelAccessTokenResponse (Prelude.Maybe Prelude.Text)
 rotateTunnelAccessTokenResponse_destinationAccessToken = Lens.lens (\RotateTunnelAccessTokenResponse' {destinationAccessToken} -> destinationAccessToken) (\s@RotateTunnelAccessTokenResponse' {} a -> s {destinationAccessToken = a} :: RotateTunnelAccessTokenResponse) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The client access token that the source local proxy uses to connect to
+-- IoT Secure Tunneling.
+rotateTunnelAccessTokenResponse_sourceAccessToken :: Lens.Lens' RotateTunnelAccessTokenResponse (Prelude.Maybe Prelude.Text)
+rotateTunnelAccessTokenResponse_sourceAccessToken = Lens.lens (\RotateTunnelAccessTokenResponse' {sourceAccessToken} -> sourceAccessToken) (\s@RotateTunnelAccessTokenResponse' {} a -> s {sourceAccessToken = a} :: RotateTunnelAccessTokenResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Amazon Resource Name for the tunnel.
 rotateTunnelAccessTokenResponse_tunnelArn :: Lens.Lens' RotateTunnelAccessTokenResponse (Prelude.Maybe Prelude.Text)
@@ -242,7 +242,7 @@ instance
     RotateTunnelAccessTokenResponse
   where
   rnf RotateTunnelAccessTokenResponse' {..} =
-    Prelude.rnf sourceAccessToken
-      `Prelude.seq` Prelude.rnf destinationAccessToken
+    Prelude.rnf destinationAccessToken
+      `Prelude.seq` Prelude.rnf sourceAccessToken
       `Prelude.seq` Prelude.rnf tunnelArn
       `Prelude.seq` Prelude.rnf httpStatus

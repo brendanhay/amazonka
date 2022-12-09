@@ -58,32 +58,32 @@ module Amazonka.PinpointEmail
     -- * Errors
     -- $errors
 
-    -- ** ConcurrentModificationException
-    _ConcurrentModificationException,
-
-    -- ** NotFoundException
-    _NotFoundException,
-
-    -- ** MailFromDomainNotVerifiedException
-    _MailFromDomainNotVerifiedException,
+    -- ** AccountSuspendedException
+    _AccountSuspendedException,
 
     -- ** AlreadyExistsException
     _AlreadyExistsException,
 
+    -- ** BadRequestException
+    _BadRequestException,
+
+    -- ** ConcurrentModificationException
+    _ConcurrentModificationException,
+
     -- ** LimitExceededException
     _LimitExceededException,
 
-    -- ** SendingPausedException
-    _SendingPausedException,
-
-    -- ** AccountSuspendedException
-    _AccountSuspendedException,
+    -- ** MailFromDomainNotVerifiedException
+    _MailFromDomainNotVerifiedException,
 
     -- ** MessageRejected
     _MessageRejected,
 
-    -- ** BadRequestException
-    _BadRequestException,
+    -- ** NotFoundException
+    _NotFoundException,
+
+    -- ** SendingPausedException
+    _SendingPausedException,
 
     -- ** TooManyRequestsException
     _TooManyRequestsException,

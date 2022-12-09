@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBlacklistEntry' smart constructor.
 data BlacklistEntry = BlacklistEntry'
-  { -- | The time when the blacklisting event occurred, shown in Unix time
-    -- format.
-    listingTime :: Prelude.Maybe Data.POSIX,
-    -- | Additional information about the blacklisting event, as provided by the
+  { -- | Additional information about the blacklisting event, as provided by the
     -- blacklist maintainer.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The time when the blacklisting event occurred, shown in Unix time
+    -- format.
+    listingTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the blacklist that the IP address appears on.
     rblName :: Prelude.Maybe Prelude.Text
   }
@@ -49,31 +49,31 @@ data BlacklistEntry = BlacklistEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'listingTime', 'blacklistEntry_listingTime' - The time when the blacklisting event occurred, shown in Unix time
--- format.
---
 -- 'description', 'blacklistEntry_description' - Additional information about the blacklisting event, as provided by the
 -- blacklist maintainer.
+--
+-- 'listingTime', 'blacklistEntry_listingTime' - The time when the blacklisting event occurred, shown in Unix time
+-- format.
 --
 -- 'rblName', 'blacklistEntry_rblName' - The name of the blacklist that the IP address appears on.
 newBlacklistEntry ::
   BlacklistEntry
 newBlacklistEntry =
   BlacklistEntry'
-    { listingTime = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      listingTime = Prelude.Nothing,
       rblName = Prelude.Nothing
     }
-
--- | The time when the blacklisting event occurred, shown in Unix time
--- format.
-blacklistEntry_listingTime :: Lens.Lens' BlacklistEntry (Prelude.Maybe Prelude.UTCTime)
-blacklistEntry_listingTime = Lens.lens (\BlacklistEntry' {listingTime} -> listingTime) (\s@BlacklistEntry' {} a -> s {listingTime = a} :: BlacklistEntry) Prelude.. Lens.mapping Data._Time
 
 -- | Additional information about the blacklisting event, as provided by the
 -- blacklist maintainer.
 blacklistEntry_description :: Lens.Lens' BlacklistEntry (Prelude.Maybe Prelude.Text)
 blacklistEntry_description = Lens.lens (\BlacklistEntry' {description} -> description) (\s@BlacklistEntry' {} a -> s {description = a} :: BlacklistEntry)
+
+-- | The time when the blacklisting event occurred, shown in Unix time
+-- format.
+blacklistEntry_listingTime :: Lens.Lens' BlacklistEntry (Prelude.Maybe Prelude.UTCTime)
+blacklistEntry_listingTime = Lens.lens (\BlacklistEntry' {listingTime} -> listingTime) (\s@BlacklistEntry' {} a -> s {listingTime = a} :: BlacklistEntry) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the blacklist that the IP address appears on.
 blacklistEntry_rblName :: Lens.Lens' BlacklistEntry (Prelude.Maybe Prelude.Text)
@@ -85,19 +85,19 @@ instance Data.FromJSON BlacklistEntry where
       "BlacklistEntry"
       ( \x ->
           BlacklistEntry'
-            Prelude.<$> (x Data..:? "ListingTime")
-            Prelude.<*> (x Data..:? "Description")
+            Prelude.<$> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "ListingTime")
             Prelude.<*> (x Data..:? "RblName")
       )
 
 instance Prelude.Hashable BlacklistEntry where
   hashWithSalt _salt BlacklistEntry' {..} =
-    _salt `Prelude.hashWithSalt` listingTime
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` listingTime
       `Prelude.hashWithSalt` rblName
 
 instance Prelude.NFData BlacklistEntry where
   rnf BlacklistEntry' {..} =
-    Prelude.rnf listingTime
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf listingTime
       `Prelude.seq` Prelude.rnf rblName

@@ -15,11 +15,11 @@ module Amazonka.PinpointEmail.Lens
   ( -- * Operations
 
     -- ** CreateConfigurationSet
-    createConfigurationSet_tags,
-    createConfigurationSet_reputationOptions,
     createConfigurationSet_deliveryOptions,
-    createConfigurationSet_trackingOptions,
+    createConfigurationSet_reputationOptions,
     createConfigurationSet_sendingOptions,
+    createConfigurationSet_tags,
+    createConfigurationSet_trackingOptions,
     createConfigurationSet_configurationSetName,
     createConfigurationSetResponse_httpStatus,
 
@@ -35,8 +35,8 @@ module Amazonka.PinpointEmail.Lens
     createDedicatedIpPoolResponse_httpStatus,
 
     -- ** CreateDeliverabilityTestReport
-    createDeliverabilityTestReport_tags,
     createDeliverabilityTestReport_reportName,
+    createDeliverabilityTestReport_tags,
     createDeliverabilityTestReport_fromEmailAddress,
     createDeliverabilityTestReport_content,
     createDeliverabilityTestReportResponse_httpStatus,
@@ -46,9 +46,9 @@ module Amazonka.PinpointEmail.Lens
     -- ** CreateEmailIdentity
     createEmailIdentity_tags,
     createEmailIdentity_emailIdentity,
-    createEmailIdentityResponse_verifiedForSendingStatus,
     createEmailIdentityResponse_dkimAttributes,
     createEmailIdentityResponse_identityType,
+    createEmailIdentityResponse_verifiedForSendingStatus,
     createEmailIdentityResponse_httpStatus,
 
     -- ** DeleteConfigurationSet
@@ -69,11 +69,11 @@ module Amazonka.PinpointEmail.Lens
     deleteEmailIdentityResponse_httpStatus,
 
     -- ** GetAccount
-    getAccountResponse_sendingEnabled,
+    getAccountResponse_dedicatedIpAutoWarmupEnabled,
     getAccountResponse_enforcementStatus,
     getAccountResponse_productionAccessEnabled,
-    getAccountResponse_dedicatedIpAutoWarmupEnabled,
     getAccountResponse_sendQuota,
+    getAccountResponse_sendingEnabled,
     getAccountResponse_httpStatus,
 
     -- ** GetBlacklistReports
@@ -83,12 +83,12 @@ module Amazonka.PinpointEmail.Lens
 
     -- ** GetConfigurationSet
     getConfigurationSet_configurationSetName,
-    getConfigurationSetResponse_tags,
-    getConfigurationSetResponse_reputationOptions,
     getConfigurationSetResponse_configurationSetName,
     getConfigurationSetResponse_deliveryOptions,
-    getConfigurationSetResponse_trackingOptions,
+    getConfigurationSetResponse_reputationOptions,
     getConfigurationSetResponse_sendingOptions,
+    getConfigurationSetResponse_tags,
+    getConfigurationSetResponse_trackingOptions,
     getConfigurationSetResponse_httpStatus,
 
     -- ** GetConfigurationSetEventDestinations
@@ -105,22 +105,22 @@ module Amazonka.PinpointEmail.Lens
     getDedicatedIps_nextToken,
     getDedicatedIps_pageSize,
     getDedicatedIps_poolName,
-    getDedicatedIpsResponse_nextToken,
     getDedicatedIpsResponse_dedicatedIps,
+    getDedicatedIpsResponse_nextToken,
     getDedicatedIpsResponse_httpStatus,
 
     -- ** GetDeliverabilityDashboardOptions
     getDeliverabilityDashboardOptionsResponse_accountStatus,
-    getDeliverabilityDashboardOptionsResponse_pendingExpirationSubscribedDomains,
     getDeliverabilityDashboardOptionsResponse_activeSubscribedDomains,
+    getDeliverabilityDashboardOptionsResponse_pendingExpirationSubscribedDomains,
     getDeliverabilityDashboardOptionsResponse_subscriptionExpiryDate,
     getDeliverabilityDashboardOptionsResponse_httpStatus,
     getDeliverabilityDashboardOptionsResponse_dashboardEnabled,
 
     -- ** GetDeliverabilityTestReport
     getDeliverabilityTestReport_reportId,
-    getDeliverabilityTestReportResponse_tags,
     getDeliverabilityTestReportResponse_message,
+    getDeliverabilityTestReportResponse_tags,
     getDeliverabilityTestReportResponse_httpStatus,
     getDeliverabilityTestReportResponse_deliverabilityTestReport,
     getDeliverabilityTestReportResponse_overallPlacement,
@@ -141,26 +141,26 @@ module Amazonka.PinpointEmail.Lens
 
     -- ** GetEmailIdentity
     getEmailIdentity_emailIdentity,
+    getEmailIdentityResponse_dkimAttributes,
+    getEmailIdentityResponse_feedbackForwardingStatus,
+    getEmailIdentityResponse_identityType,
+    getEmailIdentityResponse_mailFromAttributes,
     getEmailIdentityResponse_tags,
     getEmailIdentityResponse_verifiedForSendingStatus,
-    getEmailIdentityResponse_feedbackForwardingStatus,
-    getEmailIdentityResponse_mailFromAttributes,
-    getEmailIdentityResponse_dkimAttributes,
-    getEmailIdentityResponse_identityType,
     getEmailIdentityResponse_httpStatus,
 
     -- ** ListConfigurationSets
     listConfigurationSets_nextToken,
     listConfigurationSets_pageSize,
-    listConfigurationSetsResponse_nextToken,
     listConfigurationSetsResponse_configurationSets,
+    listConfigurationSetsResponse_nextToken,
     listConfigurationSetsResponse_httpStatus,
 
     -- ** ListDedicatedIpPools
     listDedicatedIpPools_nextToken,
     listDedicatedIpPools_pageSize,
-    listDedicatedIpPoolsResponse_nextToken,
     listDedicatedIpPoolsResponse_dedicatedIpPools,
+    listDedicatedIpPoolsResponse_nextToken,
     listDedicatedIpPoolsResponse_httpStatus,
 
     -- ** ListDeliverabilityTestReports
@@ -183,8 +183,8 @@ module Amazonka.PinpointEmail.Lens
     -- ** ListEmailIdentities
     listEmailIdentities_nextToken,
     listEmailIdentities_pageSize,
-    listEmailIdentitiesResponse_nextToken,
     listEmailIdentitiesResponse_emailIdentities,
+    listEmailIdentitiesResponse_nextToken,
     listEmailIdentitiesResponse_httpStatus,
 
     -- ** ListTagsForResource
@@ -201,8 +201,8 @@ module Amazonka.PinpointEmail.Lens
     putAccountSendingAttributesResponse_httpStatus,
 
     -- ** PutConfigurationSetDeliveryOptions
-    putConfigurationSetDeliveryOptions_tlsPolicy,
     putConfigurationSetDeliveryOptions_sendingPoolName,
+    putConfigurationSetDeliveryOptions_tlsPolicy,
     putConfigurationSetDeliveryOptions_configurationSetName,
     putConfigurationSetDeliveryOptionsResponse_httpStatus,
 
@@ -247,17 +247,17 @@ module Amazonka.PinpointEmail.Lens
     putEmailIdentityFeedbackAttributesResponse_httpStatus,
 
     -- ** PutEmailIdentityMailFromAttributes
-    putEmailIdentityMailFromAttributes_mailFromDomain,
     putEmailIdentityMailFromAttributes_behaviorOnMxFailure,
+    putEmailIdentityMailFromAttributes_mailFromDomain,
     putEmailIdentityMailFromAttributes_emailIdentity,
     putEmailIdentityMailFromAttributesResponse_httpStatus,
 
     -- ** SendEmail
-    sendEmail_replyToAddresses,
-    sendEmail_emailTags,
-    sendEmail_fromEmailAddress,
     sendEmail_configurationSetName,
+    sendEmail_emailTags,
     sendEmail_feedbackForwardingEmailAddress,
+    sendEmail_fromEmailAddress,
+    sendEmail_replyToAddresses,
     sendEmail_destination,
     sendEmail_content,
     sendEmailResponse_messageId,
@@ -282,8 +282,8 @@ module Amazonka.PinpointEmail.Lens
     -- * Types
 
     -- ** BlacklistEntry
-    blacklistEntry_listingTime,
     blacklistEntry_description,
+    blacklistEntry_listingTime,
     blacklistEntry_rblName,
 
     -- ** Body
@@ -303,9 +303,9 @@ module Amazonka.PinpointEmail.Lens
     content_data,
 
     -- ** DailyVolume
-    dailyVolume_volumeStatistics,
-    dailyVolume_startDate,
     dailyVolume_domainIspPlacements,
+    dailyVolume_startDate,
+    dailyVolume_volumeStatistics,
 
     -- ** DedicatedIp
     dedicatedIp_poolName,
@@ -314,42 +314,42 @@ module Amazonka.PinpointEmail.Lens
     dedicatedIp_warmupPercentage,
 
     -- ** DeliverabilityTestReport
-    deliverabilityTestReport_reportName,
-    deliverabilityTestReport_fromEmailAddress,
-    deliverabilityTestReport_reportId,
     deliverabilityTestReport_createDate,
     deliverabilityTestReport_deliverabilityTestStatus,
+    deliverabilityTestReport_fromEmailAddress,
+    deliverabilityTestReport_reportId,
+    deliverabilityTestReport_reportName,
     deliverabilityTestReport_subject,
 
     -- ** DeliveryOptions
-    deliveryOptions_tlsPolicy,
     deliveryOptions_sendingPoolName,
+    deliveryOptions_tlsPolicy,
 
     -- ** Destination
-    destination_ccAddresses,
     destination_bccAddresses,
+    destination_ccAddresses,
     destination_toAddresses,
 
     -- ** DkimAttributes
-    dkimAttributes_tokens,
-    dkimAttributes_status,
     dkimAttributes_signingEnabled,
+    dkimAttributes_status,
+    dkimAttributes_tokens,
 
     -- ** DomainDeliverabilityCampaign
-    domainDeliverabilityCampaign_inboxCount,
     domainDeliverabilityCampaign_campaignId,
-    domainDeliverabilityCampaign_fromAddress,
     domainDeliverabilityCampaign_deleteRate,
-    domainDeliverabilityCampaign_lastSeenDateTime,
-    domainDeliverabilityCampaign_sendingIps,
-    domainDeliverabilityCampaign_imageUrl,
     domainDeliverabilityCampaign_esps,
+    domainDeliverabilityCampaign_firstSeenDateTime,
+    domainDeliverabilityCampaign_fromAddress,
+    domainDeliverabilityCampaign_imageUrl,
+    domainDeliverabilityCampaign_inboxCount,
+    domainDeliverabilityCampaign_lastSeenDateTime,
     domainDeliverabilityCampaign_projectedVolume,
     domainDeliverabilityCampaign_readDeleteRate,
+    domainDeliverabilityCampaign_readRate,
+    domainDeliverabilityCampaign_sendingIps,
     domainDeliverabilityCampaign_spamCount,
     domainDeliverabilityCampaign_subject,
-    domainDeliverabilityCampaign_firstSeenDateTime,
-    domainDeliverabilityCampaign_readRate,
 
     -- ** DomainDeliverabilityTrackingOption
     domainDeliverabilityTrackingOption_domain,
@@ -357,46 +357,46 @@ module Amazonka.PinpointEmail.Lens
     domainDeliverabilityTrackingOption_subscriptionStartDate,
 
     -- ** DomainIspPlacement
-    domainIspPlacement_inboxRawCount,
-    domainIspPlacement_spamPercentage,
     domainIspPlacement_inboxPercentage,
-    domainIspPlacement_spamRawCount,
+    domainIspPlacement_inboxRawCount,
     domainIspPlacement_ispName,
+    domainIspPlacement_spamPercentage,
+    domainIspPlacement_spamRawCount,
 
     -- ** EmailContent
-    emailContent_simple,
     emailContent_raw,
+    emailContent_simple,
     emailContent_template,
 
     -- ** EventDestination
+    eventDestination_cloudWatchDestination,
+    eventDestination_enabled,
+    eventDestination_kinesisFirehoseDestination,
     eventDestination_pinpointDestination,
     eventDestination_snsDestination,
-    eventDestination_enabled,
-    eventDestination_cloudWatchDestination,
-    eventDestination_kinesisFirehoseDestination,
     eventDestination_name,
     eventDestination_matchingEventTypes,
 
     -- ** EventDestinationDefinition
+    eventDestinationDefinition_cloudWatchDestination,
+    eventDestinationDefinition_enabled,
+    eventDestinationDefinition_kinesisFirehoseDestination,
     eventDestinationDefinition_matchingEventTypes,
     eventDestinationDefinition_pinpointDestination,
     eventDestinationDefinition_snsDestination,
-    eventDestinationDefinition_enabled,
-    eventDestinationDefinition_cloudWatchDestination,
-    eventDestinationDefinition_kinesisFirehoseDestination,
 
     -- ** IdentityInfo
-    identityInfo_sendingEnabled,
     identityInfo_identityName,
     identityInfo_identityType,
+    identityInfo_sendingEnabled,
 
     -- ** InboxPlacementTrackingOption
-    inboxPlacementTrackingOption_trackedIsps,
     inboxPlacementTrackingOption_global,
+    inboxPlacementTrackingOption_trackedIsps,
 
     -- ** IspPlacement
-    ispPlacement_placementStatistics,
     ispPlacement_ispName,
+    ispPlacement_placementStatistics,
 
     -- ** KinesisFirehoseDestination
     kinesisFirehoseDestination_iamRoleArn,
@@ -416,31 +416,31 @@ module Amazonka.PinpointEmail.Lens
     messageTag_value,
 
     -- ** OverallVolume
-    overallVolume_volumeStatistics,
-    overallVolume_readRatePercent,
     overallVolume_domainIspPlacements,
+    overallVolume_readRatePercent,
+    overallVolume_volumeStatistics,
 
     -- ** PinpointDestination
     pinpointDestination_applicationArn,
 
     -- ** PlacementStatistics
-    placementStatistics_missingPercentage,
     placementStatistics_dkimPercentage,
-    placementStatistics_spfPercentage,
-    placementStatistics_spamPercentage,
     placementStatistics_inboxPercentage,
+    placementStatistics_missingPercentage,
+    placementStatistics_spamPercentage,
+    placementStatistics_spfPercentage,
 
     -- ** RawMessage
     rawMessage_data,
 
     -- ** ReputationOptions
-    reputationOptions_reputationMetricsEnabled,
     reputationOptions_lastFreshStart,
+    reputationOptions_reputationMetricsEnabled,
 
     -- ** SendQuota
     sendQuota_max24HourSend,
-    sendQuota_sentLast24Hours,
     sendQuota_maxSendRate,
+    sendQuota_sentLast24Hours,
 
     -- ** SendingOptions
     sendingOptions_sendingEnabled,
@@ -453,17 +453,17 @@ module Amazonka.PinpointEmail.Lens
     tag_value,
 
     -- ** Template
-    template_templateData,
     template_templateArn,
+    template_templateData,
 
     -- ** TrackingOptions
     trackingOptions_customRedirectDomain,
 
     -- ** VolumeStatistics
     volumeStatistics_inboxRawCount,
+    volumeStatistics_projectedInbox,
     volumeStatistics_projectedSpam,
     volumeStatistics_spamRawCount,
-    volumeStatistics_projectedInbox,
   )
 where
 

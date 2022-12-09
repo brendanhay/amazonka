@@ -32,11 +32,11 @@ module Amazonka.PinpointEmail.GetAccount
     newGetAccountResponse,
 
     -- * Response Lenses
-    getAccountResponse_sendingEnabled,
+    getAccountResponse_dedicatedIpAutoWarmupEnabled,
     getAccountResponse_enforcementStatus,
     getAccountResponse_productionAccessEnabled,
-    getAccountResponse_dedicatedIpAutoWarmupEnabled,
     getAccountResponse_sendQuota,
+    getAccountResponse_sendingEnabled,
     getAccountResponse_httpStatus,
   )
 where
@@ -74,11 +74,11 @@ instance Core.AWSRequest GetAccount where
     Response.receiveJSON
       ( \s h x ->
           GetAccountResponse'
-            Prelude.<$> (x Data..?> "SendingEnabled")
+            Prelude.<$> (x Data..?> "DedicatedIpAutoWarmupEnabled")
             Prelude.<*> (x Data..?> "EnforcementStatus")
             Prelude.<*> (x Data..?> "ProductionAccessEnabled")
-            Prelude.<*> (x Data..?> "DedicatedIpAutoWarmupEnabled")
             Prelude.<*> (x Data..?> "SendQuota")
+            Prelude.<*> (x Data..?> "SendingEnabled")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -111,9 +111,9 @@ instance Data.ToQuery GetAccount where
 --
 -- /See:/ 'newGetAccountResponse' smart constructor.
 data GetAccountResponse = GetAccountResponse'
-  { -- | Indicates whether or not email sending is enabled for your Amazon
-    -- Pinpoint account in the current AWS Region.
-    sendingEnabled :: Prelude.Maybe Prelude.Bool,
+  { -- | Indicates whether or not the automatic warm-up feature is enabled for
+    -- dedicated IP addresses that are associated with your account.
+    dedicatedIpAutoWarmupEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The reputation status of your Amazon Pinpoint account. The status can be
     -- one of the following:
     --
@@ -143,13 +143,13 @@ data GetAccountResponse = GetAccountResponse'
     -- The sending quota and maximum sending rate for your account vary based
     -- on your specific use case.
     productionAccessEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | Indicates whether or not the automatic warm-up feature is enabled for
-    -- dedicated IP addresses that are associated with your account.
-    dedicatedIpAutoWarmupEnabled :: Prelude.Maybe Prelude.Bool,
     -- | An object that contains information about the per-day and per-second
     -- sending limits for your Amazon Pinpoint account in the current AWS
     -- Region.
     sendQuota :: Prelude.Maybe SendQuota,
+    -- | Indicates whether or not email sending is enabled for your Amazon
+    -- Pinpoint account in the current AWS Region.
+    sendingEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -163,8 +163,8 @@ data GetAccountResponse = GetAccountResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sendingEnabled', 'getAccountResponse_sendingEnabled' - Indicates whether or not email sending is enabled for your Amazon
--- Pinpoint account in the current AWS Region.
+-- 'dedicatedIpAutoWarmupEnabled', 'getAccountResponse_dedicatedIpAutoWarmupEnabled' - Indicates whether or not the automatic warm-up feature is enabled for
+-- dedicated IP addresses that are associated with your account.
 --
 -- 'enforcementStatus', 'getAccountResponse_enforcementStatus' - The reputation status of your Amazon Pinpoint account. The status can be
 -- one of the following:
@@ -195,12 +195,12 @@ data GetAccountResponse = GetAccountResponse'
 -- The sending quota and maximum sending rate for your account vary based
 -- on your specific use case.
 --
--- 'dedicatedIpAutoWarmupEnabled', 'getAccountResponse_dedicatedIpAutoWarmupEnabled' - Indicates whether or not the automatic warm-up feature is enabled for
--- dedicated IP addresses that are associated with your account.
---
 -- 'sendQuota', 'getAccountResponse_sendQuota' - An object that contains information about the per-day and per-second
 -- sending limits for your Amazon Pinpoint account in the current AWS
 -- Region.
+--
+-- 'sendingEnabled', 'getAccountResponse_sendingEnabled' - Indicates whether or not email sending is enabled for your Amazon
+-- Pinpoint account in the current AWS Region.
 --
 -- 'httpStatus', 'getAccountResponse_httpStatus' - The response's http status code.
 newGetAccountResponse ::
@@ -209,19 +209,19 @@ newGetAccountResponse ::
   GetAccountResponse
 newGetAccountResponse pHttpStatus_ =
   GetAccountResponse'
-    { sendingEnabled =
+    { dedicatedIpAutoWarmupEnabled =
         Prelude.Nothing,
       enforcementStatus = Prelude.Nothing,
       productionAccessEnabled = Prelude.Nothing,
-      dedicatedIpAutoWarmupEnabled = Prelude.Nothing,
       sendQuota = Prelude.Nothing,
+      sendingEnabled = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | Indicates whether or not email sending is enabled for your Amazon
--- Pinpoint account in the current AWS Region.
-getAccountResponse_sendingEnabled :: Lens.Lens' GetAccountResponse (Prelude.Maybe Prelude.Bool)
-getAccountResponse_sendingEnabled = Lens.lens (\GetAccountResponse' {sendingEnabled} -> sendingEnabled) (\s@GetAccountResponse' {} a -> s {sendingEnabled = a} :: GetAccountResponse)
+-- | Indicates whether or not the automatic warm-up feature is enabled for
+-- dedicated IP addresses that are associated with your account.
+getAccountResponse_dedicatedIpAutoWarmupEnabled :: Lens.Lens' GetAccountResponse (Prelude.Maybe Prelude.Bool)
+getAccountResponse_dedicatedIpAutoWarmupEnabled = Lens.lens (\GetAccountResponse' {dedicatedIpAutoWarmupEnabled} -> dedicatedIpAutoWarmupEnabled) (\s@GetAccountResponse' {} a -> s {dedicatedIpAutoWarmupEnabled = a} :: GetAccountResponse)
 
 -- | The reputation status of your Amazon Pinpoint account. The status can be
 -- one of the following:
@@ -256,16 +256,16 @@ getAccountResponse_enforcementStatus = Lens.lens (\GetAccountResponse' {enforcem
 getAccountResponse_productionAccessEnabled :: Lens.Lens' GetAccountResponse (Prelude.Maybe Prelude.Bool)
 getAccountResponse_productionAccessEnabled = Lens.lens (\GetAccountResponse' {productionAccessEnabled} -> productionAccessEnabled) (\s@GetAccountResponse' {} a -> s {productionAccessEnabled = a} :: GetAccountResponse)
 
--- | Indicates whether or not the automatic warm-up feature is enabled for
--- dedicated IP addresses that are associated with your account.
-getAccountResponse_dedicatedIpAutoWarmupEnabled :: Lens.Lens' GetAccountResponse (Prelude.Maybe Prelude.Bool)
-getAccountResponse_dedicatedIpAutoWarmupEnabled = Lens.lens (\GetAccountResponse' {dedicatedIpAutoWarmupEnabled} -> dedicatedIpAutoWarmupEnabled) (\s@GetAccountResponse' {} a -> s {dedicatedIpAutoWarmupEnabled = a} :: GetAccountResponse)
-
 -- | An object that contains information about the per-day and per-second
 -- sending limits for your Amazon Pinpoint account in the current AWS
 -- Region.
 getAccountResponse_sendQuota :: Lens.Lens' GetAccountResponse (Prelude.Maybe SendQuota)
 getAccountResponse_sendQuota = Lens.lens (\GetAccountResponse' {sendQuota} -> sendQuota) (\s@GetAccountResponse' {} a -> s {sendQuota = a} :: GetAccountResponse)
+
+-- | Indicates whether or not email sending is enabled for your Amazon
+-- Pinpoint account in the current AWS Region.
+getAccountResponse_sendingEnabled :: Lens.Lens' GetAccountResponse (Prelude.Maybe Prelude.Bool)
+getAccountResponse_sendingEnabled = Lens.lens (\GetAccountResponse' {sendingEnabled} -> sendingEnabled) (\s@GetAccountResponse' {} a -> s {sendingEnabled = a} :: GetAccountResponse)
 
 -- | The response's http status code.
 getAccountResponse_httpStatus :: Lens.Lens' GetAccountResponse Prelude.Int
@@ -273,9 +273,9 @@ getAccountResponse_httpStatus = Lens.lens (\GetAccountResponse' {httpStatus} -> 
 
 instance Prelude.NFData GetAccountResponse where
   rnf GetAccountResponse' {..} =
-    Prelude.rnf sendingEnabled
+    Prelude.rnf dedicatedIpAutoWarmupEnabled
       `Prelude.seq` Prelude.rnf enforcementStatus
       `Prelude.seq` Prelude.rnf productionAccessEnabled
-      `Prelude.seq` Prelude.rnf dedicatedIpAutoWarmupEnabled
       `Prelude.seq` Prelude.rnf sendQuota
+      `Prelude.seq` Prelude.rnf sendingEnabled
       `Prelude.seq` Prelude.rnf httpStatus

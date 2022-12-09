@@ -54,10 +54,10 @@ module Amazonka.SecretsManager.ListSecrets
     newListSecrets,
 
     -- * Request Lenses
-    listSecrets_sortOrder,
-    listSecrets_nextToken,
     listSecrets_filters,
     listSecrets_maxResults,
+    listSecrets_nextToken,
+    listSecrets_sortOrder,
 
     -- * Destructuring the Response
     ListSecretsResponse (..),
@@ -80,20 +80,20 @@ import Amazonka.SecretsManager.Types
 
 -- | /See:/ 'newListSecrets' smart constructor.
 data ListSecrets = ListSecrets'
-  { -- | Secrets are listed by @CreatedDate@.
-    sortOrder :: Prelude.Maybe SortOrderType,
-    -- | A token that indicates where the output should continue from, if a
-    -- previous call did not show all results. To get the next results, call
-    -- @ListSecrets@ again with this value.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The filters to apply to the list of secrets.
+  { -- | The filters to apply to the list of secrets.
     filters :: Prelude.Maybe [Filter],
     -- | The number of results to include in the response.
     --
     -- If there are more results available, in the response, Secrets Manager
     -- includes @NextToken@. To get the next results, call @ListSecrets@ again
     -- with the value from @NextToken@.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token that indicates where the output should continue from, if a
+    -- previous call did not show all results. To get the next results, call
+    -- @ListSecrets@ again with this value.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Secrets are listed by @CreatedDate@.
+    sortOrder :: Prelude.Maybe SortOrderType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -105,12 +105,6 @@ data ListSecrets = ListSecrets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'listSecrets_sortOrder' - Secrets are listed by @CreatedDate@.
---
--- 'nextToken', 'listSecrets_nextToken' - A token that indicates where the output should continue from, if a
--- previous call did not show all results. To get the next results, call
--- @ListSecrets@ again with this value.
---
 -- 'filters', 'listSecrets_filters' - The filters to apply to the list of secrets.
 --
 -- 'maxResults', 'listSecrets_maxResults' - The number of results to include in the response.
@@ -118,25 +112,21 @@ data ListSecrets = ListSecrets'
 -- If there are more results available, in the response, Secrets Manager
 -- includes @NextToken@. To get the next results, call @ListSecrets@ again
 -- with the value from @NextToken@.
+--
+-- 'nextToken', 'listSecrets_nextToken' - A token that indicates where the output should continue from, if a
+-- previous call did not show all results. To get the next results, call
+-- @ListSecrets@ again with this value.
+--
+-- 'sortOrder', 'listSecrets_sortOrder' - Secrets are listed by @CreatedDate@.
 newListSecrets ::
   ListSecrets
 newListSecrets =
   ListSecrets'
-    { sortOrder = Prelude.Nothing,
+    { filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      sortOrder = Prelude.Nothing
     }
-
--- | Secrets are listed by @CreatedDate@.
-listSecrets_sortOrder :: Lens.Lens' ListSecrets (Prelude.Maybe SortOrderType)
-listSecrets_sortOrder = Lens.lens (\ListSecrets' {sortOrder} -> sortOrder) (\s@ListSecrets' {} a -> s {sortOrder = a} :: ListSecrets)
-
--- | A token that indicates where the output should continue from, if a
--- previous call did not show all results. To get the next results, call
--- @ListSecrets@ again with this value.
-listSecrets_nextToken :: Lens.Lens' ListSecrets (Prelude.Maybe Prelude.Text)
-listSecrets_nextToken = Lens.lens (\ListSecrets' {nextToken} -> nextToken) (\s@ListSecrets' {} a -> s {nextToken = a} :: ListSecrets)
 
 -- | The filters to apply to the list of secrets.
 listSecrets_filters :: Lens.Lens' ListSecrets (Prelude.Maybe [Filter])
@@ -149,6 +139,16 @@ listSecrets_filters = Lens.lens (\ListSecrets' {filters} -> filters) (\s@ListSec
 -- with the value from @NextToken@.
 listSecrets_maxResults :: Lens.Lens' ListSecrets (Prelude.Maybe Prelude.Natural)
 listSecrets_maxResults = Lens.lens (\ListSecrets' {maxResults} -> maxResults) (\s@ListSecrets' {} a -> s {maxResults = a} :: ListSecrets)
+
+-- | A token that indicates where the output should continue from, if a
+-- previous call did not show all results. To get the next results, call
+-- @ListSecrets@ again with this value.
+listSecrets_nextToken :: Lens.Lens' ListSecrets (Prelude.Maybe Prelude.Text)
+listSecrets_nextToken = Lens.lens (\ListSecrets' {nextToken} -> nextToken) (\s@ListSecrets' {} a -> s {nextToken = a} :: ListSecrets)
+
+-- | Secrets are listed by @CreatedDate@.
+listSecrets_sortOrder :: Lens.Lens' ListSecrets (Prelude.Maybe SortOrderType)
+listSecrets_sortOrder = Lens.lens (\ListSecrets' {sortOrder} -> sortOrder) (\s@ListSecrets' {} a -> s {sortOrder = a} :: ListSecrets)
 
 instance Core.AWSPager ListSecrets where
   page rq rs
@@ -184,17 +184,17 @@ instance Core.AWSRequest ListSecrets where
 
 instance Prelude.Hashable ListSecrets where
   hashWithSalt _salt ListSecrets' {..} =
-    _salt `Prelude.hashWithSalt` sortOrder
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortOrder
 
 instance Prelude.NFData ListSecrets where
   rnf ListSecrets' {..} =
-    Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortOrder
 
 instance Data.ToHeaders ListSecrets where
   toHeaders =
@@ -213,10 +213,10 @@ instance Data.ToJSON ListSecrets where
   toJSON ListSecrets' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
+          [ ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+            ("SortOrder" Data..=) Prelude.<$> sortOrder
           ]
       )
 

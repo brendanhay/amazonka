@@ -44,9 +44,9 @@ module Amazonka.SecretsManager.ListSecretVersionIds
     newListSecretVersionIds,
 
     -- * Request Lenses
-    listSecretVersionIds_nextToken,
-    listSecretVersionIds_maxResults,
     listSecretVersionIds_includeDeprecated,
+    listSecretVersionIds_maxResults,
+    listSecretVersionIds_nextToken,
     listSecretVersionIds_secretId,
 
     -- * Destructuring the Response
@@ -54,9 +54,9 @@ module Amazonka.SecretsManager.ListSecretVersionIds
     newListSecretVersionIdsResponse,
 
     -- * Response Lenses
+    listSecretVersionIdsResponse_arn,
     listSecretVersionIdsResponse_name,
     listSecretVersionIdsResponse_nextToken,
-    listSecretVersionIdsResponse_arn,
     listSecretVersionIdsResponse_versions,
     listSecretVersionIdsResponse_httpStatus,
   )
@@ -72,20 +72,20 @@ import Amazonka.SecretsManager.Types
 
 -- | /See:/ 'newListSecretVersionIds' smart constructor.
 data ListSecretVersionIds = ListSecretVersionIds'
-  { -- | A token that indicates where the output should continue from, if a
-    -- previous call did not show all results. To get the next results, call
-    -- @ListSecretVersionIds@ again with this value.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | Specifies whether to include versions of secrets that don\'t have any
+    -- staging labels attached to them. Versions without staging labels are
+    -- considered deprecated and are subject to deletion by Secrets Manager.
+    includeDeprecated :: Prelude.Maybe Prelude.Bool,
     -- | The number of results to include in the response.
     --
     -- If there are more results available, in the response, Secrets Manager
     -- includes @NextToken@. To get the next results, call
     -- @ListSecretVersionIds@ again with the value from @NextToken@.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Specifies whether to include versions of secrets that don\'t have any
-    -- staging labels attached to them. Versions without staging labels are
-    -- considered deprecated and are subject to deletion by Secrets Manager.
-    includeDeprecated :: Prelude.Maybe Prelude.Bool,
+    -- | A token that indicates where the output should continue from, if a
+    -- previous call did not show all results. To get the next results, call
+    -- @ListSecretVersionIds@ again with this value.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ARN or name of the secret whose versions you want to list.
     --
     -- For an ARN, we recommend that you specify a complete ARN rather than a
@@ -103,9 +103,9 @@ data ListSecretVersionIds = ListSecretVersionIds'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listSecretVersionIds_nextToken' - A token that indicates where the output should continue from, if a
--- previous call did not show all results. To get the next results, call
--- @ListSecretVersionIds@ again with this value.
+-- 'includeDeprecated', 'listSecretVersionIds_includeDeprecated' - Specifies whether to include versions of secrets that don\'t have any
+-- staging labels attached to them. Versions without staging labels are
+-- considered deprecated and are subject to deletion by Secrets Manager.
 --
 -- 'maxResults', 'listSecretVersionIds_maxResults' - The number of results to include in the response.
 --
@@ -113,9 +113,9 @@ data ListSecretVersionIds = ListSecretVersionIds'
 -- includes @NextToken@. To get the next results, call
 -- @ListSecretVersionIds@ again with the value from @NextToken@.
 --
--- 'includeDeprecated', 'listSecretVersionIds_includeDeprecated' - Specifies whether to include versions of secrets that don\'t have any
--- staging labels attached to them. Versions without staging labels are
--- considered deprecated and are subject to deletion by Secrets Manager.
+-- 'nextToken', 'listSecretVersionIds_nextToken' - A token that indicates where the output should continue from, if a
+-- previous call did not show all results. To get the next results, call
+-- @ListSecretVersionIds@ again with this value.
 --
 -- 'secretId', 'listSecretVersionIds_secretId' - The ARN or name of the secret whose versions you want to list.
 --
@@ -128,17 +128,18 @@ newListSecretVersionIds ::
   ListSecretVersionIds
 newListSecretVersionIds pSecretId_ =
   ListSecretVersionIds'
-    { nextToken = Prelude.Nothing,
+    { includeDeprecated =
+        Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      includeDeprecated = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       secretId = pSecretId_
     }
 
--- | A token that indicates where the output should continue from, if a
--- previous call did not show all results. To get the next results, call
--- @ListSecretVersionIds@ again with this value.
-listSecretVersionIds_nextToken :: Lens.Lens' ListSecretVersionIds (Prelude.Maybe Prelude.Text)
-listSecretVersionIds_nextToken = Lens.lens (\ListSecretVersionIds' {nextToken} -> nextToken) (\s@ListSecretVersionIds' {} a -> s {nextToken = a} :: ListSecretVersionIds)
+-- | Specifies whether to include versions of secrets that don\'t have any
+-- staging labels attached to them. Versions without staging labels are
+-- considered deprecated and are subject to deletion by Secrets Manager.
+listSecretVersionIds_includeDeprecated :: Lens.Lens' ListSecretVersionIds (Prelude.Maybe Prelude.Bool)
+listSecretVersionIds_includeDeprecated = Lens.lens (\ListSecretVersionIds' {includeDeprecated} -> includeDeprecated) (\s@ListSecretVersionIds' {} a -> s {includeDeprecated = a} :: ListSecretVersionIds)
 
 -- | The number of results to include in the response.
 --
@@ -148,11 +149,11 @@ listSecretVersionIds_nextToken = Lens.lens (\ListSecretVersionIds' {nextToken} -
 listSecretVersionIds_maxResults :: Lens.Lens' ListSecretVersionIds (Prelude.Maybe Prelude.Natural)
 listSecretVersionIds_maxResults = Lens.lens (\ListSecretVersionIds' {maxResults} -> maxResults) (\s@ListSecretVersionIds' {} a -> s {maxResults = a} :: ListSecretVersionIds)
 
--- | Specifies whether to include versions of secrets that don\'t have any
--- staging labels attached to them. Versions without staging labels are
--- considered deprecated and are subject to deletion by Secrets Manager.
-listSecretVersionIds_includeDeprecated :: Lens.Lens' ListSecretVersionIds (Prelude.Maybe Prelude.Bool)
-listSecretVersionIds_includeDeprecated = Lens.lens (\ListSecretVersionIds' {includeDeprecated} -> includeDeprecated) (\s@ListSecretVersionIds' {} a -> s {includeDeprecated = a} :: ListSecretVersionIds)
+-- | A token that indicates where the output should continue from, if a
+-- previous call did not show all results. To get the next results, call
+-- @ListSecretVersionIds@ again with this value.
+listSecretVersionIds_nextToken :: Lens.Lens' ListSecretVersionIds (Prelude.Maybe Prelude.Text)
+listSecretVersionIds_nextToken = Lens.lens (\ListSecretVersionIds' {nextToken} -> nextToken) (\s@ListSecretVersionIds' {} a -> s {nextToken = a} :: ListSecretVersionIds)
 
 -- | The ARN or name of the secret whose versions you want to list.
 --
@@ -194,25 +195,25 @@ instance Core.AWSRequest ListSecretVersionIds where
     Response.receiveJSON
       ( \s h x ->
           ListSecretVersionIdsResponse'
-            Prelude.<$> (x Data..?> "Name")
+            Prelude.<$> (x Data..?> "ARN")
+            Prelude.<*> (x Data..?> "Name")
             Prelude.<*> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "ARN")
             Prelude.<*> (x Data..?> "Versions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListSecretVersionIds where
   hashWithSalt _salt ListSecretVersionIds' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` includeDeprecated
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` includeDeprecated
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` secretId
 
 instance Prelude.NFData ListSecretVersionIds where
   rnf ListSecretVersionIds' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf includeDeprecated
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf includeDeprecated
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf secretId
 
 instance Data.ToHeaders ListSecretVersionIds where
@@ -234,10 +235,10 @@ instance Data.ToJSON ListSecretVersionIds where
   toJSON ListSecretVersionIds' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("IncludeDeprecated" Data..=)
+          [ ("IncludeDeprecated" Data..=)
               Prelude.<$> includeDeprecated,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("SecretId" Data..= secretId)
           ]
       )
@@ -250,7 +251,9 @@ instance Data.ToQuery ListSecretVersionIds where
 
 -- | /See:/ 'newListSecretVersionIdsResponse' smart constructor.
 data ListSecretVersionIdsResponse = ListSecretVersionIdsResponse'
-  { -- | The name of the secret.
+  { -- | The ARN of the secret.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the secret.
     name :: Prelude.Maybe Prelude.Text,
     -- | Secrets Manager includes this value if there\'s more output available
     -- than what is included in the current response. This can occur even when
@@ -258,8 +261,6 @@ data ListSecretVersionIdsResponse = ListSecretVersionIdsResponse'
     -- filtered view of a long list. To get the next results, call
     -- @ListSecretVersionIds@ again with this value.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the secret.
-    arn :: Prelude.Maybe Prelude.Text,
     -- | A list of the versions of the secret.
     versions :: Prelude.Maybe [SecretVersionsListEntry],
     -- | The response's http status code.
@@ -275,6 +276,8 @@ data ListSecretVersionIdsResponse = ListSecretVersionIdsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'arn', 'listSecretVersionIdsResponse_arn' - The ARN of the secret.
+--
 -- 'name', 'listSecretVersionIdsResponse_name' - The name of the secret.
 --
 -- 'nextToken', 'listSecretVersionIdsResponse_nextToken' - Secrets Manager includes this value if there\'s more output available
@@ -282,8 +285,6 @@ data ListSecretVersionIdsResponse = ListSecretVersionIdsResponse'
 -- the response includes no values at all, such as when you ask for a
 -- filtered view of a long list. To get the next results, call
 -- @ListSecretVersionIds@ again with this value.
---
--- 'arn', 'listSecretVersionIdsResponse_arn' - The ARN of the secret.
 --
 -- 'versions', 'listSecretVersionIdsResponse_versions' - A list of the versions of the secret.
 --
@@ -294,13 +295,17 @@ newListSecretVersionIdsResponse ::
   ListSecretVersionIdsResponse
 newListSecretVersionIdsResponse pHttpStatus_ =
   ListSecretVersionIdsResponse'
-    { name =
+    { arn =
         Prelude.Nothing,
+      name = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      arn = Prelude.Nothing,
       versions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The ARN of the secret.
+listSecretVersionIdsResponse_arn :: Lens.Lens' ListSecretVersionIdsResponse (Prelude.Maybe Prelude.Text)
+listSecretVersionIdsResponse_arn = Lens.lens (\ListSecretVersionIdsResponse' {arn} -> arn) (\s@ListSecretVersionIdsResponse' {} a -> s {arn = a} :: ListSecretVersionIdsResponse)
 
 -- | The name of the secret.
 listSecretVersionIdsResponse_name :: Lens.Lens' ListSecretVersionIdsResponse (Prelude.Maybe Prelude.Text)
@@ -314,10 +319,6 @@ listSecretVersionIdsResponse_name = Lens.lens (\ListSecretVersionIdsResponse' {n
 listSecretVersionIdsResponse_nextToken :: Lens.Lens' ListSecretVersionIdsResponse (Prelude.Maybe Prelude.Text)
 listSecretVersionIdsResponse_nextToken = Lens.lens (\ListSecretVersionIdsResponse' {nextToken} -> nextToken) (\s@ListSecretVersionIdsResponse' {} a -> s {nextToken = a} :: ListSecretVersionIdsResponse)
 
--- | The ARN of the secret.
-listSecretVersionIdsResponse_arn :: Lens.Lens' ListSecretVersionIdsResponse (Prelude.Maybe Prelude.Text)
-listSecretVersionIdsResponse_arn = Lens.lens (\ListSecretVersionIdsResponse' {arn} -> arn) (\s@ListSecretVersionIdsResponse' {} a -> s {arn = a} :: ListSecretVersionIdsResponse)
-
 -- | A list of the versions of the secret.
 listSecretVersionIdsResponse_versions :: Lens.Lens' ListSecretVersionIdsResponse (Prelude.Maybe [SecretVersionsListEntry])
 listSecretVersionIdsResponse_versions = Lens.lens (\ListSecretVersionIdsResponse' {versions} -> versions) (\s@ListSecretVersionIdsResponse' {} a -> s {versions = a} :: ListSecretVersionIdsResponse) Prelude.. Lens.mapping Lens.coerced
@@ -328,8 +329,8 @@ listSecretVersionIdsResponse_httpStatus = Lens.lens (\ListSecretVersionIdsRespon
 
 instance Prelude.NFData ListSecretVersionIdsResponse where
   rnf ListSecretVersionIdsResponse' {..} =
-    Prelude.rnf name
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf versions
       `Prelude.seq` Prelude.rnf httpStatus

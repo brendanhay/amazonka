@@ -68,8 +68,8 @@ module Amazonka.SecretsManager.UpdateSecretVersionStage
     newUpdateSecretVersionStageResponse,
 
     -- * Response Lenses
-    updateSecretVersionStageResponse_name,
     updateSecretVersionStageResponse_arn,
+    updateSecretVersionStageResponse_name,
     updateSecretVersionStageResponse_httpStatus,
   )
 where
@@ -193,8 +193,8 @@ instance Core.AWSRequest UpdateSecretVersionStage where
     Response.receiveJSON
       ( \s h x ->
           UpdateSecretVersionStageResponse'
-            Prelude.<$> (x Data..?> "Name")
-            Prelude.<*> (x Data..?> "ARN")
+            Prelude.<$> (x Data..?> "ARN")
+            Prelude.<*> (x Data..?> "Name")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -248,10 +248,10 @@ instance Data.ToQuery UpdateSecretVersionStage where
 
 -- | /See:/ 'newUpdateSecretVersionStageResponse' smart constructor.
 data UpdateSecretVersionStageResponse = UpdateSecretVersionStageResponse'
-  { -- | The name of the secret that was updated.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the secret that was updated.
+  { -- | The ARN of the secret that was updated.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the secret that was updated.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -265,9 +265,9 @@ data UpdateSecretVersionStageResponse = UpdateSecretVersionStageResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateSecretVersionStageResponse_name' - The name of the secret that was updated.
---
 -- 'arn', 'updateSecretVersionStageResponse_arn' - The ARN of the secret that was updated.
+--
+-- 'name', 'updateSecretVersionStageResponse_name' - The name of the secret that was updated.
 --
 -- 'httpStatus', 'updateSecretVersionStageResponse_httpStatus' - The response's http status code.
 newUpdateSecretVersionStageResponse ::
@@ -276,19 +276,19 @@ newUpdateSecretVersionStageResponse ::
   UpdateSecretVersionStageResponse
 newUpdateSecretVersionStageResponse pHttpStatus_ =
   UpdateSecretVersionStageResponse'
-    { name =
+    { arn =
         Prelude.Nothing,
-      arn = Prelude.Nothing,
+      name = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The name of the secret that was updated.
-updateSecretVersionStageResponse_name :: Lens.Lens' UpdateSecretVersionStageResponse (Prelude.Maybe Prelude.Text)
-updateSecretVersionStageResponse_name = Lens.lens (\UpdateSecretVersionStageResponse' {name} -> name) (\s@UpdateSecretVersionStageResponse' {} a -> s {name = a} :: UpdateSecretVersionStageResponse)
 
 -- | The ARN of the secret that was updated.
 updateSecretVersionStageResponse_arn :: Lens.Lens' UpdateSecretVersionStageResponse (Prelude.Maybe Prelude.Text)
 updateSecretVersionStageResponse_arn = Lens.lens (\UpdateSecretVersionStageResponse' {arn} -> arn) (\s@UpdateSecretVersionStageResponse' {} a -> s {arn = a} :: UpdateSecretVersionStageResponse)
+
+-- | The name of the secret that was updated.
+updateSecretVersionStageResponse_name :: Lens.Lens' UpdateSecretVersionStageResponse (Prelude.Maybe Prelude.Text)
+updateSecretVersionStageResponse_name = Lens.lens (\UpdateSecretVersionStageResponse' {name} -> name) (\s@UpdateSecretVersionStageResponse' {} a -> s {name = a} :: UpdateSecretVersionStageResponse)
 
 -- | The response's http status code.
 updateSecretVersionStageResponse_httpStatus :: Lens.Lens' UpdateSecretVersionStageResponse Prelude.Int
@@ -299,6 +299,6 @@ instance
     UpdateSecretVersionStageResponse
   where
   rnf UpdateSecretVersionStageResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf httpStatus

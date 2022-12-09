@@ -58,8 +58,8 @@ module Amazonka.SecretsManager.CancelRotateSecret
     newCancelRotateSecretResponse,
 
     -- * Response Lenses
-    cancelRotateSecretResponse_name,
     cancelRotateSecretResponse_arn,
+    cancelRotateSecretResponse_name,
     cancelRotateSecretResponse_versionId,
     cancelRotateSecretResponse_httpStatus,
   )
@@ -122,8 +122,8 @@ instance Core.AWSRequest CancelRotateSecret where
     Response.receiveJSON
       ( \s h x ->
           CancelRotateSecretResponse'
-            Prelude.<$> (x Data..?> "Name")
-            Prelude.<*> (x Data..?> "ARN")
+            Prelude.<$> (x Data..?> "ARN")
+            Prelude.<*> (x Data..?> "Name")
             Prelude.<*> (x Data..?> "VersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -165,10 +165,10 @@ instance Data.ToQuery CancelRotateSecret where
 
 -- | /See:/ 'newCancelRotateSecretResponse' smart constructor.
 data CancelRotateSecretResponse = CancelRotateSecretResponse'
-  { -- | The name of the secret.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the secret.
+  { -- | The ARN of the secret.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the secret.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the version of the secret created during the
     -- rotation. This version might not be complete, and should be evaluated
     -- for possible deletion. We recommend that you remove the @VersionStage@
@@ -189,9 +189,9 @@ data CancelRotateSecretResponse = CancelRotateSecretResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'cancelRotateSecretResponse_name' - The name of the secret.
---
 -- 'arn', 'cancelRotateSecretResponse_arn' - The ARN of the secret.
+--
+-- 'name', 'cancelRotateSecretResponse_name' - The name of the secret.
 --
 -- 'versionId', 'cancelRotateSecretResponse_versionId' - The unique identifier of the version of the secret created during the
 -- rotation. This version might not be complete, and should be evaluated
@@ -207,19 +207,19 @@ newCancelRotateSecretResponse ::
   CancelRotateSecretResponse
 newCancelRotateSecretResponse pHttpStatus_ =
   CancelRotateSecretResponse'
-    { name = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
+      name = Prelude.Nothing,
       versionId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The name of the secret.
-cancelRotateSecretResponse_name :: Lens.Lens' CancelRotateSecretResponse (Prelude.Maybe Prelude.Text)
-cancelRotateSecretResponse_name = Lens.lens (\CancelRotateSecretResponse' {name} -> name) (\s@CancelRotateSecretResponse' {} a -> s {name = a} :: CancelRotateSecretResponse)
-
 -- | The ARN of the secret.
 cancelRotateSecretResponse_arn :: Lens.Lens' CancelRotateSecretResponse (Prelude.Maybe Prelude.Text)
 cancelRotateSecretResponse_arn = Lens.lens (\CancelRotateSecretResponse' {arn} -> arn) (\s@CancelRotateSecretResponse' {} a -> s {arn = a} :: CancelRotateSecretResponse)
+
+-- | The name of the secret.
+cancelRotateSecretResponse_name :: Lens.Lens' CancelRotateSecretResponse (Prelude.Maybe Prelude.Text)
+cancelRotateSecretResponse_name = Lens.lens (\CancelRotateSecretResponse' {name} -> name) (\s@CancelRotateSecretResponse' {} a -> s {name = a} :: CancelRotateSecretResponse)
 
 -- | The unique identifier of the version of the secret created during the
 -- rotation. This version might not be complete, and should be evaluated
@@ -236,7 +236,7 @@ cancelRotateSecretResponse_httpStatus = Lens.lens (\CancelRotateSecretResponse' 
 
 instance Prelude.NFData CancelRotateSecretResponse where
   rnf CancelRotateSecretResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf versionId
       `Prelude.seq` Prelude.rnf httpStatus

@@ -67,10 +67,10 @@ module Amazonka.SecretsManager.PutSecretValue
     newPutSecretValue,
 
     -- * Request Lenses
-    putSecretValue_versionStages,
     putSecretValue_clientRequestToken,
     putSecretValue_secretBinary,
     putSecretValue_secretString,
+    putSecretValue_versionStages,
     putSecretValue_secretId,
 
     -- * Destructuring the Response
@@ -78,10 +78,10 @@ module Amazonka.SecretsManager.PutSecretValue
     newPutSecretValueResponse,
 
     -- * Response Lenses
-    putSecretValueResponse_versionStages,
-    putSecretValueResponse_name,
     putSecretValueResponse_arn,
+    putSecretValueResponse_name,
     putSecretValueResponse_versionId,
+    putSecretValueResponse_versionStages,
     putSecretValueResponse_httpStatus,
   )
 where
@@ -96,21 +96,7 @@ import Amazonka.SecretsManager.Types
 
 -- | /See:/ 'newPutSecretValue' smart constructor.
 data PutSecretValue = PutSecretValue'
-  { -- | A list of staging labels to attach to this version of the secret.
-    -- Secrets Manager uses staging labels to track versions of a secret
-    -- through the rotation process.
-    --
-    -- If you specify a staging label that\'s already associated with a
-    -- different version of the same secret, then Secrets Manager removes the
-    -- label from the other version and attaches it to this version. If you
-    -- specify @AWSCURRENT@, and it is already attached to another version,
-    -- then Secrets Manager also moves the staging label @AWSPREVIOUS@ to the
-    -- version that @AWSCURRENT@ was removed from.
-    --
-    -- If you don\'t include @VersionStages@, then Secrets Manager
-    -- automatically moves the staging label @AWSCURRENT@ to this version.
-    versionStages :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | A unique identifier for the new version of the secret.
+  { -- | A unique identifier for the new version of the secret.
     --
     -- If you use the Amazon Web Services CLI or one of the Amazon Web Services
     -- SDKs to call this operation, then you can leave this parameter empty
@@ -157,6 +143,20 @@ data PutSecretValue = PutSecretValue'
     -- We recommend you create the secret string as JSON key\/value pairs, as
     -- shown in the example.
     secretString :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | A list of staging labels to attach to this version of the secret.
+    -- Secrets Manager uses staging labels to track versions of a secret
+    -- through the rotation process.
+    --
+    -- If you specify a staging label that\'s already associated with a
+    -- different version of the same secret, then Secrets Manager removes the
+    -- label from the other version and attaches it to this version. If you
+    -- specify @AWSCURRENT@, and it is already attached to another version,
+    -- then Secrets Manager also moves the staging label @AWSPREVIOUS@ to the
+    -- version that @AWSCURRENT@ was removed from.
+    --
+    -- If you don\'t include @VersionStages@, then Secrets Manager
+    -- automatically moves the staging label @AWSCURRENT@ to this version.
+    versionStages :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The ARN or name of the secret to add a new version to.
     --
     -- For an ARN, we recommend that you specify a complete ARN rather than a
@@ -175,20 +175,6 @@ data PutSecretValue = PutSecretValue'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'versionStages', 'putSecretValue_versionStages' - A list of staging labels to attach to this version of the secret.
--- Secrets Manager uses staging labels to track versions of a secret
--- through the rotation process.
---
--- If you specify a staging label that\'s already associated with a
--- different version of the same secret, then Secrets Manager removes the
--- label from the other version and attaches it to this version. If you
--- specify @AWSCURRENT@, and it is already attached to another version,
--- then Secrets Manager also moves the staging label @AWSPREVIOUS@ to the
--- version that @AWSCURRENT@ was removed from.
---
--- If you don\'t include @VersionStages@, then Secrets Manager
--- automatically moves the staging label @AWSCURRENT@ to this version.
 --
 -- 'clientRequestToken', 'putSecretValue_clientRequestToken' - A unique identifier for the new version of the secret.
 --
@@ -241,6 +227,20 @@ data PutSecretValue = PutSecretValue'
 -- We recommend you create the secret string as JSON key\/value pairs, as
 -- shown in the example.
 --
+-- 'versionStages', 'putSecretValue_versionStages' - A list of staging labels to attach to this version of the secret.
+-- Secrets Manager uses staging labels to track versions of a secret
+-- through the rotation process.
+--
+-- If you specify a staging label that\'s already associated with a
+-- different version of the same secret, then Secrets Manager removes the
+-- label from the other version and attaches it to this version. If you
+-- specify @AWSCURRENT@, and it is already attached to another version,
+-- then Secrets Manager also moves the staging label @AWSPREVIOUS@ to the
+-- version that @AWSCURRENT@ was removed from.
+--
+-- If you don\'t include @VersionStages@, then Secrets Manager
+-- automatically moves the staging label @AWSCURRENT@ to this version.
+--
 -- 'secretId', 'putSecretValue_secretId' - The ARN or name of the secret to add a new version to.
 --
 -- For an ARN, we recommend that you specify a complete ARN rather than a
@@ -254,28 +254,13 @@ newPutSecretValue ::
   PutSecretValue
 newPutSecretValue pSecretId_ =
   PutSecretValue'
-    { versionStages = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
+    { clientRequestToken =
+        Prelude.Nothing,
       secretBinary = Prelude.Nothing,
       secretString = Prelude.Nothing,
+      versionStages = Prelude.Nothing,
       secretId = pSecretId_
     }
-
--- | A list of staging labels to attach to this version of the secret.
--- Secrets Manager uses staging labels to track versions of a secret
--- through the rotation process.
---
--- If you specify a staging label that\'s already associated with a
--- different version of the same secret, then Secrets Manager removes the
--- label from the other version and attaches it to this version. If you
--- specify @AWSCURRENT@, and it is already attached to another version,
--- then Secrets Manager also moves the staging label @AWSPREVIOUS@ to the
--- version that @AWSCURRENT@ was removed from.
---
--- If you don\'t include @VersionStages@, then Secrets Manager
--- automatically moves the staging label @AWSCURRENT@ to this version.
-putSecretValue_versionStages :: Lens.Lens' PutSecretValue (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-putSecretValue_versionStages = Lens.lens (\PutSecretValue' {versionStages} -> versionStages) (\s@PutSecretValue' {} a -> s {versionStages = a} :: PutSecretValue) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique identifier for the new version of the secret.
 --
@@ -334,6 +319,22 @@ putSecretValue_secretBinary = Lens.lens (\PutSecretValue' {secretBinary} -> secr
 putSecretValue_secretString :: Lens.Lens' PutSecretValue (Prelude.Maybe Prelude.Text)
 putSecretValue_secretString = Lens.lens (\PutSecretValue' {secretString} -> secretString) (\s@PutSecretValue' {} a -> s {secretString = a} :: PutSecretValue) Prelude.. Lens.mapping Data._Sensitive
 
+-- | A list of staging labels to attach to this version of the secret.
+-- Secrets Manager uses staging labels to track versions of a secret
+-- through the rotation process.
+--
+-- If you specify a staging label that\'s already associated with a
+-- different version of the same secret, then Secrets Manager removes the
+-- label from the other version and attaches it to this version. If you
+-- specify @AWSCURRENT@, and it is already attached to another version,
+-- then Secrets Manager also moves the staging label @AWSPREVIOUS@ to the
+-- version that @AWSCURRENT@ was removed from.
+--
+-- If you don\'t include @VersionStages@, then Secrets Manager
+-- automatically moves the staging label @AWSCURRENT@ to this version.
+putSecretValue_versionStages :: Lens.Lens' PutSecretValue (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+putSecretValue_versionStages = Lens.lens (\PutSecretValue' {versionStages} -> versionStages) (\s@PutSecretValue' {} a -> s {versionStages = a} :: PutSecretValue) Prelude.. Lens.mapping Lens.coerced
+
 -- | The ARN or name of the secret to add a new version to.
 --
 -- For an ARN, we recommend that you specify a complete ARN rather than a
@@ -354,27 +355,27 @@ instance Core.AWSRequest PutSecretValue where
     Response.receiveJSON
       ( \s h x ->
           PutSecretValueResponse'
-            Prelude.<$> (x Data..?> "VersionStages")
+            Prelude.<$> (x Data..?> "ARN")
             Prelude.<*> (x Data..?> "Name")
-            Prelude.<*> (x Data..?> "ARN")
             Prelude.<*> (x Data..?> "VersionId")
+            Prelude.<*> (x Data..?> "VersionStages")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable PutSecretValue where
   hashWithSalt _salt PutSecretValue' {..} =
-    _salt `Prelude.hashWithSalt` versionStages
-      `Prelude.hashWithSalt` clientRequestToken
+    _salt `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` secretBinary
       `Prelude.hashWithSalt` secretString
+      `Prelude.hashWithSalt` versionStages
       `Prelude.hashWithSalt` secretId
 
 instance Prelude.NFData PutSecretValue where
   rnf PutSecretValue' {..} =
-    Prelude.rnf versionStages
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf secretBinary
       `Prelude.seq` Prelude.rnf secretString
+      `Prelude.seq` Prelude.rnf versionStages
       `Prelude.seq` Prelude.rnf secretId
 
 instance Data.ToHeaders PutSecretValue where
@@ -396,11 +397,11 @@ instance Data.ToJSON PutSecretValue where
   toJSON PutSecretValue' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("VersionStages" Data..=) Prelude.<$> versionStages,
-            ("ClientRequestToken" Data..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
             ("SecretBinary" Data..=) Prelude.<$> secretBinary,
             ("SecretString" Data..=) Prelude.<$> secretString,
+            ("VersionStages" Data..=) Prelude.<$> versionStages,
             Prelude.Just ("SecretId" Data..= secretId)
           ]
       )
@@ -413,16 +414,16 @@ instance Data.ToQuery PutSecretValue where
 
 -- | /See:/ 'newPutSecretValueResponse' smart constructor.
 data PutSecretValueResponse = PutSecretValueResponse'
-  { -- | The list of staging labels that are currently attached to this version
+  { -- | The ARN of the secret.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the secret.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier of the version of the secret.
+    versionId :: Prelude.Maybe Prelude.Text,
+    -- | The list of staging labels that are currently attached to this version
     -- of the secret. Secrets Manager uses staging labels to track a version as
     -- it progresses through the secret rotation process.
     versionStages :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The name of the secret.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the secret.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier of the version of the secret.
-    versionId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -436,15 +437,15 @@ data PutSecretValueResponse = PutSecretValueResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'versionStages', 'putSecretValueResponse_versionStages' - The list of staging labels that are currently attached to this version
--- of the secret. Secrets Manager uses staging labels to track a version as
--- it progresses through the secret rotation process.
+-- 'arn', 'putSecretValueResponse_arn' - The ARN of the secret.
 --
 -- 'name', 'putSecretValueResponse_name' - The name of the secret.
 --
--- 'arn', 'putSecretValueResponse_arn' - The ARN of the secret.
---
 -- 'versionId', 'putSecretValueResponse_versionId' - The unique identifier of the version of the secret.
+--
+-- 'versionStages', 'putSecretValueResponse_versionStages' - The list of staging labels that are currently attached to this version
+-- of the secret. Secrets Manager uses staging labels to track a version as
+-- it progresses through the secret rotation process.
 --
 -- 'httpStatus', 'putSecretValueResponse_httpStatus' - The response's http status code.
 newPutSecretValueResponse ::
@@ -453,13 +454,24 @@ newPutSecretValueResponse ::
   PutSecretValueResponse
 newPutSecretValueResponse pHttpStatus_ =
   PutSecretValueResponse'
-    { versionStages =
-        Prelude.Nothing,
+    { arn = Prelude.Nothing,
       name = Prelude.Nothing,
-      arn = Prelude.Nothing,
       versionId = Prelude.Nothing,
+      versionStages = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The ARN of the secret.
+putSecretValueResponse_arn :: Lens.Lens' PutSecretValueResponse (Prelude.Maybe Prelude.Text)
+putSecretValueResponse_arn = Lens.lens (\PutSecretValueResponse' {arn} -> arn) (\s@PutSecretValueResponse' {} a -> s {arn = a} :: PutSecretValueResponse)
+
+-- | The name of the secret.
+putSecretValueResponse_name :: Lens.Lens' PutSecretValueResponse (Prelude.Maybe Prelude.Text)
+putSecretValueResponse_name = Lens.lens (\PutSecretValueResponse' {name} -> name) (\s@PutSecretValueResponse' {} a -> s {name = a} :: PutSecretValueResponse)
+
+-- | The unique identifier of the version of the secret.
+putSecretValueResponse_versionId :: Lens.Lens' PutSecretValueResponse (Prelude.Maybe Prelude.Text)
+putSecretValueResponse_versionId = Lens.lens (\PutSecretValueResponse' {versionId} -> versionId) (\s@PutSecretValueResponse' {} a -> s {versionId = a} :: PutSecretValueResponse)
 
 -- | The list of staging labels that are currently attached to this version
 -- of the secret. Secrets Manager uses staging labels to track a version as
@@ -467,26 +479,14 @@ newPutSecretValueResponse pHttpStatus_ =
 putSecretValueResponse_versionStages :: Lens.Lens' PutSecretValueResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 putSecretValueResponse_versionStages = Lens.lens (\PutSecretValueResponse' {versionStages} -> versionStages) (\s@PutSecretValueResponse' {} a -> s {versionStages = a} :: PutSecretValueResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the secret.
-putSecretValueResponse_name :: Lens.Lens' PutSecretValueResponse (Prelude.Maybe Prelude.Text)
-putSecretValueResponse_name = Lens.lens (\PutSecretValueResponse' {name} -> name) (\s@PutSecretValueResponse' {} a -> s {name = a} :: PutSecretValueResponse)
-
--- | The ARN of the secret.
-putSecretValueResponse_arn :: Lens.Lens' PutSecretValueResponse (Prelude.Maybe Prelude.Text)
-putSecretValueResponse_arn = Lens.lens (\PutSecretValueResponse' {arn} -> arn) (\s@PutSecretValueResponse' {} a -> s {arn = a} :: PutSecretValueResponse)
-
--- | The unique identifier of the version of the secret.
-putSecretValueResponse_versionId :: Lens.Lens' PutSecretValueResponse (Prelude.Maybe Prelude.Text)
-putSecretValueResponse_versionId = Lens.lens (\PutSecretValueResponse' {versionId} -> versionId) (\s@PutSecretValueResponse' {} a -> s {versionId = a} :: PutSecretValueResponse)
-
 -- | The response's http status code.
 putSecretValueResponse_httpStatus :: Lens.Lens' PutSecretValueResponse Prelude.Int
 putSecretValueResponse_httpStatus = Lens.lens (\PutSecretValueResponse' {httpStatus} -> httpStatus) (\s@PutSecretValueResponse' {} a -> s {httpStatus = a} :: PutSecretValueResponse)
 
 instance Prelude.NFData PutSecretValueResponse where
   rnf PutSecretValueResponse' {..} =
-    Prelude.rnf versionStages
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf versionStages
       `Prelude.seq` Prelude.rnf httpStatus

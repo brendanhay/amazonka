@@ -51,8 +51,8 @@ module Amazonka.SecretsManager.GetSecretValue
     newGetSecretValue,
 
     -- * Request Lenses
-    getSecretValue_versionStage,
     getSecretValue_versionId,
+    getSecretValue_versionStage,
     getSecretValue_secretId,
 
     -- * Destructuring the Response
@@ -60,13 +60,13 @@ module Amazonka.SecretsManager.GetSecretValue
     newGetSecretValueResponse,
 
     -- * Response Lenses
-    getSecretValueResponse_versionStages,
-    getSecretValueResponse_name,
     getSecretValueResponse_arn,
+    getSecretValueResponse_createdDate,
+    getSecretValueResponse_name,
     getSecretValueResponse_secretBinary,
     getSecretValueResponse_secretString,
-    getSecretValueResponse_createdDate,
     getSecretValueResponse_versionId,
+    getSecretValueResponse_versionStages,
     getSecretValueResponse_httpStatus,
   )
 where
@@ -81,15 +81,7 @@ import Amazonka.SecretsManager.Types
 
 -- | /See:/ 'newGetSecretValue' smart constructor.
 data GetSecretValue = GetSecretValue'
-  { -- | The staging label of the version of the secret to retrieve.
-    --
-    -- Secrets Manager uses staging labels to keep track of different versions
-    -- during the rotation process. If you include both this parameter and
-    -- @VersionId@, the two parameters must refer to the same secret version.
-    -- If you don\'t specify either a @VersionStage@ or @VersionId@, Secrets
-    -- Manager returns the @AWSCURRENT@ version.
-    versionStage :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier of the version of the secret to retrieve. If you
+  { -- | The unique identifier of the version of the secret to retrieve. If you
     -- include both this parameter and @VersionStage@, the two parameters must
     -- refer to the same secret version. If you don\'t specify either a
     -- @VersionStage@ or @VersionId@, then Secrets Manager returns the
@@ -99,6 +91,14 @@ data GetSecretValue = GetSecretValue'
     -- <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type>
     -- value with 32 hexadecimal digits.
     versionId :: Prelude.Maybe Prelude.Text,
+    -- | The staging label of the version of the secret to retrieve.
+    --
+    -- Secrets Manager uses staging labels to keep track of different versions
+    -- during the rotation process. If you include both this parameter and
+    -- @VersionId@, the two parameters must refer to the same secret version.
+    -- If you don\'t specify either a @VersionStage@ or @VersionId@, Secrets
+    -- Manager returns the @AWSCURRENT@ version.
+    versionStage :: Prelude.Maybe Prelude.Text,
     -- | The ARN or name of the secret to retrieve.
     --
     -- For an ARN, we recommend that you specify a complete ARN rather than a
@@ -116,14 +116,6 @@ data GetSecretValue = GetSecretValue'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'versionStage', 'getSecretValue_versionStage' - The staging label of the version of the secret to retrieve.
---
--- Secrets Manager uses staging labels to keep track of different versions
--- during the rotation process. If you include both this parameter and
--- @VersionId@, the two parameters must refer to the same secret version.
--- If you don\'t specify either a @VersionStage@ or @VersionId@, Secrets
--- Manager returns the @AWSCURRENT@ version.
---
 -- 'versionId', 'getSecretValue_versionId' - The unique identifier of the version of the secret to retrieve. If you
 -- include both this parameter and @VersionStage@, the two parameters must
 -- refer to the same secret version. If you don\'t specify either a
@@ -133,6 +125,14 @@ data GetSecretValue = GetSecretValue'
 -- This value is typically a
 -- <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type>
 -- value with 32 hexadecimal digits.
+--
+-- 'versionStage', 'getSecretValue_versionStage' - The staging label of the version of the secret to retrieve.
+--
+-- Secrets Manager uses staging labels to keep track of different versions
+-- during the rotation process. If you include both this parameter and
+-- @VersionId@, the two parameters must refer to the same secret version.
+-- If you don\'t specify either a @VersionStage@ or @VersionId@, Secrets
+-- Manager returns the @AWSCURRENT@ version.
 --
 -- 'secretId', 'getSecretValue_secretId' - The ARN or name of the secret to retrieve.
 --
@@ -145,20 +145,10 @@ newGetSecretValue ::
   GetSecretValue
 newGetSecretValue pSecretId_ =
   GetSecretValue'
-    { versionStage = Prelude.Nothing,
-      versionId = Prelude.Nothing,
+    { versionId = Prelude.Nothing,
+      versionStage = Prelude.Nothing,
       secretId = pSecretId_
     }
-
--- | The staging label of the version of the secret to retrieve.
---
--- Secrets Manager uses staging labels to keep track of different versions
--- during the rotation process. If you include both this parameter and
--- @VersionId@, the two parameters must refer to the same secret version.
--- If you don\'t specify either a @VersionStage@ or @VersionId@, Secrets
--- Manager returns the @AWSCURRENT@ version.
-getSecretValue_versionStage :: Lens.Lens' GetSecretValue (Prelude.Maybe Prelude.Text)
-getSecretValue_versionStage = Lens.lens (\GetSecretValue' {versionStage} -> versionStage) (\s@GetSecretValue' {} a -> s {versionStage = a} :: GetSecretValue)
 
 -- | The unique identifier of the version of the secret to retrieve. If you
 -- include both this parameter and @VersionStage@, the two parameters must
@@ -171,6 +161,16 @@ getSecretValue_versionStage = Lens.lens (\GetSecretValue' {versionStage} -> vers
 -- value with 32 hexadecimal digits.
 getSecretValue_versionId :: Lens.Lens' GetSecretValue (Prelude.Maybe Prelude.Text)
 getSecretValue_versionId = Lens.lens (\GetSecretValue' {versionId} -> versionId) (\s@GetSecretValue' {} a -> s {versionId = a} :: GetSecretValue)
+
+-- | The staging label of the version of the secret to retrieve.
+--
+-- Secrets Manager uses staging labels to keep track of different versions
+-- during the rotation process. If you include both this parameter and
+-- @VersionId@, the two parameters must refer to the same secret version.
+-- If you don\'t specify either a @VersionStage@ or @VersionId@, Secrets
+-- Manager returns the @AWSCURRENT@ version.
+getSecretValue_versionStage :: Lens.Lens' GetSecretValue (Prelude.Maybe Prelude.Text)
+getSecretValue_versionStage = Lens.lens (\GetSecretValue' {versionStage} -> versionStage) (\s@GetSecretValue' {} a -> s {versionStage = a} :: GetSecretValue)
 
 -- | The ARN or name of the secret to retrieve.
 --
@@ -190,26 +190,26 @@ instance Core.AWSRequest GetSecretValue where
     Response.receiveJSON
       ( \s h x ->
           GetSecretValueResponse'
-            Prelude.<$> (x Data..?> "VersionStages")
+            Prelude.<$> (x Data..?> "ARN")
+            Prelude.<*> (x Data..?> "CreatedDate")
             Prelude.<*> (x Data..?> "Name")
-            Prelude.<*> (x Data..?> "ARN")
             Prelude.<*> (x Data..?> "SecretBinary")
             Prelude.<*> (x Data..?> "SecretString")
-            Prelude.<*> (x Data..?> "CreatedDate")
             Prelude.<*> (x Data..?> "VersionId")
+            Prelude.<*> (x Data..?> "VersionStages")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetSecretValue where
   hashWithSalt _salt GetSecretValue' {..} =
-    _salt `Prelude.hashWithSalt` versionStage
-      `Prelude.hashWithSalt` versionId
+    _salt `Prelude.hashWithSalt` versionId
+      `Prelude.hashWithSalt` versionStage
       `Prelude.hashWithSalt` secretId
 
 instance Prelude.NFData GetSecretValue where
   rnf GetSecretValue' {..} =
-    Prelude.rnf versionStage
-      `Prelude.seq` Prelude.rnf versionId
+    Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf versionStage
       `Prelude.seq` Prelude.rnf secretId
 
 instance Data.ToHeaders GetSecretValue where
@@ -231,8 +231,8 @@ instance Data.ToJSON GetSecretValue where
   toJSON GetSecretValue' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("VersionStage" Data..=) Prelude.<$> versionStage,
-            ("VersionId" Data..=) Prelude.<$> versionId,
+          [ ("VersionId" Data..=) Prelude.<$> versionId,
+            ("VersionStage" Data..=) Prelude.<$> versionStage,
             Prelude.Just ("SecretId" Data..= secretId)
           ]
       )
@@ -245,13 +245,14 @@ instance Data.ToQuery GetSecretValue where
 
 -- | /See:/ 'newGetSecretValueResponse' smart constructor.
 data GetSecretValueResponse = GetSecretValueResponse'
-  { -- | A list of all of the staging labels currently attached to this version
-    -- of the secret.
-    versionStages :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+  { -- | The ARN of the secret.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The date and time that this version of the secret was created. If you
+    -- don\'t specify which version in @VersionId@ or @VersionStage@, then
+    -- Secrets Manager uses the @AWSCURRENT@ version.
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | The friendly name of the secret.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the secret.
-    arn :: Prelude.Maybe Prelude.Text,
     -- | The decrypted secret value, if the secret value was originally provided
     -- as binary data in the form of a byte array. The response parameter
     -- represents the binary data as a
@@ -267,12 +268,11 @@ data GetSecretValueResponse = GetSecretValueResponse'
     -- If this secret was created by using the console, then Secrets Manager
     -- stores the information as a JSON structure of key\/value pairs.
     secretString :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The date and time that this version of the secret was created. If you
-    -- don\'t specify which version in @VersionId@ or @VersionStage@, then
-    -- Secrets Manager uses the @AWSCURRENT@ version.
-    createdDate :: Prelude.Maybe Data.POSIX,
     -- | The unique identifier of this version of the secret.
     versionId :: Prelude.Maybe Prelude.Text,
+    -- | A list of all of the staging labels currently attached to this version
+    -- of the secret.
+    versionStages :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -286,12 +286,13 @@ data GetSecretValueResponse = GetSecretValueResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'versionStages', 'getSecretValueResponse_versionStages' - A list of all of the staging labels currently attached to this version
--- of the secret.
+-- 'arn', 'getSecretValueResponse_arn' - The ARN of the secret.
+--
+-- 'createdDate', 'getSecretValueResponse_createdDate' - The date and time that this version of the secret was created. If you
+-- don\'t specify which version in @VersionId@ or @VersionStage@, then
+-- Secrets Manager uses the @AWSCURRENT@ version.
 --
 -- 'name', 'getSecretValueResponse_name' - The friendly name of the secret.
---
--- 'arn', 'getSecretValueResponse_arn' - The ARN of the secret.
 --
 -- 'secretBinary', 'getSecretValueResponse_secretBinary' - The decrypted secret value, if the secret value was originally provided
 -- as binary data in the form of a byte array. The response parameter
@@ -312,11 +313,10 @@ data GetSecretValueResponse = GetSecretValueResponse'
 -- If this secret was created by using the console, then Secrets Manager
 -- stores the information as a JSON structure of key\/value pairs.
 --
--- 'createdDate', 'getSecretValueResponse_createdDate' - The date and time that this version of the secret was created. If you
--- don\'t specify which version in @VersionId@ or @VersionStage@, then
--- Secrets Manager uses the @AWSCURRENT@ version.
---
 -- 'versionId', 'getSecretValueResponse_versionId' - The unique identifier of this version of the secret.
+--
+-- 'versionStages', 'getSecretValueResponse_versionStages' - A list of all of the staging labels currently attached to this version
+-- of the secret.
 --
 -- 'httpStatus', 'getSecretValueResponse_httpStatus' - The response's http status code.
 newGetSecretValueResponse ::
@@ -325,29 +325,29 @@ newGetSecretValueResponse ::
   GetSecretValueResponse
 newGetSecretValueResponse pHttpStatus_ =
   GetSecretValueResponse'
-    { versionStages =
-        Prelude.Nothing,
+    { arn = Prelude.Nothing,
+      createdDate = Prelude.Nothing,
       name = Prelude.Nothing,
-      arn = Prelude.Nothing,
       secretBinary = Prelude.Nothing,
       secretString = Prelude.Nothing,
-      createdDate = Prelude.Nothing,
       versionId = Prelude.Nothing,
+      versionStages = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of all of the staging labels currently attached to this version
--- of the secret.
-getSecretValueResponse_versionStages :: Lens.Lens' GetSecretValueResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-getSecretValueResponse_versionStages = Lens.lens (\GetSecretValueResponse' {versionStages} -> versionStages) (\s@GetSecretValueResponse' {} a -> s {versionStages = a} :: GetSecretValueResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The friendly name of the secret.
-getSecretValueResponse_name :: Lens.Lens' GetSecretValueResponse (Prelude.Maybe Prelude.Text)
-getSecretValueResponse_name = Lens.lens (\GetSecretValueResponse' {name} -> name) (\s@GetSecretValueResponse' {} a -> s {name = a} :: GetSecretValueResponse)
 
 -- | The ARN of the secret.
 getSecretValueResponse_arn :: Lens.Lens' GetSecretValueResponse (Prelude.Maybe Prelude.Text)
 getSecretValueResponse_arn = Lens.lens (\GetSecretValueResponse' {arn} -> arn) (\s@GetSecretValueResponse' {} a -> s {arn = a} :: GetSecretValueResponse)
+
+-- | The date and time that this version of the secret was created. If you
+-- don\'t specify which version in @VersionId@ or @VersionStage@, then
+-- Secrets Manager uses the @AWSCURRENT@ version.
+getSecretValueResponse_createdDate :: Lens.Lens' GetSecretValueResponse (Prelude.Maybe Prelude.UTCTime)
+getSecretValueResponse_createdDate = Lens.lens (\GetSecretValueResponse' {createdDate} -> createdDate) (\s@GetSecretValueResponse' {} a -> s {createdDate = a} :: GetSecretValueResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The friendly name of the secret.
+getSecretValueResponse_name :: Lens.Lens' GetSecretValueResponse (Prelude.Maybe Prelude.Text)
+getSecretValueResponse_name = Lens.lens (\GetSecretValueResponse' {name} -> name) (\s@GetSecretValueResponse' {} a -> s {name = a} :: GetSecretValueResponse)
 
 -- | The decrypted secret value, if the secret value was originally provided
 -- as binary data in the form of a byte array. The response parameter
@@ -372,15 +372,14 @@ getSecretValueResponse_secretBinary = Lens.lens (\GetSecretValueResponse' {secre
 getSecretValueResponse_secretString :: Lens.Lens' GetSecretValueResponse (Prelude.Maybe Prelude.Text)
 getSecretValueResponse_secretString = Lens.lens (\GetSecretValueResponse' {secretString} -> secretString) (\s@GetSecretValueResponse' {} a -> s {secretString = a} :: GetSecretValueResponse) Prelude.. Lens.mapping Data._Sensitive
 
--- | The date and time that this version of the secret was created. If you
--- don\'t specify which version in @VersionId@ or @VersionStage@, then
--- Secrets Manager uses the @AWSCURRENT@ version.
-getSecretValueResponse_createdDate :: Lens.Lens' GetSecretValueResponse (Prelude.Maybe Prelude.UTCTime)
-getSecretValueResponse_createdDate = Lens.lens (\GetSecretValueResponse' {createdDate} -> createdDate) (\s@GetSecretValueResponse' {} a -> s {createdDate = a} :: GetSecretValueResponse) Prelude.. Lens.mapping Data._Time
-
 -- | The unique identifier of this version of the secret.
 getSecretValueResponse_versionId :: Lens.Lens' GetSecretValueResponse (Prelude.Maybe Prelude.Text)
 getSecretValueResponse_versionId = Lens.lens (\GetSecretValueResponse' {versionId} -> versionId) (\s@GetSecretValueResponse' {} a -> s {versionId = a} :: GetSecretValueResponse)
+
+-- | A list of all of the staging labels currently attached to this version
+-- of the secret.
+getSecretValueResponse_versionStages :: Lens.Lens' GetSecretValueResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+getSecretValueResponse_versionStages = Lens.lens (\GetSecretValueResponse' {versionStages} -> versionStages) (\s@GetSecretValueResponse' {} a -> s {versionStages = a} :: GetSecretValueResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getSecretValueResponse_httpStatus :: Lens.Lens' GetSecretValueResponse Prelude.Int
@@ -388,11 +387,11 @@ getSecretValueResponse_httpStatus = Lens.lens (\GetSecretValueResponse' {httpSta
 
 instance Prelude.NFData GetSecretValueResponse where
   rnf GetSecretValueResponse' {..} =
-    Prelude.rnf versionStages
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdDate
       `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf secretBinary
       `Prelude.seq` Prelude.rnf secretString
-      `Prelude.seq` Prelude.rnf createdDate
       `Prelude.seq` Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf versionStages
       `Prelude.seq` Prelude.rnf httpStatus

@@ -31,17 +31,17 @@ import Amazonka.SSMIncidents.Types.SsmTargetAccount
 --
 -- /See:/ 'newSsmAutomation' smart constructor.
 data SsmAutomation = SsmAutomation'
-  { -- | The account that the automation document will be run in. This can be in
-    -- either the management account or an application account.
-    targetAccount :: Prelude.Maybe SsmTargetAccount,
-    -- | The key-value pair parameters to use when running the automation
-    -- document.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
-    -- | The automation document\'s version to use when running.
+  { -- | The automation document\'s version to use when running.
     documentVersion :: Prelude.Maybe Prelude.Text,
     -- | The key-value pair to resolve dynamic parameter values when processing a
     -- Systems Manager Automation runbook.
     dynamicParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text DynamicSsmParameterValue),
+    -- | The key-value pair parameters to use when running the automation
+    -- document.
+    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
+    -- | The account that the automation document will be run in. This can be in
+    -- either the management account or an application account.
+    targetAccount :: Prelude.Maybe SsmTargetAccount,
     -- | The automation document\'s name.
     documentName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the role that the automation document
@@ -58,16 +58,16 @@ data SsmAutomation = SsmAutomation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetAccount', 'ssmAutomation_targetAccount' - The account that the automation document will be run in. This can be in
--- either the management account or an application account.
---
--- 'parameters', 'ssmAutomation_parameters' - The key-value pair parameters to use when running the automation
--- document.
---
 -- 'documentVersion', 'ssmAutomation_documentVersion' - The automation document\'s version to use when running.
 --
 -- 'dynamicParameters', 'ssmAutomation_dynamicParameters' - The key-value pair to resolve dynamic parameter values when processing a
 -- Systems Manager Automation runbook.
+--
+-- 'parameters', 'ssmAutomation_parameters' - The key-value pair parameters to use when running the automation
+-- document.
+--
+-- 'targetAccount', 'ssmAutomation_targetAccount' - The account that the automation document will be run in. This can be in
+-- either the management account or an application account.
 --
 -- 'documentName', 'ssmAutomation_documentName' - The automation document\'s name.
 --
@@ -81,23 +81,13 @@ newSsmAutomation ::
   SsmAutomation
 newSsmAutomation pDocumentName_ pRoleArn_ =
   SsmAutomation'
-    { targetAccount = Prelude.Nothing,
-      parameters = Prelude.Nothing,
-      documentVersion = Prelude.Nothing,
+    { documentVersion = Prelude.Nothing,
       dynamicParameters = Prelude.Nothing,
+      parameters = Prelude.Nothing,
+      targetAccount = Prelude.Nothing,
       documentName = pDocumentName_,
       roleArn = pRoleArn_
     }
-
--- | The account that the automation document will be run in. This can be in
--- either the management account or an application account.
-ssmAutomation_targetAccount :: Lens.Lens' SsmAutomation (Prelude.Maybe SsmTargetAccount)
-ssmAutomation_targetAccount = Lens.lens (\SsmAutomation' {targetAccount} -> targetAccount) (\s@SsmAutomation' {} a -> s {targetAccount = a} :: SsmAutomation)
-
--- | The key-value pair parameters to use when running the automation
--- document.
-ssmAutomation_parameters :: Lens.Lens' SsmAutomation (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-ssmAutomation_parameters = Lens.lens (\SsmAutomation' {parameters} -> parameters) (\s@SsmAutomation' {} a -> s {parameters = a} :: SsmAutomation) Prelude.. Lens.mapping Lens.coerced
 
 -- | The automation document\'s version to use when running.
 ssmAutomation_documentVersion :: Lens.Lens' SsmAutomation (Prelude.Maybe Prelude.Text)
@@ -107,6 +97,16 @@ ssmAutomation_documentVersion = Lens.lens (\SsmAutomation' {documentVersion} -> 
 -- Systems Manager Automation runbook.
 ssmAutomation_dynamicParameters :: Lens.Lens' SsmAutomation (Prelude.Maybe (Prelude.HashMap Prelude.Text DynamicSsmParameterValue))
 ssmAutomation_dynamicParameters = Lens.lens (\SsmAutomation' {dynamicParameters} -> dynamicParameters) (\s@SsmAutomation' {} a -> s {dynamicParameters = a} :: SsmAutomation) Prelude.. Lens.mapping Lens.coerced
+
+-- | The key-value pair parameters to use when running the automation
+-- document.
+ssmAutomation_parameters :: Lens.Lens' SsmAutomation (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
+ssmAutomation_parameters = Lens.lens (\SsmAutomation' {parameters} -> parameters) (\s@SsmAutomation' {} a -> s {parameters = a} :: SsmAutomation) Prelude.. Lens.mapping Lens.coerced
+
+-- | The account that the automation document will be run in. This can be in
+-- either the management account or an application account.
+ssmAutomation_targetAccount :: Lens.Lens' SsmAutomation (Prelude.Maybe SsmTargetAccount)
+ssmAutomation_targetAccount = Lens.lens (\SsmAutomation' {targetAccount} -> targetAccount) (\s@SsmAutomation' {} a -> s {targetAccount = a} :: SsmAutomation)
 
 -- | The automation document\'s name.
 ssmAutomation_documentName :: Lens.Lens' SsmAutomation Prelude.Text
@@ -123,31 +123,31 @@ instance Data.FromJSON SsmAutomation where
       "SsmAutomation"
       ( \x ->
           SsmAutomation'
-            Prelude.<$> (x Data..:? "targetAccount")
-            Prelude.<*> (x Data..:? "parameters" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "documentVersion")
+            Prelude.<$> (x Data..:? "documentVersion")
             Prelude.<*> ( x Data..:? "dynamicParameters"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "parameters" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "targetAccount")
             Prelude.<*> (x Data..: "documentName")
             Prelude.<*> (x Data..: "roleArn")
       )
 
 instance Prelude.Hashable SsmAutomation where
   hashWithSalt _salt SsmAutomation' {..} =
-    _salt `Prelude.hashWithSalt` targetAccount
-      `Prelude.hashWithSalt` parameters
-      `Prelude.hashWithSalt` documentVersion
+    _salt `Prelude.hashWithSalt` documentVersion
       `Prelude.hashWithSalt` dynamicParameters
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` targetAccount
       `Prelude.hashWithSalt` documentName
       `Prelude.hashWithSalt` roleArn
 
 instance Prelude.NFData SsmAutomation where
   rnf SsmAutomation' {..} =
-    Prelude.rnf targetAccount
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf documentVersion
+    Prelude.rnf documentVersion
       `Prelude.seq` Prelude.rnf dynamicParameters
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf targetAccount
       `Prelude.seq` Prelude.rnf documentName
       `Prelude.seq` Prelude.rnf roleArn
 
@@ -155,12 +155,12 @@ instance Data.ToJSON SsmAutomation where
   toJSON SsmAutomation' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("targetAccount" Data..=) Prelude.<$> targetAccount,
-            ("parameters" Data..=) Prelude.<$> parameters,
-            ("documentVersion" Data..=)
+          [ ("documentVersion" Data..=)
               Prelude.<$> documentVersion,
             ("dynamicParameters" Data..=)
               Prelude.<$> dynamicParameters,
+            ("parameters" Data..=) Prelude.<$> parameters,
+            ("targetAccount" Data..=) Prelude.<$> targetAccount,
             Prelude.Just ("documentName" Data..= documentName),
             Prelude.Just ("roleArn" Data..= roleArn)
           ]

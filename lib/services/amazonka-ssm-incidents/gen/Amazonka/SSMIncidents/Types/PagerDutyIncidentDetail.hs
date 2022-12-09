@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPagerDutyIncidentDetail' smart constructor.
 data PagerDutyIncidentDetail = PagerDutyIncidentDetail'
-  { -- | The ID of the Amazon Web Services Secrets Manager secret that stores
+  { -- | Indicates whether to resolve the PagerDuty incident when you resolve the
+    -- associated Incident Manager incident.
+    autoResolve :: Prelude.Maybe Prelude.Bool,
+    -- | The ID of the Amazon Web Services Secrets Manager secret that stores
     -- your PagerDuty key, either a General Access REST API Key or User Token
     -- REST API Key, and other user credentials.
     secretId :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether to resolve the PagerDuty incident when you resolve the
-    -- associated Incident Manager incident.
-    autoResolve :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the incident associated with the PagerDuty service for the
     -- response plan.
     id :: Prelude.Text
@@ -50,12 +50,12 @@ data PagerDutyIncidentDetail = PagerDutyIncidentDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'autoResolve', 'pagerDutyIncidentDetail_autoResolve' - Indicates whether to resolve the PagerDuty incident when you resolve the
+-- associated Incident Manager incident.
+--
 -- 'secretId', 'pagerDutyIncidentDetail_secretId' - The ID of the Amazon Web Services Secrets Manager secret that stores
 -- your PagerDuty key, either a General Access REST API Key or User Token
 -- REST API Key, and other user credentials.
---
--- 'autoResolve', 'pagerDutyIncidentDetail_autoResolve' - Indicates whether to resolve the PagerDuty incident when you resolve the
--- associated Incident Manager incident.
 --
 -- 'id', 'pagerDutyIncidentDetail_id' - The ID of the incident associated with the PagerDuty service for the
 -- response plan.
@@ -65,22 +65,22 @@ newPagerDutyIncidentDetail ::
   PagerDutyIncidentDetail
 newPagerDutyIncidentDetail pId_ =
   PagerDutyIncidentDetail'
-    { secretId =
+    { autoResolve =
         Prelude.Nothing,
-      autoResolve = Prelude.Nothing,
+      secretId = Prelude.Nothing,
       id = pId_
     }
+
+-- | Indicates whether to resolve the PagerDuty incident when you resolve the
+-- associated Incident Manager incident.
+pagerDutyIncidentDetail_autoResolve :: Lens.Lens' PagerDutyIncidentDetail (Prelude.Maybe Prelude.Bool)
+pagerDutyIncidentDetail_autoResolve = Lens.lens (\PagerDutyIncidentDetail' {autoResolve} -> autoResolve) (\s@PagerDutyIncidentDetail' {} a -> s {autoResolve = a} :: PagerDutyIncidentDetail)
 
 -- | The ID of the Amazon Web Services Secrets Manager secret that stores
 -- your PagerDuty key, either a General Access REST API Key or User Token
 -- REST API Key, and other user credentials.
 pagerDutyIncidentDetail_secretId :: Lens.Lens' PagerDutyIncidentDetail (Prelude.Maybe Prelude.Text)
 pagerDutyIncidentDetail_secretId = Lens.lens (\PagerDutyIncidentDetail' {secretId} -> secretId) (\s@PagerDutyIncidentDetail' {} a -> s {secretId = a} :: PagerDutyIncidentDetail)
-
--- | Indicates whether to resolve the PagerDuty incident when you resolve the
--- associated Incident Manager incident.
-pagerDutyIncidentDetail_autoResolve :: Lens.Lens' PagerDutyIncidentDetail (Prelude.Maybe Prelude.Bool)
-pagerDutyIncidentDetail_autoResolve = Lens.lens (\PagerDutyIncidentDetail' {autoResolve} -> autoResolve) (\s@PagerDutyIncidentDetail' {} a -> s {autoResolve = a} :: PagerDutyIncidentDetail)
 
 -- | The ID of the incident associated with the PagerDuty service for the
 -- response plan.
@@ -93,29 +93,29 @@ instance Data.FromJSON PagerDutyIncidentDetail where
       "PagerDutyIncidentDetail"
       ( \x ->
           PagerDutyIncidentDetail'
-            Prelude.<$> (x Data..:? "secretId")
-            Prelude.<*> (x Data..:? "autoResolve")
+            Prelude.<$> (x Data..:? "autoResolve")
+            Prelude.<*> (x Data..:? "secretId")
             Prelude.<*> (x Data..: "id")
       )
 
 instance Prelude.Hashable PagerDutyIncidentDetail where
   hashWithSalt _salt PagerDutyIncidentDetail' {..} =
-    _salt `Prelude.hashWithSalt` secretId
-      `Prelude.hashWithSalt` autoResolve
+    _salt `Prelude.hashWithSalt` autoResolve
+      `Prelude.hashWithSalt` secretId
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData PagerDutyIncidentDetail where
   rnf PagerDutyIncidentDetail' {..} =
-    Prelude.rnf secretId
-      `Prelude.seq` Prelude.rnf autoResolve
+    Prelude.rnf autoResolve
+      `Prelude.seq` Prelude.rnf secretId
       `Prelude.seq` Prelude.rnf id
 
 instance Data.ToJSON PagerDutyIncidentDetail where
   toJSON PagerDutyIncidentDetail' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("secretId" Data..=) Prelude.<$> secretId,
-            ("autoResolve" Data..=) Prelude.<$> autoResolve,
+          [ ("autoResolve" Data..=) Prelude.<$> autoResolve,
+            ("secretId" Data..=) Prelude.<$> secretId,
             Prelude.Just ("id" Data..= id)
           ]
       )

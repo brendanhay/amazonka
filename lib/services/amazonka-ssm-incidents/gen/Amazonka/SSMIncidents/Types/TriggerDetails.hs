@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTriggerDetails' smart constructor.
 data TriggerDetails = TriggerDetails'
-  { -- | The Amazon Resource Name (ARN) of the source that detected the incident.
-    triggerArn :: Prelude.Maybe Prelude.Text,
-    -- | Raw data passed from either Amazon EventBridge, Amazon CloudWatch, or
+  { -- | Raw data passed from either Amazon EventBridge, Amazon CloudWatch, or
     -- Incident Manager when an incident is created.
     rawData :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the source that detected the incident.
+    triggerArn :: Prelude.Maybe Prelude.Text,
     -- | Identifies the service that sourced the event. All events sourced from
     -- within Amazon Web Services begin with \"@aws.@\" Customer-generated
     -- events can have any value here, as long as it doesn\'t begin with
@@ -53,10 +53,10 @@ data TriggerDetails = TriggerDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'triggerArn', 'triggerDetails_triggerArn' - The Amazon Resource Name (ARN) of the source that detected the incident.
---
 -- 'rawData', 'triggerDetails_rawData' - Raw data passed from either Amazon EventBridge, Amazon CloudWatch, or
 -- Incident Manager when an incident is created.
+--
+-- 'triggerArn', 'triggerDetails_triggerArn' - The Amazon Resource Name (ARN) of the source that detected the incident.
 --
 -- 'source', 'triggerDetails_source' - Identifies the service that sourced the event. All events sourced from
 -- within Amazon Web Services begin with \"@aws.@\" Customer-generated
@@ -73,20 +73,20 @@ newTriggerDetails ::
   TriggerDetails
 newTriggerDetails pSource_ pTimestamp_ =
   TriggerDetails'
-    { triggerArn = Prelude.Nothing,
-      rawData = Prelude.Nothing,
+    { rawData = Prelude.Nothing,
+      triggerArn = Prelude.Nothing,
       source = pSource_,
       timestamp = Data._Time Lens.# pTimestamp_
     }
-
--- | The Amazon Resource Name (ARN) of the source that detected the incident.
-triggerDetails_triggerArn :: Lens.Lens' TriggerDetails (Prelude.Maybe Prelude.Text)
-triggerDetails_triggerArn = Lens.lens (\TriggerDetails' {triggerArn} -> triggerArn) (\s@TriggerDetails' {} a -> s {triggerArn = a} :: TriggerDetails)
 
 -- | Raw data passed from either Amazon EventBridge, Amazon CloudWatch, or
 -- Incident Manager when an incident is created.
 triggerDetails_rawData :: Lens.Lens' TriggerDetails (Prelude.Maybe Prelude.Text)
 triggerDetails_rawData = Lens.lens (\TriggerDetails' {rawData} -> rawData) (\s@TriggerDetails' {} a -> s {rawData = a} :: TriggerDetails)
+
+-- | The Amazon Resource Name (ARN) of the source that detected the incident.
+triggerDetails_triggerArn :: Lens.Lens' TriggerDetails (Prelude.Maybe Prelude.Text)
+triggerDetails_triggerArn = Lens.lens (\TriggerDetails' {triggerArn} -> triggerArn) (\s@TriggerDetails' {} a -> s {triggerArn = a} :: TriggerDetails)
 
 -- | Identifies the service that sourced the event. All events sourced from
 -- within Amazon Web Services begin with \"@aws.@\" Customer-generated
@@ -102,15 +102,15 @@ triggerDetails_timestamp = Lens.lens (\TriggerDetails' {timestamp} -> timestamp)
 
 instance Prelude.Hashable TriggerDetails where
   hashWithSalt _salt TriggerDetails' {..} =
-    _salt `Prelude.hashWithSalt` triggerArn
-      `Prelude.hashWithSalt` rawData
+    _salt `Prelude.hashWithSalt` rawData
+      `Prelude.hashWithSalt` triggerArn
       `Prelude.hashWithSalt` source
       `Prelude.hashWithSalt` timestamp
 
 instance Prelude.NFData TriggerDetails where
   rnf TriggerDetails' {..} =
-    Prelude.rnf triggerArn
-      `Prelude.seq` Prelude.rnf rawData
+    Prelude.rnf rawData
+      `Prelude.seq` Prelude.rnf triggerArn
       `Prelude.seq` Prelude.rnf source
       `Prelude.seq` Prelude.rnf timestamp
 
@@ -118,8 +118,8 @@ instance Data.ToJSON TriggerDetails where
   toJSON TriggerDetails' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("triggerArn" Data..=) Prelude.<$> triggerArn,
-            ("rawData" Data..=) Prelude.<$> rawData,
+          [ ("rawData" Data..=) Prelude.<$> rawData,
+            ("triggerArn" Data..=) Prelude.<$> triggerArn,
             Prelude.Just ("source" Data..= source),
             Prelude.Just ("timestamp" Data..= timestamp)
           ]

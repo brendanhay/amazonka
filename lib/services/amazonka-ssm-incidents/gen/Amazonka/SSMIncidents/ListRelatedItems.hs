@@ -29,8 +29,8 @@ module Amazonka.SSMIncidents.ListRelatedItems
     newListRelatedItems,
 
     -- * Request Lenses
-    listRelatedItems_nextToken,
     listRelatedItems_maxResults,
+    listRelatedItems_nextToken,
     listRelatedItems_incidentRecordArn,
 
     -- * Destructuring the Response
@@ -54,10 +54,10 @@ import Amazonka.SSMIncidents.Types
 
 -- | /See:/ 'newListRelatedItems' smart constructor.
 data ListRelatedItems = ListRelatedItems'
-  { -- | The pagination token to continue to the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of related items per page.
+  { -- | The maximum number of related items per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token to continue to the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the incident record containing the
     -- listed related items.
     incidentRecordArn :: Prelude.Text
@@ -72,9 +72,9 @@ data ListRelatedItems = ListRelatedItems'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listRelatedItems_nextToken' - The pagination token to continue to the next page of results.
---
 -- 'maxResults', 'listRelatedItems_maxResults' - The maximum number of related items per page.
+--
+-- 'nextToken', 'listRelatedItems_nextToken' - The pagination token to continue to the next page of results.
 --
 -- 'incidentRecordArn', 'listRelatedItems_incidentRecordArn' - The Amazon Resource Name (ARN) of the incident record containing the
 -- listed related items.
@@ -84,18 +84,18 @@ newListRelatedItems ::
   ListRelatedItems
 newListRelatedItems pIncidentRecordArn_ =
   ListRelatedItems'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       incidentRecordArn = pIncidentRecordArn_
     }
-
--- | The pagination token to continue to the next page of results.
-listRelatedItems_nextToken :: Lens.Lens' ListRelatedItems (Prelude.Maybe Prelude.Text)
-listRelatedItems_nextToken = Lens.lens (\ListRelatedItems' {nextToken} -> nextToken) (\s@ListRelatedItems' {} a -> s {nextToken = a} :: ListRelatedItems)
 
 -- | The maximum number of related items per page.
 listRelatedItems_maxResults :: Lens.Lens' ListRelatedItems (Prelude.Maybe Prelude.Natural)
 listRelatedItems_maxResults = Lens.lens (\ListRelatedItems' {maxResults} -> maxResults) (\s@ListRelatedItems' {} a -> s {maxResults = a} :: ListRelatedItems)
+
+-- | The pagination token to continue to the next page of results.
+listRelatedItems_nextToken :: Lens.Lens' ListRelatedItems (Prelude.Maybe Prelude.Text)
+listRelatedItems_nextToken = Lens.lens (\ListRelatedItems' {nextToken} -> nextToken) (\s@ListRelatedItems' {} a -> s {nextToken = a} :: ListRelatedItems)
 
 -- | The Amazon Resource Name (ARN) of the incident record containing the
 -- listed related items.
@@ -138,14 +138,14 @@ instance Core.AWSRequest ListRelatedItems where
 
 instance Prelude.Hashable ListRelatedItems where
   hashWithSalt _salt ListRelatedItems' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` incidentRecordArn
 
 instance Prelude.NFData ListRelatedItems where
   rnf ListRelatedItems' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf incidentRecordArn
 
 instance Data.ToHeaders ListRelatedItems where
@@ -163,8 +163,8 @@ instance Data.ToJSON ListRelatedItems where
   toJSON ListRelatedItems' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("incidentRecordArn" Data..= incidentRecordArn)
           ]

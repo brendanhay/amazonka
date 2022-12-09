@@ -29,8 +29,8 @@ module Amazonka.SSMIncidents.ListResponsePlans
     newListResponsePlans,
 
     -- * Request Lenses
-    listResponsePlans_nextToken,
     listResponsePlans_maxResults,
+    listResponsePlans_nextToken,
 
     -- * Destructuring the Response
     ListResponsePlansResponse (..),
@@ -53,10 +53,10 @@ import Amazonka.SSMIncidents.Types
 
 -- | /See:/ 'newListResponsePlans' smart constructor.
 data ListResponsePlans = ListResponsePlans'
-  { -- | The pagination token to continue to the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of response plans per page.
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { -- | The maximum number of response plans per page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token to continue to the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,24 +68,24 @@ data ListResponsePlans = ListResponsePlans'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listResponsePlans_nextToken' - The pagination token to continue to the next page of results.
---
 -- 'maxResults', 'listResponsePlans_maxResults' - The maximum number of response plans per page.
+--
+-- 'nextToken', 'listResponsePlans_nextToken' - The pagination token to continue to the next page of results.
 newListResponsePlans ::
   ListResponsePlans
 newListResponsePlans =
   ListResponsePlans'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The pagination token to continue to the next page of results.
-listResponsePlans_nextToken :: Lens.Lens' ListResponsePlans (Prelude.Maybe Prelude.Text)
-listResponsePlans_nextToken = Lens.lens (\ListResponsePlans' {nextToken} -> nextToken) (\s@ListResponsePlans' {} a -> s {nextToken = a} :: ListResponsePlans)
 
 -- | The maximum number of response plans per page.
 listResponsePlans_maxResults :: Lens.Lens' ListResponsePlans (Prelude.Maybe Prelude.Natural)
 listResponsePlans_maxResults = Lens.lens (\ListResponsePlans' {maxResults} -> maxResults) (\s@ListResponsePlans' {} a -> s {maxResults = a} :: ListResponsePlans)
+
+-- | The pagination token to continue to the next page of results.
+listResponsePlans_nextToken :: Lens.Lens' ListResponsePlans (Prelude.Maybe Prelude.Text)
+listResponsePlans_nextToken = Lens.lens (\ListResponsePlans' {nextToken} -> nextToken) (\s@ListResponsePlans' {} a -> s {nextToken = a} :: ListResponsePlans)
 
 instance Core.AWSPager ListResponsePlans where
   page rq rs
@@ -127,13 +127,13 @@ instance Core.AWSRequest ListResponsePlans where
 
 instance Prelude.Hashable ListResponsePlans where
   hashWithSalt _salt ListResponsePlans' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListResponsePlans where
   rnf ListResponsePlans' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListResponsePlans where
   toHeaders =
@@ -150,8 +150,8 @@ instance Data.ToJSON ListResponsePlans where
   toJSON ListResponsePlans' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

@@ -29,11 +29,11 @@ module Amazonka.SSMIncidents.ListTimelineEvents
     newListTimelineEvents,
 
     -- * Request Lenses
-    listTimelineEvents_sortOrder,
-    listTimelineEvents_nextToken,
     listTimelineEvents_filters,
-    listTimelineEvents_sortBy,
     listTimelineEvents_maxResults,
+    listTimelineEvents_nextToken,
+    listTimelineEvents_sortBy,
+    listTimelineEvents_sortOrder,
     listTimelineEvents_incidentRecordArn,
 
     -- * Destructuring the Response
@@ -57,12 +57,7 @@ import Amazonka.SSMIncidents.Types
 
 -- | /See:/ 'newListTimelineEvents' smart constructor.
 data ListTimelineEvents = ListTimelineEvents'
-  { -- | Sorts the order of timeline events by the value specified in the
-    -- @sortBy@ field.
-    sortOrder :: Prelude.Maybe SortOrder,
-    -- | The pagination token to continue to the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filters the timeline events based on the provided conditional values.
+  { -- | Filters the timeline events based on the provided conditional values.
     -- You can filter timeline events using the following keys:
     --
     -- -   @eventTime@
@@ -80,10 +75,15 @@ data ListTimelineEvents = ListTimelineEvents'
     -- -   If you specify a filter with more than one value, the response
     --     returns timeline events that match any of the values provided.
     filters :: Prelude.Maybe [Filter],
-    -- | Sort by the specified key value pair.
-    sortBy :: Prelude.Maybe TimelineEventSort,
     -- | The maximum number of results per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token to continue to the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Sort by the specified key value pair.
+    sortBy :: Prelude.Maybe TimelineEventSort,
+    -- | Sorts the order of timeline events by the value specified in the
+    -- @sortBy@ field.
+    sortOrder :: Prelude.Maybe SortOrder,
     -- | The Amazon Resource Name (ARN) of the incident that includes the
     -- timeline event.
     incidentRecordArn :: Prelude.Text
@@ -97,11 +97,6 @@ data ListTimelineEvents = ListTimelineEvents'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'sortOrder', 'listTimelineEvents_sortOrder' - Sorts the order of timeline events by the value specified in the
--- @sortBy@ field.
---
--- 'nextToken', 'listTimelineEvents_nextToken' - The pagination token to continue to the next page of results.
 --
 -- 'filters', 'listTimelineEvents_filters' - Filters the timeline events based on the provided conditional values.
 -- You can filter timeline events using the following keys:
@@ -121,9 +116,14 @@ data ListTimelineEvents = ListTimelineEvents'
 -- -   If you specify a filter with more than one value, the response
 --     returns timeline events that match any of the values provided.
 --
+-- 'maxResults', 'listTimelineEvents_maxResults' - The maximum number of results per page.
+--
+-- 'nextToken', 'listTimelineEvents_nextToken' - The pagination token to continue to the next page of results.
+--
 -- 'sortBy', 'listTimelineEvents_sortBy' - Sort by the specified key value pair.
 --
--- 'maxResults', 'listTimelineEvents_maxResults' - The maximum number of results per page.
+-- 'sortOrder', 'listTimelineEvents_sortOrder' - Sorts the order of timeline events by the value specified in the
+-- @sortBy@ field.
 --
 -- 'incidentRecordArn', 'listTimelineEvents_incidentRecordArn' - The Amazon Resource Name (ARN) of the incident that includes the
 -- timeline event.
@@ -133,22 +133,13 @@ newListTimelineEvents ::
   ListTimelineEvents
 newListTimelineEvents pIncidentRecordArn_ =
   ListTimelineEvents'
-    { sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
+    { filters = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       incidentRecordArn = pIncidentRecordArn_
     }
-
--- | Sorts the order of timeline events by the value specified in the
--- @sortBy@ field.
-listTimelineEvents_sortOrder :: Lens.Lens' ListTimelineEvents (Prelude.Maybe SortOrder)
-listTimelineEvents_sortOrder = Lens.lens (\ListTimelineEvents' {sortOrder} -> sortOrder) (\s@ListTimelineEvents' {} a -> s {sortOrder = a} :: ListTimelineEvents)
-
--- | The pagination token to continue to the next page of results.
-listTimelineEvents_nextToken :: Lens.Lens' ListTimelineEvents (Prelude.Maybe Prelude.Text)
-listTimelineEvents_nextToken = Lens.lens (\ListTimelineEvents' {nextToken} -> nextToken) (\s@ListTimelineEvents' {} a -> s {nextToken = a} :: ListTimelineEvents)
 
 -- | Filters the timeline events based on the provided conditional values.
 -- You can filter timeline events using the following keys:
@@ -170,13 +161,22 @@ listTimelineEvents_nextToken = Lens.lens (\ListTimelineEvents' {nextToken} -> ne
 listTimelineEvents_filters :: Lens.Lens' ListTimelineEvents (Prelude.Maybe [Filter])
 listTimelineEvents_filters = Lens.lens (\ListTimelineEvents' {filters} -> filters) (\s@ListTimelineEvents' {} a -> s {filters = a} :: ListTimelineEvents) Prelude.. Lens.mapping Lens.coerced
 
+-- | The maximum number of results per page.
+listTimelineEvents_maxResults :: Lens.Lens' ListTimelineEvents (Prelude.Maybe Prelude.Natural)
+listTimelineEvents_maxResults = Lens.lens (\ListTimelineEvents' {maxResults} -> maxResults) (\s@ListTimelineEvents' {} a -> s {maxResults = a} :: ListTimelineEvents)
+
+-- | The pagination token to continue to the next page of results.
+listTimelineEvents_nextToken :: Lens.Lens' ListTimelineEvents (Prelude.Maybe Prelude.Text)
+listTimelineEvents_nextToken = Lens.lens (\ListTimelineEvents' {nextToken} -> nextToken) (\s@ListTimelineEvents' {} a -> s {nextToken = a} :: ListTimelineEvents)
+
 -- | Sort by the specified key value pair.
 listTimelineEvents_sortBy :: Lens.Lens' ListTimelineEvents (Prelude.Maybe TimelineEventSort)
 listTimelineEvents_sortBy = Lens.lens (\ListTimelineEvents' {sortBy} -> sortBy) (\s@ListTimelineEvents' {} a -> s {sortBy = a} :: ListTimelineEvents)
 
--- | The maximum number of results per page.
-listTimelineEvents_maxResults :: Lens.Lens' ListTimelineEvents (Prelude.Maybe Prelude.Natural)
-listTimelineEvents_maxResults = Lens.lens (\ListTimelineEvents' {maxResults} -> maxResults) (\s@ListTimelineEvents' {} a -> s {maxResults = a} :: ListTimelineEvents)
+-- | Sorts the order of timeline events by the value specified in the
+-- @sortBy@ field.
+listTimelineEvents_sortOrder :: Lens.Lens' ListTimelineEvents (Prelude.Maybe SortOrder)
+listTimelineEvents_sortOrder = Lens.lens (\ListTimelineEvents' {sortOrder} -> sortOrder) (\s@ListTimelineEvents' {} a -> s {sortOrder = a} :: ListTimelineEvents)
 
 -- | The Amazon Resource Name (ARN) of the incident that includes the
 -- timeline event.
@@ -223,20 +223,20 @@ instance Core.AWSRequest ListTimelineEvents where
 
 instance Prelude.Hashable ListTimelineEvents where
   hashWithSalt _salt ListTimelineEvents' {..} =
-    _salt `Prelude.hashWithSalt` sortOrder
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` sortBy
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` sortOrder
       `Prelude.hashWithSalt` incidentRecordArn
 
 instance Prelude.NFData ListTimelineEvents where
   rnf ListTimelineEvents' {..} =
-    Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf sortBy
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf sortOrder
       `Prelude.seq` Prelude.rnf incidentRecordArn
 
 instance Data.ToHeaders ListTimelineEvents where
@@ -254,11 +254,11 @@ instance Data.ToJSON ListTimelineEvents where
   toJSON ListTimelineEvents' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("sortOrder" Data..=) Prelude.<$> sortOrder,
-            ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("filters" Data..=) Prelude.<$> filters,
-            ("sortBy" Data..=) Prelude.<$> sortBy,
+          [ ("filters" Data..=) Prelude.<$> filters,
             ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("sortBy" Data..=) Prelude.<$> sortBy,
+            ("sortOrder" Data..=) Prelude.<$> sortOrder,
             Prelude.Just
               ("incidentRecordArn" Data..= incidentRecordArn)
           ]

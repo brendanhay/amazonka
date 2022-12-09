@@ -29,8 +29,8 @@ module Amazonka.SSMIncidents.GetResourcePolicies
     newGetResourcePolicies,
 
     -- * Request Lenses
-    getResourcePolicies_nextToken,
     getResourcePolicies_maxResults,
+    getResourcePolicies_nextToken,
     getResourcePolicies_resourceArn,
 
     -- * Destructuring the Response
@@ -54,11 +54,11 @@ import Amazonka.SSMIncidents.Types
 
 -- | /See:/ 'newGetResourcePolicies' smart constructor.
 data GetResourcePolicies = GetResourcePolicies'
-  { -- | The pagination token to continue to the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of resource policies to display for each page of
+  { -- | The maximum number of resource policies to display for each page of
     -- results.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token to continue to the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the response plan with the attached
     -- resource policy.
     resourceArn :: Prelude.Text
@@ -73,10 +73,10 @@ data GetResourcePolicies = GetResourcePolicies'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getResourcePolicies_nextToken' - The pagination token to continue to the next page of results.
---
 -- 'maxResults', 'getResourcePolicies_maxResults' - The maximum number of resource policies to display for each page of
 -- results.
+--
+-- 'nextToken', 'getResourcePolicies_nextToken' - The pagination token to continue to the next page of results.
 --
 -- 'resourceArn', 'getResourcePolicies_resourceArn' - The Amazon Resource Name (ARN) of the response plan with the attached
 -- resource policy.
@@ -86,19 +86,19 @@ newGetResourcePolicies ::
   GetResourcePolicies
 newGetResourcePolicies pResourceArn_ =
   GetResourcePolicies'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       resourceArn = pResourceArn_
     }
-
--- | The pagination token to continue to the next page of results.
-getResourcePolicies_nextToken :: Lens.Lens' GetResourcePolicies (Prelude.Maybe Prelude.Text)
-getResourcePolicies_nextToken = Lens.lens (\GetResourcePolicies' {nextToken} -> nextToken) (\s@GetResourcePolicies' {} a -> s {nextToken = a} :: GetResourcePolicies)
 
 -- | The maximum number of resource policies to display for each page of
 -- results.
 getResourcePolicies_maxResults :: Lens.Lens' GetResourcePolicies (Prelude.Maybe Prelude.Natural)
 getResourcePolicies_maxResults = Lens.lens (\GetResourcePolicies' {maxResults} -> maxResults) (\s@GetResourcePolicies' {} a -> s {maxResults = a} :: GetResourcePolicies)
+
+-- | The pagination token to continue to the next page of results.
+getResourcePolicies_nextToken :: Lens.Lens' GetResourcePolicies (Prelude.Maybe Prelude.Text)
+getResourcePolicies_nextToken = Lens.lens (\GetResourcePolicies' {nextToken} -> nextToken) (\s@GetResourcePolicies' {} a -> s {nextToken = a} :: GetResourcePolicies)
 
 -- | The Amazon Resource Name (ARN) of the response plan with the attached
 -- resource policy.
@@ -145,14 +145,14 @@ instance Core.AWSRequest GetResourcePolicies where
 
 instance Prelude.Hashable GetResourcePolicies where
   hashWithSalt _salt GetResourcePolicies' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceArn
 
 instance Prelude.NFData GetResourcePolicies where
   rnf GetResourcePolicies' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf resourceArn
 
 instance Data.ToHeaders GetResourcePolicies where
@@ -170,8 +170,8 @@ instance Data.ToJSON GetResourcePolicies where
   toJSON GetResourcePolicies' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

@@ -42,8 +42,8 @@ module Amazonka.PinpointSmsVoiceV2.DisassociateOriginationIdentity
     -- * Response Lenses
     disassociateOriginationIdentityResponse_isoCountryCode,
     disassociateOriginationIdentityResponse_originationIdentity,
-    disassociateOriginationIdentityResponse_poolArn,
     disassociateOriginationIdentityResponse_originationIdentityArn,
+    disassociateOriginationIdentityResponse_poolArn,
     disassociateOriginationIdentityResponse_poolId,
     disassociateOriginationIdentityResponse_httpStatus,
   )
@@ -158,8 +158,8 @@ instance
           DisassociateOriginationIdentityResponse'
             Prelude.<$> (x Data..?> "IsoCountryCode")
             Prelude.<*> (x Data..?> "OriginationIdentity")
-            Prelude.<*> (x Data..?> "PoolArn")
             Prelude.<*> (x Data..?> "OriginationIdentityArn")
+            Prelude.<*> (x Data..?> "PoolArn")
             Prelude.<*> (x Data..?> "PoolId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -230,10 +230,10 @@ data DisassociateOriginationIdentityResponse = DisassociateOriginationIdentityRe
     isoCountryCode :: Prelude.Maybe Prelude.Text,
     -- | The PhoneNumberId or SenderId of the origination identity.
     originationIdentity :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the pool.
-    poolArn :: Prelude.Maybe Prelude.Text,
     -- | The PhoneNumberArn or SenderIdArn of the origination identity.
     originationIdentityArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the pool.
+    poolArn :: Prelude.Maybe Prelude.Text,
     -- | The PoolId of the pool no longer associated with the origination
     -- identity.
     poolId :: Prelude.Maybe Prelude.Text,
@@ -255,9 +255,9 @@ data DisassociateOriginationIdentityResponse = DisassociateOriginationIdentityRe
 --
 -- 'originationIdentity', 'disassociateOriginationIdentityResponse_originationIdentity' - The PhoneNumberId or SenderId of the origination identity.
 --
--- 'poolArn', 'disassociateOriginationIdentityResponse_poolArn' - The Amazon Resource Name (ARN) of the pool.
---
 -- 'originationIdentityArn', 'disassociateOriginationIdentityResponse_originationIdentityArn' - The PhoneNumberArn or SenderIdArn of the origination identity.
+--
+-- 'poolArn', 'disassociateOriginationIdentityResponse_poolArn' - The Amazon Resource Name (ARN) of the pool.
 --
 -- 'poolId', 'disassociateOriginationIdentityResponse_poolId' - The PoolId of the pool no longer associated with the origination
 -- identity.
@@ -274,9 +274,9 @@ newDisassociateOriginationIdentityResponse
           Prelude.Nothing,
         originationIdentity =
           Prelude.Nothing,
-        poolArn = Prelude.Nothing,
         originationIdentityArn =
           Prelude.Nothing,
+        poolArn = Prelude.Nothing,
         poolId = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
@@ -290,13 +290,13 @@ disassociateOriginationIdentityResponse_isoCountryCode = Lens.lens (\Disassociat
 disassociateOriginationIdentityResponse_originationIdentity :: Lens.Lens' DisassociateOriginationIdentityResponse (Prelude.Maybe Prelude.Text)
 disassociateOriginationIdentityResponse_originationIdentity = Lens.lens (\DisassociateOriginationIdentityResponse' {originationIdentity} -> originationIdentity) (\s@DisassociateOriginationIdentityResponse' {} a -> s {originationIdentity = a} :: DisassociateOriginationIdentityResponse)
 
--- | The Amazon Resource Name (ARN) of the pool.
-disassociateOriginationIdentityResponse_poolArn :: Lens.Lens' DisassociateOriginationIdentityResponse (Prelude.Maybe Prelude.Text)
-disassociateOriginationIdentityResponse_poolArn = Lens.lens (\DisassociateOriginationIdentityResponse' {poolArn} -> poolArn) (\s@DisassociateOriginationIdentityResponse' {} a -> s {poolArn = a} :: DisassociateOriginationIdentityResponse)
-
 -- | The PhoneNumberArn or SenderIdArn of the origination identity.
 disassociateOriginationIdentityResponse_originationIdentityArn :: Lens.Lens' DisassociateOriginationIdentityResponse (Prelude.Maybe Prelude.Text)
 disassociateOriginationIdentityResponse_originationIdentityArn = Lens.lens (\DisassociateOriginationIdentityResponse' {originationIdentityArn} -> originationIdentityArn) (\s@DisassociateOriginationIdentityResponse' {} a -> s {originationIdentityArn = a} :: DisassociateOriginationIdentityResponse)
+
+-- | The Amazon Resource Name (ARN) of the pool.
+disassociateOriginationIdentityResponse_poolArn :: Lens.Lens' DisassociateOriginationIdentityResponse (Prelude.Maybe Prelude.Text)
+disassociateOriginationIdentityResponse_poolArn = Lens.lens (\DisassociateOriginationIdentityResponse' {poolArn} -> poolArn) (\s@DisassociateOriginationIdentityResponse' {} a -> s {poolArn = a} :: DisassociateOriginationIdentityResponse)
 
 -- | The PoolId of the pool no longer associated with the origination
 -- identity.
@@ -314,7 +314,7 @@ instance
   rnf DisassociateOriginationIdentityResponse' {..} =
     Prelude.rnf isoCountryCode
       `Prelude.seq` Prelude.rnf originationIdentity
-      `Prelude.seq` Prelude.rnf poolArn
       `Prelude.seq` Prelude.rnf originationIdentityArn
+      `Prelude.seq` Prelude.rnf poolArn
       `Prelude.seq` Prelude.rnf poolId
       `Prelude.seq` Prelude.rnf httpStatus

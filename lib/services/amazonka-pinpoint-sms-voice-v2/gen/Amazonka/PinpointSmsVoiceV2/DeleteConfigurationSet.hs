@@ -39,11 +39,11 @@ module Amazonka.PinpointSmsVoiceV2.DeleteConfigurationSet
     newDeleteConfigurationSetResponse,
 
     -- * Response Lenses
-    deleteConfigurationSetResponse_createdTimestamp,
-    deleteConfigurationSetResponse_configurationSetName,
-    deleteConfigurationSetResponse_defaultSenderId,
     deleteConfigurationSetResponse_configurationSetArn,
+    deleteConfigurationSetResponse_configurationSetName,
+    deleteConfigurationSetResponse_createdTimestamp,
     deleteConfigurationSetResponse_defaultMessageType,
+    deleteConfigurationSetResponse_defaultSenderId,
     deleteConfigurationSetResponse_eventDestinations,
     deleteConfigurationSetResponse_httpStatus,
   )
@@ -103,11 +103,11 @@ instance Core.AWSRequest DeleteConfigurationSet where
     Response.receiveJSON
       ( \s h x ->
           DeleteConfigurationSetResponse'
-            Prelude.<$> (x Data..?> "CreatedTimestamp")
+            Prelude.<$> (x Data..?> "ConfigurationSetArn")
             Prelude.<*> (x Data..?> "ConfigurationSetName")
-            Prelude.<*> (x Data..?> "DefaultSenderId")
-            Prelude.<*> (x Data..?> "ConfigurationSetArn")
+            Prelude.<*> (x Data..?> "CreatedTimestamp")
             Prelude.<*> (x Data..?> "DefaultMessageType")
+            Prelude.<*> (x Data..?> "DefaultSenderId")
             Prelude.<*> ( x Data..?> "EventDestinations"
                             Core..!@ Prelude.mempty
                         )
@@ -156,17 +156,17 @@ instance Data.ToQuery DeleteConfigurationSet where
 
 -- | /See:/ 'newDeleteConfigurationSetResponse' smart constructor.
 data DeleteConfigurationSetResponse = DeleteConfigurationSetResponse'
-  { -- | The time that the deleted configuration set was created in
-    -- <https://www.epochconverter.com/ UNIX epoch time> format.
-    createdTimestamp :: Prelude.Maybe Data.POSIX,
+  { -- | The Amazon Resource Name (ARN) of the deleted configuration set.
+    configurationSetArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the deleted configuration set.
     configurationSetName :: Prelude.Maybe Prelude.Text,
-    -- | The default Sender ID of the configuration set that was deleted.
-    defaultSenderId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the deleted configuration set.
-    configurationSetArn :: Prelude.Maybe Prelude.Text,
+    -- | The time that the deleted configuration set was created in
+    -- <https://www.epochconverter.com/ UNIX epoch time> format.
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The default message type of the configuration set that was deleted.
     defaultMessageType :: Prelude.Maybe MessageType,
+    -- | The default Sender ID of the configuration set that was deleted.
+    defaultSenderId :: Prelude.Maybe Prelude.Text,
     -- | An array of any EventDestination objects that were associated with the
     -- deleted configuration set.
     eventDestinations :: Prelude.Maybe [EventDestination],
@@ -183,16 +183,16 @@ data DeleteConfigurationSetResponse = DeleteConfigurationSetResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdTimestamp', 'deleteConfigurationSetResponse_createdTimestamp' - The time that the deleted configuration set was created in
--- <https://www.epochconverter.com/ UNIX epoch time> format.
+-- 'configurationSetArn', 'deleteConfigurationSetResponse_configurationSetArn' - The Amazon Resource Name (ARN) of the deleted configuration set.
 --
 -- 'configurationSetName', 'deleteConfigurationSetResponse_configurationSetName' - The name of the deleted configuration set.
 --
--- 'defaultSenderId', 'deleteConfigurationSetResponse_defaultSenderId' - The default Sender ID of the configuration set that was deleted.
---
--- 'configurationSetArn', 'deleteConfigurationSetResponse_configurationSetArn' - The Amazon Resource Name (ARN) of the deleted configuration set.
+-- 'createdTimestamp', 'deleteConfigurationSetResponse_createdTimestamp' - The time that the deleted configuration set was created in
+-- <https://www.epochconverter.com/ UNIX epoch time> format.
 --
 -- 'defaultMessageType', 'deleteConfigurationSetResponse_defaultMessageType' - The default message type of the configuration set that was deleted.
+--
+-- 'defaultSenderId', 'deleteConfigurationSetResponse_defaultSenderId' - The default Sender ID of the configuration set that was deleted.
 --
 -- 'eventDestinations', 'deleteConfigurationSetResponse_eventDestinations' - An array of any EventDestination objects that were associated with the
 -- deleted configuration set.
@@ -204,36 +204,36 @@ newDeleteConfigurationSetResponse ::
   DeleteConfigurationSetResponse
 newDeleteConfigurationSetResponse pHttpStatus_ =
   DeleteConfigurationSetResponse'
-    { createdTimestamp =
+    { configurationSetArn =
         Prelude.Nothing,
       configurationSetName = Prelude.Nothing,
-      defaultSenderId = Prelude.Nothing,
-      configurationSetArn = Prelude.Nothing,
+      createdTimestamp = Prelude.Nothing,
       defaultMessageType = Prelude.Nothing,
+      defaultSenderId = Prelude.Nothing,
       eventDestinations = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The Amazon Resource Name (ARN) of the deleted configuration set.
+deleteConfigurationSetResponse_configurationSetArn :: Lens.Lens' DeleteConfigurationSetResponse (Prelude.Maybe Prelude.Text)
+deleteConfigurationSetResponse_configurationSetArn = Lens.lens (\DeleteConfigurationSetResponse' {configurationSetArn} -> configurationSetArn) (\s@DeleteConfigurationSetResponse' {} a -> s {configurationSetArn = a} :: DeleteConfigurationSetResponse)
+
+-- | The name of the deleted configuration set.
+deleteConfigurationSetResponse_configurationSetName :: Lens.Lens' DeleteConfigurationSetResponse (Prelude.Maybe Prelude.Text)
+deleteConfigurationSetResponse_configurationSetName = Lens.lens (\DeleteConfigurationSetResponse' {configurationSetName} -> configurationSetName) (\s@DeleteConfigurationSetResponse' {} a -> s {configurationSetName = a} :: DeleteConfigurationSetResponse)
 
 -- | The time that the deleted configuration set was created in
 -- <https://www.epochconverter.com/ UNIX epoch time> format.
 deleteConfigurationSetResponse_createdTimestamp :: Lens.Lens' DeleteConfigurationSetResponse (Prelude.Maybe Prelude.UTCTime)
 deleteConfigurationSetResponse_createdTimestamp = Lens.lens (\DeleteConfigurationSetResponse' {createdTimestamp} -> createdTimestamp) (\s@DeleteConfigurationSetResponse' {} a -> s {createdTimestamp = a} :: DeleteConfigurationSetResponse) Prelude.. Lens.mapping Data._Time
 
--- | The name of the deleted configuration set.
-deleteConfigurationSetResponse_configurationSetName :: Lens.Lens' DeleteConfigurationSetResponse (Prelude.Maybe Prelude.Text)
-deleteConfigurationSetResponse_configurationSetName = Lens.lens (\DeleteConfigurationSetResponse' {configurationSetName} -> configurationSetName) (\s@DeleteConfigurationSetResponse' {} a -> s {configurationSetName = a} :: DeleteConfigurationSetResponse)
+-- | The default message type of the configuration set that was deleted.
+deleteConfigurationSetResponse_defaultMessageType :: Lens.Lens' DeleteConfigurationSetResponse (Prelude.Maybe MessageType)
+deleteConfigurationSetResponse_defaultMessageType = Lens.lens (\DeleteConfigurationSetResponse' {defaultMessageType} -> defaultMessageType) (\s@DeleteConfigurationSetResponse' {} a -> s {defaultMessageType = a} :: DeleteConfigurationSetResponse)
 
 -- | The default Sender ID of the configuration set that was deleted.
 deleteConfigurationSetResponse_defaultSenderId :: Lens.Lens' DeleteConfigurationSetResponse (Prelude.Maybe Prelude.Text)
 deleteConfigurationSetResponse_defaultSenderId = Lens.lens (\DeleteConfigurationSetResponse' {defaultSenderId} -> defaultSenderId) (\s@DeleteConfigurationSetResponse' {} a -> s {defaultSenderId = a} :: DeleteConfigurationSetResponse)
-
--- | The Amazon Resource Name (ARN) of the deleted configuration set.
-deleteConfigurationSetResponse_configurationSetArn :: Lens.Lens' DeleteConfigurationSetResponse (Prelude.Maybe Prelude.Text)
-deleteConfigurationSetResponse_configurationSetArn = Lens.lens (\DeleteConfigurationSetResponse' {configurationSetArn} -> configurationSetArn) (\s@DeleteConfigurationSetResponse' {} a -> s {configurationSetArn = a} :: DeleteConfigurationSetResponse)
-
--- | The default message type of the configuration set that was deleted.
-deleteConfigurationSetResponse_defaultMessageType :: Lens.Lens' DeleteConfigurationSetResponse (Prelude.Maybe MessageType)
-deleteConfigurationSetResponse_defaultMessageType = Lens.lens (\DeleteConfigurationSetResponse' {defaultMessageType} -> defaultMessageType) (\s@DeleteConfigurationSetResponse' {} a -> s {defaultMessageType = a} :: DeleteConfigurationSetResponse)
 
 -- | An array of any EventDestination objects that were associated with the
 -- deleted configuration set.
@@ -249,10 +249,10 @@ instance
     DeleteConfigurationSetResponse
   where
   rnf DeleteConfigurationSetResponse' {..} =
-    Prelude.rnf createdTimestamp
+    Prelude.rnf configurationSetArn
       `Prelude.seq` Prelude.rnf configurationSetName
-      `Prelude.seq` Prelude.rnf defaultSenderId
-      `Prelude.seq` Prelude.rnf configurationSetArn
+      `Prelude.seq` Prelude.rnf createdTimestamp
       `Prelude.seq` Prelude.rnf defaultMessageType
+      `Prelude.seq` Prelude.rnf defaultSenderId
       `Prelude.seq` Prelude.rnf eventDestinations
       `Prelude.seq` Prelude.rnf httpStatus

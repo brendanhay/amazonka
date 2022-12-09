@@ -41,9 +41,9 @@ module Amazonka.PinpointSmsVoiceV2.DeleteDefaultMessageType
     newDeleteDefaultMessageTypeResponse,
 
     -- * Response Lenses
-    deleteDefaultMessageTypeResponse_messageType,
-    deleteDefaultMessageTypeResponse_configurationSetName,
     deleteDefaultMessageTypeResponse_configurationSetArn,
+    deleteDefaultMessageTypeResponse_configurationSetName,
+    deleteDefaultMessageTypeResponse_messageType,
     deleteDefaultMessageTypeResponse_httpStatus,
   )
 where
@@ -105,9 +105,9 @@ instance Core.AWSRequest DeleteDefaultMessageType where
     Response.receiveJSON
       ( \s h x ->
           DeleteDefaultMessageTypeResponse'
-            Prelude.<$> (x Data..?> "MessageType")
+            Prelude.<$> (x Data..?> "ConfigurationSetArn")
             Prelude.<*> (x Data..?> "ConfigurationSetName")
-            Prelude.<*> (x Data..?> "ConfigurationSetArn")
+            Prelude.<*> (x Data..?> "MessageType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,12 +153,12 @@ instance Data.ToQuery DeleteDefaultMessageType where
 
 -- | /See:/ 'newDeleteDefaultMessageTypeResponse' smart constructor.
 data DeleteDefaultMessageTypeResponse = DeleteDefaultMessageTypeResponse'
-  { -- | The current message type for the configuration set.
-    messageType :: Prelude.Maybe MessageType,
+  { -- | The Amazon Resource Name (ARN) of the configuration set.
+    configurationSetArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the configuration set.
     configurationSetName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the configuration set.
-    configurationSetArn :: Prelude.Maybe Prelude.Text,
+    -- | The current message type for the configuration set.
+    messageType :: Prelude.Maybe MessageType,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -172,11 +172,11 @@ data DeleteDefaultMessageTypeResponse = DeleteDefaultMessageTypeResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'messageType', 'deleteDefaultMessageTypeResponse_messageType' - The current message type for the configuration set.
+-- 'configurationSetArn', 'deleteDefaultMessageTypeResponse_configurationSetArn' - The Amazon Resource Name (ARN) of the configuration set.
 --
 -- 'configurationSetName', 'deleteDefaultMessageTypeResponse_configurationSetName' - The name of the configuration set.
 --
--- 'configurationSetArn', 'deleteDefaultMessageTypeResponse_configurationSetArn' - The Amazon Resource Name (ARN) of the configuration set.
+-- 'messageType', 'deleteDefaultMessageTypeResponse_messageType' - The current message type for the configuration set.
 --
 -- 'httpStatus', 'deleteDefaultMessageTypeResponse_httpStatus' - The response's http status code.
 newDeleteDefaultMessageTypeResponse ::
@@ -185,24 +185,24 @@ newDeleteDefaultMessageTypeResponse ::
   DeleteDefaultMessageTypeResponse
 newDeleteDefaultMessageTypeResponse pHttpStatus_ =
   DeleteDefaultMessageTypeResponse'
-    { messageType =
+    { configurationSetArn =
         Prelude.Nothing,
       configurationSetName = Prelude.Nothing,
-      configurationSetArn = Prelude.Nothing,
+      messageType = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The current message type for the configuration set.
-deleteDefaultMessageTypeResponse_messageType :: Lens.Lens' DeleteDefaultMessageTypeResponse (Prelude.Maybe MessageType)
-deleteDefaultMessageTypeResponse_messageType = Lens.lens (\DeleteDefaultMessageTypeResponse' {messageType} -> messageType) (\s@DeleteDefaultMessageTypeResponse' {} a -> s {messageType = a} :: DeleteDefaultMessageTypeResponse)
+-- | The Amazon Resource Name (ARN) of the configuration set.
+deleteDefaultMessageTypeResponse_configurationSetArn :: Lens.Lens' DeleteDefaultMessageTypeResponse (Prelude.Maybe Prelude.Text)
+deleteDefaultMessageTypeResponse_configurationSetArn = Lens.lens (\DeleteDefaultMessageTypeResponse' {configurationSetArn} -> configurationSetArn) (\s@DeleteDefaultMessageTypeResponse' {} a -> s {configurationSetArn = a} :: DeleteDefaultMessageTypeResponse)
 
 -- | The name of the configuration set.
 deleteDefaultMessageTypeResponse_configurationSetName :: Lens.Lens' DeleteDefaultMessageTypeResponse (Prelude.Maybe Prelude.Text)
 deleteDefaultMessageTypeResponse_configurationSetName = Lens.lens (\DeleteDefaultMessageTypeResponse' {configurationSetName} -> configurationSetName) (\s@DeleteDefaultMessageTypeResponse' {} a -> s {configurationSetName = a} :: DeleteDefaultMessageTypeResponse)
 
--- | The Amazon Resource Name (ARN) of the configuration set.
-deleteDefaultMessageTypeResponse_configurationSetArn :: Lens.Lens' DeleteDefaultMessageTypeResponse (Prelude.Maybe Prelude.Text)
-deleteDefaultMessageTypeResponse_configurationSetArn = Lens.lens (\DeleteDefaultMessageTypeResponse' {configurationSetArn} -> configurationSetArn) (\s@DeleteDefaultMessageTypeResponse' {} a -> s {configurationSetArn = a} :: DeleteDefaultMessageTypeResponse)
+-- | The current message type for the configuration set.
+deleteDefaultMessageTypeResponse_messageType :: Lens.Lens' DeleteDefaultMessageTypeResponse (Prelude.Maybe MessageType)
+deleteDefaultMessageTypeResponse_messageType = Lens.lens (\DeleteDefaultMessageTypeResponse' {messageType} -> messageType) (\s@DeleteDefaultMessageTypeResponse' {} a -> s {messageType = a} :: DeleteDefaultMessageTypeResponse)
 
 -- | The response's http status code.
 deleteDefaultMessageTypeResponse_httpStatus :: Lens.Lens' DeleteDefaultMessageTypeResponse Prelude.Int
@@ -213,7 +213,7 @@ instance
     DeleteDefaultMessageTypeResponse
   where
   rnf DeleteDefaultMessageTypeResponse' {..} =
-    Prelude.rnf messageType
+    Prelude.rnf configurationSetArn
       `Prelude.seq` Prelude.rnf configurationSetName
-      `Prelude.seq` Prelude.rnf configurationSetArn
+      `Prelude.seq` Prelude.rnf messageType
       `Prelude.seq` Prelude.rnf httpStatus

@@ -46,8 +46,8 @@ module Amazonka.PinpointSmsVoiceV2.AssociateOriginationIdentity
     -- * Response Lenses
     associateOriginationIdentityResponse_isoCountryCode,
     associateOriginationIdentityResponse_originationIdentity,
-    associateOriginationIdentityResponse_poolArn,
     associateOriginationIdentityResponse_originationIdentityArn,
+    associateOriginationIdentityResponse_poolArn,
     associateOriginationIdentityResponse_poolId,
     associateOriginationIdentityResponse_httpStatus,
   )
@@ -158,8 +158,8 @@ instance Core.AWSRequest AssociateOriginationIdentity where
           AssociateOriginationIdentityResponse'
             Prelude.<$> (x Data..?> "IsoCountryCode")
             Prelude.<*> (x Data..?> "OriginationIdentity")
-            Prelude.<*> (x Data..?> "PoolArn")
             Prelude.<*> (x Data..?> "OriginationIdentityArn")
+            Prelude.<*> (x Data..?> "PoolArn")
             Prelude.<*> (x Data..?> "PoolId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -222,11 +222,11 @@ data AssociateOriginationIdentityResponse = AssociateOriginationIdentityResponse
     isoCountryCode :: Prelude.Maybe Prelude.Text,
     -- | The PhoneNumberId or SenderId of the origination identity.
     originationIdentity :: Prelude.Maybe Prelude.Text,
+    -- | The PhoneNumberArn or SenderIdArn of the origination identity.
+    originationIdentityArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the pool that is now associated with
     -- the origination identity.
     poolArn :: Prelude.Maybe Prelude.Text,
-    -- | The PhoneNumberArn or SenderIdArn of the origination identity.
-    originationIdentityArn :: Prelude.Maybe Prelude.Text,
     -- | The PoolId of the pool that is now associated with the origination
     -- identity.
     poolId :: Prelude.Maybe Prelude.Text,
@@ -248,10 +248,10 @@ data AssociateOriginationIdentityResponse = AssociateOriginationIdentityResponse
 --
 -- 'originationIdentity', 'associateOriginationIdentityResponse_originationIdentity' - The PhoneNumberId or SenderId of the origination identity.
 --
+-- 'originationIdentityArn', 'associateOriginationIdentityResponse_originationIdentityArn' - The PhoneNumberArn or SenderIdArn of the origination identity.
+--
 -- 'poolArn', 'associateOriginationIdentityResponse_poolArn' - The Amazon Resource Name (ARN) of the pool that is now associated with
 -- the origination identity.
---
--- 'originationIdentityArn', 'associateOriginationIdentityResponse_originationIdentityArn' - The PhoneNumberArn or SenderIdArn of the origination identity.
 --
 -- 'poolId', 'associateOriginationIdentityResponse_poolId' - The PoolId of the pool that is now associated with the origination
 -- identity.
@@ -266,9 +266,9 @@ newAssociateOriginationIdentityResponse pHttpStatus_ =
     { isoCountryCode =
         Prelude.Nothing,
       originationIdentity = Prelude.Nothing,
-      poolArn = Prelude.Nothing,
       originationIdentityArn =
         Prelude.Nothing,
+      poolArn = Prelude.Nothing,
       poolId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
@@ -282,14 +282,14 @@ associateOriginationIdentityResponse_isoCountryCode = Lens.lens (\AssociateOrigi
 associateOriginationIdentityResponse_originationIdentity :: Lens.Lens' AssociateOriginationIdentityResponse (Prelude.Maybe Prelude.Text)
 associateOriginationIdentityResponse_originationIdentity = Lens.lens (\AssociateOriginationIdentityResponse' {originationIdentity} -> originationIdentity) (\s@AssociateOriginationIdentityResponse' {} a -> s {originationIdentity = a} :: AssociateOriginationIdentityResponse)
 
+-- | The PhoneNumberArn or SenderIdArn of the origination identity.
+associateOriginationIdentityResponse_originationIdentityArn :: Lens.Lens' AssociateOriginationIdentityResponse (Prelude.Maybe Prelude.Text)
+associateOriginationIdentityResponse_originationIdentityArn = Lens.lens (\AssociateOriginationIdentityResponse' {originationIdentityArn} -> originationIdentityArn) (\s@AssociateOriginationIdentityResponse' {} a -> s {originationIdentityArn = a} :: AssociateOriginationIdentityResponse)
+
 -- | The Amazon Resource Name (ARN) of the pool that is now associated with
 -- the origination identity.
 associateOriginationIdentityResponse_poolArn :: Lens.Lens' AssociateOriginationIdentityResponse (Prelude.Maybe Prelude.Text)
 associateOriginationIdentityResponse_poolArn = Lens.lens (\AssociateOriginationIdentityResponse' {poolArn} -> poolArn) (\s@AssociateOriginationIdentityResponse' {} a -> s {poolArn = a} :: AssociateOriginationIdentityResponse)
-
--- | The PhoneNumberArn or SenderIdArn of the origination identity.
-associateOriginationIdentityResponse_originationIdentityArn :: Lens.Lens' AssociateOriginationIdentityResponse (Prelude.Maybe Prelude.Text)
-associateOriginationIdentityResponse_originationIdentityArn = Lens.lens (\AssociateOriginationIdentityResponse' {originationIdentityArn} -> originationIdentityArn) (\s@AssociateOriginationIdentityResponse' {} a -> s {originationIdentityArn = a} :: AssociateOriginationIdentityResponse)
 
 -- | The PoolId of the pool that is now associated with the origination
 -- identity.
@@ -307,7 +307,7 @@ instance
   rnf AssociateOriginationIdentityResponse' {..} =
     Prelude.rnf isoCountryCode
       `Prelude.seq` Prelude.rnf originationIdentity
-      `Prelude.seq` Prelude.rnf poolArn
       `Prelude.seq` Prelude.rnf originationIdentityArn
+      `Prelude.seq` Prelude.rnf poolArn
       `Prelude.seq` Prelude.rnf poolId
       `Prelude.seq` Prelude.rnf httpStatus

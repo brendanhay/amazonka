@@ -37,16 +37,16 @@ module Amazonka.PinpointSmsVoiceV2.DescribeAccountAttributes
     newDescribeAccountAttributes,
 
     -- * Request Lenses
-    describeAccountAttributes_nextToken,
     describeAccountAttributes_maxResults,
+    describeAccountAttributes_nextToken,
 
     -- * Destructuring the Response
     DescribeAccountAttributesResponse (..),
     newDescribeAccountAttributesResponse,
 
     -- * Response Lenses
-    describeAccountAttributesResponse_nextToken,
     describeAccountAttributesResponse_accountAttributes,
+    describeAccountAttributesResponse_nextToken,
     describeAccountAttributesResponse_httpStatus,
   )
 where
@@ -61,11 +61,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeAccountAttributes' smart constructor.
 data DescribeAccountAttributes = DescribeAccountAttributes'
-  { -- | The token to be used for the next set of paginated results. You don\'t
+  { -- | The maximum number of results to return per each request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to be used for the next set of paginated results. You don\'t
     -- need to supply a value for this field in the initial request.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per each request.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,27 +77,27 @@ data DescribeAccountAttributes = DescribeAccountAttributes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'describeAccountAttributes_maxResults' - The maximum number of results to return per each request.
+--
 -- 'nextToken', 'describeAccountAttributes_nextToken' - The token to be used for the next set of paginated results. You don\'t
 -- need to supply a value for this field in the initial request.
---
--- 'maxResults', 'describeAccountAttributes_maxResults' - The maximum number of results to return per each request.
 newDescribeAccountAttributes ::
   DescribeAccountAttributes
 newDescribeAccountAttributes =
   DescribeAccountAttributes'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of results to return per each request.
+describeAccountAttributes_maxResults :: Lens.Lens' DescribeAccountAttributes (Prelude.Maybe Prelude.Natural)
+describeAccountAttributes_maxResults = Lens.lens (\DescribeAccountAttributes' {maxResults} -> maxResults) (\s@DescribeAccountAttributes' {} a -> s {maxResults = a} :: DescribeAccountAttributes)
 
 -- | The token to be used for the next set of paginated results. You don\'t
 -- need to supply a value for this field in the initial request.
 describeAccountAttributes_nextToken :: Lens.Lens' DescribeAccountAttributes (Prelude.Maybe Prelude.Text)
 describeAccountAttributes_nextToken = Lens.lens (\DescribeAccountAttributes' {nextToken} -> nextToken) (\s@DescribeAccountAttributes' {} a -> s {nextToken = a} :: DescribeAccountAttributes)
-
--- | The maximum number of results to return per each request.
-describeAccountAttributes_maxResults :: Lens.Lens' DescribeAccountAttributes (Prelude.Maybe Prelude.Natural)
-describeAccountAttributes_maxResults = Lens.lens (\DescribeAccountAttributes' {maxResults} -> maxResults) (\s@DescribeAccountAttributes' {} a -> s {maxResults = a} :: DescribeAccountAttributes)
 
 instance Core.AWSPager DescribeAccountAttributes where
   page rq rs
@@ -131,22 +131,22 @@ instance Core.AWSRequest DescribeAccountAttributes where
     Response.receiveJSON
       ( \s h x ->
           DescribeAccountAttributesResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "AccountAttributes"
+            Prelude.<$> ( x Data..?> "AccountAttributes"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeAccountAttributes where
   hashWithSalt _salt DescribeAccountAttributes' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeAccountAttributes where
   rnf DescribeAccountAttributes' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeAccountAttributes where
   toHeaders =
@@ -167,8 +167,8 @@ instance Data.ToJSON DescribeAccountAttributes where
   toJSON DescribeAccountAttributes' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -180,11 +180,11 @@ instance Data.ToQuery DescribeAccountAttributes where
 
 -- | /See:/ 'newDescribeAccountAttributesResponse' smart constructor.
 data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
-  { -- | The token to be used for the next set of paginated results. If this
+  { -- | An array of AccountAttributes objects.
+    accountAttributes :: Prelude.Maybe [AccountAttribute],
+    -- | The token to be used for the next set of paginated results. If this
     -- field is empty then there are no more results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of AccountAttributes objects.
-    accountAttributes :: Prelude.Maybe [AccountAttribute],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -198,10 +198,10 @@ data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'accountAttributes', 'describeAccountAttributesResponse_accountAttributes' - An array of AccountAttributes objects.
+--
 -- 'nextToken', 'describeAccountAttributesResponse_nextToken' - The token to be used for the next set of paginated results. If this
 -- field is empty then there are no more results.
---
--- 'accountAttributes', 'describeAccountAttributesResponse_accountAttributes' - An array of AccountAttributes objects.
 --
 -- 'httpStatus', 'describeAccountAttributesResponse_httpStatus' - The response's http status code.
 newDescribeAccountAttributesResponse ::
@@ -210,20 +210,20 @@ newDescribeAccountAttributesResponse ::
   DescribeAccountAttributesResponse
 newDescribeAccountAttributesResponse pHttpStatus_ =
   DescribeAccountAttributesResponse'
-    { nextToken =
+    { accountAttributes =
         Prelude.Nothing,
-      accountAttributes = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An array of AccountAttributes objects.
+describeAccountAttributesResponse_accountAttributes :: Lens.Lens' DescribeAccountAttributesResponse (Prelude.Maybe [AccountAttribute])
+describeAccountAttributesResponse_accountAttributes = Lens.lens (\DescribeAccountAttributesResponse' {accountAttributes} -> accountAttributes) (\s@DescribeAccountAttributesResponse' {} a -> s {accountAttributes = a} :: DescribeAccountAttributesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to be used for the next set of paginated results. If this
 -- field is empty then there are no more results.
 describeAccountAttributesResponse_nextToken :: Lens.Lens' DescribeAccountAttributesResponse (Prelude.Maybe Prelude.Text)
 describeAccountAttributesResponse_nextToken = Lens.lens (\DescribeAccountAttributesResponse' {nextToken} -> nextToken) (\s@DescribeAccountAttributesResponse' {} a -> s {nextToken = a} :: DescribeAccountAttributesResponse)
-
--- | An array of AccountAttributes objects.
-describeAccountAttributesResponse_accountAttributes :: Lens.Lens' DescribeAccountAttributesResponse (Prelude.Maybe [AccountAttribute])
-describeAccountAttributesResponse_accountAttributes = Lens.lens (\DescribeAccountAttributesResponse' {accountAttributes} -> accountAttributes) (\s@DescribeAccountAttributesResponse' {} a -> s {accountAttributes = a} :: DescribeAccountAttributesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeAccountAttributesResponse_httpStatus :: Lens.Lens' DescribeAccountAttributesResponse Prelude.Int
@@ -234,6 +234,6 @@ instance
     DescribeAccountAttributesResponse
   where
   rnf DescribeAccountAttributesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf accountAttributes
+    Prelude.rnf accountAttributes
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

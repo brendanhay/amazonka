@@ -38,8 +38,8 @@ module Amazonka.PinpointSmsVoiceV2.DeleteOptOutList
     newDeleteOptOutListResponse,
 
     -- * Response Lenses
-    deleteOptOutListResponse_optOutListArn,
     deleteOptOutListResponse_createdTimestamp,
+    deleteOptOutListResponse_optOutListArn,
     deleteOptOutListResponse_optOutListName,
     deleteOptOutListResponse_httpStatus,
   )
@@ -99,8 +99,8 @@ instance Core.AWSRequest DeleteOptOutList where
     Response.receiveJSON
       ( \s h x ->
           DeleteOptOutListResponse'
-            Prelude.<$> (x Data..?> "OptOutListArn")
-            Prelude.<*> (x Data..?> "CreatedTimestamp")
+            Prelude.<$> (x Data..?> "CreatedTimestamp")
+            Prelude.<*> (x Data..?> "OptOutListArn")
             Prelude.<*> (x Data..?> "OptOutListName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -145,11 +145,11 @@ instance Data.ToQuery DeleteOptOutList where
 
 -- | /See:/ 'newDeleteOptOutListResponse' smart constructor.
 data DeleteOptOutListResponse = DeleteOptOutListResponse'
-  { -- | The Amazon Resource Name (ARN) of the OptOutList that was removed.
-    optOutListArn :: Prelude.Maybe Prelude.Text,
-    -- | The time when the OptOutList was created, in
+  { -- | The time when the OptOutList was created, in
     -- <https://www.epochconverter.com/ UNIX epoch time> format.
     createdTimestamp :: Prelude.Maybe Data.POSIX,
+    -- | The Amazon Resource Name (ARN) of the OptOutList that was removed.
+    optOutListArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the OptOutList that was removed.
     optOutListName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -165,10 +165,10 @@ data DeleteOptOutListResponse = DeleteOptOutListResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'optOutListArn', 'deleteOptOutListResponse_optOutListArn' - The Amazon Resource Name (ARN) of the OptOutList that was removed.
---
 -- 'createdTimestamp', 'deleteOptOutListResponse_createdTimestamp' - The time when the OptOutList was created, in
 -- <https://www.epochconverter.com/ UNIX epoch time> format.
+--
+-- 'optOutListArn', 'deleteOptOutListResponse_optOutListArn' - The Amazon Resource Name (ARN) of the OptOutList that was removed.
 --
 -- 'optOutListName', 'deleteOptOutListResponse_optOutListName' - The name of the OptOutList that was removed.
 --
@@ -179,21 +179,21 @@ newDeleteOptOutListResponse ::
   DeleteOptOutListResponse
 newDeleteOptOutListResponse pHttpStatus_ =
   DeleteOptOutListResponse'
-    { optOutListArn =
+    { createdTimestamp =
         Prelude.Nothing,
-      createdTimestamp = Prelude.Nothing,
+      optOutListArn = Prelude.Nothing,
       optOutListName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The Amazon Resource Name (ARN) of the OptOutList that was removed.
-deleteOptOutListResponse_optOutListArn :: Lens.Lens' DeleteOptOutListResponse (Prelude.Maybe Prelude.Text)
-deleteOptOutListResponse_optOutListArn = Lens.lens (\DeleteOptOutListResponse' {optOutListArn} -> optOutListArn) (\s@DeleteOptOutListResponse' {} a -> s {optOutListArn = a} :: DeleteOptOutListResponse)
 
 -- | The time when the OptOutList was created, in
 -- <https://www.epochconverter.com/ UNIX epoch time> format.
 deleteOptOutListResponse_createdTimestamp :: Lens.Lens' DeleteOptOutListResponse (Prelude.Maybe Prelude.UTCTime)
 deleteOptOutListResponse_createdTimestamp = Lens.lens (\DeleteOptOutListResponse' {createdTimestamp} -> createdTimestamp) (\s@DeleteOptOutListResponse' {} a -> s {createdTimestamp = a} :: DeleteOptOutListResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The Amazon Resource Name (ARN) of the OptOutList that was removed.
+deleteOptOutListResponse_optOutListArn :: Lens.Lens' DeleteOptOutListResponse (Prelude.Maybe Prelude.Text)
+deleteOptOutListResponse_optOutListArn = Lens.lens (\DeleteOptOutListResponse' {optOutListArn} -> optOutListArn) (\s@DeleteOptOutListResponse' {} a -> s {optOutListArn = a} :: DeleteOptOutListResponse)
 
 -- | The name of the OptOutList that was removed.
 deleteOptOutListResponse_optOutListName :: Lens.Lens' DeleteOptOutListResponse (Prelude.Maybe Prelude.Text)
@@ -205,7 +205,7 @@ deleteOptOutListResponse_httpStatus = Lens.lens (\DeleteOptOutListResponse' {htt
 
 instance Prelude.NFData DeleteOptOutListResponse where
   rnf DeleteOptOutListResponse' {..} =
-    Prelude.rnf optOutListArn
-      `Prelude.seq` Prelude.rnf createdTimestamp
+    Prelude.rnf createdTimestamp
+      `Prelude.seq` Prelude.rnf optOutListArn
       `Prelude.seq` Prelude.rnf optOutListName
       `Prelude.seq` Prelude.rnf httpStatus

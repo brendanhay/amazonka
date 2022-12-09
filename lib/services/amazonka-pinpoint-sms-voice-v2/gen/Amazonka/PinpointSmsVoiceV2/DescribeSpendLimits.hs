@@ -36,8 +36,8 @@ module Amazonka.PinpointSmsVoiceV2.DescribeSpendLimits
     newDescribeSpendLimits,
 
     -- * Request Lenses
-    describeSpendLimits_nextToken,
     describeSpendLimits_maxResults,
+    describeSpendLimits_nextToken,
 
     -- * Destructuring the Response
     DescribeSpendLimitsResponse (..),
@@ -60,11 +60,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeSpendLimits' smart constructor.
 data DescribeSpendLimits = DescribeSpendLimits'
-  { -- | The token to be used for the next set of paginated results. You don\'t
+  { -- | The maximum number of results to return per each request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to be used for the next set of paginated results. You don\'t
     -- need to supply a value for this field in the initial request.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per each request.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,26 +76,26 @@ data DescribeSpendLimits = DescribeSpendLimits'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'describeSpendLimits_maxResults' - The maximum number of results to return per each request.
+--
 -- 'nextToken', 'describeSpendLimits_nextToken' - The token to be used for the next set of paginated results. You don\'t
 -- need to supply a value for this field in the initial request.
---
--- 'maxResults', 'describeSpendLimits_maxResults' - The maximum number of results to return per each request.
 newDescribeSpendLimits ::
   DescribeSpendLimits
 newDescribeSpendLimits =
   DescribeSpendLimits'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of results to return per each request.
+describeSpendLimits_maxResults :: Lens.Lens' DescribeSpendLimits (Prelude.Maybe Prelude.Natural)
+describeSpendLimits_maxResults = Lens.lens (\DescribeSpendLimits' {maxResults} -> maxResults) (\s@DescribeSpendLimits' {} a -> s {maxResults = a} :: DescribeSpendLimits)
 
 -- | The token to be used for the next set of paginated results. You don\'t
 -- need to supply a value for this field in the initial request.
 describeSpendLimits_nextToken :: Lens.Lens' DescribeSpendLimits (Prelude.Maybe Prelude.Text)
 describeSpendLimits_nextToken = Lens.lens (\DescribeSpendLimits' {nextToken} -> nextToken) (\s@DescribeSpendLimits' {} a -> s {nextToken = a} :: DescribeSpendLimits)
-
--- | The maximum number of results to return per each request.
-describeSpendLimits_maxResults :: Lens.Lens' DescribeSpendLimits (Prelude.Maybe Prelude.Natural)
-describeSpendLimits_maxResults = Lens.lens (\DescribeSpendLimits' {maxResults} -> maxResults) (\s@DescribeSpendLimits' {} a -> s {maxResults = a} :: DescribeSpendLimits)
 
 instance Core.AWSPager DescribeSpendLimits where
   page rq rs
@@ -136,13 +136,13 @@ instance Core.AWSRequest DescribeSpendLimits where
 
 instance Prelude.Hashable DescribeSpendLimits where
   hashWithSalt _salt DescribeSpendLimits' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeSpendLimits where
   rnf DescribeSpendLimits' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeSpendLimits where
   toHeaders =
@@ -163,8 +163,8 @@ instance Data.ToJSON DescribeSpendLimits where
   toJSON DescribeSpendLimits' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

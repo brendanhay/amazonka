@@ -43,11 +43,11 @@ module Amazonka.PinpointSmsVoiceV2.DeleteKeyword
     newDeleteKeywordResponse,
 
     -- * Response Lenses
-    deleteKeywordResponse_originationIdentity,
-    deleteKeywordResponse_keywordAction,
-    deleteKeywordResponse_originationIdentityArn,
     deleteKeywordResponse_keyword,
+    deleteKeywordResponse_keywordAction,
     deleteKeywordResponse_keywordMessage,
+    deleteKeywordResponse_originationIdentity,
+    deleteKeywordResponse_originationIdentityArn,
     deleteKeywordResponse_httpStatus,
   )
 where
@@ -120,11 +120,11 @@ instance Core.AWSRequest DeleteKeyword where
     Response.receiveJSON
       ( \s h x ->
           DeleteKeywordResponse'
-            Prelude.<$> (x Data..?> "OriginationIdentity")
+            Prelude.<$> (x Data..?> "Keyword")
             Prelude.<*> (x Data..?> "KeywordAction")
-            Prelude.<*> (x Data..?> "OriginationIdentityArn")
-            Prelude.<*> (x Data..?> "Keyword")
             Prelude.<*> (x Data..?> "KeywordMessage")
+            Prelude.<*> (x Data..?> "OriginationIdentity")
+            Prelude.<*> (x Data..?> "OriginationIdentityArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -171,16 +171,16 @@ instance Data.ToQuery DeleteKeyword where
 
 -- | /See:/ 'newDeleteKeywordResponse' smart constructor.
 data DeleteKeywordResponse = DeleteKeywordResponse'
-  { -- | The PhoneNumberId or PoolId that the keyword was associated with.
-    originationIdentity :: Prelude.Maybe Prelude.Text,
+  { -- | The keyword that was deleted.
+    keyword :: Prelude.Maybe Prelude.Text,
     -- | The action that was associated with the deleted keyword.
     keywordAction :: Prelude.Maybe KeywordAction,
-    -- | The PhoneNumberArn or PoolArn that the keyword was associated with.
-    originationIdentityArn :: Prelude.Maybe Prelude.Text,
-    -- | The keyword that was deleted.
-    keyword :: Prelude.Maybe Prelude.Text,
     -- | The message that was associated with the deleted keyword.
     keywordMessage :: Prelude.Maybe Prelude.Text,
+    -- | The PhoneNumberId or PoolId that the keyword was associated with.
+    originationIdentity :: Prelude.Maybe Prelude.Text,
+    -- | The PhoneNumberArn or PoolArn that the keyword was associated with.
+    originationIdentityArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -194,15 +194,15 @@ data DeleteKeywordResponse = DeleteKeywordResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'originationIdentity', 'deleteKeywordResponse_originationIdentity' - The PhoneNumberId or PoolId that the keyword was associated with.
+-- 'keyword', 'deleteKeywordResponse_keyword' - The keyword that was deleted.
 --
 -- 'keywordAction', 'deleteKeywordResponse_keywordAction' - The action that was associated with the deleted keyword.
 --
--- 'originationIdentityArn', 'deleteKeywordResponse_originationIdentityArn' - The PhoneNumberArn or PoolArn that the keyword was associated with.
---
--- 'keyword', 'deleteKeywordResponse_keyword' - The keyword that was deleted.
---
 -- 'keywordMessage', 'deleteKeywordResponse_keywordMessage' - The message that was associated with the deleted keyword.
+--
+-- 'originationIdentity', 'deleteKeywordResponse_originationIdentity' - The PhoneNumberId or PoolId that the keyword was associated with.
+--
+-- 'originationIdentityArn', 'deleteKeywordResponse_originationIdentityArn' - The PhoneNumberArn or PoolArn that the keyword was associated with.
 --
 -- 'httpStatus', 'deleteKeywordResponse_httpStatus' - The response's http status code.
 newDeleteKeywordResponse ::
@@ -211,34 +211,33 @@ newDeleteKeywordResponse ::
   DeleteKeywordResponse
 newDeleteKeywordResponse pHttpStatus_ =
   DeleteKeywordResponse'
-    { originationIdentity =
-        Prelude.Nothing,
+    { keyword = Prelude.Nothing,
       keywordAction = Prelude.Nothing,
-      originationIdentityArn = Prelude.Nothing,
-      keyword = Prelude.Nothing,
       keywordMessage = Prelude.Nothing,
+      originationIdentity = Prelude.Nothing,
+      originationIdentityArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The PhoneNumberId or PoolId that the keyword was associated with.
-deleteKeywordResponse_originationIdentity :: Lens.Lens' DeleteKeywordResponse (Prelude.Maybe Prelude.Text)
-deleteKeywordResponse_originationIdentity = Lens.lens (\DeleteKeywordResponse' {originationIdentity} -> originationIdentity) (\s@DeleteKeywordResponse' {} a -> s {originationIdentity = a} :: DeleteKeywordResponse)
-
--- | The action that was associated with the deleted keyword.
-deleteKeywordResponse_keywordAction :: Lens.Lens' DeleteKeywordResponse (Prelude.Maybe KeywordAction)
-deleteKeywordResponse_keywordAction = Lens.lens (\DeleteKeywordResponse' {keywordAction} -> keywordAction) (\s@DeleteKeywordResponse' {} a -> s {keywordAction = a} :: DeleteKeywordResponse)
-
--- | The PhoneNumberArn or PoolArn that the keyword was associated with.
-deleteKeywordResponse_originationIdentityArn :: Lens.Lens' DeleteKeywordResponse (Prelude.Maybe Prelude.Text)
-deleteKeywordResponse_originationIdentityArn = Lens.lens (\DeleteKeywordResponse' {originationIdentityArn} -> originationIdentityArn) (\s@DeleteKeywordResponse' {} a -> s {originationIdentityArn = a} :: DeleteKeywordResponse)
 
 -- | The keyword that was deleted.
 deleteKeywordResponse_keyword :: Lens.Lens' DeleteKeywordResponse (Prelude.Maybe Prelude.Text)
 deleteKeywordResponse_keyword = Lens.lens (\DeleteKeywordResponse' {keyword} -> keyword) (\s@DeleteKeywordResponse' {} a -> s {keyword = a} :: DeleteKeywordResponse)
 
+-- | The action that was associated with the deleted keyword.
+deleteKeywordResponse_keywordAction :: Lens.Lens' DeleteKeywordResponse (Prelude.Maybe KeywordAction)
+deleteKeywordResponse_keywordAction = Lens.lens (\DeleteKeywordResponse' {keywordAction} -> keywordAction) (\s@DeleteKeywordResponse' {} a -> s {keywordAction = a} :: DeleteKeywordResponse)
+
 -- | The message that was associated with the deleted keyword.
 deleteKeywordResponse_keywordMessage :: Lens.Lens' DeleteKeywordResponse (Prelude.Maybe Prelude.Text)
 deleteKeywordResponse_keywordMessage = Lens.lens (\DeleteKeywordResponse' {keywordMessage} -> keywordMessage) (\s@DeleteKeywordResponse' {} a -> s {keywordMessage = a} :: DeleteKeywordResponse)
+
+-- | The PhoneNumberId or PoolId that the keyword was associated with.
+deleteKeywordResponse_originationIdentity :: Lens.Lens' DeleteKeywordResponse (Prelude.Maybe Prelude.Text)
+deleteKeywordResponse_originationIdentity = Lens.lens (\DeleteKeywordResponse' {originationIdentity} -> originationIdentity) (\s@DeleteKeywordResponse' {} a -> s {originationIdentity = a} :: DeleteKeywordResponse)
+
+-- | The PhoneNumberArn or PoolArn that the keyword was associated with.
+deleteKeywordResponse_originationIdentityArn :: Lens.Lens' DeleteKeywordResponse (Prelude.Maybe Prelude.Text)
+deleteKeywordResponse_originationIdentityArn = Lens.lens (\DeleteKeywordResponse' {originationIdentityArn} -> originationIdentityArn) (\s@DeleteKeywordResponse' {} a -> s {originationIdentityArn = a} :: DeleteKeywordResponse)
 
 -- | The response's http status code.
 deleteKeywordResponse_httpStatus :: Lens.Lens' DeleteKeywordResponse Prelude.Int
@@ -246,9 +245,9 @@ deleteKeywordResponse_httpStatus = Lens.lens (\DeleteKeywordResponse' {httpStatu
 
 instance Prelude.NFData DeleteKeywordResponse where
   rnf DeleteKeywordResponse' {..} =
-    Prelude.rnf originationIdentity
+    Prelude.rnf keyword
       `Prelude.seq` Prelude.rnf keywordAction
-      `Prelude.seq` Prelude.rnf originationIdentityArn
-      `Prelude.seq` Prelude.rnf keyword
       `Prelude.seq` Prelude.rnf keywordMessage
+      `Prelude.seq` Prelude.rnf originationIdentity
+      `Prelude.seq` Prelude.rnf originationIdentityArn
       `Prelude.seq` Prelude.rnf httpStatus

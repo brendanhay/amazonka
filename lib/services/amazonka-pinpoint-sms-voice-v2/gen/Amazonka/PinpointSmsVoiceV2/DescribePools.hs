@@ -42,10 +42,10 @@ module Amazonka.PinpointSmsVoiceV2.DescribePools
     newDescribePools,
 
     -- * Request Lenses
-    describePools_nextToken,
-    describePools_poolIds,
     describePools_filters,
     describePools_maxResults,
+    describePools_nextToken,
+    describePools_poolIds,
 
     -- * Destructuring the Response
     DescribePoolsResponse (..),
@@ -68,16 +68,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribePools' smart constructor.
 data DescribePools = DescribePools'
-  { -- | The token to be used for the next set of paginated results. You don\'t
+  { -- | An array of PoolFilter objects to filter the results.
+    filters :: Prelude.Maybe [PoolFilter],
+    -- | The maximum number of results to return per each request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to be used for the next set of paginated results. You don\'t
     -- need to supply a value for this field in the initial request.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of pools to find. This is an array of strings that
     -- can be either the PoolId or PoolArn.
-    poolIds :: Prelude.Maybe [Prelude.Text],
-    -- | An array of PoolFilter objects to filter the results.
-    filters :: Prelude.Maybe [PoolFilter],
-    -- | The maximum number of results to return per each request.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    poolIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -89,24 +89,32 @@ data DescribePools = DescribePools'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'filters', 'describePools_filters' - An array of PoolFilter objects to filter the results.
+--
+-- 'maxResults', 'describePools_maxResults' - The maximum number of results to return per each request.
+--
 -- 'nextToken', 'describePools_nextToken' - The token to be used for the next set of paginated results. You don\'t
 -- need to supply a value for this field in the initial request.
 --
 -- 'poolIds', 'describePools_poolIds' - The unique identifier of pools to find. This is an array of strings that
 -- can be either the PoolId or PoolArn.
---
--- 'filters', 'describePools_filters' - An array of PoolFilter objects to filter the results.
---
--- 'maxResults', 'describePools_maxResults' - The maximum number of results to return per each request.
 newDescribePools ::
   DescribePools
 newDescribePools =
   DescribePools'
-    { nextToken = Prelude.Nothing,
-      poolIds = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      poolIds = Prelude.Nothing
     }
+
+-- | An array of PoolFilter objects to filter the results.
+describePools_filters :: Lens.Lens' DescribePools (Prelude.Maybe [PoolFilter])
+describePools_filters = Lens.lens (\DescribePools' {filters} -> filters) (\s@DescribePools' {} a -> s {filters = a} :: DescribePools) Prelude.. Lens.mapping Lens.coerced
+
+-- | The maximum number of results to return per each request.
+describePools_maxResults :: Lens.Lens' DescribePools (Prelude.Maybe Prelude.Natural)
+describePools_maxResults = Lens.lens (\DescribePools' {maxResults} -> maxResults) (\s@DescribePools' {} a -> s {maxResults = a} :: DescribePools)
 
 -- | The token to be used for the next set of paginated results. You don\'t
 -- need to supply a value for this field in the initial request.
@@ -117,14 +125,6 @@ describePools_nextToken = Lens.lens (\DescribePools' {nextToken} -> nextToken) (
 -- can be either the PoolId or PoolArn.
 describePools_poolIds :: Lens.Lens' DescribePools (Prelude.Maybe [Prelude.Text])
 describePools_poolIds = Lens.lens (\DescribePools' {poolIds} -> poolIds) (\s@DescribePools' {} a -> s {poolIds = a} :: DescribePools) Prelude.. Lens.mapping Lens.coerced
-
--- | An array of PoolFilter objects to filter the results.
-describePools_filters :: Lens.Lens' DescribePools (Prelude.Maybe [PoolFilter])
-describePools_filters = Lens.lens (\DescribePools' {filters} -> filters) (\s@DescribePools' {} a -> s {filters = a} :: DescribePools) Prelude.. Lens.mapping Lens.coerced
-
--- | The maximum number of results to return per each request.
-describePools_maxResults :: Lens.Lens' DescribePools (Prelude.Maybe Prelude.Natural)
-describePools_maxResults = Lens.lens (\DescribePools' {maxResults} -> maxResults) (\s@DescribePools' {} a -> s {maxResults = a} :: DescribePools)
 
 instance Core.AWSPager DescribePools where
   page rq rs
@@ -162,17 +162,17 @@ instance Core.AWSRequest DescribePools where
 
 instance Prelude.Hashable DescribePools where
   hashWithSalt _salt DescribePools' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` poolIds
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` poolIds
 
 instance Prelude.NFData DescribePools where
   rnf DescribePools' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf poolIds
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf poolIds
 
 instance Data.ToHeaders DescribePools where
   toHeaders =
@@ -193,10 +193,10 @@ instance Data.ToJSON DescribePools where
   toJSON DescribePools' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("PoolIds" Data..=) Prelude.<$> poolIds,
-            ("Filters" Data..=) Prelude.<$> filters,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("PoolIds" Data..=) Prelude.<$> poolIds
           ]
       )
 

@@ -38,9 +38,9 @@ module Amazonka.PinpointSmsVoiceV2.DeleteDefaultSenderId
     newDeleteDefaultSenderIdResponse,
 
     -- * Response Lenses
-    deleteDefaultSenderIdResponse_senderId,
-    deleteDefaultSenderIdResponse_configurationSetName,
     deleteDefaultSenderIdResponse_configurationSetArn,
+    deleteDefaultSenderIdResponse_configurationSetName,
+    deleteDefaultSenderIdResponse_senderId,
     deleteDefaultSenderIdResponse_httpStatus,
   )
 where
@@ -102,9 +102,9 @@ instance Core.AWSRequest DeleteDefaultSenderId where
     Response.receiveJSON
       ( \s h x ->
           DeleteDefaultSenderIdResponse'
-            Prelude.<$> (x Data..?> "SenderId")
+            Prelude.<$> (x Data..?> "ConfigurationSetArn")
             Prelude.<*> (x Data..?> "ConfigurationSetName")
-            Prelude.<*> (x Data..?> "ConfigurationSetArn")
+            Prelude.<*> (x Data..?> "SenderId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -150,12 +150,12 @@ instance Data.ToQuery DeleteDefaultSenderId where
 
 -- | /See:/ 'newDeleteDefaultSenderIdResponse' smart constructor.
 data DeleteDefaultSenderIdResponse = DeleteDefaultSenderIdResponse'
-  { -- | The current sender ID for the configuration set.
-    senderId :: Prelude.Maybe Prelude.Text,
+  { -- | The Amazon Resource Name (ARN) of the configuration set.
+    configurationSetArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the configuration set.
     configurationSetName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the configuration set.
-    configurationSetArn :: Prelude.Maybe Prelude.Text,
+    -- | The current sender ID for the configuration set.
+    senderId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -169,11 +169,11 @@ data DeleteDefaultSenderIdResponse = DeleteDefaultSenderIdResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'senderId', 'deleteDefaultSenderIdResponse_senderId' - The current sender ID for the configuration set.
+-- 'configurationSetArn', 'deleteDefaultSenderIdResponse_configurationSetArn' - The Amazon Resource Name (ARN) of the configuration set.
 --
 -- 'configurationSetName', 'deleteDefaultSenderIdResponse_configurationSetName' - The name of the configuration set.
 --
--- 'configurationSetArn', 'deleteDefaultSenderIdResponse_configurationSetArn' - The Amazon Resource Name (ARN) of the configuration set.
+-- 'senderId', 'deleteDefaultSenderIdResponse_senderId' - The current sender ID for the configuration set.
 --
 -- 'httpStatus', 'deleteDefaultSenderIdResponse_httpStatus' - The response's http status code.
 newDeleteDefaultSenderIdResponse ::
@@ -182,24 +182,24 @@ newDeleteDefaultSenderIdResponse ::
   DeleteDefaultSenderIdResponse
 newDeleteDefaultSenderIdResponse pHttpStatus_ =
   DeleteDefaultSenderIdResponse'
-    { senderId =
+    { configurationSetArn =
         Prelude.Nothing,
       configurationSetName = Prelude.Nothing,
-      configurationSetArn = Prelude.Nothing,
+      senderId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The current sender ID for the configuration set.
-deleteDefaultSenderIdResponse_senderId :: Lens.Lens' DeleteDefaultSenderIdResponse (Prelude.Maybe Prelude.Text)
-deleteDefaultSenderIdResponse_senderId = Lens.lens (\DeleteDefaultSenderIdResponse' {senderId} -> senderId) (\s@DeleteDefaultSenderIdResponse' {} a -> s {senderId = a} :: DeleteDefaultSenderIdResponse)
+-- | The Amazon Resource Name (ARN) of the configuration set.
+deleteDefaultSenderIdResponse_configurationSetArn :: Lens.Lens' DeleteDefaultSenderIdResponse (Prelude.Maybe Prelude.Text)
+deleteDefaultSenderIdResponse_configurationSetArn = Lens.lens (\DeleteDefaultSenderIdResponse' {configurationSetArn} -> configurationSetArn) (\s@DeleteDefaultSenderIdResponse' {} a -> s {configurationSetArn = a} :: DeleteDefaultSenderIdResponse)
 
 -- | The name of the configuration set.
 deleteDefaultSenderIdResponse_configurationSetName :: Lens.Lens' DeleteDefaultSenderIdResponse (Prelude.Maybe Prelude.Text)
 deleteDefaultSenderIdResponse_configurationSetName = Lens.lens (\DeleteDefaultSenderIdResponse' {configurationSetName} -> configurationSetName) (\s@DeleteDefaultSenderIdResponse' {} a -> s {configurationSetName = a} :: DeleteDefaultSenderIdResponse)
 
--- | The Amazon Resource Name (ARN) of the configuration set.
-deleteDefaultSenderIdResponse_configurationSetArn :: Lens.Lens' DeleteDefaultSenderIdResponse (Prelude.Maybe Prelude.Text)
-deleteDefaultSenderIdResponse_configurationSetArn = Lens.lens (\DeleteDefaultSenderIdResponse' {configurationSetArn} -> configurationSetArn) (\s@DeleteDefaultSenderIdResponse' {} a -> s {configurationSetArn = a} :: DeleteDefaultSenderIdResponse)
+-- | The current sender ID for the configuration set.
+deleteDefaultSenderIdResponse_senderId :: Lens.Lens' DeleteDefaultSenderIdResponse (Prelude.Maybe Prelude.Text)
+deleteDefaultSenderIdResponse_senderId = Lens.lens (\DeleteDefaultSenderIdResponse' {senderId} -> senderId) (\s@DeleteDefaultSenderIdResponse' {} a -> s {senderId = a} :: DeleteDefaultSenderIdResponse)
 
 -- | The response's http status code.
 deleteDefaultSenderIdResponse_httpStatus :: Lens.Lens' DeleteDefaultSenderIdResponse Prelude.Int
@@ -207,7 +207,7 @@ deleteDefaultSenderIdResponse_httpStatus = Lens.lens (\DeleteDefaultSenderIdResp
 
 instance Prelude.NFData DeleteDefaultSenderIdResponse where
   rnf DeleteDefaultSenderIdResponse' {..} =
-    Prelude.rnf senderId
+    Prelude.rnf configurationSetArn
       `Prelude.seq` Prelude.rnf configurationSetName
-      `Prelude.seq` Prelude.rnf configurationSetArn
+      `Prelude.seq` Prelude.rnf senderId
       `Prelude.seq` Prelude.rnf httpStatus

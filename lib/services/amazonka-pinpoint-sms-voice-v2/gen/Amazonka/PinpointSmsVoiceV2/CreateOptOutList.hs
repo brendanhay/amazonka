@@ -38,8 +38,8 @@ module Amazonka.PinpointSmsVoiceV2.CreateOptOutList
     newCreateOptOutList,
 
     -- * Request Lenses
-    createOptOutList_tags,
     createOptOutList_clientToken,
+    createOptOutList_tags,
     createOptOutList_optOutListName,
 
     -- * Destructuring the Response
@@ -47,10 +47,10 @@ module Amazonka.PinpointSmsVoiceV2.CreateOptOutList
     newCreateOptOutListResponse,
 
     -- * Response Lenses
-    createOptOutListResponse_tags,
-    createOptOutListResponse_optOutListArn,
     createOptOutListResponse_createdTimestamp,
+    createOptOutListResponse_optOutListArn,
     createOptOutListResponse_optOutListName,
+    createOptOutListResponse_tags,
     createOptOutListResponse_httpStatus,
   )
 where
@@ -65,13 +65,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateOptOutList' smart constructor.
 data CreateOptOutList = CreateOptOutList'
-  { -- | An array of tags (key and value pairs) to associate with the new
-    -- OptOutList.
-    tags :: Prelude.Maybe [Tag],
-    -- | Unique, case-sensitive identifier that you provide to ensure the
+  { -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. If you don\'t specify a client token, a
     -- randomly generated token is used for the request to ensure idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of tags (key and value pairs) to associate with the new
+    -- OptOutList.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the new OptOutList.
     optOutListName :: Prelude.Text
   }
@@ -85,12 +85,12 @@ data CreateOptOutList = CreateOptOutList'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createOptOutList_tags' - An array of tags (key and value pairs) to associate with the new
--- OptOutList.
---
 -- 'clientToken', 'createOptOutList_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. If you don\'t specify a client token, a
 -- randomly generated token is used for the request to ensure idempotency.
+--
+-- 'tags', 'createOptOutList_tags' - An array of tags (key and value pairs) to associate with the new
+-- OptOutList.
 --
 -- 'optOutListName', 'createOptOutList_optOutListName' - The name of the new OptOutList.
 newCreateOptOutList ::
@@ -99,21 +99,21 @@ newCreateOptOutList ::
   CreateOptOutList
 newCreateOptOutList pOptOutListName_ =
   CreateOptOutList'
-    { tags = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
+    { clientToken = Prelude.Nothing,
+      tags = Prelude.Nothing,
       optOutListName = pOptOutListName_
     }
-
--- | An array of tags (key and value pairs) to associate with the new
--- OptOutList.
-createOptOutList_tags :: Lens.Lens' CreateOptOutList (Prelude.Maybe [Tag])
-createOptOutList_tags = Lens.lens (\CreateOptOutList' {tags} -> tags) (\s@CreateOptOutList' {} a -> s {tags = a} :: CreateOptOutList) Prelude.. Lens.mapping Lens.coerced
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. If you don\'t specify a client token, a
 -- randomly generated token is used for the request to ensure idempotency.
 createOptOutList_clientToken :: Lens.Lens' CreateOptOutList (Prelude.Maybe Prelude.Text)
 createOptOutList_clientToken = Lens.lens (\CreateOptOutList' {clientToken} -> clientToken) (\s@CreateOptOutList' {} a -> s {clientToken = a} :: CreateOptOutList)
+
+-- | An array of tags (key and value pairs) to associate with the new
+-- OptOutList.
+createOptOutList_tags :: Lens.Lens' CreateOptOutList (Prelude.Maybe [Tag])
+createOptOutList_tags = Lens.lens (\CreateOptOutList' {tags} -> tags) (\s@CreateOptOutList' {} a -> s {tags = a} :: CreateOptOutList) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the new OptOutList.
 createOptOutList_optOutListName :: Lens.Lens' CreateOptOutList Prelude.Text
@@ -129,23 +129,23 @@ instance Core.AWSRequest CreateOptOutList where
     Response.receiveJSON
       ( \s h x ->
           CreateOptOutListResponse'
-            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "CreatedTimestamp")
             Prelude.<*> (x Data..?> "OptOutListArn")
-            Prelude.<*> (x Data..?> "CreatedTimestamp")
             Prelude.<*> (x Data..?> "OptOutListName")
+            Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateOptOutList where
   hashWithSalt _salt CreateOptOutList' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` optOutListName
 
 instance Prelude.NFData CreateOptOutList where
   rnf CreateOptOutList' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf optOutListName
 
 instance Data.ToHeaders CreateOptOutList where
@@ -167,8 +167,8 @@ instance Data.ToJSON CreateOptOutList where
   toJSON CreateOptOutList' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ClientToken" Data..=) Prelude.<$> clientToken,
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("OptOutListName" Data..= optOutListName)
           ]
@@ -182,16 +182,16 @@ instance Data.ToQuery CreateOptOutList where
 
 -- | /See:/ 'newCreateOptOutListResponse' smart constructor.
 data CreateOptOutListResponse = CreateOptOutListResponse'
-  { -- | An array of tags (key and value pairs) associated with the new
-    -- OptOutList.
-    tags :: Prelude.Maybe [Tag],
-    -- | The Amazon Resource Name (ARN) for the OptOutList.
-    optOutListArn :: Prelude.Maybe Prelude.Text,
-    -- | The time when the pool was created, in
+  { -- | The time when the pool was created, in
     -- <https://www.epochconverter.com/ UNIX epoch time> format.
     createdTimestamp :: Prelude.Maybe Data.POSIX,
+    -- | The Amazon Resource Name (ARN) for the OptOutList.
+    optOutListArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the new OptOutList.
     optOutListName :: Prelude.Maybe Prelude.Text,
+    -- | An array of tags (key and value pairs) associated with the new
+    -- OptOutList.
+    tags :: Prelude.Maybe [Tag],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -205,15 +205,15 @@ data CreateOptOutListResponse = CreateOptOutListResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createOptOutListResponse_tags' - An array of tags (key and value pairs) associated with the new
--- OptOutList.
---
--- 'optOutListArn', 'createOptOutListResponse_optOutListArn' - The Amazon Resource Name (ARN) for the OptOutList.
---
 -- 'createdTimestamp', 'createOptOutListResponse_createdTimestamp' - The time when the pool was created, in
 -- <https://www.epochconverter.com/ UNIX epoch time> format.
 --
+-- 'optOutListArn', 'createOptOutListResponse_optOutListArn' - The Amazon Resource Name (ARN) for the OptOutList.
+--
 -- 'optOutListName', 'createOptOutListResponse_optOutListName' - The name of the new OptOutList.
+--
+-- 'tags', 'createOptOutListResponse_tags' - An array of tags (key and value pairs) associated with the new
+-- OptOutList.
 --
 -- 'httpStatus', 'createOptOutListResponse_httpStatus' - The response's http status code.
 newCreateOptOutListResponse ::
@@ -222,30 +222,31 @@ newCreateOptOutListResponse ::
   CreateOptOutListResponse
 newCreateOptOutListResponse pHttpStatus_ =
   CreateOptOutListResponse'
-    { tags = Prelude.Nothing,
+    { createdTimestamp =
+        Prelude.Nothing,
       optOutListArn = Prelude.Nothing,
-      createdTimestamp = Prelude.Nothing,
       optOutListName = Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of tags (key and value pairs) associated with the new
--- OptOutList.
-createOptOutListResponse_tags :: Lens.Lens' CreateOptOutListResponse (Prelude.Maybe [Tag])
-createOptOutListResponse_tags = Lens.lens (\CreateOptOutListResponse' {tags} -> tags) (\s@CreateOptOutListResponse' {} a -> s {tags = a} :: CreateOptOutListResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The Amazon Resource Name (ARN) for the OptOutList.
-createOptOutListResponse_optOutListArn :: Lens.Lens' CreateOptOutListResponse (Prelude.Maybe Prelude.Text)
-createOptOutListResponse_optOutListArn = Lens.lens (\CreateOptOutListResponse' {optOutListArn} -> optOutListArn) (\s@CreateOptOutListResponse' {} a -> s {optOutListArn = a} :: CreateOptOutListResponse)
 
 -- | The time when the pool was created, in
 -- <https://www.epochconverter.com/ UNIX epoch time> format.
 createOptOutListResponse_createdTimestamp :: Lens.Lens' CreateOptOutListResponse (Prelude.Maybe Prelude.UTCTime)
 createOptOutListResponse_createdTimestamp = Lens.lens (\CreateOptOutListResponse' {createdTimestamp} -> createdTimestamp) (\s@CreateOptOutListResponse' {} a -> s {createdTimestamp = a} :: CreateOptOutListResponse) Prelude.. Lens.mapping Data._Time
 
+-- | The Amazon Resource Name (ARN) for the OptOutList.
+createOptOutListResponse_optOutListArn :: Lens.Lens' CreateOptOutListResponse (Prelude.Maybe Prelude.Text)
+createOptOutListResponse_optOutListArn = Lens.lens (\CreateOptOutListResponse' {optOutListArn} -> optOutListArn) (\s@CreateOptOutListResponse' {} a -> s {optOutListArn = a} :: CreateOptOutListResponse)
+
 -- | The name of the new OptOutList.
 createOptOutListResponse_optOutListName :: Lens.Lens' CreateOptOutListResponse (Prelude.Maybe Prelude.Text)
 createOptOutListResponse_optOutListName = Lens.lens (\CreateOptOutListResponse' {optOutListName} -> optOutListName) (\s@CreateOptOutListResponse' {} a -> s {optOutListName = a} :: CreateOptOutListResponse)
+
+-- | An array of tags (key and value pairs) associated with the new
+-- OptOutList.
+createOptOutListResponse_tags :: Lens.Lens' CreateOptOutListResponse (Prelude.Maybe [Tag])
+createOptOutListResponse_tags = Lens.lens (\CreateOptOutListResponse' {tags} -> tags) (\s@CreateOptOutListResponse' {} a -> s {tags = a} :: CreateOptOutListResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 createOptOutListResponse_httpStatus :: Lens.Lens' CreateOptOutListResponse Prelude.Int
@@ -253,8 +254,8 @@ createOptOutListResponse_httpStatus = Lens.lens (\CreateOptOutListResponse' {htt
 
 instance Prelude.NFData CreateOptOutListResponse where
   rnf CreateOptOutListResponse' {..} =
-    Prelude.rnf tags
+    Prelude.rnf createdTimestamp
       `Prelude.seq` Prelude.rnf optOutListArn
-      `Prelude.seq` Prelude.rnf createdTimestamp
       `Prelude.seq` Prelude.rnf optOutListName
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

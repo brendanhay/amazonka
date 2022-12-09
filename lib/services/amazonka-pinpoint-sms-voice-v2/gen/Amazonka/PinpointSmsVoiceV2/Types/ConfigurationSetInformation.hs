@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConfigurationSetInformation' smart constructor.
 data ConfigurationSetInformation = ConfigurationSetInformation'
-  { -- | The default sender ID used by the ConfigurationSet.
-    defaultSenderId :: Prelude.Maybe Prelude.Text,
-    -- | The type of message. Valid values are TRANSACTIONAL for messages that
+  { -- | The type of message. Valid values are TRANSACTIONAL for messages that
     -- are critical or time-sensitive and PROMOTIONAL for messages that aren\'t
     -- critical or time-sensitive.
     defaultMessageType :: Prelude.Maybe MessageType,
+    -- | The default sender ID used by the ConfigurationSet.
+    defaultSenderId :: Prelude.Maybe Prelude.Text,
     -- | The Resource Name (ARN) of the ConfigurationSet.
     configurationSetArn :: Prelude.Text,
     -- | The name of the ConfigurationSet.
@@ -58,11 +58,11 @@ data ConfigurationSetInformation = ConfigurationSetInformation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'defaultSenderId', 'configurationSetInformation_defaultSenderId' - The default sender ID used by the ConfigurationSet.
---
 -- 'defaultMessageType', 'configurationSetInformation_defaultMessageType' - The type of message. Valid values are TRANSACTIONAL for messages that
 -- are critical or time-sensitive and PROMOTIONAL for messages that aren\'t
 -- critical or time-sensitive.
+--
+-- 'defaultSenderId', 'configurationSetInformation_defaultSenderId' - The default sender ID used by the ConfigurationSet.
 --
 -- 'configurationSetArn', 'configurationSetInformation_configurationSetArn' - The Resource Name (ARN) of the ConfigurationSet.
 --
@@ -86,9 +86,9 @@ newConfigurationSetInformation
   pConfigurationSetName_
   pCreatedTimestamp_ =
     ConfigurationSetInformation'
-      { defaultSenderId =
+      { defaultMessageType =
           Prelude.Nothing,
-        defaultMessageType = Prelude.Nothing,
+        defaultSenderId = Prelude.Nothing,
         configurationSetArn = pConfigurationSetArn_,
         configurationSetName = pConfigurationSetName_,
         eventDestinations = Prelude.mempty,
@@ -96,15 +96,15 @@ newConfigurationSetInformation
           Data._Time Lens.# pCreatedTimestamp_
       }
 
--- | The default sender ID used by the ConfigurationSet.
-configurationSetInformation_defaultSenderId :: Lens.Lens' ConfigurationSetInformation (Prelude.Maybe Prelude.Text)
-configurationSetInformation_defaultSenderId = Lens.lens (\ConfigurationSetInformation' {defaultSenderId} -> defaultSenderId) (\s@ConfigurationSetInformation' {} a -> s {defaultSenderId = a} :: ConfigurationSetInformation)
-
 -- | The type of message. Valid values are TRANSACTIONAL for messages that
 -- are critical or time-sensitive and PROMOTIONAL for messages that aren\'t
 -- critical or time-sensitive.
 configurationSetInformation_defaultMessageType :: Lens.Lens' ConfigurationSetInformation (Prelude.Maybe MessageType)
 configurationSetInformation_defaultMessageType = Lens.lens (\ConfigurationSetInformation' {defaultMessageType} -> defaultMessageType) (\s@ConfigurationSetInformation' {} a -> s {defaultMessageType = a} :: ConfigurationSetInformation)
+
+-- | The default sender ID used by the ConfigurationSet.
+configurationSetInformation_defaultSenderId :: Lens.Lens' ConfigurationSetInformation (Prelude.Maybe Prelude.Text)
+configurationSetInformation_defaultSenderId = Lens.lens (\ConfigurationSetInformation' {defaultSenderId} -> defaultSenderId) (\s@ConfigurationSetInformation' {} a -> s {defaultSenderId = a} :: ConfigurationSetInformation)
 
 -- | The Resource Name (ARN) of the ConfigurationSet.
 configurationSetInformation_configurationSetArn :: Lens.Lens' ConfigurationSetInformation Prelude.Text
@@ -130,8 +130,8 @@ instance Data.FromJSON ConfigurationSetInformation where
       "ConfigurationSetInformation"
       ( \x ->
           ConfigurationSetInformation'
-            Prelude.<$> (x Data..:? "DefaultSenderId")
-            Prelude.<*> (x Data..:? "DefaultMessageType")
+            Prelude.<$> (x Data..:? "DefaultMessageType")
+            Prelude.<*> (x Data..:? "DefaultSenderId")
             Prelude.<*> (x Data..: "ConfigurationSetArn")
             Prelude.<*> (x Data..: "ConfigurationSetName")
             Prelude.<*> ( x Data..:? "EventDestinations"
@@ -142,8 +142,8 @@ instance Data.FromJSON ConfigurationSetInformation where
 
 instance Prelude.Hashable ConfigurationSetInformation where
   hashWithSalt _salt ConfigurationSetInformation' {..} =
-    _salt `Prelude.hashWithSalt` defaultSenderId
-      `Prelude.hashWithSalt` defaultMessageType
+    _salt `Prelude.hashWithSalt` defaultMessageType
+      `Prelude.hashWithSalt` defaultSenderId
       `Prelude.hashWithSalt` configurationSetArn
       `Prelude.hashWithSalt` configurationSetName
       `Prelude.hashWithSalt` eventDestinations
@@ -151,8 +151,8 @@ instance Prelude.Hashable ConfigurationSetInformation where
 
 instance Prelude.NFData ConfigurationSetInformation where
   rnf ConfigurationSetInformation' {..} =
-    Prelude.rnf defaultSenderId
-      `Prelude.seq` Prelude.rnf defaultMessageType
+    Prelude.rnf defaultMessageType
+      `Prelude.seq` Prelude.rnf defaultSenderId
       `Prelude.seq` Prelude.rnf configurationSetArn
       `Prelude.seq` Prelude.rnf configurationSetName
       `Prelude.seq` Prelude.rnf eventDestinations

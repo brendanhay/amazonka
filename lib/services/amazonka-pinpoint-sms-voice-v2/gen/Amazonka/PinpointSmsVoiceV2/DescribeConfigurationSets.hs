@@ -38,18 +38,18 @@ module Amazonka.PinpointSmsVoiceV2.DescribeConfigurationSets
     newDescribeConfigurationSets,
 
     -- * Request Lenses
-    describeConfigurationSets_nextToken,
     describeConfigurationSets_configurationSetNames,
     describeConfigurationSets_filters,
     describeConfigurationSets_maxResults,
+    describeConfigurationSets_nextToken,
 
     -- * Destructuring the Response
     DescribeConfigurationSetsResponse (..),
     newDescribeConfigurationSetsResponse,
 
     -- * Response Lenses
-    describeConfigurationSetsResponse_nextToken,
     describeConfigurationSetsResponse_configurationSets,
+    describeConfigurationSetsResponse_nextToken,
     describeConfigurationSetsResponse_httpStatus,
   )
 where
@@ -64,16 +64,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeConfigurationSets' smart constructor.
 data DescribeConfigurationSets = DescribeConfigurationSets'
-  { -- | The token to be used for the next set of paginated results. You don\'t
-    -- need to supply a value for this field in the initial request.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of strings. Each element can be either a ConfigurationSetName
+  { -- | An array of strings. Each element can be either a ConfigurationSetName
     -- or ConfigurationSetArn.
     configurationSetNames :: Prelude.Maybe [Prelude.Text],
     -- | An array of filters to apply to the results that are returned.
     filters :: Prelude.Maybe [ConfigurationSetFilter],
     -- | The maximum number of results to return per each request.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to be used for the next set of paginated results. You don\'t
+    -- need to supply a value for this field in the initial request.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,30 +85,25 @@ data DescribeConfigurationSets = DescribeConfigurationSets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeConfigurationSets_nextToken' - The token to be used for the next set of paginated results. You don\'t
--- need to supply a value for this field in the initial request.
---
 -- 'configurationSetNames', 'describeConfigurationSets_configurationSetNames' - An array of strings. Each element can be either a ConfigurationSetName
 -- or ConfigurationSetArn.
 --
 -- 'filters', 'describeConfigurationSets_filters' - An array of filters to apply to the results that are returned.
 --
 -- 'maxResults', 'describeConfigurationSets_maxResults' - The maximum number of results to return per each request.
+--
+-- 'nextToken', 'describeConfigurationSets_nextToken' - The token to be used for the next set of paginated results. You don\'t
+-- need to supply a value for this field in the initial request.
 newDescribeConfigurationSets ::
   DescribeConfigurationSets
 newDescribeConfigurationSets =
   DescribeConfigurationSets'
-    { nextToken =
+    { configurationSetNames =
         Prelude.Nothing,
-      configurationSetNames = Prelude.Nothing,
       filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token to be used for the next set of paginated results. You don\'t
--- need to supply a value for this field in the initial request.
-describeConfigurationSets_nextToken :: Lens.Lens' DescribeConfigurationSets (Prelude.Maybe Prelude.Text)
-describeConfigurationSets_nextToken = Lens.lens (\DescribeConfigurationSets' {nextToken} -> nextToken) (\s@DescribeConfigurationSets' {} a -> s {nextToken = a} :: DescribeConfigurationSets)
 
 -- | An array of strings. Each element can be either a ConfigurationSetName
 -- or ConfigurationSetArn.
@@ -122,6 +117,11 @@ describeConfigurationSets_filters = Lens.lens (\DescribeConfigurationSets' {filt
 -- | The maximum number of results to return per each request.
 describeConfigurationSets_maxResults :: Lens.Lens' DescribeConfigurationSets (Prelude.Maybe Prelude.Natural)
 describeConfigurationSets_maxResults = Lens.lens (\DescribeConfigurationSets' {maxResults} -> maxResults) (\s@DescribeConfigurationSets' {} a -> s {maxResults = a} :: DescribeConfigurationSets)
+
+-- | The token to be used for the next set of paginated results. You don\'t
+-- need to supply a value for this field in the initial request.
+describeConfigurationSets_nextToken :: Lens.Lens' DescribeConfigurationSets (Prelude.Maybe Prelude.Text)
+describeConfigurationSets_nextToken = Lens.lens (\DescribeConfigurationSets' {nextToken} -> nextToken) (\s@DescribeConfigurationSets' {} a -> s {nextToken = a} :: DescribeConfigurationSets)
 
 instance Core.AWSPager DescribeConfigurationSets where
   page rq rs
@@ -155,26 +155,26 @@ instance Core.AWSRequest DescribeConfigurationSets where
     Response.receiveJSON
       ( \s h x ->
           DescribeConfigurationSetsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ConfigurationSets"
+            Prelude.<$> ( x Data..?> "ConfigurationSets"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeConfigurationSets where
   hashWithSalt _salt DescribeConfigurationSets' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` configurationSetNames
+    _salt `Prelude.hashWithSalt` configurationSetNames
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeConfigurationSets where
   rnf DescribeConfigurationSets' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf configurationSetNames
+    Prelude.rnf configurationSetNames
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeConfigurationSets where
   toHeaders =
@@ -195,11 +195,11 @@ instance Data.ToJSON DescribeConfigurationSets where
   toJSON DescribeConfigurationSets' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("ConfigurationSetNames" Data..=)
+          [ ("ConfigurationSetNames" Data..=)
               Prelude.<$> configurationSetNames,
             ("Filters" Data..=) Prelude.<$> filters,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -211,11 +211,11 @@ instance Data.ToQuery DescribeConfigurationSets where
 
 -- | /See:/ 'newDescribeConfigurationSetsResponse' smart constructor.
 data DescribeConfigurationSetsResponse = DescribeConfigurationSetsResponse'
-  { -- | The token to be used for the next set of paginated results. If this
+  { -- | An array of ConfigurationSets objects.
+    configurationSets :: Prelude.Maybe [ConfigurationSetInformation],
+    -- | The token to be used for the next set of paginated results. If this
     -- field is empty then there are no more results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of ConfigurationSets objects.
-    configurationSets :: Prelude.Maybe [ConfigurationSetInformation],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -229,10 +229,10 @@ data DescribeConfigurationSetsResponse = DescribeConfigurationSetsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'configurationSets', 'describeConfigurationSetsResponse_configurationSets' - An array of ConfigurationSets objects.
+--
 -- 'nextToken', 'describeConfigurationSetsResponse_nextToken' - The token to be used for the next set of paginated results. If this
 -- field is empty then there are no more results.
---
--- 'configurationSets', 'describeConfigurationSetsResponse_configurationSets' - An array of ConfigurationSets objects.
 --
 -- 'httpStatus', 'describeConfigurationSetsResponse_httpStatus' - The response's http status code.
 newDescribeConfigurationSetsResponse ::
@@ -241,20 +241,20 @@ newDescribeConfigurationSetsResponse ::
   DescribeConfigurationSetsResponse
 newDescribeConfigurationSetsResponse pHttpStatus_ =
   DescribeConfigurationSetsResponse'
-    { nextToken =
+    { configurationSets =
         Prelude.Nothing,
-      configurationSets = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An array of ConfigurationSets objects.
+describeConfigurationSetsResponse_configurationSets :: Lens.Lens' DescribeConfigurationSetsResponse (Prelude.Maybe [ConfigurationSetInformation])
+describeConfigurationSetsResponse_configurationSets = Lens.lens (\DescribeConfigurationSetsResponse' {configurationSets} -> configurationSets) (\s@DescribeConfigurationSetsResponse' {} a -> s {configurationSets = a} :: DescribeConfigurationSetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to be used for the next set of paginated results. If this
 -- field is empty then there are no more results.
 describeConfigurationSetsResponse_nextToken :: Lens.Lens' DescribeConfigurationSetsResponse (Prelude.Maybe Prelude.Text)
 describeConfigurationSetsResponse_nextToken = Lens.lens (\DescribeConfigurationSetsResponse' {nextToken} -> nextToken) (\s@DescribeConfigurationSetsResponse' {} a -> s {nextToken = a} :: DescribeConfigurationSetsResponse)
-
--- | An array of ConfigurationSets objects.
-describeConfigurationSetsResponse_configurationSets :: Lens.Lens' DescribeConfigurationSetsResponse (Prelude.Maybe [ConfigurationSetInformation])
-describeConfigurationSetsResponse_configurationSets = Lens.lens (\DescribeConfigurationSetsResponse' {configurationSets} -> configurationSets) (\s@DescribeConfigurationSetsResponse' {} a -> s {configurationSets = a} :: DescribeConfigurationSetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeConfigurationSetsResponse_httpStatus :: Lens.Lens' DescribeConfigurationSetsResponse Prelude.Int
@@ -265,6 +265,6 @@ instance
     DescribeConfigurationSetsResponse
   where
   rnf DescribeConfigurationSetsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf configurationSets
+    Prelude.rnf configurationSets
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

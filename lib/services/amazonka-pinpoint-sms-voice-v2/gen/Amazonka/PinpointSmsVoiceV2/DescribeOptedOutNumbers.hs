@@ -40,10 +40,10 @@ module Amazonka.PinpointSmsVoiceV2.DescribeOptedOutNumbers
     newDescribeOptedOutNumbers,
 
     -- * Request Lenses
-    describeOptedOutNumbers_nextToken,
-    describeOptedOutNumbers_optedOutNumbers,
     describeOptedOutNumbers_filters,
     describeOptedOutNumbers_maxResults,
+    describeOptedOutNumbers_nextToken,
+    describeOptedOutNumbers_optedOutNumbers,
     describeOptedOutNumbers_optOutListName,
 
     -- * Destructuring the Response
@@ -53,8 +53,8 @@ module Amazonka.PinpointSmsVoiceV2.DescribeOptedOutNumbers
     -- * Response Lenses
     describeOptedOutNumbersResponse_nextToken,
     describeOptedOutNumbersResponse_optOutListArn,
-    describeOptedOutNumbersResponse_optedOutNumbers,
     describeOptedOutNumbersResponse_optOutListName,
+    describeOptedOutNumbersResponse_optedOutNumbers,
     describeOptedOutNumbersResponse_httpStatus,
   )
 where
@@ -69,15 +69,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeOptedOutNumbers' smart constructor.
 data DescribeOptedOutNumbers = DescribeOptedOutNumbers'
-  { -- | The token to be used for the next set of paginated results. You don\'t
+  { -- | An array of OptedOutFilter objects to filter the results on.
+    filters :: Prelude.Maybe [OptedOutFilter],
+    -- | The maximum number of results to return per each request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to be used for the next set of paginated results. You don\'t
     -- need to supply a value for this field in the initial request.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | An array of phone numbers to search for in the OptOutList.
     optedOutNumbers :: Prelude.Maybe [Prelude.Text],
-    -- | An array of OptedOutFilter objects to filter the results on.
-    filters :: Prelude.Maybe [OptedOutFilter],
-    -- | The maximum number of results to return per each request.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The OptOutListName or OptOutListArn of the OptOutList. You can use
     -- DescribeOptOutLists to find the values for OptOutListName and
     -- OptOutListArn.
@@ -93,14 +93,14 @@ data DescribeOptedOutNumbers = DescribeOptedOutNumbers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'filters', 'describeOptedOutNumbers_filters' - An array of OptedOutFilter objects to filter the results on.
+--
+-- 'maxResults', 'describeOptedOutNumbers_maxResults' - The maximum number of results to return per each request.
+--
 -- 'nextToken', 'describeOptedOutNumbers_nextToken' - The token to be used for the next set of paginated results. You don\'t
 -- need to supply a value for this field in the initial request.
 --
 -- 'optedOutNumbers', 'describeOptedOutNumbers_optedOutNumbers' - An array of phone numbers to search for in the OptOutList.
---
--- 'filters', 'describeOptedOutNumbers_filters' - An array of OptedOutFilter objects to filter the results on.
---
--- 'maxResults', 'describeOptedOutNumbers_maxResults' - The maximum number of results to return per each request.
 --
 -- 'optOutListName', 'describeOptedOutNumbers_optOutListName' - The OptOutListName or OptOutListArn of the OptOutList. You can use
 -- DescribeOptOutLists to find the values for OptOutListName and
@@ -111,13 +111,20 @@ newDescribeOptedOutNumbers ::
   DescribeOptedOutNumbers
 newDescribeOptedOutNumbers pOptOutListName_ =
   DescribeOptedOutNumbers'
-    { nextToken =
-        Prelude.Nothing,
-      optedOutNumbers = Prelude.Nothing,
-      filters = Prelude.Nothing,
+    { filters = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      optedOutNumbers = Prelude.Nothing,
       optOutListName = pOptOutListName_
     }
+
+-- | An array of OptedOutFilter objects to filter the results on.
+describeOptedOutNumbers_filters :: Lens.Lens' DescribeOptedOutNumbers (Prelude.Maybe [OptedOutFilter])
+describeOptedOutNumbers_filters = Lens.lens (\DescribeOptedOutNumbers' {filters} -> filters) (\s@DescribeOptedOutNumbers' {} a -> s {filters = a} :: DescribeOptedOutNumbers) Prelude.. Lens.mapping Lens.coerced
+
+-- | The maximum number of results to return per each request.
+describeOptedOutNumbers_maxResults :: Lens.Lens' DescribeOptedOutNumbers (Prelude.Maybe Prelude.Natural)
+describeOptedOutNumbers_maxResults = Lens.lens (\DescribeOptedOutNumbers' {maxResults} -> maxResults) (\s@DescribeOptedOutNumbers' {} a -> s {maxResults = a} :: DescribeOptedOutNumbers)
 
 -- | The token to be used for the next set of paginated results. You don\'t
 -- need to supply a value for this field in the initial request.
@@ -127,14 +134,6 @@ describeOptedOutNumbers_nextToken = Lens.lens (\DescribeOptedOutNumbers' {nextTo
 -- | An array of phone numbers to search for in the OptOutList.
 describeOptedOutNumbers_optedOutNumbers :: Lens.Lens' DescribeOptedOutNumbers (Prelude.Maybe [Prelude.Text])
 describeOptedOutNumbers_optedOutNumbers = Lens.lens (\DescribeOptedOutNumbers' {optedOutNumbers} -> optedOutNumbers) (\s@DescribeOptedOutNumbers' {} a -> s {optedOutNumbers = a} :: DescribeOptedOutNumbers) Prelude.. Lens.mapping Lens.coerced
-
--- | An array of OptedOutFilter objects to filter the results on.
-describeOptedOutNumbers_filters :: Lens.Lens' DescribeOptedOutNumbers (Prelude.Maybe [OptedOutFilter])
-describeOptedOutNumbers_filters = Lens.lens (\DescribeOptedOutNumbers' {filters} -> filters) (\s@DescribeOptedOutNumbers' {} a -> s {filters = a} :: DescribeOptedOutNumbers) Prelude.. Lens.mapping Lens.coerced
-
--- | The maximum number of results to return per each request.
-describeOptedOutNumbers_maxResults :: Lens.Lens' DescribeOptedOutNumbers (Prelude.Maybe Prelude.Natural)
-describeOptedOutNumbers_maxResults = Lens.lens (\DescribeOptedOutNumbers' {maxResults} -> maxResults) (\s@DescribeOptedOutNumbers' {} a -> s {maxResults = a} :: DescribeOptedOutNumbers)
 
 -- | The OptOutListName or OptOutListArn of the OptOutList. You can use
 -- DescribeOptOutLists to find the values for OptOutListName and
@@ -176,27 +175,27 @@ instance Core.AWSRequest DescribeOptedOutNumbers where
           DescribeOptedOutNumbersResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (x Data..?> "OptOutListArn")
+            Prelude.<*> (x Data..?> "OptOutListName")
             Prelude.<*> ( x Data..?> "OptedOutNumbers"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "OptOutListName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeOptedOutNumbers where
   hashWithSalt _salt DescribeOptedOutNumbers' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` optedOutNumbers
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` optedOutNumbers
       `Prelude.hashWithSalt` optOutListName
 
 instance Prelude.NFData DescribeOptedOutNumbers where
   rnf DescribeOptedOutNumbers' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf optedOutNumbers
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf optedOutNumbers
       `Prelude.seq` Prelude.rnf optOutListName
 
 instance Data.ToHeaders DescribeOptedOutNumbers where
@@ -218,11 +217,11 @@ instance Data.ToJSON DescribeOptedOutNumbers where
   toJSON DescribeOptedOutNumbers' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("OptedOutNumbers" Data..=)
               Prelude.<$> optedOutNumbers,
-            ("Filters" Data..=) Prelude.<$> filters,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
               ("OptOutListName" Data..= optOutListName)
           ]
@@ -241,11 +240,11 @@ data DescribeOptedOutNumbersResponse = DescribeOptedOutNumbersResponse'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the OptOutList.
     optOutListArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the OptOutList.
+    optOutListName :: Prelude.Maybe Prelude.Text,
     -- | An array of OptedOutNumbersInformation objects that provide information
     -- about the requested OptedOutNumbers.
     optedOutNumbers :: Prelude.Maybe [OptedOutNumberInformation],
-    -- | The name of the OptOutList.
-    optOutListName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -264,10 +263,10 @@ data DescribeOptedOutNumbersResponse = DescribeOptedOutNumbersResponse'
 --
 -- 'optOutListArn', 'describeOptedOutNumbersResponse_optOutListArn' - The Amazon Resource Name (ARN) of the OptOutList.
 --
+-- 'optOutListName', 'describeOptedOutNumbersResponse_optOutListName' - The name of the OptOutList.
+--
 -- 'optedOutNumbers', 'describeOptedOutNumbersResponse_optedOutNumbers' - An array of OptedOutNumbersInformation objects that provide information
 -- about the requested OptedOutNumbers.
---
--- 'optOutListName', 'describeOptedOutNumbersResponse_optOutListName' - The name of the OptOutList.
 --
 -- 'httpStatus', 'describeOptedOutNumbersResponse_httpStatus' - The response's http status code.
 newDescribeOptedOutNumbersResponse ::
@@ -279,8 +278,8 @@ newDescribeOptedOutNumbersResponse pHttpStatus_ =
     { nextToken =
         Prelude.Nothing,
       optOutListArn = Prelude.Nothing,
-      optedOutNumbers = Prelude.Nothing,
       optOutListName = Prelude.Nothing,
+      optedOutNumbers = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -293,14 +292,14 @@ describeOptedOutNumbersResponse_nextToken = Lens.lens (\DescribeOptedOutNumbersR
 describeOptedOutNumbersResponse_optOutListArn :: Lens.Lens' DescribeOptedOutNumbersResponse (Prelude.Maybe Prelude.Text)
 describeOptedOutNumbersResponse_optOutListArn = Lens.lens (\DescribeOptedOutNumbersResponse' {optOutListArn} -> optOutListArn) (\s@DescribeOptedOutNumbersResponse' {} a -> s {optOutListArn = a} :: DescribeOptedOutNumbersResponse)
 
+-- | The name of the OptOutList.
+describeOptedOutNumbersResponse_optOutListName :: Lens.Lens' DescribeOptedOutNumbersResponse (Prelude.Maybe Prelude.Text)
+describeOptedOutNumbersResponse_optOutListName = Lens.lens (\DescribeOptedOutNumbersResponse' {optOutListName} -> optOutListName) (\s@DescribeOptedOutNumbersResponse' {} a -> s {optOutListName = a} :: DescribeOptedOutNumbersResponse)
+
 -- | An array of OptedOutNumbersInformation objects that provide information
 -- about the requested OptedOutNumbers.
 describeOptedOutNumbersResponse_optedOutNumbers :: Lens.Lens' DescribeOptedOutNumbersResponse (Prelude.Maybe [OptedOutNumberInformation])
 describeOptedOutNumbersResponse_optedOutNumbers = Lens.lens (\DescribeOptedOutNumbersResponse' {optedOutNumbers} -> optedOutNumbers) (\s@DescribeOptedOutNumbersResponse' {} a -> s {optedOutNumbers = a} :: DescribeOptedOutNumbersResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the OptOutList.
-describeOptedOutNumbersResponse_optOutListName :: Lens.Lens' DescribeOptedOutNumbersResponse (Prelude.Maybe Prelude.Text)
-describeOptedOutNumbersResponse_optOutListName = Lens.lens (\DescribeOptedOutNumbersResponse' {optOutListName} -> optOutListName) (\s@DescribeOptedOutNumbersResponse' {} a -> s {optOutListName = a} :: DescribeOptedOutNumbersResponse)
 
 -- | The response's http status code.
 describeOptedOutNumbersResponse_httpStatus :: Lens.Lens' DescribeOptedOutNumbersResponse Prelude.Int
@@ -313,6 +312,6 @@ instance
   rnf DescribeOptedOutNumbersResponse' {..} =
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf optOutListArn
-      `Prelude.seq` Prelude.rnf optedOutNumbers
       `Prelude.seq` Prelude.rnf optOutListName
+      `Prelude.seq` Prelude.rnf optedOutNumbers
       `Prelude.seq` Prelude.rnf httpStatus

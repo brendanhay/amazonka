@@ -38,10 +38,10 @@ module Amazonka.PinpointSmsVoiceV2.DescribeSenderIds
     newDescribeSenderIds,
 
     -- * Request Lenses
-    describeSenderIds_nextToken,
     describeSenderIds_filters,
-    describeSenderIds_senderIds,
     describeSenderIds_maxResults,
+    describeSenderIds_nextToken,
+    describeSenderIds_senderIds,
 
     -- * Destructuring the Response
     DescribeSenderIdsResponse (..),
@@ -64,15 +64,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeSenderIds' smart constructor.
 data DescribeSenderIds = DescribeSenderIds'
-  { -- | The token to be used for the next set of paginated results. You don\'t
+  { -- | An array of SenderIdFilter objects to filter the results.
+    filters :: Prelude.Maybe [SenderIdFilter],
+    -- | The maximum number of results to return per each request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to be used for the next set of paginated results. You don\'t
     -- need to supply a value for this field in the initial request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of SenderIdFilter objects to filter the results.
-    filters :: Prelude.Maybe [SenderIdFilter],
     -- | An array of SenderIdAndCountry objects to search for.
-    senderIds :: Prelude.Maybe [SenderIdAndCountry],
-    -- | The maximum number of results to return per each request.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    senderIds :: Prelude.Maybe [SenderIdAndCountry]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,40 +84,40 @@ data DescribeSenderIds = DescribeSenderIds'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'filters', 'describeSenderIds_filters' - An array of SenderIdFilter objects to filter the results.
+--
+-- 'maxResults', 'describeSenderIds_maxResults' - The maximum number of results to return per each request.
+--
 -- 'nextToken', 'describeSenderIds_nextToken' - The token to be used for the next set of paginated results. You don\'t
 -- need to supply a value for this field in the initial request.
 --
--- 'filters', 'describeSenderIds_filters' - An array of SenderIdFilter objects to filter the results.
---
 -- 'senderIds', 'describeSenderIds_senderIds' - An array of SenderIdAndCountry objects to search for.
---
--- 'maxResults', 'describeSenderIds_maxResults' - The maximum number of results to return per each request.
 newDescribeSenderIds ::
   DescribeSenderIds
 newDescribeSenderIds =
   DescribeSenderIds'
-    { nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      senderIds = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      senderIds = Prelude.Nothing
     }
+
+-- | An array of SenderIdFilter objects to filter the results.
+describeSenderIds_filters :: Lens.Lens' DescribeSenderIds (Prelude.Maybe [SenderIdFilter])
+describeSenderIds_filters = Lens.lens (\DescribeSenderIds' {filters} -> filters) (\s@DescribeSenderIds' {} a -> s {filters = a} :: DescribeSenderIds) Prelude.. Lens.mapping Lens.coerced
+
+-- | The maximum number of results to return per each request.
+describeSenderIds_maxResults :: Lens.Lens' DescribeSenderIds (Prelude.Maybe Prelude.Natural)
+describeSenderIds_maxResults = Lens.lens (\DescribeSenderIds' {maxResults} -> maxResults) (\s@DescribeSenderIds' {} a -> s {maxResults = a} :: DescribeSenderIds)
 
 -- | The token to be used for the next set of paginated results. You don\'t
 -- need to supply a value for this field in the initial request.
 describeSenderIds_nextToken :: Lens.Lens' DescribeSenderIds (Prelude.Maybe Prelude.Text)
 describeSenderIds_nextToken = Lens.lens (\DescribeSenderIds' {nextToken} -> nextToken) (\s@DescribeSenderIds' {} a -> s {nextToken = a} :: DescribeSenderIds)
 
--- | An array of SenderIdFilter objects to filter the results.
-describeSenderIds_filters :: Lens.Lens' DescribeSenderIds (Prelude.Maybe [SenderIdFilter])
-describeSenderIds_filters = Lens.lens (\DescribeSenderIds' {filters} -> filters) (\s@DescribeSenderIds' {} a -> s {filters = a} :: DescribeSenderIds) Prelude.. Lens.mapping Lens.coerced
-
 -- | An array of SenderIdAndCountry objects to search for.
 describeSenderIds_senderIds :: Lens.Lens' DescribeSenderIds (Prelude.Maybe [SenderIdAndCountry])
 describeSenderIds_senderIds = Lens.lens (\DescribeSenderIds' {senderIds} -> senderIds) (\s@DescribeSenderIds' {} a -> s {senderIds = a} :: DescribeSenderIds) Prelude.. Lens.mapping Lens.coerced
-
--- | The maximum number of results to return per each request.
-describeSenderIds_maxResults :: Lens.Lens' DescribeSenderIds (Prelude.Maybe Prelude.Natural)
-describeSenderIds_maxResults = Lens.lens (\DescribeSenderIds' {maxResults} -> maxResults) (\s@DescribeSenderIds' {} a -> s {maxResults = a} :: DescribeSenderIds)
 
 instance Core.AWSPager DescribeSenderIds where
   page rq rs
@@ -158,17 +158,17 @@ instance Core.AWSRequest DescribeSenderIds where
 
 instance Prelude.Hashable DescribeSenderIds where
   hashWithSalt _salt DescribeSenderIds' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` senderIds
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` senderIds
 
 instance Prelude.NFData DescribeSenderIds where
   rnf DescribeSenderIds' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf senderIds
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf senderIds
 
 instance Data.ToHeaders DescribeSenderIds where
   toHeaders =
@@ -189,10 +189,10 @@ instance Data.ToJSON DescribeSenderIds where
   toJSON DescribeSenderIds' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
-            ("SenderIds" Data..=) Prelude.<$> senderIds,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("SenderIds" Data..=) Prelude.<$> senderIds
           ]
       )
 

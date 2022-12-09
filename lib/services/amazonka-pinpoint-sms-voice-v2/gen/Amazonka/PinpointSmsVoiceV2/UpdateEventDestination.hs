@@ -35,10 +35,10 @@ module Amazonka.PinpointSmsVoiceV2.UpdateEventDestination
 
     -- * Request Lenses
     updateEventDestination_cloudWatchLogsDestination,
-    updateEventDestination_matchingEventTypes,
-    updateEventDestination_snsDestination,
     updateEventDestination_enabled,
     updateEventDestination_kinesisFirehoseDestination,
+    updateEventDestination_matchingEventTypes,
+    updateEventDestination_snsDestination,
     updateEventDestination_configurationSetName,
     updateEventDestination_eventDestinationName,
 
@@ -47,9 +47,9 @@ module Amazonka.PinpointSmsVoiceV2.UpdateEventDestination
     newUpdateEventDestinationResponse,
 
     -- * Response Lenses
+    updateEventDestinationResponse_configurationSetArn,
     updateEventDestinationResponse_configurationSetName,
     updateEventDestinationResponse_eventDestination,
-    updateEventDestinationResponse_configurationSetArn,
     updateEventDestinationResponse_httpStatus,
   )
 where
@@ -67,16 +67,16 @@ data UpdateEventDestination = UpdateEventDestination'
   { -- | An object that contains information about an event destination that
     -- sends data to CloudWatch Logs.
     cloudWatchLogsDestination :: Prelude.Maybe CloudWatchLogsDestination,
-    -- | An array of event types that determine which events to log.
-    matchingEventTypes :: Prelude.Maybe (Prelude.NonEmpty EventType),
-    -- | An object that contains information about an event destination that
-    -- sends data to Amazon SNS.
-    snsDestination :: Prelude.Maybe SnsDestination,
     -- | When set to true logging is enabled.
     enabled :: Prelude.Maybe Prelude.Bool,
     -- | An object that contains information about an event destination for
     -- logging to Kinesis Data Firehose.
     kinesisFirehoseDestination :: Prelude.Maybe KinesisFirehoseDestination,
+    -- | An array of event types that determine which events to log.
+    matchingEventTypes :: Prelude.Maybe (Prelude.NonEmpty EventType),
+    -- | An object that contains information about an event destination that
+    -- sends data to Amazon SNS.
+    snsDestination :: Prelude.Maybe SnsDestination,
     -- | The configuration set to update with the new event destination. Valid
     -- values for this can be the ConfigurationSetName or ConfigurationSetArn.
     configurationSetName :: Prelude.Text,
@@ -96,15 +96,15 @@ data UpdateEventDestination = UpdateEventDestination'
 -- 'cloudWatchLogsDestination', 'updateEventDestination_cloudWatchLogsDestination' - An object that contains information about an event destination that
 -- sends data to CloudWatch Logs.
 --
--- 'matchingEventTypes', 'updateEventDestination_matchingEventTypes' - An array of event types that determine which events to log.
---
--- 'snsDestination', 'updateEventDestination_snsDestination' - An object that contains information about an event destination that
--- sends data to Amazon SNS.
---
 -- 'enabled', 'updateEventDestination_enabled' - When set to true logging is enabled.
 --
 -- 'kinesisFirehoseDestination', 'updateEventDestination_kinesisFirehoseDestination' - An object that contains information about an event destination for
 -- logging to Kinesis Data Firehose.
+--
+-- 'matchingEventTypes', 'updateEventDestination_matchingEventTypes' - An array of event types that determine which events to log.
+--
+-- 'snsDestination', 'updateEventDestination_snsDestination' - An object that contains information about an event destination that
+-- sends data to Amazon SNS.
 --
 -- 'configurationSetName', 'updateEventDestination_configurationSetName' - The configuration set to update with the new event destination. Valid
 -- values for this can be the ConfigurationSetName or ConfigurationSetArn.
@@ -122,10 +122,10 @@ newUpdateEventDestination
     UpdateEventDestination'
       { cloudWatchLogsDestination =
           Prelude.Nothing,
-        matchingEventTypes = Prelude.Nothing,
-        snsDestination = Prelude.Nothing,
         enabled = Prelude.Nothing,
         kinesisFirehoseDestination = Prelude.Nothing,
+        matchingEventTypes = Prelude.Nothing,
+        snsDestination = Prelude.Nothing,
         configurationSetName = pConfigurationSetName_,
         eventDestinationName = pEventDestinationName_
       }
@@ -135,15 +135,6 @@ newUpdateEventDestination
 updateEventDestination_cloudWatchLogsDestination :: Lens.Lens' UpdateEventDestination (Prelude.Maybe CloudWatchLogsDestination)
 updateEventDestination_cloudWatchLogsDestination = Lens.lens (\UpdateEventDestination' {cloudWatchLogsDestination} -> cloudWatchLogsDestination) (\s@UpdateEventDestination' {} a -> s {cloudWatchLogsDestination = a} :: UpdateEventDestination)
 
--- | An array of event types that determine which events to log.
-updateEventDestination_matchingEventTypes :: Lens.Lens' UpdateEventDestination (Prelude.Maybe (Prelude.NonEmpty EventType))
-updateEventDestination_matchingEventTypes = Lens.lens (\UpdateEventDestination' {matchingEventTypes} -> matchingEventTypes) (\s@UpdateEventDestination' {} a -> s {matchingEventTypes = a} :: UpdateEventDestination) Prelude.. Lens.mapping Lens.coerced
-
--- | An object that contains information about an event destination that
--- sends data to Amazon SNS.
-updateEventDestination_snsDestination :: Lens.Lens' UpdateEventDestination (Prelude.Maybe SnsDestination)
-updateEventDestination_snsDestination = Lens.lens (\UpdateEventDestination' {snsDestination} -> snsDestination) (\s@UpdateEventDestination' {} a -> s {snsDestination = a} :: UpdateEventDestination)
-
 -- | When set to true logging is enabled.
 updateEventDestination_enabled :: Lens.Lens' UpdateEventDestination (Prelude.Maybe Prelude.Bool)
 updateEventDestination_enabled = Lens.lens (\UpdateEventDestination' {enabled} -> enabled) (\s@UpdateEventDestination' {} a -> s {enabled = a} :: UpdateEventDestination)
@@ -152,6 +143,15 @@ updateEventDestination_enabled = Lens.lens (\UpdateEventDestination' {enabled} -
 -- logging to Kinesis Data Firehose.
 updateEventDestination_kinesisFirehoseDestination :: Lens.Lens' UpdateEventDestination (Prelude.Maybe KinesisFirehoseDestination)
 updateEventDestination_kinesisFirehoseDestination = Lens.lens (\UpdateEventDestination' {kinesisFirehoseDestination} -> kinesisFirehoseDestination) (\s@UpdateEventDestination' {} a -> s {kinesisFirehoseDestination = a} :: UpdateEventDestination)
+
+-- | An array of event types that determine which events to log.
+updateEventDestination_matchingEventTypes :: Lens.Lens' UpdateEventDestination (Prelude.Maybe (Prelude.NonEmpty EventType))
+updateEventDestination_matchingEventTypes = Lens.lens (\UpdateEventDestination' {matchingEventTypes} -> matchingEventTypes) (\s@UpdateEventDestination' {} a -> s {matchingEventTypes = a} :: UpdateEventDestination) Prelude.. Lens.mapping Lens.coerced
+
+-- | An object that contains information about an event destination that
+-- sends data to Amazon SNS.
+updateEventDestination_snsDestination :: Lens.Lens' UpdateEventDestination (Prelude.Maybe SnsDestination)
+updateEventDestination_snsDestination = Lens.lens (\UpdateEventDestination' {snsDestination} -> snsDestination) (\s@UpdateEventDestination' {} a -> s {snsDestination = a} :: UpdateEventDestination)
 
 -- | The configuration set to update with the new event destination. Valid
 -- values for this can be the ConfigurationSetName or ConfigurationSetArn.
@@ -172,9 +172,9 @@ instance Core.AWSRequest UpdateEventDestination where
     Response.receiveJSON
       ( \s h x ->
           UpdateEventDestinationResponse'
-            Prelude.<$> (x Data..?> "ConfigurationSetName")
+            Prelude.<$> (x Data..?> "ConfigurationSetArn")
+            Prelude.<*> (x Data..?> "ConfigurationSetName")
             Prelude.<*> (x Data..?> "EventDestination")
-            Prelude.<*> (x Data..?> "ConfigurationSetArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -182,20 +182,20 @@ instance Prelude.Hashable UpdateEventDestination where
   hashWithSalt _salt UpdateEventDestination' {..} =
     _salt
       `Prelude.hashWithSalt` cloudWatchLogsDestination
-      `Prelude.hashWithSalt` matchingEventTypes
-      `Prelude.hashWithSalt` snsDestination
       `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` kinesisFirehoseDestination
+      `Prelude.hashWithSalt` matchingEventTypes
+      `Prelude.hashWithSalt` snsDestination
       `Prelude.hashWithSalt` configurationSetName
       `Prelude.hashWithSalt` eventDestinationName
 
 instance Prelude.NFData UpdateEventDestination where
   rnf UpdateEventDestination' {..} =
     Prelude.rnf cloudWatchLogsDestination
-      `Prelude.seq` Prelude.rnf matchingEventTypes
-      `Prelude.seq` Prelude.rnf snsDestination
       `Prelude.seq` Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf kinesisFirehoseDestination
+      `Prelude.seq` Prelude.rnf matchingEventTypes
+      `Prelude.seq` Prelude.rnf snsDestination
       `Prelude.seq` Prelude.rnf configurationSetName
       `Prelude.seq` Prelude.rnf eventDestinationName
 
@@ -220,13 +220,13 @@ instance Data.ToJSON UpdateEventDestination where
       ( Prelude.catMaybes
           [ ("CloudWatchLogsDestination" Data..=)
               Prelude.<$> cloudWatchLogsDestination,
+            ("Enabled" Data..=) Prelude.<$> enabled,
+            ("KinesisFirehoseDestination" Data..=)
+              Prelude.<$> kinesisFirehoseDestination,
             ("MatchingEventTypes" Data..=)
               Prelude.<$> matchingEventTypes,
             ("SnsDestination" Data..=)
               Prelude.<$> snsDestination,
-            ("Enabled" Data..=) Prelude.<$> enabled,
-            ("KinesisFirehoseDestination" Data..=)
-              Prelude.<$> kinesisFirehoseDestination,
             Prelude.Just
               ( "ConfigurationSetName"
                   Data..= configurationSetName
@@ -246,14 +246,14 @@ instance Data.ToQuery UpdateEventDestination where
 
 -- | /See:/ 'newUpdateEventDestinationResponse' smart constructor.
 data UpdateEventDestinationResponse = UpdateEventDestinationResponse'
-  { -- | The name of the configuration set.
+  { -- | The Amazon Resource Name (ARN) for the ConfigurationSet that was
+    -- updated.
+    configurationSetArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the configuration set.
     configurationSetName :: Prelude.Maybe Prelude.Text,
     -- | An EventDestination object containing the details of where events will
     -- be logged.
     eventDestination :: Prelude.Maybe EventDestination,
-    -- | The Amazon Resource Name (ARN) for the ConfigurationSet that was
-    -- updated.
-    configurationSetArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -267,13 +267,13 @@ data UpdateEventDestinationResponse = UpdateEventDestinationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'configurationSetArn', 'updateEventDestinationResponse_configurationSetArn' - The Amazon Resource Name (ARN) for the ConfigurationSet that was
+-- updated.
+--
 -- 'configurationSetName', 'updateEventDestinationResponse_configurationSetName' - The name of the configuration set.
 --
 -- 'eventDestination', 'updateEventDestinationResponse_eventDestination' - An EventDestination object containing the details of where events will
 -- be logged.
---
--- 'configurationSetArn', 'updateEventDestinationResponse_configurationSetArn' - The Amazon Resource Name (ARN) for the ConfigurationSet that was
--- updated.
 --
 -- 'httpStatus', 'updateEventDestinationResponse_httpStatus' - The response's http status code.
 newUpdateEventDestinationResponse ::
@@ -282,12 +282,17 @@ newUpdateEventDestinationResponse ::
   UpdateEventDestinationResponse
 newUpdateEventDestinationResponse pHttpStatus_ =
   UpdateEventDestinationResponse'
-    { configurationSetName =
+    { configurationSetArn =
         Prelude.Nothing,
+      configurationSetName = Prelude.Nothing,
       eventDestination = Prelude.Nothing,
-      configurationSetArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The Amazon Resource Name (ARN) for the ConfigurationSet that was
+-- updated.
+updateEventDestinationResponse_configurationSetArn :: Lens.Lens' UpdateEventDestinationResponse (Prelude.Maybe Prelude.Text)
+updateEventDestinationResponse_configurationSetArn = Lens.lens (\UpdateEventDestinationResponse' {configurationSetArn} -> configurationSetArn) (\s@UpdateEventDestinationResponse' {} a -> s {configurationSetArn = a} :: UpdateEventDestinationResponse)
 
 -- | The name of the configuration set.
 updateEventDestinationResponse_configurationSetName :: Lens.Lens' UpdateEventDestinationResponse (Prelude.Maybe Prelude.Text)
@@ -298,11 +303,6 @@ updateEventDestinationResponse_configurationSetName = Lens.lens (\UpdateEventDes
 updateEventDestinationResponse_eventDestination :: Lens.Lens' UpdateEventDestinationResponse (Prelude.Maybe EventDestination)
 updateEventDestinationResponse_eventDestination = Lens.lens (\UpdateEventDestinationResponse' {eventDestination} -> eventDestination) (\s@UpdateEventDestinationResponse' {} a -> s {eventDestination = a} :: UpdateEventDestinationResponse)
 
--- | The Amazon Resource Name (ARN) for the ConfigurationSet that was
--- updated.
-updateEventDestinationResponse_configurationSetArn :: Lens.Lens' UpdateEventDestinationResponse (Prelude.Maybe Prelude.Text)
-updateEventDestinationResponse_configurationSetArn = Lens.lens (\UpdateEventDestinationResponse' {configurationSetArn} -> configurationSetArn) (\s@UpdateEventDestinationResponse' {} a -> s {configurationSetArn = a} :: UpdateEventDestinationResponse)
-
 -- | The response's http status code.
 updateEventDestinationResponse_httpStatus :: Lens.Lens' UpdateEventDestinationResponse Prelude.Int
 updateEventDestinationResponse_httpStatus = Lens.lens (\UpdateEventDestinationResponse' {httpStatus} -> httpStatus) (\s@UpdateEventDestinationResponse' {} a -> s {httpStatus = a} :: UpdateEventDestinationResponse)
@@ -312,7 +312,7 @@ instance
     UpdateEventDestinationResponse
   where
   rnf UpdateEventDestinationResponse' {..} =
-    Prelude.rnf configurationSetName
+    Prelude.rnf configurationSetArn
+      `Prelude.seq` Prelude.rnf configurationSetName
       `Prelude.seq` Prelude.rnf eventDestination
-      `Prelude.seq` Prelude.rnf configurationSetArn
       `Prelude.seq` Prelude.rnf httpStatus

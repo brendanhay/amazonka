@@ -32,9 +32,9 @@ module Amazonka.PinpointSmsVoiceV2.ListPoolOriginationIdentities
     newListPoolOriginationIdentities,
 
     -- * Request Lenses
-    listPoolOriginationIdentities_nextToken,
     listPoolOriginationIdentities_filters,
     listPoolOriginationIdentities_maxResults,
+    listPoolOriginationIdentities_nextToken,
     listPoolOriginationIdentities_poolId,
 
     -- * Destructuring the Response
@@ -43,9 +43,9 @@ module Amazonka.PinpointSmsVoiceV2.ListPoolOriginationIdentities
 
     -- * Response Lenses
     listPoolOriginationIdentitiesResponse_nextToken,
+    listPoolOriginationIdentitiesResponse_originationIdentities,
     listPoolOriginationIdentitiesResponse_poolArn,
     listPoolOriginationIdentitiesResponse_poolId,
-    listPoolOriginationIdentitiesResponse_originationIdentities,
     listPoolOriginationIdentitiesResponse_httpStatus,
   )
 where
@@ -60,14 +60,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPoolOriginationIdentities' smart constructor.
 data ListPoolOriginationIdentities = ListPoolOriginationIdentities'
-  { -- | The token to be used for the next set of paginated results. You don\'t
-    -- need to supply a value for this field in the initial request.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of PoolOriginationIdentitiesFilter objects to filter the
+  { -- | An array of PoolOriginationIdentitiesFilter objects to filter the
     -- results..
     filters :: Prelude.Maybe [PoolOriginationIdentitiesFilter],
     -- | The maximum number of results to return per each request.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to be used for the next set of paginated results. You don\'t
+    -- need to supply a value for this field in the initial request.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the pool. This value can be either the PoolId
     -- or PoolArn.
     poolId :: Prelude.Text
@@ -82,13 +82,13 @@ data ListPoolOriginationIdentities = ListPoolOriginationIdentities'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPoolOriginationIdentities_nextToken' - The token to be used for the next set of paginated results. You don\'t
--- need to supply a value for this field in the initial request.
---
 -- 'filters', 'listPoolOriginationIdentities_filters' - An array of PoolOriginationIdentitiesFilter objects to filter the
 -- results..
 --
 -- 'maxResults', 'listPoolOriginationIdentities_maxResults' - The maximum number of results to return per each request.
+--
+-- 'nextToken', 'listPoolOriginationIdentities_nextToken' - The token to be used for the next set of paginated results. You don\'t
+-- need to supply a value for this field in the initial request.
 --
 -- 'poolId', 'listPoolOriginationIdentities_poolId' - The unique identifier for the pool. This value can be either the PoolId
 -- or PoolArn.
@@ -98,17 +98,12 @@ newListPoolOriginationIdentities ::
   ListPoolOriginationIdentities
 newListPoolOriginationIdentities pPoolId_ =
   ListPoolOriginationIdentities'
-    { nextToken =
+    { filters =
         Prelude.Nothing,
-      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       poolId = pPoolId_
     }
-
--- | The token to be used for the next set of paginated results. You don\'t
--- need to supply a value for this field in the initial request.
-listPoolOriginationIdentities_nextToken :: Lens.Lens' ListPoolOriginationIdentities (Prelude.Maybe Prelude.Text)
-listPoolOriginationIdentities_nextToken = Lens.lens (\ListPoolOriginationIdentities' {nextToken} -> nextToken) (\s@ListPoolOriginationIdentities' {} a -> s {nextToken = a} :: ListPoolOriginationIdentities)
 
 -- | An array of PoolOriginationIdentitiesFilter objects to filter the
 -- results..
@@ -118,6 +113,11 @@ listPoolOriginationIdentities_filters = Lens.lens (\ListPoolOriginationIdentitie
 -- | The maximum number of results to return per each request.
 listPoolOriginationIdentities_maxResults :: Lens.Lens' ListPoolOriginationIdentities (Prelude.Maybe Prelude.Natural)
 listPoolOriginationIdentities_maxResults = Lens.lens (\ListPoolOriginationIdentities' {maxResults} -> maxResults) (\s@ListPoolOriginationIdentities' {} a -> s {maxResults = a} :: ListPoolOriginationIdentities)
+
+-- | The token to be used for the next set of paginated results. You don\'t
+-- need to supply a value for this field in the initial request.
+listPoolOriginationIdentities_nextToken :: Lens.Lens' ListPoolOriginationIdentities (Prelude.Maybe Prelude.Text)
+listPoolOriginationIdentities_nextToken = Lens.lens (\ListPoolOriginationIdentities' {nextToken} -> nextToken) (\s@ListPoolOriginationIdentities' {} a -> s {nextToken = a} :: ListPoolOriginationIdentities)
 
 -- | The unique identifier for the pool. This value can be either the PoolId
 -- or PoolArn.
@@ -160,11 +160,11 @@ instance
       ( \s h x ->
           ListPoolOriginationIdentitiesResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "PoolArn")
-            Prelude.<*> (x Data..?> "PoolId")
             Prelude.<*> ( x Data..?> "OriginationIdentities"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "PoolArn")
+            Prelude.<*> (x Data..?> "PoolId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -173,16 +173,16 @@ instance
     ListPoolOriginationIdentities
   where
   hashWithSalt _salt ListPoolOriginationIdentities' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` poolId
 
 instance Prelude.NFData ListPoolOriginationIdentities where
   rnf ListPoolOriginationIdentities' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf poolId
 
 instance Data.ToHeaders ListPoolOriginationIdentities where
@@ -204,9 +204,9 @@ instance Data.ToJSON ListPoolOriginationIdentities where
   toJSON ListPoolOriginationIdentities' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
+          [ ("Filters" Data..=) Prelude.<$> filters,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("PoolId" Data..= poolId)
           ]
       )
@@ -222,12 +222,12 @@ data ListPoolOriginationIdentitiesResponse = ListPoolOriginationIdentitiesRespon
   { -- | The token to be used for the next set of paginated results. If this
     -- field is empty then there are no more results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of any OriginationIdentityMetadata objects.
+    originationIdentities :: Prelude.Maybe [OriginationIdentityMetadata],
     -- | The Amazon Resource Name (ARN) for the pool.
     poolArn :: Prelude.Maybe Prelude.Text,
     -- | The unique PoolId of the pool.
     poolId :: Prelude.Maybe Prelude.Text,
-    -- | An array of any OriginationIdentityMetadata objects.
-    originationIdentities :: Prelude.Maybe [OriginationIdentityMetadata],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -244,11 +244,11 @@ data ListPoolOriginationIdentitiesResponse = ListPoolOriginationIdentitiesRespon
 -- 'nextToken', 'listPoolOriginationIdentitiesResponse_nextToken' - The token to be used for the next set of paginated results. If this
 -- field is empty then there are no more results.
 --
+-- 'originationIdentities', 'listPoolOriginationIdentitiesResponse_originationIdentities' - An array of any OriginationIdentityMetadata objects.
+--
 -- 'poolArn', 'listPoolOriginationIdentitiesResponse_poolArn' - The Amazon Resource Name (ARN) for the pool.
 --
 -- 'poolId', 'listPoolOriginationIdentitiesResponse_poolId' - The unique PoolId of the pool.
---
--- 'originationIdentities', 'listPoolOriginationIdentitiesResponse_originationIdentities' - An array of any OriginationIdentityMetadata objects.
 --
 -- 'httpStatus', 'listPoolOriginationIdentitiesResponse_httpStatus' - The response's http status code.
 newListPoolOriginationIdentitiesResponse ::
@@ -259,10 +259,10 @@ newListPoolOriginationIdentitiesResponse pHttpStatus_ =
   ListPoolOriginationIdentitiesResponse'
     { nextToken =
         Prelude.Nothing,
-      poolArn = Prelude.Nothing,
-      poolId = Prelude.Nothing,
       originationIdentities =
         Prelude.Nothing,
+      poolArn = Prelude.Nothing,
+      poolId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -271,6 +271,10 @@ newListPoolOriginationIdentitiesResponse pHttpStatus_ =
 listPoolOriginationIdentitiesResponse_nextToken :: Lens.Lens' ListPoolOriginationIdentitiesResponse (Prelude.Maybe Prelude.Text)
 listPoolOriginationIdentitiesResponse_nextToken = Lens.lens (\ListPoolOriginationIdentitiesResponse' {nextToken} -> nextToken) (\s@ListPoolOriginationIdentitiesResponse' {} a -> s {nextToken = a} :: ListPoolOriginationIdentitiesResponse)
 
+-- | An array of any OriginationIdentityMetadata objects.
+listPoolOriginationIdentitiesResponse_originationIdentities :: Lens.Lens' ListPoolOriginationIdentitiesResponse (Prelude.Maybe [OriginationIdentityMetadata])
+listPoolOriginationIdentitiesResponse_originationIdentities = Lens.lens (\ListPoolOriginationIdentitiesResponse' {originationIdentities} -> originationIdentities) (\s@ListPoolOriginationIdentitiesResponse' {} a -> s {originationIdentities = a} :: ListPoolOriginationIdentitiesResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The Amazon Resource Name (ARN) for the pool.
 listPoolOriginationIdentitiesResponse_poolArn :: Lens.Lens' ListPoolOriginationIdentitiesResponse (Prelude.Maybe Prelude.Text)
 listPoolOriginationIdentitiesResponse_poolArn = Lens.lens (\ListPoolOriginationIdentitiesResponse' {poolArn} -> poolArn) (\s@ListPoolOriginationIdentitiesResponse' {} a -> s {poolArn = a} :: ListPoolOriginationIdentitiesResponse)
@@ -278,10 +282,6 @@ listPoolOriginationIdentitiesResponse_poolArn = Lens.lens (\ListPoolOriginationI
 -- | The unique PoolId of the pool.
 listPoolOriginationIdentitiesResponse_poolId :: Lens.Lens' ListPoolOriginationIdentitiesResponse (Prelude.Maybe Prelude.Text)
 listPoolOriginationIdentitiesResponse_poolId = Lens.lens (\ListPoolOriginationIdentitiesResponse' {poolId} -> poolId) (\s@ListPoolOriginationIdentitiesResponse' {} a -> s {poolId = a} :: ListPoolOriginationIdentitiesResponse)
-
--- | An array of any OriginationIdentityMetadata objects.
-listPoolOriginationIdentitiesResponse_originationIdentities :: Lens.Lens' ListPoolOriginationIdentitiesResponse (Prelude.Maybe [OriginationIdentityMetadata])
-listPoolOriginationIdentitiesResponse_originationIdentities = Lens.lens (\ListPoolOriginationIdentitiesResponse' {originationIdentities} -> originationIdentities) (\s@ListPoolOriginationIdentitiesResponse' {} a -> s {originationIdentities = a} :: ListPoolOriginationIdentitiesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listPoolOriginationIdentitiesResponse_httpStatus :: Lens.Lens' ListPoolOriginationIdentitiesResponse Prelude.Int
@@ -293,7 +293,7 @@ instance
   where
   rnf ListPoolOriginationIdentitiesResponse' {..} =
     Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf originationIdentities
       `Prelude.seq` Prelude.rnf poolArn
       `Prelude.seq` Prelude.rnf poolId
-      `Prelude.seq` Prelude.rnf originationIdentities
       `Prelude.seq` Prelude.rnf httpStatus

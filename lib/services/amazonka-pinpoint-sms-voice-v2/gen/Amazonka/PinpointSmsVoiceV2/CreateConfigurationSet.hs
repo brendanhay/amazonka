@@ -34,8 +34,8 @@ module Amazonka.PinpointSmsVoiceV2.CreateConfigurationSet
     newCreateConfigurationSet,
 
     -- * Request Lenses
-    createConfigurationSet_tags,
     createConfigurationSet_clientToken,
+    createConfigurationSet_tags,
     createConfigurationSet_configurationSetName,
 
     -- * Destructuring the Response
@@ -43,10 +43,10 @@ module Amazonka.PinpointSmsVoiceV2.CreateConfigurationSet
     newCreateConfigurationSetResponse,
 
     -- * Response Lenses
-    createConfigurationSetResponse_tags,
-    createConfigurationSetResponse_createdTimestamp,
-    createConfigurationSetResponse_configurationSetName,
     createConfigurationSetResponse_configurationSetArn,
+    createConfigurationSetResponse_configurationSetName,
+    createConfigurationSetResponse_createdTimestamp,
+    createConfigurationSetResponse_tags,
     createConfigurationSetResponse_httpStatus,
   )
 where
@@ -61,13 +61,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateConfigurationSet' smart constructor.
 data CreateConfigurationSet = CreateConfigurationSet'
-  { -- | An array of key and value pair tags that\'s associated with the new
-    -- configuration set.
-    tags :: Prelude.Maybe [Tag],
-    -- | Unique, case-sensitive identifier that you provide to ensure the
+  { -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. If you don\'t specify a client token, a
     -- randomly generated token is used for the request to ensure idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of key and value pair tags that\'s associated with the new
+    -- configuration set.
+    tags :: Prelude.Maybe [Tag],
     -- | The name to use for the new configuration set.
     configurationSetName :: Prelude.Text
   }
@@ -81,12 +81,12 @@ data CreateConfigurationSet = CreateConfigurationSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createConfigurationSet_tags' - An array of key and value pair tags that\'s associated with the new
--- configuration set.
---
 -- 'clientToken', 'createConfigurationSet_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. If you don\'t specify a client token, a
 -- randomly generated token is used for the request to ensure idempotency.
+--
+-- 'tags', 'createConfigurationSet_tags' - An array of key and value pair tags that\'s associated with the new
+-- configuration set.
 --
 -- 'configurationSetName', 'createConfigurationSet_configurationSetName' - The name to use for the new configuration set.
 newCreateConfigurationSet ::
@@ -95,21 +95,22 @@ newCreateConfigurationSet ::
   CreateConfigurationSet
 newCreateConfigurationSet pConfigurationSetName_ =
   CreateConfigurationSet'
-    { tags = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
+    { clientToken =
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
       configurationSetName = pConfigurationSetName_
     }
-
--- | An array of key and value pair tags that\'s associated with the new
--- configuration set.
-createConfigurationSet_tags :: Lens.Lens' CreateConfigurationSet (Prelude.Maybe [Tag])
-createConfigurationSet_tags = Lens.lens (\CreateConfigurationSet' {tags} -> tags) (\s@CreateConfigurationSet' {} a -> s {tags = a} :: CreateConfigurationSet) Prelude.. Lens.mapping Lens.coerced
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. If you don\'t specify a client token, a
 -- randomly generated token is used for the request to ensure idempotency.
 createConfigurationSet_clientToken :: Lens.Lens' CreateConfigurationSet (Prelude.Maybe Prelude.Text)
 createConfigurationSet_clientToken = Lens.lens (\CreateConfigurationSet' {clientToken} -> clientToken) (\s@CreateConfigurationSet' {} a -> s {clientToken = a} :: CreateConfigurationSet)
+
+-- | An array of key and value pair tags that\'s associated with the new
+-- configuration set.
+createConfigurationSet_tags :: Lens.Lens' CreateConfigurationSet (Prelude.Maybe [Tag])
+createConfigurationSet_tags = Lens.lens (\CreateConfigurationSet' {tags} -> tags) (\s@CreateConfigurationSet' {} a -> s {tags = a} :: CreateConfigurationSet) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name to use for the new configuration set.
 createConfigurationSet_configurationSetName :: Lens.Lens' CreateConfigurationSet Prelude.Text
@@ -125,23 +126,23 @@ instance Core.AWSRequest CreateConfigurationSet where
     Response.receiveJSON
       ( \s h x ->
           CreateConfigurationSetResponse'
-            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "CreatedTimestamp")
+            Prelude.<$> (x Data..?> "ConfigurationSetArn")
             Prelude.<*> (x Data..?> "ConfigurationSetName")
-            Prelude.<*> (x Data..?> "ConfigurationSetArn")
+            Prelude.<*> (x Data..?> "CreatedTimestamp")
+            Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateConfigurationSet where
   hashWithSalt _salt CreateConfigurationSet' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` configurationSetName
 
 instance Prelude.NFData CreateConfigurationSet where
   rnf CreateConfigurationSet' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf configurationSetName
 
 instance Data.ToHeaders CreateConfigurationSet where
@@ -163,8 +164,8 @@ instance Data.ToJSON CreateConfigurationSet where
   toJSON CreateConfigurationSet' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ClientToken" Data..=) Prelude.<$> clientToken,
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ( "ConfigurationSetName"
                   Data..= configurationSetName
@@ -180,16 +181,16 @@ instance Data.ToQuery CreateConfigurationSet where
 
 -- | /See:/ 'newCreateConfigurationSetResponse' smart constructor.
 data CreateConfigurationSetResponse = CreateConfigurationSetResponse'
-  { -- | An array of key and value pair tags that\'s associated with the
-    -- configuration set.
-    tags :: Prelude.Maybe [Tag],
+  { -- | The Amazon Resource Name (ARN) of the newly created configuration set.
+    configurationSetArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the new configuration set.
+    configurationSetName :: Prelude.Maybe Prelude.Text,
     -- | The time when the configuration set was created, in
     -- <https://www.epochconverter.com/ UNIX epoch time> format.
     createdTimestamp :: Prelude.Maybe Data.POSIX,
-    -- | The name of the new configuration set.
-    configurationSetName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the newly created configuration set.
-    configurationSetArn :: Prelude.Maybe Prelude.Text,
+    -- | An array of key and value pair tags that\'s associated with the
+    -- configuration set.
+    tags :: Prelude.Maybe [Tag],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -203,15 +204,15 @@ data CreateConfigurationSetResponse = CreateConfigurationSetResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createConfigurationSetResponse_tags' - An array of key and value pair tags that\'s associated with the
--- configuration set.
+-- 'configurationSetArn', 'createConfigurationSetResponse_configurationSetArn' - The Amazon Resource Name (ARN) of the newly created configuration set.
+--
+-- 'configurationSetName', 'createConfigurationSetResponse_configurationSetName' - The name of the new configuration set.
 --
 -- 'createdTimestamp', 'createConfigurationSetResponse_createdTimestamp' - The time when the configuration set was created, in
 -- <https://www.epochconverter.com/ UNIX epoch time> format.
 --
--- 'configurationSetName', 'createConfigurationSetResponse_configurationSetName' - The name of the new configuration set.
---
--- 'configurationSetArn', 'createConfigurationSetResponse_configurationSetArn' - The Amazon Resource Name (ARN) of the newly created configuration set.
+-- 'tags', 'createConfigurationSetResponse_tags' - An array of key and value pair tags that\'s associated with the
+-- configuration set.
 --
 -- 'httpStatus', 'createConfigurationSetResponse_httpStatus' - The response's http status code.
 newCreateConfigurationSetResponse ::
@@ -220,31 +221,31 @@ newCreateConfigurationSetResponse ::
   CreateConfigurationSetResponse
 newCreateConfigurationSetResponse pHttpStatus_ =
   CreateConfigurationSetResponse'
-    { tags =
+    { configurationSetArn =
         Prelude.Nothing,
-      createdTimestamp = Prelude.Nothing,
       configurationSetName = Prelude.Nothing,
-      configurationSetArn = Prelude.Nothing,
+      createdTimestamp = Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | An array of key and value pair tags that\'s associated with the
--- configuration set.
-createConfigurationSetResponse_tags :: Lens.Lens' CreateConfigurationSetResponse (Prelude.Maybe [Tag])
-createConfigurationSetResponse_tags = Lens.lens (\CreateConfigurationSetResponse' {tags} -> tags) (\s@CreateConfigurationSetResponse' {} a -> s {tags = a} :: CreateConfigurationSetResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The Amazon Resource Name (ARN) of the newly created configuration set.
+createConfigurationSetResponse_configurationSetArn :: Lens.Lens' CreateConfigurationSetResponse (Prelude.Maybe Prelude.Text)
+createConfigurationSetResponse_configurationSetArn = Lens.lens (\CreateConfigurationSetResponse' {configurationSetArn} -> configurationSetArn) (\s@CreateConfigurationSetResponse' {} a -> s {configurationSetArn = a} :: CreateConfigurationSetResponse)
+
+-- | The name of the new configuration set.
+createConfigurationSetResponse_configurationSetName :: Lens.Lens' CreateConfigurationSetResponse (Prelude.Maybe Prelude.Text)
+createConfigurationSetResponse_configurationSetName = Lens.lens (\CreateConfigurationSetResponse' {configurationSetName} -> configurationSetName) (\s@CreateConfigurationSetResponse' {} a -> s {configurationSetName = a} :: CreateConfigurationSetResponse)
 
 -- | The time when the configuration set was created, in
 -- <https://www.epochconverter.com/ UNIX epoch time> format.
 createConfigurationSetResponse_createdTimestamp :: Lens.Lens' CreateConfigurationSetResponse (Prelude.Maybe Prelude.UTCTime)
 createConfigurationSetResponse_createdTimestamp = Lens.lens (\CreateConfigurationSetResponse' {createdTimestamp} -> createdTimestamp) (\s@CreateConfigurationSetResponse' {} a -> s {createdTimestamp = a} :: CreateConfigurationSetResponse) Prelude.. Lens.mapping Data._Time
 
--- | The name of the new configuration set.
-createConfigurationSetResponse_configurationSetName :: Lens.Lens' CreateConfigurationSetResponse (Prelude.Maybe Prelude.Text)
-createConfigurationSetResponse_configurationSetName = Lens.lens (\CreateConfigurationSetResponse' {configurationSetName} -> configurationSetName) (\s@CreateConfigurationSetResponse' {} a -> s {configurationSetName = a} :: CreateConfigurationSetResponse)
-
--- | The Amazon Resource Name (ARN) of the newly created configuration set.
-createConfigurationSetResponse_configurationSetArn :: Lens.Lens' CreateConfigurationSetResponse (Prelude.Maybe Prelude.Text)
-createConfigurationSetResponse_configurationSetArn = Lens.lens (\CreateConfigurationSetResponse' {configurationSetArn} -> configurationSetArn) (\s@CreateConfigurationSetResponse' {} a -> s {configurationSetArn = a} :: CreateConfigurationSetResponse)
+-- | An array of key and value pair tags that\'s associated with the
+-- configuration set.
+createConfigurationSetResponse_tags :: Lens.Lens' CreateConfigurationSetResponse (Prelude.Maybe [Tag])
+createConfigurationSetResponse_tags = Lens.lens (\CreateConfigurationSetResponse' {tags} -> tags) (\s@CreateConfigurationSetResponse' {} a -> s {tags = a} :: CreateConfigurationSetResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 createConfigurationSetResponse_httpStatus :: Lens.Lens' CreateConfigurationSetResponse Prelude.Int
@@ -255,8 +256,8 @@ instance
     CreateConfigurationSetResponse
   where
   rnf CreateConfigurationSetResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf createdTimestamp
+    Prelude.rnf configurationSetArn
       `Prelude.seq` Prelude.rnf configurationSetName
-      `Prelude.seq` Prelude.rnf configurationSetArn
+      `Prelude.seq` Prelude.rnf createdTimestamp
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

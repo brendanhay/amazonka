@@ -33,13 +33,13 @@ import Amazonka.Shield.Types.ProtectionGroupPattern
 --
 -- /See:/ 'newProtectionGroup' smart constructor.
 data ProtectionGroup = ProtectionGroup'
-  { -- | The resource type to include in the protection group. All protected
+  { -- | The ARN (Amazon Resource Name) of the protection group.
+    protectionGroupArn :: Prelude.Maybe Prelude.Text,
+    -- | The resource type to include in the protection group. All protected
     -- resources of this type are included in the protection group. You must
     -- set this when you set @Pattern@ to @BY_RESOURCE_TYPE@ and you must not
     -- set it for any other @Pattern@ setting.
     resourceType :: Prelude.Maybe ProtectedResourceType,
-    -- | The ARN (Amazon Resource Name) of the protection group.
-    protectionGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the protection group. You use this to identify the
     -- protection group in lists and to manage the protection group, for
     -- example to update, delete, or describe it.
@@ -81,12 +81,12 @@ data ProtectionGroup = ProtectionGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'protectionGroupArn', 'protectionGroup_protectionGroupArn' - The ARN (Amazon Resource Name) of the protection group.
+--
 -- 'resourceType', 'protectionGroup_resourceType' - The resource type to include in the protection group. All protected
 -- resources of this type are included in the protection group. You must
 -- set this when you set @Pattern@ to @BY_RESOURCE_TYPE@ and you must not
 -- set it for any other @Pattern@ setting.
---
--- 'protectionGroupArn', 'protectionGroup_protectionGroupArn' - The ARN (Amazon Resource Name) of the protection group.
 --
 -- 'protectionGroupId', 'protectionGroup_protectionGroupId' - The name of the protection group. You use this to identify the
 -- protection group in lists and to manage the protection group, for
@@ -130,13 +130,18 @@ newProtectionGroup
   pAggregation_
   pPattern_ =
     ProtectionGroup'
-      { resourceType = Prelude.Nothing,
-        protectionGroupArn = Prelude.Nothing,
+      { protectionGroupArn =
+          Prelude.Nothing,
+        resourceType = Prelude.Nothing,
         protectionGroupId = pProtectionGroupId_,
         aggregation = pAggregation_,
         pattern' = pPattern_,
         members = Prelude.mempty
       }
+
+-- | The ARN (Amazon Resource Name) of the protection group.
+protectionGroup_protectionGroupArn :: Lens.Lens' ProtectionGroup (Prelude.Maybe Prelude.Text)
+protectionGroup_protectionGroupArn = Lens.lens (\ProtectionGroup' {protectionGroupArn} -> protectionGroupArn) (\s@ProtectionGroup' {} a -> s {protectionGroupArn = a} :: ProtectionGroup)
 
 -- | The resource type to include in the protection group. All protected
 -- resources of this type are included in the protection group. You must
@@ -144,10 +149,6 @@ newProtectionGroup
 -- set it for any other @Pattern@ setting.
 protectionGroup_resourceType :: Lens.Lens' ProtectionGroup (Prelude.Maybe ProtectedResourceType)
 protectionGroup_resourceType = Lens.lens (\ProtectionGroup' {resourceType} -> resourceType) (\s@ProtectionGroup' {} a -> s {resourceType = a} :: ProtectionGroup)
-
--- | The ARN (Amazon Resource Name) of the protection group.
-protectionGroup_protectionGroupArn :: Lens.Lens' ProtectionGroup (Prelude.Maybe Prelude.Text)
-protectionGroup_protectionGroupArn = Lens.lens (\ProtectionGroup' {protectionGroupArn} -> protectionGroupArn) (\s@ProtectionGroup' {} a -> s {protectionGroupArn = a} :: ProtectionGroup)
 
 -- | The name of the protection group. You use this to identify the
 -- protection group in lists and to manage the protection group, for
@@ -193,8 +194,8 @@ instance Data.FromJSON ProtectionGroup where
       "ProtectionGroup"
       ( \x ->
           ProtectionGroup'
-            Prelude.<$> (x Data..:? "ResourceType")
-            Prelude.<*> (x Data..:? "ProtectionGroupArn")
+            Prelude.<$> (x Data..:? "ProtectionGroupArn")
+            Prelude.<*> (x Data..:? "ResourceType")
             Prelude.<*> (x Data..: "ProtectionGroupId")
             Prelude.<*> (x Data..: "Aggregation")
             Prelude.<*> (x Data..: "Pattern")
@@ -203,8 +204,8 @@ instance Data.FromJSON ProtectionGroup where
 
 instance Prelude.Hashable ProtectionGroup where
   hashWithSalt _salt ProtectionGroup' {..} =
-    _salt `Prelude.hashWithSalt` resourceType
-      `Prelude.hashWithSalt` protectionGroupArn
+    _salt `Prelude.hashWithSalt` protectionGroupArn
+      `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` protectionGroupId
       `Prelude.hashWithSalt` aggregation
       `Prelude.hashWithSalt` pattern'
@@ -212,8 +213,8 @@ instance Prelude.Hashable ProtectionGroup where
 
 instance Prelude.NFData ProtectionGroup where
   rnf ProtectionGroup' {..} =
-    Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf protectionGroupArn
+    Prelude.rnf protectionGroupArn
+      `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf protectionGroupId
       `Prelude.seq` Prelude.rnf aggregation
       `Prelude.seq` Prelude.rnf pattern'

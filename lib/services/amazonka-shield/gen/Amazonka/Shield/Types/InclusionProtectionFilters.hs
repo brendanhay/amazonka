@@ -34,13 +34,13 @@ import Amazonka.Shield.Types.ProtectedResourceType
 --
 -- /See:/ 'newInclusionProtectionFilters' smart constructor.
 data InclusionProtectionFilters = InclusionProtectionFilters'
-  { -- | The type of protected resource whose protections you want to retrieve.
-    resourceTypes :: Prelude.Maybe (Prelude.NonEmpty ProtectedResourceType),
-    -- | The name of the protection that you want to retrieve.
+  { -- | The name of the protection that you want to retrieve.
     protectionNames :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The ARN (Amazon Resource Name) of the resource whose protection you want
     -- to retrieve.
-    resourceArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
+    resourceArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The type of protected resource whose protections you want to retrieve.
+    resourceTypes :: Prelude.Maybe (Prelude.NonEmpty ProtectedResourceType)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,25 +52,21 @@ data InclusionProtectionFilters = InclusionProtectionFilters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceTypes', 'inclusionProtectionFilters_resourceTypes' - The type of protected resource whose protections you want to retrieve.
---
 -- 'protectionNames', 'inclusionProtectionFilters_protectionNames' - The name of the protection that you want to retrieve.
 --
 -- 'resourceArns', 'inclusionProtectionFilters_resourceArns' - The ARN (Amazon Resource Name) of the resource whose protection you want
 -- to retrieve.
+--
+-- 'resourceTypes', 'inclusionProtectionFilters_resourceTypes' - The type of protected resource whose protections you want to retrieve.
 newInclusionProtectionFilters ::
   InclusionProtectionFilters
 newInclusionProtectionFilters =
   InclusionProtectionFilters'
-    { resourceTypes =
+    { protectionNames =
         Prelude.Nothing,
-      protectionNames = Prelude.Nothing,
-      resourceArns = Prelude.Nothing
+      resourceArns = Prelude.Nothing,
+      resourceTypes = Prelude.Nothing
     }
-
--- | The type of protected resource whose protections you want to retrieve.
-inclusionProtectionFilters_resourceTypes :: Lens.Lens' InclusionProtectionFilters (Prelude.Maybe (Prelude.NonEmpty ProtectedResourceType))
-inclusionProtectionFilters_resourceTypes = Lens.lens (\InclusionProtectionFilters' {resourceTypes} -> resourceTypes) (\s@InclusionProtectionFilters' {} a -> s {resourceTypes = a} :: InclusionProtectionFilters) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the protection that you want to retrieve.
 inclusionProtectionFilters_protectionNames :: Lens.Lens' InclusionProtectionFilters (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
@@ -81,25 +77,29 @@ inclusionProtectionFilters_protectionNames = Lens.lens (\InclusionProtectionFilt
 inclusionProtectionFilters_resourceArns :: Lens.Lens' InclusionProtectionFilters (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 inclusionProtectionFilters_resourceArns = Lens.lens (\InclusionProtectionFilters' {resourceArns} -> resourceArns) (\s@InclusionProtectionFilters' {} a -> s {resourceArns = a} :: InclusionProtectionFilters) Prelude.. Lens.mapping Lens.coerced
 
+-- | The type of protected resource whose protections you want to retrieve.
+inclusionProtectionFilters_resourceTypes :: Lens.Lens' InclusionProtectionFilters (Prelude.Maybe (Prelude.NonEmpty ProtectedResourceType))
+inclusionProtectionFilters_resourceTypes = Lens.lens (\InclusionProtectionFilters' {resourceTypes} -> resourceTypes) (\s@InclusionProtectionFilters' {} a -> s {resourceTypes = a} :: InclusionProtectionFilters) Prelude.. Lens.mapping Lens.coerced
+
 instance Prelude.Hashable InclusionProtectionFilters where
   hashWithSalt _salt InclusionProtectionFilters' {..} =
-    _salt `Prelude.hashWithSalt` resourceTypes
-      `Prelude.hashWithSalt` protectionNames
+    _salt `Prelude.hashWithSalt` protectionNames
       `Prelude.hashWithSalt` resourceArns
+      `Prelude.hashWithSalt` resourceTypes
 
 instance Prelude.NFData InclusionProtectionFilters where
   rnf InclusionProtectionFilters' {..} =
-    Prelude.rnf resourceTypes
-      `Prelude.seq` Prelude.rnf protectionNames
+    Prelude.rnf protectionNames
       `Prelude.seq` Prelude.rnf resourceArns
+      `Prelude.seq` Prelude.rnf resourceTypes
 
 instance Data.ToJSON InclusionProtectionFilters where
   toJSON InclusionProtectionFilters' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ResourceTypes" Data..=) Prelude.<$> resourceTypes,
-            ("ProtectionNames" Data..=)
+          [ ("ProtectionNames" Data..=)
               Prelude.<$> protectionNames,
-            ("ResourceArns" Data..=) Prelude.<$> resourceArns
+            ("ResourceArns" Data..=) Prelude.<$> resourceArns,
+            ("ResourceTypes" Data..=) Prelude.<$> resourceTypes
           ]
       )

@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLimit' smart constructor.
 data Limit = Limit'
-  { -- | The type of protection.
-    type' :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of protections that can be created for the specified
+  { -- | The maximum number of protections that can be created for the specified
     -- @Type@.
-    max :: Prelude.Maybe Prelude.Integer
+    max :: Prelude.Maybe Prelude.Integer,
+    -- | The type of protection.
+    type' :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,26 +44,26 @@ data Limit = Limit'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'limit_type' - The type of protection.
---
 -- 'max', 'limit_max' - The maximum number of protections that can be created for the specified
 -- @Type@.
+--
+-- 'type'', 'limit_type' - The type of protection.
 newLimit ::
   Limit
 newLimit =
   Limit'
-    { type' = Prelude.Nothing,
-      max = Prelude.Nothing
+    { max = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
-
--- | The type of protection.
-limit_type :: Lens.Lens' Limit (Prelude.Maybe Prelude.Text)
-limit_type = Lens.lens (\Limit' {type'} -> type') (\s@Limit' {} a -> s {type' = a} :: Limit)
 
 -- | The maximum number of protections that can be created for the specified
 -- @Type@.
 limit_max :: Lens.Lens' Limit (Prelude.Maybe Prelude.Integer)
 limit_max = Lens.lens (\Limit' {max} -> max) (\s@Limit' {} a -> s {max = a} :: Limit)
+
+-- | The type of protection.
+limit_type :: Lens.Lens' Limit (Prelude.Maybe Prelude.Text)
+limit_type = Lens.lens (\Limit' {type'} -> type') (\s@Limit' {} a -> s {type' = a} :: Limit)
 
 instance Data.FromJSON Limit where
   parseJSON =
@@ -71,14 +71,14 @@ instance Data.FromJSON Limit where
       "Limit"
       ( \x ->
           Limit'
-            Prelude.<$> (x Data..:? "Type") Prelude.<*> (x Data..:? "Max")
+            Prelude.<$> (x Data..:? "Max") Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable Limit where
   hashWithSalt _salt Limit' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` max
+    _salt `Prelude.hashWithSalt` max
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData Limit where
   rnf Limit' {..} =
-    Prelude.rnf type' `Prelude.seq` Prelude.rnf max
+    Prelude.rnf max `Prelude.seq` Prelude.rnf type'

@@ -31,10 +31,10 @@ import Amazonka.Shield.Types.AttackVectorDescription
 data AttackSummary = AttackSummary'
   { -- | The unique identifier (ID) of the attack.
     attackId :: Prelude.Maybe Prelude.Text,
-    -- | The end time of the attack, in Unix time in seconds.
-    endTime :: Prelude.Maybe Data.POSIX,
     -- | The list of attacks for a specified time period.
     attackVectors :: Prelude.Maybe [AttackVectorDescription],
+    -- | The end time of the attack, in Unix time in seconds.
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The ARN (Amazon Resource Name) of the resource that was attacked.
     resourceArn :: Prelude.Maybe Prelude.Text,
     -- | The start time of the attack, in Unix time in seconds.
@@ -52,9 +52,9 @@ data AttackSummary = AttackSummary'
 --
 -- 'attackId', 'attackSummary_attackId' - The unique identifier (ID) of the attack.
 --
--- 'endTime', 'attackSummary_endTime' - The end time of the attack, in Unix time in seconds.
---
 -- 'attackVectors', 'attackSummary_attackVectors' - The list of attacks for a specified time period.
+--
+-- 'endTime', 'attackSummary_endTime' - The end time of the attack, in Unix time in seconds.
 --
 -- 'resourceArn', 'attackSummary_resourceArn' - The ARN (Amazon Resource Name) of the resource that was attacked.
 --
@@ -64,8 +64,8 @@ newAttackSummary ::
 newAttackSummary =
   AttackSummary'
     { attackId = Prelude.Nothing,
-      endTime = Prelude.Nothing,
       attackVectors = Prelude.Nothing,
+      endTime = Prelude.Nothing,
       resourceArn = Prelude.Nothing,
       startTime = Prelude.Nothing
     }
@@ -74,13 +74,13 @@ newAttackSummary =
 attackSummary_attackId :: Lens.Lens' AttackSummary (Prelude.Maybe Prelude.Text)
 attackSummary_attackId = Lens.lens (\AttackSummary' {attackId} -> attackId) (\s@AttackSummary' {} a -> s {attackId = a} :: AttackSummary)
 
--- | The end time of the attack, in Unix time in seconds.
-attackSummary_endTime :: Lens.Lens' AttackSummary (Prelude.Maybe Prelude.UTCTime)
-attackSummary_endTime = Lens.lens (\AttackSummary' {endTime} -> endTime) (\s@AttackSummary' {} a -> s {endTime = a} :: AttackSummary) Prelude.. Lens.mapping Data._Time
-
 -- | The list of attacks for a specified time period.
 attackSummary_attackVectors :: Lens.Lens' AttackSummary (Prelude.Maybe [AttackVectorDescription])
 attackSummary_attackVectors = Lens.lens (\AttackSummary' {attackVectors} -> attackVectors) (\s@AttackSummary' {} a -> s {attackVectors = a} :: AttackSummary) Prelude.. Lens.mapping Lens.coerced
+
+-- | The end time of the attack, in Unix time in seconds.
+attackSummary_endTime :: Lens.Lens' AttackSummary (Prelude.Maybe Prelude.UTCTime)
+attackSummary_endTime = Lens.lens (\AttackSummary' {endTime} -> endTime) (\s@AttackSummary' {} a -> s {endTime = a} :: AttackSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN (Amazon Resource Name) of the resource that was attacked.
 attackSummary_resourceArn :: Lens.Lens' AttackSummary (Prelude.Maybe Prelude.Text)
@@ -97,8 +97,8 @@ instance Data.FromJSON AttackSummary where
       ( \x ->
           AttackSummary'
             Prelude.<$> (x Data..:? "AttackId")
-            Prelude.<*> (x Data..:? "EndTime")
             Prelude.<*> (x Data..:? "AttackVectors" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "EndTime")
             Prelude.<*> (x Data..:? "ResourceArn")
             Prelude.<*> (x Data..:? "StartTime")
       )
@@ -106,15 +106,15 @@ instance Data.FromJSON AttackSummary where
 instance Prelude.Hashable AttackSummary where
   hashWithSalt _salt AttackSummary' {..} =
     _salt `Prelude.hashWithSalt` attackId
-      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` attackVectors
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` startTime
 
 instance Prelude.NFData AttackSummary where
   rnf AttackSummary' {..} =
     Prelude.rnf attackId
-      `Prelude.seq` Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf attackVectors
+      `Prelude.seq` Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf resourceArn
       `Prelude.seq` Prelude.rnf startTime

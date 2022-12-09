@@ -19,23 +19,23 @@ module Amazonka.QLDB
     -- * Errors
     -- $errors
 
-    -- ** ResourceAlreadyExistsException
-    _ResourceAlreadyExistsException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** ResourceInUseException
-    _ResourceInUseException,
+    -- ** InvalidParameterException
+    _InvalidParameterException,
 
     -- ** LimitExceededException
     _LimitExceededException,
 
+    -- ** ResourceAlreadyExistsException
+    _ResourceAlreadyExistsException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
     -- ** ResourcePreconditionNotMetException
     _ResourcePreconditionNotMetException,
-
-    -- ** InvalidParameterException
-    _InvalidParameterException,
 
     -- * Waiters
     -- $waiters

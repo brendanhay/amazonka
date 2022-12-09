@@ -30,12 +30,12 @@ import Amazonka.QLDB.Types.LedgerState
 --
 -- /See:/ 'newLedgerSummary' smart constructor.
 data LedgerSummary = LedgerSummary'
-  { -- | The name of the ledger.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The date and time, in epoch time format, when the ledger was created.
+  { -- | The date and time, in epoch time format, when the ledger was created.
     -- (Epoch time format is the number of seconds elapsed since 12:00:00 AM
     -- January 1, 1970 UTC.)
     creationDateTime :: Prelude.Maybe Data.POSIX,
+    -- | The name of the ledger.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The current status of the ledger.
     state :: Prelude.Maybe LedgerState
   }
@@ -49,31 +49,31 @@ data LedgerSummary = LedgerSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'ledgerSummary_name' - The name of the ledger.
---
 -- 'creationDateTime', 'ledgerSummary_creationDateTime' - The date and time, in epoch time format, when the ledger was created.
 -- (Epoch time format is the number of seconds elapsed since 12:00:00 AM
 -- January 1, 1970 UTC.)
+--
+-- 'name', 'ledgerSummary_name' - The name of the ledger.
 --
 -- 'state', 'ledgerSummary_state' - The current status of the ledger.
 newLedgerSummary ::
   LedgerSummary
 newLedgerSummary =
   LedgerSummary'
-    { name = Prelude.Nothing,
-      creationDateTime = Prelude.Nothing,
+    { creationDateTime = Prelude.Nothing,
+      name = Prelude.Nothing,
       state = Prelude.Nothing
     }
-
--- | The name of the ledger.
-ledgerSummary_name :: Lens.Lens' LedgerSummary (Prelude.Maybe Prelude.Text)
-ledgerSummary_name = Lens.lens (\LedgerSummary' {name} -> name) (\s@LedgerSummary' {} a -> s {name = a} :: LedgerSummary)
 
 -- | The date and time, in epoch time format, when the ledger was created.
 -- (Epoch time format is the number of seconds elapsed since 12:00:00 AM
 -- January 1, 1970 UTC.)
 ledgerSummary_creationDateTime :: Lens.Lens' LedgerSummary (Prelude.Maybe Prelude.UTCTime)
 ledgerSummary_creationDateTime = Lens.lens (\LedgerSummary' {creationDateTime} -> creationDateTime) (\s@LedgerSummary' {} a -> s {creationDateTime = a} :: LedgerSummary) Prelude.. Lens.mapping Data._Time
+
+-- | The name of the ledger.
+ledgerSummary_name :: Lens.Lens' LedgerSummary (Prelude.Maybe Prelude.Text)
+ledgerSummary_name = Lens.lens (\LedgerSummary' {name} -> name) (\s@LedgerSummary' {} a -> s {name = a} :: LedgerSummary)
 
 -- | The current status of the ledger.
 ledgerSummary_state :: Lens.Lens' LedgerSummary (Prelude.Maybe LedgerState)
@@ -85,19 +85,19 @@ instance Data.FromJSON LedgerSummary where
       "LedgerSummary"
       ( \x ->
           LedgerSummary'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "CreationDateTime")
+            Prelude.<$> (x Data..:? "CreationDateTime")
+            Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "State")
       )
 
 instance Prelude.Hashable LedgerSummary where
   hashWithSalt _salt LedgerSummary' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` creationDateTime
+    _salt `Prelude.hashWithSalt` creationDateTime
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` state
 
 instance Prelude.NFData LedgerSummary where
   rnf LedgerSummary' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf creationDateTime
+    Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf state

@@ -41,8 +41,8 @@ module Amazonka.QLDB.UpdateLedgerPermissionsMode
     newUpdateLedgerPermissionsModeResponse,
 
     -- * Response Lenses
-    updateLedgerPermissionsModeResponse_name,
     updateLedgerPermissionsModeResponse_arn,
+    updateLedgerPermissionsModeResponse_name,
     updateLedgerPermissionsModeResponse_permissionsMode,
     updateLedgerPermissionsModeResponse_httpStatus,
   )
@@ -183,8 +183,8 @@ instance Core.AWSRequest UpdateLedgerPermissionsMode where
     Response.receiveJSON
       ( \s h x ->
           UpdateLedgerPermissionsModeResponse'
-            Prelude.<$> (x Data..?> "Name")
-            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<$> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Name")
             Prelude.<*> (x Data..?> "PermissionsMode")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -229,10 +229,10 @@ instance Data.ToQuery UpdateLedgerPermissionsMode where
 
 -- | /See:/ 'newUpdateLedgerPermissionsModeResponse' smart constructor.
 data UpdateLedgerPermissionsModeResponse = UpdateLedgerPermissionsModeResponse'
-  { -- | The name of the ledger.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) for the ledger.
+  { -- | The Amazon Resource Name (ARN) for the ledger.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the ledger.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The current permissions mode of the ledger.
     permissionsMode :: Prelude.Maybe PermissionsMode,
     -- | The response's http status code.
@@ -248,9 +248,9 @@ data UpdateLedgerPermissionsModeResponse = UpdateLedgerPermissionsModeResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateLedgerPermissionsModeResponse_name' - The name of the ledger.
---
 -- 'arn', 'updateLedgerPermissionsModeResponse_arn' - The Amazon Resource Name (ARN) for the ledger.
+--
+-- 'name', 'updateLedgerPermissionsModeResponse_name' - The name of the ledger.
 --
 -- 'permissionsMode', 'updateLedgerPermissionsModeResponse_permissionsMode' - The current permissions mode of the ledger.
 --
@@ -261,20 +261,20 @@ newUpdateLedgerPermissionsModeResponse ::
   UpdateLedgerPermissionsModeResponse
 newUpdateLedgerPermissionsModeResponse pHttpStatus_ =
   UpdateLedgerPermissionsModeResponse'
-    { name =
+    { arn =
         Prelude.Nothing,
-      arn = Prelude.Nothing,
+      name = Prelude.Nothing,
       permissionsMode = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The name of the ledger.
-updateLedgerPermissionsModeResponse_name :: Lens.Lens' UpdateLedgerPermissionsModeResponse (Prelude.Maybe Prelude.Text)
-updateLedgerPermissionsModeResponse_name = Lens.lens (\UpdateLedgerPermissionsModeResponse' {name} -> name) (\s@UpdateLedgerPermissionsModeResponse' {} a -> s {name = a} :: UpdateLedgerPermissionsModeResponse)
-
 -- | The Amazon Resource Name (ARN) for the ledger.
 updateLedgerPermissionsModeResponse_arn :: Lens.Lens' UpdateLedgerPermissionsModeResponse (Prelude.Maybe Prelude.Text)
 updateLedgerPermissionsModeResponse_arn = Lens.lens (\UpdateLedgerPermissionsModeResponse' {arn} -> arn) (\s@UpdateLedgerPermissionsModeResponse' {} a -> s {arn = a} :: UpdateLedgerPermissionsModeResponse)
+
+-- | The name of the ledger.
+updateLedgerPermissionsModeResponse_name :: Lens.Lens' UpdateLedgerPermissionsModeResponse (Prelude.Maybe Prelude.Text)
+updateLedgerPermissionsModeResponse_name = Lens.lens (\UpdateLedgerPermissionsModeResponse' {name} -> name) (\s@UpdateLedgerPermissionsModeResponse' {} a -> s {name = a} :: UpdateLedgerPermissionsModeResponse)
 
 -- | The current permissions mode of the ledger.
 updateLedgerPermissionsModeResponse_permissionsMode :: Lens.Lens' UpdateLedgerPermissionsModeResponse (Prelude.Maybe PermissionsMode)
@@ -289,7 +289,7 @@ instance
     UpdateLedgerPermissionsModeResponse
   where
   rnf UpdateLedgerPermissionsModeResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf permissionsMode
       `Prelude.seq` Prelude.rnf httpStatus

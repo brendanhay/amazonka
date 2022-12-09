@@ -31,16 +31,16 @@ module Amazonka.QLDB.ListLedgers
     newListLedgers,
 
     -- * Request Lenses
-    listLedgers_nextToken,
     listLedgers_maxResults,
+    listLedgers_nextToken,
 
     -- * Destructuring the Response
     ListLedgersResponse (..),
     newListLedgersResponse,
 
     -- * Response Lenses
-    listLedgersResponse_nextToken,
     listLedgersResponse_ledgers,
+    listLedgersResponse_nextToken,
     listLedgersResponse_httpStatus,
   )
 where
@@ -55,14 +55,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListLedgers' smart constructor.
 data ListLedgers = ListLedgers'
-  { -- | A pagination token, indicating that you want to retrieve the next page
+  { -- | The maximum number of results to return in a single @ListLedgers@
+    -- request. (The actual number of results returned might be fewer.)
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A pagination token, indicating that you want to retrieve the next page
     -- of results. If you received a value for @NextToken@ in the response from
     -- a previous @ListLedgers@ call, then you should use that value as input
     -- here.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in a single @ListLedgers@
-    -- request. (The actual number of results returned might be fewer.)
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,20 +74,25 @@ data ListLedgers = ListLedgers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listLedgers_maxResults' - The maximum number of results to return in a single @ListLedgers@
+-- request. (The actual number of results returned might be fewer.)
+--
 -- 'nextToken', 'listLedgers_nextToken' - A pagination token, indicating that you want to retrieve the next page
 -- of results. If you received a value for @NextToken@ in the response from
 -- a previous @ListLedgers@ call, then you should use that value as input
 -- here.
---
--- 'maxResults', 'listLedgers_maxResults' - The maximum number of results to return in a single @ListLedgers@
--- request. (The actual number of results returned might be fewer.)
 newListLedgers ::
   ListLedgers
 newListLedgers =
   ListLedgers'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of results to return in a single @ListLedgers@
+-- request. (The actual number of results returned might be fewer.)
+listLedgers_maxResults :: Lens.Lens' ListLedgers (Prelude.Maybe Prelude.Natural)
+listLedgers_maxResults = Lens.lens (\ListLedgers' {maxResults} -> maxResults) (\s@ListLedgers' {} a -> s {maxResults = a} :: ListLedgers)
 
 -- | A pagination token, indicating that you want to retrieve the next page
 -- of results. If you received a value for @NextToken@ in the response from
@@ -95,11 +100,6 @@ newListLedgers =
 -- here.
 listLedgers_nextToken :: Lens.Lens' ListLedgers (Prelude.Maybe Prelude.Text)
 listLedgers_nextToken = Lens.lens (\ListLedgers' {nextToken} -> nextToken) (\s@ListLedgers' {} a -> s {nextToken = a} :: ListLedgers)
-
--- | The maximum number of results to return in a single @ListLedgers@
--- request. (The actual number of results returned might be fewer.)
-listLedgers_maxResults :: Lens.Lens' ListLedgers (Prelude.Maybe Prelude.Natural)
-listLedgers_maxResults = Lens.lens (\ListLedgers' {maxResults} -> maxResults) (\s@ListLedgers' {} a -> s {maxResults = a} :: ListLedgers)
 
 instance Core.AWSRequest ListLedgers where
   type AWSResponse ListLedgers = ListLedgersResponse
@@ -109,20 +109,20 @@ instance Core.AWSRequest ListLedgers where
     Response.receiveJSON
       ( \s h x ->
           ListLedgersResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Ledgers" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Ledgers" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListLedgers where
   hashWithSalt _salt ListLedgers' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListLedgers where
   rnf ListLedgers' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListLedgers where
   toHeaders =
@@ -141,13 +141,16 @@ instance Data.ToPath ListLedgers where
 instance Data.ToQuery ListLedgers where
   toQuery ListLedgers' {..} =
     Prelude.mconcat
-      [ "next_token" Data.=: nextToken,
-        "max_results" Data.=: maxResults
+      [ "max_results" Data.=: maxResults,
+        "next_token" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListLedgersResponse' smart constructor.
 data ListLedgersResponse = ListLedgersResponse'
-  { -- | A pagination token, indicating whether there are more results available:
+  { -- | The array of ledger summaries that are associated with the current
+    -- Amazon Web Services account and Region.
+    ledgers :: Prelude.Maybe [LedgerSummary],
+    -- | A pagination token, indicating whether there are more results available:
     --
     -- -   If @NextToken@ is empty, then the last page of results has been
     --     processed and there are no more results to be retrieved.
@@ -156,9 +159,6 @@ data ListLedgersResponse = ListLedgersResponse'
     --     available. To retrieve the next page of results, use the value of
     --     @NextToken@ in a subsequent @ListLedgers@ call.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The array of ledger summaries that are associated with the current
-    -- Amazon Web Services account and Region.
-    ledgers :: Prelude.Maybe [LedgerSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -172,6 +172,9 @@ data ListLedgersResponse = ListLedgersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'ledgers', 'listLedgersResponse_ledgers' - The array of ledger summaries that are associated with the current
+-- Amazon Web Services account and Region.
+--
 -- 'nextToken', 'listLedgersResponse_nextToken' - A pagination token, indicating whether there are more results available:
 --
 -- -   If @NextToken@ is empty, then the last page of results has been
@@ -181,9 +184,6 @@ data ListLedgersResponse = ListLedgersResponse'
 --     available. To retrieve the next page of results, use the value of
 --     @NextToken@ in a subsequent @ListLedgers@ call.
 --
--- 'ledgers', 'listLedgersResponse_ledgers' - The array of ledger summaries that are associated with the current
--- Amazon Web Services account and Region.
---
 -- 'httpStatus', 'listLedgersResponse_httpStatus' - The response's http status code.
 newListLedgersResponse ::
   -- | 'httpStatus'
@@ -191,10 +191,15 @@ newListLedgersResponse ::
   ListLedgersResponse
 newListLedgersResponse pHttpStatus_ =
   ListLedgersResponse'
-    { nextToken = Prelude.Nothing,
-      ledgers = Prelude.Nothing,
+    { ledgers = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The array of ledger summaries that are associated with the current
+-- Amazon Web Services account and Region.
+listLedgersResponse_ledgers :: Lens.Lens' ListLedgersResponse (Prelude.Maybe [LedgerSummary])
+listLedgersResponse_ledgers = Lens.lens (\ListLedgersResponse' {ledgers} -> ledgers) (\s@ListLedgersResponse' {} a -> s {ledgers = a} :: ListLedgersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A pagination token, indicating whether there are more results available:
 --
@@ -207,17 +212,12 @@ newListLedgersResponse pHttpStatus_ =
 listLedgersResponse_nextToken :: Lens.Lens' ListLedgersResponse (Prelude.Maybe Prelude.Text)
 listLedgersResponse_nextToken = Lens.lens (\ListLedgersResponse' {nextToken} -> nextToken) (\s@ListLedgersResponse' {} a -> s {nextToken = a} :: ListLedgersResponse)
 
--- | The array of ledger summaries that are associated with the current
--- Amazon Web Services account and Region.
-listLedgersResponse_ledgers :: Lens.Lens' ListLedgersResponse (Prelude.Maybe [LedgerSummary])
-listLedgersResponse_ledgers = Lens.lens (\ListLedgersResponse' {ledgers} -> ledgers) (\s@ListLedgersResponse' {} a -> s {ledgers = a} :: ListLedgersResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listLedgersResponse_httpStatus :: Lens.Lens' ListLedgersResponse Prelude.Int
 listLedgersResponse_httpStatus = Lens.lens (\ListLedgersResponse' {httpStatus} -> httpStatus) (\s@ListLedgersResponse' {} a -> s {httpStatus = a} :: ListLedgersResponse)
 
 instance Prelude.NFData ListLedgersResponse where
   rnf ListLedgersResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf ledgers
+    Prelude.rnf ledgers
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

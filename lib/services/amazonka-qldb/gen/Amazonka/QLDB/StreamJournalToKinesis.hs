@@ -30,8 +30,8 @@ module Amazonka.QLDB.StreamJournalToKinesis
     newStreamJournalToKinesis,
 
     -- * Request Lenses
-    streamJournalToKinesis_tags,
     streamJournalToKinesis_exclusiveEndTime,
+    streamJournalToKinesis_tags,
     streamJournalToKinesis_ledgerName,
     streamJournalToKinesis_roleArn,
     streamJournalToKinesis_inclusiveStartTime,
@@ -58,17 +58,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStreamJournalToKinesis' smart constructor.
 data StreamJournalToKinesis = StreamJournalToKinesis'
-  { -- | The key-value pairs to add as tags to the stream that you want to
-    -- create. Tag keys are case sensitive. Tag values are case sensitive and
-    -- can be null.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The exclusive date and time that specifies when the stream ends. If you
+  { -- | The exclusive date and time that specifies when the stream ends. If you
     -- don\'t define this parameter, the stream runs indefinitely until you
     -- cancel it.
     --
     -- The @ExclusiveEndTime@ must be in @ISO 8601@ date and time format and in
     -- Universal Coordinated Time (UTC). For example: @2019-06-13T21:36:34Z@.
     exclusiveEndTime :: Prelude.Maybe Data.POSIX,
+    -- | The key-value pairs to add as tags to the stream that you want to
+    -- create. Tag keys are case sensitive. Tag values are case sensitive and
+    -- can be null.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the ledger.
     ledgerName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the IAM role that grants QLDB
@@ -114,16 +114,16 @@ data StreamJournalToKinesis = StreamJournalToKinesis'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'streamJournalToKinesis_tags' - The key-value pairs to add as tags to the stream that you want to
--- create. Tag keys are case sensitive. Tag values are case sensitive and
--- can be null.
---
 -- 'exclusiveEndTime', 'streamJournalToKinesis_exclusiveEndTime' - The exclusive date and time that specifies when the stream ends. If you
 -- don\'t define this parameter, the stream runs indefinitely until you
 -- cancel it.
 --
 -- The @ExclusiveEndTime@ must be in @ISO 8601@ date and time format and in
 -- Universal Coordinated Time (UTC). For example: @2019-06-13T21:36:34Z@.
+--
+-- 'tags', 'streamJournalToKinesis_tags' - The key-value pairs to add as tags to the stream that you want to
+-- create. Tag keys are case sensitive. Tag values are case sensitive and
+-- can be null.
 --
 -- 'ledgerName', 'streamJournalToKinesis_ledgerName' - The name of the ledger.
 --
@@ -177,8 +177,9 @@ newStreamJournalToKinesis
   pKinesisConfiguration_
   pStreamName_ =
     StreamJournalToKinesis'
-      { tags = Prelude.Nothing,
-        exclusiveEndTime = Prelude.Nothing,
+      { exclusiveEndTime =
+          Prelude.Nothing,
+        tags = Prelude.Nothing,
         ledgerName = pLedgerName_,
         roleArn = pRoleArn_,
         inclusiveStartTime =
@@ -186,12 +187,6 @@ newStreamJournalToKinesis
         kinesisConfiguration = pKinesisConfiguration_,
         streamName = pStreamName_
       }
-
--- | The key-value pairs to add as tags to the stream that you want to
--- create. Tag keys are case sensitive. Tag values are case sensitive and
--- can be null.
-streamJournalToKinesis_tags :: Lens.Lens' StreamJournalToKinesis (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-streamJournalToKinesis_tags = Lens.lens (\StreamJournalToKinesis' {tags} -> tags) (\s@StreamJournalToKinesis' {} a -> s {tags = a} :: StreamJournalToKinesis) Prelude.. Lens.mapping Lens.coerced
 
 -- | The exclusive date and time that specifies when the stream ends. If you
 -- don\'t define this parameter, the stream runs indefinitely until you
@@ -201,6 +196,12 @@ streamJournalToKinesis_tags = Lens.lens (\StreamJournalToKinesis' {tags} -> tags
 -- Universal Coordinated Time (UTC). For example: @2019-06-13T21:36:34Z@.
 streamJournalToKinesis_exclusiveEndTime :: Lens.Lens' StreamJournalToKinesis (Prelude.Maybe Prelude.UTCTime)
 streamJournalToKinesis_exclusiveEndTime = Lens.lens (\StreamJournalToKinesis' {exclusiveEndTime} -> exclusiveEndTime) (\s@StreamJournalToKinesis' {} a -> s {exclusiveEndTime = a} :: StreamJournalToKinesis) Prelude.. Lens.mapping Data._Time
+
+-- | The key-value pairs to add as tags to the stream that you want to
+-- create. Tag keys are case sensitive. Tag values are case sensitive and
+-- can be null.
+streamJournalToKinesis_tags :: Lens.Lens' StreamJournalToKinesis (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+streamJournalToKinesis_tags = Lens.lens (\StreamJournalToKinesis' {tags} -> tags) (\s@StreamJournalToKinesis' {} a -> s {tags = a} :: StreamJournalToKinesis) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the ledger.
 streamJournalToKinesis_ledgerName :: Lens.Lens' StreamJournalToKinesis Prelude.Text
@@ -262,8 +263,8 @@ instance Core.AWSRequest StreamJournalToKinesis where
 
 instance Prelude.Hashable StreamJournalToKinesis where
   hashWithSalt _salt StreamJournalToKinesis' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` exclusiveEndTime
+    _salt `Prelude.hashWithSalt` exclusiveEndTime
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` ledgerName
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` inclusiveStartTime
@@ -272,8 +273,8 @@ instance Prelude.Hashable StreamJournalToKinesis where
 
 instance Prelude.NFData StreamJournalToKinesis where
   rnf StreamJournalToKinesis' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf exclusiveEndTime
+    Prelude.rnf exclusiveEndTime
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf ledgerName
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf inclusiveStartTime
@@ -295,9 +296,9 @@ instance Data.ToJSON StreamJournalToKinesis where
   toJSON StreamJournalToKinesis' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ExclusiveEndTime" Data..=)
+          [ ("ExclusiveEndTime" Data..=)
               Prelude.<$> exclusiveEndTime,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("RoleArn" Data..= roleArn),
             Prelude.Just
               ("InclusiveStartTime" Data..= inclusiveStartTime),

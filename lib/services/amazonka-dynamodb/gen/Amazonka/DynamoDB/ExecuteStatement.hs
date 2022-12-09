@@ -41,11 +41,11 @@ module Amazonka.DynamoDB.ExecuteStatement
     newExecuteStatement,
 
     -- * Request Lenses
-    executeStatement_nextToken,
     executeStatement_consistentRead,
-    executeStatement_returnConsumedCapacity,
     executeStatement_limit,
+    executeStatement_nextToken,
     executeStatement_parameters,
+    executeStatement_returnConsumedCapacity,
     executeStatement_statement,
 
     -- * Destructuring the Response
@@ -53,10 +53,10 @@ module Amazonka.DynamoDB.ExecuteStatement
     newExecuteStatementResponse,
 
     -- * Response Lenses
-    executeStatementResponse_items,
-    executeStatementResponse_nextToken,
-    executeStatementResponse_lastEvaluatedKey,
     executeStatementResponse_consumedCapacity,
+    executeStatementResponse_items,
+    executeStatementResponse_lastEvaluatedKey,
+    executeStatementResponse_nextToken,
     executeStatementResponse_httpStatus,
   )
 where
@@ -71,14 +71,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newExecuteStatement' smart constructor.
 data ExecuteStatement = ExecuteStatement'
-  { -- | Set this value to get remaining results, if @NextToken@ was returned in
-    -- the statement response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The consistency of a read operation. If set to @true@, then a strongly
+  { -- | The consistency of a read operation. If set to @true@, then a strongly
     -- consistent read is used; otherwise, an eventually consistent read is
     -- used.
     consistentRead :: Prelude.Maybe Prelude.Bool,
-    returnConsumedCapacity :: Prelude.Maybe ReturnConsumedCapacity,
     -- | The maximum number of items to evaluate (not necessarily the number of
     -- matching items). If DynamoDB processes the number of items up to the
     -- limit while processing the results, it stops the operation and returns
@@ -89,8 +85,12 @@ data ExecuteStatement = ExecuteStatement'
     -- the matching values up to the limit, and a key in @LastEvaluatedKey@ to
     -- apply in a subsequent operation to continue the operation.
     limit :: Prelude.Maybe Prelude.Natural,
+    -- | Set this value to get remaining results, if @NextToken@ was returned in
+    -- the statement response.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The parameters for the PartiQL statement, if any.
     parameters :: Prelude.Maybe (Prelude.NonEmpty AttributeValue),
+    returnConsumedCapacity :: Prelude.Maybe ReturnConsumedCapacity,
     -- | The PartiQL statement representing the operation to run.
     statement :: Prelude.Text
   }
@@ -104,14 +104,9 @@ data ExecuteStatement = ExecuteStatement'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'executeStatement_nextToken' - Set this value to get remaining results, if @NextToken@ was returned in
--- the statement response.
---
 -- 'consistentRead', 'executeStatement_consistentRead' - The consistency of a read operation. If set to @true@, then a strongly
 -- consistent read is used; otherwise, an eventually consistent read is
 -- used.
---
--- 'returnConsumedCapacity', 'executeStatement_returnConsumedCapacity' - Undocumented member.
 --
 -- 'limit', 'executeStatement_limit' - The maximum number of items to evaluate (not necessarily the number of
 -- matching items). If DynamoDB processes the number of items up to the
@@ -123,7 +118,12 @@ data ExecuteStatement = ExecuteStatement'
 -- the matching values up to the limit, and a key in @LastEvaluatedKey@ to
 -- apply in a subsequent operation to continue the operation.
 --
+-- 'nextToken', 'executeStatement_nextToken' - Set this value to get remaining results, if @NextToken@ was returned in
+-- the statement response.
+--
 -- 'parameters', 'executeStatement_parameters' - The parameters for the PartiQL statement, if any.
+--
+-- 'returnConsumedCapacity', 'executeStatement_returnConsumedCapacity' - Undocumented member.
 --
 -- 'statement', 'executeStatement_statement' - The PartiQL statement representing the operation to run.
 newExecuteStatement ::
@@ -132,28 +132,19 @@ newExecuteStatement ::
   ExecuteStatement
 newExecuteStatement pStatement_ =
   ExecuteStatement'
-    { nextToken = Prelude.Nothing,
-      consistentRead = Prelude.Nothing,
-      returnConsumedCapacity = Prelude.Nothing,
+    { consistentRead = Prelude.Nothing,
       limit = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       parameters = Prelude.Nothing,
+      returnConsumedCapacity = Prelude.Nothing,
       statement = pStatement_
     }
-
--- | Set this value to get remaining results, if @NextToken@ was returned in
--- the statement response.
-executeStatement_nextToken :: Lens.Lens' ExecuteStatement (Prelude.Maybe Prelude.Text)
-executeStatement_nextToken = Lens.lens (\ExecuteStatement' {nextToken} -> nextToken) (\s@ExecuteStatement' {} a -> s {nextToken = a} :: ExecuteStatement)
 
 -- | The consistency of a read operation. If set to @true@, then a strongly
 -- consistent read is used; otherwise, an eventually consistent read is
 -- used.
 executeStatement_consistentRead :: Lens.Lens' ExecuteStatement (Prelude.Maybe Prelude.Bool)
 executeStatement_consistentRead = Lens.lens (\ExecuteStatement' {consistentRead} -> consistentRead) (\s@ExecuteStatement' {} a -> s {consistentRead = a} :: ExecuteStatement)
-
--- | Undocumented member.
-executeStatement_returnConsumedCapacity :: Lens.Lens' ExecuteStatement (Prelude.Maybe ReturnConsumedCapacity)
-executeStatement_returnConsumedCapacity = Lens.lens (\ExecuteStatement' {returnConsumedCapacity} -> returnConsumedCapacity) (\s@ExecuteStatement' {} a -> s {returnConsumedCapacity = a} :: ExecuteStatement)
 
 -- | The maximum number of items to evaluate (not necessarily the number of
 -- matching items). If DynamoDB processes the number of items up to the
@@ -167,9 +158,18 @@ executeStatement_returnConsumedCapacity = Lens.lens (\ExecuteStatement' {returnC
 executeStatement_limit :: Lens.Lens' ExecuteStatement (Prelude.Maybe Prelude.Natural)
 executeStatement_limit = Lens.lens (\ExecuteStatement' {limit} -> limit) (\s@ExecuteStatement' {} a -> s {limit = a} :: ExecuteStatement)
 
+-- | Set this value to get remaining results, if @NextToken@ was returned in
+-- the statement response.
+executeStatement_nextToken :: Lens.Lens' ExecuteStatement (Prelude.Maybe Prelude.Text)
+executeStatement_nextToken = Lens.lens (\ExecuteStatement' {nextToken} -> nextToken) (\s@ExecuteStatement' {} a -> s {nextToken = a} :: ExecuteStatement)
+
 -- | The parameters for the PartiQL statement, if any.
 executeStatement_parameters :: Lens.Lens' ExecuteStatement (Prelude.Maybe (Prelude.NonEmpty AttributeValue))
 executeStatement_parameters = Lens.lens (\ExecuteStatement' {parameters} -> parameters) (\s@ExecuteStatement' {} a -> s {parameters = a} :: ExecuteStatement) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+executeStatement_returnConsumedCapacity :: Lens.Lens' ExecuteStatement (Prelude.Maybe ReturnConsumedCapacity)
+executeStatement_returnConsumedCapacity = Lens.lens (\ExecuteStatement' {returnConsumedCapacity} -> returnConsumedCapacity) (\s@ExecuteStatement' {} a -> s {returnConsumedCapacity = a} :: ExecuteStatement)
 
 -- | The PartiQL statement representing the operation to run.
 executeStatement_statement :: Lens.Lens' ExecuteStatement Prelude.Text
@@ -185,31 +185,31 @@ instance Core.AWSRequest ExecuteStatement where
     Response.receiveJSON
       ( \s h x ->
           ExecuteStatementResponse'
-            Prelude.<$> (x Data..?> "Items" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<$> (x Data..?> "ConsumedCapacity")
+            Prelude.<*> (x Data..?> "Items" Core..!@ Prelude.mempty)
             Prelude.<*> ( x Data..?> "LastEvaluatedKey"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "ConsumedCapacity")
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ExecuteStatement where
   hashWithSalt _salt ExecuteStatement' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` consistentRead
-      `Prelude.hashWithSalt` returnConsumedCapacity
+    _salt `Prelude.hashWithSalt` consistentRead
       `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` returnConsumedCapacity
       `Prelude.hashWithSalt` statement
 
 instance Prelude.NFData ExecuteStatement where
   rnf ExecuteStatement' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf consistentRead
-      `Prelude.seq` Prelude.rnf returnConsumedCapacity
+    Prelude.rnf consistentRead
       `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf returnConsumedCapacity
       `Prelude.seq` Prelude.rnf statement
 
 instance Data.ToHeaders ExecuteStatement where
@@ -231,13 +231,13 @@ instance Data.ToJSON ExecuteStatement where
   toJSON ExecuteStatement' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("ConsistentRead" Data..=)
+          [ ("ConsistentRead" Data..=)
               Prelude.<$> consistentRead,
+            ("Limit" Data..=) Prelude.<$> limit,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Parameters" Data..=) Prelude.<$> parameters,
             ("ReturnConsumedCapacity" Data..=)
               Prelude.<$> returnConsumedCapacity,
-            ("Limit" Data..=) Prelude.<$> limit,
-            ("Parameters" Data..=) Prelude.<$> parameters,
             Prelude.Just ("Statement" Data..= statement)
           ]
       )
@@ -250,14 +250,11 @@ instance Data.ToQuery ExecuteStatement where
 
 -- | /See:/ 'newExecuteStatementResponse' smart constructor.
 data ExecuteStatementResponse = ExecuteStatementResponse'
-  { -- | If a read operation was used, this property will contain the result of
+  { consumedCapacity :: Prelude.Maybe ConsumedCapacity,
+    -- | If a read operation was used, this property will contain the result of
     -- the read operation; a map of attribute names and their values. For the
     -- write operations this value will be empty.
     items :: Prelude.Maybe [Prelude.HashMap Prelude.Text AttributeValue],
-    -- | If the response of a read request exceeds the response payload limit
-    -- DynamoDB will set this value in the response. If set, you can use that
-    -- this value in the subsequent request to get the remaining results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The primary key of the item where the operation stopped, inclusive of
     -- the previous result set. Use this value to start a new operation,
     -- excluding this value in the new request. If @LastEvaluatedKey@ is empty,
@@ -267,7 +264,10 @@ data ExecuteStatementResponse = ExecuteStatementResponse'
     -- way to know when you have reached the end of the result set is when
     -- @LastEvaluatedKey@ is empty.
     lastEvaluatedKey :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
-    consumedCapacity :: Prelude.Maybe ConsumedCapacity,
+    -- | If the response of a read request exceeds the response payload limit
+    -- DynamoDB will set this value in the response. If set, you can use that
+    -- this value in the subsequent request to get the remaining results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -281,13 +281,11 @@ data ExecuteStatementResponse = ExecuteStatementResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'consumedCapacity', 'executeStatementResponse_consumedCapacity' - Undocumented member.
+--
 -- 'items', 'executeStatementResponse_items' - If a read operation was used, this property will contain the result of
 -- the read operation; a map of attribute names and their values. For the
 -- write operations this value will be empty.
---
--- 'nextToken', 'executeStatementResponse_nextToken' - If the response of a read request exceeds the response payload limit
--- DynamoDB will set this value in the response. If set, you can use that
--- this value in the subsequent request to get the remaining results.
 --
 -- 'lastEvaluatedKey', 'executeStatementResponse_lastEvaluatedKey' - The primary key of the item where the operation stopped, inclusive of
 -- the previous result set. Use this value to start a new operation,
@@ -298,7 +296,9 @@ data ExecuteStatementResponse = ExecuteStatementResponse'
 -- way to know when you have reached the end of the result set is when
 -- @LastEvaluatedKey@ is empty.
 --
--- 'consumedCapacity', 'executeStatementResponse_consumedCapacity' - Undocumented member.
+-- 'nextToken', 'executeStatementResponse_nextToken' - If the response of a read request exceeds the response payload limit
+-- DynamoDB will set this value in the response. If set, you can use that
+-- this value in the subsequent request to get the remaining results.
 --
 -- 'httpStatus', 'executeStatementResponse_httpStatus' - The response's http status code.
 newExecuteStatementResponse ::
@@ -307,24 +307,23 @@ newExecuteStatementResponse ::
   ExecuteStatementResponse
 newExecuteStatementResponse pHttpStatus_ =
   ExecuteStatementResponse'
-    { items = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { consumedCapacity =
+        Prelude.Nothing,
+      items = Prelude.Nothing,
       lastEvaluatedKey = Prelude.Nothing,
-      consumedCapacity = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Undocumented member.
+executeStatementResponse_consumedCapacity :: Lens.Lens' ExecuteStatementResponse (Prelude.Maybe ConsumedCapacity)
+executeStatementResponse_consumedCapacity = Lens.lens (\ExecuteStatementResponse' {consumedCapacity} -> consumedCapacity) (\s@ExecuteStatementResponse' {} a -> s {consumedCapacity = a} :: ExecuteStatementResponse)
 
 -- | If a read operation was used, this property will contain the result of
 -- the read operation; a map of attribute names and their values. For the
 -- write operations this value will be empty.
 executeStatementResponse_items :: Lens.Lens' ExecuteStatementResponse (Prelude.Maybe [Prelude.HashMap Prelude.Text AttributeValue])
 executeStatementResponse_items = Lens.lens (\ExecuteStatementResponse' {items} -> items) (\s@ExecuteStatementResponse' {} a -> s {items = a} :: ExecuteStatementResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | If the response of a read request exceeds the response payload limit
--- DynamoDB will set this value in the response. If set, you can use that
--- this value in the subsequent request to get the remaining results.
-executeStatementResponse_nextToken :: Lens.Lens' ExecuteStatementResponse (Prelude.Maybe Prelude.Text)
-executeStatementResponse_nextToken = Lens.lens (\ExecuteStatementResponse' {nextToken} -> nextToken) (\s@ExecuteStatementResponse' {} a -> s {nextToken = a} :: ExecuteStatementResponse)
 
 -- | The primary key of the item where the operation stopped, inclusive of
 -- the previous result set. Use this value to start a new operation,
@@ -337,9 +336,11 @@ executeStatementResponse_nextToken = Lens.lens (\ExecuteStatementResponse' {next
 executeStatementResponse_lastEvaluatedKey :: Lens.Lens' ExecuteStatementResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
 executeStatementResponse_lastEvaluatedKey = Lens.lens (\ExecuteStatementResponse' {lastEvaluatedKey} -> lastEvaluatedKey) (\s@ExecuteStatementResponse' {} a -> s {lastEvaluatedKey = a} :: ExecuteStatementResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | Undocumented member.
-executeStatementResponse_consumedCapacity :: Lens.Lens' ExecuteStatementResponse (Prelude.Maybe ConsumedCapacity)
-executeStatementResponse_consumedCapacity = Lens.lens (\ExecuteStatementResponse' {consumedCapacity} -> consumedCapacity) (\s@ExecuteStatementResponse' {} a -> s {consumedCapacity = a} :: ExecuteStatementResponse)
+-- | If the response of a read request exceeds the response payload limit
+-- DynamoDB will set this value in the response. If set, you can use that
+-- this value in the subsequent request to get the remaining results.
+executeStatementResponse_nextToken :: Lens.Lens' ExecuteStatementResponse (Prelude.Maybe Prelude.Text)
+executeStatementResponse_nextToken = Lens.lens (\ExecuteStatementResponse' {nextToken} -> nextToken) (\s@ExecuteStatementResponse' {} a -> s {nextToken = a} :: ExecuteStatementResponse)
 
 -- | The response's http status code.
 executeStatementResponse_httpStatus :: Lens.Lens' ExecuteStatementResponse Prelude.Int
@@ -347,8 +348,8 @@ executeStatementResponse_httpStatus = Lens.lens (\ExecuteStatementResponse' {htt
 
 instance Prelude.NFData ExecuteStatementResponse where
   rnf ExecuteStatementResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf consumedCapacity
+      `Prelude.seq` Prelude.rnf items
       `Prelude.seq` Prelude.rnf lastEvaluatedKey
-      `Prelude.seq` Prelude.rnf consumedCapacity
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

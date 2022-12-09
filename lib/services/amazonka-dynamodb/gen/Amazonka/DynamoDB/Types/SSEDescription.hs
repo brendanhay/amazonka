@@ -40,21 +40,21 @@ data SSEDescription = SSEDescription'
     -- when table\'s KMS key remains inaccessible for more than seven days from
     -- this date.
     inaccessibleEncryptionDateTime :: Prelude.Maybe Data.POSIX,
-    -- | Represents the current state of server-side encryption. The only
-    -- supported values are:
-    --
-    -- -   @ENABLED@ - Server-side encryption is enabled.
-    --
-    -- -   @UPDATING@ - Server-side encryption is being updated.
-    status :: Prelude.Maybe SSEStatus,
+    -- | The KMS key ARN used for the KMS encryption.
+    kmsMasterKeyArn :: Prelude.Maybe Prelude.Text,
     -- | Server-side encryption type. The only supported value is:
     --
     -- -   @KMS@ - Server-side encryption that uses Key Management Service. The
     --     key is stored in your account and is managed by KMS (KMS charges
     --     apply).
     sSEType :: Prelude.Maybe SSEType,
-    -- | The KMS key ARN used for the KMS encryption.
-    kmsMasterKeyArn :: Prelude.Maybe Prelude.Text
+    -- | Represents the current state of server-side encryption. The only
+    -- supported values are:
+    --
+    -- -   @ENABLED@ - Server-side encryption is enabled.
+    --
+    -- -   @UPDATING@ - Server-side encryption is being updated.
+    status :: Prelude.Maybe SSEStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,12 +73,7 @@ data SSEDescription = SSEDescription'
 -- when table\'s KMS key remains inaccessible for more than seven days from
 -- this date.
 --
--- 'status', 'sSEDescription_status' - Represents the current state of server-side encryption. The only
--- supported values are:
---
--- -   @ENABLED@ - Server-side encryption is enabled.
---
--- -   @UPDATING@ - Server-side encryption is being updated.
+-- 'kmsMasterKeyArn', 'sSEDescription_kmsMasterKeyArn' - The KMS key ARN used for the KMS encryption.
 --
 -- 'sSEType', 'sSEDescription_sSEType' - Server-side encryption type. The only supported value is:
 --
@@ -86,16 +81,21 @@ data SSEDescription = SSEDescription'
 --     key is stored in your account and is managed by KMS (KMS charges
 --     apply).
 --
--- 'kmsMasterKeyArn', 'sSEDescription_kmsMasterKeyArn' - The KMS key ARN used for the KMS encryption.
+-- 'status', 'sSEDescription_status' - Represents the current state of server-side encryption. The only
+-- supported values are:
+--
+-- -   @ENABLED@ - Server-side encryption is enabled.
+--
+-- -   @UPDATING@ - Server-side encryption is being updated.
 newSSEDescription ::
   SSEDescription
 newSSEDescription =
   SSEDescription'
     { inaccessibleEncryptionDateTime =
         Prelude.Nothing,
-      status = Prelude.Nothing,
+      kmsMasterKeyArn = Prelude.Nothing,
       sSEType = Prelude.Nothing,
-      kmsMasterKeyArn = Prelude.Nothing
+      status = Prelude.Nothing
     }
 
 -- | Indicates the time, in UNIX epoch date format, when DynamoDB detected
@@ -107,14 +107,9 @@ newSSEDescription =
 sSEDescription_inaccessibleEncryptionDateTime :: Lens.Lens' SSEDescription (Prelude.Maybe Prelude.UTCTime)
 sSEDescription_inaccessibleEncryptionDateTime = Lens.lens (\SSEDescription' {inaccessibleEncryptionDateTime} -> inaccessibleEncryptionDateTime) (\s@SSEDescription' {} a -> s {inaccessibleEncryptionDateTime = a} :: SSEDescription) Prelude.. Lens.mapping Data._Time
 
--- | Represents the current state of server-side encryption. The only
--- supported values are:
---
--- -   @ENABLED@ - Server-side encryption is enabled.
---
--- -   @UPDATING@ - Server-side encryption is being updated.
-sSEDescription_status :: Lens.Lens' SSEDescription (Prelude.Maybe SSEStatus)
-sSEDescription_status = Lens.lens (\SSEDescription' {status} -> status) (\s@SSEDescription' {} a -> s {status = a} :: SSEDescription)
+-- | The KMS key ARN used for the KMS encryption.
+sSEDescription_kmsMasterKeyArn :: Lens.Lens' SSEDescription (Prelude.Maybe Prelude.Text)
+sSEDescription_kmsMasterKeyArn = Lens.lens (\SSEDescription' {kmsMasterKeyArn} -> kmsMasterKeyArn) (\s@SSEDescription' {} a -> s {kmsMasterKeyArn = a} :: SSEDescription)
 
 -- | Server-side encryption type. The only supported value is:
 --
@@ -124,9 +119,14 @@ sSEDescription_status = Lens.lens (\SSEDescription' {status} -> status) (\s@SSED
 sSEDescription_sSEType :: Lens.Lens' SSEDescription (Prelude.Maybe SSEType)
 sSEDescription_sSEType = Lens.lens (\SSEDescription' {sSEType} -> sSEType) (\s@SSEDescription' {} a -> s {sSEType = a} :: SSEDescription)
 
--- | The KMS key ARN used for the KMS encryption.
-sSEDescription_kmsMasterKeyArn :: Lens.Lens' SSEDescription (Prelude.Maybe Prelude.Text)
-sSEDescription_kmsMasterKeyArn = Lens.lens (\SSEDescription' {kmsMasterKeyArn} -> kmsMasterKeyArn) (\s@SSEDescription' {} a -> s {kmsMasterKeyArn = a} :: SSEDescription)
+-- | Represents the current state of server-side encryption. The only
+-- supported values are:
+--
+-- -   @ENABLED@ - Server-side encryption is enabled.
+--
+-- -   @UPDATING@ - Server-side encryption is being updated.
+sSEDescription_status :: Lens.Lens' SSEDescription (Prelude.Maybe SSEStatus)
+sSEDescription_status = Lens.lens (\SSEDescription' {status} -> status) (\s@SSEDescription' {} a -> s {status = a} :: SSEDescription)
 
 instance Data.FromJSON SSEDescription where
   parseJSON =
@@ -135,22 +135,22 @@ instance Data.FromJSON SSEDescription where
       ( \x ->
           SSEDescription'
             Prelude.<$> (x Data..:? "InaccessibleEncryptionDateTime")
-            Prelude.<*> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "SSEType")
             Prelude.<*> (x Data..:? "KMSMasterKeyArn")
+            Prelude.<*> (x Data..:? "SSEType")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance Prelude.Hashable SSEDescription where
   hashWithSalt _salt SSEDescription' {..} =
     _salt
       `Prelude.hashWithSalt` inaccessibleEncryptionDateTime
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` sSEType
       `Prelude.hashWithSalt` kmsMasterKeyArn
+      `Prelude.hashWithSalt` sSEType
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData SSEDescription where
   rnf SSEDescription' {..} =
     Prelude.rnf inaccessibleEncryptionDateTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf sSEType
       `Prelude.seq` Prelude.rnf kmsMasterKeyArn
+      `Prelude.seq` Prelude.rnf sSEType
+      `Prelude.seq` Prelude.rnf status

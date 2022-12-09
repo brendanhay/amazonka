@@ -32,8 +32,8 @@ module Amazonka.DynamoDB.ListGlobalTables
 
     -- * Request Lenses
     listGlobalTables_exclusiveStartGlobalTableName,
-    listGlobalTables_regionName,
     listGlobalTables_limit,
+    listGlobalTables_regionName,
 
     -- * Destructuring the Response
     ListGlobalTablesResponse (..),
@@ -58,8 +58,6 @@ import qualified Amazonka.Response as Response
 data ListGlobalTables = ListGlobalTables'
   { -- | The first global table name that this operation will evaluate.
     exclusiveStartGlobalTableName :: Prelude.Maybe Prelude.Text,
-    -- | Lists the global tables in a specific Region.
-    regionName :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of table names to return, if the parameter is not
     -- specified DynamoDB defaults to 100.
     --
@@ -68,7 +66,9 @@ data ListGlobalTables = ListGlobalTables'
     -- point, with a table name in the @LastEvaluatedGlobalTableName@ to apply
     -- in a subsequent operation to the @ExclusiveStartGlobalTableName@
     -- parameter.
-    limit :: Prelude.Maybe Prelude.Natural
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | Lists the global tables in a specific Region.
+    regionName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,8 +82,6 @@ data ListGlobalTables = ListGlobalTables'
 --
 -- 'exclusiveStartGlobalTableName', 'listGlobalTables_exclusiveStartGlobalTableName' - The first global table name that this operation will evaluate.
 --
--- 'regionName', 'listGlobalTables_regionName' - Lists the global tables in a specific Region.
---
 -- 'limit', 'listGlobalTables_limit' - The maximum number of table names to return, if the parameter is not
 -- specified DynamoDB defaults to 100.
 --
@@ -92,23 +90,21 @@ data ListGlobalTables = ListGlobalTables'
 -- point, with a table name in the @LastEvaluatedGlobalTableName@ to apply
 -- in a subsequent operation to the @ExclusiveStartGlobalTableName@
 -- parameter.
+--
+-- 'regionName', 'listGlobalTables_regionName' - Lists the global tables in a specific Region.
 newListGlobalTables ::
   ListGlobalTables
 newListGlobalTables =
   ListGlobalTables'
     { exclusiveStartGlobalTableName =
         Prelude.Nothing,
-      regionName = Prelude.Nothing,
-      limit = Prelude.Nothing
+      limit = Prelude.Nothing,
+      regionName = Prelude.Nothing
     }
 
 -- | The first global table name that this operation will evaluate.
 listGlobalTables_exclusiveStartGlobalTableName :: Lens.Lens' ListGlobalTables (Prelude.Maybe Prelude.Text)
 listGlobalTables_exclusiveStartGlobalTableName = Lens.lens (\ListGlobalTables' {exclusiveStartGlobalTableName} -> exclusiveStartGlobalTableName) (\s@ListGlobalTables' {} a -> s {exclusiveStartGlobalTableName = a} :: ListGlobalTables)
-
--- | Lists the global tables in a specific Region.
-listGlobalTables_regionName :: Lens.Lens' ListGlobalTables (Prelude.Maybe Prelude.Text)
-listGlobalTables_regionName = Lens.lens (\ListGlobalTables' {regionName} -> regionName) (\s@ListGlobalTables' {} a -> s {regionName = a} :: ListGlobalTables)
 
 -- | The maximum number of table names to return, if the parameter is not
 -- specified DynamoDB defaults to 100.
@@ -120,6 +116,10 @@ listGlobalTables_regionName = Lens.lens (\ListGlobalTables' {regionName} -> regi
 -- parameter.
 listGlobalTables_limit :: Lens.Lens' ListGlobalTables (Prelude.Maybe Prelude.Natural)
 listGlobalTables_limit = Lens.lens (\ListGlobalTables' {limit} -> limit) (\s@ListGlobalTables' {} a -> s {limit = a} :: ListGlobalTables)
+
+-- | Lists the global tables in a specific Region.
+listGlobalTables_regionName :: Lens.Lens' ListGlobalTables (Prelude.Maybe Prelude.Text)
+listGlobalTables_regionName = Lens.lens (\ListGlobalTables' {regionName} -> regionName) (\s@ListGlobalTables' {} a -> s {regionName = a} :: ListGlobalTables)
 
 instance Core.AWSRequest ListGlobalTables where
   type
@@ -140,14 +140,14 @@ instance Prelude.Hashable ListGlobalTables where
   hashWithSalt _salt ListGlobalTables' {..} =
     _salt
       `Prelude.hashWithSalt` exclusiveStartGlobalTableName
-      `Prelude.hashWithSalt` regionName
       `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` regionName
 
 instance Prelude.NFData ListGlobalTables where
   rnf ListGlobalTables' {..} =
     Prelude.rnf exclusiveStartGlobalTableName
-      `Prelude.seq` Prelude.rnf regionName
       `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf regionName
 
 instance Data.ToHeaders ListGlobalTables where
   toHeaders =
@@ -170,8 +170,8 @@ instance Data.ToJSON ListGlobalTables where
       ( Prelude.catMaybes
           [ ("ExclusiveStartGlobalTableName" Data..=)
               Prelude.<$> exclusiveStartGlobalTableName,
-            ("RegionName" Data..=) Prelude.<$> regionName,
-            ("Limit" Data..=) Prelude.<$> limit
+            ("Limit" Data..=) Prelude.<$> limit,
+            ("RegionName" Data..=) Prelude.<$> regionName
           ]
       )
 

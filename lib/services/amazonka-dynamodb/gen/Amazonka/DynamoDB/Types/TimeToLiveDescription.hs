@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTimeToLiveDescription' smart constructor.
 data TimeToLiveDescription = TimeToLiveDescription'
-  { -- | The TTL status for the table.
-    timeToLiveStatus :: Prelude.Maybe TimeToLiveStatus,
-    -- | The name of the TTL attribute for items in the table.
-    attributeName :: Prelude.Maybe Prelude.Text
+  { -- | The name of the TTL attribute for items in the table.
+    attributeName :: Prelude.Maybe Prelude.Text,
+    -- | The TTL status for the table.
+    timeToLiveStatus :: Prelude.Maybe TimeToLiveStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,25 +46,25 @@ data TimeToLiveDescription = TimeToLiveDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'timeToLiveStatus', 'timeToLiveDescription_timeToLiveStatus' - The TTL status for the table.
---
 -- 'attributeName', 'timeToLiveDescription_attributeName' - The name of the TTL attribute for items in the table.
+--
+-- 'timeToLiveStatus', 'timeToLiveDescription_timeToLiveStatus' - The TTL status for the table.
 newTimeToLiveDescription ::
   TimeToLiveDescription
 newTimeToLiveDescription =
   TimeToLiveDescription'
-    { timeToLiveStatus =
+    { attributeName =
         Prelude.Nothing,
-      attributeName = Prelude.Nothing
+      timeToLiveStatus = Prelude.Nothing
     }
-
--- | The TTL status for the table.
-timeToLiveDescription_timeToLiveStatus :: Lens.Lens' TimeToLiveDescription (Prelude.Maybe TimeToLiveStatus)
-timeToLiveDescription_timeToLiveStatus = Lens.lens (\TimeToLiveDescription' {timeToLiveStatus} -> timeToLiveStatus) (\s@TimeToLiveDescription' {} a -> s {timeToLiveStatus = a} :: TimeToLiveDescription)
 
 -- | The name of the TTL attribute for items in the table.
 timeToLiveDescription_attributeName :: Lens.Lens' TimeToLiveDescription (Prelude.Maybe Prelude.Text)
 timeToLiveDescription_attributeName = Lens.lens (\TimeToLiveDescription' {attributeName} -> attributeName) (\s@TimeToLiveDescription' {} a -> s {attributeName = a} :: TimeToLiveDescription)
+
+-- | The TTL status for the table.
+timeToLiveDescription_timeToLiveStatus :: Lens.Lens' TimeToLiveDescription (Prelude.Maybe TimeToLiveStatus)
+timeToLiveDescription_timeToLiveStatus = Lens.lens (\TimeToLiveDescription' {timeToLiveStatus} -> timeToLiveStatus) (\s@TimeToLiveDescription' {} a -> s {timeToLiveStatus = a} :: TimeToLiveDescription)
 
 instance Data.FromJSON TimeToLiveDescription where
   parseJSON =
@@ -72,16 +72,16 @@ instance Data.FromJSON TimeToLiveDescription where
       "TimeToLiveDescription"
       ( \x ->
           TimeToLiveDescription'
-            Prelude.<$> (x Data..:? "TimeToLiveStatus")
-            Prelude.<*> (x Data..:? "AttributeName")
+            Prelude.<$> (x Data..:? "AttributeName")
+            Prelude.<*> (x Data..:? "TimeToLiveStatus")
       )
 
 instance Prelude.Hashable TimeToLiveDescription where
   hashWithSalt _salt TimeToLiveDescription' {..} =
-    _salt `Prelude.hashWithSalt` timeToLiveStatus
-      `Prelude.hashWithSalt` attributeName
+    _salt `Prelude.hashWithSalt` attributeName
+      `Prelude.hashWithSalt` timeToLiveStatus
 
 instance Prelude.NFData TimeToLiveDescription where
   rnf TimeToLiveDescription' {..} =
-    Prelude.rnf timeToLiveStatus
-      `Prelude.seq` Prelude.rnf attributeName
+    Prelude.rnf attributeName
+      `Prelude.seq` Prelude.rnf timeToLiveStatus

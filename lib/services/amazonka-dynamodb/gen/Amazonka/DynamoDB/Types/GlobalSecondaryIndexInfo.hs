@@ -34,10 +34,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGlobalSecondaryIndexInfo' smart constructor.
 data GlobalSecondaryIndexInfo = GlobalSecondaryIndexInfo'
-  { -- | Represents the provisioned throughput settings for the specified global
-    -- secondary index.
-    provisionedThroughput :: Prelude.Maybe ProvisionedThroughput,
-    -- | The name of the global secondary index.
+  { -- | The name of the global secondary index.
     indexName :: Prelude.Maybe Prelude.Text,
     -- | The complete key schema for a global secondary index, which consists of
     -- one or more pairs of attribute names and key types:
@@ -59,7 +56,10 @@ data GlobalSecondaryIndexInfo = GlobalSecondaryIndexInfo'
     -- | Represents attributes that are copied (projected) from the table into
     -- the global secondary index. These are in addition to the primary key
     -- attributes and index key attributes, which are automatically projected.
-    projection :: Prelude.Maybe Projection
+    projection :: Prelude.Maybe Projection,
+    -- | Represents the provisioned throughput settings for the specified global
+    -- secondary index.
+    provisionedThroughput :: Prelude.Maybe ProvisionedThroughput
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,9 +70,6 @@ data GlobalSecondaryIndexInfo = GlobalSecondaryIndexInfo'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'provisionedThroughput', 'globalSecondaryIndexInfo_provisionedThroughput' - Represents the provisioned throughput settings for the specified global
--- secondary index.
 --
 -- 'indexName', 'globalSecondaryIndexInfo_indexName' - The name of the global secondary index.
 --
@@ -96,21 +93,19 @@ data GlobalSecondaryIndexInfo = GlobalSecondaryIndexInfo'
 -- 'projection', 'globalSecondaryIndexInfo_projection' - Represents attributes that are copied (projected) from the table into
 -- the global secondary index. These are in addition to the primary key
 -- attributes and index key attributes, which are automatically projected.
+--
+-- 'provisionedThroughput', 'globalSecondaryIndexInfo_provisionedThroughput' - Represents the provisioned throughput settings for the specified global
+-- secondary index.
 newGlobalSecondaryIndexInfo ::
   GlobalSecondaryIndexInfo
 newGlobalSecondaryIndexInfo =
   GlobalSecondaryIndexInfo'
-    { provisionedThroughput =
+    { indexName =
         Prelude.Nothing,
-      indexName = Prelude.Nothing,
       keySchema = Prelude.Nothing,
-      projection = Prelude.Nothing
+      projection = Prelude.Nothing,
+      provisionedThroughput = Prelude.Nothing
     }
-
--- | Represents the provisioned throughput settings for the specified global
--- secondary index.
-globalSecondaryIndexInfo_provisionedThroughput :: Lens.Lens' GlobalSecondaryIndexInfo (Prelude.Maybe ProvisionedThroughput)
-globalSecondaryIndexInfo_provisionedThroughput = Lens.lens (\GlobalSecondaryIndexInfo' {provisionedThroughput} -> provisionedThroughput) (\s@GlobalSecondaryIndexInfo' {} a -> s {provisionedThroughput = a} :: GlobalSecondaryIndexInfo)
 
 -- | The name of the global secondary index.
 globalSecondaryIndexInfo_indexName :: Lens.Lens' GlobalSecondaryIndexInfo (Prelude.Maybe Prelude.Text)
@@ -141,28 +136,33 @@ globalSecondaryIndexInfo_keySchema = Lens.lens (\GlobalSecondaryIndexInfo' {keyS
 globalSecondaryIndexInfo_projection :: Lens.Lens' GlobalSecondaryIndexInfo (Prelude.Maybe Projection)
 globalSecondaryIndexInfo_projection = Lens.lens (\GlobalSecondaryIndexInfo' {projection} -> projection) (\s@GlobalSecondaryIndexInfo' {} a -> s {projection = a} :: GlobalSecondaryIndexInfo)
 
+-- | Represents the provisioned throughput settings for the specified global
+-- secondary index.
+globalSecondaryIndexInfo_provisionedThroughput :: Lens.Lens' GlobalSecondaryIndexInfo (Prelude.Maybe ProvisionedThroughput)
+globalSecondaryIndexInfo_provisionedThroughput = Lens.lens (\GlobalSecondaryIndexInfo' {provisionedThroughput} -> provisionedThroughput) (\s@GlobalSecondaryIndexInfo' {} a -> s {provisionedThroughput = a} :: GlobalSecondaryIndexInfo)
+
 instance Data.FromJSON GlobalSecondaryIndexInfo where
   parseJSON =
     Data.withObject
       "GlobalSecondaryIndexInfo"
       ( \x ->
           GlobalSecondaryIndexInfo'
-            Prelude.<$> (x Data..:? "ProvisionedThroughput")
-            Prelude.<*> (x Data..:? "IndexName")
+            Prelude.<$> (x Data..:? "IndexName")
             Prelude.<*> (x Data..:? "KeySchema")
             Prelude.<*> (x Data..:? "Projection")
+            Prelude.<*> (x Data..:? "ProvisionedThroughput")
       )
 
 instance Prelude.Hashable GlobalSecondaryIndexInfo where
   hashWithSalt _salt GlobalSecondaryIndexInfo' {..} =
-    _salt `Prelude.hashWithSalt` provisionedThroughput
-      `Prelude.hashWithSalt` indexName
+    _salt `Prelude.hashWithSalt` indexName
       `Prelude.hashWithSalt` keySchema
       `Prelude.hashWithSalt` projection
+      `Prelude.hashWithSalt` provisionedThroughput
 
 instance Prelude.NFData GlobalSecondaryIndexInfo where
   rnf GlobalSecondaryIndexInfo' {..} =
-    Prelude.rnf provisionedThroughput
-      `Prelude.seq` Prelude.rnf indexName
+    Prelude.rnf indexName
       `Prelude.seq` Prelude.rnf keySchema
       `Prelude.seq` Prelude.rnf projection
+      `Prelude.seq` Prelude.rnf provisionedThroughput

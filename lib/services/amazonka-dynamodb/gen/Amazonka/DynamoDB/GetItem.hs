@@ -34,11 +34,11 @@ module Amazonka.DynamoDB.GetItem
     newGetItem,
 
     -- * Request Lenses
+    getItem_attributesToGet,
     getItem_consistentRead,
     getItem_expressionAttributeNames,
-    getItem_returnConsumedCapacity,
-    getItem_attributesToGet,
     getItem_projectionExpression,
+    getItem_returnConsumedCapacity,
     getItem_tableName,
     getItem_key,
 
@@ -65,7 +65,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newGetItem' smart constructor.
 data GetItem = GetItem'
-  { -- | Determines the read consistency model: If set to @true@, then the
+  { -- | This is a legacy parameter. Use @ProjectionExpression@ instead. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html AttributesToGet>
+    -- in the /Amazon DynamoDB Developer Guide/.
+    attributesToGet :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | Determines the read consistency model: If set to @true@, then the
     -- operation uses strongly consistent reads; otherwise, the operation uses
     -- eventually consistent reads.
     consistentRead :: Prelude.Maybe Prelude.Bool,
@@ -107,12 +112,6 @@ data GetItem = GetItem'
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes>
     -- in the /Amazon DynamoDB Developer Guide/.
     expressionAttributeNames :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    returnConsumedCapacity :: Prelude.Maybe ReturnConsumedCapacity,
-    -- | This is a legacy parameter. Use @ProjectionExpression@ instead. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html AttributesToGet>
-    -- in the /Amazon DynamoDB Developer Guide/.
-    attributesToGet :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | A string that identifies one or more attributes to retrieve from the
     -- table. These attributes can include scalars, sets, or elements of a JSON
     -- document. The attributes in the expression must be separated by commas.
@@ -125,6 +124,7 @@ data GetItem = GetItem'
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes>
     -- in the /Amazon DynamoDB Developer Guide/.
     projectionExpression :: Prelude.Maybe Prelude.Text,
+    returnConsumedCapacity :: Prelude.Maybe ReturnConsumedCapacity,
     -- | The name of the table containing the requested item.
     tableName :: Prelude.Text,
     -- | A map of attribute names to @AttributeValue@ objects, representing the
@@ -145,6 +145,11 @@ data GetItem = GetItem'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'attributesToGet', 'getItem_attributesToGet' - This is a legacy parameter. Use @ProjectionExpression@ instead. For more
+-- information, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html AttributesToGet>
+-- in the /Amazon DynamoDB Developer Guide/.
 --
 -- 'consistentRead', 'getItem_consistentRead' - Determines the read consistency model: If set to @true@, then the
 -- operation uses strongly consistent reads; otherwise, the operation uses
@@ -188,13 +193,6 @@ data GetItem = GetItem'
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes>
 -- in the /Amazon DynamoDB Developer Guide/.
 --
--- 'returnConsumedCapacity', 'getItem_returnConsumedCapacity' - Undocumented member.
---
--- 'attributesToGet', 'getItem_attributesToGet' - This is a legacy parameter. Use @ProjectionExpression@ instead. For more
--- information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html AttributesToGet>
--- in the /Amazon DynamoDB Developer Guide/.
---
 -- 'projectionExpression', 'getItem_projectionExpression' - A string that identifies one or more attributes to retrieve from the
 -- table. These attributes can include scalars, sets, or elements of a JSON
 -- document. The attributes in the expression must be separated by commas.
@@ -206,6 +204,8 @@ data GetItem = GetItem'
 -- For more information, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes>
 -- in the /Amazon DynamoDB Developer Guide/.
+--
+-- 'returnConsumedCapacity', 'getItem_returnConsumedCapacity' - Undocumented member.
 --
 -- 'tableName', 'getItem_tableName' - The name of the table containing the requested item.
 --
@@ -222,14 +222,21 @@ newGetItem ::
   GetItem
 newGetItem pTableName_ =
   GetItem'
-    { consistentRead = Prelude.Nothing,
+    { attributesToGet = Prelude.Nothing,
+      consistentRead = Prelude.Nothing,
       expressionAttributeNames = Prelude.Nothing,
-      returnConsumedCapacity = Prelude.Nothing,
-      attributesToGet = Prelude.Nothing,
       projectionExpression = Prelude.Nothing,
+      returnConsumedCapacity = Prelude.Nothing,
       tableName = pTableName_,
       key = Prelude.mempty
     }
+
+-- | This is a legacy parameter. Use @ProjectionExpression@ instead. For more
+-- information, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html AttributesToGet>
+-- in the /Amazon DynamoDB Developer Guide/.
+getItem_attributesToGet :: Lens.Lens' GetItem (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+getItem_attributesToGet = Lens.lens (\GetItem' {attributesToGet} -> attributesToGet) (\s@GetItem' {} a -> s {attributesToGet = a} :: GetItem) Prelude.. Lens.mapping Lens.coerced
 
 -- | Determines the read consistency model: If set to @true@, then the
 -- operation uses strongly consistent reads; otherwise, the operation uses
@@ -277,17 +284,6 @@ getItem_consistentRead = Lens.lens (\GetItem' {consistentRead} -> consistentRead
 getItem_expressionAttributeNames :: Lens.Lens' GetItem (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 getItem_expressionAttributeNames = Lens.lens (\GetItem' {expressionAttributeNames} -> expressionAttributeNames) (\s@GetItem' {} a -> s {expressionAttributeNames = a} :: GetItem) Prelude.. Lens.mapping Lens.coerced
 
--- | Undocumented member.
-getItem_returnConsumedCapacity :: Lens.Lens' GetItem (Prelude.Maybe ReturnConsumedCapacity)
-getItem_returnConsumedCapacity = Lens.lens (\GetItem' {returnConsumedCapacity} -> returnConsumedCapacity) (\s@GetItem' {} a -> s {returnConsumedCapacity = a} :: GetItem)
-
--- | This is a legacy parameter. Use @ProjectionExpression@ instead. For more
--- information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html AttributesToGet>
--- in the /Amazon DynamoDB Developer Guide/.
-getItem_attributesToGet :: Lens.Lens' GetItem (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-getItem_attributesToGet = Lens.lens (\GetItem' {attributesToGet} -> attributesToGet) (\s@GetItem' {} a -> s {attributesToGet = a} :: GetItem) Prelude.. Lens.mapping Lens.coerced
-
 -- | A string that identifies one or more attributes to retrieve from the
 -- table. These attributes can include scalars, sets, or elements of a JSON
 -- document. The attributes in the expression must be separated by commas.
@@ -301,6 +297,10 @@ getItem_attributesToGet = Lens.lens (\GetItem' {attributesToGet} -> attributesTo
 -- in the /Amazon DynamoDB Developer Guide/.
 getItem_projectionExpression :: Lens.Lens' GetItem (Prelude.Maybe Prelude.Text)
 getItem_projectionExpression = Lens.lens (\GetItem' {projectionExpression} -> projectionExpression) (\s@GetItem' {} a -> s {projectionExpression = a} :: GetItem)
+
+-- | Undocumented member.
+getItem_returnConsumedCapacity :: Lens.Lens' GetItem (Prelude.Maybe ReturnConsumedCapacity)
+getItem_returnConsumedCapacity = Lens.lens (\GetItem' {returnConsumedCapacity} -> returnConsumedCapacity) (\s@GetItem' {} a -> s {returnConsumedCapacity = a} :: GetItem)
 
 -- | The name of the table containing the requested item.
 getItem_tableName :: Lens.Lens' GetItem Prelude.Text
@@ -331,21 +331,21 @@ instance Core.AWSRequest GetItem where
 
 instance Prelude.Hashable GetItem where
   hashWithSalt _salt GetItem' {..} =
-    _salt `Prelude.hashWithSalt` consistentRead
+    _salt `Prelude.hashWithSalt` attributesToGet
+      `Prelude.hashWithSalt` consistentRead
       `Prelude.hashWithSalt` expressionAttributeNames
-      `Prelude.hashWithSalt` returnConsumedCapacity
-      `Prelude.hashWithSalt` attributesToGet
       `Prelude.hashWithSalt` projectionExpression
+      `Prelude.hashWithSalt` returnConsumedCapacity
       `Prelude.hashWithSalt` tableName
       `Prelude.hashWithSalt` key
 
 instance Prelude.NFData GetItem where
   rnf GetItem' {..} =
-    Prelude.rnf consistentRead
+    Prelude.rnf attributesToGet
+      `Prelude.seq` Prelude.rnf consistentRead
       `Prelude.seq` Prelude.rnf expressionAttributeNames
-      `Prelude.seq` Prelude.rnf returnConsumedCapacity
-      `Prelude.seq` Prelude.rnf attributesToGet
       `Prelude.seq` Prelude.rnf projectionExpression
+      `Prelude.seq` Prelude.rnf returnConsumedCapacity
       `Prelude.seq` Prelude.rnf tableName
       `Prelude.seq` Prelude.rnf key
 
@@ -366,16 +366,16 @@ instance Data.ToJSON GetItem where
   toJSON GetItem' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ConsistentRead" Data..=)
+          [ ("AttributesToGet" Data..=)
+              Prelude.<$> attributesToGet,
+            ("ConsistentRead" Data..=)
               Prelude.<$> consistentRead,
             ("ExpressionAttributeNames" Data..=)
               Prelude.<$> expressionAttributeNames,
-            ("ReturnConsumedCapacity" Data..=)
-              Prelude.<$> returnConsumedCapacity,
-            ("AttributesToGet" Data..=)
-              Prelude.<$> attributesToGet,
             ("ProjectionExpression" Data..=)
               Prelude.<$> projectionExpression,
+            ("ReturnConsumedCapacity" Data..=)
+              Prelude.<$> returnConsumedCapacity,
             Prelude.Just ("TableName" Data..= tableName),
             Prelude.Just ("Key" Data..= key)
           ]

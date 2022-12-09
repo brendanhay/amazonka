@@ -33,10 +33,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBackupDescription' smart constructor.
 data BackupDescription = BackupDescription'
-  { -- | Contains the details of the table when the backup was created.
-    sourceTableDetails :: Prelude.Maybe SourceTableDetails,
-    -- | Contains the details of the backup created for the table.
+  { -- | Contains the details of the backup created for the table.
     backupDetails :: Prelude.Maybe BackupDetails,
+    -- | Contains the details of the table when the backup was created.
+    sourceTableDetails :: Prelude.Maybe SourceTableDetails,
     -- | Contains the details of the features enabled on the table when the
     -- backup was created. For example, LSIs, GSIs, streams, TTL.
     sourceTableFeatureDetails :: Prelude.Maybe SourceTableFeatureDetails
@@ -51,9 +51,9 @@ data BackupDescription = BackupDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceTableDetails', 'backupDescription_sourceTableDetails' - Contains the details of the table when the backup was created.
---
 -- 'backupDetails', 'backupDescription_backupDetails' - Contains the details of the backup created for the table.
+--
+-- 'sourceTableDetails', 'backupDescription_sourceTableDetails' - Contains the details of the table when the backup was created.
 --
 -- 'sourceTableFeatureDetails', 'backupDescription_sourceTableFeatureDetails' - Contains the details of the features enabled on the table when the
 -- backup was created. For example, LSIs, GSIs, streams, TTL.
@@ -61,19 +61,18 @@ newBackupDescription ::
   BackupDescription
 newBackupDescription =
   BackupDescription'
-    { sourceTableDetails =
-        Prelude.Nothing,
-      backupDetails = Prelude.Nothing,
+    { backupDetails = Prelude.Nothing,
+      sourceTableDetails = Prelude.Nothing,
       sourceTableFeatureDetails = Prelude.Nothing
     }
-
--- | Contains the details of the table when the backup was created.
-backupDescription_sourceTableDetails :: Lens.Lens' BackupDescription (Prelude.Maybe SourceTableDetails)
-backupDescription_sourceTableDetails = Lens.lens (\BackupDescription' {sourceTableDetails} -> sourceTableDetails) (\s@BackupDescription' {} a -> s {sourceTableDetails = a} :: BackupDescription)
 
 -- | Contains the details of the backup created for the table.
 backupDescription_backupDetails :: Lens.Lens' BackupDescription (Prelude.Maybe BackupDetails)
 backupDescription_backupDetails = Lens.lens (\BackupDescription' {backupDetails} -> backupDetails) (\s@BackupDescription' {} a -> s {backupDetails = a} :: BackupDescription)
+
+-- | Contains the details of the table when the backup was created.
+backupDescription_sourceTableDetails :: Lens.Lens' BackupDescription (Prelude.Maybe SourceTableDetails)
+backupDescription_sourceTableDetails = Lens.lens (\BackupDescription' {sourceTableDetails} -> sourceTableDetails) (\s@BackupDescription' {} a -> s {sourceTableDetails = a} :: BackupDescription)
 
 -- | Contains the details of the features enabled on the table when the
 -- backup was created. For example, LSIs, GSIs, streams, TTL.
@@ -86,19 +85,19 @@ instance Data.FromJSON BackupDescription where
       "BackupDescription"
       ( \x ->
           BackupDescription'
-            Prelude.<$> (x Data..:? "SourceTableDetails")
-            Prelude.<*> (x Data..:? "BackupDetails")
+            Prelude.<$> (x Data..:? "BackupDetails")
+            Prelude.<*> (x Data..:? "SourceTableDetails")
             Prelude.<*> (x Data..:? "SourceTableFeatureDetails")
       )
 
 instance Prelude.Hashable BackupDescription where
   hashWithSalt _salt BackupDescription' {..} =
-    _salt `Prelude.hashWithSalt` sourceTableDetails
-      `Prelude.hashWithSalt` backupDetails
+    _salt `Prelude.hashWithSalt` backupDetails
+      `Prelude.hashWithSalt` sourceTableDetails
       `Prelude.hashWithSalt` sourceTableFeatureDetails
 
 instance Prelude.NFData BackupDescription where
   rnf BackupDescription' {..} =
-    Prelude.rnf sourceTableDetails
-      `Prelude.seq` Prelude.rnf backupDetails
+    Prelude.rnf backupDetails
+      `Prelude.seq` Prelude.rnf sourceTableDetails
       `Prelude.seq` Prelude.rnf sourceTableFeatureDetails

@@ -32,19 +32,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAutoScalingSettingsUpdate' smart constructor.
 data AutoScalingSettingsUpdate = AutoScalingSettingsUpdate'
-  { -- | The minimum capacity units that a global table or global secondary index
+  { -- | Disabled auto scaling for this global table or global secondary index.
+    autoScalingDisabled :: Prelude.Maybe Prelude.Bool,
+    -- | Role ARN used for configuring auto scaling policy.
+    autoScalingRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | The maximum capacity units that a global table or global secondary index
+    -- should be scaled up to.
+    maximumUnits :: Prelude.Maybe Prelude.Natural,
+    -- | The minimum capacity units that a global table or global secondary index
     -- should be scaled down to.
     minimumUnits :: Prelude.Maybe Prelude.Natural,
     -- | The scaling policy to apply for scaling target global table or global
     -- secondary index capacity units.
-    scalingPolicyUpdate :: Prelude.Maybe AutoScalingPolicyUpdate,
-    -- | Role ARN used for configuring auto scaling policy.
-    autoScalingRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | Disabled auto scaling for this global table or global secondary index.
-    autoScalingDisabled :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum capacity units that a global table or global secondary index
-    -- should be scaled up to.
-    maximumUnits :: Prelude.Maybe Prelude.Natural
+    scalingPolicyUpdate :: Prelude.Maybe AutoScalingPolicyUpdate
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,29 +56,42 @@ data AutoScalingSettingsUpdate = AutoScalingSettingsUpdate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'autoScalingDisabled', 'autoScalingSettingsUpdate_autoScalingDisabled' - Disabled auto scaling for this global table or global secondary index.
+--
+-- 'autoScalingRoleArn', 'autoScalingSettingsUpdate_autoScalingRoleArn' - Role ARN used for configuring auto scaling policy.
+--
+-- 'maximumUnits', 'autoScalingSettingsUpdate_maximumUnits' - The maximum capacity units that a global table or global secondary index
+-- should be scaled up to.
+--
 -- 'minimumUnits', 'autoScalingSettingsUpdate_minimumUnits' - The minimum capacity units that a global table or global secondary index
 -- should be scaled down to.
 --
 -- 'scalingPolicyUpdate', 'autoScalingSettingsUpdate_scalingPolicyUpdate' - The scaling policy to apply for scaling target global table or global
 -- secondary index capacity units.
---
--- 'autoScalingRoleArn', 'autoScalingSettingsUpdate_autoScalingRoleArn' - Role ARN used for configuring auto scaling policy.
---
--- 'autoScalingDisabled', 'autoScalingSettingsUpdate_autoScalingDisabled' - Disabled auto scaling for this global table or global secondary index.
---
--- 'maximumUnits', 'autoScalingSettingsUpdate_maximumUnits' - The maximum capacity units that a global table or global secondary index
--- should be scaled up to.
 newAutoScalingSettingsUpdate ::
   AutoScalingSettingsUpdate
 newAutoScalingSettingsUpdate =
   AutoScalingSettingsUpdate'
-    { minimumUnits =
+    { autoScalingDisabled =
         Prelude.Nothing,
-      scalingPolicyUpdate = Prelude.Nothing,
       autoScalingRoleArn = Prelude.Nothing,
-      autoScalingDisabled = Prelude.Nothing,
-      maximumUnits = Prelude.Nothing
+      maximumUnits = Prelude.Nothing,
+      minimumUnits = Prelude.Nothing,
+      scalingPolicyUpdate = Prelude.Nothing
     }
+
+-- | Disabled auto scaling for this global table or global secondary index.
+autoScalingSettingsUpdate_autoScalingDisabled :: Lens.Lens' AutoScalingSettingsUpdate (Prelude.Maybe Prelude.Bool)
+autoScalingSettingsUpdate_autoScalingDisabled = Lens.lens (\AutoScalingSettingsUpdate' {autoScalingDisabled} -> autoScalingDisabled) (\s@AutoScalingSettingsUpdate' {} a -> s {autoScalingDisabled = a} :: AutoScalingSettingsUpdate)
+
+-- | Role ARN used for configuring auto scaling policy.
+autoScalingSettingsUpdate_autoScalingRoleArn :: Lens.Lens' AutoScalingSettingsUpdate (Prelude.Maybe Prelude.Text)
+autoScalingSettingsUpdate_autoScalingRoleArn = Lens.lens (\AutoScalingSettingsUpdate' {autoScalingRoleArn} -> autoScalingRoleArn) (\s@AutoScalingSettingsUpdate' {} a -> s {autoScalingRoleArn = a} :: AutoScalingSettingsUpdate)
+
+-- | The maximum capacity units that a global table or global secondary index
+-- should be scaled up to.
+autoScalingSettingsUpdate_maximumUnits :: Lens.Lens' AutoScalingSettingsUpdate (Prelude.Maybe Prelude.Natural)
+autoScalingSettingsUpdate_maximumUnits = Lens.lens (\AutoScalingSettingsUpdate' {maximumUnits} -> maximumUnits) (\s@AutoScalingSettingsUpdate' {} a -> s {maximumUnits = a} :: AutoScalingSettingsUpdate)
 
 -- | The minimum capacity units that a global table or global secondary index
 -- should be scaled down to.
@@ -90,46 +103,33 @@ autoScalingSettingsUpdate_minimumUnits = Lens.lens (\AutoScalingSettingsUpdate' 
 autoScalingSettingsUpdate_scalingPolicyUpdate :: Lens.Lens' AutoScalingSettingsUpdate (Prelude.Maybe AutoScalingPolicyUpdate)
 autoScalingSettingsUpdate_scalingPolicyUpdate = Lens.lens (\AutoScalingSettingsUpdate' {scalingPolicyUpdate} -> scalingPolicyUpdate) (\s@AutoScalingSettingsUpdate' {} a -> s {scalingPolicyUpdate = a} :: AutoScalingSettingsUpdate)
 
--- | Role ARN used for configuring auto scaling policy.
-autoScalingSettingsUpdate_autoScalingRoleArn :: Lens.Lens' AutoScalingSettingsUpdate (Prelude.Maybe Prelude.Text)
-autoScalingSettingsUpdate_autoScalingRoleArn = Lens.lens (\AutoScalingSettingsUpdate' {autoScalingRoleArn} -> autoScalingRoleArn) (\s@AutoScalingSettingsUpdate' {} a -> s {autoScalingRoleArn = a} :: AutoScalingSettingsUpdate)
-
--- | Disabled auto scaling for this global table or global secondary index.
-autoScalingSettingsUpdate_autoScalingDisabled :: Lens.Lens' AutoScalingSettingsUpdate (Prelude.Maybe Prelude.Bool)
-autoScalingSettingsUpdate_autoScalingDisabled = Lens.lens (\AutoScalingSettingsUpdate' {autoScalingDisabled} -> autoScalingDisabled) (\s@AutoScalingSettingsUpdate' {} a -> s {autoScalingDisabled = a} :: AutoScalingSettingsUpdate)
-
--- | The maximum capacity units that a global table or global secondary index
--- should be scaled up to.
-autoScalingSettingsUpdate_maximumUnits :: Lens.Lens' AutoScalingSettingsUpdate (Prelude.Maybe Prelude.Natural)
-autoScalingSettingsUpdate_maximumUnits = Lens.lens (\AutoScalingSettingsUpdate' {maximumUnits} -> maximumUnits) (\s@AutoScalingSettingsUpdate' {} a -> s {maximumUnits = a} :: AutoScalingSettingsUpdate)
-
 instance Prelude.Hashable AutoScalingSettingsUpdate where
   hashWithSalt _salt AutoScalingSettingsUpdate' {..} =
-    _salt `Prelude.hashWithSalt` minimumUnits
-      `Prelude.hashWithSalt` scalingPolicyUpdate
+    _salt `Prelude.hashWithSalt` autoScalingDisabled
       `Prelude.hashWithSalt` autoScalingRoleArn
-      `Prelude.hashWithSalt` autoScalingDisabled
       `Prelude.hashWithSalt` maximumUnits
+      `Prelude.hashWithSalt` minimumUnits
+      `Prelude.hashWithSalt` scalingPolicyUpdate
 
 instance Prelude.NFData AutoScalingSettingsUpdate where
   rnf AutoScalingSettingsUpdate' {..} =
-    Prelude.rnf minimumUnits
-      `Prelude.seq` Prelude.rnf scalingPolicyUpdate
+    Prelude.rnf autoScalingDisabled
       `Prelude.seq` Prelude.rnf autoScalingRoleArn
-      `Prelude.seq` Prelude.rnf autoScalingDisabled
       `Prelude.seq` Prelude.rnf maximumUnits
+      `Prelude.seq` Prelude.rnf minimumUnits
+      `Prelude.seq` Prelude.rnf scalingPolicyUpdate
 
 instance Data.ToJSON AutoScalingSettingsUpdate where
   toJSON AutoScalingSettingsUpdate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("MinimumUnits" Data..=) Prelude.<$> minimumUnits,
-            ("ScalingPolicyUpdate" Data..=)
-              Prelude.<$> scalingPolicyUpdate,
+          [ ("AutoScalingDisabled" Data..=)
+              Prelude.<$> autoScalingDisabled,
             ("AutoScalingRoleArn" Data..=)
               Prelude.<$> autoScalingRoleArn,
-            ("AutoScalingDisabled" Data..=)
-              Prelude.<$> autoScalingDisabled,
-            ("MaximumUnits" Data..=) Prelude.<$> maximumUnits
+            ("MaximumUnits" Data..=) Prelude.<$> maximumUnits,
+            ("MinimumUnits" Data..=) Prelude.<$> minimumUnits,
+            ("ScalingPolicyUpdate" Data..=)
+              Prelude.<$> scalingPolicyUpdate
           ]
       )

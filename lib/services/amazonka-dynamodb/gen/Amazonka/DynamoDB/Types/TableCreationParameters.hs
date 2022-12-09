@@ -39,11 +39,11 @@ data TableCreationParameters = TableCreationParameters'
   { -- | The billing mode for provisioning the table created as part of the
     -- import operation.
     billingMode :: Prelude.Maybe BillingMode,
-    provisionedThroughput :: Prelude.Maybe ProvisionedThroughput,
-    sSESpecification :: Prelude.Maybe SSESpecification,
     -- | The Global Secondary Indexes (GSI) of the table to be created as part of
     -- the import operation.
     globalSecondaryIndexes :: Prelude.Maybe [GlobalSecondaryIndex],
+    provisionedThroughput :: Prelude.Maybe ProvisionedThroughput,
+    sSESpecification :: Prelude.Maybe SSESpecification,
     -- | The name of the table created as part of the import operation.
     tableName :: Prelude.Text,
     -- | The attributes of the table created as part of the import operation.
@@ -65,12 +65,12 @@ data TableCreationParameters = TableCreationParameters'
 -- 'billingMode', 'tableCreationParameters_billingMode' - The billing mode for provisioning the table created as part of the
 -- import operation.
 --
+-- 'globalSecondaryIndexes', 'tableCreationParameters_globalSecondaryIndexes' - The Global Secondary Indexes (GSI) of the table to be created as part of
+-- the import operation.
+--
 -- 'provisionedThroughput', 'tableCreationParameters_provisionedThroughput' - Undocumented member.
 --
 -- 'sSESpecification', 'tableCreationParameters_sSESpecification' - Undocumented member.
---
--- 'globalSecondaryIndexes', 'tableCreationParameters_globalSecondaryIndexes' - The Global Secondary Indexes (GSI) of the table to be created as part of
--- the import operation.
 --
 -- 'tableName', 'tableCreationParameters_tableName' - The name of the table created as part of the import operation.
 --
@@ -88,9 +88,9 @@ newTableCreationParameters pTableName_ pKeySchema_ =
   TableCreationParameters'
     { billingMode =
         Prelude.Nothing,
+      globalSecondaryIndexes = Prelude.Nothing,
       provisionedThroughput = Prelude.Nothing,
       sSESpecification = Prelude.Nothing,
-      globalSecondaryIndexes = Prelude.Nothing,
       tableName = pTableName_,
       attributeDefinitions = Prelude.mempty,
       keySchema = Lens.coerced Lens.# pKeySchema_
@@ -101,6 +101,11 @@ newTableCreationParameters pTableName_ pKeySchema_ =
 tableCreationParameters_billingMode :: Lens.Lens' TableCreationParameters (Prelude.Maybe BillingMode)
 tableCreationParameters_billingMode = Lens.lens (\TableCreationParameters' {billingMode} -> billingMode) (\s@TableCreationParameters' {} a -> s {billingMode = a} :: TableCreationParameters)
 
+-- | The Global Secondary Indexes (GSI) of the table to be created as part of
+-- the import operation.
+tableCreationParameters_globalSecondaryIndexes :: Lens.Lens' TableCreationParameters (Prelude.Maybe [GlobalSecondaryIndex])
+tableCreationParameters_globalSecondaryIndexes = Lens.lens (\TableCreationParameters' {globalSecondaryIndexes} -> globalSecondaryIndexes) (\s@TableCreationParameters' {} a -> s {globalSecondaryIndexes = a} :: TableCreationParameters) Prelude.. Lens.mapping Lens.coerced
+
 -- | Undocumented member.
 tableCreationParameters_provisionedThroughput :: Lens.Lens' TableCreationParameters (Prelude.Maybe ProvisionedThroughput)
 tableCreationParameters_provisionedThroughput = Lens.lens (\TableCreationParameters' {provisionedThroughput} -> provisionedThroughput) (\s@TableCreationParameters' {} a -> s {provisionedThroughput = a} :: TableCreationParameters)
@@ -108,11 +113,6 @@ tableCreationParameters_provisionedThroughput = Lens.lens (\TableCreationParamet
 -- | Undocumented member.
 tableCreationParameters_sSESpecification :: Lens.Lens' TableCreationParameters (Prelude.Maybe SSESpecification)
 tableCreationParameters_sSESpecification = Lens.lens (\TableCreationParameters' {sSESpecification} -> sSESpecification) (\s@TableCreationParameters' {} a -> s {sSESpecification = a} :: TableCreationParameters)
-
--- | The Global Secondary Indexes (GSI) of the table to be created as part of
--- the import operation.
-tableCreationParameters_globalSecondaryIndexes :: Lens.Lens' TableCreationParameters (Prelude.Maybe [GlobalSecondaryIndex])
-tableCreationParameters_globalSecondaryIndexes = Lens.lens (\TableCreationParameters' {globalSecondaryIndexes} -> globalSecondaryIndexes) (\s@TableCreationParameters' {} a -> s {globalSecondaryIndexes = a} :: TableCreationParameters) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the table created as part of the import operation.
 tableCreationParameters_tableName :: Lens.Lens' TableCreationParameters Prelude.Text
@@ -134,11 +134,11 @@ instance Data.FromJSON TableCreationParameters where
       ( \x ->
           TableCreationParameters'
             Prelude.<$> (x Data..:? "BillingMode")
-            Prelude.<*> (x Data..:? "ProvisionedThroughput")
-            Prelude.<*> (x Data..:? "SSESpecification")
             Prelude.<*> ( x Data..:? "GlobalSecondaryIndexes"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "ProvisionedThroughput")
+            Prelude.<*> (x Data..:? "SSESpecification")
             Prelude.<*> (x Data..: "TableName")
             Prelude.<*> ( x Data..:? "AttributeDefinitions"
                             Data..!= Prelude.mempty
@@ -149,9 +149,9 @@ instance Data.FromJSON TableCreationParameters where
 instance Prelude.Hashable TableCreationParameters where
   hashWithSalt _salt TableCreationParameters' {..} =
     _salt `Prelude.hashWithSalt` billingMode
+      `Prelude.hashWithSalt` globalSecondaryIndexes
       `Prelude.hashWithSalt` provisionedThroughput
       `Prelude.hashWithSalt` sSESpecification
-      `Prelude.hashWithSalt` globalSecondaryIndexes
       `Prelude.hashWithSalt` tableName
       `Prelude.hashWithSalt` attributeDefinitions
       `Prelude.hashWithSalt` keySchema
@@ -159,9 +159,9 @@ instance Prelude.Hashable TableCreationParameters where
 instance Prelude.NFData TableCreationParameters where
   rnf TableCreationParameters' {..} =
     Prelude.rnf billingMode
+      `Prelude.seq` Prelude.rnf globalSecondaryIndexes
       `Prelude.seq` Prelude.rnf provisionedThroughput
       `Prelude.seq` Prelude.rnf sSESpecification
-      `Prelude.seq` Prelude.rnf globalSecondaryIndexes
       `Prelude.seq` Prelude.rnf tableName
       `Prelude.seq` Prelude.rnf attributeDefinitions
       `Prelude.seq` Prelude.rnf keySchema
@@ -171,12 +171,12 @@ instance Data.ToJSON TableCreationParameters where
     Data.object
       ( Prelude.catMaybes
           [ ("BillingMode" Data..=) Prelude.<$> billingMode,
+            ("GlobalSecondaryIndexes" Data..=)
+              Prelude.<$> globalSecondaryIndexes,
             ("ProvisionedThroughput" Data..=)
               Prelude.<$> provisionedThroughput,
             ("SSESpecification" Data..=)
               Prelude.<$> sSESpecification,
-            ("GlobalSecondaryIndexes" Data..=)
-              Prelude.<$> globalSecondaryIndexes,
             Prelude.Just ("TableName" Data..= tableName),
             Prelude.Just
               ( "AttributeDefinitions"

@@ -32,10 +32,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newReplicaAutoScalingUpdate' smart constructor.
 data ReplicaAutoScalingUpdate = ReplicaAutoScalingUpdate'
-  { replicaProvisionedReadCapacityAutoScalingUpdate :: Prelude.Maybe AutoScalingSettingsUpdate,
-    -- | Represents the auto scaling settings of global secondary indexes that
+  { -- | Represents the auto scaling settings of global secondary indexes that
     -- will be modified.
     replicaGlobalSecondaryIndexUpdates :: Prelude.Maybe [ReplicaGlobalSecondaryIndexAutoScalingUpdate],
+    replicaProvisionedReadCapacityAutoScalingUpdate :: Prelude.Maybe AutoScalingSettingsUpdate,
     -- | The Region where the replica exists.
     regionName :: Prelude.Text
   }
@@ -49,10 +49,10 @@ data ReplicaAutoScalingUpdate = ReplicaAutoScalingUpdate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'replicaProvisionedReadCapacityAutoScalingUpdate', 'replicaAutoScalingUpdate_replicaProvisionedReadCapacityAutoScalingUpdate' - Undocumented member.
---
 -- 'replicaGlobalSecondaryIndexUpdates', 'replicaAutoScalingUpdate_replicaGlobalSecondaryIndexUpdates' - Represents the auto scaling settings of global secondary indexes that
 -- will be modified.
+--
+-- 'replicaProvisionedReadCapacityAutoScalingUpdate', 'replicaAutoScalingUpdate_replicaProvisionedReadCapacityAutoScalingUpdate' - Undocumented member.
 --
 -- 'regionName', 'replicaAutoScalingUpdate_regionName' - The Region where the replica exists.
 newReplicaAutoScalingUpdate ::
@@ -61,21 +61,21 @@ newReplicaAutoScalingUpdate ::
   ReplicaAutoScalingUpdate
 newReplicaAutoScalingUpdate pRegionName_ =
   ReplicaAutoScalingUpdate'
-    { replicaProvisionedReadCapacityAutoScalingUpdate =
+    { replicaGlobalSecondaryIndexUpdates =
         Prelude.Nothing,
-      replicaGlobalSecondaryIndexUpdates =
+      replicaProvisionedReadCapacityAutoScalingUpdate =
         Prelude.Nothing,
       regionName = pRegionName_
     }
-
--- | Undocumented member.
-replicaAutoScalingUpdate_replicaProvisionedReadCapacityAutoScalingUpdate :: Lens.Lens' ReplicaAutoScalingUpdate (Prelude.Maybe AutoScalingSettingsUpdate)
-replicaAutoScalingUpdate_replicaProvisionedReadCapacityAutoScalingUpdate = Lens.lens (\ReplicaAutoScalingUpdate' {replicaProvisionedReadCapacityAutoScalingUpdate} -> replicaProvisionedReadCapacityAutoScalingUpdate) (\s@ReplicaAutoScalingUpdate' {} a -> s {replicaProvisionedReadCapacityAutoScalingUpdate = a} :: ReplicaAutoScalingUpdate)
 
 -- | Represents the auto scaling settings of global secondary indexes that
 -- will be modified.
 replicaAutoScalingUpdate_replicaGlobalSecondaryIndexUpdates :: Lens.Lens' ReplicaAutoScalingUpdate (Prelude.Maybe [ReplicaGlobalSecondaryIndexAutoScalingUpdate])
 replicaAutoScalingUpdate_replicaGlobalSecondaryIndexUpdates = Lens.lens (\ReplicaAutoScalingUpdate' {replicaGlobalSecondaryIndexUpdates} -> replicaGlobalSecondaryIndexUpdates) (\s@ReplicaAutoScalingUpdate' {} a -> s {replicaGlobalSecondaryIndexUpdates = a} :: ReplicaAutoScalingUpdate) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+replicaAutoScalingUpdate_replicaProvisionedReadCapacityAutoScalingUpdate :: Lens.Lens' ReplicaAutoScalingUpdate (Prelude.Maybe AutoScalingSettingsUpdate)
+replicaAutoScalingUpdate_replicaProvisionedReadCapacityAutoScalingUpdate = Lens.lens (\ReplicaAutoScalingUpdate' {replicaProvisionedReadCapacityAutoScalingUpdate} -> replicaProvisionedReadCapacityAutoScalingUpdate) (\s@ReplicaAutoScalingUpdate' {} a -> s {replicaProvisionedReadCapacityAutoScalingUpdate = a} :: ReplicaAutoScalingUpdate)
 
 -- | The Region where the replica exists.
 replicaAutoScalingUpdate_regionName :: Lens.Lens' ReplicaAutoScalingUpdate Prelude.Text
@@ -84,27 +84,27 @@ replicaAutoScalingUpdate_regionName = Lens.lens (\ReplicaAutoScalingUpdate' {reg
 instance Prelude.Hashable ReplicaAutoScalingUpdate where
   hashWithSalt _salt ReplicaAutoScalingUpdate' {..} =
     _salt
-      `Prelude.hashWithSalt` replicaProvisionedReadCapacityAutoScalingUpdate
       `Prelude.hashWithSalt` replicaGlobalSecondaryIndexUpdates
+      `Prelude.hashWithSalt` replicaProvisionedReadCapacityAutoScalingUpdate
       `Prelude.hashWithSalt` regionName
 
 instance Prelude.NFData ReplicaAutoScalingUpdate where
   rnf ReplicaAutoScalingUpdate' {..} =
-    Prelude.rnf
-      replicaProvisionedReadCapacityAutoScalingUpdate
-      `Prelude.seq` Prelude.rnf replicaGlobalSecondaryIndexUpdates
+    Prelude.rnf replicaGlobalSecondaryIndexUpdates
+      `Prelude.seq` Prelude.rnf
+        replicaProvisionedReadCapacityAutoScalingUpdate
       `Prelude.seq` Prelude.rnf regionName
 
 instance Data.ToJSON ReplicaAutoScalingUpdate where
   toJSON ReplicaAutoScalingUpdate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ( "ReplicaProvisionedReadCapacityAutoScalingUpdate"
+          [ ("ReplicaGlobalSecondaryIndexUpdates" Data..=)
+              Prelude.<$> replicaGlobalSecondaryIndexUpdates,
+            ( "ReplicaProvisionedReadCapacityAutoScalingUpdate"
                 Data..=
             )
               Prelude.<$> replicaProvisionedReadCapacityAutoScalingUpdate,
-            ("ReplicaGlobalSecondaryIndexUpdates" Data..=)
-              Prelude.<$> replicaGlobalSecondaryIndexUpdates,
             Prelude.Just ("RegionName" Data..= regionName)
           ]
       )

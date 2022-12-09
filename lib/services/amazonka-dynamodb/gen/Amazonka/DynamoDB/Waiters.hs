@@ -25,20 +25,6 @@ import Amazonka.DynamoDB.Types
 import qualified Amazonka.Prelude as Prelude
 
 -- | Polls 'Amazonka.DynamoDB.DescribeTable' every 20 seconds until a successful state is reached. An error is returned after 25 failed checks.
-newTableNotExists :: Core.Wait DescribeTable
-newTableNotExists =
-  Core.Wait
-    { Core.name = "TableNotExists",
-      Core.attempts = 25,
-      Core.delay = 20,
-      Core.acceptors =
-        [ Core.matchError
-            "ResourceNotFoundException"
-            Core.AcceptSuccess
-        ]
-    }
-
--- | Polls 'Amazonka.DynamoDB.DescribeTable' every 20 seconds until a successful state is reached. An error is returned after 25 failed checks.
 newTableExists :: Core.Wait DescribeTable
 newTableExists =
   Core.Wait
@@ -57,5 +43,19 @@ newTableExists =
           Core.matchError
             "ResourceNotFoundException"
             Core.AcceptRetry
+        ]
+    }
+
+-- | Polls 'Amazonka.DynamoDB.DescribeTable' every 20 seconds until a successful state is reached. An error is returned after 25 failed checks.
+newTableNotExists :: Core.Wait DescribeTable
+newTableNotExists =
+  Core.Wait
+    { Core.name = "TableNotExists",
+      Core.attempts = 25,
+      Core.delay = 20,
+      Core.acceptors =
+        [ Core.matchError
+            "ResourceNotFoundException"
+            Core.AcceptSuccess
         ]
     }

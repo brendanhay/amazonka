@@ -51,14 +51,14 @@ module Amazonka.DynamoDB.Lens
     createGlobalTableResponse_httpStatus,
 
     -- ** CreateTable
-    createTable_tags,
-    createTable_localSecondaryIndexes,
     createTable_billingMode,
+    createTable_globalSecondaryIndexes,
+    createTable_localSecondaryIndexes,
     createTable_provisionedThroughput,
     createTable_sSESpecification,
-    createTable_tableClass,
-    createTable_globalSecondaryIndexes,
     createTable_streamSpecification,
+    createTable_tableClass,
+    createTable_tags,
     createTable_attributeDefinitions,
     createTable_tableName,
     createTable_keySchema,
@@ -71,18 +71,18 @@ module Amazonka.DynamoDB.Lens
     deleteBackupResponse_httpStatus,
 
     -- ** DeleteItem
-    deleteItem_returnValues,
-    deleteItem_expressionAttributeValues,
-    deleteItem_expressionAttributeNames,
-    deleteItem_conditionalOperator,
-    deleteItem_returnConsumedCapacity,
-    deleteItem_expected,
-    deleteItem_returnItemCollectionMetrics,
     deleteItem_conditionExpression,
+    deleteItem_conditionalOperator,
+    deleteItem_expected,
+    deleteItem_expressionAttributeNames,
+    deleteItem_expressionAttributeValues,
+    deleteItem_returnConsumedCapacity,
+    deleteItem_returnItemCollectionMetrics,
+    deleteItem_returnValues,
     deleteItem_tableName,
     deleteItem_key,
-    deleteItemResponse_consumedCapacity,
     deleteItemResponse_attributes,
+    deleteItemResponse_consumedCapacity,
     deleteItemResponse_itemCollectionMetrics,
     deleteItemResponse_httpStatus,
 
@@ -104,12 +104,12 @@ module Amazonka.DynamoDB.Lens
     -- ** DescribeContributorInsights
     describeContributorInsights_indexName,
     describeContributorInsights_tableName,
-    describeContributorInsightsResponse_contributorInsightsStatus,
-    describeContributorInsightsResponse_tableName,
     describeContributorInsightsResponse_contributorInsightsRuleList,
-    describeContributorInsightsResponse_lastUpdateDateTime,
+    describeContributorInsightsResponse_contributorInsightsStatus,
     describeContributorInsightsResponse_failureException,
     describeContributorInsightsResponse_indexName,
+    describeContributorInsightsResponse_lastUpdateDateTime,
+    describeContributorInsightsResponse_tableName,
     describeContributorInsightsResponse_httpStatus,
 
     -- ** DescribeEndpoints
@@ -139,15 +139,15 @@ module Amazonka.DynamoDB.Lens
 
     -- ** DescribeKinesisStreamingDestination
     describeKinesisStreamingDestination_tableName,
-    describeKinesisStreamingDestinationResponse_tableName,
     describeKinesisStreamingDestinationResponse_kinesisDataStreamDestinations,
+    describeKinesisStreamingDestinationResponse_tableName,
     describeKinesisStreamingDestinationResponse_httpStatus,
 
     -- ** DescribeLimits
-    describeLimitsResponse_tableMaxReadCapacityUnits,
-    describeLimitsResponse_accountMaxWriteCapacityUnits,
-    describeLimitsResponse_tableMaxWriteCapacityUnits,
     describeLimitsResponse_accountMaxReadCapacityUnits,
+    describeLimitsResponse_accountMaxWriteCapacityUnits,
+    describeLimitsResponse_tableMaxReadCapacityUnits,
+    describeLimitsResponse_tableMaxWriteCapacityUnits,
     describeLimitsResponse_httpStatus,
 
     -- ** DescribeTable
@@ -168,28 +168,28 @@ module Amazonka.DynamoDB.Lens
     -- ** DisableKinesisStreamingDestination
     disableKinesisStreamingDestination_tableName,
     disableKinesisStreamingDestination_streamArn,
-    kinesisStreamingDestinationOutput_tableName,
-    kinesisStreamingDestinationOutput_streamArn,
     kinesisStreamingDestinationOutput_destinationStatus,
+    kinesisStreamingDestinationOutput_streamArn,
+    kinesisStreamingDestinationOutput_tableName,
 
     -- ** EnableKinesisStreamingDestination
     enableKinesisStreamingDestination_tableName,
     enableKinesisStreamingDestination_streamArn,
-    kinesisStreamingDestinationOutput_tableName,
-    kinesisStreamingDestinationOutput_streamArn,
     kinesisStreamingDestinationOutput_destinationStatus,
+    kinesisStreamingDestinationOutput_streamArn,
+    kinesisStreamingDestinationOutput_tableName,
 
     -- ** ExecuteStatement
-    executeStatement_nextToken,
     executeStatement_consistentRead,
-    executeStatement_returnConsumedCapacity,
     executeStatement_limit,
+    executeStatement_nextToken,
     executeStatement_parameters,
+    executeStatement_returnConsumedCapacity,
     executeStatement_statement,
-    executeStatementResponse_items,
-    executeStatementResponse_nextToken,
-    executeStatementResponse_lastEvaluatedKey,
     executeStatementResponse_consumedCapacity,
+    executeStatementResponse_items,
+    executeStatementResponse_lastEvaluatedKey,
+    executeStatementResponse_nextToken,
     executeStatementResponse_httpStatus,
 
     -- ** ExecuteTransaction
@@ -202,23 +202,23 @@ module Amazonka.DynamoDB.Lens
 
     -- ** ExportTableToPointInTime
     exportTableToPointInTime_clientToken,
-    exportTableToPointInTime_s3SseAlgorithm,
     exportTableToPointInTime_exportFormat,
     exportTableToPointInTime_exportTime,
     exportTableToPointInTime_s3BucketOwner,
-    exportTableToPointInTime_s3SseKmsKeyId,
     exportTableToPointInTime_s3Prefix,
+    exportTableToPointInTime_s3SseAlgorithm,
+    exportTableToPointInTime_s3SseKmsKeyId,
     exportTableToPointInTime_tableArn,
     exportTableToPointInTime_s3Bucket,
     exportTableToPointInTimeResponse_exportDescription,
     exportTableToPointInTimeResponse_httpStatus,
 
     -- ** GetItem
+    getItem_attributesToGet,
     getItem_consistentRead,
     getItem_expressionAttributeNames,
-    getItem_returnConsumedCapacity,
-    getItem_attributesToGet,
     getItem_projectionExpression,
+    getItem_returnConsumedCapacity,
     getItem_tableName,
     getItem_key,
     getItemResponse_consumedCapacity,
@@ -236,46 +236,46 @@ module Amazonka.DynamoDB.Lens
     importTableResponse_importTableDescription,
 
     -- ** ListBackups
-    listBackups_tableName,
-    listBackups_exclusiveStartBackupArn,
-    listBackups_timeRangeUpperBound,
-    listBackups_limit,
     listBackups_backupType,
+    listBackups_exclusiveStartBackupArn,
+    listBackups_limit,
+    listBackups_tableName,
     listBackups_timeRangeLowerBound,
+    listBackups_timeRangeUpperBound,
     listBackupsResponse_backupSummaries,
     listBackupsResponse_lastEvaluatedBackupArn,
     listBackupsResponse_httpStatus,
 
     -- ** ListContributorInsights
-    listContributorInsights_tableName,
-    listContributorInsights_nextToken,
     listContributorInsights_maxResults,
-    listContributorInsightsResponse_nextToken,
+    listContributorInsights_nextToken,
+    listContributorInsights_tableName,
     listContributorInsightsResponse_contributorInsightsSummaries,
+    listContributorInsightsResponse_nextToken,
     listContributorInsightsResponse_httpStatus,
 
     -- ** ListExports
-    listExports_tableArn,
-    listExports_nextToken,
     listExports_maxResults,
-    listExportsResponse_nextToken,
+    listExports_nextToken,
+    listExports_tableArn,
     listExportsResponse_exportSummaries,
+    listExportsResponse_nextToken,
     listExportsResponse_httpStatus,
 
     -- ** ListGlobalTables
     listGlobalTables_exclusiveStartGlobalTableName,
-    listGlobalTables_regionName,
     listGlobalTables_limit,
+    listGlobalTables_regionName,
     listGlobalTablesResponse_globalTables,
     listGlobalTablesResponse_lastEvaluatedGlobalTableName,
     listGlobalTablesResponse_httpStatus,
 
     -- ** ListImports
-    listImports_tableArn,
     listImports_nextToken,
     listImports_pageSize,
-    listImportsResponse_nextToken,
+    listImports_tableArn,
     listImportsResponse_importSummaryList,
+    listImportsResponse_nextToken,
     listImportsResponse_httpStatus,
 
     -- ** ListTables
@@ -288,97 +288,97 @@ module Amazonka.DynamoDB.Lens
     -- ** ListTagsOfResource
     listTagsOfResource_nextToken,
     listTagsOfResource_resourceArn,
-    listTagsOfResourceResponse_tags,
     listTagsOfResourceResponse_nextToken,
+    listTagsOfResourceResponse_tags,
     listTagsOfResourceResponse_httpStatus,
 
     -- ** PutItem
-    putItem_returnValues,
-    putItem_expressionAttributeValues,
-    putItem_expressionAttributeNames,
-    putItem_conditionalOperator,
-    putItem_returnConsumedCapacity,
-    putItem_expected,
-    putItem_returnItemCollectionMetrics,
     putItem_conditionExpression,
+    putItem_conditionalOperator,
+    putItem_expected,
+    putItem_expressionAttributeNames,
+    putItem_expressionAttributeValues,
+    putItem_returnConsumedCapacity,
+    putItem_returnItemCollectionMetrics,
+    putItem_returnValues,
     putItem_tableName,
     putItem_item,
-    putItemResponse_consumedCapacity,
     putItemResponse_attributes,
+    putItemResponse_consumedCapacity,
     putItemResponse_itemCollectionMetrics,
     putItemResponse_httpStatus,
 
     -- ** Query
-    query_consistentRead,
-    query_expressionAttributeValues,
-    query_expressionAttributeNames,
-    query_scanIndexForward,
-    query_conditionalOperator,
-    query_returnConsumedCapacity,
-    query_exclusiveStartKey,
-    query_filterExpression,
     query_attributesToGet,
-    query_keyConditionExpression,
-    query_select,
-    query_limit,
+    query_conditionalOperator,
+    query_consistentRead,
+    query_exclusiveStartKey,
+    query_expressionAttributeNames,
+    query_expressionAttributeValues,
+    query_filterExpression,
     query_indexName,
-    query_queryFilter,
+    query_keyConditionExpression,
     query_keyConditions,
+    query_limit,
     query_projectionExpression,
+    query_queryFilter,
+    query_returnConsumedCapacity,
+    query_scanIndexForward,
+    query_select,
     query_tableName,
-    queryResponse_lastEvaluatedKey,
-    queryResponse_count,
     queryResponse_consumedCapacity,
+    queryResponse_count,
+    queryResponse_lastEvaluatedKey,
     queryResponse_scannedCount,
     queryResponse_httpStatus,
     queryResponse_items,
 
     -- ** RestoreTableFromBackup
-    restoreTableFromBackup_provisionedThroughputOverride,
-    restoreTableFromBackup_localSecondaryIndexOverride,
-    restoreTableFromBackup_sSESpecificationOverride,
     restoreTableFromBackup_billingModeOverride,
     restoreTableFromBackup_globalSecondaryIndexOverride,
+    restoreTableFromBackup_localSecondaryIndexOverride,
+    restoreTableFromBackup_provisionedThroughputOverride,
+    restoreTableFromBackup_sSESpecificationOverride,
     restoreTableFromBackup_targetTableName,
     restoreTableFromBackup_backupArn,
     restoreTableFromBackupResponse_tableDescription,
     restoreTableFromBackupResponse_httpStatus,
 
     -- ** RestoreTableToPointInTime
-    restoreTableToPointInTime_provisionedThroughputOverride,
+    restoreTableToPointInTime_billingModeOverride,
+    restoreTableToPointInTime_globalSecondaryIndexOverride,
     restoreTableToPointInTime_localSecondaryIndexOverride,
+    restoreTableToPointInTime_provisionedThroughputOverride,
+    restoreTableToPointInTime_restoreDateTime,
     restoreTableToPointInTime_sSESpecificationOverride,
     restoreTableToPointInTime_sourceTableArn,
-    restoreTableToPointInTime_useLatestRestorableTime,
-    restoreTableToPointInTime_billingModeOverride,
-    restoreTableToPointInTime_restoreDateTime,
     restoreTableToPointInTime_sourceTableName,
-    restoreTableToPointInTime_globalSecondaryIndexOverride,
+    restoreTableToPointInTime_useLatestRestorableTime,
     restoreTableToPointInTime_targetTableName,
     restoreTableToPointInTimeResponse_tableDescription,
     restoreTableToPointInTimeResponse_httpStatus,
 
     -- ** Scan
-    scan_scanFilter,
-    scan_consistentRead,
-    scan_expressionAttributeValues,
-    scan_expressionAttributeNames,
-    scan_conditionalOperator,
-    scan_returnConsumedCapacity,
-    scan_exclusiveStartKey,
-    scan_filterExpression,
     scan_attributesToGet,
-    scan_select,
-    scan_segment,
-    scan_limit,
+    scan_conditionalOperator,
+    scan_consistentRead,
+    scan_exclusiveStartKey,
+    scan_expressionAttributeNames,
+    scan_expressionAttributeValues,
+    scan_filterExpression,
     scan_indexName,
-    scan_totalSegments,
+    scan_limit,
     scan_projectionExpression,
+    scan_returnConsumedCapacity,
+    scan_scanFilter,
+    scan_segment,
+    scan_select,
+    scan_totalSegments,
     scan_tableName,
+    scanResponse_consumedCapacity,
+    scanResponse_count,
     scanResponse_items,
     scanResponse_lastEvaluatedKey,
-    scanResponse_count,
-    scanResponse_consumedCapacity,
     scanResponse_scannedCount,
     scanResponse_httpStatus,
 
@@ -417,8 +417,8 @@ module Amazonka.DynamoDB.Lens
     updateContributorInsights_tableName,
     updateContributorInsights_contributorInsightsAction,
     updateContributorInsightsResponse_contributorInsightsStatus,
-    updateContributorInsightsResponse_tableName,
     updateContributorInsightsResponse_indexName,
+    updateContributorInsightsResponse_tableName,
     updateContributorInsightsResponse_httpStatus,
 
     -- ** UpdateGlobalTable
@@ -428,10 +428,10 @@ module Amazonka.DynamoDB.Lens
     updateGlobalTableResponse_httpStatus,
 
     -- ** UpdateGlobalTableSettings
+    updateGlobalTableSettings_globalTableBillingMode,
+    updateGlobalTableSettings_globalTableGlobalSecondaryIndexSettingsUpdate,
     updateGlobalTableSettings_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate,
     updateGlobalTableSettings_globalTableProvisionedWriteCapacityUnits,
-    updateGlobalTableSettings_globalTableGlobalSecondaryIndexSettingsUpdate,
-    updateGlobalTableSettings_globalTableBillingMode,
     updateGlobalTableSettings_replicaSettingsUpdate,
     updateGlobalTableSettings_globalTableName,
     updateGlobalTableSettingsResponse_globalTableName,
@@ -439,40 +439,40 @@ module Amazonka.DynamoDB.Lens
     updateGlobalTableSettingsResponse_httpStatus,
 
     -- ** UpdateItem
-    updateItem_returnValues,
-    updateItem_expressionAttributeValues,
-    updateItem_expressionAttributeNames,
-    updateItem_conditionalOperator,
-    updateItem_returnConsumedCapacity,
-    updateItem_expected,
     updateItem_attributeUpdates,
-    updateItem_returnItemCollectionMetrics,
-    updateItem_updateExpression,
     updateItem_conditionExpression,
+    updateItem_conditionalOperator,
+    updateItem_expected,
+    updateItem_expressionAttributeNames,
+    updateItem_expressionAttributeValues,
+    updateItem_returnConsumedCapacity,
+    updateItem_returnItemCollectionMetrics,
+    updateItem_returnValues,
+    updateItem_updateExpression,
     updateItem_tableName,
     updateItem_key,
-    updateItemResponse_consumedCapacity,
     updateItemResponse_attributes,
+    updateItemResponse_consumedCapacity,
     updateItemResponse_itemCollectionMetrics,
     updateItemResponse_httpStatus,
 
     -- ** UpdateTable
-    updateTable_globalSecondaryIndexUpdates,
-    updateTable_replicaUpdates,
-    updateTable_billingMode,
-    updateTable_provisionedThroughput,
-    updateTable_sSESpecification,
-    updateTable_tableClass,
-    updateTable_streamSpecification,
     updateTable_attributeDefinitions,
+    updateTable_billingMode,
+    updateTable_globalSecondaryIndexUpdates,
+    updateTable_provisionedThroughput,
+    updateTable_replicaUpdates,
+    updateTable_sSESpecification,
+    updateTable_streamSpecification,
+    updateTable_tableClass,
     updateTable_tableName,
     updateTableResponse_tableDescription,
     updateTableResponse_httpStatus,
 
     -- ** UpdateTableReplicaAutoScaling
     updateTableReplicaAutoScaling_globalSecondaryIndexUpdates,
-    updateTableReplicaAutoScaling_replicaUpdates,
     updateTableReplicaAutoScaling_provisionedWriteCapacityAutoScalingUpdate,
+    updateTableReplicaAutoScaling_replicaUpdates,
     updateTableReplicaAutoScaling_tableName,
     updateTableReplicaAutoScalingResponse_tableAutoScalingDescription,
     updateTableReplicaAutoScalingResponse_httpStatus,
@@ -486,9 +486,9 @@ module Amazonka.DynamoDB.Lens
     -- * Types
 
     -- ** ArchivalSummary
-    archivalSummary_archivalReason,
-    archivalSummary_archivalDateTime,
     archivalSummary_archivalBackupArn,
+    archivalSummary_archivalDateTime,
+    archivalSummary_archivalReason,
 
     -- ** AttributeDefinition
     attributeDefinition_attributeName,
@@ -507,18 +507,18 @@ module Amazonka.DynamoDB.Lens
     autoScalingPolicyUpdate_targetTrackingScalingPolicyConfiguration,
 
     -- ** AutoScalingSettingsDescription
-    autoScalingSettingsDescription_minimumUnits,
-    autoScalingSettingsDescription_autoScalingRoleArn,
-    autoScalingSettingsDescription_scalingPolicies,
     autoScalingSettingsDescription_autoScalingDisabled,
+    autoScalingSettingsDescription_autoScalingRoleArn,
     autoScalingSettingsDescription_maximumUnits,
+    autoScalingSettingsDescription_minimumUnits,
+    autoScalingSettingsDescription_scalingPolicies,
 
     -- ** AutoScalingSettingsUpdate
+    autoScalingSettingsUpdate_autoScalingDisabled,
+    autoScalingSettingsUpdate_autoScalingRoleArn,
+    autoScalingSettingsUpdate_maximumUnits,
     autoScalingSettingsUpdate_minimumUnits,
     autoScalingSettingsUpdate_scalingPolicyUpdate,
-    autoScalingSettingsUpdate_autoScalingRoleArn,
-    autoScalingSettingsUpdate_autoScalingDisabled,
-    autoScalingSettingsUpdate_maximumUnits,
 
     -- ** AutoScalingTargetTrackingScalingPolicyConfigurationDescription
     autoScalingTargetTrackingScalingPolicyConfigurationDescription_disableScaleIn,
@@ -533,13 +533,13 @@ module Amazonka.DynamoDB.Lens
     autoScalingTargetTrackingScalingPolicyConfigurationUpdate_targetValue,
 
     -- ** BackupDescription
-    backupDescription_sourceTableDetails,
     backupDescription_backupDetails,
+    backupDescription_sourceTableDetails,
     backupDescription_sourceTableFeatureDetails,
 
     -- ** BackupDetails
-    backupDetails_backupSizeBytes,
     backupDetails_backupExpiryDateTime,
+    backupDetails_backupSizeBytes,
     backupDetails_backupArn,
     backupDetails_backupName,
     backupDetails_backupStatus,
@@ -547,20 +547,20 @@ module Amazonka.DynamoDB.Lens
     backupDetails_backupCreationDateTime,
 
     -- ** BackupSummary
-    backupSummary_tableName,
-    backupSummary_tableArn,
+    backupSummary_backupArn,
+    backupSummary_backupCreationDateTime,
+    backupSummary_backupExpiryDateTime,
+    backupSummary_backupName,
     backupSummary_backupSizeBytes,
     backupSummary_backupStatus,
-    backupSummary_tableId,
-    backupSummary_backupName,
     backupSummary_backupType,
-    backupSummary_backupArn,
-    backupSummary_backupExpiryDateTime,
-    backupSummary_backupCreationDateTime,
+    backupSummary_tableArn,
+    backupSummary_tableId,
+    backupSummary_tableName,
 
     -- ** BatchStatementError
-    batchStatementError_message,
     batchStatementError_code,
+    batchStatementError_message,
 
     -- ** BatchStatementRequest
     batchStatementRequest_consistentRead,
@@ -568,17 +568,17 @@ module Amazonka.DynamoDB.Lens
     batchStatementRequest_statement,
 
     -- ** BatchStatementResponse
-    batchStatementResponse_tableName,
-    batchStatementResponse_item,
     batchStatementResponse_error,
+    batchStatementResponse_item,
+    batchStatementResponse_tableName,
 
     -- ** BillingModeSummary
     billingModeSummary_billingMode,
     billingModeSummary_lastUpdateToPayPerRequestDateTime,
 
     -- ** Capacity
-    capacity_readCapacityUnits,
     capacity_capacityUnits,
+    capacity_readCapacityUnits,
     capacity_writeCapacityUnits,
 
     -- ** Condition
@@ -586,21 +586,21 @@ module Amazonka.DynamoDB.Lens
     condition_comparisonOperator,
 
     -- ** ConditionCheck
-    conditionCheck_expressionAttributeValues,
     conditionCheck_expressionAttributeNames,
+    conditionCheck_expressionAttributeValues,
     conditionCheck_returnValuesOnConditionCheckFailure,
     conditionCheck_key,
     conditionCheck_tableName,
     conditionCheck_conditionExpression,
 
     -- ** ConsumedCapacity
-    consumedCapacity_tableName,
+    consumedCapacity_capacityUnits,
+    consumedCapacity_globalSecondaryIndexes,
     consumedCapacity_localSecondaryIndexes,
     consumedCapacity_readCapacityUnits,
-    consumedCapacity_capacityUnits,
-    consumedCapacity_writeCapacityUnits,
-    consumedCapacity_globalSecondaryIndexes,
     consumedCapacity_table,
+    consumedCapacity_tableName,
+    consumedCapacity_writeCapacityUnits,
 
     -- ** ContinuousBackupsDescription
     continuousBackupsDescription_pointInTimeRecoveryDescription,
@@ -608,8 +608,8 @@ module Amazonka.DynamoDB.Lens
 
     -- ** ContributorInsightsSummary
     contributorInsightsSummary_contributorInsightsStatus,
-    contributorInsightsSummary_tableName,
     contributorInsightsSummary_indexName,
+    contributorInsightsSummary_tableName,
 
     -- ** CreateGlobalSecondaryIndexAction
     createGlobalSecondaryIndexAction_provisionedThroughput,
@@ -621,10 +621,10 @@ module Amazonka.DynamoDB.Lens
     createReplicaAction_regionName,
 
     -- ** CreateReplicationGroupMemberAction
-    createReplicationGroupMemberAction_kmsMasterKeyId,
-    createReplicationGroupMemberAction_tableClassOverride,
-    createReplicationGroupMemberAction_provisionedThroughputOverride,
     createReplicationGroupMemberAction_globalSecondaryIndexes,
+    createReplicationGroupMemberAction_kmsMasterKeyId,
+    createReplicationGroupMemberAction_provisionedThroughputOverride,
+    createReplicationGroupMemberAction_tableClassOverride,
     createReplicationGroupMemberAction_regionName,
 
     -- ** CsvOptions
@@ -632,10 +632,10 @@ module Amazonka.DynamoDB.Lens
     csvOptions_headerList,
 
     -- ** Delete
-    delete_expressionAttributeValues,
-    delete_expressionAttributeNames,
-    delete_returnValuesOnConditionCheckFailure,
     delete_conditionExpression,
+    delete_expressionAttributeNames,
+    delete_expressionAttributeValues,
+    delete_returnValuesOnConditionCheckFailure,
     delete_key,
     delete_tableName,
 
@@ -653,31 +653,31 @@ module Amazonka.DynamoDB.Lens
     endpoint_cachePeriodInMinutes,
 
     -- ** ExpectedAttributeValue
-    expectedAttributeValue_exists,
     expectedAttributeValue_attributeValueList,
     expectedAttributeValue_comparisonOperator,
+    expectedAttributeValue_exists,
     expectedAttributeValue_value,
 
     -- ** ExportDescription
-    exportDescription_s3Bucket,
-    exportDescription_clientToken,
-    exportDescription_tableArn,
-    exportDescription_failureCode,
-    exportDescription_exportArn,
     exportDescription_billedSizeBytes,
-    exportDescription_s3SseAlgorithm,
-    exportDescription_itemCount,
+    exportDescription_clientToken,
     exportDescription_endTime,
-    exportDescription_failureMessage,
-    exportDescription_tableId,
+    exportDescription_exportArn,
     exportDescription_exportFormat,
-    exportDescription_exportTime,
-    exportDescription_s3BucketOwner,
-    exportDescription_exportStatus,
-    exportDescription_s3SseKmsKeyId,
     exportDescription_exportManifest,
-    exportDescription_startTime,
+    exportDescription_exportStatus,
+    exportDescription_exportTime,
+    exportDescription_failureCode,
+    exportDescription_failureMessage,
+    exportDescription_itemCount,
+    exportDescription_s3Bucket,
+    exportDescription_s3BucketOwner,
     exportDescription_s3Prefix,
+    exportDescription_s3SseAlgorithm,
+    exportDescription_s3SseKmsKeyId,
+    exportDescription_startTime,
+    exportDescription_tableArn,
+    exportDescription_tableId,
 
     -- ** ExportSummary
     exportSummary_exportArn,
@@ -700,25 +700,25 @@ module Amazonka.DynamoDB.Lens
     globalSecondaryIndex_projection,
 
     -- ** GlobalSecondaryIndexAutoScalingUpdate
-    globalSecondaryIndexAutoScalingUpdate_provisionedWriteCapacityAutoScalingUpdate,
     globalSecondaryIndexAutoScalingUpdate_indexName,
+    globalSecondaryIndexAutoScalingUpdate_provisionedWriteCapacityAutoScalingUpdate,
 
     -- ** GlobalSecondaryIndexDescription
-    globalSecondaryIndexDescription_itemCount,
-    globalSecondaryIndexDescription_provisionedThroughput,
     globalSecondaryIndexDescription_backfilling,
-    globalSecondaryIndexDescription_indexName,
     globalSecondaryIndexDescription_indexArn,
-    globalSecondaryIndexDescription_indexStatus,
+    globalSecondaryIndexDescription_indexName,
     globalSecondaryIndexDescription_indexSizeBytes,
+    globalSecondaryIndexDescription_indexStatus,
+    globalSecondaryIndexDescription_itemCount,
     globalSecondaryIndexDescription_keySchema,
     globalSecondaryIndexDescription_projection,
+    globalSecondaryIndexDescription_provisionedThroughput,
 
     -- ** GlobalSecondaryIndexInfo
-    globalSecondaryIndexInfo_provisionedThroughput,
     globalSecondaryIndexInfo_indexName,
     globalSecondaryIndexInfo_keySchema,
     globalSecondaryIndexInfo_projection,
+    globalSecondaryIndexInfo_provisionedThroughput,
 
     -- ** GlobalSecondaryIndexUpdate
     globalSecondaryIndexUpdate_create,
@@ -726,58 +726,58 @@ module Amazonka.DynamoDB.Lens
     globalSecondaryIndexUpdate_update,
 
     -- ** GlobalTable
-    globalTable_replicationGroup,
     globalTable_globalTableName,
+    globalTable_replicationGroup,
 
     -- ** GlobalTableDescription
-    globalTableDescription_globalTableStatus,
-    globalTableDescription_replicationGroup,
-    globalTableDescription_globalTableName,
     globalTableDescription_creationDateTime,
     globalTableDescription_globalTableArn,
+    globalTableDescription_globalTableName,
+    globalTableDescription_globalTableStatus,
+    globalTableDescription_replicationGroup,
 
     -- ** GlobalTableGlobalSecondaryIndexSettingsUpdate
-    globalTableGlobalSecondaryIndexSettingsUpdate_provisionedWriteCapacityUnits,
     globalTableGlobalSecondaryIndexSettingsUpdate_provisionedWriteCapacityAutoScalingSettingsUpdate,
+    globalTableGlobalSecondaryIndexSettingsUpdate_provisionedWriteCapacityUnits,
     globalTableGlobalSecondaryIndexSettingsUpdate_indexName,
 
     -- ** ImportSummary
-    importSummary_tableArn,
-    importSummary_importArn,
     importSummary_cloudWatchLogGroupArn,
     importSummary_endTime,
-    importSummary_s3BucketSource,
+    importSummary_importArn,
     importSummary_importStatus,
     importSummary_inputFormat,
+    importSummary_s3BucketSource,
     importSummary_startTime,
+    importSummary_tableArn,
 
     -- ** ImportTableDescription
-    importTableDescription_importedItemCount,
     importTableDescription_clientToken,
-    importTableDescription_tableArn,
-    importTableDescription_failureCode,
-    importTableDescription_processedSizeBytes,
-    importTableDescription_inputCompressionType,
-    importTableDescription_errorCount,
-    importTableDescription_importArn,
     importTableDescription_cloudWatchLogGroupArn,
     importTableDescription_endTime,
+    importTableDescription_errorCount,
+    importTableDescription_failureCode,
     importTableDescription_failureMessage,
-    importTableDescription_tableId,
-    importTableDescription_processedItemCount,
-    importTableDescription_tableCreationParameters,
-    importTableDescription_s3BucketSource,
+    importTableDescription_importArn,
     importTableDescription_importStatus,
+    importTableDescription_importedItemCount,
+    importTableDescription_inputCompressionType,
     importTableDescription_inputFormat,
-    importTableDescription_startTime,
     importTableDescription_inputFormatOptions,
+    importTableDescription_processedItemCount,
+    importTableDescription_processedSizeBytes,
+    importTableDescription_s3BucketSource,
+    importTableDescription_startTime,
+    importTableDescription_tableArn,
+    importTableDescription_tableCreationParameters,
+    importTableDescription_tableId,
 
     -- ** InputFormatOptions
     inputFormatOptions_csv,
 
     -- ** ItemCollectionMetrics
-    itemCollectionMetrics_sizeEstimateRangeGB,
     itemCollectionMetrics_itemCollectionKey,
+    itemCollectionMetrics_sizeEstimateRangeGB,
 
     -- ** ItemResponse
     itemResponse_item,
@@ -787,25 +787,25 @@ module Amazonka.DynamoDB.Lens
     keySchemaElement_keyType,
 
     -- ** KeysAndAttributes
+    keysAndAttributes_attributesToGet,
     keysAndAttributes_consistentRead,
     keysAndAttributes_expressionAttributeNames,
-    keysAndAttributes_attributesToGet,
     keysAndAttributes_projectionExpression,
     keysAndAttributes_keys,
 
     -- ** KinesisDataStreamDestination
+    kinesisDataStreamDestination_destinationStatus,
     kinesisDataStreamDestination_destinationStatusDescription,
     kinesisDataStreamDestination_streamArn,
-    kinesisDataStreamDestination_destinationStatus,
 
     -- ** KinesisStreamingDestinationInput
     kinesisStreamingDestinationInput_tableName,
     kinesisStreamingDestinationInput_streamArn,
 
     -- ** KinesisStreamingDestinationOutput
-    kinesisStreamingDestinationOutput_tableName,
-    kinesisStreamingDestinationOutput_streamArn,
     kinesisStreamingDestinationOutput_destinationStatus,
+    kinesisStreamingDestinationOutput_streamArn,
+    kinesisStreamingDestinationOutput_tableName,
 
     -- ** LocalSecondaryIndex
     localSecondaryIndex_indexName,
@@ -813,10 +813,10 @@ module Amazonka.DynamoDB.Lens
     localSecondaryIndex_projection,
 
     -- ** LocalSecondaryIndexDescription
-    localSecondaryIndexDescription_itemCount,
-    localSecondaryIndexDescription_indexName,
     localSecondaryIndexDescription_indexArn,
+    localSecondaryIndexDescription_indexName,
     localSecondaryIndexDescription_indexSizeBytes,
+    localSecondaryIndexDescription_itemCount,
     localSecondaryIndexDescription_keySchema,
     localSecondaryIndexDescription_projection,
 
@@ -831,35 +831,35 @@ module Amazonka.DynamoDB.Lens
 
     -- ** PointInTimeRecoveryDescription
     pointInTimeRecoveryDescription_earliestRestorableDateTime,
-    pointInTimeRecoveryDescription_pointInTimeRecoveryStatus,
     pointInTimeRecoveryDescription_latestRestorableDateTime,
+    pointInTimeRecoveryDescription_pointInTimeRecoveryStatus,
 
     -- ** PointInTimeRecoverySpecification
     pointInTimeRecoverySpecification_pointInTimeRecoveryEnabled,
 
     -- ** Projection
-    projection_projectionType,
     projection_nonKeyAttributes,
+    projection_projectionType,
 
     -- ** ProvisionedThroughput
     provisionedThroughput_readCapacityUnits,
     provisionedThroughput_writeCapacityUnits,
 
     -- ** ProvisionedThroughputDescription
-    provisionedThroughputDescription_readCapacityUnits,
-    provisionedThroughputDescription_numberOfDecreasesToday,
-    provisionedThroughputDescription_writeCapacityUnits,
-    provisionedThroughputDescription_lastIncreaseDateTime,
     provisionedThroughputDescription_lastDecreaseDateTime,
+    provisionedThroughputDescription_lastIncreaseDateTime,
+    provisionedThroughputDescription_numberOfDecreasesToday,
+    provisionedThroughputDescription_readCapacityUnits,
+    provisionedThroughputDescription_writeCapacityUnits,
 
     -- ** ProvisionedThroughputOverride
     provisionedThroughputOverride_readCapacityUnits,
 
     -- ** Put
-    put_expressionAttributeValues,
-    put_expressionAttributeNames,
-    put_returnValuesOnConditionCheckFailure,
     put_conditionExpression,
+    put_expressionAttributeNames,
+    put_expressionAttributeValues,
+    put_returnValuesOnConditionCheckFailure,
     put_item,
     put_tableName,
 
@@ -867,27 +867,27 @@ module Amazonka.DynamoDB.Lens
     replica_regionName,
 
     -- ** ReplicaAutoScalingDescription
+    replicaAutoScalingDescription_globalSecondaryIndexes,
+    replicaAutoScalingDescription_regionName,
     replicaAutoScalingDescription_replicaProvisionedReadCapacityAutoScalingSettings,
     replicaAutoScalingDescription_replicaProvisionedWriteCapacityAutoScalingSettings,
-    replicaAutoScalingDescription_regionName,
-    replicaAutoScalingDescription_globalSecondaryIndexes,
     replicaAutoScalingDescription_replicaStatus,
 
     -- ** ReplicaAutoScalingUpdate
-    replicaAutoScalingUpdate_replicaProvisionedReadCapacityAutoScalingUpdate,
     replicaAutoScalingUpdate_replicaGlobalSecondaryIndexUpdates,
+    replicaAutoScalingUpdate_replicaProvisionedReadCapacityAutoScalingUpdate,
     replicaAutoScalingUpdate_regionName,
 
     -- ** ReplicaDescription
+    replicaDescription_globalSecondaryIndexes,
     replicaDescription_kmsMasterKeyId,
-    replicaDescription_replicaInaccessibleDateTime,
     replicaDescription_provisionedThroughputOverride,
     replicaDescription_regionName,
+    replicaDescription_replicaInaccessibleDateTime,
+    replicaDescription_replicaStatus,
+    replicaDescription_replicaStatusDescription,
     replicaDescription_replicaStatusPercentProgress,
     replicaDescription_replicaTableClassSummary,
-    replicaDescription_replicaStatusDescription,
-    replicaDescription_globalSecondaryIndexes,
-    replicaDescription_replicaStatus,
 
     -- ** ReplicaGlobalSecondaryIndex
     replicaGlobalSecondaryIndex_provisionedThroughputOverride,
@@ -900,40 +900,40 @@ module Amazonka.DynamoDB.Lens
     replicaGlobalSecondaryIndexAutoScalingDescription_provisionedWriteCapacityAutoScalingSettings,
 
     -- ** ReplicaGlobalSecondaryIndexAutoScalingUpdate
-    replicaGlobalSecondaryIndexAutoScalingUpdate_provisionedReadCapacityAutoScalingUpdate,
     replicaGlobalSecondaryIndexAutoScalingUpdate_indexName,
+    replicaGlobalSecondaryIndexAutoScalingUpdate_provisionedReadCapacityAutoScalingUpdate,
 
     -- ** ReplicaGlobalSecondaryIndexDescription
-    replicaGlobalSecondaryIndexDescription_provisionedThroughputOverride,
     replicaGlobalSecondaryIndexDescription_indexName,
+    replicaGlobalSecondaryIndexDescription_provisionedThroughputOverride,
 
     -- ** ReplicaGlobalSecondaryIndexSettingsDescription
-    replicaGlobalSecondaryIndexSettingsDescription_provisionedReadCapacityUnits,
     replicaGlobalSecondaryIndexSettingsDescription_indexStatus,
-    replicaGlobalSecondaryIndexSettingsDescription_provisionedWriteCapacityUnits,
     replicaGlobalSecondaryIndexSettingsDescription_provisionedReadCapacityAutoScalingSettings,
+    replicaGlobalSecondaryIndexSettingsDescription_provisionedReadCapacityUnits,
     replicaGlobalSecondaryIndexSettingsDescription_provisionedWriteCapacityAutoScalingSettings,
+    replicaGlobalSecondaryIndexSettingsDescription_provisionedWriteCapacityUnits,
     replicaGlobalSecondaryIndexSettingsDescription_indexName,
 
     -- ** ReplicaGlobalSecondaryIndexSettingsUpdate
-    replicaGlobalSecondaryIndexSettingsUpdate_provisionedReadCapacityUnits,
     replicaGlobalSecondaryIndexSettingsUpdate_provisionedReadCapacityAutoScalingSettingsUpdate,
+    replicaGlobalSecondaryIndexSettingsUpdate_provisionedReadCapacityUnits,
     replicaGlobalSecondaryIndexSettingsUpdate_indexName,
 
     -- ** ReplicaSettingsDescription
-    replicaSettingsDescription_replicaProvisionedReadCapacityAutoScalingSettings,
-    replicaSettingsDescription_replicaProvisionedWriteCapacityAutoScalingSettings,
-    replicaSettingsDescription_replicaGlobalSecondaryIndexSettings,
     replicaSettingsDescription_replicaBillingModeSummary,
-    replicaSettingsDescription_replicaTableClassSummary,
-    replicaSettingsDescription_replicaProvisionedWriteCapacityUnits,
+    replicaSettingsDescription_replicaGlobalSecondaryIndexSettings,
+    replicaSettingsDescription_replicaProvisionedReadCapacityAutoScalingSettings,
     replicaSettingsDescription_replicaProvisionedReadCapacityUnits,
+    replicaSettingsDescription_replicaProvisionedWriteCapacityAutoScalingSettings,
+    replicaSettingsDescription_replicaProvisionedWriteCapacityUnits,
     replicaSettingsDescription_replicaStatus,
+    replicaSettingsDescription_replicaTableClassSummary,
     replicaSettingsDescription_regionName,
 
     -- ** ReplicaSettingsUpdate
-    replicaSettingsUpdate_replicaProvisionedReadCapacityAutoScalingSettingsUpdate,
     replicaSettingsUpdate_replicaGlobalSecondaryIndexSettingsUpdate,
+    replicaSettingsUpdate_replicaProvisionedReadCapacityAutoScalingSettingsUpdate,
     replicaSettingsUpdate_replicaProvisionedReadCapacityUnits,
     replicaSettingsUpdate_replicaTableClass,
     replicaSettingsUpdate_regionName,
@@ -954,26 +954,26 @@ module Amazonka.DynamoDB.Lens
     restoreSummary_restoreInProgress,
 
     -- ** S3BucketSource
-    s3BucketSource_s3KeyPrefix,
     s3BucketSource_s3BucketOwner,
+    s3BucketSource_s3KeyPrefix,
     s3BucketSource_s3Bucket,
 
     -- ** SSEDescription
     sSEDescription_inaccessibleEncryptionDateTime,
-    sSEDescription_status,
-    sSEDescription_sSEType,
     sSEDescription_kmsMasterKeyArn,
+    sSEDescription_sSEType,
+    sSEDescription_status,
 
     -- ** SSESpecification
-    sSESpecification_kmsMasterKeyId,
     sSESpecification_enabled,
+    sSESpecification_kmsMasterKeyId,
     sSESpecification_sSEType,
 
     -- ** SourceTableDetails
-    sourceTableDetails_tableArn,
-    sourceTableDetails_tableSizeBytes,
     sourceTableDetails_billingMode,
     sourceTableDetails_itemCount,
+    sourceTableDetails_tableArn,
+    sourceTableDetails_tableSizeBytes,
     sourceTableDetails_tableName,
     sourceTableDetails_tableId,
     sourceTableDetails_keySchema,
@@ -981,20 +981,20 @@ module Amazonka.DynamoDB.Lens
     sourceTableDetails_provisionedThroughput,
 
     -- ** SourceTableFeatureDetails
-    sourceTableFeatureDetails_localSecondaryIndexes,
-    sourceTableFeatureDetails_timeToLiveDescription,
-    sourceTableFeatureDetails_streamDescription,
     sourceTableFeatureDetails_globalSecondaryIndexes,
+    sourceTableFeatureDetails_localSecondaryIndexes,
     sourceTableFeatureDetails_sSEDescription,
+    sourceTableFeatureDetails_streamDescription,
+    sourceTableFeatureDetails_timeToLiveDescription,
 
     -- ** StreamSpecification
     streamSpecification_streamViewType,
     streamSpecification_streamEnabled,
 
     -- ** TableAutoScalingDescription
+    tableAutoScalingDescription_replicas,
     tableAutoScalingDescription_tableName,
     tableAutoScalingDescription_tableStatus,
-    tableAutoScalingDescription_replicas,
 
     -- ** TableClassSummary
     tableClassSummary_lastUpdateDateTime,
@@ -1002,44 +1002,44 @@ module Amazonka.DynamoDB.Lens
 
     -- ** TableCreationParameters
     tableCreationParameters_billingMode,
+    tableCreationParameters_globalSecondaryIndexes,
     tableCreationParameters_provisionedThroughput,
     tableCreationParameters_sSESpecification,
-    tableCreationParameters_globalSecondaryIndexes,
     tableCreationParameters_tableName,
     tableCreationParameters_attributeDefinitions,
     tableCreationParameters_keySchema,
 
     -- ** TableDescription
-    tableDescription_tableName,
-    tableDescription_latestStreamLabel,
-    tableDescription_billingModeSummary,
-    tableDescription_tableStatus,
     tableDescription_archivalSummary,
-    tableDescription_tableArn,
-    tableDescription_localSecondaryIndexes,
-    tableDescription_tableSizeBytes,
-    tableDescription_creationDateTime,
-    tableDescription_replicas,
-    tableDescription_itemCount,
-    tableDescription_provisionedThroughput,
-    tableDescription_latestStreamArn,
-    tableDescription_tableId,
-    tableDescription_tableClassSummary,
-    tableDescription_keySchema,
-    tableDescription_restoreSummary,
-    tableDescription_globalSecondaryIndexes,
-    tableDescription_streamSpecification,
-    tableDescription_globalTableVersion,
-    tableDescription_sSEDescription,
     tableDescription_attributeDefinitions,
+    tableDescription_billingModeSummary,
+    tableDescription_creationDateTime,
+    tableDescription_globalSecondaryIndexes,
+    tableDescription_globalTableVersion,
+    tableDescription_itemCount,
+    tableDescription_keySchema,
+    tableDescription_latestStreamArn,
+    tableDescription_latestStreamLabel,
+    tableDescription_localSecondaryIndexes,
+    tableDescription_provisionedThroughput,
+    tableDescription_replicas,
+    tableDescription_restoreSummary,
+    tableDescription_sSEDescription,
+    tableDescription_streamSpecification,
+    tableDescription_tableArn,
+    tableDescription_tableClassSummary,
+    tableDescription_tableId,
+    tableDescription_tableName,
+    tableDescription_tableSizeBytes,
+    tableDescription_tableStatus,
 
     -- ** Tag
     tag_key,
     tag_value,
 
     -- ** TimeToLiveDescription
-    timeToLiveDescription_timeToLiveStatus,
     timeToLiveDescription_attributeName,
+    timeToLiveDescription_timeToLiveStatus,
 
     -- ** TimeToLiveSpecification
     timeToLiveSpecification_enabled,
@@ -1055,10 +1055,10 @@ module Amazonka.DynamoDB.Lens
     transactWriteItem_update,
 
     -- ** Update
-    update_expressionAttributeValues,
-    update_expressionAttributeNames,
-    update_returnValuesOnConditionCheckFailure,
     update_conditionExpression,
+    update_expressionAttributeNames,
+    update_expressionAttributeValues,
+    update_returnValuesOnConditionCheckFailure,
     update_key,
     update_updateExpression,
     update_tableName,
@@ -1068,10 +1068,10 @@ module Amazonka.DynamoDB.Lens
     updateGlobalSecondaryIndexAction_provisionedThroughput,
 
     -- ** UpdateReplicationGroupMemberAction
-    updateReplicationGroupMemberAction_kmsMasterKeyId,
-    updateReplicationGroupMemberAction_tableClassOverride,
-    updateReplicationGroupMemberAction_provisionedThroughputOverride,
     updateReplicationGroupMemberAction_globalSecondaryIndexes,
+    updateReplicationGroupMemberAction_kmsMasterKeyId,
+    updateReplicationGroupMemberAction_provisionedThroughputOverride,
+    updateReplicationGroupMemberAction_tableClassOverride,
     updateReplicationGroupMemberAction_regionName,
   )
 where

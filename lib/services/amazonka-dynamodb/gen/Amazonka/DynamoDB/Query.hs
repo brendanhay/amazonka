@@ -84,22 +84,22 @@ module Amazonka.DynamoDB.Query
     newQuery,
 
     -- * Request Lenses
-    query_consistentRead,
-    query_expressionAttributeValues,
-    query_expressionAttributeNames,
-    query_scanIndexForward,
-    query_conditionalOperator,
-    query_returnConsumedCapacity,
-    query_exclusiveStartKey,
-    query_filterExpression,
     query_attributesToGet,
-    query_keyConditionExpression,
-    query_select,
-    query_limit,
+    query_conditionalOperator,
+    query_consistentRead,
+    query_exclusiveStartKey,
+    query_expressionAttributeNames,
+    query_expressionAttributeValues,
+    query_filterExpression,
     query_indexName,
-    query_queryFilter,
+    query_keyConditionExpression,
     query_keyConditions,
+    query_limit,
     query_projectionExpression,
+    query_queryFilter,
+    query_returnConsumedCapacity,
+    query_scanIndexForward,
+    query_select,
     query_tableName,
 
     -- * Destructuring the Response
@@ -107,9 +107,9 @@ module Amazonka.DynamoDB.Query
     newQueryResponse,
 
     -- * Response Lenses
-    queryResponse_lastEvaluatedKey,
-    queryResponse_count,
     queryResponse_consumedCapacity,
+    queryResponse_count,
+    queryResponse_lastEvaluatedKey,
     queryResponse_scannedCount,
     queryResponse_httpStatus,
     queryResponse_items,
@@ -128,7 +128,17 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newQuery' smart constructor.
 data Query = Query'
-  { -- | Determines the read consistency model: If set to @true@, then the
+  { -- | This is a legacy parameter. Use @ProjectionExpression@ instead. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html AttributesToGet>
+    -- in the /Amazon DynamoDB Developer Guide/.
+    attributesToGet :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | This is a legacy parameter. Use @FilterExpression@ instead. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html ConditionalOperator>
+    -- in the /Amazon DynamoDB Developer Guide/.
+    conditionalOperator :: Prelude.Maybe ConditionalOperator,
+    -- | Determines the read consistency model: If set to @true@, then the
     -- operation uses strongly consistent reads; otherwise, the operation uses
     -- eventually consistent reads.
     --
@@ -136,26 +146,13 @@ data Query = Query'
     -- If you query a global secondary index with @ConsistentRead@ set to
     -- @true@, you will receive a @ValidationException@.
     consistentRead :: Prelude.Maybe Prelude.Bool,
-    -- | One or more values that can be substituted in an expression.
+    -- | The primary key of the first item that this operation will evaluate. Use
+    -- the value that was returned for @LastEvaluatedKey@ in the previous
+    -- operation.
     --
-    -- Use the __:__ (colon) character in an expression to dereference an
-    -- attribute value. For example, suppose that you wanted to check whether
-    -- the value of the /ProductStatus/ attribute was one of the following:
-    --
-    -- @Available | Backordered | Discontinued@
-    --
-    -- You would first need to specify @ExpressionAttributeValues@ as follows:
-    --
-    -- @{ \":avail\":{\"S\":\"Available\"}, \":back\":{\"S\":\"Backordered\"}, \":disc\":{\"S\":\"Discontinued\"} }@
-    --
-    -- You could then use these values in an expression, such as this:
-    --
-    -- @ProductStatus IN (:avail, :back, :disc)@
-    --
-    -- For more information on expression attribute values, see
-    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions>
-    -- in the /Amazon DynamoDB Developer Guide/.
-    expressionAttributeValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
+    -- The data type for @ExclusiveStartKey@ must be String, Number, or Binary.
+    -- No set data types are allowed.
+    exclusiveStartKey :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
     -- | One or more substitution tokens for attribute names in an expression.
     -- The following are some use cases for using @ExpressionAttributeNames@:
     --
@@ -194,35 +191,26 @@ data Query = Query'
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes>
     -- in the /Amazon DynamoDB Developer Guide/.
     expressionAttributeNames :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Specifies the order for index traversal: If @true@ (default), the
-    -- traversal is performed in ascending order; if @false@, the traversal is
-    -- performed in descending order.
+    -- | One or more values that can be substituted in an expression.
     --
-    -- Items with the same partition key value are stored in sorted order by
-    -- sort key. If the sort key data type is Number, the results are stored in
-    -- numeric order. For type String, the results are stored in order of UTF-8
-    -- bytes. For type Binary, DynamoDB treats each byte of the binary data as
-    -- unsigned.
+    -- Use the __:__ (colon) character in an expression to dereference an
+    -- attribute value. For example, suppose that you wanted to check whether
+    -- the value of the /ProductStatus/ attribute was one of the following:
     --
-    -- If @ScanIndexForward@ is @true@, DynamoDB returns the results in the
-    -- order in which they are stored (by sort key value). This is the default
-    -- behavior. If @ScanIndexForward@ is @false@, DynamoDB reads the results
-    -- in reverse order by sort key value, and then returns the results to the
-    -- client.
-    scanIndexForward :: Prelude.Maybe Prelude.Bool,
-    -- | This is a legacy parameter. Use @FilterExpression@ instead. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html ConditionalOperator>
+    -- @Available | Backordered | Discontinued@
+    --
+    -- You would first need to specify @ExpressionAttributeValues@ as follows:
+    --
+    -- @{ \":avail\":{\"S\":\"Available\"}, \":back\":{\"S\":\"Backordered\"}, \":disc\":{\"S\":\"Discontinued\"} }@
+    --
+    -- You could then use these values in an expression, such as this:
+    --
+    -- @ProductStatus IN (:avail, :back, :disc)@
+    --
+    -- For more information on expression attribute values, see
+    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions>
     -- in the /Amazon DynamoDB Developer Guide/.
-    conditionalOperator :: Prelude.Maybe ConditionalOperator,
-    returnConsumedCapacity :: Prelude.Maybe ReturnConsumedCapacity,
-    -- | The primary key of the first item that this operation will evaluate. Use
-    -- the value that was returned for @LastEvaluatedKey@ in the previous
-    -- operation.
-    --
-    -- The data type for @ExclusiveStartKey@ must be String, Number, or Binary.
-    -- No set data types are allowed.
-    exclusiveStartKey :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
+    expressionAttributeValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
     -- | A string that contains conditions that DynamoDB applies after the
     -- @Query@ operation, but before the data is returned to you. Items that do
     -- not satisfy the @FilterExpression@ criteria are not returned.
@@ -238,11 +226,10 @@ data Query = Query'
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#Query.FilterExpression Filter Expressions>
     -- in the /Amazon DynamoDB Developer Guide/.
     filterExpression :: Prelude.Maybe Prelude.Text,
-    -- | This is a legacy parameter. Use @ProjectionExpression@ instead. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html AttributesToGet>
-    -- in the /Amazon DynamoDB Developer Guide/.
-    attributesToGet :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The name of an index to query. This index can be any local secondary
+    -- index or global secondary index on the table. Note that if you use the
+    -- @IndexName@ parameter, you must also provide @TableName.@
+    indexName :: Prelude.Maybe Prelude.Text,
     -- | The condition that specifies the key values for items to be retrieved by
     -- the @Query@ action.
     --
@@ -318,6 +305,58 @@ data Query = Query'
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ExpressionPlaceholders.html Using Placeholders for Attribute Names and Values>
     -- in the /Amazon DynamoDB Developer Guide/.
     keyConditionExpression :: Prelude.Maybe Prelude.Text,
+    -- | This is a legacy parameter. Use @KeyConditionExpression@ instead. For
+    -- more information, see
+    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.KeyConditions.html KeyConditions>
+    -- in the /Amazon DynamoDB Developer Guide/.
+    keyConditions :: Prelude.Maybe (Prelude.HashMap Prelude.Text Condition),
+    -- | The maximum number of items to evaluate (not necessarily the number of
+    -- matching items). If DynamoDB processes the number of items up to the
+    -- limit while processing the results, it stops the operation and returns
+    -- the matching values up to that point, and a key in @LastEvaluatedKey@ to
+    -- apply in a subsequent operation, so that you can pick up where you left
+    -- off. Also, if the processed dataset size exceeds 1 MB before DynamoDB
+    -- reaches this limit, it stops the operation and returns the matching
+    -- values up to the limit, and a key in @LastEvaluatedKey@ to apply in a
+    -- subsequent operation to continue the operation. For more information,
+    -- see
+    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html Query and Scan>
+    -- in the /Amazon DynamoDB Developer Guide/.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | A string that identifies one or more attributes to retrieve from the
+    -- table. These attributes can include scalars, sets, or elements of a JSON
+    -- document. The attributes in the expression must be separated by commas.
+    --
+    -- If no attribute names are specified, then all attributes will be
+    -- returned. If any of the requested attributes are not found, they will
+    -- not appear in the result.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes>
+    -- in the /Amazon DynamoDB Developer Guide/.
+    projectionExpression :: Prelude.Maybe Prelude.Text,
+    -- | This is a legacy parameter. Use @FilterExpression@ instead. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.QueryFilter.html QueryFilter>
+    -- in the /Amazon DynamoDB Developer Guide/.
+    queryFilter :: Prelude.Maybe (Prelude.HashMap Prelude.Text Condition),
+    returnConsumedCapacity :: Prelude.Maybe ReturnConsumedCapacity,
+    -- | Specifies the order for index traversal: If @true@ (default), the
+    -- traversal is performed in ascending order; if @false@, the traversal is
+    -- performed in descending order.
+    --
+    -- Items with the same partition key value are stored in sorted order by
+    -- sort key. If the sort key data type is Number, the results are stored in
+    -- numeric order. For type String, the results are stored in order of UTF-8
+    -- bytes. For type Binary, DynamoDB treats each byte of the binary data as
+    -- unsigned.
+    --
+    -- If @ScanIndexForward@ is @true@, DynamoDB returns the results in the
+    -- order in which they are stored (by sort key value). This is the default
+    -- behavior. If @ScanIndexForward@ is @false@, DynamoDB reads the results
+    -- in reverse order by sort key value, and then returns the results to the
+    -- client.
+    scanIndexForward :: Prelude.Maybe Prelude.Bool,
     -- | The attributes to be returned in the result. You can retrieve all item
     -- attributes, specific item attributes, the count of matching items, or in
     -- the case of an index, some or all of the attributes projected into the
@@ -366,45 +405,6 @@ data Query = Query'
     -- @Select@ can only be @SPECIFIC_ATTRIBUTES@. Any other value for @Select@
     -- will return an error.
     select :: Prelude.Maybe Select,
-    -- | The maximum number of items to evaluate (not necessarily the number of
-    -- matching items). If DynamoDB processes the number of items up to the
-    -- limit while processing the results, it stops the operation and returns
-    -- the matching values up to that point, and a key in @LastEvaluatedKey@ to
-    -- apply in a subsequent operation, so that you can pick up where you left
-    -- off. Also, if the processed dataset size exceeds 1 MB before DynamoDB
-    -- reaches this limit, it stops the operation and returns the matching
-    -- values up to the limit, and a key in @LastEvaluatedKey@ to apply in a
-    -- subsequent operation to continue the operation. For more information,
-    -- see
-    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html Query and Scan>
-    -- in the /Amazon DynamoDB Developer Guide/.
-    limit :: Prelude.Maybe Prelude.Natural,
-    -- | The name of an index to query. This index can be any local secondary
-    -- index or global secondary index on the table. Note that if you use the
-    -- @IndexName@ parameter, you must also provide @TableName.@
-    indexName :: Prelude.Maybe Prelude.Text,
-    -- | This is a legacy parameter. Use @FilterExpression@ instead. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.QueryFilter.html QueryFilter>
-    -- in the /Amazon DynamoDB Developer Guide/.
-    queryFilter :: Prelude.Maybe (Prelude.HashMap Prelude.Text Condition),
-    -- | This is a legacy parameter. Use @KeyConditionExpression@ instead. For
-    -- more information, see
-    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.KeyConditions.html KeyConditions>
-    -- in the /Amazon DynamoDB Developer Guide/.
-    keyConditions :: Prelude.Maybe (Prelude.HashMap Prelude.Text Condition),
-    -- | A string that identifies one or more attributes to retrieve from the
-    -- table. These attributes can include scalars, sets, or elements of a JSON
-    -- document. The attributes in the expression must be separated by commas.
-    --
-    -- If no attribute names are specified, then all attributes will be
-    -- returned. If any of the requested attributes are not found, they will
-    -- not appear in the result.
-    --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes>
-    -- in the /Amazon DynamoDB Developer Guide/.
-    projectionExpression :: Prelude.Maybe Prelude.Text,
     -- | The name of the table containing the requested items.
     tableName :: Prelude.Text
   }
@@ -418,6 +418,16 @@ data Query = Query'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'attributesToGet', 'query_attributesToGet' - This is a legacy parameter. Use @ProjectionExpression@ instead. For more
+-- information, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html AttributesToGet>
+-- in the /Amazon DynamoDB Developer Guide/.
+--
+-- 'conditionalOperator', 'query_conditionalOperator' - This is a legacy parameter. Use @FilterExpression@ instead. For more
+-- information, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html ConditionalOperator>
+-- in the /Amazon DynamoDB Developer Guide/.
+--
 -- 'consistentRead', 'query_consistentRead' - Determines the read consistency model: If set to @true@, then the
 -- operation uses strongly consistent reads; otherwise, the operation uses
 -- eventually consistent reads.
@@ -426,25 +436,12 @@ data Query = Query'
 -- If you query a global secondary index with @ConsistentRead@ set to
 -- @true@, you will receive a @ValidationException@.
 --
--- 'expressionAttributeValues', 'query_expressionAttributeValues' - One or more values that can be substituted in an expression.
+-- 'exclusiveStartKey', 'query_exclusiveStartKey' - The primary key of the first item that this operation will evaluate. Use
+-- the value that was returned for @LastEvaluatedKey@ in the previous
+-- operation.
 --
--- Use the __:__ (colon) character in an expression to dereference an
--- attribute value. For example, suppose that you wanted to check whether
--- the value of the /ProductStatus/ attribute was one of the following:
---
--- @Available | Backordered | Discontinued@
---
--- You would first need to specify @ExpressionAttributeValues@ as follows:
---
--- @{ \":avail\":{\"S\":\"Available\"}, \":back\":{\"S\":\"Backordered\"}, \":disc\":{\"S\":\"Discontinued\"} }@
---
--- You could then use these values in an expression, such as this:
---
--- @ProductStatus IN (:avail, :back, :disc)@
---
--- For more information on expression attribute values, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions>
--- in the /Amazon DynamoDB Developer Guide/.
+-- The data type for @ExclusiveStartKey@ must be String, Number, or Binary.
+-- No set data types are allowed.
 --
 -- 'expressionAttributeNames', 'query_expressionAttributeNames' - One or more substitution tokens for attribute names in an expression.
 -- The following are some use cases for using @ExpressionAttributeNames@:
@@ -484,35 +481,25 @@ data Query = Query'
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes>
 -- in the /Amazon DynamoDB Developer Guide/.
 --
--- 'scanIndexForward', 'query_scanIndexForward' - Specifies the order for index traversal: If @true@ (default), the
--- traversal is performed in ascending order; if @false@, the traversal is
--- performed in descending order.
+-- 'expressionAttributeValues', 'query_expressionAttributeValues' - One or more values that can be substituted in an expression.
 --
--- Items with the same partition key value are stored in sorted order by
--- sort key. If the sort key data type is Number, the results are stored in
--- numeric order. For type String, the results are stored in order of UTF-8
--- bytes. For type Binary, DynamoDB treats each byte of the binary data as
--- unsigned.
+-- Use the __:__ (colon) character in an expression to dereference an
+-- attribute value. For example, suppose that you wanted to check whether
+-- the value of the /ProductStatus/ attribute was one of the following:
 --
--- If @ScanIndexForward@ is @true@, DynamoDB returns the results in the
--- order in which they are stored (by sort key value). This is the default
--- behavior. If @ScanIndexForward@ is @false@, DynamoDB reads the results
--- in reverse order by sort key value, and then returns the results to the
--- client.
+-- @Available | Backordered | Discontinued@
 --
--- 'conditionalOperator', 'query_conditionalOperator' - This is a legacy parameter. Use @FilterExpression@ instead. For more
--- information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html ConditionalOperator>
+-- You would first need to specify @ExpressionAttributeValues@ as follows:
+--
+-- @{ \":avail\":{\"S\":\"Available\"}, \":back\":{\"S\":\"Backordered\"}, \":disc\":{\"S\":\"Discontinued\"} }@
+--
+-- You could then use these values in an expression, such as this:
+--
+-- @ProductStatus IN (:avail, :back, :disc)@
+--
+-- For more information on expression attribute values, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions>
 -- in the /Amazon DynamoDB Developer Guide/.
---
--- 'returnConsumedCapacity', 'query_returnConsumedCapacity' - Undocumented member.
---
--- 'exclusiveStartKey', 'query_exclusiveStartKey' - The primary key of the first item that this operation will evaluate. Use
--- the value that was returned for @LastEvaluatedKey@ in the previous
--- operation.
---
--- The data type for @ExclusiveStartKey@ must be String, Number, or Binary.
--- No set data types are allowed.
 --
 -- 'filterExpression', 'query_filterExpression' - A string that contains conditions that DynamoDB applies after the
 -- @Query@ operation, but before the data is returned to you. Items that do
@@ -529,10 +516,9 @@ data Query = Query'
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#Query.FilterExpression Filter Expressions>
 -- in the /Amazon DynamoDB Developer Guide/.
 --
--- 'attributesToGet', 'query_attributesToGet' - This is a legacy parameter. Use @ProjectionExpression@ instead. For more
--- information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html AttributesToGet>
--- in the /Amazon DynamoDB Developer Guide/.
+-- 'indexName', 'query_indexName' - The name of an index to query. This index can be any local secondary
+-- index or global secondary index on the table. Note that if you use the
+-- @IndexName@ parameter, you must also provide @TableName.@
 --
 -- 'keyConditionExpression', 'query_keyConditionExpression' - The condition that specifies the key values for items to be retrieved by
 -- the @Query@ action.
@@ -609,6 +595,59 @@ data Query = Query'
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ExpressionPlaceholders.html Using Placeholders for Attribute Names and Values>
 -- in the /Amazon DynamoDB Developer Guide/.
 --
+-- 'keyConditions', 'query_keyConditions' - This is a legacy parameter. Use @KeyConditionExpression@ instead. For
+-- more information, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.KeyConditions.html KeyConditions>
+-- in the /Amazon DynamoDB Developer Guide/.
+--
+-- 'limit', 'query_limit' - The maximum number of items to evaluate (not necessarily the number of
+-- matching items). If DynamoDB processes the number of items up to the
+-- limit while processing the results, it stops the operation and returns
+-- the matching values up to that point, and a key in @LastEvaluatedKey@ to
+-- apply in a subsequent operation, so that you can pick up where you left
+-- off. Also, if the processed dataset size exceeds 1 MB before DynamoDB
+-- reaches this limit, it stops the operation and returns the matching
+-- values up to the limit, and a key in @LastEvaluatedKey@ to apply in a
+-- subsequent operation to continue the operation. For more information,
+-- see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html Query and Scan>
+-- in the /Amazon DynamoDB Developer Guide/.
+--
+-- 'projectionExpression', 'query_projectionExpression' - A string that identifies one or more attributes to retrieve from the
+-- table. These attributes can include scalars, sets, or elements of a JSON
+-- document. The attributes in the expression must be separated by commas.
+--
+-- If no attribute names are specified, then all attributes will be
+-- returned. If any of the requested attributes are not found, they will
+-- not appear in the result.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes>
+-- in the /Amazon DynamoDB Developer Guide/.
+--
+-- 'queryFilter', 'query_queryFilter' - This is a legacy parameter. Use @FilterExpression@ instead. For more
+-- information, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.QueryFilter.html QueryFilter>
+-- in the /Amazon DynamoDB Developer Guide/.
+--
+-- 'returnConsumedCapacity', 'query_returnConsumedCapacity' - Undocumented member.
+--
+-- 'scanIndexForward', 'query_scanIndexForward' - Specifies the order for index traversal: If @true@ (default), the
+-- traversal is performed in ascending order; if @false@, the traversal is
+-- performed in descending order.
+--
+-- Items with the same partition key value are stored in sorted order by
+-- sort key. If the sort key data type is Number, the results are stored in
+-- numeric order. For type String, the results are stored in order of UTF-8
+-- bytes. For type Binary, DynamoDB treats each byte of the binary data as
+-- unsigned.
+--
+-- If @ScanIndexForward@ is @true@, DynamoDB returns the results in the
+-- order in which they are stored (by sort key value). This is the default
+-- behavior. If @ScanIndexForward@ is @false@, DynamoDB reads the results
+-- in reverse order by sort key value, and then returns the results to the
+-- client.
+--
 -- 'select', 'query_select' - The attributes to be returned in the result. You can retrieve all item
 -- attributes, specific item attributes, the count of matching items, or in
 -- the case of an index, some or all of the attributes projected into the
@@ -657,45 +696,6 @@ data Query = Query'
 -- @Select@ can only be @SPECIFIC_ATTRIBUTES@. Any other value for @Select@
 -- will return an error.
 --
--- 'limit', 'query_limit' - The maximum number of items to evaluate (not necessarily the number of
--- matching items). If DynamoDB processes the number of items up to the
--- limit while processing the results, it stops the operation and returns
--- the matching values up to that point, and a key in @LastEvaluatedKey@ to
--- apply in a subsequent operation, so that you can pick up where you left
--- off. Also, if the processed dataset size exceeds 1 MB before DynamoDB
--- reaches this limit, it stops the operation and returns the matching
--- values up to the limit, and a key in @LastEvaluatedKey@ to apply in a
--- subsequent operation to continue the operation. For more information,
--- see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html Query and Scan>
--- in the /Amazon DynamoDB Developer Guide/.
---
--- 'indexName', 'query_indexName' - The name of an index to query. This index can be any local secondary
--- index or global secondary index on the table. Note that if you use the
--- @IndexName@ parameter, you must also provide @TableName.@
---
--- 'queryFilter', 'query_queryFilter' - This is a legacy parameter. Use @FilterExpression@ instead. For more
--- information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.QueryFilter.html QueryFilter>
--- in the /Amazon DynamoDB Developer Guide/.
---
--- 'keyConditions', 'query_keyConditions' - This is a legacy parameter. Use @KeyConditionExpression@ instead. For
--- more information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.KeyConditions.html KeyConditions>
--- in the /Amazon DynamoDB Developer Guide/.
---
--- 'projectionExpression', 'query_projectionExpression' - A string that identifies one or more attributes to retrieve from the
--- table. These attributes can include scalars, sets, or elements of a JSON
--- document. The attributes in the expression must be separated by commas.
---
--- If no attribute names are specified, then all attributes will be
--- returned. If any of the requested attributes are not found, they will
--- not appear in the result.
---
--- For more information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes>
--- in the /Amazon DynamoDB Developer Guide/.
---
 -- 'tableName', 'query_tableName' - The name of the table containing the requested items.
 newQuery ::
   -- | 'tableName'
@@ -703,24 +703,38 @@ newQuery ::
   Query
 newQuery pTableName_ =
   Query'
-    { consistentRead = Prelude.Nothing,
-      expressionAttributeValues = Prelude.Nothing,
-      expressionAttributeNames = Prelude.Nothing,
-      scanIndexForward = Prelude.Nothing,
+    { attributesToGet = Prelude.Nothing,
       conditionalOperator = Prelude.Nothing,
-      returnConsumedCapacity = Prelude.Nothing,
+      consistentRead = Prelude.Nothing,
       exclusiveStartKey = Prelude.Nothing,
+      expressionAttributeNames = Prelude.Nothing,
+      expressionAttributeValues = Prelude.Nothing,
       filterExpression = Prelude.Nothing,
-      attributesToGet = Prelude.Nothing,
-      keyConditionExpression = Prelude.Nothing,
-      select = Prelude.Nothing,
-      limit = Prelude.Nothing,
       indexName = Prelude.Nothing,
-      queryFilter = Prelude.Nothing,
+      keyConditionExpression = Prelude.Nothing,
       keyConditions = Prelude.Nothing,
+      limit = Prelude.Nothing,
       projectionExpression = Prelude.Nothing,
+      queryFilter = Prelude.Nothing,
+      returnConsumedCapacity = Prelude.Nothing,
+      scanIndexForward = Prelude.Nothing,
+      select = Prelude.Nothing,
       tableName = pTableName_
     }
+
+-- | This is a legacy parameter. Use @ProjectionExpression@ instead. For more
+-- information, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html AttributesToGet>
+-- in the /Amazon DynamoDB Developer Guide/.
+query_attributesToGet :: Lens.Lens' Query (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+query_attributesToGet = Lens.lens (\Query' {attributesToGet} -> attributesToGet) (\s@Query' {} a -> s {attributesToGet = a} :: Query) Prelude.. Lens.mapping Lens.coerced
+
+-- | This is a legacy parameter. Use @FilterExpression@ instead. For more
+-- information, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html ConditionalOperator>
+-- in the /Amazon DynamoDB Developer Guide/.
+query_conditionalOperator :: Lens.Lens' Query (Prelude.Maybe ConditionalOperator)
+query_conditionalOperator = Lens.lens (\Query' {conditionalOperator} -> conditionalOperator) (\s@Query' {} a -> s {conditionalOperator = a} :: Query)
 
 -- | Determines the read consistency model: If set to @true@, then the
 -- operation uses strongly consistent reads; otherwise, the operation uses
@@ -732,27 +746,14 @@ newQuery pTableName_ =
 query_consistentRead :: Lens.Lens' Query (Prelude.Maybe Prelude.Bool)
 query_consistentRead = Lens.lens (\Query' {consistentRead} -> consistentRead) (\s@Query' {} a -> s {consistentRead = a} :: Query)
 
--- | One or more values that can be substituted in an expression.
+-- | The primary key of the first item that this operation will evaluate. Use
+-- the value that was returned for @LastEvaluatedKey@ in the previous
+-- operation.
 --
--- Use the __:__ (colon) character in an expression to dereference an
--- attribute value. For example, suppose that you wanted to check whether
--- the value of the /ProductStatus/ attribute was one of the following:
---
--- @Available | Backordered | Discontinued@
---
--- You would first need to specify @ExpressionAttributeValues@ as follows:
---
--- @{ \":avail\":{\"S\":\"Available\"}, \":back\":{\"S\":\"Backordered\"}, \":disc\":{\"S\":\"Discontinued\"} }@
---
--- You could then use these values in an expression, such as this:
---
--- @ProductStatus IN (:avail, :back, :disc)@
---
--- For more information on expression attribute values, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions>
--- in the /Amazon DynamoDB Developer Guide/.
-query_expressionAttributeValues :: Lens.Lens' Query (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
-query_expressionAttributeValues = Lens.lens (\Query' {expressionAttributeValues} -> expressionAttributeValues) (\s@Query' {} a -> s {expressionAttributeValues = a} :: Query) Prelude.. Lens.mapping Lens.coerced
+-- The data type for @ExclusiveStartKey@ must be String, Number, or Binary.
+-- No set data types are allowed.
+query_exclusiveStartKey :: Lens.Lens' Query (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
+query_exclusiveStartKey = Lens.lens (\Query' {exclusiveStartKey} -> exclusiveStartKey) (\s@Query' {} a -> s {exclusiveStartKey = a} :: Query) Prelude.. Lens.mapping Lens.coerced
 
 -- | One or more substitution tokens for attribute names in an expression.
 -- The following are some use cases for using @ExpressionAttributeNames@:
@@ -794,43 +795,27 @@ query_expressionAttributeValues = Lens.lens (\Query' {expressionAttributeValues}
 query_expressionAttributeNames :: Lens.Lens' Query (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 query_expressionAttributeNames = Lens.lens (\Query' {expressionAttributeNames} -> expressionAttributeNames) (\s@Query' {} a -> s {expressionAttributeNames = a} :: Query) Prelude.. Lens.mapping Lens.coerced
 
--- | Specifies the order for index traversal: If @true@ (default), the
--- traversal is performed in ascending order; if @false@, the traversal is
--- performed in descending order.
+-- | One or more values that can be substituted in an expression.
 --
--- Items with the same partition key value are stored in sorted order by
--- sort key. If the sort key data type is Number, the results are stored in
--- numeric order. For type String, the results are stored in order of UTF-8
--- bytes. For type Binary, DynamoDB treats each byte of the binary data as
--- unsigned.
+-- Use the __:__ (colon) character in an expression to dereference an
+-- attribute value. For example, suppose that you wanted to check whether
+-- the value of the /ProductStatus/ attribute was one of the following:
 --
--- If @ScanIndexForward@ is @true@, DynamoDB returns the results in the
--- order in which they are stored (by sort key value). This is the default
--- behavior. If @ScanIndexForward@ is @false@, DynamoDB reads the results
--- in reverse order by sort key value, and then returns the results to the
--- client.
-query_scanIndexForward :: Lens.Lens' Query (Prelude.Maybe Prelude.Bool)
-query_scanIndexForward = Lens.lens (\Query' {scanIndexForward} -> scanIndexForward) (\s@Query' {} a -> s {scanIndexForward = a} :: Query)
-
--- | This is a legacy parameter. Use @FilterExpression@ instead. For more
--- information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html ConditionalOperator>
+-- @Available | Backordered | Discontinued@
+--
+-- You would first need to specify @ExpressionAttributeValues@ as follows:
+--
+-- @{ \":avail\":{\"S\":\"Available\"}, \":back\":{\"S\":\"Backordered\"}, \":disc\":{\"S\":\"Discontinued\"} }@
+--
+-- You could then use these values in an expression, such as this:
+--
+-- @ProductStatus IN (:avail, :back, :disc)@
+--
+-- For more information on expression attribute values, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions>
 -- in the /Amazon DynamoDB Developer Guide/.
-query_conditionalOperator :: Lens.Lens' Query (Prelude.Maybe ConditionalOperator)
-query_conditionalOperator = Lens.lens (\Query' {conditionalOperator} -> conditionalOperator) (\s@Query' {} a -> s {conditionalOperator = a} :: Query)
-
--- | Undocumented member.
-query_returnConsumedCapacity :: Lens.Lens' Query (Prelude.Maybe ReturnConsumedCapacity)
-query_returnConsumedCapacity = Lens.lens (\Query' {returnConsumedCapacity} -> returnConsumedCapacity) (\s@Query' {} a -> s {returnConsumedCapacity = a} :: Query)
-
--- | The primary key of the first item that this operation will evaluate. Use
--- the value that was returned for @LastEvaluatedKey@ in the previous
--- operation.
---
--- The data type for @ExclusiveStartKey@ must be String, Number, or Binary.
--- No set data types are allowed.
-query_exclusiveStartKey :: Lens.Lens' Query (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
-query_exclusiveStartKey = Lens.lens (\Query' {exclusiveStartKey} -> exclusiveStartKey) (\s@Query' {} a -> s {exclusiveStartKey = a} :: Query) Prelude.. Lens.mapping Lens.coerced
+query_expressionAttributeValues :: Lens.Lens' Query (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
+query_expressionAttributeValues = Lens.lens (\Query' {expressionAttributeValues} -> expressionAttributeValues) (\s@Query' {} a -> s {expressionAttributeValues = a} :: Query) Prelude.. Lens.mapping Lens.coerced
 
 -- | A string that contains conditions that DynamoDB applies after the
 -- @Query@ operation, but before the data is returned to you. Items that do
@@ -849,12 +834,11 @@ query_exclusiveStartKey = Lens.lens (\Query' {exclusiveStartKey} -> exclusiveSta
 query_filterExpression :: Lens.Lens' Query (Prelude.Maybe Prelude.Text)
 query_filterExpression = Lens.lens (\Query' {filterExpression} -> filterExpression) (\s@Query' {} a -> s {filterExpression = a} :: Query)
 
--- | This is a legacy parameter. Use @ProjectionExpression@ instead. For more
--- information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html AttributesToGet>
--- in the /Amazon DynamoDB Developer Guide/.
-query_attributesToGet :: Lens.Lens' Query (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-query_attributesToGet = Lens.lens (\Query' {attributesToGet} -> attributesToGet) (\s@Query' {} a -> s {attributesToGet = a} :: Query) Prelude.. Lens.mapping Lens.coerced
+-- | The name of an index to query. This index can be any local secondary
+-- index or global secondary index on the table. Note that if you use the
+-- @IndexName@ parameter, you must also provide @TableName.@
+query_indexName :: Lens.Lens' Query (Prelude.Maybe Prelude.Text)
+query_indexName = Lens.lens (\Query' {indexName} -> indexName) (\s@Query' {} a -> s {indexName = a} :: Query)
 
 -- | The condition that specifies the key values for items to be retrieved by
 -- the @Query@ action.
@@ -933,6 +917,71 @@ query_attributesToGet = Lens.lens (\Query' {attributesToGet} -> attributesToGet)
 query_keyConditionExpression :: Lens.Lens' Query (Prelude.Maybe Prelude.Text)
 query_keyConditionExpression = Lens.lens (\Query' {keyConditionExpression} -> keyConditionExpression) (\s@Query' {} a -> s {keyConditionExpression = a} :: Query)
 
+-- | This is a legacy parameter. Use @KeyConditionExpression@ instead. For
+-- more information, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.KeyConditions.html KeyConditions>
+-- in the /Amazon DynamoDB Developer Guide/.
+query_keyConditions :: Lens.Lens' Query (Prelude.Maybe (Prelude.HashMap Prelude.Text Condition))
+query_keyConditions = Lens.lens (\Query' {keyConditions} -> keyConditions) (\s@Query' {} a -> s {keyConditions = a} :: Query) Prelude.. Lens.mapping Lens.coerced
+
+-- | The maximum number of items to evaluate (not necessarily the number of
+-- matching items). If DynamoDB processes the number of items up to the
+-- limit while processing the results, it stops the operation and returns
+-- the matching values up to that point, and a key in @LastEvaluatedKey@ to
+-- apply in a subsequent operation, so that you can pick up where you left
+-- off. Also, if the processed dataset size exceeds 1 MB before DynamoDB
+-- reaches this limit, it stops the operation and returns the matching
+-- values up to the limit, and a key in @LastEvaluatedKey@ to apply in a
+-- subsequent operation to continue the operation. For more information,
+-- see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html Query and Scan>
+-- in the /Amazon DynamoDB Developer Guide/.
+query_limit :: Lens.Lens' Query (Prelude.Maybe Prelude.Natural)
+query_limit = Lens.lens (\Query' {limit} -> limit) (\s@Query' {} a -> s {limit = a} :: Query)
+
+-- | A string that identifies one or more attributes to retrieve from the
+-- table. These attributes can include scalars, sets, or elements of a JSON
+-- document. The attributes in the expression must be separated by commas.
+--
+-- If no attribute names are specified, then all attributes will be
+-- returned. If any of the requested attributes are not found, they will
+-- not appear in the result.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes>
+-- in the /Amazon DynamoDB Developer Guide/.
+query_projectionExpression :: Lens.Lens' Query (Prelude.Maybe Prelude.Text)
+query_projectionExpression = Lens.lens (\Query' {projectionExpression} -> projectionExpression) (\s@Query' {} a -> s {projectionExpression = a} :: Query)
+
+-- | This is a legacy parameter. Use @FilterExpression@ instead. For more
+-- information, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.QueryFilter.html QueryFilter>
+-- in the /Amazon DynamoDB Developer Guide/.
+query_queryFilter :: Lens.Lens' Query (Prelude.Maybe (Prelude.HashMap Prelude.Text Condition))
+query_queryFilter = Lens.lens (\Query' {queryFilter} -> queryFilter) (\s@Query' {} a -> s {queryFilter = a} :: Query) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+query_returnConsumedCapacity :: Lens.Lens' Query (Prelude.Maybe ReturnConsumedCapacity)
+query_returnConsumedCapacity = Lens.lens (\Query' {returnConsumedCapacity} -> returnConsumedCapacity) (\s@Query' {} a -> s {returnConsumedCapacity = a} :: Query)
+
+-- | Specifies the order for index traversal: If @true@ (default), the
+-- traversal is performed in ascending order; if @false@, the traversal is
+-- performed in descending order.
+--
+-- Items with the same partition key value are stored in sorted order by
+-- sort key. If the sort key data type is Number, the results are stored in
+-- numeric order. For type String, the results are stored in order of UTF-8
+-- bytes. For type Binary, DynamoDB treats each byte of the binary data as
+-- unsigned.
+--
+-- If @ScanIndexForward@ is @true@, DynamoDB returns the results in the
+-- order in which they are stored (by sort key value). This is the default
+-- behavior. If @ScanIndexForward@ is @false@, DynamoDB reads the results
+-- in reverse order by sort key value, and then returns the results to the
+-- client.
+query_scanIndexForward :: Lens.Lens' Query (Prelude.Maybe Prelude.Bool)
+query_scanIndexForward = Lens.lens (\Query' {scanIndexForward} -> scanIndexForward) (\s@Query' {} a -> s {scanIndexForward = a} :: Query)
+
 -- | The attributes to be returned in the result. You can retrieve all item
 -- attributes, specific item attributes, the count of matching items, or in
 -- the case of an index, some or all of the attributes projected into the
@@ -983,55 +1032,6 @@ query_keyConditionExpression = Lens.lens (\Query' {keyConditionExpression} -> ke
 query_select :: Lens.Lens' Query (Prelude.Maybe Select)
 query_select = Lens.lens (\Query' {select} -> select) (\s@Query' {} a -> s {select = a} :: Query)
 
--- | The maximum number of items to evaluate (not necessarily the number of
--- matching items). If DynamoDB processes the number of items up to the
--- limit while processing the results, it stops the operation and returns
--- the matching values up to that point, and a key in @LastEvaluatedKey@ to
--- apply in a subsequent operation, so that you can pick up where you left
--- off. Also, if the processed dataset size exceeds 1 MB before DynamoDB
--- reaches this limit, it stops the operation and returns the matching
--- values up to the limit, and a key in @LastEvaluatedKey@ to apply in a
--- subsequent operation to continue the operation. For more information,
--- see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html Query and Scan>
--- in the /Amazon DynamoDB Developer Guide/.
-query_limit :: Lens.Lens' Query (Prelude.Maybe Prelude.Natural)
-query_limit = Lens.lens (\Query' {limit} -> limit) (\s@Query' {} a -> s {limit = a} :: Query)
-
--- | The name of an index to query. This index can be any local secondary
--- index or global secondary index on the table. Note that if you use the
--- @IndexName@ parameter, you must also provide @TableName.@
-query_indexName :: Lens.Lens' Query (Prelude.Maybe Prelude.Text)
-query_indexName = Lens.lens (\Query' {indexName} -> indexName) (\s@Query' {} a -> s {indexName = a} :: Query)
-
--- | This is a legacy parameter. Use @FilterExpression@ instead. For more
--- information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.QueryFilter.html QueryFilter>
--- in the /Amazon DynamoDB Developer Guide/.
-query_queryFilter :: Lens.Lens' Query (Prelude.Maybe (Prelude.HashMap Prelude.Text Condition))
-query_queryFilter = Lens.lens (\Query' {queryFilter} -> queryFilter) (\s@Query' {} a -> s {queryFilter = a} :: Query) Prelude.. Lens.mapping Lens.coerced
-
--- | This is a legacy parameter. Use @KeyConditionExpression@ instead. For
--- more information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.KeyConditions.html KeyConditions>
--- in the /Amazon DynamoDB Developer Guide/.
-query_keyConditions :: Lens.Lens' Query (Prelude.Maybe (Prelude.HashMap Prelude.Text Condition))
-query_keyConditions = Lens.lens (\Query' {keyConditions} -> keyConditions) (\s@Query' {} a -> s {keyConditions = a} :: Query) Prelude.. Lens.mapping Lens.coerced
-
--- | A string that identifies one or more attributes to retrieve from the
--- table. These attributes can include scalars, sets, or elements of a JSON
--- document. The attributes in the expression must be separated by commas.
---
--- If no attribute names are specified, then all attributes will be
--- returned. If any of the requested attributes are not found, they will
--- not appear in the result.
---
--- For more information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes>
--- in the /Amazon DynamoDB Developer Guide/.
-query_projectionExpression :: Lens.Lens' Query (Prelude.Maybe Prelude.Text)
-query_projectionExpression = Lens.lens (\Query' {projectionExpression} -> projectionExpression) (\s@Query' {} a -> s {projectionExpression = a} :: Query)
-
 -- | The name of the table containing the requested items.
 query_tableName :: Lens.Lens' Query Prelude.Text
 query_tableName = Lens.lens (\Query' {tableName} -> tableName) (\s@Query' {} a -> s {tableName = a} :: Query)
@@ -1058,11 +1058,11 @@ instance Core.AWSRequest Query where
     Response.receiveJSON
       ( \s h x ->
           QueryResponse'
-            Prelude.<$> ( x Data..?> "LastEvaluatedKey"
+            Prelude.<$> (x Data..?> "ConsumedCapacity")
+            Prelude.<*> (x Data..?> "Count")
+            Prelude.<*> ( x Data..?> "LastEvaluatedKey"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "Count")
-            Prelude.<*> (x Data..?> "ConsumedCapacity")
             Prelude.<*> (x Data..?> "ScannedCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "Items" Core..!@ Prelude.mempty)
@@ -1070,42 +1070,42 @@ instance Core.AWSRequest Query where
 
 instance Prelude.Hashable Query where
   hashWithSalt _salt Query' {..} =
-    _salt `Prelude.hashWithSalt` consistentRead
-      `Prelude.hashWithSalt` expressionAttributeValues
-      `Prelude.hashWithSalt` expressionAttributeNames
-      `Prelude.hashWithSalt` scanIndexForward
+    _salt `Prelude.hashWithSalt` attributesToGet
       `Prelude.hashWithSalt` conditionalOperator
-      `Prelude.hashWithSalt` returnConsumedCapacity
+      `Prelude.hashWithSalt` consistentRead
       `Prelude.hashWithSalt` exclusiveStartKey
+      `Prelude.hashWithSalt` expressionAttributeNames
+      `Prelude.hashWithSalt` expressionAttributeValues
       `Prelude.hashWithSalt` filterExpression
-      `Prelude.hashWithSalt` attributesToGet
-      `Prelude.hashWithSalt` keyConditionExpression
-      `Prelude.hashWithSalt` select
-      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` indexName
-      `Prelude.hashWithSalt` queryFilter
+      `Prelude.hashWithSalt` keyConditionExpression
       `Prelude.hashWithSalt` keyConditions
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` projectionExpression
+      `Prelude.hashWithSalt` queryFilter
+      `Prelude.hashWithSalt` returnConsumedCapacity
+      `Prelude.hashWithSalt` scanIndexForward
+      `Prelude.hashWithSalt` select
       `Prelude.hashWithSalt` tableName
 
 instance Prelude.NFData Query where
   rnf Query' {..} =
-    Prelude.rnf consistentRead
-      `Prelude.seq` Prelude.rnf expressionAttributeValues
-      `Prelude.seq` Prelude.rnf expressionAttributeNames
-      `Prelude.seq` Prelude.rnf scanIndexForward
+    Prelude.rnf attributesToGet
       `Prelude.seq` Prelude.rnf conditionalOperator
-      `Prelude.seq` Prelude.rnf returnConsumedCapacity
+      `Prelude.seq` Prelude.rnf consistentRead
       `Prelude.seq` Prelude.rnf exclusiveStartKey
+      `Prelude.seq` Prelude.rnf expressionAttributeNames
+      `Prelude.seq` Prelude.rnf expressionAttributeValues
       `Prelude.seq` Prelude.rnf filterExpression
-      `Prelude.seq` Prelude.rnf attributesToGet
-      `Prelude.seq` Prelude.rnf keyConditionExpression
-      `Prelude.seq` Prelude.rnf select
-      `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf indexName
-      `Prelude.seq` Prelude.rnf queryFilter
+      `Prelude.seq` Prelude.rnf keyConditionExpression
       `Prelude.seq` Prelude.rnf keyConditions
+      `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf projectionExpression
+      `Prelude.seq` Prelude.rnf queryFilter
+      `Prelude.seq` Prelude.rnf returnConsumedCapacity
+      `Prelude.seq` Prelude.rnf scanIndexForward
+      `Prelude.seq` Prelude.rnf select
       `Prelude.seq` Prelude.rnf tableName
 
 instance Data.ToHeaders Query where
@@ -1125,33 +1125,33 @@ instance Data.ToJSON Query where
   toJSON Query' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ConsistentRead" Data..=)
-              Prelude.<$> consistentRead,
-            ("ExpressionAttributeValues" Data..=)
-              Prelude.<$> expressionAttributeValues,
-            ("ExpressionAttributeNames" Data..=)
-              Prelude.<$> expressionAttributeNames,
-            ("ScanIndexForward" Data..=)
-              Prelude.<$> scanIndexForward,
+          [ ("AttributesToGet" Data..=)
+              Prelude.<$> attributesToGet,
             ("ConditionalOperator" Data..=)
               Prelude.<$> conditionalOperator,
-            ("ReturnConsumedCapacity" Data..=)
-              Prelude.<$> returnConsumedCapacity,
+            ("ConsistentRead" Data..=)
+              Prelude.<$> consistentRead,
             ("ExclusiveStartKey" Data..=)
               Prelude.<$> exclusiveStartKey,
+            ("ExpressionAttributeNames" Data..=)
+              Prelude.<$> expressionAttributeNames,
+            ("ExpressionAttributeValues" Data..=)
+              Prelude.<$> expressionAttributeValues,
             ("FilterExpression" Data..=)
               Prelude.<$> filterExpression,
-            ("AttributesToGet" Data..=)
-              Prelude.<$> attributesToGet,
+            ("IndexName" Data..=) Prelude.<$> indexName,
             ("KeyConditionExpression" Data..=)
               Prelude.<$> keyConditionExpression,
-            ("Select" Data..=) Prelude.<$> select,
-            ("Limit" Data..=) Prelude.<$> limit,
-            ("IndexName" Data..=) Prelude.<$> indexName,
-            ("QueryFilter" Data..=) Prelude.<$> queryFilter,
             ("KeyConditions" Data..=) Prelude.<$> keyConditions,
+            ("Limit" Data..=) Prelude.<$> limit,
             ("ProjectionExpression" Data..=)
               Prelude.<$> projectionExpression,
+            ("QueryFilter" Data..=) Prelude.<$> queryFilter,
+            ("ReturnConsumedCapacity" Data..=)
+              Prelude.<$> returnConsumedCapacity,
+            ("ScanIndexForward" Data..=)
+              Prelude.<$> scanIndexForward,
+            ("Select" Data..=) Prelude.<$> select,
             Prelude.Just ("TableName" Data..= tableName)
           ]
       )
@@ -1166,7 +1166,24 @@ instance Data.ToQuery Query where
 --
 -- /See:/ 'newQueryResponse' smart constructor.
 data QueryResponse = QueryResponse'
-  { -- | The primary key of the item where the operation stopped, inclusive of
+  { -- | The capacity units consumed by the @Query@ operation. The data returned
+    -- includes the total provisioned throughput consumed, along with
+    -- statistics for the table and any indexes involved in the operation.
+    -- @ConsumedCapacity@ is only returned if the @ReturnConsumedCapacity@
+    -- parameter was specified. For more information, see
+    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Provisioned Throughput>
+    -- in the /Amazon DynamoDB Developer Guide/.
+    consumedCapacity :: Prelude.Maybe ConsumedCapacity,
+    -- | The number of items in the response.
+    --
+    -- If you used a @QueryFilter@ in the request, then @Count@ is the number
+    -- of items returned after the filter was applied, and @ScannedCount@ is
+    -- the number of matching items before the filter was applied.
+    --
+    -- If you did not use a filter in the request, then @Count@ and
+    -- @ScannedCount@ are the same.
+    count :: Prelude.Maybe Prelude.Int,
+    -- | The primary key of the item where the operation stopped, inclusive of
     -- the previous result set. Use this value to start a new operation,
     -- excluding this value in the new request.
     --
@@ -1177,23 +1194,6 @@ data QueryResponse = QueryResponse'
     -- there is more data in the result set. The only way to know when you have
     -- reached the end of the result set is when @LastEvaluatedKey@ is empty.
     lastEvaluatedKey :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
-    -- | The number of items in the response.
-    --
-    -- If you used a @QueryFilter@ in the request, then @Count@ is the number
-    -- of items returned after the filter was applied, and @ScannedCount@ is
-    -- the number of matching items before the filter was applied.
-    --
-    -- If you did not use a filter in the request, then @Count@ and
-    -- @ScannedCount@ are the same.
-    count :: Prelude.Maybe Prelude.Int,
-    -- | The capacity units consumed by the @Query@ operation. The data returned
-    -- includes the total provisioned throughput consumed, along with
-    -- statistics for the table and any indexes involved in the operation.
-    -- @ConsumedCapacity@ is only returned if the @ReturnConsumedCapacity@
-    -- parameter was specified. For more information, see
-    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Provisioned Throughput>
-    -- in the /Amazon DynamoDB Developer Guide/.
-    consumedCapacity :: Prelude.Maybe ConsumedCapacity,
     -- | The number of items evaluated, before any @QueryFilter@ is applied. A
     -- high @ScannedCount@ value with few, or no, @Count@ results indicates an
     -- inefficient @Query@ operation. For more information, see
@@ -1220,16 +1220,13 @@ data QueryResponse = QueryResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastEvaluatedKey', 'queryResponse_lastEvaluatedKey' - The primary key of the item where the operation stopped, inclusive of
--- the previous result set. Use this value to start a new operation,
--- excluding this value in the new request.
---
--- If @LastEvaluatedKey@ is empty, then the \"last page\" of results has
--- been processed and there is no more data to be retrieved.
---
--- If @LastEvaluatedKey@ is not empty, it does not necessarily mean that
--- there is more data in the result set. The only way to know when you have
--- reached the end of the result set is when @LastEvaluatedKey@ is empty.
+-- 'consumedCapacity', 'queryResponse_consumedCapacity' - The capacity units consumed by the @Query@ operation. The data returned
+-- includes the total provisioned throughput consumed, along with
+-- statistics for the table and any indexes involved in the operation.
+-- @ConsumedCapacity@ is only returned if the @ReturnConsumedCapacity@
+-- parameter was specified. For more information, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Provisioned Throughput>
+-- in the /Amazon DynamoDB Developer Guide/.
 --
 -- 'count', 'queryResponse_count' - The number of items in the response.
 --
@@ -1240,13 +1237,16 @@ data QueryResponse = QueryResponse'
 -- If you did not use a filter in the request, then @Count@ and
 -- @ScannedCount@ are the same.
 --
--- 'consumedCapacity', 'queryResponse_consumedCapacity' - The capacity units consumed by the @Query@ operation. The data returned
--- includes the total provisioned throughput consumed, along with
--- statistics for the table and any indexes involved in the operation.
--- @ConsumedCapacity@ is only returned if the @ReturnConsumedCapacity@
--- parameter was specified. For more information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Provisioned Throughput>
--- in the /Amazon DynamoDB Developer Guide/.
+-- 'lastEvaluatedKey', 'queryResponse_lastEvaluatedKey' - The primary key of the item where the operation stopped, inclusive of
+-- the previous result set. Use this value to start a new operation,
+-- excluding this value in the new request.
+--
+-- If @LastEvaluatedKey@ is empty, then the \"last page\" of results has
+-- been processed and there is no more data to be retrieved.
+--
+-- If @LastEvaluatedKey@ is not empty, it does not necessarily mean that
+-- there is more data in the result set. The only way to know when you have
+-- reached the end of the result set is when @LastEvaluatedKey@ is empty.
 --
 -- 'scannedCount', 'queryResponse_scannedCount' - The number of items evaluated, before any @QueryFilter@ is applied. A
 -- high @ScannedCount@ value with few, or no, @Count@ results indicates an
@@ -1268,13 +1268,34 @@ newQueryResponse ::
   QueryResponse
 newQueryResponse pHttpStatus_ =
   QueryResponse'
-    { lastEvaluatedKey = Prelude.Nothing,
+    { consumedCapacity = Prelude.Nothing,
       count = Prelude.Nothing,
-      consumedCapacity = Prelude.Nothing,
+      lastEvaluatedKey = Prelude.Nothing,
       scannedCount = Prelude.Nothing,
       httpStatus = pHttpStatus_,
       items = Prelude.mempty
     }
+
+-- | The capacity units consumed by the @Query@ operation. The data returned
+-- includes the total provisioned throughput consumed, along with
+-- statistics for the table and any indexes involved in the operation.
+-- @ConsumedCapacity@ is only returned if the @ReturnConsumedCapacity@
+-- parameter was specified. For more information, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Provisioned Throughput>
+-- in the /Amazon DynamoDB Developer Guide/.
+queryResponse_consumedCapacity :: Lens.Lens' QueryResponse (Prelude.Maybe ConsumedCapacity)
+queryResponse_consumedCapacity = Lens.lens (\QueryResponse' {consumedCapacity} -> consumedCapacity) (\s@QueryResponse' {} a -> s {consumedCapacity = a} :: QueryResponse)
+
+-- | The number of items in the response.
+--
+-- If you used a @QueryFilter@ in the request, then @Count@ is the number
+-- of items returned after the filter was applied, and @ScannedCount@ is
+-- the number of matching items before the filter was applied.
+--
+-- If you did not use a filter in the request, then @Count@ and
+-- @ScannedCount@ are the same.
+queryResponse_count :: Lens.Lens' QueryResponse (Prelude.Maybe Prelude.Int)
+queryResponse_count = Lens.lens (\QueryResponse' {count} -> count) (\s@QueryResponse' {} a -> s {count = a} :: QueryResponse)
 
 -- | The primary key of the item where the operation stopped, inclusive of
 -- the previous result set. Use this value to start a new operation,
@@ -1288,27 +1309,6 @@ newQueryResponse pHttpStatus_ =
 -- reached the end of the result set is when @LastEvaluatedKey@ is empty.
 queryResponse_lastEvaluatedKey :: Lens.Lens' QueryResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
 queryResponse_lastEvaluatedKey = Lens.lens (\QueryResponse' {lastEvaluatedKey} -> lastEvaluatedKey) (\s@QueryResponse' {} a -> s {lastEvaluatedKey = a} :: QueryResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The number of items in the response.
---
--- If you used a @QueryFilter@ in the request, then @Count@ is the number
--- of items returned after the filter was applied, and @ScannedCount@ is
--- the number of matching items before the filter was applied.
---
--- If you did not use a filter in the request, then @Count@ and
--- @ScannedCount@ are the same.
-queryResponse_count :: Lens.Lens' QueryResponse (Prelude.Maybe Prelude.Int)
-queryResponse_count = Lens.lens (\QueryResponse' {count} -> count) (\s@QueryResponse' {} a -> s {count = a} :: QueryResponse)
-
--- | The capacity units consumed by the @Query@ operation. The data returned
--- includes the total provisioned throughput consumed, along with
--- statistics for the table and any indexes involved in the operation.
--- @ConsumedCapacity@ is only returned if the @ReturnConsumedCapacity@
--- parameter was specified. For more information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Provisioned Throughput>
--- in the /Amazon DynamoDB Developer Guide/.
-queryResponse_consumedCapacity :: Lens.Lens' QueryResponse (Prelude.Maybe ConsumedCapacity)
-queryResponse_consumedCapacity = Lens.lens (\QueryResponse' {consumedCapacity} -> consumedCapacity) (\s@QueryResponse' {} a -> s {consumedCapacity = a} :: QueryResponse)
 
 -- | The number of items evaluated, before any @QueryFilter@ is applied. A
 -- high @ScannedCount@ value with few, or no, @Count@ results indicates an
@@ -1333,9 +1333,9 @@ queryResponse_items = Lens.lens (\QueryResponse' {items} -> items) (\s@QueryResp
 
 instance Prelude.NFData QueryResponse where
   rnf QueryResponse' {..} =
-    Prelude.rnf lastEvaluatedKey
+    Prelude.rnf consumedCapacity
       `Prelude.seq` Prelude.rnf count
-      `Prelude.seq` Prelude.rnf consumedCapacity
+      `Prelude.seq` Prelude.rnf lastEvaluatedKey
       `Prelude.seq` Prelude.rnf scannedCount
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf items

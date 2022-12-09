@@ -34,16 +34,16 @@ module Amazonka.DynamoDB.UpdateItem
     newUpdateItem,
 
     -- * Request Lenses
-    updateItem_returnValues,
-    updateItem_expressionAttributeValues,
-    updateItem_expressionAttributeNames,
-    updateItem_conditionalOperator,
-    updateItem_returnConsumedCapacity,
-    updateItem_expected,
     updateItem_attributeUpdates,
-    updateItem_returnItemCollectionMetrics,
-    updateItem_updateExpression,
     updateItem_conditionExpression,
+    updateItem_conditionalOperator,
+    updateItem_expected,
+    updateItem_expressionAttributeNames,
+    updateItem_expressionAttributeValues,
+    updateItem_returnConsumedCapacity,
+    updateItem_returnItemCollectionMetrics,
+    updateItem_returnValues,
+    updateItem_updateExpression,
     updateItem_tableName,
     updateItem_key,
 
@@ -52,8 +52,8 @@ module Amazonka.DynamoDB.UpdateItem
     newUpdateItemResponse,
 
     -- * Response Lenses
-    updateItemResponse_consumedCapacity,
     updateItemResponse_attributes,
+    updateItemResponse_consumedCapacity,
     updateItemResponse_itemCollectionMetrics,
     updateItemResponse_httpStatus,
   )
@@ -71,52 +71,39 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUpdateItem' smart constructor.
 data UpdateItem = UpdateItem'
-  { -- | Use @ReturnValues@ if you want to get the item attributes as they appear
-    -- before or after they are updated. For @UpdateItem@, the valid values
-    -- are:
-    --
-    -- -   @NONE@ - If @ReturnValues@ is not specified, or if its value is
-    --     @NONE@, then nothing is returned. (This setting is the default for
-    --     @ReturnValues@.)
-    --
-    -- -   @ALL_OLD@ - Returns all of the attributes of the item, as they
-    --     appeared before the UpdateItem operation.
-    --
-    -- -   @UPDATED_OLD@ - Returns only the updated attributes, as they
-    --     appeared before the UpdateItem operation.
-    --
-    -- -   @ALL_NEW@ - Returns all of the attributes of the item, as they
-    --     appear after the UpdateItem operation.
-    --
-    -- -   @UPDATED_NEW@ - Returns only the updated attributes, as they appear
-    --     after the UpdateItem operation.
-    --
-    -- There is no additional cost associated with requesting a return value
-    -- aside from the small network and processing overhead of receiving a
-    -- larger response. No read capacity units are consumed.
-    --
-    -- The values returned are strongly consistent.
-    returnValues :: Prelude.Maybe ReturnValue,
-    -- | One or more values that can be substituted in an expression.
-    --
-    -- Use the __:__ (colon) character in an expression to dereference an
-    -- attribute value. For example, suppose that you wanted to check whether
-    -- the value of the @ProductStatus@ attribute was one of the following:
-    --
-    -- @Available | Backordered | Discontinued@
-    --
-    -- You would first need to specify @ExpressionAttributeValues@ as follows:
-    --
-    -- @{ \":avail\":{\"S\":\"Available\"}, \":back\":{\"S\":\"Backordered\"}, \":disc\":{\"S\":\"Discontinued\"} }@
-    --
-    -- You could then use these values in an expression, such as this:
-    --
-    -- @ProductStatus IN (:avail, :back, :disc)@
-    --
-    -- For more information on expression attribute values, see
-    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Condition Expressions>
+  { -- | This is a legacy parameter. Use @UpdateExpression@ instead. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributeUpdates.html AttributeUpdates>
     -- in the /Amazon DynamoDB Developer Guide/.
-    expressionAttributeValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
+    attributeUpdates :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValueUpdate),
+    -- | A condition that must be satisfied in order for a conditional update to
+    -- succeed.
+    --
+    -- An expression can contain any of the following:
+    --
+    -- -   Functions:
+    --     @attribute_exists | attribute_not_exists | attribute_type | contains | begins_with | size@
+    --
+    --     These function names are case-sensitive.
+    --
+    -- -   Comparison operators: @= | \<> | \< | > | \<= | >= | BETWEEN | IN @
+    --
+    -- -   Logical operators: @AND | OR | NOT@
+    --
+    -- For more information about condition expressions, see
+    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions>
+    -- in the /Amazon DynamoDB Developer Guide/.
+    conditionExpression :: Prelude.Maybe Prelude.Text,
+    -- | This is a legacy parameter. Use @ConditionExpression@ instead. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html ConditionalOperator>
+    -- in the /Amazon DynamoDB Developer Guide/.
+    conditionalOperator :: Prelude.Maybe ConditionalOperator,
+    -- | This is a legacy parameter. Use @ConditionExpression@ instead. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html Expected>
+    -- in the /Amazon DynamoDB Developer Guide/.
+    expected :: Prelude.Maybe (Prelude.HashMap Prelude.Text ExpectedAttributeValue),
     -- | One or more substitution tokens for attribute names in an expression.
     -- The following are some use cases for using @ExpressionAttributeNames@:
     --
@@ -155,27 +142,58 @@ data UpdateItem = UpdateItem'
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes>
     -- in the /Amazon DynamoDB Developer Guide/.
     expressionAttributeNames :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | This is a legacy parameter. Use @ConditionExpression@ instead. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html ConditionalOperator>
+    -- | One or more values that can be substituted in an expression.
+    --
+    -- Use the __:__ (colon) character in an expression to dereference an
+    -- attribute value. For example, suppose that you wanted to check whether
+    -- the value of the @ProductStatus@ attribute was one of the following:
+    --
+    -- @Available | Backordered | Discontinued@
+    --
+    -- You would first need to specify @ExpressionAttributeValues@ as follows:
+    --
+    -- @{ \":avail\":{\"S\":\"Available\"}, \":back\":{\"S\":\"Backordered\"}, \":disc\":{\"S\":\"Discontinued\"} }@
+    --
+    -- You could then use these values in an expression, such as this:
+    --
+    -- @ProductStatus IN (:avail, :back, :disc)@
+    --
+    -- For more information on expression attribute values, see
+    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Condition Expressions>
     -- in the /Amazon DynamoDB Developer Guide/.
-    conditionalOperator :: Prelude.Maybe ConditionalOperator,
+    expressionAttributeValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
     returnConsumedCapacity :: Prelude.Maybe ReturnConsumedCapacity,
-    -- | This is a legacy parameter. Use @ConditionExpression@ instead. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html Expected>
-    -- in the /Amazon DynamoDB Developer Guide/.
-    expected :: Prelude.Maybe (Prelude.HashMap Prelude.Text ExpectedAttributeValue),
-    -- | This is a legacy parameter. Use @UpdateExpression@ instead. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributeUpdates.html AttributeUpdates>
-    -- in the /Amazon DynamoDB Developer Guide/.
-    attributeUpdates :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValueUpdate),
     -- | Determines whether item collection metrics are returned. If set to
     -- @SIZE@, the response includes statistics about item collections, if any,
     -- that were modified during the operation are returned in the response. If
     -- set to @NONE@ (the default), no statistics are returned.
     returnItemCollectionMetrics :: Prelude.Maybe ReturnItemCollectionMetrics,
+    -- | Use @ReturnValues@ if you want to get the item attributes as they appear
+    -- before or after they are updated. For @UpdateItem@, the valid values
+    -- are:
+    --
+    -- -   @NONE@ - If @ReturnValues@ is not specified, or if its value is
+    --     @NONE@, then nothing is returned. (This setting is the default for
+    --     @ReturnValues@.)
+    --
+    -- -   @ALL_OLD@ - Returns all of the attributes of the item, as they
+    --     appeared before the UpdateItem operation.
+    --
+    -- -   @UPDATED_OLD@ - Returns only the updated attributes, as they
+    --     appeared before the UpdateItem operation.
+    --
+    -- -   @ALL_NEW@ - Returns all of the attributes of the item, as they
+    --     appear after the UpdateItem operation.
+    --
+    -- -   @UPDATED_NEW@ - Returns only the updated attributes, as they appear
+    --     after the UpdateItem operation.
+    --
+    -- There is no additional cost associated with requesting a return value
+    -- aside from the small network and processing overhead of receiving a
+    -- larger response. No read capacity units are consumed.
+    --
+    -- The values returned are strongly consistent.
+    returnValues :: Prelude.Maybe ReturnValue,
     -- | An expression that defines one or more attributes to be updated, the
     -- action to be performed on them, and new values for them.
     --
@@ -260,24 +278,6 @@ data UpdateItem = UpdateItem'
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.Modifying.html Modifying Items and Attributes>
     -- in the /Amazon DynamoDB Developer Guide/.
     updateExpression :: Prelude.Maybe Prelude.Text,
-    -- | A condition that must be satisfied in order for a conditional update to
-    -- succeed.
-    --
-    -- An expression can contain any of the following:
-    --
-    -- -   Functions:
-    --     @attribute_exists | attribute_not_exists | attribute_type | contains | begins_with | size@
-    --
-    --     These function names are case-sensitive.
-    --
-    -- -   Comparison operators: @= | \<> | \< | > | \<= | >= | BETWEEN | IN @
-    --
-    -- -   Logical operators: @AND | OR | NOT@
-    --
-    -- For more information about condition expressions, see
-    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions>
-    -- in the /Amazon DynamoDB Developer Guide/.
-    conditionExpression :: Prelude.Maybe Prelude.Text,
     -- | The name of the table containing the item to update.
     tableName :: Prelude.Text,
     -- | The primary key of the item to be updated. Each element consists of an
@@ -299,50 +299,37 @@ data UpdateItem = UpdateItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'returnValues', 'updateItem_returnValues' - Use @ReturnValues@ if you want to get the item attributes as they appear
--- before or after they are updated. For @UpdateItem@, the valid values
--- are:
+-- 'attributeUpdates', 'updateItem_attributeUpdates' - This is a legacy parameter. Use @UpdateExpression@ instead. For more
+-- information, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributeUpdates.html AttributeUpdates>
+-- in the /Amazon DynamoDB Developer Guide/.
 --
--- -   @NONE@ - If @ReturnValues@ is not specified, or if its value is
---     @NONE@, then nothing is returned. (This setting is the default for
---     @ReturnValues@.)
+-- 'conditionExpression', 'updateItem_conditionExpression' - A condition that must be satisfied in order for a conditional update to
+-- succeed.
 --
--- -   @ALL_OLD@ - Returns all of the attributes of the item, as they
---     appeared before the UpdateItem operation.
+-- An expression can contain any of the following:
 --
--- -   @UPDATED_OLD@ - Returns only the updated attributes, as they
---     appeared before the UpdateItem operation.
+-- -   Functions:
+--     @attribute_exists | attribute_not_exists | attribute_type | contains | begins_with | size@
 --
--- -   @ALL_NEW@ - Returns all of the attributes of the item, as they
---     appear after the UpdateItem operation.
+--     These function names are case-sensitive.
 --
--- -   @UPDATED_NEW@ - Returns only the updated attributes, as they appear
---     after the UpdateItem operation.
+-- -   Comparison operators: @= | \<> | \< | > | \<= | >= | BETWEEN | IN @
 --
--- There is no additional cost associated with requesting a return value
--- aside from the small network and processing overhead of receiving a
--- larger response. No read capacity units are consumed.
+-- -   Logical operators: @AND | OR | NOT@
 --
--- The values returned are strongly consistent.
+-- For more information about condition expressions, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions>
+-- in the /Amazon DynamoDB Developer Guide/.
 --
--- 'expressionAttributeValues', 'updateItem_expressionAttributeValues' - One or more values that can be substituted in an expression.
+-- 'conditionalOperator', 'updateItem_conditionalOperator' - This is a legacy parameter. Use @ConditionExpression@ instead. For more
+-- information, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html ConditionalOperator>
+-- in the /Amazon DynamoDB Developer Guide/.
 --
--- Use the __:__ (colon) character in an expression to dereference an
--- attribute value. For example, suppose that you wanted to check whether
--- the value of the @ProductStatus@ attribute was one of the following:
---
--- @Available | Backordered | Discontinued@
---
--- You would first need to specify @ExpressionAttributeValues@ as follows:
---
--- @{ \":avail\":{\"S\":\"Available\"}, \":back\":{\"S\":\"Backordered\"}, \":disc\":{\"S\":\"Discontinued\"} }@
---
--- You could then use these values in an expression, such as this:
---
--- @ProductStatus IN (:avail, :back, :disc)@
---
--- For more information on expression attribute values, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Condition Expressions>
+-- 'expected', 'updateItem_expected' - This is a legacy parameter. Use @ConditionExpression@ instead. For more
+-- information, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html Expected>
 -- in the /Amazon DynamoDB Developer Guide/.
 --
 -- 'expressionAttributeNames', 'updateItem_expressionAttributeNames' - One or more substitution tokens for attribute names in an expression.
@@ -383,27 +370,58 @@ data UpdateItem = UpdateItem'
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes>
 -- in the /Amazon DynamoDB Developer Guide/.
 --
--- 'conditionalOperator', 'updateItem_conditionalOperator' - This is a legacy parameter. Use @ConditionExpression@ instead. For more
--- information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html ConditionalOperator>
+-- 'expressionAttributeValues', 'updateItem_expressionAttributeValues' - One or more values that can be substituted in an expression.
+--
+-- Use the __:__ (colon) character in an expression to dereference an
+-- attribute value. For example, suppose that you wanted to check whether
+-- the value of the @ProductStatus@ attribute was one of the following:
+--
+-- @Available | Backordered | Discontinued@
+--
+-- You would first need to specify @ExpressionAttributeValues@ as follows:
+--
+-- @{ \":avail\":{\"S\":\"Available\"}, \":back\":{\"S\":\"Backordered\"}, \":disc\":{\"S\":\"Discontinued\"} }@
+--
+-- You could then use these values in an expression, such as this:
+--
+-- @ProductStatus IN (:avail, :back, :disc)@
+--
+-- For more information on expression attribute values, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Condition Expressions>
 -- in the /Amazon DynamoDB Developer Guide/.
 --
 -- 'returnConsumedCapacity', 'updateItem_returnConsumedCapacity' - Undocumented member.
---
--- 'expected', 'updateItem_expected' - This is a legacy parameter. Use @ConditionExpression@ instead. For more
--- information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html Expected>
--- in the /Amazon DynamoDB Developer Guide/.
---
--- 'attributeUpdates', 'updateItem_attributeUpdates' - This is a legacy parameter. Use @UpdateExpression@ instead. For more
--- information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributeUpdates.html AttributeUpdates>
--- in the /Amazon DynamoDB Developer Guide/.
 --
 -- 'returnItemCollectionMetrics', 'updateItem_returnItemCollectionMetrics' - Determines whether item collection metrics are returned. If set to
 -- @SIZE@, the response includes statistics about item collections, if any,
 -- that were modified during the operation are returned in the response. If
 -- set to @NONE@ (the default), no statistics are returned.
+--
+-- 'returnValues', 'updateItem_returnValues' - Use @ReturnValues@ if you want to get the item attributes as they appear
+-- before or after they are updated. For @UpdateItem@, the valid values
+-- are:
+--
+-- -   @NONE@ - If @ReturnValues@ is not specified, or if its value is
+--     @NONE@, then nothing is returned. (This setting is the default for
+--     @ReturnValues@.)
+--
+-- -   @ALL_OLD@ - Returns all of the attributes of the item, as they
+--     appeared before the UpdateItem operation.
+--
+-- -   @UPDATED_OLD@ - Returns only the updated attributes, as they
+--     appeared before the UpdateItem operation.
+--
+-- -   @ALL_NEW@ - Returns all of the attributes of the item, as they
+--     appear after the UpdateItem operation.
+--
+-- -   @UPDATED_NEW@ - Returns only the updated attributes, as they appear
+--     after the UpdateItem operation.
+--
+-- There is no additional cost associated with requesting a return value
+-- aside from the small network and processing overhead of receiving a
+-- larger response. No read capacity units are consumed.
+--
+-- The values returned are strongly consistent.
 --
 -- 'updateExpression', 'updateItem_updateExpression' - An expression that defines one or more attributes to be updated, the
 -- action to be performed on them, and new values for them.
@@ -489,7 +507,43 @@ data UpdateItem = UpdateItem'
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.Modifying.html Modifying Items and Attributes>
 -- in the /Amazon DynamoDB Developer Guide/.
 --
--- 'conditionExpression', 'updateItem_conditionExpression' - A condition that must be satisfied in order for a conditional update to
+-- 'tableName', 'updateItem_tableName' - The name of the table containing the item to update.
+--
+-- 'key', 'updateItem_key' - The primary key of the item to be updated. Each element consists of an
+-- attribute name and a value for that attribute.
+--
+-- For the primary key, you must provide all of the attributes. For
+-- example, with a simple primary key, you only need to provide a value for
+-- the partition key. For a composite primary key, you must provide values
+-- for both the partition key and the sort key.
+newUpdateItem ::
+  -- | 'tableName'
+  Prelude.Text ->
+  UpdateItem
+newUpdateItem pTableName_ =
+  UpdateItem'
+    { attributeUpdates = Prelude.Nothing,
+      conditionExpression = Prelude.Nothing,
+      conditionalOperator = Prelude.Nothing,
+      expected = Prelude.Nothing,
+      expressionAttributeNames = Prelude.Nothing,
+      expressionAttributeValues = Prelude.Nothing,
+      returnConsumedCapacity = Prelude.Nothing,
+      returnItemCollectionMetrics = Prelude.Nothing,
+      returnValues = Prelude.Nothing,
+      updateExpression = Prelude.Nothing,
+      tableName = pTableName_,
+      key = Prelude.mempty
+    }
+
+-- | This is a legacy parameter. Use @UpdateExpression@ instead. For more
+-- information, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributeUpdates.html AttributeUpdates>
+-- in the /Amazon DynamoDB Developer Guide/.
+updateItem_attributeUpdates :: Lens.Lens' UpdateItem (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValueUpdate))
+updateItem_attributeUpdates = Lens.lens (\UpdateItem' {attributeUpdates} -> attributeUpdates) (\s@UpdateItem' {} a -> s {attributeUpdates = a} :: UpdateItem) Prelude.. Lens.mapping Lens.coerced
+
+-- | A condition that must be satisfied in order for a conditional update to
 -- succeed.
 --
 -- An expression can contain any of the following:
@@ -506,85 +560,22 @@ data UpdateItem = UpdateItem'
 -- For more information about condition expressions, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions>
 -- in the /Amazon DynamoDB Developer Guide/.
---
--- 'tableName', 'updateItem_tableName' - The name of the table containing the item to update.
---
--- 'key', 'updateItem_key' - The primary key of the item to be updated. Each element consists of an
--- attribute name and a value for that attribute.
---
--- For the primary key, you must provide all of the attributes. For
--- example, with a simple primary key, you only need to provide a value for
--- the partition key. For a composite primary key, you must provide values
--- for both the partition key and the sort key.
-newUpdateItem ::
-  -- | 'tableName'
-  Prelude.Text ->
-  UpdateItem
-newUpdateItem pTableName_ =
-  UpdateItem'
-    { returnValues = Prelude.Nothing,
-      expressionAttributeValues = Prelude.Nothing,
-      expressionAttributeNames = Prelude.Nothing,
-      conditionalOperator = Prelude.Nothing,
-      returnConsumedCapacity = Prelude.Nothing,
-      expected = Prelude.Nothing,
-      attributeUpdates = Prelude.Nothing,
-      returnItemCollectionMetrics = Prelude.Nothing,
-      updateExpression = Prelude.Nothing,
-      conditionExpression = Prelude.Nothing,
-      tableName = pTableName_,
-      key = Prelude.mempty
-    }
+updateItem_conditionExpression :: Lens.Lens' UpdateItem (Prelude.Maybe Prelude.Text)
+updateItem_conditionExpression = Lens.lens (\UpdateItem' {conditionExpression} -> conditionExpression) (\s@UpdateItem' {} a -> s {conditionExpression = a} :: UpdateItem)
 
--- | Use @ReturnValues@ if you want to get the item attributes as they appear
--- before or after they are updated. For @UpdateItem@, the valid values
--- are:
---
--- -   @NONE@ - If @ReturnValues@ is not specified, or if its value is
---     @NONE@, then nothing is returned. (This setting is the default for
---     @ReturnValues@.)
---
--- -   @ALL_OLD@ - Returns all of the attributes of the item, as they
---     appeared before the UpdateItem operation.
---
--- -   @UPDATED_OLD@ - Returns only the updated attributes, as they
---     appeared before the UpdateItem operation.
---
--- -   @ALL_NEW@ - Returns all of the attributes of the item, as they
---     appear after the UpdateItem operation.
---
--- -   @UPDATED_NEW@ - Returns only the updated attributes, as they appear
---     after the UpdateItem operation.
---
--- There is no additional cost associated with requesting a return value
--- aside from the small network and processing overhead of receiving a
--- larger response. No read capacity units are consumed.
---
--- The values returned are strongly consistent.
-updateItem_returnValues :: Lens.Lens' UpdateItem (Prelude.Maybe ReturnValue)
-updateItem_returnValues = Lens.lens (\UpdateItem' {returnValues} -> returnValues) (\s@UpdateItem' {} a -> s {returnValues = a} :: UpdateItem)
-
--- | One or more values that can be substituted in an expression.
---
--- Use the __:__ (colon) character in an expression to dereference an
--- attribute value. For example, suppose that you wanted to check whether
--- the value of the @ProductStatus@ attribute was one of the following:
---
--- @Available | Backordered | Discontinued@
---
--- You would first need to specify @ExpressionAttributeValues@ as follows:
---
--- @{ \":avail\":{\"S\":\"Available\"}, \":back\":{\"S\":\"Backordered\"}, \":disc\":{\"S\":\"Discontinued\"} }@
---
--- You could then use these values in an expression, such as this:
---
--- @ProductStatus IN (:avail, :back, :disc)@
---
--- For more information on expression attribute values, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Condition Expressions>
+-- | This is a legacy parameter. Use @ConditionExpression@ instead. For more
+-- information, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html ConditionalOperator>
 -- in the /Amazon DynamoDB Developer Guide/.
-updateItem_expressionAttributeValues :: Lens.Lens' UpdateItem (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
-updateItem_expressionAttributeValues = Lens.lens (\UpdateItem' {expressionAttributeValues} -> expressionAttributeValues) (\s@UpdateItem' {} a -> s {expressionAttributeValues = a} :: UpdateItem) Prelude.. Lens.mapping Lens.coerced
+updateItem_conditionalOperator :: Lens.Lens' UpdateItem (Prelude.Maybe ConditionalOperator)
+updateItem_conditionalOperator = Lens.lens (\UpdateItem' {conditionalOperator} -> conditionalOperator) (\s@UpdateItem' {} a -> s {conditionalOperator = a} :: UpdateItem)
+
+-- | This is a legacy parameter. Use @ConditionExpression@ instead. For more
+-- information, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html Expected>
+-- in the /Amazon DynamoDB Developer Guide/.
+updateItem_expected :: Lens.Lens' UpdateItem (Prelude.Maybe (Prelude.HashMap Prelude.Text ExpectedAttributeValue))
+updateItem_expected = Lens.lens (\UpdateItem' {expected} -> expected) (\s@UpdateItem' {} a -> s {expected = a} :: UpdateItem) Prelude.. Lens.mapping Lens.coerced
 
 -- | One or more substitution tokens for attribute names in an expression.
 -- The following are some use cases for using @ExpressionAttributeNames@:
@@ -626,30 +617,31 @@ updateItem_expressionAttributeValues = Lens.lens (\UpdateItem' {expressionAttrib
 updateItem_expressionAttributeNames :: Lens.Lens' UpdateItem (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 updateItem_expressionAttributeNames = Lens.lens (\UpdateItem' {expressionAttributeNames} -> expressionAttributeNames) (\s@UpdateItem' {} a -> s {expressionAttributeNames = a} :: UpdateItem) Prelude.. Lens.mapping Lens.coerced
 
--- | This is a legacy parameter. Use @ConditionExpression@ instead. For more
--- information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html ConditionalOperator>
+-- | One or more values that can be substituted in an expression.
+--
+-- Use the __:__ (colon) character in an expression to dereference an
+-- attribute value. For example, suppose that you wanted to check whether
+-- the value of the @ProductStatus@ attribute was one of the following:
+--
+-- @Available | Backordered | Discontinued@
+--
+-- You would first need to specify @ExpressionAttributeValues@ as follows:
+--
+-- @{ \":avail\":{\"S\":\"Available\"}, \":back\":{\"S\":\"Backordered\"}, \":disc\":{\"S\":\"Discontinued\"} }@
+--
+-- You could then use these values in an expression, such as this:
+--
+-- @ProductStatus IN (:avail, :back, :disc)@
+--
+-- For more information on expression attribute values, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Condition Expressions>
 -- in the /Amazon DynamoDB Developer Guide/.
-updateItem_conditionalOperator :: Lens.Lens' UpdateItem (Prelude.Maybe ConditionalOperator)
-updateItem_conditionalOperator = Lens.lens (\UpdateItem' {conditionalOperator} -> conditionalOperator) (\s@UpdateItem' {} a -> s {conditionalOperator = a} :: UpdateItem)
+updateItem_expressionAttributeValues :: Lens.Lens' UpdateItem (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
+updateItem_expressionAttributeValues = Lens.lens (\UpdateItem' {expressionAttributeValues} -> expressionAttributeValues) (\s@UpdateItem' {} a -> s {expressionAttributeValues = a} :: UpdateItem) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 updateItem_returnConsumedCapacity :: Lens.Lens' UpdateItem (Prelude.Maybe ReturnConsumedCapacity)
 updateItem_returnConsumedCapacity = Lens.lens (\UpdateItem' {returnConsumedCapacity} -> returnConsumedCapacity) (\s@UpdateItem' {} a -> s {returnConsumedCapacity = a} :: UpdateItem)
-
--- | This is a legacy parameter. Use @ConditionExpression@ instead. For more
--- information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html Expected>
--- in the /Amazon DynamoDB Developer Guide/.
-updateItem_expected :: Lens.Lens' UpdateItem (Prelude.Maybe (Prelude.HashMap Prelude.Text ExpectedAttributeValue))
-updateItem_expected = Lens.lens (\UpdateItem' {expected} -> expected) (\s@UpdateItem' {} a -> s {expected = a} :: UpdateItem) Prelude.. Lens.mapping Lens.coerced
-
--- | This is a legacy parameter. Use @UpdateExpression@ instead. For more
--- information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributeUpdates.html AttributeUpdates>
--- in the /Amazon DynamoDB Developer Guide/.
-updateItem_attributeUpdates :: Lens.Lens' UpdateItem (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValueUpdate))
-updateItem_attributeUpdates = Lens.lens (\UpdateItem' {attributeUpdates} -> attributeUpdates) (\s@UpdateItem' {} a -> s {attributeUpdates = a} :: UpdateItem) Prelude.. Lens.mapping Lens.coerced
 
 -- | Determines whether item collection metrics are returned. If set to
 -- @SIZE@, the response includes statistics about item collections, if any,
@@ -657,6 +649,34 @@ updateItem_attributeUpdates = Lens.lens (\UpdateItem' {attributeUpdates} -> attr
 -- set to @NONE@ (the default), no statistics are returned.
 updateItem_returnItemCollectionMetrics :: Lens.Lens' UpdateItem (Prelude.Maybe ReturnItemCollectionMetrics)
 updateItem_returnItemCollectionMetrics = Lens.lens (\UpdateItem' {returnItemCollectionMetrics} -> returnItemCollectionMetrics) (\s@UpdateItem' {} a -> s {returnItemCollectionMetrics = a} :: UpdateItem)
+
+-- | Use @ReturnValues@ if you want to get the item attributes as they appear
+-- before or after they are updated. For @UpdateItem@, the valid values
+-- are:
+--
+-- -   @NONE@ - If @ReturnValues@ is not specified, or if its value is
+--     @NONE@, then nothing is returned. (This setting is the default for
+--     @ReturnValues@.)
+--
+-- -   @ALL_OLD@ - Returns all of the attributes of the item, as they
+--     appeared before the UpdateItem operation.
+--
+-- -   @UPDATED_OLD@ - Returns only the updated attributes, as they
+--     appeared before the UpdateItem operation.
+--
+-- -   @ALL_NEW@ - Returns all of the attributes of the item, as they
+--     appear after the UpdateItem operation.
+--
+-- -   @UPDATED_NEW@ - Returns only the updated attributes, as they appear
+--     after the UpdateItem operation.
+--
+-- There is no additional cost associated with requesting a return value
+-- aside from the small network and processing overhead of receiving a
+-- larger response. No read capacity units are consumed.
+--
+-- The values returned are strongly consistent.
+updateItem_returnValues :: Lens.Lens' UpdateItem (Prelude.Maybe ReturnValue)
+updateItem_returnValues = Lens.lens (\UpdateItem' {returnValues} -> returnValues) (\s@UpdateItem' {} a -> s {returnValues = a} :: UpdateItem)
 
 -- | An expression that defines one or more attributes to be updated, the
 -- action to be performed on them, and new values for them.
@@ -744,26 +764,6 @@ updateItem_returnItemCollectionMetrics = Lens.lens (\UpdateItem' {returnItemColl
 updateItem_updateExpression :: Lens.Lens' UpdateItem (Prelude.Maybe Prelude.Text)
 updateItem_updateExpression = Lens.lens (\UpdateItem' {updateExpression} -> updateExpression) (\s@UpdateItem' {} a -> s {updateExpression = a} :: UpdateItem)
 
--- | A condition that must be satisfied in order for a conditional update to
--- succeed.
---
--- An expression can contain any of the following:
---
--- -   Functions:
---     @attribute_exists | attribute_not_exists | attribute_type | contains | begins_with | size@
---
---     These function names are case-sensitive.
---
--- -   Comparison operators: @= | \<> | \< | > | \<= | >= | BETWEEN | IN @
---
--- -   Logical operators: @AND | OR | NOT@
---
--- For more information about condition expressions, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions>
--- in the /Amazon DynamoDB Developer Guide/.
-updateItem_conditionExpression :: Lens.Lens' UpdateItem (Prelude.Maybe Prelude.Text)
-updateItem_conditionExpression = Lens.lens (\UpdateItem' {conditionExpression} -> conditionExpression) (\s@UpdateItem' {} a -> s {conditionExpression = a} :: UpdateItem)
-
 -- | The name of the table containing the item to update.
 updateItem_tableName :: Lens.Lens' UpdateItem Prelude.Text
 updateItem_tableName = Lens.lens (\UpdateItem' {tableName} -> tableName) (\s@UpdateItem' {} a -> s {tableName = a} :: UpdateItem)
@@ -786,39 +786,39 @@ instance Core.AWSRequest UpdateItem where
     Response.receiveJSON
       ( \s h x ->
           UpdateItemResponse'
-            Prelude.<$> (x Data..?> "ConsumedCapacity")
-            Prelude.<*> (x Data..?> "Attributes" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Attributes" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ConsumedCapacity")
             Prelude.<*> (x Data..?> "ItemCollectionMetrics")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdateItem where
   hashWithSalt _salt UpdateItem' {..} =
-    _salt `Prelude.hashWithSalt` returnValues
-      `Prelude.hashWithSalt` expressionAttributeValues
-      `Prelude.hashWithSalt` expressionAttributeNames
-      `Prelude.hashWithSalt` conditionalOperator
-      `Prelude.hashWithSalt` returnConsumedCapacity
-      `Prelude.hashWithSalt` expected
-      `Prelude.hashWithSalt` attributeUpdates
-      `Prelude.hashWithSalt` returnItemCollectionMetrics
-      `Prelude.hashWithSalt` updateExpression
+    _salt `Prelude.hashWithSalt` attributeUpdates
       `Prelude.hashWithSalt` conditionExpression
+      `Prelude.hashWithSalt` conditionalOperator
+      `Prelude.hashWithSalt` expected
+      `Prelude.hashWithSalt` expressionAttributeNames
+      `Prelude.hashWithSalt` expressionAttributeValues
+      `Prelude.hashWithSalt` returnConsumedCapacity
+      `Prelude.hashWithSalt` returnItemCollectionMetrics
+      `Prelude.hashWithSalt` returnValues
+      `Prelude.hashWithSalt` updateExpression
       `Prelude.hashWithSalt` tableName
       `Prelude.hashWithSalt` key
 
 instance Prelude.NFData UpdateItem where
   rnf UpdateItem' {..} =
-    Prelude.rnf returnValues
-      `Prelude.seq` Prelude.rnf expressionAttributeValues
-      `Prelude.seq` Prelude.rnf expressionAttributeNames
-      `Prelude.seq` Prelude.rnf conditionalOperator
-      `Prelude.seq` Prelude.rnf returnConsumedCapacity
-      `Prelude.seq` Prelude.rnf expected
-      `Prelude.seq` Prelude.rnf attributeUpdates
-      `Prelude.seq` Prelude.rnf returnItemCollectionMetrics
-      `Prelude.seq` Prelude.rnf updateExpression
+    Prelude.rnf attributeUpdates
       `Prelude.seq` Prelude.rnf conditionExpression
+      `Prelude.seq` Prelude.rnf conditionalOperator
+      `Prelude.seq` Prelude.rnf expected
+      `Prelude.seq` Prelude.rnf expressionAttributeNames
+      `Prelude.seq` Prelude.rnf expressionAttributeValues
+      `Prelude.seq` Prelude.rnf returnConsumedCapacity
+      `Prelude.seq` Prelude.rnf returnItemCollectionMetrics
+      `Prelude.seq` Prelude.rnf returnValues
+      `Prelude.seq` Prelude.rnf updateExpression
       `Prelude.seq` Prelude.rnf tableName
       `Prelude.seq` Prelude.rnf key
 
@@ -841,24 +841,24 @@ instance Data.ToJSON UpdateItem where
   toJSON UpdateItem' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ReturnValues" Data..=) Prelude.<$> returnValues,
-            ("ExpressionAttributeValues" Data..=)
-              Prelude.<$> expressionAttributeValues,
-            ("ExpressionAttributeNames" Data..=)
-              Prelude.<$> expressionAttributeNames,
-            ("ConditionalOperator" Data..=)
-              Prelude.<$> conditionalOperator,
-            ("ReturnConsumedCapacity" Data..=)
-              Prelude.<$> returnConsumedCapacity,
-            ("Expected" Data..=) Prelude.<$> expected,
-            ("AttributeUpdates" Data..=)
+          [ ("AttributeUpdates" Data..=)
               Prelude.<$> attributeUpdates,
-            ("ReturnItemCollectionMetrics" Data..=)
-              Prelude.<$> returnItemCollectionMetrics,
-            ("UpdateExpression" Data..=)
-              Prelude.<$> updateExpression,
             ("ConditionExpression" Data..=)
               Prelude.<$> conditionExpression,
+            ("ConditionalOperator" Data..=)
+              Prelude.<$> conditionalOperator,
+            ("Expected" Data..=) Prelude.<$> expected,
+            ("ExpressionAttributeNames" Data..=)
+              Prelude.<$> expressionAttributeNames,
+            ("ExpressionAttributeValues" Data..=)
+              Prelude.<$> expressionAttributeValues,
+            ("ReturnConsumedCapacity" Data..=)
+              Prelude.<$> returnConsumedCapacity,
+            ("ReturnItemCollectionMetrics" Data..=)
+              Prelude.<$> returnItemCollectionMetrics,
+            ("ReturnValues" Data..=) Prelude.<$> returnValues,
+            ("UpdateExpression" Data..=)
+              Prelude.<$> updateExpression,
             Prelude.Just ("TableName" Data..= tableName),
             Prelude.Just ("Key" Data..= key)
           ]
@@ -874,7 +874,14 @@ instance Data.ToQuery UpdateItem where
 --
 -- /See:/ 'newUpdateItemResponse' smart constructor.
 data UpdateItemResponse = UpdateItemResponse'
-  { -- | The capacity units consumed by the @UpdateItem@ operation. The data
+  { -- | A map of attribute values as they appear before or after the
+    -- @UpdateItem@ operation, as determined by the @ReturnValues@ parameter.
+    --
+    -- The @Attributes@ map is only present if @ReturnValues@ was specified as
+    -- something other than @NONE@ in the request. Each element represents one
+    -- attribute.
+    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
+    -- | The capacity units consumed by the @UpdateItem@ operation. The data
     -- returned includes the total provisioned throughput consumed, along with
     -- statistics for the table and any indexes involved in the operation.
     -- @ConsumedCapacity@ is only returned if the @ReturnConsumedCapacity@
@@ -882,13 +889,6 @@ data UpdateItemResponse = UpdateItemResponse'
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Provisioned Throughput>
     -- in the /Amazon DynamoDB Developer Guide/.
     consumedCapacity :: Prelude.Maybe ConsumedCapacity,
-    -- | A map of attribute values as they appear before or after the
-    -- @UpdateItem@ operation, as determined by the @ReturnValues@ parameter.
-    --
-    -- The @Attributes@ map is only present if @ReturnValues@ was specified as
-    -- something other than @NONE@ in the request. Each element represents one
-    -- attribute.
-    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
     -- | Information about item collections, if any, that were affected by the
     -- @UpdateItem@ operation. @ItemCollectionMetrics@ is only returned if the
     -- @ReturnItemCollectionMetrics@ parameter was specified. If the table does
@@ -925,6 +925,13 @@ data UpdateItemResponse = UpdateItemResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'attributes', 'updateItemResponse_attributes' - A map of attribute values as they appear before or after the
+-- @UpdateItem@ operation, as determined by the @ReturnValues@ parameter.
+--
+-- The @Attributes@ map is only present if @ReturnValues@ was specified as
+-- something other than @NONE@ in the request. Each element represents one
+-- attribute.
+--
 -- 'consumedCapacity', 'updateItemResponse_consumedCapacity' - The capacity units consumed by the @UpdateItem@ operation. The data
 -- returned includes the total provisioned throughput consumed, along with
 -- statistics for the table and any indexes involved in the operation.
@@ -932,13 +939,6 @@ data UpdateItemResponse = UpdateItemResponse'
 -- parameter was specified. For more information, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Provisioned Throughput>
 -- in the /Amazon DynamoDB Developer Guide/.
---
--- 'attributes', 'updateItemResponse_attributes' - A map of attribute values as they appear before or after the
--- @UpdateItem@ operation, as determined by the @ReturnValues@ parameter.
---
--- The @Attributes@ map is only present if @ReturnValues@ was specified as
--- something other than @NONE@ in the request. Each element represents one
--- attribute.
 --
 -- 'itemCollectionMetrics', 'updateItemResponse_itemCollectionMetrics' - Information about item collections, if any, that were affected by the
 -- @UpdateItem@ operation. @ItemCollectionMetrics@ is only returned if the
@@ -970,12 +970,20 @@ newUpdateItemResponse ::
   UpdateItemResponse
 newUpdateItemResponse pHttpStatus_ =
   UpdateItemResponse'
-    { consumedCapacity =
-        Prelude.Nothing,
-      attributes = Prelude.Nothing,
+    { attributes = Prelude.Nothing,
+      consumedCapacity = Prelude.Nothing,
       itemCollectionMetrics = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A map of attribute values as they appear before or after the
+-- @UpdateItem@ operation, as determined by the @ReturnValues@ parameter.
+--
+-- The @Attributes@ map is only present if @ReturnValues@ was specified as
+-- something other than @NONE@ in the request. Each element represents one
+-- attribute.
+updateItemResponse_attributes :: Lens.Lens' UpdateItemResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
+updateItemResponse_attributes = Lens.lens (\UpdateItemResponse' {attributes} -> attributes) (\s@UpdateItemResponse' {} a -> s {attributes = a} :: UpdateItemResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The capacity units consumed by the @UpdateItem@ operation. The data
 -- returned includes the total provisioned throughput consumed, along with
@@ -986,15 +994,6 @@ newUpdateItemResponse pHttpStatus_ =
 -- in the /Amazon DynamoDB Developer Guide/.
 updateItemResponse_consumedCapacity :: Lens.Lens' UpdateItemResponse (Prelude.Maybe ConsumedCapacity)
 updateItemResponse_consumedCapacity = Lens.lens (\UpdateItemResponse' {consumedCapacity} -> consumedCapacity) (\s@UpdateItemResponse' {} a -> s {consumedCapacity = a} :: UpdateItemResponse)
-
--- | A map of attribute values as they appear before or after the
--- @UpdateItem@ operation, as determined by the @ReturnValues@ parameter.
---
--- The @Attributes@ map is only present if @ReturnValues@ was specified as
--- something other than @NONE@ in the request. Each element represents one
--- attribute.
-updateItemResponse_attributes :: Lens.Lens' UpdateItemResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
-updateItemResponse_attributes = Lens.lens (\UpdateItemResponse' {attributes} -> attributes) (\s@UpdateItemResponse' {} a -> s {attributes = a} :: UpdateItemResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Information about item collections, if any, that were affected by the
 -- @UpdateItem@ operation. @ItemCollectionMetrics@ is only returned if the
@@ -1027,7 +1026,7 @@ updateItemResponse_httpStatus = Lens.lens (\UpdateItemResponse' {httpStatus} -> 
 
 instance Prelude.NFData UpdateItemResponse where
   rnf UpdateItemResponse' {..} =
-    Prelude.rnf consumedCapacity
-      `Prelude.seq` Prelude.rnf attributes
+    Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf consumedCapacity
       `Prelude.seq` Prelude.rnf itemCollectionMetrics
       `Prelude.seq` Prelude.rnf httpStatus

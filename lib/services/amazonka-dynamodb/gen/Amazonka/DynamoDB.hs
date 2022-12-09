@@ -40,107 +40,107 @@ module Amazonka.DynamoDB
     -- * Errors
     -- $errors
 
-    -- ** ExportNotFoundException
-    _ExportNotFoundException,
-
-    -- ** GlobalTableNotFoundException
-    _GlobalTableNotFoundException,
-
-    -- ** InvalidExportTimeException
-    _InvalidExportTimeException,
-
-    -- ** DuplicateItemException
-    _DuplicateItemException,
-
-    -- ** RequestLimitExceeded
-    _RequestLimitExceeded,
-
-    -- ** IndexNotFoundException
-    _IndexNotFoundException,
-
     -- ** BackupInUseException
     _BackupInUseException,
 
     -- ** BackupNotFoundException
     _BackupNotFoundException,
 
-    -- ** ProvisionedThroughputExceededException
-    _ProvisionedThroughputExceededException,
-
-    -- ** TableAlreadyExistsException
-    _TableAlreadyExistsException,
-
-    -- ** TransactionConflictException
-    _TransactionConflictException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** ResourceInUseException
-    _ResourceInUseException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
-
-    -- ** TransactionCanceledException
-    _TransactionCanceledException,
-
-    -- ** PointInTimeRecoveryUnavailableException
-    _PointInTimeRecoveryUnavailableException,
-
-    -- ** InternalServerError
-    _InternalServerError,
-
-    -- ** ImportNotFoundException
-    _ImportNotFoundException,
-
-    -- ** TableNotFoundException
-    _TableNotFoundException,
-
-    -- ** ItemCollectionSizeLimitExceededException
-    _ItemCollectionSizeLimitExceededException,
+    -- ** ConditionalCheckFailedException
+    _ConditionalCheckFailedException,
 
     -- ** ContinuousBackupsUnavailableException
     _ContinuousBackupsUnavailableException,
 
-    -- ** GlobalTableAlreadyExistsException
-    _GlobalTableAlreadyExistsException,
-
-    -- ** ReplicaNotFoundException
-    _ReplicaNotFoundException,
-
-    -- ** TableInUseException
-    _TableInUseException,
-
-    -- ** ImportConflictException
-    _ImportConflictException,
-
-    -- ** ConditionalCheckFailedException
-    _ConditionalCheckFailedException,
-
-    -- ** ReplicaAlreadyExistsException
-    _ReplicaAlreadyExistsException,
-
-    -- ** InvalidRestoreTimeException
-    _InvalidRestoreTimeException,
-
-    -- ** TransactionInProgressException
-    _TransactionInProgressException,
-
-    -- ** IdempotentParameterMismatchException
-    _IdempotentParameterMismatchException,
+    -- ** DuplicateItemException
+    _DuplicateItemException,
 
     -- ** ExportConflictException
     _ExportConflictException,
 
+    -- ** ExportNotFoundException
+    _ExportNotFoundException,
+
+    -- ** GlobalTableAlreadyExistsException
+    _GlobalTableAlreadyExistsException,
+
+    -- ** GlobalTableNotFoundException
+    _GlobalTableNotFoundException,
+
+    -- ** IdempotentParameterMismatchException
+    _IdempotentParameterMismatchException,
+
+    -- ** ImportConflictException
+    _ImportConflictException,
+
+    -- ** ImportNotFoundException
+    _ImportNotFoundException,
+
+    -- ** IndexNotFoundException
+    _IndexNotFoundException,
+
+    -- ** InternalServerError
+    _InternalServerError,
+
+    -- ** InvalidExportTimeException
+    _InvalidExportTimeException,
+
+    -- ** InvalidRestoreTimeException
+    _InvalidRestoreTimeException,
+
+    -- ** ItemCollectionSizeLimitExceededException
+    _ItemCollectionSizeLimitExceededException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** PointInTimeRecoveryUnavailableException
+    _PointInTimeRecoveryUnavailableException,
+
+    -- ** ProvisionedThroughputExceededException
+    _ProvisionedThroughputExceededException,
+
+    -- ** ReplicaAlreadyExistsException
+    _ReplicaAlreadyExistsException,
+
+    -- ** ReplicaNotFoundException
+    _ReplicaNotFoundException,
+
+    -- ** RequestLimitExceeded
+    _RequestLimitExceeded,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** TableAlreadyExistsException
+    _TableAlreadyExistsException,
+
+    -- ** TableInUseException
+    _TableInUseException,
+
+    -- ** TableNotFoundException
+    _TableNotFoundException,
+
+    -- ** TransactionCanceledException
+    _TransactionCanceledException,
+
+    -- ** TransactionConflictException
+    _TransactionConflictException,
+
+    -- ** TransactionInProgressException
+    _TransactionInProgressException,
+
     -- * Waiters
     -- $waiters
 
-    -- ** TableNotExists
-    newTableNotExists,
-
     -- ** TableExists
     newTableExists,
+
+    -- ** TableNotExists
+    newTableNotExists,
 
     -- * Operations
     -- $operations

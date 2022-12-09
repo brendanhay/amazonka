@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newKinesisDataStreamDestination' smart constructor.
 data KinesisDataStreamDestination = KinesisDataStreamDestination'
-  { -- | The human-readable string that corresponds to the replica status.
+  { -- | The current status of replication.
+    destinationStatus :: Prelude.Maybe DestinationStatus,
+    -- | The human-readable string that corresponds to the replica status.
     destinationStatusDescription :: Prelude.Maybe Prelude.Text,
     -- | The ARN for a specific Kinesis data stream.
-    streamArn :: Prelude.Maybe Prelude.Text,
-    -- | The current status of replication.
-    destinationStatus :: Prelude.Maybe DestinationStatus
+    streamArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,20 +48,25 @@ data KinesisDataStreamDestination = KinesisDataStreamDestination'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'destinationStatus', 'kinesisDataStreamDestination_destinationStatus' - The current status of replication.
+--
 -- 'destinationStatusDescription', 'kinesisDataStreamDestination_destinationStatusDescription' - The human-readable string that corresponds to the replica status.
 --
 -- 'streamArn', 'kinesisDataStreamDestination_streamArn' - The ARN for a specific Kinesis data stream.
---
--- 'destinationStatus', 'kinesisDataStreamDestination_destinationStatus' - The current status of replication.
 newKinesisDataStreamDestination ::
   KinesisDataStreamDestination
 newKinesisDataStreamDestination =
   KinesisDataStreamDestination'
-    { destinationStatusDescription =
+    { destinationStatus =
         Prelude.Nothing,
-      streamArn = Prelude.Nothing,
-      destinationStatus = Prelude.Nothing
+      destinationStatusDescription =
+        Prelude.Nothing,
+      streamArn = Prelude.Nothing
     }
+
+-- | The current status of replication.
+kinesisDataStreamDestination_destinationStatus :: Lens.Lens' KinesisDataStreamDestination (Prelude.Maybe DestinationStatus)
+kinesisDataStreamDestination_destinationStatus = Lens.lens (\KinesisDataStreamDestination' {destinationStatus} -> destinationStatus) (\s@KinesisDataStreamDestination' {} a -> s {destinationStatus = a} :: KinesisDataStreamDestination)
 
 -- | The human-readable string that corresponds to the replica status.
 kinesisDataStreamDestination_destinationStatusDescription :: Lens.Lens' KinesisDataStreamDestination (Prelude.Maybe Prelude.Text)
@@ -71,19 +76,15 @@ kinesisDataStreamDestination_destinationStatusDescription = Lens.lens (\KinesisD
 kinesisDataStreamDestination_streamArn :: Lens.Lens' KinesisDataStreamDestination (Prelude.Maybe Prelude.Text)
 kinesisDataStreamDestination_streamArn = Lens.lens (\KinesisDataStreamDestination' {streamArn} -> streamArn) (\s@KinesisDataStreamDestination' {} a -> s {streamArn = a} :: KinesisDataStreamDestination)
 
--- | The current status of replication.
-kinesisDataStreamDestination_destinationStatus :: Lens.Lens' KinesisDataStreamDestination (Prelude.Maybe DestinationStatus)
-kinesisDataStreamDestination_destinationStatus = Lens.lens (\KinesisDataStreamDestination' {destinationStatus} -> destinationStatus) (\s@KinesisDataStreamDestination' {} a -> s {destinationStatus = a} :: KinesisDataStreamDestination)
-
 instance Data.FromJSON KinesisDataStreamDestination where
   parseJSON =
     Data.withObject
       "KinesisDataStreamDestination"
       ( \x ->
           KinesisDataStreamDestination'
-            Prelude.<$> (x Data..:? "DestinationStatusDescription")
+            Prelude.<$> (x Data..:? "DestinationStatus")
+            Prelude.<*> (x Data..:? "DestinationStatusDescription")
             Prelude.<*> (x Data..:? "StreamArn")
-            Prelude.<*> (x Data..:? "DestinationStatus")
       )
 
 instance
@@ -91,13 +92,12 @@ instance
     KinesisDataStreamDestination
   where
   hashWithSalt _salt KinesisDataStreamDestination' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` destinationStatus
       `Prelude.hashWithSalt` destinationStatusDescription
       `Prelude.hashWithSalt` streamArn
-      `Prelude.hashWithSalt` destinationStatus
 
 instance Prelude.NFData KinesisDataStreamDestination where
   rnf KinesisDataStreamDestination' {..} =
-    Prelude.rnf destinationStatusDescription
+    Prelude.rnf destinationStatus
+      `Prelude.seq` Prelude.rnf destinationStatusDescription
       `Prelude.seq` Prelude.rnf streamArn
-      `Prelude.seq` Prelude.rnf destinationStatus

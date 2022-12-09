@@ -34,18 +34,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGlobalSecondaryIndexDescription' smart constructor.
 data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription'
-  { -- | The number of items in the specified index. DynamoDB updates this value
-    -- approximately every six hours. Recent changes might not be reflected in
-    -- this value.
-    itemCount :: Prelude.Maybe Prelude.Integer,
-    -- | Represents the provisioned throughput settings for the specified global
-    -- secondary index.
-    --
-    -- For current minimum and maximum provisioned throughput values, see
-    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas>
-    -- in the /Amazon DynamoDB Developer Guide/.
-    provisionedThroughput :: Prelude.Maybe ProvisionedThroughputDescription,
-    -- | Indicates whether the index is currently backfilling. /Backfilling/ is
+  { -- | Indicates whether the index is currently backfilling. /Backfilling/ is
     -- the process of reading items from the table and determining whether they
     -- can be added to the index. (Not all items will qualify: For example, a
     -- partition key cannot have any duplicate values.) If an item can be added
@@ -60,10 +49,14 @@ data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription'
     -- For indexes that were created during a @CreateTable@ operation, the
     -- @Backfilling@ attribute does not appear in the @DescribeTable@ output.
     backfilling :: Prelude.Maybe Prelude.Bool,
-    -- | The name of the global secondary index.
-    indexName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) that uniquely identifies the index.
     indexArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the global secondary index.
+    indexName :: Prelude.Maybe Prelude.Text,
+    -- | The total size of the specified index, in bytes. DynamoDB updates this
+    -- value approximately every six hours. Recent changes might not be
+    -- reflected in this value.
+    indexSizeBytes :: Prelude.Maybe Prelude.Integer,
     -- | The current state of the global secondary index:
     --
     -- -   @CREATING@ - The index is being created.
@@ -74,10 +67,10 @@ data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription'
     --
     -- -   @ACTIVE@ - The index is ready for use.
     indexStatus :: Prelude.Maybe IndexStatus,
-    -- | The total size of the specified index, in bytes. DynamoDB updates this
-    -- value approximately every six hours. Recent changes might not be
-    -- reflected in this value.
-    indexSizeBytes :: Prelude.Maybe Prelude.Integer,
+    -- | The number of items in the specified index. DynamoDB updates this value
+    -- approximately every six hours. Recent changes might not be reflected in
+    -- this value.
+    itemCount :: Prelude.Maybe Prelude.Integer,
     -- | The complete key schema for a global secondary index, which consists of
     -- one or more pairs of attribute names and key types:
     --
@@ -98,7 +91,14 @@ data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription'
     -- | Represents attributes that are copied (projected) from the table into
     -- the global secondary index. These are in addition to the primary key
     -- attributes and index key attributes, which are automatically projected.
-    projection :: Prelude.Maybe Projection
+    projection :: Prelude.Maybe Projection,
+    -- | Represents the provisioned throughput settings for the specified global
+    -- secondary index.
+    --
+    -- For current minimum and maximum provisioned throughput values, see
+    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas>
+    -- in the /Amazon DynamoDB Developer Guide/.
+    provisionedThroughput :: Prelude.Maybe ProvisionedThroughputDescription
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -109,17 +109,6 @@ data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'itemCount', 'globalSecondaryIndexDescription_itemCount' - The number of items in the specified index. DynamoDB updates this value
--- approximately every six hours. Recent changes might not be reflected in
--- this value.
---
--- 'provisionedThroughput', 'globalSecondaryIndexDescription_provisionedThroughput' - Represents the provisioned throughput settings for the specified global
--- secondary index.
---
--- For current minimum and maximum provisioned throughput values, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas>
--- in the /Amazon DynamoDB Developer Guide/.
 --
 -- 'backfilling', 'globalSecondaryIndexDescription_backfilling' - Indicates whether the index is currently backfilling. /Backfilling/ is
 -- the process of reading items from the table and determining whether they
@@ -136,9 +125,13 @@ data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription'
 -- For indexes that were created during a @CreateTable@ operation, the
 -- @Backfilling@ attribute does not appear in the @DescribeTable@ output.
 --
+-- 'indexArn', 'globalSecondaryIndexDescription_indexArn' - The Amazon Resource Name (ARN) that uniquely identifies the index.
+--
 -- 'indexName', 'globalSecondaryIndexDescription_indexName' - The name of the global secondary index.
 --
--- 'indexArn', 'globalSecondaryIndexDescription_indexArn' - The Amazon Resource Name (ARN) that uniquely identifies the index.
+-- 'indexSizeBytes', 'globalSecondaryIndexDescription_indexSizeBytes' - The total size of the specified index, in bytes. DynamoDB updates this
+-- value approximately every six hours. Recent changes might not be
+-- reflected in this value.
 --
 -- 'indexStatus', 'globalSecondaryIndexDescription_indexStatus' - The current state of the global secondary index:
 --
@@ -150,9 +143,9 @@ data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription'
 --
 -- -   @ACTIVE@ - The index is ready for use.
 --
--- 'indexSizeBytes', 'globalSecondaryIndexDescription_indexSizeBytes' - The total size of the specified index, in bytes. DynamoDB updates this
--- value approximately every six hours. Recent changes might not be
--- reflected in this value.
+-- 'itemCount', 'globalSecondaryIndexDescription_itemCount' - The number of items in the specified index. DynamoDB updates this value
+-- approximately every six hours. Recent changes might not be reflected in
+-- this value.
 --
 -- 'keySchema', 'globalSecondaryIndexDescription_keySchema' - The complete key schema for a global secondary index, which consists of
 -- one or more pairs of attribute names and key types:
@@ -174,36 +167,28 @@ data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription'
 -- 'projection', 'globalSecondaryIndexDescription_projection' - Represents attributes that are copied (projected) from the table into
 -- the global secondary index. These are in addition to the primary key
 -- attributes and index key attributes, which are automatically projected.
-newGlobalSecondaryIndexDescription ::
-  GlobalSecondaryIndexDescription
-newGlobalSecondaryIndexDescription =
-  GlobalSecondaryIndexDescription'
-    { itemCount =
-        Prelude.Nothing,
-      provisionedThroughput = Prelude.Nothing,
-      backfilling = Prelude.Nothing,
-      indexName = Prelude.Nothing,
-      indexArn = Prelude.Nothing,
-      indexStatus = Prelude.Nothing,
-      indexSizeBytes = Prelude.Nothing,
-      keySchema = Prelude.Nothing,
-      projection = Prelude.Nothing
-    }
-
--- | The number of items in the specified index. DynamoDB updates this value
--- approximately every six hours. Recent changes might not be reflected in
--- this value.
-globalSecondaryIndexDescription_itemCount :: Lens.Lens' GlobalSecondaryIndexDescription (Prelude.Maybe Prelude.Integer)
-globalSecondaryIndexDescription_itemCount = Lens.lens (\GlobalSecondaryIndexDescription' {itemCount} -> itemCount) (\s@GlobalSecondaryIndexDescription' {} a -> s {itemCount = a} :: GlobalSecondaryIndexDescription)
-
--- | Represents the provisioned throughput settings for the specified global
+--
+-- 'provisionedThroughput', 'globalSecondaryIndexDescription_provisionedThroughput' - Represents the provisioned throughput settings for the specified global
 -- secondary index.
 --
 -- For current minimum and maximum provisioned throughput values, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas>
 -- in the /Amazon DynamoDB Developer Guide/.
-globalSecondaryIndexDescription_provisionedThroughput :: Lens.Lens' GlobalSecondaryIndexDescription (Prelude.Maybe ProvisionedThroughputDescription)
-globalSecondaryIndexDescription_provisionedThroughput = Lens.lens (\GlobalSecondaryIndexDescription' {provisionedThroughput} -> provisionedThroughput) (\s@GlobalSecondaryIndexDescription' {} a -> s {provisionedThroughput = a} :: GlobalSecondaryIndexDescription)
+newGlobalSecondaryIndexDescription ::
+  GlobalSecondaryIndexDescription
+newGlobalSecondaryIndexDescription =
+  GlobalSecondaryIndexDescription'
+    { backfilling =
+        Prelude.Nothing,
+      indexArn = Prelude.Nothing,
+      indexName = Prelude.Nothing,
+      indexSizeBytes = Prelude.Nothing,
+      indexStatus = Prelude.Nothing,
+      itemCount = Prelude.Nothing,
+      keySchema = Prelude.Nothing,
+      projection = Prelude.Nothing,
+      provisionedThroughput = Prelude.Nothing
+    }
 
 -- | Indicates whether the index is currently backfilling. /Backfilling/ is
 -- the process of reading items from the table and determining whether they
@@ -222,13 +207,19 @@ globalSecondaryIndexDescription_provisionedThroughput = Lens.lens (\GlobalSecond
 globalSecondaryIndexDescription_backfilling :: Lens.Lens' GlobalSecondaryIndexDescription (Prelude.Maybe Prelude.Bool)
 globalSecondaryIndexDescription_backfilling = Lens.lens (\GlobalSecondaryIndexDescription' {backfilling} -> backfilling) (\s@GlobalSecondaryIndexDescription' {} a -> s {backfilling = a} :: GlobalSecondaryIndexDescription)
 
+-- | The Amazon Resource Name (ARN) that uniquely identifies the index.
+globalSecondaryIndexDescription_indexArn :: Lens.Lens' GlobalSecondaryIndexDescription (Prelude.Maybe Prelude.Text)
+globalSecondaryIndexDescription_indexArn = Lens.lens (\GlobalSecondaryIndexDescription' {indexArn} -> indexArn) (\s@GlobalSecondaryIndexDescription' {} a -> s {indexArn = a} :: GlobalSecondaryIndexDescription)
+
 -- | The name of the global secondary index.
 globalSecondaryIndexDescription_indexName :: Lens.Lens' GlobalSecondaryIndexDescription (Prelude.Maybe Prelude.Text)
 globalSecondaryIndexDescription_indexName = Lens.lens (\GlobalSecondaryIndexDescription' {indexName} -> indexName) (\s@GlobalSecondaryIndexDescription' {} a -> s {indexName = a} :: GlobalSecondaryIndexDescription)
 
--- | The Amazon Resource Name (ARN) that uniquely identifies the index.
-globalSecondaryIndexDescription_indexArn :: Lens.Lens' GlobalSecondaryIndexDescription (Prelude.Maybe Prelude.Text)
-globalSecondaryIndexDescription_indexArn = Lens.lens (\GlobalSecondaryIndexDescription' {indexArn} -> indexArn) (\s@GlobalSecondaryIndexDescription' {} a -> s {indexArn = a} :: GlobalSecondaryIndexDescription)
+-- | The total size of the specified index, in bytes. DynamoDB updates this
+-- value approximately every six hours. Recent changes might not be
+-- reflected in this value.
+globalSecondaryIndexDescription_indexSizeBytes :: Lens.Lens' GlobalSecondaryIndexDescription (Prelude.Maybe Prelude.Integer)
+globalSecondaryIndexDescription_indexSizeBytes = Lens.lens (\GlobalSecondaryIndexDescription' {indexSizeBytes} -> indexSizeBytes) (\s@GlobalSecondaryIndexDescription' {} a -> s {indexSizeBytes = a} :: GlobalSecondaryIndexDescription)
 
 -- | The current state of the global secondary index:
 --
@@ -242,11 +233,11 @@ globalSecondaryIndexDescription_indexArn = Lens.lens (\GlobalSecondaryIndexDescr
 globalSecondaryIndexDescription_indexStatus :: Lens.Lens' GlobalSecondaryIndexDescription (Prelude.Maybe IndexStatus)
 globalSecondaryIndexDescription_indexStatus = Lens.lens (\GlobalSecondaryIndexDescription' {indexStatus} -> indexStatus) (\s@GlobalSecondaryIndexDescription' {} a -> s {indexStatus = a} :: GlobalSecondaryIndexDescription)
 
--- | The total size of the specified index, in bytes. DynamoDB updates this
--- value approximately every six hours. Recent changes might not be
--- reflected in this value.
-globalSecondaryIndexDescription_indexSizeBytes :: Lens.Lens' GlobalSecondaryIndexDescription (Prelude.Maybe Prelude.Integer)
-globalSecondaryIndexDescription_indexSizeBytes = Lens.lens (\GlobalSecondaryIndexDescription' {indexSizeBytes} -> indexSizeBytes) (\s@GlobalSecondaryIndexDescription' {} a -> s {indexSizeBytes = a} :: GlobalSecondaryIndexDescription)
+-- | The number of items in the specified index. DynamoDB updates this value
+-- approximately every six hours. Recent changes might not be reflected in
+-- this value.
+globalSecondaryIndexDescription_itemCount :: Lens.Lens' GlobalSecondaryIndexDescription (Prelude.Maybe Prelude.Integer)
+globalSecondaryIndexDescription_itemCount = Lens.lens (\GlobalSecondaryIndexDescription' {itemCount} -> itemCount) (\s@GlobalSecondaryIndexDescription' {} a -> s {itemCount = a} :: GlobalSecondaryIndexDescription)
 
 -- | The complete key schema for a global secondary index, which consists of
 -- one or more pairs of attribute names and key types:
@@ -273,6 +264,15 @@ globalSecondaryIndexDescription_keySchema = Lens.lens (\GlobalSecondaryIndexDesc
 globalSecondaryIndexDescription_projection :: Lens.Lens' GlobalSecondaryIndexDescription (Prelude.Maybe Projection)
 globalSecondaryIndexDescription_projection = Lens.lens (\GlobalSecondaryIndexDescription' {projection} -> projection) (\s@GlobalSecondaryIndexDescription' {} a -> s {projection = a} :: GlobalSecondaryIndexDescription)
 
+-- | Represents the provisioned throughput settings for the specified global
+-- secondary index.
+--
+-- For current minimum and maximum provisioned throughput values, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas>
+-- in the /Amazon DynamoDB Developer Guide/.
+globalSecondaryIndexDescription_provisionedThroughput :: Lens.Lens' GlobalSecondaryIndexDescription (Prelude.Maybe ProvisionedThroughputDescription)
+globalSecondaryIndexDescription_provisionedThroughput = Lens.lens (\GlobalSecondaryIndexDescription' {provisionedThroughput} -> provisionedThroughput) (\s@GlobalSecondaryIndexDescription' {} a -> s {provisionedThroughput = a} :: GlobalSecondaryIndexDescription)
+
 instance
   Data.FromJSON
     GlobalSecondaryIndexDescription
@@ -282,15 +282,15 @@ instance
       "GlobalSecondaryIndexDescription"
       ( \x ->
           GlobalSecondaryIndexDescription'
-            Prelude.<$> (x Data..:? "ItemCount")
-            Prelude.<*> (x Data..:? "ProvisionedThroughput")
-            Prelude.<*> (x Data..:? "Backfilling")
-            Prelude.<*> (x Data..:? "IndexName")
+            Prelude.<$> (x Data..:? "Backfilling")
             Prelude.<*> (x Data..:? "IndexArn")
-            Prelude.<*> (x Data..:? "IndexStatus")
+            Prelude.<*> (x Data..:? "IndexName")
             Prelude.<*> (x Data..:? "IndexSizeBytes")
+            Prelude.<*> (x Data..:? "IndexStatus")
+            Prelude.<*> (x Data..:? "ItemCount")
             Prelude.<*> (x Data..:? "KeySchema")
             Prelude.<*> (x Data..:? "Projection")
+            Prelude.<*> (x Data..:? "ProvisionedThroughput")
       )
 
 instance
@@ -300,27 +300,27 @@ instance
   hashWithSalt
     _salt
     GlobalSecondaryIndexDescription' {..} =
-      _salt `Prelude.hashWithSalt` itemCount
-        `Prelude.hashWithSalt` provisionedThroughput
-        `Prelude.hashWithSalt` backfilling
-        `Prelude.hashWithSalt` indexName
+      _salt `Prelude.hashWithSalt` backfilling
         `Prelude.hashWithSalt` indexArn
-        `Prelude.hashWithSalt` indexStatus
+        `Prelude.hashWithSalt` indexName
         `Prelude.hashWithSalt` indexSizeBytes
+        `Prelude.hashWithSalt` indexStatus
+        `Prelude.hashWithSalt` itemCount
         `Prelude.hashWithSalt` keySchema
         `Prelude.hashWithSalt` projection
+        `Prelude.hashWithSalt` provisionedThroughput
 
 instance
   Prelude.NFData
     GlobalSecondaryIndexDescription
   where
   rnf GlobalSecondaryIndexDescription' {..} =
-    Prelude.rnf itemCount
-      `Prelude.seq` Prelude.rnf provisionedThroughput
-      `Prelude.seq` Prelude.rnf backfilling
-      `Prelude.seq` Prelude.rnf indexName
+    Prelude.rnf backfilling
       `Prelude.seq` Prelude.rnf indexArn
-      `Prelude.seq` Prelude.rnf indexStatus
+      `Prelude.seq` Prelude.rnf indexName
       `Prelude.seq` Prelude.rnf indexSizeBytes
+      `Prelude.seq` Prelude.rnf indexStatus
+      `Prelude.seq` Prelude.rnf itemCount
       `Prelude.seq` Prelude.rnf keySchema
       `Prelude.seq` Prelude.rnf projection
+      `Prelude.seq` Prelude.rnf provisionedThroughput

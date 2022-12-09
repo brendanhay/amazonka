@@ -42,8 +42,8 @@ module Amazonka.DynamoDB.ListTagsOfResource
     newListTagsOfResourceResponse,
 
     -- * Response Lenses
-    listTagsOfResourceResponse_tags,
     listTagsOfResourceResponse_nextToken,
+    listTagsOfResourceResponse_tags,
     listTagsOfResourceResponse_httpStatus,
   )
 where
@@ -134,8 +134,8 @@ instance Core.AWSRequest ListTagsOfResource where
     Response.receiveJSON
       ( \s h x ->
           ListTagsOfResourceResponse'
-            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -181,12 +181,12 @@ instance Data.ToQuery ListTagsOfResource where
 
 -- | /See:/ 'newListTagsOfResourceResponse' smart constructor.
 data ListTagsOfResourceResponse = ListTagsOfResourceResponse'
-  { -- | The tags currently associated with the Amazon DynamoDB resource.
-    tags :: Prelude.Maybe [Tag],
-    -- | If this value is returned, there are additional results to be displayed.
+  { -- | If this value is returned, there are additional results to be displayed.
     -- To retrieve them, call ListTagsOfResource again, with NextToken set to
     -- this value.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The tags currently associated with the Amazon DynamoDB resource.
+    tags :: Prelude.Maybe [Tag],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -200,11 +200,11 @@ data ListTagsOfResourceResponse = ListTagsOfResourceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'listTagsOfResourceResponse_tags' - The tags currently associated with the Amazon DynamoDB resource.
---
 -- 'nextToken', 'listTagsOfResourceResponse_nextToken' - If this value is returned, there are additional results to be displayed.
 -- To retrieve them, call ListTagsOfResource again, with NextToken set to
 -- this value.
+--
+-- 'tags', 'listTagsOfResourceResponse_tags' - The tags currently associated with the Amazon DynamoDB resource.
 --
 -- 'httpStatus', 'listTagsOfResourceResponse_httpStatus' - The response's http status code.
 newListTagsOfResourceResponse ::
@@ -213,14 +213,11 @@ newListTagsOfResourceResponse ::
   ListTagsOfResourceResponse
 newListTagsOfResourceResponse pHttpStatus_ =
   ListTagsOfResourceResponse'
-    { tags = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The tags currently associated with the Amazon DynamoDB resource.
-listTagsOfResourceResponse_tags :: Lens.Lens' ListTagsOfResourceResponse (Prelude.Maybe [Tag])
-listTagsOfResourceResponse_tags = Lens.lens (\ListTagsOfResourceResponse' {tags} -> tags) (\s@ListTagsOfResourceResponse' {} a -> s {tags = a} :: ListTagsOfResourceResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If this value is returned, there are additional results to be displayed.
 -- To retrieve them, call ListTagsOfResource again, with NextToken set to
@@ -228,12 +225,16 @@ listTagsOfResourceResponse_tags = Lens.lens (\ListTagsOfResourceResponse' {tags}
 listTagsOfResourceResponse_nextToken :: Lens.Lens' ListTagsOfResourceResponse (Prelude.Maybe Prelude.Text)
 listTagsOfResourceResponse_nextToken = Lens.lens (\ListTagsOfResourceResponse' {nextToken} -> nextToken) (\s@ListTagsOfResourceResponse' {} a -> s {nextToken = a} :: ListTagsOfResourceResponse)
 
+-- | The tags currently associated with the Amazon DynamoDB resource.
+listTagsOfResourceResponse_tags :: Lens.Lens' ListTagsOfResourceResponse (Prelude.Maybe [Tag])
+listTagsOfResourceResponse_tags = Lens.lens (\ListTagsOfResourceResponse' {tags} -> tags) (\s@ListTagsOfResourceResponse' {} a -> s {tags = a} :: ListTagsOfResourceResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listTagsOfResourceResponse_httpStatus :: Lens.Lens' ListTagsOfResourceResponse Prelude.Int
 listTagsOfResourceResponse_httpStatus = Lens.lens (\ListTagsOfResourceResponse' {httpStatus} -> httpStatus) (\s@ListTagsOfResourceResponse' {} a -> s {httpStatus = a} :: ListTagsOfResourceResponse)
 
 instance Prelude.NFData ListTagsOfResourceResponse where
   rnf ListTagsOfResourceResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

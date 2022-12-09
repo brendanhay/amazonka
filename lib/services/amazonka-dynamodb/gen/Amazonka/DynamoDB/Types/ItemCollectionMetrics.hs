@@ -33,7 +33,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newItemCollectionMetrics' smart constructor.
 data ItemCollectionMetrics = ItemCollectionMetrics'
-  { -- | An estimate of item collection size, in gigabytes. This value is a
+  { -- | The partition key value of the item collection. This value is the same
+    -- as the partition key value of the item.
+    itemCollectionKey :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
+    -- | An estimate of item collection size, in gigabytes. This value is a
     -- two-element array containing a lower bound and an upper bound for the
     -- estimate. The estimate includes the size of all the items in the table,
     -- plus the size of all attributes projected into all of the local
@@ -42,10 +45,7 @@ data ItemCollectionMetrics = ItemCollectionMetrics'
     --
     -- The estimate is subject to change over time; therefore, do not rely on
     -- the precision or accuracy of the estimate.
-    sizeEstimateRangeGB :: Prelude.Maybe [Prelude.Double],
-    -- | The partition key value of the item collection. This value is the same
-    -- as the partition key value of the item.
-    itemCollectionKey :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue)
+    sizeEstimateRangeGB :: Prelude.Maybe [Prelude.Double]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,6 +57,9 @@ data ItemCollectionMetrics = ItemCollectionMetrics'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'itemCollectionKey', 'itemCollectionMetrics_itemCollectionKey' - The partition key value of the item collection. This value is the same
+-- as the partition key value of the item.
+--
 -- 'sizeEstimateRangeGB', 'itemCollectionMetrics_sizeEstimateRangeGB' - An estimate of item collection size, in gigabytes. This value is a
 -- two-element array containing a lower bound and an upper bound for the
 -- estimate. The estimate includes the size of all the items in the table,
@@ -66,17 +69,19 @@ data ItemCollectionMetrics = ItemCollectionMetrics'
 --
 -- The estimate is subject to change over time; therefore, do not rely on
 -- the precision or accuracy of the estimate.
---
--- 'itemCollectionKey', 'itemCollectionMetrics_itemCollectionKey' - The partition key value of the item collection. This value is the same
--- as the partition key value of the item.
 newItemCollectionMetrics ::
   ItemCollectionMetrics
 newItemCollectionMetrics =
   ItemCollectionMetrics'
-    { sizeEstimateRangeGB =
+    { itemCollectionKey =
         Prelude.Nothing,
-      itemCollectionKey = Prelude.Nothing
+      sizeEstimateRangeGB = Prelude.Nothing
     }
+
+-- | The partition key value of the item collection. This value is the same
+-- as the partition key value of the item.
+itemCollectionMetrics_itemCollectionKey :: Lens.Lens' ItemCollectionMetrics (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
+itemCollectionMetrics_itemCollectionKey = Lens.lens (\ItemCollectionMetrics' {itemCollectionKey} -> itemCollectionKey) (\s@ItemCollectionMetrics' {} a -> s {itemCollectionKey = a} :: ItemCollectionMetrics) Prelude.. Lens.mapping Lens.coerced
 
 -- | An estimate of item collection size, in gigabytes. This value is a
 -- two-element array containing a lower bound and an upper bound for the
@@ -90,31 +95,26 @@ newItemCollectionMetrics =
 itemCollectionMetrics_sizeEstimateRangeGB :: Lens.Lens' ItemCollectionMetrics (Prelude.Maybe [Prelude.Double])
 itemCollectionMetrics_sizeEstimateRangeGB = Lens.lens (\ItemCollectionMetrics' {sizeEstimateRangeGB} -> sizeEstimateRangeGB) (\s@ItemCollectionMetrics' {} a -> s {sizeEstimateRangeGB = a} :: ItemCollectionMetrics) Prelude.. Lens.mapping Lens.coerced
 
--- | The partition key value of the item collection. This value is the same
--- as the partition key value of the item.
-itemCollectionMetrics_itemCollectionKey :: Lens.Lens' ItemCollectionMetrics (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
-itemCollectionMetrics_itemCollectionKey = Lens.lens (\ItemCollectionMetrics' {itemCollectionKey} -> itemCollectionKey) (\s@ItemCollectionMetrics' {} a -> s {itemCollectionKey = a} :: ItemCollectionMetrics) Prelude.. Lens.mapping Lens.coerced
-
 instance Data.FromJSON ItemCollectionMetrics where
   parseJSON =
     Data.withObject
       "ItemCollectionMetrics"
       ( \x ->
           ItemCollectionMetrics'
-            Prelude.<$> ( x Data..:? "SizeEstimateRangeGB"
+            Prelude.<$> ( x Data..:? "ItemCollectionKey"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ItemCollectionKey"
+            Prelude.<*> ( x Data..:? "SizeEstimateRangeGB"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ItemCollectionMetrics where
   hashWithSalt _salt ItemCollectionMetrics' {..} =
-    _salt `Prelude.hashWithSalt` sizeEstimateRangeGB
-      `Prelude.hashWithSalt` itemCollectionKey
+    _salt `Prelude.hashWithSalt` itemCollectionKey
+      `Prelude.hashWithSalt` sizeEstimateRangeGB
 
 instance Prelude.NFData ItemCollectionMetrics where
   rnf ItemCollectionMetrics' {..} =
-    Prelude.rnf sizeEstimateRangeGB
-      `Prelude.seq` Prelude.rnf itemCollectionKey
+    Prelude.rnf itemCollectionKey
+      `Prelude.seq` Prelude.rnf sizeEstimateRangeGB

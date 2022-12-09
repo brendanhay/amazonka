@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResourceTargetDefinition' smart constructor.
 data ResourceTargetDefinition = ResourceTargetDefinition'
-  { -- | If the @Attribute@ value is @Properties@, the name of the property. For
-    -- all other attributes, the value is null.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Indicates which resource attribute is triggering this update, such as a
+  { -- | Indicates which resource attribute is triggering this update, such as a
     -- change in the resource attribute\'s @Metadata@, @Properties@, or @Tags@.
     attribute :: Prelude.Maybe ResourceAttribute,
+    -- | If the @Attribute@ value is @Properties@, the name of the property. For
+    -- all other attributes, the value is null.
+    name :: Prelude.Maybe Prelude.Text,
     -- | If the @Attribute@ value is @Properties@, indicates whether a change to
     -- this property causes the resource to be recreated. The value can be
     -- @Never@, @Always@, or @Conditionally@. To determine the conditions for a
@@ -55,11 +55,11 @@ data ResourceTargetDefinition = ResourceTargetDefinition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'resourceTargetDefinition_name' - If the @Attribute@ value is @Properties@, the name of the property. For
--- all other attributes, the value is null.
---
 -- 'attribute', 'resourceTargetDefinition_attribute' - Indicates which resource attribute is triggering this update, such as a
 -- change in the resource attribute\'s @Metadata@, @Properties@, or @Tags@.
+--
+-- 'name', 'resourceTargetDefinition_name' - If the @Attribute@ value is @Properties@, the name of the property. For
+-- all other attributes, the value is null.
 --
 -- 'requiresRecreation', 'resourceTargetDefinition_requiresRecreation' - If the @Attribute@ value is @Properties@, indicates whether a change to
 -- this property causes the resource to be recreated. The value can be
@@ -71,20 +71,21 @@ newResourceTargetDefinition ::
   ResourceTargetDefinition
 newResourceTargetDefinition =
   ResourceTargetDefinition'
-    { name = Prelude.Nothing,
-      attribute = Prelude.Nothing,
+    { attribute =
+        Prelude.Nothing,
+      name = Prelude.Nothing,
       requiresRecreation = Prelude.Nothing
     }
-
--- | If the @Attribute@ value is @Properties@, the name of the property. For
--- all other attributes, the value is null.
-resourceTargetDefinition_name :: Lens.Lens' ResourceTargetDefinition (Prelude.Maybe Prelude.Text)
-resourceTargetDefinition_name = Lens.lens (\ResourceTargetDefinition' {name} -> name) (\s@ResourceTargetDefinition' {} a -> s {name = a} :: ResourceTargetDefinition)
 
 -- | Indicates which resource attribute is triggering this update, such as a
 -- change in the resource attribute\'s @Metadata@, @Properties@, or @Tags@.
 resourceTargetDefinition_attribute :: Lens.Lens' ResourceTargetDefinition (Prelude.Maybe ResourceAttribute)
 resourceTargetDefinition_attribute = Lens.lens (\ResourceTargetDefinition' {attribute} -> attribute) (\s@ResourceTargetDefinition' {} a -> s {attribute = a} :: ResourceTargetDefinition)
+
+-- | If the @Attribute@ value is @Properties@, the name of the property. For
+-- all other attributes, the value is null.
+resourceTargetDefinition_name :: Lens.Lens' ResourceTargetDefinition (Prelude.Maybe Prelude.Text)
+resourceTargetDefinition_name = Lens.lens (\ResourceTargetDefinition' {name} -> name) (\s@ResourceTargetDefinition' {} a -> s {name = a} :: ResourceTargetDefinition)
 
 -- | If the @Attribute@ value is @Properties@, indicates whether a change to
 -- this property causes the resource to be recreated. The value can be
@@ -98,18 +99,18 @@ resourceTargetDefinition_requiresRecreation = Lens.lens (\ResourceTargetDefiniti
 instance Data.FromXML ResourceTargetDefinition where
   parseXML x =
     ResourceTargetDefinition'
-      Prelude.<$> (x Data..@? "Name")
-      Prelude.<*> (x Data..@? "Attribute")
+      Prelude.<$> (x Data..@? "Attribute")
+      Prelude.<*> (x Data..@? "Name")
       Prelude.<*> (x Data..@? "RequiresRecreation")
 
 instance Prelude.Hashable ResourceTargetDefinition where
   hashWithSalt _salt ResourceTargetDefinition' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` attribute
+    _salt `Prelude.hashWithSalt` attribute
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` requiresRecreation
 
 instance Prelude.NFData ResourceTargetDefinition where
   rnf ResourceTargetDefinition' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf attribute
+    Prelude.rnf attribute
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf requiresRecreation

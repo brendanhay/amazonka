@@ -34,9 +34,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRequiredActivatedType' smart constructor.
 data RequiredActivatedType = RequiredActivatedType'
-  { -- | The publisher ID of the extension publisher.
-    publisherId :: Prelude.Maybe Prelude.Text,
-    -- | The type name of the public extension.
+  { -- | The type name of the public extension.
     --
     -- If you specified a @TypeNameAlias@ when enabling the extension in this
     -- account and region, CloudFormation treats that alias as the extension\'s
@@ -45,15 +43,17 @@ data RequiredActivatedType = RequiredActivatedType'
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html#registry-public-enable-alias Specifying aliases to refer to extensions>
     -- in the /CloudFormation User Guide/.
     originalTypeName :: Prelude.Maybe Prelude.Text,
+    -- | The publisher ID of the extension publisher.
+    publisherId :: Prelude.Maybe Prelude.Text,
+    -- | A list of the major versions of the extension type that the macro
+    -- supports.
+    supportedMajorVersions :: Prelude.Maybe [Prelude.Natural],
     -- | An alias assigned to the public extension, in this account and region.
     -- If you specify an alias for the extension, CloudFormation treats the
     -- alias as the extension type name within this account and region. You
     -- must use the alias to refer to the extension in your templates, API
     -- calls, and CloudFormation console.
-    typeNameAlias :: Prelude.Maybe Prelude.Text,
-    -- | A list of the major versions of the extension type that the macro
-    -- supports.
-    supportedMajorVersions :: Prelude.Maybe [Prelude.Natural]
+    typeNameAlias :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,8 +65,6 @@ data RequiredActivatedType = RequiredActivatedType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'publisherId', 'requiredActivatedType_publisherId' - The publisher ID of the extension publisher.
---
 -- 'originalTypeName', 'requiredActivatedType_originalTypeName' - The type name of the public extension.
 --
 -- If you specified a @TypeNameAlias@ when enabling the extension in this
@@ -76,28 +74,26 @@ data RequiredActivatedType = RequiredActivatedType'
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html#registry-public-enable-alias Specifying aliases to refer to extensions>
 -- in the /CloudFormation User Guide/.
 --
+-- 'publisherId', 'requiredActivatedType_publisherId' - The publisher ID of the extension publisher.
+--
+-- 'supportedMajorVersions', 'requiredActivatedType_supportedMajorVersions' - A list of the major versions of the extension type that the macro
+-- supports.
+--
 -- 'typeNameAlias', 'requiredActivatedType_typeNameAlias' - An alias assigned to the public extension, in this account and region.
 -- If you specify an alias for the extension, CloudFormation treats the
 -- alias as the extension type name within this account and region. You
 -- must use the alias to refer to the extension in your templates, API
 -- calls, and CloudFormation console.
---
--- 'supportedMajorVersions', 'requiredActivatedType_supportedMajorVersions' - A list of the major versions of the extension type that the macro
--- supports.
 newRequiredActivatedType ::
   RequiredActivatedType
 newRequiredActivatedType =
   RequiredActivatedType'
-    { publisherId =
+    { originalTypeName =
         Prelude.Nothing,
-      originalTypeName = Prelude.Nothing,
-      typeNameAlias = Prelude.Nothing,
-      supportedMajorVersions = Prelude.Nothing
+      publisherId = Prelude.Nothing,
+      supportedMajorVersions = Prelude.Nothing,
+      typeNameAlias = Prelude.Nothing
     }
-
--- | The publisher ID of the extension publisher.
-requiredActivatedType_publisherId :: Lens.Lens' RequiredActivatedType (Prelude.Maybe Prelude.Text)
-requiredActivatedType_publisherId = Lens.lens (\RequiredActivatedType' {publisherId} -> publisherId) (\s@RequiredActivatedType' {} a -> s {publisherId = a} :: RequiredActivatedType)
 
 -- | The type name of the public extension.
 --
@@ -110,6 +106,15 @@ requiredActivatedType_publisherId = Lens.lens (\RequiredActivatedType' {publishe
 requiredActivatedType_originalTypeName :: Lens.Lens' RequiredActivatedType (Prelude.Maybe Prelude.Text)
 requiredActivatedType_originalTypeName = Lens.lens (\RequiredActivatedType' {originalTypeName} -> originalTypeName) (\s@RequiredActivatedType' {} a -> s {originalTypeName = a} :: RequiredActivatedType)
 
+-- | The publisher ID of the extension publisher.
+requiredActivatedType_publisherId :: Lens.Lens' RequiredActivatedType (Prelude.Maybe Prelude.Text)
+requiredActivatedType_publisherId = Lens.lens (\RequiredActivatedType' {publisherId} -> publisherId) (\s@RequiredActivatedType' {} a -> s {publisherId = a} :: RequiredActivatedType)
+
+-- | A list of the major versions of the extension type that the macro
+-- supports.
+requiredActivatedType_supportedMajorVersions :: Lens.Lens' RequiredActivatedType (Prelude.Maybe [Prelude.Natural])
+requiredActivatedType_supportedMajorVersions = Lens.lens (\RequiredActivatedType' {supportedMajorVersions} -> supportedMajorVersions) (\s@RequiredActivatedType' {} a -> s {supportedMajorVersions = a} :: RequiredActivatedType) Prelude.. Lens.mapping Lens.coerced
+
 -- | An alias assigned to the public extension, in this account and region.
 -- If you specify an alias for the extension, CloudFormation treats the
 -- alias as the extension type name within this account and region. You
@@ -118,32 +123,27 @@ requiredActivatedType_originalTypeName = Lens.lens (\RequiredActivatedType' {ori
 requiredActivatedType_typeNameAlias :: Lens.Lens' RequiredActivatedType (Prelude.Maybe Prelude.Text)
 requiredActivatedType_typeNameAlias = Lens.lens (\RequiredActivatedType' {typeNameAlias} -> typeNameAlias) (\s@RequiredActivatedType' {} a -> s {typeNameAlias = a} :: RequiredActivatedType)
 
--- | A list of the major versions of the extension type that the macro
--- supports.
-requiredActivatedType_supportedMajorVersions :: Lens.Lens' RequiredActivatedType (Prelude.Maybe [Prelude.Natural])
-requiredActivatedType_supportedMajorVersions = Lens.lens (\RequiredActivatedType' {supportedMajorVersions} -> supportedMajorVersions) (\s@RequiredActivatedType' {} a -> s {supportedMajorVersions = a} :: RequiredActivatedType) Prelude.. Lens.mapping Lens.coerced
-
 instance Data.FromXML RequiredActivatedType where
   parseXML x =
     RequiredActivatedType'
-      Prelude.<$> (x Data..@? "PublisherId")
-      Prelude.<*> (x Data..@? "OriginalTypeName")
-      Prelude.<*> (x Data..@? "TypeNameAlias")
+      Prelude.<$> (x Data..@? "OriginalTypeName")
+      Prelude.<*> (x Data..@? "PublisherId")
       Prelude.<*> ( x Data..@? "SupportedMajorVersions"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
+      Prelude.<*> (x Data..@? "TypeNameAlias")
 
 instance Prelude.Hashable RequiredActivatedType where
   hashWithSalt _salt RequiredActivatedType' {..} =
-    _salt `Prelude.hashWithSalt` publisherId
-      `Prelude.hashWithSalt` originalTypeName
-      `Prelude.hashWithSalt` typeNameAlias
+    _salt `Prelude.hashWithSalt` originalTypeName
+      `Prelude.hashWithSalt` publisherId
       `Prelude.hashWithSalt` supportedMajorVersions
+      `Prelude.hashWithSalt` typeNameAlias
 
 instance Prelude.NFData RequiredActivatedType where
   rnf RequiredActivatedType' {..} =
-    Prelude.rnf publisherId
-      `Prelude.seq` Prelude.rnf originalTypeName
-      `Prelude.seq` Prelude.rnf typeNameAlias
+    Prelude.rnf originalTypeName
+      `Prelude.seq` Prelude.rnf publisherId
       `Prelude.seq` Prelude.rnf supportedMajorVersions
+      `Prelude.seq` Prelude.rnf typeNameAlias

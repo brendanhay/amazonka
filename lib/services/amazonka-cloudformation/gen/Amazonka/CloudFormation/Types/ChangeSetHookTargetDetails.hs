@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newChangeSetHookTargetDetails' smart constructor.
 data ChangeSetHookTargetDetails = ChangeSetHookTargetDetails'
-  { -- | The name of the type.
-    targetType :: Prelude.Maybe HookTargetType,
-    -- | Required if @TargetType@ is @RESOURCE@.
-    resourceTargetDetails :: Prelude.Maybe ChangeSetHookResourceTargetDetails
+  { -- | Required if @TargetType@ is @RESOURCE@.
+    resourceTargetDetails :: Prelude.Maybe ChangeSetHookResourceTargetDetails,
+    -- | The name of the type.
+    targetType :: Prelude.Maybe HookTargetType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,38 +45,38 @@ data ChangeSetHookTargetDetails = ChangeSetHookTargetDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetType', 'changeSetHookTargetDetails_targetType' - The name of the type.
---
 -- 'resourceTargetDetails', 'changeSetHookTargetDetails_resourceTargetDetails' - Required if @TargetType@ is @RESOURCE@.
+--
+-- 'targetType', 'changeSetHookTargetDetails_targetType' - The name of the type.
 newChangeSetHookTargetDetails ::
   ChangeSetHookTargetDetails
 newChangeSetHookTargetDetails =
   ChangeSetHookTargetDetails'
-    { targetType =
+    { resourceTargetDetails =
         Prelude.Nothing,
-      resourceTargetDetails = Prelude.Nothing
+      targetType = Prelude.Nothing
     }
-
--- | The name of the type.
-changeSetHookTargetDetails_targetType :: Lens.Lens' ChangeSetHookTargetDetails (Prelude.Maybe HookTargetType)
-changeSetHookTargetDetails_targetType = Lens.lens (\ChangeSetHookTargetDetails' {targetType} -> targetType) (\s@ChangeSetHookTargetDetails' {} a -> s {targetType = a} :: ChangeSetHookTargetDetails)
 
 -- | Required if @TargetType@ is @RESOURCE@.
 changeSetHookTargetDetails_resourceTargetDetails :: Lens.Lens' ChangeSetHookTargetDetails (Prelude.Maybe ChangeSetHookResourceTargetDetails)
 changeSetHookTargetDetails_resourceTargetDetails = Lens.lens (\ChangeSetHookTargetDetails' {resourceTargetDetails} -> resourceTargetDetails) (\s@ChangeSetHookTargetDetails' {} a -> s {resourceTargetDetails = a} :: ChangeSetHookTargetDetails)
 
+-- | The name of the type.
+changeSetHookTargetDetails_targetType :: Lens.Lens' ChangeSetHookTargetDetails (Prelude.Maybe HookTargetType)
+changeSetHookTargetDetails_targetType = Lens.lens (\ChangeSetHookTargetDetails' {targetType} -> targetType) (\s@ChangeSetHookTargetDetails' {} a -> s {targetType = a} :: ChangeSetHookTargetDetails)
+
 instance Data.FromXML ChangeSetHookTargetDetails where
   parseXML x =
     ChangeSetHookTargetDetails'
-      Prelude.<$> (x Data..@? "TargetType")
-      Prelude.<*> (x Data..@? "ResourceTargetDetails")
+      Prelude.<$> (x Data..@? "ResourceTargetDetails")
+      Prelude.<*> (x Data..@? "TargetType")
 
 instance Prelude.Hashable ChangeSetHookTargetDetails where
   hashWithSalt _salt ChangeSetHookTargetDetails' {..} =
-    _salt `Prelude.hashWithSalt` targetType
-      `Prelude.hashWithSalt` resourceTargetDetails
+    _salt `Prelude.hashWithSalt` resourceTargetDetails
+      `Prelude.hashWithSalt` targetType
 
 instance Prelude.NFData ChangeSetHookTargetDetails where
   rnf ChangeSetHookTargetDetails' {..} =
-    Prelude.rnf targetType
-      `Prelude.seq` Prelude.rnf resourceTargetDetails
+    Prelude.rnf resourceTargetDetails
+      `Prelude.seq` Prelude.rnf targetType

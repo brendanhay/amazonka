@@ -29,9 +29,9 @@ module Amazonka.CloudFormation.DeleteStack
     newDeleteStack,
 
     -- * Request Lenses
-    deleteStack_roleARN,
     deleteStack_clientRequestToken,
     deleteStack_retainResources,
+    deleteStack_roleARN,
     deleteStack_stackName,
 
     -- * Destructuring the Response
@@ -52,17 +52,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDeleteStack' smart constructor.
 data DeleteStack = DeleteStack'
-  { -- | The Amazon Resource Name (ARN) of an Identity and Access Management
-    -- (IAM) role that CloudFormation assumes to delete the stack.
-    -- CloudFormation uses the role\'s credentials to make calls on your
-    -- behalf.
-    --
-    -- If you don\'t specify a value, CloudFormation uses the role that was
-    -- previously associated with the stack. If no role is available,
-    -- CloudFormation uses a temporary session that\'s generated from your user
-    -- credentials.
-    roleARN :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for this @DeleteStack@ request. Specify this token
+  { -- | A unique identifier for this @DeleteStack@ request. Specify this token
     -- if you plan to retry requests so that CloudFormation knows that you\'re
     -- not attempting to delete a stack with the same name. You might retry
     -- @DeleteStack@ requests to ensure that CloudFormation successfully
@@ -90,6 +80,16 @@ data DeleteStack = DeleteStack'
     -- Retaining resources is useful when you can\'t delete a resource, such as
     -- a non-empty S3 bucket, but you want to delete the stack.
     retainResources :: Prelude.Maybe [Prelude.Text],
+    -- | The Amazon Resource Name (ARN) of an Identity and Access Management
+    -- (IAM) role that CloudFormation assumes to delete the stack.
+    -- CloudFormation uses the role\'s credentials to make calls on your
+    -- behalf.
+    --
+    -- If you don\'t specify a value, CloudFormation uses the role that was
+    -- previously associated with the stack. If no role is available,
+    -- CloudFormation uses a temporary session that\'s generated from your user
+    -- credentials.
+    roleARN :: Prelude.Maybe Prelude.Text,
     -- | The name or the unique stack ID that\'s associated with the stack.
     stackName :: Prelude.Text
   }
@@ -102,16 +102,6 @@ data DeleteStack = DeleteStack'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'roleARN', 'deleteStack_roleARN' - The Amazon Resource Name (ARN) of an Identity and Access Management
--- (IAM) role that CloudFormation assumes to delete the stack.
--- CloudFormation uses the role\'s credentials to make calls on your
--- behalf.
---
--- If you don\'t specify a value, CloudFormation uses the role that was
--- previously associated with the stack. If no role is available,
--- CloudFormation uses a temporary session that\'s generated from your user
--- credentials.
 --
 -- 'clientRequestToken', 'deleteStack_clientRequestToken' - A unique identifier for this @DeleteStack@ request. Specify this token
 -- if you plan to retry requests so that CloudFormation knows that you\'re
@@ -141,20 +131,7 @@ data DeleteStack = DeleteStack'
 -- Retaining resources is useful when you can\'t delete a resource, such as
 -- a non-empty S3 bucket, but you want to delete the stack.
 --
--- 'stackName', 'deleteStack_stackName' - The name or the unique stack ID that\'s associated with the stack.
-newDeleteStack ::
-  -- | 'stackName'
-  Prelude.Text ->
-  DeleteStack
-newDeleteStack pStackName_ =
-  DeleteStack'
-    { roleARN = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
-      retainResources = Prelude.Nothing,
-      stackName = pStackName_
-    }
-
--- | The Amazon Resource Name (ARN) of an Identity and Access Management
+-- 'roleARN', 'deleteStack_roleARN' - The Amazon Resource Name (ARN) of an Identity and Access Management
 -- (IAM) role that CloudFormation assumes to delete the stack.
 -- CloudFormation uses the role\'s credentials to make calls on your
 -- behalf.
@@ -163,8 +140,19 @@ newDeleteStack pStackName_ =
 -- previously associated with the stack. If no role is available,
 -- CloudFormation uses a temporary session that\'s generated from your user
 -- credentials.
-deleteStack_roleARN :: Lens.Lens' DeleteStack (Prelude.Maybe Prelude.Text)
-deleteStack_roleARN = Lens.lens (\DeleteStack' {roleARN} -> roleARN) (\s@DeleteStack' {} a -> s {roleARN = a} :: DeleteStack)
+--
+-- 'stackName', 'deleteStack_stackName' - The name or the unique stack ID that\'s associated with the stack.
+newDeleteStack ::
+  -- | 'stackName'
+  Prelude.Text ->
+  DeleteStack
+newDeleteStack pStackName_ =
+  DeleteStack'
+    { clientRequestToken = Prelude.Nothing,
+      retainResources = Prelude.Nothing,
+      roleARN = Prelude.Nothing,
+      stackName = pStackName_
+    }
 
 -- | A unique identifier for this @DeleteStack@ request. Specify this token
 -- if you plan to retry requests so that CloudFormation knows that you\'re
@@ -198,6 +186,18 @@ deleteStack_clientRequestToken = Lens.lens (\DeleteStack' {clientRequestToken} -
 deleteStack_retainResources :: Lens.Lens' DeleteStack (Prelude.Maybe [Prelude.Text])
 deleteStack_retainResources = Lens.lens (\DeleteStack' {retainResources} -> retainResources) (\s@DeleteStack' {} a -> s {retainResources = a} :: DeleteStack) Prelude.. Lens.mapping Lens.coerced
 
+-- | The Amazon Resource Name (ARN) of an Identity and Access Management
+-- (IAM) role that CloudFormation assumes to delete the stack.
+-- CloudFormation uses the role\'s credentials to make calls on your
+-- behalf.
+--
+-- If you don\'t specify a value, CloudFormation uses the role that was
+-- previously associated with the stack. If no role is available,
+-- CloudFormation uses a temporary session that\'s generated from your user
+-- credentials.
+deleteStack_roleARN :: Lens.Lens' DeleteStack (Prelude.Maybe Prelude.Text)
+deleteStack_roleARN = Lens.lens (\DeleteStack' {roleARN} -> roleARN) (\s@DeleteStack' {} a -> s {roleARN = a} :: DeleteStack)
+
 -- | The name or the unique stack ID that\'s associated with the stack.
 deleteStack_stackName :: Lens.Lens' DeleteStack Prelude.Text
 deleteStack_stackName = Lens.lens (\DeleteStack' {stackName} -> stackName) (\s@DeleteStack' {} a -> s {stackName = a} :: DeleteStack)
@@ -210,16 +210,16 @@ instance Core.AWSRequest DeleteStack where
 
 instance Prelude.Hashable DeleteStack where
   hashWithSalt _salt DeleteStack' {..} =
-    _salt `Prelude.hashWithSalt` roleARN
-      `Prelude.hashWithSalt` clientRequestToken
+    _salt `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` retainResources
+      `Prelude.hashWithSalt` roleARN
       `Prelude.hashWithSalt` stackName
 
 instance Prelude.NFData DeleteStack where
   rnf DeleteStack' {..} =
-    Prelude.rnf roleARN
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf retainResources
+      `Prelude.seq` Prelude.rnf roleARN
       `Prelude.seq` Prelude.rnf stackName
 
 instance Data.ToHeaders DeleteStack where
@@ -235,13 +235,13 @@ instance Data.ToQuery DeleteStack where
           Data.=: ("DeleteStack" :: Prelude.ByteString),
         "Version"
           Data.=: ("2010-05-15" :: Prelude.ByteString),
-        "RoleARN" Data.=: roleARN,
         "ClientRequestToken" Data.=: clientRequestToken,
         "RetainResources"
           Data.=: Data.toQuery
             ( Data.toQueryList "member"
                 Prelude.<$> retainResources
             ),
+        "RoleARN" Data.=: roleARN,
         "StackName" Data.=: stackName
       ]
 

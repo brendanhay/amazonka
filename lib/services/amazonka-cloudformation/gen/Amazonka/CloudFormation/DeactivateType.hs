@@ -34,8 +34,8 @@ module Amazonka.CloudFormation.DeactivateType
     newDeactivateType,
 
     -- * Request Lenses
-    deactivateType_type,
     deactivateType_arn,
+    deactivateType_type,
     deactivateType_typeName,
 
     -- * Destructuring the Response
@@ -57,15 +57,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeactivateType' smart constructor.
 data DeactivateType = DeactivateType'
-  { -- | The extension type.
-    --
-    -- Conditional: You must specify either @Arn@, or @TypeName@ and @Type@.
-    type' :: Prelude.Maybe ThirdPartyType,
-    -- | The Amazon Resource Name (ARN) for the extension, in this account and
+  { -- | The Amazon Resource Name (ARN) for the extension, in this account and
     -- region.
     --
     -- Conditional: You must specify either @Arn@, or @TypeName@ and @Type@.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The extension type.
+    --
+    -- Conditional: You must specify either @Arn@, or @TypeName@ and @Type@.
+    type' :: Prelude.Maybe ThirdPartyType,
     -- | The type name of the extension, in this account and region. If you
     -- specified a type name alias when enabling the extension, use the type
     -- name alias.
@@ -83,12 +83,12 @@ data DeactivateType = DeactivateType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'deactivateType_type' - The extension type.
+-- 'arn', 'deactivateType_arn' - The Amazon Resource Name (ARN) for the extension, in this account and
+-- region.
 --
 -- Conditional: You must specify either @Arn@, or @TypeName@ and @Type@.
 --
--- 'arn', 'deactivateType_arn' - The Amazon Resource Name (ARN) for the extension, in this account and
--- region.
+-- 'type'', 'deactivateType_type' - The extension type.
 --
 -- Conditional: You must specify either @Arn@, or @TypeName@ and @Type@.
 --
@@ -101,16 +101,10 @@ newDeactivateType ::
   DeactivateType
 newDeactivateType =
   DeactivateType'
-    { type' = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
+      type' = Prelude.Nothing,
       typeName = Prelude.Nothing
     }
-
--- | The extension type.
---
--- Conditional: You must specify either @Arn@, or @TypeName@ and @Type@.
-deactivateType_type :: Lens.Lens' DeactivateType (Prelude.Maybe ThirdPartyType)
-deactivateType_type = Lens.lens (\DeactivateType' {type'} -> type') (\s@DeactivateType' {} a -> s {type' = a} :: DeactivateType)
 
 -- | The Amazon Resource Name (ARN) for the extension, in this account and
 -- region.
@@ -118,6 +112,12 @@ deactivateType_type = Lens.lens (\DeactivateType' {type'} -> type') (\s@Deactiva
 -- Conditional: You must specify either @Arn@, or @TypeName@ and @Type@.
 deactivateType_arn :: Lens.Lens' DeactivateType (Prelude.Maybe Prelude.Text)
 deactivateType_arn = Lens.lens (\DeactivateType' {arn} -> arn) (\s@DeactivateType' {} a -> s {arn = a} :: DeactivateType)
+
+-- | The extension type.
+--
+-- Conditional: You must specify either @Arn@, or @TypeName@ and @Type@.
+deactivateType_type :: Lens.Lens' DeactivateType (Prelude.Maybe ThirdPartyType)
+deactivateType_type = Lens.lens (\DeactivateType' {type'} -> type') (\s@DeactivateType' {} a -> s {type' = a} :: DeactivateType)
 
 -- | The type name of the extension, in this account and region. If you
 -- specified a type name alias when enabling the extension, use the type
@@ -143,14 +143,14 @@ instance Core.AWSRequest DeactivateType where
 
 instance Prelude.Hashable DeactivateType where
   hashWithSalt _salt DeactivateType' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` typeName
 
 instance Prelude.NFData DeactivateType where
   rnf DeactivateType' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf typeName
 
 instance Data.ToHeaders DeactivateType where
@@ -166,8 +166,8 @@ instance Data.ToQuery DeactivateType where
           Data.=: ("DeactivateType" :: Prelude.ByteString),
         "Version"
           Data.=: ("2010-05-15" :: Prelude.ByteString),
-        "Type" Data.=: type',
         "Arn" Data.=: arn,
+        "Type" Data.=: type',
         "TypeName" Data.=: typeName
       ]
 

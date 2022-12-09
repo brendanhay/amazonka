@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newChangeSetHookResourceTargetDetails' smart constructor.
 data ChangeSetHookResourceTargetDetails = ChangeSetHookResourceTargetDetails'
-  { -- | The type of CloudFormation resource, such as @AWS::S3::Bucket@.
-    resourceType :: Prelude.Maybe Prelude.Text,
+  { -- | The resource\'s logical ID, which is defined in the stack\'s template.
+    logicalResourceId :: Prelude.Maybe Prelude.Text,
     -- | Specifies the action of the resource.
     resourceAction :: Prelude.Maybe ChangeAction,
-    -- | The resource\'s logical ID, which is defined in the stack\'s template.
-    logicalResourceId :: Prelude.Maybe Prelude.Text
+    -- | The type of CloudFormation resource, such as @AWS::S3::Bucket@.
+    resourceType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,32 +46,32 @@ data ChangeSetHookResourceTargetDetails = ChangeSetHookResourceTargetDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceType', 'changeSetHookResourceTargetDetails_resourceType' - The type of CloudFormation resource, such as @AWS::S3::Bucket@.
+-- 'logicalResourceId', 'changeSetHookResourceTargetDetails_logicalResourceId' - The resource\'s logical ID, which is defined in the stack\'s template.
 --
 -- 'resourceAction', 'changeSetHookResourceTargetDetails_resourceAction' - Specifies the action of the resource.
 --
--- 'logicalResourceId', 'changeSetHookResourceTargetDetails_logicalResourceId' - The resource\'s logical ID, which is defined in the stack\'s template.
+-- 'resourceType', 'changeSetHookResourceTargetDetails_resourceType' - The type of CloudFormation resource, such as @AWS::S3::Bucket@.
 newChangeSetHookResourceTargetDetails ::
   ChangeSetHookResourceTargetDetails
 newChangeSetHookResourceTargetDetails =
   ChangeSetHookResourceTargetDetails'
-    { resourceType =
+    { logicalResourceId =
         Prelude.Nothing,
       resourceAction = Prelude.Nothing,
-      logicalResourceId = Prelude.Nothing
+      resourceType = Prelude.Nothing
     }
 
--- | The type of CloudFormation resource, such as @AWS::S3::Bucket@.
-changeSetHookResourceTargetDetails_resourceType :: Lens.Lens' ChangeSetHookResourceTargetDetails (Prelude.Maybe Prelude.Text)
-changeSetHookResourceTargetDetails_resourceType = Lens.lens (\ChangeSetHookResourceTargetDetails' {resourceType} -> resourceType) (\s@ChangeSetHookResourceTargetDetails' {} a -> s {resourceType = a} :: ChangeSetHookResourceTargetDetails)
+-- | The resource\'s logical ID, which is defined in the stack\'s template.
+changeSetHookResourceTargetDetails_logicalResourceId :: Lens.Lens' ChangeSetHookResourceTargetDetails (Prelude.Maybe Prelude.Text)
+changeSetHookResourceTargetDetails_logicalResourceId = Lens.lens (\ChangeSetHookResourceTargetDetails' {logicalResourceId} -> logicalResourceId) (\s@ChangeSetHookResourceTargetDetails' {} a -> s {logicalResourceId = a} :: ChangeSetHookResourceTargetDetails)
 
 -- | Specifies the action of the resource.
 changeSetHookResourceTargetDetails_resourceAction :: Lens.Lens' ChangeSetHookResourceTargetDetails (Prelude.Maybe ChangeAction)
 changeSetHookResourceTargetDetails_resourceAction = Lens.lens (\ChangeSetHookResourceTargetDetails' {resourceAction} -> resourceAction) (\s@ChangeSetHookResourceTargetDetails' {} a -> s {resourceAction = a} :: ChangeSetHookResourceTargetDetails)
 
--- | The resource\'s logical ID, which is defined in the stack\'s template.
-changeSetHookResourceTargetDetails_logicalResourceId :: Lens.Lens' ChangeSetHookResourceTargetDetails (Prelude.Maybe Prelude.Text)
-changeSetHookResourceTargetDetails_logicalResourceId = Lens.lens (\ChangeSetHookResourceTargetDetails' {logicalResourceId} -> logicalResourceId) (\s@ChangeSetHookResourceTargetDetails' {} a -> s {logicalResourceId = a} :: ChangeSetHookResourceTargetDetails)
+-- | The type of CloudFormation resource, such as @AWS::S3::Bucket@.
+changeSetHookResourceTargetDetails_resourceType :: Lens.Lens' ChangeSetHookResourceTargetDetails (Prelude.Maybe Prelude.Text)
+changeSetHookResourceTargetDetails_resourceType = Lens.lens (\ChangeSetHookResourceTargetDetails' {resourceType} -> resourceType) (\s@ChangeSetHookResourceTargetDetails' {} a -> s {resourceType = a} :: ChangeSetHookResourceTargetDetails)
 
 instance
   Data.FromXML
@@ -79,9 +79,9 @@ instance
   where
   parseXML x =
     ChangeSetHookResourceTargetDetails'
-      Prelude.<$> (x Data..@? "ResourceType")
+      Prelude.<$> (x Data..@? "LogicalResourceId")
       Prelude.<*> (x Data..@? "ResourceAction")
-      Prelude.<*> (x Data..@? "LogicalResourceId")
+      Prelude.<*> (x Data..@? "ResourceType")
 
 instance
   Prelude.Hashable
@@ -90,15 +90,15 @@ instance
   hashWithSalt
     _salt
     ChangeSetHookResourceTargetDetails' {..} =
-      _salt `Prelude.hashWithSalt` resourceType
+      _salt `Prelude.hashWithSalt` logicalResourceId
         `Prelude.hashWithSalt` resourceAction
-        `Prelude.hashWithSalt` logicalResourceId
+        `Prelude.hashWithSalt` resourceType
 
 instance
   Prelude.NFData
     ChangeSetHookResourceTargetDetails
   where
   rnf ChangeSetHookResourceTargetDetails' {..} =
-    Prelude.rnf resourceType
+    Prelude.rnf logicalResourceId
       `Prelude.seq` Prelude.rnf resourceAction
-      `Prelude.seq` Prelude.rnf logicalResourceId
+      `Prelude.seq` Prelude.rnf resourceType

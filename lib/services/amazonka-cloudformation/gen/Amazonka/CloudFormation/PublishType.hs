@@ -36,9 +36,9 @@ module Amazonka.CloudFormation.PublishType
     newPublishType,
 
     -- * Request Lenses
-    publishType_type,
     publishType_arn,
     publishType_publicVersionNumber,
+    publishType_type,
     publishType_typeName,
 
     -- * Destructuring the Response
@@ -61,11 +61,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPublishType' smart constructor.
 data PublishType = PublishType'
-  { -- | The type of the extension.
-    --
-    -- Conditional: You must specify @Arn@, or @TypeName@ and @Type@.
-    type' :: Prelude.Maybe ThirdPartyType,
-    -- | The Amazon Resource Name (ARN) of the extension.
+  { -- | The Amazon Resource Name (ARN) of the extension.
     --
     -- Conditional: You must specify @Arn@, or @TypeName@ and @Type@.
     arn :: Prelude.Maybe Prelude.Text,
@@ -86,6 +82,10 @@ data PublishType = PublishType'
     -- CloudFormation automatically sets the first version number to be
     -- @1.0.0@.
     publicVersionNumber :: Prelude.Maybe Prelude.Text,
+    -- | The type of the extension.
+    --
+    -- Conditional: You must specify @Arn@, or @TypeName@ and @Type@.
+    type' :: Prelude.Maybe ThirdPartyType,
     -- | The name of the extension.
     --
     -- Conditional: You must specify @Arn@, or @TypeName@ and @Type@.
@@ -100,10 +100,6 @@ data PublishType = PublishType'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'type'', 'publishType_type' - The type of the extension.
---
--- Conditional: You must specify @Arn@, or @TypeName@ and @Type@.
 --
 -- 'arn', 'publishType_arn' - The Amazon Resource Name (ARN) of the extension.
 --
@@ -126,6 +122,10 @@ data PublishType = PublishType'
 -- CloudFormation automatically sets the first version number to be
 -- @1.0.0@.
 --
+-- 'type'', 'publishType_type' - The type of the extension.
+--
+-- Conditional: You must specify @Arn@, or @TypeName@ and @Type@.
+--
 -- 'typeName', 'publishType_typeName' - The name of the extension.
 --
 -- Conditional: You must specify @Arn@, or @TypeName@ and @Type@.
@@ -133,17 +133,11 @@ newPublishType ::
   PublishType
 newPublishType =
   PublishType'
-    { type' = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       publicVersionNumber = Prelude.Nothing,
+      type' = Prelude.Nothing,
       typeName = Prelude.Nothing
     }
-
--- | The type of the extension.
---
--- Conditional: You must specify @Arn@, or @TypeName@ and @Type@.
-publishType_type :: Lens.Lens' PublishType (Prelude.Maybe ThirdPartyType)
-publishType_type = Lens.lens (\PublishType' {type'} -> type') (\s@PublishType' {} a -> s {type' = a} :: PublishType)
 
 -- | The Amazon Resource Name (ARN) of the extension.
 --
@@ -170,6 +164,12 @@ publishType_arn = Lens.lens (\PublishType' {arn} -> arn) (\s@PublishType' {} a -
 publishType_publicVersionNumber :: Lens.Lens' PublishType (Prelude.Maybe Prelude.Text)
 publishType_publicVersionNumber = Lens.lens (\PublishType' {publicVersionNumber} -> publicVersionNumber) (\s@PublishType' {} a -> s {publicVersionNumber = a} :: PublishType)
 
+-- | The type of the extension.
+--
+-- Conditional: You must specify @Arn@, or @TypeName@ and @Type@.
+publishType_type :: Lens.Lens' PublishType (Prelude.Maybe ThirdPartyType)
+publishType_type = Lens.lens (\PublishType' {type'} -> type') (\s@PublishType' {} a -> s {type' = a} :: PublishType)
+
 -- | The name of the extension.
 --
 -- Conditional: You must specify @Arn@, or @TypeName@ and @Type@.
@@ -191,16 +191,16 @@ instance Core.AWSRequest PublishType where
 
 instance Prelude.Hashable PublishType where
   hashWithSalt _salt PublishType' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` publicVersionNumber
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` typeName
 
 instance Prelude.NFData PublishType where
   rnf PublishType' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf publicVersionNumber
+      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf typeName
 
 instance Data.ToHeaders PublishType where
@@ -216,9 +216,9 @@ instance Data.ToQuery PublishType where
           Data.=: ("PublishType" :: Prelude.ByteString),
         "Version"
           Data.=: ("2010-05-15" :: Prelude.ByteString),
-        "Type" Data.=: type',
         "Arn" Data.=: arn,
         "PublicVersionNumber" Data.=: publicVersionNumber,
+        "Type" Data.=: type',
         "TypeName" Data.=: typeName
       ]
 

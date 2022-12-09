@@ -42,14 +42,14 @@ data TypeConfigurationIdentifier = TypeConfigurationIdentifier'
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html register the type>
     -- in this account and region.
     typeArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the extension type to which this configuration applies.
-    typeName :: Prelude.Maybe Prelude.Text,
     -- | The alias specified for this configuration, if one was specified when
     -- the configuration was set.
     typeConfigurationAlias :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) for the configuration, in this account
     -- and region.
-    typeConfigurationArn :: Prelude.Maybe Prelude.Text
+    typeConfigurationArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the extension type to which this configuration applies.
+    typeName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,13 +73,13 @@ data TypeConfigurationIdentifier = TypeConfigurationIdentifier'
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html register the type>
 -- in this account and region.
 --
--- 'typeName', 'typeConfigurationIdentifier_typeName' - The name of the extension type to which this configuration applies.
---
 -- 'typeConfigurationAlias', 'typeConfigurationIdentifier_typeConfigurationAlias' - The alias specified for this configuration, if one was specified when
 -- the configuration was set.
 --
 -- 'typeConfigurationArn', 'typeConfigurationIdentifier_typeConfigurationArn' - The Amazon Resource Name (ARN) for the configuration, in this account
 -- and region.
+--
+-- 'typeName', 'typeConfigurationIdentifier_typeName' - The name of the extension type to which this configuration applies.
 newTypeConfigurationIdentifier ::
   TypeConfigurationIdentifier
 newTypeConfigurationIdentifier =
@@ -87,9 +87,9 @@ newTypeConfigurationIdentifier =
     { type' =
         Prelude.Nothing,
       typeArn = Prelude.Nothing,
-      typeName = Prelude.Nothing,
       typeConfigurationAlias = Prelude.Nothing,
-      typeConfigurationArn = Prelude.Nothing
+      typeConfigurationArn = Prelude.Nothing,
+      typeName = Prelude.Nothing
     }
 
 -- | The type of extension.
@@ -108,10 +108,6 @@ typeConfigurationIdentifier_type = Lens.lens (\TypeConfigurationIdentifier' {typ
 typeConfigurationIdentifier_typeArn :: Lens.Lens' TypeConfigurationIdentifier (Prelude.Maybe Prelude.Text)
 typeConfigurationIdentifier_typeArn = Lens.lens (\TypeConfigurationIdentifier' {typeArn} -> typeArn) (\s@TypeConfigurationIdentifier' {} a -> s {typeArn = a} :: TypeConfigurationIdentifier)
 
--- | The name of the extension type to which this configuration applies.
-typeConfigurationIdentifier_typeName :: Lens.Lens' TypeConfigurationIdentifier (Prelude.Maybe Prelude.Text)
-typeConfigurationIdentifier_typeName = Lens.lens (\TypeConfigurationIdentifier' {typeName} -> typeName) (\s@TypeConfigurationIdentifier' {} a -> s {typeName = a} :: TypeConfigurationIdentifier)
-
 -- | The alias specified for this configuration, if one was specified when
 -- the configuration was set.
 typeConfigurationIdentifier_typeConfigurationAlias :: Lens.Lens' TypeConfigurationIdentifier (Prelude.Maybe Prelude.Text)
@@ -122,38 +118,42 @@ typeConfigurationIdentifier_typeConfigurationAlias = Lens.lens (\TypeConfigurati
 typeConfigurationIdentifier_typeConfigurationArn :: Lens.Lens' TypeConfigurationIdentifier (Prelude.Maybe Prelude.Text)
 typeConfigurationIdentifier_typeConfigurationArn = Lens.lens (\TypeConfigurationIdentifier' {typeConfigurationArn} -> typeConfigurationArn) (\s@TypeConfigurationIdentifier' {} a -> s {typeConfigurationArn = a} :: TypeConfigurationIdentifier)
 
+-- | The name of the extension type to which this configuration applies.
+typeConfigurationIdentifier_typeName :: Lens.Lens' TypeConfigurationIdentifier (Prelude.Maybe Prelude.Text)
+typeConfigurationIdentifier_typeName = Lens.lens (\TypeConfigurationIdentifier' {typeName} -> typeName) (\s@TypeConfigurationIdentifier' {} a -> s {typeName = a} :: TypeConfigurationIdentifier)
+
 instance Data.FromXML TypeConfigurationIdentifier where
   parseXML x =
     TypeConfigurationIdentifier'
       Prelude.<$> (x Data..@? "Type")
       Prelude.<*> (x Data..@? "TypeArn")
-      Prelude.<*> (x Data..@? "TypeName")
       Prelude.<*> (x Data..@? "TypeConfigurationAlias")
       Prelude.<*> (x Data..@? "TypeConfigurationArn")
+      Prelude.<*> (x Data..@? "TypeName")
 
 instance Prelude.Hashable TypeConfigurationIdentifier where
   hashWithSalt _salt TypeConfigurationIdentifier' {..} =
     _salt `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` typeArn
-      `Prelude.hashWithSalt` typeName
       `Prelude.hashWithSalt` typeConfigurationAlias
       `Prelude.hashWithSalt` typeConfigurationArn
+      `Prelude.hashWithSalt` typeName
 
 instance Prelude.NFData TypeConfigurationIdentifier where
   rnf TypeConfigurationIdentifier' {..} =
     Prelude.rnf type'
       `Prelude.seq` Prelude.rnf typeArn
-      `Prelude.seq` Prelude.rnf typeName
       `Prelude.seq` Prelude.rnf typeConfigurationAlias
       `Prelude.seq` Prelude.rnf typeConfigurationArn
+      `Prelude.seq` Prelude.rnf typeName
 
 instance Data.ToQuery TypeConfigurationIdentifier where
   toQuery TypeConfigurationIdentifier' {..} =
     Prelude.mconcat
       [ "Type" Data.=: type',
         "TypeArn" Data.=: typeArn,
-        "TypeName" Data.=: typeName,
         "TypeConfigurationAlias"
           Data.=: typeConfigurationAlias,
-        "TypeConfigurationArn" Data.=: typeConfigurationArn
+        "TypeConfigurationArn" Data.=: typeConfigurationArn,
+        "TypeName" Data.=: typeName
       ]

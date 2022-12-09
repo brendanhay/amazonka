@@ -43,8 +43,8 @@ module Amazonka.CloudFormation.DeregisterType
     newDeregisterType,
 
     -- * Request Lenses
-    deregisterType_type,
     deregisterType_arn,
+    deregisterType_type,
     deregisterType_typeName,
     deregisterType_versionId,
 
@@ -67,14 +67,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeregisterType' smart constructor.
 data DeregisterType = DeregisterType'
-  { -- | The kind of extension.
-    --
-    -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
-    type' :: Prelude.Maybe RegistryType,
-    -- | The Amazon Resource Name (ARN) of the extension.
+  { -- | The Amazon Resource Name (ARN) of the extension.
     --
     -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The kind of extension.
+    --
+    -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
+    type' :: Prelude.Maybe RegistryType,
     -- | The name of the extension.
     --
     -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
@@ -94,11 +94,11 @@ data DeregisterType = DeregisterType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'deregisterType_type' - The kind of extension.
+-- 'arn', 'deregisterType_arn' - The Amazon Resource Name (ARN) of the extension.
 --
 -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
 --
--- 'arn', 'deregisterType_arn' - The Amazon Resource Name (ARN) of the extension.
+-- 'type'', 'deregisterType_type' - The kind of extension.
 --
 -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
 --
@@ -113,23 +113,23 @@ newDeregisterType ::
   DeregisterType
 newDeregisterType =
   DeregisterType'
-    { type' = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
+      type' = Prelude.Nothing,
       typeName = Prelude.Nothing,
       versionId = Prelude.Nothing
     }
-
--- | The kind of extension.
---
--- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
-deregisterType_type :: Lens.Lens' DeregisterType (Prelude.Maybe RegistryType)
-deregisterType_type = Lens.lens (\DeregisterType' {type'} -> type') (\s@DeregisterType' {} a -> s {type' = a} :: DeregisterType)
 
 -- | The Amazon Resource Name (ARN) of the extension.
 --
 -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
 deregisterType_arn :: Lens.Lens' DeregisterType (Prelude.Maybe Prelude.Text)
 deregisterType_arn = Lens.lens (\DeregisterType' {arn} -> arn) (\s@DeregisterType' {} a -> s {arn = a} :: DeregisterType)
+
+-- | The kind of extension.
+--
+-- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
+deregisterType_type :: Lens.Lens' DeregisterType (Prelude.Maybe RegistryType)
+deregisterType_type = Lens.lens (\DeregisterType' {type'} -> type') (\s@DeregisterType' {} a -> s {type' = a} :: DeregisterType)
 
 -- | The name of the extension.
 --
@@ -159,15 +159,15 @@ instance Core.AWSRequest DeregisterType where
 
 instance Prelude.Hashable DeregisterType where
   hashWithSalt _salt DeregisterType' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` typeName
       `Prelude.hashWithSalt` versionId
 
 instance Prelude.NFData DeregisterType where
   rnf DeregisterType' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf typeName
       `Prelude.seq` Prelude.rnf versionId
 
@@ -184,8 +184,8 @@ instance Data.ToQuery DeregisterType where
           Data.=: ("DeregisterType" :: Prelude.ByteString),
         "Version"
           Data.=: ("2010-05-15" :: Prelude.ByteString),
-        "Type" Data.=: type',
         "Arn" Data.=: arn,
+        "Type" Data.=: type',
         "TypeName" Data.=: typeName,
         "VersionId" Data.=: versionId
       ]

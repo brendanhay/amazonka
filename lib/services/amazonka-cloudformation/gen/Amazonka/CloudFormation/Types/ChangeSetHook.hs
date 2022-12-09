@@ -31,17 +31,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newChangeSetHook' smart constructor.
 data ChangeSetHook = ChangeSetHook'
-  { -- | The version ID of the type configuration.
-    typeConfigurationVersionId :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the points in provisioning logic where a hook is invoked.
-    invocationPoint :: Prelude.Maybe HookInvocationPoint,
-    -- | Specify the hook failure mode for non-compliant resources in the
+  { -- | Specify the hook failure mode for non-compliant resources in the
     -- followings ways.
     --
     -- -   @FAIL@ Stops provisioning resources.
     --
     -- -   @WARN@ Allows provisioning to continue with a warning message.
     failureMode :: Prelude.Maybe HookFailureMode,
+    -- | Specifies the points in provisioning logic where a hook is invoked.
+    invocationPoint :: Prelude.Maybe HookInvocationPoint,
+    -- | Specifies details about the target that the hook will run against.
+    targetDetails :: Prelude.Maybe ChangeSetHookTargetDetails,
+    -- | The version ID of the type configuration.
+    typeConfigurationVersionId :: Prelude.Maybe Prelude.Text,
     -- | The unique name for your hook. Specifies a three-part namespace for your
     -- hook, with a recommended pattern of @Organization::Service::Hook@.
     --
@@ -63,9 +65,7 @@ data ChangeSetHook = ChangeSetHook'
     -- -   @Dev@
     typeName :: Prelude.Maybe Prelude.Text,
     -- | The version ID of the type specified.
-    typeVersionId :: Prelude.Maybe Prelude.Text,
-    -- | Specifies details about the target that the hook will run against.
-    targetDetails :: Prelude.Maybe ChangeSetHookTargetDetails
+    typeVersionId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,16 +77,18 @@ data ChangeSetHook = ChangeSetHook'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'typeConfigurationVersionId', 'changeSetHook_typeConfigurationVersionId' - The version ID of the type configuration.
---
--- 'invocationPoint', 'changeSetHook_invocationPoint' - Specifies the points in provisioning logic where a hook is invoked.
---
 -- 'failureMode', 'changeSetHook_failureMode' - Specify the hook failure mode for non-compliant resources in the
 -- followings ways.
 --
 -- -   @FAIL@ Stops provisioning resources.
 --
 -- -   @WARN@ Allows provisioning to continue with a warning message.
+--
+-- 'invocationPoint', 'changeSetHook_invocationPoint' - Specifies the points in provisioning logic where a hook is invoked.
+--
+-- 'targetDetails', 'changeSetHook_targetDetails' - Specifies details about the target that the hook will run against.
+--
+-- 'typeConfigurationVersionId', 'changeSetHook_typeConfigurationVersionId' - The version ID of the type configuration.
 --
 -- 'typeName', 'changeSetHook_typeName' - The unique name for your hook. Specifies a three-part namespace for your
 -- hook, with a recommended pattern of @Organization::Service::Hook@.
@@ -109,28 +111,17 @@ data ChangeSetHook = ChangeSetHook'
 -- -   @Dev@
 --
 -- 'typeVersionId', 'changeSetHook_typeVersionId' - The version ID of the type specified.
---
--- 'targetDetails', 'changeSetHook_targetDetails' - Specifies details about the target that the hook will run against.
 newChangeSetHook ::
   ChangeSetHook
 newChangeSetHook =
   ChangeSetHook'
-    { typeConfigurationVersionId =
-        Prelude.Nothing,
+    { failureMode = Prelude.Nothing,
       invocationPoint = Prelude.Nothing,
-      failureMode = Prelude.Nothing,
+      targetDetails = Prelude.Nothing,
+      typeConfigurationVersionId = Prelude.Nothing,
       typeName = Prelude.Nothing,
-      typeVersionId = Prelude.Nothing,
-      targetDetails = Prelude.Nothing
+      typeVersionId = Prelude.Nothing
     }
-
--- | The version ID of the type configuration.
-changeSetHook_typeConfigurationVersionId :: Lens.Lens' ChangeSetHook (Prelude.Maybe Prelude.Text)
-changeSetHook_typeConfigurationVersionId = Lens.lens (\ChangeSetHook' {typeConfigurationVersionId} -> typeConfigurationVersionId) (\s@ChangeSetHook' {} a -> s {typeConfigurationVersionId = a} :: ChangeSetHook)
-
--- | Specifies the points in provisioning logic where a hook is invoked.
-changeSetHook_invocationPoint :: Lens.Lens' ChangeSetHook (Prelude.Maybe HookInvocationPoint)
-changeSetHook_invocationPoint = Lens.lens (\ChangeSetHook' {invocationPoint} -> invocationPoint) (\s@ChangeSetHook' {} a -> s {invocationPoint = a} :: ChangeSetHook)
 
 -- | Specify the hook failure mode for non-compliant resources in the
 -- followings ways.
@@ -140,6 +131,18 @@ changeSetHook_invocationPoint = Lens.lens (\ChangeSetHook' {invocationPoint} -> 
 -- -   @WARN@ Allows provisioning to continue with a warning message.
 changeSetHook_failureMode :: Lens.Lens' ChangeSetHook (Prelude.Maybe HookFailureMode)
 changeSetHook_failureMode = Lens.lens (\ChangeSetHook' {failureMode} -> failureMode) (\s@ChangeSetHook' {} a -> s {failureMode = a} :: ChangeSetHook)
+
+-- | Specifies the points in provisioning logic where a hook is invoked.
+changeSetHook_invocationPoint :: Lens.Lens' ChangeSetHook (Prelude.Maybe HookInvocationPoint)
+changeSetHook_invocationPoint = Lens.lens (\ChangeSetHook' {invocationPoint} -> invocationPoint) (\s@ChangeSetHook' {} a -> s {invocationPoint = a} :: ChangeSetHook)
+
+-- | Specifies details about the target that the hook will run against.
+changeSetHook_targetDetails :: Lens.Lens' ChangeSetHook (Prelude.Maybe ChangeSetHookTargetDetails)
+changeSetHook_targetDetails = Lens.lens (\ChangeSetHook' {targetDetails} -> targetDetails) (\s@ChangeSetHook' {} a -> s {targetDetails = a} :: ChangeSetHook)
+
+-- | The version ID of the type configuration.
+changeSetHook_typeConfigurationVersionId :: Lens.Lens' ChangeSetHook (Prelude.Maybe Prelude.Text)
+changeSetHook_typeConfigurationVersionId = Lens.lens (\ChangeSetHook' {typeConfigurationVersionId} -> typeConfigurationVersionId) (\s@ChangeSetHook' {} a -> s {typeConfigurationVersionId = a} :: ChangeSetHook)
 
 -- | The unique name for your hook. Specifies a three-part namespace for your
 -- hook, with a recommended pattern of @Organization::Service::Hook@.
@@ -167,35 +170,30 @@ changeSetHook_typeName = Lens.lens (\ChangeSetHook' {typeName} -> typeName) (\s@
 changeSetHook_typeVersionId :: Lens.Lens' ChangeSetHook (Prelude.Maybe Prelude.Text)
 changeSetHook_typeVersionId = Lens.lens (\ChangeSetHook' {typeVersionId} -> typeVersionId) (\s@ChangeSetHook' {} a -> s {typeVersionId = a} :: ChangeSetHook)
 
--- | Specifies details about the target that the hook will run against.
-changeSetHook_targetDetails :: Lens.Lens' ChangeSetHook (Prelude.Maybe ChangeSetHookTargetDetails)
-changeSetHook_targetDetails = Lens.lens (\ChangeSetHook' {targetDetails} -> targetDetails) (\s@ChangeSetHook' {} a -> s {targetDetails = a} :: ChangeSetHook)
-
 instance Data.FromXML ChangeSetHook where
   parseXML x =
     ChangeSetHook'
-      Prelude.<$> (x Data..@? "TypeConfigurationVersionId")
+      Prelude.<$> (x Data..@? "FailureMode")
       Prelude.<*> (x Data..@? "InvocationPoint")
-      Prelude.<*> (x Data..@? "FailureMode")
+      Prelude.<*> (x Data..@? "TargetDetails")
+      Prelude.<*> (x Data..@? "TypeConfigurationVersionId")
       Prelude.<*> (x Data..@? "TypeName")
       Prelude.<*> (x Data..@? "TypeVersionId")
-      Prelude.<*> (x Data..@? "TargetDetails")
 
 instance Prelude.Hashable ChangeSetHook where
   hashWithSalt _salt ChangeSetHook' {..} =
-    _salt
-      `Prelude.hashWithSalt` typeConfigurationVersionId
+    _salt `Prelude.hashWithSalt` failureMode
       `Prelude.hashWithSalt` invocationPoint
-      `Prelude.hashWithSalt` failureMode
+      `Prelude.hashWithSalt` targetDetails
+      `Prelude.hashWithSalt` typeConfigurationVersionId
       `Prelude.hashWithSalt` typeName
       `Prelude.hashWithSalt` typeVersionId
-      `Prelude.hashWithSalt` targetDetails
 
 instance Prelude.NFData ChangeSetHook where
   rnf ChangeSetHook' {..} =
-    Prelude.rnf typeConfigurationVersionId
+    Prelude.rnf failureMode
       `Prelude.seq` Prelude.rnf invocationPoint
-      `Prelude.seq` Prelude.rnf failureMode
+      `Prelude.seq` Prelude.rnf targetDetails
+      `Prelude.seq` Prelude.rnf typeConfigurationVersionId
       `Prelude.seq` Prelude.rnf typeName
       `Prelude.seq` Prelude.rnf typeVersionId
-      `Prelude.seq` Prelude.rnf targetDetails

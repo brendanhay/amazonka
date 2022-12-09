@@ -56,9 +56,9 @@ module Amazonka.CloudFormation.TestType
     newTestType,
 
     -- * Request Lenses
-    testType_type,
     testType_arn,
     testType_logDeliveryBucket,
+    testType_type,
     testType_typeName,
     testType_versionId,
 
@@ -82,11 +82,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newTestType' smart constructor.
 data TestType = TestType'
-  { -- | The type of the extension to test.
-    --
-    -- Conditional: You must specify @Arn@, or @TypeName@ and @Type@.
-    type' :: Prelude.Maybe ThirdPartyType,
-    -- | The Amazon Resource Name (ARN) of the extension.
+  { -- | The Amazon Resource Name (ARN) of the extension.
     --
     -- Conditional: You must specify @Arn@, or @TypeName@ and @Type@.
     arn :: Prelude.Maybe Prelude.Text,
@@ -109,6 +105,10 @@ data TestType = TestType'
     -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html Actions, Resources, and Condition Keys for Amazon S3>
     -- in the /Amazon Web Services Identity and Access Management User Guide/.
     logDeliveryBucket :: Prelude.Maybe Prelude.Text,
+    -- | The type of the extension to test.
+    --
+    -- Conditional: You must specify @Arn@, or @TypeName@ and @Type@.
+    type' :: Prelude.Maybe ThirdPartyType,
     -- | The name of the extension to test.
     --
     -- Conditional: You must specify @Arn@, or @TypeName@ and @Type@.
@@ -131,10 +131,6 @@ data TestType = TestType'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'type'', 'testType_type' - The type of the extension to test.
---
--- Conditional: You must specify @Arn@, or @TypeName@ and @Type@.
 --
 -- 'arn', 'testType_arn' - The Amazon Resource Name (ARN) of the extension.
 --
@@ -159,6 +155,10 @@ data TestType = TestType'
 -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html Actions, Resources, and Condition Keys for Amazon S3>
 -- in the /Amazon Web Services Identity and Access Management User Guide/.
 --
+-- 'type'', 'testType_type' - The type of the extension to test.
+--
+-- Conditional: You must specify @Arn@, or @TypeName@ and @Type@.
+--
 -- 'typeName', 'testType_typeName' - The name of the extension to test.
 --
 -- Conditional: You must specify @Arn@, or @TypeName@ and @Type@.
@@ -174,18 +174,12 @@ newTestType ::
   TestType
 newTestType =
   TestType'
-    { type' = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       logDeliveryBucket = Prelude.Nothing,
+      type' = Prelude.Nothing,
       typeName = Prelude.Nothing,
       versionId = Prelude.Nothing
     }
-
--- | The type of the extension to test.
---
--- Conditional: You must specify @Arn@, or @TypeName@ and @Type@.
-testType_type :: Lens.Lens' TestType (Prelude.Maybe ThirdPartyType)
-testType_type = Lens.lens (\TestType' {type'} -> type') (\s@TestType' {} a -> s {type' = a} :: TestType)
 
 -- | The Amazon Resource Name (ARN) of the extension.
 --
@@ -213,6 +207,12 @@ testType_arn = Lens.lens (\TestType' {arn} -> arn) (\s@TestType' {} a -> s {arn 
 -- in the /Amazon Web Services Identity and Access Management User Guide/.
 testType_logDeliveryBucket :: Lens.Lens' TestType (Prelude.Maybe Prelude.Text)
 testType_logDeliveryBucket = Lens.lens (\TestType' {logDeliveryBucket} -> logDeliveryBucket) (\s@TestType' {} a -> s {logDeliveryBucket = a} :: TestType)
+
+-- | The type of the extension to test.
+--
+-- Conditional: You must specify @Arn@, or @TypeName@ and @Type@.
+testType_type :: Lens.Lens' TestType (Prelude.Maybe ThirdPartyType)
+testType_type = Lens.lens (\TestType' {type'} -> type') (\s@TestType' {} a -> s {type' = a} :: TestType)
 
 -- | The name of the extension to test.
 --
@@ -245,17 +245,17 @@ instance Core.AWSRequest TestType where
 
 instance Prelude.Hashable TestType where
   hashWithSalt _salt TestType' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` logDeliveryBucket
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` typeName
       `Prelude.hashWithSalt` versionId
 
 instance Prelude.NFData TestType where
   rnf TestType' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf logDeliveryBucket
+      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf typeName
       `Prelude.seq` Prelude.rnf versionId
 
@@ -271,9 +271,9 @@ instance Data.ToQuery TestType where
       [ "Action" Data.=: ("TestType" :: Prelude.ByteString),
         "Version"
           Data.=: ("2010-05-15" :: Prelude.ByteString),
-        "Type" Data.=: type',
         "Arn" Data.=: arn,
         "LogDeliveryBucket" Data.=: logDeliveryBucket,
+        "Type" Data.=: type',
         "TypeName" Data.=: typeName,
         "VersionId" Data.=: versionId
       ]

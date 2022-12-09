@@ -30,14 +30,14 @@ import Amazonka.VoiceId.Types.ExistingEnrollmentAction
 --
 -- /See:/ 'newEnrollmentConfig' smart constructor.
 data EnrollmentConfig = EnrollmentConfig'
-  { -- | The fraud detection configuration to use for the speaker enrollment job.
-    fraudDetectionConfig :: Prelude.Maybe EnrollmentJobFraudDetectionConfig,
-    -- | The action to take when the specified speaker is already enrolled in the
+  { -- | The action to take when the specified speaker is already enrolled in the
     -- specified domain. The default value is @SKIP@, which skips the
     -- enrollment for the existing speaker. Setting the value to @OVERWRITE@
     -- replaces the existing voice prints and enrollment audio stored for that
     -- speaker with new data generated from the latest audio.
-    existingEnrollmentAction :: Prelude.Maybe ExistingEnrollmentAction
+    existingEnrollmentAction :: Prelude.Maybe ExistingEnrollmentAction,
+    -- | The fraud detection configuration to use for the speaker enrollment job.
+    fraudDetectionConfig :: Prelude.Maybe EnrollmentJobFraudDetectionConfig
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,25 +49,21 @@ data EnrollmentConfig = EnrollmentConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fraudDetectionConfig', 'enrollmentConfig_fraudDetectionConfig' - The fraud detection configuration to use for the speaker enrollment job.
---
 -- 'existingEnrollmentAction', 'enrollmentConfig_existingEnrollmentAction' - The action to take when the specified speaker is already enrolled in the
 -- specified domain. The default value is @SKIP@, which skips the
 -- enrollment for the existing speaker. Setting the value to @OVERWRITE@
 -- replaces the existing voice prints and enrollment audio stored for that
 -- speaker with new data generated from the latest audio.
+--
+-- 'fraudDetectionConfig', 'enrollmentConfig_fraudDetectionConfig' - The fraud detection configuration to use for the speaker enrollment job.
 newEnrollmentConfig ::
   EnrollmentConfig
 newEnrollmentConfig =
   EnrollmentConfig'
-    { fraudDetectionConfig =
+    { existingEnrollmentAction =
         Prelude.Nothing,
-      existingEnrollmentAction = Prelude.Nothing
+      fraudDetectionConfig = Prelude.Nothing
     }
-
--- | The fraud detection configuration to use for the speaker enrollment job.
-enrollmentConfig_fraudDetectionConfig :: Lens.Lens' EnrollmentConfig (Prelude.Maybe EnrollmentJobFraudDetectionConfig)
-enrollmentConfig_fraudDetectionConfig = Lens.lens (\EnrollmentConfig' {fraudDetectionConfig} -> fraudDetectionConfig) (\s@EnrollmentConfig' {} a -> s {fraudDetectionConfig = a} :: EnrollmentConfig)
 
 -- | The action to take when the specified speaker is already enrolled in the
 -- specified domain. The default value is @SKIP@, which skips the
@@ -77,33 +73,38 @@ enrollmentConfig_fraudDetectionConfig = Lens.lens (\EnrollmentConfig' {fraudDete
 enrollmentConfig_existingEnrollmentAction :: Lens.Lens' EnrollmentConfig (Prelude.Maybe ExistingEnrollmentAction)
 enrollmentConfig_existingEnrollmentAction = Lens.lens (\EnrollmentConfig' {existingEnrollmentAction} -> existingEnrollmentAction) (\s@EnrollmentConfig' {} a -> s {existingEnrollmentAction = a} :: EnrollmentConfig)
 
+-- | The fraud detection configuration to use for the speaker enrollment job.
+enrollmentConfig_fraudDetectionConfig :: Lens.Lens' EnrollmentConfig (Prelude.Maybe EnrollmentJobFraudDetectionConfig)
+enrollmentConfig_fraudDetectionConfig = Lens.lens (\EnrollmentConfig' {fraudDetectionConfig} -> fraudDetectionConfig) (\s@EnrollmentConfig' {} a -> s {fraudDetectionConfig = a} :: EnrollmentConfig)
+
 instance Data.FromJSON EnrollmentConfig where
   parseJSON =
     Data.withObject
       "EnrollmentConfig"
       ( \x ->
           EnrollmentConfig'
-            Prelude.<$> (x Data..:? "FraudDetectionConfig")
-            Prelude.<*> (x Data..:? "ExistingEnrollmentAction")
+            Prelude.<$> (x Data..:? "ExistingEnrollmentAction")
+            Prelude.<*> (x Data..:? "FraudDetectionConfig")
       )
 
 instance Prelude.Hashable EnrollmentConfig where
   hashWithSalt _salt EnrollmentConfig' {..} =
-    _salt `Prelude.hashWithSalt` fraudDetectionConfig
+    _salt
       `Prelude.hashWithSalt` existingEnrollmentAction
+      `Prelude.hashWithSalt` fraudDetectionConfig
 
 instance Prelude.NFData EnrollmentConfig where
   rnf EnrollmentConfig' {..} =
-    Prelude.rnf fraudDetectionConfig
-      `Prelude.seq` Prelude.rnf existingEnrollmentAction
+    Prelude.rnf existingEnrollmentAction
+      `Prelude.seq` Prelude.rnf fraudDetectionConfig
 
 instance Data.ToJSON EnrollmentConfig where
   toJSON EnrollmentConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("FraudDetectionConfig" Data..=)
-              Prelude.<$> fraudDetectionConfig,
-            ("ExistingEnrollmentAction" Data..=)
-              Prelude.<$> existingEnrollmentAction
+          [ ("ExistingEnrollmentAction" Data..=)
+              Prelude.<$> existingEnrollmentAction,
+            ("FraudDetectionConfig" Data..=)
+              Prelude.<$> fraudDetectionConfig
           ]
       )

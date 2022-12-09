@@ -31,9 +31,9 @@ module Amazonka.VoiceId.ListFraudsterRegistrationJobs
     newListFraudsterRegistrationJobs,
 
     -- * Request Lenses
-    listFraudsterRegistrationJobs_nextToken,
     listFraudsterRegistrationJobs_jobStatus,
     listFraudsterRegistrationJobs_maxResults,
+    listFraudsterRegistrationJobs_nextToken,
     listFraudsterRegistrationJobs_domainId,
 
     -- * Destructuring the Response
@@ -41,8 +41,8 @@ module Amazonka.VoiceId.ListFraudsterRegistrationJobs
     newListFraudsterRegistrationJobsResponse,
 
     -- * Response Lenses
-    listFraudsterRegistrationJobsResponse_nextToken,
     listFraudsterRegistrationJobsResponse_jobSummaries,
+    listFraudsterRegistrationJobsResponse_nextToken,
     listFraudsterRegistrationJobsResponse_httpStatus,
   )
 where
@@ -57,17 +57,17 @@ import Amazonka.VoiceId.Types
 
 -- | /See:/ 'newListFraudsterRegistrationJobs' smart constructor.
 data ListFraudsterRegistrationJobs = ListFraudsterRegistrationJobs'
-  { -- | If @NextToken@ is returned, there are more results available. The value
-    -- of @NextToken@ is a unique pagination token for each page. Make the call
-    -- again using the returned token to retrieve the next page. Keep all other
-    -- arguments unchanged. Each pagination token expires after 24 hours.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Provides the status of your fraudster registration job.
+  { -- | Provides the status of your fraudster registration job.
     jobStatus :: Prelude.Maybe FraudsterRegistrationJobStatus,
     -- | The maximum number of results that are returned per call. You can use
     -- @NextToken@ to obtain further pages of results. The default is 100; the
     -- maximum allowed page size is also 100.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If @NextToken@ is returned, there are more results available. The value
+    -- of @NextToken@ is a unique pagination token for each page. Make the call
+    -- again using the returned token to retrieve the next page. Keep all other
+    -- arguments unchanged. Each pagination token expires after 24 hours.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the domain containing the fraudster registration Jobs.
     domainId :: Prelude.Text
   }
@@ -81,16 +81,16 @@ data ListFraudsterRegistrationJobs = ListFraudsterRegistrationJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listFraudsterRegistrationJobs_nextToken' - If @NextToken@ is returned, there are more results available. The value
--- of @NextToken@ is a unique pagination token for each page. Make the call
--- again using the returned token to retrieve the next page. Keep all other
--- arguments unchanged. Each pagination token expires after 24 hours.
---
 -- 'jobStatus', 'listFraudsterRegistrationJobs_jobStatus' - Provides the status of your fraudster registration job.
 --
 -- 'maxResults', 'listFraudsterRegistrationJobs_maxResults' - The maximum number of results that are returned per call. You can use
 -- @NextToken@ to obtain further pages of results. The default is 100; the
 -- maximum allowed page size is also 100.
+--
+-- 'nextToken', 'listFraudsterRegistrationJobs_nextToken' - If @NextToken@ is returned, there are more results available. The value
+-- of @NextToken@ is a unique pagination token for each page. Make the call
+-- again using the returned token to retrieve the next page. Keep all other
+-- arguments unchanged. Each pagination token expires after 24 hours.
 --
 -- 'domainId', 'listFraudsterRegistrationJobs_domainId' - The identifier of the domain containing the fraudster registration Jobs.
 newListFraudsterRegistrationJobs ::
@@ -99,19 +99,12 @@ newListFraudsterRegistrationJobs ::
   ListFraudsterRegistrationJobs
 newListFraudsterRegistrationJobs pDomainId_ =
   ListFraudsterRegistrationJobs'
-    { nextToken =
+    { jobStatus =
         Prelude.Nothing,
-      jobStatus = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       domainId = pDomainId_
     }
-
--- | If @NextToken@ is returned, there are more results available. The value
--- of @NextToken@ is a unique pagination token for each page. Make the call
--- again using the returned token to retrieve the next page. Keep all other
--- arguments unchanged. Each pagination token expires after 24 hours.
-listFraudsterRegistrationJobs_nextToken :: Lens.Lens' ListFraudsterRegistrationJobs (Prelude.Maybe Prelude.Text)
-listFraudsterRegistrationJobs_nextToken = Lens.lens (\ListFraudsterRegistrationJobs' {nextToken} -> nextToken) (\s@ListFraudsterRegistrationJobs' {} a -> s {nextToken = a} :: ListFraudsterRegistrationJobs)
 
 -- | Provides the status of your fraudster registration job.
 listFraudsterRegistrationJobs_jobStatus :: Lens.Lens' ListFraudsterRegistrationJobs (Prelude.Maybe FraudsterRegistrationJobStatus)
@@ -122,6 +115,13 @@ listFraudsterRegistrationJobs_jobStatus = Lens.lens (\ListFraudsterRegistrationJ
 -- maximum allowed page size is also 100.
 listFraudsterRegistrationJobs_maxResults :: Lens.Lens' ListFraudsterRegistrationJobs (Prelude.Maybe Prelude.Natural)
 listFraudsterRegistrationJobs_maxResults = Lens.lens (\ListFraudsterRegistrationJobs' {maxResults} -> maxResults) (\s@ListFraudsterRegistrationJobs' {} a -> s {maxResults = a} :: ListFraudsterRegistrationJobs)
+
+-- | If @NextToken@ is returned, there are more results available. The value
+-- of @NextToken@ is a unique pagination token for each page. Make the call
+-- again using the returned token to retrieve the next page. Keep all other
+-- arguments unchanged. Each pagination token expires after 24 hours.
+listFraudsterRegistrationJobs_nextToken :: Lens.Lens' ListFraudsterRegistrationJobs (Prelude.Maybe Prelude.Text)
+listFraudsterRegistrationJobs_nextToken = Lens.lens (\ListFraudsterRegistrationJobs' {nextToken} -> nextToken) (\s@ListFraudsterRegistrationJobs' {} a -> s {nextToken = a} :: ListFraudsterRegistrationJobs)
 
 -- | The identifier of the domain containing the fraudster registration Jobs.
 listFraudsterRegistrationJobs_domainId :: Lens.Lens' ListFraudsterRegistrationJobs Prelude.Text
@@ -162,8 +162,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListFraudsterRegistrationJobsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "JobSummaries" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "JobSummaries" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -172,16 +172,16 @@ instance
     ListFraudsterRegistrationJobs
   where
   hashWithSalt _salt ListFraudsterRegistrationJobs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` jobStatus
+    _salt `Prelude.hashWithSalt` jobStatus
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` domainId
 
 instance Prelude.NFData ListFraudsterRegistrationJobs where
   rnf ListFraudsterRegistrationJobs' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf jobStatus
+    Prelude.rnf jobStatus
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf domainId
 
 instance Data.ToHeaders ListFraudsterRegistrationJobs where
@@ -203,9 +203,9 @@ instance Data.ToJSON ListFraudsterRegistrationJobs where
   toJSON ListFraudsterRegistrationJobs' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("JobStatus" Data..=) Prelude.<$> jobStatus,
+          [ ("JobStatus" Data..=) Prelude.<$> jobStatus,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("DomainId" Data..= domainId)
           ]
       )
@@ -218,14 +218,14 @@ instance Data.ToQuery ListFraudsterRegistrationJobs where
 
 -- | /See:/ 'newListFraudsterRegistrationJobsResponse' smart constructor.
 data ListFraudsterRegistrationJobsResponse = ListFraudsterRegistrationJobsResponse'
-  { -- | If @NextToken@ is returned, there are more results available. The value
+  { -- | A list containing details about each specified fraudster registration
+    -- job.
+    jobSummaries :: Prelude.Maybe [FraudsterRegistrationJobSummary],
+    -- | If @NextToken@ is returned, there are more results available. The value
     -- of @NextToken@ is a unique pagination token for each page. Make the call
     -- again using the returned token to retrieve the next page. Keep all other
     -- arguments unchanged. Each pagination token expires after 24 hours.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list containing details about each specified fraudster registration
-    -- job.
-    jobSummaries :: Prelude.Maybe [FraudsterRegistrationJobSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -239,13 +239,13 @@ data ListFraudsterRegistrationJobsResponse = ListFraudsterRegistrationJobsRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'jobSummaries', 'listFraudsterRegistrationJobsResponse_jobSummaries' - A list containing details about each specified fraudster registration
+-- job.
+--
 -- 'nextToken', 'listFraudsterRegistrationJobsResponse_nextToken' - If @NextToken@ is returned, there are more results available. The value
 -- of @NextToken@ is a unique pagination token for each page. Make the call
 -- again using the returned token to retrieve the next page. Keep all other
 -- arguments unchanged. Each pagination token expires after 24 hours.
---
--- 'jobSummaries', 'listFraudsterRegistrationJobsResponse_jobSummaries' - A list containing details about each specified fraudster registration
--- job.
 --
 -- 'httpStatus', 'listFraudsterRegistrationJobsResponse_httpStatus' - The response's http status code.
 newListFraudsterRegistrationJobsResponse ::
@@ -254,11 +254,16 @@ newListFraudsterRegistrationJobsResponse ::
   ListFraudsterRegistrationJobsResponse
 newListFraudsterRegistrationJobsResponse pHttpStatus_ =
   ListFraudsterRegistrationJobsResponse'
-    { nextToken =
+    { jobSummaries =
         Prelude.Nothing,
-      jobSummaries = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list containing details about each specified fraudster registration
+-- job.
+listFraudsterRegistrationJobsResponse_jobSummaries :: Lens.Lens' ListFraudsterRegistrationJobsResponse (Prelude.Maybe [FraudsterRegistrationJobSummary])
+listFraudsterRegistrationJobsResponse_jobSummaries = Lens.lens (\ListFraudsterRegistrationJobsResponse' {jobSummaries} -> jobSummaries) (\s@ListFraudsterRegistrationJobsResponse' {} a -> s {jobSummaries = a} :: ListFraudsterRegistrationJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If @NextToken@ is returned, there are more results available. The value
 -- of @NextToken@ is a unique pagination token for each page. Make the call
@@ -266,11 +271,6 @@ newListFraudsterRegistrationJobsResponse pHttpStatus_ =
 -- arguments unchanged. Each pagination token expires after 24 hours.
 listFraudsterRegistrationJobsResponse_nextToken :: Lens.Lens' ListFraudsterRegistrationJobsResponse (Prelude.Maybe Prelude.Text)
 listFraudsterRegistrationJobsResponse_nextToken = Lens.lens (\ListFraudsterRegistrationJobsResponse' {nextToken} -> nextToken) (\s@ListFraudsterRegistrationJobsResponse' {} a -> s {nextToken = a} :: ListFraudsterRegistrationJobsResponse)
-
--- | A list containing details about each specified fraudster registration
--- job.
-listFraudsterRegistrationJobsResponse_jobSummaries :: Lens.Lens' ListFraudsterRegistrationJobsResponse (Prelude.Maybe [FraudsterRegistrationJobSummary])
-listFraudsterRegistrationJobsResponse_jobSummaries = Lens.lens (\ListFraudsterRegistrationJobsResponse' {jobSummaries} -> jobSummaries) (\s@ListFraudsterRegistrationJobsResponse' {} a -> s {jobSummaries = a} :: ListFraudsterRegistrationJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listFraudsterRegistrationJobsResponse_httpStatus :: Lens.Lens' ListFraudsterRegistrationJobsResponse Prelude.Int
@@ -281,6 +281,6 @@ instance
     ListFraudsterRegistrationJobsResponse
   where
   rnf ListFraudsterRegistrationJobsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf jobSummaries
+    Prelude.rnf jobSummaries
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

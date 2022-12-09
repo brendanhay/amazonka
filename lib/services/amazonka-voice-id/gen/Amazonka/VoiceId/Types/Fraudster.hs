@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFraudster' smart constructor.
 data Fraudster = Fraudster'
-  { -- | The service-generated identifier for the fraudster.
-    generatedFraudsterId :: Prelude.Maybe Prelude.Text,
+  { -- | The timestamp when Voice ID identified the fraudster.
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The identifier for the domain containing the fraudster.
     domainId :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp when Voice ID identified the fraudster.
-    createdAt :: Prelude.Maybe Data.POSIX
+    -- | The service-generated identifier for the fraudster.
+    generatedFraudsterId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,31 +45,31 @@ data Fraudster = Fraudster'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'generatedFraudsterId', 'fraudster_generatedFraudsterId' - The service-generated identifier for the fraudster.
+-- 'createdAt', 'fraudster_createdAt' - The timestamp when Voice ID identified the fraudster.
 --
 -- 'domainId', 'fraudster_domainId' - The identifier for the domain containing the fraudster.
 --
--- 'createdAt', 'fraudster_createdAt' - The timestamp when Voice ID identified the fraudster.
+-- 'generatedFraudsterId', 'fraudster_generatedFraudsterId' - The service-generated identifier for the fraudster.
 newFraudster ::
   Fraudster
 newFraudster =
   Fraudster'
-    { generatedFraudsterId = Prelude.Nothing,
+    { createdAt = Prelude.Nothing,
       domainId = Prelude.Nothing,
-      createdAt = Prelude.Nothing
+      generatedFraudsterId = Prelude.Nothing
     }
 
--- | The service-generated identifier for the fraudster.
-fraudster_generatedFraudsterId :: Lens.Lens' Fraudster (Prelude.Maybe Prelude.Text)
-fraudster_generatedFraudsterId = Lens.lens (\Fraudster' {generatedFraudsterId} -> generatedFraudsterId) (\s@Fraudster' {} a -> s {generatedFraudsterId = a} :: Fraudster)
+-- | The timestamp when Voice ID identified the fraudster.
+fraudster_createdAt :: Lens.Lens' Fraudster (Prelude.Maybe Prelude.UTCTime)
+fraudster_createdAt = Lens.lens (\Fraudster' {createdAt} -> createdAt) (\s@Fraudster' {} a -> s {createdAt = a} :: Fraudster) Prelude.. Lens.mapping Data._Time
 
 -- | The identifier for the domain containing the fraudster.
 fraudster_domainId :: Lens.Lens' Fraudster (Prelude.Maybe Prelude.Text)
 fraudster_domainId = Lens.lens (\Fraudster' {domainId} -> domainId) (\s@Fraudster' {} a -> s {domainId = a} :: Fraudster)
 
--- | The timestamp when Voice ID identified the fraudster.
-fraudster_createdAt :: Lens.Lens' Fraudster (Prelude.Maybe Prelude.UTCTime)
-fraudster_createdAt = Lens.lens (\Fraudster' {createdAt} -> createdAt) (\s@Fraudster' {} a -> s {createdAt = a} :: Fraudster) Prelude.. Lens.mapping Data._Time
+-- | The service-generated identifier for the fraudster.
+fraudster_generatedFraudsterId :: Lens.Lens' Fraudster (Prelude.Maybe Prelude.Text)
+fraudster_generatedFraudsterId = Lens.lens (\Fraudster' {generatedFraudsterId} -> generatedFraudsterId) (\s@Fraudster' {} a -> s {generatedFraudsterId = a} :: Fraudster)
 
 instance Data.FromJSON Fraudster where
   parseJSON =
@@ -77,19 +77,19 @@ instance Data.FromJSON Fraudster where
       "Fraudster"
       ( \x ->
           Fraudster'
-            Prelude.<$> (x Data..:? "GeneratedFraudsterId")
+            Prelude.<$> (x Data..:? "CreatedAt")
             Prelude.<*> (x Data..:? "DomainId")
-            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "GeneratedFraudsterId")
       )
 
 instance Prelude.Hashable Fraudster where
   hashWithSalt _salt Fraudster' {..} =
-    _salt `Prelude.hashWithSalt` generatedFraudsterId
+    _salt `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` domainId
-      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` generatedFraudsterId
 
 instance Prelude.NFData Fraudster where
   rnf Fraudster' {..} =
-    Prelude.rnf generatedFraudsterId
+    Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf generatedFraudsterId

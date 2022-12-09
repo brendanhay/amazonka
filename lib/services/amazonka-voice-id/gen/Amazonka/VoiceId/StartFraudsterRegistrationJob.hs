@@ -28,8 +28,8 @@ module Amazonka.VoiceId.StartFraudsterRegistrationJob
 
     -- * Request Lenses
     startFraudsterRegistrationJob_clientToken,
-    startFraudsterRegistrationJob_registrationConfig,
     startFraudsterRegistrationJob_jobName,
+    startFraudsterRegistrationJob_registrationConfig,
     startFraudsterRegistrationJob_dataAccessRoleArn,
     startFraudsterRegistrationJob_domainId,
     startFraudsterRegistrationJob_inputDataConfig,
@@ -58,12 +58,12 @@ data StartFraudsterRegistrationJob = StartFraudsterRegistrationJob'
   { -- | The idempotency token for starting a new fraudster registration job. If
     -- not provided, Amazon Web Services SDK populates this field.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The name of the new fraudster registration job.
+    jobName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The registration config containing details such as the action to take
     -- when a duplicate fraudster is detected, and the similarity threshold to
     -- use for detecting a duplicate fraudster.
     registrationConfig :: Prelude.Maybe RegistrationConfig,
-    -- | The name of the new fraudster registration job.
-    jobName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The IAM role Amazon Resource Name (ARN) that grants Voice ID permissions
     -- to access customer\'s buckets to read the input manifest file and write
     -- the Job output file. Refer to the
@@ -94,11 +94,11 @@ data StartFraudsterRegistrationJob = StartFraudsterRegistrationJob'
 -- 'clientToken', 'startFraudsterRegistrationJob_clientToken' - The idempotency token for starting a new fraudster registration job. If
 -- not provided, Amazon Web Services SDK populates this field.
 --
+-- 'jobName', 'startFraudsterRegistrationJob_jobName' - The name of the new fraudster registration job.
+--
 -- 'registrationConfig', 'startFraudsterRegistrationJob_registrationConfig' - The registration config containing details such as the action to take
 -- when a duplicate fraudster is detected, and the similarity threshold to
 -- use for detecting a duplicate fraudster.
---
--- 'jobName', 'startFraudsterRegistrationJob_jobName' - The name of the new fraudster registration job.
 --
 -- 'dataAccessRoleArn', 'startFraudsterRegistrationJob_dataAccessRoleArn' - The IAM role Amazon Resource Name (ARN) that grants Voice ID permissions
 -- to access customer\'s buckets to read the input manifest file and write
@@ -133,8 +133,8 @@ newStartFraudsterRegistrationJob
     StartFraudsterRegistrationJob'
       { clientToken =
           Prelude.Nothing,
-        registrationConfig = Prelude.Nothing,
         jobName = Prelude.Nothing,
+        registrationConfig = Prelude.Nothing,
         dataAccessRoleArn = pDataAccessRoleArn_,
         domainId = pDomainId_,
         inputDataConfig = pInputDataConfig_,
@@ -146,15 +146,15 @@ newStartFraudsterRegistrationJob
 startFraudsterRegistrationJob_clientToken :: Lens.Lens' StartFraudsterRegistrationJob (Prelude.Maybe Prelude.Text)
 startFraudsterRegistrationJob_clientToken = Lens.lens (\StartFraudsterRegistrationJob' {clientToken} -> clientToken) (\s@StartFraudsterRegistrationJob' {} a -> s {clientToken = a} :: StartFraudsterRegistrationJob)
 
+-- | The name of the new fraudster registration job.
+startFraudsterRegistrationJob_jobName :: Lens.Lens' StartFraudsterRegistrationJob (Prelude.Maybe Prelude.Text)
+startFraudsterRegistrationJob_jobName = Lens.lens (\StartFraudsterRegistrationJob' {jobName} -> jobName) (\s@StartFraudsterRegistrationJob' {} a -> s {jobName = a} :: StartFraudsterRegistrationJob) Prelude.. Lens.mapping Data._Sensitive
+
 -- | The registration config containing details such as the action to take
 -- when a duplicate fraudster is detected, and the similarity threshold to
 -- use for detecting a duplicate fraudster.
 startFraudsterRegistrationJob_registrationConfig :: Lens.Lens' StartFraudsterRegistrationJob (Prelude.Maybe RegistrationConfig)
 startFraudsterRegistrationJob_registrationConfig = Lens.lens (\StartFraudsterRegistrationJob' {registrationConfig} -> registrationConfig) (\s@StartFraudsterRegistrationJob' {} a -> s {registrationConfig = a} :: StartFraudsterRegistrationJob)
-
--- | The name of the new fraudster registration job.
-startFraudsterRegistrationJob_jobName :: Lens.Lens' StartFraudsterRegistrationJob (Prelude.Maybe Prelude.Text)
-startFraudsterRegistrationJob_jobName = Lens.lens (\StartFraudsterRegistrationJob' {jobName} -> jobName) (\s@StartFraudsterRegistrationJob' {} a -> s {jobName = a} :: StartFraudsterRegistrationJob) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The IAM role Amazon Resource Name (ARN) that grants Voice ID permissions
 -- to access customer\'s buckets to read the input manifest file and write
@@ -203,8 +203,8 @@ instance
   where
   hashWithSalt _salt StartFraudsterRegistrationJob' {..} =
     _salt `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` registrationConfig
       `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` registrationConfig
       `Prelude.hashWithSalt` dataAccessRoleArn
       `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` inputDataConfig
@@ -213,8 +213,8 @@ instance
 instance Prelude.NFData StartFraudsterRegistrationJob where
   rnf StartFraudsterRegistrationJob' {..} =
     Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf registrationConfig
       `Prelude.seq` Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf registrationConfig
       `Prelude.seq` Prelude.rnf dataAccessRoleArn
       `Prelude.seq` Prelude.rnf domainId
       `Prelude.seq` Prelude.rnf inputDataConfig
@@ -240,9 +240,9 @@ instance Data.ToJSON StartFraudsterRegistrationJob where
     Data.object
       ( Prelude.catMaybes
           [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("JobName" Data..=) Prelude.<$> jobName,
             ("RegistrationConfig" Data..=)
               Prelude.<$> registrationConfig,
-            ("JobName" Data..=) Prelude.<$> jobName,
             Prelude.Just
               ("DataAccessRoleArn" Data..= dataAccessRoleArn),
             Prelude.Just ("DomainId" Data..= domainId),

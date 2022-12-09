@@ -27,16 +27,16 @@ module Amazonka.DataSync.CreateLocationHdfs
     newCreateLocationHdfs,
 
     -- * Request Lenses
-    createLocationHdfs_tags,
-    createLocationHdfs_kerberosKrb5Conf,
-    createLocationHdfs_kerberosPrincipal,
-    createLocationHdfs_replicationFactor,
-    createLocationHdfs_kmsKeyProviderUri,
-    createLocationHdfs_qopConfiguration,
-    createLocationHdfs_simpleUser,
     createLocationHdfs_blockSize,
     createLocationHdfs_kerberosKeytab,
+    createLocationHdfs_kerberosKrb5Conf,
+    createLocationHdfs_kerberosPrincipal,
+    createLocationHdfs_kmsKeyProviderUri,
+    createLocationHdfs_qopConfiguration,
+    createLocationHdfs_replicationFactor,
+    createLocationHdfs_simpleUser,
     createLocationHdfs_subdirectory,
+    createLocationHdfs_tags,
     createLocationHdfs_nameNodes,
     createLocationHdfs_authenticationType,
     createLocationHdfs_agentArns,
@@ -61,10 +61,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateLocationHdfs' smart constructor.
 data CreateLocationHdfs = CreateLocationHdfs'
-  { -- | The key-value pair that represents the tag that you want to add to the
-    -- location. The value can be an empty string. We recommend using tags to
-    -- name your resources.
-    tags :: Prelude.Maybe [TagListEntry],
+  { -- | The size of data blocks to write into the HDFS cluster. The block size
+    -- must be a multiple of 512 bytes. The default block size is 128 mebibytes
+    -- (MiB).
+    blockSize :: Prelude.Maybe Prelude.Natural,
+    -- | The Kerberos key table (keytab) that contains mappings between the
+    -- defined Kerberos principal and the encrypted keys. You can load the
+    -- keytab from a file by providing the file\'s address. If you\'re using
+    -- the CLI, it performs base64 encoding for you. Otherwise, provide the
+    -- base64-encoded text.
+    --
+    -- If @KERBEROS@ is specified for @AuthenticationType@, this parameter is
+    -- required.
+    kerberosKeytab :: Prelude.Maybe Data.Base64,
     -- | The @krb5.conf@ file that contains the Kerberos configuration
     -- information. You can load the @krb5.conf@ file by providing the file\'s
     -- address. If you\'re using the CLI, it performs the base64 encoding for
@@ -79,9 +88,6 @@ data CreateLocationHdfs = CreateLocationHdfs'
     -- If @KERBEROS@ is specified for @AuthenticationType@, this parameter is
     -- required.
     kerberosPrincipal :: Prelude.Maybe Prelude.Text,
-    -- | The number of DataNodes to replicate the data to when writing to the
-    -- HDFS cluster. By default, data is replicated to three DataNodes.
-    replicationFactor :: Prelude.Maybe Prelude.Natural,
     -- | The URI of the HDFS cluster\'s Key Management Server (KMS).
     kmsKeyProviderUri :: Prelude.Maybe Prelude.Text,
     -- | The Quality of Protection (QOP) configuration specifies the Remote
@@ -91,28 +97,22 @@ data CreateLocationHdfs = CreateLocationHdfs'
     -- to @PRIVACY@. If you set @RpcProtection@ or @DataTransferProtection@,
     -- the other parameter assumes the same value.
     qopConfiguration :: Prelude.Maybe QopConfiguration,
+    -- | The number of DataNodes to replicate the data to when writing to the
+    -- HDFS cluster. By default, data is replicated to three DataNodes.
+    replicationFactor :: Prelude.Maybe Prelude.Natural,
     -- | The user name used to identify the client on the host operating system.
     --
     -- If @SIMPLE@ is specified for @AuthenticationType@, this parameter is
     -- required.
     simpleUser :: Prelude.Maybe Prelude.Text,
-    -- | The size of data blocks to write into the HDFS cluster. The block size
-    -- must be a multiple of 512 bytes. The default block size is 128 mebibytes
-    -- (MiB).
-    blockSize :: Prelude.Maybe Prelude.Natural,
-    -- | The Kerberos key table (keytab) that contains mappings between the
-    -- defined Kerberos principal and the encrypted keys. You can load the
-    -- keytab from a file by providing the file\'s address. If you\'re using
-    -- the CLI, it performs base64 encoding for you. Otherwise, provide the
-    -- base64-encoded text.
-    --
-    -- If @KERBEROS@ is specified for @AuthenticationType@, this parameter is
-    -- required.
-    kerberosKeytab :: Prelude.Maybe Data.Base64,
     -- | A subdirectory in the HDFS cluster. This subdirectory is used to read
     -- data from or write data to the HDFS cluster. If the subdirectory isn\'t
     -- specified, it will default to @\/@.
     subdirectory :: Prelude.Maybe Prelude.Text,
+    -- | The key-value pair that represents the tag that you want to add to the
+    -- location. The value can be an empty string. We recommend using tags to
+    -- name your resources.
+    tags :: Prelude.Maybe [TagListEntry],
     -- | The NameNode that manages the HDFS namespace. The NameNode performs
     -- operations such as opening, closing, and renaming files and directories.
     -- The NameNode contains the information to map blocks of data to the
@@ -134,9 +134,22 @@ data CreateLocationHdfs = CreateLocationHdfs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createLocationHdfs_tags' - The key-value pair that represents the tag that you want to add to the
--- location. The value can be an empty string. We recommend using tags to
--- name your resources.
+-- 'blockSize', 'createLocationHdfs_blockSize' - The size of data blocks to write into the HDFS cluster. The block size
+-- must be a multiple of 512 bytes. The default block size is 128 mebibytes
+-- (MiB).
+--
+-- 'kerberosKeytab', 'createLocationHdfs_kerberosKeytab' - The Kerberos key table (keytab) that contains mappings between the
+-- defined Kerberos principal and the encrypted keys. You can load the
+-- keytab from a file by providing the file\'s address. If you\'re using
+-- the CLI, it performs base64 encoding for you. Otherwise, provide the
+-- base64-encoded text.
+--
+-- If @KERBEROS@ is specified for @AuthenticationType@, this parameter is
+-- required.--
+-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- -- The underlying isomorphism will encode to Base64 representation during
+-- -- serialisation, and decode from Base64 representation during deserialisation.
+-- -- This 'Lens' accepts and returns only raw unencoded data.
 --
 -- 'kerberosKrb5Conf', 'createLocationHdfs_kerberosKrb5Conf' - The @krb5.conf@ file that contains the Kerberos configuration
 -- information. You can load the @krb5.conf@ file by providing the file\'s
@@ -156,9 +169,6 @@ data CreateLocationHdfs = CreateLocationHdfs'
 -- If @KERBEROS@ is specified for @AuthenticationType@, this parameter is
 -- required.
 --
--- 'replicationFactor', 'createLocationHdfs_replicationFactor' - The number of DataNodes to replicate the data to when writing to the
--- HDFS cluster. By default, data is replicated to three DataNodes.
---
 -- 'kmsKeyProviderUri', 'createLocationHdfs_kmsKeyProviderUri' - The URI of the HDFS cluster\'s Key Management Server (KMS).
 --
 -- 'qopConfiguration', 'createLocationHdfs_qopConfiguration' - The Quality of Protection (QOP) configuration specifies the Remote
@@ -168,31 +178,21 @@ data CreateLocationHdfs = CreateLocationHdfs'
 -- to @PRIVACY@. If you set @RpcProtection@ or @DataTransferProtection@,
 -- the other parameter assumes the same value.
 --
+-- 'replicationFactor', 'createLocationHdfs_replicationFactor' - The number of DataNodes to replicate the data to when writing to the
+-- HDFS cluster. By default, data is replicated to three DataNodes.
+--
 -- 'simpleUser', 'createLocationHdfs_simpleUser' - The user name used to identify the client on the host operating system.
 --
 -- If @SIMPLE@ is specified for @AuthenticationType@, this parameter is
 -- required.
 --
--- 'blockSize', 'createLocationHdfs_blockSize' - The size of data blocks to write into the HDFS cluster. The block size
--- must be a multiple of 512 bytes. The default block size is 128 mebibytes
--- (MiB).
---
--- 'kerberosKeytab', 'createLocationHdfs_kerberosKeytab' - The Kerberos key table (keytab) that contains mappings between the
--- defined Kerberos principal and the encrypted keys. You can load the
--- keytab from a file by providing the file\'s address. If you\'re using
--- the CLI, it performs base64 encoding for you. Otherwise, provide the
--- base64-encoded text.
---
--- If @KERBEROS@ is specified for @AuthenticationType@, this parameter is
--- required.--
--- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- -- The underlying isomorphism will encode to Base64 representation during
--- -- serialisation, and decode from Base64 representation during deserialisation.
--- -- This 'Lens' accepts and returns only raw unencoded data.
---
 -- 'subdirectory', 'createLocationHdfs_subdirectory' - A subdirectory in the HDFS cluster. This subdirectory is used to read
 -- data from or write data to the HDFS cluster. If the subdirectory isn\'t
 -- specified, it will default to @\/@.
+--
+-- 'tags', 'createLocationHdfs_tags' - The key-value pair that represents the tag that you want to add to the
+-- location. The value can be an empty string. We recommend using tags to
+-- name your resources.
 --
 -- 'nameNodes', 'createLocationHdfs_nameNodes' - The NameNode that manages the HDFS namespace. The NameNode performs
 -- operations such as opening, closing, and renaming files and directories.
@@ -216,26 +216,41 @@ newCreateLocationHdfs
   pAuthenticationType_
   pAgentArns_ =
     CreateLocationHdfs'
-      { tags = Prelude.Nothing,
+      { blockSize = Prelude.Nothing,
+        kerberosKeytab = Prelude.Nothing,
         kerberosKrb5Conf = Prelude.Nothing,
         kerberosPrincipal = Prelude.Nothing,
-        replicationFactor = Prelude.Nothing,
         kmsKeyProviderUri = Prelude.Nothing,
         qopConfiguration = Prelude.Nothing,
+        replicationFactor = Prelude.Nothing,
         simpleUser = Prelude.Nothing,
-        blockSize = Prelude.Nothing,
-        kerberosKeytab = Prelude.Nothing,
         subdirectory = Prelude.Nothing,
+        tags = Prelude.Nothing,
         nameNodes = Lens.coerced Lens.# pNameNodes_,
         authenticationType = pAuthenticationType_,
         agentArns = Lens.coerced Lens.# pAgentArns_
       }
 
--- | The key-value pair that represents the tag that you want to add to the
--- location. The value can be an empty string. We recommend using tags to
--- name your resources.
-createLocationHdfs_tags :: Lens.Lens' CreateLocationHdfs (Prelude.Maybe [TagListEntry])
-createLocationHdfs_tags = Lens.lens (\CreateLocationHdfs' {tags} -> tags) (\s@CreateLocationHdfs' {} a -> s {tags = a} :: CreateLocationHdfs) Prelude.. Lens.mapping Lens.coerced
+-- | The size of data blocks to write into the HDFS cluster. The block size
+-- must be a multiple of 512 bytes. The default block size is 128 mebibytes
+-- (MiB).
+createLocationHdfs_blockSize :: Lens.Lens' CreateLocationHdfs (Prelude.Maybe Prelude.Natural)
+createLocationHdfs_blockSize = Lens.lens (\CreateLocationHdfs' {blockSize} -> blockSize) (\s@CreateLocationHdfs' {} a -> s {blockSize = a} :: CreateLocationHdfs)
+
+-- | The Kerberos key table (keytab) that contains mappings between the
+-- defined Kerberos principal and the encrypted keys. You can load the
+-- keytab from a file by providing the file\'s address. If you\'re using
+-- the CLI, it performs base64 encoding for you. Otherwise, provide the
+-- base64-encoded text.
+--
+-- If @KERBEROS@ is specified for @AuthenticationType@, this parameter is
+-- required.--
+-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- -- The underlying isomorphism will encode to Base64 representation during
+-- -- serialisation, and decode from Base64 representation during deserialisation.
+-- -- This 'Lens' accepts and returns only raw unencoded data.
+createLocationHdfs_kerberosKeytab :: Lens.Lens' CreateLocationHdfs (Prelude.Maybe Prelude.ByteString)
+createLocationHdfs_kerberosKeytab = Lens.lens (\CreateLocationHdfs' {kerberosKeytab} -> kerberosKeytab) (\s@CreateLocationHdfs' {} a -> s {kerberosKeytab = a} :: CreateLocationHdfs) Prelude.. Lens.mapping Data._Base64
 
 -- | The @krb5.conf@ file that contains the Kerberos configuration
 -- information. You can load the @krb5.conf@ file by providing the file\'s
@@ -259,11 +274,6 @@ createLocationHdfs_kerberosKrb5Conf = Lens.lens (\CreateLocationHdfs' {kerberosK
 createLocationHdfs_kerberosPrincipal :: Lens.Lens' CreateLocationHdfs (Prelude.Maybe Prelude.Text)
 createLocationHdfs_kerberosPrincipal = Lens.lens (\CreateLocationHdfs' {kerberosPrincipal} -> kerberosPrincipal) (\s@CreateLocationHdfs' {} a -> s {kerberosPrincipal = a} :: CreateLocationHdfs)
 
--- | The number of DataNodes to replicate the data to when writing to the
--- HDFS cluster. By default, data is replicated to three DataNodes.
-createLocationHdfs_replicationFactor :: Lens.Lens' CreateLocationHdfs (Prelude.Maybe Prelude.Natural)
-createLocationHdfs_replicationFactor = Lens.lens (\CreateLocationHdfs' {replicationFactor} -> replicationFactor) (\s@CreateLocationHdfs' {} a -> s {replicationFactor = a} :: CreateLocationHdfs)
-
 -- | The URI of the HDFS cluster\'s Key Management Server (KMS).
 createLocationHdfs_kmsKeyProviderUri :: Lens.Lens' CreateLocationHdfs (Prelude.Maybe Prelude.Text)
 createLocationHdfs_kmsKeyProviderUri = Lens.lens (\CreateLocationHdfs' {kmsKeyProviderUri} -> kmsKeyProviderUri) (\s@CreateLocationHdfs' {} a -> s {kmsKeyProviderUri = a} :: CreateLocationHdfs)
@@ -277,6 +287,11 @@ createLocationHdfs_kmsKeyProviderUri = Lens.lens (\CreateLocationHdfs' {kmsKeyPr
 createLocationHdfs_qopConfiguration :: Lens.Lens' CreateLocationHdfs (Prelude.Maybe QopConfiguration)
 createLocationHdfs_qopConfiguration = Lens.lens (\CreateLocationHdfs' {qopConfiguration} -> qopConfiguration) (\s@CreateLocationHdfs' {} a -> s {qopConfiguration = a} :: CreateLocationHdfs)
 
+-- | The number of DataNodes to replicate the data to when writing to the
+-- HDFS cluster. By default, data is replicated to three DataNodes.
+createLocationHdfs_replicationFactor :: Lens.Lens' CreateLocationHdfs (Prelude.Maybe Prelude.Natural)
+createLocationHdfs_replicationFactor = Lens.lens (\CreateLocationHdfs' {replicationFactor} -> replicationFactor) (\s@CreateLocationHdfs' {} a -> s {replicationFactor = a} :: CreateLocationHdfs)
+
 -- | The user name used to identify the client on the host operating system.
 --
 -- If @SIMPLE@ is specified for @AuthenticationType@, this parameter is
@@ -284,32 +299,17 @@ createLocationHdfs_qopConfiguration = Lens.lens (\CreateLocationHdfs' {qopConfig
 createLocationHdfs_simpleUser :: Lens.Lens' CreateLocationHdfs (Prelude.Maybe Prelude.Text)
 createLocationHdfs_simpleUser = Lens.lens (\CreateLocationHdfs' {simpleUser} -> simpleUser) (\s@CreateLocationHdfs' {} a -> s {simpleUser = a} :: CreateLocationHdfs)
 
--- | The size of data blocks to write into the HDFS cluster. The block size
--- must be a multiple of 512 bytes. The default block size is 128 mebibytes
--- (MiB).
-createLocationHdfs_blockSize :: Lens.Lens' CreateLocationHdfs (Prelude.Maybe Prelude.Natural)
-createLocationHdfs_blockSize = Lens.lens (\CreateLocationHdfs' {blockSize} -> blockSize) (\s@CreateLocationHdfs' {} a -> s {blockSize = a} :: CreateLocationHdfs)
-
--- | The Kerberos key table (keytab) that contains mappings between the
--- defined Kerberos principal and the encrypted keys. You can load the
--- keytab from a file by providing the file\'s address. If you\'re using
--- the CLI, it performs base64 encoding for you. Otherwise, provide the
--- base64-encoded text.
---
--- If @KERBEROS@ is specified for @AuthenticationType@, this parameter is
--- required.--
--- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- -- The underlying isomorphism will encode to Base64 representation during
--- -- serialisation, and decode from Base64 representation during deserialisation.
--- -- This 'Lens' accepts and returns only raw unencoded data.
-createLocationHdfs_kerberosKeytab :: Lens.Lens' CreateLocationHdfs (Prelude.Maybe Prelude.ByteString)
-createLocationHdfs_kerberosKeytab = Lens.lens (\CreateLocationHdfs' {kerberosKeytab} -> kerberosKeytab) (\s@CreateLocationHdfs' {} a -> s {kerberosKeytab = a} :: CreateLocationHdfs) Prelude.. Lens.mapping Data._Base64
-
 -- | A subdirectory in the HDFS cluster. This subdirectory is used to read
 -- data from or write data to the HDFS cluster. If the subdirectory isn\'t
 -- specified, it will default to @\/@.
 createLocationHdfs_subdirectory :: Lens.Lens' CreateLocationHdfs (Prelude.Maybe Prelude.Text)
 createLocationHdfs_subdirectory = Lens.lens (\CreateLocationHdfs' {subdirectory} -> subdirectory) (\s@CreateLocationHdfs' {} a -> s {subdirectory = a} :: CreateLocationHdfs)
+
+-- | The key-value pair that represents the tag that you want to add to the
+-- location. The value can be an empty string. We recommend using tags to
+-- name your resources.
+createLocationHdfs_tags :: Lens.Lens' CreateLocationHdfs (Prelude.Maybe [TagListEntry])
+createLocationHdfs_tags = Lens.lens (\CreateLocationHdfs' {tags} -> tags) (\s@CreateLocationHdfs' {} a -> s {tags = a} :: CreateLocationHdfs) Prelude.. Lens.mapping Lens.coerced
 
 -- | The NameNode that manages the HDFS namespace. The NameNode performs
 -- operations such as opening, closing, and renaming files and directories.
@@ -343,32 +343,32 @@ instance Core.AWSRequest CreateLocationHdfs where
 
 instance Prelude.Hashable CreateLocationHdfs where
   hashWithSalt _salt CreateLocationHdfs' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` blockSize
+      `Prelude.hashWithSalt` kerberosKeytab
       `Prelude.hashWithSalt` kerberosKrb5Conf
       `Prelude.hashWithSalt` kerberosPrincipal
-      `Prelude.hashWithSalt` replicationFactor
       `Prelude.hashWithSalt` kmsKeyProviderUri
       `Prelude.hashWithSalt` qopConfiguration
+      `Prelude.hashWithSalt` replicationFactor
       `Prelude.hashWithSalt` simpleUser
-      `Prelude.hashWithSalt` blockSize
-      `Prelude.hashWithSalt` kerberosKeytab
       `Prelude.hashWithSalt` subdirectory
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` nameNodes
       `Prelude.hashWithSalt` authenticationType
       `Prelude.hashWithSalt` agentArns
 
 instance Prelude.NFData CreateLocationHdfs where
   rnf CreateLocationHdfs' {..} =
-    Prelude.rnf tags
+    Prelude.rnf blockSize
+      `Prelude.seq` Prelude.rnf kerberosKeytab
       `Prelude.seq` Prelude.rnf kerberosKrb5Conf
       `Prelude.seq` Prelude.rnf kerberosPrincipal
-      `Prelude.seq` Prelude.rnf replicationFactor
       `Prelude.seq` Prelude.rnf kmsKeyProviderUri
       `Prelude.seq` Prelude.rnf qopConfiguration
+      `Prelude.seq` Prelude.rnf replicationFactor
       `Prelude.seq` Prelude.rnf simpleUser
-      `Prelude.seq` Prelude.rnf blockSize
-      `Prelude.seq` Prelude.rnf kerberosKeytab
       `Prelude.seq` Prelude.rnf subdirectory
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf nameNodes
       `Prelude.seq` Prelude.rnf authenticationType
       `Prelude.seq` Prelude.rnf agentArns
@@ -392,22 +392,22 @@ instance Data.ToJSON CreateLocationHdfs where
   toJSON CreateLocationHdfs' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
+          [ ("BlockSize" Data..=) Prelude.<$> blockSize,
+            ("KerberosKeytab" Data..=)
+              Prelude.<$> kerberosKeytab,
             ("KerberosKrb5Conf" Data..=)
               Prelude.<$> kerberosKrb5Conf,
             ("KerberosPrincipal" Data..=)
               Prelude.<$> kerberosPrincipal,
-            ("ReplicationFactor" Data..=)
-              Prelude.<$> replicationFactor,
             ("KmsKeyProviderUri" Data..=)
               Prelude.<$> kmsKeyProviderUri,
             ("QopConfiguration" Data..=)
               Prelude.<$> qopConfiguration,
+            ("ReplicationFactor" Data..=)
+              Prelude.<$> replicationFactor,
             ("SimpleUser" Data..=) Prelude.<$> simpleUser,
-            ("BlockSize" Data..=) Prelude.<$> blockSize,
-            ("KerberosKeytab" Data..=)
-              Prelude.<$> kerberosKeytab,
             ("Subdirectory" Data..=) Prelude.<$> subdirectory,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("NameNodes" Data..= nameNodes),
             Prelude.Just
               ("AuthenticationType" Data..= authenticationType),

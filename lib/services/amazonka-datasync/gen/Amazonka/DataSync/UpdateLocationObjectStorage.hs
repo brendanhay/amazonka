@@ -30,13 +30,13 @@ module Amazonka.DataSync.UpdateLocationObjectStorage
     newUpdateLocationObjectStorage,
 
     -- * Request Lenses
-    updateLocationObjectStorage_serverProtocol,
+    updateLocationObjectStorage_accessKey,
+    updateLocationObjectStorage_agentArns,
+    updateLocationObjectStorage_secretKey,
     updateLocationObjectStorage_serverCertificate,
     updateLocationObjectStorage_serverPort,
-    updateLocationObjectStorage_accessKey,
-    updateLocationObjectStorage_secretKey,
+    updateLocationObjectStorage_serverProtocol,
     updateLocationObjectStorage_subdirectory,
-    updateLocationObjectStorage_agentArns,
     updateLocationObjectStorage_locationArn,
 
     -- * Destructuring the Response
@@ -58,9 +58,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateLocationObjectStorage' smart constructor.
 data UpdateLocationObjectStorage = UpdateLocationObjectStorage'
-  { -- | Specifies the protocol that your object storage server uses to
-    -- communicate.
-    serverProtocol :: Prelude.Maybe ObjectStorageServerProtocol,
+  { -- | Specifies the access key (for example, a user name) if credentials are
+    -- required to authenticate with the object storage server.
+    accessKey :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the Amazon Resource Names (ARNs) of the DataSync agents that
+    -- can securely connect with your location.
+    agentArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | Specifies the secret key (for example, a password) if credentials are
+    -- required to authenticate with the object storage server.
+    secretKey :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Specifies a certificate to authenticate with an object storage system
     -- that uses a private or self-signed certificate authority (CA). You must
     -- specify a Base64-encoded @.pem@ file (for example,
@@ -75,19 +81,13 @@ data UpdateLocationObjectStorage = UpdateLocationObjectStorage'
     -- | Specifies the port that your object storage server accepts inbound
     -- network traffic on (for example, port 443).
     serverPort :: Prelude.Maybe Prelude.Natural,
-    -- | Specifies the access key (for example, a user name) if credentials are
-    -- required to authenticate with the object storage server.
-    accessKey :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the secret key (for example, a password) if credentials are
-    -- required to authenticate with the object storage server.
-    secretKey :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | Specifies the protocol that your object storage server uses to
+    -- communicate.
+    serverProtocol :: Prelude.Maybe ObjectStorageServerProtocol,
     -- | Specifies the object prefix for your object storage server. If this is a
     -- source location, DataSync only copies objects with this prefix. If this
     -- is a destination location, DataSync writes all objects with this prefix.
     subdirectory :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the Amazon Resource Names (ARNs) of the DataSync agents that
-    -- can securely connect with your location.
-    agentArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | Specifies the ARN of the object storage system location that you\'re
     -- updating.
     locationArn :: Prelude.Text
@@ -102,8 +102,14 @@ data UpdateLocationObjectStorage = UpdateLocationObjectStorage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serverProtocol', 'updateLocationObjectStorage_serverProtocol' - Specifies the protocol that your object storage server uses to
--- communicate.
+-- 'accessKey', 'updateLocationObjectStorage_accessKey' - Specifies the access key (for example, a user name) if credentials are
+-- required to authenticate with the object storage server.
+--
+-- 'agentArns', 'updateLocationObjectStorage_agentArns' - Specifies the Amazon Resource Names (ARNs) of the DataSync agents that
+-- can securely connect with your location.
+--
+-- 'secretKey', 'updateLocationObjectStorage_secretKey' - Specifies the secret key (for example, a password) if credentials are
+-- required to authenticate with the object storage server.
 --
 -- 'serverCertificate', 'updateLocationObjectStorage_serverCertificate' - Specifies a certificate to authenticate with an object storage system
 -- that uses a private or self-signed certificate authority (CA). You must
@@ -123,18 +129,12 @@ data UpdateLocationObjectStorage = UpdateLocationObjectStorage'
 -- 'serverPort', 'updateLocationObjectStorage_serverPort' - Specifies the port that your object storage server accepts inbound
 -- network traffic on (for example, port 443).
 --
--- 'accessKey', 'updateLocationObjectStorage_accessKey' - Specifies the access key (for example, a user name) if credentials are
--- required to authenticate with the object storage server.
---
--- 'secretKey', 'updateLocationObjectStorage_secretKey' - Specifies the secret key (for example, a password) if credentials are
--- required to authenticate with the object storage server.
+-- 'serverProtocol', 'updateLocationObjectStorage_serverProtocol' - Specifies the protocol that your object storage server uses to
+-- communicate.
 --
 -- 'subdirectory', 'updateLocationObjectStorage_subdirectory' - Specifies the object prefix for your object storage server. If this is a
 -- source location, DataSync only copies objects with this prefix. If this
 -- is a destination location, DataSync writes all objects with this prefix.
---
--- 'agentArns', 'updateLocationObjectStorage_agentArns' - Specifies the Amazon Resource Names (ARNs) of the DataSync agents that
--- can securely connect with your location.
 --
 -- 'locationArn', 'updateLocationObjectStorage_locationArn' - Specifies the ARN of the object storage system location that you\'re
 -- updating.
@@ -144,21 +144,31 @@ newUpdateLocationObjectStorage ::
   UpdateLocationObjectStorage
 newUpdateLocationObjectStorage pLocationArn_ =
   UpdateLocationObjectStorage'
-    { serverProtocol =
+    { accessKey =
         Prelude.Nothing,
+      agentArns = Prelude.Nothing,
+      secretKey = Prelude.Nothing,
       serverCertificate = Prelude.Nothing,
       serverPort = Prelude.Nothing,
-      accessKey = Prelude.Nothing,
-      secretKey = Prelude.Nothing,
+      serverProtocol = Prelude.Nothing,
       subdirectory = Prelude.Nothing,
-      agentArns = Prelude.Nothing,
       locationArn = pLocationArn_
     }
 
--- | Specifies the protocol that your object storage server uses to
--- communicate.
-updateLocationObjectStorage_serverProtocol :: Lens.Lens' UpdateLocationObjectStorage (Prelude.Maybe ObjectStorageServerProtocol)
-updateLocationObjectStorage_serverProtocol = Lens.lens (\UpdateLocationObjectStorage' {serverProtocol} -> serverProtocol) (\s@UpdateLocationObjectStorage' {} a -> s {serverProtocol = a} :: UpdateLocationObjectStorage)
+-- | Specifies the access key (for example, a user name) if credentials are
+-- required to authenticate with the object storage server.
+updateLocationObjectStorage_accessKey :: Lens.Lens' UpdateLocationObjectStorage (Prelude.Maybe Prelude.Text)
+updateLocationObjectStorage_accessKey = Lens.lens (\UpdateLocationObjectStorage' {accessKey} -> accessKey) (\s@UpdateLocationObjectStorage' {} a -> s {accessKey = a} :: UpdateLocationObjectStorage)
+
+-- | Specifies the Amazon Resource Names (ARNs) of the DataSync agents that
+-- can securely connect with your location.
+updateLocationObjectStorage_agentArns :: Lens.Lens' UpdateLocationObjectStorage (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+updateLocationObjectStorage_agentArns = Lens.lens (\UpdateLocationObjectStorage' {agentArns} -> agentArns) (\s@UpdateLocationObjectStorage' {} a -> s {agentArns = a} :: UpdateLocationObjectStorage) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specifies the secret key (for example, a password) if credentials are
+-- required to authenticate with the object storage server.
+updateLocationObjectStorage_secretKey :: Lens.Lens' UpdateLocationObjectStorage (Prelude.Maybe Prelude.Text)
+updateLocationObjectStorage_secretKey = Lens.lens (\UpdateLocationObjectStorage' {secretKey} -> secretKey) (\s@UpdateLocationObjectStorage' {} a -> s {secretKey = a} :: UpdateLocationObjectStorage) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Specifies a certificate to authenticate with an object storage system
 -- that uses a private or self-signed certificate authority (CA). You must
@@ -182,26 +192,16 @@ updateLocationObjectStorage_serverCertificate = Lens.lens (\UpdateLocationObject
 updateLocationObjectStorage_serverPort :: Lens.Lens' UpdateLocationObjectStorage (Prelude.Maybe Prelude.Natural)
 updateLocationObjectStorage_serverPort = Lens.lens (\UpdateLocationObjectStorage' {serverPort} -> serverPort) (\s@UpdateLocationObjectStorage' {} a -> s {serverPort = a} :: UpdateLocationObjectStorage)
 
--- | Specifies the access key (for example, a user name) if credentials are
--- required to authenticate with the object storage server.
-updateLocationObjectStorage_accessKey :: Lens.Lens' UpdateLocationObjectStorage (Prelude.Maybe Prelude.Text)
-updateLocationObjectStorage_accessKey = Lens.lens (\UpdateLocationObjectStorage' {accessKey} -> accessKey) (\s@UpdateLocationObjectStorage' {} a -> s {accessKey = a} :: UpdateLocationObjectStorage)
-
--- | Specifies the secret key (for example, a password) if credentials are
--- required to authenticate with the object storage server.
-updateLocationObjectStorage_secretKey :: Lens.Lens' UpdateLocationObjectStorage (Prelude.Maybe Prelude.Text)
-updateLocationObjectStorage_secretKey = Lens.lens (\UpdateLocationObjectStorage' {secretKey} -> secretKey) (\s@UpdateLocationObjectStorage' {} a -> s {secretKey = a} :: UpdateLocationObjectStorage) Prelude.. Lens.mapping Data._Sensitive
+-- | Specifies the protocol that your object storage server uses to
+-- communicate.
+updateLocationObjectStorage_serverProtocol :: Lens.Lens' UpdateLocationObjectStorage (Prelude.Maybe ObjectStorageServerProtocol)
+updateLocationObjectStorage_serverProtocol = Lens.lens (\UpdateLocationObjectStorage' {serverProtocol} -> serverProtocol) (\s@UpdateLocationObjectStorage' {} a -> s {serverProtocol = a} :: UpdateLocationObjectStorage)
 
 -- | Specifies the object prefix for your object storage server. If this is a
 -- source location, DataSync only copies objects with this prefix. If this
 -- is a destination location, DataSync writes all objects with this prefix.
 updateLocationObjectStorage_subdirectory :: Lens.Lens' UpdateLocationObjectStorage (Prelude.Maybe Prelude.Text)
 updateLocationObjectStorage_subdirectory = Lens.lens (\UpdateLocationObjectStorage' {subdirectory} -> subdirectory) (\s@UpdateLocationObjectStorage' {} a -> s {subdirectory = a} :: UpdateLocationObjectStorage)
-
--- | Specifies the Amazon Resource Names (ARNs) of the DataSync agents that
--- can securely connect with your location.
-updateLocationObjectStorage_agentArns :: Lens.Lens' UpdateLocationObjectStorage (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-updateLocationObjectStorage_agentArns = Lens.lens (\UpdateLocationObjectStorage' {agentArns} -> agentArns) (\s@UpdateLocationObjectStorage' {} a -> s {agentArns = a} :: UpdateLocationObjectStorage) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the ARN of the object storage system location that you\'re
 -- updating.
@@ -223,24 +223,24 @@ instance Core.AWSRequest UpdateLocationObjectStorage where
 
 instance Prelude.Hashable UpdateLocationObjectStorage where
   hashWithSalt _salt UpdateLocationObjectStorage' {..} =
-    _salt `Prelude.hashWithSalt` serverProtocol
+    _salt `Prelude.hashWithSalt` accessKey
+      `Prelude.hashWithSalt` agentArns
+      `Prelude.hashWithSalt` secretKey
       `Prelude.hashWithSalt` serverCertificate
       `Prelude.hashWithSalt` serverPort
-      `Prelude.hashWithSalt` accessKey
-      `Prelude.hashWithSalt` secretKey
+      `Prelude.hashWithSalt` serverProtocol
       `Prelude.hashWithSalt` subdirectory
-      `Prelude.hashWithSalt` agentArns
       `Prelude.hashWithSalt` locationArn
 
 instance Prelude.NFData UpdateLocationObjectStorage where
   rnf UpdateLocationObjectStorage' {..} =
-    Prelude.rnf serverProtocol
+    Prelude.rnf accessKey
+      `Prelude.seq` Prelude.rnf agentArns
+      `Prelude.seq` Prelude.rnf secretKey
       `Prelude.seq` Prelude.rnf serverCertificate
       `Prelude.seq` Prelude.rnf serverPort
-      `Prelude.seq` Prelude.rnf accessKey
-      `Prelude.seq` Prelude.rnf secretKey
+      `Prelude.seq` Prelude.rnf serverProtocol
       `Prelude.seq` Prelude.rnf subdirectory
-      `Prelude.seq` Prelude.rnf agentArns
       `Prelude.seq` Prelude.rnf locationArn
 
 instance Data.ToHeaders UpdateLocationObjectStorage where
@@ -262,15 +262,15 @@ instance Data.ToJSON UpdateLocationObjectStorage where
   toJSON UpdateLocationObjectStorage' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ServerProtocol" Data..=)
-              Prelude.<$> serverProtocol,
+          [ ("AccessKey" Data..=) Prelude.<$> accessKey,
+            ("AgentArns" Data..=) Prelude.<$> agentArns,
+            ("SecretKey" Data..=) Prelude.<$> secretKey,
             ("ServerCertificate" Data..=)
               Prelude.<$> serverCertificate,
             ("ServerPort" Data..=) Prelude.<$> serverPort,
-            ("AccessKey" Data..=) Prelude.<$> accessKey,
-            ("SecretKey" Data..=) Prelude.<$> secretKey,
+            ("ServerProtocol" Data..=)
+              Prelude.<$> serverProtocol,
             ("Subdirectory" Data..=) Prelude.<$> subdirectory,
-            ("AgentArns" Data..=) Prelude.<$> agentArns,
             Prelude.Just ("LocationArn" Data..= locationArn)
           ]
       )

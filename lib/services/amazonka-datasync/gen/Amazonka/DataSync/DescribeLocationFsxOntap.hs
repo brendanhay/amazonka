@@ -38,13 +38,13 @@ module Amazonka.DataSync.DescribeLocationFsxOntap
     newDescribeLocationFsxOntapResponse,
 
     -- * Response Lenses
+    describeLocationFsxOntapResponse_creationTime,
     describeLocationFsxOntapResponse_fsxFilesystemArn,
-    describeLocationFsxOntapResponse_storageVirtualMachineArn,
     describeLocationFsxOntapResponse_locationArn,
     describeLocationFsxOntapResponse_locationUri,
-    describeLocationFsxOntapResponse_securityGroupArns,
-    describeLocationFsxOntapResponse_creationTime,
     describeLocationFsxOntapResponse_protocol,
+    describeLocationFsxOntapResponse_securityGroupArns,
+    describeLocationFsxOntapResponse_storageVirtualMachineArn,
     describeLocationFsxOntapResponse_httpStatus,
   )
 where
@@ -100,13 +100,13 @@ instance Core.AWSRequest DescribeLocationFsxOntap where
     Response.receiveJSON
       ( \s h x ->
           DescribeLocationFsxOntapResponse'
-            Prelude.<$> (x Data..?> "FsxFilesystemArn")
-            Prelude.<*> (x Data..?> "StorageVirtualMachineArn")
+            Prelude.<$> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "FsxFilesystemArn")
             Prelude.<*> (x Data..?> "LocationArn")
             Prelude.<*> (x Data..?> "LocationUri")
-            Prelude.<*> (x Data..?> "SecurityGroupArns")
-            Prelude.<*> (x Data..?> "CreationTime")
             Prelude.<*> (x Data..?> "Protocol")
+            Prelude.<*> (x Data..?> "SecurityGroupArns")
+            Prelude.<*> (x Data..?> "StorageVirtualMachineArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,22 +148,22 @@ instance Data.ToQuery DescribeLocationFsxOntap where
 
 -- | /See:/ 'newDescribeLocationFsxOntapResponse' smart constructor.
 data DescribeLocationFsxOntapResponse = DescribeLocationFsxOntapResponse'
-  { -- | The ARN of the FSx for ONTAP file system.
+  { -- | The time that the location was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
+    -- | The ARN of the FSx for ONTAP file system.
     fsxFilesystemArn :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the storage virtual machine (SVM) on your FSx for ONTAP file
-    -- system where you\'re copying data to or from.
-    storageVirtualMachineArn :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the FSx for ONTAP file system location.
     locationArn :: Prelude.Maybe Prelude.Text,
     -- | The uniform resource identifier (URI) of the FSx for ONTAP file system
     -- location.
     locationUri :: Prelude.Maybe Prelude.Text,
+    protocol :: Prelude.Maybe FsxProtocol,
     -- | The security groups that DataSync uses to access your FSx for ONTAP file
     -- system.
     securityGroupArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The time that the location was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
-    protocol :: Prelude.Maybe FsxProtocol,
+    -- | The ARN of the storage virtual machine (SVM) on your FSx for ONTAP file
+    -- system where you\'re copying data to or from.
+    storageVirtualMachineArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -177,22 +177,22 @@ data DescribeLocationFsxOntapResponse = DescribeLocationFsxOntapResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fsxFilesystemArn', 'describeLocationFsxOntapResponse_fsxFilesystemArn' - The ARN of the FSx for ONTAP file system.
+-- 'creationTime', 'describeLocationFsxOntapResponse_creationTime' - The time that the location was created.
 --
--- 'storageVirtualMachineArn', 'describeLocationFsxOntapResponse_storageVirtualMachineArn' - The ARN of the storage virtual machine (SVM) on your FSx for ONTAP file
--- system where you\'re copying data to or from.
+-- 'fsxFilesystemArn', 'describeLocationFsxOntapResponse_fsxFilesystemArn' - The ARN of the FSx for ONTAP file system.
 --
 -- 'locationArn', 'describeLocationFsxOntapResponse_locationArn' - The ARN of the FSx for ONTAP file system location.
 --
 -- 'locationUri', 'describeLocationFsxOntapResponse_locationUri' - The uniform resource identifier (URI) of the FSx for ONTAP file system
 -- location.
 --
+-- 'protocol', 'describeLocationFsxOntapResponse_protocol' - Undocumented member.
+--
 -- 'securityGroupArns', 'describeLocationFsxOntapResponse_securityGroupArns' - The security groups that DataSync uses to access your FSx for ONTAP file
 -- system.
 --
--- 'creationTime', 'describeLocationFsxOntapResponse_creationTime' - The time that the location was created.
---
--- 'protocol', 'describeLocationFsxOntapResponse_protocol' - Undocumented member.
+-- 'storageVirtualMachineArn', 'describeLocationFsxOntapResponse_storageVirtualMachineArn' - The ARN of the storage virtual machine (SVM) on your FSx for ONTAP file
+-- system where you\'re copying data to or from.
 --
 -- 'httpStatus', 'describeLocationFsxOntapResponse_httpStatus' - The response's http status code.
 newDescribeLocationFsxOntapResponse ::
@@ -201,26 +201,25 @@ newDescribeLocationFsxOntapResponse ::
   DescribeLocationFsxOntapResponse
 newDescribeLocationFsxOntapResponse pHttpStatus_ =
   DescribeLocationFsxOntapResponse'
-    { fsxFilesystemArn =
+    { creationTime =
         Prelude.Nothing,
-      storageVirtualMachineArn =
-        Prelude.Nothing,
+      fsxFilesystemArn = Prelude.Nothing,
       locationArn = Prelude.Nothing,
       locationUri = Prelude.Nothing,
-      securityGroupArns = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
       protocol = Prelude.Nothing,
+      securityGroupArns = Prelude.Nothing,
+      storageVirtualMachineArn =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The time that the location was created.
+describeLocationFsxOntapResponse_creationTime :: Lens.Lens' DescribeLocationFsxOntapResponse (Prelude.Maybe Prelude.UTCTime)
+describeLocationFsxOntapResponse_creationTime = Lens.lens (\DescribeLocationFsxOntapResponse' {creationTime} -> creationTime) (\s@DescribeLocationFsxOntapResponse' {} a -> s {creationTime = a} :: DescribeLocationFsxOntapResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the FSx for ONTAP file system.
 describeLocationFsxOntapResponse_fsxFilesystemArn :: Lens.Lens' DescribeLocationFsxOntapResponse (Prelude.Maybe Prelude.Text)
 describeLocationFsxOntapResponse_fsxFilesystemArn = Lens.lens (\DescribeLocationFsxOntapResponse' {fsxFilesystemArn} -> fsxFilesystemArn) (\s@DescribeLocationFsxOntapResponse' {} a -> s {fsxFilesystemArn = a} :: DescribeLocationFsxOntapResponse)
-
--- | The ARN of the storage virtual machine (SVM) on your FSx for ONTAP file
--- system where you\'re copying data to or from.
-describeLocationFsxOntapResponse_storageVirtualMachineArn :: Lens.Lens' DescribeLocationFsxOntapResponse (Prelude.Maybe Prelude.Text)
-describeLocationFsxOntapResponse_storageVirtualMachineArn = Lens.lens (\DescribeLocationFsxOntapResponse' {storageVirtualMachineArn} -> storageVirtualMachineArn) (\s@DescribeLocationFsxOntapResponse' {} a -> s {storageVirtualMachineArn = a} :: DescribeLocationFsxOntapResponse)
 
 -- | The ARN of the FSx for ONTAP file system location.
 describeLocationFsxOntapResponse_locationArn :: Lens.Lens' DescribeLocationFsxOntapResponse (Prelude.Maybe Prelude.Text)
@@ -231,18 +230,19 @@ describeLocationFsxOntapResponse_locationArn = Lens.lens (\DescribeLocationFsxOn
 describeLocationFsxOntapResponse_locationUri :: Lens.Lens' DescribeLocationFsxOntapResponse (Prelude.Maybe Prelude.Text)
 describeLocationFsxOntapResponse_locationUri = Lens.lens (\DescribeLocationFsxOntapResponse' {locationUri} -> locationUri) (\s@DescribeLocationFsxOntapResponse' {} a -> s {locationUri = a} :: DescribeLocationFsxOntapResponse)
 
+-- | Undocumented member.
+describeLocationFsxOntapResponse_protocol :: Lens.Lens' DescribeLocationFsxOntapResponse (Prelude.Maybe FsxProtocol)
+describeLocationFsxOntapResponse_protocol = Lens.lens (\DescribeLocationFsxOntapResponse' {protocol} -> protocol) (\s@DescribeLocationFsxOntapResponse' {} a -> s {protocol = a} :: DescribeLocationFsxOntapResponse)
+
 -- | The security groups that DataSync uses to access your FSx for ONTAP file
 -- system.
 describeLocationFsxOntapResponse_securityGroupArns :: Lens.Lens' DescribeLocationFsxOntapResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 describeLocationFsxOntapResponse_securityGroupArns = Lens.lens (\DescribeLocationFsxOntapResponse' {securityGroupArns} -> securityGroupArns) (\s@DescribeLocationFsxOntapResponse' {} a -> s {securityGroupArns = a} :: DescribeLocationFsxOntapResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The time that the location was created.
-describeLocationFsxOntapResponse_creationTime :: Lens.Lens' DescribeLocationFsxOntapResponse (Prelude.Maybe Prelude.UTCTime)
-describeLocationFsxOntapResponse_creationTime = Lens.lens (\DescribeLocationFsxOntapResponse' {creationTime} -> creationTime) (\s@DescribeLocationFsxOntapResponse' {} a -> s {creationTime = a} :: DescribeLocationFsxOntapResponse) Prelude.. Lens.mapping Data._Time
-
--- | Undocumented member.
-describeLocationFsxOntapResponse_protocol :: Lens.Lens' DescribeLocationFsxOntapResponse (Prelude.Maybe FsxProtocol)
-describeLocationFsxOntapResponse_protocol = Lens.lens (\DescribeLocationFsxOntapResponse' {protocol} -> protocol) (\s@DescribeLocationFsxOntapResponse' {} a -> s {protocol = a} :: DescribeLocationFsxOntapResponse)
+-- | The ARN of the storage virtual machine (SVM) on your FSx for ONTAP file
+-- system where you\'re copying data to or from.
+describeLocationFsxOntapResponse_storageVirtualMachineArn :: Lens.Lens' DescribeLocationFsxOntapResponse (Prelude.Maybe Prelude.Text)
+describeLocationFsxOntapResponse_storageVirtualMachineArn = Lens.lens (\DescribeLocationFsxOntapResponse' {storageVirtualMachineArn} -> storageVirtualMachineArn) (\s@DescribeLocationFsxOntapResponse' {} a -> s {storageVirtualMachineArn = a} :: DescribeLocationFsxOntapResponse)
 
 -- | The response's http status code.
 describeLocationFsxOntapResponse_httpStatus :: Lens.Lens' DescribeLocationFsxOntapResponse Prelude.Int
@@ -253,11 +253,11 @@ instance
     DescribeLocationFsxOntapResponse
   where
   rnf DescribeLocationFsxOntapResponse' {..} =
-    Prelude.rnf fsxFilesystemArn
-      `Prelude.seq` Prelude.rnf storageVirtualMachineArn
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf fsxFilesystemArn
       `Prelude.seq` Prelude.rnf locationArn
       `Prelude.seq` Prelude.rnf locationUri
-      `Prelude.seq` Prelude.rnf securityGroupArns
-      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf securityGroupArns
+      `Prelude.seq` Prelude.rnf storageVirtualMachineArn
       `Prelude.seq` Prelude.rnf httpStatus

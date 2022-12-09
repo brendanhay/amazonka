@@ -38,11 +38,11 @@ module Amazonka.DataSync.DescribeLocationFsxOpenZfs
     newDescribeLocationFsxOpenZfsResponse,
 
     -- * Response Lenses
+    describeLocationFsxOpenZfsResponse_creationTime,
     describeLocationFsxOpenZfsResponse_locationArn,
     describeLocationFsxOpenZfsResponse_locationUri,
-    describeLocationFsxOpenZfsResponse_securityGroupArns,
-    describeLocationFsxOpenZfsResponse_creationTime,
     describeLocationFsxOpenZfsResponse_protocol,
+    describeLocationFsxOpenZfsResponse_securityGroupArns,
     describeLocationFsxOpenZfsResponse_httpStatus,
   )
 where
@@ -98,11 +98,11 @@ instance Core.AWSRequest DescribeLocationFsxOpenZfs where
     Response.receiveJSON
       ( \s h x ->
           DescribeLocationFsxOpenZfsResponse'
-            Prelude.<$> (x Data..?> "LocationArn")
+            Prelude.<$> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "LocationArn")
             Prelude.<*> (x Data..?> "LocationUri")
-            Prelude.<*> (x Data..?> "SecurityGroupArns")
-            Prelude.<*> (x Data..?> "CreationTime")
             Prelude.<*> (x Data..?> "Protocol")
+            Prelude.<*> (x Data..?> "SecurityGroupArns")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,7 +144,9 @@ instance Data.ToQuery DescribeLocationFsxOpenZfs where
 
 -- | /See:/ 'newDescribeLocationFsxOpenZfsResponse' smart constructor.
 data DescribeLocationFsxOpenZfsResponse = DescribeLocationFsxOpenZfsResponse'
-  { -- | The ARN of the FSx for OpenZFS location that was described.
+  { -- | The time that the FSx for OpenZFS location was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
+    -- | The ARN of the FSx for OpenZFS location that was described.
     locationArn :: Prelude.Maybe Prelude.Text,
     -- | The uniform resource identifier (URI) of the FSx for OpenZFS location
     -- that was described.
@@ -152,13 +154,11 @@ data DescribeLocationFsxOpenZfsResponse = DescribeLocationFsxOpenZfsResponse'
     -- Example:
     -- @fsxz:\/\/us-west-2.fs-1234567890abcdef02\/fsx\/folderA\/folder@
     locationUri :: Prelude.Maybe Prelude.Text,
+    -- | The type of protocol that DataSync uses to access your file system.
+    protocol :: Prelude.Maybe FsxProtocol,
     -- | The ARNs of the security groups that are configured for the FSx for
     -- OpenZFS file system.
     securityGroupArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The time that the FSx for OpenZFS location was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
-    -- | The type of protocol that DataSync uses to access your file system.
-    protocol :: Prelude.Maybe FsxProtocol,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -172,6 +172,8 @@ data DescribeLocationFsxOpenZfsResponse = DescribeLocationFsxOpenZfsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'creationTime', 'describeLocationFsxOpenZfsResponse_creationTime' - The time that the FSx for OpenZFS location was created.
+--
 -- 'locationArn', 'describeLocationFsxOpenZfsResponse_locationArn' - The ARN of the FSx for OpenZFS location that was described.
 --
 -- 'locationUri', 'describeLocationFsxOpenZfsResponse_locationUri' - The uniform resource identifier (URI) of the FSx for OpenZFS location
@@ -180,12 +182,10 @@ data DescribeLocationFsxOpenZfsResponse = DescribeLocationFsxOpenZfsResponse'
 -- Example:
 -- @fsxz:\/\/us-west-2.fs-1234567890abcdef02\/fsx\/folderA\/folder@
 --
+-- 'protocol', 'describeLocationFsxOpenZfsResponse_protocol' - The type of protocol that DataSync uses to access your file system.
+--
 -- 'securityGroupArns', 'describeLocationFsxOpenZfsResponse_securityGroupArns' - The ARNs of the security groups that are configured for the FSx for
 -- OpenZFS file system.
---
--- 'creationTime', 'describeLocationFsxOpenZfsResponse_creationTime' - The time that the FSx for OpenZFS location was created.
---
--- 'protocol', 'describeLocationFsxOpenZfsResponse_protocol' - The type of protocol that DataSync uses to access your file system.
 --
 -- 'httpStatus', 'describeLocationFsxOpenZfsResponse_httpStatus' - The response's http status code.
 newDescribeLocationFsxOpenZfsResponse ::
@@ -194,14 +194,18 @@ newDescribeLocationFsxOpenZfsResponse ::
   DescribeLocationFsxOpenZfsResponse
 newDescribeLocationFsxOpenZfsResponse pHttpStatus_ =
   DescribeLocationFsxOpenZfsResponse'
-    { locationArn =
+    { creationTime =
         Prelude.Nothing,
+      locationArn = Prelude.Nothing,
       locationUri = Prelude.Nothing,
-      securityGroupArns = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
       protocol = Prelude.Nothing,
+      securityGroupArns = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The time that the FSx for OpenZFS location was created.
+describeLocationFsxOpenZfsResponse_creationTime :: Lens.Lens' DescribeLocationFsxOpenZfsResponse (Prelude.Maybe Prelude.UTCTime)
+describeLocationFsxOpenZfsResponse_creationTime = Lens.lens (\DescribeLocationFsxOpenZfsResponse' {creationTime} -> creationTime) (\s@DescribeLocationFsxOpenZfsResponse' {} a -> s {creationTime = a} :: DescribeLocationFsxOpenZfsResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the FSx for OpenZFS location that was described.
 describeLocationFsxOpenZfsResponse_locationArn :: Lens.Lens' DescribeLocationFsxOpenZfsResponse (Prelude.Maybe Prelude.Text)
@@ -215,18 +219,14 @@ describeLocationFsxOpenZfsResponse_locationArn = Lens.lens (\DescribeLocationFsx
 describeLocationFsxOpenZfsResponse_locationUri :: Lens.Lens' DescribeLocationFsxOpenZfsResponse (Prelude.Maybe Prelude.Text)
 describeLocationFsxOpenZfsResponse_locationUri = Lens.lens (\DescribeLocationFsxOpenZfsResponse' {locationUri} -> locationUri) (\s@DescribeLocationFsxOpenZfsResponse' {} a -> s {locationUri = a} :: DescribeLocationFsxOpenZfsResponse)
 
+-- | The type of protocol that DataSync uses to access your file system.
+describeLocationFsxOpenZfsResponse_protocol :: Lens.Lens' DescribeLocationFsxOpenZfsResponse (Prelude.Maybe FsxProtocol)
+describeLocationFsxOpenZfsResponse_protocol = Lens.lens (\DescribeLocationFsxOpenZfsResponse' {protocol} -> protocol) (\s@DescribeLocationFsxOpenZfsResponse' {} a -> s {protocol = a} :: DescribeLocationFsxOpenZfsResponse)
+
 -- | The ARNs of the security groups that are configured for the FSx for
 -- OpenZFS file system.
 describeLocationFsxOpenZfsResponse_securityGroupArns :: Lens.Lens' DescribeLocationFsxOpenZfsResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 describeLocationFsxOpenZfsResponse_securityGroupArns = Lens.lens (\DescribeLocationFsxOpenZfsResponse' {securityGroupArns} -> securityGroupArns) (\s@DescribeLocationFsxOpenZfsResponse' {} a -> s {securityGroupArns = a} :: DescribeLocationFsxOpenZfsResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The time that the FSx for OpenZFS location was created.
-describeLocationFsxOpenZfsResponse_creationTime :: Lens.Lens' DescribeLocationFsxOpenZfsResponse (Prelude.Maybe Prelude.UTCTime)
-describeLocationFsxOpenZfsResponse_creationTime = Lens.lens (\DescribeLocationFsxOpenZfsResponse' {creationTime} -> creationTime) (\s@DescribeLocationFsxOpenZfsResponse' {} a -> s {creationTime = a} :: DescribeLocationFsxOpenZfsResponse) Prelude.. Lens.mapping Data._Time
-
--- | The type of protocol that DataSync uses to access your file system.
-describeLocationFsxOpenZfsResponse_protocol :: Lens.Lens' DescribeLocationFsxOpenZfsResponse (Prelude.Maybe FsxProtocol)
-describeLocationFsxOpenZfsResponse_protocol = Lens.lens (\DescribeLocationFsxOpenZfsResponse' {protocol} -> protocol) (\s@DescribeLocationFsxOpenZfsResponse' {} a -> s {protocol = a} :: DescribeLocationFsxOpenZfsResponse)
 
 -- | The response's http status code.
 describeLocationFsxOpenZfsResponse_httpStatus :: Lens.Lens' DescribeLocationFsxOpenZfsResponse Prelude.Int
@@ -237,9 +237,9 @@ instance
     DescribeLocationFsxOpenZfsResponse
   where
   rnf DescribeLocationFsxOpenZfsResponse' {..} =
-    Prelude.rnf locationArn
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf locationArn
       `Prelude.seq` Prelude.rnf locationUri
-      `Prelude.seq` Prelude.rnf securityGroupArns
-      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf securityGroupArns
       `Prelude.seq` Prelude.rnf httpStatus

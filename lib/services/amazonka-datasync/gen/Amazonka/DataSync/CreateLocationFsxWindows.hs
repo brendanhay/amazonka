@@ -28,9 +28,9 @@ module Amazonka.DataSync.CreateLocationFsxWindows
     newCreateLocationFsxWindows,
 
     -- * Request Lenses
-    createLocationFsxWindows_tags,
     createLocationFsxWindows_domain,
     createLocationFsxWindows_subdirectory,
+    createLocationFsxWindows_tags,
     createLocationFsxWindows_fsxFilesystemArn,
     createLocationFsxWindows_securityGroupArns,
     createLocationFsxWindows_user,
@@ -56,17 +56,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateLocationFsxWindows' smart constructor.
 data CreateLocationFsxWindows = CreateLocationFsxWindows'
-  { -- | Specifies labels that help you categorize, filter, and search for your
-    -- Amazon Web Services resources. We recommend creating at least a name tag
-    -- for your location.
-    tags :: Prelude.Maybe [TagListEntry],
-    -- | Specifies the name of the Windows domain that the FSx for Windows File
+  { -- | Specifies the name of the Windows domain that the FSx for Windows File
     -- Server belongs to.
     domain :: Prelude.Maybe Prelude.Text,
     -- | Specifies a mount path for your file system using forward slashes. This
     -- is where DataSync reads or writes data (depending on if this is a source
     -- or destination location).
     subdirectory :: Prelude.Maybe Prelude.Text,
+    -- | Specifies labels that help you categorize, filter, and search for your
+    -- Amazon Web Services resources. We recommend creating at least a name tag
+    -- for your location.
+    tags :: Prelude.Maybe [TagListEntry],
     -- | Specifies the Amazon Resource Name (ARN) for the FSx for Windows File
     -- Server file system.
     fsxFilesystemArn :: Prelude.Text,
@@ -103,16 +103,16 @@ data CreateLocationFsxWindows = CreateLocationFsxWindows'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createLocationFsxWindows_tags' - Specifies labels that help you categorize, filter, and search for your
--- Amazon Web Services resources. We recommend creating at least a name tag
--- for your location.
---
 -- 'domain', 'createLocationFsxWindows_domain' - Specifies the name of the Windows domain that the FSx for Windows File
 -- Server belongs to.
 --
 -- 'subdirectory', 'createLocationFsxWindows_subdirectory' - Specifies a mount path for your file system using forward slashes. This
 -- is where DataSync reads or writes data (depending on if this is a source
 -- or destination location).
+--
+-- 'tags', 'createLocationFsxWindows_tags' - Specifies labels that help you categorize, filter, and search for your
+-- Amazon Web Services resources. We recommend creating at least a name tag
+-- for your location.
 --
 -- 'fsxFilesystemArn', 'createLocationFsxWindows_fsxFilesystemArn' - Specifies the Amazon Resource Name (ARN) for the FSx for Windows File
 -- Server file system.
@@ -154,21 +154,15 @@ newCreateLocationFsxWindows
   pUser_
   pPassword_ =
     CreateLocationFsxWindows'
-      { tags = Prelude.Nothing,
-        domain = Prelude.Nothing,
+      { domain = Prelude.Nothing,
         subdirectory = Prelude.Nothing,
+        tags = Prelude.Nothing,
         fsxFilesystemArn = pFsxFilesystemArn_,
         securityGroupArns =
           Lens.coerced Lens.# pSecurityGroupArns_,
         user = pUser_,
         password = Data._Sensitive Lens.# pPassword_
       }
-
--- | Specifies labels that help you categorize, filter, and search for your
--- Amazon Web Services resources. We recommend creating at least a name tag
--- for your location.
-createLocationFsxWindows_tags :: Lens.Lens' CreateLocationFsxWindows (Prelude.Maybe [TagListEntry])
-createLocationFsxWindows_tags = Lens.lens (\CreateLocationFsxWindows' {tags} -> tags) (\s@CreateLocationFsxWindows' {} a -> s {tags = a} :: CreateLocationFsxWindows) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the name of the Windows domain that the FSx for Windows File
 -- Server belongs to.
@@ -180,6 +174,12 @@ createLocationFsxWindows_domain = Lens.lens (\CreateLocationFsxWindows' {domain}
 -- or destination location).
 createLocationFsxWindows_subdirectory :: Lens.Lens' CreateLocationFsxWindows (Prelude.Maybe Prelude.Text)
 createLocationFsxWindows_subdirectory = Lens.lens (\CreateLocationFsxWindows' {subdirectory} -> subdirectory) (\s@CreateLocationFsxWindows' {} a -> s {subdirectory = a} :: CreateLocationFsxWindows)
+
+-- | Specifies labels that help you categorize, filter, and search for your
+-- Amazon Web Services resources. We recommend creating at least a name tag
+-- for your location.
+createLocationFsxWindows_tags :: Lens.Lens' CreateLocationFsxWindows (Prelude.Maybe [TagListEntry])
+createLocationFsxWindows_tags = Lens.lens (\CreateLocationFsxWindows' {tags} -> tags) (\s@CreateLocationFsxWindows' {} a -> s {tags = a} :: CreateLocationFsxWindows) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the Amazon Resource Name (ARN) for the FSx for Windows File
 -- Server file system.
@@ -230,9 +230,9 @@ instance Core.AWSRequest CreateLocationFsxWindows where
 
 instance Prelude.Hashable CreateLocationFsxWindows where
   hashWithSalt _salt CreateLocationFsxWindows' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` domain
+    _salt `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` subdirectory
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` fsxFilesystemArn
       `Prelude.hashWithSalt` securityGroupArns
       `Prelude.hashWithSalt` user
@@ -240,9 +240,9 @@ instance Prelude.Hashable CreateLocationFsxWindows where
 
 instance Prelude.NFData CreateLocationFsxWindows where
   rnf CreateLocationFsxWindows' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf domain
+    Prelude.rnf domain
       `Prelude.seq` Prelude.rnf subdirectory
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf fsxFilesystemArn
       `Prelude.seq` Prelude.rnf securityGroupArns
       `Prelude.seq` Prelude.rnf user
@@ -267,9 +267,9 @@ instance Data.ToJSON CreateLocationFsxWindows where
   toJSON CreateLocationFsxWindows' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Domain" Data..=) Prelude.<$> domain,
+          [ ("Domain" Data..=) Prelude.<$> domain,
             ("Subdirectory" Data..=) Prelude.<$> subdirectory,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("FsxFilesystemArn" Data..= fsxFilesystemArn),
             Prelude.Just

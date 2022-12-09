@@ -40,16 +40,16 @@ module Amazonka.DataSync.ListAgents
     newListAgents,
 
     -- * Request Lenses
-    listAgents_nextToken,
     listAgents_maxResults,
+    listAgents_nextToken,
 
     -- * Destructuring the Response
     ListAgentsResponse (..),
     newListAgentsResponse,
 
     -- * Response Lenses
-    listAgentsResponse_nextToken,
     listAgentsResponse_agents,
+    listAgentsResponse_nextToken,
     listAgentsResponse_httpStatus,
   )
 where
@@ -66,11 +66,11 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListAgents' smart constructor.
 data ListAgents = ListAgents'
-  { -- | An opaque string that indicates the position at which to begin the next
+  { -- | The maximum number of agents to list.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | An opaque string that indicates the position at which to begin the next
     -- list of agents.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of agents to list.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,26 +82,26 @@ data ListAgents = ListAgents'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listAgents_maxResults' - The maximum number of agents to list.
+--
 -- 'nextToken', 'listAgents_nextToken' - An opaque string that indicates the position at which to begin the next
 -- list of agents.
---
--- 'maxResults', 'listAgents_maxResults' - The maximum number of agents to list.
 newListAgents ::
   ListAgents
 newListAgents =
   ListAgents'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of agents to list.
+listAgents_maxResults :: Lens.Lens' ListAgents (Prelude.Maybe Prelude.Natural)
+listAgents_maxResults = Lens.lens (\ListAgents' {maxResults} -> maxResults) (\s@ListAgents' {} a -> s {maxResults = a} :: ListAgents)
 
 -- | An opaque string that indicates the position at which to begin the next
 -- list of agents.
 listAgents_nextToken :: Lens.Lens' ListAgents (Prelude.Maybe Prelude.Text)
 listAgents_nextToken = Lens.lens (\ListAgents' {nextToken} -> nextToken) (\s@ListAgents' {} a -> s {nextToken = a} :: ListAgents)
-
--- | The maximum number of agents to list.
-listAgents_maxResults :: Lens.Lens' ListAgents (Prelude.Maybe Prelude.Natural)
-listAgents_maxResults = Lens.lens (\ListAgents' {maxResults} -> maxResults) (\s@ListAgents' {} a -> s {maxResults = a} :: ListAgents)
 
 instance Core.AWSPager ListAgents where
   page rq rs
@@ -130,20 +130,20 @@ instance Core.AWSRequest ListAgents where
     Response.receiveJSON
       ( \s h x ->
           ListAgentsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Agents" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Agents" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListAgents where
   hashWithSalt _salt ListAgents' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListAgents where
   rnf ListAgents' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListAgents where
   toHeaders =
@@ -162,8 +162,8 @@ instance Data.ToJSON ListAgents where
   toJSON ListAgents' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -177,11 +177,11 @@ instance Data.ToQuery ListAgents where
 --
 -- /See:/ 'newListAgentsResponse' smart constructor.
 data ListAgentsResponse = ListAgentsResponse'
-  { -- | An opaque string that indicates the position at which to begin returning
+  { -- | A list of agents in your account.
+    agents :: Prelude.Maybe [AgentListEntry],
+    -- | An opaque string that indicates the position at which to begin returning
     -- the next list of agents.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of agents in your account.
-    agents :: Prelude.Maybe [AgentListEntry],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -195,10 +195,10 @@ data ListAgentsResponse = ListAgentsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'agents', 'listAgentsResponse_agents' - A list of agents in your account.
+--
 -- 'nextToken', 'listAgentsResponse_nextToken' - An opaque string that indicates the position at which to begin returning
 -- the next list of agents.
---
--- 'agents', 'listAgentsResponse_agents' - A list of agents in your account.
 --
 -- 'httpStatus', 'listAgentsResponse_httpStatus' - The response's http status code.
 newListAgentsResponse ::
@@ -207,19 +207,19 @@ newListAgentsResponse ::
   ListAgentsResponse
 newListAgentsResponse pHttpStatus_ =
   ListAgentsResponse'
-    { nextToken = Prelude.Nothing,
-      agents = Prelude.Nothing,
+    { agents = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of agents in your account.
+listAgentsResponse_agents :: Lens.Lens' ListAgentsResponse (Prelude.Maybe [AgentListEntry])
+listAgentsResponse_agents = Lens.lens (\ListAgentsResponse' {agents} -> agents) (\s@ListAgentsResponse' {} a -> s {agents = a} :: ListAgentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An opaque string that indicates the position at which to begin returning
 -- the next list of agents.
 listAgentsResponse_nextToken :: Lens.Lens' ListAgentsResponse (Prelude.Maybe Prelude.Text)
 listAgentsResponse_nextToken = Lens.lens (\ListAgentsResponse' {nextToken} -> nextToken) (\s@ListAgentsResponse' {} a -> s {nextToken = a} :: ListAgentsResponse)
-
--- | A list of agents in your account.
-listAgentsResponse_agents :: Lens.Lens' ListAgentsResponse (Prelude.Maybe [AgentListEntry])
-listAgentsResponse_agents = Lens.lens (\ListAgentsResponse' {agents} -> agents) (\s@ListAgentsResponse' {} a -> s {agents = a} :: ListAgentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listAgentsResponse_httpStatus :: Lens.Lens' ListAgentsResponse Prelude.Int
@@ -227,6 +227,6 @@ listAgentsResponse_httpStatus = Lens.lens (\ListAgentsResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListAgentsResponse where
   rnf ListAgentsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf agents
+    Prelude.rnf agents
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -35,12 +35,12 @@ module Amazonka.DataSync.DescribeLocationS3
     newDescribeLocationS3Response,
 
     -- * Response Lenses
+    describeLocationS3Response_agentArns,
+    describeLocationS3Response_creationTime,
     describeLocationS3Response_locationArn,
+    describeLocationS3Response_locationUri,
     describeLocationS3Response_s3Config,
     describeLocationS3Response_s3StorageClass,
-    describeLocationS3Response_locationUri,
-    describeLocationS3Response_creationTime,
-    describeLocationS3Response_agentArns,
     describeLocationS3Response_httpStatus,
   )
 where
@@ -95,12 +95,12 @@ instance Core.AWSRequest DescribeLocationS3 where
     Response.receiveJSON
       ( \s h x ->
           DescribeLocationS3Response'
-            Prelude.<$> (x Data..?> "LocationArn")
+            Prelude.<$> (x Data..?> "AgentArns")
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "LocationArn")
+            Prelude.<*> (x Data..?> "LocationUri")
             Prelude.<*> (x Data..?> "S3Config")
             Prelude.<*> (x Data..?> "S3StorageClass")
-            Prelude.<*> (x Data..?> "LocationUri")
-            Prelude.<*> (x Data..?> "CreationTime")
-            Prelude.<*> (x Data..?> "AgentArns")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,8 +143,18 @@ instance Data.ToQuery DescribeLocationS3 where
 --
 -- /See:/ 'newDescribeLocationS3Response' smart constructor.
 data DescribeLocationS3Response = DescribeLocationS3Response'
-  { -- | The Amazon Resource Name (ARN) of the Amazon S3 bucket or access point.
+  { -- | If you are using DataSync on an Amazon Web Services Outpost, the Amazon
+    -- Resource Name (ARNs) of the EC2 agents deployed on your Outpost. For
+    -- more information about launching a DataSync agent on an Amazon Web
+    -- Services Outpost, see
+    -- <https://docs.aws.amazon.com/datasync/latest/userguide/deploy-agents.html#outposts-agent Deploy your DataSync agent on Outposts>.
+    agentArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The time that the Amazon S3 bucket location was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
+    -- | The Amazon Resource Name (ARN) of the Amazon S3 bucket or access point.
     locationArn :: Prelude.Maybe Prelude.Text,
+    -- | The URL of the Amazon S3 location that was described.
+    locationUri :: Prelude.Maybe Prelude.Text,
     s3Config :: Prelude.Maybe S3Config,
     -- | The Amazon S3 storage class that you chose to store your files in when
     -- this location is used as a task destination. For more information about
@@ -154,16 +164,6 @@ data DescribeLocationS3Response = DescribeLocationS3Response'
     -- cost. For detailed information, see
     -- <https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes Considerations when working with S3 storage classes in DataSync>.
     s3StorageClass :: Prelude.Maybe S3StorageClass,
-    -- | The URL of the Amazon S3 location that was described.
-    locationUri :: Prelude.Maybe Prelude.Text,
-    -- | The time that the Amazon S3 bucket location was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
-    -- | If you are using DataSync on an Amazon Web Services Outpost, the Amazon
-    -- Resource Name (ARNs) of the EC2 agents deployed on your Outpost. For
-    -- more information about launching a DataSync agent on an Amazon Web
-    -- Services Outpost, see
-    -- <https://docs.aws.amazon.com/datasync/latest/userguide/deploy-agents.html#outposts-agent Deploy your DataSync agent on Outposts>.
-    agentArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -177,7 +177,17 @@ data DescribeLocationS3Response = DescribeLocationS3Response'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'agentArns', 'describeLocationS3Response_agentArns' - If you are using DataSync on an Amazon Web Services Outpost, the Amazon
+-- Resource Name (ARNs) of the EC2 agents deployed on your Outpost. For
+-- more information about launching a DataSync agent on an Amazon Web
+-- Services Outpost, see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/deploy-agents.html#outposts-agent Deploy your DataSync agent on Outposts>.
+--
+-- 'creationTime', 'describeLocationS3Response_creationTime' - The time that the Amazon S3 bucket location was created.
+--
 -- 'locationArn', 'describeLocationS3Response_locationArn' - The Amazon Resource Name (ARN) of the Amazon S3 bucket or access point.
+--
+-- 'locationUri', 'describeLocationS3Response_locationUri' - The URL of the Amazon S3 location that was described.
 --
 -- 's3Config', 'describeLocationS3Response_s3Config' - Undocumented member.
 --
@@ -189,16 +199,6 @@ data DescribeLocationS3Response = DescribeLocationS3Response'
 -- cost. For detailed information, see
 -- <https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes Considerations when working with S3 storage classes in DataSync>.
 --
--- 'locationUri', 'describeLocationS3Response_locationUri' - The URL of the Amazon S3 location that was described.
---
--- 'creationTime', 'describeLocationS3Response_creationTime' - The time that the Amazon S3 bucket location was created.
---
--- 'agentArns', 'describeLocationS3Response_agentArns' - If you are using DataSync on an Amazon Web Services Outpost, the Amazon
--- Resource Name (ARNs) of the EC2 agents deployed on your Outpost. For
--- more information about launching a DataSync agent on an Amazon Web
--- Services Outpost, see
--- <https://docs.aws.amazon.com/datasync/latest/userguide/deploy-agents.html#outposts-agent Deploy your DataSync agent on Outposts>.
---
 -- 'httpStatus', 'describeLocationS3Response_httpStatus' - The response's http status code.
 newDescribeLocationS3Response ::
   -- | 'httpStatus'
@@ -206,19 +206,35 @@ newDescribeLocationS3Response ::
   DescribeLocationS3Response
 newDescribeLocationS3Response pHttpStatus_ =
   DescribeLocationS3Response'
-    { locationArn =
+    { agentArns =
         Prelude.Nothing,
+      creationTime = Prelude.Nothing,
+      locationArn = Prelude.Nothing,
+      locationUri = Prelude.Nothing,
       s3Config = Prelude.Nothing,
       s3StorageClass = Prelude.Nothing,
-      locationUri = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
-      agentArns = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | If you are using DataSync on an Amazon Web Services Outpost, the Amazon
+-- Resource Name (ARNs) of the EC2 agents deployed on your Outpost. For
+-- more information about launching a DataSync agent on an Amazon Web
+-- Services Outpost, see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/deploy-agents.html#outposts-agent Deploy your DataSync agent on Outposts>.
+describeLocationS3Response_agentArns :: Lens.Lens' DescribeLocationS3Response (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+describeLocationS3Response_agentArns = Lens.lens (\DescribeLocationS3Response' {agentArns} -> agentArns) (\s@DescribeLocationS3Response' {} a -> s {agentArns = a} :: DescribeLocationS3Response) Prelude.. Lens.mapping Lens.coerced
+
+-- | The time that the Amazon S3 bucket location was created.
+describeLocationS3Response_creationTime :: Lens.Lens' DescribeLocationS3Response (Prelude.Maybe Prelude.UTCTime)
+describeLocationS3Response_creationTime = Lens.lens (\DescribeLocationS3Response' {creationTime} -> creationTime) (\s@DescribeLocationS3Response' {} a -> s {creationTime = a} :: DescribeLocationS3Response) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the Amazon S3 bucket or access point.
 describeLocationS3Response_locationArn :: Lens.Lens' DescribeLocationS3Response (Prelude.Maybe Prelude.Text)
 describeLocationS3Response_locationArn = Lens.lens (\DescribeLocationS3Response' {locationArn} -> locationArn) (\s@DescribeLocationS3Response' {} a -> s {locationArn = a} :: DescribeLocationS3Response)
+
+-- | The URL of the Amazon S3 location that was described.
+describeLocationS3Response_locationUri :: Lens.Lens' DescribeLocationS3Response (Prelude.Maybe Prelude.Text)
+describeLocationS3Response_locationUri = Lens.lens (\DescribeLocationS3Response' {locationUri} -> locationUri) (\s@DescribeLocationS3Response' {} a -> s {locationUri = a} :: DescribeLocationS3Response)
 
 -- | Undocumented member.
 describeLocationS3Response_s3Config :: Lens.Lens' DescribeLocationS3Response (Prelude.Maybe S3Config)
@@ -234,32 +250,16 @@ describeLocationS3Response_s3Config = Lens.lens (\DescribeLocationS3Response' {s
 describeLocationS3Response_s3StorageClass :: Lens.Lens' DescribeLocationS3Response (Prelude.Maybe S3StorageClass)
 describeLocationS3Response_s3StorageClass = Lens.lens (\DescribeLocationS3Response' {s3StorageClass} -> s3StorageClass) (\s@DescribeLocationS3Response' {} a -> s {s3StorageClass = a} :: DescribeLocationS3Response)
 
--- | The URL of the Amazon S3 location that was described.
-describeLocationS3Response_locationUri :: Lens.Lens' DescribeLocationS3Response (Prelude.Maybe Prelude.Text)
-describeLocationS3Response_locationUri = Lens.lens (\DescribeLocationS3Response' {locationUri} -> locationUri) (\s@DescribeLocationS3Response' {} a -> s {locationUri = a} :: DescribeLocationS3Response)
-
--- | The time that the Amazon S3 bucket location was created.
-describeLocationS3Response_creationTime :: Lens.Lens' DescribeLocationS3Response (Prelude.Maybe Prelude.UTCTime)
-describeLocationS3Response_creationTime = Lens.lens (\DescribeLocationS3Response' {creationTime} -> creationTime) (\s@DescribeLocationS3Response' {} a -> s {creationTime = a} :: DescribeLocationS3Response) Prelude.. Lens.mapping Data._Time
-
--- | If you are using DataSync on an Amazon Web Services Outpost, the Amazon
--- Resource Name (ARNs) of the EC2 agents deployed on your Outpost. For
--- more information about launching a DataSync agent on an Amazon Web
--- Services Outpost, see
--- <https://docs.aws.amazon.com/datasync/latest/userguide/deploy-agents.html#outposts-agent Deploy your DataSync agent on Outposts>.
-describeLocationS3Response_agentArns :: Lens.Lens' DescribeLocationS3Response (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-describeLocationS3Response_agentArns = Lens.lens (\DescribeLocationS3Response' {agentArns} -> agentArns) (\s@DescribeLocationS3Response' {} a -> s {agentArns = a} :: DescribeLocationS3Response) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 describeLocationS3Response_httpStatus :: Lens.Lens' DescribeLocationS3Response Prelude.Int
 describeLocationS3Response_httpStatus = Lens.lens (\DescribeLocationS3Response' {httpStatus} -> httpStatus) (\s@DescribeLocationS3Response' {} a -> s {httpStatus = a} :: DescribeLocationS3Response)
 
 instance Prelude.NFData DescribeLocationS3Response where
   rnf DescribeLocationS3Response' {..} =
-    Prelude.rnf locationArn
+    Prelude.rnf agentArns
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf locationArn
+      `Prelude.seq` Prelude.rnf locationUri
       `Prelude.seq` Prelude.rnf s3Config
       `Prelude.seq` Prelude.rnf s3StorageClass
-      `Prelude.seq` Prelude.rnf locationUri
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf agentArns
       `Prelude.seq` Prelude.rnf httpStatus

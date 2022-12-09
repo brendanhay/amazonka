@@ -27,8 +27,8 @@ module Amazonka.DataSync.CreateLocationFsxLustre
     newCreateLocationFsxLustre,
 
     -- * Request Lenses
-    createLocationFsxLustre_tags,
     createLocationFsxLustre_subdirectory,
+    createLocationFsxLustre_tags,
     createLocationFsxLustre_fsxFilesystemArn,
     createLocationFsxLustre_securityGroupArns,
 
@@ -52,15 +52,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateLocationFsxLustre' smart constructor.
 data CreateLocationFsxLustre = CreateLocationFsxLustre'
-  { -- | The key-value pair that represents a tag that you want to add to the
+  { -- | A subdirectory in the location\'s path. This subdirectory in the FSx for
+    -- Lustre file system is used to read data from the FSx for Lustre source
+    -- location or write data to the FSx for Lustre destination.
+    subdirectory :: Prelude.Maybe Prelude.Text,
+    -- | The key-value pair that represents a tag that you want to add to the
     -- resource. The value can be an empty string. This value helps you manage,
     -- filter, and search for your resources. We recommend that you create a
     -- name tag for your location.
     tags :: Prelude.Maybe [TagListEntry],
-    -- | A subdirectory in the location\'s path. This subdirectory in the FSx for
-    -- Lustre file system is used to read data from the FSx for Lustre source
-    -- location or write data to the FSx for Lustre destination.
-    subdirectory :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) for the FSx for Lustre file system.
     fsxFilesystemArn :: Prelude.Text,
     -- | The Amazon Resource Names (ARNs) of the security groups that are used to
@@ -77,14 +77,14 @@ data CreateLocationFsxLustre = CreateLocationFsxLustre'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'subdirectory', 'createLocationFsxLustre_subdirectory' - A subdirectory in the location\'s path. This subdirectory in the FSx for
+-- Lustre file system is used to read data from the FSx for Lustre source
+-- location or write data to the FSx for Lustre destination.
+--
 -- 'tags', 'createLocationFsxLustre_tags' - The key-value pair that represents a tag that you want to add to the
 -- resource. The value can be an empty string. This value helps you manage,
 -- filter, and search for your resources. We recommend that you create a
 -- name tag for your location.
---
--- 'subdirectory', 'createLocationFsxLustre_subdirectory' - A subdirectory in the location\'s path. This subdirectory in the FSx for
--- Lustre file system is used to read data from the FSx for Lustre source
--- location or write data to the FSx for Lustre destination.
 --
 -- 'fsxFilesystemArn', 'createLocationFsxLustre_fsxFilesystemArn' - The Amazon Resource Name (ARN) for the FSx for Lustre file system.
 --
@@ -100,12 +100,19 @@ newCreateLocationFsxLustre
   pFsxFilesystemArn_
   pSecurityGroupArns_ =
     CreateLocationFsxLustre'
-      { tags = Prelude.Nothing,
-        subdirectory = Prelude.Nothing,
+      { subdirectory =
+          Prelude.Nothing,
+        tags = Prelude.Nothing,
         fsxFilesystemArn = pFsxFilesystemArn_,
         securityGroupArns =
           Lens.coerced Lens.# pSecurityGroupArns_
       }
+
+-- | A subdirectory in the location\'s path. This subdirectory in the FSx for
+-- Lustre file system is used to read data from the FSx for Lustre source
+-- location or write data to the FSx for Lustre destination.
+createLocationFsxLustre_subdirectory :: Lens.Lens' CreateLocationFsxLustre (Prelude.Maybe Prelude.Text)
+createLocationFsxLustre_subdirectory = Lens.lens (\CreateLocationFsxLustre' {subdirectory} -> subdirectory) (\s@CreateLocationFsxLustre' {} a -> s {subdirectory = a} :: CreateLocationFsxLustre)
 
 -- | The key-value pair that represents a tag that you want to add to the
 -- resource. The value can be an empty string. This value helps you manage,
@@ -113,12 +120,6 @@ newCreateLocationFsxLustre
 -- name tag for your location.
 createLocationFsxLustre_tags :: Lens.Lens' CreateLocationFsxLustre (Prelude.Maybe [TagListEntry])
 createLocationFsxLustre_tags = Lens.lens (\CreateLocationFsxLustre' {tags} -> tags) (\s@CreateLocationFsxLustre' {} a -> s {tags = a} :: CreateLocationFsxLustre) Prelude.. Lens.mapping Lens.coerced
-
--- | A subdirectory in the location\'s path. This subdirectory in the FSx for
--- Lustre file system is used to read data from the FSx for Lustre source
--- location or write data to the FSx for Lustre destination.
-createLocationFsxLustre_subdirectory :: Lens.Lens' CreateLocationFsxLustre (Prelude.Maybe Prelude.Text)
-createLocationFsxLustre_subdirectory = Lens.lens (\CreateLocationFsxLustre' {subdirectory} -> subdirectory) (\s@CreateLocationFsxLustre' {} a -> s {subdirectory = a} :: CreateLocationFsxLustre)
 
 -- | The Amazon Resource Name (ARN) for the FSx for Lustre file system.
 createLocationFsxLustre_fsxFilesystemArn :: Lens.Lens' CreateLocationFsxLustre Prelude.Text
@@ -145,15 +146,15 @@ instance Core.AWSRequest CreateLocationFsxLustre where
 
 instance Prelude.Hashable CreateLocationFsxLustre where
   hashWithSalt _salt CreateLocationFsxLustre' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` subdirectory
+    _salt `Prelude.hashWithSalt` subdirectory
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` fsxFilesystemArn
       `Prelude.hashWithSalt` securityGroupArns
 
 instance Prelude.NFData CreateLocationFsxLustre where
   rnf CreateLocationFsxLustre' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf subdirectory
+    Prelude.rnf subdirectory
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf fsxFilesystemArn
       `Prelude.seq` Prelude.rnf securityGroupArns
 
@@ -176,8 +177,8 @@ instance Data.ToJSON CreateLocationFsxLustre where
   toJSON CreateLocationFsxLustre' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Subdirectory" Data..=) Prelude.<$> subdirectory,
+          [ ("Subdirectory" Data..=) Prelude.<$> subdirectory,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("FsxFilesystemArn" Data..= fsxFilesystemArn),
             Prelude.Just

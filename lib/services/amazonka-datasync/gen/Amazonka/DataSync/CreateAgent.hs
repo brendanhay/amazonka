@@ -46,11 +46,11 @@ module Amazonka.DataSync.CreateAgent
     newCreateAgent,
 
     -- * Request Lenses
-    createAgent_tags,
     createAgent_agentName,
-    createAgent_subnetArns,
-    createAgent_vpcEndpointId,
     createAgent_securityGroupArns,
+    createAgent_subnetArns,
+    createAgent_tags,
+    createAgent_vpcEndpointId,
     createAgent_activationKey,
 
     -- * Destructuring the Response
@@ -75,17 +75,13 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateAgent' smart constructor.
 data CreateAgent = CreateAgent'
-  { -- | The key-value pair that represents the tag that you want to associate
-    -- with the agent. The value can be an empty string. This value helps you
-    -- manage, filter, and search for your agents.
-    --
-    -- Valid characters for key and value are letters, spaces, and numbers
-    -- representable in UTF-8 format, and the following special characters: + -
-    -- = . _ : \/ \@.
-    tags :: Prelude.Maybe [TagListEntry],
-    -- | The name you configured for your agent. This value is a text reference
+  { -- | The name you configured for your agent. This value is a text reference
     -- that is used to identify the agent in the console.
     agentName :: Prelude.Maybe Prelude.Text,
+    -- | The ARNs of the security groups used to protect your data transfer task
+    -- subnets. See
+    -- <https://docs.aws.amazon.com/datasync/latest/userguide/API_Ec2Config.html#DataSync-Type-Ec2Config-SecurityGroupArns SecurityGroupArns>.
+    securityGroupArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The Amazon Resource Names (ARNs) of the subnets in which DataSync will
     -- create elastic network interfaces for each data transfer task. The agent
     -- that runs a task must be private. When you start a task that is
@@ -95,6 +91,14 @@ data CreateAgent = CreateAgent'
     -- For a data transfer to work, the agent must be able to route to all
     -- these four network interfaces.
     subnetArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The key-value pair that represents the tag that you want to associate
+    -- with the agent. The value can be an empty string. This value helps you
+    -- manage, filter, and search for your agents.
+    --
+    -- Valid characters for key and value are letters, spaces, and numbers
+    -- representable in UTF-8 format, and the following special characters: + -
+    -- = . _ : \/ \@.
+    tags :: Prelude.Maybe [TagListEntry],
     -- | The ID of the VPC (virtual private cloud) endpoint that the agent has
     -- access to. This is the client-side VPC endpoint, also called a
     -- PrivateLink. If you don\'t have a PrivateLink VPC endpoint, see
@@ -103,10 +107,6 @@ data CreateAgent = CreateAgent'
     --
     -- VPC endpoint ID looks like this: @vpce-01234d5aff67890e1@.
     vpcEndpointId :: Prelude.Maybe Prelude.Text,
-    -- | The ARNs of the security groups used to protect your data transfer task
-    -- subnets. See
-    -- <https://docs.aws.amazon.com/datasync/latest/userguide/API_Ec2Config.html#DataSync-Type-Ec2Config-SecurityGroupArns SecurityGroupArns>.
-    securityGroupArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | Your agent activation key. You can get the activation key either by
     -- sending an HTTP GET request with redirects that enable you to get the
     -- agent IP address (port 80). Alternatively, you can get it from the
@@ -132,16 +132,12 @@ data CreateAgent = CreateAgent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createAgent_tags' - The key-value pair that represents the tag that you want to associate
--- with the agent. The value can be an empty string. This value helps you
--- manage, filter, and search for your agents.
---
--- Valid characters for key and value are letters, spaces, and numbers
--- representable in UTF-8 format, and the following special characters: + -
--- = . _ : \/ \@.
---
 -- 'agentName', 'createAgent_agentName' - The name you configured for your agent. This value is a text reference
 -- that is used to identify the agent in the console.
+--
+-- 'securityGroupArns', 'createAgent_securityGroupArns' - The ARNs of the security groups used to protect your data transfer task
+-- subnets. See
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/API_Ec2Config.html#DataSync-Type-Ec2Config-SecurityGroupArns SecurityGroupArns>.
 --
 -- 'subnetArns', 'createAgent_subnetArns' - The Amazon Resource Names (ARNs) of the subnets in which DataSync will
 -- create elastic network interfaces for each data transfer task. The agent
@@ -152,6 +148,14 @@ data CreateAgent = CreateAgent'
 -- For a data transfer to work, the agent must be able to route to all
 -- these four network interfaces.
 --
+-- 'tags', 'createAgent_tags' - The key-value pair that represents the tag that you want to associate
+-- with the agent. The value can be an empty string. This value helps you
+-- manage, filter, and search for your agents.
+--
+-- Valid characters for key and value are letters, spaces, and numbers
+-- representable in UTF-8 format, and the following special characters: + -
+-- = . _ : \/ \@.
+--
 -- 'vpcEndpointId', 'createAgent_vpcEndpointId' - The ID of the VPC (virtual private cloud) endpoint that the agent has
 -- access to. This is the client-side VPC endpoint, also called a
 -- PrivateLink. If you don\'t have a PrivateLink VPC endpoint, see
@@ -159,10 +163,6 @@ data CreateAgent = CreateAgent'
 -- in the Amazon VPC User Guide.
 --
 -- VPC endpoint ID looks like this: @vpce-01234d5aff67890e1@.
---
--- 'securityGroupArns', 'createAgent_securityGroupArns' - The ARNs of the security groups used to protect your data transfer task
--- subnets. See
--- <https://docs.aws.amazon.com/datasync/latest/userguide/API_Ec2Config.html#DataSync-Type-Ec2Config-SecurityGroupArns SecurityGroupArns>.
 --
 -- 'activationKey', 'createAgent_activationKey' - Your agent activation key. You can get the activation key either by
 -- sending an HTTP GET request with redirects that enable you to get the
@@ -183,28 +183,24 @@ newCreateAgent ::
   CreateAgent
 newCreateAgent pActivationKey_ =
   CreateAgent'
-    { tags = Prelude.Nothing,
-      agentName = Prelude.Nothing,
-      subnetArns = Prelude.Nothing,
-      vpcEndpointId = Prelude.Nothing,
+    { agentName = Prelude.Nothing,
       securityGroupArns = Prelude.Nothing,
+      subnetArns = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      vpcEndpointId = Prelude.Nothing,
       activationKey = pActivationKey_
     }
-
--- | The key-value pair that represents the tag that you want to associate
--- with the agent. The value can be an empty string. This value helps you
--- manage, filter, and search for your agents.
---
--- Valid characters for key and value are letters, spaces, and numbers
--- representable in UTF-8 format, and the following special characters: + -
--- = . _ : \/ \@.
-createAgent_tags :: Lens.Lens' CreateAgent (Prelude.Maybe [TagListEntry])
-createAgent_tags = Lens.lens (\CreateAgent' {tags} -> tags) (\s@CreateAgent' {} a -> s {tags = a} :: CreateAgent) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name you configured for your agent. This value is a text reference
 -- that is used to identify the agent in the console.
 createAgent_agentName :: Lens.Lens' CreateAgent (Prelude.Maybe Prelude.Text)
 createAgent_agentName = Lens.lens (\CreateAgent' {agentName} -> agentName) (\s@CreateAgent' {} a -> s {agentName = a} :: CreateAgent)
+
+-- | The ARNs of the security groups used to protect your data transfer task
+-- subnets. See
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/API_Ec2Config.html#DataSync-Type-Ec2Config-SecurityGroupArns SecurityGroupArns>.
+createAgent_securityGroupArns :: Lens.Lens' CreateAgent (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+createAgent_securityGroupArns = Lens.lens (\CreateAgent' {securityGroupArns} -> securityGroupArns) (\s@CreateAgent' {} a -> s {securityGroupArns = a} :: CreateAgent) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Names (ARNs) of the subnets in which DataSync will
 -- create elastic network interfaces for each data transfer task. The agent
@@ -217,6 +213,16 @@ createAgent_agentName = Lens.lens (\CreateAgent' {agentName} -> agentName) (\s@C
 createAgent_subnetArns :: Lens.Lens' CreateAgent (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 createAgent_subnetArns = Lens.lens (\CreateAgent' {subnetArns} -> subnetArns) (\s@CreateAgent' {} a -> s {subnetArns = a} :: CreateAgent) Prelude.. Lens.mapping Lens.coerced
 
+-- | The key-value pair that represents the tag that you want to associate
+-- with the agent. The value can be an empty string. This value helps you
+-- manage, filter, and search for your agents.
+--
+-- Valid characters for key and value are letters, spaces, and numbers
+-- representable in UTF-8 format, and the following special characters: + -
+-- = . _ : \/ \@.
+createAgent_tags :: Lens.Lens' CreateAgent (Prelude.Maybe [TagListEntry])
+createAgent_tags = Lens.lens (\CreateAgent' {tags} -> tags) (\s@CreateAgent' {} a -> s {tags = a} :: CreateAgent) Prelude.. Lens.mapping Lens.coerced
+
 -- | The ID of the VPC (virtual private cloud) endpoint that the agent has
 -- access to. This is the client-side VPC endpoint, also called a
 -- PrivateLink. If you don\'t have a PrivateLink VPC endpoint, see
@@ -226,12 +232,6 @@ createAgent_subnetArns = Lens.lens (\CreateAgent' {subnetArns} -> subnetArns) (\
 -- VPC endpoint ID looks like this: @vpce-01234d5aff67890e1@.
 createAgent_vpcEndpointId :: Lens.Lens' CreateAgent (Prelude.Maybe Prelude.Text)
 createAgent_vpcEndpointId = Lens.lens (\CreateAgent' {vpcEndpointId} -> vpcEndpointId) (\s@CreateAgent' {} a -> s {vpcEndpointId = a} :: CreateAgent)
-
--- | The ARNs of the security groups used to protect your data transfer task
--- subnets. See
--- <https://docs.aws.amazon.com/datasync/latest/userguide/API_Ec2Config.html#DataSync-Type-Ec2Config-SecurityGroupArns SecurityGroupArns>.
-createAgent_securityGroupArns :: Lens.Lens' CreateAgent (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-createAgent_securityGroupArns = Lens.lens (\CreateAgent' {securityGroupArns} -> securityGroupArns) (\s@CreateAgent' {} a -> s {securityGroupArns = a} :: CreateAgent) Prelude.. Lens.mapping Lens.coerced
 
 -- | Your agent activation key. You can get the activation key either by
 -- sending an HTTP GET request with redirects that enable you to get the
@@ -263,20 +263,20 @@ instance Core.AWSRequest CreateAgent where
 
 instance Prelude.Hashable CreateAgent where
   hashWithSalt _salt CreateAgent' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` agentName
-      `Prelude.hashWithSalt` subnetArns
-      `Prelude.hashWithSalt` vpcEndpointId
+    _salt `Prelude.hashWithSalt` agentName
       `Prelude.hashWithSalt` securityGroupArns
+      `Prelude.hashWithSalt` subnetArns
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` vpcEndpointId
       `Prelude.hashWithSalt` activationKey
 
 instance Prelude.NFData CreateAgent where
   rnf CreateAgent' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf agentName
-      `Prelude.seq` Prelude.rnf subnetArns
-      `Prelude.seq` Prelude.rnf vpcEndpointId
+    Prelude.rnf agentName
       `Prelude.seq` Prelude.rnf securityGroupArns
+      `Prelude.seq` Prelude.rnf subnetArns
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf vpcEndpointId
       `Prelude.seq` Prelude.rnf activationKey
 
 instance Data.ToHeaders CreateAgent where
@@ -296,12 +296,12 @@ instance Data.ToJSON CreateAgent where
   toJSON CreateAgent' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("AgentName" Data..=) Prelude.<$> agentName,
-            ("SubnetArns" Data..=) Prelude.<$> subnetArns,
-            ("VpcEndpointId" Data..=) Prelude.<$> vpcEndpointId,
+          [ ("AgentName" Data..=) Prelude.<$> agentName,
             ("SecurityGroupArns" Data..=)
               Prelude.<$> securityGroupArns,
+            ("SubnetArns" Data..=) Prelude.<$> subnetArns,
+            ("Tags" Data..=) Prelude.<$> tags,
+            ("VpcEndpointId" Data..=) Prelude.<$> vpcEndpointId,
             Prelude.Just
               ("ActivationKey" Data..= activationKey)
           ]

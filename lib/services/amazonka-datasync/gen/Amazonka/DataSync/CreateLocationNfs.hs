@@ -28,8 +28,8 @@ module Amazonka.DataSync.CreateLocationNfs
     newCreateLocationNfs,
 
     -- * Request Lenses
-    createLocationNfs_tags,
     createLocationNfs_mountOptions,
+    createLocationNfs_tags,
     createLocationNfs_subdirectory,
     createLocationNfs_serverHostname,
     createLocationNfs_onPremConfig,
@@ -56,12 +56,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateLocationNfs' smart constructor.
 data CreateLocationNfs = CreateLocationNfs'
-  { -- | The key-value pair that represents the tag that you want to add to the
+  { -- | The NFS mount options that DataSync can use to mount your NFS share.
+    mountOptions :: Prelude.Maybe NfsMountOptions,
+    -- | The key-value pair that represents the tag that you want to add to the
     -- location. The value can be an empty string. We recommend using tags to
     -- name your resources.
     tags :: Prelude.Maybe [TagListEntry],
-    -- | The NFS mount options that DataSync can use to mount your NFS share.
-    mountOptions :: Prelude.Maybe NfsMountOptions,
     -- | The subdirectory in the NFS file system that is used to read data from
     -- the NFS source location or write data to the NFS destination. The NFS
     -- path should be a path that\'s exported by the NFS server, or a
@@ -118,11 +118,11 @@ data CreateLocationNfs = CreateLocationNfs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'mountOptions', 'createLocationNfs_mountOptions' - The NFS mount options that DataSync can use to mount your NFS share.
+--
 -- 'tags', 'createLocationNfs_tags' - The key-value pair that represents the tag that you want to add to the
 -- location. The value can be an empty string. We recommend using tags to
 -- name your resources.
---
--- 'mountOptions', 'createLocationNfs_mountOptions' - The NFS mount options that DataSync can use to mount your NFS share.
 --
 -- 'subdirectory', 'createLocationNfs_subdirectory' - The subdirectory in the NFS file system that is used to read data from
 -- the NFS source location or write data to the NFS destination. The NFS
@@ -181,22 +181,22 @@ newCreateLocationNfs
   pServerHostname_
   pOnPremConfig_ =
     CreateLocationNfs'
-      { tags = Prelude.Nothing,
-        mountOptions = Prelude.Nothing,
+      { mountOptions = Prelude.Nothing,
+        tags = Prelude.Nothing,
         subdirectory = pSubdirectory_,
         serverHostname = pServerHostname_,
         onPremConfig = pOnPremConfig_
       }
+
+-- | The NFS mount options that DataSync can use to mount your NFS share.
+createLocationNfs_mountOptions :: Lens.Lens' CreateLocationNfs (Prelude.Maybe NfsMountOptions)
+createLocationNfs_mountOptions = Lens.lens (\CreateLocationNfs' {mountOptions} -> mountOptions) (\s@CreateLocationNfs' {} a -> s {mountOptions = a} :: CreateLocationNfs)
 
 -- | The key-value pair that represents the tag that you want to add to the
 -- location. The value can be an empty string. We recommend using tags to
 -- name your resources.
 createLocationNfs_tags :: Lens.Lens' CreateLocationNfs (Prelude.Maybe [TagListEntry])
 createLocationNfs_tags = Lens.lens (\CreateLocationNfs' {tags} -> tags) (\s@CreateLocationNfs' {} a -> s {tags = a} :: CreateLocationNfs) Prelude.. Lens.mapping Lens.coerced
-
--- | The NFS mount options that DataSync can use to mount your NFS share.
-createLocationNfs_mountOptions :: Lens.Lens' CreateLocationNfs (Prelude.Maybe NfsMountOptions)
-createLocationNfs_mountOptions = Lens.lens (\CreateLocationNfs' {mountOptions} -> mountOptions) (\s@CreateLocationNfs' {} a -> s {mountOptions = a} :: CreateLocationNfs)
 
 -- | The subdirectory in the NFS file system that is used to read data from
 -- the NFS source location or write data to the NFS destination. The NFS
@@ -265,16 +265,16 @@ instance Core.AWSRequest CreateLocationNfs where
 
 instance Prelude.Hashable CreateLocationNfs where
   hashWithSalt _salt CreateLocationNfs' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` mountOptions
+    _salt `Prelude.hashWithSalt` mountOptions
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` subdirectory
       `Prelude.hashWithSalt` serverHostname
       `Prelude.hashWithSalt` onPremConfig
 
 instance Prelude.NFData CreateLocationNfs where
   rnf CreateLocationNfs' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf mountOptions
+    Prelude.rnf mountOptions
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf subdirectory
       `Prelude.seq` Prelude.rnf serverHostname
       `Prelude.seq` Prelude.rnf onPremConfig
@@ -298,8 +298,8 @@ instance Data.ToJSON CreateLocationNfs where
   toJSON CreateLocationNfs' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("MountOptions" Data..=) Prelude.<$> mountOptions,
+          [ ("MountOptions" Data..=) Prelude.<$> mountOptions,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Subdirectory" Data..= subdirectory),
             Prelude.Just
               ("ServerHostname" Data..= serverHostname),

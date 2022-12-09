@@ -35,10 +35,10 @@ import qualified Amazonka.Prelude as Prelude
 data TaskListEntry = TaskListEntry'
   { -- | The name of the task.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the task.
-    taskArn :: Prelude.Maybe Prelude.Text,
     -- | The status of the task.
-    status :: Prelude.Maybe TaskStatus
+    status :: Prelude.Maybe TaskStatus,
+    -- | The Amazon Resource Name (ARN) of the task.
+    taskArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,29 +52,29 @@ data TaskListEntry = TaskListEntry'
 --
 -- 'name', 'taskListEntry_name' - The name of the task.
 --
--- 'taskArn', 'taskListEntry_taskArn' - The Amazon Resource Name (ARN) of the task.
---
 -- 'status', 'taskListEntry_status' - The status of the task.
+--
+-- 'taskArn', 'taskListEntry_taskArn' - The Amazon Resource Name (ARN) of the task.
 newTaskListEntry ::
   TaskListEntry
 newTaskListEntry =
   TaskListEntry'
     { name = Prelude.Nothing,
-      taskArn = Prelude.Nothing,
-      status = Prelude.Nothing
+      status = Prelude.Nothing,
+      taskArn = Prelude.Nothing
     }
 
 -- | The name of the task.
 taskListEntry_name :: Lens.Lens' TaskListEntry (Prelude.Maybe Prelude.Text)
 taskListEntry_name = Lens.lens (\TaskListEntry' {name} -> name) (\s@TaskListEntry' {} a -> s {name = a} :: TaskListEntry)
 
--- | The Amazon Resource Name (ARN) of the task.
-taskListEntry_taskArn :: Lens.Lens' TaskListEntry (Prelude.Maybe Prelude.Text)
-taskListEntry_taskArn = Lens.lens (\TaskListEntry' {taskArn} -> taskArn) (\s@TaskListEntry' {} a -> s {taskArn = a} :: TaskListEntry)
-
 -- | The status of the task.
 taskListEntry_status :: Lens.Lens' TaskListEntry (Prelude.Maybe TaskStatus)
 taskListEntry_status = Lens.lens (\TaskListEntry' {status} -> status) (\s@TaskListEntry' {} a -> s {status = a} :: TaskListEntry)
+
+-- | The Amazon Resource Name (ARN) of the task.
+taskListEntry_taskArn :: Lens.Lens' TaskListEntry (Prelude.Maybe Prelude.Text)
+taskListEntry_taskArn = Lens.lens (\TaskListEntry' {taskArn} -> taskArn) (\s@TaskListEntry' {} a -> s {taskArn = a} :: TaskListEntry)
 
 instance Data.FromJSON TaskListEntry where
   parseJSON =
@@ -83,18 +83,18 @@ instance Data.FromJSON TaskListEntry where
       ( \x ->
           TaskListEntry'
             Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "TaskArn")
             Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "TaskArn")
       )
 
 instance Prelude.Hashable TaskListEntry where
   hashWithSalt _salt TaskListEntry' {..} =
     _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` taskArn
       `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` taskArn
 
 instance Prelude.NFData TaskListEntry where
   rnf TaskListEntry' {..} =
     Prelude.rnf name
-      `Prelude.seq` Prelude.rnf taskArn
       `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf taskArn

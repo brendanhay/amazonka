@@ -29,9 +29,9 @@ module Amazonka.DataSync.ListTaskExecutions
     newListTaskExecutions,
 
     -- * Request Lenses
+    listTaskExecutions_maxResults,
     listTaskExecutions_nextToken,
     listTaskExecutions_taskArn,
-    listTaskExecutions_maxResults,
 
     -- * Destructuring the Response
     ListTaskExecutionsResponse (..),
@@ -56,13 +56,13 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListTaskExecutions' smart constructor.
 data ListTaskExecutions = ListTaskExecutions'
-  { -- | An opaque string that indicates the position at which to begin the next
+  { -- | The maximum number of executed tasks to list.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | An opaque string that indicates the position at which to begin the next
     -- list of the executed tasks.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the task whose tasks you want to list.
-    taskArn :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of executed tasks to list.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    taskArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,20 +74,24 @@ data ListTaskExecutions = ListTaskExecutions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listTaskExecutions_maxResults' - The maximum number of executed tasks to list.
+--
 -- 'nextToken', 'listTaskExecutions_nextToken' - An opaque string that indicates the position at which to begin the next
 -- list of the executed tasks.
 --
 -- 'taskArn', 'listTaskExecutions_taskArn' - The Amazon Resource Name (ARN) of the task whose tasks you want to list.
---
--- 'maxResults', 'listTaskExecutions_maxResults' - The maximum number of executed tasks to list.
 newListTaskExecutions ::
   ListTaskExecutions
 newListTaskExecutions =
   ListTaskExecutions'
-    { nextToken = Prelude.Nothing,
-      taskArn = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      taskArn = Prelude.Nothing
     }
+
+-- | The maximum number of executed tasks to list.
+listTaskExecutions_maxResults :: Lens.Lens' ListTaskExecutions (Prelude.Maybe Prelude.Natural)
+listTaskExecutions_maxResults = Lens.lens (\ListTaskExecutions' {maxResults} -> maxResults) (\s@ListTaskExecutions' {} a -> s {maxResults = a} :: ListTaskExecutions)
 
 -- | An opaque string that indicates the position at which to begin the next
 -- list of the executed tasks.
@@ -97,10 +101,6 @@ listTaskExecutions_nextToken = Lens.lens (\ListTaskExecutions' {nextToken} -> ne
 -- | The Amazon Resource Name (ARN) of the task whose tasks you want to list.
 listTaskExecutions_taskArn :: Lens.Lens' ListTaskExecutions (Prelude.Maybe Prelude.Text)
 listTaskExecutions_taskArn = Lens.lens (\ListTaskExecutions' {taskArn} -> taskArn) (\s@ListTaskExecutions' {} a -> s {taskArn = a} :: ListTaskExecutions)
-
--- | The maximum number of executed tasks to list.
-listTaskExecutions_maxResults :: Lens.Lens' ListTaskExecutions (Prelude.Maybe Prelude.Natural)
-listTaskExecutions_maxResults = Lens.lens (\ListTaskExecutions' {maxResults} -> maxResults) (\s@ListTaskExecutions' {} a -> s {maxResults = a} :: ListTaskExecutions)
 
 instance Core.AWSPager ListTaskExecutions where
   page rq rs
@@ -141,15 +141,15 @@ instance Core.AWSRequest ListTaskExecutions where
 
 instance Prelude.Hashable ListTaskExecutions where
   hashWithSalt _salt ListTaskExecutions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` taskArn
-      `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListTaskExecutions where
   rnf ListTaskExecutions' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf taskArn
-      `Prelude.seq` Prelude.rnf maxResults
 
 instance Data.ToHeaders ListTaskExecutions where
   toHeaders =
@@ -170,9 +170,9 @@ instance Data.ToJSON ListTaskExecutions where
   toJSON ListTaskExecutions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("TaskArn" Data..=) Prelude.<$> taskArn,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("TaskArn" Data..=) Prelude.<$> taskArn
           ]
       )
 

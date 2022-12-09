@@ -32,8 +32,8 @@ module Amazonka.DataSync.CreateLocationFsxOpenZfs
     newCreateLocationFsxOpenZfs,
 
     -- * Request Lenses
-    createLocationFsxOpenZfs_tags,
     createLocationFsxOpenZfs_subdirectory,
+    createLocationFsxOpenZfs_tags,
     createLocationFsxOpenZfs_fsxFilesystemArn,
     createLocationFsxOpenZfs_protocol,
     createLocationFsxOpenZfs_securityGroupArns,
@@ -58,15 +58,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateLocationFsxOpenZfs' smart constructor.
 data CreateLocationFsxOpenZfs = CreateLocationFsxOpenZfs'
-  { -- | The key-value pair that represents a tag that you want to add to the
+  { -- | A subdirectory in the location\'s path that must begin with @\/fsx@.
+    -- DataSync uses this subdirectory to read or write data (depending on
+    -- whether the file system is a source or destination location).
+    subdirectory :: Prelude.Maybe Prelude.Text,
+    -- | The key-value pair that represents a tag that you want to add to the
     -- resource. The value can be an empty string. This value helps you manage,
     -- filter, and search for your resources. We recommend that you create a
     -- name tag for your location.
     tags :: Prelude.Maybe [TagListEntry],
-    -- | A subdirectory in the location\'s path that must begin with @\/fsx@.
-    -- DataSync uses this subdirectory to read or write data (depending on
-    -- whether the file system is a source or destination location).
-    subdirectory :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the FSx for OpenZFS file system.
     fsxFilesystemArn :: Prelude.Text,
     -- | The type of protocol that DataSync uses to access your file system.
@@ -85,14 +85,14 @@ data CreateLocationFsxOpenZfs = CreateLocationFsxOpenZfs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'subdirectory', 'createLocationFsxOpenZfs_subdirectory' - A subdirectory in the location\'s path that must begin with @\/fsx@.
+-- DataSync uses this subdirectory to read or write data (depending on
+-- whether the file system is a source or destination location).
+--
 -- 'tags', 'createLocationFsxOpenZfs_tags' - The key-value pair that represents a tag that you want to add to the
 -- resource. The value can be an empty string. This value helps you manage,
 -- filter, and search for your resources. We recommend that you create a
 -- name tag for your location.
---
--- 'subdirectory', 'createLocationFsxOpenZfs_subdirectory' - A subdirectory in the location\'s path that must begin with @\/fsx@.
--- DataSync uses this subdirectory to read or write data (depending on
--- whether the file system is a source or destination location).
 --
 -- 'fsxFilesystemArn', 'createLocationFsxOpenZfs_fsxFilesystemArn' - The Amazon Resource Name (ARN) of the FSx for OpenZFS file system.
 --
@@ -113,13 +113,20 @@ newCreateLocationFsxOpenZfs
   pProtocol_
   pSecurityGroupArns_ =
     CreateLocationFsxOpenZfs'
-      { tags = Prelude.Nothing,
-        subdirectory = Prelude.Nothing,
+      { subdirectory =
+          Prelude.Nothing,
+        tags = Prelude.Nothing,
         fsxFilesystemArn = pFsxFilesystemArn_,
         protocol = pProtocol_,
         securityGroupArns =
           Lens.coerced Lens.# pSecurityGroupArns_
       }
+
+-- | A subdirectory in the location\'s path that must begin with @\/fsx@.
+-- DataSync uses this subdirectory to read or write data (depending on
+-- whether the file system is a source or destination location).
+createLocationFsxOpenZfs_subdirectory :: Lens.Lens' CreateLocationFsxOpenZfs (Prelude.Maybe Prelude.Text)
+createLocationFsxOpenZfs_subdirectory = Lens.lens (\CreateLocationFsxOpenZfs' {subdirectory} -> subdirectory) (\s@CreateLocationFsxOpenZfs' {} a -> s {subdirectory = a} :: CreateLocationFsxOpenZfs)
 
 -- | The key-value pair that represents a tag that you want to add to the
 -- resource. The value can be an empty string. This value helps you manage,
@@ -127,12 +134,6 @@ newCreateLocationFsxOpenZfs
 -- name tag for your location.
 createLocationFsxOpenZfs_tags :: Lens.Lens' CreateLocationFsxOpenZfs (Prelude.Maybe [TagListEntry])
 createLocationFsxOpenZfs_tags = Lens.lens (\CreateLocationFsxOpenZfs' {tags} -> tags) (\s@CreateLocationFsxOpenZfs' {} a -> s {tags = a} :: CreateLocationFsxOpenZfs) Prelude.. Lens.mapping Lens.coerced
-
--- | A subdirectory in the location\'s path that must begin with @\/fsx@.
--- DataSync uses this subdirectory to read or write data (depending on
--- whether the file system is a source or destination location).
-createLocationFsxOpenZfs_subdirectory :: Lens.Lens' CreateLocationFsxOpenZfs (Prelude.Maybe Prelude.Text)
-createLocationFsxOpenZfs_subdirectory = Lens.lens (\CreateLocationFsxOpenZfs' {subdirectory} -> subdirectory) (\s@CreateLocationFsxOpenZfs' {} a -> s {subdirectory = a} :: CreateLocationFsxOpenZfs)
 
 -- | The Amazon Resource Name (ARN) of the FSx for OpenZFS file system.
 createLocationFsxOpenZfs_fsxFilesystemArn :: Lens.Lens' CreateLocationFsxOpenZfs Prelude.Text
@@ -163,16 +164,16 @@ instance Core.AWSRequest CreateLocationFsxOpenZfs where
 
 instance Prelude.Hashable CreateLocationFsxOpenZfs where
   hashWithSalt _salt CreateLocationFsxOpenZfs' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` subdirectory
+    _salt `Prelude.hashWithSalt` subdirectory
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` fsxFilesystemArn
       `Prelude.hashWithSalt` protocol
       `Prelude.hashWithSalt` securityGroupArns
 
 instance Prelude.NFData CreateLocationFsxOpenZfs where
   rnf CreateLocationFsxOpenZfs' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf subdirectory
+    Prelude.rnf subdirectory
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf fsxFilesystemArn
       `Prelude.seq` Prelude.rnf protocol
       `Prelude.seq` Prelude.rnf securityGroupArns
@@ -196,8 +197,8 @@ instance Data.ToJSON CreateLocationFsxOpenZfs where
   toJSON CreateLocationFsxOpenZfs' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Subdirectory" Data..=) Prelude.<$> subdirectory,
+          [ ("Subdirectory" Data..=) Prelude.<$> subdirectory,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("FsxFilesystemArn" Data..= fsxFilesystemArn),
             Prelude.Just ("Protocol" Data..= protocol),

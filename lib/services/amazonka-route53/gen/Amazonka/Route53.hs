@@ -24,203 +24,152 @@ module Amazonka.Route53
     -- * Errors
     -- $errors
 
-    -- ** NoSuchKeySigningKey
-    _NoSuchKeySigningKey,
-
-    -- ** InvalidInput
-    _InvalidInput,
-
-    -- ** TrafficPolicyInUse
-    _TrafficPolicyInUse,
-
-    -- ** DelegationSetNotAvailable
-    _DelegationSetNotAvailable,
-
-    -- ** NoSuchCloudWatchLogsLogGroup
-    _NoSuchCloudWatchLogsLogGroup,
-
-    -- ** InvalidKeySigningKeyStatus
-    _InvalidKeySigningKeyStatus,
-
-    -- ** NoSuchHealthCheck
-    _NoSuchHealthCheck,
-
-    -- ** VPCAssociationNotFound
-    _VPCAssociationNotFound,
-
-    -- ** InvalidSigningStatus
-    _InvalidSigningStatus,
-
-    -- ** NoSuchCidrCollectionException
-    _NoSuchCidrCollectionException,
-
-    -- ** TooManyTrafficPolicies
-    _TooManyTrafficPolicies,
-
-    -- ** IncompatibleVersion
-    _IncompatibleVersion,
-
-    -- ** KeySigningKeyInUse
-    _KeySigningKeyInUse,
-
-    -- ** InvalidVPCId
-    _InvalidVPCId,
-
-    -- ** PriorRequestNotComplete
-    _PriorRequestNotComplete,
-
-    -- ** HealthCheckInUse
-    _HealthCheckInUse,
-
-    -- ** NoSuchChange
-    _NoSuchChange,
-
-    -- ** HostedZoneNotPrivate
-    _HostedZoneNotPrivate,
-
-    -- ** ConcurrentModification
-    _ConcurrentModification,
-
-    -- ** PublicZoneVPCAssociation
-    _PublicZoneVPCAssociation,
-
-    -- ** TooManyKeySigningKeys
-    _TooManyKeySigningKeys,
-
-    -- ** LastVPCAssociation
-    _LastVPCAssociation,
-
-    -- ** HealthCheckAlreadyExists
-    _HealthCheckAlreadyExists,
-
-    -- ** KeySigningKeyInParentDSRecord
-    _KeySigningKeyInParentDSRecord,
-
-    -- ** InvalidDomainName
-    _InvalidDomainName,
-
-    -- ** InvalidChangeBatch
-    _InvalidChangeBatch,
-
-    -- ** KeySigningKeyWithActiveStatusNotFound
-    _KeySigningKeyWithActiveStatusNotFound,
-
-    -- ** TooManyVPCAssociationAuthorizations
-    _TooManyVPCAssociationAuthorizations,
-
-    -- ** InvalidKMSArn
-    _InvalidKMSArn,
+    -- ** CidrBlockInUseException
+    _CidrBlockInUseException,
 
     -- ** CidrCollectionAlreadyExistsException
     _CidrCollectionAlreadyExistsException,
 
-    -- ** InvalidArgument
-    _InvalidArgument,
-
-    -- ** DelegationSetAlreadyCreated
-    _DelegationSetAlreadyCreated,
-
     -- ** CidrCollectionInUseException
     _CidrCollectionInUseException,
-
-    -- ** NoSuchDelegationSet
-    _NoSuchDelegationSet,
-
-    -- ** VPCAssociationAuthorizationNotFound
-    _VPCAssociationAuthorizationNotFound,
-
-    -- ** HostedZoneNotFound
-    _HostedZoneNotFound,
-
-    -- ** DelegationSetInUse
-    _DelegationSetInUse,
-
-    -- ** HealthCheckVersionMismatch
-    _HealthCheckVersionMismatch,
-
-    -- ** NoSuchCidrLocationException
-    _NoSuchCidrLocationException,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
-
-    -- ** CidrBlockInUseException
-    _CidrBlockInUseException,
-
-    -- ** NoSuchHostedZone
-    _NoSuchHostedZone,
-
-    -- ** HostedZoneAlreadyExists
-    _HostedZoneAlreadyExists,
-
-    -- ** DNSSECNotFound
-    _DNSSECNotFound,
-
-    -- ** TrafficPolicyAlreadyExists
-    _TrafficPolicyAlreadyExists,
-
-    -- ** DelegationSetAlreadyReusable
-    _DelegationSetAlreadyReusable,
-
-    -- ** TooManyHostedZones
-    _TooManyHostedZones,
-
-    -- ** TooManyHealthChecks
-    _TooManyHealthChecks,
-
-    -- ** KeySigningKeyAlreadyExists
-    _KeySigningKeyAlreadyExists,
-
-    -- ** InsufficientCloudWatchLogsResourcePolicy
-    _InsufficientCloudWatchLogsResourcePolicy,
-
-    -- ** QueryLoggingConfigAlreadyExists
-    _QueryLoggingConfigAlreadyExists,
-
-    -- ** InvalidPaginationToken
-    _InvalidPaginationToken,
-
-    -- ** ConflictingTypes
-    _ConflictingTypes,
-
-    -- ** InvalidKeySigningKeyName
-    _InvalidKeySigningKeyName,
-
-    -- ** TooManyTrafficPolicyVersionsForCurrentPolicy
-    _TooManyTrafficPolicyVersionsForCurrentPolicy,
 
     -- ** CidrCollectionVersionMismatchException
     _CidrCollectionVersionMismatchException,
 
-    -- ** HostedZoneNotEmpty
-    _HostedZoneNotEmpty,
-
-    -- ** DelegationSetNotReusable
-    _DelegationSetNotReusable,
-
-    -- ** HostedZonePartiallyDelegated
-    _HostedZonePartiallyDelegated,
+    -- ** ConcurrentModification
+    _ConcurrentModification,
 
     -- ** ConflictingDomainExists
     _ConflictingDomainExists,
 
+    -- ** ConflictingTypes
+    _ConflictingTypes,
+
+    -- ** DNSSECNotFound
+    _DNSSECNotFound,
+
+    -- ** DelegationSetAlreadyCreated
+    _DelegationSetAlreadyCreated,
+
+    -- ** DelegationSetAlreadyReusable
+    _DelegationSetAlreadyReusable,
+
+    -- ** DelegationSetInUse
+    _DelegationSetInUse,
+
+    -- ** DelegationSetNotAvailable
+    _DelegationSetNotAvailable,
+
+    -- ** DelegationSetNotReusable
+    _DelegationSetNotReusable,
+
+    -- ** HealthCheckAlreadyExists
+    _HealthCheckAlreadyExists,
+
+    -- ** HealthCheckInUse
+    _HealthCheckInUse,
+
+    -- ** HealthCheckVersionMismatch
+    _HealthCheckVersionMismatch,
+
+    -- ** HostedZoneAlreadyExists
+    _HostedZoneAlreadyExists,
+
+    -- ** HostedZoneNotEmpty
+    _HostedZoneNotEmpty,
+
+    -- ** HostedZoneNotFound
+    _HostedZoneNotFound,
+
+    -- ** HostedZoneNotPrivate
+    _HostedZoneNotPrivate,
+
+    -- ** HostedZonePartiallyDelegated
+    _HostedZonePartiallyDelegated,
+
+    -- ** IncompatibleVersion
+    _IncompatibleVersion,
+
+    -- ** InsufficientCloudWatchLogsResourcePolicy
+    _InsufficientCloudWatchLogsResourcePolicy,
+
+    -- ** InvalidArgument
+    _InvalidArgument,
+
+    -- ** InvalidChangeBatch
+    _InvalidChangeBatch,
+
+    -- ** InvalidDomainName
+    _InvalidDomainName,
+
+    -- ** InvalidInput
+    _InvalidInput,
+
+    -- ** InvalidKMSArn
+    _InvalidKMSArn,
+
+    -- ** InvalidKeySigningKeyName
+    _InvalidKeySigningKeyName,
+
+    -- ** InvalidKeySigningKeyStatus
+    _InvalidKeySigningKeyStatus,
+
+    -- ** InvalidPaginationToken
+    _InvalidPaginationToken,
+
+    -- ** InvalidSigningStatus
+    _InvalidSigningStatus,
+
+    -- ** InvalidTrafficPolicyDocument
+    _InvalidTrafficPolicyDocument,
+
+    -- ** InvalidVPCId
+    _InvalidVPCId,
+
+    -- ** KeySigningKeyAlreadyExists
+    _KeySigningKeyAlreadyExists,
+
+    -- ** KeySigningKeyInParentDSRecord
+    _KeySigningKeyInParentDSRecord,
+
+    -- ** KeySigningKeyInUse
+    _KeySigningKeyInUse,
+
+    -- ** KeySigningKeyWithActiveStatusNotFound
+    _KeySigningKeyWithActiveStatusNotFound,
+
+    -- ** LastVPCAssociation
+    _LastVPCAssociation,
+
     -- ** LimitsExceeded
     _LimitsExceeded,
 
-    -- ** TooManyTrafficPolicyInstances
-    _TooManyTrafficPolicyInstances,
+    -- ** NoSuchChange
+    _NoSuchChange,
+
+    -- ** NoSuchCidrCollectionException
+    _NoSuchCidrCollectionException,
+
+    -- ** NoSuchCidrLocationException
+    _NoSuchCidrLocationException,
+
+    -- ** NoSuchCloudWatchLogsLogGroup
+    _NoSuchCloudWatchLogsLogGroup,
+
+    -- ** NoSuchDelegationSet
+    _NoSuchDelegationSet,
 
     -- ** NoSuchGeoLocation
     _NoSuchGeoLocation,
 
-    -- ** NotAuthorizedException
-    _NotAuthorizedException,
+    -- ** NoSuchHealthCheck
+    _NoSuchHealthCheck,
 
-    -- ** NoSuchTrafficPolicyInstance
-    _NoSuchTrafficPolicyInstance,
+    -- ** NoSuchHostedZone
+    _NoSuchHostedZone,
 
-    -- ** InvalidTrafficPolicyDocument
-    _InvalidTrafficPolicyDocument,
+    -- ** NoSuchKeySigningKey
+    _NoSuchKeySigningKey,
 
     -- ** NoSuchQueryLoggingConfig
     _NoSuchQueryLoggingConfig,
@@ -228,8 +177,59 @@ module Amazonka.Route53
     -- ** NoSuchTrafficPolicy
     _NoSuchTrafficPolicy,
 
+    -- ** NoSuchTrafficPolicyInstance
+    _NoSuchTrafficPolicyInstance,
+
+    -- ** NotAuthorizedException
+    _NotAuthorizedException,
+
+    -- ** PriorRequestNotComplete
+    _PriorRequestNotComplete,
+
+    -- ** PublicZoneVPCAssociation
+    _PublicZoneVPCAssociation,
+
+    -- ** QueryLoggingConfigAlreadyExists
+    _QueryLoggingConfigAlreadyExists,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** TooManyHealthChecks
+    _TooManyHealthChecks,
+
+    -- ** TooManyHostedZones
+    _TooManyHostedZones,
+
+    -- ** TooManyKeySigningKeys
+    _TooManyKeySigningKeys,
+
+    -- ** TooManyTrafficPolicies
+    _TooManyTrafficPolicies,
+
+    -- ** TooManyTrafficPolicyInstances
+    _TooManyTrafficPolicyInstances,
+
+    -- ** TooManyTrafficPolicyVersionsForCurrentPolicy
+    _TooManyTrafficPolicyVersionsForCurrentPolicy,
+
+    -- ** TooManyVPCAssociationAuthorizations
+    _TooManyVPCAssociationAuthorizations,
+
+    -- ** TrafficPolicyAlreadyExists
+    _TrafficPolicyAlreadyExists,
+
+    -- ** TrafficPolicyInUse
+    _TrafficPolicyInUse,
+
     -- ** TrafficPolicyInstanceAlreadyExists
     _TrafficPolicyInstanceAlreadyExists,
+
+    -- ** VPCAssociationAuthorizationNotFound
+    _VPCAssociationAuthorizationNotFound,
+
+    -- ** VPCAssociationNotFound
+    _VPCAssociationNotFound,
 
     -- * Waiters
     -- $waiters

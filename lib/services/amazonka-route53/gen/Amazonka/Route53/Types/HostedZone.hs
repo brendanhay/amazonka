@@ -31,15 +31,15 @@ import Amazonka.Route53.Types.LinkedService
 --
 -- /See:/ 'newHostedZone' smart constructor.
 data HostedZone = HostedZone'
-  { -- | If the hosted zone was created by another service, the service that
-    -- created the hosted zone. When a hosted zone is created by another
-    -- service, you can\'t edit or delete it using Route 53.
-    linkedService :: Prelude.Maybe LinkedService,
-    -- | A complex type that includes the @Comment@ and @PrivateZone@ elements.
+  { -- | A complex type that includes the @Comment@ and @PrivateZone@ elements.
     -- If you omitted the @HostedZoneConfig@ and @Comment@ elements from the
     -- request, the @Config@ and @Comment@ elements don\'t appear in the
     -- response.
     config :: Prelude.Maybe HostedZoneConfig,
+    -- | If the hosted zone was created by another service, the service that
+    -- created the hosted zone. When a hosted zone is created by another
+    -- service, you can\'t edit or delete it using Route 53.
+    linkedService :: Prelude.Maybe LinkedService,
     -- | The number of resource record sets in the hosted zone.
     resourceRecordSetCount :: Prelude.Maybe Prelude.Integer,
     -- | The ID that Amazon Route 53 assigned to the hosted zone when you created
@@ -66,14 +66,14 @@ data HostedZone = HostedZone'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'linkedService', 'hostedZone_linkedService' - If the hosted zone was created by another service, the service that
--- created the hosted zone. When a hosted zone is created by another
--- service, you can\'t edit or delete it using Route 53.
---
 -- 'config', 'hostedZone_config' - A complex type that includes the @Comment@ and @PrivateZone@ elements.
 -- If you omitted the @HostedZoneConfig@ and @Comment@ elements from the
 -- request, the @Config@ and @Comment@ elements don\'t appear in the
 -- response.
+--
+-- 'linkedService', 'hostedZone_linkedService' - If the hosted zone was created by another service, the service that
+-- created the hosted zone. When a hosted zone is created by another
+-- service, you can\'t edit or delete it using Route 53.
 --
 -- 'resourceRecordSetCount', 'hostedZone_resourceRecordSetCount' - The number of resource record sets in the hosted zone.
 --
@@ -99,19 +99,13 @@ newHostedZone ::
   HostedZone
 newHostedZone pId_ pName_ pCallerReference_ =
   HostedZone'
-    { linkedService = Prelude.Nothing,
-      config = Prelude.Nothing,
+    { config = Prelude.Nothing,
+      linkedService = Prelude.Nothing,
       resourceRecordSetCount = Prelude.Nothing,
       id = pId_,
       name = pName_,
       callerReference = pCallerReference_
     }
-
--- | If the hosted zone was created by another service, the service that
--- created the hosted zone. When a hosted zone is created by another
--- service, you can\'t edit or delete it using Route 53.
-hostedZone_linkedService :: Lens.Lens' HostedZone (Prelude.Maybe LinkedService)
-hostedZone_linkedService = Lens.lens (\HostedZone' {linkedService} -> linkedService) (\s@HostedZone' {} a -> s {linkedService = a} :: HostedZone)
 
 -- | A complex type that includes the @Comment@ and @PrivateZone@ elements.
 -- If you omitted the @HostedZoneConfig@ and @Comment@ elements from the
@@ -119,6 +113,12 @@ hostedZone_linkedService = Lens.lens (\HostedZone' {linkedService} -> linkedServ
 -- response.
 hostedZone_config :: Lens.Lens' HostedZone (Prelude.Maybe HostedZoneConfig)
 hostedZone_config = Lens.lens (\HostedZone' {config} -> config) (\s@HostedZone' {} a -> s {config = a} :: HostedZone)
+
+-- | If the hosted zone was created by another service, the service that
+-- created the hosted zone. When a hosted zone is created by another
+-- service, you can\'t edit or delete it using Route 53.
+hostedZone_linkedService :: Lens.Lens' HostedZone (Prelude.Maybe LinkedService)
+hostedZone_linkedService = Lens.lens (\HostedZone' {linkedService} -> linkedService) (\s@HostedZone' {} a -> s {linkedService = a} :: HostedZone)
 
 -- | The number of resource record sets in the hosted zone.
 hostedZone_resourceRecordSetCount :: Lens.Lens' HostedZone (Prelude.Maybe Prelude.Integer)
@@ -146,8 +146,8 @@ hostedZone_callerReference = Lens.lens (\HostedZone' {callerReference} -> caller
 instance Data.FromXML HostedZone where
   parseXML x =
     HostedZone'
-      Prelude.<$> (x Data..@? "LinkedService")
-      Prelude.<*> (x Data..@? "Config")
+      Prelude.<$> (x Data..@? "Config")
+      Prelude.<*> (x Data..@? "LinkedService")
       Prelude.<*> (x Data..@? "ResourceRecordSetCount")
       Prelude.<*> (x Data..@ "Id")
       Prelude.<*> (x Data..@ "Name")
@@ -155,8 +155,8 @@ instance Data.FromXML HostedZone where
 
 instance Prelude.Hashable HostedZone where
   hashWithSalt _salt HostedZone' {..} =
-    _salt `Prelude.hashWithSalt` linkedService
-      `Prelude.hashWithSalt` config
+    _salt `Prelude.hashWithSalt` config
+      `Prelude.hashWithSalt` linkedService
       `Prelude.hashWithSalt` resourceRecordSetCount
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
@@ -164,8 +164,8 @@ instance Prelude.Hashable HostedZone where
 
 instance Prelude.NFData HostedZone where
   rnf HostedZone' {..} =
-    Prelude.rnf linkedService
-      `Prelude.seq` Prelude.rnf config
+    Prelude.rnf config
+      `Prelude.seq` Prelude.rnf linkedService
       `Prelude.seq` Prelude.rnf resourceRecordSetCount
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf name

@@ -33,14 +33,14 @@ import Amazonka.Route53.Types.TagResourceType
 data ResourceTagSet = ResourceTagSet'
   { -- | The ID for the specified resource.
     resourceId :: Prelude.Maybe Prelude.Text,
-    -- | The tags associated with the specified resource.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The type of the resource.
     --
     -- -   The resource type for health checks is @healthcheck@.
     --
     -- -   The resource type for hosted zones is @hostedzone@.
-    resourceType :: Prelude.Maybe TagResourceType
+    resourceType :: Prelude.Maybe TagResourceType,
+    -- | The tags associated with the specified resource.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,29 +54,25 @@ data ResourceTagSet = ResourceTagSet'
 --
 -- 'resourceId', 'resourceTagSet_resourceId' - The ID for the specified resource.
 --
--- 'tags', 'resourceTagSet_tags' - The tags associated with the specified resource.
---
 -- 'resourceType', 'resourceTagSet_resourceType' - The type of the resource.
 --
 -- -   The resource type for health checks is @healthcheck@.
 --
 -- -   The resource type for hosted zones is @hostedzone@.
+--
+-- 'tags', 'resourceTagSet_tags' - The tags associated with the specified resource.
 newResourceTagSet ::
   ResourceTagSet
 newResourceTagSet =
   ResourceTagSet'
     { resourceId = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      resourceType = Prelude.Nothing
+      resourceType = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
 
 -- | The ID for the specified resource.
 resourceTagSet_resourceId :: Lens.Lens' ResourceTagSet (Prelude.Maybe Prelude.Text)
 resourceTagSet_resourceId = Lens.lens (\ResourceTagSet' {resourceId} -> resourceId) (\s@ResourceTagSet' {} a -> s {resourceId = a} :: ResourceTagSet)
-
--- | The tags associated with the specified resource.
-resourceTagSet_tags :: Lens.Lens' ResourceTagSet (Prelude.Maybe (Prelude.NonEmpty Tag))
-resourceTagSet_tags = Lens.lens (\ResourceTagSet' {tags} -> tags) (\s@ResourceTagSet' {} a -> s {tags = a} :: ResourceTagSet) Prelude.. Lens.mapping Lens.coerced
 
 -- | The type of the resource.
 --
@@ -86,23 +82,27 @@ resourceTagSet_tags = Lens.lens (\ResourceTagSet' {tags} -> tags) (\s@ResourceTa
 resourceTagSet_resourceType :: Lens.Lens' ResourceTagSet (Prelude.Maybe TagResourceType)
 resourceTagSet_resourceType = Lens.lens (\ResourceTagSet' {resourceType} -> resourceType) (\s@ResourceTagSet' {} a -> s {resourceType = a} :: ResourceTagSet)
 
+-- | The tags associated with the specified resource.
+resourceTagSet_tags :: Lens.Lens' ResourceTagSet (Prelude.Maybe (Prelude.NonEmpty Tag))
+resourceTagSet_tags = Lens.lens (\ResourceTagSet' {tags} -> tags) (\s@ResourceTagSet' {} a -> s {tags = a} :: ResourceTagSet) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromXML ResourceTagSet where
   parseXML x =
     ResourceTagSet'
       Prelude.<$> (x Data..@? "ResourceId")
+      Prelude.<*> (x Data..@? "ResourceType")
       Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList1 "Tag")
                   )
-      Prelude.<*> (x Data..@? "ResourceType")
 
 instance Prelude.Hashable ResourceTagSet where
   hashWithSalt _salt ResourceTagSet' {..} =
     _salt `Prelude.hashWithSalt` resourceId
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData ResourceTagSet where
   rnf ResourceTagSet' {..} =
     Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf tags

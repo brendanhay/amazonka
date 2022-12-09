@@ -57,8 +57,8 @@ module Amazonka.Route53.ListHostedZonesByVPC
     newListHostedZonesByVPC,
 
     -- * Request Lenses
-    listHostedZonesByVPC_nextToken,
     listHostedZonesByVPC_maxItems,
+    listHostedZonesByVPC_nextToken,
     listHostedZonesByVPC_vPCId,
     listHostedZonesByVPC_vPCRegion,
 
@@ -88,7 +88,13 @@ import Amazonka.Route53.Types
 --
 -- /See:/ 'newListHostedZonesByVPC' smart constructor.
 data ListHostedZonesByVPC = ListHostedZonesByVPC'
-  { -- | If the previous response included a @NextToken@ element, the specified
+  { -- | (Optional) The maximum number of hosted zones that you want Amazon Route
+    -- 53 to return. If the specified VPC is associated with more than
+    -- @MaxItems@ hosted zones, the response includes a @NextToken@ element.
+    -- @NextToken@ contains an encrypted token that identifies the first hosted
+    -- zone that Route 53 will return if you submit another request.
+    maxItems :: Prelude.Maybe Prelude.Text,
+    -- | If the previous response included a @NextToken@ element, the specified
     -- VPC is associated with more hosted zones. To get more hosted zones,
     -- submit another @ListHostedZonesByVPC@ request.
     --
@@ -98,12 +104,6 @@ data ListHostedZonesByVPC = ListHostedZonesByVPC'
     -- If the previous response didn\'t include a @NextToken@ element, there
     -- are no more hosted zones to get.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | (Optional) The maximum number of hosted zones that you want Amazon Route
-    -- 53 to return. If the specified VPC is associated with more than
-    -- @MaxItems@ hosted zones, the response includes a @NextToken@ element.
-    -- @NextToken@ contains an encrypted token that identifies the first hosted
-    -- zone that Route 53 will return if you submit another request.
-    maxItems :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Amazon VPC that you want to list hosted zones for.
     vPCId :: Prelude.Text,
     -- | For the Amazon VPC that you specified for @VPCId@, the Amazon Web
@@ -120,6 +120,12 @@ data ListHostedZonesByVPC = ListHostedZonesByVPC'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxItems', 'listHostedZonesByVPC_maxItems' - (Optional) The maximum number of hosted zones that you want Amazon Route
+-- 53 to return. If the specified VPC is associated with more than
+-- @MaxItems@ hosted zones, the response includes a @NextToken@ element.
+-- @NextToken@ contains an encrypted token that identifies the first hosted
+-- zone that Route 53 will return if you submit another request.
+--
 -- 'nextToken', 'listHostedZonesByVPC_nextToken' - If the previous response included a @NextToken@ element, the specified
 -- VPC is associated with more hosted zones. To get more hosted zones,
 -- submit another @ListHostedZonesByVPC@ request.
@@ -129,12 +135,6 @@ data ListHostedZonesByVPC = ListHostedZonesByVPC'
 --
 -- If the previous response didn\'t include a @NextToken@ element, there
 -- are no more hosted zones to get.
---
--- 'maxItems', 'listHostedZonesByVPC_maxItems' - (Optional) The maximum number of hosted zones that you want Amazon Route
--- 53 to return. If the specified VPC is associated with more than
--- @MaxItems@ hosted zones, the response includes a @NextToken@ element.
--- @NextToken@ contains an encrypted token that identifies the first hosted
--- zone that Route 53 will return if you submit another request.
 --
 -- 'vPCId', 'listHostedZonesByVPC_vPCId' - The ID of the Amazon VPC that you want to list hosted zones for.
 --
@@ -148,11 +148,19 @@ newListHostedZonesByVPC ::
   ListHostedZonesByVPC
 newListHostedZonesByVPC pVPCId_ pVPCRegion_ =
   ListHostedZonesByVPC'
-    { nextToken = Prelude.Nothing,
-      maxItems = Prelude.Nothing,
+    { maxItems = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       vPCId = pVPCId_,
       vPCRegion = pVPCRegion_
     }
+
+-- | (Optional) The maximum number of hosted zones that you want Amazon Route
+-- 53 to return. If the specified VPC is associated with more than
+-- @MaxItems@ hosted zones, the response includes a @NextToken@ element.
+-- @NextToken@ contains an encrypted token that identifies the first hosted
+-- zone that Route 53 will return if you submit another request.
+listHostedZonesByVPC_maxItems :: Lens.Lens' ListHostedZonesByVPC (Prelude.Maybe Prelude.Text)
+listHostedZonesByVPC_maxItems = Lens.lens (\ListHostedZonesByVPC' {maxItems} -> maxItems) (\s@ListHostedZonesByVPC' {} a -> s {maxItems = a} :: ListHostedZonesByVPC)
 
 -- | If the previous response included a @NextToken@ element, the specified
 -- VPC is associated with more hosted zones. To get more hosted zones,
@@ -165,14 +173,6 @@ newListHostedZonesByVPC pVPCId_ pVPCRegion_ =
 -- are no more hosted zones to get.
 listHostedZonesByVPC_nextToken :: Lens.Lens' ListHostedZonesByVPC (Prelude.Maybe Prelude.Text)
 listHostedZonesByVPC_nextToken = Lens.lens (\ListHostedZonesByVPC' {nextToken} -> nextToken) (\s@ListHostedZonesByVPC' {} a -> s {nextToken = a} :: ListHostedZonesByVPC)
-
--- | (Optional) The maximum number of hosted zones that you want Amazon Route
--- 53 to return. If the specified VPC is associated with more than
--- @MaxItems@ hosted zones, the response includes a @NextToken@ element.
--- @NextToken@ contains an encrypted token that identifies the first hosted
--- zone that Route 53 will return if you submit another request.
-listHostedZonesByVPC_maxItems :: Lens.Lens' ListHostedZonesByVPC (Prelude.Maybe Prelude.Text)
-listHostedZonesByVPC_maxItems = Lens.lens (\ListHostedZonesByVPC' {maxItems} -> maxItems) (\s@ListHostedZonesByVPC' {} a -> s {maxItems = a} :: ListHostedZonesByVPC)
 
 -- | The ID of the Amazon VPC that you want to list hosted zones for.
 listHostedZonesByVPC_vPCId :: Lens.Lens' ListHostedZonesByVPC Prelude.Text
@@ -204,15 +204,15 @@ instance Core.AWSRequest ListHostedZonesByVPC where
 
 instance Prelude.Hashable ListHostedZonesByVPC where
   hashWithSalt _salt ListHostedZonesByVPC' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxItems
+    _salt `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` vPCId
       `Prelude.hashWithSalt` vPCRegion
 
 instance Prelude.NFData ListHostedZonesByVPC where
   rnf ListHostedZonesByVPC' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxItems
+    Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf vPCId
       `Prelude.seq` Prelude.rnf vPCRegion
 
@@ -225,8 +225,8 @@ instance Data.ToPath ListHostedZonesByVPC where
 instance Data.ToQuery ListHostedZonesByVPC where
   toQuery ListHostedZonesByVPC' {..} =
     Prelude.mconcat
-      [ "nexttoken" Data.=: nextToken,
-        "maxitems" Data.=: maxItems,
+      [ "maxitems" Data.=: maxItems,
+        "nexttoken" Data.=: nextToken,
         "vpcid" Data.=: vPCId,
         "vpcregion" Data.=: vPCRegion
       ]

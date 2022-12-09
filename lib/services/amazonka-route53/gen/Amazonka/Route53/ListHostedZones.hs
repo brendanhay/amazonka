@@ -35,8 +35,8 @@ module Amazonka.Route53.ListHostedZones
     newListHostedZones,
 
     -- * Request Lenses
-    listHostedZones_marker,
     listHostedZones_delegationSetId,
+    listHostedZones_marker,
     listHostedZones_maxItems,
 
     -- * Destructuring the Response
@@ -66,7 +66,11 @@ import Amazonka.Route53.Types
 --
 -- /See:/ 'newListHostedZones' smart constructor.
 data ListHostedZones = ListHostedZones'
-  { -- | If the value of @IsTruncated@ in the previous response was @true@, you
+  { -- | If you\'re using reusable delegation sets and you want to list all of
+    -- the hosted zones that are associated with a reusable delegation set,
+    -- specify the ID of that reusable delegation set.
+    delegationSetId :: Prelude.Maybe ResourceId,
+    -- | If the value of @IsTruncated@ in the previous response was @true@, you
     -- have more hosted zones. To get more hosted zones, submit another
     -- @ListHostedZones@ request.
     --
@@ -77,10 +81,6 @@ data ListHostedZones = ListHostedZones'
     -- If the value of @IsTruncated@ in the previous response was @false@,
     -- there are no more hosted zones to get.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | If you\'re using reusable delegation sets and you want to list all of
-    -- the hosted zones that are associated with a reusable delegation set,
-    -- specify the ID of that reusable delegation set.
-    delegationSetId :: Prelude.Maybe ResourceId,
     -- | (Optional) The maximum number of hosted zones that you want Amazon Route
     -- 53 to return. If you have more than @maxitems@ hosted zones, the value
     -- of @IsTruncated@ in the response is @true@, and the value of
@@ -98,6 +98,10 @@ data ListHostedZones = ListHostedZones'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'delegationSetId', 'listHostedZones_delegationSetId' - If you\'re using reusable delegation sets and you want to list all of
+-- the hosted zones that are associated with a reusable delegation set,
+-- specify the ID of that reusable delegation set.
+--
 -- 'marker', 'listHostedZones_marker' - If the value of @IsTruncated@ in the previous response was @true@, you
 -- have more hosted zones. To get more hosted zones, submit another
 -- @ListHostedZones@ request.
@@ -109,10 +113,6 @@ data ListHostedZones = ListHostedZones'
 -- If the value of @IsTruncated@ in the previous response was @false@,
 -- there are no more hosted zones to get.
 --
--- 'delegationSetId', 'listHostedZones_delegationSetId' - If you\'re using reusable delegation sets and you want to list all of
--- the hosted zones that are associated with a reusable delegation set,
--- specify the ID of that reusable delegation set.
---
 -- 'maxItems', 'listHostedZones_maxItems' - (Optional) The maximum number of hosted zones that you want Amazon Route
 -- 53 to return. If you have more than @maxitems@ hosted zones, the value
 -- of @IsTruncated@ in the response is @true@, and the value of
@@ -122,10 +122,16 @@ newListHostedZones ::
   ListHostedZones
 newListHostedZones =
   ListHostedZones'
-    { marker = Prelude.Nothing,
-      delegationSetId = Prelude.Nothing,
+    { delegationSetId = Prelude.Nothing,
+      marker = Prelude.Nothing,
       maxItems = Prelude.Nothing
     }
+
+-- | If you\'re using reusable delegation sets and you want to list all of
+-- the hosted zones that are associated with a reusable delegation set,
+-- specify the ID of that reusable delegation set.
+listHostedZones_delegationSetId :: Lens.Lens' ListHostedZones (Prelude.Maybe ResourceId)
+listHostedZones_delegationSetId = Lens.lens (\ListHostedZones' {delegationSetId} -> delegationSetId) (\s@ListHostedZones' {} a -> s {delegationSetId = a} :: ListHostedZones)
 
 -- | If the value of @IsTruncated@ in the previous response was @true@, you
 -- have more hosted zones. To get more hosted zones, submit another
@@ -139,12 +145,6 @@ newListHostedZones =
 -- there are no more hosted zones to get.
 listHostedZones_marker :: Lens.Lens' ListHostedZones (Prelude.Maybe Prelude.Text)
 listHostedZones_marker = Lens.lens (\ListHostedZones' {marker} -> marker) (\s@ListHostedZones' {} a -> s {marker = a} :: ListHostedZones)
-
--- | If you\'re using reusable delegation sets and you want to list all of
--- the hosted zones that are associated with a reusable delegation set,
--- specify the ID of that reusable delegation set.
-listHostedZones_delegationSetId :: Lens.Lens' ListHostedZones (Prelude.Maybe ResourceId)
-listHostedZones_delegationSetId = Lens.lens (\ListHostedZones' {delegationSetId} -> delegationSetId) (\s@ListHostedZones' {} a -> s {delegationSetId = a} :: ListHostedZones)
 
 -- | (Optional) The maximum number of hosted zones that you want Amazon Route
 -- 53 to return. If you have more than @maxitems@ hosted zones, the value
@@ -195,14 +195,14 @@ instance Core.AWSRequest ListHostedZones where
 
 instance Prelude.Hashable ListHostedZones where
   hashWithSalt _salt ListHostedZones' {..} =
-    _salt `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` delegationSetId
+    _salt `Prelude.hashWithSalt` delegationSetId
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
 
 instance Prelude.NFData ListHostedZones where
   rnf ListHostedZones' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf delegationSetId
+    Prelude.rnf delegationSetId
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxItems
 
 instance Data.ToHeaders ListHostedZones where
@@ -214,8 +214,8 @@ instance Data.ToPath ListHostedZones where
 instance Data.ToQuery ListHostedZones where
   toQuery ListHostedZones' {..} =
     Prelude.mconcat
-      [ "marker" Data.=: marker,
-        "delegationsetid" Data.=: delegationSetId,
+      [ "delegationsetid" Data.=: delegationSetId,
+        "marker" Data.=: marker,
         "maxitems" Data.=: maxItems
       ]
 

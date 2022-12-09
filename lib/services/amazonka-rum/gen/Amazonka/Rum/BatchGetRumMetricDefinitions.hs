@@ -30,9 +30,9 @@ module Amazonka.Rum.BatchGetRumMetricDefinitions
     newBatchGetRumMetricDefinitions,
 
     -- * Request Lenses
-    batchGetRumMetricDefinitions_nextToken,
-    batchGetRumMetricDefinitions_maxResults,
     batchGetRumMetricDefinitions_destinationArn,
+    batchGetRumMetricDefinitions_maxResults,
+    batchGetRumMetricDefinitions_nextToken,
     batchGetRumMetricDefinitions_appMonitorName,
     batchGetRumMetricDefinitions_destination,
 
@@ -41,8 +41,8 @@ module Amazonka.Rum.BatchGetRumMetricDefinitions
     newBatchGetRumMetricDefinitionsResponse,
 
     -- * Response Lenses
-    batchGetRumMetricDefinitionsResponse_nextToken,
     batchGetRumMetricDefinitionsResponse_metricDefinitions,
+    batchGetRumMetricDefinitionsResponse_nextToken,
     batchGetRumMetricDefinitionsResponse_httpStatus,
   )
 where
@@ -57,21 +57,21 @@ import Amazonka.Rum.Types
 
 -- | /See:/ 'newBatchGetRumMetricDefinitions' smart constructor.
 data BatchGetRumMetricDefinitions = BatchGetRumMetricDefinitions'
-  { -- | Use the token returned by the previous operation to request the next
-    -- page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | This parameter is required if @Destination@ is @Evidently@. If
+    -- @Destination@ is @CloudWatch@, do not use this parameter.
+    --
+    -- This parameter specifies the ARN of the Evidently experiment that
+    -- corresponds to the destination.
+    destinationArn :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return in one operation. The default is
     -- 50. The maximum that you can specify is 100.
     --
     -- To retrieve the remaining results, make another call with the returned
     -- @NextToken@ value.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | This parameter is required if @Destination@ is @Evidently@. If
-    -- @Destination@ is @CloudWatch@, do not use this parameter.
-    --
-    -- This parameter specifies the ARN of the Evidently experiment that
-    -- corresponds to the destination.
-    destinationArn :: Prelude.Maybe Prelude.Text,
+    -- | Use the token returned by the previous operation to request the next
+    -- page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the CloudWatch RUM app monitor that is sending the metrics.
     appMonitorName :: Prelude.Text,
     -- | The type of destination that you want to view metrics for. Valid values
@@ -88,8 +88,11 @@ data BatchGetRumMetricDefinitions = BatchGetRumMetricDefinitions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'batchGetRumMetricDefinitions_nextToken' - Use the token returned by the previous operation to request the next
--- page of results.
+-- 'destinationArn', 'batchGetRumMetricDefinitions_destinationArn' - This parameter is required if @Destination@ is @Evidently@. If
+-- @Destination@ is @CloudWatch@, do not use this parameter.
+--
+-- This parameter specifies the ARN of the Evidently experiment that
+-- corresponds to the destination.
 --
 -- 'maxResults', 'batchGetRumMetricDefinitions_maxResults' - The maximum number of results to return in one operation. The default is
 -- 50. The maximum that you can specify is 100.
@@ -97,11 +100,8 @@ data BatchGetRumMetricDefinitions = BatchGetRumMetricDefinitions'
 -- To retrieve the remaining results, make another call with the returned
 -- @NextToken@ value.
 --
--- 'destinationArn', 'batchGetRumMetricDefinitions_destinationArn' - This parameter is required if @Destination@ is @Evidently@. If
--- @Destination@ is @CloudWatch@, do not use this parameter.
---
--- This parameter specifies the ARN of the Evidently experiment that
--- corresponds to the destination.
+-- 'nextToken', 'batchGetRumMetricDefinitions_nextToken' - Use the token returned by the previous operation to request the next
+-- page of results.
 --
 -- 'appMonitorName', 'batchGetRumMetricDefinitions_appMonitorName' - The name of the CloudWatch RUM app monitor that is sending the metrics.
 --
@@ -117,18 +117,21 @@ newBatchGetRumMetricDefinitions
   pAppMonitorName_
   pDestination_ =
     BatchGetRumMetricDefinitions'
-      { nextToken =
+      { destinationArn =
           Prelude.Nothing,
         maxResults = Prelude.Nothing,
-        destinationArn = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         appMonitorName = pAppMonitorName_,
         destination = pDestination_
       }
 
--- | Use the token returned by the previous operation to request the next
--- page of results.
-batchGetRumMetricDefinitions_nextToken :: Lens.Lens' BatchGetRumMetricDefinitions (Prelude.Maybe Prelude.Text)
-batchGetRumMetricDefinitions_nextToken = Lens.lens (\BatchGetRumMetricDefinitions' {nextToken} -> nextToken) (\s@BatchGetRumMetricDefinitions' {} a -> s {nextToken = a} :: BatchGetRumMetricDefinitions)
+-- | This parameter is required if @Destination@ is @Evidently@. If
+-- @Destination@ is @CloudWatch@, do not use this parameter.
+--
+-- This parameter specifies the ARN of the Evidently experiment that
+-- corresponds to the destination.
+batchGetRumMetricDefinitions_destinationArn :: Lens.Lens' BatchGetRumMetricDefinitions (Prelude.Maybe Prelude.Text)
+batchGetRumMetricDefinitions_destinationArn = Lens.lens (\BatchGetRumMetricDefinitions' {destinationArn} -> destinationArn) (\s@BatchGetRumMetricDefinitions' {} a -> s {destinationArn = a} :: BatchGetRumMetricDefinitions)
 
 -- | The maximum number of results to return in one operation. The default is
 -- 50. The maximum that you can specify is 100.
@@ -138,13 +141,10 @@ batchGetRumMetricDefinitions_nextToken = Lens.lens (\BatchGetRumMetricDefinition
 batchGetRumMetricDefinitions_maxResults :: Lens.Lens' BatchGetRumMetricDefinitions (Prelude.Maybe Prelude.Natural)
 batchGetRumMetricDefinitions_maxResults = Lens.lens (\BatchGetRumMetricDefinitions' {maxResults} -> maxResults) (\s@BatchGetRumMetricDefinitions' {} a -> s {maxResults = a} :: BatchGetRumMetricDefinitions)
 
--- | This parameter is required if @Destination@ is @Evidently@. If
--- @Destination@ is @CloudWatch@, do not use this parameter.
---
--- This parameter specifies the ARN of the Evidently experiment that
--- corresponds to the destination.
-batchGetRumMetricDefinitions_destinationArn :: Lens.Lens' BatchGetRumMetricDefinitions (Prelude.Maybe Prelude.Text)
-batchGetRumMetricDefinitions_destinationArn = Lens.lens (\BatchGetRumMetricDefinitions' {destinationArn} -> destinationArn) (\s@BatchGetRumMetricDefinitions' {} a -> s {destinationArn = a} :: BatchGetRumMetricDefinitions)
+-- | Use the token returned by the previous operation to request the next
+-- page of results.
+batchGetRumMetricDefinitions_nextToken :: Lens.Lens' BatchGetRumMetricDefinitions (Prelude.Maybe Prelude.Text)
+batchGetRumMetricDefinitions_nextToken = Lens.lens (\BatchGetRumMetricDefinitions' {nextToken} -> nextToken) (\s@BatchGetRumMetricDefinitions' {} a -> s {nextToken = a} :: BatchGetRumMetricDefinitions)
 
 -- | The name of the CloudWatch RUM app monitor that is sending the metrics.
 batchGetRumMetricDefinitions_appMonitorName :: Lens.Lens' BatchGetRumMetricDefinitions Prelude.Text
@@ -187,10 +187,10 @@ instance Core.AWSRequest BatchGetRumMetricDefinitions where
     Response.receiveJSON
       ( \s h x ->
           BatchGetRumMetricDefinitionsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "MetricDefinitions"
+            Prelude.<$> ( x Data..?> "MetricDefinitions"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -199,17 +199,17 @@ instance
     BatchGetRumMetricDefinitions
   where
   hashWithSalt _salt BatchGetRumMetricDefinitions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` destinationArn
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` destinationArn
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` appMonitorName
       `Prelude.hashWithSalt` destination
 
 instance Prelude.NFData BatchGetRumMetricDefinitions where
   rnf BatchGetRumMetricDefinitions' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf destinationArn
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf destinationArn
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf appMonitorName
       `Prelude.seq` Prelude.rnf destination
 
@@ -235,20 +235,20 @@ instance Data.ToPath BatchGetRumMetricDefinitions where
 instance Data.ToQuery BatchGetRumMetricDefinitions where
   toQuery BatchGetRumMetricDefinitions' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
+      [ "destinationArn" Data.=: destinationArn,
         "maxResults" Data.=: maxResults,
-        "destinationArn" Data.=: destinationArn,
+        "nextToken" Data.=: nextToken,
         "destination" Data.=: destination
       ]
 
 -- | /See:/ 'newBatchGetRumMetricDefinitionsResponse' smart constructor.
 data BatchGetRumMetricDefinitionsResponse = BatchGetRumMetricDefinitionsResponse'
-  { -- | A token that you can use in a subsequent operation to retrieve the next
-    -- set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of structures that display information about the metrics that
+  { -- | An array of structures that display information about the metrics that
     -- are sent by the specified app monitor to the specified destination.
     metricDefinitions :: Prelude.Maybe [MetricDefinition],
+    -- | A token that you can use in a subsequent operation to retrieve the next
+    -- set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -262,11 +262,11 @@ data BatchGetRumMetricDefinitionsResponse = BatchGetRumMetricDefinitionsResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'batchGetRumMetricDefinitionsResponse_nextToken' - A token that you can use in a subsequent operation to retrieve the next
--- set of results.
---
 -- 'metricDefinitions', 'batchGetRumMetricDefinitionsResponse_metricDefinitions' - An array of structures that display information about the metrics that
 -- are sent by the specified app monitor to the specified destination.
+--
+-- 'nextToken', 'batchGetRumMetricDefinitionsResponse_nextToken' - A token that you can use in a subsequent operation to retrieve the next
+-- set of results.
 --
 -- 'httpStatus', 'batchGetRumMetricDefinitionsResponse_httpStatus' - The response's http status code.
 newBatchGetRumMetricDefinitionsResponse ::
@@ -275,21 +275,21 @@ newBatchGetRumMetricDefinitionsResponse ::
   BatchGetRumMetricDefinitionsResponse
 newBatchGetRumMetricDefinitionsResponse pHttpStatus_ =
   BatchGetRumMetricDefinitionsResponse'
-    { nextToken =
+    { metricDefinitions =
         Prelude.Nothing,
-      metricDefinitions = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A token that you can use in a subsequent operation to retrieve the next
--- set of results.
-batchGetRumMetricDefinitionsResponse_nextToken :: Lens.Lens' BatchGetRumMetricDefinitionsResponse (Prelude.Maybe Prelude.Text)
-batchGetRumMetricDefinitionsResponse_nextToken = Lens.lens (\BatchGetRumMetricDefinitionsResponse' {nextToken} -> nextToken) (\s@BatchGetRumMetricDefinitionsResponse' {} a -> s {nextToken = a} :: BatchGetRumMetricDefinitionsResponse)
 
 -- | An array of structures that display information about the metrics that
 -- are sent by the specified app monitor to the specified destination.
 batchGetRumMetricDefinitionsResponse_metricDefinitions :: Lens.Lens' BatchGetRumMetricDefinitionsResponse (Prelude.Maybe [MetricDefinition])
 batchGetRumMetricDefinitionsResponse_metricDefinitions = Lens.lens (\BatchGetRumMetricDefinitionsResponse' {metricDefinitions} -> metricDefinitions) (\s@BatchGetRumMetricDefinitionsResponse' {} a -> s {metricDefinitions = a} :: BatchGetRumMetricDefinitionsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A token that you can use in a subsequent operation to retrieve the next
+-- set of results.
+batchGetRumMetricDefinitionsResponse_nextToken :: Lens.Lens' BatchGetRumMetricDefinitionsResponse (Prelude.Maybe Prelude.Text)
+batchGetRumMetricDefinitionsResponse_nextToken = Lens.lens (\BatchGetRumMetricDefinitionsResponse' {nextToken} -> nextToken) (\s@BatchGetRumMetricDefinitionsResponse' {} a -> s {nextToken = a} :: BatchGetRumMetricDefinitionsResponse)
 
 -- | The response's http status code.
 batchGetRumMetricDefinitionsResponse_httpStatus :: Lens.Lens' BatchGetRumMetricDefinitionsResponse Prelude.Int
@@ -300,6 +300,6 @@ instance
     BatchGetRumMetricDefinitionsResponse
   where
   rnf BatchGetRumMetricDefinitionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf metricDefinitions
+    Prelude.rnf metricDefinitions
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

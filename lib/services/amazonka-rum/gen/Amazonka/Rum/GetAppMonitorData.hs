@@ -31,9 +31,9 @@ module Amazonka.Rum.GetAppMonitorData
     newGetAppMonitorData,
 
     -- * Request Lenses
-    getAppMonitorData_nextToken,
     getAppMonitorData_filters,
     getAppMonitorData_maxResults,
+    getAppMonitorData_nextToken,
     getAppMonitorData_name,
     getAppMonitorData_timeRange,
 
@@ -42,8 +42,8 @@ module Amazonka.Rum.GetAppMonitorData
     newGetAppMonitorDataResponse,
 
     -- * Response Lenses
-    getAppMonitorDataResponse_nextToken,
     getAppMonitorDataResponse_events,
+    getAppMonitorDataResponse_nextToken,
     getAppMonitorDataResponse_httpStatus,
   )
 where
@@ -58,14 +58,14 @@ import Amazonka.Rum.Types
 
 -- | /See:/ 'newGetAppMonitorData' smart constructor.
 data GetAppMonitorData = GetAppMonitorData'
-  { -- | Use the token returned by the previous operation to request the next
-    -- page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of structures that you can use to filter the results to those
+  { -- | An array of structures that you can use to filter the results to those
     -- that match one or more sets of key-value pairs that you specify.
     filters :: Prelude.Maybe [QueryFilter],
     -- | The maximum number of results to return in one operation.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Use the token returned by the previous operation to request the next
+    -- page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the app monitor that collected the data that you want to
     -- retrieve.
     name :: Prelude.Text,
@@ -83,13 +83,13 @@ data GetAppMonitorData = GetAppMonitorData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getAppMonitorData_nextToken' - Use the token returned by the previous operation to request the next
--- page of results.
---
 -- 'filters', 'getAppMonitorData_filters' - An array of structures that you can use to filter the results to those
 -- that match one or more sets of key-value pairs that you specify.
 --
 -- 'maxResults', 'getAppMonitorData_maxResults' - The maximum number of results to return in one operation.
+--
+-- 'nextToken', 'getAppMonitorData_nextToken' - Use the token returned by the previous operation to request the next
+-- page of results.
 --
 -- 'name', 'getAppMonitorData_name' - The name of the app monitor that collected the data that you want to
 -- retrieve.
@@ -104,17 +104,12 @@ newGetAppMonitorData ::
   GetAppMonitorData
 newGetAppMonitorData pName_ pTimeRange_ =
   GetAppMonitorData'
-    { nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
+    { filters = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       name = pName_,
       timeRange = pTimeRange_
     }
-
--- | Use the token returned by the previous operation to request the next
--- page of results.
-getAppMonitorData_nextToken :: Lens.Lens' GetAppMonitorData (Prelude.Maybe Prelude.Text)
-getAppMonitorData_nextToken = Lens.lens (\GetAppMonitorData' {nextToken} -> nextToken) (\s@GetAppMonitorData' {} a -> s {nextToken = a} :: GetAppMonitorData)
 
 -- | An array of structures that you can use to filter the results to those
 -- that match one or more sets of key-value pairs that you specify.
@@ -124,6 +119,11 @@ getAppMonitorData_filters = Lens.lens (\GetAppMonitorData' {filters} -> filters)
 -- | The maximum number of results to return in one operation.
 getAppMonitorData_maxResults :: Lens.Lens' GetAppMonitorData (Prelude.Maybe Prelude.Natural)
 getAppMonitorData_maxResults = Lens.lens (\GetAppMonitorData' {maxResults} -> maxResults) (\s@GetAppMonitorData' {} a -> s {maxResults = a} :: GetAppMonitorData)
+
+-- | Use the token returned by the previous operation to request the next
+-- page of results.
+getAppMonitorData_nextToken :: Lens.Lens' GetAppMonitorData (Prelude.Maybe Prelude.Text)
+getAppMonitorData_nextToken = Lens.lens (\GetAppMonitorData' {nextToken} -> nextToken) (\s@GetAppMonitorData' {} a -> s {nextToken = a} :: GetAppMonitorData)
 
 -- | The name of the app monitor that collected the data that you want to
 -- retrieve.
@@ -167,24 +167,24 @@ instance Core.AWSRequest GetAppMonitorData where
     Response.receiveJSON
       ( \s h x ->
           GetAppMonitorDataResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Events" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Events" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetAppMonitorData where
   hashWithSalt _salt GetAppMonitorData' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` timeRange
 
 instance Prelude.NFData GetAppMonitorData where
   rnf GetAppMonitorData' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf timeRange
 
@@ -203,9 +203,9 @@ instance Data.ToJSON GetAppMonitorData where
   toJSON GetAppMonitorData' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
+          [ ("Filters" Data..=) Prelude.<$> filters,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("TimeRange" Data..= timeRange)
           ]
       )
@@ -220,11 +220,11 @@ instance Data.ToQuery GetAppMonitorData where
 
 -- | /See:/ 'newGetAppMonitorDataResponse' smart constructor.
 data GetAppMonitorDataResponse = GetAppMonitorDataResponse'
-  { -- | A token that you can use in a subsequent operation to retrieve the next
+  { -- | The events that RUM collected that match your request.
+    events :: Prelude.Maybe [Prelude.Text],
+    -- | A token that you can use in a subsequent operation to retrieve the next
     -- set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The events that RUM collected that match your request.
-    events :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -238,10 +238,10 @@ data GetAppMonitorDataResponse = GetAppMonitorDataResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'events', 'getAppMonitorDataResponse_events' - The events that RUM collected that match your request.
+--
 -- 'nextToken', 'getAppMonitorDataResponse_nextToken' - A token that you can use in a subsequent operation to retrieve the next
 -- set of results.
---
--- 'events', 'getAppMonitorDataResponse_events' - The events that RUM collected that match your request.
 --
 -- 'httpStatus', 'getAppMonitorDataResponse_httpStatus' - The response's http status code.
 newGetAppMonitorDataResponse ::
@@ -250,20 +250,20 @@ newGetAppMonitorDataResponse ::
   GetAppMonitorDataResponse
 newGetAppMonitorDataResponse pHttpStatus_ =
   GetAppMonitorDataResponse'
-    { nextToken =
+    { events =
         Prelude.Nothing,
-      events = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The events that RUM collected that match your request.
+getAppMonitorDataResponse_events :: Lens.Lens' GetAppMonitorDataResponse (Prelude.Maybe [Prelude.Text])
+getAppMonitorDataResponse_events = Lens.lens (\GetAppMonitorDataResponse' {events} -> events) (\s@GetAppMonitorDataResponse' {} a -> s {events = a} :: GetAppMonitorDataResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token that you can use in a subsequent operation to retrieve the next
 -- set of results.
 getAppMonitorDataResponse_nextToken :: Lens.Lens' GetAppMonitorDataResponse (Prelude.Maybe Prelude.Text)
 getAppMonitorDataResponse_nextToken = Lens.lens (\GetAppMonitorDataResponse' {nextToken} -> nextToken) (\s@GetAppMonitorDataResponse' {} a -> s {nextToken = a} :: GetAppMonitorDataResponse)
-
--- | The events that RUM collected that match your request.
-getAppMonitorDataResponse_events :: Lens.Lens' GetAppMonitorDataResponse (Prelude.Maybe [Prelude.Text])
-getAppMonitorDataResponse_events = Lens.lens (\GetAppMonitorDataResponse' {events} -> events) (\s@GetAppMonitorDataResponse' {} a -> s {events = a} :: GetAppMonitorDataResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getAppMonitorDataResponse_httpStatus :: Lens.Lens' GetAppMonitorDataResponse Prelude.Int
@@ -271,6 +271,6 @@ getAppMonitorDataResponse_httpStatus = Lens.lens (\GetAppMonitorDataResponse' {h
 
 instance Prelude.NFData GetAppMonitorDataResponse where
   rnf GetAppMonitorDataResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf events
+    Prelude.rnf events
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -30,17 +30,17 @@ import Amazonka.Rum.Types.StateEnum
 --
 -- /See:/ 'newAppMonitorSummary' smart constructor.
 data AppMonitorSummary = AppMonitorSummary'
-  { -- | The name of this app monitor.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The date and time that the app monitor was created.
+  { -- | The date and time that the app monitor was created.
     created :: Prelude.Maybe Prelude.Text,
-    -- | The current state of this app monitor.
-    state :: Prelude.Maybe StateEnum,
     -- | The unique ID of this app monitor.
     id :: Prelude.Maybe Prelude.Text,
     -- | The date and time of the most recent changes to this app monitor\'s
     -- configuration.
-    lastModified :: Prelude.Maybe Prelude.Text
+    lastModified :: Prelude.Maybe Prelude.Text,
+    -- | The name of this app monitor.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The current state of this app monitor.
+    state :: Prelude.Maybe StateEnum
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,38 +52,30 @@ data AppMonitorSummary = AppMonitorSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'appMonitorSummary_name' - The name of this app monitor.
---
 -- 'created', 'appMonitorSummary_created' - The date and time that the app monitor was created.
---
--- 'state', 'appMonitorSummary_state' - The current state of this app monitor.
 --
 -- 'id', 'appMonitorSummary_id' - The unique ID of this app monitor.
 --
 -- 'lastModified', 'appMonitorSummary_lastModified' - The date and time of the most recent changes to this app monitor\'s
 -- configuration.
+--
+-- 'name', 'appMonitorSummary_name' - The name of this app monitor.
+--
+-- 'state', 'appMonitorSummary_state' - The current state of this app monitor.
 newAppMonitorSummary ::
   AppMonitorSummary
 newAppMonitorSummary =
   AppMonitorSummary'
-    { name = Prelude.Nothing,
-      created = Prelude.Nothing,
-      state = Prelude.Nothing,
+    { created = Prelude.Nothing,
       id = Prelude.Nothing,
-      lastModified = Prelude.Nothing
+      lastModified = Prelude.Nothing,
+      name = Prelude.Nothing,
+      state = Prelude.Nothing
     }
-
--- | The name of this app monitor.
-appMonitorSummary_name :: Lens.Lens' AppMonitorSummary (Prelude.Maybe Prelude.Text)
-appMonitorSummary_name = Lens.lens (\AppMonitorSummary' {name} -> name) (\s@AppMonitorSummary' {} a -> s {name = a} :: AppMonitorSummary)
 
 -- | The date and time that the app monitor was created.
 appMonitorSummary_created :: Lens.Lens' AppMonitorSummary (Prelude.Maybe Prelude.Text)
 appMonitorSummary_created = Lens.lens (\AppMonitorSummary' {created} -> created) (\s@AppMonitorSummary' {} a -> s {created = a} :: AppMonitorSummary)
-
--- | The current state of this app monitor.
-appMonitorSummary_state :: Lens.Lens' AppMonitorSummary (Prelude.Maybe StateEnum)
-appMonitorSummary_state = Lens.lens (\AppMonitorSummary' {state} -> state) (\s@AppMonitorSummary' {} a -> s {state = a} :: AppMonitorSummary)
 
 -- | The unique ID of this app monitor.
 appMonitorSummary_id :: Lens.Lens' AppMonitorSummary (Prelude.Maybe Prelude.Text)
@@ -94,31 +86,39 @@ appMonitorSummary_id = Lens.lens (\AppMonitorSummary' {id} -> id) (\s@AppMonitor
 appMonitorSummary_lastModified :: Lens.Lens' AppMonitorSummary (Prelude.Maybe Prelude.Text)
 appMonitorSummary_lastModified = Lens.lens (\AppMonitorSummary' {lastModified} -> lastModified) (\s@AppMonitorSummary' {} a -> s {lastModified = a} :: AppMonitorSummary)
 
+-- | The name of this app monitor.
+appMonitorSummary_name :: Lens.Lens' AppMonitorSummary (Prelude.Maybe Prelude.Text)
+appMonitorSummary_name = Lens.lens (\AppMonitorSummary' {name} -> name) (\s@AppMonitorSummary' {} a -> s {name = a} :: AppMonitorSummary)
+
+-- | The current state of this app monitor.
+appMonitorSummary_state :: Lens.Lens' AppMonitorSummary (Prelude.Maybe StateEnum)
+appMonitorSummary_state = Lens.lens (\AppMonitorSummary' {state} -> state) (\s@AppMonitorSummary' {} a -> s {state = a} :: AppMonitorSummary)
+
 instance Data.FromJSON AppMonitorSummary where
   parseJSON =
     Data.withObject
       "AppMonitorSummary"
       ( \x ->
           AppMonitorSummary'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "Created")
-            Prelude.<*> (x Data..:? "State")
+            Prelude.<$> (x Data..:? "Created")
             Prelude.<*> (x Data..:? "Id")
             Prelude.<*> (x Data..:? "LastModified")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "State")
       )
 
 instance Prelude.Hashable AppMonitorSummary where
   hashWithSalt _salt AppMonitorSummary' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` created
-      `Prelude.hashWithSalt` state
+    _salt `Prelude.hashWithSalt` created
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` lastModified
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` state
 
 instance Prelude.NFData AppMonitorSummary where
   rnf AppMonitorSummary' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf created
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf created
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf lastModified
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf state

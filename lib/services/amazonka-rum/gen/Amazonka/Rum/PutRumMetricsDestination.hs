@@ -32,8 +32,8 @@ module Amazonka.Rum.PutRumMetricsDestination
     newPutRumMetricsDestination,
 
     -- * Request Lenses
-    putRumMetricsDestination_iamRoleArn,
     putRumMetricsDestination_destinationArn,
+    putRumMetricsDestination_iamRoleArn,
     putRumMetricsDestination_appMonitorName,
     putRumMetricsDestination_destination,
 
@@ -56,17 +56,17 @@ import Amazonka.Rum.Types
 
 -- | /See:/ 'newPutRumMetricsDestination' smart constructor.
 data PutRumMetricsDestination = PutRumMetricsDestination'
-  { -- | This parameter is required if @Destination@ is @Evidently@. If
+  { -- | Use this parameter only if @Destination@ is @Evidently@. This parameter
+    -- specifies the ARN of the Evidently experiment that will receive the
+    -- extended metrics.
+    destinationArn :: Prelude.Maybe Prelude.Text,
+    -- | This parameter is required if @Destination@ is @Evidently@. If
     -- @Destination@ is @CloudWatch@, do not use this parameter.
     --
     -- This parameter specifies the ARN of an IAM role that RUM will assume to
     -- write to the Evidently experiment that you are sending metrics to. This
     -- role must have permission to write to that experiment.
     iamRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | Use this parameter only if @Destination@ is @Evidently@. This parameter
-    -- specifies the ARN of the Evidently experiment that will receive the
-    -- extended metrics.
-    destinationArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the CloudWatch RUM app monitor that will send the metrics.
     appMonitorName :: Prelude.Text,
     -- | Defines the destination to send the metrics to. Valid values are
@@ -86,16 +86,16 @@ data PutRumMetricsDestination = PutRumMetricsDestination'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'destinationArn', 'putRumMetricsDestination_destinationArn' - Use this parameter only if @Destination@ is @Evidently@. This parameter
+-- specifies the ARN of the Evidently experiment that will receive the
+-- extended metrics.
+--
 -- 'iamRoleArn', 'putRumMetricsDestination_iamRoleArn' - This parameter is required if @Destination@ is @Evidently@. If
 -- @Destination@ is @CloudWatch@, do not use this parameter.
 --
 -- This parameter specifies the ARN of an IAM role that RUM will assume to
 -- write to the Evidently experiment that you are sending metrics to. This
 -- role must have permission to write to that experiment.
---
--- 'destinationArn', 'putRumMetricsDestination_destinationArn' - Use this parameter only if @Destination@ is @Evidently@. This parameter
--- specifies the ARN of the Evidently experiment that will receive the
--- extended metrics.
 --
 -- 'appMonitorName', 'putRumMetricsDestination_appMonitorName' - The name of the CloudWatch RUM app monitor that will send the metrics.
 --
@@ -114,12 +114,18 @@ newPutRumMetricsDestination
   pAppMonitorName_
   pDestination_ =
     PutRumMetricsDestination'
-      { iamRoleArn =
+      { destinationArn =
           Prelude.Nothing,
-        destinationArn = Prelude.Nothing,
+        iamRoleArn = Prelude.Nothing,
         appMonitorName = pAppMonitorName_,
         destination = pDestination_
       }
+
+-- | Use this parameter only if @Destination@ is @Evidently@. This parameter
+-- specifies the ARN of the Evidently experiment that will receive the
+-- extended metrics.
+putRumMetricsDestination_destinationArn :: Lens.Lens' PutRumMetricsDestination (Prelude.Maybe Prelude.Text)
+putRumMetricsDestination_destinationArn = Lens.lens (\PutRumMetricsDestination' {destinationArn} -> destinationArn) (\s@PutRumMetricsDestination' {} a -> s {destinationArn = a} :: PutRumMetricsDestination)
 
 -- | This parameter is required if @Destination@ is @Evidently@. If
 -- @Destination@ is @CloudWatch@, do not use this parameter.
@@ -129,12 +135,6 @@ newPutRumMetricsDestination
 -- role must have permission to write to that experiment.
 putRumMetricsDestination_iamRoleArn :: Lens.Lens' PutRumMetricsDestination (Prelude.Maybe Prelude.Text)
 putRumMetricsDestination_iamRoleArn = Lens.lens (\PutRumMetricsDestination' {iamRoleArn} -> iamRoleArn) (\s@PutRumMetricsDestination' {} a -> s {iamRoleArn = a} :: PutRumMetricsDestination)
-
--- | Use this parameter only if @Destination@ is @Evidently@. This parameter
--- specifies the ARN of the Evidently experiment that will receive the
--- extended metrics.
-putRumMetricsDestination_destinationArn :: Lens.Lens' PutRumMetricsDestination (Prelude.Maybe Prelude.Text)
-putRumMetricsDestination_destinationArn = Lens.lens (\PutRumMetricsDestination' {destinationArn} -> destinationArn) (\s@PutRumMetricsDestination' {} a -> s {destinationArn = a} :: PutRumMetricsDestination)
 
 -- | The name of the CloudWatch RUM app monitor that will send the metrics.
 putRumMetricsDestination_appMonitorName :: Lens.Lens' PutRumMetricsDestination Prelude.Text
@@ -163,15 +163,15 @@ instance Core.AWSRequest PutRumMetricsDestination where
 
 instance Prelude.Hashable PutRumMetricsDestination where
   hashWithSalt _salt PutRumMetricsDestination' {..} =
-    _salt `Prelude.hashWithSalt` iamRoleArn
-      `Prelude.hashWithSalt` destinationArn
+    _salt `Prelude.hashWithSalt` destinationArn
+      `Prelude.hashWithSalt` iamRoleArn
       `Prelude.hashWithSalt` appMonitorName
       `Prelude.hashWithSalt` destination
 
 instance Prelude.NFData PutRumMetricsDestination where
   rnf PutRumMetricsDestination' {..} =
-    Prelude.rnf iamRoleArn
-      `Prelude.seq` Prelude.rnf destinationArn
+    Prelude.rnf destinationArn
+      `Prelude.seq` Prelude.rnf iamRoleArn
       `Prelude.seq` Prelude.rnf appMonitorName
       `Prelude.seq` Prelude.rnf destination
 
@@ -190,9 +190,9 @@ instance Data.ToJSON PutRumMetricsDestination where
   toJSON PutRumMetricsDestination' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("IamRoleArn" Data..=) Prelude.<$> iamRoleArn,
-            ("DestinationArn" Data..=)
+          [ ("DestinationArn" Data..=)
               Prelude.<$> destinationArn,
+            ("IamRoleArn" Data..=) Prelude.<$> iamRoleArn,
             Prelude.Just ("Destination" Data..= destination)
           ]
       )

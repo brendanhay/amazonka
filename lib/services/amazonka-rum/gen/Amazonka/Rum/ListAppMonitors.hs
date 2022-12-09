@@ -29,16 +29,16 @@ module Amazonka.Rum.ListAppMonitors
     newListAppMonitors,
 
     -- * Request Lenses
-    listAppMonitors_nextToken,
     listAppMonitors_maxResults,
+    listAppMonitors_nextToken,
 
     -- * Destructuring the Response
     ListAppMonitorsResponse (..),
     newListAppMonitorsResponse,
 
     -- * Response Lenses
-    listAppMonitorsResponse_nextToken,
     listAppMonitorsResponse_appMonitorSummaries,
+    listAppMonitorsResponse_nextToken,
     listAppMonitorsResponse_httpStatus,
   )
 where
@@ -53,12 +53,12 @@ import Amazonka.Rum.Types
 
 -- | /See:/ 'newListAppMonitors' smart constructor.
 data ListAppMonitors = ListAppMonitors'
-  { -- | Use the token returned by the previous operation to request the next
-    -- page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in one operation. The default is
+  { -- | The maximum number of results to return in one operation. The default is
     -- 50. The maximum that you can specify is 100.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Use the token returned by the previous operation to request the next
+    -- page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,28 +70,28 @@ data ListAppMonitors = ListAppMonitors'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAppMonitors_nextToken' - Use the token returned by the previous operation to request the next
--- page of results.
---
 -- 'maxResults', 'listAppMonitors_maxResults' - The maximum number of results to return in one operation. The default is
 -- 50. The maximum that you can specify is 100.
+--
+-- 'nextToken', 'listAppMonitors_nextToken' - Use the token returned by the previous operation to request the next
+-- page of results.
 newListAppMonitors ::
   ListAppMonitors
 newListAppMonitors =
   ListAppMonitors'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | Use the token returned by the previous operation to request the next
--- page of results.
-listAppMonitors_nextToken :: Lens.Lens' ListAppMonitors (Prelude.Maybe Prelude.Text)
-listAppMonitors_nextToken = Lens.lens (\ListAppMonitors' {nextToken} -> nextToken) (\s@ListAppMonitors' {} a -> s {nextToken = a} :: ListAppMonitors)
 
 -- | The maximum number of results to return in one operation. The default is
 -- 50. The maximum that you can specify is 100.
 listAppMonitors_maxResults :: Lens.Lens' ListAppMonitors (Prelude.Maybe Prelude.Natural)
 listAppMonitors_maxResults = Lens.lens (\ListAppMonitors' {maxResults} -> maxResults) (\s@ListAppMonitors' {} a -> s {maxResults = a} :: ListAppMonitors)
+
+-- | Use the token returned by the previous operation to request the next
+-- page of results.
+listAppMonitors_nextToken :: Lens.Lens' ListAppMonitors (Prelude.Maybe Prelude.Text)
+listAppMonitors_nextToken = Lens.lens (\ListAppMonitors' {nextToken} -> nextToken) (\s@ListAppMonitors' {} a -> s {nextToken = a} :: ListAppMonitors)
 
 instance Core.AWSPager ListAppMonitors where
   page rq rs
@@ -125,22 +125,22 @@ instance Core.AWSRequest ListAppMonitors where
     Response.receiveJSON
       ( \s h x ->
           ListAppMonitorsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "AppMonitorSummaries"
+            Prelude.<$> ( x Data..?> "AppMonitorSummaries"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListAppMonitors where
   hashWithSalt _salt ListAppMonitors' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListAppMonitors where
   rnf ListAppMonitors' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListAppMonitors where
   toHeaders =
@@ -162,18 +162,18 @@ instance Data.ToPath ListAppMonitors where
 instance Data.ToQuery ListAppMonitors where
   toQuery ListAppMonitors' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListAppMonitorsResponse' smart constructor.
 data ListAppMonitorsResponse = ListAppMonitorsResponse'
-  { -- | A token that you can use in a subsequent operation to retrieve the next
-    -- set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of structures that contain information about the returned app
+  { -- | An array of structures that contain information about the returned app
     -- monitors.
     appMonitorSummaries :: Prelude.Maybe [AppMonitorSummary],
+    -- | A token that you can use in a subsequent operation to retrieve the next
+    -- set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -187,11 +187,11 @@ data ListAppMonitorsResponse = ListAppMonitorsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAppMonitorsResponse_nextToken' - A token that you can use in a subsequent operation to retrieve the next
--- set of results.
---
 -- 'appMonitorSummaries', 'listAppMonitorsResponse_appMonitorSummaries' - An array of structures that contain information about the returned app
 -- monitors.
+--
+-- 'nextToken', 'listAppMonitorsResponse_nextToken' - A token that you can use in a subsequent operation to retrieve the next
+-- set of results.
 --
 -- 'httpStatus', 'listAppMonitorsResponse_httpStatus' - The response's http status code.
 newListAppMonitorsResponse ::
@@ -200,21 +200,21 @@ newListAppMonitorsResponse ::
   ListAppMonitorsResponse
 newListAppMonitorsResponse pHttpStatus_ =
   ListAppMonitorsResponse'
-    { nextToken =
+    { appMonitorSummaries =
         Prelude.Nothing,
-      appMonitorSummaries = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A token that you can use in a subsequent operation to retrieve the next
--- set of results.
-listAppMonitorsResponse_nextToken :: Lens.Lens' ListAppMonitorsResponse (Prelude.Maybe Prelude.Text)
-listAppMonitorsResponse_nextToken = Lens.lens (\ListAppMonitorsResponse' {nextToken} -> nextToken) (\s@ListAppMonitorsResponse' {} a -> s {nextToken = a} :: ListAppMonitorsResponse)
 
 -- | An array of structures that contain information about the returned app
 -- monitors.
 listAppMonitorsResponse_appMonitorSummaries :: Lens.Lens' ListAppMonitorsResponse (Prelude.Maybe [AppMonitorSummary])
 listAppMonitorsResponse_appMonitorSummaries = Lens.lens (\ListAppMonitorsResponse' {appMonitorSummaries} -> appMonitorSummaries) (\s@ListAppMonitorsResponse' {} a -> s {appMonitorSummaries = a} :: ListAppMonitorsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A token that you can use in a subsequent operation to retrieve the next
+-- set of results.
+listAppMonitorsResponse_nextToken :: Lens.Lens' ListAppMonitorsResponse (Prelude.Maybe Prelude.Text)
+listAppMonitorsResponse_nextToken = Lens.lens (\ListAppMonitorsResponse' {nextToken} -> nextToken) (\s@ListAppMonitorsResponse' {} a -> s {nextToken = a} :: ListAppMonitorsResponse)
 
 -- | The response's http status code.
 listAppMonitorsResponse_httpStatus :: Lens.Lens' ListAppMonitorsResponse Prelude.Int
@@ -222,6 +222,6 @@ listAppMonitorsResponse_httpStatus = Lens.lens (\ListAppMonitorsResponse' {httpS
 
 instance Prelude.NFData ListAppMonitorsResponse where
   rnf ListAppMonitorsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf appMonitorSummaries
+    Prelude.rnf appMonitorSummaries
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

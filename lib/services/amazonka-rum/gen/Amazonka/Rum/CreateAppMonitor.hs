@@ -40,10 +40,10 @@ module Amazonka.Rum.CreateAppMonitor
     newCreateAppMonitor,
 
     -- * Request Lenses
-    createAppMonitor_tags,
     createAppMonitor_appMonitorConfiguration,
-    createAppMonitor_cwLogEnabled,
     createAppMonitor_customEvents,
+    createAppMonitor_cwLogEnabled,
+    createAppMonitor_tags,
     createAppMonitor_domain,
     createAppMonitor_name,
 
@@ -67,7 +67,33 @@ import Amazonka.Rum.Types
 
 -- | /See:/ 'newCreateAppMonitor' smart constructor.
 data CreateAppMonitor = CreateAppMonitor'
-  { -- | Assigns one or more tags (key-value pairs) to the app monitor.
+  { -- | A structure that contains much of the configuration data for the app
+    -- monitor. If you are using Amazon Cognito for authorization, you must
+    -- include this structure in your request, and it must include the ID of
+    -- the Amazon Cognito identity pool to use for authorization. If you don\'t
+    -- include @AppMonitorConfiguration@, you must set up your own
+    -- authorization method. For more information, see
+    -- <https://docs.aws.amazon.com/monitoring/CloudWatch-RUM-get-started-authorization.html Authorize your application to send data to Amazon Web Services>.
+    --
+    -- If you omit this argument, the sample rate used for RUM is set to 10% of
+    -- the user sessions.
+    appMonitorConfiguration :: Prelude.Maybe AppMonitorConfiguration,
+    -- | Specifies whether this app monitor allows the web client to define and
+    -- send custom events. If you omit this parameter, custom events are
+    -- @DISABLED@.
+    --
+    -- For more information about custom events, see
+    -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-custom-events.html Send custom events>.
+    customEvents :: Prelude.Maybe CustomEvents,
+    -- | Data collected by RUM is kept by RUM for 30 days and then deleted. This
+    -- parameter specifies whether RUM sends a copy of this telemetry data to
+    -- Amazon CloudWatch Logs in your account. This enables you to keep the
+    -- telemetry data for more than 30 days, but it does incur Amazon
+    -- CloudWatch Logs charges.
+    --
+    -- If you omit this parameter, the default is @false@.
+    cwLogEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | Assigns one or more tags (key-value pairs) to the app monitor.
     --
     -- Tags can help you organize and categorize your resources. You can also
     -- use them to scope user permissions by granting a user permission to
@@ -81,32 +107,6 @@ data CreateAppMonitor = CreateAppMonitor'
     -- For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A structure that contains much of the configuration data for the app
-    -- monitor. If you are using Amazon Cognito for authorization, you must
-    -- include this structure in your request, and it must include the ID of
-    -- the Amazon Cognito identity pool to use for authorization. If you don\'t
-    -- include @AppMonitorConfiguration@, you must set up your own
-    -- authorization method. For more information, see
-    -- <https://docs.aws.amazon.com/monitoring/CloudWatch-RUM-get-started-authorization.html Authorize your application to send data to Amazon Web Services>.
-    --
-    -- If you omit this argument, the sample rate used for RUM is set to 10% of
-    -- the user sessions.
-    appMonitorConfiguration :: Prelude.Maybe AppMonitorConfiguration,
-    -- | Data collected by RUM is kept by RUM for 30 days and then deleted. This
-    -- parameter specifies whether RUM sends a copy of this telemetry data to
-    -- Amazon CloudWatch Logs in your account. This enables you to keep the
-    -- telemetry data for more than 30 days, but it does incur Amazon
-    -- CloudWatch Logs charges.
-    --
-    -- If you omit this parameter, the default is @false@.
-    cwLogEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies whether this app monitor allows the web client to define and
-    -- send custom events. If you omit this parameter, custom events are
-    -- @DISABLED@.
-    --
-    -- For more information about custom events, see
-    -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-custom-events.html Send custom events>.
-    customEvents :: Prelude.Maybe CustomEvents,
     -- | The top-level internet domain name for which your application has
     -- administrative authority.
     domain :: Prelude.Text,
@@ -123,6 +123,32 @@ data CreateAppMonitor = CreateAppMonitor'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'appMonitorConfiguration', 'createAppMonitor_appMonitorConfiguration' - A structure that contains much of the configuration data for the app
+-- monitor. If you are using Amazon Cognito for authorization, you must
+-- include this structure in your request, and it must include the ID of
+-- the Amazon Cognito identity pool to use for authorization. If you don\'t
+-- include @AppMonitorConfiguration@, you must set up your own
+-- authorization method. For more information, see
+-- <https://docs.aws.amazon.com/monitoring/CloudWatch-RUM-get-started-authorization.html Authorize your application to send data to Amazon Web Services>.
+--
+-- If you omit this argument, the sample rate used for RUM is set to 10% of
+-- the user sessions.
+--
+-- 'customEvents', 'createAppMonitor_customEvents' - Specifies whether this app monitor allows the web client to define and
+-- send custom events. If you omit this parameter, custom events are
+-- @DISABLED@.
+--
+-- For more information about custom events, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-custom-events.html Send custom events>.
+--
+-- 'cwLogEnabled', 'createAppMonitor_cwLogEnabled' - Data collected by RUM is kept by RUM for 30 days and then deleted. This
+-- parameter specifies whether RUM sends a copy of this telemetry data to
+-- Amazon CloudWatch Logs in your account. This enables you to keep the
+-- telemetry data for more than 30 days, but it does incur Amazon
+-- CloudWatch Logs charges.
+--
+-- If you omit this parameter, the default is @false@.
+--
 -- 'tags', 'createAppMonitor_tags' - Assigns one or more tags (key-value pairs) to the app monitor.
 --
 -- Tags can help you organize and categorize your resources. You can also
@@ -137,32 +163,6 @@ data CreateAppMonitor = CreateAppMonitor'
 -- For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>.
 --
--- 'appMonitorConfiguration', 'createAppMonitor_appMonitorConfiguration' - A structure that contains much of the configuration data for the app
--- monitor. If you are using Amazon Cognito for authorization, you must
--- include this structure in your request, and it must include the ID of
--- the Amazon Cognito identity pool to use for authorization. If you don\'t
--- include @AppMonitorConfiguration@, you must set up your own
--- authorization method. For more information, see
--- <https://docs.aws.amazon.com/monitoring/CloudWatch-RUM-get-started-authorization.html Authorize your application to send data to Amazon Web Services>.
---
--- If you omit this argument, the sample rate used for RUM is set to 10% of
--- the user sessions.
---
--- 'cwLogEnabled', 'createAppMonitor_cwLogEnabled' - Data collected by RUM is kept by RUM for 30 days and then deleted. This
--- parameter specifies whether RUM sends a copy of this telemetry data to
--- Amazon CloudWatch Logs in your account. This enables you to keep the
--- telemetry data for more than 30 days, but it does incur Amazon
--- CloudWatch Logs charges.
---
--- If you omit this parameter, the default is @false@.
---
--- 'customEvents', 'createAppMonitor_customEvents' - Specifies whether this app monitor allows the web client to define and
--- send custom events. If you omit this parameter, custom events are
--- @DISABLED@.
---
--- For more information about custom events, see
--- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-custom-events.html Send custom events>.
---
 -- 'domain', 'createAppMonitor_domain' - The top-level internet domain name for which your application has
 -- administrative authority.
 --
@@ -175,13 +175,46 @@ newCreateAppMonitor ::
   CreateAppMonitor
 newCreateAppMonitor pDomain_ pName_ =
   CreateAppMonitor'
-    { tags = Prelude.Nothing,
-      appMonitorConfiguration = Prelude.Nothing,
-      cwLogEnabled = Prelude.Nothing,
+    { appMonitorConfiguration =
+        Prelude.Nothing,
       customEvents = Prelude.Nothing,
+      cwLogEnabled = Prelude.Nothing,
+      tags = Prelude.Nothing,
       domain = pDomain_,
       name = pName_
     }
+
+-- | A structure that contains much of the configuration data for the app
+-- monitor. If you are using Amazon Cognito for authorization, you must
+-- include this structure in your request, and it must include the ID of
+-- the Amazon Cognito identity pool to use for authorization. If you don\'t
+-- include @AppMonitorConfiguration@, you must set up your own
+-- authorization method. For more information, see
+-- <https://docs.aws.amazon.com/monitoring/CloudWatch-RUM-get-started-authorization.html Authorize your application to send data to Amazon Web Services>.
+--
+-- If you omit this argument, the sample rate used for RUM is set to 10% of
+-- the user sessions.
+createAppMonitor_appMonitorConfiguration :: Lens.Lens' CreateAppMonitor (Prelude.Maybe AppMonitorConfiguration)
+createAppMonitor_appMonitorConfiguration = Lens.lens (\CreateAppMonitor' {appMonitorConfiguration} -> appMonitorConfiguration) (\s@CreateAppMonitor' {} a -> s {appMonitorConfiguration = a} :: CreateAppMonitor)
+
+-- | Specifies whether this app monitor allows the web client to define and
+-- send custom events. If you omit this parameter, custom events are
+-- @DISABLED@.
+--
+-- For more information about custom events, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-custom-events.html Send custom events>.
+createAppMonitor_customEvents :: Lens.Lens' CreateAppMonitor (Prelude.Maybe CustomEvents)
+createAppMonitor_customEvents = Lens.lens (\CreateAppMonitor' {customEvents} -> customEvents) (\s@CreateAppMonitor' {} a -> s {customEvents = a} :: CreateAppMonitor)
+
+-- | Data collected by RUM is kept by RUM for 30 days and then deleted. This
+-- parameter specifies whether RUM sends a copy of this telemetry data to
+-- Amazon CloudWatch Logs in your account. This enables you to keep the
+-- telemetry data for more than 30 days, but it does incur Amazon
+-- CloudWatch Logs charges.
+--
+-- If you omit this parameter, the default is @false@.
+createAppMonitor_cwLogEnabled :: Lens.Lens' CreateAppMonitor (Prelude.Maybe Prelude.Bool)
+createAppMonitor_cwLogEnabled = Lens.lens (\CreateAppMonitor' {cwLogEnabled} -> cwLogEnabled) (\s@CreateAppMonitor' {} a -> s {cwLogEnabled = a} :: CreateAppMonitor)
 
 -- | Assigns one or more tags (key-value pairs) to the app monitor.
 --
@@ -198,38 +231,6 @@ newCreateAppMonitor pDomain_ pName_ =
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>.
 createAppMonitor_tags :: Lens.Lens' CreateAppMonitor (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createAppMonitor_tags = Lens.lens (\CreateAppMonitor' {tags} -> tags) (\s@CreateAppMonitor' {} a -> s {tags = a} :: CreateAppMonitor) Prelude.. Lens.mapping Lens.coerced
-
--- | A structure that contains much of the configuration data for the app
--- monitor. If you are using Amazon Cognito for authorization, you must
--- include this structure in your request, and it must include the ID of
--- the Amazon Cognito identity pool to use for authorization. If you don\'t
--- include @AppMonitorConfiguration@, you must set up your own
--- authorization method. For more information, see
--- <https://docs.aws.amazon.com/monitoring/CloudWatch-RUM-get-started-authorization.html Authorize your application to send data to Amazon Web Services>.
---
--- If you omit this argument, the sample rate used for RUM is set to 10% of
--- the user sessions.
-createAppMonitor_appMonitorConfiguration :: Lens.Lens' CreateAppMonitor (Prelude.Maybe AppMonitorConfiguration)
-createAppMonitor_appMonitorConfiguration = Lens.lens (\CreateAppMonitor' {appMonitorConfiguration} -> appMonitorConfiguration) (\s@CreateAppMonitor' {} a -> s {appMonitorConfiguration = a} :: CreateAppMonitor)
-
--- | Data collected by RUM is kept by RUM for 30 days and then deleted. This
--- parameter specifies whether RUM sends a copy of this telemetry data to
--- Amazon CloudWatch Logs in your account. This enables you to keep the
--- telemetry data for more than 30 days, but it does incur Amazon
--- CloudWatch Logs charges.
---
--- If you omit this parameter, the default is @false@.
-createAppMonitor_cwLogEnabled :: Lens.Lens' CreateAppMonitor (Prelude.Maybe Prelude.Bool)
-createAppMonitor_cwLogEnabled = Lens.lens (\CreateAppMonitor' {cwLogEnabled} -> cwLogEnabled) (\s@CreateAppMonitor' {} a -> s {cwLogEnabled = a} :: CreateAppMonitor)
-
--- | Specifies whether this app monitor allows the web client to define and
--- send custom events. If you omit this parameter, custom events are
--- @DISABLED@.
---
--- For more information about custom events, see
--- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-custom-events.html Send custom events>.
-createAppMonitor_customEvents :: Lens.Lens' CreateAppMonitor (Prelude.Maybe CustomEvents)
-createAppMonitor_customEvents = Lens.lens (\CreateAppMonitor' {customEvents} -> customEvents) (\s@CreateAppMonitor' {} a -> s {customEvents = a} :: CreateAppMonitor)
 
 -- | The top-level internet domain name for which your application has
 -- administrative authority.
@@ -256,19 +257,20 @@ instance Core.AWSRequest CreateAppMonitor where
 
 instance Prelude.Hashable CreateAppMonitor where
   hashWithSalt _salt CreateAppMonitor' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
       `Prelude.hashWithSalt` appMonitorConfiguration
-      `Prelude.hashWithSalt` cwLogEnabled
       `Prelude.hashWithSalt` customEvents
+      `Prelude.hashWithSalt` cwLogEnabled
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateAppMonitor where
   rnf CreateAppMonitor' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf appMonitorConfiguration
-      `Prelude.seq` Prelude.rnf cwLogEnabled
+    Prelude.rnf appMonitorConfiguration
       `Prelude.seq` Prelude.rnf customEvents
+      `Prelude.seq` Prelude.rnf cwLogEnabled
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf name
 
@@ -287,11 +289,11 @@ instance Data.ToJSON CreateAppMonitor where
   toJSON CreateAppMonitor' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("AppMonitorConfiguration" Data..=)
+          [ ("AppMonitorConfiguration" Data..=)
               Prelude.<$> appMonitorConfiguration,
-            ("CwLogEnabled" Data..=) Prelude.<$> cwLogEnabled,
             ("CustomEvents" Data..=) Prelude.<$> customEvents,
+            ("CwLogEnabled" Data..=) Prelude.<$> cwLogEnabled,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Domain" Data..= domain),
             Prelude.Just ("Name" Data..= name)
           ]

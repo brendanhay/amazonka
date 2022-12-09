@@ -32,13 +32,13 @@ import Amazonka.Rum.Types.MetricDestination
 data MetricDestinationSummary = MetricDestinationSummary'
   { -- | Specifies whether the destination is @CloudWatch@ or @Evidently@.
     destination :: Prelude.Maybe MetricDestination,
+    -- | If the destination is @Evidently@, this specifies the ARN of the
+    -- Evidently experiment that receives the metrics.
+    destinationArn :: Prelude.Maybe Prelude.Text,
     -- | This field appears only when the destination is @Evidently@. It
     -- specifies the ARN of the IAM role that is used to write to the Evidently
     -- experiment that receives the metrics.
-    iamRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | If the destination is @Evidently@, this specifies the ARN of the
-    -- Evidently experiment that receives the metrics.
-    destinationArn :: Prelude.Maybe Prelude.Text
+    iamRoleArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,36 +52,36 @@ data MetricDestinationSummary = MetricDestinationSummary'
 --
 -- 'destination', 'metricDestinationSummary_destination' - Specifies whether the destination is @CloudWatch@ or @Evidently@.
 --
+-- 'destinationArn', 'metricDestinationSummary_destinationArn' - If the destination is @Evidently@, this specifies the ARN of the
+-- Evidently experiment that receives the metrics.
+--
 -- 'iamRoleArn', 'metricDestinationSummary_iamRoleArn' - This field appears only when the destination is @Evidently@. It
 -- specifies the ARN of the IAM role that is used to write to the Evidently
 -- experiment that receives the metrics.
---
--- 'destinationArn', 'metricDestinationSummary_destinationArn' - If the destination is @Evidently@, this specifies the ARN of the
--- Evidently experiment that receives the metrics.
 newMetricDestinationSummary ::
   MetricDestinationSummary
 newMetricDestinationSummary =
   MetricDestinationSummary'
     { destination =
         Prelude.Nothing,
-      iamRoleArn = Prelude.Nothing,
-      destinationArn = Prelude.Nothing
+      destinationArn = Prelude.Nothing,
+      iamRoleArn = Prelude.Nothing
     }
 
 -- | Specifies whether the destination is @CloudWatch@ or @Evidently@.
 metricDestinationSummary_destination :: Lens.Lens' MetricDestinationSummary (Prelude.Maybe MetricDestination)
 metricDestinationSummary_destination = Lens.lens (\MetricDestinationSummary' {destination} -> destination) (\s@MetricDestinationSummary' {} a -> s {destination = a} :: MetricDestinationSummary)
 
+-- | If the destination is @Evidently@, this specifies the ARN of the
+-- Evidently experiment that receives the metrics.
+metricDestinationSummary_destinationArn :: Lens.Lens' MetricDestinationSummary (Prelude.Maybe Prelude.Text)
+metricDestinationSummary_destinationArn = Lens.lens (\MetricDestinationSummary' {destinationArn} -> destinationArn) (\s@MetricDestinationSummary' {} a -> s {destinationArn = a} :: MetricDestinationSummary)
+
 -- | This field appears only when the destination is @Evidently@. It
 -- specifies the ARN of the IAM role that is used to write to the Evidently
 -- experiment that receives the metrics.
 metricDestinationSummary_iamRoleArn :: Lens.Lens' MetricDestinationSummary (Prelude.Maybe Prelude.Text)
 metricDestinationSummary_iamRoleArn = Lens.lens (\MetricDestinationSummary' {iamRoleArn} -> iamRoleArn) (\s@MetricDestinationSummary' {} a -> s {iamRoleArn = a} :: MetricDestinationSummary)
-
--- | If the destination is @Evidently@, this specifies the ARN of the
--- Evidently experiment that receives the metrics.
-metricDestinationSummary_destinationArn :: Lens.Lens' MetricDestinationSummary (Prelude.Maybe Prelude.Text)
-metricDestinationSummary_destinationArn = Lens.lens (\MetricDestinationSummary' {destinationArn} -> destinationArn) (\s@MetricDestinationSummary' {} a -> s {destinationArn = a} :: MetricDestinationSummary)
 
 instance Data.FromJSON MetricDestinationSummary where
   parseJSON =
@@ -90,18 +90,18 @@ instance Data.FromJSON MetricDestinationSummary where
       ( \x ->
           MetricDestinationSummary'
             Prelude.<$> (x Data..:? "Destination")
-            Prelude.<*> (x Data..:? "IamRoleArn")
             Prelude.<*> (x Data..:? "DestinationArn")
+            Prelude.<*> (x Data..:? "IamRoleArn")
       )
 
 instance Prelude.Hashable MetricDestinationSummary where
   hashWithSalt _salt MetricDestinationSummary' {..} =
     _salt `Prelude.hashWithSalt` destination
-      `Prelude.hashWithSalt` iamRoleArn
       `Prelude.hashWithSalt` destinationArn
+      `Prelude.hashWithSalt` iamRoleArn
 
 instance Prelude.NFData MetricDestinationSummary where
   rnf MetricDestinationSummary' {..} =
     Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf iamRoleArn
       `Prelude.seq` Prelude.rnf destinationArn
+      `Prelude.seq` Prelude.rnf iamRoleArn

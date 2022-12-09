@@ -19,10 +19,10 @@ module Amazonka.Rum.Types
 
     -- * Errors
     _AccessDeniedException,
-    _InternalServerException,
-    _ServiceQuotaExceededException,
-    _ResourceNotFoundException,
     _ConflictException,
+    _InternalServerException,
+    _ResourceNotFoundException,
+    _ServiceQuotaExceededException,
     _ThrottlingException,
     _ValidationException,
 
@@ -41,45 +41,45 @@ module Amazonka.Rum.Types
     -- * AppMonitor
     AppMonitor (..),
     newAppMonitor,
-    appMonitor_tags,
-    appMonitor_name,
-    appMonitor_dataStorage,
-    appMonitor_created,
-    appMonitor_domain,
-    appMonitor_state,
-    appMonitor_id,
     appMonitor_appMonitorConfiguration,
-    appMonitor_lastModified,
+    appMonitor_created,
     appMonitor_customEvents,
+    appMonitor_dataStorage,
+    appMonitor_domain,
+    appMonitor_id,
+    appMonitor_lastModified,
+    appMonitor_name,
+    appMonitor_state,
+    appMonitor_tags,
 
     -- * AppMonitorConfiguration
     AppMonitorConfiguration (..),
     newAppMonitorConfiguration,
+    appMonitorConfiguration_allowCookies,
+    appMonitorConfiguration_enableXRay,
+    appMonitorConfiguration_excludedPages,
     appMonitorConfiguration_favoritePages,
     appMonitorConfiguration_guestRoleArn,
-    appMonitorConfiguration_sessionSampleRate,
-    appMonitorConfiguration_enableXRay,
     appMonitorConfiguration_identityPoolId,
-    appMonitorConfiguration_allowCookies,
     appMonitorConfiguration_includedPages,
-    appMonitorConfiguration_excludedPages,
+    appMonitorConfiguration_sessionSampleRate,
     appMonitorConfiguration_telemetries,
 
     -- * AppMonitorDetails
     AppMonitorDetails (..),
     newAppMonitorDetails,
-    appMonitorDetails_name,
     appMonitorDetails_id,
+    appMonitorDetails_name,
     appMonitorDetails_version,
 
     -- * AppMonitorSummary
     AppMonitorSummary (..),
     newAppMonitorSummary,
-    appMonitorSummary_name,
     appMonitorSummary_created,
-    appMonitorSummary_state,
     appMonitorSummary_id,
     appMonitorSummary_lastModified,
+    appMonitorSummary_name,
+    appMonitorSummary_state,
 
     -- * BatchCreateRumMetricDefinitionsError
     BatchCreateRumMetricDefinitionsError (..),
@@ -103,8 +103,8 @@ module Amazonka.Rum.Types
     -- * CwLog
     CwLog (..),
     newCwLog,
-    cwLog_cwLogGroup,
     cwLog_cwLogEnabled,
+    cwLog_cwLogGroup,
 
     -- * DataStorage
     DataStorage (..),
@@ -114,28 +114,28 @@ module Amazonka.Rum.Types
     -- * MetricDefinition
     MetricDefinition (..),
     newMetricDefinition,
-    metricDefinition_valueKey,
-    metricDefinition_unitLabel,
-    metricDefinition_eventPattern,
     metricDefinition_dimensionKeys,
+    metricDefinition_eventPattern,
+    metricDefinition_unitLabel,
+    metricDefinition_valueKey,
     metricDefinition_metricDefinitionId,
     metricDefinition_name,
 
     -- * MetricDefinitionRequest
     MetricDefinitionRequest (..),
     newMetricDefinitionRequest,
-    metricDefinitionRequest_valueKey,
-    metricDefinitionRequest_unitLabel,
-    metricDefinitionRequest_eventPattern,
     metricDefinitionRequest_dimensionKeys,
+    metricDefinitionRequest_eventPattern,
+    metricDefinitionRequest_unitLabel,
+    metricDefinitionRequest_valueKey,
     metricDefinitionRequest_name,
 
     -- * MetricDestinationSummary
     MetricDestinationSummary (..),
     newMetricDestinationSummary,
     metricDestinationSummary_destination,
-    metricDestinationSummary_iamRoleArn,
     metricDestinationSummary_destinationArn,
+    metricDestinationSummary_iamRoleArn,
 
     -- * QueryFilter
     QueryFilter (..),
@@ -216,28 +216,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -245,13 +239,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -259,6 +257,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You don\'t have sufficient permissions to perform this action.
@@ -269,6 +269,14 @@ _AccessDeniedException =
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
+-- | This operation attempted to create a resource that already exists.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
+
 -- | Internal service exception.
 _InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InternalServerException =
@@ -276,14 +284,6 @@ _InternalServerException =
     defaultService
     "InternalServerException"
     Prelude.. Core.hasStatus 500
-
--- | This request exceeds a service quota.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceQuotaExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceQuotaExceededException"
-    Prelude.. Core.hasStatus 402
 
 -- | Resource not found.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -293,13 +293,13 @@ _ResourceNotFoundException =
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
 
--- | This operation attempted to create a resource that already exists.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
+-- | This request exceeds a service quota.
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
+    "ServiceQuotaExceededException"
+    Prelude.. Core.hasStatus 402
 
 -- | The request was throttled because of quota limits.
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

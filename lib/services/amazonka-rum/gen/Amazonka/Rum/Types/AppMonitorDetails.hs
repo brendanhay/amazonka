@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAppMonitorDetails' smart constructor.
 data AppMonitorDetails = AppMonitorDetails'
-  { -- | The name of the app monitor.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The unique ID of the app monitor.
+  { -- | The unique ID of the app monitor.
     id :: Prelude.Maybe Prelude.Text,
+    -- | The name of the app monitor.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The version of the app monitor.
     version :: Prelude.Maybe Prelude.Text
   }
@@ -45,27 +45,27 @@ data AppMonitorDetails = AppMonitorDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'appMonitorDetails_name' - The name of the app monitor.
---
 -- 'id', 'appMonitorDetails_id' - The unique ID of the app monitor.
+--
+-- 'name', 'appMonitorDetails_name' - The name of the app monitor.
 --
 -- 'version', 'appMonitorDetails_version' - The version of the app monitor.
 newAppMonitorDetails ::
   AppMonitorDetails
 newAppMonitorDetails =
   AppMonitorDetails'
-    { name = Prelude.Nothing,
-      id = Prelude.Nothing,
+    { id = Prelude.Nothing,
+      name = Prelude.Nothing,
       version = Prelude.Nothing
     }
-
--- | The name of the app monitor.
-appMonitorDetails_name :: Lens.Lens' AppMonitorDetails (Prelude.Maybe Prelude.Text)
-appMonitorDetails_name = Lens.lens (\AppMonitorDetails' {name} -> name) (\s@AppMonitorDetails' {} a -> s {name = a} :: AppMonitorDetails)
 
 -- | The unique ID of the app monitor.
 appMonitorDetails_id :: Lens.Lens' AppMonitorDetails (Prelude.Maybe Prelude.Text)
 appMonitorDetails_id = Lens.lens (\AppMonitorDetails' {id} -> id) (\s@AppMonitorDetails' {} a -> s {id = a} :: AppMonitorDetails)
+
+-- | The name of the app monitor.
+appMonitorDetails_name :: Lens.Lens' AppMonitorDetails (Prelude.Maybe Prelude.Text)
+appMonitorDetails_name = Lens.lens (\AppMonitorDetails' {name} -> name) (\s@AppMonitorDetails' {} a -> s {name = a} :: AppMonitorDetails)
 
 -- | The version of the app monitor.
 appMonitorDetails_version :: Lens.Lens' AppMonitorDetails (Prelude.Maybe Prelude.Text)
@@ -73,22 +73,22 @@ appMonitorDetails_version = Lens.lens (\AppMonitorDetails' {version} -> version)
 
 instance Prelude.Hashable AppMonitorDetails where
   hashWithSalt _salt AppMonitorDetails' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` id
+    _salt `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData AppMonitorDetails where
   rnf AppMonitorDetails' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf version
 
 instance Data.ToJSON AppMonitorDetails where
   toJSON AppMonitorDetails' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("name" Data..=) Prelude.<$> name,
-            ("id" Data..=) Prelude.<$> id,
+          [ ("id" Data..=) Prelude.<$> id,
+            ("name" Data..=) Prelude.<$> name,
             ("version" Data..=) Prelude.<$> version
           ]
       )

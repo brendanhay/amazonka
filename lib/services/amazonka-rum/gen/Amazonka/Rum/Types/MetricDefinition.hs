@@ -30,11 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMetricDefinition' smart constructor.
 data MetricDefinition = MetricDefinition'
-  { -- | The field within the event object that the metric value is sourced from.
-    valueKey :: Prelude.Maybe Prelude.Text,
-    -- | Use this field only if you are sending this metric to CloudWatch. It
-    -- defines the CloudWatch metric unit that this metric is measured in.
-    unitLabel :: Prelude.Maybe Prelude.Text,
+  { -- | This field is a map of field paths to dimension names. It defines the
+    -- dimensions to associate with this metric in CloudWatch The value of this
+    -- field is used only if the metric destination is @CloudWatch@. If the
+    -- metric destination is @Evidently@, the value of @DimensionKeys@ is
+    -- ignored.
+    dimensionKeys :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The pattern that defines the metric. RUM checks events that happen in a
     -- user\'s session against the pattern, and events that match the pattern
     -- are sent to the metric destination.
@@ -43,12 +44,11 @@ data MetricDefinition = MetricDefinition'
     -- value in @DimensionKeys@, then the metric is published with the
     -- specified dimensions.
     eventPattern :: Prelude.Maybe Prelude.Text,
-    -- | This field is a map of field paths to dimension names. It defines the
-    -- dimensions to associate with this metric in CloudWatch The value of this
-    -- field is used only if the metric destination is @CloudWatch@. If the
-    -- metric destination is @Evidently@, the value of @DimensionKeys@ is
-    -- ignored.
-    dimensionKeys :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Use this field only if you are sending this metric to CloudWatch. It
+    -- defines the CloudWatch metric unit that this metric is measured in.
+    unitLabel :: Prelude.Maybe Prelude.Text,
+    -- | The field within the event object that the metric value is sourced from.
+    valueKey :: Prelude.Maybe Prelude.Text,
     -- | The ID of this metric definition.
     metricDefinitionId :: Prelude.Text,
     -- | The name of the metric that is defined in this structure.
@@ -64,10 +64,11 @@ data MetricDefinition = MetricDefinition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'valueKey', 'metricDefinition_valueKey' - The field within the event object that the metric value is sourced from.
---
--- 'unitLabel', 'metricDefinition_unitLabel' - Use this field only if you are sending this metric to CloudWatch. It
--- defines the CloudWatch metric unit that this metric is measured in.
+-- 'dimensionKeys', 'metricDefinition_dimensionKeys' - This field is a map of field paths to dimension names. It defines the
+-- dimensions to associate with this metric in CloudWatch The value of this
+-- field is used only if the metric destination is @CloudWatch@. If the
+-- metric destination is @Evidently@, the value of @DimensionKeys@ is
+-- ignored.
 --
 -- 'eventPattern', 'metricDefinition_eventPattern' - The pattern that defines the metric. RUM checks events that happen in a
 -- user\'s session against the pattern, and events that match the pattern
@@ -77,11 +78,10 @@ data MetricDefinition = MetricDefinition'
 -- value in @DimensionKeys@, then the metric is published with the
 -- specified dimensions.
 --
--- 'dimensionKeys', 'metricDefinition_dimensionKeys' - This field is a map of field paths to dimension names. It defines the
--- dimensions to associate with this metric in CloudWatch The value of this
--- field is used only if the metric destination is @CloudWatch@. If the
--- metric destination is @Evidently@, the value of @DimensionKeys@ is
--- ignored.
+-- 'unitLabel', 'metricDefinition_unitLabel' - Use this field only if you are sending this metric to CloudWatch. It
+-- defines the CloudWatch metric unit that this metric is measured in.
+--
+-- 'valueKey', 'metricDefinition_valueKey' - The field within the event object that the metric value is sourced from.
 --
 -- 'metricDefinitionId', 'metricDefinition_metricDefinitionId' - The ID of this metric definition.
 --
@@ -94,22 +94,21 @@ newMetricDefinition ::
   MetricDefinition
 newMetricDefinition pMetricDefinitionId_ pName_ =
   MetricDefinition'
-    { valueKey = Prelude.Nothing,
-      unitLabel = Prelude.Nothing,
+    { dimensionKeys = Prelude.Nothing,
       eventPattern = Prelude.Nothing,
-      dimensionKeys = Prelude.Nothing,
+      unitLabel = Prelude.Nothing,
+      valueKey = Prelude.Nothing,
       metricDefinitionId = pMetricDefinitionId_,
       name = pName_
     }
 
--- | The field within the event object that the metric value is sourced from.
-metricDefinition_valueKey :: Lens.Lens' MetricDefinition (Prelude.Maybe Prelude.Text)
-metricDefinition_valueKey = Lens.lens (\MetricDefinition' {valueKey} -> valueKey) (\s@MetricDefinition' {} a -> s {valueKey = a} :: MetricDefinition)
-
--- | Use this field only if you are sending this metric to CloudWatch. It
--- defines the CloudWatch metric unit that this metric is measured in.
-metricDefinition_unitLabel :: Lens.Lens' MetricDefinition (Prelude.Maybe Prelude.Text)
-metricDefinition_unitLabel = Lens.lens (\MetricDefinition' {unitLabel} -> unitLabel) (\s@MetricDefinition' {} a -> s {unitLabel = a} :: MetricDefinition)
+-- | This field is a map of field paths to dimension names. It defines the
+-- dimensions to associate with this metric in CloudWatch The value of this
+-- field is used only if the metric destination is @CloudWatch@. If the
+-- metric destination is @Evidently@, the value of @DimensionKeys@ is
+-- ignored.
+metricDefinition_dimensionKeys :: Lens.Lens' MetricDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+metricDefinition_dimensionKeys = Lens.lens (\MetricDefinition' {dimensionKeys} -> dimensionKeys) (\s@MetricDefinition' {} a -> s {dimensionKeys = a} :: MetricDefinition) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pattern that defines the metric. RUM checks events that happen in a
 -- user\'s session against the pattern, and events that match the pattern
@@ -121,13 +120,14 @@ metricDefinition_unitLabel = Lens.lens (\MetricDefinition' {unitLabel} -> unitLa
 metricDefinition_eventPattern :: Lens.Lens' MetricDefinition (Prelude.Maybe Prelude.Text)
 metricDefinition_eventPattern = Lens.lens (\MetricDefinition' {eventPattern} -> eventPattern) (\s@MetricDefinition' {} a -> s {eventPattern = a} :: MetricDefinition)
 
--- | This field is a map of field paths to dimension names. It defines the
--- dimensions to associate with this metric in CloudWatch The value of this
--- field is used only if the metric destination is @CloudWatch@. If the
--- metric destination is @Evidently@, the value of @DimensionKeys@ is
--- ignored.
-metricDefinition_dimensionKeys :: Lens.Lens' MetricDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-metricDefinition_dimensionKeys = Lens.lens (\MetricDefinition' {dimensionKeys} -> dimensionKeys) (\s@MetricDefinition' {} a -> s {dimensionKeys = a} :: MetricDefinition) Prelude.. Lens.mapping Lens.coerced
+-- | Use this field only if you are sending this metric to CloudWatch. It
+-- defines the CloudWatch metric unit that this metric is measured in.
+metricDefinition_unitLabel :: Lens.Lens' MetricDefinition (Prelude.Maybe Prelude.Text)
+metricDefinition_unitLabel = Lens.lens (\MetricDefinition' {unitLabel} -> unitLabel) (\s@MetricDefinition' {} a -> s {unitLabel = a} :: MetricDefinition)
+
+-- | The field within the event object that the metric value is sourced from.
+metricDefinition_valueKey :: Lens.Lens' MetricDefinition (Prelude.Maybe Prelude.Text)
+metricDefinition_valueKey = Lens.lens (\MetricDefinition' {valueKey} -> valueKey) (\s@MetricDefinition' {} a -> s {valueKey = a} :: MetricDefinition)
 
 -- | The ID of this metric definition.
 metricDefinition_metricDefinitionId :: Lens.Lens' MetricDefinition Prelude.Text
@@ -143,28 +143,28 @@ instance Data.FromJSON MetricDefinition where
       "MetricDefinition"
       ( \x ->
           MetricDefinition'
-            Prelude.<$> (x Data..:? "ValueKey")
-            Prelude.<*> (x Data..:? "UnitLabel")
+            Prelude.<$> (x Data..:? "DimensionKeys" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "EventPattern")
-            Prelude.<*> (x Data..:? "DimensionKeys" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "UnitLabel")
+            Prelude.<*> (x Data..:? "ValueKey")
             Prelude.<*> (x Data..: "MetricDefinitionId")
             Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable MetricDefinition where
   hashWithSalt _salt MetricDefinition' {..} =
-    _salt `Prelude.hashWithSalt` valueKey
-      `Prelude.hashWithSalt` unitLabel
+    _salt `Prelude.hashWithSalt` dimensionKeys
       `Prelude.hashWithSalt` eventPattern
-      `Prelude.hashWithSalt` dimensionKeys
+      `Prelude.hashWithSalt` unitLabel
+      `Prelude.hashWithSalt` valueKey
       `Prelude.hashWithSalt` metricDefinitionId
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData MetricDefinition where
   rnf MetricDefinition' {..} =
-    Prelude.rnf valueKey
-      `Prelude.seq` Prelude.rnf unitLabel
+    Prelude.rnf dimensionKeys
       `Prelude.seq` Prelude.rnf eventPattern
-      `Prelude.seq` Prelude.rnf dimensionKeys
+      `Prelude.seq` Prelude.rnf unitLabel
+      `Prelude.seq` Prelude.rnf valueKey
       `Prelude.seq` Prelude.rnf metricDefinitionId
       `Prelude.seq` Prelude.rnf name

@@ -30,15 +30,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCognitoOptions' smart constructor.
 data CognitoOptions = CognitoOptions'
-  { -- | The @AmazonOpenSearchServiceCognitoAccess@ role that allows OpenSearch
-    -- Service to configure your user pool and identity pool.
-    roleArn :: Prelude.Maybe Prelude.Text,
-    -- | Whether to enable or disable Amazon Cognito authentication for
+  { -- | Whether to enable or disable Amazon Cognito authentication for
     -- OpenSearch Dashboards.
     enabled :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Cognito identity pool ID that you want OpenSearch Service to
     -- use for OpenSearch Dashboards authentication.
     identityPoolId :: Prelude.Maybe Prelude.Text,
+    -- | The @AmazonOpenSearchServiceCognitoAccess@ role that allows OpenSearch
+    -- Service to configure your user pool and identity pool.
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Cognito user pool ID that you want OpenSearch Service to use
     -- for OpenSearch Dashboards authentication.
     userPoolId :: Prelude.Maybe Prelude.Text
@@ -53,14 +53,14 @@ data CognitoOptions = CognitoOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'cognitoOptions_roleArn' - The @AmazonOpenSearchServiceCognitoAccess@ role that allows OpenSearch
--- Service to configure your user pool and identity pool.
---
 -- 'enabled', 'cognitoOptions_enabled' - Whether to enable or disable Amazon Cognito authentication for
 -- OpenSearch Dashboards.
 --
 -- 'identityPoolId', 'cognitoOptions_identityPoolId' - The Amazon Cognito identity pool ID that you want OpenSearch Service to
 -- use for OpenSearch Dashboards authentication.
+--
+-- 'roleArn', 'cognitoOptions_roleArn' - The @AmazonOpenSearchServiceCognitoAccess@ role that allows OpenSearch
+-- Service to configure your user pool and identity pool.
 --
 -- 'userPoolId', 'cognitoOptions_userPoolId' - The Amazon Cognito user pool ID that you want OpenSearch Service to use
 -- for OpenSearch Dashboards authentication.
@@ -68,16 +68,11 @@ newCognitoOptions ::
   CognitoOptions
 newCognitoOptions =
   CognitoOptions'
-    { roleArn = Prelude.Nothing,
-      enabled = Prelude.Nothing,
+    { enabled = Prelude.Nothing,
       identityPoolId = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
       userPoolId = Prelude.Nothing
     }
-
--- | The @AmazonOpenSearchServiceCognitoAccess@ role that allows OpenSearch
--- Service to configure your user pool and identity pool.
-cognitoOptions_roleArn :: Lens.Lens' CognitoOptions (Prelude.Maybe Prelude.Text)
-cognitoOptions_roleArn = Lens.lens (\CognitoOptions' {roleArn} -> roleArn) (\s@CognitoOptions' {} a -> s {roleArn = a} :: CognitoOptions)
 
 -- | Whether to enable or disable Amazon Cognito authentication for
 -- OpenSearch Dashboards.
@@ -88,6 +83,11 @@ cognitoOptions_enabled = Lens.lens (\CognitoOptions' {enabled} -> enabled) (\s@C
 -- use for OpenSearch Dashboards authentication.
 cognitoOptions_identityPoolId :: Lens.Lens' CognitoOptions (Prelude.Maybe Prelude.Text)
 cognitoOptions_identityPoolId = Lens.lens (\CognitoOptions' {identityPoolId} -> identityPoolId) (\s@CognitoOptions' {} a -> s {identityPoolId = a} :: CognitoOptions)
+
+-- | The @AmazonOpenSearchServiceCognitoAccess@ role that allows OpenSearch
+-- Service to configure your user pool and identity pool.
+cognitoOptions_roleArn :: Lens.Lens' CognitoOptions (Prelude.Maybe Prelude.Text)
+cognitoOptions_roleArn = Lens.lens (\CognitoOptions' {roleArn} -> roleArn) (\s@CognitoOptions' {} a -> s {roleArn = a} :: CognitoOptions)
 
 -- | The Amazon Cognito user pool ID that you want OpenSearch Service to use
 -- for OpenSearch Dashboards authentication.
@@ -100,34 +100,34 @@ instance Data.FromJSON CognitoOptions where
       "CognitoOptions"
       ( \x ->
           CognitoOptions'
-            Prelude.<$> (x Data..:? "RoleArn")
-            Prelude.<*> (x Data..:? "Enabled")
+            Prelude.<$> (x Data..:? "Enabled")
             Prelude.<*> (x Data..:? "IdentityPoolId")
+            Prelude.<*> (x Data..:? "RoleArn")
             Prelude.<*> (x Data..:? "UserPoolId")
       )
 
 instance Prelude.Hashable CognitoOptions where
   hashWithSalt _salt CognitoOptions' {..} =
-    _salt `Prelude.hashWithSalt` roleArn
-      `Prelude.hashWithSalt` enabled
+    _salt `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` identityPoolId
+      `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` userPoolId
 
 instance Prelude.NFData CognitoOptions where
   rnf CognitoOptions' {..} =
-    Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf identityPoolId
+      `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf userPoolId
 
 instance Data.ToJSON CognitoOptions where
   toJSON CognitoOptions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("RoleArn" Data..=) Prelude.<$> roleArn,
-            ("Enabled" Data..=) Prelude.<$> enabled,
+          [ ("Enabled" Data..=) Prelude.<$> enabled,
             ("IdentityPoolId" Data..=)
               Prelude.<$> identityPoolId,
+            ("RoleArn" Data..=) Prelude.<$> roleArn,
             ("UserPoolId" Data..=) Prelude.<$> userPoolId
           ]
       )

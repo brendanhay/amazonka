@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAutoTuneMaintenanceSchedule' smart constructor.
 data AutoTuneMaintenanceSchedule = AutoTuneMaintenanceSchedule'
-  { -- | The duration of the maintenance schedule. For example,
-    -- @\"Duration\": {\"Value\": 2, \"Unit\": \"HOURS\"}@.
-    duration :: Prelude.Maybe Duration,
-    -- | A cron expression for a recurring maintenance schedule during which
+  { -- | A cron expression for a recurring maintenance schedule during which
     -- Auto-Tune can deploy changes.
     cronExpressionForRecurrence :: Prelude.Maybe Prelude.Text,
+    -- | The duration of the maintenance schedule. For example,
+    -- @\"Duration\": {\"Value\": 2, \"Unit\": \"HOURS\"}@.
+    duration :: Prelude.Maybe Duration,
     -- | The Epoch timestamp at which the Auto-Tune maintenance schedule starts.
     startAt :: Prelude.Maybe Data.POSIX
   }
@@ -49,32 +49,32 @@ data AutoTuneMaintenanceSchedule = AutoTuneMaintenanceSchedule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'duration', 'autoTuneMaintenanceSchedule_duration' - The duration of the maintenance schedule. For example,
--- @\"Duration\": {\"Value\": 2, \"Unit\": \"HOURS\"}@.
---
 -- 'cronExpressionForRecurrence', 'autoTuneMaintenanceSchedule_cronExpressionForRecurrence' - A cron expression for a recurring maintenance schedule during which
 -- Auto-Tune can deploy changes.
+--
+-- 'duration', 'autoTuneMaintenanceSchedule_duration' - The duration of the maintenance schedule. For example,
+-- @\"Duration\": {\"Value\": 2, \"Unit\": \"HOURS\"}@.
 --
 -- 'startAt', 'autoTuneMaintenanceSchedule_startAt' - The Epoch timestamp at which the Auto-Tune maintenance schedule starts.
 newAutoTuneMaintenanceSchedule ::
   AutoTuneMaintenanceSchedule
 newAutoTuneMaintenanceSchedule =
   AutoTuneMaintenanceSchedule'
-    { duration =
+    { cronExpressionForRecurrence =
         Prelude.Nothing,
-      cronExpressionForRecurrence = Prelude.Nothing,
+      duration = Prelude.Nothing,
       startAt = Prelude.Nothing
     }
-
--- | The duration of the maintenance schedule. For example,
--- @\"Duration\": {\"Value\": 2, \"Unit\": \"HOURS\"}@.
-autoTuneMaintenanceSchedule_duration :: Lens.Lens' AutoTuneMaintenanceSchedule (Prelude.Maybe Duration)
-autoTuneMaintenanceSchedule_duration = Lens.lens (\AutoTuneMaintenanceSchedule' {duration} -> duration) (\s@AutoTuneMaintenanceSchedule' {} a -> s {duration = a} :: AutoTuneMaintenanceSchedule)
 
 -- | A cron expression for a recurring maintenance schedule during which
 -- Auto-Tune can deploy changes.
 autoTuneMaintenanceSchedule_cronExpressionForRecurrence :: Lens.Lens' AutoTuneMaintenanceSchedule (Prelude.Maybe Prelude.Text)
 autoTuneMaintenanceSchedule_cronExpressionForRecurrence = Lens.lens (\AutoTuneMaintenanceSchedule' {cronExpressionForRecurrence} -> cronExpressionForRecurrence) (\s@AutoTuneMaintenanceSchedule' {} a -> s {cronExpressionForRecurrence = a} :: AutoTuneMaintenanceSchedule)
+
+-- | The duration of the maintenance schedule. For example,
+-- @\"Duration\": {\"Value\": 2, \"Unit\": \"HOURS\"}@.
+autoTuneMaintenanceSchedule_duration :: Lens.Lens' AutoTuneMaintenanceSchedule (Prelude.Maybe Duration)
+autoTuneMaintenanceSchedule_duration = Lens.lens (\AutoTuneMaintenanceSchedule' {duration} -> duration) (\s@AutoTuneMaintenanceSchedule' {} a -> s {duration = a} :: AutoTuneMaintenanceSchedule)
 
 -- | The Epoch timestamp at which the Auto-Tune maintenance schedule starts.
 autoTuneMaintenanceSchedule_startAt :: Lens.Lens' AutoTuneMaintenanceSchedule (Prelude.Maybe Prelude.UTCTime)
@@ -86,30 +86,31 @@ instance Data.FromJSON AutoTuneMaintenanceSchedule where
       "AutoTuneMaintenanceSchedule"
       ( \x ->
           AutoTuneMaintenanceSchedule'
-            Prelude.<$> (x Data..:? "Duration")
-            Prelude.<*> (x Data..:? "CronExpressionForRecurrence")
+            Prelude.<$> (x Data..:? "CronExpressionForRecurrence")
+            Prelude.<*> (x Data..:? "Duration")
             Prelude.<*> (x Data..:? "StartAt")
       )
 
 instance Prelude.Hashable AutoTuneMaintenanceSchedule where
   hashWithSalt _salt AutoTuneMaintenanceSchedule' {..} =
-    _salt `Prelude.hashWithSalt` duration
+    _salt
       `Prelude.hashWithSalt` cronExpressionForRecurrence
+      `Prelude.hashWithSalt` duration
       `Prelude.hashWithSalt` startAt
 
 instance Prelude.NFData AutoTuneMaintenanceSchedule where
   rnf AutoTuneMaintenanceSchedule' {..} =
-    Prelude.rnf duration
-      `Prelude.seq` Prelude.rnf cronExpressionForRecurrence
+    Prelude.rnf cronExpressionForRecurrence
+      `Prelude.seq` Prelude.rnf duration
       `Prelude.seq` Prelude.rnf startAt
 
 instance Data.ToJSON AutoTuneMaintenanceSchedule where
   toJSON AutoTuneMaintenanceSchedule' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Duration" Data..=) Prelude.<$> duration,
-            ("CronExpressionForRecurrence" Data..=)
+          [ ("CronExpressionForRecurrence" Data..=)
               Prelude.<$> cronExpressionForRecurrence,
+            ("Duration" Data..=) Prelude.<$> duration,
             ("StartAt" Data..=) Prelude.<$> startAt
           ]
       )

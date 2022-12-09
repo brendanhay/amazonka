@@ -42,8 +42,8 @@ module Amazonka.OpenSearch.UpgradeDomain
     upgradeDomainResponse_advancedOptions,
     upgradeDomainResponse_changeProgressDetails,
     upgradeDomainResponse_domainName,
-    upgradeDomainResponse_targetVersion,
     upgradeDomainResponse_performCheckOnly,
+    upgradeDomainResponse_targetVersion,
     upgradeDomainResponse_upgradeId,
     upgradeDomainResponse_httpStatus,
   )
@@ -150,8 +150,8 @@ instance Core.AWSRequest UpgradeDomain where
                         )
             Prelude.<*> (x Data..?> "ChangeProgressDetails")
             Prelude.<*> (x Data..?> "DomainName")
-            Prelude.<*> (x Data..?> "TargetVersion")
             Prelude.<*> (x Data..?> "PerformCheckOnly")
+            Prelude.<*> (x Data..?> "TargetVersion")
             Prelude.<*> (x Data..?> "UpgradeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -206,10 +206,10 @@ data UpgradeDomainResponse = UpgradeDomainResponse'
     changeProgressDetails :: Prelude.Maybe ChangeProgressDetails,
     -- | The name of the domain that was upgraded.
     domainName :: Prelude.Maybe Prelude.Text,
-    -- | OpenSearch or Elasticsearch version that the domain was upgraded to.
-    targetVersion :: Prelude.Maybe Prelude.Text,
     -- | When true, indicates that an upgrade eligibility check was performed.
     performCheckOnly :: Prelude.Maybe Prelude.Bool,
+    -- | OpenSearch or Elasticsearch version that the domain was upgraded to.
+    targetVersion :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the domain upgrade.
     upgradeId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -232,9 +232,9 @@ data UpgradeDomainResponse = UpgradeDomainResponse'
 --
 -- 'domainName', 'upgradeDomainResponse_domainName' - The name of the domain that was upgraded.
 --
--- 'targetVersion', 'upgradeDomainResponse_targetVersion' - OpenSearch or Elasticsearch version that the domain was upgraded to.
---
 -- 'performCheckOnly', 'upgradeDomainResponse_performCheckOnly' - When true, indicates that an upgrade eligibility check was performed.
+--
+-- 'targetVersion', 'upgradeDomainResponse_targetVersion' - OpenSearch or Elasticsearch version that the domain was upgraded to.
 --
 -- 'upgradeId', 'upgradeDomainResponse_upgradeId' - The unique identifier of the domain upgrade.
 --
@@ -249,8 +249,8 @@ newUpgradeDomainResponse pHttpStatus_ =
         Prelude.Nothing,
       changeProgressDetails = Prelude.Nothing,
       domainName = Prelude.Nothing,
-      targetVersion = Prelude.Nothing,
       performCheckOnly = Prelude.Nothing,
+      targetVersion = Prelude.Nothing,
       upgradeId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
@@ -268,13 +268,13 @@ upgradeDomainResponse_changeProgressDetails = Lens.lens (\UpgradeDomainResponse'
 upgradeDomainResponse_domainName :: Lens.Lens' UpgradeDomainResponse (Prelude.Maybe Prelude.Text)
 upgradeDomainResponse_domainName = Lens.lens (\UpgradeDomainResponse' {domainName} -> domainName) (\s@UpgradeDomainResponse' {} a -> s {domainName = a} :: UpgradeDomainResponse)
 
--- | OpenSearch or Elasticsearch version that the domain was upgraded to.
-upgradeDomainResponse_targetVersion :: Lens.Lens' UpgradeDomainResponse (Prelude.Maybe Prelude.Text)
-upgradeDomainResponse_targetVersion = Lens.lens (\UpgradeDomainResponse' {targetVersion} -> targetVersion) (\s@UpgradeDomainResponse' {} a -> s {targetVersion = a} :: UpgradeDomainResponse)
-
 -- | When true, indicates that an upgrade eligibility check was performed.
 upgradeDomainResponse_performCheckOnly :: Lens.Lens' UpgradeDomainResponse (Prelude.Maybe Prelude.Bool)
 upgradeDomainResponse_performCheckOnly = Lens.lens (\UpgradeDomainResponse' {performCheckOnly} -> performCheckOnly) (\s@UpgradeDomainResponse' {} a -> s {performCheckOnly = a} :: UpgradeDomainResponse)
+
+-- | OpenSearch or Elasticsearch version that the domain was upgraded to.
+upgradeDomainResponse_targetVersion :: Lens.Lens' UpgradeDomainResponse (Prelude.Maybe Prelude.Text)
+upgradeDomainResponse_targetVersion = Lens.lens (\UpgradeDomainResponse' {targetVersion} -> targetVersion) (\s@UpgradeDomainResponse' {} a -> s {targetVersion = a} :: UpgradeDomainResponse)
 
 -- | The unique identifier of the domain upgrade.
 upgradeDomainResponse_upgradeId :: Lens.Lens' UpgradeDomainResponse (Prelude.Maybe Prelude.Text)
@@ -289,7 +289,7 @@ instance Prelude.NFData UpgradeDomainResponse where
     Prelude.rnf advancedOptions
       `Prelude.seq` Prelude.rnf changeProgressDetails
       `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf targetVersion
       `Prelude.seq` Prelude.rnf performCheckOnly
+      `Prelude.seq` Prelude.rnf targetVersion
       `Prelude.seq` Prelude.rnf upgradeId
       `Prelude.seq` Prelude.rnf httpStatus

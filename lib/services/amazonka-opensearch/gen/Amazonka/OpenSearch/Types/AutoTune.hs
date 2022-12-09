@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAutoTune' smart constructor.
 data AutoTune = AutoTune'
-  { -- | The type of Auto-Tune action.
-    autoTuneType :: Prelude.Maybe AutoTuneType,
-    -- | Details about an Auto-Tune action.
-    autoTuneDetails :: Prelude.Maybe AutoTuneDetails
+  { -- | Details about an Auto-Tune action.
+    autoTuneDetails :: Prelude.Maybe AutoTuneDetails,
+    -- | The type of Auto-Tune action.
+    autoTuneType :: Prelude.Maybe AutoTuneType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,24 +46,24 @@ data AutoTune = AutoTune'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'autoTuneType', 'autoTune_autoTuneType' - The type of Auto-Tune action.
---
 -- 'autoTuneDetails', 'autoTune_autoTuneDetails' - Details about an Auto-Tune action.
+--
+-- 'autoTuneType', 'autoTune_autoTuneType' - The type of Auto-Tune action.
 newAutoTune ::
   AutoTune
 newAutoTune =
   AutoTune'
-    { autoTuneType = Prelude.Nothing,
-      autoTuneDetails = Prelude.Nothing
+    { autoTuneDetails = Prelude.Nothing,
+      autoTuneType = Prelude.Nothing
     }
-
--- | The type of Auto-Tune action.
-autoTune_autoTuneType :: Lens.Lens' AutoTune (Prelude.Maybe AutoTuneType)
-autoTune_autoTuneType = Lens.lens (\AutoTune' {autoTuneType} -> autoTuneType) (\s@AutoTune' {} a -> s {autoTuneType = a} :: AutoTune)
 
 -- | Details about an Auto-Tune action.
 autoTune_autoTuneDetails :: Lens.Lens' AutoTune (Prelude.Maybe AutoTuneDetails)
 autoTune_autoTuneDetails = Lens.lens (\AutoTune' {autoTuneDetails} -> autoTuneDetails) (\s@AutoTune' {} a -> s {autoTuneDetails = a} :: AutoTune)
+
+-- | The type of Auto-Tune action.
+autoTune_autoTuneType :: Lens.Lens' AutoTune (Prelude.Maybe AutoTuneType)
+autoTune_autoTuneType = Lens.lens (\AutoTune' {autoTuneType} -> autoTuneType) (\s@AutoTune' {} a -> s {autoTuneType = a} :: AutoTune)
 
 instance Data.FromJSON AutoTune where
   parseJSON =
@@ -71,16 +71,16 @@ instance Data.FromJSON AutoTune where
       "AutoTune"
       ( \x ->
           AutoTune'
-            Prelude.<$> (x Data..:? "AutoTuneType")
-            Prelude.<*> (x Data..:? "AutoTuneDetails")
+            Prelude.<$> (x Data..:? "AutoTuneDetails")
+            Prelude.<*> (x Data..:? "AutoTuneType")
       )
 
 instance Prelude.Hashable AutoTune where
   hashWithSalt _salt AutoTune' {..} =
-    _salt `Prelude.hashWithSalt` autoTuneType
-      `Prelude.hashWithSalt` autoTuneDetails
+    _salt `Prelude.hashWithSalt` autoTuneDetails
+      `Prelude.hashWithSalt` autoTuneType
 
 instance Prelude.NFData AutoTune where
   rnf AutoTune' {..} =
-    Prelude.rnf autoTuneType
-      `Prelude.seq` Prelude.rnf autoTuneDetails
+    Prelude.rnf autoTuneDetails
+      `Prelude.seq` Prelude.rnf autoTuneType

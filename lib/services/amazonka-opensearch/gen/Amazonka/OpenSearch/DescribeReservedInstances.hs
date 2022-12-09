@@ -29,9 +29,9 @@ module Amazonka.OpenSearch.DescribeReservedInstances
     newDescribeReservedInstances,
 
     -- * Request Lenses
+    describeReservedInstances_maxResults,
     describeReservedInstances_nextToken,
     describeReservedInstances_reservedInstanceId,
-    describeReservedInstances_maxResults,
 
     -- * Destructuring the Response
     DescribeReservedInstancesResponse (..),
@@ -57,7 +57,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeReservedInstances' smart constructor.
 data DescribeReservedInstances = DescribeReservedInstances'
-  { -- | If your initial @DescribeReservedInstances@ operation returns a
+  { -- | An optional parameter that specifies the maximum number of results to
+    -- return. You can use @nextToken@ to get the next page of results.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | If your initial @DescribeReservedInstances@ operation returns a
     -- @nextToken@, you can include the returned @nextToken@ in subsequent
     -- @DescribeReservedInstances@ operations, which returns results in the
     -- next page.
@@ -65,10 +68,7 @@ data DescribeReservedInstances = DescribeReservedInstances'
     -- | The reserved instance identifier filter value. Use this parameter to
     -- show only the reservation that matches the specified reserved OpenSearch
     -- instance ID.
-    reservedInstanceId :: Prelude.Maybe Prelude.Text,
-    -- | An optional parameter that specifies the maximum number of results to
-    -- return. You can use @nextToken@ to get the next page of results.
-    maxResults :: Prelude.Maybe Prelude.Int
+    reservedInstanceId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,6 +80,9 @@ data DescribeReservedInstances = DescribeReservedInstances'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'describeReservedInstances_maxResults' - An optional parameter that specifies the maximum number of results to
+-- return. You can use @nextToken@ to get the next page of results.
+--
 -- 'nextToken', 'describeReservedInstances_nextToken' - If your initial @DescribeReservedInstances@ operation returns a
 -- @nextToken@, you can include the returned @nextToken@ in subsequent
 -- @DescribeReservedInstances@ operations, which returns results in the
@@ -88,18 +91,20 @@ data DescribeReservedInstances = DescribeReservedInstances'
 -- 'reservedInstanceId', 'describeReservedInstances_reservedInstanceId' - The reserved instance identifier filter value. Use this parameter to
 -- show only the reservation that matches the specified reserved OpenSearch
 -- instance ID.
---
--- 'maxResults', 'describeReservedInstances_maxResults' - An optional parameter that specifies the maximum number of results to
--- return. You can use @nextToken@ to get the next page of results.
 newDescribeReservedInstances ::
   DescribeReservedInstances
 newDescribeReservedInstances =
   DescribeReservedInstances'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      reservedInstanceId = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      reservedInstanceId = Prelude.Nothing
     }
+
+-- | An optional parameter that specifies the maximum number of results to
+-- return. You can use @nextToken@ to get the next page of results.
+describeReservedInstances_maxResults :: Lens.Lens' DescribeReservedInstances (Prelude.Maybe Prelude.Int)
+describeReservedInstances_maxResults = Lens.lens (\DescribeReservedInstances' {maxResults} -> maxResults) (\s@DescribeReservedInstances' {} a -> s {maxResults = a} :: DescribeReservedInstances)
 
 -- | If your initial @DescribeReservedInstances@ operation returns a
 -- @nextToken@, you can include the returned @nextToken@ in subsequent
@@ -113,11 +118,6 @@ describeReservedInstances_nextToken = Lens.lens (\DescribeReservedInstances' {ne
 -- instance ID.
 describeReservedInstances_reservedInstanceId :: Lens.Lens' DescribeReservedInstances (Prelude.Maybe Prelude.Text)
 describeReservedInstances_reservedInstanceId = Lens.lens (\DescribeReservedInstances' {reservedInstanceId} -> reservedInstanceId) (\s@DescribeReservedInstances' {} a -> s {reservedInstanceId = a} :: DescribeReservedInstances)
-
--- | An optional parameter that specifies the maximum number of results to
--- return. You can use @nextToken@ to get the next page of results.
-describeReservedInstances_maxResults :: Lens.Lens' DescribeReservedInstances (Prelude.Maybe Prelude.Int)
-describeReservedInstances_maxResults = Lens.lens (\DescribeReservedInstances' {maxResults} -> maxResults) (\s@DescribeReservedInstances' {} a -> s {maxResults = a} :: DescribeReservedInstances)
 
 instance Core.AWSRequest DescribeReservedInstances where
   type
@@ -138,15 +138,15 @@ instance Core.AWSRequest DescribeReservedInstances where
 
 instance Prelude.Hashable DescribeReservedInstances where
   hashWithSalt _salt DescribeReservedInstances' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` reservedInstanceId
-      `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData DescribeReservedInstances where
   rnf DescribeReservedInstances' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf reservedInstanceId
-      `Prelude.seq` Prelude.rnf maxResults
 
 instance Data.ToHeaders DescribeReservedInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -159,9 +159,9 @@ instance Data.ToPath DescribeReservedInstances where
 instance Data.ToQuery DescribeReservedInstances where
   toQuery DescribeReservedInstances' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "reservationId" Data.=: reservedInstanceId,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
+        "reservationId" Data.=: reservedInstanceId
       ]
 
 -- | Container for results from @DescribeReservedInstances@

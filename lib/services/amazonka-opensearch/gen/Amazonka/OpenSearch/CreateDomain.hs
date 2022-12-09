@@ -28,21 +28,21 @@ module Amazonka.OpenSearch.CreateDomain
     newCreateDomain,
 
     -- * Request Lenses
-    createDomain_nodeToNodeEncryptionOptions,
-    createDomain_clusterConfig,
-    createDomain_advancedOptions,
-    createDomain_tagList,
-    createDomain_advancedSecurityOptions,
-    createDomain_cognitoOptions,
-    createDomain_encryptionAtRestOptions,
-    createDomain_eBSOptions,
     createDomain_accessPolicies,
-    createDomain_vPCOptions,
+    createDomain_advancedOptions,
+    createDomain_advancedSecurityOptions,
     createDomain_autoTuneOptions,
+    createDomain_clusterConfig,
+    createDomain_cognitoOptions,
     createDomain_domainEndpointOptions,
-    createDomain_snapshotOptions,
-    createDomain_logPublishingOptions,
+    createDomain_eBSOptions,
+    createDomain_encryptionAtRestOptions,
     createDomain_engineVersion,
+    createDomain_logPublishingOptions,
+    createDomain_nodeToNodeEncryptionOptions,
+    createDomain_snapshotOptions,
+    createDomain_tagList,
+    createDomain_vPCOptions,
     createDomain_domainName,
 
     -- * Destructuring the Response
@@ -65,10 +65,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDomain' smart constructor.
 data CreateDomain = CreateDomain'
-  { -- | Enables node-to-node encryption.
-    nodeToNodeEncryptionOptions :: Prelude.Maybe NodeToNodeEncryptionOptions,
-    -- | Container for the cluster configuration of a domain.
-    clusterConfig :: Prelude.Maybe ClusterConfig,
+  { -- | Identity and Access Management (IAM) policy document specifying the
+    -- access policies for the new domain.
+    accessPolicies :: Prelude.Maybe Prelude.Text,
     -- | Key-value pairs to specify advanced configuration options. The following
     -- key-value pairs are supported:
     --
@@ -98,42 +97,43 @@ data CreateDomain = CreateDomain'
     -- For more information, see
     -- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options Advanced cluster parameters>.
     advancedOptions :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | List of tags to add to the domain upon creation.
-    tagList :: Prelude.Maybe [Tag],
     -- | Options for fine-grained access control.
     advancedSecurityOptions :: Prelude.Maybe AdvancedSecurityOptionsInput,
+    -- | Options for Auto-Tune.
+    autoTuneOptions :: Prelude.Maybe AutoTuneOptionsInput,
+    -- | Container for the cluster configuration of a domain.
+    clusterConfig :: Prelude.Maybe ClusterConfig,
     -- | Key-value pairs to configure Amazon Cognito authentication. For more
     -- information, see
     -- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html Configuring Amazon Cognito authentication for OpenSearch Dashboards>.
     cognitoOptions :: Prelude.Maybe CognitoOptions,
-    -- | Key-value pairs to enable encryption at rest.
-    encryptionAtRestOptions :: Prelude.Maybe EncryptionAtRestOptions,
-    -- | Container for the parameters required to enable EBS-based storage for an
-    -- OpenSearch Service domain.
-    eBSOptions :: Prelude.Maybe EBSOptions,
-    -- | Identity and Access Management (IAM) policy document specifying the
-    -- access policies for the new domain.
-    accessPolicies :: Prelude.Maybe Prelude.Text,
-    -- | Container for the values required to configure VPC access domains. If
-    -- you don\'t specify these values, OpenSearch Service creates the domain
-    -- with a public endpoint. For more information, see
-    -- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html Launching your Amazon OpenSearch Service domains using a VPC>.
-    vPCOptions :: Prelude.Maybe VPCOptions,
-    -- | Options for Auto-Tune.
-    autoTuneOptions :: Prelude.Maybe AutoTuneOptionsInput,
     -- | Additional options for the domain endpoint, such as whether to require
     -- HTTPS for all traffic.
     domainEndpointOptions :: Prelude.Maybe DomainEndpointOptions,
-    -- | DEPRECATED. Container for the parameters required to configure automated
-    -- snapshots of domain indexes.
-    snapshotOptions :: Prelude.Maybe SnapshotOptions,
-    -- | Key-value pairs to configure slow log publishing.
-    logPublishingOptions :: Prelude.Maybe (Prelude.HashMap LogType LogPublishingOption),
+    -- | Container for the parameters required to enable EBS-based storage for an
+    -- OpenSearch Service domain.
+    eBSOptions :: Prelude.Maybe EBSOptions,
+    -- | Key-value pairs to enable encryption at rest.
+    encryptionAtRestOptions :: Prelude.Maybe EncryptionAtRestOptions,
     -- | String of format Elasticsearch_X.Y or OpenSearch_X.Y to specify the
     -- engine version for the OpenSearch Service domain. For example,
     -- @OpenSearch_1.0@ or @Elasticsearch_7.9@. For more information, see
     -- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains Creating and managing Amazon OpenSearch Service domains>.
     engineVersion :: Prelude.Maybe Prelude.Text,
+    -- | Key-value pairs to configure slow log publishing.
+    logPublishingOptions :: Prelude.Maybe (Prelude.HashMap LogType LogPublishingOption),
+    -- | Enables node-to-node encryption.
+    nodeToNodeEncryptionOptions :: Prelude.Maybe NodeToNodeEncryptionOptions,
+    -- | DEPRECATED. Container for the parameters required to configure automated
+    -- snapshots of domain indexes.
+    snapshotOptions :: Prelude.Maybe SnapshotOptions,
+    -- | List of tags to add to the domain upon creation.
+    tagList :: Prelude.Maybe [Tag],
+    -- | Container for the values required to configure VPC access domains. If
+    -- you don\'t specify these values, OpenSearch Service creates the domain
+    -- with a public endpoint. For more information, see
+    -- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html Launching your Amazon OpenSearch Service domains using a VPC>.
+    vPCOptions :: Prelude.Maybe VPCOptions,
     -- | Name of the OpenSearch Service domain to create. Domain names are unique
     -- across the domains owned by an account within an Amazon Web Services
     -- Region.
@@ -149,9 +149,8 @@ data CreateDomain = CreateDomain'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nodeToNodeEncryptionOptions', 'createDomain_nodeToNodeEncryptionOptions' - Enables node-to-node encryption.
---
--- 'clusterConfig', 'createDomain_clusterConfig' - Container for the cluster configuration of a domain.
+-- 'accessPolicies', 'createDomain_accessPolicies' - Identity and Access Management (IAM) policy document specifying the
+-- access policies for the new domain.
 --
 -- 'advancedOptions', 'createDomain_advancedOptions' - Key-value pairs to specify advanced configuration options. The following
 -- key-value pairs are supported:
@@ -182,41 +181,42 @@ data CreateDomain = CreateDomain'
 -- For more information, see
 -- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options Advanced cluster parameters>.
 --
--- 'tagList', 'createDomain_tagList' - List of tags to add to the domain upon creation.
---
 -- 'advancedSecurityOptions', 'createDomain_advancedSecurityOptions' - Options for fine-grained access control.
+--
+-- 'autoTuneOptions', 'createDomain_autoTuneOptions' - Options for Auto-Tune.
+--
+-- 'clusterConfig', 'createDomain_clusterConfig' - Container for the cluster configuration of a domain.
 --
 -- 'cognitoOptions', 'createDomain_cognitoOptions' - Key-value pairs to configure Amazon Cognito authentication. For more
 -- information, see
 -- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html Configuring Amazon Cognito authentication for OpenSearch Dashboards>.
 --
--- 'encryptionAtRestOptions', 'createDomain_encryptionAtRestOptions' - Key-value pairs to enable encryption at rest.
+-- 'domainEndpointOptions', 'createDomain_domainEndpointOptions' - Additional options for the domain endpoint, such as whether to require
+-- HTTPS for all traffic.
 --
 -- 'eBSOptions', 'createDomain_eBSOptions' - Container for the parameters required to enable EBS-based storage for an
 -- OpenSearch Service domain.
 --
--- 'accessPolicies', 'createDomain_accessPolicies' - Identity and Access Management (IAM) policy document specifying the
--- access policies for the new domain.
---
--- 'vPCOptions', 'createDomain_vPCOptions' - Container for the values required to configure VPC access domains. If
--- you don\'t specify these values, OpenSearch Service creates the domain
--- with a public endpoint. For more information, see
--- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html Launching your Amazon OpenSearch Service domains using a VPC>.
---
--- 'autoTuneOptions', 'createDomain_autoTuneOptions' - Options for Auto-Tune.
---
--- 'domainEndpointOptions', 'createDomain_domainEndpointOptions' - Additional options for the domain endpoint, such as whether to require
--- HTTPS for all traffic.
---
--- 'snapshotOptions', 'createDomain_snapshotOptions' - DEPRECATED. Container for the parameters required to configure automated
--- snapshots of domain indexes.
---
--- 'logPublishingOptions', 'createDomain_logPublishingOptions' - Key-value pairs to configure slow log publishing.
+-- 'encryptionAtRestOptions', 'createDomain_encryptionAtRestOptions' - Key-value pairs to enable encryption at rest.
 --
 -- 'engineVersion', 'createDomain_engineVersion' - String of format Elasticsearch_X.Y or OpenSearch_X.Y to specify the
 -- engine version for the OpenSearch Service domain. For example,
 -- @OpenSearch_1.0@ or @Elasticsearch_7.9@. For more information, see
 -- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains Creating and managing Amazon OpenSearch Service domains>.
+--
+-- 'logPublishingOptions', 'createDomain_logPublishingOptions' - Key-value pairs to configure slow log publishing.
+--
+-- 'nodeToNodeEncryptionOptions', 'createDomain_nodeToNodeEncryptionOptions' - Enables node-to-node encryption.
+--
+-- 'snapshotOptions', 'createDomain_snapshotOptions' - DEPRECATED. Container for the parameters required to configure automated
+-- snapshots of domain indexes.
+--
+-- 'tagList', 'createDomain_tagList' - List of tags to add to the domain upon creation.
+--
+-- 'vPCOptions', 'createDomain_vPCOptions' - Container for the values required to configure VPC access domains. If
+-- you don\'t specify these values, OpenSearch Service creates the domain
+-- with a public endpoint. For more information, see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html Launching your Amazon OpenSearch Service domains using a VPC>.
 --
 -- 'domainName', 'createDomain_domainName' - Name of the OpenSearch Service domain to create. Domain names are unique
 -- across the domains owned by an account within an Amazon Web Services
@@ -227,32 +227,28 @@ newCreateDomain ::
   CreateDomain
 newCreateDomain pDomainName_ =
   CreateDomain'
-    { nodeToNodeEncryptionOptions =
-        Prelude.Nothing,
-      clusterConfig = Prelude.Nothing,
+    { accessPolicies = Prelude.Nothing,
       advancedOptions = Prelude.Nothing,
-      tagList = Prelude.Nothing,
       advancedSecurityOptions = Prelude.Nothing,
-      cognitoOptions = Prelude.Nothing,
-      encryptionAtRestOptions = Prelude.Nothing,
-      eBSOptions = Prelude.Nothing,
-      accessPolicies = Prelude.Nothing,
-      vPCOptions = Prelude.Nothing,
       autoTuneOptions = Prelude.Nothing,
+      clusterConfig = Prelude.Nothing,
+      cognitoOptions = Prelude.Nothing,
       domainEndpointOptions = Prelude.Nothing,
-      snapshotOptions = Prelude.Nothing,
-      logPublishingOptions = Prelude.Nothing,
+      eBSOptions = Prelude.Nothing,
+      encryptionAtRestOptions = Prelude.Nothing,
       engineVersion = Prelude.Nothing,
+      logPublishingOptions = Prelude.Nothing,
+      nodeToNodeEncryptionOptions = Prelude.Nothing,
+      snapshotOptions = Prelude.Nothing,
+      tagList = Prelude.Nothing,
+      vPCOptions = Prelude.Nothing,
       domainName = pDomainName_
     }
 
--- | Enables node-to-node encryption.
-createDomain_nodeToNodeEncryptionOptions :: Lens.Lens' CreateDomain (Prelude.Maybe NodeToNodeEncryptionOptions)
-createDomain_nodeToNodeEncryptionOptions = Lens.lens (\CreateDomain' {nodeToNodeEncryptionOptions} -> nodeToNodeEncryptionOptions) (\s@CreateDomain' {} a -> s {nodeToNodeEncryptionOptions = a} :: CreateDomain)
-
--- | Container for the cluster configuration of a domain.
-createDomain_clusterConfig :: Lens.Lens' CreateDomain (Prelude.Maybe ClusterConfig)
-createDomain_clusterConfig = Lens.lens (\CreateDomain' {clusterConfig} -> clusterConfig) (\s@CreateDomain' {} a -> s {clusterConfig = a} :: CreateDomain)
+-- | Identity and Access Management (IAM) policy document specifying the
+-- access policies for the new domain.
+createDomain_accessPolicies :: Lens.Lens' CreateDomain (Prelude.Maybe Prelude.Text)
+createDomain_accessPolicies = Lens.lens (\CreateDomain' {accessPolicies} -> accessPolicies) (\s@CreateDomain' {} a -> s {accessPolicies = a} :: CreateDomain)
 
 -- | Key-value pairs to specify advanced configuration options. The following
 -- key-value pairs are supported:
@@ -285,13 +281,17 @@ createDomain_clusterConfig = Lens.lens (\CreateDomain' {clusterConfig} -> cluste
 createDomain_advancedOptions :: Lens.Lens' CreateDomain (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createDomain_advancedOptions = Lens.lens (\CreateDomain' {advancedOptions} -> advancedOptions) (\s@CreateDomain' {} a -> s {advancedOptions = a} :: CreateDomain) Prelude.. Lens.mapping Lens.coerced
 
--- | List of tags to add to the domain upon creation.
-createDomain_tagList :: Lens.Lens' CreateDomain (Prelude.Maybe [Tag])
-createDomain_tagList = Lens.lens (\CreateDomain' {tagList} -> tagList) (\s@CreateDomain' {} a -> s {tagList = a} :: CreateDomain) Prelude.. Lens.mapping Lens.coerced
-
 -- | Options for fine-grained access control.
 createDomain_advancedSecurityOptions :: Lens.Lens' CreateDomain (Prelude.Maybe AdvancedSecurityOptionsInput)
 createDomain_advancedSecurityOptions = Lens.lens (\CreateDomain' {advancedSecurityOptions} -> advancedSecurityOptions) (\s@CreateDomain' {} a -> s {advancedSecurityOptions = a} :: CreateDomain)
+
+-- | Options for Auto-Tune.
+createDomain_autoTuneOptions :: Lens.Lens' CreateDomain (Prelude.Maybe AutoTuneOptionsInput)
+createDomain_autoTuneOptions = Lens.lens (\CreateDomain' {autoTuneOptions} -> autoTuneOptions) (\s@CreateDomain' {} a -> s {autoTuneOptions = a} :: CreateDomain)
+
+-- | Container for the cluster configuration of a domain.
+createDomain_clusterConfig :: Lens.Lens' CreateDomain (Prelude.Maybe ClusterConfig)
+createDomain_clusterConfig = Lens.lens (\CreateDomain' {clusterConfig} -> clusterConfig) (\s@CreateDomain' {} a -> s {clusterConfig = a} :: CreateDomain)
 
 -- | Key-value pairs to configure Amazon Cognito authentication. For more
 -- information, see
@@ -299,44 +299,19 @@ createDomain_advancedSecurityOptions = Lens.lens (\CreateDomain' {advancedSecuri
 createDomain_cognitoOptions :: Lens.Lens' CreateDomain (Prelude.Maybe CognitoOptions)
 createDomain_cognitoOptions = Lens.lens (\CreateDomain' {cognitoOptions} -> cognitoOptions) (\s@CreateDomain' {} a -> s {cognitoOptions = a} :: CreateDomain)
 
--- | Key-value pairs to enable encryption at rest.
-createDomain_encryptionAtRestOptions :: Lens.Lens' CreateDomain (Prelude.Maybe EncryptionAtRestOptions)
-createDomain_encryptionAtRestOptions = Lens.lens (\CreateDomain' {encryptionAtRestOptions} -> encryptionAtRestOptions) (\s@CreateDomain' {} a -> s {encryptionAtRestOptions = a} :: CreateDomain)
+-- | Additional options for the domain endpoint, such as whether to require
+-- HTTPS for all traffic.
+createDomain_domainEndpointOptions :: Lens.Lens' CreateDomain (Prelude.Maybe DomainEndpointOptions)
+createDomain_domainEndpointOptions = Lens.lens (\CreateDomain' {domainEndpointOptions} -> domainEndpointOptions) (\s@CreateDomain' {} a -> s {domainEndpointOptions = a} :: CreateDomain)
 
 -- | Container for the parameters required to enable EBS-based storage for an
 -- OpenSearch Service domain.
 createDomain_eBSOptions :: Lens.Lens' CreateDomain (Prelude.Maybe EBSOptions)
 createDomain_eBSOptions = Lens.lens (\CreateDomain' {eBSOptions} -> eBSOptions) (\s@CreateDomain' {} a -> s {eBSOptions = a} :: CreateDomain)
 
--- | Identity and Access Management (IAM) policy document specifying the
--- access policies for the new domain.
-createDomain_accessPolicies :: Lens.Lens' CreateDomain (Prelude.Maybe Prelude.Text)
-createDomain_accessPolicies = Lens.lens (\CreateDomain' {accessPolicies} -> accessPolicies) (\s@CreateDomain' {} a -> s {accessPolicies = a} :: CreateDomain)
-
--- | Container for the values required to configure VPC access domains. If
--- you don\'t specify these values, OpenSearch Service creates the domain
--- with a public endpoint. For more information, see
--- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html Launching your Amazon OpenSearch Service domains using a VPC>.
-createDomain_vPCOptions :: Lens.Lens' CreateDomain (Prelude.Maybe VPCOptions)
-createDomain_vPCOptions = Lens.lens (\CreateDomain' {vPCOptions} -> vPCOptions) (\s@CreateDomain' {} a -> s {vPCOptions = a} :: CreateDomain)
-
--- | Options for Auto-Tune.
-createDomain_autoTuneOptions :: Lens.Lens' CreateDomain (Prelude.Maybe AutoTuneOptionsInput)
-createDomain_autoTuneOptions = Lens.lens (\CreateDomain' {autoTuneOptions} -> autoTuneOptions) (\s@CreateDomain' {} a -> s {autoTuneOptions = a} :: CreateDomain)
-
--- | Additional options for the domain endpoint, such as whether to require
--- HTTPS for all traffic.
-createDomain_domainEndpointOptions :: Lens.Lens' CreateDomain (Prelude.Maybe DomainEndpointOptions)
-createDomain_domainEndpointOptions = Lens.lens (\CreateDomain' {domainEndpointOptions} -> domainEndpointOptions) (\s@CreateDomain' {} a -> s {domainEndpointOptions = a} :: CreateDomain)
-
--- | DEPRECATED. Container for the parameters required to configure automated
--- snapshots of domain indexes.
-createDomain_snapshotOptions :: Lens.Lens' CreateDomain (Prelude.Maybe SnapshotOptions)
-createDomain_snapshotOptions = Lens.lens (\CreateDomain' {snapshotOptions} -> snapshotOptions) (\s@CreateDomain' {} a -> s {snapshotOptions = a} :: CreateDomain)
-
--- | Key-value pairs to configure slow log publishing.
-createDomain_logPublishingOptions :: Lens.Lens' CreateDomain (Prelude.Maybe (Prelude.HashMap LogType LogPublishingOption))
-createDomain_logPublishingOptions = Lens.lens (\CreateDomain' {logPublishingOptions} -> logPublishingOptions) (\s@CreateDomain' {} a -> s {logPublishingOptions = a} :: CreateDomain) Prelude.. Lens.mapping Lens.coerced
+-- | Key-value pairs to enable encryption at rest.
+createDomain_encryptionAtRestOptions :: Lens.Lens' CreateDomain (Prelude.Maybe EncryptionAtRestOptions)
+createDomain_encryptionAtRestOptions = Lens.lens (\CreateDomain' {encryptionAtRestOptions} -> encryptionAtRestOptions) (\s@CreateDomain' {} a -> s {encryptionAtRestOptions = a} :: CreateDomain)
 
 -- | String of format Elasticsearch_X.Y or OpenSearch_X.Y to specify the
 -- engine version for the OpenSearch Service domain. For example,
@@ -344,6 +319,30 @@ createDomain_logPublishingOptions = Lens.lens (\CreateDomain' {logPublishingOpti
 -- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains Creating and managing Amazon OpenSearch Service domains>.
 createDomain_engineVersion :: Lens.Lens' CreateDomain (Prelude.Maybe Prelude.Text)
 createDomain_engineVersion = Lens.lens (\CreateDomain' {engineVersion} -> engineVersion) (\s@CreateDomain' {} a -> s {engineVersion = a} :: CreateDomain)
+
+-- | Key-value pairs to configure slow log publishing.
+createDomain_logPublishingOptions :: Lens.Lens' CreateDomain (Prelude.Maybe (Prelude.HashMap LogType LogPublishingOption))
+createDomain_logPublishingOptions = Lens.lens (\CreateDomain' {logPublishingOptions} -> logPublishingOptions) (\s@CreateDomain' {} a -> s {logPublishingOptions = a} :: CreateDomain) Prelude.. Lens.mapping Lens.coerced
+
+-- | Enables node-to-node encryption.
+createDomain_nodeToNodeEncryptionOptions :: Lens.Lens' CreateDomain (Prelude.Maybe NodeToNodeEncryptionOptions)
+createDomain_nodeToNodeEncryptionOptions = Lens.lens (\CreateDomain' {nodeToNodeEncryptionOptions} -> nodeToNodeEncryptionOptions) (\s@CreateDomain' {} a -> s {nodeToNodeEncryptionOptions = a} :: CreateDomain)
+
+-- | DEPRECATED. Container for the parameters required to configure automated
+-- snapshots of domain indexes.
+createDomain_snapshotOptions :: Lens.Lens' CreateDomain (Prelude.Maybe SnapshotOptions)
+createDomain_snapshotOptions = Lens.lens (\CreateDomain' {snapshotOptions} -> snapshotOptions) (\s@CreateDomain' {} a -> s {snapshotOptions = a} :: CreateDomain)
+
+-- | List of tags to add to the domain upon creation.
+createDomain_tagList :: Lens.Lens' CreateDomain (Prelude.Maybe [Tag])
+createDomain_tagList = Lens.lens (\CreateDomain' {tagList} -> tagList) (\s@CreateDomain' {} a -> s {tagList = a} :: CreateDomain) Prelude.. Lens.mapping Lens.coerced
+
+-- | Container for the values required to configure VPC access domains. If
+-- you don\'t specify these values, OpenSearch Service creates the domain
+-- with a public endpoint. For more information, see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html Launching your Amazon OpenSearch Service domains using a VPC>.
+createDomain_vPCOptions :: Lens.Lens' CreateDomain (Prelude.Maybe VPCOptions)
+createDomain_vPCOptions = Lens.lens (\CreateDomain' {vPCOptions} -> vPCOptions) (\s@CreateDomain' {} a -> s {vPCOptions = a} :: CreateDomain)
 
 -- | Name of the OpenSearch Service domain to create. Domain names are unique
 -- across the domains owned by an account within an Amazon Web Services
@@ -365,41 +364,40 @@ instance Core.AWSRequest CreateDomain where
 
 instance Prelude.Hashable CreateDomain where
   hashWithSalt _salt CreateDomain' {..} =
-    _salt
-      `Prelude.hashWithSalt` nodeToNodeEncryptionOptions
-      `Prelude.hashWithSalt` clusterConfig
+    _salt `Prelude.hashWithSalt` accessPolicies
       `Prelude.hashWithSalt` advancedOptions
-      `Prelude.hashWithSalt` tagList
       `Prelude.hashWithSalt` advancedSecurityOptions
-      `Prelude.hashWithSalt` cognitoOptions
-      `Prelude.hashWithSalt` encryptionAtRestOptions
-      `Prelude.hashWithSalt` eBSOptions
-      `Prelude.hashWithSalt` accessPolicies
-      `Prelude.hashWithSalt` vPCOptions
       `Prelude.hashWithSalt` autoTuneOptions
+      `Prelude.hashWithSalt` clusterConfig
+      `Prelude.hashWithSalt` cognitoOptions
       `Prelude.hashWithSalt` domainEndpointOptions
-      `Prelude.hashWithSalt` snapshotOptions
-      `Prelude.hashWithSalt` logPublishingOptions
+      `Prelude.hashWithSalt` eBSOptions
+      `Prelude.hashWithSalt` encryptionAtRestOptions
       `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` logPublishingOptions
+      `Prelude.hashWithSalt` nodeToNodeEncryptionOptions
+      `Prelude.hashWithSalt` snapshotOptions
+      `Prelude.hashWithSalt` tagList
+      `Prelude.hashWithSalt` vPCOptions
       `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData CreateDomain where
   rnf CreateDomain' {..} =
-    Prelude.rnf nodeToNodeEncryptionOptions
-      `Prelude.seq` Prelude.rnf clusterConfig
+    Prelude.rnf accessPolicies
       `Prelude.seq` Prelude.rnf advancedOptions
-      `Prelude.seq` Prelude.rnf tagList
       `Prelude.seq` Prelude.rnf advancedSecurityOptions
-      `Prelude.seq` Prelude.rnf cognitoOptions
-      `Prelude.seq` Prelude.rnf encryptionAtRestOptions
-      `Prelude.seq` Prelude.rnf eBSOptions
-      `Prelude.seq` Prelude.rnf accessPolicies
-      `Prelude.seq` Prelude.rnf vPCOptions
       `Prelude.seq` Prelude.rnf autoTuneOptions
+      `Prelude.seq` Prelude.rnf clusterConfig
+      `Prelude.seq` Prelude.rnf cognitoOptions
       `Prelude.seq` Prelude.rnf domainEndpointOptions
-      `Prelude.seq` Prelude.rnf snapshotOptions
-      `Prelude.seq` Prelude.rnf logPublishingOptions
+      `Prelude.seq` Prelude.rnf eBSOptions
+      `Prelude.seq` Prelude.rnf encryptionAtRestOptions
       `Prelude.seq` Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf logPublishingOptions
+      `Prelude.seq` Prelude.rnf nodeToNodeEncryptionOptions
+      `Prelude.seq` Prelude.rnf snapshotOptions
+      `Prelude.seq` Prelude.rnf tagList
+      `Prelude.seq` Prelude.rnf vPCOptions
       `Prelude.seq` Prelude.rnf domainName
 
 instance Data.ToHeaders CreateDomain where
@@ -409,31 +407,31 @@ instance Data.ToJSON CreateDomain where
   toJSON CreateDomain' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NodeToNodeEncryptionOptions" Data..=)
-              Prelude.<$> nodeToNodeEncryptionOptions,
-            ("ClusterConfig" Data..=) Prelude.<$> clusterConfig,
+          [ ("AccessPolicies" Data..=)
+              Prelude.<$> accessPolicies,
             ("AdvancedOptions" Data..=)
               Prelude.<$> advancedOptions,
-            ("TagList" Data..=) Prelude.<$> tagList,
             ("AdvancedSecurityOptions" Data..=)
               Prelude.<$> advancedSecurityOptions,
-            ("CognitoOptions" Data..=)
-              Prelude.<$> cognitoOptions,
-            ("EncryptionAtRestOptions" Data..=)
-              Prelude.<$> encryptionAtRestOptions,
-            ("EBSOptions" Data..=) Prelude.<$> eBSOptions,
-            ("AccessPolicies" Data..=)
-              Prelude.<$> accessPolicies,
-            ("VPCOptions" Data..=) Prelude.<$> vPCOptions,
             ("AutoTuneOptions" Data..=)
               Prelude.<$> autoTuneOptions,
+            ("ClusterConfig" Data..=) Prelude.<$> clusterConfig,
+            ("CognitoOptions" Data..=)
+              Prelude.<$> cognitoOptions,
             ("DomainEndpointOptions" Data..=)
               Prelude.<$> domainEndpointOptions,
-            ("SnapshotOptions" Data..=)
-              Prelude.<$> snapshotOptions,
+            ("EBSOptions" Data..=) Prelude.<$> eBSOptions,
+            ("EncryptionAtRestOptions" Data..=)
+              Prelude.<$> encryptionAtRestOptions,
+            ("EngineVersion" Data..=) Prelude.<$> engineVersion,
             ("LogPublishingOptions" Data..=)
               Prelude.<$> logPublishingOptions,
-            ("EngineVersion" Data..=) Prelude.<$> engineVersion,
+            ("NodeToNodeEncryptionOptions" Data..=)
+              Prelude.<$> nodeToNodeEncryptionOptions,
+            ("SnapshotOptions" Data..=)
+              Prelude.<$> snapshotOptions,
+            ("TagList" Data..=) Prelude.<$> tagList,
+            ("VPCOptions" Data..=) Prelude.<$> vPCOptions,
             Prelude.Just ("DomainName" Data..= domainName)
           ]
       )

@@ -29,8 +29,8 @@ module Amazonka.OpenSearch.DescribeReservedInstanceOfferings
     newDescribeReservedInstanceOfferings,
 
     -- * Request Lenses
-    describeReservedInstanceOfferings_nextToken,
     describeReservedInstanceOfferings_maxResults,
+    describeReservedInstanceOfferings_nextToken,
     describeReservedInstanceOfferings_reservedInstanceOfferingId,
 
     -- * Destructuring the Response
@@ -57,14 +57,14 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeReservedInstanceOfferings' smart constructor.
 data DescribeReservedInstanceOfferings = DescribeReservedInstanceOfferings'
-  { -- | If your initial @DescribeReservedInstanceOfferings@ operation returns a
+  { -- | An optional parameter that specifies the maximum number of results to
+    -- return. You can use @nextToken@ to get the next page of results.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | If your initial @DescribeReservedInstanceOfferings@ operation returns a
     -- @nextToken@, you can include the returned @nextToken@ in subsequent
     -- @DescribeReservedInstanceOfferings@ operations, which returns results in
     -- the next page.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An optional parameter that specifies the maximum number of results to
-    -- return. You can use @nextToken@ to get the next page of results.
-    maxResults :: Prelude.Maybe Prelude.Int,
     -- | The Reserved Instance identifier filter value. Use this parameter to
     -- show only the available instance types that match the specified
     -- reservation identifier.
@@ -80,13 +80,13 @@ data DescribeReservedInstanceOfferings = DescribeReservedInstanceOfferings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'describeReservedInstanceOfferings_maxResults' - An optional parameter that specifies the maximum number of results to
+-- return. You can use @nextToken@ to get the next page of results.
+--
 -- 'nextToken', 'describeReservedInstanceOfferings_nextToken' - If your initial @DescribeReservedInstanceOfferings@ operation returns a
 -- @nextToken@, you can include the returned @nextToken@ in subsequent
 -- @DescribeReservedInstanceOfferings@ operations, which returns results in
 -- the next page.
---
--- 'maxResults', 'describeReservedInstanceOfferings_maxResults' - An optional parameter that specifies the maximum number of results to
--- return. You can use @nextToken@ to get the next page of results.
 --
 -- 'reservedInstanceOfferingId', 'describeReservedInstanceOfferings_reservedInstanceOfferingId' - The Reserved Instance identifier filter value. Use this parameter to
 -- show only the available instance types that match the specified
@@ -95,12 +95,17 @@ newDescribeReservedInstanceOfferings ::
   DescribeReservedInstanceOfferings
 newDescribeReservedInstanceOfferings =
   DescribeReservedInstanceOfferings'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       reservedInstanceOfferingId =
         Prelude.Nothing
     }
+
+-- | An optional parameter that specifies the maximum number of results to
+-- return. You can use @nextToken@ to get the next page of results.
+describeReservedInstanceOfferings_maxResults :: Lens.Lens' DescribeReservedInstanceOfferings (Prelude.Maybe Prelude.Int)
+describeReservedInstanceOfferings_maxResults = Lens.lens (\DescribeReservedInstanceOfferings' {maxResults} -> maxResults) (\s@DescribeReservedInstanceOfferings' {} a -> s {maxResults = a} :: DescribeReservedInstanceOfferings)
 
 -- | If your initial @DescribeReservedInstanceOfferings@ operation returns a
 -- @nextToken@, you can include the returned @nextToken@ in subsequent
@@ -108,11 +113,6 @@ newDescribeReservedInstanceOfferings =
 -- the next page.
 describeReservedInstanceOfferings_nextToken :: Lens.Lens' DescribeReservedInstanceOfferings (Prelude.Maybe Prelude.Text)
 describeReservedInstanceOfferings_nextToken = Lens.lens (\DescribeReservedInstanceOfferings' {nextToken} -> nextToken) (\s@DescribeReservedInstanceOfferings' {} a -> s {nextToken = a} :: DescribeReservedInstanceOfferings)
-
--- | An optional parameter that specifies the maximum number of results to
--- return. You can use @nextToken@ to get the next page of results.
-describeReservedInstanceOfferings_maxResults :: Lens.Lens' DescribeReservedInstanceOfferings (Prelude.Maybe Prelude.Int)
-describeReservedInstanceOfferings_maxResults = Lens.lens (\DescribeReservedInstanceOfferings' {maxResults} -> maxResults) (\s@DescribeReservedInstanceOfferings' {} a -> s {maxResults = a} :: DescribeReservedInstanceOfferings)
 
 -- | The Reserved Instance identifier filter value. Use this parameter to
 -- show only the available instance types that match the specified
@@ -147,8 +147,8 @@ instance
   hashWithSalt
     _salt
     DescribeReservedInstanceOfferings' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` reservedInstanceOfferingId
 
 instance
@@ -156,8 +156,8 @@ instance
     DescribeReservedInstanceOfferings
   where
   rnf DescribeReservedInstanceOfferings' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf reservedInstanceOfferingId
 
 instance
@@ -180,8 +180,8 @@ instance
   where
   toQuery DescribeReservedInstanceOfferings' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults,
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
         "offeringId" Data.=: reservedInstanceOfferingId
       ]
 

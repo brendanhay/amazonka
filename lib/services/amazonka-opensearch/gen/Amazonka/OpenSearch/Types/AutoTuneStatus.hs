@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAutoTuneStatus' smart constructor.
 data AutoTuneStatus = AutoTuneStatus'
-  { -- | Indicates whether the domain is being deleted.
-    pendingDeletion :: Prelude.Maybe Prelude.Bool,
-    -- | Any errors that occurred while enabling or disabling Auto-Tune.
+  { -- | Any errors that occurred while enabling or disabling Auto-Tune.
     errorMessage :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether the domain is being deleted.
+    pendingDeletion :: Prelude.Maybe Prelude.Bool,
     -- | The latest version of the Auto-Tune options.
     updateVersion :: Prelude.Maybe Prelude.Natural,
     -- | Date and time when Auto-Tune was enabled for the domain.
@@ -55,9 +55,9 @@ data AutoTuneStatus = AutoTuneStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pendingDeletion', 'autoTuneStatus_pendingDeletion' - Indicates whether the domain is being deleted.
---
 -- 'errorMessage', 'autoTuneStatus_errorMessage' - Any errors that occurred while enabling or disabling Auto-Tune.
+--
+-- 'pendingDeletion', 'autoTuneStatus_pendingDeletion' - Indicates whether the domain is being deleted.
 --
 -- 'updateVersion', 'autoTuneStatus_updateVersion' - The latest version of the Auto-Tune options.
 --
@@ -77,21 +77,21 @@ newAutoTuneStatus ::
   AutoTuneStatus
 newAutoTuneStatus pCreationDate_ pUpdateDate_ pState_ =
   AutoTuneStatus'
-    { pendingDeletion = Prelude.Nothing,
-      errorMessage = Prelude.Nothing,
+    { errorMessage = Prelude.Nothing,
+      pendingDeletion = Prelude.Nothing,
       updateVersion = Prelude.Nothing,
       creationDate = Data._Time Lens.# pCreationDate_,
       updateDate = Data._Time Lens.# pUpdateDate_,
       state = pState_
     }
 
--- | Indicates whether the domain is being deleted.
-autoTuneStatus_pendingDeletion :: Lens.Lens' AutoTuneStatus (Prelude.Maybe Prelude.Bool)
-autoTuneStatus_pendingDeletion = Lens.lens (\AutoTuneStatus' {pendingDeletion} -> pendingDeletion) (\s@AutoTuneStatus' {} a -> s {pendingDeletion = a} :: AutoTuneStatus)
-
 -- | Any errors that occurred while enabling or disabling Auto-Tune.
 autoTuneStatus_errorMessage :: Lens.Lens' AutoTuneStatus (Prelude.Maybe Prelude.Text)
 autoTuneStatus_errorMessage = Lens.lens (\AutoTuneStatus' {errorMessage} -> errorMessage) (\s@AutoTuneStatus' {} a -> s {errorMessage = a} :: AutoTuneStatus)
+
+-- | Indicates whether the domain is being deleted.
+autoTuneStatus_pendingDeletion :: Lens.Lens' AutoTuneStatus (Prelude.Maybe Prelude.Bool)
+autoTuneStatus_pendingDeletion = Lens.lens (\AutoTuneStatus' {pendingDeletion} -> pendingDeletion) (\s@AutoTuneStatus' {} a -> s {pendingDeletion = a} :: AutoTuneStatus)
 
 -- | The latest version of the Auto-Tune options.
 autoTuneStatus_updateVersion :: Lens.Lens' AutoTuneStatus (Prelude.Maybe Prelude.Natural)
@@ -116,8 +116,8 @@ instance Data.FromJSON AutoTuneStatus where
       "AutoTuneStatus"
       ( \x ->
           AutoTuneStatus'
-            Prelude.<$> (x Data..:? "PendingDeletion")
-            Prelude.<*> (x Data..:? "ErrorMessage")
+            Prelude.<$> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "PendingDeletion")
             Prelude.<*> (x Data..:? "UpdateVersion")
             Prelude.<*> (x Data..: "CreationDate")
             Prelude.<*> (x Data..: "UpdateDate")
@@ -126,8 +126,8 @@ instance Data.FromJSON AutoTuneStatus where
 
 instance Prelude.Hashable AutoTuneStatus where
   hashWithSalt _salt AutoTuneStatus' {..} =
-    _salt `Prelude.hashWithSalt` pendingDeletion
-      `Prelude.hashWithSalt` errorMessage
+    _salt `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` pendingDeletion
       `Prelude.hashWithSalt` updateVersion
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` updateDate
@@ -135,8 +135,8 @@ instance Prelude.Hashable AutoTuneStatus where
 
 instance Prelude.NFData AutoTuneStatus where
   rnf AutoTuneStatus' {..} =
-    Prelude.rnf pendingDeletion
-      `Prelude.seq` Prelude.rnf errorMessage
+    Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf pendingDeletion
       `Prelude.seq` Prelude.rnf updateVersion
       `Prelude.seq` Prelude.rnf creationDate
       `Prelude.seq` Prelude.rnf updateDate

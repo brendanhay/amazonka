@@ -29,17 +29,17 @@ module Amazonka.OpenSearch.DescribeInboundConnections
     newDescribeInboundConnections,
 
     -- * Request Lenses
-    describeInboundConnections_nextToken,
     describeInboundConnections_filters,
     describeInboundConnections_maxResults,
+    describeInboundConnections_nextToken,
 
     -- * Destructuring the Response
     DescribeInboundConnectionsResponse (..),
     newDescribeInboundConnectionsResponse,
 
     -- * Response Lenses
-    describeInboundConnectionsResponse_nextToken,
     describeInboundConnectionsResponse_connections,
+    describeInboundConnectionsResponse_nextToken,
     describeInboundConnectionsResponse_httpStatus,
   )
 where
@@ -57,17 +57,17 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeInboundConnections' smart constructor.
 data DescribeInboundConnections = DescribeInboundConnections'
-  { -- | If your initial @DescribeInboundConnections@ operation returns a
-    -- @nextToken@, you can include the returned @nextToken@ in subsequent
-    -- @DescribeInboundConnections@ operations, which returns results in the
-    -- next page.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of filters used to match properties for inbound cross-cluster
+  { -- | A list of filters used to match properties for inbound cross-cluster
     -- connections.
     filters :: Prelude.Maybe [Filter],
     -- | An optional parameter that specifies the maximum number of results to
     -- return. You can use @nextToken@ to get the next page of results.
-    maxResults :: Prelude.Maybe Prelude.Int
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | If your initial @DescribeInboundConnections@ operation returns a
+    -- @nextToken@, you can include the returned @nextToken@ in subsequent
+    -- @DescribeInboundConnections@ operations, which returns results in the
+    -- next page.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,32 +79,25 @@ data DescribeInboundConnections = DescribeInboundConnections'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeInboundConnections_nextToken' - If your initial @DescribeInboundConnections@ operation returns a
--- @nextToken@, you can include the returned @nextToken@ in subsequent
--- @DescribeInboundConnections@ operations, which returns results in the
--- next page.
---
 -- 'filters', 'describeInboundConnections_filters' - A list of filters used to match properties for inbound cross-cluster
 -- connections.
 --
 -- 'maxResults', 'describeInboundConnections_maxResults' - An optional parameter that specifies the maximum number of results to
 -- return. You can use @nextToken@ to get the next page of results.
+--
+-- 'nextToken', 'describeInboundConnections_nextToken' - If your initial @DescribeInboundConnections@ operation returns a
+-- @nextToken@, you can include the returned @nextToken@ in subsequent
+-- @DescribeInboundConnections@ operations, which returns results in the
+-- next page.
 newDescribeInboundConnections ::
   DescribeInboundConnections
 newDescribeInboundConnections =
   DescribeInboundConnections'
-    { nextToken =
+    { filters =
         Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | If your initial @DescribeInboundConnections@ operation returns a
--- @nextToken@, you can include the returned @nextToken@ in subsequent
--- @DescribeInboundConnections@ operations, which returns results in the
--- next page.
-describeInboundConnections_nextToken :: Lens.Lens' DescribeInboundConnections (Prelude.Maybe Prelude.Text)
-describeInboundConnections_nextToken = Lens.lens (\DescribeInboundConnections' {nextToken} -> nextToken) (\s@DescribeInboundConnections' {} a -> s {nextToken = a} :: DescribeInboundConnections)
 
 -- | A list of filters used to match properties for inbound cross-cluster
 -- connections.
@@ -116,6 +109,13 @@ describeInboundConnections_filters = Lens.lens (\DescribeInboundConnections' {fi
 describeInboundConnections_maxResults :: Lens.Lens' DescribeInboundConnections (Prelude.Maybe Prelude.Int)
 describeInboundConnections_maxResults = Lens.lens (\DescribeInboundConnections' {maxResults} -> maxResults) (\s@DescribeInboundConnections' {} a -> s {maxResults = a} :: DescribeInboundConnections)
 
+-- | If your initial @DescribeInboundConnections@ operation returns a
+-- @nextToken@, you can include the returned @nextToken@ in subsequent
+-- @DescribeInboundConnections@ operations, which returns results in the
+-- next page.
+describeInboundConnections_nextToken :: Lens.Lens' DescribeInboundConnections (Prelude.Maybe Prelude.Text)
+describeInboundConnections_nextToken = Lens.lens (\DescribeInboundConnections' {nextToken} -> nextToken) (\s@DescribeInboundConnections' {} a -> s {nextToken = a} :: DescribeInboundConnections)
+
 instance Core.AWSRequest DescribeInboundConnections where
   type
     AWSResponse DescribeInboundConnections =
@@ -126,22 +126,22 @@ instance Core.AWSRequest DescribeInboundConnections where
     Response.receiveJSON
       ( \s h x ->
           DescribeInboundConnectionsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Connections" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Connections" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeInboundConnections where
   hashWithSalt _salt DescribeInboundConnections' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeInboundConnections where
   rnf DescribeInboundConnections' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeInboundConnections where
   toHeaders = Prelude.const Prelude.mempty
@@ -150,9 +150,9 @@ instance Data.ToJSON DescribeInboundConnections where
   toJSON DescribeInboundConnections' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -168,12 +168,12 @@ instance Data.ToQuery DescribeInboundConnections where
 --
 -- /See:/ 'newDescribeInboundConnectionsResponse' smart constructor.
 data DescribeInboundConnectionsResponse = DescribeInboundConnectionsResponse'
-  { -- | When @nextToken@ is returned, there are more results available. The
+  { -- | List of inbound connections.
+    connections :: Prelude.Maybe [InboundConnection],
+    -- | When @nextToken@ is returned, there are more results available. The
     -- value of @nextToken@ is a unique pagination token for each page. Make
     -- the call again using the returned token to retrieve the next page.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | List of inbound connections.
-    connections :: Prelude.Maybe [InboundConnection],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -187,11 +187,11 @@ data DescribeInboundConnectionsResponse = DescribeInboundConnectionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'connections', 'describeInboundConnectionsResponse_connections' - List of inbound connections.
+--
 -- 'nextToken', 'describeInboundConnectionsResponse_nextToken' - When @nextToken@ is returned, there are more results available. The
 -- value of @nextToken@ is a unique pagination token for each page. Make
 -- the call again using the returned token to retrieve the next page.
---
--- 'connections', 'describeInboundConnectionsResponse_connections' - List of inbound connections.
 --
 -- 'httpStatus', 'describeInboundConnectionsResponse_httpStatus' - The response's http status code.
 newDescribeInboundConnectionsResponse ::
@@ -200,21 +200,21 @@ newDescribeInboundConnectionsResponse ::
   DescribeInboundConnectionsResponse
 newDescribeInboundConnectionsResponse pHttpStatus_ =
   DescribeInboundConnectionsResponse'
-    { nextToken =
+    { connections =
         Prelude.Nothing,
-      connections = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | List of inbound connections.
+describeInboundConnectionsResponse_connections :: Lens.Lens' DescribeInboundConnectionsResponse (Prelude.Maybe [InboundConnection])
+describeInboundConnectionsResponse_connections = Lens.lens (\DescribeInboundConnectionsResponse' {connections} -> connections) (\s@DescribeInboundConnectionsResponse' {} a -> s {connections = a} :: DescribeInboundConnectionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | When @nextToken@ is returned, there are more results available. The
 -- value of @nextToken@ is a unique pagination token for each page. Make
 -- the call again using the returned token to retrieve the next page.
 describeInboundConnectionsResponse_nextToken :: Lens.Lens' DescribeInboundConnectionsResponse (Prelude.Maybe Prelude.Text)
 describeInboundConnectionsResponse_nextToken = Lens.lens (\DescribeInboundConnectionsResponse' {nextToken} -> nextToken) (\s@DescribeInboundConnectionsResponse' {} a -> s {nextToken = a} :: DescribeInboundConnectionsResponse)
-
--- | List of inbound connections.
-describeInboundConnectionsResponse_connections :: Lens.Lens' DescribeInboundConnectionsResponse (Prelude.Maybe [InboundConnection])
-describeInboundConnectionsResponse_connections = Lens.lens (\DescribeInboundConnectionsResponse' {connections} -> connections) (\s@DescribeInboundConnectionsResponse' {} a -> s {connections = a} :: DescribeInboundConnectionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeInboundConnectionsResponse_httpStatus :: Lens.Lens' DescribeInboundConnectionsResponse Prelude.Int
@@ -225,6 +225,6 @@ instance
     DescribeInboundConnectionsResponse
   where
   rnf DescribeInboundConnectionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf connections
+    Prelude.rnf connections
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

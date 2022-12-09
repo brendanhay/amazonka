@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAutoTuneOptionsStatus' smart constructor.
 data AutoTuneOptionsStatus = AutoTuneOptionsStatus'
-  { -- | The current status of Auto-Tune for a domain.
-    status :: Prelude.Maybe AutoTuneStatus,
-    -- | Auto-Tune settings for updating a domain.
-    options :: Prelude.Maybe AutoTuneOptions
+  { -- | Auto-Tune settings for updating a domain.
+    options :: Prelude.Maybe AutoTuneOptions,
+    -- | The current status of Auto-Tune for a domain.
+    status :: Prelude.Maybe AutoTuneStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,24 @@ data AutoTuneOptionsStatus = AutoTuneOptionsStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'autoTuneOptionsStatus_status' - The current status of Auto-Tune for a domain.
---
 -- 'options', 'autoTuneOptionsStatus_options' - Auto-Tune settings for updating a domain.
+--
+-- 'status', 'autoTuneOptionsStatus_status' - The current status of Auto-Tune for a domain.
 newAutoTuneOptionsStatus ::
   AutoTuneOptionsStatus
 newAutoTuneOptionsStatus =
   AutoTuneOptionsStatus'
-    { status = Prelude.Nothing,
-      options = Prelude.Nothing
+    { options = Prelude.Nothing,
+      status = Prelude.Nothing
     }
-
--- | The current status of Auto-Tune for a domain.
-autoTuneOptionsStatus_status :: Lens.Lens' AutoTuneOptionsStatus (Prelude.Maybe AutoTuneStatus)
-autoTuneOptionsStatus_status = Lens.lens (\AutoTuneOptionsStatus' {status} -> status) (\s@AutoTuneOptionsStatus' {} a -> s {status = a} :: AutoTuneOptionsStatus)
 
 -- | Auto-Tune settings for updating a domain.
 autoTuneOptionsStatus_options :: Lens.Lens' AutoTuneOptionsStatus (Prelude.Maybe AutoTuneOptions)
 autoTuneOptionsStatus_options = Lens.lens (\AutoTuneOptionsStatus' {options} -> options) (\s@AutoTuneOptionsStatus' {} a -> s {options = a} :: AutoTuneOptionsStatus)
+
+-- | The current status of Auto-Tune for a domain.
+autoTuneOptionsStatus_status :: Lens.Lens' AutoTuneOptionsStatus (Prelude.Maybe AutoTuneStatus)
+autoTuneOptionsStatus_status = Lens.lens (\AutoTuneOptionsStatus' {status} -> status) (\s@AutoTuneOptionsStatus' {} a -> s {status = a} :: AutoTuneOptionsStatus)
 
 instance Data.FromJSON AutoTuneOptionsStatus where
   parseJSON =
@@ -70,16 +70,16 @@ instance Data.FromJSON AutoTuneOptionsStatus where
       "AutoTuneOptionsStatus"
       ( \x ->
           AutoTuneOptionsStatus'
-            Prelude.<$> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "Options")
+            Prelude.<$> (x Data..:? "Options")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance Prelude.Hashable AutoTuneOptionsStatus where
   hashWithSalt _salt AutoTuneOptionsStatus' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` options
+    _salt `Prelude.hashWithSalt` options
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData AutoTuneOptionsStatus where
   rnf AutoTuneOptionsStatus' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf options
+    Prelude.rnf options
+      `Prelude.seq` Prelude.rnf status

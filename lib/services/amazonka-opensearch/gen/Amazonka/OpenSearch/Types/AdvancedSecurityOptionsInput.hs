@@ -32,19 +32,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAdvancedSecurityOptionsInput' smart constructor.
 data AdvancedSecurityOptionsInput = AdvancedSecurityOptionsInput'
-  { -- | True to enable the internal user database.
-    internalUserDatabaseEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | Container for information about the SAML configuration for OpenSearch
-    -- Dashboards.
-    sAMLOptions :: Prelude.Maybe SAMLOptionsInput,
-    -- | True to enable a 30-day migration period during which administrators can
+  { -- | True to enable a 30-day migration period during which administrators can
     -- create role mappings. Only necessary when
     -- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing enabling fine-grained access control on an existing domain>.
     anonymousAuthEnabled :: Prelude.Maybe Prelude.Bool,
     -- | True to enable fine-grained access control.
     enabled :: Prelude.Maybe Prelude.Bool,
+    -- | True to enable the internal user database.
+    internalUserDatabaseEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Container for information about the master user.
-    masterUserOptions :: Prelude.Maybe MasterUserOptions
+    masterUserOptions :: Prelude.Maybe MasterUserOptions,
+    -- | Container for information about the SAML configuration for OpenSearch
+    -- Dashboards.
+    sAMLOptions :: Prelude.Maybe SAMLOptionsInput
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -56,38 +56,29 @@ data AdvancedSecurityOptionsInput = AdvancedSecurityOptionsInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'internalUserDatabaseEnabled', 'advancedSecurityOptionsInput_internalUserDatabaseEnabled' - True to enable the internal user database.
---
--- 'sAMLOptions', 'advancedSecurityOptionsInput_sAMLOptions' - Container for information about the SAML configuration for OpenSearch
--- Dashboards.
---
 -- 'anonymousAuthEnabled', 'advancedSecurityOptionsInput_anonymousAuthEnabled' - True to enable a 30-day migration period during which administrators can
 -- create role mappings. Only necessary when
 -- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing enabling fine-grained access control on an existing domain>.
 --
 -- 'enabled', 'advancedSecurityOptionsInput_enabled' - True to enable fine-grained access control.
 --
+-- 'internalUserDatabaseEnabled', 'advancedSecurityOptionsInput_internalUserDatabaseEnabled' - True to enable the internal user database.
+--
 -- 'masterUserOptions', 'advancedSecurityOptionsInput_masterUserOptions' - Container for information about the master user.
+--
+-- 'sAMLOptions', 'advancedSecurityOptionsInput_sAMLOptions' - Container for information about the SAML configuration for OpenSearch
+-- Dashboards.
 newAdvancedSecurityOptionsInput ::
   AdvancedSecurityOptionsInput
 newAdvancedSecurityOptionsInput =
   AdvancedSecurityOptionsInput'
-    { internalUserDatabaseEnabled =
+    { anonymousAuthEnabled =
         Prelude.Nothing,
-      sAMLOptions = Prelude.Nothing,
-      anonymousAuthEnabled = Prelude.Nothing,
       enabled = Prelude.Nothing,
-      masterUserOptions = Prelude.Nothing
+      internalUserDatabaseEnabled = Prelude.Nothing,
+      masterUserOptions = Prelude.Nothing,
+      sAMLOptions = Prelude.Nothing
     }
-
--- | True to enable the internal user database.
-advancedSecurityOptionsInput_internalUserDatabaseEnabled :: Lens.Lens' AdvancedSecurityOptionsInput (Prelude.Maybe Prelude.Bool)
-advancedSecurityOptionsInput_internalUserDatabaseEnabled = Lens.lens (\AdvancedSecurityOptionsInput' {internalUserDatabaseEnabled} -> internalUserDatabaseEnabled) (\s@AdvancedSecurityOptionsInput' {} a -> s {internalUserDatabaseEnabled = a} :: AdvancedSecurityOptionsInput)
-
--- | Container for information about the SAML configuration for OpenSearch
--- Dashboards.
-advancedSecurityOptionsInput_sAMLOptions :: Lens.Lens' AdvancedSecurityOptionsInput (Prelude.Maybe SAMLOptionsInput)
-advancedSecurityOptionsInput_sAMLOptions = Lens.lens (\AdvancedSecurityOptionsInput' {sAMLOptions} -> sAMLOptions) (\s@AdvancedSecurityOptionsInput' {} a -> s {sAMLOptions = a} :: AdvancedSecurityOptionsInput)
 
 -- | True to enable a 30-day migration period during which administrators can
 -- create role mappings. Only necessary when
@@ -99,41 +90,49 @@ advancedSecurityOptionsInput_anonymousAuthEnabled = Lens.lens (\AdvancedSecurity
 advancedSecurityOptionsInput_enabled :: Lens.Lens' AdvancedSecurityOptionsInput (Prelude.Maybe Prelude.Bool)
 advancedSecurityOptionsInput_enabled = Lens.lens (\AdvancedSecurityOptionsInput' {enabled} -> enabled) (\s@AdvancedSecurityOptionsInput' {} a -> s {enabled = a} :: AdvancedSecurityOptionsInput)
 
+-- | True to enable the internal user database.
+advancedSecurityOptionsInput_internalUserDatabaseEnabled :: Lens.Lens' AdvancedSecurityOptionsInput (Prelude.Maybe Prelude.Bool)
+advancedSecurityOptionsInput_internalUserDatabaseEnabled = Lens.lens (\AdvancedSecurityOptionsInput' {internalUserDatabaseEnabled} -> internalUserDatabaseEnabled) (\s@AdvancedSecurityOptionsInput' {} a -> s {internalUserDatabaseEnabled = a} :: AdvancedSecurityOptionsInput)
+
 -- | Container for information about the master user.
 advancedSecurityOptionsInput_masterUserOptions :: Lens.Lens' AdvancedSecurityOptionsInput (Prelude.Maybe MasterUserOptions)
 advancedSecurityOptionsInput_masterUserOptions = Lens.lens (\AdvancedSecurityOptionsInput' {masterUserOptions} -> masterUserOptions) (\s@AdvancedSecurityOptionsInput' {} a -> s {masterUserOptions = a} :: AdvancedSecurityOptionsInput)
+
+-- | Container for information about the SAML configuration for OpenSearch
+-- Dashboards.
+advancedSecurityOptionsInput_sAMLOptions :: Lens.Lens' AdvancedSecurityOptionsInput (Prelude.Maybe SAMLOptionsInput)
+advancedSecurityOptionsInput_sAMLOptions = Lens.lens (\AdvancedSecurityOptionsInput' {sAMLOptions} -> sAMLOptions) (\s@AdvancedSecurityOptionsInput' {} a -> s {sAMLOptions = a} :: AdvancedSecurityOptionsInput)
 
 instance
   Prelude.Hashable
     AdvancedSecurityOptionsInput
   where
   hashWithSalt _salt AdvancedSecurityOptionsInput' {..} =
-    _salt
-      `Prelude.hashWithSalt` internalUserDatabaseEnabled
-      `Prelude.hashWithSalt` sAMLOptions
-      `Prelude.hashWithSalt` anonymousAuthEnabled
+    _salt `Prelude.hashWithSalt` anonymousAuthEnabled
       `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` internalUserDatabaseEnabled
       `Prelude.hashWithSalt` masterUserOptions
+      `Prelude.hashWithSalt` sAMLOptions
 
 instance Prelude.NFData AdvancedSecurityOptionsInput where
   rnf AdvancedSecurityOptionsInput' {..} =
-    Prelude.rnf internalUserDatabaseEnabled
-      `Prelude.seq` Prelude.rnf sAMLOptions
-      `Prelude.seq` Prelude.rnf anonymousAuthEnabled
+    Prelude.rnf anonymousAuthEnabled
       `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf internalUserDatabaseEnabled
       `Prelude.seq` Prelude.rnf masterUserOptions
+      `Prelude.seq` Prelude.rnf sAMLOptions
 
 instance Data.ToJSON AdvancedSecurityOptionsInput where
   toJSON AdvancedSecurityOptionsInput' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("InternalUserDatabaseEnabled" Data..=)
-              Prelude.<$> internalUserDatabaseEnabled,
-            ("SAMLOptions" Data..=) Prelude.<$> sAMLOptions,
-            ("AnonymousAuthEnabled" Data..=)
+          [ ("AnonymousAuthEnabled" Data..=)
               Prelude.<$> anonymousAuthEnabled,
             ("Enabled" Data..=) Prelude.<$> enabled,
+            ("InternalUserDatabaseEnabled" Data..=)
+              Prelude.<$> internalUserDatabaseEnabled,
             ("MasterUserOptions" Data..=)
-              Prelude.<$> masterUserOptions
+              Prelude.<$> masterUserOptions,
+            ("SAMLOptions" Data..=) Prelude.<$> sAMLOptions
           ]
       )

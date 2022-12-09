@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPackageVersionHistory' smart constructor.
 data PackageVersionHistory = PackageVersionHistory'
-  { -- | The package version.
-    packageVersion :: Prelude.Maybe Prelude.Text,
-    -- | A message associated with the package version when it was uploaded.
+  { -- | A message associated with the package version when it was uploaded.
     commitMessage :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the package was created.
-    createdAt :: Prelude.Maybe Data.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX,
+    -- | The package version.
+    packageVersion :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,20 @@ data PackageVersionHistory = PackageVersionHistory'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'packageVersion', 'packageVersionHistory_packageVersion' - The package version.
---
 -- 'commitMessage', 'packageVersionHistory_commitMessage' - A message associated with the package version when it was uploaded.
 --
 -- 'createdAt', 'packageVersionHistory_createdAt' - The date and time when the package was created.
+--
+-- 'packageVersion', 'packageVersionHistory_packageVersion' - The package version.
 newPackageVersionHistory ::
   PackageVersionHistory
 newPackageVersionHistory =
   PackageVersionHistory'
-    { packageVersion =
+    { commitMessage =
         Prelude.Nothing,
-      commitMessage = Prelude.Nothing,
-      createdAt = Prelude.Nothing
+      createdAt = Prelude.Nothing,
+      packageVersion = Prelude.Nothing
     }
-
--- | The package version.
-packageVersionHistory_packageVersion :: Lens.Lens' PackageVersionHistory (Prelude.Maybe Prelude.Text)
-packageVersionHistory_packageVersion = Lens.lens (\PackageVersionHistory' {packageVersion} -> packageVersion) (\s@PackageVersionHistory' {} a -> s {packageVersion = a} :: PackageVersionHistory)
 
 -- | A message associated with the package version when it was uploaded.
 packageVersionHistory_commitMessage :: Lens.Lens' PackageVersionHistory (Prelude.Maybe Prelude.Text)
@@ -72,25 +68,29 @@ packageVersionHistory_commitMessage = Lens.lens (\PackageVersionHistory' {commit
 packageVersionHistory_createdAt :: Lens.Lens' PackageVersionHistory (Prelude.Maybe Prelude.UTCTime)
 packageVersionHistory_createdAt = Lens.lens (\PackageVersionHistory' {createdAt} -> createdAt) (\s@PackageVersionHistory' {} a -> s {createdAt = a} :: PackageVersionHistory) Prelude.. Lens.mapping Data._Time
 
+-- | The package version.
+packageVersionHistory_packageVersion :: Lens.Lens' PackageVersionHistory (Prelude.Maybe Prelude.Text)
+packageVersionHistory_packageVersion = Lens.lens (\PackageVersionHistory' {packageVersion} -> packageVersion) (\s@PackageVersionHistory' {} a -> s {packageVersion = a} :: PackageVersionHistory)
+
 instance Data.FromJSON PackageVersionHistory where
   parseJSON =
     Data.withObject
       "PackageVersionHistory"
       ( \x ->
           PackageVersionHistory'
-            Prelude.<$> (x Data..:? "PackageVersion")
-            Prelude.<*> (x Data..:? "CommitMessage")
+            Prelude.<$> (x Data..:? "CommitMessage")
             Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "PackageVersion")
       )
 
 instance Prelude.Hashable PackageVersionHistory where
   hashWithSalt _salt PackageVersionHistory' {..} =
-    _salt `Prelude.hashWithSalt` packageVersion
-      `Prelude.hashWithSalt` commitMessage
+    _salt `Prelude.hashWithSalt` commitMessage
       `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` packageVersion
 
 instance Prelude.NFData PackageVersionHistory where
   rnf PackageVersionHistory' {..} =
-    Prelude.rnf packageVersion
-      `Prelude.seq` Prelude.rnf commitMessage
+    Prelude.rnf commitMessage
       `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf packageVersion

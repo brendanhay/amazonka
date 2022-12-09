@@ -34,11 +34,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLogPublishingOption' smart constructor.
 data LogPublishingOption = LogPublishingOption'
-  { -- | Whether the log should be published.
-    enabled :: Prelude.Maybe Prelude.Bool,
-    -- | The Amazon Resource Name (ARN) of the CloudWatch Logs group to publish
+  { -- | The Amazon Resource Name (ARN) of the CloudWatch Logs group to publish
     -- logs to.
-    cloudWatchLogsLogGroupArn :: Prelude.Maybe Prelude.Text
+    cloudWatchLogsLogGroupArn :: Prelude.Maybe Prelude.Text,
+    -- | Whether the log should be published.
+    enabled :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,26 +50,27 @@ data LogPublishingOption = LogPublishingOption'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'enabled', 'logPublishingOption_enabled' - Whether the log should be published.
---
 -- 'cloudWatchLogsLogGroupArn', 'logPublishingOption_cloudWatchLogsLogGroupArn' - The Amazon Resource Name (ARN) of the CloudWatch Logs group to publish
 -- logs to.
+--
+-- 'enabled', 'logPublishingOption_enabled' - Whether the log should be published.
 newLogPublishingOption ::
   LogPublishingOption
 newLogPublishingOption =
   LogPublishingOption'
-    { enabled = Prelude.Nothing,
-      cloudWatchLogsLogGroupArn = Prelude.Nothing
+    { cloudWatchLogsLogGroupArn =
+        Prelude.Nothing,
+      enabled = Prelude.Nothing
     }
-
--- | Whether the log should be published.
-logPublishingOption_enabled :: Lens.Lens' LogPublishingOption (Prelude.Maybe Prelude.Bool)
-logPublishingOption_enabled = Lens.lens (\LogPublishingOption' {enabled} -> enabled) (\s@LogPublishingOption' {} a -> s {enabled = a} :: LogPublishingOption)
 
 -- | The Amazon Resource Name (ARN) of the CloudWatch Logs group to publish
 -- logs to.
 logPublishingOption_cloudWatchLogsLogGroupArn :: Lens.Lens' LogPublishingOption (Prelude.Maybe Prelude.Text)
 logPublishingOption_cloudWatchLogsLogGroupArn = Lens.lens (\LogPublishingOption' {cloudWatchLogsLogGroupArn} -> cloudWatchLogsLogGroupArn) (\s@LogPublishingOption' {} a -> s {cloudWatchLogsLogGroupArn = a} :: LogPublishingOption)
+
+-- | Whether the log should be published.
+logPublishingOption_enabled :: Lens.Lens' LogPublishingOption (Prelude.Maybe Prelude.Bool)
+logPublishingOption_enabled = Lens.lens (\LogPublishingOption' {enabled} -> enabled) (\s@LogPublishingOption' {} a -> s {enabled = a} :: LogPublishingOption)
 
 instance Data.FromJSON LogPublishingOption where
   parseJSON =
@@ -77,26 +78,27 @@ instance Data.FromJSON LogPublishingOption where
       "LogPublishingOption"
       ( \x ->
           LogPublishingOption'
-            Prelude.<$> (x Data..:? "Enabled")
-            Prelude.<*> (x Data..:? "CloudWatchLogsLogGroupArn")
+            Prelude.<$> (x Data..:? "CloudWatchLogsLogGroupArn")
+            Prelude.<*> (x Data..:? "Enabled")
       )
 
 instance Prelude.Hashable LogPublishingOption where
   hashWithSalt _salt LogPublishingOption' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt
       `Prelude.hashWithSalt` cloudWatchLogsLogGroupArn
+      `Prelude.hashWithSalt` enabled
 
 instance Prelude.NFData LogPublishingOption where
   rnf LogPublishingOption' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf cloudWatchLogsLogGroupArn
+    Prelude.rnf cloudWatchLogsLogGroupArn
+      `Prelude.seq` Prelude.rnf enabled
 
 instance Data.ToJSON LogPublishingOption where
   toJSON LogPublishingOption' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Enabled" Data..=) Prelude.<$> enabled,
-            ("CloudWatchLogsLogGroupArn" Data..=)
-              Prelude.<$> cloudWatchLogsLogGroupArn
+          [ ("CloudWatchLogsLogGroupArn" Data..=)
+              Prelude.<$> cloudWatchLogsLogGroupArn,
+            ("Enabled" Data..=) Prelude.<$> enabled
           ]
       )

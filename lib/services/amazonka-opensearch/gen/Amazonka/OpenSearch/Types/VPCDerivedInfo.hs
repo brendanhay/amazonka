@@ -33,16 +33,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVPCDerivedInfo' smart constructor.
 data VPCDerivedInfo = VPCDerivedInfo'
-  { -- | The list of security group IDs associated with the VPC endpoints for the
+  { -- | The list of Availability Zones associated with the VPC subnets.
+    availabilityZones :: Prelude.Maybe [Prelude.Text],
+    -- | The list of security group IDs associated with the VPC endpoints for the
     -- domain.
     securityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | The list of Availability Zones associated with the VPC subnets.
-    availabilityZones :: Prelude.Maybe [Prelude.Text],
+    -- | A list of subnet IDs associated with the VPC endpoints for the domain.
+    subnetIds :: Prelude.Maybe [Prelude.Text],
     -- | The ID for your VPC. Amazon VPC generates this value when you create a
     -- VPC.
-    vPCId :: Prelude.Maybe Prelude.Text,
-    -- | A list of subnet IDs associated with the VPC endpoints for the domain.
-    subnetIds :: Prelude.Maybe [Prelude.Text]
+    vPCId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,42 +54,43 @@ data VPCDerivedInfo = VPCDerivedInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'availabilityZones', 'vPCDerivedInfo_availabilityZones' - The list of Availability Zones associated with the VPC subnets.
+--
 -- 'securityGroupIds', 'vPCDerivedInfo_securityGroupIds' - The list of security group IDs associated with the VPC endpoints for the
 -- domain.
 --
--- 'availabilityZones', 'vPCDerivedInfo_availabilityZones' - The list of Availability Zones associated with the VPC subnets.
+-- 'subnetIds', 'vPCDerivedInfo_subnetIds' - A list of subnet IDs associated with the VPC endpoints for the domain.
 --
 -- 'vPCId', 'vPCDerivedInfo_vPCId' - The ID for your VPC. Amazon VPC generates this value when you create a
 -- VPC.
---
--- 'subnetIds', 'vPCDerivedInfo_subnetIds' - A list of subnet IDs associated with the VPC endpoints for the domain.
 newVPCDerivedInfo ::
   VPCDerivedInfo
 newVPCDerivedInfo =
   VPCDerivedInfo'
-    { securityGroupIds = Prelude.Nothing,
-      availabilityZones = Prelude.Nothing,
-      vPCId = Prelude.Nothing,
-      subnetIds = Prelude.Nothing
+    { availabilityZones =
+        Prelude.Nothing,
+      securityGroupIds = Prelude.Nothing,
+      subnetIds = Prelude.Nothing,
+      vPCId = Prelude.Nothing
     }
+
+-- | The list of Availability Zones associated with the VPC subnets.
+vPCDerivedInfo_availabilityZones :: Lens.Lens' VPCDerivedInfo (Prelude.Maybe [Prelude.Text])
+vPCDerivedInfo_availabilityZones = Lens.lens (\VPCDerivedInfo' {availabilityZones} -> availabilityZones) (\s@VPCDerivedInfo' {} a -> s {availabilityZones = a} :: VPCDerivedInfo) Prelude.. Lens.mapping Lens.coerced
 
 -- | The list of security group IDs associated with the VPC endpoints for the
 -- domain.
 vPCDerivedInfo_securityGroupIds :: Lens.Lens' VPCDerivedInfo (Prelude.Maybe [Prelude.Text])
 vPCDerivedInfo_securityGroupIds = Lens.lens (\VPCDerivedInfo' {securityGroupIds} -> securityGroupIds) (\s@VPCDerivedInfo' {} a -> s {securityGroupIds = a} :: VPCDerivedInfo) Prelude.. Lens.mapping Lens.coerced
 
--- | The list of Availability Zones associated with the VPC subnets.
-vPCDerivedInfo_availabilityZones :: Lens.Lens' VPCDerivedInfo (Prelude.Maybe [Prelude.Text])
-vPCDerivedInfo_availabilityZones = Lens.lens (\VPCDerivedInfo' {availabilityZones} -> availabilityZones) (\s@VPCDerivedInfo' {} a -> s {availabilityZones = a} :: VPCDerivedInfo) Prelude.. Lens.mapping Lens.coerced
+-- | A list of subnet IDs associated with the VPC endpoints for the domain.
+vPCDerivedInfo_subnetIds :: Lens.Lens' VPCDerivedInfo (Prelude.Maybe [Prelude.Text])
+vPCDerivedInfo_subnetIds = Lens.lens (\VPCDerivedInfo' {subnetIds} -> subnetIds) (\s@VPCDerivedInfo' {} a -> s {subnetIds = a} :: VPCDerivedInfo) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID for your VPC. Amazon VPC generates this value when you create a
 -- VPC.
 vPCDerivedInfo_vPCId :: Lens.Lens' VPCDerivedInfo (Prelude.Maybe Prelude.Text)
 vPCDerivedInfo_vPCId = Lens.lens (\VPCDerivedInfo' {vPCId} -> vPCId) (\s@VPCDerivedInfo' {} a -> s {vPCId = a} :: VPCDerivedInfo)
-
--- | A list of subnet IDs associated with the VPC endpoints for the domain.
-vPCDerivedInfo_subnetIds :: Lens.Lens' VPCDerivedInfo (Prelude.Maybe [Prelude.Text])
-vPCDerivedInfo_subnetIds = Lens.lens (\VPCDerivedInfo' {subnetIds} -> subnetIds) (\s@VPCDerivedInfo' {} a -> s {subnetIds = a} :: VPCDerivedInfo) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON VPCDerivedInfo where
   parseJSON =
@@ -97,26 +98,26 @@ instance Data.FromJSON VPCDerivedInfo where
       "VPCDerivedInfo"
       ( \x ->
           VPCDerivedInfo'
-            Prelude.<$> ( x Data..:? "SecurityGroupIds"
+            Prelude.<$> ( x Data..:? "AvailabilityZones"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "AvailabilityZones"
+            Prelude.<*> ( x Data..:? "SecurityGroupIds"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "VPCId")
             Prelude.<*> (x Data..:? "SubnetIds" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "VPCId")
       )
 
 instance Prelude.Hashable VPCDerivedInfo where
   hashWithSalt _salt VPCDerivedInfo' {..} =
-    _salt `Prelude.hashWithSalt` securityGroupIds
-      `Prelude.hashWithSalt` availabilityZones
-      `Prelude.hashWithSalt` vPCId
+    _salt `Prelude.hashWithSalt` availabilityZones
+      `Prelude.hashWithSalt` securityGroupIds
       `Prelude.hashWithSalt` subnetIds
+      `Prelude.hashWithSalt` vPCId
 
 instance Prelude.NFData VPCDerivedInfo where
   rnf VPCDerivedInfo' {..} =
-    Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf availabilityZones
-      `Prelude.seq` Prelude.rnf vPCId
+    Prelude.rnf availabilityZones
+      `Prelude.seq` Prelude.rnf securityGroupIds
       `Prelude.seq` Prelude.rnf subnetIds
+      `Prelude.seq` Prelude.rnf vPCId

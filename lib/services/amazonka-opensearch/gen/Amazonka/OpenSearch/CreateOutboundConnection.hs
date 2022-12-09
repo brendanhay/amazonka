@@ -40,10 +40,10 @@ module Amazonka.OpenSearch.CreateOutboundConnection
 
     -- * Response Lenses
     createOutboundConnectionResponse_connectionAlias,
-    createOutboundConnectionResponse_remoteDomainInfo,
     createOutboundConnectionResponse_connectionId,
-    createOutboundConnectionResponse_localDomainInfo,
     createOutboundConnectionResponse_connectionStatus,
+    createOutboundConnectionResponse_localDomainInfo,
+    createOutboundConnectionResponse_remoteDomainInfo,
     createOutboundConnectionResponse_httpStatus,
   )
 where
@@ -125,10 +125,10 @@ instance Core.AWSRequest CreateOutboundConnection where
       ( \s h x ->
           CreateOutboundConnectionResponse'
             Prelude.<$> (x Data..?> "ConnectionAlias")
-            Prelude.<*> (x Data..?> "RemoteDomainInfo")
             Prelude.<*> (x Data..?> "ConnectionId")
-            Prelude.<*> (x Data..?> "LocalDomainInfo")
             Prelude.<*> (x Data..?> "ConnectionStatus")
+            Prelude.<*> (x Data..?> "LocalDomainInfo")
+            Prelude.<*> (x Data..?> "RemoteDomainInfo")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -175,15 +175,15 @@ instance Data.ToQuery CreateOutboundConnection where
 data CreateOutboundConnectionResponse = CreateOutboundConnectionResponse'
   { -- | Name of the connection.
     connectionAlias :: Prelude.Maybe Prelude.Text,
-    -- | Information about the destination (remote) domain.
-    remoteDomainInfo :: Prelude.Maybe DomainInformationContainer,
     -- | The unique identifier for the created outbound connection, which is used
     -- for subsequent operations on the connection.
     connectionId :: Prelude.Maybe Prelude.Text,
-    -- | Information about the source (local) domain.
-    localDomainInfo :: Prelude.Maybe DomainInformationContainer,
     -- | The status of the connection.
     connectionStatus :: Prelude.Maybe OutboundConnectionStatus,
+    -- | Information about the source (local) domain.
+    localDomainInfo :: Prelude.Maybe DomainInformationContainer,
+    -- | Information about the destination (remote) domain.
+    remoteDomainInfo :: Prelude.Maybe DomainInformationContainer,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -199,14 +199,14 @@ data CreateOutboundConnectionResponse = CreateOutboundConnectionResponse'
 --
 -- 'connectionAlias', 'createOutboundConnectionResponse_connectionAlias' - Name of the connection.
 --
--- 'remoteDomainInfo', 'createOutboundConnectionResponse_remoteDomainInfo' - Information about the destination (remote) domain.
---
 -- 'connectionId', 'createOutboundConnectionResponse_connectionId' - The unique identifier for the created outbound connection, which is used
 -- for subsequent operations on the connection.
 --
+-- 'connectionStatus', 'createOutboundConnectionResponse_connectionStatus' - The status of the connection.
+--
 -- 'localDomainInfo', 'createOutboundConnectionResponse_localDomainInfo' - Information about the source (local) domain.
 --
--- 'connectionStatus', 'createOutboundConnectionResponse_connectionStatus' - The status of the connection.
+-- 'remoteDomainInfo', 'createOutboundConnectionResponse_remoteDomainInfo' - Information about the destination (remote) domain.
 --
 -- 'httpStatus', 'createOutboundConnectionResponse_httpStatus' - The response's http status code.
 newCreateOutboundConnectionResponse ::
@@ -217,10 +217,10 @@ newCreateOutboundConnectionResponse pHttpStatus_ =
   CreateOutboundConnectionResponse'
     { connectionAlias =
         Prelude.Nothing,
-      remoteDomainInfo = Prelude.Nothing,
       connectionId = Prelude.Nothing,
-      localDomainInfo = Prelude.Nothing,
       connectionStatus = Prelude.Nothing,
+      localDomainInfo = Prelude.Nothing,
+      remoteDomainInfo = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -228,22 +228,22 @@ newCreateOutboundConnectionResponse pHttpStatus_ =
 createOutboundConnectionResponse_connectionAlias :: Lens.Lens' CreateOutboundConnectionResponse (Prelude.Maybe Prelude.Text)
 createOutboundConnectionResponse_connectionAlias = Lens.lens (\CreateOutboundConnectionResponse' {connectionAlias} -> connectionAlias) (\s@CreateOutboundConnectionResponse' {} a -> s {connectionAlias = a} :: CreateOutboundConnectionResponse)
 
--- | Information about the destination (remote) domain.
-createOutboundConnectionResponse_remoteDomainInfo :: Lens.Lens' CreateOutboundConnectionResponse (Prelude.Maybe DomainInformationContainer)
-createOutboundConnectionResponse_remoteDomainInfo = Lens.lens (\CreateOutboundConnectionResponse' {remoteDomainInfo} -> remoteDomainInfo) (\s@CreateOutboundConnectionResponse' {} a -> s {remoteDomainInfo = a} :: CreateOutboundConnectionResponse)
-
 -- | The unique identifier for the created outbound connection, which is used
 -- for subsequent operations on the connection.
 createOutboundConnectionResponse_connectionId :: Lens.Lens' CreateOutboundConnectionResponse (Prelude.Maybe Prelude.Text)
 createOutboundConnectionResponse_connectionId = Lens.lens (\CreateOutboundConnectionResponse' {connectionId} -> connectionId) (\s@CreateOutboundConnectionResponse' {} a -> s {connectionId = a} :: CreateOutboundConnectionResponse)
 
+-- | The status of the connection.
+createOutboundConnectionResponse_connectionStatus :: Lens.Lens' CreateOutboundConnectionResponse (Prelude.Maybe OutboundConnectionStatus)
+createOutboundConnectionResponse_connectionStatus = Lens.lens (\CreateOutboundConnectionResponse' {connectionStatus} -> connectionStatus) (\s@CreateOutboundConnectionResponse' {} a -> s {connectionStatus = a} :: CreateOutboundConnectionResponse)
+
 -- | Information about the source (local) domain.
 createOutboundConnectionResponse_localDomainInfo :: Lens.Lens' CreateOutboundConnectionResponse (Prelude.Maybe DomainInformationContainer)
 createOutboundConnectionResponse_localDomainInfo = Lens.lens (\CreateOutboundConnectionResponse' {localDomainInfo} -> localDomainInfo) (\s@CreateOutboundConnectionResponse' {} a -> s {localDomainInfo = a} :: CreateOutboundConnectionResponse)
 
--- | The status of the connection.
-createOutboundConnectionResponse_connectionStatus :: Lens.Lens' CreateOutboundConnectionResponse (Prelude.Maybe OutboundConnectionStatus)
-createOutboundConnectionResponse_connectionStatus = Lens.lens (\CreateOutboundConnectionResponse' {connectionStatus} -> connectionStatus) (\s@CreateOutboundConnectionResponse' {} a -> s {connectionStatus = a} :: CreateOutboundConnectionResponse)
+-- | Information about the destination (remote) domain.
+createOutboundConnectionResponse_remoteDomainInfo :: Lens.Lens' CreateOutboundConnectionResponse (Prelude.Maybe DomainInformationContainer)
+createOutboundConnectionResponse_remoteDomainInfo = Lens.lens (\CreateOutboundConnectionResponse' {remoteDomainInfo} -> remoteDomainInfo) (\s@CreateOutboundConnectionResponse' {} a -> s {remoteDomainInfo = a} :: CreateOutboundConnectionResponse)
 
 -- | The response's http status code.
 createOutboundConnectionResponse_httpStatus :: Lens.Lens' CreateOutboundConnectionResponse Prelude.Int
@@ -255,8 +255,8 @@ instance
   where
   rnf CreateOutboundConnectionResponse' {..} =
     Prelude.rnf connectionAlias
-      `Prelude.seq` Prelude.rnf remoteDomainInfo
       `Prelude.seq` Prelude.rnf connectionId
-      `Prelude.seq` Prelude.rnf localDomainInfo
       `Prelude.seq` Prelude.rnf connectionStatus
+      `Prelude.seq` Prelude.rnf localDomainInfo
+      `Prelude.seq` Prelude.rnf remoteDomainInfo
       `Prelude.seq` Prelude.rnf httpStatus

@@ -28,9 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDryRunResults' smart constructor.
 data DryRunResults = DryRunResults'
-  { -- | A message corresponding to the deployment type.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the way in which OpenSearch Service will apply an update.
+  { -- | Specifies the way in which OpenSearch Service will apply an update.
     -- Possible values are:
     --
     -- -   __Blue\/Green__ - The update requires a blue\/green deployment.
@@ -42,7 +40,9 @@ data DryRunResults = DryRunResults'
     --     complete.
     --
     -- -   __None__ - The request doesn\'t include any configuration changes.
-    deploymentType :: Prelude.Maybe Prelude.Text
+    deploymentType :: Prelude.Maybe Prelude.Text,
+    -- | A message corresponding to the deployment type.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,8 +53,6 @@ data DryRunResults = DryRunResults'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'message', 'dryRunResults_message' - A message corresponding to the deployment type.
 --
 -- 'deploymentType', 'dryRunResults_deploymentType' - Specifies the way in which OpenSearch Service will apply an update.
 -- Possible values are:
@@ -68,17 +66,15 @@ data DryRunResults = DryRunResults'
 --     complete.
 --
 -- -   __None__ - The request doesn\'t include any configuration changes.
+--
+-- 'message', 'dryRunResults_message' - A message corresponding to the deployment type.
 newDryRunResults ::
   DryRunResults
 newDryRunResults =
   DryRunResults'
-    { message = Prelude.Nothing,
-      deploymentType = Prelude.Nothing
+    { deploymentType = Prelude.Nothing,
+      message = Prelude.Nothing
     }
-
--- | A message corresponding to the deployment type.
-dryRunResults_message :: Lens.Lens' DryRunResults (Prelude.Maybe Prelude.Text)
-dryRunResults_message = Lens.lens (\DryRunResults' {message} -> message) (\s@DryRunResults' {} a -> s {message = a} :: DryRunResults)
 
 -- | Specifies the way in which OpenSearch Service will apply an update.
 -- Possible values are:
@@ -95,22 +91,26 @@ dryRunResults_message = Lens.lens (\DryRunResults' {message} -> message) (\s@Dry
 dryRunResults_deploymentType :: Lens.Lens' DryRunResults (Prelude.Maybe Prelude.Text)
 dryRunResults_deploymentType = Lens.lens (\DryRunResults' {deploymentType} -> deploymentType) (\s@DryRunResults' {} a -> s {deploymentType = a} :: DryRunResults)
 
+-- | A message corresponding to the deployment type.
+dryRunResults_message :: Lens.Lens' DryRunResults (Prelude.Maybe Prelude.Text)
+dryRunResults_message = Lens.lens (\DryRunResults' {message} -> message) (\s@DryRunResults' {} a -> s {message = a} :: DryRunResults)
+
 instance Data.FromJSON DryRunResults where
   parseJSON =
     Data.withObject
       "DryRunResults"
       ( \x ->
           DryRunResults'
-            Prelude.<$> (x Data..:? "Message")
-            Prelude.<*> (x Data..:? "DeploymentType")
+            Prelude.<$> (x Data..:? "DeploymentType")
+            Prelude.<*> (x Data..:? "Message")
       )
 
 instance Prelude.Hashable DryRunResults where
   hashWithSalt _salt DryRunResults' {..} =
-    _salt `Prelude.hashWithSalt` message
-      `Prelude.hashWithSalt` deploymentType
+    _salt `Prelude.hashWithSalt` deploymentType
+      `Prelude.hashWithSalt` message
 
 instance Prelude.NFData DryRunResults where
   rnf DryRunResults' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf deploymentType
+    Prelude.rnf deploymentType
+      `Prelude.seq` Prelude.rnf message

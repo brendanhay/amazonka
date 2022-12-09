@@ -30,13 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDestinationProperties' smart constructor.
 data DestinationProperties = DestinationProperties'
-  { -- | The ARN of the KMS key to use for encryption.
-    kmsKeyArn :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the resource to publish to.
+  { -- | The ARN of the resource to publish to.
     --
     -- To specify an S3 bucket folder use the following format:
     -- @arn:aws:s3:::DOC-EXAMPLE-BUCKET\/myFolder\/@
-    destinationArn :: Prelude.Maybe Prelude.Text
+    destinationArn :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the KMS key to use for encryption.
+    kmsKeyArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,23 +48,20 @@ data DestinationProperties = DestinationProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKeyArn', 'destinationProperties_kmsKeyArn' - The ARN of the KMS key to use for encryption.
---
 -- 'destinationArn', 'destinationProperties_destinationArn' - The ARN of the resource to publish to.
 --
 -- To specify an S3 bucket folder use the following format:
 -- @arn:aws:s3:::DOC-EXAMPLE-BUCKET\/myFolder\/@
+--
+-- 'kmsKeyArn', 'destinationProperties_kmsKeyArn' - The ARN of the KMS key to use for encryption.
 newDestinationProperties ::
   DestinationProperties
 newDestinationProperties =
   DestinationProperties'
-    { kmsKeyArn = Prelude.Nothing,
-      destinationArn = Prelude.Nothing
+    { destinationArn =
+        Prelude.Nothing,
+      kmsKeyArn = Prelude.Nothing
     }
-
--- | The ARN of the KMS key to use for encryption.
-destinationProperties_kmsKeyArn :: Lens.Lens' DestinationProperties (Prelude.Maybe Prelude.Text)
-destinationProperties_kmsKeyArn = Lens.lens (\DestinationProperties' {kmsKeyArn} -> kmsKeyArn) (\s@DestinationProperties' {} a -> s {kmsKeyArn = a} :: DestinationProperties)
 
 -- | The ARN of the resource to publish to.
 --
@@ -73,32 +70,36 @@ destinationProperties_kmsKeyArn = Lens.lens (\DestinationProperties' {kmsKeyArn}
 destinationProperties_destinationArn :: Lens.Lens' DestinationProperties (Prelude.Maybe Prelude.Text)
 destinationProperties_destinationArn = Lens.lens (\DestinationProperties' {destinationArn} -> destinationArn) (\s@DestinationProperties' {} a -> s {destinationArn = a} :: DestinationProperties)
 
+-- | The ARN of the KMS key to use for encryption.
+destinationProperties_kmsKeyArn :: Lens.Lens' DestinationProperties (Prelude.Maybe Prelude.Text)
+destinationProperties_kmsKeyArn = Lens.lens (\DestinationProperties' {kmsKeyArn} -> kmsKeyArn) (\s@DestinationProperties' {} a -> s {kmsKeyArn = a} :: DestinationProperties)
+
 instance Data.FromJSON DestinationProperties where
   parseJSON =
     Data.withObject
       "DestinationProperties"
       ( \x ->
           DestinationProperties'
-            Prelude.<$> (x Data..:? "kmsKeyArn")
-            Prelude.<*> (x Data..:? "destinationArn")
+            Prelude.<$> (x Data..:? "destinationArn")
+            Prelude.<*> (x Data..:? "kmsKeyArn")
       )
 
 instance Prelude.Hashable DestinationProperties where
   hashWithSalt _salt DestinationProperties' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyArn
-      `Prelude.hashWithSalt` destinationArn
+    _salt `Prelude.hashWithSalt` destinationArn
+      `Prelude.hashWithSalt` kmsKeyArn
 
 instance Prelude.NFData DestinationProperties where
   rnf DestinationProperties' {..} =
-    Prelude.rnf kmsKeyArn
-      `Prelude.seq` Prelude.rnf destinationArn
+    Prelude.rnf destinationArn
+      `Prelude.seq` Prelude.rnf kmsKeyArn
 
 instance Data.ToJSON DestinationProperties where
   toJSON DestinationProperties' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("kmsKeyArn" Data..=) Prelude.<$> kmsKeyArn,
-            ("destinationArn" Data..=)
-              Prelude.<$> destinationArn
+          [ ("destinationArn" Data..=)
+              Prelude.<$> destinationArn,
+            ("kmsKeyArn" Data..=) Prelude.<$> kmsKeyArn
           ]
       )

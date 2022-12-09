@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUsageResourceResult' smart constructor.
 data UsageResourceResult = UsageResourceResult'
-  { -- | Represents the sum total of usage for the specified resource type.
-    total :: Prelude.Maybe Total,
-    -- | The Amazon Web Services resource that generated usage.
-    resource :: Prelude.Maybe Prelude.Text
+  { -- | The Amazon Web Services resource that generated usage.
+    resource :: Prelude.Maybe Prelude.Text,
+    -- | Represents the sum total of usage for the specified resource type.
+    total :: Prelude.Maybe Total
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,24 @@ data UsageResourceResult = UsageResourceResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'total', 'usageResourceResult_total' - Represents the sum total of usage for the specified resource type.
---
 -- 'resource', 'usageResourceResult_resource' - The Amazon Web Services resource that generated usage.
+--
+-- 'total', 'usageResourceResult_total' - Represents the sum total of usage for the specified resource type.
 newUsageResourceResult ::
   UsageResourceResult
 newUsageResourceResult =
   UsageResourceResult'
-    { total = Prelude.Nothing,
-      resource = Prelude.Nothing
+    { resource = Prelude.Nothing,
+      total = Prelude.Nothing
     }
-
--- | Represents the sum total of usage for the specified resource type.
-usageResourceResult_total :: Lens.Lens' UsageResourceResult (Prelude.Maybe Total)
-usageResourceResult_total = Lens.lens (\UsageResourceResult' {total} -> total) (\s@UsageResourceResult' {} a -> s {total = a} :: UsageResourceResult)
 
 -- | The Amazon Web Services resource that generated usage.
 usageResourceResult_resource :: Lens.Lens' UsageResourceResult (Prelude.Maybe Prelude.Text)
 usageResourceResult_resource = Lens.lens (\UsageResourceResult' {resource} -> resource) (\s@UsageResourceResult' {} a -> s {resource = a} :: UsageResourceResult)
+
+-- | Represents the sum total of usage for the specified resource type.
+usageResourceResult_total :: Lens.Lens' UsageResourceResult (Prelude.Maybe Total)
+usageResourceResult_total = Lens.lens (\UsageResourceResult' {total} -> total) (\s@UsageResourceResult' {} a -> s {total = a} :: UsageResourceResult)
 
 instance Data.FromJSON UsageResourceResult where
   parseJSON =
@@ -70,16 +70,16 @@ instance Data.FromJSON UsageResourceResult where
       "UsageResourceResult"
       ( \x ->
           UsageResourceResult'
-            Prelude.<$> (x Data..:? "total")
-            Prelude.<*> (x Data..:? "resource")
+            Prelude.<$> (x Data..:? "resource")
+            Prelude.<*> (x Data..:? "total")
       )
 
 instance Prelude.Hashable UsageResourceResult where
   hashWithSalt _salt UsageResourceResult' {..} =
-    _salt `Prelude.hashWithSalt` total
-      `Prelude.hashWithSalt` resource
+    _salt `Prelude.hashWithSalt` resource
+      `Prelude.hashWithSalt` total
 
 instance Prelude.NFData UsageResourceResult where
   rnf UsageResourceResult' {..} =
-    Prelude.rnf total
-      `Prelude.seq` Prelude.rnf resource
+    Prelude.rnf resource
+      `Prelude.seq` Prelude.rnf total

@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVolumeMount' smart constructor.
 data VolumeMount = VolumeMount'
-  { -- | Volume mount name.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Volume mount path.
-    mountPath :: Prelude.Maybe Prelude.Text
+  { -- | Volume mount path.
+    mountPath :: Prelude.Maybe Prelude.Text,
+    -- | Volume mount name.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data VolumeMount = VolumeMount'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'volumeMount_name' - Volume mount name.
---
 -- 'mountPath', 'volumeMount_mountPath' - Volume mount path.
+--
+-- 'name', 'volumeMount_name' - Volume mount name.
 newVolumeMount ::
   VolumeMount
 newVolumeMount =
   VolumeMount'
-    { name = Prelude.Nothing,
-      mountPath = Prelude.Nothing
+    { mountPath = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | Volume mount name.
-volumeMount_name :: Lens.Lens' VolumeMount (Prelude.Maybe Prelude.Text)
-volumeMount_name = Lens.lens (\VolumeMount' {name} -> name) (\s@VolumeMount' {} a -> s {name = a} :: VolumeMount)
 
 -- | Volume mount path.
 volumeMount_mountPath :: Lens.Lens' VolumeMount (Prelude.Maybe Prelude.Text)
 volumeMount_mountPath = Lens.lens (\VolumeMount' {mountPath} -> mountPath) (\s@VolumeMount' {} a -> s {mountPath = a} :: VolumeMount)
+
+-- | Volume mount name.
+volumeMount_name :: Lens.Lens' VolumeMount (Prelude.Maybe Prelude.Text)
+volumeMount_name = Lens.lens (\VolumeMount' {name} -> name) (\s@VolumeMount' {} a -> s {name = a} :: VolumeMount)
 
 instance Data.FromJSON VolumeMount where
   parseJSON =
@@ -68,16 +68,16 @@ instance Data.FromJSON VolumeMount where
       "VolumeMount"
       ( \x ->
           VolumeMount'
-            Prelude.<$> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "mountPath")
+            Prelude.<$> (x Data..:? "mountPath")
+            Prelude.<*> (x Data..:? "name")
       )
 
 instance Prelude.Hashable VolumeMount where
   hashWithSalt _salt VolumeMount' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` mountPath
+    _salt `Prelude.hashWithSalt` mountPath
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData VolumeMount where
   rnf VolumeMount' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf mountPath
+    Prelude.rnf mountPath
+      `Prelude.seq` Prelude.rnf name

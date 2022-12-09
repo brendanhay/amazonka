@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHighestSeverityThreatDetails' smart constructor.
 data HighestSeverityThreatDetails = HighestSeverityThreatDetails'
-  { -- | Severity level of the highest severity threat detected.
-    severity :: Prelude.Maybe Prelude.Text,
-    -- | Total number of infected files with the highest severity threat
+  { -- | Total number of infected files with the highest severity threat
     -- detected.
     count :: Prelude.Maybe Prelude.Int,
+    -- | Severity level of the highest severity threat detected.
+    severity :: Prelude.Maybe Prelude.Text,
     -- | Threat name of the highest severity threat detected as part of the
     -- malware scan.
     threatName :: Prelude.Maybe Prelude.Text
@@ -48,10 +48,10 @@ data HighestSeverityThreatDetails = HighestSeverityThreatDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'severity', 'highestSeverityThreatDetails_severity' - Severity level of the highest severity threat detected.
---
 -- 'count', 'highestSeverityThreatDetails_count' - Total number of infected files with the highest severity threat
 -- detected.
+--
+-- 'severity', 'highestSeverityThreatDetails_severity' - Severity level of the highest severity threat detected.
 --
 -- 'threatName', 'highestSeverityThreatDetails_threatName' - Threat name of the highest severity threat detected as part of the
 -- malware scan.
@@ -59,20 +59,20 @@ newHighestSeverityThreatDetails ::
   HighestSeverityThreatDetails
 newHighestSeverityThreatDetails =
   HighestSeverityThreatDetails'
-    { severity =
+    { count =
         Prelude.Nothing,
-      count = Prelude.Nothing,
+      severity = Prelude.Nothing,
       threatName = Prelude.Nothing
     }
-
--- | Severity level of the highest severity threat detected.
-highestSeverityThreatDetails_severity :: Lens.Lens' HighestSeverityThreatDetails (Prelude.Maybe Prelude.Text)
-highestSeverityThreatDetails_severity = Lens.lens (\HighestSeverityThreatDetails' {severity} -> severity) (\s@HighestSeverityThreatDetails' {} a -> s {severity = a} :: HighestSeverityThreatDetails)
 
 -- | Total number of infected files with the highest severity threat
 -- detected.
 highestSeverityThreatDetails_count :: Lens.Lens' HighestSeverityThreatDetails (Prelude.Maybe Prelude.Int)
 highestSeverityThreatDetails_count = Lens.lens (\HighestSeverityThreatDetails' {count} -> count) (\s@HighestSeverityThreatDetails' {} a -> s {count = a} :: HighestSeverityThreatDetails)
+
+-- | Severity level of the highest severity threat detected.
+highestSeverityThreatDetails_severity :: Lens.Lens' HighestSeverityThreatDetails (Prelude.Maybe Prelude.Text)
+highestSeverityThreatDetails_severity = Lens.lens (\HighestSeverityThreatDetails' {severity} -> severity) (\s@HighestSeverityThreatDetails' {} a -> s {severity = a} :: HighestSeverityThreatDetails)
 
 -- | Threat name of the highest severity threat detected as part of the
 -- malware scan.
@@ -85,8 +85,8 @@ instance Data.FromJSON HighestSeverityThreatDetails where
       "HighestSeverityThreatDetails"
       ( \x ->
           HighestSeverityThreatDetails'
-            Prelude.<$> (x Data..:? "severity")
-            Prelude.<*> (x Data..:? "count")
+            Prelude.<$> (x Data..:? "count")
+            Prelude.<*> (x Data..:? "severity")
             Prelude.<*> (x Data..:? "threatName")
       )
 
@@ -95,12 +95,12 @@ instance
     HighestSeverityThreatDetails
   where
   hashWithSalt _salt HighestSeverityThreatDetails' {..} =
-    _salt `Prelude.hashWithSalt` severity
-      `Prelude.hashWithSalt` count
+    _salt `Prelude.hashWithSalt` count
+      `Prelude.hashWithSalt` severity
       `Prelude.hashWithSalt` threatName
 
 instance Prelude.NFData HighestSeverityThreatDetails where
   rnf HighestSeverityThreatDetails' {..} =
-    Prelude.rnf severity
-      `Prelude.seq` Prelude.rnf count
+    Prelude.rnf count
+      `Prelude.seq` Prelude.rnf severity
       `Prelude.seq` Prelude.rnf threatName

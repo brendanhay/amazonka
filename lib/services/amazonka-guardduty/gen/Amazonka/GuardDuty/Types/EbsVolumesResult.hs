@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEbsVolumesResult' smart constructor.
 data EbsVolumesResult = EbsVolumesResult'
-  { -- | Describes whether scanning EBS volumes is enabled as a data source.
-    status :: Prelude.Maybe DataSourceStatus,
-    -- | Specifies the reason why scanning EBS volumes (Malware Protection) was
+  { -- | Specifies the reason why scanning EBS volumes (Malware Protection) was
     -- not enabled as a data source.
-    reason :: Prelude.Maybe Prelude.Text
+    reason :: Prelude.Maybe Prelude.Text,
+    -- | Describes whether scanning EBS volumes is enabled as a data source.
+    status :: Prelude.Maybe DataSourceStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,26 +45,26 @@ data EbsVolumesResult = EbsVolumesResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'ebsVolumesResult_status' - Describes whether scanning EBS volumes is enabled as a data source.
---
 -- 'reason', 'ebsVolumesResult_reason' - Specifies the reason why scanning EBS volumes (Malware Protection) was
 -- not enabled as a data source.
+--
+-- 'status', 'ebsVolumesResult_status' - Describes whether scanning EBS volumes is enabled as a data source.
 newEbsVolumesResult ::
   EbsVolumesResult
 newEbsVolumesResult =
   EbsVolumesResult'
-    { status = Prelude.Nothing,
-      reason = Prelude.Nothing
+    { reason = Prelude.Nothing,
+      status = Prelude.Nothing
     }
-
--- | Describes whether scanning EBS volumes is enabled as a data source.
-ebsVolumesResult_status :: Lens.Lens' EbsVolumesResult (Prelude.Maybe DataSourceStatus)
-ebsVolumesResult_status = Lens.lens (\EbsVolumesResult' {status} -> status) (\s@EbsVolumesResult' {} a -> s {status = a} :: EbsVolumesResult)
 
 -- | Specifies the reason why scanning EBS volumes (Malware Protection) was
 -- not enabled as a data source.
 ebsVolumesResult_reason :: Lens.Lens' EbsVolumesResult (Prelude.Maybe Prelude.Text)
 ebsVolumesResult_reason = Lens.lens (\EbsVolumesResult' {reason} -> reason) (\s@EbsVolumesResult' {} a -> s {reason = a} :: EbsVolumesResult)
+
+-- | Describes whether scanning EBS volumes is enabled as a data source.
+ebsVolumesResult_status :: Lens.Lens' EbsVolumesResult (Prelude.Maybe DataSourceStatus)
+ebsVolumesResult_status = Lens.lens (\EbsVolumesResult' {status} -> status) (\s@EbsVolumesResult' {} a -> s {status = a} :: EbsVolumesResult)
 
 instance Data.FromJSON EbsVolumesResult where
   parseJSON =
@@ -72,15 +72,15 @@ instance Data.FromJSON EbsVolumesResult where
       "EbsVolumesResult"
       ( \x ->
           EbsVolumesResult'
-            Prelude.<$> (x Data..:? "status")
-            Prelude.<*> (x Data..:? "reason")
+            Prelude.<$> (x Data..:? "reason")
+            Prelude.<*> (x Data..:? "status")
       )
 
 instance Prelude.Hashable EbsVolumesResult where
   hashWithSalt _salt EbsVolumesResult' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` reason
+    _salt `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData EbsVolumesResult where
   rnf EbsVolumesResult' {..} =
-    Prelude.rnf status `Prelude.seq` Prelude.rnf reason
+    Prelude.rnf reason `Prelude.seq` Prelude.rnf status

@@ -35,9 +35,6 @@ import qualified Amazonka.Prelude as Prelude
 data Action = Action'
   { -- | The GuardDuty finding activity type.
     actionType :: Prelude.Maybe Prelude.Text,
-    -- | Information about the NETWORK_CONNECTION action described in this
-    -- finding.
-    networkConnectionAction :: Prelude.Maybe NetworkConnectionAction,
     -- | Information about the AWS_API_CALL action described in this finding.
     awsApiCallAction :: Prelude.Maybe AwsApiCallAction,
     -- | Information about the DNS_REQUEST action described in this finding.
@@ -45,6 +42,9 @@ data Action = Action'
     -- | Information about the Kubernetes API call action described in this
     -- finding.
     kubernetesApiCallAction :: Prelude.Maybe KubernetesApiCallAction,
+    -- | Information about the NETWORK_CONNECTION action described in this
+    -- finding.
+    networkConnectionAction :: Prelude.Maybe NetworkConnectionAction,
     -- | Information about the PORT_PROBE action described in this finding.
     portProbeAction :: Prelude.Maybe PortProbeAction
   }
@@ -60,14 +60,14 @@ data Action = Action'
 --
 -- 'actionType', 'action_actionType' - The GuardDuty finding activity type.
 --
--- 'networkConnectionAction', 'action_networkConnectionAction' - Information about the NETWORK_CONNECTION action described in this
--- finding.
---
 -- 'awsApiCallAction', 'action_awsApiCallAction' - Information about the AWS_API_CALL action described in this finding.
 --
 -- 'dnsRequestAction', 'action_dnsRequestAction' - Information about the DNS_REQUEST action described in this finding.
 --
 -- 'kubernetesApiCallAction', 'action_kubernetesApiCallAction' - Information about the Kubernetes API call action described in this
+-- finding.
+--
+-- 'networkConnectionAction', 'action_networkConnectionAction' - Information about the NETWORK_CONNECTION action described in this
 -- finding.
 --
 -- 'portProbeAction', 'action_portProbeAction' - Information about the PORT_PROBE action described in this finding.
@@ -76,21 +76,16 @@ newAction ::
 newAction =
   Action'
     { actionType = Prelude.Nothing,
-      networkConnectionAction = Prelude.Nothing,
       awsApiCallAction = Prelude.Nothing,
       dnsRequestAction = Prelude.Nothing,
       kubernetesApiCallAction = Prelude.Nothing,
+      networkConnectionAction = Prelude.Nothing,
       portProbeAction = Prelude.Nothing
     }
 
 -- | The GuardDuty finding activity type.
 action_actionType :: Lens.Lens' Action (Prelude.Maybe Prelude.Text)
 action_actionType = Lens.lens (\Action' {actionType} -> actionType) (\s@Action' {} a -> s {actionType = a} :: Action)
-
--- | Information about the NETWORK_CONNECTION action described in this
--- finding.
-action_networkConnectionAction :: Lens.Lens' Action (Prelude.Maybe NetworkConnectionAction)
-action_networkConnectionAction = Lens.lens (\Action' {networkConnectionAction} -> networkConnectionAction) (\s@Action' {} a -> s {networkConnectionAction = a} :: Action)
 
 -- | Information about the AWS_API_CALL action described in this finding.
 action_awsApiCallAction :: Lens.Lens' Action (Prelude.Maybe AwsApiCallAction)
@@ -105,6 +100,11 @@ action_dnsRequestAction = Lens.lens (\Action' {dnsRequestAction} -> dnsRequestAc
 action_kubernetesApiCallAction :: Lens.Lens' Action (Prelude.Maybe KubernetesApiCallAction)
 action_kubernetesApiCallAction = Lens.lens (\Action' {kubernetesApiCallAction} -> kubernetesApiCallAction) (\s@Action' {} a -> s {kubernetesApiCallAction = a} :: Action)
 
+-- | Information about the NETWORK_CONNECTION action described in this
+-- finding.
+action_networkConnectionAction :: Lens.Lens' Action (Prelude.Maybe NetworkConnectionAction)
+action_networkConnectionAction = Lens.lens (\Action' {networkConnectionAction} -> networkConnectionAction) (\s@Action' {} a -> s {networkConnectionAction = a} :: Action)
+
 -- | Information about the PORT_PROBE action described in this finding.
 action_portProbeAction :: Lens.Lens' Action (Prelude.Maybe PortProbeAction)
 action_portProbeAction = Lens.lens (\Action' {portProbeAction} -> portProbeAction) (\s@Action' {} a -> s {portProbeAction = a} :: Action)
@@ -116,27 +116,27 @@ instance Data.FromJSON Action where
       ( \x ->
           Action'
             Prelude.<$> (x Data..:? "actionType")
-            Prelude.<*> (x Data..:? "networkConnectionAction")
             Prelude.<*> (x Data..:? "awsApiCallAction")
             Prelude.<*> (x Data..:? "dnsRequestAction")
             Prelude.<*> (x Data..:? "kubernetesApiCallAction")
+            Prelude.<*> (x Data..:? "networkConnectionAction")
             Prelude.<*> (x Data..:? "portProbeAction")
       )
 
 instance Prelude.Hashable Action where
   hashWithSalt _salt Action' {..} =
     _salt `Prelude.hashWithSalt` actionType
-      `Prelude.hashWithSalt` networkConnectionAction
       `Prelude.hashWithSalt` awsApiCallAction
       `Prelude.hashWithSalt` dnsRequestAction
       `Prelude.hashWithSalt` kubernetesApiCallAction
+      `Prelude.hashWithSalt` networkConnectionAction
       `Prelude.hashWithSalt` portProbeAction
 
 instance Prelude.NFData Action where
   rnf Action' {..} =
     Prelude.rnf actionType
-      `Prelude.seq` Prelude.rnf networkConnectionAction
       `Prelude.seq` Prelude.rnf awsApiCallAction
       `Prelude.seq` Prelude.rnf dnsRequestAction
       `Prelude.seq` Prelude.rnf kubernetesApiCallAction
+      `Prelude.seq` Prelude.rnf networkConnectionAction
       `Prelude.seq` Prelude.rnf portProbeAction

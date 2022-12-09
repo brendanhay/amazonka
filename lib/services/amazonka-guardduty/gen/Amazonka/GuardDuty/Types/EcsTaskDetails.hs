@@ -31,26 +31,26 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEcsTaskDetails' smart constructor.
 data EcsTaskDetails = EcsTaskDetails'
-  { -- | The tags of the ECS Task.
-    tags :: Prelude.Maybe [Tag],
+  { -- | The Amazon Resource Name (ARN) of the task.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The containers that\'s associated with the task.
     containers :: Prelude.Maybe [Container],
-    -- | The Amazon Resource Name (ARN) of the task.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | Contains the tag specified when a task is started.
-    startedBy :: Prelude.Maybe Prelude.Text,
-    -- | The list of data volume definitions for the task.
-    volumes :: Prelude.Maybe [Volume],
-    -- | The Unix timestamp for the time when the task was created.
-    taskCreatedAt :: Prelude.Maybe Data.POSIX,
-    -- | The Unix timestamp for the time when the task started.
-    startedAt :: Prelude.Maybe Data.POSIX,
     -- | The ARN of the task definition that creates the task.
     definitionArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the task group that\'s associated with the task.
     group' :: Prelude.Maybe Prelude.Text,
+    -- | The Unix timestamp for the time when the task started.
+    startedAt :: Prelude.Maybe Data.POSIX,
+    -- | Contains the tag specified when a task is started.
+    startedBy :: Prelude.Maybe Prelude.Text,
+    -- | The tags of the ECS Task.
+    tags :: Prelude.Maybe [Tag],
+    -- | The Unix timestamp for the time when the task was created.
+    taskCreatedAt :: Prelude.Maybe Data.POSIX,
     -- | The version counter for the task.
-    version :: Prelude.Maybe Prelude.Text
+    version :: Prelude.Maybe Prelude.Text,
+    -- | The list of data volume definitions for the task.
+    volumes :: Prelude.Maybe [Volume]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,68 +62,48 @@ data EcsTaskDetails = EcsTaskDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'ecsTaskDetails_tags' - The tags of the ECS Task.
---
--- 'containers', 'ecsTaskDetails_containers' - The containers that\'s associated with the task.
---
 -- 'arn', 'ecsTaskDetails_arn' - The Amazon Resource Name (ARN) of the task.
 --
--- 'startedBy', 'ecsTaskDetails_startedBy' - Contains the tag specified when a task is started.
---
--- 'volumes', 'ecsTaskDetails_volumes' - The list of data volume definitions for the task.
---
--- 'taskCreatedAt', 'ecsTaskDetails_taskCreatedAt' - The Unix timestamp for the time when the task was created.
---
--- 'startedAt', 'ecsTaskDetails_startedAt' - The Unix timestamp for the time when the task started.
+-- 'containers', 'ecsTaskDetails_containers' - The containers that\'s associated with the task.
 --
 -- 'definitionArn', 'ecsTaskDetails_definitionArn' - The ARN of the task definition that creates the task.
 --
 -- 'group'', 'ecsTaskDetails_group' - The name of the task group that\'s associated with the task.
 --
+-- 'startedAt', 'ecsTaskDetails_startedAt' - The Unix timestamp for the time when the task started.
+--
+-- 'startedBy', 'ecsTaskDetails_startedBy' - Contains the tag specified when a task is started.
+--
+-- 'tags', 'ecsTaskDetails_tags' - The tags of the ECS Task.
+--
+-- 'taskCreatedAt', 'ecsTaskDetails_taskCreatedAt' - The Unix timestamp for the time when the task was created.
+--
 -- 'version', 'ecsTaskDetails_version' - The version counter for the task.
+--
+-- 'volumes', 'ecsTaskDetails_volumes' - The list of data volume definitions for the task.
 newEcsTaskDetails ::
   EcsTaskDetails
 newEcsTaskDetails =
   EcsTaskDetails'
-    { tags = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       containers = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      startedBy = Prelude.Nothing,
-      volumes = Prelude.Nothing,
-      taskCreatedAt = Prelude.Nothing,
-      startedAt = Prelude.Nothing,
       definitionArn = Prelude.Nothing,
       group' = Prelude.Nothing,
-      version = Prelude.Nothing
+      startedAt = Prelude.Nothing,
+      startedBy = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      taskCreatedAt = Prelude.Nothing,
+      version = Prelude.Nothing,
+      volumes = Prelude.Nothing
     }
-
--- | The tags of the ECS Task.
-ecsTaskDetails_tags :: Lens.Lens' EcsTaskDetails (Prelude.Maybe [Tag])
-ecsTaskDetails_tags = Lens.lens (\EcsTaskDetails' {tags} -> tags) (\s@EcsTaskDetails' {} a -> s {tags = a} :: EcsTaskDetails) Prelude.. Lens.mapping Lens.coerced
-
--- | The containers that\'s associated with the task.
-ecsTaskDetails_containers :: Lens.Lens' EcsTaskDetails (Prelude.Maybe [Container])
-ecsTaskDetails_containers = Lens.lens (\EcsTaskDetails' {containers} -> containers) (\s@EcsTaskDetails' {} a -> s {containers = a} :: EcsTaskDetails) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the task.
 ecsTaskDetails_arn :: Lens.Lens' EcsTaskDetails (Prelude.Maybe Prelude.Text)
 ecsTaskDetails_arn = Lens.lens (\EcsTaskDetails' {arn} -> arn) (\s@EcsTaskDetails' {} a -> s {arn = a} :: EcsTaskDetails)
 
--- | Contains the tag specified when a task is started.
-ecsTaskDetails_startedBy :: Lens.Lens' EcsTaskDetails (Prelude.Maybe Prelude.Text)
-ecsTaskDetails_startedBy = Lens.lens (\EcsTaskDetails' {startedBy} -> startedBy) (\s@EcsTaskDetails' {} a -> s {startedBy = a} :: EcsTaskDetails)
-
--- | The list of data volume definitions for the task.
-ecsTaskDetails_volumes :: Lens.Lens' EcsTaskDetails (Prelude.Maybe [Volume])
-ecsTaskDetails_volumes = Lens.lens (\EcsTaskDetails' {volumes} -> volumes) (\s@EcsTaskDetails' {} a -> s {volumes = a} :: EcsTaskDetails) Prelude.. Lens.mapping Lens.coerced
-
--- | The Unix timestamp for the time when the task was created.
-ecsTaskDetails_taskCreatedAt :: Lens.Lens' EcsTaskDetails (Prelude.Maybe Prelude.UTCTime)
-ecsTaskDetails_taskCreatedAt = Lens.lens (\EcsTaskDetails' {taskCreatedAt} -> taskCreatedAt) (\s@EcsTaskDetails' {} a -> s {taskCreatedAt = a} :: EcsTaskDetails) Prelude.. Lens.mapping Data._Time
-
--- | The Unix timestamp for the time when the task started.
-ecsTaskDetails_startedAt :: Lens.Lens' EcsTaskDetails (Prelude.Maybe Prelude.UTCTime)
-ecsTaskDetails_startedAt = Lens.lens (\EcsTaskDetails' {startedAt} -> startedAt) (\s@EcsTaskDetails' {} a -> s {startedAt = a} :: EcsTaskDetails) Prelude.. Lens.mapping Data._Time
+-- | The containers that\'s associated with the task.
+ecsTaskDetails_containers :: Lens.Lens' EcsTaskDetails (Prelude.Maybe [Container])
+ecsTaskDetails_containers = Lens.lens (\EcsTaskDetails' {containers} -> containers) (\s@EcsTaskDetails' {} a -> s {containers = a} :: EcsTaskDetails) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN of the task definition that creates the task.
 ecsTaskDetails_definitionArn :: Lens.Lens' EcsTaskDetails (Prelude.Maybe Prelude.Text)
@@ -133,9 +113,29 @@ ecsTaskDetails_definitionArn = Lens.lens (\EcsTaskDetails' {definitionArn} -> de
 ecsTaskDetails_group :: Lens.Lens' EcsTaskDetails (Prelude.Maybe Prelude.Text)
 ecsTaskDetails_group = Lens.lens (\EcsTaskDetails' {group'} -> group') (\s@EcsTaskDetails' {} a -> s {group' = a} :: EcsTaskDetails)
 
+-- | The Unix timestamp for the time when the task started.
+ecsTaskDetails_startedAt :: Lens.Lens' EcsTaskDetails (Prelude.Maybe Prelude.UTCTime)
+ecsTaskDetails_startedAt = Lens.lens (\EcsTaskDetails' {startedAt} -> startedAt) (\s@EcsTaskDetails' {} a -> s {startedAt = a} :: EcsTaskDetails) Prelude.. Lens.mapping Data._Time
+
+-- | Contains the tag specified when a task is started.
+ecsTaskDetails_startedBy :: Lens.Lens' EcsTaskDetails (Prelude.Maybe Prelude.Text)
+ecsTaskDetails_startedBy = Lens.lens (\EcsTaskDetails' {startedBy} -> startedBy) (\s@EcsTaskDetails' {} a -> s {startedBy = a} :: EcsTaskDetails)
+
+-- | The tags of the ECS Task.
+ecsTaskDetails_tags :: Lens.Lens' EcsTaskDetails (Prelude.Maybe [Tag])
+ecsTaskDetails_tags = Lens.lens (\EcsTaskDetails' {tags} -> tags) (\s@EcsTaskDetails' {} a -> s {tags = a} :: EcsTaskDetails) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Unix timestamp for the time when the task was created.
+ecsTaskDetails_taskCreatedAt :: Lens.Lens' EcsTaskDetails (Prelude.Maybe Prelude.UTCTime)
+ecsTaskDetails_taskCreatedAt = Lens.lens (\EcsTaskDetails' {taskCreatedAt} -> taskCreatedAt) (\s@EcsTaskDetails' {} a -> s {taskCreatedAt = a} :: EcsTaskDetails) Prelude.. Lens.mapping Data._Time
+
 -- | The version counter for the task.
 ecsTaskDetails_version :: Lens.Lens' EcsTaskDetails (Prelude.Maybe Prelude.Text)
 ecsTaskDetails_version = Lens.lens (\EcsTaskDetails' {version} -> version) (\s@EcsTaskDetails' {} a -> s {version = a} :: EcsTaskDetails)
+
+-- | The list of data volume definitions for the task.
+ecsTaskDetails_volumes :: Lens.Lens' EcsTaskDetails (Prelude.Maybe [Volume])
+ecsTaskDetails_volumes = Lens.lens (\EcsTaskDetails' {volumes} -> volumes) (\s@EcsTaskDetails' {} a -> s {volumes = a} :: EcsTaskDetails) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON EcsTaskDetails where
   parseJSON =
@@ -143,40 +143,40 @@ instance Data.FromJSON EcsTaskDetails where
       "EcsTaskDetails"
       ( \x ->
           EcsTaskDetails'
-            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "arn")
             Prelude.<*> (x Data..:? "containers" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "arn")
-            Prelude.<*> (x Data..:? "startedBy")
-            Prelude.<*> (x Data..:? "volumes" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "createdAt")
-            Prelude.<*> (x Data..:? "startedAt")
             Prelude.<*> (x Data..:? "definitionArn")
             Prelude.<*> (x Data..:? "group")
+            Prelude.<*> (x Data..:? "startedAt")
+            Prelude.<*> (x Data..:? "startedBy")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "createdAt")
             Prelude.<*> (x Data..:? "version")
+            Prelude.<*> (x Data..:? "volumes" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable EcsTaskDetails where
   hashWithSalt _salt EcsTaskDetails' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` containers
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` startedBy
-      `Prelude.hashWithSalt` volumes
-      `Prelude.hashWithSalt` taskCreatedAt
-      `Prelude.hashWithSalt` startedAt
       `Prelude.hashWithSalt` definitionArn
       `Prelude.hashWithSalt` group'
+      `Prelude.hashWithSalt` startedAt
+      `Prelude.hashWithSalt` startedBy
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` taskCreatedAt
       `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` volumes
 
 instance Prelude.NFData EcsTaskDetails where
   rnf EcsTaskDetails' {..} =
-    Prelude.rnf tags
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf containers
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf startedBy
-      `Prelude.seq` Prelude.rnf volumes
-      `Prelude.seq` Prelude.rnf taskCreatedAt
-      `Prelude.seq` Prelude.rnf startedAt
       `Prelude.seq` Prelude.rnf definitionArn
       `Prelude.seq` Prelude.rnf group'
+      `Prelude.seq` Prelude.rnf startedAt
+      `Prelude.seq` Prelude.rnf startedBy
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf taskCreatedAt
       `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf volumes

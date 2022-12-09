@@ -28,8 +28,8 @@ module Amazonka.GuardDuty.ListPublishingDestinations
     newListPublishingDestinations,
 
     -- * Request Lenses
-    listPublishingDestinations_nextToken,
     listPublishingDestinations_maxResults,
+    listPublishingDestinations_nextToken,
     listPublishingDestinations_detectorId,
 
     -- * Destructuring the Response
@@ -53,13 +53,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPublishingDestinations' smart constructor.
 data ListPublishingDestinations = ListPublishingDestinations'
-  { -- | A token to use for paginating results that are returned in the response.
+  { -- | The maximum number of results to return in the response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token to use for paginating results that are returned in the response.
     -- Set the value of this parameter to null for the first request to a list
     -- action. For subsequent calls, use the @NextToken@ value returned from
     -- the previous request to continue listing results after the first page.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in the response.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the detector to retrieve publishing destinations for.
     detectorId :: Prelude.Text
   }
@@ -73,12 +73,12 @@ data ListPublishingDestinations = ListPublishingDestinations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listPublishingDestinations_maxResults' - The maximum number of results to return in the response.
+--
 -- 'nextToken', 'listPublishingDestinations_nextToken' - A token to use for paginating results that are returned in the response.
 -- Set the value of this parameter to null for the first request to a list
 -- action. For subsequent calls, use the @NextToken@ value returned from
 -- the previous request to continue listing results after the first page.
---
--- 'maxResults', 'listPublishingDestinations_maxResults' - The maximum number of results to return in the response.
 --
 -- 'detectorId', 'listPublishingDestinations_detectorId' - The ID of the detector to retrieve publishing destinations for.
 newListPublishingDestinations ::
@@ -87,11 +87,15 @@ newListPublishingDestinations ::
   ListPublishingDestinations
 newListPublishingDestinations pDetectorId_ =
   ListPublishingDestinations'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       detectorId = pDetectorId_
     }
+
+-- | The maximum number of results to return in the response.
+listPublishingDestinations_maxResults :: Lens.Lens' ListPublishingDestinations (Prelude.Maybe Prelude.Natural)
+listPublishingDestinations_maxResults = Lens.lens (\ListPublishingDestinations' {maxResults} -> maxResults) (\s@ListPublishingDestinations' {} a -> s {maxResults = a} :: ListPublishingDestinations)
 
 -- | A token to use for paginating results that are returned in the response.
 -- Set the value of this parameter to null for the first request to a list
@@ -99,10 +103,6 @@ newListPublishingDestinations pDetectorId_ =
 -- the previous request to continue listing results after the first page.
 listPublishingDestinations_nextToken :: Lens.Lens' ListPublishingDestinations (Prelude.Maybe Prelude.Text)
 listPublishingDestinations_nextToken = Lens.lens (\ListPublishingDestinations' {nextToken} -> nextToken) (\s@ListPublishingDestinations' {} a -> s {nextToken = a} :: ListPublishingDestinations)
-
--- | The maximum number of results to return in the response.
-listPublishingDestinations_maxResults :: Lens.Lens' ListPublishingDestinations (Prelude.Maybe Prelude.Natural)
-listPublishingDestinations_maxResults = Lens.lens (\ListPublishingDestinations' {maxResults} -> maxResults) (\s@ListPublishingDestinations' {} a -> s {maxResults = a} :: ListPublishingDestinations)
 
 -- | The ID of the detector to retrieve publishing destinations for.
 listPublishingDestinations_detectorId :: Lens.Lens' ListPublishingDestinations Prelude.Text
@@ -125,14 +125,14 @@ instance Core.AWSRequest ListPublishingDestinations where
 
 instance Prelude.Hashable ListPublishingDestinations where
   hashWithSalt _salt ListPublishingDestinations' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` detectorId
 
 instance Prelude.NFData ListPublishingDestinations where
   rnf ListPublishingDestinations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf detectorId
 
 instance Data.ToHeaders ListPublishingDestinations where
@@ -157,8 +157,8 @@ instance Data.ToPath ListPublishingDestinations where
 instance Data.ToQuery ListPublishingDestinations where
   toQuery ListPublishingDestinations' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListPublishingDestinationsResponse' smart constructor.

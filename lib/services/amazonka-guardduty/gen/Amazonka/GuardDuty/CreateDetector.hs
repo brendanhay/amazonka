@@ -31,10 +31,10 @@ module Amazonka.GuardDuty.CreateDetector
     newCreateDetector,
 
     -- * Request Lenses
-    createDetector_tags,
     createDetector_clientToken,
     createDetector_dataSources,
     createDetector_findingPublishingFrequency,
+    createDetector_tags,
     createDetector_enable,
 
     -- * Destructuring the Response
@@ -42,8 +42,8 @@ module Amazonka.GuardDuty.CreateDetector
     newCreateDetectorResponse,
 
     -- * Response Lenses
-    createDetectorResponse_unprocessedDataSources,
     createDetectorResponse_detectorId,
+    createDetectorResponse_unprocessedDataSources,
     createDetectorResponse_httpStatus,
   )
 where
@@ -58,14 +58,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDetector' smart constructor.
 data CreateDetector = CreateDetector'
-  { -- | The tags to be added to a new detector resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The idempotency token for the create request.
+  { -- | The idempotency token for the create request.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | Describes which data sources will be enabled for the detector.
     dataSources :: Prelude.Maybe DataSourceConfigurations,
     -- | A value that specifies how frequently updated findings are exported.
     findingPublishingFrequency :: Prelude.Maybe FindingPublishingFrequency,
+    -- | The tags to be added to a new detector resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A Boolean value that specifies whether the detector is to be enabled.
     enable :: Prelude.Bool
   }
@@ -79,13 +79,13 @@ data CreateDetector = CreateDetector'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createDetector_tags' - The tags to be added to a new detector resource.
---
 -- 'clientToken', 'createDetector_clientToken' - The idempotency token for the create request.
 --
 -- 'dataSources', 'createDetector_dataSources' - Describes which data sources will be enabled for the detector.
 --
 -- 'findingPublishingFrequency', 'createDetector_findingPublishingFrequency' - A value that specifies how frequently updated findings are exported.
+--
+-- 'tags', 'createDetector_tags' - The tags to be added to a new detector resource.
 --
 -- 'enable', 'createDetector_enable' - A Boolean value that specifies whether the detector is to be enabled.
 newCreateDetector ::
@@ -94,16 +94,12 @@ newCreateDetector ::
   CreateDetector
 newCreateDetector pEnable_ =
   CreateDetector'
-    { tags = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
+    { clientToken = Prelude.Nothing,
       dataSources = Prelude.Nothing,
       findingPublishingFrequency = Prelude.Nothing,
+      tags = Prelude.Nothing,
       enable = pEnable_
     }
-
--- | The tags to be added to a new detector resource.
-createDetector_tags :: Lens.Lens' CreateDetector (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createDetector_tags = Lens.lens (\CreateDetector' {tags} -> tags) (\s@CreateDetector' {} a -> s {tags = a} :: CreateDetector) Prelude.. Lens.mapping Lens.coerced
 
 -- | The idempotency token for the create request.
 createDetector_clientToken :: Lens.Lens' CreateDetector (Prelude.Maybe Prelude.Text)
@@ -116,6 +112,10 @@ createDetector_dataSources = Lens.lens (\CreateDetector' {dataSources} -> dataSo
 -- | A value that specifies how frequently updated findings are exported.
 createDetector_findingPublishingFrequency :: Lens.Lens' CreateDetector (Prelude.Maybe FindingPublishingFrequency)
 createDetector_findingPublishingFrequency = Lens.lens (\CreateDetector' {findingPublishingFrequency} -> findingPublishingFrequency) (\s@CreateDetector' {} a -> s {findingPublishingFrequency = a} :: CreateDetector)
+
+-- | The tags to be added to a new detector resource.
+createDetector_tags :: Lens.Lens' CreateDetector (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createDetector_tags = Lens.lens (\CreateDetector' {tags} -> tags) (\s@CreateDetector' {} a -> s {tags = a} :: CreateDetector) Prelude.. Lens.mapping Lens.coerced
 
 -- | A Boolean value that specifies whether the detector is to be enabled.
 createDetector_enable :: Lens.Lens' CreateDetector Prelude.Bool
@@ -131,25 +131,25 @@ instance Core.AWSRequest CreateDetector where
     Response.receiveJSON
       ( \s h x ->
           CreateDetectorResponse'
-            Prelude.<$> (x Data..?> "unprocessedDataSources")
-            Prelude.<*> (x Data..?> "detectorId")
+            Prelude.<$> (x Data..?> "detectorId")
+            Prelude.<*> (x Data..?> "unprocessedDataSources")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateDetector where
   hashWithSalt _salt CreateDetector' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` dataSources
       `Prelude.hashWithSalt` findingPublishingFrequency
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` enable
 
 instance Prelude.NFData CreateDetector where
   rnf CreateDetector' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf dataSources
       `Prelude.seq` Prelude.rnf findingPublishingFrequency
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf enable
 
 instance Data.ToHeaders CreateDetector where
@@ -167,11 +167,11 @@ instance Data.ToJSON CreateDetector where
   toJSON CreateDetector' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("clientToken" Data..=) Prelude.<$> clientToken,
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
             ("dataSources" Data..=) Prelude.<$> dataSources,
             ("findingPublishingFrequency" Data..=)
               Prelude.<$> findingPublishingFrequency,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("enable" Data..= enable)
           ]
       )
@@ -184,11 +184,11 @@ instance Data.ToQuery CreateDetector where
 
 -- | /See:/ 'newCreateDetectorResponse' smart constructor.
 data CreateDetectorResponse = CreateDetectorResponse'
-  { -- | Specifies the data sources that couldn\'t be enabled when GuardDuty was
+  { -- | The unique ID of the created detector.
+    detectorId :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the data sources that couldn\'t be enabled when GuardDuty was
     -- enabled for the first time.
     unprocessedDataSources :: Prelude.Maybe UnprocessedDataSourcesResult,
-    -- | The unique ID of the created detector.
-    detectorId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -202,10 +202,10 @@ data CreateDetectorResponse = CreateDetectorResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'detectorId', 'createDetectorResponse_detectorId' - The unique ID of the created detector.
+--
 -- 'unprocessedDataSources', 'createDetectorResponse_unprocessedDataSources' - Specifies the data sources that couldn\'t be enabled when GuardDuty was
 -- enabled for the first time.
---
--- 'detectorId', 'createDetectorResponse_detectorId' - The unique ID of the created detector.
 --
 -- 'httpStatus', 'createDetectorResponse_httpStatus' - The response's http status code.
 newCreateDetectorResponse ::
@@ -214,20 +214,20 @@ newCreateDetectorResponse ::
   CreateDetectorResponse
 newCreateDetectorResponse pHttpStatus_ =
   CreateDetectorResponse'
-    { unprocessedDataSources =
+    { detectorId =
         Prelude.Nothing,
-      detectorId = Prelude.Nothing,
+      unprocessedDataSources = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The unique ID of the created detector.
+createDetectorResponse_detectorId :: Lens.Lens' CreateDetectorResponse (Prelude.Maybe Prelude.Text)
+createDetectorResponse_detectorId = Lens.lens (\CreateDetectorResponse' {detectorId} -> detectorId) (\s@CreateDetectorResponse' {} a -> s {detectorId = a} :: CreateDetectorResponse)
 
 -- | Specifies the data sources that couldn\'t be enabled when GuardDuty was
 -- enabled for the first time.
 createDetectorResponse_unprocessedDataSources :: Lens.Lens' CreateDetectorResponse (Prelude.Maybe UnprocessedDataSourcesResult)
 createDetectorResponse_unprocessedDataSources = Lens.lens (\CreateDetectorResponse' {unprocessedDataSources} -> unprocessedDataSources) (\s@CreateDetectorResponse' {} a -> s {unprocessedDataSources = a} :: CreateDetectorResponse)
-
--- | The unique ID of the created detector.
-createDetectorResponse_detectorId :: Lens.Lens' CreateDetectorResponse (Prelude.Maybe Prelude.Text)
-createDetectorResponse_detectorId = Lens.lens (\CreateDetectorResponse' {detectorId} -> detectorId) (\s@CreateDetectorResponse' {} a -> s {detectorId = a} :: CreateDetectorResponse)
 
 -- | The response's http status code.
 createDetectorResponse_httpStatus :: Lens.Lens' CreateDetectorResponse Prelude.Int
@@ -235,6 +235,6 @@ createDetectorResponse_httpStatus = Lens.lens (\CreateDetectorResponse' {httpSta
 
 instance Prelude.NFData CreateDetectorResponse where
   rnf CreateDetectorResponse' {..} =
-    Prelude.rnf unprocessedDataSources
-      `Prelude.seq` Prelude.rnf detectorId
+    Prelude.rnf detectorId
+      `Prelude.seq` Prelude.rnf unprocessedDataSources
       `Prelude.seq` Prelude.rnf httpStatus

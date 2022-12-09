@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCountry' smart constructor.
 data Country = Country'
-  { -- | The country name of the remote IP address.
-    countryName :: Prelude.Maybe Prelude.Text,
-    -- | The country code of the remote IP address.
-    countryCode :: Prelude.Maybe Prelude.Text
+  { -- | The country code of the remote IP address.
+    countryCode :: Prelude.Maybe Prelude.Text,
+    -- | The country name of the remote IP address.
+    countryName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data Country = Country'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'countryName', 'country_countryName' - The country name of the remote IP address.
---
 -- 'countryCode', 'country_countryCode' - The country code of the remote IP address.
+--
+-- 'countryName', 'country_countryName' - The country name of the remote IP address.
 newCountry ::
   Country
 newCountry =
   Country'
-    { countryName = Prelude.Nothing,
-      countryCode = Prelude.Nothing
+    { countryCode = Prelude.Nothing,
+      countryName = Prelude.Nothing
     }
-
--- | The country name of the remote IP address.
-country_countryName :: Lens.Lens' Country (Prelude.Maybe Prelude.Text)
-country_countryName = Lens.lens (\Country' {countryName} -> countryName) (\s@Country' {} a -> s {countryName = a} :: Country)
 
 -- | The country code of the remote IP address.
 country_countryCode :: Lens.Lens' Country (Prelude.Maybe Prelude.Text)
 country_countryCode = Lens.lens (\Country' {countryCode} -> countryCode) (\s@Country' {} a -> s {countryCode = a} :: Country)
+
+-- | The country name of the remote IP address.
+country_countryName :: Lens.Lens' Country (Prelude.Maybe Prelude.Text)
+country_countryName = Lens.lens (\Country' {countryName} -> countryName) (\s@Country' {} a -> s {countryName = a} :: Country)
 
 instance Data.FromJSON Country where
   parseJSON =
@@ -69,16 +69,16 @@ instance Data.FromJSON Country where
       "Country"
       ( \x ->
           Country'
-            Prelude.<$> (x Data..:? "countryName")
-            Prelude.<*> (x Data..:? "countryCode")
+            Prelude.<$> (x Data..:? "countryCode")
+            Prelude.<*> (x Data..:? "countryName")
       )
 
 instance Prelude.Hashable Country where
   hashWithSalt _salt Country' {..} =
-    _salt `Prelude.hashWithSalt` countryName
-      `Prelude.hashWithSalt` countryCode
+    _salt `Prelude.hashWithSalt` countryCode
+      `Prelude.hashWithSalt` countryName
 
 instance Prelude.NFData Country where
   rnf Country' {..} =
-    Prelude.rnf countryName
-      `Prelude.seq` Prelude.rnf countryCode
+    Prelude.rnf countryCode
+      `Prelude.seq` Prelude.rnf countryName

@@ -34,10 +34,10 @@ module Amazonka.GuardDuty.GetDetector
     newGetDetectorResponse,
 
     -- * Response Lenses
-    getDetectorResponse_tags,
+    getDetectorResponse_createdAt,
     getDetectorResponse_dataSources,
     getDetectorResponse_findingPublishingFrequency,
-    getDetectorResponse_createdAt,
+    getDetectorResponse_tags,
     getDetectorResponse_updatedAt,
     getDetectorResponse_httpStatus,
     getDetectorResponse_serviceRole,
@@ -88,10 +88,10 @@ instance Core.AWSRequest GetDetector where
     Response.receiveJSON
       ( \s h x ->
           GetDetectorResponse'
-            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "createdAt")
             Prelude.<*> (x Data..?> "dataSources")
             Prelude.<*> (x Data..?> "findingPublishingFrequency")
-            Prelude.<*> (x Data..?> "createdAt")
+            Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "updatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "serviceRole")
@@ -126,14 +126,14 @@ instance Data.ToQuery GetDetector where
 
 -- | /See:/ 'newGetDetectorResponse' smart constructor.
 data GetDetectorResponse = GetDetectorResponse'
-  { -- | The tags of the detector resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | The timestamp of when the detector was created.
+    createdAt :: Prelude.Maybe Prelude.Text,
     -- | Describes which data sources are enabled for the detector.
     dataSources :: Prelude.Maybe DataSourceConfigurationsResult,
     -- | The publishing frequency of the finding.
     findingPublishingFrequency :: Prelude.Maybe FindingPublishingFrequency,
-    -- | The timestamp of when the detector was created.
-    createdAt :: Prelude.Maybe Prelude.Text,
+    -- | The tags of the detector resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The last-updated timestamp for the detector.
     updatedAt :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -153,13 +153,13 @@ data GetDetectorResponse = GetDetectorResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'getDetectorResponse_tags' - The tags of the detector resource.
+-- 'createdAt', 'getDetectorResponse_createdAt' - The timestamp of when the detector was created.
 --
 -- 'dataSources', 'getDetectorResponse_dataSources' - Describes which data sources are enabled for the detector.
 --
 -- 'findingPublishingFrequency', 'getDetectorResponse_findingPublishingFrequency' - The publishing frequency of the finding.
 --
--- 'createdAt', 'getDetectorResponse_createdAt' - The timestamp of when the detector was created.
+-- 'tags', 'getDetectorResponse_tags' - The tags of the detector resource.
 --
 -- 'updatedAt', 'getDetectorResponse_updatedAt' - The last-updated timestamp for the detector.
 --
@@ -181,19 +181,19 @@ newGetDetectorResponse
   pServiceRole_
   pStatus_ =
     GetDetectorResponse'
-      { tags = Prelude.Nothing,
+      { createdAt = Prelude.Nothing,
         dataSources = Prelude.Nothing,
         findingPublishingFrequency = Prelude.Nothing,
-        createdAt = Prelude.Nothing,
+        tags = Prelude.Nothing,
         updatedAt = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         serviceRole = pServiceRole_,
         status = pStatus_
       }
 
--- | The tags of the detector resource.
-getDetectorResponse_tags :: Lens.Lens' GetDetectorResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getDetectorResponse_tags = Lens.lens (\GetDetectorResponse' {tags} -> tags) (\s@GetDetectorResponse' {} a -> s {tags = a} :: GetDetectorResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The timestamp of when the detector was created.
+getDetectorResponse_createdAt :: Lens.Lens' GetDetectorResponse (Prelude.Maybe Prelude.Text)
+getDetectorResponse_createdAt = Lens.lens (\GetDetectorResponse' {createdAt} -> createdAt) (\s@GetDetectorResponse' {} a -> s {createdAt = a} :: GetDetectorResponse)
 
 -- | Describes which data sources are enabled for the detector.
 getDetectorResponse_dataSources :: Lens.Lens' GetDetectorResponse (Prelude.Maybe DataSourceConfigurationsResult)
@@ -203,9 +203,9 @@ getDetectorResponse_dataSources = Lens.lens (\GetDetectorResponse' {dataSources}
 getDetectorResponse_findingPublishingFrequency :: Lens.Lens' GetDetectorResponse (Prelude.Maybe FindingPublishingFrequency)
 getDetectorResponse_findingPublishingFrequency = Lens.lens (\GetDetectorResponse' {findingPublishingFrequency} -> findingPublishingFrequency) (\s@GetDetectorResponse' {} a -> s {findingPublishingFrequency = a} :: GetDetectorResponse)
 
--- | The timestamp of when the detector was created.
-getDetectorResponse_createdAt :: Lens.Lens' GetDetectorResponse (Prelude.Maybe Prelude.Text)
-getDetectorResponse_createdAt = Lens.lens (\GetDetectorResponse' {createdAt} -> createdAt) (\s@GetDetectorResponse' {} a -> s {createdAt = a} :: GetDetectorResponse)
+-- | The tags of the detector resource.
+getDetectorResponse_tags :: Lens.Lens' GetDetectorResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getDetectorResponse_tags = Lens.lens (\GetDetectorResponse' {tags} -> tags) (\s@GetDetectorResponse' {} a -> s {tags = a} :: GetDetectorResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The last-updated timestamp for the detector.
 getDetectorResponse_updatedAt :: Lens.Lens' GetDetectorResponse (Prelude.Maybe Prelude.Text)
@@ -225,10 +225,10 @@ getDetectorResponse_status = Lens.lens (\GetDetectorResponse' {status} -> status
 
 instance Prelude.NFData GetDetectorResponse where
   rnf GetDetectorResponse' {..} =
-    Prelude.rnf tags
+    Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf dataSources
       `Prelude.seq` Prelude.rnf findingPublishingFrequency
-      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf updatedAt
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf serviceRole

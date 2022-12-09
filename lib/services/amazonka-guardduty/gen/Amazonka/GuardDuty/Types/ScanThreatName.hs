@@ -30,14 +30,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newScanThreatName' smart constructor.
 data ScanThreatName = ScanThreatName'
-  { -- | Severity of threat identified as part of the malware scan.
-    severity :: Prelude.Maybe Prelude.Text,
-    -- | The name of the identified threat.
-    name :: Prelude.Maybe Prelude.Text,
+  { -- | List of infected files in EBS volume with details.
+    filePaths :: Prelude.Maybe [ScanFilePath],
     -- | Total number of files infected with given threat.
     itemCount :: Prelude.Maybe Prelude.Int,
-    -- | List of infected files in EBS volume with details.
-    filePaths :: Prelude.Maybe [ScanFilePath]
+    -- | The name of the identified threat.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | Severity of threat identified as part of the malware scan.
+    severity :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,38 +49,38 @@ data ScanThreatName = ScanThreatName'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'severity', 'scanThreatName_severity' - Severity of threat identified as part of the malware scan.
---
--- 'name', 'scanThreatName_name' - The name of the identified threat.
+-- 'filePaths', 'scanThreatName_filePaths' - List of infected files in EBS volume with details.
 --
 -- 'itemCount', 'scanThreatName_itemCount' - Total number of files infected with given threat.
 --
--- 'filePaths', 'scanThreatName_filePaths' - List of infected files in EBS volume with details.
+-- 'name', 'scanThreatName_name' - The name of the identified threat.
+--
+-- 'severity', 'scanThreatName_severity' - Severity of threat identified as part of the malware scan.
 newScanThreatName ::
   ScanThreatName
 newScanThreatName =
   ScanThreatName'
-    { severity = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { filePaths = Prelude.Nothing,
       itemCount = Prelude.Nothing,
-      filePaths = Prelude.Nothing
+      name = Prelude.Nothing,
+      severity = Prelude.Nothing
     }
 
--- | Severity of threat identified as part of the malware scan.
-scanThreatName_severity :: Lens.Lens' ScanThreatName (Prelude.Maybe Prelude.Text)
-scanThreatName_severity = Lens.lens (\ScanThreatName' {severity} -> severity) (\s@ScanThreatName' {} a -> s {severity = a} :: ScanThreatName)
-
--- | The name of the identified threat.
-scanThreatName_name :: Lens.Lens' ScanThreatName (Prelude.Maybe Prelude.Text)
-scanThreatName_name = Lens.lens (\ScanThreatName' {name} -> name) (\s@ScanThreatName' {} a -> s {name = a} :: ScanThreatName)
+-- | List of infected files in EBS volume with details.
+scanThreatName_filePaths :: Lens.Lens' ScanThreatName (Prelude.Maybe [ScanFilePath])
+scanThreatName_filePaths = Lens.lens (\ScanThreatName' {filePaths} -> filePaths) (\s@ScanThreatName' {} a -> s {filePaths = a} :: ScanThreatName) Prelude.. Lens.mapping Lens.coerced
 
 -- | Total number of files infected with given threat.
 scanThreatName_itemCount :: Lens.Lens' ScanThreatName (Prelude.Maybe Prelude.Int)
 scanThreatName_itemCount = Lens.lens (\ScanThreatName' {itemCount} -> itemCount) (\s@ScanThreatName' {} a -> s {itemCount = a} :: ScanThreatName)
 
--- | List of infected files in EBS volume with details.
-scanThreatName_filePaths :: Lens.Lens' ScanThreatName (Prelude.Maybe [ScanFilePath])
-scanThreatName_filePaths = Lens.lens (\ScanThreatName' {filePaths} -> filePaths) (\s@ScanThreatName' {} a -> s {filePaths = a} :: ScanThreatName) Prelude.. Lens.mapping Lens.coerced
+-- | The name of the identified threat.
+scanThreatName_name :: Lens.Lens' ScanThreatName (Prelude.Maybe Prelude.Text)
+scanThreatName_name = Lens.lens (\ScanThreatName' {name} -> name) (\s@ScanThreatName' {} a -> s {name = a} :: ScanThreatName)
+
+-- | Severity of threat identified as part of the malware scan.
+scanThreatName_severity :: Lens.Lens' ScanThreatName (Prelude.Maybe Prelude.Text)
+scanThreatName_severity = Lens.lens (\ScanThreatName' {severity} -> severity) (\s@ScanThreatName' {} a -> s {severity = a} :: ScanThreatName)
 
 instance Data.FromJSON ScanThreatName where
   parseJSON =
@@ -88,22 +88,22 @@ instance Data.FromJSON ScanThreatName where
       "ScanThreatName"
       ( \x ->
           ScanThreatName'
-            Prelude.<$> (x Data..:? "severity")
-            Prelude.<*> (x Data..:? "name")
+            Prelude.<$> (x Data..:? "filePaths" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "itemCount")
-            Prelude.<*> (x Data..:? "filePaths" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "severity")
       )
 
 instance Prelude.Hashable ScanThreatName where
   hashWithSalt _salt ScanThreatName' {..} =
-    _salt `Prelude.hashWithSalt` severity
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` filePaths
       `Prelude.hashWithSalt` itemCount
-      `Prelude.hashWithSalt` filePaths
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` severity
 
 instance Prelude.NFData ScanThreatName where
   rnf ScanThreatName' {..} =
-    Prelude.rnf severity
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf filePaths
       `Prelude.seq` Prelude.rnf itemCount
-      `Prelude.seq` Prelude.rnf filePaths
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf severity

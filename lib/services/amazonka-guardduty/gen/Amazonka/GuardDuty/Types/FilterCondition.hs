@@ -31,12 +31,12 @@ data FilterCondition = FilterCondition'
   { -- | Represents an /equal/ ____ condition to be applied to a single field
     -- when querying for scan entries.
     equalsValue :: Prelude.Maybe Prelude.Text,
-    -- | Represents a /less than/ condition to be applied to a single field when
-    -- querying for scan entries.
-    lessThan :: Prelude.Maybe Prelude.Integer,
     -- | Represents a /greater than/ condition to be applied to a single field
     -- when querying for scan entries.
-    greaterThan :: Prelude.Maybe Prelude.Integer
+    greaterThan :: Prelude.Maybe Prelude.Integer,
+    -- | Represents a /less than/ condition to be applied to a single field when
+    -- querying for scan entries.
+    lessThan :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,18 +51,18 @@ data FilterCondition = FilterCondition'
 -- 'equalsValue', 'filterCondition_equalsValue' - Represents an /equal/ ____ condition to be applied to a single field
 -- when querying for scan entries.
 --
--- 'lessThan', 'filterCondition_lessThan' - Represents a /less than/ condition to be applied to a single field when
--- querying for scan entries.
---
 -- 'greaterThan', 'filterCondition_greaterThan' - Represents a /greater than/ condition to be applied to a single field
 -- when querying for scan entries.
+--
+-- 'lessThan', 'filterCondition_lessThan' - Represents a /less than/ condition to be applied to a single field when
+-- querying for scan entries.
 newFilterCondition ::
   FilterCondition
 newFilterCondition =
   FilterCondition'
     { equalsValue = Prelude.Nothing,
-      lessThan = Prelude.Nothing,
-      greaterThan = Prelude.Nothing
+      greaterThan = Prelude.Nothing,
+      lessThan = Prelude.Nothing
     }
 
 -- | Represents an /equal/ ____ condition to be applied to a single field
@@ -70,34 +70,34 @@ newFilterCondition =
 filterCondition_equalsValue :: Lens.Lens' FilterCondition (Prelude.Maybe Prelude.Text)
 filterCondition_equalsValue = Lens.lens (\FilterCondition' {equalsValue} -> equalsValue) (\s@FilterCondition' {} a -> s {equalsValue = a} :: FilterCondition)
 
--- | Represents a /less than/ condition to be applied to a single field when
--- querying for scan entries.
-filterCondition_lessThan :: Lens.Lens' FilterCondition (Prelude.Maybe Prelude.Integer)
-filterCondition_lessThan = Lens.lens (\FilterCondition' {lessThan} -> lessThan) (\s@FilterCondition' {} a -> s {lessThan = a} :: FilterCondition)
-
 -- | Represents a /greater than/ condition to be applied to a single field
 -- when querying for scan entries.
 filterCondition_greaterThan :: Lens.Lens' FilterCondition (Prelude.Maybe Prelude.Integer)
 filterCondition_greaterThan = Lens.lens (\FilterCondition' {greaterThan} -> greaterThan) (\s@FilterCondition' {} a -> s {greaterThan = a} :: FilterCondition)
 
+-- | Represents a /less than/ condition to be applied to a single field when
+-- querying for scan entries.
+filterCondition_lessThan :: Lens.Lens' FilterCondition (Prelude.Maybe Prelude.Integer)
+filterCondition_lessThan = Lens.lens (\FilterCondition' {lessThan} -> lessThan) (\s@FilterCondition' {} a -> s {lessThan = a} :: FilterCondition)
+
 instance Prelude.Hashable FilterCondition where
   hashWithSalt _salt FilterCondition' {..} =
     _salt `Prelude.hashWithSalt` equalsValue
-      `Prelude.hashWithSalt` lessThan
       `Prelude.hashWithSalt` greaterThan
+      `Prelude.hashWithSalt` lessThan
 
 instance Prelude.NFData FilterCondition where
   rnf FilterCondition' {..} =
     Prelude.rnf equalsValue
-      `Prelude.seq` Prelude.rnf lessThan
       `Prelude.seq` Prelude.rnf greaterThan
+      `Prelude.seq` Prelude.rnf lessThan
 
 instance Data.ToJSON FilterCondition where
   toJSON FilterCondition' {..} =
     Data.object
       ( Prelude.catMaybes
           [ ("equalsValue" Data..=) Prelude.<$> equalsValue,
-            ("lessThan" Data..=) Prelude.<$> lessThan,
-            ("greaterThan" Data..=) Prelude.<$> greaterThan
+            ("greaterThan" Data..=) Prelude.<$> greaterThan,
+            ("lessThan" Data..=) Prelude.<$> lessThan
           ]
       )

@@ -36,8 +36,8 @@ module Amazonka.LookoutVision.ListModelPackagingJobs
     newListModelPackagingJobs,
 
     -- * Request Lenses
-    listModelPackagingJobs_nextToken,
     listModelPackagingJobs_maxResults,
+    listModelPackagingJobs_nextToken,
     listModelPackagingJobs_projectName,
 
     -- * Destructuring the Response
@@ -45,8 +45,8 @@ module Amazonka.LookoutVision.ListModelPackagingJobs
     newListModelPackagingJobsResponse,
 
     -- * Response Lenses
-    listModelPackagingJobsResponse_nextToken,
     listModelPackagingJobsResponse_modelPackagingJobs,
+    listModelPackagingJobsResponse_nextToken,
     listModelPackagingJobsResponse_httpStatus,
   )
 where
@@ -61,15 +61,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListModelPackagingJobs' smart constructor.
 data ListModelPackagingJobs = ListModelPackagingJobs'
-  { -- | If the previous response was incomplete (because there is more results
+  { -- | The maximum number of results to return per paginated call. The largest
+    -- value you can specify is 100. If you specify a value greater than 100, a
+    -- ValidationException error occurs. The default value is 100.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the previous response was incomplete (because there is more results
     -- to retrieve), Amazon Lookout for Vision returns a pagination token in
     -- the response. You can use this pagination token to retrieve the next set
     -- of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per paginated call. The largest
-    -- value you can specify is 100. If you specify a value greater than 100, a
-    -- ValidationException error occurs. The default value is 100.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name of the project for which you want to list the model packaging
     -- jobs.
     projectName :: Prelude.Text
@@ -84,14 +84,14 @@ data ListModelPackagingJobs = ListModelPackagingJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listModelPackagingJobs_maxResults' - The maximum number of results to return per paginated call. The largest
+-- value you can specify is 100. If you specify a value greater than 100, a
+-- ValidationException error occurs. The default value is 100.
+--
 -- 'nextToken', 'listModelPackagingJobs_nextToken' - If the previous response was incomplete (because there is more results
 -- to retrieve), Amazon Lookout for Vision returns a pagination token in
 -- the response. You can use this pagination token to retrieve the next set
 -- of results.
---
--- 'maxResults', 'listModelPackagingJobs_maxResults' - The maximum number of results to return per paginated call. The largest
--- value you can specify is 100. If you specify a value greater than 100, a
--- ValidationException error occurs. The default value is 100.
 --
 -- 'projectName', 'listModelPackagingJobs_projectName' - The name of the project for which you want to list the model packaging
 -- jobs.
@@ -101,11 +101,17 @@ newListModelPackagingJobs ::
   ListModelPackagingJobs
 newListModelPackagingJobs pProjectName_ =
   ListModelPackagingJobs'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       projectName = pProjectName_
     }
+
+-- | The maximum number of results to return per paginated call. The largest
+-- value you can specify is 100. If you specify a value greater than 100, a
+-- ValidationException error occurs. The default value is 100.
+listModelPackagingJobs_maxResults :: Lens.Lens' ListModelPackagingJobs (Prelude.Maybe Prelude.Natural)
+listModelPackagingJobs_maxResults = Lens.lens (\ListModelPackagingJobs' {maxResults} -> maxResults) (\s@ListModelPackagingJobs' {} a -> s {maxResults = a} :: ListModelPackagingJobs)
 
 -- | If the previous response was incomplete (because there is more results
 -- to retrieve), Amazon Lookout for Vision returns a pagination token in
@@ -113,12 +119,6 @@ newListModelPackagingJobs pProjectName_ =
 -- of results.
 listModelPackagingJobs_nextToken :: Lens.Lens' ListModelPackagingJobs (Prelude.Maybe Prelude.Text)
 listModelPackagingJobs_nextToken = Lens.lens (\ListModelPackagingJobs' {nextToken} -> nextToken) (\s@ListModelPackagingJobs' {} a -> s {nextToken = a} :: ListModelPackagingJobs)
-
--- | The maximum number of results to return per paginated call. The largest
--- value you can specify is 100. If you specify a value greater than 100, a
--- ValidationException error occurs. The default value is 100.
-listModelPackagingJobs_maxResults :: Lens.Lens' ListModelPackagingJobs (Prelude.Maybe Prelude.Natural)
-listModelPackagingJobs_maxResults = Lens.lens (\ListModelPackagingJobs' {maxResults} -> maxResults) (\s@ListModelPackagingJobs' {} a -> s {maxResults = a} :: ListModelPackagingJobs)
 
 -- | The name of the project for which you want to list the model packaging
 -- jobs.
@@ -157,23 +157,23 @@ instance Core.AWSRequest ListModelPackagingJobs where
     Response.receiveJSON
       ( \s h x ->
           ListModelPackagingJobsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ModelPackagingJobs"
+            Prelude.<$> ( x Data..?> "ModelPackagingJobs"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListModelPackagingJobs where
   hashWithSalt _salt ListModelPackagingJobs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` projectName
 
 instance Prelude.NFData ListModelPackagingJobs where
   rnf ListModelPackagingJobs' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf projectName
 
 instance Data.ToHeaders ListModelPackagingJobs where
@@ -198,20 +198,20 @@ instance Data.ToPath ListModelPackagingJobs where
 instance Data.ToQuery ListModelPackagingJobs where
   toQuery ListModelPackagingJobs' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListModelPackagingJobsResponse' smart constructor.
 data ListModelPackagingJobsResponse = ListModelPackagingJobsResponse'
-  { -- | If the previous response was incomplete (because there is more results
+  { -- | A list of the model packaging jobs created for the specified Amazon
+    -- Lookout for Vision project.
+    modelPackagingJobs :: Prelude.Maybe [ModelPackagingJobMetadata],
+    -- | If the previous response was incomplete (because there is more results
     -- to retrieve), Amazon Lookout for Vision returns a pagination token in
     -- the response. You can use this pagination token to retrieve the next set
     -- of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of the model packaging jobs created for the specified Amazon
-    -- Lookout for Vision project.
-    modelPackagingJobs :: Prelude.Maybe [ModelPackagingJobMetadata],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -225,13 +225,13 @@ data ListModelPackagingJobsResponse = ListModelPackagingJobsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'modelPackagingJobs', 'listModelPackagingJobsResponse_modelPackagingJobs' - A list of the model packaging jobs created for the specified Amazon
+-- Lookout for Vision project.
+--
 -- 'nextToken', 'listModelPackagingJobsResponse_nextToken' - If the previous response was incomplete (because there is more results
 -- to retrieve), Amazon Lookout for Vision returns a pagination token in
 -- the response. You can use this pagination token to retrieve the next set
 -- of results.
---
--- 'modelPackagingJobs', 'listModelPackagingJobsResponse_modelPackagingJobs' - A list of the model packaging jobs created for the specified Amazon
--- Lookout for Vision project.
 --
 -- 'httpStatus', 'listModelPackagingJobsResponse_httpStatus' - The response's http status code.
 newListModelPackagingJobsResponse ::
@@ -240,11 +240,16 @@ newListModelPackagingJobsResponse ::
   ListModelPackagingJobsResponse
 newListModelPackagingJobsResponse pHttpStatus_ =
   ListModelPackagingJobsResponse'
-    { nextToken =
+    { modelPackagingJobs =
         Prelude.Nothing,
-      modelPackagingJobs = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of the model packaging jobs created for the specified Amazon
+-- Lookout for Vision project.
+listModelPackagingJobsResponse_modelPackagingJobs :: Lens.Lens' ListModelPackagingJobsResponse (Prelude.Maybe [ModelPackagingJobMetadata])
+listModelPackagingJobsResponse_modelPackagingJobs = Lens.lens (\ListModelPackagingJobsResponse' {modelPackagingJobs} -> modelPackagingJobs) (\s@ListModelPackagingJobsResponse' {} a -> s {modelPackagingJobs = a} :: ListModelPackagingJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the previous response was incomplete (because there is more results
 -- to retrieve), Amazon Lookout for Vision returns a pagination token in
@@ -252,11 +257,6 @@ newListModelPackagingJobsResponse pHttpStatus_ =
 -- of results.
 listModelPackagingJobsResponse_nextToken :: Lens.Lens' ListModelPackagingJobsResponse (Prelude.Maybe Prelude.Text)
 listModelPackagingJobsResponse_nextToken = Lens.lens (\ListModelPackagingJobsResponse' {nextToken} -> nextToken) (\s@ListModelPackagingJobsResponse' {} a -> s {nextToken = a} :: ListModelPackagingJobsResponse)
-
--- | A list of the model packaging jobs created for the specified Amazon
--- Lookout for Vision project.
-listModelPackagingJobsResponse_modelPackagingJobs :: Lens.Lens' ListModelPackagingJobsResponse (Prelude.Maybe [ModelPackagingJobMetadata])
-listModelPackagingJobsResponse_modelPackagingJobs = Lens.lens (\ListModelPackagingJobsResponse' {modelPackagingJobs} -> modelPackagingJobs) (\s@ListModelPackagingJobsResponse' {} a -> s {modelPackagingJobs = a} :: ListModelPackagingJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listModelPackagingJobsResponse_httpStatus :: Lens.Lens' ListModelPackagingJobsResponse Prelude.Int
@@ -267,6 +267,6 @@ instance
     ListModelPackagingJobsResponse
   where
   rnf ListModelPackagingJobsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf modelPackagingJobs
+    Prelude.rnf modelPackagingJobs
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

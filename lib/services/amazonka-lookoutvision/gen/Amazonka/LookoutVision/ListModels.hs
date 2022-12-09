@@ -36,8 +36,8 @@ module Amazonka.LookoutVision.ListModels
     newListModels,
 
     -- * Request Lenses
-    listModels_nextToken,
     listModels_maxResults,
+    listModels_nextToken,
     listModels_projectName,
 
     -- * Destructuring the Response
@@ -45,8 +45,8 @@ module Amazonka.LookoutVision.ListModels
     newListModelsResponse,
 
     -- * Response Lenses
-    listModelsResponse_nextToken,
     listModelsResponse_models,
+    listModelsResponse_nextToken,
     listModelsResponse_httpStatus,
   )
 where
@@ -61,15 +61,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListModels' smart constructor.
 data ListModels = ListModels'
-  { -- | If the previous response was incomplete (because there is more data to
+  { -- | The maximum number of results to return per paginated call. The largest
+    -- value you can specify is 100. If you specify a value greater than 100, a
+    -- ValidationException error occurs. The default value is 100.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the previous response was incomplete (because there is more data to
     -- retrieve), Amazon Lookout for Vision returns a pagination token in the
     -- response. You can use this pagination token to retrieve the next set of
     -- models.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per paginated call. The largest
-    -- value you can specify is 100. If you specify a value greater than 100, a
-    -- ValidationException error occurs. The default value is 100.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name of the project that contains the model versions that you want
     -- to list.
     projectName :: Prelude.Text
@@ -84,14 +84,14 @@ data ListModels = ListModels'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listModels_maxResults' - The maximum number of results to return per paginated call. The largest
+-- value you can specify is 100. If you specify a value greater than 100, a
+-- ValidationException error occurs. The default value is 100.
+--
 -- 'nextToken', 'listModels_nextToken' - If the previous response was incomplete (because there is more data to
 -- retrieve), Amazon Lookout for Vision returns a pagination token in the
 -- response. You can use this pagination token to retrieve the next set of
 -- models.
---
--- 'maxResults', 'listModels_maxResults' - The maximum number of results to return per paginated call. The largest
--- value you can specify is 100. If you specify a value greater than 100, a
--- ValidationException error occurs. The default value is 100.
 --
 -- 'projectName', 'listModels_projectName' - The name of the project that contains the model versions that you want
 -- to list.
@@ -101,10 +101,16 @@ newListModels ::
   ListModels
 newListModels pProjectName_ =
   ListModels'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       projectName = pProjectName_
     }
+
+-- | The maximum number of results to return per paginated call. The largest
+-- value you can specify is 100. If you specify a value greater than 100, a
+-- ValidationException error occurs. The default value is 100.
+listModels_maxResults :: Lens.Lens' ListModels (Prelude.Maybe Prelude.Natural)
+listModels_maxResults = Lens.lens (\ListModels' {maxResults} -> maxResults) (\s@ListModels' {} a -> s {maxResults = a} :: ListModels)
 
 -- | If the previous response was incomplete (because there is more data to
 -- retrieve), Amazon Lookout for Vision returns a pagination token in the
@@ -112,12 +118,6 @@ newListModels pProjectName_ =
 -- models.
 listModels_nextToken :: Lens.Lens' ListModels (Prelude.Maybe Prelude.Text)
 listModels_nextToken = Lens.lens (\ListModels' {nextToken} -> nextToken) (\s@ListModels' {} a -> s {nextToken = a} :: ListModels)
-
--- | The maximum number of results to return per paginated call. The largest
--- value you can specify is 100. If you specify a value greater than 100, a
--- ValidationException error occurs. The default value is 100.
-listModels_maxResults :: Lens.Lens' ListModels (Prelude.Maybe Prelude.Natural)
-listModels_maxResults = Lens.lens (\ListModels' {maxResults} -> maxResults) (\s@ListModels' {} a -> s {maxResults = a} :: ListModels)
 
 -- | The name of the project that contains the model versions that you want
 -- to list.
@@ -151,21 +151,21 @@ instance Core.AWSRequest ListModels where
     Response.receiveJSON
       ( \s h x ->
           ListModelsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Models" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Models" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListModels where
   hashWithSalt _salt ListModels' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` projectName
 
 instance Prelude.NFData ListModels where
   rnf ListModels' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf projectName
 
 instance Data.ToHeaders ListModels where
@@ -190,18 +190,18 @@ instance Data.ToPath ListModels where
 instance Data.ToQuery ListModels where
   toQuery ListModels' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListModelsResponse' smart constructor.
 data ListModelsResponse = ListModelsResponse'
-  { -- | If the response is truncated, Amazon Lookout for Vision returns this
+  { -- | A list of model versions in the specified project.
+    models :: Prelude.Maybe [ModelMetadata],
+    -- | If the response is truncated, Amazon Lookout for Vision returns this
     -- token that you can use in the subsequent request to retrieve the next
     -- set of models.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of model versions in the specified project.
-    models :: Prelude.Maybe [ModelMetadata],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -215,11 +215,11 @@ data ListModelsResponse = ListModelsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'models', 'listModelsResponse_models' - A list of model versions in the specified project.
+--
 -- 'nextToken', 'listModelsResponse_nextToken' - If the response is truncated, Amazon Lookout for Vision returns this
 -- token that you can use in the subsequent request to retrieve the next
 -- set of models.
---
--- 'models', 'listModelsResponse_models' - A list of model versions in the specified project.
 --
 -- 'httpStatus', 'listModelsResponse_httpStatus' - The response's http status code.
 newListModelsResponse ::
@@ -228,10 +228,14 @@ newListModelsResponse ::
   ListModelsResponse
 newListModelsResponse pHttpStatus_ =
   ListModelsResponse'
-    { nextToken = Prelude.Nothing,
-      models = Prelude.Nothing,
+    { models = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of model versions in the specified project.
+listModelsResponse_models :: Lens.Lens' ListModelsResponse (Prelude.Maybe [ModelMetadata])
+listModelsResponse_models = Lens.lens (\ListModelsResponse' {models} -> models) (\s@ListModelsResponse' {} a -> s {models = a} :: ListModelsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the response is truncated, Amazon Lookout for Vision returns this
 -- token that you can use in the subsequent request to retrieve the next
@@ -239,16 +243,12 @@ newListModelsResponse pHttpStatus_ =
 listModelsResponse_nextToken :: Lens.Lens' ListModelsResponse (Prelude.Maybe Prelude.Text)
 listModelsResponse_nextToken = Lens.lens (\ListModelsResponse' {nextToken} -> nextToken) (\s@ListModelsResponse' {} a -> s {nextToken = a} :: ListModelsResponse)
 
--- | A list of model versions in the specified project.
-listModelsResponse_models :: Lens.Lens' ListModelsResponse (Prelude.Maybe [ModelMetadata])
-listModelsResponse_models = Lens.lens (\ListModelsResponse' {models} -> models) (\s@ListModelsResponse' {} a -> s {models = a} :: ListModelsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listModelsResponse_httpStatus :: Lens.Lens' ListModelsResponse Prelude.Int
 listModelsResponse_httpStatus = Lens.lens (\ListModelsResponse' {httpStatus} -> httpStatus) (\s@ListModelsResponse' {} a -> s {httpStatus = a} :: ListModelsResponse)
 
 instance Prelude.NFData ListModelsResponse where
   rnf ListModelsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf models
+    Prelude.rnf models
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

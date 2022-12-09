@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 data ModelPerformance = ModelPerformance'
   { -- | The overall F1 score metric for the trained model.
     f1Score :: Prelude.Maybe Prelude.Double,
-    -- | The overall recall metric value for the trained model.
-    recall :: Prelude.Maybe Prelude.Double,
     -- | The overall precision metric value for the trained model.
-    precision :: Prelude.Maybe Prelude.Double
+    precision :: Prelude.Maybe Prelude.Double,
+    -- | The overall recall metric value for the trained model.
+    recall :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,29 +47,29 @@ data ModelPerformance = ModelPerformance'
 --
 -- 'f1Score', 'modelPerformance_f1Score' - The overall F1 score metric for the trained model.
 --
--- 'recall', 'modelPerformance_recall' - The overall recall metric value for the trained model.
---
 -- 'precision', 'modelPerformance_precision' - The overall precision metric value for the trained model.
+--
+-- 'recall', 'modelPerformance_recall' - The overall recall metric value for the trained model.
 newModelPerformance ::
   ModelPerformance
 newModelPerformance =
   ModelPerformance'
     { f1Score = Prelude.Nothing,
-      recall = Prelude.Nothing,
-      precision = Prelude.Nothing
+      precision = Prelude.Nothing,
+      recall = Prelude.Nothing
     }
 
 -- | The overall F1 score metric for the trained model.
 modelPerformance_f1Score :: Lens.Lens' ModelPerformance (Prelude.Maybe Prelude.Double)
 modelPerformance_f1Score = Lens.lens (\ModelPerformance' {f1Score} -> f1Score) (\s@ModelPerformance' {} a -> s {f1Score = a} :: ModelPerformance)
 
--- | The overall recall metric value for the trained model.
-modelPerformance_recall :: Lens.Lens' ModelPerformance (Prelude.Maybe Prelude.Double)
-modelPerformance_recall = Lens.lens (\ModelPerformance' {recall} -> recall) (\s@ModelPerformance' {} a -> s {recall = a} :: ModelPerformance)
-
 -- | The overall precision metric value for the trained model.
 modelPerformance_precision :: Lens.Lens' ModelPerformance (Prelude.Maybe Prelude.Double)
 modelPerformance_precision = Lens.lens (\ModelPerformance' {precision} -> precision) (\s@ModelPerformance' {} a -> s {precision = a} :: ModelPerformance)
+
+-- | The overall recall metric value for the trained model.
+modelPerformance_recall :: Lens.Lens' ModelPerformance (Prelude.Maybe Prelude.Double)
+modelPerformance_recall = Lens.lens (\ModelPerformance' {recall} -> recall) (\s@ModelPerformance' {} a -> s {recall = a} :: ModelPerformance)
 
 instance Data.FromJSON ModelPerformance where
   parseJSON =
@@ -78,18 +78,18 @@ instance Data.FromJSON ModelPerformance where
       ( \x ->
           ModelPerformance'
             Prelude.<$> (x Data..:? "F1Score")
-            Prelude.<*> (x Data..:? "Recall")
             Prelude.<*> (x Data..:? "Precision")
+            Prelude.<*> (x Data..:? "Recall")
       )
 
 instance Prelude.Hashable ModelPerformance where
   hashWithSalt _salt ModelPerformance' {..} =
     _salt `Prelude.hashWithSalt` f1Score
-      `Prelude.hashWithSalt` recall
       `Prelude.hashWithSalt` precision
+      `Prelude.hashWithSalt` recall
 
 instance Prelude.NFData ModelPerformance where
   rnf ModelPerformance' {..} =
     Prelude.rnf f1Score
-      `Prelude.seq` Prelude.rnf recall
       `Prelude.seq` Prelude.rnf precision
+      `Prelude.seq` Prelude.rnf recall

@@ -34,13 +34,13 @@ module Amazonka.LookoutVision.ListDatasetEntries
     newListDatasetEntries,
 
     -- * Request Lenses
-    listDatasetEntries_nextToken,
-    listDatasetEntries_labeled,
-    listDatasetEntries_sourceRefContains,
     listDatasetEntries_afterCreationDate,
-    listDatasetEntries_beforeCreationDate,
     listDatasetEntries_anomalyClass,
+    listDatasetEntries_beforeCreationDate,
+    listDatasetEntries_labeled,
     listDatasetEntries_maxResults,
+    listDatasetEntries_nextToken,
+    listDatasetEntries_sourceRefContains,
     listDatasetEntries_projectName,
     listDatasetEntries_datasetType,
 
@@ -49,8 +49,8 @@ module Amazonka.LookoutVision.ListDatasetEntries
     newListDatasetEntriesResponse,
 
     -- * Response Lenses
-    listDatasetEntriesResponse_nextToken,
     listDatasetEntriesResponse_datasetEntries,
+    listDatasetEntriesResponse_nextToken,
     listDatasetEntriesResponse_httpStatus,
   )
 where
@@ -65,32 +65,32 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDatasetEntries' smart constructor.
 data ListDatasetEntries = ListDatasetEntries'
-  { -- | If the previous response was incomplete (because there is more data to
-    -- retrieve), Amazon Lookout for Vision returns a pagination token in the
-    -- response. You can use this pagination token to retrieve the next set of
-    -- dataset entries.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Specify @true@ to include labeled entries, otherwise specify @false@. If
-    -- you don\'t specify a value, Lookout for Vision returns all entries.
-    labeled :: Prelude.Maybe Prelude.Bool,
-    -- | Perform a \"contains\" search on the values of the @source-ref@ key
-    -- within the dataset. For example a value of \"IMG_17\" returns all JSON
-    -- Lines where the @source-ref@ key value matches /*IMG_17*/.
-    sourceRefContains :: Prelude.Maybe Prelude.Text,
-    -- | Only includes entries after the specified date in the response. For
+  { -- | Only includes entries after the specified date in the response. For
     -- example, @2020-06-23T00:00:00@.
     afterCreationDate :: Prelude.Maybe Data.POSIX,
-    -- | Only includes entries before the specified date in the response. For
-    -- example, @2020-06-23T00:00:00@.
-    beforeCreationDate :: Prelude.Maybe Data.POSIX,
     -- | Specify @normal@ to include only normal images. Specify @anomaly@ to
     -- only include anomalous entries. If you don\'t specify a value, Amazon
     -- Lookout for Vision returns normal and anomalous images.
     anomalyClass :: Prelude.Maybe Prelude.Text,
+    -- | Only includes entries before the specified date in the response. For
+    -- example, @2020-06-23T00:00:00@.
+    beforeCreationDate :: Prelude.Maybe Data.POSIX,
+    -- | Specify @true@ to include labeled entries, otherwise specify @false@. If
+    -- you don\'t specify a value, Lookout for Vision returns all entries.
+    labeled :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results to return per paginated call. The largest
     -- value you can specify is 100. If you specify a value greater than 100, a
     -- ValidationException error occurs. The default value is 100.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the previous response was incomplete (because there is more data to
+    -- retrieve), Amazon Lookout for Vision returns a pagination token in the
+    -- response. You can use this pagination token to retrieve the next set of
+    -- dataset entries.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Perform a \"contains\" search on the values of the @source-ref@ key
+    -- within the dataset. For example a value of \"IMG_17\" returns all JSON
+    -- Lines where the @source-ref@ key value matches /*IMG_17*/.
+    sourceRefContains :: Prelude.Maybe Prelude.Text,
     -- | The name of the project that contains the dataset that you want to list.
     projectName :: Prelude.Text,
     -- | The type of the dataset that you want to list. Specify @train@ to list
@@ -108,31 +108,31 @@ data ListDatasetEntries = ListDatasetEntries'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listDatasetEntries_nextToken' - If the previous response was incomplete (because there is more data to
--- retrieve), Amazon Lookout for Vision returns a pagination token in the
--- response. You can use this pagination token to retrieve the next set of
--- dataset entries.
---
--- 'labeled', 'listDatasetEntries_labeled' - Specify @true@ to include labeled entries, otherwise specify @false@. If
--- you don\'t specify a value, Lookout for Vision returns all entries.
---
--- 'sourceRefContains', 'listDatasetEntries_sourceRefContains' - Perform a \"contains\" search on the values of the @source-ref@ key
--- within the dataset. For example a value of \"IMG_17\" returns all JSON
--- Lines where the @source-ref@ key value matches /*IMG_17*/.
---
 -- 'afterCreationDate', 'listDatasetEntries_afterCreationDate' - Only includes entries after the specified date in the response. For
--- example, @2020-06-23T00:00:00@.
---
--- 'beforeCreationDate', 'listDatasetEntries_beforeCreationDate' - Only includes entries before the specified date in the response. For
 -- example, @2020-06-23T00:00:00@.
 --
 -- 'anomalyClass', 'listDatasetEntries_anomalyClass' - Specify @normal@ to include only normal images. Specify @anomaly@ to
 -- only include anomalous entries. If you don\'t specify a value, Amazon
 -- Lookout for Vision returns normal and anomalous images.
 --
+-- 'beforeCreationDate', 'listDatasetEntries_beforeCreationDate' - Only includes entries before the specified date in the response. For
+-- example, @2020-06-23T00:00:00@.
+--
+-- 'labeled', 'listDatasetEntries_labeled' - Specify @true@ to include labeled entries, otherwise specify @false@. If
+-- you don\'t specify a value, Lookout for Vision returns all entries.
+--
 -- 'maxResults', 'listDatasetEntries_maxResults' - The maximum number of results to return per paginated call. The largest
 -- value you can specify is 100. If you specify a value greater than 100, a
 -- ValidationException error occurs. The default value is 100.
+--
+-- 'nextToken', 'listDatasetEntries_nextToken' - If the previous response was incomplete (because there is more data to
+-- retrieve), Amazon Lookout for Vision returns a pagination token in the
+-- response. You can use this pagination token to retrieve the next set of
+-- dataset entries.
+--
+-- 'sourceRefContains', 'listDatasetEntries_sourceRefContains' - Perform a \"contains\" search on the values of the @source-ref@ key
+-- within the dataset. For example a value of \"IMG_17\" returns all JSON
+-- Lines where the @source-ref@ key value matches /*IMG_17*/.
 --
 -- 'projectName', 'listDatasetEntries_projectName' - The name of the project that contains the dataset that you want to list.
 --
@@ -147,16 +147,44 @@ newListDatasetEntries ::
   ListDatasetEntries
 newListDatasetEntries pProjectName_ pDatasetType_ =
   ListDatasetEntries'
-    { nextToken = Prelude.Nothing,
-      labeled = Prelude.Nothing,
-      sourceRefContains = Prelude.Nothing,
-      afterCreationDate = Prelude.Nothing,
-      beforeCreationDate = Prelude.Nothing,
+    { afterCreationDate =
+        Prelude.Nothing,
       anomalyClass = Prelude.Nothing,
+      beforeCreationDate = Prelude.Nothing,
+      labeled = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      sourceRefContains = Prelude.Nothing,
       projectName = pProjectName_,
       datasetType = pDatasetType_
     }
+
+-- | Only includes entries after the specified date in the response. For
+-- example, @2020-06-23T00:00:00@.
+listDatasetEntries_afterCreationDate :: Lens.Lens' ListDatasetEntries (Prelude.Maybe Prelude.UTCTime)
+listDatasetEntries_afterCreationDate = Lens.lens (\ListDatasetEntries' {afterCreationDate} -> afterCreationDate) (\s@ListDatasetEntries' {} a -> s {afterCreationDate = a} :: ListDatasetEntries) Prelude.. Lens.mapping Data._Time
+
+-- | Specify @normal@ to include only normal images. Specify @anomaly@ to
+-- only include anomalous entries. If you don\'t specify a value, Amazon
+-- Lookout for Vision returns normal and anomalous images.
+listDatasetEntries_anomalyClass :: Lens.Lens' ListDatasetEntries (Prelude.Maybe Prelude.Text)
+listDatasetEntries_anomalyClass = Lens.lens (\ListDatasetEntries' {anomalyClass} -> anomalyClass) (\s@ListDatasetEntries' {} a -> s {anomalyClass = a} :: ListDatasetEntries)
+
+-- | Only includes entries before the specified date in the response. For
+-- example, @2020-06-23T00:00:00@.
+listDatasetEntries_beforeCreationDate :: Lens.Lens' ListDatasetEntries (Prelude.Maybe Prelude.UTCTime)
+listDatasetEntries_beforeCreationDate = Lens.lens (\ListDatasetEntries' {beforeCreationDate} -> beforeCreationDate) (\s@ListDatasetEntries' {} a -> s {beforeCreationDate = a} :: ListDatasetEntries) Prelude.. Lens.mapping Data._Time
+
+-- | Specify @true@ to include labeled entries, otherwise specify @false@. If
+-- you don\'t specify a value, Lookout for Vision returns all entries.
+listDatasetEntries_labeled :: Lens.Lens' ListDatasetEntries (Prelude.Maybe Prelude.Bool)
+listDatasetEntries_labeled = Lens.lens (\ListDatasetEntries' {labeled} -> labeled) (\s@ListDatasetEntries' {} a -> s {labeled = a} :: ListDatasetEntries)
+
+-- | The maximum number of results to return per paginated call. The largest
+-- value you can specify is 100. If you specify a value greater than 100, a
+-- ValidationException error occurs. The default value is 100.
+listDatasetEntries_maxResults :: Lens.Lens' ListDatasetEntries (Prelude.Maybe Prelude.Natural)
+listDatasetEntries_maxResults = Lens.lens (\ListDatasetEntries' {maxResults} -> maxResults) (\s@ListDatasetEntries' {} a -> s {maxResults = a} :: ListDatasetEntries)
 
 -- | If the previous response was incomplete (because there is more data to
 -- retrieve), Amazon Lookout for Vision returns a pagination token in the
@@ -165,38 +193,11 @@ newListDatasetEntries pProjectName_ pDatasetType_ =
 listDatasetEntries_nextToken :: Lens.Lens' ListDatasetEntries (Prelude.Maybe Prelude.Text)
 listDatasetEntries_nextToken = Lens.lens (\ListDatasetEntries' {nextToken} -> nextToken) (\s@ListDatasetEntries' {} a -> s {nextToken = a} :: ListDatasetEntries)
 
--- | Specify @true@ to include labeled entries, otherwise specify @false@. If
--- you don\'t specify a value, Lookout for Vision returns all entries.
-listDatasetEntries_labeled :: Lens.Lens' ListDatasetEntries (Prelude.Maybe Prelude.Bool)
-listDatasetEntries_labeled = Lens.lens (\ListDatasetEntries' {labeled} -> labeled) (\s@ListDatasetEntries' {} a -> s {labeled = a} :: ListDatasetEntries)
-
 -- | Perform a \"contains\" search on the values of the @source-ref@ key
 -- within the dataset. For example a value of \"IMG_17\" returns all JSON
 -- Lines where the @source-ref@ key value matches /*IMG_17*/.
 listDatasetEntries_sourceRefContains :: Lens.Lens' ListDatasetEntries (Prelude.Maybe Prelude.Text)
 listDatasetEntries_sourceRefContains = Lens.lens (\ListDatasetEntries' {sourceRefContains} -> sourceRefContains) (\s@ListDatasetEntries' {} a -> s {sourceRefContains = a} :: ListDatasetEntries)
-
--- | Only includes entries after the specified date in the response. For
--- example, @2020-06-23T00:00:00@.
-listDatasetEntries_afterCreationDate :: Lens.Lens' ListDatasetEntries (Prelude.Maybe Prelude.UTCTime)
-listDatasetEntries_afterCreationDate = Lens.lens (\ListDatasetEntries' {afterCreationDate} -> afterCreationDate) (\s@ListDatasetEntries' {} a -> s {afterCreationDate = a} :: ListDatasetEntries) Prelude.. Lens.mapping Data._Time
-
--- | Only includes entries before the specified date in the response. For
--- example, @2020-06-23T00:00:00@.
-listDatasetEntries_beforeCreationDate :: Lens.Lens' ListDatasetEntries (Prelude.Maybe Prelude.UTCTime)
-listDatasetEntries_beforeCreationDate = Lens.lens (\ListDatasetEntries' {beforeCreationDate} -> beforeCreationDate) (\s@ListDatasetEntries' {} a -> s {beforeCreationDate = a} :: ListDatasetEntries) Prelude.. Lens.mapping Data._Time
-
--- | Specify @normal@ to include only normal images. Specify @anomaly@ to
--- only include anomalous entries. If you don\'t specify a value, Amazon
--- Lookout for Vision returns normal and anomalous images.
-listDatasetEntries_anomalyClass :: Lens.Lens' ListDatasetEntries (Prelude.Maybe Prelude.Text)
-listDatasetEntries_anomalyClass = Lens.lens (\ListDatasetEntries' {anomalyClass} -> anomalyClass) (\s@ListDatasetEntries' {} a -> s {anomalyClass = a} :: ListDatasetEntries)
-
--- | The maximum number of results to return per paginated call. The largest
--- value you can specify is 100. If you specify a value greater than 100, a
--- ValidationException error occurs. The default value is 100.
-listDatasetEntries_maxResults :: Lens.Lens' ListDatasetEntries (Prelude.Maybe Prelude.Natural)
-listDatasetEntries_maxResults = Lens.lens (\ListDatasetEntries' {maxResults} -> maxResults) (\s@ListDatasetEntries' {} a -> s {maxResults = a} :: ListDatasetEntries)
 
 -- | The name of the project that contains the dataset that you want to list.
 listDatasetEntries_projectName :: Lens.Lens' ListDatasetEntries Prelude.Text
@@ -240,32 +241,32 @@ instance Core.AWSRequest ListDatasetEntries where
     Response.receiveJSON
       ( \s h x ->
           ListDatasetEntriesResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "DatasetEntries" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "DatasetEntries" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListDatasetEntries where
   hashWithSalt _salt ListDatasetEntries' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` labeled
-      `Prelude.hashWithSalt` sourceRefContains
-      `Prelude.hashWithSalt` afterCreationDate
-      `Prelude.hashWithSalt` beforeCreationDate
+    _salt `Prelude.hashWithSalt` afterCreationDate
       `Prelude.hashWithSalt` anomalyClass
+      `Prelude.hashWithSalt` beforeCreationDate
+      `Prelude.hashWithSalt` labeled
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sourceRefContains
       `Prelude.hashWithSalt` projectName
       `Prelude.hashWithSalt` datasetType
 
 instance Prelude.NFData ListDatasetEntries where
   rnf ListDatasetEntries' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf labeled
-      `Prelude.seq` Prelude.rnf sourceRefContains
-      `Prelude.seq` Prelude.rnf afterCreationDate
-      `Prelude.seq` Prelude.rnf beforeCreationDate
+    Prelude.rnf afterCreationDate
       `Prelude.seq` Prelude.rnf anomalyClass
+      `Prelude.seq` Prelude.rnf beforeCreationDate
+      `Prelude.seq` Prelude.rnf labeled
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sourceRefContains
       `Prelude.seq` Prelude.rnf projectName
       `Prelude.seq` Prelude.rnf datasetType
 
@@ -293,23 +294,23 @@ instance Data.ToPath ListDatasetEntries where
 instance Data.ToQuery ListDatasetEntries where
   toQuery ListDatasetEntries' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "labeled" Data.=: labeled,
-        "sourceRefContains" Data.=: sourceRefContains,
-        "createdAfter" Data.=: afterCreationDate,
-        "createdBefore" Data.=: beforeCreationDate,
+      [ "createdAfter" Data.=: afterCreationDate,
         "anomalyClass" Data.=: anomalyClass,
-        "maxResults" Data.=: maxResults
+        "createdBefore" Data.=: beforeCreationDate,
+        "labeled" Data.=: labeled,
+        "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
+        "sourceRefContains" Data.=: sourceRefContains
       ]
 
 -- | /See:/ 'newListDatasetEntriesResponse' smart constructor.
 data ListDatasetEntriesResponse = ListDatasetEntriesResponse'
-  { -- | If the response is truncated, Amazon Lookout for Vision returns this
+  { -- | A list of the entries (JSON Lines) within the dataset.
+    datasetEntries :: Prelude.Maybe [Prelude.Text],
+    -- | If the response is truncated, Amazon Lookout for Vision returns this
     -- token that you can use in the subsequent request to retrieve the next
     -- set ofdataset entries.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of the entries (JSON Lines) within the dataset.
-    datasetEntries :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -323,11 +324,11 @@ data ListDatasetEntriesResponse = ListDatasetEntriesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'datasetEntries', 'listDatasetEntriesResponse_datasetEntries' - A list of the entries (JSON Lines) within the dataset.
+--
 -- 'nextToken', 'listDatasetEntriesResponse_nextToken' - If the response is truncated, Amazon Lookout for Vision returns this
 -- token that you can use in the subsequent request to retrieve the next
 -- set ofdataset entries.
---
--- 'datasetEntries', 'listDatasetEntriesResponse_datasetEntries' - A list of the entries (JSON Lines) within the dataset.
 --
 -- 'httpStatus', 'listDatasetEntriesResponse_httpStatus' - The response's http status code.
 newListDatasetEntriesResponse ::
@@ -336,11 +337,15 @@ newListDatasetEntriesResponse ::
   ListDatasetEntriesResponse
 newListDatasetEntriesResponse pHttpStatus_ =
   ListDatasetEntriesResponse'
-    { nextToken =
+    { datasetEntries =
         Prelude.Nothing,
-      datasetEntries = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of the entries (JSON Lines) within the dataset.
+listDatasetEntriesResponse_datasetEntries :: Lens.Lens' ListDatasetEntriesResponse (Prelude.Maybe [Prelude.Text])
+listDatasetEntriesResponse_datasetEntries = Lens.lens (\ListDatasetEntriesResponse' {datasetEntries} -> datasetEntries) (\s@ListDatasetEntriesResponse' {} a -> s {datasetEntries = a} :: ListDatasetEntriesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the response is truncated, Amazon Lookout for Vision returns this
 -- token that you can use in the subsequent request to retrieve the next
@@ -348,16 +353,12 @@ newListDatasetEntriesResponse pHttpStatus_ =
 listDatasetEntriesResponse_nextToken :: Lens.Lens' ListDatasetEntriesResponse (Prelude.Maybe Prelude.Text)
 listDatasetEntriesResponse_nextToken = Lens.lens (\ListDatasetEntriesResponse' {nextToken} -> nextToken) (\s@ListDatasetEntriesResponse' {} a -> s {nextToken = a} :: ListDatasetEntriesResponse)
 
--- | A list of the entries (JSON Lines) within the dataset.
-listDatasetEntriesResponse_datasetEntries :: Lens.Lens' ListDatasetEntriesResponse (Prelude.Maybe [Prelude.Text])
-listDatasetEntriesResponse_datasetEntries = Lens.lens (\ListDatasetEntriesResponse' {datasetEntries} -> datasetEntries) (\s@ListDatasetEntriesResponse' {} a -> s {datasetEntries = a} :: ListDatasetEntriesResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listDatasetEntriesResponse_httpStatus :: Lens.Lens' ListDatasetEntriesResponse Prelude.Int
 listDatasetEntriesResponse_httpStatus = Lens.lens (\ListDatasetEntriesResponse' {httpStatus} -> httpStatus) (\s@ListDatasetEntriesResponse' {} a -> s {httpStatus = a} :: ListDatasetEntriesResponse)
 
 instance Prelude.NFData ListDatasetEntriesResponse where
   rnf ListDatasetEntriesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf datasetEntries
+    Prelude.rnf datasetEntries
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

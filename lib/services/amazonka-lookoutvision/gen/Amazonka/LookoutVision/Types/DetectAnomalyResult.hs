@@ -50,23 +50,23 @@ data DetectAnomalyResult = DetectAnomalyResult'
     --
     -- An image classification model doesn\'t return an @Anomalies@ list.
     anomalies :: Prelude.Maybe [Anomaly],
-    -- | The confidence that Lookout for Vision has in the accuracy of the
-    -- classification in @IsAnomalous@.
-    confidence :: Prelude.Maybe Prelude.Double,
-    -- | The source of the image that was analyzed. @direct@ means that the
-    -- images was supplied from the local computer. No other values are
-    -- supported.
-    source :: Prelude.Maybe ImageSource,
-    -- | True if Amazon Lookout for Vision classifies the image as containing an
-    -- anomaly, otherwise false.
-    isAnomalous :: Prelude.Maybe Prelude.Bool,
     -- | If the model is an image segmentation model, @AnomalyMask@ contains
     -- pixel masks that covers all anomaly types found on the image. Each
     -- anomaly type has a different mask color. To map a color to an anomaly
     -- type, see the @color@ field of the PixelAnomaly object.
     --
     -- An image classification model doesn\'t return an @Anomalies@ list.
-    anomalyMask :: Prelude.Maybe Data.Base64
+    anomalyMask :: Prelude.Maybe Data.Base64,
+    -- | The confidence that Lookout for Vision has in the accuracy of the
+    -- classification in @IsAnomalous@.
+    confidence :: Prelude.Maybe Prelude.Double,
+    -- | True if Amazon Lookout for Vision classifies the image as containing an
+    -- anomaly, otherwise false.
+    isAnomalous :: Prelude.Maybe Prelude.Bool,
+    -- | The source of the image that was analyzed. @direct@ means that the
+    -- images was supplied from the local computer. No other values are
+    -- supported.
+    source :: Prelude.Maybe ImageSource
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -92,16 +92,6 @@ data DetectAnomalyResult = DetectAnomalyResult'
 --
 -- An image classification model doesn\'t return an @Anomalies@ list.
 --
--- 'confidence', 'detectAnomalyResult_confidence' - The confidence that Lookout for Vision has in the accuracy of the
--- classification in @IsAnomalous@.
---
--- 'source', 'detectAnomalyResult_source' - The source of the image that was analyzed. @direct@ means that the
--- images was supplied from the local computer. No other values are
--- supported.
---
--- 'isAnomalous', 'detectAnomalyResult_isAnomalous' - True if Amazon Lookout for Vision classifies the image as containing an
--- anomaly, otherwise false.
---
 -- 'anomalyMask', 'detectAnomalyResult_anomalyMask' - If the model is an image segmentation model, @AnomalyMask@ contains
 -- pixel masks that covers all anomaly types found on the image. Each
 -- anomaly type has a different mask color. To map a color to an anomaly
@@ -112,15 +102,25 @@ data DetectAnomalyResult = DetectAnomalyResult'
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
+--
+-- 'confidence', 'detectAnomalyResult_confidence' - The confidence that Lookout for Vision has in the accuracy of the
+-- classification in @IsAnomalous@.
+--
+-- 'isAnomalous', 'detectAnomalyResult_isAnomalous' - True if Amazon Lookout for Vision classifies the image as containing an
+-- anomaly, otherwise false.
+--
+-- 'source', 'detectAnomalyResult_source' - The source of the image that was analyzed. @direct@ means that the
+-- images was supplied from the local computer. No other values are
+-- supported.
 newDetectAnomalyResult ::
   DetectAnomalyResult
 newDetectAnomalyResult =
   DetectAnomalyResult'
     { anomalies = Prelude.Nothing,
+      anomalyMask = Prelude.Nothing,
       confidence = Prelude.Nothing,
-      source = Prelude.Nothing,
       isAnomalous = Prelude.Nothing,
-      anomalyMask = Prelude.Nothing
+      source = Prelude.Nothing
     }
 
 -- | If the model is an image segmentation model, @Anomalies@ contains a list
@@ -139,22 +139,6 @@ newDetectAnomalyResult =
 detectAnomalyResult_anomalies :: Lens.Lens' DetectAnomalyResult (Prelude.Maybe [Anomaly])
 detectAnomalyResult_anomalies = Lens.lens (\DetectAnomalyResult' {anomalies} -> anomalies) (\s@DetectAnomalyResult' {} a -> s {anomalies = a} :: DetectAnomalyResult) Prelude.. Lens.mapping Lens.coerced
 
--- | The confidence that Lookout for Vision has in the accuracy of the
--- classification in @IsAnomalous@.
-detectAnomalyResult_confidence :: Lens.Lens' DetectAnomalyResult (Prelude.Maybe Prelude.Double)
-detectAnomalyResult_confidence = Lens.lens (\DetectAnomalyResult' {confidence} -> confidence) (\s@DetectAnomalyResult' {} a -> s {confidence = a} :: DetectAnomalyResult)
-
--- | The source of the image that was analyzed. @direct@ means that the
--- images was supplied from the local computer. No other values are
--- supported.
-detectAnomalyResult_source :: Lens.Lens' DetectAnomalyResult (Prelude.Maybe ImageSource)
-detectAnomalyResult_source = Lens.lens (\DetectAnomalyResult' {source} -> source) (\s@DetectAnomalyResult' {} a -> s {source = a} :: DetectAnomalyResult)
-
--- | True if Amazon Lookout for Vision classifies the image as containing an
--- anomaly, otherwise false.
-detectAnomalyResult_isAnomalous :: Lens.Lens' DetectAnomalyResult (Prelude.Maybe Prelude.Bool)
-detectAnomalyResult_isAnomalous = Lens.lens (\DetectAnomalyResult' {isAnomalous} -> isAnomalous) (\s@DetectAnomalyResult' {} a -> s {isAnomalous = a} :: DetectAnomalyResult)
-
 -- | If the model is an image segmentation model, @AnomalyMask@ contains
 -- pixel masks that covers all anomaly types found on the image. Each
 -- anomaly type has a different mask color. To map a color to an anomaly
@@ -168,6 +152,22 @@ detectAnomalyResult_isAnomalous = Lens.lens (\DetectAnomalyResult' {isAnomalous}
 detectAnomalyResult_anomalyMask :: Lens.Lens' DetectAnomalyResult (Prelude.Maybe Prelude.ByteString)
 detectAnomalyResult_anomalyMask = Lens.lens (\DetectAnomalyResult' {anomalyMask} -> anomalyMask) (\s@DetectAnomalyResult' {} a -> s {anomalyMask = a} :: DetectAnomalyResult) Prelude.. Lens.mapping Data._Base64
 
+-- | The confidence that Lookout for Vision has in the accuracy of the
+-- classification in @IsAnomalous@.
+detectAnomalyResult_confidence :: Lens.Lens' DetectAnomalyResult (Prelude.Maybe Prelude.Double)
+detectAnomalyResult_confidence = Lens.lens (\DetectAnomalyResult' {confidence} -> confidence) (\s@DetectAnomalyResult' {} a -> s {confidence = a} :: DetectAnomalyResult)
+
+-- | True if Amazon Lookout for Vision classifies the image as containing an
+-- anomaly, otherwise false.
+detectAnomalyResult_isAnomalous :: Lens.Lens' DetectAnomalyResult (Prelude.Maybe Prelude.Bool)
+detectAnomalyResult_isAnomalous = Lens.lens (\DetectAnomalyResult' {isAnomalous} -> isAnomalous) (\s@DetectAnomalyResult' {} a -> s {isAnomalous = a} :: DetectAnomalyResult)
+
+-- | The source of the image that was analyzed. @direct@ means that the
+-- images was supplied from the local computer. No other values are
+-- supported.
+detectAnomalyResult_source :: Lens.Lens' DetectAnomalyResult (Prelude.Maybe ImageSource)
+detectAnomalyResult_source = Lens.lens (\DetectAnomalyResult' {source} -> source) (\s@DetectAnomalyResult' {} a -> s {source = a} :: DetectAnomalyResult)
+
 instance Data.FromJSON DetectAnomalyResult where
   parseJSON =
     Data.withObject
@@ -175,24 +175,24 @@ instance Data.FromJSON DetectAnomalyResult where
       ( \x ->
           DetectAnomalyResult'
             Prelude.<$> (x Data..:? "Anomalies" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "Confidence")
-            Prelude.<*> (x Data..:? "Source")
-            Prelude.<*> (x Data..:? "IsAnomalous")
             Prelude.<*> (x Data..:? "AnomalyMask")
+            Prelude.<*> (x Data..:? "Confidence")
+            Prelude.<*> (x Data..:? "IsAnomalous")
+            Prelude.<*> (x Data..:? "Source")
       )
 
 instance Prelude.Hashable DetectAnomalyResult where
   hashWithSalt _salt DetectAnomalyResult' {..} =
     _salt `Prelude.hashWithSalt` anomalies
-      `Prelude.hashWithSalt` confidence
-      `Prelude.hashWithSalt` source
-      `Prelude.hashWithSalt` isAnomalous
       `Prelude.hashWithSalt` anomalyMask
+      `Prelude.hashWithSalt` confidence
+      `Prelude.hashWithSalt` isAnomalous
+      `Prelude.hashWithSalt` source
 
 instance Prelude.NFData DetectAnomalyResult where
   rnf DetectAnomalyResult' {..} =
     Prelude.rnf anomalies
-      `Prelude.seq` Prelude.rnf confidence
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf isAnomalous
       `Prelude.seq` Prelude.rnf anomalyMask
+      `Prelude.seq` Prelude.rnf confidence
+      `Prelude.seq` Prelude.rnf isAnomalous
+      `Prelude.seq` Prelude.rnf source

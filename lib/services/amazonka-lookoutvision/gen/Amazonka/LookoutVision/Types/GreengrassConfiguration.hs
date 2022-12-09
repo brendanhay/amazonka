@@ -38,22 +38,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGreengrassConfiguration' smart constructor.
 data GreengrassConfiguration = GreengrassConfiguration'
-  { -- | A description for the AWS IoT Greengrass component.
-    componentDescription :: Prelude.Maybe Prelude.Text,
-    -- | A set of tags (key-value pairs) that you want to attach to the AWS IoT
-    -- Greengrass component.
-    tags :: Prelude.Maybe [Tag],
-    -- | A Version for the AWS IoT Greengrass component. If you don\'t provide a
-    -- value, a default value of @ Model Version.0.0@ is used.
-    componentVersion :: Prelude.Maybe Prelude.Text,
-    -- | The target device for the model. Currently the only supported value is
-    -- @jetson_xavier@. If you specify @TargetDevice@, you can\'t specify
-    -- @TargetPlatform@.
-    targetDevice :: Prelude.Maybe TargetDevice,
-    -- | The target platform for the model. If you specify @TargetPlatform@, you
-    -- can\'t specify @TargetDevice@.
-    targetPlatform :: Prelude.Maybe TargetPlatform,
-    -- | Additional compiler options for the Greengrass component. Currently,
+  { -- | Additional compiler options for the Greengrass component. Currently,
     -- only NVIDIA Graphics Processing Units (GPU) and CPU accelerators are
     -- supported. If you specify @TargetDevice@, don\'t specify
     -- @CompilerOptions@.
@@ -61,6 +46,21 @@ data GreengrassConfiguration = GreengrassConfiguration'
     -- For more information, see /Compiler options/ in the Amazon Lookout for
     -- Vision Developer Guide.
     compilerOptions :: Prelude.Maybe Prelude.Text,
+    -- | A description for the AWS IoT Greengrass component.
+    componentDescription :: Prelude.Maybe Prelude.Text,
+    -- | A Version for the AWS IoT Greengrass component. If you don\'t provide a
+    -- value, a default value of @ Model Version.0.0@ is used.
+    componentVersion :: Prelude.Maybe Prelude.Text,
+    -- | A set of tags (key-value pairs) that you want to attach to the AWS IoT
+    -- Greengrass component.
+    tags :: Prelude.Maybe [Tag],
+    -- | The target device for the model. Currently the only supported value is
+    -- @jetson_xavier@. If you specify @TargetDevice@, you can\'t specify
+    -- @TargetPlatform@.
+    targetDevice :: Prelude.Maybe TargetDevice,
+    -- | The target platform for the model. If you specify @TargetPlatform@, you
+    -- can\'t specify @TargetDevice@.
+    targetPlatform :: Prelude.Maybe TargetPlatform,
     -- | An S3 location in which Lookout for Vision stores the component
     -- artifacts.
     s3OutputLocation :: S3Location,
@@ -77,21 +77,6 @@ data GreengrassConfiguration = GreengrassConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'componentDescription', 'greengrassConfiguration_componentDescription' - A description for the AWS IoT Greengrass component.
---
--- 'tags', 'greengrassConfiguration_tags' - A set of tags (key-value pairs) that you want to attach to the AWS IoT
--- Greengrass component.
---
--- 'componentVersion', 'greengrassConfiguration_componentVersion' - A Version for the AWS IoT Greengrass component. If you don\'t provide a
--- value, a default value of @ Model Version.0.0@ is used.
---
--- 'targetDevice', 'greengrassConfiguration_targetDevice' - The target device for the model. Currently the only supported value is
--- @jetson_xavier@. If you specify @TargetDevice@, you can\'t specify
--- @TargetPlatform@.
---
--- 'targetPlatform', 'greengrassConfiguration_targetPlatform' - The target platform for the model. If you specify @TargetPlatform@, you
--- can\'t specify @TargetDevice@.
---
 -- 'compilerOptions', 'greengrassConfiguration_compilerOptions' - Additional compiler options for the Greengrass component. Currently,
 -- only NVIDIA Graphics Processing Units (GPU) and CPU accelerators are
 -- supported. If you specify @TargetDevice@, don\'t specify
@@ -99,6 +84,21 @@ data GreengrassConfiguration = GreengrassConfiguration'
 --
 -- For more information, see /Compiler options/ in the Amazon Lookout for
 -- Vision Developer Guide.
+--
+-- 'componentDescription', 'greengrassConfiguration_componentDescription' - A description for the AWS IoT Greengrass component.
+--
+-- 'componentVersion', 'greengrassConfiguration_componentVersion' - A Version for the AWS IoT Greengrass component. If you don\'t provide a
+-- value, a default value of @ Model Version.0.0@ is used.
+--
+-- 'tags', 'greengrassConfiguration_tags' - A set of tags (key-value pairs) that you want to attach to the AWS IoT
+-- Greengrass component.
+--
+-- 'targetDevice', 'greengrassConfiguration_targetDevice' - The target device for the model. Currently the only supported value is
+-- @jetson_xavier@. If you specify @TargetDevice@, you can\'t specify
+-- @TargetPlatform@.
+--
+-- 'targetPlatform', 'greengrassConfiguration_targetPlatform' - The target platform for the model. If you specify @TargetPlatform@, you
+-- can\'t specify @TargetDevice@.
 --
 -- 's3OutputLocation', 'greengrassConfiguration_s3OutputLocation' - An S3 location in which Lookout for Vision stores the component
 -- artifacts.
@@ -114,30 +114,40 @@ newGreengrassConfiguration
   pS3OutputLocation_
   pComponentName_ =
     GreengrassConfiguration'
-      { componentDescription =
+      { compilerOptions =
           Prelude.Nothing,
-        tags = Prelude.Nothing,
+        componentDescription = Prelude.Nothing,
         componentVersion = Prelude.Nothing,
+        tags = Prelude.Nothing,
         targetDevice = Prelude.Nothing,
         targetPlatform = Prelude.Nothing,
-        compilerOptions = Prelude.Nothing,
         s3OutputLocation = pS3OutputLocation_,
         componentName = pComponentName_
       }
+
+-- | Additional compiler options for the Greengrass component. Currently,
+-- only NVIDIA Graphics Processing Units (GPU) and CPU accelerators are
+-- supported. If you specify @TargetDevice@, don\'t specify
+-- @CompilerOptions@.
+--
+-- For more information, see /Compiler options/ in the Amazon Lookout for
+-- Vision Developer Guide.
+greengrassConfiguration_compilerOptions :: Lens.Lens' GreengrassConfiguration (Prelude.Maybe Prelude.Text)
+greengrassConfiguration_compilerOptions = Lens.lens (\GreengrassConfiguration' {compilerOptions} -> compilerOptions) (\s@GreengrassConfiguration' {} a -> s {compilerOptions = a} :: GreengrassConfiguration)
 
 -- | A description for the AWS IoT Greengrass component.
 greengrassConfiguration_componentDescription :: Lens.Lens' GreengrassConfiguration (Prelude.Maybe Prelude.Text)
 greengrassConfiguration_componentDescription = Lens.lens (\GreengrassConfiguration' {componentDescription} -> componentDescription) (\s@GreengrassConfiguration' {} a -> s {componentDescription = a} :: GreengrassConfiguration)
 
--- | A set of tags (key-value pairs) that you want to attach to the AWS IoT
--- Greengrass component.
-greengrassConfiguration_tags :: Lens.Lens' GreengrassConfiguration (Prelude.Maybe [Tag])
-greengrassConfiguration_tags = Lens.lens (\GreengrassConfiguration' {tags} -> tags) (\s@GreengrassConfiguration' {} a -> s {tags = a} :: GreengrassConfiguration) Prelude.. Lens.mapping Lens.coerced
-
 -- | A Version for the AWS IoT Greengrass component. If you don\'t provide a
 -- value, a default value of @ Model Version.0.0@ is used.
 greengrassConfiguration_componentVersion :: Lens.Lens' GreengrassConfiguration (Prelude.Maybe Prelude.Text)
 greengrassConfiguration_componentVersion = Lens.lens (\GreengrassConfiguration' {componentVersion} -> componentVersion) (\s@GreengrassConfiguration' {} a -> s {componentVersion = a} :: GreengrassConfiguration)
+
+-- | A set of tags (key-value pairs) that you want to attach to the AWS IoT
+-- Greengrass component.
+greengrassConfiguration_tags :: Lens.Lens' GreengrassConfiguration (Prelude.Maybe [Tag])
+greengrassConfiguration_tags = Lens.lens (\GreengrassConfiguration' {tags} -> tags) (\s@GreengrassConfiguration' {} a -> s {tags = a} :: GreengrassConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The target device for the model. Currently the only supported value is
 -- @jetson_xavier@. If you specify @TargetDevice@, you can\'t specify
@@ -149,16 +159,6 @@ greengrassConfiguration_targetDevice = Lens.lens (\GreengrassConfiguration' {tar
 -- can\'t specify @TargetDevice@.
 greengrassConfiguration_targetPlatform :: Lens.Lens' GreengrassConfiguration (Prelude.Maybe TargetPlatform)
 greengrassConfiguration_targetPlatform = Lens.lens (\GreengrassConfiguration' {targetPlatform} -> targetPlatform) (\s@GreengrassConfiguration' {} a -> s {targetPlatform = a} :: GreengrassConfiguration)
-
--- | Additional compiler options for the Greengrass component. Currently,
--- only NVIDIA Graphics Processing Units (GPU) and CPU accelerators are
--- supported. If you specify @TargetDevice@, don\'t specify
--- @CompilerOptions@.
---
--- For more information, see /Compiler options/ in the Amazon Lookout for
--- Vision Developer Guide.
-greengrassConfiguration_compilerOptions :: Lens.Lens' GreengrassConfiguration (Prelude.Maybe Prelude.Text)
-greengrassConfiguration_compilerOptions = Lens.lens (\GreengrassConfiguration' {compilerOptions} -> compilerOptions) (\s@GreengrassConfiguration' {} a -> s {compilerOptions = a} :: GreengrassConfiguration)
 
 -- | An S3 location in which Lookout for Vision stores the component
 -- artifacts.
@@ -175,35 +175,35 @@ instance Data.FromJSON GreengrassConfiguration where
       "GreengrassConfiguration"
       ( \x ->
           GreengrassConfiguration'
-            Prelude.<$> (x Data..:? "ComponentDescription")
-            Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "CompilerOptions")
+            Prelude.<*> (x Data..:? "ComponentDescription")
             Prelude.<*> (x Data..:? "ComponentVersion")
+            Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "TargetDevice")
             Prelude.<*> (x Data..:? "TargetPlatform")
-            Prelude.<*> (x Data..:? "CompilerOptions")
             Prelude.<*> (x Data..: "S3OutputLocation")
             Prelude.<*> (x Data..: "ComponentName")
       )
 
 instance Prelude.Hashable GreengrassConfiguration where
   hashWithSalt _salt GreengrassConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` componentDescription
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` compilerOptions
+      `Prelude.hashWithSalt` componentDescription
       `Prelude.hashWithSalt` componentVersion
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` targetDevice
       `Prelude.hashWithSalt` targetPlatform
-      `Prelude.hashWithSalt` compilerOptions
       `Prelude.hashWithSalt` s3OutputLocation
       `Prelude.hashWithSalt` componentName
 
 instance Prelude.NFData GreengrassConfiguration where
   rnf GreengrassConfiguration' {..} =
-    Prelude.rnf componentDescription
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf compilerOptions
+      `Prelude.seq` Prelude.rnf componentDescription
       `Prelude.seq` Prelude.rnf componentVersion
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf targetDevice
       `Prelude.seq` Prelude.rnf targetPlatform
-      `Prelude.seq` Prelude.rnf compilerOptions
       `Prelude.seq` Prelude.rnf s3OutputLocation
       `Prelude.seq` Prelude.rnf componentName
 
@@ -211,16 +211,16 @@ instance Data.ToJSON GreengrassConfiguration where
   toJSON GreengrassConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ComponentDescription" Data..=)
+          [ ("CompilerOptions" Data..=)
+              Prelude.<$> compilerOptions,
+            ("ComponentDescription" Data..=)
               Prelude.<$> componentDescription,
-            ("Tags" Data..=) Prelude.<$> tags,
             ("ComponentVersion" Data..=)
               Prelude.<$> componentVersion,
+            ("Tags" Data..=) Prelude.<$> tags,
             ("TargetDevice" Data..=) Prelude.<$> targetDevice,
             ("TargetPlatform" Data..=)
               Prelude.<$> targetPlatform,
-            ("CompilerOptions" Data..=)
-              Prelude.<$> compilerOptions,
             Prelude.Just
               ("S3OutputLocation" Data..= s3OutputLocation),
             Prelude.Just

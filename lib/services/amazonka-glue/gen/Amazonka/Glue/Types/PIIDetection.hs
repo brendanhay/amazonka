@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 data PIIDetection = PIIDetection'
   { -- | Indicates the value that will replace the detected entity.
     maskValue :: Prelude.Maybe Prelude.Text,
-    -- | Indicates the fraction of the data to sample when scanning for PII
-    -- entities.
-    sampleFraction :: Prelude.Maybe Prelude.Double,
     -- | Indicates the output column name that will contain any entity type
     -- detected in that row.
     outputColumnName :: Prelude.Maybe Prelude.Text,
+    -- | Indicates the fraction of the data to sample when scanning for PII
+    -- entities.
+    sampleFraction :: Prelude.Maybe Prelude.Double,
     -- | Indicates the fraction of the data that must be met in order for a
     -- column to be identified as PII data.
     thresholdFraction :: Prelude.Maybe Prelude.Double,
@@ -68,11 +68,11 @@ data PIIDetection = PIIDetection'
 --
 -- 'maskValue', 'pIIDetection_maskValue' - Indicates the value that will replace the detected entity.
 --
--- 'sampleFraction', 'pIIDetection_sampleFraction' - Indicates the fraction of the data to sample when scanning for PII
--- entities.
---
 -- 'outputColumnName', 'pIIDetection_outputColumnName' - Indicates the output column name that will contain any entity type
 -- detected in that row.
+--
+-- 'sampleFraction', 'pIIDetection_sampleFraction' - Indicates the fraction of the data to sample when scanning for PII
+-- entities.
 --
 -- 'thresholdFraction', 'pIIDetection_thresholdFraction' - Indicates the fraction of the data that must be met in order for a
 -- column to be identified as PII data.
@@ -102,8 +102,8 @@ newPIIDetection ::
 newPIIDetection pName_ pInputs_ pPiiType_ =
   PIIDetection'
     { maskValue = Prelude.Nothing,
-      sampleFraction = Prelude.Nothing,
       outputColumnName = Prelude.Nothing,
+      sampleFraction = Prelude.Nothing,
       thresholdFraction = Prelude.Nothing,
       name = pName_,
       inputs = Lens.coerced Lens.# pInputs_,
@@ -115,15 +115,15 @@ newPIIDetection pName_ pInputs_ pPiiType_ =
 pIIDetection_maskValue :: Lens.Lens' PIIDetection (Prelude.Maybe Prelude.Text)
 pIIDetection_maskValue = Lens.lens (\PIIDetection' {maskValue} -> maskValue) (\s@PIIDetection' {} a -> s {maskValue = a} :: PIIDetection)
 
--- | Indicates the fraction of the data to sample when scanning for PII
--- entities.
-pIIDetection_sampleFraction :: Lens.Lens' PIIDetection (Prelude.Maybe Prelude.Double)
-pIIDetection_sampleFraction = Lens.lens (\PIIDetection' {sampleFraction} -> sampleFraction) (\s@PIIDetection' {} a -> s {sampleFraction = a} :: PIIDetection)
-
 -- | Indicates the output column name that will contain any entity type
 -- detected in that row.
 pIIDetection_outputColumnName :: Lens.Lens' PIIDetection (Prelude.Maybe Prelude.Text)
 pIIDetection_outputColumnName = Lens.lens (\PIIDetection' {outputColumnName} -> outputColumnName) (\s@PIIDetection' {} a -> s {outputColumnName = a} :: PIIDetection)
+
+-- | Indicates the fraction of the data to sample when scanning for PII
+-- entities.
+pIIDetection_sampleFraction :: Lens.Lens' PIIDetection (Prelude.Maybe Prelude.Double)
+pIIDetection_sampleFraction = Lens.lens (\PIIDetection' {sampleFraction} -> sampleFraction) (\s@PIIDetection' {} a -> s {sampleFraction = a} :: PIIDetection)
 
 -- | Indicates the fraction of the data that must be met in order for a
 -- column to be identified as PII data.
@@ -160,8 +160,8 @@ instance Data.FromJSON PIIDetection where
       ( \x ->
           PIIDetection'
             Prelude.<$> (x Data..:? "MaskValue")
-            Prelude.<*> (x Data..:? "SampleFraction")
             Prelude.<*> (x Data..:? "OutputColumnName")
+            Prelude.<*> (x Data..:? "SampleFraction")
             Prelude.<*> (x Data..:? "ThresholdFraction")
             Prelude.<*> (x Data..: "Name")
             Prelude.<*> (x Data..: "Inputs")
@@ -174,8 +174,8 @@ instance Data.FromJSON PIIDetection where
 instance Prelude.Hashable PIIDetection where
   hashWithSalt _salt PIIDetection' {..} =
     _salt `Prelude.hashWithSalt` maskValue
-      `Prelude.hashWithSalt` sampleFraction
       `Prelude.hashWithSalt` outputColumnName
+      `Prelude.hashWithSalt` sampleFraction
       `Prelude.hashWithSalt` thresholdFraction
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` inputs
@@ -185,8 +185,8 @@ instance Prelude.Hashable PIIDetection where
 instance Prelude.NFData PIIDetection where
   rnf PIIDetection' {..} =
     Prelude.rnf maskValue
-      `Prelude.seq` Prelude.rnf sampleFraction
       `Prelude.seq` Prelude.rnf outputColumnName
+      `Prelude.seq` Prelude.rnf sampleFraction
       `Prelude.seq` Prelude.rnf thresholdFraction
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf inputs
@@ -198,10 +198,10 @@ instance Data.ToJSON PIIDetection where
     Data.object
       ( Prelude.catMaybes
           [ ("MaskValue" Data..=) Prelude.<$> maskValue,
-            ("SampleFraction" Data..=)
-              Prelude.<$> sampleFraction,
             ("OutputColumnName" Data..=)
               Prelude.<$> outputColumnName,
+            ("SampleFraction" Data..=)
+              Prelude.<$> sampleFraction,
             ("ThresholdFraction" Data..=)
               Prelude.<$> thresholdFraction,
             Prelude.Just ("Name" Data..= name),

@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCatalogSchemaChangePolicy' smart constructor.
 data CatalogSchemaChangePolicy = CatalogSchemaChangePolicy'
-  { -- | The update behavior when the crawler finds a changed schema.
-    updateBehavior :: Prelude.Maybe UpdateCatalogBehavior,
-    -- | Whether to use the specified update behavior when the crawler finds a
+  { -- | Whether to use the specified update behavior when the crawler finds a
     -- changed schema.
-    enableUpdateCatalog :: Prelude.Maybe Prelude.Bool
+    enableUpdateCatalog :: Prelude.Maybe Prelude.Bool,
+    -- | The update behavior when the crawler finds a changed schema.
+    updateBehavior :: Prelude.Maybe UpdateCatalogBehavior
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,27 +45,27 @@ data CatalogSchemaChangePolicy = CatalogSchemaChangePolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'updateBehavior', 'catalogSchemaChangePolicy_updateBehavior' - The update behavior when the crawler finds a changed schema.
---
 -- 'enableUpdateCatalog', 'catalogSchemaChangePolicy_enableUpdateCatalog' - Whether to use the specified update behavior when the crawler finds a
 -- changed schema.
+--
+-- 'updateBehavior', 'catalogSchemaChangePolicy_updateBehavior' - The update behavior when the crawler finds a changed schema.
 newCatalogSchemaChangePolicy ::
   CatalogSchemaChangePolicy
 newCatalogSchemaChangePolicy =
   CatalogSchemaChangePolicy'
-    { updateBehavior =
+    { enableUpdateCatalog =
         Prelude.Nothing,
-      enableUpdateCatalog = Prelude.Nothing
+      updateBehavior = Prelude.Nothing
     }
-
--- | The update behavior when the crawler finds a changed schema.
-catalogSchemaChangePolicy_updateBehavior :: Lens.Lens' CatalogSchemaChangePolicy (Prelude.Maybe UpdateCatalogBehavior)
-catalogSchemaChangePolicy_updateBehavior = Lens.lens (\CatalogSchemaChangePolicy' {updateBehavior} -> updateBehavior) (\s@CatalogSchemaChangePolicy' {} a -> s {updateBehavior = a} :: CatalogSchemaChangePolicy)
 
 -- | Whether to use the specified update behavior when the crawler finds a
 -- changed schema.
 catalogSchemaChangePolicy_enableUpdateCatalog :: Lens.Lens' CatalogSchemaChangePolicy (Prelude.Maybe Prelude.Bool)
 catalogSchemaChangePolicy_enableUpdateCatalog = Lens.lens (\CatalogSchemaChangePolicy' {enableUpdateCatalog} -> enableUpdateCatalog) (\s@CatalogSchemaChangePolicy' {} a -> s {enableUpdateCatalog = a} :: CatalogSchemaChangePolicy)
+
+-- | The update behavior when the crawler finds a changed schema.
+catalogSchemaChangePolicy_updateBehavior :: Lens.Lens' CatalogSchemaChangePolicy (Prelude.Maybe UpdateCatalogBehavior)
+catalogSchemaChangePolicy_updateBehavior = Lens.lens (\CatalogSchemaChangePolicy' {updateBehavior} -> updateBehavior) (\s@CatalogSchemaChangePolicy' {} a -> s {updateBehavior = a} :: CatalogSchemaChangePolicy)
 
 instance Data.FromJSON CatalogSchemaChangePolicy where
   parseJSON =
@@ -73,27 +73,27 @@ instance Data.FromJSON CatalogSchemaChangePolicy where
       "CatalogSchemaChangePolicy"
       ( \x ->
           CatalogSchemaChangePolicy'
-            Prelude.<$> (x Data..:? "UpdateBehavior")
-            Prelude.<*> (x Data..:? "EnableUpdateCatalog")
+            Prelude.<$> (x Data..:? "EnableUpdateCatalog")
+            Prelude.<*> (x Data..:? "UpdateBehavior")
       )
 
 instance Prelude.Hashable CatalogSchemaChangePolicy where
   hashWithSalt _salt CatalogSchemaChangePolicy' {..} =
-    _salt `Prelude.hashWithSalt` updateBehavior
-      `Prelude.hashWithSalt` enableUpdateCatalog
+    _salt `Prelude.hashWithSalt` enableUpdateCatalog
+      `Prelude.hashWithSalt` updateBehavior
 
 instance Prelude.NFData CatalogSchemaChangePolicy where
   rnf CatalogSchemaChangePolicy' {..} =
-    Prelude.rnf updateBehavior
-      `Prelude.seq` Prelude.rnf enableUpdateCatalog
+    Prelude.rnf enableUpdateCatalog
+      `Prelude.seq` Prelude.rnf updateBehavior
 
 instance Data.ToJSON CatalogSchemaChangePolicy where
   toJSON CatalogSchemaChangePolicy' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("UpdateBehavior" Data..=)
-              Prelude.<$> updateBehavior,
-            ("EnableUpdateCatalog" Data..=)
-              Prelude.<$> enableUpdateCatalog
+          [ ("EnableUpdateCatalog" Data..=)
+              Prelude.<$> enableUpdateCatalog,
+            ("UpdateBehavior" Data..=)
+              Prelude.<$> updateBehavior
           ]
       )

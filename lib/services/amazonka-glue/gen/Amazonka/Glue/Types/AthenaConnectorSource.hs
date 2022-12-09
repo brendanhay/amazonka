@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAthenaConnectorSource' smart constructor.
 data AthenaConnectorSource = AthenaConnectorSource'
-  { -- | Specifies the data schema for the custom Athena source.
-    outputSchemas :: Prelude.Maybe [GlueSchema],
-    -- | The name of the table in the data source.
+  { -- | The name of the table in the data source.
     connectionTable :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the data schema for the custom Athena source.
+    outputSchemas :: Prelude.Maybe [GlueSchema],
     -- | The name of the data source.
     name :: Prelude.Text,
     -- | The name of the connection that is associated with the connector.
@@ -57,9 +57,9 @@ data AthenaConnectorSource = AthenaConnectorSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'outputSchemas', 'athenaConnectorSource_outputSchemas' - Specifies the data schema for the custom Athena source.
---
 -- 'connectionTable', 'athenaConnectorSource_connectionTable' - The name of the table in the data source.
+--
+-- 'outputSchemas', 'athenaConnectorSource_outputSchemas' - Specifies the data schema for the custom Athena source.
 --
 -- 'name', 'athenaConnectorSource_name' - The name of the data source.
 --
@@ -92,9 +92,9 @@ newAthenaConnectorSource
   pConnectionType_
   pSchemaName_ =
     AthenaConnectorSource'
-      { outputSchemas =
+      { connectionTable =
           Prelude.Nothing,
-        connectionTable = Prelude.Nothing,
+        outputSchemas = Prelude.Nothing,
         name = pName_,
         connectionName = pConnectionName_,
         connectorName = pConnectorName_,
@@ -102,13 +102,13 @@ newAthenaConnectorSource
         schemaName = pSchemaName_
       }
 
--- | Specifies the data schema for the custom Athena source.
-athenaConnectorSource_outputSchemas :: Lens.Lens' AthenaConnectorSource (Prelude.Maybe [GlueSchema])
-athenaConnectorSource_outputSchemas = Lens.lens (\AthenaConnectorSource' {outputSchemas} -> outputSchemas) (\s@AthenaConnectorSource' {} a -> s {outputSchemas = a} :: AthenaConnectorSource) Prelude.. Lens.mapping Lens.coerced
-
 -- | The name of the table in the data source.
 athenaConnectorSource_connectionTable :: Lens.Lens' AthenaConnectorSource (Prelude.Maybe Prelude.Text)
 athenaConnectorSource_connectionTable = Lens.lens (\AthenaConnectorSource' {connectionTable} -> connectionTable) (\s@AthenaConnectorSource' {} a -> s {connectionTable = a} :: AthenaConnectorSource)
+
+-- | Specifies the data schema for the custom Athena source.
+athenaConnectorSource_outputSchemas :: Lens.Lens' AthenaConnectorSource (Prelude.Maybe [GlueSchema])
+athenaConnectorSource_outputSchemas = Lens.lens (\AthenaConnectorSource' {outputSchemas} -> outputSchemas) (\s@AthenaConnectorSource' {} a -> s {outputSchemas = a} :: AthenaConnectorSource) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the data source.
 athenaConnectorSource_name :: Lens.Lens' AthenaConnectorSource Prelude.Text
@@ -139,8 +139,8 @@ instance Data.FromJSON AthenaConnectorSource where
       "AthenaConnectorSource"
       ( \x ->
           AthenaConnectorSource'
-            Prelude.<$> (x Data..:? "OutputSchemas" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "ConnectionTable")
+            Prelude.<$> (x Data..:? "ConnectionTable")
+            Prelude.<*> (x Data..:? "OutputSchemas" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "Name")
             Prelude.<*> (x Data..: "ConnectionName")
             Prelude.<*> (x Data..: "ConnectorName")
@@ -150,8 +150,8 @@ instance Data.FromJSON AthenaConnectorSource where
 
 instance Prelude.Hashable AthenaConnectorSource where
   hashWithSalt _salt AthenaConnectorSource' {..} =
-    _salt `Prelude.hashWithSalt` outputSchemas
-      `Prelude.hashWithSalt` connectionTable
+    _salt `Prelude.hashWithSalt` connectionTable
+      `Prelude.hashWithSalt` outputSchemas
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` connectionName
       `Prelude.hashWithSalt` connectorName
@@ -160,8 +160,8 @@ instance Prelude.Hashable AthenaConnectorSource where
 
 instance Prelude.NFData AthenaConnectorSource where
   rnf AthenaConnectorSource' {..} =
-    Prelude.rnf outputSchemas
-      `Prelude.seq` Prelude.rnf connectionTable
+    Prelude.rnf connectionTable
+      `Prelude.seq` Prelude.rnf outputSchemas
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf connectionName
       `Prelude.seq` Prelude.rnf connectorName
@@ -172,9 +172,9 @@ instance Data.ToJSON AthenaConnectorSource where
   toJSON AthenaConnectorSource' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("OutputSchemas" Data..=) Prelude.<$> outputSchemas,
-            ("ConnectionTable" Data..=)
+          [ ("ConnectionTable" Data..=)
               Prelude.<$> connectionTable,
+            ("OutputSchemas" Data..=) Prelude.<$> outputSchemas,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just
               ("ConnectionName" Data..= connectionName),

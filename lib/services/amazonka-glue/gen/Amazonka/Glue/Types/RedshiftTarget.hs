@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRedshiftTarget' smart constructor.
 data RedshiftTarget = RedshiftTarget'
-  { -- | The set of options to configure an upsert operation when writing to a
-    -- Redshift target.
-    upsertRedshiftOptions :: Prelude.Maybe UpsertRedshiftTargetOptions,
-    -- | The Amazon S3 path where temporary data can be staged when copying out
+  { -- | The Amazon S3 path where temporary data can be staged when copying out
     -- of the database.
     redshiftTmpDir :: Prelude.Maybe Prelude.Text,
     -- | The IAM role with permissions.
     tmpDirIAMRole :: Prelude.Maybe Prelude.Text,
+    -- | The set of options to configure an upsert operation when writing to a
+    -- Redshift target.
+    upsertRedshiftOptions :: Prelude.Maybe UpsertRedshiftTargetOptions,
     -- | The name of the data target.
     name :: Prelude.Text,
     -- | The nodes that are inputs to the data target.
@@ -56,13 +56,13 @@ data RedshiftTarget = RedshiftTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'upsertRedshiftOptions', 'redshiftTarget_upsertRedshiftOptions' - The set of options to configure an upsert operation when writing to a
--- Redshift target.
---
 -- 'redshiftTmpDir', 'redshiftTarget_redshiftTmpDir' - The Amazon S3 path where temporary data can be staged when copying out
 -- of the database.
 --
 -- 'tmpDirIAMRole', 'redshiftTarget_tmpDirIAMRole' - The IAM role with permissions.
+--
+-- 'upsertRedshiftOptions', 'redshiftTarget_upsertRedshiftOptions' - The set of options to configure an upsert operation when writing to a
+-- Redshift target.
 --
 -- 'name', 'redshiftTarget_name' - The name of the data target.
 --
@@ -83,20 +83,14 @@ newRedshiftTarget ::
   RedshiftTarget
 newRedshiftTarget pName_ pInputs_ pDatabase_ pTable_ =
   RedshiftTarget'
-    { upsertRedshiftOptions =
-        Prelude.Nothing,
-      redshiftTmpDir = Prelude.Nothing,
+    { redshiftTmpDir = Prelude.Nothing,
       tmpDirIAMRole = Prelude.Nothing,
+      upsertRedshiftOptions = Prelude.Nothing,
       name = pName_,
       inputs = Lens.coerced Lens.# pInputs_,
       database = pDatabase_,
       table = pTable_
     }
-
--- | The set of options to configure an upsert operation when writing to a
--- Redshift target.
-redshiftTarget_upsertRedshiftOptions :: Lens.Lens' RedshiftTarget (Prelude.Maybe UpsertRedshiftTargetOptions)
-redshiftTarget_upsertRedshiftOptions = Lens.lens (\RedshiftTarget' {upsertRedshiftOptions} -> upsertRedshiftOptions) (\s@RedshiftTarget' {} a -> s {upsertRedshiftOptions = a} :: RedshiftTarget)
 
 -- | The Amazon S3 path where temporary data can be staged when copying out
 -- of the database.
@@ -106,6 +100,11 @@ redshiftTarget_redshiftTmpDir = Lens.lens (\RedshiftTarget' {redshiftTmpDir} -> 
 -- | The IAM role with permissions.
 redshiftTarget_tmpDirIAMRole :: Lens.Lens' RedshiftTarget (Prelude.Maybe Prelude.Text)
 redshiftTarget_tmpDirIAMRole = Lens.lens (\RedshiftTarget' {tmpDirIAMRole} -> tmpDirIAMRole) (\s@RedshiftTarget' {} a -> s {tmpDirIAMRole = a} :: RedshiftTarget)
+
+-- | The set of options to configure an upsert operation when writing to a
+-- Redshift target.
+redshiftTarget_upsertRedshiftOptions :: Lens.Lens' RedshiftTarget (Prelude.Maybe UpsertRedshiftTargetOptions)
+redshiftTarget_upsertRedshiftOptions = Lens.lens (\RedshiftTarget' {upsertRedshiftOptions} -> upsertRedshiftOptions) (\s@RedshiftTarget' {} a -> s {upsertRedshiftOptions = a} :: RedshiftTarget)
 
 -- | The name of the data target.
 redshiftTarget_name :: Lens.Lens' RedshiftTarget Prelude.Text
@@ -129,9 +128,9 @@ instance Data.FromJSON RedshiftTarget where
       "RedshiftTarget"
       ( \x ->
           RedshiftTarget'
-            Prelude.<$> (x Data..:? "UpsertRedshiftOptions")
-            Prelude.<*> (x Data..:? "RedshiftTmpDir")
+            Prelude.<$> (x Data..:? "RedshiftTmpDir")
             Prelude.<*> (x Data..:? "TmpDirIAMRole")
+            Prelude.<*> (x Data..:? "UpsertRedshiftOptions")
             Prelude.<*> (x Data..: "Name")
             Prelude.<*> (x Data..: "Inputs")
             Prelude.<*> (x Data..: "Database")
@@ -140,9 +139,9 @@ instance Data.FromJSON RedshiftTarget where
 
 instance Prelude.Hashable RedshiftTarget where
   hashWithSalt _salt RedshiftTarget' {..} =
-    _salt `Prelude.hashWithSalt` upsertRedshiftOptions
-      `Prelude.hashWithSalt` redshiftTmpDir
+    _salt `Prelude.hashWithSalt` redshiftTmpDir
       `Prelude.hashWithSalt` tmpDirIAMRole
+      `Prelude.hashWithSalt` upsertRedshiftOptions
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` inputs
       `Prelude.hashWithSalt` database
@@ -150,9 +149,9 @@ instance Prelude.Hashable RedshiftTarget where
 
 instance Prelude.NFData RedshiftTarget where
   rnf RedshiftTarget' {..} =
-    Prelude.rnf upsertRedshiftOptions
-      `Prelude.seq` Prelude.rnf redshiftTmpDir
+    Prelude.rnf redshiftTmpDir
       `Prelude.seq` Prelude.rnf tmpDirIAMRole
+      `Prelude.seq` Prelude.rnf upsertRedshiftOptions
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf inputs
       `Prelude.seq` Prelude.rnf database
@@ -162,11 +161,11 @@ instance Data.ToJSON RedshiftTarget where
   toJSON RedshiftTarget' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("UpsertRedshiftOptions" Data..=)
-              Prelude.<$> upsertRedshiftOptions,
-            ("RedshiftTmpDir" Data..=)
+          [ ("RedshiftTmpDir" Data..=)
               Prelude.<$> redshiftTmpDir,
             ("TmpDirIAMRole" Data..=) Prelude.<$> tmpDirIAMRole,
+            ("UpsertRedshiftOptions" Data..=)
+              Prelude.<$> upsertRedshiftOptions,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("Inputs" Data..= inputs),
             Prelude.Just ("Database" Data..= database),

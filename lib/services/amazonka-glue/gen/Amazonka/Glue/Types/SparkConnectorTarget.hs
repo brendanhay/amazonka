@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSparkConnectorTarget' smart constructor.
 data SparkConnectorTarget = SparkConnectorTarget'
-  { -- | Specifies the data schema for the custom spark target.
-    outputSchemas :: Prelude.Maybe [GlueSchema],
-    -- | Additional connection options for the connector.
+  { -- | Additional connection options for the connector.
     additionalOptions :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Specifies the data schema for the custom spark target.
+    outputSchemas :: Prelude.Maybe [GlueSchema],
     -- | The name of the data target.
     name :: Prelude.Text,
     -- | The nodes that are inputs to the data target.
@@ -55,9 +55,9 @@ data SparkConnectorTarget = SparkConnectorTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'outputSchemas', 'sparkConnectorTarget_outputSchemas' - Specifies the data schema for the custom spark target.
---
 -- 'additionalOptions', 'sparkConnectorTarget_additionalOptions' - Additional connection options for the connector.
+--
+-- 'outputSchemas', 'sparkConnectorTarget_outputSchemas' - Specifies the data schema for the custom spark target.
 --
 -- 'name', 'sparkConnectorTarget_name' - The name of the data target.
 --
@@ -88,9 +88,9 @@ newSparkConnectorTarget
   pConnectorName_
   pConnectionType_ =
     SparkConnectorTarget'
-      { outputSchemas =
+      { additionalOptions =
           Prelude.Nothing,
-        additionalOptions = Prelude.Nothing,
+        outputSchemas = Prelude.Nothing,
         name = pName_,
         inputs = Lens.coerced Lens.# pInputs_,
         connectionName = pConnectionName_,
@@ -98,13 +98,13 @@ newSparkConnectorTarget
         connectionType = pConnectionType_
       }
 
--- | Specifies the data schema for the custom spark target.
-sparkConnectorTarget_outputSchemas :: Lens.Lens' SparkConnectorTarget (Prelude.Maybe [GlueSchema])
-sparkConnectorTarget_outputSchemas = Lens.lens (\SparkConnectorTarget' {outputSchemas} -> outputSchemas) (\s@SparkConnectorTarget' {} a -> s {outputSchemas = a} :: SparkConnectorTarget) Prelude.. Lens.mapping Lens.coerced
-
 -- | Additional connection options for the connector.
 sparkConnectorTarget_additionalOptions :: Lens.Lens' SparkConnectorTarget (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 sparkConnectorTarget_additionalOptions = Lens.lens (\SparkConnectorTarget' {additionalOptions} -> additionalOptions) (\s@SparkConnectorTarget' {} a -> s {additionalOptions = a} :: SparkConnectorTarget) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specifies the data schema for the custom spark target.
+sparkConnectorTarget_outputSchemas :: Lens.Lens' SparkConnectorTarget (Prelude.Maybe [GlueSchema])
+sparkConnectorTarget_outputSchemas = Lens.lens (\SparkConnectorTarget' {outputSchemas} -> outputSchemas) (\s@SparkConnectorTarget' {} a -> s {outputSchemas = a} :: SparkConnectorTarget) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the data target.
 sparkConnectorTarget_name :: Lens.Lens' SparkConnectorTarget Prelude.Text
@@ -133,10 +133,10 @@ instance Data.FromJSON SparkConnectorTarget where
       "SparkConnectorTarget"
       ( \x ->
           SparkConnectorTarget'
-            Prelude.<$> (x Data..:? "OutputSchemas" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "AdditionalOptions"
+            Prelude.<$> ( x Data..:? "AdditionalOptions"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "OutputSchemas" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "Name")
             Prelude.<*> (x Data..: "Inputs")
             Prelude.<*> (x Data..: "ConnectionName")
@@ -146,8 +146,8 @@ instance Data.FromJSON SparkConnectorTarget where
 
 instance Prelude.Hashable SparkConnectorTarget where
   hashWithSalt _salt SparkConnectorTarget' {..} =
-    _salt `Prelude.hashWithSalt` outputSchemas
-      `Prelude.hashWithSalt` additionalOptions
+    _salt `Prelude.hashWithSalt` additionalOptions
+      `Prelude.hashWithSalt` outputSchemas
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` inputs
       `Prelude.hashWithSalt` connectionName
@@ -156,8 +156,8 @@ instance Prelude.Hashable SparkConnectorTarget where
 
 instance Prelude.NFData SparkConnectorTarget where
   rnf SparkConnectorTarget' {..} =
-    Prelude.rnf outputSchemas
-      `Prelude.seq` Prelude.rnf additionalOptions
+    Prelude.rnf additionalOptions
+      `Prelude.seq` Prelude.rnf outputSchemas
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf inputs
       `Prelude.seq` Prelude.rnf connectionName
@@ -168,9 +168,9 @@ instance Data.ToJSON SparkConnectorTarget where
   toJSON SparkConnectorTarget' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("OutputSchemas" Data..=) Prelude.<$> outputSchemas,
-            ("AdditionalOptions" Data..=)
+          [ ("AdditionalOptions" Data..=)
               Prelude.<$> additionalOptions,
+            ("OutputSchemas" Data..=) Prelude.<$> outputSchemas,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("Inputs" Data..= inputs),
             Prelude.Just

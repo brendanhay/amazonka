@@ -27,8 +27,8 @@ module Amazonka.Glue.GetConnection
     newGetConnection,
 
     -- * Request Lenses
-    getConnection_hidePassword,
     getConnection_catalogId,
+    getConnection_hidePassword,
     getConnection_name,
 
     -- * Destructuring the Response
@@ -51,16 +51,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetConnection' smart constructor.
 data GetConnection = GetConnection'
-  { -- | Allows you to retrieve the connection metadata without returning the
+  { -- | The ID of the Data Catalog in which the connection resides. If none is
+    -- provided, the Amazon Web Services account ID is used by default.
+    catalogId :: Prelude.Maybe Prelude.Text,
+    -- | Allows you to retrieve the connection metadata without returning the
     -- password. For instance, the Glue console uses this flag to retrieve the
     -- connection, and does not display the password. Set this parameter when
     -- the caller might not have permission to use the KMS key to decrypt the
     -- password, but it does have permission to access the rest of the
     -- connection properties.
     hidePassword :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the Data Catalog in which the connection resides. If none is
-    -- provided, the Amazon Web Services account ID is used by default.
-    catalogId :: Prelude.Maybe Prelude.Text,
     -- | The name of the connection definition to retrieve.
     name :: Prelude.Text
   }
@@ -74,15 +74,15 @@ data GetConnection = GetConnection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'catalogId', 'getConnection_catalogId' - The ID of the Data Catalog in which the connection resides. If none is
+-- provided, the Amazon Web Services account ID is used by default.
+--
 -- 'hidePassword', 'getConnection_hidePassword' - Allows you to retrieve the connection metadata without returning the
 -- password. For instance, the Glue console uses this flag to retrieve the
 -- connection, and does not display the password. Set this parameter when
 -- the caller might not have permission to use the KMS key to decrypt the
 -- password, but it does have permission to access the rest of the
 -- connection properties.
---
--- 'catalogId', 'getConnection_catalogId' - The ID of the Data Catalog in which the connection resides. If none is
--- provided, the Amazon Web Services account ID is used by default.
 --
 -- 'name', 'getConnection_name' - The name of the connection definition to retrieve.
 newGetConnection ::
@@ -91,10 +91,15 @@ newGetConnection ::
   GetConnection
 newGetConnection pName_ =
   GetConnection'
-    { hidePassword = Prelude.Nothing,
-      catalogId = Prelude.Nothing,
+    { catalogId = Prelude.Nothing,
+      hidePassword = Prelude.Nothing,
       name = pName_
     }
+
+-- | The ID of the Data Catalog in which the connection resides. If none is
+-- provided, the Amazon Web Services account ID is used by default.
+getConnection_catalogId :: Lens.Lens' GetConnection (Prelude.Maybe Prelude.Text)
+getConnection_catalogId = Lens.lens (\GetConnection' {catalogId} -> catalogId) (\s@GetConnection' {} a -> s {catalogId = a} :: GetConnection)
 
 -- | Allows you to retrieve the connection metadata without returning the
 -- password. For instance, the Glue console uses this flag to retrieve the
@@ -104,11 +109,6 @@ newGetConnection pName_ =
 -- connection properties.
 getConnection_hidePassword :: Lens.Lens' GetConnection (Prelude.Maybe Prelude.Bool)
 getConnection_hidePassword = Lens.lens (\GetConnection' {hidePassword} -> hidePassword) (\s@GetConnection' {} a -> s {hidePassword = a} :: GetConnection)
-
--- | The ID of the Data Catalog in which the connection resides. If none is
--- provided, the Amazon Web Services account ID is used by default.
-getConnection_catalogId :: Lens.Lens' GetConnection (Prelude.Maybe Prelude.Text)
-getConnection_catalogId = Lens.lens (\GetConnection' {catalogId} -> catalogId) (\s@GetConnection' {} a -> s {catalogId = a} :: GetConnection)
 
 -- | The name of the connection definition to retrieve.
 getConnection_name :: Lens.Lens' GetConnection Prelude.Text
@@ -130,14 +130,14 @@ instance Core.AWSRequest GetConnection where
 
 instance Prelude.Hashable GetConnection where
   hashWithSalt _salt GetConnection' {..} =
-    _salt `Prelude.hashWithSalt` hidePassword
-      `Prelude.hashWithSalt` catalogId
+    _salt `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` hidePassword
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData GetConnection where
   rnf GetConnection' {..} =
-    Prelude.rnf hidePassword
-      `Prelude.seq` Prelude.rnf catalogId
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf hidePassword
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders GetConnection where
@@ -157,8 +157,8 @@ instance Data.ToJSON GetConnection where
   toJSON GetConnection' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("HidePassword" Data..=) Prelude.<$> hidePassword,
-            ("CatalogId" Data..=) Prelude.<$> catalogId,
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
+            ("HidePassword" Data..=) Prelude.<$> hidePassword,
             Prelude.Just ("Name" Data..= name)
           ]
       )

@@ -30,11 +30,11 @@ module Amazonka.Glue.GetTables
     newGetTables,
 
     -- * Request Lenses
-    getTables_nextToken,
-    getTables_queryAsOfTime,
+    getTables_catalogId,
     getTables_expression,
     getTables_maxResults,
-    getTables_catalogId,
+    getTables_nextToken,
+    getTables_queryAsOfTime,
     getTables_transactionId,
     getTables_databaseName,
 
@@ -59,20 +59,20 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetTables' smart constructor.
 data GetTables = GetTables'
-  { -- | A continuation token, included if this is a continuation call.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The time as of when to read the table contents. If not set, the most
-    -- recent transaction commit time will be used. Cannot be specified along
-    -- with @TransactionId@.
-    queryAsOfTime :: Prelude.Maybe Data.POSIX,
+  { -- | The ID of the Data Catalog where the tables reside. If none is provided,
+    -- the Amazon Web Services account ID is used by default.
+    catalogId :: Prelude.Maybe Prelude.Text,
     -- | A regular expression pattern. If present, only those tables whose names
     -- match the pattern are returned.
     expression :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of tables to return in a single response.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The ID of the Data Catalog where the tables reside. If none is provided,
-    -- the Amazon Web Services account ID is used by default.
-    catalogId :: Prelude.Maybe Prelude.Text,
+    -- | A continuation token, included if this is a continuation call.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The time as of when to read the table contents. If not set, the most
+    -- recent transaction commit time will be used. Cannot be specified along
+    -- with @TransactionId@.
+    queryAsOfTime :: Prelude.Maybe Data.POSIX,
     -- | The transaction ID at which to read the table contents.
     transactionId :: Prelude.Maybe Prelude.Text,
     -- | The database in the catalog whose tables to list. For Hive
@@ -89,19 +89,19 @@ data GetTables = GetTables'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getTables_nextToken' - A continuation token, included if this is a continuation call.
---
--- 'queryAsOfTime', 'getTables_queryAsOfTime' - The time as of when to read the table contents. If not set, the most
--- recent transaction commit time will be used. Cannot be specified along
--- with @TransactionId@.
+-- 'catalogId', 'getTables_catalogId' - The ID of the Data Catalog where the tables reside. If none is provided,
+-- the Amazon Web Services account ID is used by default.
 --
 -- 'expression', 'getTables_expression' - A regular expression pattern. If present, only those tables whose names
 -- match the pattern are returned.
 --
 -- 'maxResults', 'getTables_maxResults' - The maximum number of tables to return in a single response.
 --
--- 'catalogId', 'getTables_catalogId' - The ID of the Data Catalog where the tables reside. If none is provided,
--- the Amazon Web Services account ID is used by default.
+-- 'nextToken', 'getTables_nextToken' - A continuation token, included if this is a continuation call.
+--
+-- 'queryAsOfTime', 'getTables_queryAsOfTime' - The time as of when to read the table contents. If not set, the most
+-- recent transaction commit time will be used. Cannot be specified along
+-- with @TransactionId@.
 --
 -- 'transactionId', 'getTables_transactionId' - The transaction ID at which to read the table contents.
 --
@@ -113,24 +113,19 @@ newGetTables ::
   GetTables
 newGetTables pDatabaseName_ =
   GetTables'
-    { nextToken = Prelude.Nothing,
-      queryAsOfTime = Prelude.Nothing,
+    { catalogId = Prelude.Nothing,
       expression = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      catalogId = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      queryAsOfTime = Prelude.Nothing,
       transactionId = Prelude.Nothing,
       databaseName = pDatabaseName_
     }
 
--- | A continuation token, included if this is a continuation call.
-getTables_nextToken :: Lens.Lens' GetTables (Prelude.Maybe Prelude.Text)
-getTables_nextToken = Lens.lens (\GetTables' {nextToken} -> nextToken) (\s@GetTables' {} a -> s {nextToken = a} :: GetTables)
-
--- | The time as of when to read the table contents. If not set, the most
--- recent transaction commit time will be used. Cannot be specified along
--- with @TransactionId@.
-getTables_queryAsOfTime :: Lens.Lens' GetTables (Prelude.Maybe Prelude.UTCTime)
-getTables_queryAsOfTime = Lens.lens (\GetTables' {queryAsOfTime} -> queryAsOfTime) (\s@GetTables' {} a -> s {queryAsOfTime = a} :: GetTables) Prelude.. Lens.mapping Data._Time
+-- | The ID of the Data Catalog where the tables reside. If none is provided,
+-- the Amazon Web Services account ID is used by default.
+getTables_catalogId :: Lens.Lens' GetTables (Prelude.Maybe Prelude.Text)
+getTables_catalogId = Lens.lens (\GetTables' {catalogId} -> catalogId) (\s@GetTables' {} a -> s {catalogId = a} :: GetTables)
 
 -- | A regular expression pattern. If present, only those tables whose names
 -- match the pattern are returned.
@@ -141,10 +136,15 @@ getTables_expression = Lens.lens (\GetTables' {expression} -> expression) (\s@Ge
 getTables_maxResults :: Lens.Lens' GetTables (Prelude.Maybe Prelude.Natural)
 getTables_maxResults = Lens.lens (\GetTables' {maxResults} -> maxResults) (\s@GetTables' {} a -> s {maxResults = a} :: GetTables)
 
--- | The ID of the Data Catalog where the tables reside. If none is provided,
--- the Amazon Web Services account ID is used by default.
-getTables_catalogId :: Lens.Lens' GetTables (Prelude.Maybe Prelude.Text)
-getTables_catalogId = Lens.lens (\GetTables' {catalogId} -> catalogId) (\s@GetTables' {} a -> s {catalogId = a} :: GetTables)
+-- | A continuation token, included if this is a continuation call.
+getTables_nextToken :: Lens.Lens' GetTables (Prelude.Maybe Prelude.Text)
+getTables_nextToken = Lens.lens (\GetTables' {nextToken} -> nextToken) (\s@GetTables' {} a -> s {nextToken = a} :: GetTables)
+
+-- | The time as of when to read the table contents. If not set, the most
+-- recent transaction commit time will be used. Cannot be specified along
+-- with @TransactionId@.
+getTables_queryAsOfTime :: Lens.Lens' GetTables (Prelude.Maybe Prelude.UTCTime)
+getTables_queryAsOfTime = Lens.lens (\GetTables' {queryAsOfTime} -> queryAsOfTime) (\s@GetTables' {} a -> s {queryAsOfTime = a} :: GetTables) Prelude.. Lens.mapping Data._Time
 
 -- | The transaction ID at which to read the table contents.
 getTables_transactionId :: Lens.Lens' GetTables (Prelude.Maybe Prelude.Text)
@@ -189,21 +189,21 @@ instance Core.AWSRequest GetTables where
 
 instance Prelude.Hashable GetTables where
   hashWithSalt _salt GetTables' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` queryAsOfTime
+    _salt `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` expression
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` queryAsOfTime
       `Prelude.hashWithSalt` transactionId
       `Prelude.hashWithSalt` databaseName
 
 instance Prelude.NFData GetTables where
   rnf GetTables' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf queryAsOfTime
+    Prelude.rnf catalogId
       `Prelude.seq` Prelude.rnf expression
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf queryAsOfTime
       `Prelude.seq` Prelude.rnf transactionId
       `Prelude.seq` Prelude.rnf databaseName
 
@@ -224,11 +224,11 @@ instance Data.ToJSON GetTables where
   toJSON GetTables' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("QueryAsOfTime" Data..=) Prelude.<$> queryAsOfTime,
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
             ("Expression" Data..=) Prelude.<$> expression,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("CatalogId" Data..=) Prelude.<$> catalogId,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("QueryAsOfTime" Data..=) Prelude.<$> queryAsOfTime,
             ("TransactionId" Data..=) Prelude.<$> transactionId,
             Prelude.Just ("DatabaseName" Data..= databaseName)
           ]

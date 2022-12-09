@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLakeFormationConfiguration' smart constructor.
 data LakeFormationConfiguration = LakeFormationConfiguration'
-  { -- | Specifies whether to use Lake Formation credentials for the crawler
-    -- instead of the IAM role credentials.
-    useLakeFormationCredentials :: Prelude.Maybe Prelude.Bool,
-    -- | Required for cross account crawls. For same account crawls as the target
+  { -- | Required for cross account crawls. For same account crawls as the target
     -- data, this can be left as null.
-    accountId :: Prelude.Maybe Prelude.Text
+    accountId :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether to use Lake Formation credentials for the crawler
+    -- instead of the IAM role credentials.
+    useLakeFormationCredentials :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,29 +45,29 @@ data LakeFormationConfiguration = LakeFormationConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'useLakeFormationCredentials', 'lakeFormationConfiguration_useLakeFormationCredentials' - Specifies whether to use Lake Formation credentials for the crawler
--- instead of the IAM role credentials.
---
 -- 'accountId', 'lakeFormationConfiguration_accountId' - Required for cross account crawls. For same account crawls as the target
 -- data, this can be left as null.
+--
+-- 'useLakeFormationCredentials', 'lakeFormationConfiguration_useLakeFormationCredentials' - Specifies whether to use Lake Formation credentials for the crawler
+-- instead of the IAM role credentials.
 newLakeFormationConfiguration ::
   LakeFormationConfiguration
 newLakeFormationConfiguration =
   LakeFormationConfiguration'
-    { useLakeFormationCredentials =
+    { accountId =
         Prelude.Nothing,
-      accountId = Prelude.Nothing
+      useLakeFormationCredentials = Prelude.Nothing
     }
-
--- | Specifies whether to use Lake Formation credentials for the crawler
--- instead of the IAM role credentials.
-lakeFormationConfiguration_useLakeFormationCredentials :: Lens.Lens' LakeFormationConfiguration (Prelude.Maybe Prelude.Bool)
-lakeFormationConfiguration_useLakeFormationCredentials = Lens.lens (\LakeFormationConfiguration' {useLakeFormationCredentials} -> useLakeFormationCredentials) (\s@LakeFormationConfiguration' {} a -> s {useLakeFormationCredentials = a} :: LakeFormationConfiguration)
 
 -- | Required for cross account crawls. For same account crawls as the target
 -- data, this can be left as null.
 lakeFormationConfiguration_accountId :: Lens.Lens' LakeFormationConfiguration (Prelude.Maybe Prelude.Text)
 lakeFormationConfiguration_accountId = Lens.lens (\LakeFormationConfiguration' {accountId} -> accountId) (\s@LakeFormationConfiguration' {} a -> s {accountId = a} :: LakeFormationConfiguration)
+
+-- | Specifies whether to use Lake Formation credentials for the crawler
+-- instead of the IAM role credentials.
+lakeFormationConfiguration_useLakeFormationCredentials :: Lens.Lens' LakeFormationConfiguration (Prelude.Maybe Prelude.Bool)
+lakeFormationConfiguration_useLakeFormationCredentials = Lens.lens (\LakeFormationConfiguration' {useLakeFormationCredentials} -> useLakeFormationCredentials) (\s@LakeFormationConfiguration' {} a -> s {useLakeFormationCredentials = a} :: LakeFormationConfiguration)
 
 instance Data.FromJSON LakeFormationConfiguration where
   parseJSON =
@@ -75,27 +75,26 @@ instance Data.FromJSON LakeFormationConfiguration where
       "LakeFormationConfiguration"
       ( \x ->
           LakeFormationConfiguration'
-            Prelude.<$> (x Data..:? "UseLakeFormationCredentials")
-            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<$> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "UseLakeFormationCredentials")
       )
 
 instance Prelude.Hashable LakeFormationConfiguration where
   hashWithSalt _salt LakeFormationConfiguration' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` useLakeFormationCredentials
-      `Prelude.hashWithSalt` accountId
 
 instance Prelude.NFData LakeFormationConfiguration where
   rnf LakeFormationConfiguration' {..} =
-    Prelude.rnf useLakeFormationCredentials
-      `Prelude.seq` Prelude.rnf accountId
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf useLakeFormationCredentials
 
 instance Data.ToJSON LakeFormationConfiguration where
   toJSON LakeFormationConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("UseLakeFormationCredentials" Data..=)
-              Prelude.<$> useLakeFormationCredentials,
-            ("AccountId" Data..=) Prelude.<$> accountId
+          [ ("AccountId" Data..=) Prelude.<$> accountId,
+            ("UseLakeFormationCredentials" Data..=)
+              Prelude.<$> useLakeFormationCredentials
           ]
       )

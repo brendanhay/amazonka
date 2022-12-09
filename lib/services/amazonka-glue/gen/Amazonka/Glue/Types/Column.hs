@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newColumn' smart constructor.
 data Column = Column'
-  { -- | The data type of the @Column@.
-    type' :: Prelude.Maybe Prelude.Text,
-    -- | A free-form text comment.
+  { -- | A free-form text comment.
     comment :: Prelude.Maybe Prelude.Text,
     -- | These key-value pairs define properties associated with the column.
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The data type of the @Column@.
+    type' :: Prelude.Maybe Prelude.Text,
     -- | The name of the @Column@.
     name :: Prelude.Text
   }
@@ -47,11 +47,11 @@ data Column = Column'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'column_type' - The data type of the @Column@.
---
 -- 'comment', 'column_comment' - A free-form text comment.
 --
 -- 'parameters', 'column_parameters' - These key-value pairs define properties associated with the column.
+--
+-- 'type'', 'column_type' - The data type of the @Column@.
 --
 -- 'name', 'column_name' - The name of the @Column@.
 newColumn ::
@@ -60,15 +60,11 @@ newColumn ::
   Column
 newColumn pName_ =
   Column'
-    { type' = Prelude.Nothing,
-      comment = Prelude.Nothing,
+    { comment = Prelude.Nothing,
       parameters = Prelude.Nothing,
+      type' = Prelude.Nothing,
       name = pName_
     }
-
--- | The data type of the @Column@.
-column_type :: Lens.Lens' Column (Prelude.Maybe Prelude.Text)
-column_type = Lens.lens (\Column' {type'} -> type') (\s@Column' {} a -> s {type' = a} :: Column)
 
 -- | A free-form text comment.
 column_comment :: Lens.Lens' Column (Prelude.Maybe Prelude.Text)
@@ -77,6 +73,10 @@ column_comment = Lens.lens (\Column' {comment} -> comment) (\s@Column' {} a -> s
 -- | These key-value pairs define properties associated with the column.
 column_parameters :: Lens.Lens' Column (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 column_parameters = Lens.lens (\Column' {parameters} -> parameters) (\s@Column' {} a -> s {parameters = a} :: Column) Prelude.. Lens.mapping Lens.coerced
+
+-- | The data type of the @Column@.
+column_type :: Lens.Lens' Column (Prelude.Maybe Prelude.Text)
+column_type = Lens.lens (\Column' {type'} -> type') (\s@Column' {} a -> s {type' = a} :: Column)
 
 -- | The name of the @Column@.
 column_name :: Lens.Lens' Column Prelude.Text
@@ -88,33 +88,33 @@ instance Data.FromJSON Column where
       "Column"
       ( \x ->
           Column'
-            Prelude.<$> (x Data..:? "Type")
-            Prelude.<*> (x Data..:? "Comment")
+            Prelude.<$> (x Data..:? "Comment")
             Prelude.<*> (x Data..:? "Parameters" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Type")
             Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable Column where
   hashWithSalt _salt Column' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` comment
+    _salt `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData Column where
   rnf Column' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf comment
+    Prelude.rnf comment
       `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToJSON Column where
   toJSON Column' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Type" Data..=) Prelude.<$> type',
-            ("Comment" Data..=) Prelude.<$> comment,
+          [ ("Comment" Data..=) Prelude.<$> comment,
             ("Parameters" Data..=) Prelude.<$> parameters,
+            ("Type" Data..=) Prelude.<$> type',
             Prelude.Just ("Name" Data..= name)
           ]
       )

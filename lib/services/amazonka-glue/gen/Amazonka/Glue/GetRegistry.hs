@@ -34,11 +34,11 @@ module Amazonka.Glue.GetRegistry
     newGetRegistryResponse,
 
     -- * Response Lenses
-    getRegistryResponse_registryName,
     getRegistryResponse_createdTime,
-    getRegistryResponse_status,
     getRegistryResponse_description,
     getRegistryResponse_registryArn,
+    getRegistryResponse_registryName,
+    getRegistryResponse_status,
     getRegistryResponse_updatedTime,
     getRegistryResponse_httpStatus,
   )
@@ -90,11 +90,11 @@ instance Core.AWSRequest GetRegistry where
     Response.receiveJSON
       ( \s h x ->
           GetRegistryResponse'
-            Prelude.<$> (x Data..?> "RegistryName")
-            Prelude.<*> (x Data..?> "CreatedTime")
-            Prelude.<*> (x Data..?> "Status")
+            Prelude.<$> (x Data..?> "CreatedTime")
             Prelude.<*> (x Data..?> "Description")
             Prelude.<*> (x Data..?> "RegistryArn")
+            Prelude.<*> (x Data..?> "RegistryName")
+            Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (x Data..?> "UpdatedTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -134,16 +134,16 @@ instance Data.ToQuery GetRegistry where
 
 -- | /See:/ 'newGetRegistryResponse' smart constructor.
 data GetRegistryResponse = GetRegistryResponse'
-  { -- | The name of the registry.
-    registryName :: Prelude.Maybe Prelude.Text,
-    -- | The date and time the registry was created.
+  { -- | The date and time the registry was created.
     createdTime :: Prelude.Maybe Prelude.Text,
-    -- | The status of the registry.
-    status :: Prelude.Maybe RegistryStatus,
     -- | A description of the registry.
     description :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the registry.
     registryArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the registry.
+    registryName :: Prelude.Maybe Prelude.Text,
+    -- | The status of the registry.
+    status :: Prelude.Maybe RegistryStatus,
     -- | The date and time the registry was updated.
     updatedTime :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -159,15 +159,15 @@ data GetRegistryResponse = GetRegistryResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'registryName', 'getRegistryResponse_registryName' - The name of the registry.
---
 -- 'createdTime', 'getRegistryResponse_createdTime' - The date and time the registry was created.
---
--- 'status', 'getRegistryResponse_status' - The status of the registry.
 --
 -- 'description', 'getRegistryResponse_description' - A description of the registry.
 --
 -- 'registryArn', 'getRegistryResponse_registryArn' - The Amazon Resource Name (ARN) of the registry.
+--
+-- 'registryName', 'getRegistryResponse_registryName' - The name of the registry.
+--
+-- 'status', 'getRegistryResponse_status' - The status of the registry.
 --
 -- 'updatedTime', 'getRegistryResponse_updatedTime' - The date and time the registry was updated.
 --
@@ -178,27 +178,18 @@ newGetRegistryResponse ::
   GetRegistryResponse
 newGetRegistryResponse pHttpStatus_ =
   GetRegistryResponse'
-    { registryName =
-        Prelude.Nothing,
-      createdTime = Prelude.Nothing,
-      status = Prelude.Nothing,
+    { createdTime = Prelude.Nothing,
       description = Prelude.Nothing,
       registryArn = Prelude.Nothing,
+      registryName = Prelude.Nothing,
+      status = Prelude.Nothing,
       updatedTime = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The name of the registry.
-getRegistryResponse_registryName :: Lens.Lens' GetRegistryResponse (Prelude.Maybe Prelude.Text)
-getRegistryResponse_registryName = Lens.lens (\GetRegistryResponse' {registryName} -> registryName) (\s@GetRegistryResponse' {} a -> s {registryName = a} :: GetRegistryResponse)
-
 -- | The date and time the registry was created.
 getRegistryResponse_createdTime :: Lens.Lens' GetRegistryResponse (Prelude.Maybe Prelude.Text)
 getRegistryResponse_createdTime = Lens.lens (\GetRegistryResponse' {createdTime} -> createdTime) (\s@GetRegistryResponse' {} a -> s {createdTime = a} :: GetRegistryResponse)
-
--- | The status of the registry.
-getRegistryResponse_status :: Lens.Lens' GetRegistryResponse (Prelude.Maybe RegistryStatus)
-getRegistryResponse_status = Lens.lens (\GetRegistryResponse' {status} -> status) (\s@GetRegistryResponse' {} a -> s {status = a} :: GetRegistryResponse)
 
 -- | A description of the registry.
 getRegistryResponse_description :: Lens.Lens' GetRegistryResponse (Prelude.Maybe Prelude.Text)
@@ -207,6 +198,14 @@ getRegistryResponse_description = Lens.lens (\GetRegistryResponse' {description}
 -- | The Amazon Resource Name (ARN) of the registry.
 getRegistryResponse_registryArn :: Lens.Lens' GetRegistryResponse (Prelude.Maybe Prelude.Text)
 getRegistryResponse_registryArn = Lens.lens (\GetRegistryResponse' {registryArn} -> registryArn) (\s@GetRegistryResponse' {} a -> s {registryArn = a} :: GetRegistryResponse)
+
+-- | The name of the registry.
+getRegistryResponse_registryName :: Lens.Lens' GetRegistryResponse (Prelude.Maybe Prelude.Text)
+getRegistryResponse_registryName = Lens.lens (\GetRegistryResponse' {registryName} -> registryName) (\s@GetRegistryResponse' {} a -> s {registryName = a} :: GetRegistryResponse)
+
+-- | The status of the registry.
+getRegistryResponse_status :: Lens.Lens' GetRegistryResponse (Prelude.Maybe RegistryStatus)
+getRegistryResponse_status = Lens.lens (\GetRegistryResponse' {status} -> status) (\s@GetRegistryResponse' {} a -> s {status = a} :: GetRegistryResponse)
 
 -- | The date and time the registry was updated.
 getRegistryResponse_updatedTime :: Lens.Lens' GetRegistryResponse (Prelude.Maybe Prelude.Text)
@@ -218,10 +217,10 @@ getRegistryResponse_httpStatus = Lens.lens (\GetRegistryResponse' {httpStatus} -
 
 instance Prelude.NFData GetRegistryResponse where
   rnf GetRegistryResponse' {..} =
-    Prelude.rnf registryName
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf createdTime
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf registryArn
+      `Prelude.seq` Prelude.rnf registryName
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf updatedTime
       `Prelude.seq` Prelude.rnf httpStatus

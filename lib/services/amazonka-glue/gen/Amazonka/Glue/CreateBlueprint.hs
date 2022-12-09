@@ -27,8 +27,8 @@ module Amazonka.Glue.CreateBlueprint
     newCreateBlueprint,
 
     -- * Request Lenses
-    createBlueprint_tags,
     createBlueprint_description,
+    createBlueprint_tags,
     createBlueprint_name,
     createBlueprint_blueprintLocation,
 
@@ -52,10 +52,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateBlueprint' smart constructor.
 data CreateBlueprint = CreateBlueprint'
-  { -- | The tags to be applied to this blueprint.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A description of the blueprint.
+  { -- | A description of the blueprint.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The tags to be applied to this blueprint.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the blueprint.
     name :: Prelude.Text,
     -- | Specifies a path in Amazon S3 where the blueprint is published.
@@ -71,9 +71,9 @@ data CreateBlueprint = CreateBlueprint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createBlueprint_tags' - The tags to be applied to this blueprint.
---
 -- 'description', 'createBlueprint_description' - A description of the blueprint.
+--
+-- 'tags', 'createBlueprint_tags' - The tags to be applied to this blueprint.
 --
 -- 'name', 'createBlueprint_name' - The name of the blueprint.
 --
@@ -86,19 +86,19 @@ newCreateBlueprint ::
   CreateBlueprint
 newCreateBlueprint pName_ pBlueprintLocation_ =
   CreateBlueprint'
-    { tags = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_,
       blueprintLocation = pBlueprintLocation_
     }
 
--- | The tags to be applied to this blueprint.
-createBlueprint_tags :: Lens.Lens' CreateBlueprint (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createBlueprint_tags = Lens.lens (\CreateBlueprint' {tags} -> tags) (\s@CreateBlueprint' {} a -> s {tags = a} :: CreateBlueprint) Prelude.. Lens.mapping Lens.coerced
-
 -- | A description of the blueprint.
 createBlueprint_description :: Lens.Lens' CreateBlueprint (Prelude.Maybe Prelude.Text)
 createBlueprint_description = Lens.lens (\CreateBlueprint' {description} -> description) (\s@CreateBlueprint' {} a -> s {description = a} :: CreateBlueprint)
+
+-- | The tags to be applied to this blueprint.
+createBlueprint_tags :: Lens.Lens' CreateBlueprint (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createBlueprint_tags = Lens.lens (\CreateBlueprint' {tags} -> tags) (\s@CreateBlueprint' {} a -> s {tags = a} :: CreateBlueprint) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the blueprint.
 createBlueprint_name :: Lens.Lens' CreateBlueprint Prelude.Text
@@ -124,15 +124,15 @@ instance Core.AWSRequest CreateBlueprint where
 
 instance Prelude.Hashable CreateBlueprint where
   hashWithSalt _salt CreateBlueprint' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` blueprintLocation
 
 instance Prelude.NFData CreateBlueprint where
   rnf CreateBlueprint' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf blueprintLocation
 
@@ -153,8 +153,8 @@ instance Data.ToJSON CreateBlueprint where
   toJSON CreateBlueprint' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just
               ("BlueprintLocation" Data..= blueprintLocation)

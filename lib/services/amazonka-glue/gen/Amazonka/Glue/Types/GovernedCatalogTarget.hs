@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGovernedCatalogTarget' smart constructor.
 data GovernedCatalogTarget = GovernedCatalogTarget'
-  { -- | A policy that specifies update behavior for the governed catalog.
-    schemaChangePolicy :: Prelude.Maybe CatalogSchemaChangePolicy,
-    -- | Specifies native partitioning using a sequence of keys.
+  { -- | Specifies native partitioning using a sequence of keys.
     partitionKeys :: Prelude.Maybe [[Prelude.Text]],
+    -- | A policy that specifies update behavior for the governed catalog.
+    schemaChangePolicy :: Prelude.Maybe CatalogSchemaChangePolicy,
     -- | The name of the data target.
     name :: Prelude.Text,
     -- | The nodes that are inputs to the data target.
@@ -53,9 +53,9 @@ data GovernedCatalogTarget = GovernedCatalogTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'schemaChangePolicy', 'governedCatalogTarget_schemaChangePolicy' - A policy that specifies update behavior for the governed catalog.
---
 -- 'partitionKeys', 'governedCatalogTarget_partitionKeys' - Specifies native partitioning using a sequence of keys.
+--
+-- 'schemaChangePolicy', 'governedCatalogTarget_schemaChangePolicy' - A policy that specifies update behavior for the governed catalog.
 --
 -- 'name', 'governedCatalogTarget_name' - The name of the data target.
 --
@@ -80,22 +80,22 @@ newGovernedCatalogTarget
   pTable_
   pDatabase_ =
     GovernedCatalogTarget'
-      { schemaChangePolicy =
+      { partitionKeys =
           Prelude.Nothing,
-        partitionKeys = Prelude.Nothing,
+        schemaChangePolicy = Prelude.Nothing,
         name = pName_,
         inputs = Lens.coerced Lens.# pInputs_,
         table = pTable_,
         database = pDatabase_
       }
 
--- | A policy that specifies update behavior for the governed catalog.
-governedCatalogTarget_schemaChangePolicy :: Lens.Lens' GovernedCatalogTarget (Prelude.Maybe CatalogSchemaChangePolicy)
-governedCatalogTarget_schemaChangePolicy = Lens.lens (\GovernedCatalogTarget' {schemaChangePolicy} -> schemaChangePolicy) (\s@GovernedCatalogTarget' {} a -> s {schemaChangePolicy = a} :: GovernedCatalogTarget)
-
 -- | Specifies native partitioning using a sequence of keys.
 governedCatalogTarget_partitionKeys :: Lens.Lens' GovernedCatalogTarget (Prelude.Maybe [[Prelude.Text]])
 governedCatalogTarget_partitionKeys = Lens.lens (\GovernedCatalogTarget' {partitionKeys} -> partitionKeys) (\s@GovernedCatalogTarget' {} a -> s {partitionKeys = a} :: GovernedCatalogTarget) Prelude.. Lens.mapping Lens.coerced
+
+-- | A policy that specifies update behavior for the governed catalog.
+governedCatalogTarget_schemaChangePolicy :: Lens.Lens' GovernedCatalogTarget (Prelude.Maybe CatalogSchemaChangePolicy)
+governedCatalogTarget_schemaChangePolicy = Lens.lens (\GovernedCatalogTarget' {schemaChangePolicy} -> schemaChangePolicy) (\s@GovernedCatalogTarget' {} a -> s {schemaChangePolicy = a} :: GovernedCatalogTarget)
 
 -- | The name of the data target.
 governedCatalogTarget_name :: Lens.Lens' GovernedCatalogTarget Prelude.Text
@@ -119,8 +119,8 @@ instance Data.FromJSON GovernedCatalogTarget where
       "GovernedCatalogTarget"
       ( \x ->
           GovernedCatalogTarget'
-            Prelude.<$> (x Data..:? "SchemaChangePolicy")
-            Prelude.<*> (x Data..:? "PartitionKeys" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "PartitionKeys" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "SchemaChangePolicy")
             Prelude.<*> (x Data..: "Name")
             Prelude.<*> (x Data..: "Inputs")
             Prelude.<*> (x Data..: "Table")
@@ -129,8 +129,8 @@ instance Data.FromJSON GovernedCatalogTarget where
 
 instance Prelude.Hashable GovernedCatalogTarget where
   hashWithSalt _salt GovernedCatalogTarget' {..} =
-    _salt `Prelude.hashWithSalt` schemaChangePolicy
-      `Prelude.hashWithSalt` partitionKeys
+    _salt `Prelude.hashWithSalt` partitionKeys
+      `Prelude.hashWithSalt` schemaChangePolicy
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` inputs
       `Prelude.hashWithSalt` table
@@ -138,8 +138,8 @@ instance Prelude.Hashable GovernedCatalogTarget where
 
 instance Prelude.NFData GovernedCatalogTarget where
   rnf GovernedCatalogTarget' {..} =
-    Prelude.rnf schemaChangePolicy
-      `Prelude.seq` Prelude.rnf partitionKeys
+    Prelude.rnf partitionKeys
+      `Prelude.seq` Prelude.rnf schemaChangePolicy
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf inputs
       `Prelude.seq` Prelude.rnf table
@@ -149,9 +149,9 @@ instance Data.ToJSON GovernedCatalogTarget where
   toJSON GovernedCatalogTarget' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SchemaChangePolicy" Data..=)
+          [ ("PartitionKeys" Data..=) Prelude.<$> partitionKeys,
+            ("SchemaChangePolicy" Data..=)
               Prelude.<$> schemaChangePolicy,
-            ("PartitionKeys" Data..=) Prelude.<$> partitionKeys,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("Inputs" Data..= inputs),
             Prelude.Just ("Table" Data..= table),

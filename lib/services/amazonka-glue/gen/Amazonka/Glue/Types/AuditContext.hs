@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAuditContext' smart constructor.
 data AuditContext = AuditContext'
-  { -- | The requested columns for audit.
-    requestedColumns :: Prelude.Maybe [Prelude.Text],
-    -- | The context for the audit..
+  { -- | The context for the audit..
     additionalAuditContext :: Prelude.Maybe Prelude.Text,
     -- | All columns request for audit.
-    allColumnsRequested :: Prelude.Maybe Prelude.Bool
+    allColumnsRequested :: Prelude.Maybe Prelude.Bool,
+    -- | The requested columns for audit.
+    requestedColumns :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,23 +45,20 @@ data AuditContext = AuditContext'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestedColumns', 'auditContext_requestedColumns' - The requested columns for audit.
---
 -- 'additionalAuditContext', 'auditContext_additionalAuditContext' - The context for the audit..
 --
 -- 'allColumnsRequested', 'auditContext_allColumnsRequested' - All columns request for audit.
+--
+-- 'requestedColumns', 'auditContext_requestedColumns' - The requested columns for audit.
 newAuditContext ::
   AuditContext
 newAuditContext =
   AuditContext'
-    { requestedColumns = Prelude.Nothing,
-      additionalAuditContext = Prelude.Nothing,
-      allColumnsRequested = Prelude.Nothing
+    { additionalAuditContext =
+        Prelude.Nothing,
+      allColumnsRequested = Prelude.Nothing,
+      requestedColumns = Prelude.Nothing
     }
-
--- | The requested columns for audit.
-auditContext_requestedColumns :: Lens.Lens' AuditContext (Prelude.Maybe [Prelude.Text])
-auditContext_requestedColumns = Lens.lens (\AuditContext' {requestedColumns} -> requestedColumns) (\s@AuditContext' {} a -> s {requestedColumns = a} :: AuditContext) Prelude.. Lens.mapping Lens.coerced
 
 -- | The context for the audit..
 auditContext_additionalAuditContext :: Lens.Lens' AuditContext (Prelude.Maybe Prelude.Text)
@@ -71,27 +68,31 @@ auditContext_additionalAuditContext = Lens.lens (\AuditContext' {additionalAudit
 auditContext_allColumnsRequested :: Lens.Lens' AuditContext (Prelude.Maybe Prelude.Bool)
 auditContext_allColumnsRequested = Lens.lens (\AuditContext' {allColumnsRequested} -> allColumnsRequested) (\s@AuditContext' {} a -> s {allColumnsRequested = a} :: AuditContext)
 
+-- | The requested columns for audit.
+auditContext_requestedColumns :: Lens.Lens' AuditContext (Prelude.Maybe [Prelude.Text])
+auditContext_requestedColumns = Lens.lens (\AuditContext' {requestedColumns} -> requestedColumns) (\s@AuditContext' {} a -> s {requestedColumns = a} :: AuditContext) Prelude.. Lens.mapping Lens.coerced
+
 instance Prelude.Hashable AuditContext where
   hashWithSalt _salt AuditContext' {..} =
-    _salt `Prelude.hashWithSalt` requestedColumns
-      `Prelude.hashWithSalt` additionalAuditContext
+    _salt `Prelude.hashWithSalt` additionalAuditContext
       `Prelude.hashWithSalt` allColumnsRequested
+      `Prelude.hashWithSalt` requestedColumns
 
 instance Prelude.NFData AuditContext where
   rnf AuditContext' {..} =
-    Prelude.rnf requestedColumns
-      `Prelude.seq` Prelude.rnf additionalAuditContext
+    Prelude.rnf additionalAuditContext
       `Prelude.seq` Prelude.rnf allColumnsRequested
+      `Prelude.seq` Prelude.rnf requestedColumns
 
 instance Data.ToJSON AuditContext where
   toJSON AuditContext' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("RequestedColumns" Data..=)
-              Prelude.<$> requestedColumns,
-            ("AdditionalAuditContext" Data..=)
+          [ ("AdditionalAuditContext" Data..=)
               Prelude.<$> additionalAuditContext,
             ("AllColumnsRequested" Data..=)
-              Prelude.<$> allColumnsRequested
+              Prelude.<$> allColumnsRequested,
+            ("RequestedColumns" Data..=)
+              Prelude.<$> requestedColumns
           ]
       )

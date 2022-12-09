@@ -31,14 +31,14 @@ import qualified Amazonka.Prelude as Prelude
 data DirectSchemaChangePolicy = DirectSchemaChangePolicy'
   { -- | Specifies the database that the schema change policy applies to.
     database :: Prelude.Maybe Prelude.Text,
-    -- | The update behavior when the crawler finds a changed schema.
-    updateBehavior :: Prelude.Maybe UpdateCatalogBehavior,
     -- | Whether to use the specified update behavior when the crawler finds a
     -- changed schema.
     enableUpdateCatalog :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the table in the database that the schema change policy
     -- applies to.
-    table :: Prelude.Maybe Prelude.Text
+    table :: Prelude.Maybe Prelude.Text,
+    -- | The update behavior when the crawler finds a changed schema.
+    updateBehavior :: Prelude.Maybe UpdateCatalogBehavior
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,31 +52,27 @@ data DirectSchemaChangePolicy = DirectSchemaChangePolicy'
 --
 -- 'database', 'directSchemaChangePolicy_database' - Specifies the database that the schema change policy applies to.
 --
--- 'updateBehavior', 'directSchemaChangePolicy_updateBehavior' - The update behavior when the crawler finds a changed schema.
---
 -- 'enableUpdateCatalog', 'directSchemaChangePolicy_enableUpdateCatalog' - Whether to use the specified update behavior when the crawler finds a
 -- changed schema.
 --
 -- 'table', 'directSchemaChangePolicy_table' - Specifies the table in the database that the schema change policy
 -- applies to.
+--
+-- 'updateBehavior', 'directSchemaChangePolicy_updateBehavior' - The update behavior when the crawler finds a changed schema.
 newDirectSchemaChangePolicy ::
   DirectSchemaChangePolicy
 newDirectSchemaChangePolicy =
   DirectSchemaChangePolicy'
     { database =
         Prelude.Nothing,
-      updateBehavior = Prelude.Nothing,
       enableUpdateCatalog = Prelude.Nothing,
-      table = Prelude.Nothing
+      table = Prelude.Nothing,
+      updateBehavior = Prelude.Nothing
     }
 
 -- | Specifies the database that the schema change policy applies to.
 directSchemaChangePolicy_database :: Lens.Lens' DirectSchemaChangePolicy (Prelude.Maybe Prelude.Text)
 directSchemaChangePolicy_database = Lens.lens (\DirectSchemaChangePolicy' {database} -> database) (\s@DirectSchemaChangePolicy' {} a -> s {database = a} :: DirectSchemaChangePolicy)
-
--- | The update behavior when the crawler finds a changed schema.
-directSchemaChangePolicy_updateBehavior :: Lens.Lens' DirectSchemaChangePolicy (Prelude.Maybe UpdateCatalogBehavior)
-directSchemaChangePolicy_updateBehavior = Lens.lens (\DirectSchemaChangePolicy' {updateBehavior} -> updateBehavior) (\s@DirectSchemaChangePolicy' {} a -> s {updateBehavior = a} :: DirectSchemaChangePolicy)
 
 -- | Whether to use the specified update behavior when the crawler finds a
 -- changed schema.
@@ -88,6 +84,10 @@ directSchemaChangePolicy_enableUpdateCatalog = Lens.lens (\DirectSchemaChangePol
 directSchemaChangePolicy_table :: Lens.Lens' DirectSchemaChangePolicy (Prelude.Maybe Prelude.Text)
 directSchemaChangePolicy_table = Lens.lens (\DirectSchemaChangePolicy' {table} -> table) (\s@DirectSchemaChangePolicy' {} a -> s {table = a} :: DirectSchemaChangePolicy)
 
+-- | The update behavior when the crawler finds a changed schema.
+directSchemaChangePolicy_updateBehavior :: Lens.Lens' DirectSchemaChangePolicy (Prelude.Maybe UpdateCatalogBehavior)
+directSchemaChangePolicy_updateBehavior = Lens.lens (\DirectSchemaChangePolicy' {updateBehavior} -> updateBehavior) (\s@DirectSchemaChangePolicy' {} a -> s {updateBehavior = a} :: DirectSchemaChangePolicy)
+
 instance Data.FromJSON DirectSchemaChangePolicy where
   parseJSON =
     Data.withObject
@@ -95,34 +95,34 @@ instance Data.FromJSON DirectSchemaChangePolicy where
       ( \x ->
           DirectSchemaChangePolicy'
             Prelude.<$> (x Data..:? "Database")
-            Prelude.<*> (x Data..:? "UpdateBehavior")
             Prelude.<*> (x Data..:? "EnableUpdateCatalog")
             Prelude.<*> (x Data..:? "Table")
+            Prelude.<*> (x Data..:? "UpdateBehavior")
       )
 
 instance Prelude.Hashable DirectSchemaChangePolicy where
   hashWithSalt _salt DirectSchemaChangePolicy' {..} =
     _salt `Prelude.hashWithSalt` database
-      `Prelude.hashWithSalt` updateBehavior
       `Prelude.hashWithSalt` enableUpdateCatalog
       `Prelude.hashWithSalt` table
+      `Prelude.hashWithSalt` updateBehavior
 
 instance Prelude.NFData DirectSchemaChangePolicy where
   rnf DirectSchemaChangePolicy' {..} =
     Prelude.rnf database
-      `Prelude.seq` Prelude.rnf updateBehavior
       `Prelude.seq` Prelude.rnf enableUpdateCatalog
       `Prelude.seq` Prelude.rnf table
+      `Prelude.seq` Prelude.rnf updateBehavior
 
 instance Data.ToJSON DirectSchemaChangePolicy where
   toJSON DirectSchemaChangePolicy' {..} =
     Data.object
       ( Prelude.catMaybes
           [ ("Database" Data..=) Prelude.<$> database,
-            ("UpdateBehavior" Data..=)
-              Prelude.<$> updateBehavior,
             ("EnableUpdateCatalog" Data..=)
               Prelude.<$> enableUpdateCatalog,
-            ("Table" Data..=) Prelude.<$> table
+            ("Table" Data..=) Prelude.<$> table,
+            ("UpdateBehavior" Data..=)
+              Prelude.<$> updateBehavior
           ]
       )

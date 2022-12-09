@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newS3SourceAdditionalOptions' smart constructor.
 data S3SourceAdditionalOptions = S3SourceAdditionalOptions'
-  { -- | Sets the upper limit for the target size of the dataset in bytes that
-    -- will be processed.
-    boundedSize :: Prelude.Maybe Prelude.Integer,
-    -- | Sets the upper limit for the target number of files that will be
+  { -- | Sets the upper limit for the target number of files that will be
     -- processed.
-    boundedFiles :: Prelude.Maybe Prelude.Integer
+    boundedFiles :: Prelude.Maybe Prelude.Integer,
+    -- | Sets the upper limit for the target size of the dataset in bytes that
+    -- will be processed.
+    boundedSize :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,29 +45,29 @@ data S3SourceAdditionalOptions = S3SourceAdditionalOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'boundedSize', 's3SourceAdditionalOptions_boundedSize' - Sets the upper limit for the target size of the dataset in bytes that
--- will be processed.
---
 -- 'boundedFiles', 's3SourceAdditionalOptions_boundedFiles' - Sets the upper limit for the target number of files that will be
 -- processed.
+--
+-- 'boundedSize', 's3SourceAdditionalOptions_boundedSize' - Sets the upper limit for the target size of the dataset in bytes that
+-- will be processed.
 newS3SourceAdditionalOptions ::
   S3SourceAdditionalOptions
 newS3SourceAdditionalOptions =
   S3SourceAdditionalOptions'
-    { boundedSize =
+    { boundedFiles =
         Prelude.Nothing,
-      boundedFiles = Prelude.Nothing
+      boundedSize = Prelude.Nothing
     }
-
--- | Sets the upper limit for the target size of the dataset in bytes that
--- will be processed.
-s3SourceAdditionalOptions_boundedSize :: Lens.Lens' S3SourceAdditionalOptions (Prelude.Maybe Prelude.Integer)
-s3SourceAdditionalOptions_boundedSize = Lens.lens (\S3SourceAdditionalOptions' {boundedSize} -> boundedSize) (\s@S3SourceAdditionalOptions' {} a -> s {boundedSize = a} :: S3SourceAdditionalOptions)
 
 -- | Sets the upper limit for the target number of files that will be
 -- processed.
 s3SourceAdditionalOptions_boundedFiles :: Lens.Lens' S3SourceAdditionalOptions (Prelude.Maybe Prelude.Integer)
 s3SourceAdditionalOptions_boundedFiles = Lens.lens (\S3SourceAdditionalOptions' {boundedFiles} -> boundedFiles) (\s@S3SourceAdditionalOptions' {} a -> s {boundedFiles = a} :: S3SourceAdditionalOptions)
+
+-- | Sets the upper limit for the target size of the dataset in bytes that
+-- will be processed.
+s3SourceAdditionalOptions_boundedSize :: Lens.Lens' S3SourceAdditionalOptions (Prelude.Maybe Prelude.Integer)
+s3SourceAdditionalOptions_boundedSize = Lens.lens (\S3SourceAdditionalOptions' {boundedSize} -> boundedSize) (\s@S3SourceAdditionalOptions' {} a -> s {boundedSize = a} :: S3SourceAdditionalOptions)
 
 instance Data.FromJSON S3SourceAdditionalOptions where
   parseJSON =
@@ -75,25 +75,25 @@ instance Data.FromJSON S3SourceAdditionalOptions where
       "S3SourceAdditionalOptions"
       ( \x ->
           S3SourceAdditionalOptions'
-            Prelude.<$> (x Data..:? "BoundedSize")
-            Prelude.<*> (x Data..:? "BoundedFiles")
+            Prelude.<$> (x Data..:? "BoundedFiles")
+            Prelude.<*> (x Data..:? "BoundedSize")
       )
 
 instance Prelude.Hashable S3SourceAdditionalOptions where
   hashWithSalt _salt S3SourceAdditionalOptions' {..} =
-    _salt `Prelude.hashWithSalt` boundedSize
-      `Prelude.hashWithSalt` boundedFiles
+    _salt `Prelude.hashWithSalt` boundedFiles
+      `Prelude.hashWithSalt` boundedSize
 
 instance Prelude.NFData S3SourceAdditionalOptions where
   rnf S3SourceAdditionalOptions' {..} =
-    Prelude.rnf boundedSize
-      `Prelude.seq` Prelude.rnf boundedFiles
+    Prelude.rnf boundedFiles
+      `Prelude.seq` Prelude.rnf boundedSize
 
 instance Data.ToJSON S3SourceAdditionalOptions where
   toJSON S3SourceAdditionalOptions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("BoundedSize" Data..=) Prelude.<$> boundedSize,
-            ("BoundedFiles" Data..=) Prelude.<$> boundedFiles
+          [ ("BoundedFiles" Data..=) Prelude.<$> boundedFiles,
+            ("BoundedSize" Data..=) Prelude.<$> boundedSize
           ]
       )

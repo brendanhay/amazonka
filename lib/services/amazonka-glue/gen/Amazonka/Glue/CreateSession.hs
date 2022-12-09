@@ -27,18 +27,18 @@ module Amazonka.Glue.CreateSession
     newCreateSession,
 
     -- * Request Lenses
+    createSession_connections,
+    createSession_defaultArguments,
+    createSession_description,
+    createSession_glueVersion,
+    createSession_idleTimeout,
+    createSession_maxCapacity,
+    createSession_numberOfWorkers,
+    createSession_requestOrigin,
     createSession_securityConfiguration,
     createSession_tags,
     createSession_timeout,
-    createSession_numberOfWorkers,
-    createSession_glueVersion,
-    createSession_requestOrigin,
-    createSession_idleTimeout,
     createSession_workerType,
-    createSession_description,
-    createSession_defaultArguments,
-    createSession_connections,
-    createSession_maxCapacity,
     createSession_id,
     createSession_role,
     createSession_command,
@@ -65,22 +65,32 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateSession' smart constructor.
 data CreateSession = CreateSession'
-  { -- | The name of the SecurityConfiguration structure to be used with the
+  { -- | The number of connections to use for the session.
+    connections :: Prelude.Maybe ConnectionsList,
+    -- | A map array of key-value pairs. Max is 75 pairs.
+    defaultArguments :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The description of the session.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The Glue version determines the versions of Apache Spark and Python that
+    -- Glue supports. The GlueVersion must be greater than 2.0.
+    glueVersion :: Prelude.Maybe Prelude.Text,
+    -- | The number of seconds when idle before request times out.
+    idleTimeout :: Prelude.Maybe Prelude.Natural,
+    -- | The number of Glue data processing units (DPUs) that can be allocated
+    -- when the job runs. A DPU is a relative measure of processing power that
+    -- consists of 4 vCPUs of compute capacity and 16 GB memory.
+    maxCapacity :: Prelude.Maybe Prelude.Double,
+    -- | The number of workers of a defined @WorkerType@ to use for the session.
+    numberOfWorkers :: Prelude.Maybe Prelude.Int,
+    -- | The origin of the request.
+    requestOrigin :: Prelude.Maybe Prelude.Text,
+    -- | The name of the SecurityConfiguration structure to be used with the
     -- session
     securityConfiguration :: Prelude.Maybe Prelude.Text,
     -- | The map of key value pairs (tags) belonging to the session.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The number of seconds before request times out.
     timeout :: Prelude.Maybe Prelude.Natural,
-    -- | The number of workers of a defined @WorkerType@ to use for the session.
-    numberOfWorkers :: Prelude.Maybe Prelude.Int,
-    -- | The Glue version determines the versions of Apache Spark and Python that
-    -- Glue supports. The GlueVersion must be greater than 2.0.
-    glueVersion :: Prelude.Maybe Prelude.Text,
-    -- | The origin of the request.
-    requestOrigin :: Prelude.Maybe Prelude.Text,
-    -- | The number of seconds when idle before request times out.
-    idleTimeout :: Prelude.Maybe Prelude.Natural,
     -- | The type of predefined worker that is allocated to use for the session.
     -- Accepts a value of Standard, G.1X, G.2X, or G.025X.
     --
@@ -100,16 +110,6 @@ data CreateSession = CreateSession'
     --     recommend this worker type for low volume streaming jobs. This
     --     worker type is only available for Glue version 3.0 streaming jobs.
     workerType :: Prelude.Maybe WorkerType,
-    -- | The description of the session.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | A map array of key-value pairs. Max is 75 pairs.
-    defaultArguments :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The number of connections to use for the session.
-    connections :: Prelude.Maybe ConnectionsList,
-    -- | The number of Glue data processing units (DPUs) that can be allocated
-    -- when the job runs. A DPU is a relative measure of processing power that
-    -- consists of 4 vCPUs of compute capacity and 16 GB memory.
-    maxCapacity :: Prelude.Maybe Prelude.Double,
     -- | The ID of the session request.
     id :: Prelude.Text,
     -- | The IAM Role ARN
@@ -127,21 +127,31 @@ data CreateSession = CreateSession'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'connections', 'createSession_connections' - The number of connections to use for the session.
+--
+-- 'defaultArguments', 'createSession_defaultArguments' - A map array of key-value pairs. Max is 75 pairs.
+--
+-- 'description', 'createSession_description' - The description of the session.
+--
+-- 'glueVersion', 'createSession_glueVersion' - The Glue version determines the versions of Apache Spark and Python that
+-- Glue supports. The GlueVersion must be greater than 2.0.
+--
+-- 'idleTimeout', 'createSession_idleTimeout' - The number of seconds when idle before request times out.
+--
+-- 'maxCapacity', 'createSession_maxCapacity' - The number of Glue data processing units (DPUs) that can be allocated
+-- when the job runs. A DPU is a relative measure of processing power that
+-- consists of 4 vCPUs of compute capacity and 16 GB memory.
+--
+-- 'numberOfWorkers', 'createSession_numberOfWorkers' - The number of workers of a defined @WorkerType@ to use for the session.
+--
+-- 'requestOrigin', 'createSession_requestOrigin' - The origin of the request.
+--
 -- 'securityConfiguration', 'createSession_securityConfiguration' - The name of the SecurityConfiguration structure to be used with the
 -- session
 --
 -- 'tags', 'createSession_tags' - The map of key value pairs (tags) belonging to the session.
 --
 -- 'timeout', 'createSession_timeout' - The number of seconds before request times out.
---
--- 'numberOfWorkers', 'createSession_numberOfWorkers' - The number of workers of a defined @WorkerType@ to use for the session.
---
--- 'glueVersion', 'createSession_glueVersion' - The Glue version determines the versions of Apache Spark and Python that
--- Glue supports. The GlueVersion must be greater than 2.0.
---
--- 'requestOrigin', 'createSession_requestOrigin' - The origin of the request.
---
--- 'idleTimeout', 'createSession_idleTimeout' - The number of seconds when idle before request times out.
 --
 -- 'workerType', 'createSession_workerType' - The type of predefined worker that is allocated to use for the session.
 -- Accepts a value of Standard, G.1X, G.2X, or G.025X.
@@ -162,16 +172,6 @@ data CreateSession = CreateSession'
 --     recommend this worker type for low volume streaming jobs. This
 --     worker type is only available for Glue version 3.0 streaming jobs.
 --
--- 'description', 'createSession_description' - The description of the session.
---
--- 'defaultArguments', 'createSession_defaultArguments' - A map array of key-value pairs. Max is 75 pairs.
---
--- 'connections', 'createSession_connections' - The number of connections to use for the session.
---
--- 'maxCapacity', 'createSession_maxCapacity' - The number of Glue data processing units (DPUs) that can be allocated
--- when the job runs. A DPU is a relative measure of processing power that
--- consists of 4 vCPUs of compute capacity and 16 GB memory.
---
 -- 'id', 'createSession_id' - The ID of the session request.
 --
 -- 'role'', 'createSession_role' - The IAM Role ARN
@@ -187,23 +187,57 @@ newCreateSession ::
   CreateSession
 newCreateSession pId_ pRole_ pCommand_ =
   CreateSession'
-    { securityConfiguration =
-        Prelude.Nothing,
+    { connections = Prelude.Nothing,
+      defaultArguments = Prelude.Nothing,
+      description = Prelude.Nothing,
+      glueVersion = Prelude.Nothing,
+      idleTimeout = Prelude.Nothing,
+      maxCapacity = Prelude.Nothing,
+      numberOfWorkers = Prelude.Nothing,
+      requestOrigin = Prelude.Nothing,
+      securityConfiguration = Prelude.Nothing,
       tags = Prelude.Nothing,
       timeout = Prelude.Nothing,
-      numberOfWorkers = Prelude.Nothing,
-      glueVersion = Prelude.Nothing,
-      requestOrigin = Prelude.Nothing,
-      idleTimeout = Prelude.Nothing,
       workerType = Prelude.Nothing,
-      description = Prelude.Nothing,
-      defaultArguments = Prelude.Nothing,
-      connections = Prelude.Nothing,
-      maxCapacity = Prelude.Nothing,
       id = pId_,
       role' = pRole_,
       command = pCommand_
     }
+
+-- | The number of connections to use for the session.
+createSession_connections :: Lens.Lens' CreateSession (Prelude.Maybe ConnectionsList)
+createSession_connections = Lens.lens (\CreateSession' {connections} -> connections) (\s@CreateSession' {} a -> s {connections = a} :: CreateSession)
+
+-- | A map array of key-value pairs. Max is 75 pairs.
+createSession_defaultArguments :: Lens.Lens' CreateSession (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createSession_defaultArguments = Lens.lens (\CreateSession' {defaultArguments} -> defaultArguments) (\s@CreateSession' {} a -> s {defaultArguments = a} :: CreateSession) Prelude.. Lens.mapping Lens.coerced
+
+-- | The description of the session.
+createSession_description :: Lens.Lens' CreateSession (Prelude.Maybe Prelude.Text)
+createSession_description = Lens.lens (\CreateSession' {description} -> description) (\s@CreateSession' {} a -> s {description = a} :: CreateSession)
+
+-- | The Glue version determines the versions of Apache Spark and Python that
+-- Glue supports. The GlueVersion must be greater than 2.0.
+createSession_glueVersion :: Lens.Lens' CreateSession (Prelude.Maybe Prelude.Text)
+createSession_glueVersion = Lens.lens (\CreateSession' {glueVersion} -> glueVersion) (\s@CreateSession' {} a -> s {glueVersion = a} :: CreateSession)
+
+-- | The number of seconds when idle before request times out.
+createSession_idleTimeout :: Lens.Lens' CreateSession (Prelude.Maybe Prelude.Natural)
+createSession_idleTimeout = Lens.lens (\CreateSession' {idleTimeout} -> idleTimeout) (\s@CreateSession' {} a -> s {idleTimeout = a} :: CreateSession)
+
+-- | The number of Glue data processing units (DPUs) that can be allocated
+-- when the job runs. A DPU is a relative measure of processing power that
+-- consists of 4 vCPUs of compute capacity and 16 GB memory.
+createSession_maxCapacity :: Lens.Lens' CreateSession (Prelude.Maybe Prelude.Double)
+createSession_maxCapacity = Lens.lens (\CreateSession' {maxCapacity} -> maxCapacity) (\s@CreateSession' {} a -> s {maxCapacity = a} :: CreateSession)
+
+-- | The number of workers of a defined @WorkerType@ to use for the session.
+createSession_numberOfWorkers :: Lens.Lens' CreateSession (Prelude.Maybe Prelude.Int)
+createSession_numberOfWorkers = Lens.lens (\CreateSession' {numberOfWorkers} -> numberOfWorkers) (\s@CreateSession' {} a -> s {numberOfWorkers = a} :: CreateSession)
+
+-- | The origin of the request.
+createSession_requestOrigin :: Lens.Lens' CreateSession (Prelude.Maybe Prelude.Text)
+createSession_requestOrigin = Lens.lens (\CreateSession' {requestOrigin} -> requestOrigin) (\s@CreateSession' {} a -> s {requestOrigin = a} :: CreateSession)
 
 -- | The name of the SecurityConfiguration structure to be used with the
 -- session
@@ -217,23 +251,6 @@ createSession_tags = Lens.lens (\CreateSession' {tags} -> tags) (\s@CreateSessio
 -- | The number of seconds before request times out.
 createSession_timeout :: Lens.Lens' CreateSession (Prelude.Maybe Prelude.Natural)
 createSession_timeout = Lens.lens (\CreateSession' {timeout} -> timeout) (\s@CreateSession' {} a -> s {timeout = a} :: CreateSession)
-
--- | The number of workers of a defined @WorkerType@ to use for the session.
-createSession_numberOfWorkers :: Lens.Lens' CreateSession (Prelude.Maybe Prelude.Int)
-createSession_numberOfWorkers = Lens.lens (\CreateSession' {numberOfWorkers} -> numberOfWorkers) (\s@CreateSession' {} a -> s {numberOfWorkers = a} :: CreateSession)
-
--- | The Glue version determines the versions of Apache Spark and Python that
--- Glue supports. The GlueVersion must be greater than 2.0.
-createSession_glueVersion :: Lens.Lens' CreateSession (Prelude.Maybe Prelude.Text)
-createSession_glueVersion = Lens.lens (\CreateSession' {glueVersion} -> glueVersion) (\s@CreateSession' {} a -> s {glueVersion = a} :: CreateSession)
-
--- | The origin of the request.
-createSession_requestOrigin :: Lens.Lens' CreateSession (Prelude.Maybe Prelude.Text)
-createSession_requestOrigin = Lens.lens (\CreateSession' {requestOrigin} -> requestOrigin) (\s@CreateSession' {} a -> s {requestOrigin = a} :: CreateSession)
-
--- | The number of seconds when idle before request times out.
-createSession_idleTimeout :: Lens.Lens' CreateSession (Prelude.Maybe Prelude.Natural)
-createSession_idleTimeout = Lens.lens (\CreateSession' {idleTimeout} -> idleTimeout) (\s@CreateSession' {} a -> s {idleTimeout = a} :: CreateSession)
 
 -- | The type of predefined worker that is allocated to use for the session.
 -- Accepts a value of Standard, G.1X, G.2X, or G.025X.
@@ -255,24 +272,6 @@ createSession_idleTimeout = Lens.lens (\CreateSession' {idleTimeout} -> idleTime
 --     worker type is only available for Glue version 3.0 streaming jobs.
 createSession_workerType :: Lens.Lens' CreateSession (Prelude.Maybe WorkerType)
 createSession_workerType = Lens.lens (\CreateSession' {workerType} -> workerType) (\s@CreateSession' {} a -> s {workerType = a} :: CreateSession)
-
--- | The description of the session.
-createSession_description :: Lens.Lens' CreateSession (Prelude.Maybe Prelude.Text)
-createSession_description = Lens.lens (\CreateSession' {description} -> description) (\s@CreateSession' {} a -> s {description = a} :: CreateSession)
-
--- | A map array of key-value pairs. Max is 75 pairs.
-createSession_defaultArguments :: Lens.Lens' CreateSession (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createSession_defaultArguments = Lens.lens (\CreateSession' {defaultArguments} -> defaultArguments) (\s@CreateSession' {} a -> s {defaultArguments = a} :: CreateSession) Prelude.. Lens.mapping Lens.coerced
-
--- | The number of connections to use for the session.
-createSession_connections :: Lens.Lens' CreateSession (Prelude.Maybe ConnectionsList)
-createSession_connections = Lens.lens (\CreateSession' {connections} -> connections) (\s@CreateSession' {} a -> s {connections = a} :: CreateSession)
-
--- | The number of Glue data processing units (DPUs) that can be allocated
--- when the job runs. A DPU is a relative measure of processing power that
--- consists of 4 vCPUs of compute capacity and 16 GB memory.
-createSession_maxCapacity :: Lens.Lens' CreateSession (Prelude.Maybe Prelude.Double)
-createSession_maxCapacity = Lens.lens (\CreateSession' {maxCapacity} -> maxCapacity) (\s@CreateSession' {} a -> s {maxCapacity = a} :: CreateSession)
 
 -- | The ID of the session request.
 createSession_id :: Lens.Lens' CreateSession Prelude.Text
@@ -302,36 +301,36 @@ instance Core.AWSRequest CreateSession where
 
 instance Prelude.Hashable CreateSession where
   hashWithSalt _salt CreateSession' {..} =
-    _salt `Prelude.hashWithSalt` securityConfiguration
+    _salt `Prelude.hashWithSalt` connections
+      `Prelude.hashWithSalt` defaultArguments
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` glueVersion
+      `Prelude.hashWithSalt` idleTimeout
+      `Prelude.hashWithSalt` maxCapacity
+      `Prelude.hashWithSalt` numberOfWorkers
+      `Prelude.hashWithSalt` requestOrigin
+      `Prelude.hashWithSalt` securityConfiguration
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` timeout
-      `Prelude.hashWithSalt` numberOfWorkers
-      `Prelude.hashWithSalt` glueVersion
-      `Prelude.hashWithSalt` requestOrigin
-      `Prelude.hashWithSalt` idleTimeout
       `Prelude.hashWithSalt` workerType
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` defaultArguments
-      `Prelude.hashWithSalt` connections
-      `Prelude.hashWithSalt` maxCapacity
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` role'
       `Prelude.hashWithSalt` command
 
 instance Prelude.NFData CreateSession where
   rnf CreateSession' {..} =
-    Prelude.rnf securityConfiguration
+    Prelude.rnf connections
+      `Prelude.seq` Prelude.rnf defaultArguments
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf glueVersion
+      `Prelude.seq` Prelude.rnf idleTimeout
+      `Prelude.seq` Prelude.rnf maxCapacity
+      `Prelude.seq` Prelude.rnf numberOfWorkers
+      `Prelude.seq` Prelude.rnf requestOrigin
+      `Prelude.seq` Prelude.rnf securityConfiguration
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf timeout
-      `Prelude.seq` Prelude.rnf numberOfWorkers
-      `Prelude.seq` Prelude.rnf glueVersion
-      `Prelude.seq` Prelude.rnf requestOrigin
-      `Prelude.seq` Prelude.rnf idleTimeout
       `Prelude.seq` Prelude.rnf workerType
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf defaultArguments
-      `Prelude.seq` Prelude.rnf connections
-      `Prelude.seq` Prelude.rnf maxCapacity
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf role'
       `Prelude.seq` Prelude.rnf command
@@ -353,21 +352,21 @@ instance Data.ToJSON CreateSession where
   toJSON CreateSession' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SecurityConfiguration" Data..=)
+          [ ("Connections" Data..=) Prelude.<$> connections,
+            ("DefaultArguments" Data..=)
+              Prelude.<$> defaultArguments,
+            ("Description" Data..=) Prelude.<$> description,
+            ("GlueVersion" Data..=) Prelude.<$> glueVersion,
+            ("IdleTimeout" Data..=) Prelude.<$> idleTimeout,
+            ("MaxCapacity" Data..=) Prelude.<$> maxCapacity,
+            ("NumberOfWorkers" Data..=)
+              Prelude.<$> numberOfWorkers,
+            ("RequestOrigin" Data..=) Prelude.<$> requestOrigin,
+            ("SecurityConfiguration" Data..=)
               Prelude.<$> securityConfiguration,
             ("Tags" Data..=) Prelude.<$> tags,
             ("Timeout" Data..=) Prelude.<$> timeout,
-            ("NumberOfWorkers" Data..=)
-              Prelude.<$> numberOfWorkers,
-            ("GlueVersion" Data..=) Prelude.<$> glueVersion,
-            ("RequestOrigin" Data..=) Prelude.<$> requestOrigin,
-            ("IdleTimeout" Data..=) Prelude.<$> idleTimeout,
             ("WorkerType" Data..=) Prelude.<$> workerType,
-            ("Description" Data..=) Prelude.<$> description,
-            ("DefaultArguments" Data..=)
-              Prelude.<$> defaultArguments,
-            ("Connections" Data..=) Prelude.<$> connections,
-            ("MaxCapacity" Data..=) Prelude.<$> maxCapacity,
             Prelude.Just ("Id" Data..= id),
             Prelude.Just ("Role" Data..= role'),
             Prelude.Just ("Command" Data..= command)

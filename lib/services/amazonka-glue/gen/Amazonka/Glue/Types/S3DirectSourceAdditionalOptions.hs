@@ -28,16 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newS3DirectSourceAdditionalOptions' smart constructor.
 data S3DirectSourceAdditionalOptions = S3DirectSourceAdditionalOptions'
-  { -- | If enabled, specifies the sample path.
-    samplePath :: Prelude.Maybe Prelude.Text,
-    -- | Sets option to enable a sample path.
-    enableSamplePath :: Prelude.Maybe Prelude.Bool,
+  { -- | Sets the upper limit for the target number of files that will be
+    -- processed.
+    boundedFiles :: Prelude.Maybe Prelude.Integer,
     -- | Sets the upper limit for the target size of the dataset in bytes that
     -- will be processed.
     boundedSize :: Prelude.Maybe Prelude.Integer,
-    -- | Sets the upper limit for the target number of files that will be
-    -- processed.
-    boundedFiles :: Prelude.Maybe Prelude.Integer
+    -- | Sets option to enable a sample path.
+    enableSamplePath :: Prelude.Maybe Prelude.Bool,
+    -- | If enabled, specifies the sample path.
+    samplePath :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,43 +49,43 @@ data S3DirectSourceAdditionalOptions = S3DirectSourceAdditionalOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'samplePath', 's3DirectSourceAdditionalOptions_samplePath' - If enabled, specifies the sample path.
---
--- 'enableSamplePath', 's3DirectSourceAdditionalOptions_enableSamplePath' - Sets option to enable a sample path.
+-- 'boundedFiles', 's3DirectSourceAdditionalOptions_boundedFiles' - Sets the upper limit for the target number of files that will be
+-- processed.
 --
 -- 'boundedSize', 's3DirectSourceAdditionalOptions_boundedSize' - Sets the upper limit for the target size of the dataset in bytes that
 -- will be processed.
 --
--- 'boundedFiles', 's3DirectSourceAdditionalOptions_boundedFiles' - Sets the upper limit for the target number of files that will be
--- processed.
+-- 'enableSamplePath', 's3DirectSourceAdditionalOptions_enableSamplePath' - Sets option to enable a sample path.
+--
+-- 'samplePath', 's3DirectSourceAdditionalOptions_samplePath' - If enabled, specifies the sample path.
 newS3DirectSourceAdditionalOptions ::
   S3DirectSourceAdditionalOptions
 newS3DirectSourceAdditionalOptions =
   S3DirectSourceAdditionalOptions'
-    { samplePath =
+    { boundedFiles =
         Prelude.Nothing,
-      enableSamplePath = Prelude.Nothing,
       boundedSize = Prelude.Nothing,
-      boundedFiles = Prelude.Nothing
+      enableSamplePath = Prelude.Nothing,
+      samplePath = Prelude.Nothing
     }
 
--- | If enabled, specifies the sample path.
-s3DirectSourceAdditionalOptions_samplePath :: Lens.Lens' S3DirectSourceAdditionalOptions (Prelude.Maybe Prelude.Text)
-s3DirectSourceAdditionalOptions_samplePath = Lens.lens (\S3DirectSourceAdditionalOptions' {samplePath} -> samplePath) (\s@S3DirectSourceAdditionalOptions' {} a -> s {samplePath = a} :: S3DirectSourceAdditionalOptions)
-
--- | Sets option to enable a sample path.
-s3DirectSourceAdditionalOptions_enableSamplePath :: Lens.Lens' S3DirectSourceAdditionalOptions (Prelude.Maybe Prelude.Bool)
-s3DirectSourceAdditionalOptions_enableSamplePath = Lens.lens (\S3DirectSourceAdditionalOptions' {enableSamplePath} -> enableSamplePath) (\s@S3DirectSourceAdditionalOptions' {} a -> s {enableSamplePath = a} :: S3DirectSourceAdditionalOptions)
+-- | Sets the upper limit for the target number of files that will be
+-- processed.
+s3DirectSourceAdditionalOptions_boundedFiles :: Lens.Lens' S3DirectSourceAdditionalOptions (Prelude.Maybe Prelude.Integer)
+s3DirectSourceAdditionalOptions_boundedFiles = Lens.lens (\S3DirectSourceAdditionalOptions' {boundedFiles} -> boundedFiles) (\s@S3DirectSourceAdditionalOptions' {} a -> s {boundedFiles = a} :: S3DirectSourceAdditionalOptions)
 
 -- | Sets the upper limit for the target size of the dataset in bytes that
 -- will be processed.
 s3DirectSourceAdditionalOptions_boundedSize :: Lens.Lens' S3DirectSourceAdditionalOptions (Prelude.Maybe Prelude.Integer)
 s3DirectSourceAdditionalOptions_boundedSize = Lens.lens (\S3DirectSourceAdditionalOptions' {boundedSize} -> boundedSize) (\s@S3DirectSourceAdditionalOptions' {} a -> s {boundedSize = a} :: S3DirectSourceAdditionalOptions)
 
--- | Sets the upper limit for the target number of files that will be
--- processed.
-s3DirectSourceAdditionalOptions_boundedFiles :: Lens.Lens' S3DirectSourceAdditionalOptions (Prelude.Maybe Prelude.Integer)
-s3DirectSourceAdditionalOptions_boundedFiles = Lens.lens (\S3DirectSourceAdditionalOptions' {boundedFiles} -> boundedFiles) (\s@S3DirectSourceAdditionalOptions' {} a -> s {boundedFiles = a} :: S3DirectSourceAdditionalOptions)
+-- | Sets option to enable a sample path.
+s3DirectSourceAdditionalOptions_enableSamplePath :: Lens.Lens' S3DirectSourceAdditionalOptions (Prelude.Maybe Prelude.Bool)
+s3DirectSourceAdditionalOptions_enableSamplePath = Lens.lens (\S3DirectSourceAdditionalOptions' {enableSamplePath} -> enableSamplePath) (\s@S3DirectSourceAdditionalOptions' {} a -> s {enableSamplePath = a} :: S3DirectSourceAdditionalOptions)
+
+-- | If enabled, specifies the sample path.
+s3DirectSourceAdditionalOptions_samplePath :: Lens.Lens' S3DirectSourceAdditionalOptions (Prelude.Maybe Prelude.Text)
+s3DirectSourceAdditionalOptions_samplePath = Lens.lens (\S3DirectSourceAdditionalOptions' {samplePath} -> samplePath) (\s@S3DirectSourceAdditionalOptions' {} a -> s {samplePath = a} :: S3DirectSourceAdditionalOptions)
 
 instance
   Data.FromJSON
@@ -96,10 +96,10 @@ instance
       "S3DirectSourceAdditionalOptions"
       ( \x ->
           S3DirectSourceAdditionalOptions'
-            Prelude.<$> (x Data..:? "SamplePath")
-            Prelude.<*> (x Data..:? "EnableSamplePath")
+            Prelude.<$> (x Data..:? "BoundedFiles")
             Prelude.<*> (x Data..:? "BoundedSize")
-            Prelude.<*> (x Data..:? "BoundedFiles")
+            Prelude.<*> (x Data..:? "EnableSamplePath")
+            Prelude.<*> (x Data..:? "SamplePath")
       )
 
 instance
@@ -109,29 +109,29 @@ instance
   hashWithSalt
     _salt
     S3DirectSourceAdditionalOptions' {..} =
-      _salt `Prelude.hashWithSalt` samplePath
-        `Prelude.hashWithSalt` enableSamplePath
+      _salt `Prelude.hashWithSalt` boundedFiles
         `Prelude.hashWithSalt` boundedSize
-        `Prelude.hashWithSalt` boundedFiles
+        `Prelude.hashWithSalt` enableSamplePath
+        `Prelude.hashWithSalt` samplePath
 
 instance
   Prelude.NFData
     S3DirectSourceAdditionalOptions
   where
   rnf S3DirectSourceAdditionalOptions' {..} =
-    Prelude.rnf samplePath
-      `Prelude.seq` Prelude.rnf enableSamplePath
+    Prelude.rnf boundedFiles
       `Prelude.seq` Prelude.rnf boundedSize
-      `Prelude.seq` Prelude.rnf boundedFiles
+      `Prelude.seq` Prelude.rnf enableSamplePath
+      `Prelude.seq` Prelude.rnf samplePath
 
 instance Data.ToJSON S3DirectSourceAdditionalOptions where
   toJSON S3DirectSourceAdditionalOptions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SamplePath" Data..=) Prelude.<$> samplePath,
+          [ ("BoundedFiles" Data..=) Prelude.<$> boundedFiles,
+            ("BoundedSize" Data..=) Prelude.<$> boundedSize,
             ("EnableSamplePath" Data..=)
               Prelude.<$> enableSamplePath,
-            ("BoundedSize" Data..=) Prelude.<$> boundedSize,
-            ("BoundedFiles" Data..=) Prelude.<$> boundedFiles
+            ("SamplePath" Data..=) Prelude.<$> samplePath
           ]
       )

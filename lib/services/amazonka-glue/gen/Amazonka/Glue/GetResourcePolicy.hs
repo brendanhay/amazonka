@@ -34,10 +34,10 @@ module Amazonka.Glue.GetResourcePolicy
     newGetResourcePolicyResponse,
 
     -- * Response Lenses
-    getResourcePolicyResponse_policyInJson,
-    getResourcePolicyResponse_updateTime,
     getResourcePolicyResponse_createTime,
     getResourcePolicyResponse_policyHash,
+    getResourcePolicyResponse_policyInJson,
+    getResourcePolicyResponse_updateTime,
     getResourcePolicyResponse_httpStatus,
   )
 where
@@ -97,10 +97,10 @@ instance Core.AWSRequest GetResourcePolicy where
     Response.receiveJSON
       ( \s h x ->
           GetResourcePolicyResponse'
-            Prelude.<$> (x Data..?> "PolicyInJson")
-            Prelude.<*> (x Data..?> "UpdateTime")
-            Prelude.<*> (x Data..?> "CreateTime")
+            Prelude.<$> (x Data..?> "CreateTime")
             Prelude.<*> (x Data..?> "PolicyHash")
+            Prelude.<*> (x Data..?> "PolicyInJson")
+            Prelude.<*> (x Data..?> "UpdateTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,14 +139,14 @@ instance Data.ToQuery GetResourcePolicy where
 
 -- | /See:/ 'newGetResourcePolicyResponse' smart constructor.
 data GetResourcePolicyResponse = GetResourcePolicyResponse'
-  { -- | Contains the requested policy document, in JSON format.
-    policyInJson :: Prelude.Maybe Prelude.Text,
-    -- | The date and time at which the policy was last updated.
-    updateTime :: Prelude.Maybe Data.POSIX,
-    -- | The date and time at which the policy was created.
+  { -- | The date and time at which the policy was created.
     createTime :: Prelude.Maybe Data.POSIX,
     -- | Contains the hash value associated with this policy.
     policyHash :: Prelude.Maybe Prelude.Text,
+    -- | Contains the requested policy document, in JSON format.
+    policyInJson :: Prelude.Maybe Prelude.Text,
+    -- | The date and time at which the policy was last updated.
+    updateTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -160,13 +160,13 @@ data GetResourcePolicyResponse = GetResourcePolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policyInJson', 'getResourcePolicyResponse_policyInJson' - Contains the requested policy document, in JSON format.
---
--- 'updateTime', 'getResourcePolicyResponse_updateTime' - The date and time at which the policy was last updated.
---
 -- 'createTime', 'getResourcePolicyResponse_createTime' - The date and time at which the policy was created.
 --
 -- 'policyHash', 'getResourcePolicyResponse_policyHash' - Contains the hash value associated with this policy.
+--
+-- 'policyInJson', 'getResourcePolicyResponse_policyInJson' - Contains the requested policy document, in JSON format.
+--
+-- 'updateTime', 'getResourcePolicyResponse_updateTime' - The date and time at which the policy was last updated.
 --
 -- 'httpStatus', 'getResourcePolicyResponse_httpStatus' - The response's http status code.
 newGetResourcePolicyResponse ::
@@ -175,21 +175,13 @@ newGetResourcePolicyResponse ::
   GetResourcePolicyResponse
 newGetResourcePolicyResponse pHttpStatus_ =
   GetResourcePolicyResponse'
-    { policyInJson =
+    { createTime =
         Prelude.Nothing,
-      updateTime = Prelude.Nothing,
-      createTime = Prelude.Nothing,
       policyHash = Prelude.Nothing,
+      policyInJson = Prelude.Nothing,
+      updateTime = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Contains the requested policy document, in JSON format.
-getResourcePolicyResponse_policyInJson :: Lens.Lens' GetResourcePolicyResponse (Prelude.Maybe Prelude.Text)
-getResourcePolicyResponse_policyInJson = Lens.lens (\GetResourcePolicyResponse' {policyInJson} -> policyInJson) (\s@GetResourcePolicyResponse' {} a -> s {policyInJson = a} :: GetResourcePolicyResponse)
-
--- | The date and time at which the policy was last updated.
-getResourcePolicyResponse_updateTime :: Lens.Lens' GetResourcePolicyResponse (Prelude.Maybe Prelude.UTCTime)
-getResourcePolicyResponse_updateTime = Lens.lens (\GetResourcePolicyResponse' {updateTime} -> updateTime) (\s@GetResourcePolicyResponse' {} a -> s {updateTime = a} :: GetResourcePolicyResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time at which the policy was created.
 getResourcePolicyResponse_createTime :: Lens.Lens' GetResourcePolicyResponse (Prelude.Maybe Prelude.UTCTime)
@@ -199,14 +191,22 @@ getResourcePolicyResponse_createTime = Lens.lens (\GetResourcePolicyResponse' {c
 getResourcePolicyResponse_policyHash :: Lens.Lens' GetResourcePolicyResponse (Prelude.Maybe Prelude.Text)
 getResourcePolicyResponse_policyHash = Lens.lens (\GetResourcePolicyResponse' {policyHash} -> policyHash) (\s@GetResourcePolicyResponse' {} a -> s {policyHash = a} :: GetResourcePolicyResponse)
 
+-- | Contains the requested policy document, in JSON format.
+getResourcePolicyResponse_policyInJson :: Lens.Lens' GetResourcePolicyResponse (Prelude.Maybe Prelude.Text)
+getResourcePolicyResponse_policyInJson = Lens.lens (\GetResourcePolicyResponse' {policyInJson} -> policyInJson) (\s@GetResourcePolicyResponse' {} a -> s {policyInJson = a} :: GetResourcePolicyResponse)
+
+-- | The date and time at which the policy was last updated.
+getResourcePolicyResponse_updateTime :: Lens.Lens' GetResourcePolicyResponse (Prelude.Maybe Prelude.UTCTime)
+getResourcePolicyResponse_updateTime = Lens.lens (\GetResourcePolicyResponse' {updateTime} -> updateTime) (\s@GetResourcePolicyResponse' {} a -> s {updateTime = a} :: GetResourcePolicyResponse) Prelude.. Lens.mapping Data._Time
+
 -- | The response's http status code.
 getResourcePolicyResponse_httpStatus :: Lens.Lens' GetResourcePolicyResponse Prelude.Int
 getResourcePolicyResponse_httpStatus = Lens.lens (\GetResourcePolicyResponse' {httpStatus} -> httpStatus) (\s@GetResourcePolicyResponse' {} a -> s {httpStatus = a} :: GetResourcePolicyResponse)
 
 instance Prelude.NFData GetResourcePolicyResponse where
   rnf GetResourcePolicyResponse' {..} =
-    Prelude.rnf policyInJson
-      `Prelude.seq` Prelude.rnf updateTime
-      `Prelude.seq` Prelude.rnf createTime
+    Prelude.rnf createTime
       `Prelude.seq` Prelude.rnf policyHash
+      `Prelude.seq` Prelude.rnf policyInJson
+      `Prelude.seq` Prelude.rnf updateTime
       `Prelude.seq` Prelude.rnf httpStatus

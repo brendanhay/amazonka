@@ -38,9 +38,9 @@ module Amazonka.Glue.DeleteRegistry
     newDeleteRegistryResponse,
 
     -- * Response Lenses
+    deleteRegistryResponse_registryArn,
     deleteRegistryResponse_registryName,
     deleteRegistryResponse_status,
-    deleteRegistryResponse_registryArn,
     deleteRegistryResponse_httpStatus,
   )
 where
@@ -93,9 +93,9 @@ instance Core.AWSRequest DeleteRegistry where
     Response.receiveJSON
       ( \s h x ->
           DeleteRegistryResponse'
-            Prelude.<$> (x Data..?> "RegistryName")
+            Prelude.<$> (x Data..?> "RegistryArn")
+            Prelude.<*> (x Data..?> "RegistryName")
             Prelude.<*> (x Data..?> "Status")
-            Prelude.<*> (x Data..?> "RegistryArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,13 +134,13 @@ instance Data.ToQuery DeleteRegistry where
 
 -- | /See:/ 'newDeleteRegistryResponse' smart constructor.
 data DeleteRegistryResponse = DeleteRegistryResponse'
-  { -- | The name of the registry being deleted.
+  { -- | The Amazon Resource Name (ARN) of the registry being deleted.
+    registryArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the registry being deleted.
     registryName :: Prelude.Maybe Prelude.Text,
     -- | The status of the registry. A successful operation will return the
     -- @Deleting@ status.
     status :: Prelude.Maybe RegistryStatus,
-    -- | The Amazon Resource Name (ARN) of the registry being deleted.
-    registryArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -154,12 +154,12 @@ data DeleteRegistryResponse = DeleteRegistryResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'registryArn', 'deleteRegistryResponse_registryArn' - The Amazon Resource Name (ARN) of the registry being deleted.
+--
 -- 'registryName', 'deleteRegistryResponse_registryName' - The name of the registry being deleted.
 --
 -- 'status', 'deleteRegistryResponse_status' - The status of the registry. A successful operation will return the
 -- @Deleting@ status.
---
--- 'registryArn', 'deleteRegistryResponse_registryArn' - The Amazon Resource Name (ARN) of the registry being deleted.
 --
 -- 'httpStatus', 'deleteRegistryResponse_httpStatus' - The response's http status code.
 newDeleteRegistryResponse ::
@@ -168,12 +168,16 @@ newDeleteRegistryResponse ::
   DeleteRegistryResponse
 newDeleteRegistryResponse pHttpStatus_ =
   DeleteRegistryResponse'
-    { registryName =
+    { registryArn =
         Prelude.Nothing,
+      registryName = Prelude.Nothing,
       status = Prelude.Nothing,
-      registryArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The Amazon Resource Name (ARN) of the registry being deleted.
+deleteRegistryResponse_registryArn :: Lens.Lens' DeleteRegistryResponse (Prelude.Maybe Prelude.Text)
+deleteRegistryResponse_registryArn = Lens.lens (\DeleteRegistryResponse' {registryArn} -> registryArn) (\s@DeleteRegistryResponse' {} a -> s {registryArn = a} :: DeleteRegistryResponse)
 
 -- | The name of the registry being deleted.
 deleteRegistryResponse_registryName :: Lens.Lens' DeleteRegistryResponse (Prelude.Maybe Prelude.Text)
@@ -184,17 +188,13 @@ deleteRegistryResponse_registryName = Lens.lens (\DeleteRegistryResponse' {regis
 deleteRegistryResponse_status :: Lens.Lens' DeleteRegistryResponse (Prelude.Maybe RegistryStatus)
 deleteRegistryResponse_status = Lens.lens (\DeleteRegistryResponse' {status} -> status) (\s@DeleteRegistryResponse' {} a -> s {status = a} :: DeleteRegistryResponse)
 
--- | The Amazon Resource Name (ARN) of the registry being deleted.
-deleteRegistryResponse_registryArn :: Lens.Lens' DeleteRegistryResponse (Prelude.Maybe Prelude.Text)
-deleteRegistryResponse_registryArn = Lens.lens (\DeleteRegistryResponse' {registryArn} -> registryArn) (\s@DeleteRegistryResponse' {} a -> s {registryArn = a} :: DeleteRegistryResponse)
-
 -- | The response's http status code.
 deleteRegistryResponse_httpStatus :: Lens.Lens' DeleteRegistryResponse Prelude.Int
 deleteRegistryResponse_httpStatus = Lens.lens (\DeleteRegistryResponse' {httpStatus} -> httpStatus) (\s@DeleteRegistryResponse' {} a -> s {httpStatus = a} :: DeleteRegistryResponse)
 
 instance Prelude.NFData DeleteRegistryResponse where
   rnf DeleteRegistryResponse' {..} =
-    Prelude.rnf registryName
+    Prelude.rnf registryArn
+      `Prelude.seq` Prelude.rnf registryName
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf registryArn
       `Prelude.seq` Prelude.rnf httpStatus

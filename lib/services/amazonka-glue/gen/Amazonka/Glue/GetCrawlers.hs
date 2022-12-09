@@ -29,16 +29,16 @@ module Amazonka.Glue.GetCrawlers
     newGetCrawlers,
 
     -- * Request Lenses
-    getCrawlers_nextToken,
     getCrawlers_maxResults,
+    getCrawlers_nextToken,
 
     -- * Destructuring the Response
     GetCrawlersResponse (..),
     newGetCrawlersResponse,
 
     -- * Response Lenses
-    getCrawlersResponse_nextToken,
     getCrawlersResponse_crawlers,
+    getCrawlersResponse_nextToken,
     getCrawlersResponse_httpStatus,
   )
 where
@@ -53,10 +53,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetCrawlers' smart constructor.
 data GetCrawlers = GetCrawlers'
-  { -- | A continuation token, if this is a continuation request.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The number of crawlers to return on each call.
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { -- | The number of crawlers to return on each call.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A continuation token, if this is a continuation request.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,24 +68,24 @@ data GetCrawlers = GetCrawlers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getCrawlers_nextToken' - A continuation token, if this is a continuation request.
---
 -- 'maxResults', 'getCrawlers_maxResults' - The number of crawlers to return on each call.
+--
+-- 'nextToken', 'getCrawlers_nextToken' - A continuation token, if this is a continuation request.
 newGetCrawlers ::
   GetCrawlers
 newGetCrawlers =
   GetCrawlers'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | A continuation token, if this is a continuation request.
-getCrawlers_nextToken :: Lens.Lens' GetCrawlers (Prelude.Maybe Prelude.Text)
-getCrawlers_nextToken = Lens.lens (\GetCrawlers' {nextToken} -> nextToken) (\s@GetCrawlers' {} a -> s {nextToken = a} :: GetCrawlers)
 
 -- | The number of crawlers to return on each call.
 getCrawlers_maxResults :: Lens.Lens' GetCrawlers (Prelude.Maybe Prelude.Natural)
 getCrawlers_maxResults = Lens.lens (\GetCrawlers' {maxResults} -> maxResults) (\s@GetCrawlers' {} a -> s {maxResults = a} :: GetCrawlers)
+
+-- | A continuation token, if this is a continuation request.
+getCrawlers_nextToken :: Lens.Lens' GetCrawlers (Prelude.Maybe Prelude.Text)
+getCrawlers_nextToken = Lens.lens (\GetCrawlers' {nextToken} -> nextToken) (\s@GetCrawlers' {} a -> s {nextToken = a} :: GetCrawlers)
 
 instance Core.AWSPager GetCrawlers where
   page rq rs
@@ -114,20 +114,20 @@ instance Core.AWSRequest GetCrawlers where
     Response.receiveJSON
       ( \s h x ->
           GetCrawlersResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Crawlers" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Crawlers" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetCrawlers where
   hashWithSalt _salt GetCrawlers' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData GetCrawlers where
   rnf GetCrawlers' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders GetCrawlers where
   toHeaders =
@@ -146,8 +146,8 @@ instance Data.ToJSON GetCrawlers where
   toJSON GetCrawlers' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -159,11 +159,11 @@ instance Data.ToQuery GetCrawlers where
 
 -- | /See:/ 'newGetCrawlersResponse' smart constructor.
 data GetCrawlersResponse = GetCrawlersResponse'
-  { -- | A continuation token, if the returned list has not reached the end of
+  { -- | A list of crawler metadata.
+    crawlers :: Prelude.Maybe [Crawler],
+    -- | A continuation token, if the returned list has not reached the end of
     -- those defined in this customer account.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of crawler metadata.
-    crawlers :: Prelude.Maybe [Crawler],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -177,10 +177,10 @@ data GetCrawlersResponse = GetCrawlersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'crawlers', 'getCrawlersResponse_crawlers' - A list of crawler metadata.
+--
 -- 'nextToken', 'getCrawlersResponse_nextToken' - A continuation token, if the returned list has not reached the end of
 -- those defined in this customer account.
---
--- 'crawlers', 'getCrawlersResponse_crawlers' - A list of crawler metadata.
 --
 -- 'httpStatus', 'getCrawlersResponse_httpStatus' - The response's http status code.
 newGetCrawlersResponse ::
@@ -189,19 +189,19 @@ newGetCrawlersResponse ::
   GetCrawlersResponse
 newGetCrawlersResponse pHttpStatus_ =
   GetCrawlersResponse'
-    { nextToken = Prelude.Nothing,
-      crawlers = Prelude.Nothing,
+    { crawlers = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of crawler metadata.
+getCrawlersResponse_crawlers :: Lens.Lens' GetCrawlersResponse (Prelude.Maybe [Crawler])
+getCrawlersResponse_crawlers = Lens.lens (\GetCrawlersResponse' {crawlers} -> crawlers) (\s@GetCrawlersResponse' {} a -> s {crawlers = a} :: GetCrawlersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A continuation token, if the returned list has not reached the end of
 -- those defined in this customer account.
 getCrawlersResponse_nextToken :: Lens.Lens' GetCrawlersResponse (Prelude.Maybe Prelude.Text)
 getCrawlersResponse_nextToken = Lens.lens (\GetCrawlersResponse' {nextToken} -> nextToken) (\s@GetCrawlersResponse' {} a -> s {nextToken = a} :: GetCrawlersResponse)
-
--- | A list of crawler metadata.
-getCrawlersResponse_crawlers :: Lens.Lens' GetCrawlersResponse (Prelude.Maybe [Crawler])
-getCrawlersResponse_crawlers = Lens.lens (\GetCrawlersResponse' {crawlers} -> crawlers) (\s@GetCrawlersResponse' {} a -> s {crawlers = a} :: GetCrawlersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getCrawlersResponse_httpStatus :: Lens.Lens' GetCrawlersResponse Prelude.Int
@@ -209,6 +209,6 @@ getCrawlersResponse_httpStatus = Lens.lens (\GetCrawlersResponse' {httpStatus} -
 
 instance Prelude.NFData GetCrawlersResponse where
   rnf GetCrawlersResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf crawlers
+    Prelude.rnf crawlers
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

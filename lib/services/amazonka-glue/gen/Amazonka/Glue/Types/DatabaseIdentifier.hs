@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDatabaseIdentifier' smart constructor.
 data DatabaseIdentifier = DatabaseIdentifier'
-  { -- | The name of the catalog database.
-    databaseName :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the Data Catalog in which the database resides.
-    catalogId :: Prelude.Maybe Prelude.Text
+  { -- | The ID of the Data Catalog in which the database resides.
+    catalogId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the catalog database.
+    databaseName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data DatabaseIdentifier = DatabaseIdentifier'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'databaseName', 'databaseIdentifier_databaseName' - The name of the catalog database.
---
 -- 'catalogId', 'databaseIdentifier_catalogId' - The ID of the Data Catalog in which the database resides.
+--
+-- 'databaseName', 'databaseIdentifier_databaseName' - The name of the catalog database.
 newDatabaseIdentifier ::
   DatabaseIdentifier
 newDatabaseIdentifier =
   DatabaseIdentifier'
-    { databaseName = Prelude.Nothing,
-      catalogId = Prelude.Nothing
+    { catalogId = Prelude.Nothing,
+      databaseName = Prelude.Nothing
     }
-
--- | The name of the catalog database.
-databaseIdentifier_databaseName :: Lens.Lens' DatabaseIdentifier (Prelude.Maybe Prelude.Text)
-databaseIdentifier_databaseName = Lens.lens (\DatabaseIdentifier' {databaseName} -> databaseName) (\s@DatabaseIdentifier' {} a -> s {databaseName = a} :: DatabaseIdentifier)
 
 -- | The ID of the Data Catalog in which the database resides.
 databaseIdentifier_catalogId :: Lens.Lens' DatabaseIdentifier (Prelude.Maybe Prelude.Text)
 databaseIdentifier_catalogId = Lens.lens (\DatabaseIdentifier' {catalogId} -> catalogId) (\s@DatabaseIdentifier' {} a -> s {catalogId = a} :: DatabaseIdentifier)
+
+-- | The name of the catalog database.
+databaseIdentifier_databaseName :: Lens.Lens' DatabaseIdentifier (Prelude.Maybe Prelude.Text)
+databaseIdentifier_databaseName = Lens.lens (\DatabaseIdentifier' {databaseName} -> databaseName) (\s@DatabaseIdentifier' {} a -> s {databaseName = a} :: DatabaseIdentifier)
 
 instance Data.FromJSON DatabaseIdentifier where
   parseJSON =
@@ -68,25 +68,25 @@ instance Data.FromJSON DatabaseIdentifier where
       "DatabaseIdentifier"
       ( \x ->
           DatabaseIdentifier'
-            Prelude.<$> (x Data..:? "DatabaseName")
-            Prelude.<*> (x Data..:? "CatalogId")
+            Prelude.<$> (x Data..:? "CatalogId")
+            Prelude.<*> (x Data..:? "DatabaseName")
       )
 
 instance Prelude.Hashable DatabaseIdentifier where
   hashWithSalt _salt DatabaseIdentifier' {..} =
-    _salt `Prelude.hashWithSalt` databaseName
-      `Prelude.hashWithSalt` catalogId
+    _salt `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` databaseName
 
 instance Prelude.NFData DatabaseIdentifier where
   rnf DatabaseIdentifier' {..} =
-    Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf catalogId
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf databaseName
 
 instance Data.ToJSON DatabaseIdentifier where
   toJSON DatabaseIdentifier' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("DatabaseName" Data..=) Prelude.<$> databaseName,
-            ("CatalogId" Data..=) Prelude.<$> catalogId
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
+            ("DatabaseName" Data..=) Prelude.<$> databaseName
           ]
       )

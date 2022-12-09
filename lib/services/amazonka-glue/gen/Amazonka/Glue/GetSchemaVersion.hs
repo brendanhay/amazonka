@@ -29,9 +29,9 @@ module Amazonka.Glue.GetSchemaVersion
     newGetSchemaVersion,
 
     -- * Request Lenses
-    getSchemaVersion_schemaVersionNumber,
-    getSchemaVersion_schemaVersionId,
     getSchemaVersion_schemaId,
+    getSchemaVersion_schemaVersionId,
+    getSchemaVersion_schemaVersionNumber,
 
     -- * Destructuring the Response
     GetSchemaVersionResponse (..),
@@ -40,11 +40,11 @@ module Amazonka.Glue.GetSchemaVersion
     -- * Response Lenses
     getSchemaVersionResponse_createdTime,
     getSchemaVersionResponse_dataFormat,
-    getSchemaVersionResponse_status,
     getSchemaVersionResponse_schemaArn,
-    getSchemaVersionResponse_versionNumber,
-    getSchemaVersionResponse_schemaVersionId,
     getSchemaVersionResponse_schemaDefinition,
+    getSchemaVersionResponse_schemaVersionId,
+    getSchemaVersionResponse_status,
+    getSchemaVersionResponse_versionNumber,
     getSchemaVersionResponse_httpStatus,
   )
 where
@@ -59,13 +59,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetSchemaVersion' smart constructor.
 data GetSchemaVersion = GetSchemaVersion'
-  { -- | The version number of the schema.
-    schemaVersionNumber :: Prelude.Maybe SchemaVersionNumber,
-    -- | The @SchemaVersionId@ of the schema version. This field is required for
-    -- fetching by schema ID. Either this or the @SchemaId@ wrapper has to be
-    -- provided.
-    schemaVersionId :: Prelude.Maybe Prelude.Text,
-    -- | This is a wrapper structure to contain schema identity fields. The
+  { -- | This is a wrapper structure to contain schema identity fields. The
     -- structure contains:
     --
     -- -   SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema.
@@ -74,7 +68,13 @@ data GetSchemaVersion = GetSchemaVersion'
     --
     -- -   SchemaId$SchemaName: The name of the schema. Either @SchemaArn@ or
     --     @SchemaName@ and @RegistryName@ has to be provided.
-    schemaId :: Prelude.Maybe SchemaId
+    schemaId :: Prelude.Maybe SchemaId,
+    -- | The @SchemaVersionId@ of the schema version. This field is required for
+    -- fetching by schema ID. Either this or the @SchemaId@ wrapper has to be
+    -- provided.
+    schemaVersionId :: Prelude.Maybe Prelude.Text,
+    -- | The version number of the schema.
+    schemaVersionNumber :: Prelude.Maybe SchemaVersionNumber
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -86,12 +86,6 @@ data GetSchemaVersion = GetSchemaVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'schemaVersionNumber', 'getSchemaVersion_schemaVersionNumber' - The version number of the schema.
---
--- 'schemaVersionId', 'getSchemaVersion_schemaVersionId' - The @SchemaVersionId@ of the schema version. This field is required for
--- fetching by schema ID. Either this or the @SchemaId@ wrapper has to be
--- provided.
---
 -- 'schemaId', 'getSchemaVersion_schemaId' - This is a wrapper structure to contain schema identity fields. The
 -- structure contains:
 --
@@ -101,25 +95,20 @@ data GetSchemaVersion = GetSchemaVersion'
 --
 -- -   SchemaId$SchemaName: The name of the schema. Either @SchemaArn@ or
 --     @SchemaName@ and @RegistryName@ has to be provided.
+--
+-- 'schemaVersionId', 'getSchemaVersion_schemaVersionId' - The @SchemaVersionId@ of the schema version. This field is required for
+-- fetching by schema ID. Either this or the @SchemaId@ wrapper has to be
+-- provided.
+--
+-- 'schemaVersionNumber', 'getSchemaVersion_schemaVersionNumber' - The version number of the schema.
 newGetSchemaVersion ::
   GetSchemaVersion
 newGetSchemaVersion =
   GetSchemaVersion'
-    { schemaVersionNumber =
-        Prelude.Nothing,
+    { schemaId = Prelude.Nothing,
       schemaVersionId = Prelude.Nothing,
-      schemaId = Prelude.Nothing
+      schemaVersionNumber = Prelude.Nothing
     }
-
--- | The version number of the schema.
-getSchemaVersion_schemaVersionNumber :: Lens.Lens' GetSchemaVersion (Prelude.Maybe SchemaVersionNumber)
-getSchemaVersion_schemaVersionNumber = Lens.lens (\GetSchemaVersion' {schemaVersionNumber} -> schemaVersionNumber) (\s@GetSchemaVersion' {} a -> s {schemaVersionNumber = a} :: GetSchemaVersion)
-
--- | The @SchemaVersionId@ of the schema version. This field is required for
--- fetching by schema ID. Either this or the @SchemaId@ wrapper has to be
--- provided.
-getSchemaVersion_schemaVersionId :: Lens.Lens' GetSchemaVersion (Prelude.Maybe Prelude.Text)
-getSchemaVersion_schemaVersionId = Lens.lens (\GetSchemaVersion' {schemaVersionId} -> schemaVersionId) (\s@GetSchemaVersion' {} a -> s {schemaVersionId = a} :: GetSchemaVersion)
 
 -- | This is a wrapper structure to contain schema identity fields. The
 -- structure contains:
@@ -133,6 +122,16 @@ getSchemaVersion_schemaVersionId = Lens.lens (\GetSchemaVersion' {schemaVersionI
 getSchemaVersion_schemaId :: Lens.Lens' GetSchemaVersion (Prelude.Maybe SchemaId)
 getSchemaVersion_schemaId = Lens.lens (\GetSchemaVersion' {schemaId} -> schemaId) (\s@GetSchemaVersion' {} a -> s {schemaId = a} :: GetSchemaVersion)
 
+-- | The @SchemaVersionId@ of the schema version. This field is required for
+-- fetching by schema ID. Either this or the @SchemaId@ wrapper has to be
+-- provided.
+getSchemaVersion_schemaVersionId :: Lens.Lens' GetSchemaVersion (Prelude.Maybe Prelude.Text)
+getSchemaVersion_schemaVersionId = Lens.lens (\GetSchemaVersion' {schemaVersionId} -> schemaVersionId) (\s@GetSchemaVersion' {} a -> s {schemaVersionId = a} :: GetSchemaVersion)
+
+-- | The version number of the schema.
+getSchemaVersion_schemaVersionNumber :: Lens.Lens' GetSchemaVersion (Prelude.Maybe SchemaVersionNumber)
+getSchemaVersion_schemaVersionNumber = Lens.lens (\GetSchemaVersion' {schemaVersionNumber} -> schemaVersionNumber) (\s@GetSchemaVersion' {} a -> s {schemaVersionNumber = a} :: GetSchemaVersion)
+
 instance Core.AWSRequest GetSchemaVersion where
   type
     AWSResponse GetSchemaVersion =
@@ -145,25 +144,25 @@ instance Core.AWSRequest GetSchemaVersion where
           GetSchemaVersionResponse'
             Prelude.<$> (x Data..?> "CreatedTime")
             Prelude.<*> (x Data..?> "DataFormat")
-            Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (x Data..?> "SchemaArn")
-            Prelude.<*> (x Data..?> "VersionNumber")
-            Prelude.<*> (x Data..?> "SchemaVersionId")
             Prelude.<*> (x Data..?> "SchemaDefinition")
+            Prelude.<*> (x Data..?> "SchemaVersionId")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "VersionNumber")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetSchemaVersion where
   hashWithSalt _salt GetSchemaVersion' {..} =
-    _salt `Prelude.hashWithSalt` schemaVersionNumber
+    _salt `Prelude.hashWithSalt` schemaId
       `Prelude.hashWithSalt` schemaVersionId
-      `Prelude.hashWithSalt` schemaId
+      `Prelude.hashWithSalt` schemaVersionNumber
 
 instance Prelude.NFData GetSchemaVersion where
   rnf GetSchemaVersion' {..} =
-    Prelude.rnf schemaVersionNumber
+    Prelude.rnf schemaId
       `Prelude.seq` Prelude.rnf schemaVersionId
-      `Prelude.seq` Prelude.rnf schemaId
+      `Prelude.seq` Prelude.rnf schemaVersionNumber
 
 instance Data.ToHeaders GetSchemaVersion where
   toHeaders =
@@ -182,11 +181,11 @@ instance Data.ToJSON GetSchemaVersion where
   toJSON GetSchemaVersion' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SchemaVersionNumber" Data..=)
-              Prelude.<$> schemaVersionNumber,
+          [ ("SchemaId" Data..=) Prelude.<$> schemaId,
             ("SchemaVersionId" Data..=)
               Prelude.<$> schemaVersionId,
-            ("SchemaId" Data..=) Prelude.<$> schemaId
+            ("SchemaVersionNumber" Data..=)
+              Prelude.<$> schemaVersionNumber
           ]
       )
 
@@ -203,16 +202,16 @@ data GetSchemaVersionResponse = GetSchemaVersionResponse'
     -- | The data format of the schema definition. Currently @AVRO@, @JSON@ and
     -- @PROTOBUF@ are supported.
     dataFormat :: Prelude.Maybe DataFormat,
-    -- | The status of the schema version.
-    status :: Prelude.Maybe SchemaVersionStatus,
     -- | The Amazon Resource Name (ARN) of the schema.
     schemaArn :: Prelude.Maybe Prelude.Text,
-    -- | The version number of the schema.
-    versionNumber :: Prelude.Maybe Prelude.Natural,
-    -- | The @SchemaVersionId@ of the schema version.
-    schemaVersionId :: Prelude.Maybe Prelude.Text,
     -- | The schema definition for the schema ID.
     schemaDefinition :: Prelude.Maybe Prelude.Text,
+    -- | The @SchemaVersionId@ of the schema version.
+    schemaVersionId :: Prelude.Maybe Prelude.Text,
+    -- | The status of the schema version.
+    status :: Prelude.Maybe SchemaVersionStatus,
+    -- | The version number of the schema.
+    versionNumber :: Prelude.Maybe Prelude.Natural,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -231,15 +230,15 @@ data GetSchemaVersionResponse = GetSchemaVersionResponse'
 -- 'dataFormat', 'getSchemaVersionResponse_dataFormat' - The data format of the schema definition. Currently @AVRO@, @JSON@ and
 -- @PROTOBUF@ are supported.
 --
--- 'status', 'getSchemaVersionResponse_status' - The status of the schema version.
---
 -- 'schemaArn', 'getSchemaVersionResponse_schemaArn' - The Amazon Resource Name (ARN) of the schema.
 --
--- 'versionNumber', 'getSchemaVersionResponse_versionNumber' - The version number of the schema.
+-- 'schemaDefinition', 'getSchemaVersionResponse_schemaDefinition' - The schema definition for the schema ID.
 --
 -- 'schemaVersionId', 'getSchemaVersionResponse_schemaVersionId' - The @SchemaVersionId@ of the schema version.
 --
--- 'schemaDefinition', 'getSchemaVersionResponse_schemaDefinition' - The schema definition for the schema ID.
+-- 'status', 'getSchemaVersionResponse_status' - The status of the schema version.
+--
+-- 'versionNumber', 'getSchemaVersionResponse_versionNumber' - The version number of the schema.
 --
 -- 'httpStatus', 'getSchemaVersionResponse_httpStatus' - The response's http status code.
 newGetSchemaVersionResponse ::
@@ -251,11 +250,11 @@ newGetSchemaVersionResponse pHttpStatus_ =
     { createdTime =
         Prelude.Nothing,
       dataFormat = Prelude.Nothing,
-      status = Prelude.Nothing,
       schemaArn = Prelude.Nothing,
-      versionNumber = Prelude.Nothing,
-      schemaVersionId = Prelude.Nothing,
       schemaDefinition = Prelude.Nothing,
+      schemaVersionId = Prelude.Nothing,
+      status = Prelude.Nothing,
+      versionNumber = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -268,25 +267,25 @@ getSchemaVersionResponse_createdTime = Lens.lens (\GetSchemaVersionResponse' {cr
 getSchemaVersionResponse_dataFormat :: Lens.Lens' GetSchemaVersionResponse (Prelude.Maybe DataFormat)
 getSchemaVersionResponse_dataFormat = Lens.lens (\GetSchemaVersionResponse' {dataFormat} -> dataFormat) (\s@GetSchemaVersionResponse' {} a -> s {dataFormat = a} :: GetSchemaVersionResponse)
 
--- | The status of the schema version.
-getSchemaVersionResponse_status :: Lens.Lens' GetSchemaVersionResponse (Prelude.Maybe SchemaVersionStatus)
-getSchemaVersionResponse_status = Lens.lens (\GetSchemaVersionResponse' {status} -> status) (\s@GetSchemaVersionResponse' {} a -> s {status = a} :: GetSchemaVersionResponse)
-
 -- | The Amazon Resource Name (ARN) of the schema.
 getSchemaVersionResponse_schemaArn :: Lens.Lens' GetSchemaVersionResponse (Prelude.Maybe Prelude.Text)
 getSchemaVersionResponse_schemaArn = Lens.lens (\GetSchemaVersionResponse' {schemaArn} -> schemaArn) (\s@GetSchemaVersionResponse' {} a -> s {schemaArn = a} :: GetSchemaVersionResponse)
 
--- | The version number of the schema.
-getSchemaVersionResponse_versionNumber :: Lens.Lens' GetSchemaVersionResponse (Prelude.Maybe Prelude.Natural)
-getSchemaVersionResponse_versionNumber = Lens.lens (\GetSchemaVersionResponse' {versionNumber} -> versionNumber) (\s@GetSchemaVersionResponse' {} a -> s {versionNumber = a} :: GetSchemaVersionResponse)
+-- | The schema definition for the schema ID.
+getSchemaVersionResponse_schemaDefinition :: Lens.Lens' GetSchemaVersionResponse (Prelude.Maybe Prelude.Text)
+getSchemaVersionResponse_schemaDefinition = Lens.lens (\GetSchemaVersionResponse' {schemaDefinition} -> schemaDefinition) (\s@GetSchemaVersionResponse' {} a -> s {schemaDefinition = a} :: GetSchemaVersionResponse)
 
 -- | The @SchemaVersionId@ of the schema version.
 getSchemaVersionResponse_schemaVersionId :: Lens.Lens' GetSchemaVersionResponse (Prelude.Maybe Prelude.Text)
 getSchemaVersionResponse_schemaVersionId = Lens.lens (\GetSchemaVersionResponse' {schemaVersionId} -> schemaVersionId) (\s@GetSchemaVersionResponse' {} a -> s {schemaVersionId = a} :: GetSchemaVersionResponse)
 
--- | The schema definition for the schema ID.
-getSchemaVersionResponse_schemaDefinition :: Lens.Lens' GetSchemaVersionResponse (Prelude.Maybe Prelude.Text)
-getSchemaVersionResponse_schemaDefinition = Lens.lens (\GetSchemaVersionResponse' {schemaDefinition} -> schemaDefinition) (\s@GetSchemaVersionResponse' {} a -> s {schemaDefinition = a} :: GetSchemaVersionResponse)
+-- | The status of the schema version.
+getSchemaVersionResponse_status :: Lens.Lens' GetSchemaVersionResponse (Prelude.Maybe SchemaVersionStatus)
+getSchemaVersionResponse_status = Lens.lens (\GetSchemaVersionResponse' {status} -> status) (\s@GetSchemaVersionResponse' {} a -> s {status = a} :: GetSchemaVersionResponse)
+
+-- | The version number of the schema.
+getSchemaVersionResponse_versionNumber :: Lens.Lens' GetSchemaVersionResponse (Prelude.Maybe Prelude.Natural)
+getSchemaVersionResponse_versionNumber = Lens.lens (\GetSchemaVersionResponse' {versionNumber} -> versionNumber) (\s@GetSchemaVersionResponse' {} a -> s {versionNumber = a} :: GetSchemaVersionResponse)
 
 -- | The response's http status code.
 getSchemaVersionResponse_httpStatus :: Lens.Lens' GetSchemaVersionResponse Prelude.Int
@@ -296,9 +295,9 @@ instance Prelude.NFData GetSchemaVersionResponse where
   rnf GetSchemaVersionResponse' {..} =
     Prelude.rnf createdTime
       `Prelude.seq` Prelude.rnf dataFormat
-      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf schemaArn
-      `Prelude.seq` Prelude.rnf versionNumber
-      `Prelude.seq` Prelude.rnf schemaVersionId
       `Prelude.seq` Prelude.rnf schemaDefinition
+      `Prelude.seq` Prelude.rnf schemaVersionId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf versionNumber
       `Prelude.seq` Prelude.rnf httpStatus

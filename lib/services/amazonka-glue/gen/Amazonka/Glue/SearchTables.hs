@@ -37,13 +37,13 @@ module Amazonka.Glue.SearchTables
     newSearchTables,
 
     -- * Request Lenses
-    searchTables_sortCriteria,
-    searchTables_nextToken,
-    searchTables_searchText,
-    searchTables_resourceShareType,
+    searchTables_catalogId,
     searchTables_filters,
     searchTables_maxResults,
-    searchTables_catalogId,
+    searchTables_nextToken,
+    searchTables_resourceShareType,
+    searchTables_searchText,
+    searchTables_sortCriteria,
 
     -- * Destructuring the Response
     SearchTablesResponse (..),
@@ -66,25 +66,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSearchTables' smart constructor.
 data SearchTables = SearchTables'
-  { -- | A list of criteria for sorting the results by a field name, in an
-    -- ascending or descending order.
-    sortCriteria :: Prelude.Maybe [SortCriterion],
-    -- | A continuation token, included if this is a continuation call.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A string used for a text search.
-    --
-    -- Specifying a value in quotes filters based on an exact match to the
-    -- value.
-    searchText :: Prelude.Maybe Prelude.Text,
-    -- | Allows you to specify that you want to search the tables shared with
-    -- your account. The allowable values are @FOREIGN@ or @ALL@.
-    --
-    -- -   If set to @FOREIGN@, will search the tables shared with your
-    --     account.
-    --
-    -- -   If set to @ALL@, will search the tables shared with your account, as
-    --     well as the tables in yor local account.
-    resourceShareType :: Prelude.Maybe ResourceShareType,
+  { -- | A unique identifier, consisting of @ account_id @.
+    catalogId :: Prelude.Maybe Prelude.Text,
     -- | A list of key-value pairs, and a comparator used to filter the search
     -- results. Returns all entities matching the predicate.
     --
@@ -100,8 +83,25 @@ data SearchTables = SearchTables'
     filters :: Prelude.Maybe [PropertyPredicate],
     -- | The maximum number of tables to return in a single response.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | A unique identifier, consisting of @ account_id @.
-    catalogId :: Prelude.Maybe Prelude.Text
+    -- | A continuation token, included if this is a continuation call.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Allows you to specify that you want to search the tables shared with
+    -- your account. The allowable values are @FOREIGN@ or @ALL@.
+    --
+    -- -   If set to @FOREIGN@, will search the tables shared with your
+    --     account.
+    --
+    -- -   If set to @ALL@, will search the tables shared with your account, as
+    --     well as the tables in yor local account.
+    resourceShareType :: Prelude.Maybe ResourceShareType,
+    -- | A string used for a text search.
+    --
+    -- Specifying a value in quotes filters based on an exact match to the
+    -- value.
+    searchText :: Prelude.Maybe Prelude.Text,
+    -- | A list of criteria for sorting the results by a field name, in an
+    -- ascending or descending order.
+    sortCriteria :: Prelude.Maybe [SortCriterion]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -113,24 +113,7 @@ data SearchTables = SearchTables'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortCriteria', 'searchTables_sortCriteria' - A list of criteria for sorting the results by a field name, in an
--- ascending or descending order.
---
--- 'nextToken', 'searchTables_nextToken' - A continuation token, included if this is a continuation call.
---
--- 'searchText', 'searchTables_searchText' - A string used for a text search.
---
--- Specifying a value in quotes filters based on an exact match to the
--- value.
---
--- 'resourceShareType', 'searchTables_resourceShareType' - Allows you to specify that you want to search the tables shared with
--- your account. The allowable values are @FOREIGN@ or @ALL@.
---
--- -   If set to @FOREIGN@, will search the tables shared with your
---     account.
---
--- -   If set to @ALL@, will search the tables shared with your account, as
---     well as the tables in yor local account.
+-- 'catalogId', 'searchTables_catalogId' - A unique identifier, consisting of @ account_id @.
 --
 -- 'filters', 'searchTables_filters' - A list of key-value pairs, and a comparator used to filter the search
 -- results. Returns all entities matching the predicate.
@@ -147,37 +130,9 @@ data SearchTables = SearchTables'
 --
 -- 'maxResults', 'searchTables_maxResults' - The maximum number of tables to return in a single response.
 --
--- 'catalogId', 'searchTables_catalogId' - A unique identifier, consisting of @ account_id @.
-newSearchTables ::
-  SearchTables
-newSearchTables =
-  SearchTables'
-    { sortCriteria = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      searchText = Prelude.Nothing,
-      resourceShareType = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      catalogId = Prelude.Nothing
-    }
-
--- | A list of criteria for sorting the results by a field name, in an
--- ascending or descending order.
-searchTables_sortCriteria :: Lens.Lens' SearchTables (Prelude.Maybe [SortCriterion])
-searchTables_sortCriteria = Lens.lens (\SearchTables' {sortCriteria} -> sortCriteria) (\s@SearchTables' {} a -> s {sortCriteria = a} :: SearchTables) Prelude.. Lens.mapping Lens.coerced
-
--- | A continuation token, included if this is a continuation call.
-searchTables_nextToken :: Lens.Lens' SearchTables (Prelude.Maybe Prelude.Text)
-searchTables_nextToken = Lens.lens (\SearchTables' {nextToken} -> nextToken) (\s@SearchTables' {} a -> s {nextToken = a} :: SearchTables)
-
--- | A string used for a text search.
+-- 'nextToken', 'searchTables_nextToken' - A continuation token, included if this is a continuation call.
 --
--- Specifying a value in quotes filters based on an exact match to the
--- value.
-searchTables_searchText :: Lens.Lens' SearchTables (Prelude.Maybe Prelude.Text)
-searchTables_searchText = Lens.lens (\SearchTables' {searchText} -> searchText) (\s@SearchTables' {} a -> s {searchText = a} :: SearchTables)
-
--- | Allows you to specify that you want to search the tables shared with
+-- 'resourceShareType', 'searchTables_resourceShareType' - Allows you to specify that you want to search the tables shared with
 -- your account. The allowable values are @FOREIGN@ or @ALL@.
 --
 -- -   If set to @FOREIGN@, will search the tables shared with your
@@ -185,8 +140,30 @@ searchTables_searchText = Lens.lens (\SearchTables' {searchText} -> searchText) 
 --
 -- -   If set to @ALL@, will search the tables shared with your account, as
 --     well as the tables in yor local account.
-searchTables_resourceShareType :: Lens.Lens' SearchTables (Prelude.Maybe ResourceShareType)
-searchTables_resourceShareType = Lens.lens (\SearchTables' {resourceShareType} -> resourceShareType) (\s@SearchTables' {} a -> s {resourceShareType = a} :: SearchTables)
+--
+-- 'searchText', 'searchTables_searchText' - A string used for a text search.
+--
+-- Specifying a value in quotes filters based on an exact match to the
+-- value.
+--
+-- 'sortCriteria', 'searchTables_sortCriteria' - A list of criteria for sorting the results by a field name, in an
+-- ascending or descending order.
+newSearchTables ::
+  SearchTables
+newSearchTables =
+  SearchTables'
+    { catalogId = Prelude.Nothing,
+      filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      resourceShareType = Prelude.Nothing,
+      searchText = Prelude.Nothing,
+      sortCriteria = Prelude.Nothing
+    }
+
+-- | A unique identifier, consisting of @ account_id @.
+searchTables_catalogId :: Lens.Lens' SearchTables (Prelude.Maybe Prelude.Text)
+searchTables_catalogId = Lens.lens (\SearchTables' {catalogId} -> catalogId) (\s@SearchTables' {} a -> s {catalogId = a} :: SearchTables)
 
 -- | A list of key-value pairs, and a comparator used to filter the search
 -- results. Returns all entities matching the predicate.
@@ -207,9 +184,32 @@ searchTables_filters = Lens.lens (\SearchTables' {filters} -> filters) (\s@Searc
 searchTables_maxResults :: Lens.Lens' SearchTables (Prelude.Maybe Prelude.Natural)
 searchTables_maxResults = Lens.lens (\SearchTables' {maxResults} -> maxResults) (\s@SearchTables' {} a -> s {maxResults = a} :: SearchTables)
 
--- | A unique identifier, consisting of @ account_id @.
-searchTables_catalogId :: Lens.Lens' SearchTables (Prelude.Maybe Prelude.Text)
-searchTables_catalogId = Lens.lens (\SearchTables' {catalogId} -> catalogId) (\s@SearchTables' {} a -> s {catalogId = a} :: SearchTables)
+-- | A continuation token, included if this is a continuation call.
+searchTables_nextToken :: Lens.Lens' SearchTables (Prelude.Maybe Prelude.Text)
+searchTables_nextToken = Lens.lens (\SearchTables' {nextToken} -> nextToken) (\s@SearchTables' {} a -> s {nextToken = a} :: SearchTables)
+
+-- | Allows you to specify that you want to search the tables shared with
+-- your account. The allowable values are @FOREIGN@ or @ALL@.
+--
+-- -   If set to @FOREIGN@, will search the tables shared with your
+--     account.
+--
+-- -   If set to @ALL@, will search the tables shared with your account, as
+--     well as the tables in yor local account.
+searchTables_resourceShareType :: Lens.Lens' SearchTables (Prelude.Maybe ResourceShareType)
+searchTables_resourceShareType = Lens.lens (\SearchTables' {resourceShareType} -> resourceShareType) (\s@SearchTables' {} a -> s {resourceShareType = a} :: SearchTables)
+
+-- | A string used for a text search.
+--
+-- Specifying a value in quotes filters based on an exact match to the
+-- value.
+searchTables_searchText :: Lens.Lens' SearchTables (Prelude.Maybe Prelude.Text)
+searchTables_searchText = Lens.lens (\SearchTables' {searchText} -> searchText) (\s@SearchTables' {} a -> s {searchText = a} :: SearchTables)
+
+-- | A list of criteria for sorting the results by a field name, in an
+-- ascending or descending order.
+searchTables_sortCriteria :: Lens.Lens' SearchTables (Prelude.Maybe [SortCriterion])
+searchTables_sortCriteria = Lens.lens (\SearchTables' {sortCriteria} -> sortCriteria) (\s@SearchTables' {} a -> s {sortCriteria = a} :: SearchTables) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest SearchTables where
   type AWSResponse SearchTables = SearchTablesResponse
@@ -226,23 +226,23 @@ instance Core.AWSRequest SearchTables where
 
 instance Prelude.Hashable SearchTables where
   hashWithSalt _salt SearchTables' {..} =
-    _salt `Prelude.hashWithSalt` sortCriteria
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` searchText
-      `Prelude.hashWithSalt` resourceShareType
+    _salt `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` resourceShareType
+      `Prelude.hashWithSalt` searchText
+      `Prelude.hashWithSalt` sortCriteria
 
 instance Prelude.NFData SearchTables where
   rnf SearchTables' {..} =
-    Prelude.rnf sortCriteria
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf searchText
-      `Prelude.seq` Prelude.rnf resourceShareType
+    Prelude.rnf catalogId
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resourceShareType
+      `Prelude.seq` Prelude.rnf searchText
+      `Prelude.seq` Prelude.rnf sortCriteria
 
 instance Data.ToHeaders SearchTables where
   toHeaders =
@@ -261,14 +261,14 @@ instance Data.ToJSON SearchTables where
   toJSON SearchTables' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SortCriteria" Data..=) Prelude.<$> sortCriteria,
-            ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("SearchText" Data..=) Prelude.<$> searchText,
-            ("ResourceShareType" Data..=)
-              Prelude.<$> resourceShareType,
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
             ("Filters" Data..=) Prelude.<$> filters,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("CatalogId" Data..=) Prelude.<$> catalogId
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("ResourceShareType" Data..=)
+              Prelude.<$> resourceShareType,
+            ("SearchText" Data..=) Prelude.<$> searchText,
+            ("SortCriteria" Data..=) Prelude.<$> sortCriteria
           ]
       )
 

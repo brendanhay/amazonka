@@ -28,8 +28,8 @@ module Amazonka.Glue.GetTable
     newGetTable,
 
     -- * Request Lenses
-    getTable_queryAsOfTime,
     getTable_catalogId,
+    getTable_queryAsOfTime,
     getTable_transactionId,
     getTable_databaseName,
     getTable_name,
@@ -54,13 +54,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetTable' smart constructor.
 data GetTable = GetTable'
-  { -- | The time as of when to read the table contents. If not set, the most
+  { -- | The ID of the Data Catalog where the table resides. If none is provided,
+    -- the Amazon Web Services account ID is used by default.
+    catalogId :: Prelude.Maybe Prelude.Text,
+    -- | The time as of when to read the table contents. If not set, the most
     -- recent transaction commit time will be used. Cannot be specified along
     -- with @TransactionId@.
     queryAsOfTime :: Prelude.Maybe Data.POSIX,
-    -- | The ID of the Data Catalog where the table resides. If none is provided,
-    -- the Amazon Web Services account ID is used by default.
-    catalogId :: Prelude.Maybe Prelude.Text,
     -- | The transaction ID at which to read the table contents.
     transactionId :: Prelude.Maybe Prelude.Text,
     -- | The name of the database in the catalog in which the table resides. For
@@ -80,12 +80,12 @@ data GetTable = GetTable'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'catalogId', 'getTable_catalogId' - The ID of the Data Catalog where the table resides. If none is provided,
+-- the Amazon Web Services account ID is used by default.
+--
 -- 'queryAsOfTime', 'getTable_queryAsOfTime' - The time as of when to read the table contents. If not set, the most
 -- recent transaction commit time will be used. Cannot be specified along
 -- with @TransactionId@.
---
--- 'catalogId', 'getTable_catalogId' - The ID of the Data Catalog where the table resides. If none is provided,
--- the Amazon Web Services account ID is used by default.
 --
 -- 'transactionId', 'getTable_transactionId' - The transaction ID at which to read the table contents.
 --
@@ -102,23 +102,23 @@ newGetTable ::
   GetTable
 newGetTable pDatabaseName_ pName_ =
   GetTable'
-    { queryAsOfTime = Prelude.Nothing,
-      catalogId = Prelude.Nothing,
+    { catalogId = Prelude.Nothing,
+      queryAsOfTime = Prelude.Nothing,
       transactionId = Prelude.Nothing,
       databaseName = pDatabaseName_,
       name = pName_
     }
+
+-- | The ID of the Data Catalog where the table resides. If none is provided,
+-- the Amazon Web Services account ID is used by default.
+getTable_catalogId :: Lens.Lens' GetTable (Prelude.Maybe Prelude.Text)
+getTable_catalogId = Lens.lens (\GetTable' {catalogId} -> catalogId) (\s@GetTable' {} a -> s {catalogId = a} :: GetTable)
 
 -- | The time as of when to read the table contents. If not set, the most
 -- recent transaction commit time will be used. Cannot be specified along
 -- with @TransactionId@.
 getTable_queryAsOfTime :: Lens.Lens' GetTable (Prelude.Maybe Prelude.UTCTime)
 getTable_queryAsOfTime = Lens.lens (\GetTable' {queryAsOfTime} -> queryAsOfTime) (\s@GetTable' {} a -> s {queryAsOfTime = a} :: GetTable) Prelude.. Lens.mapping Data._Time
-
--- | The ID of the Data Catalog where the table resides. If none is provided,
--- the Amazon Web Services account ID is used by default.
-getTable_catalogId :: Lens.Lens' GetTable (Prelude.Maybe Prelude.Text)
-getTable_catalogId = Lens.lens (\GetTable' {catalogId} -> catalogId) (\s@GetTable' {} a -> s {catalogId = a} :: GetTable)
 
 -- | The transaction ID at which to read the table contents.
 getTable_transactionId :: Lens.Lens' GetTable (Prelude.Maybe Prelude.Text)
@@ -148,16 +148,16 @@ instance Core.AWSRequest GetTable where
 
 instance Prelude.Hashable GetTable where
   hashWithSalt _salt GetTable' {..} =
-    _salt `Prelude.hashWithSalt` queryAsOfTime
-      `Prelude.hashWithSalt` catalogId
+    _salt `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` queryAsOfTime
       `Prelude.hashWithSalt` transactionId
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData GetTable where
   rnf GetTable' {..} =
-    Prelude.rnf queryAsOfTime
-      `Prelude.seq` Prelude.rnf catalogId
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf queryAsOfTime
       `Prelude.seq` Prelude.rnf transactionId
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf name
@@ -179,8 +179,8 @@ instance Data.ToJSON GetTable where
   toJSON GetTable' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("QueryAsOfTime" Data..=) Prelude.<$> queryAsOfTime,
-            ("CatalogId" Data..=) Prelude.<$> catalogId,
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
+            ("QueryAsOfTime" Data..=) Prelude.<$> queryAsOfTime,
             ("TransactionId" Data..=) Prelude.<$> transactionId,
             Prelude.Just ("DatabaseName" Data..= databaseName),
             Prelude.Just ("Name" Data..= name)

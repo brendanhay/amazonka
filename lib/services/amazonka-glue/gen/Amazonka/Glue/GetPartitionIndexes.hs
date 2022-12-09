@@ -29,8 +29,8 @@ module Amazonka.Glue.GetPartitionIndexes
     newGetPartitionIndexes,
 
     -- * Request Lenses
-    getPartitionIndexes_nextToken,
     getPartitionIndexes_catalogId,
+    getPartitionIndexes_nextToken,
     getPartitionIndexes_databaseName,
     getPartitionIndexes_tableName,
 
@@ -55,10 +55,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetPartitionIndexes' smart constructor.
 data GetPartitionIndexes = GetPartitionIndexes'
-  { -- | A continuation token, included if this is a continuation call.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The catalog ID where the table resides.
+  { -- | The catalog ID where the table resides.
     catalogId :: Prelude.Maybe Prelude.Text,
+    -- | A continuation token, included if this is a continuation call.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies the name of a database from which you want to retrieve
     -- partition indexes.
     databaseName :: Prelude.Text,
@@ -76,9 +76,9 @@ data GetPartitionIndexes = GetPartitionIndexes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getPartitionIndexes_nextToken' - A continuation token, included if this is a continuation call.
---
 -- 'catalogId', 'getPartitionIndexes_catalogId' - The catalog ID where the table resides.
+--
+-- 'nextToken', 'getPartitionIndexes_nextToken' - A continuation token, included if this is a continuation call.
 --
 -- 'databaseName', 'getPartitionIndexes_databaseName' - Specifies the name of a database from which you want to retrieve
 -- partition indexes.
@@ -93,19 +93,19 @@ newGetPartitionIndexes ::
   GetPartitionIndexes
 newGetPartitionIndexes pDatabaseName_ pTableName_ =
   GetPartitionIndexes'
-    { nextToken = Prelude.Nothing,
-      catalogId = Prelude.Nothing,
+    { catalogId = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       databaseName = pDatabaseName_,
       tableName = pTableName_
     }
 
--- | A continuation token, included if this is a continuation call.
-getPartitionIndexes_nextToken :: Lens.Lens' GetPartitionIndexes (Prelude.Maybe Prelude.Text)
-getPartitionIndexes_nextToken = Lens.lens (\GetPartitionIndexes' {nextToken} -> nextToken) (\s@GetPartitionIndexes' {} a -> s {nextToken = a} :: GetPartitionIndexes)
-
 -- | The catalog ID where the table resides.
 getPartitionIndexes_catalogId :: Lens.Lens' GetPartitionIndexes (Prelude.Maybe Prelude.Text)
 getPartitionIndexes_catalogId = Lens.lens (\GetPartitionIndexes' {catalogId} -> catalogId) (\s@GetPartitionIndexes' {} a -> s {catalogId = a} :: GetPartitionIndexes)
+
+-- | A continuation token, included if this is a continuation call.
+getPartitionIndexes_nextToken :: Lens.Lens' GetPartitionIndexes (Prelude.Maybe Prelude.Text)
+getPartitionIndexes_nextToken = Lens.lens (\GetPartitionIndexes' {nextToken} -> nextToken) (\s@GetPartitionIndexes' {} a -> s {nextToken = a} :: GetPartitionIndexes)
 
 -- | Specifies the name of a database from which you want to retrieve
 -- partition indexes.
@@ -158,15 +158,15 @@ instance Core.AWSRequest GetPartitionIndexes where
 
 instance Prelude.Hashable GetPartitionIndexes where
   hashWithSalt _salt GetPartitionIndexes' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` catalogId
+    _salt `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` tableName
 
 instance Prelude.NFData GetPartitionIndexes where
   rnf GetPartitionIndexes' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf catalogId
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf tableName
 
@@ -189,8 +189,8 @@ instance Data.ToJSON GetPartitionIndexes where
   toJSON GetPartitionIndexes' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("CatalogId" Data..=) Prelude.<$> catalogId,
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("DatabaseName" Data..= databaseName),
             Prelude.Just ("TableName" Data..= tableName)
           ]

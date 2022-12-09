@@ -35,17 +35,17 @@ module Amazonka.Glue.GetSchema
 
     -- * Response Lenses
     getSchemaResponse_compatibility,
-    getSchemaResponse_registryName,
     getSchemaResponse_createdTime,
-    getSchemaResponse_schemaStatus,
     getSchemaResponse_dataFormat,
-    getSchemaResponse_schemaName,
     getSchemaResponse_description,
-    getSchemaResponse_schemaArn,
-    getSchemaResponse_registryArn,
-    getSchemaResponse_nextSchemaVersion,
-    getSchemaResponse_schemaCheckpoint,
     getSchemaResponse_latestSchemaVersion,
+    getSchemaResponse_nextSchemaVersion,
+    getSchemaResponse_registryArn,
+    getSchemaResponse_registryName,
+    getSchemaResponse_schemaArn,
+    getSchemaResponse_schemaCheckpoint,
+    getSchemaResponse_schemaName,
+    getSchemaResponse_schemaStatus,
     getSchemaResponse_updatedTime,
     getSchemaResponse_httpStatus,
   )
@@ -119,17 +119,17 @@ instance Core.AWSRequest GetSchema where
       ( \s h x ->
           GetSchemaResponse'
             Prelude.<$> (x Data..?> "Compatibility")
-            Prelude.<*> (x Data..?> "RegistryName")
             Prelude.<*> (x Data..?> "CreatedTime")
-            Prelude.<*> (x Data..?> "SchemaStatus")
             Prelude.<*> (x Data..?> "DataFormat")
-            Prelude.<*> (x Data..?> "SchemaName")
             Prelude.<*> (x Data..?> "Description")
-            Prelude.<*> (x Data..?> "SchemaArn")
-            Prelude.<*> (x Data..?> "RegistryArn")
-            Prelude.<*> (x Data..?> "NextSchemaVersion")
-            Prelude.<*> (x Data..?> "SchemaCheckpoint")
             Prelude.<*> (x Data..?> "LatestSchemaVersion")
+            Prelude.<*> (x Data..?> "NextSchemaVersion")
+            Prelude.<*> (x Data..?> "RegistryArn")
+            Prelude.<*> (x Data..?> "RegistryName")
+            Prelude.<*> (x Data..?> "SchemaArn")
+            Prelude.<*> (x Data..?> "SchemaCheckpoint")
+            Prelude.<*> (x Data..?> "SchemaName")
+            Prelude.<*> (x Data..?> "SchemaStatus")
             Prelude.<*> (x Data..?> "UpdatedTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -171,32 +171,32 @@ instance Data.ToQuery GetSchema where
 data GetSchemaResponse = GetSchemaResponse'
   { -- | The compatibility mode of the schema.
     compatibility :: Prelude.Maybe Compatibility,
-    -- | The name of the registry.
-    registryName :: Prelude.Maybe Prelude.Text,
     -- | The date and time the schema was created.
     createdTime :: Prelude.Maybe Prelude.Text,
-    -- | The status of the schema.
-    schemaStatus :: Prelude.Maybe SchemaStatus,
     -- | The data format of the schema definition. Currently @AVRO@, @JSON@ and
     -- @PROTOBUF@ are supported.
     dataFormat :: Prelude.Maybe DataFormat,
-    -- | The name of the schema.
-    schemaName :: Prelude.Maybe Prelude.Text,
     -- | A description of schema if specified when created
     description :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the schema.
-    schemaArn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the registry.
-    registryArn :: Prelude.Maybe Prelude.Text,
-    -- | The next version of the schema associated with the returned schema
-    -- definition.
-    nextSchemaVersion :: Prelude.Maybe Prelude.Natural,
-    -- | The version number of the checkpoint (the last time the compatibility
-    -- mode was changed).
-    schemaCheckpoint :: Prelude.Maybe Prelude.Natural,
     -- | The latest version of the schema associated with the returned schema
     -- definition.
     latestSchemaVersion :: Prelude.Maybe Prelude.Natural,
+    -- | The next version of the schema associated with the returned schema
+    -- definition.
+    nextSchemaVersion :: Prelude.Maybe Prelude.Natural,
+    -- | The Amazon Resource Name (ARN) of the registry.
+    registryArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the registry.
+    registryName :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the schema.
+    schemaArn :: Prelude.Maybe Prelude.Text,
+    -- | The version number of the checkpoint (the last time the compatibility
+    -- mode was changed).
+    schemaCheckpoint :: Prelude.Maybe Prelude.Natural,
+    -- | The name of the schema.
+    schemaName :: Prelude.Maybe Prelude.Text,
+    -- | The status of the schema.
+    schemaStatus :: Prelude.Maybe SchemaStatus,
     -- | The date and time the schema was updated.
     updatedTime :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -214,31 +214,31 @@ data GetSchemaResponse = GetSchemaResponse'
 --
 -- 'compatibility', 'getSchemaResponse_compatibility' - The compatibility mode of the schema.
 --
--- 'registryName', 'getSchemaResponse_registryName' - The name of the registry.
---
 -- 'createdTime', 'getSchemaResponse_createdTime' - The date and time the schema was created.
---
--- 'schemaStatus', 'getSchemaResponse_schemaStatus' - The status of the schema.
 --
 -- 'dataFormat', 'getSchemaResponse_dataFormat' - The data format of the schema definition. Currently @AVRO@, @JSON@ and
 -- @PROTOBUF@ are supported.
 --
--- 'schemaName', 'getSchemaResponse_schemaName' - The name of the schema.
---
 -- 'description', 'getSchemaResponse_description' - A description of schema if specified when created
 --
--- 'schemaArn', 'getSchemaResponse_schemaArn' - The Amazon Resource Name (ARN) of the schema.
---
--- 'registryArn', 'getSchemaResponse_registryArn' - The Amazon Resource Name (ARN) of the registry.
+-- 'latestSchemaVersion', 'getSchemaResponse_latestSchemaVersion' - The latest version of the schema associated with the returned schema
+-- definition.
 --
 -- 'nextSchemaVersion', 'getSchemaResponse_nextSchemaVersion' - The next version of the schema associated with the returned schema
 -- definition.
 --
+-- 'registryArn', 'getSchemaResponse_registryArn' - The Amazon Resource Name (ARN) of the registry.
+--
+-- 'registryName', 'getSchemaResponse_registryName' - The name of the registry.
+--
+-- 'schemaArn', 'getSchemaResponse_schemaArn' - The Amazon Resource Name (ARN) of the schema.
+--
 -- 'schemaCheckpoint', 'getSchemaResponse_schemaCheckpoint' - The version number of the checkpoint (the last time the compatibility
 -- mode was changed).
 --
--- 'latestSchemaVersion', 'getSchemaResponse_latestSchemaVersion' - The latest version of the schema associated with the returned schema
--- definition.
+-- 'schemaName', 'getSchemaResponse_schemaName' - The name of the schema.
+--
+-- 'schemaStatus', 'getSchemaResponse_schemaStatus' - The status of the schema.
 --
 -- 'updatedTime', 'getSchemaResponse_updatedTime' - The date and time the schema was updated.
 --
@@ -250,17 +250,17 @@ newGetSchemaResponse ::
 newGetSchemaResponse pHttpStatus_ =
   GetSchemaResponse'
     { compatibility = Prelude.Nothing,
-      registryName = Prelude.Nothing,
       createdTime = Prelude.Nothing,
-      schemaStatus = Prelude.Nothing,
       dataFormat = Prelude.Nothing,
-      schemaName = Prelude.Nothing,
       description = Prelude.Nothing,
-      schemaArn = Prelude.Nothing,
-      registryArn = Prelude.Nothing,
-      nextSchemaVersion = Prelude.Nothing,
-      schemaCheckpoint = Prelude.Nothing,
       latestSchemaVersion = Prelude.Nothing,
+      nextSchemaVersion = Prelude.Nothing,
+      registryArn = Prelude.Nothing,
+      registryName = Prelude.Nothing,
+      schemaArn = Prelude.Nothing,
+      schemaCheckpoint = Prelude.Nothing,
+      schemaName = Prelude.Nothing,
+      schemaStatus = Prelude.Nothing,
       updatedTime = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
@@ -269,53 +269,53 @@ newGetSchemaResponse pHttpStatus_ =
 getSchemaResponse_compatibility :: Lens.Lens' GetSchemaResponse (Prelude.Maybe Compatibility)
 getSchemaResponse_compatibility = Lens.lens (\GetSchemaResponse' {compatibility} -> compatibility) (\s@GetSchemaResponse' {} a -> s {compatibility = a} :: GetSchemaResponse)
 
--- | The name of the registry.
-getSchemaResponse_registryName :: Lens.Lens' GetSchemaResponse (Prelude.Maybe Prelude.Text)
-getSchemaResponse_registryName = Lens.lens (\GetSchemaResponse' {registryName} -> registryName) (\s@GetSchemaResponse' {} a -> s {registryName = a} :: GetSchemaResponse)
-
 -- | The date and time the schema was created.
 getSchemaResponse_createdTime :: Lens.Lens' GetSchemaResponse (Prelude.Maybe Prelude.Text)
 getSchemaResponse_createdTime = Lens.lens (\GetSchemaResponse' {createdTime} -> createdTime) (\s@GetSchemaResponse' {} a -> s {createdTime = a} :: GetSchemaResponse)
-
--- | The status of the schema.
-getSchemaResponse_schemaStatus :: Lens.Lens' GetSchemaResponse (Prelude.Maybe SchemaStatus)
-getSchemaResponse_schemaStatus = Lens.lens (\GetSchemaResponse' {schemaStatus} -> schemaStatus) (\s@GetSchemaResponse' {} a -> s {schemaStatus = a} :: GetSchemaResponse)
 
 -- | The data format of the schema definition. Currently @AVRO@, @JSON@ and
 -- @PROTOBUF@ are supported.
 getSchemaResponse_dataFormat :: Lens.Lens' GetSchemaResponse (Prelude.Maybe DataFormat)
 getSchemaResponse_dataFormat = Lens.lens (\GetSchemaResponse' {dataFormat} -> dataFormat) (\s@GetSchemaResponse' {} a -> s {dataFormat = a} :: GetSchemaResponse)
 
--- | The name of the schema.
-getSchemaResponse_schemaName :: Lens.Lens' GetSchemaResponse (Prelude.Maybe Prelude.Text)
-getSchemaResponse_schemaName = Lens.lens (\GetSchemaResponse' {schemaName} -> schemaName) (\s@GetSchemaResponse' {} a -> s {schemaName = a} :: GetSchemaResponse)
-
 -- | A description of schema if specified when created
 getSchemaResponse_description :: Lens.Lens' GetSchemaResponse (Prelude.Maybe Prelude.Text)
 getSchemaResponse_description = Lens.lens (\GetSchemaResponse' {description} -> description) (\s@GetSchemaResponse' {} a -> s {description = a} :: GetSchemaResponse)
 
--- | The Amazon Resource Name (ARN) of the schema.
-getSchemaResponse_schemaArn :: Lens.Lens' GetSchemaResponse (Prelude.Maybe Prelude.Text)
-getSchemaResponse_schemaArn = Lens.lens (\GetSchemaResponse' {schemaArn} -> schemaArn) (\s@GetSchemaResponse' {} a -> s {schemaArn = a} :: GetSchemaResponse)
-
--- | The Amazon Resource Name (ARN) of the registry.
-getSchemaResponse_registryArn :: Lens.Lens' GetSchemaResponse (Prelude.Maybe Prelude.Text)
-getSchemaResponse_registryArn = Lens.lens (\GetSchemaResponse' {registryArn} -> registryArn) (\s@GetSchemaResponse' {} a -> s {registryArn = a} :: GetSchemaResponse)
+-- | The latest version of the schema associated with the returned schema
+-- definition.
+getSchemaResponse_latestSchemaVersion :: Lens.Lens' GetSchemaResponse (Prelude.Maybe Prelude.Natural)
+getSchemaResponse_latestSchemaVersion = Lens.lens (\GetSchemaResponse' {latestSchemaVersion} -> latestSchemaVersion) (\s@GetSchemaResponse' {} a -> s {latestSchemaVersion = a} :: GetSchemaResponse)
 
 -- | The next version of the schema associated with the returned schema
 -- definition.
 getSchemaResponse_nextSchemaVersion :: Lens.Lens' GetSchemaResponse (Prelude.Maybe Prelude.Natural)
 getSchemaResponse_nextSchemaVersion = Lens.lens (\GetSchemaResponse' {nextSchemaVersion} -> nextSchemaVersion) (\s@GetSchemaResponse' {} a -> s {nextSchemaVersion = a} :: GetSchemaResponse)
 
+-- | The Amazon Resource Name (ARN) of the registry.
+getSchemaResponse_registryArn :: Lens.Lens' GetSchemaResponse (Prelude.Maybe Prelude.Text)
+getSchemaResponse_registryArn = Lens.lens (\GetSchemaResponse' {registryArn} -> registryArn) (\s@GetSchemaResponse' {} a -> s {registryArn = a} :: GetSchemaResponse)
+
+-- | The name of the registry.
+getSchemaResponse_registryName :: Lens.Lens' GetSchemaResponse (Prelude.Maybe Prelude.Text)
+getSchemaResponse_registryName = Lens.lens (\GetSchemaResponse' {registryName} -> registryName) (\s@GetSchemaResponse' {} a -> s {registryName = a} :: GetSchemaResponse)
+
+-- | The Amazon Resource Name (ARN) of the schema.
+getSchemaResponse_schemaArn :: Lens.Lens' GetSchemaResponse (Prelude.Maybe Prelude.Text)
+getSchemaResponse_schemaArn = Lens.lens (\GetSchemaResponse' {schemaArn} -> schemaArn) (\s@GetSchemaResponse' {} a -> s {schemaArn = a} :: GetSchemaResponse)
+
 -- | The version number of the checkpoint (the last time the compatibility
 -- mode was changed).
 getSchemaResponse_schemaCheckpoint :: Lens.Lens' GetSchemaResponse (Prelude.Maybe Prelude.Natural)
 getSchemaResponse_schemaCheckpoint = Lens.lens (\GetSchemaResponse' {schemaCheckpoint} -> schemaCheckpoint) (\s@GetSchemaResponse' {} a -> s {schemaCheckpoint = a} :: GetSchemaResponse)
 
--- | The latest version of the schema associated with the returned schema
--- definition.
-getSchemaResponse_latestSchemaVersion :: Lens.Lens' GetSchemaResponse (Prelude.Maybe Prelude.Natural)
-getSchemaResponse_latestSchemaVersion = Lens.lens (\GetSchemaResponse' {latestSchemaVersion} -> latestSchemaVersion) (\s@GetSchemaResponse' {} a -> s {latestSchemaVersion = a} :: GetSchemaResponse)
+-- | The name of the schema.
+getSchemaResponse_schemaName :: Lens.Lens' GetSchemaResponse (Prelude.Maybe Prelude.Text)
+getSchemaResponse_schemaName = Lens.lens (\GetSchemaResponse' {schemaName} -> schemaName) (\s@GetSchemaResponse' {} a -> s {schemaName = a} :: GetSchemaResponse)
+
+-- | The status of the schema.
+getSchemaResponse_schemaStatus :: Lens.Lens' GetSchemaResponse (Prelude.Maybe SchemaStatus)
+getSchemaResponse_schemaStatus = Lens.lens (\GetSchemaResponse' {schemaStatus} -> schemaStatus) (\s@GetSchemaResponse' {} a -> s {schemaStatus = a} :: GetSchemaResponse)
 
 -- | The date and time the schema was updated.
 getSchemaResponse_updatedTime :: Lens.Lens' GetSchemaResponse (Prelude.Maybe Prelude.Text)
@@ -328,16 +328,16 @@ getSchemaResponse_httpStatus = Lens.lens (\GetSchemaResponse' {httpStatus} -> ht
 instance Prelude.NFData GetSchemaResponse where
   rnf GetSchemaResponse' {..} =
     Prelude.rnf compatibility
-      `Prelude.seq` Prelude.rnf registryName
       `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf schemaStatus
       `Prelude.seq` Prelude.rnf dataFormat
-      `Prelude.seq` Prelude.rnf schemaName
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf schemaArn
-      `Prelude.seq` Prelude.rnf registryArn
-      `Prelude.seq` Prelude.rnf nextSchemaVersion
-      `Prelude.seq` Prelude.rnf schemaCheckpoint
       `Prelude.seq` Prelude.rnf latestSchemaVersion
+      `Prelude.seq` Prelude.rnf nextSchemaVersion
+      `Prelude.seq` Prelude.rnf registryArn
+      `Prelude.seq` Prelude.rnf registryName
+      `Prelude.seq` Prelude.rnf schemaArn
+      `Prelude.seq` Prelude.rnf schemaCheckpoint
+      `Prelude.seq` Prelude.rnf schemaName
+      `Prelude.seq` Prelude.rnf schemaStatus
       `Prelude.seq` Prelude.rnf updatedTime
       `Prelude.seq` Prelude.rnf httpStatus

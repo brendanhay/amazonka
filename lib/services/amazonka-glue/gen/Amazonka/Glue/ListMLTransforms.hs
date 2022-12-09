@@ -32,11 +32,11 @@ module Amazonka.Glue.ListMLTransforms
     newListMLTransforms,
 
     -- * Request Lenses
-    listMLTransforms_tags,
-    listMLTransforms_nextToken,
-    listMLTransforms_sort,
     listMLTransforms_filter,
     listMLTransforms_maxResults,
+    listMLTransforms_nextToken,
+    listMLTransforms_sort,
+    listMLTransforms_tags,
 
     -- * Destructuring the Response
     ListMLTransformsResponse (..),
@@ -59,17 +59,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListMLTransforms' smart constructor.
 data ListMLTransforms = ListMLTransforms'
-  { -- | Specifies to return only these tagged resources.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | A @TransformFilterCriteria@ used to filter the machine learning
+    -- transforms.
+    filter' :: Prelude.Maybe TransformFilterCriteria,
+    -- | The maximum size of a list to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A continuation token, if this is a continuation request.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A @TransformSortCriteria@ used to sort the machine learning transforms.
     sort :: Prelude.Maybe TransformSortCriteria,
-    -- | A @TransformFilterCriteria@ used to filter the machine learning
-    -- transforms.
-    filter' :: Prelude.Maybe TransformFilterCriteria,
-    -- | The maximum size of a list to return.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    -- | Specifies to return only these tagged resources.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,38 +81,26 @@ data ListMLTransforms = ListMLTransforms'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'listMLTransforms_tags' - Specifies to return only these tagged resources.
+-- 'filter'', 'listMLTransforms_filter' - A @TransformFilterCriteria@ used to filter the machine learning
+-- transforms.
+--
+-- 'maxResults', 'listMLTransforms_maxResults' - The maximum size of a list to return.
 --
 -- 'nextToken', 'listMLTransforms_nextToken' - A continuation token, if this is a continuation request.
 --
 -- 'sort', 'listMLTransforms_sort' - A @TransformSortCriteria@ used to sort the machine learning transforms.
 --
--- 'filter'', 'listMLTransforms_filter' - A @TransformFilterCriteria@ used to filter the machine learning
--- transforms.
---
--- 'maxResults', 'listMLTransforms_maxResults' - The maximum size of a list to return.
+-- 'tags', 'listMLTransforms_tags' - Specifies to return only these tagged resources.
 newListMLTransforms ::
   ListMLTransforms
 newListMLTransforms =
   ListMLTransforms'
-    { tags = Prelude.Nothing,
+    { filter' = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       nextToken = Prelude.Nothing,
       sort = Prelude.Nothing,
-      filter' = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      tags = Prelude.Nothing
     }
-
--- | Specifies to return only these tagged resources.
-listMLTransforms_tags :: Lens.Lens' ListMLTransforms (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-listMLTransforms_tags = Lens.lens (\ListMLTransforms' {tags} -> tags) (\s@ListMLTransforms' {} a -> s {tags = a} :: ListMLTransforms) Prelude.. Lens.mapping Lens.coerced
-
--- | A continuation token, if this is a continuation request.
-listMLTransforms_nextToken :: Lens.Lens' ListMLTransforms (Prelude.Maybe Prelude.Text)
-listMLTransforms_nextToken = Lens.lens (\ListMLTransforms' {nextToken} -> nextToken) (\s@ListMLTransforms' {} a -> s {nextToken = a} :: ListMLTransforms)
-
--- | A @TransformSortCriteria@ used to sort the machine learning transforms.
-listMLTransforms_sort :: Lens.Lens' ListMLTransforms (Prelude.Maybe TransformSortCriteria)
-listMLTransforms_sort = Lens.lens (\ListMLTransforms' {sort} -> sort) (\s@ListMLTransforms' {} a -> s {sort = a} :: ListMLTransforms)
 
 -- | A @TransformFilterCriteria@ used to filter the machine learning
 -- transforms.
@@ -122,6 +110,18 @@ listMLTransforms_filter = Lens.lens (\ListMLTransforms' {filter'} -> filter') (\
 -- | The maximum size of a list to return.
 listMLTransforms_maxResults :: Lens.Lens' ListMLTransforms (Prelude.Maybe Prelude.Natural)
 listMLTransforms_maxResults = Lens.lens (\ListMLTransforms' {maxResults} -> maxResults) (\s@ListMLTransforms' {} a -> s {maxResults = a} :: ListMLTransforms)
+
+-- | A continuation token, if this is a continuation request.
+listMLTransforms_nextToken :: Lens.Lens' ListMLTransforms (Prelude.Maybe Prelude.Text)
+listMLTransforms_nextToken = Lens.lens (\ListMLTransforms' {nextToken} -> nextToken) (\s@ListMLTransforms' {} a -> s {nextToken = a} :: ListMLTransforms)
+
+-- | A @TransformSortCriteria@ used to sort the machine learning transforms.
+listMLTransforms_sort :: Lens.Lens' ListMLTransforms (Prelude.Maybe TransformSortCriteria)
+listMLTransforms_sort = Lens.lens (\ListMLTransforms' {sort} -> sort) (\s@ListMLTransforms' {} a -> s {sort = a} :: ListMLTransforms)
+
+-- | Specifies to return only these tagged resources.
+listMLTransforms_tags :: Lens.Lens' ListMLTransforms (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+listMLTransforms_tags = Lens.lens (\ListMLTransforms' {tags} -> tags) (\s@ListMLTransforms' {} a -> s {tags = a} :: ListMLTransforms) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest ListMLTransforms where
   type
@@ -140,19 +140,19 @@ instance Core.AWSRequest ListMLTransforms where
 
 instance Prelude.Hashable ListMLTransforms where
   hashWithSalt _salt ListMLTransforms' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sort
-      `Prelude.hashWithSalt` filter'
-      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData ListMLTransforms where
   rnf ListMLTransforms' {..} =
-    Prelude.rnf tags
+    Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf sort
-      `Prelude.seq` Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf tags
 
 instance Data.ToHeaders ListMLTransforms where
   toHeaders =
@@ -171,11 +171,11 @@ instance Data.ToJSON ListMLTransforms where
   toJSON ListMLTransforms' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
+          [ ("Filter" Data..=) Prelude.<$> filter',
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("NextToken" Data..=) Prelude.<$> nextToken,
             ("Sort" Data..=) Prelude.<$> sort,
-            ("Filter" Data..=) Prelude.<$> filter',
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+            ("Tags" Data..=) Prelude.<$> tags
           ]
       )
 

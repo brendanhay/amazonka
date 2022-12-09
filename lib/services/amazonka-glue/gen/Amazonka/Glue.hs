@@ -21,92 +21,92 @@ module Amazonka.Glue
     -- * Errors
     -- $errors
 
-    -- ** CrawlerNotRunningException
-    _CrawlerNotRunningException,
-
-    -- ** InvalidInputException
-    _InvalidInputException,
-
-    -- ** ResourceNumberLimitExceededException
-    _ResourceNumberLimitExceededException,
-
-    -- ** ResourceNotReadyException
-    _ResourceNotReadyException,
-
-    -- ** InvalidStateException
-    _InvalidStateException,
-
-    -- ** ConcurrentModificationException
-    _ConcurrentModificationException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
-
-    -- ** ConcurrentRunsExceededException
-    _ConcurrentRunsExceededException,
-
-    -- ** SchedulerNotRunningException
-    _SchedulerNotRunningException,
 
     -- ** AlreadyExistsException
     _AlreadyExistsException,
 
-    -- ** SchedulerRunningException
-    _SchedulerRunningException,
+    -- ** ConcurrentModificationException
+    _ConcurrentModificationException,
 
-    -- ** MLTransformNotReadyException
-    _MLTransformNotReadyException,
-
-    -- ** PermissionTypeMismatchException
-    _PermissionTypeMismatchException,
-
-    -- ** GlueEncryptionException
-    _GlueEncryptionException,
-
-    -- ** IllegalWorkflowStateException
-    _IllegalWorkflowStateException,
-
-    -- ** ConflictException
-    _ConflictException,
+    -- ** ConcurrentRunsExceededException
+    _ConcurrentRunsExceededException,
 
     -- ** ConditionCheckFailureException
     _ConditionCheckFailureException,
 
-    -- ** VersionMismatchException
-    _VersionMismatchException,
+    -- ** ConflictException
+    _ConflictException,
 
-    -- ** EntityNotFoundException
-    _EntityNotFoundException,
-
-    -- ** SchedulerTransitioningException
-    _SchedulerTransitioningException,
-
-    -- ** IllegalBlueprintStateException
-    _IllegalBlueprintStateException,
-
-    -- ** ValidationException
-    _ValidationException,
-
-    -- ** InternalServiceException
-    _InternalServiceException,
-
-    -- ** OperationTimeoutException
-    _OperationTimeoutException,
-
-    -- ** CrawlerStoppingException
-    _CrawlerStoppingException,
-
-    -- ** IllegalSessionStateException
-    _IllegalSessionStateException,
+    -- ** CrawlerNotRunningException
+    _CrawlerNotRunningException,
 
     -- ** CrawlerRunningException
     _CrawlerRunningException,
 
-    -- ** NoScheduleException
-    _NoScheduleException,
+    -- ** CrawlerStoppingException
+    _CrawlerStoppingException,
+
+    -- ** EntityNotFoundException
+    _EntityNotFoundException,
+
+    -- ** GlueEncryptionException
+    _GlueEncryptionException,
 
     -- ** IdempotentParameterMismatchException
     _IdempotentParameterMismatchException,
+
+    -- ** IllegalBlueprintStateException
+    _IllegalBlueprintStateException,
+
+    -- ** IllegalSessionStateException
+    _IllegalSessionStateException,
+
+    -- ** IllegalWorkflowStateException
+    _IllegalWorkflowStateException,
+
+    -- ** InternalServiceException
+    _InternalServiceException,
+
+    -- ** InvalidInputException
+    _InvalidInputException,
+
+    -- ** InvalidStateException
+    _InvalidStateException,
+
+    -- ** MLTransformNotReadyException
+    _MLTransformNotReadyException,
+
+    -- ** NoScheduleException
+    _NoScheduleException,
+
+    -- ** OperationTimeoutException
+    _OperationTimeoutException,
+
+    -- ** PermissionTypeMismatchException
+    _PermissionTypeMismatchException,
+
+    -- ** ResourceNotReadyException
+    _ResourceNotReadyException,
+
+    -- ** ResourceNumberLimitExceededException
+    _ResourceNumberLimitExceededException,
+
+    -- ** SchedulerNotRunningException
+    _SchedulerNotRunningException,
+
+    -- ** SchedulerRunningException
+    _SchedulerRunningException,
+
+    -- ** SchedulerTransitioningException
+    _SchedulerTransitioningException,
+
+    -- ** ValidationException
+    _ValidationException,
+
+    -- ** VersionMismatchException
+    _VersionMismatchException,
 
     -- * Waiters
     -- $waiters
@@ -162,6 +162,12 @@ module Amazonka.Glue
     BatchGetCustomEntityTypesResponse (BatchGetCustomEntityTypesResponse'),
     newBatchGetCustomEntityTypesResponse,
 
+    -- ** BatchGetDataQualityResult
+    BatchGetDataQualityResult (BatchGetDataQualityResult'),
+    newBatchGetDataQualityResult,
+    BatchGetDataQualityResultResponse (BatchGetDataQualityResultResponse'),
+    newBatchGetDataQualityResultResponse,
+
     -- ** BatchGetDevEndpoints
     BatchGetDevEndpoints (BatchGetDevEndpoints'),
     newBatchGetDevEndpoints,
@@ -203,6 +209,18 @@ module Amazonka.Glue
     newBatchUpdatePartition,
     BatchUpdatePartitionResponse (BatchUpdatePartitionResponse'),
     newBatchUpdatePartitionResponse,
+
+    -- ** CancelDataQualityRuleRecommendationRun
+    CancelDataQualityRuleRecommendationRun (CancelDataQualityRuleRecommendationRun'),
+    newCancelDataQualityRuleRecommendationRun,
+    CancelDataQualityRuleRecommendationRunResponse (CancelDataQualityRuleRecommendationRunResponse'),
+    newCancelDataQualityRuleRecommendationRunResponse,
+
+    -- ** CancelDataQualityRulesetEvaluationRun
+    CancelDataQualityRulesetEvaluationRun (CancelDataQualityRulesetEvaluationRun'),
+    newCancelDataQualityRulesetEvaluationRun,
+    CancelDataQualityRulesetEvaluationRunResponse (CancelDataQualityRulesetEvaluationRunResponse'),
+    newCancelDataQualityRulesetEvaluationRunResponse,
 
     -- ** CancelMLTaskRun
     CancelMLTaskRun (CancelMLTaskRun'),
@@ -251,6 +269,12 @@ module Amazonka.Glue
     newCreateCustomEntityType,
     CreateCustomEntityTypeResponse (CreateCustomEntityTypeResponse'),
     newCreateCustomEntityTypeResponse,
+
+    -- ** CreateDataQualityRuleset
+    CreateDataQualityRuleset (CreateDataQualityRuleset'),
+    newCreateDataQualityRuleset,
+    CreateDataQualityRulesetResponse (CreateDataQualityRulesetResponse'),
+    newCreateDataQualityRulesetResponse,
 
     -- ** CreateDatabase
     CreateDatabase (CreateDatabase'),
@@ -383,6 +407,12 @@ module Amazonka.Glue
     newDeleteCustomEntityType,
     DeleteCustomEntityTypeResponse (DeleteCustomEntityTypeResponse'),
     newDeleteCustomEntityTypeResponse,
+
+    -- ** DeleteDataQualityRuleset
+    DeleteDataQualityRuleset (DeleteDataQualityRuleset'),
+    newDeleteDataQualityRuleset,
+    DeleteDataQualityRulesetResponse (DeleteDataQualityRulesetResponse'),
+    newDeleteDataQualityRulesetResponse,
 
     -- ** DeleteDatabase
     DeleteDatabase (DeleteDatabase'),
@@ -575,6 +605,30 @@ module Amazonka.Glue
     newGetDataCatalogEncryptionSettings,
     GetDataCatalogEncryptionSettingsResponse (GetDataCatalogEncryptionSettingsResponse'),
     newGetDataCatalogEncryptionSettingsResponse,
+
+    -- ** GetDataQualityResult
+    GetDataQualityResult (GetDataQualityResult'),
+    newGetDataQualityResult,
+    GetDataQualityResultResponse (GetDataQualityResultResponse'),
+    newGetDataQualityResultResponse,
+
+    -- ** GetDataQualityRuleRecommendationRun
+    GetDataQualityRuleRecommendationRun (GetDataQualityRuleRecommendationRun'),
+    newGetDataQualityRuleRecommendationRun,
+    GetDataQualityRuleRecommendationRunResponse (GetDataQualityRuleRecommendationRunResponse'),
+    newGetDataQualityRuleRecommendationRunResponse,
+
+    -- ** GetDataQualityRuleset
+    GetDataQualityRuleset (GetDataQualityRuleset'),
+    newGetDataQualityRuleset,
+    GetDataQualityRulesetResponse (GetDataQualityRulesetResponse'),
+    newGetDataQualityRulesetResponse,
+
+    -- ** GetDataQualityRulesetEvaluationRun
+    GetDataQualityRulesetEvaluationRun (GetDataQualityRulesetEvaluationRun'),
+    newGetDataQualityRulesetEvaluationRun,
+    GetDataQualityRulesetEvaluationRunResponse (GetDataQualityRulesetEvaluationRunResponse'),
+    newGetDataQualityRulesetEvaluationRunResponse,
 
     -- ** GetDatabase
     GetDatabase (GetDatabase'),
@@ -882,6 +936,30 @@ module Amazonka.Glue
     ListCustomEntityTypesResponse (ListCustomEntityTypesResponse'),
     newListCustomEntityTypesResponse,
 
+    -- ** ListDataQualityResults
+    ListDataQualityResults (ListDataQualityResults'),
+    newListDataQualityResults,
+    ListDataQualityResultsResponse (ListDataQualityResultsResponse'),
+    newListDataQualityResultsResponse,
+
+    -- ** ListDataQualityRuleRecommendationRuns
+    ListDataQualityRuleRecommendationRuns (ListDataQualityRuleRecommendationRuns'),
+    newListDataQualityRuleRecommendationRuns,
+    ListDataQualityRuleRecommendationRunsResponse (ListDataQualityRuleRecommendationRunsResponse'),
+    newListDataQualityRuleRecommendationRunsResponse,
+
+    -- ** ListDataQualityRulesetEvaluationRuns
+    ListDataQualityRulesetEvaluationRuns (ListDataQualityRulesetEvaluationRuns'),
+    newListDataQualityRulesetEvaluationRuns,
+    ListDataQualityRulesetEvaluationRunsResponse (ListDataQualityRulesetEvaluationRunsResponse'),
+    newListDataQualityRulesetEvaluationRunsResponse,
+
+    -- ** ListDataQualityRulesets
+    ListDataQualityRulesets (ListDataQualityRulesets'),
+    newListDataQualityRulesets,
+    ListDataQualityRulesetsResponse (ListDataQualityRulesetsResponse'),
+    newListDataQualityRulesetsResponse,
+
     -- ** ListDevEndpoints
     ListDevEndpoints (ListDevEndpoints'),
     newListDevEndpoints,
@@ -1026,6 +1104,18 @@ module Amazonka.Glue
     StartCrawlerScheduleResponse (StartCrawlerScheduleResponse'),
     newStartCrawlerScheduleResponse,
 
+    -- ** StartDataQualityRuleRecommendationRun
+    StartDataQualityRuleRecommendationRun (StartDataQualityRuleRecommendationRun'),
+    newStartDataQualityRuleRecommendationRun,
+    StartDataQualityRuleRecommendationRunResponse (StartDataQualityRuleRecommendationRunResponse'),
+    newStartDataQualityRuleRecommendationRunResponse,
+
+    -- ** StartDataQualityRulesetEvaluationRun
+    StartDataQualityRulesetEvaluationRun (StartDataQualityRulesetEvaluationRun'),
+    newStartDataQualityRulesetEvaluationRun,
+    StartDataQualityRulesetEvaluationRunResponse (StartDataQualityRulesetEvaluationRunResponse'),
+    newStartDataQualityRulesetEvaluationRunResponse,
+
     -- ** StartExportLabelsTaskRun
     StartExportLabelsTaskRun (StartExportLabelsTaskRun'),
     newStartExportLabelsTaskRun,
@@ -1151,6 +1241,12 @@ module Amazonka.Glue
     newUpdateCrawlerSchedule,
     UpdateCrawlerScheduleResponse (UpdateCrawlerScheduleResponse'),
     newUpdateCrawlerScheduleResponse,
+
+    -- ** UpdateDataQualityRuleset
+    UpdateDataQualityRuleset (UpdateDataQualityRuleset'),
+    newUpdateDataQualityRuleset,
+    UpdateDataQualityRulesetResponse (UpdateDataQualityRulesetResponse'),
+    newUpdateDataQualityRulesetResponse,
 
     -- ** UpdateDatabase
     UpdateDatabase (UpdateDatabase'),
@@ -1283,8 +1379,17 @@ module Amazonka.Glue
     -- ** CsvHeaderOption
     CsvHeaderOption (..),
 
+    -- ** DQStopJobOnFailureTiming
+    DQStopJobOnFailureTiming (..),
+
+    -- ** DQTransformOutput
+    DQTransformOutput (..),
+
     -- ** DataFormat
     DataFormat (..),
+
+    -- ** DataQualityRuleResultStatus
+    DataQualityRuleResultStatus (..),
 
     -- ** DeleteBehavior
     DeleteBehavior (..),
@@ -1348,6 +1453,9 @@ module Amazonka.Glue
 
     -- ** NodeType
     NodeType (..),
+
+    -- ** ParamType
+    ParamType (..),
 
     -- ** ParquetCompressionType
     ParquetCompressionType (..),
@@ -1691,6 +1799,14 @@ module Amazonka.Glue
     CustomEntityType (CustomEntityType'),
     newCustomEntityType,
 
+    -- ** DQResultsPublishingOptions
+    DQResultsPublishingOptions (DQResultsPublishingOptions'),
+    newDQResultsPublishingOptions,
+
+    -- ** DQStopJobOnFailureOptions
+    DQStopJobOnFailureOptions (DQStopJobOnFailureOptions'),
+    newDQStopJobOnFailureOptions,
+
     -- ** DataCatalogEncryptionSettings
     DataCatalogEncryptionSettings (DataCatalogEncryptionSettings'),
     newDataCatalogEncryptionSettings,
@@ -1698,6 +1814,58 @@ module Amazonka.Glue
     -- ** DataLakePrincipal
     DataLakePrincipal (DataLakePrincipal'),
     newDataLakePrincipal,
+
+    -- ** DataQualityEvaluationRunAdditionalRunOptions
+    DataQualityEvaluationRunAdditionalRunOptions (DataQualityEvaluationRunAdditionalRunOptions'),
+    newDataQualityEvaluationRunAdditionalRunOptions,
+
+    -- ** DataQualityResult
+    DataQualityResult (DataQualityResult'),
+    newDataQualityResult,
+
+    -- ** DataQualityResultDescription
+    DataQualityResultDescription (DataQualityResultDescription'),
+    newDataQualityResultDescription,
+
+    -- ** DataQualityResultFilterCriteria
+    DataQualityResultFilterCriteria (DataQualityResultFilterCriteria'),
+    newDataQualityResultFilterCriteria,
+
+    -- ** DataQualityRuleRecommendationRunDescription
+    DataQualityRuleRecommendationRunDescription (DataQualityRuleRecommendationRunDescription'),
+    newDataQualityRuleRecommendationRunDescription,
+
+    -- ** DataQualityRuleRecommendationRunFilter
+    DataQualityRuleRecommendationRunFilter (DataQualityRuleRecommendationRunFilter'),
+    newDataQualityRuleRecommendationRunFilter,
+
+    -- ** DataQualityRuleResult
+    DataQualityRuleResult (DataQualityRuleResult'),
+    newDataQualityRuleResult,
+
+    -- ** DataQualityRulesetEvaluationRunDescription
+    DataQualityRulesetEvaluationRunDescription (DataQualityRulesetEvaluationRunDescription'),
+    newDataQualityRulesetEvaluationRunDescription,
+
+    -- ** DataQualityRulesetEvaluationRunFilter
+    DataQualityRulesetEvaluationRunFilter (DataQualityRulesetEvaluationRunFilter'),
+    newDataQualityRulesetEvaluationRunFilter,
+
+    -- ** DataQualityRulesetFilterCriteria
+    DataQualityRulesetFilterCriteria (DataQualityRulesetFilterCriteria'),
+    newDataQualityRulesetFilterCriteria,
+
+    -- ** DataQualityRulesetListDetails
+    DataQualityRulesetListDetails (DataQualityRulesetListDetails'),
+    newDataQualityRulesetListDetails,
+
+    -- ** DataQualityTargetTable
+    DataQualityTargetTable (DataQualityTargetTable'),
+    newDataQualityTargetTable,
+
+    -- ** DataSource
+    DataSource (DataSource'),
+    newDataSource,
 
     -- ** Database
     Database (Database'),
@@ -1767,6 +1935,10 @@ module Amazonka.Glue
     DropNullFields (DropNullFields'),
     newDropNullFields,
 
+    -- ** DynamicTransform
+    DynamicTransform (DynamicTransform'),
+    newDynamicTransform,
+
     -- ** DynamoDBCatalogSource
     DynamoDBCatalogSource (DynamoDBCatalogSource'),
     newDynamoDBCatalogSource,
@@ -1794,6 +1966,10 @@ module Amazonka.Glue
     -- ** ErrorDetails
     ErrorDetails (ErrorDetails'),
     newErrorDetails,
+
+    -- ** EvaluateDataQuality
+    EvaluateDataQuality (EvaluateDataQuality'),
+    newEvaluateDataQuality,
 
     -- ** EvaluationMetrics
     EvaluationMetrics (EvaluationMetrics'),
@@ -2351,6 +2527,10 @@ module Amazonka.Glue
     TaskRunSortCriteria (TaskRunSortCriteria'),
     newTaskRunSortCriteria,
 
+    -- ** TransformConfigParameter
+    TransformConfigParameter (TransformConfigParameter'),
+    newTransformConfigParameter,
+
     -- ** TransformEncryption
     TransformEncryption (TransformEncryption'),
     newTransformEncryption,
@@ -2445,6 +2625,7 @@ import Amazonka.Glue.BatchDeleteTableVersion
 import Amazonka.Glue.BatchGetBlueprints
 import Amazonka.Glue.BatchGetCrawlers
 import Amazonka.Glue.BatchGetCustomEntityTypes
+import Amazonka.Glue.BatchGetDataQualityResult
 import Amazonka.Glue.BatchGetDevEndpoints
 import Amazonka.Glue.BatchGetJobs
 import Amazonka.Glue.BatchGetPartition
@@ -2452,6 +2633,8 @@ import Amazonka.Glue.BatchGetTriggers
 import Amazonka.Glue.BatchGetWorkflows
 import Amazonka.Glue.BatchStopJobRun
 import Amazonka.Glue.BatchUpdatePartition
+import Amazonka.Glue.CancelDataQualityRuleRecommendationRun
+import Amazonka.Glue.CancelDataQualityRulesetEvaluationRun
 import Amazonka.Glue.CancelMLTaskRun
 import Amazonka.Glue.CancelStatement
 import Amazonka.Glue.CheckSchemaVersionValidity
@@ -2460,6 +2643,7 @@ import Amazonka.Glue.CreateClassifier
 import Amazonka.Glue.CreateConnection
 import Amazonka.Glue.CreateCrawler
 import Amazonka.Glue.CreateCustomEntityType
+import Amazonka.Glue.CreateDataQualityRuleset
 import Amazonka.Glue.CreateDatabase
 import Amazonka.Glue.CreateDevEndpoint
 import Amazonka.Glue.CreateJob
@@ -2482,6 +2666,7 @@ import Amazonka.Glue.DeleteColumnStatisticsForTable
 import Amazonka.Glue.DeleteConnection
 import Amazonka.Glue.DeleteCrawler
 import Amazonka.Glue.DeleteCustomEntityType
+import Amazonka.Glue.DeleteDataQualityRuleset
 import Amazonka.Glue.DeleteDatabase
 import Amazonka.Glue.DeleteDevEndpoint
 import Amazonka.Glue.DeleteJob
@@ -2514,6 +2699,10 @@ import Amazonka.Glue.GetCrawlerMetrics
 import Amazonka.Glue.GetCrawlers
 import Amazonka.Glue.GetCustomEntityType
 import Amazonka.Glue.GetDataCatalogEncryptionSettings
+import Amazonka.Glue.GetDataQualityResult
+import Amazonka.Glue.GetDataQualityRuleRecommendationRun
+import Amazonka.Glue.GetDataQualityRuleset
+import Amazonka.Glue.GetDataQualityRulesetEvaluationRun
 import Amazonka.Glue.GetDatabase
 import Amazonka.Glue.GetDatabases
 import Amazonka.Glue.GetDataflowGraph
@@ -2566,6 +2755,10 @@ import Amazonka.Glue.ListBlueprints
 import Amazonka.Glue.ListCrawlers
 import Amazonka.Glue.ListCrawls
 import Amazonka.Glue.ListCustomEntityTypes
+import Amazonka.Glue.ListDataQualityResults
+import Amazonka.Glue.ListDataQualityRuleRecommendationRuns
+import Amazonka.Glue.ListDataQualityRulesetEvaluationRuns
+import Amazonka.Glue.ListDataQualityRulesets
 import Amazonka.Glue.ListDevEndpoints
 import Amazonka.Glue.ListJobs
 import Amazonka.Glue.ListMLTransforms
@@ -2590,6 +2783,8 @@ import Amazonka.Glue.SearchTables
 import Amazonka.Glue.StartBlueprintRun
 import Amazonka.Glue.StartCrawler
 import Amazonka.Glue.StartCrawlerSchedule
+import Amazonka.Glue.StartDataQualityRuleRecommendationRun
+import Amazonka.Glue.StartDataQualityRulesetEvaluationRun
 import Amazonka.Glue.StartExportLabelsTaskRun
 import Amazonka.Glue.StartImportLabelsTaskRun
 import Amazonka.Glue.StartJobRun
@@ -2612,6 +2807,7 @@ import Amazonka.Glue.UpdateColumnStatisticsForTable
 import Amazonka.Glue.UpdateConnection
 import Amazonka.Glue.UpdateCrawler
 import Amazonka.Glue.UpdateCrawlerSchedule
+import Amazonka.Glue.UpdateDataQualityRuleset
 import Amazonka.Glue.UpdateDatabase
 import Amazonka.Glue.UpdateDevEndpoint
 import Amazonka.Glue.UpdateJob

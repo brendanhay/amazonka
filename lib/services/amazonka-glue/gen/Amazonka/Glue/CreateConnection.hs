@@ -27,8 +27,8 @@ module Amazonka.Glue.CreateConnection
     newCreateConnection,
 
     -- * Request Lenses
-    createConnection_tags,
     createConnection_catalogId,
+    createConnection_tags,
     createConnection_connectionInput,
 
     -- * Destructuring the Response
@@ -50,11 +50,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateConnection' smart constructor.
 data CreateConnection = CreateConnection'
-  { -- | The tags you assign to the connection.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The ID of the Data Catalog in which to create the connection. If none is
+  { -- | The ID of the Data Catalog in which to create the connection. If none is
     -- provided, the Amazon Web Services account ID is used by default.
     catalogId :: Prelude.Maybe Prelude.Text,
+    -- | The tags you assign to the connection.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A @ConnectionInput@ object defining the connection to create.
     connectionInput :: ConnectionInput
   }
@@ -68,10 +68,10 @@ data CreateConnection = CreateConnection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createConnection_tags' - The tags you assign to the connection.
---
 -- 'catalogId', 'createConnection_catalogId' - The ID of the Data Catalog in which to create the connection. If none is
 -- provided, the Amazon Web Services account ID is used by default.
+--
+-- 'tags', 'createConnection_tags' - The tags you assign to the connection.
 --
 -- 'connectionInput', 'createConnection_connectionInput' - A @ConnectionInput@ object defining the connection to create.
 newCreateConnection ::
@@ -80,19 +80,19 @@ newCreateConnection ::
   CreateConnection
 newCreateConnection pConnectionInput_ =
   CreateConnection'
-    { tags = Prelude.Nothing,
-      catalogId = Prelude.Nothing,
+    { catalogId = Prelude.Nothing,
+      tags = Prelude.Nothing,
       connectionInput = pConnectionInput_
     }
-
--- | The tags you assign to the connection.
-createConnection_tags :: Lens.Lens' CreateConnection (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createConnection_tags = Lens.lens (\CreateConnection' {tags} -> tags) (\s@CreateConnection' {} a -> s {tags = a} :: CreateConnection) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the Data Catalog in which to create the connection. If none is
 -- provided, the Amazon Web Services account ID is used by default.
 createConnection_catalogId :: Lens.Lens' CreateConnection (Prelude.Maybe Prelude.Text)
 createConnection_catalogId = Lens.lens (\CreateConnection' {catalogId} -> catalogId) (\s@CreateConnection' {} a -> s {catalogId = a} :: CreateConnection)
+
+-- | The tags you assign to the connection.
+createConnection_tags :: Lens.Lens' CreateConnection (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createConnection_tags = Lens.lens (\CreateConnection' {tags} -> tags) (\s@CreateConnection' {} a -> s {tags = a} :: CreateConnection) Prelude.. Lens.mapping Lens.coerced
 
 -- | A @ConnectionInput@ object defining the connection to create.
 createConnection_connectionInput :: Lens.Lens' CreateConnection ConnectionInput
@@ -113,14 +113,14 @@ instance Core.AWSRequest CreateConnection where
 
 instance Prelude.Hashable CreateConnection where
   hashWithSalt _salt CreateConnection' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` catalogId
+    _salt `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` connectionInput
 
 instance Prelude.NFData CreateConnection where
   rnf CreateConnection' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf catalogId
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf connectionInput
 
 instance Data.ToHeaders CreateConnection where
@@ -140,8 +140,8 @@ instance Data.ToJSON CreateConnection where
   toJSON CreateConnection' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("CatalogId" Data..=) Prelude.<$> catalogId,
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("ConnectionInput" Data..= connectionInput)
           ]

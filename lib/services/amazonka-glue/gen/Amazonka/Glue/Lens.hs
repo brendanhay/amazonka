@@ -25,8 +25,8 @@ module Amazonka.Glue.Lens
     -- ** BatchDeleteConnection
     batchDeleteConnection_catalogId,
     batchDeleteConnection_connectionNameList,
-    batchDeleteConnectionResponse_succeeded,
     batchDeleteConnectionResponse_errors,
+    batchDeleteConnectionResponse_succeeded,
     batchDeleteConnectionResponse_httpStatus,
 
     -- ** BatchDeletePartition
@@ -73,10 +73,16 @@ module Amazonka.Glue.Lens
     batchGetCustomEntityTypesResponse_customEntityTypesNotFound,
     batchGetCustomEntityTypesResponse_httpStatus,
 
+    -- ** BatchGetDataQualityResult
+    batchGetDataQualityResult_resultIds,
+    batchGetDataQualityResultResponse_resultsNotFound,
+    batchGetDataQualityResultResponse_httpStatus,
+    batchGetDataQualityResultResponse_results,
+
     -- ** BatchGetDevEndpoints
     batchGetDevEndpoints_devEndpointNames,
-    batchGetDevEndpointsResponse_devEndpointsNotFound,
     batchGetDevEndpointsResponse_devEndpoints,
+    batchGetDevEndpointsResponse_devEndpointsNotFound,
     batchGetDevEndpointsResponse_httpStatus,
 
     -- ** BatchGetJobs
@@ -90,8 +96,8 @@ module Amazonka.Glue.Lens
     batchGetPartition_databaseName,
     batchGetPartition_tableName,
     batchGetPartition_partitionsToGet,
-    batchGetPartitionResponse_unprocessedKeys,
     batchGetPartitionResponse_partitions,
+    batchGetPartitionResponse_unprocessedKeys,
     batchGetPartitionResponse_httpStatus,
 
     -- ** BatchGetTriggers
@@ -110,8 +116,8 @@ module Amazonka.Glue.Lens
     -- ** BatchStopJobRun
     batchStopJobRun_jobName,
     batchStopJobRun_jobRunIds,
-    batchStopJobRunResponse_successfulSubmissions,
     batchStopJobRunResponse_errors,
+    batchStopJobRunResponse_successfulSubmissions,
     batchStopJobRunResponse_httpStatus,
 
     -- ** BatchUpdatePartition
@@ -122,12 +128,20 @@ module Amazonka.Glue.Lens
     batchUpdatePartitionResponse_errors,
     batchUpdatePartitionResponse_httpStatus,
 
+    -- ** CancelDataQualityRuleRecommendationRun
+    cancelDataQualityRuleRecommendationRun_runId,
+    cancelDataQualityRuleRecommendationRunResponse_httpStatus,
+
+    -- ** CancelDataQualityRulesetEvaluationRun
+    cancelDataQualityRulesetEvaluationRun_runId,
+    cancelDataQualityRulesetEvaluationRunResponse_httpStatus,
+
     -- ** CancelMLTaskRun
     cancelMLTaskRun_transformId,
     cancelMLTaskRun_taskRunId,
     cancelMLTaskRunResponse_status,
-    cancelMLTaskRunResponse_transformId,
     cancelMLTaskRunResponse_taskRunId,
+    cancelMLTaskRunResponse_transformId,
     cancelMLTaskRunResponse_httpStatus,
 
     -- ** CancelStatement
@@ -139,13 +153,13 @@ module Amazonka.Glue.Lens
     -- ** CheckSchemaVersionValidity
     checkSchemaVersionValidity_dataFormat,
     checkSchemaVersionValidity_schemaDefinition,
-    checkSchemaVersionValidityResponse_valid,
     checkSchemaVersionValidityResponse_error,
+    checkSchemaVersionValidityResponse_valid,
     checkSchemaVersionValidityResponse_httpStatus,
 
     -- ** CreateBlueprint
-    createBlueprint_tags,
     createBlueprint_description,
+    createBlueprint_tags,
     createBlueprint_name,
     createBlueprint_blueprintLocation,
     createBlueprintResponse_name,
@@ -153,30 +167,30 @@ module Amazonka.Glue.Lens
 
     -- ** CreateClassifier
     createClassifier_csvClassifier,
-    createClassifier_xMLClassifier,
     createClassifier_grokClassifier,
     createClassifier_jsonClassifier,
+    createClassifier_xMLClassifier,
     createClassifierResponse_httpStatus,
 
     -- ** CreateConnection
-    createConnection_tags,
     createConnection_catalogId,
+    createConnection_tags,
     createConnection_connectionInput,
     createConnectionResponse_httpStatus,
 
     -- ** CreateCrawler
-    createCrawler_tags,
-    createCrawler_schedule,
-    createCrawler_recrawlPolicy,
     createCrawler_classifiers,
-    createCrawler_schemaChangePolicy,
-    createCrawler_databaseName,
     createCrawler_configuration,
-    createCrawler_tablePrefix,
-    createCrawler_description,
-    createCrawler_lineageConfiguration,
     createCrawler_crawlerSecurityConfiguration,
+    createCrawler_databaseName,
+    createCrawler_description,
     createCrawler_lakeFormationConfiguration,
+    createCrawler_lineageConfiguration,
+    createCrawler_recrawlPolicy,
+    createCrawler_schedule,
+    createCrawler_schemaChangePolicy,
+    createCrawler_tablePrefix,
+    createCrawler_tags,
     createCrawler_name,
     createCrawler_role,
     createCrawler_targets,
@@ -189,69 +203,79 @@ module Amazonka.Glue.Lens
     createCustomEntityTypeResponse_name,
     createCustomEntityTypeResponse_httpStatus,
 
+    -- ** CreateDataQualityRuleset
+    createDataQualityRuleset_clientToken,
+    createDataQualityRuleset_description,
+    createDataQualityRuleset_tags,
+    createDataQualityRuleset_targetTable,
+    createDataQualityRuleset_name,
+    createDataQualityRuleset_ruleset,
+    createDataQualityRulesetResponse_name,
+    createDataQualityRulesetResponse_httpStatus,
+
     -- ** CreateDatabase
-    createDatabase_tags,
     createDatabase_catalogId,
+    createDatabase_tags,
     createDatabase_databaseInput,
     createDatabaseResponse_httpStatus,
 
     -- ** CreateDevEndpoint
-    createDevEndpoint_securityConfiguration,
-    createDevEndpoint_tags,
-    createDevEndpoint_publicKey,
-    createDevEndpoint_numberOfWorkers,
-    createDevEndpoint_securityGroupIds,
-    createDevEndpoint_glueVersion,
-    createDevEndpoint_subnetId,
-    createDevEndpoint_workerType,
-    createDevEndpoint_extraJarsS3Path,
-    createDevEndpoint_numberOfNodes,
     createDevEndpoint_arguments,
+    createDevEndpoint_extraJarsS3Path,
     createDevEndpoint_extraPythonLibsS3Path,
+    createDevEndpoint_glueVersion,
+    createDevEndpoint_numberOfNodes,
+    createDevEndpoint_numberOfWorkers,
+    createDevEndpoint_publicKey,
     createDevEndpoint_publicKeys,
+    createDevEndpoint_securityConfiguration,
+    createDevEndpoint_securityGroupIds,
+    createDevEndpoint_subnetId,
+    createDevEndpoint_tags,
+    createDevEndpoint_workerType,
     createDevEndpoint_endpointName,
     createDevEndpoint_roleArn,
-    createDevEndpointResponse_securityConfiguration,
-    createDevEndpointResponse_zeppelinRemoteSparkInterpreterPort,
-    createDevEndpointResponse_roleArn,
-    createDevEndpointResponse_numberOfWorkers,
-    createDevEndpointResponse_securityGroupIds,
-    createDevEndpointResponse_endpointName,
-    createDevEndpointResponse_glueVersion,
-    createDevEndpointResponse_createdTimestamp,
-    createDevEndpointResponse_subnetId,
-    createDevEndpointResponse_workerType,
-    createDevEndpointResponse_status,
-    createDevEndpointResponse_availabilityZone,
-    createDevEndpointResponse_extraJarsS3Path,
-    createDevEndpointResponse_numberOfNodes,
     createDevEndpointResponse_arguments,
-    createDevEndpointResponse_yarnEndpointAddress,
-    createDevEndpointResponse_vpcId,
+    createDevEndpointResponse_availabilityZone,
+    createDevEndpointResponse_createdTimestamp,
+    createDevEndpointResponse_endpointName,
+    createDevEndpointResponse_extraJarsS3Path,
     createDevEndpointResponse_extraPythonLibsS3Path,
     createDevEndpointResponse_failureReason,
+    createDevEndpointResponse_glueVersion,
+    createDevEndpointResponse_numberOfNodes,
+    createDevEndpointResponse_numberOfWorkers,
+    createDevEndpointResponse_roleArn,
+    createDevEndpointResponse_securityConfiguration,
+    createDevEndpointResponse_securityGroupIds,
+    createDevEndpointResponse_status,
+    createDevEndpointResponse_subnetId,
+    createDevEndpointResponse_vpcId,
+    createDevEndpointResponse_workerType,
+    createDevEndpointResponse_yarnEndpointAddress,
+    createDevEndpointResponse_zeppelinRemoteSparkInterpreterPort,
     createDevEndpointResponse_httpStatus,
 
     -- ** CreateJob
+    createJob_allocatedCapacity,
+    createJob_codeGenConfigurationNodes,
+    createJob_connections,
+    createJob_defaultArguments,
+    createJob_description,
+    createJob_executionClass,
+    createJob_executionProperty,
+    createJob_glueVersion,
+    createJob_logUri,
+    createJob_maxCapacity,
+    createJob_maxRetries,
+    createJob_nonOverridableArguments,
+    createJob_notificationProperty,
+    createJob_numberOfWorkers,
     createJob_securityConfiguration,
+    createJob_sourceControlDetails,
     createJob_tags,
     createJob_timeout,
-    createJob_nonOverridableArguments,
-    createJob_numberOfWorkers,
-    createJob_glueVersion,
-    createJob_notificationProperty,
     createJob_workerType,
-    createJob_executionProperty,
-    createJob_allocatedCapacity,
-    createJob_description,
-    createJob_maxRetries,
-    createJob_codeGenConfigurationNodes,
-    createJob_defaultArguments,
-    createJob_sourceControlDetails,
-    createJob_logUri,
-    createJob_connections,
-    createJob_maxCapacity,
-    createJob_executionClass,
     createJob_name,
     createJob_role,
     createJob_command,
@@ -259,15 +283,15 @@ module Amazonka.Glue.Lens
     createJobResponse_httpStatus,
 
     -- ** CreateMLTransform
+    createMLTransform_description,
+    createMLTransform_glueVersion,
+    createMLTransform_maxCapacity,
+    createMLTransform_maxRetries,
+    createMLTransform_numberOfWorkers,
     createMLTransform_tags,
     createMLTransform_timeout,
-    createMLTransform_numberOfWorkers,
-    createMLTransform_glueVersion,
-    createMLTransform_workerType,
-    createMLTransform_description,
-    createMLTransform_maxRetries,
     createMLTransform_transformEncryption,
-    createMLTransform_maxCapacity,
+    createMLTransform_workerType,
     createMLTransform_name,
     createMLTransform_inputRecordTables,
     createMLTransform_parameters,
@@ -290,67 +314,67 @@ module Amazonka.Glue.Lens
     createPartitionIndexResponse_httpStatus,
 
     -- ** CreateRegistry
-    createRegistry_tags,
     createRegistry_description,
+    createRegistry_tags,
     createRegistry_registryName,
-    createRegistryResponse_tags,
-    createRegistryResponse_registryName,
     createRegistryResponse_description,
     createRegistryResponse_registryArn,
+    createRegistryResponse_registryName,
+    createRegistryResponse_tags,
     createRegistryResponse_httpStatus,
 
     -- ** CreateSchema
     createSchema_compatibility,
-    createSchema_tags,
     createSchema_description,
     createSchema_registryId,
     createSchema_schemaDefinition,
+    createSchema_tags,
     createSchema_schemaName,
     createSchema_dataFormat,
     createSchemaResponse_compatibility,
-    createSchemaResponse_tags,
-    createSchemaResponse_registryName,
-    createSchemaResponse_schemaStatus,
     createSchemaResponse_dataFormat,
-    createSchemaResponse_schemaVersionStatus,
-    createSchemaResponse_schemaName,
     createSchemaResponse_description,
-    createSchemaResponse_schemaArn,
-    createSchemaResponse_registryArn,
-    createSchemaResponse_nextSchemaVersion,
-    createSchemaResponse_schemaCheckpoint,
-    createSchemaResponse_schemaVersionId,
     createSchemaResponse_latestSchemaVersion,
+    createSchemaResponse_nextSchemaVersion,
+    createSchemaResponse_registryArn,
+    createSchemaResponse_registryName,
+    createSchemaResponse_schemaArn,
+    createSchemaResponse_schemaCheckpoint,
+    createSchemaResponse_schemaName,
+    createSchemaResponse_schemaStatus,
+    createSchemaResponse_schemaVersionId,
+    createSchemaResponse_schemaVersionStatus,
+    createSchemaResponse_tags,
     createSchemaResponse_httpStatus,
 
     -- ** CreateScript
+    createScript_dagEdges,
     createScript_dagNodes,
     createScript_language,
-    createScript_dagEdges,
-    createScriptResponse_scalaCode,
     createScriptResponse_pythonScript,
+    createScriptResponse_scalaCode,
     createScriptResponse_httpStatus,
 
     -- ** CreateSecurityConfiguration
     createSecurityConfiguration_name,
     createSecurityConfiguration_encryptionConfiguration,
-    createSecurityConfigurationResponse_name,
     createSecurityConfigurationResponse_createdTimestamp,
+    createSecurityConfigurationResponse_name,
     createSecurityConfigurationResponse_httpStatus,
 
     -- ** CreateSession
+    createSession_connections,
+    createSession_defaultArguments,
+    createSession_description,
+    createSession_glueVersion,
+    createSession_idleTimeout,
+    createSession_maxCapacity,
+    createSession_numberOfWorkers,
+    createSession_requestOrigin,
     createSession_securityConfiguration,
     createSession_tags,
     createSession_timeout,
-    createSession_numberOfWorkers,
-    createSession_glueVersion,
-    createSession_requestOrigin,
-    createSession_idleTimeout,
     createSession_workerType,
-    createSession_description,
-    createSession_defaultArguments,
-    createSession_connections,
-    createSession_maxCapacity,
     createSession_id,
     createSession_role,
     createSession_command,
@@ -359,20 +383,20 @@ module Amazonka.Glue.Lens
 
     -- ** CreateTable
     createTable_catalogId,
-    createTable_transactionId,
     createTable_partitionIndexes,
+    createTable_transactionId,
     createTable_databaseName,
     createTable_tableInput,
     createTableResponse_httpStatus,
 
     -- ** CreateTrigger
-    createTrigger_tags,
-    createTrigger_eventBatchingCondition,
-    createTrigger_schedule,
-    createTrigger_workflowName,
-    createTrigger_predicate,
     createTrigger_description,
+    createTrigger_eventBatchingCondition,
+    createTrigger_predicate,
+    createTrigger_schedule,
     createTrigger_startOnCreation,
+    createTrigger_tags,
+    createTrigger_workflowName,
     createTrigger_name,
     createTrigger_type,
     createTrigger_actions,
@@ -386,10 +410,10 @@ module Amazonka.Glue.Lens
     createUserDefinedFunctionResponse_httpStatus,
 
     -- ** CreateWorkflow
-    createWorkflow_tags,
-    createWorkflow_maxConcurrentRuns,
     createWorkflow_defaultRunProperties,
     createWorkflow_description,
+    createWorkflow_maxConcurrentRuns,
+    createWorkflow_tags,
     createWorkflow_name,
     createWorkflowResponse_name,
     createWorkflowResponse_httpStatus,
@@ -432,6 +456,10 @@ module Amazonka.Glue.Lens
     deleteCustomEntityTypeResponse_name,
     deleteCustomEntityTypeResponse_httpStatus,
 
+    -- ** DeleteDataQualityRuleset
+    deleteDataQualityRuleset_name,
+    deleteDataQualityRulesetResponse_httpStatus,
+
     -- ** DeleteDatabase
     deleteDatabase_catalogId,
     deleteDatabase_name,
@@ -467,9 +495,9 @@ module Amazonka.Glue.Lens
 
     -- ** DeleteRegistry
     deleteRegistry_registryId,
+    deleteRegistryResponse_registryArn,
     deleteRegistryResponse_registryName,
     deleteRegistryResponse_status,
-    deleteRegistryResponse_registryArn,
     deleteRegistryResponse_httpStatus,
 
     -- ** DeleteResourcePolicy
@@ -479,9 +507,9 @@ module Amazonka.Glue.Lens
 
     -- ** DeleteSchema
     deleteSchema_schemaId,
+    deleteSchemaResponse_schemaArn,
     deleteSchemaResponse_schemaName,
     deleteSchemaResponse_status,
-    deleteSchemaResponse_schemaArn,
     deleteSchemaResponse_httpStatus,
 
     -- ** DeleteSchemaVersions
@@ -544,11 +572,11 @@ module Amazonka.Glue.Lens
     getBlueprintRunResponse_httpStatus,
 
     -- ** GetBlueprintRuns
-    getBlueprintRuns_nextToken,
     getBlueprintRuns_maxResults,
+    getBlueprintRuns_nextToken,
     getBlueprintRuns_blueprintName,
-    getBlueprintRunsResponse_nextToken,
     getBlueprintRunsResponse_blueprintRuns,
+    getBlueprintRunsResponse_nextToken,
     getBlueprintRunsResponse_httpStatus,
 
     -- ** GetCatalogImportStatus
@@ -562,10 +590,10 @@ module Amazonka.Glue.Lens
     getClassifierResponse_httpStatus,
 
     -- ** GetClassifiers
-    getClassifiers_nextToken,
     getClassifiers_maxResults,
-    getClassifiersResponse_nextToken,
+    getClassifiers_nextToken,
     getClassifiersResponse_classifiers,
+    getClassifiersResponse_nextToken,
     getClassifiersResponse_httpStatus,
 
     -- ** GetColumnStatisticsForPartition
@@ -588,20 +616,20 @@ module Amazonka.Glue.Lens
     getColumnStatisticsForTableResponse_httpStatus,
 
     -- ** GetConnection
-    getConnection_hidePassword,
     getConnection_catalogId,
+    getConnection_hidePassword,
     getConnection_name,
     getConnectionResponse_connection,
     getConnectionResponse_httpStatus,
 
     -- ** GetConnections
-    getConnections_nextToken,
-    getConnections_hidePassword,
-    getConnections_filter,
-    getConnections_maxResults,
     getConnections_catalogId,
-    getConnectionsResponse_nextToken,
+    getConnections_filter,
+    getConnections_hidePassword,
+    getConnections_maxResults,
+    getConnections_nextToken,
     getConnectionsResponse_connectionList,
+    getConnectionsResponse_nextToken,
     getConnectionsResponse_httpStatus,
 
     -- ** GetCrawler
@@ -610,18 +638,18 @@ module Amazonka.Glue.Lens
     getCrawlerResponse_httpStatus,
 
     -- ** GetCrawlerMetrics
-    getCrawlerMetrics_nextToken,
-    getCrawlerMetrics_maxResults,
     getCrawlerMetrics_crawlerNameList,
-    getCrawlerMetricsResponse_nextToken,
+    getCrawlerMetrics_maxResults,
+    getCrawlerMetrics_nextToken,
     getCrawlerMetricsResponse_crawlerMetricsList,
+    getCrawlerMetricsResponse_nextToken,
     getCrawlerMetricsResponse_httpStatus,
 
     -- ** GetCrawlers
-    getCrawlers_nextToken,
     getCrawlers_maxResults,
-    getCrawlersResponse_nextToken,
+    getCrawlers_nextToken,
     getCrawlersResponse_crawlers,
+    getCrawlersResponse_nextToken,
     getCrawlersResponse_httpStatus,
 
     -- ** GetCustomEntityType
@@ -636,6 +664,67 @@ module Amazonka.Glue.Lens
     getDataCatalogEncryptionSettingsResponse_dataCatalogEncryptionSettings,
     getDataCatalogEncryptionSettingsResponse_httpStatus,
 
+    -- ** GetDataQualityResult
+    getDataQualityResult_resultId,
+    getDataQualityResultResponse_completedOn,
+    getDataQualityResultResponse_dataSource,
+    getDataQualityResultResponse_evaluationContext,
+    getDataQualityResultResponse_jobName,
+    getDataQualityResultResponse_jobRunId,
+    getDataQualityResultResponse_resultId,
+    getDataQualityResultResponse_ruleResults,
+    getDataQualityResultResponse_rulesetEvaluationRunId,
+    getDataQualityResultResponse_rulesetName,
+    getDataQualityResultResponse_score,
+    getDataQualityResultResponse_startedOn,
+    getDataQualityResultResponse_httpStatus,
+
+    -- ** GetDataQualityRuleRecommendationRun
+    getDataQualityRuleRecommendationRun_runId,
+    getDataQualityRuleRecommendationRunResponse_completedOn,
+    getDataQualityRuleRecommendationRunResponse_createdRulesetName,
+    getDataQualityRuleRecommendationRunResponse_dataSource,
+    getDataQualityRuleRecommendationRunResponse_errorString,
+    getDataQualityRuleRecommendationRunResponse_executionTime,
+    getDataQualityRuleRecommendationRunResponse_lastModifiedOn,
+    getDataQualityRuleRecommendationRunResponse_numberOfWorkers,
+    getDataQualityRuleRecommendationRunResponse_recommendedRuleset,
+    getDataQualityRuleRecommendationRunResponse_role,
+    getDataQualityRuleRecommendationRunResponse_runId,
+    getDataQualityRuleRecommendationRunResponse_startedOn,
+    getDataQualityRuleRecommendationRunResponse_status,
+    getDataQualityRuleRecommendationRunResponse_timeout,
+    getDataQualityRuleRecommendationRunResponse_httpStatus,
+
+    -- ** GetDataQualityRuleset
+    getDataQualityRuleset_name,
+    getDataQualityRulesetResponse_createdOn,
+    getDataQualityRulesetResponse_description,
+    getDataQualityRulesetResponse_lastModifiedOn,
+    getDataQualityRulesetResponse_name,
+    getDataQualityRulesetResponse_recommendationRunId,
+    getDataQualityRulesetResponse_ruleset,
+    getDataQualityRulesetResponse_targetTable,
+    getDataQualityRulesetResponse_httpStatus,
+
+    -- ** GetDataQualityRulesetEvaluationRun
+    getDataQualityRulesetEvaluationRun_runId,
+    getDataQualityRulesetEvaluationRunResponse_additionalRunOptions,
+    getDataQualityRulesetEvaluationRunResponse_completedOn,
+    getDataQualityRulesetEvaluationRunResponse_dataSource,
+    getDataQualityRulesetEvaluationRunResponse_errorString,
+    getDataQualityRulesetEvaluationRunResponse_executionTime,
+    getDataQualityRulesetEvaluationRunResponse_lastModifiedOn,
+    getDataQualityRulesetEvaluationRunResponse_numberOfWorkers,
+    getDataQualityRulesetEvaluationRunResponse_resultIds,
+    getDataQualityRulesetEvaluationRunResponse_role,
+    getDataQualityRulesetEvaluationRunResponse_rulesetNames,
+    getDataQualityRulesetEvaluationRunResponse_runId,
+    getDataQualityRulesetEvaluationRunResponse_startedOn,
+    getDataQualityRulesetEvaluationRunResponse_status,
+    getDataQualityRulesetEvaluationRunResponse_timeout,
+    getDataQualityRulesetEvaluationRunResponse_httpStatus,
+
     -- ** GetDatabase
     getDatabase_catalogId,
     getDatabase_name,
@@ -643,18 +732,18 @@ module Amazonka.Glue.Lens
     getDatabaseResponse_httpStatus,
 
     -- ** GetDatabases
+    getDatabases_catalogId,
+    getDatabases_maxResults,
     getDatabases_nextToken,
     getDatabases_resourceShareType,
-    getDatabases_maxResults,
-    getDatabases_catalogId,
     getDatabasesResponse_nextToken,
     getDatabasesResponse_httpStatus,
     getDatabasesResponse_databaseList,
 
     -- ** GetDataflowGraph
     getDataflowGraph_pythonScript,
-    getDataflowGraphResponse_dagNodes,
     getDataflowGraphResponse_dagEdges,
+    getDataflowGraphResponse_dagNodes,
     getDataflowGraphResponse_httpStatus,
 
     -- ** GetDevEndpoint
@@ -663,10 +752,10 @@ module Amazonka.Glue.Lens
     getDevEndpointResponse_httpStatus,
 
     -- ** GetDevEndpoints
-    getDevEndpoints_nextToken,
     getDevEndpoints_maxResults,
-    getDevEndpointsResponse_nextToken,
+    getDevEndpoints_nextToken,
     getDevEndpointsResponse_devEndpoints,
+    getDevEndpointsResponse_nextToken,
     getDevEndpointsResponse_httpStatus,
 
     -- ** GetJob
@@ -688,40 +777,40 @@ module Amazonka.Glue.Lens
     getJobRunResponse_httpStatus,
 
     -- ** GetJobRuns
-    getJobRuns_nextToken,
     getJobRuns_maxResults,
+    getJobRuns_nextToken,
     getJobRuns_jobName,
-    getJobRunsResponse_nextToken,
     getJobRunsResponse_jobRuns,
+    getJobRunsResponse_nextToken,
     getJobRunsResponse_httpStatus,
 
     -- ** GetJobs
-    getJobs_nextToken,
     getJobs_maxResults,
-    getJobsResponse_nextToken,
+    getJobs_nextToken,
     getJobsResponse_jobs,
+    getJobsResponse_nextToken,
     getJobsResponse_httpStatus,
 
     -- ** GetMLTaskRun
     getMLTaskRun_transformId,
     getMLTaskRun_taskRunId,
-    getMLTaskRunResponse_lastModifiedOn,
-    getMLTaskRunResponse_startedOn,
-    getMLTaskRunResponse_properties,
-    getMLTaskRunResponse_executionTime,
-    getMLTaskRunResponse_status,
-    getMLTaskRunResponse_transformId,
     getMLTaskRunResponse_completedOn,
-    getMLTaskRunResponse_taskRunId,
     getMLTaskRunResponse_errorString,
+    getMLTaskRunResponse_executionTime,
+    getMLTaskRunResponse_lastModifiedOn,
     getMLTaskRunResponse_logGroupName,
+    getMLTaskRunResponse_properties,
+    getMLTaskRunResponse_startedOn,
+    getMLTaskRunResponse_status,
+    getMLTaskRunResponse_taskRunId,
+    getMLTaskRunResponse_transformId,
     getMLTaskRunResponse_httpStatus,
 
     -- ** GetMLTaskRuns
-    getMLTaskRuns_nextToken,
-    getMLTaskRuns_sort,
     getMLTaskRuns_filter,
     getMLTaskRuns_maxResults,
+    getMLTaskRuns_nextToken,
+    getMLTaskRuns_sort,
     getMLTaskRuns_transformId,
     getMLTaskRunsResponse_nextToken,
     getMLTaskRunsResponse_taskRuns,
@@ -729,32 +818,32 @@ module Amazonka.Glue.Lens
 
     -- ** GetMLTransform
     getMLTransform_transformId,
-    getMLTransformResponse_evaluationMetrics,
     getMLTransformResponse_createdOn,
-    getMLTransformResponse_timeout,
-    getMLTransformResponse_name,
-    getMLTransformResponse_lastModifiedOn,
-    getMLTransformResponse_numberOfWorkers,
-    getMLTransformResponse_glueVersion,
-    getMLTransformResponse_workerType,
-    getMLTransformResponse_inputRecordTables,
-    getMLTransformResponse_status,
-    getMLTransformResponse_labelCount,
     getMLTransformResponse_description,
-    getMLTransformResponse_maxRetries,
-    getMLTransformResponse_transformId,
-    getMLTransformResponse_transformEncryption,
-    getMLTransformResponse_schema,
-    getMLTransformResponse_role,
+    getMLTransformResponse_evaluationMetrics,
+    getMLTransformResponse_glueVersion,
+    getMLTransformResponse_inputRecordTables,
+    getMLTransformResponse_labelCount,
+    getMLTransformResponse_lastModifiedOn,
     getMLTransformResponse_maxCapacity,
+    getMLTransformResponse_maxRetries,
+    getMLTransformResponse_name,
+    getMLTransformResponse_numberOfWorkers,
     getMLTransformResponse_parameters,
+    getMLTransformResponse_role,
+    getMLTransformResponse_schema,
+    getMLTransformResponse_status,
+    getMLTransformResponse_timeout,
+    getMLTransformResponse_transformEncryption,
+    getMLTransformResponse_transformId,
+    getMLTransformResponse_workerType,
     getMLTransformResponse_httpStatus,
 
     -- ** GetMLTransforms
-    getMLTransforms_nextToken,
-    getMLTransforms_sort,
     getMLTransforms_filter,
     getMLTransforms_maxResults,
+    getMLTransforms_nextToken,
+    getMLTransforms_sort,
     getMLTransformsResponse_nextToken,
     getMLTransformsResponse_httpStatus,
     getMLTransformsResponse_transforms,
@@ -775,8 +864,8 @@ module Amazonka.Glue.Lens
     getPartitionResponse_httpStatus,
 
     -- ** GetPartitionIndexes
-    getPartitionIndexes_nextToken,
     getPartitionIndexes_catalogId,
+    getPartitionIndexes_nextToken,
     getPartitionIndexes_databaseName,
     getPartitionIndexes_tableName,
     getPartitionIndexesResponse_nextToken,
@@ -784,14 +873,14 @@ module Amazonka.Glue.Lens
     getPartitionIndexesResponse_httpStatus,
 
     -- ** GetPartitions
+    getPartitions_catalogId,
+    getPartitions_excludeColumnSchema,
+    getPartitions_expression,
+    getPartitions_maxResults,
     getPartitions_nextToken,
     getPartitions_queryAsOfTime,
-    getPartitions_expression,
     getPartitions_segment,
-    getPartitions_maxResults,
-    getPartitions_catalogId,
     getPartitions_transactionId,
-    getPartitions_excludeColumnSchema,
     getPartitions_databaseName,
     getPartitions_tableName,
     getPartitionsResponse_nextToken,
@@ -799,55 +888,55 @@ module Amazonka.Glue.Lens
     getPartitionsResponse_httpStatus,
 
     -- ** GetPlan
-    getPlan_location,
     getPlan_additionalPlanOptionsMap,
-    getPlan_sinks,
     getPlan_language,
+    getPlan_location,
+    getPlan_sinks,
     getPlan_mapping,
     getPlan_source,
-    getPlanResponse_scalaCode,
     getPlanResponse_pythonScript,
+    getPlanResponse_scalaCode,
     getPlanResponse_httpStatus,
 
     -- ** GetRegistry
     getRegistry_registryId,
-    getRegistryResponse_registryName,
     getRegistryResponse_createdTime,
-    getRegistryResponse_status,
     getRegistryResponse_description,
     getRegistryResponse_registryArn,
+    getRegistryResponse_registryName,
+    getRegistryResponse_status,
     getRegistryResponse_updatedTime,
     getRegistryResponse_httpStatus,
 
     -- ** GetResourcePolicies
-    getResourcePolicies_nextToken,
     getResourcePolicies_maxResults,
+    getResourcePolicies_nextToken,
     getResourcePoliciesResponse_getResourcePoliciesResponseList,
     getResourcePoliciesResponse_nextToken,
     getResourcePoliciesResponse_httpStatus,
 
     -- ** GetResourcePolicy
     getResourcePolicy_resourceArn,
-    getResourcePolicyResponse_policyInJson,
-    getResourcePolicyResponse_updateTime,
     getResourcePolicyResponse_createTime,
     getResourcePolicyResponse_policyHash,
+    getResourcePolicyResponse_policyInJson,
+    getResourcePolicyResponse_updateTime,
     getResourcePolicyResponse_httpStatus,
 
     -- ** GetSchema
     getSchema_schemaId,
     getSchemaResponse_compatibility,
-    getSchemaResponse_registryName,
     getSchemaResponse_createdTime,
-    getSchemaResponse_schemaStatus,
     getSchemaResponse_dataFormat,
-    getSchemaResponse_schemaName,
     getSchemaResponse_description,
-    getSchemaResponse_schemaArn,
-    getSchemaResponse_registryArn,
-    getSchemaResponse_nextSchemaVersion,
-    getSchemaResponse_schemaCheckpoint,
     getSchemaResponse_latestSchemaVersion,
+    getSchemaResponse_nextSchemaVersion,
+    getSchemaResponse_registryArn,
+    getSchemaResponse_registryName,
+    getSchemaResponse_schemaArn,
+    getSchemaResponse_schemaCheckpoint,
+    getSchemaResponse_schemaName,
+    getSchemaResponse_schemaStatus,
     getSchemaResponse_updatedTime,
     getSchemaResponse_httpStatus,
 
@@ -856,22 +945,22 @@ module Amazonka.Glue.Lens
     getSchemaByDefinition_schemaDefinition,
     getSchemaByDefinitionResponse_createdTime,
     getSchemaByDefinitionResponse_dataFormat,
-    getSchemaByDefinitionResponse_status,
     getSchemaByDefinitionResponse_schemaArn,
     getSchemaByDefinitionResponse_schemaVersionId,
+    getSchemaByDefinitionResponse_status,
     getSchemaByDefinitionResponse_httpStatus,
 
     -- ** GetSchemaVersion
-    getSchemaVersion_schemaVersionNumber,
-    getSchemaVersion_schemaVersionId,
     getSchemaVersion_schemaId,
+    getSchemaVersion_schemaVersionId,
+    getSchemaVersion_schemaVersionNumber,
     getSchemaVersionResponse_createdTime,
     getSchemaVersionResponse_dataFormat,
-    getSchemaVersionResponse_status,
     getSchemaVersionResponse_schemaArn,
-    getSchemaVersionResponse_versionNumber,
-    getSchemaVersionResponse_schemaVersionId,
     getSchemaVersionResponse_schemaDefinition,
+    getSchemaVersionResponse_schemaVersionId,
+    getSchemaVersionResponse_status,
+    getSchemaVersionResponse_versionNumber,
     getSchemaVersionResponse_httpStatus,
 
     -- ** GetSchemaVersionsDiff
@@ -888,8 +977,8 @@ module Amazonka.Glue.Lens
     getSecurityConfigurationResponse_httpStatus,
 
     -- ** GetSecurityConfigurations
-    getSecurityConfigurations_nextToken,
     getSecurityConfigurations_maxResults,
+    getSecurityConfigurations_nextToken,
     getSecurityConfigurationsResponse_nextToken,
     getSecurityConfigurationsResponse_securityConfigurations,
     getSecurityConfigurationsResponse_httpStatus,
@@ -908,8 +997,8 @@ module Amazonka.Glue.Lens
     getStatementResponse_httpStatus,
 
     -- ** GetTable
-    getTable_queryAsOfTime,
     getTable_catalogId,
+    getTable_queryAsOfTime,
     getTable_transactionId,
     getTable_databaseName,
     getTable_name,
@@ -925,9 +1014,9 @@ module Amazonka.Glue.Lens
     getTableVersionResponse_httpStatus,
 
     -- ** GetTableVersions
-    getTableVersions_nextToken,
-    getTableVersions_maxResults,
     getTableVersions_catalogId,
+    getTableVersions_maxResults,
+    getTableVersions_nextToken,
     getTableVersions_databaseName,
     getTableVersions_tableName,
     getTableVersionsResponse_nextToken,
@@ -935,11 +1024,11 @@ module Amazonka.Glue.Lens
     getTableVersionsResponse_httpStatus,
 
     -- ** GetTables
-    getTables_nextToken,
-    getTables_queryAsOfTime,
+    getTables_catalogId,
     getTables_expression,
     getTables_maxResults,
-    getTables_catalogId,
+    getTables_nextToken,
+    getTables_queryAsOfTime,
     getTables_transactionId,
     getTables_databaseName,
     getTablesResponse_nextToken,
@@ -957,9 +1046,9 @@ module Amazonka.Glue.Lens
     getTriggerResponse_httpStatus,
 
     -- ** GetTriggers
-    getTriggers_nextToken,
-    getTriggers_maxResults,
     getTriggers_dependentJobName,
+    getTriggers_maxResults,
+    getTriggers_nextToken,
     getTriggersResponse_nextToken,
     getTriggersResponse_triggers,
     getTriggersResponse_httpStatus,
@@ -972,16 +1061,16 @@ module Amazonka.Glue.Lens
     getUnfilteredPartitionMetadata_partitionValues,
     getUnfilteredPartitionMetadata_supportedPermissionTypes,
     getUnfilteredPartitionMetadataResponse_authorizedColumns,
-    getUnfilteredPartitionMetadataResponse_partition,
     getUnfilteredPartitionMetadataResponse_isRegisteredWithLakeFormation,
+    getUnfilteredPartitionMetadataResponse_partition,
     getUnfilteredPartitionMetadataResponse_httpStatus,
 
     -- ** GetUnfilteredPartitionsMetadata
-    getUnfilteredPartitionsMetadata_nextToken,
     getUnfilteredPartitionsMetadata_auditContext,
     getUnfilteredPartitionsMetadata_expression,
-    getUnfilteredPartitionsMetadata_segment,
     getUnfilteredPartitionsMetadata_maxResults,
+    getUnfilteredPartitionsMetadata_nextToken,
+    getUnfilteredPartitionsMetadata_segment,
     getUnfilteredPartitionsMetadata_catalogId,
     getUnfilteredPartitionsMetadata_databaseName,
     getUnfilteredPartitionsMetadata_tableName,
@@ -996,8 +1085,8 @@ module Amazonka.Glue.Lens
     getUnfilteredTableMetadata_databaseName,
     getUnfilteredTableMetadata_name,
     getUnfilteredTableMetadata_supportedPermissionTypes,
-    getUnfilteredTableMetadataResponse_cellFilters,
     getUnfilteredTableMetadataResponse_authorizedColumns,
+    getUnfilteredTableMetadataResponse_cellFilters,
     getUnfilteredTableMetadataResponse_isRegisteredWithLakeFormation,
     getUnfilteredTableMetadataResponse_table,
     getUnfilteredTableMetadataResponse_httpStatus,
@@ -1010,10 +1099,10 @@ module Amazonka.Glue.Lens
     getUserDefinedFunctionResponse_httpStatus,
 
     -- ** GetUserDefinedFunctions
-    getUserDefinedFunctions_nextToken,
+    getUserDefinedFunctions_catalogId,
     getUserDefinedFunctions_databaseName,
     getUserDefinedFunctions_maxResults,
-    getUserDefinedFunctions_catalogId,
+    getUserDefinedFunctions_nextToken,
     getUserDefinedFunctions_pattern,
     getUserDefinedFunctionsResponse_nextToken,
     getUserDefinedFunctionsResponse_userDefinedFunctions,
@@ -1039,9 +1128,9 @@ module Amazonka.Glue.Lens
     getWorkflowRunPropertiesResponse_httpStatus,
 
     -- ** GetWorkflowRuns
-    getWorkflowRuns_nextToken,
-    getWorkflowRuns_maxResults,
     getWorkflowRuns_includeGraph,
+    getWorkflowRuns_maxResults,
+    getWorkflowRuns_nextToken,
     getWorkflowRuns_name,
     getWorkflowRunsResponse_nextToken,
     getWorkflowRunsResponse_runs,
@@ -1052,94 +1141,127 @@ module Amazonka.Glue.Lens
     importCatalogToGlueResponse_httpStatus,
 
     -- ** ListBlueprints
-    listBlueprints_tags,
-    listBlueprints_nextToken,
     listBlueprints_maxResults,
-    listBlueprintsResponse_nextToken,
+    listBlueprints_nextToken,
+    listBlueprints_tags,
     listBlueprintsResponse_blueprints,
+    listBlueprintsResponse_nextToken,
     listBlueprintsResponse_httpStatus,
 
     -- ** ListCrawlers
-    listCrawlers_tags,
-    listCrawlers_nextToken,
     listCrawlers_maxResults,
-    listCrawlersResponse_nextToken,
+    listCrawlers_nextToken,
+    listCrawlers_tags,
     listCrawlersResponse_crawlerNames,
+    listCrawlersResponse_nextToken,
     listCrawlersResponse_httpStatus,
 
     -- ** ListCrawls
-    listCrawls_nextToken,
     listCrawls_filters,
     listCrawls_maxResults,
+    listCrawls_nextToken,
     listCrawls_crawlerName,
     listCrawlsResponse_crawls,
     listCrawlsResponse_nextToken,
     listCrawlsResponse_httpStatus,
 
     -- ** ListCustomEntityTypes
-    listCustomEntityTypes_nextToken,
     listCustomEntityTypes_maxResults,
-    listCustomEntityTypesResponse_nextToken,
+    listCustomEntityTypes_nextToken,
     listCustomEntityTypesResponse_customEntityTypes,
+    listCustomEntityTypesResponse_nextToken,
     listCustomEntityTypesResponse_httpStatus,
 
+    -- ** ListDataQualityResults
+    listDataQualityResults_filter,
+    listDataQualityResults_maxResults,
+    listDataQualityResults_nextToken,
+    listDataQualityResultsResponse_nextToken,
+    listDataQualityResultsResponse_httpStatus,
+    listDataQualityResultsResponse_results,
+
+    -- ** ListDataQualityRuleRecommendationRuns
+    listDataQualityRuleRecommendationRuns_filter,
+    listDataQualityRuleRecommendationRuns_maxResults,
+    listDataQualityRuleRecommendationRuns_nextToken,
+    listDataQualityRuleRecommendationRunsResponse_nextToken,
+    listDataQualityRuleRecommendationRunsResponse_runs,
+    listDataQualityRuleRecommendationRunsResponse_httpStatus,
+
+    -- ** ListDataQualityRulesetEvaluationRuns
+    listDataQualityRulesetEvaluationRuns_filter,
+    listDataQualityRulesetEvaluationRuns_maxResults,
+    listDataQualityRulesetEvaluationRuns_nextToken,
+    listDataQualityRulesetEvaluationRunsResponse_nextToken,
+    listDataQualityRulesetEvaluationRunsResponse_runs,
+    listDataQualityRulesetEvaluationRunsResponse_httpStatus,
+
+    -- ** ListDataQualityRulesets
+    listDataQualityRulesets_filter,
+    listDataQualityRulesets_maxResults,
+    listDataQualityRulesets_nextToken,
+    listDataQualityRulesets_tags,
+    listDataQualityRulesetsResponse_nextToken,
+    listDataQualityRulesetsResponse_rulesets,
+    listDataQualityRulesetsResponse_httpStatus,
+
     -- ** ListDevEndpoints
-    listDevEndpoints_tags,
-    listDevEndpoints_nextToken,
     listDevEndpoints_maxResults,
-    listDevEndpointsResponse_nextToken,
+    listDevEndpoints_nextToken,
+    listDevEndpoints_tags,
     listDevEndpointsResponse_devEndpointNames,
+    listDevEndpointsResponse_nextToken,
     listDevEndpointsResponse_httpStatus,
 
     -- ** ListJobs
-    listJobs_tags,
-    listJobs_nextToken,
     listJobs_maxResults,
-    listJobsResponse_nextToken,
+    listJobs_nextToken,
+    listJobs_tags,
     listJobsResponse_jobNames,
+    listJobsResponse_nextToken,
     listJobsResponse_httpStatus,
 
     -- ** ListMLTransforms
-    listMLTransforms_tags,
-    listMLTransforms_nextToken,
-    listMLTransforms_sort,
     listMLTransforms_filter,
     listMLTransforms_maxResults,
+    listMLTransforms_nextToken,
+    listMLTransforms_sort,
+    listMLTransforms_tags,
     listMLTransformsResponse_nextToken,
     listMLTransformsResponse_httpStatus,
     listMLTransformsResponse_transformIds,
 
     -- ** ListRegistries
-    listRegistries_nextToken,
     listRegistries_maxResults,
+    listRegistries_nextToken,
     listRegistriesResponse_nextToken,
     listRegistriesResponse_registries,
     listRegistriesResponse_httpStatus,
 
     -- ** ListSchemaVersions
-    listSchemaVersions_nextToken,
     listSchemaVersions_maxResults,
+    listSchemaVersions_nextToken,
     listSchemaVersions_schemaId,
     listSchemaVersionsResponse_nextToken,
     listSchemaVersionsResponse_schemas,
     listSchemaVersionsResponse_httpStatus,
 
     -- ** ListSchemas
-    listSchemas_nextToken,
     listSchemas_maxResults,
+    listSchemas_nextToken,
     listSchemas_registryId,
     listSchemasResponse_nextToken,
     listSchemasResponse_schemas,
     listSchemasResponse_httpStatus,
 
     -- ** ListSessions
-    listSessions_tags,
+    listSessions_maxResults,
     listSessions_nextToken,
     listSessions_requestOrigin,
-    listSessions_maxResults,
+    listSessions_tags,
+    listSessionsResponse_ids,
     listSessionsResponse_nextToken,
     listSessionsResponse_sessions,
-    listSessionsResponse_ids,
     listSessionsResponse_httpStatus,
 
     -- ** ListStatements
@@ -1151,17 +1273,17 @@ module Amazonka.Glue.Lens
     listStatementsResponse_httpStatus,
 
     -- ** ListTriggers
-    listTriggers_tags,
-    listTriggers_nextToken,
-    listTriggers_maxResults,
     listTriggers_dependentJobName,
+    listTriggers_maxResults,
+    listTriggers_nextToken,
+    listTriggers_tags,
     listTriggersResponse_nextToken,
     listTriggersResponse_triggerNames,
     listTriggersResponse_httpStatus,
 
     -- ** ListWorkflows
-    listWorkflows_nextToken,
     listWorkflows_maxResults,
+    listWorkflows_nextToken,
     listWorkflowsResponse_nextToken,
     listWorkflowsResponse_workflows,
     listWorkflowsResponse_httpStatus,
@@ -1173,26 +1295,26 @@ module Amazonka.Glue.Lens
 
     -- ** PutResourcePolicy
     putResourcePolicy_enableHybrid,
-    putResourcePolicy_policyHashCondition,
     putResourcePolicy_policyExistsCondition,
+    putResourcePolicy_policyHashCondition,
     putResourcePolicy_resourceArn,
     putResourcePolicy_policyInJson,
     putResourcePolicyResponse_policyHash,
     putResourcePolicyResponse_httpStatus,
 
     -- ** PutSchemaVersionMetadata
-    putSchemaVersionMetadata_schemaVersionNumber,
-    putSchemaVersionMetadata_schemaVersionId,
     putSchemaVersionMetadata_schemaId,
+    putSchemaVersionMetadata_schemaVersionId,
+    putSchemaVersionMetadata_schemaVersionNumber,
     putSchemaVersionMetadata_metadataKeyValue,
-    putSchemaVersionMetadataResponse_registryName,
-    putSchemaVersionMetadataResponse_schemaName,
     putSchemaVersionMetadataResponse_latestVersion,
-    putSchemaVersionMetadataResponse_metadataValue,
-    putSchemaVersionMetadataResponse_schemaArn,
-    putSchemaVersionMetadataResponse_versionNumber,
     putSchemaVersionMetadataResponse_metadataKey,
+    putSchemaVersionMetadataResponse_metadataValue,
+    putSchemaVersionMetadataResponse_registryName,
+    putSchemaVersionMetadataResponse_schemaArn,
+    putSchemaVersionMetadataResponse_schemaName,
     putSchemaVersionMetadataResponse_schemaVersionId,
+    putSchemaVersionMetadataResponse_versionNumber,
     putSchemaVersionMetadataResponse_httpStatus,
 
     -- ** PutWorkflowRunProperties
@@ -1202,38 +1324,38 @@ module Amazonka.Glue.Lens
     putWorkflowRunPropertiesResponse_httpStatus,
 
     -- ** QuerySchemaVersionMetadata
-    querySchemaVersionMetadata_nextToken,
     querySchemaVersionMetadata_maxResults,
-    querySchemaVersionMetadata_schemaVersionNumber,
     querySchemaVersionMetadata_metadataList,
-    querySchemaVersionMetadata_schemaVersionId,
+    querySchemaVersionMetadata_nextToken,
     querySchemaVersionMetadata_schemaId,
+    querySchemaVersionMetadata_schemaVersionId,
+    querySchemaVersionMetadata_schemaVersionNumber,
+    querySchemaVersionMetadataResponse_metadataInfoMap,
     querySchemaVersionMetadataResponse_nextToken,
     querySchemaVersionMetadataResponse_schemaVersionId,
-    querySchemaVersionMetadataResponse_metadataInfoMap,
     querySchemaVersionMetadataResponse_httpStatus,
 
     -- ** RegisterSchemaVersion
     registerSchemaVersion_schemaId,
     registerSchemaVersion_schemaDefinition,
+    registerSchemaVersionResponse_schemaVersionId,
     registerSchemaVersionResponse_status,
     registerSchemaVersionResponse_versionNumber,
-    registerSchemaVersionResponse_schemaVersionId,
     registerSchemaVersionResponse_httpStatus,
 
     -- ** RemoveSchemaVersionMetadata
-    removeSchemaVersionMetadata_schemaVersionNumber,
-    removeSchemaVersionMetadata_schemaVersionId,
     removeSchemaVersionMetadata_schemaId,
+    removeSchemaVersionMetadata_schemaVersionId,
+    removeSchemaVersionMetadata_schemaVersionNumber,
     removeSchemaVersionMetadata_metadataKeyValue,
-    removeSchemaVersionMetadataResponse_registryName,
-    removeSchemaVersionMetadataResponse_schemaName,
     removeSchemaVersionMetadataResponse_latestVersion,
-    removeSchemaVersionMetadataResponse_metadataValue,
-    removeSchemaVersionMetadataResponse_schemaArn,
-    removeSchemaVersionMetadataResponse_versionNumber,
     removeSchemaVersionMetadataResponse_metadataKey,
+    removeSchemaVersionMetadataResponse_metadataValue,
+    removeSchemaVersionMetadataResponse_registryName,
+    removeSchemaVersionMetadataResponse_schemaArn,
+    removeSchemaVersionMetadataResponse_schemaName,
     removeSchemaVersionMetadataResponse_schemaVersionId,
+    removeSchemaVersionMetadataResponse_versionNumber,
     removeSchemaVersionMetadataResponse_httpStatus,
 
     -- ** ResetJobBookmark
@@ -1258,13 +1380,13 @@ module Amazonka.Glue.Lens
     runStatementResponse_httpStatus,
 
     -- ** SearchTables
-    searchTables_sortCriteria,
-    searchTables_nextToken,
-    searchTables_searchText,
-    searchTables_resourceShareType,
+    searchTables_catalogId,
     searchTables_filters,
     searchTables_maxResults,
-    searchTables_catalogId,
+    searchTables_nextToken,
+    searchTables_resourceShareType,
+    searchTables_searchText,
+    searchTables_sortCriteria,
     searchTablesResponse_nextToken,
     searchTablesResponse_tableList,
     searchTablesResponse_httpStatus,
@@ -1284,6 +1406,27 @@ module Amazonka.Glue.Lens
     startCrawlerSchedule_crawlerName,
     startCrawlerScheduleResponse_httpStatus,
 
+    -- ** StartDataQualityRuleRecommendationRun
+    startDataQualityRuleRecommendationRun_clientToken,
+    startDataQualityRuleRecommendationRun_createdRulesetName,
+    startDataQualityRuleRecommendationRun_numberOfWorkers,
+    startDataQualityRuleRecommendationRun_timeout,
+    startDataQualityRuleRecommendationRun_dataSource,
+    startDataQualityRuleRecommendationRun_role,
+    startDataQualityRuleRecommendationRunResponse_runId,
+    startDataQualityRuleRecommendationRunResponse_httpStatus,
+
+    -- ** StartDataQualityRulesetEvaluationRun
+    startDataQualityRulesetEvaluationRun_additionalRunOptions,
+    startDataQualityRulesetEvaluationRun_clientToken,
+    startDataQualityRulesetEvaluationRun_numberOfWorkers,
+    startDataQualityRulesetEvaluationRun_timeout,
+    startDataQualityRulesetEvaluationRun_dataSource,
+    startDataQualityRulesetEvaluationRun_role,
+    startDataQualityRulesetEvaluationRun_rulesetNames,
+    startDataQualityRulesetEvaluationRunResponse_runId,
+    startDataQualityRulesetEvaluationRunResponse_httpStatus,
+
     -- ** StartExportLabelsTaskRun
     startExportLabelsTaskRun_transformId,
     startExportLabelsTaskRun_outputS3Path,
@@ -1298,16 +1441,16 @@ module Amazonka.Glue.Lens
     startImportLabelsTaskRunResponse_httpStatus,
 
     -- ** StartJobRun
-    startJobRun_securityConfiguration,
-    startJobRun_timeout,
-    startJobRun_numberOfWorkers,
-    startJobRun_notificationProperty,
-    startJobRun_jobRunId,
-    startJobRun_workerType,
     startJobRun_allocatedCapacity,
     startJobRun_arguments,
-    startJobRun_maxCapacity,
     startJobRun_executionClass,
+    startJobRun_jobRunId,
+    startJobRun_maxCapacity,
+    startJobRun_notificationProperty,
+    startJobRun_numberOfWorkers,
+    startJobRun_securityConfiguration,
+    startJobRun_timeout,
+    startJobRun_workerType,
     startJobRun_jobName,
     startJobRunResponse_jobRunId,
     startJobRunResponse_httpStatus,
@@ -1377,9 +1520,9 @@ module Amazonka.Glue.Lens
 
     -- ** UpdateClassifier
     updateClassifier_csvClassifier,
-    updateClassifier_xMLClassifier,
     updateClassifier_grokClassifier,
     updateClassifier_jsonClassifier,
+    updateClassifier_xMLClassifier,
     updateClassifierResponse_httpStatus,
 
     -- ** UpdateColumnStatisticsForPartition
@@ -1406,19 +1549,19 @@ module Amazonka.Glue.Lens
     updateConnectionResponse_httpStatus,
 
     -- ** UpdateCrawler
-    updateCrawler_schedule,
-    updateCrawler_recrawlPolicy,
     updateCrawler_classifiers,
-    updateCrawler_schemaChangePolicy,
-    updateCrawler_databaseName,
     updateCrawler_configuration,
+    updateCrawler_crawlerSecurityConfiguration,
+    updateCrawler_databaseName,
+    updateCrawler_description,
+    updateCrawler_lakeFormationConfiguration,
+    updateCrawler_lineageConfiguration,
+    updateCrawler_recrawlPolicy,
+    updateCrawler_role,
+    updateCrawler_schedule,
+    updateCrawler_schemaChangePolicy,
     updateCrawler_tablePrefix,
     updateCrawler_targets,
-    updateCrawler_description,
-    updateCrawler_lineageConfiguration,
-    updateCrawler_role,
-    updateCrawler_crawlerSecurityConfiguration,
-    updateCrawler_lakeFormationConfiguration,
     updateCrawler_name,
     updateCrawlerResponse_httpStatus,
 
@@ -1427,6 +1570,16 @@ module Amazonka.Glue.Lens
     updateCrawlerSchedule_crawlerName,
     updateCrawlerScheduleResponse_httpStatus,
 
+    -- ** UpdateDataQualityRuleset
+    updateDataQualityRuleset_description,
+    updateDataQualityRuleset_ruleset,
+    updateDataQualityRuleset_updatedName,
+    updateDataQualityRuleset_name,
+    updateDataQualityRulesetResponse_description,
+    updateDataQualityRulesetResponse_name,
+    updateDataQualityRulesetResponse_ruleset,
+    updateDataQualityRulesetResponse_httpStatus,
+
     -- ** UpdateDatabase
     updateDatabase_catalogId,
     updateDatabase_name,
@@ -1434,12 +1587,12 @@ module Amazonka.Glue.Lens
     updateDatabaseResponse_httpStatus,
 
     -- ** UpdateDevEndpoint
+    updateDevEndpoint_addArguments,
+    updateDevEndpoint_addPublicKeys,
+    updateDevEndpoint_customLibraries,
+    updateDevEndpoint_deleteArguments,
     updateDevEndpoint_deletePublicKeys,
     updateDevEndpoint_publicKey,
-    updateDevEndpoint_addArguments,
-    updateDevEndpoint_customLibraries,
-    updateDevEndpoint_addPublicKeys,
-    updateDevEndpoint_deleteArguments,
     updateDevEndpoint_updateEtlLibraries,
     updateDevEndpoint_endpointName,
     updateDevEndpointResponse_httpStatus,
@@ -1451,29 +1604,29 @@ module Amazonka.Glue.Lens
     updateJobResponse_httpStatus,
 
     -- ** UpdateJobFromSourceControl
-    updateJobFromSourceControl_repositoryOwner,
-    updateJobFromSourceControl_commitId,
+    updateJobFromSourceControl_authStrategy,
+    updateJobFromSourceControl_authToken,
     updateJobFromSourceControl_branchName,
+    updateJobFromSourceControl_commitId,
     updateJobFromSourceControl_folder,
     updateJobFromSourceControl_jobName,
-    updateJobFromSourceControl_repositoryName,
-    updateJobFromSourceControl_authToken,
     updateJobFromSourceControl_provider,
-    updateJobFromSourceControl_authStrategy,
+    updateJobFromSourceControl_repositoryName,
+    updateJobFromSourceControl_repositoryOwner,
     updateJobFromSourceControlResponse_jobName,
     updateJobFromSourceControlResponse_httpStatus,
 
     -- ** UpdateMLTransform
-    updateMLTransform_timeout,
+    updateMLTransform_description,
+    updateMLTransform_glueVersion,
+    updateMLTransform_maxCapacity,
+    updateMLTransform_maxRetries,
     updateMLTransform_name,
     updateMLTransform_numberOfWorkers,
-    updateMLTransform_glueVersion,
-    updateMLTransform_workerType,
-    updateMLTransform_description,
-    updateMLTransform_maxRetries,
-    updateMLTransform_role,
-    updateMLTransform_maxCapacity,
     updateMLTransform_parameters,
+    updateMLTransform_role,
+    updateMLTransform_timeout,
+    updateMLTransform_workerType,
     updateMLTransform_transformId,
     updateMLTransformResponse_transformId,
     updateMLTransformResponse_httpStatus,
@@ -1489,8 +1642,8 @@ module Amazonka.Glue.Lens
     -- ** UpdateRegistry
     updateRegistry_registryId,
     updateRegistry_description,
-    updateRegistryResponse_registryName,
     updateRegistryResponse_registryArn,
+    updateRegistryResponse_registryName,
     updateRegistryResponse_httpStatus,
 
     -- ** UpdateSchema
@@ -1499,26 +1652,26 @@ module Amazonka.Glue.Lens
     updateSchema_schemaVersionNumber,
     updateSchema_schemaId,
     updateSchemaResponse_registryName,
-    updateSchemaResponse_schemaName,
     updateSchemaResponse_schemaArn,
+    updateSchemaResponse_schemaName,
     updateSchemaResponse_httpStatus,
 
     -- ** UpdateSourceControlFromJob
-    updateSourceControlFromJob_repositoryOwner,
-    updateSourceControlFromJob_commitId,
+    updateSourceControlFromJob_authStrategy,
+    updateSourceControlFromJob_authToken,
     updateSourceControlFromJob_branchName,
+    updateSourceControlFromJob_commitId,
     updateSourceControlFromJob_folder,
     updateSourceControlFromJob_jobName,
-    updateSourceControlFromJob_repositoryName,
-    updateSourceControlFromJob_authToken,
     updateSourceControlFromJob_provider,
-    updateSourceControlFromJob_authStrategy,
+    updateSourceControlFromJob_repositoryName,
+    updateSourceControlFromJob_repositoryOwner,
     updateSourceControlFromJobResponse_jobName,
     updateSourceControlFromJobResponse_httpStatus,
 
     -- ** UpdateTable
-    updateTable_skipArchive,
     updateTable_catalogId,
+    updateTable_skipArchive,
     updateTable_transactionId,
     updateTable_versionId,
     updateTable_databaseName,
@@ -1539,9 +1692,9 @@ module Amazonka.Glue.Lens
     updateUserDefinedFunctionResponse_httpStatus,
 
     -- ** UpdateWorkflow
-    updateWorkflow_maxConcurrentRuns,
     updateWorkflow_defaultRunProperties,
     updateWorkflow_description,
+    updateWorkflow_maxConcurrentRuns,
     updateWorkflow_name,
     updateWorkflowResponse_name,
     updateWorkflowResponse_httpStatus,
@@ -1549,12 +1702,12 @@ module Amazonka.Glue.Lens
     -- * Types
 
     -- ** Action
-    action_securityConfiguration,
-    action_timeout,
+    action_arguments,
+    action_crawlerName,
     action_jobName,
     action_notificationProperty,
-    action_crawlerName,
-    action_arguments,
+    action_securityConfiguration,
+    action_timeout,
 
     -- ** Aggregate
     aggregate_name,
@@ -1572,8 +1725,8 @@ module Amazonka.Glue.Lens
     applyMapping_mapping,
 
     -- ** AthenaConnectorSource
-    athenaConnectorSource_outputSchemas,
     athenaConnectorSource_connectionTable,
+    athenaConnectorSource_outputSchemas,
     athenaConnectorSource_name,
     athenaConnectorSource_connectionName,
     athenaConnectorSource_connectorName,
@@ -1581,9 +1734,9 @@ module Amazonka.Glue.Lens
     athenaConnectorSource_schemaName,
 
     -- ** AuditContext
-    auditContext_requestedColumns,
     auditContext_additionalAuditContext,
     auditContext_allColumnsRequested,
+    auditContext_requestedColumns,
 
     -- ** BackfillError
     backfillError_code,
@@ -1596,17 +1749,17 @@ module Amazonka.Glue.Lens
     basicCatalogTarget_table,
 
     -- ** BatchStopJobRunError
+    batchStopJobRunError_errorDetail,
     batchStopJobRunError_jobName,
     batchStopJobRunError_jobRunId,
-    batchStopJobRunError_errorDetail,
 
     -- ** BatchStopJobRunSuccessfulSubmission
     batchStopJobRunSuccessfulSubmission_jobName,
     batchStopJobRunSuccessfulSubmission_jobRunId,
 
     -- ** BatchUpdatePartitionFailureEntry
-    batchUpdatePartitionFailureEntry_partitionValueList,
     batchUpdatePartitionFailureEntry_errorDetail,
+    batchUpdatePartitionFailureEntry_partitionValueList,
 
     -- ** BatchUpdatePartitionRequestEntry
     batchUpdatePartitionRequestEntry_partitionValueList,
@@ -1618,32 +1771,32 @@ module Amazonka.Glue.Lens
     binaryColumnStatisticsData_numberOfNulls,
 
     -- ** Blueprint
-    blueprint_createdOn,
-    blueprint_name,
-    blueprint_lastModifiedOn,
-    blueprint_errorMessage,
-    blueprint_lastActiveDefinition,
-    blueprint_status,
-    blueprint_parameterSpec,
-    blueprint_description,
     blueprint_blueprintLocation,
     blueprint_blueprintServiceLocation,
+    blueprint_createdOn,
+    blueprint_description,
+    blueprint_errorMessage,
+    blueprint_lastActiveDefinition,
+    blueprint_lastModifiedOn,
+    blueprint_name,
+    blueprint_parameterSpec,
+    blueprint_status,
 
     -- ** BlueprintDetails
     blueprintDetails_blueprintName,
     blueprintDetails_runId,
 
     -- ** BlueprintRun
-    blueprintRun_roleArn,
-    blueprintRun_startedOn,
-    blueprintRun_errorMessage,
-    blueprintRun_workflowName,
-    blueprintRun_state,
-    blueprintRun_completedOn,
     blueprintRun_blueprintName,
+    blueprintRun_completedOn,
+    blueprintRun_errorMessage,
+    blueprintRun_parameters,
+    blueprintRun_roleArn,
     blueprintRun_rollbackErrorMessage,
     blueprintRun_runId,
-    blueprintRun_parameters,
+    blueprintRun_startedOn,
+    blueprintRun_state,
+    blueprintRun_workflowName,
 
     -- ** BooleanColumnStatisticsData
     booleanColumnStatisticsData_numberOfTrues,
@@ -1656,30 +1809,30 @@ module Amazonka.Glue.Lens
 
     -- ** CatalogImportStatus
     catalogImportStatus_importCompleted,
-    catalogImportStatus_importedBy,
     catalogImportStatus_importTime,
+    catalogImportStatus_importedBy,
 
     -- ** CatalogKafkaSource
-    catalogKafkaSource_windowSize,
-    catalogKafkaSource_streamingOptions,
-    catalogKafkaSource_detectSchema,
     catalogKafkaSource_dataPreviewOptions,
+    catalogKafkaSource_detectSchema,
+    catalogKafkaSource_streamingOptions,
+    catalogKafkaSource_windowSize,
     catalogKafkaSource_name,
     catalogKafkaSource_table,
     catalogKafkaSource_database,
 
     -- ** CatalogKinesisSource
-    catalogKinesisSource_windowSize,
-    catalogKinesisSource_streamingOptions,
-    catalogKinesisSource_detectSchema,
     catalogKinesisSource_dataPreviewOptions,
+    catalogKinesisSource_detectSchema,
+    catalogKinesisSource_streamingOptions,
+    catalogKinesisSource_windowSize,
     catalogKinesisSource_name,
     catalogKinesisSource_table,
     catalogKinesisSource_database,
 
     -- ** CatalogSchemaChangePolicy
-    catalogSchemaChangePolicy_updateBehavior,
     catalogSchemaChangePolicy_enableUpdateCatalog,
+    catalogSchemaChangePolicy_updateBehavior,
 
     -- ** CatalogSource
     catalogSource_name,
@@ -1687,73 +1840,75 @@ module Amazonka.Glue.Lens
     catalogSource_table,
 
     -- ** CatalogTarget
+    catalogTarget_connectionName,
     catalogTarget_dlqEventQueueArn,
     catalogTarget_eventQueueArn,
-    catalogTarget_connectionName,
     catalogTarget_databaseName,
     catalogTarget_tables,
 
     -- ** Classifier
     classifier_csvClassifier,
-    classifier_xMLClassifier,
     classifier_grokClassifier,
     classifier_jsonClassifier,
+    classifier_xMLClassifier,
 
     -- ** CloudWatchEncryption
-    cloudWatchEncryption_kmsKeyArn,
     cloudWatchEncryption_cloudWatchEncryptionMode,
+    cloudWatchEncryption_kmsKeyArn,
 
     -- ** CodeGenConfigurationNode
-    codeGenConfigurationNode_selectFields,
-    codeGenConfigurationNode_s3CatalogSource,
-    codeGenConfigurationNode_merge,
-    codeGenConfigurationNode_dropDuplicates,
-    codeGenConfigurationNode_oracleSQLCatalogTarget,
-    codeGenConfigurationNode_applyMapping,
-    codeGenConfigurationNode_postgreSQLCatalogTarget,
-    codeGenConfigurationNode_s3JsonSource,
-    codeGenConfigurationNode_athenaConnectorSource,
-    codeGenConfigurationNode_jDBCConnectorSource,
-    codeGenConfigurationNode_spigot,
-    codeGenConfigurationNode_microsoftSQLServerCatalogTarget,
-    codeGenConfigurationNode_redshiftSource,
-    codeGenConfigurationNode_sparkConnectorTarget,
     codeGenConfigurationNode_aggregate,
-    codeGenConfigurationNode_s3ParquetSource,
-    codeGenConfigurationNode_renameField,
-    codeGenConfigurationNode_pIIDetection,
-    codeGenConfigurationNode_fillMissingValues,
-    codeGenConfigurationNode_directKinesisSource,
-    codeGenConfigurationNode_sparkConnectorSource,
+    codeGenConfigurationNode_applyMapping,
+    codeGenConfigurationNode_athenaConnectorSource,
+    codeGenConfigurationNode_catalogKafkaSource,
+    codeGenConfigurationNode_catalogKinesisSource,
+    codeGenConfigurationNode_catalogSource,
+    codeGenConfigurationNode_catalogTarget,
+    codeGenConfigurationNode_customCode,
     codeGenConfigurationNode_directKafkaSource,
-    codeGenConfigurationNode_s3CsvSource,
-    codeGenConfigurationNode_s3DirectTarget,
-    codeGenConfigurationNode_governedCatalogTarget,
-    codeGenConfigurationNode_union,
-    codeGenConfigurationNode_relationalCatalogSource,
-    codeGenConfigurationNode_postgreSQLCatalogSource,
-    codeGenConfigurationNode_mySQLCatalogSource,
+    codeGenConfigurationNode_directKinesisSource,
+    codeGenConfigurationNode_dropDuplicates,
+    codeGenConfigurationNode_dropFields,
+    codeGenConfigurationNode_dropNullFields,
+    codeGenConfigurationNode_dynamicTransform,
+    codeGenConfigurationNode_dynamoDBCatalogSource,
+    codeGenConfigurationNode_evaluateDataQuality,
+    codeGenConfigurationNode_fillMissingValues,
     codeGenConfigurationNode_filter,
     codeGenConfigurationNode_governedCatalogSource,
-    codeGenConfigurationNode_redshiftTarget,
+    codeGenConfigurationNode_governedCatalogTarget,
+    codeGenConfigurationNode_jDBCConnectorSource,
     codeGenConfigurationNode_jDBCConnectorTarget,
-    codeGenConfigurationNode_selectFromCollection,
-    codeGenConfigurationNode_microsoftSQLServerCatalogSource,
-    codeGenConfigurationNode_mySQLCatalogTarget,
-    codeGenConfigurationNode_catalogKinesisSource,
-    codeGenConfigurationNode_oracleSQLCatalogSource,
-    codeGenConfigurationNode_s3GlueParquetTarget,
-    codeGenConfigurationNode_sparkSQL,
-    codeGenConfigurationNode_dropNullFields,
-    codeGenConfigurationNode_catalogSource,
     codeGenConfigurationNode_join,
-    codeGenConfigurationNode_dynamoDBCatalogSource,
-    codeGenConfigurationNode_customCode,
-    codeGenConfigurationNode_catalogTarget,
-    codeGenConfigurationNode_splitFields,
-    codeGenConfigurationNode_catalogKafkaSource,
-    codeGenConfigurationNode_dropFields,
+    codeGenConfigurationNode_merge,
+    codeGenConfigurationNode_microsoftSQLServerCatalogSource,
+    codeGenConfigurationNode_microsoftSQLServerCatalogTarget,
+    codeGenConfigurationNode_mySQLCatalogSource,
+    codeGenConfigurationNode_mySQLCatalogTarget,
+    codeGenConfigurationNode_oracleSQLCatalogSource,
+    codeGenConfigurationNode_oracleSQLCatalogTarget,
+    codeGenConfigurationNode_pIIDetection,
+    codeGenConfigurationNode_postgreSQLCatalogSource,
+    codeGenConfigurationNode_postgreSQLCatalogTarget,
+    codeGenConfigurationNode_redshiftSource,
+    codeGenConfigurationNode_redshiftTarget,
+    codeGenConfigurationNode_relationalCatalogSource,
+    codeGenConfigurationNode_renameField,
+    codeGenConfigurationNode_s3CatalogSource,
     codeGenConfigurationNode_s3CatalogTarget,
+    codeGenConfigurationNode_s3CsvSource,
+    codeGenConfigurationNode_s3DirectTarget,
+    codeGenConfigurationNode_s3GlueParquetTarget,
+    codeGenConfigurationNode_s3JsonSource,
+    codeGenConfigurationNode_s3ParquetSource,
+    codeGenConfigurationNode_selectFields,
+    codeGenConfigurationNode_selectFromCollection,
+    codeGenConfigurationNode_sparkConnectorSource,
+    codeGenConfigurationNode_sparkConnectorTarget,
+    codeGenConfigurationNode_sparkSQL,
+    codeGenConfigurationNode_spigot,
+    codeGenConfigurationNode_splitFields,
+    codeGenConfigurationNode_union,
 
     -- ** CodeGenEdge
     codeGenEdge_targetParameter,
@@ -1772,9 +1927,9 @@ module Amazonka.Glue.Lens
     codeGenNodeArg_value,
 
     -- ** Column
-    column_type,
     column_comment,
     column_parameters,
+    column_type,
     column_name,
 
     -- ** ColumnError
@@ -1782,8 +1937,8 @@ module Amazonka.Glue.Lens
     columnError_error,
 
     -- ** ColumnImportance
-    columnImportance_importance,
     columnImportance_columnName,
+    columnImportance_importance,
 
     -- ** ColumnRowFilter
     columnRowFilter_columnName,
@@ -1797,12 +1952,12 @@ module Amazonka.Glue.Lens
 
     -- ** ColumnStatisticsData
     columnStatisticsData_binaryColumnStatisticsData,
-    columnStatisticsData_decimalColumnStatisticsData,
-    columnStatisticsData_stringColumnStatisticsData,
     columnStatisticsData_booleanColumnStatisticsData,
+    columnStatisticsData_dateColumnStatisticsData,
+    columnStatisticsData_decimalColumnStatisticsData,
     columnStatisticsData_doubleColumnStatisticsData,
     columnStatisticsData_longColumnStatisticsData,
-    columnStatisticsData_dateColumnStatisticsData,
+    columnStatisticsData_stringColumnStatisticsData,
     columnStatisticsData_type,
 
     -- ** ColumnStatisticsError
@@ -1810,33 +1965,33 @@ module Amazonka.Glue.Lens
     columnStatisticsError_error,
 
     -- ** Condition
-    condition_logicalOperator,
     condition_crawlState,
-    condition_jobName,
-    condition_state,
     condition_crawlerName,
+    condition_jobName,
+    condition_logicalOperator,
+    condition_state,
 
     -- ** ConfusionMatrix
     confusionMatrix_numFalseNegatives,
-    confusionMatrix_numTruePositives,
     confusionMatrix_numFalsePositives,
     confusionMatrix_numTrueNegatives,
+    confusionMatrix_numTruePositives,
 
     -- ** Connection
-    connection_name,
-    connection_connectionType,
     connection_connectionProperties,
-    connection_physicalConnectionRequirements,
-    connection_lastUpdatedTime,
-    connection_description,
-    connection_matchCriteria,
+    connection_connectionType,
     connection_creationTime,
+    connection_description,
     connection_lastUpdatedBy,
+    connection_lastUpdatedTime,
+    connection_matchCriteria,
+    connection_name,
+    connection_physicalConnectionRequirements,
 
     -- ** ConnectionInput
-    connectionInput_physicalConnectionRequirements,
     connectionInput_description,
     connectionInput_matchCriteria,
+    connectionInput_physicalConnectionRequirements,
     connectionInput_name,
     connectionInput_connectionType,
     connectionInput_connectionProperties,
@@ -1849,82 +2004,82 @@ module Amazonka.Glue.Lens
     connectionsList_connections,
 
     -- ** Crawl
-    crawl_logGroup,
-    crawl_startedOn,
-    crawl_logStream,
-    crawl_errorMessage,
-    crawl_state,
     crawl_completedOn,
+    crawl_errorMessage,
+    crawl_logGroup,
+    crawl_logStream,
+    crawl_startedOn,
+    crawl_state,
 
     -- ** Crawler
-    crawler_schedule,
+    crawler_classifiers,
+    crawler_configuration,
+    crawler_crawlElapsedTime,
+    crawler_crawlerSecurityConfiguration,
+    crawler_creationTime,
+    crawler_databaseName,
+    crawler_description,
+    crawler_lakeFormationConfiguration,
+    crawler_lastCrawl,
+    crawler_lastUpdated,
+    crawler_lineageConfiguration,
     crawler_name,
     crawler_recrawlPolicy,
-    crawler_classifiers,
+    crawler_role,
+    crawler_schedule,
     crawler_schemaChangePolicy,
-    crawler_databaseName,
-    crawler_configuration,
     crawler_state,
     crawler_tablePrefix,
     crawler_targets,
-    crawler_description,
-    crawler_lastUpdated,
-    crawler_crawlElapsedTime,
-    crawler_lineageConfiguration,
-    crawler_role,
-    crawler_creationTime,
-    crawler_lastCrawl,
-    crawler_crawlerSecurityConfiguration,
-    crawler_lakeFormationConfiguration,
     crawler_version,
 
     -- ** CrawlerHistory
-    crawlerHistory_logGroup,
+    crawlerHistory_crawlId,
     crawlerHistory_dPUHour,
-    crawlerHistory_logStream,
+    crawlerHistory_endTime,
     crawlerHistory_errorMessage,
+    crawlerHistory_logGroup,
+    crawlerHistory_logStream,
+    crawlerHistory_messagePrefix,
+    crawlerHistory_startTime,
     crawlerHistory_state,
     crawlerHistory_summary,
-    crawlerHistory_endTime,
-    crawlerHistory_messagePrefix,
-    crawlerHistory_crawlId,
-    crawlerHistory_startTime,
 
     -- ** CrawlerMetrics
-    crawlerMetrics_medianRuntimeSeconds,
-    crawlerMetrics_lastRuntimeSeconds,
-    crawlerMetrics_stillEstimating,
-    crawlerMetrics_tablesUpdated,
     crawlerMetrics_crawlerName,
+    crawlerMetrics_lastRuntimeSeconds,
+    crawlerMetrics_medianRuntimeSeconds,
+    crawlerMetrics_stillEstimating,
     crawlerMetrics_tablesCreated,
     crawlerMetrics_tablesDeleted,
+    crawlerMetrics_tablesUpdated,
     crawlerMetrics_timeLeftSeconds,
 
     -- ** CrawlerNodeDetails
     crawlerNodeDetails_crawls,
 
     -- ** CrawlerTargets
-    crawlerTargets_mongoDBTargets,
-    crawlerTargets_dynamoDBTargets,
-    crawlerTargets_deltaTargets,
-    crawlerTargets_jdbcTargets,
-    crawlerTargets_s3Targets,
     crawlerTargets_catalogTargets,
+    crawlerTargets_deltaTargets,
+    crawlerTargets_dynamoDBTargets,
+    crawlerTargets_jdbcTargets,
+    crawlerTargets_mongoDBTargets,
+    crawlerTargets_s3Targets,
 
     -- ** CrawlsFilter
-    crawlsFilter_fieldValue,
     crawlsFilter_fieldName,
+    crawlsFilter_fieldValue,
     crawlsFilter_filterOperator,
 
     -- ** CreateCsvClassifierRequest
-    createCsvClassifierRequest_quoteSymbol,
-    createCsvClassifierRequest_header,
-    createCsvClassifierRequest_containsHeader,
-    createCsvClassifierRequest_disableValueTrimming,
     createCsvClassifierRequest_allowSingleColumn,
-    createCsvClassifierRequest_delimiter,
+    createCsvClassifierRequest_containsHeader,
     createCsvClassifierRequest_customDatatypeConfigured,
     createCsvClassifierRequest_customDatatypes,
+    createCsvClassifierRequest_delimiter,
+    createCsvClassifierRequest_disableValueTrimming,
+    createCsvClassifierRequest_header,
+    createCsvClassifierRequest_quoteSymbol,
     createCsvClassifierRequest_name,
 
     -- ** CreateGrokClassifierRequest
@@ -1943,16 +2098,16 @@ module Amazonka.Glue.Lens
     createXMLClassifierRequest_name,
 
     -- ** CsvClassifier
-    csvClassifier_quoteSymbol,
-    csvClassifier_header,
-    csvClassifier_containsHeader,
-    csvClassifier_disableValueTrimming,
     csvClassifier_allowSingleColumn,
-    csvClassifier_lastUpdated,
-    csvClassifier_delimiter,
-    csvClassifier_customDatatypeConfigured,
+    csvClassifier_containsHeader,
     csvClassifier_creationTime,
+    csvClassifier_customDatatypeConfigured,
     csvClassifier_customDatatypes,
+    csvClassifier_delimiter,
+    csvClassifier_disableValueTrimming,
+    csvClassifier_header,
+    csvClassifier_lastUpdated,
+    csvClassifier_quoteSymbol,
     csvClassifier_version,
     csvClassifier_name,
 
@@ -1968,6 +2123,15 @@ module Amazonka.Glue.Lens
     customEntityType_name,
     customEntityType_regexString,
 
+    -- ** DQResultsPublishingOptions
+    dQResultsPublishingOptions_cloudWatchMetricsEnabled,
+    dQResultsPublishingOptions_evaluationContext,
+    dQResultsPublishingOptions_resultsPublishingEnabled,
+    dQResultsPublishingOptions_resultsS3Prefix,
+
+    -- ** DQStopJobOnFailureOptions
+    dQStopJobOnFailureOptions_stopJobOnFailureTiming,
+
     -- ** DataCatalogEncryptionSettings
     dataCatalogEncryptionSettings_connectionPasswordEncryption,
     dataCatalogEncryptionSettings_encryptionAtRest,
@@ -1975,26 +2139,110 @@ module Amazonka.Glue.Lens
     -- ** DataLakePrincipal
     dataLakePrincipal_dataLakePrincipalIdentifier,
 
+    -- ** DataQualityEvaluationRunAdditionalRunOptions
+    dataQualityEvaluationRunAdditionalRunOptions_cloudWatchMetricsEnabled,
+    dataQualityEvaluationRunAdditionalRunOptions_resultsS3Prefix,
+
+    -- ** DataQualityResult
+    dataQualityResult_completedOn,
+    dataQualityResult_dataSource,
+    dataQualityResult_evaluationContext,
+    dataQualityResult_jobName,
+    dataQualityResult_jobRunId,
+    dataQualityResult_resultId,
+    dataQualityResult_ruleResults,
+    dataQualityResult_rulesetEvaluationRunId,
+    dataQualityResult_rulesetName,
+    dataQualityResult_score,
+    dataQualityResult_startedOn,
+
+    -- ** DataQualityResultDescription
+    dataQualityResultDescription_dataSource,
+    dataQualityResultDescription_jobName,
+    dataQualityResultDescription_jobRunId,
+    dataQualityResultDescription_resultId,
+    dataQualityResultDescription_startedOn,
+
+    -- ** DataQualityResultFilterCriteria
+    dataQualityResultFilterCriteria_dataSource,
+    dataQualityResultFilterCriteria_jobName,
+    dataQualityResultFilterCriteria_jobRunId,
+    dataQualityResultFilterCriteria_startedAfter,
+    dataQualityResultFilterCriteria_startedBefore,
+
+    -- ** DataQualityRuleRecommendationRunDescription
+    dataQualityRuleRecommendationRunDescription_dataSource,
+    dataQualityRuleRecommendationRunDescription_runId,
+    dataQualityRuleRecommendationRunDescription_startedOn,
+    dataQualityRuleRecommendationRunDescription_status,
+
+    -- ** DataQualityRuleRecommendationRunFilter
+    dataQualityRuleRecommendationRunFilter_startedAfter,
+    dataQualityRuleRecommendationRunFilter_startedBefore,
+    dataQualityRuleRecommendationRunFilter_dataSource,
+
+    -- ** DataQualityRuleResult
+    dataQualityRuleResult_description,
+    dataQualityRuleResult_evaluationMessage,
+    dataQualityRuleResult_name,
+    dataQualityRuleResult_result,
+
+    -- ** DataQualityRulesetEvaluationRunDescription
+    dataQualityRulesetEvaluationRunDescription_dataSource,
+    dataQualityRulesetEvaluationRunDescription_runId,
+    dataQualityRulesetEvaluationRunDescription_startedOn,
+    dataQualityRulesetEvaluationRunDescription_status,
+
+    -- ** DataQualityRulesetEvaluationRunFilter
+    dataQualityRulesetEvaluationRunFilter_startedAfter,
+    dataQualityRulesetEvaluationRunFilter_startedBefore,
+    dataQualityRulesetEvaluationRunFilter_dataSource,
+
+    -- ** DataQualityRulesetFilterCriteria
+    dataQualityRulesetFilterCriteria_createdAfter,
+    dataQualityRulesetFilterCriteria_createdBefore,
+    dataQualityRulesetFilterCriteria_description,
+    dataQualityRulesetFilterCriteria_lastModifiedAfter,
+    dataQualityRulesetFilterCriteria_lastModifiedBefore,
+    dataQualityRulesetFilterCriteria_name,
+    dataQualityRulesetFilterCriteria_targetTable,
+
+    -- ** DataQualityRulesetListDetails
+    dataQualityRulesetListDetails_createdOn,
+    dataQualityRulesetListDetails_description,
+    dataQualityRulesetListDetails_lastModifiedOn,
+    dataQualityRulesetListDetails_name,
+    dataQualityRulesetListDetails_recommendationRunId,
+    dataQualityRulesetListDetails_ruleCount,
+    dataQualityRulesetListDetails_targetTable,
+
+    -- ** DataQualityTargetTable
+    dataQualityTargetTable_tableName,
+    dataQualityTargetTable_databaseName,
+
+    -- ** DataSource
+    dataSource_glueTable,
+
     -- ** Database
-    database_targetDatabase,
-    database_description,
     database_catalogId,
-    database_locationUri,
-    database_createTime,
     database_createTableDefaultPermissions,
+    database_createTime,
+    database_description,
+    database_locationUri,
     database_parameters,
+    database_targetDatabase,
     database_name,
 
     -- ** DatabaseIdentifier
-    databaseIdentifier_databaseName,
     databaseIdentifier_catalogId,
+    databaseIdentifier_databaseName,
 
     -- ** DatabaseInput
-    databaseInput_targetDatabase,
+    databaseInput_createTableDefaultPermissions,
     databaseInput_description,
     databaseInput_locationUri,
-    databaseInput_createTableDefaultPermissions,
     databaseInput_parameters,
+    databaseInput_targetDatabase,
     databaseInput_name,
 
     -- ** Datatype
@@ -2002,14 +2250,14 @@ module Amazonka.Glue.Lens
     datatype_label,
 
     -- ** DateColumnStatisticsData
-    dateColumnStatisticsData_minimumValue,
     dateColumnStatisticsData_maximumValue,
+    dateColumnStatisticsData_minimumValue,
     dateColumnStatisticsData_numberOfNulls,
     dateColumnStatisticsData_numberOfDistinctValues,
 
     -- ** DecimalColumnStatisticsData
-    decimalColumnStatisticsData_minimumValue,
     decimalColumnStatisticsData_maximumValue,
+    decimalColumnStatisticsData_minimumValue,
     decimalColumnStatisticsData_numberOfNulls,
     decimalColumnStatisticsData_numberOfDistinctValues,
 
@@ -2018,64 +2266,64 @@ module Amazonka.Glue.Lens
     decimalNumber_scale,
 
     -- ** DeltaTarget
+    deltaTarget_connectionName,
     deltaTarget_deltaTables,
     deltaTarget_writeManifest,
-    deltaTarget_connectionName,
 
     -- ** DevEndpoint
-    devEndpoint_securityConfiguration,
-    devEndpoint_zeppelinRemoteSparkInterpreterPort,
-    devEndpoint_roleArn,
-    devEndpoint_publicKey,
-    devEndpoint_numberOfWorkers,
-    devEndpoint_securityGroupIds,
-    devEndpoint_endpointName,
-    devEndpoint_glueVersion,
-    devEndpoint_createdTimestamp,
-    devEndpoint_lastModifiedTimestamp,
-    devEndpoint_subnetId,
-    devEndpoint_workerType,
-    devEndpoint_publicAddress,
-    devEndpoint_status,
-    devEndpoint_availabilityZone,
-    devEndpoint_extraJarsS3Path,
-    devEndpoint_privateAddress,
-    devEndpoint_numberOfNodes,
     devEndpoint_arguments,
-    devEndpoint_lastUpdateStatus,
-    devEndpoint_yarnEndpointAddress,
-    devEndpoint_vpcId,
+    devEndpoint_availabilityZone,
+    devEndpoint_createdTimestamp,
+    devEndpoint_endpointName,
+    devEndpoint_extraJarsS3Path,
     devEndpoint_extraPythonLibsS3Path,
     devEndpoint_failureReason,
+    devEndpoint_glueVersion,
+    devEndpoint_lastModifiedTimestamp,
+    devEndpoint_lastUpdateStatus,
+    devEndpoint_numberOfNodes,
+    devEndpoint_numberOfWorkers,
+    devEndpoint_privateAddress,
+    devEndpoint_publicAddress,
+    devEndpoint_publicKey,
     devEndpoint_publicKeys,
+    devEndpoint_roleArn,
+    devEndpoint_securityConfiguration,
+    devEndpoint_securityGroupIds,
+    devEndpoint_status,
+    devEndpoint_subnetId,
+    devEndpoint_vpcId,
+    devEndpoint_workerType,
+    devEndpoint_yarnEndpointAddress,
+    devEndpoint_zeppelinRemoteSparkInterpreterPort,
 
     -- ** DevEndpointCustomLibraries
     devEndpointCustomLibraries_extraJarsS3Path,
     devEndpointCustomLibraries_extraPythonLibsS3Path,
 
     -- ** DirectKafkaSource
-    directKafkaSource_windowSize,
-    directKafkaSource_streamingOptions,
-    directKafkaSource_detectSchema,
     directKafkaSource_dataPreviewOptions,
+    directKafkaSource_detectSchema,
+    directKafkaSource_streamingOptions,
+    directKafkaSource_windowSize,
     directKafkaSource_name,
 
     -- ** DirectKinesisSource
-    directKinesisSource_windowSize,
-    directKinesisSource_streamingOptions,
-    directKinesisSource_detectSchema,
     directKinesisSource_dataPreviewOptions,
+    directKinesisSource_detectSchema,
+    directKinesisSource_streamingOptions,
+    directKinesisSource_windowSize,
     directKinesisSource_name,
 
     -- ** DirectSchemaChangePolicy
     directSchemaChangePolicy_database,
-    directSchemaChangePolicy_updateBehavior,
     directSchemaChangePolicy_enableUpdateCatalog,
     directSchemaChangePolicy_table,
+    directSchemaChangePolicy_updateBehavior,
 
     -- ** DoubleColumnStatisticsData
-    doubleColumnStatisticsData_minimumValue,
     doubleColumnStatisticsData_maximumValue,
+    doubleColumnStatisticsData_minimumValue,
     doubleColumnStatisticsData_numberOfNulls,
     doubleColumnStatisticsData_numberOfDistinctValues,
 
@@ -2095,36 +2343,53 @@ module Amazonka.Glue.Lens
     dropNullFields_name,
     dropNullFields_inputs,
 
+    -- ** DynamicTransform
+    dynamicTransform_parameters,
+    dynamicTransform_version,
+    dynamicTransform_name,
+    dynamicTransform_transformName,
+    dynamicTransform_inputs,
+    dynamicTransform_functionName,
+    dynamicTransform_path,
+
     -- ** DynamoDBCatalogSource
     dynamoDBCatalogSource_name,
     dynamoDBCatalogSource_database,
     dynamoDBCatalogSource_table,
 
     -- ** DynamoDBTarget
-    dynamoDBTarget_scanAll,
     dynamoDBTarget_path,
+    dynamoDBTarget_scanAll,
     dynamoDBTarget_scanRate,
 
     -- ** Edge
-    edge_sourceId,
     edge_destinationId,
+    edge_sourceId,
 
     -- ** EncryptionAtRest
     encryptionAtRest_sseAwsKmsKeyId,
     encryptionAtRest_catalogEncryptionMode,
 
     -- ** EncryptionConfiguration
-    encryptionConfiguration_s3Encryption,
     encryptionConfiguration_cloudWatchEncryption,
     encryptionConfiguration_jobBookmarksEncryption,
+    encryptionConfiguration_s3Encryption,
 
     -- ** ErrorDetail
-    errorDetail_errorMessage,
     errorDetail_errorCode,
+    errorDetail_errorMessage,
 
     -- ** ErrorDetails
-    errorDetails_errorMessage,
     errorDetails_errorCode,
+    errorDetails_errorMessage,
+
+    -- ** EvaluateDataQuality
+    evaluateDataQuality_output,
+    evaluateDataQuality_publishingOptions,
+    evaluateDataQuality_stopJobOnFailureOptions,
+    evaluateDataQuality_name,
+    evaluateDataQuality_inputs,
+    evaluateDataQuality_ruleset,
 
     -- ** EvaluationMetrics
     evaluationMetrics_findMatchesMetrics,
@@ -2162,33 +2427,33 @@ module Amazonka.Glue.Lens
     filterValue_value,
 
     -- ** FindMatchesMetrics
-    findMatchesMetrics_f1,
-    findMatchesMetrics_columnImportances,
-    findMatchesMetrics_recall,
-    findMatchesMetrics_confusionMatrix,
-    findMatchesMetrics_precision,
     findMatchesMetrics_areaUnderPRCurve,
+    findMatchesMetrics_columnImportances,
+    findMatchesMetrics_confusionMatrix,
+    findMatchesMetrics_f1,
+    findMatchesMetrics_precision,
+    findMatchesMetrics_recall,
 
     -- ** FindMatchesParameters
     findMatchesParameters_accuracyCostTradeoff,
-    findMatchesParameters_primaryKeyColumnName,
-    findMatchesParameters_precisionRecallTradeoff,
     findMatchesParameters_enforceProvidedLabels,
+    findMatchesParameters_precisionRecallTradeoff,
+    findMatchesParameters_primaryKeyColumnName,
 
     -- ** FindMatchesTaskRunProperties
+    findMatchesTaskRunProperties_jobId,
     findMatchesTaskRunProperties_jobName,
     findMatchesTaskRunProperties_jobRunId,
-    findMatchesTaskRunProperties_jobId,
 
     -- ** GetConnectionsFilter
     getConnectionsFilter_connectionType,
     getConnectionsFilter_matchCriteria,
 
     -- ** GluePolicy
-    gluePolicy_policyInJson,
-    gluePolicy_updateTime,
     gluePolicy_createTime,
     gluePolicy_policyHash,
+    gluePolicy_policyInJson,
+    gluePolicy_updateTime,
 
     -- ** GlueSchema
     glueSchema_columns,
@@ -2198,30 +2463,31 @@ module Amazonka.Glue.Lens
     glueStudioSchemaColumn_name,
 
     -- ** GlueTable
+    glueTable_additionalOptions,
     glueTable_catalogId,
     glueTable_connectionName,
     glueTable_databaseName,
     glueTable_tableName,
 
     -- ** GovernedCatalogSource
-    governedCatalogSource_partitionPredicate,
     governedCatalogSource_additionalOptions,
+    governedCatalogSource_partitionPredicate,
     governedCatalogSource_name,
     governedCatalogSource_database,
     governedCatalogSource_table,
 
     -- ** GovernedCatalogTarget
-    governedCatalogTarget_schemaChangePolicy,
     governedCatalogTarget_partitionKeys,
+    governedCatalogTarget_schemaChangePolicy,
     governedCatalogTarget_name,
     governedCatalogTarget_inputs,
     governedCatalogTarget_table,
     governedCatalogTarget_database,
 
     -- ** GrokClassifier
-    grokClassifier_lastUpdated,
     grokClassifier_creationTime,
     grokClassifier_customPatterns,
+    grokClassifier_lastUpdated,
     grokClassifier_version,
     grokClassifier_name,
     grokClassifier_classification,
@@ -2232,28 +2498,28 @@ module Amazonka.Glue.Lens
     importLabelsTaskRunProperties_replace,
 
     -- ** JDBCConnectorOptions
-    jDBCConnectorOptions_jobBookmarkKeysSortOrder,
     jDBCConnectorOptions_dataTypeMapping,
     jDBCConnectorOptions_filterPredicate,
-    jDBCConnectorOptions_numPartitions,
-    jDBCConnectorOptions_lowerBound,
     jDBCConnectorOptions_jobBookmarkKeys,
-    jDBCConnectorOptions_upperBound,
+    jDBCConnectorOptions_jobBookmarkKeysSortOrder,
+    jDBCConnectorOptions_lowerBound,
+    jDBCConnectorOptions_numPartitions,
     jDBCConnectorOptions_partitionColumn,
+    jDBCConnectorOptions_upperBound,
 
     -- ** JDBCConnectorSource
-    jDBCConnectorSource_outputSchemas,
     jDBCConnectorSource_additionalOptions,
-    jDBCConnectorSource_query,
     jDBCConnectorSource_connectionTable,
+    jDBCConnectorSource_outputSchemas,
+    jDBCConnectorSource_query,
     jDBCConnectorSource_name,
     jDBCConnectorSource_connectionName,
     jDBCConnectorSource_connectorName,
     jDBCConnectorSource_connectionType,
 
     -- ** JDBCConnectorTarget
-    jDBCConnectorTarget_outputSchemas,
     jDBCConnectorTarget_additionalOptions,
+    jDBCConnectorTarget_outputSchemas,
     jDBCConnectorTarget_name,
     jDBCConnectorTarget_inputs,
     jDBCConnectorTarget_connectionName,
@@ -2262,41 +2528,41 @@ module Amazonka.Glue.Lens
     jDBCConnectorTarget_connectionType,
 
     -- ** JdbcTarget
-    jdbcTarget_enableAdditionalMetadata,
-    jdbcTarget_path,
-    jdbcTarget_exclusions,
     jdbcTarget_connectionName,
+    jdbcTarget_enableAdditionalMetadata,
+    jdbcTarget_exclusions,
+    jdbcTarget_path,
 
     -- ** Job
-    job_securityConfiguration,
-    job_createdOn,
-    job_timeout,
-    job_name,
-    job_lastModifiedOn,
-    job_nonOverridableArguments,
-    job_numberOfWorkers,
-    job_glueVersion,
-    job_notificationProperty,
-    job_workerType,
-    job_executionProperty,
     job_allocatedCapacity,
-    job_command,
-    job_description,
-    job_maxRetries,
     job_codeGenConfigurationNodes,
-    job_defaultArguments,
-    job_sourceControlDetails,
-    job_logUri,
+    job_command,
     job_connections,
-    job_role,
-    job_maxCapacity,
+    job_createdOn,
+    job_defaultArguments,
+    job_description,
     job_executionClass,
+    job_executionProperty,
+    job_glueVersion,
+    job_lastModifiedOn,
+    job_logUri,
+    job_maxCapacity,
+    job_maxRetries,
+    job_name,
+    job_nonOverridableArguments,
+    job_notificationProperty,
+    job_numberOfWorkers,
+    job_role,
+    job_securityConfiguration,
+    job_sourceControlDetails,
+    job_timeout,
+    job_workerType,
 
     -- ** JobBookmarkEntry
     jobBookmarkEntry_attempt,
+    jobBookmarkEntry_jobBookmark,
     jobBookmarkEntry_jobName,
     jobBookmarkEntry_previousRunId,
-    jobBookmarkEntry_jobBookmark,
     jobBookmarkEntry_run,
     jobBookmarkEntry_runId,
     jobBookmarkEntry_version,
@@ -2307,59 +2573,59 @@ module Amazonka.Glue.Lens
 
     -- ** JobCommand
     jobCommand_name,
-    jobCommand_scriptLocation,
     jobCommand_pythonVersion,
+    jobCommand_scriptLocation,
 
     -- ** JobNodeDetails
     jobNodeDetails_jobRuns,
 
     -- ** JobRun
+    jobRun_allocatedCapacity,
+    jobRun_arguments,
+    jobRun_attempt,
+    jobRun_completedOn,
+    jobRun_dPUSeconds,
+    jobRun_errorMessage,
+    jobRun_executionClass,
+    jobRun_executionTime,
+    jobRun_glueVersion,
+    jobRun_id,
+    jobRun_jobName,
+    jobRun_jobRunState,
+    jobRun_lastModifiedOn,
+    jobRun_logGroupName,
+    jobRun_maxCapacity,
+    jobRun_notificationProperty,
+    jobRun_numberOfWorkers,
+    jobRun_predecessorRuns,
+    jobRun_previousRunId,
     jobRun_securityConfiguration,
+    jobRun_startedOn,
     jobRun_timeout,
     jobRun_triggerName,
-    jobRun_lastModifiedOn,
-    jobRun_numberOfWorkers,
-    jobRun_startedOn,
-    jobRun_errorMessage,
-    jobRun_attempt,
-    jobRun_glueVersion,
-    jobRun_jobName,
-    jobRun_previousRunId,
-    jobRun_notificationProperty,
     jobRun_workerType,
-    jobRun_executionTime,
-    jobRun_allocatedCapacity,
-    jobRun_predecessorRuns,
-    jobRun_id,
-    jobRun_completedOn,
-    jobRun_arguments,
-    jobRun_jobRunState,
-    jobRun_dPUSeconds,
-    jobRun_maxCapacity,
-    jobRun_executionClass,
-    jobRun_logGroupName,
 
     -- ** JobUpdate
-    jobUpdate_securityConfiguration,
-    jobUpdate_timeout,
-    jobUpdate_nonOverridableArguments,
-    jobUpdate_numberOfWorkers,
-    jobUpdate_glueVersion,
-    jobUpdate_notificationProperty,
-    jobUpdate_workerType,
-    jobUpdate_executionProperty,
     jobUpdate_allocatedCapacity,
-    jobUpdate_command,
-    jobUpdate_description,
-    jobUpdate_maxRetries,
     jobUpdate_codeGenConfigurationNodes,
-    jobUpdate_defaultArguments,
-    jobUpdate_sourceControlDetails,
-    jobUpdate_logUri,
+    jobUpdate_command,
     jobUpdate_connections,
-    jobUpdate_role,
-    jobUpdate_maxCapacity,
+    jobUpdate_defaultArguments,
+    jobUpdate_description,
     jobUpdate_executionClass,
+    jobUpdate_executionProperty,
+    jobUpdate_glueVersion,
+    jobUpdate_logUri,
+    jobUpdate_maxCapacity,
+    jobUpdate_maxRetries,
+    jobUpdate_nonOverridableArguments,
+    jobUpdate_notificationProperty,
+    jobUpdate_numberOfWorkers,
+    jobUpdate_role,
+    jobUpdate_securityConfiguration,
+    jobUpdate_sourceControlDetails,
+    jobUpdate_timeout,
+    jobUpdate_workerType,
 
     -- ** Join
     join_name,
@@ -2372,129 +2638,129 @@ module Amazonka.Glue.Lens
     joinColumn_keys,
 
     -- ** JsonClassifier
-    jsonClassifier_lastUpdated,
     jsonClassifier_creationTime,
+    jsonClassifier_lastUpdated,
     jsonClassifier_version,
     jsonClassifier_name,
     jsonClassifier_jsonPath,
 
     -- ** KafkaStreamingSourceOptions
-    kafkaStreamingSourceOptions_maxOffsetsPerTrigger,
-    kafkaStreamingSourceOptions_numRetries,
-    kafkaStreamingSourceOptions_subscribePattern,
-    kafkaStreamingSourceOptions_retryIntervalMs,
-    kafkaStreamingSourceOptions_endingOffsets,
-    kafkaStreamingSourceOptions_minPartitions,
-    kafkaStreamingSourceOptions_startingOffsets,
-    kafkaStreamingSourceOptions_delimiter,
-    kafkaStreamingSourceOptions_topicName,
-    kafkaStreamingSourceOptions_securityProtocol,
-    kafkaStreamingSourceOptions_bootstrapServers,
-    kafkaStreamingSourceOptions_pollTimeoutMs,
-    kafkaStreamingSourceOptions_connectionName,
     kafkaStreamingSourceOptions_assign,
+    kafkaStreamingSourceOptions_bootstrapServers,
     kafkaStreamingSourceOptions_classification,
+    kafkaStreamingSourceOptions_connectionName,
+    kafkaStreamingSourceOptions_delimiter,
+    kafkaStreamingSourceOptions_endingOffsets,
+    kafkaStreamingSourceOptions_maxOffsetsPerTrigger,
+    kafkaStreamingSourceOptions_minPartitions,
+    kafkaStreamingSourceOptions_numRetries,
+    kafkaStreamingSourceOptions_pollTimeoutMs,
+    kafkaStreamingSourceOptions_retryIntervalMs,
+    kafkaStreamingSourceOptions_securityProtocol,
+    kafkaStreamingSourceOptions_startingOffsets,
+    kafkaStreamingSourceOptions_subscribePattern,
+    kafkaStreamingSourceOptions_topicName,
 
     -- ** KeySchemaElement
     keySchemaElement_name,
     keySchemaElement_type,
 
     -- ** KinesisStreamingSourceOptions
-    kinesisStreamingSourceOptions_roleArn,
-    kinesisStreamingSourceOptions_startingPosition,
-    kinesisStreamingSourceOptions_numRetries,
-    kinesisStreamingSourceOptions_idleTimeBetweenReadsInMs,
-    kinesisStreamingSourceOptions_retryIntervalMs,
-    kinesisStreamingSourceOptions_maxRetryIntervalMs,
-    kinesisStreamingSourceOptions_avoidEmptyBatches,
-    kinesisStreamingSourceOptions_describeShardInterval,
-    kinesisStreamingSourceOptions_maxRecordPerRead,
-    kinesisStreamingSourceOptions_maxFetchTimeInMs,
-    kinesisStreamingSourceOptions_delimiter,
-    kinesisStreamingSourceOptions_endpointUrl,
-    kinesisStreamingSourceOptions_maxFetchRecordsPerShard,
-    kinesisStreamingSourceOptions_roleSessionName,
     kinesisStreamingSourceOptions_addIdleTimeBetweenReads,
+    kinesisStreamingSourceOptions_avoidEmptyBatches,
+    kinesisStreamingSourceOptions_classification,
+    kinesisStreamingSourceOptions_delimiter,
+    kinesisStreamingSourceOptions_describeShardInterval,
+    kinesisStreamingSourceOptions_endpointUrl,
+    kinesisStreamingSourceOptions_idleTimeBetweenReadsInMs,
+    kinesisStreamingSourceOptions_maxFetchRecordsPerShard,
+    kinesisStreamingSourceOptions_maxFetchTimeInMs,
+    kinesisStreamingSourceOptions_maxRecordPerRead,
+    kinesisStreamingSourceOptions_maxRetryIntervalMs,
+    kinesisStreamingSourceOptions_numRetries,
+    kinesisStreamingSourceOptions_retryIntervalMs,
+    kinesisStreamingSourceOptions_roleArn,
+    kinesisStreamingSourceOptions_roleSessionName,
+    kinesisStreamingSourceOptions_startingPosition,
     kinesisStreamingSourceOptions_streamArn,
     kinesisStreamingSourceOptions_streamName,
-    kinesisStreamingSourceOptions_classification,
 
     -- ** LabelingSetGenerationTaskRunProperties
     labelingSetGenerationTaskRunProperties_outputS3Path,
 
     -- ** LakeFormationConfiguration
-    lakeFormationConfiguration_useLakeFormationCredentials,
     lakeFormationConfiguration_accountId,
+    lakeFormationConfiguration_useLakeFormationCredentials,
 
     -- ** LastActiveDefinition
-    lastActiveDefinition_lastModifiedOn,
-    lastActiveDefinition_parameterSpec,
-    lastActiveDefinition_description,
     lastActiveDefinition_blueprintLocation,
     lastActiveDefinition_blueprintServiceLocation,
+    lastActiveDefinition_description,
+    lastActiveDefinition_lastModifiedOn,
+    lastActiveDefinition_parameterSpec,
 
     -- ** LastCrawlInfo
+    lastCrawlInfo_errorMessage,
     lastCrawlInfo_logGroup,
     lastCrawlInfo_logStream,
-    lastCrawlInfo_errorMessage,
-    lastCrawlInfo_status,
     lastCrawlInfo_messagePrefix,
     lastCrawlInfo_startTime,
+    lastCrawlInfo_status,
 
     -- ** LineageConfiguration
     lineageConfiguration_crawlerLineageSettings,
 
     -- ** Location
-    location_s3,
     location_dynamoDB,
     location_jdbc,
+    location_s3,
 
     -- ** LongColumnStatisticsData
-    longColumnStatisticsData_minimumValue,
     longColumnStatisticsData_maximumValue,
+    longColumnStatisticsData_minimumValue,
     longColumnStatisticsData_numberOfNulls,
     longColumnStatisticsData_numberOfDistinctValues,
 
     -- ** MLTransform
-    mLTransform_evaluationMetrics,
     mLTransform_createdOn,
-    mLTransform_timeout,
-    mLTransform_name,
-    mLTransform_lastModifiedOn,
-    mLTransform_numberOfWorkers,
-    mLTransform_glueVersion,
-    mLTransform_workerType,
-    mLTransform_inputRecordTables,
-    mLTransform_status,
-    mLTransform_labelCount,
     mLTransform_description,
-    mLTransform_maxRetries,
-    mLTransform_transformId,
-    mLTransform_transformEncryption,
-    mLTransform_schema,
-    mLTransform_role,
+    mLTransform_evaluationMetrics,
+    mLTransform_glueVersion,
+    mLTransform_inputRecordTables,
+    mLTransform_labelCount,
+    mLTransform_lastModifiedOn,
     mLTransform_maxCapacity,
+    mLTransform_maxRetries,
+    mLTransform_name,
+    mLTransform_numberOfWorkers,
     mLTransform_parameters,
+    mLTransform_role,
+    mLTransform_schema,
+    mLTransform_status,
+    mLTransform_timeout,
+    mLTransform_transformEncryption,
+    mLTransform_transformId,
+    mLTransform_workerType,
 
     -- ** MLUserDataEncryption
     mLUserDataEncryption_kmsKeyId,
     mLUserDataEncryption_mlUserDataEncryptionMode,
 
     -- ** Mapping
-    mapping_toType,
-    mapping_fromType,
+    mapping_children,
     mapping_dropped,
     mapping_fromPath,
-    mapping_children,
+    mapping_fromType,
     mapping_toKey,
+    mapping_toType,
 
     -- ** MappingEntry
-    mappingEntry_targetTable,
-    mappingEntry_sourceTable,
-    mappingEntry_targetPath,
-    mappingEntry_sourceType,
-    mappingEntry_targetType,
     mappingEntry_sourcePath,
+    mappingEntry_sourceTable,
+    mappingEntry_sourceType,
+    mappingEntry_targetPath,
+    mappingEntry_targetTable,
+    mappingEntry_targetType,
 
     -- ** Merge
     merge_name,
@@ -2508,8 +2774,8 @@ module Amazonka.Glue.Lens
     metadataInfo_otherMetadataValueList,
 
     -- ** MetadataKeyValuePair
-    metadataKeyValuePair_metadataValue,
     metadataKeyValuePair_metadataKey,
+    metadataKeyValuePair_metadataValue,
 
     -- ** MicrosoftSQLServerCatalogSource
     microsoftSQLServerCatalogSource_name,
@@ -2523,9 +2789,9 @@ module Amazonka.Glue.Lens
     microsoftSQLServerCatalogTarget_table,
 
     -- ** MongoDBTarget
-    mongoDBTarget_scanAll,
-    mongoDBTarget_path,
     mongoDBTarget_connectionName,
+    mongoDBTarget_path,
+    mongoDBTarget_scanAll,
 
     -- ** MySQLCatalogSource
     mySQLCatalogSource_name,
@@ -2539,12 +2805,12 @@ module Amazonka.Glue.Lens
     mySQLCatalogTarget_table,
 
     -- ** Node
-    node_name,
-    node_type,
-    node_jobDetails,
-    node_triggerDetails,
-    node_uniqueId,
     node_crawlerDetails,
+    node_jobDetails,
+    node_name,
+    node_triggerDetails,
+    node_type,
+    node_uniqueId,
 
     -- ** NotificationProperty
     notificationProperty_notifyDelayAfter,
@@ -2579,8 +2845,8 @@ module Amazonka.Glue.Lens
 
     -- ** PIIDetection
     pIIDetection_maskValue,
-    pIIDetection_sampleFraction,
     pIIDetection_outputColumnName,
+    pIIDetection_sampleFraction,
     pIIDetection_thresholdFraction,
     pIIDetection_name,
     pIIDetection_inputs,
@@ -2588,19 +2854,19 @@ module Amazonka.Glue.Lens
     pIIDetection_entityTypesToDetect,
 
     -- ** Partition
-    partition_tableName,
-    partition_lastAccessTime,
-    partition_databaseName,
     partition_catalogId,
     partition_creationTime,
-    partition_storageDescriptor,
-    partition_values,
+    partition_databaseName,
+    partition_lastAccessTime,
     partition_lastAnalyzedTime,
     partition_parameters,
+    partition_storageDescriptor,
+    partition_tableName,
+    partition_values,
 
     -- ** PartitionError
-    partitionError_partitionValues,
     partitionError_errorDetail,
+    partitionError_partitionValues,
 
     -- ** PartitionIndex
     partitionIndex_keys,
@@ -2614,18 +2880,18 @@ module Amazonka.Glue.Lens
 
     -- ** PartitionInput
     partitionInput_lastAccessTime,
-    partitionInput_storageDescriptor,
-    partitionInput_values,
     partitionInput_lastAnalyzedTime,
     partitionInput_parameters,
+    partitionInput_storageDescriptor,
+    partitionInput_values,
 
     -- ** PartitionValueList
     partitionValueList_values,
 
     -- ** PhysicalConnectionRequirements
-    physicalConnectionRequirements_subnetId,
     physicalConnectionRequirements_availabilityZone,
     physicalConnectionRequirements_securityGroupIdList,
+    physicalConnectionRequirements_subnetId,
 
     -- ** PostgreSQLCatalogSource
     postgreSQLCatalogSource_name,
@@ -2643,16 +2909,16 @@ module Amazonka.Glue.Lens
     predecessor_runId,
 
     -- ** Predicate
-    predicate_logical,
     predicate_conditions,
+    predicate_logical,
 
     -- ** PrincipalPermissions
-    principalPermissions_principal,
     principalPermissions_permissions,
+    principalPermissions_principal,
 
     -- ** PropertyPredicate
-    propertyPredicate_key,
     propertyPredicate_comparator,
+    propertyPredicate_key,
     propertyPredicate_value,
 
     -- ** RecrawlPolicy
@@ -2666,24 +2932,24 @@ module Amazonka.Glue.Lens
     redshiftSource_table,
 
     -- ** RedshiftTarget
-    redshiftTarget_upsertRedshiftOptions,
     redshiftTarget_redshiftTmpDir,
     redshiftTarget_tmpDirIAMRole,
+    redshiftTarget_upsertRedshiftOptions,
     redshiftTarget_name,
     redshiftTarget_inputs,
     redshiftTarget_database,
     redshiftTarget_table,
 
     -- ** RegistryId
-    registryId_registryName,
     registryId_registryArn,
+    registryId_registryName,
 
     -- ** RegistryListItem
-    registryListItem_registryName,
     registryListItem_createdTime,
-    registryListItem_status,
     registryListItem_description,
     registryListItem_registryArn,
+    registryListItem_registryName,
+    registryListItem_status,
     registryListItem_updatedTime,
 
     -- ** RelationalCatalogSource
@@ -2702,138 +2968,138 @@ module Amazonka.Glue.Lens
     resourceUri_uri,
 
     -- ** S3CatalogSource
-    s3CatalogSource_partitionPredicate,
     s3CatalogSource_additionalOptions,
+    s3CatalogSource_partitionPredicate,
     s3CatalogSource_name,
     s3CatalogSource_database,
     s3CatalogSource_table,
 
     -- ** S3CatalogTarget
-    s3CatalogTarget_schemaChangePolicy,
     s3CatalogTarget_partitionKeys,
+    s3CatalogTarget_schemaChangePolicy,
     s3CatalogTarget_name,
     s3CatalogTarget_inputs,
     s3CatalogTarget_table,
     s3CatalogTarget_database,
 
     -- ** S3CsvSource
-    s3CsvSource_outputSchemas,
-    s3CsvSource_groupFiles,
-    s3CsvSource_maxBand,
-    s3CsvSource_writeHeader,
-    s3CsvSource_maxFilesInBand,
-    s3CsvSource_optimizePerformance,
-    s3CsvSource_recurse,
     s3CsvSource_additionalOptions,
     s3CsvSource_compressionType,
+    s3CsvSource_escaper,
+    s3CsvSource_exclusions,
+    s3CsvSource_groupFiles,
+    s3CsvSource_groupSize,
+    s3CsvSource_maxBand,
+    s3CsvSource_maxFilesInBand,
+    s3CsvSource_multiline,
+    s3CsvSource_optimizePerformance,
+    s3CsvSource_outputSchemas,
+    s3CsvSource_recurse,
     s3CsvSource_skipFirst,
     s3CsvSource_withHeader,
-    s3CsvSource_multiline,
-    s3CsvSource_exclusions,
-    s3CsvSource_groupSize,
-    s3CsvSource_escaper,
+    s3CsvSource_writeHeader,
     s3CsvSource_name,
     s3CsvSource_paths,
     s3CsvSource_separator,
     s3CsvSource_quoteChar,
 
     -- ** S3DirectSourceAdditionalOptions
-    s3DirectSourceAdditionalOptions_samplePath,
-    s3DirectSourceAdditionalOptions_enableSamplePath,
-    s3DirectSourceAdditionalOptions_boundedSize,
     s3DirectSourceAdditionalOptions_boundedFiles,
+    s3DirectSourceAdditionalOptions_boundedSize,
+    s3DirectSourceAdditionalOptions_enableSamplePath,
+    s3DirectSourceAdditionalOptions_samplePath,
 
     -- ** S3DirectTarget
     s3DirectTarget_compression,
-    s3DirectTarget_schemaChangePolicy,
     s3DirectTarget_partitionKeys,
+    s3DirectTarget_schemaChangePolicy,
     s3DirectTarget_name,
     s3DirectTarget_inputs,
     s3DirectTarget_path,
     s3DirectTarget_format,
 
     -- ** S3Encryption
-    s3Encryption_s3EncryptionMode,
     s3Encryption_kmsKeyArn,
+    s3Encryption_s3EncryptionMode,
 
     -- ** S3GlueParquetTarget
     s3GlueParquetTarget_compression,
-    s3GlueParquetTarget_schemaChangePolicy,
     s3GlueParquetTarget_partitionKeys,
+    s3GlueParquetTarget_schemaChangePolicy,
     s3GlueParquetTarget_name,
     s3GlueParquetTarget_inputs,
     s3GlueParquetTarget_path,
 
     -- ** S3JsonSource
-    s3JsonSource_outputSchemas,
-    s3JsonSource_groupFiles,
-    s3JsonSource_maxBand,
-    s3JsonSource_maxFilesInBand,
-    s3JsonSource_recurse,
-    s3JsonSource_jsonPath,
     s3JsonSource_additionalOptions,
     s3JsonSource_compressionType,
-    s3JsonSource_multiline,
     s3JsonSource_exclusions,
+    s3JsonSource_groupFiles,
     s3JsonSource_groupSize,
+    s3JsonSource_jsonPath,
+    s3JsonSource_maxBand,
+    s3JsonSource_maxFilesInBand,
+    s3JsonSource_multiline,
+    s3JsonSource_outputSchemas,
+    s3JsonSource_recurse,
     s3JsonSource_name,
     s3JsonSource_paths,
 
     -- ** S3ParquetSource
-    s3ParquetSource_outputSchemas,
-    s3ParquetSource_groupFiles,
-    s3ParquetSource_maxBand,
-    s3ParquetSource_maxFilesInBand,
-    s3ParquetSource_recurse,
     s3ParquetSource_additionalOptions,
     s3ParquetSource_compressionType,
     s3ParquetSource_exclusions,
+    s3ParquetSource_groupFiles,
     s3ParquetSource_groupSize,
+    s3ParquetSource_maxBand,
+    s3ParquetSource_maxFilesInBand,
+    s3ParquetSource_outputSchemas,
+    s3ParquetSource_recurse,
     s3ParquetSource_name,
     s3ParquetSource_paths,
 
     -- ** S3SourceAdditionalOptions
-    s3SourceAdditionalOptions_boundedSize,
     s3SourceAdditionalOptions_boundedFiles,
+    s3SourceAdditionalOptions_boundedSize,
 
     -- ** S3Target
+    s3Target_connectionName,
     s3Target_dlqEventQueueArn,
+    s3Target_eventQueueArn,
+    s3Target_exclusions,
     s3Target_path,
     s3Target_sampleSize,
-    s3Target_exclusions,
-    s3Target_eventQueueArn,
-    s3Target_connectionName,
 
     -- ** Schedule
-    schedule_state,
     schedule_scheduleExpression,
+    schedule_state,
 
     -- ** SchemaChangePolicy
-    schemaChangePolicy_updateBehavior,
     schemaChangePolicy_deleteBehavior,
+    schemaChangePolicy_updateBehavior,
 
     -- ** SchemaColumn
-    schemaColumn_name,
     schemaColumn_dataType,
+    schemaColumn_name,
 
     -- ** SchemaId
     schemaId_registryName,
-    schemaId_schemaName,
     schemaId_schemaArn,
+    schemaId_schemaName,
 
     -- ** SchemaListItem
-    schemaListItem_registryName,
     schemaListItem_createdTime,
-    schemaListItem_schemaStatus,
-    schemaListItem_schemaName,
     schemaListItem_description,
+    schemaListItem_registryName,
     schemaListItem_schemaArn,
+    schemaListItem_schemaName,
+    schemaListItem_schemaStatus,
     schemaListItem_updatedTime,
 
     -- ** SchemaReference
-    schemaReference_schemaVersionNumber,
-    schemaReference_schemaVersionId,
     schemaReference_schemaId,
+    schemaReference_schemaVersionId,
+    schemaReference_schemaVersionNumber,
 
     -- ** SchemaVersionErrorItem
     schemaVersionErrorItem_errorDetails,
@@ -2841,19 +3107,19 @@ module Amazonka.Glue.Lens
 
     -- ** SchemaVersionListItem
     schemaVersionListItem_createdTime,
-    schemaVersionListItem_status,
     schemaVersionListItem_schemaArn,
-    schemaVersionListItem_versionNumber,
     schemaVersionListItem_schemaVersionId,
+    schemaVersionListItem_status,
+    schemaVersionListItem_versionNumber,
 
     -- ** SchemaVersionNumber
     schemaVersionNumber_latestVersion,
     schemaVersionNumber_versionNumber,
 
     -- ** SecurityConfiguration
-    securityConfiguration_name,
     securityConfiguration_createdTimeStamp,
     securityConfiguration_encryptionConfiguration,
+    securityConfiguration_name,
 
     -- ** Segment
     segment_segmentNumber,
@@ -2871,23 +3137,23 @@ module Amazonka.Glue.Lens
 
     -- ** SerDeInfo
     serDeInfo_name,
-    serDeInfo_serializationLibrary,
     serDeInfo_parameters,
+    serDeInfo_serializationLibrary,
 
     -- ** Session
-    session_securityConfiguration,
-    session_progress,
+    session_command,
+    session_connections,
     session_createdOn,
+    session_defaultArguments,
+    session_description,
     session_errorMessage,
     session_glueVersion,
-    session_command,
-    session_status,
     session_id,
-    session_description,
-    session_defaultArguments,
-    session_connections,
-    session_role,
     session_maxCapacity,
+    session_progress,
+    session_role,
+    session_securityConfiguration,
+    session_status,
 
     -- ** SessionCommand
     sessionCommand_name,
@@ -2903,26 +3169,26 @@ module Amazonka.Glue.Lens
     sortCriterion_sort,
 
     -- ** SourceControlDetails
+    sourceControlDetails_authStrategy,
+    sourceControlDetails_authToken,
     sourceControlDetails_branch,
     sourceControlDetails_folder,
-    sourceControlDetails_repository,
-    sourceControlDetails_authToken,
-    sourceControlDetails_provider,
-    sourceControlDetails_owner,
     sourceControlDetails_lastCommitId,
-    sourceControlDetails_authStrategy,
+    sourceControlDetails_owner,
+    sourceControlDetails_provider,
+    sourceControlDetails_repository,
 
     -- ** SparkConnectorSource
-    sparkConnectorSource_outputSchemas,
     sparkConnectorSource_additionalOptions,
+    sparkConnectorSource_outputSchemas,
     sparkConnectorSource_name,
     sparkConnectorSource_connectionName,
     sparkConnectorSource_connectorName,
     sparkConnectorSource_connectionType,
 
     -- ** SparkConnectorTarget
-    sparkConnectorTarget_outputSchemas,
     sparkConnectorTarget_additionalOptions,
+    sparkConnectorTarget_outputSchemas,
     sparkConnectorTarget_name,
     sparkConnectorTarget_inputs,
     sparkConnectorTarget_connectionName,
@@ -2953,44 +3219,44 @@ module Amazonka.Glue.Lens
     sqlAlias_alias,
 
     -- ** StartingEventBatchCondition
-    startingEventBatchCondition_batchWindow,
     startingEventBatchCondition_batchSize,
+    startingEventBatchCondition_batchWindow,
 
     -- ** Statement
-    statement_progress,
     statement_code,
+    statement_completedOn,
+    statement_id,
+    statement_output,
+    statement_progress,
     statement_startedOn,
     statement_state,
-    statement_id,
-    statement_completedOn,
-    statement_output,
 
     -- ** StatementOutput
-    statementOutput_status,
+    statementOutput_data,
+    statementOutput_errorName,
     statementOutput_errorValue,
     statementOutput_executionCount,
-    statementOutput_errorName,
+    statementOutput_status,
     statementOutput_traceback,
-    statementOutput_data,
 
     -- ** StatementOutputData
     statementOutputData_textPlain,
 
     -- ** StorageDescriptor
+    storageDescriptor_additionalLocations,
+    storageDescriptor_bucketColumns,
+    storageDescriptor_columns,
+    storageDescriptor_compressed,
+    storageDescriptor_inputFormat,
+    storageDescriptor_location,
+    storageDescriptor_numberOfBuckets,
+    storageDescriptor_outputFormat,
+    storageDescriptor_parameters,
+    storageDescriptor_schemaReference,
+    storageDescriptor_serdeInfo,
+    storageDescriptor_skewedInfo,
     storageDescriptor_sortColumns,
     storageDescriptor_storedAsSubDirectories,
-    storageDescriptor_skewedInfo,
-    storageDescriptor_columns,
-    storageDescriptor_bucketColumns,
-    storageDescriptor_serdeInfo,
-    storageDescriptor_outputFormat,
-    storageDescriptor_location,
-    storageDescriptor_compressed,
-    storageDescriptor_additionalLocations,
-    storageDescriptor_schemaReference,
-    storageDescriptor_inputFormat,
-    storageDescriptor_numberOfBuckets,
-    storageDescriptor_parameters,
 
     -- ** StreamingDataPreviewOptions
     streamingDataPreviewOptions_pollingTime,
@@ -3003,49 +3269,49 @@ module Amazonka.Glue.Lens
     stringColumnStatisticsData_numberOfDistinctValues,
 
     -- ** Table
-    table_targetTable,
-    table_lastAccessTime,
-    table_databaseName,
-    table_viewOriginalText,
-    table_owner,
-    table_viewExpandedText,
-    table_description,
-    table_partitionKeys,
-    table_isRegisteredWithLakeFormation,
     table_catalogId,
-    table_tableType,
-    table_storageDescriptor,
-    table_updateTime,
     table_createTime,
-    table_retention,
     table_createdBy,
+    table_databaseName,
+    table_description,
+    table_isRegisteredWithLakeFormation,
+    table_lastAccessTime,
     table_lastAnalyzedTime,
-    table_versionId,
+    table_owner,
     table_parameters,
+    table_partitionKeys,
+    table_retention,
+    table_storageDescriptor,
+    table_tableType,
+    table_targetTable,
+    table_updateTime,
+    table_versionId,
+    table_viewExpandedText,
+    table_viewOriginalText,
     table_name,
 
     -- ** TableError
-    tableError_tableName,
     tableError_errorDetail,
+    tableError_tableName,
 
     -- ** TableIdentifier
-    tableIdentifier_name,
-    tableIdentifier_databaseName,
     tableIdentifier_catalogId,
+    tableIdentifier_databaseName,
+    tableIdentifier_name,
 
     -- ** TableInput
-    tableInput_targetTable,
-    tableInput_lastAccessTime,
-    tableInput_viewOriginalText,
-    tableInput_owner,
-    tableInput_viewExpandedText,
     tableInput_description,
-    tableInput_partitionKeys,
-    tableInput_tableType,
-    tableInput_storageDescriptor,
-    tableInput_retention,
+    tableInput_lastAccessTime,
     tableInput_lastAnalyzedTime,
+    tableInput_owner,
     tableInput_parameters,
+    tableInput_partitionKeys,
+    tableInput_retention,
+    tableInput_storageDescriptor,
+    tableInput_tableType,
+    tableInput_targetTable,
+    tableInput_viewExpandedText,
+    tableInput_viewOriginalText,
     tableInput_name,
 
     -- ** TableVersion
@@ -3053,53 +3319,62 @@ module Amazonka.Glue.Lens
     tableVersion_versionId,
 
     -- ** TableVersionError
-    tableVersionError_tableName,
     tableVersionError_errorDetail,
+    tableVersionError_tableName,
     tableVersionError_versionId,
 
     -- ** TaskRun
-    taskRun_lastModifiedOn,
-    taskRun_startedOn,
-    taskRun_properties,
-    taskRun_executionTime,
-    taskRun_status,
-    taskRun_transformId,
     taskRun_completedOn,
-    taskRun_taskRunId,
     taskRun_errorString,
+    taskRun_executionTime,
+    taskRun_lastModifiedOn,
     taskRun_logGroupName,
+    taskRun_properties,
+    taskRun_startedOn,
+    taskRun_status,
+    taskRun_taskRunId,
+    taskRun_transformId,
 
     -- ** TaskRunFilterCriteria
+    taskRunFilterCriteria_startedAfter,
     taskRunFilterCriteria_startedBefore,
     taskRunFilterCriteria_status,
-    taskRunFilterCriteria_startedAfter,
     taskRunFilterCriteria_taskRunType,
 
     -- ** TaskRunProperties
-    taskRunProperties_importLabelsTaskRunProperties,
-    taskRunProperties_findMatchesTaskRunProperties,
-    taskRunProperties_taskType,
-    taskRunProperties_labelingSetGenerationTaskRunProperties,
     taskRunProperties_exportLabelsTaskRunProperties,
+    taskRunProperties_findMatchesTaskRunProperties,
+    taskRunProperties_importLabelsTaskRunProperties,
+    taskRunProperties_labelingSetGenerationTaskRunProperties,
+    taskRunProperties_taskType,
 
     -- ** TaskRunSortCriteria
     taskRunSortCriteria_column,
     taskRunSortCriteria_sortDirection,
 
+    -- ** TransformConfigParameter
+    transformConfigParameter_isOptional,
+    transformConfigParameter_listType,
+    transformConfigParameter_validationMessage,
+    transformConfigParameter_validationRule,
+    transformConfigParameter_value,
+    transformConfigParameter_name,
+    transformConfigParameter_type,
+
     -- ** TransformEncryption
-    transformEncryption_taskRunSecurityConfigurationName,
     transformEncryption_mlUserDataEncryption,
+    transformEncryption_taskRunSecurityConfigurationName,
 
     -- ** TransformFilterCriteria
-    transformFilterCriteria_name,
-    transformFilterCriteria_transformType,
-    transformFilterCriteria_glueVersion,
-    transformFilterCriteria_createdBefore,
-    transformFilterCriteria_status,
-    transformFilterCriteria_schema,
     transformFilterCriteria_createdAfter,
+    transformFilterCriteria_createdBefore,
+    transformFilterCriteria_glueVersion,
     transformFilterCriteria_lastModifiedAfter,
     transformFilterCriteria_lastModifiedBefore,
+    transformFilterCriteria_name,
+    transformFilterCriteria_schema,
+    transformFilterCriteria_status,
+    transformFilterCriteria_transformType,
 
     -- ** TransformParameters
     transformParameters_findMatchesParameters,
@@ -3110,32 +3385,32 @@ module Amazonka.Glue.Lens
     transformSortCriteria_sortDirection,
 
     -- ** Trigger
+    trigger_actions,
+    trigger_description,
     trigger_eventBatchingCondition,
-    trigger_schedule,
+    trigger_id,
     trigger_name,
+    trigger_predicate,
+    trigger_schedule,
+    trigger_state,
     trigger_type,
     trigger_workflowName,
-    trigger_predicate,
-    trigger_state,
-    trigger_id,
-    trigger_description,
-    trigger_actions,
 
     -- ** TriggerNodeDetails
     triggerNodeDetails_trigger,
 
     -- ** TriggerUpdate
+    triggerUpdate_actions,
+    triggerUpdate_description,
     triggerUpdate_eventBatchingCondition,
-    triggerUpdate_schedule,
     triggerUpdate_name,
     triggerUpdate_predicate,
-    triggerUpdate_description,
-    triggerUpdate_actions,
+    triggerUpdate_schedule,
 
     -- ** UnfilteredPartition
     unfilteredPartition_authorizedColumns,
-    unfilteredPartition_partition,
     unfilteredPartition_isRegisteredWithLakeFormation,
+    unfilteredPartition_partition,
 
     -- ** Union
     union_name,
@@ -3143,20 +3418,20 @@ module Amazonka.Glue.Lens
     union_unionType,
 
     -- ** UpdateCsvClassifierRequest
-    updateCsvClassifierRequest_quoteSymbol,
-    updateCsvClassifierRequest_header,
-    updateCsvClassifierRequest_containsHeader,
-    updateCsvClassifierRequest_disableValueTrimming,
     updateCsvClassifierRequest_allowSingleColumn,
-    updateCsvClassifierRequest_delimiter,
+    updateCsvClassifierRequest_containsHeader,
     updateCsvClassifierRequest_customDatatypeConfigured,
     updateCsvClassifierRequest_customDatatypes,
+    updateCsvClassifierRequest_delimiter,
+    updateCsvClassifierRequest_disableValueTrimming,
+    updateCsvClassifierRequest_header,
+    updateCsvClassifierRequest_quoteSymbol,
     updateCsvClassifierRequest_name,
 
     -- ** UpdateGrokClassifierRequest
+    updateGrokClassifierRequest_classification,
     updateGrokClassifierRequest_customPatterns,
     updateGrokClassifierRequest_grokPattern,
-    updateGrokClassifierRequest_classification,
     updateGrokClassifierRequest_name,
 
     -- ** UpdateJsonClassifierRequest
@@ -3164,74 +3439,74 @@ module Amazonka.Glue.Lens
     updateJsonClassifierRequest_name,
 
     -- ** UpdateXMLClassifierRequest
-    updateXMLClassifierRequest_rowTag,
     updateXMLClassifierRequest_classification,
+    updateXMLClassifierRequest_rowTag,
     updateXMLClassifierRequest_name,
 
     -- ** UpsertRedshiftTargetOptions
+    upsertRedshiftTargetOptions_connectionName,
     upsertRedshiftTargetOptions_tableLocation,
     upsertRedshiftTargetOptions_upsertKeys,
-    upsertRedshiftTargetOptions_connectionName,
 
     -- ** UserDefinedFunction
-    userDefinedFunction_ownerType,
-    userDefinedFunction_ownerName,
-    userDefinedFunction_databaseName,
-    userDefinedFunction_resourceUris,
-    userDefinedFunction_functionName,
-    userDefinedFunction_className,
     userDefinedFunction_catalogId,
+    userDefinedFunction_className,
     userDefinedFunction_createTime,
+    userDefinedFunction_databaseName,
+    userDefinedFunction_functionName,
+    userDefinedFunction_ownerName,
+    userDefinedFunction_ownerType,
+    userDefinedFunction_resourceUris,
 
     -- ** UserDefinedFunctionInput
-    userDefinedFunctionInput_ownerType,
-    userDefinedFunctionInput_ownerName,
-    userDefinedFunctionInput_resourceUris,
-    userDefinedFunctionInput_functionName,
     userDefinedFunctionInput_className,
+    userDefinedFunctionInput_functionName,
+    userDefinedFunctionInput_ownerName,
+    userDefinedFunctionInput_ownerType,
+    userDefinedFunctionInput_resourceUris,
 
     -- ** Workflow
-    workflow_lastRun,
+    workflow_blueprintDetails,
     workflow_createdOn,
-    workflow_name,
-    workflow_lastModifiedOn,
-    workflow_maxConcurrentRuns,
-    workflow_graph,
     workflow_defaultRunProperties,
     workflow_description,
-    workflow_blueprintDetails,
+    workflow_graph,
+    workflow_lastModifiedOn,
+    workflow_lastRun,
+    workflow_maxConcurrentRuns,
+    workflow_name,
 
     -- ** WorkflowGraph
     workflowGraph_edges,
     workflowGraph_nodes,
 
     -- ** WorkflowRun
-    workflowRun_name,
-    workflowRun_startedOn,
-    workflowRun_graph,
-    workflowRun_errorMessage,
-    workflowRun_statistics,
-    workflowRun_workflowRunProperties,
-    workflowRun_previousRunId,
-    workflowRun_startingEventBatchCondition,
-    workflowRun_status,
     workflowRun_completedOn,
+    workflowRun_errorMessage,
+    workflowRun_graph,
+    workflowRun_name,
+    workflowRun_previousRunId,
+    workflowRun_startedOn,
+    workflowRun_startingEventBatchCondition,
+    workflowRun_statistics,
+    workflowRun_status,
     workflowRun_workflowRunId,
+    workflowRun_workflowRunProperties,
 
     -- ** WorkflowRunStatistics
-    workflowRunStatistics_timeoutActions,
-    workflowRunStatistics_waitingActions,
-    workflowRunStatistics_succeededActions,
-    workflowRunStatistics_totalActions,
-    workflowRunStatistics_stoppedActions,
+    workflowRunStatistics_erroredActions,
     workflowRunStatistics_failedActions,
     workflowRunStatistics_runningActions,
-    workflowRunStatistics_erroredActions,
+    workflowRunStatistics_stoppedActions,
+    workflowRunStatistics_succeededActions,
+    workflowRunStatistics_timeoutActions,
+    workflowRunStatistics_totalActions,
+    workflowRunStatistics_waitingActions,
 
     -- ** XMLClassifier
-    xMLClassifier_rowTag,
-    xMLClassifier_lastUpdated,
     xMLClassifier_creationTime,
+    xMLClassifier_lastUpdated,
+    xMLClassifier_rowTag,
     xMLClassifier_version,
     xMLClassifier_name,
     xMLClassifier_classification,
@@ -3246,6 +3521,7 @@ import Amazonka.Glue.BatchDeleteTableVersion
 import Amazonka.Glue.BatchGetBlueprints
 import Amazonka.Glue.BatchGetCrawlers
 import Amazonka.Glue.BatchGetCustomEntityTypes
+import Amazonka.Glue.BatchGetDataQualityResult
 import Amazonka.Glue.BatchGetDevEndpoints
 import Amazonka.Glue.BatchGetJobs
 import Amazonka.Glue.BatchGetPartition
@@ -3253,6 +3529,8 @@ import Amazonka.Glue.BatchGetTriggers
 import Amazonka.Glue.BatchGetWorkflows
 import Amazonka.Glue.BatchStopJobRun
 import Amazonka.Glue.BatchUpdatePartition
+import Amazonka.Glue.CancelDataQualityRuleRecommendationRun
+import Amazonka.Glue.CancelDataQualityRulesetEvaluationRun
 import Amazonka.Glue.CancelMLTaskRun
 import Amazonka.Glue.CancelStatement
 import Amazonka.Glue.CheckSchemaVersionValidity
@@ -3261,6 +3539,7 @@ import Amazonka.Glue.CreateClassifier
 import Amazonka.Glue.CreateConnection
 import Amazonka.Glue.CreateCrawler
 import Amazonka.Glue.CreateCustomEntityType
+import Amazonka.Glue.CreateDataQualityRuleset
 import Amazonka.Glue.CreateDatabase
 import Amazonka.Glue.CreateDevEndpoint
 import Amazonka.Glue.CreateJob
@@ -3283,6 +3562,7 @@ import Amazonka.Glue.DeleteColumnStatisticsForTable
 import Amazonka.Glue.DeleteConnection
 import Amazonka.Glue.DeleteCrawler
 import Amazonka.Glue.DeleteCustomEntityType
+import Amazonka.Glue.DeleteDataQualityRuleset
 import Amazonka.Glue.DeleteDatabase
 import Amazonka.Glue.DeleteDevEndpoint
 import Amazonka.Glue.DeleteJob
@@ -3315,6 +3595,10 @@ import Amazonka.Glue.GetCrawlerMetrics
 import Amazonka.Glue.GetCrawlers
 import Amazonka.Glue.GetCustomEntityType
 import Amazonka.Glue.GetDataCatalogEncryptionSettings
+import Amazonka.Glue.GetDataQualityResult
+import Amazonka.Glue.GetDataQualityRuleRecommendationRun
+import Amazonka.Glue.GetDataQualityRuleset
+import Amazonka.Glue.GetDataQualityRulesetEvaluationRun
 import Amazonka.Glue.GetDatabase
 import Amazonka.Glue.GetDatabases
 import Amazonka.Glue.GetDataflowGraph
@@ -3366,6 +3650,10 @@ import Amazonka.Glue.ListBlueprints
 import Amazonka.Glue.ListCrawlers
 import Amazonka.Glue.ListCrawls
 import Amazonka.Glue.ListCustomEntityTypes
+import Amazonka.Glue.ListDataQualityResults
+import Amazonka.Glue.ListDataQualityRuleRecommendationRuns
+import Amazonka.Glue.ListDataQualityRulesetEvaluationRuns
+import Amazonka.Glue.ListDataQualityRulesets
 import Amazonka.Glue.ListDevEndpoints
 import Amazonka.Glue.ListJobs
 import Amazonka.Glue.ListMLTransforms
@@ -3390,6 +3678,8 @@ import Amazonka.Glue.SearchTables
 import Amazonka.Glue.StartBlueprintRun
 import Amazonka.Glue.StartCrawler
 import Amazonka.Glue.StartCrawlerSchedule
+import Amazonka.Glue.StartDataQualityRuleRecommendationRun
+import Amazonka.Glue.StartDataQualityRulesetEvaluationRun
 import Amazonka.Glue.StartExportLabelsTaskRun
 import Amazonka.Glue.StartImportLabelsTaskRun
 import Amazonka.Glue.StartJobRun
@@ -3460,8 +3750,23 @@ import Amazonka.Glue.Types.CreateXMLClassifierRequest
 import Amazonka.Glue.Types.CsvClassifier
 import Amazonka.Glue.Types.CustomCode
 import Amazonka.Glue.Types.CustomEntityType
+import Amazonka.Glue.Types.DQResultsPublishingOptions
+import Amazonka.Glue.Types.DQStopJobOnFailureOptions
 import Amazonka.Glue.Types.DataCatalogEncryptionSettings
 import Amazonka.Glue.Types.DataLakePrincipal
+import Amazonka.Glue.Types.DataQualityEvaluationRunAdditionalRunOptions
+import Amazonka.Glue.Types.DataQualityResult
+import Amazonka.Glue.Types.DataQualityResultDescription
+import Amazonka.Glue.Types.DataQualityResultFilterCriteria
+import Amazonka.Glue.Types.DataQualityRuleRecommendationRunDescription
+import Amazonka.Glue.Types.DataQualityRuleRecommendationRunFilter
+import Amazonka.Glue.Types.DataQualityRuleResult
+import Amazonka.Glue.Types.DataQualityRulesetEvaluationRunDescription
+import Amazonka.Glue.Types.DataQualityRulesetEvaluationRunFilter
+import Amazonka.Glue.Types.DataQualityRulesetFilterCriteria
+import Amazonka.Glue.Types.DataQualityRulesetListDetails
+import Amazonka.Glue.Types.DataQualityTargetTable
+import Amazonka.Glue.Types.DataSource
 import Amazonka.Glue.Types.Database
 import Amazonka.Glue.Types.DatabaseIdentifier
 import Amazonka.Glue.Types.DatabaseInput
@@ -3479,6 +3784,7 @@ import Amazonka.Glue.Types.DoubleColumnStatisticsData
 import Amazonka.Glue.Types.DropDuplicates
 import Amazonka.Glue.Types.DropFields
 import Amazonka.Glue.Types.DropNullFields
+import Amazonka.Glue.Types.DynamicTransform
 import Amazonka.Glue.Types.DynamoDBCatalogSource
 import Amazonka.Glue.Types.DynamoDBTarget
 import Amazonka.Glue.Types.Edge
@@ -3486,6 +3792,7 @@ import Amazonka.Glue.Types.EncryptionAtRest
 import Amazonka.Glue.Types.EncryptionConfiguration
 import Amazonka.Glue.Types.ErrorDetail
 import Amazonka.Glue.Types.ErrorDetails
+import Amazonka.Glue.Types.EvaluateDataQuality
 import Amazonka.Glue.Types.EvaluationMetrics
 import Amazonka.Glue.Types.EventBatchingCondition
 import Amazonka.Glue.Types.ExecutionProperty
@@ -3625,6 +3932,7 @@ import Amazonka.Glue.Types.TaskRun
 import Amazonka.Glue.Types.TaskRunFilterCriteria
 import Amazonka.Glue.Types.TaskRunProperties
 import Amazonka.Glue.Types.TaskRunSortCriteria
+import Amazonka.Glue.Types.TransformConfigParameter
 import Amazonka.Glue.Types.TransformEncryption
 import Amazonka.Glue.Types.TransformFilterCriteria
 import Amazonka.Glue.Types.TransformParameters
@@ -3654,6 +3962,7 @@ import Amazonka.Glue.UpdateColumnStatisticsForTable
 import Amazonka.Glue.UpdateConnection
 import Amazonka.Glue.UpdateCrawler
 import Amazonka.Glue.UpdateCrawlerSchedule
+import Amazonka.Glue.UpdateDataQualityRuleset
 import Amazonka.Glue.UpdateDatabase
 import Amazonka.Glue.UpdateDevEndpoint
 import Amazonka.Glue.UpdateJob

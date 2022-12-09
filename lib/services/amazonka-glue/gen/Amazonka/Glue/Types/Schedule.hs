@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSchedule' smart constructor.
 data Schedule = Schedule'
-  { -- | The state of the schedule.
-    state :: Prelude.Maybe ScheduleState,
-    -- | A @cron@ expression used to specify the schedule (see
+  { -- | A @cron@ expression used to specify the schedule (see
     -- <https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers>.
     -- For example, to run something every day at 12:15 UTC, you would specify:
     -- @cron(15 12 * * ? *)@.
-    scheduleExpression :: Prelude.Maybe Prelude.Text
+    scheduleExpression :: Prelude.Maybe Prelude.Text,
+    -- | The state of the schedule.
+    state :: Prelude.Maybe ScheduleState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,23 +47,19 @@ data Schedule = Schedule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'state', 'schedule_state' - The state of the schedule.
---
 -- 'scheduleExpression', 'schedule_scheduleExpression' - A @cron@ expression used to specify the schedule (see
 -- <https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers>.
 -- For example, to run something every day at 12:15 UTC, you would specify:
 -- @cron(15 12 * * ? *)@.
+--
+-- 'state', 'schedule_state' - The state of the schedule.
 newSchedule ::
   Schedule
 newSchedule =
   Schedule'
-    { state = Prelude.Nothing,
-      scheduleExpression = Prelude.Nothing
+    { scheduleExpression = Prelude.Nothing,
+      state = Prelude.Nothing
     }
-
--- | The state of the schedule.
-schedule_state :: Lens.Lens' Schedule (Prelude.Maybe ScheduleState)
-schedule_state = Lens.lens (\Schedule' {state} -> state) (\s@Schedule' {} a -> s {state = a} :: Schedule)
 
 -- | A @cron@ expression used to specify the schedule (see
 -- <https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers>.
@@ -72,22 +68,26 @@ schedule_state = Lens.lens (\Schedule' {state} -> state) (\s@Schedule' {} a -> s
 schedule_scheduleExpression :: Lens.Lens' Schedule (Prelude.Maybe Prelude.Text)
 schedule_scheduleExpression = Lens.lens (\Schedule' {scheduleExpression} -> scheduleExpression) (\s@Schedule' {} a -> s {scheduleExpression = a} :: Schedule)
 
+-- | The state of the schedule.
+schedule_state :: Lens.Lens' Schedule (Prelude.Maybe ScheduleState)
+schedule_state = Lens.lens (\Schedule' {state} -> state) (\s@Schedule' {} a -> s {state = a} :: Schedule)
+
 instance Data.FromJSON Schedule where
   parseJSON =
     Data.withObject
       "Schedule"
       ( \x ->
           Schedule'
-            Prelude.<$> (x Data..:? "State")
-            Prelude.<*> (x Data..:? "ScheduleExpression")
+            Prelude.<$> (x Data..:? "ScheduleExpression")
+            Prelude.<*> (x Data..:? "State")
       )
 
 instance Prelude.Hashable Schedule where
   hashWithSalt _salt Schedule' {..} =
-    _salt `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` scheduleExpression
+    _salt `Prelude.hashWithSalt` scheduleExpression
+      `Prelude.hashWithSalt` state
 
 instance Prelude.NFData Schedule where
   rnf Schedule' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf scheduleExpression
+    Prelude.rnf scheduleExpression
+      `Prelude.seq` Prelude.rnf state

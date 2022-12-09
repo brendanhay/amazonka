@@ -30,14 +30,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDirectKinesisSource' smart constructor.
 data DirectKinesisSource = DirectKinesisSource'
-  { -- | The amount of time to spend processing each micro batch.
-    windowSize :: Prelude.Maybe Prelude.Natural,
-    -- | Additional options for the Kinesis streaming data source.
-    streamingOptions :: Prelude.Maybe KinesisStreamingSourceOptions,
+  { -- | Additional options for data preview.
+    dataPreviewOptions :: Prelude.Maybe StreamingDataPreviewOptions,
     -- | Whether to automatically determine the schema from the incoming data.
     detectSchema :: Prelude.Maybe Prelude.Bool,
-    -- | Additional options for data preview.
-    dataPreviewOptions :: Prelude.Maybe StreamingDataPreviewOptions,
+    -- | Additional options for the Kinesis streaming data source.
+    streamingOptions :: Prelude.Maybe KinesisStreamingSourceOptions,
+    -- | The amount of time to spend processing each micro batch.
+    windowSize :: Prelude.Maybe Prelude.Natural,
     -- | The name of the data source.
     name :: Prelude.Text
   }
@@ -51,13 +51,13 @@ data DirectKinesisSource = DirectKinesisSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'windowSize', 'directKinesisSource_windowSize' - The amount of time to spend processing each micro batch.
---
--- 'streamingOptions', 'directKinesisSource_streamingOptions' - Additional options for the Kinesis streaming data source.
+-- 'dataPreviewOptions', 'directKinesisSource_dataPreviewOptions' - Additional options for data preview.
 --
 -- 'detectSchema', 'directKinesisSource_detectSchema' - Whether to automatically determine the schema from the incoming data.
 --
--- 'dataPreviewOptions', 'directKinesisSource_dataPreviewOptions' - Additional options for data preview.
+-- 'streamingOptions', 'directKinesisSource_streamingOptions' - Additional options for the Kinesis streaming data source.
+--
+-- 'windowSize', 'directKinesisSource_windowSize' - The amount of time to spend processing each micro batch.
 --
 -- 'name', 'directKinesisSource_name' - The name of the data source.
 newDirectKinesisSource ::
@@ -66,28 +66,29 @@ newDirectKinesisSource ::
   DirectKinesisSource
 newDirectKinesisSource pName_ =
   DirectKinesisSource'
-    { windowSize = Prelude.Nothing,
-      streamingOptions = Prelude.Nothing,
+    { dataPreviewOptions =
+        Prelude.Nothing,
       detectSchema = Prelude.Nothing,
-      dataPreviewOptions = Prelude.Nothing,
+      streamingOptions = Prelude.Nothing,
+      windowSize = Prelude.Nothing,
       name = pName_
     }
 
--- | The amount of time to spend processing each micro batch.
-directKinesisSource_windowSize :: Lens.Lens' DirectKinesisSource (Prelude.Maybe Prelude.Natural)
-directKinesisSource_windowSize = Lens.lens (\DirectKinesisSource' {windowSize} -> windowSize) (\s@DirectKinesisSource' {} a -> s {windowSize = a} :: DirectKinesisSource)
-
--- | Additional options for the Kinesis streaming data source.
-directKinesisSource_streamingOptions :: Lens.Lens' DirectKinesisSource (Prelude.Maybe KinesisStreamingSourceOptions)
-directKinesisSource_streamingOptions = Lens.lens (\DirectKinesisSource' {streamingOptions} -> streamingOptions) (\s@DirectKinesisSource' {} a -> s {streamingOptions = a} :: DirectKinesisSource)
+-- | Additional options for data preview.
+directKinesisSource_dataPreviewOptions :: Lens.Lens' DirectKinesisSource (Prelude.Maybe StreamingDataPreviewOptions)
+directKinesisSource_dataPreviewOptions = Lens.lens (\DirectKinesisSource' {dataPreviewOptions} -> dataPreviewOptions) (\s@DirectKinesisSource' {} a -> s {dataPreviewOptions = a} :: DirectKinesisSource)
 
 -- | Whether to automatically determine the schema from the incoming data.
 directKinesisSource_detectSchema :: Lens.Lens' DirectKinesisSource (Prelude.Maybe Prelude.Bool)
 directKinesisSource_detectSchema = Lens.lens (\DirectKinesisSource' {detectSchema} -> detectSchema) (\s@DirectKinesisSource' {} a -> s {detectSchema = a} :: DirectKinesisSource)
 
--- | Additional options for data preview.
-directKinesisSource_dataPreviewOptions :: Lens.Lens' DirectKinesisSource (Prelude.Maybe StreamingDataPreviewOptions)
-directKinesisSource_dataPreviewOptions = Lens.lens (\DirectKinesisSource' {dataPreviewOptions} -> dataPreviewOptions) (\s@DirectKinesisSource' {} a -> s {dataPreviewOptions = a} :: DirectKinesisSource)
+-- | Additional options for the Kinesis streaming data source.
+directKinesisSource_streamingOptions :: Lens.Lens' DirectKinesisSource (Prelude.Maybe KinesisStreamingSourceOptions)
+directKinesisSource_streamingOptions = Lens.lens (\DirectKinesisSource' {streamingOptions} -> streamingOptions) (\s@DirectKinesisSource' {} a -> s {streamingOptions = a} :: DirectKinesisSource)
+
+-- | The amount of time to spend processing each micro batch.
+directKinesisSource_windowSize :: Lens.Lens' DirectKinesisSource (Prelude.Maybe Prelude.Natural)
+directKinesisSource_windowSize = Lens.lens (\DirectKinesisSource' {windowSize} -> windowSize) (\s@DirectKinesisSource' {} a -> s {windowSize = a} :: DirectKinesisSource)
 
 -- | The name of the data source.
 directKinesisSource_name :: Lens.Lens' DirectKinesisSource Prelude.Text
@@ -99,39 +100,39 @@ instance Data.FromJSON DirectKinesisSource where
       "DirectKinesisSource"
       ( \x ->
           DirectKinesisSource'
-            Prelude.<$> (x Data..:? "WindowSize")
-            Prelude.<*> (x Data..:? "StreamingOptions")
+            Prelude.<$> (x Data..:? "DataPreviewOptions")
             Prelude.<*> (x Data..:? "DetectSchema")
-            Prelude.<*> (x Data..:? "DataPreviewOptions")
+            Prelude.<*> (x Data..:? "StreamingOptions")
+            Prelude.<*> (x Data..:? "WindowSize")
             Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable DirectKinesisSource where
   hashWithSalt _salt DirectKinesisSource' {..} =
-    _salt `Prelude.hashWithSalt` windowSize
-      `Prelude.hashWithSalt` streamingOptions
+    _salt `Prelude.hashWithSalt` dataPreviewOptions
       `Prelude.hashWithSalt` detectSchema
-      `Prelude.hashWithSalt` dataPreviewOptions
+      `Prelude.hashWithSalt` streamingOptions
+      `Prelude.hashWithSalt` windowSize
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData DirectKinesisSource where
   rnf DirectKinesisSource' {..} =
-    Prelude.rnf windowSize
-      `Prelude.seq` Prelude.rnf streamingOptions
+    Prelude.rnf dataPreviewOptions
       `Prelude.seq` Prelude.rnf detectSchema
-      `Prelude.seq` Prelude.rnf dataPreviewOptions
+      `Prelude.seq` Prelude.rnf streamingOptions
+      `Prelude.seq` Prelude.rnf windowSize
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToJSON DirectKinesisSource where
   toJSON DirectKinesisSource' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("WindowSize" Data..=) Prelude.<$> windowSize,
+          [ ("DataPreviewOptions" Data..=)
+              Prelude.<$> dataPreviewOptions,
+            ("DetectSchema" Data..=) Prelude.<$> detectSchema,
             ("StreamingOptions" Data..=)
               Prelude.<$> streamingOptions,
-            ("DetectSchema" Data..=) Prelude.<$> detectSchema,
-            ("DataPreviewOptions" Data..=)
-              Prelude.<$> dataPreviewOptions,
+            ("WindowSize" Data..=) Prelude.<$> windowSize,
             Prelude.Just ("Name" Data..= name)
           ]
       )

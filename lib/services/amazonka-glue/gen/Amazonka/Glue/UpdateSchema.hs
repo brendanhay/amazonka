@@ -51,8 +51,8 @@ module Amazonka.Glue.UpdateSchema
 
     -- * Response Lenses
     updateSchemaResponse_registryName,
-    updateSchemaResponse_schemaName,
     updateSchemaResponse_schemaArn,
+    updateSchemaResponse_schemaName,
     updateSchemaResponse_httpStatus,
   )
 where
@@ -154,8 +154,8 @@ instance Core.AWSRequest UpdateSchema where
       ( \s h x ->
           UpdateSchemaResponse'
             Prelude.<$> (x Data..?> "RegistryName")
-            Prelude.<*> (x Data..?> "SchemaName")
             Prelude.<*> (x Data..?> "SchemaArn")
+            Prelude.<*> (x Data..?> "SchemaName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -208,10 +208,10 @@ instance Data.ToQuery UpdateSchema where
 data UpdateSchemaResponse = UpdateSchemaResponse'
   { -- | The name of the registry that contains the schema.
     registryName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the schema.
-    schemaName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the schema.
     schemaArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the schema.
+    schemaName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -227,9 +227,9 @@ data UpdateSchemaResponse = UpdateSchemaResponse'
 --
 -- 'registryName', 'updateSchemaResponse_registryName' - The name of the registry that contains the schema.
 --
--- 'schemaName', 'updateSchemaResponse_schemaName' - The name of the schema.
---
 -- 'schemaArn', 'updateSchemaResponse_schemaArn' - The Amazon Resource Name (ARN) of the schema.
+--
+-- 'schemaName', 'updateSchemaResponse_schemaName' - The name of the schema.
 --
 -- 'httpStatus', 'updateSchemaResponse_httpStatus' - The response's http status code.
 newUpdateSchemaResponse ::
@@ -240,8 +240,8 @@ newUpdateSchemaResponse pHttpStatus_ =
   UpdateSchemaResponse'
     { registryName =
         Prelude.Nothing,
-      schemaName = Prelude.Nothing,
       schemaArn = Prelude.Nothing,
+      schemaName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -249,13 +249,13 @@ newUpdateSchemaResponse pHttpStatus_ =
 updateSchemaResponse_registryName :: Lens.Lens' UpdateSchemaResponse (Prelude.Maybe Prelude.Text)
 updateSchemaResponse_registryName = Lens.lens (\UpdateSchemaResponse' {registryName} -> registryName) (\s@UpdateSchemaResponse' {} a -> s {registryName = a} :: UpdateSchemaResponse)
 
--- | The name of the schema.
-updateSchemaResponse_schemaName :: Lens.Lens' UpdateSchemaResponse (Prelude.Maybe Prelude.Text)
-updateSchemaResponse_schemaName = Lens.lens (\UpdateSchemaResponse' {schemaName} -> schemaName) (\s@UpdateSchemaResponse' {} a -> s {schemaName = a} :: UpdateSchemaResponse)
-
 -- | The Amazon Resource Name (ARN) of the schema.
 updateSchemaResponse_schemaArn :: Lens.Lens' UpdateSchemaResponse (Prelude.Maybe Prelude.Text)
 updateSchemaResponse_schemaArn = Lens.lens (\UpdateSchemaResponse' {schemaArn} -> schemaArn) (\s@UpdateSchemaResponse' {} a -> s {schemaArn = a} :: UpdateSchemaResponse)
+
+-- | The name of the schema.
+updateSchemaResponse_schemaName :: Lens.Lens' UpdateSchemaResponse (Prelude.Maybe Prelude.Text)
+updateSchemaResponse_schemaName = Lens.lens (\UpdateSchemaResponse' {schemaName} -> schemaName) (\s@UpdateSchemaResponse' {} a -> s {schemaName = a} :: UpdateSchemaResponse)
 
 -- | The response's http status code.
 updateSchemaResponse_httpStatus :: Lens.Lens' UpdateSchemaResponse Prelude.Int
@@ -264,6 +264,6 @@ updateSchemaResponse_httpStatus = Lens.lens (\UpdateSchemaResponse' {httpStatus}
 instance Prelude.NFData UpdateSchemaResponse where
   rnf UpdateSchemaResponse' {..} =
     Prelude.rnf registryName
-      `Prelude.seq` Prelude.rnf schemaName
       `Prelude.seq` Prelude.rnf schemaArn
+      `Prelude.seq` Prelude.rnf schemaName
       `Prelude.seq` Prelude.rnf httpStatus

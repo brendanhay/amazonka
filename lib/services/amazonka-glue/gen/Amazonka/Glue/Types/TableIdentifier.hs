@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTableIdentifier' smart constructor.
 data TableIdentifier = TableIdentifier'
-  { -- | The name of the target table.
-    name :: Prelude.Maybe Prelude.Text,
+  { -- | The ID of the Data Catalog in which the table resides.
+    catalogId :: Prelude.Maybe Prelude.Text,
     -- | The name of the catalog database that contains the target table.
     databaseName :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the Data Catalog in which the table resides.
-    catalogId :: Prelude.Maybe Prelude.Text
+    -- | The name of the target table.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,31 +45,31 @@ data TableIdentifier = TableIdentifier'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'tableIdentifier_name' - The name of the target table.
+-- 'catalogId', 'tableIdentifier_catalogId' - The ID of the Data Catalog in which the table resides.
 --
 -- 'databaseName', 'tableIdentifier_databaseName' - The name of the catalog database that contains the target table.
 --
--- 'catalogId', 'tableIdentifier_catalogId' - The ID of the Data Catalog in which the table resides.
+-- 'name', 'tableIdentifier_name' - The name of the target table.
 newTableIdentifier ::
   TableIdentifier
 newTableIdentifier =
   TableIdentifier'
-    { name = Prelude.Nothing,
+    { catalogId = Prelude.Nothing,
       databaseName = Prelude.Nothing,
-      catalogId = Prelude.Nothing
+      name = Prelude.Nothing
     }
 
--- | The name of the target table.
-tableIdentifier_name :: Lens.Lens' TableIdentifier (Prelude.Maybe Prelude.Text)
-tableIdentifier_name = Lens.lens (\TableIdentifier' {name} -> name) (\s@TableIdentifier' {} a -> s {name = a} :: TableIdentifier)
+-- | The ID of the Data Catalog in which the table resides.
+tableIdentifier_catalogId :: Lens.Lens' TableIdentifier (Prelude.Maybe Prelude.Text)
+tableIdentifier_catalogId = Lens.lens (\TableIdentifier' {catalogId} -> catalogId) (\s@TableIdentifier' {} a -> s {catalogId = a} :: TableIdentifier)
 
 -- | The name of the catalog database that contains the target table.
 tableIdentifier_databaseName :: Lens.Lens' TableIdentifier (Prelude.Maybe Prelude.Text)
 tableIdentifier_databaseName = Lens.lens (\TableIdentifier' {databaseName} -> databaseName) (\s@TableIdentifier' {} a -> s {databaseName = a} :: TableIdentifier)
 
--- | The ID of the Data Catalog in which the table resides.
-tableIdentifier_catalogId :: Lens.Lens' TableIdentifier (Prelude.Maybe Prelude.Text)
-tableIdentifier_catalogId = Lens.lens (\TableIdentifier' {catalogId} -> catalogId) (\s@TableIdentifier' {} a -> s {catalogId = a} :: TableIdentifier)
+-- | The name of the target table.
+tableIdentifier_name :: Lens.Lens' TableIdentifier (Prelude.Maybe Prelude.Text)
+tableIdentifier_name = Lens.lens (\TableIdentifier' {name} -> name) (\s@TableIdentifier' {} a -> s {name = a} :: TableIdentifier)
 
 instance Data.FromJSON TableIdentifier where
   parseJSON =
@@ -77,29 +77,29 @@ instance Data.FromJSON TableIdentifier where
       "TableIdentifier"
       ( \x ->
           TableIdentifier'
-            Prelude.<$> (x Data..:? "Name")
+            Prelude.<$> (x Data..:? "CatalogId")
             Prelude.<*> (x Data..:? "DatabaseName")
-            Prelude.<*> (x Data..:? "CatalogId")
+            Prelude.<*> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable TableIdentifier where
   hashWithSalt _salt TableIdentifier' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` databaseName
-      `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData TableIdentifier where
   rnf TableIdentifier' {..} =
-    Prelude.rnf name
+    Prelude.rnf catalogId
       `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf name
 
 instance Data.ToJSON TableIdentifier where
   toJSON TableIdentifier' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
             ("DatabaseName" Data..=) Prelude.<$> databaseName,
-            ("CatalogId" Data..=) Prelude.<$> catalogId
+            ("Name" Data..=) Prelude.<$> name
           ]
       )

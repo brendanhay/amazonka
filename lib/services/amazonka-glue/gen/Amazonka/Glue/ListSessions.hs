@@ -27,19 +27,19 @@ module Amazonka.Glue.ListSessions
     newListSessions,
 
     -- * Request Lenses
-    listSessions_tags,
+    listSessions_maxResults,
     listSessions_nextToken,
     listSessions_requestOrigin,
-    listSessions_maxResults,
+    listSessions_tags,
 
     -- * Destructuring the Response
     ListSessionsResponse (..),
     newListSessionsResponse,
 
     -- * Response Lenses
+    listSessionsResponse_ids,
     listSessionsResponse_nextToken,
     listSessionsResponse_sessions,
-    listSessionsResponse_ids,
     listSessionsResponse_httpStatus,
   )
 where
@@ -54,15 +54,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListSessions' smart constructor.
 data ListSessions = ListSessions'
-  { -- | Tags belonging to the session.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | The maximum number of results.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The token for the next set of results, or null if there are no more
     -- result.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The origin of the request.
     requestOrigin :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    -- | Tags belonging to the session.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,27 +74,27 @@ data ListSessions = ListSessions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'listSessions_tags' - Tags belonging to the session.
+-- 'maxResults', 'listSessions_maxResults' - The maximum number of results.
 --
 -- 'nextToken', 'listSessions_nextToken' - The token for the next set of results, or null if there are no more
 -- result.
 --
 -- 'requestOrigin', 'listSessions_requestOrigin' - The origin of the request.
 --
--- 'maxResults', 'listSessions_maxResults' - The maximum number of results.
+-- 'tags', 'listSessions_tags' - Tags belonging to the session.
 newListSessions ::
   ListSessions
 newListSessions =
   ListSessions'
-    { tags = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
       nextToken = Prelude.Nothing,
       requestOrigin = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      tags = Prelude.Nothing
     }
 
--- | Tags belonging to the session.
-listSessions_tags :: Lens.Lens' ListSessions (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-listSessions_tags = Lens.lens (\ListSessions' {tags} -> tags) (\s@ListSessions' {} a -> s {tags = a} :: ListSessions) Prelude.. Lens.mapping Lens.coerced
+-- | The maximum number of results.
+listSessions_maxResults :: Lens.Lens' ListSessions (Prelude.Maybe Prelude.Natural)
+listSessions_maxResults = Lens.lens (\ListSessions' {maxResults} -> maxResults) (\s@ListSessions' {} a -> s {maxResults = a} :: ListSessions)
 
 -- | The token for the next set of results, or null if there are no more
 -- result.
@@ -105,9 +105,9 @@ listSessions_nextToken = Lens.lens (\ListSessions' {nextToken} -> nextToken) (\s
 listSessions_requestOrigin :: Lens.Lens' ListSessions (Prelude.Maybe Prelude.Text)
 listSessions_requestOrigin = Lens.lens (\ListSessions' {requestOrigin} -> requestOrigin) (\s@ListSessions' {} a -> s {requestOrigin = a} :: ListSessions)
 
--- | The maximum number of results.
-listSessions_maxResults :: Lens.Lens' ListSessions (Prelude.Maybe Prelude.Natural)
-listSessions_maxResults = Lens.lens (\ListSessions' {maxResults} -> maxResults) (\s@ListSessions' {} a -> s {maxResults = a} :: ListSessions)
+-- | Tags belonging to the session.
+listSessions_tags :: Lens.Lens' ListSessions (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+listSessions_tags = Lens.lens (\ListSessions' {tags} -> tags) (\s@ListSessions' {} a -> s {tags = a} :: ListSessions) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest ListSessions where
   type AWSResponse ListSessions = ListSessionsResponse
@@ -117,25 +117,25 @@ instance Core.AWSRequest ListSessions where
     Response.receiveJSON
       ( \s h x ->
           ListSessionsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<$> (x Data..?> "Ids" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (x Data..?> "Sessions" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "Ids" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListSessions where
   hashWithSalt _salt ListSessions' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` requestOrigin
-      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData ListSessions where
   rnf ListSessions' {..} =
-    Prelude.rnf tags
+    Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf requestOrigin
-      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf tags
 
 instance Data.ToHeaders ListSessions where
   toHeaders =
@@ -154,10 +154,10 @@ instance Data.ToJSON ListSessions where
   toJSON ListSessions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("NextToken" Data..=) Prelude.<$> nextToken,
             ("RequestOrigin" Data..=) Prelude.<$> requestOrigin,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+            ("Tags" Data..=) Prelude.<$> tags
           ]
       )
 
@@ -169,13 +169,13 @@ instance Data.ToQuery ListSessions where
 
 -- | /See:/ 'newListSessionsResponse' smart constructor.
 data ListSessionsResponse = ListSessionsResponse'
-  { -- | The token for the next set of results, or null if there are no more
+  { -- | Returns the ID of the session.
+    ids :: Prelude.Maybe [Prelude.Text],
+    -- | The token for the next set of results, or null if there are no more
     -- result.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Returns the session object.
     sessions :: Prelude.Maybe [Session],
-    -- | Returns the ID of the session.
-    ids :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -189,12 +189,12 @@ data ListSessionsResponse = ListSessionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'ids', 'listSessionsResponse_ids' - Returns the ID of the session.
+--
 -- 'nextToken', 'listSessionsResponse_nextToken' - The token for the next set of results, or null if there are no more
 -- result.
 --
 -- 'sessions', 'listSessionsResponse_sessions' - Returns the session object.
---
--- 'ids', 'listSessionsResponse_ids' - Returns the ID of the session.
 --
 -- 'httpStatus', 'listSessionsResponse_httpStatus' - The response's http status code.
 newListSessionsResponse ::
@@ -203,11 +203,15 @@ newListSessionsResponse ::
   ListSessionsResponse
 newListSessionsResponse pHttpStatus_ =
   ListSessionsResponse'
-    { nextToken = Prelude.Nothing,
+    { ids = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       sessions = Prelude.Nothing,
-      ids = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Returns the ID of the session.
+listSessionsResponse_ids :: Lens.Lens' ListSessionsResponse (Prelude.Maybe [Prelude.Text])
+listSessionsResponse_ids = Lens.lens (\ListSessionsResponse' {ids} -> ids) (\s@ListSessionsResponse' {} a -> s {ids = a} :: ListSessionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results, or null if there are no more
 -- result.
@@ -218,17 +222,13 @@ listSessionsResponse_nextToken = Lens.lens (\ListSessionsResponse' {nextToken} -
 listSessionsResponse_sessions :: Lens.Lens' ListSessionsResponse (Prelude.Maybe [Session])
 listSessionsResponse_sessions = Lens.lens (\ListSessionsResponse' {sessions} -> sessions) (\s@ListSessionsResponse' {} a -> s {sessions = a} :: ListSessionsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | Returns the ID of the session.
-listSessionsResponse_ids :: Lens.Lens' ListSessionsResponse (Prelude.Maybe [Prelude.Text])
-listSessionsResponse_ids = Lens.lens (\ListSessionsResponse' {ids} -> ids) (\s@ListSessionsResponse' {} a -> s {ids = a} :: ListSessionsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listSessionsResponse_httpStatus :: Lens.Lens' ListSessionsResponse Prelude.Int
 listSessionsResponse_httpStatus = Lens.lens (\ListSessionsResponse' {httpStatus} -> httpStatus) (\s@ListSessionsResponse' {} a -> s {httpStatus = a} :: ListSessionsResponse)
 
 instance Prelude.NFData ListSessionsResponse where
   rnf ListSessionsResponse' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf ids
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf sessions
-      `Prelude.seq` Prelude.rnf ids
       `Prelude.seq` Prelude.rnf httpStatus

@@ -28,8 +28,8 @@ module Amazonka.Glue.PutResourcePolicy
 
     -- * Request Lenses
     putResourcePolicy_enableHybrid,
-    putResourcePolicy_policyHashCondition,
     putResourcePolicy_policyExistsCondition,
+    putResourcePolicy_policyHashCondition,
     putResourcePolicy_resourceArn,
     putResourcePolicy_policyInJson,
 
@@ -65,16 +65,16 @@ data PutResourcePolicy = PutResourcePolicy'
     -- Console to grant cross-account access, otherwise the call fails. Default
     -- is \'FALSE\'.
     enableHybrid :: Prelude.Maybe EnableHybridValues,
-    -- | The hash value returned when the previous policy was set using
-    -- @PutResourcePolicy@. Its purpose is to prevent concurrent modifications
-    -- of a policy. Do not use this parameter if no previous policy has been
-    -- set.
-    policyHashCondition :: Prelude.Maybe Prelude.Text,
     -- | A value of @MUST_EXIST@ is used to update a policy. A value of
     -- @NOT_EXIST@ is used to create a new policy. If a value of @NONE@ or a
     -- null value is used, the call does not depend on the existence of a
     -- policy.
     policyExistsCondition :: Prelude.Maybe ExistCondition,
+    -- | The hash value returned when the previous policy was set using
+    -- @PutResourcePolicy@. Its purpose is to prevent concurrent modifications
+    -- of a policy. Do not use this parameter if no previous policy has been
+    -- set.
+    policyHashCondition :: Prelude.Maybe Prelude.Text,
     -- | Do not use. For internal use only.
     resourceArn :: Prelude.Maybe Prelude.Text,
     -- | Contains the policy document to set, in JSON format.
@@ -102,15 +102,15 @@ data PutResourcePolicy = PutResourcePolicy'
 -- Console to grant cross-account access, otherwise the call fails. Default
 -- is \'FALSE\'.
 --
--- 'policyHashCondition', 'putResourcePolicy_policyHashCondition' - The hash value returned when the previous policy was set using
--- @PutResourcePolicy@. Its purpose is to prevent concurrent modifications
--- of a policy. Do not use this parameter if no previous policy has been
--- set.
---
 -- 'policyExistsCondition', 'putResourcePolicy_policyExistsCondition' - A value of @MUST_EXIST@ is used to update a policy. A value of
 -- @NOT_EXIST@ is used to create a new policy. If a value of @NONE@ or a
 -- null value is used, the call does not depend on the existence of a
 -- policy.
+--
+-- 'policyHashCondition', 'putResourcePolicy_policyHashCondition' - The hash value returned when the previous policy was set using
+-- @PutResourcePolicy@. Its purpose is to prevent concurrent modifications
+-- of a policy. Do not use this parameter if no previous policy has been
+-- set.
 --
 -- 'resourceArn', 'putResourcePolicy_resourceArn' - Do not use. For internal use only.
 --
@@ -122,8 +122,8 @@ newPutResourcePolicy ::
 newPutResourcePolicy pPolicyInJson_ =
   PutResourcePolicy'
     { enableHybrid = Prelude.Nothing,
-      policyHashCondition = Prelude.Nothing,
       policyExistsCondition = Prelude.Nothing,
+      policyHashCondition = Prelude.Nothing,
       resourceArn = Prelude.Nothing,
       policyInJson = pPolicyInJson_
     }
@@ -142,19 +142,19 @@ newPutResourcePolicy pPolicyInJson_ =
 putResourcePolicy_enableHybrid :: Lens.Lens' PutResourcePolicy (Prelude.Maybe EnableHybridValues)
 putResourcePolicy_enableHybrid = Lens.lens (\PutResourcePolicy' {enableHybrid} -> enableHybrid) (\s@PutResourcePolicy' {} a -> s {enableHybrid = a} :: PutResourcePolicy)
 
--- | The hash value returned when the previous policy was set using
--- @PutResourcePolicy@. Its purpose is to prevent concurrent modifications
--- of a policy. Do not use this parameter if no previous policy has been
--- set.
-putResourcePolicy_policyHashCondition :: Lens.Lens' PutResourcePolicy (Prelude.Maybe Prelude.Text)
-putResourcePolicy_policyHashCondition = Lens.lens (\PutResourcePolicy' {policyHashCondition} -> policyHashCondition) (\s@PutResourcePolicy' {} a -> s {policyHashCondition = a} :: PutResourcePolicy)
-
 -- | A value of @MUST_EXIST@ is used to update a policy. A value of
 -- @NOT_EXIST@ is used to create a new policy. If a value of @NONE@ or a
 -- null value is used, the call does not depend on the existence of a
 -- policy.
 putResourcePolicy_policyExistsCondition :: Lens.Lens' PutResourcePolicy (Prelude.Maybe ExistCondition)
 putResourcePolicy_policyExistsCondition = Lens.lens (\PutResourcePolicy' {policyExistsCondition} -> policyExistsCondition) (\s@PutResourcePolicy' {} a -> s {policyExistsCondition = a} :: PutResourcePolicy)
+
+-- | The hash value returned when the previous policy was set using
+-- @PutResourcePolicy@. Its purpose is to prevent concurrent modifications
+-- of a policy. Do not use this parameter if no previous policy has been
+-- set.
+putResourcePolicy_policyHashCondition :: Lens.Lens' PutResourcePolicy (Prelude.Maybe Prelude.Text)
+putResourcePolicy_policyHashCondition = Lens.lens (\PutResourcePolicy' {policyHashCondition} -> policyHashCondition) (\s@PutResourcePolicy' {} a -> s {policyHashCondition = a} :: PutResourcePolicy)
 
 -- | Do not use. For internal use only.
 putResourcePolicy_resourceArn :: Lens.Lens' PutResourcePolicy (Prelude.Maybe Prelude.Text)
@@ -181,16 +181,16 @@ instance Core.AWSRequest PutResourcePolicy where
 instance Prelude.Hashable PutResourcePolicy where
   hashWithSalt _salt PutResourcePolicy' {..} =
     _salt `Prelude.hashWithSalt` enableHybrid
-      `Prelude.hashWithSalt` policyHashCondition
       `Prelude.hashWithSalt` policyExistsCondition
+      `Prelude.hashWithSalt` policyHashCondition
       `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` policyInJson
 
 instance Prelude.NFData PutResourcePolicy where
   rnf PutResourcePolicy' {..} =
     Prelude.rnf enableHybrid
-      `Prelude.seq` Prelude.rnf policyHashCondition
       `Prelude.seq` Prelude.rnf policyExistsCondition
+      `Prelude.seq` Prelude.rnf policyHashCondition
       `Prelude.seq` Prelude.rnf resourceArn
       `Prelude.seq` Prelude.rnf policyInJson
 
@@ -212,10 +212,10 @@ instance Data.ToJSON PutResourcePolicy where
     Data.object
       ( Prelude.catMaybes
           [ ("EnableHybrid" Data..=) Prelude.<$> enableHybrid,
-            ("PolicyHashCondition" Data..=)
-              Prelude.<$> policyHashCondition,
             ("PolicyExistsCondition" Data..=)
               Prelude.<$> policyExistsCondition,
+            ("PolicyHashCondition" Data..=)
+              Prelude.<$> policyHashCondition,
             ("ResourceArn" Data..=) Prelude.<$> resourceArn,
             Prelude.Just ("PolicyInJson" Data..= policyInJson)
           ]

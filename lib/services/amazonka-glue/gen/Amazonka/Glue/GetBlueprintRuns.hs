@@ -27,8 +27,8 @@ module Amazonka.Glue.GetBlueprintRuns
     newGetBlueprintRuns,
 
     -- * Request Lenses
-    getBlueprintRuns_nextToken,
     getBlueprintRuns_maxResults,
+    getBlueprintRuns_nextToken,
     getBlueprintRuns_blueprintName,
 
     -- * Destructuring the Response
@@ -36,8 +36,8 @@ module Amazonka.Glue.GetBlueprintRuns
     newGetBlueprintRunsResponse,
 
     -- * Response Lenses
-    getBlueprintRunsResponse_nextToken,
     getBlueprintRunsResponse_blueprintRuns,
+    getBlueprintRunsResponse_nextToken,
     getBlueprintRunsResponse_httpStatus,
   )
 where
@@ -52,10 +52,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetBlueprintRuns' smart constructor.
 data GetBlueprintRuns = GetBlueprintRuns'
-  { -- | A continuation token, if this is a continuation request.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum size of a list to return.
+  { -- | The maximum size of a list to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A continuation token, if this is a continuation request.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the blueprint.
     blueprintName :: Prelude.Text
   }
@@ -69,9 +69,9 @@ data GetBlueprintRuns = GetBlueprintRuns'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getBlueprintRuns_nextToken' - A continuation token, if this is a continuation request.
---
 -- 'maxResults', 'getBlueprintRuns_maxResults' - The maximum size of a list to return.
+--
+-- 'nextToken', 'getBlueprintRuns_nextToken' - A continuation token, if this is a continuation request.
 --
 -- 'blueprintName', 'getBlueprintRuns_blueprintName' - The name of the blueprint.
 newGetBlueprintRuns ::
@@ -80,18 +80,18 @@ newGetBlueprintRuns ::
   GetBlueprintRuns
 newGetBlueprintRuns pBlueprintName_ =
   GetBlueprintRuns'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       blueprintName = pBlueprintName_
     }
-
--- | A continuation token, if this is a continuation request.
-getBlueprintRuns_nextToken :: Lens.Lens' GetBlueprintRuns (Prelude.Maybe Prelude.Text)
-getBlueprintRuns_nextToken = Lens.lens (\GetBlueprintRuns' {nextToken} -> nextToken) (\s@GetBlueprintRuns' {} a -> s {nextToken = a} :: GetBlueprintRuns)
 
 -- | The maximum size of a list to return.
 getBlueprintRuns_maxResults :: Lens.Lens' GetBlueprintRuns (Prelude.Maybe Prelude.Natural)
 getBlueprintRuns_maxResults = Lens.lens (\GetBlueprintRuns' {maxResults} -> maxResults) (\s@GetBlueprintRuns' {} a -> s {maxResults = a} :: GetBlueprintRuns)
+
+-- | A continuation token, if this is a continuation request.
+getBlueprintRuns_nextToken :: Lens.Lens' GetBlueprintRuns (Prelude.Maybe Prelude.Text)
+getBlueprintRuns_nextToken = Lens.lens (\GetBlueprintRuns' {nextToken} -> nextToken) (\s@GetBlueprintRuns' {} a -> s {nextToken = a} :: GetBlueprintRuns)
 
 -- | The name of the blueprint.
 getBlueprintRuns_blueprintName :: Lens.Lens' GetBlueprintRuns Prelude.Text
@@ -107,21 +107,21 @@ instance Core.AWSRequest GetBlueprintRuns where
     Response.receiveJSON
       ( \s h x ->
           GetBlueprintRunsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "BlueprintRuns" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "BlueprintRuns" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetBlueprintRuns where
   hashWithSalt _salt GetBlueprintRuns' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` blueprintName
 
 instance Prelude.NFData GetBlueprintRuns where
   rnf GetBlueprintRuns' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf blueprintName
 
 instance Data.ToHeaders GetBlueprintRuns where
@@ -141,8 +141,8 @@ instance Data.ToJSON GetBlueprintRuns where
   toJSON GetBlueprintRuns' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("BlueprintName" Data..= blueprintName)
           ]
@@ -156,10 +156,10 @@ instance Data.ToQuery GetBlueprintRuns where
 
 -- | /See:/ 'newGetBlueprintRunsResponse' smart constructor.
 data GetBlueprintRunsResponse = GetBlueprintRunsResponse'
-  { -- | A continuation token, if not all blueprint runs have been returned.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Returns a list of @BlueprintRun@ objects.
+  { -- | Returns a list of @BlueprintRun@ objects.
     blueprintRuns :: Prelude.Maybe [BlueprintRun],
+    -- | A continuation token, if not all blueprint runs have been returned.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -173,9 +173,9 @@ data GetBlueprintRunsResponse = GetBlueprintRunsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getBlueprintRunsResponse_nextToken' - A continuation token, if not all blueprint runs have been returned.
---
 -- 'blueprintRuns', 'getBlueprintRunsResponse_blueprintRuns' - Returns a list of @BlueprintRun@ objects.
+--
+-- 'nextToken', 'getBlueprintRunsResponse_nextToken' - A continuation token, if not all blueprint runs have been returned.
 --
 -- 'httpStatus', 'getBlueprintRunsResponse_httpStatus' - The response's http status code.
 newGetBlueprintRunsResponse ::
@@ -184,19 +184,19 @@ newGetBlueprintRunsResponse ::
   GetBlueprintRunsResponse
 newGetBlueprintRunsResponse pHttpStatus_ =
   GetBlueprintRunsResponse'
-    { nextToken =
+    { blueprintRuns =
         Prelude.Nothing,
-      blueprintRuns = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A continuation token, if not all blueprint runs have been returned.
-getBlueprintRunsResponse_nextToken :: Lens.Lens' GetBlueprintRunsResponse (Prelude.Maybe Prelude.Text)
-getBlueprintRunsResponse_nextToken = Lens.lens (\GetBlueprintRunsResponse' {nextToken} -> nextToken) (\s@GetBlueprintRunsResponse' {} a -> s {nextToken = a} :: GetBlueprintRunsResponse)
 
 -- | Returns a list of @BlueprintRun@ objects.
 getBlueprintRunsResponse_blueprintRuns :: Lens.Lens' GetBlueprintRunsResponse (Prelude.Maybe [BlueprintRun])
 getBlueprintRunsResponse_blueprintRuns = Lens.lens (\GetBlueprintRunsResponse' {blueprintRuns} -> blueprintRuns) (\s@GetBlueprintRunsResponse' {} a -> s {blueprintRuns = a} :: GetBlueprintRunsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A continuation token, if not all blueprint runs have been returned.
+getBlueprintRunsResponse_nextToken :: Lens.Lens' GetBlueprintRunsResponse (Prelude.Maybe Prelude.Text)
+getBlueprintRunsResponse_nextToken = Lens.lens (\GetBlueprintRunsResponse' {nextToken} -> nextToken) (\s@GetBlueprintRunsResponse' {} a -> s {nextToken = a} :: GetBlueprintRunsResponse)
 
 -- | The response's http status code.
 getBlueprintRunsResponse_httpStatus :: Lens.Lens' GetBlueprintRunsResponse Prelude.Int
@@ -204,6 +204,6 @@ getBlueprintRunsResponse_httpStatus = Lens.lens (\GetBlueprintRunsResponse' {htt
 
 instance Prelude.NFData GetBlueprintRunsResponse where
   rnf GetBlueprintRunsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf blueprintRuns
+    Prelude.rnf blueprintRuns
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

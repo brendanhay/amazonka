@@ -34,8 +34,8 @@ module Amazonka.Glue.ListSchemas
     newListSchemas,
 
     -- * Request Lenses
-    listSchemas_nextToken,
     listSchemas_maxResults,
+    listSchemas_nextToken,
     listSchemas_registryId,
 
     -- * Destructuring the Response
@@ -59,11 +59,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListSchemas' smart constructor.
 data ListSchemas = ListSchemas'
-  { -- | A continuation token, if this is a continuation call.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Maximum number of results required per page. If the value is not
+  { -- | Maximum number of results required per page. If the value is not
     -- supplied, this will be defaulted to 25 per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A continuation token, if this is a continuation call.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A wrapper structure that may contain the registry name and Amazon
     -- Resource Name (ARN).
     registryId :: Prelude.Maybe RegistryId
@@ -78,10 +78,10 @@ data ListSchemas = ListSchemas'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listSchemas_nextToken' - A continuation token, if this is a continuation call.
---
 -- 'maxResults', 'listSchemas_maxResults' - Maximum number of results required per page. If the value is not
 -- supplied, this will be defaulted to 25 per page.
+--
+-- 'nextToken', 'listSchemas_nextToken' - A continuation token, if this is a continuation call.
 --
 -- 'registryId', 'listSchemas_registryId' - A wrapper structure that may contain the registry name and Amazon
 -- Resource Name (ARN).
@@ -89,19 +89,19 @@ newListSchemas ::
   ListSchemas
 newListSchemas =
   ListSchemas'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       registryId = Prelude.Nothing
     }
-
--- | A continuation token, if this is a continuation call.
-listSchemas_nextToken :: Lens.Lens' ListSchemas (Prelude.Maybe Prelude.Text)
-listSchemas_nextToken = Lens.lens (\ListSchemas' {nextToken} -> nextToken) (\s@ListSchemas' {} a -> s {nextToken = a} :: ListSchemas)
 
 -- | Maximum number of results required per page. If the value is not
 -- supplied, this will be defaulted to 25 per page.
 listSchemas_maxResults :: Lens.Lens' ListSchemas (Prelude.Maybe Prelude.Natural)
 listSchemas_maxResults = Lens.lens (\ListSchemas' {maxResults} -> maxResults) (\s@ListSchemas' {} a -> s {maxResults = a} :: ListSchemas)
+
+-- | A continuation token, if this is a continuation call.
+listSchemas_nextToken :: Lens.Lens' ListSchemas (Prelude.Maybe Prelude.Text)
+listSchemas_nextToken = Lens.lens (\ListSchemas' {nextToken} -> nextToken) (\s@ListSchemas' {} a -> s {nextToken = a} :: ListSchemas)
 
 -- | A wrapper structure that may contain the registry name and Amazon
 -- Resource Name (ARN).
@@ -142,14 +142,14 @@ instance Core.AWSRequest ListSchemas where
 
 instance Prelude.Hashable ListSchemas where
   hashWithSalt _salt ListSchemas' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` registryId
 
 instance Prelude.NFData ListSchemas where
   rnf ListSchemas' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf registryId
 
 instance Data.ToHeaders ListSchemas where
@@ -169,8 +169,8 @@ instance Data.ToJSON ListSchemas where
   toJSON ListSchemas' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("RegistryId" Data..=) Prelude.<$> registryId
           ]
       )

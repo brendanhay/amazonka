@@ -31,23 +31,23 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSourceControlDetails' smart constructor.
 data SourceControlDetails = SourceControlDetails'
-  { -- | An optional branch in the remote repository.
+  { -- | The type of authentication, which can be an authentication token stored
+    -- in Amazon Web Services Secrets Manager, or a personal access token.
+    authStrategy :: Prelude.Maybe SourceControlAuthStrategy,
+    -- | The value of an authorization token.
+    authToken :: Prelude.Maybe Prelude.Text,
+    -- | An optional branch in the remote repository.
     branch :: Prelude.Maybe Prelude.Text,
     -- | An optional folder in the remote repository.
     folder :: Prelude.Maybe Prelude.Text,
-    -- | The name of the remote repository that contains the job artifacts.
-    repository :: Prelude.Maybe Prelude.Text,
-    -- | The value of an authorization token.
-    authToken :: Prelude.Maybe Prelude.Text,
-    -- | The provider for the remote repository.
-    provider :: Prelude.Maybe SourceControlProvider,
-    -- | The owner of the remote repository that contains the job artifacts.
-    owner :: Prelude.Maybe Prelude.Text,
     -- | The last commit ID for a commit in the remote repository.
     lastCommitId :: Prelude.Maybe Prelude.Text,
-    -- | The type of authentication, which can be an authentication token stored
-    -- in Amazon Web Services Secrets Manager, or a personal access token.
-    authStrategy :: Prelude.Maybe SourceControlAuthStrategy
+    -- | The owner of the remote repository that contains the job artifacts.
+    owner :: Prelude.Maybe Prelude.Text,
+    -- | The provider for the remote repository.
+    provider :: Prelude.Maybe SourceControlProvider,
+    -- | The name of the remote repository that contains the job artifacts.
+    repository :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,35 +59,45 @@ data SourceControlDetails = SourceControlDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'authStrategy', 'sourceControlDetails_authStrategy' - The type of authentication, which can be an authentication token stored
+-- in Amazon Web Services Secrets Manager, or a personal access token.
+--
+-- 'authToken', 'sourceControlDetails_authToken' - The value of an authorization token.
+--
 -- 'branch', 'sourceControlDetails_branch' - An optional branch in the remote repository.
 --
 -- 'folder', 'sourceControlDetails_folder' - An optional folder in the remote repository.
 --
--- 'repository', 'sourceControlDetails_repository' - The name of the remote repository that contains the job artifacts.
---
--- 'authToken', 'sourceControlDetails_authToken' - The value of an authorization token.
---
--- 'provider', 'sourceControlDetails_provider' - The provider for the remote repository.
+-- 'lastCommitId', 'sourceControlDetails_lastCommitId' - The last commit ID for a commit in the remote repository.
 --
 -- 'owner', 'sourceControlDetails_owner' - The owner of the remote repository that contains the job artifacts.
 --
--- 'lastCommitId', 'sourceControlDetails_lastCommitId' - The last commit ID for a commit in the remote repository.
+-- 'provider', 'sourceControlDetails_provider' - The provider for the remote repository.
 --
--- 'authStrategy', 'sourceControlDetails_authStrategy' - The type of authentication, which can be an authentication token stored
--- in Amazon Web Services Secrets Manager, or a personal access token.
+-- 'repository', 'sourceControlDetails_repository' - The name of the remote repository that contains the job artifacts.
 newSourceControlDetails ::
   SourceControlDetails
 newSourceControlDetails =
   SourceControlDetails'
-    { branch = Prelude.Nothing,
-      folder = Prelude.Nothing,
-      repository = Prelude.Nothing,
+    { authStrategy =
+        Prelude.Nothing,
       authToken = Prelude.Nothing,
-      provider = Prelude.Nothing,
-      owner = Prelude.Nothing,
+      branch = Prelude.Nothing,
+      folder = Prelude.Nothing,
       lastCommitId = Prelude.Nothing,
-      authStrategy = Prelude.Nothing
+      owner = Prelude.Nothing,
+      provider = Prelude.Nothing,
+      repository = Prelude.Nothing
     }
+
+-- | The type of authentication, which can be an authentication token stored
+-- in Amazon Web Services Secrets Manager, or a personal access token.
+sourceControlDetails_authStrategy :: Lens.Lens' SourceControlDetails (Prelude.Maybe SourceControlAuthStrategy)
+sourceControlDetails_authStrategy = Lens.lens (\SourceControlDetails' {authStrategy} -> authStrategy) (\s@SourceControlDetails' {} a -> s {authStrategy = a} :: SourceControlDetails)
+
+-- | The value of an authorization token.
+sourceControlDetails_authToken :: Lens.Lens' SourceControlDetails (Prelude.Maybe Prelude.Text)
+sourceControlDetails_authToken = Lens.lens (\SourceControlDetails' {authToken} -> authToken) (\s@SourceControlDetails' {} a -> s {authToken = a} :: SourceControlDetails)
 
 -- | An optional branch in the remote repository.
 sourceControlDetails_branch :: Lens.Lens' SourceControlDetails (Prelude.Maybe Prelude.Text)
@@ -97,30 +107,21 @@ sourceControlDetails_branch = Lens.lens (\SourceControlDetails' {branch} -> bran
 sourceControlDetails_folder :: Lens.Lens' SourceControlDetails (Prelude.Maybe Prelude.Text)
 sourceControlDetails_folder = Lens.lens (\SourceControlDetails' {folder} -> folder) (\s@SourceControlDetails' {} a -> s {folder = a} :: SourceControlDetails)
 
--- | The name of the remote repository that contains the job artifacts.
-sourceControlDetails_repository :: Lens.Lens' SourceControlDetails (Prelude.Maybe Prelude.Text)
-sourceControlDetails_repository = Lens.lens (\SourceControlDetails' {repository} -> repository) (\s@SourceControlDetails' {} a -> s {repository = a} :: SourceControlDetails)
-
--- | The value of an authorization token.
-sourceControlDetails_authToken :: Lens.Lens' SourceControlDetails (Prelude.Maybe Prelude.Text)
-sourceControlDetails_authToken = Lens.lens (\SourceControlDetails' {authToken} -> authToken) (\s@SourceControlDetails' {} a -> s {authToken = a} :: SourceControlDetails)
-
--- | The provider for the remote repository.
-sourceControlDetails_provider :: Lens.Lens' SourceControlDetails (Prelude.Maybe SourceControlProvider)
-sourceControlDetails_provider = Lens.lens (\SourceControlDetails' {provider} -> provider) (\s@SourceControlDetails' {} a -> s {provider = a} :: SourceControlDetails)
+-- | The last commit ID for a commit in the remote repository.
+sourceControlDetails_lastCommitId :: Lens.Lens' SourceControlDetails (Prelude.Maybe Prelude.Text)
+sourceControlDetails_lastCommitId = Lens.lens (\SourceControlDetails' {lastCommitId} -> lastCommitId) (\s@SourceControlDetails' {} a -> s {lastCommitId = a} :: SourceControlDetails)
 
 -- | The owner of the remote repository that contains the job artifacts.
 sourceControlDetails_owner :: Lens.Lens' SourceControlDetails (Prelude.Maybe Prelude.Text)
 sourceControlDetails_owner = Lens.lens (\SourceControlDetails' {owner} -> owner) (\s@SourceControlDetails' {} a -> s {owner = a} :: SourceControlDetails)
 
--- | The last commit ID for a commit in the remote repository.
-sourceControlDetails_lastCommitId :: Lens.Lens' SourceControlDetails (Prelude.Maybe Prelude.Text)
-sourceControlDetails_lastCommitId = Lens.lens (\SourceControlDetails' {lastCommitId} -> lastCommitId) (\s@SourceControlDetails' {} a -> s {lastCommitId = a} :: SourceControlDetails)
+-- | The provider for the remote repository.
+sourceControlDetails_provider :: Lens.Lens' SourceControlDetails (Prelude.Maybe SourceControlProvider)
+sourceControlDetails_provider = Lens.lens (\SourceControlDetails' {provider} -> provider) (\s@SourceControlDetails' {} a -> s {provider = a} :: SourceControlDetails)
 
--- | The type of authentication, which can be an authentication token stored
--- in Amazon Web Services Secrets Manager, or a personal access token.
-sourceControlDetails_authStrategy :: Lens.Lens' SourceControlDetails (Prelude.Maybe SourceControlAuthStrategy)
-sourceControlDetails_authStrategy = Lens.lens (\SourceControlDetails' {authStrategy} -> authStrategy) (\s@SourceControlDetails' {} a -> s {authStrategy = a} :: SourceControlDetails)
+-- | The name of the remote repository that contains the job artifacts.
+sourceControlDetails_repository :: Lens.Lens' SourceControlDetails (Prelude.Maybe Prelude.Text)
+sourceControlDetails_repository = Lens.lens (\SourceControlDetails' {repository} -> repository) (\s@SourceControlDetails' {} a -> s {repository = a} :: SourceControlDetails)
 
 instance Data.FromJSON SourceControlDetails where
   parseJSON =
@@ -128,49 +129,49 @@ instance Data.FromJSON SourceControlDetails where
       "SourceControlDetails"
       ( \x ->
           SourceControlDetails'
-            Prelude.<$> (x Data..:? "Branch")
-            Prelude.<*> (x Data..:? "Folder")
-            Prelude.<*> (x Data..:? "Repository")
+            Prelude.<$> (x Data..:? "AuthStrategy")
             Prelude.<*> (x Data..:? "AuthToken")
-            Prelude.<*> (x Data..:? "Provider")
-            Prelude.<*> (x Data..:? "Owner")
+            Prelude.<*> (x Data..:? "Branch")
+            Prelude.<*> (x Data..:? "Folder")
             Prelude.<*> (x Data..:? "LastCommitId")
-            Prelude.<*> (x Data..:? "AuthStrategy")
+            Prelude.<*> (x Data..:? "Owner")
+            Prelude.<*> (x Data..:? "Provider")
+            Prelude.<*> (x Data..:? "Repository")
       )
 
 instance Prelude.Hashable SourceControlDetails where
   hashWithSalt _salt SourceControlDetails' {..} =
-    _salt `Prelude.hashWithSalt` branch
-      `Prelude.hashWithSalt` folder
-      `Prelude.hashWithSalt` repository
+    _salt `Prelude.hashWithSalt` authStrategy
       `Prelude.hashWithSalt` authToken
-      `Prelude.hashWithSalt` provider
-      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` branch
+      `Prelude.hashWithSalt` folder
       `Prelude.hashWithSalt` lastCommitId
-      `Prelude.hashWithSalt` authStrategy
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` provider
+      `Prelude.hashWithSalt` repository
 
 instance Prelude.NFData SourceControlDetails where
   rnf SourceControlDetails' {..} =
-    Prelude.rnf branch
-      `Prelude.seq` Prelude.rnf folder
-      `Prelude.seq` Prelude.rnf repository
+    Prelude.rnf authStrategy
       `Prelude.seq` Prelude.rnf authToken
-      `Prelude.seq` Prelude.rnf provider
-      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf branch
+      `Prelude.seq` Prelude.rnf folder
       `Prelude.seq` Prelude.rnf lastCommitId
-      `Prelude.seq` Prelude.rnf authStrategy
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf provider
+      `Prelude.seq` Prelude.rnf repository
 
 instance Data.ToJSON SourceControlDetails where
   toJSON SourceControlDetails' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Branch" Data..=) Prelude.<$> branch,
-            ("Folder" Data..=) Prelude.<$> folder,
-            ("Repository" Data..=) Prelude.<$> repository,
+          [ ("AuthStrategy" Data..=) Prelude.<$> authStrategy,
             ("AuthToken" Data..=) Prelude.<$> authToken,
-            ("Provider" Data..=) Prelude.<$> provider,
-            ("Owner" Data..=) Prelude.<$> owner,
+            ("Branch" Data..=) Prelude.<$> branch,
+            ("Folder" Data..=) Prelude.<$> folder,
             ("LastCommitId" Data..=) Prelude.<$> lastCommitId,
-            ("AuthStrategy" Data..=) Prelude.<$> authStrategy
+            ("Owner" Data..=) Prelude.<$> owner,
+            ("Provider" Data..=) Prelude.<$> provider,
+            ("Repository" Data..=) Prelude.<$> repository
           ]
       )

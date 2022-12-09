@@ -26,7 +26,7 @@ import Amazonka.Glue.Types.GlueStudioSchemaColumn
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a user-defined schema when a schema cannot be determined by
--- AWS Glue.
+-- Glue.
 --
 -- /See:/ 'newGlueSchema' smart constructor.
 data GlueSchema = GlueSchema'

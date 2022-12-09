@@ -27,9 +27,9 @@ module Amazonka.Glue.UpdateWorkflow
     newUpdateWorkflow,
 
     -- * Request Lenses
-    updateWorkflow_maxConcurrentRuns,
     updateWorkflow_defaultRunProperties,
     updateWorkflow_description,
+    updateWorkflow_maxConcurrentRuns,
     updateWorkflow_name,
 
     -- * Destructuring the Response
@@ -52,17 +52,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateWorkflow' smart constructor.
 data UpdateWorkflow = UpdateWorkflow'
-  { -- | You can use this parameter to prevent unwanted multiple updates to data,
+  { -- | A collection of properties to be used as part of each execution of the
+    -- workflow.
+    defaultRunProperties :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The description of the workflow.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | You can use this parameter to prevent unwanted multiple updates to data,
     -- to control costs, or in some cases, to prevent exceeding the maximum
     -- number of concurrent runs of any of the component jobs. If you leave
     -- this parameter blank, there is no limit to the number of concurrent
     -- workflow runs.
     maxConcurrentRuns :: Prelude.Maybe Prelude.Int,
-    -- | A collection of properties to be used as part of each execution of the
-    -- workflow.
-    defaultRunProperties :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The description of the workflow.
-    description :: Prelude.Maybe Prelude.Text,
     -- | Name of the workflow to be updated.
     name :: Prelude.Text
   }
@@ -76,16 +76,16 @@ data UpdateWorkflow = UpdateWorkflow'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'defaultRunProperties', 'updateWorkflow_defaultRunProperties' - A collection of properties to be used as part of each execution of the
+-- workflow.
+--
+-- 'description', 'updateWorkflow_description' - The description of the workflow.
+--
 -- 'maxConcurrentRuns', 'updateWorkflow_maxConcurrentRuns' - You can use this parameter to prevent unwanted multiple updates to data,
 -- to control costs, or in some cases, to prevent exceeding the maximum
 -- number of concurrent runs of any of the component jobs. If you leave
 -- this parameter blank, there is no limit to the number of concurrent
 -- workflow runs.
---
--- 'defaultRunProperties', 'updateWorkflow_defaultRunProperties' - A collection of properties to be used as part of each execution of the
--- workflow.
---
--- 'description', 'updateWorkflow_description' - The description of the workflow.
 --
 -- 'name', 'updateWorkflow_name' - Name of the workflow to be updated.
 newUpdateWorkflow ::
@@ -94,20 +94,12 @@ newUpdateWorkflow ::
   UpdateWorkflow
 newUpdateWorkflow pName_ =
   UpdateWorkflow'
-    { maxConcurrentRuns =
+    { defaultRunProperties =
         Prelude.Nothing,
-      defaultRunProperties = Prelude.Nothing,
       description = Prelude.Nothing,
+      maxConcurrentRuns = Prelude.Nothing,
       name = pName_
     }
-
--- | You can use this parameter to prevent unwanted multiple updates to data,
--- to control costs, or in some cases, to prevent exceeding the maximum
--- number of concurrent runs of any of the component jobs. If you leave
--- this parameter blank, there is no limit to the number of concurrent
--- workflow runs.
-updateWorkflow_maxConcurrentRuns :: Lens.Lens' UpdateWorkflow (Prelude.Maybe Prelude.Int)
-updateWorkflow_maxConcurrentRuns = Lens.lens (\UpdateWorkflow' {maxConcurrentRuns} -> maxConcurrentRuns) (\s@UpdateWorkflow' {} a -> s {maxConcurrentRuns = a} :: UpdateWorkflow)
 
 -- | A collection of properties to be used as part of each execution of the
 -- workflow.
@@ -117,6 +109,14 @@ updateWorkflow_defaultRunProperties = Lens.lens (\UpdateWorkflow' {defaultRunPro
 -- | The description of the workflow.
 updateWorkflow_description :: Lens.Lens' UpdateWorkflow (Prelude.Maybe Prelude.Text)
 updateWorkflow_description = Lens.lens (\UpdateWorkflow' {description} -> description) (\s@UpdateWorkflow' {} a -> s {description = a} :: UpdateWorkflow)
+
+-- | You can use this parameter to prevent unwanted multiple updates to data,
+-- to control costs, or in some cases, to prevent exceeding the maximum
+-- number of concurrent runs of any of the component jobs. If you leave
+-- this parameter blank, there is no limit to the number of concurrent
+-- workflow runs.
+updateWorkflow_maxConcurrentRuns :: Lens.Lens' UpdateWorkflow (Prelude.Maybe Prelude.Int)
+updateWorkflow_maxConcurrentRuns = Lens.lens (\UpdateWorkflow' {maxConcurrentRuns} -> maxConcurrentRuns) (\s@UpdateWorkflow' {} a -> s {maxConcurrentRuns = a} :: UpdateWorkflow)
 
 -- | Name of the workflow to be updated.
 updateWorkflow_name :: Lens.Lens' UpdateWorkflow Prelude.Text
@@ -138,16 +138,16 @@ instance Core.AWSRequest UpdateWorkflow where
 
 instance Prelude.Hashable UpdateWorkflow where
   hashWithSalt _salt UpdateWorkflow' {..} =
-    _salt `Prelude.hashWithSalt` maxConcurrentRuns
-      `Prelude.hashWithSalt` defaultRunProperties
+    _salt `Prelude.hashWithSalt` defaultRunProperties
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` maxConcurrentRuns
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData UpdateWorkflow where
   rnf UpdateWorkflow' {..} =
-    Prelude.rnf maxConcurrentRuns
-      `Prelude.seq` Prelude.rnf defaultRunProperties
+    Prelude.rnf defaultRunProperties
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf maxConcurrentRuns
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders UpdateWorkflow where
@@ -167,11 +167,11 @@ instance Data.ToJSON UpdateWorkflow where
   toJSON UpdateWorkflow' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("MaxConcurrentRuns" Data..=)
-              Prelude.<$> maxConcurrentRuns,
-            ("DefaultRunProperties" Data..=)
+          [ ("DefaultRunProperties" Data..=)
               Prelude.<$> defaultRunProperties,
             ("Description" Data..=) Prelude.<$> description,
+            ("MaxConcurrentRuns" Data..=)
+              Prelude.<$> maxConcurrentRuns,
             Prelude.Just ("Name" Data..= name)
           ]
       )

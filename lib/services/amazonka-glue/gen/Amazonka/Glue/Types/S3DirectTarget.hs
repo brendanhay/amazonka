@@ -34,10 +34,10 @@ data S3DirectTarget = S3DirectTarget'
     -- the data has a standard file extension. Possible values are @\"gzip\"@
     -- and @\"bzip\"@).
     compression :: Prelude.Maybe Prelude.Text,
-    -- | A policy that specifies update behavior for the crawler.
-    schemaChangePolicy :: Prelude.Maybe DirectSchemaChangePolicy,
     -- | Specifies native partitioning using a sequence of keys.
     partitionKeys :: Prelude.Maybe [[Prelude.Text]],
+    -- | A policy that specifies update behavior for the crawler.
+    schemaChangePolicy :: Prelude.Maybe DirectSchemaChangePolicy,
     -- | The name of the data target.
     name :: Prelude.Text,
     -- | The nodes that are inputs to the data target.
@@ -61,9 +61,9 @@ data S3DirectTarget = S3DirectTarget'
 -- the data has a standard file extension. Possible values are @\"gzip\"@
 -- and @\"bzip\"@).
 --
--- 'schemaChangePolicy', 's3DirectTarget_schemaChangePolicy' - A policy that specifies update behavior for the crawler.
---
 -- 'partitionKeys', 's3DirectTarget_partitionKeys' - Specifies native partitioning using a sequence of keys.
+--
+-- 'schemaChangePolicy', 's3DirectTarget_schemaChangePolicy' - A policy that specifies update behavior for the crawler.
 --
 -- 'name', 's3DirectTarget_name' - The name of the data target.
 --
@@ -85,8 +85,8 @@ newS3DirectTarget ::
 newS3DirectTarget pName_ pInputs_ pPath_ pFormat_ =
   S3DirectTarget'
     { compression = Prelude.Nothing,
-      schemaChangePolicy = Prelude.Nothing,
       partitionKeys = Prelude.Nothing,
+      schemaChangePolicy = Prelude.Nothing,
       name = pName_,
       inputs = Lens.coerced Lens.# pInputs_,
       path = pPath_,
@@ -99,13 +99,13 @@ newS3DirectTarget pName_ pInputs_ pPath_ pFormat_ =
 s3DirectTarget_compression :: Lens.Lens' S3DirectTarget (Prelude.Maybe Prelude.Text)
 s3DirectTarget_compression = Lens.lens (\S3DirectTarget' {compression} -> compression) (\s@S3DirectTarget' {} a -> s {compression = a} :: S3DirectTarget)
 
--- | A policy that specifies update behavior for the crawler.
-s3DirectTarget_schemaChangePolicy :: Lens.Lens' S3DirectTarget (Prelude.Maybe DirectSchemaChangePolicy)
-s3DirectTarget_schemaChangePolicy = Lens.lens (\S3DirectTarget' {schemaChangePolicy} -> schemaChangePolicy) (\s@S3DirectTarget' {} a -> s {schemaChangePolicy = a} :: S3DirectTarget)
-
 -- | Specifies native partitioning using a sequence of keys.
 s3DirectTarget_partitionKeys :: Lens.Lens' S3DirectTarget (Prelude.Maybe [[Prelude.Text]])
 s3DirectTarget_partitionKeys = Lens.lens (\S3DirectTarget' {partitionKeys} -> partitionKeys) (\s@S3DirectTarget' {} a -> s {partitionKeys = a} :: S3DirectTarget) Prelude.. Lens.mapping Lens.coerced
+
+-- | A policy that specifies update behavior for the crawler.
+s3DirectTarget_schemaChangePolicy :: Lens.Lens' S3DirectTarget (Prelude.Maybe DirectSchemaChangePolicy)
+s3DirectTarget_schemaChangePolicy = Lens.lens (\S3DirectTarget' {schemaChangePolicy} -> schemaChangePolicy) (\s@S3DirectTarget' {} a -> s {schemaChangePolicy = a} :: S3DirectTarget)
 
 -- | The name of the data target.
 s3DirectTarget_name :: Lens.Lens' S3DirectTarget Prelude.Text
@@ -130,8 +130,8 @@ instance Data.FromJSON S3DirectTarget where
       ( \x ->
           S3DirectTarget'
             Prelude.<$> (x Data..:? "Compression")
-            Prelude.<*> (x Data..:? "SchemaChangePolicy")
             Prelude.<*> (x Data..:? "PartitionKeys" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "SchemaChangePolicy")
             Prelude.<*> (x Data..: "Name")
             Prelude.<*> (x Data..: "Inputs")
             Prelude.<*> (x Data..: "Path")
@@ -141,8 +141,8 @@ instance Data.FromJSON S3DirectTarget where
 instance Prelude.Hashable S3DirectTarget where
   hashWithSalt _salt S3DirectTarget' {..} =
     _salt `Prelude.hashWithSalt` compression
-      `Prelude.hashWithSalt` schemaChangePolicy
       `Prelude.hashWithSalt` partitionKeys
+      `Prelude.hashWithSalt` schemaChangePolicy
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` inputs
       `Prelude.hashWithSalt` path
@@ -151,8 +151,8 @@ instance Prelude.Hashable S3DirectTarget where
 instance Prelude.NFData S3DirectTarget where
   rnf S3DirectTarget' {..} =
     Prelude.rnf compression
-      `Prelude.seq` Prelude.rnf schemaChangePolicy
       `Prelude.seq` Prelude.rnf partitionKeys
+      `Prelude.seq` Prelude.rnf schemaChangePolicy
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf inputs
       `Prelude.seq` Prelude.rnf path
@@ -163,9 +163,9 @@ instance Data.ToJSON S3DirectTarget where
     Data.object
       ( Prelude.catMaybes
           [ ("Compression" Data..=) Prelude.<$> compression,
+            ("PartitionKeys" Data..=) Prelude.<$> partitionKeys,
             ("SchemaChangePolicy" Data..=)
               Prelude.<$> schemaChangePolicy,
-            ("PartitionKeys" Data..=) Prelude.<$> partitionKeys,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("Inputs" Data..= inputs),
             Prelude.Just ("Path" Data..= path),

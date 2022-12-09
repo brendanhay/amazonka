@@ -19,10 +19,10 @@ module Amazonka.FinSpaceData.Types
 
     -- * Errors
     _AccessDeniedException,
-    _InternalServerException,
-    _ResourceNotFoundException,
-    _LimitExceededException,
     _ConflictException,
+    _InternalServerException,
+    _LimitExceededException,
+    _ResourceNotFoundException,
     _ThrottlingException,
     _ValidationException,
 
@@ -71,10 +71,10 @@ module Amazonka.FinSpaceData.Types
     -- * AwsCredentials
     AwsCredentials (..),
     newAwsCredentials,
-    awsCredentials_expiration,
-    awsCredentials_sessionToken,
-    awsCredentials_secretAccessKey,
     awsCredentials_accessKeyId,
+    awsCredentials_expiration,
+    awsCredentials_secretAccessKey,
+    awsCredentials_sessionToken,
 
     -- * ChangesetErrorInfo
     ChangesetErrorInfo (..),
@@ -85,33 +85,33 @@ module Amazonka.FinSpaceData.Types
     -- * ChangesetSummary
     ChangesetSummary (..),
     newChangesetSummary,
-    changesetSummary_sourceParams,
-    changesetSummary_updatedByChangesetId,
-    changesetSummary_changeType,
-    changesetSummary_changesetId,
-    changesetSummary_changesetArn,
-    changesetSummary_formatParams,
-    changesetSummary_activeUntilTimestamp,
-    changesetSummary_status,
-    changesetSummary_updatesChangesetId,
-    changesetSummary_datasetId,
     changesetSummary_activeFromTimestamp,
+    changesetSummary_activeUntilTimestamp,
+    changesetSummary_changeType,
+    changesetSummary_changesetArn,
+    changesetSummary_changesetId,
     changesetSummary_createTime,
+    changesetSummary_datasetId,
     changesetSummary_errorInfo,
+    changesetSummary_formatParams,
+    changesetSummary_sourceParams,
+    changesetSummary_status,
+    changesetSummary_updatedByChangesetId,
+    changesetSummary_updatesChangesetId,
 
     -- * ColumnDefinition
     ColumnDefinition (..),
     newColumnDefinition,
-    columnDefinition_columnName,
     columnDefinition_columnDescription,
+    columnDefinition_columnName,
     columnDefinition_dataType,
 
     -- * Credentials
     Credentials (..),
     newCredentials,
-    credentials_sessionToken,
-    credentials_secretAccessKey,
     credentials_accessKeyId,
+    credentials_secretAccessKey,
+    credentials_sessionToken,
 
     -- * DataViewDestinationTypeParams
     DataViewDestinationTypeParams (..),
@@ -129,57 +129,57 @@ module Amazonka.FinSpaceData.Types
     -- * DataViewSummary
     DataViewSummary (..),
     newDataViewSummary,
-    dataViewSummary_sortColumns,
+    dataViewSummary_asOfTimestamp,
     dataViewSummary_autoUpdate,
-    dataViewSummary_status,
-    dataViewSummary_lastModifiedTime,
+    dataViewSummary_createTime,
     dataViewSummary_dataViewArn,
     dataViewSummary_dataViewId,
-    dataViewSummary_partitionColumns,
     dataViewSummary_datasetId,
-    dataViewSummary_asOfTimestamp,
-    dataViewSummary_createTime,
-    dataViewSummary_errorInfo,
     dataViewSummary_destinationTypeProperties,
+    dataViewSummary_errorInfo,
+    dataViewSummary_lastModifiedTime,
+    dataViewSummary_partitionColumns,
+    dataViewSummary_sortColumns,
+    dataViewSummary_status,
 
     -- * Dataset
     Dataset (..),
     newDataset,
     dataset_alias,
+    dataset_createTime,
+    dataset_datasetArn,
     dataset_datasetDescription,
+    dataset_datasetId,
     dataset_datasetTitle,
     dataset_kind,
-    dataset_datasetArn,
     dataset_lastModifiedTime,
-    dataset_datasetId,
-    dataset_createTime,
-    dataset_schemaDefinition,
     dataset_ownerInfo,
+    dataset_schemaDefinition,
 
     -- * DatasetOwnerInfo
     DatasetOwnerInfo (..),
     newDatasetOwnerInfo,
-    datasetOwnerInfo_name,
     datasetOwnerInfo_email,
+    datasetOwnerInfo_name,
     datasetOwnerInfo_phoneNumber,
 
     -- * PermissionGroup
     PermissionGroup (..),
     newPermissionGroup,
-    permissionGroup_name,
+    permissionGroup_applicationPermissions,
+    permissionGroup_createTime,
     permissionGroup_description,
     permissionGroup_lastModifiedTime,
-    permissionGroup_applicationPermissions,
-    permissionGroup_permissionGroupId,
     permissionGroup_membershipStatus,
-    permissionGroup_createTime,
+    permissionGroup_name,
+    permissionGroup_permissionGroupId,
 
     -- * PermissionGroupByUser
     PermissionGroupByUser (..),
     newPermissionGroupByUser,
+    permissionGroupByUser_membershipStatus,
     permissionGroupByUser_name,
     permissionGroupByUser_permissionGroupId,
-    permissionGroupByUser_membershipStatus,
 
     -- * PermissionGroupParams
     PermissionGroupParams (..),
@@ -212,32 +212,32 @@ module Amazonka.FinSpaceData.Types
     -- * User
     User (..),
     newUser,
-    user_type,
-    user_firstName,
-    user_status,
-    user_lastDisabledTime,
-    user_lastLoginTime,
-    user_lastName,
-    user_lastModifiedTime,
     user_apiAccess,
-    user_userId,
-    user_lastEnabledTime,
-    user_emailAddress,
-    user_createTime,
     user_apiAccessPrincipalArn,
+    user_createTime,
+    user_emailAddress,
+    user_firstName,
+    user_lastDisabledTime,
+    user_lastEnabledTime,
+    user_lastLoginTime,
+    user_lastModifiedTime,
+    user_lastName,
+    user_status,
+    user_type,
+    user_userId,
 
     -- * UserByPermissionGroup
     UserByPermissionGroup (..),
     newUserByPermissionGroup,
-    userByPermissionGroup_type,
-    userByPermissionGroup_firstName,
-    userByPermissionGroup_status,
-    userByPermissionGroup_lastName,
     userByPermissionGroup_apiAccess,
-    userByPermissionGroup_userId,
-    userByPermissionGroup_membershipStatus,
-    userByPermissionGroup_emailAddress,
     userByPermissionGroup_apiAccessPrincipalArn,
+    userByPermissionGroup_emailAddress,
+    userByPermissionGroup_firstName,
+    userByPermissionGroup_lastName,
+    userByPermissionGroup_membershipStatus,
+    userByPermissionGroup_status,
+    userByPermissionGroup_type,
+    userByPermissionGroup_userId,
   )
 where
 
@@ -304,28 +304,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -333,13 +327,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -347,6 +345,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient access to perform this action.
@@ -357,6 +357,14 @@ _AccessDeniedException =
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
+-- | The request conflicts with an existing resource.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
+
 -- | The request processing has failed because of an unknown error, exception
 -- or failure.
 _InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -366,14 +374,6 @@ _InternalServerException =
     "InternalServerException"
     Prelude.. Core.hasStatus 500
 
--- | One or more resources can\'t be found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 404
-
 -- | A limit has exceeded.
 _LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _LimitExceededException =
@@ -382,13 +382,13 @@ _LimitExceededException =
     "LimitExceededException"
     Prelude.. Core.hasStatus 400
 
--- | The request conflicts with an existing resource.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
+-- | One or more resources can\'t be found.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404
 
 -- | The request was denied due to request throttling.
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

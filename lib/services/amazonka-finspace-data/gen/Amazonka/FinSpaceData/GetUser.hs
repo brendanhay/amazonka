@@ -34,19 +34,19 @@ module Amazonka.FinSpaceData.GetUser
     newGetUserResponse,
 
     -- * Response Lenses
-    getUserResponse_type,
-    getUserResponse_firstName,
-    getUserResponse_status,
-    getUserResponse_lastDisabledTime,
-    getUserResponse_lastLoginTime,
-    getUserResponse_lastName,
-    getUserResponse_lastModifiedTime,
     getUserResponse_apiAccess,
-    getUserResponse_userId,
-    getUserResponse_lastEnabledTime,
-    getUserResponse_emailAddress,
-    getUserResponse_createTime,
     getUserResponse_apiAccessPrincipalArn,
+    getUserResponse_createTime,
+    getUserResponse_emailAddress,
+    getUserResponse_firstName,
+    getUserResponse_lastDisabledTime,
+    getUserResponse_lastEnabledTime,
+    getUserResponse_lastLoginTime,
+    getUserResponse_lastModifiedTime,
+    getUserResponse_lastName,
+    getUserResponse_status,
+    getUserResponse_type,
+    getUserResponse_userId,
     getUserResponse_httpStatus,
   )
 where
@@ -93,19 +93,19 @@ instance Core.AWSRequest GetUser where
     Response.receiveJSON
       ( \s h x ->
           GetUserResponse'
-            Prelude.<$> (x Data..?> "type")
-            Prelude.<*> (x Data..?> "firstName")
-            Prelude.<*> (x Data..?> "status")
-            Prelude.<*> (x Data..?> "lastDisabledTime")
-            Prelude.<*> (x Data..?> "lastLoginTime")
-            Prelude.<*> (x Data..?> "lastName")
-            Prelude.<*> (x Data..?> "lastModifiedTime")
-            Prelude.<*> (x Data..?> "apiAccess")
-            Prelude.<*> (x Data..?> "userId")
-            Prelude.<*> (x Data..?> "lastEnabledTime")
-            Prelude.<*> (x Data..?> "emailAddress")
-            Prelude.<*> (x Data..?> "createTime")
+            Prelude.<$> (x Data..?> "apiAccess")
             Prelude.<*> (x Data..?> "apiAccessPrincipalArn")
+            Prelude.<*> (x Data..?> "createTime")
+            Prelude.<*> (x Data..?> "emailAddress")
+            Prelude.<*> (x Data..?> "firstName")
+            Prelude.<*> (x Data..?> "lastDisabledTime")
+            Prelude.<*> (x Data..?> "lastEnabledTime")
+            Prelude.<*> (x Data..?> "lastLoginTime")
+            Prelude.<*> (x Data..?> "lastModifiedTime")
+            Prelude.<*> (x Data..?> "lastName")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "type")
+            Prelude.<*> (x Data..?> "userId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,16 +136,40 @@ instance Data.ToQuery GetUser where
 
 -- | /See:/ 'newGetUserResponse' smart constructor.
 data GetUserResponse = GetUserResponse'
-  { -- | Indicates the type of user.
+  { -- | Indicates whether the user can use the
+    -- @GetProgrammaticAccessCredentials@ API to obtain credentials that can
+    -- then be used to access other FinSpace Data API operations.
     --
-    -- -   @SUPER_USER@ – A user with permission to all the functionality and
-    --     data in FinSpace.
+    -- -   @ENABLED@ – The user has permissions to use the APIs.
     --
-    -- -   @APP_USER@ – A user with specific permissions in FinSpace. The users
-    --     are assigned permissions by adding them to a permission group.
-    type' :: Prelude.Maybe UserType,
+    -- -   @DISABLED@ – The user does not have permissions to use any APIs.
+    apiAccess :: Prelude.Maybe ApiAccess,
+    -- | The ARN identifier of an AWS user or role that is allowed to call the
+    -- @GetProgrammaticAccessCredentials@ API to obtain a credentials token for
+    -- a specific FinSpace user. This must be an IAM role within your FinSpace
+    -- account.
+    apiAccessPrincipalArn :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp at which the user account was created in FinSpace. The
+    -- value is determined as epoch time in milliseconds.
+    createTime :: Prelude.Maybe Prelude.Integer,
+    -- | The email address that is associated with the user.
+    emailAddress :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The first name of the user.
     firstName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | Describes the last time the user account was disabled. The value is
+    -- determined as epoch time in milliseconds.
+    lastDisabledTime :: Prelude.Maybe Prelude.Integer,
+    -- | Describes the last time the user account was enabled. The value is
+    -- determined as epoch time in milliseconds.
+    lastEnabledTime :: Prelude.Maybe Prelude.Integer,
+    -- | Describes the last time that the user logged into their account. The
+    -- value is determined as epoch time in milliseconds.
+    lastLoginTime :: Prelude.Maybe Prelude.Integer,
+    -- | Describes the last time the user account was updated. The value is
+    -- determined as epoch time in milliseconds.
+    lastModifiedTime :: Prelude.Maybe Prelude.Integer,
+    -- | The last name of the user.
+    lastName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The current status of the user account.
     --
     -- -   @CREATING@ – The user account creation is in progress.
@@ -154,40 +178,16 @@ data GetUserResponse = GetUserResponse'
     --
     -- -   @DISABLED@ – The user account is currently inactive.
     status :: Prelude.Maybe UserStatus,
-    -- | Describes the last time the user account was disabled. The value is
-    -- determined as epoch time in milliseconds.
-    lastDisabledTime :: Prelude.Maybe Prelude.Integer,
-    -- | Describes the last time that the user logged into their account. The
-    -- value is determined as epoch time in milliseconds.
-    lastLoginTime :: Prelude.Maybe Prelude.Integer,
-    -- | The last name of the user.
-    lastName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | Describes the last time the user account was updated. The value is
-    -- determined as epoch time in milliseconds.
-    lastModifiedTime :: Prelude.Maybe Prelude.Integer,
-    -- | Indicates whether the user can use the
-    -- @GetProgrammaticAccessCredentials@ API to obtain credentials that can
-    -- then be used to access other FinSpace Data API operations.
+    -- | Indicates the type of user.
     --
-    -- -   @ENABLED@ – The user has permissions to use the APIs.
+    -- -   @SUPER_USER@ – A user with permission to all the functionality and
+    --     data in FinSpace.
     --
-    -- -   @DISABLED@ – The user does not have permissions to use any APIs.
-    apiAccess :: Prelude.Maybe ApiAccess,
+    -- -   @APP_USER@ – A user with specific permissions in FinSpace. The users
+    --     are assigned permissions by adding them to a permission group.
+    type' :: Prelude.Maybe UserType,
     -- | The unique identifier for the user account that is retrieved.
     userId :: Prelude.Maybe Prelude.Text,
-    -- | Describes the last time the user account was enabled. The value is
-    -- determined as epoch time in milliseconds.
-    lastEnabledTime :: Prelude.Maybe Prelude.Integer,
-    -- | The email address that is associated with the user.
-    emailAddress :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The timestamp at which the user account was created in FinSpace. The
-    -- value is determined as epoch time in milliseconds.
-    createTime :: Prelude.Maybe Prelude.Integer,
-    -- | The ARN identifier of an AWS user or role that is allowed to call the
-    -- @GetProgrammaticAccessCredentials@ API to obtain a credentials token for
-    -- a specific FinSpace user. This must be an IAM role within your FinSpace
-    -- account.
-    apiAccessPrincipalArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -201,15 +201,39 @@ data GetUserResponse = GetUserResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'getUserResponse_type' - Indicates the type of user.
+-- 'apiAccess', 'getUserResponse_apiAccess' - Indicates whether the user can use the
+-- @GetProgrammaticAccessCredentials@ API to obtain credentials that can
+-- then be used to access other FinSpace Data API operations.
 --
--- -   @SUPER_USER@ – A user with permission to all the functionality and
---     data in FinSpace.
+-- -   @ENABLED@ – The user has permissions to use the APIs.
 --
--- -   @APP_USER@ – A user with specific permissions in FinSpace. The users
---     are assigned permissions by adding them to a permission group.
+-- -   @DISABLED@ – The user does not have permissions to use any APIs.
+--
+-- 'apiAccessPrincipalArn', 'getUserResponse_apiAccessPrincipalArn' - The ARN identifier of an AWS user or role that is allowed to call the
+-- @GetProgrammaticAccessCredentials@ API to obtain a credentials token for
+-- a specific FinSpace user. This must be an IAM role within your FinSpace
+-- account.
+--
+-- 'createTime', 'getUserResponse_createTime' - The timestamp at which the user account was created in FinSpace. The
+-- value is determined as epoch time in milliseconds.
+--
+-- 'emailAddress', 'getUserResponse_emailAddress' - The email address that is associated with the user.
 --
 -- 'firstName', 'getUserResponse_firstName' - The first name of the user.
+--
+-- 'lastDisabledTime', 'getUserResponse_lastDisabledTime' - Describes the last time the user account was disabled. The value is
+-- determined as epoch time in milliseconds.
+--
+-- 'lastEnabledTime', 'getUserResponse_lastEnabledTime' - Describes the last time the user account was enabled. The value is
+-- determined as epoch time in milliseconds.
+--
+-- 'lastLoginTime', 'getUserResponse_lastLoginTime' - Describes the last time that the user logged into their account. The
+-- value is determined as epoch time in milliseconds.
+--
+-- 'lastModifiedTime', 'getUserResponse_lastModifiedTime' - Describes the last time the user account was updated. The value is
+-- determined as epoch time in milliseconds.
+--
+-- 'lastName', 'getUserResponse_lastName' - The last name of the user.
 --
 -- 'status', 'getUserResponse_status' - The current status of the user account.
 --
@@ -219,39 +243,15 @@ data GetUserResponse = GetUserResponse'
 --
 -- -   @DISABLED@ – The user account is currently inactive.
 --
--- 'lastDisabledTime', 'getUserResponse_lastDisabledTime' - Describes the last time the user account was disabled. The value is
--- determined as epoch time in milliseconds.
+-- 'type'', 'getUserResponse_type' - Indicates the type of user.
 --
--- 'lastLoginTime', 'getUserResponse_lastLoginTime' - Describes the last time that the user logged into their account. The
--- value is determined as epoch time in milliseconds.
+-- -   @SUPER_USER@ – A user with permission to all the functionality and
+--     data in FinSpace.
 --
--- 'lastName', 'getUserResponse_lastName' - The last name of the user.
---
--- 'lastModifiedTime', 'getUserResponse_lastModifiedTime' - Describes the last time the user account was updated. The value is
--- determined as epoch time in milliseconds.
---
--- 'apiAccess', 'getUserResponse_apiAccess' - Indicates whether the user can use the
--- @GetProgrammaticAccessCredentials@ API to obtain credentials that can
--- then be used to access other FinSpace Data API operations.
---
--- -   @ENABLED@ – The user has permissions to use the APIs.
---
--- -   @DISABLED@ – The user does not have permissions to use any APIs.
+-- -   @APP_USER@ – A user with specific permissions in FinSpace. The users
+--     are assigned permissions by adding them to a permission group.
 --
 -- 'userId', 'getUserResponse_userId' - The unique identifier for the user account that is retrieved.
---
--- 'lastEnabledTime', 'getUserResponse_lastEnabledTime' - Describes the last time the user account was enabled. The value is
--- determined as epoch time in milliseconds.
---
--- 'emailAddress', 'getUserResponse_emailAddress' - The email address that is associated with the user.
---
--- 'createTime', 'getUserResponse_createTime' - The timestamp at which the user account was created in FinSpace. The
--- value is determined as epoch time in milliseconds.
---
--- 'apiAccessPrincipalArn', 'getUserResponse_apiAccessPrincipalArn' - The ARN identifier of an AWS user or role that is allowed to call the
--- @GetProgrammaticAccessCredentials@ API to obtain a credentials token for
--- a specific FinSpace user. This must be an IAM role within your FinSpace
--- account.
 --
 -- 'httpStatus', 'getUserResponse_httpStatus' - The response's http status code.
 newGetUserResponse ::
@@ -260,64 +260,21 @@ newGetUserResponse ::
   GetUserResponse
 newGetUserResponse pHttpStatus_ =
   GetUserResponse'
-    { type' = Prelude.Nothing,
-      firstName = Prelude.Nothing,
-      status = Prelude.Nothing,
-      lastDisabledTime = Prelude.Nothing,
-      lastLoginTime = Prelude.Nothing,
-      lastName = Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
-      apiAccess = Prelude.Nothing,
-      userId = Prelude.Nothing,
-      lastEnabledTime = Prelude.Nothing,
-      emailAddress = Prelude.Nothing,
-      createTime = Prelude.Nothing,
+    { apiAccess = Prelude.Nothing,
       apiAccessPrincipalArn = Prelude.Nothing,
+      createTime = Prelude.Nothing,
+      emailAddress = Prelude.Nothing,
+      firstName = Prelude.Nothing,
+      lastDisabledTime = Prelude.Nothing,
+      lastEnabledTime = Prelude.Nothing,
+      lastLoginTime = Prelude.Nothing,
+      lastModifiedTime = Prelude.Nothing,
+      lastName = Prelude.Nothing,
+      status = Prelude.Nothing,
+      type' = Prelude.Nothing,
+      userId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Indicates the type of user.
---
--- -   @SUPER_USER@ – A user with permission to all the functionality and
---     data in FinSpace.
---
--- -   @APP_USER@ – A user with specific permissions in FinSpace. The users
---     are assigned permissions by adding them to a permission group.
-getUserResponse_type :: Lens.Lens' GetUserResponse (Prelude.Maybe UserType)
-getUserResponse_type = Lens.lens (\GetUserResponse' {type'} -> type') (\s@GetUserResponse' {} a -> s {type' = a} :: GetUserResponse)
-
--- | The first name of the user.
-getUserResponse_firstName :: Lens.Lens' GetUserResponse (Prelude.Maybe Prelude.Text)
-getUserResponse_firstName = Lens.lens (\GetUserResponse' {firstName} -> firstName) (\s@GetUserResponse' {} a -> s {firstName = a} :: GetUserResponse) Prelude.. Lens.mapping Data._Sensitive
-
--- | The current status of the user account.
---
--- -   @CREATING@ – The user account creation is in progress.
---
--- -   @ENABLED@ – The user account is created and is currently active.
---
--- -   @DISABLED@ – The user account is currently inactive.
-getUserResponse_status :: Lens.Lens' GetUserResponse (Prelude.Maybe UserStatus)
-getUserResponse_status = Lens.lens (\GetUserResponse' {status} -> status) (\s@GetUserResponse' {} a -> s {status = a} :: GetUserResponse)
-
--- | Describes the last time the user account was disabled. The value is
--- determined as epoch time in milliseconds.
-getUserResponse_lastDisabledTime :: Lens.Lens' GetUserResponse (Prelude.Maybe Prelude.Integer)
-getUserResponse_lastDisabledTime = Lens.lens (\GetUserResponse' {lastDisabledTime} -> lastDisabledTime) (\s@GetUserResponse' {} a -> s {lastDisabledTime = a} :: GetUserResponse)
-
--- | Describes the last time that the user logged into their account. The
--- value is determined as epoch time in milliseconds.
-getUserResponse_lastLoginTime :: Lens.Lens' GetUserResponse (Prelude.Maybe Prelude.Integer)
-getUserResponse_lastLoginTime = Lens.lens (\GetUserResponse' {lastLoginTime} -> lastLoginTime) (\s@GetUserResponse' {} a -> s {lastLoginTime = a} :: GetUserResponse)
-
--- | The last name of the user.
-getUserResponse_lastName :: Lens.Lens' GetUserResponse (Prelude.Maybe Prelude.Text)
-getUserResponse_lastName = Lens.lens (\GetUserResponse' {lastName} -> lastName) (\s@GetUserResponse' {} a -> s {lastName = a} :: GetUserResponse) Prelude.. Lens.mapping Data._Sensitive
-
--- | Describes the last time the user account was updated. The value is
--- determined as epoch time in milliseconds.
-getUserResponse_lastModifiedTime :: Lens.Lens' GetUserResponse (Prelude.Maybe Prelude.Integer)
-getUserResponse_lastModifiedTime = Lens.lens (\GetUserResponse' {lastModifiedTime} -> lastModifiedTime) (\s@GetUserResponse' {} a -> s {lastModifiedTime = a} :: GetUserResponse)
 
 -- | Indicates whether the user can use the
 -- @GetProgrammaticAccessCredentials@ API to obtain credentials that can
@@ -329,24 +286,6 @@ getUserResponse_lastModifiedTime = Lens.lens (\GetUserResponse' {lastModifiedTim
 getUserResponse_apiAccess :: Lens.Lens' GetUserResponse (Prelude.Maybe ApiAccess)
 getUserResponse_apiAccess = Lens.lens (\GetUserResponse' {apiAccess} -> apiAccess) (\s@GetUserResponse' {} a -> s {apiAccess = a} :: GetUserResponse)
 
--- | The unique identifier for the user account that is retrieved.
-getUserResponse_userId :: Lens.Lens' GetUserResponse (Prelude.Maybe Prelude.Text)
-getUserResponse_userId = Lens.lens (\GetUserResponse' {userId} -> userId) (\s@GetUserResponse' {} a -> s {userId = a} :: GetUserResponse)
-
--- | Describes the last time the user account was enabled. The value is
--- determined as epoch time in milliseconds.
-getUserResponse_lastEnabledTime :: Lens.Lens' GetUserResponse (Prelude.Maybe Prelude.Integer)
-getUserResponse_lastEnabledTime = Lens.lens (\GetUserResponse' {lastEnabledTime} -> lastEnabledTime) (\s@GetUserResponse' {} a -> s {lastEnabledTime = a} :: GetUserResponse)
-
--- | The email address that is associated with the user.
-getUserResponse_emailAddress :: Lens.Lens' GetUserResponse (Prelude.Maybe Prelude.Text)
-getUserResponse_emailAddress = Lens.lens (\GetUserResponse' {emailAddress} -> emailAddress) (\s@GetUserResponse' {} a -> s {emailAddress = a} :: GetUserResponse) Prelude.. Lens.mapping Data._Sensitive
-
--- | The timestamp at which the user account was created in FinSpace. The
--- value is determined as epoch time in milliseconds.
-getUserResponse_createTime :: Lens.Lens' GetUserResponse (Prelude.Maybe Prelude.Integer)
-getUserResponse_createTime = Lens.lens (\GetUserResponse' {createTime} -> createTime) (\s@GetUserResponse' {} a -> s {createTime = a} :: GetUserResponse)
-
 -- | The ARN identifier of an AWS user or role that is allowed to call the
 -- @GetProgrammaticAccessCredentials@ API to obtain a credentials token for
 -- a specific FinSpace user. This must be an IAM role within your FinSpace
@@ -354,23 +293,84 @@ getUserResponse_createTime = Lens.lens (\GetUserResponse' {createTime} -> create
 getUserResponse_apiAccessPrincipalArn :: Lens.Lens' GetUserResponse (Prelude.Maybe Prelude.Text)
 getUserResponse_apiAccessPrincipalArn = Lens.lens (\GetUserResponse' {apiAccessPrincipalArn} -> apiAccessPrincipalArn) (\s@GetUserResponse' {} a -> s {apiAccessPrincipalArn = a} :: GetUserResponse)
 
+-- | The timestamp at which the user account was created in FinSpace. The
+-- value is determined as epoch time in milliseconds.
+getUserResponse_createTime :: Lens.Lens' GetUserResponse (Prelude.Maybe Prelude.Integer)
+getUserResponse_createTime = Lens.lens (\GetUserResponse' {createTime} -> createTime) (\s@GetUserResponse' {} a -> s {createTime = a} :: GetUserResponse)
+
+-- | The email address that is associated with the user.
+getUserResponse_emailAddress :: Lens.Lens' GetUserResponse (Prelude.Maybe Prelude.Text)
+getUserResponse_emailAddress = Lens.lens (\GetUserResponse' {emailAddress} -> emailAddress) (\s@GetUserResponse' {} a -> s {emailAddress = a} :: GetUserResponse) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The first name of the user.
+getUserResponse_firstName :: Lens.Lens' GetUserResponse (Prelude.Maybe Prelude.Text)
+getUserResponse_firstName = Lens.lens (\GetUserResponse' {firstName} -> firstName) (\s@GetUserResponse' {} a -> s {firstName = a} :: GetUserResponse) Prelude.. Lens.mapping Data._Sensitive
+
+-- | Describes the last time the user account was disabled. The value is
+-- determined as epoch time in milliseconds.
+getUserResponse_lastDisabledTime :: Lens.Lens' GetUserResponse (Prelude.Maybe Prelude.Integer)
+getUserResponse_lastDisabledTime = Lens.lens (\GetUserResponse' {lastDisabledTime} -> lastDisabledTime) (\s@GetUserResponse' {} a -> s {lastDisabledTime = a} :: GetUserResponse)
+
+-- | Describes the last time the user account was enabled. The value is
+-- determined as epoch time in milliseconds.
+getUserResponse_lastEnabledTime :: Lens.Lens' GetUserResponse (Prelude.Maybe Prelude.Integer)
+getUserResponse_lastEnabledTime = Lens.lens (\GetUserResponse' {lastEnabledTime} -> lastEnabledTime) (\s@GetUserResponse' {} a -> s {lastEnabledTime = a} :: GetUserResponse)
+
+-- | Describes the last time that the user logged into their account. The
+-- value is determined as epoch time in milliseconds.
+getUserResponse_lastLoginTime :: Lens.Lens' GetUserResponse (Prelude.Maybe Prelude.Integer)
+getUserResponse_lastLoginTime = Lens.lens (\GetUserResponse' {lastLoginTime} -> lastLoginTime) (\s@GetUserResponse' {} a -> s {lastLoginTime = a} :: GetUserResponse)
+
+-- | Describes the last time the user account was updated. The value is
+-- determined as epoch time in milliseconds.
+getUserResponse_lastModifiedTime :: Lens.Lens' GetUserResponse (Prelude.Maybe Prelude.Integer)
+getUserResponse_lastModifiedTime = Lens.lens (\GetUserResponse' {lastModifiedTime} -> lastModifiedTime) (\s@GetUserResponse' {} a -> s {lastModifiedTime = a} :: GetUserResponse)
+
+-- | The last name of the user.
+getUserResponse_lastName :: Lens.Lens' GetUserResponse (Prelude.Maybe Prelude.Text)
+getUserResponse_lastName = Lens.lens (\GetUserResponse' {lastName} -> lastName) (\s@GetUserResponse' {} a -> s {lastName = a} :: GetUserResponse) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The current status of the user account.
+--
+-- -   @CREATING@ – The user account creation is in progress.
+--
+-- -   @ENABLED@ – The user account is created and is currently active.
+--
+-- -   @DISABLED@ – The user account is currently inactive.
+getUserResponse_status :: Lens.Lens' GetUserResponse (Prelude.Maybe UserStatus)
+getUserResponse_status = Lens.lens (\GetUserResponse' {status} -> status) (\s@GetUserResponse' {} a -> s {status = a} :: GetUserResponse)
+
+-- | Indicates the type of user.
+--
+-- -   @SUPER_USER@ – A user with permission to all the functionality and
+--     data in FinSpace.
+--
+-- -   @APP_USER@ – A user with specific permissions in FinSpace. The users
+--     are assigned permissions by adding them to a permission group.
+getUserResponse_type :: Lens.Lens' GetUserResponse (Prelude.Maybe UserType)
+getUserResponse_type = Lens.lens (\GetUserResponse' {type'} -> type') (\s@GetUserResponse' {} a -> s {type' = a} :: GetUserResponse)
+
+-- | The unique identifier for the user account that is retrieved.
+getUserResponse_userId :: Lens.Lens' GetUserResponse (Prelude.Maybe Prelude.Text)
+getUserResponse_userId = Lens.lens (\GetUserResponse' {userId} -> userId) (\s@GetUserResponse' {} a -> s {userId = a} :: GetUserResponse)
+
 -- | The response's http status code.
 getUserResponse_httpStatus :: Lens.Lens' GetUserResponse Prelude.Int
 getUserResponse_httpStatus = Lens.lens (\GetUserResponse' {httpStatus} -> httpStatus) (\s@GetUserResponse' {} a -> s {httpStatus = a} :: GetUserResponse)
 
 instance Prelude.NFData GetUserResponse where
   rnf GetUserResponse' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf firstName
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf lastDisabledTime
-      `Prelude.seq` Prelude.rnf lastLoginTime
-      `Prelude.seq` Prelude.rnf lastName
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf apiAccess
-      `Prelude.seq` Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf lastEnabledTime
-      `Prelude.seq` Prelude.rnf emailAddress
-      `Prelude.seq` Prelude.rnf createTime
+    Prelude.rnf apiAccess
       `Prelude.seq` Prelude.rnf apiAccessPrincipalArn
+      `Prelude.seq` Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf emailAddress
+      `Prelude.seq` Prelude.rnf firstName
+      `Prelude.seq` Prelude.rnf lastDisabledTime
+      `Prelude.seq` Prelude.rnf lastEnabledTime
+      `Prelude.seq` Prelude.rnf lastLoginTime
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf lastName
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf userId
       `Prelude.seq` Prelude.rnf httpStatus

@@ -28,10 +28,10 @@ module Amazonka.FinSpaceData.UpdatePermissionGroup
     newUpdatePermissionGroup,
 
     -- * Request Lenses
-    updatePermissionGroup_name,
+    updatePermissionGroup_applicationPermissions,
     updatePermissionGroup_clientToken,
     updatePermissionGroup_description,
-    updatePermissionGroup_applicationPermissions,
+    updatePermissionGroup_name,
     updatePermissionGroup_permissionGroupId,
 
     -- * Destructuring the Response
@@ -54,13 +54,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdatePermissionGroup' smart constructor.
 data UpdatePermissionGroup = UpdatePermissionGroup'
-  { -- | The name of the permission group.
-    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | A token that ensures idempotency. This token expires in 10 minutes.
-    clientToken :: Prelude.Maybe Prelude.Text,
-    -- | A brief description for the permission group.
-    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The permissions that are granted to a specific group for accessing the
+  { -- | The permissions that are granted to a specific group for accessing the
     -- FinSpace application.
     --
     -- When assigning application permissions, be aware that the permission
@@ -88,6 +82,12 @@ data UpdatePermissionGroup = UpdatePermissionGroup'
     -- -   @GetTemporaryCredentials@ – Group members can get temporary API
     --     credentials.
     applicationPermissions :: Prelude.Maybe [ApplicationPermission],
+    -- | A token that ensures idempotency. This token expires in 10 minutes.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | A brief description for the permission group.
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The name of the permission group.
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The unique identifier for the permission group to update.
     permissionGroupId :: Prelude.Text
   }
@@ -100,12 +100,6 @@ data UpdatePermissionGroup = UpdatePermissionGroup'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'name', 'updatePermissionGroup_name' - The name of the permission group.
---
--- 'clientToken', 'updatePermissionGroup_clientToken' - A token that ensures idempotency. This token expires in 10 minutes.
---
--- 'description', 'updatePermissionGroup_description' - A brief description for the permission group.
 --
 -- 'applicationPermissions', 'updatePermissionGroup_applicationPermissions' - The permissions that are granted to a specific group for accessing the
 -- FinSpace application.
@@ -135,6 +129,12 @@ data UpdatePermissionGroup = UpdatePermissionGroup'
 -- -   @GetTemporaryCredentials@ – Group members can get temporary API
 --     credentials.
 --
+-- 'clientToken', 'updatePermissionGroup_clientToken' - A token that ensures idempotency. This token expires in 10 minutes.
+--
+-- 'description', 'updatePermissionGroup_description' - A brief description for the permission group.
+--
+-- 'name', 'updatePermissionGroup_name' - The name of the permission group.
+--
 -- 'permissionGroupId', 'updatePermissionGroup_permissionGroupId' - The unique identifier for the permission group to update.
 newUpdatePermissionGroup ::
   -- | 'permissionGroupId'
@@ -142,24 +142,13 @@ newUpdatePermissionGroup ::
   UpdatePermissionGroup
 newUpdatePermissionGroup pPermissionGroupId_ =
   UpdatePermissionGroup'
-    { name = Prelude.Nothing,
+    { applicationPermissions =
+        Prelude.Nothing,
       clientToken = Prelude.Nothing,
       description = Prelude.Nothing,
-      applicationPermissions = Prelude.Nothing,
+      name = Prelude.Nothing,
       permissionGroupId = pPermissionGroupId_
     }
-
--- | The name of the permission group.
-updatePermissionGroup_name :: Lens.Lens' UpdatePermissionGroup (Prelude.Maybe Prelude.Text)
-updatePermissionGroup_name = Lens.lens (\UpdatePermissionGroup' {name} -> name) (\s@UpdatePermissionGroup' {} a -> s {name = a} :: UpdatePermissionGroup) Prelude.. Lens.mapping Data._Sensitive
-
--- | A token that ensures idempotency. This token expires in 10 minutes.
-updatePermissionGroup_clientToken :: Lens.Lens' UpdatePermissionGroup (Prelude.Maybe Prelude.Text)
-updatePermissionGroup_clientToken = Lens.lens (\UpdatePermissionGroup' {clientToken} -> clientToken) (\s@UpdatePermissionGroup' {} a -> s {clientToken = a} :: UpdatePermissionGroup)
-
--- | A brief description for the permission group.
-updatePermissionGroup_description :: Lens.Lens' UpdatePermissionGroup (Prelude.Maybe Prelude.Text)
-updatePermissionGroup_description = Lens.lens (\UpdatePermissionGroup' {description} -> description) (\s@UpdatePermissionGroup' {} a -> s {description = a} :: UpdatePermissionGroup) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The permissions that are granted to a specific group for accessing the
 -- FinSpace application.
@@ -191,6 +180,18 @@ updatePermissionGroup_description = Lens.lens (\UpdatePermissionGroup' {descript
 updatePermissionGroup_applicationPermissions :: Lens.Lens' UpdatePermissionGroup (Prelude.Maybe [ApplicationPermission])
 updatePermissionGroup_applicationPermissions = Lens.lens (\UpdatePermissionGroup' {applicationPermissions} -> applicationPermissions) (\s@UpdatePermissionGroup' {} a -> s {applicationPermissions = a} :: UpdatePermissionGroup) Prelude.. Lens.mapping Lens.coerced
 
+-- | A token that ensures idempotency. This token expires in 10 minutes.
+updatePermissionGroup_clientToken :: Lens.Lens' UpdatePermissionGroup (Prelude.Maybe Prelude.Text)
+updatePermissionGroup_clientToken = Lens.lens (\UpdatePermissionGroup' {clientToken} -> clientToken) (\s@UpdatePermissionGroup' {} a -> s {clientToken = a} :: UpdatePermissionGroup)
+
+-- | A brief description for the permission group.
+updatePermissionGroup_description :: Lens.Lens' UpdatePermissionGroup (Prelude.Maybe Prelude.Text)
+updatePermissionGroup_description = Lens.lens (\UpdatePermissionGroup' {description} -> description) (\s@UpdatePermissionGroup' {} a -> s {description = a} :: UpdatePermissionGroup) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The name of the permission group.
+updatePermissionGroup_name :: Lens.Lens' UpdatePermissionGroup (Prelude.Maybe Prelude.Text)
+updatePermissionGroup_name = Lens.lens (\UpdatePermissionGroup' {name} -> name) (\s@UpdatePermissionGroup' {} a -> s {name = a} :: UpdatePermissionGroup) Prelude.. Lens.mapping Data._Sensitive
+
 -- | The unique identifier for the permission group to update.
 updatePermissionGroup_permissionGroupId :: Lens.Lens' UpdatePermissionGroup Prelude.Text
 updatePermissionGroup_permissionGroupId = Lens.lens (\UpdatePermissionGroup' {permissionGroupId} -> permissionGroupId) (\s@UpdatePermissionGroup' {} a -> s {permissionGroupId = a} :: UpdatePermissionGroup)
@@ -211,18 +212,18 @@ instance Core.AWSRequest UpdatePermissionGroup where
 
 instance Prelude.Hashable UpdatePermissionGroup where
   hashWithSalt _salt UpdatePermissionGroup' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` applicationPermissions
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` applicationPermissions
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` permissionGroupId
 
 instance Prelude.NFData UpdatePermissionGroup where
   rnf UpdatePermissionGroup' {..} =
-    Prelude.rnf name
+    Prelude.rnf applicationPermissions
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf applicationPermissions
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf permissionGroupId
 
 instance Data.ToHeaders UpdatePermissionGroup where
@@ -240,11 +241,11 @@ instance Data.ToJSON UpdatePermissionGroup where
   toJSON UpdatePermissionGroup' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("name" Data..=) Prelude.<$> name,
+          [ ("applicationPermissions" Data..=)
+              Prelude.<$> applicationPermissions,
             ("clientToken" Data..=) Prelude.<$> clientToken,
             ("description" Data..=) Prelude.<$> description,
-            ("applicationPermissions" Data..=)
-              Prelude.<$> applicationPermissions
+            ("name" Data..=) Prelude.<$> name
           ]
       )
 

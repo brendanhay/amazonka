@@ -29,8 +29,8 @@ module Amazonka.FinSpaceData.ListChangesets
     newListChangesets,
 
     -- * Request Lenses
-    listChangesets_nextToken,
     listChangesets_maxResults,
+    listChangesets_nextToken,
     listChangesets_datasetId,
 
     -- * Destructuring the Response
@@ -38,8 +38,8 @@ module Amazonka.FinSpaceData.ListChangesets
     newListChangesetsResponse,
 
     -- * Response Lenses
-    listChangesetsResponse_nextToken,
     listChangesetsResponse_changesets,
+    listChangesetsResponse_nextToken,
     listChangesetsResponse_httpStatus,
   )
 where
@@ -56,10 +56,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListChangesets' smart constructor.
 data ListChangesets = ListChangesets'
-  { -- | A token that indicates where a results page should begin.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results per page.
+  { -- | The maximum number of results per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token that indicates where a results page should begin.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the FinSpace Dataset to which the Changeset
     -- belongs.
     datasetId :: Prelude.Text
@@ -74,9 +74,9 @@ data ListChangesets = ListChangesets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listChangesets_nextToken' - A token that indicates where a results page should begin.
---
 -- 'maxResults', 'listChangesets_maxResults' - The maximum number of results per page.
+--
+-- 'nextToken', 'listChangesets_nextToken' - A token that indicates where a results page should begin.
 --
 -- 'datasetId', 'listChangesets_datasetId' - The unique identifier for the FinSpace Dataset to which the Changeset
 -- belongs.
@@ -86,18 +86,18 @@ newListChangesets ::
   ListChangesets
 newListChangesets pDatasetId_ =
   ListChangesets'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       datasetId = pDatasetId_
     }
-
--- | A token that indicates where a results page should begin.
-listChangesets_nextToken :: Lens.Lens' ListChangesets (Prelude.Maybe Prelude.Text)
-listChangesets_nextToken = Lens.lens (\ListChangesets' {nextToken} -> nextToken) (\s@ListChangesets' {} a -> s {nextToken = a} :: ListChangesets)
 
 -- | The maximum number of results per page.
 listChangesets_maxResults :: Lens.Lens' ListChangesets (Prelude.Maybe Prelude.Natural)
 listChangesets_maxResults = Lens.lens (\ListChangesets' {maxResults} -> maxResults) (\s@ListChangesets' {} a -> s {maxResults = a} :: ListChangesets)
+
+-- | A token that indicates where a results page should begin.
+listChangesets_nextToken :: Lens.Lens' ListChangesets (Prelude.Maybe Prelude.Text)
+listChangesets_nextToken = Lens.lens (\ListChangesets' {nextToken} -> nextToken) (\s@ListChangesets' {} a -> s {nextToken = a} :: ListChangesets)
 
 -- | The unique identifier for the FinSpace Dataset to which the Changeset
 -- belongs.
@@ -135,21 +135,21 @@ instance Core.AWSRequest ListChangesets where
     Response.receiveJSON
       ( \s h x ->
           ListChangesetsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "changesets" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "changesets" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListChangesets where
   hashWithSalt _salt ListChangesets' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` datasetId
 
 instance Prelude.NFData ListChangesets where
   rnf ListChangesets' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf datasetId
 
 instance Data.ToHeaders ListChangesets where
@@ -171,8 +171,8 @@ instance Data.ToPath ListChangesets where
 instance Data.ToQuery ListChangesets where
   toQuery ListChangesets' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | Response to ListChangesetsResponse. This returns a list of dataset
@@ -180,10 +180,10 @@ instance Data.ToQuery ListChangesets where
 --
 -- /See:/ 'newListChangesetsResponse' smart constructor.
 data ListChangesetsResponse = ListChangesetsResponse'
-  { -- | A token that indicates where a results page should begin.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | List of Changesets found.
+  { -- | List of Changesets found.
     changesets :: Prelude.Maybe [ChangesetSummary],
+    -- | A token that indicates where a results page should begin.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -197,9 +197,9 @@ data ListChangesetsResponse = ListChangesetsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listChangesetsResponse_nextToken' - A token that indicates where a results page should begin.
---
 -- 'changesets', 'listChangesetsResponse_changesets' - List of Changesets found.
+--
+-- 'nextToken', 'listChangesetsResponse_nextToken' - A token that indicates where a results page should begin.
 --
 -- 'httpStatus', 'listChangesetsResponse_httpStatus' - The response's http status code.
 newListChangesetsResponse ::
@@ -208,19 +208,19 @@ newListChangesetsResponse ::
   ListChangesetsResponse
 newListChangesetsResponse pHttpStatus_ =
   ListChangesetsResponse'
-    { nextToken =
+    { changesets =
         Prelude.Nothing,
-      changesets = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A token that indicates where a results page should begin.
-listChangesetsResponse_nextToken :: Lens.Lens' ListChangesetsResponse (Prelude.Maybe Prelude.Text)
-listChangesetsResponse_nextToken = Lens.lens (\ListChangesetsResponse' {nextToken} -> nextToken) (\s@ListChangesetsResponse' {} a -> s {nextToken = a} :: ListChangesetsResponse)
 
 -- | List of Changesets found.
 listChangesetsResponse_changesets :: Lens.Lens' ListChangesetsResponse (Prelude.Maybe [ChangesetSummary])
 listChangesetsResponse_changesets = Lens.lens (\ListChangesetsResponse' {changesets} -> changesets) (\s@ListChangesetsResponse' {} a -> s {changesets = a} :: ListChangesetsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A token that indicates where a results page should begin.
+listChangesetsResponse_nextToken :: Lens.Lens' ListChangesetsResponse (Prelude.Maybe Prelude.Text)
+listChangesetsResponse_nextToken = Lens.lens (\ListChangesetsResponse' {nextToken} -> nextToken) (\s@ListChangesetsResponse' {} a -> s {nextToken = a} :: ListChangesetsResponse)
 
 -- | The response's http status code.
 listChangesetsResponse_httpStatus :: Lens.Lens' ListChangesetsResponse Prelude.Int
@@ -228,6 +228,6 @@ listChangesetsResponse_httpStatus = Lens.lens (\ListChangesetsResponse' {httpSta
 
 instance Prelude.NFData ListChangesetsResponse where
   rnf ListChangesetsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf changesets
+    Prelude.rnf changesets
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

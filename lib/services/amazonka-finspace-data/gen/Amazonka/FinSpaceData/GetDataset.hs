@@ -35,15 +35,15 @@ module Amazonka.FinSpaceData.GetDataset
 
     -- * Response Lenses
     getDatasetResponse_alias,
+    getDatasetResponse_createTime,
+    getDatasetResponse_datasetArn,
     getDatasetResponse_datasetDescription,
+    getDatasetResponse_datasetId,
     getDatasetResponse_datasetTitle,
     getDatasetResponse_kind,
-    getDatasetResponse_status,
-    getDatasetResponse_datasetArn,
     getDatasetResponse_lastModifiedTime,
-    getDatasetResponse_datasetId,
-    getDatasetResponse_createTime,
     getDatasetResponse_schemaDefinition,
+    getDatasetResponse_status,
     getDatasetResponse_httpStatus,
   )
 where
@@ -94,15 +94,15 @@ instance Core.AWSRequest GetDataset where
       ( \s h x ->
           GetDatasetResponse'
             Prelude.<$> (x Data..?> "alias")
+            Prelude.<*> (x Data..?> "createTime")
+            Prelude.<*> (x Data..?> "datasetArn")
             Prelude.<*> (x Data..?> "datasetDescription")
+            Prelude.<*> (x Data..?> "datasetId")
             Prelude.<*> (x Data..?> "datasetTitle")
             Prelude.<*> (x Data..?> "kind")
-            Prelude.<*> (x Data..?> "status")
-            Prelude.<*> (x Data..?> "datasetArn")
             Prelude.<*> (x Data..?> "lastModifiedTime")
-            Prelude.<*> (x Data..?> "datasetId")
-            Prelude.<*> (x Data..?> "createTime")
             Prelude.<*> (x Data..?> "schemaDefinition")
+            Prelude.<*> (x Data..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -138,8 +138,16 @@ instance Data.ToQuery GetDataset where
 data GetDatasetResponse = GetDatasetResponse'
   { -- | The unique resource identifier for a Dataset.
     alias :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp at which the Dataset was created in FinSpace. The value is
+    -- determined as epoch time in milliseconds. For example, the value for
+    -- Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
+    createTime :: Prelude.Maybe Prelude.Integer,
+    -- | The ARN identifier of the Dataset.
+    datasetArn :: Prelude.Maybe Prelude.Text,
     -- | A description of the Dataset.
     datasetDescription :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier for a Dataset.
+    datasetId :: Prelude.Maybe Prelude.Text,
     -- | Display title for a Dataset.
     datasetTitle :: Prelude.Maybe Prelude.Text,
     -- | The format in which Dataset data is structured.
@@ -148,6 +156,12 @@ data GetDatasetResponse = GetDatasetResponse'
     --
     -- -   @NON_TABULAR@ – Data is structured in a non-tabular format.
     kind :: Prelude.Maybe DatasetKind,
+    -- | The last time that the Dataset was modified. The value is determined as
+    -- epoch time in milliseconds. For example, the value for Monday, November
+    -- 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
+    lastModifiedTime :: Prelude.Maybe Prelude.Integer,
+    -- | Definition for a schema on a tabular Dataset.
+    schemaDefinition :: Prelude.Maybe SchemaUnion,
     -- | Status of the Dataset creation.
     --
     -- -   @PENDING@ – Dataset is pending creation.
@@ -158,20 +172,6 @@ data GetDatasetResponse = GetDatasetResponse'
     --
     -- -   @RUNNING@ – Dataset creation is running.
     status :: Prelude.Maybe DatasetStatus,
-    -- | The ARN identifier of the Dataset.
-    datasetArn :: Prelude.Maybe Prelude.Text,
-    -- | The last time that the Dataset was modified. The value is determined as
-    -- epoch time in milliseconds. For example, the value for Monday, November
-    -- 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
-    lastModifiedTime :: Prelude.Maybe Prelude.Integer,
-    -- | The unique identifier for a Dataset.
-    datasetId :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp at which the Dataset was created in FinSpace. The value is
-    -- determined as epoch time in milliseconds. For example, the value for
-    -- Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
-    createTime :: Prelude.Maybe Prelude.Integer,
-    -- | Definition for a schema on a tabular Dataset.
-    schemaDefinition :: Prelude.Maybe SchemaUnion,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -187,7 +187,15 @@ data GetDatasetResponse = GetDatasetResponse'
 --
 -- 'alias', 'getDatasetResponse_alias' - The unique resource identifier for a Dataset.
 --
+-- 'createTime', 'getDatasetResponse_createTime' - The timestamp at which the Dataset was created in FinSpace. The value is
+-- determined as epoch time in milliseconds. For example, the value for
+-- Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
+--
+-- 'datasetArn', 'getDatasetResponse_datasetArn' - The ARN identifier of the Dataset.
+--
 -- 'datasetDescription', 'getDatasetResponse_datasetDescription' - A description of the Dataset.
+--
+-- 'datasetId', 'getDatasetResponse_datasetId' - The unique identifier for a Dataset.
 --
 -- 'datasetTitle', 'getDatasetResponse_datasetTitle' - Display title for a Dataset.
 --
@@ -196,6 +204,12 @@ data GetDatasetResponse = GetDatasetResponse'
 -- -   @TABULAR@ – Data is structured in a tabular format.
 --
 -- -   @NON_TABULAR@ – Data is structured in a non-tabular format.
+--
+-- 'lastModifiedTime', 'getDatasetResponse_lastModifiedTime' - The last time that the Dataset was modified. The value is determined as
+-- epoch time in milliseconds. For example, the value for Monday, November
+-- 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
+--
+-- 'schemaDefinition', 'getDatasetResponse_schemaDefinition' - Definition for a schema on a tabular Dataset.
 --
 -- 'status', 'getDatasetResponse_status' - Status of the Dataset creation.
 --
@@ -207,20 +221,6 @@ data GetDatasetResponse = GetDatasetResponse'
 --
 -- -   @RUNNING@ – Dataset creation is running.
 --
--- 'datasetArn', 'getDatasetResponse_datasetArn' - The ARN identifier of the Dataset.
---
--- 'lastModifiedTime', 'getDatasetResponse_lastModifiedTime' - The last time that the Dataset was modified. The value is determined as
--- epoch time in milliseconds. For example, the value for Monday, November
--- 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
---
--- 'datasetId', 'getDatasetResponse_datasetId' - The unique identifier for a Dataset.
---
--- 'createTime', 'getDatasetResponse_createTime' - The timestamp at which the Dataset was created in FinSpace. The value is
--- determined as epoch time in milliseconds. For example, the value for
--- Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
---
--- 'schemaDefinition', 'getDatasetResponse_schemaDefinition' - Definition for a schema on a tabular Dataset.
---
 -- 'httpStatus', 'getDatasetResponse_httpStatus' - The response's http status code.
 newGetDatasetResponse ::
   -- | 'httpStatus'
@@ -229,15 +229,15 @@ newGetDatasetResponse ::
 newGetDatasetResponse pHttpStatus_ =
   GetDatasetResponse'
     { alias = Prelude.Nothing,
+      createTime = Prelude.Nothing,
+      datasetArn = Prelude.Nothing,
       datasetDescription = Prelude.Nothing,
+      datasetId = Prelude.Nothing,
       datasetTitle = Prelude.Nothing,
       kind = Prelude.Nothing,
-      status = Prelude.Nothing,
-      datasetArn = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
-      datasetId = Prelude.Nothing,
-      createTime = Prelude.Nothing,
       schemaDefinition = Prelude.Nothing,
+      status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -245,9 +245,23 @@ newGetDatasetResponse pHttpStatus_ =
 getDatasetResponse_alias :: Lens.Lens' GetDatasetResponse (Prelude.Maybe Prelude.Text)
 getDatasetResponse_alias = Lens.lens (\GetDatasetResponse' {alias} -> alias) (\s@GetDatasetResponse' {} a -> s {alias = a} :: GetDatasetResponse)
 
+-- | The timestamp at which the Dataset was created in FinSpace. The value is
+-- determined as epoch time in milliseconds. For example, the value for
+-- Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
+getDatasetResponse_createTime :: Lens.Lens' GetDatasetResponse (Prelude.Maybe Prelude.Integer)
+getDatasetResponse_createTime = Lens.lens (\GetDatasetResponse' {createTime} -> createTime) (\s@GetDatasetResponse' {} a -> s {createTime = a} :: GetDatasetResponse)
+
+-- | The ARN identifier of the Dataset.
+getDatasetResponse_datasetArn :: Lens.Lens' GetDatasetResponse (Prelude.Maybe Prelude.Text)
+getDatasetResponse_datasetArn = Lens.lens (\GetDatasetResponse' {datasetArn} -> datasetArn) (\s@GetDatasetResponse' {} a -> s {datasetArn = a} :: GetDatasetResponse)
+
 -- | A description of the Dataset.
 getDatasetResponse_datasetDescription :: Lens.Lens' GetDatasetResponse (Prelude.Maybe Prelude.Text)
 getDatasetResponse_datasetDescription = Lens.lens (\GetDatasetResponse' {datasetDescription} -> datasetDescription) (\s@GetDatasetResponse' {} a -> s {datasetDescription = a} :: GetDatasetResponse)
+
+-- | The unique identifier for a Dataset.
+getDatasetResponse_datasetId :: Lens.Lens' GetDatasetResponse (Prelude.Maybe Prelude.Text)
+getDatasetResponse_datasetId = Lens.lens (\GetDatasetResponse' {datasetId} -> datasetId) (\s@GetDatasetResponse' {} a -> s {datasetId = a} :: GetDatasetResponse)
 
 -- | Display title for a Dataset.
 getDatasetResponse_datasetTitle :: Lens.Lens' GetDatasetResponse (Prelude.Maybe Prelude.Text)
@@ -261,6 +275,16 @@ getDatasetResponse_datasetTitle = Lens.lens (\GetDatasetResponse' {datasetTitle}
 getDatasetResponse_kind :: Lens.Lens' GetDatasetResponse (Prelude.Maybe DatasetKind)
 getDatasetResponse_kind = Lens.lens (\GetDatasetResponse' {kind} -> kind) (\s@GetDatasetResponse' {} a -> s {kind = a} :: GetDatasetResponse)
 
+-- | The last time that the Dataset was modified. The value is determined as
+-- epoch time in milliseconds. For example, the value for Monday, November
+-- 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
+getDatasetResponse_lastModifiedTime :: Lens.Lens' GetDatasetResponse (Prelude.Maybe Prelude.Integer)
+getDatasetResponse_lastModifiedTime = Lens.lens (\GetDatasetResponse' {lastModifiedTime} -> lastModifiedTime) (\s@GetDatasetResponse' {} a -> s {lastModifiedTime = a} :: GetDatasetResponse)
+
+-- | Definition for a schema on a tabular Dataset.
+getDatasetResponse_schemaDefinition :: Lens.Lens' GetDatasetResponse (Prelude.Maybe SchemaUnion)
+getDatasetResponse_schemaDefinition = Lens.lens (\GetDatasetResponse' {schemaDefinition} -> schemaDefinition) (\s@GetDatasetResponse' {} a -> s {schemaDefinition = a} :: GetDatasetResponse)
+
 -- | Status of the Dataset creation.
 --
 -- -   @PENDING@ – Dataset is pending creation.
@@ -273,30 +297,6 @@ getDatasetResponse_kind = Lens.lens (\GetDatasetResponse' {kind} -> kind) (\s@Ge
 getDatasetResponse_status :: Lens.Lens' GetDatasetResponse (Prelude.Maybe DatasetStatus)
 getDatasetResponse_status = Lens.lens (\GetDatasetResponse' {status} -> status) (\s@GetDatasetResponse' {} a -> s {status = a} :: GetDatasetResponse)
 
--- | The ARN identifier of the Dataset.
-getDatasetResponse_datasetArn :: Lens.Lens' GetDatasetResponse (Prelude.Maybe Prelude.Text)
-getDatasetResponse_datasetArn = Lens.lens (\GetDatasetResponse' {datasetArn} -> datasetArn) (\s@GetDatasetResponse' {} a -> s {datasetArn = a} :: GetDatasetResponse)
-
--- | The last time that the Dataset was modified. The value is determined as
--- epoch time in milliseconds. For example, the value for Monday, November
--- 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
-getDatasetResponse_lastModifiedTime :: Lens.Lens' GetDatasetResponse (Prelude.Maybe Prelude.Integer)
-getDatasetResponse_lastModifiedTime = Lens.lens (\GetDatasetResponse' {lastModifiedTime} -> lastModifiedTime) (\s@GetDatasetResponse' {} a -> s {lastModifiedTime = a} :: GetDatasetResponse)
-
--- | The unique identifier for a Dataset.
-getDatasetResponse_datasetId :: Lens.Lens' GetDatasetResponse (Prelude.Maybe Prelude.Text)
-getDatasetResponse_datasetId = Lens.lens (\GetDatasetResponse' {datasetId} -> datasetId) (\s@GetDatasetResponse' {} a -> s {datasetId = a} :: GetDatasetResponse)
-
--- | The timestamp at which the Dataset was created in FinSpace. The value is
--- determined as epoch time in milliseconds. For example, the value for
--- Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
-getDatasetResponse_createTime :: Lens.Lens' GetDatasetResponse (Prelude.Maybe Prelude.Integer)
-getDatasetResponse_createTime = Lens.lens (\GetDatasetResponse' {createTime} -> createTime) (\s@GetDatasetResponse' {} a -> s {createTime = a} :: GetDatasetResponse)
-
--- | Definition for a schema on a tabular Dataset.
-getDatasetResponse_schemaDefinition :: Lens.Lens' GetDatasetResponse (Prelude.Maybe SchemaUnion)
-getDatasetResponse_schemaDefinition = Lens.lens (\GetDatasetResponse' {schemaDefinition} -> schemaDefinition) (\s@GetDatasetResponse' {} a -> s {schemaDefinition = a} :: GetDatasetResponse)
-
 -- | The response's http status code.
 getDatasetResponse_httpStatus :: Lens.Lens' GetDatasetResponse Prelude.Int
 getDatasetResponse_httpStatus = Lens.lens (\GetDatasetResponse' {httpStatus} -> httpStatus) (\s@GetDatasetResponse' {} a -> s {httpStatus = a} :: GetDatasetResponse)
@@ -304,13 +304,13 @@ getDatasetResponse_httpStatus = Lens.lens (\GetDatasetResponse' {httpStatus} -> 
 instance Prelude.NFData GetDatasetResponse where
   rnf GetDatasetResponse' {..} =
     Prelude.rnf alias
+      `Prelude.seq` Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf datasetArn
       `Prelude.seq` Prelude.rnf datasetDescription
+      `Prelude.seq` Prelude.rnf datasetId
       `Prelude.seq` Prelude.rnf datasetTitle
       `Prelude.seq` Prelude.rnf kind
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf datasetArn
       `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf datasetId
-      `Prelude.seq` Prelude.rnf createTime
       `Prelude.seq` Prelude.rnf schemaDefinition
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

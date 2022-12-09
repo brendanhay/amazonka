@@ -27,11 +27,11 @@ module Amazonka.FinSpaceData.CreateUser
     newCreateUser,
 
     -- * Request Lenses
+    createUser_apiAccess,
+    createUser_apiAccessPrincipalArn,
     createUser_clientToken,
     createUser_firstName,
     createUser_lastName,
-    createUser_apiAccess,
-    createUser_apiAccessPrincipalArn,
     createUser_emailAddress,
     createUser_type,
 
@@ -55,13 +55,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateUser' smart constructor.
 data CreateUser = CreateUser'
-  { -- | A token that ensures idempotency. This token expires in 10 minutes.
-    clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The first name of the user that you want to register.
-    firstName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The last name of the user that you want to register.
-    lastName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The option to indicate whether the user can use the
+  { -- | The option to indicate whether the user can use the
     -- @GetProgrammaticAccessCredentials@ API to obtain credentials that can
     -- then be used to access other FinSpace Data API operations.
     --
@@ -74,6 +68,12 @@ data CreateUser = CreateUser'
     -- a specific FinSpace user. This must be an IAM role within your FinSpace
     -- account.
     apiAccessPrincipalArn :: Prelude.Maybe Prelude.Text,
+    -- | A token that ensures idempotency. This token expires in 10 minutes.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The first name of the user that you want to register.
+    firstName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The last name of the user that you want to register.
+    lastName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The email address of the user that you want to register. The email
     -- address serves as a uniquer identifier for each user and cannot be
     -- changed after it\'s created.
@@ -98,12 +98,6 @@ data CreateUser = CreateUser'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'createUser_clientToken' - A token that ensures idempotency. This token expires in 10 minutes.
---
--- 'firstName', 'createUser_firstName' - The first name of the user that you want to register.
---
--- 'lastName', 'createUser_lastName' - The last name of the user that you want to register.
---
 -- 'apiAccess', 'createUser_apiAccess' - The option to indicate whether the user can use the
 -- @GetProgrammaticAccessCredentials@ API to obtain credentials that can
 -- then be used to access other FinSpace Data API operations.
@@ -116,6 +110,12 @@ data CreateUser = CreateUser'
 -- @GetProgrammaticAccessCredentials@ API to obtain a credentials token for
 -- a specific FinSpace user. This must be an IAM role within your FinSpace
 -- account.
+--
+-- 'clientToken', 'createUser_clientToken' - A token that ensures idempotency. This token expires in 10 minutes.
+--
+-- 'firstName', 'createUser_firstName' - The first name of the user that you want to register.
+--
+-- 'lastName', 'createUser_lastName' - The last name of the user that you want to register.
 --
 -- 'emailAddress', 'createUser_emailAddress' - The email address of the user that you want to register. The email
 -- address serves as a uniquer identifier for each user and cannot be
@@ -137,26 +137,14 @@ newCreateUser ::
   CreateUser
 newCreateUser pEmailAddress_ pType_ =
   CreateUser'
-    { clientToken = Prelude.Nothing,
+    { apiAccess = Prelude.Nothing,
+      apiAccessPrincipalArn = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
       firstName = Prelude.Nothing,
       lastName = Prelude.Nothing,
-      apiAccess = Prelude.Nothing,
-      apiAccessPrincipalArn = Prelude.Nothing,
       emailAddress = Data._Sensitive Lens.# pEmailAddress_,
       type' = pType_
     }
-
--- | A token that ensures idempotency. This token expires in 10 minutes.
-createUser_clientToken :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
-createUser_clientToken = Lens.lens (\CreateUser' {clientToken} -> clientToken) (\s@CreateUser' {} a -> s {clientToken = a} :: CreateUser)
-
--- | The first name of the user that you want to register.
-createUser_firstName :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
-createUser_firstName = Lens.lens (\CreateUser' {firstName} -> firstName) (\s@CreateUser' {} a -> s {firstName = a} :: CreateUser) Prelude.. Lens.mapping Data._Sensitive
-
--- | The last name of the user that you want to register.
-createUser_lastName :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
-createUser_lastName = Lens.lens (\CreateUser' {lastName} -> lastName) (\s@CreateUser' {} a -> s {lastName = a} :: CreateUser) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The option to indicate whether the user can use the
 -- @GetProgrammaticAccessCredentials@ API to obtain credentials that can
@@ -174,6 +162,18 @@ createUser_apiAccess = Lens.lens (\CreateUser' {apiAccess} -> apiAccess) (\s@Cre
 -- account.
 createUser_apiAccessPrincipalArn :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
 createUser_apiAccessPrincipalArn = Lens.lens (\CreateUser' {apiAccessPrincipalArn} -> apiAccessPrincipalArn) (\s@CreateUser' {} a -> s {apiAccessPrincipalArn = a} :: CreateUser)
+
+-- | A token that ensures idempotency. This token expires in 10 minutes.
+createUser_clientToken :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
+createUser_clientToken = Lens.lens (\CreateUser' {clientToken} -> clientToken) (\s@CreateUser' {} a -> s {clientToken = a} :: CreateUser)
+
+-- | The first name of the user that you want to register.
+createUser_firstName :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
+createUser_firstName = Lens.lens (\CreateUser' {firstName} -> firstName) (\s@CreateUser' {} a -> s {firstName = a} :: CreateUser) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The last name of the user that you want to register.
+createUser_lastName :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
+createUser_lastName = Lens.lens (\CreateUser' {lastName} -> lastName) (\s@CreateUser' {} a -> s {lastName = a} :: CreateUser) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The email address of the user that you want to register. The email
 -- address serves as a uniquer identifier for each user and cannot be
@@ -206,21 +206,21 @@ instance Core.AWSRequest CreateUser where
 
 instance Prelude.Hashable CreateUser where
   hashWithSalt _salt CreateUser' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` apiAccess
+      `Prelude.hashWithSalt` apiAccessPrincipalArn
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` firstName
       `Prelude.hashWithSalt` lastName
-      `Prelude.hashWithSalt` apiAccess
-      `Prelude.hashWithSalt` apiAccessPrincipalArn
       `Prelude.hashWithSalt` emailAddress
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData CreateUser where
   rnf CreateUser' {..} =
-    Prelude.rnf clientToken
+    Prelude.rnf apiAccess
+      `Prelude.seq` Prelude.rnf apiAccessPrincipalArn
+      `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf firstName
       `Prelude.seq` Prelude.rnf lastName
-      `Prelude.seq` Prelude.rnf apiAccess
-      `Prelude.seq` Prelude.rnf apiAccessPrincipalArn
       `Prelude.seq` Prelude.rnf emailAddress
       `Prelude.seq` Prelude.rnf type'
 
@@ -239,12 +239,12 @@ instance Data.ToJSON CreateUser where
   toJSON CreateUser' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Data..=) Prelude.<$> clientToken,
-            ("firstName" Data..=) Prelude.<$> firstName,
-            ("lastName" Data..=) Prelude.<$> lastName,
-            ("ApiAccess" Data..=) Prelude.<$> apiAccess,
+          [ ("ApiAccess" Data..=) Prelude.<$> apiAccess,
             ("apiAccessPrincipalArn" Data..=)
               Prelude.<$> apiAccessPrincipalArn,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("firstName" Data..=) Prelude.<$> firstName,
+            ("lastName" Data..=) Prelude.<$> lastName,
             Prelude.Just ("emailAddress" Data..= emailAddress),
             Prelude.Just ("type" Data..= type')
           ]

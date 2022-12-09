@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCredentials' smart constructor.
 data Credentials = Credentials'
-  { -- | The session token.
-    sessionToken :: Prelude.Maybe Prelude.Text,
+  { -- | The access key identifier.
+    accessKeyId :: Prelude.Maybe Prelude.Text,
     -- | The access key.
     secretAccessKey :: Prelude.Maybe Prelude.Text,
-    -- | The access key identifier.
-    accessKeyId :: Prelude.Maybe Prelude.Text
+    -- | The session token.
+    sessionToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,31 +45,31 @@ data Credentials = Credentials'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sessionToken', 'credentials_sessionToken' - The session token.
+-- 'accessKeyId', 'credentials_accessKeyId' - The access key identifier.
 --
 -- 'secretAccessKey', 'credentials_secretAccessKey' - The access key.
 --
--- 'accessKeyId', 'credentials_accessKeyId' - The access key identifier.
+-- 'sessionToken', 'credentials_sessionToken' - The session token.
 newCredentials ::
   Credentials
 newCredentials =
   Credentials'
-    { sessionToken = Prelude.Nothing,
+    { accessKeyId = Prelude.Nothing,
       secretAccessKey = Prelude.Nothing,
-      accessKeyId = Prelude.Nothing
+      sessionToken = Prelude.Nothing
     }
 
--- | The session token.
-credentials_sessionToken :: Lens.Lens' Credentials (Prelude.Maybe Prelude.Text)
-credentials_sessionToken = Lens.lens (\Credentials' {sessionToken} -> sessionToken) (\s@Credentials' {} a -> s {sessionToken = a} :: Credentials)
+-- | The access key identifier.
+credentials_accessKeyId :: Lens.Lens' Credentials (Prelude.Maybe Prelude.Text)
+credentials_accessKeyId = Lens.lens (\Credentials' {accessKeyId} -> accessKeyId) (\s@Credentials' {} a -> s {accessKeyId = a} :: Credentials)
 
 -- | The access key.
 credentials_secretAccessKey :: Lens.Lens' Credentials (Prelude.Maybe Prelude.Text)
 credentials_secretAccessKey = Lens.lens (\Credentials' {secretAccessKey} -> secretAccessKey) (\s@Credentials' {} a -> s {secretAccessKey = a} :: Credentials)
 
--- | The access key identifier.
-credentials_accessKeyId :: Lens.Lens' Credentials (Prelude.Maybe Prelude.Text)
-credentials_accessKeyId = Lens.lens (\Credentials' {accessKeyId} -> accessKeyId) (\s@Credentials' {} a -> s {accessKeyId = a} :: Credentials)
+-- | The session token.
+credentials_sessionToken :: Lens.Lens' Credentials (Prelude.Maybe Prelude.Text)
+credentials_sessionToken = Lens.lens (\Credentials' {sessionToken} -> sessionToken) (\s@Credentials' {} a -> s {sessionToken = a} :: Credentials)
 
 instance Data.FromJSON Credentials where
   parseJSON =
@@ -77,19 +77,19 @@ instance Data.FromJSON Credentials where
       "Credentials"
       ( \x ->
           Credentials'
-            Prelude.<$> (x Data..:? "sessionToken")
+            Prelude.<$> (x Data..:? "accessKeyId")
             Prelude.<*> (x Data..:? "secretAccessKey")
-            Prelude.<*> (x Data..:? "accessKeyId")
+            Prelude.<*> (x Data..:? "sessionToken")
       )
 
 instance Prelude.Hashable Credentials where
   hashWithSalt _salt Credentials' {..} =
-    _salt `Prelude.hashWithSalt` sessionToken
+    _salt `Prelude.hashWithSalt` accessKeyId
       `Prelude.hashWithSalt` secretAccessKey
-      `Prelude.hashWithSalt` accessKeyId
+      `Prelude.hashWithSalt` sessionToken
 
 instance Prelude.NFData Credentials where
   rnf Credentials' {..} =
-    Prelude.rnf sessionToken
+    Prelude.rnf accessKeyId
       `Prelude.seq` Prelude.rnf secretAccessKey
-      `Prelude.seq` Prelude.rnf accessKeyId
+      `Prelude.seq` Prelude.rnf sessionToken

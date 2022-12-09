@@ -28,12 +28,12 @@ module Amazonka.FinSpaceData.UpdateUser
     newUpdateUser,
 
     -- * Request Lenses
-    updateUser_clientToken,
-    updateUser_type,
-    updateUser_firstName,
-    updateUser_lastName,
     updateUser_apiAccess,
     updateUser_apiAccessPrincipalArn,
+    updateUser_clientToken,
+    updateUser_firstName,
+    updateUser_lastName,
+    updateUser_type,
     updateUser_userId,
 
     -- * Destructuring the Response
@@ -56,21 +56,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateUser' smart constructor.
 data UpdateUser = UpdateUser'
-  { -- | A token that ensures idempotency. This token expires in 10 minutes.
-    clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The option to indicate the type of user.
-    --
-    -- -   @SUPER_USER@– A user with permission to all the functionality and
-    --     data in FinSpace.
-    --
-    -- -   @APP_USER@ – A user with specific permissions in FinSpace. The users
-    --     are assigned permissions by adding them to a permission group.
-    type' :: Prelude.Maybe UserType,
-    -- | The first name of the user.
-    firstName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The last name of the user.
-    lastName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The option to indicate whether the user can use the
+  { -- | The option to indicate whether the user can use the
     -- @GetProgrammaticAccessCredentials@ API to obtain credentials that can
     -- then be used to access other FinSpace Data API operations.
     --
@@ -83,6 +69,20 @@ data UpdateUser = UpdateUser'
     -- a specific FinSpace user. This must be an IAM role within your FinSpace
     -- account.
     apiAccessPrincipalArn :: Prelude.Maybe Prelude.Text,
+    -- | A token that ensures idempotency. This token expires in 10 minutes.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The first name of the user.
+    firstName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The last name of the user.
+    lastName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The option to indicate the type of user.
+    --
+    -- -   @SUPER_USER@– A user with permission to all the functionality and
+    --     data in FinSpace.
+    --
+    -- -   @APP_USER@ – A user with specific permissions in FinSpace. The users
+    --     are assigned permissions by adding them to a permission group.
+    type' :: Prelude.Maybe UserType,
     -- | The unique identifier for the user account to update.
     userId :: Prelude.Text
   }
@@ -95,20 +95,6 @@ data UpdateUser = UpdateUser'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'clientToken', 'updateUser_clientToken' - A token that ensures idempotency. This token expires in 10 minutes.
---
--- 'type'', 'updateUser_type' - The option to indicate the type of user.
---
--- -   @SUPER_USER@– A user with permission to all the functionality and
---     data in FinSpace.
---
--- -   @APP_USER@ – A user with specific permissions in FinSpace. The users
---     are assigned permissions by adding them to a permission group.
---
--- 'firstName', 'updateUser_firstName' - The first name of the user.
---
--- 'lastName', 'updateUser_lastName' - The last name of the user.
 --
 -- 'apiAccess', 'updateUser_apiAccess' - The option to indicate whether the user can use the
 -- @GetProgrammaticAccessCredentials@ API to obtain credentials that can
@@ -123,6 +109,20 @@ data UpdateUser = UpdateUser'
 -- a specific FinSpace user. This must be an IAM role within your FinSpace
 -- account.
 --
+-- 'clientToken', 'updateUser_clientToken' - A token that ensures idempotency. This token expires in 10 minutes.
+--
+-- 'firstName', 'updateUser_firstName' - The first name of the user.
+--
+-- 'lastName', 'updateUser_lastName' - The last name of the user.
+--
+-- 'type'', 'updateUser_type' - The option to indicate the type of user.
+--
+-- -   @SUPER_USER@– A user with permission to all the functionality and
+--     data in FinSpace.
+--
+-- -   @APP_USER@ – A user with specific permissions in FinSpace. The users
+--     are assigned permissions by adding them to a permission group.
+--
 -- 'userId', 'updateUser_userId' - The unique identifier for the user account to update.
 newUpdateUser ::
   -- | 'userId'
@@ -130,36 +130,14 @@ newUpdateUser ::
   UpdateUser
 newUpdateUser pUserId_ =
   UpdateUser'
-    { clientToken = Prelude.Nothing,
-      type' = Prelude.Nothing,
+    { apiAccess = Prelude.Nothing,
+      apiAccessPrincipalArn = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
       firstName = Prelude.Nothing,
       lastName = Prelude.Nothing,
-      apiAccess = Prelude.Nothing,
-      apiAccessPrincipalArn = Prelude.Nothing,
+      type' = Prelude.Nothing,
       userId = pUserId_
     }
-
--- | A token that ensures idempotency. This token expires in 10 minutes.
-updateUser_clientToken :: Lens.Lens' UpdateUser (Prelude.Maybe Prelude.Text)
-updateUser_clientToken = Lens.lens (\UpdateUser' {clientToken} -> clientToken) (\s@UpdateUser' {} a -> s {clientToken = a} :: UpdateUser)
-
--- | The option to indicate the type of user.
---
--- -   @SUPER_USER@– A user with permission to all the functionality and
---     data in FinSpace.
---
--- -   @APP_USER@ – A user with specific permissions in FinSpace. The users
---     are assigned permissions by adding them to a permission group.
-updateUser_type :: Lens.Lens' UpdateUser (Prelude.Maybe UserType)
-updateUser_type = Lens.lens (\UpdateUser' {type'} -> type') (\s@UpdateUser' {} a -> s {type' = a} :: UpdateUser)
-
--- | The first name of the user.
-updateUser_firstName :: Lens.Lens' UpdateUser (Prelude.Maybe Prelude.Text)
-updateUser_firstName = Lens.lens (\UpdateUser' {firstName} -> firstName) (\s@UpdateUser' {} a -> s {firstName = a} :: UpdateUser) Prelude.. Lens.mapping Data._Sensitive
-
--- | The last name of the user.
-updateUser_lastName :: Lens.Lens' UpdateUser (Prelude.Maybe Prelude.Text)
-updateUser_lastName = Lens.lens (\UpdateUser' {lastName} -> lastName) (\s@UpdateUser' {} a -> s {lastName = a} :: UpdateUser) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The option to indicate whether the user can use the
 -- @GetProgrammaticAccessCredentials@ API to obtain credentials that can
@@ -177,6 +155,28 @@ updateUser_apiAccess = Lens.lens (\UpdateUser' {apiAccess} -> apiAccess) (\s@Upd
 -- account.
 updateUser_apiAccessPrincipalArn :: Lens.Lens' UpdateUser (Prelude.Maybe Prelude.Text)
 updateUser_apiAccessPrincipalArn = Lens.lens (\UpdateUser' {apiAccessPrincipalArn} -> apiAccessPrincipalArn) (\s@UpdateUser' {} a -> s {apiAccessPrincipalArn = a} :: UpdateUser)
+
+-- | A token that ensures idempotency. This token expires in 10 minutes.
+updateUser_clientToken :: Lens.Lens' UpdateUser (Prelude.Maybe Prelude.Text)
+updateUser_clientToken = Lens.lens (\UpdateUser' {clientToken} -> clientToken) (\s@UpdateUser' {} a -> s {clientToken = a} :: UpdateUser)
+
+-- | The first name of the user.
+updateUser_firstName :: Lens.Lens' UpdateUser (Prelude.Maybe Prelude.Text)
+updateUser_firstName = Lens.lens (\UpdateUser' {firstName} -> firstName) (\s@UpdateUser' {} a -> s {firstName = a} :: UpdateUser) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The last name of the user.
+updateUser_lastName :: Lens.Lens' UpdateUser (Prelude.Maybe Prelude.Text)
+updateUser_lastName = Lens.lens (\UpdateUser' {lastName} -> lastName) (\s@UpdateUser' {} a -> s {lastName = a} :: UpdateUser) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The option to indicate the type of user.
+--
+-- -   @SUPER_USER@– A user with permission to all the functionality and
+--     data in FinSpace.
+--
+-- -   @APP_USER@ – A user with specific permissions in FinSpace. The users
+--     are assigned permissions by adding them to a permission group.
+updateUser_type :: Lens.Lens' UpdateUser (Prelude.Maybe UserType)
+updateUser_type = Lens.lens (\UpdateUser' {type'} -> type') (\s@UpdateUser' {} a -> s {type' = a} :: UpdateUser)
 
 -- | The unique identifier for the user account to update.
 updateUser_userId :: Lens.Lens' UpdateUser Prelude.Text
@@ -196,22 +196,22 @@ instance Core.AWSRequest UpdateUser where
 
 instance Prelude.Hashable UpdateUser where
   hashWithSalt _salt UpdateUser' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` apiAccess
+      `Prelude.hashWithSalt` apiAccessPrincipalArn
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` firstName
       `Prelude.hashWithSalt` lastName
-      `Prelude.hashWithSalt` apiAccess
-      `Prelude.hashWithSalt` apiAccessPrincipalArn
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` userId
 
 instance Prelude.NFData UpdateUser where
   rnf UpdateUser' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf apiAccess
+      `Prelude.seq` Prelude.rnf apiAccessPrincipalArn
+      `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf firstName
       `Prelude.seq` Prelude.rnf lastName
-      `Prelude.seq` Prelude.rnf apiAccess
-      `Prelude.seq` Prelude.rnf apiAccessPrincipalArn
+      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf userId
 
 instance Data.ToHeaders UpdateUser where
@@ -229,13 +229,13 @@ instance Data.ToJSON UpdateUser where
   toJSON UpdateUser' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Data..=) Prelude.<$> clientToken,
-            ("type" Data..=) Prelude.<$> type',
+          [ ("apiAccess" Data..=) Prelude.<$> apiAccess,
+            ("apiAccessPrincipalArn" Data..=)
+              Prelude.<$> apiAccessPrincipalArn,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
             ("firstName" Data..=) Prelude.<$> firstName,
             ("lastName" Data..=) Prelude.<$> lastName,
-            ("apiAccess" Data..=) Prelude.<$> apiAccess,
-            ("apiAccessPrincipalArn" Data..=)
-              Prelude.<$> apiAccessPrincipalArn
+            ("type" Data..=) Prelude.<$> type'
           ]
       )
 

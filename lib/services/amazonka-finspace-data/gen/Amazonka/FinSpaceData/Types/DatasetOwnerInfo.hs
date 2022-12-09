@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDatasetOwnerInfo' smart constructor.
 data DatasetOwnerInfo = DatasetOwnerInfo'
-  { -- | The name of the Dataset owner.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Email address for the Dataset owner.
+  { -- | Email address for the Dataset owner.
     email :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The name of the Dataset owner.
+    name :: Prelude.Maybe Prelude.Text,
     -- | Phone number for the Dataset owner.
     phoneNumber :: Prelude.Maybe Prelude.Text
   }
@@ -45,27 +45,27 @@ data DatasetOwnerInfo = DatasetOwnerInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'datasetOwnerInfo_name' - The name of the Dataset owner.
---
 -- 'email', 'datasetOwnerInfo_email' - Email address for the Dataset owner.
+--
+-- 'name', 'datasetOwnerInfo_name' - The name of the Dataset owner.
 --
 -- 'phoneNumber', 'datasetOwnerInfo_phoneNumber' - Phone number for the Dataset owner.
 newDatasetOwnerInfo ::
   DatasetOwnerInfo
 newDatasetOwnerInfo =
   DatasetOwnerInfo'
-    { name = Prelude.Nothing,
-      email = Prelude.Nothing,
+    { email = Prelude.Nothing,
+      name = Prelude.Nothing,
       phoneNumber = Prelude.Nothing
     }
-
--- | The name of the Dataset owner.
-datasetOwnerInfo_name :: Lens.Lens' DatasetOwnerInfo (Prelude.Maybe Prelude.Text)
-datasetOwnerInfo_name = Lens.lens (\DatasetOwnerInfo' {name} -> name) (\s@DatasetOwnerInfo' {} a -> s {name = a} :: DatasetOwnerInfo)
 
 -- | Email address for the Dataset owner.
 datasetOwnerInfo_email :: Lens.Lens' DatasetOwnerInfo (Prelude.Maybe Prelude.Text)
 datasetOwnerInfo_email = Lens.lens (\DatasetOwnerInfo' {email} -> email) (\s@DatasetOwnerInfo' {} a -> s {email = a} :: DatasetOwnerInfo) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The name of the Dataset owner.
+datasetOwnerInfo_name :: Lens.Lens' DatasetOwnerInfo (Prelude.Maybe Prelude.Text)
+datasetOwnerInfo_name = Lens.lens (\DatasetOwnerInfo' {name} -> name) (\s@DatasetOwnerInfo' {} a -> s {name = a} :: DatasetOwnerInfo)
 
 -- | Phone number for the Dataset owner.
 datasetOwnerInfo_phoneNumber :: Lens.Lens' DatasetOwnerInfo (Prelude.Maybe Prelude.Text)
@@ -77,29 +77,29 @@ instance Data.FromJSON DatasetOwnerInfo where
       "DatasetOwnerInfo"
       ( \x ->
           DatasetOwnerInfo'
-            Prelude.<$> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "email")
+            Prelude.<$> (x Data..:? "email")
+            Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "phoneNumber")
       )
 
 instance Prelude.Hashable DatasetOwnerInfo where
   hashWithSalt _salt DatasetOwnerInfo' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` email
+    _salt `Prelude.hashWithSalt` email
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` phoneNumber
 
 instance Prelude.NFData DatasetOwnerInfo where
   rnf DatasetOwnerInfo' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf email
+    Prelude.rnf email
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf phoneNumber
 
 instance Data.ToJSON DatasetOwnerInfo where
   toJSON DatasetOwnerInfo' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("name" Data..=) Prelude.<$> name,
-            ("email" Data..=) Prelude.<$> email,
+          [ ("email" Data..=) Prelude.<$> email,
+            ("name" Data..=) Prelude.<$> name,
             ("phoneNumber" Data..=) Prelude.<$> phoneNumber
           ]
       )

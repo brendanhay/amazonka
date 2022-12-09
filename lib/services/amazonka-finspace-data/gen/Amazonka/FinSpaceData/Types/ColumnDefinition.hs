@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newColumnDefinition' smart constructor.
 data ColumnDefinition = ColumnDefinition'
-  { -- | The name of a column.
-    columnName :: Prelude.Maybe Prelude.Text,
-    -- | Description for a column.
+  { -- | Description for a column.
     columnDescription :: Prelude.Maybe Prelude.Text,
+    -- | The name of a column.
+    columnName :: Prelude.Maybe Prelude.Text,
     -- | Data type of a column.
     --
     -- -   @STRING@ – A String data type.
@@ -70,9 +70,9 @@ data ColumnDefinition = ColumnDefinition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'columnName', 'columnDefinition_columnName' - The name of a column.
---
 -- 'columnDescription', 'columnDefinition_columnDescription' - Description for a column.
+--
+-- 'columnName', 'columnDefinition_columnName' - The name of a column.
 --
 -- 'dataType', 'columnDefinition_dataType' - Data type of a column.
 --
@@ -103,18 +103,19 @@ newColumnDefinition ::
   ColumnDefinition
 newColumnDefinition =
   ColumnDefinition'
-    { columnName = Prelude.Nothing,
-      columnDescription = Prelude.Nothing,
+    { columnDescription =
+        Prelude.Nothing,
+      columnName = Prelude.Nothing,
       dataType = Prelude.Nothing
     }
-
--- | The name of a column.
-columnDefinition_columnName :: Lens.Lens' ColumnDefinition (Prelude.Maybe Prelude.Text)
-columnDefinition_columnName = Lens.lens (\ColumnDefinition' {columnName} -> columnName) (\s@ColumnDefinition' {} a -> s {columnName = a} :: ColumnDefinition)
 
 -- | Description for a column.
 columnDefinition_columnDescription :: Lens.Lens' ColumnDefinition (Prelude.Maybe Prelude.Text)
 columnDefinition_columnDescription = Lens.lens (\ColumnDefinition' {columnDescription} -> columnDescription) (\s@ColumnDefinition' {} a -> s {columnDescription = a} :: ColumnDefinition)
+
+-- | The name of a column.
+columnDefinition_columnName :: Lens.Lens' ColumnDefinition (Prelude.Maybe Prelude.Text)
+columnDefinition_columnName = Lens.lens (\ColumnDefinition' {columnName} -> columnName) (\s@ColumnDefinition' {} a -> s {columnName = a} :: ColumnDefinition)
 
 -- | Data type of a column.
 --
@@ -150,30 +151,30 @@ instance Data.FromJSON ColumnDefinition where
       "ColumnDefinition"
       ( \x ->
           ColumnDefinition'
-            Prelude.<$> (x Data..:? "columnName")
-            Prelude.<*> (x Data..:? "columnDescription")
+            Prelude.<$> (x Data..:? "columnDescription")
+            Prelude.<*> (x Data..:? "columnName")
             Prelude.<*> (x Data..:? "dataType")
       )
 
 instance Prelude.Hashable ColumnDefinition where
   hashWithSalt _salt ColumnDefinition' {..} =
-    _salt `Prelude.hashWithSalt` columnName
-      `Prelude.hashWithSalt` columnDescription
+    _salt `Prelude.hashWithSalt` columnDescription
+      `Prelude.hashWithSalt` columnName
       `Prelude.hashWithSalt` dataType
 
 instance Prelude.NFData ColumnDefinition where
   rnf ColumnDefinition' {..} =
-    Prelude.rnf columnName
-      `Prelude.seq` Prelude.rnf columnDescription
+    Prelude.rnf columnDescription
+      `Prelude.seq` Prelude.rnf columnName
       `Prelude.seq` Prelude.rnf dataType
 
 instance Data.ToJSON ColumnDefinition where
   toJSON ColumnDefinition' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("columnName" Data..=) Prelude.<$> columnName,
-            ("columnDescription" Data..=)
+          [ ("columnDescription" Data..=)
               Prelude.<$> columnDescription,
+            ("columnName" Data..=) Prelude.<$> columnName,
             ("dataType" Data..=) Prelude.<$> dataType
           ]
       )

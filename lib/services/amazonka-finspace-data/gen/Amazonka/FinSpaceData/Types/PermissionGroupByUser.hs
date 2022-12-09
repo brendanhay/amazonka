@@ -29,11 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPermissionGroupByUser' smart constructor.
 data PermissionGroupByUser = PermissionGroupByUser'
-  { -- | The name of the permission group.
-    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The unique identifier for the permission group.
-    permissionGroupId :: Prelude.Maybe Prelude.Text,
-    -- | Indicates the status of the user account within a permission group.
+  { -- | Indicates the status of the user account within a permission group.
     --
     -- -   @ADDITION_IN_PROGRESS@ – The user account is currently being added
     --     to the permission group.
@@ -43,7 +39,11 @@ data PermissionGroupByUser = PermissionGroupByUser'
     --
     -- -   @REMOVAL_IN_PROGRESS@ – The user is currently being removed from the
     --     permission group.
-    membershipStatus :: Prelude.Maybe PermissionGroupMembershipStatus
+    membershipStatus :: Prelude.Maybe PermissionGroupMembershipStatus,
+    -- | The name of the permission group.
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The unique identifier for the permission group.
+    permissionGroupId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -55,10 +55,6 @@ data PermissionGroupByUser = PermissionGroupByUser'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'permissionGroupByUser_name' - The name of the permission group.
---
--- 'permissionGroupId', 'permissionGroupByUser_permissionGroupId' - The unique identifier for the permission group.
---
 -- 'membershipStatus', 'permissionGroupByUser_membershipStatus' - Indicates the status of the user account within a permission group.
 --
 -- -   @ADDITION_IN_PROGRESS@ – The user account is currently being added
@@ -69,22 +65,19 @@ data PermissionGroupByUser = PermissionGroupByUser'
 --
 -- -   @REMOVAL_IN_PROGRESS@ – The user is currently being removed from the
 --     permission group.
+--
+-- 'name', 'permissionGroupByUser_name' - The name of the permission group.
+--
+-- 'permissionGroupId', 'permissionGroupByUser_permissionGroupId' - The unique identifier for the permission group.
 newPermissionGroupByUser ::
   PermissionGroupByUser
 newPermissionGroupByUser =
   PermissionGroupByUser'
-    { name = Prelude.Nothing,
-      permissionGroupId = Prelude.Nothing,
-      membershipStatus = Prelude.Nothing
+    { membershipStatus =
+        Prelude.Nothing,
+      name = Prelude.Nothing,
+      permissionGroupId = Prelude.Nothing
     }
-
--- | The name of the permission group.
-permissionGroupByUser_name :: Lens.Lens' PermissionGroupByUser (Prelude.Maybe Prelude.Text)
-permissionGroupByUser_name = Lens.lens (\PermissionGroupByUser' {name} -> name) (\s@PermissionGroupByUser' {} a -> s {name = a} :: PermissionGroupByUser) Prelude.. Lens.mapping Data._Sensitive
-
--- | The unique identifier for the permission group.
-permissionGroupByUser_permissionGroupId :: Lens.Lens' PermissionGroupByUser (Prelude.Maybe Prelude.Text)
-permissionGroupByUser_permissionGroupId = Lens.lens (\PermissionGroupByUser' {permissionGroupId} -> permissionGroupId) (\s@PermissionGroupByUser' {} a -> s {permissionGroupId = a} :: PermissionGroupByUser)
 
 -- | Indicates the status of the user account within a permission group.
 --
@@ -99,25 +92,33 @@ permissionGroupByUser_permissionGroupId = Lens.lens (\PermissionGroupByUser' {pe
 permissionGroupByUser_membershipStatus :: Lens.Lens' PermissionGroupByUser (Prelude.Maybe PermissionGroupMembershipStatus)
 permissionGroupByUser_membershipStatus = Lens.lens (\PermissionGroupByUser' {membershipStatus} -> membershipStatus) (\s@PermissionGroupByUser' {} a -> s {membershipStatus = a} :: PermissionGroupByUser)
 
+-- | The name of the permission group.
+permissionGroupByUser_name :: Lens.Lens' PermissionGroupByUser (Prelude.Maybe Prelude.Text)
+permissionGroupByUser_name = Lens.lens (\PermissionGroupByUser' {name} -> name) (\s@PermissionGroupByUser' {} a -> s {name = a} :: PermissionGroupByUser) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The unique identifier for the permission group.
+permissionGroupByUser_permissionGroupId :: Lens.Lens' PermissionGroupByUser (Prelude.Maybe Prelude.Text)
+permissionGroupByUser_permissionGroupId = Lens.lens (\PermissionGroupByUser' {permissionGroupId} -> permissionGroupId) (\s@PermissionGroupByUser' {} a -> s {permissionGroupId = a} :: PermissionGroupByUser)
+
 instance Data.FromJSON PermissionGroupByUser where
   parseJSON =
     Data.withObject
       "PermissionGroupByUser"
       ( \x ->
           PermissionGroupByUser'
-            Prelude.<$> (x Data..:? "name")
+            Prelude.<$> (x Data..:? "membershipStatus")
+            Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "permissionGroupId")
-            Prelude.<*> (x Data..:? "membershipStatus")
       )
 
 instance Prelude.Hashable PermissionGroupByUser where
   hashWithSalt _salt PermissionGroupByUser' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` membershipStatus
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` permissionGroupId
-      `Prelude.hashWithSalt` membershipStatus
 
 instance Prelude.NFData PermissionGroupByUser where
   rnf PermissionGroupByUser' {..} =
-    Prelude.rnf name
+    Prelude.rnf membershipStatus
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf permissionGroupId
-      `Prelude.seq` Prelude.rnf membershipStatus

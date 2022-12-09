@@ -19,13 +19,13 @@ module Amazonka.GreengrassV2.Types
 
     -- * Errors
     _AccessDeniedException,
-    _InternalServerException,
-    _ServiceQuotaExceededException,
-    _ResourceNotFoundException,
     _ConflictException,
+    _InternalServerException,
+    _RequestAlreadyInProgressException,
+    _ResourceNotFoundException,
+    _ServiceQuotaExceededException,
     _ThrottlingException,
     _ValidationException,
-    _RequestAlreadyInProgressException,
 
     -- * CloudComponentState
     CloudComponentState (..),
@@ -92,37 +92,37 @@ module Amazonka.GreengrassV2.Types
     -- * AssociateClientDeviceWithCoreDeviceErrorEntry
     AssociateClientDeviceWithCoreDeviceErrorEntry (..),
     newAssociateClientDeviceWithCoreDeviceErrorEntry,
+    associateClientDeviceWithCoreDeviceErrorEntry_code,
     associateClientDeviceWithCoreDeviceErrorEntry_message,
     associateClientDeviceWithCoreDeviceErrorEntry_thingName,
-    associateClientDeviceWithCoreDeviceErrorEntry_code,
 
     -- * AssociatedClientDevice
     AssociatedClientDevice (..),
     newAssociatedClientDevice,
-    associatedClientDevice_thingName,
     associatedClientDevice_associationTimestamp,
+    associatedClientDevice_thingName,
 
     -- * CloudComponentStatus
     CloudComponentStatus (..),
     newCloudComponentStatus,
+    cloudComponentStatus_componentState,
+    cloudComponentStatus_errors,
     cloudComponentStatus_message,
     cloudComponentStatus_vendorGuidance,
     cloudComponentStatus_vendorGuidanceMessage,
-    cloudComponentStatus_errors,
-    cloudComponentStatus_componentState,
 
     -- * Component
     Component (..),
     newComponent,
-    component_componentName,
     component_arn,
+    component_componentName,
     component_latestVersion,
 
     -- * ComponentCandidate
     ComponentCandidate (..),
     newComponentCandidate,
-    componentCandidate_componentVersion,
     componentCandidate_componentName,
+    componentCandidate_componentVersion,
     componentCandidate_versionRequirements,
 
     -- * ComponentConfigurationUpdate
@@ -134,78 +134,78 @@ module Amazonka.GreengrassV2.Types
     -- * ComponentDependencyRequirement
     ComponentDependencyRequirement (..),
     newComponentDependencyRequirement,
-    componentDependencyRequirement_versionRequirement,
     componentDependencyRequirement_dependencyType,
+    componentDependencyRequirement_versionRequirement,
 
     -- * ComponentDeploymentSpecification
     ComponentDeploymentSpecification (..),
     newComponentDeploymentSpecification,
     componentDeploymentSpecification_componentVersion,
-    componentDeploymentSpecification_runWith,
     componentDeploymentSpecification_configurationUpdate,
+    componentDeploymentSpecification_runWith,
 
     -- * ComponentLatestVersion
     ComponentLatestVersion (..),
     newComponentLatestVersion,
-    componentLatestVersion_componentVersion,
     componentLatestVersion_arn,
-    componentLatestVersion_description,
+    componentLatestVersion_componentVersion,
     componentLatestVersion_creationTimestamp,
+    componentLatestVersion_description,
     componentLatestVersion_platforms,
     componentLatestVersion_publisher,
 
     -- * ComponentPlatform
     ComponentPlatform (..),
     newComponentPlatform,
-    componentPlatform_name,
     componentPlatform_attributes,
+    componentPlatform_name,
 
     -- * ComponentRunWith
     ComponentRunWith (..),
     newComponentRunWith,
-    componentRunWith_systemResourceLimits,
     componentRunWith_posixUser,
+    componentRunWith_systemResourceLimits,
     componentRunWith_windowsUser,
 
     -- * ComponentVersionListItem
     ComponentVersionListItem (..),
     newComponentVersionListItem,
-    componentVersionListItem_componentVersion,
-    componentVersionListItem_componentName,
     componentVersionListItem_arn,
+    componentVersionListItem_componentName,
+    componentVersionListItem_componentVersion,
 
     -- * ConnectivityInfo
     ConnectivityInfo (..),
     newConnectivityInfo,
-    connectivityInfo_portNumber,
-    connectivityInfo_metadata,
-    connectivityInfo_id,
     connectivityInfo_hostAddress,
+    connectivityInfo_id,
+    connectivityInfo_metadata,
+    connectivityInfo_portNumber,
 
     -- * CoreDevice
     CoreDevice (..),
     newCoreDevice,
     coreDevice_coreDeviceThingName,
-    coreDevice_status,
     coreDevice_lastStatusUpdateTimestamp,
+    coreDevice_status,
 
     -- * Deployment
     Deployment (..),
     newDeployment,
-    deployment_deploymentStatus,
-    deployment_deploymentName,
-    deployment_deploymentId,
-    deployment_targetArn,
-    deployment_isLatestForTarget,
     deployment_creationTimestamp,
+    deployment_deploymentId,
+    deployment_deploymentName,
+    deployment_deploymentStatus,
+    deployment_isLatestForTarget,
     deployment_parentTargetArn,
     deployment_revisionId,
+    deployment_targetArn,
 
     -- * DeploymentComponentUpdatePolicy
     DeploymentComponentUpdatePolicy (..),
     newDeploymentComponentUpdatePolicy,
-    deploymentComponentUpdatePolicy_timeoutInSeconds,
     deploymentComponentUpdatePolicy_action,
+    deploymentComponentUpdatePolicy_timeoutInSeconds,
 
     -- * DeploymentConfigurationValidationPolicy
     DeploymentConfigurationValidationPolicy (..),
@@ -215,8 +215,8 @@ module Amazonka.GreengrassV2.Types
     -- * DeploymentIoTJobConfiguration
     DeploymentIoTJobConfiguration (..),
     newDeploymentIoTJobConfiguration,
-    deploymentIoTJobConfiguration_jobExecutionsRolloutConfig,
     deploymentIoTJobConfiguration_abortConfig,
+    deploymentIoTJobConfiguration_jobExecutionsRolloutConfig,
     deploymentIoTJobConfiguration_timeoutConfig,
 
     -- * DeploymentPolicies
@@ -234,18 +234,18 @@ module Amazonka.GreengrassV2.Types
     -- * DisassociateClientDeviceFromCoreDeviceErrorEntry
     DisassociateClientDeviceFromCoreDeviceErrorEntry (..),
     newDisassociateClientDeviceFromCoreDeviceErrorEntry,
+    disassociateClientDeviceFromCoreDeviceErrorEntry_code,
     disassociateClientDeviceFromCoreDeviceErrorEntry_message,
     disassociateClientDeviceFromCoreDeviceErrorEntry_thingName,
-    disassociateClientDeviceFromCoreDeviceErrorEntry_code,
 
     -- * EffectiveDeployment
     EffectiveDeployment (..),
     newEffectiveDeployment,
+    effectiveDeployment_description,
     effectiveDeployment_iotJobArn,
     effectiveDeployment_iotJobId,
-    effectiveDeployment_statusDetails,
-    effectiveDeployment_description,
     effectiveDeployment_reason,
+    effectiveDeployment_statusDetails,
     effectiveDeployment_deploymentId,
     effectiveDeployment_deploymentName,
     effectiveDeployment_targetArn,
@@ -262,15 +262,15 @@ module Amazonka.GreengrassV2.Types
     -- * InstalledComponent
     InstalledComponent (..),
     newInstalledComponent,
-    installedComponent_componentVersion,
     installedComponent_componentName,
+    installedComponent_componentVersion,
+    installedComponent_isRoot,
+    installedComponent_lastInstallationSource,
     installedComponent_lastReportedTimestamp,
-    installedComponent_lifecycleStatusCodes,
+    installedComponent_lastStatusChangeTimestamp,
     installedComponent_lifecycleState,
     installedComponent_lifecycleStateDetails,
-    installedComponent_lastInstallationSource,
-    installedComponent_lastStatusChangeTimestamp,
-    installedComponent_isRoot,
+    installedComponent_lifecycleStatusCodes,
 
     -- * IoTJobAbortConfig
     IoTJobAbortConfig (..),
@@ -288,8 +288,8 @@ module Amazonka.GreengrassV2.Types
     -- * IoTJobExecutionsRolloutConfig
     IoTJobExecutionsRolloutConfig (..),
     newIoTJobExecutionsRolloutConfig,
-    ioTJobExecutionsRolloutConfig_maximumPerMinute,
     ioTJobExecutionsRolloutConfig_exponentialRate,
+    ioTJobExecutionsRolloutConfig_maximumPerMinute,
 
     -- * IoTJobExponentialRolloutRate
     IoTJobExponentialRolloutRate (..),
@@ -301,8 +301,8 @@ module Amazonka.GreengrassV2.Types
     -- * IoTJobRateIncreaseCriteria
     IoTJobRateIncreaseCriteria (..),
     newIoTJobRateIncreaseCriteria,
-    ioTJobRateIncreaseCriteria_numberOfSucceededThings,
     ioTJobRateIncreaseCriteria_numberOfNotifiedThings,
+    ioTJobRateIncreaseCriteria_numberOfSucceededThings,
 
     -- * IoTJobTimeoutConfig
     IoTJobTimeoutConfig (..),
@@ -314,8 +314,8 @@ module Amazonka.GreengrassV2.Types
     newLambdaContainerParams,
     lambdaContainerParams_devices,
     lambdaContainerParams_memorySizeInKB,
-    lambdaContainerParams_volumes,
     lambdaContainerParams_mountROSysfs,
+    lambdaContainerParams_volumes,
 
     -- * LambdaDeviceMount
     LambdaDeviceMount (..),
@@ -333,26 +333,26 @@ module Amazonka.GreengrassV2.Types
     -- * LambdaExecutionParameters
     LambdaExecutionParameters (..),
     newLambdaExecutionParameters,
-    lambdaExecutionParameters_statusTimeoutInSeconds,
-    lambdaExecutionParameters_linuxProcessParams,
-    lambdaExecutionParameters_execArgs,
-    lambdaExecutionParameters_maxIdleTimeInSeconds,
-    lambdaExecutionParameters_eventSources,
-    lambdaExecutionParameters_timeoutInSeconds,
-    lambdaExecutionParameters_inputPayloadEncodingType,
     lambdaExecutionParameters_environmentVariables,
+    lambdaExecutionParameters_eventSources,
+    lambdaExecutionParameters_execArgs,
+    lambdaExecutionParameters_inputPayloadEncodingType,
+    lambdaExecutionParameters_linuxProcessParams,
+    lambdaExecutionParameters_maxIdleTimeInSeconds,
+    lambdaExecutionParameters_maxInstancesCount,
     lambdaExecutionParameters_maxQueueSize,
     lambdaExecutionParameters_pinned,
-    lambdaExecutionParameters_maxInstancesCount,
+    lambdaExecutionParameters_statusTimeoutInSeconds,
+    lambdaExecutionParameters_timeoutInSeconds,
 
     -- * LambdaFunctionRecipeSource
     LambdaFunctionRecipeSource (..),
     newLambdaFunctionRecipeSource,
-    lambdaFunctionRecipeSource_componentPlatforms,
     lambdaFunctionRecipeSource_componentDependencies,
     lambdaFunctionRecipeSource_componentLambdaParameters,
-    lambdaFunctionRecipeSource_componentVersion,
     lambdaFunctionRecipeSource_componentName,
+    lambdaFunctionRecipeSource_componentPlatforms,
+    lambdaFunctionRecipeSource_componentVersion,
     lambdaFunctionRecipeSource_lambdaArn,
 
     -- * LambdaLinuxProcessParams
@@ -372,12 +372,12 @@ module Amazonka.GreengrassV2.Types
     -- * ResolvedComponentVersion
     ResolvedComponentVersion (..),
     newResolvedComponentVersion,
-    resolvedComponentVersion_message,
-    resolvedComponentVersion_vendorGuidance,
-    resolvedComponentVersion_componentVersion,
-    resolvedComponentVersion_recipe,
-    resolvedComponentVersion_componentName,
     resolvedComponentVersion_arn,
+    resolvedComponentVersion_componentName,
+    resolvedComponentVersion_componentVersion,
+    resolvedComponentVersion_message,
+    resolvedComponentVersion_recipe,
+    resolvedComponentVersion_vendorGuidance,
 
     -- * SystemResourceLimits
     SystemResourceLimits (..),
@@ -476,28 +476,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -505,13 +499,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -519,6 +517,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You don\'t have permission to perform the action.
@@ -529,31 +529,6 @@ _AccessDeniedException =
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
--- | IoT Greengrass can\'t process your request right now. Try again later.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServerException"
-    Prelude.. Core.hasStatus 500
-
--- | Your request exceeds a service quota. For example, you might have the
--- maximum number of components that you can create.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceQuotaExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceQuotaExceededException"
-    Prelude.. Core.hasStatus 402
-
--- | The requested resource can\'t be found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 404
-
 -- | Your request has conflicting operations. This can occur if you\'re
 -- trying to perform more than one operation on the same resource at the
 -- same time.
@@ -563,6 +538,41 @@ _ConflictException =
     defaultService
     "ConflictException"
     Prelude.. Core.hasStatus 409
+
+-- | IoT Greengrass can\'t process your request right now. Try again later.
+_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException =
+  Core._MatchServiceError
+    defaultService
+    "InternalServerException"
+    Prelude.. Core.hasStatus 500
+
+-- | The request is already in progress. This exception occurs when you use a
+-- client token for multiple requests while IoT Greengrass is still
+-- processing an earlier request that uses the same client token.
+_RequestAlreadyInProgressException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RequestAlreadyInProgressException =
+  Core._MatchServiceError
+    defaultService
+    "RequestAlreadyInProgressException"
+    Prelude.. Core.hasStatus 400
+
+-- | The requested resource can\'t be found.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404
+
+-- | Your request exceeds a service quota. For example, you might have the
+-- maximum number of components that you can create.
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceQuotaExceededException"
+    Prelude.. Core.hasStatus 402
 
 -- | Your request exceeded a request rate quota. For example, you might have
 -- exceeded the amount of times that you can retrieve device or deployment
@@ -581,14 +591,4 @@ _ValidationException =
   Core._MatchServiceError
     defaultService
     "ValidationException"
-    Prelude.. Core.hasStatus 400
-
--- | The request is already in progress. This exception occurs when you use a
--- client token for multiple requests while IoT Greengrass is still
--- processing an earlier request that uses the same client token.
-_RequestAlreadyInProgressException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_RequestAlreadyInProgressException =
-  Core._MatchServiceError
-    defaultService
-    "RequestAlreadyInProgressException"
     Prelude.. Core.hasStatus 400

@@ -29,18 +29,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConnectivityInfo' smart constructor.
 data ConnectivityInfo = ConnectivityInfo'
-  { -- | The port where the MQTT broker operates on the core device. This port is
-    -- typically 8883, which is the default port for the MQTT broker component
-    -- that runs on core devices.
-    portNumber :: Prelude.Maybe Prelude.Natural,
+  { -- | The IP address or DNS address where client devices can connect to an
+    -- MQTT broker on the Greengrass core device.
+    hostAddress :: Prelude.Maybe Prelude.Text,
+    -- | An ID for the connectivity information.
+    id :: Prelude.Maybe Prelude.Text,
     -- | Additional metadata to provide to client devices that connect to this
     -- core device.
     metadata :: Prelude.Maybe Prelude.Text,
-    -- | An ID for the connectivity information.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The IP address or DNS address where client devices can connect to an
-    -- MQTT broker on the Greengrass core device.
-    hostAddress :: Prelude.Maybe Prelude.Text
+    -- | The port where the MQTT broker operates on the core device. This port is
+    -- typically 8883, which is the default port for the MQTT broker component
+    -- that runs on core devices.
+    portNumber :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,26 +52,40 @@ data ConnectivityInfo = ConnectivityInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'portNumber', 'connectivityInfo_portNumber' - The port where the MQTT broker operates on the core device. This port is
--- typically 8883, which is the default port for the MQTT broker component
--- that runs on core devices.
+-- 'hostAddress', 'connectivityInfo_hostAddress' - The IP address or DNS address where client devices can connect to an
+-- MQTT broker on the Greengrass core device.
+--
+-- 'id', 'connectivityInfo_id' - An ID for the connectivity information.
 --
 -- 'metadata', 'connectivityInfo_metadata' - Additional metadata to provide to client devices that connect to this
 -- core device.
 --
--- 'id', 'connectivityInfo_id' - An ID for the connectivity information.
---
--- 'hostAddress', 'connectivityInfo_hostAddress' - The IP address or DNS address where client devices can connect to an
--- MQTT broker on the Greengrass core device.
+-- 'portNumber', 'connectivityInfo_portNumber' - The port where the MQTT broker operates on the core device. This port is
+-- typically 8883, which is the default port for the MQTT broker component
+-- that runs on core devices.
 newConnectivityInfo ::
   ConnectivityInfo
 newConnectivityInfo =
   ConnectivityInfo'
-    { portNumber = Prelude.Nothing,
-      metadata = Prelude.Nothing,
+    { hostAddress = Prelude.Nothing,
       id = Prelude.Nothing,
-      hostAddress = Prelude.Nothing
+      metadata = Prelude.Nothing,
+      portNumber = Prelude.Nothing
     }
+
+-- | The IP address or DNS address where client devices can connect to an
+-- MQTT broker on the Greengrass core device.
+connectivityInfo_hostAddress :: Lens.Lens' ConnectivityInfo (Prelude.Maybe Prelude.Text)
+connectivityInfo_hostAddress = Lens.lens (\ConnectivityInfo' {hostAddress} -> hostAddress) (\s@ConnectivityInfo' {} a -> s {hostAddress = a} :: ConnectivityInfo)
+
+-- | An ID for the connectivity information.
+connectivityInfo_id :: Lens.Lens' ConnectivityInfo (Prelude.Maybe Prelude.Text)
+connectivityInfo_id = Lens.lens (\ConnectivityInfo' {id} -> id) (\s@ConnectivityInfo' {} a -> s {id = a} :: ConnectivityInfo)
+
+-- | Additional metadata to provide to client devices that connect to this
+-- core device.
+connectivityInfo_metadata :: Lens.Lens' ConnectivityInfo (Prelude.Maybe Prelude.Text)
+connectivityInfo_metadata = Lens.lens (\ConnectivityInfo' {metadata} -> metadata) (\s@ConnectivityInfo' {} a -> s {metadata = a} :: ConnectivityInfo)
 
 -- | The port where the MQTT broker operates on the core device. This port is
 -- typically 8883, which is the default port for the MQTT broker component
@@ -79,53 +93,39 @@ newConnectivityInfo =
 connectivityInfo_portNumber :: Lens.Lens' ConnectivityInfo (Prelude.Maybe Prelude.Natural)
 connectivityInfo_portNumber = Lens.lens (\ConnectivityInfo' {portNumber} -> portNumber) (\s@ConnectivityInfo' {} a -> s {portNumber = a} :: ConnectivityInfo)
 
--- | Additional metadata to provide to client devices that connect to this
--- core device.
-connectivityInfo_metadata :: Lens.Lens' ConnectivityInfo (Prelude.Maybe Prelude.Text)
-connectivityInfo_metadata = Lens.lens (\ConnectivityInfo' {metadata} -> metadata) (\s@ConnectivityInfo' {} a -> s {metadata = a} :: ConnectivityInfo)
-
--- | An ID for the connectivity information.
-connectivityInfo_id :: Lens.Lens' ConnectivityInfo (Prelude.Maybe Prelude.Text)
-connectivityInfo_id = Lens.lens (\ConnectivityInfo' {id} -> id) (\s@ConnectivityInfo' {} a -> s {id = a} :: ConnectivityInfo)
-
--- | The IP address or DNS address where client devices can connect to an
--- MQTT broker on the Greengrass core device.
-connectivityInfo_hostAddress :: Lens.Lens' ConnectivityInfo (Prelude.Maybe Prelude.Text)
-connectivityInfo_hostAddress = Lens.lens (\ConnectivityInfo' {hostAddress} -> hostAddress) (\s@ConnectivityInfo' {} a -> s {hostAddress = a} :: ConnectivityInfo)
-
 instance Data.FromJSON ConnectivityInfo where
   parseJSON =
     Data.withObject
       "ConnectivityInfo"
       ( \x ->
           ConnectivityInfo'
-            Prelude.<$> (x Data..:? "PortNumber")
-            Prelude.<*> (x Data..:? "Metadata")
+            Prelude.<$> (x Data..:? "HostAddress")
             Prelude.<*> (x Data..:? "Id")
-            Prelude.<*> (x Data..:? "HostAddress")
+            Prelude.<*> (x Data..:? "Metadata")
+            Prelude.<*> (x Data..:? "PortNumber")
       )
 
 instance Prelude.Hashable ConnectivityInfo where
   hashWithSalt _salt ConnectivityInfo' {..} =
-    _salt `Prelude.hashWithSalt` portNumber
-      `Prelude.hashWithSalt` metadata
+    _salt `Prelude.hashWithSalt` hostAddress
       `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` hostAddress
+      `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` portNumber
 
 instance Prelude.NFData ConnectivityInfo where
   rnf ConnectivityInfo' {..} =
-    Prelude.rnf portNumber
-      `Prelude.seq` Prelude.rnf metadata
+    Prelude.rnf hostAddress
       `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf hostAddress
+      `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf portNumber
 
 instance Data.ToJSON ConnectivityInfo where
   toJSON ConnectivityInfo' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("PortNumber" Data..=) Prelude.<$> portNumber,
-            ("Metadata" Data..=) Prelude.<$> metadata,
+          [ ("HostAddress" Data..=) Prelude.<$> hostAddress,
             ("Id" Data..=) Prelude.<$> id,
-            ("HostAddress" Data..=) Prelude.<$> hostAddress
+            ("Metadata" Data..=) Prelude.<$> metadata,
+            ("PortNumber" Data..=) Prelude.<$> portNumber
           ]
       )

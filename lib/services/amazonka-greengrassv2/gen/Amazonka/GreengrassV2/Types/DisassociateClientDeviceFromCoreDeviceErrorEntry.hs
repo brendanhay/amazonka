@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDisassociateClientDeviceFromCoreDeviceErrorEntry' smart constructor.
 data DisassociateClientDeviceFromCoreDeviceErrorEntry = DisassociateClientDeviceFromCoreDeviceErrorEntry'
-  { -- | A message that provides additional information about the error.
+  { -- | The error code for the request.
+    code :: Prelude.Maybe Prelude.Text,
+    -- | A message that provides additional information about the error.
     message :: Prelude.Maybe Prelude.Text,
     -- | The name of the IoT thing whose disassociate request failed.
-    thingName :: Prelude.Maybe Prelude.Text,
-    -- | The error code for the request.
-    code :: Prelude.Maybe Prelude.Text
+    thingName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,21 +48,25 @@ data DisassociateClientDeviceFromCoreDeviceErrorEntry = DisassociateClientDevice
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'code', 'disassociateClientDeviceFromCoreDeviceErrorEntry_code' - The error code for the request.
+--
 -- 'message', 'disassociateClientDeviceFromCoreDeviceErrorEntry_message' - A message that provides additional information about the error.
 --
 -- 'thingName', 'disassociateClientDeviceFromCoreDeviceErrorEntry_thingName' - The name of the IoT thing whose disassociate request failed.
---
--- 'code', 'disassociateClientDeviceFromCoreDeviceErrorEntry_code' - The error code for the request.
 newDisassociateClientDeviceFromCoreDeviceErrorEntry ::
   DisassociateClientDeviceFromCoreDeviceErrorEntry
 newDisassociateClientDeviceFromCoreDeviceErrorEntry =
   DisassociateClientDeviceFromCoreDeviceErrorEntry'
-    { message =
+    { code =
         Prelude.Nothing,
+      message = Prelude.Nothing,
       thingName =
-        Prelude.Nothing,
-      code = Prelude.Nothing
+        Prelude.Nothing
     }
+
+-- | The error code for the request.
+disassociateClientDeviceFromCoreDeviceErrorEntry_code :: Lens.Lens' DisassociateClientDeviceFromCoreDeviceErrorEntry (Prelude.Maybe Prelude.Text)
+disassociateClientDeviceFromCoreDeviceErrorEntry_code = Lens.lens (\DisassociateClientDeviceFromCoreDeviceErrorEntry' {code} -> code) (\s@DisassociateClientDeviceFromCoreDeviceErrorEntry' {} a -> s {code = a} :: DisassociateClientDeviceFromCoreDeviceErrorEntry)
 
 -- | A message that provides additional information about the error.
 disassociateClientDeviceFromCoreDeviceErrorEntry_message :: Lens.Lens' DisassociateClientDeviceFromCoreDeviceErrorEntry (Prelude.Maybe Prelude.Text)
@@ -71,10 +75,6 @@ disassociateClientDeviceFromCoreDeviceErrorEntry_message = Lens.lens (\Disassoci
 -- | The name of the IoT thing whose disassociate request failed.
 disassociateClientDeviceFromCoreDeviceErrorEntry_thingName :: Lens.Lens' DisassociateClientDeviceFromCoreDeviceErrorEntry (Prelude.Maybe Prelude.Text)
 disassociateClientDeviceFromCoreDeviceErrorEntry_thingName = Lens.lens (\DisassociateClientDeviceFromCoreDeviceErrorEntry' {thingName} -> thingName) (\s@DisassociateClientDeviceFromCoreDeviceErrorEntry' {} a -> s {thingName = a} :: DisassociateClientDeviceFromCoreDeviceErrorEntry)
-
--- | The error code for the request.
-disassociateClientDeviceFromCoreDeviceErrorEntry_code :: Lens.Lens' DisassociateClientDeviceFromCoreDeviceErrorEntry (Prelude.Maybe Prelude.Text)
-disassociateClientDeviceFromCoreDeviceErrorEntry_code = Lens.lens (\DisassociateClientDeviceFromCoreDeviceErrorEntry' {code} -> code) (\s@DisassociateClientDeviceFromCoreDeviceErrorEntry' {} a -> s {code = a} :: DisassociateClientDeviceFromCoreDeviceErrorEntry)
 
 instance
   Data.FromJSON
@@ -85,9 +85,9 @@ instance
       "DisassociateClientDeviceFromCoreDeviceErrorEntry"
       ( \x ->
           DisassociateClientDeviceFromCoreDeviceErrorEntry'
-            Prelude.<$> (x Data..:? "message")
+            Prelude.<$> (x Data..:? "code")
+              Prelude.<*> (x Data..:? "message")
               Prelude.<*> (x Data..:? "thingName")
-              Prelude.<*> (x Data..:? "code")
       )
 
 instance
@@ -97,9 +97,9 @@ instance
   hashWithSalt
     _salt
     DisassociateClientDeviceFromCoreDeviceErrorEntry' {..} =
-      _salt `Prelude.hashWithSalt` message
+      _salt `Prelude.hashWithSalt` code
+        `Prelude.hashWithSalt` message
         `Prelude.hashWithSalt` thingName
-        `Prelude.hashWithSalt` code
 
 instance
   Prelude.NFData
@@ -107,6 +107,6 @@ instance
   where
   rnf
     DisassociateClientDeviceFromCoreDeviceErrorEntry' {..} =
-      Prelude.rnf message
+      Prelude.rnf code
+        `Prelude.seq` Prelude.rnf message
         `Prelude.seq` Prelude.rnf thingName
-        `Prelude.seq` Prelude.rnf code

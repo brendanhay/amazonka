@@ -43,8 +43,8 @@ module Amazonka.GreengrassV2.GetConnectivityInfo
     newGetConnectivityInfoResponse,
 
     -- * Response Lenses
-    getConnectivityInfoResponse_message,
     getConnectivityInfoResponse_connectivityInfo,
+    getConnectivityInfoResponse_message,
     getConnectivityInfoResponse_httpStatus,
   )
 where
@@ -94,10 +94,10 @@ instance Core.AWSRequest GetConnectivityInfo where
     Response.receiveJSON
       ( \s h x ->
           GetConnectivityInfoResponse'
-            Prelude.<$> (x Data..?> "Message")
-            Prelude.<*> ( x Data..?> "ConnectivityInfo"
+            Prelude.<$> ( x Data..?> "ConnectivityInfo"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "Message")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -124,10 +124,10 @@ instance Data.ToQuery GetConnectivityInfo where
 
 -- | /See:/ 'newGetConnectivityInfoResponse' smart constructor.
 data GetConnectivityInfoResponse = GetConnectivityInfoResponse'
-  { -- | A message about the connectivity information request.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The connectivity information for the core device.
+  { -- | The connectivity information for the core device.
     connectivityInfo :: Prelude.Maybe [ConnectivityInfo],
+    -- | A message about the connectivity information request.
+    message :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -141,9 +141,9 @@ data GetConnectivityInfoResponse = GetConnectivityInfoResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'getConnectivityInfoResponse_message' - A message about the connectivity information request.
---
 -- 'connectivityInfo', 'getConnectivityInfoResponse_connectivityInfo' - The connectivity information for the core device.
+--
+-- 'message', 'getConnectivityInfoResponse_message' - A message about the connectivity information request.
 --
 -- 'httpStatus', 'getConnectivityInfoResponse_httpStatus' - The response's http status code.
 newGetConnectivityInfoResponse ::
@@ -152,19 +152,19 @@ newGetConnectivityInfoResponse ::
   GetConnectivityInfoResponse
 newGetConnectivityInfoResponse pHttpStatus_ =
   GetConnectivityInfoResponse'
-    { message =
+    { connectivityInfo =
         Prelude.Nothing,
-      connectivityInfo = Prelude.Nothing,
+      message = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A message about the connectivity information request.
-getConnectivityInfoResponse_message :: Lens.Lens' GetConnectivityInfoResponse (Prelude.Maybe Prelude.Text)
-getConnectivityInfoResponse_message = Lens.lens (\GetConnectivityInfoResponse' {message} -> message) (\s@GetConnectivityInfoResponse' {} a -> s {message = a} :: GetConnectivityInfoResponse)
 
 -- | The connectivity information for the core device.
 getConnectivityInfoResponse_connectivityInfo :: Lens.Lens' GetConnectivityInfoResponse (Prelude.Maybe [ConnectivityInfo])
 getConnectivityInfoResponse_connectivityInfo = Lens.lens (\GetConnectivityInfoResponse' {connectivityInfo} -> connectivityInfo) (\s@GetConnectivityInfoResponse' {} a -> s {connectivityInfo = a} :: GetConnectivityInfoResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A message about the connectivity information request.
+getConnectivityInfoResponse_message :: Lens.Lens' GetConnectivityInfoResponse (Prelude.Maybe Prelude.Text)
+getConnectivityInfoResponse_message = Lens.lens (\GetConnectivityInfoResponse' {message} -> message) (\s@GetConnectivityInfoResponse' {} a -> s {message = a} :: GetConnectivityInfoResponse)
 
 -- | The response's http status code.
 getConnectivityInfoResponse_httpStatus :: Lens.Lens' GetConnectivityInfoResponse Prelude.Int
@@ -172,6 +172,6 @@ getConnectivityInfoResponse_httpStatus = Lens.lens (\GetConnectivityInfoResponse
 
 instance Prelude.NFData GetConnectivityInfoResponse where
   rnf GetConnectivityInfoResponse' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf connectivityInfo
+    Prelude.rnf connectivityInfo
+      `Prelude.seq` Prelude.rnf message
       `Prelude.seq` Prelude.rnf httpStatus

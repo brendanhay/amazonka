@@ -30,8 +30,8 @@ module Amazonka.GreengrassV2.ListComponentVersions
     newListComponentVersions,
 
     -- * Request Lenses
-    listComponentVersions_nextToken,
     listComponentVersions_maxResults,
+    listComponentVersions_nextToken,
     listComponentVersions_arn,
 
     -- * Destructuring the Response
@@ -39,8 +39,8 @@ module Amazonka.GreengrassV2.ListComponentVersions
     newListComponentVersionsResponse,
 
     -- * Response Lenses
-    listComponentVersionsResponse_nextToken,
     listComponentVersionsResponse_componentVersions,
+    listComponentVersionsResponse_nextToken,
     listComponentVersionsResponse_httpStatus,
   )
 where
@@ -55,10 +55,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListComponentVersions' smart constructor.
 data ListComponentVersions = ListComponentVersions'
-  { -- | The token to be used for the next set of paginated results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to be returned per paginated request.
+  { -- | The maximum number of results to be returned per paginated request.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to be used for the next set of paginated results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
     -- of the component.
@@ -74,9 +74,9 @@ data ListComponentVersions = ListComponentVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listComponentVersions_nextToken' - The token to be used for the next set of paginated results.
---
 -- 'maxResults', 'listComponentVersions_maxResults' - The maximum number of results to be returned per paginated request.
+--
+-- 'nextToken', 'listComponentVersions_nextToken' - The token to be used for the next set of paginated results.
 --
 -- 'arn', 'listComponentVersions_arn' - The
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
@@ -87,18 +87,19 @@ newListComponentVersions ::
   ListComponentVersions
 newListComponentVersions pArn_ =
   ListComponentVersions'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       arn = pArn_
     }
-
--- | The token to be used for the next set of paginated results.
-listComponentVersions_nextToken :: Lens.Lens' ListComponentVersions (Prelude.Maybe Prelude.Text)
-listComponentVersions_nextToken = Lens.lens (\ListComponentVersions' {nextToken} -> nextToken) (\s@ListComponentVersions' {} a -> s {nextToken = a} :: ListComponentVersions)
 
 -- | The maximum number of results to be returned per paginated request.
 listComponentVersions_maxResults :: Lens.Lens' ListComponentVersions (Prelude.Maybe Prelude.Natural)
 listComponentVersions_maxResults = Lens.lens (\ListComponentVersions' {maxResults} -> maxResults) (\s@ListComponentVersions' {} a -> s {maxResults = a} :: ListComponentVersions)
+
+-- | The token to be used for the next set of paginated results.
+listComponentVersions_nextToken :: Lens.Lens' ListComponentVersions (Prelude.Maybe Prelude.Text)
+listComponentVersions_nextToken = Lens.lens (\ListComponentVersions' {nextToken} -> nextToken) (\s@ListComponentVersions' {} a -> s {nextToken = a} :: ListComponentVersions)
 
 -- | The
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
@@ -138,23 +139,23 @@ instance Core.AWSRequest ListComponentVersions where
     Response.receiveJSON
       ( \s h x ->
           ListComponentVersionsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "componentVersions"
+            Prelude.<$> ( x Data..?> "componentVersions"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListComponentVersions where
   hashWithSalt _salt ListComponentVersions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData ListComponentVersions where
   rnf ListComponentVersions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf arn
 
 instance Data.ToHeaders ListComponentVersions where
@@ -171,17 +172,17 @@ instance Data.ToPath ListComponentVersions where
 instance Data.ToQuery ListComponentVersions where
   toQuery ListComponentVersions' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListComponentVersionsResponse' smart constructor.
 data ListComponentVersionsResponse = ListComponentVersionsResponse'
-  { -- | The token for the next set of results, or null if there are no
+  { -- | A list of versions that exist for the component.
+    componentVersions :: Prelude.Maybe [ComponentVersionListItem],
+    -- | The token for the next set of results, or null if there are no
     -- additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of versions that exist for the component.
-    componentVersions :: Prelude.Maybe [ComponentVersionListItem],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -195,10 +196,10 @@ data ListComponentVersionsResponse = ListComponentVersionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'componentVersions', 'listComponentVersionsResponse_componentVersions' - A list of versions that exist for the component.
+--
 -- 'nextToken', 'listComponentVersionsResponse_nextToken' - The token for the next set of results, or null if there are no
 -- additional results.
---
--- 'componentVersions', 'listComponentVersionsResponse_componentVersions' - A list of versions that exist for the component.
 --
 -- 'httpStatus', 'listComponentVersionsResponse_httpStatus' - The response's http status code.
 newListComponentVersionsResponse ::
@@ -207,20 +208,20 @@ newListComponentVersionsResponse ::
   ListComponentVersionsResponse
 newListComponentVersionsResponse pHttpStatus_ =
   ListComponentVersionsResponse'
-    { nextToken =
+    { componentVersions =
         Prelude.Nothing,
-      componentVersions = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of versions that exist for the component.
+listComponentVersionsResponse_componentVersions :: Lens.Lens' ListComponentVersionsResponse (Prelude.Maybe [ComponentVersionListItem])
+listComponentVersionsResponse_componentVersions = Lens.lens (\ListComponentVersionsResponse' {componentVersions} -> componentVersions) (\s@ListComponentVersionsResponse' {} a -> s {componentVersions = a} :: ListComponentVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results, or null if there are no
 -- additional results.
 listComponentVersionsResponse_nextToken :: Lens.Lens' ListComponentVersionsResponse (Prelude.Maybe Prelude.Text)
 listComponentVersionsResponse_nextToken = Lens.lens (\ListComponentVersionsResponse' {nextToken} -> nextToken) (\s@ListComponentVersionsResponse' {} a -> s {nextToken = a} :: ListComponentVersionsResponse)
-
--- | A list of versions that exist for the component.
-listComponentVersionsResponse_componentVersions :: Lens.Lens' ListComponentVersionsResponse (Prelude.Maybe [ComponentVersionListItem])
-listComponentVersionsResponse_componentVersions = Lens.lens (\ListComponentVersionsResponse' {componentVersions} -> componentVersions) (\s@ListComponentVersionsResponse' {} a -> s {componentVersions = a} :: ListComponentVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listComponentVersionsResponse_httpStatus :: Lens.Lens' ListComponentVersionsResponse Prelude.Int
@@ -228,6 +229,6 @@ listComponentVersionsResponse_httpStatus = Lens.lens (\ListComponentVersionsResp
 
 instance Prelude.NFData ListComponentVersionsResponse where
   rnf ListComponentVersionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf componentVersions
+    Prelude.rnf componentVersions
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newIoTJobRateIncreaseCriteria' smart constructor.
 data IoTJobRateIncreaseCriteria = IoTJobRateIncreaseCriteria'
-  { -- | The number of devices to successfully run the configuration job before
-    -- the rollout rate increases.
-    numberOfSucceededThings :: Prelude.Maybe Prelude.Natural,
-    -- | The number of devices to receive the job notification before the rollout
+  { -- | The number of devices to receive the job notification before the rollout
     -- rate increases.
-    numberOfNotifiedThings :: Prelude.Maybe Prelude.Natural
+    numberOfNotifiedThings :: Prelude.Maybe Prelude.Natural,
+    -- | The number of devices to successfully run the configuration job before
+    -- the rollout rate increases.
+    numberOfSucceededThings :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,29 +47,29 @@ data IoTJobRateIncreaseCriteria = IoTJobRateIncreaseCriteria'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'numberOfSucceededThings', 'ioTJobRateIncreaseCriteria_numberOfSucceededThings' - The number of devices to successfully run the configuration job before
--- the rollout rate increases.
---
 -- 'numberOfNotifiedThings', 'ioTJobRateIncreaseCriteria_numberOfNotifiedThings' - The number of devices to receive the job notification before the rollout
 -- rate increases.
+--
+-- 'numberOfSucceededThings', 'ioTJobRateIncreaseCriteria_numberOfSucceededThings' - The number of devices to successfully run the configuration job before
+-- the rollout rate increases.
 newIoTJobRateIncreaseCriteria ::
   IoTJobRateIncreaseCriteria
 newIoTJobRateIncreaseCriteria =
   IoTJobRateIncreaseCriteria'
-    { numberOfSucceededThings =
+    { numberOfNotifiedThings =
         Prelude.Nothing,
-      numberOfNotifiedThings = Prelude.Nothing
+      numberOfSucceededThings = Prelude.Nothing
     }
-
--- | The number of devices to successfully run the configuration job before
--- the rollout rate increases.
-ioTJobRateIncreaseCriteria_numberOfSucceededThings :: Lens.Lens' IoTJobRateIncreaseCriteria (Prelude.Maybe Prelude.Natural)
-ioTJobRateIncreaseCriteria_numberOfSucceededThings = Lens.lens (\IoTJobRateIncreaseCriteria' {numberOfSucceededThings} -> numberOfSucceededThings) (\s@IoTJobRateIncreaseCriteria' {} a -> s {numberOfSucceededThings = a} :: IoTJobRateIncreaseCriteria)
 
 -- | The number of devices to receive the job notification before the rollout
 -- rate increases.
 ioTJobRateIncreaseCriteria_numberOfNotifiedThings :: Lens.Lens' IoTJobRateIncreaseCriteria (Prelude.Maybe Prelude.Natural)
 ioTJobRateIncreaseCriteria_numberOfNotifiedThings = Lens.lens (\IoTJobRateIncreaseCriteria' {numberOfNotifiedThings} -> numberOfNotifiedThings) (\s@IoTJobRateIncreaseCriteria' {} a -> s {numberOfNotifiedThings = a} :: IoTJobRateIncreaseCriteria)
+
+-- | The number of devices to successfully run the configuration job before
+-- the rollout rate increases.
+ioTJobRateIncreaseCriteria_numberOfSucceededThings :: Lens.Lens' IoTJobRateIncreaseCriteria (Prelude.Maybe Prelude.Natural)
+ioTJobRateIncreaseCriteria_numberOfSucceededThings = Lens.lens (\IoTJobRateIncreaseCriteria' {numberOfSucceededThings} -> numberOfSucceededThings) (\s@IoTJobRateIncreaseCriteria' {} a -> s {numberOfSucceededThings = a} :: IoTJobRateIncreaseCriteria)
 
 instance Data.FromJSON IoTJobRateIncreaseCriteria where
   parseJSON =
@@ -77,28 +77,27 @@ instance Data.FromJSON IoTJobRateIncreaseCriteria where
       "IoTJobRateIncreaseCriteria"
       ( \x ->
           IoTJobRateIncreaseCriteria'
-            Prelude.<$> (x Data..:? "numberOfSucceededThings")
-            Prelude.<*> (x Data..:? "numberOfNotifiedThings")
+            Prelude.<$> (x Data..:? "numberOfNotifiedThings")
+            Prelude.<*> (x Data..:? "numberOfSucceededThings")
       )
 
 instance Prelude.Hashable IoTJobRateIncreaseCriteria where
   hashWithSalt _salt IoTJobRateIncreaseCriteria' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` numberOfNotifiedThings
       `Prelude.hashWithSalt` numberOfSucceededThings
-      `Prelude.hashWithSalt` numberOfNotifiedThings
 
 instance Prelude.NFData IoTJobRateIncreaseCriteria where
   rnf IoTJobRateIncreaseCriteria' {..} =
-    Prelude.rnf numberOfSucceededThings
-      `Prelude.seq` Prelude.rnf numberOfNotifiedThings
+    Prelude.rnf numberOfNotifiedThings
+      `Prelude.seq` Prelude.rnf numberOfSucceededThings
 
 instance Data.ToJSON IoTJobRateIncreaseCriteria where
   toJSON IoTJobRateIncreaseCriteria' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("numberOfSucceededThings" Data..=)
-              Prelude.<$> numberOfSucceededThings,
-            ("numberOfNotifiedThings" Data..=)
-              Prelude.<$> numberOfNotifiedThings
+          [ ("numberOfNotifiedThings" Data..=)
+              Prelude.<$> numberOfNotifiedThings,
+            ("numberOfSucceededThings" Data..=)
+              Prelude.<$> numberOfSucceededThings
           ]
       )

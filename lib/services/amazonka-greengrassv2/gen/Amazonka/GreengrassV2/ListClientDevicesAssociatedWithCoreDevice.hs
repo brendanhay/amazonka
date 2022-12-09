@@ -30,8 +30,8 @@ module Amazonka.GreengrassV2.ListClientDevicesAssociatedWithCoreDevice
     newListClientDevicesAssociatedWithCoreDevice,
 
     -- * Request Lenses
-    listClientDevicesAssociatedWithCoreDevice_nextToken,
     listClientDevicesAssociatedWithCoreDevice_maxResults,
+    listClientDevicesAssociatedWithCoreDevice_nextToken,
     listClientDevicesAssociatedWithCoreDevice_coreDeviceThingName,
 
     -- * Destructuring the Response
@@ -39,8 +39,8 @@ module Amazonka.GreengrassV2.ListClientDevicesAssociatedWithCoreDevice
     newListClientDevicesAssociatedWithCoreDeviceResponse,
 
     -- * Response Lenses
-    listClientDevicesAssociatedWithCoreDeviceResponse_nextToken,
     listClientDevicesAssociatedWithCoreDeviceResponse_associatedClientDevices,
+    listClientDevicesAssociatedWithCoreDeviceResponse_nextToken,
     listClientDevicesAssociatedWithCoreDeviceResponse_httpStatus,
   )
 where
@@ -55,10 +55,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListClientDevicesAssociatedWithCoreDevice' smart constructor.
 data ListClientDevicesAssociatedWithCoreDevice = ListClientDevicesAssociatedWithCoreDevice'
-  { -- | The token to be used for the next set of paginated results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to be returned per paginated request.
+  { -- | The maximum number of results to be returned per paginated request.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to be used for the next set of paginated results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the core device. This is also the name of the IoT thing.
     coreDeviceThingName :: Prelude.Text
   }
@@ -72,9 +72,9 @@ data ListClientDevicesAssociatedWithCoreDevice = ListClientDevicesAssociatedWith
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listClientDevicesAssociatedWithCoreDevice_nextToken' - The token to be used for the next set of paginated results.
---
 -- 'maxResults', 'listClientDevicesAssociatedWithCoreDevice_maxResults' - The maximum number of results to be returned per paginated request.
+--
+-- 'nextToken', 'listClientDevicesAssociatedWithCoreDevice_nextToken' - The token to be used for the next set of paginated results.
 --
 -- 'coreDeviceThingName', 'listClientDevicesAssociatedWithCoreDevice_coreDeviceThingName' - The name of the core device. This is also the name of the IoT thing.
 newListClientDevicesAssociatedWithCoreDevice ::
@@ -84,20 +84,20 @@ newListClientDevicesAssociatedWithCoreDevice ::
 newListClientDevicesAssociatedWithCoreDevice
   pCoreDeviceThingName_ =
     ListClientDevicesAssociatedWithCoreDevice'
-      { nextToken =
+      { maxResults =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         coreDeviceThingName =
           pCoreDeviceThingName_
       }
 
--- | The token to be used for the next set of paginated results.
-listClientDevicesAssociatedWithCoreDevice_nextToken :: Lens.Lens' ListClientDevicesAssociatedWithCoreDevice (Prelude.Maybe Prelude.Text)
-listClientDevicesAssociatedWithCoreDevice_nextToken = Lens.lens (\ListClientDevicesAssociatedWithCoreDevice' {nextToken} -> nextToken) (\s@ListClientDevicesAssociatedWithCoreDevice' {} a -> s {nextToken = a} :: ListClientDevicesAssociatedWithCoreDevice)
-
 -- | The maximum number of results to be returned per paginated request.
 listClientDevicesAssociatedWithCoreDevice_maxResults :: Lens.Lens' ListClientDevicesAssociatedWithCoreDevice (Prelude.Maybe Prelude.Natural)
 listClientDevicesAssociatedWithCoreDevice_maxResults = Lens.lens (\ListClientDevicesAssociatedWithCoreDevice' {maxResults} -> maxResults) (\s@ListClientDevicesAssociatedWithCoreDevice' {} a -> s {maxResults = a} :: ListClientDevicesAssociatedWithCoreDevice)
+
+-- | The token to be used for the next set of paginated results.
+listClientDevicesAssociatedWithCoreDevice_nextToken :: Lens.Lens' ListClientDevicesAssociatedWithCoreDevice (Prelude.Maybe Prelude.Text)
+listClientDevicesAssociatedWithCoreDevice_nextToken = Lens.lens (\ListClientDevicesAssociatedWithCoreDevice' {nextToken} -> nextToken) (\s@ListClientDevicesAssociatedWithCoreDevice' {} a -> s {nextToken = a} :: ListClientDevicesAssociatedWithCoreDevice)
 
 -- | The name of the core device. This is also the name of the IoT thing.
 listClientDevicesAssociatedWithCoreDevice_coreDeviceThingName :: Lens.Lens' ListClientDevicesAssociatedWithCoreDevice Prelude.Text
@@ -143,8 +143,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListClientDevicesAssociatedWithCoreDeviceResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-              Prelude.<*> (x Data..?> "associatedClientDevices")
+            Prelude.<$> (x Data..?> "associatedClientDevices")
+              Prelude.<*> (x Data..?> "nextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,8 +155,8 @@ instance
   hashWithSalt
     _salt
     ListClientDevicesAssociatedWithCoreDevice' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` coreDeviceThingName
 
 instance
@@ -164,8 +164,8 @@ instance
     ListClientDevicesAssociatedWithCoreDevice
   where
   rnf ListClientDevicesAssociatedWithCoreDevice' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf coreDeviceThingName
 
 instance
@@ -192,18 +192,18 @@ instance
   toQuery
     ListClientDevicesAssociatedWithCoreDevice' {..} =
       Prelude.mconcat
-        [ "nextToken" Data.=: nextToken,
-          "maxResults" Data.=: maxResults
+        [ "maxResults" Data.=: maxResults,
+          "nextToken" Data.=: nextToken
         ]
 
 -- | /See:/ 'newListClientDevicesAssociatedWithCoreDeviceResponse' smart constructor.
 data ListClientDevicesAssociatedWithCoreDeviceResponse = ListClientDevicesAssociatedWithCoreDeviceResponse'
-  { -- | The token for the next set of results, or null if there are no
-    -- additional results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list that describes the client devices that are associated with the
+  { -- | A list that describes the client devices that are associated with the
     -- core device.
     associatedClientDevices :: Prelude.Maybe (Prelude.NonEmpty AssociatedClientDevice),
+    -- | The token for the next set of results, or null if there are no
+    -- additional results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -217,11 +217,11 @@ data ListClientDevicesAssociatedWithCoreDeviceResponse = ListClientDevicesAssoci
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listClientDevicesAssociatedWithCoreDeviceResponse_nextToken' - The token for the next set of results, or null if there are no
--- additional results.
---
 -- 'associatedClientDevices', 'listClientDevicesAssociatedWithCoreDeviceResponse_associatedClientDevices' - A list that describes the client devices that are associated with the
 -- core device.
+--
+-- 'nextToken', 'listClientDevicesAssociatedWithCoreDeviceResponse_nextToken' - The token for the next set of results, or null if there are no
+-- additional results.
 --
 -- 'httpStatus', 'listClientDevicesAssociatedWithCoreDeviceResponse_httpStatus' - The response's http status code.
 newListClientDevicesAssociatedWithCoreDeviceResponse ::
@@ -231,23 +231,23 @@ newListClientDevicesAssociatedWithCoreDeviceResponse ::
 newListClientDevicesAssociatedWithCoreDeviceResponse
   pHttpStatus_ =
     ListClientDevicesAssociatedWithCoreDeviceResponse'
-      { nextToken =
+      { associatedClientDevices =
           Prelude.Nothing,
-        associatedClientDevices =
+        nextToken =
           Prelude.Nothing,
         httpStatus =
           pHttpStatus_
       }
 
--- | The token for the next set of results, or null if there are no
--- additional results.
-listClientDevicesAssociatedWithCoreDeviceResponse_nextToken :: Lens.Lens' ListClientDevicesAssociatedWithCoreDeviceResponse (Prelude.Maybe Prelude.Text)
-listClientDevicesAssociatedWithCoreDeviceResponse_nextToken = Lens.lens (\ListClientDevicesAssociatedWithCoreDeviceResponse' {nextToken} -> nextToken) (\s@ListClientDevicesAssociatedWithCoreDeviceResponse' {} a -> s {nextToken = a} :: ListClientDevicesAssociatedWithCoreDeviceResponse)
-
 -- | A list that describes the client devices that are associated with the
 -- core device.
 listClientDevicesAssociatedWithCoreDeviceResponse_associatedClientDevices :: Lens.Lens' ListClientDevicesAssociatedWithCoreDeviceResponse (Prelude.Maybe (Prelude.NonEmpty AssociatedClientDevice))
 listClientDevicesAssociatedWithCoreDeviceResponse_associatedClientDevices = Lens.lens (\ListClientDevicesAssociatedWithCoreDeviceResponse' {associatedClientDevices} -> associatedClientDevices) (\s@ListClientDevicesAssociatedWithCoreDeviceResponse' {} a -> s {associatedClientDevices = a} :: ListClientDevicesAssociatedWithCoreDeviceResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token for the next set of results, or null if there are no
+-- additional results.
+listClientDevicesAssociatedWithCoreDeviceResponse_nextToken :: Lens.Lens' ListClientDevicesAssociatedWithCoreDeviceResponse (Prelude.Maybe Prelude.Text)
+listClientDevicesAssociatedWithCoreDeviceResponse_nextToken = Lens.lens (\ListClientDevicesAssociatedWithCoreDeviceResponse' {nextToken} -> nextToken) (\s@ListClientDevicesAssociatedWithCoreDeviceResponse' {} a -> s {nextToken = a} :: ListClientDevicesAssociatedWithCoreDeviceResponse)
 
 -- | The response's http status code.
 listClientDevicesAssociatedWithCoreDeviceResponse_httpStatus :: Lens.Lens' ListClientDevicesAssociatedWithCoreDeviceResponse Prelude.Int
@@ -259,6 +259,6 @@ instance
   where
   rnf
     ListClientDevicesAssociatedWithCoreDeviceResponse' {..} =
-      Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf associatedClientDevices
+      Prelude.rnf associatedClientDevices
+        `Prelude.seq` Prelude.rnf nextToken
         `Prelude.seq` Prelude.rnf httpStatus

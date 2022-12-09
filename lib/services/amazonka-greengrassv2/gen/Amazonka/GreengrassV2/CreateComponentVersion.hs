@@ -78,10 +78,10 @@ module Amazonka.GreengrassV2.CreateComponentVersion
     newCreateComponentVersion,
 
     -- * Request Lenses
-    createComponentVersion_inlineRecipe,
-    createComponentVersion_tags,
     createComponentVersion_clientToken,
+    createComponentVersion_inlineRecipe,
     createComponentVersion_lambdaFunction,
+    createComponentVersion_tags,
 
     -- * Destructuring the Response
     CreateComponentVersionResponse (..),
@@ -107,18 +107,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateComponentVersion' smart constructor.
 data CreateComponentVersion = CreateComponentVersion'
-  { -- | The recipe to use to create the component. The recipe defines the
-    -- component\'s metadata, parameters, dependencies, lifecycle, artifacts,
-    -- and platform compatibility.
-    --
-    -- You must specify either @inlineRecipe@ or @lambdaFunction@.
-    inlineRecipe :: Prelude.Maybe Data.Base64,
-    -- | A list of key-value pairs that contain metadata for the resource. For
-    -- more information, see
-    -- <https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html Tag your resources>
-    -- in the /IoT Greengrass V2 Developer Guide/.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A unique, case-sensitive identifier that you can provide to ensure that
+  { -- | A unique, case-sensitive identifier that you can provide to ensure that
     -- the request is idempotent. Idempotency means that the request is
     -- successfully processed only once, even if you send the request multiple
     -- times. When a request succeeds, and you specify the same client token
@@ -127,10 +116,21 @@ data CreateComponentVersion = CreateComponentVersion'
     -- request. IoT Greengrass V2 caches successful responses for idempotent
     -- requests for up to 8 hours.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The recipe to use to create the component. The recipe defines the
+    -- component\'s metadata, parameters, dependencies, lifecycle, artifacts,
+    -- and platform compatibility.
+    --
+    -- You must specify either @inlineRecipe@ or @lambdaFunction@.
+    inlineRecipe :: Prelude.Maybe Data.Base64,
     -- | The parameters to create a component from a Lambda function.
     --
     -- You must specify either @inlineRecipe@ or @lambdaFunction@.
-    lambdaFunction :: Prelude.Maybe LambdaFunctionRecipeSource
+    lambdaFunction :: Prelude.Maybe LambdaFunctionRecipeSource,
+    -- | A list of key-value pairs that contain metadata for the resource. For
+    -- more information, see
+    -- <https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html Tag your resources>
+    -- in the /IoT Greengrass V2 Developer Guide/.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -142,6 +142,15 @@ data CreateComponentVersion = CreateComponentVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clientToken', 'createComponentVersion_clientToken' - A unique, case-sensitive identifier that you can provide to ensure that
+-- the request is idempotent. Idempotency means that the request is
+-- successfully processed only once, even if you send the request multiple
+-- times. When a request succeeds, and you specify the same client token
+-- for subsequent successful requests, the IoT Greengrass V2 service
+-- returns the successful response that it caches from the previous
+-- request. IoT Greengrass V2 caches successful responses for idempotent
+-- requests for up to 8 hours.
+--
 -- 'inlineRecipe', 'createComponentVersion_inlineRecipe' - The recipe to use to create the component. The recipe defines the
 -- component\'s metadata, parameters, dependencies, lifecycle, artifacts,
 -- and platform compatibility.
@@ -152,12 +161,26 @@ data CreateComponentVersion = CreateComponentVersion'
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 --
+-- 'lambdaFunction', 'createComponentVersion_lambdaFunction' - The parameters to create a component from a Lambda function.
+--
+-- You must specify either @inlineRecipe@ or @lambdaFunction@.
+--
 -- 'tags', 'createComponentVersion_tags' - A list of key-value pairs that contain metadata for the resource. For
 -- more information, see
 -- <https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html Tag your resources>
 -- in the /IoT Greengrass V2 Developer Guide/.
---
--- 'clientToken', 'createComponentVersion_clientToken' - A unique, case-sensitive identifier that you can provide to ensure that
+newCreateComponentVersion ::
+  CreateComponentVersion
+newCreateComponentVersion =
+  CreateComponentVersion'
+    { clientToken =
+        Prelude.Nothing,
+      inlineRecipe = Prelude.Nothing,
+      lambdaFunction = Prelude.Nothing,
+      tags = Prelude.Nothing
+    }
+
+-- | A unique, case-sensitive identifier that you can provide to ensure that
 -- the request is idempotent. Idempotency means that the request is
 -- successfully processed only once, even if you send the request multiple
 -- times. When a request succeeds, and you specify the same client token
@@ -165,20 +188,8 @@ data CreateComponentVersion = CreateComponentVersion'
 -- returns the successful response that it caches from the previous
 -- request. IoT Greengrass V2 caches successful responses for idempotent
 -- requests for up to 8 hours.
---
--- 'lambdaFunction', 'createComponentVersion_lambdaFunction' - The parameters to create a component from a Lambda function.
---
--- You must specify either @inlineRecipe@ or @lambdaFunction@.
-newCreateComponentVersion ::
-  CreateComponentVersion
-newCreateComponentVersion =
-  CreateComponentVersion'
-    { inlineRecipe =
-        Prelude.Nothing,
-      tags = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
-      lambdaFunction = Prelude.Nothing
-    }
+createComponentVersion_clientToken :: Lens.Lens' CreateComponentVersion (Prelude.Maybe Prelude.Text)
+createComponentVersion_clientToken = Lens.lens (\CreateComponentVersion' {clientToken} -> clientToken) (\s@CreateComponentVersion' {} a -> s {clientToken = a} :: CreateComponentVersion)
 
 -- | The recipe to use to create the component. The recipe defines the
 -- component\'s metadata, parameters, dependencies, lifecycle, artifacts,
@@ -192,29 +203,18 @@ newCreateComponentVersion =
 createComponentVersion_inlineRecipe :: Lens.Lens' CreateComponentVersion (Prelude.Maybe Prelude.ByteString)
 createComponentVersion_inlineRecipe = Lens.lens (\CreateComponentVersion' {inlineRecipe} -> inlineRecipe) (\s@CreateComponentVersion' {} a -> s {inlineRecipe = a} :: CreateComponentVersion) Prelude.. Lens.mapping Data._Base64
 
+-- | The parameters to create a component from a Lambda function.
+--
+-- You must specify either @inlineRecipe@ or @lambdaFunction@.
+createComponentVersion_lambdaFunction :: Lens.Lens' CreateComponentVersion (Prelude.Maybe LambdaFunctionRecipeSource)
+createComponentVersion_lambdaFunction = Lens.lens (\CreateComponentVersion' {lambdaFunction} -> lambdaFunction) (\s@CreateComponentVersion' {} a -> s {lambdaFunction = a} :: CreateComponentVersion)
+
 -- | A list of key-value pairs that contain metadata for the resource. For
 -- more information, see
 -- <https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html Tag your resources>
 -- in the /IoT Greengrass V2 Developer Guide/.
 createComponentVersion_tags :: Lens.Lens' CreateComponentVersion (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createComponentVersion_tags = Lens.lens (\CreateComponentVersion' {tags} -> tags) (\s@CreateComponentVersion' {} a -> s {tags = a} :: CreateComponentVersion) Prelude.. Lens.mapping Lens.coerced
-
--- | A unique, case-sensitive identifier that you can provide to ensure that
--- the request is idempotent. Idempotency means that the request is
--- successfully processed only once, even if you send the request multiple
--- times. When a request succeeds, and you specify the same client token
--- for subsequent successful requests, the IoT Greengrass V2 service
--- returns the successful response that it caches from the previous
--- request. IoT Greengrass V2 caches successful responses for idempotent
--- requests for up to 8 hours.
-createComponentVersion_clientToken :: Lens.Lens' CreateComponentVersion (Prelude.Maybe Prelude.Text)
-createComponentVersion_clientToken = Lens.lens (\CreateComponentVersion' {clientToken} -> clientToken) (\s@CreateComponentVersion' {} a -> s {clientToken = a} :: CreateComponentVersion)
-
--- | The parameters to create a component from a Lambda function.
---
--- You must specify either @inlineRecipe@ or @lambdaFunction@.
-createComponentVersion_lambdaFunction :: Lens.Lens' CreateComponentVersion (Prelude.Maybe LambdaFunctionRecipeSource)
-createComponentVersion_lambdaFunction = Lens.lens (\CreateComponentVersion' {lambdaFunction} -> lambdaFunction) (\s@CreateComponentVersion' {} a -> s {lambdaFunction = a} :: CreateComponentVersion)
 
 instance Core.AWSRequest CreateComponentVersion where
   type
@@ -236,17 +236,17 @@ instance Core.AWSRequest CreateComponentVersion where
 
 instance Prelude.Hashable CreateComponentVersion where
   hashWithSalt _salt CreateComponentVersion' {..} =
-    _salt `Prelude.hashWithSalt` inlineRecipe
-      `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` inlineRecipe
       `Prelude.hashWithSalt` lambdaFunction
+      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData CreateComponentVersion where
   rnf CreateComponentVersion' {..} =
-    Prelude.rnf inlineRecipe
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf inlineRecipe
       `Prelude.seq` Prelude.rnf lambdaFunction
+      `Prelude.seq` Prelude.rnf tags
 
 instance Data.ToHeaders CreateComponentVersion where
   toHeaders = Prelude.const Prelude.mempty
@@ -255,11 +255,11 @@ instance Data.ToJSON CreateComponentVersion where
   toJSON CreateComponentVersion' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("inlineRecipe" Data..=) Prelude.<$> inlineRecipe,
-            ("tags" Data..=) Prelude.<$> tags,
-            ("clientToken" Data..=) Prelude.<$> clientToken,
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("inlineRecipe" Data..=) Prelude.<$> inlineRecipe,
             ("lambdaFunction" Data..=)
-              Prelude.<$> lambdaFunction
+              Prelude.<$> lambdaFunction,
+            ("tags" Data..=) Prelude.<$> tags
           ]
       )
 

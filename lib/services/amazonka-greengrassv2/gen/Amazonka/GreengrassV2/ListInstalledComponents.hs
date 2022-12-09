@@ -55,9 +55,9 @@ module Amazonka.GreengrassV2.ListInstalledComponents
     newListInstalledComponents,
 
     -- * Request Lenses
+    listInstalledComponents_maxResults,
     listInstalledComponents_nextToken,
     listInstalledComponents_topologyFilter,
-    listInstalledComponents_maxResults,
     listInstalledComponents_coreDeviceThingName,
 
     -- * Destructuring the Response
@@ -65,8 +65,8 @@ module Amazonka.GreengrassV2.ListInstalledComponents
     newListInstalledComponentsResponse,
 
     -- * Response Lenses
-    listInstalledComponentsResponse_nextToken,
     listInstalledComponentsResponse_installedComponents,
+    listInstalledComponentsResponse_nextToken,
     listInstalledComponentsResponse_httpStatus,
   )
 where
@@ -81,7 +81,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListInstalledComponents' smart constructor.
 data ListInstalledComponents = ListInstalledComponents'
-  { -- | The token to be used for the next set of paginated results.
+  { -- | The maximum number of results to be returned per paginated request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to be used for the next set of paginated results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The filter for the list of components. Choose from the following
     -- options:
@@ -96,8 +98,6 @@ data ListInstalledComponents = ListInstalledComponents'
     --
     -- Default: @ROOT@
     topologyFilter :: Prelude.Maybe InstalledComponentTopologyFilter,
-    -- | The maximum number of results to be returned per paginated request.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name of the core device. This is also the name of the IoT thing.
     coreDeviceThingName :: Prelude.Text
   }
@@ -110,6 +110,8 @@ data ListInstalledComponents = ListInstalledComponents'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'maxResults', 'listInstalledComponents_maxResults' - The maximum number of results to be returned per paginated request.
 --
 -- 'nextToken', 'listInstalledComponents_nextToken' - The token to be used for the next set of paginated results.
 --
@@ -126,8 +128,6 @@ data ListInstalledComponents = ListInstalledComponents'
 --
 -- Default: @ROOT@
 --
--- 'maxResults', 'listInstalledComponents_maxResults' - The maximum number of results to be returned per paginated request.
---
 -- 'coreDeviceThingName', 'listInstalledComponents_coreDeviceThingName' - The name of the core device. This is also the name of the IoT thing.
 newListInstalledComponents ::
   -- | 'coreDeviceThingName'
@@ -135,12 +135,16 @@ newListInstalledComponents ::
   ListInstalledComponents
 newListInstalledComponents pCoreDeviceThingName_ =
   ListInstalledComponents'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       topologyFilter = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       coreDeviceThingName = pCoreDeviceThingName_
     }
+
+-- | The maximum number of results to be returned per paginated request.
+listInstalledComponents_maxResults :: Lens.Lens' ListInstalledComponents (Prelude.Maybe Prelude.Natural)
+listInstalledComponents_maxResults = Lens.lens (\ListInstalledComponents' {maxResults} -> maxResults) (\s@ListInstalledComponents' {} a -> s {maxResults = a} :: ListInstalledComponents)
 
 -- | The token to be used for the next set of paginated results.
 listInstalledComponents_nextToken :: Lens.Lens' ListInstalledComponents (Prelude.Maybe Prelude.Text)
@@ -160,10 +164,6 @@ listInstalledComponents_nextToken = Lens.lens (\ListInstalledComponents' {nextTo
 -- Default: @ROOT@
 listInstalledComponents_topologyFilter :: Lens.Lens' ListInstalledComponents (Prelude.Maybe InstalledComponentTopologyFilter)
 listInstalledComponents_topologyFilter = Lens.lens (\ListInstalledComponents' {topologyFilter} -> topologyFilter) (\s@ListInstalledComponents' {} a -> s {topologyFilter = a} :: ListInstalledComponents)
-
--- | The maximum number of results to be returned per paginated request.
-listInstalledComponents_maxResults :: Lens.Lens' ListInstalledComponents (Prelude.Maybe Prelude.Natural)
-listInstalledComponents_maxResults = Lens.lens (\ListInstalledComponents' {maxResults} -> maxResults) (\s@ListInstalledComponents' {} a -> s {maxResults = a} :: ListInstalledComponents)
 
 -- | The name of the core device. This is also the name of the IoT thing.
 listInstalledComponents_coreDeviceThingName :: Lens.Lens' ListInstalledComponents Prelude.Text
@@ -201,25 +201,25 @@ instance Core.AWSRequest ListInstalledComponents where
     Response.receiveJSON
       ( \s h x ->
           ListInstalledComponentsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "installedComponents"
+            Prelude.<$> ( x Data..?> "installedComponents"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListInstalledComponents where
   hashWithSalt _salt ListInstalledComponents' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` topologyFilter
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` coreDeviceThingName
 
 instance Prelude.NFData ListInstalledComponents where
   rnf ListInstalledComponents' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf topologyFilter
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf coreDeviceThingName
 
 instance Data.ToHeaders ListInstalledComponents where
@@ -236,17 +236,14 @@ instance Data.ToPath ListInstalledComponents where
 instance Data.ToQuery ListInstalledComponents where
   toQuery ListInstalledComponents' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "topologyFilter" Data.=: topologyFilter,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
+        "topologyFilter" Data.=: topologyFilter
       ]
 
 -- | /See:/ 'newListInstalledComponentsResponse' smart constructor.
 data ListInstalledComponentsResponse = ListInstalledComponentsResponse'
-  { -- | The token for the next set of results, or null if there are no
-    -- additional results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list that summarizes each component on the core device.
+  { -- | A list that summarizes each component on the core device.
     --
     -- Greengrass nucleus v2.7.0 or later is required to get an accurate
     -- @lastStatusChangeTimestamp@ response. This response can be inaccurate in
@@ -257,6 +254,9 @@ data ListInstalledComponentsResponse = ListInstalledComponentsResponse'
     -- response can be inaccurate or null in earlier Greengrass nucleus
     -- versions.
     installedComponents :: Prelude.Maybe [InstalledComponent],
+    -- | The token for the next set of results, or null if there are no
+    -- additional results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -270,9 +270,6 @@ data ListInstalledComponentsResponse = ListInstalledComponentsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listInstalledComponentsResponse_nextToken' - The token for the next set of results, or null if there are no
--- additional results.
---
 -- 'installedComponents', 'listInstalledComponentsResponse_installedComponents' - A list that summarizes each component on the core device.
 --
 -- Greengrass nucleus v2.7.0 or later is required to get an accurate
@@ -284,6 +281,9 @@ data ListInstalledComponentsResponse = ListInstalledComponentsResponse'
 -- response can be inaccurate or null in earlier Greengrass nucleus
 -- versions.
 --
+-- 'nextToken', 'listInstalledComponentsResponse_nextToken' - The token for the next set of results, or null if there are no
+-- additional results.
+--
 -- 'httpStatus', 'listInstalledComponentsResponse_httpStatus' - The response's http status code.
 newListInstalledComponentsResponse ::
   -- | 'httpStatus'
@@ -291,16 +291,11 @@ newListInstalledComponentsResponse ::
   ListInstalledComponentsResponse
 newListInstalledComponentsResponse pHttpStatus_ =
   ListInstalledComponentsResponse'
-    { nextToken =
+    { installedComponents =
         Prelude.Nothing,
-      installedComponents = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token for the next set of results, or null if there are no
--- additional results.
-listInstalledComponentsResponse_nextToken :: Lens.Lens' ListInstalledComponentsResponse (Prelude.Maybe Prelude.Text)
-listInstalledComponentsResponse_nextToken = Lens.lens (\ListInstalledComponentsResponse' {nextToken} -> nextToken) (\s@ListInstalledComponentsResponse' {} a -> s {nextToken = a} :: ListInstalledComponentsResponse)
 
 -- | A list that summarizes each component on the core device.
 --
@@ -315,6 +310,11 @@ listInstalledComponentsResponse_nextToken = Lens.lens (\ListInstalledComponentsR
 listInstalledComponentsResponse_installedComponents :: Lens.Lens' ListInstalledComponentsResponse (Prelude.Maybe [InstalledComponent])
 listInstalledComponentsResponse_installedComponents = Lens.lens (\ListInstalledComponentsResponse' {installedComponents} -> installedComponents) (\s@ListInstalledComponentsResponse' {} a -> s {installedComponents = a} :: ListInstalledComponentsResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The token for the next set of results, or null if there are no
+-- additional results.
+listInstalledComponentsResponse_nextToken :: Lens.Lens' ListInstalledComponentsResponse (Prelude.Maybe Prelude.Text)
+listInstalledComponentsResponse_nextToken = Lens.lens (\ListInstalledComponentsResponse' {nextToken} -> nextToken) (\s@ListInstalledComponentsResponse' {} a -> s {nextToken = a} :: ListInstalledComponentsResponse)
+
 -- | The response's http status code.
 listInstalledComponentsResponse_httpStatus :: Lens.Lens' ListInstalledComponentsResponse Prelude.Int
 listInstalledComponentsResponse_httpStatus = Lens.lens (\ListInstalledComponentsResponse' {httpStatus} -> httpStatus) (\s@ListInstalledComponentsResponse' {} a -> s {httpStatus = a} :: ListInstalledComponentsResponse)
@@ -324,6 +324,6 @@ instance
     ListInstalledComponentsResponse
   where
   rnf ListInstalledComponentsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf installedComponents
+    Prelude.rnf installedComponents
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -22,8 +22,8 @@ module Amazonka.SSO.Lens
     getRoleCredentialsResponse_roleCredentials,
 
     -- ** ListAccountRoles
-    listAccountRoles_nextToken,
     listAccountRoles_maxResults,
+    listAccountRoles_nextToken,
     listAccountRoles_accessToken,
     listAccountRoles_accountId,
     listAccountRolesResponse_nextToken,
@@ -31,11 +31,11 @@ module Amazonka.SSO.Lens
     listAccountRolesResponse_httpStatus,
 
     -- ** ListAccounts
-    listAccounts_nextToken,
     listAccounts_maxResults,
+    listAccounts_nextToken,
     listAccounts_accessToken,
-    listAccountsResponse_nextToken,
     listAccountsResponse_accountList,
+    listAccountsResponse_nextToken,
     listAccountsResponse_httpStatus,
 
     -- ** Logout
@@ -55,8 +55,8 @@ module Amazonka.SSO.Lens
     roleCredentials_secretAccessKey,
 
     -- ** RoleInfo
-    roleInfo_roleName,
     roleInfo_accountId,
+    roleInfo_roleName,
   )
 where
 

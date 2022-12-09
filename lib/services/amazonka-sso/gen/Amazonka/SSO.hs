@@ -39,8 +39,8 @@ module Amazonka.SSO
     -- * Errors
     -- $errors
 
-    -- ** UnauthorizedException
-    _UnauthorizedException,
+    -- ** InvalidRequestException
+    _InvalidRequestException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
@@ -48,8 +48,8 @@ module Amazonka.SSO
     -- ** TooManyRequestsException
     _TooManyRequestsException,
 
-    -- ** InvalidRequestException
-    _InvalidRequestException,
+    -- ** UnauthorizedException
+    _UnauthorizedException,
 
     -- * Waiters
     -- $waiters

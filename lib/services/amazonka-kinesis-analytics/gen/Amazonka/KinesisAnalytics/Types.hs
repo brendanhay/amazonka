@@ -18,18 +18,18 @@ module Amazonka.KinesisAnalytics.Types
     defaultService,
 
     -- * Errors
-    _InvalidArgumentException,
-    _InvalidApplicationConfigurationException,
-    _UnsupportedOperationException,
-    _ConcurrentModificationException,
-    _TooManyTagsException,
     _CodeValidationException,
-    _ServiceUnavailableException,
-    _ResourceNotFoundException,
-    _ResourceInUseException,
+    _ConcurrentModificationException,
+    _InvalidApplicationConfigurationException,
+    _InvalidArgumentException,
     _LimitExceededException,
-    _UnableToDetectSchemaException,
+    _ResourceInUseException,
+    _ResourceNotFoundException,
     _ResourceProvisionedThroughputExceededException,
+    _ServiceUnavailableException,
+    _TooManyTagsException,
+    _UnableToDetectSchemaException,
+    _UnsupportedOperationException,
 
     -- * ApplicationStatus
     ApplicationStatus (..),
@@ -43,14 +43,14 @@ module Amazonka.KinesisAnalytics.Types
     -- * ApplicationDetail
     ApplicationDetail (..),
     newApplicationDetail,
-    applicationDetail_referenceDataSourceDescriptions,
-    applicationDetail_inputDescriptions,
-    applicationDetail_lastUpdateTimestamp,
-    applicationDetail_createTimestamp,
-    applicationDetail_cloudWatchLoggingOptionDescriptions,
     applicationDetail_applicationCode,
     applicationDetail_applicationDescription,
+    applicationDetail_cloudWatchLoggingOptionDescriptions,
+    applicationDetail_createTimestamp,
+    applicationDetail_inputDescriptions,
+    applicationDetail_lastUpdateTimestamp,
     applicationDetail_outputDescriptions,
+    applicationDetail_referenceDataSourceDescriptions,
     applicationDetail_applicationName,
     applicationDetail_applicationARN,
     applicationDetail_applicationStatus,
@@ -66,11 +66,11 @@ module Amazonka.KinesisAnalytics.Types
     -- * ApplicationUpdate
     ApplicationUpdate (..),
     newApplicationUpdate,
+    applicationUpdate_applicationCodeUpdate,
+    applicationUpdate_cloudWatchLoggingOptionUpdates,
     applicationUpdate_inputUpdates,
     applicationUpdate_outputUpdates,
     applicationUpdate_referenceDataSourceUpdates,
-    applicationUpdate_cloudWatchLoggingOptionUpdates,
-    applicationUpdate_applicationCodeUpdate,
 
     -- * CSVMappingParameters
     CSVMappingParameters (..),
@@ -94,8 +94,8 @@ module Amazonka.KinesisAnalytics.Types
     -- * CloudWatchLoggingOptionUpdate
     CloudWatchLoggingOptionUpdate (..),
     newCloudWatchLoggingOptionUpdate,
-    cloudWatchLoggingOptionUpdate_roleARNUpdate,
     cloudWatchLoggingOptionUpdate_logStreamARNUpdate,
+    cloudWatchLoggingOptionUpdate_roleARNUpdate,
     cloudWatchLoggingOptionUpdate_cloudWatchLoggingOptionId,
 
     -- * DestinationSchema
@@ -106,9 +106,9 @@ module Amazonka.KinesisAnalytics.Types
     -- * Input
     Input (..),
     newInput,
-    input_kinesisFirehoseInput,
-    input_inputProcessingConfiguration,
     input_inputParallelism,
+    input_inputProcessingConfiguration,
+    input_kinesisFirehoseInput,
     input_kinesisStreamsInput,
     input_namePrefix,
     input_inputSchema,
@@ -123,14 +123,14 @@ module Amazonka.KinesisAnalytics.Types
     InputDescription (..),
     newInputDescription,
     inputDescription_inAppStreamNames,
-    inputDescription_kinesisFirehoseInputDescription,
-    inputDescription_kinesisStreamsInputDescription,
+    inputDescription_inputId,
     inputDescription_inputParallelism,
     inputDescription_inputProcessingConfigurationDescription,
-    inputDescription_namePrefix,
-    inputDescription_inputStartingPositionConfiguration,
-    inputDescription_inputId,
     inputDescription_inputSchema,
+    inputDescription_inputStartingPositionConfiguration,
+    inputDescription_kinesisFirehoseInputDescription,
+    inputDescription_kinesisStreamsInputDescription,
+    inputDescription_namePrefix,
 
     -- * InputLambdaProcessor
     InputLambdaProcessor (..),
@@ -141,14 +141,14 @@ module Amazonka.KinesisAnalytics.Types
     -- * InputLambdaProcessorDescription
     InputLambdaProcessorDescription (..),
     newInputLambdaProcessorDescription,
-    inputLambdaProcessorDescription_roleARN,
     inputLambdaProcessorDescription_resourceARN,
+    inputLambdaProcessorDescription_roleARN,
 
     -- * InputLambdaProcessorUpdate
     InputLambdaProcessorUpdate (..),
     newInputLambdaProcessorUpdate,
-    inputLambdaProcessorUpdate_roleARNUpdate,
     inputLambdaProcessorUpdate_resourceARNUpdate,
+    inputLambdaProcessorUpdate_roleARNUpdate,
 
     -- * InputParallelism
     InputParallelism (..),
@@ -178,8 +178,8 @@ module Amazonka.KinesisAnalytics.Types
     -- * InputSchemaUpdate
     InputSchemaUpdate (..),
     newInputSchemaUpdate,
-    inputSchemaUpdate_recordEncodingUpdate,
     inputSchemaUpdate_recordColumnUpdates,
+    inputSchemaUpdate_recordEncodingUpdate,
     inputSchemaUpdate_recordFormatUpdate,
 
     -- * InputStartingPositionConfiguration
@@ -192,10 +192,10 @@ module Amazonka.KinesisAnalytics.Types
     newInputUpdate,
     inputUpdate_inputParallelismUpdate,
     inputUpdate_inputProcessingConfigurationUpdate,
-    inputUpdate_namePrefixUpdate,
-    inputUpdate_kinesisFirehoseInputUpdate,
     inputUpdate_inputSchemaUpdate,
+    inputUpdate_kinesisFirehoseInputUpdate,
     inputUpdate_kinesisStreamsInputUpdate,
+    inputUpdate_namePrefixUpdate,
     inputUpdate_inputId,
 
     -- * JSONMappingParameters
@@ -212,14 +212,14 @@ module Amazonka.KinesisAnalytics.Types
     -- * KinesisFirehoseInputDescription
     KinesisFirehoseInputDescription (..),
     newKinesisFirehoseInputDescription,
-    kinesisFirehoseInputDescription_roleARN,
     kinesisFirehoseInputDescription_resourceARN,
+    kinesisFirehoseInputDescription_roleARN,
 
     -- * KinesisFirehoseInputUpdate
     KinesisFirehoseInputUpdate (..),
     newKinesisFirehoseInputUpdate,
-    kinesisFirehoseInputUpdate_roleARNUpdate,
     kinesisFirehoseInputUpdate_resourceARNUpdate,
+    kinesisFirehoseInputUpdate_roleARNUpdate,
 
     -- * KinesisFirehoseOutput
     KinesisFirehoseOutput (..),
@@ -230,14 +230,14 @@ module Amazonka.KinesisAnalytics.Types
     -- * KinesisFirehoseOutputDescription
     KinesisFirehoseOutputDescription (..),
     newKinesisFirehoseOutputDescription,
-    kinesisFirehoseOutputDescription_roleARN,
     kinesisFirehoseOutputDescription_resourceARN,
+    kinesisFirehoseOutputDescription_roleARN,
 
     -- * KinesisFirehoseOutputUpdate
     KinesisFirehoseOutputUpdate (..),
     newKinesisFirehoseOutputUpdate,
-    kinesisFirehoseOutputUpdate_roleARNUpdate,
     kinesisFirehoseOutputUpdate_resourceARNUpdate,
+    kinesisFirehoseOutputUpdate_roleARNUpdate,
 
     -- * KinesisStreamsInput
     KinesisStreamsInput (..),
@@ -248,14 +248,14 @@ module Amazonka.KinesisAnalytics.Types
     -- * KinesisStreamsInputDescription
     KinesisStreamsInputDescription (..),
     newKinesisStreamsInputDescription,
-    kinesisStreamsInputDescription_roleARN,
     kinesisStreamsInputDescription_resourceARN,
+    kinesisStreamsInputDescription_roleARN,
 
     -- * KinesisStreamsInputUpdate
     KinesisStreamsInputUpdate (..),
     newKinesisStreamsInputUpdate,
-    kinesisStreamsInputUpdate_roleARNUpdate,
     kinesisStreamsInputUpdate_resourceARNUpdate,
+    kinesisStreamsInputUpdate_roleARNUpdate,
 
     -- * KinesisStreamsOutput
     KinesisStreamsOutput (..),
@@ -266,14 +266,14 @@ module Amazonka.KinesisAnalytics.Types
     -- * KinesisStreamsOutputDescription
     KinesisStreamsOutputDescription (..),
     newKinesisStreamsOutputDescription,
-    kinesisStreamsOutputDescription_roleARN,
     kinesisStreamsOutputDescription_resourceARN,
+    kinesisStreamsOutputDescription_roleARN,
 
     -- * KinesisStreamsOutputUpdate
     KinesisStreamsOutputUpdate (..),
     newKinesisStreamsOutputUpdate,
-    kinesisStreamsOutputUpdate_roleARNUpdate,
     kinesisStreamsOutputUpdate_resourceARNUpdate,
+    kinesisStreamsOutputUpdate_roleARNUpdate,
 
     -- * LambdaOutput
     LambdaOutput (..),
@@ -284,14 +284,14 @@ module Amazonka.KinesisAnalytics.Types
     -- * LambdaOutputDescription
     LambdaOutputDescription (..),
     newLambdaOutputDescription,
-    lambdaOutputDescription_roleARN,
     lambdaOutputDescription_resourceARN,
+    lambdaOutputDescription_roleARN,
 
     -- * LambdaOutputUpdate
     LambdaOutputUpdate (..),
     newLambdaOutputUpdate,
-    lambdaOutputUpdate_roleARNUpdate,
     lambdaOutputUpdate_resourceARNUpdate,
+    lambdaOutputUpdate_roleARNUpdate,
 
     -- * MappingParameters
     MappingParameters (..),
@@ -303,29 +303,29 @@ module Amazonka.KinesisAnalytics.Types
     Output (..),
     newOutput,
     output_kinesisFirehoseOutput,
-    output_lambdaOutput,
     output_kinesisStreamsOutput,
+    output_lambdaOutput,
     output_name,
     output_destinationSchema,
 
     -- * OutputDescription
     OutputDescription (..),
     newOutputDescription,
-    outputDescription_name,
-    outputDescription_outputId,
+    outputDescription_destinationSchema,
+    outputDescription_kinesisFirehoseOutputDescription,
     outputDescription_kinesisStreamsOutputDescription,
     outputDescription_lambdaOutputDescription,
-    outputDescription_kinesisFirehoseOutputDescription,
-    outputDescription_destinationSchema,
+    outputDescription_name,
+    outputDescription_outputId,
 
     -- * OutputUpdate
     OutputUpdate (..),
     newOutputUpdate,
-    outputUpdate_lambdaOutputUpdate,
-    outputUpdate_nameUpdate,
     outputUpdate_destinationSchemaUpdate,
     outputUpdate_kinesisFirehoseOutputUpdate,
     outputUpdate_kinesisStreamsOutputUpdate,
+    outputUpdate_lambdaOutputUpdate,
+    outputUpdate_nameUpdate,
     outputUpdate_outputId,
 
     -- * RecordColumn
@@ -359,9 +359,9 @@ module Amazonka.KinesisAnalytics.Types
     -- * ReferenceDataSourceUpdate
     ReferenceDataSourceUpdate (..),
     newReferenceDataSourceUpdate,
-    referenceDataSourceUpdate_tableNameUpdate,
     referenceDataSourceUpdate_referenceSchemaUpdate,
     referenceDataSourceUpdate_s3ReferenceDataSourceUpdate,
+    referenceDataSourceUpdate_tableNameUpdate,
     referenceDataSourceUpdate_referenceId,
 
     -- * S3Configuration
@@ -388,9 +388,9 @@ module Amazonka.KinesisAnalytics.Types
     -- * S3ReferenceDataSourceUpdate
     S3ReferenceDataSourceUpdate (..),
     newS3ReferenceDataSourceUpdate,
-    s3ReferenceDataSourceUpdate_referenceRoleARNUpdate,
     s3ReferenceDataSourceUpdate_bucketARNUpdate,
     s3ReferenceDataSourceUpdate_fileKeyUpdate,
+    s3ReferenceDataSourceUpdate_referenceRoleARNUpdate,
 
     -- * SourceSchema
     SourceSchema (..),
@@ -493,28 +493,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -522,13 +516,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -536,29 +534,17 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
--- | Specified input parameter value is invalid.
-_InvalidArgumentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidArgumentException =
+-- | User-provided application code (query) is invalid. This can be a simple
+-- syntax error.
+_CodeValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CodeValidationException =
   Core._MatchServiceError
     defaultService
-    "InvalidArgumentException"
-
--- | User-provided application configuration is not valid.
-_InvalidApplicationConfigurationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidApplicationConfigurationException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidApplicationConfigurationException"
-
--- | The request was rejected because a specified parameter is not supported
--- or a specified resource is not valid for this operation.
-_UnsupportedOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnsupportedOperationException =
-  Core._MatchServiceError
-    defaultService
-    "UnsupportedOperationException"
+    "CodeValidationException"
 
 -- | Exception thrown as a result of concurrent modification to an
 -- application. For example, two individuals attempting to edit the same
@@ -569,43 +555,19 @@ _ConcurrentModificationException =
     defaultService
     "ConcurrentModificationException"
 
--- | Application created with too many tags, or too many tags added to an
--- application. Note that the maximum number of application tags includes
--- system tags. The maximum number of user-defined application tags is 50.
-_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyTagsException =
+-- | User-provided application configuration is not valid.
+_InvalidApplicationConfigurationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidApplicationConfigurationException =
   Core._MatchServiceError
     defaultService
-    "TooManyTagsException"
+    "InvalidApplicationConfigurationException"
 
--- | User-provided application code (query) is invalid. This can be a simple
--- syntax error.
-_CodeValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CodeValidationException =
+-- | Specified input parameter value is invalid.
+_InvalidArgumentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidArgumentException =
   Core._MatchServiceError
     defaultService
-    "CodeValidationException"
-
--- | The service is unavailable. Back off and retry the operation.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceUnavailableException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceUnavailableException"
-
--- | Specified application can\'t be found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-
--- | Application is not available for this operation.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceInUseException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceInUseException"
+    "InvalidArgumentException"
 
 -- | Exceeded the number of applications allowed.
 _LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -614,13 +576,19 @@ _LimitExceededException =
     defaultService
     "LimitExceededException"
 
--- | Data format is not valid. Amazon Kinesis Analytics is not able to detect
--- schema for the given streaming source.
-_UnableToDetectSchemaException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnableToDetectSchemaException =
+-- | Application is not available for this operation.
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException =
   Core._MatchServiceError
     defaultService
-    "UnableToDetectSchemaException"
+    "ResourceInUseException"
+
+-- | Specified application can\'t be found.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
 
 -- | Discovery failed to get a record from the streaming source because of
 -- the Amazon Kinesis Streams ProvisionedThroughputExceededException. For
@@ -632,3 +600,35 @@ _ResourceProvisionedThroughputExceededException =
   Core._MatchServiceError
     defaultService
     "ResourceProvisionedThroughputExceededException"
+
+-- | The service is unavailable. Back off and retry the operation.
+_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceUnavailableException"
+
+-- | Application created with too many tags, or too many tags added to an
+-- application. Note that the maximum number of application tags includes
+-- system tags. The maximum number of user-defined application tags is 50.
+_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyTagsException"
+
+-- | Data format is not valid. Amazon Kinesis Analytics is not able to detect
+-- schema for the given streaming source.
+_UnableToDetectSchemaException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnableToDetectSchemaException =
+  Core._MatchServiceError
+    defaultService
+    "UnableToDetectSchemaException"
+
+-- | The request was rejected because a specified parameter is not supported
+-- or a specified resource is not valid for this operation.
+_UnsupportedOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedOperationException =
+  Core._MatchServiceError
+    defaultService
+    "UnsupportedOperationException"

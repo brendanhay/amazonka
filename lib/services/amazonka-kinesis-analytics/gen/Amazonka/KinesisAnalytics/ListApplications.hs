@@ -44,8 +44,8 @@ module Amazonka.KinesisAnalytics.ListApplications
     newListApplications,
 
     -- * Request Lenses
-    listApplications_limit,
     listApplications_exclusiveStartApplicationName,
+    listApplications_limit,
 
     -- * Destructuring the Response
     ListApplicationsResponse (..),
@@ -70,14 +70,14 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListApplications' smart constructor.
 data ListApplications = ListApplications'
-  { -- | Maximum number of applications to list.
-    limit :: Prelude.Maybe Prelude.Natural,
-    -- | Name of the application to start the list with. When using pagination to
+  { -- | Name of the application to start the list with. When using pagination to
     -- retrieve the list, you don\'t need to specify this parameter in the
     -- first request. However, in subsequent requests, you add the last
     -- application name from the previous response to get the next page of
     -- applications.
-    exclusiveStartApplicationName :: Prelude.Maybe Prelude.Text
+    exclusiveStartApplicationName :: Prelude.Maybe Prelude.Text,
+    -- | Maximum number of applications to list.
+    limit :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -89,24 +89,21 @@ data ListApplications = ListApplications'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'limit', 'listApplications_limit' - Maximum number of applications to list.
---
 -- 'exclusiveStartApplicationName', 'listApplications_exclusiveStartApplicationName' - Name of the application to start the list with. When using pagination to
 -- retrieve the list, you don\'t need to specify this parameter in the
 -- first request. However, in subsequent requests, you add the last
 -- application name from the previous response to get the next page of
 -- applications.
+--
+-- 'limit', 'listApplications_limit' - Maximum number of applications to list.
 newListApplications ::
   ListApplications
 newListApplications =
   ListApplications'
-    { limit = Prelude.Nothing,
-      exclusiveStartApplicationName = Prelude.Nothing
+    { exclusiveStartApplicationName =
+        Prelude.Nothing,
+      limit = Prelude.Nothing
     }
-
--- | Maximum number of applications to list.
-listApplications_limit :: Lens.Lens' ListApplications (Prelude.Maybe Prelude.Natural)
-listApplications_limit = Lens.lens (\ListApplications' {limit} -> limit) (\s@ListApplications' {} a -> s {limit = a} :: ListApplications)
 
 -- | Name of the application to start the list with. When using pagination to
 -- retrieve the list, you don\'t need to specify this parameter in the
@@ -115,6 +112,10 @@ listApplications_limit = Lens.lens (\ListApplications' {limit} -> limit) (\s@Lis
 -- applications.
 listApplications_exclusiveStartApplicationName :: Lens.Lens' ListApplications (Prelude.Maybe Prelude.Text)
 listApplications_exclusiveStartApplicationName = Lens.lens (\ListApplications' {exclusiveStartApplicationName} -> exclusiveStartApplicationName) (\s@ListApplications' {} a -> s {exclusiveStartApplicationName = a} :: ListApplications)
+
+-- | Maximum number of applications to list.
+listApplications_limit :: Lens.Lens' ListApplications (Prelude.Maybe Prelude.Natural)
+listApplications_limit = Lens.lens (\ListApplications' {limit} -> limit) (\s@ListApplications' {} a -> s {limit = a} :: ListApplications)
 
 instance Core.AWSRequest ListApplications where
   type
@@ -135,13 +136,14 @@ instance Core.AWSRequest ListApplications where
 
 instance Prelude.Hashable ListApplications where
   hashWithSalt _salt ListApplications' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
       `Prelude.hashWithSalt` exclusiveStartApplicationName
+      `Prelude.hashWithSalt` limit
 
 instance Prelude.NFData ListApplications where
   rnf ListApplications' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf exclusiveStartApplicationName
+    Prelude.rnf exclusiveStartApplicationName
+      `Prelude.seq` Prelude.rnf limit
 
 instance Data.ToHeaders ListApplications where
   toHeaders =
@@ -162,9 +164,9 @@ instance Data.ToJSON ListApplications where
   toJSON ListApplications' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Limit" Data..=) Prelude.<$> limit,
-            ("ExclusiveStartApplicationName" Data..=)
-              Prelude.<$> exclusiveStartApplicationName
+          [ ("ExclusiveStartApplicationName" Data..=)
+              Prelude.<$> exclusiveStartApplicationName,
+            ("Limit" Data..=) Prelude.<$> limit
           ]
       )
 

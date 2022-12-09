@@ -42,10 +42,10 @@ data Output = Output'
   { -- | Identifies an Amazon Kinesis Firehose delivery stream as the
     -- destination.
     kinesisFirehoseOutput :: Prelude.Maybe KinesisFirehoseOutput,
-    -- | Identifies an AWS Lambda function as the destination.
-    lambdaOutput :: Prelude.Maybe LambdaOutput,
     -- | Identifies an Amazon Kinesis stream as the destination.
     kinesisStreamsOutput :: Prelude.Maybe KinesisStreamsOutput,
+    -- | Identifies an AWS Lambda function as the destination.
+    lambdaOutput :: Prelude.Maybe LambdaOutput,
     -- | Name of the in-application stream.
     name :: Prelude.Text,
     -- | Describes the data format when records are written to the destination.
@@ -66,9 +66,9 @@ data Output = Output'
 -- 'kinesisFirehoseOutput', 'output_kinesisFirehoseOutput' - Identifies an Amazon Kinesis Firehose delivery stream as the
 -- destination.
 --
--- 'lambdaOutput', 'output_lambdaOutput' - Identifies an AWS Lambda function as the destination.
---
 -- 'kinesisStreamsOutput', 'output_kinesisStreamsOutput' - Identifies an Amazon Kinesis stream as the destination.
+--
+-- 'lambdaOutput', 'output_lambdaOutput' - Identifies an AWS Lambda function as the destination.
 --
 -- 'name', 'output_name' - Name of the in-application stream.
 --
@@ -84,8 +84,8 @@ newOutput ::
 newOutput pName_ pDestinationSchema_ =
   Output'
     { kinesisFirehoseOutput = Prelude.Nothing,
-      lambdaOutput = Prelude.Nothing,
       kinesisStreamsOutput = Prelude.Nothing,
+      lambdaOutput = Prelude.Nothing,
       name = pName_,
       destinationSchema = pDestinationSchema_
     }
@@ -95,13 +95,13 @@ newOutput pName_ pDestinationSchema_ =
 output_kinesisFirehoseOutput :: Lens.Lens' Output (Prelude.Maybe KinesisFirehoseOutput)
 output_kinesisFirehoseOutput = Lens.lens (\Output' {kinesisFirehoseOutput} -> kinesisFirehoseOutput) (\s@Output' {} a -> s {kinesisFirehoseOutput = a} :: Output)
 
--- | Identifies an AWS Lambda function as the destination.
-output_lambdaOutput :: Lens.Lens' Output (Prelude.Maybe LambdaOutput)
-output_lambdaOutput = Lens.lens (\Output' {lambdaOutput} -> lambdaOutput) (\s@Output' {} a -> s {lambdaOutput = a} :: Output)
-
 -- | Identifies an Amazon Kinesis stream as the destination.
 output_kinesisStreamsOutput :: Lens.Lens' Output (Prelude.Maybe KinesisStreamsOutput)
 output_kinesisStreamsOutput = Lens.lens (\Output' {kinesisStreamsOutput} -> kinesisStreamsOutput) (\s@Output' {} a -> s {kinesisStreamsOutput = a} :: Output)
+
+-- | Identifies an AWS Lambda function as the destination.
+output_lambdaOutput :: Lens.Lens' Output (Prelude.Maybe LambdaOutput)
+output_lambdaOutput = Lens.lens (\Output' {lambdaOutput} -> lambdaOutput) (\s@Output' {} a -> s {lambdaOutput = a} :: Output)
 
 -- | Name of the in-application stream.
 output_name :: Lens.Lens' Output Prelude.Text
@@ -116,16 +116,16 @@ output_destinationSchema = Lens.lens (\Output' {destinationSchema} -> destinatio
 instance Prelude.Hashable Output where
   hashWithSalt _salt Output' {..} =
     _salt `Prelude.hashWithSalt` kinesisFirehoseOutput
-      `Prelude.hashWithSalt` lambdaOutput
       `Prelude.hashWithSalt` kinesisStreamsOutput
+      `Prelude.hashWithSalt` lambdaOutput
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` destinationSchema
 
 instance Prelude.NFData Output where
   rnf Output' {..} =
     Prelude.rnf kinesisFirehoseOutput
-      `Prelude.seq` Prelude.rnf lambdaOutput
       `Prelude.seq` Prelude.rnf kinesisStreamsOutput
+      `Prelude.seq` Prelude.rnf lambdaOutput
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf destinationSchema
 
@@ -135,9 +135,9 @@ instance Data.ToJSON Output where
       ( Prelude.catMaybes
           [ ("KinesisFirehoseOutput" Data..=)
               Prelude.<$> kinesisFirehoseOutput,
-            ("LambdaOutput" Data..=) Prelude.<$> lambdaOutput,
             ("KinesisStreamsOutput" Data..=)
               Prelude.<$> kinesisStreamsOutput,
+            ("LambdaOutput" Data..=) Prelude.<$> lambdaOutput,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just
               ("DestinationSchema" Data..= destinationSchema)

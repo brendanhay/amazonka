@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newKinesisStreamsInputDescription' smart constructor.
 data KinesisStreamsInputDescription = KinesisStreamsInputDescription'
-  { -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to access
+  { -- | Amazon Resource Name (ARN) of the Amazon Kinesis stream.
+    resourceARN :: Prelude.Maybe Prelude.Text,
+    -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to access
     -- the stream.
-    roleARN :: Prelude.Maybe Prelude.Text,
-    -- | Amazon Resource Name (ARN) of the Amazon Kinesis stream.
-    resourceARN :: Prelude.Maybe Prelude.Text
+    roleARN :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,27 +45,27 @@ data KinesisStreamsInputDescription = KinesisStreamsInputDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'resourceARN', 'kinesisStreamsInputDescription_resourceARN' - Amazon Resource Name (ARN) of the Amazon Kinesis stream.
+--
 -- 'roleARN', 'kinesisStreamsInputDescription_roleARN' - ARN of the IAM role that Amazon Kinesis Analytics can assume to access
 -- the stream.
---
--- 'resourceARN', 'kinesisStreamsInputDescription_resourceARN' - Amazon Resource Name (ARN) of the Amazon Kinesis stream.
 newKinesisStreamsInputDescription ::
   KinesisStreamsInputDescription
 newKinesisStreamsInputDescription =
   KinesisStreamsInputDescription'
-    { roleARN =
+    { resourceARN =
         Prelude.Nothing,
-      resourceARN = Prelude.Nothing
+      roleARN = Prelude.Nothing
     }
+
+-- | Amazon Resource Name (ARN) of the Amazon Kinesis stream.
+kinesisStreamsInputDescription_resourceARN :: Lens.Lens' KinesisStreamsInputDescription (Prelude.Maybe Prelude.Text)
+kinesisStreamsInputDescription_resourceARN = Lens.lens (\KinesisStreamsInputDescription' {resourceARN} -> resourceARN) (\s@KinesisStreamsInputDescription' {} a -> s {resourceARN = a} :: KinesisStreamsInputDescription)
 
 -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to access
 -- the stream.
 kinesisStreamsInputDescription_roleARN :: Lens.Lens' KinesisStreamsInputDescription (Prelude.Maybe Prelude.Text)
 kinesisStreamsInputDescription_roleARN = Lens.lens (\KinesisStreamsInputDescription' {roleARN} -> roleARN) (\s@KinesisStreamsInputDescription' {} a -> s {roleARN = a} :: KinesisStreamsInputDescription)
-
--- | Amazon Resource Name (ARN) of the Amazon Kinesis stream.
-kinesisStreamsInputDescription_resourceARN :: Lens.Lens' KinesisStreamsInputDescription (Prelude.Maybe Prelude.Text)
-kinesisStreamsInputDescription_resourceARN = Lens.lens (\KinesisStreamsInputDescription' {resourceARN} -> resourceARN) (\s@KinesisStreamsInputDescription' {} a -> s {resourceARN = a} :: KinesisStreamsInputDescription)
 
 instance Data.FromJSON KinesisStreamsInputDescription where
   parseJSON =
@@ -73,8 +73,8 @@ instance Data.FromJSON KinesisStreamsInputDescription where
       "KinesisStreamsInputDescription"
       ( \x ->
           KinesisStreamsInputDescription'
-            Prelude.<$> (x Data..:? "RoleARN")
-            Prelude.<*> (x Data..:? "ResourceARN")
+            Prelude.<$> (x Data..:? "ResourceARN")
+            Prelude.<*> (x Data..:? "RoleARN")
       )
 
 instance
@@ -84,13 +84,13 @@ instance
   hashWithSalt
     _salt
     KinesisStreamsInputDescription' {..} =
-      _salt `Prelude.hashWithSalt` roleARN
-        `Prelude.hashWithSalt` resourceARN
+      _salt `Prelude.hashWithSalt` resourceARN
+        `Prelude.hashWithSalt` roleARN
 
 instance
   Prelude.NFData
     KinesisStreamsInputDescription
   where
   rnf KinesisStreamsInputDescription' {..} =
-    Prelude.rnf roleARN
-      `Prelude.seq` Prelude.rnf resourceARN
+    Prelude.rnf resourceARN
+      `Prelude.seq` Prelude.rnf roleARN

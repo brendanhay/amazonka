@@ -31,11 +31,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInputLambdaProcessorDescription' smart constructor.
 data InputLambdaProcessorDescription = InputLambdaProcessorDescription'
-  { -- | The ARN of the IAM role that is used to access the AWS Lambda function.
-    roleARN :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the <https://docs.aws.amazon.com/lambda/ AWS Lambda> function
+  { -- | The ARN of the <https://docs.aws.amazon.com/lambda/ AWS Lambda> function
     -- that is used to preprocess the records in the stream.
-    resourceARN :: Prelude.Maybe Prelude.Text
+    resourceARN :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the IAM role that is used to access the AWS Lambda function.
+    roleARN :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,27 +47,27 @@ data InputLambdaProcessorDescription = InputLambdaProcessorDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleARN', 'inputLambdaProcessorDescription_roleARN' - The ARN of the IAM role that is used to access the AWS Lambda function.
---
 -- 'resourceARN', 'inputLambdaProcessorDescription_resourceARN' - The ARN of the <https://docs.aws.amazon.com/lambda/ AWS Lambda> function
 -- that is used to preprocess the records in the stream.
+--
+-- 'roleARN', 'inputLambdaProcessorDescription_roleARN' - The ARN of the IAM role that is used to access the AWS Lambda function.
 newInputLambdaProcessorDescription ::
   InputLambdaProcessorDescription
 newInputLambdaProcessorDescription =
   InputLambdaProcessorDescription'
-    { roleARN =
+    { resourceARN =
         Prelude.Nothing,
-      resourceARN = Prelude.Nothing
+      roleARN = Prelude.Nothing
     }
-
--- | The ARN of the IAM role that is used to access the AWS Lambda function.
-inputLambdaProcessorDescription_roleARN :: Lens.Lens' InputLambdaProcessorDescription (Prelude.Maybe Prelude.Text)
-inputLambdaProcessorDescription_roleARN = Lens.lens (\InputLambdaProcessorDescription' {roleARN} -> roleARN) (\s@InputLambdaProcessorDescription' {} a -> s {roleARN = a} :: InputLambdaProcessorDescription)
 
 -- | The ARN of the <https://docs.aws.amazon.com/lambda/ AWS Lambda> function
 -- that is used to preprocess the records in the stream.
 inputLambdaProcessorDescription_resourceARN :: Lens.Lens' InputLambdaProcessorDescription (Prelude.Maybe Prelude.Text)
 inputLambdaProcessorDescription_resourceARN = Lens.lens (\InputLambdaProcessorDescription' {resourceARN} -> resourceARN) (\s@InputLambdaProcessorDescription' {} a -> s {resourceARN = a} :: InputLambdaProcessorDescription)
+
+-- | The ARN of the IAM role that is used to access the AWS Lambda function.
+inputLambdaProcessorDescription_roleARN :: Lens.Lens' InputLambdaProcessorDescription (Prelude.Maybe Prelude.Text)
+inputLambdaProcessorDescription_roleARN = Lens.lens (\InputLambdaProcessorDescription' {roleARN} -> roleARN) (\s@InputLambdaProcessorDescription' {} a -> s {roleARN = a} :: InputLambdaProcessorDescription)
 
 instance
   Data.FromJSON
@@ -78,8 +78,8 @@ instance
       "InputLambdaProcessorDescription"
       ( \x ->
           InputLambdaProcessorDescription'
-            Prelude.<$> (x Data..:? "RoleARN")
-            Prelude.<*> (x Data..:? "ResourceARN")
+            Prelude.<$> (x Data..:? "ResourceARN")
+            Prelude.<*> (x Data..:? "RoleARN")
       )
 
 instance
@@ -89,13 +89,13 @@ instance
   hashWithSalt
     _salt
     InputLambdaProcessorDescription' {..} =
-      _salt `Prelude.hashWithSalt` roleARN
-        `Prelude.hashWithSalt` resourceARN
+      _salt `Prelude.hashWithSalt` resourceARN
+        `Prelude.hashWithSalt` roleARN
 
 instance
   Prelude.NFData
     InputLambdaProcessorDescription
   where
   rnf InputLambdaProcessorDescription' {..} =
-    Prelude.rnf roleARN
-      `Prelude.seq` Prelude.rnf resourceARN
+    Prelude.rnf resourceARN
+      `Prelude.seq` Prelude.rnf roleARN

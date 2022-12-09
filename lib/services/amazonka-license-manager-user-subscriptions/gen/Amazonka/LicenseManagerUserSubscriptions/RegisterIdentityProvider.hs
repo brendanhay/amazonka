@@ -27,6 +27,7 @@ module Amazonka.LicenseManagerUserSubscriptions.RegisterIdentityProvider
     newRegisterIdentityProvider,
 
     -- * Request Lenses
+    registerIdentityProvider_settings,
     registerIdentityProvider_identityProvider,
     registerIdentityProvider_product,
 
@@ -50,7 +51,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRegisterIdentityProvider' smart constructor.
 data RegisterIdentityProvider = RegisterIdentityProvider'
-  { -- | An object that specifies details for the identity provider.
+  { -- | The registered identity provider’s product related configuration
+    -- settings such as the subnets to provision VPC endpoints.
+    settings :: Prelude.Maybe Settings,
+    -- | An object that specifies details for the identity provider.
     identityProvider :: IdentityProvider,
     -- | The name of the user-based subscription product.
     product :: Prelude.Text
@@ -65,6 +69,9 @@ data RegisterIdentityProvider = RegisterIdentityProvider'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'settings', 'registerIdentityProvider_settings' - The registered identity provider’s product related configuration
+-- settings such as the subnets to provision VPC endpoints.
+--
 -- 'identityProvider', 'registerIdentityProvider_identityProvider' - An object that specifies details for the identity provider.
 --
 -- 'product', 'registerIdentityProvider_product' - The name of the user-based subscription product.
@@ -78,10 +85,16 @@ newRegisterIdentityProvider
   pIdentityProvider_
   pProduct_ =
     RegisterIdentityProvider'
-      { identityProvider =
-          pIdentityProvider_,
+      { settings =
+          Prelude.Nothing,
+        identityProvider = pIdentityProvider_,
         product = pProduct_
       }
+
+-- | The registered identity provider’s product related configuration
+-- settings such as the subnets to provision VPC endpoints.
+registerIdentityProvider_settings :: Lens.Lens' RegisterIdentityProvider (Prelude.Maybe Settings)
+registerIdentityProvider_settings = Lens.lens (\RegisterIdentityProvider' {settings} -> settings) (\s@RegisterIdentityProvider' {} a -> s {settings = a} :: RegisterIdentityProvider)
 
 -- | An object that specifies details for the identity provider.
 registerIdentityProvider_identityProvider :: Lens.Lens' RegisterIdentityProvider IdentityProvider
@@ -107,12 +120,14 @@ instance Core.AWSRequest RegisterIdentityProvider where
 
 instance Prelude.Hashable RegisterIdentityProvider where
   hashWithSalt _salt RegisterIdentityProvider' {..} =
-    _salt `Prelude.hashWithSalt` identityProvider
+    _salt `Prelude.hashWithSalt` settings
+      `Prelude.hashWithSalt` identityProvider
       `Prelude.hashWithSalt` product
 
 instance Prelude.NFData RegisterIdentityProvider where
   rnf RegisterIdentityProvider' {..} =
-    Prelude.rnf identityProvider
+    Prelude.rnf settings
+      `Prelude.seq` Prelude.rnf identityProvider
       `Prelude.seq` Prelude.rnf product
 
 instance Data.ToHeaders RegisterIdentityProvider where
@@ -130,7 +145,8 @@ instance Data.ToJSON RegisterIdentityProvider where
   toJSON RegisterIdentityProvider' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just
+          [ ("Settings" Data..=) Prelude.<$> settings,
+            Prelude.Just
               ("IdentityProvider" Data..= identityProvider),
             Prelude.Just ("Product" Data..= product)
           ]

@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import Amazonka.LicenseManagerUserSubscriptions.Types.IdentityProvider
+import Amazonka.LicenseManagerUserSubscriptions.Types.Settings
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an identity provider.
@@ -35,6 +36,10 @@ data IdentityProviderSummary = IdentityProviderSummary'
     identityProvider :: IdentityProvider,
     -- | The name of the user-based subscription product.
     product :: Prelude.Text,
+    -- | An object that details the registered identity provider’s product
+    -- related configuration settings such as the subnets to provision VPC
+    -- endpoints.
+    settings :: Settings,
     -- | The status of an identity provider.
     status :: Prelude.Text
   }
@@ -54,24 +59,32 @@ data IdentityProviderSummary = IdentityProviderSummary'
 --
 -- 'product', 'identityProviderSummary_product' - The name of the user-based subscription product.
 --
+-- 'settings', 'identityProviderSummary_settings' - An object that details the registered identity provider’s product
+-- related configuration settings such as the subnets to provision VPC
+-- endpoints.
+--
 -- 'status', 'identityProviderSummary_status' - The status of an identity provider.
 newIdentityProviderSummary ::
   -- | 'identityProvider'
   IdentityProvider ->
   -- | 'product'
   Prelude.Text ->
+  -- | 'settings'
+  Settings ->
   -- | 'status'
   Prelude.Text ->
   IdentityProviderSummary
 newIdentityProviderSummary
   pIdentityProvider_
   pProduct_
+  pSettings_
   pStatus_ =
     IdentityProviderSummary'
       { failureMessage =
           Prelude.Nothing,
         identityProvider = pIdentityProvider_,
         product = pProduct_,
+        settings = pSettings_,
         status = pStatus_
       }
 
@@ -87,6 +100,12 @@ identityProviderSummary_identityProvider = Lens.lens (\IdentityProviderSummary' 
 identityProviderSummary_product :: Lens.Lens' IdentityProviderSummary Prelude.Text
 identityProviderSummary_product = Lens.lens (\IdentityProviderSummary' {product} -> product) (\s@IdentityProviderSummary' {} a -> s {product = a} :: IdentityProviderSummary)
 
+-- | An object that details the registered identity provider’s product
+-- related configuration settings such as the subnets to provision VPC
+-- endpoints.
+identityProviderSummary_settings :: Lens.Lens' IdentityProviderSummary Settings
+identityProviderSummary_settings = Lens.lens (\IdentityProviderSummary' {settings} -> settings) (\s@IdentityProviderSummary' {} a -> s {settings = a} :: IdentityProviderSummary)
+
 -- | The status of an identity provider.
 identityProviderSummary_status :: Lens.Lens' IdentityProviderSummary Prelude.Text
 identityProviderSummary_status = Lens.lens (\IdentityProviderSummary' {status} -> status) (\s@IdentityProviderSummary' {} a -> s {status = a} :: IdentityProviderSummary)
@@ -100,6 +119,7 @@ instance Data.FromJSON IdentityProviderSummary where
             Prelude.<$> (x Data..:? "FailureMessage")
             Prelude.<*> (x Data..: "IdentityProvider")
             Prelude.<*> (x Data..: "Product")
+            Prelude.<*> (x Data..: "Settings")
             Prelude.<*> (x Data..: "Status")
       )
 
@@ -108,6 +128,7 @@ instance Prelude.Hashable IdentityProviderSummary where
     _salt `Prelude.hashWithSalt` failureMessage
       `Prelude.hashWithSalt` identityProvider
       `Prelude.hashWithSalt` product
+      `Prelude.hashWithSalt` settings
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData IdentityProviderSummary where
@@ -115,4 +136,5 @@ instance Prelude.NFData IdentityProviderSummary where
     Prelude.rnf failureMessage
       `Prelude.seq` Prelude.rnf identityProvider
       `Prelude.seq` Prelude.rnf product
+      `Prelude.seq` Prelude.rnf settings
       `Prelude.seq` Prelude.rnf status

@@ -24,17 +24,17 @@ module Amazonka.LicenseManagerUserSubscriptions
     -- ** AccessDeniedException
     _AccessDeniedException,
 
+    -- ** ConflictException
+    _ConflictException,
+
     -- ** InternalServerException
     _InternalServerException,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
-    -- ** ConflictException
-    _ConflictException,
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
 
     -- ** ThrottlingException
     _ThrottlingException,
@@ -108,6 +108,12 @@ module Amazonka.LicenseManagerUserSubscriptions
     StopProductSubscriptionResponse (StopProductSubscriptionResponse'),
     newStopProductSubscriptionResponse,
 
+    -- ** UpdateIdentityProviderSettings
+    UpdateIdentityProviderSettings (UpdateIdentityProviderSettings'),
+    newUpdateIdentityProviderSettings,
+    UpdateIdentityProviderSettingsResponse (UpdateIdentityProviderSettingsResponse'),
+    newUpdateIdentityProviderSettingsResponse,
+
     -- * Types
 
     -- ** ActiveDirectoryIdentityProvider
@@ -137,6 +143,14 @@ module Amazonka.LicenseManagerUserSubscriptions
     -- ** ProductUserSummary
     ProductUserSummary (ProductUserSummary'),
     newProductUserSummary,
+
+    -- ** Settings
+    Settings (Settings'),
+    newSettings,
+
+    -- ** UpdateSettings
+    UpdateSettings (UpdateSettings'),
+    newUpdateSettings,
   )
 where
 
@@ -152,6 +166,7 @@ import Amazonka.LicenseManagerUserSubscriptions.RegisterIdentityProvider
 import Amazonka.LicenseManagerUserSubscriptions.StartProductSubscription
 import Amazonka.LicenseManagerUserSubscriptions.StopProductSubscription
 import Amazonka.LicenseManagerUserSubscriptions.Types
+import Amazonka.LicenseManagerUserSubscriptions.UpdateIdentityProviderSettings
 import Amazonka.LicenseManagerUserSubscriptions.Waiters
 
 -- $errors

@@ -57,6 +57,9 @@ import Test.Tasty
 --         , requestStopProductSubscription $
 --             newStopProductSubscription
 --
+--         , requestUpdateIdentityProviderSettings $
+--             newUpdateIdentityProviderSettings
+--
 --           ]
 
 --     , testGroup "response"
@@ -89,6 +92,9 @@ import Test.Tasty
 --
 --         , responseStopProductSubscription $
 --             newStopProductSubscriptionResponse
+--
+--         , responseUpdateIdentityProviderSettings $
+--             newUpdateIdentityProviderSettingsResponse
 --
 --           ]
 --     ]
@@ -154,6 +160,12 @@ requestStopProductSubscription =
   req
     "StopProductSubscription"
     "fixture/StopProductSubscription.yaml"
+
+requestUpdateIdentityProviderSettings :: UpdateIdentityProviderSettings -> TestTree
+requestUpdateIdentityProviderSettings =
+  req
+    "UpdateIdentityProviderSettings"
+    "fixture/UpdateIdentityProviderSettings.yaml"
 
 -- Responses
 
@@ -236,3 +248,11 @@ responseStopProductSubscription =
     "fixture/StopProductSubscriptionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StopProductSubscription)
+
+responseUpdateIdentityProviderSettings :: UpdateIdentityProviderSettingsResponse -> TestTree
+responseUpdateIdentityProviderSettings =
+  res
+    "UpdateIdentityProviderSettingsResponse"
+    "fixture/UpdateIdentityProviderSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateIdentityProviderSettings)

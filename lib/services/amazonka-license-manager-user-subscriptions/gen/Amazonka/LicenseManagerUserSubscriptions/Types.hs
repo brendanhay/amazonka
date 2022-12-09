@@ -19,10 +19,10 @@ module Amazonka.LicenseManagerUserSubscriptions.Types
 
     -- * Errors
     _AccessDeniedException,
-    _InternalServerException,
-    _ServiceQuotaExceededException,
-    _ResourceNotFoundException,
     _ConflictException,
+    _InternalServerException,
+    _ResourceNotFoundException,
+    _ServiceQuotaExceededException,
     _ThrottlingException,
     _ValidationException,
 
@@ -49,6 +49,7 @@ module Amazonka.LicenseManagerUserSubscriptions.Types
     identityProviderSummary_failureMessage,
     identityProviderSummary_identityProvider,
     identityProviderSummary_product,
+    identityProviderSummary_settings,
     identityProviderSummary_status,
 
     -- * InstanceSummary
@@ -64,8 +65,8 @@ module Amazonka.LicenseManagerUserSubscriptions.Types
     InstanceUserSummary (..),
     newInstanceUserSummary,
     instanceUserSummary_associationDate,
-    instanceUserSummary_domain,
     instanceUserSummary_disassociationDate,
+    instanceUserSummary_domain,
     instanceUserSummary_statusMessage,
     instanceUserSummary_identityProvider,
     instanceUserSummary_instanceId,
@@ -76,13 +77,26 @@ module Amazonka.LicenseManagerUserSubscriptions.Types
     ProductUserSummary (..),
     newProductUserSummary,
     productUserSummary_domain,
-    productUserSummary_subscriptionStartDate,
     productUserSummary_statusMessage,
     productUserSummary_subscriptionEndDate,
+    productUserSummary_subscriptionStartDate,
     productUserSummary_identityProvider,
     productUserSummary_product,
     productUserSummary_status,
     productUserSummary_username,
+
+    -- * Settings
+    Settings (..),
+    newSettings,
+    settings_securityGroupId,
+    settings_subnets,
+
+    -- * UpdateSettings
+    UpdateSettings (..),
+    newUpdateSettings,
+    updateSettings_securityGroupId,
+    updateSettings_addSubnets,
+    updateSettings_removeSubnets,
   )
 where
 
@@ -95,6 +109,8 @@ import Amazonka.LicenseManagerUserSubscriptions.Types.IdentityProviderSummary
 import Amazonka.LicenseManagerUserSubscriptions.Types.InstanceSummary
 import Amazonka.LicenseManagerUserSubscriptions.Types.InstanceUserSummary
 import Amazonka.LicenseManagerUserSubscriptions.Types.ProductUserSummary
+import Amazonka.LicenseManagerUserSubscriptions.Types.Settings
+import Amazonka.LicenseManagerUserSubscriptions.Types.UpdateSettings
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 
@@ -128,28 +144,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -157,13 +167,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -171,6 +185,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You don\'t have sufficient access to perform this action.
@@ -180,19 +196,20 @@ _AccessDeniedException =
     defaultService
     "AccessDeniedException"
 
+-- | The request couldn\'t be completed because it conflicted with the
+-- current state of the resource.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+
 -- | An exception occurred with the service.
 _InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
     "InternalServerException"
-
--- | The request failed because a service quota is exceeded.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceQuotaExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceQuotaExceededException"
 
 -- | The resource couldn\'t be found.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -202,13 +219,12 @@ _ResourceNotFoundException =
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
 
--- | The request couldn\'t be completed because it conflicted with the
--- current state of the resource.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
+-- | The request failed because a service quota is exceeded.
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
-    "ConflictException"
+    "ServiceQuotaExceededException"
 
 -- | The request was denied because of request throttling. Retry the request.
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

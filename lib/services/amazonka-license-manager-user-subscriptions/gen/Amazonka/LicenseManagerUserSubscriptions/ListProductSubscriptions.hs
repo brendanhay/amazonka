@@ -30,9 +30,9 @@ module Amazonka.LicenseManagerUserSubscriptions.ListProductSubscriptions
     newListProductSubscriptions,
 
     -- * Request Lenses
-    listProductSubscriptions_nextToken,
     listProductSubscriptions_filters,
     listProductSubscriptions_maxResults,
+    listProductSubscriptions_nextToken,
     listProductSubscriptions_identityProvider,
     listProductSubscriptions_product,
 
@@ -57,13 +57,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListProductSubscriptions' smart constructor.
 data ListProductSubscriptions = ListProductSubscriptions'
-  { -- | Token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of structures that you can use to filter the results to those
+  { -- | An array of structures that you can use to filter the results to those
     -- that match one or more sets of key-value pairs that you specify.
     filters :: Prelude.Maybe [Filter],
     -- | Maximum number of results to return in a single call.
     maxResults :: Prelude.Maybe Prelude.Int,
+    -- | Token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | An object that specifies details for the identity provider.
     identityProvider :: IdentityProvider,
     -- | The name of the user-based subscription product.
@@ -79,12 +79,12 @@ data ListProductSubscriptions = ListProductSubscriptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listProductSubscriptions_nextToken' - Token for the next set of results.
---
 -- 'filters', 'listProductSubscriptions_filters' - An array of structures that you can use to filter the results to those
 -- that match one or more sets of key-value pairs that you specify.
 --
 -- 'maxResults', 'listProductSubscriptions_maxResults' - Maximum number of results to return in a single call.
+--
+-- 'nextToken', 'listProductSubscriptions_nextToken' - Token for the next set of results.
 --
 -- 'identityProvider', 'listProductSubscriptions_identityProvider' - An object that specifies details for the identity provider.
 --
@@ -99,17 +99,13 @@ newListProductSubscriptions
   pIdentityProvider_
   pProduct_ =
     ListProductSubscriptions'
-      { nextToken =
+      { filters =
           Prelude.Nothing,
-        filters = Prelude.Nothing,
         maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         identityProvider = pIdentityProvider_,
         product = pProduct_
       }
-
--- | Token for the next set of results.
-listProductSubscriptions_nextToken :: Lens.Lens' ListProductSubscriptions (Prelude.Maybe Prelude.Text)
-listProductSubscriptions_nextToken = Lens.lens (\ListProductSubscriptions' {nextToken} -> nextToken) (\s@ListProductSubscriptions' {} a -> s {nextToken = a} :: ListProductSubscriptions)
 
 -- | An array of structures that you can use to filter the results to those
 -- that match one or more sets of key-value pairs that you specify.
@@ -119,6 +115,10 @@ listProductSubscriptions_filters = Lens.lens (\ListProductSubscriptions' {filter
 -- | Maximum number of results to return in a single call.
 listProductSubscriptions_maxResults :: Lens.Lens' ListProductSubscriptions (Prelude.Maybe Prelude.Int)
 listProductSubscriptions_maxResults = Lens.lens (\ListProductSubscriptions' {maxResults} -> maxResults) (\s@ListProductSubscriptions' {} a -> s {maxResults = a} :: ListProductSubscriptions)
+
+-- | Token for the next set of results.
+listProductSubscriptions_nextToken :: Lens.Lens' ListProductSubscriptions (Prelude.Maybe Prelude.Text)
+listProductSubscriptions_nextToken = Lens.lens (\ListProductSubscriptions' {nextToken} -> nextToken) (\s@ListProductSubscriptions' {} a -> s {nextToken = a} :: ListProductSubscriptions)
 
 -- | An object that specifies details for the identity provider.
 listProductSubscriptions_identityProvider :: Lens.Lens' ListProductSubscriptions IdentityProvider
@@ -169,17 +169,17 @@ instance Core.AWSRequest ListProductSubscriptions where
 
 instance Prelude.Hashable ListProductSubscriptions where
   hashWithSalt _salt ListProductSubscriptions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` identityProvider
       `Prelude.hashWithSalt` product
 
 instance Prelude.NFData ListProductSubscriptions where
   rnf ListProductSubscriptions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf identityProvider
       `Prelude.seq` Prelude.rnf product
 
@@ -198,9 +198,9 @@ instance Data.ToJSON ListProductSubscriptions where
   toJSON ListProductSubscriptions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
+          [ ("Filters" Data..=) Prelude.<$> filters,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("IdentityProvider" Data..= identityProvider),
             Prelude.Just ("Product" Data..= product)

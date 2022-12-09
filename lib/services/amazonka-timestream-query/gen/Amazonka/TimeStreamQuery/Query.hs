@@ -53,8 +53,8 @@ module Amazonka.TimeStreamQuery.Query
 
     -- * Request Lenses
     query_clientToken,
-    query_nextToken,
     query_maxRows,
+    query_nextToken,
     query_queryString,
 
     -- * Destructuring the Response
@@ -102,6 +102,25 @@ data Query = Query'
     -- -   After 4 hours, any request with the same @ClientToken@ is treated as
     --     a new request.
     clientToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The total number of rows to be returned in the @Query@ output. The
+    -- initial run of @Query@ with a @MaxRows@ value specified will return the
+    -- result set of the query in two cases:
+    --
+    -- -   The size of the result is less than @1MB@.
+    --
+    -- -   The number of rows in the result set is less than the value of
+    --     @maxRows@.
+    --
+    -- Otherwise, the initial invocation of @Query@ only returns a @NextToken@,
+    -- which can then be used in subsequent calls to fetch the result set. To
+    -- resume pagination, provide the @NextToken@ value in the subsequent
+    -- command.
+    --
+    -- If the row size is large (e.g. a row has many columns), Timestream may
+    -- return fewer rows to keep the response size from exceeding the 1 MB
+    -- limit. If @MaxRows@ is not provided, Timestream will send the necessary
+    -- number of rows to meet the 1 MB limit.
+    maxRows :: Prelude.Maybe Prelude.Natural,
     -- | A pagination token used to return a set of results. When the @Query@ API
     -- is invoked using @NextToken@, that particular invocation is assumed to
     -- be a subsequent invocation of a prior call to @Query@, and a result set
@@ -133,25 +152,6 @@ data Query = Query'
     --     do not have the same query string in the query requests, the query
     --     will fail with an @Invalid pagination token@ error.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The total number of rows to be returned in the @Query@ output. The
-    -- initial run of @Query@ with a @MaxRows@ value specified will return the
-    -- result set of the query in two cases:
-    --
-    -- -   The size of the result is less than @1MB@.
-    --
-    -- -   The number of rows in the result set is less than the value of
-    --     @maxRows@.
-    --
-    -- Otherwise, the initial invocation of @Query@ only returns a @NextToken@,
-    -- which can then be used in subsequent calls to fetch the result set. To
-    -- resume pagination, provide the @NextToken@ value in the subsequent
-    -- command.
-    --
-    -- If the row size is large (e.g. a row has many columns), Timestream may
-    -- return fewer rows to keep the response size from exceeding the 1 MB
-    -- limit. If @MaxRows@ is not provided, Timestream will send the necessary
-    -- number of rows to meet the 1 MB limit.
-    maxRows :: Prelude.Maybe Prelude.Natural,
     -- | The query to be run by Timestream.
     queryString :: Data.Sensitive Prelude.Text
   }
@@ -186,6 +186,25 @@ data Query = Query'
 -- -   After 4 hours, any request with the same @ClientToken@ is treated as
 --     a new request.
 --
+-- 'maxRows', 'query_maxRows' - The total number of rows to be returned in the @Query@ output. The
+-- initial run of @Query@ with a @MaxRows@ value specified will return the
+-- result set of the query in two cases:
+--
+-- -   The size of the result is less than @1MB@.
+--
+-- -   The number of rows in the result set is less than the value of
+--     @maxRows@.
+--
+-- Otherwise, the initial invocation of @Query@ only returns a @NextToken@,
+-- which can then be used in subsequent calls to fetch the result set. To
+-- resume pagination, provide the @NextToken@ value in the subsequent
+-- command.
+--
+-- If the row size is large (e.g. a row has many columns), Timestream may
+-- return fewer rows to keep the response size from exceeding the 1 MB
+-- limit. If @MaxRows@ is not provided, Timestream will send the necessary
+-- number of rows to meet the 1 MB limit.
+--
 -- 'nextToken', 'query_nextToken' - A pagination token used to return a set of results. When the @Query@ API
 -- is invoked using @NextToken@, that particular invocation is assumed to
 -- be a subsequent invocation of a prior call to @Query@, and a result set
@@ -217,25 +236,6 @@ data Query = Query'
 --     do not have the same query string in the query requests, the query
 --     will fail with an @Invalid pagination token@ error.
 --
--- 'maxRows', 'query_maxRows' - The total number of rows to be returned in the @Query@ output. The
--- initial run of @Query@ with a @MaxRows@ value specified will return the
--- result set of the query in two cases:
---
--- -   The size of the result is less than @1MB@.
---
--- -   The number of rows in the result set is less than the value of
---     @maxRows@.
---
--- Otherwise, the initial invocation of @Query@ only returns a @NextToken@,
--- which can then be used in subsequent calls to fetch the result set. To
--- resume pagination, provide the @NextToken@ value in the subsequent
--- command.
---
--- If the row size is large (e.g. a row has many columns), Timestream may
--- return fewer rows to keep the response size from exceeding the 1 MB
--- limit. If @MaxRows@ is not provided, Timestream will send the necessary
--- number of rows to meet the 1 MB limit.
---
 -- 'queryString', 'query_queryString' - The query to be run by Timestream.
 newQuery ::
   -- | 'queryString'
@@ -244,8 +244,8 @@ newQuery ::
 newQuery pQueryString_ =
   Query'
     { clientToken = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       maxRows = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       queryString = Data._Sensitive Lens.# pQueryString_
     }
 
@@ -271,6 +271,27 @@ newQuery pQueryString_ =
 --     a new request.
 query_clientToken :: Lens.Lens' Query (Prelude.Maybe Prelude.Text)
 query_clientToken = Lens.lens (\Query' {clientToken} -> clientToken) (\s@Query' {} a -> s {clientToken = a} :: Query) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The total number of rows to be returned in the @Query@ output. The
+-- initial run of @Query@ with a @MaxRows@ value specified will return the
+-- result set of the query in two cases:
+--
+-- -   The size of the result is less than @1MB@.
+--
+-- -   The number of rows in the result set is less than the value of
+--     @maxRows@.
+--
+-- Otherwise, the initial invocation of @Query@ only returns a @NextToken@,
+-- which can then be used in subsequent calls to fetch the result set. To
+-- resume pagination, provide the @NextToken@ value in the subsequent
+-- command.
+--
+-- If the row size is large (e.g. a row has many columns), Timestream may
+-- return fewer rows to keep the response size from exceeding the 1 MB
+-- limit. If @MaxRows@ is not provided, Timestream will send the necessary
+-- number of rows to meet the 1 MB limit.
+query_maxRows :: Lens.Lens' Query (Prelude.Maybe Prelude.Natural)
+query_maxRows = Lens.lens (\Query' {maxRows} -> maxRows) (\s@Query' {} a -> s {maxRows = a} :: Query)
 
 -- | A pagination token used to return a set of results. When the @Query@ API
 -- is invoked using @NextToken@, that particular invocation is assumed to
@@ -304,27 +325,6 @@ query_clientToken = Lens.lens (\Query' {clientToken} -> clientToken) (\s@Query' 
 --     will fail with an @Invalid pagination token@ error.
 query_nextToken :: Lens.Lens' Query (Prelude.Maybe Prelude.Text)
 query_nextToken = Lens.lens (\Query' {nextToken} -> nextToken) (\s@Query' {} a -> s {nextToken = a} :: Query)
-
--- | The total number of rows to be returned in the @Query@ output. The
--- initial run of @Query@ with a @MaxRows@ value specified will return the
--- result set of the query in two cases:
---
--- -   The size of the result is less than @1MB@.
---
--- -   The number of rows in the result set is less than the value of
---     @maxRows@.
---
--- Otherwise, the initial invocation of @Query@ only returns a @NextToken@,
--- which can then be used in subsequent calls to fetch the result set. To
--- resume pagination, provide the @NextToken@ value in the subsequent
--- command.
---
--- If the row size is large (e.g. a row has many columns), Timestream may
--- return fewer rows to keep the response size from exceeding the 1 MB
--- limit. If @MaxRows@ is not provided, Timestream will send the necessary
--- number of rows to meet the 1 MB limit.
-query_maxRows :: Lens.Lens' Query (Prelude.Maybe Prelude.Natural)
-query_maxRows = Lens.lens (\Query' {maxRows} -> maxRows) (\s@Query' {} a -> s {maxRows = a} :: Query)
 
 -- | The query to be run by Timestream.
 query_queryString :: Lens.Lens' Query Prelude.Text
@@ -365,15 +365,15 @@ instance Core.AWSRequest Query where
 instance Prelude.Hashable Query where
   hashWithSalt _salt Query' {..} =
     _salt `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxRows
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` queryString
 
 instance Prelude.NFData Query where
   rnf Query' {..} =
     Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxRows
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf queryString
 
 instance Data.ToHeaders Query where
@@ -394,8 +394,8 @@ instance Data.ToJSON Query where
     Data.object
       ( Prelude.catMaybes
           [ ("ClientToken" Data..=) Prelude.<$> clientToken,
-            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("MaxRows" Data..=) Prelude.<$> maxRows,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("QueryString" Data..= queryString)
           ]
       )

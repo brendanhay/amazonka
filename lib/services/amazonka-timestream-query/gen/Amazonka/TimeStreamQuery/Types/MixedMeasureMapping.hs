@@ -34,15 +34,15 @@ data MixedMeasureMapping = MixedMeasureMapping'
   { -- | Refers to the value of measure_name in a result row. This field is
     -- required if MeasureNameColumn is provided.
     measureName :: Prelude.Maybe Prelude.Text,
-    -- | Target measure name to be used. If not provided, the target measure name
-    -- by default would be measure-name if provided, or sourceColumn otherwise.
-    targetMeasureName :: Prelude.Maybe Prelude.Text,
-    -- | This field refers to the source column from which measure-value is to be
-    -- read for result materialization.
-    sourceColumn :: Prelude.Maybe Prelude.Text,
     -- | Required when measureValueType is MULTI. Attribute mappings for MULTI
     -- value measures.
     multiMeasureAttributeMappings :: Prelude.Maybe (Prelude.NonEmpty MultiMeasureAttributeMapping),
+    -- | This field refers to the source column from which measure-value is to be
+    -- read for result materialization.
+    sourceColumn :: Prelude.Maybe Prelude.Text,
+    -- | Target measure name to be used. If not provided, the target measure name
+    -- by default would be measure-name if provided, or sourceColumn otherwise.
+    targetMeasureName :: Prelude.Maybe Prelude.Text,
     -- | Type of the value that is to be read from sourceColumn. If the mapping
     -- is for MULTI, use MeasureValueType.MULTI.
     measureValueType :: MeasureValueType
@@ -60,14 +60,14 @@ data MixedMeasureMapping = MixedMeasureMapping'
 -- 'measureName', 'mixedMeasureMapping_measureName' - Refers to the value of measure_name in a result row. This field is
 -- required if MeasureNameColumn is provided.
 --
--- 'targetMeasureName', 'mixedMeasureMapping_targetMeasureName' - Target measure name to be used. If not provided, the target measure name
--- by default would be measure-name if provided, or sourceColumn otherwise.
+-- 'multiMeasureAttributeMappings', 'mixedMeasureMapping_multiMeasureAttributeMappings' - Required when measureValueType is MULTI. Attribute mappings for MULTI
+-- value measures.
 --
 -- 'sourceColumn', 'mixedMeasureMapping_sourceColumn' - This field refers to the source column from which measure-value is to be
 -- read for result materialization.
 --
--- 'multiMeasureAttributeMappings', 'mixedMeasureMapping_multiMeasureAttributeMappings' - Required when measureValueType is MULTI. Attribute mappings for MULTI
--- value measures.
+-- 'targetMeasureName', 'mixedMeasureMapping_targetMeasureName' - Target measure name to be used. If not provided, the target measure name
+-- by default would be measure-name if provided, or sourceColumn otherwise.
 --
 -- 'measureValueType', 'mixedMeasureMapping_measureValueType' - Type of the value that is to be read from sourceColumn. If the mapping
 -- is for MULTI, use MeasureValueType.MULTI.
@@ -78,9 +78,9 @@ newMixedMeasureMapping ::
 newMixedMeasureMapping pMeasureValueType_ =
   MixedMeasureMapping'
     { measureName = Prelude.Nothing,
-      targetMeasureName = Prelude.Nothing,
-      sourceColumn = Prelude.Nothing,
       multiMeasureAttributeMappings = Prelude.Nothing,
+      sourceColumn = Prelude.Nothing,
+      targetMeasureName = Prelude.Nothing,
       measureValueType = pMeasureValueType_
     }
 
@@ -89,20 +89,20 @@ newMixedMeasureMapping pMeasureValueType_ =
 mixedMeasureMapping_measureName :: Lens.Lens' MixedMeasureMapping (Prelude.Maybe Prelude.Text)
 mixedMeasureMapping_measureName = Lens.lens (\MixedMeasureMapping' {measureName} -> measureName) (\s@MixedMeasureMapping' {} a -> s {measureName = a} :: MixedMeasureMapping)
 
--- | Target measure name to be used. If not provided, the target measure name
--- by default would be measure-name if provided, or sourceColumn otherwise.
-mixedMeasureMapping_targetMeasureName :: Lens.Lens' MixedMeasureMapping (Prelude.Maybe Prelude.Text)
-mixedMeasureMapping_targetMeasureName = Lens.lens (\MixedMeasureMapping' {targetMeasureName} -> targetMeasureName) (\s@MixedMeasureMapping' {} a -> s {targetMeasureName = a} :: MixedMeasureMapping)
+-- | Required when measureValueType is MULTI. Attribute mappings for MULTI
+-- value measures.
+mixedMeasureMapping_multiMeasureAttributeMappings :: Lens.Lens' MixedMeasureMapping (Prelude.Maybe (Prelude.NonEmpty MultiMeasureAttributeMapping))
+mixedMeasureMapping_multiMeasureAttributeMappings = Lens.lens (\MixedMeasureMapping' {multiMeasureAttributeMappings} -> multiMeasureAttributeMappings) (\s@MixedMeasureMapping' {} a -> s {multiMeasureAttributeMappings = a} :: MixedMeasureMapping) Prelude.. Lens.mapping Lens.coerced
 
 -- | This field refers to the source column from which measure-value is to be
 -- read for result materialization.
 mixedMeasureMapping_sourceColumn :: Lens.Lens' MixedMeasureMapping (Prelude.Maybe Prelude.Text)
 mixedMeasureMapping_sourceColumn = Lens.lens (\MixedMeasureMapping' {sourceColumn} -> sourceColumn) (\s@MixedMeasureMapping' {} a -> s {sourceColumn = a} :: MixedMeasureMapping)
 
--- | Required when measureValueType is MULTI. Attribute mappings for MULTI
--- value measures.
-mixedMeasureMapping_multiMeasureAttributeMappings :: Lens.Lens' MixedMeasureMapping (Prelude.Maybe (Prelude.NonEmpty MultiMeasureAttributeMapping))
-mixedMeasureMapping_multiMeasureAttributeMappings = Lens.lens (\MixedMeasureMapping' {multiMeasureAttributeMappings} -> multiMeasureAttributeMappings) (\s@MixedMeasureMapping' {} a -> s {multiMeasureAttributeMappings = a} :: MixedMeasureMapping) Prelude.. Lens.mapping Lens.coerced
+-- | Target measure name to be used. If not provided, the target measure name
+-- by default would be measure-name if provided, or sourceColumn otherwise.
+mixedMeasureMapping_targetMeasureName :: Lens.Lens' MixedMeasureMapping (Prelude.Maybe Prelude.Text)
+mixedMeasureMapping_targetMeasureName = Lens.lens (\MixedMeasureMapping' {targetMeasureName} -> targetMeasureName) (\s@MixedMeasureMapping' {} a -> s {targetMeasureName = a} :: MixedMeasureMapping)
 
 -- | Type of the value that is to be read from sourceColumn. If the mapping
 -- is for MULTI, use MeasureValueType.MULTI.
@@ -116,26 +116,26 @@ instance Data.FromJSON MixedMeasureMapping where
       ( \x ->
           MixedMeasureMapping'
             Prelude.<$> (x Data..:? "MeasureName")
-            Prelude.<*> (x Data..:? "TargetMeasureName")
-            Prelude.<*> (x Data..:? "SourceColumn")
             Prelude.<*> (x Data..:? "MultiMeasureAttributeMappings")
+            Prelude.<*> (x Data..:? "SourceColumn")
+            Prelude.<*> (x Data..:? "TargetMeasureName")
             Prelude.<*> (x Data..: "MeasureValueType")
       )
 
 instance Prelude.Hashable MixedMeasureMapping where
   hashWithSalt _salt MixedMeasureMapping' {..} =
     _salt `Prelude.hashWithSalt` measureName
-      `Prelude.hashWithSalt` targetMeasureName
-      `Prelude.hashWithSalt` sourceColumn
       `Prelude.hashWithSalt` multiMeasureAttributeMappings
+      `Prelude.hashWithSalt` sourceColumn
+      `Prelude.hashWithSalt` targetMeasureName
       `Prelude.hashWithSalt` measureValueType
 
 instance Prelude.NFData MixedMeasureMapping where
   rnf MixedMeasureMapping' {..} =
     Prelude.rnf measureName
-      `Prelude.seq` Prelude.rnf targetMeasureName
-      `Prelude.seq` Prelude.rnf sourceColumn
       `Prelude.seq` Prelude.rnf multiMeasureAttributeMappings
+      `Prelude.seq` Prelude.rnf sourceColumn
+      `Prelude.seq` Prelude.rnf targetMeasureName
       `Prelude.seq` Prelude.rnf measureValueType
 
 instance Data.ToJSON MixedMeasureMapping where
@@ -143,11 +143,11 @@ instance Data.ToJSON MixedMeasureMapping where
     Data.object
       ( Prelude.catMaybes
           [ ("MeasureName" Data..=) Prelude.<$> measureName,
-            ("TargetMeasureName" Data..=)
-              Prelude.<$> targetMeasureName,
-            ("SourceColumn" Data..=) Prelude.<$> sourceColumn,
             ("MultiMeasureAttributeMappings" Data..=)
               Prelude.<$> multiMeasureAttributeMappings,
+            ("SourceColumn" Data..=) Prelude.<$> sourceColumn,
+            ("TargetMeasureName" Data..=)
+              Prelude.<$> targetMeasureName,
             Prelude.Just
               ("MeasureValueType" Data..= measureValueType)
           ]

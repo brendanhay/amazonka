@@ -22,29 +22,29 @@ module Amazonka.TimeStreamQuery
     -- ** AccessDeniedException
     _AccessDeniedException,
 
-    -- ** InternalServerException
-    _InternalServerException,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
     -- ** ConflictException
     _ConflictException,
 
-    -- ** ThrottlingException
-    _ThrottlingException,
-
-    -- ** ValidationException
-    _ValidationException,
+    -- ** InternalServerException
+    _InternalServerException,
 
     -- ** InvalidEndpointException
     _InvalidEndpointException,
 
     -- ** QueryExecutionException
     _QueryExecutionException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters

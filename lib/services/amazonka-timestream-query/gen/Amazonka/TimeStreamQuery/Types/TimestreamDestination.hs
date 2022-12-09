@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTimestreamDestination' smart constructor.
 data TimestreamDestination = TimestreamDestination'
-  { -- | Timestream table name.
-    tableName :: Prelude.Maybe Prelude.Text,
-    -- | Timestream database name.
-    databaseName :: Prelude.Maybe Prelude.Text
+  { -- | Timestream database name.
+    databaseName :: Prelude.Maybe Prelude.Text,
+    -- | Timestream table name.
+    tableName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,25 @@ data TimestreamDestination = TimestreamDestination'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tableName', 'timestreamDestination_tableName' - Timestream table name.
---
 -- 'databaseName', 'timestreamDestination_databaseName' - Timestream database name.
+--
+-- 'tableName', 'timestreamDestination_tableName' - Timestream table name.
 newTimestreamDestination ::
   TimestreamDestination
 newTimestreamDestination =
   TimestreamDestination'
-    { tableName = Prelude.Nothing,
-      databaseName = Prelude.Nothing
+    { databaseName =
+        Prelude.Nothing,
+      tableName = Prelude.Nothing
     }
-
--- | Timestream table name.
-timestreamDestination_tableName :: Lens.Lens' TimestreamDestination (Prelude.Maybe Prelude.Text)
-timestreamDestination_tableName = Lens.lens (\TimestreamDestination' {tableName} -> tableName) (\s@TimestreamDestination' {} a -> s {tableName = a} :: TimestreamDestination)
 
 -- | Timestream database name.
 timestreamDestination_databaseName :: Lens.Lens' TimestreamDestination (Prelude.Maybe Prelude.Text)
 timestreamDestination_databaseName = Lens.lens (\TimestreamDestination' {databaseName} -> databaseName) (\s@TimestreamDestination' {} a -> s {databaseName = a} :: TimestreamDestination)
+
+-- | Timestream table name.
+timestreamDestination_tableName :: Lens.Lens' TimestreamDestination (Prelude.Maybe Prelude.Text)
+timestreamDestination_tableName = Lens.lens (\TimestreamDestination' {tableName} -> tableName) (\s@TimestreamDestination' {} a -> s {tableName = a} :: TimestreamDestination)
 
 instance Data.FromJSON TimestreamDestination where
   parseJSON =
@@ -68,16 +69,16 @@ instance Data.FromJSON TimestreamDestination where
       "TimestreamDestination"
       ( \x ->
           TimestreamDestination'
-            Prelude.<$> (x Data..:? "TableName")
-            Prelude.<*> (x Data..:? "DatabaseName")
+            Prelude.<$> (x Data..:? "DatabaseName")
+            Prelude.<*> (x Data..:? "TableName")
       )
 
 instance Prelude.Hashable TimestreamDestination where
   hashWithSalt _salt TimestreamDestination' {..} =
-    _salt `Prelude.hashWithSalt` tableName
-      `Prelude.hashWithSalt` databaseName
+    _salt `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` tableName
 
 instance Prelude.NFData TimestreamDestination where
   rnf TimestreamDestination' {..} =
-    Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf databaseName
+    Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf tableName

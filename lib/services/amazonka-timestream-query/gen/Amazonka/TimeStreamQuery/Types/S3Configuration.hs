@@ -30,12 +30,12 @@ import Amazonka.TimeStreamQuery.Types.S3EncryptionOption
 --
 -- /See:/ 'newS3Configuration' smart constructor.
 data S3Configuration = S3Configuration'
-  { -- | Prefix for the error report key. Timestream by default adds the
-    -- following prefix to the error report path.
-    objectKeyPrefix :: Prelude.Maybe Prelude.Text,
-    -- | Encryption at rest options for the error reports. If no encryption
+  { -- | Encryption at rest options for the error reports. If no encryption
     -- option is specified, Timestream will choose SSE_S3 as default.
     encryptionOption :: Prelude.Maybe S3EncryptionOption,
+    -- | Prefix for the error report key. Timestream by default adds the
+    -- following prefix to the error report path.
+    objectKeyPrefix :: Prelude.Maybe Prelude.Text,
     -- | Name of the S3 bucket under which error reports will be created.
     bucketName :: Prelude.Text
   }
@@ -49,11 +49,11 @@ data S3Configuration = S3Configuration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'objectKeyPrefix', 's3Configuration_objectKeyPrefix' - Prefix for the error report key. Timestream by default adds the
--- following prefix to the error report path.
---
 -- 'encryptionOption', 's3Configuration_encryptionOption' - Encryption at rest options for the error reports. If no encryption
 -- option is specified, Timestream will choose SSE_S3 as default.
+--
+-- 'objectKeyPrefix', 's3Configuration_objectKeyPrefix' - Prefix for the error report key. Timestream by default adds the
+-- following prefix to the error report path.
 --
 -- 'bucketName', 's3Configuration_bucketName' - Name of the S3 bucket under which error reports will be created.
 newS3Configuration ::
@@ -62,20 +62,21 @@ newS3Configuration ::
   S3Configuration
 newS3Configuration pBucketName_ =
   S3Configuration'
-    { objectKeyPrefix = Prelude.Nothing,
-      encryptionOption = Prelude.Nothing,
+    { encryptionOption =
+        Prelude.Nothing,
+      objectKeyPrefix = Prelude.Nothing,
       bucketName = pBucketName_
     }
-
--- | Prefix for the error report key. Timestream by default adds the
--- following prefix to the error report path.
-s3Configuration_objectKeyPrefix :: Lens.Lens' S3Configuration (Prelude.Maybe Prelude.Text)
-s3Configuration_objectKeyPrefix = Lens.lens (\S3Configuration' {objectKeyPrefix} -> objectKeyPrefix) (\s@S3Configuration' {} a -> s {objectKeyPrefix = a} :: S3Configuration)
 
 -- | Encryption at rest options for the error reports. If no encryption
 -- option is specified, Timestream will choose SSE_S3 as default.
 s3Configuration_encryptionOption :: Lens.Lens' S3Configuration (Prelude.Maybe S3EncryptionOption)
 s3Configuration_encryptionOption = Lens.lens (\S3Configuration' {encryptionOption} -> encryptionOption) (\s@S3Configuration' {} a -> s {encryptionOption = a} :: S3Configuration)
+
+-- | Prefix for the error report key. Timestream by default adds the
+-- following prefix to the error report path.
+s3Configuration_objectKeyPrefix :: Lens.Lens' S3Configuration (Prelude.Maybe Prelude.Text)
+s3Configuration_objectKeyPrefix = Lens.lens (\S3Configuration' {objectKeyPrefix} -> objectKeyPrefix) (\s@S3Configuration' {} a -> s {objectKeyPrefix = a} :: S3Configuration)
 
 -- | Name of the S3 bucket under which error reports will be created.
 s3Configuration_bucketName :: Lens.Lens' S3Configuration Prelude.Text
@@ -87,31 +88,31 @@ instance Data.FromJSON S3Configuration where
       "S3Configuration"
       ( \x ->
           S3Configuration'
-            Prelude.<$> (x Data..:? "ObjectKeyPrefix")
-            Prelude.<*> (x Data..:? "EncryptionOption")
+            Prelude.<$> (x Data..:? "EncryptionOption")
+            Prelude.<*> (x Data..:? "ObjectKeyPrefix")
             Prelude.<*> (x Data..: "BucketName")
       )
 
 instance Prelude.Hashable S3Configuration where
   hashWithSalt _salt S3Configuration' {..} =
-    _salt `Prelude.hashWithSalt` objectKeyPrefix
-      `Prelude.hashWithSalt` encryptionOption
+    _salt `Prelude.hashWithSalt` encryptionOption
+      `Prelude.hashWithSalt` objectKeyPrefix
       `Prelude.hashWithSalt` bucketName
 
 instance Prelude.NFData S3Configuration where
   rnf S3Configuration' {..} =
-    Prelude.rnf objectKeyPrefix
-      `Prelude.seq` Prelude.rnf encryptionOption
+    Prelude.rnf encryptionOption
+      `Prelude.seq` Prelude.rnf objectKeyPrefix
       `Prelude.seq` Prelude.rnf bucketName
 
 instance Data.ToJSON S3Configuration where
   toJSON S3Configuration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ObjectKeyPrefix" Data..=)
-              Prelude.<$> objectKeyPrefix,
-            ("EncryptionOption" Data..=)
+          [ ("EncryptionOption" Data..=)
               Prelude.<$> encryptionOption,
+            ("ObjectKeyPrefix" Data..=)
+              Prelude.<$> objectKeyPrefix,
             Prelude.Just ("BucketName" Data..= bucketName)
           ]
       )

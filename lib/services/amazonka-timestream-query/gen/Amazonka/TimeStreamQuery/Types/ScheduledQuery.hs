@@ -32,18 +32,18 @@ import Amazonka.TimeStreamQuery.Types.TargetDestination
 --
 -- /See:/ 'newScheduledQuery' smart constructor.
 data ScheduledQuery = ScheduledQuery'
-  { -- | Target data source where final scheduled query result will be written.
-    targetDestination :: Prelude.Maybe TargetDestination,
-    -- | The last time the scheduled query was run.
-    previousInvocationTime :: Prelude.Maybe Data.POSIX,
+  { -- | The creation time of the scheduled query.
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | Configuration for scheduled query error reporting.
     errorReportConfiguration :: Prelude.Maybe ErrorReportConfiguration,
-    -- | The next time the scheduled query is to be run.
-    nextInvocationTime :: Prelude.Maybe Data.POSIX,
-    -- | The creation time of the scheduled query.
-    creationTime :: Prelude.Maybe Data.POSIX,
     -- | Status of the last scheduled query run.
     lastRunStatus :: Prelude.Maybe ScheduledQueryRunStatus,
+    -- | The next time the scheduled query is to be run.
+    nextInvocationTime :: Prelude.Maybe Data.POSIX,
+    -- | The last time the scheduled query was run.
+    previousInvocationTime :: Prelude.Maybe Data.POSIX,
+    -- | Target data source where final scheduled query result will be written.
+    targetDestination :: Prelude.Maybe TargetDestination,
     -- | The Amazon Resource Name.
     arn :: Prelude.Text,
     -- | The name of the scheduled query.
@@ -61,17 +61,17 @@ data ScheduledQuery = ScheduledQuery'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetDestination', 'scheduledQuery_targetDestination' - Target data source where final scheduled query result will be written.
---
--- 'previousInvocationTime', 'scheduledQuery_previousInvocationTime' - The last time the scheduled query was run.
+-- 'creationTime', 'scheduledQuery_creationTime' - The creation time of the scheduled query.
 --
 -- 'errorReportConfiguration', 'scheduledQuery_errorReportConfiguration' - Configuration for scheduled query error reporting.
 --
+-- 'lastRunStatus', 'scheduledQuery_lastRunStatus' - Status of the last scheduled query run.
+--
 -- 'nextInvocationTime', 'scheduledQuery_nextInvocationTime' - The next time the scheduled query is to be run.
 --
--- 'creationTime', 'scheduledQuery_creationTime' - The creation time of the scheduled query.
+-- 'previousInvocationTime', 'scheduledQuery_previousInvocationTime' - The last time the scheduled query was run.
 --
--- 'lastRunStatus', 'scheduledQuery_lastRunStatus' - Status of the last scheduled query run.
+-- 'targetDestination', 'scheduledQuery_targetDestination' - Target data source where final scheduled query result will be written.
 --
 -- 'arn', 'scheduledQuery_arn' - The Amazon Resource Name.
 --
@@ -88,41 +88,40 @@ newScheduledQuery ::
   ScheduledQuery
 newScheduledQuery pArn_ pName_ pState_ =
   ScheduledQuery'
-    { targetDestination =
-        Prelude.Nothing,
-      previousInvocationTime = Prelude.Nothing,
+    { creationTime = Prelude.Nothing,
       errorReportConfiguration = Prelude.Nothing,
-      nextInvocationTime = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
       lastRunStatus = Prelude.Nothing,
+      nextInvocationTime = Prelude.Nothing,
+      previousInvocationTime = Prelude.Nothing,
+      targetDestination = Prelude.Nothing,
       arn = pArn_,
       name = pName_,
       state = pState_
     }
 
--- | Target data source where final scheduled query result will be written.
-scheduledQuery_targetDestination :: Lens.Lens' ScheduledQuery (Prelude.Maybe TargetDestination)
-scheduledQuery_targetDestination = Lens.lens (\ScheduledQuery' {targetDestination} -> targetDestination) (\s@ScheduledQuery' {} a -> s {targetDestination = a} :: ScheduledQuery)
-
--- | The last time the scheduled query was run.
-scheduledQuery_previousInvocationTime :: Lens.Lens' ScheduledQuery (Prelude.Maybe Prelude.UTCTime)
-scheduledQuery_previousInvocationTime = Lens.lens (\ScheduledQuery' {previousInvocationTime} -> previousInvocationTime) (\s@ScheduledQuery' {} a -> s {previousInvocationTime = a} :: ScheduledQuery) Prelude.. Lens.mapping Data._Time
+-- | The creation time of the scheduled query.
+scheduledQuery_creationTime :: Lens.Lens' ScheduledQuery (Prelude.Maybe Prelude.UTCTime)
+scheduledQuery_creationTime = Lens.lens (\ScheduledQuery' {creationTime} -> creationTime) (\s@ScheduledQuery' {} a -> s {creationTime = a} :: ScheduledQuery) Prelude.. Lens.mapping Data._Time
 
 -- | Configuration for scheduled query error reporting.
 scheduledQuery_errorReportConfiguration :: Lens.Lens' ScheduledQuery (Prelude.Maybe ErrorReportConfiguration)
 scheduledQuery_errorReportConfiguration = Lens.lens (\ScheduledQuery' {errorReportConfiguration} -> errorReportConfiguration) (\s@ScheduledQuery' {} a -> s {errorReportConfiguration = a} :: ScheduledQuery)
 
+-- | Status of the last scheduled query run.
+scheduledQuery_lastRunStatus :: Lens.Lens' ScheduledQuery (Prelude.Maybe ScheduledQueryRunStatus)
+scheduledQuery_lastRunStatus = Lens.lens (\ScheduledQuery' {lastRunStatus} -> lastRunStatus) (\s@ScheduledQuery' {} a -> s {lastRunStatus = a} :: ScheduledQuery)
+
 -- | The next time the scheduled query is to be run.
 scheduledQuery_nextInvocationTime :: Lens.Lens' ScheduledQuery (Prelude.Maybe Prelude.UTCTime)
 scheduledQuery_nextInvocationTime = Lens.lens (\ScheduledQuery' {nextInvocationTime} -> nextInvocationTime) (\s@ScheduledQuery' {} a -> s {nextInvocationTime = a} :: ScheduledQuery) Prelude.. Lens.mapping Data._Time
 
--- | The creation time of the scheduled query.
-scheduledQuery_creationTime :: Lens.Lens' ScheduledQuery (Prelude.Maybe Prelude.UTCTime)
-scheduledQuery_creationTime = Lens.lens (\ScheduledQuery' {creationTime} -> creationTime) (\s@ScheduledQuery' {} a -> s {creationTime = a} :: ScheduledQuery) Prelude.. Lens.mapping Data._Time
+-- | The last time the scheduled query was run.
+scheduledQuery_previousInvocationTime :: Lens.Lens' ScheduledQuery (Prelude.Maybe Prelude.UTCTime)
+scheduledQuery_previousInvocationTime = Lens.lens (\ScheduledQuery' {previousInvocationTime} -> previousInvocationTime) (\s@ScheduledQuery' {} a -> s {previousInvocationTime = a} :: ScheduledQuery) Prelude.. Lens.mapping Data._Time
 
--- | Status of the last scheduled query run.
-scheduledQuery_lastRunStatus :: Lens.Lens' ScheduledQuery (Prelude.Maybe ScheduledQueryRunStatus)
-scheduledQuery_lastRunStatus = Lens.lens (\ScheduledQuery' {lastRunStatus} -> lastRunStatus) (\s@ScheduledQuery' {} a -> s {lastRunStatus = a} :: ScheduledQuery)
+-- | Target data source where final scheduled query result will be written.
+scheduledQuery_targetDestination :: Lens.Lens' ScheduledQuery (Prelude.Maybe TargetDestination)
+scheduledQuery_targetDestination = Lens.lens (\ScheduledQuery' {targetDestination} -> targetDestination) (\s@ScheduledQuery' {} a -> s {targetDestination = a} :: ScheduledQuery)
 
 -- | The Amazon Resource Name.
 scheduledQuery_arn :: Lens.Lens' ScheduledQuery Prelude.Text
@@ -142,12 +141,12 @@ instance Data.FromJSON ScheduledQuery where
       "ScheduledQuery"
       ( \x ->
           ScheduledQuery'
-            Prelude.<$> (x Data..:? "TargetDestination")
-            Prelude.<*> (x Data..:? "PreviousInvocationTime")
+            Prelude.<$> (x Data..:? "CreationTime")
             Prelude.<*> (x Data..:? "ErrorReportConfiguration")
-            Prelude.<*> (x Data..:? "NextInvocationTime")
-            Prelude.<*> (x Data..:? "CreationTime")
             Prelude.<*> (x Data..:? "LastRunStatus")
+            Prelude.<*> (x Data..:? "NextInvocationTime")
+            Prelude.<*> (x Data..:? "PreviousInvocationTime")
+            Prelude.<*> (x Data..:? "TargetDestination")
             Prelude.<*> (x Data..: "Arn")
             Prelude.<*> (x Data..: "Name")
             Prelude.<*> (x Data..: "State")
@@ -155,24 +154,24 @@ instance Data.FromJSON ScheduledQuery where
 
 instance Prelude.Hashable ScheduledQuery where
   hashWithSalt _salt ScheduledQuery' {..} =
-    _salt `Prelude.hashWithSalt` targetDestination
-      `Prelude.hashWithSalt` previousInvocationTime
+    _salt `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` errorReportConfiguration
-      `Prelude.hashWithSalt` nextInvocationTime
-      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` lastRunStatus
+      `Prelude.hashWithSalt` nextInvocationTime
+      `Prelude.hashWithSalt` previousInvocationTime
+      `Prelude.hashWithSalt` targetDestination
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` state
 
 instance Prelude.NFData ScheduledQuery where
   rnf ScheduledQuery' {..} =
-    Prelude.rnf targetDestination
-      `Prelude.seq` Prelude.rnf previousInvocationTime
+    Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf errorReportConfiguration
-      `Prelude.seq` Prelude.rnf nextInvocationTime
-      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf lastRunStatus
+      `Prelude.seq` Prelude.rnf nextInvocationTime
+      `Prelude.seq` Prelude.rnf previousInvocationTime
+      `Prelude.seq` Prelude.rnf targetDestination
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf state

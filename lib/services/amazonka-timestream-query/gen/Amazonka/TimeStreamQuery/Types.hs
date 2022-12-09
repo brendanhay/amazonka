@@ -19,14 +19,14 @@ module Amazonka.TimeStreamQuery.Types
 
     -- * Errors
     _AccessDeniedException,
-    _InternalServerException,
-    _ServiceQuotaExceededException,
-    _ResourceNotFoundException,
     _ConflictException,
-    _ThrottlingException,
-    _ValidationException,
+    _InternalServerException,
     _InvalidEndpointException,
     _QueryExecutionException,
+    _ResourceNotFoundException,
+    _ServiceQuotaExceededException,
+    _ThrottlingException,
+    _ValidationException,
 
     -- * DimensionValueType
     DimensionValueType (..),
@@ -58,11 +58,11 @@ module Amazonka.TimeStreamQuery.Types
     -- * Datum
     Datum (..),
     newDatum,
+    datum_arrayValue,
+    datum_nullValue,
+    datum_rowValue,
     datum_scalarValue,
     datum_timeSeriesValue,
-    datum_rowValue,
-    datum_nullValue,
-    datum_arrayValue,
 
     -- * DimensionMapping
     DimensionMapping (..),
@@ -89,19 +89,19 @@ module Amazonka.TimeStreamQuery.Types
     -- * ExecutionStats
     ExecutionStats (..),
     newExecutionStats,
+    executionStats_bytesMetered,
     executionStats_dataWrites,
+    executionStats_executionTimeInMillis,
     executionStats_queryResultRows,
     executionStats_recordsIngested,
-    executionStats_executionTimeInMillis,
-    executionStats_bytesMetered,
 
     -- * MixedMeasureMapping
     MixedMeasureMapping (..),
     newMixedMeasureMapping,
     mixedMeasureMapping_measureName,
-    mixedMeasureMapping_targetMeasureName,
-    mixedMeasureMapping_sourceColumn,
     mixedMeasureMapping_multiMeasureAttributeMappings,
+    mixedMeasureMapping_sourceColumn,
+    mixedMeasureMapping_targetMeasureName,
     mixedMeasureMapping_measureValueType,
 
     -- * MultiMeasureAttributeMapping
@@ -131,8 +131,8 @@ module Amazonka.TimeStreamQuery.Types
     -- * QueryStatus
     QueryStatus (..),
     newQueryStatus,
-    queryStatus_cumulativeBytesScanned,
     queryStatus_cumulativeBytesMetered,
+    queryStatus_cumulativeBytesScanned,
     queryStatus_progressPercentage,
 
     -- * Row
@@ -143,15 +143,15 @@ module Amazonka.TimeStreamQuery.Types
     -- * S3Configuration
     S3Configuration (..),
     newS3Configuration,
-    s3Configuration_objectKeyPrefix,
     s3Configuration_encryptionOption,
+    s3Configuration_objectKeyPrefix,
     s3Configuration_bucketName,
 
     -- * S3ReportLocation
     S3ReportLocation (..),
     newS3ReportLocation,
-    s3ReportLocation_objectKey,
     s3ReportLocation_bucketName,
+    s3ReportLocation_objectKey,
 
     -- * ScheduleConfiguration
     ScheduleConfiguration (..),
@@ -161,12 +161,12 @@ module Amazonka.TimeStreamQuery.Types
     -- * ScheduledQuery
     ScheduledQuery (..),
     newScheduledQuery,
-    scheduledQuery_targetDestination,
-    scheduledQuery_previousInvocationTime,
-    scheduledQuery_errorReportConfiguration,
-    scheduledQuery_nextInvocationTime,
     scheduledQuery_creationTime,
+    scheduledQuery_errorReportConfiguration,
     scheduledQuery_lastRunStatus,
+    scheduledQuery_nextInvocationTime,
+    scheduledQuery_previousInvocationTime,
+    scheduledQuery_targetDestination,
     scheduledQuery_arn,
     scheduledQuery_name,
     scheduledQuery_state,
@@ -174,15 +174,15 @@ module Amazonka.TimeStreamQuery.Types
     -- * ScheduledQueryDescription
     ScheduledQueryDescription (..),
     newScheduledQueryDescription,
-    scheduledQueryDescription_recentlyFailedRuns,
-    scheduledQueryDescription_lastRunSummary,
-    scheduledQueryDescription_previousInvocationTime,
-    scheduledQueryDescription_errorReportConfiguration,
-    scheduledQueryDescription_scheduledQueryExecutionRoleArn,
-    scheduledQueryDescription_kmsKeyId,
-    scheduledQueryDescription_targetConfiguration,
-    scheduledQueryDescription_nextInvocationTime,
     scheduledQueryDescription_creationTime,
+    scheduledQueryDescription_errorReportConfiguration,
+    scheduledQueryDescription_kmsKeyId,
+    scheduledQueryDescription_lastRunSummary,
+    scheduledQueryDescription_nextInvocationTime,
+    scheduledQueryDescription_previousInvocationTime,
+    scheduledQueryDescription_recentlyFailedRuns,
+    scheduledQueryDescription_scheduledQueryExecutionRoleArn,
+    scheduledQueryDescription_targetConfiguration,
     scheduledQueryDescription_arn,
     scheduledQueryDescription_name,
     scheduledQueryDescription_queryString,
@@ -194,20 +194,20 @@ module Amazonka.TimeStreamQuery.Types
     ScheduledQueryRunSummary (..),
     newScheduledQueryRunSummary,
     scheduledQueryRunSummary_errorReportLocation,
+    scheduledQueryRunSummary_executionStats,
+    scheduledQueryRunSummary_failureReason,
     scheduledQueryRunSummary_invocationTime,
     scheduledQueryRunSummary_runStatus,
-    scheduledQueryRunSummary_executionStats,
     scheduledQueryRunSummary_triggerTime,
-    scheduledQueryRunSummary_failureReason,
 
     -- * SelectColumn
     SelectColumn (..),
     newSelectColumn,
-    selectColumn_tableName,
-    selectColumn_name,
-    selectColumn_type,
-    selectColumn_databaseName,
     selectColumn_aliased,
+    selectColumn_databaseName,
+    selectColumn_name,
+    selectColumn_tableName,
+    selectColumn_type,
 
     -- * SnsConfiguration
     SnsConfiguration (..),
@@ -250,16 +250,16 @@ module Amazonka.TimeStreamQuery.Types
     -- * TimestreamDestination
     TimestreamDestination (..),
     newTimestreamDestination,
-    timestreamDestination_tableName,
     timestreamDestination_databaseName,
+    timestreamDestination_tableName,
 
     -- * Type
     Type (..),
     newType,
     type_arrayColumnInfo,
+    type_rowColumnInfo,
     type_scalarType,
     type_timeSeriesMeasureValueColumnInfo,
-    type_rowColumnInfo,
   )
 where
 
@@ -329,28 +329,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -358,13 +352,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -372,6 +370,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You are not authorized to perform this action.
@@ -381,28 +381,6 @@ _AccessDeniedException =
     defaultService
     "AccessDeniedException"
 
--- | Timestream was unable to fully process this request because of an
--- internal server error.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServerException"
-
--- | You have exceeded the service quota.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceQuotaExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceQuotaExceededException"
-
--- | The requested resource could not be found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-
 -- | Unable to poll results for a cancelled query.
 _ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ConflictException =
@@ -410,19 +388,13 @@ _ConflictException =
     defaultService
     "ConflictException"
 
--- | The request was denied due to request throttling.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ThrottlingException =
+-- | Timestream was unable to fully process this request because of an
+-- internal server error.
+_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException =
   Core._MatchServiceError
     defaultService
-    "ThrottlingException"
-
--- | Invalid or malformed request.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ValidationException =
-  Core._MatchServiceError
-    defaultService
-    "ValidationException"
+    "InternalServerException"
 
 -- | The requested endpoint was not valid.
 _InvalidEndpointException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -437,3 +409,31 @@ _QueryExecutionException =
   Core._MatchServiceError
     defaultService
     "QueryExecutionException"
+
+-- | The requested resource could not be found.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+
+-- | You have exceeded the service quota.
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceQuotaExceededException"
+
+-- | The request was denied due to request throttling.
+_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException =
+  Core._MatchServiceError
+    defaultService
+    "ThrottlingException"
+
+-- | Invalid or malformed request.
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
+  Core._MatchServiceError
+    defaultService
+    "ValidationException"

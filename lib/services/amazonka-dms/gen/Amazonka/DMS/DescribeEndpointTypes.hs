@@ -29,8 +29,8 @@ module Amazonka.DMS.DescribeEndpointTypes
     newDescribeEndpointTypes,
 
     -- * Request Lenses
-    describeEndpointTypes_marker,
     describeEndpointTypes_filters,
+    describeEndpointTypes_marker,
     describeEndpointTypes_maxRecords,
 
     -- * Destructuring the Response
@@ -56,14 +56,14 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeEndpointTypes' smart constructor.
 data DescribeEndpointTypes = DescribeEndpointTypes'
-  { -- | An optional pagination token provided by a previous request. If this
-    -- parameter is specified, the response includes only records beyond the
-    -- marker, up to the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | Filters applied to the endpoint types.
+  { -- | Filters applied to the endpoint types.
     --
     -- Valid filter names: engine-name | endpoint-type
     filters :: Prelude.Maybe [Filter],
+    -- | An optional pagination token provided by a previous request. If this
+    -- parameter is specified, the response includes only records beyond the
+    -- marker, up to the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that the remaining
@@ -84,13 +84,13 @@ data DescribeEndpointTypes = DescribeEndpointTypes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'marker', 'describeEndpointTypes_marker' - An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
---
 -- 'filters', 'describeEndpointTypes_filters' - Filters applied to the endpoint types.
 --
 -- Valid filter names: engine-name | endpoint-type
+--
+-- 'marker', 'describeEndpointTypes_marker' - An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
 --
 -- 'maxRecords', 'describeEndpointTypes_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -104,22 +104,22 @@ newDescribeEndpointTypes ::
   DescribeEndpointTypes
 newDescribeEndpointTypes =
   DescribeEndpointTypes'
-    { marker = Prelude.Nothing,
-      filters = Prelude.Nothing,
+    { filters = Prelude.Nothing,
+      marker = Prelude.Nothing,
       maxRecords = Prelude.Nothing
     }
-
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
-describeEndpointTypes_marker :: Lens.Lens' DescribeEndpointTypes (Prelude.Maybe Prelude.Text)
-describeEndpointTypes_marker = Lens.lens (\DescribeEndpointTypes' {marker} -> marker) (\s@DescribeEndpointTypes' {} a -> s {marker = a} :: DescribeEndpointTypes)
 
 -- | Filters applied to the endpoint types.
 --
 -- Valid filter names: engine-name | endpoint-type
 describeEndpointTypes_filters :: Lens.Lens' DescribeEndpointTypes (Prelude.Maybe [Filter])
 describeEndpointTypes_filters = Lens.lens (\DescribeEndpointTypes' {filters} -> filters) (\s@DescribeEndpointTypes' {} a -> s {filters = a} :: DescribeEndpointTypes) Prelude.. Lens.mapping Lens.coerced
+
+-- | An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+describeEndpointTypes_marker :: Lens.Lens' DescribeEndpointTypes (Prelude.Maybe Prelude.Text)
+describeEndpointTypes_marker = Lens.lens (\DescribeEndpointTypes' {marker} -> marker) (\s@DescribeEndpointTypes' {} a -> s {marker = a} :: DescribeEndpointTypes)
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -173,14 +173,14 @@ instance Core.AWSRequest DescribeEndpointTypes where
 
 instance Prelude.Hashable DescribeEndpointTypes where
   hashWithSalt _salt DescribeEndpointTypes' {..} =
-    _salt `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords
 
 instance Prelude.NFData DescribeEndpointTypes where
   rnf DescribeEndpointTypes' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxRecords
 
 instance Data.ToHeaders DescribeEndpointTypes where
@@ -202,8 +202,8 @@ instance Data.ToJSON DescribeEndpointTypes where
   toJSON DescribeEndpointTypes' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Marker" Data..=) Prelude.<$> marker,
-            ("Filters" Data..=) Prelude.<$> filters,
+          [ ("Filters" Data..=) Prelude.<$> filters,
+            ("Marker" Data..=) Prelude.<$> marker,
             ("MaxRecords" Data..=) Prelude.<$> maxRecords
           ]
       )

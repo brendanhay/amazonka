@@ -28,16 +28,16 @@ module Amazonka.DMS.DescribeFleetAdvisorLsaAnalysis
     newDescribeFleetAdvisorLsaAnalysis,
 
     -- * Request Lenses
-    describeFleetAdvisorLsaAnalysis_nextToken,
     describeFleetAdvisorLsaAnalysis_maxRecords,
+    describeFleetAdvisorLsaAnalysis_nextToken,
 
     -- * Destructuring the Response
     DescribeFleetAdvisorLsaAnalysisResponse (..),
     newDescribeFleetAdvisorLsaAnalysisResponse,
 
     -- * Response Lenses
-    describeFleetAdvisorLsaAnalysisResponse_nextToken,
     describeFleetAdvisorLsaAnalysisResponse_analysis,
+    describeFleetAdvisorLsaAnalysisResponse_nextToken,
     describeFleetAdvisorLsaAnalysisResponse_httpStatus,
   )
 where
@@ -52,13 +52,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeFleetAdvisorLsaAnalysis' smart constructor.
 data DescribeFleetAdvisorLsaAnalysis = DescribeFleetAdvisorLsaAnalysis'
-  { -- | If @NextToken@ is returned by a previous response, there are more
+  { -- | Sets the maximum number of records returned in the response.
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | If @NextToken@ is returned by a previous response, there are more
     -- results available. The value of @NextToken@ is a unique pagination token
     -- for each page. Make the call again using the returned token to retrieve
     -- the next page. Keep all other arguments unchanged.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Sets the maximum number of records returned in the response.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,20 +70,24 @@ data DescribeFleetAdvisorLsaAnalysis = DescribeFleetAdvisorLsaAnalysis'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxRecords', 'describeFleetAdvisorLsaAnalysis_maxRecords' - Sets the maximum number of records returned in the response.
+--
 -- 'nextToken', 'describeFleetAdvisorLsaAnalysis_nextToken' - If @NextToken@ is returned by a previous response, there are more
 -- results available. The value of @NextToken@ is a unique pagination token
 -- for each page. Make the call again using the returned token to retrieve
 -- the next page. Keep all other arguments unchanged.
---
--- 'maxRecords', 'describeFleetAdvisorLsaAnalysis_maxRecords' - Sets the maximum number of records returned in the response.
 newDescribeFleetAdvisorLsaAnalysis ::
   DescribeFleetAdvisorLsaAnalysis
 newDescribeFleetAdvisorLsaAnalysis =
   DescribeFleetAdvisorLsaAnalysis'
-    { nextToken =
+    { maxRecords =
         Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
+
+-- | Sets the maximum number of records returned in the response.
+describeFleetAdvisorLsaAnalysis_maxRecords :: Lens.Lens' DescribeFleetAdvisorLsaAnalysis (Prelude.Maybe Prelude.Int)
+describeFleetAdvisorLsaAnalysis_maxRecords = Lens.lens (\DescribeFleetAdvisorLsaAnalysis' {maxRecords} -> maxRecords) (\s@DescribeFleetAdvisorLsaAnalysis' {} a -> s {maxRecords = a} :: DescribeFleetAdvisorLsaAnalysis)
 
 -- | If @NextToken@ is returned by a previous response, there are more
 -- results available. The value of @NextToken@ is a unique pagination token
@@ -91,10 +95,6 @@ newDescribeFleetAdvisorLsaAnalysis =
 -- the next page. Keep all other arguments unchanged.
 describeFleetAdvisorLsaAnalysis_nextToken :: Lens.Lens' DescribeFleetAdvisorLsaAnalysis (Prelude.Maybe Prelude.Text)
 describeFleetAdvisorLsaAnalysis_nextToken = Lens.lens (\DescribeFleetAdvisorLsaAnalysis' {nextToken} -> nextToken) (\s@DescribeFleetAdvisorLsaAnalysis' {} a -> s {nextToken = a} :: DescribeFleetAdvisorLsaAnalysis)
-
--- | Sets the maximum number of records returned in the response.
-describeFleetAdvisorLsaAnalysis_maxRecords :: Lens.Lens' DescribeFleetAdvisorLsaAnalysis (Prelude.Maybe Prelude.Int)
-describeFleetAdvisorLsaAnalysis_maxRecords = Lens.lens (\DescribeFleetAdvisorLsaAnalysis' {maxRecords} -> maxRecords) (\s@DescribeFleetAdvisorLsaAnalysis' {} a -> s {maxRecords = a} :: DescribeFleetAdvisorLsaAnalysis)
 
 instance
   Core.AWSRequest
@@ -109,8 +109,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeFleetAdvisorLsaAnalysisResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Analysis" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Analysis" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -121,16 +121,16 @@ instance
   hashWithSalt
     _salt
     DescribeFleetAdvisorLsaAnalysis' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxRecords
+      _salt `Prelude.hashWithSalt` maxRecords
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     DescribeFleetAdvisorLsaAnalysis
   where
   rnf DescribeFleetAdvisorLsaAnalysis' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxRecords
+    Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -154,8 +154,8 @@ instance Data.ToJSON DescribeFleetAdvisorLsaAnalysis where
   toJSON DescribeFleetAdvisorLsaAnalysis' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxRecords" Data..=) Prelude.<$> maxRecords
+          [ ("MaxRecords" Data..=) Prelude.<$> maxRecords,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -167,13 +167,13 @@ instance Data.ToQuery DescribeFleetAdvisorLsaAnalysis where
 
 -- | /See:/ 'newDescribeFleetAdvisorLsaAnalysisResponse' smart constructor.
 data DescribeFleetAdvisorLsaAnalysisResponse = DescribeFleetAdvisorLsaAnalysisResponse'
-  { -- | If @NextToken@ is returned, there are more results available. The value
+  { -- | A list of @FleetAdvisorLsaAnalysisResponse@ objects.
+    analysis :: Prelude.Maybe [FleetAdvisorLsaAnalysisResponse],
+    -- | If @NextToken@ is returned, there are more results available. The value
     -- of @NextToken@ is a unique pagination token for each page. Make the call
     -- again using the returned token to retrieve the next page. Keep all other
     -- arguments unchanged.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of @FleetAdvisorLsaAnalysisResponse@ objects.
-    analysis :: Prelude.Maybe [FleetAdvisorLsaAnalysisResponse],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -187,12 +187,12 @@ data DescribeFleetAdvisorLsaAnalysisResponse = DescribeFleetAdvisorLsaAnalysisRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'analysis', 'describeFleetAdvisorLsaAnalysisResponse_analysis' - A list of @FleetAdvisorLsaAnalysisResponse@ objects.
+--
 -- 'nextToken', 'describeFleetAdvisorLsaAnalysisResponse_nextToken' - If @NextToken@ is returned, there are more results available. The value
 -- of @NextToken@ is a unique pagination token for each page. Make the call
 -- again using the returned token to retrieve the next page. Keep all other
 -- arguments unchanged.
---
--- 'analysis', 'describeFleetAdvisorLsaAnalysisResponse_analysis' - A list of @FleetAdvisorLsaAnalysisResponse@ objects.
 --
 -- 'httpStatus', 'describeFleetAdvisorLsaAnalysisResponse_httpStatus' - The response's http status code.
 newDescribeFleetAdvisorLsaAnalysisResponse ::
@@ -202,11 +202,15 @@ newDescribeFleetAdvisorLsaAnalysisResponse ::
 newDescribeFleetAdvisorLsaAnalysisResponse
   pHttpStatus_ =
     DescribeFleetAdvisorLsaAnalysisResponse'
-      { nextToken =
+      { analysis =
           Prelude.Nothing,
-        analysis = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | A list of @FleetAdvisorLsaAnalysisResponse@ objects.
+describeFleetAdvisorLsaAnalysisResponse_analysis :: Lens.Lens' DescribeFleetAdvisorLsaAnalysisResponse (Prelude.Maybe [FleetAdvisorLsaAnalysisResponse])
+describeFleetAdvisorLsaAnalysisResponse_analysis = Lens.lens (\DescribeFleetAdvisorLsaAnalysisResponse' {analysis} -> analysis) (\s@DescribeFleetAdvisorLsaAnalysisResponse' {} a -> s {analysis = a} :: DescribeFleetAdvisorLsaAnalysisResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If @NextToken@ is returned, there are more results available. The value
 -- of @NextToken@ is a unique pagination token for each page. Make the call
@@ -214,10 +218,6 @@ newDescribeFleetAdvisorLsaAnalysisResponse
 -- arguments unchanged.
 describeFleetAdvisorLsaAnalysisResponse_nextToken :: Lens.Lens' DescribeFleetAdvisorLsaAnalysisResponse (Prelude.Maybe Prelude.Text)
 describeFleetAdvisorLsaAnalysisResponse_nextToken = Lens.lens (\DescribeFleetAdvisorLsaAnalysisResponse' {nextToken} -> nextToken) (\s@DescribeFleetAdvisorLsaAnalysisResponse' {} a -> s {nextToken = a} :: DescribeFleetAdvisorLsaAnalysisResponse)
-
--- | A list of @FleetAdvisorLsaAnalysisResponse@ objects.
-describeFleetAdvisorLsaAnalysisResponse_analysis :: Lens.Lens' DescribeFleetAdvisorLsaAnalysisResponse (Prelude.Maybe [FleetAdvisorLsaAnalysisResponse])
-describeFleetAdvisorLsaAnalysisResponse_analysis = Lens.lens (\DescribeFleetAdvisorLsaAnalysisResponse' {analysis} -> analysis) (\s@DescribeFleetAdvisorLsaAnalysisResponse' {} a -> s {analysis = a} :: DescribeFleetAdvisorLsaAnalysisResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeFleetAdvisorLsaAnalysisResponse_httpStatus :: Lens.Lens' DescribeFleetAdvisorLsaAnalysisResponse Prelude.Int
@@ -228,6 +228,6 @@ instance
     DescribeFleetAdvisorLsaAnalysisResponse
   where
   rnf DescribeFleetAdvisorLsaAnalysisResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf analysis
+    Prelude.rnf analysis
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

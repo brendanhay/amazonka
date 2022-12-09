@@ -31,104 +31,104 @@ module Amazonka.DMS
     -- * Errors
     -- $errors
 
-    -- ** SubnetAlreadyInUse
-    _SubnetAlreadyInUse,
-
-    -- ** InvalidCertificateFault
-    _InvalidCertificateFault,
-
-    -- ** KMSNotFoundFault
-    _KMSNotFoundFault,
-
-    -- ** InvalidSubnet
-    _InvalidSubnet,
-
-    -- ** ResourceQuotaExceededFault
-    _ResourceQuotaExceededFault,
-
-    -- ** SNSInvalidTopicFault
-    _SNSInvalidTopicFault,
-
-    -- ** KMSThrottlingFault
-    _KMSThrottlingFault,
-
     -- ** AccessDeniedFault
     _AccessDeniedFault,
-
-    -- ** ResourceAlreadyExistsFault
-    _ResourceAlreadyExistsFault,
-
-    -- ** KMSFault
-    _KMSFault,
-
-    -- ** KMSAccessDeniedFault
-    _KMSAccessDeniedFault,
-
-    -- ** KMSInvalidStateFault
-    _KMSInvalidStateFault,
-
-    -- ** InsufficientResourceCapacityFault
-    _InsufficientResourceCapacityFault,
-
-    -- ** SNSNoAuthorizationFault
-    _SNSNoAuthorizationFault,
-
-    -- ** KMSKeyNotAccessibleFault
-    _KMSKeyNotAccessibleFault,
 
     -- ** CollectorNotFoundFault
     _CollectorNotFoundFault,
 
-    -- ** InvalidResourceStateFault
-    _InvalidResourceStateFault,
+    -- ** InsufficientResourceCapacityFault
+    _InsufficientResourceCapacityFault,
 
-    -- ** ReplicationSubnetGroupDoesNotCoverEnoughAZs
-    _ReplicationSubnetGroupDoesNotCoverEnoughAZs,
-
-    -- ** KMSDisabledFault
-    _KMSDisabledFault,
-
-    -- ** ResourceNotFoundFault
-    _ResourceNotFoundFault,
+    -- ** InvalidCertificateFault
+    _InvalidCertificateFault,
 
     -- ** InvalidOperationFault
     _InvalidOperationFault,
 
-    -- ** UpgradeDependencyFailureFault
-    _UpgradeDependencyFailureFault,
+    -- ** InvalidResourceStateFault
+    _InvalidResourceStateFault,
 
-    -- ** S3ResourceNotFoundFault
-    _S3ResourceNotFoundFault,
+    -- ** InvalidSubnet
+    _InvalidSubnet,
 
-    -- ** StorageQuotaExceededFault
-    _StorageQuotaExceededFault,
+    -- ** KMSAccessDeniedFault
+    _KMSAccessDeniedFault,
+
+    -- ** KMSDisabledFault
+    _KMSDisabledFault,
+
+    -- ** KMSFault
+    _KMSFault,
+
+    -- ** KMSInvalidStateFault
+    _KMSInvalidStateFault,
+
+    -- ** KMSKeyNotAccessibleFault
+    _KMSKeyNotAccessibleFault,
+
+    -- ** KMSNotFoundFault
+    _KMSNotFoundFault,
+
+    -- ** KMSThrottlingFault
+    _KMSThrottlingFault,
+
+    -- ** ReplicationSubnetGroupDoesNotCoverEnoughAZs
+    _ReplicationSubnetGroupDoesNotCoverEnoughAZs,
+
+    -- ** ResourceAlreadyExistsFault
+    _ResourceAlreadyExistsFault,
+
+    -- ** ResourceNotFoundFault
+    _ResourceNotFoundFault,
+
+    -- ** ResourceQuotaExceededFault
+    _ResourceQuotaExceededFault,
 
     -- ** S3AccessDeniedFault
     _S3AccessDeniedFault,
 
+    -- ** S3ResourceNotFoundFault
+    _S3ResourceNotFoundFault,
+
+    -- ** SNSInvalidTopicFault
+    _SNSInvalidTopicFault,
+
+    -- ** SNSNoAuthorizationFault
+    _SNSNoAuthorizationFault,
+
+    -- ** StorageQuotaExceededFault
+    _StorageQuotaExceededFault,
+
+    -- ** SubnetAlreadyInUse
+    _SubnetAlreadyInUse,
+
+    -- ** UpgradeDependencyFailureFault
+    _UpgradeDependencyFailureFault,
+
     -- * Waiters
     -- $waiters
-
-    -- ** ReplicationTaskStopped
-    newReplicationTaskStopped,
-
-    -- ** ReplicationInstanceAvailable
-    newReplicationInstanceAvailable,
 
     -- ** EndpointDeleted
     newEndpointDeleted,
 
-    -- ** ReplicationTaskDeleted
-    newReplicationTaskDeleted,
-
-    -- ** ReplicationTaskRunning
-    newReplicationTaskRunning,
+    -- ** ReplicationInstanceAvailable
+    newReplicationInstanceAvailable,
 
     -- ** ReplicationInstanceDeleted
     newReplicationInstanceDeleted,
 
+    -- ** ReplicationTaskDeleted
+    newReplicationTaskDeleted,
+
     -- ** ReplicationTaskReady
     newReplicationTaskReady,
+
+    -- ** ReplicationTaskRunning
+    newReplicationTaskRunning,
+
+    -- ** ReplicationTaskStopped
+    newReplicationTaskStopped,
 
     -- ** TestConnectionSucceeds
     newTestConnectionSucceeds,

@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newServerShortInfoResponse' smart constructor.
 data ServerShortInfoResponse = ServerShortInfoResponse'
-  { -- | The name address of a server in a Fleet Advisor collector inventory.
-    serverName :: Prelude.Maybe Prelude.Text,
+  { -- | The IP address of a server in a Fleet Advisor collector inventory.
+    ipAddress :: Prelude.Maybe Prelude.Text,
     -- | The ID of a server in a Fleet Advisor collector inventory.
     serverId :: Prelude.Maybe Prelude.Text,
-    -- | The IP address of a server in a Fleet Advisor collector inventory.
-    ipAddress :: Prelude.Maybe Prelude.Text
+    -- | The name address of a server in a Fleet Advisor collector inventory.
+    serverName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,32 +45,32 @@ data ServerShortInfoResponse = ServerShortInfoResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serverName', 'serverShortInfoResponse_serverName' - The name address of a server in a Fleet Advisor collector inventory.
+-- 'ipAddress', 'serverShortInfoResponse_ipAddress' - The IP address of a server in a Fleet Advisor collector inventory.
 --
 -- 'serverId', 'serverShortInfoResponse_serverId' - The ID of a server in a Fleet Advisor collector inventory.
 --
--- 'ipAddress', 'serverShortInfoResponse_ipAddress' - The IP address of a server in a Fleet Advisor collector inventory.
+-- 'serverName', 'serverShortInfoResponse_serverName' - The name address of a server in a Fleet Advisor collector inventory.
 newServerShortInfoResponse ::
   ServerShortInfoResponse
 newServerShortInfoResponse =
   ServerShortInfoResponse'
-    { serverName =
+    { ipAddress =
         Prelude.Nothing,
       serverId = Prelude.Nothing,
-      ipAddress = Prelude.Nothing
+      serverName = Prelude.Nothing
     }
 
--- | The name address of a server in a Fleet Advisor collector inventory.
-serverShortInfoResponse_serverName :: Lens.Lens' ServerShortInfoResponse (Prelude.Maybe Prelude.Text)
-serverShortInfoResponse_serverName = Lens.lens (\ServerShortInfoResponse' {serverName} -> serverName) (\s@ServerShortInfoResponse' {} a -> s {serverName = a} :: ServerShortInfoResponse)
+-- | The IP address of a server in a Fleet Advisor collector inventory.
+serverShortInfoResponse_ipAddress :: Lens.Lens' ServerShortInfoResponse (Prelude.Maybe Prelude.Text)
+serverShortInfoResponse_ipAddress = Lens.lens (\ServerShortInfoResponse' {ipAddress} -> ipAddress) (\s@ServerShortInfoResponse' {} a -> s {ipAddress = a} :: ServerShortInfoResponse)
 
 -- | The ID of a server in a Fleet Advisor collector inventory.
 serverShortInfoResponse_serverId :: Lens.Lens' ServerShortInfoResponse (Prelude.Maybe Prelude.Text)
 serverShortInfoResponse_serverId = Lens.lens (\ServerShortInfoResponse' {serverId} -> serverId) (\s@ServerShortInfoResponse' {} a -> s {serverId = a} :: ServerShortInfoResponse)
 
--- | The IP address of a server in a Fleet Advisor collector inventory.
-serverShortInfoResponse_ipAddress :: Lens.Lens' ServerShortInfoResponse (Prelude.Maybe Prelude.Text)
-serverShortInfoResponse_ipAddress = Lens.lens (\ServerShortInfoResponse' {ipAddress} -> ipAddress) (\s@ServerShortInfoResponse' {} a -> s {ipAddress = a} :: ServerShortInfoResponse)
+-- | The name address of a server in a Fleet Advisor collector inventory.
+serverShortInfoResponse_serverName :: Lens.Lens' ServerShortInfoResponse (Prelude.Maybe Prelude.Text)
+serverShortInfoResponse_serverName = Lens.lens (\ServerShortInfoResponse' {serverName} -> serverName) (\s@ServerShortInfoResponse' {} a -> s {serverName = a} :: ServerShortInfoResponse)
 
 instance Data.FromJSON ServerShortInfoResponse where
   parseJSON =
@@ -78,19 +78,19 @@ instance Data.FromJSON ServerShortInfoResponse where
       "ServerShortInfoResponse"
       ( \x ->
           ServerShortInfoResponse'
-            Prelude.<$> (x Data..:? "ServerName")
+            Prelude.<$> (x Data..:? "IpAddress")
             Prelude.<*> (x Data..:? "ServerId")
-            Prelude.<*> (x Data..:? "IpAddress")
+            Prelude.<*> (x Data..:? "ServerName")
       )
 
 instance Prelude.Hashable ServerShortInfoResponse where
   hashWithSalt _salt ServerShortInfoResponse' {..} =
-    _salt `Prelude.hashWithSalt` serverName
+    _salt `Prelude.hashWithSalt` ipAddress
       `Prelude.hashWithSalt` serverId
-      `Prelude.hashWithSalt` ipAddress
+      `Prelude.hashWithSalt` serverName
 
 instance Prelude.NFData ServerShortInfoResponse where
   rnf ServerShortInfoResponse' {..} =
-    Prelude.rnf serverName
+    Prelude.rnf ipAddress
       `Prelude.seq` Prelude.rnf serverId
-      `Prelude.seq` Prelude.rnf ipAddress
+      `Prelude.seq` Prelude.rnf serverName

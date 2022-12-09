@@ -28,17 +28,17 @@ module Amazonka.DMS.DescribeFleetAdvisorSchemas
     newDescribeFleetAdvisorSchemas,
 
     -- * Request Lenses
-    describeFleetAdvisorSchemas_nextToken,
     describeFleetAdvisorSchemas_filters,
     describeFleetAdvisorSchemas_maxRecords,
+    describeFleetAdvisorSchemas_nextToken,
 
     -- * Destructuring the Response
     DescribeFleetAdvisorSchemasResponse (..),
     newDescribeFleetAdvisorSchemasResponse,
 
     -- * Response Lenses
-    describeFleetAdvisorSchemasResponse_nextToken,
     describeFleetAdvisorSchemasResponse_fleetAdvisorSchemas,
+    describeFleetAdvisorSchemasResponse_nextToken,
     describeFleetAdvisorSchemasResponse_httpStatus,
   )
 where
@@ -53,12 +53,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeFleetAdvisorSchemas' smart constructor.
 data DescribeFleetAdvisorSchemas = DescribeFleetAdvisorSchemas'
-  { -- | If @NextToken@ is returned by a previous response, there are more
-    -- results available. The value of @NextToken@ is a unique pagination token
-    -- for each page. Make the call again using the returned token to retrieve
-    -- the next page. Keep all other arguments unchanged.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | If you specify any of the following filters, the output includes
+  { -- | If you specify any of the following filters, the output includes
     -- information for only those schemas that meet the filter criteria:
     --
     -- -   @complexity@ – The schema\'s complexity, for example @Simple@.
@@ -85,7 +80,12 @@ data DescribeFleetAdvisorSchemas = DescribeFleetAdvisorSchemas'
     -- @describe-fleet-advisor-schemas --filter Name=\"schema-id\",Values=\"50\"@
     filters :: Prelude.Maybe [Filter],
     -- | Sets the maximum number of records returned in the response.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | If @NextToken@ is returned by a previous response, there are more
+    -- results available. The value of @NextToken@ is a unique pagination token
+    -- for each page. Make the call again using the returned token to retrieve
+    -- the next page. Keep all other arguments unchanged.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -96,11 +96,6 @@ data DescribeFleetAdvisorSchemas = DescribeFleetAdvisorSchemas'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'describeFleetAdvisorSchemas_nextToken' - If @NextToken@ is returned by a previous response, there are more
--- results available. The value of @NextToken@ is a unique pagination token
--- for each page. Make the call again using the returned token to retrieve
--- the next page. Keep all other arguments unchanged.
 --
 -- 'filters', 'describeFleetAdvisorSchemas_filters' - If you specify any of the following filters, the output includes
 -- information for only those schemas that meet the filter criteria:
@@ -129,22 +124,20 @@ data DescribeFleetAdvisorSchemas = DescribeFleetAdvisorSchemas'
 -- @describe-fleet-advisor-schemas --filter Name=\"schema-id\",Values=\"50\"@
 --
 -- 'maxRecords', 'describeFleetAdvisorSchemas_maxRecords' - Sets the maximum number of records returned in the response.
+--
+-- 'nextToken', 'describeFleetAdvisorSchemas_nextToken' - If @NextToken@ is returned by a previous response, there are more
+-- results available. The value of @NextToken@ is a unique pagination token
+-- for each page. Make the call again using the returned token to retrieve
+-- the next page. Keep all other arguments unchanged.
 newDescribeFleetAdvisorSchemas ::
   DescribeFleetAdvisorSchemas
 newDescribeFleetAdvisorSchemas =
   DescribeFleetAdvisorSchemas'
-    { nextToken =
+    { filters =
         Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      maxRecords = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | If @NextToken@ is returned by a previous response, there are more
--- results available. The value of @NextToken@ is a unique pagination token
--- for each page. Make the call again using the returned token to retrieve
--- the next page. Keep all other arguments unchanged.
-describeFleetAdvisorSchemas_nextToken :: Lens.Lens' DescribeFleetAdvisorSchemas (Prelude.Maybe Prelude.Text)
-describeFleetAdvisorSchemas_nextToken = Lens.lens (\DescribeFleetAdvisorSchemas' {nextToken} -> nextToken) (\s@DescribeFleetAdvisorSchemas' {} a -> s {nextToken = a} :: DescribeFleetAdvisorSchemas)
 
 -- | If you specify any of the following filters, the output includes
 -- information for only those schemas that meet the filter criteria:
@@ -178,6 +171,13 @@ describeFleetAdvisorSchemas_filters = Lens.lens (\DescribeFleetAdvisorSchemas' {
 describeFleetAdvisorSchemas_maxRecords :: Lens.Lens' DescribeFleetAdvisorSchemas (Prelude.Maybe Prelude.Int)
 describeFleetAdvisorSchemas_maxRecords = Lens.lens (\DescribeFleetAdvisorSchemas' {maxRecords} -> maxRecords) (\s@DescribeFleetAdvisorSchemas' {} a -> s {maxRecords = a} :: DescribeFleetAdvisorSchemas)
 
+-- | If @NextToken@ is returned by a previous response, there are more
+-- results available. The value of @NextToken@ is a unique pagination token
+-- for each page. Make the call again using the returned token to retrieve
+-- the next page. Keep all other arguments unchanged.
+describeFleetAdvisorSchemas_nextToken :: Lens.Lens' DescribeFleetAdvisorSchemas (Prelude.Maybe Prelude.Text)
+describeFleetAdvisorSchemas_nextToken = Lens.lens (\DescribeFleetAdvisorSchemas' {nextToken} -> nextToken) (\s@DescribeFleetAdvisorSchemas' {} a -> s {nextToken = a} :: DescribeFleetAdvisorSchemas)
+
 instance Core.AWSRequest DescribeFleetAdvisorSchemas where
   type
     AWSResponse DescribeFleetAdvisorSchemas =
@@ -188,24 +188,24 @@ instance Core.AWSRequest DescribeFleetAdvisorSchemas where
     Response.receiveJSON
       ( \s h x ->
           DescribeFleetAdvisorSchemasResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "FleetAdvisorSchemas"
+            Prelude.<$> ( x Data..?> "FleetAdvisorSchemas"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeFleetAdvisorSchemas where
   hashWithSalt _salt DescribeFleetAdvisorSchemas' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeFleetAdvisorSchemas where
   rnf DescribeFleetAdvisorSchemas' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeFleetAdvisorSchemas where
   toHeaders =
@@ -226,9 +226,9 @@ instance Data.ToJSON DescribeFleetAdvisorSchemas where
   toJSON DescribeFleetAdvisorSchemas' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
-            ("MaxRecords" Data..=) Prelude.<$> maxRecords
+          [ ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxRecords" Data..=) Prelude.<$> maxRecords,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -240,13 +240,13 @@ instance Data.ToQuery DescribeFleetAdvisorSchemas where
 
 -- | /See:/ 'newDescribeFleetAdvisorSchemasResponse' smart constructor.
 data DescribeFleetAdvisorSchemasResponse = DescribeFleetAdvisorSchemasResponse'
-  { -- | If @NextToken@ is returned, there are more results available. The value
+  { -- | A collection of @SchemaResponse@ objects.
+    fleetAdvisorSchemas :: Prelude.Maybe [SchemaResponse],
+    -- | If @NextToken@ is returned, there are more results available. The value
     -- of @NextToken@ is a unique pagination token for each page. Make the call
     -- again using the returned token to retrieve the next page. Keep all other
     -- arguments unchanged.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A collection of @SchemaResponse@ objects.
-    fleetAdvisorSchemas :: Prelude.Maybe [SchemaResponse],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -260,12 +260,12 @@ data DescribeFleetAdvisorSchemasResponse = DescribeFleetAdvisorSchemasResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'fleetAdvisorSchemas', 'describeFleetAdvisorSchemasResponse_fleetAdvisorSchemas' - A collection of @SchemaResponse@ objects.
+--
 -- 'nextToken', 'describeFleetAdvisorSchemasResponse_nextToken' - If @NextToken@ is returned, there are more results available. The value
 -- of @NextToken@ is a unique pagination token for each page. Make the call
 -- again using the returned token to retrieve the next page. Keep all other
 -- arguments unchanged.
---
--- 'fleetAdvisorSchemas', 'describeFleetAdvisorSchemasResponse_fleetAdvisorSchemas' - A collection of @SchemaResponse@ objects.
 --
 -- 'httpStatus', 'describeFleetAdvisorSchemasResponse_httpStatus' - The response's http status code.
 newDescribeFleetAdvisorSchemasResponse ::
@@ -274,11 +274,15 @@ newDescribeFleetAdvisorSchemasResponse ::
   DescribeFleetAdvisorSchemasResponse
 newDescribeFleetAdvisorSchemasResponse pHttpStatus_ =
   DescribeFleetAdvisorSchemasResponse'
-    { nextToken =
+    { fleetAdvisorSchemas =
         Prelude.Nothing,
-      fleetAdvisorSchemas = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A collection of @SchemaResponse@ objects.
+describeFleetAdvisorSchemasResponse_fleetAdvisorSchemas :: Lens.Lens' DescribeFleetAdvisorSchemasResponse (Prelude.Maybe [SchemaResponse])
+describeFleetAdvisorSchemasResponse_fleetAdvisorSchemas = Lens.lens (\DescribeFleetAdvisorSchemasResponse' {fleetAdvisorSchemas} -> fleetAdvisorSchemas) (\s@DescribeFleetAdvisorSchemasResponse' {} a -> s {fleetAdvisorSchemas = a} :: DescribeFleetAdvisorSchemasResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If @NextToken@ is returned, there are more results available. The value
 -- of @NextToken@ is a unique pagination token for each page. Make the call
@@ -286,10 +290,6 @@ newDescribeFleetAdvisorSchemasResponse pHttpStatus_ =
 -- arguments unchanged.
 describeFleetAdvisorSchemasResponse_nextToken :: Lens.Lens' DescribeFleetAdvisorSchemasResponse (Prelude.Maybe Prelude.Text)
 describeFleetAdvisorSchemasResponse_nextToken = Lens.lens (\DescribeFleetAdvisorSchemasResponse' {nextToken} -> nextToken) (\s@DescribeFleetAdvisorSchemasResponse' {} a -> s {nextToken = a} :: DescribeFleetAdvisorSchemasResponse)
-
--- | A collection of @SchemaResponse@ objects.
-describeFleetAdvisorSchemasResponse_fleetAdvisorSchemas :: Lens.Lens' DescribeFleetAdvisorSchemasResponse (Prelude.Maybe [SchemaResponse])
-describeFleetAdvisorSchemasResponse_fleetAdvisorSchemas = Lens.lens (\DescribeFleetAdvisorSchemasResponse' {fleetAdvisorSchemas} -> fleetAdvisorSchemas) (\s@DescribeFleetAdvisorSchemasResponse' {} a -> s {fleetAdvisorSchemas = a} :: DescribeFleetAdvisorSchemasResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeFleetAdvisorSchemasResponse_httpStatus :: Lens.Lens' DescribeFleetAdvisorSchemasResponse Prelude.Int
@@ -300,6 +300,6 @@ instance
     DescribeFleetAdvisorSchemasResponse
   where
   rnf DescribeFleetAdvisorSchemasResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf fleetAdvisorSchemas
+    Prelude.rnf fleetAdvisorSchemas
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

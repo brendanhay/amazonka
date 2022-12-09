@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDmsTransferSettings' smart constructor.
 data DmsTransferSettings = DmsTransferSettings'
-  { -- | The Amazon Resource Name (ARN) used by the service access IAM role. The
+  { -- | The name of the S3 bucket to use.
+    bucketName :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) used by the service access IAM role. The
     -- role must allow the @iam:PassRole@ action.
-    serviceAccessRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the S3 bucket to use.
-    bucketName :: Prelude.Maybe Prelude.Text
+    serviceAccessRoleArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,27 +44,26 @@ data DmsTransferSettings = DmsTransferSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'bucketName', 'dmsTransferSettings_bucketName' - The name of the S3 bucket to use.
+--
 -- 'serviceAccessRoleArn', 'dmsTransferSettings_serviceAccessRoleArn' - The Amazon Resource Name (ARN) used by the service access IAM role. The
 -- role must allow the @iam:PassRole@ action.
---
--- 'bucketName', 'dmsTransferSettings_bucketName' - The name of the S3 bucket to use.
 newDmsTransferSettings ::
   DmsTransferSettings
 newDmsTransferSettings =
   DmsTransferSettings'
-    { serviceAccessRoleArn =
-        Prelude.Nothing,
-      bucketName = Prelude.Nothing
+    { bucketName = Prelude.Nothing,
+      serviceAccessRoleArn = Prelude.Nothing
     }
+
+-- | The name of the S3 bucket to use.
+dmsTransferSettings_bucketName :: Lens.Lens' DmsTransferSettings (Prelude.Maybe Prelude.Text)
+dmsTransferSettings_bucketName = Lens.lens (\DmsTransferSettings' {bucketName} -> bucketName) (\s@DmsTransferSettings' {} a -> s {bucketName = a} :: DmsTransferSettings)
 
 -- | The Amazon Resource Name (ARN) used by the service access IAM role. The
 -- role must allow the @iam:PassRole@ action.
 dmsTransferSettings_serviceAccessRoleArn :: Lens.Lens' DmsTransferSettings (Prelude.Maybe Prelude.Text)
 dmsTransferSettings_serviceAccessRoleArn = Lens.lens (\DmsTransferSettings' {serviceAccessRoleArn} -> serviceAccessRoleArn) (\s@DmsTransferSettings' {} a -> s {serviceAccessRoleArn = a} :: DmsTransferSettings)
-
--- | The name of the S3 bucket to use.
-dmsTransferSettings_bucketName :: Lens.Lens' DmsTransferSettings (Prelude.Maybe Prelude.Text)
-dmsTransferSettings_bucketName = Lens.lens (\DmsTransferSettings' {bucketName} -> bucketName) (\s@DmsTransferSettings' {} a -> s {bucketName = a} :: DmsTransferSettings)
 
 instance Data.FromJSON DmsTransferSettings where
   parseJSON =
@@ -72,26 +71,26 @@ instance Data.FromJSON DmsTransferSettings where
       "DmsTransferSettings"
       ( \x ->
           DmsTransferSettings'
-            Prelude.<$> (x Data..:? "ServiceAccessRoleArn")
-            Prelude.<*> (x Data..:? "BucketName")
+            Prelude.<$> (x Data..:? "BucketName")
+            Prelude.<*> (x Data..:? "ServiceAccessRoleArn")
       )
 
 instance Prelude.Hashable DmsTransferSettings where
   hashWithSalt _salt DmsTransferSettings' {..} =
-    _salt `Prelude.hashWithSalt` serviceAccessRoleArn
-      `Prelude.hashWithSalt` bucketName
+    _salt `Prelude.hashWithSalt` bucketName
+      `Prelude.hashWithSalt` serviceAccessRoleArn
 
 instance Prelude.NFData DmsTransferSettings where
   rnf DmsTransferSettings' {..} =
-    Prelude.rnf serviceAccessRoleArn
-      `Prelude.seq` Prelude.rnf bucketName
+    Prelude.rnf bucketName
+      `Prelude.seq` Prelude.rnf serviceAccessRoleArn
 
 instance Data.ToJSON DmsTransferSettings where
   toJSON DmsTransferSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ServiceAccessRoleArn" Data..=)
-              Prelude.<$> serviceAccessRoleArn,
-            ("BucketName" Data..=) Prelude.<$> bucketName
+          [ ("BucketName" Data..=) Prelude.<$> bucketName,
+            ("ServiceAccessRoleArn" Data..=)
+              Prelude.<$> serviceAccessRoleArn
           ]
       )

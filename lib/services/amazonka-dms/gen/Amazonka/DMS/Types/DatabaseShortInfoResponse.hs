@@ -31,12 +31,12 @@ data DatabaseShortInfoResponse = DatabaseShortInfoResponse'
   { -- | The database engine of a database in a Fleet Advisor collector
     -- inventory, for example @PostgreSQL@.
     databaseEngine :: Prelude.Maybe Prelude.Text,
-    -- | The name of a database in a Fleet Advisor collector inventory.
-    databaseName :: Prelude.Maybe Prelude.Text,
     -- | The ID of a database in a Fleet Advisor collector inventory.
     databaseId :: Prelude.Maybe Prelude.Text,
     -- | The IP address of a database in a Fleet Advisor collector inventory.
-    databaseIpAddress :: Prelude.Maybe Prelude.Text
+    databaseIpAddress :: Prelude.Maybe Prelude.Text,
+    -- | The name of a database in a Fleet Advisor collector inventory.
+    databaseName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,30 +51,26 @@ data DatabaseShortInfoResponse = DatabaseShortInfoResponse'
 -- 'databaseEngine', 'databaseShortInfoResponse_databaseEngine' - The database engine of a database in a Fleet Advisor collector
 -- inventory, for example @PostgreSQL@.
 --
--- 'databaseName', 'databaseShortInfoResponse_databaseName' - The name of a database in a Fleet Advisor collector inventory.
---
 -- 'databaseId', 'databaseShortInfoResponse_databaseId' - The ID of a database in a Fleet Advisor collector inventory.
 --
 -- 'databaseIpAddress', 'databaseShortInfoResponse_databaseIpAddress' - The IP address of a database in a Fleet Advisor collector inventory.
+--
+-- 'databaseName', 'databaseShortInfoResponse_databaseName' - The name of a database in a Fleet Advisor collector inventory.
 newDatabaseShortInfoResponse ::
   DatabaseShortInfoResponse
 newDatabaseShortInfoResponse =
   DatabaseShortInfoResponse'
     { databaseEngine =
         Prelude.Nothing,
-      databaseName = Prelude.Nothing,
       databaseId = Prelude.Nothing,
-      databaseIpAddress = Prelude.Nothing
+      databaseIpAddress = Prelude.Nothing,
+      databaseName = Prelude.Nothing
     }
 
 -- | The database engine of a database in a Fleet Advisor collector
 -- inventory, for example @PostgreSQL@.
 databaseShortInfoResponse_databaseEngine :: Lens.Lens' DatabaseShortInfoResponse (Prelude.Maybe Prelude.Text)
 databaseShortInfoResponse_databaseEngine = Lens.lens (\DatabaseShortInfoResponse' {databaseEngine} -> databaseEngine) (\s@DatabaseShortInfoResponse' {} a -> s {databaseEngine = a} :: DatabaseShortInfoResponse)
-
--- | The name of a database in a Fleet Advisor collector inventory.
-databaseShortInfoResponse_databaseName :: Lens.Lens' DatabaseShortInfoResponse (Prelude.Maybe Prelude.Text)
-databaseShortInfoResponse_databaseName = Lens.lens (\DatabaseShortInfoResponse' {databaseName} -> databaseName) (\s@DatabaseShortInfoResponse' {} a -> s {databaseName = a} :: DatabaseShortInfoResponse)
 
 -- | The ID of a database in a Fleet Advisor collector inventory.
 databaseShortInfoResponse_databaseId :: Lens.Lens' DatabaseShortInfoResponse (Prelude.Maybe Prelude.Text)
@@ -84,6 +80,10 @@ databaseShortInfoResponse_databaseId = Lens.lens (\DatabaseShortInfoResponse' {d
 databaseShortInfoResponse_databaseIpAddress :: Lens.Lens' DatabaseShortInfoResponse (Prelude.Maybe Prelude.Text)
 databaseShortInfoResponse_databaseIpAddress = Lens.lens (\DatabaseShortInfoResponse' {databaseIpAddress} -> databaseIpAddress) (\s@DatabaseShortInfoResponse' {} a -> s {databaseIpAddress = a} :: DatabaseShortInfoResponse)
 
+-- | The name of a database in a Fleet Advisor collector inventory.
+databaseShortInfoResponse_databaseName :: Lens.Lens' DatabaseShortInfoResponse (Prelude.Maybe Prelude.Text)
+databaseShortInfoResponse_databaseName = Lens.lens (\DatabaseShortInfoResponse' {databaseName} -> databaseName) (\s@DatabaseShortInfoResponse' {} a -> s {databaseName = a} :: DatabaseShortInfoResponse)
+
 instance Data.FromJSON DatabaseShortInfoResponse where
   parseJSON =
     Data.withObject
@@ -91,21 +91,21 @@ instance Data.FromJSON DatabaseShortInfoResponse where
       ( \x ->
           DatabaseShortInfoResponse'
             Prelude.<$> (x Data..:? "DatabaseEngine")
-            Prelude.<*> (x Data..:? "DatabaseName")
             Prelude.<*> (x Data..:? "DatabaseId")
             Prelude.<*> (x Data..:? "DatabaseIpAddress")
+            Prelude.<*> (x Data..:? "DatabaseName")
       )
 
 instance Prelude.Hashable DatabaseShortInfoResponse where
   hashWithSalt _salt DatabaseShortInfoResponse' {..} =
     _salt `Prelude.hashWithSalt` databaseEngine
-      `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` databaseId
       `Prelude.hashWithSalt` databaseIpAddress
+      `Prelude.hashWithSalt` databaseName
 
 instance Prelude.NFData DatabaseShortInfoResponse where
   rnf DatabaseShortInfoResponse' {..} =
     Prelude.rnf databaseEngine
-      `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf databaseId
       `Prelude.seq` Prelude.rnf databaseIpAddress
+      `Prelude.seq` Prelude.rnf databaseName

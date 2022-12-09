@@ -32,21 +32,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newKinesisSettings' smart constructor.
 data KinesisSettings = KinesisSettings'
-  { -- | Set this optional parameter to @true@ to avoid adding a \'0x\' prefix to
-    -- raw data in hexadecimal format. For example, by default, DMS adds a
-    -- \'0x\' prefix to the LOB column type in hexadecimal format moving from
-    -- an Oracle source to an Amazon Kinesis target. Use the @NoHexPrefix@
-    -- endpoint setting to enable migration of RAW data type columns without
-    -- adding the \'0x\' prefix.
-    noHexPrefix :: Prelude.Maybe Prelude.Bool,
-    -- | The output format for the records created on the endpoint. The message
-    -- format is @JSON@ (default) or @JSON_UNFORMATTED@ (a single line with no
-    -- tab).
-    messageFormat :: Prelude.Maybe MessageFormatValue,
-    -- | The Amazon Resource Name (ARN) for the IAM role that DMS uses to write
-    -- to the Kinesis data stream. The role must allow the @iam:PassRole@
-    -- action.
-    serviceAccessRoleArn :: Prelude.Maybe Prelude.Text,
+  { -- | Shows detailed control information for table definition, column
+    -- definition, and table and column changes in the Kinesis message output.
+    -- The default is @false@.
+    includeControlDetails :: Prelude.Maybe Prelude.Bool,
+    -- | Include NULL and empty columns for records migrated to the endpoint. The
+    -- default is @false@.
+    includeNullAndEmpty :: Prelude.Maybe Prelude.Bool,
     -- | Shows the partition value within the Kinesis message output, unless the
     -- partition type is @schema-table-type@. The default is @false@.
     includePartitionValue :: Prelude.Maybe Prelude.Bool,
@@ -55,6 +47,22 @@ data KinesisSettings = KinesisSettings'
     -- @add-column@, @drop-column@, and @rename-column@. The default is
     -- @false@.
     includeTableAlterOperations :: Prelude.Maybe Prelude.Bool,
+    -- | Provides detailed transaction information from the source database. This
+    -- information includes a commit timestamp, a log position, and values for
+    -- @transaction_id@, previous @transaction_id@, and @transaction_record_id@
+    -- (the record offset within a transaction). The default is @false@.
+    includeTransactionDetails :: Prelude.Maybe Prelude.Bool,
+    -- | The output format for the records created on the endpoint. The message
+    -- format is @JSON@ (default) or @JSON_UNFORMATTED@ (a single line with no
+    -- tab).
+    messageFormat :: Prelude.Maybe MessageFormatValue,
+    -- | Set this optional parameter to @true@ to avoid adding a \'0x\' prefix to
+    -- raw data in hexadecimal format. For example, by default, DMS adds a
+    -- \'0x\' prefix to the LOB column type in hexadecimal format moving from
+    -- an Oracle source to an Amazon Kinesis target. Use the @NoHexPrefix@
+    -- endpoint setting to enable migration of RAW data type columns without
+    -- adding the \'0x\' prefix.
+    noHexPrefix :: Prelude.Maybe Prelude.Bool,
     -- | Prefixes schema and table names to partition values, when the partition
     -- type is @primary-key-type@. Doing this increases data distribution among
     -- Kinesis shards. For example, suppose that a SysBench schema has
@@ -62,21 +70,13 @@ data KinesisSettings = KinesisSettings'
     -- key. In this case, the same primary key is sent from thousands of tables
     -- to the same shard, which causes throttling. The default is @false@.
     partitionIncludeSchemaTable :: Prelude.Maybe Prelude.Bool,
-    -- | Include NULL and empty columns for records migrated to the endpoint. The
-    -- default is @false@.
-    includeNullAndEmpty :: Prelude.Maybe Prelude.Bool,
-    -- | Provides detailed transaction information from the source database. This
-    -- information includes a commit timestamp, a log position, and values for
-    -- @transaction_id@, previous @transaction_id@, and @transaction_record_id@
-    -- (the record offset within a transaction). The default is @false@.
-    includeTransactionDetails :: Prelude.Maybe Prelude.Bool,
+    -- | The Amazon Resource Name (ARN) for the IAM role that DMS uses to write
+    -- to the Kinesis data stream. The role must allow the @iam:PassRole@
+    -- action.
+    serviceAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) for the Amazon Kinesis Data Streams
     -- endpoint.
-    streamArn :: Prelude.Maybe Prelude.Text,
-    -- | Shows detailed control information for table definition, column
-    -- definition, and table and column changes in the Kinesis message output.
-    -- The default is @false@.
-    includeControlDetails :: Prelude.Maybe Prelude.Bool
+    streamArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -88,20 +88,12 @@ data KinesisSettings = KinesisSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'noHexPrefix', 'kinesisSettings_noHexPrefix' - Set this optional parameter to @true@ to avoid adding a \'0x\' prefix to
--- raw data in hexadecimal format. For example, by default, DMS adds a
--- \'0x\' prefix to the LOB column type in hexadecimal format moving from
--- an Oracle source to an Amazon Kinesis target. Use the @NoHexPrefix@
--- endpoint setting to enable migration of RAW data type columns without
--- adding the \'0x\' prefix.
+-- 'includeControlDetails', 'kinesisSettings_includeControlDetails' - Shows detailed control information for table definition, column
+-- definition, and table and column changes in the Kinesis message output.
+-- The default is @false@.
 --
--- 'messageFormat', 'kinesisSettings_messageFormat' - The output format for the records created on the endpoint. The message
--- format is @JSON@ (default) or @JSON_UNFORMATTED@ (a single line with no
--- tab).
---
--- 'serviceAccessRoleArn', 'kinesisSettings_serviceAccessRoleArn' - The Amazon Resource Name (ARN) for the IAM role that DMS uses to write
--- to the Kinesis data stream. The role must allow the @iam:PassRole@
--- action.
+-- 'includeNullAndEmpty', 'kinesisSettings_includeNullAndEmpty' - Include NULL and empty columns for records migrated to the endpoint. The
+-- default is @false@.
 --
 -- 'includePartitionValue', 'kinesisSettings_includePartitionValue' - Shows the partition value within the Kinesis message output, unless the
 -- partition type is @schema-table-type@. The default is @false@.
@@ -111,6 +103,22 @@ data KinesisSettings = KinesisSettings'
 -- @add-column@, @drop-column@, and @rename-column@. The default is
 -- @false@.
 --
+-- 'includeTransactionDetails', 'kinesisSettings_includeTransactionDetails' - Provides detailed transaction information from the source database. This
+-- information includes a commit timestamp, a log position, and values for
+-- @transaction_id@, previous @transaction_id@, and @transaction_record_id@
+-- (the record offset within a transaction). The default is @false@.
+--
+-- 'messageFormat', 'kinesisSettings_messageFormat' - The output format for the records created on the endpoint. The message
+-- format is @JSON@ (default) or @JSON_UNFORMATTED@ (a single line with no
+-- tab).
+--
+-- 'noHexPrefix', 'kinesisSettings_noHexPrefix' - Set this optional parameter to @true@ to avoid adding a \'0x\' prefix to
+-- raw data in hexadecimal format. For example, by default, DMS adds a
+-- \'0x\' prefix to the LOB column type in hexadecimal format moving from
+-- an Oracle source to an Amazon Kinesis target. Use the @NoHexPrefix@
+-- endpoint setting to enable migration of RAW data type columns without
+-- adding the \'0x\' prefix.
+--
 -- 'partitionIncludeSchemaTable', 'kinesisSettings_partitionIncludeSchemaTable' - Prefixes schema and table names to partition values, when the partition
 -- type is @primary-key-type@. Doing this increases data distribution among
 -- Kinesis shards. For example, suppose that a SysBench schema has
@@ -118,56 +126,39 @@ data KinesisSettings = KinesisSettings'
 -- key. In this case, the same primary key is sent from thousands of tables
 -- to the same shard, which causes throttling. The default is @false@.
 --
--- 'includeNullAndEmpty', 'kinesisSettings_includeNullAndEmpty' - Include NULL and empty columns for records migrated to the endpoint. The
--- default is @false@.
---
--- 'includeTransactionDetails', 'kinesisSettings_includeTransactionDetails' - Provides detailed transaction information from the source database. This
--- information includes a commit timestamp, a log position, and values for
--- @transaction_id@, previous @transaction_id@, and @transaction_record_id@
--- (the record offset within a transaction). The default is @false@.
+-- 'serviceAccessRoleArn', 'kinesisSettings_serviceAccessRoleArn' - The Amazon Resource Name (ARN) for the IAM role that DMS uses to write
+-- to the Kinesis data stream. The role must allow the @iam:PassRole@
+-- action.
 --
 -- 'streamArn', 'kinesisSettings_streamArn' - The Amazon Resource Name (ARN) for the Amazon Kinesis Data Streams
 -- endpoint.
---
--- 'includeControlDetails', 'kinesisSettings_includeControlDetails' - Shows detailed control information for table definition, column
--- definition, and table and column changes in the Kinesis message output.
--- The default is @false@.
 newKinesisSettings ::
   KinesisSettings
 newKinesisSettings =
   KinesisSettings'
-    { noHexPrefix = Prelude.Nothing,
-      messageFormat = Prelude.Nothing,
-      serviceAccessRoleArn = Prelude.Nothing,
+    { includeControlDetails =
+        Prelude.Nothing,
+      includeNullAndEmpty = Prelude.Nothing,
       includePartitionValue = Prelude.Nothing,
       includeTableAlterOperations = Prelude.Nothing,
-      partitionIncludeSchemaTable = Prelude.Nothing,
-      includeNullAndEmpty = Prelude.Nothing,
       includeTransactionDetails = Prelude.Nothing,
-      streamArn = Prelude.Nothing,
-      includeControlDetails = Prelude.Nothing
+      messageFormat = Prelude.Nothing,
+      noHexPrefix = Prelude.Nothing,
+      partitionIncludeSchemaTable = Prelude.Nothing,
+      serviceAccessRoleArn = Prelude.Nothing,
+      streamArn = Prelude.Nothing
     }
 
--- | Set this optional parameter to @true@ to avoid adding a \'0x\' prefix to
--- raw data in hexadecimal format. For example, by default, DMS adds a
--- \'0x\' prefix to the LOB column type in hexadecimal format moving from
--- an Oracle source to an Amazon Kinesis target. Use the @NoHexPrefix@
--- endpoint setting to enable migration of RAW data type columns without
--- adding the \'0x\' prefix.
-kinesisSettings_noHexPrefix :: Lens.Lens' KinesisSettings (Prelude.Maybe Prelude.Bool)
-kinesisSettings_noHexPrefix = Lens.lens (\KinesisSettings' {noHexPrefix} -> noHexPrefix) (\s@KinesisSettings' {} a -> s {noHexPrefix = a} :: KinesisSettings)
+-- | Shows detailed control information for table definition, column
+-- definition, and table and column changes in the Kinesis message output.
+-- The default is @false@.
+kinesisSettings_includeControlDetails :: Lens.Lens' KinesisSettings (Prelude.Maybe Prelude.Bool)
+kinesisSettings_includeControlDetails = Lens.lens (\KinesisSettings' {includeControlDetails} -> includeControlDetails) (\s@KinesisSettings' {} a -> s {includeControlDetails = a} :: KinesisSettings)
 
--- | The output format for the records created on the endpoint. The message
--- format is @JSON@ (default) or @JSON_UNFORMATTED@ (a single line with no
--- tab).
-kinesisSettings_messageFormat :: Lens.Lens' KinesisSettings (Prelude.Maybe MessageFormatValue)
-kinesisSettings_messageFormat = Lens.lens (\KinesisSettings' {messageFormat} -> messageFormat) (\s@KinesisSettings' {} a -> s {messageFormat = a} :: KinesisSettings)
-
--- | The Amazon Resource Name (ARN) for the IAM role that DMS uses to write
--- to the Kinesis data stream. The role must allow the @iam:PassRole@
--- action.
-kinesisSettings_serviceAccessRoleArn :: Lens.Lens' KinesisSettings (Prelude.Maybe Prelude.Text)
-kinesisSettings_serviceAccessRoleArn = Lens.lens (\KinesisSettings' {serviceAccessRoleArn} -> serviceAccessRoleArn) (\s@KinesisSettings' {} a -> s {serviceAccessRoleArn = a} :: KinesisSettings)
+-- | Include NULL and empty columns for records migrated to the endpoint. The
+-- default is @false@.
+kinesisSettings_includeNullAndEmpty :: Lens.Lens' KinesisSettings (Prelude.Maybe Prelude.Bool)
+kinesisSettings_includeNullAndEmpty = Lens.lens (\KinesisSettings' {includeNullAndEmpty} -> includeNullAndEmpty) (\s@KinesisSettings' {} a -> s {includeNullAndEmpty = a} :: KinesisSettings)
 
 -- | Shows the partition value within the Kinesis message output, unless the
 -- partition type is @schema-table-type@. The default is @false@.
@@ -181,6 +172,28 @@ kinesisSettings_includePartitionValue = Lens.lens (\KinesisSettings' {includePar
 kinesisSettings_includeTableAlterOperations :: Lens.Lens' KinesisSettings (Prelude.Maybe Prelude.Bool)
 kinesisSettings_includeTableAlterOperations = Lens.lens (\KinesisSettings' {includeTableAlterOperations} -> includeTableAlterOperations) (\s@KinesisSettings' {} a -> s {includeTableAlterOperations = a} :: KinesisSettings)
 
+-- | Provides detailed transaction information from the source database. This
+-- information includes a commit timestamp, a log position, and values for
+-- @transaction_id@, previous @transaction_id@, and @transaction_record_id@
+-- (the record offset within a transaction). The default is @false@.
+kinesisSettings_includeTransactionDetails :: Lens.Lens' KinesisSettings (Prelude.Maybe Prelude.Bool)
+kinesisSettings_includeTransactionDetails = Lens.lens (\KinesisSettings' {includeTransactionDetails} -> includeTransactionDetails) (\s@KinesisSettings' {} a -> s {includeTransactionDetails = a} :: KinesisSettings)
+
+-- | The output format for the records created on the endpoint. The message
+-- format is @JSON@ (default) or @JSON_UNFORMATTED@ (a single line with no
+-- tab).
+kinesisSettings_messageFormat :: Lens.Lens' KinesisSettings (Prelude.Maybe MessageFormatValue)
+kinesisSettings_messageFormat = Lens.lens (\KinesisSettings' {messageFormat} -> messageFormat) (\s@KinesisSettings' {} a -> s {messageFormat = a} :: KinesisSettings)
+
+-- | Set this optional parameter to @true@ to avoid adding a \'0x\' prefix to
+-- raw data in hexadecimal format. For example, by default, DMS adds a
+-- \'0x\' prefix to the LOB column type in hexadecimal format moving from
+-- an Oracle source to an Amazon Kinesis target. Use the @NoHexPrefix@
+-- endpoint setting to enable migration of RAW data type columns without
+-- adding the \'0x\' prefix.
+kinesisSettings_noHexPrefix :: Lens.Lens' KinesisSettings (Prelude.Maybe Prelude.Bool)
+kinesisSettings_noHexPrefix = Lens.lens (\KinesisSettings' {noHexPrefix} -> noHexPrefix) (\s@KinesisSettings' {} a -> s {noHexPrefix = a} :: KinesisSettings)
+
 -- | Prefixes schema and table names to partition values, when the partition
 -- type is @primary-key-type@. Doing this increases data distribution among
 -- Kinesis shards. For example, suppose that a SysBench schema has
@@ -190,28 +203,16 @@ kinesisSettings_includeTableAlterOperations = Lens.lens (\KinesisSettings' {incl
 kinesisSettings_partitionIncludeSchemaTable :: Lens.Lens' KinesisSettings (Prelude.Maybe Prelude.Bool)
 kinesisSettings_partitionIncludeSchemaTable = Lens.lens (\KinesisSettings' {partitionIncludeSchemaTable} -> partitionIncludeSchemaTable) (\s@KinesisSettings' {} a -> s {partitionIncludeSchemaTable = a} :: KinesisSettings)
 
--- | Include NULL and empty columns for records migrated to the endpoint. The
--- default is @false@.
-kinesisSettings_includeNullAndEmpty :: Lens.Lens' KinesisSettings (Prelude.Maybe Prelude.Bool)
-kinesisSettings_includeNullAndEmpty = Lens.lens (\KinesisSettings' {includeNullAndEmpty} -> includeNullAndEmpty) (\s@KinesisSettings' {} a -> s {includeNullAndEmpty = a} :: KinesisSettings)
-
--- | Provides detailed transaction information from the source database. This
--- information includes a commit timestamp, a log position, and values for
--- @transaction_id@, previous @transaction_id@, and @transaction_record_id@
--- (the record offset within a transaction). The default is @false@.
-kinesisSettings_includeTransactionDetails :: Lens.Lens' KinesisSettings (Prelude.Maybe Prelude.Bool)
-kinesisSettings_includeTransactionDetails = Lens.lens (\KinesisSettings' {includeTransactionDetails} -> includeTransactionDetails) (\s@KinesisSettings' {} a -> s {includeTransactionDetails = a} :: KinesisSettings)
+-- | The Amazon Resource Name (ARN) for the IAM role that DMS uses to write
+-- to the Kinesis data stream. The role must allow the @iam:PassRole@
+-- action.
+kinesisSettings_serviceAccessRoleArn :: Lens.Lens' KinesisSettings (Prelude.Maybe Prelude.Text)
+kinesisSettings_serviceAccessRoleArn = Lens.lens (\KinesisSettings' {serviceAccessRoleArn} -> serviceAccessRoleArn) (\s@KinesisSettings' {} a -> s {serviceAccessRoleArn = a} :: KinesisSettings)
 
 -- | The Amazon Resource Name (ARN) for the Amazon Kinesis Data Streams
 -- endpoint.
 kinesisSettings_streamArn :: Lens.Lens' KinesisSettings (Prelude.Maybe Prelude.Text)
 kinesisSettings_streamArn = Lens.lens (\KinesisSettings' {streamArn} -> streamArn) (\s@KinesisSettings' {} a -> s {streamArn = a} :: KinesisSettings)
-
--- | Shows detailed control information for table definition, column
--- definition, and table and column changes in the Kinesis message output.
--- The default is @false@.
-kinesisSettings_includeControlDetails :: Lens.Lens' KinesisSettings (Prelude.Maybe Prelude.Bool)
-kinesisSettings_includeControlDetails = Lens.lens (\KinesisSettings' {includeControlDetails} -> includeControlDetails) (\s@KinesisSettings' {} a -> s {includeControlDetails = a} :: KinesisSettings)
 
 instance Data.FromJSON KinesisSettings where
   parseJSON =
@@ -219,64 +220,64 @@ instance Data.FromJSON KinesisSettings where
       "KinesisSettings"
       ( \x ->
           KinesisSettings'
-            Prelude.<$> (x Data..:? "NoHexPrefix")
-            Prelude.<*> (x Data..:? "MessageFormat")
-            Prelude.<*> (x Data..:? "ServiceAccessRoleArn")
+            Prelude.<$> (x Data..:? "IncludeControlDetails")
+            Prelude.<*> (x Data..:? "IncludeNullAndEmpty")
             Prelude.<*> (x Data..:? "IncludePartitionValue")
             Prelude.<*> (x Data..:? "IncludeTableAlterOperations")
-            Prelude.<*> (x Data..:? "PartitionIncludeSchemaTable")
-            Prelude.<*> (x Data..:? "IncludeNullAndEmpty")
             Prelude.<*> (x Data..:? "IncludeTransactionDetails")
+            Prelude.<*> (x Data..:? "MessageFormat")
+            Prelude.<*> (x Data..:? "NoHexPrefix")
+            Prelude.<*> (x Data..:? "PartitionIncludeSchemaTable")
+            Prelude.<*> (x Data..:? "ServiceAccessRoleArn")
             Prelude.<*> (x Data..:? "StreamArn")
-            Prelude.<*> (x Data..:? "IncludeControlDetails")
       )
 
 instance Prelude.Hashable KinesisSettings where
   hashWithSalt _salt KinesisSettings' {..} =
-    _salt `Prelude.hashWithSalt` noHexPrefix
-      `Prelude.hashWithSalt` messageFormat
-      `Prelude.hashWithSalt` serviceAccessRoleArn
+    _salt `Prelude.hashWithSalt` includeControlDetails
+      `Prelude.hashWithSalt` includeNullAndEmpty
       `Prelude.hashWithSalt` includePartitionValue
       `Prelude.hashWithSalt` includeTableAlterOperations
-      `Prelude.hashWithSalt` partitionIncludeSchemaTable
-      `Prelude.hashWithSalt` includeNullAndEmpty
       `Prelude.hashWithSalt` includeTransactionDetails
+      `Prelude.hashWithSalt` messageFormat
+      `Prelude.hashWithSalt` noHexPrefix
+      `Prelude.hashWithSalt` partitionIncludeSchemaTable
+      `Prelude.hashWithSalt` serviceAccessRoleArn
       `Prelude.hashWithSalt` streamArn
-      `Prelude.hashWithSalt` includeControlDetails
 
 instance Prelude.NFData KinesisSettings where
   rnf KinesisSettings' {..} =
-    Prelude.rnf noHexPrefix
-      `Prelude.seq` Prelude.rnf messageFormat
-      `Prelude.seq` Prelude.rnf serviceAccessRoleArn
+    Prelude.rnf includeControlDetails
+      `Prelude.seq` Prelude.rnf includeNullAndEmpty
       `Prelude.seq` Prelude.rnf includePartitionValue
       `Prelude.seq` Prelude.rnf includeTableAlterOperations
-      `Prelude.seq` Prelude.rnf partitionIncludeSchemaTable
-      `Prelude.seq` Prelude.rnf includeNullAndEmpty
       `Prelude.seq` Prelude.rnf includeTransactionDetails
+      `Prelude.seq` Prelude.rnf messageFormat
+      `Prelude.seq` Prelude.rnf noHexPrefix
+      `Prelude.seq` Prelude.rnf partitionIncludeSchemaTable
+      `Prelude.seq` Prelude.rnf serviceAccessRoleArn
       `Prelude.seq` Prelude.rnf streamArn
-      `Prelude.seq` Prelude.rnf includeControlDetails
 
 instance Data.ToJSON KinesisSettings where
   toJSON KinesisSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NoHexPrefix" Data..=) Prelude.<$> noHexPrefix,
-            ("MessageFormat" Data..=) Prelude.<$> messageFormat,
-            ("ServiceAccessRoleArn" Data..=)
-              Prelude.<$> serviceAccessRoleArn,
+          [ ("IncludeControlDetails" Data..=)
+              Prelude.<$> includeControlDetails,
+            ("IncludeNullAndEmpty" Data..=)
+              Prelude.<$> includeNullAndEmpty,
             ("IncludePartitionValue" Data..=)
               Prelude.<$> includePartitionValue,
             ("IncludeTableAlterOperations" Data..=)
               Prelude.<$> includeTableAlterOperations,
-            ("PartitionIncludeSchemaTable" Data..=)
-              Prelude.<$> partitionIncludeSchemaTable,
-            ("IncludeNullAndEmpty" Data..=)
-              Prelude.<$> includeNullAndEmpty,
             ("IncludeTransactionDetails" Data..=)
               Prelude.<$> includeTransactionDetails,
-            ("StreamArn" Data..=) Prelude.<$> streamArn,
-            ("IncludeControlDetails" Data..=)
-              Prelude.<$> includeControlDetails
+            ("MessageFormat" Data..=) Prelude.<$> messageFormat,
+            ("NoHexPrefix" Data..=) Prelude.<$> noHexPrefix,
+            ("PartitionIncludeSchemaTable" Data..=)
+              Prelude.<$> partitionIncludeSchemaTable,
+            ("ServiceAccessRoleArn" Data..=)
+              Prelude.<$> serviceAccessRoleArn,
+            ("StreamArn" Data..=) Prelude.<$> streamArn
           ]
       )

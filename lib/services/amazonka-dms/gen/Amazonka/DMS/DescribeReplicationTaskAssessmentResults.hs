@@ -44,9 +44,9 @@ module Amazonka.DMS.DescribeReplicationTaskAssessmentResults
     newDescribeReplicationTaskAssessmentResultsResponse,
 
     -- * Response Lenses
-    describeReplicationTaskAssessmentResultsResponse_replicationTaskAssessmentResults,
-    describeReplicationTaskAssessmentResultsResponse_marker,
     describeReplicationTaskAssessmentResultsResponse_bucketName,
+    describeReplicationTaskAssessmentResultsResponse_marker,
+    describeReplicationTaskAssessmentResultsResponse_replicationTaskAssessmentResults,
     describeReplicationTaskAssessmentResultsResponse_httpStatus,
   )
 where
@@ -180,11 +180,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeReplicationTaskAssessmentResultsResponse'
-            Prelude.<$> ( x Data..?> "ReplicationTaskAssessmentResults"
-                            Core..!@ Prelude.mempty
-                        )
+            Prelude.<$> (x Data..?> "BucketName")
               Prelude.<*> (x Data..?> "Marker")
-              Prelude.<*> (x Data..?> "BucketName")
+              Prelude.<*> ( x Data..?> "ReplicationTaskAssessmentResults"
+                              Core..!@ Prelude.mempty
+                          )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -256,14 +256,14 @@ instance
 --
 -- /See:/ 'newDescribeReplicationTaskAssessmentResultsResponse' smart constructor.
 data DescribeReplicationTaskAssessmentResultsResponse = DescribeReplicationTaskAssessmentResultsResponse'
-  { -- | The task assessment report.
-    replicationTaskAssessmentResults :: Prelude.Maybe [ReplicationTaskAssessmentResult],
+  { -- | - The Amazon S3 bucket where the task assessment report is located.
+    bucketName :: Prelude.Maybe Prelude.Text,
     -- | An optional pagination token provided by a previous request. If this
     -- parameter is specified, the response includes only records beyond the
     -- marker, up to the value specified by @MaxRecords@.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | - The Amazon S3 bucket where the task assessment report is located.
-    bucketName :: Prelude.Maybe Prelude.Text,
+    -- | The task assessment report.
+    replicationTaskAssessmentResults :: Prelude.Maybe [ReplicationTaskAssessmentResult],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -277,13 +277,13 @@ data DescribeReplicationTaskAssessmentResultsResponse = DescribeReplicationTaskA
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'replicationTaskAssessmentResults', 'describeReplicationTaskAssessmentResultsResponse_replicationTaskAssessmentResults' - The task assessment report.
+-- 'bucketName', 'describeReplicationTaskAssessmentResultsResponse_bucketName' - - The Amazon S3 bucket where the task assessment report is located.
 --
 -- 'marker', 'describeReplicationTaskAssessmentResultsResponse_marker' - An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
 --
--- 'bucketName', 'describeReplicationTaskAssessmentResultsResponse_bucketName' - - The Amazon S3 bucket where the task assessment report is located.
+-- 'replicationTaskAssessmentResults', 'describeReplicationTaskAssessmentResultsResponse_replicationTaskAssessmentResults' - The task assessment report.
 --
 -- 'httpStatus', 'describeReplicationTaskAssessmentResultsResponse_httpStatus' - The response's http status code.
 newDescribeReplicationTaskAssessmentResultsResponse ::
@@ -293,17 +293,17 @@ newDescribeReplicationTaskAssessmentResultsResponse ::
 newDescribeReplicationTaskAssessmentResultsResponse
   pHttpStatus_ =
     DescribeReplicationTaskAssessmentResultsResponse'
-      { replicationTaskAssessmentResults =
+      { bucketName =
           Prelude.Nothing,
         marker = Prelude.Nothing,
-        bucketName =
+        replicationTaskAssessmentResults =
           Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
--- | The task assessment report.
-describeReplicationTaskAssessmentResultsResponse_replicationTaskAssessmentResults :: Lens.Lens' DescribeReplicationTaskAssessmentResultsResponse (Prelude.Maybe [ReplicationTaskAssessmentResult])
-describeReplicationTaskAssessmentResultsResponse_replicationTaskAssessmentResults = Lens.lens (\DescribeReplicationTaskAssessmentResultsResponse' {replicationTaskAssessmentResults} -> replicationTaskAssessmentResults) (\s@DescribeReplicationTaskAssessmentResultsResponse' {} a -> s {replicationTaskAssessmentResults = a} :: DescribeReplicationTaskAssessmentResultsResponse) Prelude.. Lens.mapping Lens.coerced
+-- | - The Amazon S3 bucket where the task assessment report is located.
+describeReplicationTaskAssessmentResultsResponse_bucketName :: Lens.Lens' DescribeReplicationTaskAssessmentResultsResponse (Prelude.Maybe Prelude.Text)
+describeReplicationTaskAssessmentResultsResponse_bucketName = Lens.lens (\DescribeReplicationTaskAssessmentResultsResponse' {bucketName} -> bucketName) (\s@DescribeReplicationTaskAssessmentResultsResponse' {} a -> s {bucketName = a} :: DescribeReplicationTaskAssessmentResultsResponse)
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
@@ -311,9 +311,9 @@ describeReplicationTaskAssessmentResultsResponse_replicationTaskAssessmentResult
 describeReplicationTaskAssessmentResultsResponse_marker :: Lens.Lens' DescribeReplicationTaskAssessmentResultsResponse (Prelude.Maybe Prelude.Text)
 describeReplicationTaskAssessmentResultsResponse_marker = Lens.lens (\DescribeReplicationTaskAssessmentResultsResponse' {marker} -> marker) (\s@DescribeReplicationTaskAssessmentResultsResponse' {} a -> s {marker = a} :: DescribeReplicationTaskAssessmentResultsResponse)
 
--- | - The Amazon S3 bucket where the task assessment report is located.
-describeReplicationTaskAssessmentResultsResponse_bucketName :: Lens.Lens' DescribeReplicationTaskAssessmentResultsResponse (Prelude.Maybe Prelude.Text)
-describeReplicationTaskAssessmentResultsResponse_bucketName = Lens.lens (\DescribeReplicationTaskAssessmentResultsResponse' {bucketName} -> bucketName) (\s@DescribeReplicationTaskAssessmentResultsResponse' {} a -> s {bucketName = a} :: DescribeReplicationTaskAssessmentResultsResponse)
+-- | The task assessment report.
+describeReplicationTaskAssessmentResultsResponse_replicationTaskAssessmentResults :: Lens.Lens' DescribeReplicationTaskAssessmentResultsResponse (Prelude.Maybe [ReplicationTaskAssessmentResult])
+describeReplicationTaskAssessmentResultsResponse_replicationTaskAssessmentResults = Lens.lens (\DescribeReplicationTaskAssessmentResultsResponse' {replicationTaskAssessmentResults} -> replicationTaskAssessmentResults) (\s@DescribeReplicationTaskAssessmentResultsResponse' {} a -> s {replicationTaskAssessmentResults = a} :: DescribeReplicationTaskAssessmentResultsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeReplicationTaskAssessmentResultsResponse_httpStatus :: Lens.Lens' DescribeReplicationTaskAssessmentResultsResponse Prelude.Int
@@ -325,7 +325,7 @@ instance
   where
   rnf
     DescribeReplicationTaskAssessmentResultsResponse' {..} =
-      Prelude.rnf replicationTaskAssessmentResults
+      Prelude.rnf bucketName
         `Prelude.seq` Prelude.rnf marker
-        `Prelude.seq` Prelude.rnf bucketName
+        `Prelude.seq` Prelude.rnf replicationTaskAssessmentResults
         `Prelude.seq` Prelude.rnf httpStatus

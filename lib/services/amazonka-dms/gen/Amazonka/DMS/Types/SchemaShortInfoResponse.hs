@@ -28,16 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSchemaShortInfoResponse' smart constructor.
 data SchemaShortInfoResponse = SchemaShortInfoResponse'
-  { -- | The name of a database in a Fleet Advisor collector inventory.
-    databaseName :: Prelude.Maybe Prelude.Text,
-    -- | The name of a schema in a Fleet Advisor collector inventory.
-    schemaName :: Prelude.Maybe Prelude.Text,
-    -- | The ID of a database in a Fleet Advisor collector inventory.
+  { -- | The ID of a database in a Fleet Advisor collector inventory.
     databaseId :: Prelude.Maybe Prelude.Text,
     -- | The IP address of a database in a Fleet Advisor collector inventory.
     databaseIpAddress :: Prelude.Maybe Prelude.Text,
+    -- | The name of a database in a Fleet Advisor collector inventory.
+    databaseName :: Prelude.Maybe Prelude.Text,
     -- | The ID of a schema in a Fleet Advisor collector inventory.
-    schemaId :: Prelude.Maybe Prelude.Text
+    schemaId :: Prelude.Maybe Prelude.Text,
+    -- | The name of a schema in a Fleet Advisor collector inventory.
+    schemaName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,34 +49,26 @@ data SchemaShortInfoResponse = SchemaShortInfoResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'databaseName', 'schemaShortInfoResponse_databaseName' - The name of a database in a Fleet Advisor collector inventory.
---
--- 'schemaName', 'schemaShortInfoResponse_schemaName' - The name of a schema in a Fleet Advisor collector inventory.
---
 -- 'databaseId', 'schemaShortInfoResponse_databaseId' - The ID of a database in a Fleet Advisor collector inventory.
 --
 -- 'databaseIpAddress', 'schemaShortInfoResponse_databaseIpAddress' - The IP address of a database in a Fleet Advisor collector inventory.
 --
+-- 'databaseName', 'schemaShortInfoResponse_databaseName' - The name of a database in a Fleet Advisor collector inventory.
+--
 -- 'schemaId', 'schemaShortInfoResponse_schemaId' - The ID of a schema in a Fleet Advisor collector inventory.
+--
+-- 'schemaName', 'schemaShortInfoResponse_schemaName' - The name of a schema in a Fleet Advisor collector inventory.
 newSchemaShortInfoResponse ::
   SchemaShortInfoResponse
 newSchemaShortInfoResponse =
   SchemaShortInfoResponse'
-    { databaseName =
+    { databaseId =
         Prelude.Nothing,
-      schemaName = Prelude.Nothing,
-      databaseId = Prelude.Nothing,
       databaseIpAddress = Prelude.Nothing,
-      schemaId = Prelude.Nothing
+      databaseName = Prelude.Nothing,
+      schemaId = Prelude.Nothing,
+      schemaName = Prelude.Nothing
     }
-
--- | The name of a database in a Fleet Advisor collector inventory.
-schemaShortInfoResponse_databaseName :: Lens.Lens' SchemaShortInfoResponse (Prelude.Maybe Prelude.Text)
-schemaShortInfoResponse_databaseName = Lens.lens (\SchemaShortInfoResponse' {databaseName} -> databaseName) (\s@SchemaShortInfoResponse' {} a -> s {databaseName = a} :: SchemaShortInfoResponse)
-
--- | The name of a schema in a Fleet Advisor collector inventory.
-schemaShortInfoResponse_schemaName :: Lens.Lens' SchemaShortInfoResponse (Prelude.Maybe Prelude.Text)
-schemaShortInfoResponse_schemaName = Lens.lens (\SchemaShortInfoResponse' {schemaName} -> schemaName) (\s@SchemaShortInfoResponse' {} a -> s {schemaName = a} :: SchemaShortInfoResponse)
 
 -- | The ID of a database in a Fleet Advisor collector inventory.
 schemaShortInfoResponse_databaseId :: Lens.Lens' SchemaShortInfoResponse (Prelude.Maybe Prelude.Text)
@@ -86,9 +78,17 @@ schemaShortInfoResponse_databaseId = Lens.lens (\SchemaShortInfoResponse' {datab
 schemaShortInfoResponse_databaseIpAddress :: Lens.Lens' SchemaShortInfoResponse (Prelude.Maybe Prelude.Text)
 schemaShortInfoResponse_databaseIpAddress = Lens.lens (\SchemaShortInfoResponse' {databaseIpAddress} -> databaseIpAddress) (\s@SchemaShortInfoResponse' {} a -> s {databaseIpAddress = a} :: SchemaShortInfoResponse)
 
+-- | The name of a database in a Fleet Advisor collector inventory.
+schemaShortInfoResponse_databaseName :: Lens.Lens' SchemaShortInfoResponse (Prelude.Maybe Prelude.Text)
+schemaShortInfoResponse_databaseName = Lens.lens (\SchemaShortInfoResponse' {databaseName} -> databaseName) (\s@SchemaShortInfoResponse' {} a -> s {databaseName = a} :: SchemaShortInfoResponse)
+
 -- | The ID of a schema in a Fleet Advisor collector inventory.
 schemaShortInfoResponse_schemaId :: Lens.Lens' SchemaShortInfoResponse (Prelude.Maybe Prelude.Text)
 schemaShortInfoResponse_schemaId = Lens.lens (\SchemaShortInfoResponse' {schemaId} -> schemaId) (\s@SchemaShortInfoResponse' {} a -> s {schemaId = a} :: SchemaShortInfoResponse)
+
+-- | The name of a schema in a Fleet Advisor collector inventory.
+schemaShortInfoResponse_schemaName :: Lens.Lens' SchemaShortInfoResponse (Prelude.Maybe Prelude.Text)
+schemaShortInfoResponse_schemaName = Lens.lens (\SchemaShortInfoResponse' {schemaName} -> schemaName) (\s@SchemaShortInfoResponse' {} a -> s {schemaName = a} :: SchemaShortInfoResponse)
 
 instance Data.FromJSON SchemaShortInfoResponse where
   parseJSON =
@@ -96,25 +96,25 @@ instance Data.FromJSON SchemaShortInfoResponse where
       "SchemaShortInfoResponse"
       ( \x ->
           SchemaShortInfoResponse'
-            Prelude.<$> (x Data..:? "DatabaseName")
-            Prelude.<*> (x Data..:? "SchemaName")
-            Prelude.<*> (x Data..:? "DatabaseId")
+            Prelude.<$> (x Data..:? "DatabaseId")
             Prelude.<*> (x Data..:? "DatabaseIpAddress")
+            Prelude.<*> (x Data..:? "DatabaseName")
             Prelude.<*> (x Data..:? "SchemaId")
+            Prelude.<*> (x Data..:? "SchemaName")
       )
 
 instance Prelude.Hashable SchemaShortInfoResponse where
   hashWithSalt _salt SchemaShortInfoResponse' {..} =
-    _salt `Prelude.hashWithSalt` databaseName
-      `Prelude.hashWithSalt` schemaName
-      `Prelude.hashWithSalt` databaseId
+    _salt `Prelude.hashWithSalt` databaseId
       `Prelude.hashWithSalt` databaseIpAddress
+      `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` schemaId
+      `Prelude.hashWithSalt` schemaName
 
 instance Prelude.NFData SchemaShortInfoResponse where
   rnf SchemaShortInfoResponse' {..} =
-    Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf schemaName
-      `Prelude.seq` Prelude.rnf databaseId
+    Prelude.rnf databaseId
       `Prelude.seq` Prelude.rnf databaseIpAddress
+      `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf schemaId
+      `Prelude.seq` Prelude.rnf schemaName

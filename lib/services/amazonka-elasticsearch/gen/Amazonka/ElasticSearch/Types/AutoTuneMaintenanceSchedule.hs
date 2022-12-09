@@ -31,15 +31,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAutoTuneMaintenanceSchedule' smart constructor.
 data AutoTuneMaintenanceSchedule = AutoTuneMaintenanceSchedule'
-  { -- | Specifies maintenance schedule duration: duration value and duration
+  { -- | Specifies cron expression for a recurring maintenance schedule. See the
+    -- <https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide>
+    -- for more information.
+    cronExpressionForRecurrence :: Prelude.Maybe Prelude.Text,
+    -- | Specifies maintenance schedule duration: duration value and duration
     -- unit. See the
     -- <https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide>
     -- for more information.
     duration :: Prelude.Maybe Duration,
-    -- | Specifies cron expression for a recurring maintenance schedule. See the
-    -- <https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide>
-    -- for more information.
-    cronExpressionForRecurrence :: Prelude.Maybe Prelude.Text,
     -- | Specifies timestamp at which Auto-Tune maintenance schedule start.
     startAt :: Prelude.Maybe Data.POSIX
   }
@@ -53,12 +53,12 @@ data AutoTuneMaintenanceSchedule = AutoTuneMaintenanceSchedule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'duration', 'autoTuneMaintenanceSchedule_duration' - Specifies maintenance schedule duration: duration value and duration
--- unit. See the
+-- 'cronExpressionForRecurrence', 'autoTuneMaintenanceSchedule_cronExpressionForRecurrence' - Specifies cron expression for a recurring maintenance schedule. See the
 -- <https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide>
 -- for more information.
 --
--- 'cronExpressionForRecurrence', 'autoTuneMaintenanceSchedule_cronExpressionForRecurrence' - Specifies cron expression for a recurring maintenance schedule. See the
+-- 'duration', 'autoTuneMaintenanceSchedule_duration' - Specifies maintenance schedule duration: duration value and duration
+-- unit. See the
 -- <https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide>
 -- for more information.
 --
@@ -67,11 +67,17 @@ newAutoTuneMaintenanceSchedule ::
   AutoTuneMaintenanceSchedule
 newAutoTuneMaintenanceSchedule =
   AutoTuneMaintenanceSchedule'
-    { duration =
+    { cronExpressionForRecurrence =
         Prelude.Nothing,
-      cronExpressionForRecurrence = Prelude.Nothing,
+      duration = Prelude.Nothing,
       startAt = Prelude.Nothing
     }
+
+-- | Specifies cron expression for a recurring maintenance schedule. See the
+-- <https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide>
+-- for more information.
+autoTuneMaintenanceSchedule_cronExpressionForRecurrence :: Lens.Lens' AutoTuneMaintenanceSchedule (Prelude.Maybe Prelude.Text)
+autoTuneMaintenanceSchedule_cronExpressionForRecurrence = Lens.lens (\AutoTuneMaintenanceSchedule' {cronExpressionForRecurrence} -> cronExpressionForRecurrence) (\s@AutoTuneMaintenanceSchedule' {} a -> s {cronExpressionForRecurrence = a} :: AutoTuneMaintenanceSchedule)
 
 -- | Specifies maintenance schedule duration: duration value and duration
 -- unit. See the
@@ -79,12 +85,6 @@ newAutoTuneMaintenanceSchedule =
 -- for more information.
 autoTuneMaintenanceSchedule_duration :: Lens.Lens' AutoTuneMaintenanceSchedule (Prelude.Maybe Duration)
 autoTuneMaintenanceSchedule_duration = Lens.lens (\AutoTuneMaintenanceSchedule' {duration} -> duration) (\s@AutoTuneMaintenanceSchedule' {} a -> s {duration = a} :: AutoTuneMaintenanceSchedule)
-
--- | Specifies cron expression for a recurring maintenance schedule. See the
--- <https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide>
--- for more information.
-autoTuneMaintenanceSchedule_cronExpressionForRecurrence :: Lens.Lens' AutoTuneMaintenanceSchedule (Prelude.Maybe Prelude.Text)
-autoTuneMaintenanceSchedule_cronExpressionForRecurrence = Lens.lens (\AutoTuneMaintenanceSchedule' {cronExpressionForRecurrence} -> cronExpressionForRecurrence) (\s@AutoTuneMaintenanceSchedule' {} a -> s {cronExpressionForRecurrence = a} :: AutoTuneMaintenanceSchedule)
 
 -- | Specifies timestamp at which Auto-Tune maintenance schedule start.
 autoTuneMaintenanceSchedule_startAt :: Lens.Lens' AutoTuneMaintenanceSchedule (Prelude.Maybe Prelude.UTCTime)
@@ -96,30 +96,31 @@ instance Data.FromJSON AutoTuneMaintenanceSchedule where
       "AutoTuneMaintenanceSchedule"
       ( \x ->
           AutoTuneMaintenanceSchedule'
-            Prelude.<$> (x Data..:? "Duration")
-            Prelude.<*> (x Data..:? "CronExpressionForRecurrence")
+            Prelude.<$> (x Data..:? "CronExpressionForRecurrence")
+            Prelude.<*> (x Data..:? "Duration")
             Prelude.<*> (x Data..:? "StartAt")
       )
 
 instance Prelude.Hashable AutoTuneMaintenanceSchedule where
   hashWithSalt _salt AutoTuneMaintenanceSchedule' {..} =
-    _salt `Prelude.hashWithSalt` duration
+    _salt
       `Prelude.hashWithSalt` cronExpressionForRecurrence
+      `Prelude.hashWithSalt` duration
       `Prelude.hashWithSalt` startAt
 
 instance Prelude.NFData AutoTuneMaintenanceSchedule where
   rnf AutoTuneMaintenanceSchedule' {..} =
-    Prelude.rnf duration
-      `Prelude.seq` Prelude.rnf cronExpressionForRecurrence
+    Prelude.rnf cronExpressionForRecurrence
+      `Prelude.seq` Prelude.rnf duration
       `Prelude.seq` Prelude.rnf startAt
 
 instance Data.ToJSON AutoTuneMaintenanceSchedule where
   toJSON AutoTuneMaintenanceSchedule' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Duration" Data..=) Prelude.<$> duration,
-            ("CronExpressionForRecurrence" Data..=)
+          [ ("CronExpressionForRecurrence" Data..=)
               Prelude.<$> cronExpressionForRecurrence,
+            ("Duration" Data..=) Prelude.<$> duration,
             ("StartAt" Data..=) Prelude.<$> startAt
           ]
       )

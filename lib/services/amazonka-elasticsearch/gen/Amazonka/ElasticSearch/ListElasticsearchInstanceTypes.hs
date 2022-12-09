@@ -30,9 +30,9 @@ module Amazonka.ElasticSearch.ListElasticsearchInstanceTypes
     newListElasticsearchInstanceTypes,
 
     -- * Request Lenses
-    listElasticsearchInstanceTypes_nextToken,
     listElasticsearchInstanceTypes_domainName,
     listElasticsearchInstanceTypes_maxResults,
+    listElasticsearchInstanceTypes_nextToken,
     listElasticsearchInstanceTypes_elasticsearchVersion,
 
     -- * Destructuring the Response
@@ -40,8 +40,8 @@ module Amazonka.ElasticSearch.ListElasticsearchInstanceTypes
     newListElasticsearchInstanceTypesResponse,
 
     -- * Response Lenses
-    listElasticsearchInstanceTypesResponse_nextToken,
     listElasticsearchInstanceTypesResponse_elasticsearchInstanceTypes,
+    listElasticsearchInstanceTypesResponse_nextToken,
     listElasticsearchInstanceTypesResponse_httpStatus,
   )
 where
@@ -59,16 +59,16 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListElasticsearchInstanceTypes' smart constructor.
 data ListElasticsearchInstanceTypes = ListElasticsearchInstanceTypes'
-  { -- | NextToken should be sent in case if earlier API call produced result
-    -- containing NextToken. It is used for pagination.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | DomainName represents the name of the Domain that we are trying to
+  { -- | DomainName represents the name of the Domain that we are trying to
     -- modify. This should be present only if we are querying for list of
     -- available Elasticsearch instance types when modifying existing domain.
     domainName :: Prelude.Maybe Prelude.Text,
     -- | Set this value to limit the number of results returned. Value provided
     -- must be greater than 30 else it wont be honored.
     maxResults :: Prelude.Maybe Prelude.Int,
+    -- | NextToken should be sent in case if earlier API call produced result
+    -- containing NextToken. It is used for pagination.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Version of Elasticsearch for which list of supported elasticsearch
     -- instance types are needed.
     elasticsearchVersion :: Prelude.Text
@@ -83,15 +83,15 @@ data ListElasticsearchInstanceTypes = ListElasticsearchInstanceTypes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listElasticsearchInstanceTypes_nextToken' - NextToken should be sent in case if earlier API call produced result
--- containing NextToken. It is used for pagination.
---
 -- 'domainName', 'listElasticsearchInstanceTypes_domainName' - DomainName represents the name of the Domain that we are trying to
 -- modify. This should be present only if we are querying for list of
 -- available Elasticsearch instance types when modifying existing domain.
 --
 -- 'maxResults', 'listElasticsearchInstanceTypes_maxResults' - Set this value to limit the number of results returned. Value provided
 -- must be greater than 30 else it wont be honored.
+--
+-- 'nextToken', 'listElasticsearchInstanceTypes_nextToken' - NextToken should be sent in case if earlier API call produced result
+-- containing NextToken. It is used for pagination.
 --
 -- 'elasticsearchVersion', 'listElasticsearchInstanceTypes_elasticsearchVersion' - Version of Elasticsearch for which list of supported elasticsearch
 -- instance types are needed.
@@ -102,18 +102,13 @@ newListElasticsearchInstanceTypes ::
 newListElasticsearchInstanceTypes
   pElasticsearchVersion_ =
     ListElasticsearchInstanceTypes'
-      { nextToken =
+      { domainName =
           Prelude.Nothing,
-        domainName = Prelude.Nothing,
         maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         elasticsearchVersion =
           pElasticsearchVersion_
       }
-
--- | NextToken should be sent in case if earlier API call produced result
--- containing NextToken. It is used for pagination.
-listElasticsearchInstanceTypes_nextToken :: Lens.Lens' ListElasticsearchInstanceTypes (Prelude.Maybe Prelude.Text)
-listElasticsearchInstanceTypes_nextToken = Lens.lens (\ListElasticsearchInstanceTypes' {nextToken} -> nextToken) (\s@ListElasticsearchInstanceTypes' {} a -> s {nextToken = a} :: ListElasticsearchInstanceTypes)
 
 -- | DomainName represents the name of the Domain that we are trying to
 -- modify. This should be present only if we are querying for list of
@@ -125,6 +120,11 @@ listElasticsearchInstanceTypes_domainName = Lens.lens (\ListElasticsearchInstanc
 -- must be greater than 30 else it wont be honored.
 listElasticsearchInstanceTypes_maxResults :: Lens.Lens' ListElasticsearchInstanceTypes (Prelude.Maybe Prelude.Int)
 listElasticsearchInstanceTypes_maxResults = Lens.lens (\ListElasticsearchInstanceTypes' {maxResults} -> maxResults) (\s@ListElasticsearchInstanceTypes' {} a -> s {maxResults = a} :: ListElasticsearchInstanceTypes)
+
+-- | NextToken should be sent in case if earlier API call produced result
+-- containing NextToken. It is used for pagination.
+listElasticsearchInstanceTypes_nextToken :: Lens.Lens' ListElasticsearchInstanceTypes (Prelude.Maybe Prelude.Text)
+listElasticsearchInstanceTypes_nextToken = Lens.lens (\ListElasticsearchInstanceTypes' {nextToken} -> nextToken) (\s@ListElasticsearchInstanceTypes' {} a -> s {nextToken = a} :: ListElasticsearchInstanceTypes)
 
 -- | Version of Elasticsearch for which list of supported elasticsearch
 -- instance types are needed.
@@ -166,10 +166,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListElasticsearchInstanceTypesResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ElasticsearchInstanceTypes"
+            Prelude.<$> ( x Data..?> "ElasticsearchInstanceTypes"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -180,9 +180,9 @@ instance
   hashWithSalt
     _salt
     ListElasticsearchInstanceTypes' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` domainName
+      _salt `Prelude.hashWithSalt` domainName
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` elasticsearchVersion
 
 instance
@@ -190,9 +190,9 @@ instance
     ListElasticsearchInstanceTypes
   where
   rnf ListElasticsearchInstanceTypes' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf elasticsearchVersion
 
 instance
@@ -211,9 +211,9 @@ instance Data.ToPath ListElasticsearchInstanceTypes where
 instance Data.ToQuery ListElasticsearchInstanceTypes where
   toQuery ListElasticsearchInstanceTypes' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "domainName" Data.=: domainName,
-        "maxResults" Data.=: maxResults
+      [ "domainName" Data.=: domainName,
+        "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | Container for the parameters returned by
@@ -221,13 +221,13 @@ instance Data.ToQuery ListElasticsearchInstanceTypes where
 --
 -- /See:/ 'newListElasticsearchInstanceTypesResponse' smart constructor.
 data ListElasticsearchInstanceTypesResponse = ListElasticsearchInstanceTypesResponse'
-  { -- | In case if there are more results available NextToken would be present,
+  { -- | List of instance types supported by Amazon Elasticsearch service for
+    -- given @ ElasticsearchVersion @
+    elasticsearchInstanceTypes :: Prelude.Maybe [ESPartitionInstanceType],
+    -- | In case if there are more results available NextToken would be present,
     -- make further request to the same API with received NextToken to paginate
     -- remaining results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | List of instance types supported by Amazon Elasticsearch service for
-    -- given @ ElasticsearchVersion @
-    elasticsearchInstanceTypes :: Prelude.Maybe [ESPartitionInstanceType],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -241,12 +241,12 @@ data ListElasticsearchInstanceTypesResponse = ListElasticsearchInstanceTypesResp
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'elasticsearchInstanceTypes', 'listElasticsearchInstanceTypesResponse_elasticsearchInstanceTypes' - List of instance types supported by Amazon Elasticsearch service for
+-- given @ ElasticsearchVersion @
+--
 -- 'nextToken', 'listElasticsearchInstanceTypesResponse_nextToken' - In case if there are more results available NextToken would be present,
 -- make further request to the same API with received NextToken to paginate
 -- remaining results.
---
--- 'elasticsearchInstanceTypes', 'listElasticsearchInstanceTypesResponse_elasticsearchInstanceTypes' - List of instance types supported by Amazon Elasticsearch service for
--- given @ ElasticsearchVersion @
 --
 -- 'httpStatus', 'listElasticsearchInstanceTypesResponse_httpStatus' - The response's http status code.
 newListElasticsearchInstanceTypesResponse ::
@@ -256,23 +256,22 @@ newListElasticsearchInstanceTypesResponse ::
 newListElasticsearchInstanceTypesResponse
   pHttpStatus_ =
     ListElasticsearchInstanceTypesResponse'
-      { nextToken =
+      { elasticsearchInstanceTypes =
           Prelude.Nothing,
-        elasticsearchInstanceTypes =
-          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | List of instance types supported by Amazon Elasticsearch service for
+-- given @ ElasticsearchVersion @
+listElasticsearchInstanceTypesResponse_elasticsearchInstanceTypes :: Lens.Lens' ListElasticsearchInstanceTypesResponse (Prelude.Maybe [ESPartitionInstanceType])
+listElasticsearchInstanceTypesResponse_elasticsearchInstanceTypes = Lens.lens (\ListElasticsearchInstanceTypesResponse' {elasticsearchInstanceTypes} -> elasticsearchInstanceTypes) (\s@ListElasticsearchInstanceTypesResponse' {} a -> s {elasticsearchInstanceTypes = a} :: ListElasticsearchInstanceTypesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | In case if there are more results available NextToken would be present,
 -- make further request to the same API with received NextToken to paginate
 -- remaining results.
 listElasticsearchInstanceTypesResponse_nextToken :: Lens.Lens' ListElasticsearchInstanceTypesResponse (Prelude.Maybe Prelude.Text)
 listElasticsearchInstanceTypesResponse_nextToken = Lens.lens (\ListElasticsearchInstanceTypesResponse' {nextToken} -> nextToken) (\s@ListElasticsearchInstanceTypesResponse' {} a -> s {nextToken = a} :: ListElasticsearchInstanceTypesResponse)
-
--- | List of instance types supported by Amazon Elasticsearch service for
--- given @ ElasticsearchVersion @
-listElasticsearchInstanceTypesResponse_elasticsearchInstanceTypes :: Lens.Lens' ListElasticsearchInstanceTypesResponse (Prelude.Maybe [ESPartitionInstanceType])
-listElasticsearchInstanceTypesResponse_elasticsearchInstanceTypes = Lens.lens (\ListElasticsearchInstanceTypesResponse' {elasticsearchInstanceTypes} -> elasticsearchInstanceTypes) (\s@ListElasticsearchInstanceTypesResponse' {} a -> s {elasticsearchInstanceTypes = a} :: ListElasticsearchInstanceTypesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listElasticsearchInstanceTypesResponse_httpStatus :: Lens.Lens' ListElasticsearchInstanceTypesResponse Prelude.Int
@@ -283,6 +282,6 @@ instance
     ListElasticsearchInstanceTypesResponse
   where
   rnf ListElasticsearchInstanceTypesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf elasticsearchInstanceTypes
+    Prelude.rnf elasticsearchInstanceTypes
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -27,8 +27,8 @@ module Amazonka.ElasticSearch.UpdatePackage
     newUpdatePackage,
 
     -- * Request Lenses
-    updatePackage_packageDescription,
     updatePackage_commitMessage,
+    updatePackage_packageDescription,
     updatePackage_packageID,
     updatePackage_packageSource,
 
@@ -54,11 +54,11 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUpdatePackage' smart constructor.
 data UpdatePackage = UpdatePackage'
-  { -- | New description of the package.
-    packageDescription :: Prelude.Maybe Prelude.Text,
-    -- | An info message for the new version which will be shown as part of
+  { -- | An info message for the new version which will be shown as part of
     -- @GetPackageVersionHistoryResponse@.
     commitMessage :: Prelude.Maybe Prelude.Text,
+    -- | New description of the package.
+    packageDescription :: Prelude.Maybe Prelude.Text,
     -- | Unique identifier for the package.
     packageID :: Prelude.Text,
     packageSource :: PackageSource
@@ -73,10 +73,10 @@ data UpdatePackage = UpdatePackage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'packageDescription', 'updatePackage_packageDescription' - New description of the package.
---
 -- 'commitMessage', 'updatePackage_commitMessage' - An info message for the new version which will be shown as part of
 -- @GetPackageVersionHistoryResponse@.
+--
+-- 'packageDescription', 'updatePackage_packageDescription' - New description of the package.
 --
 -- 'packageID', 'updatePackage_packageID' - Unique identifier for the package.
 --
@@ -89,21 +89,20 @@ newUpdatePackage ::
   UpdatePackage
 newUpdatePackage pPackageID_ pPackageSource_ =
   UpdatePackage'
-    { packageDescription =
-        Prelude.Nothing,
-      commitMessage = Prelude.Nothing,
+    { commitMessage = Prelude.Nothing,
+      packageDescription = Prelude.Nothing,
       packageID = pPackageID_,
       packageSource = pPackageSource_
     }
-
--- | New description of the package.
-updatePackage_packageDescription :: Lens.Lens' UpdatePackage (Prelude.Maybe Prelude.Text)
-updatePackage_packageDescription = Lens.lens (\UpdatePackage' {packageDescription} -> packageDescription) (\s@UpdatePackage' {} a -> s {packageDescription = a} :: UpdatePackage)
 
 -- | An info message for the new version which will be shown as part of
 -- @GetPackageVersionHistoryResponse@.
 updatePackage_commitMessage :: Lens.Lens' UpdatePackage (Prelude.Maybe Prelude.Text)
 updatePackage_commitMessage = Lens.lens (\UpdatePackage' {commitMessage} -> commitMessage) (\s@UpdatePackage' {} a -> s {commitMessage = a} :: UpdatePackage)
+
+-- | New description of the package.
+updatePackage_packageDescription :: Lens.Lens' UpdatePackage (Prelude.Maybe Prelude.Text)
+updatePackage_packageDescription = Lens.lens (\UpdatePackage' {packageDescription} -> packageDescription) (\s@UpdatePackage' {} a -> s {packageDescription = a} :: UpdatePackage)
 
 -- | Unique identifier for the package.
 updatePackage_packageID :: Lens.Lens' UpdatePackage Prelude.Text
@@ -129,15 +128,15 @@ instance Core.AWSRequest UpdatePackage where
 
 instance Prelude.Hashable UpdatePackage where
   hashWithSalt _salt UpdatePackage' {..} =
-    _salt `Prelude.hashWithSalt` packageDescription
-      `Prelude.hashWithSalt` commitMessage
+    _salt `Prelude.hashWithSalt` commitMessage
+      `Prelude.hashWithSalt` packageDescription
       `Prelude.hashWithSalt` packageID
       `Prelude.hashWithSalt` packageSource
 
 instance Prelude.NFData UpdatePackage where
   rnf UpdatePackage' {..} =
-    Prelude.rnf packageDescription
-      `Prelude.seq` Prelude.rnf commitMessage
+    Prelude.rnf commitMessage
+      `Prelude.seq` Prelude.rnf packageDescription
       `Prelude.seq` Prelude.rnf packageID
       `Prelude.seq` Prelude.rnf packageSource
 
@@ -148,9 +147,9 @@ instance Data.ToJSON UpdatePackage where
   toJSON UpdatePackage' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("PackageDescription" Data..=)
+          [ ("CommitMessage" Data..=) Prelude.<$> commitMessage,
+            ("PackageDescription" Data..=)
               Prelude.<$> packageDescription,
-            ("CommitMessage" Data..=) Prelude.<$> commitMessage,
             Prelude.Just ("PackageID" Data..= packageID),
             Prelude.Just
               ("PackageSource" Data..= packageSource)

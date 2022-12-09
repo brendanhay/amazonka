@@ -30,15 +30,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVpcEndpointSummary' smart constructor.
 data VpcEndpointSummary = VpcEndpointSummary'
-  { -- | The creator of the endpoint.
-    vpcEndpointOwner :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the domain associated with the
+  { -- | The Amazon Resource Name (ARN) of the domain associated with the
     -- endpoint.
     domainArn :: Prelude.Maybe Prelude.Text,
     -- | The current status of the endpoint.
     status :: Prelude.Maybe VpcEndpointStatus,
     -- | The unique identifier of the endpoint.
-    vpcEndpointId :: Prelude.Maybe Prelude.Text
+    vpcEndpointId :: Prelude.Maybe Prelude.Text,
+    -- | The creator of the endpoint.
+    vpcEndpointOwner :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,28 +50,23 @@ data VpcEndpointSummary = VpcEndpointSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vpcEndpointOwner', 'vpcEndpointSummary_vpcEndpointOwner' - The creator of the endpoint.
---
 -- 'domainArn', 'vpcEndpointSummary_domainArn' - The Amazon Resource Name (ARN) of the domain associated with the
 -- endpoint.
 --
 -- 'status', 'vpcEndpointSummary_status' - The current status of the endpoint.
 --
 -- 'vpcEndpointId', 'vpcEndpointSummary_vpcEndpointId' - The unique identifier of the endpoint.
+--
+-- 'vpcEndpointOwner', 'vpcEndpointSummary_vpcEndpointOwner' - The creator of the endpoint.
 newVpcEndpointSummary ::
   VpcEndpointSummary
 newVpcEndpointSummary =
   VpcEndpointSummary'
-    { vpcEndpointOwner =
-        Prelude.Nothing,
-      domainArn = Prelude.Nothing,
+    { domainArn = Prelude.Nothing,
       status = Prelude.Nothing,
-      vpcEndpointId = Prelude.Nothing
+      vpcEndpointId = Prelude.Nothing,
+      vpcEndpointOwner = Prelude.Nothing
     }
-
--- | The creator of the endpoint.
-vpcEndpointSummary_vpcEndpointOwner :: Lens.Lens' VpcEndpointSummary (Prelude.Maybe Prelude.Text)
-vpcEndpointSummary_vpcEndpointOwner = Lens.lens (\VpcEndpointSummary' {vpcEndpointOwner} -> vpcEndpointOwner) (\s@VpcEndpointSummary' {} a -> s {vpcEndpointOwner = a} :: VpcEndpointSummary)
 
 -- | The Amazon Resource Name (ARN) of the domain associated with the
 -- endpoint.
@@ -86,28 +81,32 @@ vpcEndpointSummary_status = Lens.lens (\VpcEndpointSummary' {status} -> status) 
 vpcEndpointSummary_vpcEndpointId :: Lens.Lens' VpcEndpointSummary (Prelude.Maybe Prelude.Text)
 vpcEndpointSummary_vpcEndpointId = Lens.lens (\VpcEndpointSummary' {vpcEndpointId} -> vpcEndpointId) (\s@VpcEndpointSummary' {} a -> s {vpcEndpointId = a} :: VpcEndpointSummary)
 
+-- | The creator of the endpoint.
+vpcEndpointSummary_vpcEndpointOwner :: Lens.Lens' VpcEndpointSummary (Prelude.Maybe Prelude.Text)
+vpcEndpointSummary_vpcEndpointOwner = Lens.lens (\VpcEndpointSummary' {vpcEndpointOwner} -> vpcEndpointOwner) (\s@VpcEndpointSummary' {} a -> s {vpcEndpointOwner = a} :: VpcEndpointSummary)
+
 instance Data.FromJSON VpcEndpointSummary where
   parseJSON =
     Data.withObject
       "VpcEndpointSummary"
       ( \x ->
           VpcEndpointSummary'
-            Prelude.<$> (x Data..:? "VpcEndpointOwner")
-            Prelude.<*> (x Data..:? "DomainArn")
+            Prelude.<$> (x Data..:? "DomainArn")
             Prelude.<*> (x Data..:? "Status")
             Prelude.<*> (x Data..:? "VpcEndpointId")
+            Prelude.<*> (x Data..:? "VpcEndpointOwner")
       )
 
 instance Prelude.Hashable VpcEndpointSummary where
   hashWithSalt _salt VpcEndpointSummary' {..} =
-    _salt `Prelude.hashWithSalt` vpcEndpointOwner
-      `Prelude.hashWithSalt` domainArn
+    _salt `Prelude.hashWithSalt` domainArn
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` vpcEndpointId
+      `Prelude.hashWithSalt` vpcEndpointOwner
 
 instance Prelude.NFData VpcEndpointSummary where
   rnf VpcEndpointSummary' {..} =
-    Prelude.rnf vpcEndpointOwner
-      `Prelude.seq` Prelude.rnf domainArn
+    Prelude.rnf domainArn
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf vpcEndpointId
+      `Prelude.seq` Prelude.rnf vpcEndpointOwner

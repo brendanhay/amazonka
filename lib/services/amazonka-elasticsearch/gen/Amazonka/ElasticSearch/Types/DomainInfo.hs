@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newDomainInfo' smart constructor.
 data DomainInfo = DomainInfo'
-  { -- | Specifies the @EngineType@ of the domain.
-    engineType :: Prelude.Maybe EngineType,
-    -- | Specifies the @DomainName@.
-    domainName :: Prelude.Maybe Prelude.Text
+  { -- | Specifies the @DomainName@.
+    domainName :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the @EngineType@ of the domain.
+    engineType :: Prelude.Maybe EngineType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data DomainInfo = DomainInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'engineType', 'domainInfo_engineType' - Specifies the @EngineType@ of the domain.
---
 -- 'domainName', 'domainInfo_domainName' - Specifies the @DomainName@.
+--
+-- 'engineType', 'domainInfo_engineType' - Specifies the @EngineType@ of the domain.
 newDomainInfo ::
   DomainInfo
 newDomainInfo =
   DomainInfo'
-    { engineType = Prelude.Nothing,
-      domainName = Prelude.Nothing
+    { domainName = Prelude.Nothing,
+      engineType = Prelude.Nothing
     }
-
--- | Specifies the @EngineType@ of the domain.
-domainInfo_engineType :: Lens.Lens' DomainInfo (Prelude.Maybe EngineType)
-domainInfo_engineType = Lens.lens (\DomainInfo' {engineType} -> engineType) (\s@DomainInfo' {} a -> s {engineType = a} :: DomainInfo)
 
 -- | Specifies the @DomainName@.
 domainInfo_domainName :: Lens.Lens' DomainInfo (Prelude.Maybe Prelude.Text)
 domainInfo_domainName = Lens.lens (\DomainInfo' {domainName} -> domainName) (\s@DomainInfo' {} a -> s {domainName = a} :: DomainInfo)
+
+-- | Specifies the @EngineType@ of the domain.
+domainInfo_engineType :: Lens.Lens' DomainInfo (Prelude.Maybe EngineType)
+domainInfo_engineType = Lens.lens (\DomainInfo' {engineType} -> engineType) (\s@DomainInfo' {} a -> s {engineType = a} :: DomainInfo)
 
 instance Data.FromJSON DomainInfo where
   parseJSON =
@@ -67,16 +67,16 @@ instance Data.FromJSON DomainInfo where
       "DomainInfo"
       ( \x ->
           DomainInfo'
-            Prelude.<$> (x Data..:? "EngineType")
-            Prelude.<*> (x Data..:? "DomainName")
+            Prelude.<$> (x Data..:? "DomainName")
+            Prelude.<*> (x Data..:? "EngineType")
       )
 
 instance Prelude.Hashable DomainInfo where
   hashWithSalt _salt DomainInfo' {..} =
-    _salt `Prelude.hashWithSalt` engineType
-      `Prelude.hashWithSalt` domainName
+    _salt `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` engineType
 
 instance Prelude.NFData DomainInfo where
   rnf DomainInfo' {..} =
-    Prelude.rnf engineType
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf engineType

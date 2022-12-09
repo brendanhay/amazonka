@@ -32,17 +32,23 @@ module Amazonka.ElasticSearch
     -- * Errors
     -- $errors
 
-    -- ** ResourceAlreadyExistsException
-    _ResourceAlreadyExistsException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
 
+    -- ** BaseException
+    _BaseException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** DisabledOperationException
+    _DisabledOperationException,
+
+    -- ** InternalException
+    _InternalException,
+
     -- ** InvalidPaginationTokenException
     _InvalidPaginationTokenException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
 
     -- ** InvalidTypeException
     _InvalidTypeException,
@@ -50,20 +56,14 @@ module Amazonka.ElasticSearch
     -- ** LimitExceededException
     _LimitExceededException,
 
-    -- ** DisabledOperationException
-    _DisabledOperationException,
+    -- ** ResourceAlreadyExistsException
+    _ResourceAlreadyExistsException,
 
-    -- ** ConflictException
-    _ConflictException,
-
-    -- ** InternalException
-    _InternalException,
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- ** ValidationException
     _ValidationException,
-
-    -- ** BaseException
-    _BaseException,
 
     -- * Waiters
     -- $waiters

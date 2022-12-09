@@ -36,8 +36,8 @@ module Amazonka.ElasticSearch.PurchaseReservedElasticsearchInstanceOffering
     newPurchaseReservedElasticsearchInstanceOfferingResponse,
 
     -- * Response Lenses
-    purchaseReservedElasticsearchInstanceOfferingResponse_reservedElasticsearchInstanceId,
     purchaseReservedElasticsearchInstanceOfferingResponse_reservationName,
+    purchaseReservedElasticsearchInstanceOfferingResponse_reservedElasticsearchInstanceId,
     purchaseReservedElasticsearchInstanceOfferingResponse_httpStatus,
   )
 where
@@ -121,8 +121,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           PurchaseReservedElasticsearchInstanceOfferingResponse'
-            Prelude.<$> (x Data..?> "ReservedElasticsearchInstanceId")
-              Prelude.<*> (x Data..?> "ReservationName")
+            Prelude.<$> (x Data..?> "ReservationName")
+              Prelude.<*> (x Data..?> "ReservedElasticsearchInstanceId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -190,10 +190,10 @@ instance
 --
 -- /See:/ 'newPurchaseReservedElasticsearchInstanceOfferingResponse' smart constructor.
 data PurchaseReservedElasticsearchInstanceOfferingResponse = PurchaseReservedElasticsearchInstanceOfferingResponse'
-  { -- | Details of the reserved Elasticsearch instance which was purchased.
-    reservedElasticsearchInstanceId :: Prelude.Maybe Prelude.Text,
-    -- | The customer-specified identifier used to track this reservation.
+  { -- | The customer-specified identifier used to track this reservation.
     reservationName :: Prelude.Maybe Prelude.Text,
+    -- | Details of the reserved Elasticsearch instance which was purchased.
+    reservedElasticsearchInstanceId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -207,9 +207,9 @@ data PurchaseReservedElasticsearchInstanceOfferingResponse = PurchaseReservedEla
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'reservedElasticsearchInstanceId', 'purchaseReservedElasticsearchInstanceOfferingResponse_reservedElasticsearchInstanceId' - Details of the reserved Elasticsearch instance which was purchased.
---
 -- 'reservationName', 'purchaseReservedElasticsearchInstanceOfferingResponse_reservationName' - The customer-specified identifier used to track this reservation.
+--
+-- 'reservedElasticsearchInstanceId', 'purchaseReservedElasticsearchInstanceOfferingResponse_reservedElasticsearchInstanceId' - Details of the reserved Elasticsearch instance which was purchased.
 --
 -- 'httpStatus', 'purchaseReservedElasticsearchInstanceOfferingResponse_httpStatus' - The response's http status code.
 newPurchaseReservedElasticsearchInstanceOfferingResponse ::
@@ -219,21 +219,21 @@ newPurchaseReservedElasticsearchInstanceOfferingResponse ::
 newPurchaseReservedElasticsearchInstanceOfferingResponse
   pHttpStatus_ =
     PurchaseReservedElasticsearchInstanceOfferingResponse'
-      { reservedElasticsearchInstanceId =
+      { reservationName =
           Prelude.Nothing,
-        reservationName =
+        reservedElasticsearchInstanceId =
           Prelude.Nothing,
         httpStatus =
           pHttpStatus_
       }
 
--- | Details of the reserved Elasticsearch instance which was purchased.
-purchaseReservedElasticsearchInstanceOfferingResponse_reservedElasticsearchInstanceId :: Lens.Lens' PurchaseReservedElasticsearchInstanceOfferingResponse (Prelude.Maybe Prelude.Text)
-purchaseReservedElasticsearchInstanceOfferingResponse_reservedElasticsearchInstanceId = Lens.lens (\PurchaseReservedElasticsearchInstanceOfferingResponse' {reservedElasticsearchInstanceId} -> reservedElasticsearchInstanceId) (\s@PurchaseReservedElasticsearchInstanceOfferingResponse' {} a -> s {reservedElasticsearchInstanceId = a} :: PurchaseReservedElasticsearchInstanceOfferingResponse)
-
 -- | The customer-specified identifier used to track this reservation.
 purchaseReservedElasticsearchInstanceOfferingResponse_reservationName :: Lens.Lens' PurchaseReservedElasticsearchInstanceOfferingResponse (Prelude.Maybe Prelude.Text)
 purchaseReservedElasticsearchInstanceOfferingResponse_reservationName = Lens.lens (\PurchaseReservedElasticsearchInstanceOfferingResponse' {reservationName} -> reservationName) (\s@PurchaseReservedElasticsearchInstanceOfferingResponse' {} a -> s {reservationName = a} :: PurchaseReservedElasticsearchInstanceOfferingResponse)
+
+-- | Details of the reserved Elasticsearch instance which was purchased.
+purchaseReservedElasticsearchInstanceOfferingResponse_reservedElasticsearchInstanceId :: Lens.Lens' PurchaseReservedElasticsearchInstanceOfferingResponse (Prelude.Maybe Prelude.Text)
+purchaseReservedElasticsearchInstanceOfferingResponse_reservedElasticsearchInstanceId = Lens.lens (\PurchaseReservedElasticsearchInstanceOfferingResponse' {reservedElasticsearchInstanceId} -> reservedElasticsearchInstanceId) (\s@PurchaseReservedElasticsearchInstanceOfferingResponse' {} a -> s {reservedElasticsearchInstanceId = a} :: PurchaseReservedElasticsearchInstanceOfferingResponse)
 
 -- | The response's http status code.
 purchaseReservedElasticsearchInstanceOfferingResponse_httpStatus :: Lens.Lens' PurchaseReservedElasticsearchInstanceOfferingResponse Prelude.Int
@@ -245,6 +245,6 @@ instance
   where
   rnf
     PurchaseReservedElasticsearchInstanceOfferingResponse' {..} =
-      Prelude.rnf reservedElasticsearchInstanceId
-        `Prelude.seq` Prelude.rnf reservationName
+      Prelude.rnf reservationName
+        `Prelude.seq` Prelude.rnf reservedElasticsearchInstanceId
         `Prelude.seq` Prelude.rnf httpStatus

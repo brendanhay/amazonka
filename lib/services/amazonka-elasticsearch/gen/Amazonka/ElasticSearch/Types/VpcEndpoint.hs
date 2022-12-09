@@ -31,20 +31,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVpcEndpoint' smart constructor.
 data VpcEndpoint = VpcEndpoint'
-  { -- | The creator of the endpoint.
-    vpcEndpointOwner :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the domain associated with the
+  { -- | The Amazon Resource Name (ARN) of the domain associated with the
     -- endpoint.
     domainArn :: Prelude.Maybe Prelude.Text,
+    -- | The connection endpoint ID for connecting to the domain.
+    endpoint :: Prelude.Maybe Prelude.Text,
     -- | The current status of the endpoint.
     status :: Prelude.Maybe VpcEndpointStatus,
     -- | The unique identifier of the endpoint.
     vpcEndpointId :: Prelude.Maybe Prelude.Text,
+    -- | The creator of the endpoint.
+    vpcEndpointOwner :: Prelude.Maybe Prelude.Text,
     -- | Options to specify the subnets and security groups for an Amazon
     -- OpenSearch Service VPC endpoint.
-    vpcOptions :: Prelude.Maybe VPCDerivedInfo,
-    -- | The connection endpoint ID for connecting to the domain.
-    endpoint :: Prelude.Maybe Prelude.Text
+    vpcOptions :: Prelude.Maybe VPCDerivedInfo
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,39 +56,39 @@ data VpcEndpoint = VpcEndpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vpcEndpointOwner', 'vpcEndpoint_vpcEndpointOwner' - The creator of the endpoint.
---
 -- 'domainArn', 'vpcEndpoint_domainArn' - The Amazon Resource Name (ARN) of the domain associated with the
 -- endpoint.
+--
+-- 'endpoint', 'vpcEndpoint_endpoint' - The connection endpoint ID for connecting to the domain.
 --
 -- 'status', 'vpcEndpoint_status' - The current status of the endpoint.
 --
 -- 'vpcEndpointId', 'vpcEndpoint_vpcEndpointId' - The unique identifier of the endpoint.
 --
+-- 'vpcEndpointOwner', 'vpcEndpoint_vpcEndpointOwner' - The creator of the endpoint.
+--
 -- 'vpcOptions', 'vpcEndpoint_vpcOptions' - Options to specify the subnets and security groups for an Amazon
 -- OpenSearch Service VPC endpoint.
---
--- 'endpoint', 'vpcEndpoint_endpoint' - The connection endpoint ID for connecting to the domain.
 newVpcEndpoint ::
   VpcEndpoint
 newVpcEndpoint =
   VpcEndpoint'
-    { vpcEndpointOwner = Prelude.Nothing,
-      domainArn = Prelude.Nothing,
+    { domainArn = Prelude.Nothing,
+      endpoint = Prelude.Nothing,
       status = Prelude.Nothing,
       vpcEndpointId = Prelude.Nothing,
-      vpcOptions = Prelude.Nothing,
-      endpoint = Prelude.Nothing
+      vpcEndpointOwner = Prelude.Nothing,
+      vpcOptions = Prelude.Nothing
     }
-
--- | The creator of the endpoint.
-vpcEndpoint_vpcEndpointOwner :: Lens.Lens' VpcEndpoint (Prelude.Maybe Prelude.Text)
-vpcEndpoint_vpcEndpointOwner = Lens.lens (\VpcEndpoint' {vpcEndpointOwner} -> vpcEndpointOwner) (\s@VpcEndpoint' {} a -> s {vpcEndpointOwner = a} :: VpcEndpoint)
 
 -- | The Amazon Resource Name (ARN) of the domain associated with the
 -- endpoint.
 vpcEndpoint_domainArn :: Lens.Lens' VpcEndpoint (Prelude.Maybe Prelude.Text)
 vpcEndpoint_domainArn = Lens.lens (\VpcEndpoint' {domainArn} -> domainArn) (\s@VpcEndpoint' {} a -> s {domainArn = a} :: VpcEndpoint)
+
+-- | The connection endpoint ID for connecting to the domain.
+vpcEndpoint_endpoint :: Lens.Lens' VpcEndpoint (Prelude.Maybe Prelude.Text)
+vpcEndpoint_endpoint = Lens.lens (\VpcEndpoint' {endpoint} -> endpoint) (\s@VpcEndpoint' {} a -> s {endpoint = a} :: VpcEndpoint)
 
 -- | The current status of the endpoint.
 vpcEndpoint_status :: Lens.Lens' VpcEndpoint (Prelude.Maybe VpcEndpointStatus)
@@ -98,14 +98,14 @@ vpcEndpoint_status = Lens.lens (\VpcEndpoint' {status} -> status) (\s@VpcEndpoin
 vpcEndpoint_vpcEndpointId :: Lens.Lens' VpcEndpoint (Prelude.Maybe Prelude.Text)
 vpcEndpoint_vpcEndpointId = Lens.lens (\VpcEndpoint' {vpcEndpointId} -> vpcEndpointId) (\s@VpcEndpoint' {} a -> s {vpcEndpointId = a} :: VpcEndpoint)
 
+-- | The creator of the endpoint.
+vpcEndpoint_vpcEndpointOwner :: Lens.Lens' VpcEndpoint (Prelude.Maybe Prelude.Text)
+vpcEndpoint_vpcEndpointOwner = Lens.lens (\VpcEndpoint' {vpcEndpointOwner} -> vpcEndpointOwner) (\s@VpcEndpoint' {} a -> s {vpcEndpointOwner = a} :: VpcEndpoint)
+
 -- | Options to specify the subnets and security groups for an Amazon
 -- OpenSearch Service VPC endpoint.
 vpcEndpoint_vpcOptions :: Lens.Lens' VpcEndpoint (Prelude.Maybe VPCDerivedInfo)
 vpcEndpoint_vpcOptions = Lens.lens (\VpcEndpoint' {vpcOptions} -> vpcOptions) (\s@VpcEndpoint' {} a -> s {vpcOptions = a} :: VpcEndpoint)
-
--- | The connection endpoint ID for connecting to the domain.
-vpcEndpoint_endpoint :: Lens.Lens' VpcEndpoint (Prelude.Maybe Prelude.Text)
-vpcEndpoint_endpoint = Lens.lens (\VpcEndpoint' {endpoint} -> endpoint) (\s@VpcEndpoint' {} a -> s {endpoint = a} :: VpcEndpoint)
 
 instance Data.FromJSON VpcEndpoint where
   parseJSON =
@@ -113,28 +113,28 @@ instance Data.FromJSON VpcEndpoint where
       "VpcEndpoint"
       ( \x ->
           VpcEndpoint'
-            Prelude.<$> (x Data..:? "VpcEndpointOwner")
-            Prelude.<*> (x Data..:? "DomainArn")
+            Prelude.<$> (x Data..:? "DomainArn")
+            Prelude.<*> (x Data..:? "Endpoint")
             Prelude.<*> (x Data..:? "Status")
             Prelude.<*> (x Data..:? "VpcEndpointId")
+            Prelude.<*> (x Data..:? "VpcEndpointOwner")
             Prelude.<*> (x Data..:? "VpcOptions")
-            Prelude.<*> (x Data..:? "Endpoint")
       )
 
 instance Prelude.Hashable VpcEndpoint where
   hashWithSalt _salt VpcEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` vpcEndpointOwner
-      `Prelude.hashWithSalt` domainArn
+    _salt `Prelude.hashWithSalt` domainArn
+      `Prelude.hashWithSalt` endpoint
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` vpcEndpointId
+      `Prelude.hashWithSalt` vpcEndpointOwner
       `Prelude.hashWithSalt` vpcOptions
-      `Prelude.hashWithSalt` endpoint
 
 instance Prelude.NFData VpcEndpoint where
   rnf VpcEndpoint' {..} =
-    Prelude.rnf vpcEndpointOwner
-      `Prelude.seq` Prelude.rnf domainArn
+    Prelude.rnf domainArn
+      `Prelude.seq` Prelude.rnf endpoint
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf vpcEndpointId
+      `Prelude.seq` Prelude.rnf vpcEndpointOwner
       `Prelude.seq` Prelude.rnf vpcOptions
-      `Prelude.seq` Prelude.rnf endpoint

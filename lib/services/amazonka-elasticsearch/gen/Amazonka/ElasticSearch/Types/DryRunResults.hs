@@ -26,9 +26,7 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newDryRunResults' smart constructor.
 data DryRunResults = DryRunResults'
-  { -- | Contains an optional message associated with the DryRunResults.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the deployment mechanism through which the update shall be
+  { -- | Specifies the deployment mechanism through which the update shall be
     -- applied on the domain. Possible responses are @Blue\/Green@ (The update
     -- will require a blue\/green deployment.) @DynamicUpdate@ (The update can
     -- be applied in-place without a Blue\/Green deployment required.)
@@ -36,7 +34,9 @@ data DryRunResults = DryRunResults'
     -- complete before the deployment type can be predicted.) @None@ (The
     -- configuration change matches the current configuration and will not
     -- result in any update.)
-    deploymentType :: Prelude.Maybe Prelude.Text
+    deploymentType :: Prelude.Maybe Prelude.Text,
+    -- | Contains an optional message associated with the DryRunResults.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,8 +48,6 @@ data DryRunResults = DryRunResults'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'dryRunResults_message' - Contains an optional message associated with the DryRunResults.
---
 -- 'deploymentType', 'dryRunResults_deploymentType' - Specifies the deployment mechanism through which the update shall be
 -- applied on the domain. Possible responses are @Blue\/Green@ (The update
 -- will require a blue\/green deployment.) @DynamicUpdate@ (The update can
@@ -58,17 +56,15 @@ data DryRunResults = DryRunResults'
 -- complete before the deployment type can be predicted.) @None@ (The
 -- configuration change matches the current configuration and will not
 -- result in any update.)
+--
+-- 'message', 'dryRunResults_message' - Contains an optional message associated with the DryRunResults.
 newDryRunResults ::
   DryRunResults
 newDryRunResults =
   DryRunResults'
-    { message = Prelude.Nothing,
-      deploymentType = Prelude.Nothing
+    { deploymentType = Prelude.Nothing,
+      message = Prelude.Nothing
     }
-
--- | Contains an optional message associated with the DryRunResults.
-dryRunResults_message :: Lens.Lens' DryRunResults (Prelude.Maybe Prelude.Text)
-dryRunResults_message = Lens.lens (\DryRunResults' {message} -> message) (\s@DryRunResults' {} a -> s {message = a} :: DryRunResults)
 
 -- | Specifies the deployment mechanism through which the update shall be
 -- applied on the domain. Possible responses are @Blue\/Green@ (The update
@@ -81,22 +77,26 @@ dryRunResults_message = Lens.lens (\DryRunResults' {message} -> message) (\s@Dry
 dryRunResults_deploymentType :: Lens.Lens' DryRunResults (Prelude.Maybe Prelude.Text)
 dryRunResults_deploymentType = Lens.lens (\DryRunResults' {deploymentType} -> deploymentType) (\s@DryRunResults' {} a -> s {deploymentType = a} :: DryRunResults)
 
+-- | Contains an optional message associated with the DryRunResults.
+dryRunResults_message :: Lens.Lens' DryRunResults (Prelude.Maybe Prelude.Text)
+dryRunResults_message = Lens.lens (\DryRunResults' {message} -> message) (\s@DryRunResults' {} a -> s {message = a} :: DryRunResults)
+
 instance Data.FromJSON DryRunResults where
   parseJSON =
     Data.withObject
       "DryRunResults"
       ( \x ->
           DryRunResults'
-            Prelude.<$> (x Data..:? "Message")
-            Prelude.<*> (x Data..:? "DeploymentType")
+            Prelude.<$> (x Data..:? "DeploymentType")
+            Prelude.<*> (x Data..:? "Message")
       )
 
 instance Prelude.Hashable DryRunResults where
   hashWithSalt _salt DryRunResults' {..} =
-    _salt `Prelude.hashWithSalt` message
-      `Prelude.hashWithSalt` deploymentType
+    _salt `Prelude.hashWithSalt` deploymentType
+      `Prelude.hashWithSalt` message
 
 instance Prelude.NFData DryRunResults where
   rnf DryRunResults' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf deploymentType
+    Prelude.rnf deploymentType
+      `Prelude.seq` Prelude.rnf message

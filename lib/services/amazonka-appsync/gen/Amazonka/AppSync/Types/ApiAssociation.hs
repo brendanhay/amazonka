@@ -29,9 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newApiAssociation' smart constructor.
 data ApiAssociation = ApiAssociation'
-  { -- | The domain name.
-    domainName :: Prelude.Maybe Prelude.Text,
-    -- | The API ID.
+  { -- | The API ID.
     apiId :: Prelude.Maybe Prelude.Text,
     -- | Identifies the status of an association.
     --
@@ -45,7 +43,9 @@ data ApiAssociation = ApiAssociation'
     --     associations after failure.
     associationStatus :: Prelude.Maybe AssociationStatus,
     -- | Details about the last deployment status.
-    deploymentDetail :: Prelude.Maybe Prelude.Text
+    deploymentDetail :: Prelude.Maybe Prelude.Text,
+    -- | The domain name.
+    domainName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,8 +56,6 @@ data ApiAssociation = ApiAssociation'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'domainName', 'apiAssociation_domainName' - The domain name.
 --
 -- 'apiId', 'apiAssociation_apiId' - The API ID.
 --
@@ -73,19 +71,17 @@ data ApiAssociation = ApiAssociation'
 --     associations after failure.
 --
 -- 'deploymentDetail', 'apiAssociation_deploymentDetail' - Details about the last deployment status.
+--
+-- 'domainName', 'apiAssociation_domainName' - The domain name.
 newApiAssociation ::
   ApiAssociation
 newApiAssociation =
   ApiAssociation'
-    { domainName = Prelude.Nothing,
-      apiId = Prelude.Nothing,
+    { apiId = Prelude.Nothing,
       associationStatus = Prelude.Nothing,
-      deploymentDetail = Prelude.Nothing
+      deploymentDetail = Prelude.Nothing,
+      domainName = Prelude.Nothing
     }
-
--- | The domain name.
-apiAssociation_domainName :: Lens.Lens' ApiAssociation (Prelude.Maybe Prelude.Text)
-apiAssociation_domainName = Lens.lens (\ApiAssociation' {domainName} -> domainName) (\s@ApiAssociation' {} a -> s {domainName = a} :: ApiAssociation)
 
 -- | The API ID.
 apiAssociation_apiId :: Lens.Lens' ApiAssociation (Prelude.Maybe Prelude.Text)
@@ -108,28 +104,32 @@ apiAssociation_associationStatus = Lens.lens (\ApiAssociation' {associationStatu
 apiAssociation_deploymentDetail :: Lens.Lens' ApiAssociation (Prelude.Maybe Prelude.Text)
 apiAssociation_deploymentDetail = Lens.lens (\ApiAssociation' {deploymentDetail} -> deploymentDetail) (\s@ApiAssociation' {} a -> s {deploymentDetail = a} :: ApiAssociation)
 
+-- | The domain name.
+apiAssociation_domainName :: Lens.Lens' ApiAssociation (Prelude.Maybe Prelude.Text)
+apiAssociation_domainName = Lens.lens (\ApiAssociation' {domainName} -> domainName) (\s@ApiAssociation' {} a -> s {domainName = a} :: ApiAssociation)
+
 instance Data.FromJSON ApiAssociation where
   parseJSON =
     Data.withObject
       "ApiAssociation"
       ( \x ->
           ApiAssociation'
-            Prelude.<$> (x Data..:? "domainName")
-            Prelude.<*> (x Data..:? "apiId")
+            Prelude.<$> (x Data..:? "apiId")
             Prelude.<*> (x Data..:? "associationStatus")
             Prelude.<*> (x Data..:? "deploymentDetail")
+            Prelude.<*> (x Data..:? "domainName")
       )
 
 instance Prelude.Hashable ApiAssociation where
   hashWithSalt _salt ApiAssociation' {..} =
-    _salt `Prelude.hashWithSalt` domainName
-      `Prelude.hashWithSalt` apiId
+    _salt `Prelude.hashWithSalt` apiId
       `Prelude.hashWithSalt` associationStatus
       `Prelude.hashWithSalt` deploymentDetail
+      `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData ApiAssociation where
   rnf ApiAssociation' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf apiId
+    Prelude.rnf apiId
       `Prelude.seq` Prelude.rnf associationStatus
       `Prelude.seq` Prelude.rnf deploymentDetail
+      `Prelude.seq` Prelude.rnf domainName

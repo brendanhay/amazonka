@@ -29,8 +29,8 @@ module Amazonka.AppSync.ListDataSources
     newListDataSources,
 
     -- * Request Lenses
-    listDataSources_nextToken,
     listDataSources_maxResults,
+    listDataSources_nextToken,
     listDataSources_apiId,
 
     -- * Destructuring the Response
@@ -38,8 +38,8 @@ module Amazonka.AppSync.ListDataSources
     newListDataSourcesResponse,
 
     -- * Response Lenses
-    listDataSourcesResponse_nextToken,
     listDataSourcesResponse_dataSources,
+    listDataSourcesResponse_nextToken,
     listDataSourcesResponse_httpStatus,
   )
 where
@@ -54,12 +54,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDataSources' smart constructor.
 data ListDataSources = ListDataSources'
-  { -- | An identifier that was returned from the previous call to this
+  { -- | The maximum number of results that you want the request to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | An identifier that was returned from the previous call to this
     -- operation, which you can use to return the next set of items in the
     -- list.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results that you want the request to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The API ID.
     apiId :: Prelude.Text
   }
@@ -73,11 +73,11 @@ data ListDataSources = ListDataSources'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listDataSources_maxResults' - The maximum number of results that you want the request to return.
+--
 -- 'nextToken', 'listDataSources_nextToken' - An identifier that was returned from the previous call to this
 -- operation, which you can use to return the next set of items in the
 -- list.
---
--- 'maxResults', 'listDataSources_maxResults' - The maximum number of results that you want the request to return.
 --
 -- 'apiId', 'listDataSources_apiId' - The API ID.
 newListDataSources ::
@@ -86,20 +86,20 @@ newListDataSources ::
   ListDataSources
 newListDataSources pApiId_ =
   ListDataSources'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       apiId = pApiId_
     }
+
+-- | The maximum number of results that you want the request to return.
+listDataSources_maxResults :: Lens.Lens' ListDataSources (Prelude.Maybe Prelude.Natural)
+listDataSources_maxResults = Lens.lens (\ListDataSources' {maxResults} -> maxResults) (\s@ListDataSources' {} a -> s {maxResults = a} :: ListDataSources)
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which you can use to return the next set of items in the
 -- list.
 listDataSources_nextToken :: Lens.Lens' ListDataSources (Prelude.Maybe Prelude.Text)
 listDataSources_nextToken = Lens.lens (\ListDataSources' {nextToken} -> nextToken) (\s@ListDataSources' {} a -> s {nextToken = a} :: ListDataSources)
-
--- | The maximum number of results that you want the request to return.
-listDataSources_maxResults :: Lens.Lens' ListDataSources (Prelude.Maybe Prelude.Natural)
-listDataSources_maxResults = Lens.lens (\ListDataSources' {maxResults} -> maxResults) (\s@ListDataSources' {} a -> s {maxResults = a} :: ListDataSources)
 
 -- | The API ID.
 listDataSources_apiId :: Lens.Lens' ListDataSources Prelude.Text
@@ -137,21 +137,21 @@ instance Core.AWSRequest ListDataSources where
     Response.receiveJSON
       ( \s h x ->
           ListDataSourcesResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "dataSources" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "dataSources" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListDataSources where
   hashWithSalt _salt ListDataSources' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` apiId
 
 instance Prelude.NFData ListDataSources where
   rnf ListDataSources' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf apiId
 
 instance Data.ToHeaders ListDataSources where
@@ -173,17 +173,17 @@ instance Data.ToPath ListDataSources where
 instance Data.ToQuery ListDataSources where
   toQuery ListDataSources' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListDataSourcesResponse' smart constructor.
 data ListDataSourcesResponse = ListDataSourcesResponse'
-  { -- | An identifier to pass in the next request to this operation to return
+  { -- | The @DataSource@ objects.
+    dataSources :: Prelude.Maybe [DataSource],
+    -- | An identifier to pass in the next request to this operation to return
     -- the next set of items in the list.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The @DataSource@ objects.
-    dataSources :: Prelude.Maybe [DataSource],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -197,10 +197,10 @@ data ListDataSourcesResponse = ListDataSourcesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dataSources', 'listDataSourcesResponse_dataSources' - The @DataSource@ objects.
+--
 -- 'nextToken', 'listDataSourcesResponse_nextToken' - An identifier to pass in the next request to this operation to return
 -- the next set of items in the list.
---
--- 'dataSources', 'listDataSourcesResponse_dataSources' - The @DataSource@ objects.
 --
 -- 'httpStatus', 'listDataSourcesResponse_httpStatus' - The response's http status code.
 newListDataSourcesResponse ::
@@ -209,20 +209,20 @@ newListDataSourcesResponse ::
   ListDataSourcesResponse
 newListDataSourcesResponse pHttpStatus_ =
   ListDataSourcesResponse'
-    { nextToken =
+    { dataSources =
         Prelude.Nothing,
-      dataSources = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The @DataSource@ objects.
+listDataSourcesResponse_dataSources :: Lens.Lens' ListDataSourcesResponse (Prelude.Maybe [DataSource])
+listDataSourcesResponse_dataSources = Lens.lens (\ListDataSourcesResponse' {dataSources} -> dataSources) (\s@ListDataSourcesResponse' {} a -> s {dataSources = a} :: ListDataSourcesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An identifier to pass in the next request to this operation to return
 -- the next set of items in the list.
 listDataSourcesResponse_nextToken :: Lens.Lens' ListDataSourcesResponse (Prelude.Maybe Prelude.Text)
 listDataSourcesResponse_nextToken = Lens.lens (\ListDataSourcesResponse' {nextToken} -> nextToken) (\s@ListDataSourcesResponse' {} a -> s {nextToken = a} :: ListDataSourcesResponse)
-
--- | The @DataSource@ objects.
-listDataSourcesResponse_dataSources :: Lens.Lens' ListDataSourcesResponse (Prelude.Maybe [DataSource])
-listDataSourcesResponse_dataSources = Lens.lens (\ListDataSourcesResponse' {dataSources} -> dataSources) (\s@ListDataSourcesResponse' {} a -> s {dataSources = a} :: ListDataSourcesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listDataSourcesResponse_httpStatus :: Lens.Lens' ListDataSourcesResponse Prelude.Int
@@ -230,6 +230,6 @@ listDataSourcesResponse_httpStatus = Lens.lens (\ListDataSourcesResponse' {httpS
 
 instance Prelude.NFData ListDataSourcesResponse where
   rnf ListDataSourcesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf dataSources
+    Prelude.rnf dataSources
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

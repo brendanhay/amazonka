@@ -18,17 +18,17 @@ module Amazonka.AppSync.Types
     defaultService,
 
     -- * Errors
-    _GraphQLSchemaException,
-    _ConcurrentModificationException,
     _AccessDeniedException,
-    _UnauthorizedException,
+    _ApiKeyLimitExceededException,
     _ApiKeyValidityOutOfBoundsException,
     _ApiLimitExceededException,
-    _NotFoundException,
-    _ApiKeyLimitExceededException,
-    _LimitExceededException,
     _BadRequestException,
+    _ConcurrentModificationException,
+    _GraphQLSchemaException,
     _InternalFailureException,
+    _LimitExceededException,
+    _NotFoundException,
+    _UnauthorizedException,
 
     -- * ApiCacheStatus
     ApiCacheStatus (..),
@@ -85,35 +85,35 @@ module Amazonka.AppSync.Types
     AdditionalAuthenticationProvider (..),
     newAdditionalAuthenticationProvider,
     additionalAuthenticationProvider_authenticationType,
+    additionalAuthenticationProvider_lambdaAuthorizerConfig,
     additionalAuthenticationProvider_openIDConnectConfig,
     additionalAuthenticationProvider_userPoolConfig,
-    additionalAuthenticationProvider_lambdaAuthorizerConfig,
 
     -- * ApiAssociation
     ApiAssociation (..),
     newApiAssociation,
-    apiAssociation_domainName,
     apiAssociation_apiId,
     apiAssociation_associationStatus,
     apiAssociation_deploymentDetail,
+    apiAssociation_domainName,
 
     -- * ApiCache
     ApiCache (..),
     newApiCache,
-    apiCache_transitEncryptionEnabled,
-    apiCache_type,
     apiCache_apiCachingBehavior,
-    apiCache_ttl,
-    apiCache_status,
     apiCache_atRestEncryptionEnabled,
+    apiCache_status,
+    apiCache_transitEncryptionEnabled,
+    apiCache_ttl,
+    apiCache_type,
 
     -- * ApiKey
     ApiKey (..),
     newApiKey,
-    apiKey_description,
-    apiKey_id,
-    apiKey_expires,
     apiKey_deletes,
+    apiKey_description,
+    apiKey_expires,
+    apiKey_id,
 
     -- * AppSyncRuntime
     AppSyncRuntime (..),
@@ -130,8 +130,8 @@ module Amazonka.AppSync.Types
     -- * AwsIamConfig
     AwsIamConfig (..),
     newAwsIamConfig,
-    awsIamConfig_signingServiceName,
     awsIamConfig_signingRegion,
+    awsIamConfig_signingServiceName,
 
     -- * CachingConfig
     CachingConfig (..),
@@ -142,16 +142,16 @@ module Amazonka.AppSync.Types
     -- * CodeError
     CodeError (..),
     newCodeError,
-    codeError_location,
     codeError_errorType,
+    codeError_location,
     codeError_value,
 
     -- * CodeErrorLocation
     CodeErrorLocation (..),
     newCodeErrorLocation,
+    codeErrorLocation_column,
     codeErrorLocation_line,
     codeErrorLocation_span,
-    codeErrorLocation_column,
 
     -- * CognitoUserPoolConfig
     CognitoUserPoolConfig (..),
@@ -163,17 +163,17 @@ module Amazonka.AppSync.Types
     -- * DataSource
     DataSource (..),
     newDataSource,
-    dataSource_name,
     dataSource_dataSourceArn,
-    dataSource_type,
+    dataSource_description,
+    dataSource_dynamodbConfig,
+    dataSource_elasticsearchConfig,
+    dataSource_httpConfig,
+    dataSource_lambdaConfig,
+    dataSource_name,
+    dataSource_openSearchServiceConfig,
     dataSource_relationalDatabaseConfig,
     dataSource_serviceRoleArn,
-    dataSource_openSearchServiceConfig,
-    dataSource_description,
-    dataSource_elasticsearchConfig,
-    dataSource_lambdaConfig,
-    dataSource_dynamodbConfig,
-    dataSource_httpConfig,
+    dataSource_type,
 
     -- * DeltaSyncConfig
     DeltaSyncConfig (..),
@@ -185,18 +185,18 @@ module Amazonka.AppSync.Types
     -- * DomainNameConfig
     DomainNameConfig (..),
     newDomainNameConfig,
-    domainNameConfig_hostedZoneId,
-    domainNameConfig_domainName,
-    domainNameConfig_description,
     domainNameConfig_appsyncDomainName,
     domainNameConfig_certificateArn,
+    domainNameConfig_description,
+    domainNameConfig_domainName,
+    domainNameConfig_hostedZoneId,
 
     -- * DynamodbDataSourceConfig
     DynamodbDataSourceConfig (..),
     newDynamodbDataSourceConfig,
+    dynamodbDataSourceConfig_deltaSyncConfig,
     dynamodbDataSourceConfig_useCallerCredentials,
     dynamodbDataSourceConfig_versioned,
-    dynamodbDataSourceConfig_deltaSyncConfig,
     dynamodbDataSourceConfig_tableName,
     dynamodbDataSourceConfig_awsRegion,
 
@@ -214,47 +214,47 @@ module Amazonka.AppSync.Types
     -- * EvaluateCodeErrorDetail
     EvaluateCodeErrorDetail (..),
     newEvaluateCodeErrorDetail,
-    evaluateCodeErrorDetail_message,
     evaluateCodeErrorDetail_codeErrors,
+    evaluateCodeErrorDetail_message,
 
     -- * FunctionConfiguration
     FunctionConfiguration (..),
     newFunctionConfiguration,
-    functionConfiguration_functionArn,
-    functionConfiguration_name,
     functionConfiguration_code,
-    functionConfiguration_maxBatchSize,
-    functionConfiguration_functionVersion,
-    functionConfiguration_runtime,
-    functionConfiguration_description,
     functionConfiguration_dataSourceName,
-    functionConfiguration_responseMappingTemplate,
-    functionConfiguration_syncConfig,
+    functionConfiguration_description,
+    functionConfiguration_functionArn,
     functionConfiguration_functionId,
+    functionConfiguration_functionVersion,
+    functionConfiguration_maxBatchSize,
+    functionConfiguration_name,
     functionConfiguration_requestMappingTemplate,
+    functionConfiguration_responseMappingTemplate,
+    functionConfiguration_runtime,
+    functionConfiguration_syncConfig,
 
     -- * GraphqlApi
     GraphqlApi (..),
     newGraphqlApi,
-    graphqlApi_tags,
-    graphqlApi_xrayEnabled,
-    graphqlApi_name,
-    graphqlApi_authenticationType,
-    graphqlApi_apiId,
-    graphqlApi_openIDConnectConfig,
-    graphqlApi_arn,
-    graphqlApi_uris,
-    graphqlApi_userPoolConfig,
     graphqlApi_additionalAuthenticationProviders,
+    graphqlApi_apiId,
+    graphqlApi_arn,
+    graphqlApi_authenticationType,
     graphqlApi_lambdaAuthorizerConfig,
     graphqlApi_logConfig,
+    graphqlApi_name,
+    graphqlApi_openIDConnectConfig,
+    graphqlApi_tags,
+    graphqlApi_uris,
+    graphqlApi_userPoolConfig,
     graphqlApi_wafWebAclArn,
+    graphqlApi_xrayEnabled,
 
     -- * HttpDataSourceConfig
     HttpDataSourceConfig (..),
     newHttpDataSourceConfig,
-    httpDataSourceConfig_endpoint,
     httpDataSourceConfig_authorizationConfig,
+    httpDataSourceConfig_endpoint,
 
     -- * LambdaAuthorizerConfig
     LambdaAuthorizerConfig (..),
@@ -283,9 +283,9 @@ module Amazonka.AppSync.Types
     -- * OpenIDConnectConfig
     OpenIDConnectConfig (..),
     newOpenIDConnectConfig,
-    openIDConnectConfig_iatTTL,
-    openIDConnectConfig_clientId,
     openIDConnectConfig_authTTL,
+    openIDConnectConfig_clientId,
+    openIDConnectConfig_iatTTL,
     openIDConnectConfig_issuer,
 
     -- * OpenSearchServiceDataSourceConfig
@@ -302,50 +302,50 @@ module Amazonka.AppSync.Types
     -- * RdsHttpEndpointConfig
     RdsHttpEndpointConfig (..),
     newRdsHttpEndpointConfig,
+    rdsHttpEndpointConfig_awsRegion,
+    rdsHttpEndpointConfig_awsSecretStoreArn,
     rdsHttpEndpointConfig_databaseName,
     rdsHttpEndpointConfig_dbClusterIdentifier,
-    rdsHttpEndpointConfig_awsRegion,
     rdsHttpEndpointConfig_schema,
-    rdsHttpEndpointConfig_awsSecretStoreArn,
 
     -- * RelationalDatabaseDataSourceConfig
     RelationalDatabaseDataSourceConfig (..),
     newRelationalDatabaseDataSourceConfig,
-    relationalDatabaseDataSourceConfig_relationalDatabaseSourceType,
     relationalDatabaseDataSourceConfig_rdsHttpEndpointConfig,
+    relationalDatabaseDataSourceConfig_relationalDatabaseSourceType,
 
     -- * Resolver
     Resolver (..),
     newResolver,
-    resolver_code,
-    resolver_maxBatchSize,
-    resolver_resolverArn,
-    resolver_fieldName,
     resolver_cachingConfig,
-    resolver_pipelineConfig,
-    resolver_kind,
-    resolver_runtime,
-    resolver_typeName,
+    resolver_code,
     resolver_dataSourceName,
-    resolver_responseMappingTemplate,
-    resolver_syncConfig,
+    resolver_fieldName,
+    resolver_kind,
+    resolver_maxBatchSize,
+    resolver_pipelineConfig,
     resolver_requestMappingTemplate,
+    resolver_resolverArn,
+    resolver_responseMappingTemplate,
+    resolver_runtime,
+    resolver_syncConfig,
+    resolver_typeName,
 
     -- * SyncConfig
     SyncConfig (..),
     newSyncConfig,
-    syncConfig_conflictHandler,
     syncConfig_conflictDetection,
+    syncConfig_conflictHandler,
     syncConfig_lambdaConflictHandlerConfig,
 
     -- * Type
     Type (..),
     newType,
-    type_name,
-    type_format,
     type_arn,
-    type_description,
     type_definition,
+    type_description,
+    type_format,
+    type_name,
 
     -- * UserPoolConfig
     UserPoolConfig (..),
@@ -438,28 +438,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -467,13 +461,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -481,24 +479,9 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
-
--- | The GraphQL schema is not valid.
-_GraphQLSchemaException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_GraphQLSchemaException =
-  Core._MatchServiceError
-    defaultService
-    "GraphQLSchemaException"
-    Prelude.. Core.hasStatus 400
-
--- | Another modification is in progress at this time and it must complete
--- before you can make your change.
-_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConcurrentModificationException =
-  Core._MatchServiceError
-    defaultService
-    "ConcurrentModificationException"
-    Prelude.. Core.hasStatus 409
 
 -- | You don\'t have access to perform this operation on this resource.
 _AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -508,13 +491,13 @@ _AccessDeniedException =
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
--- | You aren\'t authorized to perform this operation.
-_UnauthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnauthorizedException =
+-- | The API key exceeded a limit. Try your request again.
+_ApiKeyLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ApiKeyLimitExceededException =
   Core._MatchServiceError
     defaultService
-    "UnauthorizedException"
-    Prelude.. Core.hasStatus 401
+    "ApiKeyLimitExceededException"
+    Prelude.. Core.hasStatus 400
 
 -- | The API key expiration must be set to a value between 1 and 365 days
 -- from creation (for @CreateApiKey@) or from update (for @UpdateApiKey@).
@@ -533,31 +516,6 @@ _ApiLimitExceededException =
     "ApiLimitExceededException"
     Prelude.. Core.hasStatus 400
 
--- | The resource specified in the request was not found. Check the resource,
--- and then try again.
-_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "NotFoundException"
-    Prelude.. Core.hasStatus 404
-
--- | The API key exceeded a limit. Try your request again.
-_ApiKeyLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ApiKeyLimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ApiKeyLimitExceededException"
-    Prelude.. Core.hasStatus 400
-
--- | The request exceeded a limit. Try your request again.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "LimitExceededException"
-    Prelude.. Core.hasStatus 429
-
 -- | The request is not well formed. For example, a value is invalid or a
 -- required field is missing. Check the field values, and then try again.
 _BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -567,6 +525,23 @@ _BadRequestException =
     "BadRequestException"
     Prelude.. Core.hasStatus 400
 
+-- | Another modification is in progress at this time and it must complete
+-- before you can make your change.
+_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConcurrentModificationException =
+  Core._MatchServiceError
+    defaultService
+    "ConcurrentModificationException"
+    Prelude.. Core.hasStatus 409
+
+-- | The GraphQL schema is not valid.
+_GraphQLSchemaException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_GraphQLSchemaException =
+  Core._MatchServiceError
+    defaultService
+    "GraphQLSchemaException"
+    Prelude.. Core.hasStatus 400
+
 -- | An internal AppSync error occurred. Try your request again.
 _InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InternalFailureException =
@@ -574,3 +549,28 @@ _InternalFailureException =
     defaultService
     "InternalFailureException"
     Prelude.. Core.hasStatus 500
+
+-- | The request exceeded a limit. Try your request again.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "LimitExceededException"
+    Prelude.. Core.hasStatus 429
+
+-- | The resource specified in the request was not found. Check the resource,
+-- and then try again.
+_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "NotFoundException"
+    Prelude.. Core.hasStatus 404
+
+-- | You aren\'t authorized to perform this operation.
+_UnauthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnauthorizedException =
+  Core._MatchServiceError
+    defaultService
+    "UnauthorizedException"
+    Prelude.. Core.hasStatus 401

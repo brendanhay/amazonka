@@ -29,8 +29,8 @@ module Amazonka.AppSync.ListResolversByFunction
     newListResolversByFunction,
 
     -- * Request Lenses
-    listResolversByFunction_nextToken,
     listResolversByFunction_maxResults,
+    listResolversByFunction_nextToken,
     listResolversByFunction_apiId,
     listResolversByFunction_functionId,
 
@@ -55,12 +55,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListResolversByFunction' smart constructor.
 data ListResolversByFunction = ListResolversByFunction'
-  { -- | An identifier that was returned from the previous call to this
+  { -- | The maximum number of results that you want the request to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | An identifier that was returned from the previous call to this
     -- operation, which you can use to return the next set of items in the
     -- list.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results that you want the request to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The API ID.
     apiId :: Prelude.Text,
     -- | The function ID.
@@ -76,11 +76,11 @@ data ListResolversByFunction = ListResolversByFunction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listResolversByFunction_maxResults' - The maximum number of results that you want the request to return.
+--
 -- 'nextToken', 'listResolversByFunction_nextToken' - An identifier that was returned from the previous call to this
 -- operation, which you can use to return the next set of items in the
 -- list.
---
--- 'maxResults', 'listResolversByFunction_maxResults' - The maximum number of results that you want the request to return.
 --
 -- 'apiId', 'listResolversByFunction_apiId' - The API ID.
 --
@@ -93,22 +93,22 @@ newListResolversByFunction ::
   ListResolversByFunction
 newListResolversByFunction pApiId_ pFunctionId_ =
   ListResolversByFunction'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       apiId = pApiId_,
       functionId = pFunctionId_
     }
+
+-- | The maximum number of results that you want the request to return.
+listResolversByFunction_maxResults :: Lens.Lens' ListResolversByFunction (Prelude.Maybe Prelude.Natural)
+listResolversByFunction_maxResults = Lens.lens (\ListResolversByFunction' {maxResults} -> maxResults) (\s@ListResolversByFunction' {} a -> s {maxResults = a} :: ListResolversByFunction)
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which you can use to return the next set of items in the
 -- list.
 listResolversByFunction_nextToken :: Lens.Lens' ListResolversByFunction (Prelude.Maybe Prelude.Text)
 listResolversByFunction_nextToken = Lens.lens (\ListResolversByFunction' {nextToken} -> nextToken) (\s@ListResolversByFunction' {} a -> s {nextToken = a} :: ListResolversByFunction)
-
--- | The maximum number of results that you want the request to return.
-listResolversByFunction_maxResults :: Lens.Lens' ListResolversByFunction (Prelude.Maybe Prelude.Natural)
-listResolversByFunction_maxResults = Lens.lens (\ListResolversByFunction' {maxResults} -> maxResults) (\s@ListResolversByFunction' {} a -> s {maxResults = a} :: ListResolversByFunction)
 
 -- | The API ID.
 listResolversByFunction_apiId :: Lens.Lens' ListResolversByFunction Prelude.Text
@@ -157,15 +157,15 @@ instance Core.AWSRequest ListResolversByFunction where
 
 instance Prelude.Hashable ListResolversByFunction where
   hashWithSalt _salt ListResolversByFunction' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` apiId
       `Prelude.hashWithSalt` functionId
 
 instance Prelude.NFData ListResolversByFunction where
   rnf ListResolversByFunction' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf apiId
       `Prelude.seq` Prelude.rnf functionId
 
@@ -193,8 +193,8 @@ instance Data.ToPath ListResolversByFunction where
 instance Data.ToQuery ListResolversByFunction where
   toQuery ListResolversByFunction' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListResolversByFunctionResponse' smart constructor.

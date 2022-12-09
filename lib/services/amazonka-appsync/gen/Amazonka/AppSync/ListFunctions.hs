@@ -29,8 +29,8 @@ module Amazonka.AppSync.ListFunctions
     newListFunctions,
 
     -- * Request Lenses
-    listFunctions_nextToken,
     listFunctions_maxResults,
+    listFunctions_nextToken,
     listFunctions_apiId,
 
     -- * Destructuring the Response
@@ -54,12 +54,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListFunctions' smart constructor.
 data ListFunctions = ListFunctions'
-  { -- | An identifier that was returned from the previous call to this
+  { -- | The maximum number of results that you want the request to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | An identifier that was returned from the previous call to this
     -- operation, which you can use to return the next set of items in the
     -- list.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results that you want the request to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The GraphQL API ID.
     apiId :: Prelude.Text
   }
@@ -73,11 +73,11 @@ data ListFunctions = ListFunctions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listFunctions_maxResults' - The maximum number of results that you want the request to return.
+--
 -- 'nextToken', 'listFunctions_nextToken' - An identifier that was returned from the previous call to this
 -- operation, which you can use to return the next set of items in the
 -- list.
---
--- 'maxResults', 'listFunctions_maxResults' - The maximum number of results that you want the request to return.
 --
 -- 'apiId', 'listFunctions_apiId' - The GraphQL API ID.
 newListFunctions ::
@@ -86,20 +86,20 @@ newListFunctions ::
   ListFunctions
 newListFunctions pApiId_ =
   ListFunctions'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       apiId = pApiId_
     }
+
+-- | The maximum number of results that you want the request to return.
+listFunctions_maxResults :: Lens.Lens' ListFunctions (Prelude.Maybe Prelude.Natural)
+listFunctions_maxResults = Lens.lens (\ListFunctions' {maxResults} -> maxResults) (\s@ListFunctions' {} a -> s {maxResults = a} :: ListFunctions)
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which you can use to return the next set of items in the
 -- list.
 listFunctions_nextToken :: Lens.Lens' ListFunctions (Prelude.Maybe Prelude.Text)
 listFunctions_nextToken = Lens.lens (\ListFunctions' {nextToken} -> nextToken) (\s@ListFunctions' {} a -> s {nextToken = a} :: ListFunctions)
-
--- | The maximum number of results that you want the request to return.
-listFunctions_maxResults :: Lens.Lens' ListFunctions (Prelude.Maybe Prelude.Natural)
-listFunctions_maxResults = Lens.lens (\ListFunctions' {maxResults} -> maxResults) (\s@ListFunctions' {} a -> s {maxResults = a} :: ListFunctions)
 
 -- | The GraphQL API ID.
 listFunctions_apiId :: Lens.Lens' ListFunctions Prelude.Text
@@ -141,14 +141,14 @@ instance Core.AWSRequest ListFunctions where
 
 instance Prelude.Hashable ListFunctions where
   hashWithSalt _salt ListFunctions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` apiId
 
 instance Prelude.NFData ListFunctions where
   rnf ListFunctions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf apiId
 
 instance Data.ToHeaders ListFunctions where
@@ -170,8 +170,8 @@ instance Data.ToPath ListFunctions where
 instance Data.ToQuery ListFunctions where
   toQuery ListFunctions' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListFunctionsResponse' smart constructor.

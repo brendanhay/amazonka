@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsIamConfig' smart constructor.
 data AwsIamConfig = AwsIamConfig'
-  { -- | The signing service name for IAM authorization.
-    signingServiceName :: Prelude.Maybe Prelude.Text,
-    -- | The signing Amazon Web Services Region for IAM authorization.
-    signingRegion :: Prelude.Maybe Prelude.Text
+  { -- | The signing Amazon Web Services Region for IAM authorization.
+    signingRegion :: Prelude.Maybe Prelude.Text,
+    -- | The signing service name for IAM authorization.
+    signingServiceName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data AwsIamConfig = AwsIamConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'signingServiceName', 'awsIamConfig_signingServiceName' - The signing service name for IAM authorization.
---
 -- 'signingRegion', 'awsIamConfig_signingRegion' - The signing Amazon Web Services Region for IAM authorization.
+--
+-- 'signingServiceName', 'awsIamConfig_signingServiceName' - The signing service name for IAM authorization.
 newAwsIamConfig ::
   AwsIamConfig
 newAwsIamConfig =
   AwsIamConfig'
-    { signingServiceName = Prelude.Nothing,
-      signingRegion = Prelude.Nothing
+    { signingRegion = Prelude.Nothing,
+      signingServiceName = Prelude.Nothing
     }
-
--- | The signing service name for IAM authorization.
-awsIamConfig_signingServiceName :: Lens.Lens' AwsIamConfig (Prelude.Maybe Prelude.Text)
-awsIamConfig_signingServiceName = Lens.lens (\AwsIamConfig' {signingServiceName} -> signingServiceName) (\s@AwsIamConfig' {} a -> s {signingServiceName = a} :: AwsIamConfig)
 
 -- | The signing Amazon Web Services Region for IAM authorization.
 awsIamConfig_signingRegion :: Lens.Lens' AwsIamConfig (Prelude.Maybe Prelude.Text)
 awsIamConfig_signingRegion = Lens.lens (\AwsIamConfig' {signingRegion} -> signingRegion) (\s@AwsIamConfig' {} a -> s {signingRegion = a} :: AwsIamConfig)
+
+-- | The signing service name for IAM authorization.
+awsIamConfig_signingServiceName :: Lens.Lens' AwsIamConfig (Prelude.Maybe Prelude.Text)
+awsIamConfig_signingServiceName = Lens.lens (\AwsIamConfig' {signingServiceName} -> signingServiceName) (\s@AwsIamConfig' {} a -> s {signingServiceName = a} :: AwsIamConfig)
 
 instance Data.FromJSON AwsIamConfig where
   parseJSON =
@@ -68,26 +68,26 @@ instance Data.FromJSON AwsIamConfig where
       "AwsIamConfig"
       ( \x ->
           AwsIamConfig'
-            Prelude.<$> (x Data..:? "signingServiceName")
-            Prelude.<*> (x Data..:? "signingRegion")
+            Prelude.<$> (x Data..:? "signingRegion")
+            Prelude.<*> (x Data..:? "signingServiceName")
       )
 
 instance Prelude.Hashable AwsIamConfig where
   hashWithSalt _salt AwsIamConfig' {..} =
-    _salt `Prelude.hashWithSalt` signingServiceName
-      `Prelude.hashWithSalt` signingRegion
+    _salt `Prelude.hashWithSalt` signingRegion
+      `Prelude.hashWithSalt` signingServiceName
 
 instance Prelude.NFData AwsIamConfig where
   rnf AwsIamConfig' {..} =
-    Prelude.rnf signingServiceName
-      `Prelude.seq` Prelude.rnf signingRegion
+    Prelude.rnf signingRegion
+      `Prelude.seq` Prelude.rnf signingServiceName
 
 instance Data.ToJSON AwsIamConfig where
   toJSON AwsIamConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("signingServiceName" Data..=)
-              Prelude.<$> signingServiceName,
-            ("signingRegion" Data..=) Prelude.<$> signingRegion
+          [ ("signingRegion" Data..=) Prelude.<$> signingRegion,
+            ("signingServiceName" Data..=)
+              Prelude.<$> signingServiceName
           ]
       )

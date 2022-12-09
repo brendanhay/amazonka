@@ -34,7 +34,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSyncConfig' smart constructor.
 data SyncConfig = SyncConfig'
-  { -- | The Conflict Resolution strategy to perform in the event of a conflict.
+  { -- | The Conflict Detection strategy to use.
+    --
+    -- -   __VERSION__: Detect conflicts based on object versions for this
+    --     resolver.
+    --
+    -- -   __NONE__: Do not detect conflicts when invoking this resolver.
+    conflictDetection :: Prelude.Maybe ConflictDetectionType,
+    -- | The Conflict Resolution strategy to perform in the event of a conflict.
     --
     -- -   __OPTIMISTIC_CONCURRENCY__: Resolve conflicts by rejecting mutations
     --     when versions don\'t match the latest version at the server.
@@ -45,13 +52,6 @@ data SyncConfig = SyncConfig'
     -- -   __LAMBDA__: Resolve conflicts with an Lambda function supplied in
     --     the @LambdaConflictHandlerConfig@.
     conflictHandler :: Prelude.Maybe ConflictHandlerType,
-    -- | The Conflict Detection strategy to use.
-    --
-    -- -   __VERSION__: Detect conflicts based on object versions for this
-    --     resolver.
-    --
-    -- -   __NONE__: Do not detect conflicts when invoking this resolver.
-    conflictDetection :: Prelude.Maybe ConflictDetectionType,
     -- | The @LambdaConflictHandlerConfig@ when configuring @LAMBDA@ as the
     -- Conflict Handler.
     lambdaConflictHandlerConfig :: Prelude.Maybe LambdaConflictHandlerConfig
@@ -66,6 +66,13 @@ data SyncConfig = SyncConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'conflictDetection', 'syncConfig_conflictDetection' - The Conflict Detection strategy to use.
+--
+-- -   __VERSION__: Detect conflicts based on object versions for this
+--     resolver.
+--
+-- -   __NONE__: Do not detect conflicts when invoking this resolver.
+--
 -- 'conflictHandler', 'syncConfig_conflictHandler' - The Conflict Resolution strategy to perform in the event of a conflict.
 --
 -- -   __OPTIMISTIC_CONCURRENCY__: Resolve conflicts by rejecting mutations
@@ -77,23 +84,25 @@ data SyncConfig = SyncConfig'
 -- -   __LAMBDA__: Resolve conflicts with an Lambda function supplied in
 --     the @LambdaConflictHandlerConfig@.
 --
--- 'conflictDetection', 'syncConfig_conflictDetection' - The Conflict Detection strategy to use.
---
--- -   __VERSION__: Detect conflicts based on object versions for this
---     resolver.
---
--- -   __NONE__: Do not detect conflicts when invoking this resolver.
---
 -- 'lambdaConflictHandlerConfig', 'syncConfig_lambdaConflictHandlerConfig' - The @LambdaConflictHandlerConfig@ when configuring @LAMBDA@ as the
 -- Conflict Handler.
 newSyncConfig ::
   SyncConfig
 newSyncConfig =
   SyncConfig'
-    { conflictHandler = Prelude.Nothing,
-      conflictDetection = Prelude.Nothing,
+    { conflictDetection = Prelude.Nothing,
+      conflictHandler = Prelude.Nothing,
       lambdaConflictHandlerConfig = Prelude.Nothing
     }
+
+-- | The Conflict Detection strategy to use.
+--
+-- -   __VERSION__: Detect conflicts based on object versions for this
+--     resolver.
+--
+-- -   __NONE__: Do not detect conflicts when invoking this resolver.
+syncConfig_conflictDetection :: Lens.Lens' SyncConfig (Prelude.Maybe ConflictDetectionType)
+syncConfig_conflictDetection = Lens.lens (\SyncConfig' {conflictDetection} -> conflictDetection) (\s@SyncConfig' {} a -> s {conflictDetection = a} :: SyncConfig)
 
 -- | The Conflict Resolution strategy to perform in the event of a conflict.
 --
@@ -108,15 +117,6 @@ newSyncConfig =
 syncConfig_conflictHandler :: Lens.Lens' SyncConfig (Prelude.Maybe ConflictHandlerType)
 syncConfig_conflictHandler = Lens.lens (\SyncConfig' {conflictHandler} -> conflictHandler) (\s@SyncConfig' {} a -> s {conflictHandler = a} :: SyncConfig)
 
--- | The Conflict Detection strategy to use.
---
--- -   __VERSION__: Detect conflicts based on object versions for this
---     resolver.
---
--- -   __NONE__: Do not detect conflicts when invoking this resolver.
-syncConfig_conflictDetection :: Lens.Lens' SyncConfig (Prelude.Maybe ConflictDetectionType)
-syncConfig_conflictDetection = Lens.lens (\SyncConfig' {conflictDetection} -> conflictDetection) (\s@SyncConfig' {} a -> s {conflictDetection = a} :: SyncConfig)
-
 -- | The @LambdaConflictHandlerConfig@ when configuring @LAMBDA@ as the
 -- Conflict Handler.
 syncConfig_lambdaConflictHandlerConfig :: Lens.Lens' SyncConfig (Prelude.Maybe LambdaConflictHandlerConfig)
@@ -128,31 +128,31 @@ instance Data.FromJSON SyncConfig where
       "SyncConfig"
       ( \x ->
           SyncConfig'
-            Prelude.<$> (x Data..:? "conflictHandler")
-            Prelude.<*> (x Data..:? "conflictDetection")
+            Prelude.<$> (x Data..:? "conflictDetection")
+            Prelude.<*> (x Data..:? "conflictHandler")
             Prelude.<*> (x Data..:? "lambdaConflictHandlerConfig")
       )
 
 instance Prelude.Hashable SyncConfig where
   hashWithSalt _salt SyncConfig' {..} =
-    _salt `Prelude.hashWithSalt` conflictHandler
-      `Prelude.hashWithSalt` conflictDetection
+    _salt `Prelude.hashWithSalt` conflictDetection
+      `Prelude.hashWithSalt` conflictHandler
       `Prelude.hashWithSalt` lambdaConflictHandlerConfig
 
 instance Prelude.NFData SyncConfig where
   rnf SyncConfig' {..} =
-    Prelude.rnf conflictHandler
-      `Prelude.seq` Prelude.rnf conflictDetection
+    Prelude.rnf conflictDetection
+      `Prelude.seq` Prelude.rnf conflictHandler
       `Prelude.seq` Prelude.rnf lambdaConflictHandlerConfig
 
 instance Data.ToJSON SyncConfig where
   toJSON SyncConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("conflictHandler" Data..=)
-              Prelude.<$> conflictHandler,
-            ("conflictDetection" Data..=)
+          [ ("conflictDetection" Data..=)
               Prelude.<$> conflictDetection,
+            ("conflictHandler" Data..=)
+              Prelude.<$> conflictHandler,
             ("lambdaConflictHandlerConfig" Data..=)
               Prelude.<$> lambdaConflictHandlerConfig
           ]

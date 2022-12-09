@@ -27,16 +27,16 @@ module Amazonka.AppSync.ListDomainNames
     newListDomainNames,
 
     -- * Request Lenses
-    listDomainNames_nextToken,
     listDomainNames_maxResults,
+    listDomainNames_nextToken,
 
     -- * Destructuring the Response
     ListDomainNamesResponse (..),
     newListDomainNamesResponse,
 
     -- * Response Lenses
-    listDomainNamesResponse_nextToken,
     listDomainNamesResponse_domainNameConfigs,
+    listDomainNamesResponse_nextToken,
     listDomainNamesResponse_httpStatus,
   )
 where
@@ -51,10 +51,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDomainNames' smart constructor.
 data ListDomainNames = ListDomainNames'
-  { -- | The API token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results that you want the request to return.
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { -- | The maximum number of results that you want the request to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The API token.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,24 +66,24 @@ data ListDomainNames = ListDomainNames'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listDomainNames_nextToken' - The API token.
---
 -- 'maxResults', 'listDomainNames_maxResults' - The maximum number of results that you want the request to return.
+--
+-- 'nextToken', 'listDomainNames_nextToken' - The API token.
 newListDomainNames ::
   ListDomainNames
 newListDomainNames =
   ListDomainNames'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The API token.
-listDomainNames_nextToken :: Lens.Lens' ListDomainNames (Prelude.Maybe Prelude.Text)
-listDomainNames_nextToken = Lens.lens (\ListDomainNames' {nextToken} -> nextToken) (\s@ListDomainNames' {} a -> s {nextToken = a} :: ListDomainNames)
 
 -- | The maximum number of results that you want the request to return.
 listDomainNames_maxResults :: Lens.Lens' ListDomainNames (Prelude.Maybe Prelude.Natural)
 listDomainNames_maxResults = Lens.lens (\ListDomainNames' {maxResults} -> maxResults) (\s@ListDomainNames' {} a -> s {maxResults = a} :: ListDomainNames)
+
+-- | The API token.
+listDomainNames_nextToken :: Lens.Lens' ListDomainNames (Prelude.Maybe Prelude.Text)
+listDomainNames_nextToken = Lens.lens (\ListDomainNames' {nextToken} -> nextToken) (\s@ListDomainNames' {} a -> s {nextToken = a} :: ListDomainNames)
 
 instance Core.AWSRequest ListDomainNames where
   type
@@ -95,22 +95,22 @@ instance Core.AWSRequest ListDomainNames where
     Response.receiveJSON
       ( \s h x ->
           ListDomainNamesResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "domainNameConfigs"
+            Prelude.<$> ( x Data..?> "domainNameConfigs"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListDomainNames where
   hashWithSalt _salt ListDomainNames' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListDomainNames where
   rnf ListDomainNames' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListDomainNames where
   toHeaders =
@@ -129,16 +129,16 @@ instance Data.ToPath ListDomainNames where
 instance Data.ToQuery ListDomainNames where
   toQuery ListDomainNames' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListDomainNamesResponse' smart constructor.
 data ListDomainNamesResponse = ListDomainNamesResponse'
-  { -- | The API token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Lists configurations for multiple domain names.
+  { -- | Lists configurations for multiple domain names.
     domainNameConfigs :: Prelude.Maybe [DomainNameConfig],
+    -- | The API token.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -152,9 +152,9 @@ data ListDomainNamesResponse = ListDomainNamesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listDomainNamesResponse_nextToken' - The API token.
---
 -- 'domainNameConfigs', 'listDomainNamesResponse_domainNameConfigs' - Lists configurations for multiple domain names.
+--
+-- 'nextToken', 'listDomainNamesResponse_nextToken' - The API token.
 --
 -- 'httpStatus', 'listDomainNamesResponse_httpStatus' - The response's http status code.
 newListDomainNamesResponse ::
@@ -163,19 +163,19 @@ newListDomainNamesResponse ::
   ListDomainNamesResponse
 newListDomainNamesResponse pHttpStatus_ =
   ListDomainNamesResponse'
-    { nextToken =
+    { domainNameConfigs =
         Prelude.Nothing,
-      domainNameConfigs = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The API token.
-listDomainNamesResponse_nextToken :: Lens.Lens' ListDomainNamesResponse (Prelude.Maybe Prelude.Text)
-listDomainNamesResponse_nextToken = Lens.lens (\ListDomainNamesResponse' {nextToken} -> nextToken) (\s@ListDomainNamesResponse' {} a -> s {nextToken = a} :: ListDomainNamesResponse)
 
 -- | Lists configurations for multiple domain names.
 listDomainNamesResponse_domainNameConfigs :: Lens.Lens' ListDomainNamesResponse (Prelude.Maybe [DomainNameConfig])
 listDomainNamesResponse_domainNameConfigs = Lens.lens (\ListDomainNamesResponse' {domainNameConfigs} -> domainNameConfigs) (\s@ListDomainNamesResponse' {} a -> s {domainNameConfigs = a} :: ListDomainNamesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The API token.
+listDomainNamesResponse_nextToken :: Lens.Lens' ListDomainNamesResponse (Prelude.Maybe Prelude.Text)
+listDomainNamesResponse_nextToken = Lens.lens (\ListDomainNamesResponse' {nextToken} -> nextToken) (\s@ListDomainNamesResponse' {} a -> s {nextToken = a} :: ListDomainNamesResponse)
 
 -- | The response's http status code.
 listDomainNamesResponse_httpStatus :: Lens.Lens' ListDomainNamesResponse Prelude.Int
@@ -183,6 +183,6 @@ listDomainNamesResponse_httpStatus = Lens.lens (\ListDomainNamesResponse' {httpS
 
 instance Prelude.NFData ListDomainNamesResponse where
   rnf ListDomainNamesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf domainNameConfigs
+    Prelude.rnf domainNameConfigs
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

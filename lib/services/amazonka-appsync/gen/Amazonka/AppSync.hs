@@ -20,17 +20,11 @@ module Amazonka.AppSync
     -- * Errors
     -- $errors
 
-    -- ** GraphQLSchemaException
-    _GraphQLSchemaException,
-
-    -- ** ConcurrentModificationException
-    _ConcurrentModificationException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
 
-    -- ** UnauthorizedException
-    _UnauthorizedException,
+    -- ** ApiKeyLimitExceededException
+    _ApiKeyLimitExceededException,
 
     -- ** ApiKeyValidityOutOfBoundsException
     _ApiKeyValidityOutOfBoundsException,
@@ -38,20 +32,26 @@ module Amazonka.AppSync
     -- ** ApiLimitExceededException
     _ApiLimitExceededException,
 
-    -- ** NotFoundException
-    _NotFoundException,
+    -- ** BadRequestException
+    _BadRequestException,
 
-    -- ** ApiKeyLimitExceededException
-    _ApiKeyLimitExceededException,
+    -- ** ConcurrentModificationException
+    _ConcurrentModificationException,
+
+    -- ** GraphQLSchemaException
+    _GraphQLSchemaException,
+
+    -- ** InternalFailureException
+    _InternalFailureException,
 
     -- ** LimitExceededException
     _LimitExceededException,
 
-    -- ** BadRequestException
-    _BadRequestException,
+    -- ** NotFoundException
+    _NotFoundException,
 
-    -- ** InternalFailureException
-    _InternalFailureException,
+    -- ** UnauthorizedException
+    _UnauthorizedException,
 
     -- * Waiters
     -- $waiters

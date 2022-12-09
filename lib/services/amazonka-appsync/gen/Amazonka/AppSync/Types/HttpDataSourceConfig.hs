@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHttpDataSourceConfig' smart constructor.
 data HttpDataSourceConfig = HttpDataSourceConfig'
-  { -- | The HTTP URL endpoint. You can specify either the domain name or IP, and
+  { -- | The authorization configuration in case the HTTP endpoint requires
+    -- authorization.
+    authorizationConfig :: Prelude.Maybe AuthorizationConfig,
+    -- | The HTTP URL endpoint. You can specify either the domain name or IP, and
     -- port combination, and the URL scheme must be HTTP or HTTPS. If you
     -- don\'t specify the port, AppSync uses the default port 80 for the HTTP
     -- endpoint and port 443 for HTTPS endpoints.
-    endpoint :: Prelude.Maybe Prelude.Text,
-    -- | The authorization configuration in case the HTTP endpoint requires
-    -- authorization.
-    authorizationConfig :: Prelude.Maybe AuthorizationConfig
+    endpoint :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,20 +48,26 @@ data HttpDataSourceConfig = HttpDataSourceConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'authorizationConfig', 'httpDataSourceConfig_authorizationConfig' - The authorization configuration in case the HTTP endpoint requires
+-- authorization.
+--
 -- 'endpoint', 'httpDataSourceConfig_endpoint' - The HTTP URL endpoint. You can specify either the domain name or IP, and
 -- port combination, and the URL scheme must be HTTP or HTTPS. If you
 -- don\'t specify the port, AppSync uses the default port 80 for the HTTP
 -- endpoint and port 443 for HTTPS endpoints.
---
--- 'authorizationConfig', 'httpDataSourceConfig_authorizationConfig' - The authorization configuration in case the HTTP endpoint requires
--- authorization.
 newHttpDataSourceConfig ::
   HttpDataSourceConfig
 newHttpDataSourceConfig =
   HttpDataSourceConfig'
-    { endpoint = Prelude.Nothing,
-      authorizationConfig = Prelude.Nothing
+    { authorizationConfig =
+        Prelude.Nothing,
+      endpoint = Prelude.Nothing
     }
+
+-- | The authorization configuration in case the HTTP endpoint requires
+-- authorization.
+httpDataSourceConfig_authorizationConfig :: Lens.Lens' HttpDataSourceConfig (Prelude.Maybe AuthorizationConfig)
+httpDataSourceConfig_authorizationConfig = Lens.lens (\HttpDataSourceConfig' {authorizationConfig} -> authorizationConfig) (\s@HttpDataSourceConfig' {} a -> s {authorizationConfig = a} :: HttpDataSourceConfig)
 
 -- | The HTTP URL endpoint. You can specify either the domain name or IP, and
 -- port combination, and the URL scheme must be HTTP or HTTPS. If you
@@ -70,37 +76,32 @@ newHttpDataSourceConfig =
 httpDataSourceConfig_endpoint :: Lens.Lens' HttpDataSourceConfig (Prelude.Maybe Prelude.Text)
 httpDataSourceConfig_endpoint = Lens.lens (\HttpDataSourceConfig' {endpoint} -> endpoint) (\s@HttpDataSourceConfig' {} a -> s {endpoint = a} :: HttpDataSourceConfig)
 
--- | The authorization configuration in case the HTTP endpoint requires
--- authorization.
-httpDataSourceConfig_authorizationConfig :: Lens.Lens' HttpDataSourceConfig (Prelude.Maybe AuthorizationConfig)
-httpDataSourceConfig_authorizationConfig = Lens.lens (\HttpDataSourceConfig' {authorizationConfig} -> authorizationConfig) (\s@HttpDataSourceConfig' {} a -> s {authorizationConfig = a} :: HttpDataSourceConfig)
-
 instance Data.FromJSON HttpDataSourceConfig where
   parseJSON =
     Data.withObject
       "HttpDataSourceConfig"
       ( \x ->
           HttpDataSourceConfig'
-            Prelude.<$> (x Data..:? "endpoint")
-            Prelude.<*> (x Data..:? "authorizationConfig")
+            Prelude.<$> (x Data..:? "authorizationConfig")
+            Prelude.<*> (x Data..:? "endpoint")
       )
 
 instance Prelude.Hashable HttpDataSourceConfig where
   hashWithSalt _salt HttpDataSourceConfig' {..} =
-    _salt `Prelude.hashWithSalt` endpoint
-      `Prelude.hashWithSalt` authorizationConfig
+    _salt `Prelude.hashWithSalt` authorizationConfig
+      `Prelude.hashWithSalt` endpoint
 
 instance Prelude.NFData HttpDataSourceConfig where
   rnf HttpDataSourceConfig' {..} =
-    Prelude.rnf endpoint
-      `Prelude.seq` Prelude.rnf authorizationConfig
+    Prelude.rnf authorizationConfig
+      `Prelude.seq` Prelude.rnf endpoint
 
 instance Data.ToJSON HttpDataSourceConfig where
   toJSON HttpDataSourceConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("endpoint" Data..=) Prelude.<$> endpoint,
-            ("authorizationConfig" Data..=)
-              Prelude.<$> authorizationConfig
+          [ ("authorizationConfig" Data..=)
+              Prelude.<$> authorizationConfig,
+            ("endpoint" Data..=) Prelude.<$> endpoint
           ]
       )

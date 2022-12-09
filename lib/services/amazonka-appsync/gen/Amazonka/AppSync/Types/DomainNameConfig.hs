@@ -28,18 +28,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDomainNameConfig' smart constructor.
 data DomainNameConfig = DomainNameConfig'
-  { -- | The ID of your Amazon Route 53 hosted zone.
-    hostedZoneId :: Prelude.Maybe Prelude.Text,
-    -- | The domain name.
-    domainName :: Prelude.Maybe Prelude.Text,
-    -- | A description of the @DomainName@ configuration.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The domain name that AppSync provides.
+  { -- | The domain name that AppSync provides.
     appsyncDomainName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the certificate. This can be an
     -- Certificate Manager (ACM) certificate or an Identity and Access
     -- Management (IAM) server certificate.
-    certificateArn :: Prelude.Maybe Prelude.Text
+    certificateArn :: Prelude.Maybe Prelude.Text,
+    -- | A description of the @DomainName@ configuration.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The domain name.
+    domainName :: Prelude.Maybe Prelude.Text,
+    -- | The ID of your Amazon Route 53 hosted zone.
+    hostedZoneId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,39 +51,28 @@ data DomainNameConfig = DomainNameConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'hostedZoneId', 'domainNameConfig_hostedZoneId' - The ID of your Amazon Route 53 hosted zone.
---
--- 'domainName', 'domainNameConfig_domainName' - The domain name.
---
--- 'description', 'domainNameConfig_description' - A description of the @DomainName@ configuration.
---
 -- 'appsyncDomainName', 'domainNameConfig_appsyncDomainName' - The domain name that AppSync provides.
 --
 -- 'certificateArn', 'domainNameConfig_certificateArn' - The Amazon Resource Name (ARN) of the certificate. This can be an
 -- Certificate Manager (ACM) certificate or an Identity and Access
 -- Management (IAM) server certificate.
+--
+-- 'description', 'domainNameConfig_description' - A description of the @DomainName@ configuration.
+--
+-- 'domainName', 'domainNameConfig_domainName' - The domain name.
+--
+-- 'hostedZoneId', 'domainNameConfig_hostedZoneId' - The ID of your Amazon Route 53 hosted zone.
 newDomainNameConfig ::
   DomainNameConfig
 newDomainNameConfig =
   DomainNameConfig'
-    { hostedZoneId = Prelude.Nothing,
-      domainName = Prelude.Nothing,
+    { appsyncDomainName =
+        Prelude.Nothing,
+      certificateArn = Prelude.Nothing,
       description = Prelude.Nothing,
-      appsyncDomainName = Prelude.Nothing,
-      certificateArn = Prelude.Nothing
+      domainName = Prelude.Nothing,
+      hostedZoneId = Prelude.Nothing
     }
-
--- | The ID of your Amazon Route 53 hosted zone.
-domainNameConfig_hostedZoneId :: Lens.Lens' DomainNameConfig (Prelude.Maybe Prelude.Text)
-domainNameConfig_hostedZoneId = Lens.lens (\DomainNameConfig' {hostedZoneId} -> hostedZoneId) (\s@DomainNameConfig' {} a -> s {hostedZoneId = a} :: DomainNameConfig)
-
--- | The domain name.
-domainNameConfig_domainName :: Lens.Lens' DomainNameConfig (Prelude.Maybe Prelude.Text)
-domainNameConfig_domainName = Lens.lens (\DomainNameConfig' {domainName} -> domainName) (\s@DomainNameConfig' {} a -> s {domainName = a} :: DomainNameConfig)
-
--- | A description of the @DomainName@ configuration.
-domainNameConfig_description :: Lens.Lens' DomainNameConfig (Prelude.Maybe Prelude.Text)
-domainNameConfig_description = Lens.lens (\DomainNameConfig' {description} -> description) (\s@DomainNameConfig' {} a -> s {description = a} :: DomainNameConfig)
 
 -- | The domain name that AppSync provides.
 domainNameConfig_appsyncDomainName :: Lens.Lens' DomainNameConfig (Prelude.Maybe Prelude.Text)
@@ -95,31 +84,43 @@ domainNameConfig_appsyncDomainName = Lens.lens (\DomainNameConfig' {appsyncDomai
 domainNameConfig_certificateArn :: Lens.Lens' DomainNameConfig (Prelude.Maybe Prelude.Text)
 domainNameConfig_certificateArn = Lens.lens (\DomainNameConfig' {certificateArn} -> certificateArn) (\s@DomainNameConfig' {} a -> s {certificateArn = a} :: DomainNameConfig)
 
+-- | A description of the @DomainName@ configuration.
+domainNameConfig_description :: Lens.Lens' DomainNameConfig (Prelude.Maybe Prelude.Text)
+domainNameConfig_description = Lens.lens (\DomainNameConfig' {description} -> description) (\s@DomainNameConfig' {} a -> s {description = a} :: DomainNameConfig)
+
+-- | The domain name.
+domainNameConfig_domainName :: Lens.Lens' DomainNameConfig (Prelude.Maybe Prelude.Text)
+domainNameConfig_domainName = Lens.lens (\DomainNameConfig' {domainName} -> domainName) (\s@DomainNameConfig' {} a -> s {domainName = a} :: DomainNameConfig)
+
+-- | The ID of your Amazon Route 53 hosted zone.
+domainNameConfig_hostedZoneId :: Lens.Lens' DomainNameConfig (Prelude.Maybe Prelude.Text)
+domainNameConfig_hostedZoneId = Lens.lens (\DomainNameConfig' {hostedZoneId} -> hostedZoneId) (\s@DomainNameConfig' {} a -> s {hostedZoneId = a} :: DomainNameConfig)
+
 instance Data.FromJSON DomainNameConfig where
   parseJSON =
     Data.withObject
       "DomainNameConfig"
       ( \x ->
           DomainNameConfig'
-            Prelude.<$> (x Data..:? "hostedZoneId")
-            Prelude.<*> (x Data..:? "domainName")
-            Prelude.<*> (x Data..:? "description")
-            Prelude.<*> (x Data..:? "appsyncDomainName")
+            Prelude.<$> (x Data..:? "appsyncDomainName")
             Prelude.<*> (x Data..:? "certificateArn")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "domainName")
+            Prelude.<*> (x Data..:? "hostedZoneId")
       )
 
 instance Prelude.Hashable DomainNameConfig where
   hashWithSalt _salt DomainNameConfig' {..} =
-    _salt `Prelude.hashWithSalt` hostedZoneId
-      `Prelude.hashWithSalt` domainName
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` appsyncDomainName
+    _salt `Prelude.hashWithSalt` appsyncDomainName
       `Prelude.hashWithSalt` certificateArn
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` hostedZoneId
 
 instance Prelude.NFData DomainNameConfig where
   rnf DomainNameConfig' {..} =
-    Prelude.rnf hostedZoneId
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf appsyncDomainName
+    Prelude.rnf appsyncDomainName
       `Prelude.seq` Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf hostedZoneId

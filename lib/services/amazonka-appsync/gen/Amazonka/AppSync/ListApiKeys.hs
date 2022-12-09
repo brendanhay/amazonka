@@ -34,8 +34,8 @@ module Amazonka.AppSync.ListApiKeys
     newListApiKeys,
 
     -- * Request Lenses
-    listApiKeys_nextToken,
     listApiKeys_maxResults,
+    listApiKeys_nextToken,
     listApiKeys_apiId,
 
     -- * Destructuring the Response
@@ -43,8 +43,8 @@ module Amazonka.AppSync.ListApiKeys
     newListApiKeysResponse,
 
     -- * Response Lenses
-    listApiKeysResponse_nextToken,
     listApiKeysResponse_apiKeys,
+    listApiKeysResponse_nextToken,
     listApiKeysResponse_httpStatus,
   )
 where
@@ -59,12 +59,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListApiKeys' smart constructor.
 data ListApiKeys = ListApiKeys'
-  { -- | An identifier that was returned from the previous call to this
+  { -- | The maximum number of results that you want the request to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | An identifier that was returned from the previous call to this
     -- operation, which you can use to return the next set of items in the
     -- list.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results that you want the request to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The API ID.
     apiId :: Prelude.Text
   }
@@ -78,11 +78,11 @@ data ListApiKeys = ListApiKeys'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listApiKeys_maxResults' - The maximum number of results that you want the request to return.
+--
 -- 'nextToken', 'listApiKeys_nextToken' - An identifier that was returned from the previous call to this
 -- operation, which you can use to return the next set of items in the
 -- list.
---
--- 'maxResults', 'listApiKeys_maxResults' - The maximum number of results that you want the request to return.
 --
 -- 'apiId', 'listApiKeys_apiId' - The API ID.
 newListApiKeys ::
@@ -91,20 +91,20 @@ newListApiKeys ::
   ListApiKeys
 newListApiKeys pApiId_ =
   ListApiKeys'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       apiId = pApiId_
     }
+
+-- | The maximum number of results that you want the request to return.
+listApiKeys_maxResults :: Lens.Lens' ListApiKeys (Prelude.Maybe Prelude.Natural)
+listApiKeys_maxResults = Lens.lens (\ListApiKeys' {maxResults} -> maxResults) (\s@ListApiKeys' {} a -> s {maxResults = a} :: ListApiKeys)
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which you can use to return the next set of items in the
 -- list.
 listApiKeys_nextToken :: Lens.Lens' ListApiKeys (Prelude.Maybe Prelude.Text)
 listApiKeys_nextToken = Lens.lens (\ListApiKeys' {nextToken} -> nextToken) (\s@ListApiKeys' {} a -> s {nextToken = a} :: ListApiKeys)
-
--- | The maximum number of results that you want the request to return.
-listApiKeys_maxResults :: Lens.Lens' ListApiKeys (Prelude.Maybe Prelude.Natural)
-listApiKeys_maxResults = Lens.lens (\ListApiKeys' {maxResults} -> maxResults) (\s@ListApiKeys' {} a -> s {maxResults = a} :: ListApiKeys)
 
 -- | The API ID.
 listApiKeys_apiId :: Lens.Lens' ListApiKeys Prelude.Text
@@ -137,21 +137,21 @@ instance Core.AWSRequest ListApiKeys where
     Response.receiveJSON
       ( \s h x ->
           ListApiKeysResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "apiKeys" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "apiKeys" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListApiKeys where
   hashWithSalt _salt ListApiKeys' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` apiId
 
 instance Prelude.NFData ListApiKeys where
   rnf ListApiKeys' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf apiId
 
 instance Data.ToHeaders ListApiKeys where
@@ -173,17 +173,17 @@ instance Data.ToPath ListApiKeys where
 instance Data.ToQuery ListApiKeys where
   toQuery ListApiKeys' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListApiKeysResponse' smart constructor.
 data ListApiKeysResponse = ListApiKeysResponse'
-  { -- | An identifier to pass in the next request to this operation to return
+  { -- | The @ApiKey@ objects.
+    apiKeys :: Prelude.Maybe [ApiKey],
+    -- | An identifier to pass in the next request to this operation to return
     -- the next set of items in the list.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The @ApiKey@ objects.
-    apiKeys :: Prelude.Maybe [ApiKey],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -197,10 +197,10 @@ data ListApiKeysResponse = ListApiKeysResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'apiKeys', 'listApiKeysResponse_apiKeys' - The @ApiKey@ objects.
+--
 -- 'nextToken', 'listApiKeysResponse_nextToken' - An identifier to pass in the next request to this operation to return
 -- the next set of items in the list.
---
--- 'apiKeys', 'listApiKeysResponse_apiKeys' - The @ApiKey@ objects.
 --
 -- 'httpStatus', 'listApiKeysResponse_httpStatus' - The response's http status code.
 newListApiKeysResponse ::
@@ -209,19 +209,19 @@ newListApiKeysResponse ::
   ListApiKeysResponse
 newListApiKeysResponse pHttpStatus_ =
   ListApiKeysResponse'
-    { nextToken = Prelude.Nothing,
-      apiKeys = Prelude.Nothing,
+    { apiKeys = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The @ApiKey@ objects.
+listApiKeysResponse_apiKeys :: Lens.Lens' ListApiKeysResponse (Prelude.Maybe [ApiKey])
+listApiKeysResponse_apiKeys = Lens.lens (\ListApiKeysResponse' {apiKeys} -> apiKeys) (\s@ListApiKeysResponse' {} a -> s {apiKeys = a} :: ListApiKeysResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An identifier to pass in the next request to this operation to return
 -- the next set of items in the list.
 listApiKeysResponse_nextToken :: Lens.Lens' ListApiKeysResponse (Prelude.Maybe Prelude.Text)
 listApiKeysResponse_nextToken = Lens.lens (\ListApiKeysResponse' {nextToken} -> nextToken) (\s@ListApiKeysResponse' {} a -> s {nextToken = a} :: ListApiKeysResponse)
-
--- | The @ApiKey@ objects.
-listApiKeysResponse_apiKeys :: Lens.Lens' ListApiKeysResponse (Prelude.Maybe [ApiKey])
-listApiKeysResponse_apiKeys = Lens.lens (\ListApiKeysResponse' {apiKeys} -> apiKeys) (\s@ListApiKeysResponse' {} a -> s {apiKeys = a} :: ListApiKeysResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listApiKeysResponse_httpStatus :: Lens.Lens' ListApiKeysResponse Prelude.Int
@@ -229,6 +229,6 @@ listApiKeysResponse_httpStatus = Lens.lens (\ListApiKeysResponse' {httpStatus} -
 
 instance Prelude.NFData ListApiKeysResponse where
   rnf ListApiKeysResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf apiKeys
+    Prelude.rnf apiKeys
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

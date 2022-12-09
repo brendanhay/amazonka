@@ -27,13 +27,13 @@ module Amazonka.AppSync.CreateGraphqlApi
     newCreateGraphqlApi,
 
     -- * Request Lenses
-    createGraphqlApi_tags,
-    createGraphqlApi_xrayEnabled,
-    createGraphqlApi_openIDConnectConfig,
-    createGraphqlApi_userPoolConfig,
     createGraphqlApi_additionalAuthenticationProviders,
     createGraphqlApi_lambdaAuthorizerConfig,
     createGraphqlApi_logConfig,
+    createGraphqlApi_openIDConnectConfig,
+    createGraphqlApi_tags,
+    createGraphqlApi_userPoolConfig,
+    createGraphqlApi_xrayEnabled,
     createGraphqlApi_name,
     createGraphqlApi_authenticationType,
 
@@ -57,20 +57,20 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateGraphqlApi' smart constructor.
 data CreateGraphqlApi = CreateGraphqlApi'
-  { -- | A @TagMap@ object.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A flag indicating whether to use X-Ray tracing for the @GraphqlApi@.
-    xrayEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The OIDC configuration.
-    openIDConnectConfig :: Prelude.Maybe OpenIDConnectConfig,
-    -- | The Amazon Cognito user pool configuration.
-    userPoolConfig :: Prelude.Maybe UserPoolConfig,
-    -- | A list of additional authentication providers for the @GraphqlApi@ API.
+  { -- | A list of additional authentication providers for the @GraphqlApi@ API.
     additionalAuthenticationProviders :: Prelude.Maybe [AdditionalAuthenticationProvider],
     -- | Configuration for Lambda function authorization.
     lambdaAuthorizerConfig :: Prelude.Maybe LambdaAuthorizerConfig,
     -- | The Amazon CloudWatch Logs configuration.
     logConfig :: Prelude.Maybe LogConfig,
+    -- | The OIDC configuration.
+    openIDConnectConfig :: Prelude.Maybe OpenIDConnectConfig,
+    -- | A @TagMap@ object.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The Amazon Cognito user pool configuration.
+    userPoolConfig :: Prelude.Maybe UserPoolConfig,
+    -- | A flag indicating whether to use X-Ray tracing for the @GraphqlApi@.
+    xrayEnabled :: Prelude.Maybe Prelude.Bool,
     -- | A user-supplied name for the @GraphqlApi@.
     name :: Prelude.Text,
     -- | The authentication type: API key, Identity and Access Management (IAM),
@@ -87,19 +87,19 @@ data CreateGraphqlApi = CreateGraphqlApi'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createGraphqlApi_tags' - A @TagMap@ object.
---
--- 'xrayEnabled', 'createGraphqlApi_xrayEnabled' - A flag indicating whether to use X-Ray tracing for the @GraphqlApi@.
---
--- 'openIDConnectConfig', 'createGraphqlApi_openIDConnectConfig' - The OIDC configuration.
---
--- 'userPoolConfig', 'createGraphqlApi_userPoolConfig' - The Amazon Cognito user pool configuration.
---
 -- 'additionalAuthenticationProviders', 'createGraphqlApi_additionalAuthenticationProviders' - A list of additional authentication providers for the @GraphqlApi@ API.
 --
 -- 'lambdaAuthorizerConfig', 'createGraphqlApi_lambdaAuthorizerConfig' - Configuration for Lambda function authorization.
 --
 -- 'logConfig', 'createGraphqlApi_logConfig' - The Amazon CloudWatch Logs configuration.
+--
+-- 'openIDConnectConfig', 'createGraphqlApi_openIDConnectConfig' - The OIDC configuration.
+--
+-- 'tags', 'createGraphqlApi_tags' - A @TagMap@ object.
+--
+-- 'userPoolConfig', 'createGraphqlApi_userPoolConfig' - The Amazon Cognito user pool configuration.
+--
+-- 'xrayEnabled', 'createGraphqlApi_xrayEnabled' - A flag indicating whether to use X-Ray tracing for the @GraphqlApi@.
 --
 -- 'name', 'createGraphqlApi_name' - A user-supplied name for the @GraphqlApi@.
 --
@@ -113,32 +113,17 @@ newCreateGraphqlApi ::
   CreateGraphqlApi
 newCreateGraphqlApi pName_ pAuthenticationType_ =
   CreateGraphqlApi'
-    { tags = Prelude.Nothing,
-      xrayEnabled = Prelude.Nothing,
-      openIDConnectConfig = Prelude.Nothing,
-      userPoolConfig = Prelude.Nothing,
-      additionalAuthenticationProviders = Prelude.Nothing,
+    { additionalAuthenticationProviders =
+        Prelude.Nothing,
       lambdaAuthorizerConfig = Prelude.Nothing,
       logConfig = Prelude.Nothing,
+      openIDConnectConfig = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      userPoolConfig = Prelude.Nothing,
+      xrayEnabled = Prelude.Nothing,
       name = pName_,
       authenticationType = pAuthenticationType_
     }
-
--- | A @TagMap@ object.
-createGraphqlApi_tags :: Lens.Lens' CreateGraphqlApi (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createGraphqlApi_tags = Lens.lens (\CreateGraphqlApi' {tags} -> tags) (\s@CreateGraphqlApi' {} a -> s {tags = a} :: CreateGraphqlApi) Prelude.. Lens.mapping Lens.coerced
-
--- | A flag indicating whether to use X-Ray tracing for the @GraphqlApi@.
-createGraphqlApi_xrayEnabled :: Lens.Lens' CreateGraphqlApi (Prelude.Maybe Prelude.Bool)
-createGraphqlApi_xrayEnabled = Lens.lens (\CreateGraphqlApi' {xrayEnabled} -> xrayEnabled) (\s@CreateGraphqlApi' {} a -> s {xrayEnabled = a} :: CreateGraphqlApi)
-
--- | The OIDC configuration.
-createGraphqlApi_openIDConnectConfig :: Lens.Lens' CreateGraphqlApi (Prelude.Maybe OpenIDConnectConfig)
-createGraphqlApi_openIDConnectConfig = Lens.lens (\CreateGraphqlApi' {openIDConnectConfig} -> openIDConnectConfig) (\s@CreateGraphqlApi' {} a -> s {openIDConnectConfig = a} :: CreateGraphqlApi)
-
--- | The Amazon Cognito user pool configuration.
-createGraphqlApi_userPoolConfig :: Lens.Lens' CreateGraphqlApi (Prelude.Maybe UserPoolConfig)
-createGraphqlApi_userPoolConfig = Lens.lens (\CreateGraphqlApi' {userPoolConfig} -> userPoolConfig) (\s@CreateGraphqlApi' {} a -> s {userPoolConfig = a} :: CreateGraphqlApi)
 
 -- | A list of additional authentication providers for the @GraphqlApi@ API.
 createGraphqlApi_additionalAuthenticationProviders :: Lens.Lens' CreateGraphqlApi (Prelude.Maybe [AdditionalAuthenticationProvider])
@@ -151,6 +136,22 @@ createGraphqlApi_lambdaAuthorizerConfig = Lens.lens (\CreateGraphqlApi' {lambdaA
 -- | The Amazon CloudWatch Logs configuration.
 createGraphqlApi_logConfig :: Lens.Lens' CreateGraphqlApi (Prelude.Maybe LogConfig)
 createGraphqlApi_logConfig = Lens.lens (\CreateGraphqlApi' {logConfig} -> logConfig) (\s@CreateGraphqlApi' {} a -> s {logConfig = a} :: CreateGraphqlApi)
+
+-- | The OIDC configuration.
+createGraphqlApi_openIDConnectConfig :: Lens.Lens' CreateGraphqlApi (Prelude.Maybe OpenIDConnectConfig)
+createGraphqlApi_openIDConnectConfig = Lens.lens (\CreateGraphqlApi' {openIDConnectConfig} -> openIDConnectConfig) (\s@CreateGraphqlApi' {} a -> s {openIDConnectConfig = a} :: CreateGraphqlApi)
+
+-- | A @TagMap@ object.
+createGraphqlApi_tags :: Lens.Lens' CreateGraphqlApi (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createGraphqlApi_tags = Lens.lens (\CreateGraphqlApi' {tags} -> tags) (\s@CreateGraphqlApi' {} a -> s {tags = a} :: CreateGraphqlApi) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon Cognito user pool configuration.
+createGraphqlApi_userPoolConfig :: Lens.Lens' CreateGraphqlApi (Prelude.Maybe UserPoolConfig)
+createGraphqlApi_userPoolConfig = Lens.lens (\CreateGraphqlApi' {userPoolConfig} -> userPoolConfig) (\s@CreateGraphqlApi' {} a -> s {userPoolConfig = a} :: CreateGraphqlApi)
+
+-- | A flag indicating whether to use X-Ray tracing for the @GraphqlApi@.
+createGraphqlApi_xrayEnabled :: Lens.Lens' CreateGraphqlApi (Prelude.Maybe Prelude.Bool)
+createGraphqlApi_xrayEnabled = Lens.lens (\CreateGraphqlApi' {xrayEnabled} -> xrayEnabled) (\s@CreateGraphqlApi' {} a -> s {xrayEnabled = a} :: CreateGraphqlApi)
 
 -- | A user-supplied name for the @GraphqlApi@.
 createGraphqlApi_name :: Lens.Lens' CreateGraphqlApi Prelude.Text
@@ -177,25 +178,26 @@ instance Core.AWSRequest CreateGraphqlApi where
 
 instance Prelude.Hashable CreateGraphqlApi where
   hashWithSalt _salt CreateGraphqlApi' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` xrayEnabled
-      `Prelude.hashWithSalt` openIDConnectConfig
-      `Prelude.hashWithSalt` userPoolConfig
+    _salt
       `Prelude.hashWithSalt` additionalAuthenticationProviders
       `Prelude.hashWithSalt` lambdaAuthorizerConfig
       `Prelude.hashWithSalt` logConfig
+      `Prelude.hashWithSalt` openIDConnectConfig
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` userPoolConfig
+      `Prelude.hashWithSalt` xrayEnabled
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` authenticationType
 
 instance Prelude.NFData CreateGraphqlApi where
   rnf CreateGraphqlApi' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf xrayEnabled
-      `Prelude.seq` Prelude.rnf openIDConnectConfig
-      `Prelude.seq` Prelude.rnf userPoolConfig
-      `Prelude.seq` Prelude.rnf additionalAuthenticationProviders
+    Prelude.rnf additionalAuthenticationProviders
       `Prelude.seq` Prelude.rnf lambdaAuthorizerConfig
       `Prelude.seq` Prelude.rnf logConfig
+      `Prelude.seq` Prelude.rnf openIDConnectConfig
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf userPoolConfig
+      `Prelude.seq` Prelude.rnf xrayEnabled
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf authenticationType
 
@@ -214,17 +216,17 @@ instance Data.ToJSON CreateGraphqlApi where
   toJSON CreateGraphqlApi' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("xrayEnabled" Data..=) Prelude.<$> xrayEnabled,
-            ("openIDConnectConfig" Data..=)
-              Prelude.<$> openIDConnectConfig,
-            ("userPoolConfig" Data..=)
-              Prelude.<$> userPoolConfig,
-            ("additionalAuthenticationProviders" Data..=)
+          [ ("additionalAuthenticationProviders" Data..=)
               Prelude.<$> additionalAuthenticationProviders,
             ("lambdaAuthorizerConfig" Data..=)
               Prelude.<$> lambdaAuthorizerConfig,
             ("logConfig" Data..=) Prelude.<$> logConfig,
+            ("openIDConnectConfig" Data..=)
+              Prelude.<$> openIDConnectConfig,
+            ("tags" Data..=) Prelude.<$> tags,
+            ("userPoolConfig" Data..=)
+              Prelude.<$> userPoolConfig,
+            ("xrayEnabled" Data..=) Prelude.<$> xrayEnabled,
             Prelude.Just ("name" Data..= name),
             Prelude.Just
               ("authenticationType" Data..= authenticationType)

@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGrpcRouteMatch' smart constructor.
 data GrpcRouteMatch = GrpcRouteMatch'
-  { -- | The port number to match on.
-    port :: Prelude.Maybe Prelude.Natural,
+  { -- | An object that represents the data to match from the request.
+    metadata :: Prelude.Maybe (Prelude.NonEmpty GrpcRouteMetadata),
     -- | The method name to match from the request. If you specify a name, you
     -- must also specify a @serviceName@.
     methodName :: Prelude.Maybe Prelude.Text,
-    -- | An object that represents the data to match from the request.
-    metadata :: Prelude.Maybe (Prelude.NonEmpty GrpcRouteMetadata),
+    -- | The port number to match on.
+    port :: Prelude.Maybe Prelude.Natural,
     -- | The fully qualified domain name for the service to match from the
     -- request.
     serviceName :: Prelude.Maybe Prelude.Text
@@ -50,12 +50,12 @@ data GrpcRouteMatch = GrpcRouteMatch'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'port', 'grpcRouteMatch_port' - The port number to match on.
+-- 'metadata', 'grpcRouteMatch_metadata' - An object that represents the data to match from the request.
 --
 -- 'methodName', 'grpcRouteMatch_methodName' - The method name to match from the request. If you specify a name, you
 -- must also specify a @serviceName@.
 --
--- 'metadata', 'grpcRouteMatch_metadata' - An object that represents the data to match from the request.
+-- 'port', 'grpcRouteMatch_port' - The port number to match on.
 --
 -- 'serviceName', 'grpcRouteMatch_serviceName' - The fully qualified domain name for the service to match from the
 -- request.
@@ -63,24 +63,24 @@ newGrpcRouteMatch ::
   GrpcRouteMatch
 newGrpcRouteMatch =
   GrpcRouteMatch'
-    { port = Prelude.Nothing,
+    { metadata = Prelude.Nothing,
       methodName = Prelude.Nothing,
-      metadata = Prelude.Nothing,
+      port = Prelude.Nothing,
       serviceName = Prelude.Nothing
     }
 
--- | The port number to match on.
-grpcRouteMatch_port :: Lens.Lens' GrpcRouteMatch (Prelude.Maybe Prelude.Natural)
-grpcRouteMatch_port = Lens.lens (\GrpcRouteMatch' {port} -> port) (\s@GrpcRouteMatch' {} a -> s {port = a} :: GrpcRouteMatch)
+-- | An object that represents the data to match from the request.
+grpcRouteMatch_metadata :: Lens.Lens' GrpcRouteMatch (Prelude.Maybe (Prelude.NonEmpty GrpcRouteMetadata))
+grpcRouteMatch_metadata = Lens.lens (\GrpcRouteMatch' {metadata} -> metadata) (\s@GrpcRouteMatch' {} a -> s {metadata = a} :: GrpcRouteMatch) Prelude.. Lens.mapping Lens.coerced
 
 -- | The method name to match from the request. If you specify a name, you
 -- must also specify a @serviceName@.
 grpcRouteMatch_methodName :: Lens.Lens' GrpcRouteMatch (Prelude.Maybe Prelude.Text)
 grpcRouteMatch_methodName = Lens.lens (\GrpcRouteMatch' {methodName} -> methodName) (\s@GrpcRouteMatch' {} a -> s {methodName = a} :: GrpcRouteMatch)
 
--- | An object that represents the data to match from the request.
-grpcRouteMatch_metadata :: Lens.Lens' GrpcRouteMatch (Prelude.Maybe (Prelude.NonEmpty GrpcRouteMetadata))
-grpcRouteMatch_metadata = Lens.lens (\GrpcRouteMatch' {metadata} -> metadata) (\s@GrpcRouteMatch' {} a -> s {metadata = a} :: GrpcRouteMatch) Prelude.. Lens.mapping Lens.coerced
+-- | The port number to match on.
+grpcRouteMatch_port :: Lens.Lens' GrpcRouteMatch (Prelude.Maybe Prelude.Natural)
+grpcRouteMatch_port = Lens.lens (\GrpcRouteMatch' {port} -> port) (\s@GrpcRouteMatch' {} a -> s {port = a} :: GrpcRouteMatch)
 
 -- | The fully qualified domain name for the service to match from the
 -- request.
@@ -93,33 +93,33 @@ instance Data.FromJSON GrpcRouteMatch where
       "GrpcRouteMatch"
       ( \x ->
           GrpcRouteMatch'
-            Prelude.<$> (x Data..:? "port")
+            Prelude.<$> (x Data..:? "metadata")
             Prelude.<*> (x Data..:? "methodName")
-            Prelude.<*> (x Data..:? "metadata")
+            Prelude.<*> (x Data..:? "port")
             Prelude.<*> (x Data..:? "serviceName")
       )
 
 instance Prelude.Hashable GrpcRouteMatch where
   hashWithSalt _salt GrpcRouteMatch' {..} =
-    _salt `Prelude.hashWithSalt` port
+    _salt `Prelude.hashWithSalt` metadata
       `Prelude.hashWithSalt` methodName
-      `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` serviceName
 
 instance Prelude.NFData GrpcRouteMatch where
   rnf GrpcRouteMatch' {..} =
-    Prelude.rnf port
+    Prelude.rnf metadata
       `Prelude.seq` Prelude.rnf methodName
-      `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf port
       `Prelude.seq` Prelude.rnf serviceName
 
 instance Data.ToJSON GrpcRouteMatch where
   toJSON GrpcRouteMatch' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("port" Data..=) Prelude.<$> port,
+          [ ("metadata" Data..=) Prelude.<$> metadata,
             ("methodName" Data..=) Prelude.<$> methodName,
-            ("metadata" Data..=) Prelude.<$> metadata,
+            ("port" Data..=) Prelude.<$> port,
             ("serviceName" Data..=) Prelude.<$> serviceName
           ]
       )

@@ -32,12 +32,12 @@ import qualified Amazonka.Prelude as Prelude
 data HeaderMatchMethod = HeaderMatchMethod'
   { -- | The value sent by the client must match the specified value exactly.
     exact :: Prelude.Maybe Prelude.Text,
-    -- | The value sent by the client must include the specified characters.
-    regex :: Prelude.Maybe Prelude.Text,
-    -- | An object that represents the range of values to match on.
-    range :: Prelude.Maybe MatchRange,
     -- | The value sent by the client must begin with the specified characters.
     prefix :: Prelude.Maybe Prelude.Text,
+    -- | An object that represents the range of values to match on.
+    range :: Prelude.Maybe MatchRange,
+    -- | The value sent by the client must include the specified characters.
+    regex :: Prelude.Maybe Prelude.Text,
     -- | The value sent by the client must end with the specified characters.
     suffix :: Prelude.Maybe Prelude.Text
   }
@@ -53,11 +53,11 @@ data HeaderMatchMethod = HeaderMatchMethod'
 --
 -- 'exact', 'headerMatchMethod_exact' - The value sent by the client must match the specified value exactly.
 --
--- 'regex', 'headerMatchMethod_regex' - The value sent by the client must include the specified characters.
+-- 'prefix', 'headerMatchMethod_prefix' - The value sent by the client must begin with the specified characters.
 --
 -- 'range', 'headerMatchMethod_range' - An object that represents the range of values to match on.
 --
--- 'prefix', 'headerMatchMethod_prefix' - The value sent by the client must begin with the specified characters.
+-- 'regex', 'headerMatchMethod_regex' - The value sent by the client must include the specified characters.
 --
 -- 'suffix', 'headerMatchMethod_suffix' - The value sent by the client must end with the specified characters.
 newHeaderMatchMethod ::
@@ -65,9 +65,9 @@ newHeaderMatchMethod ::
 newHeaderMatchMethod =
   HeaderMatchMethod'
     { exact = Prelude.Nothing,
-      regex = Prelude.Nothing,
-      range = Prelude.Nothing,
       prefix = Prelude.Nothing,
+      range = Prelude.Nothing,
+      regex = Prelude.Nothing,
       suffix = Prelude.Nothing
     }
 
@@ -75,17 +75,17 @@ newHeaderMatchMethod =
 headerMatchMethod_exact :: Lens.Lens' HeaderMatchMethod (Prelude.Maybe Prelude.Text)
 headerMatchMethod_exact = Lens.lens (\HeaderMatchMethod' {exact} -> exact) (\s@HeaderMatchMethod' {} a -> s {exact = a} :: HeaderMatchMethod)
 
--- | The value sent by the client must include the specified characters.
-headerMatchMethod_regex :: Lens.Lens' HeaderMatchMethod (Prelude.Maybe Prelude.Text)
-headerMatchMethod_regex = Lens.lens (\HeaderMatchMethod' {regex} -> regex) (\s@HeaderMatchMethod' {} a -> s {regex = a} :: HeaderMatchMethod)
+-- | The value sent by the client must begin with the specified characters.
+headerMatchMethod_prefix :: Lens.Lens' HeaderMatchMethod (Prelude.Maybe Prelude.Text)
+headerMatchMethod_prefix = Lens.lens (\HeaderMatchMethod' {prefix} -> prefix) (\s@HeaderMatchMethod' {} a -> s {prefix = a} :: HeaderMatchMethod)
 
 -- | An object that represents the range of values to match on.
 headerMatchMethod_range :: Lens.Lens' HeaderMatchMethod (Prelude.Maybe MatchRange)
 headerMatchMethod_range = Lens.lens (\HeaderMatchMethod' {range} -> range) (\s@HeaderMatchMethod' {} a -> s {range = a} :: HeaderMatchMethod)
 
--- | The value sent by the client must begin with the specified characters.
-headerMatchMethod_prefix :: Lens.Lens' HeaderMatchMethod (Prelude.Maybe Prelude.Text)
-headerMatchMethod_prefix = Lens.lens (\HeaderMatchMethod' {prefix} -> prefix) (\s@HeaderMatchMethod' {} a -> s {prefix = a} :: HeaderMatchMethod)
+-- | The value sent by the client must include the specified characters.
+headerMatchMethod_regex :: Lens.Lens' HeaderMatchMethod (Prelude.Maybe Prelude.Text)
+headerMatchMethod_regex = Lens.lens (\HeaderMatchMethod' {regex} -> regex) (\s@HeaderMatchMethod' {} a -> s {regex = a} :: HeaderMatchMethod)
 
 -- | The value sent by the client must end with the specified characters.
 headerMatchMethod_suffix :: Lens.Lens' HeaderMatchMethod (Prelude.Maybe Prelude.Text)
@@ -98,26 +98,26 @@ instance Data.FromJSON HeaderMatchMethod where
       ( \x ->
           HeaderMatchMethod'
             Prelude.<$> (x Data..:? "exact")
-            Prelude.<*> (x Data..:? "regex")
-            Prelude.<*> (x Data..:? "range")
             Prelude.<*> (x Data..:? "prefix")
+            Prelude.<*> (x Data..:? "range")
+            Prelude.<*> (x Data..:? "regex")
             Prelude.<*> (x Data..:? "suffix")
       )
 
 instance Prelude.Hashable HeaderMatchMethod where
   hashWithSalt _salt HeaderMatchMethod' {..} =
     _salt `Prelude.hashWithSalt` exact
-      `Prelude.hashWithSalt` regex
-      `Prelude.hashWithSalt` range
       `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` range
+      `Prelude.hashWithSalt` regex
       `Prelude.hashWithSalt` suffix
 
 instance Prelude.NFData HeaderMatchMethod where
   rnf HeaderMatchMethod' {..} =
     Prelude.rnf exact
-      `Prelude.seq` Prelude.rnf regex
-      `Prelude.seq` Prelude.rnf range
       `Prelude.seq` Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf range
+      `Prelude.seq` Prelude.rnf regex
       `Prelude.seq` Prelude.rnf suffix
 
 instance Data.ToJSON HeaderMatchMethod where
@@ -125,9 +125,9 @@ instance Data.ToJSON HeaderMatchMethod where
     Data.object
       ( Prelude.catMaybes
           [ ("exact" Data..=) Prelude.<$> exact,
-            ("regex" Data..=) Prelude.<$> regex,
-            ("range" Data..=) Prelude.<$> range,
             ("prefix" Data..=) Prelude.<$> prefix,
+            ("range" Data..=) Prelude.<$> range,
+            ("regex" Data..=) Prelude.<$> regex,
             ("suffix" Data..=) Prelude.<$> suffix
           ]
       )

@@ -32,14 +32,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVirtualGatewayListenerTlsCertificate' smart constructor.
 data VirtualGatewayListenerTlsCertificate = VirtualGatewayListenerTlsCertificate'
-  { -- | A reference to an object that represents a virtual gateway\'s
-    -- listener\'s Secret Discovery Service certificate.
-    sds :: Prelude.Maybe VirtualGatewayListenerTlsSdsCertificate,
+  { -- | A reference to an object that represents an Certificate Manager
+    -- certificate.
+    acm :: Prelude.Maybe VirtualGatewayListenerTlsAcmCertificate,
     -- | A reference to an object that represents a local file certificate.
     file :: Prelude.Maybe VirtualGatewayListenerTlsFileCertificate,
-    -- | A reference to an object that represents an Certificate Manager
-    -- certificate.
-    acm :: Prelude.Maybe VirtualGatewayListenerTlsAcmCertificate
+    -- | A reference to an object that represents a virtual gateway\'s
+    -- listener\'s Secret Discovery Service certificate.
+    sds :: Prelude.Maybe VirtualGatewayListenerTlsSdsCertificate
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,36 +51,36 @@ data VirtualGatewayListenerTlsCertificate = VirtualGatewayListenerTlsCertificate
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sds', 'virtualGatewayListenerTlsCertificate_sds' - A reference to an object that represents a virtual gateway\'s
--- listener\'s Secret Discovery Service certificate.
+-- 'acm', 'virtualGatewayListenerTlsCertificate_acm' - A reference to an object that represents an Certificate Manager
+-- certificate.
 --
 -- 'file', 'virtualGatewayListenerTlsCertificate_file' - A reference to an object that represents a local file certificate.
 --
--- 'acm', 'virtualGatewayListenerTlsCertificate_acm' - A reference to an object that represents an Certificate Manager
--- certificate.
+-- 'sds', 'virtualGatewayListenerTlsCertificate_sds' - A reference to an object that represents a virtual gateway\'s
+-- listener\'s Secret Discovery Service certificate.
 newVirtualGatewayListenerTlsCertificate ::
   VirtualGatewayListenerTlsCertificate
 newVirtualGatewayListenerTlsCertificate =
   VirtualGatewayListenerTlsCertificate'
-    { sds =
+    { acm =
         Prelude.Nothing,
       file = Prelude.Nothing,
-      acm = Prelude.Nothing
+      sds = Prelude.Nothing
     }
-
--- | A reference to an object that represents a virtual gateway\'s
--- listener\'s Secret Discovery Service certificate.
-virtualGatewayListenerTlsCertificate_sds :: Lens.Lens' VirtualGatewayListenerTlsCertificate (Prelude.Maybe VirtualGatewayListenerTlsSdsCertificate)
-virtualGatewayListenerTlsCertificate_sds = Lens.lens (\VirtualGatewayListenerTlsCertificate' {sds} -> sds) (\s@VirtualGatewayListenerTlsCertificate' {} a -> s {sds = a} :: VirtualGatewayListenerTlsCertificate)
-
--- | A reference to an object that represents a local file certificate.
-virtualGatewayListenerTlsCertificate_file :: Lens.Lens' VirtualGatewayListenerTlsCertificate (Prelude.Maybe VirtualGatewayListenerTlsFileCertificate)
-virtualGatewayListenerTlsCertificate_file = Lens.lens (\VirtualGatewayListenerTlsCertificate' {file} -> file) (\s@VirtualGatewayListenerTlsCertificate' {} a -> s {file = a} :: VirtualGatewayListenerTlsCertificate)
 
 -- | A reference to an object that represents an Certificate Manager
 -- certificate.
 virtualGatewayListenerTlsCertificate_acm :: Lens.Lens' VirtualGatewayListenerTlsCertificate (Prelude.Maybe VirtualGatewayListenerTlsAcmCertificate)
 virtualGatewayListenerTlsCertificate_acm = Lens.lens (\VirtualGatewayListenerTlsCertificate' {acm} -> acm) (\s@VirtualGatewayListenerTlsCertificate' {} a -> s {acm = a} :: VirtualGatewayListenerTlsCertificate)
+
+-- | A reference to an object that represents a local file certificate.
+virtualGatewayListenerTlsCertificate_file :: Lens.Lens' VirtualGatewayListenerTlsCertificate (Prelude.Maybe VirtualGatewayListenerTlsFileCertificate)
+virtualGatewayListenerTlsCertificate_file = Lens.lens (\VirtualGatewayListenerTlsCertificate' {file} -> file) (\s@VirtualGatewayListenerTlsCertificate' {} a -> s {file = a} :: VirtualGatewayListenerTlsCertificate)
+
+-- | A reference to an object that represents a virtual gateway\'s
+-- listener\'s Secret Discovery Service certificate.
+virtualGatewayListenerTlsCertificate_sds :: Lens.Lens' VirtualGatewayListenerTlsCertificate (Prelude.Maybe VirtualGatewayListenerTlsSdsCertificate)
+virtualGatewayListenerTlsCertificate_sds = Lens.lens (\VirtualGatewayListenerTlsCertificate' {sds} -> sds) (\s@VirtualGatewayListenerTlsCertificate' {} a -> s {sds = a} :: VirtualGatewayListenerTlsCertificate)
 
 instance
   Data.FromJSON
@@ -91,9 +91,9 @@ instance
       "VirtualGatewayListenerTlsCertificate"
       ( \x ->
           VirtualGatewayListenerTlsCertificate'
-            Prelude.<$> (x Data..:? "sds")
+            Prelude.<$> (x Data..:? "acm")
             Prelude.<*> (x Data..:? "file")
-            Prelude.<*> (x Data..:? "acm")
+            Prelude.<*> (x Data..:? "sds")
       )
 
 instance
@@ -103,18 +103,18 @@ instance
   hashWithSalt
     _salt
     VirtualGatewayListenerTlsCertificate' {..} =
-      _salt `Prelude.hashWithSalt` sds
+      _salt `Prelude.hashWithSalt` acm
         `Prelude.hashWithSalt` file
-        `Prelude.hashWithSalt` acm
+        `Prelude.hashWithSalt` sds
 
 instance
   Prelude.NFData
     VirtualGatewayListenerTlsCertificate
   where
   rnf VirtualGatewayListenerTlsCertificate' {..} =
-    Prelude.rnf sds
+    Prelude.rnf acm
       `Prelude.seq` Prelude.rnf file
-      `Prelude.seq` Prelude.rnf acm
+      `Prelude.seq` Prelude.rnf sds
 
 instance
   Data.ToJSON
@@ -123,8 +123,8 @@ instance
   toJSON VirtualGatewayListenerTlsCertificate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("sds" Data..=) Prelude.<$> sds,
+          [ ("acm" Data..=) Prelude.<$> acm,
             ("file" Data..=) Prelude.<$> file,
-            ("acm" Data..=) Prelude.<$> acm
+            ("sds" Data..=) Prelude.<$> sds
           ]
       )

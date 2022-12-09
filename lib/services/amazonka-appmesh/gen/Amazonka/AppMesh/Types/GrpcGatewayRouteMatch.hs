@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGrpcGatewayRouteMatch' smart constructor.
 data GrpcGatewayRouteMatch = GrpcGatewayRouteMatch'
-  { -- | The port number to match from the request.
-    port :: Prelude.Maybe Prelude.Natural,
+  { -- | The gateway route host name to be matched on.
+    hostname :: Prelude.Maybe GatewayRouteHostnameMatch,
     -- | The gateway route metadata to be matched on.
     metadata :: Prelude.Maybe (Prelude.NonEmpty GrpcGatewayRouteMetadata),
-    -- | The gateway route host name to be matched on.
-    hostname :: Prelude.Maybe GatewayRouteHostnameMatch,
+    -- | The port number to match from the request.
+    port :: Prelude.Maybe Prelude.Natural,
     -- | The fully qualified domain name for the service to match from the
     -- request.
     serviceName :: Prelude.Maybe Prelude.Text
@@ -50,11 +50,11 @@ data GrpcGatewayRouteMatch = GrpcGatewayRouteMatch'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'port', 'grpcGatewayRouteMatch_port' - The port number to match from the request.
+-- 'hostname', 'grpcGatewayRouteMatch_hostname' - The gateway route host name to be matched on.
 --
 -- 'metadata', 'grpcGatewayRouteMatch_metadata' - The gateway route metadata to be matched on.
 --
--- 'hostname', 'grpcGatewayRouteMatch_hostname' - The gateway route host name to be matched on.
+-- 'port', 'grpcGatewayRouteMatch_port' - The port number to match from the request.
 --
 -- 'serviceName', 'grpcGatewayRouteMatch_serviceName' - The fully qualified domain name for the service to match from the
 -- request.
@@ -62,23 +62,23 @@ newGrpcGatewayRouteMatch ::
   GrpcGatewayRouteMatch
 newGrpcGatewayRouteMatch =
   GrpcGatewayRouteMatch'
-    { port = Prelude.Nothing,
+    { hostname = Prelude.Nothing,
       metadata = Prelude.Nothing,
-      hostname = Prelude.Nothing,
+      port = Prelude.Nothing,
       serviceName = Prelude.Nothing
     }
 
--- | The port number to match from the request.
-grpcGatewayRouteMatch_port :: Lens.Lens' GrpcGatewayRouteMatch (Prelude.Maybe Prelude.Natural)
-grpcGatewayRouteMatch_port = Lens.lens (\GrpcGatewayRouteMatch' {port} -> port) (\s@GrpcGatewayRouteMatch' {} a -> s {port = a} :: GrpcGatewayRouteMatch)
+-- | The gateway route host name to be matched on.
+grpcGatewayRouteMatch_hostname :: Lens.Lens' GrpcGatewayRouteMatch (Prelude.Maybe GatewayRouteHostnameMatch)
+grpcGatewayRouteMatch_hostname = Lens.lens (\GrpcGatewayRouteMatch' {hostname} -> hostname) (\s@GrpcGatewayRouteMatch' {} a -> s {hostname = a} :: GrpcGatewayRouteMatch)
 
 -- | The gateway route metadata to be matched on.
 grpcGatewayRouteMatch_metadata :: Lens.Lens' GrpcGatewayRouteMatch (Prelude.Maybe (Prelude.NonEmpty GrpcGatewayRouteMetadata))
 grpcGatewayRouteMatch_metadata = Lens.lens (\GrpcGatewayRouteMatch' {metadata} -> metadata) (\s@GrpcGatewayRouteMatch' {} a -> s {metadata = a} :: GrpcGatewayRouteMatch) Prelude.. Lens.mapping Lens.coerced
 
--- | The gateway route host name to be matched on.
-grpcGatewayRouteMatch_hostname :: Lens.Lens' GrpcGatewayRouteMatch (Prelude.Maybe GatewayRouteHostnameMatch)
-grpcGatewayRouteMatch_hostname = Lens.lens (\GrpcGatewayRouteMatch' {hostname} -> hostname) (\s@GrpcGatewayRouteMatch' {} a -> s {hostname = a} :: GrpcGatewayRouteMatch)
+-- | The port number to match from the request.
+grpcGatewayRouteMatch_port :: Lens.Lens' GrpcGatewayRouteMatch (Prelude.Maybe Prelude.Natural)
+grpcGatewayRouteMatch_port = Lens.lens (\GrpcGatewayRouteMatch' {port} -> port) (\s@GrpcGatewayRouteMatch' {} a -> s {port = a} :: GrpcGatewayRouteMatch)
 
 -- | The fully qualified domain name for the service to match from the
 -- request.
@@ -91,33 +91,33 @@ instance Data.FromJSON GrpcGatewayRouteMatch where
       "GrpcGatewayRouteMatch"
       ( \x ->
           GrpcGatewayRouteMatch'
-            Prelude.<$> (x Data..:? "port")
+            Prelude.<$> (x Data..:? "hostname")
             Prelude.<*> (x Data..:? "metadata")
-            Prelude.<*> (x Data..:? "hostname")
+            Prelude.<*> (x Data..:? "port")
             Prelude.<*> (x Data..:? "serviceName")
       )
 
 instance Prelude.Hashable GrpcGatewayRouteMatch where
   hashWithSalt _salt GrpcGatewayRouteMatch' {..} =
-    _salt `Prelude.hashWithSalt` port
+    _salt `Prelude.hashWithSalt` hostname
       `Prelude.hashWithSalt` metadata
-      `Prelude.hashWithSalt` hostname
+      `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` serviceName
 
 instance Prelude.NFData GrpcGatewayRouteMatch where
   rnf GrpcGatewayRouteMatch' {..} =
-    Prelude.rnf port
+    Prelude.rnf hostname
       `Prelude.seq` Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf hostname
+      `Prelude.seq` Prelude.rnf port
       `Prelude.seq` Prelude.rnf serviceName
 
 instance Data.ToJSON GrpcGatewayRouteMatch where
   toJSON GrpcGatewayRouteMatch' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("port" Data..=) Prelude.<$> port,
+          [ ("hostname" Data..=) Prelude.<$> hostname,
             ("metadata" Data..=) Prelude.<$> metadata,
-            ("hostname" Data..=) Prelude.<$> hostname,
+            ("port" Data..=) Prelude.<$> port,
             ("serviceName" Data..=) Prelude.<$> serviceName
           ]
       )

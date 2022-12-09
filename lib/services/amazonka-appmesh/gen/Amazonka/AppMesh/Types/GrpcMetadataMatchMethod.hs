@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 data GrpcMetadataMatchMethod = GrpcMetadataMatchMethod'
   { -- | The exact method header to be matched on.
     exact :: Prelude.Maybe Prelude.Text,
-    -- | The regex used to match the method header.
-    regex :: Prelude.Maybe Prelude.Text,
-    range :: Prelude.Maybe MatchRange,
     -- | The specified beginning characters of the method header to be matched
     -- on.
     prefix :: Prelude.Maybe Prelude.Text,
+    range :: Prelude.Maybe MatchRange,
+    -- | The regex used to match the method header.
+    regex :: Prelude.Maybe Prelude.Text,
     -- | The specified ending characters of the method header to match on.
     suffix :: Prelude.Maybe Prelude.Text
   }
@@ -52,12 +52,12 @@ data GrpcMetadataMatchMethod = GrpcMetadataMatchMethod'
 --
 -- 'exact', 'grpcMetadataMatchMethod_exact' - The exact method header to be matched on.
 --
--- 'regex', 'grpcMetadataMatchMethod_regex' - The regex used to match the method header.
+-- 'prefix', 'grpcMetadataMatchMethod_prefix' - The specified beginning characters of the method header to be matched
+-- on.
 --
 -- 'range', 'grpcMetadataMatchMethod_range' - Undocumented member.
 --
--- 'prefix', 'grpcMetadataMatchMethod_prefix' - The specified beginning characters of the method header to be matched
--- on.
+-- 'regex', 'grpcMetadataMatchMethod_regex' - The regex used to match the method header.
 --
 -- 'suffix', 'grpcMetadataMatchMethod_suffix' - The specified ending characters of the method header to match on.
 newGrpcMetadataMatchMethod ::
@@ -65,9 +65,9 @@ newGrpcMetadataMatchMethod ::
 newGrpcMetadataMatchMethod =
   GrpcMetadataMatchMethod'
     { exact = Prelude.Nothing,
-      regex = Prelude.Nothing,
-      range = Prelude.Nothing,
       prefix = Prelude.Nothing,
+      range = Prelude.Nothing,
+      regex = Prelude.Nothing,
       suffix = Prelude.Nothing
     }
 
@@ -75,18 +75,18 @@ newGrpcMetadataMatchMethod =
 grpcMetadataMatchMethod_exact :: Lens.Lens' GrpcMetadataMatchMethod (Prelude.Maybe Prelude.Text)
 grpcMetadataMatchMethod_exact = Lens.lens (\GrpcMetadataMatchMethod' {exact} -> exact) (\s@GrpcMetadataMatchMethod' {} a -> s {exact = a} :: GrpcMetadataMatchMethod)
 
--- | The regex used to match the method header.
-grpcMetadataMatchMethod_regex :: Lens.Lens' GrpcMetadataMatchMethod (Prelude.Maybe Prelude.Text)
-grpcMetadataMatchMethod_regex = Lens.lens (\GrpcMetadataMatchMethod' {regex} -> regex) (\s@GrpcMetadataMatchMethod' {} a -> s {regex = a} :: GrpcMetadataMatchMethod)
+-- | The specified beginning characters of the method header to be matched
+-- on.
+grpcMetadataMatchMethod_prefix :: Lens.Lens' GrpcMetadataMatchMethod (Prelude.Maybe Prelude.Text)
+grpcMetadataMatchMethod_prefix = Lens.lens (\GrpcMetadataMatchMethod' {prefix} -> prefix) (\s@GrpcMetadataMatchMethod' {} a -> s {prefix = a} :: GrpcMetadataMatchMethod)
 
 -- | Undocumented member.
 grpcMetadataMatchMethod_range :: Lens.Lens' GrpcMetadataMatchMethod (Prelude.Maybe MatchRange)
 grpcMetadataMatchMethod_range = Lens.lens (\GrpcMetadataMatchMethod' {range} -> range) (\s@GrpcMetadataMatchMethod' {} a -> s {range = a} :: GrpcMetadataMatchMethod)
 
--- | The specified beginning characters of the method header to be matched
--- on.
-grpcMetadataMatchMethod_prefix :: Lens.Lens' GrpcMetadataMatchMethod (Prelude.Maybe Prelude.Text)
-grpcMetadataMatchMethod_prefix = Lens.lens (\GrpcMetadataMatchMethod' {prefix} -> prefix) (\s@GrpcMetadataMatchMethod' {} a -> s {prefix = a} :: GrpcMetadataMatchMethod)
+-- | The regex used to match the method header.
+grpcMetadataMatchMethod_regex :: Lens.Lens' GrpcMetadataMatchMethod (Prelude.Maybe Prelude.Text)
+grpcMetadataMatchMethod_regex = Lens.lens (\GrpcMetadataMatchMethod' {regex} -> regex) (\s@GrpcMetadataMatchMethod' {} a -> s {regex = a} :: GrpcMetadataMatchMethod)
 
 -- | The specified ending characters of the method header to match on.
 grpcMetadataMatchMethod_suffix :: Lens.Lens' GrpcMetadataMatchMethod (Prelude.Maybe Prelude.Text)
@@ -99,26 +99,26 @@ instance Data.FromJSON GrpcMetadataMatchMethod where
       ( \x ->
           GrpcMetadataMatchMethod'
             Prelude.<$> (x Data..:? "exact")
-            Prelude.<*> (x Data..:? "regex")
-            Prelude.<*> (x Data..:? "range")
             Prelude.<*> (x Data..:? "prefix")
+            Prelude.<*> (x Data..:? "range")
+            Prelude.<*> (x Data..:? "regex")
             Prelude.<*> (x Data..:? "suffix")
       )
 
 instance Prelude.Hashable GrpcMetadataMatchMethod where
   hashWithSalt _salt GrpcMetadataMatchMethod' {..} =
     _salt `Prelude.hashWithSalt` exact
-      `Prelude.hashWithSalt` regex
-      `Prelude.hashWithSalt` range
       `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` range
+      `Prelude.hashWithSalt` regex
       `Prelude.hashWithSalt` suffix
 
 instance Prelude.NFData GrpcMetadataMatchMethod where
   rnf GrpcMetadataMatchMethod' {..} =
     Prelude.rnf exact
-      `Prelude.seq` Prelude.rnf regex
-      `Prelude.seq` Prelude.rnf range
       `Prelude.seq` Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf range
+      `Prelude.seq` Prelude.rnf regex
       `Prelude.seq` Prelude.rnf suffix
 
 instance Data.ToJSON GrpcMetadataMatchMethod where
@@ -126,9 +126,9 @@ instance Data.ToJSON GrpcMetadataMatchMethod where
     Data.object
       ( Prelude.catMaybes
           [ ("exact" Data..=) Prelude.<$> exact,
-            ("regex" Data..=) Prelude.<$> regex,
-            ("range" Data..=) Prelude.<$> range,
             ("prefix" Data..=) Prelude.<$> prefix,
+            ("range" Data..=) Prelude.<$> range,
+            ("regex" Data..=) Prelude.<$> regex,
             ("suffix" Data..=) Prelude.<$> suffix
           ]
       )

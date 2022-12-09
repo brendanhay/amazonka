@@ -32,14 +32,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newListenerTlsCertificate' smart constructor.
 data ListenerTlsCertificate = ListenerTlsCertificate'
-  { -- | A reference to an object that represents a listener\'s Secret Discovery
-    -- Service certificate.
-    sds :: Prelude.Maybe ListenerTlsSdsCertificate,
+  { -- | A reference to an object that represents an Certificate Manager
+    -- certificate.
+    acm :: Prelude.Maybe ListenerTlsAcmCertificate,
     -- | A reference to an object that represents a local file certificate.
     file :: Prelude.Maybe ListenerTlsFileCertificate,
-    -- | A reference to an object that represents an Certificate Manager
-    -- certificate.
-    acm :: Prelude.Maybe ListenerTlsAcmCertificate
+    -- | A reference to an object that represents a listener\'s Secret Discovery
+    -- Service certificate.
+    sds :: Prelude.Maybe ListenerTlsSdsCertificate
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,35 +51,35 @@ data ListenerTlsCertificate = ListenerTlsCertificate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sds', 'listenerTlsCertificate_sds' - A reference to an object that represents a listener\'s Secret Discovery
--- Service certificate.
+-- 'acm', 'listenerTlsCertificate_acm' - A reference to an object that represents an Certificate Manager
+-- certificate.
 --
 -- 'file', 'listenerTlsCertificate_file' - A reference to an object that represents a local file certificate.
 --
--- 'acm', 'listenerTlsCertificate_acm' - A reference to an object that represents an Certificate Manager
--- certificate.
+-- 'sds', 'listenerTlsCertificate_sds' - A reference to an object that represents a listener\'s Secret Discovery
+-- Service certificate.
 newListenerTlsCertificate ::
   ListenerTlsCertificate
 newListenerTlsCertificate =
   ListenerTlsCertificate'
-    { sds = Prelude.Nothing,
+    { acm = Prelude.Nothing,
       file = Prelude.Nothing,
-      acm = Prelude.Nothing
+      sds = Prelude.Nothing
     }
-
--- | A reference to an object that represents a listener\'s Secret Discovery
--- Service certificate.
-listenerTlsCertificate_sds :: Lens.Lens' ListenerTlsCertificate (Prelude.Maybe ListenerTlsSdsCertificate)
-listenerTlsCertificate_sds = Lens.lens (\ListenerTlsCertificate' {sds} -> sds) (\s@ListenerTlsCertificate' {} a -> s {sds = a} :: ListenerTlsCertificate)
-
--- | A reference to an object that represents a local file certificate.
-listenerTlsCertificate_file :: Lens.Lens' ListenerTlsCertificate (Prelude.Maybe ListenerTlsFileCertificate)
-listenerTlsCertificate_file = Lens.lens (\ListenerTlsCertificate' {file} -> file) (\s@ListenerTlsCertificate' {} a -> s {file = a} :: ListenerTlsCertificate)
 
 -- | A reference to an object that represents an Certificate Manager
 -- certificate.
 listenerTlsCertificate_acm :: Lens.Lens' ListenerTlsCertificate (Prelude.Maybe ListenerTlsAcmCertificate)
 listenerTlsCertificate_acm = Lens.lens (\ListenerTlsCertificate' {acm} -> acm) (\s@ListenerTlsCertificate' {} a -> s {acm = a} :: ListenerTlsCertificate)
+
+-- | A reference to an object that represents a local file certificate.
+listenerTlsCertificate_file :: Lens.Lens' ListenerTlsCertificate (Prelude.Maybe ListenerTlsFileCertificate)
+listenerTlsCertificate_file = Lens.lens (\ListenerTlsCertificate' {file} -> file) (\s@ListenerTlsCertificate' {} a -> s {file = a} :: ListenerTlsCertificate)
+
+-- | A reference to an object that represents a listener\'s Secret Discovery
+-- Service certificate.
+listenerTlsCertificate_sds :: Lens.Lens' ListenerTlsCertificate (Prelude.Maybe ListenerTlsSdsCertificate)
+listenerTlsCertificate_sds = Lens.lens (\ListenerTlsCertificate' {sds} -> sds) (\s@ListenerTlsCertificate' {} a -> s {sds = a} :: ListenerTlsCertificate)
 
 instance Data.FromJSON ListenerTlsCertificate where
   parseJSON =
@@ -87,29 +87,29 @@ instance Data.FromJSON ListenerTlsCertificate where
       "ListenerTlsCertificate"
       ( \x ->
           ListenerTlsCertificate'
-            Prelude.<$> (x Data..:? "sds")
+            Prelude.<$> (x Data..:? "acm")
             Prelude.<*> (x Data..:? "file")
-            Prelude.<*> (x Data..:? "acm")
+            Prelude.<*> (x Data..:? "sds")
       )
 
 instance Prelude.Hashable ListenerTlsCertificate where
   hashWithSalt _salt ListenerTlsCertificate' {..} =
-    _salt `Prelude.hashWithSalt` sds
+    _salt `Prelude.hashWithSalt` acm
       `Prelude.hashWithSalt` file
-      `Prelude.hashWithSalt` acm
+      `Prelude.hashWithSalt` sds
 
 instance Prelude.NFData ListenerTlsCertificate where
   rnf ListenerTlsCertificate' {..} =
-    Prelude.rnf sds
+    Prelude.rnf acm
       `Prelude.seq` Prelude.rnf file
-      `Prelude.seq` Prelude.rnf acm
+      `Prelude.seq` Prelude.rnf sds
 
 instance Data.ToJSON ListenerTlsCertificate where
   toJSON ListenerTlsCertificate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("sds" Data..=) Prelude.<$> sds,
+          [ ("acm" Data..=) Prelude.<$> acm,
             ("file" Data..=) Prelude.<$> file,
-            ("acm" Data..=) Prelude.<$> acm
+            ("sds" Data..=) Prelude.<$> sds
           ]
       )

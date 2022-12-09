@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newListenerTlsValidationContextTrust' smart constructor.
 data ListenerTlsValidationContextTrust = ListenerTlsValidationContextTrust'
-  { -- | A reference to an object that represents a listener\'s Transport Layer
-    -- Security (TLS) Secret Discovery Service validation context trust.
-    sds :: Prelude.Maybe TlsValidationContextSdsTrust,
-    -- | An object that represents a Transport Layer Security (TLS) validation
+  { -- | An object that represents a Transport Layer Security (TLS) validation
     -- context trust for a local file.
-    file :: Prelude.Maybe TlsValidationContextFileTrust
+    file :: Prelude.Maybe TlsValidationContextFileTrust,
+    -- | A reference to an object that represents a listener\'s Transport Layer
+    -- Security (TLS) Secret Discovery Service validation context trust.
+    sds :: Prelude.Maybe TlsValidationContextSdsTrust
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,29 +48,29 @@ data ListenerTlsValidationContextTrust = ListenerTlsValidationContextTrust'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sds', 'listenerTlsValidationContextTrust_sds' - A reference to an object that represents a listener\'s Transport Layer
--- Security (TLS) Secret Discovery Service validation context trust.
---
 -- 'file', 'listenerTlsValidationContextTrust_file' - An object that represents a Transport Layer Security (TLS) validation
 -- context trust for a local file.
+--
+-- 'sds', 'listenerTlsValidationContextTrust_sds' - A reference to an object that represents a listener\'s Transport Layer
+-- Security (TLS) Secret Discovery Service validation context trust.
 newListenerTlsValidationContextTrust ::
   ListenerTlsValidationContextTrust
 newListenerTlsValidationContextTrust =
   ListenerTlsValidationContextTrust'
-    { sds =
+    { file =
         Prelude.Nothing,
-      file = Prelude.Nothing
+      sds = Prelude.Nothing
     }
-
--- | A reference to an object that represents a listener\'s Transport Layer
--- Security (TLS) Secret Discovery Service validation context trust.
-listenerTlsValidationContextTrust_sds :: Lens.Lens' ListenerTlsValidationContextTrust (Prelude.Maybe TlsValidationContextSdsTrust)
-listenerTlsValidationContextTrust_sds = Lens.lens (\ListenerTlsValidationContextTrust' {sds} -> sds) (\s@ListenerTlsValidationContextTrust' {} a -> s {sds = a} :: ListenerTlsValidationContextTrust)
 
 -- | An object that represents a Transport Layer Security (TLS) validation
 -- context trust for a local file.
 listenerTlsValidationContextTrust_file :: Lens.Lens' ListenerTlsValidationContextTrust (Prelude.Maybe TlsValidationContextFileTrust)
 listenerTlsValidationContextTrust_file = Lens.lens (\ListenerTlsValidationContextTrust' {file} -> file) (\s@ListenerTlsValidationContextTrust' {} a -> s {file = a} :: ListenerTlsValidationContextTrust)
+
+-- | A reference to an object that represents a listener\'s Transport Layer
+-- Security (TLS) Secret Discovery Service validation context trust.
+listenerTlsValidationContextTrust_sds :: Lens.Lens' ListenerTlsValidationContextTrust (Prelude.Maybe TlsValidationContextSdsTrust)
+listenerTlsValidationContextTrust_sds = Lens.lens (\ListenerTlsValidationContextTrust' {sds} -> sds) (\s@ListenerTlsValidationContextTrust' {} a -> s {sds = a} :: ListenerTlsValidationContextTrust)
 
 instance
   Data.FromJSON
@@ -81,7 +81,7 @@ instance
       "ListenerTlsValidationContextTrust"
       ( \x ->
           ListenerTlsValidationContextTrust'
-            Prelude.<$> (x Data..:? "sds") Prelude.<*> (x Data..:? "file")
+            Prelude.<$> (x Data..:? "file") Prelude.<*> (x Data..:? "sds")
       )
 
 instance
@@ -91,15 +91,15 @@ instance
   hashWithSalt
     _salt
     ListenerTlsValidationContextTrust' {..} =
-      _salt `Prelude.hashWithSalt` sds
-        `Prelude.hashWithSalt` file
+      _salt `Prelude.hashWithSalt` file
+        `Prelude.hashWithSalt` sds
 
 instance
   Prelude.NFData
     ListenerTlsValidationContextTrust
   where
   rnf ListenerTlsValidationContextTrust' {..} =
-    Prelude.rnf sds `Prelude.seq` Prelude.rnf file
+    Prelude.rnf file `Prelude.seq` Prelude.rnf sds
 
 instance
   Data.ToJSON
@@ -108,7 +108,7 @@ instance
   toJSON ListenerTlsValidationContextTrust' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("sds" Data..=) Prelude.<$> sds,
-            ("file" Data..=) Prelude.<$> file
+          [ ("file" Data..=) Prelude.<$> file,
+            ("sds" Data..=) Prelude.<$> sds
           ]
       )

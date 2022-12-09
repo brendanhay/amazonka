@@ -33,17 +33,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVirtualNodeSpec' smart constructor.
 data VirtualNodeSpec = VirtualNodeSpec'
-  { -- | The listener that the virtual node is expected to receive inbound
-    -- traffic from. You can specify one listener.
-    listeners :: Prelude.Maybe [Listener],
+  { -- | A reference to an object that represents the defaults for backends.
+    backendDefaults :: Prelude.Maybe BackendDefaults,
     -- | The backends that the virtual node is expected to send outbound traffic
     -- to.
     backends :: Prelude.Maybe [Backend],
+    -- | The listener that the virtual node is expected to receive inbound
+    -- traffic from. You can specify one listener.
+    listeners :: Prelude.Maybe [Listener],
     -- | The inbound and outbound access logging information for the virtual
     -- node.
     logging :: Prelude.Maybe Logging,
-    -- | A reference to an object that represents the defaults for backends.
-    backendDefaults :: Prelude.Maybe BackendDefaults,
     -- | The service discovery information for the virtual node. If your virtual
     -- node does not expect ingress traffic, you can omit this parameter. If
     -- you specify a @listener@, then you must specify service discovery
@@ -60,16 +60,16 @@ data VirtualNodeSpec = VirtualNodeSpec'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'listeners', 'virtualNodeSpec_listeners' - The listener that the virtual node is expected to receive inbound
--- traffic from. You can specify one listener.
+-- 'backendDefaults', 'virtualNodeSpec_backendDefaults' - A reference to an object that represents the defaults for backends.
 --
 -- 'backends', 'virtualNodeSpec_backends' - The backends that the virtual node is expected to send outbound traffic
 -- to.
 --
+-- 'listeners', 'virtualNodeSpec_listeners' - The listener that the virtual node is expected to receive inbound
+-- traffic from. You can specify one listener.
+--
 -- 'logging', 'virtualNodeSpec_logging' - The inbound and outbound access logging information for the virtual
 -- node.
---
--- 'backendDefaults', 'virtualNodeSpec_backendDefaults' - A reference to an object that represents the defaults for backends.
 --
 -- 'serviceDiscovery', 'virtualNodeSpec_serviceDiscovery' - The service discovery information for the virtual node. If your virtual
 -- node does not expect ingress traffic, you can omit this parameter. If
@@ -79,31 +79,31 @@ newVirtualNodeSpec ::
   VirtualNodeSpec
 newVirtualNodeSpec =
   VirtualNodeSpec'
-    { listeners = Prelude.Nothing,
+    { backendDefaults = Prelude.Nothing,
       backends = Prelude.Nothing,
+      listeners = Prelude.Nothing,
       logging = Prelude.Nothing,
-      backendDefaults = Prelude.Nothing,
       serviceDiscovery = Prelude.Nothing
     }
 
--- | The listener that the virtual node is expected to receive inbound
--- traffic from. You can specify one listener.
-virtualNodeSpec_listeners :: Lens.Lens' VirtualNodeSpec (Prelude.Maybe [Listener])
-virtualNodeSpec_listeners = Lens.lens (\VirtualNodeSpec' {listeners} -> listeners) (\s@VirtualNodeSpec' {} a -> s {listeners = a} :: VirtualNodeSpec) Prelude.. Lens.mapping Lens.coerced
+-- | A reference to an object that represents the defaults for backends.
+virtualNodeSpec_backendDefaults :: Lens.Lens' VirtualNodeSpec (Prelude.Maybe BackendDefaults)
+virtualNodeSpec_backendDefaults = Lens.lens (\VirtualNodeSpec' {backendDefaults} -> backendDefaults) (\s@VirtualNodeSpec' {} a -> s {backendDefaults = a} :: VirtualNodeSpec)
 
 -- | The backends that the virtual node is expected to send outbound traffic
 -- to.
 virtualNodeSpec_backends :: Lens.Lens' VirtualNodeSpec (Prelude.Maybe [Backend])
 virtualNodeSpec_backends = Lens.lens (\VirtualNodeSpec' {backends} -> backends) (\s@VirtualNodeSpec' {} a -> s {backends = a} :: VirtualNodeSpec) Prelude.. Lens.mapping Lens.coerced
 
+-- | The listener that the virtual node is expected to receive inbound
+-- traffic from. You can specify one listener.
+virtualNodeSpec_listeners :: Lens.Lens' VirtualNodeSpec (Prelude.Maybe [Listener])
+virtualNodeSpec_listeners = Lens.lens (\VirtualNodeSpec' {listeners} -> listeners) (\s@VirtualNodeSpec' {} a -> s {listeners = a} :: VirtualNodeSpec) Prelude.. Lens.mapping Lens.coerced
+
 -- | The inbound and outbound access logging information for the virtual
 -- node.
 virtualNodeSpec_logging :: Lens.Lens' VirtualNodeSpec (Prelude.Maybe Logging)
 virtualNodeSpec_logging = Lens.lens (\VirtualNodeSpec' {logging} -> logging) (\s@VirtualNodeSpec' {} a -> s {logging = a} :: VirtualNodeSpec)
-
--- | A reference to an object that represents the defaults for backends.
-virtualNodeSpec_backendDefaults :: Lens.Lens' VirtualNodeSpec (Prelude.Maybe BackendDefaults)
-virtualNodeSpec_backendDefaults = Lens.lens (\VirtualNodeSpec' {backendDefaults} -> backendDefaults) (\s@VirtualNodeSpec' {} a -> s {backendDefaults = a} :: VirtualNodeSpec)
 
 -- | The service discovery information for the virtual node. If your virtual
 -- node does not expect ingress traffic, you can omit this parameter. If
@@ -118,38 +118,38 @@ instance Data.FromJSON VirtualNodeSpec where
       "VirtualNodeSpec"
       ( \x ->
           VirtualNodeSpec'
-            Prelude.<$> (x Data..:? "listeners" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "backendDefaults")
             Prelude.<*> (x Data..:? "backends" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "listeners" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "logging")
-            Prelude.<*> (x Data..:? "backendDefaults")
             Prelude.<*> (x Data..:? "serviceDiscovery")
       )
 
 instance Prelude.Hashable VirtualNodeSpec where
   hashWithSalt _salt VirtualNodeSpec' {..} =
-    _salt `Prelude.hashWithSalt` listeners
+    _salt `Prelude.hashWithSalt` backendDefaults
       `Prelude.hashWithSalt` backends
+      `Prelude.hashWithSalt` listeners
       `Prelude.hashWithSalt` logging
-      `Prelude.hashWithSalt` backendDefaults
       `Prelude.hashWithSalt` serviceDiscovery
 
 instance Prelude.NFData VirtualNodeSpec where
   rnf VirtualNodeSpec' {..} =
-    Prelude.rnf listeners
+    Prelude.rnf backendDefaults
       `Prelude.seq` Prelude.rnf backends
+      `Prelude.seq` Prelude.rnf listeners
       `Prelude.seq` Prelude.rnf logging
-      `Prelude.seq` Prelude.rnf backendDefaults
       `Prelude.seq` Prelude.rnf serviceDiscovery
 
 instance Data.ToJSON VirtualNodeSpec where
   toJSON VirtualNodeSpec' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("listeners" Data..=) Prelude.<$> listeners,
-            ("backends" Data..=) Prelude.<$> backends,
-            ("logging" Data..=) Prelude.<$> logging,
-            ("backendDefaults" Data..=)
+          [ ("backendDefaults" Data..=)
               Prelude.<$> backendDefaults,
+            ("backends" Data..=) Prelude.<$> backends,
+            ("listeners" Data..=) Prelude.<$> listeners,
+            ("logging" Data..=) Prelude.<$> logging,
             ("serviceDiscovery" Data..=)
               Prelude.<$> serviceDiscovery
           ]

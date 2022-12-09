@@ -32,13 +32,13 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newListenerTimeout' smart constructor.
 data ListenerTimeout = ListenerTimeout'
   { -- | An object that represents types of timeouts.
+    grpc :: Prelude.Maybe GrpcTimeout,
+    -- | An object that represents types of timeouts.
     http :: Prelude.Maybe HttpTimeout,
     -- | An object that represents types of timeouts.
     http2 :: Prelude.Maybe HttpTimeout,
     -- | An object that represents types of timeouts.
-    tcp :: Prelude.Maybe TcpTimeout,
-    -- | An object that represents types of timeouts.
-    grpc :: Prelude.Maybe GrpcTimeout
+    tcp :: Prelude.Maybe TcpTimeout
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,22 +50,26 @@ data ListenerTimeout = ListenerTimeout'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'grpc', 'listenerTimeout_grpc' - An object that represents types of timeouts.
+--
 -- 'http', 'listenerTimeout_http' - An object that represents types of timeouts.
 --
 -- 'http2', 'listenerTimeout_http2' - An object that represents types of timeouts.
 --
 -- 'tcp', 'listenerTimeout_tcp' - An object that represents types of timeouts.
---
--- 'grpc', 'listenerTimeout_grpc' - An object that represents types of timeouts.
 newListenerTimeout ::
   ListenerTimeout
 newListenerTimeout =
   ListenerTimeout'
-    { http = Prelude.Nothing,
+    { grpc = Prelude.Nothing,
+      http = Prelude.Nothing,
       http2 = Prelude.Nothing,
-      tcp = Prelude.Nothing,
-      grpc = Prelude.Nothing
+      tcp = Prelude.Nothing
     }
+
+-- | An object that represents types of timeouts.
+listenerTimeout_grpc :: Lens.Lens' ListenerTimeout (Prelude.Maybe GrpcTimeout)
+listenerTimeout_grpc = Lens.lens (\ListenerTimeout' {grpc} -> grpc) (\s@ListenerTimeout' {} a -> s {grpc = a} :: ListenerTimeout)
 
 -- | An object that represents types of timeouts.
 listenerTimeout_http :: Lens.Lens' ListenerTimeout (Prelude.Maybe HttpTimeout)
@@ -79,43 +83,39 @@ listenerTimeout_http2 = Lens.lens (\ListenerTimeout' {http2} -> http2) (\s@Liste
 listenerTimeout_tcp :: Lens.Lens' ListenerTimeout (Prelude.Maybe TcpTimeout)
 listenerTimeout_tcp = Lens.lens (\ListenerTimeout' {tcp} -> tcp) (\s@ListenerTimeout' {} a -> s {tcp = a} :: ListenerTimeout)
 
--- | An object that represents types of timeouts.
-listenerTimeout_grpc :: Lens.Lens' ListenerTimeout (Prelude.Maybe GrpcTimeout)
-listenerTimeout_grpc = Lens.lens (\ListenerTimeout' {grpc} -> grpc) (\s@ListenerTimeout' {} a -> s {grpc = a} :: ListenerTimeout)
-
 instance Data.FromJSON ListenerTimeout where
   parseJSON =
     Data.withObject
       "ListenerTimeout"
       ( \x ->
           ListenerTimeout'
-            Prelude.<$> (x Data..:? "http")
+            Prelude.<$> (x Data..:? "grpc")
+            Prelude.<*> (x Data..:? "http")
             Prelude.<*> (x Data..:? "http2")
             Prelude.<*> (x Data..:? "tcp")
-            Prelude.<*> (x Data..:? "grpc")
       )
 
 instance Prelude.Hashable ListenerTimeout where
   hashWithSalt _salt ListenerTimeout' {..} =
-    _salt `Prelude.hashWithSalt` http
+    _salt `Prelude.hashWithSalt` grpc
+      `Prelude.hashWithSalt` http
       `Prelude.hashWithSalt` http2
       `Prelude.hashWithSalt` tcp
-      `Prelude.hashWithSalt` grpc
 
 instance Prelude.NFData ListenerTimeout where
   rnf ListenerTimeout' {..} =
-    Prelude.rnf http
+    Prelude.rnf grpc
+      `Prelude.seq` Prelude.rnf http
       `Prelude.seq` Prelude.rnf http2
       `Prelude.seq` Prelude.rnf tcp
-      `Prelude.seq` Prelude.rnf grpc
 
 instance Data.ToJSON ListenerTimeout where
   toJSON ListenerTimeout' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("http" Data..=) Prelude.<$> http,
+          [ ("grpc" Data..=) Prelude.<$> grpc,
+            ("http" Data..=) Prelude.<$> http,
             ("http2" Data..=) Prelude.<$> http2,
-            ("tcp" Data..=) Prelude.<$> tcp,
-            ("grpc" Data..=) Prelude.<$> grpc
+            ("tcp" Data..=) Prelude.<$> tcp
           ]
       )

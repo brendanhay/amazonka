@@ -29,9 +29,9 @@ module Amazonka.AppMesh.ListVirtualServices
     newListVirtualServices,
 
     -- * Request Lenses
-    listVirtualServices_nextToken,
-    listVirtualServices_meshOwner,
     listVirtualServices_limit,
+    listVirtualServices_meshOwner,
+    listVirtualServices_nextToken,
     listVirtualServices_meshName,
 
     -- * Destructuring the Response
@@ -57,17 +57,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListVirtualServices' smart constructor.
 data ListVirtualServices = ListVirtualServices'
-  { -- | The @nextToken@ value returned from a previous paginated
-    -- @ListVirtualServices@ request where @limit@ was used and the results
-    -- exceeded the value of that parameter. Pagination continues from the end
-    -- of the previous results that returned the @nextToken@ value.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services IAM account ID of the service mesh owner. If the
-    -- account ID is not your own, then it\'s the ID of the account that shared
-    -- the mesh with your account. For more information about mesh sharing, see
-    -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
-    meshOwner :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results returned by @ListVirtualServices@ in
+  { -- | The maximum number of results returned by @ListVirtualServices@ in
     -- paginated output. When you use this parameter, @ListVirtualServices@
     -- returns only @limit@ results in a single page along with a @nextToken@
     -- response element. You can see the remaining results of the initial
@@ -76,6 +66,16 @@ data ListVirtualServices = ListVirtualServices'
     -- don\'t use this parameter, @ListVirtualServices@ returns up to 100
     -- results and a @nextToken@ value if applicable.
     limit :: Prelude.Maybe Prelude.Natural,
+    -- | The Amazon Web Services IAM account ID of the service mesh owner. If the
+    -- account ID is not your own, then it\'s the ID of the account that shared
+    -- the mesh with your account. For more information about mesh sharing, see
+    -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
+    meshOwner :: Prelude.Maybe Prelude.Text,
+    -- | The @nextToken@ value returned from a previous paginated
+    -- @ListVirtualServices@ request where @limit@ was used and the results
+    -- exceeded the value of that parameter. Pagination continues from the end
+    -- of the previous results that returned the @nextToken@ value.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the service mesh to list virtual services in.
     meshName :: Prelude.Text
   }
@@ -89,16 +89,6 @@ data ListVirtualServices = ListVirtualServices'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listVirtualServices_nextToken' - The @nextToken@ value returned from a previous paginated
--- @ListVirtualServices@ request where @limit@ was used and the results
--- exceeded the value of that parameter. Pagination continues from the end
--- of the previous results that returned the @nextToken@ value.
---
--- 'meshOwner', 'listVirtualServices_meshOwner' - The Amazon Web Services IAM account ID of the service mesh owner. If the
--- account ID is not your own, then it\'s the ID of the account that shared
--- the mesh with your account. For more information about mesh sharing, see
--- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
---
 -- 'limit', 'listVirtualServices_limit' - The maximum number of results returned by @ListVirtualServices@ in
 -- paginated output. When you use this parameter, @ListVirtualServices@
 -- returns only @limit@ results in a single page along with a @nextToken@
@@ -108,6 +98,16 @@ data ListVirtualServices = ListVirtualServices'
 -- don\'t use this parameter, @ListVirtualServices@ returns up to 100
 -- results and a @nextToken@ value if applicable.
 --
+-- 'meshOwner', 'listVirtualServices_meshOwner' - The Amazon Web Services IAM account ID of the service mesh owner. If the
+-- account ID is not your own, then it\'s the ID of the account that shared
+-- the mesh with your account. For more information about mesh sharing, see
+-- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
+--
+-- 'nextToken', 'listVirtualServices_nextToken' - The @nextToken@ value returned from a previous paginated
+-- @ListVirtualServices@ request where @limit@ was used and the results
+-- exceeded the value of that parameter. Pagination continues from the end
+-- of the previous results that returned the @nextToken@ value.
+--
 -- 'meshName', 'listVirtualServices_meshName' - The name of the service mesh to list virtual services in.
 newListVirtualServices ::
   -- | 'meshName'
@@ -115,25 +115,11 @@ newListVirtualServices ::
   ListVirtualServices
 newListVirtualServices pMeshName_ =
   ListVirtualServices'
-    { nextToken = Prelude.Nothing,
+    { limit = Prelude.Nothing,
       meshOwner = Prelude.Nothing,
-      limit = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       meshName = pMeshName_
     }
-
--- | The @nextToken@ value returned from a previous paginated
--- @ListVirtualServices@ request where @limit@ was used and the results
--- exceeded the value of that parameter. Pagination continues from the end
--- of the previous results that returned the @nextToken@ value.
-listVirtualServices_nextToken :: Lens.Lens' ListVirtualServices (Prelude.Maybe Prelude.Text)
-listVirtualServices_nextToken = Lens.lens (\ListVirtualServices' {nextToken} -> nextToken) (\s@ListVirtualServices' {} a -> s {nextToken = a} :: ListVirtualServices)
-
--- | The Amazon Web Services IAM account ID of the service mesh owner. If the
--- account ID is not your own, then it\'s the ID of the account that shared
--- the mesh with your account. For more information about mesh sharing, see
--- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
-listVirtualServices_meshOwner :: Lens.Lens' ListVirtualServices (Prelude.Maybe Prelude.Text)
-listVirtualServices_meshOwner = Lens.lens (\ListVirtualServices' {meshOwner} -> meshOwner) (\s@ListVirtualServices' {} a -> s {meshOwner = a} :: ListVirtualServices)
 
 -- | The maximum number of results returned by @ListVirtualServices@ in
 -- paginated output. When you use this parameter, @ListVirtualServices@
@@ -145,6 +131,20 @@ listVirtualServices_meshOwner = Lens.lens (\ListVirtualServices' {meshOwner} -> 
 -- results and a @nextToken@ value if applicable.
 listVirtualServices_limit :: Lens.Lens' ListVirtualServices (Prelude.Maybe Prelude.Natural)
 listVirtualServices_limit = Lens.lens (\ListVirtualServices' {limit} -> limit) (\s@ListVirtualServices' {} a -> s {limit = a} :: ListVirtualServices)
+
+-- | The Amazon Web Services IAM account ID of the service mesh owner. If the
+-- account ID is not your own, then it\'s the ID of the account that shared
+-- the mesh with your account. For more information about mesh sharing, see
+-- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
+listVirtualServices_meshOwner :: Lens.Lens' ListVirtualServices (Prelude.Maybe Prelude.Text)
+listVirtualServices_meshOwner = Lens.lens (\ListVirtualServices' {meshOwner} -> meshOwner) (\s@ListVirtualServices' {} a -> s {meshOwner = a} :: ListVirtualServices)
+
+-- | The @nextToken@ value returned from a previous paginated
+-- @ListVirtualServices@ request where @limit@ was used and the results
+-- exceeded the value of that parameter. Pagination continues from the end
+-- of the previous results that returned the @nextToken@ value.
+listVirtualServices_nextToken :: Lens.Lens' ListVirtualServices (Prelude.Maybe Prelude.Text)
+listVirtualServices_nextToken = Lens.lens (\ListVirtualServices' {nextToken} -> nextToken) (\s@ListVirtualServices' {} a -> s {nextToken = a} :: ListVirtualServices)
 
 -- | The name of the service mesh to list virtual services in.
 listVirtualServices_meshName :: Lens.Lens' ListVirtualServices Prelude.Text
@@ -190,16 +190,16 @@ instance Core.AWSRequest ListVirtualServices where
 
 instance Prelude.Hashable ListVirtualServices where
   hashWithSalt _salt ListVirtualServices' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` meshOwner
-      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` meshName
 
 instance Prelude.NFData ListVirtualServices where
   rnf ListVirtualServices' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf limit
       `Prelude.seq` Prelude.rnf meshOwner
-      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf meshName
 
 instance Data.ToHeaders ListVirtualServices where
@@ -224,9 +224,9 @@ instance Data.ToPath ListVirtualServices where
 instance Data.ToQuery ListVirtualServices where
   toQuery ListVirtualServices' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
+      [ "limit" Data.=: limit,
         "meshOwner" Data.=: meshOwner,
-        "limit" Data.=: limit
+        "nextToken" Data.=: nextToken
       ]
 
 -- |

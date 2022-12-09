@@ -37,9 +37,9 @@ module Amazonka.AppMesh.CreateVirtualRouter
     newCreateVirtualRouter,
 
     -- * Request Lenses
-    createVirtualRouter_tags,
     createVirtualRouter_clientToken,
     createVirtualRouter_meshOwner,
+    createVirtualRouter_tags,
     createVirtualRouter_meshName,
     createVirtualRouter_spec,
     createVirtualRouter_virtualRouterName,
@@ -66,13 +66,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateVirtualRouter' smart constructor.
 data CreateVirtualRouter = CreateVirtualRouter'
-  { -- | Optional metadata that you can apply to the virtual router to assist
-    -- with categorization and organization. Each tag consists of a key and an
-    -- optional value, both of which you define. Tag keys can have a maximum
-    -- character length of 128 characters, and tag values can have a maximum
-    -- length of 256 characters.
-    tags :: Prelude.Maybe [TagRef],
-    -- | Unique, case-sensitive identifier that you provide to ensure the
+  { -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. Up to 36 letters, numbers, hyphens, and
     -- underscores are allowed.
     clientToken :: Prelude.Maybe Prelude.Text,
@@ -82,6 +76,12 @@ data CreateVirtualRouter = CreateVirtualRouter'
     -- service mesh. For more information about mesh sharing, see
     -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
     meshOwner :: Prelude.Maybe Prelude.Text,
+    -- | Optional metadata that you can apply to the virtual router to assist
+    -- with categorization and organization. Each tag consists of a key and an
+    -- optional value, both of which you define. Tag keys can have a maximum
+    -- character length of 128 characters, and tag values can have a maximum
+    -- length of 256 characters.
+    tags :: Prelude.Maybe [TagRef],
     -- | The name of the service mesh to create the virtual router in.
     meshName :: Prelude.Text,
     -- | The virtual router specification to apply.
@@ -99,12 +99,6 @@ data CreateVirtualRouter = CreateVirtualRouter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createVirtualRouter_tags' - Optional metadata that you can apply to the virtual router to assist
--- with categorization and organization. Each tag consists of a key and an
--- optional value, both of which you define. Tag keys can have a maximum
--- character length of 128 characters, and tag values can have a maximum
--- length of 256 characters.
---
 -- 'clientToken', 'createVirtualRouter_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. Up to 36 letters, numbers, hyphens, and
 -- underscores are allowed.
@@ -114,6 +108,12 @@ data CreateVirtualRouter = CreateVirtualRouter'
 -- the mesh with your account before you can create the resource in the
 -- service mesh. For more information about mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
+--
+-- 'tags', 'createVirtualRouter_tags' - Optional metadata that you can apply to the virtual router to assist
+-- with categorization and organization. Each tag consists of a key and an
+-- optional value, both of which you define. Tag keys can have a maximum
+-- character length of 128 characters, and tag values can have a maximum
+-- length of 256 characters.
 --
 -- 'meshName', 'createVirtualRouter_meshName' - The name of the service mesh to create the virtual router in.
 --
@@ -133,21 +133,13 @@ newCreateVirtualRouter
   pSpec_
   pVirtualRouterName_ =
     CreateVirtualRouter'
-      { tags = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
+      { clientToken = Prelude.Nothing,
         meshOwner = Prelude.Nothing,
+        tags = Prelude.Nothing,
         meshName = pMeshName_,
         spec = pSpec_,
         virtualRouterName = pVirtualRouterName_
       }
-
--- | Optional metadata that you can apply to the virtual router to assist
--- with categorization and organization. Each tag consists of a key and an
--- optional value, both of which you define. Tag keys can have a maximum
--- character length of 128 characters, and tag values can have a maximum
--- length of 256 characters.
-createVirtualRouter_tags :: Lens.Lens' CreateVirtualRouter (Prelude.Maybe [TagRef])
-createVirtualRouter_tags = Lens.lens (\CreateVirtualRouter' {tags} -> tags) (\s@CreateVirtualRouter' {} a -> s {tags = a} :: CreateVirtualRouter) Prelude.. Lens.mapping Lens.coerced
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. Up to 36 letters, numbers, hyphens, and
@@ -162,6 +154,14 @@ createVirtualRouter_clientToken = Lens.lens (\CreateVirtualRouter' {clientToken}
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 createVirtualRouter_meshOwner :: Lens.Lens' CreateVirtualRouter (Prelude.Maybe Prelude.Text)
 createVirtualRouter_meshOwner = Lens.lens (\CreateVirtualRouter' {meshOwner} -> meshOwner) (\s@CreateVirtualRouter' {} a -> s {meshOwner = a} :: CreateVirtualRouter)
+
+-- | Optional metadata that you can apply to the virtual router to assist
+-- with categorization and organization. Each tag consists of a key and an
+-- optional value, both of which you define. Tag keys can have a maximum
+-- character length of 128 characters, and tag values can have a maximum
+-- length of 256 characters.
+createVirtualRouter_tags :: Lens.Lens' CreateVirtualRouter (Prelude.Maybe [TagRef])
+createVirtualRouter_tags = Lens.lens (\CreateVirtualRouter' {tags} -> tags) (\s@CreateVirtualRouter' {} a -> s {tags = a} :: CreateVirtualRouter) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the service mesh to create the virtual router in.
 createVirtualRouter_meshName :: Lens.Lens' CreateVirtualRouter Prelude.Text
@@ -191,18 +191,18 @@ instance Core.AWSRequest CreateVirtualRouter where
 
 instance Prelude.Hashable CreateVirtualRouter where
   hashWithSalt _salt CreateVirtualRouter' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` meshOwner
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` meshName
       `Prelude.hashWithSalt` spec
       `Prelude.hashWithSalt` virtualRouterName
 
 instance Prelude.NFData CreateVirtualRouter where
   rnf CreateVirtualRouter' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf meshOwner
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf meshName
       `Prelude.seq` Prelude.rnf spec
       `Prelude.seq` Prelude.rnf virtualRouterName
@@ -222,8 +222,8 @@ instance Data.ToJSON CreateVirtualRouter where
   toJSON CreateVirtualRouter' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("clientToken" Data..=) Prelude.<$> clientToken,
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("spec" Data..= spec),
             Prelude.Just
               ("virtualRouterName" Data..= virtualRouterName)

@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVirtualServiceProvider' smart constructor.
 data VirtualServiceProvider = VirtualServiceProvider'
-  { -- | The virtual router associated with a virtual service.
-    virtualRouter :: Prelude.Maybe VirtualRouterServiceProvider,
-    -- | The virtual node associated with a virtual service.
-    virtualNode :: Prelude.Maybe VirtualNodeServiceProvider
+  { -- | The virtual node associated with a virtual service.
+    virtualNode :: Prelude.Maybe VirtualNodeServiceProvider,
+    -- | The virtual router associated with a virtual service.
+    virtualRouter :: Prelude.Maybe VirtualRouterServiceProvider
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,25 +45,25 @@ data VirtualServiceProvider = VirtualServiceProvider'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'virtualRouter', 'virtualServiceProvider_virtualRouter' - The virtual router associated with a virtual service.
---
 -- 'virtualNode', 'virtualServiceProvider_virtualNode' - The virtual node associated with a virtual service.
+--
+-- 'virtualRouter', 'virtualServiceProvider_virtualRouter' - The virtual router associated with a virtual service.
 newVirtualServiceProvider ::
   VirtualServiceProvider
 newVirtualServiceProvider =
   VirtualServiceProvider'
-    { virtualRouter =
+    { virtualNode =
         Prelude.Nothing,
-      virtualNode = Prelude.Nothing
+      virtualRouter = Prelude.Nothing
     }
-
--- | The virtual router associated with a virtual service.
-virtualServiceProvider_virtualRouter :: Lens.Lens' VirtualServiceProvider (Prelude.Maybe VirtualRouterServiceProvider)
-virtualServiceProvider_virtualRouter = Lens.lens (\VirtualServiceProvider' {virtualRouter} -> virtualRouter) (\s@VirtualServiceProvider' {} a -> s {virtualRouter = a} :: VirtualServiceProvider)
 
 -- | The virtual node associated with a virtual service.
 virtualServiceProvider_virtualNode :: Lens.Lens' VirtualServiceProvider (Prelude.Maybe VirtualNodeServiceProvider)
 virtualServiceProvider_virtualNode = Lens.lens (\VirtualServiceProvider' {virtualNode} -> virtualNode) (\s@VirtualServiceProvider' {} a -> s {virtualNode = a} :: VirtualServiceProvider)
+
+-- | The virtual router associated with a virtual service.
+virtualServiceProvider_virtualRouter :: Lens.Lens' VirtualServiceProvider (Prelude.Maybe VirtualRouterServiceProvider)
+virtualServiceProvider_virtualRouter = Lens.lens (\VirtualServiceProvider' {virtualRouter} -> virtualRouter) (\s@VirtualServiceProvider' {} a -> s {virtualRouter = a} :: VirtualServiceProvider)
 
 instance Data.FromJSON VirtualServiceProvider where
   parseJSON =
@@ -71,25 +71,25 @@ instance Data.FromJSON VirtualServiceProvider where
       "VirtualServiceProvider"
       ( \x ->
           VirtualServiceProvider'
-            Prelude.<$> (x Data..:? "virtualRouter")
-            Prelude.<*> (x Data..:? "virtualNode")
+            Prelude.<$> (x Data..:? "virtualNode")
+            Prelude.<*> (x Data..:? "virtualRouter")
       )
 
 instance Prelude.Hashable VirtualServiceProvider where
   hashWithSalt _salt VirtualServiceProvider' {..} =
-    _salt `Prelude.hashWithSalt` virtualRouter
-      `Prelude.hashWithSalt` virtualNode
+    _salt `Prelude.hashWithSalt` virtualNode
+      `Prelude.hashWithSalt` virtualRouter
 
 instance Prelude.NFData VirtualServiceProvider where
   rnf VirtualServiceProvider' {..} =
-    Prelude.rnf virtualRouter
-      `Prelude.seq` Prelude.rnf virtualNode
+    Prelude.rnf virtualNode
+      `Prelude.seq` Prelude.rnf virtualRouter
 
 instance Data.ToJSON VirtualServiceProvider where
   toJSON VirtualServiceProvider' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("virtualRouter" Data..=) Prelude.<$> virtualRouter,
-            ("virtualNode" Data..=) Prelude.<$> virtualNode
+          [ ("virtualNode" Data..=) Prelude.<$> virtualNode,
+            ("virtualRouter" Data..=) Prelude.<$> virtualRouter
           ]
       )

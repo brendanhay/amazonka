@@ -18,16 +18,16 @@ module Amazonka.AppMesh.Types
     defaultService,
 
     -- * Errors
-    _TooManyTagsException,
-    _NotFoundException,
-    _ServiceUnavailableException,
-    _InternalServerErrorException,
-    _ResourceInUseException,
-    _LimitExceededException,
-    _ForbiddenException,
-    _ConflictException,
     _BadRequestException,
+    _ConflictException,
+    _ForbiddenException,
+    _InternalServerErrorException,
+    _LimitExceededException,
+    _NotFoundException,
+    _ResourceInUseException,
+    _ServiceUnavailableException,
     _TooManyRequestsException,
+    _TooManyTagsException,
 
     -- * DefaultGatewayRouteRewrite
     DefaultGatewayRouteRewrite (..),
@@ -103,8 +103,8 @@ module Amazonka.AppMesh.Types
     -- * AwsCloudMapServiceDiscovery
     AwsCloudMapServiceDiscovery (..),
     newAwsCloudMapServiceDiscovery,
-    awsCloudMapServiceDiscovery_ipPreference,
     awsCloudMapServiceDiscovery_attributes,
+    awsCloudMapServiceDiscovery_ipPreference,
     awsCloudMapServiceDiscovery_namespaceName,
     awsCloudMapServiceDiscovery_serviceName,
 
@@ -126,22 +126,22 @@ module Amazonka.AppMesh.Types
     -- * ClientPolicyTls
     ClientPolicyTls (..),
     newClientPolicyTls,
-    clientPolicyTls_ports,
-    clientPolicyTls_enforce,
     clientPolicyTls_certificate,
+    clientPolicyTls_enforce,
+    clientPolicyTls_ports,
     clientPolicyTls_validation,
 
     -- * ClientTlsCertificate
     ClientTlsCertificate (..),
     newClientTlsCertificate,
-    clientTlsCertificate_sds,
     clientTlsCertificate_file,
+    clientTlsCertificate_sds,
 
     -- * DnsServiceDiscovery
     DnsServiceDiscovery (..),
     newDnsServiceDiscovery,
-    dnsServiceDiscovery_responseType,
     dnsServiceDiscovery_ipPreference,
+    dnsServiceDiscovery_responseType,
     dnsServiceDiscovery_hostname,
 
     -- * Duration
@@ -198,9 +198,9 @@ module Amazonka.AppMesh.Types
     -- * GatewayRouteSpec
     GatewayRouteSpec (..),
     newGatewayRouteSpec,
-    gatewayRouteSpec_httpRoute,
-    gatewayRouteSpec_http2Route,
     gatewayRouteSpec_grpcRoute,
+    gatewayRouteSpec_http2Route,
+    gatewayRouteSpec_httpRoute,
     gatewayRouteSpec_priority,
 
     -- * GatewayRouteStatus
@@ -234,16 +234,16 @@ module Amazonka.AppMesh.Types
     -- * GrpcGatewayRouteMatch
     GrpcGatewayRouteMatch (..),
     newGrpcGatewayRouteMatch,
-    grpcGatewayRouteMatch_port,
-    grpcGatewayRouteMatch_metadata,
     grpcGatewayRouteMatch_hostname,
+    grpcGatewayRouteMatch_metadata,
+    grpcGatewayRouteMatch_port,
     grpcGatewayRouteMatch_serviceName,
 
     -- * GrpcGatewayRouteMetadata
     GrpcGatewayRouteMetadata (..),
     newGrpcGatewayRouteMetadata,
-    grpcGatewayRouteMetadata_match,
     grpcGatewayRouteMetadata_invert,
+    grpcGatewayRouteMetadata_match,
     grpcGatewayRouteMetadata_name,
 
     -- * GrpcGatewayRouteRewrite
@@ -255,9 +255,9 @@ module Amazonka.AppMesh.Types
     GrpcMetadataMatchMethod (..),
     newGrpcMetadataMatchMethod,
     grpcMetadataMatchMethod_exact,
-    grpcMetadataMatchMethod_regex,
-    grpcMetadataMatchMethod_range,
     grpcMetadataMatchMethod_prefix,
+    grpcMetadataMatchMethod_range,
+    grpcMetadataMatchMethod_regex,
     grpcMetadataMatchMethod_suffix,
 
     -- * GrpcRetryPolicy
@@ -272,8 +272,8 @@ module Amazonka.AppMesh.Types
     -- * GrpcRoute
     GrpcRoute (..),
     newGrpcRoute,
-    grpcRoute_timeout,
     grpcRoute_retryPolicy,
+    grpcRoute_timeout,
     grpcRoute_action,
     grpcRoute_match,
 
@@ -285,47 +285,47 @@ module Amazonka.AppMesh.Types
     -- * GrpcRouteMatch
     GrpcRouteMatch (..),
     newGrpcRouteMatch,
-    grpcRouteMatch_port,
-    grpcRouteMatch_methodName,
     grpcRouteMatch_metadata,
+    grpcRouteMatch_methodName,
+    grpcRouteMatch_port,
     grpcRouteMatch_serviceName,
 
     -- * GrpcRouteMetadata
     GrpcRouteMetadata (..),
     newGrpcRouteMetadata,
-    grpcRouteMetadata_match,
     grpcRouteMetadata_invert,
+    grpcRouteMetadata_match,
     grpcRouteMetadata_name,
 
     -- * GrpcRouteMetadataMatchMethod
     GrpcRouteMetadataMatchMethod (..),
     newGrpcRouteMetadataMatchMethod,
     grpcRouteMetadataMatchMethod_exact,
-    grpcRouteMetadataMatchMethod_regex,
-    grpcRouteMetadataMatchMethod_range,
     grpcRouteMetadataMatchMethod_prefix,
+    grpcRouteMetadataMatchMethod_range,
+    grpcRouteMetadataMatchMethod_regex,
     grpcRouteMetadataMatchMethod_suffix,
 
     -- * GrpcTimeout
     GrpcTimeout (..),
     newGrpcTimeout,
-    grpcTimeout_perRequest,
     grpcTimeout_idle,
+    grpcTimeout_perRequest,
 
     -- * HeaderMatchMethod
     HeaderMatchMethod (..),
     newHeaderMatchMethod,
     headerMatchMethod_exact,
-    headerMatchMethod_regex,
-    headerMatchMethod_range,
     headerMatchMethod_prefix,
+    headerMatchMethod_range,
+    headerMatchMethod_regex,
     headerMatchMethod_suffix,
 
     -- * HealthCheckPolicy
     HealthCheckPolicy (..),
     newHealthCheckPolicy,
-    healthCheckPolicy_port,
     healthCheckPolicy_path,
+    healthCheckPolicy_port,
     healthCheckPolicy_healthyThreshold,
     healthCheckPolicy_intervalMillis,
     healthCheckPolicy_protocol,
@@ -347,20 +347,20 @@ module Amazonka.AppMesh.Types
     -- * HttpGatewayRouteHeader
     HttpGatewayRouteHeader (..),
     newHttpGatewayRouteHeader,
-    httpGatewayRouteHeader_match,
     httpGatewayRouteHeader_invert,
+    httpGatewayRouteHeader_match,
     httpGatewayRouteHeader_name,
 
     -- * HttpGatewayRouteMatch
     HttpGatewayRouteMatch (..),
     newHttpGatewayRouteMatch,
-    httpGatewayRouteMatch_port,
     httpGatewayRouteMatch_headers,
+    httpGatewayRouteMatch_hostname,
     httpGatewayRouteMatch_method,
     httpGatewayRouteMatch_path,
-    httpGatewayRouteMatch_hostname,
-    httpGatewayRouteMatch_queryParameters,
+    httpGatewayRouteMatch_port,
     httpGatewayRouteMatch_prefix,
+    httpGatewayRouteMatch_queryParameters,
 
     -- * HttpGatewayRoutePathRewrite
     HttpGatewayRoutePathRewrite (..),
@@ -376,8 +376,8 @@ module Amazonka.AppMesh.Types
     -- * HttpGatewayRouteRewrite
     HttpGatewayRouteRewrite (..),
     newHttpGatewayRouteRewrite,
-    httpGatewayRouteRewrite_path,
     httpGatewayRouteRewrite_hostname,
+    httpGatewayRouteRewrite_path,
     httpGatewayRouteRewrite_prefix,
 
     -- * HttpPathMatch
@@ -403,8 +403,8 @@ module Amazonka.AppMesh.Types
     -- * HttpRoute
     HttpRoute (..),
     newHttpRoute,
-    httpRoute_timeout,
     httpRoute_retryPolicy,
+    httpRoute_timeout,
     httpRoute_action,
     httpRoute_match,
 
@@ -416,26 +416,26 @@ module Amazonka.AppMesh.Types
     -- * HttpRouteHeader
     HttpRouteHeader (..),
     newHttpRouteHeader,
-    httpRouteHeader_match,
     httpRouteHeader_invert,
+    httpRouteHeader_match,
     httpRouteHeader_name,
 
     -- * HttpRouteMatch
     HttpRouteMatch (..),
     newHttpRouteMatch,
-    httpRouteMatch_port,
-    httpRouteMatch_scheme,
     httpRouteMatch_headers,
     httpRouteMatch_method,
     httpRouteMatch_path,
-    httpRouteMatch_queryParameters,
+    httpRouteMatch_port,
     httpRouteMatch_prefix,
+    httpRouteMatch_queryParameters,
+    httpRouteMatch_scheme,
 
     -- * HttpTimeout
     HttpTimeout (..),
     newHttpTimeout,
-    httpTimeout_perRequest,
     httpTimeout_idle,
+    httpTimeout_perRequest,
 
     -- * JsonFormatRef
     JsonFormatRef (..),
@@ -446,20 +446,20 @@ module Amazonka.AppMesh.Types
     -- * Listener
     Listener (..),
     newListener,
-    listener_timeout,
-    listener_healthCheck,
-    listener_tls,
     listener_connectionPool,
+    listener_healthCheck,
     listener_outlierDetection,
+    listener_timeout,
+    listener_tls,
     listener_portMapping,
 
     -- * ListenerTimeout
     ListenerTimeout (..),
     newListenerTimeout,
+    listenerTimeout_grpc,
     listenerTimeout_http,
     listenerTimeout_http2,
     listenerTimeout_tcp,
-    listenerTimeout_grpc,
 
     -- * ListenerTls
     ListenerTls (..),
@@ -476,9 +476,9 @@ module Amazonka.AppMesh.Types
     -- * ListenerTlsCertificate
     ListenerTlsCertificate (..),
     newListenerTlsCertificate,
-    listenerTlsCertificate_sds,
-    listenerTlsCertificate_file,
     listenerTlsCertificate_acm,
+    listenerTlsCertificate_file,
+    listenerTlsCertificate_sds,
 
     -- * ListenerTlsFileCertificate
     ListenerTlsFileCertificate (..),
@@ -500,8 +500,8 @@ module Amazonka.AppMesh.Types
     -- * ListenerTlsValidationContextTrust
     ListenerTlsValidationContextTrust (..),
     newListenerTlsValidationContextTrust,
-    listenerTlsValidationContextTrust_sds,
     listenerTlsValidationContextTrust_file,
+    listenerTlsValidationContextTrust_sds,
 
     -- * Logging
     Logging (..),
@@ -611,11 +611,11 @@ module Amazonka.AppMesh.Types
     -- * RouteSpec
     RouteSpec (..),
     newRouteSpec,
-    routeSpec_httpRoute,
-    routeSpec_tcpRoute,
-    routeSpec_http2Route,
     routeSpec_grpcRoute,
+    routeSpec_http2Route,
+    routeSpec_httpRoute,
     routeSpec_priority,
+    routeSpec_tcpRoute,
 
     -- * RouteStatus
     RouteStatus (..),
@@ -625,8 +625,8 @@ module Amazonka.AppMesh.Types
     -- * ServiceDiscovery
     ServiceDiscovery (..),
     newServiceDiscovery,
-    serviceDiscovery_dns,
     serviceDiscovery_awsCloudMap,
+    serviceDiscovery_dns,
 
     -- * SubjectAlternativeNameMatchers
     SubjectAlternativeNameMatchers (..),
@@ -647,8 +647,8 @@ module Amazonka.AppMesh.Types
     -- * TcpRoute
     TcpRoute (..),
     newTcpRoute,
-    tcpRoute_timeout,
     tcpRoute_match,
+    tcpRoute_timeout,
     tcpRoute_action,
 
     -- * TcpRouteAction
@@ -690,9 +690,9 @@ module Amazonka.AppMesh.Types
     -- * TlsValidationContextTrust
     TlsValidationContextTrust (..),
     newTlsValidationContextTrust,
-    tlsValidationContextTrust_sds,
-    tlsValidationContextTrust_file,
     tlsValidationContextTrust_acm,
+    tlsValidationContextTrust_file,
+    tlsValidationContextTrust_sds,
 
     -- * VirtualGatewayAccessLog
     VirtualGatewayAccessLog (..),
@@ -712,23 +712,23 @@ module Amazonka.AppMesh.Types
     -- * VirtualGatewayClientPolicyTls
     VirtualGatewayClientPolicyTls (..),
     newVirtualGatewayClientPolicyTls,
-    virtualGatewayClientPolicyTls_ports,
-    virtualGatewayClientPolicyTls_enforce,
     virtualGatewayClientPolicyTls_certificate,
+    virtualGatewayClientPolicyTls_enforce,
+    virtualGatewayClientPolicyTls_ports,
     virtualGatewayClientPolicyTls_validation,
 
     -- * VirtualGatewayClientTlsCertificate
     VirtualGatewayClientTlsCertificate (..),
     newVirtualGatewayClientTlsCertificate,
-    virtualGatewayClientTlsCertificate_sds,
     virtualGatewayClientTlsCertificate_file,
+    virtualGatewayClientTlsCertificate_sds,
 
     -- * VirtualGatewayConnectionPool
     VirtualGatewayConnectionPool (..),
     newVirtualGatewayConnectionPool,
+    virtualGatewayConnectionPool_grpc,
     virtualGatewayConnectionPool_http,
     virtualGatewayConnectionPool_http2,
-    virtualGatewayConnectionPool_grpc,
 
     -- * VirtualGatewayData
     VirtualGatewayData (..),
@@ -753,8 +753,8 @@ module Amazonka.AppMesh.Types
     -- * VirtualGatewayHealthCheckPolicy
     VirtualGatewayHealthCheckPolicy (..),
     newVirtualGatewayHealthCheckPolicy,
-    virtualGatewayHealthCheckPolicy_port,
     virtualGatewayHealthCheckPolicy_path,
+    virtualGatewayHealthCheckPolicy_port,
     virtualGatewayHealthCheckPolicy_healthyThreshold,
     virtualGatewayHealthCheckPolicy_intervalMillis,
     virtualGatewayHealthCheckPolicy_protocol,
@@ -775,9 +775,9 @@ module Amazonka.AppMesh.Types
     -- * VirtualGatewayListener
     VirtualGatewayListener (..),
     newVirtualGatewayListener,
+    virtualGatewayListener_connectionPool,
     virtualGatewayListener_healthCheck,
     virtualGatewayListener_tls,
-    virtualGatewayListener_connectionPool,
     virtualGatewayListener_portMapping,
 
     -- * VirtualGatewayListenerTls
@@ -795,9 +795,9 @@ module Amazonka.AppMesh.Types
     -- * VirtualGatewayListenerTlsCertificate
     VirtualGatewayListenerTlsCertificate (..),
     newVirtualGatewayListenerTlsCertificate,
-    virtualGatewayListenerTlsCertificate_sds,
-    virtualGatewayListenerTlsCertificate_file,
     virtualGatewayListenerTlsCertificate_acm,
+    virtualGatewayListenerTlsCertificate_file,
+    virtualGatewayListenerTlsCertificate_sds,
 
     -- * VirtualGatewayListenerTlsFileCertificate
     VirtualGatewayListenerTlsFileCertificate (..),
@@ -819,8 +819,8 @@ module Amazonka.AppMesh.Types
     -- * VirtualGatewayListenerTlsValidationContextTrust
     VirtualGatewayListenerTlsValidationContextTrust (..),
     newVirtualGatewayListenerTlsValidationContextTrust,
-    virtualGatewayListenerTlsValidationContextTrust_sds,
     virtualGatewayListenerTlsValidationContextTrust_file,
+    virtualGatewayListenerTlsValidationContextTrust_sds,
 
     -- * VirtualGatewayLogging
     VirtualGatewayLogging (..),
@@ -848,8 +848,8 @@ module Amazonka.AppMesh.Types
     -- * VirtualGatewaySpec
     VirtualGatewaySpec (..),
     newVirtualGatewaySpec,
-    virtualGatewaySpec_logging,
     virtualGatewaySpec_backendDefaults,
+    virtualGatewaySpec_logging,
     virtualGatewaySpec_listeners,
 
     -- * VirtualGatewayStatus
@@ -881,17 +881,17 @@ module Amazonka.AppMesh.Types
     -- * VirtualGatewayTlsValidationContextTrust
     VirtualGatewayTlsValidationContextTrust (..),
     newVirtualGatewayTlsValidationContextTrust,
-    virtualGatewayTlsValidationContextTrust_sds,
-    virtualGatewayTlsValidationContextTrust_file,
     virtualGatewayTlsValidationContextTrust_acm,
+    virtualGatewayTlsValidationContextTrust_file,
+    virtualGatewayTlsValidationContextTrust_sds,
 
     -- * VirtualNodeConnectionPool
     VirtualNodeConnectionPool (..),
     newVirtualNodeConnectionPool,
+    virtualNodeConnectionPool_grpc,
     virtualNodeConnectionPool_http,
     virtualNodeConnectionPool_http2,
     virtualNodeConnectionPool_tcp,
-    virtualNodeConnectionPool_grpc,
 
     -- * VirtualNodeData
     VirtualNodeData (..),
@@ -938,10 +938,10 @@ module Amazonka.AppMesh.Types
     -- * VirtualNodeSpec
     VirtualNodeSpec (..),
     newVirtualNodeSpec,
-    virtualNodeSpec_listeners,
-    virtualNodeSpec_backends,
-    virtualNodeSpec_logging,
     virtualNodeSpec_backendDefaults,
+    virtualNodeSpec_backends,
+    virtualNodeSpec_listeners,
+    virtualNodeSpec_logging,
     virtualNodeSpec_serviceDiscovery,
 
     -- * VirtualNodeStatus
@@ -1013,8 +1013,8 @@ module Amazonka.AppMesh.Types
     -- * VirtualServiceProvider
     VirtualServiceProvider (..),
     newVirtualServiceProvider,
-    virtualServiceProvider_virtualRouter,
     virtualServiceProvider_virtualNode,
+    virtualServiceProvider_virtualRouter,
 
     -- * VirtualServiceRef
     VirtualServiceRef (..),
@@ -1239,28 +1239,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -1268,13 +1262,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -1282,35 +1280,36 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
--- | The request exceeds the maximum allowed number of tags allowed per
--- resource. The current limit is 50 user tags per resource. You must
--- reduce the number of tags in the request. None of the tags in this
--- request were applied.
-_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyTagsException =
+-- | The request syntax was malformed. Check your request syntax and try
+-- again.
+_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequestException =
   Core._MatchServiceError
     defaultService
-    "TooManyTagsException"
+    "BadRequestException"
     Prelude.. Core.hasStatus 400
 
--- | The specified resource doesn\'t exist. Check your request syntax and try
--- again.
-_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NotFoundException =
+-- | The request contains a client token that was used for a previous update
+-- resource call with different specifications. Try the request again with
+-- a new client token.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
   Core._MatchServiceError
     defaultService
-    "NotFoundException"
-    Prelude.. Core.hasStatus 404
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
 
--- | The request has failed due to a temporary failure of the service.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceUnavailableException =
+-- | You don\'t have permissions to perform this action.
+_ForbiddenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ForbiddenException =
   Core._MatchServiceError
     defaultService
-    "ServiceUnavailableException"
-    Prelude.. Core.hasStatus 503
+    "ForbiddenException"
+    Prelude.. Core.hasStatus 403
 
 -- | The request processing has failed because of an unknown error,
 -- exception, or failure.
@@ -1320,15 +1319,6 @@ _InternalServerErrorException =
     defaultService
     "InternalServerErrorException"
     Prelude.. Core.hasStatus 500
-
--- | You can\'t delete the specified resource because it\'s in use or
--- required by another resource.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceInUseException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceInUseException"
-    Prelude.. Core.hasStatus 409
 
 -- | You have exceeded a service limit for your account. For more
 -- information, see
@@ -1341,32 +1331,31 @@ _LimitExceededException =
     "LimitExceededException"
     Prelude.. Core.hasStatus 400
 
--- | You don\'t have permissions to perform this action.
-_ForbiddenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ForbiddenException =
+-- | The specified resource doesn\'t exist. Check your request syntax and try
+-- again.
+_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException =
   Core._MatchServiceError
     defaultService
-    "ForbiddenException"
-    Prelude.. Core.hasStatus 403
+    "NotFoundException"
+    Prelude.. Core.hasStatus 404
 
--- | The request contains a client token that was used for a previous update
--- resource call with different specifications. Try the request again with
--- a new client token.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
+-- | You can\'t delete the specified resource because it\'s in use or
+-- required by another resource.
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException =
   Core._MatchServiceError
     defaultService
-    "ConflictException"
+    "ResourceInUseException"
     Prelude.. Core.hasStatus 409
 
--- | The request syntax was malformed. Check your request syntax and try
--- again.
-_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_BadRequestException =
+-- | The request has failed due to a temporary failure of the service.
+_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException =
   Core._MatchServiceError
     defaultService
-    "BadRequestException"
-    Prelude.. Core.hasStatus 400
+    "ServiceUnavailableException"
+    Prelude.. Core.hasStatus 503
 
 -- | The maximum request rate permitted by the App Mesh APIs has been
 -- exceeded for your account. For best results, use an increasing or
@@ -1377,3 +1366,14 @@ _TooManyRequestsException =
     defaultService
     "TooManyRequestsException"
     Prelude.. Core.hasStatus 429
+
+-- | The request exceeds the maximum allowed number of tags allowed per
+-- resource. The current limit is 50 user tags per resource. You must
+-- reduce the number of tags in the request. None of the tags in this
+-- request were applied.
+_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyTagsException"
+    Prelude.. Core.hasStatus 400

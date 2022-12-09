@@ -36,9 +36,9 @@ module Amazonka.AppMesh.CreateMesh
     newCreateMesh,
 
     -- * Request Lenses
-    createMesh_tags,
     createMesh_clientToken,
     createMesh_spec,
+    createMesh_tags,
     createMesh_meshName,
 
     -- * Destructuring the Response
@@ -63,18 +63,18 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateMesh' smart constructor.
 data CreateMesh = CreateMesh'
-  { -- | Optional metadata that you can apply to the service mesh to assist with
-    -- categorization and organization. Each tag consists of a key and an
-    -- optional value, both of which you define. Tag keys can have a maximum
-    -- character length of 128 characters, and tag values can have a maximum
-    -- length of 256 characters.
-    tags :: Prelude.Maybe [TagRef],
-    -- | Unique, case-sensitive identifier that you provide to ensure the
+  { -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. Up to 36 letters, numbers, hyphens, and
     -- underscores are allowed.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The service mesh specification to apply.
     spec :: Prelude.Maybe MeshSpec,
+    -- | Optional metadata that you can apply to the service mesh to assist with
+    -- categorization and organization. Each tag consists of a key and an
+    -- optional value, both of which you define. Tag keys can have a maximum
+    -- character length of 128 characters, and tag values can have a maximum
+    -- length of 256 characters.
+    tags :: Prelude.Maybe [TagRef],
     -- | The name to use for the service mesh.
     meshName :: Prelude.Text
   }
@@ -88,17 +88,17 @@ data CreateMesh = CreateMesh'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createMesh_tags' - Optional metadata that you can apply to the service mesh to assist with
--- categorization and organization. Each tag consists of a key and an
--- optional value, both of which you define. Tag keys can have a maximum
--- character length of 128 characters, and tag values can have a maximum
--- length of 256 characters.
---
 -- 'clientToken', 'createMesh_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. Up to 36 letters, numbers, hyphens, and
 -- underscores are allowed.
 --
 -- 'spec', 'createMesh_spec' - The service mesh specification to apply.
+--
+-- 'tags', 'createMesh_tags' - Optional metadata that you can apply to the service mesh to assist with
+-- categorization and organization. Each tag consists of a key and an
+-- optional value, both of which you define. Tag keys can have a maximum
+-- character length of 128 characters, and tag values can have a maximum
+-- length of 256 characters.
 --
 -- 'meshName', 'createMesh_meshName' - The name to use for the service mesh.
 newCreateMesh ::
@@ -107,19 +107,11 @@ newCreateMesh ::
   CreateMesh
 newCreateMesh pMeshName_ =
   CreateMesh'
-    { tags = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
+    { clientToken = Prelude.Nothing,
       spec = Prelude.Nothing,
+      tags = Prelude.Nothing,
       meshName = pMeshName_
     }
-
--- | Optional metadata that you can apply to the service mesh to assist with
--- categorization and organization. Each tag consists of a key and an
--- optional value, both of which you define. Tag keys can have a maximum
--- character length of 128 characters, and tag values can have a maximum
--- length of 256 characters.
-createMesh_tags :: Lens.Lens' CreateMesh (Prelude.Maybe [TagRef])
-createMesh_tags = Lens.lens (\CreateMesh' {tags} -> tags) (\s@CreateMesh' {} a -> s {tags = a} :: CreateMesh) Prelude.. Lens.mapping Lens.coerced
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. Up to 36 letters, numbers, hyphens, and
@@ -130,6 +122,14 @@ createMesh_clientToken = Lens.lens (\CreateMesh' {clientToken} -> clientToken) (
 -- | The service mesh specification to apply.
 createMesh_spec :: Lens.Lens' CreateMesh (Prelude.Maybe MeshSpec)
 createMesh_spec = Lens.lens (\CreateMesh' {spec} -> spec) (\s@CreateMesh' {} a -> s {spec = a} :: CreateMesh)
+
+-- | Optional metadata that you can apply to the service mesh to assist with
+-- categorization and organization. Each tag consists of a key and an
+-- optional value, both of which you define. Tag keys can have a maximum
+-- character length of 128 characters, and tag values can have a maximum
+-- length of 256 characters.
+createMesh_tags :: Lens.Lens' CreateMesh (Prelude.Maybe [TagRef])
+createMesh_tags = Lens.lens (\CreateMesh' {tags} -> tags) (\s@CreateMesh' {} a -> s {tags = a} :: CreateMesh) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name to use for the service mesh.
 createMesh_meshName :: Lens.Lens' CreateMesh Prelude.Text
@@ -149,16 +149,16 @@ instance Core.AWSRequest CreateMesh where
 
 instance Prelude.Hashable CreateMesh where
   hashWithSalt _salt CreateMesh' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` spec
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` meshName
 
 instance Prelude.NFData CreateMesh where
   rnf CreateMesh' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf spec
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf meshName
 
 instance Data.ToHeaders CreateMesh where
@@ -176,9 +176,9 @@ instance Data.ToJSON CreateMesh where
   toJSON CreateMesh' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("clientToken" Data..=) Prelude.<$> clientToken,
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
             ("spec" Data..=) Prelude.<$> spec,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("meshName" Data..= meshName)
           ]
       )

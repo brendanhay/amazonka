@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHttpRouteHeader' smart constructor.
 data HttpRouteHeader = HttpRouteHeader'
-  { -- | The @HeaderMatchMethod@ object.
-    match :: Prelude.Maybe HeaderMatchMethod,
-    -- | Specify @True@ to match anything except the match criteria. The default
+  { -- | Specify @True@ to match anything except the match criteria. The default
     -- value is @False@.
     invert :: Prelude.Maybe Prelude.Bool,
+    -- | The @HeaderMatchMethod@ object.
+    match :: Prelude.Maybe HeaderMatchMethod,
     -- | A name for the HTTP header in the client request that will be matched
     -- on.
     name :: Prelude.Text
@@ -48,10 +48,10 @@ data HttpRouteHeader = HttpRouteHeader'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'match', 'httpRouteHeader_match' - The @HeaderMatchMethod@ object.
---
 -- 'invert', 'httpRouteHeader_invert' - Specify @True@ to match anything except the match criteria. The default
 -- value is @False@.
+--
+-- 'match', 'httpRouteHeader_match' - The @HeaderMatchMethod@ object.
 --
 -- 'name', 'httpRouteHeader_name' - A name for the HTTP header in the client request that will be matched
 -- on.
@@ -61,19 +61,19 @@ newHttpRouteHeader ::
   HttpRouteHeader
 newHttpRouteHeader pName_ =
   HttpRouteHeader'
-    { match = Prelude.Nothing,
-      invert = Prelude.Nothing,
+    { invert = Prelude.Nothing,
+      match = Prelude.Nothing,
       name = pName_
     }
-
--- | The @HeaderMatchMethod@ object.
-httpRouteHeader_match :: Lens.Lens' HttpRouteHeader (Prelude.Maybe HeaderMatchMethod)
-httpRouteHeader_match = Lens.lens (\HttpRouteHeader' {match} -> match) (\s@HttpRouteHeader' {} a -> s {match = a} :: HttpRouteHeader)
 
 -- | Specify @True@ to match anything except the match criteria. The default
 -- value is @False@.
 httpRouteHeader_invert :: Lens.Lens' HttpRouteHeader (Prelude.Maybe Prelude.Bool)
 httpRouteHeader_invert = Lens.lens (\HttpRouteHeader' {invert} -> invert) (\s@HttpRouteHeader' {} a -> s {invert = a} :: HttpRouteHeader)
+
+-- | The @HeaderMatchMethod@ object.
+httpRouteHeader_match :: Lens.Lens' HttpRouteHeader (Prelude.Maybe HeaderMatchMethod)
+httpRouteHeader_match = Lens.lens (\HttpRouteHeader' {match} -> match) (\s@HttpRouteHeader' {} a -> s {match = a} :: HttpRouteHeader)
 
 -- | A name for the HTTP header in the client request that will be matched
 -- on.
@@ -86,29 +86,29 @@ instance Data.FromJSON HttpRouteHeader where
       "HttpRouteHeader"
       ( \x ->
           HttpRouteHeader'
-            Prelude.<$> (x Data..:? "match")
-            Prelude.<*> (x Data..:? "invert")
+            Prelude.<$> (x Data..:? "invert")
+            Prelude.<*> (x Data..:? "match")
             Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable HttpRouteHeader where
   hashWithSalt _salt HttpRouteHeader' {..} =
-    _salt `Prelude.hashWithSalt` match
-      `Prelude.hashWithSalt` invert
+    _salt `Prelude.hashWithSalt` invert
+      `Prelude.hashWithSalt` match
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData HttpRouteHeader where
   rnf HttpRouteHeader' {..} =
-    Prelude.rnf match
-      `Prelude.seq` Prelude.rnf invert
+    Prelude.rnf invert
+      `Prelude.seq` Prelude.rnf match
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToJSON HttpRouteHeader where
   toJSON HttpRouteHeader' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("match" Data..=) Prelude.<$> match,
-            ("invert" Data..=) Prelude.<$> invert,
+          [ ("invert" Data..=) Prelude.<$> invert,
+            ("match" Data..=) Prelude.<$> match,
             Prelude.Just ("name" Data..= name)
           ]
       )

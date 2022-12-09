@@ -30,14 +30,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newApplicationMetrics' smart constructor.
 data ApplicationMetrics = ApplicationMetrics'
-  { -- | Represents the average latency for the slowest X percent of requests
-    -- over the last 10 seconds. Latencies are in seconds with one millisecond
-    -- resolution.
-    latency :: Prelude.Maybe Latency,
-    -- | The amount of time that the metrics cover (usually 10 seconds). For
+  { -- | The amount of time that the metrics cover (usually 10 seconds). For
     -- example, you might have 5 requests (@request_count@) within the most
     -- recent time slice of 10 seconds (@duration@).
     duration :: Prelude.Maybe Prelude.Int,
+    -- | Represents the average latency for the slowest X percent of requests
+    -- over the last 10 seconds. Latencies are in seconds with one millisecond
+    -- resolution.
+    latency :: Prelude.Maybe Latency,
     -- | Average number of requests handled by the web server per second over the
     -- last 10 seconds.
     requestCount :: Prelude.Maybe Prelude.Int,
@@ -55,13 +55,13 @@ data ApplicationMetrics = ApplicationMetrics'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'latency', 'applicationMetrics_latency' - Represents the average latency for the slowest X percent of requests
--- over the last 10 seconds. Latencies are in seconds with one millisecond
--- resolution.
---
 -- 'duration', 'applicationMetrics_duration' - The amount of time that the metrics cover (usually 10 seconds). For
 -- example, you might have 5 requests (@request_count@) within the most
 -- recent time slice of 10 seconds (@duration@).
+--
+-- 'latency', 'applicationMetrics_latency' - Represents the average latency for the slowest X percent of requests
+-- over the last 10 seconds. Latencies are in seconds with one millisecond
+-- resolution.
 --
 -- 'requestCount', 'applicationMetrics_requestCount' - Average number of requests handled by the web server per second over the
 -- last 10 seconds.
@@ -72,23 +72,23 @@ newApplicationMetrics ::
   ApplicationMetrics
 newApplicationMetrics =
   ApplicationMetrics'
-    { latency = Prelude.Nothing,
-      duration = Prelude.Nothing,
+    { duration = Prelude.Nothing,
+      latency = Prelude.Nothing,
       requestCount = Prelude.Nothing,
       statusCodes = Prelude.Nothing
     }
-
--- | Represents the average latency for the slowest X percent of requests
--- over the last 10 seconds. Latencies are in seconds with one millisecond
--- resolution.
-applicationMetrics_latency :: Lens.Lens' ApplicationMetrics (Prelude.Maybe Latency)
-applicationMetrics_latency = Lens.lens (\ApplicationMetrics' {latency} -> latency) (\s@ApplicationMetrics' {} a -> s {latency = a} :: ApplicationMetrics)
 
 -- | The amount of time that the metrics cover (usually 10 seconds). For
 -- example, you might have 5 requests (@request_count@) within the most
 -- recent time slice of 10 seconds (@duration@).
 applicationMetrics_duration :: Lens.Lens' ApplicationMetrics (Prelude.Maybe Prelude.Int)
 applicationMetrics_duration = Lens.lens (\ApplicationMetrics' {duration} -> duration) (\s@ApplicationMetrics' {} a -> s {duration = a} :: ApplicationMetrics)
+
+-- | Represents the average latency for the slowest X percent of requests
+-- over the last 10 seconds. Latencies are in seconds with one millisecond
+-- resolution.
+applicationMetrics_latency :: Lens.Lens' ApplicationMetrics (Prelude.Maybe Latency)
+applicationMetrics_latency = Lens.lens (\ApplicationMetrics' {latency} -> latency) (\s@ApplicationMetrics' {} a -> s {latency = a} :: ApplicationMetrics)
 
 -- | Average number of requests handled by the web server per second over the
 -- last 10 seconds.
@@ -103,21 +103,21 @@ applicationMetrics_statusCodes = Lens.lens (\ApplicationMetrics' {statusCodes} -
 instance Data.FromXML ApplicationMetrics where
   parseXML x =
     ApplicationMetrics'
-      Prelude.<$> (x Data..@? "Latency")
-      Prelude.<*> (x Data..@? "Duration")
+      Prelude.<$> (x Data..@? "Duration")
+      Prelude.<*> (x Data..@? "Latency")
       Prelude.<*> (x Data..@? "RequestCount")
       Prelude.<*> (x Data..@? "StatusCodes")
 
 instance Prelude.Hashable ApplicationMetrics where
   hashWithSalt _salt ApplicationMetrics' {..} =
-    _salt `Prelude.hashWithSalt` latency
-      `Prelude.hashWithSalt` duration
+    _salt `Prelude.hashWithSalt` duration
+      `Prelude.hashWithSalt` latency
       `Prelude.hashWithSalt` requestCount
       `Prelude.hashWithSalt` statusCodes
 
 instance Prelude.NFData ApplicationMetrics where
   rnf ApplicationMetrics' {..} =
-    Prelude.rnf latency
-      `Prelude.seq` Prelude.rnf duration
+    Prelude.rnf duration
+      `Prelude.seq` Prelude.rnf latency
       `Prelude.seq` Prelude.rnf requestCount
       `Prelude.seq` Prelude.rnf statusCodes

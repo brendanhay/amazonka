@@ -30,18 +30,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newManagedAction' smart constructor.
 data ManagedAction = ManagedAction'
-  { -- | The type of managed action.
+  { -- | A description of the managed action.
+    actionDescription :: Prelude.Maybe Prelude.Text,
+    -- | A unique identifier for the managed action.
+    actionId :: Prelude.Maybe Prelude.Text,
+    -- | The type of managed action.
     actionType :: Prelude.Maybe ActionType,
-    -- | The start time of the maintenance window in which the managed action
-    -- will execute.
-    windowStartTime :: Prelude.Maybe Data.ISO8601,
     -- | The status of the managed action. If the action is @Scheduled@, you can
     -- apply it immediately with ApplyEnvironmentManagedAction.
     status :: Prelude.Maybe ActionStatus,
-    -- | A unique identifier for the managed action.
-    actionId :: Prelude.Maybe Prelude.Text,
-    -- | A description of the managed action.
-    actionDescription :: Prelude.Maybe Prelude.Text
+    -- | The start time of the maintenance window in which the managed action
+    -- will execute.
+    windowStartTime :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,71 +53,71 @@ data ManagedAction = ManagedAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'actionType', 'managedAction_actionType' - The type of managed action.
+-- 'actionDescription', 'managedAction_actionDescription' - A description of the managed action.
 --
--- 'windowStartTime', 'managedAction_windowStartTime' - The start time of the maintenance window in which the managed action
--- will execute.
+-- 'actionId', 'managedAction_actionId' - A unique identifier for the managed action.
+--
+-- 'actionType', 'managedAction_actionType' - The type of managed action.
 --
 -- 'status', 'managedAction_status' - The status of the managed action. If the action is @Scheduled@, you can
 -- apply it immediately with ApplyEnvironmentManagedAction.
 --
--- 'actionId', 'managedAction_actionId' - A unique identifier for the managed action.
---
--- 'actionDescription', 'managedAction_actionDescription' - A description of the managed action.
+-- 'windowStartTime', 'managedAction_windowStartTime' - The start time of the maintenance window in which the managed action
+-- will execute.
 newManagedAction ::
   ManagedAction
 newManagedAction =
   ManagedAction'
-    { actionType = Prelude.Nothing,
-      windowStartTime = Prelude.Nothing,
-      status = Prelude.Nothing,
+    { actionDescription = Prelude.Nothing,
       actionId = Prelude.Nothing,
-      actionDescription = Prelude.Nothing
+      actionType = Prelude.Nothing,
+      status = Prelude.Nothing,
+      windowStartTime = Prelude.Nothing
     }
+
+-- | A description of the managed action.
+managedAction_actionDescription :: Lens.Lens' ManagedAction (Prelude.Maybe Prelude.Text)
+managedAction_actionDescription = Lens.lens (\ManagedAction' {actionDescription} -> actionDescription) (\s@ManagedAction' {} a -> s {actionDescription = a} :: ManagedAction)
+
+-- | A unique identifier for the managed action.
+managedAction_actionId :: Lens.Lens' ManagedAction (Prelude.Maybe Prelude.Text)
+managedAction_actionId = Lens.lens (\ManagedAction' {actionId} -> actionId) (\s@ManagedAction' {} a -> s {actionId = a} :: ManagedAction)
 
 -- | The type of managed action.
 managedAction_actionType :: Lens.Lens' ManagedAction (Prelude.Maybe ActionType)
 managedAction_actionType = Lens.lens (\ManagedAction' {actionType} -> actionType) (\s@ManagedAction' {} a -> s {actionType = a} :: ManagedAction)
-
--- | The start time of the maintenance window in which the managed action
--- will execute.
-managedAction_windowStartTime :: Lens.Lens' ManagedAction (Prelude.Maybe Prelude.UTCTime)
-managedAction_windowStartTime = Lens.lens (\ManagedAction' {windowStartTime} -> windowStartTime) (\s@ManagedAction' {} a -> s {windowStartTime = a} :: ManagedAction) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the managed action. If the action is @Scheduled@, you can
 -- apply it immediately with ApplyEnvironmentManagedAction.
 managedAction_status :: Lens.Lens' ManagedAction (Prelude.Maybe ActionStatus)
 managedAction_status = Lens.lens (\ManagedAction' {status} -> status) (\s@ManagedAction' {} a -> s {status = a} :: ManagedAction)
 
--- | A unique identifier for the managed action.
-managedAction_actionId :: Lens.Lens' ManagedAction (Prelude.Maybe Prelude.Text)
-managedAction_actionId = Lens.lens (\ManagedAction' {actionId} -> actionId) (\s@ManagedAction' {} a -> s {actionId = a} :: ManagedAction)
-
--- | A description of the managed action.
-managedAction_actionDescription :: Lens.Lens' ManagedAction (Prelude.Maybe Prelude.Text)
-managedAction_actionDescription = Lens.lens (\ManagedAction' {actionDescription} -> actionDescription) (\s@ManagedAction' {} a -> s {actionDescription = a} :: ManagedAction)
+-- | The start time of the maintenance window in which the managed action
+-- will execute.
+managedAction_windowStartTime :: Lens.Lens' ManagedAction (Prelude.Maybe Prelude.UTCTime)
+managedAction_windowStartTime = Lens.lens (\ManagedAction' {windowStartTime} -> windowStartTime) (\s@ManagedAction' {} a -> s {windowStartTime = a} :: ManagedAction) Prelude.. Lens.mapping Data._Time
 
 instance Data.FromXML ManagedAction where
   parseXML x =
     ManagedAction'
-      Prelude.<$> (x Data..@? "ActionType")
-      Prelude.<*> (x Data..@? "WindowStartTime")
-      Prelude.<*> (x Data..@? "Status")
+      Prelude.<$> (x Data..@? "ActionDescription")
       Prelude.<*> (x Data..@? "ActionId")
-      Prelude.<*> (x Data..@? "ActionDescription")
+      Prelude.<*> (x Data..@? "ActionType")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "WindowStartTime")
 
 instance Prelude.Hashable ManagedAction where
   hashWithSalt _salt ManagedAction' {..} =
-    _salt `Prelude.hashWithSalt` actionType
-      `Prelude.hashWithSalt` windowStartTime
-      `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` actionDescription
       `Prelude.hashWithSalt` actionId
-      `Prelude.hashWithSalt` actionDescription
+      `Prelude.hashWithSalt` actionType
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` windowStartTime
 
 instance Prelude.NFData ManagedAction where
   rnf ManagedAction' {..} =
-    Prelude.rnf actionType
-      `Prelude.seq` Prelude.rnf windowStartTime
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf actionDescription
       `Prelude.seq` Prelude.rnf actionId
-      `Prelude.seq` Prelude.rnf actionDescription
+      `Prelude.seq` Prelude.rnf actionType
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf windowStartTime

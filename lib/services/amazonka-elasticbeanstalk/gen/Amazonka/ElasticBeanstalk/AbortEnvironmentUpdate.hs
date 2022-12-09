@@ -28,8 +28,8 @@ module Amazonka.ElasticBeanstalk.AbortEnvironmentUpdate
     newAbortEnvironmentUpdate,
 
     -- * Request Lenses
-    abortEnvironmentUpdate_environmentName,
     abortEnvironmentUpdate_environmentId,
+    abortEnvironmentUpdate_environmentName,
 
     -- * Destructuring the Response
     AbortEnvironmentUpdateResponse (..),
@@ -49,12 +49,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newAbortEnvironmentUpdate' smart constructor.
 data AbortEnvironmentUpdate = AbortEnvironmentUpdate'
-  { -- | This specifies the name of the environment with the in-progress update
+  { -- | This specifies the ID of the environment with the in-progress update
     -- that you want to cancel.
-    environmentName :: Prelude.Maybe Prelude.Text,
-    -- | This specifies the ID of the environment with the in-progress update
+    environmentId :: Prelude.Maybe Prelude.Text,
+    -- | This specifies the name of the environment with the in-progress update
     -- that you want to cancel.
-    environmentId :: Prelude.Maybe Prelude.Text
+    environmentName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,29 +66,29 @@ data AbortEnvironmentUpdate = AbortEnvironmentUpdate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'environmentName', 'abortEnvironmentUpdate_environmentName' - This specifies the name of the environment with the in-progress update
+-- 'environmentId', 'abortEnvironmentUpdate_environmentId' - This specifies the ID of the environment with the in-progress update
 -- that you want to cancel.
 --
--- 'environmentId', 'abortEnvironmentUpdate_environmentId' - This specifies the ID of the environment with the in-progress update
+-- 'environmentName', 'abortEnvironmentUpdate_environmentName' - This specifies the name of the environment with the in-progress update
 -- that you want to cancel.
 newAbortEnvironmentUpdate ::
   AbortEnvironmentUpdate
 newAbortEnvironmentUpdate =
   AbortEnvironmentUpdate'
-    { environmentName =
+    { environmentId =
         Prelude.Nothing,
-      environmentId = Prelude.Nothing
+      environmentName = Prelude.Nothing
     }
-
--- | This specifies the name of the environment with the in-progress update
--- that you want to cancel.
-abortEnvironmentUpdate_environmentName :: Lens.Lens' AbortEnvironmentUpdate (Prelude.Maybe Prelude.Text)
-abortEnvironmentUpdate_environmentName = Lens.lens (\AbortEnvironmentUpdate' {environmentName} -> environmentName) (\s@AbortEnvironmentUpdate' {} a -> s {environmentName = a} :: AbortEnvironmentUpdate)
 
 -- | This specifies the ID of the environment with the in-progress update
 -- that you want to cancel.
 abortEnvironmentUpdate_environmentId :: Lens.Lens' AbortEnvironmentUpdate (Prelude.Maybe Prelude.Text)
 abortEnvironmentUpdate_environmentId = Lens.lens (\AbortEnvironmentUpdate' {environmentId} -> environmentId) (\s@AbortEnvironmentUpdate' {} a -> s {environmentId = a} :: AbortEnvironmentUpdate)
+
+-- | This specifies the name of the environment with the in-progress update
+-- that you want to cancel.
+abortEnvironmentUpdate_environmentName :: Lens.Lens' AbortEnvironmentUpdate (Prelude.Maybe Prelude.Text)
+abortEnvironmentUpdate_environmentName = Lens.lens (\AbortEnvironmentUpdate' {environmentName} -> environmentName) (\s@AbortEnvironmentUpdate' {} a -> s {environmentName = a} :: AbortEnvironmentUpdate)
 
 instance Core.AWSRequest AbortEnvironmentUpdate where
   type
@@ -102,13 +102,13 @@ instance Core.AWSRequest AbortEnvironmentUpdate where
 
 instance Prelude.Hashable AbortEnvironmentUpdate where
   hashWithSalt _salt AbortEnvironmentUpdate' {..} =
-    _salt `Prelude.hashWithSalt` environmentName
-      `Prelude.hashWithSalt` environmentId
+    _salt `Prelude.hashWithSalt` environmentId
+      `Prelude.hashWithSalt` environmentName
 
 instance Prelude.NFData AbortEnvironmentUpdate where
   rnf AbortEnvironmentUpdate' {..} =
-    Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf environmentId
+    Prelude.rnf environmentId
+      `Prelude.seq` Prelude.rnf environmentName
 
 instance Data.ToHeaders AbortEnvironmentUpdate where
   toHeaders = Prelude.const Prelude.mempty
@@ -123,8 +123,8 @@ instance Data.ToQuery AbortEnvironmentUpdate where
           Data.=: ("AbortEnvironmentUpdate" :: Prelude.ByteString),
         "Version"
           Data.=: ("2010-12-01" :: Prelude.ByteString),
-        "EnvironmentName" Data.=: environmentName,
-        "EnvironmentId" Data.=: environmentId
+        "EnvironmentId" Data.=: environmentId,
+        "EnvironmentName" Data.=: environmentName
       ]
 
 -- | /See:/ 'newAbortEnvironmentUpdateResponse' smart constructor.

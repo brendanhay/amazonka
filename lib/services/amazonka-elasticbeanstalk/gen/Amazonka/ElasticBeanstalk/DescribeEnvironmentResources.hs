@@ -27,8 +27,8 @@ module Amazonka.ElasticBeanstalk.DescribeEnvironmentResources
     newDescribeEnvironmentResources,
 
     -- * Request Lenses
-    describeEnvironmentResources_environmentName,
     describeEnvironmentResources_environmentId,
+    describeEnvironmentResources_environmentName,
 
     -- * Destructuring the Response
     DescribeEnvironmentResourcesResponse (..),
@@ -52,18 +52,18 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeEnvironmentResources' smart constructor.
 data DescribeEnvironmentResources = DescribeEnvironmentResources'
-  { -- | The name of the environment to retrieve AWS resource usage data.
-    --
-    -- Condition: You must specify either this or an EnvironmentId, or both. If
-    -- you do not specify either, AWS Elastic Beanstalk returns
-    -- @MissingRequiredParameter@ error.
-    environmentName :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the environment to retrieve AWS resource usage data.
+  { -- | The ID of the environment to retrieve AWS resource usage data.
     --
     -- Condition: You must specify either this or an EnvironmentName, or both.
     -- If you do not specify either, AWS Elastic Beanstalk returns
     -- @MissingRequiredParameter@ error.
-    environmentId :: Prelude.Maybe Prelude.Text
+    environmentId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the environment to retrieve AWS resource usage data.
+    --
+    -- Condition: You must specify either this or an EnvironmentId, or both. If
+    -- you do not specify either, AWS Elastic Beanstalk returns
+    -- @MissingRequiredParameter@ error.
+    environmentName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,33 +75,25 @@ data DescribeEnvironmentResources = DescribeEnvironmentResources'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'environmentName', 'describeEnvironmentResources_environmentName' - The name of the environment to retrieve AWS resource usage data.
---
--- Condition: You must specify either this or an EnvironmentId, or both. If
--- you do not specify either, AWS Elastic Beanstalk returns
--- @MissingRequiredParameter@ error.
---
 -- 'environmentId', 'describeEnvironmentResources_environmentId' - The ID of the environment to retrieve AWS resource usage data.
 --
 -- Condition: You must specify either this or an EnvironmentName, or both.
 -- If you do not specify either, AWS Elastic Beanstalk returns
 -- @MissingRequiredParameter@ error.
-newDescribeEnvironmentResources ::
-  DescribeEnvironmentResources
-newDescribeEnvironmentResources =
-  DescribeEnvironmentResources'
-    { environmentName =
-        Prelude.Nothing,
-      environmentId = Prelude.Nothing
-    }
-
--- | The name of the environment to retrieve AWS resource usage data.
+--
+-- 'environmentName', 'describeEnvironmentResources_environmentName' - The name of the environment to retrieve AWS resource usage data.
 --
 -- Condition: You must specify either this or an EnvironmentId, or both. If
 -- you do not specify either, AWS Elastic Beanstalk returns
 -- @MissingRequiredParameter@ error.
-describeEnvironmentResources_environmentName :: Lens.Lens' DescribeEnvironmentResources (Prelude.Maybe Prelude.Text)
-describeEnvironmentResources_environmentName = Lens.lens (\DescribeEnvironmentResources' {environmentName} -> environmentName) (\s@DescribeEnvironmentResources' {} a -> s {environmentName = a} :: DescribeEnvironmentResources)
+newDescribeEnvironmentResources ::
+  DescribeEnvironmentResources
+newDescribeEnvironmentResources =
+  DescribeEnvironmentResources'
+    { environmentId =
+        Prelude.Nothing,
+      environmentName = Prelude.Nothing
+    }
 
 -- | The ID of the environment to retrieve AWS resource usage data.
 --
@@ -110,6 +102,14 @@ describeEnvironmentResources_environmentName = Lens.lens (\DescribeEnvironmentRe
 -- @MissingRequiredParameter@ error.
 describeEnvironmentResources_environmentId :: Lens.Lens' DescribeEnvironmentResources (Prelude.Maybe Prelude.Text)
 describeEnvironmentResources_environmentId = Lens.lens (\DescribeEnvironmentResources' {environmentId} -> environmentId) (\s@DescribeEnvironmentResources' {} a -> s {environmentId = a} :: DescribeEnvironmentResources)
+
+-- | The name of the environment to retrieve AWS resource usage data.
+--
+-- Condition: You must specify either this or an EnvironmentId, or both. If
+-- you do not specify either, AWS Elastic Beanstalk returns
+-- @MissingRequiredParameter@ error.
+describeEnvironmentResources_environmentName :: Lens.Lens' DescribeEnvironmentResources (Prelude.Maybe Prelude.Text)
+describeEnvironmentResources_environmentName = Lens.lens (\DescribeEnvironmentResources' {environmentName} -> environmentName) (\s@DescribeEnvironmentResources' {} a -> s {environmentName = a} :: DescribeEnvironmentResources)
 
 instance Core.AWSRequest DescribeEnvironmentResources where
   type
@@ -131,13 +131,13 @@ instance
     DescribeEnvironmentResources
   where
   hashWithSalt _salt DescribeEnvironmentResources' {..} =
-    _salt `Prelude.hashWithSalt` environmentName
-      `Prelude.hashWithSalt` environmentId
+    _salt `Prelude.hashWithSalt` environmentId
+      `Prelude.hashWithSalt` environmentName
 
 instance Prelude.NFData DescribeEnvironmentResources where
   rnf DescribeEnvironmentResources' {..} =
-    Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf environmentId
+    Prelude.rnf environmentId
+      `Prelude.seq` Prelude.rnf environmentName
 
 instance Data.ToHeaders DescribeEnvironmentResources where
   toHeaders = Prelude.const Prelude.mempty
@@ -154,8 +154,8 @@ instance Data.ToQuery DescribeEnvironmentResources where
                   ),
         "Version"
           Data.=: ("2010-12-01" :: Prelude.ByteString),
-        "EnvironmentName" Data.=: environmentName,
-        "EnvironmentId" Data.=: environmentId
+        "EnvironmentId" Data.=: environmentId,
+        "EnvironmentName" Data.=: environmentName
       ]
 
 -- | Result message containing a list of environment resource descriptions.

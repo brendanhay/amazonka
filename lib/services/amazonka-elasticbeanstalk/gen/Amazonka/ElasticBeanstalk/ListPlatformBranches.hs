@@ -31,9 +31,9 @@ module Amazonka.ElasticBeanstalk.ListPlatformBranches
     newListPlatformBranches,
 
     -- * Request Lenses
-    listPlatformBranches_nextToken,
     listPlatformBranches_filters,
     listPlatformBranches_maxRecords,
+    listPlatformBranches_nextToken,
 
     -- * Destructuring the Response
     ListPlatformBranchesResponse (..),
@@ -56,13 +56,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPlatformBranches' smart constructor.
 data ListPlatformBranches = ListPlatformBranches'
-  { -- | For a paginated request. Specify a token from a previous response page
-    -- to retrieve the next response page. All other parameter values must be
-    -- identical to the ones specified in the initial request.
-    --
-    -- If no @NextToken@ is specified, the first page is retrieved.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Criteria for restricting the resulting list of platform branches. The
+  { -- | Criteria for restricting the resulting list of platform branches. The
     -- filter is evaluated as a logical conjunction (AND) of the separate
     -- @SearchFilter@ terms.
     --
@@ -98,7 +92,13 @@ data ListPlatformBranches = ListPlatformBranches'
     -- items.
     filters :: Prelude.Maybe [SearchFilter],
     -- | The maximum number of platform branch values returned in one call.
-    maxRecords :: Prelude.Maybe Prelude.Natural
+    maxRecords :: Prelude.Maybe Prelude.Natural,
+    -- | For a paginated request. Specify a token from a previous response page
+    -- to retrieve the next response page. All other parameter values must be
+    -- identical to the ones specified in the initial request.
+    --
+    -- If no @NextToken@ is specified, the first page is retrieved.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -109,12 +109,6 @@ data ListPlatformBranches = ListPlatformBranches'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'listPlatformBranches_nextToken' - For a paginated request. Specify a token from a previous response page
--- to retrieve the next response page. All other parameter values must be
--- identical to the ones specified in the initial request.
---
--- If no @NextToken@ is specified, the first page is retrieved.
 --
 -- 'filters', 'listPlatformBranches_filters' - Criteria for restricting the resulting list of platform branches. The
 -- filter is evaluated as a logical conjunction (AND) of the separate
@@ -152,22 +146,20 @@ data ListPlatformBranches = ListPlatformBranches'
 -- items.
 --
 -- 'maxRecords', 'listPlatformBranches_maxRecords' - The maximum number of platform branch values returned in one call.
-newListPlatformBranches ::
-  ListPlatformBranches
-newListPlatformBranches =
-  ListPlatformBranches'
-    { nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
-    }
-
--- | For a paginated request. Specify a token from a previous response page
+--
+-- 'nextToken', 'listPlatformBranches_nextToken' - For a paginated request. Specify a token from a previous response page
 -- to retrieve the next response page. All other parameter values must be
 -- identical to the ones specified in the initial request.
 --
 -- If no @NextToken@ is specified, the first page is retrieved.
-listPlatformBranches_nextToken :: Lens.Lens' ListPlatformBranches (Prelude.Maybe Prelude.Text)
-listPlatformBranches_nextToken = Lens.lens (\ListPlatformBranches' {nextToken} -> nextToken) (\s@ListPlatformBranches' {} a -> s {nextToken = a} :: ListPlatformBranches)
+newListPlatformBranches ::
+  ListPlatformBranches
+newListPlatformBranches =
+  ListPlatformBranches'
+    { filters = Prelude.Nothing,
+      maxRecords = Prelude.Nothing,
+      nextToken = Prelude.Nothing
+    }
 
 -- | Criteria for restricting the resulting list of platform branches. The
 -- filter is evaluated as a logical conjunction (AND) of the separate
@@ -210,6 +202,14 @@ listPlatformBranches_filters = Lens.lens (\ListPlatformBranches' {filters} -> fi
 listPlatformBranches_maxRecords :: Lens.Lens' ListPlatformBranches (Prelude.Maybe Prelude.Natural)
 listPlatformBranches_maxRecords = Lens.lens (\ListPlatformBranches' {maxRecords} -> maxRecords) (\s@ListPlatformBranches' {} a -> s {maxRecords = a} :: ListPlatformBranches)
 
+-- | For a paginated request. Specify a token from a previous response page
+-- to retrieve the next response page. All other parameter values must be
+-- identical to the ones specified in the initial request.
+--
+-- If no @NextToken@ is specified, the first page is retrieved.
+listPlatformBranches_nextToken :: Lens.Lens' ListPlatformBranches (Prelude.Maybe Prelude.Text)
+listPlatformBranches_nextToken = Lens.lens (\ListPlatformBranches' {nextToken} -> nextToken) (\s@ListPlatformBranches' {} a -> s {nextToken = a} :: ListPlatformBranches)
+
 instance Core.AWSRequest ListPlatformBranches where
   type
     AWSResponse ListPlatformBranches =
@@ -231,15 +231,15 @@ instance Core.AWSRequest ListPlatformBranches where
 
 instance Prelude.Hashable ListPlatformBranches where
   hashWithSalt _salt ListPlatformBranches' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListPlatformBranches where
   rnf ListPlatformBranches' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListPlatformBranches where
   toHeaders = Prelude.const Prelude.mempty
@@ -254,11 +254,11 @@ instance Data.ToQuery ListPlatformBranches where
           Data.=: ("ListPlatformBranches" :: Prelude.ByteString),
         "Version"
           Data.=: ("2010-12-01" :: Prelude.ByteString),
-        "NextToken" Data.=: nextToken,
         "Filters"
           Data.=: Data.toQuery
             (Data.toQueryList "member" Prelude.<$> filters),
-        "MaxRecords" Data.=: maxRecords
+        "MaxRecords" Data.=: maxRecords,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListPlatformBranchesResponse' smart constructor.

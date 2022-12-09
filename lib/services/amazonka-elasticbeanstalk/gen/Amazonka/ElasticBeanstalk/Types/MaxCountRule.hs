@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMaxCountRule' smart constructor.
 data MaxCountRule = MaxCountRule'
-  { -- | Specify the maximum number of application versions to retain.
-    maxCount :: Prelude.Maybe Prelude.Int,
-    -- | Set to @true@ to delete a version\'s source bundle from Amazon S3 when
+  { -- | Set to @true@ to delete a version\'s source bundle from Amazon S3 when
     -- Elastic Beanstalk deletes the application version.
     deleteSourceFromS3 :: Prelude.Maybe Prelude.Bool,
+    -- | Specify the maximum number of application versions to retain.
+    maxCount :: Prelude.Maybe Prelude.Int,
     -- | Specify @true@ to apply the rule, or @false@ to disable it.
     enabled :: Prelude.Bool
   }
@@ -47,10 +47,10 @@ data MaxCountRule = MaxCountRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxCount', 'maxCountRule_maxCount' - Specify the maximum number of application versions to retain.
---
 -- 'deleteSourceFromS3', 'maxCountRule_deleteSourceFromS3' - Set to @true@ to delete a version\'s source bundle from Amazon S3 when
 -- Elastic Beanstalk deletes the application version.
+--
+-- 'maxCount', 'maxCountRule_maxCount' - Specify the maximum number of application versions to retain.
 --
 -- 'enabled', 'maxCountRule_enabled' - Specify @true@ to apply the rule, or @false@ to disable it.
 newMaxCountRule ::
@@ -59,19 +59,19 @@ newMaxCountRule ::
   MaxCountRule
 newMaxCountRule pEnabled_ =
   MaxCountRule'
-    { maxCount = Prelude.Nothing,
-      deleteSourceFromS3 = Prelude.Nothing,
+    { deleteSourceFromS3 = Prelude.Nothing,
+      maxCount = Prelude.Nothing,
       enabled = pEnabled_
     }
-
--- | Specify the maximum number of application versions to retain.
-maxCountRule_maxCount :: Lens.Lens' MaxCountRule (Prelude.Maybe Prelude.Int)
-maxCountRule_maxCount = Lens.lens (\MaxCountRule' {maxCount} -> maxCount) (\s@MaxCountRule' {} a -> s {maxCount = a} :: MaxCountRule)
 
 -- | Set to @true@ to delete a version\'s source bundle from Amazon S3 when
 -- Elastic Beanstalk deletes the application version.
 maxCountRule_deleteSourceFromS3 :: Lens.Lens' MaxCountRule (Prelude.Maybe Prelude.Bool)
 maxCountRule_deleteSourceFromS3 = Lens.lens (\MaxCountRule' {deleteSourceFromS3} -> deleteSourceFromS3) (\s@MaxCountRule' {} a -> s {deleteSourceFromS3 = a} :: MaxCountRule)
+
+-- | Specify the maximum number of application versions to retain.
+maxCountRule_maxCount :: Lens.Lens' MaxCountRule (Prelude.Maybe Prelude.Int)
+maxCountRule_maxCount = Lens.lens (\MaxCountRule' {maxCount} -> maxCount) (\s@MaxCountRule' {} a -> s {maxCount = a} :: MaxCountRule)
 
 -- | Specify @true@ to apply the rule, or @false@ to disable it.
 maxCountRule_enabled :: Lens.Lens' MaxCountRule Prelude.Bool
@@ -80,26 +80,26 @@ maxCountRule_enabled = Lens.lens (\MaxCountRule' {enabled} -> enabled) (\s@MaxCo
 instance Data.FromXML MaxCountRule where
   parseXML x =
     MaxCountRule'
-      Prelude.<$> (x Data..@? "MaxCount")
-      Prelude.<*> (x Data..@? "DeleteSourceFromS3")
+      Prelude.<$> (x Data..@? "DeleteSourceFromS3")
+      Prelude.<*> (x Data..@? "MaxCount")
       Prelude.<*> (x Data..@ "Enabled")
 
 instance Prelude.Hashable MaxCountRule where
   hashWithSalt _salt MaxCountRule' {..} =
-    _salt `Prelude.hashWithSalt` maxCount
-      `Prelude.hashWithSalt` deleteSourceFromS3
+    _salt `Prelude.hashWithSalt` deleteSourceFromS3
+      `Prelude.hashWithSalt` maxCount
       `Prelude.hashWithSalt` enabled
 
 instance Prelude.NFData MaxCountRule where
   rnf MaxCountRule' {..} =
-    Prelude.rnf maxCount
-      `Prelude.seq` Prelude.rnf deleteSourceFromS3
+    Prelude.rnf deleteSourceFromS3
+      `Prelude.seq` Prelude.rnf maxCount
       `Prelude.seq` Prelude.rnf enabled
 
 instance Data.ToQuery MaxCountRule where
   toQuery MaxCountRule' {..} =
     Prelude.mconcat
-      [ "MaxCount" Data.=: maxCount,
-        "DeleteSourceFromS3" Data.=: deleteSourceFromS3,
+      [ "DeleteSourceFromS3" Data.=: deleteSourceFromS3,
+        "MaxCount" Data.=: maxCount,
         "Enabled" Data.=: enabled
       ]

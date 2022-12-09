@@ -29,18 +29,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEnvironmentInfoDescription' smart constructor.
 data EnvironmentInfoDescription = EnvironmentInfoDescription'
-  { -- | The retrieved information. Currently contains a presigned Amazon S3 URL.
+  { -- | The Amazon EC2 Instance ID for this information.
+    ec2InstanceId :: Prelude.Maybe Prelude.Text,
+    -- | The type of information retrieved.
+    infoType :: Prelude.Maybe EnvironmentInfoType,
+    -- | The retrieved information. Currently contains a presigned Amazon S3 URL.
     -- The files are deleted after 15 minutes.
     --
     -- Anyone in possession of this URL can access the files before they are
     -- deleted. Make the URL available only to trusted parties.
     message :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon EC2 Instance ID for this information.
-    ec2InstanceId :: Prelude.Maybe Prelude.Text,
     -- | The time stamp when this information was retrieved.
-    sampleTimestamp :: Prelude.Maybe Data.ISO8601,
-    -- | The type of information retrieved.
-    infoType :: Prelude.Maybe EnvironmentInfoType
+    sampleTimestamp :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,27 +52,35 @@ data EnvironmentInfoDescription = EnvironmentInfoDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'ec2InstanceId', 'environmentInfoDescription_ec2InstanceId' - The Amazon EC2 Instance ID for this information.
+--
+-- 'infoType', 'environmentInfoDescription_infoType' - The type of information retrieved.
+--
 -- 'message', 'environmentInfoDescription_message' - The retrieved information. Currently contains a presigned Amazon S3 URL.
 -- The files are deleted after 15 minutes.
 --
 -- Anyone in possession of this URL can access the files before they are
 -- deleted. Make the URL available only to trusted parties.
 --
--- 'ec2InstanceId', 'environmentInfoDescription_ec2InstanceId' - The Amazon EC2 Instance ID for this information.
---
 -- 'sampleTimestamp', 'environmentInfoDescription_sampleTimestamp' - The time stamp when this information was retrieved.
---
--- 'infoType', 'environmentInfoDescription_infoType' - The type of information retrieved.
 newEnvironmentInfoDescription ::
   EnvironmentInfoDescription
 newEnvironmentInfoDescription =
   EnvironmentInfoDescription'
-    { message =
+    { ec2InstanceId =
         Prelude.Nothing,
-      ec2InstanceId = Prelude.Nothing,
-      sampleTimestamp = Prelude.Nothing,
-      infoType = Prelude.Nothing
+      infoType = Prelude.Nothing,
+      message = Prelude.Nothing,
+      sampleTimestamp = Prelude.Nothing
     }
+
+-- | The Amazon EC2 Instance ID for this information.
+environmentInfoDescription_ec2InstanceId :: Lens.Lens' EnvironmentInfoDescription (Prelude.Maybe Prelude.Text)
+environmentInfoDescription_ec2InstanceId = Lens.lens (\EnvironmentInfoDescription' {ec2InstanceId} -> ec2InstanceId) (\s@EnvironmentInfoDescription' {} a -> s {ec2InstanceId = a} :: EnvironmentInfoDescription)
+
+-- | The type of information retrieved.
+environmentInfoDescription_infoType :: Lens.Lens' EnvironmentInfoDescription (Prelude.Maybe EnvironmentInfoType)
+environmentInfoDescription_infoType = Lens.lens (\EnvironmentInfoDescription' {infoType} -> infoType) (\s@EnvironmentInfoDescription' {} a -> s {infoType = a} :: EnvironmentInfoDescription)
 
 -- | The retrieved information. Currently contains a presigned Amazon S3 URL.
 -- The files are deleted after 15 minutes.
@@ -82,36 +90,28 @@ newEnvironmentInfoDescription =
 environmentInfoDescription_message :: Lens.Lens' EnvironmentInfoDescription (Prelude.Maybe Prelude.Text)
 environmentInfoDescription_message = Lens.lens (\EnvironmentInfoDescription' {message} -> message) (\s@EnvironmentInfoDescription' {} a -> s {message = a} :: EnvironmentInfoDescription)
 
--- | The Amazon EC2 Instance ID for this information.
-environmentInfoDescription_ec2InstanceId :: Lens.Lens' EnvironmentInfoDescription (Prelude.Maybe Prelude.Text)
-environmentInfoDescription_ec2InstanceId = Lens.lens (\EnvironmentInfoDescription' {ec2InstanceId} -> ec2InstanceId) (\s@EnvironmentInfoDescription' {} a -> s {ec2InstanceId = a} :: EnvironmentInfoDescription)
-
 -- | The time stamp when this information was retrieved.
 environmentInfoDescription_sampleTimestamp :: Lens.Lens' EnvironmentInfoDescription (Prelude.Maybe Prelude.UTCTime)
 environmentInfoDescription_sampleTimestamp = Lens.lens (\EnvironmentInfoDescription' {sampleTimestamp} -> sampleTimestamp) (\s@EnvironmentInfoDescription' {} a -> s {sampleTimestamp = a} :: EnvironmentInfoDescription) Prelude.. Lens.mapping Data._Time
 
--- | The type of information retrieved.
-environmentInfoDescription_infoType :: Lens.Lens' EnvironmentInfoDescription (Prelude.Maybe EnvironmentInfoType)
-environmentInfoDescription_infoType = Lens.lens (\EnvironmentInfoDescription' {infoType} -> infoType) (\s@EnvironmentInfoDescription' {} a -> s {infoType = a} :: EnvironmentInfoDescription)
-
 instance Data.FromXML EnvironmentInfoDescription where
   parseXML x =
     EnvironmentInfoDescription'
-      Prelude.<$> (x Data..@? "Message")
-      Prelude.<*> (x Data..@? "Ec2InstanceId")
-      Prelude.<*> (x Data..@? "SampleTimestamp")
+      Prelude.<$> (x Data..@? "Ec2InstanceId")
       Prelude.<*> (x Data..@? "InfoType")
+      Prelude.<*> (x Data..@? "Message")
+      Prelude.<*> (x Data..@? "SampleTimestamp")
 
 instance Prelude.Hashable EnvironmentInfoDescription where
   hashWithSalt _salt EnvironmentInfoDescription' {..} =
-    _salt `Prelude.hashWithSalt` message
-      `Prelude.hashWithSalt` ec2InstanceId
-      `Prelude.hashWithSalt` sampleTimestamp
+    _salt `Prelude.hashWithSalt` ec2InstanceId
       `Prelude.hashWithSalt` infoType
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` sampleTimestamp
 
 instance Prelude.NFData EnvironmentInfoDescription where
   rnf EnvironmentInfoDescription' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf ec2InstanceId
-      `Prelude.seq` Prelude.rnf sampleTimestamp
+    Prelude.rnf ec2InstanceId
       `Prelude.seq` Prelude.rnf infoType
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf sampleTimestamp

@@ -31,18 +31,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPlatformFilter' smart constructor.
 data PlatformFilter = PlatformFilter'
-  { -- | The platform version attribute to which the filter values are applied.
+  { -- | The operator to apply to the @Type@ with each of the @Values@.
+    --
+    -- Valid values: @=@ | @!=@ | @\<@ | @\<=@ | @>@ | @>=@ | @contains@ |
+    -- @begins_with@ | @ends_with@
+    operator :: Prelude.Maybe Prelude.Text,
+    -- | The platform version attribute to which the filter values are applied.
     --
     -- Valid values: @PlatformName@ | @PlatformVersion@ | @PlatformStatus@ |
     -- @PlatformBranchName@ | @PlatformLifecycleState@ | @PlatformOwner@ |
     -- @SupportedTier@ | @SupportedAddon@ | @ProgrammingLanguageName@ |
     -- @OperatingSystemName@
     type' :: Prelude.Maybe Prelude.Text,
-    -- | The operator to apply to the @Type@ with each of the @Values@.
-    --
-    -- Valid values: @=@ | @!=@ | @\<@ | @\<=@ | @>@ | @>=@ | @contains@ |
-    -- @begins_with@ | @ends_with@
-    operator :: Prelude.Maybe Prelude.Text,
     -- | The list of values applied to the filtering platform version attribute.
     -- Only one value is supported for all current operators.
     --
@@ -69,17 +69,17 @@ data PlatformFilter = PlatformFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'operator', 'platformFilter_operator' - The operator to apply to the @Type@ with each of the @Values@.
+--
+-- Valid values: @=@ | @!=@ | @\<@ | @\<=@ | @>@ | @>=@ | @contains@ |
+-- @begins_with@ | @ends_with@
+--
 -- 'type'', 'platformFilter_type' - The platform version attribute to which the filter values are applied.
 --
 -- Valid values: @PlatformName@ | @PlatformVersion@ | @PlatformStatus@ |
 -- @PlatformBranchName@ | @PlatformLifecycleState@ | @PlatformOwner@ |
 -- @SupportedTier@ | @SupportedAddon@ | @ProgrammingLanguageName@ |
 -- @OperatingSystemName@
---
--- 'operator', 'platformFilter_operator' - The operator to apply to the @Type@ with each of the @Values@.
---
--- Valid values: @=@ | @!=@ | @\<@ | @\<=@ | @>@ | @>=@ | @contains@ |
--- @begins_with@ | @ends_with@
 --
 -- 'values', 'platformFilter_values' - The list of values applied to the filtering platform version attribute.
 -- Only one value is supported for all current operators.
@@ -99,10 +99,17 @@ newPlatformFilter ::
   PlatformFilter
 newPlatformFilter =
   PlatformFilter'
-    { type' = Prelude.Nothing,
-      operator = Prelude.Nothing,
+    { operator = Prelude.Nothing,
+      type' = Prelude.Nothing,
       values = Prelude.Nothing
     }
+
+-- | The operator to apply to the @Type@ with each of the @Values@.
+--
+-- Valid values: @=@ | @!=@ | @\<@ | @\<=@ | @>@ | @>=@ | @contains@ |
+-- @begins_with@ | @ends_with@
+platformFilter_operator :: Lens.Lens' PlatformFilter (Prelude.Maybe Prelude.Text)
+platformFilter_operator = Lens.lens (\PlatformFilter' {operator} -> operator) (\s@PlatformFilter' {} a -> s {operator = a} :: PlatformFilter)
 
 -- | The platform version attribute to which the filter values are applied.
 --
@@ -112,13 +119,6 @@ newPlatformFilter =
 -- @OperatingSystemName@
 platformFilter_type :: Lens.Lens' PlatformFilter (Prelude.Maybe Prelude.Text)
 platformFilter_type = Lens.lens (\PlatformFilter' {type'} -> type') (\s@PlatformFilter' {} a -> s {type' = a} :: PlatformFilter)
-
--- | The operator to apply to the @Type@ with each of the @Values@.
---
--- Valid values: @=@ | @!=@ | @\<@ | @\<=@ | @>@ | @>=@ | @contains@ |
--- @begins_with@ | @ends_with@
-platformFilter_operator :: Lens.Lens' PlatformFilter (Prelude.Maybe Prelude.Text)
-platformFilter_operator = Lens.lens (\PlatformFilter' {operator} -> operator) (\s@PlatformFilter' {} a -> s {operator = a} :: PlatformFilter)
 
 -- | The list of values applied to the filtering platform version attribute.
 -- Only one value is supported for all current operators.
@@ -139,21 +139,21 @@ platformFilter_values = Lens.lens (\PlatformFilter' {values} -> values) (\s@Plat
 
 instance Prelude.Hashable PlatformFilter where
   hashWithSalt _salt PlatformFilter' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` operator
+    _salt `Prelude.hashWithSalt` operator
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData PlatformFilter where
   rnf PlatformFilter' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf operator
+    Prelude.rnf operator
+      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf values
 
 instance Data.ToQuery PlatformFilter where
   toQuery PlatformFilter' {..} =
     Prelude.mconcat
-      [ "Type" Data.=: type',
-        "Operator" Data.=: operator,
+      [ "Operator" Data.=: operator,
+        "Type" Data.=: type',
         "Values"
           Data.=: Data.toQuery
             (Data.toQueryList "member" Prelude.<$> values)

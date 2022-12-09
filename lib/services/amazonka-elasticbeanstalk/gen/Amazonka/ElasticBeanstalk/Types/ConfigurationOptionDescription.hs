@@ -30,8 +30,39 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConfigurationOptionDescription' smart constructor.
 data ConfigurationOptionDescription = ConfigurationOptionDescription'
-  { -- | The name of the configuration option.
+  { -- | An indication of which action is required if the value for this
+    -- configuration option changes:
+    --
+    -- -   @NoInterruption@ : There is no interruption to the environment or
+    --     application availability.
+    --
+    -- -   @RestartEnvironment@ : The environment is entirely restarted, all
+    --     AWS resources are deleted and recreated, and the environment is
+    --     unavailable during the process.
+    --
+    -- -   @RestartApplicationServer@ : The environment is available the entire
+    --     time. However, a short application outage occurs when the
+    --     application servers on the running Amazon EC2 instances are
+    --     restarted.
+    changeSeverity :: Prelude.Maybe Prelude.Text,
+    -- | The default value for this configuration option.
+    defaultValue :: Prelude.Maybe Prelude.Text,
+    -- | If specified, the configuration option must be a string value no longer
+    -- than this value.
+    maxLength :: Prelude.Maybe Prelude.Int,
+    -- | If specified, the configuration option must be a numeric value less than
+    -- this value.
+    maxValue :: Prelude.Maybe Prelude.Int,
+    -- | If specified, the configuration option must be a numeric value greater
+    -- than this value.
+    minValue :: Prelude.Maybe Prelude.Int,
+    -- | The name of the configuration option.
     name :: Prelude.Maybe Prelude.Text,
+    -- | A unique namespace identifying the option\'s associated AWS resource.
+    namespace :: Prelude.Maybe Prelude.Text,
+    -- | If specified, the configuration option must be a string value that
+    -- satisfies this regular expression.
+    regex :: Prelude.Maybe OptionRestrictionRegex,
     -- | An indication of whether the user defined this configuration option:
     --
     -- -   @true@ : This configuration option was defined by the user. It is a
@@ -45,17 +76,6 @@ data ConfigurationOptionDescription = ConfigurationOptionDescription'
     --
     -- Valid Values: @true@ | @false@
     userDefined :: Prelude.Maybe Prelude.Bool,
-    -- | If specified, the configuration option must be a string value no longer
-    -- than this value.
-    maxLength :: Prelude.Maybe Prelude.Int,
-    -- | If specified, the configuration option must be a string value that
-    -- satisfies this regular expression.
-    regex :: Prelude.Maybe OptionRestrictionRegex,
-    -- | The default value for this configuration option.
-    defaultValue :: Prelude.Maybe Prelude.Text,
-    -- | If specified, the configuration option must be a numeric value greater
-    -- than this value.
-    minValue :: Prelude.Maybe Prelude.Int,
     -- | If specified, values for the configuration option are selected from this
     -- list.
     valueOptions :: Prelude.Maybe [Prelude.Text],
@@ -73,27 +93,7 @@ data ConfigurationOptionDescription = ConfigurationOptionDescription'
     --
     -- -   @Json@ : Values for this option are a JSON representation of a
     --     @ConfigDocument@.
-    valueType :: Prelude.Maybe ConfigurationOptionValueType,
-    -- | An indication of which action is required if the value for this
-    -- configuration option changes:
-    --
-    -- -   @NoInterruption@ : There is no interruption to the environment or
-    --     application availability.
-    --
-    -- -   @RestartEnvironment@ : The environment is entirely restarted, all
-    --     AWS resources are deleted and recreated, and the environment is
-    --     unavailable during the process.
-    --
-    -- -   @RestartApplicationServer@ : The environment is available the entire
-    --     time. However, a short application outage occurs when the
-    --     application servers on the running Amazon EC2 instances are
-    --     restarted.
-    changeSeverity :: Prelude.Maybe Prelude.Text,
-    -- | A unique namespace identifying the option\'s associated AWS resource.
-    namespace :: Prelude.Maybe Prelude.Text,
-    -- | If specified, the configuration option must be a numeric value less than
-    -- this value.
-    maxValue :: Prelude.Maybe Prelude.Int
+    valueType :: Prelude.Maybe ConfigurationOptionValueType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -105,7 +105,38 @@ data ConfigurationOptionDescription = ConfigurationOptionDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'changeSeverity', 'configurationOptionDescription_changeSeverity' - An indication of which action is required if the value for this
+-- configuration option changes:
+--
+-- -   @NoInterruption@ : There is no interruption to the environment or
+--     application availability.
+--
+-- -   @RestartEnvironment@ : The environment is entirely restarted, all
+--     AWS resources are deleted and recreated, and the environment is
+--     unavailable during the process.
+--
+-- -   @RestartApplicationServer@ : The environment is available the entire
+--     time. However, a short application outage occurs when the
+--     application servers on the running Amazon EC2 instances are
+--     restarted.
+--
+-- 'defaultValue', 'configurationOptionDescription_defaultValue' - The default value for this configuration option.
+--
+-- 'maxLength', 'configurationOptionDescription_maxLength' - If specified, the configuration option must be a string value no longer
+-- than this value.
+--
+-- 'maxValue', 'configurationOptionDescription_maxValue' - If specified, the configuration option must be a numeric value less than
+-- this value.
+--
+-- 'minValue', 'configurationOptionDescription_minValue' - If specified, the configuration option must be a numeric value greater
+-- than this value.
+--
 -- 'name', 'configurationOptionDescription_name' - The name of the configuration option.
+--
+-- 'namespace', 'configurationOptionDescription_namespace' - A unique namespace identifying the option\'s associated AWS resource.
+--
+-- 'regex', 'configurationOptionDescription_regex' - If specified, the configuration option must be a string value that
+-- satisfies this regular expression.
 --
 -- 'userDefined', 'configurationOptionDescription_userDefined' - An indication of whether the user defined this configuration option:
 --
@@ -119,17 +150,6 @@ data ConfigurationOptionDescription = ConfigurationOptionDescription'
 -- configuration.
 --
 -- Valid Values: @true@ | @false@
---
--- 'maxLength', 'configurationOptionDescription_maxLength' - If specified, the configuration option must be a string value no longer
--- than this value.
---
--- 'regex', 'configurationOptionDescription_regex' - If specified, the configuration option must be a string value that
--- satisfies this regular expression.
---
--- 'defaultValue', 'configurationOptionDescription_defaultValue' - The default value for this configuration option.
---
--- 'minValue', 'configurationOptionDescription_minValue' - If specified, the configuration option must be a numeric value greater
--- than this value.
 --
 -- 'valueOptions', 'configurationOptionDescription_valueOptions' - If specified, values for the configuration option are selected from this
 -- list.
@@ -148,8 +168,25 @@ data ConfigurationOptionDescription = ConfigurationOptionDescription'
 --
 -- -   @Json@ : Values for this option are a JSON representation of a
 --     @ConfigDocument@.
---
--- 'changeSeverity', 'configurationOptionDescription_changeSeverity' - An indication of which action is required if the value for this
+newConfigurationOptionDescription ::
+  ConfigurationOptionDescription
+newConfigurationOptionDescription =
+  ConfigurationOptionDescription'
+    { changeSeverity =
+        Prelude.Nothing,
+      defaultValue = Prelude.Nothing,
+      maxLength = Prelude.Nothing,
+      maxValue = Prelude.Nothing,
+      minValue = Prelude.Nothing,
+      name = Prelude.Nothing,
+      namespace = Prelude.Nothing,
+      regex = Prelude.Nothing,
+      userDefined = Prelude.Nothing,
+      valueOptions = Prelude.Nothing,
+      valueType = Prelude.Nothing
+    }
+
+-- | An indication of which action is required if the value for this
 -- configuration option changes:
 --
 -- -   @NoInterruption@ : There is no interruption to the environment or
@@ -163,32 +200,40 @@ data ConfigurationOptionDescription = ConfigurationOptionDescription'
 --     time. However, a short application outage occurs when the
 --     application servers on the running Amazon EC2 instances are
 --     restarted.
---
--- 'namespace', 'configurationOptionDescription_namespace' - A unique namespace identifying the option\'s associated AWS resource.
---
--- 'maxValue', 'configurationOptionDescription_maxValue' - If specified, the configuration option must be a numeric value less than
+configurationOptionDescription_changeSeverity :: Lens.Lens' ConfigurationOptionDescription (Prelude.Maybe Prelude.Text)
+configurationOptionDescription_changeSeverity = Lens.lens (\ConfigurationOptionDescription' {changeSeverity} -> changeSeverity) (\s@ConfigurationOptionDescription' {} a -> s {changeSeverity = a} :: ConfigurationOptionDescription)
+
+-- | The default value for this configuration option.
+configurationOptionDescription_defaultValue :: Lens.Lens' ConfigurationOptionDescription (Prelude.Maybe Prelude.Text)
+configurationOptionDescription_defaultValue = Lens.lens (\ConfigurationOptionDescription' {defaultValue} -> defaultValue) (\s@ConfigurationOptionDescription' {} a -> s {defaultValue = a} :: ConfigurationOptionDescription)
+
+-- | If specified, the configuration option must be a string value no longer
+-- than this value.
+configurationOptionDescription_maxLength :: Lens.Lens' ConfigurationOptionDescription (Prelude.Maybe Prelude.Int)
+configurationOptionDescription_maxLength = Lens.lens (\ConfigurationOptionDescription' {maxLength} -> maxLength) (\s@ConfigurationOptionDescription' {} a -> s {maxLength = a} :: ConfigurationOptionDescription)
+
+-- | If specified, the configuration option must be a numeric value less than
 -- this value.
-newConfigurationOptionDescription ::
-  ConfigurationOptionDescription
-newConfigurationOptionDescription =
-  ConfigurationOptionDescription'
-    { name =
-        Prelude.Nothing,
-      userDefined = Prelude.Nothing,
-      maxLength = Prelude.Nothing,
-      regex = Prelude.Nothing,
-      defaultValue = Prelude.Nothing,
-      minValue = Prelude.Nothing,
-      valueOptions = Prelude.Nothing,
-      valueType = Prelude.Nothing,
-      changeSeverity = Prelude.Nothing,
-      namespace = Prelude.Nothing,
-      maxValue = Prelude.Nothing
-    }
+configurationOptionDescription_maxValue :: Lens.Lens' ConfigurationOptionDescription (Prelude.Maybe Prelude.Int)
+configurationOptionDescription_maxValue = Lens.lens (\ConfigurationOptionDescription' {maxValue} -> maxValue) (\s@ConfigurationOptionDescription' {} a -> s {maxValue = a} :: ConfigurationOptionDescription)
+
+-- | If specified, the configuration option must be a numeric value greater
+-- than this value.
+configurationOptionDescription_minValue :: Lens.Lens' ConfigurationOptionDescription (Prelude.Maybe Prelude.Int)
+configurationOptionDescription_minValue = Lens.lens (\ConfigurationOptionDescription' {minValue} -> minValue) (\s@ConfigurationOptionDescription' {} a -> s {minValue = a} :: ConfigurationOptionDescription)
 
 -- | The name of the configuration option.
 configurationOptionDescription_name :: Lens.Lens' ConfigurationOptionDescription (Prelude.Maybe Prelude.Text)
 configurationOptionDescription_name = Lens.lens (\ConfigurationOptionDescription' {name} -> name) (\s@ConfigurationOptionDescription' {} a -> s {name = a} :: ConfigurationOptionDescription)
+
+-- | A unique namespace identifying the option\'s associated AWS resource.
+configurationOptionDescription_namespace :: Lens.Lens' ConfigurationOptionDescription (Prelude.Maybe Prelude.Text)
+configurationOptionDescription_namespace = Lens.lens (\ConfigurationOptionDescription' {namespace} -> namespace) (\s@ConfigurationOptionDescription' {} a -> s {namespace = a} :: ConfigurationOptionDescription)
+
+-- | If specified, the configuration option must be a string value that
+-- satisfies this regular expression.
+configurationOptionDescription_regex :: Lens.Lens' ConfigurationOptionDescription (Prelude.Maybe OptionRestrictionRegex)
+configurationOptionDescription_regex = Lens.lens (\ConfigurationOptionDescription' {regex} -> regex) (\s@ConfigurationOptionDescription' {} a -> s {regex = a} :: ConfigurationOptionDescription)
 
 -- | An indication of whether the user defined this configuration option:
 --
@@ -204,25 +249,6 @@ configurationOptionDescription_name = Lens.lens (\ConfigurationOptionDescription
 -- Valid Values: @true@ | @false@
 configurationOptionDescription_userDefined :: Lens.Lens' ConfigurationOptionDescription (Prelude.Maybe Prelude.Bool)
 configurationOptionDescription_userDefined = Lens.lens (\ConfigurationOptionDescription' {userDefined} -> userDefined) (\s@ConfigurationOptionDescription' {} a -> s {userDefined = a} :: ConfigurationOptionDescription)
-
--- | If specified, the configuration option must be a string value no longer
--- than this value.
-configurationOptionDescription_maxLength :: Lens.Lens' ConfigurationOptionDescription (Prelude.Maybe Prelude.Int)
-configurationOptionDescription_maxLength = Lens.lens (\ConfigurationOptionDescription' {maxLength} -> maxLength) (\s@ConfigurationOptionDescription' {} a -> s {maxLength = a} :: ConfigurationOptionDescription)
-
--- | If specified, the configuration option must be a string value that
--- satisfies this regular expression.
-configurationOptionDescription_regex :: Lens.Lens' ConfigurationOptionDescription (Prelude.Maybe OptionRestrictionRegex)
-configurationOptionDescription_regex = Lens.lens (\ConfigurationOptionDescription' {regex} -> regex) (\s@ConfigurationOptionDescription' {} a -> s {regex = a} :: ConfigurationOptionDescription)
-
--- | The default value for this configuration option.
-configurationOptionDescription_defaultValue :: Lens.Lens' ConfigurationOptionDescription (Prelude.Maybe Prelude.Text)
-configurationOptionDescription_defaultValue = Lens.lens (\ConfigurationOptionDescription' {defaultValue} -> defaultValue) (\s@ConfigurationOptionDescription' {} a -> s {defaultValue = a} :: ConfigurationOptionDescription)
-
--- | If specified, the configuration option must be a numeric value greater
--- than this value.
-configurationOptionDescription_minValue :: Lens.Lens' ConfigurationOptionDescription (Prelude.Maybe Prelude.Int)
-configurationOptionDescription_minValue = Lens.lens (\ConfigurationOptionDescription' {minValue} -> minValue) (\s@ConfigurationOptionDescription' {} a -> s {minValue = a} :: ConfigurationOptionDescription)
 
 -- | If specified, values for the configuration option are selected from this
 -- list.
@@ -246,48 +272,22 @@ configurationOptionDescription_valueOptions = Lens.lens (\ConfigurationOptionDes
 configurationOptionDescription_valueType :: Lens.Lens' ConfigurationOptionDescription (Prelude.Maybe ConfigurationOptionValueType)
 configurationOptionDescription_valueType = Lens.lens (\ConfigurationOptionDescription' {valueType} -> valueType) (\s@ConfigurationOptionDescription' {} a -> s {valueType = a} :: ConfigurationOptionDescription)
 
--- | An indication of which action is required if the value for this
--- configuration option changes:
---
--- -   @NoInterruption@ : There is no interruption to the environment or
---     application availability.
---
--- -   @RestartEnvironment@ : The environment is entirely restarted, all
---     AWS resources are deleted and recreated, and the environment is
---     unavailable during the process.
---
--- -   @RestartApplicationServer@ : The environment is available the entire
---     time. However, a short application outage occurs when the
---     application servers on the running Amazon EC2 instances are
---     restarted.
-configurationOptionDescription_changeSeverity :: Lens.Lens' ConfigurationOptionDescription (Prelude.Maybe Prelude.Text)
-configurationOptionDescription_changeSeverity = Lens.lens (\ConfigurationOptionDescription' {changeSeverity} -> changeSeverity) (\s@ConfigurationOptionDescription' {} a -> s {changeSeverity = a} :: ConfigurationOptionDescription)
-
--- | A unique namespace identifying the option\'s associated AWS resource.
-configurationOptionDescription_namespace :: Lens.Lens' ConfigurationOptionDescription (Prelude.Maybe Prelude.Text)
-configurationOptionDescription_namespace = Lens.lens (\ConfigurationOptionDescription' {namespace} -> namespace) (\s@ConfigurationOptionDescription' {} a -> s {namespace = a} :: ConfigurationOptionDescription)
-
--- | If specified, the configuration option must be a numeric value less than
--- this value.
-configurationOptionDescription_maxValue :: Lens.Lens' ConfigurationOptionDescription (Prelude.Maybe Prelude.Int)
-configurationOptionDescription_maxValue = Lens.lens (\ConfigurationOptionDescription' {maxValue} -> maxValue) (\s@ConfigurationOptionDescription' {} a -> s {maxValue = a} :: ConfigurationOptionDescription)
-
 instance Data.FromXML ConfigurationOptionDescription where
   parseXML x =
     ConfigurationOptionDescription'
-      Prelude.<$> (x Data..@? "Name")
-      Prelude.<*> (x Data..@? "UserDefined")
-      Prelude.<*> (x Data..@? "MaxLength")
-      Prelude.<*> (x Data..@? "Regex")
+      Prelude.<$> (x Data..@? "ChangeSeverity")
       Prelude.<*> (x Data..@? "DefaultValue")
+      Prelude.<*> (x Data..@? "MaxLength")
+      Prelude.<*> (x Data..@? "MaxValue")
       Prelude.<*> (x Data..@? "MinValue")
+      Prelude.<*> (x Data..@? "Name")
+      Prelude.<*> (x Data..@? "Namespace")
+      Prelude.<*> (x Data..@? "Regex")
+      Prelude.<*> (x Data..@? "UserDefined")
       Prelude.<*> ( x Data..@? "ValueOptions" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "ValueType")
-      Prelude.<*> (x Data..@? "ChangeSeverity")
-      Prelude.<*> (x Data..@? "Namespace")
-      Prelude.<*> (x Data..@? "MaxValue")
 
 instance
   Prelude.Hashable
@@ -296,31 +296,31 @@ instance
   hashWithSalt
     _salt
     ConfigurationOptionDescription' {..} =
-      _salt `Prelude.hashWithSalt` name
-        `Prelude.hashWithSalt` userDefined
-        `Prelude.hashWithSalt` maxLength
-        `Prelude.hashWithSalt` regex
+      _salt `Prelude.hashWithSalt` changeSeverity
         `Prelude.hashWithSalt` defaultValue
+        `Prelude.hashWithSalt` maxLength
+        `Prelude.hashWithSalt` maxValue
         `Prelude.hashWithSalt` minValue
+        `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` namespace
+        `Prelude.hashWithSalt` regex
+        `Prelude.hashWithSalt` userDefined
         `Prelude.hashWithSalt` valueOptions
         `Prelude.hashWithSalt` valueType
-        `Prelude.hashWithSalt` changeSeverity
-        `Prelude.hashWithSalt` namespace
-        `Prelude.hashWithSalt` maxValue
 
 instance
   Prelude.NFData
     ConfigurationOptionDescription
   where
   rnf ConfigurationOptionDescription' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf userDefined
-      `Prelude.seq` Prelude.rnf maxLength
-      `Prelude.seq` Prelude.rnf regex
+    Prelude.rnf changeSeverity
       `Prelude.seq` Prelude.rnf defaultValue
+      `Prelude.seq` Prelude.rnf maxLength
+      `Prelude.seq` Prelude.rnf maxValue
       `Prelude.seq` Prelude.rnf minValue
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf regex
+      `Prelude.seq` Prelude.rnf userDefined
       `Prelude.seq` Prelude.rnf valueOptions
       `Prelude.seq` Prelude.rnf valueType
-      `Prelude.seq` Prelude.rnf changeSeverity
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf maxValue

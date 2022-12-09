@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMaxAgeRule' smart constructor.
 data MaxAgeRule = MaxAgeRule'
-  { -- | Specify the number of days to retain an application versions.
-    maxAgeInDays :: Prelude.Maybe Prelude.Int,
-    -- | Set to @true@ to delete a version\'s source bundle from Amazon S3 when
+  { -- | Set to @true@ to delete a version\'s source bundle from Amazon S3 when
     -- Elastic Beanstalk deletes the application version.
     deleteSourceFromS3 :: Prelude.Maybe Prelude.Bool,
+    -- | Specify the number of days to retain an application versions.
+    maxAgeInDays :: Prelude.Maybe Prelude.Int,
     -- | Specify @true@ to apply the rule, or @false@ to disable it.
     enabled :: Prelude.Bool
   }
@@ -47,10 +47,10 @@ data MaxAgeRule = MaxAgeRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxAgeInDays', 'maxAgeRule_maxAgeInDays' - Specify the number of days to retain an application versions.
---
 -- 'deleteSourceFromS3', 'maxAgeRule_deleteSourceFromS3' - Set to @true@ to delete a version\'s source bundle from Amazon S3 when
 -- Elastic Beanstalk deletes the application version.
+--
+-- 'maxAgeInDays', 'maxAgeRule_maxAgeInDays' - Specify the number of days to retain an application versions.
 --
 -- 'enabled', 'maxAgeRule_enabled' - Specify @true@ to apply the rule, or @false@ to disable it.
 newMaxAgeRule ::
@@ -59,19 +59,19 @@ newMaxAgeRule ::
   MaxAgeRule
 newMaxAgeRule pEnabled_ =
   MaxAgeRule'
-    { maxAgeInDays = Prelude.Nothing,
-      deleteSourceFromS3 = Prelude.Nothing,
+    { deleteSourceFromS3 = Prelude.Nothing,
+      maxAgeInDays = Prelude.Nothing,
       enabled = pEnabled_
     }
-
--- | Specify the number of days to retain an application versions.
-maxAgeRule_maxAgeInDays :: Lens.Lens' MaxAgeRule (Prelude.Maybe Prelude.Int)
-maxAgeRule_maxAgeInDays = Lens.lens (\MaxAgeRule' {maxAgeInDays} -> maxAgeInDays) (\s@MaxAgeRule' {} a -> s {maxAgeInDays = a} :: MaxAgeRule)
 
 -- | Set to @true@ to delete a version\'s source bundle from Amazon S3 when
 -- Elastic Beanstalk deletes the application version.
 maxAgeRule_deleteSourceFromS3 :: Lens.Lens' MaxAgeRule (Prelude.Maybe Prelude.Bool)
 maxAgeRule_deleteSourceFromS3 = Lens.lens (\MaxAgeRule' {deleteSourceFromS3} -> deleteSourceFromS3) (\s@MaxAgeRule' {} a -> s {deleteSourceFromS3 = a} :: MaxAgeRule)
+
+-- | Specify the number of days to retain an application versions.
+maxAgeRule_maxAgeInDays :: Lens.Lens' MaxAgeRule (Prelude.Maybe Prelude.Int)
+maxAgeRule_maxAgeInDays = Lens.lens (\MaxAgeRule' {maxAgeInDays} -> maxAgeInDays) (\s@MaxAgeRule' {} a -> s {maxAgeInDays = a} :: MaxAgeRule)
 
 -- | Specify @true@ to apply the rule, or @false@ to disable it.
 maxAgeRule_enabled :: Lens.Lens' MaxAgeRule Prelude.Bool
@@ -80,26 +80,26 @@ maxAgeRule_enabled = Lens.lens (\MaxAgeRule' {enabled} -> enabled) (\s@MaxAgeRul
 instance Data.FromXML MaxAgeRule where
   parseXML x =
     MaxAgeRule'
-      Prelude.<$> (x Data..@? "MaxAgeInDays")
-      Prelude.<*> (x Data..@? "DeleteSourceFromS3")
+      Prelude.<$> (x Data..@? "DeleteSourceFromS3")
+      Prelude.<*> (x Data..@? "MaxAgeInDays")
       Prelude.<*> (x Data..@ "Enabled")
 
 instance Prelude.Hashable MaxAgeRule where
   hashWithSalt _salt MaxAgeRule' {..} =
-    _salt `Prelude.hashWithSalt` maxAgeInDays
-      `Prelude.hashWithSalt` deleteSourceFromS3
+    _salt `Prelude.hashWithSalt` deleteSourceFromS3
+      `Prelude.hashWithSalt` maxAgeInDays
       `Prelude.hashWithSalt` enabled
 
 instance Prelude.NFData MaxAgeRule where
   rnf MaxAgeRule' {..} =
-    Prelude.rnf maxAgeInDays
-      `Prelude.seq` Prelude.rnf deleteSourceFromS3
+    Prelude.rnf deleteSourceFromS3
+      `Prelude.seq` Prelude.rnf maxAgeInDays
       `Prelude.seq` Prelude.rnf enabled
 
 instance Data.ToQuery MaxAgeRule where
   toQuery MaxAgeRule' {..} =
     Prelude.mconcat
-      [ "MaxAgeInDays" Data.=: maxAgeInDays,
-        "DeleteSourceFromS3" Data.=: deleteSourceFromS3,
+      [ "DeleteSourceFromS3" Data.=: deleteSourceFromS3,
+        "MaxAgeInDays" Data.=: maxAgeInDays,
         "Enabled" Data.=: enabled
       ]

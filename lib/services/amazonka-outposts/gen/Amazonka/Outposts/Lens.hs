@@ -27,23 +27,23 @@ module Amazonka.Outposts.Lens
     createOrderResponse_httpStatus,
 
     -- ** CreateOutpost
-    createOutpost_tags,
-    createOutpost_supportedHardwareType,
     createOutpost_availabilityZone,
-    createOutpost_description,
     createOutpost_availabilityZoneId,
+    createOutpost_description,
+    createOutpost_supportedHardwareType,
+    createOutpost_tags,
     createOutpost_name,
     createOutpost_siteId,
     createOutpostResponse_outpost,
     createOutpostResponse_httpStatus,
 
     -- ** CreateSite
-    createSite_tags,
-    createSite_shippingAddress,
-    createSite_operatingAddress,
     createSite_description,
     createSite_notes,
+    createSite_operatingAddress,
     createSite_rackPhysicalProperties,
+    createSite_shippingAddress,
+    createSite_tags,
     createSite_name,
     createSiteResponse_site,
     createSiteResponse_httpStatus,
@@ -78,13 +78,13 @@ module Amazonka.Outposts.Lens
     getOutpostResponse_httpStatus,
 
     -- ** GetOutpostInstanceTypes
-    getOutpostInstanceTypes_nextToken,
     getOutpostInstanceTypes_maxResults,
+    getOutpostInstanceTypes_nextToken,
     getOutpostInstanceTypes_outpostId,
-    getOutpostInstanceTypesResponse_nextToken,
-    getOutpostInstanceTypesResponse_outpostId,
-    getOutpostInstanceTypesResponse_outpostArn,
     getOutpostInstanceTypesResponse_instanceTypes,
+    getOutpostInstanceTypesResponse_nextToken,
+    getOutpostInstanceTypesResponse_outpostArn,
+    getOutpostInstanceTypesResponse_outpostId,
     getOutpostInstanceTypesResponse_httpStatus,
 
     -- ** GetSite
@@ -95,57 +95,57 @@ module Amazonka.Outposts.Lens
     -- ** GetSiteAddress
     getSiteAddress_siteId,
     getSiteAddress_addressType,
+    getSiteAddressResponse_address,
     getSiteAddressResponse_addressType,
     getSiteAddressResponse_siteId,
-    getSiteAddressResponse_address,
     getSiteAddressResponse_httpStatus,
 
     -- ** ListAssets
-    listAssets_nextToken,
     listAssets_hostIdFilter,
     listAssets_maxResults,
+    listAssets_nextToken,
     listAssets_statusFilter,
     listAssets_outpostIdentifier,
-    listAssetsResponse_nextToken,
     listAssetsResponse_assets,
+    listAssetsResponse_nextToken,
     listAssetsResponse_httpStatus,
 
     -- ** ListCatalogItems
-    listCatalogItems_nextToken,
-    listCatalogItems_itemClassFilter,
-    listCatalogItems_supportedStorageFilter,
     listCatalogItems_eC2FamilyFilter,
+    listCatalogItems_itemClassFilter,
     listCatalogItems_maxResults,
-    listCatalogItemsResponse_nextToken,
+    listCatalogItems_nextToken,
+    listCatalogItems_supportedStorageFilter,
     listCatalogItemsResponse_catalogItems,
+    listCatalogItemsResponse_nextToken,
     listCatalogItemsResponse_httpStatus,
 
     -- ** ListOrders
+    listOrders_maxResults,
     listOrders_nextToken,
     listOrders_outpostIdentifierFilter,
-    listOrders_maxResults,
     listOrdersResponse_nextToken,
     listOrdersResponse_orders,
     listOrdersResponse_httpStatus,
 
     -- ** ListOutposts
-    listOutposts_nextToken,
-    listOutposts_maxResults,
-    listOutposts_lifeCycleStatusFilter,
     listOutposts_availabilityZoneFilter,
     listOutposts_availabilityZoneIdFilter,
+    listOutposts_lifeCycleStatusFilter,
+    listOutposts_maxResults,
+    listOutposts_nextToken,
     listOutpostsResponse_nextToken,
     listOutpostsResponse_outposts,
     listOutpostsResponse_httpStatus,
 
     -- ** ListSites
-    listSites_operatingAddressCityFilter,
-    listSites_nextToken,
     listSites_maxResults,
+    listSites_nextToken,
+    listSites_operatingAddressCityFilter,
     listSites_operatingAddressCountryCodeFilter,
     listSites_operatingAddressStateOrRegionFilter,
-    listSitesResponse_sites,
     listSitesResponse_nextToken,
+    listSitesResponse_sites,
     listSitesResponse_httpStatus,
 
     -- ** ListTagsForResource
@@ -173,16 +173,16 @@ module Amazonka.Outposts.Lens
     untagResourceResponse_httpStatus,
 
     -- ** UpdateOutpost
+    updateOutpost_description,
     updateOutpost_name,
     updateOutpost_supportedHardwareType,
-    updateOutpost_description,
     updateOutpost_outpostId,
     updateOutpostResponse_outpost,
     updateOutpostResponse_httpStatus,
 
     -- ** UpdateSite
-    updateSite_name,
     updateSite_description,
+    updateSite_name,
     updateSite_notes,
     updateSite_siteId,
     updateSiteResponse_site,
@@ -192,18 +192,18 @@ module Amazonka.Outposts.Lens
     updateSiteAddress_siteId,
     updateSiteAddress_addressType,
     updateSiteAddress_address,
-    updateSiteAddressResponse_addressType,
     updateSiteAddressResponse_address,
+    updateSiteAddressResponse_addressType,
     updateSiteAddressResponse_httpStatus,
 
     -- ** UpdateSiteRackPhysicalProperties
-    updateSiteRackPhysicalProperties_powerPhase,
-    updateSiteRackPhysicalProperties_powerDrawKva,
     updateSiteRackPhysicalProperties_fiberOpticCableType,
     updateSiteRackPhysicalProperties_maximumSupportedWeightLbs,
-    updateSiteRackPhysicalProperties_powerConnector,
     updateSiteRackPhysicalProperties_opticalStandard,
+    updateSiteRackPhysicalProperties_powerConnector,
+    updateSiteRackPhysicalProperties_powerDrawKva,
     updateSiteRackPhysicalProperties_powerFeedDrop,
+    updateSiteRackPhysicalProperties_powerPhase,
     updateSiteRackPhysicalProperties_uplinkCount,
     updateSiteRackPhysicalProperties_uplinkGbps,
     updateSiteRackPhysicalProperties_siteId,
@@ -214,10 +214,10 @@ module Amazonka.Outposts.Lens
 
     -- ** Address
     address_addressLine2,
+    address_addressLine3,
     address_contactName,
     address_contactPhoneNumber,
     address_districtOrCounty,
-    address_addressLine3,
     address_municipality,
     address_addressLine1,
     address_city,
@@ -226,119 +226,119 @@ module Amazonka.Outposts.Lens
     address_countryCode,
 
     -- ** AssetInfo
-    assetInfo_assetLocation,
     assetInfo_assetId,
-    assetInfo_computeAttributes,
+    assetInfo_assetLocation,
     assetInfo_assetType,
+    assetInfo_computeAttributes,
     assetInfo_rackId,
 
     -- ** AssetLocation
     assetLocation_rackElevation,
 
     -- ** CatalogItem
-    catalogItem_powerKva,
-    catalogItem_weightLbs,
-    catalogItem_eC2Capacities,
     catalogItem_catalogItemId,
+    catalogItem_eC2Capacities,
     catalogItem_itemStatus,
-    catalogItem_supportedUplinkGbps,
+    catalogItem_powerKva,
     catalogItem_supportedStorage,
+    catalogItem_supportedUplinkGbps,
+    catalogItem_weightLbs,
 
     -- ** ComputeAttributes
     computeAttributes_hostId,
     computeAttributes_state,
 
     -- ** ConnectionDetails
-    connectionDetails_serverEndpoint,
-    connectionDetails_serverPublicKey,
+    connectionDetails_allowedIps,
     connectionDetails_clientPublicKey,
     connectionDetails_clientTunnelAddress,
+    connectionDetails_serverEndpoint,
+    connectionDetails_serverPublicKey,
     connectionDetails_serverTunnelAddress,
-    connectionDetails_allowedIps,
 
     -- ** EC2Capacity
-    eC2Capacity_quantity,
     eC2Capacity_family,
     eC2Capacity_maxSize,
+    eC2Capacity_quantity,
 
     -- ** InstanceTypeItem
     instanceTypeItem_instanceType,
 
     -- ** LineItem
-    lineItem_quantity,
     lineItem_assetInformationList,
-    lineItem_status,
     lineItem_catalogItemId,
-    lineItem_shipmentInformation,
     lineItem_lineItemId,
+    lineItem_quantity,
+    lineItem_shipmentInformation,
+    lineItem_status,
 
     -- ** LineItemAssetInformation
-    lineItemAssetInformation_macAddressList,
     lineItemAssetInformation_assetId,
+    lineItemAssetInformation_macAddressList,
 
     -- ** LineItemRequest
-    lineItemRequest_quantity,
     lineItemRequest_catalogItemId,
+    lineItemRequest_quantity,
 
     -- ** Order
-    order_outpostId,
-    order_orderFulfilledDate,
     order_lineItems,
-    order_status,
+    order_orderFulfilledDate,
     order_orderId,
     order_orderSubmissionDate,
+    order_outpostId,
     order_paymentOption,
+    order_status,
 
     -- ** OrderSummary
-    orderSummary_outpostId,
-    orderSummary_orderFulfilledDate,
     orderSummary_lineItemCountsByStatus,
-    orderSummary_status,
+    orderSummary_orderFulfilledDate,
     orderSummary_orderId,
-    orderSummary_orderType,
     orderSummary_orderSubmissionDate,
+    orderSummary_orderType,
+    orderSummary_outpostId,
+    orderSummary_status,
 
     -- ** Outpost
-    outpost_tags,
+    outpost_availabilityZone,
+    outpost_availabilityZoneId,
+    outpost_description,
+    outpost_lifeCycleStatus,
     outpost_name,
-    outpost_outpostId,
     outpost_outpostArn,
+    outpost_outpostId,
     outpost_ownerId,
     outpost_siteArn,
-    outpost_supportedHardwareType,
-    outpost_availabilityZone,
-    outpost_description,
     outpost_siteId,
-    outpost_lifeCycleStatus,
-    outpost_availabilityZoneId,
+    outpost_supportedHardwareType,
+    outpost_tags,
 
     -- ** RackPhysicalProperties
-    rackPhysicalProperties_powerPhase,
-    rackPhysicalProperties_powerDrawKva,
     rackPhysicalProperties_fiberOpticCableType,
     rackPhysicalProperties_maximumSupportedWeightLbs,
-    rackPhysicalProperties_powerConnector,
     rackPhysicalProperties_opticalStandard,
+    rackPhysicalProperties_powerConnector,
+    rackPhysicalProperties_powerDrawKva,
     rackPhysicalProperties_powerFeedDrop,
+    rackPhysicalProperties_powerPhase,
     rackPhysicalProperties_uplinkCount,
     rackPhysicalProperties_uplinkGbps,
 
     -- ** ShipmentInformation
-    shipmentInformation_shipmentTrackingNumber,
     shipmentInformation_shipmentCarrier,
+    shipmentInformation_shipmentTrackingNumber,
 
     -- ** Site
-    site_tags,
-    site_name,
-    site_siteArn,
-    site_description,
-    site_siteId,
     site_accountId,
-    site_operatingAddressCity,
+    site_description,
+    site_name,
     site_notes,
-    site_rackPhysicalProperties,
-    site_operatingAddressStateOrRegion,
+    site_operatingAddressCity,
     site_operatingAddressCountryCode,
+    site_operatingAddressStateOrRegion,
+    site_rackPhysicalProperties,
+    site_siteArn,
+    site_siteId,
+    site_tags,
   )
 where
 

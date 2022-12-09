@@ -27,9 +27,9 @@ module Amazonka.Outposts.ListOrders
     newListOrders,
 
     -- * Request Lenses
+    listOrders_maxResults,
     listOrders_nextToken,
     listOrders_outpostIdentifierFilter,
-    listOrders_maxResults,
 
     -- * Destructuring the Response
     ListOrdersResponse (..),
@@ -52,10 +52,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListOrders' smart constructor.
 data ListOrders = ListOrders'
-  { nextToken :: Prelude.Maybe Prelude.Text,
+  { maxResults :: Prelude.Maybe Prelude.Natural,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID or the Amazon Resource Name (ARN) of the Outpost.
-    outpostIdentifierFilter :: Prelude.Maybe Prelude.Text,
-    maxResults :: Prelude.Maybe Prelude.Natural
+    outpostIdentifierFilter :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,19 +67,23 @@ data ListOrders = ListOrders'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listOrders_maxResults' - Undocumented member.
+--
 -- 'nextToken', 'listOrders_nextToken' - Undocumented member.
 --
 -- 'outpostIdentifierFilter', 'listOrders_outpostIdentifierFilter' - The ID or the Amazon Resource Name (ARN) of the Outpost.
---
--- 'maxResults', 'listOrders_maxResults' - Undocumented member.
 newListOrders ::
   ListOrders
 newListOrders =
   ListOrders'
-    { nextToken = Prelude.Nothing,
-      outpostIdentifierFilter = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      outpostIdentifierFilter = Prelude.Nothing
     }
+
+-- | Undocumented member.
+listOrders_maxResults :: Lens.Lens' ListOrders (Prelude.Maybe Prelude.Natural)
+listOrders_maxResults = Lens.lens (\ListOrders' {maxResults} -> maxResults) (\s@ListOrders' {} a -> s {maxResults = a} :: ListOrders)
 
 -- | Undocumented member.
 listOrders_nextToken :: Lens.Lens' ListOrders (Prelude.Maybe Prelude.Text)
@@ -88,10 +92,6 @@ listOrders_nextToken = Lens.lens (\ListOrders' {nextToken} -> nextToken) (\s@Lis
 -- | The ID or the Amazon Resource Name (ARN) of the Outpost.
 listOrders_outpostIdentifierFilter :: Lens.Lens' ListOrders (Prelude.Maybe Prelude.Text)
 listOrders_outpostIdentifierFilter = Lens.lens (\ListOrders' {outpostIdentifierFilter} -> outpostIdentifierFilter) (\s@ListOrders' {} a -> s {outpostIdentifierFilter = a} :: ListOrders)
-
--- | Undocumented member.
-listOrders_maxResults :: Lens.Lens' ListOrders (Prelude.Maybe Prelude.Natural)
-listOrders_maxResults = Lens.lens (\ListOrders' {maxResults} -> maxResults) (\s@ListOrders' {} a -> s {maxResults = a} :: ListOrders)
 
 instance Core.AWSRequest ListOrders where
   type AWSResponse ListOrders = ListOrdersResponse
@@ -108,15 +108,15 @@ instance Core.AWSRequest ListOrders where
 
 instance Prelude.Hashable ListOrders where
   hashWithSalt _salt ListOrders' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` outpostIdentifierFilter
-      `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListOrders where
   rnf ListOrders' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf outpostIdentifierFilter
-      `Prelude.seq` Prelude.rnf maxResults
 
 instance Data.ToHeaders ListOrders where
   toHeaders =
@@ -135,10 +135,10 @@ instance Data.ToPath ListOrders where
 instance Data.ToQuery ListOrders where
   toQuery ListOrders' {..} =
     Prelude.mconcat
-      [ "NextToken" Data.=: nextToken,
+      [ "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken,
         "OutpostIdentifierFilter"
-          Data.=: outpostIdentifierFilter,
-        "MaxResults" Data.=: maxResults
+          Data.=: outpostIdentifierFilter
       ]
 
 -- | /See:/ 'newListOrdersResponse' smart constructor.

@@ -35,9 +35,9 @@ module Amazonka.Outposts.GetSiteAddress
     newGetSiteAddressResponse,
 
     -- * Response Lenses
+    getSiteAddressResponse_address,
     getSiteAddressResponse_addressType,
     getSiteAddressResponse_siteId,
-    getSiteAddressResponse_address,
     getSiteAddressResponse_httpStatus,
   )
 where
@@ -100,9 +100,9 @@ instance Core.AWSRequest GetSiteAddress where
     Response.receiveJSON
       ( \s h x ->
           GetSiteAddressResponse'
-            Prelude.<$> (x Data..?> "AddressType")
+            Prelude.<$> (x Data..?> "Address")
+            Prelude.<*> (x Data..?> "AddressType")
             Prelude.<*> (x Data..?> "SiteId")
-            Prelude.<*> (x Data..?> "Address")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -138,11 +138,11 @@ instance Data.ToQuery GetSiteAddress where
 
 -- | /See:/ 'newGetSiteAddressResponse' smart constructor.
 data GetSiteAddressResponse = GetSiteAddressResponse'
-  { -- | The type of the address you receive.
+  { -- | Information about the address.
+    address :: Prelude.Maybe Address,
+    -- | The type of the address you receive.
     addressType :: Prelude.Maybe AddressType,
     siteId :: Prelude.Maybe Prelude.Text,
-    -- | Information about the address.
-    address :: Prelude.Maybe Address,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -156,11 +156,11 @@ data GetSiteAddressResponse = GetSiteAddressResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'address', 'getSiteAddressResponse_address' - Information about the address.
+--
 -- 'addressType', 'getSiteAddressResponse_addressType' - The type of the address you receive.
 --
 -- 'siteId', 'getSiteAddressResponse_siteId' - Undocumented member.
---
--- 'address', 'getSiteAddressResponse_address' - Information about the address.
 --
 -- 'httpStatus', 'getSiteAddressResponse_httpStatus' - The response's http status code.
 newGetSiteAddressResponse ::
@@ -169,12 +169,15 @@ newGetSiteAddressResponse ::
   GetSiteAddressResponse
 newGetSiteAddressResponse pHttpStatus_ =
   GetSiteAddressResponse'
-    { addressType =
-        Prelude.Nothing,
+    { address = Prelude.Nothing,
+      addressType = Prelude.Nothing,
       siteId = Prelude.Nothing,
-      address = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about the address.
+getSiteAddressResponse_address :: Lens.Lens' GetSiteAddressResponse (Prelude.Maybe Address)
+getSiteAddressResponse_address = Lens.lens (\GetSiteAddressResponse' {address} -> address) (\s@GetSiteAddressResponse' {} a -> s {address = a} :: GetSiteAddressResponse)
 
 -- | The type of the address you receive.
 getSiteAddressResponse_addressType :: Lens.Lens' GetSiteAddressResponse (Prelude.Maybe AddressType)
@@ -184,17 +187,13 @@ getSiteAddressResponse_addressType = Lens.lens (\GetSiteAddressResponse' {addres
 getSiteAddressResponse_siteId :: Lens.Lens' GetSiteAddressResponse (Prelude.Maybe Prelude.Text)
 getSiteAddressResponse_siteId = Lens.lens (\GetSiteAddressResponse' {siteId} -> siteId) (\s@GetSiteAddressResponse' {} a -> s {siteId = a} :: GetSiteAddressResponse)
 
--- | Information about the address.
-getSiteAddressResponse_address :: Lens.Lens' GetSiteAddressResponse (Prelude.Maybe Address)
-getSiteAddressResponse_address = Lens.lens (\GetSiteAddressResponse' {address} -> address) (\s@GetSiteAddressResponse' {} a -> s {address = a} :: GetSiteAddressResponse)
-
 -- | The response's http status code.
 getSiteAddressResponse_httpStatus :: Lens.Lens' GetSiteAddressResponse Prelude.Int
 getSiteAddressResponse_httpStatus = Lens.lens (\GetSiteAddressResponse' {httpStatus} -> httpStatus) (\s@GetSiteAddressResponse' {} a -> s {httpStatus = a} :: GetSiteAddressResponse)
 
 instance Prelude.NFData GetSiteAddressResponse where
   rnf GetSiteAddressResponse' {..} =
-    Prelude.rnf addressType
+    Prelude.rnf address
+      `Prelude.seq` Prelude.rnf addressType
       `Prelude.seq` Prelude.rnf siteId
-      `Prelude.seq` Prelude.rnf address
       `Prelude.seq` Prelude.rnf httpStatus

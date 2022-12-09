@@ -28,6 +28,9 @@ module Amazonka.Outposts
     -- ** AccessDeniedException
     _AccessDeniedException,
 
+    -- ** ConflictException
+    _ConflictException,
+
     -- ** InternalServerException
     _InternalServerException,
 
@@ -36,9 +39,6 @@ module Amazonka.Outposts
 
     -- ** ServiceQuotaExceededException
     _ServiceQuotaExceededException,
-
-    -- ** ConflictException
-    _ConflictException,
 
     -- ** ValidationException
     _ValidationException,

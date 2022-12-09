@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newShipmentInformation' smart constructor.
 data ShipmentInformation = ShipmentInformation'
-  { -- | The tracking number of the shipment.
-    shipmentTrackingNumber :: Prelude.Maybe Prelude.Text,
-    -- | The carrier of the shipment.
-    shipmentCarrier :: Prelude.Maybe ShipmentCarrier
+  { -- | The carrier of the shipment.
+    shipmentCarrier :: Prelude.Maybe ShipmentCarrier,
+    -- | The tracking number of the shipment.
+    shipmentTrackingNumber :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data ShipmentInformation = ShipmentInformation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'shipmentTrackingNumber', 'shipmentInformation_shipmentTrackingNumber' - The tracking number of the shipment.
---
 -- 'shipmentCarrier', 'shipmentInformation_shipmentCarrier' - The carrier of the shipment.
+--
+-- 'shipmentTrackingNumber', 'shipmentInformation_shipmentTrackingNumber' - The tracking number of the shipment.
 newShipmentInformation ::
   ShipmentInformation
 newShipmentInformation =
   ShipmentInformation'
-    { shipmentTrackingNumber =
+    { shipmentCarrier =
         Prelude.Nothing,
-      shipmentCarrier = Prelude.Nothing
+      shipmentTrackingNumber = Prelude.Nothing
     }
-
--- | The tracking number of the shipment.
-shipmentInformation_shipmentTrackingNumber :: Lens.Lens' ShipmentInformation (Prelude.Maybe Prelude.Text)
-shipmentInformation_shipmentTrackingNumber = Lens.lens (\ShipmentInformation' {shipmentTrackingNumber} -> shipmentTrackingNumber) (\s@ShipmentInformation' {} a -> s {shipmentTrackingNumber = a} :: ShipmentInformation)
 
 -- | The carrier of the shipment.
 shipmentInformation_shipmentCarrier :: Lens.Lens' ShipmentInformation (Prelude.Maybe ShipmentCarrier)
 shipmentInformation_shipmentCarrier = Lens.lens (\ShipmentInformation' {shipmentCarrier} -> shipmentCarrier) (\s@ShipmentInformation' {} a -> s {shipmentCarrier = a} :: ShipmentInformation)
+
+-- | The tracking number of the shipment.
+shipmentInformation_shipmentTrackingNumber :: Lens.Lens' ShipmentInformation (Prelude.Maybe Prelude.Text)
+shipmentInformation_shipmentTrackingNumber = Lens.lens (\ShipmentInformation' {shipmentTrackingNumber} -> shipmentTrackingNumber) (\s@ShipmentInformation' {} a -> s {shipmentTrackingNumber = a} :: ShipmentInformation)
 
 instance Data.FromJSON ShipmentInformation where
   parseJSON =
@@ -70,16 +70,16 @@ instance Data.FromJSON ShipmentInformation where
       "ShipmentInformation"
       ( \x ->
           ShipmentInformation'
-            Prelude.<$> (x Data..:? "ShipmentTrackingNumber")
-            Prelude.<*> (x Data..:? "ShipmentCarrier")
+            Prelude.<$> (x Data..:? "ShipmentCarrier")
+            Prelude.<*> (x Data..:? "ShipmentTrackingNumber")
       )
 
 instance Prelude.Hashable ShipmentInformation where
   hashWithSalt _salt ShipmentInformation' {..} =
-    _salt `Prelude.hashWithSalt` shipmentTrackingNumber
-      `Prelude.hashWithSalt` shipmentCarrier
+    _salt `Prelude.hashWithSalt` shipmentCarrier
+      `Prelude.hashWithSalt` shipmentTrackingNumber
 
 instance Prelude.NFData ShipmentInformation where
   rnf ShipmentInformation' {..} =
-    Prelude.rnf shipmentTrackingNumber
-      `Prelude.seq` Prelude.rnf shipmentCarrier
+    Prelude.rnf shipmentCarrier
+      `Prelude.seq` Prelude.rnf shipmentTrackingNumber

@@ -27,9 +27,9 @@ module Amazonka.Outposts.UpdateOutpost
     newUpdateOutpost,
 
     -- * Request Lenses
+    updateOutpost_description,
     updateOutpost_name,
     updateOutpost_supportedHardwareType,
-    updateOutpost_description,
     updateOutpost_outpostId,
 
     -- * Destructuring the Response
@@ -52,10 +52,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateOutpost' smart constructor.
 data UpdateOutpost = UpdateOutpost'
-  { name :: Prelude.Maybe Prelude.Text,
+  { description :: Prelude.Maybe Prelude.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The type of hardware for this Outpost.
     supportedHardwareType :: Prelude.Maybe SupportedHardwareType,
-    description :: Prelude.Maybe Prelude.Text,
     -- | The ID or the Amazon Resource Name (ARN) of the Outpost.
     outpostId :: Prelude.Text
   }
@@ -69,11 +69,11 @@ data UpdateOutpost = UpdateOutpost'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'updateOutpost_description' - Undocumented member.
+--
 -- 'name', 'updateOutpost_name' - Undocumented member.
 --
 -- 'supportedHardwareType', 'updateOutpost_supportedHardwareType' - The type of hardware for this Outpost.
---
--- 'description', 'updateOutpost_description' - Undocumented member.
 --
 -- 'outpostId', 'updateOutpost_outpostId' - The ID or the Amazon Resource Name (ARN) of the Outpost.
 newUpdateOutpost ::
@@ -82,11 +82,15 @@ newUpdateOutpost ::
   UpdateOutpost
 newUpdateOutpost pOutpostId_ =
   UpdateOutpost'
-    { name = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      name = Prelude.Nothing,
       supportedHardwareType = Prelude.Nothing,
-      description = Prelude.Nothing,
       outpostId = pOutpostId_
     }
+
+-- | Undocumented member.
+updateOutpost_description :: Lens.Lens' UpdateOutpost (Prelude.Maybe Prelude.Text)
+updateOutpost_description = Lens.lens (\UpdateOutpost' {description} -> description) (\s@UpdateOutpost' {} a -> s {description = a} :: UpdateOutpost)
 
 -- | Undocumented member.
 updateOutpost_name :: Lens.Lens' UpdateOutpost (Prelude.Maybe Prelude.Text)
@@ -95,10 +99,6 @@ updateOutpost_name = Lens.lens (\UpdateOutpost' {name} -> name) (\s@UpdateOutpos
 -- | The type of hardware for this Outpost.
 updateOutpost_supportedHardwareType :: Lens.Lens' UpdateOutpost (Prelude.Maybe SupportedHardwareType)
 updateOutpost_supportedHardwareType = Lens.lens (\UpdateOutpost' {supportedHardwareType} -> supportedHardwareType) (\s@UpdateOutpost' {} a -> s {supportedHardwareType = a} :: UpdateOutpost)
-
--- | Undocumented member.
-updateOutpost_description :: Lens.Lens' UpdateOutpost (Prelude.Maybe Prelude.Text)
-updateOutpost_description = Lens.lens (\UpdateOutpost' {description} -> description) (\s@UpdateOutpost' {} a -> s {description = a} :: UpdateOutpost)
 
 -- | The ID or the Amazon Resource Name (ARN) of the Outpost.
 updateOutpost_outpostId :: Lens.Lens' UpdateOutpost Prelude.Text
@@ -120,16 +120,16 @@ instance Core.AWSRequest UpdateOutpost where
 
 instance Prelude.Hashable UpdateOutpost where
   hashWithSalt _salt UpdateOutpost' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` supportedHardwareType
-      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` outpostId
 
 instance Prelude.NFData UpdateOutpost where
   rnf UpdateOutpost' {..} =
-    Prelude.rnf name
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf supportedHardwareType
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf outpostId
 
 instance Data.ToHeaders UpdateOutpost where
@@ -147,10 +147,10 @@ instance Data.ToJSON UpdateOutpost where
   toJSON UpdateOutpost' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("Name" Data..=) Prelude.<$> name,
             ("SupportedHardwareType" Data..=)
-              Prelude.<$> supportedHardwareType,
-            ("Description" Data..=) Prelude.<$> description
+              Prelude.<$> supportedHardwareType
           ]
       )
 

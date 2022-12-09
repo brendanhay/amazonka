@@ -43,8 +43,8 @@ module Amazonka.Outposts.UpdateSiteAddress
     newUpdateSiteAddressResponse,
 
     -- * Response Lenses
-    updateSiteAddressResponse_addressType,
     updateSiteAddressResponse_address,
+    updateSiteAddressResponse_addressType,
     updateSiteAddressResponse_httpStatus,
   )
 where
@@ -118,8 +118,8 @@ instance Core.AWSRequest UpdateSiteAddress where
     Response.receiveJSON
       ( \s h x ->
           UpdateSiteAddressResponse'
-            Prelude.<$> (x Data..?> "AddressType")
-            Prelude.<*> (x Data..?> "Address")
+            Prelude.<$> (x Data..?> "Address")
+            Prelude.<*> (x Data..?> "AddressType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -165,10 +165,10 @@ instance Data.ToQuery UpdateSiteAddress where
 
 -- | /See:/ 'newUpdateSiteAddressResponse' smart constructor.
 data UpdateSiteAddressResponse = UpdateSiteAddressResponse'
-  { -- | The type of the address.
-    addressType :: Prelude.Maybe AddressType,
-    -- | Information about an address.
+  { -- | Information about an address.
     address :: Prelude.Maybe Address,
+    -- | The type of the address.
+    addressType :: Prelude.Maybe AddressType,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -182,9 +182,9 @@ data UpdateSiteAddressResponse = UpdateSiteAddressResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'addressType', 'updateSiteAddressResponse_addressType' - The type of the address.
---
 -- 'address', 'updateSiteAddressResponse_address' - Information about an address.
+--
+-- 'addressType', 'updateSiteAddressResponse_addressType' - The type of the address.
 --
 -- 'httpStatus', 'updateSiteAddressResponse_httpStatus' - The response's http status code.
 newUpdateSiteAddressResponse ::
@@ -193,19 +193,19 @@ newUpdateSiteAddressResponse ::
   UpdateSiteAddressResponse
 newUpdateSiteAddressResponse pHttpStatus_ =
   UpdateSiteAddressResponse'
-    { addressType =
+    { address =
         Prelude.Nothing,
-      address = Prelude.Nothing,
+      addressType = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The type of the address.
-updateSiteAddressResponse_addressType :: Lens.Lens' UpdateSiteAddressResponse (Prelude.Maybe AddressType)
-updateSiteAddressResponse_addressType = Lens.lens (\UpdateSiteAddressResponse' {addressType} -> addressType) (\s@UpdateSiteAddressResponse' {} a -> s {addressType = a} :: UpdateSiteAddressResponse)
 
 -- | Information about an address.
 updateSiteAddressResponse_address :: Lens.Lens' UpdateSiteAddressResponse (Prelude.Maybe Address)
 updateSiteAddressResponse_address = Lens.lens (\UpdateSiteAddressResponse' {address} -> address) (\s@UpdateSiteAddressResponse' {} a -> s {address = a} :: UpdateSiteAddressResponse)
+
+-- | The type of the address.
+updateSiteAddressResponse_addressType :: Lens.Lens' UpdateSiteAddressResponse (Prelude.Maybe AddressType)
+updateSiteAddressResponse_addressType = Lens.lens (\UpdateSiteAddressResponse' {addressType} -> addressType) (\s@UpdateSiteAddressResponse' {} a -> s {addressType = a} :: UpdateSiteAddressResponse)
 
 -- | The response's http status code.
 updateSiteAddressResponse_httpStatus :: Lens.Lens' UpdateSiteAddressResponse Prelude.Int
@@ -213,6 +213,6 @@ updateSiteAddressResponse_httpStatus = Lens.lens (\UpdateSiteAddressResponse' {h
 
 instance Prelude.NFData UpdateSiteAddressResponse where
   rnf UpdateSiteAddressResponse' {..} =
-    Prelude.rnf addressType
-      `Prelude.seq` Prelude.rnf address
+    Prelude.rnf address
+      `Prelude.seq` Prelude.rnf addressType
       `Prelude.seq` Prelude.rnf httpStatus

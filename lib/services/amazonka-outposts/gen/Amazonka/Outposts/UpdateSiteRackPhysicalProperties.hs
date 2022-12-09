@@ -33,13 +33,13 @@ module Amazonka.Outposts.UpdateSiteRackPhysicalProperties
     newUpdateSiteRackPhysicalProperties,
 
     -- * Request Lenses
-    updateSiteRackPhysicalProperties_powerPhase,
-    updateSiteRackPhysicalProperties_powerDrawKva,
     updateSiteRackPhysicalProperties_fiberOpticCableType,
     updateSiteRackPhysicalProperties_maximumSupportedWeightLbs,
-    updateSiteRackPhysicalProperties_powerConnector,
     updateSiteRackPhysicalProperties_opticalStandard,
+    updateSiteRackPhysicalProperties_powerConnector,
+    updateSiteRackPhysicalProperties_powerDrawKva,
     updateSiteRackPhysicalProperties_powerFeedDrop,
+    updateSiteRackPhysicalProperties_powerPhase,
     updateSiteRackPhysicalProperties_uplinkCount,
     updateSiteRackPhysicalProperties_uplinkGbps,
     updateSiteRackPhysicalProperties_siteId,
@@ -64,37 +64,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateSiteRackPhysicalProperties' smart constructor.
 data UpdateSiteRackPhysicalProperties = UpdateSiteRackPhysicalProperties'
-  { -- | The power option that you can provide for hardware.
-    --
-    -- -   Single-phase AC feed: 200 V to 277 V, 50 Hz or 60 Hz
-    --
-    -- -   Three-phase AC feed: 346 V to 480 V, 50 Hz or 60 Hz
-    powerPhase :: Prelude.Maybe PowerPhase,
-    -- | The power draw, in kVA, available at the hardware placement position for
-    -- the rack.
-    powerDrawKva :: Prelude.Maybe PowerDrawKva,
-    -- | The type of fiber that you will use to attach the Outpost to your
+  { -- | The type of fiber that you will use to attach the Outpost to your
     -- network.
     fiberOpticCableType :: Prelude.Maybe FiberOpticCableType,
     -- | The maximum rack weight that this site can support. @NO_LIMIT@ is over
     -- 2000lbs.
     maximumSupportedWeightLbs :: Prelude.Maybe MaximumSupportedWeightLbs,
-    -- | The power connector that Amazon Web Services should plan to provide for
-    -- connections to the hardware. Note the correlation between @PowerPhase@
-    -- and @PowerConnector@.
-    --
-    -- -   Single-phase AC feed
-    --
-    --     -   __L6-30P__ – (common in US); 30A; single phase
-    --
-    --     -   __IEC309 (blue)__ – P+N+E, 6hr; 32 A; single phase
-    --
-    -- -   Three-phase AC feed
-    --
-    --     -   __AH530P7W (red)__ – 3P+N+E, 7hr; 30A; three phase
-    --
-    --     -   __AH532P6W (red)__ – 3P+N+E, 6hr; 32A; three phase
-    powerConnector :: Prelude.Maybe PowerConnector,
     -- | The type of optical standard that you will use to attach the Outpost to
     -- your network. This field is dependent on uplink speed, fiber type, and
     -- distance to the upstream device. For more information about networking
@@ -128,8 +103,33 @@ data UpdateSiteRackPhysicalProperties = UpdateSiteRackPhysicalProperties'
     --
     -- -   @OPTIC_1000BASE_SX@ : 1000Base-SX
     opticalStandard :: Prelude.Maybe OpticalStandard,
+    -- | The power connector that Amazon Web Services should plan to provide for
+    -- connections to the hardware. Note the correlation between @PowerPhase@
+    -- and @PowerConnector@.
+    --
+    -- -   Single-phase AC feed
+    --
+    --     -   __L6-30P__ – (common in US); 30A; single phase
+    --
+    --     -   __IEC309 (blue)__ – P+N+E, 6hr; 32 A; single phase
+    --
+    -- -   Three-phase AC feed
+    --
+    --     -   __AH530P7W (red)__ – 3P+N+E, 7hr; 30A; three phase
+    --
+    --     -   __AH532P6W (red)__ – 3P+N+E, 6hr; 32A; three phase
+    powerConnector :: Prelude.Maybe PowerConnector,
+    -- | The power draw, in kVA, available at the hardware placement position for
+    -- the rack.
+    powerDrawKva :: Prelude.Maybe PowerDrawKva,
     -- | Indicates whether the power feed comes above or below the rack.
     powerFeedDrop :: Prelude.Maybe PowerFeedDrop,
+    -- | The power option that you can provide for hardware.
+    --
+    -- -   Single-phase AC feed: 200 V to 277 V, 50 Hz or 60 Hz
+    --
+    -- -   Three-phase AC feed: 346 V to 480 V, 50 Hz or 60 Hz
+    powerPhase :: Prelude.Maybe PowerPhase,
     -- | Racks come with two Outpost network devices. Depending on the supported
     -- uplink speed at the site, the Outpost network devices provide a variable
     -- number of uplinks. Specify the number of uplinks for each Outpost
@@ -158,36 +158,11 @@ data UpdateSiteRackPhysicalProperties = UpdateSiteRackPhysicalProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'powerPhase', 'updateSiteRackPhysicalProperties_powerPhase' - The power option that you can provide for hardware.
---
--- -   Single-phase AC feed: 200 V to 277 V, 50 Hz or 60 Hz
---
--- -   Three-phase AC feed: 346 V to 480 V, 50 Hz or 60 Hz
---
--- 'powerDrawKva', 'updateSiteRackPhysicalProperties_powerDrawKva' - The power draw, in kVA, available at the hardware placement position for
--- the rack.
---
 -- 'fiberOpticCableType', 'updateSiteRackPhysicalProperties_fiberOpticCableType' - The type of fiber that you will use to attach the Outpost to your
 -- network.
 --
 -- 'maximumSupportedWeightLbs', 'updateSiteRackPhysicalProperties_maximumSupportedWeightLbs' - The maximum rack weight that this site can support. @NO_LIMIT@ is over
 -- 2000lbs.
---
--- 'powerConnector', 'updateSiteRackPhysicalProperties_powerConnector' - The power connector that Amazon Web Services should plan to provide for
--- connections to the hardware. Note the correlation between @PowerPhase@
--- and @PowerConnector@.
---
--- -   Single-phase AC feed
---
---     -   __L6-30P__ – (common in US); 30A; single phase
---
---     -   __IEC309 (blue)__ – P+N+E, 6hr; 32 A; single phase
---
--- -   Three-phase AC feed
---
---     -   __AH530P7W (red)__ – 3P+N+E, 7hr; 30A; three phase
---
---     -   __AH532P6W (red)__ – 3P+N+E, 6hr; 32A; three phase
 --
 -- 'opticalStandard', 'updateSiteRackPhysicalProperties_opticalStandard' - The type of optical standard that you will use to attach the Outpost to
 -- your network. This field is dependent on uplink speed, fiber type, and
@@ -222,7 +197,32 @@ data UpdateSiteRackPhysicalProperties = UpdateSiteRackPhysicalProperties'
 --
 -- -   @OPTIC_1000BASE_SX@ : 1000Base-SX
 --
+-- 'powerConnector', 'updateSiteRackPhysicalProperties_powerConnector' - The power connector that Amazon Web Services should plan to provide for
+-- connections to the hardware. Note the correlation between @PowerPhase@
+-- and @PowerConnector@.
+--
+-- -   Single-phase AC feed
+--
+--     -   __L6-30P__ – (common in US); 30A; single phase
+--
+--     -   __IEC309 (blue)__ – P+N+E, 6hr; 32 A; single phase
+--
+-- -   Three-phase AC feed
+--
+--     -   __AH530P7W (red)__ – 3P+N+E, 7hr; 30A; three phase
+--
+--     -   __AH532P6W (red)__ – 3P+N+E, 6hr; 32A; three phase
+--
+-- 'powerDrawKva', 'updateSiteRackPhysicalProperties_powerDrawKva' - The power draw, in kVA, available at the hardware placement position for
+-- the rack.
+--
 -- 'powerFeedDrop', 'updateSiteRackPhysicalProperties_powerFeedDrop' - Indicates whether the power feed comes above or below the rack.
+--
+-- 'powerPhase', 'updateSiteRackPhysicalProperties_powerPhase' - The power option that you can provide for hardware.
+--
+-- -   Single-phase AC feed: 200 V to 277 V, 50 Hz or 60 Hz
+--
+-- -   Three-phase AC feed: 346 V to 480 V, 50 Hz or 60 Hz
 --
 -- 'uplinkCount', 'updateSiteRackPhysicalProperties_uplinkCount' - Racks come with two Outpost network devices. Depending on the supported
 -- uplink speed at the site, the Outpost network devices provide a variable
@@ -246,32 +246,19 @@ newUpdateSiteRackPhysicalProperties ::
   UpdateSiteRackPhysicalProperties
 newUpdateSiteRackPhysicalProperties pSiteId_ =
   UpdateSiteRackPhysicalProperties'
-    { powerPhase =
+    { fiberOpticCableType =
         Prelude.Nothing,
-      powerDrawKva = Prelude.Nothing,
-      fiberOpticCableType = Prelude.Nothing,
       maximumSupportedWeightLbs =
         Prelude.Nothing,
-      powerConnector = Prelude.Nothing,
       opticalStandard = Prelude.Nothing,
+      powerConnector = Prelude.Nothing,
+      powerDrawKva = Prelude.Nothing,
       powerFeedDrop = Prelude.Nothing,
+      powerPhase = Prelude.Nothing,
       uplinkCount = Prelude.Nothing,
       uplinkGbps = Prelude.Nothing,
       siteId = pSiteId_
     }
-
--- | The power option that you can provide for hardware.
---
--- -   Single-phase AC feed: 200 V to 277 V, 50 Hz or 60 Hz
---
--- -   Three-phase AC feed: 346 V to 480 V, 50 Hz or 60 Hz
-updateSiteRackPhysicalProperties_powerPhase :: Lens.Lens' UpdateSiteRackPhysicalProperties (Prelude.Maybe PowerPhase)
-updateSiteRackPhysicalProperties_powerPhase = Lens.lens (\UpdateSiteRackPhysicalProperties' {powerPhase} -> powerPhase) (\s@UpdateSiteRackPhysicalProperties' {} a -> s {powerPhase = a} :: UpdateSiteRackPhysicalProperties)
-
--- | The power draw, in kVA, available at the hardware placement position for
--- the rack.
-updateSiteRackPhysicalProperties_powerDrawKva :: Lens.Lens' UpdateSiteRackPhysicalProperties (Prelude.Maybe PowerDrawKva)
-updateSiteRackPhysicalProperties_powerDrawKva = Lens.lens (\UpdateSiteRackPhysicalProperties' {powerDrawKva} -> powerDrawKva) (\s@UpdateSiteRackPhysicalProperties' {} a -> s {powerDrawKva = a} :: UpdateSiteRackPhysicalProperties)
 
 -- | The type of fiber that you will use to attach the Outpost to your
 -- network.
@@ -282,24 +269,6 @@ updateSiteRackPhysicalProperties_fiberOpticCableType = Lens.lens (\UpdateSiteRac
 -- 2000lbs.
 updateSiteRackPhysicalProperties_maximumSupportedWeightLbs :: Lens.Lens' UpdateSiteRackPhysicalProperties (Prelude.Maybe MaximumSupportedWeightLbs)
 updateSiteRackPhysicalProperties_maximumSupportedWeightLbs = Lens.lens (\UpdateSiteRackPhysicalProperties' {maximumSupportedWeightLbs} -> maximumSupportedWeightLbs) (\s@UpdateSiteRackPhysicalProperties' {} a -> s {maximumSupportedWeightLbs = a} :: UpdateSiteRackPhysicalProperties)
-
--- | The power connector that Amazon Web Services should plan to provide for
--- connections to the hardware. Note the correlation between @PowerPhase@
--- and @PowerConnector@.
---
--- -   Single-phase AC feed
---
---     -   __L6-30P__ – (common in US); 30A; single phase
---
---     -   __IEC309 (blue)__ – P+N+E, 6hr; 32 A; single phase
---
--- -   Three-phase AC feed
---
---     -   __AH530P7W (red)__ – 3P+N+E, 7hr; 30A; three phase
---
---     -   __AH532P6W (red)__ – 3P+N+E, 6hr; 32A; three phase
-updateSiteRackPhysicalProperties_powerConnector :: Lens.Lens' UpdateSiteRackPhysicalProperties (Prelude.Maybe PowerConnector)
-updateSiteRackPhysicalProperties_powerConnector = Lens.lens (\UpdateSiteRackPhysicalProperties' {powerConnector} -> powerConnector) (\s@UpdateSiteRackPhysicalProperties' {} a -> s {powerConnector = a} :: UpdateSiteRackPhysicalProperties)
 
 -- | The type of optical standard that you will use to attach the Outpost to
 -- your network. This field is dependent on uplink speed, fiber type, and
@@ -336,9 +305,40 @@ updateSiteRackPhysicalProperties_powerConnector = Lens.lens (\UpdateSiteRackPhys
 updateSiteRackPhysicalProperties_opticalStandard :: Lens.Lens' UpdateSiteRackPhysicalProperties (Prelude.Maybe OpticalStandard)
 updateSiteRackPhysicalProperties_opticalStandard = Lens.lens (\UpdateSiteRackPhysicalProperties' {opticalStandard} -> opticalStandard) (\s@UpdateSiteRackPhysicalProperties' {} a -> s {opticalStandard = a} :: UpdateSiteRackPhysicalProperties)
 
+-- | The power connector that Amazon Web Services should plan to provide for
+-- connections to the hardware. Note the correlation between @PowerPhase@
+-- and @PowerConnector@.
+--
+-- -   Single-phase AC feed
+--
+--     -   __L6-30P__ – (common in US); 30A; single phase
+--
+--     -   __IEC309 (blue)__ – P+N+E, 6hr; 32 A; single phase
+--
+-- -   Three-phase AC feed
+--
+--     -   __AH530P7W (red)__ – 3P+N+E, 7hr; 30A; three phase
+--
+--     -   __AH532P6W (red)__ – 3P+N+E, 6hr; 32A; three phase
+updateSiteRackPhysicalProperties_powerConnector :: Lens.Lens' UpdateSiteRackPhysicalProperties (Prelude.Maybe PowerConnector)
+updateSiteRackPhysicalProperties_powerConnector = Lens.lens (\UpdateSiteRackPhysicalProperties' {powerConnector} -> powerConnector) (\s@UpdateSiteRackPhysicalProperties' {} a -> s {powerConnector = a} :: UpdateSiteRackPhysicalProperties)
+
+-- | The power draw, in kVA, available at the hardware placement position for
+-- the rack.
+updateSiteRackPhysicalProperties_powerDrawKva :: Lens.Lens' UpdateSiteRackPhysicalProperties (Prelude.Maybe PowerDrawKva)
+updateSiteRackPhysicalProperties_powerDrawKva = Lens.lens (\UpdateSiteRackPhysicalProperties' {powerDrawKva} -> powerDrawKva) (\s@UpdateSiteRackPhysicalProperties' {} a -> s {powerDrawKva = a} :: UpdateSiteRackPhysicalProperties)
+
 -- | Indicates whether the power feed comes above or below the rack.
 updateSiteRackPhysicalProperties_powerFeedDrop :: Lens.Lens' UpdateSiteRackPhysicalProperties (Prelude.Maybe PowerFeedDrop)
 updateSiteRackPhysicalProperties_powerFeedDrop = Lens.lens (\UpdateSiteRackPhysicalProperties' {powerFeedDrop} -> powerFeedDrop) (\s@UpdateSiteRackPhysicalProperties' {} a -> s {powerFeedDrop = a} :: UpdateSiteRackPhysicalProperties)
+
+-- | The power option that you can provide for hardware.
+--
+-- -   Single-phase AC feed: 200 V to 277 V, 50 Hz or 60 Hz
+--
+-- -   Three-phase AC feed: 346 V to 480 V, 50 Hz or 60 Hz
+updateSiteRackPhysicalProperties_powerPhase :: Lens.Lens' UpdateSiteRackPhysicalProperties (Prelude.Maybe PowerPhase)
+updateSiteRackPhysicalProperties_powerPhase = Lens.lens (\UpdateSiteRackPhysicalProperties' {powerPhase} -> powerPhase) (\s@UpdateSiteRackPhysicalProperties' {} a -> s {powerPhase = a} :: UpdateSiteRackPhysicalProperties)
 
 -- | Racks come with two Outpost network devices. Depending on the supported
 -- uplink speed at the site, the Outpost network devices provide a variable
@@ -387,13 +387,13 @@ instance
   hashWithSalt
     _salt
     UpdateSiteRackPhysicalProperties' {..} =
-      _salt `Prelude.hashWithSalt` powerPhase
-        `Prelude.hashWithSalt` powerDrawKva
-        `Prelude.hashWithSalt` fiberOpticCableType
+      _salt `Prelude.hashWithSalt` fiberOpticCableType
         `Prelude.hashWithSalt` maximumSupportedWeightLbs
-        `Prelude.hashWithSalt` powerConnector
         `Prelude.hashWithSalt` opticalStandard
+        `Prelude.hashWithSalt` powerConnector
+        `Prelude.hashWithSalt` powerDrawKva
         `Prelude.hashWithSalt` powerFeedDrop
+        `Prelude.hashWithSalt` powerPhase
         `Prelude.hashWithSalt` uplinkCount
         `Prelude.hashWithSalt` uplinkGbps
         `Prelude.hashWithSalt` siteId
@@ -403,13 +403,13 @@ instance
     UpdateSiteRackPhysicalProperties
   where
   rnf UpdateSiteRackPhysicalProperties' {..} =
-    Prelude.rnf powerPhase
-      `Prelude.seq` Prelude.rnf powerDrawKva
-      `Prelude.seq` Prelude.rnf fiberOpticCableType
+    Prelude.rnf fiberOpticCableType
       `Prelude.seq` Prelude.rnf maximumSupportedWeightLbs
-      `Prelude.seq` Prelude.rnf powerConnector
       `Prelude.seq` Prelude.rnf opticalStandard
+      `Prelude.seq` Prelude.rnf powerConnector
+      `Prelude.seq` Prelude.rnf powerDrawKva
       `Prelude.seq` Prelude.rnf powerFeedDrop
+      `Prelude.seq` Prelude.rnf powerPhase
       `Prelude.seq` Prelude.rnf uplinkCount
       `Prelude.seq` Prelude.rnf uplinkGbps
       `Prelude.seq` Prelude.rnf siteId
@@ -432,17 +432,17 @@ instance Data.ToJSON UpdateSiteRackPhysicalProperties where
   toJSON UpdateSiteRackPhysicalProperties' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("PowerPhase" Data..=) Prelude.<$> powerPhase,
-            ("PowerDrawKva" Data..=) Prelude.<$> powerDrawKva,
-            ("FiberOpticCableType" Data..=)
+          [ ("FiberOpticCableType" Data..=)
               Prelude.<$> fiberOpticCableType,
             ("MaximumSupportedWeightLbs" Data..=)
               Prelude.<$> maximumSupportedWeightLbs,
-            ("PowerConnector" Data..=)
-              Prelude.<$> powerConnector,
             ("OpticalStandard" Data..=)
               Prelude.<$> opticalStandard,
+            ("PowerConnector" Data..=)
+              Prelude.<$> powerConnector,
+            ("PowerDrawKva" Data..=) Prelude.<$> powerDrawKva,
             ("PowerFeedDrop" Data..=) Prelude.<$> powerFeedDrop,
+            ("PowerPhase" Data..=) Prelude.<$> powerPhase,
             ("UplinkCount" Data..=) Prelude.<$> uplinkCount,
             ("UplinkGbps" Data..=) Prelude.<$> uplinkGbps
           ]

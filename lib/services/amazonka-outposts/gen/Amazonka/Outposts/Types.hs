@@ -19,10 +19,10 @@ module Amazonka.Outposts.Types
 
     -- * Errors
     _AccessDeniedException,
+    _ConflictException,
     _InternalServerException,
     _NotFoundException,
     _ServiceQuotaExceededException,
-    _ConflictException,
     _ValidationException,
 
     -- * AddressType
@@ -98,10 +98,10 @@ module Amazonka.Outposts.Types
     Address (..),
     newAddress,
     address_addressLine2,
+    address_addressLine3,
     address_contactName,
     address_contactPhoneNumber,
     address_districtOrCounty,
-    address_addressLine3,
     address_municipality,
     address_addressLine1,
     address_city,
@@ -112,10 +112,10 @@ module Amazonka.Outposts.Types
     -- * AssetInfo
     AssetInfo (..),
     newAssetInfo,
-    assetInfo_assetLocation,
     assetInfo_assetId,
-    assetInfo_computeAttributes,
+    assetInfo_assetLocation,
     assetInfo_assetType,
+    assetInfo_computeAttributes,
     assetInfo_rackId,
 
     -- * AssetLocation
@@ -126,13 +126,13 @@ module Amazonka.Outposts.Types
     -- * CatalogItem
     CatalogItem (..),
     newCatalogItem,
-    catalogItem_powerKva,
-    catalogItem_weightLbs,
-    catalogItem_eC2Capacities,
     catalogItem_catalogItemId,
+    catalogItem_eC2Capacities,
     catalogItem_itemStatus,
-    catalogItem_supportedUplinkGbps,
+    catalogItem_powerKva,
     catalogItem_supportedStorage,
+    catalogItem_supportedUplinkGbps,
+    catalogItem_weightLbs,
 
     -- * ComputeAttributes
     ComputeAttributes (..),
@@ -143,19 +143,19 @@ module Amazonka.Outposts.Types
     -- * ConnectionDetails
     ConnectionDetails (..),
     newConnectionDetails,
-    connectionDetails_serverEndpoint,
-    connectionDetails_serverPublicKey,
+    connectionDetails_allowedIps,
     connectionDetails_clientPublicKey,
     connectionDetails_clientTunnelAddress,
+    connectionDetails_serverEndpoint,
+    connectionDetails_serverPublicKey,
     connectionDetails_serverTunnelAddress,
-    connectionDetails_allowedIps,
 
     -- * EC2Capacity
     EC2Capacity (..),
     newEC2Capacity,
-    eC2Capacity_quantity,
     eC2Capacity_family,
     eC2Capacity_maxSize,
+    eC2Capacity_quantity,
 
     -- * InstanceTypeItem
     InstanceTypeItem (..),
@@ -165,96 +165,96 @@ module Amazonka.Outposts.Types
     -- * LineItem
     LineItem (..),
     newLineItem,
-    lineItem_quantity,
     lineItem_assetInformationList,
-    lineItem_status,
     lineItem_catalogItemId,
-    lineItem_shipmentInformation,
     lineItem_lineItemId,
+    lineItem_quantity,
+    lineItem_shipmentInformation,
+    lineItem_status,
 
     -- * LineItemAssetInformation
     LineItemAssetInformation (..),
     newLineItemAssetInformation,
-    lineItemAssetInformation_macAddressList,
     lineItemAssetInformation_assetId,
+    lineItemAssetInformation_macAddressList,
 
     -- * LineItemRequest
     LineItemRequest (..),
     newLineItemRequest,
-    lineItemRequest_quantity,
     lineItemRequest_catalogItemId,
+    lineItemRequest_quantity,
 
     -- * Order
     Order (..),
     newOrder,
-    order_outpostId,
-    order_orderFulfilledDate,
     order_lineItems,
-    order_status,
+    order_orderFulfilledDate,
     order_orderId,
     order_orderSubmissionDate,
+    order_outpostId,
     order_paymentOption,
+    order_status,
 
     -- * OrderSummary
     OrderSummary (..),
     newOrderSummary,
-    orderSummary_outpostId,
-    orderSummary_orderFulfilledDate,
     orderSummary_lineItemCountsByStatus,
-    orderSummary_status,
+    orderSummary_orderFulfilledDate,
     orderSummary_orderId,
-    orderSummary_orderType,
     orderSummary_orderSubmissionDate,
+    orderSummary_orderType,
+    orderSummary_outpostId,
+    orderSummary_status,
 
     -- * Outpost
     Outpost (..),
     newOutpost,
-    outpost_tags,
+    outpost_availabilityZone,
+    outpost_availabilityZoneId,
+    outpost_description,
+    outpost_lifeCycleStatus,
     outpost_name,
-    outpost_outpostId,
     outpost_outpostArn,
+    outpost_outpostId,
     outpost_ownerId,
     outpost_siteArn,
-    outpost_supportedHardwareType,
-    outpost_availabilityZone,
-    outpost_description,
     outpost_siteId,
-    outpost_lifeCycleStatus,
-    outpost_availabilityZoneId,
+    outpost_supportedHardwareType,
+    outpost_tags,
 
     -- * RackPhysicalProperties
     RackPhysicalProperties (..),
     newRackPhysicalProperties,
-    rackPhysicalProperties_powerPhase,
-    rackPhysicalProperties_powerDrawKva,
     rackPhysicalProperties_fiberOpticCableType,
     rackPhysicalProperties_maximumSupportedWeightLbs,
-    rackPhysicalProperties_powerConnector,
     rackPhysicalProperties_opticalStandard,
+    rackPhysicalProperties_powerConnector,
+    rackPhysicalProperties_powerDrawKva,
     rackPhysicalProperties_powerFeedDrop,
+    rackPhysicalProperties_powerPhase,
     rackPhysicalProperties_uplinkCount,
     rackPhysicalProperties_uplinkGbps,
 
     -- * ShipmentInformation
     ShipmentInformation (..),
     newShipmentInformation,
-    shipmentInformation_shipmentTrackingNumber,
     shipmentInformation_shipmentCarrier,
+    shipmentInformation_shipmentTrackingNumber,
 
     -- * Site
     Site (..),
     newSite,
-    site_tags,
-    site_name,
-    site_siteArn,
-    site_description,
-    site_siteId,
     site_accountId,
-    site_operatingAddressCity,
+    site_description,
+    site_name,
     site_notes,
-    site_rackPhysicalProperties,
-    site_operatingAddressStateOrRegion,
+    site_operatingAddressCity,
     site_operatingAddressCountryCode,
+    site_operatingAddressStateOrRegion,
+    site_rackPhysicalProperties,
+    site_siteArn,
+    site_siteId,
+    site_tags,
   )
 where
 
@@ -328,28 +328,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -357,13 +351,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -371,6 +369,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have permission to perform this operation.
@@ -380,6 +380,14 @@ _AccessDeniedException =
     defaultService
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
+
+-- | Updating or deleting this resource can cause an inconsistent state.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
 
 -- | An internal error has occurred.
 _InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -404,14 +412,6 @@ _ServiceQuotaExceededException =
     defaultService
     "ServiceQuotaExceededException"
     Prelude.. Core.hasStatus 402
-
--- | Updating or deleting this resource can cause an inconsistent state.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
 
 -- | A parameter is not valid.
 _ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

@@ -36,9 +36,9 @@ module Amazonka.AppStream.CreateAppBlock
     newCreateAppBlock,
 
     -- * Request Lenses
-    createAppBlock_tags,
-    createAppBlock_displayName,
     createAppBlock_description,
+    createAppBlock_displayName,
+    createAppBlock_tags,
     createAppBlock_name,
     createAppBlock_sourceS3Location,
     createAppBlock_setupScriptDetails,
@@ -63,12 +63,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateAppBlock' smart constructor.
 data CreateAppBlock = CreateAppBlock'
-  { -- | The tags assigned to the app block.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | The description of the app block.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The display name of the app block. This is not displayed to the user.
     displayName :: Prelude.Maybe Prelude.Text,
-    -- | The description of the app block.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | The tags assigned to the app block.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the app block.
     name :: Prelude.Text,
     -- | The source S3 location of the app block.
@@ -86,11 +86,11 @@ data CreateAppBlock = CreateAppBlock'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createAppBlock_tags' - The tags assigned to the app block.
+-- 'description', 'createAppBlock_description' - The description of the app block.
 --
 -- 'displayName', 'createAppBlock_displayName' - The display name of the app block. This is not displayed to the user.
 --
--- 'description', 'createAppBlock_description' - The description of the app block.
+-- 'tags', 'createAppBlock_tags' - The tags assigned to the app block.
 --
 -- 'name', 'createAppBlock_name' - The name of the app block.
 --
@@ -110,25 +110,25 @@ newCreateAppBlock
   pSourceS3Location_
   pSetupScriptDetails_ =
     CreateAppBlock'
-      { tags = Prelude.Nothing,
+      { description = Prelude.Nothing,
         displayName = Prelude.Nothing,
-        description = Prelude.Nothing,
+        tags = Prelude.Nothing,
         name = pName_,
         sourceS3Location = pSourceS3Location_,
         setupScriptDetails = pSetupScriptDetails_
       }
 
--- | The tags assigned to the app block.
-createAppBlock_tags :: Lens.Lens' CreateAppBlock (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createAppBlock_tags = Lens.lens (\CreateAppBlock' {tags} -> tags) (\s@CreateAppBlock' {} a -> s {tags = a} :: CreateAppBlock) Prelude.. Lens.mapping Lens.coerced
+-- | The description of the app block.
+createAppBlock_description :: Lens.Lens' CreateAppBlock (Prelude.Maybe Prelude.Text)
+createAppBlock_description = Lens.lens (\CreateAppBlock' {description} -> description) (\s@CreateAppBlock' {} a -> s {description = a} :: CreateAppBlock)
 
 -- | The display name of the app block. This is not displayed to the user.
 createAppBlock_displayName :: Lens.Lens' CreateAppBlock (Prelude.Maybe Prelude.Text)
 createAppBlock_displayName = Lens.lens (\CreateAppBlock' {displayName} -> displayName) (\s@CreateAppBlock' {} a -> s {displayName = a} :: CreateAppBlock)
 
--- | The description of the app block.
-createAppBlock_description :: Lens.Lens' CreateAppBlock (Prelude.Maybe Prelude.Text)
-createAppBlock_description = Lens.lens (\CreateAppBlock' {description} -> description) (\s@CreateAppBlock' {} a -> s {description = a} :: CreateAppBlock)
+-- | The tags assigned to the app block.
+createAppBlock_tags :: Lens.Lens' CreateAppBlock (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createAppBlock_tags = Lens.lens (\CreateAppBlock' {tags} -> tags) (\s@CreateAppBlock' {} a -> s {tags = a} :: CreateAppBlock) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the app block.
 createAppBlock_name :: Lens.Lens' CreateAppBlock Prelude.Text
@@ -158,18 +158,18 @@ instance Core.AWSRequest CreateAppBlock where
 
 instance Prelude.Hashable CreateAppBlock where
   hashWithSalt _salt CreateAppBlock' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` displayName
-      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` sourceS3Location
       `Prelude.hashWithSalt` setupScriptDetails
 
 instance Prelude.NFData CreateAppBlock where
   rnf CreateAppBlock' {..} =
-    Prelude.rnf tags
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf sourceS3Location
       `Prelude.seq` Prelude.rnf setupScriptDetails
@@ -193,9 +193,9 @@ instance Data.ToJSON CreateAppBlock where
   toJSON CreateAppBlock' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
+          [ ("Description" Data..=) Prelude.<$> description,
             ("DisplayName" Data..=) Prelude.<$> displayName,
-            ("Description" Data..=) Prelude.<$> description,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just
               ("SourceS3Location" Data..= sourceS3Location),

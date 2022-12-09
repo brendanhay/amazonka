@@ -31,17 +31,17 @@ module Amazonka.AppStream.DescribeImageBuilders
     newDescribeImageBuilders,
 
     -- * Request Lenses
-    describeImageBuilders_nextToken,
-    describeImageBuilders_names,
     describeImageBuilders_maxResults,
+    describeImageBuilders_names,
+    describeImageBuilders_nextToken,
 
     -- * Destructuring the Response
     DescribeImageBuildersResponse (..),
     newDescribeImageBuildersResponse,
 
     -- * Response Lenses
-    describeImageBuildersResponse_nextToken,
     describeImageBuildersResponse_imageBuilders,
+    describeImageBuildersResponse_nextToken,
     describeImageBuildersResponse_httpStatus,
   )
 where
@@ -56,13 +56,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeImageBuilders' smart constructor.
 data DescribeImageBuilders = DescribeImageBuilders'
-  { -- | The pagination token to use to retrieve the next page of results for
-    -- this operation. If this value is null, it retrieves the first page.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The maximum size of each page of results.
+    maxResults :: Prelude.Maybe Prelude.Int,
     -- | The names of the image builders to describe.
     names :: Prelude.Maybe [Prelude.Text],
-    -- | The maximum size of each page of results.
-    maxResults :: Prelude.Maybe Prelude.Int
+    -- | The pagination token to use to retrieve the next page of results for
+    -- this operation. If this value is null, it retrieves the first page.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,33 +74,34 @@ data DescribeImageBuilders = DescribeImageBuilders'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeImageBuilders_nextToken' - The pagination token to use to retrieve the next page of results for
--- this operation. If this value is null, it retrieves the first page.
+-- 'maxResults', 'describeImageBuilders_maxResults' - The maximum size of each page of results.
 --
 -- 'names', 'describeImageBuilders_names' - The names of the image builders to describe.
 --
--- 'maxResults', 'describeImageBuilders_maxResults' - The maximum size of each page of results.
+-- 'nextToken', 'describeImageBuilders_nextToken' - The pagination token to use to retrieve the next page of results for
+-- this operation. If this value is null, it retrieves the first page.
 newDescribeImageBuilders ::
   DescribeImageBuilders
 newDescribeImageBuilders =
   DescribeImageBuilders'
-    { nextToken = Prelude.Nothing,
+    { maxResults =
+        Prelude.Nothing,
       names = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
 
--- | The pagination token to use to retrieve the next page of results for
--- this operation. If this value is null, it retrieves the first page.
-describeImageBuilders_nextToken :: Lens.Lens' DescribeImageBuilders (Prelude.Maybe Prelude.Text)
-describeImageBuilders_nextToken = Lens.lens (\DescribeImageBuilders' {nextToken} -> nextToken) (\s@DescribeImageBuilders' {} a -> s {nextToken = a} :: DescribeImageBuilders)
+-- | The maximum size of each page of results.
+describeImageBuilders_maxResults :: Lens.Lens' DescribeImageBuilders (Prelude.Maybe Prelude.Int)
+describeImageBuilders_maxResults = Lens.lens (\DescribeImageBuilders' {maxResults} -> maxResults) (\s@DescribeImageBuilders' {} a -> s {maxResults = a} :: DescribeImageBuilders)
 
 -- | The names of the image builders to describe.
 describeImageBuilders_names :: Lens.Lens' DescribeImageBuilders (Prelude.Maybe [Prelude.Text])
 describeImageBuilders_names = Lens.lens (\DescribeImageBuilders' {names} -> names) (\s@DescribeImageBuilders' {} a -> s {names = a} :: DescribeImageBuilders) Prelude.. Lens.mapping Lens.coerced
 
--- | The maximum size of each page of results.
-describeImageBuilders_maxResults :: Lens.Lens' DescribeImageBuilders (Prelude.Maybe Prelude.Int)
-describeImageBuilders_maxResults = Lens.lens (\DescribeImageBuilders' {maxResults} -> maxResults) (\s@DescribeImageBuilders' {} a -> s {maxResults = a} :: DescribeImageBuilders)
+-- | The pagination token to use to retrieve the next page of results for
+-- this operation. If this value is null, it retrieves the first page.
+describeImageBuilders_nextToken :: Lens.Lens' DescribeImageBuilders (Prelude.Maybe Prelude.Text)
+describeImageBuilders_nextToken = Lens.lens (\DescribeImageBuilders' {nextToken} -> nextToken) (\s@DescribeImageBuilders' {} a -> s {nextToken = a} :: DescribeImageBuilders)
 
 instance Core.AWSPager DescribeImageBuilders where
   page rq rs
@@ -134,22 +135,22 @@ instance Core.AWSRequest DescribeImageBuilders where
     Response.receiveJSON
       ( \s h x ->
           DescribeImageBuildersResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "ImageBuilders" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "ImageBuilders" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeImageBuilders where
   hashWithSalt _salt DescribeImageBuilders' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` names
-      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeImageBuilders where
   rnf DescribeImageBuilders' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf names
-      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeImageBuilders where
   toHeaders =
@@ -170,9 +171,9 @@ instance Data.ToJSON DescribeImageBuilders where
   toJSON DescribeImageBuilders' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("Names" Data..=) Prelude.<$> names,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -184,11 +185,11 @@ instance Data.ToQuery DescribeImageBuilders where
 
 -- | /See:/ 'newDescribeImageBuildersResponse' smart constructor.
 data DescribeImageBuildersResponse = DescribeImageBuildersResponse'
-  { -- | The pagination token to use to retrieve the next page of results for
+  { -- | Information about the image builders.
+    imageBuilders :: Prelude.Maybe [ImageBuilder],
+    -- | The pagination token to use to retrieve the next page of results for
     -- this operation. If there are no more pages, this value is null.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the image builders.
-    imageBuilders :: Prelude.Maybe [ImageBuilder],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -202,10 +203,10 @@ data DescribeImageBuildersResponse = DescribeImageBuildersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'imageBuilders', 'describeImageBuildersResponse_imageBuilders' - Information about the image builders.
+--
 -- 'nextToken', 'describeImageBuildersResponse_nextToken' - The pagination token to use to retrieve the next page of results for
 -- this operation. If there are no more pages, this value is null.
---
--- 'imageBuilders', 'describeImageBuildersResponse_imageBuilders' - Information about the image builders.
 --
 -- 'httpStatus', 'describeImageBuildersResponse_httpStatus' - The response's http status code.
 newDescribeImageBuildersResponse ::
@@ -214,20 +215,20 @@ newDescribeImageBuildersResponse ::
   DescribeImageBuildersResponse
 newDescribeImageBuildersResponse pHttpStatus_ =
   DescribeImageBuildersResponse'
-    { nextToken =
+    { imageBuilders =
         Prelude.Nothing,
-      imageBuilders = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about the image builders.
+describeImageBuildersResponse_imageBuilders :: Lens.Lens' DescribeImageBuildersResponse (Prelude.Maybe [ImageBuilder])
+describeImageBuildersResponse_imageBuilders = Lens.lens (\DescribeImageBuildersResponse' {imageBuilders} -> imageBuilders) (\s@DescribeImageBuildersResponse' {} a -> s {imageBuilders = a} :: DescribeImageBuildersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token to use to retrieve the next page of results for
 -- this operation. If there are no more pages, this value is null.
 describeImageBuildersResponse_nextToken :: Lens.Lens' DescribeImageBuildersResponse (Prelude.Maybe Prelude.Text)
 describeImageBuildersResponse_nextToken = Lens.lens (\DescribeImageBuildersResponse' {nextToken} -> nextToken) (\s@DescribeImageBuildersResponse' {} a -> s {nextToken = a} :: DescribeImageBuildersResponse)
-
--- | Information about the image builders.
-describeImageBuildersResponse_imageBuilders :: Lens.Lens' DescribeImageBuildersResponse (Prelude.Maybe [ImageBuilder])
-describeImageBuildersResponse_imageBuilders = Lens.lens (\DescribeImageBuildersResponse' {imageBuilders} -> imageBuilders) (\s@DescribeImageBuildersResponse' {} a -> s {imageBuilders = a} :: DescribeImageBuildersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeImageBuildersResponse_httpStatus :: Lens.Lens' DescribeImageBuildersResponse Prelude.Int
@@ -235,6 +236,6 @@ describeImageBuildersResponse_httpStatus = Lens.lens (\DescribeImageBuildersResp
 
 instance Prelude.NFData DescribeImageBuildersResponse where
   rnf DescribeImageBuildersResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf imageBuilders
+    Prelude.rnf imageBuilders
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

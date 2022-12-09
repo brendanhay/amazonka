@@ -36,10 +36,10 @@ module Amazonka.AppStream.CreateApplication
     newCreateApplication,
 
     -- * Request Lenses
-    createApplication_tags,
-    createApplication_displayName,
     createApplication_description,
+    createApplication_displayName,
     createApplication_launchParameters,
+    createApplication_tags,
     createApplication_workingDirectory,
     createApplication_name,
     createApplication_iconS3Location,
@@ -68,15 +68,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateApplication' smart constructor.
 data CreateApplication = CreateApplication'
-  { -- | The tags assigned to the application.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | The description of the application.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The display name of the application. This name is visible to users in
     -- the application catalog.
     displayName :: Prelude.Maybe Prelude.Text,
-    -- | The description of the application.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The launch parameters of the application.
     launchParameters :: Prelude.Maybe Prelude.Text,
+    -- | The tags assigned to the application.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The working directory of the application.
     workingDirectory :: Prelude.Maybe Prelude.Text,
     -- | The name of the application. This name is visible to users when display
@@ -105,14 +105,14 @@ data CreateApplication = CreateApplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createApplication_tags' - The tags assigned to the application.
+-- 'description', 'createApplication_description' - The description of the application.
 --
 -- 'displayName', 'createApplication_displayName' - The display name of the application. This name is visible to users in
 -- the application catalog.
 --
--- 'description', 'createApplication_description' - The description of the application.
---
 -- 'launchParameters', 'createApplication_launchParameters' - The launch parameters of the application.
+--
+-- 'tags', 'createApplication_tags' - The tags assigned to the application.
 --
 -- 'workingDirectory', 'createApplication_workingDirectory' - The working directory of the application.
 --
@@ -146,10 +146,10 @@ newCreateApplication
   pLaunchPath_
   pAppBlockArn_ =
     CreateApplication'
-      { tags = Prelude.Nothing,
+      { description = Prelude.Nothing,
         displayName = Prelude.Nothing,
-        description = Prelude.Nothing,
         launchParameters = Prelude.Nothing,
+        tags = Prelude.Nothing,
         workingDirectory = Prelude.Nothing,
         name = pName_,
         iconS3Location = pIconS3Location_,
@@ -159,22 +159,22 @@ newCreateApplication
         appBlockArn = pAppBlockArn_
       }
 
--- | The tags assigned to the application.
-createApplication_tags :: Lens.Lens' CreateApplication (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createApplication_tags = Lens.lens (\CreateApplication' {tags} -> tags) (\s@CreateApplication' {} a -> s {tags = a} :: CreateApplication) Prelude.. Lens.mapping Lens.coerced
+-- | The description of the application.
+createApplication_description :: Lens.Lens' CreateApplication (Prelude.Maybe Prelude.Text)
+createApplication_description = Lens.lens (\CreateApplication' {description} -> description) (\s@CreateApplication' {} a -> s {description = a} :: CreateApplication)
 
 -- | The display name of the application. This name is visible to users in
 -- the application catalog.
 createApplication_displayName :: Lens.Lens' CreateApplication (Prelude.Maybe Prelude.Text)
 createApplication_displayName = Lens.lens (\CreateApplication' {displayName} -> displayName) (\s@CreateApplication' {} a -> s {displayName = a} :: CreateApplication)
 
--- | The description of the application.
-createApplication_description :: Lens.Lens' CreateApplication (Prelude.Maybe Prelude.Text)
-createApplication_description = Lens.lens (\CreateApplication' {description} -> description) (\s@CreateApplication' {} a -> s {description = a} :: CreateApplication)
-
 -- | The launch parameters of the application.
 createApplication_launchParameters :: Lens.Lens' CreateApplication (Prelude.Maybe Prelude.Text)
 createApplication_launchParameters = Lens.lens (\CreateApplication' {launchParameters} -> launchParameters) (\s@CreateApplication' {} a -> s {launchParameters = a} :: CreateApplication)
+
+-- | The tags assigned to the application.
+createApplication_tags :: Lens.Lens' CreateApplication (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createApplication_tags = Lens.lens (\CreateApplication' {tags} -> tags) (\s@CreateApplication' {} a -> s {tags = a} :: CreateApplication) Prelude.. Lens.mapping Lens.coerced
 
 -- | The working directory of the application.
 createApplication_workingDirectory :: Lens.Lens' CreateApplication (Prelude.Maybe Prelude.Text)
@@ -223,10 +223,10 @@ instance Core.AWSRequest CreateApplication where
 
 instance Prelude.Hashable CreateApplication where
   hashWithSalt _salt CreateApplication' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` displayName
-      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` launchParameters
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` workingDirectory
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` iconS3Location
@@ -237,10 +237,10 @@ instance Prelude.Hashable CreateApplication where
 
 instance Prelude.NFData CreateApplication where
   rnf CreateApplication' {..} =
-    Prelude.rnf tags
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf launchParameters
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf workingDirectory
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf iconS3Location
@@ -268,11 +268,11 @@ instance Data.ToJSON CreateApplication where
   toJSON CreateApplication' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
+          [ ("Description" Data..=) Prelude.<$> description,
             ("DisplayName" Data..=) Prelude.<$> displayName,
-            ("Description" Data..=) Prelude.<$> description,
             ("LaunchParameters" Data..=)
               Prelude.<$> launchParameters,
+            ("Tags" Data..=) Prelude.<$> tags,
             ("WorkingDirectory" Data..=)
               Prelude.<$> workingDirectory,
             Prelude.Just ("Name" Data..= name),

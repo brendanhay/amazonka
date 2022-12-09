@@ -38,8 +38,8 @@ module Amazonka.AppStream.ListAssociatedFleets
     newListAssociatedFleetsResponse,
 
     -- * Response Lenses
-    listAssociatedFleetsResponse_nextToken,
     listAssociatedFleetsResponse_names,
+    listAssociatedFleetsResponse_nextToken,
     listAssociatedFleetsResponse_httpStatus,
   )
 where
@@ -125,8 +125,8 @@ instance Core.AWSRequest ListAssociatedFleets where
     Response.receiveJSON
       ( \s h x ->
           ListAssociatedFleetsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Names" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Names" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -172,11 +172,11 @@ instance Data.ToQuery ListAssociatedFleets where
 
 -- | /See:/ 'newListAssociatedFleetsResponse' smart constructor.
 data ListAssociatedFleetsResponse = ListAssociatedFleetsResponse'
-  { -- | The pagination token to use to retrieve the next page of results for
+  { -- | The name of the fleet.
+    names :: Prelude.Maybe [Prelude.Text],
+    -- | The pagination token to use to retrieve the next page of results for
     -- this operation. If there are no more pages, this value is null.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The name of the fleet.
-    names :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -190,10 +190,10 @@ data ListAssociatedFleetsResponse = ListAssociatedFleetsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'names', 'listAssociatedFleetsResponse_names' - The name of the fleet.
+--
 -- 'nextToken', 'listAssociatedFleetsResponse_nextToken' - The pagination token to use to retrieve the next page of results for
 -- this operation. If there are no more pages, this value is null.
---
--- 'names', 'listAssociatedFleetsResponse_names' - The name of the fleet.
 --
 -- 'httpStatus', 'listAssociatedFleetsResponse_httpStatus' - The response's http status code.
 newListAssociatedFleetsResponse ::
@@ -202,20 +202,20 @@ newListAssociatedFleetsResponse ::
   ListAssociatedFleetsResponse
 newListAssociatedFleetsResponse pHttpStatus_ =
   ListAssociatedFleetsResponse'
-    { nextToken =
+    { names =
         Prelude.Nothing,
-      names = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The name of the fleet.
+listAssociatedFleetsResponse_names :: Lens.Lens' ListAssociatedFleetsResponse (Prelude.Maybe [Prelude.Text])
+listAssociatedFleetsResponse_names = Lens.lens (\ListAssociatedFleetsResponse' {names} -> names) (\s@ListAssociatedFleetsResponse' {} a -> s {names = a} :: ListAssociatedFleetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token to use to retrieve the next page of results for
 -- this operation. If there are no more pages, this value is null.
 listAssociatedFleetsResponse_nextToken :: Lens.Lens' ListAssociatedFleetsResponse (Prelude.Maybe Prelude.Text)
 listAssociatedFleetsResponse_nextToken = Lens.lens (\ListAssociatedFleetsResponse' {nextToken} -> nextToken) (\s@ListAssociatedFleetsResponse' {} a -> s {nextToken = a} :: ListAssociatedFleetsResponse)
-
--- | The name of the fleet.
-listAssociatedFleetsResponse_names :: Lens.Lens' ListAssociatedFleetsResponse (Prelude.Maybe [Prelude.Text])
-listAssociatedFleetsResponse_names = Lens.lens (\ListAssociatedFleetsResponse' {names} -> names) (\s@ListAssociatedFleetsResponse' {} a -> s {names = a} :: ListAssociatedFleetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listAssociatedFleetsResponse_httpStatus :: Lens.Lens' ListAssociatedFleetsResponse Prelude.Int
@@ -223,6 +223,6 @@ listAssociatedFleetsResponse_httpStatus = Lens.lens (\ListAssociatedFleetsRespon
 
 instance Prelude.NFData ListAssociatedFleetsResponse where
   rnf ListAssociatedFleetsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf names
+    Prelude.rnf names
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -28,8 +28,8 @@ module Amazonka.AppStream.DescribeImagePermissions
     newDescribeImagePermissions,
 
     -- * Request Lenses
-    describeImagePermissions_nextToken,
     describeImagePermissions_maxResults,
+    describeImagePermissions_nextToken,
     describeImagePermissions_sharedAwsAccountIds,
     describeImagePermissions_name,
 
@@ -55,11 +55,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeImagePermissions' smart constructor.
 data DescribeImagePermissions = DescribeImagePermissions'
-  { -- | The pagination token to use to retrieve the next page of results for
+  { -- | The maximum size of each page of results.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token to use to retrieve the next page of results for
     -- this operation. If this value is null, it retrieves the first page.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum size of each page of results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The 12-digit identifier of one or more AWS accounts with which the image
     -- is shared.
     sharedAwsAccountIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
@@ -77,10 +77,10 @@ data DescribeImagePermissions = DescribeImagePermissions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'describeImagePermissions_maxResults' - The maximum size of each page of results.
+--
 -- 'nextToken', 'describeImagePermissions_nextToken' - The pagination token to use to retrieve the next page of results for
 -- this operation. If this value is null, it retrieves the first page.
---
--- 'maxResults', 'describeImagePermissions_maxResults' - The maximum size of each page of results.
 --
 -- 'sharedAwsAccountIds', 'describeImagePermissions_sharedAwsAccountIds' - The 12-digit identifier of one or more AWS accounts with which the image
 -- is shared.
@@ -93,21 +93,21 @@ newDescribeImagePermissions ::
   DescribeImagePermissions
 newDescribeImagePermissions pName_ =
   DescribeImagePermissions'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       sharedAwsAccountIds = Prelude.Nothing,
       name = pName_
     }
+
+-- | The maximum size of each page of results.
+describeImagePermissions_maxResults :: Lens.Lens' DescribeImagePermissions (Prelude.Maybe Prelude.Natural)
+describeImagePermissions_maxResults = Lens.lens (\DescribeImagePermissions' {maxResults} -> maxResults) (\s@DescribeImagePermissions' {} a -> s {maxResults = a} :: DescribeImagePermissions)
 
 -- | The pagination token to use to retrieve the next page of results for
 -- this operation. If this value is null, it retrieves the first page.
 describeImagePermissions_nextToken :: Lens.Lens' DescribeImagePermissions (Prelude.Maybe Prelude.Text)
 describeImagePermissions_nextToken = Lens.lens (\DescribeImagePermissions' {nextToken} -> nextToken) (\s@DescribeImagePermissions' {} a -> s {nextToken = a} :: DescribeImagePermissions)
-
--- | The maximum size of each page of results.
-describeImagePermissions_maxResults :: Lens.Lens' DescribeImagePermissions (Prelude.Maybe Prelude.Natural)
-describeImagePermissions_maxResults = Lens.lens (\DescribeImagePermissions' {maxResults} -> maxResults) (\s@DescribeImagePermissions' {} a -> s {maxResults = a} :: DescribeImagePermissions)
 
 -- | The 12-digit identifier of one or more AWS accounts with which the image
 -- is shared.
@@ -139,15 +139,15 @@ instance Core.AWSRequest DescribeImagePermissions where
 
 instance Prelude.Hashable DescribeImagePermissions where
   hashWithSalt _salt DescribeImagePermissions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sharedAwsAccountIds
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData DescribeImagePermissions where
   rnf DescribeImagePermissions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf sharedAwsAccountIds
       `Prelude.seq` Prelude.rnf name
 
@@ -170,8 +170,8 @@ instance Data.ToJSON DescribeImagePermissions where
   toJSON DescribeImagePermissions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("SharedAwsAccountIds" Data..=)
               Prelude.<$> sharedAwsAccountIds,
             Prelude.Just ("Name" Data..= name)

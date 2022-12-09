@@ -35,8 +35,6 @@ data Session = Session'
   { -- | The authentication method. The user is authenticated using a streaming
     -- URL (@API@) or SAML 2.0 federation (@SAML@).
     authenticationType :: Prelude.Maybe AuthenticationType,
-    -- | The network details for the streaming session.
-    networkAccessConfiguration :: Prelude.Maybe NetworkAccessConfiguration,
     -- | Specifies whether a user is connected to the streaming session.
     connectionState :: Prelude.Maybe SessionConnectionState,
     -- | The time when the streaming session is set to expire. This time is based
@@ -48,6 +46,8 @@ data Session = Session'
     -- user chooses to end his or her session, the streaming instance is
     -- terminated and the streaming session ends.
     maxExpirationTime :: Prelude.Maybe Data.POSIX,
+    -- | The network details for the streaming session.
+    networkAccessConfiguration :: Prelude.Maybe NetworkAccessConfiguration,
     -- | The time when a streaming instance is dedicated for the user.
     startTime :: Prelude.Maybe Data.POSIX,
     -- | The identifier of the streaming session.
@@ -74,8 +74,6 @@ data Session = Session'
 -- 'authenticationType', 'session_authenticationType' - The authentication method. The user is authenticated using a streaming
 -- URL (@API@) or SAML 2.0 federation (@SAML@).
 --
--- 'networkAccessConfiguration', 'session_networkAccessConfiguration' - The network details for the streaming session.
---
 -- 'connectionState', 'session_connectionState' - Specifies whether a user is connected to the streaming session.
 --
 -- 'maxExpirationTime', 'session_maxExpirationTime' - The time when the streaming session is set to expire. This time is based
@@ -86,6 +84,8 @@ data Session = Session'
 -- his or her session. If the @DisconnectTimeOutInSeconds@ elapses, or the
 -- user chooses to end his or her session, the streaming instance is
 -- terminated and the streaming session ends.
+--
+-- 'networkAccessConfiguration', 'session_networkAccessConfiguration' - The network details for the streaming session.
 --
 -- 'startTime', 'session_startTime' - The time when a streaming instance is dedicated for the user.
 --
@@ -118,9 +118,9 @@ newSession
   pState_ =
     Session'
       { authenticationType = Prelude.Nothing,
-        networkAccessConfiguration = Prelude.Nothing,
         connectionState = Prelude.Nothing,
         maxExpirationTime = Prelude.Nothing,
+        networkAccessConfiguration = Prelude.Nothing,
         startTime = Prelude.Nothing,
         id = pId_,
         userId = pUserId_,
@@ -133,10 +133,6 @@ newSession
 -- URL (@API@) or SAML 2.0 federation (@SAML@).
 session_authenticationType :: Lens.Lens' Session (Prelude.Maybe AuthenticationType)
 session_authenticationType = Lens.lens (\Session' {authenticationType} -> authenticationType) (\s@Session' {} a -> s {authenticationType = a} :: Session)
-
--- | The network details for the streaming session.
-session_networkAccessConfiguration :: Lens.Lens' Session (Prelude.Maybe NetworkAccessConfiguration)
-session_networkAccessConfiguration = Lens.lens (\Session' {networkAccessConfiguration} -> networkAccessConfiguration) (\s@Session' {} a -> s {networkAccessConfiguration = a} :: Session)
 
 -- | Specifies whether a user is connected to the streaming session.
 session_connectionState :: Lens.Lens' Session (Prelude.Maybe SessionConnectionState)
@@ -152,6 +148,10 @@ session_connectionState = Lens.lens (\Session' {connectionState} -> connectionSt
 -- terminated and the streaming session ends.
 session_maxExpirationTime :: Lens.Lens' Session (Prelude.Maybe Prelude.UTCTime)
 session_maxExpirationTime = Lens.lens (\Session' {maxExpirationTime} -> maxExpirationTime) (\s@Session' {} a -> s {maxExpirationTime = a} :: Session) Prelude.. Lens.mapping Data._Time
+
+-- | The network details for the streaming session.
+session_networkAccessConfiguration :: Lens.Lens' Session (Prelude.Maybe NetworkAccessConfiguration)
+session_networkAccessConfiguration = Lens.lens (\Session' {networkAccessConfiguration} -> networkAccessConfiguration) (\s@Session' {} a -> s {networkAccessConfiguration = a} :: Session)
 
 -- | The time when a streaming instance is dedicated for the user.
 session_startTime :: Lens.Lens' Session (Prelude.Maybe Prelude.UTCTime)
@@ -184,9 +184,9 @@ instance Data.FromJSON Session where
       ( \x ->
           Session'
             Prelude.<$> (x Data..:? "AuthenticationType")
-            Prelude.<*> (x Data..:? "NetworkAccessConfiguration")
             Prelude.<*> (x Data..:? "ConnectionState")
             Prelude.<*> (x Data..:? "MaxExpirationTime")
+            Prelude.<*> (x Data..:? "NetworkAccessConfiguration")
             Prelude.<*> (x Data..:? "StartTime")
             Prelude.<*> (x Data..: "Id")
             Prelude.<*> (x Data..: "UserId")
@@ -198,9 +198,9 @@ instance Data.FromJSON Session where
 instance Prelude.Hashable Session where
   hashWithSalt _salt Session' {..} =
     _salt `Prelude.hashWithSalt` authenticationType
-      `Prelude.hashWithSalt` networkAccessConfiguration
       `Prelude.hashWithSalt` connectionState
       `Prelude.hashWithSalt` maxExpirationTime
+      `Prelude.hashWithSalt` networkAccessConfiguration
       `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` userId
@@ -211,9 +211,9 @@ instance Prelude.Hashable Session where
 instance Prelude.NFData Session where
   rnf Session' {..} =
     Prelude.rnf authenticationType
-      `Prelude.seq` Prelude.rnf networkAccessConfiguration
       `Prelude.seq` Prelude.rnf connectionState
       `Prelude.seq` Prelude.rnf maxExpirationTime
+      `Prelude.seq` Prelude.rnf networkAccessConfiguration
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf userId

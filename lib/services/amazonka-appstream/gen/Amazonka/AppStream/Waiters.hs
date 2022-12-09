@@ -25,47 +25,6 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Polls 'Amazonka.AppStream.DescribeFleets' every 30 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newFleetStopped :: Core.Wait DescribeFleets
-newFleetStopped =
-  Core.Wait
-    { Core.name = "FleetStopped",
-      Core.attempts = 40,
-      Core.delay = 30,
-      Core.acceptors =
-        [ Core.matchAll
-            "INACTIVE"
-            Core.AcceptSuccess
-            ( Lens.folding
-                ( Lens.concatOf
-                    (describeFleetsResponse_fleets Prelude.. Lens._Just)
-                )
-                Prelude.. fleet_state
-                Prelude.. Lens.to Data.toTextCI
-            ),
-          Core.matchAny
-            "PENDING_ACTIVATE"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    (describeFleetsResponse_fleets Prelude.. Lens._Just)
-                )
-                Prelude.. fleet_state
-                Prelude.. Lens.to Data.toTextCI
-            ),
-          Core.matchAny
-            "ACTIVE"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    (describeFleetsResponse_fleets Prelude.. Lens._Just)
-                )
-                Prelude.. fleet_state
-                Prelude.. Lens.to Data.toTextCI
-            )
-        ]
-    }
-
--- | Polls 'Amazonka.AppStream.DescribeFleets' every 30 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newFleetStarted :: Core.Wait DescribeFleets
 newFleetStarted =
   Core.Wait
@@ -95,6 +54,47 @@ newFleetStarted =
             ),
           Core.matchAny
             "INACTIVE"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    (describeFleetsResponse_fleets Prelude.. Lens._Just)
+                )
+                Prelude.. fleet_state
+                Prelude.. Lens.to Data.toTextCI
+            )
+        ]
+    }
+
+-- | Polls 'Amazonka.AppStream.DescribeFleets' every 30 seconds until a successful state is reached. An error is returned after 40 failed checks.
+newFleetStopped :: Core.Wait DescribeFleets
+newFleetStopped =
+  Core.Wait
+    { Core.name = "FleetStopped",
+      Core.attempts = 40,
+      Core.delay = 30,
+      Core.acceptors =
+        [ Core.matchAll
+            "INACTIVE"
+            Core.AcceptSuccess
+            ( Lens.folding
+                ( Lens.concatOf
+                    (describeFleetsResponse_fleets Prelude.. Lens._Just)
+                )
+                Prelude.. fleet_state
+                Prelude.. Lens.to Data.toTextCI
+            ),
+          Core.matchAny
+            "PENDING_ACTIVATE"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    (describeFleetsResponse_fleets Prelude.. Lens._Just)
+                )
+                Prelude.. fleet_state
+                Prelude.. Lens.to Data.toTextCI
+            ),
+          Core.matchAny
+            "ACTIVE"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf

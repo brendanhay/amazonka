@@ -30,8 +30,8 @@ module Amazonka.AppStream.DescribeUsers
     newDescribeUsers,
 
     -- * Request Lenses
-    describeUsers_nextToken,
     describeUsers_maxResults,
+    describeUsers_nextToken,
     describeUsers_authenticationType,
 
     -- * Destructuring the Response
@@ -55,11 +55,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeUsers' smart constructor.
 data DescribeUsers = DescribeUsers'
-  { -- | The pagination token to use to retrieve the next page of results for
+  { -- | The maximum size of each page of results.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The pagination token to use to retrieve the next page of results for
     -- this operation. If this value is null, it retrieves the first page.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum size of each page of results.
-    maxResults :: Prelude.Maybe Prelude.Int,
     -- | The authentication type for the users in the user pool to describe. You
     -- must specify USERPOOL.
     authenticationType :: AuthenticationType
@@ -74,10 +74,10 @@ data DescribeUsers = DescribeUsers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'describeUsers_maxResults' - The maximum size of each page of results.
+--
 -- 'nextToken', 'describeUsers_nextToken' - The pagination token to use to retrieve the next page of results for
 -- this operation. If this value is null, it retrieves the first page.
---
--- 'maxResults', 'describeUsers_maxResults' - The maximum size of each page of results.
 --
 -- 'authenticationType', 'describeUsers_authenticationType' - The authentication type for the users in the user pool to describe. You
 -- must specify USERPOOL.
@@ -87,19 +87,19 @@ newDescribeUsers ::
   DescribeUsers
 newDescribeUsers pAuthenticationType_ =
   DescribeUsers'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       authenticationType = pAuthenticationType_
     }
+
+-- | The maximum size of each page of results.
+describeUsers_maxResults :: Lens.Lens' DescribeUsers (Prelude.Maybe Prelude.Int)
+describeUsers_maxResults = Lens.lens (\DescribeUsers' {maxResults} -> maxResults) (\s@DescribeUsers' {} a -> s {maxResults = a} :: DescribeUsers)
 
 -- | The pagination token to use to retrieve the next page of results for
 -- this operation. If this value is null, it retrieves the first page.
 describeUsers_nextToken :: Lens.Lens' DescribeUsers (Prelude.Maybe Prelude.Text)
 describeUsers_nextToken = Lens.lens (\DescribeUsers' {nextToken} -> nextToken) (\s@DescribeUsers' {} a -> s {nextToken = a} :: DescribeUsers)
-
--- | The maximum size of each page of results.
-describeUsers_maxResults :: Lens.Lens' DescribeUsers (Prelude.Maybe Prelude.Int)
-describeUsers_maxResults = Lens.lens (\DescribeUsers' {maxResults} -> maxResults) (\s@DescribeUsers' {} a -> s {maxResults = a} :: DescribeUsers)
 
 -- | The authentication type for the users in the user pool to describe. You
 -- must specify USERPOOL.
@@ -142,14 +142,14 @@ instance Core.AWSRequest DescribeUsers where
 
 instance Prelude.Hashable DescribeUsers where
   hashWithSalt _salt DescribeUsers' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` authenticationType
 
 instance Prelude.NFData DescribeUsers where
   rnf DescribeUsers' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf authenticationType
 
 instance Data.ToHeaders DescribeUsers where
@@ -171,8 +171,8 @@ instance Data.ToJSON DescribeUsers where
   toJSON DescribeUsers' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("AuthenticationType" Data..= authenticationType)
           ]

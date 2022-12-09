@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResourceError' smart constructor.
 data ResourceError = ResourceError'
-  { -- | The error message.
+  { -- | The error code.
+    errorCode :: Prelude.Maybe FleetErrorCode,
+    -- | The error message.
     errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The time the error occurred.
-    errorTimestamp :: Prelude.Maybe Data.POSIX,
-    -- | The error code.
-    errorCode :: Prelude.Maybe FleetErrorCode
+    errorTimestamp :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,19 +46,23 @@ data ResourceError = ResourceError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'errorCode', 'resourceError_errorCode' - The error code.
+--
 -- 'errorMessage', 'resourceError_errorMessage' - The error message.
 --
 -- 'errorTimestamp', 'resourceError_errorTimestamp' - The time the error occurred.
---
--- 'errorCode', 'resourceError_errorCode' - The error code.
 newResourceError ::
   ResourceError
 newResourceError =
   ResourceError'
-    { errorMessage = Prelude.Nothing,
-      errorTimestamp = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+    { errorCode = Prelude.Nothing,
+      errorMessage = Prelude.Nothing,
+      errorTimestamp = Prelude.Nothing
     }
+
+-- | The error code.
+resourceError_errorCode :: Lens.Lens' ResourceError (Prelude.Maybe FleetErrorCode)
+resourceError_errorCode = Lens.lens (\ResourceError' {errorCode} -> errorCode) (\s@ResourceError' {} a -> s {errorCode = a} :: ResourceError)
 
 -- | The error message.
 resourceError_errorMessage :: Lens.Lens' ResourceError (Prelude.Maybe Prelude.Text)
@@ -68,29 +72,25 @@ resourceError_errorMessage = Lens.lens (\ResourceError' {errorMessage} -> errorM
 resourceError_errorTimestamp :: Lens.Lens' ResourceError (Prelude.Maybe Prelude.UTCTime)
 resourceError_errorTimestamp = Lens.lens (\ResourceError' {errorTimestamp} -> errorTimestamp) (\s@ResourceError' {} a -> s {errorTimestamp = a} :: ResourceError) Prelude.. Lens.mapping Data._Time
 
--- | The error code.
-resourceError_errorCode :: Lens.Lens' ResourceError (Prelude.Maybe FleetErrorCode)
-resourceError_errorCode = Lens.lens (\ResourceError' {errorCode} -> errorCode) (\s@ResourceError' {} a -> s {errorCode = a} :: ResourceError)
-
 instance Data.FromJSON ResourceError where
   parseJSON =
     Data.withObject
       "ResourceError"
       ( \x ->
           ResourceError'
-            Prelude.<$> (x Data..:? "ErrorMessage")
+            Prelude.<$> (x Data..:? "ErrorCode")
+            Prelude.<*> (x Data..:? "ErrorMessage")
             Prelude.<*> (x Data..:? "ErrorTimestamp")
-            Prelude.<*> (x Data..:? "ErrorCode")
       )
 
 instance Prelude.Hashable ResourceError where
   hashWithSalt _salt ResourceError' {..} =
-    _salt `Prelude.hashWithSalt` errorMessage
+    _salt `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` errorTimestamp
-      `Prelude.hashWithSalt` errorCode
 
 instance Prelude.NFData ResourceError where
   rnf ResourceError' {..} =
-    Prelude.rnf errorMessage
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage
       `Prelude.seq` Prelude.rnf errorTimestamp
-      `Prelude.seq` Prelude.rnf errorCode

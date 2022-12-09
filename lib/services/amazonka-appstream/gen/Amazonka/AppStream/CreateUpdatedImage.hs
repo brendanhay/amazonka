@@ -33,10 +33,10 @@ module Amazonka.AppStream.CreateUpdatedImage
     newCreateUpdatedImage,
 
     -- * Request Lenses
-    createUpdatedImage_newImageTags,
     createUpdatedImage_dryRun,
     createUpdatedImage_newImageDescription,
     createUpdatedImage_newImageDisplayName,
+    createUpdatedImage_newImageTags,
     createUpdatedImage_existingImageName,
     createUpdatedImage_newImageName,
 
@@ -61,7 +61,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateUpdatedImage' smart constructor.
 data CreateUpdatedImage = CreateUpdatedImage'
-  { -- | The tags to associate with the new image. A tag is a key-value pair, and
+  { -- | Indicates whether to display the status of image update availability
+    -- before AppStream 2.0 initiates the process of creating a new updated
+    -- image. If this value is set to @true@, AppStream 2.0 displays whether
+    -- image updates are available. If this value is set to @false@, AppStream
+    -- 2.0 initiates the process of creating a new updated image without
+    -- displaying whether image updates are available.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The description to display for the new image.
+    newImageDescription' :: Prelude.Maybe Prelude.Text,
+    -- | The name to display for the new image.
+    newImageDisplayName' :: Prelude.Maybe Prelude.Text,
+    -- | The tags to associate with the new image. A tag is a key-value pair, and
     -- the value is optional. For example, Environment=Test. If you do not
     -- specify a value, Environment=.
     --
@@ -76,17 +87,6 @@ data CreateUpdatedImage = CreateUpdatedImage'
     -- <https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html Tagging Your Resources>
     -- in the /Amazon AppStream 2.0 Administration Guide/.
     newImageTags' :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Indicates whether to display the status of image update availability
-    -- before AppStream 2.0 initiates the process of creating a new updated
-    -- image. If this value is set to @true@, AppStream 2.0 displays whether
-    -- image updates are available. If this value is set to @false@, AppStream
-    -- 2.0 initiates the process of creating a new updated image without
-    -- displaying whether image updates are available.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The description to display for the new image.
-    newImageDescription' :: Prelude.Maybe Prelude.Text,
-    -- | The name to display for the new image.
-    newImageDisplayName' :: Prelude.Maybe Prelude.Text,
     -- | The name of the image to update.
     existingImageName :: Prelude.Text,
     -- | The name of the new image. The name must be unique within the AWS
@@ -103,6 +103,17 @@ data CreateUpdatedImage = CreateUpdatedImage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dryRun', 'createUpdatedImage_dryRun' - Indicates whether to display the status of image update availability
+-- before AppStream 2.0 initiates the process of creating a new updated
+-- image. If this value is set to @true@, AppStream 2.0 displays whether
+-- image updates are available. If this value is set to @false@, AppStream
+-- 2.0 initiates the process of creating a new updated image without
+-- displaying whether image updates are available.
+--
+-- 'newImageDescription'', 'createUpdatedImage_newImageDescription' - The description to display for the new image.
+--
+-- 'newImageDisplayName'', 'createUpdatedImage_newImageDisplayName' - The name to display for the new image.
+--
 -- 'newImageTags'', 'createUpdatedImage_newImageTags' - The tags to associate with the new image. A tag is a key-value pair, and
 -- the value is optional. For example, Environment=Test. If you do not
 -- specify a value, Environment=.
@@ -118,17 +129,6 @@ data CreateUpdatedImage = CreateUpdatedImage'
 -- <https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html Tagging Your Resources>
 -- in the /Amazon AppStream 2.0 Administration Guide/.
 --
--- 'dryRun', 'createUpdatedImage_dryRun' - Indicates whether to display the status of image update availability
--- before AppStream 2.0 initiates the process of creating a new updated
--- image. If this value is set to @true@, AppStream 2.0 displays whether
--- image updates are available. If this value is set to @false@, AppStream
--- 2.0 initiates the process of creating a new updated image without
--- displaying whether image updates are available.
---
--- 'newImageDescription'', 'createUpdatedImage_newImageDescription' - The description to display for the new image.
---
--- 'newImageDisplayName'', 'createUpdatedImage_newImageDisplayName' - The name to display for the new image.
---
 -- 'existingImageName', 'createUpdatedImage_existingImageName' - The name of the image to update.
 --
 -- 'newImageName'', 'createUpdatedImage_newImageName' - The name of the new image. The name must be unique within the AWS
@@ -143,31 +143,13 @@ newCreateUpdatedImage
   pExistingImageName_
   pNewImageName_ =
     CreateUpdatedImage'
-      { newImageTags' =
-          Prelude.Nothing,
-        dryRun = Prelude.Nothing,
+      { dryRun = Prelude.Nothing,
         newImageDescription' = Prelude.Nothing,
         newImageDisplayName' = Prelude.Nothing,
+        newImageTags' = Prelude.Nothing,
         existingImageName = pExistingImageName_,
         newImageName' = pNewImageName_
       }
-
--- | The tags to associate with the new image. A tag is a key-value pair, and
--- the value is optional. For example, Environment=Test. If you do not
--- specify a value, Environment=.
---
--- Generally allowed characters are: letters, numbers, and spaces
--- representable in UTF-8, and the following special characters:
---
--- _ . : \/ = + \\ - \@
---
--- If you do not specify a value, the value is set to an empty string.
---
--- For more information about tags, see
--- <https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html Tagging Your Resources>
--- in the /Amazon AppStream 2.0 Administration Guide/.
-createUpdatedImage_newImageTags :: Lens.Lens' CreateUpdatedImage (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createUpdatedImage_newImageTags = Lens.lens (\CreateUpdatedImage' {newImageTags'} -> newImageTags') (\s@CreateUpdatedImage' {} a -> s {newImageTags' = a} :: CreateUpdatedImage) Prelude.. Lens.mapping Lens.coerced
 
 -- | Indicates whether to display the status of image update availability
 -- before AppStream 2.0 initiates the process of creating a new updated
@@ -185,6 +167,23 @@ createUpdatedImage_newImageDescription = Lens.lens (\CreateUpdatedImage' {newIma
 -- | The name to display for the new image.
 createUpdatedImage_newImageDisplayName :: Lens.Lens' CreateUpdatedImage (Prelude.Maybe Prelude.Text)
 createUpdatedImage_newImageDisplayName = Lens.lens (\CreateUpdatedImage' {newImageDisplayName'} -> newImageDisplayName') (\s@CreateUpdatedImage' {} a -> s {newImageDisplayName' = a} :: CreateUpdatedImage)
+
+-- | The tags to associate with the new image. A tag is a key-value pair, and
+-- the value is optional. For example, Environment=Test. If you do not
+-- specify a value, Environment=.
+--
+-- Generally allowed characters are: letters, numbers, and spaces
+-- representable in UTF-8, and the following special characters:
+--
+-- _ . : \/ = + \\ - \@
+--
+-- If you do not specify a value, the value is set to an empty string.
+--
+-- For more information about tags, see
+-- <https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html Tagging Your Resources>
+-- in the /Amazon AppStream 2.0 Administration Guide/.
+createUpdatedImage_newImageTags :: Lens.Lens' CreateUpdatedImage (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createUpdatedImage_newImageTags = Lens.lens (\CreateUpdatedImage' {newImageTags'} -> newImageTags') (\s@CreateUpdatedImage' {} a -> s {newImageTags' = a} :: CreateUpdatedImage) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the image to update.
 createUpdatedImage_existingImageName :: Lens.Lens' CreateUpdatedImage Prelude.Text
@@ -212,19 +211,19 @@ instance Core.AWSRequest CreateUpdatedImage where
 
 instance Prelude.Hashable CreateUpdatedImage where
   hashWithSalt _salt CreateUpdatedImage' {..} =
-    _salt `Prelude.hashWithSalt` newImageTags'
-      `Prelude.hashWithSalt` dryRun
+    _salt `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` newImageDescription'
       `Prelude.hashWithSalt` newImageDisplayName'
+      `Prelude.hashWithSalt` newImageTags'
       `Prelude.hashWithSalt` existingImageName
       `Prelude.hashWithSalt` newImageName'
 
 instance Prelude.NFData CreateUpdatedImage where
   rnf CreateUpdatedImage' {..} =
-    Prelude.rnf newImageTags'
-      `Prelude.seq` Prelude.rnf dryRun
+    Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf newImageDescription'
       `Prelude.seq` Prelude.rnf newImageDisplayName'
+      `Prelude.seq` Prelude.rnf newImageTags'
       `Prelude.seq` Prelude.rnf existingImageName
       `Prelude.seq` Prelude.rnf newImageName'
 
@@ -247,12 +246,12 @@ instance Data.ToJSON CreateUpdatedImage where
   toJSON CreateUpdatedImage' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("newImageTags" Data..=) Prelude.<$> newImageTags',
-            ("dryRun" Data..=) Prelude.<$> dryRun,
+          [ ("dryRun" Data..=) Prelude.<$> dryRun,
             ("newImageDescription" Data..=)
               Prelude.<$> newImageDescription',
             ("newImageDisplayName" Data..=)
               Prelude.<$> newImageDisplayName',
+            ("newImageTags" Data..=) Prelude.<$> newImageTags',
             Prelude.Just
               ("existingImageName" Data..= existingImageName),
             Prelude.Just ("newImageName" Data..= newImageName')

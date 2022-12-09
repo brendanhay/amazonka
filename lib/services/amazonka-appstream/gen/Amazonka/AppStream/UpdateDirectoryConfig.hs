@@ -29,9 +29,9 @@ module Amazonka.AppStream.UpdateDirectoryConfig
     newUpdateDirectoryConfig,
 
     -- * Request Lenses
-    updateDirectoryConfig_serviceAccountCredentials,
-    updateDirectoryConfig_organizationalUnitDistinguishedNames,
     updateDirectoryConfig_certificateBasedAuthProperties,
+    updateDirectoryConfig_organizationalUnitDistinguishedNames,
+    updateDirectoryConfig_serviceAccountCredentials,
     updateDirectoryConfig_directoryName,
 
     -- * Destructuring the Response
@@ -54,13 +54,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateDirectoryConfig' smart constructor.
 data UpdateDirectoryConfig = UpdateDirectoryConfig'
-  { -- | The credentials for the service account used by the fleet or image
-    -- builder to connect to the directory.
-    serviceAccountCredentials :: Prelude.Maybe ServiceAccountCredentials,
-    -- | The distinguished names of the organizational units for computer
-    -- accounts.
-    organizationalUnitDistinguishedNames :: Prelude.Maybe [Prelude.Text],
-    -- | The certificate-based authentication properties used to authenticate
+  { -- | The certificate-based authentication properties used to authenticate
     -- SAML 2.0 Identity Provider (IdP) user identities to Active Directory
     -- domain-joined streaming instances. Fallback is turned on by default when
     -- certificate-based authentication is __Enabled__ . Fallback allows users
@@ -71,6 +65,12 @@ data UpdateDirectoryConfig = UpdateDirectoryConfig'
     -- password. Users will be disconnected to re-authenticate using
     -- certificates.
     certificateBasedAuthProperties :: Prelude.Maybe CertificateBasedAuthProperties,
+    -- | The distinguished names of the organizational units for computer
+    -- accounts.
+    organizationalUnitDistinguishedNames :: Prelude.Maybe [Prelude.Text],
+    -- | The credentials for the service account used by the fleet or image
+    -- builder to connect to the directory.
+    serviceAccountCredentials :: Prelude.Maybe ServiceAccountCredentials,
     -- | The name of the Directory Config object.
     directoryName :: Prelude.Text
   }
@@ -84,12 +84,6 @@ data UpdateDirectoryConfig = UpdateDirectoryConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serviceAccountCredentials', 'updateDirectoryConfig_serviceAccountCredentials' - The credentials for the service account used by the fleet or image
--- builder to connect to the directory.
---
--- 'organizationalUnitDistinguishedNames', 'updateDirectoryConfig_organizationalUnitDistinguishedNames' - The distinguished names of the organizational units for computer
--- accounts.
---
 -- 'certificateBasedAuthProperties', 'updateDirectoryConfig_certificateBasedAuthProperties' - The certificate-based authentication properties used to authenticate
 -- SAML 2.0 Identity Provider (IdP) user identities to Active Directory
 -- domain-joined streaming instances. Fallback is turned on by default when
@@ -101,6 +95,12 @@ data UpdateDirectoryConfig = UpdateDirectoryConfig'
 -- password. Users will be disconnected to re-authenticate using
 -- certificates.
 --
+-- 'organizationalUnitDistinguishedNames', 'updateDirectoryConfig_organizationalUnitDistinguishedNames' - The distinguished names of the organizational units for computer
+-- accounts.
+--
+-- 'serviceAccountCredentials', 'updateDirectoryConfig_serviceAccountCredentials' - The credentials for the service account used by the fleet or image
+-- builder to connect to the directory.
+--
 -- 'directoryName', 'updateDirectoryConfig_directoryName' - The name of the Directory Config object.
 newUpdateDirectoryConfig ::
   -- | 'directoryName'
@@ -108,23 +108,13 @@ newUpdateDirectoryConfig ::
   UpdateDirectoryConfig
 newUpdateDirectoryConfig pDirectoryName_ =
   UpdateDirectoryConfig'
-    { serviceAccountCredentials =
+    { certificateBasedAuthProperties =
         Prelude.Nothing,
       organizationalUnitDistinguishedNames =
         Prelude.Nothing,
-      certificateBasedAuthProperties = Prelude.Nothing,
+      serviceAccountCredentials = Prelude.Nothing,
       directoryName = pDirectoryName_
     }
-
--- | The credentials for the service account used by the fleet or image
--- builder to connect to the directory.
-updateDirectoryConfig_serviceAccountCredentials :: Lens.Lens' UpdateDirectoryConfig (Prelude.Maybe ServiceAccountCredentials)
-updateDirectoryConfig_serviceAccountCredentials = Lens.lens (\UpdateDirectoryConfig' {serviceAccountCredentials} -> serviceAccountCredentials) (\s@UpdateDirectoryConfig' {} a -> s {serviceAccountCredentials = a} :: UpdateDirectoryConfig)
-
--- | The distinguished names of the organizational units for computer
--- accounts.
-updateDirectoryConfig_organizationalUnitDistinguishedNames :: Lens.Lens' UpdateDirectoryConfig (Prelude.Maybe [Prelude.Text])
-updateDirectoryConfig_organizationalUnitDistinguishedNames = Lens.lens (\UpdateDirectoryConfig' {organizationalUnitDistinguishedNames} -> organizationalUnitDistinguishedNames) (\s@UpdateDirectoryConfig' {} a -> s {organizationalUnitDistinguishedNames = a} :: UpdateDirectoryConfig) Prelude.. Lens.mapping Lens.coerced
 
 -- | The certificate-based authentication properties used to authenticate
 -- SAML 2.0 Identity Provider (IdP) user identities to Active Directory
@@ -138,6 +128,16 @@ updateDirectoryConfig_organizationalUnitDistinguishedNames = Lens.lens (\UpdateD
 -- certificates.
 updateDirectoryConfig_certificateBasedAuthProperties :: Lens.Lens' UpdateDirectoryConfig (Prelude.Maybe CertificateBasedAuthProperties)
 updateDirectoryConfig_certificateBasedAuthProperties = Lens.lens (\UpdateDirectoryConfig' {certificateBasedAuthProperties} -> certificateBasedAuthProperties) (\s@UpdateDirectoryConfig' {} a -> s {certificateBasedAuthProperties = a} :: UpdateDirectoryConfig)
+
+-- | The distinguished names of the organizational units for computer
+-- accounts.
+updateDirectoryConfig_organizationalUnitDistinguishedNames :: Lens.Lens' UpdateDirectoryConfig (Prelude.Maybe [Prelude.Text])
+updateDirectoryConfig_organizationalUnitDistinguishedNames = Lens.lens (\UpdateDirectoryConfig' {organizationalUnitDistinguishedNames} -> organizationalUnitDistinguishedNames) (\s@UpdateDirectoryConfig' {} a -> s {organizationalUnitDistinguishedNames = a} :: UpdateDirectoryConfig) Prelude.. Lens.mapping Lens.coerced
+
+-- | The credentials for the service account used by the fleet or image
+-- builder to connect to the directory.
+updateDirectoryConfig_serviceAccountCredentials :: Lens.Lens' UpdateDirectoryConfig (Prelude.Maybe ServiceAccountCredentials)
+updateDirectoryConfig_serviceAccountCredentials = Lens.lens (\UpdateDirectoryConfig' {serviceAccountCredentials} -> serviceAccountCredentials) (\s@UpdateDirectoryConfig' {} a -> s {serviceAccountCredentials = a} :: UpdateDirectoryConfig)
 
 -- | The name of the Directory Config object.
 updateDirectoryConfig_directoryName :: Lens.Lens' UpdateDirectoryConfig Prelude.Text
@@ -160,16 +160,16 @@ instance Core.AWSRequest UpdateDirectoryConfig where
 instance Prelude.Hashable UpdateDirectoryConfig where
   hashWithSalt _salt UpdateDirectoryConfig' {..} =
     _salt
-      `Prelude.hashWithSalt` serviceAccountCredentials
-      `Prelude.hashWithSalt` organizationalUnitDistinguishedNames
       `Prelude.hashWithSalt` certificateBasedAuthProperties
+      `Prelude.hashWithSalt` organizationalUnitDistinguishedNames
+      `Prelude.hashWithSalt` serviceAccountCredentials
       `Prelude.hashWithSalt` directoryName
 
 instance Prelude.NFData UpdateDirectoryConfig where
   rnf UpdateDirectoryConfig' {..} =
-    Prelude.rnf serviceAccountCredentials
+    Prelude.rnf certificateBasedAuthProperties
       `Prelude.seq` Prelude.rnf organizationalUnitDistinguishedNames
-      `Prelude.seq` Prelude.rnf certificateBasedAuthProperties
+      `Prelude.seq` Prelude.rnf serviceAccountCredentials
       `Prelude.seq` Prelude.rnf directoryName
 
 instance Data.ToHeaders UpdateDirectoryConfig where
@@ -191,12 +191,12 @@ instance Data.ToJSON UpdateDirectoryConfig where
   toJSON UpdateDirectoryConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ServiceAccountCredentials" Data..=)
-              Prelude.<$> serviceAccountCredentials,
+          [ ("CertificateBasedAuthProperties" Data..=)
+              Prelude.<$> certificateBasedAuthProperties,
             ("OrganizationalUnitDistinguishedNames" Data..=)
               Prelude.<$> organizationalUnitDistinguishedNames,
-            ("CertificateBasedAuthProperties" Data..=)
-              Prelude.<$> certificateBasedAuthProperties,
+            ("ServiceAccountCredentials" Data..=)
+              Prelude.<$> serviceAccountCredentials,
             Prelude.Just
               ("DirectoryName" Data..= directoryName)
           ]

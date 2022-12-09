@@ -27,9 +27,9 @@ module Amazonka.AppStream.CreateUser
     newCreateUser,
 
     -- * Request Lenses
-    createUser_messageAction,
     createUser_firstName,
     createUser_lastName,
+    createUser_messageAction,
     createUser_userName,
     createUser_authenticationType,
 
@@ -52,7 +52,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateUser' smart constructor.
 data CreateUser = CreateUser'
-  { -- | The action to take for the welcome email that is sent to a user after
+  { -- | The first name, or given name, of the user.
+    firstName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The last name, or surname, of the user.
+    lastName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The action to take for the welcome email that is sent to a user after
     -- the user is created in the user pool. If you specify SUPPRESS, no email
     -- is sent. If you specify RESEND, do not specify the first name or last
     -- name of the user. If the value is null, the email is sent.
@@ -61,10 +65,6 @@ data CreateUser = CreateUser'
     -- users don’t set their passwords within 7 days, you must send them a new
     -- welcome email.
     messageAction :: Prelude.Maybe MessageAction,
-    -- | The first name, or given name, of the user.
-    firstName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The last name, or surname, of the user.
-    lastName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The email address of the user.
     --
     -- Users\' email addresses are case-sensitive. During login, if they
@@ -85,6 +85,10 @@ data CreateUser = CreateUser'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'firstName', 'createUser_firstName' - The first name, or given name, of the user.
+--
+-- 'lastName', 'createUser_lastName' - The last name, or surname, of the user.
+--
 -- 'messageAction', 'createUser_messageAction' - The action to take for the welcome email that is sent to a user after
 -- the user is created in the user pool. If you specify SUPPRESS, no email
 -- is sent. If you specify RESEND, do not specify the first name or last
@@ -93,10 +97,6 @@ data CreateUser = CreateUser'
 -- The temporary password in the welcome email is valid for only 7 days. If
 -- users don’t set their passwords within 7 days, you must send them a new
 -- welcome email.
---
--- 'firstName', 'createUser_firstName' - The first name, or given name, of the user.
---
--- 'lastName', 'createUser_lastName' - The last name, or surname, of the user.
 --
 -- 'userName', 'createUser_userName' - The email address of the user.
 --
@@ -114,12 +114,20 @@ newCreateUser ::
   CreateUser
 newCreateUser pUserName_ pAuthenticationType_ =
   CreateUser'
-    { messageAction = Prelude.Nothing,
-      firstName = Prelude.Nothing,
+    { firstName = Prelude.Nothing,
       lastName = Prelude.Nothing,
+      messageAction = Prelude.Nothing,
       userName = Data._Sensitive Lens.# pUserName_,
       authenticationType = pAuthenticationType_
     }
+
+-- | The first name, or given name, of the user.
+createUser_firstName :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
+createUser_firstName = Lens.lens (\CreateUser' {firstName} -> firstName) (\s@CreateUser' {} a -> s {firstName = a} :: CreateUser) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The last name, or surname, of the user.
+createUser_lastName :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
+createUser_lastName = Lens.lens (\CreateUser' {lastName} -> lastName) (\s@CreateUser' {} a -> s {lastName = a} :: CreateUser) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The action to take for the welcome email that is sent to a user after
 -- the user is created in the user pool. If you specify SUPPRESS, no email
@@ -131,14 +139,6 @@ newCreateUser pUserName_ pAuthenticationType_ =
 -- welcome email.
 createUser_messageAction :: Lens.Lens' CreateUser (Prelude.Maybe MessageAction)
 createUser_messageAction = Lens.lens (\CreateUser' {messageAction} -> messageAction) (\s@CreateUser' {} a -> s {messageAction = a} :: CreateUser)
-
--- | The first name, or given name, of the user.
-createUser_firstName :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
-createUser_firstName = Lens.lens (\CreateUser' {firstName} -> firstName) (\s@CreateUser' {} a -> s {firstName = a} :: CreateUser) Prelude.. Lens.mapping Data._Sensitive
-
--- | The last name, or surname, of the user.
-createUser_lastName :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
-createUser_lastName = Lens.lens (\CreateUser' {lastName} -> lastName) (\s@CreateUser' {} a -> s {lastName = a} :: CreateUser) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The email address of the user.
 --
@@ -166,17 +166,17 @@ instance Core.AWSRequest CreateUser where
 
 instance Prelude.Hashable CreateUser where
   hashWithSalt _salt CreateUser' {..} =
-    _salt `Prelude.hashWithSalt` messageAction
-      `Prelude.hashWithSalt` firstName
+    _salt `Prelude.hashWithSalt` firstName
       `Prelude.hashWithSalt` lastName
+      `Prelude.hashWithSalt` messageAction
       `Prelude.hashWithSalt` userName
       `Prelude.hashWithSalt` authenticationType
 
 instance Prelude.NFData CreateUser where
   rnf CreateUser' {..} =
-    Prelude.rnf messageAction
-      `Prelude.seq` Prelude.rnf firstName
+    Prelude.rnf firstName
       `Prelude.seq` Prelude.rnf lastName
+      `Prelude.seq` Prelude.rnf messageAction
       `Prelude.seq` Prelude.rnf userName
       `Prelude.seq` Prelude.rnf authenticationType
 
@@ -199,9 +199,9 @@ instance Data.ToJSON CreateUser where
   toJSON CreateUser' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("MessageAction" Data..=) Prelude.<$> messageAction,
-            ("FirstName" Data..=) Prelude.<$> firstName,
+          [ ("FirstName" Data..=) Prelude.<$> firstName,
             ("LastName" Data..=) Prelude.<$> lastName,
+            ("MessageAction" Data..=) Prelude.<$> messageAction,
             Prelude.Just ("UserName" Data..= userName),
             Prelude.Just
               ("AuthenticationType" Data..= authenticationType)

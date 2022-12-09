@@ -28,18 +28,18 @@ module Amazonka.AppStream.DescribeApplicationFleetAssociations
     newDescribeApplicationFleetAssociations,
 
     -- * Request Lenses
-    describeApplicationFleetAssociations_nextToken,
     describeApplicationFleetAssociations_applicationArn,
     describeApplicationFleetAssociations_fleetName,
     describeApplicationFleetAssociations_maxResults,
+    describeApplicationFleetAssociations_nextToken,
 
     -- * Destructuring the Response
     DescribeApplicationFleetAssociationsResponse (..),
     newDescribeApplicationFleetAssociationsResponse,
 
     -- * Response Lenses
-    describeApplicationFleetAssociationsResponse_nextToken,
     describeApplicationFleetAssociationsResponse_applicationFleetAssociations,
+    describeApplicationFleetAssociationsResponse_nextToken,
     describeApplicationFleetAssociationsResponse_httpStatus,
   )
 where
@@ -54,15 +54,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeApplicationFleetAssociations' smart constructor.
 data DescribeApplicationFleetAssociations = DescribeApplicationFleetAssociations'
-  { -- | The pagination token used to retrieve the next page of results for this
-    -- operation.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the application.
+  { -- | The ARN of the application.
     applicationArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the fleet.
     fleetName :: Prelude.Maybe Prelude.Text,
     -- | The maximum size of each page of results.
-    maxResults :: Prelude.Maybe Prelude.Int
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The pagination token used to retrieve the next page of results for this
+    -- operation.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,29 +74,24 @@ data DescribeApplicationFleetAssociations = DescribeApplicationFleetAssociations
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeApplicationFleetAssociations_nextToken' - The pagination token used to retrieve the next page of results for this
--- operation.
---
 -- 'applicationArn', 'describeApplicationFleetAssociations_applicationArn' - The ARN of the application.
 --
 -- 'fleetName', 'describeApplicationFleetAssociations_fleetName' - The name of the fleet.
 --
 -- 'maxResults', 'describeApplicationFleetAssociations_maxResults' - The maximum size of each page of results.
+--
+-- 'nextToken', 'describeApplicationFleetAssociations_nextToken' - The pagination token used to retrieve the next page of results for this
+-- operation.
 newDescribeApplicationFleetAssociations ::
   DescribeApplicationFleetAssociations
 newDescribeApplicationFleetAssociations =
   DescribeApplicationFleetAssociations'
-    { nextToken =
+    { applicationArn =
         Prelude.Nothing,
-      applicationArn = Prelude.Nothing,
       fleetName = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The pagination token used to retrieve the next page of results for this
--- operation.
-describeApplicationFleetAssociations_nextToken :: Lens.Lens' DescribeApplicationFleetAssociations (Prelude.Maybe Prelude.Text)
-describeApplicationFleetAssociations_nextToken = Lens.lens (\DescribeApplicationFleetAssociations' {nextToken} -> nextToken) (\s@DescribeApplicationFleetAssociations' {} a -> s {nextToken = a} :: DescribeApplicationFleetAssociations)
 
 -- | The ARN of the application.
 describeApplicationFleetAssociations_applicationArn :: Lens.Lens' DescribeApplicationFleetAssociations (Prelude.Maybe Prelude.Text)
@@ -109,6 +104,11 @@ describeApplicationFleetAssociations_fleetName = Lens.lens (\DescribeApplication
 -- | The maximum size of each page of results.
 describeApplicationFleetAssociations_maxResults :: Lens.Lens' DescribeApplicationFleetAssociations (Prelude.Maybe Prelude.Int)
 describeApplicationFleetAssociations_maxResults = Lens.lens (\DescribeApplicationFleetAssociations' {maxResults} -> maxResults) (\s@DescribeApplicationFleetAssociations' {} a -> s {maxResults = a} :: DescribeApplicationFleetAssociations)
+
+-- | The pagination token used to retrieve the next page of results for this
+-- operation.
+describeApplicationFleetAssociations_nextToken :: Lens.Lens' DescribeApplicationFleetAssociations (Prelude.Maybe Prelude.Text)
+describeApplicationFleetAssociations_nextToken = Lens.lens (\DescribeApplicationFleetAssociations' {nextToken} -> nextToken) (\s@DescribeApplicationFleetAssociations' {} a -> s {nextToken = a} :: DescribeApplicationFleetAssociations)
 
 instance
   Core.AWSRequest
@@ -123,8 +123,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeApplicationFleetAssociationsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-              Prelude.<*> (x Data..?> "ApplicationFleetAssociations")
+            Prelude.<$> (x Data..?> "ApplicationFleetAssociations")
+              Prelude.<*> (x Data..?> "NextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -135,20 +135,20 @@ instance
   hashWithSalt
     _salt
     DescribeApplicationFleetAssociations' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` applicationArn
+      _salt `Prelude.hashWithSalt` applicationArn
         `Prelude.hashWithSalt` fleetName
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     DescribeApplicationFleetAssociations
   where
   rnf DescribeApplicationFleetAssociations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf applicationArn
+    Prelude.rnf applicationArn
       `Prelude.seq` Prelude.rnf fleetName
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -175,11 +175,11 @@ instance
   toJSON DescribeApplicationFleetAssociations' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("ApplicationArn" Data..=)
+          [ ("ApplicationArn" Data..=)
               Prelude.<$> applicationArn,
             ("FleetName" Data..=) Prelude.<$> fleetName,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -197,11 +197,11 @@ instance
 
 -- | /See:/ 'newDescribeApplicationFleetAssociationsResponse' smart constructor.
 data DescribeApplicationFleetAssociationsResponse = DescribeApplicationFleetAssociationsResponse'
-  { -- | The pagination token used to retrieve the next page of results for this
+  { -- | The application fleet associations in the list.
+    applicationFleetAssociations :: Prelude.Maybe (Prelude.NonEmpty ApplicationFleetAssociation),
+    -- | The pagination token used to retrieve the next page of results for this
     -- operation.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The application fleet associations in the list.
-    applicationFleetAssociations :: Prelude.Maybe (Prelude.NonEmpty ApplicationFleetAssociation),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -215,10 +215,10 @@ data DescribeApplicationFleetAssociationsResponse = DescribeApplicationFleetAsso
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'applicationFleetAssociations', 'describeApplicationFleetAssociationsResponse_applicationFleetAssociations' - The application fleet associations in the list.
+--
 -- 'nextToken', 'describeApplicationFleetAssociationsResponse_nextToken' - The pagination token used to retrieve the next page of results for this
 -- operation.
---
--- 'applicationFleetAssociations', 'describeApplicationFleetAssociationsResponse_applicationFleetAssociations' - The application fleet associations in the list.
 --
 -- 'httpStatus', 'describeApplicationFleetAssociationsResponse_httpStatus' - The response's http status code.
 newDescribeApplicationFleetAssociationsResponse ::
@@ -228,21 +228,20 @@ newDescribeApplicationFleetAssociationsResponse ::
 newDescribeApplicationFleetAssociationsResponse
   pHttpStatus_ =
     DescribeApplicationFleetAssociationsResponse'
-      { nextToken =
+      { applicationFleetAssociations =
           Prelude.Nothing,
-        applicationFleetAssociations =
-          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | The application fleet associations in the list.
+describeApplicationFleetAssociationsResponse_applicationFleetAssociations :: Lens.Lens' DescribeApplicationFleetAssociationsResponse (Prelude.Maybe (Prelude.NonEmpty ApplicationFleetAssociation))
+describeApplicationFleetAssociationsResponse_applicationFleetAssociations = Lens.lens (\DescribeApplicationFleetAssociationsResponse' {applicationFleetAssociations} -> applicationFleetAssociations) (\s@DescribeApplicationFleetAssociationsResponse' {} a -> s {applicationFleetAssociations = a} :: DescribeApplicationFleetAssociationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token used to retrieve the next page of results for this
 -- operation.
 describeApplicationFleetAssociationsResponse_nextToken :: Lens.Lens' DescribeApplicationFleetAssociationsResponse (Prelude.Maybe Prelude.Text)
 describeApplicationFleetAssociationsResponse_nextToken = Lens.lens (\DescribeApplicationFleetAssociationsResponse' {nextToken} -> nextToken) (\s@DescribeApplicationFleetAssociationsResponse' {} a -> s {nextToken = a} :: DescribeApplicationFleetAssociationsResponse)
-
--- | The application fleet associations in the list.
-describeApplicationFleetAssociationsResponse_applicationFleetAssociations :: Lens.Lens' DescribeApplicationFleetAssociationsResponse (Prelude.Maybe (Prelude.NonEmpty ApplicationFleetAssociation))
-describeApplicationFleetAssociationsResponse_applicationFleetAssociations = Lens.lens (\DescribeApplicationFleetAssociationsResponse' {applicationFleetAssociations} -> applicationFleetAssociations) (\s@DescribeApplicationFleetAssociationsResponse' {} a -> s {applicationFleetAssociations = a} :: DescribeApplicationFleetAssociationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeApplicationFleetAssociationsResponse_httpStatus :: Lens.Lens' DescribeApplicationFleetAssociationsResponse Prelude.Int
@@ -253,6 +252,6 @@ instance
     DescribeApplicationFleetAssociationsResponse
   where
   rnf DescribeApplicationFleetAssociationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf applicationFleetAssociations
+    Prelude.rnf applicationFleetAssociations
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

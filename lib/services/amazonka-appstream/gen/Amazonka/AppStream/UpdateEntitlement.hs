@@ -27,9 +27,9 @@ module Amazonka.AppStream.UpdateEntitlement
     newUpdateEntitlement,
 
     -- * Request Lenses
-    updateEntitlement_description,
-    updateEntitlement_attributes,
     updateEntitlement_appVisibility,
+    updateEntitlement_attributes,
+    updateEntitlement_description,
     updateEntitlement_name,
     updateEntitlement_stackName,
 
@@ -53,12 +53,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateEntitlement' smart constructor.
 data UpdateEntitlement = UpdateEntitlement'
-  { -- | The description of the entitlement.
-    description :: Prelude.Maybe Prelude.Text,
+  { -- | Specifies whether all or only selected apps are entitled.
+    appVisibility :: Prelude.Maybe AppVisibility,
     -- | The attributes of the entitlement.
     attributes :: Prelude.Maybe (Prelude.NonEmpty EntitlementAttribute),
-    -- | Specifies whether all or only selected apps are entitled.
-    appVisibility :: Prelude.Maybe AppVisibility,
+    -- | The description of the entitlement.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the entitlement.
     name :: Prelude.Text,
     -- | The name of the stack with which the entitlement is associated.
@@ -74,11 +74,11 @@ data UpdateEntitlement = UpdateEntitlement'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'description', 'updateEntitlement_description' - The description of the entitlement.
+-- 'appVisibility', 'updateEntitlement_appVisibility' - Specifies whether all or only selected apps are entitled.
 --
 -- 'attributes', 'updateEntitlement_attributes' - The attributes of the entitlement.
 --
--- 'appVisibility', 'updateEntitlement_appVisibility' - Specifies whether all or only selected apps are entitled.
+-- 'description', 'updateEntitlement_description' - The description of the entitlement.
 --
 -- 'name', 'updateEntitlement_name' - The name of the entitlement.
 --
@@ -91,24 +91,24 @@ newUpdateEntitlement ::
   UpdateEntitlement
 newUpdateEntitlement pName_ pStackName_ =
   UpdateEntitlement'
-    { description = Prelude.Nothing,
+    { appVisibility = Prelude.Nothing,
       attributes = Prelude.Nothing,
-      appVisibility = Prelude.Nothing,
+      description = Prelude.Nothing,
       name = pName_,
       stackName = pStackName_
     }
 
--- | The description of the entitlement.
-updateEntitlement_description :: Lens.Lens' UpdateEntitlement (Prelude.Maybe Prelude.Text)
-updateEntitlement_description = Lens.lens (\UpdateEntitlement' {description} -> description) (\s@UpdateEntitlement' {} a -> s {description = a} :: UpdateEntitlement)
+-- | Specifies whether all or only selected apps are entitled.
+updateEntitlement_appVisibility :: Lens.Lens' UpdateEntitlement (Prelude.Maybe AppVisibility)
+updateEntitlement_appVisibility = Lens.lens (\UpdateEntitlement' {appVisibility} -> appVisibility) (\s@UpdateEntitlement' {} a -> s {appVisibility = a} :: UpdateEntitlement)
 
 -- | The attributes of the entitlement.
 updateEntitlement_attributes :: Lens.Lens' UpdateEntitlement (Prelude.Maybe (Prelude.NonEmpty EntitlementAttribute))
 updateEntitlement_attributes = Lens.lens (\UpdateEntitlement' {attributes} -> attributes) (\s@UpdateEntitlement' {} a -> s {attributes = a} :: UpdateEntitlement) Prelude.. Lens.mapping Lens.coerced
 
--- | Specifies whether all or only selected apps are entitled.
-updateEntitlement_appVisibility :: Lens.Lens' UpdateEntitlement (Prelude.Maybe AppVisibility)
-updateEntitlement_appVisibility = Lens.lens (\UpdateEntitlement' {appVisibility} -> appVisibility) (\s@UpdateEntitlement' {} a -> s {appVisibility = a} :: UpdateEntitlement)
+-- | The description of the entitlement.
+updateEntitlement_description :: Lens.Lens' UpdateEntitlement (Prelude.Maybe Prelude.Text)
+updateEntitlement_description = Lens.lens (\UpdateEntitlement' {description} -> description) (\s@UpdateEntitlement' {} a -> s {description = a} :: UpdateEntitlement)
 
 -- | The name of the entitlement.
 updateEntitlement_name :: Lens.Lens' UpdateEntitlement Prelude.Text
@@ -134,17 +134,17 @@ instance Core.AWSRequest UpdateEntitlement where
 
 instance Prelude.Hashable UpdateEntitlement where
   hashWithSalt _salt UpdateEntitlement' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` appVisibility
       `Prelude.hashWithSalt` attributes
-      `Prelude.hashWithSalt` appVisibility
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` stackName
 
 instance Prelude.NFData UpdateEntitlement where
   rnf UpdateEntitlement' {..} =
-    Prelude.rnf description
+    Prelude.rnf appVisibility
       `Prelude.seq` Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf appVisibility
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf stackName
 
@@ -167,9 +167,9 @@ instance Data.ToJSON UpdateEntitlement where
   toJSON UpdateEntitlement' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Description" Data..=) Prelude.<$> description,
+          [ ("AppVisibility" Data..=) Prelude.<$> appVisibility,
             ("Attributes" Data..=) Prelude.<$> attributes,
-            ("AppVisibility" Data..=) Prelude.<$> appVisibility,
+            ("Description" Data..=) Prelude.<$> description,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("StackName" Data..= stackName)
           ]

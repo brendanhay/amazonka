@@ -28,11 +28,11 @@ module Amazonka.CodeGuruProfiler.BatchGetFrameMetricData
     newBatchGetFrameMetricData,
 
     -- * Request Lenses
-    batchGetFrameMetricData_period,
     batchGetFrameMetricData_endTime,
     batchGetFrameMetricData_frameMetrics,
-    batchGetFrameMetricData_targetResolution,
+    batchGetFrameMetricData_period,
     batchGetFrameMetricData_startTime,
+    batchGetFrameMetricData_targetResolution,
     batchGetFrameMetricData_profilingGroupName,
 
     -- * Destructuring the Response
@@ -62,11 +62,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newBatchGetFrameMetricData' smart constructor.
 data BatchGetFrameMetricData = BatchGetFrameMetricData'
-  { -- | The duration of the frame metrics used to return the time series values.
-    -- Specify using the ISO 8601 format. The maximum period duration is one
-    -- day (@PT24H@ or @P1D@).
-    period :: Prelude.Maybe Prelude.Text,
-    -- | The end time of the time period for the returned time series values.
+  { -- | The end time of the time period for the returned time series values.
     -- This is specified using the ISO 8601 format. For example,
     -- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020
     -- 1:15:02 PM UTC.
@@ -76,6 +72,15 @@ data BatchGetFrameMetricData = BatchGetFrameMetricData'
     -- to calculate the metric value for the frame, and the thread states to
     -- use to get the count for the metric value of the frame.
     frameMetrics :: Prelude.Maybe [FrameMetric],
+    -- | The duration of the frame metrics used to return the time series values.
+    -- Specify using the ISO 8601 format. The maximum period duration is one
+    -- day (@PT24H@ or @P1D@).
+    period :: Prelude.Maybe Prelude.Text,
+    -- | The start time of the time period for the frame metrics used to return
+    -- the time series values. This is specified using the ISO 8601 format. For
+    -- example, 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1,
+    -- 2020 1:15:02 PM UTC.
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The requested resolution of time steps for the returned time series of
     -- values. If the requested target resolution is not available due to data
     -- not being retained we provide a best effort result by falling back to
@@ -88,11 +93,6 @@ data BatchGetFrameMetricData = BatchGetFrameMetricData'
     --
     -- -   @PT5M@ — 5 minutes
     targetResolution :: Prelude.Maybe AggregationPeriod,
-    -- | The start time of the time period for the frame metrics used to return
-    -- the time series values. This is specified using the ISO 8601 format. For
-    -- example, 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1,
-    -- 2020 1:15:02 PM UTC.
-    startTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the profiling group associated with the the frame metrics
     -- used to return the time series values.
     profilingGroupName :: Prelude.Text
@@ -107,10 +107,6 @@ data BatchGetFrameMetricData = BatchGetFrameMetricData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'period', 'batchGetFrameMetricData_period' - The duration of the frame metrics used to return the time series values.
--- Specify using the ISO 8601 format. The maximum period duration is one
--- day (@PT24H@ or @P1D@).
---
 -- 'endTime', 'batchGetFrameMetricData_endTime' - The end time of the time period for the returned time series values.
 -- This is specified using the ISO 8601 format. For example,
 -- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020
@@ -120,6 +116,15 @@ data BatchGetFrameMetricData = BatchGetFrameMetricData'
 -- values. The metric includes the name of the frame, the aggregation type
 -- to calculate the metric value for the frame, and the thread states to
 -- use to get the count for the metric value of the frame.
+--
+-- 'period', 'batchGetFrameMetricData_period' - The duration of the frame metrics used to return the time series values.
+-- Specify using the ISO 8601 format. The maximum period duration is one
+-- day (@PT24H@ or @P1D@).
+--
+-- 'startTime', 'batchGetFrameMetricData_startTime' - The start time of the time period for the frame metrics used to return
+-- the time series values. This is specified using the ISO 8601 format. For
+-- example, 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1,
+-- 2020 1:15:02 PM UTC.
 --
 -- 'targetResolution', 'batchGetFrameMetricData_targetResolution' - The requested resolution of time steps for the returned time series of
 -- values. If the requested target resolution is not available due to data
@@ -133,11 +138,6 @@ data BatchGetFrameMetricData = BatchGetFrameMetricData'
 --
 -- -   @PT5M@ — 5 minutes
 --
--- 'startTime', 'batchGetFrameMetricData_startTime' - The start time of the time period for the frame metrics used to return
--- the time series values. This is specified using the ISO 8601 format. For
--- example, 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1,
--- 2020 1:15:02 PM UTC.
---
 -- 'profilingGroupName', 'batchGetFrameMetricData_profilingGroupName' - The name of the profiling group associated with the the frame metrics
 -- used to return the time series values.
 newBatchGetFrameMetricData ::
@@ -146,19 +146,13 @@ newBatchGetFrameMetricData ::
   BatchGetFrameMetricData
 newBatchGetFrameMetricData pProfilingGroupName_ =
   BatchGetFrameMetricData'
-    { period = Prelude.Nothing,
-      endTime = Prelude.Nothing,
+    { endTime = Prelude.Nothing,
       frameMetrics = Prelude.Nothing,
-      targetResolution = Prelude.Nothing,
+      period = Prelude.Nothing,
       startTime = Prelude.Nothing,
+      targetResolution = Prelude.Nothing,
       profilingGroupName = pProfilingGroupName_
     }
-
--- | The duration of the frame metrics used to return the time series values.
--- Specify using the ISO 8601 format. The maximum period duration is one
--- day (@PT24H@ or @P1D@).
-batchGetFrameMetricData_period :: Lens.Lens' BatchGetFrameMetricData (Prelude.Maybe Prelude.Text)
-batchGetFrameMetricData_period = Lens.lens (\BatchGetFrameMetricData' {period} -> period) (\s@BatchGetFrameMetricData' {} a -> s {period = a} :: BatchGetFrameMetricData)
 
 -- | The end time of the time period for the returned time series values.
 -- This is specified using the ISO 8601 format. For example,
@@ -174,6 +168,19 @@ batchGetFrameMetricData_endTime = Lens.lens (\BatchGetFrameMetricData' {endTime}
 batchGetFrameMetricData_frameMetrics :: Lens.Lens' BatchGetFrameMetricData (Prelude.Maybe [FrameMetric])
 batchGetFrameMetricData_frameMetrics = Lens.lens (\BatchGetFrameMetricData' {frameMetrics} -> frameMetrics) (\s@BatchGetFrameMetricData' {} a -> s {frameMetrics = a} :: BatchGetFrameMetricData) Prelude.. Lens.mapping Lens.coerced
 
+-- | The duration of the frame metrics used to return the time series values.
+-- Specify using the ISO 8601 format. The maximum period duration is one
+-- day (@PT24H@ or @P1D@).
+batchGetFrameMetricData_period :: Lens.Lens' BatchGetFrameMetricData (Prelude.Maybe Prelude.Text)
+batchGetFrameMetricData_period = Lens.lens (\BatchGetFrameMetricData' {period} -> period) (\s@BatchGetFrameMetricData' {} a -> s {period = a} :: BatchGetFrameMetricData)
+
+-- | The start time of the time period for the frame metrics used to return
+-- the time series values. This is specified using the ISO 8601 format. For
+-- example, 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1,
+-- 2020 1:15:02 PM UTC.
+batchGetFrameMetricData_startTime :: Lens.Lens' BatchGetFrameMetricData (Prelude.Maybe Prelude.UTCTime)
+batchGetFrameMetricData_startTime = Lens.lens (\BatchGetFrameMetricData' {startTime} -> startTime) (\s@BatchGetFrameMetricData' {} a -> s {startTime = a} :: BatchGetFrameMetricData) Prelude.. Lens.mapping Data._Time
+
 -- | The requested resolution of time steps for the returned time series of
 -- values. If the requested target resolution is not available due to data
 -- not being retained we provide a best effort result by falling back to
@@ -187,13 +194,6 @@ batchGetFrameMetricData_frameMetrics = Lens.lens (\BatchGetFrameMetricData' {fra
 -- -   @PT5M@ — 5 minutes
 batchGetFrameMetricData_targetResolution :: Lens.Lens' BatchGetFrameMetricData (Prelude.Maybe AggregationPeriod)
 batchGetFrameMetricData_targetResolution = Lens.lens (\BatchGetFrameMetricData' {targetResolution} -> targetResolution) (\s@BatchGetFrameMetricData' {} a -> s {targetResolution = a} :: BatchGetFrameMetricData)
-
--- | The start time of the time period for the frame metrics used to return
--- the time series values. This is specified using the ISO 8601 format. For
--- example, 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1,
--- 2020 1:15:02 PM UTC.
-batchGetFrameMetricData_startTime :: Lens.Lens' BatchGetFrameMetricData (Prelude.Maybe Prelude.UTCTime)
-batchGetFrameMetricData_startTime = Lens.lens (\BatchGetFrameMetricData' {startTime} -> startTime) (\s@BatchGetFrameMetricData' {} a -> s {startTime = a} :: BatchGetFrameMetricData) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the profiling group associated with the the frame metrics
 -- used to return the time series values.
@@ -225,20 +225,20 @@ instance Core.AWSRequest BatchGetFrameMetricData where
 
 instance Prelude.Hashable BatchGetFrameMetricData where
   hashWithSalt _salt BatchGetFrameMetricData' {..} =
-    _salt `Prelude.hashWithSalt` period
-      `Prelude.hashWithSalt` endTime
+    _salt `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` frameMetrics
-      `Prelude.hashWithSalt` targetResolution
+      `Prelude.hashWithSalt` period
       `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` targetResolution
       `Prelude.hashWithSalt` profilingGroupName
 
 instance Prelude.NFData BatchGetFrameMetricData where
   rnf BatchGetFrameMetricData' {..} =
-    Prelude.rnf period
-      `Prelude.seq` Prelude.rnf endTime
+    Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf frameMetrics
-      `Prelude.seq` Prelude.rnf targetResolution
+      `Prelude.seq` Prelude.rnf period
       `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf targetResolution
       `Prelude.seq` Prelude.rnf profilingGroupName
 
 instance Data.ToHeaders BatchGetFrameMetricData where
@@ -270,10 +270,10 @@ instance Data.ToPath BatchGetFrameMetricData where
 instance Data.ToQuery BatchGetFrameMetricData where
   toQuery BatchGetFrameMetricData' {..} =
     Prelude.mconcat
-      [ "period" Data.=: period,
-        "endTime" Data.=: endTime,
-        "targetResolution" Data.=: targetResolution,
-        "startTime" Data.=: startTime
+      [ "endTime" Data.=: endTime,
+        "period" Data.=: period,
+        "startTime" Data.=: startTime,
+        "targetResolution" Data.=: targetResolution
       ]
 
 -- | The structure representing the BatchGetFrameMetricDataResponse.

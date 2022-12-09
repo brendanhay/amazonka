@@ -27,8 +27,8 @@ module Amazonka.Redshift.BatchModifyClusterSnapshots
     newBatchModifyClusterSnapshots,
 
     -- * Request Lenses
-    batchModifyClusterSnapshots_manualSnapshotRetentionPeriod,
     batchModifyClusterSnapshots_force,
+    batchModifyClusterSnapshots_manualSnapshotRetentionPeriod,
     batchModifyClusterSnapshots_snapshotIdentifierList,
 
     -- * Destructuring the Response
@@ -52,7 +52,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newBatchModifyClusterSnapshots' smart constructor.
 data BatchModifyClusterSnapshots = BatchModifyClusterSnapshots'
-  { -- | The number of days that a manual snapshot is retained. If you specify
+  { -- | A boolean value indicating whether to override an exception if the
+    -- retention period has passed.
+    force :: Prelude.Maybe Prelude.Bool,
+    -- | The number of days that a manual snapshot is retained. If you specify
     -- the value -1, the manual snapshot is retained indefinitely.
     --
     -- The number must be either -1 or an integer between 1 and 3,653.
@@ -62,9 +65,6 @@ data BatchModifyClusterSnapshots = BatchModifyClusterSnapshots'
     -- period will return an error. If you want to suppress the errors and
     -- delete the snapshots, use the force option.
     manualSnapshotRetentionPeriod :: Prelude.Maybe Prelude.Int,
-    -- | A boolean value indicating whether to override an exception if the
-    -- retention period has passed.
-    force :: Prelude.Maybe Prelude.Bool,
     -- | A list of snapshot identifiers you want to modify.
     snapshotIdentifierList :: [Prelude.Text]
   }
@@ -78,6 +78,9 @@ data BatchModifyClusterSnapshots = BatchModifyClusterSnapshots'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'force', 'batchModifyClusterSnapshots_force' - A boolean value indicating whether to override an exception if the
+-- retention period has passed.
+--
 -- 'manualSnapshotRetentionPeriod', 'batchModifyClusterSnapshots_manualSnapshotRetentionPeriod' - The number of days that a manual snapshot is retained. If you specify
 -- the value -1, the manual snapshot is retained indefinitely.
 --
@@ -88,19 +91,22 @@ data BatchModifyClusterSnapshots = BatchModifyClusterSnapshots'
 -- period will return an error. If you want to suppress the errors and
 -- delete the snapshots, use the force option.
 --
--- 'force', 'batchModifyClusterSnapshots_force' - A boolean value indicating whether to override an exception if the
--- retention period has passed.
---
 -- 'snapshotIdentifierList', 'batchModifyClusterSnapshots_snapshotIdentifierList' - A list of snapshot identifiers you want to modify.
 newBatchModifyClusterSnapshots ::
   BatchModifyClusterSnapshots
 newBatchModifyClusterSnapshots =
   BatchModifyClusterSnapshots'
-    { manualSnapshotRetentionPeriod =
+    { force =
         Prelude.Nothing,
-      force = Prelude.Nothing,
+      manualSnapshotRetentionPeriod =
+        Prelude.Nothing,
       snapshotIdentifierList = Prelude.mempty
     }
+
+-- | A boolean value indicating whether to override an exception if the
+-- retention period has passed.
+batchModifyClusterSnapshots_force :: Lens.Lens' BatchModifyClusterSnapshots (Prelude.Maybe Prelude.Bool)
+batchModifyClusterSnapshots_force = Lens.lens (\BatchModifyClusterSnapshots' {force} -> force) (\s@BatchModifyClusterSnapshots' {} a -> s {force = a} :: BatchModifyClusterSnapshots)
 
 -- | The number of days that a manual snapshot is retained. If you specify
 -- the value -1, the manual snapshot is retained indefinitely.
@@ -113,11 +119,6 @@ newBatchModifyClusterSnapshots =
 -- delete the snapshots, use the force option.
 batchModifyClusterSnapshots_manualSnapshotRetentionPeriod :: Lens.Lens' BatchModifyClusterSnapshots (Prelude.Maybe Prelude.Int)
 batchModifyClusterSnapshots_manualSnapshotRetentionPeriod = Lens.lens (\BatchModifyClusterSnapshots' {manualSnapshotRetentionPeriod} -> manualSnapshotRetentionPeriod) (\s@BatchModifyClusterSnapshots' {} a -> s {manualSnapshotRetentionPeriod = a} :: BatchModifyClusterSnapshots)
-
--- | A boolean value indicating whether to override an exception if the
--- retention period has passed.
-batchModifyClusterSnapshots_force :: Lens.Lens' BatchModifyClusterSnapshots (Prelude.Maybe Prelude.Bool)
-batchModifyClusterSnapshots_force = Lens.lens (\BatchModifyClusterSnapshots' {force} -> force) (\s@BatchModifyClusterSnapshots' {} a -> s {force = a} :: BatchModifyClusterSnapshots)
 
 -- | A list of snapshot identifiers you want to modify.
 batchModifyClusterSnapshots_snapshotIdentifierList :: Lens.Lens' BatchModifyClusterSnapshots [Prelude.Text]
@@ -145,15 +146,14 @@ instance Core.AWSRequest BatchModifyClusterSnapshots where
 
 instance Prelude.Hashable BatchModifyClusterSnapshots where
   hashWithSalt _salt BatchModifyClusterSnapshots' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` force
       `Prelude.hashWithSalt` manualSnapshotRetentionPeriod
-      `Prelude.hashWithSalt` force
       `Prelude.hashWithSalt` snapshotIdentifierList
 
 instance Prelude.NFData BatchModifyClusterSnapshots where
   rnf BatchModifyClusterSnapshots' {..} =
-    Prelude.rnf manualSnapshotRetentionPeriod
-      `Prelude.seq` Prelude.rnf force
+    Prelude.rnf force
+      `Prelude.seq` Prelude.rnf manualSnapshotRetentionPeriod
       `Prelude.seq` Prelude.rnf snapshotIdentifierList
 
 instance Data.ToHeaders BatchModifyClusterSnapshots where
@@ -171,9 +171,9 @@ instance Data.ToQuery BatchModifyClusterSnapshots where
                   ),
         "Version"
           Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "Force" Data.=: force,
         "ManualSnapshotRetentionPeriod"
           Data.=: manualSnapshotRetentionPeriod,
-        "Force" Data.=: force,
         "SnapshotIdentifierList"
           Data.=: Data.toQueryList "String" snapshotIdentifierList
       ]

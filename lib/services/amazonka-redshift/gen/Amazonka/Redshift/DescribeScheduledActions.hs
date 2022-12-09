@@ -29,10 +29,10 @@ module Amazonka.Redshift.DescribeScheduledActions
     newDescribeScheduledActions,
 
     -- * Request Lenses
-    describeScheduledActions_marker,
     describeScheduledActions_active,
-    describeScheduledActions_filters,
     describeScheduledActions_endTime,
+    describeScheduledActions_filters,
+    describeScheduledActions_marker,
     describeScheduledActions_maxRecords,
     describeScheduledActions_scheduledActionName,
     describeScheduledActions_startTime,
@@ -59,21 +59,21 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeScheduledActions' smart constructor.
 data DescribeScheduledActions = DescribeScheduledActions'
-  { -- | An optional parameter that specifies the starting point to return a set
+  { -- | If true, retrieve only active scheduled actions. If false, retrieve only
+    -- disabled scheduled actions.
+    active :: Prelude.Maybe Prelude.Bool,
+    -- | The end time in UTC of the scheduled action to retrieve. Only active
+    -- scheduled actions that have invocations before this time are retrieved.
+    endTime :: Prelude.Maybe Data.ISO8601,
+    -- | List of scheduled action filters.
+    filters :: Prelude.Maybe [ScheduledActionFilter],
+    -- | An optional parameter that specifies the starting point to return a set
     -- of response records. When the results of a DescribeScheduledActions
     -- request exceed the value specified in @MaxRecords@, Amazon Web Services
     -- returns a value in the @Marker@ field of the response. You can retrieve
     -- the next set of response records by providing the returned marker value
     -- in the @Marker@ parameter and retrying the request.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | If true, retrieve only active scheduled actions. If false, retrieve only
-    -- disabled scheduled actions.
-    active :: Prelude.Maybe Prelude.Bool,
-    -- | List of scheduled action filters.
-    filters :: Prelude.Maybe [ScheduledActionFilter],
-    -- | The end time in UTC of the scheduled action to retrieve. Only active
-    -- scheduled actions that have invocations before this time are retrieved.
-    endTime :: Prelude.Maybe Data.ISO8601,
     -- | The maximum number of response records to return in each call. If the
     -- number of remaining response records exceeds the specified @MaxRecords@
     -- value, a value is returned in a @marker@ field of the response. You can
@@ -102,20 +102,20 @@ data DescribeScheduledActions = DescribeScheduledActions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'active', 'describeScheduledActions_active' - If true, retrieve only active scheduled actions. If false, retrieve only
+-- disabled scheduled actions.
+--
+-- 'endTime', 'describeScheduledActions_endTime' - The end time in UTC of the scheduled action to retrieve. Only active
+-- scheduled actions that have invocations before this time are retrieved.
+--
+-- 'filters', 'describeScheduledActions_filters' - List of scheduled action filters.
+--
 -- 'marker', 'describeScheduledActions_marker' - An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a DescribeScheduledActions
 -- request exceed the value specified in @MaxRecords@, Amazon Web Services
 -- returns a value in the @Marker@ field of the response. You can retrieve
 -- the next set of response records by providing the returned marker value
 -- in the @Marker@ parameter and retrying the request.
---
--- 'active', 'describeScheduledActions_active' - If true, retrieve only active scheduled actions. If false, retrieve only
--- disabled scheduled actions.
---
--- 'filters', 'describeScheduledActions_filters' - List of scheduled action filters.
---
--- 'endTime', 'describeScheduledActions_endTime' - The end time in UTC of the scheduled action to retrieve. Only active
--- scheduled actions that have invocations before this time are retrieved.
 --
 -- 'maxRecords', 'describeScheduledActions_maxRecords' - The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -137,15 +137,29 @@ newDescribeScheduledActions ::
   DescribeScheduledActions
 newDescribeScheduledActions =
   DescribeScheduledActions'
-    { marker = Prelude.Nothing,
-      active = Prelude.Nothing,
-      filters = Prelude.Nothing,
+    { active = Prelude.Nothing,
       endTime = Prelude.Nothing,
+      filters = Prelude.Nothing,
+      marker = Prelude.Nothing,
       maxRecords = Prelude.Nothing,
       scheduledActionName = Prelude.Nothing,
       startTime = Prelude.Nothing,
       targetActionType = Prelude.Nothing
     }
+
+-- | If true, retrieve only active scheduled actions. If false, retrieve only
+-- disabled scheduled actions.
+describeScheduledActions_active :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe Prelude.Bool)
+describeScheduledActions_active = Lens.lens (\DescribeScheduledActions' {active} -> active) (\s@DescribeScheduledActions' {} a -> s {active = a} :: DescribeScheduledActions)
+
+-- | The end time in UTC of the scheduled action to retrieve. Only active
+-- scheduled actions that have invocations before this time are retrieved.
+describeScheduledActions_endTime :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe Prelude.UTCTime)
+describeScheduledActions_endTime = Lens.lens (\DescribeScheduledActions' {endTime} -> endTime) (\s@DescribeScheduledActions' {} a -> s {endTime = a} :: DescribeScheduledActions) Prelude.. Lens.mapping Data._Time
+
+-- | List of scheduled action filters.
+describeScheduledActions_filters :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe [ScheduledActionFilter])
+describeScheduledActions_filters = Lens.lens (\DescribeScheduledActions' {filters} -> filters) (\s@DescribeScheduledActions' {} a -> s {filters = a} :: DescribeScheduledActions) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a DescribeScheduledActions
@@ -155,20 +169,6 @@ newDescribeScheduledActions =
 -- in the @Marker@ parameter and retrying the request.
 describeScheduledActions_marker :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe Prelude.Text)
 describeScheduledActions_marker = Lens.lens (\DescribeScheduledActions' {marker} -> marker) (\s@DescribeScheduledActions' {} a -> s {marker = a} :: DescribeScheduledActions)
-
--- | If true, retrieve only active scheduled actions. If false, retrieve only
--- disabled scheduled actions.
-describeScheduledActions_active :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe Prelude.Bool)
-describeScheduledActions_active = Lens.lens (\DescribeScheduledActions' {active} -> active) (\s@DescribeScheduledActions' {} a -> s {active = a} :: DescribeScheduledActions)
-
--- | List of scheduled action filters.
-describeScheduledActions_filters :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe [ScheduledActionFilter])
-describeScheduledActions_filters = Lens.lens (\DescribeScheduledActions' {filters} -> filters) (\s@DescribeScheduledActions' {} a -> s {filters = a} :: DescribeScheduledActions) Prelude.. Lens.mapping Lens.coerced
-
--- | The end time in UTC of the scheduled action to retrieve. Only active
--- scheduled actions that have invocations before this time are retrieved.
-describeScheduledActions_endTime :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe Prelude.UTCTime)
-describeScheduledActions_endTime = Lens.lens (\DescribeScheduledActions' {endTime} -> endTime) (\s@DescribeScheduledActions' {} a -> s {endTime = a} :: DescribeScheduledActions) Prelude.. Lens.mapping Data._Time
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -238,10 +238,10 @@ instance Core.AWSRequest DescribeScheduledActions where
 
 instance Prelude.Hashable DescribeScheduledActions where
   hashWithSalt _salt DescribeScheduledActions' {..} =
-    _salt `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` active
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` active
       `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords
       `Prelude.hashWithSalt` scheduledActionName
       `Prelude.hashWithSalt` startTime
@@ -249,10 +249,10 @@ instance Prelude.Hashable DescribeScheduledActions where
 
 instance Prelude.NFData DescribeScheduledActions where
   rnf DescribeScheduledActions' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf active
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf active
       `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxRecords
       `Prelude.seq` Prelude.rnf scheduledActionName
       `Prelude.seq` Prelude.rnf startTime
@@ -271,14 +271,14 @@ instance Data.ToQuery DescribeScheduledActions where
           Data.=: ("DescribeScheduledActions" :: Prelude.ByteString),
         "Version"
           Data.=: ("2012-12-01" :: Prelude.ByteString),
-        "Marker" Data.=: marker,
         "Active" Data.=: active,
+        "EndTime" Data.=: endTime,
         "Filters"
           Data.=: Data.toQuery
             ( Data.toQueryList "ScheduledActionFilter"
                 Prelude.<$> filters
             ),
-        "EndTime" Data.=: endTime,
+        "Marker" Data.=: marker,
         "MaxRecords" Data.=: maxRecords,
         "ScheduledActionName" Data.=: scheduledActionName,
         "StartTime" Data.=: startTime,

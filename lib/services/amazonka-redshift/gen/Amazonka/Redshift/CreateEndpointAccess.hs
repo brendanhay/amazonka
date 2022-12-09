@@ -28,8 +28,8 @@ module Amazonka.Redshift.CreateEndpointAccess
 
     -- * Request Lenses
     createEndpointAccess_clusterIdentifier,
-    createEndpointAccess_vpcSecurityGroupIds,
     createEndpointAccess_resourceOwner,
+    createEndpointAccess_vpcSecurityGroupIds,
     createEndpointAccess_endpointName,
     createEndpointAccess_subnetGroupName,
 
@@ -38,15 +38,15 @@ module Amazonka.Redshift.CreateEndpointAccess
     newEndpointAccess,
 
     -- * Response Lenses
-    endpointAccess_port,
-    endpointAccess_subnetGroupName,
-    endpointAccess_clusterIdentifier,
-    endpointAccess_endpointName,
-    endpointAccess_resourceOwner,
     endpointAccess_address,
-    endpointAccess_endpointStatus,
-    endpointAccess_vpcEndpoint,
+    endpointAccess_clusterIdentifier,
     endpointAccess_endpointCreateTime,
+    endpointAccess_endpointName,
+    endpointAccess_endpointStatus,
+    endpointAccess_port,
+    endpointAccess_resourceOwner,
+    endpointAccess_subnetGroupName,
+    endpointAccess_vpcEndpoint,
     endpointAccess_vpcSecurityGroups,
   )
 where
@@ -63,12 +63,12 @@ import qualified Amazonka.Response as Response
 data CreateEndpointAccess = CreateEndpointAccess'
   { -- | The cluster identifier of the cluster to access.
     clusterIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | The security group that defines the ports, protocols, and sources for
-    -- inbound traffic that you are authorizing into your endpoint.
-    vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | The Amazon Web Services account ID of the owner of the cluster. This is
     -- only required if the cluster is in another Amazon Web Services account.
     resourceOwner :: Prelude.Maybe Prelude.Text,
+    -- | The security group that defines the ports, protocols, and sources for
+    -- inbound traffic that you are authorizing into your endpoint.
+    vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | The Redshift-managed VPC endpoint name.
     --
     -- An endpoint name must contain 1-30 characters. Valid characters are A-Z,
@@ -91,11 +91,11 @@ data CreateEndpointAccess = CreateEndpointAccess'
 --
 -- 'clusterIdentifier', 'createEndpointAccess_clusterIdentifier' - The cluster identifier of the cluster to access.
 --
--- 'vpcSecurityGroupIds', 'createEndpointAccess_vpcSecurityGroupIds' - The security group that defines the ports, protocols, and sources for
--- inbound traffic that you are authorizing into your endpoint.
---
 -- 'resourceOwner', 'createEndpointAccess_resourceOwner' - The Amazon Web Services account ID of the owner of the cluster. This is
 -- only required if the cluster is in another Amazon Web Services account.
+--
+-- 'vpcSecurityGroupIds', 'createEndpointAccess_vpcSecurityGroupIds' - The security group that defines the ports, protocols, and sources for
+-- inbound traffic that you are authorizing into your endpoint.
 --
 -- 'endpointName', 'createEndpointAccess_endpointName' - The Redshift-managed VPC endpoint name.
 --
@@ -117,8 +117,8 @@ newCreateEndpointAccess
     CreateEndpointAccess'
       { clusterIdentifier =
           Prelude.Nothing,
-        vpcSecurityGroupIds = Prelude.Nothing,
         resourceOwner = Prelude.Nothing,
+        vpcSecurityGroupIds = Prelude.Nothing,
         endpointName = pEndpointName_,
         subnetGroupName = pSubnetGroupName_
       }
@@ -127,15 +127,15 @@ newCreateEndpointAccess
 createEndpointAccess_clusterIdentifier :: Lens.Lens' CreateEndpointAccess (Prelude.Maybe Prelude.Text)
 createEndpointAccess_clusterIdentifier = Lens.lens (\CreateEndpointAccess' {clusterIdentifier} -> clusterIdentifier) (\s@CreateEndpointAccess' {} a -> s {clusterIdentifier = a} :: CreateEndpointAccess)
 
--- | The security group that defines the ports, protocols, and sources for
--- inbound traffic that you are authorizing into your endpoint.
-createEndpointAccess_vpcSecurityGroupIds :: Lens.Lens' CreateEndpointAccess (Prelude.Maybe [Prelude.Text])
-createEndpointAccess_vpcSecurityGroupIds = Lens.lens (\CreateEndpointAccess' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@CreateEndpointAccess' {} a -> s {vpcSecurityGroupIds = a} :: CreateEndpointAccess) Prelude.. Lens.mapping Lens.coerced
-
 -- | The Amazon Web Services account ID of the owner of the cluster. This is
 -- only required if the cluster is in another Amazon Web Services account.
 createEndpointAccess_resourceOwner :: Lens.Lens' CreateEndpointAccess (Prelude.Maybe Prelude.Text)
 createEndpointAccess_resourceOwner = Lens.lens (\CreateEndpointAccess' {resourceOwner} -> resourceOwner) (\s@CreateEndpointAccess' {} a -> s {resourceOwner = a} :: CreateEndpointAccess)
+
+-- | The security group that defines the ports, protocols, and sources for
+-- inbound traffic that you are authorizing into your endpoint.
+createEndpointAccess_vpcSecurityGroupIds :: Lens.Lens' CreateEndpointAccess (Prelude.Maybe [Prelude.Text])
+createEndpointAccess_vpcSecurityGroupIds = Lens.lens (\CreateEndpointAccess' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@CreateEndpointAccess' {} a -> s {vpcSecurityGroupIds = a} :: CreateEndpointAccess) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Redshift-managed VPC endpoint name.
 --
@@ -164,16 +164,16 @@ instance Core.AWSRequest CreateEndpointAccess where
 instance Prelude.Hashable CreateEndpointAccess where
   hashWithSalt _salt CreateEndpointAccess' {..} =
     _salt `Prelude.hashWithSalt` clusterIdentifier
-      `Prelude.hashWithSalt` vpcSecurityGroupIds
       `Prelude.hashWithSalt` resourceOwner
+      `Prelude.hashWithSalt` vpcSecurityGroupIds
       `Prelude.hashWithSalt` endpointName
       `Prelude.hashWithSalt` subnetGroupName
 
 instance Prelude.NFData CreateEndpointAccess where
   rnf CreateEndpointAccess' {..} =
     Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
       `Prelude.seq` Prelude.rnf resourceOwner
+      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
       `Prelude.seq` Prelude.rnf endpointName
       `Prelude.seq` Prelude.rnf subnetGroupName
 
@@ -191,12 +191,12 @@ instance Data.ToQuery CreateEndpointAccess where
         "Version"
           Data.=: ("2012-12-01" :: Prelude.ByteString),
         "ClusterIdentifier" Data.=: clusterIdentifier,
+        "ResourceOwner" Data.=: resourceOwner,
         "VpcSecurityGroupIds"
           Data.=: Data.toQuery
             ( Data.toQueryList "VpcSecurityGroupId"
                 Prelude.<$> vpcSecurityGroupIds
             ),
-        "ResourceOwner" Data.=: resourceOwner,
         "EndpointName" Data.=: endpointName,
         "SubnetGroupName" Data.=: subnetGroupName
       ]

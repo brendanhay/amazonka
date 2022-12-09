@@ -46,9 +46,9 @@ module Amazonka.Redshift.DeleteCluster
     newDeleteCluster,
 
     -- * Request Lenses
-    deleteCluster_skipFinalClusterSnapshot,
-    deleteCluster_finalClusterSnapshotRetentionPeriod,
     deleteCluster_finalClusterSnapshotIdentifier,
+    deleteCluster_finalClusterSnapshotRetentionPeriod,
+    deleteCluster_skipFinalClusterSnapshot,
     deleteCluster_clusterIdentifier,
 
     -- * Destructuring the Response
@@ -73,24 +73,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDeleteCluster' smart constructor.
 data DeleteCluster = DeleteCluster'
-  { -- | Determines whether a final snapshot of the cluster is created before
-    -- Amazon Redshift deletes the cluster. If @true@, a final cluster snapshot
-    -- is not created. If @false@, a final cluster snapshot is created before
-    -- the cluster is deleted.
-    --
-    -- The /FinalClusterSnapshotIdentifier/ parameter must be specified if
-    -- /SkipFinalClusterSnapshot/ is @false@.
-    --
-    -- Default: @false@
-    skipFinalClusterSnapshot :: Prelude.Maybe Prelude.Bool,
-    -- | The number of days that a manual snapshot is retained. If the value is
-    -- -1, the manual snapshot is retained indefinitely.
-    --
-    -- The value must be either -1 or an integer between 1 and 3,653.
-    --
-    -- The default value is -1.
-    finalClusterSnapshotRetentionPeriod :: Prelude.Maybe Prelude.Int,
-    -- | The identifier of the final snapshot that is to be created immediately
+  { -- | The identifier of the final snapshot that is to be created immediately
     -- before deleting the cluster. If this parameter is provided,
     -- /SkipFinalClusterSnapshot/ must be @false@.
     --
@@ -102,6 +85,23 @@ data DeleteCluster = DeleteCluster'
     --
     -- -   Cannot end with a hyphen or contain two consecutive hyphens.
     finalClusterSnapshotIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The number of days that a manual snapshot is retained. If the value is
+    -- -1, the manual snapshot is retained indefinitely.
+    --
+    -- The value must be either -1 or an integer between 1 and 3,653.
+    --
+    -- The default value is -1.
+    finalClusterSnapshotRetentionPeriod :: Prelude.Maybe Prelude.Int,
+    -- | Determines whether a final snapshot of the cluster is created before
+    -- Amazon Redshift deletes the cluster. If @true@, a final cluster snapshot
+    -- is not created. If @false@, a final cluster snapshot is created before
+    -- the cluster is deleted.
+    --
+    -- The /FinalClusterSnapshotIdentifier/ parameter must be specified if
+    -- /SkipFinalClusterSnapshot/ is @false@.
+    --
+    -- Default: @false@
+    skipFinalClusterSnapshot :: Prelude.Maybe Prelude.Bool,
     -- | The identifier of the cluster to be deleted.
     --
     -- Constraints:
@@ -125,23 +125,6 @@ data DeleteCluster = DeleteCluster'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'skipFinalClusterSnapshot', 'deleteCluster_skipFinalClusterSnapshot' - Determines whether a final snapshot of the cluster is created before
--- Amazon Redshift deletes the cluster. If @true@, a final cluster snapshot
--- is not created. If @false@, a final cluster snapshot is created before
--- the cluster is deleted.
---
--- The /FinalClusterSnapshotIdentifier/ parameter must be specified if
--- /SkipFinalClusterSnapshot/ is @false@.
---
--- Default: @false@
---
--- 'finalClusterSnapshotRetentionPeriod', 'deleteCluster_finalClusterSnapshotRetentionPeriod' - The number of days that a manual snapshot is retained. If the value is
--- -1, the manual snapshot is retained indefinitely.
---
--- The value must be either -1 or an integer between 1 and 3,653.
---
--- The default value is -1.
---
 -- 'finalClusterSnapshotIdentifier', 'deleteCluster_finalClusterSnapshotIdentifier' - The identifier of the final snapshot that is to be created immediately
 -- before deleting the cluster. If this parameter is provided,
 -- /SkipFinalClusterSnapshot/ must be @false@.
@@ -153,6 +136,23 @@ data DeleteCluster = DeleteCluster'
 -- -   First character must be a letter.
 --
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
+--
+-- 'finalClusterSnapshotRetentionPeriod', 'deleteCluster_finalClusterSnapshotRetentionPeriod' - The number of days that a manual snapshot is retained. If the value is
+-- -1, the manual snapshot is retained indefinitely.
+--
+-- The value must be either -1 or an integer between 1 and 3,653.
+--
+-- The default value is -1.
+--
+-- 'skipFinalClusterSnapshot', 'deleteCluster_skipFinalClusterSnapshot' - Determines whether a final snapshot of the cluster is created before
+-- Amazon Redshift deletes the cluster. If @true@, a final cluster snapshot
+-- is not created. If @false@, a final cluster snapshot is created before
+-- the cluster is deleted.
+--
+-- The /FinalClusterSnapshotIdentifier/ parameter must be specified if
+-- /SkipFinalClusterSnapshot/ is @false@.
+--
+-- Default: @false@
 --
 -- 'clusterIdentifier', 'deleteCluster_clusterIdentifier' - The identifier of the cluster to be deleted.
 --
@@ -171,34 +171,13 @@ newDeleteCluster ::
   DeleteCluster
 newDeleteCluster pClusterIdentifier_ =
   DeleteCluster'
-    { skipFinalClusterSnapshot =
+    { finalClusterSnapshotIdentifier =
         Prelude.Nothing,
       finalClusterSnapshotRetentionPeriod =
         Prelude.Nothing,
-      finalClusterSnapshotIdentifier = Prelude.Nothing,
+      skipFinalClusterSnapshot = Prelude.Nothing,
       clusterIdentifier = pClusterIdentifier_
     }
-
--- | Determines whether a final snapshot of the cluster is created before
--- Amazon Redshift deletes the cluster. If @true@, a final cluster snapshot
--- is not created. If @false@, a final cluster snapshot is created before
--- the cluster is deleted.
---
--- The /FinalClusterSnapshotIdentifier/ parameter must be specified if
--- /SkipFinalClusterSnapshot/ is @false@.
---
--- Default: @false@
-deleteCluster_skipFinalClusterSnapshot :: Lens.Lens' DeleteCluster (Prelude.Maybe Prelude.Bool)
-deleteCluster_skipFinalClusterSnapshot = Lens.lens (\DeleteCluster' {skipFinalClusterSnapshot} -> skipFinalClusterSnapshot) (\s@DeleteCluster' {} a -> s {skipFinalClusterSnapshot = a} :: DeleteCluster)
-
--- | The number of days that a manual snapshot is retained. If the value is
--- -1, the manual snapshot is retained indefinitely.
---
--- The value must be either -1 or an integer between 1 and 3,653.
---
--- The default value is -1.
-deleteCluster_finalClusterSnapshotRetentionPeriod :: Lens.Lens' DeleteCluster (Prelude.Maybe Prelude.Int)
-deleteCluster_finalClusterSnapshotRetentionPeriod = Lens.lens (\DeleteCluster' {finalClusterSnapshotRetentionPeriod} -> finalClusterSnapshotRetentionPeriod) (\s@DeleteCluster' {} a -> s {finalClusterSnapshotRetentionPeriod = a} :: DeleteCluster)
 
 -- | The identifier of the final snapshot that is to be created immediately
 -- before deleting the cluster. If this parameter is provided,
@@ -213,6 +192,27 @@ deleteCluster_finalClusterSnapshotRetentionPeriod = Lens.lens (\DeleteCluster' {
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
 deleteCluster_finalClusterSnapshotIdentifier :: Lens.Lens' DeleteCluster (Prelude.Maybe Prelude.Text)
 deleteCluster_finalClusterSnapshotIdentifier = Lens.lens (\DeleteCluster' {finalClusterSnapshotIdentifier} -> finalClusterSnapshotIdentifier) (\s@DeleteCluster' {} a -> s {finalClusterSnapshotIdentifier = a} :: DeleteCluster)
+
+-- | The number of days that a manual snapshot is retained. If the value is
+-- -1, the manual snapshot is retained indefinitely.
+--
+-- The value must be either -1 or an integer between 1 and 3,653.
+--
+-- The default value is -1.
+deleteCluster_finalClusterSnapshotRetentionPeriod :: Lens.Lens' DeleteCluster (Prelude.Maybe Prelude.Int)
+deleteCluster_finalClusterSnapshotRetentionPeriod = Lens.lens (\DeleteCluster' {finalClusterSnapshotRetentionPeriod} -> finalClusterSnapshotRetentionPeriod) (\s@DeleteCluster' {} a -> s {finalClusterSnapshotRetentionPeriod = a} :: DeleteCluster)
+
+-- | Determines whether a final snapshot of the cluster is created before
+-- Amazon Redshift deletes the cluster. If @true@, a final cluster snapshot
+-- is not created. If @false@, a final cluster snapshot is created before
+-- the cluster is deleted.
+--
+-- The /FinalClusterSnapshotIdentifier/ parameter must be specified if
+-- /SkipFinalClusterSnapshot/ is @false@.
+--
+-- Default: @false@
+deleteCluster_skipFinalClusterSnapshot :: Lens.Lens' DeleteCluster (Prelude.Maybe Prelude.Bool)
+deleteCluster_skipFinalClusterSnapshot = Lens.lens (\DeleteCluster' {skipFinalClusterSnapshot} -> skipFinalClusterSnapshot) (\s@DeleteCluster' {} a -> s {skipFinalClusterSnapshot = a} :: DeleteCluster)
 
 -- | The identifier of the cluster to be deleted.
 --
@@ -246,16 +246,16 @@ instance Core.AWSRequest DeleteCluster where
 instance Prelude.Hashable DeleteCluster where
   hashWithSalt _salt DeleteCluster' {..} =
     _salt
-      `Prelude.hashWithSalt` skipFinalClusterSnapshot
-      `Prelude.hashWithSalt` finalClusterSnapshotRetentionPeriod
       `Prelude.hashWithSalt` finalClusterSnapshotIdentifier
+      `Prelude.hashWithSalt` finalClusterSnapshotRetentionPeriod
+      `Prelude.hashWithSalt` skipFinalClusterSnapshot
       `Prelude.hashWithSalt` clusterIdentifier
 
 instance Prelude.NFData DeleteCluster where
   rnf DeleteCluster' {..} =
-    Prelude.rnf skipFinalClusterSnapshot
+    Prelude.rnf finalClusterSnapshotIdentifier
       `Prelude.seq` Prelude.rnf finalClusterSnapshotRetentionPeriod
-      `Prelude.seq` Prelude.rnf finalClusterSnapshotIdentifier
+      `Prelude.seq` Prelude.rnf skipFinalClusterSnapshot
       `Prelude.seq` Prelude.rnf clusterIdentifier
 
 instance Data.ToHeaders DeleteCluster where
@@ -271,12 +271,12 @@ instance Data.ToQuery DeleteCluster where
           Data.=: ("DeleteCluster" :: Prelude.ByteString),
         "Version"
           Data.=: ("2012-12-01" :: Prelude.ByteString),
-        "SkipFinalClusterSnapshot"
-          Data.=: skipFinalClusterSnapshot,
-        "FinalClusterSnapshotRetentionPeriod"
-          Data.=: finalClusterSnapshotRetentionPeriod,
         "FinalClusterSnapshotIdentifier"
           Data.=: finalClusterSnapshotIdentifier,
+        "FinalClusterSnapshotRetentionPeriod"
+          Data.=: finalClusterSnapshotRetentionPeriod,
+        "SkipFinalClusterSnapshot"
+          Data.=: skipFinalClusterSnapshot,
         "ClusterIdentifier" Data.=: clusterIdentifier
       ]
 

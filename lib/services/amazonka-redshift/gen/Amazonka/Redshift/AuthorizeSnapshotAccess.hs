@@ -33,8 +33,8 @@ module Amazonka.Redshift.AuthorizeSnapshotAccess
 
     -- * Request Lenses
     authorizeSnapshotAccess_snapshotArn,
-    authorizeSnapshotAccess_snapshotIdentifier,
     authorizeSnapshotAccess_snapshotClusterIdentifier,
+    authorizeSnapshotAccess_snapshotIdentifier,
     authorizeSnapshotAccess_accountWithRestoreAccess,
 
     -- * Destructuring the Response
@@ -61,13 +61,13 @@ import qualified Amazonka.Response as Response
 data AuthorizeSnapshotAccess = AuthorizeSnapshotAccess'
   { -- | The Amazon Resource Name (ARN) of the snapshot to authorize access to.
     snapshotArn :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the snapshot the account is authorized to restore.
-    snapshotIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the cluster the snapshot was created from. This
     -- parameter is required if your IAM user has a policy containing a
     -- snapshot resource element that specifies anything other than * for the
     -- cluster name.
     snapshotClusterIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the snapshot the account is authorized to restore.
+    snapshotIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the Amazon Web Services account authorized to restore
     -- the specified snapshot.
     --
@@ -87,12 +87,12 @@ data AuthorizeSnapshotAccess = AuthorizeSnapshotAccess'
 --
 -- 'snapshotArn', 'authorizeSnapshotAccess_snapshotArn' - The Amazon Resource Name (ARN) of the snapshot to authorize access to.
 --
--- 'snapshotIdentifier', 'authorizeSnapshotAccess_snapshotIdentifier' - The identifier of the snapshot the account is authorized to restore.
---
 -- 'snapshotClusterIdentifier', 'authorizeSnapshotAccess_snapshotClusterIdentifier' - The identifier of the cluster the snapshot was created from. This
 -- parameter is required if your IAM user has a policy containing a
 -- snapshot resource element that specifies anything other than * for the
 -- cluster name.
+--
+-- 'snapshotIdentifier', 'authorizeSnapshotAccess_snapshotIdentifier' - The identifier of the snapshot the account is authorized to restore.
 --
 -- 'accountWithRestoreAccess', 'authorizeSnapshotAccess_accountWithRestoreAccess' - The identifier of the Amazon Web Services account authorized to restore
 -- the specified snapshot.
@@ -107,8 +107,8 @@ newAuthorizeSnapshotAccess pAccountWithRestoreAccess_ =
   AuthorizeSnapshotAccess'
     { snapshotArn =
         Prelude.Nothing,
-      snapshotIdentifier = Prelude.Nothing,
       snapshotClusterIdentifier = Prelude.Nothing,
+      snapshotIdentifier = Prelude.Nothing,
       accountWithRestoreAccess =
         pAccountWithRestoreAccess_
     }
@@ -117,16 +117,16 @@ newAuthorizeSnapshotAccess pAccountWithRestoreAccess_ =
 authorizeSnapshotAccess_snapshotArn :: Lens.Lens' AuthorizeSnapshotAccess (Prelude.Maybe Prelude.Text)
 authorizeSnapshotAccess_snapshotArn = Lens.lens (\AuthorizeSnapshotAccess' {snapshotArn} -> snapshotArn) (\s@AuthorizeSnapshotAccess' {} a -> s {snapshotArn = a} :: AuthorizeSnapshotAccess)
 
--- | The identifier of the snapshot the account is authorized to restore.
-authorizeSnapshotAccess_snapshotIdentifier :: Lens.Lens' AuthorizeSnapshotAccess (Prelude.Maybe Prelude.Text)
-authorizeSnapshotAccess_snapshotIdentifier = Lens.lens (\AuthorizeSnapshotAccess' {snapshotIdentifier} -> snapshotIdentifier) (\s@AuthorizeSnapshotAccess' {} a -> s {snapshotIdentifier = a} :: AuthorizeSnapshotAccess)
-
 -- | The identifier of the cluster the snapshot was created from. This
 -- parameter is required if your IAM user has a policy containing a
 -- snapshot resource element that specifies anything other than * for the
 -- cluster name.
 authorizeSnapshotAccess_snapshotClusterIdentifier :: Lens.Lens' AuthorizeSnapshotAccess (Prelude.Maybe Prelude.Text)
 authorizeSnapshotAccess_snapshotClusterIdentifier = Lens.lens (\AuthorizeSnapshotAccess' {snapshotClusterIdentifier} -> snapshotClusterIdentifier) (\s@AuthorizeSnapshotAccess' {} a -> s {snapshotClusterIdentifier = a} :: AuthorizeSnapshotAccess)
+
+-- | The identifier of the snapshot the account is authorized to restore.
+authorizeSnapshotAccess_snapshotIdentifier :: Lens.Lens' AuthorizeSnapshotAccess (Prelude.Maybe Prelude.Text)
+authorizeSnapshotAccess_snapshotIdentifier = Lens.lens (\AuthorizeSnapshotAccess' {snapshotIdentifier} -> snapshotIdentifier) (\s@AuthorizeSnapshotAccess' {} a -> s {snapshotIdentifier = a} :: AuthorizeSnapshotAccess)
 
 -- | The identifier of the Amazon Web Services account authorized to restore
 -- the specified snapshot.
@@ -154,15 +154,15 @@ instance Core.AWSRequest AuthorizeSnapshotAccess where
 instance Prelude.Hashable AuthorizeSnapshotAccess where
   hashWithSalt _salt AuthorizeSnapshotAccess' {..} =
     _salt `Prelude.hashWithSalt` snapshotArn
-      `Prelude.hashWithSalt` snapshotIdentifier
       `Prelude.hashWithSalt` snapshotClusterIdentifier
+      `Prelude.hashWithSalt` snapshotIdentifier
       `Prelude.hashWithSalt` accountWithRestoreAccess
 
 instance Prelude.NFData AuthorizeSnapshotAccess where
   rnf AuthorizeSnapshotAccess' {..} =
     Prelude.rnf snapshotArn
-      `Prelude.seq` Prelude.rnf snapshotIdentifier
       `Prelude.seq` Prelude.rnf snapshotClusterIdentifier
+      `Prelude.seq` Prelude.rnf snapshotIdentifier
       `Prelude.seq` Prelude.rnf accountWithRestoreAccess
 
 instance Data.ToHeaders AuthorizeSnapshotAccess where
@@ -179,9 +179,9 @@ instance Data.ToQuery AuthorizeSnapshotAccess where
         "Version"
           Data.=: ("2012-12-01" :: Prelude.ByteString),
         "SnapshotArn" Data.=: snapshotArn,
-        "SnapshotIdentifier" Data.=: snapshotIdentifier,
         "SnapshotClusterIdentifier"
           Data.=: snapshotClusterIdentifier,
+        "SnapshotIdentifier" Data.=: snapshotIdentifier,
         "AccountWithRestoreAccess"
           Data.=: accountWithRestoreAccess
       ]

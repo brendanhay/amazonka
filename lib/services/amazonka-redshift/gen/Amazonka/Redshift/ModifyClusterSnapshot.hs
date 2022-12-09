@@ -30,8 +30,8 @@ module Amazonka.Redshift.ModifyClusterSnapshot
     newModifyClusterSnapshot,
 
     -- * Request Lenses
-    modifyClusterSnapshot_manualSnapshotRetentionPeriod,
     modifyClusterSnapshot_force,
+    modifyClusterSnapshot_manualSnapshotRetentionPeriod,
     modifyClusterSnapshot_snapshotIdentifier,
 
     -- * Destructuring the Response
@@ -54,7 +54,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newModifyClusterSnapshot' smart constructor.
 data ModifyClusterSnapshot = ModifyClusterSnapshot'
-  { -- | The number of days that a manual snapshot is retained. If the value is
+  { -- | A Boolean option to override an exception if the retention period has
+    -- already passed.
+    force :: Prelude.Maybe Prelude.Bool,
+    -- | The number of days that a manual snapshot is retained. If the value is
     -- -1, the manual snapshot is retained indefinitely.
     --
     -- If the manual snapshot falls outside of the new retention period, you
@@ -62,9 +65,6 @@ data ModifyClusterSnapshot = ModifyClusterSnapshot'
     --
     -- The value must be either -1 or an integer between 1 and 3,653.
     manualSnapshotRetentionPeriod :: Prelude.Maybe Prelude.Int,
-    -- | A Boolean option to override an exception if the retention period has
-    -- already passed.
-    force :: Prelude.Maybe Prelude.Bool,
     -- | The identifier of the snapshot whose setting you want to modify.
     snapshotIdentifier :: Prelude.Text
   }
@@ -78,6 +78,9 @@ data ModifyClusterSnapshot = ModifyClusterSnapshot'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'force', 'modifyClusterSnapshot_force' - A Boolean option to override an exception if the retention period has
+-- already passed.
+--
 -- 'manualSnapshotRetentionPeriod', 'modifyClusterSnapshot_manualSnapshotRetentionPeriod' - The number of days that a manual snapshot is retained. If the value is
 -- -1, the manual snapshot is retained indefinitely.
 --
@@ -86,9 +89,6 @@ data ModifyClusterSnapshot = ModifyClusterSnapshot'
 --
 -- The value must be either -1 or an integer between 1 and 3,653.
 --
--- 'force', 'modifyClusterSnapshot_force' - A Boolean option to override an exception if the retention period has
--- already passed.
---
 -- 'snapshotIdentifier', 'modifyClusterSnapshot_snapshotIdentifier' - The identifier of the snapshot whose setting you want to modify.
 newModifyClusterSnapshot ::
   -- | 'snapshotIdentifier'
@@ -96,11 +96,15 @@ newModifyClusterSnapshot ::
   ModifyClusterSnapshot
 newModifyClusterSnapshot pSnapshotIdentifier_ =
   ModifyClusterSnapshot'
-    { manualSnapshotRetentionPeriod =
-        Prelude.Nothing,
-      force = Prelude.Nothing,
+    { force = Prelude.Nothing,
+      manualSnapshotRetentionPeriod = Prelude.Nothing,
       snapshotIdentifier = pSnapshotIdentifier_
     }
+
+-- | A Boolean option to override an exception if the retention period has
+-- already passed.
+modifyClusterSnapshot_force :: Lens.Lens' ModifyClusterSnapshot (Prelude.Maybe Prelude.Bool)
+modifyClusterSnapshot_force = Lens.lens (\ModifyClusterSnapshot' {force} -> force) (\s@ModifyClusterSnapshot' {} a -> s {force = a} :: ModifyClusterSnapshot)
 
 -- | The number of days that a manual snapshot is retained. If the value is
 -- -1, the manual snapshot is retained indefinitely.
@@ -111,11 +115,6 @@ newModifyClusterSnapshot pSnapshotIdentifier_ =
 -- The value must be either -1 or an integer between 1 and 3,653.
 modifyClusterSnapshot_manualSnapshotRetentionPeriod :: Lens.Lens' ModifyClusterSnapshot (Prelude.Maybe Prelude.Int)
 modifyClusterSnapshot_manualSnapshotRetentionPeriod = Lens.lens (\ModifyClusterSnapshot' {manualSnapshotRetentionPeriod} -> manualSnapshotRetentionPeriod) (\s@ModifyClusterSnapshot' {} a -> s {manualSnapshotRetentionPeriod = a} :: ModifyClusterSnapshot)
-
--- | A Boolean option to override an exception if the retention period has
--- already passed.
-modifyClusterSnapshot_force :: Lens.Lens' ModifyClusterSnapshot (Prelude.Maybe Prelude.Bool)
-modifyClusterSnapshot_force = Lens.lens (\ModifyClusterSnapshot' {force} -> force) (\s@ModifyClusterSnapshot' {} a -> s {force = a} :: ModifyClusterSnapshot)
 
 -- | The identifier of the snapshot whose setting you want to modify.
 modifyClusterSnapshot_snapshotIdentifier :: Lens.Lens' ModifyClusterSnapshot Prelude.Text
@@ -138,15 +137,14 @@ instance Core.AWSRequest ModifyClusterSnapshot where
 
 instance Prelude.Hashable ModifyClusterSnapshot where
   hashWithSalt _salt ModifyClusterSnapshot' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` force
       `Prelude.hashWithSalt` manualSnapshotRetentionPeriod
-      `Prelude.hashWithSalt` force
       `Prelude.hashWithSalt` snapshotIdentifier
 
 instance Prelude.NFData ModifyClusterSnapshot where
   rnf ModifyClusterSnapshot' {..} =
-    Prelude.rnf manualSnapshotRetentionPeriod
-      `Prelude.seq` Prelude.rnf force
+    Prelude.rnf force
+      `Prelude.seq` Prelude.rnf manualSnapshotRetentionPeriod
       `Prelude.seq` Prelude.rnf snapshotIdentifier
 
 instance Data.ToHeaders ModifyClusterSnapshot where
@@ -162,9 +160,9 @@ instance Data.ToQuery ModifyClusterSnapshot where
           Data.=: ("ModifyClusterSnapshot" :: Prelude.ByteString),
         "Version"
           Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "Force" Data.=: force,
         "ManualSnapshotRetentionPeriod"
           Data.=: manualSnapshotRetentionPeriod,
-        "Force" Data.=: force,
         "SnapshotIdentifier" Data.=: snapshotIdentifier
       ]
 

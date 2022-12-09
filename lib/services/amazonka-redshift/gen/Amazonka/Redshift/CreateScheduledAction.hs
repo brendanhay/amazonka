@@ -43,15 +43,15 @@ module Amazonka.Redshift.CreateScheduledAction
     newScheduledAction,
 
     -- * Response Lenses
-    scheduledAction_schedule,
-    scheduledAction_targetAction,
-    scheduledAction_iamRole,
-    scheduledAction_state,
-    scheduledAction_nextInvocations,
     scheduledAction_endTime,
+    scheduledAction_iamRole,
+    scheduledAction_nextInvocations,
+    scheduledAction_schedule,
     scheduledAction_scheduledActionDescription,
     scheduledAction_scheduledActionName,
     scheduledAction_startTime,
+    scheduledAction_state,
+    scheduledAction_targetAction,
   )
 where
 

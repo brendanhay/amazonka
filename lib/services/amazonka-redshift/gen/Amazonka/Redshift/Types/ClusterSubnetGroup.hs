@@ -31,17 +31,17 @@ import Amazonka.Redshift.Types.Tag
 --
 -- /See:/ 'newClusterSubnetGroup' smart constructor.
 data ClusterSubnetGroup = ClusterSubnetGroup'
-  { -- | The list of tags for the cluster subnet group.
-    tags :: Prelude.Maybe [Tag],
-    -- | The name of the cluster subnet group.
+  { -- | The name of the cluster subnet group.
     clusterSubnetGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The description of the cluster subnet group.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The status of the cluster subnet group. Possible values are @Complete@,
     -- @Incomplete@ and @Invalid@.
     subnetGroupStatus :: Prelude.Maybe Prelude.Text,
     -- | A list of the VPC Subnet elements.
     subnets :: Prelude.Maybe [Subnet],
-    -- | The description of the cluster subnet group.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | The list of tags for the cluster subnet group.
+    tags :: Prelude.Maybe [Tag],
     -- | The VPC ID of the cluster subnet group.
     vpcId :: Prelude.Maybe Prelude.Text
   }
@@ -55,37 +55,38 @@ data ClusterSubnetGroup = ClusterSubnetGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'clusterSubnetGroup_tags' - The list of tags for the cluster subnet group.
---
 -- 'clusterSubnetGroupName', 'clusterSubnetGroup_clusterSubnetGroupName' - The name of the cluster subnet group.
+--
+-- 'description', 'clusterSubnetGroup_description' - The description of the cluster subnet group.
 --
 -- 'subnetGroupStatus', 'clusterSubnetGroup_subnetGroupStatus' - The status of the cluster subnet group. Possible values are @Complete@,
 -- @Incomplete@ and @Invalid@.
 --
 -- 'subnets', 'clusterSubnetGroup_subnets' - A list of the VPC Subnet elements.
 --
--- 'description', 'clusterSubnetGroup_description' - The description of the cluster subnet group.
+-- 'tags', 'clusterSubnetGroup_tags' - The list of tags for the cluster subnet group.
 --
 -- 'vpcId', 'clusterSubnetGroup_vpcId' - The VPC ID of the cluster subnet group.
 newClusterSubnetGroup ::
   ClusterSubnetGroup
 newClusterSubnetGroup =
   ClusterSubnetGroup'
-    { tags = Prelude.Nothing,
-      clusterSubnetGroupName = Prelude.Nothing,
+    { clusterSubnetGroupName =
+        Prelude.Nothing,
+      description = Prelude.Nothing,
       subnetGroupStatus = Prelude.Nothing,
       subnets = Prelude.Nothing,
-      description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       vpcId = Prelude.Nothing
     }
-
--- | The list of tags for the cluster subnet group.
-clusterSubnetGroup_tags :: Lens.Lens' ClusterSubnetGroup (Prelude.Maybe [Tag])
-clusterSubnetGroup_tags = Lens.lens (\ClusterSubnetGroup' {tags} -> tags) (\s@ClusterSubnetGroup' {} a -> s {tags = a} :: ClusterSubnetGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the cluster subnet group.
 clusterSubnetGroup_clusterSubnetGroupName :: Lens.Lens' ClusterSubnetGroup (Prelude.Maybe Prelude.Text)
 clusterSubnetGroup_clusterSubnetGroupName = Lens.lens (\ClusterSubnetGroup' {clusterSubnetGroupName} -> clusterSubnetGroupName) (\s@ClusterSubnetGroup' {} a -> s {clusterSubnetGroupName = a} :: ClusterSubnetGroup)
+
+-- | The description of the cluster subnet group.
+clusterSubnetGroup_description :: Lens.Lens' ClusterSubnetGroup (Prelude.Maybe Prelude.Text)
+clusterSubnetGroup_description = Lens.lens (\ClusterSubnetGroup' {description} -> description) (\s@ClusterSubnetGroup' {} a -> s {description = a} :: ClusterSubnetGroup)
 
 -- | The status of the cluster subnet group. Possible values are @Complete@,
 -- @Incomplete@ and @Invalid@.
@@ -96,9 +97,9 @@ clusterSubnetGroup_subnetGroupStatus = Lens.lens (\ClusterSubnetGroup' {subnetGr
 clusterSubnetGroup_subnets :: Lens.Lens' ClusterSubnetGroup (Prelude.Maybe [Subnet])
 clusterSubnetGroup_subnets = Lens.lens (\ClusterSubnetGroup' {subnets} -> subnets) (\s@ClusterSubnetGroup' {} a -> s {subnets = a} :: ClusterSubnetGroup) Prelude.. Lens.mapping Lens.coerced
 
--- | The description of the cluster subnet group.
-clusterSubnetGroup_description :: Lens.Lens' ClusterSubnetGroup (Prelude.Maybe Prelude.Text)
-clusterSubnetGroup_description = Lens.lens (\ClusterSubnetGroup' {description} -> description) (\s@ClusterSubnetGroup' {} a -> s {description = a} :: ClusterSubnetGroup)
+-- | The list of tags for the cluster subnet group.
+clusterSubnetGroup_tags :: Lens.Lens' ClusterSubnetGroup (Prelude.Maybe [Tag])
+clusterSubnetGroup_tags = Lens.lens (\ClusterSubnetGroup' {tags} -> tags) (\s@ClusterSubnetGroup' {} a -> s {tags = a} :: ClusterSubnetGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The VPC ID of the cluster subnet group.
 clusterSubnetGroup_vpcId :: Lens.Lens' ClusterSubnetGroup (Prelude.Maybe Prelude.Text)
@@ -107,31 +108,31 @@ clusterSubnetGroup_vpcId = Lens.lens (\ClusterSubnetGroup' {vpcId} -> vpcId) (\s
 instance Data.FromXML ClusterSubnetGroup where
   parseXML x =
     ClusterSubnetGroup'
-      Prelude.<$> ( x Data..@? "Tags" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Data.parseXMLList "Tag")
-                  )
-      Prelude.<*> (x Data..@? "ClusterSubnetGroupName")
+      Prelude.<$> (x Data..@? "ClusterSubnetGroupName")
+      Prelude.<*> (x Data..@? "Description")
       Prelude.<*> (x Data..@? "SubnetGroupStatus")
       Prelude.<*> ( x Data..@? "Subnets" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Subnet")
                   )
-      Prelude.<*> (x Data..@? "Description")
+      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "Tag")
+                  )
       Prelude.<*> (x Data..@? "VpcId")
 
 instance Prelude.Hashable ClusterSubnetGroup where
   hashWithSalt _salt ClusterSubnetGroup' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clusterSubnetGroupName
+    _salt `Prelude.hashWithSalt` clusterSubnetGroupName
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` subnetGroupStatus
       `Prelude.hashWithSalt` subnets
-      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` vpcId
 
 instance Prelude.NFData ClusterSubnetGroup where
   rnf ClusterSubnetGroup' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clusterSubnetGroupName
+    Prelude.rnf clusterSubnetGroupName
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf subnetGroupStatus
       `Prelude.seq` Prelude.rnf subnets
-      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf vpcId

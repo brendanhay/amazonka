@@ -39,8 +39,8 @@ module Amazonka.Redshift.GetClusterCredentialsWithIAM
     newGetClusterCredentialsWithIAM,
 
     -- * Request Lenses
-    getClusterCredentialsWithIAM_durationSeconds,
     getClusterCredentialsWithIAM_dbName,
+    getClusterCredentialsWithIAM_durationSeconds,
     getClusterCredentialsWithIAM_clusterIdentifier,
 
     -- * Destructuring the Response
@@ -48,10 +48,10 @@ module Amazonka.Redshift.GetClusterCredentialsWithIAM
     newGetClusterCredentialsWithIAMResponse,
 
     -- * Response Lenses
-    getClusterCredentialsWithIAMResponse_expiration,
     getClusterCredentialsWithIAMResponse_dbPassword,
-    getClusterCredentialsWithIAMResponse_nextRefreshTime,
     getClusterCredentialsWithIAMResponse_dbUser,
+    getClusterCredentialsWithIAMResponse_expiration,
+    getClusterCredentialsWithIAMResponse_nextRefreshTime,
     getClusterCredentialsWithIAMResponse_httpStatus,
   )
 where
@@ -66,15 +66,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetClusterCredentialsWithIAM' smart constructor.
 data GetClusterCredentialsWithIAM = GetClusterCredentialsWithIAM'
-  { -- | The number of seconds until the returned temporary password expires.
-    --
-    -- Range: 900-3600. Default: 900.
-    durationSeconds :: Prelude.Maybe Prelude.Int,
-    -- | The name of the database for which you are requesting credentials. If
+  { -- | The name of the database for which you are requesting credentials. If
     -- the database name is specified, the IAM policy must allow access to the
     -- resource @dbname@ for the specified database name. If the database name
     -- is not specified, access to all databases is allowed.
     dbName :: Prelude.Maybe Prelude.Text,
+    -- | The number of seconds until the returned temporary password expires.
+    --
+    -- Range: 900-3600. Default: 900.
+    durationSeconds :: Prelude.Maybe Prelude.Int,
     -- | The unique identifier of the cluster that contains the database for
     -- which you are requesting credentials.
     clusterIdentifier :: Prelude.Text
@@ -89,14 +89,14 @@ data GetClusterCredentialsWithIAM = GetClusterCredentialsWithIAM'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'durationSeconds', 'getClusterCredentialsWithIAM_durationSeconds' - The number of seconds until the returned temporary password expires.
---
--- Range: 900-3600. Default: 900.
---
 -- 'dbName', 'getClusterCredentialsWithIAM_dbName' - The name of the database for which you are requesting credentials. If
 -- the database name is specified, the IAM policy must allow access to the
 -- resource @dbname@ for the specified database name. If the database name
 -- is not specified, access to all databases is allowed.
+--
+-- 'durationSeconds', 'getClusterCredentialsWithIAM_durationSeconds' - The number of seconds until the returned temporary password expires.
+--
+-- Range: 900-3600. Default: 900.
 --
 -- 'clusterIdentifier', 'getClusterCredentialsWithIAM_clusterIdentifier' - The unique identifier of the cluster that contains the database for
 -- which you are requesting credentials.
@@ -106,17 +106,11 @@ newGetClusterCredentialsWithIAM ::
   GetClusterCredentialsWithIAM
 newGetClusterCredentialsWithIAM pClusterIdentifier_ =
   GetClusterCredentialsWithIAM'
-    { durationSeconds =
+    { dbName =
         Prelude.Nothing,
-      dbName = Prelude.Nothing,
+      durationSeconds = Prelude.Nothing,
       clusterIdentifier = pClusterIdentifier_
     }
-
--- | The number of seconds until the returned temporary password expires.
---
--- Range: 900-3600. Default: 900.
-getClusterCredentialsWithIAM_durationSeconds :: Lens.Lens' GetClusterCredentialsWithIAM (Prelude.Maybe Prelude.Int)
-getClusterCredentialsWithIAM_durationSeconds = Lens.lens (\GetClusterCredentialsWithIAM' {durationSeconds} -> durationSeconds) (\s@GetClusterCredentialsWithIAM' {} a -> s {durationSeconds = a} :: GetClusterCredentialsWithIAM)
 
 -- | The name of the database for which you are requesting credentials. If
 -- the database name is specified, the IAM policy must allow access to the
@@ -124,6 +118,12 @@ getClusterCredentialsWithIAM_durationSeconds = Lens.lens (\GetClusterCredentials
 -- is not specified, access to all databases is allowed.
 getClusterCredentialsWithIAM_dbName :: Lens.Lens' GetClusterCredentialsWithIAM (Prelude.Maybe Prelude.Text)
 getClusterCredentialsWithIAM_dbName = Lens.lens (\GetClusterCredentialsWithIAM' {dbName} -> dbName) (\s@GetClusterCredentialsWithIAM' {} a -> s {dbName = a} :: GetClusterCredentialsWithIAM)
+
+-- | The number of seconds until the returned temporary password expires.
+--
+-- Range: 900-3600. Default: 900.
+getClusterCredentialsWithIAM_durationSeconds :: Lens.Lens' GetClusterCredentialsWithIAM (Prelude.Maybe Prelude.Int)
+getClusterCredentialsWithIAM_durationSeconds = Lens.lens (\GetClusterCredentialsWithIAM' {durationSeconds} -> durationSeconds) (\s@GetClusterCredentialsWithIAM' {} a -> s {durationSeconds = a} :: GetClusterCredentialsWithIAM)
 
 -- | The unique identifier of the cluster that contains the database for
 -- which you are requesting credentials.
@@ -141,10 +141,10 @@ instance Core.AWSRequest GetClusterCredentialsWithIAM where
       "GetClusterCredentialsWithIAMResult"
       ( \s h x ->
           GetClusterCredentialsWithIAMResponse'
-            Prelude.<$> (x Data..@? "Expiration")
-            Prelude.<*> (x Data..@? "DbPassword")
-            Prelude.<*> (x Data..@? "NextRefreshTime")
+            Prelude.<$> (x Data..@? "DbPassword")
             Prelude.<*> (x Data..@? "DbUser")
+            Prelude.<*> (x Data..@? "Expiration")
+            Prelude.<*> (x Data..@? "NextRefreshTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,14 +153,14 @@ instance
     GetClusterCredentialsWithIAM
   where
   hashWithSalt _salt GetClusterCredentialsWithIAM' {..} =
-    _salt `Prelude.hashWithSalt` durationSeconds
-      `Prelude.hashWithSalt` dbName
+    _salt `Prelude.hashWithSalt` dbName
+      `Prelude.hashWithSalt` durationSeconds
       `Prelude.hashWithSalt` clusterIdentifier
 
 instance Prelude.NFData GetClusterCredentialsWithIAM where
   rnf GetClusterCredentialsWithIAM' {..} =
-    Prelude.rnf durationSeconds
-      `Prelude.seq` Prelude.rnf dbName
+    Prelude.rnf dbName
+      `Prelude.seq` Prelude.rnf durationSeconds
       `Prelude.seq` Prelude.rnf clusterIdentifier
 
 instance Data.ToHeaders GetClusterCredentialsWithIAM where
@@ -178,23 +178,23 @@ instance Data.ToQuery GetClusterCredentialsWithIAM where
                   ),
         "Version"
           Data.=: ("2012-12-01" :: Prelude.ByteString),
-        "DurationSeconds" Data.=: durationSeconds,
         "DbName" Data.=: dbName,
+        "DurationSeconds" Data.=: durationSeconds,
         "ClusterIdentifier" Data.=: clusterIdentifier
       ]
 
 -- | /See:/ 'newGetClusterCredentialsWithIAMResponse' smart constructor.
 data GetClusterCredentialsWithIAMResponse = GetClusterCredentialsWithIAMResponse'
-  { -- | The time (UTC) when the temporary password expires. After this
-    -- timestamp, a log in with the temporary password fails.
-    expiration :: Prelude.Maybe Data.ISO8601,
-    -- | A temporary password that you provide when you connect to a database.
+  { -- | A temporary password that you provide when you connect to a database.
     dbPassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | Reserved for future use.
-    nextRefreshTime :: Prelude.Maybe Data.ISO8601,
     -- | A database user name that you provide when you connect to a database.
     -- The database user is mapped 1:1 to the source IAM identity.
     dbUser :: Prelude.Maybe Prelude.Text,
+    -- | The time (UTC) when the temporary password expires. After this
+    -- timestamp, a log in with the temporary password fails.
+    expiration :: Prelude.Maybe Data.ISO8601,
+    -- | Reserved for future use.
+    nextRefreshTime :: Prelude.Maybe Data.ISO8601,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -208,15 +208,15 @@ data GetClusterCredentialsWithIAMResponse = GetClusterCredentialsWithIAMResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expiration', 'getClusterCredentialsWithIAMResponse_expiration' - The time (UTC) when the temporary password expires. After this
--- timestamp, a log in with the temporary password fails.
---
 -- 'dbPassword', 'getClusterCredentialsWithIAMResponse_dbPassword' - A temporary password that you provide when you connect to a database.
---
--- 'nextRefreshTime', 'getClusterCredentialsWithIAMResponse_nextRefreshTime' - Reserved for future use.
 --
 -- 'dbUser', 'getClusterCredentialsWithIAMResponse_dbUser' - A database user name that you provide when you connect to a database.
 -- The database user is mapped 1:1 to the source IAM identity.
+--
+-- 'expiration', 'getClusterCredentialsWithIAMResponse_expiration' - The time (UTC) when the temporary password expires. After this
+-- timestamp, a log in with the temporary password fails.
+--
+-- 'nextRefreshTime', 'getClusterCredentialsWithIAMResponse_nextRefreshTime' - Reserved for future use.
 --
 -- 'httpStatus', 'getClusterCredentialsWithIAMResponse_httpStatus' - The response's http status code.
 newGetClusterCredentialsWithIAMResponse ::
@@ -225,31 +225,31 @@ newGetClusterCredentialsWithIAMResponse ::
   GetClusterCredentialsWithIAMResponse
 newGetClusterCredentialsWithIAMResponse pHttpStatus_ =
   GetClusterCredentialsWithIAMResponse'
-    { expiration =
+    { dbPassword =
         Prelude.Nothing,
-      dbPassword = Prelude.Nothing,
-      nextRefreshTime = Prelude.Nothing,
       dbUser = Prelude.Nothing,
+      expiration = Prelude.Nothing,
+      nextRefreshTime = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A temporary password that you provide when you connect to a database.
+getClusterCredentialsWithIAMResponse_dbPassword :: Lens.Lens' GetClusterCredentialsWithIAMResponse (Prelude.Maybe Prelude.Text)
+getClusterCredentialsWithIAMResponse_dbPassword = Lens.lens (\GetClusterCredentialsWithIAMResponse' {dbPassword} -> dbPassword) (\s@GetClusterCredentialsWithIAMResponse' {} a -> s {dbPassword = a} :: GetClusterCredentialsWithIAMResponse) Prelude.. Lens.mapping Data._Sensitive
+
+-- | A database user name that you provide when you connect to a database.
+-- The database user is mapped 1:1 to the source IAM identity.
+getClusterCredentialsWithIAMResponse_dbUser :: Lens.Lens' GetClusterCredentialsWithIAMResponse (Prelude.Maybe Prelude.Text)
+getClusterCredentialsWithIAMResponse_dbUser = Lens.lens (\GetClusterCredentialsWithIAMResponse' {dbUser} -> dbUser) (\s@GetClusterCredentialsWithIAMResponse' {} a -> s {dbUser = a} :: GetClusterCredentialsWithIAMResponse)
 
 -- | The time (UTC) when the temporary password expires. After this
 -- timestamp, a log in with the temporary password fails.
 getClusterCredentialsWithIAMResponse_expiration :: Lens.Lens' GetClusterCredentialsWithIAMResponse (Prelude.Maybe Prelude.UTCTime)
 getClusterCredentialsWithIAMResponse_expiration = Lens.lens (\GetClusterCredentialsWithIAMResponse' {expiration} -> expiration) (\s@GetClusterCredentialsWithIAMResponse' {} a -> s {expiration = a} :: GetClusterCredentialsWithIAMResponse) Prelude.. Lens.mapping Data._Time
 
--- | A temporary password that you provide when you connect to a database.
-getClusterCredentialsWithIAMResponse_dbPassword :: Lens.Lens' GetClusterCredentialsWithIAMResponse (Prelude.Maybe Prelude.Text)
-getClusterCredentialsWithIAMResponse_dbPassword = Lens.lens (\GetClusterCredentialsWithIAMResponse' {dbPassword} -> dbPassword) (\s@GetClusterCredentialsWithIAMResponse' {} a -> s {dbPassword = a} :: GetClusterCredentialsWithIAMResponse) Prelude.. Lens.mapping Data._Sensitive
-
 -- | Reserved for future use.
 getClusterCredentialsWithIAMResponse_nextRefreshTime :: Lens.Lens' GetClusterCredentialsWithIAMResponse (Prelude.Maybe Prelude.UTCTime)
 getClusterCredentialsWithIAMResponse_nextRefreshTime = Lens.lens (\GetClusterCredentialsWithIAMResponse' {nextRefreshTime} -> nextRefreshTime) (\s@GetClusterCredentialsWithIAMResponse' {} a -> s {nextRefreshTime = a} :: GetClusterCredentialsWithIAMResponse) Prelude.. Lens.mapping Data._Time
-
--- | A database user name that you provide when you connect to a database.
--- The database user is mapped 1:1 to the source IAM identity.
-getClusterCredentialsWithIAMResponse_dbUser :: Lens.Lens' GetClusterCredentialsWithIAMResponse (Prelude.Maybe Prelude.Text)
-getClusterCredentialsWithIAMResponse_dbUser = Lens.lens (\GetClusterCredentialsWithIAMResponse' {dbUser} -> dbUser) (\s@GetClusterCredentialsWithIAMResponse' {} a -> s {dbUser = a} :: GetClusterCredentialsWithIAMResponse)
 
 -- | The response's http status code.
 getClusterCredentialsWithIAMResponse_httpStatus :: Lens.Lens' GetClusterCredentialsWithIAMResponse Prelude.Int
@@ -260,8 +260,8 @@ instance
     GetClusterCredentialsWithIAMResponse
   where
   rnf GetClusterCredentialsWithIAMResponse' {..} =
-    Prelude.rnf expiration
-      `Prelude.seq` Prelude.rnf dbPassword
-      `Prelude.seq` Prelude.rnf nextRefreshTime
+    Prelude.rnf dbPassword
       `Prelude.seq` Prelude.rnf dbUser
+      `Prelude.seq` Prelude.rnf expiration
+      `Prelude.seq` Prelude.rnf nextRefreshTime
       `Prelude.seq` Prelude.rnf httpStatus

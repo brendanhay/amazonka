@@ -31,12 +31,12 @@ module Amazonka.Redshift.DescribeNodeConfigurationOptions
 
     -- * Request Lenses
     describeNodeConfigurationOptions_clusterIdentifier,
-    describeNodeConfigurationOptions_marker,
-    describeNodeConfigurationOptions_snapshotArn,
-    describeNodeConfigurationOptions_snapshotIdentifier,
     describeNodeConfigurationOptions_filters,
+    describeNodeConfigurationOptions_marker,
     describeNodeConfigurationOptions_maxRecords,
     describeNodeConfigurationOptions_ownerAccount,
+    describeNodeConfigurationOptions_snapshotArn,
+    describeNodeConfigurationOptions_snapshotIdentifier,
     describeNodeConfigurationOptions_actionType,
 
     -- * Destructuring the Response
@@ -63,6 +63,8 @@ data DescribeNodeConfigurationOptions = DescribeNodeConfigurationOptions'
   { -- | The identifier of the cluster to evaluate for possible node
     -- configurations.
     clusterIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | A set of name, operator, and value items to filter the results.
+    filters :: Prelude.Maybe [NodeConfigurationOptionsFilter],
     -- | An optional parameter that specifies the starting point to return a set
     -- of response records. When the results of a
     -- DescribeNodeConfigurationOptions request exceed the value specified in
@@ -71,14 +73,6 @@ data DescribeNodeConfigurationOptions = DescribeNodeConfigurationOptions'
     -- providing the returned marker value in the @Marker@ parameter and
     -- retrying the request.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the snapshot associated with the
-    -- message to describe node configuration.
-    snapshotArn :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the snapshot to evaluate for possible node
-    -- configurations.
-    snapshotIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | A set of name, operator, and value items to filter the results.
-    filters :: Prelude.Maybe [NodeConfigurationOptionsFilter],
     -- | The maximum number of response records to return in each call. If the
     -- number of remaining response records exceeds the specified @MaxRecords@
     -- value, a value is returned in a @marker@ field of the response. You can
@@ -93,6 +87,12 @@ data DescribeNodeConfigurationOptions = DescribeNodeConfigurationOptions'
     -- Required if you are restoring a snapshot you do not own, optional if you
     -- own the snapshot.
     ownerAccount :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the snapshot associated with the
+    -- message to describe node configuration.
+    snapshotArn :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the snapshot to evaluate for possible node
+    -- configurations.
+    snapshotIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The action type to evaluate for possible node configurations. Specify
     -- \"restore-cluster\" to get configuration combinations based on an
     -- existing snapshot. Specify \"recommend-node-config\" to get
@@ -114,6 +114,8 @@ data DescribeNodeConfigurationOptions = DescribeNodeConfigurationOptions'
 -- 'clusterIdentifier', 'describeNodeConfigurationOptions_clusterIdentifier' - The identifier of the cluster to evaluate for possible node
 -- configurations.
 --
+-- 'filters', 'describeNodeConfigurationOptions_filters' - A set of name, operator, and value items to filter the results.
+--
 -- 'marker', 'describeNodeConfigurationOptions_marker' - An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a
 -- DescribeNodeConfigurationOptions request exceed the value specified in
@@ -121,14 +123,6 @@ data DescribeNodeConfigurationOptions = DescribeNodeConfigurationOptions'
 -- of the response. You can retrieve the next set of response records by
 -- providing the returned marker value in the @Marker@ parameter and
 -- retrying the request.
---
--- 'snapshotArn', 'describeNodeConfigurationOptions_snapshotArn' - The Amazon Resource Name (ARN) of the snapshot associated with the
--- message to describe node configuration.
---
--- 'snapshotIdentifier', 'describeNodeConfigurationOptions_snapshotIdentifier' - The identifier of the snapshot to evaluate for possible node
--- configurations.
---
--- 'filters', 'describeNodeConfigurationOptions_filters' - A set of name, operator, and value items to filter the results.
 --
 -- 'maxRecords', 'describeNodeConfigurationOptions_maxRecords' - The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -144,6 +138,12 @@ data DescribeNodeConfigurationOptions = DescribeNodeConfigurationOptions'
 -- Required if you are restoring a snapshot you do not own, optional if you
 -- own the snapshot.
 --
+-- 'snapshotArn', 'describeNodeConfigurationOptions_snapshotArn' - The Amazon Resource Name (ARN) of the snapshot associated with the
+-- message to describe node configuration.
+--
+-- 'snapshotIdentifier', 'describeNodeConfigurationOptions_snapshotIdentifier' - The identifier of the snapshot to evaluate for possible node
+-- configurations.
+--
 -- 'actionType', 'describeNodeConfigurationOptions_actionType' - The action type to evaluate for possible node configurations. Specify
 -- \"restore-cluster\" to get configuration combinations based on an
 -- existing snapshot. Specify \"recommend-node-config\" to get
@@ -158,12 +158,12 @@ newDescribeNodeConfigurationOptions pActionType_ =
   DescribeNodeConfigurationOptions'
     { clusterIdentifier =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
-      snapshotArn = Prelude.Nothing,
-      snapshotIdentifier = Prelude.Nothing,
       filters = Prelude.Nothing,
+      marker = Prelude.Nothing,
       maxRecords = Prelude.Nothing,
       ownerAccount = Prelude.Nothing,
+      snapshotArn = Prelude.Nothing,
+      snapshotIdentifier = Prelude.Nothing,
       actionType = pActionType_
     }
 
@@ -171,6 +171,10 @@ newDescribeNodeConfigurationOptions pActionType_ =
 -- configurations.
 describeNodeConfigurationOptions_clusterIdentifier :: Lens.Lens' DescribeNodeConfigurationOptions (Prelude.Maybe Prelude.Text)
 describeNodeConfigurationOptions_clusterIdentifier = Lens.lens (\DescribeNodeConfigurationOptions' {clusterIdentifier} -> clusterIdentifier) (\s@DescribeNodeConfigurationOptions' {} a -> s {clusterIdentifier = a} :: DescribeNodeConfigurationOptions)
+
+-- | A set of name, operator, and value items to filter the results.
+describeNodeConfigurationOptions_filters :: Lens.Lens' DescribeNodeConfigurationOptions (Prelude.Maybe [NodeConfigurationOptionsFilter])
+describeNodeConfigurationOptions_filters = Lens.lens (\DescribeNodeConfigurationOptions' {filters} -> filters) (\s@DescribeNodeConfigurationOptions' {} a -> s {filters = a} :: DescribeNodeConfigurationOptions) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a
@@ -181,20 +185,6 @@ describeNodeConfigurationOptions_clusterIdentifier = Lens.lens (\DescribeNodeCon
 -- retrying the request.
 describeNodeConfigurationOptions_marker :: Lens.Lens' DescribeNodeConfigurationOptions (Prelude.Maybe Prelude.Text)
 describeNodeConfigurationOptions_marker = Lens.lens (\DescribeNodeConfigurationOptions' {marker} -> marker) (\s@DescribeNodeConfigurationOptions' {} a -> s {marker = a} :: DescribeNodeConfigurationOptions)
-
--- | The Amazon Resource Name (ARN) of the snapshot associated with the
--- message to describe node configuration.
-describeNodeConfigurationOptions_snapshotArn :: Lens.Lens' DescribeNodeConfigurationOptions (Prelude.Maybe Prelude.Text)
-describeNodeConfigurationOptions_snapshotArn = Lens.lens (\DescribeNodeConfigurationOptions' {snapshotArn} -> snapshotArn) (\s@DescribeNodeConfigurationOptions' {} a -> s {snapshotArn = a} :: DescribeNodeConfigurationOptions)
-
--- | The identifier of the snapshot to evaluate for possible node
--- configurations.
-describeNodeConfigurationOptions_snapshotIdentifier :: Lens.Lens' DescribeNodeConfigurationOptions (Prelude.Maybe Prelude.Text)
-describeNodeConfigurationOptions_snapshotIdentifier = Lens.lens (\DescribeNodeConfigurationOptions' {snapshotIdentifier} -> snapshotIdentifier) (\s@DescribeNodeConfigurationOptions' {} a -> s {snapshotIdentifier = a} :: DescribeNodeConfigurationOptions)
-
--- | A set of name, operator, and value items to filter the results.
-describeNodeConfigurationOptions_filters :: Lens.Lens' DescribeNodeConfigurationOptions (Prelude.Maybe [NodeConfigurationOptionsFilter])
-describeNodeConfigurationOptions_filters = Lens.lens (\DescribeNodeConfigurationOptions' {filters} -> filters) (\s@DescribeNodeConfigurationOptions' {} a -> s {filters = a} :: DescribeNodeConfigurationOptions) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -213,6 +203,16 @@ describeNodeConfigurationOptions_maxRecords = Lens.lens (\DescribeNodeConfigurat
 -- own the snapshot.
 describeNodeConfigurationOptions_ownerAccount :: Lens.Lens' DescribeNodeConfigurationOptions (Prelude.Maybe Prelude.Text)
 describeNodeConfigurationOptions_ownerAccount = Lens.lens (\DescribeNodeConfigurationOptions' {ownerAccount} -> ownerAccount) (\s@DescribeNodeConfigurationOptions' {} a -> s {ownerAccount = a} :: DescribeNodeConfigurationOptions)
+
+-- | The Amazon Resource Name (ARN) of the snapshot associated with the
+-- message to describe node configuration.
+describeNodeConfigurationOptions_snapshotArn :: Lens.Lens' DescribeNodeConfigurationOptions (Prelude.Maybe Prelude.Text)
+describeNodeConfigurationOptions_snapshotArn = Lens.lens (\DescribeNodeConfigurationOptions' {snapshotArn} -> snapshotArn) (\s@DescribeNodeConfigurationOptions' {} a -> s {snapshotArn = a} :: DescribeNodeConfigurationOptions)
+
+-- | The identifier of the snapshot to evaluate for possible node
+-- configurations.
+describeNodeConfigurationOptions_snapshotIdentifier :: Lens.Lens' DescribeNodeConfigurationOptions (Prelude.Maybe Prelude.Text)
+describeNodeConfigurationOptions_snapshotIdentifier = Lens.lens (\DescribeNodeConfigurationOptions' {snapshotIdentifier} -> snapshotIdentifier) (\s@DescribeNodeConfigurationOptions' {} a -> s {snapshotIdentifier = a} :: DescribeNodeConfigurationOptions)
 
 -- | The action type to evaluate for possible node configurations. Specify
 -- \"restore-cluster\" to get configuration combinations based on an
@@ -279,12 +279,12 @@ instance
     _salt
     DescribeNodeConfigurationOptions' {..} =
       _salt `Prelude.hashWithSalt` clusterIdentifier
-        `Prelude.hashWithSalt` marker
-        `Prelude.hashWithSalt` snapshotArn
-        `Prelude.hashWithSalt` snapshotIdentifier
         `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` marker
         `Prelude.hashWithSalt` maxRecords
         `Prelude.hashWithSalt` ownerAccount
+        `Prelude.hashWithSalt` snapshotArn
+        `Prelude.hashWithSalt` snapshotIdentifier
         `Prelude.hashWithSalt` actionType
 
 instance
@@ -293,12 +293,12 @@ instance
   where
   rnf DescribeNodeConfigurationOptions' {..} =
     Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf snapshotArn
-      `Prelude.seq` Prelude.rnf snapshotIdentifier
       `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxRecords
       `Prelude.seq` Prelude.rnf ownerAccount
+      `Prelude.seq` Prelude.rnf snapshotArn
+      `Prelude.seq` Prelude.rnf snapshotIdentifier
       `Prelude.seq` Prelude.rnf actionType
 
 instance
@@ -323,16 +323,16 @@ instance
         "Version"
           Data.=: ("2012-12-01" :: Prelude.ByteString),
         "ClusterIdentifier" Data.=: clusterIdentifier,
-        "Marker" Data.=: marker,
-        "SnapshotArn" Data.=: snapshotArn,
-        "SnapshotIdentifier" Data.=: snapshotIdentifier,
         "Filter"
           Data.=: Data.toQuery
             ( Data.toQueryList "NodeConfigurationOptionsFilter"
                 Prelude.<$> filters
             ),
+        "Marker" Data.=: marker,
         "MaxRecords" Data.=: maxRecords,
         "OwnerAccount" Data.=: ownerAccount,
+        "SnapshotArn" Data.=: snapshotArn,
+        "SnapshotIdentifier" Data.=: snapshotIdentifier,
         "ActionType" Data.=: actionType
       ]
 

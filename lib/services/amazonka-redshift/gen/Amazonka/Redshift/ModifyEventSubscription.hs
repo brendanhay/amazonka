@@ -27,12 +27,12 @@ module Amazonka.Redshift.ModifyEventSubscription
     newModifyEventSubscription,
 
     -- * Request Lenses
+    modifyEventSubscription_enabled,
+    modifyEventSubscription_eventCategories,
     modifyEventSubscription_severity,
+    modifyEventSubscription_snsTopicArn,
     modifyEventSubscription_sourceIds,
     modifyEventSubscription_sourceType,
-    modifyEventSubscription_enabled,
-    modifyEventSubscription_snsTopicArn,
-    modifyEventSubscription_eventCategories,
     modifyEventSubscription_subscriptionName,
 
     -- * Destructuring the Response
@@ -57,11 +57,22 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newModifyEventSubscription' smart constructor.
 data ModifyEventSubscription = ModifyEventSubscription'
-  { -- | Specifies the Amazon Redshift event severity to be published by the
+  { -- | A Boolean value indicating if the subscription is enabled. @true@
+    -- indicates the subscription is enabled
+    enabled :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies the Amazon Redshift event categories to be published by the
+    -- event notification subscription.
+    --
+    -- Values: configuration, management, monitoring, security, pending
+    eventCategories :: Prelude.Maybe [Prelude.Text],
+    -- | Specifies the Amazon Redshift event severity to be published by the
     -- event notification subscription.
     --
     -- Values: ERROR, INFO
     severity :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the SNS topic to be used by the event
+    -- notification subscription.
+    snsTopicArn :: Prelude.Maybe Prelude.Text,
     -- | A list of one or more identifiers of Amazon Redshift source objects. All
     -- of the objects must be of the same type as was specified in the source
     -- type parameter. The event subscription will return only events generated
@@ -81,17 +92,6 @@ data ModifyEventSubscription = ModifyEventSubscription'
     -- Valid values: cluster, cluster-parameter-group, cluster-security-group,
     -- cluster-snapshot, and scheduled-action.
     sourceType :: Prelude.Maybe Prelude.Text,
-    -- | A Boolean value indicating if the subscription is enabled. @true@
-    -- indicates the subscription is enabled
-    enabled :: Prelude.Maybe Prelude.Bool,
-    -- | The Amazon Resource Name (ARN) of the SNS topic to be used by the event
-    -- notification subscription.
-    snsTopicArn :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the Amazon Redshift event categories to be published by the
-    -- event notification subscription.
-    --
-    -- Values: configuration, management, monitoring, security, pending
-    eventCategories :: Prelude.Maybe [Prelude.Text],
     -- | The name of the modified Amazon Redshift event notification
     -- subscription.
     subscriptionName :: Prelude.Text
@@ -106,10 +106,21 @@ data ModifyEventSubscription = ModifyEventSubscription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'enabled', 'modifyEventSubscription_enabled' - A Boolean value indicating if the subscription is enabled. @true@
+-- indicates the subscription is enabled
+--
+-- 'eventCategories', 'modifyEventSubscription_eventCategories' - Specifies the Amazon Redshift event categories to be published by the
+-- event notification subscription.
+--
+-- Values: configuration, management, monitoring, security, pending
+--
 -- 'severity', 'modifyEventSubscription_severity' - Specifies the Amazon Redshift event severity to be published by the
 -- event notification subscription.
 --
 -- Values: ERROR, INFO
+--
+-- 'snsTopicArn', 'modifyEventSubscription_snsTopicArn' - The Amazon Resource Name (ARN) of the SNS topic to be used by the event
+-- notification subscription.
 --
 -- 'sourceIds', 'modifyEventSubscription_sourceIds' - A list of one or more identifiers of Amazon Redshift source objects. All
 -- of the objects must be of the same type as was specified in the source
@@ -130,17 +141,6 @@ data ModifyEventSubscription = ModifyEventSubscription'
 -- Valid values: cluster, cluster-parameter-group, cluster-security-group,
 -- cluster-snapshot, and scheduled-action.
 --
--- 'enabled', 'modifyEventSubscription_enabled' - A Boolean value indicating if the subscription is enabled. @true@
--- indicates the subscription is enabled
---
--- 'snsTopicArn', 'modifyEventSubscription_snsTopicArn' - The Amazon Resource Name (ARN) of the SNS topic to be used by the event
--- notification subscription.
---
--- 'eventCategories', 'modifyEventSubscription_eventCategories' - Specifies the Amazon Redshift event categories to be published by the
--- event notification subscription.
---
--- Values: configuration, management, monitoring, security, pending
---
 -- 'subscriptionName', 'modifyEventSubscription_subscriptionName' - The name of the modified Amazon Redshift event notification
 -- subscription.
 newModifyEventSubscription ::
@@ -149,15 +149,26 @@ newModifyEventSubscription ::
   ModifyEventSubscription
 newModifyEventSubscription pSubscriptionName_ =
   ModifyEventSubscription'
-    { severity =
-        Prelude.Nothing,
+    { enabled = Prelude.Nothing,
+      eventCategories = Prelude.Nothing,
+      severity = Prelude.Nothing,
+      snsTopicArn = Prelude.Nothing,
       sourceIds = Prelude.Nothing,
       sourceType = Prelude.Nothing,
-      enabled = Prelude.Nothing,
-      snsTopicArn = Prelude.Nothing,
-      eventCategories = Prelude.Nothing,
       subscriptionName = pSubscriptionName_
     }
+
+-- | A Boolean value indicating if the subscription is enabled. @true@
+-- indicates the subscription is enabled
+modifyEventSubscription_enabled :: Lens.Lens' ModifyEventSubscription (Prelude.Maybe Prelude.Bool)
+modifyEventSubscription_enabled = Lens.lens (\ModifyEventSubscription' {enabled} -> enabled) (\s@ModifyEventSubscription' {} a -> s {enabled = a} :: ModifyEventSubscription)
+
+-- | Specifies the Amazon Redshift event categories to be published by the
+-- event notification subscription.
+--
+-- Values: configuration, management, monitoring, security, pending
+modifyEventSubscription_eventCategories :: Lens.Lens' ModifyEventSubscription (Prelude.Maybe [Prelude.Text])
+modifyEventSubscription_eventCategories = Lens.lens (\ModifyEventSubscription' {eventCategories} -> eventCategories) (\s@ModifyEventSubscription' {} a -> s {eventCategories = a} :: ModifyEventSubscription) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the Amazon Redshift event severity to be published by the
 -- event notification subscription.
@@ -165,6 +176,11 @@ newModifyEventSubscription pSubscriptionName_ =
 -- Values: ERROR, INFO
 modifyEventSubscription_severity :: Lens.Lens' ModifyEventSubscription (Prelude.Maybe Prelude.Text)
 modifyEventSubscription_severity = Lens.lens (\ModifyEventSubscription' {severity} -> severity) (\s@ModifyEventSubscription' {} a -> s {severity = a} :: ModifyEventSubscription)
+
+-- | The Amazon Resource Name (ARN) of the SNS topic to be used by the event
+-- notification subscription.
+modifyEventSubscription_snsTopicArn :: Lens.Lens' ModifyEventSubscription (Prelude.Maybe Prelude.Text)
+modifyEventSubscription_snsTopicArn = Lens.lens (\ModifyEventSubscription' {snsTopicArn} -> snsTopicArn) (\s@ModifyEventSubscription' {} a -> s {snsTopicArn = a} :: ModifyEventSubscription)
 
 -- | A list of one or more identifiers of Amazon Redshift source objects. All
 -- of the objects must be of the same type as was specified in the source
@@ -189,23 +205,6 @@ modifyEventSubscription_sourceIds = Lens.lens (\ModifyEventSubscription' {source
 modifyEventSubscription_sourceType :: Lens.Lens' ModifyEventSubscription (Prelude.Maybe Prelude.Text)
 modifyEventSubscription_sourceType = Lens.lens (\ModifyEventSubscription' {sourceType} -> sourceType) (\s@ModifyEventSubscription' {} a -> s {sourceType = a} :: ModifyEventSubscription)
 
--- | A Boolean value indicating if the subscription is enabled. @true@
--- indicates the subscription is enabled
-modifyEventSubscription_enabled :: Lens.Lens' ModifyEventSubscription (Prelude.Maybe Prelude.Bool)
-modifyEventSubscription_enabled = Lens.lens (\ModifyEventSubscription' {enabled} -> enabled) (\s@ModifyEventSubscription' {} a -> s {enabled = a} :: ModifyEventSubscription)
-
--- | The Amazon Resource Name (ARN) of the SNS topic to be used by the event
--- notification subscription.
-modifyEventSubscription_snsTopicArn :: Lens.Lens' ModifyEventSubscription (Prelude.Maybe Prelude.Text)
-modifyEventSubscription_snsTopicArn = Lens.lens (\ModifyEventSubscription' {snsTopicArn} -> snsTopicArn) (\s@ModifyEventSubscription' {} a -> s {snsTopicArn = a} :: ModifyEventSubscription)
-
--- | Specifies the Amazon Redshift event categories to be published by the
--- event notification subscription.
---
--- Values: configuration, management, monitoring, security, pending
-modifyEventSubscription_eventCategories :: Lens.Lens' ModifyEventSubscription (Prelude.Maybe [Prelude.Text])
-modifyEventSubscription_eventCategories = Lens.lens (\ModifyEventSubscription' {eventCategories} -> eventCategories) (\s@ModifyEventSubscription' {} a -> s {eventCategories = a} :: ModifyEventSubscription) Prelude.. Lens.mapping Lens.coerced
-
 -- | The name of the modified Amazon Redshift event notification
 -- subscription.
 modifyEventSubscription_subscriptionName :: Lens.Lens' ModifyEventSubscription Prelude.Text
@@ -228,22 +227,22 @@ instance Core.AWSRequest ModifyEventSubscription where
 
 instance Prelude.Hashable ModifyEventSubscription where
   hashWithSalt _salt ModifyEventSubscription' {..} =
-    _salt `Prelude.hashWithSalt` severity
+    _salt `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` eventCategories
+      `Prelude.hashWithSalt` severity
+      `Prelude.hashWithSalt` snsTopicArn
       `Prelude.hashWithSalt` sourceIds
       `Prelude.hashWithSalt` sourceType
-      `Prelude.hashWithSalt` enabled
-      `Prelude.hashWithSalt` snsTopicArn
-      `Prelude.hashWithSalt` eventCategories
       `Prelude.hashWithSalt` subscriptionName
 
 instance Prelude.NFData ModifyEventSubscription where
   rnf ModifyEventSubscription' {..} =
-    Prelude.rnf severity
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf eventCategories
+      `Prelude.seq` Prelude.rnf severity
+      `Prelude.seq` Prelude.rnf snsTopicArn
       `Prelude.seq` Prelude.rnf sourceIds
       `Prelude.seq` Prelude.rnf sourceType
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf snsTopicArn
-      `Prelude.seq` Prelude.rnf eventCategories
       `Prelude.seq` Prelude.rnf subscriptionName
 
 instance Data.ToHeaders ModifyEventSubscription where
@@ -259,18 +258,18 @@ instance Data.ToQuery ModifyEventSubscription where
           Data.=: ("ModifyEventSubscription" :: Prelude.ByteString),
         "Version"
           Data.=: ("2012-12-01" :: Prelude.ByteString),
-        "Severity" Data.=: severity,
-        "SourceIds"
-          Data.=: Data.toQuery
-            (Data.toQueryList "SourceId" Prelude.<$> sourceIds),
-        "SourceType" Data.=: sourceType,
         "Enabled" Data.=: enabled,
-        "SnsTopicArn" Data.=: snsTopicArn,
         "EventCategories"
           Data.=: Data.toQuery
             ( Data.toQueryList "EventCategory"
                 Prelude.<$> eventCategories
             ),
+        "Severity" Data.=: severity,
+        "SnsTopicArn" Data.=: snsTopicArn,
+        "SourceIds"
+          Data.=: Data.toQuery
+            (Data.toQueryList "SourceId" Prelude.<$> sourceIds),
+        "SourceType" Data.=: sourceType,
         "SubscriptionName" Data.=: subscriptionName
       ]
 

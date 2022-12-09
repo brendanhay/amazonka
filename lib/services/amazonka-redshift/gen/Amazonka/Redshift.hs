@@ -47,383 +47,383 @@ module Amazonka.Redshift
     -- * Errors
     -- $errors
 
-    -- ** ReservedNodeAlreadyMigratedFault
-    _ReservedNodeAlreadyMigratedFault,
-
-    -- ** InvalidHsmConfigurationStateFault
-    _InvalidHsmConfigurationStateFault,
-
-    -- ** UnsupportedOperationFault
-    _UnsupportedOperationFault,
-
-    -- ** ClusterSubnetGroupAlreadyExistsFault
-    _ClusterSubnetGroupAlreadyExistsFault,
-
-    -- ** BatchModifyClusterSnapshotsLimitExceededFault
-    _BatchModifyClusterSnapshotsLimitExceededFault,
-
-    -- ** ClusterSnapshotQuotaExceededFault
-    _ClusterSnapshotQuotaExceededFault,
-
-    -- ** SubnetAlreadyInUse
-    _SubnetAlreadyInUse,
-
-    -- ** NumberOfNodesQuotaExceededFault
-    _NumberOfNodesQuotaExceededFault,
-
-    -- ** InvalidClusterSubnetGroupStateFault
-    _InvalidClusterSubnetGroupStateFault,
-
-    -- ** HsmClientCertificateNotFoundFault
-    _HsmClientCertificateNotFoundFault,
-
-    -- ** HsmConfigurationNotFoundFault
-    _HsmConfigurationNotFoundFault,
-
-    -- ** UsageLimitNotFoundFault
-    _UsageLimitNotFoundFault,
-
-    -- ** DependentServiceUnavailableFault
-    _DependentServiceUnavailableFault,
-
-    -- ** InvalidSubnet
-    _InvalidSubnet,
-
-    -- ** ReservedNodeExchangeNotFoundFault
-    _ReservedNodeExchangeNotFoundFault,
-
-    -- ** InvalidAuthenticationProfileRequestFault
-    _InvalidAuthenticationProfileRequestFault,
-
-    -- ** InvalidSnapshotCopyGrantStateFault
-    _InvalidSnapshotCopyGrantStateFault,
-
-    -- ** ReservedNodeNotFoundFault
-    _ReservedNodeNotFoundFault,
-
-    -- ** UnauthorizedOperation
-    _UnauthorizedOperation,
-
-    -- ** EndpointsPerClusterLimitExceededFault
-    _EndpointsPerClusterLimitExceededFault,
-
-    -- ** InvalidS3BucketNameFault
-    _InvalidS3BucketNameFault,
-
-    -- ** AuthorizationAlreadyExistsFault
-    _AuthorizationAlreadyExistsFault,
-
-    -- ** InvalidScheduleFault
-    _InvalidScheduleFault,
-
-    -- ** SnapshotScheduleAlreadyExistsFault
-    _SnapshotScheduleAlreadyExistsFault,
-
-    -- ** SubscriptionAlreadyExistFault
-    _SubscriptionAlreadyExistFault,
-
-    -- ** InvalidClusterSnapshotScheduleStateFault
-    _InvalidClusterSnapshotScheduleStateFault,
-
-    -- ** ClusterNotFoundFault
-    _ClusterNotFoundFault,
-
-    -- ** NumberOfNodesPerClusterLimitExceededFault
-    _NumberOfNodesPerClusterLimitExceededFault,
-
-    -- ** InvalidEndpointStateFault
-    _InvalidEndpointStateFault,
-
-    -- ** SNSInvalidTopicFault
-    _SNSInvalidTopicFault,
-
-    -- ** AuthenticationProfileNotFoundFault
-    _AuthenticationProfileNotFoundFault,
-
-    -- ** SnapshotCopyAlreadyDisabledFault
-    _SnapshotCopyAlreadyDisabledFault,
-
-    -- ** UnknownSnapshotCopyRegionFault
-    _UnknownSnapshotCopyRegionFault,
-
-    -- ** ClusterParameterGroupAlreadyExistsFault
-    _ClusterParameterGroupAlreadyExistsFault,
-
-    -- ** InvalidHsmClientCertificateStateFault
-    _InvalidHsmClientCertificateStateFault,
-
-    -- ** InvalidScheduledActionFault
-    _InvalidScheduledActionFault,
-
-    -- ** SubscriptionNotFoundFault
-    _SubscriptionNotFoundFault,
-
-    -- ** ReservedNodeQuotaExceededFault
-    _ReservedNodeQuotaExceededFault,
-
-    -- ** ClusterOnLatestRevisionFault
-    _ClusterOnLatestRevisionFault,
-
-    -- ** SubscriptionSeverityNotFoundFault
-    _SubscriptionSeverityNotFoundFault,
-
-    -- ** InvalidClusterTrackFault
-    _InvalidClusterTrackFault,
-
-    -- ** LimitExceededFault
-    _LimitExceededFault,
-
-    -- ** HsmConfigurationQuotaExceededFault
-    _HsmConfigurationQuotaExceededFault,
-
-    -- ** SnapshotScheduleNotFoundFault
-    _SnapshotScheduleNotFoundFault,
-
-    -- ** CopyToRegionDisabledFault
-    _CopyToRegionDisabledFault,
-
-    -- ** HsmClientCertificateQuotaExceededFault
-    _HsmClientCertificateQuotaExceededFault,
-
-    -- ** InProgressTableRestoreQuotaExceededFault
-    _InProgressTableRestoreQuotaExceededFault,
-
-    -- ** InsufficientS3BucketPolicyFault
-    _InsufficientS3BucketPolicyFault,
-
-    -- ** InvalidClusterSecurityGroupStateFault
-    _InvalidClusterSecurityGroupStateFault,
-
-    -- ** SnapshotScheduleQuotaExceededFault
-    _SnapshotScheduleQuotaExceededFault,
-
-    -- ** InvalidTagFault
-    _InvalidTagFault,
-
-    -- ** InvalidSubscriptionStateFault
-    _InvalidSubscriptionStateFault,
-
-    -- ** EndpointAuthorizationAlreadyExistsFault
-    _EndpointAuthorizationAlreadyExistsFault,
-
-    -- ** ClusterAlreadyExistsFault
-    _ClusterAlreadyExistsFault,
-
-    -- ** ScheduleDefinitionTypeUnsupportedFault
-    _ScheduleDefinitionTypeUnsupportedFault,
-
-    -- ** InvalidS3KeyPrefixFault
-    _InvalidS3KeyPrefixFault,
-
-    -- ** ClusterSubnetGroupNotFoundFault
-    _ClusterSubnetGroupNotFoundFault,
-
-    -- ** ReservedNodeOfferingNotFoundFault
-    _ReservedNodeOfferingNotFoundFault,
-
-    -- ** AuthenticationProfileAlreadyExistsFault
-    _AuthenticationProfileAlreadyExistsFault,
-
-    -- ** ClusterSecurityGroupQuotaExceededFault
-    _ClusterSecurityGroupQuotaExceededFault,
-
-    -- ** SnapshotCopyGrantAlreadyExistsFault
-    _SnapshotCopyGrantAlreadyExistsFault,
-
-    -- ** HsmConfigurationAlreadyExistsFault
-    _HsmConfigurationAlreadyExistsFault,
-
-    -- ** AuthorizationNotFoundFault
-    _AuthorizationNotFoundFault,
-
-    -- ** HsmClientCertificateAlreadyExistsFault
-    _HsmClientCertificateAlreadyExistsFault,
-
-    -- ** SnapshotCopyGrantNotFoundFault
-    _SnapshotCopyGrantNotFoundFault,
-
-    -- ** UsageLimitAlreadyExistsFault
-    _UsageLimitAlreadyExistsFault,
-
-    -- ** InvalidUsageLimitFault
-    _InvalidUsageLimitFault,
-
-    -- ** ClusterSubnetGroupQuotaExceededFault
-    _ClusterSubnetGroupQuotaExceededFault,
-
-    -- ** ClusterSnapshotAlreadyExistsFault
-    _ClusterSnapshotAlreadyExistsFault,
-
-    -- ** SnapshotCopyAlreadyEnabledFault
-    _SnapshotCopyAlreadyEnabledFault,
-
-    -- ** SubscriptionCategoryNotFoundFault
-    _SubscriptionCategoryNotFoundFault,
-
-    -- ** BucketNotFoundFault
-    _BucketNotFoundFault,
-
-    -- ** InvalidTableRestoreArgumentFault
-    _InvalidTableRestoreArgumentFault,
-
-    -- ** InvalidClusterParameterGroupStateFault
-    _InvalidClusterParameterGroupStateFault,
-
-    -- ** SNSNoAuthorizationFault
-    _SNSNoAuthorizationFault,
-
-    -- ** SubscriptionEventIdNotFoundFault
-    _SubscriptionEventIdNotFoundFault,
-
-    -- ** ClusterSnapshotNotFoundFault
-    _ClusterSnapshotNotFoundFault,
-
-    -- ** InvalidRetentionPeriodFault
-    _InvalidRetentionPeriodFault,
-
-    -- ** SNSTopicArnNotFoundFault
-    _SNSTopicArnNotFoundFault,
-
-    -- ** PartnerNotFoundFault
-    _PartnerNotFoundFault,
-
-    -- ** SnapshotScheduleUpdateInProgressFault
-    _SnapshotScheduleUpdateInProgressFault,
-
-    -- ** ClusterSubnetQuotaExceededFault
-    _ClusterSubnetQuotaExceededFault,
-
-    -- ** DependentServiceRequestThrottlingFault
-    _DependentServiceRequestThrottlingFault,
-
-    -- ** ScheduledActionTypeUnsupportedFault
-    _ScheduledActionTypeUnsupportedFault,
-
-    -- ** AuthorizationQuotaExceededFault
-    _AuthorizationQuotaExceededFault,
-
-    -- ** EventSubscriptionQuotaExceededFault
-    _EventSubscriptionQuotaExceededFault,
-
-    -- ** InvalidRestoreFault
-    _InvalidRestoreFault,
-
-    -- ** ScheduledActionNotFoundFault
-    _ScheduledActionNotFoundFault,
-
-    -- ** InvalidClusterSnapshotStateFault
-    _InvalidClusterSnapshotStateFault,
-
-    -- ** UnsupportedOptionFault
-    _UnsupportedOptionFault,
-
-    -- ** UnauthorizedPartnerIntegrationFault
-    _UnauthorizedPartnerIntegrationFault,
-
-    -- ** TableLimitExceededFault
-    _TableLimitExceededFault,
-
-    -- ** ScheduledActionQuotaExceededFault
-    _ScheduledActionQuotaExceededFault,
-
-    -- ** ClusterParameterGroupNotFoundFault
-    _ClusterParameterGroupNotFoundFault,
-
-    -- ** ResourceNotFoundFault
-    _ResourceNotFoundFault,
-
-    -- ** EndpointAuthorizationsPerClusterLimitExceededFault
-    _EndpointAuthorizationsPerClusterLimitExceededFault,
-
-    -- ** SourceNotFoundFault
-    _SourceNotFoundFault,
-
-    -- ** InvalidDataShareFault
-    _InvalidDataShareFault,
-
-    -- ** ClusterSecurityGroupNotFoundFault
-    _ClusterSecurityGroupNotFoundFault,
-
-    -- ** EndpointAlreadyExistsFault
-    _EndpointAlreadyExistsFault,
-
-    -- ** TagLimitExceededFault
-    _TagLimitExceededFault,
-
-    -- ** ClusterParameterGroupQuotaExceededFault
-    _ClusterParameterGroupQuotaExceededFault,
-
-    -- ** InvalidVPCNetworkStateFault
-    _InvalidVPCNetworkStateFault,
-
-    -- ** ReservedNodeAlreadyExistsFault
-    _ReservedNodeAlreadyExistsFault,
-
-    -- ** InvalidClusterStateFault
-    _InvalidClusterStateFault,
-
-    -- ** EndpointAuthorizationNotFoundFault
-    _EndpointAuthorizationNotFoundFault,
-
-    -- ** InvalidClusterSubnetStateFault
-    _InvalidClusterSubnetStateFault,
-
-    -- ** InvalidReservedNodeStateFault
-    _InvalidReservedNodeStateFault,
-
-    -- ** InvalidNamespaceFault
-    _InvalidNamespaceFault,
-
-    -- ** ScheduledActionAlreadyExistsFault
-    _ScheduledActionAlreadyExistsFault,
-
-    -- ** InvalidElasticIpFault
-    _InvalidElasticIpFault,
-
-    -- ** SnapshotCopyDisabledFault
-    _SnapshotCopyDisabledFault,
-
-    -- ** EndpointNotFoundFault
-    _EndpointNotFoundFault,
-
-    -- ** ClusterSecurityGroupAlreadyExistsFault
-    _ClusterSecurityGroupAlreadyExistsFault,
-
-    -- ** AuthenticationProfileQuotaExceededFault
-    _AuthenticationProfileQuotaExceededFault,
-
-    -- ** EndpointsPerAuthorizationLimitExceededFault
-    _EndpointsPerAuthorizationLimitExceededFault,
-
-    -- ** IncompatibleOrderableOptions
-    _IncompatibleOrderableOptions,
-
-    -- ** SnapshotCopyGrantQuotaExceededFault
-    _SnapshotCopyGrantQuotaExceededFault,
-
-    -- ** InsufficientClusterCapacityFault
-    _InsufficientClusterCapacityFault,
-
-    -- ** InvalidAuthorizationStateFault
-    _InvalidAuthorizationStateFault,
-
-    -- ** BatchDeleteRequestSizeExceededFault
-    _BatchDeleteRequestSizeExceededFault,
-
-    -- ** ClusterQuotaExceededFault
-    _ClusterQuotaExceededFault,
-
-    -- ** ResizeNotFoundFault
-    _ResizeNotFoundFault,
-
     -- ** AccessToClusterDeniedFault
     _AccessToClusterDeniedFault,
 
     -- ** AccessToSnapshotDeniedFault
     _AccessToSnapshotDeniedFault,
 
+    -- ** AuthenticationProfileAlreadyExistsFault
+    _AuthenticationProfileAlreadyExistsFault,
+
+    -- ** AuthenticationProfileNotFoundFault
+    _AuthenticationProfileNotFoundFault,
+
+    -- ** AuthenticationProfileQuotaExceededFault
+    _AuthenticationProfileQuotaExceededFault,
+
+    -- ** AuthorizationAlreadyExistsFault
+    _AuthorizationAlreadyExistsFault,
+
+    -- ** AuthorizationNotFoundFault
+    _AuthorizationNotFoundFault,
+
+    -- ** AuthorizationQuotaExceededFault
+    _AuthorizationQuotaExceededFault,
+
+    -- ** BatchDeleteRequestSizeExceededFault
+    _BatchDeleteRequestSizeExceededFault,
+
+    -- ** BatchModifyClusterSnapshotsLimitExceededFault
+    _BatchModifyClusterSnapshotsLimitExceededFault,
+
+    -- ** BucketNotFoundFault
+    _BucketNotFoundFault,
+
+    -- ** ClusterAlreadyExistsFault
+    _ClusterAlreadyExistsFault,
+
+    -- ** ClusterNotFoundFault
+    _ClusterNotFoundFault,
+
+    -- ** ClusterOnLatestRevisionFault
+    _ClusterOnLatestRevisionFault,
+
+    -- ** ClusterParameterGroupAlreadyExistsFault
+    _ClusterParameterGroupAlreadyExistsFault,
+
+    -- ** ClusterParameterGroupNotFoundFault
+    _ClusterParameterGroupNotFoundFault,
+
+    -- ** ClusterParameterGroupQuotaExceededFault
+    _ClusterParameterGroupQuotaExceededFault,
+
+    -- ** ClusterQuotaExceededFault
+    _ClusterQuotaExceededFault,
+
+    -- ** ClusterSecurityGroupAlreadyExistsFault
+    _ClusterSecurityGroupAlreadyExistsFault,
+
+    -- ** ClusterSecurityGroupNotFoundFault
+    _ClusterSecurityGroupNotFoundFault,
+
+    -- ** ClusterSecurityGroupQuotaExceededFault
+    _ClusterSecurityGroupQuotaExceededFault,
+
+    -- ** ClusterSnapshotAlreadyExistsFault
+    _ClusterSnapshotAlreadyExistsFault,
+
+    -- ** ClusterSnapshotNotFoundFault
+    _ClusterSnapshotNotFoundFault,
+
+    -- ** ClusterSnapshotQuotaExceededFault
+    _ClusterSnapshotQuotaExceededFault,
+
+    -- ** ClusterSubnetGroupAlreadyExistsFault
+    _ClusterSubnetGroupAlreadyExistsFault,
+
+    -- ** ClusterSubnetGroupNotFoundFault
+    _ClusterSubnetGroupNotFoundFault,
+
+    -- ** ClusterSubnetGroupQuotaExceededFault
+    _ClusterSubnetGroupQuotaExceededFault,
+
+    -- ** ClusterSubnetQuotaExceededFault
+    _ClusterSubnetQuotaExceededFault,
+
+    -- ** CopyToRegionDisabledFault
+    _CopyToRegionDisabledFault,
+
+    -- ** DependentServiceRequestThrottlingFault
+    _DependentServiceRequestThrottlingFault,
+
+    -- ** DependentServiceUnavailableFault
+    _DependentServiceUnavailableFault,
+
+    -- ** EndpointAlreadyExistsFault
+    _EndpointAlreadyExistsFault,
+
+    -- ** EndpointAuthorizationAlreadyExistsFault
+    _EndpointAuthorizationAlreadyExistsFault,
+
+    -- ** EndpointAuthorizationNotFoundFault
+    _EndpointAuthorizationNotFoundFault,
+
+    -- ** EndpointAuthorizationsPerClusterLimitExceededFault
+    _EndpointAuthorizationsPerClusterLimitExceededFault,
+
+    -- ** EndpointNotFoundFault
+    _EndpointNotFoundFault,
+
+    -- ** EndpointsPerAuthorizationLimitExceededFault
+    _EndpointsPerAuthorizationLimitExceededFault,
+
+    -- ** EndpointsPerClusterLimitExceededFault
+    _EndpointsPerClusterLimitExceededFault,
+
+    -- ** EventSubscriptionQuotaExceededFault
+    _EventSubscriptionQuotaExceededFault,
+
+    -- ** HsmClientCertificateAlreadyExistsFault
+    _HsmClientCertificateAlreadyExistsFault,
+
+    -- ** HsmClientCertificateNotFoundFault
+    _HsmClientCertificateNotFoundFault,
+
+    -- ** HsmClientCertificateQuotaExceededFault
+    _HsmClientCertificateQuotaExceededFault,
+
+    -- ** HsmConfigurationAlreadyExistsFault
+    _HsmConfigurationAlreadyExistsFault,
+
+    -- ** HsmConfigurationNotFoundFault
+    _HsmConfigurationNotFoundFault,
+
+    -- ** HsmConfigurationQuotaExceededFault
+    _HsmConfigurationQuotaExceededFault,
+
+    -- ** InProgressTableRestoreQuotaExceededFault
+    _InProgressTableRestoreQuotaExceededFault,
+
+    -- ** IncompatibleOrderableOptions
+    _IncompatibleOrderableOptions,
+
+    -- ** InsufficientClusterCapacityFault
+    _InsufficientClusterCapacityFault,
+
+    -- ** InsufficientS3BucketPolicyFault
+    _InsufficientS3BucketPolicyFault,
+
+    -- ** InvalidAuthenticationProfileRequestFault
+    _InvalidAuthenticationProfileRequestFault,
+
+    -- ** InvalidAuthorizationStateFault
+    _InvalidAuthorizationStateFault,
+
+    -- ** InvalidClusterParameterGroupStateFault
+    _InvalidClusterParameterGroupStateFault,
+
+    -- ** InvalidClusterSecurityGroupStateFault
+    _InvalidClusterSecurityGroupStateFault,
+
+    -- ** InvalidClusterSnapshotScheduleStateFault
+    _InvalidClusterSnapshotScheduleStateFault,
+
+    -- ** InvalidClusterSnapshotStateFault
+    _InvalidClusterSnapshotStateFault,
+
+    -- ** InvalidClusterStateFault
+    _InvalidClusterStateFault,
+
+    -- ** InvalidClusterSubnetGroupStateFault
+    _InvalidClusterSubnetGroupStateFault,
+
+    -- ** InvalidClusterSubnetStateFault
+    _InvalidClusterSubnetStateFault,
+
+    -- ** InvalidClusterTrackFault
+    _InvalidClusterTrackFault,
+
+    -- ** InvalidDataShareFault
+    _InvalidDataShareFault,
+
+    -- ** InvalidElasticIpFault
+    _InvalidElasticIpFault,
+
+    -- ** InvalidEndpointStateFault
+    _InvalidEndpointStateFault,
+
+    -- ** InvalidHsmClientCertificateStateFault
+    _InvalidHsmClientCertificateStateFault,
+
+    -- ** InvalidHsmConfigurationStateFault
+    _InvalidHsmConfigurationStateFault,
+
+    -- ** InvalidNamespaceFault
+    _InvalidNamespaceFault,
+
+    -- ** InvalidReservedNodeStateFault
+    _InvalidReservedNodeStateFault,
+
+    -- ** InvalidRestoreFault
+    _InvalidRestoreFault,
+
+    -- ** InvalidRetentionPeriodFault
+    _InvalidRetentionPeriodFault,
+
+    -- ** InvalidS3BucketNameFault
+    _InvalidS3BucketNameFault,
+
+    -- ** InvalidS3KeyPrefixFault
+    _InvalidS3KeyPrefixFault,
+
+    -- ** InvalidScheduleFault
+    _InvalidScheduleFault,
+
+    -- ** InvalidScheduledActionFault
+    _InvalidScheduledActionFault,
+
+    -- ** InvalidSnapshotCopyGrantStateFault
+    _InvalidSnapshotCopyGrantStateFault,
+
+    -- ** InvalidSubnet
+    _InvalidSubnet,
+
+    -- ** InvalidSubscriptionStateFault
+    _InvalidSubscriptionStateFault,
+
+    -- ** InvalidTableRestoreArgumentFault
+    _InvalidTableRestoreArgumentFault,
+
+    -- ** InvalidTagFault
+    _InvalidTagFault,
+
+    -- ** InvalidUsageLimitFault
+    _InvalidUsageLimitFault,
+
+    -- ** InvalidVPCNetworkStateFault
+    _InvalidVPCNetworkStateFault,
+
+    -- ** LimitExceededFault
+    _LimitExceededFault,
+
+    -- ** NumberOfNodesPerClusterLimitExceededFault
+    _NumberOfNodesPerClusterLimitExceededFault,
+
+    -- ** NumberOfNodesQuotaExceededFault
+    _NumberOfNodesQuotaExceededFault,
+
+    -- ** PartnerNotFoundFault
+    _PartnerNotFoundFault,
+
+    -- ** ReservedNodeAlreadyExistsFault
+    _ReservedNodeAlreadyExistsFault,
+
+    -- ** ReservedNodeAlreadyMigratedFault
+    _ReservedNodeAlreadyMigratedFault,
+
+    -- ** ReservedNodeExchangeNotFoundFault
+    _ReservedNodeExchangeNotFoundFault,
+
+    -- ** ReservedNodeNotFoundFault
+    _ReservedNodeNotFoundFault,
+
+    -- ** ReservedNodeOfferingNotFoundFault
+    _ReservedNodeOfferingNotFoundFault,
+
+    -- ** ReservedNodeQuotaExceededFault
+    _ReservedNodeQuotaExceededFault,
+
+    -- ** ResizeNotFoundFault
+    _ResizeNotFoundFault,
+
+    -- ** ResourceNotFoundFault
+    _ResourceNotFoundFault,
+
+    -- ** SNSInvalidTopicFault
+    _SNSInvalidTopicFault,
+
+    -- ** SNSNoAuthorizationFault
+    _SNSNoAuthorizationFault,
+
+    -- ** SNSTopicArnNotFoundFault
+    _SNSTopicArnNotFoundFault,
+
+    -- ** ScheduleDefinitionTypeUnsupportedFault
+    _ScheduleDefinitionTypeUnsupportedFault,
+
+    -- ** ScheduledActionAlreadyExistsFault
+    _ScheduledActionAlreadyExistsFault,
+
+    -- ** ScheduledActionNotFoundFault
+    _ScheduledActionNotFoundFault,
+
+    -- ** ScheduledActionQuotaExceededFault
+    _ScheduledActionQuotaExceededFault,
+
+    -- ** ScheduledActionTypeUnsupportedFault
+    _ScheduledActionTypeUnsupportedFault,
+
+    -- ** SnapshotCopyAlreadyDisabledFault
+    _SnapshotCopyAlreadyDisabledFault,
+
+    -- ** SnapshotCopyAlreadyEnabledFault
+    _SnapshotCopyAlreadyEnabledFault,
+
+    -- ** SnapshotCopyDisabledFault
+    _SnapshotCopyDisabledFault,
+
+    -- ** SnapshotCopyGrantAlreadyExistsFault
+    _SnapshotCopyGrantAlreadyExistsFault,
+
+    -- ** SnapshotCopyGrantNotFoundFault
+    _SnapshotCopyGrantNotFoundFault,
+
+    -- ** SnapshotCopyGrantQuotaExceededFault
+    _SnapshotCopyGrantQuotaExceededFault,
+
+    -- ** SnapshotScheduleAlreadyExistsFault
+    _SnapshotScheduleAlreadyExistsFault,
+
+    -- ** SnapshotScheduleNotFoundFault
+    _SnapshotScheduleNotFoundFault,
+
+    -- ** SnapshotScheduleQuotaExceededFault
+    _SnapshotScheduleQuotaExceededFault,
+
+    -- ** SnapshotScheduleUpdateInProgressFault
+    _SnapshotScheduleUpdateInProgressFault,
+
+    -- ** SourceNotFoundFault
+    _SourceNotFoundFault,
+
+    -- ** SubnetAlreadyInUse
+    _SubnetAlreadyInUse,
+
+    -- ** SubscriptionAlreadyExistFault
+    _SubscriptionAlreadyExistFault,
+
+    -- ** SubscriptionCategoryNotFoundFault
+    _SubscriptionCategoryNotFoundFault,
+
+    -- ** SubscriptionEventIdNotFoundFault
+    _SubscriptionEventIdNotFoundFault,
+
+    -- ** SubscriptionNotFoundFault
+    _SubscriptionNotFoundFault,
+
+    -- ** SubscriptionSeverityNotFoundFault
+    _SubscriptionSeverityNotFoundFault,
+
+    -- ** TableLimitExceededFault
+    _TableLimitExceededFault,
+
     -- ** TableRestoreNotFoundFault
     _TableRestoreNotFoundFault,
+
+    -- ** TagLimitExceededFault
+    _TagLimitExceededFault,
+
+    -- ** UnauthorizedOperation
+    _UnauthorizedOperation,
+
+    -- ** UnauthorizedPartnerIntegrationFault
+    _UnauthorizedPartnerIntegrationFault,
+
+    -- ** UnknownSnapshotCopyRegionFault
+    _UnknownSnapshotCopyRegionFault,
+
+    -- ** UnsupportedOperationFault
+    _UnsupportedOperationFault,
+
+    -- ** UnsupportedOptionFault
+    _UnsupportedOptionFault,
+
+    -- ** UsageLimitAlreadyExistsFault
+    _UsageLimitAlreadyExistsFault,
+
+    -- ** UsageLimitNotFoundFault
+    _UsageLimitNotFoundFault,
 
     -- * Waiters
     -- $waiters
@@ -431,11 +431,11 @@ module Amazonka.Redshift
     -- ** ClusterAvailable
     newClusterAvailable,
 
-    -- ** ClusterRestored
-    newClusterRestored,
-
     -- ** ClusterDeleted
     newClusterDeleted,
+
+    -- ** ClusterRestored
+    newClusterRestored,
 
     -- ** SnapshotAvailable
     newSnapshotAvailable,

@@ -50,12 +50,12 @@ module Amazonka.Redshift.CreateEventSubscription
     newCreateEventSubscription,
 
     -- * Request Lenses
-    createEventSubscription_tags,
+    createEventSubscription_enabled,
+    createEventSubscription_eventCategories,
     createEventSubscription_severity,
     createEventSubscription_sourceIds,
     createEventSubscription_sourceType,
-    createEventSubscription_enabled,
-    createEventSubscription_eventCategories,
+    createEventSubscription_tags,
     createEventSubscription_subscriptionName,
     createEventSubscription_snsTopicArn,
 
@@ -81,8 +81,14 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateEventSubscription' smart constructor.
 data CreateEventSubscription = CreateEventSubscription'
-  { -- | A list of tag instances.
-    tags :: Prelude.Maybe [Tag],
+  { -- | A boolean value; set to @true@ to activate the subscription, and set to
+    -- @false@ to create the subscription but not activate it.
+    enabled :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies the Amazon Redshift event categories to be published by the
+    -- event notification subscription.
+    --
+    -- Values: configuration, management, monitoring, security, pending
+    eventCategories :: Prelude.Maybe [Prelude.Text],
     -- | Specifies the Amazon Redshift event severity to be published by the
     -- event notification subscription.
     --
@@ -107,14 +113,8 @@ data CreateEventSubscription = CreateEventSubscription'
     -- Valid values: cluster, cluster-parameter-group, cluster-security-group,
     -- cluster-snapshot, and scheduled-action.
     sourceType :: Prelude.Maybe Prelude.Text,
-    -- | A boolean value; set to @true@ to activate the subscription, and set to
-    -- @false@ to create the subscription but not activate it.
-    enabled :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies the Amazon Redshift event categories to be published by the
-    -- event notification subscription.
-    --
-    -- Values: configuration, management, monitoring, security, pending
-    eventCategories :: Prelude.Maybe [Prelude.Text],
+    -- | A list of tag instances.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the event subscription to be created.
     --
     -- Constraints:
@@ -142,7 +142,13 @@ data CreateEventSubscription = CreateEventSubscription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createEventSubscription_tags' - A list of tag instances.
+-- 'enabled', 'createEventSubscription_enabled' - A boolean value; set to @true@ to activate the subscription, and set to
+-- @false@ to create the subscription but not activate it.
+--
+-- 'eventCategories', 'createEventSubscription_eventCategories' - Specifies the Amazon Redshift event categories to be published by the
+-- event notification subscription.
+--
+-- Values: configuration, management, monitoring, security, pending
 --
 -- 'severity', 'createEventSubscription_severity' - Specifies the Amazon Redshift event severity to be published by the
 -- event notification subscription.
@@ -168,13 +174,7 @@ data CreateEventSubscription = CreateEventSubscription'
 -- Valid values: cluster, cluster-parameter-group, cluster-security-group,
 -- cluster-snapshot, and scheduled-action.
 --
--- 'enabled', 'createEventSubscription_enabled' - A boolean value; set to @true@ to activate the subscription, and set to
--- @false@ to create the subscription but not activate it.
---
--- 'eventCategories', 'createEventSubscription_eventCategories' - Specifies the Amazon Redshift event categories to be published by the
--- event notification subscription.
---
--- Values: configuration, management, monitoring, security, pending
+-- 'tags', 'createEventSubscription_tags' - A list of tag instances.
 --
 -- 'subscriptionName', 'createEventSubscription_subscriptionName' - The name of the event subscription to be created.
 --
@@ -201,19 +201,27 @@ newCreateEventSubscription
   pSubscriptionName_
   pSnsTopicArn_ =
     CreateEventSubscription'
-      { tags = Prelude.Nothing,
+      { enabled = Prelude.Nothing,
+        eventCategories = Prelude.Nothing,
         severity = Prelude.Nothing,
         sourceIds = Prelude.Nothing,
         sourceType = Prelude.Nothing,
-        enabled = Prelude.Nothing,
-        eventCategories = Prelude.Nothing,
+        tags = Prelude.Nothing,
         subscriptionName = pSubscriptionName_,
         snsTopicArn = pSnsTopicArn_
       }
 
--- | A list of tag instances.
-createEventSubscription_tags :: Lens.Lens' CreateEventSubscription (Prelude.Maybe [Tag])
-createEventSubscription_tags = Lens.lens (\CreateEventSubscription' {tags} -> tags) (\s@CreateEventSubscription' {} a -> s {tags = a} :: CreateEventSubscription) Prelude.. Lens.mapping Lens.coerced
+-- | A boolean value; set to @true@ to activate the subscription, and set to
+-- @false@ to create the subscription but not activate it.
+createEventSubscription_enabled :: Lens.Lens' CreateEventSubscription (Prelude.Maybe Prelude.Bool)
+createEventSubscription_enabled = Lens.lens (\CreateEventSubscription' {enabled} -> enabled) (\s@CreateEventSubscription' {} a -> s {enabled = a} :: CreateEventSubscription)
+
+-- | Specifies the Amazon Redshift event categories to be published by the
+-- event notification subscription.
+--
+-- Values: configuration, management, monitoring, security, pending
+createEventSubscription_eventCategories :: Lens.Lens' CreateEventSubscription (Prelude.Maybe [Prelude.Text])
+createEventSubscription_eventCategories = Lens.lens (\CreateEventSubscription' {eventCategories} -> eventCategories) (\s@CreateEventSubscription' {} a -> s {eventCategories = a} :: CreateEventSubscription) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the Amazon Redshift event severity to be published by the
 -- event notification subscription.
@@ -245,17 +253,9 @@ createEventSubscription_sourceIds = Lens.lens (\CreateEventSubscription' {source
 createEventSubscription_sourceType :: Lens.Lens' CreateEventSubscription (Prelude.Maybe Prelude.Text)
 createEventSubscription_sourceType = Lens.lens (\CreateEventSubscription' {sourceType} -> sourceType) (\s@CreateEventSubscription' {} a -> s {sourceType = a} :: CreateEventSubscription)
 
--- | A boolean value; set to @true@ to activate the subscription, and set to
--- @false@ to create the subscription but not activate it.
-createEventSubscription_enabled :: Lens.Lens' CreateEventSubscription (Prelude.Maybe Prelude.Bool)
-createEventSubscription_enabled = Lens.lens (\CreateEventSubscription' {enabled} -> enabled) (\s@CreateEventSubscription' {} a -> s {enabled = a} :: CreateEventSubscription)
-
--- | Specifies the Amazon Redshift event categories to be published by the
--- event notification subscription.
---
--- Values: configuration, management, monitoring, security, pending
-createEventSubscription_eventCategories :: Lens.Lens' CreateEventSubscription (Prelude.Maybe [Prelude.Text])
-createEventSubscription_eventCategories = Lens.lens (\CreateEventSubscription' {eventCategories} -> eventCategories) (\s@CreateEventSubscription' {} a -> s {eventCategories = a} :: CreateEventSubscription) Prelude.. Lens.mapping Lens.coerced
+-- | A list of tag instances.
+createEventSubscription_tags :: Lens.Lens' CreateEventSubscription (Prelude.Maybe [Tag])
+createEventSubscription_tags = Lens.lens (\CreateEventSubscription' {tags} -> tags) (\s@CreateEventSubscription' {} a -> s {tags = a} :: CreateEventSubscription) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the event subscription to be created.
 --
@@ -294,23 +294,23 @@ instance Core.AWSRequest CreateEventSubscription where
 
 instance Prelude.Hashable CreateEventSubscription where
   hashWithSalt _salt CreateEventSubscription' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` eventCategories
       `Prelude.hashWithSalt` severity
       `Prelude.hashWithSalt` sourceIds
       `Prelude.hashWithSalt` sourceType
-      `Prelude.hashWithSalt` enabled
-      `Prelude.hashWithSalt` eventCategories
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` subscriptionName
       `Prelude.hashWithSalt` snsTopicArn
 
 instance Prelude.NFData CreateEventSubscription where
   rnf CreateEventSubscription' {..} =
-    Prelude.rnf tags
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf eventCategories
       `Prelude.seq` Prelude.rnf severity
       `Prelude.seq` Prelude.rnf sourceIds
       `Prelude.seq` Prelude.rnf sourceType
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf eventCategories
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf subscriptionName
       `Prelude.seq` Prelude.rnf snsTopicArn
 
@@ -327,20 +327,20 @@ instance Data.ToQuery CreateEventSubscription where
           Data.=: ("CreateEventSubscription" :: Prelude.ByteString),
         "Version"
           Data.=: ("2012-12-01" :: Prelude.ByteString),
-        "Tags"
-          Data.=: Data.toQuery
-            (Data.toQueryList "Tag" Prelude.<$> tags),
-        "Severity" Data.=: severity,
-        "SourceIds"
-          Data.=: Data.toQuery
-            (Data.toQueryList "SourceId" Prelude.<$> sourceIds),
-        "SourceType" Data.=: sourceType,
         "Enabled" Data.=: enabled,
         "EventCategories"
           Data.=: Data.toQuery
             ( Data.toQueryList "EventCategory"
                 Prelude.<$> eventCategories
             ),
+        "Severity" Data.=: severity,
+        "SourceIds"
+          Data.=: Data.toQuery
+            (Data.toQueryList "SourceId" Prelude.<$> sourceIds),
+        "SourceType" Data.=: sourceType,
+        "Tags"
+          Data.=: Data.toQuery
+            (Data.toQueryList "Tag" Prelude.<$> tags),
         "SubscriptionName" Data.=: subscriptionName,
         "SnsTopicArn" Data.=: snsTopicArn
       ]

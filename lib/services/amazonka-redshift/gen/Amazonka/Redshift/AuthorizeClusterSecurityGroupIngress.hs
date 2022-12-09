@@ -48,9 +48,9 @@ module Amazonka.Redshift.AuthorizeClusterSecurityGroupIngress
     newAuthorizeClusterSecurityGroupIngress,
 
     -- * Request Lenses
-    authorizeClusterSecurityGroupIngress_eC2SecurityGroupOwnerId,
-    authorizeClusterSecurityGroupIngress_eC2SecurityGroupName,
     authorizeClusterSecurityGroupIngress_cidrip,
+    authorizeClusterSecurityGroupIngress_eC2SecurityGroupName,
+    authorizeClusterSecurityGroupIngress_eC2SecurityGroupOwnerId,
     authorizeClusterSecurityGroupIngress_clusterSecurityGroupName,
 
     -- * Destructuring the Response
@@ -75,16 +75,16 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newAuthorizeClusterSecurityGroupIngress' smart constructor.
 data AuthorizeClusterSecurityGroupIngress = AuthorizeClusterSecurityGroupIngress'
-  { -- | The Amazon Web Services account number of the owner of the security
+  { -- | The IP range to be added the Amazon Redshift security group.
+    cidrip :: Prelude.Maybe Prelude.Text,
+    -- | The EC2 security group to be added the Amazon Redshift security group.
+    eC2SecurityGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services account number of the owner of the security
     -- group specified by the /EC2SecurityGroupName/ parameter. The Amazon Web
     -- Services Access Key ID is not an acceptable value.
     --
     -- Example: @111122223333@
     eC2SecurityGroupOwnerId :: Prelude.Maybe Prelude.Text,
-    -- | The EC2 security group to be added the Amazon Redshift security group.
-    eC2SecurityGroupName :: Prelude.Maybe Prelude.Text,
-    -- | The IP range to be added the Amazon Redshift security group.
-    cidrip :: Prelude.Maybe Prelude.Text,
     -- | The name of the security group to which the ingress rule is added.
     clusterSecurityGroupName :: Prelude.Text
   }
@@ -98,15 +98,15 @@ data AuthorizeClusterSecurityGroupIngress = AuthorizeClusterSecurityGroupIngress
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'cidrip', 'authorizeClusterSecurityGroupIngress_cidrip' - The IP range to be added the Amazon Redshift security group.
+--
+-- 'eC2SecurityGroupName', 'authorizeClusterSecurityGroupIngress_eC2SecurityGroupName' - The EC2 security group to be added the Amazon Redshift security group.
+--
 -- 'eC2SecurityGroupOwnerId', 'authorizeClusterSecurityGroupIngress_eC2SecurityGroupOwnerId' - The Amazon Web Services account number of the owner of the security
 -- group specified by the /EC2SecurityGroupName/ parameter. The Amazon Web
 -- Services Access Key ID is not an acceptable value.
 --
 -- Example: @111122223333@
---
--- 'eC2SecurityGroupName', 'authorizeClusterSecurityGroupIngress_eC2SecurityGroupName' - The EC2 security group to be added the Amazon Redshift security group.
---
--- 'cidrip', 'authorizeClusterSecurityGroupIngress_cidrip' - The IP range to be added the Amazon Redshift security group.
 --
 -- 'clusterSecurityGroupName', 'authorizeClusterSecurityGroupIngress_clusterSecurityGroupName' - The name of the security group to which the ingress rule is added.
 newAuthorizeClusterSecurityGroupIngress ::
@@ -116,14 +116,23 @@ newAuthorizeClusterSecurityGroupIngress ::
 newAuthorizeClusterSecurityGroupIngress
   pClusterSecurityGroupName_ =
     AuthorizeClusterSecurityGroupIngress'
-      { eC2SecurityGroupOwnerId =
+      { cidrip =
           Prelude.Nothing,
         eC2SecurityGroupName =
           Prelude.Nothing,
-        cidrip = Prelude.Nothing,
+        eC2SecurityGroupOwnerId =
+          Prelude.Nothing,
         clusterSecurityGroupName =
           pClusterSecurityGroupName_
       }
+
+-- | The IP range to be added the Amazon Redshift security group.
+authorizeClusterSecurityGroupIngress_cidrip :: Lens.Lens' AuthorizeClusterSecurityGroupIngress (Prelude.Maybe Prelude.Text)
+authorizeClusterSecurityGroupIngress_cidrip = Lens.lens (\AuthorizeClusterSecurityGroupIngress' {cidrip} -> cidrip) (\s@AuthorizeClusterSecurityGroupIngress' {} a -> s {cidrip = a} :: AuthorizeClusterSecurityGroupIngress)
+
+-- | The EC2 security group to be added the Amazon Redshift security group.
+authorizeClusterSecurityGroupIngress_eC2SecurityGroupName :: Lens.Lens' AuthorizeClusterSecurityGroupIngress (Prelude.Maybe Prelude.Text)
+authorizeClusterSecurityGroupIngress_eC2SecurityGroupName = Lens.lens (\AuthorizeClusterSecurityGroupIngress' {eC2SecurityGroupName} -> eC2SecurityGroupName) (\s@AuthorizeClusterSecurityGroupIngress' {} a -> s {eC2SecurityGroupName = a} :: AuthorizeClusterSecurityGroupIngress)
 
 -- | The Amazon Web Services account number of the owner of the security
 -- group specified by the /EC2SecurityGroupName/ parameter. The Amazon Web
@@ -132,14 +141,6 @@ newAuthorizeClusterSecurityGroupIngress
 -- Example: @111122223333@
 authorizeClusterSecurityGroupIngress_eC2SecurityGroupOwnerId :: Lens.Lens' AuthorizeClusterSecurityGroupIngress (Prelude.Maybe Prelude.Text)
 authorizeClusterSecurityGroupIngress_eC2SecurityGroupOwnerId = Lens.lens (\AuthorizeClusterSecurityGroupIngress' {eC2SecurityGroupOwnerId} -> eC2SecurityGroupOwnerId) (\s@AuthorizeClusterSecurityGroupIngress' {} a -> s {eC2SecurityGroupOwnerId = a} :: AuthorizeClusterSecurityGroupIngress)
-
--- | The EC2 security group to be added the Amazon Redshift security group.
-authorizeClusterSecurityGroupIngress_eC2SecurityGroupName :: Lens.Lens' AuthorizeClusterSecurityGroupIngress (Prelude.Maybe Prelude.Text)
-authorizeClusterSecurityGroupIngress_eC2SecurityGroupName = Lens.lens (\AuthorizeClusterSecurityGroupIngress' {eC2SecurityGroupName} -> eC2SecurityGroupName) (\s@AuthorizeClusterSecurityGroupIngress' {} a -> s {eC2SecurityGroupName = a} :: AuthorizeClusterSecurityGroupIngress)
-
--- | The IP range to be added the Amazon Redshift security group.
-authorizeClusterSecurityGroupIngress_cidrip :: Lens.Lens' AuthorizeClusterSecurityGroupIngress (Prelude.Maybe Prelude.Text)
-authorizeClusterSecurityGroupIngress_cidrip = Lens.lens (\AuthorizeClusterSecurityGroupIngress' {cidrip} -> cidrip) (\s@AuthorizeClusterSecurityGroupIngress' {} a -> s {cidrip = a} :: AuthorizeClusterSecurityGroupIngress)
 
 -- | The name of the security group to which the ingress rule is added.
 authorizeClusterSecurityGroupIngress_clusterSecurityGroupName :: Lens.Lens' AuthorizeClusterSecurityGroupIngress Prelude.Text
@@ -170,10 +171,9 @@ instance
   hashWithSalt
     _salt
     AuthorizeClusterSecurityGroupIngress' {..} =
-      _salt
-        `Prelude.hashWithSalt` eC2SecurityGroupOwnerId
+      _salt `Prelude.hashWithSalt` cidrip
         `Prelude.hashWithSalt` eC2SecurityGroupName
-        `Prelude.hashWithSalt` cidrip
+        `Prelude.hashWithSalt` eC2SecurityGroupOwnerId
         `Prelude.hashWithSalt` clusterSecurityGroupName
 
 instance
@@ -181,9 +181,9 @@ instance
     AuthorizeClusterSecurityGroupIngress
   where
   rnf AuthorizeClusterSecurityGroupIngress' {..} =
-    Prelude.rnf eC2SecurityGroupOwnerId
+    Prelude.rnf cidrip
       `Prelude.seq` Prelude.rnf eC2SecurityGroupName
-      `Prelude.seq` Prelude.rnf cidrip
+      `Prelude.seq` Prelude.rnf eC2SecurityGroupOwnerId
       `Prelude.seq` Prelude.rnf clusterSecurityGroupName
 
 instance
@@ -210,10 +210,10 @@ instance
                   ),
         "Version"
           Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "CIDRIP" Data.=: cidrip,
+        "EC2SecurityGroupName" Data.=: eC2SecurityGroupName,
         "EC2SecurityGroupOwnerId"
           Data.=: eC2SecurityGroupOwnerId,
-        "EC2SecurityGroupName" Data.=: eC2SecurityGroupName,
-        "CIDRIP" Data.=: cidrip,
         "ClusterSecurityGroupName"
           Data.=: clusterSecurityGroupName
       ]

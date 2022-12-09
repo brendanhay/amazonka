@@ -34,8 +34,8 @@ module Amazonka.Redshift.GetReservedNodeExchangeConfigurationOptions
     -- * Request Lenses
     getReservedNodeExchangeConfigurationOptions_clusterIdentifier,
     getReservedNodeExchangeConfigurationOptions_marker,
-    getReservedNodeExchangeConfigurationOptions_snapshotIdentifier,
     getReservedNodeExchangeConfigurationOptions_maxRecords,
+    getReservedNodeExchangeConfigurationOptions_snapshotIdentifier,
     getReservedNodeExchangeConfigurationOptions_actionType,
 
     -- * Destructuring the Response
@@ -69,15 +69,15 @@ data GetReservedNodeExchangeConfigurationOptions = GetReservedNodeExchangeConfig
     -- the next set of response records by providing the returned marker value
     -- in the @Marker@ parameter and retrying the request.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | The identifier for the snapshot that is the source for the reserved-node
-    -- exchange.
-    snapshotIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of response records to return in each call. If the
     -- number of remaining response records exceeds the specified @MaxRecords@
     -- value, a value is returned in a @Marker@ field of the response. You can
     -- retrieve the next set of records by retrying the command with the
     -- returned marker value.
     maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | The identifier for the snapshot that is the source for the reserved-node
+    -- exchange.
+    snapshotIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The action type of the reserved-node configuration. The action type can
     -- be an exchange initiated from either a snapshot or a resize.
     actionType :: ReservedNodeExchangeActionType
@@ -102,14 +102,14 @@ data GetReservedNodeExchangeConfigurationOptions = GetReservedNodeExchangeConfig
 -- the next set of response records by providing the returned marker value
 -- in the @Marker@ parameter and retrying the request.
 --
--- 'snapshotIdentifier', 'getReservedNodeExchangeConfigurationOptions_snapshotIdentifier' - The identifier for the snapshot that is the source for the reserved-node
--- exchange.
---
 -- 'maxRecords', 'getReservedNodeExchangeConfigurationOptions_maxRecords' - The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
 -- value, a value is returned in a @Marker@ field of the response. You can
 -- retrieve the next set of records by retrying the command with the
 -- returned marker value.
+--
+-- 'snapshotIdentifier', 'getReservedNodeExchangeConfigurationOptions_snapshotIdentifier' - The identifier for the snapshot that is the source for the reserved-node
+-- exchange.
 --
 -- 'actionType', 'getReservedNodeExchangeConfigurationOptions_actionType' - The action type of the reserved-node configuration. The action type can
 -- be an exchange initiated from either a snapshot or a resize.
@@ -123,9 +123,9 @@ newGetReservedNodeExchangeConfigurationOptions
       { clusterIdentifier =
           Prelude.Nothing,
         marker = Prelude.Nothing,
+        maxRecords = Prelude.Nothing,
         snapshotIdentifier =
           Prelude.Nothing,
-        maxRecords = Prelude.Nothing,
         actionType = pActionType_
       }
 
@@ -143,11 +143,6 @@ getReservedNodeExchangeConfigurationOptions_clusterIdentifier = Lens.lens (\GetR
 getReservedNodeExchangeConfigurationOptions_marker :: Lens.Lens' GetReservedNodeExchangeConfigurationOptions (Prelude.Maybe Prelude.Text)
 getReservedNodeExchangeConfigurationOptions_marker = Lens.lens (\GetReservedNodeExchangeConfigurationOptions' {marker} -> marker) (\s@GetReservedNodeExchangeConfigurationOptions' {} a -> s {marker = a} :: GetReservedNodeExchangeConfigurationOptions)
 
--- | The identifier for the snapshot that is the source for the reserved-node
--- exchange.
-getReservedNodeExchangeConfigurationOptions_snapshotIdentifier :: Lens.Lens' GetReservedNodeExchangeConfigurationOptions (Prelude.Maybe Prelude.Text)
-getReservedNodeExchangeConfigurationOptions_snapshotIdentifier = Lens.lens (\GetReservedNodeExchangeConfigurationOptions' {snapshotIdentifier} -> snapshotIdentifier) (\s@GetReservedNodeExchangeConfigurationOptions' {} a -> s {snapshotIdentifier = a} :: GetReservedNodeExchangeConfigurationOptions)
-
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
 -- value, a value is returned in a @Marker@ field of the response. You can
@@ -155,6 +150,11 @@ getReservedNodeExchangeConfigurationOptions_snapshotIdentifier = Lens.lens (\Get
 -- returned marker value.
 getReservedNodeExchangeConfigurationOptions_maxRecords :: Lens.Lens' GetReservedNodeExchangeConfigurationOptions (Prelude.Maybe Prelude.Int)
 getReservedNodeExchangeConfigurationOptions_maxRecords = Lens.lens (\GetReservedNodeExchangeConfigurationOptions' {maxRecords} -> maxRecords) (\s@GetReservedNodeExchangeConfigurationOptions' {} a -> s {maxRecords = a} :: GetReservedNodeExchangeConfigurationOptions)
+
+-- | The identifier for the snapshot that is the source for the reserved-node
+-- exchange.
+getReservedNodeExchangeConfigurationOptions_snapshotIdentifier :: Lens.Lens' GetReservedNodeExchangeConfigurationOptions (Prelude.Maybe Prelude.Text)
+getReservedNodeExchangeConfigurationOptions_snapshotIdentifier = Lens.lens (\GetReservedNodeExchangeConfigurationOptions' {snapshotIdentifier} -> snapshotIdentifier) (\s@GetReservedNodeExchangeConfigurationOptions' {} a -> s {snapshotIdentifier = a} :: GetReservedNodeExchangeConfigurationOptions)
 
 -- | The action type of the reserved-node configuration. The action type can
 -- be an exchange initiated from either a snapshot or a resize.
@@ -221,8 +221,8 @@ instance
     GetReservedNodeExchangeConfigurationOptions' {..} =
       _salt `Prelude.hashWithSalt` clusterIdentifier
         `Prelude.hashWithSalt` marker
-        `Prelude.hashWithSalt` snapshotIdentifier
         `Prelude.hashWithSalt` maxRecords
+        `Prelude.hashWithSalt` snapshotIdentifier
         `Prelude.hashWithSalt` actionType
 
 instance
@@ -232,8 +232,8 @@ instance
   rnf GetReservedNodeExchangeConfigurationOptions' {..} =
     Prelude.rnf clusterIdentifier
       `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf snapshotIdentifier
       `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf snapshotIdentifier
       `Prelude.seq` Prelude.rnf actionType
 
 instance
@@ -263,8 +263,8 @@ instance
             Data.=: ("2012-12-01" :: Prelude.ByteString),
           "ClusterIdentifier" Data.=: clusterIdentifier,
           "Marker" Data.=: marker,
-          "SnapshotIdentifier" Data.=: snapshotIdentifier,
           "MaxRecords" Data.=: maxRecords,
+          "SnapshotIdentifier" Data.=: snapshotIdentifier,
           "ActionType" Data.=: actionType
         ]
 

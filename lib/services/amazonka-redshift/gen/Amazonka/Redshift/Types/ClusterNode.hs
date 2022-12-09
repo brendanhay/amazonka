@@ -31,10 +31,10 @@ import Amazonka.Redshift.Internal
 data ClusterNode = ClusterNode'
   { -- | Whether the node is a leader node or a compute node.
     nodeRole :: Prelude.Maybe Prelude.Text,
-    -- | The public IP address of a node within a cluster.
-    publicIPAddress :: Prelude.Maybe Prelude.Text,
     -- | The private IP address of a node within a cluster.
-    privateIPAddress :: Prelude.Maybe Prelude.Text
+    privateIPAddress :: Prelude.Maybe Prelude.Text,
+    -- | The public IP address of a node within a cluster.
+    publicIPAddress :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,45 +48,45 @@ data ClusterNode = ClusterNode'
 --
 -- 'nodeRole', 'clusterNode_nodeRole' - Whether the node is a leader node or a compute node.
 --
--- 'publicIPAddress', 'clusterNode_publicIPAddress' - The public IP address of a node within a cluster.
---
 -- 'privateIPAddress', 'clusterNode_privateIPAddress' - The private IP address of a node within a cluster.
+--
+-- 'publicIPAddress', 'clusterNode_publicIPAddress' - The public IP address of a node within a cluster.
 newClusterNode ::
   ClusterNode
 newClusterNode =
   ClusterNode'
     { nodeRole = Prelude.Nothing,
-      publicIPAddress = Prelude.Nothing,
-      privateIPAddress = Prelude.Nothing
+      privateIPAddress = Prelude.Nothing,
+      publicIPAddress = Prelude.Nothing
     }
 
 -- | Whether the node is a leader node or a compute node.
 clusterNode_nodeRole :: Lens.Lens' ClusterNode (Prelude.Maybe Prelude.Text)
 clusterNode_nodeRole = Lens.lens (\ClusterNode' {nodeRole} -> nodeRole) (\s@ClusterNode' {} a -> s {nodeRole = a} :: ClusterNode)
 
--- | The public IP address of a node within a cluster.
-clusterNode_publicIPAddress :: Lens.Lens' ClusterNode (Prelude.Maybe Prelude.Text)
-clusterNode_publicIPAddress = Lens.lens (\ClusterNode' {publicIPAddress} -> publicIPAddress) (\s@ClusterNode' {} a -> s {publicIPAddress = a} :: ClusterNode)
-
 -- | The private IP address of a node within a cluster.
 clusterNode_privateIPAddress :: Lens.Lens' ClusterNode (Prelude.Maybe Prelude.Text)
 clusterNode_privateIPAddress = Lens.lens (\ClusterNode' {privateIPAddress} -> privateIPAddress) (\s@ClusterNode' {} a -> s {privateIPAddress = a} :: ClusterNode)
+
+-- | The public IP address of a node within a cluster.
+clusterNode_publicIPAddress :: Lens.Lens' ClusterNode (Prelude.Maybe Prelude.Text)
+clusterNode_publicIPAddress = Lens.lens (\ClusterNode' {publicIPAddress} -> publicIPAddress) (\s@ClusterNode' {} a -> s {publicIPAddress = a} :: ClusterNode)
 
 instance Data.FromXML ClusterNode where
   parseXML x =
     ClusterNode'
       Prelude.<$> (x Data..@? "NodeRole")
-      Prelude.<*> (x Data..@? "PublicIPAddress")
       Prelude.<*> (x Data..@? "PrivateIPAddress")
+      Prelude.<*> (x Data..@? "PublicIPAddress")
 
 instance Prelude.Hashable ClusterNode where
   hashWithSalt _salt ClusterNode' {..} =
     _salt `Prelude.hashWithSalt` nodeRole
-      `Prelude.hashWithSalt` publicIPAddress
       `Prelude.hashWithSalt` privateIPAddress
+      `Prelude.hashWithSalt` publicIPAddress
 
 instance Prelude.NFData ClusterNode where
   rnf ClusterNode' {..} =
     Prelude.rnf nodeRole
-      `Prelude.seq` Prelude.rnf publicIPAddress
       `Prelude.seq` Prelude.rnf privateIPAddress
+      `Prelude.seq` Prelude.rnf publicIPAddress

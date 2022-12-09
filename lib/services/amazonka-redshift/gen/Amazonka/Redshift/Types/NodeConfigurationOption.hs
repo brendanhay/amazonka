@@ -32,12 +32,12 @@ import Amazonka.Redshift.Types.Mode
 data NodeConfigurationOption = NodeConfigurationOption'
   { -- | The estimated disk utilizaton percentage.
     estimatedDiskUtilizationPercent :: Prelude.Maybe Prelude.Double,
+    -- | The category of the node configuration recommendation.
+    mode :: Prelude.Maybe Mode,
     -- | The node type, such as, \"ds2.8xlarge\".
     nodeType :: Prelude.Maybe Prelude.Text,
     -- | The number of nodes.
-    numberOfNodes :: Prelude.Maybe Prelude.Int,
-    -- | The category of the node configuration recommendation.
-    mode :: Prelude.Maybe Mode
+    numberOfNodes :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,25 +51,29 @@ data NodeConfigurationOption = NodeConfigurationOption'
 --
 -- 'estimatedDiskUtilizationPercent', 'nodeConfigurationOption_estimatedDiskUtilizationPercent' - The estimated disk utilizaton percentage.
 --
+-- 'mode', 'nodeConfigurationOption_mode' - The category of the node configuration recommendation.
+--
 -- 'nodeType', 'nodeConfigurationOption_nodeType' - The node type, such as, \"ds2.8xlarge\".
 --
 -- 'numberOfNodes', 'nodeConfigurationOption_numberOfNodes' - The number of nodes.
---
--- 'mode', 'nodeConfigurationOption_mode' - The category of the node configuration recommendation.
 newNodeConfigurationOption ::
   NodeConfigurationOption
 newNodeConfigurationOption =
   NodeConfigurationOption'
     { estimatedDiskUtilizationPercent =
         Prelude.Nothing,
+      mode = Prelude.Nothing,
       nodeType = Prelude.Nothing,
-      numberOfNodes = Prelude.Nothing,
-      mode = Prelude.Nothing
+      numberOfNodes = Prelude.Nothing
     }
 
 -- | The estimated disk utilizaton percentage.
 nodeConfigurationOption_estimatedDiskUtilizationPercent :: Lens.Lens' NodeConfigurationOption (Prelude.Maybe Prelude.Double)
 nodeConfigurationOption_estimatedDiskUtilizationPercent = Lens.lens (\NodeConfigurationOption' {estimatedDiskUtilizationPercent} -> estimatedDiskUtilizationPercent) (\s@NodeConfigurationOption' {} a -> s {estimatedDiskUtilizationPercent = a} :: NodeConfigurationOption)
+
+-- | The category of the node configuration recommendation.
+nodeConfigurationOption_mode :: Lens.Lens' NodeConfigurationOption (Prelude.Maybe Mode)
+nodeConfigurationOption_mode = Lens.lens (\NodeConfigurationOption' {mode} -> mode) (\s@NodeConfigurationOption' {} a -> s {mode = a} :: NodeConfigurationOption)
 
 -- | The node type, such as, \"ds2.8xlarge\".
 nodeConfigurationOption_nodeType :: Lens.Lens' NodeConfigurationOption (Prelude.Maybe Prelude.Text)
@@ -79,29 +83,25 @@ nodeConfigurationOption_nodeType = Lens.lens (\NodeConfigurationOption' {nodeTyp
 nodeConfigurationOption_numberOfNodes :: Lens.Lens' NodeConfigurationOption (Prelude.Maybe Prelude.Int)
 nodeConfigurationOption_numberOfNodes = Lens.lens (\NodeConfigurationOption' {numberOfNodes} -> numberOfNodes) (\s@NodeConfigurationOption' {} a -> s {numberOfNodes = a} :: NodeConfigurationOption)
 
--- | The category of the node configuration recommendation.
-nodeConfigurationOption_mode :: Lens.Lens' NodeConfigurationOption (Prelude.Maybe Mode)
-nodeConfigurationOption_mode = Lens.lens (\NodeConfigurationOption' {mode} -> mode) (\s@NodeConfigurationOption' {} a -> s {mode = a} :: NodeConfigurationOption)
-
 instance Data.FromXML NodeConfigurationOption where
   parseXML x =
     NodeConfigurationOption'
       Prelude.<$> (x Data..@? "EstimatedDiskUtilizationPercent")
+      Prelude.<*> (x Data..@? "Mode")
       Prelude.<*> (x Data..@? "NodeType")
       Prelude.<*> (x Data..@? "NumberOfNodes")
-      Prelude.<*> (x Data..@? "Mode")
 
 instance Prelude.Hashable NodeConfigurationOption where
   hashWithSalt _salt NodeConfigurationOption' {..} =
     _salt
       `Prelude.hashWithSalt` estimatedDiskUtilizationPercent
+      `Prelude.hashWithSalt` mode
       `Prelude.hashWithSalt` nodeType
       `Prelude.hashWithSalt` numberOfNodes
-      `Prelude.hashWithSalt` mode
 
 instance Prelude.NFData NodeConfigurationOption where
   rnf NodeConfigurationOption' {..} =
     Prelude.rnf estimatedDiskUtilizationPercent
+      `Prelude.seq` Prelude.rnf mode
       `Prelude.seq` Prelude.rnf nodeType
       `Prelude.seq` Prelude.rnf numberOfNodes
-      `Prelude.seq` Prelude.rnf mode

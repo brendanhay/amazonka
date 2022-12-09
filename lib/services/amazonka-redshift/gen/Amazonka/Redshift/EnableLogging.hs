@@ -28,10 +28,10 @@ module Amazonka.Redshift.EnableLogging
     newEnableLogging,
 
     -- * Request Lenses
-    enableLogging_s3KeyPrefix,
-    enableLogging_logExports,
     enableLogging_bucketName,
     enableLogging_logDestinationType,
+    enableLogging_logExports,
+    enableLogging_s3KeyPrefix,
     enableLogging_clusterIdentifier,
 
     -- * Destructuring the Response
@@ -39,14 +39,14 @@ module Amazonka.Redshift.EnableLogging
     newLoggingStatus,
 
     -- * Response Lenses
-    loggingStatus_lastSuccessfulDeliveryTime,
-    loggingStatus_s3KeyPrefix,
-    loggingStatus_lastFailureMessage,
-    loggingStatus_loggingEnabled,
-    loggingStatus_logExports,
     loggingStatus_bucketName,
+    loggingStatus_lastFailureMessage,
     loggingStatus_lastFailureTime,
+    loggingStatus_lastSuccessfulDeliveryTime,
     loggingStatus_logDestinationType,
+    loggingStatus_logExports,
+    loggingStatus_loggingEnabled,
+    loggingStatus_s3KeyPrefix,
   )
 where
 
@@ -62,7 +62,21 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newEnableLogging' smart constructor.
 data EnableLogging = EnableLogging'
-  { -- | The prefix applied to the log file names.
+  { -- | The name of an existing S3 bucket where the log files are to be stored.
+    --
+    -- Constraints:
+    --
+    -- -   Must be in the same region as the cluster
+    --
+    -- -   The cluster must have read bucket and put object permissions
+    bucketName :: Prelude.Maybe Prelude.Text,
+    -- | The log destination type. An enum with possible values of @s3@ and
+    -- @cloudwatch@.
+    logDestinationType :: Prelude.Maybe LogDestinationType,
+    -- | The collection of exported log types. Log types include the connection
+    -- log, user log and user activity log.
+    logExports :: Prelude.Maybe [Prelude.Text],
+    -- | The prefix applied to the log file names.
     --
     -- Constraints:
     --
@@ -82,20 +96,6 @@ data EnableLogging = EnableLogging'
     --
     --     -   x7f or larger
     s3KeyPrefix :: Prelude.Maybe Prelude.Text,
-    -- | The collection of exported log types. Log types include the connection
-    -- log, user log and user activity log.
-    logExports :: Prelude.Maybe [Prelude.Text],
-    -- | The name of an existing S3 bucket where the log files are to be stored.
-    --
-    -- Constraints:
-    --
-    -- -   Must be in the same region as the cluster
-    --
-    -- -   The cluster must have read bucket and put object permissions
-    bucketName :: Prelude.Maybe Prelude.Text,
-    -- | The log destination type. An enum with possible values of @s3@ and
-    -- @cloudwatch@.
-    logDestinationType :: Prelude.Maybe LogDestinationType,
     -- | The identifier of the cluster on which logging is to be started.
     --
     -- Example: @examplecluster@
@@ -110,6 +110,20 @@ data EnableLogging = EnableLogging'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'bucketName', 'enableLogging_bucketName' - The name of an existing S3 bucket where the log files are to be stored.
+--
+-- Constraints:
+--
+-- -   Must be in the same region as the cluster
+--
+-- -   The cluster must have read bucket and put object permissions
+--
+-- 'logDestinationType', 'enableLogging_logDestinationType' - The log destination type. An enum with possible values of @s3@ and
+-- @cloudwatch@.
+--
+-- 'logExports', 'enableLogging_logExports' - The collection of exported log types. Log types include the connection
+-- log, user log and user activity log.
 --
 -- 's3KeyPrefix', 'enableLogging_s3KeyPrefix' - The prefix applied to the log file names.
 --
@@ -131,20 +145,6 @@ data EnableLogging = EnableLogging'
 --
 --     -   x7f or larger
 --
--- 'logExports', 'enableLogging_logExports' - The collection of exported log types. Log types include the connection
--- log, user log and user activity log.
---
--- 'bucketName', 'enableLogging_bucketName' - The name of an existing S3 bucket where the log files are to be stored.
---
--- Constraints:
---
--- -   Must be in the same region as the cluster
---
--- -   The cluster must have read bucket and put object permissions
---
--- 'logDestinationType', 'enableLogging_logDestinationType' - The log destination type. An enum with possible values of @s3@ and
--- @cloudwatch@.
---
 -- 'clusterIdentifier', 'enableLogging_clusterIdentifier' - The identifier of the cluster on which logging is to be started.
 --
 -- Example: @examplecluster@
@@ -154,12 +154,32 @@ newEnableLogging ::
   EnableLogging
 newEnableLogging pClusterIdentifier_ =
   EnableLogging'
-    { s3KeyPrefix = Prelude.Nothing,
-      logExports = Prelude.Nothing,
-      bucketName = Prelude.Nothing,
+    { bucketName = Prelude.Nothing,
       logDestinationType = Prelude.Nothing,
+      logExports = Prelude.Nothing,
+      s3KeyPrefix = Prelude.Nothing,
       clusterIdentifier = pClusterIdentifier_
     }
+
+-- | The name of an existing S3 bucket where the log files are to be stored.
+--
+-- Constraints:
+--
+-- -   Must be in the same region as the cluster
+--
+-- -   The cluster must have read bucket and put object permissions
+enableLogging_bucketName :: Lens.Lens' EnableLogging (Prelude.Maybe Prelude.Text)
+enableLogging_bucketName = Lens.lens (\EnableLogging' {bucketName} -> bucketName) (\s@EnableLogging' {} a -> s {bucketName = a} :: EnableLogging)
+
+-- | The log destination type. An enum with possible values of @s3@ and
+-- @cloudwatch@.
+enableLogging_logDestinationType :: Lens.Lens' EnableLogging (Prelude.Maybe LogDestinationType)
+enableLogging_logDestinationType = Lens.lens (\EnableLogging' {logDestinationType} -> logDestinationType) (\s@EnableLogging' {} a -> s {logDestinationType = a} :: EnableLogging)
+
+-- | The collection of exported log types. Log types include the connection
+-- log, user log and user activity log.
+enableLogging_logExports :: Lens.Lens' EnableLogging (Prelude.Maybe [Prelude.Text])
+enableLogging_logExports = Lens.lens (\EnableLogging' {logExports} -> logExports) (\s@EnableLogging' {} a -> s {logExports = a} :: EnableLogging) Prelude.. Lens.mapping Lens.coerced
 
 -- | The prefix applied to the log file names.
 --
@@ -183,26 +203,6 @@ newEnableLogging pClusterIdentifier_ =
 enableLogging_s3KeyPrefix :: Lens.Lens' EnableLogging (Prelude.Maybe Prelude.Text)
 enableLogging_s3KeyPrefix = Lens.lens (\EnableLogging' {s3KeyPrefix} -> s3KeyPrefix) (\s@EnableLogging' {} a -> s {s3KeyPrefix = a} :: EnableLogging)
 
--- | The collection of exported log types. Log types include the connection
--- log, user log and user activity log.
-enableLogging_logExports :: Lens.Lens' EnableLogging (Prelude.Maybe [Prelude.Text])
-enableLogging_logExports = Lens.lens (\EnableLogging' {logExports} -> logExports) (\s@EnableLogging' {} a -> s {logExports = a} :: EnableLogging) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of an existing S3 bucket where the log files are to be stored.
---
--- Constraints:
---
--- -   Must be in the same region as the cluster
---
--- -   The cluster must have read bucket and put object permissions
-enableLogging_bucketName :: Lens.Lens' EnableLogging (Prelude.Maybe Prelude.Text)
-enableLogging_bucketName = Lens.lens (\EnableLogging' {bucketName} -> bucketName) (\s@EnableLogging' {} a -> s {bucketName = a} :: EnableLogging)
-
--- | The log destination type. An enum with possible values of @s3@ and
--- @cloudwatch@.
-enableLogging_logDestinationType :: Lens.Lens' EnableLogging (Prelude.Maybe LogDestinationType)
-enableLogging_logDestinationType = Lens.lens (\EnableLogging' {logDestinationType} -> logDestinationType) (\s@EnableLogging' {} a -> s {logDestinationType = a} :: EnableLogging)
-
 -- | The identifier of the cluster on which logging is to be started.
 --
 -- Example: @examplecluster@
@@ -220,18 +220,18 @@ instance Core.AWSRequest EnableLogging where
 
 instance Prelude.Hashable EnableLogging where
   hashWithSalt _salt EnableLogging' {..} =
-    _salt `Prelude.hashWithSalt` s3KeyPrefix
-      `Prelude.hashWithSalt` logExports
-      `Prelude.hashWithSalt` bucketName
+    _salt `Prelude.hashWithSalt` bucketName
       `Prelude.hashWithSalt` logDestinationType
+      `Prelude.hashWithSalt` logExports
+      `Prelude.hashWithSalt` s3KeyPrefix
       `Prelude.hashWithSalt` clusterIdentifier
 
 instance Prelude.NFData EnableLogging where
   rnf EnableLogging' {..} =
-    Prelude.rnf s3KeyPrefix
-      `Prelude.seq` Prelude.rnf logExports
-      `Prelude.seq` Prelude.rnf bucketName
+    Prelude.rnf bucketName
       `Prelude.seq` Prelude.rnf logDestinationType
+      `Prelude.seq` Prelude.rnf logExports
+      `Prelude.seq` Prelude.rnf s3KeyPrefix
       `Prelude.seq` Prelude.rnf clusterIdentifier
 
 instance Data.ToHeaders EnableLogging where
@@ -247,11 +247,11 @@ instance Data.ToQuery EnableLogging where
           Data.=: ("EnableLogging" :: Prelude.ByteString),
         "Version"
           Data.=: ("2012-12-01" :: Prelude.ByteString),
-        "S3KeyPrefix" Data.=: s3KeyPrefix,
+        "BucketName" Data.=: bucketName,
+        "LogDestinationType" Data.=: logDestinationType,
         "LogExports"
           Data.=: Data.toQuery
             (Data.toQueryList "member" Prelude.<$> logExports),
-        "BucketName" Data.=: bucketName,
-        "LogDestinationType" Data.=: logDestinationType,
+        "S3KeyPrefix" Data.=: s3KeyPrefix,
         "ClusterIdentifier" Data.=: clusterIdentifier
       ]

@@ -29,8 +29,8 @@ module Amazonka.Redshift.EnableSnapshotCopy
 
     -- * Request Lenses
     enableSnapshotCopy_manualSnapshotRetentionPeriod,
-    enableSnapshotCopy_snapshotCopyGrantName,
     enableSnapshotCopy_retentionPeriod,
+    enableSnapshotCopy_snapshotCopyGrantName,
     enableSnapshotCopy_clusterIdentifier,
     enableSnapshotCopy_destinationRegion,
 
@@ -63,9 +63,6 @@ data EnableSnapshotCopy = EnableSnapshotCopy'
     --
     -- The value must be either -1 or an integer between 1 and 3,653.
     manualSnapshotRetentionPeriod :: Prelude.Maybe Prelude.Int,
-    -- | The name of the snapshot copy grant to use when snapshots of an Amazon
-    -- Web Services KMS-encrypted cluster are copied to the destination region.
-    snapshotCopyGrantName :: Prelude.Maybe Prelude.Text,
     -- | The number of days to retain automated snapshots in the destination
     -- region after they are copied from the source region.
     --
@@ -73,6 +70,9 @@ data EnableSnapshotCopy = EnableSnapshotCopy'
     --
     -- Constraints: Must be at least 1 and no more than 35.
     retentionPeriod :: Prelude.Maybe Prelude.Int,
+    -- | The name of the snapshot copy grant to use when snapshots of an Amazon
+    -- Web Services KMS-encrypted cluster are copied to the destination region.
+    snapshotCopyGrantName :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the source cluster to copy snapshots from.
     --
     -- Constraints: Must be the valid name of an existing cluster that does not
@@ -104,15 +104,15 @@ data EnableSnapshotCopy = EnableSnapshotCopy'
 --
 -- The value must be either -1 or an integer between 1 and 3,653.
 --
--- 'snapshotCopyGrantName', 'enableSnapshotCopy_snapshotCopyGrantName' - The name of the snapshot copy grant to use when snapshots of an Amazon
--- Web Services KMS-encrypted cluster are copied to the destination region.
---
 -- 'retentionPeriod', 'enableSnapshotCopy_retentionPeriod' - The number of days to retain automated snapshots in the destination
 -- region after they are copied from the source region.
 --
 -- Default: 7.
 --
 -- Constraints: Must be at least 1 and no more than 35.
+--
+-- 'snapshotCopyGrantName', 'enableSnapshotCopy_snapshotCopyGrantName' - The name of the snapshot copy grant to use when snapshots of an Amazon
+-- Web Services KMS-encrypted cluster are copied to the destination region.
 --
 -- 'clusterIdentifier', 'enableSnapshotCopy_clusterIdentifier' - The unique identifier of the source cluster to copy snapshots from.
 --
@@ -138,8 +138,8 @@ newEnableSnapshotCopy
     EnableSnapshotCopy'
       { manualSnapshotRetentionPeriod =
           Prelude.Nothing,
-        snapshotCopyGrantName = Prelude.Nothing,
         retentionPeriod = Prelude.Nothing,
+        snapshotCopyGrantName = Prelude.Nothing,
         clusterIdentifier = pClusterIdentifier_,
         destinationRegion = pDestinationRegion_
       }
@@ -153,11 +153,6 @@ newEnableSnapshotCopy
 enableSnapshotCopy_manualSnapshotRetentionPeriod :: Lens.Lens' EnableSnapshotCopy (Prelude.Maybe Prelude.Int)
 enableSnapshotCopy_manualSnapshotRetentionPeriod = Lens.lens (\EnableSnapshotCopy' {manualSnapshotRetentionPeriod} -> manualSnapshotRetentionPeriod) (\s@EnableSnapshotCopy' {} a -> s {manualSnapshotRetentionPeriod = a} :: EnableSnapshotCopy)
 
--- | The name of the snapshot copy grant to use when snapshots of an Amazon
--- Web Services KMS-encrypted cluster are copied to the destination region.
-enableSnapshotCopy_snapshotCopyGrantName :: Lens.Lens' EnableSnapshotCopy (Prelude.Maybe Prelude.Text)
-enableSnapshotCopy_snapshotCopyGrantName = Lens.lens (\EnableSnapshotCopy' {snapshotCopyGrantName} -> snapshotCopyGrantName) (\s@EnableSnapshotCopy' {} a -> s {snapshotCopyGrantName = a} :: EnableSnapshotCopy)
-
 -- | The number of days to retain automated snapshots in the destination
 -- region after they are copied from the source region.
 --
@@ -166,6 +161,11 @@ enableSnapshotCopy_snapshotCopyGrantName = Lens.lens (\EnableSnapshotCopy' {snap
 -- Constraints: Must be at least 1 and no more than 35.
 enableSnapshotCopy_retentionPeriod :: Lens.Lens' EnableSnapshotCopy (Prelude.Maybe Prelude.Int)
 enableSnapshotCopy_retentionPeriod = Lens.lens (\EnableSnapshotCopy' {retentionPeriod} -> retentionPeriod) (\s@EnableSnapshotCopy' {} a -> s {retentionPeriod = a} :: EnableSnapshotCopy)
+
+-- | The name of the snapshot copy grant to use when snapshots of an Amazon
+-- Web Services KMS-encrypted cluster are copied to the destination region.
+enableSnapshotCopy_snapshotCopyGrantName :: Lens.Lens' EnableSnapshotCopy (Prelude.Maybe Prelude.Text)
+enableSnapshotCopy_snapshotCopyGrantName = Lens.lens (\EnableSnapshotCopy' {snapshotCopyGrantName} -> snapshotCopyGrantName) (\s@EnableSnapshotCopy' {} a -> s {snapshotCopyGrantName = a} :: EnableSnapshotCopy)
 
 -- | The unique identifier of the source cluster to copy snapshots from.
 --
@@ -203,16 +203,16 @@ instance Prelude.Hashable EnableSnapshotCopy where
   hashWithSalt _salt EnableSnapshotCopy' {..} =
     _salt
       `Prelude.hashWithSalt` manualSnapshotRetentionPeriod
-      `Prelude.hashWithSalt` snapshotCopyGrantName
       `Prelude.hashWithSalt` retentionPeriod
+      `Prelude.hashWithSalt` snapshotCopyGrantName
       `Prelude.hashWithSalt` clusterIdentifier
       `Prelude.hashWithSalt` destinationRegion
 
 instance Prelude.NFData EnableSnapshotCopy where
   rnf EnableSnapshotCopy' {..} =
     Prelude.rnf manualSnapshotRetentionPeriod
-      `Prelude.seq` Prelude.rnf snapshotCopyGrantName
       `Prelude.seq` Prelude.rnf retentionPeriod
+      `Prelude.seq` Prelude.rnf snapshotCopyGrantName
       `Prelude.seq` Prelude.rnf clusterIdentifier
       `Prelude.seq` Prelude.rnf destinationRegion
 
@@ -231,9 +231,9 @@ instance Data.ToQuery EnableSnapshotCopy where
           Data.=: ("2012-12-01" :: Prelude.ByteString),
         "ManualSnapshotRetentionPeriod"
           Data.=: manualSnapshotRetentionPeriod,
+        "RetentionPeriod" Data.=: retentionPeriod,
         "SnapshotCopyGrantName"
           Data.=: snapshotCopyGrantName,
-        "RetentionPeriod" Data.=: retentionPeriod,
         "ClusterIdentifier" Data.=: clusterIdentifier,
         "DestinationRegion" Data.=: destinationRegion
       ]

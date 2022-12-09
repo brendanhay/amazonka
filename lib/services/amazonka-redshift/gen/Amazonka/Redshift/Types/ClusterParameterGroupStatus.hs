@@ -30,16 +30,16 @@ import Amazonka.Redshift.Types.ClusterParameterStatus
 --
 -- /See:/ 'newClusterParameterGroupStatus' smart constructor.
 data ClusterParameterGroupStatus = ClusterParameterGroupStatus'
-  { -- | The name of the cluster parameter group.
-    parameterGroupName :: Prelude.Maybe Prelude.Text,
-    -- | The list of parameter statuses.
+  { -- | The list of parameter statuses.
     --
     -- For more information about parameters and parameter groups, go to
     -- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups>
     -- in the /Amazon Redshift Cluster Management Guide/.
     clusterParameterStatusList :: Prelude.Maybe [ClusterParameterStatus],
     -- | The status of parameter updates.
-    parameterApplyStatus :: Prelude.Maybe Prelude.Text
+    parameterApplyStatus :: Prelude.Maybe Prelude.Text,
+    -- | The name of the cluster parameter group.
+    parameterGroupName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,8 +51,6 @@ data ClusterParameterGroupStatus = ClusterParameterGroupStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'parameterGroupName', 'clusterParameterGroupStatus_parameterGroupName' - The name of the cluster parameter group.
---
 -- 'clusterParameterStatusList', 'clusterParameterGroupStatus_clusterParameterStatusList' - The list of parameter statuses.
 --
 -- For more information about parameters and parameter groups, go to
@@ -60,19 +58,17 @@ data ClusterParameterGroupStatus = ClusterParameterGroupStatus'
 -- in the /Amazon Redshift Cluster Management Guide/.
 --
 -- 'parameterApplyStatus', 'clusterParameterGroupStatus_parameterApplyStatus' - The status of parameter updates.
+--
+-- 'parameterGroupName', 'clusterParameterGroupStatus_parameterGroupName' - The name of the cluster parameter group.
 newClusterParameterGroupStatus ::
   ClusterParameterGroupStatus
 newClusterParameterGroupStatus =
   ClusterParameterGroupStatus'
-    { parameterGroupName =
+    { clusterParameterStatusList =
         Prelude.Nothing,
-      clusterParameterStatusList = Prelude.Nothing,
-      parameterApplyStatus = Prelude.Nothing
+      parameterApplyStatus = Prelude.Nothing,
+      parameterGroupName = Prelude.Nothing
     }
-
--- | The name of the cluster parameter group.
-clusterParameterGroupStatus_parameterGroupName :: Lens.Lens' ClusterParameterGroupStatus (Prelude.Maybe Prelude.Text)
-clusterParameterGroupStatus_parameterGroupName = Lens.lens (\ClusterParameterGroupStatus' {parameterGroupName} -> parameterGroupName) (\s@ClusterParameterGroupStatus' {} a -> s {parameterGroupName = a} :: ClusterParameterGroupStatus)
 
 -- | The list of parameter statuses.
 --
@@ -86,24 +82,29 @@ clusterParameterGroupStatus_clusterParameterStatusList = Lens.lens (\ClusterPara
 clusterParameterGroupStatus_parameterApplyStatus :: Lens.Lens' ClusterParameterGroupStatus (Prelude.Maybe Prelude.Text)
 clusterParameterGroupStatus_parameterApplyStatus = Lens.lens (\ClusterParameterGroupStatus' {parameterApplyStatus} -> parameterApplyStatus) (\s@ClusterParameterGroupStatus' {} a -> s {parameterApplyStatus = a} :: ClusterParameterGroupStatus)
 
+-- | The name of the cluster parameter group.
+clusterParameterGroupStatus_parameterGroupName :: Lens.Lens' ClusterParameterGroupStatus (Prelude.Maybe Prelude.Text)
+clusterParameterGroupStatus_parameterGroupName = Lens.lens (\ClusterParameterGroupStatus' {parameterGroupName} -> parameterGroupName) (\s@ClusterParameterGroupStatus' {} a -> s {parameterGroupName = a} :: ClusterParameterGroupStatus)
+
 instance Data.FromXML ClusterParameterGroupStatus where
   parseXML x =
     ClusterParameterGroupStatus'
-      Prelude.<$> (x Data..@? "ParameterGroupName")
-      Prelude.<*> ( x Data..@? "ClusterParameterStatusList"
+      Prelude.<$> ( x Data..@? "ClusterParameterStatusList"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "ParameterApplyStatus")
+      Prelude.<*> (x Data..@? "ParameterGroupName")
 
 instance Prelude.Hashable ClusterParameterGroupStatus where
   hashWithSalt _salt ClusterParameterGroupStatus' {..} =
-    _salt `Prelude.hashWithSalt` parameterGroupName
+    _salt
       `Prelude.hashWithSalt` clusterParameterStatusList
       `Prelude.hashWithSalt` parameterApplyStatus
+      `Prelude.hashWithSalt` parameterGroupName
 
 instance Prelude.NFData ClusterParameterGroupStatus where
   rnf ClusterParameterGroupStatus' {..} =
-    Prelude.rnf parameterGroupName
-      `Prelude.seq` Prelude.rnf clusterParameterStatusList
+    Prelude.rnf clusterParameterStatusList
       `Prelude.seq` Prelude.rnf parameterApplyStatus
+      `Prelude.seq` Prelude.rnf parameterGroupName

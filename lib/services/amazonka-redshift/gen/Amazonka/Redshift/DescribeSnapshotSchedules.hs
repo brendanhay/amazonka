@@ -30,11 +30,11 @@ module Amazonka.Redshift.DescribeSnapshotSchedules
 
     -- * Request Lenses
     describeSnapshotSchedules_clusterIdentifier,
-    describeSnapshotSchedules_tagKeys,
     describeSnapshotSchedules_marker,
-    describeSnapshotSchedules_tagValues,
-    describeSnapshotSchedules_scheduleIdentifier,
     describeSnapshotSchedules_maxRecords,
+    describeSnapshotSchedules_scheduleIdentifier,
+    describeSnapshotSchedules_tagKeys,
+    describeSnapshotSchedules_tagValues,
 
     -- * Destructuring the Response
     DescribeSnapshotSchedulesResponse (..),
@@ -60,8 +60,6 @@ data DescribeSnapshotSchedules = DescribeSnapshotSchedules'
   { -- | The unique identifier for the cluster whose snapshot schedules you want
     -- to view.
     clusterIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | The key value for a snapshot schedule tag.
-    tagKeys :: Prelude.Maybe [Prelude.Text],
     -- | A value that indicates the starting point for the next set of response
     -- records in a subsequent request. If a value is returned in a response,
     -- you can retrieve the next set of records by providing this returned
@@ -69,16 +67,18 @@ data DescribeSnapshotSchedules = DescribeSnapshotSchedules'
     -- @marker@ field is empty, all response records have been retrieved for
     -- the request.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | The value corresponding to the key of the snapshot schedule tag.
-    tagValues :: Prelude.Maybe [Prelude.Text],
-    -- | A unique identifier for a snapshot schedule.
-    scheduleIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The maximum number or response records to return in each call. If the
     -- number of remaining response records exceeds the specified @MaxRecords@
     -- value, a value is returned in a @marker@ field of the response. You can
     -- retrieve the next set of records by retrying the command with the
     -- returned @marker@ value.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | A unique identifier for a snapshot schedule.
+    scheduleIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The key value for a snapshot schedule tag.
+    tagKeys :: Prelude.Maybe [Prelude.Text],
+    -- | The value corresponding to the key of the snapshot schedule tag.
+    tagValues :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -93,8 +93,6 @@ data DescribeSnapshotSchedules = DescribeSnapshotSchedules'
 -- 'clusterIdentifier', 'describeSnapshotSchedules_clusterIdentifier' - The unique identifier for the cluster whose snapshot schedules you want
 -- to view.
 --
--- 'tagKeys', 'describeSnapshotSchedules_tagKeys' - The key value for a snapshot schedule tag.
---
 -- 'marker', 'describeSnapshotSchedules_marker' - A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
 -- you can retrieve the next set of records by providing this returned
@@ -102,36 +100,34 @@ data DescribeSnapshotSchedules = DescribeSnapshotSchedules'
 -- @marker@ field is empty, all response records have been retrieved for
 -- the request.
 --
--- 'tagValues', 'describeSnapshotSchedules_tagValues' - The value corresponding to the key of the snapshot schedule tag.
---
--- 'scheduleIdentifier', 'describeSnapshotSchedules_scheduleIdentifier' - A unique identifier for a snapshot schedule.
---
 -- 'maxRecords', 'describeSnapshotSchedules_maxRecords' - The maximum number or response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
 -- value, a value is returned in a @marker@ field of the response. You can
 -- retrieve the next set of records by retrying the command with the
 -- returned @marker@ value.
+--
+-- 'scheduleIdentifier', 'describeSnapshotSchedules_scheduleIdentifier' - A unique identifier for a snapshot schedule.
+--
+-- 'tagKeys', 'describeSnapshotSchedules_tagKeys' - The key value for a snapshot schedule tag.
+--
+-- 'tagValues', 'describeSnapshotSchedules_tagValues' - The value corresponding to the key of the snapshot schedule tag.
 newDescribeSnapshotSchedules ::
   DescribeSnapshotSchedules
 newDescribeSnapshotSchedules =
   DescribeSnapshotSchedules'
     { clusterIdentifier =
         Prelude.Nothing,
-      tagKeys = Prelude.Nothing,
       marker = Prelude.Nothing,
-      tagValues = Prelude.Nothing,
+      maxRecords = Prelude.Nothing,
       scheduleIdentifier = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      tagKeys = Prelude.Nothing,
+      tagValues = Prelude.Nothing
     }
 
 -- | The unique identifier for the cluster whose snapshot schedules you want
 -- to view.
 describeSnapshotSchedules_clusterIdentifier :: Lens.Lens' DescribeSnapshotSchedules (Prelude.Maybe Prelude.Text)
 describeSnapshotSchedules_clusterIdentifier = Lens.lens (\DescribeSnapshotSchedules' {clusterIdentifier} -> clusterIdentifier) (\s@DescribeSnapshotSchedules' {} a -> s {clusterIdentifier = a} :: DescribeSnapshotSchedules)
-
--- | The key value for a snapshot schedule tag.
-describeSnapshotSchedules_tagKeys :: Lens.Lens' DescribeSnapshotSchedules (Prelude.Maybe [Prelude.Text])
-describeSnapshotSchedules_tagKeys = Lens.lens (\DescribeSnapshotSchedules' {tagKeys} -> tagKeys) (\s@DescribeSnapshotSchedules' {} a -> s {tagKeys = a} :: DescribeSnapshotSchedules) Prelude.. Lens.mapping Lens.coerced
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -142,14 +138,6 @@ describeSnapshotSchedules_tagKeys = Lens.lens (\DescribeSnapshotSchedules' {tagK
 describeSnapshotSchedules_marker :: Lens.Lens' DescribeSnapshotSchedules (Prelude.Maybe Prelude.Text)
 describeSnapshotSchedules_marker = Lens.lens (\DescribeSnapshotSchedules' {marker} -> marker) (\s@DescribeSnapshotSchedules' {} a -> s {marker = a} :: DescribeSnapshotSchedules)
 
--- | The value corresponding to the key of the snapshot schedule tag.
-describeSnapshotSchedules_tagValues :: Lens.Lens' DescribeSnapshotSchedules (Prelude.Maybe [Prelude.Text])
-describeSnapshotSchedules_tagValues = Lens.lens (\DescribeSnapshotSchedules' {tagValues} -> tagValues) (\s@DescribeSnapshotSchedules' {} a -> s {tagValues = a} :: DescribeSnapshotSchedules) Prelude.. Lens.mapping Lens.coerced
-
--- | A unique identifier for a snapshot schedule.
-describeSnapshotSchedules_scheduleIdentifier :: Lens.Lens' DescribeSnapshotSchedules (Prelude.Maybe Prelude.Text)
-describeSnapshotSchedules_scheduleIdentifier = Lens.lens (\DescribeSnapshotSchedules' {scheduleIdentifier} -> scheduleIdentifier) (\s@DescribeSnapshotSchedules' {} a -> s {scheduleIdentifier = a} :: DescribeSnapshotSchedules)
-
 -- | The maximum number or response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
 -- value, a value is returned in a @marker@ field of the response. You can
@@ -157,6 +145,18 @@ describeSnapshotSchedules_scheduleIdentifier = Lens.lens (\DescribeSnapshotSched
 -- returned @marker@ value.
 describeSnapshotSchedules_maxRecords :: Lens.Lens' DescribeSnapshotSchedules (Prelude.Maybe Prelude.Int)
 describeSnapshotSchedules_maxRecords = Lens.lens (\DescribeSnapshotSchedules' {maxRecords} -> maxRecords) (\s@DescribeSnapshotSchedules' {} a -> s {maxRecords = a} :: DescribeSnapshotSchedules)
+
+-- | A unique identifier for a snapshot schedule.
+describeSnapshotSchedules_scheduleIdentifier :: Lens.Lens' DescribeSnapshotSchedules (Prelude.Maybe Prelude.Text)
+describeSnapshotSchedules_scheduleIdentifier = Lens.lens (\DescribeSnapshotSchedules' {scheduleIdentifier} -> scheduleIdentifier) (\s@DescribeSnapshotSchedules' {} a -> s {scheduleIdentifier = a} :: DescribeSnapshotSchedules)
+
+-- | The key value for a snapshot schedule tag.
+describeSnapshotSchedules_tagKeys :: Lens.Lens' DescribeSnapshotSchedules (Prelude.Maybe [Prelude.Text])
+describeSnapshotSchedules_tagKeys = Lens.lens (\DescribeSnapshotSchedules' {tagKeys} -> tagKeys) (\s@DescribeSnapshotSchedules' {} a -> s {tagKeys = a} :: DescribeSnapshotSchedules) Prelude.. Lens.mapping Lens.coerced
+
+-- | The value corresponding to the key of the snapshot schedule tag.
+describeSnapshotSchedules_tagValues :: Lens.Lens' DescribeSnapshotSchedules (Prelude.Maybe [Prelude.Text])
+describeSnapshotSchedules_tagValues = Lens.lens (\DescribeSnapshotSchedules' {tagValues} -> tagValues) (\s@DescribeSnapshotSchedules' {} a -> s {tagValues = a} :: DescribeSnapshotSchedules) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSPager DescribeSnapshotSchedules where
   page rq rs
@@ -202,20 +202,20 @@ instance Core.AWSRequest DescribeSnapshotSchedules where
 instance Prelude.Hashable DescribeSnapshotSchedules where
   hashWithSalt _salt DescribeSnapshotSchedules' {..} =
     _salt `Prelude.hashWithSalt` clusterIdentifier
-      `Prelude.hashWithSalt` tagKeys
       `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` tagValues
-      `Prelude.hashWithSalt` scheduleIdentifier
       `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` scheduleIdentifier
+      `Prelude.hashWithSalt` tagKeys
+      `Prelude.hashWithSalt` tagValues
 
 instance Prelude.NFData DescribeSnapshotSchedules where
   rnf DescribeSnapshotSchedules' {..} =
     Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf tagKeys
       `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf tagValues
-      `Prelude.seq` Prelude.rnf scheduleIdentifier
       `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf scheduleIdentifier
+      `Prelude.seq` Prelude.rnf tagKeys
+      `Prelude.seq` Prelude.rnf tagValues
 
 instance Data.ToHeaders DescribeSnapshotSchedules where
   toHeaders = Prelude.const Prelude.mempty
@@ -231,15 +231,15 @@ instance Data.ToQuery DescribeSnapshotSchedules where
         "Version"
           Data.=: ("2012-12-01" :: Prelude.ByteString),
         "ClusterIdentifier" Data.=: clusterIdentifier,
+        "Marker" Data.=: marker,
+        "MaxRecords" Data.=: maxRecords,
+        "ScheduleIdentifier" Data.=: scheduleIdentifier,
         "TagKeys"
           Data.=: Data.toQuery
             (Data.toQueryList "TagKey" Prelude.<$> tagKeys),
-        "Marker" Data.=: marker,
         "TagValues"
           Data.=: Data.toQuery
-            (Data.toQueryList "TagValue" Prelude.<$> tagValues),
-        "ScheduleIdentifier" Data.=: scheduleIdentifier,
-        "MaxRecords" Data.=: maxRecords
+            (Data.toQueryList "TagValue" Prelude.<$> tagValues)
       ]
 
 -- | /See:/ 'newDescribeSnapshotSchedulesResponse' smart constructor.

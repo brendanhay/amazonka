@@ -35,8 +35,8 @@ module Amazonka.Redshift.ModifyAuthenticationProfile
     newModifyAuthenticationProfileResponse,
 
     -- * Response Lenses
-    modifyAuthenticationProfileResponse_authenticationProfileName,
     modifyAuthenticationProfileResponse_authenticationProfileContent,
+    modifyAuthenticationProfileResponse_authenticationProfileName,
     modifyAuthenticationProfileResponse_httpStatus,
   )
 where
@@ -110,8 +110,8 @@ instance Core.AWSRequest ModifyAuthenticationProfile where
       "ModifyAuthenticationProfileResult"
       ( \s h x ->
           ModifyAuthenticationProfileResponse'
-            Prelude.<$> (x Data..@? "AuthenticationProfileName")
-            Prelude.<*> (x Data..@? "AuthenticationProfileContent")
+            Prelude.<$> (x Data..@? "AuthenticationProfileContent")
+            Prelude.<*> (x Data..@? "AuthenticationProfileName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -149,10 +149,10 @@ instance Data.ToQuery ModifyAuthenticationProfile where
 
 -- | /See:/ 'newModifyAuthenticationProfileResponse' smart constructor.
 data ModifyAuthenticationProfileResponse = ModifyAuthenticationProfileResponse'
-  { -- | The name of the authentication profile that was replaced.
-    authenticationProfileName :: Prelude.Maybe Prelude.Text,
-    -- | The updated content of the authentication profile in JSON format.
+  { -- | The updated content of the authentication profile in JSON format.
     authenticationProfileContent :: Prelude.Maybe Prelude.Text,
+    -- | The name of the authentication profile that was replaced.
+    authenticationProfileName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -166,9 +166,9 @@ data ModifyAuthenticationProfileResponse = ModifyAuthenticationProfileResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authenticationProfileName', 'modifyAuthenticationProfileResponse_authenticationProfileName' - The name of the authentication profile that was replaced.
---
 -- 'authenticationProfileContent', 'modifyAuthenticationProfileResponse_authenticationProfileContent' - The updated content of the authentication profile in JSON format.
+--
+-- 'authenticationProfileName', 'modifyAuthenticationProfileResponse_authenticationProfileName' - The name of the authentication profile that was replaced.
 --
 -- 'httpStatus', 'modifyAuthenticationProfileResponse_httpStatus' - The response's http status code.
 newModifyAuthenticationProfileResponse ::
@@ -177,20 +177,20 @@ newModifyAuthenticationProfileResponse ::
   ModifyAuthenticationProfileResponse
 newModifyAuthenticationProfileResponse pHttpStatus_ =
   ModifyAuthenticationProfileResponse'
-    { authenticationProfileName =
+    { authenticationProfileContent =
         Prelude.Nothing,
-      authenticationProfileContent =
+      authenticationProfileName =
         Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The name of the authentication profile that was replaced.
-modifyAuthenticationProfileResponse_authenticationProfileName :: Lens.Lens' ModifyAuthenticationProfileResponse (Prelude.Maybe Prelude.Text)
-modifyAuthenticationProfileResponse_authenticationProfileName = Lens.lens (\ModifyAuthenticationProfileResponse' {authenticationProfileName} -> authenticationProfileName) (\s@ModifyAuthenticationProfileResponse' {} a -> s {authenticationProfileName = a} :: ModifyAuthenticationProfileResponse)
-
 -- | The updated content of the authentication profile in JSON format.
 modifyAuthenticationProfileResponse_authenticationProfileContent :: Lens.Lens' ModifyAuthenticationProfileResponse (Prelude.Maybe Prelude.Text)
 modifyAuthenticationProfileResponse_authenticationProfileContent = Lens.lens (\ModifyAuthenticationProfileResponse' {authenticationProfileContent} -> authenticationProfileContent) (\s@ModifyAuthenticationProfileResponse' {} a -> s {authenticationProfileContent = a} :: ModifyAuthenticationProfileResponse)
+
+-- | The name of the authentication profile that was replaced.
+modifyAuthenticationProfileResponse_authenticationProfileName :: Lens.Lens' ModifyAuthenticationProfileResponse (Prelude.Maybe Prelude.Text)
+modifyAuthenticationProfileResponse_authenticationProfileName = Lens.lens (\ModifyAuthenticationProfileResponse' {authenticationProfileName} -> authenticationProfileName) (\s@ModifyAuthenticationProfileResponse' {} a -> s {authenticationProfileName = a} :: ModifyAuthenticationProfileResponse)
 
 -- | The response's http status code.
 modifyAuthenticationProfileResponse_httpStatus :: Lens.Lens' ModifyAuthenticationProfileResponse Prelude.Int
@@ -201,6 +201,6 @@ instance
     ModifyAuthenticationProfileResponse
   where
   rnf ModifyAuthenticationProfileResponse' {..} =
-    Prelude.rnf authenticationProfileName
-      `Prelude.seq` Prelude.rnf authenticationProfileContent
+    Prelude.rnf authenticationProfileContent
+      `Prelude.seq` Prelude.rnf authenticationProfileName
       `Prelude.seq` Prelude.rnf httpStatus

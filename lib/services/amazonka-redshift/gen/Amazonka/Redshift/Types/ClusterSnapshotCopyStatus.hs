@@ -30,20 +30,20 @@ import Amazonka.Redshift.Internal
 --
 -- /See:/ 'newClusterSnapshotCopyStatus' smart constructor.
 data ClusterSnapshotCopyStatus = ClusterSnapshotCopyStatus'
-  { -- | The number of days that automated snapshots are retained in the
+  { -- | The destination region that snapshots are automatically copied to when
+    -- cross-region snapshot copy is enabled.
+    destinationRegion :: Prelude.Maybe Prelude.Text,
+    -- | The number of days that automated snapshots are retained in the
     -- destination region after they are copied from a source region. If the
     -- value is -1, the manual snapshot is retained indefinitely.
     --
     -- The value must be either -1 or an integer between 1 and 3,653.
     manualSnapshotRetentionPeriod :: Prelude.Maybe Prelude.Int,
-    -- | The name of the snapshot copy grant.
-    snapshotCopyGrantName :: Prelude.Maybe Prelude.Text,
     -- | The number of days that automated snapshots are retained in the
     -- destination region after they are copied from a source region.
     retentionPeriod :: Prelude.Maybe Prelude.Integer,
-    -- | The destination region that snapshots are automatically copied to when
-    -- cross-region snapshot copy is enabled.
-    destinationRegion :: Prelude.Maybe Prelude.Text
+    -- | The name of the snapshot copy grant.
+    snapshotCopyGrantName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,29 +55,34 @@ data ClusterSnapshotCopyStatus = ClusterSnapshotCopyStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'destinationRegion', 'clusterSnapshotCopyStatus_destinationRegion' - The destination region that snapshots are automatically copied to when
+-- cross-region snapshot copy is enabled.
+--
 -- 'manualSnapshotRetentionPeriod', 'clusterSnapshotCopyStatus_manualSnapshotRetentionPeriod' - The number of days that automated snapshots are retained in the
 -- destination region after they are copied from a source region. If the
 -- value is -1, the manual snapshot is retained indefinitely.
 --
 -- The value must be either -1 or an integer between 1 and 3,653.
 --
--- 'snapshotCopyGrantName', 'clusterSnapshotCopyStatus_snapshotCopyGrantName' - The name of the snapshot copy grant.
---
 -- 'retentionPeriod', 'clusterSnapshotCopyStatus_retentionPeriod' - The number of days that automated snapshots are retained in the
 -- destination region after they are copied from a source region.
 --
--- 'destinationRegion', 'clusterSnapshotCopyStatus_destinationRegion' - The destination region that snapshots are automatically copied to when
--- cross-region snapshot copy is enabled.
+-- 'snapshotCopyGrantName', 'clusterSnapshotCopyStatus_snapshotCopyGrantName' - The name of the snapshot copy grant.
 newClusterSnapshotCopyStatus ::
   ClusterSnapshotCopyStatus
 newClusterSnapshotCopyStatus =
   ClusterSnapshotCopyStatus'
-    { manualSnapshotRetentionPeriod =
+    { destinationRegion =
         Prelude.Nothing,
-      snapshotCopyGrantName = Prelude.Nothing,
+      manualSnapshotRetentionPeriod = Prelude.Nothing,
       retentionPeriod = Prelude.Nothing,
-      destinationRegion = Prelude.Nothing
+      snapshotCopyGrantName = Prelude.Nothing
     }
+
+-- | The destination region that snapshots are automatically copied to when
+-- cross-region snapshot copy is enabled.
+clusterSnapshotCopyStatus_destinationRegion :: Lens.Lens' ClusterSnapshotCopyStatus (Prelude.Maybe Prelude.Text)
+clusterSnapshotCopyStatus_destinationRegion = Lens.lens (\ClusterSnapshotCopyStatus' {destinationRegion} -> destinationRegion) (\s@ClusterSnapshotCopyStatus' {} a -> s {destinationRegion = a} :: ClusterSnapshotCopyStatus)
 
 -- | The number of days that automated snapshots are retained in the
 -- destination region after they are copied from a source region. If the
@@ -87,39 +92,33 @@ newClusterSnapshotCopyStatus =
 clusterSnapshotCopyStatus_manualSnapshotRetentionPeriod :: Lens.Lens' ClusterSnapshotCopyStatus (Prelude.Maybe Prelude.Int)
 clusterSnapshotCopyStatus_manualSnapshotRetentionPeriod = Lens.lens (\ClusterSnapshotCopyStatus' {manualSnapshotRetentionPeriod} -> manualSnapshotRetentionPeriod) (\s@ClusterSnapshotCopyStatus' {} a -> s {manualSnapshotRetentionPeriod = a} :: ClusterSnapshotCopyStatus)
 
--- | The name of the snapshot copy grant.
-clusterSnapshotCopyStatus_snapshotCopyGrantName :: Lens.Lens' ClusterSnapshotCopyStatus (Prelude.Maybe Prelude.Text)
-clusterSnapshotCopyStatus_snapshotCopyGrantName = Lens.lens (\ClusterSnapshotCopyStatus' {snapshotCopyGrantName} -> snapshotCopyGrantName) (\s@ClusterSnapshotCopyStatus' {} a -> s {snapshotCopyGrantName = a} :: ClusterSnapshotCopyStatus)
-
 -- | The number of days that automated snapshots are retained in the
 -- destination region after they are copied from a source region.
 clusterSnapshotCopyStatus_retentionPeriod :: Lens.Lens' ClusterSnapshotCopyStatus (Prelude.Maybe Prelude.Integer)
 clusterSnapshotCopyStatus_retentionPeriod = Lens.lens (\ClusterSnapshotCopyStatus' {retentionPeriod} -> retentionPeriod) (\s@ClusterSnapshotCopyStatus' {} a -> s {retentionPeriod = a} :: ClusterSnapshotCopyStatus)
 
--- | The destination region that snapshots are automatically copied to when
--- cross-region snapshot copy is enabled.
-clusterSnapshotCopyStatus_destinationRegion :: Lens.Lens' ClusterSnapshotCopyStatus (Prelude.Maybe Prelude.Text)
-clusterSnapshotCopyStatus_destinationRegion = Lens.lens (\ClusterSnapshotCopyStatus' {destinationRegion} -> destinationRegion) (\s@ClusterSnapshotCopyStatus' {} a -> s {destinationRegion = a} :: ClusterSnapshotCopyStatus)
+-- | The name of the snapshot copy grant.
+clusterSnapshotCopyStatus_snapshotCopyGrantName :: Lens.Lens' ClusterSnapshotCopyStatus (Prelude.Maybe Prelude.Text)
+clusterSnapshotCopyStatus_snapshotCopyGrantName = Lens.lens (\ClusterSnapshotCopyStatus' {snapshotCopyGrantName} -> snapshotCopyGrantName) (\s@ClusterSnapshotCopyStatus' {} a -> s {snapshotCopyGrantName = a} :: ClusterSnapshotCopyStatus)
 
 instance Data.FromXML ClusterSnapshotCopyStatus where
   parseXML x =
     ClusterSnapshotCopyStatus'
-      Prelude.<$> (x Data..@? "ManualSnapshotRetentionPeriod")
-      Prelude.<*> (x Data..@? "SnapshotCopyGrantName")
+      Prelude.<$> (x Data..@? "DestinationRegion")
+      Prelude.<*> (x Data..@? "ManualSnapshotRetentionPeriod")
       Prelude.<*> (x Data..@? "RetentionPeriod")
-      Prelude.<*> (x Data..@? "DestinationRegion")
+      Prelude.<*> (x Data..@? "SnapshotCopyGrantName")
 
 instance Prelude.Hashable ClusterSnapshotCopyStatus where
   hashWithSalt _salt ClusterSnapshotCopyStatus' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` destinationRegion
       `Prelude.hashWithSalt` manualSnapshotRetentionPeriod
-      `Prelude.hashWithSalt` snapshotCopyGrantName
       `Prelude.hashWithSalt` retentionPeriod
-      `Prelude.hashWithSalt` destinationRegion
+      `Prelude.hashWithSalt` snapshotCopyGrantName
 
 instance Prelude.NFData ClusterSnapshotCopyStatus where
   rnf ClusterSnapshotCopyStatus' {..} =
-    Prelude.rnf manualSnapshotRetentionPeriod
-      `Prelude.seq` Prelude.rnf snapshotCopyGrantName
+    Prelude.rnf destinationRegion
+      `Prelude.seq` Prelude.rnf manualSnapshotRetentionPeriod
       `Prelude.seq` Prelude.rnf retentionPeriod
-      `Prelude.seq` Prelude.rnf destinationRegion
+      `Prelude.seq` Prelude.rnf snapshotCopyGrantName

@@ -15,15 +15,15 @@ module Amazonka.Route53RecoveryControlConfig.Lens
   ( -- * Operations
 
     -- ** CreateCluster
-    createCluster_tags,
     createCluster_clientToken,
+    createCluster_tags,
     createCluster_clusterName,
     createClusterResponse_cluster,
     createClusterResponse_httpStatus,
 
     -- ** CreateControlPanel
-    createControlPanel_tags,
     createControlPanel_clientToken,
+    createControlPanel_tags,
     createControlPanel_clusterArn,
     createControlPanel_controlPanelName,
     createControlPanelResponse_controlPanel,
@@ -38,12 +38,12 @@ module Amazonka.Route53RecoveryControlConfig.Lens
     createRoutingControlResponse_httpStatus,
 
     -- ** CreateSafetyRule
-    createSafetyRule_tags,
+    createSafetyRule_assertionRule,
     createSafetyRule_clientToken,
     createSafetyRule_gatingRule,
-    createSafetyRule_assertionRule,
-    createSafetyRuleResponse_gatingRule,
+    createSafetyRule_tags,
     createSafetyRuleResponse_assertionRule,
+    createSafetyRuleResponse_gatingRule,
     createSafetyRuleResponse_httpStatus,
 
     -- ** DeleteCluster
@@ -79,44 +79,44 @@ module Amazonka.Route53RecoveryControlConfig.Lens
 
     -- ** DescribeSafetyRule
     describeSafetyRule_safetyRuleArn,
-    describeSafetyRuleResponse_gatingRule,
     describeSafetyRuleResponse_assertionRule,
+    describeSafetyRuleResponse_gatingRule,
     describeSafetyRuleResponse_httpStatus,
 
     -- ** ListAssociatedRoute53HealthChecks
-    listAssociatedRoute53HealthChecks_nextToken,
     listAssociatedRoute53HealthChecks_maxResults,
+    listAssociatedRoute53HealthChecks_nextToken,
     listAssociatedRoute53HealthChecks_routingControlArn,
-    listAssociatedRoute53HealthChecksResponse_nextToken,
     listAssociatedRoute53HealthChecksResponse_healthCheckIds,
+    listAssociatedRoute53HealthChecksResponse_nextToken,
     listAssociatedRoute53HealthChecksResponse_httpStatus,
 
     -- ** ListClusters
-    listClusters_nextToken,
     listClusters_maxResults,
-    listClustersResponse_nextToken,
+    listClusters_nextToken,
     listClustersResponse_clusters,
+    listClustersResponse_nextToken,
     listClustersResponse_httpStatus,
 
     -- ** ListControlPanels
     listControlPanels_clusterArn,
-    listControlPanels_nextToken,
     listControlPanels_maxResults,
-    listControlPanelsResponse_nextToken,
+    listControlPanels_nextToken,
     listControlPanelsResponse_controlPanels,
+    listControlPanelsResponse_nextToken,
     listControlPanelsResponse_httpStatus,
 
     -- ** ListRoutingControls
-    listRoutingControls_nextToken,
     listRoutingControls_maxResults,
+    listRoutingControls_nextToken,
     listRoutingControls_controlPanelArn,
     listRoutingControlsResponse_nextToken,
     listRoutingControlsResponse_routingControls,
     listRoutingControlsResponse_httpStatus,
 
     -- ** ListSafetyRules
-    listSafetyRules_nextToken,
     listSafetyRules_maxResults,
+    listSafetyRules_nextToken,
     listSafetyRules_controlPanelArn,
     listSafetyRulesResponse_nextToken,
     listSafetyRulesResponse_safetyRules,
@@ -150,10 +150,10 @@ module Amazonka.Route53RecoveryControlConfig.Lens
     updateRoutingControlResponse_httpStatus,
 
     -- ** UpdateSafetyRule
-    updateSafetyRule_gatingRuleUpdate,
     updateSafetyRule_assertionRuleUpdate,
-    updateSafetyRuleResponse_gatingRule,
+    updateSafetyRule_gatingRuleUpdate,
     updateSafetyRuleResponse_assertionRule,
+    updateSafetyRuleResponse_gatingRule,
     updateSafetyRuleResponse_httpStatus,
 
     -- * Types
@@ -174,21 +174,21 @@ module Amazonka.Route53RecoveryControlConfig.Lens
 
     -- ** Cluster
     cluster_clusterArn,
+    cluster_clusterEndpoints,
     cluster_name,
     cluster_status,
-    cluster_clusterEndpoints,
 
     -- ** ClusterEndpoint
-    clusterEndpoint_region,
     clusterEndpoint_endpoint,
+    clusterEndpoint_region,
 
     -- ** ControlPanel
     controlPanel_clusterArn,
+    controlPanel_controlPanelArn,
     controlPanel_defaultControlPanel,
     controlPanel_name,
-    controlPanel_controlPanelArn,
-    controlPanel_status,
     controlPanel_routingControlCount,
+    controlPanel_status,
 
     -- ** GatingRule
     gatingRule_status,
@@ -221,10 +221,10 @@ module Amazonka.Route53RecoveryControlConfig.Lens
     newGatingRule_name,
 
     -- ** RoutingControl
-    routingControl_name,
     routingControl_controlPanelArn,
-    routingControl_status,
+    routingControl_name,
     routingControl_routingControlArn,
+    routingControl_status,
 
     -- ** Rule
     rule_assertion,

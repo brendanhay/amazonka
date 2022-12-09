@@ -28,16 +28,16 @@ module Amazonka.Route53RecoveryControlConfig.ListControlPanels
 
     -- * Request Lenses
     listControlPanels_clusterArn,
-    listControlPanels_nextToken,
     listControlPanels_maxResults,
+    listControlPanels_nextToken,
 
     -- * Destructuring the Response
     ListControlPanelsResponse (..),
     newListControlPanelsResponse,
 
     -- * Response Lenses
-    listControlPanelsResponse_nextToken,
     listControlPanelsResponse_controlPanels,
+    listControlPanelsResponse_nextToken,
     listControlPanelsResponse_httpStatus,
   )
 where
@@ -54,10 +54,10 @@ import Amazonka.Route53RecoveryControlConfig.Types
 data ListControlPanels = ListControlPanels'
   { -- | The Amazon Resource Name (ARN) of a cluster.
     clusterArn :: Prelude.Maybe Prelude.Text,
-    -- | The token that identifies which batch of results you want to see.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The number of objects that you want to return with this call.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token that identifies which batch of results you want to see.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,29 +71,29 @@ data ListControlPanels = ListControlPanels'
 --
 -- 'clusterArn', 'listControlPanels_clusterArn' - The Amazon Resource Name (ARN) of a cluster.
 --
--- 'nextToken', 'listControlPanels_nextToken' - The token that identifies which batch of results you want to see.
---
 -- 'maxResults', 'listControlPanels_maxResults' - The number of objects that you want to return with this call.
+--
+-- 'nextToken', 'listControlPanels_nextToken' - The token that identifies which batch of results you want to see.
 newListControlPanels ::
   ListControlPanels
 newListControlPanels =
   ListControlPanels'
     { clusterArn = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of a cluster.
 listControlPanels_clusterArn :: Lens.Lens' ListControlPanels (Prelude.Maybe Prelude.Text)
 listControlPanels_clusterArn = Lens.lens (\ListControlPanels' {clusterArn} -> clusterArn) (\s@ListControlPanels' {} a -> s {clusterArn = a} :: ListControlPanels)
 
--- | The token that identifies which batch of results you want to see.
-listControlPanels_nextToken :: Lens.Lens' ListControlPanels (Prelude.Maybe Prelude.Text)
-listControlPanels_nextToken = Lens.lens (\ListControlPanels' {nextToken} -> nextToken) (\s@ListControlPanels' {} a -> s {nextToken = a} :: ListControlPanels)
-
 -- | The number of objects that you want to return with this call.
 listControlPanels_maxResults :: Lens.Lens' ListControlPanels (Prelude.Maybe Prelude.Natural)
 listControlPanels_maxResults = Lens.lens (\ListControlPanels' {maxResults} -> maxResults) (\s@ListControlPanels' {} a -> s {maxResults = a} :: ListControlPanels)
+
+-- | The token that identifies which batch of results you want to see.
+listControlPanels_nextToken :: Lens.Lens' ListControlPanels (Prelude.Maybe Prelude.Text)
+listControlPanels_nextToken = Lens.lens (\ListControlPanels' {nextToken} -> nextToken) (\s@ListControlPanels' {} a -> s {nextToken = a} :: ListControlPanels)
 
 instance Core.AWSRequest ListControlPanels where
   type
@@ -105,22 +105,22 @@ instance Core.AWSRequest ListControlPanels where
     Response.receiveJSON
       ( \s h x ->
           ListControlPanelsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "ControlPanels" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "ControlPanels" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListControlPanels where
   hashWithSalt _salt ListControlPanels' {..} =
     _salt `Prelude.hashWithSalt` clusterArn
-      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListControlPanels where
   rnf ListControlPanels' {..} =
     Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListControlPanels where
   toHeaders =
@@ -140,16 +140,16 @@ instance Data.ToQuery ListControlPanels where
   toQuery ListControlPanels' {..} =
     Prelude.mconcat
       [ "ClusterArn" Data.=: clusterArn,
-        "NextToken" Data.=: nextToken,
-        "MaxResults" Data.=: maxResults
+        "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListControlPanelsResponse' smart constructor.
 data ListControlPanelsResponse = ListControlPanelsResponse'
-  { -- | The token that identifies which batch of results you want to see.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The result of a successful ListControlPanel request.
+  { -- | The result of a successful ListControlPanel request.
     controlPanels :: Prelude.Maybe [ControlPanel],
+    -- | The token that identifies which batch of results you want to see.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -163,9 +163,9 @@ data ListControlPanelsResponse = ListControlPanelsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listControlPanelsResponse_nextToken' - The token that identifies which batch of results you want to see.
---
 -- 'controlPanels', 'listControlPanelsResponse_controlPanels' - The result of a successful ListControlPanel request.
+--
+-- 'nextToken', 'listControlPanelsResponse_nextToken' - The token that identifies which batch of results you want to see.
 --
 -- 'httpStatus', 'listControlPanelsResponse_httpStatus' - The response's http status code.
 newListControlPanelsResponse ::
@@ -174,19 +174,19 @@ newListControlPanelsResponse ::
   ListControlPanelsResponse
 newListControlPanelsResponse pHttpStatus_ =
   ListControlPanelsResponse'
-    { nextToken =
+    { controlPanels =
         Prelude.Nothing,
-      controlPanels = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token that identifies which batch of results you want to see.
-listControlPanelsResponse_nextToken :: Lens.Lens' ListControlPanelsResponse (Prelude.Maybe Prelude.Text)
-listControlPanelsResponse_nextToken = Lens.lens (\ListControlPanelsResponse' {nextToken} -> nextToken) (\s@ListControlPanelsResponse' {} a -> s {nextToken = a} :: ListControlPanelsResponse)
 
 -- | The result of a successful ListControlPanel request.
 listControlPanelsResponse_controlPanels :: Lens.Lens' ListControlPanelsResponse (Prelude.Maybe [ControlPanel])
 listControlPanelsResponse_controlPanels = Lens.lens (\ListControlPanelsResponse' {controlPanels} -> controlPanels) (\s@ListControlPanelsResponse' {} a -> s {controlPanels = a} :: ListControlPanelsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token that identifies which batch of results you want to see.
+listControlPanelsResponse_nextToken :: Lens.Lens' ListControlPanelsResponse (Prelude.Maybe Prelude.Text)
+listControlPanelsResponse_nextToken = Lens.lens (\ListControlPanelsResponse' {nextToken} -> nextToken) (\s@ListControlPanelsResponse' {} a -> s {nextToken = a} :: ListControlPanelsResponse)
 
 -- | The response's http status code.
 listControlPanelsResponse_httpStatus :: Lens.Lens' ListControlPanelsResponse Prelude.Int
@@ -194,6 +194,6 @@ listControlPanelsResponse_httpStatus = Lens.lens (\ListControlPanelsResponse' {h
 
 instance Prelude.NFData ListControlPanelsResponse where
   rnf ListControlPanelsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf controlPanels
+    Prelude.rnf controlPanels
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

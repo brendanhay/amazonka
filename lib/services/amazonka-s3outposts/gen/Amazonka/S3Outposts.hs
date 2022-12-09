@@ -22,14 +22,14 @@ module Amazonka.S3Outposts
     -- ** AccessDeniedException
     _AccessDeniedException,
 
+    -- ** ConflictException
+    _ConflictException,
+
     -- ** InternalServerException
     _InternalServerException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
-
-    -- ** ConflictException
-    _ConflictException,
 
     -- ** ValidationException
     _ValidationException,

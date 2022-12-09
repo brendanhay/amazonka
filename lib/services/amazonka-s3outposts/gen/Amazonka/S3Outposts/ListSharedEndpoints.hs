@@ -36,8 +36,8 @@ module Amazonka.S3Outposts.ListSharedEndpoints
     newListSharedEndpoints,
 
     -- * Request Lenses
-    listSharedEndpoints_nextToken,
     listSharedEndpoints_maxResults,
+    listSharedEndpoints_nextToken,
     listSharedEndpoints_outpostId,
 
     -- * Destructuring the Response
@@ -45,8 +45,8 @@ module Amazonka.S3Outposts.ListSharedEndpoints
     newListSharedEndpointsResponse,
 
     -- * Response Lenses
-    listSharedEndpointsResponse_nextToken,
     listSharedEndpointsResponse_endpoints,
+    listSharedEndpointsResponse_nextToken,
     listSharedEndpointsResponse_httpStatus,
   )
 where
@@ -61,11 +61,11 @@ import Amazonka.S3Outposts.Types
 
 -- | /See:/ 'newListSharedEndpoints' smart constructor.
 data ListSharedEndpoints = ListSharedEndpoints'
-  { -- | If a previous response from this operation included a @NextToken@ value,
+  { -- | The maximum number of endpoints that will be returned in the response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If a previous response from this operation included a @NextToken@ value,
     -- you can provide that value here to retrieve the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of endpoints that will be returned in the response.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the Amazon Web Services Outpost.
     outpostId :: Prelude.Text
   }
@@ -79,10 +79,10 @@ data ListSharedEndpoints = ListSharedEndpoints'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listSharedEndpoints_maxResults' - The maximum number of endpoints that will be returned in the response.
+--
 -- 'nextToken', 'listSharedEndpoints_nextToken' - If a previous response from this operation included a @NextToken@ value,
 -- you can provide that value here to retrieve the next page of results.
---
--- 'maxResults', 'listSharedEndpoints_maxResults' - The maximum number of endpoints that will be returned in the response.
 --
 -- 'outpostId', 'listSharedEndpoints_outpostId' - The ID of the Amazon Web Services Outpost.
 newListSharedEndpoints ::
@@ -91,19 +91,19 @@ newListSharedEndpoints ::
   ListSharedEndpoints
 newListSharedEndpoints pOutpostId_ =
   ListSharedEndpoints'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       outpostId = pOutpostId_
     }
+
+-- | The maximum number of endpoints that will be returned in the response.
+listSharedEndpoints_maxResults :: Lens.Lens' ListSharedEndpoints (Prelude.Maybe Prelude.Natural)
+listSharedEndpoints_maxResults = Lens.lens (\ListSharedEndpoints' {maxResults} -> maxResults) (\s@ListSharedEndpoints' {} a -> s {maxResults = a} :: ListSharedEndpoints)
 
 -- | If a previous response from this operation included a @NextToken@ value,
 -- you can provide that value here to retrieve the next page of results.
 listSharedEndpoints_nextToken :: Lens.Lens' ListSharedEndpoints (Prelude.Maybe Prelude.Text)
 listSharedEndpoints_nextToken = Lens.lens (\ListSharedEndpoints' {nextToken} -> nextToken) (\s@ListSharedEndpoints' {} a -> s {nextToken = a} :: ListSharedEndpoints)
-
--- | The maximum number of endpoints that will be returned in the response.
-listSharedEndpoints_maxResults :: Lens.Lens' ListSharedEndpoints (Prelude.Maybe Prelude.Natural)
-listSharedEndpoints_maxResults = Lens.lens (\ListSharedEndpoints' {maxResults} -> maxResults) (\s@ListSharedEndpoints' {} a -> s {maxResults = a} :: ListSharedEndpoints)
 
 -- | The ID of the Amazon Web Services Outpost.
 listSharedEndpoints_outpostId :: Lens.Lens' ListSharedEndpoints Prelude.Text
@@ -141,21 +141,21 @@ instance Core.AWSRequest ListSharedEndpoints where
     Response.receiveJSON
       ( \s h x ->
           ListSharedEndpointsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Endpoints" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Endpoints" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListSharedEndpoints where
   hashWithSalt _salt ListSharedEndpoints' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` outpostId
 
 instance Prelude.NFData ListSharedEndpoints where
   rnf ListSharedEndpoints' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf outpostId
 
 instance Data.ToHeaders ListSharedEndpoints where
@@ -176,20 +176,20 @@ instance Data.ToPath ListSharedEndpoints where
 instance Data.ToQuery ListSharedEndpoints where
   toQuery ListSharedEndpoints' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults,
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
         "outpostId" Data.=: outpostId
       ]
 
 -- | /See:/ 'newListSharedEndpointsResponse' smart constructor.
 data ListSharedEndpointsResponse = ListSharedEndpointsResponse'
-  { -- | If the number of endpoints associated with the specified Outpost exceeds
+  { -- | The list of endpoints associated with the specified Outpost that have
+    -- been shared by Amazon Web Services Resource Access Manager (RAM).
+    endpoints :: Prelude.Maybe [Endpoint],
+    -- | If the number of endpoints associated with the specified Outpost exceeds
     -- @MaxResults@, you can include this value in subsequent calls to this
     -- operation to retrieve more results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of endpoints associated with the specified Outpost that have
-    -- been shared by Amazon Web Services Resource Access Manager (RAM).
-    endpoints :: Prelude.Maybe [Endpoint],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -203,12 +203,12 @@ data ListSharedEndpointsResponse = ListSharedEndpointsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'endpoints', 'listSharedEndpointsResponse_endpoints' - The list of endpoints associated with the specified Outpost that have
+-- been shared by Amazon Web Services Resource Access Manager (RAM).
+--
 -- 'nextToken', 'listSharedEndpointsResponse_nextToken' - If the number of endpoints associated with the specified Outpost exceeds
 -- @MaxResults@, you can include this value in subsequent calls to this
 -- operation to retrieve more results.
---
--- 'endpoints', 'listSharedEndpointsResponse_endpoints' - The list of endpoints associated with the specified Outpost that have
--- been shared by Amazon Web Services Resource Access Manager (RAM).
 --
 -- 'httpStatus', 'listSharedEndpointsResponse_httpStatus' - The response's http status code.
 newListSharedEndpointsResponse ::
@@ -217,11 +217,16 @@ newListSharedEndpointsResponse ::
   ListSharedEndpointsResponse
 newListSharedEndpointsResponse pHttpStatus_ =
   ListSharedEndpointsResponse'
-    { nextToken =
+    { endpoints =
         Prelude.Nothing,
-      endpoints = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The list of endpoints associated with the specified Outpost that have
+-- been shared by Amazon Web Services Resource Access Manager (RAM).
+listSharedEndpointsResponse_endpoints :: Lens.Lens' ListSharedEndpointsResponse (Prelude.Maybe [Endpoint])
+listSharedEndpointsResponse_endpoints = Lens.lens (\ListSharedEndpointsResponse' {endpoints} -> endpoints) (\s@ListSharedEndpointsResponse' {} a -> s {endpoints = a} :: ListSharedEndpointsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the number of endpoints associated with the specified Outpost exceeds
 -- @MaxResults@, you can include this value in subsequent calls to this
@@ -229,17 +234,12 @@ newListSharedEndpointsResponse pHttpStatus_ =
 listSharedEndpointsResponse_nextToken :: Lens.Lens' ListSharedEndpointsResponse (Prelude.Maybe Prelude.Text)
 listSharedEndpointsResponse_nextToken = Lens.lens (\ListSharedEndpointsResponse' {nextToken} -> nextToken) (\s@ListSharedEndpointsResponse' {} a -> s {nextToken = a} :: ListSharedEndpointsResponse)
 
--- | The list of endpoints associated with the specified Outpost that have
--- been shared by Amazon Web Services Resource Access Manager (RAM).
-listSharedEndpointsResponse_endpoints :: Lens.Lens' ListSharedEndpointsResponse (Prelude.Maybe [Endpoint])
-listSharedEndpointsResponse_endpoints = Lens.lens (\ListSharedEndpointsResponse' {endpoints} -> endpoints) (\s@ListSharedEndpointsResponse' {} a -> s {endpoints = a} :: ListSharedEndpointsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listSharedEndpointsResponse_httpStatus :: Lens.Lens' ListSharedEndpointsResponse Prelude.Int
 listSharedEndpointsResponse_httpStatus = Lens.lens (\ListSharedEndpointsResponse' {httpStatus} -> httpStatus) (\s@ListSharedEndpointsResponse' {} a -> s {httpStatus = a} :: ListSharedEndpointsResponse)
 
 instance Prelude.NFData ListSharedEndpointsResponse where
   rnf ListSharedEndpointsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf endpoints
+    Prelude.rnf endpoints
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

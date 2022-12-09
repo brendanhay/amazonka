@@ -28,16 +28,16 @@ module Amazonka.IoTEvents.ListDetectorModels
     newListDetectorModels,
 
     -- * Request Lenses
-    listDetectorModels_nextToken,
     listDetectorModels_maxResults,
+    listDetectorModels_nextToken,
 
     -- * Destructuring the Response
     ListDetectorModelsResponse (..),
     newListDetectorModelsResponse,
 
     -- * Response Lenses
-    listDetectorModelsResponse_nextToken,
     listDetectorModelsResponse_detectorModelSummaries,
+    listDetectorModelsResponse_nextToken,
     listDetectorModelsResponse_httpStatus,
   )
 where
@@ -52,10 +52,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDetectorModels' smart constructor.
 data ListDetectorModels = ListDetectorModels'
-  { -- | The token that you can use to return the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to be returned per request.
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { -- | The maximum number of results to be returned per request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token that you can use to return the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,24 +67,24 @@ data ListDetectorModels = ListDetectorModels'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listDetectorModels_nextToken' - The token that you can use to return the next set of results.
---
 -- 'maxResults', 'listDetectorModels_maxResults' - The maximum number of results to be returned per request.
+--
+-- 'nextToken', 'listDetectorModels_nextToken' - The token that you can use to return the next set of results.
 newListDetectorModels ::
   ListDetectorModels
 newListDetectorModels =
   ListDetectorModels'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token that you can use to return the next set of results.
-listDetectorModels_nextToken :: Lens.Lens' ListDetectorModels (Prelude.Maybe Prelude.Text)
-listDetectorModels_nextToken = Lens.lens (\ListDetectorModels' {nextToken} -> nextToken) (\s@ListDetectorModels' {} a -> s {nextToken = a} :: ListDetectorModels)
 
 -- | The maximum number of results to be returned per request.
 listDetectorModels_maxResults :: Lens.Lens' ListDetectorModels (Prelude.Maybe Prelude.Natural)
 listDetectorModels_maxResults = Lens.lens (\ListDetectorModels' {maxResults} -> maxResults) (\s@ListDetectorModels' {} a -> s {maxResults = a} :: ListDetectorModels)
+
+-- | The token that you can use to return the next set of results.
+listDetectorModels_nextToken :: Lens.Lens' ListDetectorModels (Prelude.Maybe Prelude.Text)
+listDetectorModels_nextToken = Lens.lens (\ListDetectorModels' {nextToken} -> nextToken) (\s@ListDetectorModels' {} a -> s {nextToken = a} :: ListDetectorModels)
 
 instance Core.AWSRequest ListDetectorModels where
   type
@@ -96,22 +96,22 @@ instance Core.AWSRequest ListDetectorModels where
     Response.receiveJSON
       ( \s h x ->
           ListDetectorModelsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "detectorModelSummaries"
+            Prelude.<$> ( x Data..?> "detectorModelSummaries"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListDetectorModels where
   hashWithSalt _salt ListDetectorModels' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListDetectorModels where
   rnf ListDetectorModels' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListDetectorModels where
   toHeaders = Prelude.const Prelude.mempty
@@ -122,17 +122,17 @@ instance Data.ToPath ListDetectorModels where
 instance Data.ToQuery ListDetectorModels where
   toQuery ListDetectorModels' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListDetectorModelsResponse' smart constructor.
 data ListDetectorModelsResponse = ListDetectorModelsResponse'
-  { -- | The token that you can use to return the next set of results, or @null@
+  { -- | Summary information about the detector models.
+    detectorModelSummaries :: Prelude.Maybe [DetectorModelSummary],
+    -- | The token that you can use to return the next set of results, or @null@
     -- if there are no more results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Summary information about the detector models.
-    detectorModelSummaries :: Prelude.Maybe [DetectorModelSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -146,10 +146,10 @@ data ListDetectorModelsResponse = ListDetectorModelsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'detectorModelSummaries', 'listDetectorModelsResponse_detectorModelSummaries' - Summary information about the detector models.
+--
 -- 'nextToken', 'listDetectorModelsResponse_nextToken' - The token that you can use to return the next set of results, or @null@
 -- if there are no more results.
---
--- 'detectorModelSummaries', 'listDetectorModelsResponse_detectorModelSummaries' - Summary information about the detector models.
 --
 -- 'httpStatus', 'listDetectorModelsResponse_httpStatus' - The response's http status code.
 newListDetectorModelsResponse ::
@@ -158,20 +158,20 @@ newListDetectorModelsResponse ::
   ListDetectorModelsResponse
 newListDetectorModelsResponse pHttpStatus_ =
   ListDetectorModelsResponse'
-    { nextToken =
+    { detectorModelSummaries =
         Prelude.Nothing,
-      detectorModelSummaries = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Summary information about the detector models.
+listDetectorModelsResponse_detectorModelSummaries :: Lens.Lens' ListDetectorModelsResponse (Prelude.Maybe [DetectorModelSummary])
+listDetectorModelsResponse_detectorModelSummaries = Lens.lens (\ListDetectorModelsResponse' {detectorModelSummaries} -> detectorModelSummaries) (\s@ListDetectorModelsResponse' {} a -> s {detectorModelSummaries = a} :: ListDetectorModelsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token that you can use to return the next set of results, or @null@
 -- if there are no more results.
 listDetectorModelsResponse_nextToken :: Lens.Lens' ListDetectorModelsResponse (Prelude.Maybe Prelude.Text)
 listDetectorModelsResponse_nextToken = Lens.lens (\ListDetectorModelsResponse' {nextToken} -> nextToken) (\s@ListDetectorModelsResponse' {} a -> s {nextToken = a} :: ListDetectorModelsResponse)
-
--- | Summary information about the detector models.
-listDetectorModelsResponse_detectorModelSummaries :: Lens.Lens' ListDetectorModelsResponse (Prelude.Maybe [DetectorModelSummary])
-listDetectorModelsResponse_detectorModelSummaries = Lens.lens (\ListDetectorModelsResponse' {detectorModelSummaries} -> detectorModelSummaries) (\s@ListDetectorModelsResponse' {} a -> s {detectorModelSummaries = a} :: ListDetectorModelsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listDetectorModelsResponse_httpStatus :: Lens.Lens' ListDetectorModelsResponse Prelude.Int
@@ -179,6 +179,6 @@ listDetectorModelsResponse_httpStatus = Lens.lens (\ListDetectorModelsResponse' 
 
 instance Prelude.NFData ListDetectorModelsResponse where
   rnf ListDetectorModelsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf detectorModelSummaries
+    Prelude.rnf detectorModelSummaries
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

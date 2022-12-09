@@ -31,15 +31,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newState' smart constructor.
 data State = State'
-  { -- | When an input is received and the @condition@ is TRUE, perform the
-    -- specified @actions@.
-    onInput :: Prelude.Maybe OnInputLifecycle,
-    -- | When entering this state, perform these @actions@ if the @condition@ is
+  { -- | When entering this state, perform these @actions@ if the @condition@ is
     -- TRUE.
     onEnter :: Prelude.Maybe OnEnterLifecycle,
     -- | When exiting this state, perform these @actions@ if the specified
     -- @condition@ is @TRUE@.
     onExit :: Prelude.Maybe OnExitLifecycle,
+    -- | When an input is received and the @condition@ is TRUE, perform the
+    -- specified @actions@.
+    onInput :: Prelude.Maybe OnInputLifecycle,
     -- | The name of the state.
     stateName :: Prelude.Text
   }
@@ -53,14 +53,14 @@ data State = State'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'onInput', 'state_onInput' - When an input is received and the @condition@ is TRUE, perform the
--- specified @actions@.
---
 -- 'onEnter', 'state_onEnter' - When entering this state, perform these @actions@ if the @condition@ is
 -- TRUE.
 --
 -- 'onExit', 'state_onExit' - When exiting this state, perform these @actions@ if the specified
 -- @condition@ is @TRUE@.
+--
+-- 'onInput', 'state_onInput' - When an input is received and the @condition@ is TRUE, perform the
+-- specified @actions@.
 --
 -- 'stateName', 'state_stateName' - The name of the state.
 newState ::
@@ -69,16 +69,11 @@ newState ::
   State
 newState pStateName_ =
   State'
-    { onInput = Prelude.Nothing,
-      onEnter = Prelude.Nothing,
+    { onEnter = Prelude.Nothing,
       onExit = Prelude.Nothing,
+      onInput = Prelude.Nothing,
       stateName = pStateName_
     }
-
--- | When an input is received and the @condition@ is TRUE, perform the
--- specified @actions@.
-state_onInput :: Lens.Lens' State (Prelude.Maybe OnInputLifecycle)
-state_onInput = Lens.lens (\State' {onInput} -> onInput) (\s@State' {} a -> s {onInput = a} :: State)
 
 -- | When entering this state, perform these @actions@ if the @condition@ is
 -- TRUE.
@@ -90,6 +85,11 @@ state_onEnter = Lens.lens (\State' {onEnter} -> onEnter) (\s@State' {} a -> s {o
 state_onExit :: Lens.Lens' State (Prelude.Maybe OnExitLifecycle)
 state_onExit = Lens.lens (\State' {onExit} -> onExit) (\s@State' {} a -> s {onExit = a} :: State)
 
+-- | When an input is received and the @condition@ is TRUE, perform the
+-- specified @actions@.
+state_onInput :: Lens.Lens' State (Prelude.Maybe OnInputLifecycle)
+state_onInput = Lens.lens (\State' {onInput} -> onInput) (\s@State' {} a -> s {onInput = a} :: State)
+
 -- | The name of the state.
 state_stateName :: Lens.Lens' State Prelude.Text
 state_stateName = Lens.lens (\State' {stateName} -> stateName) (\s@State' {} a -> s {stateName = a} :: State)
@@ -100,33 +100,33 @@ instance Data.FromJSON State where
       "State"
       ( \x ->
           State'
-            Prelude.<$> (x Data..:? "onInput")
-            Prelude.<*> (x Data..:? "onEnter")
+            Prelude.<$> (x Data..:? "onEnter")
             Prelude.<*> (x Data..:? "onExit")
+            Prelude.<*> (x Data..:? "onInput")
             Prelude.<*> (x Data..: "stateName")
       )
 
 instance Prelude.Hashable State where
   hashWithSalt _salt State' {..} =
-    _salt `Prelude.hashWithSalt` onInput
-      `Prelude.hashWithSalt` onEnter
+    _salt `Prelude.hashWithSalt` onEnter
       `Prelude.hashWithSalt` onExit
+      `Prelude.hashWithSalt` onInput
       `Prelude.hashWithSalt` stateName
 
 instance Prelude.NFData State where
   rnf State' {..} =
-    Prelude.rnf onInput
-      `Prelude.seq` Prelude.rnf onEnter
+    Prelude.rnf onEnter
       `Prelude.seq` Prelude.rnf onExit
+      `Prelude.seq` Prelude.rnf onInput
       `Prelude.seq` Prelude.rnf stateName
 
 instance Data.ToJSON State where
   toJSON State' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("onInput" Data..=) Prelude.<$> onInput,
-            ("onEnter" Data..=) Prelude.<$> onEnter,
+          [ ("onEnter" Data..=) Prelude.<$> onEnter,
             ("onExit" Data..=) Prelude.<$> onExit,
+            ("onInput" Data..=) Prelude.<$> onInput,
             Prelude.Just ("stateName" Data..= stateName)
           ]
       )

@@ -27,8 +27,8 @@ module Amazonka.IoTEvents.ListInputRoutings
     newListInputRoutings,
 
     -- * Request Lenses
-    listInputRoutings_nextToken,
     listInputRoutings_maxResults,
+    listInputRoutings_nextToken,
     listInputRoutings_inputIdentifier,
 
     -- * Destructuring the Response
@@ -52,10 +52,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListInputRoutings' smart constructor.
 data ListInputRoutings = ListInputRoutings'
-  { -- | The token that you can use to return the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to be returned per request.
+  { -- | The maximum number of results to be returned per request.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token that you can use to return the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The identifer of the routed input.
     inputIdentifier :: InputIdentifier
   }
@@ -69,9 +69,9 @@ data ListInputRoutings = ListInputRoutings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listInputRoutings_nextToken' - The token that you can use to return the next set of results.
---
 -- 'maxResults', 'listInputRoutings_maxResults' - The maximum number of results to be returned per request.
+--
+-- 'nextToken', 'listInputRoutings_nextToken' - The token that you can use to return the next set of results.
 --
 -- 'inputIdentifier', 'listInputRoutings_inputIdentifier' - The identifer of the routed input.
 newListInputRoutings ::
@@ -80,18 +80,18 @@ newListInputRoutings ::
   ListInputRoutings
 newListInputRoutings pInputIdentifier_ =
   ListInputRoutings'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       inputIdentifier = pInputIdentifier_
     }
-
--- | The token that you can use to return the next set of results.
-listInputRoutings_nextToken :: Lens.Lens' ListInputRoutings (Prelude.Maybe Prelude.Text)
-listInputRoutings_nextToken = Lens.lens (\ListInputRoutings' {nextToken} -> nextToken) (\s@ListInputRoutings' {} a -> s {nextToken = a} :: ListInputRoutings)
 
 -- | The maximum number of results to be returned per request.
 listInputRoutings_maxResults :: Lens.Lens' ListInputRoutings (Prelude.Maybe Prelude.Natural)
 listInputRoutings_maxResults = Lens.lens (\ListInputRoutings' {maxResults} -> maxResults) (\s@ListInputRoutings' {} a -> s {maxResults = a} :: ListInputRoutings)
+
+-- | The token that you can use to return the next set of results.
+listInputRoutings_nextToken :: Lens.Lens' ListInputRoutings (Prelude.Maybe Prelude.Text)
+listInputRoutings_nextToken = Lens.lens (\ListInputRoutings' {nextToken} -> nextToken) (\s@ListInputRoutings' {} a -> s {nextToken = a} :: ListInputRoutings)
 
 -- | The identifer of the routed input.
 listInputRoutings_inputIdentifier :: Lens.Lens' ListInputRoutings InputIdentifier
@@ -116,14 +116,14 @@ instance Core.AWSRequest ListInputRoutings where
 
 instance Prelude.Hashable ListInputRoutings where
   hashWithSalt _salt ListInputRoutings' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` inputIdentifier
 
 instance Prelude.NFData ListInputRoutings where
   rnf ListInputRoutings' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf inputIdentifier
 
 instance Data.ToHeaders ListInputRoutings where
@@ -133,8 +133,8 @@ instance Data.ToJSON ListInputRoutings where
   toJSON ListInputRoutings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("inputIdentifier" Data..= inputIdentifier)
           ]

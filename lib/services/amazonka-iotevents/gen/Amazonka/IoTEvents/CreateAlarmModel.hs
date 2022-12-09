@@ -31,13 +31,13 @@ module Amazonka.IoTEvents.CreateAlarmModel
     newCreateAlarmModel,
 
     -- * Request Lenses
-    createAlarmModel_tags,
-    createAlarmModel_key,
-    createAlarmModel_severity,
-    createAlarmModel_alarmEventActions,
     createAlarmModel_alarmCapabilities,
+    createAlarmModel_alarmEventActions,
     createAlarmModel_alarmModelDescription,
     createAlarmModel_alarmNotification,
+    createAlarmModel_key,
+    createAlarmModel_severity,
+    createAlarmModel_tags,
     createAlarmModel_alarmModelName,
     createAlarmModel_roleArn,
     createAlarmModel_alarmRule,
@@ -47,11 +47,11 @@ module Amazonka.IoTEvents.CreateAlarmModel
     newCreateAlarmModelResponse,
 
     -- * Response Lenses
-    createAlarmModelResponse_alarmModelVersion,
     createAlarmModelResponse_alarmModelArn,
-    createAlarmModelResponse_status,
+    createAlarmModelResponse_alarmModelVersion,
     createAlarmModelResponse_creationTime,
     createAlarmModelResponse_lastUpdateTime,
+    createAlarmModelResponse_status,
     createAlarmModelResponse_httpStatus,
   )
 where
@@ -66,13 +66,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateAlarmModel' smart constructor.
 data CreateAlarmModel = CreateAlarmModel'
-  { -- | A list of key-value pairs that contain metadata for the alarm model. The
-    -- tags help you manage the alarm model. For more information, see
-    -- <https://docs.aws.amazon.com/iotevents/latest/developerguide/tagging-iotevents.html Tagging your AWS IoT Events resources>
-    -- in the /AWS IoT Events Developer Guide/.
-    --
-    -- You can create up to 50 tags for one alarm model.
-    tags :: Prelude.Maybe [Tag],
+  { -- | Contains the configuration information of alarm state changes.
+    alarmCapabilities :: Prelude.Maybe AlarmCapabilities,
+    -- | Contains information about one or more alarm actions.
+    alarmEventActions :: Prelude.Maybe AlarmEventActions,
+    -- | A description that tells you what the alarm model detects.
+    alarmModelDescription :: Prelude.Maybe Prelude.Text,
+    -- | Contains information about one or more notification actions.
+    alarmNotification :: Prelude.Maybe AlarmNotification,
     -- | An input attribute used as a key to create an alarm. AWS IoT Events
     -- routes
     -- <https://docs.aws.amazon.com/iotevents/latest/apireference/API_Input.html inputs>
@@ -80,14 +81,13 @@ data CreateAlarmModel = CreateAlarmModel'
     key :: Prelude.Maybe Prelude.Text,
     -- | A non-negative integer that reflects the severity level of the alarm.
     severity :: Prelude.Maybe Prelude.Natural,
-    -- | Contains information about one or more alarm actions.
-    alarmEventActions :: Prelude.Maybe AlarmEventActions,
-    -- | Contains the configuration information of alarm state changes.
-    alarmCapabilities :: Prelude.Maybe AlarmCapabilities,
-    -- | A description that tells you what the alarm model detects.
-    alarmModelDescription :: Prelude.Maybe Prelude.Text,
-    -- | Contains information about one or more notification actions.
-    alarmNotification :: Prelude.Maybe AlarmNotification,
+    -- | A list of key-value pairs that contain metadata for the alarm model. The
+    -- tags help you manage the alarm model. For more information, see
+    -- <https://docs.aws.amazon.com/iotevents/latest/developerguide/tagging-iotevents.html Tagging your AWS IoT Events resources>
+    -- in the /AWS IoT Events Developer Guide/.
+    --
+    -- You can create up to 50 tags for one alarm model.
+    tags :: Prelude.Maybe [Tag],
     -- | A unique name that helps you identify the alarm model. You can\'t change
     -- this name after you create the alarm model.
     alarmModelName :: Prelude.Text,
@@ -109,12 +109,13 @@ data CreateAlarmModel = CreateAlarmModel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createAlarmModel_tags' - A list of key-value pairs that contain metadata for the alarm model. The
--- tags help you manage the alarm model. For more information, see
--- <https://docs.aws.amazon.com/iotevents/latest/developerguide/tagging-iotevents.html Tagging your AWS IoT Events resources>
--- in the /AWS IoT Events Developer Guide/.
+-- 'alarmCapabilities', 'createAlarmModel_alarmCapabilities' - Contains the configuration information of alarm state changes.
 --
--- You can create up to 50 tags for one alarm model.
+-- 'alarmEventActions', 'createAlarmModel_alarmEventActions' - Contains information about one or more alarm actions.
+--
+-- 'alarmModelDescription', 'createAlarmModel_alarmModelDescription' - A description that tells you what the alarm model detects.
+--
+-- 'alarmNotification', 'createAlarmModel_alarmNotification' - Contains information about one or more notification actions.
 --
 -- 'key', 'createAlarmModel_key' - An input attribute used as a key to create an alarm. AWS IoT Events
 -- routes
@@ -123,13 +124,12 @@ data CreateAlarmModel = CreateAlarmModel'
 --
 -- 'severity', 'createAlarmModel_severity' - A non-negative integer that reflects the severity level of the alarm.
 --
--- 'alarmEventActions', 'createAlarmModel_alarmEventActions' - Contains information about one or more alarm actions.
+-- 'tags', 'createAlarmModel_tags' - A list of key-value pairs that contain metadata for the alarm model. The
+-- tags help you manage the alarm model. For more information, see
+-- <https://docs.aws.amazon.com/iotevents/latest/developerguide/tagging-iotevents.html Tagging your AWS IoT Events resources>
+-- in the /AWS IoT Events Developer Guide/.
 --
--- 'alarmCapabilities', 'createAlarmModel_alarmCapabilities' - Contains the configuration information of alarm state changes.
---
--- 'alarmModelDescription', 'createAlarmModel_alarmModelDescription' - A description that tells you what the alarm model detects.
---
--- 'alarmNotification', 'createAlarmModel_alarmNotification' - Contains information about one or more notification actions.
+-- You can create up to 50 tags for one alarm model.
 --
 -- 'alarmModelName', 'createAlarmModel_alarmModelName' - A unique name that helps you identify the alarm model. You can\'t change
 -- this name after you create the alarm model.
@@ -153,26 +153,34 @@ newCreateAlarmModel
   pRoleArn_
   pAlarmRule_ =
     CreateAlarmModel'
-      { tags = Prelude.Nothing,
-        key = Prelude.Nothing,
-        severity = Prelude.Nothing,
+      { alarmCapabilities =
+          Prelude.Nothing,
         alarmEventActions = Prelude.Nothing,
-        alarmCapabilities = Prelude.Nothing,
         alarmModelDescription = Prelude.Nothing,
         alarmNotification = Prelude.Nothing,
+        key = Prelude.Nothing,
+        severity = Prelude.Nothing,
+        tags = Prelude.Nothing,
         alarmModelName = pAlarmModelName_,
         roleArn = pRoleArn_,
         alarmRule = pAlarmRule_
       }
 
--- | A list of key-value pairs that contain metadata for the alarm model. The
--- tags help you manage the alarm model. For more information, see
--- <https://docs.aws.amazon.com/iotevents/latest/developerguide/tagging-iotevents.html Tagging your AWS IoT Events resources>
--- in the /AWS IoT Events Developer Guide/.
---
--- You can create up to 50 tags for one alarm model.
-createAlarmModel_tags :: Lens.Lens' CreateAlarmModel (Prelude.Maybe [Tag])
-createAlarmModel_tags = Lens.lens (\CreateAlarmModel' {tags} -> tags) (\s@CreateAlarmModel' {} a -> s {tags = a} :: CreateAlarmModel) Prelude.. Lens.mapping Lens.coerced
+-- | Contains the configuration information of alarm state changes.
+createAlarmModel_alarmCapabilities :: Lens.Lens' CreateAlarmModel (Prelude.Maybe AlarmCapabilities)
+createAlarmModel_alarmCapabilities = Lens.lens (\CreateAlarmModel' {alarmCapabilities} -> alarmCapabilities) (\s@CreateAlarmModel' {} a -> s {alarmCapabilities = a} :: CreateAlarmModel)
+
+-- | Contains information about one or more alarm actions.
+createAlarmModel_alarmEventActions :: Lens.Lens' CreateAlarmModel (Prelude.Maybe AlarmEventActions)
+createAlarmModel_alarmEventActions = Lens.lens (\CreateAlarmModel' {alarmEventActions} -> alarmEventActions) (\s@CreateAlarmModel' {} a -> s {alarmEventActions = a} :: CreateAlarmModel)
+
+-- | A description that tells you what the alarm model detects.
+createAlarmModel_alarmModelDescription :: Lens.Lens' CreateAlarmModel (Prelude.Maybe Prelude.Text)
+createAlarmModel_alarmModelDescription = Lens.lens (\CreateAlarmModel' {alarmModelDescription} -> alarmModelDescription) (\s@CreateAlarmModel' {} a -> s {alarmModelDescription = a} :: CreateAlarmModel)
+
+-- | Contains information about one or more notification actions.
+createAlarmModel_alarmNotification :: Lens.Lens' CreateAlarmModel (Prelude.Maybe AlarmNotification)
+createAlarmModel_alarmNotification = Lens.lens (\CreateAlarmModel' {alarmNotification} -> alarmNotification) (\s@CreateAlarmModel' {} a -> s {alarmNotification = a} :: CreateAlarmModel)
 
 -- | An input attribute used as a key to create an alarm. AWS IoT Events
 -- routes
@@ -185,21 +193,14 @@ createAlarmModel_key = Lens.lens (\CreateAlarmModel' {key} -> key) (\s@CreateAla
 createAlarmModel_severity :: Lens.Lens' CreateAlarmModel (Prelude.Maybe Prelude.Natural)
 createAlarmModel_severity = Lens.lens (\CreateAlarmModel' {severity} -> severity) (\s@CreateAlarmModel' {} a -> s {severity = a} :: CreateAlarmModel)
 
--- | Contains information about one or more alarm actions.
-createAlarmModel_alarmEventActions :: Lens.Lens' CreateAlarmModel (Prelude.Maybe AlarmEventActions)
-createAlarmModel_alarmEventActions = Lens.lens (\CreateAlarmModel' {alarmEventActions} -> alarmEventActions) (\s@CreateAlarmModel' {} a -> s {alarmEventActions = a} :: CreateAlarmModel)
-
--- | Contains the configuration information of alarm state changes.
-createAlarmModel_alarmCapabilities :: Lens.Lens' CreateAlarmModel (Prelude.Maybe AlarmCapabilities)
-createAlarmModel_alarmCapabilities = Lens.lens (\CreateAlarmModel' {alarmCapabilities} -> alarmCapabilities) (\s@CreateAlarmModel' {} a -> s {alarmCapabilities = a} :: CreateAlarmModel)
-
--- | A description that tells you what the alarm model detects.
-createAlarmModel_alarmModelDescription :: Lens.Lens' CreateAlarmModel (Prelude.Maybe Prelude.Text)
-createAlarmModel_alarmModelDescription = Lens.lens (\CreateAlarmModel' {alarmModelDescription} -> alarmModelDescription) (\s@CreateAlarmModel' {} a -> s {alarmModelDescription = a} :: CreateAlarmModel)
-
--- | Contains information about one or more notification actions.
-createAlarmModel_alarmNotification :: Lens.Lens' CreateAlarmModel (Prelude.Maybe AlarmNotification)
-createAlarmModel_alarmNotification = Lens.lens (\CreateAlarmModel' {alarmNotification} -> alarmNotification) (\s@CreateAlarmModel' {} a -> s {alarmNotification = a} :: CreateAlarmModel)
+-- | A list of key-value pairs that contain metadata for the alarm model. The
+-- tags help you manage the alarm model. For more information, see
+-- <https://docs.aws.amazon.com/iotevents/latest/developerguide/tagging-iotevents.html Tagging your AWS IoT Events resources>
+-- in the /AWS IoT Events Developer Guide/.
+--
+-- You can create up to 50 tags for one alarm model.
+createAlarmModel_tags :: Lens.Lens' CreateAlarmModel (Prelude.Maybe [Tag])
+createAlarmModel_tags = Lens.lens (\CreateAlarmModel' {tags} -> tags) (\s@CreateAlarmModel' {} a -> s {tags = a} :: CreateAlarmModel) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique name that helps you identify the alarm model. You can\'t change
 -- this name after you create the alarm model.
@@ -227,36 +228,36 @@ instance Core.AWSRequest CreateAlarmModel where
     Response.receiveJSON
       ( \s h x ->
           CreateAlarmModelResponse'
-            Prelude.<$> (x Data..?> "alarmModelVersion")
-            Prelude.<*> (x Data..?> "alarmModelArn")
-            Prelude.<*> (x Data..?> "status")
+            Prelude.<$> (x Data..?> "alarmModelArn")
+            Prelude.<*> (x Data..?> "alarmModelVersion")
             Prelude.<*> (x Data..?> "creationTime")
             Prelude.<*> (x Data..?> "lastUpdateTime")
+            Prelude.<*> (x Data..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateAlarmModel where
   hashWithSalt _salt CreateAlarmModel' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` key
-      `Prelude.hashWithSalt` severity
+    _salt `Prelude.hashWithSalt` alarmCapabilities
       `Prelude.hashWithSalt` alarmEventActions
-      `Prelude.hashWithSalt` alarmCapabilities
       `Prelude.hashWithSalt` alarmModelDescription
       `Prelude.hashWithSalt` alarmNotification
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` severity
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` alarmModelName
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` alarmRule
 
 instance Prelude.NFData CreateAlarmModel where
   rnf CreateAlarmModel' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf severity
+    Prelude.rnf alarmCapabilities
       `Prelude.seq` Prelude.rnf alarmEventActions
-      `Prelude.seq` Prelude.rnf alarmCapabilities
       `Prelude.seq` Prelude.rnf alarmModelDescription
       `Prelude.seq` Prelude.rnf alarmNotification
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf severity
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf alarmModelName
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf alarmRule
@@ -268,17 +269,17 @@ instance Data.ToJSON CreateAlarmModel where
   toJSON CreateAlarmModel' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("key" Data..=) Prelude.<$> key,
-            ("severity" Data..=) Prelude.<$> severity,
+          [ ("alarmCapabilities" Data..=)
+              Prelude.<$> alarmCapabilities,
             ("alarmEventActions" Data..=)
               Prelude.<$> alarmEventActions,
-            ("alarmCapabilities" Data..=)
-              Prelude.<$> alarmCapabilities,
             ("alarmModelDescription" Data..=)
               Prelude.<$> alarmModelDescription,
             ("alarmNotification" Data..=)
               Prelude.<$> alarmNotification,
+            ("key" Data..=) Prelude.<$> key,
+            ("severity" Data..=) Prelude.<$> severity,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("alarmModelName" Data..= alarmModelName),
             Prelude.Just ("roleArn" Data..= roleArn),
@@ -294,12 +295,16 @@ instance Data.ToQuery CreateAlarmModel where
 
 -- | /See:/ 'newCreateAlarmModelResponse' smart constructor.
 data CreateAlarmModelResponse = CreateAlarmModelResponse'
-  { -- | The version of the alarm model.
-    alarmModelVersion :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the alarm model. For more information, see
+  { -- | The ARN of the alarm model. For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /AWS General Reference/.
     alarmModelArn :: Prelude.Maybe Prelude.Text,
+    -- | The version of the alarm model.
+    alarmModelVersion :: Prelude.Maybe Prelude.Text,
+    -- | The time the alarm model was created, in the Unix epoch format.
+    creationTime :: Prelude.Maybe Data.POSIX,
+    -- | The time the alarm model was last updated, in the Unix epoch format.
+    lastUpdateTime :: Prelude.Maybe Data.POSIX,
     -- | The status of the alarm model. The status can be one of the following
     -- values:
     --
@@ -316,10 +321,6 @@ data CreateAlarmModelResponse = CreateAlarmModelResponse'
     -- -   @FAILED@ - You couldn\'t create or update the alarm model. Check
     --     your alarm model information and try again.
     status :: Prelude.Maybe AlarmModelVersionStatus,
-    -- | The time the alarm model was created, in the Unix epoch format.
-    creationTime :: Prelude.Maybe Data.POSIX,
-    -- | The time the alarm model was last updated, in the Unix epoch format.
-    lastUpdateTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -333,11 +334,15 @@ data CreateAlarmModelResponse = CreateAlarmModelResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'alarmModelVersion', 'createAlarmModelResponse_alarmModelVersion' - The version of the alarm model.
---
 -- 'alarmModelArn', 'createAlarmModelResponse_alarmModelArn' - The ARN of the alarm model. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /AWS General Reference/.
+--
+-- 'alarmModelVersion', 'createAlarmModelResponse_alarmModelVersion' - The version of the alarm model.
+--
+-- 'creationTime', 'createAlarmModelResponse_creationTime' - The time the alarm model was created, in the Unix epoch format.
+--
+-- 'lastUpdateTime', 'createAlarmModelResponse_lastUpdateTime' - The time the alarm model was last updated, in the Unix epoch format.
 --
 -- 'status', 'createAlarmModelResponse_status' - The status of the alarm model. The status can be one of the following
 -- values:
@@ -355,10 +360,6 @@ data CreateAlarmModelResponse = CreateAlarmModelResponse'
 -- -   @FAILED@ - You couldn\'t create or update the alarm model. Check
 --     your alarm model information and try again.
 --
--- 'creationTime', 'createAlarmModelResponse_creationTime' - The time the alarm model was created, in the Unix epoch format.
---
--- 'lastUpdateTime', 'createAlarmModelResponse_lastUpdateTime' - The time the alarm model was last updated, in the Unix epoch format.
---
 -- 'httpStatus', 'createAlarmModelResponse_httpStatus' - The response's http status code.
 newCreateAlarmModelResponse ::
   -- | 'httpStatus'
@@ -366,24 +367,32 @@ newCreateAlarmModelResponse ::
   CreateAlarmModelResponse
 newCreateAlarmModelResponse pHttpStatus_ =
   CreateAlarmModelResponse'
-    { alarmModelVersion =
+    { alarmModelArn =
         Prelude.Nothing,
-      alarmModelArn = Prelude.Nothing,
-      status = Prelude.Nothing,
+      alarmModelVersion = Prelude.Nothing,
       creationTime = Prelude.Nothing,
       lastUpdateTime = Prelude.Nothing,
+      status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The version of the alarm model.
-createAlarmModelResponse_alarmModelVersion :: Lens.Lens' CreateAlarmModelResponse (Prelude.Maybe Prelude.Text)
-createAlarmModelResponse_alarmModelVersion = Lens.lens (\CreateAlarmModelResponse' {alarmModelVersion} -> alarmModelVersion) (\s@CreateAlarmModelResponse' {} a -> s {alarmModelVersion = a} :: CreateAlarmModelResponse)
 
 -- | The ARN of the alarm model. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /AWS General Reference/.
 createAlarmModelResponse_alarmModelArn :: Lens.Lens' CreateAlarmModelResponse (Prelude.Maybe Prelude.Text)
 createAlarmModelResponse_alarmModelArn = Lens.lens (\CreateAlarmModelResponse' {alarmModelArn} -> alarmModelArn) (\s@CreateAlarmModelResponse' {} a -> s {alarmModelArn = a} :: CreateAlarmModelResponse)
+
+-- | The version of the alarm model.
+createAlarmModelResponse_alarmModelVersion :: Lens.Lens' CreateAlarmModelResponse (Prelude.Maybe Prelude.Text)
+createAlarmModelResponse_alarmModelVersion = Lens.lens (\CreateAlarmModelResponse' {alarmModelVersion} -> alarmModelVersion) (\s@CreateAlarmModelResponse' {} a -> s {alarmModelVersion = a} :: CreateAlarmModelResponse)
+
+-- | The time the alarm model was created, in the Unix epoch format.
+createAlarmModelResponse_creationTime :: Lens.Lens' CreateAlarmModelResponse (Prelude.Maybe Prelude.UTCTime)
+createAlarmModelResponse_creationTime = Lens.lens (\CreateAlarmModelResponse' {creationTime} -> creationTime) (\s@CreateAlarmModelResponse' {} a -> s {creationTime = a} :: CreateAlarmModelResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The time the alarm model was last updated, in the Unix epoch format.
+createAlarmModelResponse_lastUpdateTime :: Lens.Lens' CreateAlarmModelResponse (Prelude.Maybe Prelude.UTCTime)
+createAlarmModelResponse_lastUpdateTime = Lens.lens (\CreateAlarmModelResponse' {lastUpdateTime} -> lastUpdateTime) (\s@CreateAlarmModelResponse' {} a -> s {lastUpdateTime = a} :: CreateAlarmModelResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the alarm model. The status can be one of the following
 -- values:
@@ -403,23 +412,15 @@ createAlarmModelResponse_alarmModelArn = Lens.lens (\CreateAlarmModelResponse' {
 createAlarmModelResponse_status :: Lens.Lens' CreateAlarmModelResponse (Prelude.Maybe AlarmModelVersionStatus)
 createAlarmModelResponse_status = Lens.lens (\CreateAlarmModelResponse' {status} -> status) (\s@CreateAlarmModelResponse' {} a -> s {status = a} :: CreateAlarmModelResponse)
 
--- | The time the alarm model was created, in the Unix epoch format.
-createAlarmModelResponse_creationTime :: Lens.Lens' CreateAlarmModelResponse (Prelude.Maybe Prelude.UTCTime)
-createAlarmModelResponse_creationTime = Lens.lens (\CreateAlarmModelResponse' {creationTime} -> creationTime) (\s@CreateAlarmModelResponse' {} a -> s {creationTime = a} :: CreateAlarmModelResponse) Prelude.. Lens.mapping Data._Time
-
--- | The time the alarm model was last updated, in the Unix epoch format.
-createAlarmModelResponse_lastUpdateTime :: Lens.Lens' CreateAlarmModelResponse (Prelude.Maybe Prelude.UTCTime)
-createAlarmModelResponse_lastUpdateTime = Lens.lens (\CreateAlarmModelResponse' {lastUpdateTime} -> lastUpdateTime) (\s@CreateAlarmModelResponse' {} a -> s {lastUpdateTime = a} :: CreateAlarmModelResponse) Prelude.. Lens.mapping Data._Time
-
 -- | The response's http status code.
 createAlarmModelResponse_httpStatus :: Lens.Lens' CreateAlarmModelResponse Prelude.Int
 createAlarmModelResponse_httpStatus = Lens.lens (\CreateAlarmModelResponse' {httpStatus} -> httpStatus) (\s@CreateAlarmModelResponse' {} a -> s {httpStatus = a} :: CreateAlarmModelResponse)
 
 instance Prelude.NFData CreateAlarmModelResponse where
   rnf CreateAlarmModelResponse' {..} =
-    Prelude.rnf alarmModelVersion
-      `Prelude.seq` Prelude.rnf alarmModelArn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf alarmModelArn
+      `Prelude.seq` Prelude.rnf alarmModelVersion
       `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf lastUpdateTime
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

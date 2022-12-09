@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAlarmModelSummary' smart constructor.
 data AlarmModelSummary = AlarmModelSummary'
-  { -- | The name of the alarm model.
-    alarmModelName :: Prelude.Maybe Prelude.Text,
-    -- | The description of the alarm model.
+  { -- | The description of the alarm model.
     alarmModelDescription :: Prelude.Maybe Prelude.Text,
+    -- | The name of the alarm model.
+    alarmModelName :: Prelude.Maybe Prelude.Text,
     -- | The time the alarm model was created, in the Unix epoch format.
     creationTime :: Prelude.Maybe Data.POSIX
   }
@@ -45,28 +45,28 @@ data AlarmModelSummary = AlarmModelSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'alarmModelName', 'alarmModelSummary_alarmModelName' - The name of the alarm model.
---
 -- 'alarmModelDescription', 'alarmModelSummary_alarmModelDescription' - The description of the alarm model.
+--
+-- 'alarmModelName', 'alarmModelSummary_alarmModelName' - The name of the alarm model.
 --
 -- 'creationTime', 'alarmModelSummary_creationTime' - The time the alarm model was created, in the Unix epoch format.
 newAlarmModelSummary ::
   AlarmModelSummary
 newAlarmModelSummary =
   AlarmModelSummary'
-    { alarmModelName =
+    { alarmModelDescription =
         Prelude.Nothing,
-      alarmModelDescription = Prelude.Nothing,
+      alarmModelName = Prelude.Nothing,
       creationTime = Prelude.Nothing
     }
-
--- | The name of the alarm model.
-alarmModelSummary_alarmModelName :: Lens.Lens' AlarmModelSummary (Prelude.Maybe Prelude.Text)
-alarmModelSummary_alarmModelName = Lens.lens (\AlarmModelSummary' {alarmModelName} -> alarmModelName) (\s@AlarmModelSummary' {} a -> s {alarmModelName = a} :: AlarmModelSummary)
 
 -- | The description of the alarm model.
 alarmModelSummary_alarmModelDescription :: Lens.Lens' AlarmModelSummary (Prelude.Maybe Prelude.Text)
 alarmModelSummary_alarmModelDescription = Lens.lens (\AlarmModelSummary' {alarmModelDescription} -> alarmModelDescription) (\s@AlarmModelSummary' {} a -> s {alarmModelDescription = a} :: AlarmModelSummary)
+
+-- | The name of the alarm model.
+alarmModelSummary_alarmModelName :: Lens.Lens' AlarmModelSummary (Prelude.Maybe Prelude.Text)
+alarmModelSummary_alarmModelName = Lens.lens (\AlarmModelSummary' {alarmModelName} -> alarmModelName) (\s@AlarmModelSummary' {} a -> s {alarmModelName = a} :: AlarmModelSummary)
 
 -- | The time the alarm model was created, in the Unix epoch format.
 alarmModelSummary_creationTime :: Lens.Lens' AlarmModelSummary (Prelude.Maybe Prelude.UTCTime)
@@ -78,19 +78,19 @@ instance Data.FromJSON AlarmModelSummary where
       "AlarmModelSummary"
       ( \x ->
           AlarmModelSummary'
-            Prelude.<$> (x Data..:? "alarmModelName")
-            Prelude.<*> (x Data..:? "alarmModelDescription")
+            Prelude.<$> (x Data..:? "alarmModelDescription")
+            Prelude.<*> (x Data..:? "alarmModelName")
             Prelude.<*> (x Data..:? "creationTime")
       )
 
 instance Prelude.Hashable AlarmModelSummary where
   hashWithSalt _salt AlarmModelSummary' {..} =
-    _salt `Prelude.hashWithSalt` alarmModelName
-      `Prelude.hashWithSalt` alarmModelDescription
+    _salt `Prelude.hashWithSalt` alarmModelDescription
+      `Prelude.hashWithSalt` alarmModelName
       `Prelude.hashWithSalt` creationTime
 
 instance Prelude.NFData AlarmModelSummary where
   rnf AlarmModelSummary' {..} =
-    Prelude.rnf alarmModelName
-      `Prelude.seq` Prelude.rnf alarmModelDescription
+    Prelude.rnf alarmModelDescription
+      `Prelude.seq` Prelude.rnf alarmModelName
       `Prelude.seq` Prelude.rnf creationTime

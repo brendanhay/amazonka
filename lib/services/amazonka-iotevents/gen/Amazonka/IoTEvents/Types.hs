@@ -18,15 +18,15 @@ module Amazonka.IoTEvents.Types
     defaultService,
 
     -- * Errors
-    _ResourceAlreadyExistsException,
-    _UnsupportedOperationException,
-    _ServiceUnavailableException,
-    _ResourceNotFoundException,
-    _ResourceInUseException,
-    _LimitExceededException,
-    _ThrottlingException,
-    _InvalidRequestException,
     _InternalFailureException,
+    _InvalidRequestException,
+    _LimitExceededException,
+    _ResourceAlreadyExistsException,
+    _ResourceInUseException,
+    _ResourceNotFoundException,
+    _ServiceUnavailableException,
+    _ThrottlingException,
+    _UnsupportedOperationException,
 
     -- * AlarmModelVersionStatus
     AlarmModelVersionStatus (..),
@@ -63,38 +63,38 @@ module Amazonka.IoTEvents.Types
     -- * Action
     Action (..),
     newAction,
-    action_setTimer,
-    action_firehose,
-    action_resetTimer,
-    action_dynamoDBv2,
-    action_dynamoDB,
     action_clearTimer,
-    action_lambda,
+    action_dynamoDB,
+    action_dynamoDBv2,
+    action_firehose,
     action_iotEvents,
-    action_sqs,
     action_iotSiteWise,
+    action_iotTopicPublish,
+    action_lambda,
+    action_resetTimer,
+    action_setTimer,
     action_setVariable,
     action_sns,
-    action_iotTopicPublish,
+    action_sqs,
 
     -- * AlarmAction
     AlarmAction (..),
     newAlarmAction,
-    alarmAction_firehose,
-    alarmAction_dynamoDBv2,
     alarmAction_dynamoDB,
-    alarmAction_lambda,
+    alarmAction_dynamoDBv2,
+    alarmAction_firehose,
     alarmAction_iotEvents,
-    alarmAction_sqs,
     alarmAction_iotSiteWise,
-    alarmAction_sns,
     alarmAction_iotTopicPublish,
+    alarmAction_lambda,
+    alarmAction_sns,
+    alarmAction_sqs,
 
     -- * AlarmCapabilities
     AlarmCapabilities (..),
     newAlarmCapabilities,
-    alarmCapabilities_initializationConfiguration,
     alarmCapabilities_acknowledgeFlow,
+    alarmCapabilities_initializationConfiguration,
 
     -- * AlarmEventActions
     AlarmEventActions (..),
@@ -104,20 +104,20 @@ module Amazonka.IoTEvents.Types
     -- * AlarmModelSummary
     AlarmModelSummary (..),
     newAlarmModelSummary,
-    alarmModelSummary_alarmModelName,
     alarmModelSummary_alarmModelDescription,
+    alarmModelSummary_alarmModelName,
     alarmModelSummary_creationTime,
 
     -- * AlarmModelVersionSummary
     AlarmModelVersionSummary (..),
     newAlarmModelVersionSummary,
-    alarmModelVersionSummary_alarmModelName,
-    alarmModelVersionSummary_roleArn,
-    alarmModelVersionSummary_alarmModelVersion,
     alarmModelVersionSummary_alarmModelArn,
-    alarmModelVersionSummary_status,
+    alarmModelVersionSummary_alarmModelName,
+    alarmModelVersionSummary_alarmModelVersion,
     alarmModelVersionSummary_creationTime,
     alarmModelVersionSummary_lastUpdateTime,
+    alarmModelVersionSummary_roleArn,
+    alarmModelVersionSummary_status,
     alarmModelVersionSummary_statusMessage,
 
     -- * AlarmNotification
@@ -133,10 +133,10 @@ module Amazonka.IoTEvents.Types
     -- * AnalysisResult
     AnalysisResult (..),
     newAnalysisResult,
-    analysisResult_message,
-    analysisResult_type,
     analysisResult_level,
     analysisResult_locations,
+    analysisResult_message,
+    analysisResult_type,
 
     -- * AnalysisResultLocation
     AnalysisResultLocation (..),
@@ -159,9 +159,9 @@ module Amazonka.IoTEvents.Types
     -- * AssetPropertyVariant
     AssetPropertyVariant (..),
     newAssetPropertyVariant,
-    assetPropertyVariant_integerValue,
-    assetPropertyVariant_doubleValue,
     assetPropertyVariant_booleanValue,
+    assetPropertyVariant_doubleValue,
+    assetPropertyVariant_integerValue,
     assetPropertyVariant_stringValue,
 
     -- * Attribute
@@ -183,22 +183,22 @@ module Amazonka.IoTEvents.Types
     -- * DetectorModel
     DetectorModel (..),
     newDetectorModel,
-    detectorModel_detectorModelDefinition,
     detectorModel_detectorModelConfiguration,
+    detectorModel_detectorModelDefinition,
 
     -- * DetectorModelConfiguration
     DetectorModelConfiguration (..),
     newDetectorModelConfiguration,
-    detectorModelConfiguration_key,
-    detectorModelConfiguration_roleArn,
-    detectorModelConfiguration_evaluationMethod,
-    detectorModelConfiguration_status,
-    detectorModelConfiguration_detectorModelName,
-    detectorModelConfiguration_detectorModelDescription,
-    detectorModelConfiguration_detectorModelVersion,
     detectorModelConfiguration_creationTime,
-    detectorModelConfiguration_lastUpdateTime,
     detectorModelConfiguration_detectorModelArn,
+    detectorModelConfiguration_detectorModelDescription,
+    detectorModelConfiguration_detectorModelName,
+    detectorModelConfiguration_detectorModelVersion,
+    detectorModelConfiguration_evaluationMethod,
+    detectorModelConfiguration_key,
+    detectorModelConfiguration_lastUpdateTime,
+    detectorModelConfiguration_roleArn,
+    detectorModelConfiguration_status,
 
     -- * DetectorModelDefinition
     DetectorModelDefinition (..),
@@ -209,32 +209,32 @@ module Amazonka.IoTEvents.Types
     -- * DetectorModelSummary
     DetectorModelSummary (..),
     newDetectorModelSummary,
-    detectorModelSummary_detectorModelName,
-    detectorModelSummary_detectorModelDescription,
     detectorModelSummary_creationTime,
+    detectorModelSummary_detectorModelDescription,
+    detectorModelSummary_detectorModelName,
 
     -- * DetectorModelVersionSummary
     DetectorModelVersionSummary (..),
     newDetectorModelVersionSummary,
-    detectorModelVersionSummary_roleArn,
-    detectorModelVersionSummary_evaluationMethod,
-    detectorModelVersionSummary_status,
+    detectorModelVersionSummary_creationTime,
+    detectorModelVersionSummary_detectorModelArn,
     detectorModelVersionSummary_detectorModelName,
     detectorModelVersionSummary_detectorModelVersion,
-    detectorModelVersionSummary_creationTime,
+    detectorModelVersionSummary_evaluationMethod,
     detectorModelVersionSummary_lastUpdateTime,
-    detectorModelVersionSummary_detectorModelArn,
+    detectorModelVersionSummary_roleArn,
+    detectorModelVersionSummary_status,
 
     -- * DynamoDBAction
     DynamoDBAction (..),
     newDynamoDBAction,
+    dynamoDBAction_hashKeyType,
+    dynamoDBAction_operation,
+    dynamoDBAction_payload,
+    dynamoDBAction_payloadField,
+    dynamoDBAction_rangeKeyField,
     dynamoDBAction_rangeKeyType,
     dynamoDBAction_rangeKeyValue,
-    dynamoDBAction_payload,
-    dynamoDBAction_hashKeyType,
-    dynamoDBAction_rangeKeyField,
-    dynamoDBAction_operation,
-    dynamoDBAction_payloadField,
     dynamoDBAction_hashKeyField,
     dynamoDBAction_hashKeyValue,
     dynamoDBAction_tableName,
@@ -266,15 +266,15 @@ module Amazonka.IoTEvents.Types
     -- * Event
     Event (..),
     newEvent,
-    event_condition,
     event_actions,
+    event_condition,
     event_eventName,
 
     -- * FirehoseAction
     FirehoseAction (..),
     newFirehoseAction,
-    firehoseAction_separator,
     firehoseAction_payload,
+    firehoseAction_separator,
     firehoseAction_deliveryStreamName,
 
     -- * InitializationConfiguration
@@ -285,8 +285,8 @@ module Amazonka.IoTEvents.Types
     -- * Input
     Input (..),
     newInput,
-    input_inputDefinition,
     input_inputConfiguration,
+    input_inputDefinition,
 
     -- * InputConfiguration
     InputConfiguration (..),
@@ -306,18 +306,18 @@ module Amazonka.IoTEvents.Types
     -- * InputIdentifier
     InputIdentifier (..),
     newInputIdentifier,
-    inputIdentifier_iotSiteWiseInputIdentifier,
     inputIdentifier_iotEventsInputIdentifier,
+    inputIdentifier_iotSiteWiseInputIdentifier,
 
     -- * InputSummary
     InputSummary (..),
     newInputSummary,
-    inputSummary_inputName,
-    inputSummary_status,
     inputSummary_creationTime,
-    inputSummary_lastUpdateTime,
-    inputSummary_inputDescription,
     inputSummary_inputArn,
+    inputSummary_inputDescription,
+    inputSummary_inputName,
+    inputSummary_lastUpdateTime,
+    inputSummary_status,
 
     -- * IotEventsAction
     IotEventsAction (..),
@@ -333,11 +333,11 @@ module Amazonka.IoTEvents.Types
     -- * IotSiteWiseAction
     IotSiteWiseAction (..),
     newIotSiteWiseAction,
-    iotSiteWiseAction_propertyAlias,
-    iotSiteWiseAction_propertyValue,
     iotSiteWiseAction_assetId,
     iotSiteWiseAction_entryId,
+    iotSiteWiseAction_propertyAlias,
     iotSiteWiseAction_propertyId,
+    iotSiteWiseAction_propertyValue,
 
     -- * IotSiteWiseAssetModelPropertyIdentifier
     IotSiteWiseAssetModelPropertyIdentifier (..),
@@ -395,8 +395,8 @@ module Amazonka.IoTEvents.Types
     -- * OnInputLifecycle
     OnInputLifecycle (..),
     newOnInputLifecycle,
-    onInputLifecycle_transitionEvents,
     onInputLifecycle_events,
+    onInputLifecycle_transitionEvents,
 
     -- * Payload
     Payload (..),
@@ -417,8 +417,8 @@ module Amazonka.IoTEvents.Types
     -- * RoutedResource
     RoutedResource (..),
     newRoutedResource,
-    routedResource_name,
     routedResource_arn,
+    routedResource_name,
 
     -- * SMSConfiguration
     SMSConfiguration (..),
@@ -462,16 +462,16 @@ module Amazonka.IoTEvents.Types
     -- * SqsAction
     SqsAction (..),
     newSqsAction,
-    sqsAction_useBase64,
     sqsAction_payload,
+    sqsAction_useBase64,
     sqsAction_queueUrl,
 
     -- * State
     State (..),
     newState,
-    state_onInput,
     state_onEnter,
     state_onExit,
+    state_onInput,
     state_stateName,
 
     -- * Tag
@@ -591,28 +591,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -620,13 +614,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -634,63 +632,17 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
--- | The resource already exists.
-_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceAlreadyExistsException =
+-- | An internal failure occurred.
+_InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalFailureException =
   Core._MatchServiceError
     defaultService
-    "ResourceAlreadyExistsException"
-    Prelude.. Core.hasStatus 409
-
--- | The requested operation is not supported.
-_UnsupportedOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnsupportedOperationException =
-  Core._MatchServiceError
-    defaultService
-    "UnsupportedOperationException"
-    Prelude.. Core.hasStatus 501
-
--- | The service is currently unavailable.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceUnavailableException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceUnavailableException"
-    Prelude.. Core.hasStatus 503
-
--- | The resource was not found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 404
-
--- | The resource is in use.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceInUseException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceInUseException"
-    Prelude.. Core.hasStatus 409
-
--- | A limit was exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "LimitExceededException"
-    Prelude.. Core.hasStatus 410
-
--- | The request could not be completed due to throttling.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ThrottlingException =
-  Core._MatchServiceError
-    defaultService
-    "ThrottlingException"
-    Prelude.. Core.hasStatus 429
+    "InternalFailureException"
+    Prelude.. Core.hasStatus 500
 
 -- | The request was invalid.
 _InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -700,10 +652,58 @@ _InvalidRequestException =
     "InvalidRequestException"
     Prelude.. Core.hasStatus 400
 
--- | An internal failure occurred.
-_InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalFailureException =
+-- | A limit was exceeded.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
   Core._MatchServiceError
     defaultService
-    "InternalFailureException"
-    Prelude.. Core.hasStatus 500
+    "LimitExceededException"
+    Prelude.. Core.hasStatus 410
+
+-- | The resource already exists.
+_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceAlreadyExistsException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceAlreadyExistsException"
+    Prelude.. Core.hasStatus 409
+
+-- | The resource is in use.
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceInUseException"
+    Prelude.. Core.hasStatus 409
+
+-- | The resource was not found.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404
+
+-- | The service is currently unavailable.
+_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceUnavailableException"
+    Prelude.. Core.hasStatus 503
+
+-- | The request could not be completed due to throttling.
+_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException =
+  Core._MatchServiceError
+    defaultService
+    "ThrottlingException"
+    Prelude.. Core.hasStatus 429
+
+-- | The requested operation is not supported.
+_UnsupportedOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedOperationException =
+  Core._MatchServiceError
+    defaultService
+    "UnsupportedOperationException"
+    Prelude.. Core.hasStatus 501

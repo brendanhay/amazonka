@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSqsAction' smart constructor.
 data SqsAction = SqsAction'
-  { -- | Set this to TRUE if you want the data to be base-64 encoded before it is
-    -- written to the queue. Otherwise, set this to FALSE.
-    useBase64 :: Prelude.Maybe Prelude.Bool,
-    -- | You can configure the action payload when you send a message to an
+  { -- | You can configure the action payload when you send a message to an
     -- Amazon SQS queue.
     payload :: Prelude.Maybe Payload,
+    -- | Set this to TRUE if you want the data to be base-64 encoded before it is
+    -- written to the queue. Otherwise, set this to FALSE.
+    useBase64 :: Prelude.Maybe Prelude.Bool,
     -- | The URL of the SQS queue where the data is written.
     queueUrl :: Prelude.Text
   }
@@ -49,11 +49,11 @@ data SqsAction = SqsAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'useBase64', 'sqsAction_useBase64' - Set this to TRUE if you want the data to be base-64 encoded before it is
--- written to the queue. Otherwise, set this to FALSE.
---
 -- 'payload', 'sqsAction_payload' - You can configure the action payload when you send a message to an
 -- Amazon SQS queue.
+--
+-- 'useBase64', 'sqsAction_useBase64' - Set this to TRUE if you want the data to be base-64 encoded before it is
+-- written to the queue. Otherwise, set this to FALSE.
 --
 -- 'queueUrl', 'sqsAction_queueUrl' - The URL of the SQS queue where the data is written.
 newSqsAction ::
@@ -62,20 +62,20 @@ newSqsAction ::
   SqsAction
 newSqsAction pQueueUrl_ =
   SqsAction'
-    { useBase64 = Prelude.Nothing,
-      payload = Prelude.Nothing,
+    { payload = Prelude.Nothing,
+      useBase64 = Prelude.Nothing,
       queueUrl = pQueueUrl_
     }
-
--- | Set this to TRUE if you want the data to be base-64 encoded before it is
--- written to the queue. Otherwise, set this to FALSE.
-sqsAction_useBase64 :: Lens.Lens' SqsAction (Prelude.Maybe Prelude.Bool)
-sqsAction_useBase64 = Lens.lens (\SqsAction' {useBase64} -> useBase64) (\s@SqsAction' {} a -> s {useBase64 = a} :: SqsAction)
 
 -- | You can configure the action payload when you send a message to an
 -- Amazon SQS queue.
 sqsAction_payload :: Lens.Lens' SqsAction (Prelude.Maybe Payload)
 sqsAction_payload = Lens.lens (\SqsAction' {payload} -> payload) (\s@SqsAction' {} a -> s {payload = a} :: SqsAction)
+
+-- | Set this to TRUE if you want the data to be base-64 encoded before it is
+-- written to the queue. Otherwise, set this to FALSE.
+sqsAction_useBase64 :: Lens.Lens' SqsAction (Prelude.Maybe Prelude.Bool)
+sqsAction_useBase64 = Lens.lens (\SqsAction' {useBase64} -> useBase64) (\s@SqsAction' {} a -> s {useBase64 = a} :: SqsAction)
 
 -- | The URL of the SQS queue where the data is written.
 sqsAction_queueUrl :: Lens.Lens' SqsAction Prelude.Text
@@ -87,29 +87,29 @@ instance Data.FromJSON SqsAction where
       "SqsAction"
       ( \x ->
           SqsAction'
-            Prelude.<$> (x Data..:? "useBase64")
-            Prelude.<*> (x Data..:? "payload")
+            Prelude.<$> (x Data..:? "payload")
+            Prelude.<*> (x Data..:? "useBase64")
             Prelude.<*> (x Data..: "queueUrl")
       )
 
 instance Prelude.Hashable SqsAction where
   hashWithSalt _salt SqsAction' {..} =
-    _salt `Prelude.hashWithSalt` useBase64
-      `Prelude.hashWithSalt` payload
+    _salt `Prelude.hashWithSalt` payload
+      `Prelude.hashWithSalt` useBase64
       `Prelude.hashWithSalt` queueUrl
 
 instance Prelude.NFData SqsAction where
   rnf SqsAction' {..} =
-    Prelude.rnf useBase64
-      `Prelude.seq` Prelude.rnf payload
+    Prelude.rnf payload
+      `Prelude.seq` Prelude.rnf useBase64
       `Prelude.seq` Prelude.rnf queueUrl
 
 instance Data.ToJSON SqsAction where
   toJSON SqsAction' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("useBase64" Data..=) Prelude.<$> useBase64,
-            ("payload" Data..=) Prelude.<$> payload,
+          [ ("payload" Data..=) Prelude.<$> payload,
+            ("useBase64" Data..=) Prelude.<$> useBase64,
             Prelude.Just ("queueUrl" Data..= queueUrl)
           ]
       )

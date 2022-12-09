@@ -38,15 +38,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAlarmAction' smart constructor.
 data AlarmAction = AlarmAction'
-  { firehose :: Prelude.Maybe FirehoseAction,
+  { dynamoDB :: Prelude.Maybe DynamoDBAction,
     dynamoDBv2 :: Prelude.Maybe DynamoDBv2Action,
-    dynamoDB :: Prelude.Maybe DynamoDBAction,
-    lambda :: Prelude.Maybe LambdaAction,
+    firehose :: Prelude.Maybe FirehoseAction,
     iotEvents :: Prelude.Maybe IotEventsAction,
-    sqs :: Prelude.Maybe SqsAction,
     iotSiteWise :: Prelude.Maybe IotSiteWiseAction,
+    iotTopicPublish :: Prelude.Maybe IotTopicPublishAction,
+    lambda :: Prelude.Maybe LambdaAction,
     sns :: Prelude.Maybe SNSTopicPublishAction,
-    iotTopicPublish :: Prelude.Maybe IotTopicPublishAction
+    sqs :: Prelude.Maybe SqsAction
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,73 +58,73 @@ data AlarmAction = AlarmAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'firehose', 'alarmAction_firehose' - Undocumented member.
+-- 'dynamoDB', 'alarmAction_dynamoDB' - Undocumented member.
 --
 -- 'dynamoDBv2', 'alarmAction_dynamoDBv2' - Undocumented member.
 --
--- 'dynamoDB', 'alarmAction_dynamoDB' - Undocumented member.
---
--- 'lambda', 'alarmAction_lambda' - Undocumented member.
+-- 'firehose', 'alarmAction_firehose' - Undocumented member.
 --
 -- 'iotEvents', 'alarmAction_iotEvents' - Undocumented member.
 --
--- 'sqs', 'alarmAction_sqs' - Undocumented member.
---
 -- 'iotSiteWise', 'alarmAction_iotSiteWise' - Undocumented member.
+--
+-- 'iotTopicPublish', 'alarmAction_iotTopicPublish' - Undocumented member.
+--
+-- 'lambda', 'alarmAction_lambda' - Undocumented member.
 --
 -- 'sns', 'alarmAction_sns' - Undocumented member.
 --
--- 'iotTopicPublish', 'alarmAction_iotTopicPublish' - Undocumented member.
+-- 'sqs', 'alarmAction_sqs' - Undocumented member.
 newAlarmAction ::
   AlarmAction
 newAlarmAction =
   AlarmAction'
-    { firehose = Prelude.Nothing,
+    { dynamoDB = Prelude.Nothing,
       dynamoDBv2 = Prelude.Nothing,
-      dynamoDB = Prelude.Nothing,
-      lambda = Prelude.Nothing,
+      firehose = Prelude.Nothing,
       iotEvents = Prelude.Nothing,
-      sqs = Prelude.Nothing,
       iotSiteWise = Prelude.Nothing,
+      iotTopicPublish = Prelude.Nothing,
+      lambda = Prelude.Nothing,
       sns = Prelude.Nothing,
-      iotTopicPublish = Prelude.Nothing
+      sqs = Prelude.Nothing
     }
-
--- | Undocumented member.
-alarmAction_firehose :: Lens.Lens' AlarmAction (Prelude.Maybe FirehoseAction)
-alarmAction_firehose = Lens.lens (\AlarmAction' {firehose} -> firehose) (\s@AlarmAction' {} a -> s {firehose = a} :: AlarmAction)
-
--- | Undocumented member.
-alarmAction_dynamoDBv2 :: Lens.Lens' AlarmAction (Prelude.Maybe DynamoDBv2Action)
-alarmAction_dynamoDBv2 = Lens.lens (\AlarmAction' {dynamoDBv2} -> dynamoDBv2) (\s@AlarmAction' {} a -> s {dynamoDBv2 = a} :: AlarmAction)
 
 -- | Undocumented member.
 alarmAction_dynamoDB :: Lens.Lens' AlarmAction (Prelude.Maybe DynamoDBAction)
 alarmAction_dynamoDB = Lens.lens (\AlarmAction' {dynamoDB} -> dynamoDB) (\s@AlarmAction' {} a -> s {dynamoDB = a} :: AlarmAction)
 
 -- | Undocumented member.
-alarmAction_lambda :: Lens.Lens' AlarmAction (Prelude.Maybe LambdaAction)
-alarmAction_lambda = Lens.lens (\AlarmAction' {lambda} -> lambda) (\s@AlarmAction' {} a -> s {lambda = a} :: AlarmAction)
+alarmAction_dynamoDBv2 :: Lens.Lens' AlarmAction (Prelude.Maybe DynamoDBv2Action)
+alarmAction_dynamoDBv2 = Lens.lens (\AlarmAction' {dynamoDBv2} -> dynamoDBv2) (\s@AlarmAction' {} a -> s {dynamoDBv2 = a} :: AlarmAction)
+
+-- | Undocumented member.
+alarmAction_firehose :: Lens.Lens' AlarmAction (Prelude.Maybe FirehoseAction)
+alarmAction_firehose = Lens.lens (\AlarmAction' {firehose} -> firehose) (\s@AlarmAction' {} a -> s {firehose = a} :: AlarmAction)
 
 -- | Undocumented member.
 alarmAction_iotEvents :: Lens.Lens' AlarmAction (Prelude.Maybe IotEventsAction)
 alarmAction_iotEvents = Lens.lens (\AlarmAction' {iotEvents} -> iotEvents) (\s@AlarmAction' {} a -> s {iotEvents = a} :: AlarmAction)
 
 -- | Undocumented member.
-alarmAction_sqs :: Lens.Lens' AlarmAction (Prelude.Maybe SqsAction)
-alarmAction_sqs = Lens.lens (\AlarmAction' {sqs} -> sqs) (\s@AlarmAction' {} a -> s {sqs = a} :: AlarmAction)
-
--- | Undocumented member.
 alarmAction_iotSiteWise :: Lens.Lens' AlarmAction (Prelude.Maybe IotSiteWiseAction)
 alarmAction_iotSiteWise = Lens.lens (\AlarmAction' {iotSiteWise} -> iotSiteWise) (\s@AlarmAction' {} a -> s {iotSiteWise = a} :: AlarmAction)
+
+-- | Undocumented member.
+alarmAction_iotTopicPublish :: Lens.Lens' AlarmAction (Prelude.Maybe IotTopicPublishAction)
+alarmAction_iotTopicPublish = Lens.lens (\AlarmAction' {iotTopicPublish} -> iotTopicPublish) (\s@AlarmAction' {} a -> s {iotTopicPublish = a} :: AlarmAction)
+
+-- | Undocumented member.
+alarmAction_lambda :: Lens.Lens' AlarmAction (Prelude.Maybe LambdaAction)
+alarmAction_lambda = Lens.lens (\AlarmAction' {lambda} -> lambda) (\s@AlarmAction' {} a -> s {lambda = a} :: AlarmAction)
 
 -- | Undocumented member.
 alarmAction_sns :: Lens.Lens' AlarmAction (Prelude.Maybe SNSTopicPublishAction)
 alarmAction_sns = Lens.lens (\AlarmAction' {sns} -> sns) (\s@AlarmAction' {} a -> s {sns = a} :: AlarmAction)
 
 -- | Undocumented member.
-alarmAction_iotTopicPublish :: Lens.Lens' AlarmAction (Prelude.Maybe IotTopicPublishAction)
-alarmAction_iotTopicPublish = Lens.lens (\AlarmAction' {iotTopicPublish} -> iotTopicPublish) (\s@AlarmAction' {} a -> s {iotTopicPublish = a} :: AlarmAction)
+alarmAction_sqs :: Lens.Lens' AlarmAction (Prelude.Maybe SqsAction)
+alarmAction_sqs = Lens.lens (\AlarmAction' {sqs} -> sqs) (\s@AlarmAction' {} a -> s {sqs = a} :: AlarmAction)
 
 instance Data.FromJSON AlarmAction where
   parseJSON =
@@ -132,54 +132,54 @@ instance Data.FromJSON AlarmAction where
       "AlarmAction"
       ( \x ->
           AlarmAction'
-            Prelude.<$> (x Data..:? "firehose")
+            Prelude.<$> (x Data..:? "dynamoDB")
             Prelude.<*> (x Data..:? "dynamoDBv2")
-            Prelude.<*> (x Data..:? "dynamoDB")
-            Prelude.<*> (x Data..:? "lambda")
+            Prelude.<*> (x Data..:? "firehose")
             Prelude.<*> (x Data..:? "iotEvents")
-            Prelude.<*> (x Data..:? "sqs")
             Prelude.<*> (x Data..:? "iotSiteWise")
-            Prelude.<*> (x Data..:? "sns")
             Prelude.<*> (x Data..:? "iotTopicPublish")
+            Prelude.<*> (x Data..:? "lambda")
+            Prelude.<*> (x Data..:? "sns")
+            Prelude.<*> (x Data..:? "sqs")
       )
 
 instance Prelude.Hashable AlarmAction where
   hashWithSalt _salt AlarmAction' {..} =
-    _salt `Prelude.hashWithSalt` firehose
+    _salt `Prelude.hashWithSalt` dynamoDB
       `Prelude.hashWithSalt` dynamoDBv2
-      `Prelude.hashWithSalt` dynamoDB
-      `Prelude.hashWithSalt` lambda
+      `Prelude.hashWithSalt` firehose
       `Prelude.hashWithSalt` iotEvents
-      `Prelude.hashWithSalt` sqs
       `Prelude.hashWithSalt` iotSiteWise
-      `Prelude.hashWithSalt` sns
       `Prelude.hashWithSalt` iotTopicPublish
+      `Prelude.hashWithSalt` lambda
+      `Prelude.hashWithSalt` sns
+      `Prelude.hashWithSalt` sqs
 
 instance Prelude.NFData AlarmAction where
   rnf AlarmAction' {..} =
-    Prelude.rnf firehose
+    Prelude.rnf dynamoDB
       `Prelude.seq` Prelude.rnf dynamoDBv2
-      `Prelude.seq` Prelude.rnf dynamoDB
-      `Prelude.seq` Prelude.rnf lambda
+      `Prelude.seq` Prelude.rnf firehose
       `Prelude.seq` Prelude.rnf iotEvents
-      `Prelude.seq` Prelude.rnf sqs
       `Prelude.seq` Prelude.rnf iotSiteWise
-      `Prelude.seq` Prelude.rnf sns
       `Prelude.seq` Prelude.rnf iotTopicPublish
+      `Prelude.seq` Prelude.rnf lambda
+      `Prelude.seq` Prelude.rnf sns
+      `Prelude.seq` Prelude.rnf sqs
 
 instance Data.ToJSON AlarmAction where
   toJSON AlarmAction' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("firehose" Data..=) Prelude.<$> firehose,
+          [ ("dynamoDB" Data..=) Prelude.<$> dynamoDB,
             ("dynamoDBv2" Data..=) Prelude.<$> dynamoDBv2,
-            ("dynamoDB" Data..=) Prelude.<$> dynamoDB,
-            ("lambda" Data..=) Prelude.<$> lambda,
+            ("firehose" Data..=) Prelude.<$> firehose,
             ("iotEvents" Data..=) Prelude.<$> iotEvents,
-            ("sqs" Data..=) Prelude.<$> sqs,
             ("iotSiteWise" Data..=) Prelude.<$> iotSiteWise,
-            ("sns" Data..=) Prelude.<$> sns,
             ("iotTopicPublish" Data..=)
-              Prelude.<$> iotTopicPublish
+              Prelude.<$> iotTopicPublish,
+            ("lambda" Data..=) Prelude.<$> lambda,
+            ("sns" Data..=) Prelude.<$> sns,
+            ("sqs" Data..=) Prelude.<$> sqs
           ]
       )

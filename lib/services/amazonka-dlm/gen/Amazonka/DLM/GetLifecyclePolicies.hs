@@ -30,11 +30,11 @@ module Amazonka.DLM.GetLifecyclePolicies
     newGetLifecyclePolicies,
 
     -- * Request Lenses
-    getLifecyclePolicies_tagsToAdd,
-    getLifecyclePolicies_targetTags,
-    getLifecyclePolicies_state,
     getLifecyclePolicies_policyIds,
     getLifecyclePolicies_resourceTypes,
+    getLifecyclePolicies_state,
+    getLifecyclePolicies_tagsToAdd,
+    getLifecyclePolicies_targetTags,
 
     -- * Destructuring the Response
     GetLifecyclePoliciesResponse (..),
@@ -56,7 +56,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetLifecyclePolicies' smart constructor.
 data GetLifecyclePolicies = GetLifecyclePolicies'
-  { -- | The tags to add to objects created by the policy.
+  { -- | The identifiers of the data lifecycle policies.
+    policyIds :: Prelude.Maybe [Prelude.Text],
+    -- | The resource type.
+    resourceTypes :: Prelude.Maybe (Prelude.NonEmpty ResourceTypeValues),
+    -- | The activation state.
+    state :: Prelude.Maybe GettablePolicyStateValues,
+    -- | The tags to add to objects created by the policy.
     --
     -- Tags are strings in the format @key=value@.
     --
@@ -66,13 +72,7 @@ data GetLifecyclePolicies = GetLifecyclePolicies'
     -- | The target tag for a policy.
     --
     -- Tags are strings in the format @key=value@.
-    targetTags :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The activation state.
-    state :: Prelude.Maybe GettablePolicyStateValues,
-    -- | The identifiers of the data lifecycle policies.
-    policyIds :: Prelude.Maybe [Prelude.Text],
-    -- | The resource type.
-    resourceTypes :: Prelude.Maybe (Prelude.NonEmpty ResourceTypeValues)
+    targetTags :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,6 +84,12 @@ data GetLifecyclePolicies = GetLifecyclePolicies'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'policyIds', 'getLifecyclePolicies_policyIds' - The identifiers of the data lifecycle policies.
+--
+-- 'resourceTypes', 'getLifecyclePolicies_resourceTypes' - The resource type.
+--
+-- 'state', 'getLifecyclePolicies_state' - The activation state.
+--
 -- 'tagsToAdd', 'getLifecyclePolicies_tagsToAdd' - The tags to add to objects created by the policy.
 --
 -- Tags are strings in the format @key=value@.
@@ -94,22 +100,28 @@ data GetLifecyclePolicies = GetLifecyclePolicies'
 -- 'targetTags', 'getLifecyclePolicies_targetTags' - The target tag for a policy.
 --
 -- Tags are strings in the format @key=value@.
---
--- 'state', 'getLifecyclePolicies_state' - The activation state.
---
--- 'policyIds', 'getLifecyclePolicies_policyIds' - The identifiers of the data lifecycle policies.
---
--- 'resourceTypes', 'getLifecyclePolicies_resourceTypes' - The resource type.
 newGetLifecyclePolicies ::
   GetLifecyclePolicies
 newGetLifecyclePolicies =
   GetLifecyclePolicies'
-    { tagsToAdd = Prelude.Nothing,
-      targetTags = Prelude.Nothing,
+    { policyIds = Prelude.Nothing,
+      resourceTypes = Prelude.Nothing,
       state = Prelude.Nothing,
-      policyIds = Prelude.Nothing,
-      resourceTypes = Prelude.Nothing
+      tagsToAdd = Prelude.Nothing,
+      targetTags = Prelude.Nothing
     }
+
+-- | The identifiers of the data lifecycle policies.
+getLifecyclePolicies_policyIds :: Lens.Lens' GetLifecyclePolicies (Prelude.Maybe [Prelude.Text])
+getLifecyclePolicies_policyIds = Lens.lens (\GetLifecyclePolicies' {policyIds} -> policyIds) (\s@GetLifecyclePolicies' {} a -> s {policyIds = a} :: GetLifecyclePolicies) Prelude.. Lens.mapping Lens.coerced
+
+-- | The resource type.
+getLifecyclePolicies_resourceTypes :: Lens.Lens' GetLifecyclePolicies (Prelude.Maybe (Prelude.NonEmpty ResourceTypeValues))
+getLifecyclePolicies_resourceTypes = Lens.lens (\GetLifecyclePolicies' {resourceTypes} -> resourceTypes) (\s@GetLifecyclePolicies' {} a -> s {resourceTypes = a} :: GetLifecyclePolicies) Prelude.. Lens.mapping Lens.coerced
+
+-- | The activation state.
+getLifecyclePolicies_state :: Lens.Lens' GetLifecyclePolicies (Prelude.Maybe GettablePolicyStateValues)
+getLifecyclePolicies_state = Lens.lens (\GetLifecyclePolicies' {state} -> state) (\s@GetLifecyclePolicies' {} a -> s {state = a} :: GetLifecyclePolicies)
 
 -- | The tags to add to objects created by the policy.
 --
@@ -125,18 +137,6 @@ getLifecyclePolicies_tagsToAdd = Lens.lens (\GetLifecyclePolicies' {tagsToAdd} -
 -- Tags are strings in the format @key=value@.
 getLifecyclePolicies_targetTags :: Lens.Lens' GetLifecyclePolicies (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 getLifecyclePolicies_targetTags = Lens.lens (\GetLifecyclePolicies' {targetTags} -> targetTags) (\s@GetLifecyclePolicies' {} a -> s {targetTags = a} :: GetLifecyclePolicies) Prelude.. Lens.mapping Lens.coerced
-
--- | The activation state.
-getLifecyclePolicies_state :: Lens.Lens' GetLifecyclePolicies (Prelude.Maybe GettablePolicyStateValues)
-getLifecyclePolicies_state = Lens.lens (\GetLifecyclePolicies' {state} -> state) (\s@GetLifecyclePolicies' {} a -> s {state = a} :: GetLifecyclePolicies)
-
--- | The identifiers of the data lifecycle policies.
-getLifecyclePolicies_policyIds :: Lens.Lens' GetLifecyclePolicies (Prelude.Maybe [Prelude.Text])
-getLifecyclePolicies_policyIds = Lens.lens (\GetLifecyclePolicies' {policyIds} -> policyIds) (\s@GetLifecyclePolicies' {} a -> s {policyIds = a} :: GetLifecyclePolicies) Prelude.. Lens.mapping Lens.coerced
-
--- | The resource type.
-getLifecyclePolicies_resourceTypes :: Lens.Lens' GetLifecyclePolicies (Prelude.Maybe (Prelude.NonEmpty ResourceTypeValues))
-getLifecyclePolicies_resourceTypes = Lens.lens (\GetLifecyclePolicies' {resourceTypes} -> resourceTypes) (\s@GetLifecyclePolicies' {} a -> s {resourceTypes = a} :: GetLifecyclePolicies) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest GetLifecyclePolicies where
   type
@@ -154,19 +154,19 @@ instance Core.AWSRequest GetLifecyclePolicies where
 
 instance Prelude.Hashable GetLifecyclePolicies where
   hashWithSalt _salt GetLifecyclePolicies' {..} =
-    _salt `Prelude.hashWithSalt` tagsToAdd
-      `Prelude.hashWithSalt` targetTags
-      `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` policyIds
+    _salt `Prelude.hashWithSalt` policyIds
       `Prelude.hashWithSalt` resourceTypes
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` tagsToAdd
+      `Prelude.hashWithSalt` targetTags
 
 instance Prelude.NFData GetLifecyclePolicies where
   rnf GetLifecyclePolicies' {..} =
-    Prelude.rnf tagsToAdd
-      `Prelude.seq` Prelude.rnf targetTags
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf policyIds
+    Prelude.rnf policyIds
       `Prelude.seq` Prelude.rnf resourceTypes
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf tagsToAdd
+      `Prelude.seq` Prelude.rnf targetTags
 
 instance Data.ToHeaders GetLifecyclePolicies where
   toHeaders =
@@ -185,21 +185,21 @@ instance Data.ToPath GetLifecyclePolicies where
 instance Data.ToQuery GetLifecyclePolicies where
   toQuery GetLifecyclePolicies' {..} =
     Prelude.mconcat
-      [ "tagsToAdd"
-          Data.=: Data.toQuery
-            (Data.toQueryList "member" Prelude.<$> tagsToAdd),
-        "targetTags"
-          Data.=: Data.toQuery
-            (Data.toQueryList "member" Prelude.<$> targetTags),
-        "state" Data.=: state,
-        "policyIds"
+      [ "policyIds"
           Data.=: Data.toQuery
             (Data.toQueryList "member" Prelude.<$> policyIds),
         "resourceTypes"
           Data.=: Data.toQuery
             ( Data.toQueryList "member"
                 Prelude.<$> resourceTypes
-            )
+            ),
+        "state" Data.=: state,
+        "tagsToAdd"
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> tagsToAdd),
+        "targetTags"
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> targetTags)
       ]
 
 -- | /See:/ 'newGetLifecyclePoliciesResponse' smart constructor.

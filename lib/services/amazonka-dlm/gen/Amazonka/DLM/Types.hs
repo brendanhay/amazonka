@@ -19,9 +19,9 @@ module Amazonka.DLM.Types
 
     -- * Errors
     _InternalServerException,
-    _ResourceNotFoundException,
-    _LimitExceededException,
     _InvalidRequestException,
+    _LimitExceededException,
+    _ResourceNotFoundException,
 
     -- * EventSourceValues
     EventSourceValues (..),
@@ -72,11 +72,11 @@ module Amazonka.DLM.Types
     -- * CreateRule
     CreateRule (..),
     newCreateRule,
-    createRule_interval,
-    createRule_location,
-    createRule_intervalUnit,
-    createRule_times,
     createRule_cronExpression,
+    createRule_interval,
+    createRule_intervalUnit,
+    createRule_location,
+    createRule_times,
 
     -- * CrossRegionCopyAction
     CrossRegionCopyAction (..),
@@ -102,17 +102,17 @@ module Amazonka.DLM.Types
     newCrossRegionCopyRule,
     crossRegionCopyRule_cmkArn,
     crossRegionCopyRule_copyTags,
+    crossRegionCopyRule_deprecateRule,
     crossRegionCopyRule_retainRule,
     crossRegionCopyRule_target,
     crossRegionCopyRule_targetRegion,
-    crossRegionCopyRule_deprecateRule,
     crossRegionCopyRule_encrypted,
 
     -- * DeprecateRule
     DeprecateRule (..),
     newDeprecateRule,
-    deprecateRule_interval,
     deprecateRule_count,
+    deprecateRule_interval,
     deprecateRule_intervalUnit,
 
     -- * EncryptionConfiguration
@@ -137,81 +137,81 @@ module Amazonka.DLM.Types
     -- * FastRestoreRule
     FastRestoreRule (..),
     newFastRestoreRule,
-    fastRestoreRule_interval,
     fastRestoreRule_count,
+    fastRestoreRule_interval,
     fastRestoreRule_intervalUnit,
     fastRestoreRule_availabilityZones,
 
     -- * LifecyclePolicy
     LifecyclePolicy (..),
     newLifecyclePolicy,
-    lifecyclePolicy_tags,
-    lifecyclePolicy_policyId,
-    lifecyclePolicy_policyDetails,
-    lifecyclePolicy_state,
-    lifecyclePolicy_description,
-    lifecyclePolicy_policyArn,
     lifecyclePolicy_dateCreated,
-    lifecyclePolicy_executionRoleArn,
-    lifecyclePolicy_statusMessage,
     lifecyclePolicy_dateModified,
+    lifecyclePolicy_description,
+    lifecyclePolicy_executionRoleArn,
+    lifecyclePolicy_policyArn,
+    lifecyclePolicy_policyDetails,
+    lifecyclePolicy_policyId,
+    lifecyclePolicy_state,
+    lifecyclePolicy_statusMessage,
+    lifecyclePolicy_tags,
 
     -- * LifecyclePolicySummary
     LifecyclePolicySummary (..),
     newLifecyclePolicySummary,
-    lifecyclePolicySummary_tags,
+    lifecyclePolicySummary_description,
     lifecyclePolicySummary_policyId,
     lifecyclePolicySummary_policyType,
     lifecyclePolicySummary_state,
-    lifecyclePolicySummary_description,
+    lifecyclePolicySummary_tags,
 
     -- * Parameters
     Parameters (..),
     newParameters,
-    parameters_excludeDataVolumeTags,
     parameters_excludeBootVolume,
+    parameters_excludeDataVolumeTags,
     parameters_noReboot,
 
     -- * PolicyDetails
     PolicyDetails (..),
     newPolicyDetails,
-    policyDetails_policyType,
-    policyDetails_targetTags,
-    policyDetails_resourceLocations,
-    policyDetails_schedules,
-    policyDetails_resourceTypes,
     policyDetails_actions,
     policyDetails_eventSource,
     policyDetails_parameters,
+    policyDetails_policyType,
+    policyDetails_resourceLocations,
+    policyDetails_resourceTypes,
+    policyDetails_schedules,
+    policyDetails_targetTags,
 
     -- * RetainRule
     RetainRule (..),
     newRetainRule,
-    retainRule_interval,
     retainRule_count,
+    retainRule_interval,
     retainRule_intervalUnit,
 
     -- * RetentionArchiveTier
     RetentionArchiveTier (..),
     newRetentionArchiveTier,
-    retentionArchiveTier_interval,
     retentionArchiveTier_count,
+    retentionArchiveTier_interval,
     retentionArchiveTier_intervalUnit,
 
     -- * Schedule
     Schedule (..),
     newSchedule,
     schedule_archiveRule,
-    schedule_name,
-    schedule_fastRestoreRule,
-    schedule_variableTags,
-    schedule_tagsToAdd,
-    schedule_createRule,
     schedule_copyTags,
-    schedule_retainRule,
-    schedule_deprecateRule,
+    schedule_createRule,
     schedule_crossRegionCopyRules,
+    schedule_deprecateRule,
+    schedule_fastRestoreRule,
+    schedule_name,
+    schedule_retainRule,
     schedule_shareRules,
+    schedule_tagsToAdd,
+    schedule_variableTags,
 
     -- * ShareRule
     ShareRule (..),
@@ -290,28 +290,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -319,13 +313,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -333,6 +331,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The service failed in an unexpected way.
@@ -343,13 +343,14 @@ _InternalServerException =
     "InternalServerException"
     Prelude.. Core.hasStatus 500
 
--- | A requested resource was not found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
+-- | Bad request. The request is missing required parameters or has invalid
+-- parameters.
+_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException =
   Core._MatchServiceError
     defaultService
-    "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 404
+    "InvalidRequestException"
+    Prelude.. Core.hasStatus 400
 
 -- | The request failed because a limit was exceeded.
 _LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -359,11 +360,10 @@ _LimitExceededException =
     "LimitExceededException"
     Prelude.. Core.hasStatus 429
 
--- | Bad request. The request is missing required parameters or has invalid
--- parameters.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidRequestException =
+-- | A requested resource was not found.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
-    "InvalidRequestException"
-    Prelude.. Core.hasStatus 400
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404

@@ -33,17 +33,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeprecateRule' smart constructor.
 data DeprecateRule = DeprecateRule'
-  { -- | If the schedule has an age-based retention rule, this parameter
+  { -- | If the schedule has a count-based retention rule, this parameter
+    -- specifies the number of oldest AMIs to deprecate. The count must be less
+    -- than or equal to the schedule\'s retention count, and it can\'t be
+    -- greater than 1000.
+    count :: Prelude.Maybe Prelude.Natural,
+    -- | If the schedule has an age-based retention rule, this parameter
     -- specifies the period after which to deprecate AMIs created by the
     -- schedule. The period must be less than or equal to the schedule\'s
     -- retention period, and it can\'t be greater than 10 years. This is
     -- equivalent to 120 months, 520 weeks, or 3650 days.
     interval :: Prelude.Maybe Prelude.Natural,
-    -- | If the schedule has a count-based retention rule, this parameter
-    -- specifies the number of oldest AMIs to deprecate. The count must be less
-    -- than or equal to the schedule\'s retention count, and it can\'t be
-    -- greater than 1000.
-    count :: Prelude.Maybe Prelude.Natural,
     -- | The unit of time in which to measure the __Interval__.
     intervalUnit :: Prelude.Maybe RetentionIntervalUnitValues
   }
@@ -57,26 +57,33 @@ data DeprecateRule = DeprecateRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'count', 'deprecateRule_count' - If the schedule has a count-based retention rule, this parameter
+-- specifies the number of oldest AMIs to deprecate. The count must be less
+-- than or equal to the schedule\'s retention count, and it can\'t be
+-- greater than 1000.
+--
 -- 'interval', 'deprecateRule_interval' - If the schedule has an age-based retention rule, this parameter
 -- specifies the period after which to deprecate AMIs created by the
 -- schedule. The period must be less than or equal to the schedule\'s
 -- retention period, and it can\'t be greater than 10 years. This is
 -- equivalent to 120 months, 520 weeks, or 3650 days.
 --
--- 'count', 'deprecateRule_count' - If the schedule has a count-based retention rule, this parameter
--- specifies the number of oldest AMIs to deprecate. The count must be less
--- than or equal to the schedule\'s retention count, and it can\'t be
--- greater than 1000.
---
 -- 'intervalUnit', 'deprecateRule_intervalUnit' - The unit of time in which to measure the __Interval__.
 newDeprecateRule ::
   DeprecateRule
 newDeprecateRule =
   DeprecateRule'
-    { interval = Prelude.Nothing,
-      count = Prelude.Nothing,
+    { count = Prelude.Nothing,
+      interval = Prelude.Nothing,
       intervalUnit = Prelude.Nothing
     }
+
+-- | If the schedule has a count-based retention rule, this parameter
+-- specifies the number of oldest AMIs to deprecate. The count must be less
+-- than or equal to the schedule\'s retention count, and it can\'t be
+-- greater than 1000.
+deprecateRule_count :: Lens.Lens' DeprecateRule (Prelude.Maybe Prelude.Natural)
+deprecateRule_count = Lens.lens (\DeprecateRule' {count} -> count) (\s@DeprecateRule' {} a -> s {count = a} :: DeprecateRule)
 
 -- | If the schedule has an age-based retention rule, this parameter
 -- specifies the period after which to deprecate AMIs created by the
@@ -85,13 +92,6 @@ newDeprecateRule =
 -- equivalent to 120 months, 520 weeks, or 3650 days.
 deprecateRule_interval :: Lens.Lens' DeprecateRule (Prelude.Maybe Prelude.Natural)
 deprecateRule_interval = Lens.lens (\DeprecateRule' {interval} -> interval) (\s@DeprecateRule' {} a -> s {interval = a} :: DeprecateRule)
-
--- | If the schedule has a count-based retention rule, this parameter
--- specifies the number of oldest AMIs to deprecate. The count must be less
--- than or equal to the schedule\'s retention count, and it can\'t be
--- greater than 1000.
-deprecateRule_count :: Lens.Lens' DeprecateRule (Prelude.Maybe Prelude.Natural)
-deprecateRule_count = Lens.lens (\DeprecateRule' {count} -> count) (\s@DeprecateRule' {} a -> s {count = a} :: DeprecateRule)
 
 -- | The unit of time in which to measure the __Interval__.
 deprecateRule_intervalUnit :: Lens.Lens' DeprecateRule (Prelude.Maybe RetentionIntervalUnitValues)
@@ -103,29 +103,29 @@ instance Data.FromJSON DeprecateRule where
       "DeprecateRule"
       ( \x ->
           DeprecateRule'
-            Prelude.<$> (x Data..:? "Interval")
-            Prelude.<*> (x Data..:? "Count")
+            Prelude.<$> (x Data..:? "Count")
+            Prelude.<*> (x Data..:? "Interval")
             Prelude.<*> (x Data..:? "IntervalUnit")
       )
 
 instance Prelude.Hashable DeprecateRule where
   hashWithSalt _salt DeprecateRule' {..} =
-    _salt `Prelude.hashWithSalt` interval
-      `Prelude.hashWithSalt` count
+    _salt `Prelude.hashWithSalt` count
+      `Prelude.hashWithSalt` interval
       `Prelude.hashWithSalt` intervalUnit
 
 instance Prelude.NFData DeprecateRule where
   rnf DeprecateRule' {..} =
-    Prelude.rnf interval
-      `Prelude.seq` Prelude.rnf count
+    Prelude.rnf count
+      `Prelude.seq` Prelude.rnf interval
       `Prelude.seq` Prelude.rnf intervalUnit
 
 instance Data.ToJSON DeprecateRule where
   toJSON DeprecateRule' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Interval" Data..=) Prelude.<$> interval,
-            ("Count" Data..=) Prelude.<$> count,
+          [ ("Count" Data..=) Prelude.<$> count,
+            ("Interval" Data..=) Prelude.<$> interval,
             ("IntervalUnit" Data..=) Prelude.<$> intervalUnit
           ]
       )

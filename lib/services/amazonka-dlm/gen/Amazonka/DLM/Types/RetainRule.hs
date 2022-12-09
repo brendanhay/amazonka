@@ -57,15 +57,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRetainRule' smart constructor.
 data RetainRule = RetainRule'
-  { -- | The amount of time to retain each snapshot. The maximum is 100 years.
-    -- This is equivalent to 1200 months, 5200 weeks, or 36500 days.
-    interval :: Prelude.Maybe Prelude.Natural,
-    -- | The number of snapshots to retain for each volume, up to a maximum of
+  { -- | The number of snapshots to retain for each volume, up to a maximum of
     -- 1000. For example if you want to retain a maximum of three snapshots,
     -- specify @3@. When the fourth snapshot is created, the oldest retained
     -- snapshot is deleted, or it is moved to the archive tier if you have
     -- specified an ArchiveRule.
     count :: Prelude.Maybe Prelude.Natural,
+    -- | The amount of time to retain each snapshot. The maximum is 100 years.
+    -- This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+    interval :: Prelude.Maybe Prelude.Natural,
     -- | The unit of time for time-based retention. For example, to retain
     -- snapshots for 3 months, specify @Interval=3@ and @IntervalUnit=MONTHS@.
     -- Once the snapshot has been retained for 3 months, it is deleted, or it
@@ -82,14 +82,14 @@ data RetainRule = RetainRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'interval', 'retainRule_interval' - The amount of time to retain each snapshot. The maximum is 100 years.
--- This is equivalent to 1200 months, 5200 weeks, or 36500 days.
---
 -- 'count', 'retainRule_count' - The number of snapshots to retain for each volume, up to a maximum of
 -- 1000. For example if you want to retain a maximum of three snapshots,
 -- specify @3@. When the fourth snapshot is created, the oldest retained
 -- snapshot is deleted, or it is moved to the archive tier if you have
 -- specified an ArchiveRule.
+--
+-- 'interval', 'retainRule_interval' - The amount of time to retain each snapshot. The maximum is 100 years.
+-- This is equivalent to 1200 months, 5200 weeks, or 36500 days.
 --
 -- 'intervalUnit', 'retainRule_intervalUnit' - The unit of time for time-based retention. For example, to retain
 -- snapshots for 3 months, specify @Interval=3@ and @IntervalUnit=MONTHS@.
@@ -99,15 +99,10 @@ newRetainRule ::
   RetainRule
 newRetainRule =
   RetainRule'
-    { interval = Prelude.Nothing,
-      count = Prelude.Nothing,
+    { count = Prelude.Nothing,
+      interval = Prelude.Nothing,
       intervalUnit = Prelude.Nothing
     }
-
--- | The amount of time to retain each snapshot. The maximum is 100 years.
--- This is equivalent to 1200 months, 5200 weeks, or 36500 days.
-retainRule_interval :: Lens.Lens' RetainRule (Prelude.Maybe Prelude.Natural)
-retainRule_interval = Lens.lens (\RetainRule' {interval} -> interval) (\s@RetainRule' {} a -> s {interval = a} :: RetainRule)
 
 -- | The number of snapshots to retain for each volume, up to a maximum of
 -- 1000. For example if you want to retain a maximum of three snapshots,
@@ -116,6 +111,11 @@ retainRule_interval = Lens.lens (\RetainRule' {interval} -> interval) (\s@Retain
 -- specified an ArchiveRule.
 retainRule_count :: Lens.Lens' RetainRule (Prelude.Maybe Prelude.Natural)
 retainRule_count = Lens.lens (\RetainRule' {count} -> count) (\s@RetainRule' {} a -> s {count = a} :: RetainRule)
+
+-- | The amount of time to retain each snapshot. The maximum is 100 years.
+-- This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+retainRule_interval :: Lens.Lens' RetainRule (Prelude.Maybe Prelude.Natural)
+retainRule_interval = Lens.lens (\RetainRule' {interval} -> interval) (\s@RetainRule' {} a -> s {interval = a} :: RetainRule)
 
 -- | The unit of time for time-based retention. For example, to retain
 -- snapshots for 3 months, specify @Interval=3@ and @IntervalUnit=MONTHS@.
@@ -130,29 +130,29 @@ instance Data.FromJSON RetainRule where
       "RetainRule"
       ( \x ->
           RetainRule'
-            Prelude.<$> (x Data..:? "Interval")
-            Prelude.<*> (x Data..:? "Count")
+            Prelude.<$> (x Data..:? "Count")
+            Prelude.<*> (x Data..:? "Interval")
             Prelude.<*> (x Data..:? "IntervalUnit")
       )
 
 instance Prelude.Hashable RetainRule where
   hashWithSalt _salt RetainRule' {..} =
-    _salt `Prelude.hashWithSalt` interval
-      `Prelude.hashWithSalt` count
+    _salt `Prelude.hashWithSalt` count
+      `Prelude.hashWithSalt` interval
       `Prelude.hashWithSalt` intervalUnit
 
 instance Prelude.NFData RetainRule where
   rnf RetainRule' {..} =
-    Prelude.rnf interval
-      `Prelude.seq` Prelude.rnf count
+    Prelude.rnf count
+      `Prelude.seq` Prelude.rnf interval
       `Prelude.seq` Prelude.rnf intervalUnit
 
 instance Data.ToJSON RetainRule where
   toJSON RetainRule' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Interval" Data..=) Prelude.<$> interval,
-            ("Count" Data..=) Prelude.<$> count,
+          [ ("Count" Data..=) Prelude.<$> count,
+            ("Interval" Data..=) Prelude.<$> interval,
             ("IntervalUnit" Data..=) Prelude.<$> intervalUnit
           ]
       )

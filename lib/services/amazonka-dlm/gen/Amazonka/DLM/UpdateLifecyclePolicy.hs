@@ -30,10 +30,10 @@ module Amazonka.DLM.UpdateLifecyclePolicy
     newUpdateLifecyclePolicy,
 
     -- * Request Lenses
-    updateLifecyclePolicy_policyDetails,
-    updateLifecyclePolicy_state,
     updateLifecyclePolicy_description,
     updateLifecyclePolicy_executionRoleArn,
+    updateLifecyclePolicy_policyDetails,
+    updateLifecyclePolicy_state,
     updateLifecyclePolicy_policyId,
 
     -- * Destructuring the Response
@@ -55,16 +55,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateLifecyclePolicy' smart constructor.
 data UpdateLifecyclePolicy = UpdateLifecyclePolicy'
-  { -- | The configuration of the lifecycle policy. You cannot update the policy
-    -- type or the resource type.
-    policyDetails :: Prelude.Maybe PolicyDetails,
-    -- | The desired activation state of the lifecycle policy after creation.
-    state :: Prelude.Maybe SettablePolicyStateValues,
-    -- | A description of the lifecycle policy.
+  { -- | A description of the lifecycle policy.
     description :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the IAM role used to run the
     -- operations specified by the lifecycle policy.
     executionRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | The configuration of the lifecycle policy. You cannot update the policy
+    -- type or the resource type.
+    policyDetails :: Prelude.Maybe PolicyDetails,
+    -- | The desired activation state of the lifecycle policy after creation.
+    state :: Prelude.Maybe SettablePolicyStateValues,
     -- | The identifier of the lifecycle policy.
     policyId :: Prelude.Text
   }
@@ -78,15 +78,15 @@ data UpdateLifecyclePolicy = UpdateLifecyclePolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policyDetails', 'updateLifecyclePolicy_policyDetails' - The configuration of the lifecycle policy. You cannot update the policy
--- type or the resource type.
---
--- 'state', 'updateLifecyclePolicy_state' - The desired activation state of the lifecycle policy after creation.
---
 -- 'description', 'updateLifecyclePolicy_description' - A description of the lifecycle policy.
 --
 -- 'executionRoleArn', 'updateLifecyclePolicy_executionRoleArn' - The Amazon Resource Name (ARN) of the IAM role used to run the
 -- operations specified by the lifecycle policy.
+--
+-- 'policyDetails', 'updateLifecyclePolicy_policyDetails' - The configuration of the lifecycle policy. You cannot update the policy
+-- type or the resource type.
+--
+-- 'state', 'updateLifecyclePolicy_state' - The desired activation state of the lifecycle policy after creation.
 --
 -- 'policyId', 'updateLifecyclePolicy_policyId' - The identifier of the lifecycle policy.
 newUpdateLifecyclePolicy ::
@@ -95,22 +95,13 @@ newUpdateLifecyclePolicy ::
   UpdateLifecyclePolicy
 newUpdateLifecyclePolicy pPolicyId_ =
   UpdateLifecyclePolicy'
-    { policyDetails =
+    { description =
         Prelude.Nothing,
-      state = Prelude.Nothing,
-      description = Prelude.Nothing,
       executionRoleArn = Prelude.Nothing,
+      policyDetails = Prelude.Nothing,
+      state = Prelude.Nothing,
       policyId = pPolicyId_
     }
-
--- | The configuration of the lifecycle policy. You cannot update the policy
--- type or the resource type.
-updateLifecyclePolicy_policyDetails :: Lens.Lens' UpdateLifecyclePolicy (Prelude.Maybe PolicyDetails)
-updateLifecyclePolicy_policyDetails = Lens.lens (\UpdateLifecyclePolicy' {policyDetails} -> policyDetails) (\s@UpdateLifecyclePolicy' {} a -> s {policyDetails = a} :: UpdateLifecyclePolicy)
-
--- | The desired activation state of the lifecycle policy after creation.
-updateLifecyclePolicy_state :: Lens.Lens' UpdateLifecyclePolicy (Prelude.Maybe SettablePolicyStateValues)
-updateLifecyclePolicy_state = Lens.lens (\UpdateLifecyclePolicy' {state} -> state) (\s@UpdateLifecyclePolicy' {} a -> s {state = a} :: UpdateLifecyclePolicy)
 
 -- | A description of the lifecycle policy.
 updateLifecyclePolicy_description :: Lens.Lens' UpdateLifecyclePolicy (Prelude.Maybe Prelude.Text)
@@ -120,6 +111,15 @@ updateLifecyclePolicy_description = Lens.lens (\UpdateLifecyclePolicy' {descript
 -- operations specified by the lifecycle policy.
 updateLifecyclePolicy_executionRoleArn :: Lens.Lens' UpdateLifecyclePolicy (Prelude.Maybe Prelude.Text)
 updateLifecyclePolicy_executionRoleArn = Lens.lens (\UpdateLifecyclePolicy' {executionRoleArn} -> executionRoleArn) (\s@UpdateLifecyclePolicy' {} a -> s {executionRoleArn = a} :: UpdateLifecyclePolicy)
+
+-- | The configuration of the lifecycle policy. You cannot update the policy
+-- type or the resource type.
+updateLifecyclePolicy_policyDetails :: Lens.Lens' UpdateLifecyclePolicy (Prelude.Maybe PolicyDetails)
+updateLifecyclePolicy_policyDetails = Lens.lens (\UpdateLifecyclePolicy' {policyDetails} -> policyDetails) (\s@UpdateLifecyclePolicy' {} a -> s {policyDetails = a} :: UpdateLifecyclePolicy)
+
+-- | The desired activation state of the lifecycle policy after creation.
+updateLifecyclePolicy_state :: Lens.Lens' UpdateLifecyclePolicy (Prelude.Maybe SettablePolicyStateValues)
+updateLifecyclePolicy_state = Lens.lens (\UpdateLifecyclePolicy' {state} -> state) (\s@UpdateLifecyclePolicy' {} a -> s {state = a} :: UpdateLifecyclePolicy)
 
 -- | The identifier of the lifecycle policy.
 updateLifecyclePolicy_policyId :: Lens.Lens' UpdateLifecyclePolicy Prelude.Text
@@ -140,18 +140,18 @@ instance Core.AWSRequest UpdateLifecyclePolicy where
 
 instance Prelude.Hashable UpdateLifecyclePolicy where
   hashWithSalt _salt UpdateLifecyclePolicy' {..} =
-    _salt `Prelude.hashWithSalt` policyDetails
-      `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` executionRoleArn
+      `Prelude.hashWithSalt` policyDetails
+      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` policyId
 
 instance Prelude.NFData UpdateLifecyclePolicy where
   rnf UpdateLifecyclePolicy' {..} =
-    Prelude.rnf policyDetails
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf executionRoleArn
+      `Prelude.seq` Prelude.rnf policyDetails
+      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf policyId
 
 instance Data.ToHeaders UpdateLifecyclePolicy where
@@ -169,11 +169,11 @@ instance Data.ToJSON UpdateLifecyclePolicy where
   toJSON UpdateLifecyclePolicy' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("PolicyDetails" Data..=) Prelude.<$> policyDetails,
-            ("State" Data..=) Prelude.<$> state,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
             ("ExecutionRoleArn" Data..=)
-              Prelude.<$> executionRoleArn
+              Prelude.<$> executionRoleArn,
+            ("PolicyDetails" Data..=) Prelude.<$> policyDetails,
+            ("State" Data..=) Prelude.<$> state
           ]
       )
 

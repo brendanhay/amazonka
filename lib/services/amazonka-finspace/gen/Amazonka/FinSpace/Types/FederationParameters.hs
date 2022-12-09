@@ -28,17 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFederationParameters' smart constructor.
 data FederationParameters = FederationParameters'
-  { -- | Name of the identity provider (IdP).
-    federationProviderName :: Prelude.Maybe Prelude.Text,
-    -- | SAML 2.0 Metadata document from identity provider (IdP).
-    samlMetadataDocument :: Prelude.Maybe Prelude.Text,
-    -- | The Uniform Resource Name (URN). Also referred as Service Provider URN
-    -- or Audience URI or Service Provider Entity ID.
-    federationURN :: Prelude.Maybe Prelude.Text,
-    -- | Provide the metadata URL from your SAML 2.0 compliant identity provider
-    -- (IdP).
-    samlMetadataURL :: Prelude.Maybe Prelude.Text,
-    -- | The redirect or sign-in URL that should be entered into the SAML 2.0
+  { -- | The redirect or sign-in URL that should be entered into the SAML 2.0
     -- compliant identity provider configuration (IdP).
     applicationCallBackURL :: Prelude.Maybe Prelude.Text,
     -- | SAML attribute name and value. The name must always be @Email@ and the
@@ -47,7 +37,17 @@ data FederationParameters = FederationParameters'
     -- @http:\/\/schemas.xmlsoap.org\/ws\/2005\/05\/identity\/claims\/emailaddress@.
     -- Please check your SAML 2.0 compliant identity provider (IdP)
     -- documentation for details.
-    attributeMap :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    attributeMap :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Name of the identity provider (IdP).
+    federationProviderName :: Prelude.Maybe Prelude.Text,
+    -- | The Uniform Resource Name (URN). Also referred as Service Provider URN
+    -- or Audience URI or Service Provider Entity ID.
+    federationURN :: Prelude.Maybe Prelude.Text,
+    -- | SAML 2.0 Metadata document from identity provider (IdP).
+    samlMetadataDocument :: Prelude.Maybe Prelude.Text,
+    -- | Provide the metadata URL from your SAML 2.0 compliant identity provider
+    -- (IdP).
+    samlMetadataURL :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,16 +59,6 @@ data FederationParameters = FederationParameters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'federationProviderName', 'federationParameters_federationProviderName' - Name of the identity provider (IdP).
---
--- 'samlMetadataDocument', 'federationParameters_samlMetadataDocument' - SAML 2.0 Metadata document from identity provider (IdP).
---
--- 'federationURN', 'federationParameters_federationURN' - The Uniform Resource Name (URN). Also referred as Service Provider URN
--- or Audience URI or Service Provider Entity ID.
---
--- 'samlMetadataURL', 'federationParameters_samlMetadataURL' - Provide the metadata URL from your SAML 2.0 compliant identity provider
--- (IdP).
---
 -- 'applicationCallBackURL', 'federationParameters_applicationCallBackURL' - The redirect or sign-in URL that should be entered into the SAML 2.0
 -- compliant identity provider configuration (IdP).
 --
@@ -78,36 +68,28 @@ data FederationParameters = FederationParameters'
 -- @http:\/\/schemas.xmlsoap.org\/ws\/2005\/05\/identity\/claims\/emailaddress@.
 -- Please check your SAML 2.0 compliant identity provider (IdP)
 -- documentation for details.
+--
+-- 'federationProviderName', 'federationParameters_federationProviderName' - Name of the identity provider (IdP).
+--
+-- 'federationURN', 'federationParameters_federationURN' - The Uniform Resource Name (URN). Also referred as Service Provider URN
+-- or Audience URI or Service Provider Entity ID.
+--
+-- 'samlMetadataDocument', 'federationParameters_samlMetadataDocument' - SAML 2.0 Metadata document from identity provider (IdP).
+--
+-- 'samlMetadataURL', 'federationParameters_samlMetadataURL' - Provide the metadata URL from your SAML 2.0 compliant identity provider
+-- (IdP).
 newFederationParameters ::
   FederationParameters
 newFederationParameters =
   FederationParameters'
-    { federationProviderName =
+    { applicationCallBackURL =
         Prelude.Nothing,
-      samlMetadataDocument = Prelude.Nothing,
+      attributeMap = Prelude.Nothing,
+      federationProviderName = Prelude.Nothing,
       federationURN = Prelude.Nothing,
-      samlMetadataURL = Prelude.Nothing,
-      applicationCallBackURL = Prelude.Nothing,
-      attributeMap = Prelude.Nothing
+      samlMetadataDocument = Prelude.Nothing,
+      samlMetadataURL = Prelude.Nothing
     }
-
--- | Name of the identity provider (IdP).
-federationParameters_federationProviderName :: Lens.Lens' FederationParameters (Prelude.Maybe Prelude.Text)
-federationParameters_federationProviderName = Lens.lens (\FederationParameters' {federationProviderName} -> federationProviderName) (\s@FederationParameters' {} a -> s {federationProviderName = a} :: FederationParameters)
-
--- | SAML 2.0 Metadata document from identity provider (IdP).
-federationParameters_samlMetadataDocument :: Lens.Lens' FederationParameters (Prelude.Maybe Prelude.Text)
-federationParameters_samlMetadataDocument = Lens.lens (\FederationParameters' {samlMetadataDocument} -> samlMetadataDocument) (\s@FederationParameters' {} a -> s {samlMetadataDocument = a} :: FederationParameters)
-
--- | The Uniform Resource Name (URN). Also referred as Service Provider URN
--- or Audience URI or Service Provider Entity ID.
-federationParameters_federationURN :: Lens.Lens' FederationParameters (Prelude.Maybe Prelude.Text)
-federationParameters_federationURN = Lens.lens (\FederationParameters' {federationURN} -> federationURN) (\s@FederationParameters' {} a -> s {federationURN = a} :: FederationParameters)
-
--- | Provide the metadata URL from your SAML 2.0 compliant identity provider
--- (IdP).
-federationParameters_samlMetadataURL :: Lens.Lens' FederationParameters (Prelude.Maybe Prelude.Text)
-federationParameters_samlMetadataURL = Lens.lens (\FederationParameters' {samlMetadataURL} -> samlMetadataURL) (\s@FederationParameters' {} a -> s {samlMetadataURL = a} :: FederationParameters)
 
 -- | The redirect or sign-in URL that should be entered into the SAML 2.0
 -- compliant identity provider configuration (IdP).
@@ -123,51 +105,69 @@ federationParameters_applicationCallBackURL = Lens.lens (\FederationParameters' 
 federationParameters_attributeMap :: Lens.Lens' FederationParameters (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 federationParameters_attributeMap = Lens.lens (\FederationParameters' {attributeMap} -> attributeMap) (\s@FederationParameters' {} a -> s {attributeMap = a} :: FederationParameters) Prelude.. Lens.mapping Lens.coerced
 
+-- | Name of the identity provider (IdP).
+federationParameters_federationProviderName :: Lens.Lens' FederationParameters (Prelude.Maybe Prelude.Text)
+federationParameters_federationProviderName = Lens.lens (\FederationParameters' {federationProviderName} -> federationProviderName) (\s@FederationParameters' {} a -> s {federationProviderName = a} :: FederationParameters)
+
+-- | The Uniform Resource Name (URN). Also referred as Service Provider URN
+-- or Audience URI or Service Provider Entity ID.
+federationParameters_federationURN :: Lens.Lens' FederationParameters (Prelude.Maybe Prelude.Text)
+federationParameters_federationURN = Lens.lens (\FederationParameters' {federationURN} -> federationURN) (\s@FederationParameters' {} a -> s {federationURN = a} :: FederationParameters)
+
+-- | SAML 2.0 Metadata document from identity provider (IdP).
+federationParameters_samlMetadataDocument :: Lens.Lens' FederationParameters (Prelude.Maybe Prelude.Text)
+federationParameters_samlMetadataDocument = Lens.lens (\FederationParameters' {samlMetadataDocument} -> samlMetadataDocument) (\s@FederationParameters' {} a -> s {samlMetadataDocument = a} :: FederationParameters)
+
+-- | Provide the metadata URL from your SAML 2.0 compliant identity provider
+-- (IdP).
+federationParameters_samlMetadataURL :: Lens.Lens' FederationParameters (Prelude.Maybe Prelude.Text)
+federationParameters_samlMetadataURL = Lens.lens (\FederationParameters' {samlMetadataURL} -> samlMetadataURL) (\s@FederationParameters' {} a -> s {samlMetadataURL = a} :: FederationParameters)
+
 instance Data.FromJSON FederationParameters where
   parseJSON =
     Data.withObject
       "FederationParameters"
       ( \x ->
           FederationParameters'
-            Prelude.<$> (x Data..:? "federationProviderName")
-            Prelude.<*> (x Data..:? "samlMetadataDocument")
-            Prelude.<*> (x Data..:? "federationURN")
-            Prelude.<*> (x Data..:? "samlMetadataURL")
-            Prelude.<*> (x Data..:? "applicationCallBackURL")
+            Prelude.<$> (x Data..:? "applicationCallBackURL")
             Prelude.<*> (x Data..:? "attributeMap" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "federationProviderName")
+            Prelude.<*> (x Data..:? "federationURN")
+            Prelude.<*> (x Data..:? "samlMetadataDocument")
+            Prelude.<*> (x Data..:? "samlMetadataURL")
       )
 
 instance Prelude.Hashable FederationParameters where
   hashWithSalt _salt FederationParameters' {..} =
-    _salt `Prelude.hashWithSalt` federationProviderName
-      `Prelude.hashWithSalt` samlMetadataDocument
-      `Prelude.hashWithSalt` federationURN
-      `Prelude.hashWithSalt` samlMetadataURL
-      `Prelude.hashWithSalt` applicationCallBackURL
+    _salt `Prelude.hashWithSalt` applicationCallBackURL
       `Prelude.hashWithSalt` attributeMap
+      `Prelude.hashWithSalt` federationProviderName
+      `Prelude.hashWithSalt` federationURN
+      `Prelude.hashWithSalt` samlMetadataDocument
+      `Prelude.hashWithSalt` samlMetadataURL
 
 instance Prelude.NFData FederationParameters where
   rnf FederationParameters' {..} =
-    Prelude.rnf federationProviderName
-      `Prelude.seq` Prelude.rnf samlMetadataDocument
-      `Prelude.seq` Prelude.rnf federationURN
-      `Prelude.seq` Prelude.rnf samlMetadataURL
-      `Prelude.seq` Prelude.rnf applicationCallBackURL
+    Prelude.rnf applicationCallBackURL
       `Prelude.seq` Prelude.rnf attributeMap
+      `Prelude.seq` Prelude.rnf federationProviderName
+      `Prelude.seq` Prelude.rnf federationURN
+      `Prelude.seq` Prelude.rnf samlMetadataDocument
+      `Prelude.seq` Prelude.rnf samlMetadataURL
 
 instance Data.ToJSON FederationParameters where
   toJSON FederationParameters' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("federationProviderName" Data..=)
+          [ ("applicationCallBackURL" Data..=)
+              Prelude.<$> applicationCallBackURL,
+            ("attributeMap" Data..=) Prelude.<$> attributeMap,
+            ("federationProviderName" Data..=)
               Prelude.<$> federationProviderName,
+            ("federationURN" Data..=) Prelude.<$> federationURN,
             ("samlMetadataDocument" Data..=)
               Prelude.<$> samlMetadataDocument,
-            ("federationURN" Data..=) Prelude.<$> federationURN,
             ("samlMetadataURL" Data..=)
-              Prelude.<$> samlMetadataURL,
-            ("applicationCallBackURL" Data..=)
-              Prelude.<$> applicationCallBackURL,
-            ("attributeMap" Data..=) Prelude.<$> attributeMap
+              Prelude.<$> samlMetadataURL
           ]
       )

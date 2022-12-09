@@ -26,23 +26,23 @@ module Amazonka.FinSpace
     -- ** InternalServerException
     _InternalServerException,
 
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
+    -- ** InvalidRequestException
+    _InvalidRequestException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
 
     -- ** ThrottlingException
     _ThrottlingException,
 
     -- ** ValidationException
     _ValidationException,
-
-    -- ** InvalidRequestException
-    _InvalidRequestException,
 
     -- * Waiters
     -- $waiters

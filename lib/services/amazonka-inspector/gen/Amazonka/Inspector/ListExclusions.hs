@@ -29,8 +29,8 @@ module Amazonka.Inspector.ListExclusions
     newListExclusions,
 
     -- * Request Lenses
-    listExclusions_nextToken,
     listExclusions_maxResults,
+    listExclusions_nextToken,
     listExclusions_assessmentRunArn,
 
     -- * Destructuring the Response
@@ -54,16 +54,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListExclusions' smart constructor.
 data ListExclusions = ListExclusions'
-  { -- | You can use this parameter when paginating results. Set the value of
+  { -- | You can use this parameter to indicate the maximum number of items you
+    -- want in the response. The default value is 100. The maximum value is
+    -- 500.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | You can use this parameter when paginating results. Set the value of
     -- this parameter to null on your first call to the ListExclusionsRequest
     -- action. Subsequent calls to the action fill nextToken in the request
     -- with the value of nextToken from the previous response to continue
     -- listing data.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | You can use this parameter to indicate the maximum number of items you
-    -- want in the response. The default value is 100. The maximum value is
-    -- 500.
-    maxResults :: Prelude.Maybe Prelude.Int,
     -- | The ARN of the assessment run that generated the exclusions that you
     -- want to list.
     assessmentRunArn :: Prelude.Text
@@ -78,15 +78,15 @@ data ListExclusions = ListExclusions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listExclusions_maxResults' - You can use this parameter to indicate the maximum number of items you
+-- want in the response. The default value is 100. The maximum value is
+-- 500.
+--
 -- 'nextToken', 'listExclusions_nextToken' - You can use this parameter when paginating results. Set the value of
 -- this parameter to null on your first call to the ListExclusionsRequest
 -- action. Subsequent calls to the action fill nextToken in the request
 -- with the value of nextToken from the previous response to continue
 -- listing data.
---
--- 'maxResults', 'listExclusions_maxResults' - You can use this parameter to indicate the maximum number of items you
--- want in the response. The default value is 100. The maximum value is
--- 500.
 --
 -- 'assessmentRunArn', 'listExclusions_assessmentRunArn' - The ARN of the assessment run that generated the exclusions that you
 -- want to list.
@@ -96,10 +96,16 @@ newListExclusions ::
   ListExclusions
 newListExclusions pAssessmentRunArn_ =
   ListExclusions'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       assessmentRunArn = pAssessmentRunArn_
     }
+
+-- | You can use this parameter to indicate the maximum number of items you
+-- want in the response. The default value is 100. The maximum value is
+-- 500.
+listExclusions_maxResults :: Lens.Lens' ListExclusions (Prelude.Maybe Prelude.Int)
+listExclusions_maxResults = Lens.lens (\ListExclusions' {maxResults} -> maxResults) (\s@ListExclusions' {} a -> s {maxResults = a} :: ListExclusions)
 
 -- | You can use this parameter when paginating results. Set the value of
 -- this parameter to null on your first call to the ListExclusionsRequest
@@ -108,12 +114,6 @@ newListExclusions pAssessmentRunArn_ =
 -- listing data.
 listExclusions_nextToken :: Lens.Lens' ListExclusions (Prelude.Maybe Prelude.Text)
 listExclusions_nextToken = Lens.lens (\ListExclusions' {nextToken} -> nextToken) (\s@ListExclusions' {} a -> s {nextToken = a} :: ListExclusions)
-
--- | You can use this parameter to indicate the maximum number of items you
--- want in the response. The default value is 100. The maximum value is
--- 500.
-listExclusions_maxResults :: Lens.Lens' ListExclusions (Prelude.Maybe Prelude.Int)
-listExclusions_maxResults = Lens.lens (\ListExclusions' {maxResults} -> maxResults) (\s@ListExclusions' {} a -> s {maxResults = a} :: ListExclusions)
 
 -- | The ARN of the assessment run that generated the exclusions that you
 -- want to list.
@@ -155,14 +155,14 @@ instance Core.AWSRequest ListExclusions where
 
 instance Prelude.Hashable ListExclusions where
   hashWithSalt _salt ListExclusions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` assessmentRunArn
 
 instance Prelude.NFData ListExclusions where
   rnf ListExclusions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf assessmentRunArn
 
 instance Data.ToHeaders ListExclusions where
@@ -184,8 +184,8 @@ instance Data.ToJSON ListExclusions where
   toJSON ListExclusions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("assessmentRunArn" Data..= assessmentRunArn)
           ]

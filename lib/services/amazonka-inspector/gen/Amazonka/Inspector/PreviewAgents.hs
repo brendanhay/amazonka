@@ -30,8 +30,8 @@ module Amazonka.Inspector.PreviewAgents
     newPreviewAgents,
 
     -- * Request Lenses
-    previewAgents_nextToken,
     previewAgents_maxResults,
+    previewAgents_nextToken,
     previewAgents_previewAgentsArn,
 
     -- * Destructuring the Response
@@ -55,15 +55,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPreviewAgents' smart constructor.
 data PreviewAgents = PreviewAgents'
-  { -- | You can use this parameter when paginating results. Set the value of
+  { -- | You can use this parameter to indicate the maximum number of items you
+    -- want in the response. The default value is 10. The maximum value is 500.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | You can use this parameter when paginating results. Set the value of
     -- this parameter to null on your first call to the __PreviewAgents__
     -- action. Subsequent calls to the action fill __nextToken__ in the request
     -- with the value of __NextToken__ from the previous response to continue
     -- listing data.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | You can use this parameter to indicate the maximum number of items you
-    -- want in the response. The default value is 10. The maximum value is 500.
-    maxResults :: Prelude.Maybe Prelude.Int,
     -- | The ARN of the assessment target whose agents you want to preview.
     previewAgentsArn :: Prelude.Text
   }
@@ -77,14 +77,14 @@ data PreviewAgents = PreviewAgents'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'previewAgents_maxResults' - You can use this parameter to indicate the maximum number of items you
+-- want in the response. The default value is 10. The maximum value is 500.
+--
 -- 'nextToken', 'previewAgents_nextToken' - You can use this parameter when paginating results. Set the value of
 -- this parameter to null on your first call to the __PreviewAgents__
 -- action. Subsequent calls to the action fill __nextToken__ in the request
 -- with the value of __NextToken__ from the previous response to continue
 -- listing data.
---
--- 'maxResults', 'previewAgents_maxResults' - You can use this parameter to indicate the maximum number of items you
--- want in the response. The default value is 10. The maximum value is 500.
 --
 -- 'previewAgentsArn', 'previewAgents_previewAgentsArn' - The ARN of the assessment target whose agents you want to preview.
 newPreviewAgents ::
@@ -93,10 +93,15 @@ newPreviewAgents ::
   PreviewAgents
 newPreviewAgents pPreviewAgentsArn_ =
   PreviewAgents'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       previewAgentsArn = pPreviewAgentsArn_
     }
+
+-- | You can use this parameter to indicate the maximum number of items you
+-- want in the response. The default value is 10. The maximum value is 500.
+previewAgents_maxResults :: Lens.Lens' PreviewAgents (Prelude.Maybe Prelude.Int)
+previewAgents_maxResults = Lens.lens (\PreviewAgents' {maxResults} -> maxResults) (\s@PreviewAgents' {} a -> s {maxResults = a} :: PreviewAgents)
 
 -- | You can use this parameter when paginating results. Set the value of
 -- this parameter to null on your first call to the __PreviewAgents__
@@ -105,11 +110,6 @@ newPreviewAgents pPreviewAgentsArn_ =
 -- listing data.
 previewAgents_nextToken :: Lens.Lens' PreviewAgents (Prelude.Maybe Prelude.Text)
 previewAgents_nextToken = Lens.lens (\PreviewAgents' {nextToken} -> nextToken) (\s@PreviewAgents' {} a -> s {nextToken = a} :: PreviewAgents)
-
--- | You can use this parameter to indicate the maximum number of items you
--- want in the response. The default value is 10. The maximum value is 500.
-previewAgents_maxResults :: Lens.Lens' PreviewAgents (Prelude.Maybe Prelude.Int)
-previewAgents_maxResults = Lens.lens (\PreviewAgents' {maxResults} -> maxResults) (\s@PreviewAgents' {} a -> s {maxResults = a} :: PreviewAgents)
 
 -- | The ARN of the assessment target whose agents you want to preview.
 previewAgents_previewAgentsArn :: Lens.Lens' PreviewAgents Prelude.Text
@@ -149,14 +149,14 @@ instance Core.AWSRequest PreviewAgents where
 
 instance Prelude.Hashable PreviewAgents where
   hashWithSalt _salt PreviewAgents' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` previewAgentsArn
 
 instance Prelude.NFData PreviewAgents where
   rnf PreviewAgents' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf previewAgentsArn
 
 instance Data.ToHeaders PreviewAgents where
@@ -178,8 +178,8 @@ instance Data.ToJSON PreviewAgents where
   toJSON PreviewAgents' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("previewAgentsArn" Data..= previewAgentsArn)
           ]

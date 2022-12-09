@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTimestampRange' smart constructor.
 data TimestampRange = TimestampRange'
-  { -- | The maximum value of the timestamp range.
-    endDate :: Prelude.Maybe Data.POSIX,
-    -- | The minimum value of the timestamp range.
-    beginDate :: Prelude.Maybe Data.POSIX
+  { -- | The minimum value of the timestamp range.
+    beginDate :: Prelude.Maybe Data.POSIX,
+    -- | The maximum value of the timestamp range.
+    endDate :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,40 +43,40 @@ data TimestampRange = TimestampRange'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'endDate', 'timestampRange_endDate' - The maximum value of the timestamp range.
---
 -- 'beginDate', 'timestampRange_beginDate' - The minimum value of the timestamp range.
+--
+-- 'endDate', 'timestampRange_endDate' - The maximum value of the timestamp range.
 newTimestampRange ::
   TimestampRange
 newTimestampRange =
   TimestampRange'
-    { endDate = Prelude.Nothing,
-      beginDate = Prelude.Nothing
+    { beginDate = Prelude.Nothing,
+      endDate = Prelude.Nothing
     }
-
--- | The maximum value of the timestamp range.
-timestampRange_endDate :: Lens.Lens' TimestampRange (Prelude.Maybe Prelude.UTCTime)
-timestampRange_endDate = Lens.lens (\TimestampRange' {endDate} -> endDate) (\s@TimestampRange' {} a -> s {endDate = a} :: TimestampRange) Prelude.. Lens.mapping Data._Time
 
 -- | The minimum value of the timestamp range.
 timestampRange_beginDate :: Lens.Lens' TimestampRange (Prelude.Maybe Prelude.UTCTime)
 timestampRange_beginDate = Lens.lens (\TimestampRange' {beginDate} -> beginDate) (\s@TimestampRange' {} a -> s {beginDate = a} :: TimestampRange) Prelude.. Lens.mapping Data._Time
 
+-- | The maximum value of the timestamp range.
+timestampRange_endDate :: Lens.Lens' TimestampRange (Prelude.Maybe Prelude.UTCTime)
+timestampRange_endDate = Lens.lens (\TimestampRange' {endDate} -> endDate) (\s@TimestampRange' {} a -> s {endDate = a} :: TimestampRange) Prelude.. Lens.mapping Data._Time
+
 instance Prelude.Hashable TimestampRange where
   hashWithSalt _salt TimestampRange' {..} =
-    _salt `Prelude.hashWithSalt` endDate
-      `Prelude.hashWithSalt` beginDate
+    _salt `Prelude.hashWithSalt` beginDate
+      `Prelude.hashWithSalt` endDate
 
 instance Prelude.NFData TimestampRange where
   rnf TimestampRange' {..} =
-    Prelude.rnf endDate
-      `Prelude.seq` Prelude.rnf beginDate
+    Prelude.rnf beginDate
+      `Prelude.seq` Prelude.rnf endDate
 
 instance Data.ToJSON TimestampRange where
   toJSON TimestampRange' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("endDate" Data..=) Prelude.<$> endDate,
-            ("beginDate" Data..=) Prelude.<$> beginDate
+          [ ("beginDate" Data..=) Prelude.<$> beginDate,
+            ("endDate" Data..=) Prelude.<$> endDate
           ]
       )

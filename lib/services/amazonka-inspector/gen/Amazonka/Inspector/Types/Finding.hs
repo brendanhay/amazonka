@@ -34,34 +34,34 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFinding' smart constructor.
 data Finding = Finding'
-  { -- | The finding severity. Values can be set to High, Medium, Low, and
-    -- Informational.
-    severity :: Prelude.Maybe Severity,
+  { -- | A collection of attributes of the host from which the finding is
+    -- generated.
+    assetAttributes :: Prelude.Maybe AssetAttributes,
+    -- | The type of the host from which the finding is generated.
+    assetType :: Prelude.Maybe AssetType,
+    -- | This data element is currently not used.
+    confidence :: Prelude.Maybe Prelude.Natural,
+    -- | The description of the finding.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the finding.
+    id :: Prelude.Maybe Prelude.Text,
     -- | This data element is currently not used.
     indicatorOfCompromise :: Prelude.Maybe Prelude.Bool,
     -- | The numeric value of the finding severity.
     numericSeverity :: Prelude.Maybe Prelude.Double,
-    -- | This data element is currently not used.
-    confidence :: Prelude.Maybe Prelude.Natural,
-    -- | A collection of attributes of the host from which the finding is
-    -- generated.
-    assetAttributes :: Prelude.Maybe AssetAttributes,
-    -- | The description of the finding.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The type of the host from which the finding is generated.
-    assetType :: Prelude.Maybe AssetType,
-    -- | The ID of the finding.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The data element is set to \"Inspector\".
-    service :: Prelude.Maybe Prelude.Text,
-    -- | The name of the finding.
-    title :: Prelude.Maybe Prelude.Text,
     -- | The recommendation for the finding.
     recommendation :: Prelude.Maybe Prelude.Text,
     -- | The schema version of this data type.
     schemaVersion :: Prelude.Maybe Prelude.Natural,
+    -- | The data element is set to \"Inspector\".
+    service :: Prelude.Maybe Prelude.Text,
     -- | This data type is used in the Finding data type.
     serviceAttributes :: Prelude.Maybe InspectorServiceAttributes,
+    -- | The finding severity. Values can be set to High, Medium, Low, and
+    -- Informational.
+    severity :: Prelude.Maybe Severity,
+    -- | The name of the finding.
+    title :: Prelude.Maybe Prelude.Text,
     -- | The ARN that specifies the finding.
     arn :: Prelude.Text,
     -- | The system-defined attributes for the finding.
@@ -83,33 +83,33 @@ data Finding = Finding'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'severity', 'finding_severity' - The finding severity. Values can be set to High, Medium, Low, and
--- Informational.
+-- 'assetAttributes', 'finding_assetAttributes' - A collection of attributes of the host from which the finding is
+-- generated.
+--
+-- 'assetType', 'finding_assetType' - The type of the host from which the finding is generated.
+--
+-- 'confidence', 'finding_confidence' - This data element is currently not used.
+--
+-- 'description', 'finding_description' - The description of the finding.
+--
+-- 'id', 'finding_id' - The ID of the finding.
 --
 -- 'indicatorOfCompromise', 'finding_indicatorOfCompromise' - This data element is currently not used.
 --
 -- 'numericSeverity', 'finding_numericSeverity' - The numeric value of the finding severity.
 --
--- 'confidence', 'finding_confidence' - This data element is currently not used.
---
--- 'assetAttributes', 'finding_assetAttributes' - A collection of attributes of the host from which the finding is
--- generated.
---
--- 'description', 'finding_description' - The description of the finding.
---
--- 'assetType', 'finding_assetType' - The type of the host from which the finding is generated.
---
--- 'id', 'finding_id' - The ID of the finding.
---
--- 'service', 'finding_service' - The data element is set to \"Inspector\".
---
--- 'title', 'finding_title' - The name of the finding.
---
 -- 'recommendation', 'finding_recommendation' - The recommendation for the finding.
 --
 -- 'schemaVersion', 'finding_schemaVersion' - The schema version of this data type.
 --
+-- 'service', 'finding_service' - The data element is set to \"Inspector\".
+--
 -- 'serviceAttributes', 'finding_serviceAttributes' - This data type is used in the Finding data type.
+--
+-- 'severity', 'finding_severity' - The finding severity. Values can be set to High, Medium, Low, and
+-- Informational.
+--
+-- 'title', 'finding_title' - The name of the finding.
 --
 -- 'arn', 'finding_arn' - The ARN that specifies the finding.
 --
@@ -130,19 +130,19 @@ newFinding ::
   Finding
 newFinding pArn_ pCreatedAt_ pUpdatedAt_ =
   Finding'
-    { severity = Prelude.Nothing,
+    { assetAttributes = Prelude.Nothing,
+      assetType = Prelude.Nothing,
+      confidence = Prelude.Nothing,
+      description = Prelude.Nothing,
+      id = Prelude.Nothing,
       indicatorOfCompromise = Prelude.Nothing,
       numericSeverity = Prelude.Nothing,
-      confidence = Prelude.Nothing,
-      assetAttributes = Prelude.Nothing,
-      description = Prelude.Nothing,
-      assetType = Prelude.Nothing,
-      id = Prelude.Nothing,
-      service = Prelude.Nothing,
-      title = Prelude.Nothing,
       recommendation = Prelude.Nothing,
       schemaVersion = Prelude.Nothing,
+      service = Prelude.Nothing,
       serviceAttributes = Prelude.Nothing,
+      severity = Prelude.Nothing,
+      title = Prelude.Nothing,
       arn = pArn_,
       attributes = Prelude.mempty,
       userAttributes = Prelude.mempty,
@@ -150,10 +150,26 @@ newFinding pArn_ pCreatedAt_ pUpdatedAt_ =
       updatedAt = Data._Time Lens.# pUpdatedAt_
     }
 
--- | The finding severity. Values can be set to High, Medium, Low, and
--- Informational.
-finding_severity :: Lens.Lens' Finding (Prelude.Maybe Severity)
-finding_severity = Lens.lens (\Finding' {severity} -> severity) (\s@Finding' {} a -> s {severity = a} :: Finding)
+-- | A collection of attributes of the host from which the finding is
+-- generated.
+finding_assetAttributes :: Lens.Lens' Finding (Prelude.Maybe AssetAttributes)
+finding_assetAttributes = Lens.lens (\Finding' {assetAttributes} -> assetAttributes) (\s@Finding' {} a -> s {assetAttributes = a} :: Finding)
+
+-- | The type of the host from which the finding is generated.
+finding_assetType :: Lens.Lens' Finding (Prelude.Maybe AssetType)
+finding_assetType = Lens.lens (\Finding' {assetType} -> assetType) (\s@Finding' {} a -> s {assetType = a} :: Finding)
+
+-- | This data element is currently not used.
+finding_confidence :: Lens.Lens' Finding (Prelude.Maybe Prelude.Natural)
+finding_confidence = Lens.lens (\Finding' {confidence} -> confidence) (\s@Finding' {} a -> s {confidence = a} :: Finding)
+
+-- | The description of the finding.
+finding_description :: Lens.Lens' Finding (Prelude.Maybe Prelude.Text)
+finding_description = Lens.lens (\Finding' {description} -> description) (\s@Finding' {} a -> s {description = a} :: Finding)
+
+-- | The ID of the finding.
+finding_id :: Lens.Lens' Finding (Prelude.Maybe Prelude.Text)
+finding_id = Lens.lens (\Finding' {id} -> id) (\s@Finding' {} a -> s {id = a} :: Finding)
 
 -- | This data element is currently not used.
 finding_indicatorOfCompromise :: Lens.Lens' Finding (Prelude.Maybe Prelude.Bool)
@@ -163,35 +179,6 @@ finding_indicatorOfCompromise = Lens.lens (\Finding' {indicatorOfCompromise} -> 
 finding_numericSeverity :: Lens.Lens' Finding (Prelude.Maybe Prelude.Double)
 finding_numericSeverity = Lens.lens (\Finding' {numericSeverity} -> numericSeverity) (\s@Finding' {} a -> s {numericSeverity = a} :: Finding)
 
--- | This data element is currently not used.
-finding_confidence :: Lens.Lens' Finding (Prelude.Maybe Prelude.Natural)
-finding_confidence = Lens.lens (\Finding' {confidence} -> confidence) (\s@Finding' {} a -> s {confidence = a} :: Finding)
-
--- | A collection of attributes of the host from which the finding is
--- generated.
-finding_assetAttributes :: Lens.Lens' Finding (Prelude.Maybe AssetAttributes)
-finding_assetAttributes = Lens.lens (\Finding' {assetAttributes} -> assetAttributes) (\s@Finding' {} a -> s {assetAttributes = a} :: Finding)
-
--- | The description of the finding.
-finding_description :: Lens.Lens' Finding (Prelude.Maybe Prelude.Text)
-finding_description = Lens.lens (\Finding' {description} -> description) (\s@Finding' {} a -> s {description = a} :: Finding)
-
--- | The type of the host from which the finding is generated.
-finding_assetType :: Lens.Lens' Finding (Prelude.Maybe AssetType)
-finding_assetType = Lens.lens (\Finding' {assetType} -> assetType) (\s@Finding' {} a -> s {assetType = a} :: Finding)
-
--- | The ID of the finding.
-finding_id :: Lens.Lens' Finding (Prelude.Maybe Prelude.Text)
-finding_id = Lens.lens (\Finding' {id} -> id) (\s@Finding' {} a -> s {id = a} :: Finding)
-
--- | The data element is set to \"Inspector\".
-finding_service :: Lens.Lens' Finding (Prelude.Maybe Prelude.Text)
-finding_service = Lens.lens (\Finding' {service} -> service) (\s@Finding' {} a -> s {service = a} :: Finding)
-
--- | The name of the finding.
-finding_title :: Lens.Lens' Finding (Prelude.Maybe Prelude.Text)
-finding_title = Lens.lens (\Finding' {title} -> title) (\s@Finding' {} a -> s {title = a} :: Finding)
-
 -- | The recommendation for the finding.
 finding_recommendation :: Lens.Lens' Finding (Prelude.Maybe Prelude.Text)
 finding_recommendation = Lens.lens (\Finding' {recommendation} -> recommendation) (\s@Finding' {} a -> s {recommendation = a} :: Finding)
@@ -200,9 +187,22 @@ finding_recommendation = Lens.lens (\Finding' {recommendation} -> recommendation
 finding_schemaVersion :: Lens.Lens' Finding (Prelude.Maybe Prelude.Natural)
 finding_schemaVersion = Lens.lens (\Finding' {schemaVersion} -> schemaVersion) (\s@Finding' {} a -> s {schemaVersion = a} :: Finding)
 
+-- | The data element is set to \"Inspector\".
+finding_service :: Lens.Lens' Finding (Prelude.Maybe Prelude.Text)
+finding_service = Lens.lens (\Finding' {service} -> service) (\s@Finding' {} a -> s {service = a} :: Finding)
+
 -- | This data type is used in the Finding data type.
 finding_serviceAttributes :: Lens.Lens' Finding (Prelude.Maybe InspectorServiceAttributes)
 finding_serviceAttributes = Lens.lens (\Finding' {serviceAttributes} -> serviceAttributes) (\s@Finding' {} a -> s {serviceAttributes = a} :: Finding)
+
+-- | The finding severity. Values can be set to High, Medium, Low, and
+-- Informational.
+finding_severity :: Lens.Lens' Finding (Prelude.Maybe Severity)
+finding_severity = Lens.lens (\Finding' {severity} -> severity) (\s@Finding' {} a -> s {severity = a} :: Finding)
+
+-- | The name of the finding.
+finding_title :: Lens.Lens' Finding (Prelude.Maybe Prelude.Text)
+finding_title = Lens.lens (\Finding' {title} -> title) (\s@Finding' {} a -> s {title = a} :: Finding)
 
 -- | The ARN that specifies the finding.
 finding_arn :: Lens.Lens' Finding Prelude.Text
@@ -230,19 +230,19 @@ instance Data.FromJSON Finding where
       "Finding"
       ( \x ->
           Finding'
-            Prelude.<$> (x Data..:? "severity")
+            Prelude.<$> (x Data..:? "assetAttributes")
+            Prelude.<*> (x Data..:? "assetType")
+            Prelude.<*> (x Data..:? "confidence")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "id")
             Prelude.<*> (x Data..:? "indicatorOfCompromise")
             Prelude.<*> (x Data..:? "numericSeverity")
-            Prelude.<*> (x Data..:? "confidence")
-            Prelude.<*> (x Data..:? "assetAttributes")
-            Prelude.<*> (x Data..:? "description")
-            Prelude.<*> (x Data..:? "assetType")
-            Prelude.<*> (x Data..:? "id")
-            Prelude.<*> (x Data..:? "service")
-            Prelude.<*> (x Data..:? "title")
             Prelude.<*> (x Data..:? "recommendation")
             Prelude.<*> (x Data..:? "schemaVersion")
+            Prelude.<*> (x Data..:? "service")
             Prelude.<*> (x Data..:? "serviceAttributes")
+            Prelude.<*> (x Data..:? "severity")
+            Prelude.<*> (x Data..:? "title")
             Prelude.<*> (x Data..: "arn")
             Prelude.<*> (x Data..:? "attributes" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "userAttributes" Data..!= Prelude.mempty)
@@ -252,19 +252,19 @@ instance Data.FromJSON Finding where
 
 instance Prelude.Hashable Finding where
   hashWithSalt _salt Finding' {..} =
-    _salt `Prelude.hashWithSalt` severity
+    _salt `Prelude.hashWithSalt` assetAttributes
+      `Prelude.hashWithSalt` assetType
+      `Prelude.hashWithSalt` confidence
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` indicatorOfCompromise
       `Prelude.hashWithSalt` numericSeverity
-      `Prelude.hashWithSalt` confidence
-      `Prelude.hashWithSalt` assetAttributes
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` assetType
-      `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` service
-      `Prelude.hashWithSalt` title
       `Prelude.hashWithSalt` recommendation
       `Prelude.hashWithSalt` schemaVersion
+      `Prelude.hashWithSalt` service
       `Prelude.hashWithSalt` serviceAttributes
+      `Prelude.hashWithSalt` severity
+      `Prelude.hashWithSalt` title
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` userAttributes
@@ -273,19 +273,19 @@ instance Prelude.Hashable Finding where
 
 instance Prelude.NFData Finding where
   rnf Finding' {..} =
-    Prelude.rnf severity
+    Prelude.rnf assetAttributes
+      `Prelude.seq` Prelude.rnf assetType
+      `Prelude.seq` Prelude.rnf confidence
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf indicatorOfCompromise
       `Prelude.seq` Prelude.rnf numericSeverity
-      `Prelude.seq` Prelude.rnf confidence
-      `Prelude.seq` Prelude.rnf assetAttributes
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf assetType
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf service
-      `Prelude.seq` Prelude.rnf title
       `Prelude.seq` Prelude.rnf recommendation
       `Prelude.seq` Prelude.rnf schemaVersion
+      `Prelude.seq` Prelude.rnf service
       `Prelude.seq` Prelude.rnf serviceAttributes
+      `Prelude.seq` Prelude.rnf severity
+      `Prelude.seq` Prelude.rnf title
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf attributes
       `Prelude.seq` Prelude.rnf userAttributes

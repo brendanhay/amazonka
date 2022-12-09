@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDurationRange' smart constructor.
 data DurationRange = DurationRange'
-  { -- | The minimum value of the duration range. Must be greater than zero.
-    minSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | The maximum value of the duration range. Must be less than or equal to
+  { -- | The maximum value of the duration range. Must be less than or equal to
     -- 604800 seconds (1 week).
-    maxSeconds :: Prelude.Maybe Prelude.Natural
+    maxSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | The minimum value of the duration range. Must be greater than zero.
+    minSeconds :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,42 +44,42 @@ data DurationRange = DurationRange'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'minSeconds', 'durationRange_minSeconds' - The minimum value of the duration range. Must be greater than zero.
---
 -- 'maxSeconds', 'durationRange_maxSeconds' - The maximum value of the duration range. Must be less than or equal to
 -- 604800 seconds (1 week).
+--
+-- 'minSeconds', 'durationRange_minSeconds' - The minimum value of the duration range. Must be greater than zero.
 newDurationRange ::
   DurationRange
 newDurationRange =
   DurationRange'
-    { minSeconds = Prelude.Nothing,
-      maxSeconds = Prelude.Nothing
+    { maxSeconds = Prelude.Nothing,
+      minSeconds = Prelude.Nothing
     }
-
--- | The minimum value of the duration range. Must be greater than zero.
-durationRange_minSeconds :: Lens.Lens' DurationRange (Prelude.Maybe Prelude.Natural)
-durationRange_minSeconds = Lens.lens (\DurationRange' {minSeconds} -> minSeconds) (\s@DurationRange' {} a -> s {minSeconds = a} :: DurationRange)
 
 -- | The maximum value of the duration range. Must be less than or equal to
 -- 604800 seconds (1 week).
 durationRange_maxSeconds :: Lens.Lens' DurationRange (Prelude.Maybe Prelude.Natural)
 durationRange_maxSeconds = Lens.lens (\DurationRange' {maxSeconds} -> maxSeconds) (\s@DurationRange' {} a -> s {maxSeconds = a} :: DurationRange)
 
+-- | The minimum value of the duration range. Must be greater than zero.
+durationRange_minSeconds :: Lens.Lens' DurationRange (Prelude.Maybe Prelude.Natural)
+durationRange_minSeconds = Lens.lens (\DurationRange' {minSeconds} -> minSeconds) (\s@DurationRange' {} a -> s {minSeconds = a} :: DurationRange)
+
 instance Prelude.Hashable DurationRange where
   hashWithSalt _salt DurationRange' {..} =
-    _salt `Prelude.hashWithSalt` minSeconds
-      `Prelude.hashWithSalt` maxSeconds
+    _salt `Prelude.hashWithSalt` maxSeconds
+      `Prelude.hashWithSalt` minSeconds
 
 instance Prelude.NFData DurationRange where
   rnf DurationRange' {..} =
-    Prelude.rnf minSeconds
-      `Prelude.seq` Prelude.rnf maxSeconds
+    Prelude.rnf maxSeconds
+      `Prelude.seq` Prelude.rnf minSeconds
 
 instance Data.ToJSON DurationRange where
   toJSON DurationRange' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("minSeconds" Data..=) Prelude.<$> minSeconds,
-            ("maxSeconds" Data..=) Prelude.<$> maxSeconds
+          [ ("maxSeconds" Data..=) Prelude.<$> maxSeconds,
+            ("minSeconds" Data..=) Prelude.<$> minSeconds
           ]
       )

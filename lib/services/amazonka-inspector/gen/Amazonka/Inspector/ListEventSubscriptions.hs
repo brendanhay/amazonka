@@ -31,8 +31,8 @@ module Amazonka.Inspector.ListEventSubscriptions
     newListEventSubscriptions,
 
     -- * Request Lenses
-    listEventSubscriptions_nextToken,
     listEventSubscriptions_maxResults,
+    listEventSubscriptions_nextToken,
     listEventSubscriptions_resourceArn,
 
     -- * Destructuring the Response
@@ -56,15 +56,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListEventSubscriptions' smart constructor.
 data ListEventSubscriptions = ListEventSubscriptions'
-  { -- | You can use this parameter when paginating results. Set the value of
+  { -- | You can use this parameter to indicate the maximum number of items you
+    -- want in the response. The default value is 10. The maximum value is 500.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | You can use this parameter when paginating results. Set the value of
     -- this parameter to null on your first call to the
     -- __ListEventSubscriptions__ action. Subsequent calls to the action fill
     -- __nextToken__ in the request with the value of __NextToken__ from the
     -- previous response to continue listing data.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | You can use this parameter to indicate the maximum number of items you
-    -- want in the response. The default value is 10. The maximum value is 500.
-    maxResults :: Prelude.Maybe Prelude.Int,
     -- | The ARN of the assessment template for which you want to list the
     -- existing event subscriptions.
     resourceArn :: Prelude.Maybe Prelude.Text
@@ -79,14 +79,14 @@ data ListEventSubscriptions = ListEventSubscriptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listEventSubscriptions_maxResults' - You can use this parameter to indicate the maximum number of items you
+-- want in the response. The default value is 10. The maximum value is 500.
+--
 -- 'nextToken', 'listEventSubscriptions_nextToken' - You can use this parameter when paginating results. Set the value of
 -- this parameter to null on your first call to the
 -- __ListEventSubscriptions__ action. Subsequent calls to the action fill
 -- __nextToken__ in the request with the value of __NextToken__ from the
 -- previous response to continue listing data.
---
--- 'maxResults', 'listEventSubscriptions_maxResults' - You can use this parameter to indicate the maximum number of items you
--- want in the response. The default value is 10. The maximum value is 500.
 --
 -- 'resourceArn', 'listEventSubscriptions_resourceArn' - The ARN of the assessment template for which you want to list the
 -- existing event subscriptions.
@@ -94,11 +94,16 @@ newListEventSubscriptions ::
   ListEventSubscriptions
 newListEventSubscriptions =
   ListEventSubscriptions'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       resourceArn = Prelude.Nothing
     }
+
+-- | You can use this parameter to indicate the maximum number of items you
+-- want in the response. The default value is 10. The maximum value is 500.
+listEventSubscriptions_maxResults :: Lens.Lens' ListEventSubscriptions (Prelude.Maybe Prelude.Int)
+listEventSubscriptions_maxResults = Lens.lens (\ListEventSubscriptions' {maxResults} -> maxResults) (\s@ListEventSubscriptions' {} a -> s {maxResults = a} :: ListEventSubscriptions)
 
 -- | You can use this parameter when paginating results. Set the value of
 -- this parameter to null on your first call to the
@@ -107,11 +112,6 @@ newListEventSubscriptions =
 -- previous response to continue listing data.
 listEventSubscriptions_nextToken :: Lens.Lens' ListEventSubscriptions (Prelude.Maybe Prelude.Text)
 listEventSubscriptions_nextToken = Lens.lens (\ListEventSubscriptions' {nextToken} -> nextToken) (\s@ListEventSubscriptions' {} a -> s {nextToken = a} :: ListEventSubscriptions)
-
--- | You can use this parameter to indicate the maximum number of items you
--- want in the response. The default value is 10. The maximum value is 500.
-listEventSubscriptions_maxResults :: Lens.Lens' ListEventSubscriptions (Prelude.Maybe Prelude.Int)
-listEventSubscriptions_maxResults = Lens.lens (\ListEventSubscriptions' {maxResults} -> maxResults) (\s@ListEventSubscriptions' {} a -> s {maxResults = a} :: ListEventSubscriptions)
 
 -- | The ARN of the assessment template for which you want to list the
 -- existing event subscriptions.
@@ -156,14 +156,14 @@ instance Core.AWSRequest ListEventSubscriptions where
 
 instance Prelude.Hashable ListEventSubscriptions where
   hashWithSalt _salt ListEventSubscriptions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceArn
 
 instance Prelude.NFData ListEventSubscriptions where
   rnf ListEventSubscriptions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf resourceArn
 
 instance Data.ToHeaders ListEventSubscriptions where
@@ -185,8 +185,8 @@ instance Data.ToJSON ListEventSubscriptions where
   toJSON ListEventSubscriptions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             ("resourceArn" Data..=) Prelude.<$> resourceArn
           ]
       )

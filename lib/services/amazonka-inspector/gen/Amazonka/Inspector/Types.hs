@@ -18,17 +18,17 @@ module Amazonka.Inspector.Types
     defaultService,
 
     -- * Errors
+    _AccessDeniedException,
+    _AgentsAlreadyRunningAssessmentException,
+    _AssessmentRunInProgressException,
+    _InternalException,
     _InvalidCrossAccountRoleException,
     _InvalidInputException,
-    _AccessDeniedException,
-    _PreviewGenerationInProgressException,
-    _NoSuchEntityException,
     _LimitExceededException,
-    _UnsupportedFeatureException,
-    _InternalException,
-    _AssessmentRunInProgressException,
-    _AgentsAlreadyRunningAssessmentException,
+    _NoSuchEntityException,
+    _PreviewGenerationInProgressException,
     _ServiceTemporarilyUnavailableException,
+    _UnsupportedFeatureException,
 
     -- * AgentHealth
     AgentHealth (..),
@@ -84,20 +84,20 @@ module Amazonka.Inspector.Types
     -- * AgentPreview
     AgentPreview (..),
     newAgentPreview,
-    agentPreview_operatingSystem,
-    agentPreview_kernelVersion,
+    agentPreview_agentHealth,
+    agentPreview_agentVersion,
     agentPreview_autoScalingGroup,
     agentPreview_hostname,
-    agentPreview_agentHealth,
     agentPreview_ipv4Address,
-    agentPreview_agentVersion,
+    agentPreview_kernelVersion,
+    agentPreview_operatingSystem,
     agentPreview_agentId,
 
     -- * AssessmentRun
     AssessmentRun (..),
     newAssessmentRun,
-    assessmentRun_startedAt,
     assessmentRun_completedAt,
+    assessmentRun_startedAt,
     assessmentRun_arn,
     assessmentRun_name,
     assessmentRun_assessmentTemplateArn,
@@ -126,12 +126,12 @@ module Amazonka.Inspector.Types
     -- * AssessmentRunFilter
     AssessmentRunFilter (..),
     newAssessmentRunFilter,
-    assessmentRunFilter_startTimeRange,
-    assessmentRunFilter_stateChangeTimeRange,
     assessmentRunFilter_completionTimeRange,
     assessmentRunFilter_durationRange,
     assessmentRunFilter_namePattern,
     assessmentRunFilter_rulesPackageArns,
+    assessmentRunFilter_startTimeRange,
+    assessmentRunFilter_stateChangeTimeRange,
     assessmentRunFilter_states,
 
     -- * AssessmentRunNotification
@@ -187,13 +187,13 @@ module Amazonka.Inspector.Types
     -- * AssetAttributes
     AssetAttributes (..),
     newAssetAttributes,
-    assetAttributes_tags,
+    assetAttributes_agentId,
     assetAttributes_amiId,
-    assetAttributes_ipv4Addresses,
     assetAttributes_autoScalingGroup,
     assetAttributes_hostname,
-    assetAttributes_agentId,
+    assetAttributes_ipv4Addresses,
     assetAttributes_networkInterfaces,
+    assetAttributes_tags,
     assetAttributes_schemaVersion,
 
     -- * Attribute
@@ -205,8 +205,8 @@ module Amazonka.Inspector.Types
     -- * DurationRange
     DurationRange (..),
     newDurationRange,
-    durationRange_minSeconds,
     durationRange_maxSeconds,
+    durationRange_minSeconds,
 
     -- * EventSubscription
     EventSubscription (..),
@@ -242,19 +242,19 @@ module Amazonka.Inspector.Types
     -- * Finding
     Finding (..),
     newFinding,
-    finding_severity,
+    finding_assetAttributes,
+    finding_assetType,
+    finding_confidence,
+    finding_description,
+    finding_id,
     finding_indicatorOfCompromise,
     finding_numericSeverity,
-    finding_confidence,
-    finding_assetAttributes,
-    finding_description,
-    finding_assetType,
-    finding_id,
-    finding_service,
-    finding_title,
     finding_recommendation,
     finding_schemaVersion,
+    finding_service,
     finding_serviceAttributes,
+    finding_severity,
+    finding_title,
     finding_arn,
     finding_attributes,
     finding_userAttributes,
@@ -264,14 +264,14 @@ module Amazonka.Inspector.Types
     -- * FindingFilter
     FindingFilter (..),
     newFindingFilter,
-    findingFilter_autoScalingGroups,
-    findingFilter_severities,
-    findingFilter_ruleNames,
-    findingFilter_creationTimeRange,
-    findingFilter_userAttributes,
-    findingFilter_attributes,
-    findingFilter_rulesPackageArns,
     findingFilter_agentIds,
+    findingFilter_attributes,
+    findingFilter_autoScalingGroups,
+    findingFilter_creationTimeRange,
+    findingFilter_ruleNames,
+    findingFilter_rulesPackageArns,
+    findingFilter_severities,
+    findingFilter_userAttributes,
 
     -- * InspectorServiceAttributes
     InspectorServiceAttributes (..),
@@ -283,22 +283,22 @@ module Amazonka.Inspector.Types
     -- * NetworkInterface
     NetworkInterface (..),
     newNetworkInterface,
-    networkInterface_subnetId,
-    networkInterface_privateIpAddresses,
-    networkInterface_publicIp,
-    networkInterface_publicDnsName,
-    networkInterface_networkInterfaceId,
-    networkInterface_securityGroups,
-    networkInterface_privateIpAddress,
-    networkInterface_privateDnsName,
-    networkInterface_vpcId,
     networkInterface_ipv6Addresses,
+    networkInterface_networkInterfaceId,
+    networkInterface_privateDnsName,
+    networkInterface_privateIpAddress,
+    networkInterface_privateIpAddresses,
+    networkInterface_publicDnsName,
+    networkInterface_publicIp,
+    networkInterface_securityGroups,
+    networkInterface_subnetId,
+    networkInterface_vpcId,
 
     -- * PrivateIp
     PrivateIp (..),
     newPrivateIp,
-    privateIp_privateIpAddress,
     privateIp_privateDnsName,
+    privateIp_privateIpAddress,
 
     -- * ResourceGroup
     ResourceGroup (..),
@@ -331,8 +331,8 @@ module Amazonka.Inspector.Types
     -- * SecurityGroup
     SecurityGroup (..),
     newSecurityGroup,
-    securityGroup_groupName,
     securityGroup_groupId,
+    securityGroup_groupName,
 
     -- * Subscription
     Subscription (..),
@@ -357,8 +357,8 @@ module Amazonka.Inspector.Types
     -- * TimestampRange
     TimestampRange (..),
     newTimestampRange,
-    timestampRange_endDate,
     timestampRange_beginDate,
+    timestampRange_endDate,
   )
 where
 
@@ -439,28 +439,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -468,13 +462,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -482,7 +480,39 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
+
+-- | You do not have required permissions to access the requested resource.
+_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException =
+  Core._MatchServiceError
+    defaultService
+    "AccessDeniedException"
+
+-- | You started an assessment run, but one of the instances is already
+-- participating in another assessment run.
+_AgentsAlreadyRunningAssessmentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AgentsAlreadyRunningAssessmentException =
+  Core._MatchServiceError
+    defaultService
+    "AgentsAlreadyRunningAssessmentException"
+
+-- | You cannot perform a specified action if an assessment run is currently
+-- in progress.
+_AssessmentRunInProgressException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AssessmentRunInProgressException =
+  Core._MatchServiceError
+    defaultService
+    "AssessmentRunInProgressException"
+
+-- | Internal server error.
+_InternalException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalException =
+  Core._MatchServiceError
+    defaultService
+    "InternalException"
 
 -- | Amazon Inspector cannot assume the cross-account role that it needs to
 -- list your EC2 instances during the assessment run.
@@ -500,20 +530,14 @@ _InvalidInputException =
     defaultService
     "InvalidInputException"
 
--- | You do not have required permissions to access the requested resource.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AccessDeniedException =
+-- | The request was rejected because it attempted to create resources beyond
+-- the current AWS account limits. The error code describes the limit
+-- exceeded.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
   Core._MatchServiceError
     defaultService
-    "AccessDeniedException"
-
--- | The request is rejected. The specified assessment template is currently
--- generating an exclusions preview.
-_PreviewGenerationInProgressException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_PreviewGenerationInProgressException =
-  Core._MatchServiceError
-    defaultService
-    "PreviewGenerationInProgressException"
+    "LimitExceededException"
 
 -- | The request was rejected because it referenced an entity that does not
 -- exist. The error code describes the entity.
@@ -523,14 +547,20 @@ _NoSuchEntityException =
     defaultService
     "NoSuchEntityException"
 
--- | The request was rejected because it attempted to create resources beyond
--- the current AWS account limits. The error code describes the limit
--- exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
+-- | The request is rejected. The specified assessment template is currently
+-- generating an exclusions preview.
+_PreviewGenerationInProgressException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PreviewGenerationInProgressException =
   Core._MatchServiceError
     defaultService
-    "LimitExceededException"
+    "PreviewGenerationInProgressException"
+
+-- | The serice is temporary unavailable.
+_ServiceTemporarilyUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceTemporarilyUnavailableException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceTemporarilyUnavailableException"
 
 -- | Used by the GetAssessmentReport API. The request was rejected because
 -- you tried to generate a report for an assessment run that existed before
@@ -542,33 +572,3 @@ _UnsupportedFeatureException =
   Core._MatchServiceError
     defaultService
     "UnsupportedFeatureException"
-
--- | Internal server error.
-_InternalException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalException =
-  Core._MatchServiceError
-    defaultService
-    "InternalException"
-
--- | You cannot perform a specified action if an assessment run is currently
--- in progress.
-_AssessmentRunInProgressException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AssessmentRunInProgressException =
-  Core._MatchServiceError
-    defaultService
-    "AssessmentRunInProgressException"
-
--- | You started an assessment run, but one of the instances is already
--- participating in another assessment run.
-_AgentsAlreadyRunningAssessmentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AgentsAlreadyRunningAssessmentException =
-  Core._MatchServiceError
-    defaultService
-    "AgentsAlreadyRunningAssessmentException"
-
--- | The serice is temporary unavailable.
-_ServiceTemporarilyUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceTemporarilyUnavailableException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceTemporarilyUnavailableException"

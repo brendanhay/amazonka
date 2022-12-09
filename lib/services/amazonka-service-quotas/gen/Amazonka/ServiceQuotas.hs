@@ -23,56 +23,56 @@ module Amazonka.ServiceQuotas
     -- * Errors
     -- $errors
 
-    -- ** ResourceAlreadyExistsException
-    _ResourceAlreadyExistsException,
-
-    -- ** TagPolicyViolationException
-    _TagPolicyViolationException,
-
-    -- ** DependencyAccessDeniedException
-    _DependencyAccessDeniedException,
-
-    -- ** OrganizationNotInAllFeaturesModeException
-    _OrganizationNotInAllFeaturesModeException,
+    -- ** AWSServiceAccessNotEnabledException
+    _AWSServiceAccessNotEnabledException,
 
     -- ** AccessDeniedException
     _AccessDeniedException,
 
-    -- ** InvalidResourceStateException
-    _InvalidResourceStateException,
-
-    -- ** TooManyTagsException
-    _TooManyTagsException,
-
-    -- ** InvalidPaginationTokenException
-    _InvalidPaginationTokenException,
-
-    -- ** TemplatesNotAvailableInRegionException
-    _TemplatesNotAvailableInRegionException,
-
-    -- ** AWSServiceAccessNotEnabledException
-    _AWSServiceAccessNotEnabledException,
-
-    -- ** ServiceQuotaTemplateNotInUseException
-    _ServiceQuotaTemplateNotInUseException,
-
-    -- ** QuotaExceededException
-    _QuotaExceededException,
-
-    -- ** NoSuchResourceException
-    _NoSuchResourceException,
-
-    -- ** ServiceException
-    _ServiceException,
-
-    -- ** NoAvailableOrganizationException
-    _NoAvailableOrganizationException,
+    -- ** DependencyAccessDeniedException
+    _DependencyAccessDeniedException,
 
     -- ** IllegalArgumentException
     _IllegalArgumentException,
 
+    -- ** InvalidPaginationTokenException
+    _InvalidPaginationTokenException,
+
+    -- ** InvalidResourceStateException
+    _InvalidResourceStateException,
+
+    -- ** NoAvailableOrganizationException
+    _NoAvailableOrganizationException,
+
+    -- ** NoSuchResourceException
+    _NoSuchResourceException,
+
+    -- ** OrganizationNotInAllFeaturesModeException
+    _OrganizationNotInAllFeaturesModeException,
+
+    -- ** QuotaExceededException
+    _QuotaExceededException,
+
+    -- ** ResourceAlreadyExistsException
+    _ResourceAlreadyExistsException,
+
+    -- ** ServiceException
+    _ServiceException,
+
+    -- ** ServiceQuotaTemplateNotInUseException
+    _ServiceQuotaTemplateNotInUseException,
+
+    -- ** TagPolicyViolationException
+    _TagPolicyViolationException,
+
+    -- ** TemplatesNotAvailableInRegionException
+    _TemplatesNotAvailableInRegionException,
+
     -- ** TooManyRequestsException
     _TooManyRequestsException,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
 
     -- * Waiters
     -- $waiters

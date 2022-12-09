@@ -37,8 +37,8 @@ module Amazonka.CloudFront.DeleteRealtimeLogConfig
     newDeleteRealtimeLogConfig,
 
     -- * Request Lenses
-    deleteRealtimeLogConfig_name,
     deleteRealtimeLogConfig_arn,
+    deleteRealtimeLogConfig_name,
 
     -- * Destructuring the Response
     DeleteRealtimeLogConfigResponse (..),
@@ -56,11 +56,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteRealtimeLogConfig' smart constructor.
 data DeleteRealtimeLogConfig = DeleteRealtimeLogConfig'
-  { -- | The name of the real-time log configuration to delete.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the real-time log configuration to
+  { -- | The Amazon Resource Name (ARN) of the real-time log configuration to
     -- delete.
-    arn :: Prelude.Maybe Prelude.Text
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the real-time log configuration to delete.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,26 +72,26 @@ data DeleteRealtimeLogConfig = DeleteRealtimeLogConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'deleteRealtimeLogConfig_name' - The name of the real-time log configuration to delete.
---
 -- 'arn', 'deleteRealtimeLogConfig_arn' - The Amazon Resource Name (ARN) of the real-time log configuration to
 -- delete.
+--
+-- 'name', 'deleteRealtimeLogConfig_name' - The name of the real-time log configuration to delete.
 newDeleteRealtimeLogConfig ::
   DeleteRealtimeLogConfig
 newDeleteRealtimeLogConfig =
   DeleteRealtimeLogConfig'
-    { name = Prelude.Nothing,
-      arn = Prelude.Nothing
+    { arn = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | The name of the real-time log configuration to delete.
-deleteRealtimeLogConfig_name :: Lens.Lens' DeleteRealtimeLogConfig (Prelude.Maybe Prelude.Text)
-deleteRealtimeLogConfig_name = Lens.lens (\DeleteRealtimeLogConfig' {name} -> name) (\s@DeleteRealtimeLogConfig' {} a -> s {name = a} :: DeleteRealtimeLogConfig)
 
 -- | The Amazon Resource Name (ARN) of the real-time log configuration to
 -- delete.
 deleteRealtimeLogConfig_arn :: Lens.Lens' DeleteRealtimeLogConfig (Prelude.Maybe Prelude.Text)
 deleteRealtimeLogConfig_arn = Lens.lens (\DeleteRealtimeLogConfig' {arn} -> arn) (\s@DeleteRealtimeLogConfig' {} a -> s {arn = a} :: DeleteRealtimeLogConfig)
+
+-- | The name of the real-time log configuration to delete.
+deleteRealtimeLogConfig_name :: Lens.Lens' DeleteRealtimeLogConfig (Prelude.Maybe Prelude.Text)
+deleteRealtimeLogConfig_name = Lens.lens (\DeleteRealtimeLogConfig' {name} -> name) (\s@DeleteRealtimeLogConfig' {} a -> s {name = a} :: DeleteRealtimeLogConfig)
 
 instance Core.AWSRequest DeleteRealtimeLogConfig where
   type
@@ -105,12 +105,12 @@ instance Core.AWSRequest DeleteRealtimeLogConfig where
 
 instance Prelude.Hashable DeleteRealtimeLogConfig where
   hashWithSalt _salt DeleteRealtimeLogConfig' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData DeleteRealtimeLogConfig where
   rnf DeleteRealtimeLogConfig' {..} =
-    Prelude.rnf name `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf name
 
 instance Data.ToElement DeleteRealtimeLogConfig where
   toElement =
@@ -131,7 +131,7 @@ instance Data.ToQuery DeleteRealtimeLogConfig where
 instance Data.ToXML DeleteRealtimeLogConfig where
   toXML DeleteRealtimeLogConfig' {..} =
     Prelude.mconcat
-      ["Name" Data.@= name, "ARN" Data.@= arn]
+      ["ARN" Data.@= arn, "Name" Data.@= name]
 
 -- | /See:/ 'newDeleteRealtimeLogConfigResponse' smart constructor.
 data DeleteRealtimeLogConfigResponse = DeleteRealtimeLogConfigResponse'

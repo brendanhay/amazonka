@@ -289,6 +289,7 @@ haskell_library(
         "gen/Amazonka/CloudFront/UpdateCloudFrontOriginAccessIdentity.hs",
         "gen/Amazonka/CloudFront/UpdateContinuousDeploymentPolicy.hs",
         "gen/Amazonka/CloudFront/UpdateDistribution.hs",
+        "gen/Amazonka/CloudFront/UpdateDistributionWithStagingConfig.hs",
         "gen/Amazonka/CloudFront/UpdateFieldLevelEncryptionConfig.hs",
         "gen/Amazonka/CloudFront/UpdateFieldLevelEncryptionProfile.hs",
         "gen/Amazonka/CloudFront/UpdateFunction.hs",

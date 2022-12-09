@@ -33,17 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDistribution' smart constructor.
 data Distribution = Distribution'
-  { -- | Amazon Web Services services in China customers must file for an
-    -- Internet Content Provider (ICP) recordal if they want to serve content
-    -- publicly on an alternate domain name, also known as a CNAME, that
-    -- they\'ve added to CloudFront. AliasICPRecordal provides the ICP recordal
-    -- status for CNAMEs associated with distributions.
-    --
-    -- For more information about ICP recordals, see
-    -- <https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html Signup, Accounts, and Credentials>
-    -- in /Getting Started with Amazon Web Services services in China/.
-    aliasICPRecordals :: Prelude.Maybe [AliasICPRecordal],
-    -- | CloudFront automatically adds this field to the response if you’ve
+  { -- | CloudFront automatically adds this field to the response if you’ve
     -- configured a cache behavior in this distribution to serve private
     -- content using key groups. This field contains a list of key groups and
     -- the public keys in each key group that CloudFront can use to verify the
@@ -58,6 +48,16 @@ data Distribution = Distribution'
     -- that CloudFront can use to verify the signatures of signed URLs or
     -- signed cookies.
     activeTrustedSigners :: Prelude.Maybe ActiveTrustedSigners,
+    -- | Amazon Web Services services in China customers must file for an
+    -- Internet Content Provider (ICP) recordal if they want to serve content
+    -- publicly on an alternate domain name, also known as a CNAME, that
+    -- they\'ve added to CloudFront. AliasICPRecordal provides the ICP recordal
+    -- status for CNAMEs associated with distributions.
+    --
+    -- For more information about ICP recordals, see
+    -- <https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html Signup, Accounts, and Credentials>
+    -- in /Getting Started with Amazon Web Services services in China/.
+    aliasICPRecordals :: Prelude.Maybe [AliasICPRecordal],
     -- | The distribution’s identifier. For example: @E1U5RQF7T870K0@.
     id :: Prelude.Text,
     -- | The distribution’s Amazon Resource Name (ARN).
@@ -86,16 +86,6 @@ data Distribution = Distribution'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'aliasICPRecordals', 'distribution_aliasICPRecordals' - Amazon Web Services services in China customers must file for an
--- Internet Content Provider (ICP) recordal if they want to serve content
--- publicly on an alternate domain name, also known as a CNAME, that
--- they\'ve added to CloudFront. AliasICPRecordal provides the ICP recordal
--- status for CNAMEs associated with distributions.
---
--- For more information about ICP recordals, see
--- <https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html Signup, Accounts, and Credentials>
--- in /Getting Started with Amazon Web Services services in China/.
---
 -- 'activeTrustedKeyGroups', 'distribution_activeTrustedKeyGroups' - CloudFront automatically adds this field to the response if you’ve
 -- configured a cache behavior in this distribution to serve private
 -- content using key groups. This field contains a list of key groups and
@@ -110,6 +100,16 @@ data Distribution = Distribution'
 -- Services account IDs and the active CloudFront key pairs in each account
 -- that CloudFront can use to verify the signatures of signed URLs or
 -- signed cookies.
+--
+-- 'aliasICPRecordals', 'distribution_aliasICPRecordals' - Amazon Web Services services in China customers must file for an
+-- Internet Content Provider (ICP) recordal if they want to serve content
+-- publicly on an alternate domain name, also known as a CNAME, that
+-- they\'ve added to CloudFront. AliasICPRecordal provides the ICP recordal
+-- status for CNAMEs associated with distributions.
+--
+-- For more information about ICP recordals, see
+-- <https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html Signup, Accounts, and Credentials>
+-- in /Getting Started with Amazon Web Services services in China/.
 --
 -- 'id', 'distribution_id' - The distribution’s identifier. For example: @E1U5RQF7T870K0@.
 --
@@ -152,9 +152,10 @@ newDistribution
   pDomainName_
   pDistributionConfig_ =
     Distribution'
-      { aliasICPRecordals = Prelude.Nothing,
-        activeTrustedKeyGroups = Prelude.Nothing,
+      { activeTrustedKeyGroups =
+          Prelude.Nothing,
         activeTrustedSigners = Prelude.Nothing,
+        aliasICPRecordals = Prelude.Nothing,
         id = pId_,
         arn = pARN_,
         status = pStatus_,
@@ -165,18 +166,6 @@ newDistribution
         domainName = pDomainName_,
         distributionConfig = pDistributionConfig_
       }
-
--- | Amazon Web Services services in China customers must file for an
--- Internet Content Provider (ICP) recordal if they want to serve content
--- publicly on an alternate domain name, also known as a CNAME, that
--- they\'ve added to CloudFront. AliasICPRecordal provides the ICP recordal
--- status for CNAMEs associated with distributions.
---
--- For more information about ICP recordals, see
--- <https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html Signup, Accounts, and Credentials>
--- in /Getting Started with Amazon Web Services services in China/.
-distribution_aliasICPRecordals :: Lens.Lens' Distribution (Prelude.Maybe [AliasICPRecordal])
-distribution_aliasICPRecordals = Lens.lens (\Distribution' {aliasICPRecordals} -> aliasICPRecordals) (\s@Distribution' {} a -> s {aliasICPRecordals = a} :: Distribution) Prelude.. Lens.mapping Lens.coerced
 
 -- | CloudFront automatically adds this field to the response if you’ve
 -- configured a cache behavior in this distribution to serve private
@@ -196,6 +185,18 @@ distribution_activeTrustedKeyGroups = Lens.lens (\Distribution' {activeTrustedKe
 -- signed cookies.
 distribution_activeTrustedSigners :: Lens.Lens' Distribution (Prelude.Maybe ActiveTrustedSigners)
 distribution_activeTrustedSigners = Lens.lens (\Distribution' {activeTrustedSigners} -> activeTrustedSigners) (\s@Distribution' {} a -> s {activeTrustedSigners = a} :: Distribution)
+
+-- | Amazon Web Services services in China customers must file for an
+-- Internet Content Provider (ICP) recordal if they want to serve content
+-- publicly on an alternate domain name, also known as a CNAME, that
+-- they\'ve added to CloudFront. AliasICPRecordal provides the ICP recordal
+-- status for CNAMEs associated with distributions.
+--
+-- For more information about ICP recordals, see
+-- <https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html Signup, Accounts, and Credentials>
+-- in /Getting Started with Amazon Web Services services in China/.
+distribution_aliasICPRecordals :: Lens.Lens' Distribution (Prelude.Maybe [AliasICPRecordal])
+distribution_aliasICPRecordals = Lens.lens (\Distribution' {aliasICPRecordals} -> aliasICPRecordals) (\s@Distribution' {} a -> s {aliasICPRecordals = a} :: Distribution) Prelude.. Lens.mapping Lens.coerced
 
 -- | The distribution’s identifier. For example: @E1U5RQF7T870K0@.
 distribution_id :: Lens.Lens' Distribution Prelude.Text
@@ -231,12 +232,12 @@ distribution_distributionConfig = Lens.lens (\Distribution' {distributionConfig}
 instance Data.FromXML Distribution where
   parseXML x =
     Distribution'
-      Prelude.<$> ( x Data..@? "AliasICPRecordals"
+      Prelude.<$> (x Data..@? "ActiveTrustedKeyGroups")
+      Prelude.<*> (x Data..@? "ActiveTrustedSigners")
+      Prelude.<*> ( x Data..@? "AliasICPRecordals"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "AliasICPRecordal")
                   )
-      Prelude.<*> (x Data..@? "ActiveTrustedKeyGroups")
-      Prelude.<*> (x Data..@? "ActiveTrustedSigners")
       Prelude.<*> (x Data..@ "Id")
       Prelude.<*> (x Data..@ "ARN")
       Prelude.<*> (x Data..@ "Status")
@@ -247,9 +248,9 @@ instance Data.FromXML Distribution where
 
 instance Prelude.Hashable Distribution where
   hashWithSalt _salt Distribution' {..} =
-    _salt `Prelude.hashWithSalt` aliasICPRecordals
-      `Prelude.hashWithSalt` activeTrustedKeyGroups
+    _salt `Prelude.hashWithSalt` activeTrustedKeyGroups
       `Prelude.hashWithSalt` activeTrustedSigners
+      `Prelude.hashWithSalt` aliasICPRecordals
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` status
@@ -260,9 +261,9 @@ instance Prelude.Hashable Distribution where
 
 instance Prelude.NFData Distribution where
   rnf Distribution' {..} =
-    Prelude.rnf aliasICPRecordals
-      `Prelude.seq` Prelude.rnf activeTrustedKeyGroups
+    Prelude.rnf activeTrustedKeyGroups
       `Prelude.seq` Prelude.rnf activeTrustedSigners
+      `Prelude.seq` Prelude.rnf aliasICPRecordals
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf status

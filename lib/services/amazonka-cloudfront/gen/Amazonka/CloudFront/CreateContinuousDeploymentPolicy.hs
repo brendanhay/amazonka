@@ -46,8 +46,8 @@ module Amazonka.CloudFront.CreateContinuousDeploymentPolicy
 
     -- * Response Lenses
     createContinuousDeploymentPolicyResponse_continuousDeploymentPolicy,
-    createContinuousDeploymentPolicyResponse_location,
     createContinuousDeploymentPolicyResponse_eTag,
+    createContinuousDeploymentPolicyResponse_location,
     createContinuousDeploymentPolicyResponse_httpStatus,
   )
 where
@@ -105,8 +105,8 @@ instance
       ( \s h x ->
           CreateContinuousDeploymentPolicyResponse'
             Prelude.<$> (Data.parseXML x)
-            Prelude.<*> (h Data..#? "Location")
             Prelude.<*> (h Data..#? "ETag")
+            Prelude.<*> (h Data..#? "Location")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,11 +157,11 @@ instance
 data CreateContinuousDeploymentPolicyResponse = CreateContinuousDeploymentPolicyResponse'
   { -- | A continuous deployment policy.
     continuousDeploymentPolicy :: Prelude.Maybe ContinuousDeploymentPolicy,
-    -- | The location of the continuous deployment policy.
-    location :: Prelude.Maybe Prelude.Text,
     -- | The version identifier for the current version of the continuous
     -- deployment policy.
     eTag :: Prelude.Maybe Prelude.Text,
+    -- | The location of the continuous deployment policy.
+    location :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -177,10 +177,10 @@ data CreateContinuousDeploymentPolicyResponse = CreateContinuousDeploymentPolicy
 --
 -- 'continuousDeploymentPolicy', 'createContinuousDeploymentPolicyResponse_continuousDeploymentPolicy' - A continuous deployment policy.
 --
--- 'location', 'createContinuousDeploymentPolicyResponse_location' - The location of the continuous deployment policy.
---
 -- 'eTag', 'createContinuousDeploymentPolicyResponse_eTag' - The version identifier for the current version of the continuous
 -- deployment policy.
+--
+-- 'location', 'createContinuousDeploymentPolicyResponse_location' - The location of the continuous deployment policy.
 --
 -- 'httpStatus', 'createContinuousDeploymentPolicyResponse_httpStatus' - The response's http status code.
 newCreateContinuousDeploymentPolicyResponse ::
@@ -192,8 +192,8 @@ newCreateContinuousDeploymentPolicyResponse
     CreateContinuousDeploymentPolicyResponse'
       { continuousDeploymentPolicy =
           Prelude.Nothing,
-        location = Prelude.Nothing,
         eTag = Prelude.Nothing,
+        location = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
@@ -201,14 +201,14 @@ newCreateContinuousDeploymentPolicyResponse
 createContinuousDeploymentPolicyResponse_continuousDeploymentPolicy :: Lens.Lens' CreateContinuousDeploymentPolicyResponse (Prelude.Maybe ContinuousDeploymentPolicy)
 createContinuousDeploymentPolicyResponse_continuousDeploymentPolicy = Lens.lens (\CreateContinuousDeploymentPolicyResponse' {continuousDeploymentPolicy} -> continuousDeploymentPolicy) (\s@CreateContinuousDeploymentPolicyResponse' {} a -> s {continuousDeploymentPolicy = a} :: CreateContinuousDeploymentPolicyResponse)
 
--- | The location of the continuous deployment policy.
-createContinuousDeploymentPolicyResponse_location :: Lens.Lens' CreateContinuousDeploymentPolicyResponse (Prelude.Maybe Prelude.Text)
-createContinuousDeploymentPolicyResponse_location = Lens.lens (\CreateContinuousDeploymentPolicyResponse' {location} -> location) (\s@CreateContinuousDeploymentPolicyResponse' {} a -> s {location = a} :: CreateContinuousDeploymentPolicyResponse)
-
 -- | The version identifier for the current version of the continuous
 -- deployment policy.
 createContinuousDeploymentPolicyResponse_eTag :: Lens.Lens' CreateContinuousDeploymentPolicyResponse (Prelude.Maybe Prelude.Text)
 createContinuousDeploymentPolicyResponse_eTag = Lens.lens (\CreateContinuousDeploymentPolicyResponse' {eTag} -> eTag) (\s@CreateContinuousDeploymentPolicyResponse' {} a -> s {eTag = a} :: CreateContinuousDeploymentPolicyResponse)
+
+-- | The location of the continuous deployment policy.
+createContinuousDeploymentPolicyResponse_location :: Lens.Lens' CreateContinuousDeploymentPolicyResponse (Prelude.Maybe Prelude.Text)
+createContinuousDeploymentPolicyResponse_location = Lens.lens (\CreateContinuousDeploymentPolicyResponse' {location} -> location) (\s@CreateContinuousDeploymentPolicyResponse' {} a -> s {location = a} :: CreateContinuousDeploymentPolicyResponse)
 
 -- | The response's http status code.
 createContinuousDeploymentPolicyResponse_httpStatus :: Lens.Lens' CreateContinuousDeploymentPolicyResponse Prelude.Int
@@ -220,6 +220,6 @@ instance
   where
   rnf CreateContinuousDeploymentPolicyResponse' {..} =
     Prelude.rnf continuousDeploymentPolicy
-      `Prelude.seq` Prelude.rnf location
       `Prelude.seq` Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf location
       `Prelude.seq` Prelude.rnf httpStatus

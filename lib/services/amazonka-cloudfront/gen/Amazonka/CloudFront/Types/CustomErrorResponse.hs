@@ -39,32 +39,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCustomErrorResponse' smart constructor.
 data CustomErrorResponse = CustomErrorResponse'
-  { -- | The path to the custom error page that you want CloudFront to return to
-    -- a viewer when your origin returns the HTTP status code specified by
-    -- @ErrorCode@, for example, @\/4xx-errors\/403-forbidden.html@. If you
-    -- want to store your objects and your custom error pages in different
-    -- locations, your distribution must include a cache behavior for which the
-    -- following is true:
-    --
-    -- -   The value of @PathPattern@ matches the path to your custom error
-    --     messages. For example, suppose you saved custom error pages for 4xx
-    --     errors in an Amazon S3 bucket in a directory named @\/4xx-errors@.
-    --     Your distribution must include a cache behavior for which the path
-    --     pattern routes requests for your custom error pages to that
-    --     location, for example, @\/4xx-errors\/*@.
-    --
-    -- -   The value of @TargetOriginId@ specifies the value of the @ID@
-    --     element for the origin that contains your custom error pages.
-    --
-    -- If you specify a value for @ResponsePagePath@, you must also specify a
-    -- value for @ResponseCode@.
-    --
-    -- We recommend that you store custom error pages in an Amazon S3 bucket.
-    -- If you store custom error pages on an HTTP server and the server starts
-    -- to return 5xx errors, CloudFront can\'t get the files that you want to
-    -- return to viewers because the origin server is unavailable.
-    responsePagePath :: Prelude.Maybe Prelude.Text,
-    -- | The minimum amount of time, in seconds, that you want CloudFront to
+  { -- | The minimum amount of time, in seconds, that you want CloudFront to
     -- cache the HTTP status code specified in @ErrorCode@. When this time
     -- period has elapsed, CloudFront queries your origin to see whether the
     -- problem that caused the error has been resolved and the requested object
@@ -94,6 +69,31 @@ data CustomErrorResponse = CustomErrorResponse'
     -- If you specify a value for @ResponseCode@, you must also specify a value
     -- for @ResponsePagePath@.
     responseCode :: Prelude.Maybe Prelude.Text,
+    -- | The path to the custom error page that you want CloudFront to return to
+    -- a viewer when your origin returns the HTTP status code specified by
+    -- @ErrorCode@, for example, @\/4xx-errors\/403-forbidden.html@. If you
+    -- want to store your objects and your custom error pages in different
+    -- locations, your distribution must include a cache behavior for which the
+    -- following is true:
+    --
+    -- -   The value of @PathPattern@ matches the path to your custom error
+    --     messages. For example, suppose you saved custom error pages for 4xx
+    --     errors in an Amazon S3 bucket in a directory named @\/4xx-errors@.
+    --     Your distribution must include a cache behavior for which the path
+    --     pattern routes requests for your custom error pages to that
+    --     location, for example, @\/4xx-errors\/*@.
+    --
+    -- -   The value of @TargetOriginId@ specifies the value of the @ID@
+    --     element for the origin that contains your custom error pages.
+    --
+    -- If you specify a value for @ResponsePagePath@, you must also specify a
+    -- value for @ResponseCode@.
+    --
+    -- We recommend that you store custom error pages in an Amazon S3 bucket.
+    -- If you store custom error pages on an HTTP server and the server starts
+    -- to return 5xx errors, CloudFront can\'t get the files that you want to
+    -- return to viewers because the origin server is unavailable.
+    responsePagePath :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status code for which you want to specify a custom error page
     -- and\/or a caching duration.
     errorCode :: Prelude.Int
@@ -107,31 +107,6 @@ data CustomErrorResponse = CustomErrorResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'responsePagePath', 'customErrorResponse_responsePagePath' - The path to the custom error page that you want CloudFront to return to
--- a viewer when your origin returns the HTTP status code specified by
--- @ErrorCode@, for example, @\/4xx-errors\/403-forbidden.html@. If you
--- want to store your objects and your custom error pages in different
--- locations, your distribution must include a cache behavior for which the
--- following is true:
---
--- -   The value of @PathPattern@ matches the path to your custom error
---     messages. For example, suppose you saved custom error pages for 4xx
---     errors in an Amazon S3 bucket in a directory named @\/4xx-errors@.
---     Your distribution must include a cache behavior for which the path
---     pattern routes requests for your custom error pages to that
---     location, for example, @\/4xx-errors\/*@.
---
--- -   The value of @TargetOriginId@ specifies the value of the @ID@
---     element for the origin that contains your custom error pages.
---
--- If you specify a value for @ResponsePagePath@, you must also specify a
--- value for @ResponseCode@.
---
--- We recommend that you store custom error pages in an Amazon S3 bucket.
--- If you store custom error pages on an HTTP server and the server starts
--- to return 5xx errors, CloudFront can\'t get the files that you want to
--- return to viewers because the origin server is unavailable.
 --
 -- 'errorCachingMinTTL', 'customErrorResponse_errorCachingMinTTL' - The minimum amount of time, in seconds, that you want CloudFront to
 -- cache the HTTP status code specified in @ErrorCode@. When this time
@@ -163,22 +138,7 @@ data CustomErrorResponse = CustomErrorResponse'
 -- If you specify a value for @ResponseCode@, you must also specify a value
 -- for @ResponsePagePath@.
 --
--- 'errorCode', 'customErrorResponse_errorCode' - The HTTP status code for which you want to specify a custom error page
--- and\/or a caching duration.
-newCustomErrorResponse ::
-  -- | 'errorCode'
-  Prelude.Int ->
-  CustomErrorResponse
-newCustomErrorResponse pErrorCode_ =
-  CustomErrorResponse'
-    { responsePagePath =
-        Prelude.Nothing,
-      errorCachingMinTTL = Prelude.Nothing,
-      responseCode = Prelude.Nothing,
-      errorCode = pErrorCode_
-    }
-
--- | The path to the custom error page that you want CloudFront to return to
+-- 'responsePagePath', 'customErrorResponse_responsePagePath' - The path to the custom error page that you want CloudFront to return to
 -- a viewer when your origin returns the HTTP status code specified by
 -- @ErrorCode@, for example, @\/4xx-errors\/403-forbidden.html@. If you
 -- want to store your objects and your custom error pages in different
@@ -202,8 +162,21 @@ newCustomErrorResponse pErrorCode_ =
 -- If you store custom error pages on an HTTP server and the server starts
 -- to return 5xx errors, CloudFront can\'t get the files that you want to
 -- return to viewers because the origin server is unavailable.
-customErrorResponse_responsePagePath :: Lens.Lens' CustomErrorResponse (Prelude.Maybe Prelude.Text)
-customErrorResponse_responsePagePath = Lens.lens (\CustomErrorResponse' {responsePagePath} -> responsePagePath) (\s@CustomErrorResponse' {} a -> s {responsePagePath = a} :: CustomErrorResponse)
+--
+-- 'errorCode', 'customErrorResponse_errorCode' - The HTTP status code for which you want to specify a custom error page
+-- and\/or a caching duration.
+newCustomErrorResponse ::
+  -- | 'errorCode'
+  Prelude.Int ->
+  CustomErrorResponse
+newCustomErrorResponse pErrorCode_ =
+  CustomErrorResponse'
+    { errorCachingMinTTL =
+        Prelude.Nothing,
+      responseCode = Prelude.Nothing,
+      responsePagePath = Prelude.Nothing,
+      errorCode = pErrorCode_
+    }
 
 -- | The minimum amount of time, in seconds, that you want CloudFront to
 -- cache the HTTP status code specified in @ErrorCode@. When this time
@@ -239,6 +212,33 @@ customErrorResponse_errorCachingMinTTL = Lens.lens (\CustomErrorResponse' {error
 customErrorResponse_responseCode :: Lens.Lens' CustomErrorResponse (Prelude.Maybe Prelude.Text)
 customErrorResponse_responseCode = Lens.lens (\CustomErrorResponse' {responseCode} -> responseCode) (\s@CustomErrorResponse' {} a -> s {responseCode = a} :: CustomErrorResponse)
 
+-- | The path to the custom error page that you want CloudFront to return to
+-- a viewer when your origin returns the HTTP status code specified by
+-- @ErrorCode@, for example, @\/4xx-errors\/403-forbidden.html@. If you
+-- want to store your objects and your custom error pages in different
+-- locations, your distribution must include a cache behavior for which the
+-- following is true:
+--
+-- -   The value of @PathPattern@ matches the path to your custom error
+--     messages. For example, suppose you saved custom error pages for 4xx
+--     errors in an Amazon S3 bucket in a directory named @\/4xx-errors@.
+--     Your distribution must include a cache behavior for which the path
+--     pattern routes requests for your custom error pages to that
+--     location, for example, @\/4xx-errors\/*@.
+--
+-- -   The value of @TargetOriginId@ specifies the value of the @ID@
+--     element for the origin that contains your custom error pages.
+--
+-- If you specify a value for @ResponsePagePath@, you must also specify a
+-- value for @ResponseCode@.
+--
+-- We recommend that you store custom error pages in an Amazon S3 bucket.
+-- If you store custom error pages on an HTTP server and the server starts
+-- to return 5xx errors, CloudFront can\'t get the files that you want to
+-- return to viewers because the origin server is unavailable.
+customErrorResponse_responsePagePath :: Lens.Lens' CustomErrorResponse (Prelude.Maybe Prelude.Text)
+customErrorResponse_responsePagePath = Lens.lens (\CustomErrorResponse' {responsePagePath} -> responsePagePath) (\s@CustomErrorResponse' {} a -> s {responsePagePath = a} :: CustomErrorResponse)
+
 -- | The HTTP status code for which you want to specify a custom error page
 -- and\/or a caching duration.
 customErrorResponse_errorCode :: Lens.Lens' CustomErrorResponse Prelude.Int
@@ -247,30 +247,30 @@ customErrorResponse_errorCode = Lens.lens (\CustomErrorResponse' {errorCode} -> 
 instance Data.FromXML CustomErrorResponse where
   parseXML x =
     CustomErrorResponse'
-      Prelude.<$> (x Data..@? "ResponsePagePath")
-      Prelude.<*> (x Data..@? "ErrorCachingMinTTL")
+      Prelude.<$> (x Data..@? "ErrorCachingMinTTL")
       Prelude.<*> (x Data..@? "ResponseCode")
+      Prelude.<*> (x Data..@? "ResponsePagePath")
       Prelude.<*> (x Data..@ "ErrorCode")
 
 instance Prelude.Hashable CustomErrorResponse where
   hashWithSalt _salt CustomErrorResponse' {..} =
-    _salt `Prelude.hashWithSalt` responsePagePath
-      `Prelude.hashWithSalt` errorCachingMinTTL
+    _salt `Prelude.hashWithSalt` errorCachingMinTTL
       `Prelude.hashWithSalt` responseCode
+      `Prelude.hashWithSalt` responsePagePath
       `Prelude.hashWithSalt` errorCode
 
 instance Prelude.NFData CustomErrorResponse where
   rnf CustomErrorResponse' {..} =
-    Prelude.rnf responsePagePath
-      `Prelude.seq` Prelude.rnf errorCachingMinTTL
+    Prelude.rnf errorCachingMinTTL
       `Prelude.seq` Prelude.rnf responseCode
+      `Prelude.seq` Prelude.rnf responsePagePath
       `Prelude.seq` Prelude.rnf errorCode
 
 instance Data.ToXML CustomErrorResponse where
   toXML CustomErrorResponse' {..} =
     Prelude.mconcat
-      [ "ResponsePagePath" Data.@= responsePagePath,
-        "ErrorCachingMinTTL" Data.@= errorCachingMinTTL,
+      [ "ErrorCachingMinTTL" Data.@= errorCachingMinTTL,
         "ResponseCode" Data.@= responseCode,
+        "ResponsePagePath" Data.@= responsePagePath,
         "ErrorCode" Data.@= errorCode
       ]

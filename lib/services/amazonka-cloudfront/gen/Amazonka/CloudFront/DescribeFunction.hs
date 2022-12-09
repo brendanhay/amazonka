@@ -41,8 +41,8 @@ module Amazonka.CloudFront.DescribeFunction
     newDescribeFunctionResponse,
 
     -- * Response Lenses
-    describeFunctionResponse_functionSummary,
     describeFunctionResponse_eTag,
+    describeFunctionResponse_functionSummary,
     describeFunctionResponse_httpStatus,
   )
 where
@@ -103,8 +103,8 @@ instance Core.AWSRequest DescribeFunction where
     Response.receiveXML
       ( \s h x ->
           DescribeFunctionResponse'
-            Prelude.<$> (Data.parseXML x)
-            Prelude.<*> (h Data..#? "ETag")
+            Prelude.<$> (h Data..#? "ETag")
+            Prelude.<*> (Data.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,12 +134,12 @@ instance Data.ToQuery DescribeFunction where
 
 -- | /See:/ 'newDescribeFunctionResponse' smart constructor.
 data DescribeFunctionResponse = DescribeFunctionResponse'
-  { -- | Contains configuration information and metadata about a CloudFront
-    -- function.
-    functionSummary :: Prelude.Maybe FunctionSummary,
-    -- | The version identifier for the current version of the CloudFront
+  { -- | The version identifier for the current version of the CloudFront
     -- function.
     eTag :: Prelude.Maybe Prelude.Text,
+    -- | Contains configuration information and metadata about a CloudFront
+    -- function.
+    functionSummary :: Prelude.Maybe FunctionSummary,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -153,10 +153,10 @@ data DescribeFunctionResponse = DescribeFunctionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'functionSummary', 'describeFunctionResponse_functionSummary' - Contains configuration information and metadata about a CloudFront
+-- 'eTag', 'describeFunctionResponse_eTag' - The version identifier for the current version of the CloudFront
 -- function.
 --
--- 'eTag', 'describeFunctionResponse_eTag' - The version identifier for the current version of the CloudFront
+-- 'functionSummary', 'describeFunctionResponse_functionSummary' - Contains configuration information and metadata about a CloudFront
 -- function.
 --
 -- 'httpStatus', 'describeFunctionResponse_httpStatus' - The response's http status code.
@@ -166,21 +166,20 @@ newDescribeFunctionResponse ::
   DescribeFunctionResponse
 newDescribeFunctionResponse pHttpStatus_ =
   DescribeFunctionResponse'
-    { functionSummary =
-        Prelude.Nothing,
-      eTag = Prelude.Nothing,
+    { eTag = Prelude.Nothing,
+      functionSummary = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Contains configuration information and metadata about a CloudFront
--- function.
-describeFunctionResponse_functionSummary :: Lens.Lens' DescribeFunctionResponse (Prelude.Maybe FunctionSummary)
-describeFunctionResponse_functionSummary = Lens.lens (\DescribeFunctionResponse' {functionSummary} -> functionSummary) (\s@DescribeFunctionResponse' {} a -> s {functionSummary = a} :: DescribeFunctionResponse)
 
 -- | The version identifier for the current version of the CloudFront
 -- function.
 describeFunctionResponse_eTag :: Lens.Lens' DescribeFunctionResponse (Prelude.Maybe Prelude.Text)
 describeFunctionResponse_eTag = Lens.lens (\DescribeFunctionResponse' {eTag} -> eTag) (\s@DescribeFunctionResponse' {} a -> s {eTag = a} :: DescribeFunctionResponse)
+
+-- | Contains configuration information and metadata about a CloudFront
+-- function.
+describeFunctionResponse_functionSummary :: Lens.Lens' DescribeFunctionResponse (Prelude.Maybe FunctionSummary)
+describeFunctionResponse_functionSummary = Lens.lens (\DescribeFunctionResponse' {functionSummary} -> functionSummary) (\s@DescribeFunctionResponse' {} a -> s {functionSummary = a} :: DescribeFunctionResponse)
 
 -- | The response's http status code.
 describeFunctionResponse_httpStatus :: Lens.Lens' DescribeFunctionResponse Prelude.Int
@@ -188,6 +187,6 @@ describeFunctionResponse_httpStatus = Lens.lens (\DescribeFunctionResponse' {htt
 
 instance Prelude.NFData DescribeFunctionResponse where
   rnf DescribeFunctionResponse' {..} =
-    Prelude.rnf functionSummary
-      `Prelude.seq` Prelude.rnf eTag
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf functionSummary
       `Prelude.seq` Prelude.rnf httpStatus

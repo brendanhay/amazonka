@@ -34,8 +34,8 @@ module Amazonka.CloudFront.GetPublicKey
     newGetPublicKeyResponse,
 
     -- * Response Lenses
-    getPublicKeyResponse_publicKey,
     getPublicKeyResponse_eTag,
+    getPublicKeyResponse_publicKey,
     getPublicKeyResponse_httpStatus,
   )
 where
@@ -82,8 +82,8 @@ instance Core.AWSRequest GetPublicKey where
     Response.receiveXML
       ( \s h x ->
           GetPublicKeyResponse'
-            Prelude.<$> (Data.parseXML x)
-            Prelude.<*> (h Data..#? "ETag")
+            Prelude.<$> (h Data..#? "ETag")
+            Prelude.<*> (Data.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -107,10 +107,10 @@ instance Data.ToQuery GetPublicKey where
 
 -- | /See:/ 'newGetPublicKeyResponse' smart constructor.
 data GetPublicKeyResponse = GetPublicKeyResponse'
-  { -- | The public key.
-    publicKey :: Prelude.Maybe PublicKey,
-    -- | The identifier for this version of the public key.
+  { -- | The identifier for this version of the public key.
     eTag :: Prelude.Maybe Prelude.Text,
+    -- | The public key.
+    publicKey :: Prelude.Maybe PublicKey,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -124,9 +124,9 @@ data GetPublicKeyResponse = GetPublicKeyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'publicKey', 'getPublicKeyResponse_publicKey' - The public key.
---
 -- 'eTag', 'getPublicKeyResponse_eTag' - The identifier for this version of the public key.
+--
+-- 'publicKey', 'getPublicKeyResponse_publicKey' - The public key.
 --
 -- 'httpStatus', 'getPublicKeyResponse_httpStatus' - The response's http status code.
 newGetPublicKeyResponse ::
@@ -135,18 +135,18 @@ newGetPublicKeyResponse ::
   GetPublicKeyResponse
 newGetPublicKeyResponse pHttpStatus_ =
   GetPublicKeyResponse'
-    { publicKey = Prelude.Nothing,
-      eTag = Prelude.Nothing,
+    { eTag = Prelude.Nothing,
+      publicKey = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The public key.
-getPublicKeyResponse_publicKey :: Lens.Lens' GetPublicKeyResponse (Prelude.Maybe PublicKey)
-getPublicKeyResponse_publicKey = Lens.lens (\GetPublicKeyResponse' {publicKey} -> publicKey) (\s@GetPublicKeyResponse' {} a -> s {publicKey = a} :: GetPublicKeyResponse)
 
 -- | The identifier for this version of the public key.
 getPublicKeyResponse_eTag :: Lens.Lens' GetPublicKeyResponse (Prelude.Maybe Prelude.Text)
 getPublicKeyResponse_eTag = Lens.lens (\GetPublicKeyResponse' {eTag} -> eTag) (\s@GetPublicKeyResponse' {} a -> s {eTag = a} :: GetPublicKeyResponse)
+
+-- | The public key.
+getPublicKeyResponse_publicKey :: Lens.Lens' GetPublicKeyResponse (Prelude.Maybe PublicKey)
+getPublicKeyResponse_publicKey = Lens.lens (\GetPublicKeyResponse' {publicKey} -> publicKey) (\s@GetPublicKeyResponse' {} a -> s {publicKey = a} :: GetPublicKeyResponse)
 
 -- | The response's http status code.
 getPublicKeyResponse_httpStatus :: Lens.Lens' GetPublicKeyResponse Prelude.Int
@@ -154,6 +154,6 @@ getPublicKeyResponse_httpStatus = Lens.lens (\GetPublicKeyResponse' {httpStatus}
 
 instance Prelude.NFData GetPublicKeyResponse where
   rnf GetPublicKeyResponse' {..} =
-    Prelude.rnf publicKey
-      `Prelude.seq` Prelude.rnf eTag
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf publicKey
       `Prelude.seq` Prelude.rnf httpStatus

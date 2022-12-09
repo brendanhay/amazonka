@@ -34,9 +34,9 @@ module Amazonka.CloudFront.CreateDistribution
     newCreateDistributionResponse,
 
     -- * Response Lenses
-    createDistributionResponse_location,
     createDistributionResponse_distribution,
     createDistributionResponse_eTag,
+    createDistributionResponse_location,
     createDistributionResponse_httpStatus,
   )
 where
@@ -91,9 +91,9 @@ instance Core.AWSRequest CreateDistribution where
     Response.receiveXML
       ( \s h x ->
           CreateDistributionResponse'
-            Prelude.<$> (h Data..#? "Location")
-            Prelude.<*> (Data.parseXML x)
+            Prelude.<$> (Data.parseXML x)
             Prelude.<*> (h Data..#? "ETag")
+            Prelude.<*> (h Data..#? "Location")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -124,12 +124,12 @@ instance Data.ToQuery CreateDistribution where
 --
 -- /See:/ 'newCreateDistributionResponse' smart constructor.
 data CreateDistributionResponse = CreateDistributionResponse'
-  { -- | The fully qualified URI of the new distribution resource just created.
-    location :: Prelude.Maybe Prelude.Text,
-    -- | The distribution\'s information.
+  { -- | The distribution\'s information.
     distribution :: Prelude.Maybe Distribution,
     -- | The current version of the distribution created.
     eTag :: Prelude.Maybe Prelude.Text,
+    -- | The fully qualified URI of the new distribution resource just created.
+    location :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -143,11 +143,11 @@ data CreateDistributionResponse = CreateDistributionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'location', 'createDistributionResponse_location' - The fully qualified URI of the new distribution resource just created.
---
 -- 'distribution', 'createDistributionResponse_distribution' - The distribution\'s information.
 --
 -- 'eTag', 'createDistributionResponse_eTag' - The current version of the distribution created.
+--
+-- 'location', 'createDistributionResponse_location' - The fully qualified URI of the new distribution resource just created.
 --
 -- 'httpStatus', 'createDistributionResponse_httpStatus' - The response's http status code.
 newCreateDistributionResponse ::
@@ -156,16 +156,12 @@ newCreateDistributionResponse ::
   CreateDistributionResponse
 newCreateDistributionResponse pHttpStatus_ =
   CreateDistributionResponse'
-    { location =
+    { distribution =
         Prelude.Nothing,
-      distribution = Prelude.Nothing,
       eTag = Prelude.Nothing,
+      location = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The fully qualified URI of the new distribution resource just created.
-createDistributionResponse_location :: Lens.Lens' CreateDistributionResponse (Prelude.Maybe Prelude.Text)
-createDistributionResponse_location = Lens.lens (\CreateDistributionResponse' {location} -> location) (\s@CreateDistributionResponse' {} a -> s {location = a} :: CreateDistributionResponse)
 
 -- | The distribution\'s information.
 createDistributionResponse_distribution :: Lens.Lens' CreateDistributionResponse (Prelude.Maybe Distribution)
@@ -175,13 +171,17 @@ createDistributionResponse_distribution = Lens.lens (\CreateDistributionResponse
 createDistributionResponse_eTag :: Lens.Lens' CreateDistributionResponse (Prelude.Maybe Prelude.Text)
 createDistributionResponse_eTag = Lens.lens (\CreateDistributionResponse' {eTag} -> eTag) (\s@CreateDistributionResponse' {} a -> s {eTag = a} :: CreateDistributionResponse)
 
+-- | The fully qualified URI of the new distribution resource just created.
+createDistributionResponse_location :: Lens.Lens' CreateDistributionResponse (Prelude.Maybe Prelude.Text)
+createDistributionResponse_location = Lens.lens (\CreateDistributionResponse' {location} -> location) (\s@CreateDistributionResponse' {} a -> s {location = a} :: CreateDistributionResponse)
+
 -- | The response's http status code.
 createDistributionResponse_httpStatus :: Lens.Lens' CreateDistributionResponse Prelude.Int
 createDistributionResponse_httpStatus = Lens.lens (\CreateDistributionResponse' {httpStatus} -> httpStatus) (\s@CreateDistributionResponse' {} a -> s {httpStatus = a} :: CreateDistributionResponse)
 
 instance Prelude.NFData CreateDistributionResponse where
   rnf CreateDistributionResponse' {..} =
-    Prelude.rnf location
-      `Prelude.seq` Prelude.rnf distribution
+    Prelude.rnf distribution
       `Prelude.seq` Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf location
       `Prelude.seq` Prelude.rnf httpStatus

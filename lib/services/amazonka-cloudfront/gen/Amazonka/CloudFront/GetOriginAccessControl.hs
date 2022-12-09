@@ -35,8 +35,8 @@ module Amazonka.CloudFront.GetOriginAccessControl
     newGetOriginAccessControlResponse,
 
     -- * Response Lenses
-    getOriginAccessControlResponse_originAccessControl,
     getOriginAccessControlResponse_eTag,
+    getOriginAccessControlResponse_originAccessControl,
     getOriginAccessControlResponse_httpStatus,
   )
 where
@@ -86,8 +86,8 @@ instance Core.AWSRequest GetOriginAccessControl where
     Response.receiveXML
       ( \s h x ->
           GetOriginAccessControlResponse'
-            Prelude.<$> (Data.parseXML x)
-            Prelude.<*> (h Data..#? "ETag")
+            Prelude.<$> (h Data..#? "ETag")
+            Prelude.<*> (Data.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -111,11 +111,11 @@ instance Data.ToQuery GetOriginAccessControl where
 
 -- | /See:/ 'newGetOriginAccessControlResponse' smart constructor.
 data GetOriginAccessControlResponse = GetOriginAccessControlResponse'
-  { -- | Contains an origin access control, including its unique identifier.
-    originAccessControl :: Prelude.Maybe OriginAccessControl,
-    -- | The version identifier for the current version of the origin access
+  { -- | The version identifier for the current version of the origin access
     -- control.
     eTag :: Prelude.Maybe Prelude.Text,
+    -- | Contains an origin access control, including its unique identifier.
+    originAccessControl :: Prelude.Maybe OriginAccessControl,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -129,10 +129,10 @@ data GetOriginAccessControlResponse = GetOriginAccessControlResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'originAccessControl', 'getOriginAccessControlResponse_originAccessControl' - Contains an origin access control, including its unique identifier.
---
 -- 'eTag', 'getOriginAccessControlResponse_eTag' - The version identifier for the current version of the origin access
 -- control.
+--
+-- 'originAccessControl', 'getOriginAccessControlResponse_originAccessControl' - Contains an origin access control, including its unique identifier.
 --
 -- 'httpStatus', 'getOriginAccessControlResponse_httpStatus' - The response's http status code.
 newGetOriginAccessControlResponse ::
@@ -141,20 +141,20 @@ newGetOriginAccessControlResponse ::
   GetOriginAccessControlResponse
 newGetOriginAccessControlResponse pHttpStatus_ =
   GetOriginAccessControlResponse'
-    { originAccessControl =
+    { eTag =
         Prelude.Nothing,
-      eTag = Prelude.Nothing,
+      originAccessControl = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Contains an origin access control, including its unique identifier.
-getOriginAccessControlResponse_originAccessControl :: Lens.Lens' GetOriginAccessControlResponse (Prelude.Maybe OriginAccessControl)
-getOriginAccessControlResponse_originAccessControl = Lens.lens (\GetOriginAccessControlResponse' {originAccessControl} -> originAccessControl) (\s@GetOriginAccessControlResponse' {} a -> s {originAccessControl = a} :: GetOriginAccessControlResponse)
 
 -- | The version identifier for the current version of the origin access
 -- control.
 getOriginAccessControlResponse_eTag :: Lens.Lens' GetOriginAccessControlResponse (Prelude.Maybe Prelude.Text)
 getOriginAccessControlResponse_eTag = Lens.lens (\GetOriginAccessControlResponse' {eTag} -> eTag) (\s@GetOriginAccessControlResponse' {} a -> s {eTag = a} :: GetOriginAccessControlResponse)
+
+-- | Contains an origin access control, including its unique identifier.
+getOriginAccessControlResponse_originAccessControl :: Lens.Lens' GetOriginAccessControlResponse (Prelude.Maybe OriginAccessControl)
+getOriginAccessControlResponse_originAccessControl = Lens.lens (\GetOriginAccessControlResponse' {originAccessControl} -> originAccessControl) (\s@GetOriginAccessControlResponse' {} a -> s {originAccessControl = a} :: GetOriginAccessControlResponse)
 
 -- | The response's http status code.
 getOriginAccessControlResponse_httpStatus :: Lens.Lens' GetOriginAccessControlResponse Prelude.Int
@@ -165,6 +165,6 @@ instance
     GetOriginAccessControlResponse
   where
   rnf GetOriginAccessControlResponse' {..} =
-    Prelude.rnf originAccessControl
-      `Prelude.seq` Prelude.rnf eTag
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf originAccessControl
       `Prelude.seq` Prelude.rnf httpStatus

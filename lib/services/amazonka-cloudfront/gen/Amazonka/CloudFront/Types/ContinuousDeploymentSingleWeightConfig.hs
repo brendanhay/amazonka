@@ -25,14 +25,13 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Contains the percentage of traffic to send to a staging distribution,
--- expressed as a decimal number between 0 and 1.
+-- | Contains the percentage of traffic to send to a staging distribution.
 --
 -- /See:/ 'newContinuousDeploymentSingleWeightConfig' smart constructor.
 data ContinuousDeploymentSingleWeightConfig = ContinuousDeploymentSingleWeightConfig'
   { sessionStickinessConfig :: Prelude.Maybe SessionStickinessConfig,
-    -- | The percentage of traffic to send to the staging distribution, expressed
-    -- as a decimal number between 0 and 1.
+    -- | The percentage of traffic to send to a staging distribution, expressed
+    -- as a decimal number between 0 and .15.
     weight :: Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -47,8 +46,8 @@ data ContinuousDeploymentSingleWeightConfig = ContinuousDeploymentSingleWeightCo
 --
 -- 'sessionStickinessConfig', 'continuousDeploymentSingleWeightConfig_sessionStickinessConfig' - Undocumented member.
 --
--- 'weight', 'continuousDeploymentSingleWeightConfig_weight' - The percentage of traffic to send to the staging distribution, expressed
--- as a decimal number between 0 and 1.
+-- 'weight', 'continuousDeploymentSingleWeightConfig_weight' - The percentage of traffic to send to a staging distribution, expressed
+-- as a decimal number between 0 and .15.
 newContinuousDeploymentSingleWeightConfig ::
   -- | 'weight'
   Prelude.Double ->
@@ -64,8 +63,8 @@ newContinuousDeploymentSingleWeightConfig pWeight_ =
 continuousDeploymentSingleWeightConfig_sessionStickinessConfig :: Lens.Lens' ContinuousDeploymentSingleWeightConfig (Prelude.Maybe SessionStickinessConfig)
 continuousDeploymentSingleWeightConfig_sessionStickinessConfig = Lens.lens (\ContinuousDeploymentSingleWeightConfig' {sessionStickinessConfig} -> sessionStickinessConfig) (\s@ContinuousDeploymentSingleWeightConfig' {} a -> s {sessionStickinessConfig = a} :: ContinuousDeploymentSingleWeightConfig)
 
--- | The percentage of traffic to send to the staging distribution, expressed
--- as a decimal number between 0 and 1.
+-- | The percentage of traffic to send to a staging distribution, expressed
+-- as a decimal number between 0 and .15.
 continuousDeploymentSingleWeightConfig_weight :: Lens.Lens' ContinuousDeploymentSingleWeightConfig Prelude.Double
 continuousDeploymentSingleWeightConfig_weight = Lens.lens (\ContinuousDeploymentSingleWeightConfig' {weight} -> weight) (\s@ContinuousDeploymentSingleWeightConfig' {} a -> s {weight = a} :: ContinuousDeploymentSingleWeightConfig)
 

@@ -24,50 +24,368 @@ module Amazonka.CloudFront
     -- * Errors
     -- $errors
 
-    -- ** TooManyKeyGroupsAssociatedToDistribution
-    _TooManyKeyGroupsAssociatedToDistribution,
-
-    -- ** FunctionInUse
-    _FunctionInUse,
-
-    -- ** InvalidHeadersForS3Origin
-    _InvalidHeadersForS3Origin,
-
-    -- ** NoSuchFieldLevelEncryptionConfig
-    _NoSuchFieldLevelEncryptionConfig,
-
-    -- ** TooManyFunctionAssociations
-    _TooManyFunctionAssociations,
-
-    -- ** InvalidResponseCode
-    _InvalidResponseCode,
-
-    -- ** TooManyCookieNamesInWhiteList
-    _TooManyCookieNamesInWhiteList,
-
-    -- ** InvalidViewerCertificate
-    _InvalidViewerCertificate,
-
-    -- ** IllegalOriginAccessConfiguration
-    _IllegalOriginAccessConfiguration,
+    -- ** AccessDenied
+    _AccessDenied,
 
     -- ** BatchTooLarge
     _BatchTooLarge,
 
-    -- ** InvalidOriginAccessIdentity
-    _InvalidOriginAccessIdentity,
+    -- ** CNAMEAlreadyExists
+    _CNAMEAlreadyExists,
+
+    -- ** CachePolicyAlreadyExists
+    _CachePolicyAlreadyExists,
+
+    -- ** CachePolicyInUse
+    _CachePolicyInUse,
+
+    -- ** CannotChangeImmutablePublicKeyFields
+    _CannotChangeImmutablePublicKeyFields,
+
+    -- ** CloudFrontOriginAccessIdentityAlreadyExists
+    _CloudFrontOriginAccessIdentityAlreadyExists,
+
+    -- ** CloudFrontOriginAccessIdentityInUse
+    _CloudFrontOriginAccessIdentityInUse,
+
+    -- ** ContinuousDeploymentPolicyAlreadyExists
+    _ContinuousDeploymentPolicyAlreadyExists,
+
+    -- ** ContinuousDeploymentPolicyInUse
+    _ContinuousDeploymentPolicyInUse,
 
     -- ** DistributionAlreadyExists
     _DistributionAlreadyExists,
 
+    -- ** DistributionNotDisabled
+    _DistributionNotDisabled,
+
+    -- ** FieldLevelEncryptionConfigAlreadyExists
+    _FieldLevelEncryptionConfigAlreadyExists,
+
+    -- ** FieldLevelEncryptionConfigInUse
+    _FieldLevelEncryptionConfigInUse,
+
+    -- ** FieldLevelEncryptionProfileAlreadyExists
+    _FieldLevelEncryptionProfileAlreadyExists,
+
+    -- ** FieldLevelEncryptionProfileInUse
+    _FieldLevelEncryptionProfileInUse,
+
+    -- ** FieldLevelEncryptionProfileSizeExceeded
+    _FieldLevelEncryptionProfileSizeExceeded,
+
+    -- ** FunctionAlreadyExists
+    _FunctionAlreadyExists,
+
+    -- ** FunctionInUse
+    _FunctionInUse,
+
+    -- ** FunctionSizeLimitExceeded
+    _FunctionSizeLimitExceeded,
+
+    -- ** IllegalDelete
+    _IllegalDelete,
+
+    -- ** IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior
+    _IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior,
+
+    -- ** IllegalOriginAccessConfiguration
+    _IllegalOriginAccessConfiguration,
+
+    -- ** IllegalUpdate
+    _IllegalUpdate,
+
+    -- ** InconsistentQuantities
+    _InconsistentQuantities,
+
+    -- ** InvalidArgument
+    _InvalidArgument,
+
+    -- ** InvalidDefaultRootObject
+    _InvalidDefaultRootObject,
+
+    -- ** InvalidDomainNameForOriginAccessControl
+    _InvalidDomainNameForOriginAccessControl,
+
+    -- ** InvalidErrorCode
+    _InvalidErrorCode,
+
+    -- ** InvalidForwardCookies
+    _InvalidForwardCookies,
+
+    -- ** InvalidFunctionAssociation
+    _InvalidFunctionAssociation,
+
+    -- ** InvalidGeoRestrictionParameter
+    _InvalidGeoRestrictionParameter,
+
+    -- ** InvalidHeadersForS3Origin
+    _InvalidHeadersForS3Origin,
+
+    -- ** InvalidIfMatchVersion
+    _InvalidIfMatchVersion,
+
+    -- ** InvalidLambdaFunctionAssociation
+    _InvalidLambdaFunctionAssociation,
+
+    -- ** InvalidLocationCode
+    _InvalidLocationCode,
+
+    -- ** InvalidMinimumProtocolVersion
+    _InvalidMinimumProtocolVersion,
+
+    -- ** InvalidOrigin
+    _InvalidOrigin,
+
+    -- ** InvalidOriginAccessControl
+    _InvalidOriginAccessControl,
+
+    -- ** InvalidOriginAccessIdentity
+    _InvalidOriginAccessIdentity,
+
+    -- ** InvalidOriginKeepaliveTimeout
+    _InvalidOriginKeepaliveTimeout,
+
+    -- ** InvalidOriginReadTimeout
+    _InvalidOriginReadTimeout,
+
+    -- ** InvalidProtocolSettings
+    _InvalidProtocolSettings,
+
+    -- ** InvalidQueryStringParameters
+    _InvalidQueryStringParameters,
+
+    -- ** InvalidRelativePath
+    _InvalidRelativePath,
+
+    -- ** InvalidRequiredProtocol
+    _InvalidRequiredProtocol,
+
+    -- ** InvalidResponseCode
+    _InvalidResponseCode,
+
+    -- ** InvalidTTLOrder
+    _InvalidTTLOrder,
+
+    -- ** InvalidTagging
+    _InvalidTagging,
+
+    -- ** InvalidViewerCertificate
+    _InvalidViewerCertificate,
+
+    -- ** InvalidWebACLId
+    _InvalidWebACLId,
+
+    -- ** KeyGroupAlreadyExists
+    _KeyGroupAlreadyExists,
+
+    -- ** MissingBody
+    _MissingBody,
+
+    -- ** MonitoringSubscriptionAlreadyExists
+    _MonitoringSubscriptionAlreadyExists,
+
+    -- ** NoSuchCachePolicy
+    _NoSuchCachePolicy,
+
+    -- ** NoSuchCloudFrontOriginAccessIdentity
+    _NoSuchCloudFrontOriginAccessIdentity,
+
+    -- ** NoSuchContinuousDeploymentPolicy
+    _NoSuchContinuousDeploymentPolicy,
+
+    -- ** NoSuchDistribution
+    _NoSuchDistribution,
+
+    -- ** NoSuchFieldLevelEncryptionConfig
+    _NoSuchFieldLevelEncryptionConfig,
+
     -- ** NoSuchFieldLevelEncryptionProfile
     _NoSuchFieldLevelEncryptionProfile,
+
+    -- ** NoSuchFunctionExists
+    _NoSuchFunctionExists,
+
+    -- ** NoSuchInvalidation
+    _NoSuchInvalidation,
+
+    -- ** NoSuchMonitoringSubscription
+    _NoSuchMonitoringSubscription,
+
+    -- ** NoSuchOrigin
+    _NoSuchOrigin,
+
+    -- ** NoSuchOriginAccessControl
+    _NoSuchOriginAccessControl,
+
+    -- ** NoSuchOriginRequestPolicy
+    _NoSuchOriginRequestPolicy,
+
+    -- ** NoSuchPublicKey
+    _NoSuchPublicKey,
+
+    -- ** NoSuchRealtimeLogConfig
+    _NoSuchRealtimeLogConfig,
+
+    -- ** NoSuchResource
+    _NoSuchResource,
+
+    -- ** NoSuchResponseHeadersPolicy
+    _NoSuchResponseHeadersPolicy,
 
     -- ** NoSuchStreamingDistribution
     _NoSuchStreamingDistribution,
 
+    -- ** OriginAccessControlAlreadyExists
+    _OriginAccessControlAlreadyExists,
+
+    -- ** OriginAccessControlInUse
+    _OriginAccessControlInUse,
+
+    -- ** OriginRequestPolicyAlreadyExists
+    _OriginRequestPolicyAlreadyExists,
+
+    -- ** OriginRequestPolicyInUse
+    _OriginRequestPolicyInUse,
+
+    -- ** PreconditionFailed
+    _PreconditionFailed,
+
+    -- ** PublicKeyAlreadyExists
+    _PublicKeyAlreadyExists,
+
+    -- ** PublicKeyInUse
+    _PublicKeyInUse,
+
+    -- ** QueryArgProfileEmpty
+    _QueryArgProfileEmpty,
+
+    -- ** RealtimeLogConfigAlreadyExists
+    _RealtimeLogConfigAlreadyExists,
+
+    -- ** RealtimeLogConfigInUse
+    _RealtimeLogConfigInUse,
+
+    -- ** RealtimeLogConfigOwnerMismatch
+    _RealtimeLogConfigOwnerMismatch,
+
+    -- ** ResourceInUse
+    _ResourceInUse,
+
+    -- ** ResponseHeadersPolicyAlreadyExists
+    _ResponseHeadersPolicyAlreadyExists,
+
+    -- ** ResponseHeadersPolicyInUse
+    _ResponseHeadersPolicyInUse,
+
+    -- ** StagingDistributionInUse
+    _StagingDistributionInUse,
+
+    -- ** StreamingDistributionAlreadyExists
+    _StreamingDistributionAlreadyExists,
+
+    -- ** StreamingDistributionNotDisabled
+    _StreamingDistributionNotDisabled,
+
+    -- ** TestFunctionFailed
+    _TestFunctionFailed,
+
+    -- ** TooLongCSPInResponseHeadersPolicy
+    _TooLongCSPInResponseHeadersPolicy,
+
+    -- ** TooManyCacheBehaviors
+    _TooManyCacheBehaviors,
+
+    -- ** TooManyCachePolicies
+    _TooManyCachePolicies,
+
+    -- ** TooManyCertificates
+    _TooManyCertificates,
+
+    -- ** TooManyCloudFrontOriginAccessIdentities
+    _TooManyCloudFrontOriginAccessIdentities,
+
+    -- ** TooManyContinuousDeploymentPolicies
+    _TooManyContinuousDeploymentPolicies,
+
+    -- ** TooManyCookieNamesInWhiteList
+    _TooManyCookieNamesInWhiteList,
+
+    -- ** TooManyCookiesInCachePolicy
+    _TooManyCookiesInCachePolicy,
+
+    -- ** TooManyCookiesInOriginRequestPolicy
+    _TooManyCookiesInOriginRequestPolicy,
+
+    -- ** TooManyCustomHeadersInResponseHeadersPolicy
+    _TooManyCustomHeadersInResponseHeadersPolicy,
+
+    -- ** TooManyDistributionCNAMEs
+    _TooManyDistributionCNAMEs,
+
+    -- ** TooManyDistributions
+    _TooManyDistributions,
+
+    -- ** TooManyDistributionsAssociatedToCachePolicy
+    _TooManyDistributionsAssociatedToCachePolicy,
+
+    -- ** TooManyDistributionsAssociatedToFieldLevelEncryptionConfig
+    _TooManyDistributionsAssociatedToFieldLevelEncryptionConfig,
+
+    -- ** TooManyDistributionsAssociatedToKeyGroup
+    _TooManyDistributionsAssociatedToKeyGroup,
+
+    -- ** TooManyDistributionsAssociatedToOriginAccessControl
+    _TooManyDistributionsAssociatedToOriginAccessControl,
+
+    -- ** TooManyDistributionsAssociatedToOriginRequestPolicy
+    _TooManyDistributionsAssociatedToOriginRequestPolicy,
+
+    -- ** TooManyDistributionsAssociatedToResponseHeadersPolicy
+    _TooManyDistributionsAssociatedToResponseHeadersPolicy,
+
+    -- ** TooManyDistributionsWithFunctionAssociations
+    _TooManyDistributionsWithFunctionAssociations,
+
+    -- ** TooManyDistributionsWithLambdaAssociations
+    _TooManyDistributionsWithLambdaAssociations,
+
+    -- ** TooManyDistributionsWithSingleFunctionARN
+    _TooManyDistributionsWithSingleFunctionARN,
+
+    -- ** TooManyFieldLevelEncryptionConfigs
+    _TooManyFieldLevelEncryptionConfigs,
+
+    -- ** TooManyFieldLevelEncryptionContentTypeProfiles
+    _TooManyFieldLevelEncryptionContentTypeProfiles,
+
+    -- ** TooManyFieldLevelEncryptionEncryptionEntities
+    _TooManyFieldLevelEncryptionEncryptionEntities,
+
+    -- ** TooManyFieldLevelEncryptionFieldPatterns
+    _TooManyFieldLevelEncryptionFieldPatterns,
+
+    -- ** TooManyFieldLevelEncryptionProfiles
+    _TooManyFieldLevelEncryptionProfiles,
+
     -- ** TooManyFieldLevelEncryptionQueryArgProfiles
     _TooManyFieldLevelEncryptionQueryArgProfiles,
+
+    -- ** TooManyFunctionAssociations
+    _TooManyFunctionAssociations,
+
+    -- ** TooManyFunctions
+    _TooManyFunctions,
+
+    -- ** TooManyHeadersInCachePolicy
+    _TooManyHeadersInCachePolicy,
+
+    -- ** TooManyHeadersInForwardedValues
+    _TooManyHeadersInForwardedValues,
+
+    -- ** TooManyHeadersInOriginRequestPolicy
+    _TooManyHeadersInOriginRequestPolicy,
 
     -- ** TooManyInvalidationsInProgress
     _TooManyInvalidationsInProgress,
@@ -75,371 +393,65 @@ module Amazonka.CloudFront
     -- ** TooManyKeyGroups
     _TooManyKeyGroups,
 
-    -- ** TooManyStreamingDistributionCNAMEs
-    _TooManyStreamingDistributionCNAMEs,
-
-    -- ** NoSuchOrigin
-    _NoSuchOrigin,
-
-    -- ** InvalidOriginReadTimeout
-    _InvalidOriginReadTimeout,
-
-    -- ** InvalidOriginKeepaliveTimeout
-    _InvalidOriginKeepaliveTimeout,
-
-    -- ** TooManyStreamingDistributions
-    _TooManyStreamingDistributions,
-
-    -- ** TooManyRealtimeLogConfigs
-    _TooManyRealtimeLogConfigs,
-
-    -- ** TooManyDistributions
-    _TooManyDistributions,
-
-    -- ** NoSuchPublicKey
-    _NoSuchPublicKey,
-
-    -- ** TooManyCacheBehaviors
-    _TooManyCacheBehaviors,
-
-    -- ** AccessDenied
-    _AccessDenied,
-
-    -- ** InvalidFunctionAssociation
-    _InvalidFunctionAssociation,
-
-    -- ** CNAMEAlreadyExists
-    _CNAMEAlreadyExists,
-
-    -- ** TooManyFieldLevelEncryptionProfiles
-    _TooManyFieldLevelEncryptionProfiles,
-
-    -- ** InvalidLambdaFunctionAssociation
-    _InvalidLambdaFunctionAssociation,
-
-    -- ** TestFunctionFailed
-    _TestFunctionFailed,
-
-    -- ** FunctionSizeLimitExceeded
-    _FunctionSizeLimitExceeded,
-
-    -- ** FieldLevelEncryptionProfileAlreadyExists
-    _FieldLevelEncryptionProfileAlreadyExists,
-
-    -- ** NoSuchCloudFrontOriginAccessIdentity
-    _NoSuchCloudFrontOriginAccessIdentity,
-
-    -- ** TooManyDistributionsWithSingleFunctionARN
-    _TooManyDistributionsWithSingleFunctionARN,
-
-    -- ** InvalidForwardCookies
-    _InvalidForwardCookies,
-
-    -- ** TooManyTrustedSigners
-    _TooManyTrustedSigners,
-
-    -- ** OriginRequestPolicyAlreadyExists
-    _OriginRequestPolicyAlreadyExists,
-
-    -- ** TooManyHeadersInForwardedValues
-    _TooManyHeadersInForwardedValues,
-
-    -- ** OriginAccessControlInUse
-    _OriginAccessControlInUse,
-
-    -- ** FieldLevelEncryptionProfileSizeExceeded
-    _FieldLevelEncryptionProfileSizeExceeded,
-
-    -- ** NoSuchOriginAccessControl
-    _NoSuchOriginAccessControl,
-
-    -- ** FieldLevelEncryptionProfileInUse
-    _FieldLevelEncryptionProfileInUse,
-
-    -- ** IllegalUpdate
-    _IllegalUpdate,
-
-    -- ** InvalidErrorCode
-    _InvalidErrorCode,
-
-    -- ** InvalidDefaultRootObject
-    _InvalidDefaultRootObject,
-
-    -- ** OriginAccessControlAlreadyExists
-    _OriginAccessControlAlreadyExists,
-
-    -- ** TooManyQueryStringsInOriginRequestPolicy
-    _TooManyQueryStringsInOriginRequestPolicy,
-
-    -- ** TooManyCookiesInCachePolicy
-    _TooManyCookiesInCachePolicy,
-
-    -- ** DistributionNotDisabled
-    _DistributionNotDisabled,
-
-    -- ** NoSuchInvalidation
-    _NoSuchInvalidation,
-
-    -- ** NoSuchFunctionExists
-    _NoSuchFunctionExists,
-
-    -- ** TooManyCloudFrontOriginAccessIdentities
-    _TooManyCloudFrontOriginAccessIdentities,
-
-    -- ** InvalidDomainNameForOriginAccessControl
-    _InvalidDomainNameForOriginAccessControl,
-
-    -- ** FunctionAlreadyExists
-    _FunctionAlreadyExists,
-
-    -- ** InvalidArgument
-    _InvalidArgument,
-
-    -- ** NoSuchMonitoringSubscription
-    _NoSuchMonitoringSubscription,
-
-    -- ** InvalidWebACLId
-    _InvalidWebACLId,
-
-    -- ** InvalidQueryStringParameters
-    _InvalidQueryStringParameters,
-
-    -- ** MonitoringSubscriptionAlreadyExists
-    _MonitoringSubscriptionAlreadyExists,
-
-    -- ** TooManyCertificates
-    _TooManyCertificates,
-
-    -- ** CachePolicyInUse
-    _CachePolicyInUse,
-
-    -- ** NoSuchResource
-    _NoSuchResource,
-
-    -- ** PreconditionFailed
-    _PreconditionFailed,
-
-    -- ** KeyGroupAlreadyExists
-    _KeyGroupAlreadyExists,
-
-    -- ** TooManyDistributionsAssociatedToKeyGroup
-    _TooManyDistributionsAssociatedToKeyGroup,
-
-    -- ** TrustedSignerDoesNotExist
-    _TrustedSignerDoesNotExist,
-
-    -- ** TooManyFunctions
-    _TooManyFunctions,
-
-    -- ** TooManyQueryStringParameters
-    _TooManyQueryStringParameters,
-
-    -- ** InvalidOrigin
-    _InvalidOrigin,
-
-    -- ** TooManyOriginCustomHeaders
-    _TooManyOriginCustomHeaders,
-
-    -- ** InvalidTTLOrder
-    _InvalidTTLOrder,
-
-    -- ** InvalidRequiredProtocol
-    _InvalidRequiredProtocol,
-
-    -- ** TooManyDistributionsAssociatedToOriginAccessControl
-    _TooManyDistributionsAssociatedToOriginAccessControl,
-
-    -- ** TooManyCookiesInOriginRequestPolicy
-    _TooManyCookiesInOriginRequestPolicy,
-
-    -- ** RealtimeLogConfigInUse
-    _RealtimeLogConfigInUse,
-
-    -- ** ResponseHeadersPolicyAlreadyExists
-    _ResponseHeadersPolicyAlreadyExists,
-
-    -- ** QueryArgProfileEmpty
-    _QueryArgProfileEmpty,
-
-    -- ** InvalidIfMatchVersion
-    _InvalidIfMatchVersion,
-
-    -- ** TooManyPublicKeysInKeyGroup
-    _TooManyPublicKeysInKeyGroup,
-
-    -- ** ResponseHeadersPolicyInUse
-    _ResponseHeadersPolicyInUse,
-
-    -- ** InvalidRelativePath
-    _InvalidRelativePath,
-
-    -- ** TooManyCachePolicies
-    _TooManyCachePolicies,
-
-    -- ** RealtimeLogConfigAlreadyExists
-    _RealtimeLogConfigAlreadyExists,
-
-    -- ** TooManyHeadersInCachePolicy
-    _TooManyHeadersInCachePolicy,
-
-    -- ** TooLongCSPInResponseHeadersPolicy
-    _TooLongCSPInResponseHeadersPolicy,
-
-    -- ** TooManyDistributionsAssociatedToOriginRequestPolicy
-    _TooManyDistributionsAssociatedToOriginRequestPolicy,
-
-    -- ** InvalidTagging
-    _InvalidTagging,
-
-    -- ** FieldLevelEncryptionConfigAlreadyExists
-    _FieldLevelEncryptionConfigAlreadyExists,
-
-    -- ** StreamingDistributionAlreadyExists
-    _StreamingDistributionAlreadyExists,
-
-    -- ** RealtimeLogConfigOwnerMismatch
-    _RealtimeLogConfigOwnerMismatch,
+    -- ** TooManyKeyGroupsAssociatedToDistribution
+    _TooManyKeyGroupsAssociatedToDistribution,
 
     -- ** TooManyLambdaFunctionAssociations
     _TooManyLambdaFunctionAssociations,
 
-    -- ** InvalidGeoRestrictionParameter
-    _InvalidGeoRestrictionParameter,
+    -- ** TooManyOriginAccessControls
+    _TooManyOriginAccessControls,
 
-    -- ** IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior
-    _IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior,
-
-    -- ** TrustedKeyGroupDoesNotExist
-    _TrustedKeyGroupDoesNotExist,
-
-    -- ** TooManyQueryStringsInCachePolicy
-    _TooManyQueryStringsInCachePolicy,
-
-    -- ** TooManyResponseHeadersPolicies
-    _TooManyResponseHeadersPolicies,
+    -- ** TooManyOriginCustomHeaders
+    _TooManyOriginCustomHeaders,
 
     -- ** TooManyOriginGroupsPerDistribution
     _TooManyOriginGroupsPerDistribution,
 
-    -- ** TooManyDistributionsWithFunctionAssociations
-    _TooManyDistributionsWithFunctionAssociations,
-
-    -- ** InvalidLocationCode
-    _InvalidLocationCode,
-
-    -- ** FieldLevelEncryptionConfigInUse
-    _FieldLevelEncryptionConfigInUse,
-
-    -- ** ResourceInUse
-    _ResourceInUse,
-
-    -- ** TooManyDistributionCNAMEs
-    _TooManyDistributionCNAMEs,
-
-    -- ** TooManyFieldLevelEncryptionEncryptionEntities
-    _TooManyFieldLevelEncryptionEncryptionEntities,
-
-    -- ** MissingBody
-    _MissingBody,
-
-    -- ** TooManyPublicKeys
-    _TooManyPublicKeys,
-
-    -- ** TooManyFieldLevelEncryptionFieldPatterns
-    _TooManyFieldLevelEncryptionFieldPatterns,
+    -- ** TooManyOriginRequestPolicies
+    _TooManyOriginRequestPolicies,
 
     -- ** TooManyOrigins
     _TooManyOrigins,
 
-    -- ** PublicKeyAlreadyExists
-    _PublicKeyAlreadyExists,
+    -- ** TooManyPublicKeys
+    _TooManyPublicKeys,
 
-    -- ** CannotChangeImmutablePublicKeyFields
-    _CannotChangeImmutablePublicKeyFields,
+    -- ** TooManyPublicKeysInKeyGroup
+    _TooManyPublicKeysInKeyGroup,
 
-    -- ** NoSuchOriginRequestPolicy
-    _NoSuchOriginRequestPolicy,
+    -- ** TooManyQueryStringParameters
+    _TooManyQueryStringParameters,
 
-    -- ** TooManyDistributionsAssociatedToFieldLevelEncryptionConfig
-    _TooManyDistributionsAssociatedToFieldLevelEncryptionConfig,
+    -- ** TooManyQueryStringsInCachePolicy
+    _TooManyQueryStringsInCachePolicy,
 
-    -- ** TooManyFieldLevelEncryptionContentTypeProfiles
-    _TooManyFieldLevelEncryptionContentTypeProfiles,
+    -- ** TooManyQueryStringsInOriginRequestPolicy
+    _TooManyQueryStringsInOriginRequestPolicy,
 
-    -- ** StreamingDistributionNotDisabled
-    _StreamingDistributionNotDisabled,
+    -- ** TooManyRealtimeLogConfigs
+    _TooManyRealtimeLogConfigs,
 
-    -- ** TooManyDistributionsWithLambdaAssociations
-    _TooManyDistributionsWithLambdaAssociations,
+    -- ** TooManyResponseHeadersPolicies
+    _TooManyResponseHeadersPolicies,
 
-    -- ** CloudFrontOriginAccessIdentityInUse
-    _CloudFrontOriginAccessIdentityInUse,
+    -- ** TooManyStreamingDistributionCNAMEs
+    _TooManyStreamingDistributionCNAMEs,
 
-    -- ** PublicKeyInUse
-    _PublicKeyInUse,
+    -- ** TooManyStreamingDistributions
+    _TooManyStreamingDistributions,
+
+    -- ** TooManyTrustedSigners
+    _TooManyTrustedSigners,
+
+    -- ** TrustedKeyGroupDoesNotExist
+    _TrustedKeyGroupDoesNotExist,
+
+    -- ** TrustedSignerDoesNotExist
+    _TrustedSignerDoesNotExist,
 
     -- ** UnsupportedOperation
     _UnsupportedOperation,
-
-    -- ** IllegalDelete
-    _IllegalDelete,
-
-    -- ** NoSuchDistribution
-    _NoSuchDistribution,
-
-    -- ** InconsistentQuantities
-    _InconsistentQuantities,
-
-    -- ** InvalidOriginAccessControl
-    _InvalidOriginAccessControl,
-
-    -- ** TooManyDistributionsAssociatedToResponseHeadersPolicy
-    _TooManyDistributionsAssociatedToResponseHeadersPolicy,
-
-    -- ** CloudFrontOriginAccessIdentityAlreadyExists
-    _CloudFrontOriginAccessIdentityAlreadyExists,
-
-    -- ** TooManyCustomHeadersInResponseHeadersPolicy
-    _TooManyCustomHeadersInResponseHeadersPolicy,
-
-    -- ** OriginRequestPolicyInUse
-    _OriginRequestPolicyInUse,
-
-    -- ** CachePolicyAlreadyExists
-    _CachePolicyAlreadyExists,
-
-    -- ** NoSuchResponseHeadersPolicy
-    _NoSuchResponseHeadersPolicy,
-
-    -- ** TooManyOriginAccessControls
-    _TooManyOriginAccessControls,
-
-    -- ** InvalidProtocolSettings
-    _InvalidProtocolSettings,
-
-    -- ** StagingDistributionInUse
-    _StagingDistributionInUse,
-
-    -- ** NoSuchCachePolicy
-    _NoSuchCachePolicy,
-
-    -- ** TooManyFieldLevelEncryptionConfigs
-    _TooManyFieldLevelEncryptionConfigs,
-
-    -- ** TooManyDistributionsAssociatedToCachePolicy
-    _TooManyDistributionsAssociatedToCachePolicy,
-
-    -- ** NoSuchRealtimeLogConfig
-    _NoSuchRealtimeLogConfig,
-
-    -- ** TooManyHeadersInOriginRequestPolicy
-    _TooManyHeadersInOriginRequestPolicy,
-
-    -- ** TooManyOriginRequestPolicies
-    _TooManyOriginRequestPolicies,
-
-    -- ** InvalidMinimumProtocolVersion
-    _InvalidMinimumProtocolVersion,
 
     -- * Waiters
     -- $waiters
@@ -1025,6 +1037,12 @@ module Amazonka.CloudFront
     newUpdateDistribution,
     UpdateDistributionResponse (UpdateDistributionResponse'),
     newUpdateDistributionResponse,
+
+    -- ** UpdateDistributionWithStagingConfig
+    UpdateDistributionWithStagingConfig (UpdateDistributionWithStagingConfig'),
+    newUpdateDistributionWithStagingConfig,
+    UpdateDistributionWithStagingConfigResponse (UpdateDistributionWithStagingConfigResponse'),
+    newUpdateDistributionWithStagingConfigResponse,
 
     -- ** UpdateFieldLevelEncryptionConfig
     UpdateFieldLevelEncryptionConfig (UpdateFieldLevelEncryptionConfig'),
@@ -1902,6 +1920,7 @@ import Amazonka.CloudFront.UpdateCachePolicy
 import Amazonka.CloudFront.UpdateCloudFrontOriginAccessIdentity
 import Amazonka.CloudFront.UpdateContinuousDeploymentPolicy
 import Amazonka.CloudFront.UpdateDistribution
+import Amazonka.CloudFront.UpdateDistributionWithStagingConfig
 import Amazonka.CloudFront.UpdateFieldLevelEncryptionConfig
 import Amazonka.CloudFront.UpdateFieldLevelEncryptionProfile
 import Amazonka.CloudFront.UpdateFunction

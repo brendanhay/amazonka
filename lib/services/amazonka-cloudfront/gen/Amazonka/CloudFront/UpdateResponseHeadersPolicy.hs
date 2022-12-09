@@ -50,8 +50,8 @@ module Amazonka.CloudFront.UpdateResponseHeadersPolicy
     newUpdateResponseHeadersPolicyResponse,
 
     -- * Response Lenses
-    updateResponseHeadersPolicyResponse_responseHeadersPolicy,
     updateResponseHeadersPolicyResponse_eTag,
+    updateResponseHeadersPolicyResponse_responseHeadersPolicy,
     updateResponseHeadersPolicyResponse_httpStatus,
   )
 where
@@ -136,8 +136,8 @@ instance Core.AWSRequest UpdateResponseHeadersPolicy where
     Response.receiveXML
       ( \s h x ->
           UpdateResponseHeadersPolicyResponse'
-            Prelude.<$> (Data.parseXML x)
-            Prelude.<*> (h Data..#? "ETag")
+            Prelude.<$> (h Data..#? "ETag")
+            Prelude.<*> (Data.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -175,10 +175,10 @@ instance Data.ToQuery UpdateResponseHeadersPolicy where
 
 -- | /See:/ 'newUpdateResponseHeadersPolicyResponse' smart constructor.
 data UpdateResponseHeadersPolicyResponse = UpdateResponseHeadersPolicyResponse'
-  { -- | A response headers policy.
-    responseHeadersPolicy :: Prelude.Maybe ResponseHeadersPolicy,
-    -- | The current version of the response headers policy.
+  { -- | The current version of the response headers policy.
     eTag :: Prelude.Maybe Prelude.Text,
+    -- | A response headers policy.
+    responseHeadersPolicy :: Prelude.Maybe ResponseHeadersPolicy,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -192,9 +192,9 @@ data UpdateResponseHeadersPolicyResponse = UpdateResponseHeadersPolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'responseHeadersPolicy', 'updateResponseHeadersPolicyResponse_responseHeadersPolicy' - A response headers policy.
---
 -- 'eTag', 'updateResponseHeadersPolicyResponse_eTag' - The current version of the response headers policy.
+--
+-- 'responseHeadersPolicy', 'updateResponseHeadersPolicyResponse_responseHeadersPolicy' - A response headers policy.
 --
 -- 'httpStatus', 'updateResponseHeadersPolicyResponse_httpStatus' - The response's http status code.
 newUpdateResponseHeadersPolicyResponse ::
@@ -203,19 +203,20 @@ newUpdateResponseHeadersPolicyResponse ::
   UpdateResponseHeadersPolicyResponse
 newUpdateResponseHeadersPolicyResponse pHttpStatus_ =
   UpdateResponseHeadersPolicyResponse'
-    { responseHeadersPolicy =
+    { eTag =
         Prelude.Nothing,
-      eTag = Prelude.Nothing,
+      responseHeadersPolicy =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A response headers policy.
-updateResponseHeadersPolicyResponse_responseHeadersPolicy :: Lens.Lens' UpdateResponseHeadersPolicyResponse (Prelude.Maybe ResponseHeadersPolicy)
-updateResponseHeadersPolicyResponse_responseHeadersPolicy = Lens.lens (\UpdateResponseHeadersPolicyResponse' {responseHeadersPolicy} -> responseHeadersPolicy) (\s@UpdateResponseHeadersPolicyResponse' {} a -> s {responseHeadersPolicy = a} :: UpdateResponseHeadersPolicyResponse)
 
 -- | The current version of the response headers policy.
 updateResponseHeadersPolicyResponse_eTag :: Lens.Lens' UpdateResponseHeadersPolicyResponse (Prelude.Maybe Prelude.Text)
 updateResponseHeadersPolicyResponse_eTag = Lens.lens (\UpdateResponseHeadersPolicyResponse' {eTag} -> eTag) (\s@UpdateResponseHeadersPolicyResponse' {} a -> s {eTag = a} :: UpdateResponseHeadersPolicyResponse)
+
+-- | A response headers policy.
+updateResponseHeadersPolicyResponse_responseHeadersPolicy :: Lens.Lens' UpdateResponseHeadersPolicyResponse (Prelude.Maybe ResponseHeadersPolicy)
+updateResponseHeadersPolicyResponse_responseHeadersPolicy = Lens.lens (\UpdateResponseHeadersPolicyResponse' {responseHeadersPolicy} -> responseHeadersPolicy) (\s@UpdateResponseHeadersPolicyResponse' {} a -> s {responseHeadersPolicy = a} :: UpdateResponseHeadersPolicyResponse)
 
 -- | The response's http status code.
 updateResponseHeadersPolicyResponse_httpStatus :: Lens.Lens' UpdateResponseHeadersPolicyResponse Prelude.Int
@@ -226,6 +227,6 @@ instance
     UpdateResponseHeadersPolicyResponse
   where
   rnf UpdateResponseHeadersPolicyResponse' {..} =
-    Prelude.rnf responseHeadersPolicy
-      `Prelude.seq` Prelude.rnf eTag
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf responseHeadersPolicy
       `Prelude.seq` Prelude.rnf httpStatus

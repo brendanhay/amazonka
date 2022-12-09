@@ -35,8 +35,8 @@ module Amazonka.CloudFront.CopyDistribution
     newCopyDistribution,
 
     -- * Request Lenses
-    copyDistribution_staging,
     copyDistribution_ifMatch,
+    copyDistribution_staging,
     copyDistribution_primaryDistributionId,
     copyDistribution_callerReference,
 
@@ -45,9 +45,9 @@ module Amazonka.CloudFront.CopyDistribution
     newCopyDistributionResponse,
 
     -- * Response Lenses
-    copyDistributionResponse_location,
     copyDistributionResponse_distribution,
     copyDistributionResponse_eTag,
+    copyDistributionResponse_location,
     copyDistributionResponse_httpStatus,
   )
 where
@@ -62,14 +62,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCopyDistribution' smart constructor.
 data CopyDistribution = CopyDistribution'
-  { -- | The type of distribution that your primary distribution will be copied
-    -- to. The only valid value is @True@, indicating that you are copying to a
-    -- staging distribution.
-    staging :: Prelude.Maybe Prelude.Bool,
-    -- | The version identifier of the primary distribution whose configuration
+  { -- | The version identifier of the primary distribution whose configuration
     -- you are copying. This is the @ETag@ value returned in the response to
     -- @GetDistribution@ and @GetDistributionConfig@.
     ifMatch :: Prelude.Maybe Prelude.Text,
+    -- | The type of distribution that your primary distribution will be copied
+    -- to. The only valid value is @True@, indicating that you are copying to a
+    -- staging distribution.
+    staging :: Prelude.Maybe Prelude.Bool,
     -- | The identifier of the primary distribution whose configuration you are
     -- copying. To get a distribution ID, use @ListDistributions@.
     primaryDistributionId :: Prelude.Text,
@@ -88,13 +88,13 @@ data CopyDistribution = CopyDistribution'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'staging', 'copyDistribution_staging' - The type of distribution that your primary distribution will be copied
--- to. The only valid value is @True@, indicating that you are copying to a
--- staging distribution.
---
 -- 'ifMatch', 'copyDistribution_ifMatch' - The version identifier of the primary distribution whose configuration
 -- you are copying. This is the @ETag@ value returned in the response to
 -- @GetDistribution@ and @GetDistributionConfig@.
+--
+-- 'staging', 'copyDistribution_staging' - The type of distribution that your primary distribution will be copied
+-- to. The only valid value is @True@, indicating that you are copying to a
+-- staging distribution.
 --
 -- 'primaryDistributionId', 'copyDistribution_primaryDistributionId' - The identifier of the primary distribution whose configuration you are
 -- copying. To get a distribution ID, use @ListDistributions@.
@@ -112,23 +112,23 @@ newCopyDistribution
   pPrimaryDistributionId_
   pCallerReference_ =
     CopyDistribution'
-      { staging = Prelude.Nothing,
-        ifMatch = Prelude.Nothing,
+      { ifMatch = Prelude.Nothing,
+        staging = Prelude.Nothing,
         primaryDistributionId = pPrimaryDistributionId_,
         callerReference = pCallerReference_
       }
-
--- | The type of distribution that your primary distribution will be copied
--- to. The only valid value is @True@, indicating that you are copying to a
--- staging distribution.
-copyDistribution_staging :: Lens.Lens' CopyDistribution (Prelude.Maybe Prelude.Bool)
-copyDistribution_staging = Lens.lens (\CopyDistribution' {staging} -> staging) (\s@CopyDistribution' {} a -> s {staging = a} :: CopyDistribution)
 
 -- | The version identifier of the primary distribution whose configuration
 -- you are copying. This is the @ETag@ value returned in the response to
 -- @GetDistribution@ and @GetDistributionConfig@.
 copyDistribution_ifMatch :: Lens.Lens' CopyDistribution (Prelude.Maybe Prelude.Text)
 copyDistribution_ifMatch = Lens.lens (\CopyDistribution' {ifMatch} -> ifMatch) (\s@CopyDistribution' {} a -> s {ifMatch = a} :: CopyDistribution)
+
+-- | The type of distribution that your primary distribution will be copied
+-- to. The only valid value is @True@, indicating that you are copying to a
+-- staging distribution.
+copyDistribution_staging :: Lens.Lens' CopyDistribution (Prelude.Maybe Prelude.Bool)
+copyDistribution_staging = Lens.lens (\CopyDistribution' {staging} -> staging) (\s@CopyDistribution' {} a -> s {staging = a} :: CopyDistribution)
 
 -- | The identifier of the primary distribution whose configuration you are
 -- copying. To get a distribution ID, use @ListDistributions@.
@@ -151,23 +151,23 @@ instance Core.AWSRequest CopyDistribution where
     Response.receiveXML
       ( \s h x ->
           CopyDistributionResponse'
-            Prelude.<$> (h Data..#? "Location")
-            Prelude.<*> (Data.parseXML x)
+            Prelude.<$> (Data.parseXML x)
             Prelude.<*> (h Data..#? "ETag")
+            Prelude.<*> (h Data..#? "Location")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CopyDistribution where
   hashWithSalt _salt CopyDistribution' {..} =
-    _salt `Prelude.hashWithSalt` staging
-      `Prelude.hashWithSalt` ifMatch
+    _salt `Prelude.hashWithSalt` ifMatch
+      `Prelude.hashWithSalt` staging
       `Prelude.hashWithSalt` primaryDistributionId
       `Prelude.hashWithSalt` callerReference
 
 instance Prelude.NFData CopyDistribution where
   rnf CopyDistribution' {..} =
-    Prelude.rnf staging
-      `Prelude.seq` Prelude.rnf ifMatch
+    Prelude.rnf ifMatch
+      `Prelude.seq` Prelude.rnf staging
       `Prelude.seq` Prelude.rnf primaryDistributionId
       `Prelude.seq` Prelude.rnf callerReference
 
@@ -179,8 +179,8 @@ instance Data.ToElement CopyDistribution where
 instance Data.ToHeaders CopyDistribution where
   toHeaders CopyDistribution' {..} =
     Prelude.mconcat
-      [ "Staging" Data.=# staging,
-        "If-Match" Data.=# ifMatch
+      [ "If-Match" Data.=# ifMatch,
+        "Staging" Data.=# staging
       ]
 
 instance Data.ToPath CopyDistribution where
@@ -201,12 +201,12 @@ instance Data.ToXML CopyDistribution where
 
 -- | /See:/ 'newCopyDistributionResponse' smart constructor.
 data CopyDistributionResponse = CopyDistributionResponse'
-  { -- | The URL of the staging distribution.
-    location :: Prelude.Maybe Prelude.Text,
-    distribution :: Prelude.Maybe Distribution,
+  { distribution :: Prelude.Maybe Distribution,
     -- | The version identifier for the current version of the staging
     -- distribution.
     eTag :: Prelude.Maybe Prelude.Text,
+    -- | The URL of the staging distribution.
+    location :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -220,12 +220,12 @@ data CopyDistributionResponse = CopyDistributionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'location', 'copyDistributionResponse_location' - The URL of the staging distribution.
---
 -- 'distribution', 'copyDistributionResponse_distribution' - Undocumented member.
 --
 -- 'eTag', 'copyDistributionResponse_eTag' - The version identifier for the current version of the staging
 -- distribution.
+--
+-- 'location', 'copyDistributionResponse_location' - The URL of the staging distribution.
 --
 -- 'httpStatus', 'copyDistributionResponse_httpStatus' - The response's http status code.
 newCopyDistributionResponse ::
@@ -234,16 +234,12 @@ newCopyDistributionResponse ::
   CopyDistributionResponse
 newCopyDistributionResponse pHttpStatus_ =
   CopyDistributionResponse'
-    { location =
+    { distribution =
         Prelude.Nothing,
-      distribution = Prelude.Nothing,
       eTag = Prelude.Nothing,
+      location = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The URL of the staging distribution.
-copyDistributionResponse_location :: Lens.Lens' CopyDistributionResponse (Prelude.Maybe Prelude.Text)
-copyDistributionResponse_location = Lens.lens (\CopyDistributionResponse' {location} -> location) (\s@CopyDistributionResponse' {} a -> s {location = a} :: CopyDistributionResponse)
 
 -- | Undocumented member.
 copyDistributionResponse_distribution :: Lens.Lens' CopyDistributionResponse (Prelude.Maybe Distribution)
@@ -254,13 +250,17 @@ copyDistributionResponse_distribution = Lens.lens (\CopyDistributionResponse' {d
 copyDistributionResponse_eTag :: Lens.Lens' CopyDistributionResponse (Prelude.Maybe Prelude.Text)
 copyDistributionResponse_eTag = Lens.lens (\CopyDistributionResponse' {eTag} -> eTag) (\s@CopyDistributionResponse' {} a -> s {eTag = a} :: CopyDistributionResponse)
 
+-- | The URL of the staging distribution.
+copyDistributionResponse_location :: Lens.Lens' CopyDistributionResponse (Prelude.Maybe Prelude.Text)
+copyDistributionResponse_location = Lens.lens (\CopyDistributionResponse' {location} -> location) (\s@CopyDistributionResponse' {} a -> s {location = a} :: CopyDistributionResponse)
+
 -- | The response's http status code.
 copyDistributionResponse_httpStatus :: Lens.Lens' CopyDistributionResponse Prelude.Int
 copyDistributionResponse_httpStatus = Lens.lens (\CopyDistributionResponse' {httpStatus} -> httpStatus) (\s@CopyDistributionResponse' {} a -> s {httpStatus = a} :: CopyDistributionResponse)
 
 instance Prelude.NFData CopyDistributionResponse where
   rnf CopyDistributionResponse' {..} =
-    Prelude.rnf location
-      `Prelude.seq` Prelude.rnf distribution
+    Prelude.rnf distribution
       `Prelude.seq` Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf location
       `Prelude.seq` Prelude.rnf httpStatus

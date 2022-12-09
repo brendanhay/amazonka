@@ -47,9 +47,9 @@ module Amazonka.CloudFront.CreateKeyGroup
     newCreateKeyGroupResponse,
 
     -- * Response Lenses
+    createKeyGroupResponse_eTag,
     createKeyGroupResponse_keyGroup,
     createKeyGroupResponse_location,
-    createKeyGroupResponse_eTag,
     createKeyGroupResponse_httpStatus,
   )
 where
@@ -99,9 +99,9 @@ instance Core.AWSRequest CreateKeyGroup where
     Response.receiveXML
       ( \s h x ->
           CreateKeyGroupResponse'
-            Prelude.<$> (Data.parseXML x)
+            Prelude.<$> (h Data..#? "ETag")
+            Prelude.<*> (Data.parseXML x)
             Prelude.<*> (h Data..#? "Location")
-            Prelude.<*> (h Data..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,12 +129,12 @@ instance Data.ToQuery CreateKeyGroup where
 
 -- | /See:/ 'newCreateKeyGroupResponse' smart constructor.
 data CreateKeyGroupResponse = CreateKeyGroupResponse'
-  { -- | The key group that was just created.
+  { -- | The identifier for this version of the key group.
+    eTag :: Prelude.Maybe Prelude.Text,
+    -- | The key group that was just created.
     keyGroup :: Prelude.Maybe KeyGroup,
     -- | The URL of the key group.
     location :: Prelude.Maybe Prelude.Text,
-    -- | The identifier for this version of the key group.
-    eTag :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -148,11 +148,11 @@ data CreateKeyGroupResponse = CreateKeyGroupResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'eTag', 'createKeyGroupResponse_eTag' - The identifier for this version of the key group.
+--
 -- 'keyGroup', 'createKeyGroupResponse_keyGroup' - The key group that was just created.
 --
 -- 'location', 'createKeyGroupResponse_location' - The URL of the key group.
---
--- 'eTag', 'createKeyGroupResponse_eTag' - The identifier for this version of the key group.
 --
 -- 'httpStatus', 'createKeyGroupResponse_httpStatus' - The response's http status code.
 newCreateKeyGroupResponse ::
@@ -161,11 +161,15 @@ newCreateKeyGroupResponse ::
   CreateKeyGroupResponse
 newCreateKeyGroupResponse pHttpStatus_ =
   CreateKeyGroupResponse'
-    { keyGroup = Prelude.Nothing,
+    { eTag = Prelude.Nothing,
+      keyGroup = Prelude.Nothing,
       location = Prelude.Nothing,
-      eTag = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The identifier for this version of the key group.
+createKeyGroupResponse_eTag :: Lens.Lens' CreateKeyGroupResponse (Prelude.Maybe Prelude.Text)
+createKeyGroupResponse_eTag = Lens.lens (\CreateKeyGroupResponse' {eTag} -> eTag) (\s@CreateKeyGroupResponse' {} a -> s {eTag = a} :: CreateKeyGroupResponse)
 
 -- | The key group that was just created.
 createKeyGroupResponse_keyGroup :: Lens.Lens' CreateKeyGroupResponse (Prelude.Maybe KeyGroup)
@@ -175,17 +179,13 @@ createKeyGroupResponse_keyGroup = Lens.lens (\CreateKeyGroupResponse' {keyGroup}
 createKeyGroupResponse_location :: Lens.Lens' CreateKeyGroupResponse (Prelude.Maybe Prelude.Text)
 createKeyGroupResponse_location = Lens.lens (\CreateKeyGroupResponse' {location} -> location) (\s@CreateKeyGroupResponse' {} a -> s {location = a} :: CreateKeyGroupResponse)
 
--- | The identifier for this version of the key group.
-createKeyGroupResponse_eTag :: Lens.Lens' CreateKeyGroupResponse (Prelude.Maybe Prelude.Text)
-createKeyGroupResponse_eTag = Lens.lens (\CreateKeyGroupResponse' {eTag} -> eTag) (\s@CreateKeyGroupResponse' {} a -> s {eTag = a} :: CreateKeyGroupResponse)
-
 -- | The response's http status code.
 createKeyGroupResponse_httpStatus :: Lens.Lens' CreateKeyGroupResponse Prelude.Int
 createKeyGroupResponse_httpStatus = Lens.lens (\CreateKeyGroupResponse' {httpStatus} -> httpStatus) (\s@CreateKeyGroupResponse' {} a -> s {httpStatus = a} :: CreateKeyGroupResponse)
 
 instance Prelude.NFData CreateKeyGroupResponse where
   rnf CreateKeyGroupResponse' {..} =
-    Prelude.rnf keyGroup
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf keyGroup
       `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf eTag
       `Prelude.seq` Prelude.rnf httpStatus

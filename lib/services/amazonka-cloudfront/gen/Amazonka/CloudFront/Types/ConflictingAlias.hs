@@ -32,14 +32,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConflictingAlias' smart constructor.
 data ConflictingAlias = ConflictingAlias'
-  { -- | An alias (also called a CNAME).
+  { -- | The (partially hidden) ID of the Amazon Web Services account that owns
+    -- the distribution that’s associated with the alias.
+    accountId :: Prelude.Maybe Prelude.Text,
+    -- | An alias (also called a CNAME).
     alias :: Prelude.Maybe Prelude.Text,
     -- | The (partially hidden) ID of the CloudFront distribution associated with
     -- the alias.
-    distributionId :: Prelude.Maybe Prelude.Text,
-    -- | The (partially hidden) ID of the Amazon Web Services account that owns
-    -- the distribution that’s associated with the alias.
-    accountId :: Prelude.Maybe Prelude.Text
+    distributionId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,21 +51,26 @@ data ConflictingAlias = ConflictingAlias'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'accountId', 'conflictingAlias_accountId' - The (partially hidden) ID of the Amazon Web Services account that owns
+-- the distribution that’s associated with the alias.
+--
 -- 'alias', 'conflictingAlias_alias' - An alias (also called a CNAME).
 --
 -- 'distributionId', 'conflictingAlias_distributionId' - The (partially hidden) ID of the CloudFront distribution associated with
 -- the alias.
---
--- 'accountId', 'conflictingAlias_accountId' - The (partially hidden) ID of the Amazon Web Services account that owns
--- the distribution that’s associated with the alias.
 newConflictingAlias ::
   ConflictingAlias
 newConflictingAlias =
   ConflictingAlias'
-    { alias = Prelude.Nothing,
-      distributionId = Prelude.Nothing,
-      accountId = Prelude.Nothing
+    { accountId = Prelude.Nothing,
+      alias = Prelude.Nothing,
+      distributionId = Prelude.Nothing
     }
+
+-- | The (partially hidden) ID of the Amazon Web Services account that owns
+-- the distribution that’s associated with the alias.
+conflictingAlias_accountId :: Lens.Lens' ConflictingAlias (Prelude.Maybe Prelude.Text)
+conflictingAlias_accountId = Lens.lens (\ConflictingAlias' {accountId} -> accountId) (\s@ConflictingAlias' {} a -> s {accountId = a} :: ConflictingAlias)
 
 -- | An alias (also called a CNAME).
 conflictingAlias_alias :: Lens.Lens' ConflictingAlias (Prelude.Maybe Prelude.Text)
@@ -76,26 +81,21 @@ conflictingAlias_alias = Lens.lens (\ConflictingAlias' {alias} -> alias) (\s@Con
 conflictingAlias_distributionId :: Lens.Lens' ConflictingAlias (Prelude.Maybe Prelude.Text)
 conflictingAlias_distributionId = Lens.lens (\ConflictingAlias' {distributionId} -> distributionId) (\s@ConflictingAlias' {} a -> s {distributionId = a} :: ConflictingAlias)
 
--- | The (partially hidden) ID of the Amazon Web Services account that owns
--- the distribution that’s associated with the alias.
-conflictingAlias_accountId :: Lens.Lens' ConflictingAlias (Prelude.Maybe Prelude.Text)
-conflictingAlias_accountId = Lens.lens (\ConflictingAlias' {accountId} -> accountId) (\s@ConflictingAlias' {} a -> s {accountId = a} :: ConflictingAlias)
-
 instance Data.FromXML ConflictingAlias where
   parseXML x =
     ConflictingAlias'
-      Prelude.<$> (x Data..@? "Alias")
+      Prelude.<$> (x Data..@? "AccountId")
+      Prelude.<*> (x Data..@? "Alias")
       Prelude.<*> (x Data..@? "DistributionId")
-      Prelude.<*> (x Data..@? "AccountId")
 
 instance Prelude.Hashable ConflictingAlias where
   hashWithSalt _salt ConflictingAlias' {..} =
-    _salt `Prelude.hashWithSalt` alias
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` alias
       `Prelude.hashWithSalt` distributionId
-      `Prelude.hashWithSalt` accountId
 
 instance Prelude.NFData ConflictingAlias where
   rnf ConflictingAlias' {..} =
-    Prelude.rnf alias
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf alias
       `Prelude.seq` Prelude.rnf distributionId
-      `Prelude.seq` Prelude.rnf accountId

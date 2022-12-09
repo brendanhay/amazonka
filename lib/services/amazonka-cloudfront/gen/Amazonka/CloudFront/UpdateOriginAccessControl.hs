@@ -36,8 +36,8 @@ module Amazonka.CloudFront.UpdateOriginAccessControl
     newUpdateOriginAccessControlResponse,
 
     -- * Response Lenses
-    updateOriginAccessControlResponse_originAccessControl,
     updateOriginAccessControlResponse_eTag,
+    updateOriginAccessControlResponse_originAccessControl,
     updateOriginAccessControlResponse_httpStatus,
   )
 where
@@ -119,8 +119,8 @@ instance Core.AWSRequest UpdateOriginAccessControl where
     Response.receiveXML
       ( \s h x ->
           UpdateOriginAccessControlResponse'
-            Prelude.<$> (Data.parseXML x)
-            Prelude.<*> (h Data..#? "ETag")
+            Prelude.<$> (h Data..#? "ETag")
+            Prelude.<*> (Data.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,10 +159,10 @@ instance Data.ToQuery UpdateOriginAccessControl where
 
 -- | /See:/ 'newUpdateOriginAccessControlResponse' smart constructor.
 data UpdateOriginAccessControlResponse = UpdateOriginAccessControlResponse'
-  { -- | The origin access control after it has been updated.
-    originAccessControl :: Prelude.Maybe OriginAccessControl,
-    -- | The new version of the origin access control after it has been updated.
+  { -- | The new version of the origin access control after it has been updated.
     eTag :: Prelude.Maybe Prelude.Text,
+    -- | The origin access control after it has been updated.
+    originAccessControl :: Prelude.Maybe OriginAccessControl,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -176,9 +176,9 @@ data UpdateOriginAccessControlResponse = UpdateOriginAccessControlResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'originAccessControl', 'updateOriginAccessControlResponse_originAccessControl' - The origin access control after it has been updated.
---
 -- 'eTag', 'updateOriginAccessControlResponse_eTag' - The new version of the origin access control after it has been updated.
+--
+-- 'originAccessControl', 'updateOriginAccessControlResponse_originAccessControl' - The origin access control after it has been updated.
 --
 -- 'httpStatus', 'updateOriginAccessControlResponse_httpStatus' - The response's http status code.
 newUpdateOriginAccessControlResponse ::
@@ -187,19 +187,19 @@ newUpdateOriginAccessControlResponse ::
   UpdateOriginAccessControlResponse
 newUpdateOriginAccessControlResponse pHttpStatus_ =
   UpdateOriginAccessControlResponse'
-    { originAccessControl =
+    { eTag =
         Prelude.Nothing,
-      eTag = Prelude.Nothing,
+      originAccessControl = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The origin access control after it has been updated.
-updateOriginAccessControlResponse_originAccessControl :: Lens.Lens' UpdateOriginAccessControlResponse (Prelude.Maybe OriginAccessControl)
-updateOriginAccessControlResponse_originAccessControl = Lens.lens (\UpdateOriginAccessControlResponse' {originAccessControl} -> originAccessControl) (\s@UpdateOriginAccessControlResponse' {} a -> s {originAccessControl = a} :: UpdateOriginAccessControlResponse)
 
 -- | The new version of the origin access control after it has been updated.
 updateOriginAccessControlResponse_eTag :: Lens.Lens' UpdateOriginAccessControlResponse (Prelude.Maybe Prelude.Text)
 updateOriginAccessControlResponse_eTag = Lens.lens (\UpdateOriginAccessControlResponse' {eTag} -> eTag) (\s@UpdateOriginAccessControlResponse' {} a -> s {eTag = a} :: UpdateOriginAccessControlResponse)
+
+-- | The origin access control after it has been updated.
+updateOriginAccessControlResponse_originAccessControl :: Lens.Lens' UpdateOriginAccessControlResponse (Prelude.Maybe OriginAccessControl)
+updateOriginAccessControlResponse_originAccessControl = Lens.lens (\UpdateOriginAccessControlResponse' {originAccessControl} -> originAccessControl) (\s@UpdateOriginAccessControlResponse' {} a -> s {originAccessControl = a} :: UpdateOriginAccessControlResponse)
 
 -- | The response's http status code.
 updateOriginAccessControlResponse_httpStatus :: Lens.Lens' UpdateOriginAccessControlResponse Prelude.Int
@@ -210,6 +210,6 @@ instance
     UpdateOriginAccessControlResponse
   where
   rnf UpdateOriginAccessControlResponse' {..} =
-    Prelude.rnf originAccessControl
-      `Prelude.seq` Prelude.rnf eTag
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf originAccessControl
       `Prelude.seq` Prelude.rnf httpStatus

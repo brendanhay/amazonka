@@ -39,9 +39,9 @@ module Amazonka.CloudFront.GetFunction
     newGetFunctionResponse,
 
     -- * Response Lenses
+    getFunctionResponse_contentType,
     getFunctionResponse_eTag,
     getFunctionResponse_functionCode,
-    getFunctionResponse_contentType,
     getFunctionResponse_httpStatus,
   )
 where
@@ -100,9 +100,9 @@ instance Core.AWSRequest GetFunction where
     Response.receiveBytes
       ( \s h x ->
           GetFunctionResponse'
-            Prelude.<$> (h Data..#? "ETag")
+            Prelude.<$> (h Data..#? "Content-Type")
+            Prelude.<*> (h Data..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.Just (Prelude.coerce x)))
-            Prelude.<*> (h Data..#? "Content-Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,13 +129,13 @@ instance Data.ToQuery GetFunction where
 
 -- | /See:/ 'newGetFunctionResponse' smart constructor.
 data GetFunctionResponse = GetFunctionResponse'
-  { -- | The version identifier for the current version of the CloudFront
+  { -- | The content type (media type) of the response.
+    contentType :: Prelude.Maybe Prelude.Text,
+    -- | The version identifier for the current version of the CloudFront
     -- function.
     eTag :: Prelude.Maybe Prelude.Text,
     -- | The function code of a CloudFront function.
     functionCode :: Prelude.Maybe (Data.Sensitive Prelude.ByteString),
-    -- | The content type (media type) of the response.
-    contentType :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -149,12 +149,12 @@ data GetFunctionResponse = GetFunctionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'contentType', 'getFunctionResponse_contentType' - The content type (media type) of the response.
+--
 -- 'eTag', 'getFunctionResponse_eTag' - The version identifier for the current version of the CloudFront
 -- function.
 --
 -- 'functionCode', 'getFunctionResponse_functionCode' - The function code of a CloudFront function.
---
--- 'contentType', 'getFunctionResponse_contentType' - The content type (media type) of the response.
 --
 -- 'httpStatus', 'getFunctionResponse_httpStatus' - The response's http status code.
 newGetFunctionResponse ::
@@ -163,11 +163,15 @@ newGetFunctionResponse ::
   GetFunctionResponse
 newGetFunctionResponse pHttpStatus_ =
   GetFunctionResponse'
-    { eTag = Prelude.Nothing,
+    { contentType = Prelude.Nothing,
+      eTag = Prelude.Nothing,
       functionCode = Prelude.Nothing,
-      contentType = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The content type (media type) of the response.
+getFunctionResponse_contentType :: Lens.Lens' GetFunctionResponse (Prelude.Maybe Prelude.Text)
+getFunctionResponse_contentType = Lens.lens (\GetFunctionResponse' {contentType} -> contentType) (\s@GetFunctionResponse' {} a -> s {contentType = a} :: GetFunctionResponse)
 
 -- | The version identifier for the current version of the CloudFront
 -- function.
@@ -178,17 +182,13 @@ getFunctionResponse_eTag = Lens.lens (\GetFunctionResponse' {eTag} -> eTag) (\s@
 getFunctionResponse_functionCode :: Lens.Lens' GetFunctionResponse (Prelude.Maybe Prelude.ByteString)
 getFunctionResponse_functionCode = Lens.lens (\GetFunctionResponse' {functionCode} -> functionCode) (\s@GetFunctionResponse' {} a -> s {functionCode = a} :: GetFunctionResponse) Prelude.. Lens.mapping Data._Sensitive
 
--- | The content type (media type) of the response.
-getFunctionResponse_contentType :: Lens.Lens' GetFunctionResponse (Prelude.Maybe Prelude.Text)
-getFunctionResponse_contentType = Lens.lens (\GetFunctionResponse' {contentType} -> contentType) (\s@GetFunctionResponse' {} a -> s {contentType = a} :: GetFunctionResponse)
-
 -- | The response's http status code.
 getFunctionResponse_httpStatus :: Lens.Lens' GetFunctionResponse Prelude.Int
 getFunctionResponse_httpStatus = Lens.lens (\GetFunctionResponse' {httpStatus} -> httpStatus) (\s@GetFunctionResponse' {} a -> s {httpStatus = a} :: GetFunctionResponse)
 
 instance Prelude.NFData GetFunctionResponse where
   rnf GetFunctionResponse' {..} =
-    Prelude.rnf eTag
+    Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf eTag
       `Prelude.seq` Prelude.rnf functionCode
-      `Prelude.seq` Prelude.rnf contentType
       `Prelude.seq` Prelude.rnf httpStatus

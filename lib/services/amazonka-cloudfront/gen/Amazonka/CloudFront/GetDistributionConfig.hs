@@ -34,8 +34,8 @@ module Amazonka.CloudFront.GetDistributionConfig
     newGetDistributionConfigResponse,
 
     -- * Response Lenses
-    getDistributionConfigResponse_eTag,
     getDistributionConfigResponse_distributionConfig,
+    getDistributionConfigResponse_eTag,
     getDistributionConfigResponse_httpStatus,
   )
 where
@@ -90,8 +90,8 @@ instance Core.AWSRequest GetDistributionConfig where
     Response.receiveXML
       ( \s h x ->
           GetDistributionConfigResponse'
-            Prelude.<$> (h Data..#? "ETag")
-            Prelude.<*> (Data.parseXML x)
+            Prelude.<$> (Data.parseXML x)
+            Prelude.<*> (h Data..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -120,10 +120,10 @@ instance Data.ToQuery GetDistributionConfig where
 --
 -- /See:/ 'newGetDistributionConfigResponse' smart constructor.
 data GetDistributionConfigResponse = GetDistributionConfigResponse'
-  { -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
-    eTag :: Prelude.Maybe Prelude.Text,
-    -- | The distribution\'s configuration information.
+  { -- | The distribution\'s configuration information.
     distributionConfig :: Prelude.Maybe DistributionConfig,
+    -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
+    eTag :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -137,9 +137,9 @@ data GetDistributionConfigResponse = GetDistributionConfigResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eTag', 'getDistributionConfigResponse_eTag' - The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
---
 -- 'distributionConfig', 'getDistributionConfigResponse_distributionConfig' - The distribution\'s configuration information.
+--
+-- 'eTag', 'getDistributionConfigResponse_eTag' - The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
 --
 -- 'httpStatus', 'getDistributionConfigResponse_httpStatus' - The response's http status code.
 newGetDistributionConfigResponse ::
@@ -148,19 +148,19 @@ newGetDistributionConfigResponse ::
   GetDistributionConfigResponse
 newGetDistributionConfigResponse pHttpStatus_ =
   GetDistributionConfigResponse'
-    { eTag =
+    { distributionConfig =
         Prelude.Nothing,
-      distributionConfig = Prelude.Nothing,
+      eTag = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
-getDistributionConfigResponse_eTag :: Lens.Lens' GetDistributionConfigResponse (Prelude.Maybe Prelude.Text)
-getDistributionConfigResponse_eTag = Lens.lens (\GetDistributionConfigResponse' {eTag} -> eTag) (\s@GetDistributionConfigResponse' {} a -> s {eTag = a} :: GetDistributionConfigResponse)
 
 -- | The distribution\'s configuration information.
 getDistributionConfigResponse_distributionConfig :: Lens.Lens' GetDistributionConfigResponse (Prelude.Maybe DistributionConfig)
 getDistributionConfigResponse_distributionConfig = Lens.lens (\GetDistributionConfigResponse' {distributionConfig} -> distributionConfig) (\s@GetDistributionConfigResponse' {} a -> s {distributionConfig = a} :: GetDistributionConfigResponse)
+
+-- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
+getDistributionConfigResponse_eTag :: Lens.Lens' GetDistributionConfigResponse (Prelude.Maybe Prelude.Text)
+getDistributionConfigResponse_eTag = Lens.lens (\GetDistributionConfigResponse' {eTag} -> eTag) (\s@GetDistributionConfigResponse' {} a -> s {eTag = a} :: GetDistributionConfigResponse)
 
 -- | The response's http status code.
 getDistributionConfigResponse_httpStatus :: Lens.Lens' GetDistributionConfigResponse Prelude.Int
@@ -168,6 +168,6 @@ getDistributionConfigResponse_httpStatus = Lens.lens (\GetDistributionConfigResp
 
 instance Prelude.NFData GetDistributionConfigResponse where
   rnf GetDistributionConfigResponse' {..} =
-    Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf distributionConfig
+    Prelude.rnf distributionConfig
+      `Prelude.seq` Prelude.rnf eTag
       `Prelude.seq` Prelude.rnf httpStatus

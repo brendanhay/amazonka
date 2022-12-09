@@ -34,8 +34,8 @@ module Amazonka.CloudFront.GetStreamingDistributionConfig
     newGetStreamingDistributionConfigResponse,
 
     -- * Response Lenses
-    getStreamingDistributionConfigResponse_streamingDistributionConfig,
     getStreamingDistributionConfigResponse_eTag,
+    getStreamingDistributionConfigResponse_streamingDistributionConfig,
     getStreamingDistributionConfigResponse_httpStatus,
   )
 where
@@ -90,8 +90,8 @@ instance
     Response.receiveXML
       ( \s h x ->
           GetStreamingDistributionConfigResponse'
-            Prelude.<$> (Data.parseXML x)
-            Prelude.<*> (h Data..#? "ETag")
+            Prelude.<$> (h Data..#? "ETag")
+            Prelude.<*> (Data.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,10 +132,10 @@ instance Data.ToQuery GetStreamingDistributionConfig where
 --
 -- /See:/ 'newGetStreamingDistributionConfigResponse' smart constructor.
 data GetStreamingDistributionConfigResponse = GetStreamingDistributionConfigResponse'
-  { -- | The streaming distribution\'s configuration information.
-    streamingDistributionConfig :: Prelude.Maybe StreamingDistributionConfig,
-    -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
+  { -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
     eTag :: Prelude.Maybe Prelude.Text,
+    -- | The streaming distribution\'s configuration information.
+    streamingDistributionConfig :: Prelude.Maybe StreamingDistributionConfig,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -149,9 +149,9 @@ data GetStreamingDistributionConfigResponse = GetStreamingDistributionConfigResp
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'streamingDistributionConfig', 'getStreamingDistributionConfigResponse_streamingDistributionConfig' - The streaming distribution\'s configuration information.
---
 -- 'eTag', 'getStreamingDistributionConfigResponse_eTag' - The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
+--
+-- 'streamingDistributionConfig', 'getStreamingDistributionConfigResponse_streamingDistributionConfig' - The streaming distribution\'s configuration information.
 --
 -- 'httpStatus', 'getStreamingDistributionConfigResponse_httpStatus' - The response's http status code.
 newGetStreamingDistributionConfigResponse ::
@@ -161,19 +161,20 @@ newGetStreamingDistributionConfigResponse ::
 newGetStreamingDistributionConfigResponse
   pHttpStatus_ =
     GetStreamingDistributionConfigResponse'
-      { streamingDistributionConfig =
+      { eTag =
           Prelude.Nothing,
-        eTag = Prelude.Nothing,
+        streamingDistributionConfig =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The streaming distribution\'s configuration information.
-getStreamingDistributionConfigResponse_streamingDistributionConfig :: Lens.Lens' GetStreamingDistributionConfigResponse (Prelude.Maybe StreamingDistributionConfig)
-getStreamingDistributionConfigResponse_streamingDistributionConfig = Lens.lens (\GetStreamingDistributionConfigResponse' {streamingDistributionConfig} -> streamingDistributionConfig) (\s@GetStreamingDistributionConfigResponse' {} a -> s {streamingDistributionConfig = a} :: GetStreamingDistributionConfigResponse)
 
 -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
 getStreamingDistributionConfigResponse_eTag :: Lens.Lens' GetStreamingDistributionConfigResponse (Prelude.Maybe Prelude.Text)
 getStreamingDistributionConfigResponse_eTag = Lens.lens (\GetStreamingDistributionConfigResponse' {eTag} -> eTag) (\s@GetStreamingDistributionConfigResponse' {} a -> s {eTag = a} :: GetStreamingDistributionConfigResponse)
+
+-- | The streaming distribution\'s configuration information.
+getStreamingDistributionConfigResponse_streamingDistributionConfig :: Lens.Lens' GetStreamingDistributionConfigResponse (Prelude.Maybe StreamingDistributionConfig)
+getStreamingDistributionConfigResponse_streamingDistributionConfig = Lens.lens (\GetStreamingDistributionConfigResponse' {streamingDistributionConfig} -> streamingDistributionConfig) (\s@GetStreamingDistributionConfigResponse' {} a -> s {streamingDistributionConfig = a} :: GetStreamingDistributionConfigResponse)
 
 -- | The response's http status code.
 getStreamingDistributionConfigResponse_httpStatus :: Lens.Lens' GetStreamingDistributionConfigResponse Prelude.Int
@@ -184,6 +185,6 @@ instance
     GetStreamingDistributionConfigResponse
   where
   rnf GetStreamingDistributionConfigResponse' {..} =
-    Prelude.rnf streamingDistributionConfig
-      `Prelude.seq` Prelude.rnf eTag
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf streamingDistributionConfig
       `Prelude.seq` Prelude.rnf httpStatus

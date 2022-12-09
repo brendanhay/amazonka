@@ -328,6 +328,7 @@ library
     Amazonka.CloudFront.UpdateCloudFrontOriginAccessIdentity
     Amazonka.CloudFront.UpdateContinuousDeploymentPolicy
     Amazonka.CloudFront.UpdateDistribution
+    Amazonka.CloudFront.UpdateDistributionWithStagingConfig
     Amazonka.CloudFront.UpdateFieldLevelEncryptionConfig
     Amazonka.CloudFront.UpdateFieldLevelEncryptionProfile
     Amazonka.CloudFront.UpdateFunction

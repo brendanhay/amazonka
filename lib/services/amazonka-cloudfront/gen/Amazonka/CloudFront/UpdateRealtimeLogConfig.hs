@@ -44,10 +44,10 @@ module Amazonka.CloudFront.UpdateRealtimeLogConfig
     newUpdateRealtimeLogConfig,
 
     -- * Request Lenses
-    updateRealtimeLogConfig_name,
     updateRealtimeLogConfig_arn,
     updateRealtimeLogConfig_endPoints,
     updateRealtimeLogConfig_fields,
+    updateRealtimeLogConfig_name,
     updateRealtimeLogConfig_samplingRate,
 
     -- * Destructuring the Response
@@ -70,9 +70,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateRealtimeLogConfig' smart constructor.
 data UpdateRealtimeLogConfig = UpdateRealtimeLogConfig'
-  { -- | The name for this real-time log configuration.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) for this real-time log configuration.
+  { -- | The Amazon Resource Name (ARN) for this real-time log configuration.
     arn :: Prelude.Maybe Prelude.Text,
     -- | Contains information about the Amazon Kinesis data stream where you are
     -- sending real-time log data.
@@ -83,6 +81,8 @@ data UpdateRealtimeLogConfig = UpdateRealtimeLogConfig'
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields Real-time log configuration fields>
     -- in the /Amazon CloudFront Developer Guide/.
     fields :: Prelude.Maybe [Prelude.Text],
+    -- | The name for this real-time log configuration.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The sampling rate for this real-time log configuration. The sampling
     -- rate determines the percentage of viewer requests that are represented
     -- in the real-time log data. You must provide an integer between 1 and
@@ -99,8 +99,6 @@ data UpdateRealtimeLogConfig = UpdateRealtimeLogConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateRealtimeLogConfig_name' - The name for this real-time log configuration.
---
 -- 'arn', 'updateRealtimeLogConfig_arn' - The Amazon Resource Name (ARN) for this real-time log configuration.
 --
 -- 'endPoints', 'updateRealtimeLogConfig_endPoints' - Contains information about the Amazon Kinesis data stream where you are
@@ -112,6 +110,8 @@ data UpdateRealtimeLogConfig = UpdateRealtimeLogConfig'
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields Real-time log configuration fields>
 -- in the /Amazon CloudFront Developer Guide/.
 --
+-- 'name', 'updateRealtimeLogConfig_name' - The name for this real-time log configuration.
+--
 -- 'samplingRate', 'updateRealtimeLogConfig_samplingRate' - The sampling rate for this real-time log configuration. The sampling
 -- rate determines the percentage of viewer requests that are represented
 -- in the real-time log data. You must provide an integer between 1 and
@@ -120,16 +120,12 @@ newUpdateRealtimeLogConfig ::
   UpdateRealtimeLogConfig
 newUpdateRealtimeLogConfig =
   UpdateRealtimeLogConfig'
-    { name = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       endPoints = Prelude.Nothing,
       fields = Prelude.Nothing,
+      name = Prelude.Nothing,
       samplingRate = Prelude.Nothing
     }
-
--- | The name for this real-time log configuration.
-updateRealtimeLogConfig_name :: Lens.Lens' UpdateRealtimeLogConfig (Prelude.Maybe Prelude.Text)
-updateRealtimeLogConfig_name = Lens.lens (\UpdateRealtimeLogConfig' {name} -> name) (\s@UpdateRealtimeLogConfig' {} a -> s {name = a} :: UpdateRealtimeLogConfig)
 
 -- | The Amazon Resource Name (ARN) for this real-time log configuration.
 updateRealtimeLogConfig_arn :: Lens.Lens' UpdateRealtimeLogConfig (Prelude.Maybe Prelude.Text)
@@ -147,6 +143,10 @@ updateRealtimeLogConfig_endPoints = Lens.lens (\UpdateRealtimeLogConfig' {endPoi
 -- in the /Amazon CloudFront Developer Guide/.
 updateRealtimeLogConfig_fields :: Lens.Lens' UpdateRealtimeLogConfig (Prelude.Maybe [Prelude.Text])
 updateRealtimeLogConfig_fields = Lens.lens (\UpdateRealtimeLogConfig' {fields} -> fields) (\s@UpdateRealtimeLogConfig' {} a -> s {fields = a} :: UpdateRealtimeLogConfig) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name for this real-time log configuration.
+updateRealtimeLogConfig_name :: Lens.Lens' UpdateRealtimeLogConfig (Prelude.Maybe Prelude.Text)
+updateRealtimeLogConfig_name = Lens.lens (\UpdateRealtimeLogConfig' {name} -> name) (\s@UpdateRealtimeLogConfig' {} a -> s {name = a} :: UpdateRealtimeLogConfig)
 
 -- | The sampling rate for this real-time log configuration. The sampling
 -- rate determines the percentage of viewer requests that are represented
@@ -171,18 +171,18 @@ instance Core.AWSRequest UpdateRealtimeLogConfig where
 
 instance Prelude.Hashable UpdateRealtimeLogConfig where
   hashWithSalt _salt UpdateRealtimeLogConfig' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` endPoints
       `Prelude.hashWithSalt` fields
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` samplingRate
 
 instance Prelude.NFData UpdateRealtimeLogConfig where
   rnf UpdateRealtimeLogConfig' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf endPoints
       `Prelude.seq` Prelude.rnf fields
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf samplingRate
 
 instance Data.ToElement UpdateRealtimeLogConfig where
@@ -203,14 +203,14 @@ instance Data.ToQuery UpdateRealtimeLogConfig where
 instance Data.ToXML UpdateRealtimeLogConfig where
   toXML UpdateRealtimeLogConfig' {..} =
     Prelude.mconcat
-      [ "Name" Data.@= name,
-        "ARN" Data.@= arn,
+      [ "ARN" Data.@= arn,
         "EndPoints"
           Data.@= Data.toXML
             (Data.toXMLList "member" Prelude.<$> endPoints),
         "Fields"
           Data.@= Data.toXML
             (Data.toXMLList "Field" Prelude.<$> fields),
+        "Name" Data.@= name,
         "SamplingRate" Data.@= samplingRate
       ]
 

@@ -28,9 +28,9 @@ module Amazonka.CodeGuruReviewer.ListCodeReviews
     newListCodeReviews,
 
     -- * Request Lenses
+    listCodeReviews_maxResults,
     listCodeReviews_nextToken,
     listCodeReviews_providerTypes,
-    listCodeReviews_maxResults,
     listCodeReviews_repositoryNames,
     listCodeReviews_states,
     listCodeReviews_type,
@@ -40,8 +40,8 @@ module Amazonka.CodeGuruReviewer.ListCodeReviews
     newListCodeReviewsResponse,
 
     -- * Response Lenses
-    listCodeReviewsResponse_nextToken,
     listCodeReviewsResponse_codeReviewSummaries,
+    listCodeReviewsResponse_nextToken,
     listCodeReviewsResponse_httpStatus,
   )
 where
@@ -56,7 +56,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListCodeReviews' smart constructor.
 data ListCodeReviews = ListCodeReviews'
-  { -- | If @nextToken@ is returned, there are more results available. The value
+  { -- | The maximum number of results that are returned per call. The default is
+    -- 100.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If @nextToken@ is returned, there are more results available. The value
     -- of @nextToken@ is a unique pagination token for each page. Make the call
     -- again using the returned token to retrieve the next page. Keep all other
     -- arguments unchanged.
@@ -65,9 +68,6 @@ data ListCodeReviews = ListCodeReviews'
     -- displaying the result. For example, @providerTypes=[GitHub]@ lists code
     -- reviews from GitHub.
     providerTypes :: Prelude.Maybe (Prelude.NonEmpty ProviderType),
-    -- | The maximum number of results that are returned per call. The default is
-    -- 100.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | List of repository names for filtering that needs to be applied before
     -- displaying the result.
     repositoryNames :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
@@ -98,6 +98,9 @@ data ListCodeReviews = ListCodeReviews'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listCodeReviews_maxResults' - The maximum number of results that are returned per call. The default is
+-- 100.
+--
 -- 'nextToken', 'listCodeReviews_nextToken' - If @nextToken@ is returned, there are more results available. The value
 -- of @nextToken@ is a unique pagination token for each page. Make the call
 -- again using the returned token to retrieve the next page. Keep all other
@@ -106,9 +109,6 @@ data ListCodeReviews = ListCodeReviews'
 -- 'providerTypes', 'listCodeReviews_providerTypes' - List of provider types for filtering that needs to be applied before
 -- displaying the result. For example, @providerTypes=[GitHub]@ lists code
 -- reviews from GitHub.
---
--- 'maxResults', 'listCodeReviews_maxResults' - The maximum number of results that are returned per call. The default is
--- 100.
 --
 -- 'repositoryNames', 'listCodeReviews_repositoryNames' - List of repository names for filtering that needs to be applied before
 -- displaying the result.
@@ -134,13 +134,18 @@ newListCodeReviews ::
   ListCodeReviews
 newListCodeReviews pType_ =
   ListCodeReviews'
-    { nextToken = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       providerTypes = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       repositoryNames = Prelude.Nothing,
       states = Prelude.Nothing,
       type' = pType_
     }
+
+-- | The maximum number of results that are returned per call. The default is
+-- 100.
+listCodeReviews_maxResults :: Lens.Lens' ListCodeReviews (Prelude.Maybe Prelude.Natural)
+listCodeReviews_maxResults = Lens.lens (\ListCodeReviews' {maxResults} -> maxResults) (\s@ListCodeReviews' {} a -> s {maxResults = a} :: ListCodeReviews)
 
 -- | If @nextToken@ is returned, there are more results available. The value
 -- of @nextToken@ is a unique pagination token for each page. Make the call
@@ -154,11 +159,6 @@ listCodeReviews_nextToken = Lens.lens (\ListCodeReviews' {nextToken} -> nextToke
 -- reviews from GitHub.
 listCodeReviews_providerTypes :: Lens.Lens' ListCodeReviews (Prelude.Maybe (Prelude.NonEmpty ProviderType))
 listCodeReviews_providerTypes = Lens.lens (\ListCodeReviews' {providerTypes} -> providerTypes) (\s@ListCodeReviews' {} a -> s {providerTypes = a} :: ListCodeReviews) Prelude.. Lens.mapping Lens.coerced
-
--- | The maximum number of results that are returned per call. The default is
--- 100.
-listCodeReviews_maxResults :: Lens.Lens' ListCodeReviews (Prelude.Maybe Prelude.Natural)
-listCodeReviews_maxResults = Lens.lens (\ListCodeReviews' {maxResults} -> maxResults) (\s@ListCodeReviews' {} a -> s {maxResults = a} :: ListCodeReviews)
 
 -- | List of repository names for filtering that needs to be applied before
 -- displaying the result.
@@ -195,27 +195,27 @@ instance Core.AWSRequest ListCodeReviews where
     Response.receiveJSON
       ( \s h x ->
           ListCodeReviewsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "CodeReviewSummaries"
+            Prelude.<$> ( x Data..?> "CodeReviewSummaries"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListCodeReviews where
   hashWithSalt _salt ListCodeReviews' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` providerTypes
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` repositoryNames
       `Prelude.hashWithSalt` states
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData ListCodeReviews where
   rnf ListCodeReviews' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf providerTypes
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf repositoryNames
       `Prelude.seq` Prelude.rnf states
       `Prelude.seq` Prelude.rnf type'
@@ -237,13 +237,13 @@ instance Data.ToPath ListCodeReviews where
 instance Data.ToQuery ListCodeReviews where
   toQuery ListCodeReviews' {..} =
     Prelude.mconcat
-      [ "NextToken" Data.=: nextToken,
+      [ "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken,
         "ProviderTypes"
           Data.=: Data.toQuery
             ( Data.toQueryList "member"
                 Prelude.<$> providerTypes
             ),
-        "MaxResults" Data.=: maxResults,
         "RepositoryNames"
           Data.=: Data.toQuery
             ( Data.toQueryList "member"
@@ -257,10 +257,10 @@ instance Data.ToQuery ListCodeReviews where
 
 -- | /See:/ 'newListCodeReviewsResponse' smart constructor.
 data ListCodeReviewsResponse = ListCodeReviewsResponse'
-  { -- | Pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of code reviews that meet the criteria of the request.
+  { -- | A list of code reviews that meet the criteria of the request.
     codeReviewSummaries :: Prelude.Maybe [CodeReviewSummary],
+    -- | Pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -274,9 +274,9 @@ data ListCodeReviewsResponse = ListCodeReviewsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listCodeReviewsResponse_nextToken' - Pagination token.
---
 -- 'codeReviewSummaries', 'listCodeReviewsResponse_codeReviewSummaries' - A list of code reviews that meet the criteria of the request.
+--
+-- 'nextToken', 'listCodeReviewsResponse_nextToken' - Pagination token.
 --
 -- 'httpStatus', 'listCodeReviewsResponse_httpStatus' - The response's http status code.
 newListCodeReviewsResponse ::
@@ -285,19 +285,19 @@ newListCodeReviewsResponse ::
   ListCodeReviewsResponse
 newListCodeReviewsResponse pHttpStatus_ =
   ListCodeReviewsResponse'
-    { nextToken =
+    { codeReviewSummaries =
         Prelude.Nothing,
-      codeReviewSummaries = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Pagination token.
-listCodeReviewsResponse_nextToken :: Lens.Lens' ListCodeReviewsResponse (Prelude.Maybe Prelude.Text)
-listCodeReviewsResponse_nextToken = Lens.lens (\ListCodeReviewsResponse' {nextToken} -> nextToken) (\s@ListCodeReviewsResponse' {} a -> s {nextToken = a} :: ListCodeReviewsResponse)
 
 -- | A list of code reviews that meet the criteria of the request.
 listCodeReviewsResponse_codeReviewSummaries :: Lens.Lens' ListCodeReviewsResponse (Prelude.Maybe [CodeReviewSummary])
 listCodeReviewsResponse_codeReviewSummaries = Lens.lens (\ListCodeReviewsResponse' {codeReviewSummaries} -> codeReviewSummaries) (\s@ListCodeReviewsResponse' {} a -> s {codeReviewSummaries = a} :: ListCodeReviewsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Pagination token.
+listCodeReviewsResponse_nextToken :: Lens.Lens' ListCodeReviewsResponse (Prelude.Maybe Prelude.Text)
+listCodeReviewsResponse_nextToken = Lens.lens (\ListCodeReviewsResponse' {nextToken} -> nextToken) (\s@ListCodeReviewsResponse' {} a -> s {nextToken = a} :: ListCodeReviewsResponse)
 
 -- | The response's http status code.
 listCodeReviewsResponse_httpStatus :: Lens.Lens' ListCodeReviewsResponse Prelude.Int
@@ -305,6 +305,6 @@ listCodeReviewsResponse_httpStatus = Lens.lens (\ListCodeReviewsResponse' {httpS
 
 instance Prelude.NFData ListCodeReviewsResponse where
   rnf ListCodeReviewsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf codeReviewSummaries
+    Prelude.rnf codeReviewSummaries
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

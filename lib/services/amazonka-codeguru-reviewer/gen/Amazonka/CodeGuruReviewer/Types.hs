@@ -19,10 +19,10 @@ module Amazonka.CodeGuruReviewer.Types
 
     -- * Errors
     _AccessDeniedException,
+    _ConflictException,
     _InternalServerException,
     _NotFoundException,
     _ResourceNotFoundException,
-    _ConflictException,
     _ThrottlingException,
     _ValidationException,
 
@@ -79,38 +79,38 @@ module Amazonka.CodeGuruReviewer.Types
     -- * CodeReview
     CodeReview (..),
     newCodeReview,
-    codeReview_lastUpdatedTimeStamp,
-    codeReview_name,
-    codeReview_type,
-    codeReview_pullRequestId,
-    codeReview_associationArn,
-    codeReview_createdTimeStamp,
-    codeReview_sourceCodeType,
-    codeReview_repositoryName,
-    codeReview_state,
-    codeReview_codeReviewArn,
-    codeReview_owner,
-    codeReview_metrics,
-    codeReview_providerType,
-    codeReview_configFileState,
-    codeReview_stateReason,
     codeReview_analysisTypes,
+    codeReview_associationArn,
+    codeReview_codeReviewArn,
+    codeReview_configFileState,
+    codeReview_createdTimeStamp,
+    codeReview_lastUpdatedTimeStamp,
+    codeReview_metrics,
+    codeReview_name,
+    codeReview_owner,
+    codeReview_providerType,
+    codeReview_pullRequestId,
+    codeReview_repositoryName,
+    codeReview_sourceCodeType,
+    codeReview_state,
+    codeReview_stateReason,
+    codeReview_type,
 
     -- * CodeReviewSummary
     CodeReviewSummary (..),
     newCodeReviewSummary,
-    codeReviewSummary_lastUpdatedTimeStamp,
-    codeReviewSummary_name,
-    codeReviewSummary_type,
-    codeReviewSummary_pullRequestId,
-    codeReviewSummary_createdTimeStamp,
-    codeReviewSummary_sourceCodeType,
-    codeReviewSummary_repositoryName,
-    codeReviewSummary_state,
     codeReviewSummary_codeReviewArn,
+    codeReviewSummary_createdTimeStamp,
+    codeReviewSummary_lastUpdatedTimeStamp,
+    codeReviewSummary_metricsSummary,
+    codeReviewSummary_name,
     codeReviewSummary_owner,
     codeReviewSummary_providerType,
-    codeReviewSummary_metricsSummary,
+    codeReviewSummary_pullRequestId,
+    codeReviewSummary_repositoryName,
+    codeReviewSummary_sourceCodeType,
+    codeReviewSummary_state,
+    codeReviewSummary_type,
 
     -- * CodeReviewType
     CodeReviewType (..),
@@ -121,9 +121,9 @@ module Amazonka.CodeGuruReviewer.Types
     -- * CommitDiffSourceCodeType
     CommitDiffSourceCodeType (..),
     newCommitDiffSourceCodeType,
-    commitDiffSourceCodeType_sourceCommit,
-    commitDiffSourceCodeType_mergeBaseCommit,
     commitDiffSourceCodeType_destinationCommit,
+    commitDiffSourceCodeType_mergeBaseCommit,
+    commitDiffSourceCodeType_sourceCommit,
 
     -- * EventInfo
     EventInfo (..),
@@ -141,24 +141,24 @@ module Amazonka.CodeGuruReviewer.Types
     Metrics (..),
     newMetrics,
     metrics_findingsCount,
-    metrics_suppressedLinesOfCodeCount,
     metrics_meteredLinesOfCodeCount,
+    metrics_suppressedLinesOfCodeCount,
 
     -- * MetricsSummary
     MetricsSummary (..),
     newMetricsSummary,
     metricsSummary_findingsCount,
-    metricsSummary_suppressedLinesOfCodeCount,
     metricsSummary_meteredLinesOfCodeCount,
+    metricsSummary_suppressedLinesOfCodeCount,
 
     -- * RecommendationFeedback
     RecommendationFeedback (..),
     newRecommendationFeedback,
+    recommendationFeedback_codeReviewArn,
+    recommendationFeedback_createdTimeStamp,
     recommendationFeedback_lastUpdatedTimeStamp,
     recommendationFeedback_reactions,
-    recommendationFeedback_createdTimeStamp,
     recommendationFeedback_recommendationId,
-    recommendationFeedback_codeReviewArn,
     recommendationFeedback_userId,
 
     -- * RecommendationFeedbackSummary
@@ -171,56 +171,56 @@ module Amazonka.CodeGuruReviewer.Types
     -- * RecommendationSummary
     RecommendationSummary (..),
     newRecommendationSummary,
-    recommendationSummary_severity,
-    recommendationSummary_filePath,
+    recommendationSummary_description,
     recommendationSummary_endLine,
+    recommendationSummary_filePath,
+    recommendationSummary_recommendationCategory,
     recommendationSummary_recommendationId,
     recommendationSummary_ruleMetadata,
-    recommendationSummary_description,
+    recommendationSummary_severity,
     recommendationSummary_startLine,
-    recommendationSummary_recommendationCategory,
 
     -- * Repository
     Repository (..),
     newRepository,
-    repository_s3Bucket,
     repository_bitbucket,
     repository_codeCommit,
     repository_gitHubEnterpriseServer,
+    repository_s3Bucket,
 
     -- * RepositoryAnalysis
     RepositoryAnalysis (..),
     newRepositoryAnalysis,
-    repositoryAnalysis_sourceCodeType,
     repositoryAnalysis_repositoryHead,
+    repositoryAnalysis_sourceCodeType,
 
     -- * RepositoryAssociation
     RepositoryAssociation (..),
     newRepositoryAssociation,
-    repositoryAssociation_lastUpdatedTimeStamp,
-    repositoryAssociation_name,
     repositoryAssociation_associationArn,
+    repositoryAssociation_associationId,
+    repositoryAssociation_connectionArn,
     repositoryAssociation_createdTimeStamp,
     repositoryAssociation_kmsKeyDetails,
-    repositoryAssociation_state,
-    repositoryAssociation_s3RepositoryDetails,
+    repositoryAssociation_lastUpdatedTimeStamp,
+    repositoryAssociation_name,
     repositoryAssociation_owner,
-    repositoryAssociation_connectionArn,
     repositoryAssociation_providerType,
+    repositoryAssociation_s3RepositoryDetails,
+    repositoryAssociation_state,
     repositoryAssociation_stateReason,
-    repositoryAssociation_associationId,
 
     -- * RepositoryAssociationSummary
     RepositoryAssociationSummary (..),
     newRepositoryAssociationSummary,
+    repositoryAssociationSummary_associationArn,
+    repositoryAssociationSummary_associationId,
+    repositoryAssociationSummary_connectionArn,
     repositoryAssociationSummary_lastUpdatedTimeStamp,
     repositoryAssociationSummary_name,
-    repositoryAssociationSummary_associationArn,
-    repositoryAssociationSummary_state,
     repositoryAssociationSummary_owner,
-    repositoryAssociationSummary_connectionArn,
     repositoryAssociationSummary_providerType,
-    repositoryAssociationSummary_associationId,
+    repositoryAssociationSummary_state,
 
     -- * RepositoryHeadSourceCodeType
     RepositoryHeadSourceCodeType (..),
@@ -238,11 +238,11 @@ module Amazonka.CodeGuruReviewer.Types
     -- * RuleMetadata
     RuleMetadata (..),
     newRuleMetadata,
-    ruleMetadata_shortDescription,
+    ruleMetadata_longDescription,
     ruleMetadata_ruleId,
     ruleMetadata_ruleName,
-    ruleMetadata_longDescription,
     ruleMetadata_ruleTags,
+    ruleMetadata_shortDescription,
 
     -- * S3BucketRepository
     S3BucketRepository (..),
@@ -259,17 +259,17 @@ module Amazonka.CodeGuruReviewer.Types
     -- * S3RepositoryDetails
     S3RepositoryDetails (..),
     newS3RepositoryDetails,
-    s3RepositoryDetails_codeArtifacts,
     s3RepositoryDetails_bucketName,
+    s3RepositoryDetails_codeArtifacts,
 
     -- * SourceCodeType
     SourceCodeType (..),
     newSourceCodeType,
-    sourceCodeType_s3BucketRepository,
+    sourceCodeType_branchDiff,
+    sourceCodeType_commitDiff,
     sourceCodeType_repositoryHead,
     sourceCodeType_requestMetadata,
-    sourceCodeType_commitDiff,
-    sourceCodeType_branchDiff,
+    sourceCodeType_s3BucketRepository,
 
     -- * ThirdPartySourceRepository
     ThirdPartySourceRepository (..),
@@ -347,28 +347,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -376,13 +370,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -390,6 +388,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient access to perform this action.
@@ -399,6 +399,16 @@ _AccessDeniedException =
     defaultService
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
+
+-- | The requested operation would cause a conflict with the current state of
+-- a service resource associated with the request. Resolve the conflict
+-- before retrying this request.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
 
 -- | The server encountered an internal error and is unable to complete the
 -- request.
@@ -424,16 +434,6 @@ _ResourceNotFoundException =
     defaultService
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
-
--- | The requested operation would cause a conflict with the current state of
--- a service resource associated with the request. Resolve the conflict
--- before retrying this request.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
 
 -- | The request was denied due to request throttling.
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

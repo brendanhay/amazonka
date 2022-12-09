@@ -33,14 +33,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSourceCodeType' smart constructor.
 data SourceCodeType = SourceCodeType'
-  { -- | Information about an associated repository in an S3 bucket that includes
-    -- its name and an @S3RepositoryDetails@ object. The @S3RepositoryDetails@
-    -- object includes the name of an S3 bucket, an S3 key for a source code
-    -- .zip file, and an S3 key for a build artifacts .zip file.
-    -- @S3BucketRepository@ is required in
+  { -- | A type of
     -- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType SourceCodeType>
-    -- for @S3BucketRepository@ based code reviews.
-    s3BucketRepository :: Prelude.Maybe S3BucketRepository,
+    -- that specifies a source branch name and a destination branch name in an
+    -- associated repository.
+    branchDiff :: Prelude.Maybe BranchDiffSourceCodeType,
+    -- | A
+    -- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType SourceCodeType>
+    -- that specifies a commit diff created by a pull request on an associated
+    -- repository.
+    commitDiff :: Prelude.Maybe CommitDiffSourceCodeType,
     repositoryHead :: Prelude.Maybe RepositoryHeadSourceCodeType,
     -- | Metadata that is associated with a code review. This applies to any type
     -- of code review supported by CodeGuru Reviewer. The @RequestMetadaa@
@@ -48,16 +50,14 @@ data SourceCodeType = SourceCodeType'
     -- metadata associated with an event trigger, such as a push or a pull
     -- request.
     requestMetadata :: Prelude.Maybe RequestMetadata,
-    -- | A
+    -- | Information about an associated repository in an S3 bucket that includes
+    -- its name and an @S3RepositoryDetails@ object. The @S3RepositoryDetails@
+    -- object includes the name of an S3 bucket, an S3 key for a source code
+    -- .zip file, and an S3 key for a build artifacts .zip file.
+    -- @S3BucketRepository@ is required in
     -- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType SourceCodeType>
-    -- that specifies a commit diff created by a pull request on an associated
-    -- repository.
-    commitDiff :: Prelude.Maybe CommitDiffSourceCodeType,
-    -- | A type of
-    -- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType SourceCodeType>
-    -- that specifies a source branch name and a destination branch name in an
-    -- associated repository.
-    branchDiff :: Prelude.Maybe BranchDiffSourceCodeType
+    -- for @S3BucketRepository@ based code reviews.
+    s3BucketRepository :: Prelude.Maybe S3BucketRepository
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,13 +69,15 @@ data SourceCodeType = SourceCodeType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 's3BucketRepository', 'sourceCodeType_s3BucketRepository' - Information about an associated repository in an S3 bucket that includes
--- its name and an @S3RepositoryDetails@ object. The @S3RepositoryDetails@
--- object includes the name of an S3 bucket, an S3 key for a source code
--- .zip file, and an S3 key for a build artifacts .zip file.
--- @S3BucketRepository@ is required in
+-- 'branchDiff', 'sourceCodeType_branchDiff' - A type of
 -- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType SourceCodeType>
--- for @S3BucketRepository@ based code reviews.
+-- that specifies a source branch name and a destination branch name in an
+-- associated repository.
+--
+-- 'commitDiff', 'sourceCodeType_commitDiff' - A
+-- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType SourceCodeType>
+-- that specifies a commit diff created by a pull request on an associated
+-- repository.
 --
 -- 'repositoryHead', 'sourceCodeType_repositoryHead' - Undocumented member.
 --
@@ -85,36 +87,37 @@ data SourceCodeType = SourceCodeType'
 -- metadata associated with an event trigger, such as a push or a pull
 -- request.
 --
--- 'commitDiff', 'sourceCodeType_commitDiff' - A
--- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType SourceCodeType>
--- that specifies a commit diff created by a pull request on an associated
--- repository.
---
--- 'branchDiff', 'sourceCodeType_branchDiff' - A type of
--- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType SourceCodeType>
--- that specifies a source branch name and a destination branch name in an
--- associated repository.
-newSourceCodeType ::
-  SourceCodeType
-newSourceCodeType =
-  SourceCodeType'
-    { s3BucketRepository =
-        Prelude.Nothing,
-      repositoryHead = Prelude.Nothing,
-      requestMetadata = Prelude.Nothing,
-      commitDiff = Prelude.Nothing,
-      branchDiff = Prelude.Nothing
-    }
-
--- | Information about an associated repository in an S3 bucket that includes
+-- 's3BucketRepository', 'sourceCodeType_s3BucketRepository' - Information about an associated repository in an S3 bucket that includes
 -- its name and an @S3RepositoryDetails@ object. The @S3RepositoryDetails@
 -- object includes the name of an S3 bucket, an S3 key for a source code
 -- .zip file, and an S3 key for a build artifacts .zip file.
 -- @S3BucketRepository@ is required in
 -- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType SourceCodeType>
 -- for @S3BucketRepository@ based code reviews.
-sourceCodeType_s3BucketRepository :: Lens.Lens' SourceCodeType (Prelude.Maybe S3BucketRepository)
-sourceCodeType_s3BucketRepository = Lens.lens (\SourceCodeType' {s3BucketRepository} -> s3BucketRepository) (\s@SourceCodeType' {} a -> s {s3BucketRepository = a} :: SourceCodeType)
+newSourceCodeType ::
+  SourceCodeType
+newSourceCodeType =
+  SourceCodeType'
+    { branchDiff = Prelude.Nothing,
+      commitDiff = Prelude.Nothing,
+      repositoryHead = Prelude.Nothing,
+      requestMetadata = Prelude.Nothing,
+      s3BucketRepository = Prelude.Nothing
+    }
+
+-- | A type of
+-- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType SourceCodeType>
+-- that specifies a source branch name and a destination branch name in an
+-- associated repository.
+sourceCodeType_branchDiff :: Lens.Lens' SourceCodeType (Prelude.Maybe BranchDiffSourceCodeType)
+sourceCodeType_branchDiff = Lens.lens (\SourceCodeType' {branchDiff} -> branchDiff) (\s@SourceCodeType' {} a -> s {branchDiff = a} :: SourceCodeType)
+
+-- | A
+-- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType SourceCodeType>
+-- that specifies a commit diff created by a pull request on an associated
+-- repository.
+sourceCodeType_commitDiff :: Lens.Lens' SourceCodeType (Prelude.Maybe CommitDiffSourceCodeType)
+sourceCodeType_commitDiff = Lens.lens (\SourceCodeType' {commitDiff} -> commitDiff) (\s@SourceCodeType' {} a -> s {commitDiff = a} :: SourceCodeType)
 
 -- | Undocumented member.
 sourceCodeType_repositoryHead :: Lens.Lens' SourceCodeType (Prelude.Maybe RepositoryHeadSourceCodeType)
@@ -128,19 +131,15 @@ sourceCodeType_repositoryHead = Lens.lens (\SourceCodeType' {repositoryHead} -> 
 sourceCodeType_requestMetadata :: Lens.Lens' SourceCodeType (Prelude.Maybe RequestMetadata)
 sourceCodeType_requestMetadata = Lens.lens (\SourceCodeType' {requestMetadata} -> requestMetadata) (\s@SourceCodeType' {} a -> s {requestMetadata = a} :: SourceCodeType)
 
--- | A
+-- | Information about an associated repository in an S3 bucket that includes
+-- its name and an @S3RepositoryDetails@ object. The @S3RepositoryDetails@
+-- object includes the name of an S3 bucket, an S3 key for a source code
+-- .zip file, and an S3 key for a build artifacts .zip file.
+-- @S3BucketRepository@ is required in
 -- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType SourceCodeType>
--- that specifies a commit diff created by a pull request on an associated
--- repository.
-sourceCodeType_commitDiff :: Lens.Lens' SourceCodeType (Prelude.Maybe CommitDiffSourceCodeType)
-sourceCodeType_commitDiff = Lens.lens (\SourceCodeType' {commitDiff} -> commitDiff) (\s@SourceCodeType' {} a -> s {commitDiff = a} :: SourceCodeType)
-
--- | A type of
--- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType SourceCodeType>
--- that specifies a source branch name and a destination branch name in an
--- associated repository.
-sourceCodeType_branchDiff :: Lens.Lens' SourceCodeType (Prelude.Maybe BranchDiffSourceCodeType)
-sourceCodeType_branchDiff = Lens.lens (\SourceCodeType' {branchDiff} -> branchDiff) (\s@SourceCodeType' {} a -> s {branchDiff = a} :: SourceCodeType)
+-- for @S3BucketRepository@ based code reviews.
+sourceCodeType_s3BucketRepository :: Lens.Lens' SourceCodeType (Prelude.Maybe S3BucketRepository)
+sourceCodeType_s3BucketRepository = Lens.lens (\SourceCodeType' {s3BucketRepository} -> s3BucketRepository) (\s@SourceCodeType' {} a -> s {s3BucketRepository = a} :: SourceCodeType)
 
 instance Data.FromJSON SourceCodeType where
   parseJSON =
@@ -148,40 +147,40 @@ instance Data.FromJSON SourceCodeType where
       "SourceCodeType"
       ( \x ->
           SourceCodeType'
-            Prelude.<$> (x Data..:? "S3BucketRepository")
+            Prelude.<$> (x Data..:? "BranchDiff")
+            Prelude.<*> (x Data..:? "CommitDiff")
             Prelude.<*> (x Data..:? "RepositoryHead")
             Prelude.<*> (x Data..:? "RequestMetadata")
-            Prelude.<*> (x Data..:? "CommitDiff")
-            Prelude.<*> (x Data..:? "BranchDiff")
+            Prelude.<*> (x Data..:? "S3BucketRepository")
       )
 
 instance Prelude.Hashable SourceCodeType where
   hashWithSalt _salt SourceCodeType' {..} =
-    _salt `Prelude.hashWithSalt` s3BucketRepository
+    _salt `Prelude.hashWithSalt` branchDiff
+      `Prelude.hashWithSalt` commitDiff
       `Prelude.hashWithSalt` repositoryHead
       `Prelude.hashWithSalt` requestMetadata
-      `Prelude.hashWithSalt` commitDiff
-      `Prelude.hashWithSalt` branchDiff
+      `Prelude.hashWithSalt` s3BucketRepository
 
 instance Prelude.NFData SourceCodeType where
   rnf SourceCodeType' {..} =
-    Prelude.rnf s3BucketRepository
+    Prelude.rnf branchDiff
+      `Prelude.seq` Prelude.rnf commitDiff
       `Prelude.seq` Prelude.rnf repositoryHead
       `Prelude.seq` Prelude.rnf requestMetadata
-      `Prelude.seq` Prelude.rnf commitDiff
-      `Prelude.seq` Prelude.rnf branchDiff
+      `Prelude.seq` Prelude.rnf s3BucketRepository
 
 instance Data.ToJSON SourceCodeType where
   toJSON SourceCodeType' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("S3BucketRepository" Data..=)
-              Prelude.<$> s3BucketRepository,
+          [ ("BranchDiff" Data..=) Prelude.<$> branchDiff,
+            ("CommitDiff" Data..=) Prelude.<$> commitDiff,
             ("RepositoryHead" Data..=)
               Prelude.<$> repositoryHead,
             ("RequestMetadata" Data..=)
               Prelude.<$> requestMetadata,
-            ("CommitDiff" Data..=) Prelude.<$> commitDiff,
-            ("BranchDiff" Data..=) Prelude.<$> branchDiff
+            ("S3BucketRepository" Data..=)
+              Prelude.<$> s3BucketRepository
           ]
       )

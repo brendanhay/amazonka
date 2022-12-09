@@ -37,6 +37,9 @@ module Amazonka.CodeGuruReviewer
     -- ** AccessDeniedException
     _AccessDeniedException,
 
+    -- ** ConflictException
+    _ConflictException,
+
     -- ** InternalServerException
     _InternalServerException,
 
@@ -45,9 +48,6 @@ module Amazonka.CodeGuruReviewer
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
-
-    -- ** ConflictException
-    _ConflictException,
 
     -- ** ThrottlingException
     _ThrottlingException,
@@ -58,11 +58,11 @@ module Amazonka.CodeGuruReviewer
     -- * Waiters
     -- $waiters
 
-    -- ** RepositoryAssociationSucceeded
-    newRepositoryAssociationSucceeded,
-
     -- ** CodeReviewCompleted
     newCodeReviewCompleted,
+
+    -- ** RepositoryAssociationSucceeded
+    newRepositoryAssociationSucceeded,
 
     -- * Operations
     -- $operations

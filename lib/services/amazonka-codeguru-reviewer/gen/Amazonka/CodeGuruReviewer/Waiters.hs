@@ -25,6 +25,44 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
+-- | Polls 'Amazonka.CodeGuruReviewer.DescribeCodeReview' every 10 seconds until a successful state is reached. An error is returned after 180 failed checks.
+newCodeReviewCompleted :: Core.Wait DescribeCodeReview
+newCodeReviewCompleted =
+  Core.Wait
+    { Core.name = "CodeReviewCompleted",
+      Core.attempts = 180,
+      Core.delay = 10,
+      Core.acceptors =
+        [ Core.matchAll
+            "Completed"
+            Core.AcceptSuccess
+            ( describeCodeReviewResponse_codeReview
+                Prelude.. Lens._Just
+                Prelude.. codeReview_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Data.toTextCI
+            ),
+          Core.matchAll
+            "Failed"
+            Core.AcceptFailure
+            ( describeCodeReviewResponse_codeReview
+                Prelude.. Lens._Just
+                Prelude.. codeReview_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Data.toTextCI
+            ),
+          Core.matchAll
+            "Pending"
+            Core.AcceptRetry
+            ( describeCodeReviewResponse_codeReview
+                Prelude.. Lens._Just
+                Prelude.. codeReview_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Data.toTextCI
+            )
+        ]
+    }
+
 -- | Polls 'Amazonka.CodeGuruReviewer.DescribeRepositoryAssociation' every 10 seconds until a successful state is reached. An error is returned after 30 failed checks.
 newRepositoryAssociationSucceeded :: Core.Wait DescribeRepositoryAssociation
 newRepositoryAssociationSucceeded =
@@ -58,44 +96,6 @@ newRepositoryAssociationSucceeded =
             ( describeRepositoryAssociationResponse_repositoryAssociation
                 Prelude.. Lens._Just
                 Prelude.. repositoryAssociation_state
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Data.toTextCI
-            )
-        ]
-    }
-
--- | Polls 'Amazonka.CodeGuruReviewer.DescribeCodeReview' every 10 seconds until a successful state is reached. An error is returned after 180 failed checks.
-newCodeReviewCompleted :: Core.Wait DescribeCodeReview
-newCodeReviewCompleted =
-  Core.Wait
-    { Core.name = "CodeReviewCompleted",
-      Core.attempts = 180,
-      Core.delay = 10,
-      Core.acceptors =
-        [ Core.matchAll
-            "Completed"
-            Core.AcceptSuccess
-            ( describeCodeReviewResponse_codeReview
-                Prelude.. Lens._Just
-                Prelude.. codeReview_state
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Data.toTextCI
-            ),
-          Core.matchAll
-            "Failed"
-            Core.AcceptFailure
-            ( describeCodeReviewResponse_codeReview
-                Prelude.. Lens._Just
-                Prelude.. codeReview_state
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Data.toTextCI
-            ),
-          Core.matchAll
-            "Pending"
-            Core.AcceptRetry
-            ( describeCodeReviewResponse_codeReview
-                Prelude.. Lens._Just
-                Prelude.. codeReview_state
                 Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             )

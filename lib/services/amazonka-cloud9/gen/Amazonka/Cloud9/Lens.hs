@@ -16,14 +16,14 @@ module Amazonka.Cloud9.Lens
 
     -- ** CreateEnvironmentEC2
     createEnvironmentEC2_automaticStopTimeMinutes,
-    createEnvironmentEC2_tags,
     createEnvironmentEC2_clientRequestToken,
     createEnvironmentEC2_connectionType,
-    createEnvironmentEC2_subnetId,
     createEnvironmentEC2_description,
     createEnvironmentEC2_dryRun,
-    createEnvironmentEC2_ownerArn,
     createEnvironmentEC2_imageId,
+    createEnvironmentEC2_ownerArn,
+    createEnvironmentEC2_subnetId,
+    createEnvironmentEC2_tags,
     createEnvironmentEC2_name,
     createEnvironmentEC2_instanceType,
     createEnvironmentEC2Response_environmentId,
@@ -46,13 +46,13 @@ module Amazonka.Cloud9.Lens
     deleteEnvironmentMembershipResponse_httpStatus,
 
     -- ** DescribeEnvironmentMemberships
+    describeEnvironmentMemberships_environmentId,
+    describeEnvironmentMemberships_maxResults,
     describeEnvironmentMemberships_nextToken,
     describeEnvironmentMemberships_permissions,
-    describeEnvironmentMemberships_maxResults,
     describeEnvironmentMemberships_userArn,
-    describeEnvironmentMemberships_environmentId,
-    describeEnvironmentMembershipsResponse_nextToken,
     describeEnvironmentMembershipsResponse_memberships,
+    describeEnvironmentMembershipsResponse_nextToken,
     describeEnvironmentMembershipsResponse_httpStatus,
 
     -- ** DescribeEnvironmentStatus
@@ -67,10 +67,10 @@ module Amazonka.Cloud9.Lens
     describeEnvironmentsResponse_httpStatus,
 
     -- ** ListEnvironments
-    listEnvironments_nextToken,
     listEnvironments_maxResults,
-    listEnvironmentsResponse_nextToken,
+    listEnvironments_nextToken,
     listEnvironmentsResponse_environmentIds,
+    listEnvironmentsResponse_nextToken,
     listEnvironmentsResponse_httpStatus,
 
     -- ** ListTagsForResource
@@ -89,9 +89,9 @@ module Amazonka.Cloud9.Lens
     untagResourceResponse_httpStatus,
 
     -- ** UpdateEnvironment
-    updateEnvironment_name,
     updateEnvironment_description,
     updateEnvironment_managedCredentialsAction,
+    updateEnvironment_name,
     updateEnvironment_environmentId,
     updateEnvironmentResponse_httpStatus,
 
@@ -105,20 +105,20 @@ module Amazonka.Cloud9.Lens
     -- * Types
 
     -- ** Environment
-    environment_name,
-    environment_lifecycle,
     environment_connectionType,
-    environment_managedCredentialsStatus,
     environment_description,
     environment_id,
+    environment_lifecycle,
+    environment_managedCredentialsStatus,
+    environment_name,
     environment_type,
     environment_arn,
     environment_ownerArn,
 
     -- ** EnvironmentLifecycle
-    environmentLifecycle_status,
-    environmentLifecycle_reason,
     environmentLifecycle_failureResource,
+    environmentLifecycle_reason,
+    environmentLifecycle_status,
 
     -- ** EnvironmentMember
     environmentMember_lastAccess,

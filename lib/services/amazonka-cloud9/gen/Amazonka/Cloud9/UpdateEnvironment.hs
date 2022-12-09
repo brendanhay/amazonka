@@ -27,9 +27,9 @@ module Amazonka.Cloud9.UpdateEnvironment
     newUpdateEnvironment,
 
     -- * Request Lenses
-    updateEnvironment_name,
     updateEnvironment_description,
     updateEnvironment_managedCredentialsAction,
+    updateEnvironment_name,
     updateEnvironment_environmentId,
 
     -- * Destructuring the Response
@@ -51,9 +51,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateEnvironment' smart constructor.
 data UpdateEnvironment = UpdateEnvironment'
-  { -- | A replacement name for the environment.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Any new or replacement description for the environment.
+  { -- | Any new or replacement description for the environment.
     description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Allows the environment owner to turn on or turn off the Amazon Web
     -- Services managed temporary credentials for an Cloud9 environment by
@@ -68,6 +66,8 @@ data UpdateEnvironment = UpdateEnvironment'
     -- on or turn off managed temporary credentials is made by an account
     -- that\'s not the environment owner.
     managedCredentialsAction :: Prelude.Maybe ManagedCredentialsAction,
+    -- | A replacement name for the environment.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The ID of the environment to change settings.
     environmentId :: Prelude.Text
   }
@@ -80,8 +80,6 @@ data UpdateEnvironment = UpdateEnvironment'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'name', 'updateEnvironment_name' - A replacement name for the environment.
 --
 -- 'description', 'updateEnvironment_description' - Any new or replacement description for the environment.
 --
@@ -98,6 +96,8 @@ data UpdateEnvironment = UpdateEnvironment'
 -- on or turn off managed temporary credentials is made by an account
 -- that\'s not the environment owner.
 --
+-- 'name', 'updateEnvironment_name' - A replacement name for the environment.
+--
 -- 'environmentId', 'updateEnvironment_environmentId' - The ID of the environment to change settings.
 newUpdateEnvironment ::
   -- | 'environmentId'
@@ -105,15 +105,11 @@ newUpdateEnvironment ::
   UpdateEnvironment
 newUpdateEnvironment pEnvironmentId_ =
   UpdateEnvironment'
-    { name = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
       managedCredentialsAction = Prelude.Nothing,
+      name = Prelude.Nothing,
       environmentId = pEnvironmentId_
     }
-
--- | A replacement name for the environment.
-updateEnvironment_name :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
-updateEnvironment_name = Lens.lens (\UpdateEnvironment' {name} -> name) (\s@UpdateEnvironment' {} a -> s {name = a} :: UpdateEnvironment)
 
 -- | Any new or replacement description for the environment.
 updateEnvironment_description :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
@@ -134,6 +130,10 @@ updateEnvironment_description = Lens.lens (\UpdateEnvironment' {description} -> 
 updateEnvironment_managedCredentialsAction :: Lens.Lens' UpdateEnvironment (Prelude.Maybe ManagedCredentialsAction)
 updateEnvironment_managedCredentialsAction = Lens.lens (\UpdateEnvironment' {managedCredentialsAction} -> managedCredentialsAction) (\s@UpdateEnvironment' {} a -> s {managedCredentialsAction = a} :: UpdateEnvironment)
 
+-- | A replacement name for the environment.
+updateEnvironment_name :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
+updateEnvironment_name = Lens.lens (\UpdateEnvironment' {name} -> name) (\s@UpdateEnvironment' {} a -> s {name = a} :: UpdateEnvironment)
+
 -- | The ID of the environment to change settings.
 updateEnvironment_environmentId :: Lens.Lens' UpdateEnvironment Prelude.Text
 updateEnvironment_environmentId = Lens.lens (\UpdateEnvironment' {environmentId} -> environmentId) (\s@UpdateEnvironment' {} a -> s {environmentId = a} :: UpdateEnvironment)
@@ -153,16 +153,16 @@ instance Core.AWSRequest UpdateEnvironment where
 
 instance Prelude.Hashable UpdateEnvironment where
   hashWithSalt _salt UpdateEnvironment' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` managedCredentialsAction
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` environmentId
 
 instance Prelude.NFData UpdateEnvironment where
   rnf UpdateEnvironment' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf managedCredentialsAction
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf environmentId
 
 instance Data.ToHeaders UpdateEnvironment where
@@ -184,10 +184,10 @@ instance Data.ToJSON UpdateEnvironment where
   toJSON UpdateEnvironment' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("name" Data..=) Prelude.<$> name,
-            ("description" Data..=) Prelude.<$> description,
+          [ ("description" Data..=) Prelude.<$> description,
             ("managedCredentialsAction" Data..=)
               Prelude.<$> managedCredentialsAction,
+            ("name" Data..=) Prelude.<$> name,
             Prelude.Just
               ("environmentId" Data..= environmentId)
           ]

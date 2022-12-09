@@ -46,8 +46,8 @@ module Amazonka.CodeStarConnections.CreateHost
     newCreateHostResponse,
 
     -- * Response Lenses
-    createHostResponse_tags,
     createHostResponse_hostArn,
+    createHostResponse_tags,
     createHostResponse_httpStatus,
   )
 where
@@ -160,8 +160,8 @@ instance Core.AWSRequest CreateHost where
     Response.receiveJSON
       ( \s h x ->
           CreateHostResponse'
-            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "HostArn")
+            Prelude.<$> (x Data..?> "HostArn")
+            Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -218,9 +218,9 @@ instance Data.ToQuery CreateHost where
 
 -- | /See:/ 'newCreateHostResponse' smart constructor.
 data CreateHostResponse = CreateHostResponse'
-  { tags :: Prelude.Maybe [Tag],
-    -- | The Amazon Resource Name (ARN) of the host to be created.
+  { -- | The Amazon Resource Name (ARN) of the host to be created.
     hostArn :: Prelude.Maybe Prelude.Text,
+    tags :: Prelude.Maybe [Tag],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -234,9 +234,9 @@ data CreateHostResponse = CreateHostResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createHostResponse_tags' - Undocumented member.
---
 -- 'hostArn', 'createHostResponse_hostArn' - The Amazon Resource Name (ARN) of the host to be created.
+--
+-- 'tags', 'createHostResponse_tags' - Undocumented member.
 --
 -- 'httpStatus', 'createHostResponse_httpStatus' - The response's http status code.
 newCreateHostResponse ::
@@ -245,18 +245,18 @@ newCreateHostResponse ::
   CreateHostResponse
 newCreateHostResponse pHttpStatus_ =
   CreateHostResponse'
-    { tags = Prelude.Nothing,
-      hostArn = Prelude.Nothing,
+    { hostArn = Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Undocumented member.
-createHostResponse_tags :: Lens.Lens' CreateHostResponse (Prelude.Maybe [Tag])
-createHostResponse_tags = Lens.lens (\CreateHostResponse' {tags} -> tags) (\s@CreateHostResponse' {} a -> s {tags = a} :: CreateHostResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the host to be created.
 createHostResponse_hostArn :: Lens.Lens' CreateHostResponse (Prelude.Maybe Prelude.Text)
 createHostResponse_hostArn = Lens.lens (\CreateHostResponse' {hostArn} -> hostArn) (\s@CreateHostResponse' {} a -> s {hostArn = a} :: CreateHostResponse)
+
+-- | Undocumented member.
+createHostResponse_tags :: Lens.Lens' CreateHostResponse (Prelude.Maybe [Tag])
+createHostResponse_tags = Lens.lens (\CreateHostResponse' {tags} -> tags) (\s@CreateHostResponse' {} a -> s {tags = a} :: CreateHostResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 createHostResponse_httpStatus :: Lens.Lens' CreateHostResponse Prelude.Int
@@ -264,6 +264,6 @@ createHostResponse_httpStatus = Lens.lens (\CreateHostResponse' {httpStatus} -> 
 
 instance Prelude.NFData CreateHostResponse where
   rnf CreateHostResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf hostArn
+    Prelude.rnf hostArn
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

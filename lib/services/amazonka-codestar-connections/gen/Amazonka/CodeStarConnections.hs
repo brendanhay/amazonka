@@ -81,20 +81,20 @@ module Amazonka.CodeStarConnections
     -- * Errors
     -- $errors
 
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
     -- ** ResourceUnavailableException
     _ResourceUnavailableException,
 
     -- ** UnsupportedOperationException
     _UnsupportedOperationException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
-
-    -- ** ConflictException
-    _ConflictException,
 
     -- * Waiters
     -- $waiters

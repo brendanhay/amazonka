@@ -45,8 +45,8 @@ module Amazonka.IoTData.ListRetainedMessages
     newListRetainedMessages,
 
     -- * Request Lenses
-    listRetainedMessages_nextToken,
     listRetainedMessages_maxResults,
+    listRetainedMessages_nextToken,
 
     -- * Destructuring the Response
     ListRetainedMessagesResponse (..),
@@ -69,12 +69,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListRetainedMessages' smart constructor.
 data ListRetainedMessages = ListRetainedMessages'
-  { -- | To retrieve the next set of results, the @nextToken@ value from a
+  { -- | The maximum number of results to return at one time.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | To retrieve the next set of results, the @nextToken@ value from a
     -- previous response; otherwise __null__ to receive the first set of
     -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return at one time.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -86,28 +86,28 @@ data ListRetainedMessages = ListRetainedMessages'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listRetainedMessages_maxResults' - The maximum number of results to return at one time.
+--
 -- 'nextToken', 'listRetainedMessages_nextToken' - To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
---
--- 'maxResults', 'listRetainedMessages_maxResults' - The maximum number of results to return at one time.
 newListRetainedMessages ::
   ListRetainedMessages
 newListRetainedMessages =
   ListRetainedMessages'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of results to return at one time.
+listRetainedMessages_maxResults :: Lens.Lens' ListRetainedMessages (Prelude.Maybe Prelude.Natural)
+listRetainedMessages_maxResults = Lens.lens (\ListRetainedMessages' {maxResults} -> maxResults) (\s@ListRetainedMessages' {} a -> s {maxResults = a} :: ListRetainedMessages)
 
 -- | To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
 listRetainedMessages_nextToken :: Lens.Lens' ListRetainedMessages (Prelude.Maybe Prelude.Text)
 listRetainedMessages_nextToken = Lens.lens (\ListRetainedMessages' {nextToken} -> nextToken) (\s@ListRetainedMessages' {} a -> s {nextToken = a} :: ListRetainedMessages)
-
--- | The maximum number of results to return at one time.
-listRetainedMessages_maxResults :: Lens.Lens' ListRetainedMessages (Prelude.Maybe Prelude.Natural)
-listRetainedMessages_maxResults = Lens.lens (\ListRetainedMessages' {maxResults} -> maxResults) (\s@ListRetainedMessages' {} a -> s {maxResults = a} :: ListRetainedMessages)
 
 instance Core.AWSPager ListRetainedMessages where
   page rq rs
@@ -148,13 +148,13 @@ instance Core.AWSRequest ListRetainedMessages where
 
 instance Prelude.Hashable ListRetainedMessages where
   hashWithSalt _salt ListRetainedMessages' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListRetainedMessages where
   rnf ListRetainedMessages' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListRetainedMessages where
   toHeaders = Prelude.const Prelude.mempty
@@ -165,8 +165,8 @@ instance Data.ToPath ListRetainedMessages where
 instance Data.ToQuery ListRetainedMessages where
   toQuery ListRetainedMessages' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListRetainedMessagesResponse' smart constructor.

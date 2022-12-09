@@ -36,23 +36,14 @@ module Amazonka.IoTData
     -- * Errors
     -- $errors
 
-    -- ** UnauthorizedException
-    _UnauthorizedException,
-
-    -- ** ServiceUnavailableException
-    _ServiceUnavailableException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** UnsupportedDocumentEncodingException
-    _UnsupportedDocumentEncodingException,
-
     -- ** ConflictException
     _ConflictException,
 
-    -- ** ThrottlingException
-    _ThrottlingException,
+    -- ** InternalFailureException
+    _InternalFailureException,
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
 
     -- ** MethodNotAllowedException
     _MethodNotAllowedException,
@@ -60,11 +51,20 @@ module Amazonka.IoTData
     -- ** RequestEntityTooLargeException
     _RequestEntityTooLargeException,
 
-    -- ** InvalidRequestException
-    _InvalidRequestException,
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
-    -- ** InternalFailureException
-    _InternalFailureException,
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** UnauthorizedException
+    _UnauthorizedException,
+
+    -- ** UnsupportedDocumentEncodingException
+    _UnsupportedDocumentEncodingException,
 
     -- * Waiters
     -- $waiters
@@ -115,6 +115,9 @@ module Amazonka.IoTData
     newUpdateThingShadowResponse,
 
     -- * Types
+
+    -- ** PayloadFormatIndicator
+    PayloadFormatIndicator (..),
 
     -- ** RetainedMessageSummary
     RetainedMessageSummary (RetainedMessageSummary'),

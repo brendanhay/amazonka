@@ -38,9 +38,15 @@ module Amazonka.IoTData.Publish
     newPublish,
 
     -- * Request Lenses
-    publish_retain,
+    publish_contentType,
+    publish_correlationData,
+    publish_messageExpiry,
     publish_payload,
+    publish_payloadFormatIndicator,
     publish_qos,
+    publish_responseTopic,
+    publish_retain,
+    publish_userProperties,
     publish_topic,
 
     -- * Destructuring the Response
@@ -61,7 +67,37 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newPublish' smart constructor.
 data Publish = Publish'
-  { -- | A Boolean value that determines whether to set the RETAIN flag when the
+  { -- | A UTF-8 encoded string that describes the content of the publishing
+    -- message.
+    contentType :: Prelude.Maybe Prelude.Text,
+    -- | The base64-encoded binary data used by the sender of the request message
+    -- to identify which request the response message is for when it\'s
+    -- received. @correlationData@ is an HTTP header value in the API.
+    correlationData :: Prelude.Maybe Prelude.Text,
+    -- | A user-defined integer value that represents the message expiry interval
+    -- in seconds. If absent, the message doesn\'t expire. For more information
+    -- about the limits of @messageExpiry@, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/iot-core.html#message-broker-limits Amazon Web Services IoT Core message broker and protocol limits and quotas>
+    -- from the Amazon Web Services Reference Guide.
+    messageExpiry :: Prelude.Maybe Prelude.Integer,
+    -- | The message body. MQTT accepts text, binary, and empty (null) message
+    -- payloads.
+    --
+    -- Publishing an empty (null) payload with __retain__ = @true@ deletes the
+    -- retained message identified by __topic__ from Amazon Web Services IoT
+    -- Core.
+    payload :: Prelude.Maybe Prelude.ByteString,
+    -- | An @Enum@ string value that indicates whether the payload is formatted
+    -- as UTF-8. @payloadFormatIndicator@ is an HTTP header value in the API.
+    payloadFormatIndicator :: Prelude.Maybe PayloadFormatIndicator,
+    -- | The Quality of Service (QoS) level. The default QoS level is 0.
+    qos :: Prelude.Maybe Prelude.Natural,
+    -- | A UTF-8 encoded string that\'s used as the topic name for a response
+    -- message. The response topic is used to describe the topic which the
+    -- receiver should publish to as part of the request-response flow. The
+    -- topic must not contain wildcard characters.
+    responseTopic :: Prelude.Maybe Prelude.Text,
+    -- | A Boolean value that determines whether to set the RETAIN flag when the
     -- message is published.
     --
     -- Setting the RETAIN flag causes the message to be retained and sent to
@@ -71,15 +107,16 @@ data Publish = Publish'
     --
     -- Default value: @false@
     retain :: Prelude.Maybe Prelude.Bool,
-    -- | The message body. MQTT accepts text, binary, and empty (null) message
-    -- payloads.
+    -- | A JSON string that contains an array of JSON objects. If you don’t use
+    -- Amazon Web Services SDK or CLI, you must encode the JSON string to
+    -- base64 format before adding it to the HTTP header. @userProperties@ is
+    -- an HTTP header value in the API.
     --
-    -- Publishing an empty (null) payload with __retain__ = @true@ deletes the
-    -- retained message identified by __topic__ from Amazon Web Services IoT
-    -- Core.
-    payload :: Prelude.Maybe Prelude.ByteString,
-    -- | The Quality of Service (QoS) level.
-    qos :: Prelude.Maybe Prelude.Natural,
+    -- The following example @userProperties@ parameter is a JSON string which
+    -- represents two User Properties. Note that it needs to be base64-encoded:
+    --
+    -- @[{\"deviceName\": \"alpha\"}, {\"deviceCnt\": \"45\"}]@
+    userProperties :: Prelude.Maybe Prelude.Text,
     -- | The name of the MQTT topic.
     topic :: Prelude.Text
   }
@@ -93,6 +130,36 @@ data Publish = Publish'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'contentType', 'publish_contentType' - A UTF-8 encoded string that describes the content of the publishing
+-- message.
+--
+-- 'correlationData', 'publish_correlationData' - The base64-encoded binary data used by the sender of the request message
+-- to identify which request the response message is for when it\'s
+-- received. @correlationData@ is an HTTP header value in the API.
+--
+-- 'messageExpiry', 'publish_messageExpiry' - A user-defined integer value that represents the message expiry interval
+-- in seconds. If absent, the message doesn\'t expire. For more information
+-- about the limits of @messageExpiry@, see
+-- <https://docs.aws.amazon.com/general/latest/gr/iot-core.html#message-broker-limits Amazon Web Services IoT Core message broker and protocol limits and quotas>
+-- from the Amazon Web Services Reference Guide.
+--
+-- 'payload', 'publish_payload' - The message body. MQTT accepts text, binary, and empty (null) message
+-- payloads.
+--
+-- Publishing an empty (null) payload with __retain__ = @true@ deletes the
+-- retained message identified by __topic__ from Amazon Web Services IoT
+-- Core.
+--
+-- 'payloadFormatIndicator', 'publish_payloadFormatIndicator' - An @Enum@ string value that indicates whether the payload is formatted
+-- as UTF-8. @payloadFormatIndicator@ is an HTTP header value in the API.
+--
+-- 'qos', 'publish_qos' - The Quality of Service (QoS) level. The default QoS level is 0.
+--
+-- 'responseTopic', 'publish_responseTopic' - A UTF-8 encoded string that\'s used as the topic name for a response
+-- message. The response topic is used to describe the topic which the
+-- receiver should publish to as part of the request-response flow. The
+-- topic must not contain wildcard characters.
+--
 -- 'retain', 'publish_retain' - A Boolean value that determines whether to set the RETAIN flag when the
 -- message is published.
 --
@@ -103,14 +170,15 @@ data Publish = Publish'
 --
 -- Default value: @false@
 --
--- 'payload', 'publish_payload' - The message body. MQTT accepts text, binary, and empty (null) message
--- payloads.
+-- 'userProperties', 'publish_userProperties' - A JSON string that contains an array of JSON objects. If you don’t use
+-- Amazon Web Services SDK or CLI, you must encode the JSON string to
+-- base64 format before adding it to the HTTP header. @userProperties@ is
+-- an HTTP header value in the API.
 --
--- Publishing an empty (null) payload with __retain__ = @true@ deletes the
--- retained message identified by __topic__ from Amazon Web Services IoT
--- Core.
+-- The following example @userProperties@ parameter is a JSON string which
+-- represents two User Properties. Note that it needs to be base64-encoded:
 --
--- 'qos', 'publish_qos' - The Quality of Service (QoS) level.
+-- @[{\"deviceName\": \"alpha\"}, {\"deviceCnt\": \"45\"}]@
 --
 -- 'topic', 'publish_topic' - The name of the MQTT topic.
 newPublish ::
@@ -119,11 +187,61 @@ newPublish ::
   Publish
 newPublish pTopic_ =
   Publish'
-    { retain = Prelude.Nothing,
+    { contentType = Prelude.Nothing,
+      correlationData = Prelude.Nothing,
+      messageExpiry = Prelude.Nothing,
       payload = Prelude.Nothing,
+      payloadFormatIndicator = Prelude.Nothing,
       qos = Prelude.Nothing,
+      responseTopic = Prelude.Nothing,
+      retain = Prelude.Nothing,
+      userProperties = Prelude.Nothing,
       topic = pTopic_
     }
+
+-- | A UTF-8 encoded string that describes the content of the publishing
+-- message.
+publish_contentType :: Lens.Lens' Publish (Prelude.Maybe Prelude.Text)
+publish_contentType = Lens.lens (\Publish' {contentType} -> contentType) (\s@Publish' {} a -> s {contentType = a} :: Publish)
+
+-- | The base64-encoded binary data used by the sender of the request message
+-- to identify which request the response message is for when it\'s
+-- received. @correlationData@ is an HTTP header value in the API.
+publish_correlationData :: Lens.Lens' Publish (Prelude.Maybe Prelude.Text)
+publish_correlationData = Lens.lens (\Publish' {correlationData} -> correlationData) (\s@Publish' {} a -> s {correlationData = a} :: Publish)
+
+-- | A user-defined integer value that represents the message expiry interval
+-- in seconds. If absent, the message doesn\'t expire. For more information
+-- about the limits of @messageExpiry@, see
+-- <https://docs.aws.amazon.com/general/latest/gr/iot-core.html#message-broker-limits Amazon Web Services IoT Core message broker and protocol limits and quotas>
+-- from the Amazon Web Services Reference Guide.
+publish_messageExpiry :: Lens.Lens' Publish (Prelude.Maybe Prelude.Integer)
+publish_messageExpiry = Lens.lens (\Publish' {messageExpiry} -> messageExpiry) (\s@Publish' {} a -> s {messageExpiry = a} :: Publish)
+
+-- | The message body. MQTT accepts text, binary, and empty (null) message
+-- payloads.
+--
+-- Publishing an empty (null) payload with __retain__ = @true@ deletes the
+-- retained message identified by __topic__ from Amazon Web Services IoT
+-- Core.
+publish_payload :: Lens.Lens' Publish (Prelude.Maybe Prelude.ByteString)
+publish_payload = Lens.lens (\Publish' {payload} -> payload) (\s@Publish' {} a -> s {payload = a} :: Publish)
+
+-- | An @Enum@ string value that indicates whether the payload is formatted
+-- as UTF-8. @payloadFormatIndicator@ is an HTTP header value in the API.
+publish_payloadFormatIndicator :: Lens.Lens' Publish (Prelude.Maybe PayloadFormatIndicator)
+publish_payloadFormatIndicator = Lens.lens (\Publish' {payloadFormatIndicator} -> payloadFormatIndicator) (\s@Publish' {} a -> s {payloadFormatIndicator = a} :: Publish)
+
+-- | The Quality of Service (QoS) level. The default QoS level is 0.
+publish_qos :: Lens.Lens' Publish (Prelude.Maybe Prelude.Natural)
+publish_qos = Lens.lens (\Publish' {qos} -> qos) (\s@Publish' {} a -> s {qos = a} :: Publish)
+
+-- | A UTF-8 encoded string that\'s used as the topic name for a response
+-- message. The response topic is used to describe the topic which the
+-- receiver should publish to as part of the request-response flow. The
+-- topic must not contain wildcard characters.
+publish_responseTopic :: Lens.Lens' Publish (Prelude.Maybe Prelude.Text)
+publish_responseTopic = Lens.lens (\Publish' {responseTopic} -> responseTopic) (\s@Publish' {} a -> s {responseTopic = a} :: Publish)
 
 -- | A Boolean value that determines whether to set the RETAIN flag when the
 -- message is published.
@@ -137,18 +255,17 @@ newPublish pTopic_ =
 publish_retain :: Lens.Lens' Publish (Prelude.Maybe Prelude.Bool)
 publish_retain = Lens.lens (\Publish' {retain} -> retain) (\s@Publish' {} a -> s {retain = a} :: Publish)
 
--- | The message body. MQTT accepts text, binary, and empty (null) message
--- payloads.
+-- | A JSON string that contains an array of JSON objects. If you don’t use
+-- Amazon Web Services SDK or CLI, you must encode the JSON string to
+-- base64 format before adding it to the HTTP header. @userProperties@ is
+-- an HTTP header value in the API.
 --
--- Publishing an empty (null) payload with __retain__ = @true@ deletes the
--- retained message identified by __topic__ from Amazon Web Services IoT
--- Core.
-publish_payload :: Lens.Lens' Publish (Prelude.Maybe Prelude.ByteString)
-publish_payload = Lens.lens (\Publish' {payload} -> payload) (\s@Publish' {} a -> s {payload = a} :: Publish)
-
--- | The Quality of Service (QoS) level.
-publish_qos :: Lens.Lens' Publish (Prelude.Maybe Prelude.Natural)
-publish_qos = Lens.lens (\Publish' {qos} -> qos) (\s@Publish' {} a -> s {qos = a} :: Publish)
+-- The following example @userProperties@ parameter is a JSON string which
+-- represents two User Properties. Note that it needs to be base64-encoded:
+--
+-- @[{\"deviceName\": \"alpha\"}, {\"deviceCnt\": \"45\"}]@
+publish_userProperties :: Lens.Lens' Publish (Prelude.Maybe Prelude.Text)
+publish_userProperties = Lens.lens (\Publish' {userProperties} -> userProperties) (\s@Publish' {} a -> s {userProperties = a} :: Publish)
 
 -- | The name of the MQTT topic.
 publish_topic :: Lens.Lens' Publish Prelude.Text
@@ -162,23 +279,42 @@ instance Core.AWSRequest Publish where
 
 instance Prelude.Hashable Publish where
   hashWithSalt _salt Publish' {..} =
-    _salt `Prelude.hashWithSalt` retain
+    _salt `Prelude.hashWithSalt` contentType
+      `Prelude.hashWithSalt` correlationData
+      `Prelude.hashWithSalt` messageExpiry
       `Prelude.hashWithSalt` payload
+      `Prelude.hashWithSalt` payloadFormatIndicator
       `Prelude.hashWithSalt` qos
+      `Prelude.hashWithSalt` responseTopic
+      `Prelude.hashWithSalt` retain
+      `Prelude.hashWithSalt` userProperties
       `Prelude.hashWithSalt` topic
 
 instance Prelude.NFData Publish where
   rnf Publish' {..} =
-    Prelude.rnf retain
+    Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf correlationData
+      `Prelude.seq` Prelude.rnf messageExpiry
       `Prelude.seq` Prelude.rnf payload
+      `Prelude.seq` Prelude.rnf payloadFormatIndicator
       `Prelude.seq` Prelude.rnf qos
+      `Prelude.seq` Prelude.rnf responseTopic
+      `Prelude.seq` Prelude.rnf retain
+      `Prelude.seq` Prelude.rnf userProperties
       `Prelude.seq` Prelude.rnf topic
 
 instance Data.ToBody Publish where
   toBody Publish' {..} = Data.toBody payload
 
 instance Data.ToHeaders Publish where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders Publish' {..} =
+    Prelude.mconcat
+      [ "x-amz-mqtt5-correlation-data"
+          Data.=# correlationData,
+        "x-amz-mqtt5-payload-format-indicator"
+          Data.=# payloadFormatIndicator,
+        "x-amz-mqtt5-user-properties" Data.=# userProperties
+      ]
 
 instance Data.ToPath Publish where
   toPath Publish' {..} =
@@ -187,7 +323,12 @@ instance Data.ToPath Publish where
 instance Data.ToQuery Publish where
   toQuery Publish' {..} =
     Prelude.mconcat
-      ["retain" Data.=: retain, "qos" Data.=: qos]
+      [ "contentType" Data.=: contentType,
+        "messageExpiry" Data.=: messageExpiry,
+        "qos" Data.=: qos,
+        "responseTopic" Data.=: responseTopic,
+        "retain" Data.=: retain
+      ]
 
 -- | /See:/ 'newPublishResponse' smart constructor.
 data PublishResponse = PublishResponse'

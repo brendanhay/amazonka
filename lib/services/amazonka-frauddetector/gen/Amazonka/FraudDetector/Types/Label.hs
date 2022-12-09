@@ -28,16 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLabel' smart constructor.
 data Label = Label'
-  { -- | The label name.
-    name :: Prelude.Maybe Prelude.Text,
+  { -- | The label ARN.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | Timestamp of when the event type was created.
     createdTime :: Prelude.Maybe Prelude.Text,
-    -- | The label ARN.
-    arn :: Prelude.Maybe Prelude.Text,
     -- | The label description.
     description :: Prelude.Maybe Prelude.Text,
     -- | Timestamp of when the label was last updated.
-    lastUpdatedTime :: Prelude.Maybe Prelude.Text
+    lastUpdatedTime :: Prelude.Maybe Prelude.Text,
+    -- | The label name.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,37 +49,33 @@ data Label = Label'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'label_name' - The label name.
+-- 'arn', 'label_arn' - The label ARN.
 --
 -- 'createdTime', 'label_createdTime' - Timestamp of when the event type was created.
---
--- 'arn', 'label_arn' - The label ARN.
 --
 -- 'description', 'label_description' - The label description.
 --
 -- 'lastUpdatedTime', 'label_lastUpdatedTime' - Timestamp of when the label was last updated.
+--
+-- 'name', 'label_name' - The label name.
 newLabel ::
   Label
 newLabel =
   Label'
-    { name = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       createdTime = Prelude.Nothing,
-      arn = Prelude.Nothing,
       description = Prelude.Nothing,
-      lastUpdatedTime = Prelude.Nothing
+      lastUpdatedTime = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | The label name.
-label_name :: Lens.Lens' Label (Prelude.Maybe Prelude.Text)
-label_name = Lens.lens (\Label' {name} -> name) (\s@Label' {} a -> s {name = a} :: Label)
-
--- | Timestamp of when the event type was created.
-label_createdTime :: Lens.Lens' Label (Prelude.Maybe Prelude.Text)
-label_createdTime = Lens.lens (\Label' {createdTime} -> createdTime) (\s@Label' {} a -> s {createdTime = a} :: Label)
 
 -- | The label ARN.
 label_arn :: Lens.Lens' Label (Prelude.Maybe Prelude.Text)
 label_arn = Lens.lens (\Label' {arn} -> arn) (\s@Label' {} a -> s {arn = a} :: Label)
+
+-- | Timestamp of when the event type was created.
+label_createdTime :: Lens.Lens' Label (Prelude.Maybe Prelude.Text)
+label_createdTime = Lens.lens (\Label' {createdTime} -> createdTime) (\s@Label' {} a -> s {createdTime = a} :: Label)
 
 -- | The label description.
 label_description :: Lens.Lens' Label (Prelude.Maybe Prelude.Text)
@@ -89,31 +85,35 @@ label_description = Lens.lens (\Label' {description} -> description) (\s@Label' 
 label_lastUpdatedTime :: Lens.Lens' Label (Prelude.Maybe Prelude.Text)
 label_lastUpdatedTime = Lens.lens (\Label' {lastUpdatedTime} -> lastUpdatedTime) (\s@Label' {} a -> s {lastUpdatedTime = a} :: Label)
 
+-- | The label name.
+label_name :: Lens.Lens' Label (Prelude.Maybe Prelude.Text)
+label_name = Lens.lens (\Label' {name} -> name) (\s@Label' {} a -> s {name = a} :: Label)
+
 instance Data.FromJSON Label where
   parseJSON =
     Data.withObject
       "Label"
       ( \x ->
           Label'
-            Prelude.<$> (x Data..:? "name")
+            Prelude.<$> (x Data..:? "arn")
             Prelude.<*> (x Data..:? "createdTime")
-            Prelude.<*> (x Data..:? "arn")
             Prelude.<*> (x Data..:? "description")
             Prelude.<*> (x Data..:? "lastUpdatedTime")
+            Prelude.<*> (x Data..:? "name")
       )
 
 instance Prelude.Hashable Label where
   hashWithSalt _salt Label' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime
-      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData Label where
   rnf Label' {..} =
-    Prelude.rnf name
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf name

@@ -28,8 +28,8 @@ module Amazonka.FraudDetector.UpdateRuleVersion
     newUpdateRuleVersion,
 
     -- * Request Lenses
-    updateRuleVersion_tags,
     updateRuleVersion_description,
+    updateRuleVersion_tags,
     updateRuleVersion_rule,
     updateRuleVersion_expression,
     updateRuleVersion_language,
@@ -55,10 +55,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateRuleVersion' smart constructor.
 data UpdateRuleVersion = UpdateRuleVersion'
-  { -- | The tags to assign to the rule version.
-    tags :: Prelude.Maybe [Tag],
-    -- | The description.
+  { -- | The description.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The tags to assign to the rule version.
+    tags :: Prelude.Maybe [Tag],
     -- | The rule to update.
     rule :: Rule,
     -- | The rule expression.
@@ -78,9 +78,9 @@ data UpdateRuleVersion = UpdateRuleVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'updateRuleVersion_tags' - The tags to assign to the rule version.
---
 -- 'description', 'updateRuleVersion_description' - The description.
+--
+-- 'tags', 'updateRuleVersion_tags' - The tags to assign to the rule version.
 --
 -- 'rule', 'updateRuleVersion_rule' - The rule to update.
 --
@@ -105,21 +105,21 @@ newUpdateRuleVersion
   pLanguage_
   pOutcomes_ =
     UpdateRuleVersion'
-      { tags = Prelude.Nothing,
-        description = Prelude.Nothing,
+      { description = Prelude.Nothing,
+        tags = Prelude.Nothing,
         rule = pRule_,
         expression = Data._Sensitive Lens.# pExpression_,
         language = pLanguage_,
         outcomes = Lens.coerced Lens.# pOutcomes_
       }
 
--- | The tags to assign to the rule version.
-updateRuleVersion_tags :: Lens.Lens' UpdateRuleVersion (Prelude.Maybe [Tag])
-updateRuleVersion_tags = Lens.lens (\UpdateRuleVersion' {tags} -> tags) (\s@UpdateRuleVersion' {} a -> s {tags = a} :: UpdateRuleVersion) Prelude.. Lens.mapping Lens.coerced
-
 -- | The description.
 updateRuleVersion_description :: Lens.Lens' UpdateRuleVersion (Prelude.Maybe Prelude.Text)
 updateRuleVersion_description = Lens.lens (\UpdateRuleVersion' {description} -> description) (\s@UpdateRuleVersion' {} a -> s {description = a} :: UpdateRuleVersion)
+
+-- | The tags to assign to the rule version.
+updateRuleVersion_tags :: Lens.Lens' UpdateRuleVersion (Prelude.Maybe [Tag])
+updateRuleVersion_tags = Lens.lens (\UpdateRuleVersion' {tags} -> tags) (\s@UpdateRuleVersion' {} a -> s {tags = a} :: UpdateRuleVersion) Prelude.. Lens.mapping Lens.coerced
 
 -- | The rule to update.
 updateRuleVersion_rule :: Lens.Lens' UpdateRuleVersion Rule
@@ -153,8 +153,8 @@ instance Core.AWSRequest UpdateRuleVersion where
 
 instance Prelude.Hashable UpdateRuleVersion where
   hashWithSalt _salt UpdateRuleVersion' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` rule
       `Prelude.hashWithSalt` expression
       `Prelude.hashWithSalt` language
@@ -162,8 +162,8 @@ instance Prelude.Hashable UpdateRuleVersion where
 
 instance Prelude.NFData UpdateRuleVersion where
   rnf UpdateRuleVersion' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf rule
       `Prelude.seq` Prelude.rnf expression
       `Prelude.seq` Prelude.rnf language
@@ -188,8 +188,8 @@ instance Data.ToJSON UpdateRuleVersion where
   toJSON UpdateRuleVersion' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("description" Data..=) Prelude.<$> description,
+          [ ("description" Data..=) Prelude.<$> description,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("rule" Data..= rule),
             Prelude.Just ("expression" Data..= expression),
             Prelude.Just ("language" Data..= language),

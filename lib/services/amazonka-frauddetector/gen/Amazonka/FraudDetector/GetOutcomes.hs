@@ -32,9 +32,9 @@ module Amazonka.FraudDetector.GetOutcomes
     newGetOutcomes,
 
     -- * Request Lenses
+    getOutcomes_maxResults,
     getOutcomes_name,
     getOutcomes_nextToken,
-    getOutcomes_maxResults,
 
     -- * Destructuring the Response
     GetOutcomesResponse (..),
@@ -57,12 +57,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetOutcomes' smart constructor.
 data GetOutcomes = GetOutcomes'
-  { -- | The name of the outcome or outcomes to get.
+  { -- | The maximum number of objects to return for the request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The name of the outcome or outcomes to get.
     name :: Prelude.Maybe Prelude.Text,
     -- | The next page token for the request.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of objects to return for the request.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,19 +74,23 @@ data GetOutcomes = GetOutcomes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'getOutcomes_maxResults' - The maximum number of objects to return for the request.
+--
 -- 'name', 'getOutcomes_name' - The name of the outcome or outcomes to get.
 --
 -- 'nextToken', 'getOutcomes_nextToken' - The next page token for the request.
---
--- 'maxResults', 'getOutcomes_maxResults' - The maximum number of objects to return for the request.
 newGetOutcomes ::
   GetOutcomes
 newGetOutcomes =
   GetOutcomes'
-    { name = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      name = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of objects to return for the request.
+getOutcomes_maxResults :: Lens.Lens' GetOutcomes (Prelude.Maybe Prelude.Natural)
+getOutcomes_maxResults = Lens.lens (\GetOutcomes' {maxResults} -> maxResults) (\s@GetOutcomes' {} a -> s {maxResults = a} :: GetOutcomes)
 
 -- | The name of the outcome or outcomes to get.
 getOutcomes_name :: Lens.Lens' GetOutcomes (Prelude.Maybe Prelude.Text)
@@ -95,10 +99,6 @@ getOutcomes_name = Lens.lens (\GetOutcomes' {name} -> name) (\s@GetOutcomes' {} 
 -- | The next page token for the request.
 getOutcomes_nextToken :: Lens.Lens' GetOutcomes (Prelude.Maybe Prelude.Text)
 getOutcomes_nextToken = Lens.lens (\GetOutcomes' {nextToken} -> nextToken) (\s@GetOutcomes' {} a -> s {nextToken = a} :: GetOutcomes)
-
--- | The maximum number of objects to return for the request.
-getOutcomes_maxResults :: Lens.Lens' GetOutcomes (Prelude.Maybe Prelude.Natural)
-getOutcomes_maxResults = Lens.lens (\GetOutcomes' {maxResults} -> maxResults) (\s@GetOutcomes' {} a -> s {maxResults = a} :: GetOutcomes)
 
 instance Core.AWSRequest GetOutcomes where
   type AWSResponse GetOutcomes = GetOutcomesResponse
@@ -115,15 +115,15 @@ instance Core.AWSRequest GetOutcomes where
 
 instance Prelude.Hashable GetOutcomes where
   hashWithSalt _salt GetOutcomes' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData GetOutcomes where
   rnf GetOutcomes' {..} =
-    Prelude.rnf name
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
 
 instance Data.ToHeaders GetOutcomes where
   toHeaders =
@@ -144,9 +144,9 @@ instance Data.ToJSON GetOutcomes where
   toJSON GetOutcomes' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("name" Data..=) Prelude.<$> name,
-            ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("name" Data..=) Prelude.<$> name,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

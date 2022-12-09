@@ -42,8 +42,8 @@ module Amazonka.FraudDetector.GetEventPrediction
     newGetEventPredictionResponse,
 
     -- * Response Lenses
-    getEventPredictionResponse_modelScores,
     getEventPredictionResponse_externalModelOutputs,
+    getEventPredictionResponse_modelScores,
     getEventPredictionResponse_ruleResults,
     getEventPredictionResponse_httpStatus,
   )
@@ -251,10 +251,10 @@ instance Core.AWSRequest GetEventPrediction where
     Response.receiveJSON
       ( \s h x ->
           GetEventPredictionResponse'
-            Prelude.<$> (x Data..?> "modelScores" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "externalModelOutputs"
+            Prelude.<$> ( x Data..?> "externalModelOutputs"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "modelScores" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "ruleResults" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -323,15 +323,15 @@ instance Data.ToQuery GetEventPrediction where
 
 -- | /See:/ 'newGetEventPredictionResponse' smart constructor.
 data GetEventPredictionResponse = GetEventPredictionResponse'
-  { -- | The model scores. Amazon Fraud Detector generates model scores between 0
+  { -- | The model scores for Amazon SageMaker models.
+    externalModelOutputs :: Prelude.Maybe [ExternalModelOutputs],
+    -- | The model scores. Amazon Fraud Detector generates model scores between 0
     -- and 1000, where 0 is low fraud risk and 1000 is high fraud risk. Model
     -- scores are directly related to the false positive rate (FPR). For
     -- example, a score of 600 corresponds to an estimated 10% false positive
     -- rate whereas a score of 900 corresponds to an estimated 2% false
     -- positive rate.
     modelScores :: Prelude.Maybe [ModelScores],
-    -- | The model scores for Amazon SageMaker models.
-    externalModelOutputs :: Prelude.Maybe [ExternalModelOutputs],
     -- | The results from the rules.
     ruleResults :: Prelude.Maybe [RuleResult],
     -- | The response's http status code.
@@ -347,14 +347,14 @@ data GetEventPredictionResponse = GetEventPredictionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'externalModelOutputs', 'getEventPredictionResponse_externalModelOutputs' - The model scores for Amazon SageMaker models.
+--
 -- 'modelScores', 'getEventPredictionResponse_modelScores' - The model scores. Amazon Fraud Detector generates model scores between 0
 -- and 1000, where 0 is low fraud risk and 1000 is high fraud risk. Model
 -- scores are directly related to the false positive rate (FPR). For
 -- example, a score of 600 corresponds to an estimated 10% false positive
 -- rate whereas a score of 900 corresponds to an estimated 2% false
 -- positive rate.
---
--- 'externalModelOutputs', 'getEventPredictionResponse_externalModelOutputs' - The model scores for Amazon SageMaker models.
 --
 -- 'ruleResults', 'getEventPredictionResponse_ruleResults' - The results from the rules.
 --
@@ -365,12 +365,16 @@ newGetEventPredictionResponse ::
   GetEventPredictionResponse
 newGetEventPredictionResponse pHttpStatus_ =
   GetEventPredictionResponse'
-    { modelScores =
+    { externalModelOutputs =
         Prelude.Nothing,
-      externalModelOutputs = Prelude.Nothing,
+      modelScores = Prelude.Nothing,
       ruleResults = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The model scores for Amazon SageMaker models.
+getEventPredictionResponse_externalModelOutputs :: Lens.Lens' GetEventPredictionResponse (Prelude.Maybe [ExternalModelOutputs])
+getEventPredictionResponse_externalModelOutputs = Lens.lens (\GetEventPredictionResponse' {externalModelOutputs} -> externalModelOutputs) (\s@GetEventPredictionResponse' {} a -> s {externalModelOutputs = a} :: GetEventPredictionResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The model scores. Amazon Fraud Detector generates model scores between 0
 -- and 1000, where 0 is low fraud risk and 1000 is high fraud risk. Model
@@ -380,10 +384,6 @@ newGetEventPredictionResponse pHttpStatus_ =
 -- positive rate.
 getEventPredictionResponse_modelScores :: Lens.Lens' GetEventPredictionResponse (Prelude.Maybe [ModelScores])
 getEventPredictionResponse_modelScores = Lens.lens (\GetEventPredictionResponse' {modelScores} -> modelScores) (\s@GetEventPredictionResponse' {} a -> s {modelScores = a} :: GetEventPredictionResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The model scores for Amazon SageMaker models.
-getEventPredictionResponse_externalModelOutputs :: Lens.Lens' GetEventPredictionResponse (Prelude.Maybe [ExternalModelOutputs])
-getEventPredictionResponse_externalModelOutputs = Lens.lens (\GetEventPredictionResponse' {externalModelOutputs} -> externalModelOutputs) (\s@GetEventPredictionResponse' {} a -> s {externalModelOutputs = a} :: GetEventPredictionResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The results from the rules.
 getEventPredictionResponse_ruleResults :: Lens.Lens' GetEventPredictionResponse (Prelude.Maybe [RuleResult])
@@ -395,7 +395,7 @@ getEventPredictionResponse_httpStatus = Lens.lens (\GetEventPredictionResponse' 
 
 instance Prelude.NFData GetEventPredictionResponse where
   rnf GetEventPredictionResponse' {..} =
-    Prelude.rnf modelScores
-      `Prelude.seq` Prelude.rnf externalModelOutputs
+    Prelude.rnf externalModelOutputs
+      `Prelude.seq` Prelude.rnf modelScores
       `Prelude.seq` Prelude.rnf ruleResults
       `Prelude.seq` Prelude.rnf httpStatus

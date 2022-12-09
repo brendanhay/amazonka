@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBatchGetVariableError' smart constructor.
 data BatchGetVariableError = BatchGetVariableError'
-  { -- | The error message.
+  { -- | The error code.
+    code :: Prelude.Maybe Prelude.Int,
+    -- | The error message.
     message :: Prelude.Maybe Prelude.Text,
     -- | The error name.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The error code.
-    code :: Prelude.Maybe Prelude.Int
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,19 +45,23 @@ data BatchGetVariableError = BatchGetVariableError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'code', 'batchGetVariableError_code' - The error code.
+--
 -- 'message', 'batchGetVariableError_message' - The error message.
 --
 -- 'name', 'batchGetVariableError_name' - The error name.
---
--- 'code', 'batchGetVariableError_code' - The error code.
 newBatchGetVariableError ::
   BatchGetVariableError
 newBatchGetVariableError =
   BatchGetVariableError'
-    { message = Prelude.Nothing,
-      name = Prelude.Nothing,
-      code = Prelude.Nothing
+    { code = Prelude.Nothing,
+      message = Prelude.Nothing,
+      name = Prelude.Nothing
     }
+
+-- | The error code.
+batchGetVariableError_code :: Lens.Lens' BatchGetVariableError (Prelude.Maybe Prelude.Int)
+batchGetVariableError_code = Lens.lens (\BatchGetVariableError' {code} -> code) (\s@BatchGetVariableError' {} a -> s {code = a} :: BatchGetVariableError)
 
 -- | The error message.
 batchGetVariableError_message :: Lens.Lens' BatchGetVariableError (Prelude.Maybe Prelude.Text)
@@ -67,29 +71,25 @@ batchGetVariableError_message = Lens.lens (\BatchGetVariableError' {message} -> 
 batchGetVariableError_name :: Lens.Lens' BatchGetVariableError (Prelude.Maybe Prelude.Text)
 batchGetVariableError_name = Lens.lens (\BatchGetVariableError' {name} -> name) (\s@BatchGetVariableError' {} a -> s {name = a} :: BatchGetVariableError)
 
--- | The error code.
-batchGetVariableError_code :: Lens.Lens' BatchGetVariableError (Prelude.Maybe Prelude.Int)
-batchGetVariableError_code = Lens.lens (\BatchGetVariableError' {code} -> code) (\s@BatchGetVariableError' {} a -> s {code = a} :: BatchGetVariableError)
-
 instance Data.FromJSON BatchGetVariableError where
   parseJSON =
     Data.withObject
       "BatchGetVariableError"
       ( \x ->
           BatchGetVariableError'
-            Prelude.<$> (x Data..:? "message")
+            Prelude.<$> (x Data..:? "code")
+            Prelude.<*> (x Data..:? "message")
             Prelude.<*> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "code")
       )
 
 instance Prelude.Hashable BatchGetVariableError where
   hashWithSalt _salt BatchGetVariableError' {..} =
-    _salt `Prelude.hashWithSalt` message
+    _salt `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` code
 
 instance Prelude.NFData BatchGetVariableError where
   rnf BatchGetVariableError' {..} =
-    Prelude.rnf message
+    Prelude.rnf code
+      `Prelude.seq` Prelude.rnf message
       `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf code

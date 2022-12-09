@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newModelOutputConfiguration' smart constructor.
 data ModelOutputConfiguration = ModelOutputConfiguration'
-  { -- | A map of JSON keys in response from SageMaker to the Amazon Fraud
-    -- Detector variables.
-    jsonKeyToVariableMap :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A map of CSV index values in the SageMaker response to the Amazon Fraud
+  { -- | A map of CSV index values in the SageMaker response to the Amazon Fraud
     -- Detector variables.
     csvIndexToVariableMap :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A map of JSON keys in response from SageMaker to the Amazon Fraud
+    -- Detector variables.
+    jsonKeyToVariableMap :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The format of the model output configuration.
     format :: ModelOutputDataFormat
   }
@@ -48,10 +48,10 @@ data ModelOutputConfiguration = ModelOutputConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jsonKeyToVariableMap', 'modelOutputConfiguration_jsonKeyToVariableMap' - A map of JSON keys in response from SageMaker to the Amazon Fraud
+-- 'csvIndexToVariableMap', 'modelOutputConfiguration_csvIndexToVariableMap' - A map of CSV index values in the SageMaker response to the Amazon Fraud
 -- Detector variables.
 --
--- 'csvIndexToVariableMap', 'modelOutputConfiguration_csvIndexToVariableMap' - A map of CSV index values in the SageMaker response to the Amazon Fraud
+-- 'jsonKeyToVariableMap', 'modelOutputConfiguration_jsonKeyToVariableMap' - A map of JSON keys in response from SageMaker to the Amazon Fraud
 -- Detector variables.
 --
 -- 'format', 'modelOutputConfiguration_format' - The format of the model output configuration.
@@ -61,21 +61,21 @@ newModelOutputConfiguration ::
   ModelOutputConfiguration
 newModelOutputConfiguration pFormat_ =
   ModelOutputConfiguration'
-    { jsonKeyToVariableMap =
+    { csvIndexToVariableMap =
         Prelude.Nothing,
-      csvIndexToVariableMap = Prelude.Nothing,
+      jsonKeyToVariableMap = Prelude.Nothing,
       format = pFormat_
     }
-
--- | A map of JSON keys in response from SageMaker to the Amazon Fraud
--- Detector variables.
-modelOutputConfiguration_jsonKeyToVariableMap :: Lens.Lens' ModelOutputConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-modelOutputConfiguration_jsonKeyToVariableMap = Lens.lens (\ModelOutputConfiguration' {jsonKeyToVariableMap} -> jsonKeyToVariableMap) (\s@ModelOutputConfiguration' {} a -> s {jsonKeyToVariableMap = a} :: ModelOutputConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | A map of CSV index values in the SageMaker response to the Amazon Fraud
 -- Detector variables.
 modelOutputConfiguration_csvIndexToVariableMap :: Lens.Lens' ModelOutputConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 modelOutputConfiguration_csvIndexToVariableMap = Lens.lens (\ModelOutputConfiguration' {csvIndexToVariableMap} -> csvIndexToVariableMap) (\s@ModelOutputConfiguration' {} a -> s {csvIndexToVariableMap = a} :: ModelOutputConfiguration) Prelude.. Lens.mapping Lens.coerced
+
+-- | A map of JSON keys in response from SageMaker to the Amazon Fraud
+-- Detector variables.
+modelOutputConfiguration_jsonKeyToVariableMap :: Lens.Lens' ModelOutputConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+modelOutputConfiguration_jsonKeyToVariableMap = Lens.lens (\ModelOutputConfiguration' {jsonKeyToVariableMap} -> jsonKeyToVariableMap) (\s@ModelOutputConfiguration' {} a -> s {jsonKeyToVariableMap = a} :: ModelOutputConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The format of the model output configuration.
 modelOutputConfiguration_format :: Lens.Lens' ModelOutputConfiguration ModelOutputDataFormat
@@ -87,10 +87,10 @@ instance Data.FromJSON ModelOutputConfiguration where
       "ModelOutputConfiguration"
       ( \x ->
           ModelOutputConfiguration'
-            Prelude.<$> ( x Data..:? "jsonKeyToVariableMap"
+            Prelude.<$> ( x Data..:? "csvIndexToVariableMap"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "csvIndexToVariableMap"
+            Prelude.<*> ( x Data..:? "jsonKeyToVariableMap"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "format")
@@ -98,24 +98,24 @@ instance Data.FromJSON ModelOutputConfiguration where
 
 instance Prelude.Hashable ModelOutputConfiguration where
   hashWithSalt _salt ModelOutputConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` jsonKeyToVariableMap
-      `Prelude.hashWithSalt` csvIndexToVariableMap
+    _salt `Prelude.hashWithSalt` csvIndexToVariableMap
+      `Prelude.hashWithSalt` jsonKeyToVariableMap
       `Prelude.hashWithSalt` format
 
 instance Prelude.NFData ModelOutputConfiguration where
   rnf ModelOutputConfiguration' {..} =
-    Prelude.rnf jsonKeyToVariableMap
-      `Prelude.seq` Prelude.rnf csvIndexToVariableMap
+    Prelude.rnf csvIndexToVariableMap
+      `Prelude.seq` Prelude.rnf jsonKeyToVariableMap
       `Prelude.seq` Prelude.rnf format
 
 instance Data.ToJSON ModelOutputConfiguration where
   toJSON ModelOutputConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("jsonKeyToVariableMap" Data..=)
-              Prelude.<$> jsonKeyToVariableMap,
-            ("csvIndexToVariableMap" Data..=)
+          [ ("csvIndexToVariableMap" Data..=)
               Prelude.<$> csvIndexToVariableMap,
+            ("jsonKeyToVariableMap" Data..=)
+              Prelude.<$> jsonKeyToVariableMap,
             Prelude.Just ("format" Data..= format)
           ]
       )

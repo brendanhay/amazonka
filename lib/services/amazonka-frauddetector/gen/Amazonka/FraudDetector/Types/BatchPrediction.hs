@@ -29,37 +29,37 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBatchPrediction' smart constructor.
 data BatchPrediction = BatchPrediction'
-  { -- | The Amazon S3 location of your training file.
-    inputPath :: Prelude.Maybe Prelude.Text,
-    -- | The detector version.
-    detectorVersion :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of batch prediction job.
+  { -- | The ARN of batch prediction job.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The job ID for the batch prediction.
-    jobId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the detector.
-    detectorName :: Prelude.Maybe Prelude.Text,
-    -- | The batch prediction status.
-    status :: Prelude.Maybe AsyncJobStatus,
     -- | Timestamp of when the batch prediction job completed.
     completionTime :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon S3 location of your output file.
-    outputPath :: Prelude.Maybe Prelude.Text,
+    -- | The name of the detector.
+    detectorName :: Prelude.Maybe Prelude.Text,
+    -- | The detector version.
+    detectorVersion :: Prelude.Maybe Prelude.Text,
+    -- | The name of the event type.
+    eventTypeName :: Prelude.Maybe Prelude.Text,
+    -- | The reason a batch prediction job failed.
+    failureReason :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the IAM role to use for this job request.
     iamRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon S3 location of your training file.
+    inputPath :: Prelude.Maybe Prelude.Text,
+    -- | The job ID for the batch prediction.
+    jobId :: Prelude.Maybe Prelude.Text,
     -- | Timestamp of most recent heartbeat indicating the batch prediction job
     -- was making progress.
     lastHeartbeatTime :: Prelude.Maybe Prelude.Text,
-    -- | The total number of records in the batch prediction job.
-    totalRecordsCount :: Prelude.Maybe Prelude.Int,
-    -- | The name of the event type.
-    eventTypeName :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon S3 location of your output file.
+    outputPath :: Prelude.Maybe Prelude.Text,
     -- | The number of records processed by the batch prediction job.
     processedRecordsCount :: Prelude.Maybe Prelude.Int,
     -- | Timestamp of when the batch prediction job started.
     startTime :: Prelude.Maybe Prelude.Text,
-    -- | The reason a batch prediction job failed.
-    failureReason :: Prelude.Maybe Prelude.Text
+    -- | The batch prediction status.
+    status :: Prelude.Maybe AsyncJobStatus,
+    -- | The total number of records in the batch prediction job.
+    totalRecordsCount :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,105 +71,101 @@ data BatchPrediction = BatchPrediction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'inputPath', 'batchPrediction_inputPath' - The Amazon S3 location of your training file.
---
--- 'detectorVersion', 'batchPrediction_detectorVersion' - The detector version.
---
 -- 'arn', 'batchPrediction_arn' - The ARN of batch prediction job.
---
--- 'jobId', 'batchPrediction_jobId' - The job ID for the batch prediction.
---
--- 'detectorName', 'batchPrediction_detectorName' - The name of the detector.
---
--- 'status', 'batchPrediction_status' - The batch prediction status.
 --
 -- 'completionTime', 'batchPrediction_completionTime' - Timestamp of when the batch prediction job completed.
 --
--- 'outputPath', 'batchPrediction_outputPath' - The Amazon S3 location of your output file.
+-- 'detectorName', 'batchPrediction_detectorName' - The name of the detector.
+--
+-- 'detectorVersion', 'batchPrediction_detectorVersion' - The detector version.
+--
+-- 'eventTypeName', 'batchPrediction_eventTypeName' - The name of the event type.
+--
+-- 'failureReason', 'batchPrediction_failureReason' - The reason a batch prediction job failed.
 --
 -- 'iamRoleArn', 'batchPrediction_iamRoleArn' - The ARN of the IAM role to use for this job request.
+--
+-- 'inputPath', 'batchPrediction_inputPath' - The Amazon S3 location of your training file.
+--
+-- 'jobId', 'batchPrediction_jobId' - The job ID for the batch prediction.
 --
 -- 'lastHeartbeatTime', 'batchPrediction_lastHeartbeatTime' - Timestamp of most recent heartbeat indicating the batch prediction job
 -- was making progress.
 --
--- 'totalRecordsCount', 'batchPrediction_totalRecordsCount' - The total number of records in the batch prediction job.
---
--- 'eventTypeName', 'batchPrediction_eventTypeName' - The name of the event type.
+-- 'outputPath', 'batchPrediction_outputPath' - The Amazon S3 location of your output file.
 --
 -- 'processedRecordsCount', 'batchPrediction_processedRecordsCount' - The number of records processed by the batch prediction job.
 --
 -- 'startTime', 'batchPrediction_startTime' - Timestamp of when the batch prediction job started.
 --
--- 'failureReason', 'batchPrediction_failureReason' - The reason a batch prediction job failed.
+-- 'status', 'batchPrediction_status' - The batch prediction status.
+--
+-- 'totalRecordsCount', 'batchPrediction_totalRecordsCount' - The total number of records in the batch prediction job.
 newBatchPrediction ::
   BatchPrediction
 newBatchPrediction =
   BatchPrediction'
-    { inputPath = Prelude.Nothing,
-      detectorVersion = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      jobId = Prelude.Nothing,
-      detectorName = Prelude.Nothing,
-      status = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       completionTime = Prelude.Nothing,
-      outputPath = Prelude.Nothing,
-      iamRoleArn = Prelude.Nothing,
-      lastHeartbeatTime = Prelude.Nothing,
-      totalRecordsCount = Prelude.Nothing,
+      detectorName = Prelude.Nothing,
+      detectorVersion = Prelude.Nothing,
       eventTypeName = Prelude.Nothing,
+      failureReason = Prelude.Nothing,
+      iamRoleArn = Prelude.Nothing,
+      inputPath = Prelude.Nothing,
+      jobId = Prelude.Nothing,
+      lastHeartbeatTime = Prelude.Nothing,
+      outputPath = Prelude.Nothing,
       processedRecordsCount = Prelude.Nothing,
       startTime = Prelude.Nothing,
-      failureReason = Prelude.Nothing
+      status = Prelude.Nothing,
+      totalRecordsCount = Prelude.Nothing
     }
-
--- | The Amazon S3 location of your training file.
-batchPrediction_inputPath :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Text)
-batchPrediction_inputPath = Lens.lens (\BatchPrediction' {inputPath} -> inputPath) (\s@BatchPrediction' {} a -> s {inputPath = a} :: BatchPrediction)
-
--- | The detector version.
-batchPrediction_detectorVersion :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Text)
-batchPrediction_detectorVersion = Lens.lens (\BatchPrediction' {detectorVersion} -> detectorVersion) (\s@BatchPrediction' {} a -> s {detectorVersion = a} :: BatchPrediction)
 
 -- | The ARN of batch prediction job.
 batchPrediction_arn :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Text)
 batchPrediction_arn = Lens.lens (\BatchPrediction' {arn} -> arn) (\s@BatchPrediction' {} a -> s {arn = a} :: BatchPrediction)
 
--- | The job ID for the batch prediction.
-batchPrediction_jobId :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Text)
-batchPrediction_jobId = Lens.lens (\BatchPrediction' {jobId} -> jobId) (\s@BatchPrediction' {} a -> s {jobId = a} :: BatchPrediction)
+-- | Timestamp of when the batch prediction job completed.
+batchPrediction_completionTime :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Text)
+batchPrediction_completionTime = Lens.lens (\BatchPrediction' {completionTime} -> completionTime) (\s@BatchPrediction' {} a -> s {completionTime = a} :: BatchPrediction)
 
 -- | The name of the detector.
 batchPrediction_detectorName :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Text)
 batchPrediction_detectorName = Lens.lens (\BatchPrediction' {detectorName} -> detectorName) (\s@BatchPrediction' {} a -> s {detectorName = a} :: BatchPrediction)
 
--- | The batch prediction status.
-batchPrediction_status :: Lens.Lens' BatchPrediction (Prelude.Maybe AsyncJobStatus)
-batchPrediction_status = Lens.lens (\BatchPrediction' {status} -> status) (\s@BatchPrediction' {} a -> s {status = a} :: BatchPrediction)
+-- | The detector version.
+batchPrediction_detectorVersion :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Text)
+batchPrediction_detectorVersion = Lens.lens (\BatchPrediction' {detectorVersion} -> detectorVersion) (\s@BatchPrediction' {} a -> s {detectorVersion = a} :: BatchPrediction)
 
--- | Timestamp of when the batch prediction job completed.
-batchPrediction_completionTime :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Text)
-batchPrediction_completionTime = Lens.lens (\BatchPrediction' {completionTime} -> completionTime) (\s@BatchPrediction' {} a -> s {completionTime = a} :: BatchPrediction)
+-- | The name of the event type.
+batchPrediction_eventTypeName :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Text)
+batchPrediction_eventTypeName = Lens.lens (\BatchPrediction' {eventTypeName} -> eventTypeName) (\s@BatchPrediction' {} a -> s {eventTypeName = a} :: BatchPrediction)
 
--- | The Amazon S3 location of your output file.
-batchPrediction_outputPath :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Text)
-batchPrediction_outputPath = Lens.lens (\BatchPrediction' {outputPath} -> outputPath) (\s@BatchPrediction' {} a -> s {outputPath = a} :: BatchPrediction)
+-- | The reason a batch prediction job failed.
+batchPrediction_failureReason :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Text)
+batchPrediction_failureReason = Lens.lens (\BatchPrediction' {failureReason} -> failureReason) (\s@BatchPrediction' {} a -> s {failureReason = a} :: BatchPrediction)
 
 -- | The ARN of the IAM role to use for this job request.
 batchPrediction_iamRoleArn :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Text)
 batchPrediction_iamRoleArn = Lens.lens (\BatchPrediction' {iamRoleArn} -> iamRoleArn) (\s@BatchPrediction' {} a -> s {iamRoleArn = a} :: BatchPrediction)
+
+-- | The Amazon S3 location of your training file.
+batchPrediction_inputPath :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Text)
+batchPrediction_inputPath = Lens.lens (\BatchPrediction' {inputPath} -> inputPath) (\s@BatchPrediction' {} a -> s {inputPath = a} :: BatchPrediction)
+
+-- | The job ID for the batch prediction.
+batchPrediction_jobId :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Text)
+batchPrediction_jobId = Lens.lens (\BatchPrediction' {jobId} -> jobId) (\s@BatchPrediction' {} a -> s {jobId = a} :: BatchPrediction)
 
 -- | Timestamp of most recent heartbeat indicating the batch prediction job
 -- was making progress.
 batchPrediction_lastHeartbeatTime :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Text)
 batchPrediction_lastHeartbeatTime = Lens.lens (\BatchPrediction' {lastHeartbeatTime} -> lastHeartbeatTime) (\s@BatchPrediction' {} a -> s {lastHeartbeatTime = a} :: BatchPrediction)
 
--- | The total number of records in the batch prediction job.
-batchPrediction_totalRecordsCount :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Int)
-batchPrediction_totalRecordsCount = Lens.lens (\BatchPrediction' {totalRecordsCount} -> totalRecordsCount) (\s@BatchPrediction' {} a -> s {totalRecordsCount = a} :: BatchPrediction)
-
--- | The name of the event type.
-batchPrediction_eventTypeName :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Text)
-batchPrediction_eventTypeName = Lens.lens (\BatchPrediction' {eventTypeName} -> eventTypeName) (\s@BatchPrediction' {} a -> s {eventTypeName = a} :: BatchPrediction)
+-- | The Amazon S3 location of your output file.
+batchPrediction_outputPath :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Text)
+batchPrediction_outputPath = Lens.lens (\BatchPrediction' {outputPath} -> outputPath) (\s@BatchPrediction' {} a -> s {outputPath = a} :: BatchPrediction)
 
 -- | The number of records processed by the batch prediction job.
 batchPrediction_processedRecordsCount :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Int)
@@ -179,9 +175,13 @@ batchPrediction_processedRecordsCount = Lens.lens (\BatchPrediction' {processedR
 batchPrediction_startTime :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Text)
 batchPrediction_startTime = Lens.lens (\BatchPrediction' {startTime} -> startTime) (\s@BatchPrediction' {} a -> s {startTime = a} :: BatchPrediction)
 
--- | The reason a batch prediction job failed.
-batchPrediction_failureReason :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Text)
-batchPrediction_failureReason = Lens.lens (\BatchPrediction' {failureReason} -> failureReason) (\s@BatchPrediction' {} a -> s {failureReason = a} :: BatchPrediction)
+-- | The batch prediction status.
+batchPrediction_status :: Lens.Lens' BatchPrediction (Prelude.Maybe AsyncJobStatus)
+batchPrediction_status = Lens.lens (\BatchPrediction' {status} -> status) (\s@BatchPrediction' {} a -> s {status = a} :: BatchPrediction)
+
+-- | The total number of records in the batch prediction job.
+batchPrediction_totalRecordsCount :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Int)
+batchPrediction_totalRecordsCount = Lens.lens (\BatchPrediction' {totalRecordsCount} -> totalRecordsCount) (\s@BatchPrediction' {} a -> s {totalRecordsCount = a} :: BatchPrediction)
 
 instance Data.FromJSON BatchPrediction where
   parseJSON =
@@ -189,55 +189,55 @@ instance Data.FromJSON BatchPrediction where
       "BatchPrediction"
       ( \x ->
           BatchPrediction'
-            Prelude.<$> (x Data..:? "inputPath")
-            Prelude.<*> (x Data..:? "detectorVersion")
-            Prelude.<*> (x Data..:? "arn")
-            Prelude.<*> (x Data..:? "jobId")
-            Prelude.<*> (x Data..:? "detectorName")
-            Prelude.<*> (x Data..:? "status")
+            Prelude.<$> (x Data..:? "arn")
             Prelude.<*> (x Data..:? "completionTime")
-            Prelude.<*> (x Data..:? "outputPath")
-            Prelude.<*> (x Data..:? "iamRoleArn")
-            Prelude.<*> (x Data..:? "lastHeartbeatTime")
-            Prelude.<*> (x Data..:? "totalRecordsCount")
+            Prelude.<*> (x Data..:? "detectorName")
+            Prelude.<*> (x Data..:? "detectorVersion")
             Prelude.<*> (x Data..:? "eventTypeName")
+            Prelude.<*> (x Data..:? "failureReason")
+            Prelude.<*> (x Data..:? "iamRoleArn")
+            Prelude.<*> (x Data..:? "inputPath")
+            Prelude.<*> (x Data..:? "jobId")
+            Prelude.<*> (x Data..:? "lastHeartbeatTime")
+            Prelude.<*> (x Data..:? "outputPath")
             Prelude.<*> (x Data..:? "processedRecordsCount")
             Prelude.<*> (x Data..:? "startTime")
-            Prelude.<*> (x Data..:? "failureReason")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "totalRecordsCount")
       )
 
 instance Prelude.Hashable BatchPrediction where
   hashWithSalt _salt BatchPrediction' {..} =
-    _salt `Prelude.hashWithSalt` inputPath
-      `Prelude.hashWithSalt` detectorVersion
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` jobId
-      `Prelude.hashWithSalt` detectorName
-      `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` completionTime
-      `Prelude.hashWithSalt` outputPath
-      `Prelude.hashWithSalt` iamRoleArn
-      `Prelude.hashWithSalt` lastHeartbeatTime
-      `Prelude.hashWithSalt` totalRecordsCount
+      `Prelude.hashWithSalt` detectorName
+      `Prelude.hashWithSalt` detectorVersion
       `Prelude.hashWithSalt` eventTypeName
+      `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` iamRoleArn
+      `Prelude.hashWithSalt` inputPath
+      `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` lastHeartbeatTime
+      `Prelude.hashWithSalt` outputPath
       `Prelude.hashWithSalt` processedRecordsCount
       `Prelude.hashWithSalt` startTime
-      `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` totalRecordsCount
 
 instance Prelude.NFData BatchPrediction where
   rnf BatchPrediction' {..} =
-    Prelude.rnf inputPath
-      `Prelude.seq` Prelude.rnf detectorVersion
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf detectorName
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf completionTime
-      `Prelude.seq` Prelude.rnf outputPath
-      `Prelude.seq` Prelude.rnf iamRoleArn
-      `Prelude.seq` Prelude.rnf lastHeartbeatTime
-      `Prelude.seq` Prelude.rnf totalRecordsCount
+      `Prelude.seq` Prelude.rnf detectorName
+      `Prelude.seq` Prelude.rnf detectorVersion
       `Prelude.seq` Prelude.rnf eventTypeName
+      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf iamRoleArn
+      `Prelude.seq` Prelude.rnf inputPath
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf lastHeartbeatTime
+      `Prelude.seq` Prelude.rnf outputPath
       `Prelude.seq` Prelude.rnf processedRecordsCount
       `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf totalRecordsCount

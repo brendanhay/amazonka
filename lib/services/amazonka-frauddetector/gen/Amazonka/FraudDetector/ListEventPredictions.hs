@@ -39,13 +39,13 @@ module Amazonka.FraudDetector.ListEventPredictions
     newListEventPredictions,
 
     -- * Request Lenses
-    listEventPredictions_eventType,
-    listEventPredictions_nextToken,
-    listEventPredictions_detectorVersionId,
-    listEventPredictions_predictionTimeRange,
-    listEventPredictions_maxResults,
-    listEventPredictions_eventId,
     listEventPredictions_detectorId,
+    listEventPredictions_detectorVersionId,
+    listEventPredictions_eventId,
+    listEventPredictions_eventType,
+    listEventPredictions_maxResults,
+    listEventPredictions_nextToken,
+    listEventPredictions_predictionTimeRange,
 
     -- * Destructuring the Response
     ListEventPredictionsResponse (..),
@@ -68,22 +68,22 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListEventPredictions' smart constructor.
 data ListEventPredictions = ListEventPredictions'
-  { -- | The event type associated with the detector.
+  { -- | The detector ID.
+    detectorId :: Prelude.Maybe FilterCondition,
+    -- | The detector version ID.
+    detectorVersionId :: Prelude.Maybe FilterCondition,
+    -- | The event ID.
+    eventId :: Prelude.Maybe FilterCondition,
+    -- | The event type associated with the detector.
     eventType :: Prelude.Maybe FilterCondition,
+    -- | The maximum number of predictions to return for the request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Identifies the next page of results to return. Use the token to make the
     -- call again to retrieve the next page. Keep all other arguments
     -- unchanged. Each pagination token expires after 24 hours.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The detector version ID.
-    detectorVersionId :: Prelude.Maybe FilterCondition,
     -- | The time period for when the predictions were generated.
-    predictionTimeRange :: Prelude.Maybe PredictionTimeRange,
-    -- | The maximum number of predictions to return for the request.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The event ID.
-    eventId :: Prelude.Maybe FilterCondition,
-    -- | The detector ID.
-    detectorId :: Prelude.Maybe FilterCondition
+    predictionTimeRange :: Prelude.Maybe PredictionTimeRange
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -95,37 +95,53 @@ data ListEventPredictions = ListEventPredictions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'detectorId', 'listEventPredictions_detectorId' - The detector ID.
+--
+-- 'detectorVersionId', 'listEventPredictions_detectorVersionId' - The detector version ID.
+--
+-- 'eventId', 'listEventPredictions_eventId' - The event ID.
+--
 -- 'eventType', 'listEventPredictions_eventType' - The event type associated with the detector.
+--
+-- 'maxResults', 'listEventPredictions_maxResults' - The maximum number of predictions to return for the request.
 --
 -- 'nextToken', 'listEventPredictions_nextToken' - Identifies the next page of results to return. Use the token to make the
 -- call again to retrieve the next page. Keep all other arguments
 -- unchanged. Each pagination token expires after 24 hours.
 --
--- 'detectorVersionId', 'listEventPredictions_detectorVersionId' - The detector version ID.
---
 -- 'predictionTimeRange', 'listEventPredictions_predictionTimeRange' - The time period for when the predictions were generated.
---
--- 'maxResults', 'listEventPredictions_maxResults' - The maximum number of predictions to return for the request.
---
--- 'eventId', 'listEventPredictions_eventId' - The event ID.
---
--- 'detectorId', 'listEventPredictions_detectorId' - The detector ID.
 newListEventPredictions ::
   ListEventPredictions
 newListEventPredictions =
   ListEventPredictions'
-    { eventType = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { detectorId = Prelude.Nothing,
       detectorVersionId = Prelude.Nothing,
-      predictionTimeRange = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       eventId = Prelude.Nothing,
-      detectorId = Prelude.Nothing
+      eventType = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      predictionTimeRange = Prelude.Nothing
     }
+
+-- | The detector ID.
+listEventPredictions_detectorId :: Lens.Lens' ListEventPredictions (Prelude.Maybe FilterCondition)
+listEventPredictions_detectorId = Lens.lens (\ListEventPredictions' {detectorId} -> detectorId) (\s@ListEventPredictions' {} a -> s {detectorId = a} :: ListEventPredictions)
+
+-- | The detector version ID.
+listEventPredictions_detectorVersionId :: Lens.Lens' ListEventPredictions (Prelude.Maybe FilterCondition)
+listEventPredictions_detectorVersionId = Lens.lens (\ListEventPredictions' {detectorVersionId} -> detectorVersionId) (\s@ListEventPredictions' {} a -> s {detectorVersionId = a} :: ListEventPredictions)
+
+-- | The event ID.
+listEventPredictions_eventId :: Lens.Lens' ListEventPredictions (Prelude.Maybe FilterCondition)
+listEventPredictions_eventId = Lens.lens (\ListEventPredictions' {eventId} -> eventId) (\s@ListEventPredictions' {} a -> s {eventId = a} :: ListEventPredictions)
 
 -- | The event type associated with the detector.
 listEventPredictions_eventType :: Lens.Lens' ListEventPredictions (Prelude.Maybe FilterCondition)
 listEventPredictions_eventType = Lens.lens (\ListEventPredictions' {eventType} -> eventType) (\s@ListEventPredictions' {} a -> s {eventType = a} :: ListEventPredictions)
+
+-- | The maximum number of predictions to return for the request.
+listEventPredictions_maxResults :: Lens.Lens' ListEventPredictions (Prelude.Maybe Prelude.Natural)
+listEventPredictions_maxResults = Lens.lens (\ListEventPredictions' {maxResults} -> maxResults) (\s@ListEventPredictions' {} a -> s {maxResults = a} :: ListEventPredictions)
 
 -- | Identifies the next page of results to return. Use the token to make the
 -- call again to retrieve the next page. Keep all other arguments
@@ -133,25 +149,9 @@ listEventPredictions_eventType = Lens.lens (\ListEventPredictions' {eventType} -
 listEventPredictions_nextToken :: Lens.Lens' ListEventPredictions (Prelude.Maybe Prelude.Text)
 listEventPredictions_nextToken = Lens.lens (\ListEventPredictions' {nextToken} -> nextToken) (\s@ListEventPredictions' {} a -> s {nextToken = a} :: ListEventPredictions)
 
--- | The detector version ID.
-listEventPredictions_detectorVersionId :: Lens.Lens' ListEventPredictions (Prelude.Maybe FilterCondition)
-listEventPredictions_detectorVersionId = Lens.lens (\ListEventPredictions' {detectorVersionId} -> detectorVersionId) (\s@ListEventPredictions' {} a -> s {detectorVersionId = a} :: ListEventPredictions)
-
 -- | The time period for when the predictions were generated.
 listEventPredictions_predictionTimeRange :: Lens.Lens' ListEventPredictions (Prelude.Maybe PredictionTimeRange)
 listEventPredictions_predictionTimeRange = Lens.lens (\ListEventPredictions' {predictionTimeRange} -> predictionTimeRange) (\s@ListEventPredictions' {} a -> s {predictionTimeRange = a} :: ListEventPredictions)
-
--- | The maximum number of predictions to return for the request.
-listEventPredictions_maxResults :: Lens.Lens' ListEventPredictions (Prelude.Maybe Prelude.Natural)
-listEventPredictions_maxResults = Lens.lens (\ListEventPredictions' {maxResults} -> maxResults) (\s@ListEventPredictions' {} a -> s {maxResults = a} :: ListEventPredictions)
-
--- | The event ID.
-listEventPredictions_eventId :: Lens.Lens' ListEventPredictions (Prelude.Maybe FilterCondition)
-listEventPredictions_eventId = Lens.lens (\ListEventPredictions' {eventId} -> eventId) (\s@ListEventPredictions' {} a -> s {eventId = a} :: ListEventPredictions)
-
--- | The detector ID.
-listEventPredictions_detectorId :: Lens.Lens' ListEventPredictions (Prelude.Maybe FilterCondition)
-listEventPredictions_detectorId = Lens.lens (\ListEventPredictions' {detectorId} -> detectorId) (\s@ListEventPredictions' {} a -> s {detectorId = a} :: ListEventPredictions)
 
 instance Core.AWSRequest ListEventPredictions where
   type
@@ -172,23 +172,23 @@ instance Core.AWSRequest ListEventPredictions where
 
 instance Prelude.Hashable ListEventPredictions where
   hashWithSalt _salt ListEventPredictions' {..} =
-    _salt `Prelude.hashWithSalt` eventType
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` detectorVersionId
-      `Prelude.hashWithSalt` predictionTimeRange
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` eventId
-      `Prelude.hashWithSalt` detectorId
+      `Prelude.hashWithSalt` eventType
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` predictionTimeRange
 
 instance Prelude.NFData ListEventPredictions where
   rnf ListEventPredictions' {..} =
-    Prelude.rnf eventType
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf detectorId
       `Prelude.seq` Prelude.rnf detectorVersionId
-      `Prelude.seq` Prelude.rnf predictionTimeRange
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf eventId
-      `Prelude.seq` Prelude.rnf detectorId
+      `Prelude.seq` Prelude.rnf eventType
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf predictionTimeRange
 
 instance Data.ToHeaders ListEventPredictions where
   toHeaders =
@@ -209,15 +209,15 @@ instance Data.ToJSON ListEventPredictions where
   toJSON ListEventPredictions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("eventType" Data..=) Prelude.<$> eventType,
-            ("nextToken" Data..=) Prelude.<$> nextToken,
+          [ ("detectorId" Data..=) Prelude.<$> detectorId,
             ("detectorVersionId" Data..=)
               Prelude.<$> detectorVersionId,
-            ("predictionTimeRange" Data..=)
-              Prelude.<$> predictionTimeRange,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
             ("eventId" Data..=) Prelude.<$> eventId,
-            ("detectorId" Data..=) Prelude.<$> detectorId
+            ("eventType" Data..=) Prelude.<$> eventType,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("predictionTimeRange" Data..=)
+              Prelude.<$> predictionTimeRange
           ]
       )
 

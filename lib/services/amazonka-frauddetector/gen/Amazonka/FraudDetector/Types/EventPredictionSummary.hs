@@ -28,18 +28,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEventPredictionSummary' smart constructor.
 data EventPredictionSummary = EventPredictionSummary'
-  { -- | The timestamp of the event.
-    eventTimestamp :: Prelude.Maybe Prelude.Text,
+  { -- | The detector ID.
+    detectorId :: Prelude.Maybe Prelude.Text,
     -- | The detector version ID.
     detectorVersionId :: Prelude.Maybe Prelude.Text,
     -- | The event ID.
     eventId :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp when the prediction was generated.
-    predictionTimestamp :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp of the event.
+    eventTimestamp :: Prelude.Maybe Prelude.Text,
     -- | The event type.
     eventTypeName :: Prelude.Maybe Prelude.Text,
-    -- | The detector ID.
-    detectorId :: Prelude.Maybe Prelude.Text
+    -- | The timestamp when the prediction was generated.
+    predictionTimestamp :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,33 +51,33 @@ data EventPredictionSummary = EventPredictionSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eventTimestamp', 'eventPredictionSummary_eventTimestamp' - The timestamp of the event.
+-- 'detectorId', 'eventPredictionSummary_detectorId' - The detector ID.
 --
 -- 'detectorVersionId', 'eventPredictionSummary_detectorVersionId' - The detector version ID.
 --
 -- 'eventId', 'eventPredictionSummary_eventId' - The event ID.
 --
--- 'predictionTimestamp', 'eventPredictionSummary_predictionTimestamp' - The timestamp when the prediction was generated.
+-- 'eventTimestamp', 'eventPredictionSummary_eventTimestamp' - The timestamp of the event.
 --
 -- 'eventTypeName', 'eventPredictionSummary_eventTypeName' - The event type.
 --
--- 'detectorId', 'eventPredictionSummary_detectorId' - The detector ID.
+-- 'predictionTimestamp', 'eventPredictionSummary_predictionTimestamp' - The timestamp when the prediction was generated.
 newEventPredictionSummary ::
   EventPredictionSummary
 newEventPredictionSummary =
   EventPredictionSummary'
-    { eventTimestamp =
+    { detectorId =
         Prelude.Nothing,
       detectorVersionId = Prelude.Nothing,
       eventId = Prelude.Nothing,
-      predictionTimestamp = Prelude.Nothing,
+      eventTimestamp = Prelude.Nothing,
       eventTypeName = Prelude.Nothing,
-      detectorId = Prelude.Nothing
+      predictionTimestamp = Prelude.Nothing
     }
 
--- | The timestamp of the event.
-eventPredictionSummary_eventTimestamp :: Lens.Lens' EventPredictionSummary (Prelude.Maybe Prelude.Text)
-eventPredictionSummary_eventTimestamp = Lens.lens (\EventPredictionSummary' {eventTimestamp} -> eventTimestamp) (\s@EventPredictionSummary' {} a -> s {eventTimestamp = a} :: EventPredictionSummary)
+-- | The detector ID.
+eventPredictionSummary_detectorId :: Lens.Lens' EventPredictionSummary (Prelude.Maybe Prelude.Text)
+eventPredictionSummary_detectorId = Lens.lens (\EventPredictionSummary' {detectorId} -> detectorId) (\s@EventPredictionSummary' {} a -> s {detectorId = a} :: EventPredictionSummary)
 
 -- | The detector version ID.
 eventPredictionSummary_detectorVersionId :: Lens.Lens' EventPredictionSummary (Prelude.Maybe Prelude.Text)
@@ -87,17 +87,17 @@ eventPredictionSummary_detectorVersionId = Lens.lens (\EventPredictionSummary' {
 eventPredictionSummary_eventId :: Lens.Lens' EventPredictionSummary (Prelude.Maybe Prelude.Text)
 eventPredictionSummary_eventId = Lens.lens (\EventPredictionSummary' {eventId} -> eventId) (\s@EventPredictionSummary' {} a -> s {eventId = a} :: EventPredictionSummary)
 
--- | The timestamp when the prediction was generated.
-eventPredictionSummary_predictionTimestamp :: Lens.Lens' EventPredictionSummary (Prelude.Maybe Prelude.Text)
-eventPredictionSummary_predictionTimestamp = Lens.lens (\EventPredictionSummary' {predictionTimestamp} -> predictionTimestamp) (\s@EventPredictionSummary' {} a -> s {predictionTimestamp = a} :: EventPredictionSummary)
+-- | The timestamp of the event.
+eventPredictionSummary_eventTimestamp :: Lens.Lens' EventPredictionSummary (Prelude.Maybe Prelude.Text)
+eventPredictionSummary_eventTimestamp = Lens.lens (\EventPredictionSummary' {eventTimestamp} -> eventTimestamp) (\s@EventPredictionSummary' {} a -> s {eventTimestamp = a} :: EventPredictionSummary)
 
 -- | The event type.
 eventPredictionSummary_eventTypeName :: Lens.Lens' EventPredictionSummary (Prelude.Maybe Prelude.Text)
 eventPredictionSummary_eventTypeName = Lens.lens (\EventPredictionSummary' {eventTypeName} -> eventTypeName) (\s@EventPredictionSummary' {} a -> s {eventTypeName = a} :: EventPredictionSummary)
 
--- | The detector ID.
-eventPredictionSummary_detectorId :: Lens.Lens' EventPredictionSummary (Prelude.Maybe Prelude.Text)
-eventPredictionSummary_detectorId = Lens.lens (\EventPredictionSummary' {detectorId} -> detectorId) (\s@EventPredictionSummary' {} a -> s {detectorId = a} :: EventPredictionSummary)
+-- | The timestamp when the prediction was generated.
+eventPredictionSummary_predictionTimestamp :: Lens.Lens' EventPredictionSummary (Prelude.Maybe Prelude.Text)
+eventPredictionSummary_predictionTimestamp = Lens.lens (\EventPredictionSummary' {predictionTimestamp} -> predictionTimestamp) (\s@EventPredictionSummary' {} a -> s {predictionTimestamp = a} :: EventPredictionSummary)
 
 instance Data.FromJSON EventPredictionSummary where
   parseJSON =
@@ -105,28 +105,28 @@ instance Data.FromJSON EventPredictionSummary where
       "EventPredictionSummary"
       ( \x ->
           EventPredictionSummary'
-            Prelude.<$> (x Data..:? "eventTimestamp")
+            Prelude.<$> (x Data..:? "detectorId")
             Prelude.<*> (x Data..:? "detectorVersionId")
             Prelude.<*> (x Data..:? "eventId")
-            Prelude.<*> (x Data..:? "predictionTimestamp")
+            Prelude.<*> (x Data..:? "eventTimestamp")
             Prelude.<*> (x Data..:? "eventTypeName")
-            Prelude.<*> (x Data..:? "detectorId")
+            Prelude.<*> (x Data..:? "predictionTimestamp")
       )
 
 instance Prelude.Hashable EventPredictionSummary where
   hashWithSalt _salt EventPredictionSummary' {..} =
-    _salt `Prelude.hashWithSalt` eventTimestamp
+    _salt `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` detectorVersionId
       `Prelude.hashWithSalt` eventId
-      `Prelude.hashWithSalt` predictionTimestamp
+      `Prelude.hashWithSalt` eventTimestamp
       `Prelude.hashWithSalt` eventTypeName
-      `Prelude.hashWithSalt` detectorId
+      `Prelude.hashWithSalt` predictionTimestamp
 
 instance Prelude.NFData EventPredictionSummary where
   rnf EventPredictionSummary' {..} =
-    Prelude.rnf eventTimestamp
+    Prelude.rnf detectorId
       `Prelude.seq` Prelude.rnf detectorVersionId
       `Prelude.seq` Prelude.rnf eventId
-      `Prelude.seq` Prelude.rnf predictionTimestamp
+      `Prelude.seq` Prelude.rnf eventTimestamp
       `Prelude.seq` Prelude.rnf eventTypeName
-      `Prelude.seq` Prelude.rnf detectorId
+      `Prelude.seq` Prelude.rnf predictionTimestamp

@@ -27,8 +27,8 @@ module Amazonka.FraudDetector.PutOutcome
     newPutOutcome,
 
     -- * Request Lenses
-    putOutcome_tags,
     putOutcome_description,
+    putOutcome_tags,
     putOutcome_name,
 
     -- * Destructuring the Response
@@ -50,10 +50,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutOutcome' smart constructor.
 data PutOutcome = PutOutcome'
-  { -- | A collection of key and value pairs.
-    tags :: Prelude.Maybe [Tag],
-    -- | The outcome description.
+  { -- | The outcome description.
     description :: Prelude.Maybe Prelude.Text,
+    -- | A collection of key and value pairs.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the outcome.
     name :: Prelude.Text
   }
@@ -67,9 +67,9 @@ data PutOutcome = PutOutcome'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'putOutcome_tags' - A collection of key and value pairs.
---
 -- 'description', 'putOutcome_description' - The outcome description.
+--
+-- 'tags', 'putOutcome_tags' - A collection of key and value pairs.
 --
 -- 'name', 'putOutcome_name' - The name of the outcome.
 newPutOutcome ::
@@ -78,18 +78,18 @@ newPutOutcome ::
   PutOutcome
 newPutOutcome pName_ =
   PutOutcome'
-    { tags = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_
     }
-
--- | A collection of key and value pairs.
-putOutcome_tags :: Lens.Lens' PutOutcome (Prelude.Maybe [Tag])
-putOutcome_tags = Lens.lens (\PutOutcome' {tags} -> tags) (\s@PutOutcome' {} a -> s {tags = a} :: PutOutcome) Prelude.. Lens.mapping Lens.coerced
 
 -- | The outcome description.
 putOutcome_description :: Lens.Lens' PutOutcome (Prelude.Maybe Prelude.Text)
 putOutcome_description = Lens.lens (\PutOutcome' {description} -> description) (\s@PutOutcome' {} a -> s {description = a} :: PutOutcome)
+
+-- | A collection of key and value pairs.
+putOutcome_tags :: Lens.Lens' PutOutcome (Prelude.Maybe [Tag])
+putOutcome_tags = Lens.lens (\PutOutcome' {tags} -> tags) (\s@PutOutcome' {} a -> s {tags = a} :: PutOutcome) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the outcome.
 putOutcome_name :: Lens.Lens' PutOutcome Prelude.Text
@@ -108,14 +108,14 @@ instance Core.AWSRequest PutOutcome where
 
 instance Prelude.Hashable PutOutcome where
   hashWithSalt _salt PutOutcome' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData PutOutcome where
   rnf PutOutcome' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders PutOutcome where
@@ -137,8 +137,8 @@ instance Data.ToJSON PutOutcome where
   toJSON PutOutcome' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("description" Data..=) Prelude.<$> description,
+          [ ("description" Data..=) Prelude.<$> description,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("name" Data..= name)
           ]
       )

@@ -33,17 +33,17 @@ module Amazonka.FraudDetector.GetExternalModels
     newGetExternalModels,
 
     -- * Request Lenses
-    getExternalModels_nextToken,
-    getExternalModels_modelEndpoint,
     getExternalModels_maxResults,
+    getExternalModels_modelEndpoint,
+    getExternalModels_nextToken,
 
     -- * Destructuring the Response
     GetExternalModelsResponse (..),
     newGetExternalModelsResponse,
 
     -- * Response Lenses
-    getExternalModelsResponse_nextToken,
     getExternalModelsResponse_externalModels,
+    getExternalModelsResponse_nextToken,
     getExternalModelsResponse_httpStatus,
   )
 where
@@ -58,12 +58,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetExternalModels' smart constructor.
 data GetExternalModels = GetExternalModels'
-  { -- | The next page token for the request.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The maximum number of objects to return for the request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon SageMaker model endpoint.
     modelEndpoint :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of objects to return for the request.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    -- | The next page token for the request.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,31 +75,31 @@ data GetExternalModels = GetExternalModels'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getExternalModels_nextToken' - The next page token for the request.
+-- 'maxResults', 'getExternalModels_maxResults' - The maximum number of objects to return for the request.
 --
 -- 'modelEndpoint', 'getExternalModels_modelEndpoint' - The Amazon SageMaker model endpoint.
 --
--- 'maxResults', 'getExternalModels_maxResults' - The maximum number of objects to return for the request.
+-- 'nextToken', 'getExternalModels_nextToken' - The next page token for the request.
 newGetExternalModels ::
   GetExternalModels
 newGetExternalModels =
   GetExternalModels'
-    { nextToken = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
       modelEndpoint = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
 
--- | The next page token for the request.
-getExternalModels_nextToken :: Lens.Lens' GetExternalModels (Prelude.Maybe Prelude.Text)
-getExternalModels_nextToken = Lens.lens (\GetExternalModels' {nextToken} -> nextToken) (\s@GetExternalModels' {} a -> s {nextToken = a} :: GetExternalModels)
+-- | The maximum number of objects to return for the request.
+getExternalModels_maxResults :: Lens.Lens' GetExternalModels (Prelude.Maybe Prelude.Natural)
+getExternalModels_maxResults = Lens.lens (\GetExternalModels' {maxResults} -> maxResults) (\s@GetExternalModels' {} a -> s {maxResults = a} :: GetExternalModels)
 
 -- | The Amazon SageMaker model endpoint.
 getExternalModels_modelEndpoint :: Lens.Lens' GetExternalModels (Prelude.Maybe Prelude.Text)
 getExternalModels_modelEndpoint = Lens.lens (\GetExternalModels' {modelEndpoint} -> modelEndpoint) (\s@GetExternalModels' {} a -> s {modelEndpoint = a} :: GetExternalModels)
 
--- | The maximum number of objects to return for the request.
-getExternalModels_maxResults :: Lens.Lens' GetExternalModels (Prelude.Maybe Prelude.Natural)
-getExternalModels_maxResults = Lens.lens (\GetExternalModels' {maxResults} -> maxResults) (\s@GetExternalModels' {} a -> s {maxResults = a} :: GetExternalModels)
+-- | The next page token for the request.
+getExternalModels_nextToken :: Lens.Lens' GetExternalModels (Prelude.Maybe Prelude.Text)
+getExternalModels_nextToken = Lens.lens (\GetExternalModels' {nextToken} -> nextToken) (\s@GetExternalModels' {} a -> s {nextToken = a} :: GetExternalModels)
 
 instance Core.AWSRequest GetExternalModels where
   type
@@ -111,22 +111,22 @@ instance Core.AWSRequest GetExternalModels where
     Response.receiveJSON
       ( \s h x ->
           GetExternalModelsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "externalModels" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "externalModels" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetExternalModels where
   hashWithSalt _salt GetExternalModels' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` modelEndpoint
-      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData GetExternalModels where
   rnf GetExternalModels' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf modelEndpoint
-      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders GetExternalModels where
   toHeaders =
@@ -147,9 +147,9 @@ instance Data.ToJSON GetExternalModels where
   toJSON GetExternalModels' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
             ("modelEndpoint" Data..=) Prelude.<$> modelEndpoint,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -161,10 +161,10 @@ instance Data.ToQuery GetExternalModels where
 
 -- | /See:/ 'newGetExternalModelsResponse' smart constructor.
 data GetExternalModelsResponse = GetExternalModelsResponse'
-  { -- | The next page token to be used in subsequent requests.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Gets the Amazon SageMaker models.
+  { -- | Gets the Amazon SageMaker models.
     externalModels :: Prelude.Maybe [ExternalModel],
+    -- | The next page token to be used in subsequent requests.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -178,9 +178,9 @@ data GetExternalModelsResponse = GetExternalModelsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getExternalModelsResponse_nextToken' - The next page token to be used in subsequent requests.
---
 -- 'externalModels', 'getExternalModelsResponse_externalModels' - Gets the Amazon SageMaker models.
+--
+-- 'nextToken', 'getExternalModelsResponse_nextToken' - The next page token to be used in subsequent requests.
 --
 -- 'httpStatus', 'getExternalModelsResponse_httpStatus' - The response's http status code.
 newGetExternalModelsResponse ::
@@ -189,19 +189,19 @@ newGetExternalModelsResponse ::
   GetExternalModelsResponse
 newGetExternalModelsResponse pHttpStatus_ =
   GetExternalModelsResponse'
-    { nextToken =
+    { externalModels =
         Prelude.Nothing,
-      externalModels = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The next page token to be used in subsequent requests.
-getExternalModelsResponse_nextToken :: Lens.Lens' GetExternalModelsResponse (Prelude.Maybe Prelude.Text)
-getExternalModelsResponse_nextToken = Lens.lens (\GetExternalModelsResponse' {nextToken} -> nextToken) (\s@GetExternalModelsResponse' {} a -> s {nextToken = a} :: GetExternalModelsResponse)
 
 -- | Gets the Amazon SageMaker models.
 getExternalModelsResponse_externalModels :: Lens.Lens' GetExternalModelsResponse (Prelude.Maybe [ExternalModel])
 getExternalModelsResponse_externalModels = Lens.lens (\GetExternalModelsResponse' {externalModels} -> externalModels) (\s@GetExternalModelsResponse' {} a -> s {externalModels = a} :: GetExternalModelsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The next page token to be used in subsequent requests.
+getExternalModelsResponse_nextToken :: Lens.Lens' GetExternalModelsResponse (Prelude.Maybe Prelude.Text)
+getExternalModelsResponse_nextToken = Lens.lens (\GetExternalModelsResponse' {nextToken} -> nextToken) (\s@GetExternalModelsResponse' {} a -> s {nextToken = a} :: GetExternalModelsResponse)
 
 -- | The response's http status code.
 getExternalModelsResponse_httpStatus :: Lens.Lens' GetExternalModelsResponse Prelude.Int
@@ -209,6 +209,6 @@ getExternalModelsResponse_httpStatus = Lens.lens (\GetExternalModelsResponse' {h
 
 instance Prelude.NFData GetExternalModelsResponse where
   rnf GetExternalModelsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf externalModels
+    Prelude.rnf externalModels
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

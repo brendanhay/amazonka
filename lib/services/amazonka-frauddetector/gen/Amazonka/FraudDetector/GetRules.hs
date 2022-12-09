@@ -36,10 +36,10 @@ module Amazonka.FraudDetector.GetRules
     newGetRules,
 
     -- * Request Lenses
-    getRules_ruleVersion,
+    getRules_maxResults,
     getRules_nextToken,
     getRules_ruleId,
-    getRules_maxResults,
+    getRules_ruleVersion,
     getRules_detectorId,
 
     -- * Destructuring the Response
@@ -47,8 +47,8 @@ module Amazonka.FraudDetector.GetRules
     newGetRulesResponse,
 
     -- * Response Lenses
-    getRulesResponse_ruleDetails,
     getRulesResponse_nextToken,
+    getRulesResponse_ruleDetails,
     getRulesResponse_httpStatus,
   )
 where
@@ -63,14 +63,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetRules' smart constructor.
 data GetRules = GetRules'
-  { -- | The rule version.
-    ruleVersion :: Prelude.Maybe Prelude.Text,
+  { -- | The maximum number of rules to return for the request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The next page token.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The rule ID.
     ruleId :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of rules to return for the request.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The rule version.
+    ruleVersion :: Prelude.Maybe Prelude.Text,
     -- | The detector ID.
     detectorId :: Prelude.Text
   }
@@ -84,13 +84,13 @@ data GetRules = GetRules'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ruleVersion', 'getRules_ruleVersion' - The rule version.
+-- 'maxResults', 'getRules_maxResults' - The maximum number of rules to return for the request.
 --
 -- 'nextToken', 'getRules_nextToken' - The next page token.
 --
 -- 'ruleId', 'getRules_ruleId' - The rule ID.
 --
--- 'maxResults', 'getRules_maxResults' - The maximum number of rules to return for the request.
+-- 'ruleVersion', 'getRules_ruleVersion' - The rule version.
 --
 -- 'detectorId', 'getRules_detectorId' - The detector ID.
 newGetRules ::
@@ -99,16 +99,16 @@ newGetRules ::
   GetRules
 newGetRules pDetectorId_ =
   GetRules'
-    { ruleVersion = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
       nextToken = Prelude.Nothing,
       ruleId = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      ruleVersion = Prelude.Nothing,
       detectorId = pDetectorId_
     }
 
--- | The rule version.
-getRules_ruleVersion :: Lens.Lens' GetRules (Prelude.Maybe Prelude.Text)
-getRules_ruleVersion = Lens.lens (\GetRules' {ruleVersion} -> ruleVersion) (\s@GetRules' {} a -> s {ruleVersion = a} :: GetRules)
+-- | The maximum number of rules to return for the request.
+getRules_maxResults :: Lens.Lens' GetRules (Prelude.Maybe Prelude.Natural)
+getRules_maxResults = Lens.lens (\GetRules' {maxResults} -> maxResults) (\s@GetRules' {} a -> s {maxResults = a} :: GetRules)
 
 -- | The next page token.
 getRules_nextToken :: Lens.Lens' GetRules (Prelude.Maybe Prelude.Text)
@@ -118,9 +118,9 @@ getRules_nextToken = Lens.lens (\GetRules' {nextToken} -> nextToken) (\s@GetRule
 getRules_ruleId :: Lens.Lens' GetRules (Prelude.Maybe Prelude.Text)
 getRules_ruleId = Lens.lens (\GetRules' {ruleId} -> ruleId) (\s@GetRules' {} a -> s {ruleId = a} :: GetRules)
 
--- | The maximum number of rules to return for the request.
-getRules_maxResults :: Lens.Lens' GetRules (Prelude.Maybe Prelude.Natural)
-getRules_maxResults = Lens.lens (\GetRules' {maxResults} -> maxResults) (\s@GetRules' {} a -> s {maxResults = a} :: GetRules)
+-- | The rule version.
+getRules_ruleVersion :: Lens.Lens' GetRules (Prelude.Maybe Prelude.Text)
+getRules_ruleVersion = Lens.lens (\GetRules' {ruleVersion} -> ruleVersion) (\s@GetRules' {} a -> s {ruleVersion = a} :: GetRules)
 
 -- | The detector ID.
 getRules_detectorId :: Lens.Lens' GetRules Prelude.Text
@@ -134,25 +134,25 @@ instance Core.AWSRequest GetRules where
     Response.receiveJSON
       ( \s h x ->
           GetRulesResponse'
-            Prelude.<$> (x Data..?> "ruleDetails" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "ruleDetails" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetRules where
   hashWithSalt _salt GetRules' {..} =
-    _salt `Prelude.hashWithSalt` ruleVersion
+    _salt `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` ruleId
-      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` ruleVersion
       `Prelude.hashWithSalt` detectorId
 
 instance Prelude.NFData GetRules where
   rnf GetRules' {..} =
-    Prelude.rnf ruleVersion
+    Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf ruleId
-      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf ruleVersion
       `Prelude.seq` Prelude.rnf detectorId
 
 instance Data.ToHeaders GetRules where
@@ -174,10 +174,10 @@ instance Data.ToJSON GetRules where
   toJSON GetRules' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ruleVersion" Data..=) Prelude.<$> ruleVersion,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
             ("nextToken" Data..=) Prelude.<$> nextToken,
             ("ruleId" Data..=) Prelude.<$> ruleId,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("ruleVersion" Data..=) Prelude.<$> ruleVersion,
             Prelude.Just ("detectorId" Data..= detectorId)
           ]
       )
@@ -190,10 +190,10 @@ instance Data.ToQuery GetRules where
 
 -- | /See:/ 'newGetRulesResponse' smart constructor.
 data GetRulesResponse = GetRulesResponse'
-  { -- | The details of the requested rule.
-    ruleDetails :: Prelude.Maybe [RuleDetail],
-    -- | The next page token to be used in subsequent requests.
+  { -- | The next page token to be used in subsequent requests.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The details of the requested rule.
+    ruleDetails :: Prelude.Maybe [RuleDetail],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -207,9 +207,9 @@ data GetRulesResponse = GetRulesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ruleDetails', 'getRulesResponse_ruleDetails' - The details of the requested rule.
---
 -- 'nextToken', 'getRulesResponse_nextToken' - The next page token to be used in subsequent requests.
+--
+-- 'ruleDetails', 'getRulesResponse_ruleDetails' - The details of the requested rule.
 --
 -- 'httpStatus', 'getRulesResponse_httpStatus' - The response's http status code.
 newGetRulesResponse ::
@@ -218,18 +218,18 @@ newGetRulesResponse ::
   GetRulesResponse
 newGetRulesResponse pHttpStatus_ =
   GetRulesResponse'
-    { ruleDetails = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      ruleDetails = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The details of the requested rule.
-getRulesResponse_ruleDetails :: Lens.Lens' GetRulesResponse (Prelude.Maybe [RuleDetail])
-getRulesResponse_ruleDetails = Lens.lens (\GetRulesResponse' {ruleDetails} -> ruleDetails) (\s@GetRulesResponse' {} a -> s {ruleDetails = a} :: GetRulesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The next page token to be used in subsequent requests.
 getRulesResponse_nextToken :: Lens.Lens' GetRulesResponse (Prelude.Maybe Prelude.Text)
 getRulesResponse_nextToken = Lens.lens (\GetRulesResponse' {nextToken} -> nextToken) (\s@GetRulesResponse' {} a -> s {nextToken = a} :: GetRulesResponse)
+
+-- | The details of the requested rule.
+getRulesResponse_ruleDetails :: Lens.Lens' GetRulesResponse (Prelude.Maybe [RuleDetail])
+getRulesResponse_ruleDetails = Lens.lens (\GetRulesResponse' {ruleDetails} -> ruleDetails) (\s@GetRulesResponse' {} a -> s {ruleDetails = a} :: GetRulesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getRulesResponse_httpStatus :: Lens.Lens' GetRulesResponse Prelude.Int
@@ -237,6 +237,6 @@ getRulesResponse_httpStatus = Lens.lens (\GetRulesResponse' {httpStatus} -> http
 
 instance Prelude.NFData GetRulesResponse where
   rnf GetRulesResponse' {..} =
-    Prelude.rnf ruleDetails
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf ruleDetails
       `Prelude.seq` Prelude.rnf httpStatus

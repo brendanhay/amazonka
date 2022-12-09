@@ -27,9 +27,9 @@ module Amazonka.FraudDetector.CreateVariable
     newCreateVariable,
 
     -- * Request Lenses
+    createVariable_description,
     createVariable_tags,
     createVariable_variableType,
-    createVariable_description,
     createVariable_name,
     createVariable_dataType,
     createVariable_dataSource,
@@ -54,7 +54,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateVariable' smart constructor.
 data CreateVariable = CreateVariable'
-  { -- | A collection of key and value pairs.
+  { -- | The description.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | A collection of key and value pairs.
     tags :: Prelude.Maybe [Tag],
     -- | The variable type. For more information see
     -- <https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types Variable types>.
@@ -62,8 +64,6 @@ data CreateVariable = CreateVariable'
     -- Valid Values:
     -- @AUTH_CODE | AVS | BILLING_ADDRESS_L1 | BILLING_ADDRESS_L2 | BILLING_CITY | BILLING_COUNTRY | BILLING_NAME | BILLING_PHONE | BILLING_STATE | BILLING_ZIP | CARD_BIN | CATEGORICAL | CURRENCY_CODE | EMAIL_ADDRESS | FINGERPRINT | FRAUD_LABEL | FREE_FORM_TEXT | IP_ADDRESS | NUMERIC | ORDER_ID | PAYMENT_TYPE | PHONE_NUMBER | PRICE | PRODUCT_CATEGORY | SHIPPING_ADDRESS_L1 | SHIPPING_ADDRESS_L2 | SHIPPING_CITY | SHIPPING_COUNTRY | SHIPPING_NAME | SHIPPING_PHONE | SHIPPING_STATE | SHIPPING_ZIP | USERAGENT@
     variableType :: Prelude.Maybe Prelude.Text,
-    -- | The description.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the variable.
     name :: Prelude.Text,
     -- | The data type.
@@ -83,6 +83,8 @@ data CreateVariable = CreateVariable'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'createVariable_description' - The description.
+--
 -- 'tags', 'createVariable_tags' - A collection of key and value pairs.
 --
 -- 'variableType', 'createVariable_variableType' - The variable type. For more information see
@@ -90,8 +92,6 @@ data CreateVariable = CreateVariable'
 --
 -- Valid Values:
 -- @AUTH_CODE | AVS | BILLING_ADDRESS_L1 | BILLING_ADDRESS_L2 | BILLING_CITY | BILLING_COUNTRY | BILLING_NAME | BILLING_PHONE | BILLING_STATE | BILLING_ZIP | CARD_BIN | CATEGORICAL | CURRENCY_CODE | EMAIL_ADDRESS | FINGERPRINT | FRAUD_LABEL | FREE_FORM_TEXT | IP_ADDRESS | NUMERIC | ORDER_ID | PAYMENT_TYPE | PHONE_NUMBER | PRICE | PRODUCT_CATEGORY | SHIPPING_ADDRESS_L1 | SHIPPING_ADDRESS_L2 | SHIPPING_CITY | SHIPPING_COUNTRY | SHIPPING_NAME | SHIPPING_PHONE | SHIPPING_STATE | SHIPPING_ZIP | USERAGENT@
---
--- 'description', 'createVariable_description' - The description.
 --
 -- 'name', 'createVariable_name' - The name of the variable.
 --
@@ -116,14 +116,18 @@ newCreateVariable
   pDataSource_
   pDefaultValue_ =
     CreateVariable'
-      { tags = Prelude.Nothing,
+      { description = Prelude.Nothing,
+        tags = Prelude.Nothing,
         variableType = Prelude.Nothing,
-        description = Prelude.Nothing,
         name = pName_,
         dataType = pDataType_,
         dataSource = pDataSource_,
         defaultValue = pDefaultValue_
       }
+
+-- | The description.
+createVariable_description :: Lens.Lens' CreateVariable (Prelude.Maybe Prelude.Text)
+createVariable_description = Lens.lens (\CreateVariable' {description} -> description) (\s@CreateVariable' {} a -> s {description = a} :: CreateVariable)
 
 -- | A collection of key and value pairs.
 createVariable_tags :: Lens.Lens' CreateVariable (Prelude.Maybe [Tag])
@@ -136,10 +140,6 @@ createVariable_tags = Lens.lens (\CreateVariable' {tags} -> tags) (\s@CreateVari
 -- @AUTH_CODE | AVS | BILLING_ADDRESS_L1 | BILLING_ADDRESS_L2 | BILLING_CITY | BILLING_COUNTRY | BILLING_NAME | BILLING_PHONE | BILLING_STATE | BILLING_ZIP | CARD_BIN | CATEGORICAL | CURRENCY_CODE | EMAIL_ADDRESS | FINGERPRINT | FRAUD_LABEL | FREE_FORM_TEXT | IP_ADDRESS | NUMERIC | ORDER_ID | PAYMENT_TYPE | PHONE_NUMBER | PRICE | PRODUCT_CATEGORY | SHIPPING_ADDRESS_L1 | SHIPPING_ADDRESS_L2 | SHIPPING_CITY | SHIPPING_COUNTRY | SHIPPING_NAME | SHIPPING_PHONE | SHIPPING_STATE | SHIPPING_ZIP | USERAGENT@
 createVariable_variableType :: Lens.Lens' CreateVariable (Prelude.Maybe Prelude.Text)
 createVariable_variableType = Lens.lens (\CreateVariable' {variableType} -> variableType) (\s@CreateVariable' {} a -> s {variableType = a} :: CreateVariable)
-
--- | The description.
-createVariable_description :: Lens.Lens' CreateVariable (Prelude.Maybe Prelude.Text)
-createVariable_description = Lens.lens (\CreateVariable' {description} -> description) (\s@CreateVariable' {} a -> s {description = a} :: CreateVariable)
 
 -- | The name of the variable.
 createVariable_name :: Lens.Lens' CreateVariable Prelude.Text
@@ -172,9 +172,9 @@ instance Core.AWSRequest CreateVariable where
 
 instance Prelude.Hashable CreateVariable where
   hashWithSalt _salt CreateVariable' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` variableType
-      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` dataType
       `Prelude.hashWithSalt` dataSource
@@ -182,9 +182,9 @@ instance Prelude.Hashable CreateVariable where
 
 instance Prelude.NFData CreateVariable where
   rnf CreateVariable' {..} =
-    Prelude.rnf tags
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf variableType
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf dataType
       `Prelude.seq` Prelude.rnf dataSource
@@ -209,9 +209,9 @@ instance Data.ToJSON CreateVariable where
   toJSON CreateVariable' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
+          [ ("description" Data..=) Prelude.<$> description,
+            ("tags" Data..=) Prelude.<$> tags,
             ("variableType" Data..=) Prelude.<$> variableType,
-            ("description" Data..=) Prelude.<$> description,
             Prelude.Just ("name" Data..= name),
             Prelude.Just ("dataType" Data..= dataType),
             Prelude.Just ("dataSource" Data..= dataSource),

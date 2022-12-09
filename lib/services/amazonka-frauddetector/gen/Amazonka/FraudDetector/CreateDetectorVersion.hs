@@ -28,11 +28,11 @@ module Amazonka.FraudDetector.CreateDetectorVersion
     newCreateDetectorVersion,
 
     -- * Request Lenses
-    createDetectorVersion_tags,
-    createDetectorVersion_modelVersions,
     createDetectorVersion_description,
     createDetectorVersion_externalModelEndpoints,
+    createDetectorVersion_modelVersions,
     createDetectorVersion_ruleExecutionMode,
+    createDetectorVersion_tags,
     createDetectorVersion_detectorId,
     createDetectorVersion_rules,
 
@@ -41,9 +41,9 @@ module Amazonka.FraudDetector.CreateDetectorVersion
     newCreateDetectorVersionResponse,
 
     -- * Response Lenses
+    createDetectorVersionResponse_detectorId,
     createDetectorVersionResponse_detectorVersionId,
     createDetectorVersionResponse_status,
-    createDetectorVersionResponse_detectorId,
     createDetectorVersionResponse_httpStatus,
   )
 where
@@ -58,14 +58,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDetectorVersion' smart constructor.
 data CreateDetectorVersion = CreateDetectorVersion'
-  { -- | A collection of key and value pairs.
-    tags :: Prelude.Maybe [Tag],
-    -- | The model versions to include in the detector version.
-    modelVersions :: Prelude.Maybe [ModelVersion],
-    -- | The description of the detector version.
+  { -- | The description of the detector version.
     description :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Sagemaker model endpoints to include in the detector version.
     externalModelEndpoints :: Prelude.Maybe [Prelude.Text],
+    -- | The model versions to include in the detector version.
+    modelVersions :: Prelude.Maybe [ModelVersion],
     -- | The rule execution mode for the rules included in the detector version.
     --
     -- You can define and edit the rule mode at the detector version level,
@@ -80,6 +78,8 @@ data CreateDetectorVersion = CreateDetectorVersion'
     --
     -- The default behavior is @FIRST_MATCHED@.
     ruleExecutionMode :: Prelude.Maybe RuleExecutionMode,
+    -- | A collection of key and value pairs.
+    tags :: Prelude.Maybe [Tag],
     -- | The ID of the detector under which you want to create a new version.
     detectorId :: Prelude.Text,
     -- | The rules to include in the detector version.
@@ -95,13 +95,11 @@ data CreateDetectorVersion = CreateDetectorVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createDetectorVersion_tags' - A collection of key and value pairs.
---
--- 'modelVersions', 'createDetectorVersion_modelVersions' - The model versions to include in the detector version.
---
 -- 'description', 'createDetectorVersion_description' - The description of the detector version.
 --
 -- 'externalModelEndpoints', 'createDetectorVersion_externalModelEndpoints' - The Amazon Sagemaker model endpoints to include in the detector version.
+--
+-- 'modelVersions', 'createDetectorVersion_modelVersions' - The model versions to include in the detector version.
 --
 -- 'ruleExecutionMode', 'createDetectorVersion_ruleExecutionMode' - The rule execution mode for the rules included in the detector version.
 --
@@ -117,6 +115,8 @@ data CreateDetectorVersion = CreateDetectorVersion'
 --
 -- The default behavior is @FIRST_MATCHED@.
 --
+-- 'tags', 'createDetectorVersion_tags' - A collection of key and value pairs.
+--
 -- 'detectorId', 'createDetectorVersion_detectorId' - The ID of the detector under which you want to create a new version.
 --
 -- 'rules', 'createDetectorVersion_rules' - The rules to include in the detector version.
@@ -126,22 +126,15 @@ newCreateDetectorVersion ::
   CreateDetectorVersion
 newCreateDetectorVersion pDetectorId_ =
   CreateDetectorVersion'
-    { tags = Prelude.Nothing,
-      modelVersions = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description =
+        Prelude.Nothing,
       externalModelEndpoints = Prelude.Nothing,
+      modelVersions = Prelude.Nothing,
       ruleExecutionMode = Prelude.Nothing,
+      tags = Prelude.Nothing,
       detectorId = pDetectorId_,
       rules = Prelude.mempty
     }
-
--- | A collection of key and value pairs.
-createDetectorVersion_tags :: Lens.Lens' CreateDetectorVersion (Prelude.Maybe [Tag])
-createDetectorVersion_tags = Lens.lens (\CreateDetectorVersion' {tags} -> tags) (\s@CreateDetectorVersion' {} a -> s {tags = a} :: CreateDetectorVersion) Prelude.. Lens.mapping Lens.coerced
-
--- | The model versions to include in the detector version.
-createDetectorVersion_modelVersions :: Lens.Lens' CreateDetectorVersion (Prelude.Maybe [ModelVersion])
-createDetectorVersion_modelVersions = Lens.lens (\CreateDetectorVersion' {modelVersions} -> modelVersions) (\s@CreateDetectorVersion' {} a -> s {modelVersions = a} :: CreateDetectorVersion) Prelude.. Lens.mapping Lens.coerced
 
 -- | The description of the detector version.
 createDetectorVersion_description :: Lens.Lens' CreateDetectorVersion (Prelude.Maybe Prelude.Text)
@@ -150,6 +143,10 @@ createDetectorVersion_description = Lens.lens (\CreateDetectorVersion' {descript
 -- | The Amazon Sagemaker model endpoints to include in the detector version.
 createDetectorVersion_externalModelEndpoints :: Lens.Lens' CreateDetectorVersion (Prelude.Maybe [Prelude.Text])
 createDetectorVersion_externalModelEndpoints = Lens.lens (\CreateDetectorVersion' {externalModelEndpoints} -> externalModelEndpoints) (\s@CreateDetectorVersion' {} a -> s {externalModelEndpoints = a} :: CreateDetectorVersion) Prelude.. Lens.mapping Lens.coerced
+
+-- | The model versions to include in the detector version.
+createDetectorVersion_modelVersions :: Lens.Lens' CreateDetectorVersion (Prelude.Maybe [ModelVersion])
+createDetectorVersion_modelVersions = Lens.lens (\CreateDetectorVersion' {modelVersions} -> modelVersions) (\s@CreateDetectorVersion' {} a -> s {modelVersions = a} :: CreateDetectorVersion) Prelude.. Lens.mapping Lens.coerced
 
 -- | The rule execution mode for the rules included in the detector version.
 --
@@ -166,6 +163,10 @@ createDetectorVersion_externalModelEndpoints = Lens.lens (\CreateDetectorVersion
 -- The default behavior is @FIRST_MATCHED@.
 createDetectorVersion_ruleExecutionMode :: Lens.Lens' CreateDetectorVersion (Prelude.Maybe RuleExecutionMode)
 createDetectorVersion_ruleExecutionMode = Lens.lens (\CreateDetectorVersion' {ruleExecutionMode} -> ruleExecutionMode) (\s@CreateDetectorVersion' {} a -> s {ruleExecutionMode = a} :: CreateDetectorVersion)
+
+-- | A collection of key and value pairs.
+createDetectorVersion_tags :: Lens.Lens' CreateDetectorVersion (Prelude.Maybe [Tag])
+createDetectorVersion_tags = Lens.lens (\CreateDetectorVersion' {tags} -> tags) (\s@CreateDetectorVersion' {} a -> s {tags = a} :: CreateDetectorVersion) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the detector under which you want to create a new version.
 createDetectorVersion_detectorId :: Lens.Lens' CreateDetectorVersion Prelude.Text
@@ -185,29 +186,29 @@ instance Core.AWSRequest CreateDetectorVersion where
     Response.receiveJSON
       ( \s h x ->
           CreateDetectorVersionResponse'
-            Prelude.<$> (x Data..?> "detectorVersionId")
+            Prelude.<$> (x Data..?> "detectorId")
+            Prelude.<*> (x Data..?> "detectorVersionId")
             Prelude.<*> (x Data..?> "status")
-            Prelude.<*> (x Data..?> "detectorId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateDetectorVersion where
   hashWithSalt _salt CreateDetectorVersion' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` modelVersions
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` externalModelEndpoints
+      `Prelude.hashWithSalt` modelVersions
       `Prelude.hashWithSalt` ruleExecutionMode
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` rules
 
 instance Prelude.NFData CreateDetectorVersion where
   rnf CreateDetectorVersion' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf modelVersions
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf externalModelEndpoints
+      `Prelude.seq` Prelude.rnf modelVersions
       `Prelude.seq` Prelude.rnf ruleExecutionMode
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf detectorId
       `Prelude.seq` Prelude.rnf rules
 
@@ -230,13 +231,13 @@ instance Data.ToJSON CreateDetectorVersion where
   toJSON CreateDetectorVersion' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("modelVersions" Data..=) Prelude.<$> modelVersions,
-            ("description" Data..=) Prelude.<$> description,
+          [ ("description" Data..=) Prelude.<$> description,
             ("externalModelEndpoints" Data..=)
               Prelude.<$> externalModelEndpoints,
+            ("modelVersions" Data..=) Prelude.<$> modelVersions,
             ("ruleExecutionMode" Data..=)
               Prelude.<$> ruleExecutionMode,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("detectorId" Data..= detectorId),
             Prelude.Just ("rules" Data..= rules)
           ]
@@ -250,12 +251,12 @@ instance Data.ToQuery CreateDetectorVersion where
 
 -- | /See:/ 'newCreateDetectorVersionResponse' smart constructor.
 data CreateDetectorVersionResponse = CreateDetectorVersionResponse'
-  { -- | The ID for the created detector.
+  { -- | The ID for the created version\'s parent detector.
+    detectorId :: Prelude.Maybe Prelude.Text,
+    -- | The ID for the created detector.
     detectorVersionId :: Prelude.Maybe Prelude.Text,
     -- | The status of the detector version.
     status :: Prelude.Maybe DetectorVersionStatus,
-    -- | The ID for the created version\'s parent detector.
-    detectorId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -269,11 +270,11 @@ data CreateDetectorVersionResponse = CreateDetectorVersionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'detectorId', 'createDetectorVersionResponse_detectorId' - The ID for the created version\'s parent detector.
+--
 -- 'detectorVersionId', 'createDetectorVersionResponse_detectorVersionId' - The ID for the created detector.
 --
 -- 'status', 'createDetectorVersionResponse_status' - The status of the detector version.
---
--- 'detectorId', 'createDetectorVersionResponse_detectorId' - The ID for the created version\'s parent detector.
 --
 -- 'httpStatus', 'createDetectorVersionResponse_httpStatus' - The response's http status code.
 newCreateDetectorVersionResponse ::
@@ -282,12 +283,16 @@ newCreateDetectorVersionResponse ::
   CreateDetectorVersionResponse
 newCreateDetectorVersionResponse pHttpStatus_ =
   CreateDetectorVersionResponse'
-    { detectorVersionId =
+    { detectorId =
         Prelude.Nothing,
+      detectorVersionId = Prelude.Nothing,
       status = Prelude.Nothing,
-      detectorId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The ID for the created version\'s parent detector.
+createDetectorVersionResponse_detectorId :: Lens.Lens' CreateDetectorVersionResponse (Prelude.Maybe Prelude.Text)
+createDetectorVersionResponse_detectorId = Lens.lens (\CreateDetectorVersionResponse' {detectorId} -> detectorId) (\s@CreateDetectorVersionResponse' {} a -> s {detectorId = a} :: CreateDetectorVersionResponse)
 
 -- | The ID for the created detector.
 createDetectorVersionResponse_detectorVersionId :: Lens.Lens' CreateDetectorVersionResponse (Prelude.Maybe Prelude.Text)
@@ -297,17 +302,13 @@ createDetectorVersionResponse_detectorVersionId = Lens.lens (\CreateDetectorVers
 createDetectorVersionResponse_status :: Lens.Lens' CreateDetectorVersionResponse (Prelude.Maybe DetectorVersionStatus)
 createDetectorVersionResponse_status = Lens.lens (\CreateDetectorVersionResponse' {status} -> status) (\s@CreateDetectorVersionResponse' {} a -> s {status = a} :: CreateDetectorVersionResponse)
 
--- | The ID for the created version\'s parent detector.
-createDetectorVersionResponse_detectorId :: Lens.Lens' CreateDetectorVersionResponse (Prelude.Maybe Prelude.Text)
-createDetectorVersionResponse_detectorId = Lens.lens (\CreateDetectorVersionResponse' {detectorId} -> detectorId) (\s@CreateDetectorVersionResponse' {} a -> s {detectorId = a} :: CreateDetectorVersionResponse)
-
 -- | The response's http status code.
 createDetectorVersionResponse_httpStatus :: Lens.Lens' CreateDetectorVersionResponse Prelude.Int
 createDetectorVersionResponse_httpStatus = Lens.lens (\CreateDetectorVersionResponse' {httpStatus} -> httpStatus) (\s@CreateDetectorVersionResponse' {} a -> s {httpStatus = a} :: CreateDetectorVersionResponse)
 
 instance Prelude.NFData CreateDetectorVersionResponse where
   rnf CreateDetectorVersionResponse' {..} =
-    Prelude.rnf detectorVersionId
+    Prelude.rnf detectorId
+      `Prelude.seq` Prelude.rnf detectorVersionId
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf detectorId
       `Prelude.seq` Prelude.rnf httpStatus

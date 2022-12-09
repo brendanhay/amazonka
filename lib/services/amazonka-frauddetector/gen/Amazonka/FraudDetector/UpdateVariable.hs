@@ -27,9 +27,9 @@ module Amazonka.FraudDetector.UpdateVariable
     newUpdateVariable,
 
     -- * Request Lenses
-    updateVariable_variableType,
     updateVariable_defaultValue,
     updateVariable_description,
+    updateVariable_variableType,
     updateVariable_name,
 
     -- * Destructuring the Response
@@ -51,13 +51,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateVariable' smart constructor.
 data UpdateVariable = UpdateVariable'
-  { -- | The variable type. For more information see
-    -- <https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types Variable types>.
-    variableType :: Prelude.Maybe Prelude.Text,
-    -- | The new default value of the variable.
+  { -- | The new default value of the variable.
     defaultValue :: Prelude.Maybe Prelude.Text,
     -- | The new description.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The variable type. For more information see
+    -- <https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types Variable types>.
+    variableType :: Prelude.Maybe Prelude.Text,
     -- | The name of the variable.
     name :: Prelude.Text
   }
@@ -71,12 +71,12 @@ data UpdateVariable = UpdateVariable'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'variableType', 'updateVariable_variableType' - The variable type. For more information see
--- <https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types Variable types>.
---
 -- 'defaultValue', 'updateVariable_defaultValue' - The new default value of the variable.
 --
 -- 'description', 'updateVariable_description' - The new description.
+--
+-- 'variableType', 'updateVariable_variableType' - The variable type. For more information see
+-- <https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types Variable types>.
 --
 -- 'name', 'updateVariable_name' - The name of the variable.
 newUpdateVariable ::
@@ -85,16 +85,11 @@ newUpdateVariable ::
   UpdateVariable
 newUpdateVariable pName_ =
   UpdateVariable'
-    { variableType = Prelude.Nothing,
-      defaultValue = Prelude.Nothing,
+    { defaultValue = Prelude.Nothing,
       description = Prelude.Nothing,
+      variableType = Prelude.Nothing,
       name = pName_
     }
-
--- | The variable type. For more information see
--- <https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types Variable types>.
-updateVariable_variableType :: Lens.Lens' UpdateVariable (Prelude.Maybe Prelude.Text)
-updateVariable_variableType = Lens.lens (\UpdateVariable' {variableType} -> variableType) (\s@UpdateVariable' {} a -> s {variableType = a} :: UpdateVariable)
 
 -- | The new default value of the variable.
 updateVariable_defaultValue :: Lens.Lens' UpdateVariable (Prelude.Maybe Prelude.Text)
@@ -103,6 +98,11 @@ updateVariable_defaultValue = Lens.lens (\UpdateVariable' {defaultValue} -> defa
 -- | The new description.
 updateVariable_description :: Lens.Lens' UpdateVariable (Prelude.Maybe Prelude.Text)
 updateVariable_description = Lens.lens (\UpdateVariable' {description} -> description) (\s@UpdateVariable' {} a -> s {description = a} :: UpdateVariable)
+
+-- | The variable type. For more information see
+-- <https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types Variable types>.
+updateVariable_variableType :: Lens.Lens' UpdateVariable (Prelude.Maybe Prelude.Text)
+updateVariable_variableType = Lens.lens (\UpdateVariable' {variableType} -> variableType) (\s@UpdateVariable' {} a -> s {variableType = a} :: UpdateVariable)
 
 -- | The name of the variable.
 updateVariable_name :: Lens.Lens' UpdateVariable Prelude.Text
@@ -123,16 +123,16 @@ instance Core.AWSRequest UpdateVariable where
 
 instance Prelude.Hashable UpdateVariable where
   hashWithSalt _salt UpdateVariable' {..} =
-    _salt `Prelude.hashWithSalt` variableType
-      `Prelude.hashWithSalt` defaultValue
+    _salt `Prelude.hashWithSalt` defaultValue
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` variableType
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData UpdateVariable where
   rnf UpdateVariable' {..} =
-    Prelude.rnf variableType
-      `Prelude.seq` Prelude.rnf defaultValue
+    Prelude.rnf defaultValue
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf variableType
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders UpdateVariable where
@@ -154,9 +154,9 @@ instance Data.ToJSON UpdateVariable where
   toJSON UpdateVariable' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("variableType" Data..=) Prelude.<$> variableType,
-            ("defaultValue" Data..=) Prelude.<$> defaultValue,
+          [ ("defaultValue" Data..=) Prelude.<$> defaultValue,
             ("description" Data..=) Prelude.<$> description,
+            ("variableType" Data..=) Prelude.<$> variableType,
             Prelude.Just ("name" Data..= name)
           ]
       )

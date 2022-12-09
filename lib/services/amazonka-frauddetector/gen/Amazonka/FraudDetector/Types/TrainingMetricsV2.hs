@@ -33,10 +33,10 @@ import qualified Amazonka.Prelude as Prelude
 data TrainingMetricsV2 = TrainingMetricsV2'
   { -- | The Account Takeover Insights (ATI) model training metric details.
     ati :: Prelude.Maybe ATITrainingMetricsValue,
-    -- | The Transaction Fraud Insights (TFI) model training metric details.
-    tfi :: Prelude.Maybe TFITrainingMetricsValue,
     -- | The Online Fraud Insights (OFI) model training metric details.
-    ofi :: Prelude.Maybe OFITrainingMetricsValue
+    ofi :: Prelude.Maybe OFITrainingMetricsValue,
+    -- | The Transaction Fraud Insights (TFI) model training metric details.
+    tfi :: Prelude.Maybe TFITrainingMetricsValue
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,29 +50,29 @@ data TrainingMetricsV2 = TrainingMetricsV2'
 --
 -- 'ati', 'trainingMetricsV2_ati' - The Account Takeover Insights (ATI) model training metric details.
 --
--- 'tfi', 'trainingMetricsV2_tfi' - The Transaction Fraud Insights (TFI) model training metric details.
---
 -- 'ofi', 'trainingMetricsV2_ofi' - The Online Fraud Insights (OFI) model training metric details.
+--
+-- 'tfi', 'trainingMetricsV2_tfi' - The Transaction Fraud Insights (TFI) model training metric details.
 newTrainingMetricsV2 ::
   TrainingMetricsV2
 newTrainingMetricsV2 =
   TrainingMetricsV2'
     { ati = Prelude.Nothing,
-      tfi = Prelude.Nothing,
-      ofi = Prelude.Nothing
+      ofi = Prelude.Nothing,
+      tfi = Prelude.Nothing
     }
 
 -- | The Account Takeover Insights (ATI) model training metric details.
 trainingMetricsV2_ati :: Lens.Lens' TrainingMetricsV2 (Prelude.Maybe ATITrainingMetricsValue)
 trainingMetricsV2_ati = Lens.lens (\TrainingMetricsV2' {ati} -> ati) (\s@TrainingMetricsV2' {} a -> s {ati = a} :: TrainingMetricsV2)
 
--- | The Transaction Fraud Insights (TFI) model training metric details.
-trainingMetricsV2_tfi :: Lens.Lens' TrainingMetricsV2 (Prelude.Maybe TFITrainingMetricsValue)
-trainingMetricsV2_tfi = Lens.lens (\TrainingMetricsV2' {tfi} -> tfi) (\s@TrainingMetricsV2' {} a -> s {tfi = a} :: TrainingMetricsV2)
-
 -- | The Online Fraud Insights (OFI) model training metric details.
 trainingMetricsV2_ofi :: Lens.Lens' TrainingMetricsV2 (Prelude.Maybe OFITrainingMetricsValue)
 trainingMetricsV2_ofi = Lens.lens (\TrainingMetricsV2' {ofi} -> ofi) (\s@TrainingMetricsV2' {} a -> s {ofi = a} :: TrainingMetricsV2)
+
+-- | The Transaction Fraud Insights (TFI) model training metric details.
+trainingMetricsV2_tfi :: Lens.Lens' TrainingMetricsV2 (Prelude.Maybe TFITrainingMetricsValue)
+trainingMetricsV2_tfi = Lens.lens (\TrainingMetricsV2' {tfi} -> tfi) (\s@TrainingMetricsV2' {} a -> s {tfi = a} :: TrainingMetricsV2)
 
 instance Data.FromJSON TrainingMetricsV2 where
   parseJSON =
@@ -81,18 +81,18 @@ instance Data.FromJSON TrainingMetricsV2 where
       ( \x ->
           TrainingMetricsV2'
             Prelude.<$> (x Data..:? "ati")
-            Prelude.<*> (x Data..:? "tfi")
             Prelude.<*> (x Data..:? "ofi")
+            Prelude.<*> (x Data..:? "tfi")
       )
 
 instance Prelude.Hashable TrainingMetricsV2 where
   hashWithSalt _salt TrainingMetricsV2' {..} =
     _salt `Prelude.hashWithSalt` ati
-      `Prelude.hashWithSalt` tfi
       `Prelude.hashWithSalt` ofi
+      `Prelude.hashWithSalt` tfi
 
 instance Prelude.NFData TrainingMetricsV2 where
   rnf TrainingMetricsV2' {..} =
     Prelude.rnf ati
-      `Prelude.seq` Prelude.rnf tfi
       `Prelude.seq` Prelude.rnf ofi
+      `Prelude.seq` Prelude.rnf tfi

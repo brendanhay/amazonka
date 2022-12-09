@@ -31,8 +31,8 @@ module Amazonka.FraudDetector.PutEntityType
     newPutEntityType,
 
     -- * Request Lenses
-    putEntityType_tags,
     putEntityType_description,
+    putEntityType_tags,
     putEntityType_name,
 
     -- * Destructuring the Response
@@ -54,10 +54,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutEntityType' smart constructor.
 data PutEntityType = PutEntityType'
-  { -- | A collection of key and value pairs.
-    tags :: Prelude.Maybe [Tag],
-    -- | The description.
+  { -- | The description.
     description :: Prelude.Maybe Prelude.Text,
+    -- | A collection of key and value pairs.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the entity type.
     name :: Prelude.Text
   }
@@ -71,9 +71,9 @@ data PutEntityType = PutEntityType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'putEntityType_tags' - A collection of key and value pairs.
---
 -- 'description', 'putEntityType_description' - The description.
+--
+-- 'tags', 'putEntityType_tags' - A collection of key and value pairs.
 --
 -- 'name', 'putEntityType_name' - The name of the entity type.
 newPutEntityType ::
@@ -82,18 +82,18 @@ newPutEntityType ::
   PutEntityType
 newPutEntityType pName_ =
   PutEntityType'
-    { tags = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_
     }
-
--- | A collection of key and value pairs.
-putEntityType_tags :: Lens.Lens' PutEntityType (Prelude.Maybe [Tag])
-putEntityType_tags = Lens.lens (\PutEntityType' {tags} -> tags) (\s@PutEntityType' {} a -> s {tags = a} :: PutEntityType) Prelude.. Lens.mapping Lens.coerced
 
 -- | The description.
 putEntityType_description :: Lens.Lens' PutEntityType (Prelude.Maybe Prelude.Text)
 putEntityType_description = Lens.lens (\PutEntityType' {description} -> description) (\s@PutEntityType' {} a -> s {description = a} :: PutEntityType)
+
+-- | A collection of key and value pairs.
+putEntityType_tags :: Lens.Lens' PutEntityType (Prelude.Maybe [Tag])
+putEntityType_tags = Lens.lens (\PutEntityType' {tags} -> tags) (\s@PutEntityType' {} a -> s {tags = a} :: PutEntityType) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the entity type.
 putEntityType_name :: Lens.Lens' PutEntityType Prelude.Text
@@ -114,14 +114,14 @@ instance Core.AWSRequest PutEntityType where
 
 instance Prelude.Hashable PutEntityType where
   hashWithSalt _salt PutEntityType' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData PutEntityType where
   rnf PutEntityType' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders PutEntityType where
@@ -143,8 +143,8 @@ instance Data.ToJSON PutEntityType where
   toJSON PutEntityType' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("description" Data..=) Prelude.<$> description,
+          [ ("description" Data..=) Prelude.<$> description,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("name" Data..= name)
           ]
       )

@@ -31,9 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPredictionExplanations' smart constructor.
 data PredictionExplanations = PredictionExplanations'
-  { -- | The details of the event variable\'s impact on the prediction score.
-    variableImpactExplanations :: Prelude.Maybe [VariableImpactExplanation],
-    -- | The details of the aggregated variables impact on the prediction score.
+  { -- | The details of the aggregated variables impact on the prediction score.
     --
     -- Account Takeover Insights (ATI) model uses event variables from the
     -- login data you provide to continuously calculate a set of variables
@@ -41,7 +39,9 @@ data PredictionExplanations = PredictionExplanations'
     -- model might calculate the number of times an user has logged in using
     -- the same IP address. In this case, event variables used to derive the
     -- aggregated variables are @IP address@ and @user@.
-    aggregatedVariablesImpactExplanations :: Prelude.Maybe [AggregatedVariablesImpactExplanation]
+    aggregatedVariablesImpactExplanations :: Prelude.Maybe [AggregatedVariablesImpactExplanation],
+    -- | The details of the event variable\'s impact on the prediction score.
+    variableImpactExplanations :: Prelude.Maybe [VariableImpactExplanation]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,8 +53,6 @@ data PredictionExplanations = PredictionExplanations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'variableImpactExplanations', 'predictionExplanations_variableImpactExplanations' - The details of the event variable\'s impact on the prediction score.
---
 -- 'aggregatedVariablesImpactExplanations', 'predictionExplanations_aggregatedVariablesImpactExplanations' - The details of the aggregated variables impact on the prediction score.
 --
 -- Account Takeover Insights (ATI) model uses event variables from the
@@ -63,19 +61,16 @@ data PredictionExplanations = PredictionExplanations'
 -- model might calculate the number of times an user has logged in using
 -- the same IP address. In this case, event variables used to derive the
 -- aggregated variables are @IP address@ and @user@.
+--
+-- 'variableImpactExplanations', 'predictionExplanations_variableImpactExplanations' - The details of the event variable\'s impact on the prediction score.
 newPredictionExplanations ::
   PredictionExplanations
 newPredictionExplanations =
   PredictionExplanations'
-    { variableImpactExplanations =
+    { aggregatedVariablesImpactExplanations =
         Prelude.Nothing,
-      aggregatedVariablesImpactExplanations =
-        Prelude.Nothing
+      variableImpactExplanations = Prelude.Nothing
     }
-
--- | The details of the event variable\'s impact on the prediction score.
-predictionExplanations_variableImpactExplanations :: Lens.Lens' PredictionExplanations (Prelude.Maybe [VariableImpactExplanation])
-predictionExplanations_variableImpactExplanations = Lens.lens (\PredictionExplanations' {variableImpactExplanations} -> variableImpactExplanations) (\s@PredictionExplanations' {} a -> s {variableImpactExplanations = a} :: PredictionExplanations) Prelude.. Lens.mapping Lens.coerced
 
 -- | The details of the aggregated variables impact on the prediction score.
 --
@@ -88,16 +83,20 @@ predictionExplanations_variableImpactExplanations = Lens.lens (\PredictionExplan
 predictionExplanations_aggregatedVariablesImpactExplanations :: Lens.Lens' PredictionExplanations (Prelude.Maybe [AggregatedVariablesImpactExplanation])
 predictionExplanations_aggregatedVariablesImpactExplanations = Lens.lens (\PredictionExplanations' {aggregatedVariablesImpactExplanations} -> aggregatedVariablesImpactExplanations) (\s@PredictionExplanations' {} a -> s {aggregatedVariablesImpactExplanations = a} :: PredictionExplanations) Prelude.. Lens.mapping Lens.coerced
 
+-- | The details of the event variable\'s impact on the prediction score.
+predictionExplanations_variableImpactExplanations :: Lens.Lens' PredictionExplanations (Prelude.Maybe [VariableImpactExplanation])
+predictionExplanations_variableImpactExplanations = Lens.lens (\PredictionExplanations' {variableImpactExplanations} -> variableImpactExplanations) (\s@PredictionExplanations' {} a -> s {variableImpactExplanations = a} :: PredictionExplanations) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON PredictionExplanations where
   parseJSON =
     Data.withObject
       "PredictionExplanations"
       ( \x ->
           PredictionExplanations'
-            Prelude.<$> ( x Data..:? "variableImpactExplanations"
+            Prelude.<$> ( x Data..:? "aggregatedVariablesImpactExplanations"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "aggregatedVariablesImpactExplanations"
+            Prelude.<*> ( x Data..:? "variableImpactExplanations"
                             Data..!= Prelude.mempty
                         )
       )
@@ -105,10 +104,10 @@ instance Data.FromJSON PredictionExplanations where
 instance Prelude.Hashable PredictionExplanations where
   hashWithSalt _salt PredictionExplanations' {..} =
     _salt
-      `Prelude.hashWithSalt` variableImpactExplanations
       `Prelude.hashWithSalt` aggregatedVariablesImpactExplanations
+      `Prelude.hashWithSalt` variableImpactExplanations
 
 instance Prelude.NFData PredictionExplanations where
   rnf PredictionExplanations' {..} =
-    Prelude.rnf variableImpactExplanations
-      `Prelude.seq` Prelude.rnf aggregatedVariablesImpactExplanations
+    Prelude.rnf aggregatedVariablesImpactExplanations
+      `Prelude.seq` Prelude.rnf variableImpactExplanations

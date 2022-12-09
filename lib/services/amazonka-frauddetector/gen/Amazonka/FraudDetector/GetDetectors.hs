@@ -33,9 +33,9 @@ module Amazonka.FraudDetector.GetDetectors
     newGetDetectors,
 
     -- * Request Lenses
-    getDetectors_nextToken,
-    getDetectors_maxResults,
     getDetectors_detectorId,
+    getDetectors_maxResults,
+    getDetectors_nextToken,
 
     -- * Destructuring the Response
     GetDetectorsResponse (..),
@@ -58,12 +58,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetDetectors' smart constructor.
 data GetDetectors = GetDetectors'
-  { -- | The next token for the subsequent request.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The detector ID.
+    detectorId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of objects to return for the request.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The detector ID.
-    detectorId :: Prelude.Maybe Prelude.Text
+    -- | The next token for the subsequent request.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,31 +75,31 @@ data GetDetectors = GetDetectors'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getDetectors_nextToken' - The next token for the subsequent request.
+-- 'detectorId', 'getDetectors_detectorId' - The detector ID.
 --
 -- 'maxResults', 'getDetectors_maxResults' - The maximum number of objects to return for the request.
 --
--- 'detectorId', 'getDetectors_detectorId' - The detector ID.
+-- 'nextToken', 'getDetectors_nextToken' - The next token for the subsequent request.
 newGetDetectors ::
   GetDetectors
 newGetDetectors =
   GetDetectors'
-    { nextToken = Prelude.Nothing,
+    { detectorId = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      detectorId = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
 
--- | The next token for the subsequent request.
-getDetectors_nextToken :: Lens.Lens' GetDetectors (Prelude.Maybe Prelude.Text)
-getDetectors_nextToken = Lens.lens (\GetDetectors' {nextToken} -> nextToken) (\s@GetDetectors' {} a -> s {nextToken = a} :: GetDetectors)
+-- | The detector ID.
+getDetectors_detectorId :: Lens.Lens' GetDetectors (Prelude.Maybe Prelude.Text)
+getDetectors_detectorId = Lens.lens (\GetDetectors' {detectorId} -> detectorId) (\s@GetDetectors' {} a -> s {detectorId = a} :: GetDetectors)
 
 -- | The maximum number of objects to return for the request.
 getDetectors_maxResults :: Lens.Lens' GetDetectors (Prelude.Maybe Prelude.Natural)
 getDetectors_maxResults = Lens.lens (\GetDetectors' {maxResults} -> maxResults) (\s@GetDetectors' {} a -> s {maxResults = a} :: GetDetectors)
 
--- | The detector ID.
-getDetectors_detectorId :: Lens.Lens' GetDetectors (Prelude.Maybe Prelude.Text)
-getDetectors_detectorId = Lens.lens (\GetDetectors' {detectorId} -> detectorId) (\s@GetDetectors' {} a -> s {detectorId = a} :: GetDetectors)
+-- | The next token for the subsequent request.
+getDetectors_nextToken :: Lens.Lens' GetDetectors (Prelude.Maybe Prelude.Text)
+getDetectors_nextToken = Lens.lens (\GetDetectors' {nextToken} -> nextToken) (\s@GetDetectors' {} a -> s {nextToken = a} :: GetDetectors)
 
 instance Core.AWSRequest GetDetectors where
   type AWSResponse GetDetectors = GetDetectorsResponse
@@ -116,15 +116,15 @@ instance Core.AWSRequest GetDetectors where
 
 instance Prelude.Hashable GetDetectors where
   hashWithSalt _salt GetDetectors' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` detectorId
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData GetDetectors where
   rnf GetDetectors' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf detectorId
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf detectorId
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders GetDetectors where
   toHeaders =
@@ -145,9 +145,9 @@ instance Data.ToJSON GetDetectors where
   toJSON GetDetectors' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+          [ ("detectorId" Data..=) Prelude.<$> detectorId,
             ("maxResults" Data..=) Prelude.<$> maxResults,
-            ("detectorId" Data..=) Prelude.<$> detectorId
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

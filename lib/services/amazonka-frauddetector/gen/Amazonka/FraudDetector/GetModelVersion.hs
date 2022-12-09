@@ -36,15 +36,15 @@ module Amazonka.FraudDetector.GetModelVersion
     newGetModelVersionResponse,
 
     -- * Response Lenses
-    getModelVersionResponse_ingestedEventsDetail,
-    getModelVersionResponse_modelVersionNumber,
     getModelVersionResponse_arn,
-    getModelVersionResponse_status,
-    getModelVersionResponse_modelType,
-    getModelVersionResponse_trainingDataSchema,
     getModelVersionResponse_externalEventsDetail,
-    getModelVersionResponse_trainingDataSource,
+    getModelVersionResponse_ingestedEventsDetail,
     getModelVersionResponse_modelId,
+    getModelVersionResponse_modelType,
+    getModelVersionResponse_modelVersionNumber,
+    getModelVersionResponse_status,
+    getModelVersionResponse_trainingDataSchema,
+    getModelVersionResponse_trainingDataSource,
     getModelVersionResponse_httpStatus,
   )
 where
@@ -121,15 +121,15 @@ instance Core.AWSRequest GetModelVersion where
     Response.receiveJSON
       ( \s h x ->
           GetModelVersionResponse'
-            Prelude.<$> (x Data..?> "ingestedEventsDetail")
-            Prelude.<*> (x Data..?> "modelVersionNumber")
-            Prelude.<*> (x Data..?> "arn")
-            Prelude.<*> (x Data..?> "status")
-            Prelude.<*> (x Data..?> "modelType")
-            Prelude.<*> (x Data..?> "trainingDataSchema")
+            Prelude.<$> (x Data..?> "arn")
             Prelude.<*> (x Data..?> "externalEventsDetail")
-            Prelude.<*> (x Data..?> "trainingDataSource")
+            Prelude.<*> (x Data..?> "ingestedEventsDetail")
             Prelude.<*> (x Data..?> "modelId")
+            Prelude.<*> (x Data..?> "modelType")
+            Prelude.<*> (x Data..?> "modelVersionNumber")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "trainingDataSchema")
+            Prelude.<*> (x Data..?> "trainingDataSource")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -179,14 +179,22 @@ instance Data.ToQuery GetModelVersion where
 
 -- | /See:/ 'newGetModelVersionResponse' smart constructor.
 data GetModelVersionResponse = GetModelVersionResponse'
-  { -- | The details of the ingested events data used for training the model
+  { -- | The model version ARN.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The details of the external events data used for training the model
+    -- version. This will be populated if the @trainingDataSource@ is
+    -- @EXTERNAL_EVENTS@
+    externalEventsDetail :: Prelude.Maybe ExternalEventsDetail,
+    -- | The details of the ingested events data used for training the model
     -- version. This will be populated if the @trainingDataSource@ is
     -- @INGESTED_EVENTS@.
     ingestedEventsDetail :: Prelude.Maybe IngestedEventsDetail,
+    -- | The model ID.
+    modelId :: Prelude.Maybe Prelude.Text,
+    -- | The model type.
+    modelType :: Prelude.Maybe ModelTypeEnum,
     -- | The model version number.
     modelVersionNumber :: Prelude.Maybe Prelude.Text,
-    -- | The model version ARN.
-    arn :: Prelude.Maybe Prelude.Text,
     -- | The model version status.
     --
     -- Possible values are:
@@ -209,18 +217,10 @@ data GetModelVersionResponse = GetModelVersionResponse'
     --
     -- -   @ERROR@
     status :: Prelude.Maybe Prelude.Text,
-    -- | The model type.
-    modelType :: Prelude.Maybe ModelTypeEnum,
     -- | The training data schema.
     trainingDataSchema :: Prelude.Maybe TrainingDataSchema,
-    -- | The details of the external events data used for training the model
-    -- version. This will be populated if the @trainingDataSource@ is
-    -- @EXTERNAL_EVENTS@
-    externalEventsDetail :: Prelude.Maybe ExternalEventsDetail,
     -- | The training data source.
     trainingDataSource :: Prelude.Maybe TrainingDataSourceEnum,
-    -- | The model ID.
-    modelId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -234,13 +234,21 @@ data GetModelVersionResponse = GetModelVersionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'arn', 'getModelVersionResponse_arn' - The model version ARN.
+--
+-- 'externalEventsDetail', 'getModelVersionResponse_externalEventsDetail' - The details of the external events data used for training the model
+-- version. This will be populated if the @trainingDataSource@ is
+-- @EXTERNAL_EVENTS@
+--
 -- 'ingestedEventsDetail', 'getModelVersionResponse_ingestedEventsDetail' - The details of the ingested events data used for training the model
 -- version. This will be populated if the @trainingDataSource@ is
 -- @INGESTED_EVENTS@.
 --
--- 'modelVersionNumber', 'getModelVersionResponse_modelVersionNumber' - The model version number.
+-- 'modelId', 'getModelVersionResponse_modelId' - The model ID.
 --
--- 'arn', 'getModelVersionResponse_arn' - The model version ARN.
+-- 'modelType', 'getModelVersionResponse_modelType' - The model type.
+--
+-- 'modelVersionNumber', 'getModelVersionResponse_modelVersionNumber' - The model version number.
 --
 -- 'status', 'getModelVersionResponse_status' - The model version status.
 --
@@ -264,17 +272,9 @@ data GetModelVersionResponse = GetModelVersionResponse'
 --
 -- -   @ERROR@
 --
--- 'modelType', 'getModelVersionResponse_modelType' - The model type.
---
 -- 'trainingDataSchema', 'getModelVersionResponse_trainingDataSchema' - The training data schema.
 --
--- 'externalEventsDetail', 'getModelVersionResponse_externalEventsDetail' - The details of the external events data used for training the model
--- version. This will be populated if the @trainingDataSource@ is
--- @EXTERNAL_EVENTS@
---
 -- 'trainingDataSource', 'getModelVersionResponse_trainingDataSource' - The training data source.
---
--- 'modelId', 'getModelVersionResponse_modelId' - The model ID.
 --
 -- 'httpStatus', 'getModelVersionResponse_httpStatus' - The response's http status code.
 newGetModelVersionResponse ::
@@ -283,18 +283,27 @@ newGetModelVersionResponse ::
   GetModelVersionResponse
 newGetModelVersionResponse pHttpStatus_ =
   GetModelVersionResponse'
-    { ingestedEventsDetail =
-        Prelude.Nothing,
-      modelVersionNumber = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      status = Prelude.Nothing,
-      modelType = Prelude.Nothing,
-      trainingDataSchema = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       externalEventsDetail = Prelude.Nothing,
-      trainingDataSource = Prelude.Nothing,
+      ingestedEventsDetail = Prelude.Nothing,
       modelId = Prelude.Nothing,
+      modelType = Prelude.Nothing,
+      modelVersionNumber = Prelude.Nothing,
+      status = Prelude.Nothing,
+      trainingDataSchema = Prelude.Nothing,
+      trainingDataSource = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The model version ARN.
+getModelVersionResponse_arn :: Lens.Lens' GetModelVersionResponse (Prelude.Maybe Prelude.Text)
+getModelVersionResponse_arn = Lens.lens (\GetModelVersionResponse' {arn} -> arn) (\s@GetModelVersionResponse' {} a -> s {arn = a} :: GetModelVersionResponse)
+
+-- | The details of the external events data used for training the model
+-- version. This will be populated if the @trainingDataSource@ is
+-- @EXTERNAL_EVENTS@
+getModelVersionResponse_externalEventsDetail :: Lens.Lens' GetModelVersionResponse (Prelude.Maybe ExternalEventsDetail)
+getModelVersionResponse_externalEventsDetail = Lens.lens (\GetModelVersionResponse' {externalEventsDetail} -> externalEventsDetail) (\s@GetModelVersionResponse' {} a -> s {externalEventsDetail = a} :: GetModelVersionResponse)
 
 -- | The details of the ingested events data used for training the model
 -- version. This will be populated if the @trainingDataSource@ is
@@ -302,13 +311,17 @@ newGetModelVersionResponse pHttpStatus_ =
 getModelVersionResponse_ingestedEventsDetail :: Lens.Lens' GetModelVersionResponse (Prelude.Maybe IngestedEventsDetail)
 getModelVersionResponse_ingestedEventsDetail = Lens.lens (\GetModelVersionResponse' {ingestedEventsDetail} -> ingestedEventsDetail) (\s@GetModelVersionResponse' {} a -> s {ingestedEventsDetail = a} :: GetModelVersionResponse)
 
+-- | The model ID.
+getModelVersionResponse_modelId :: Lens.Lens' GetModelVersionResponse (Prelude.Maybe Prelude.Text)
+getModelVersionResponse_modelId = Lens.lens (\GetModelVersionResponse' {modelId} -> modelId) (\s@GetModelVersionResponse' {} a -> s {modelId = a} :: GetModelVersionResponse)
+
+-- | The model type.
+getModelVersionResponse_modelType :: Lens.Lens' GetModelVersionResponse (Prelude.Maybe ModelTypeEnum)
+getModelVersionResponse_modelType = Lens.lens (\GetModelVersionResponse' {modelType} -> modelType) (\s@GetModelVersionResponse' {} a -> s {modelType = a} :: GetModelVersionResponse)
+
 -- | The model version number.
 getModelVersionResponse_modelVersionNumber :: Lens.Lens' GetModelVersionResponse (Prelude.Maybe Prelude.Text)
 getModelVersionResponse_modelVersionNumber = Lens.lens (\GetModelVersionResponse' {modelVersionNumber} -> modelVersionNumber) (\s@GetModelVersionResponse' {} a -> s {modelVersionNumber = a} :: GetModelVersionResponse)
-
--- | The model version ARN.
-getModelVersionResponse_arn :: Lens.Lens' GetModelVersionResponse (Prelude.Maybe Prelude.Text)
-getModelVersionResponse_arn = Lens.lens (\GetModelVersionResponse' {arn} -> arn) (\s@GetModelVersionResponse' {} a -> s {arn = a} :: GetModelVersionResponse)
 
 -- | The model version status.
 --
@@ -334,27 +347,13 @@ getModelVersionResponse_arn = Lens.lens (\GetModelVersionResponse' {arn} -> arn)
 getModelVersionResponse_status :: Lens.Lens' GetModelVersionResponse (Prelude.Maybe Prelude.Text)
 getModelVersionResponse_status = Lens.lens (\GetModelVersionResponse' {status} -> status) (\s@GetModelVersionResponse' {} a -> s {status = a} :: GetModelVersionResponse)
 
--- | The model type.
-getModelVersionResponse_modelType :: Lens.Lens' GetModelVersionResponse (Prelude.Maybe ModelTypeEnum)
-getModelVersionResponse_modelType = Lens.lens (\GetModelVersionResponse' {modelType} -> modelType) (\s@GetModelVersionResponse' {} a -> s {modelType = a} :: GetModelVersionResponse)
-
 -- | The training data schema.
 getModelVersionResponse_trainingDataSchema :: Lens.Lens' GetModelVersionResponse (Prelude.Maybe TrainingDataSchema)
 getModelVersionResponse_trainingDataSchema = Lens.lens (\GetModelVersionResponse' {trainingDataSchema} -> trainingDataSchema) (\s@GetModelVersionResponse' {} a -> s {trainingDataSchema = a} :: GetModelVersionResponse)
 
--- | The details of the external events data used for training the model
--- version. This will be populated if the @trainingDataSource@ is
--- @EXTERNAL_EVENTS@
-getModelVersionResponse_externalEventsDetail :: Lens.Lens' GetModelVersionResponse (Prelude.Maybe ExternalEventsDetail)
-getModelVersionResponse_externalEventsDetail = Lens.lens (\GetModelVersionResponse' {externalEventsDetail} -> externalEventsDetail) (\s@GetModelVersionResponse' {} a -> s {externalEventsDetail = a} :: GetModelVersionResponse)
-
 -- | The training data source.
 getModelVersionResponse_trainingDataSource :: Lens.Lens' GetModelVersionResponse (Prelude.Maybe TrainingDataSourceEnum)
 getModelVersionResponse_trainingDataSource = Lens.lens (\GetModelVersionResponse' {trainingDataSource} -> trainingDataSource) (\s@GetModelVersionResponse' {} a -> s {trainingDataSource = a} :: GetModelVersionResponse)
-
--- | The model ID.
-getModelVersionResponse_modelId :: Lens.Lens' GetModelVersionResponse (Prelude.Maybe Prelude.Text)
-getModelVersionResponse_modelId = Lens.lens (\GetModelVersionResponse' {modelId} -> modelId) (\s@GetModelVersionResponse' {} a -> s {modelId = a} :: GetModelVersionResponse)
 
 -- | The response's http status code.
 getModelVersionResponse_httpStatus :: Lens.Lens' GetModelVersionResponse Prelude.Int
@@ -362,13 +361,13 @@ getModelVersionResponse_httpStatus = Lens.lens (\GetModelVersionResponse' {httpS
 
 instance Prelude.NFData GetModelVersionResponse where
   rnf GetModelVersionResponse' {..} =
-    Prelude.rnf ingestedEventsDetail
-      `Prelude.seq` Prelude.rnf modelVersionNumber
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf modelType
-      `Prelude.seq` Prelude.rnf trainingDataSchema
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf externalEventsDetail
-      `Prelude.seq` Prelude.rnf trainingDataSource
+      `Prelude.seq` Prelude.rnf ingestedEventsDetail
       `Prelude.seq` Prelude.rnf modelId
+      `Prelude.seq` Prelude.rnf modelType
+      `Prelude.seq` Prelude.rnf modelVersionNumber
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf trainingDataSchema
+      `Prelude.seq` Prelude.rnf trainingDataSource
       `Prelude.seq` Prelude.rnf httpStatus

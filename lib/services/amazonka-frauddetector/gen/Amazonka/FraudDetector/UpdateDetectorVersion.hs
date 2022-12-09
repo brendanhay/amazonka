@@ -29,8 +29,8 @@ module Amazonka.FraudDetector.UpdateDetectorVersion
     newUpdateDetectorVersion,
 
     -- * Request Lenses
-    updateDetectorVersion_modelVersions,
     updateDetectorVersion_description,
+    updateDetectorVersion_modelVersions,
     updateDetectorVersion_ruleExecutionMode,
     updateDetectorVersion_detectorId,
     updateDetectorVersion_detectorVersionId,
@@ -56,10 +56,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateDetectorVersion' smart constructor.
 data UpdateDetectorVersion = UpdateDetectorVersion'
-  { -- | The model versions to include in the detector version.
-    modelVersions :: Prelude.Maybe [ModelVersion],
-    -- | The detector version description.
+  { -- | The detector version description.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The model versions to include in the detector version.
+    modelVersions :: Prelude.Maybe [ModelVersion],
     -- | The rule execution mode to add to the detector.
     --
     -- If you specify @FIRST_MATCHED@, Amazon Fraud Detector evaluates rules
@@ -91,9 +91,9 @@ data UpdateDetectorVersion = UpdateDetectorVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'modelVersions', 'updateDetectorVersion_modelVersions' - The model versions to include in the detector version.
---
 -- 'description', 'updateDetectorVersion_description' - The detector version description.
+--
+-- 'modelVersions', 'updateDetectorVersion_modelVersions' - The model versions to include in the detector version.
 --
 -- 'ruleExecutionMode', 'updateDetectorVersion_ruleExecutionMode' - The rule execution mode to add to the detector.
 --
@@ -124,9 +124,9 @@ newUpdateDetectorVersion
   pDetectorId_
   pDetectorVersionId_ =
     UpdateDetectorVersion'
-      { modelVersions =
+      { description =
           Prelude.Nothing,
-        description = Prelude.Nothing,
+        modelVersions = Prelude.Nothing,
         ruleExecutionMode = Prelude.Nothing,
         detectorId = pDetectorId_,
         detectorVersionId = pDetectorVersionId_,
@@ -134,13 +134,13 @@ newUpdateDetectorVersion
         rules = Prelude.mempty
       }
 
--- | The model versions to include in the detector version.
-updateDetectorVersion_modelVersions :: Lens.Lens' UpdateDetectorVersion (Prelude.Maybe [ModelVersion])
-updateDetectorVersion_modelVersions = Lens.lens (\UpdateDetectorVersion' {modelVersions} -> modelVersions) (\s@UpdateDetectorVersion' {} a -> s {modelVersions = a} :: UpdateDetectorVersion) Prelude.. Lens.mapping Lens.coerced
-
 -- | The detector version description.
 updateDetectorVersion_description :: Lens.Lens' UpdateDetectorVersion (Prelude.Maybe Prelude.Text)
 updateDetectorVersion_description = Lens.lens (\UpdateDetectorVersion' {description} -> description) (\s@UpdateDetectorVersion' {} a -> s {description = a} :: UpdateDetectorVersion)
+
+-- | The model versions to include in the detector version.
+updateDetectorVersion_modelVersions :: Lens.Lens' UpdateDetectorVersion (Prelude.Maybe [ModelVersion])
+updateDetectorVersion_modelVersions = Lens.lens (\UpdateDetectorVersion' {modelVersions} -> modelVersions) (\s@UpdateDetectorVersion' {} a -> s {modelVersions = a} :: UpdateDetectorVersion) Prelude.. Lens.mapping Lens.coerced
 
 -- | The rule execution mode to add to the detector.
 --
@@ -187,8 +187,8 @@ instance Core.AWSRequest UpdateDetectorVersion where
 
 instance Prelude.Hashable UpdateDetectorVersion where
   hashWithSalt _salt UpdateDetectorVersion' {..} =
-    _salt `Prelude.hashWithSalt` modelVersions
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` modelVersions
       `Prelude.hashWithSalt` ruleExecutionMode
       `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` detectorVersionId
@@ -197,8 +197,8 @@ instance Prelude.Hashable UpdateDetectorVersion where
 
 instance Prelude.NFData UpdateDetectorVersion where
   rnf UpdateDetectorVersion' {..} =
-    Prelude.rnf modelVersions
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf modelVersions
       `Prelude.seq` Prelude.rnf ruleExecutionMode
       `Prelude.seq` Prelude.rnf detectorId
       `Prelude.seq` Prelude.rnf detectorVersionId
@@ -224,8 +224,8 @@ instance Data.ToJSON UpdateDetectorVersion where
   toJSON UpdateDetectorVersion' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("modelVersions" Data..=) Prelude.<$> modelVersions,
-            ("description" Data..=) Prelude.<$> description,
+          [ ("description" Data..=) Prelude.<$> description,
+            ("modelVersions" Data..=) Prelude.<$> modelVersions,
             ("ruleExecutionMode" Data..=)
               Prelude.<$> ruleExecutionMode,
             Prelude.Just ("detectorId" Data..= detectorId),

@@ -32,10 +32,10 @@ import Amazonka.QLDBSession.Types.TimingInformation
 data CommitTransactionResult = CommitTransactionResult'
   { -- | The commit digest of the committed transaction.
     commitDigest :: Prelude.Maybe Data.Base64,
-    -- | Contains server-side performance information for the command.
-    timingInformation :: Prelude.Maybe TimingInformation,
     -- | Contains metrics about the number of I\/O requests that were consumed.
     consumedIOs :: Prelude.Maybe IOUsage,
+    -- | Contains server-side performance information for the command.
+    timingInformation :: Prelude.Maybe TimingInformation,
     -- | The transaction ID of the committed transaction.
     transactionId :: Prelude.Maybe Prelude.Text
   }
@@ -55,9 +55,9 @@ data CommitTransactionResult = CommitTransactionResult'
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 --
--- 'timingInformation', 'commitTransactionResult_timingInformation' - Contains server-side performance information for the command.
---
 -- 'consumedIOs', 'commitTransactionResult_consumedIOs' - Contains metrics about the number of I\/O requests that were consumed.
+--
+-- 'timingInformation', 'commitTransactionResult_timingInformation' - Contains server-side performance information for the command.
 --
 -- 'transactionId', 'commitTransactionResult_transactionId' - The transaction ID of the committed transaction.
 newCommitTransactionResult ::
@@ -66,8 +66,8 @@ newCommitTransactionResult =
   CommitTransactionResult'
     { commitDigest =
         Prelude.Nothing,
-      timingInformation = Prelude.Nothing,
       consumedIOs = Prelude.Nothing,
+      timingInformation = Prelude.Nothing,
       transactionId = Prelude.Nothing
     }
 
@@ -79,13 +79,13 @@ newCommitTransactionResult =
 commitTransactionResult_commitDigest :: Lens.Lens' CommitTransactionResult (Prelude.Maybe Prelude.ByteString)
 commitTransactionResult_commitDigest = Lens.lens (\CommitTransactionResult' {commitDigest} -> commitDigest) (\s@CommitTransactionResult' {} a -> s {commitDigest = a} :: CommitTransactionResult) Prelude.. Lens.mapping Data._Base64
 
--- | Contains server-side performance information for the command.
-commitTransactionResult_timingInformation :: Lens.Lens' CommitTransactionResult (Prelude.Maybe TimingInformation)
-commitTransactionResult_timingInformation = Lens.lens (\CommitTransactionResult' {timingInformation} -> timingInformation) (\s@CommitTransactionResult' {} a -> s {timingInformation = a} :: CommitTransactionResult)
-
 -- | Contains metrics about the number of I\/O requests that were consumed.
 commitTransactionResult_consumedIOs :: Lens.Lens' CommitTransactionResult (Prelude.Maybe IOUsage)
 commitTransactionResult_consumedIOs = Lens.lens (\CommitTransactionResult' {consumedIOs} -> consumedIOs) (\s@CommitTransactionResult' {} a -> s {consumedIOs = a} :: CommitTransactionResult)
+
+-- | Contains server-side performance information for the command.
+commitTransactionResult_timingInformation :: Lens.Lens' CommitTransactionResult (Prelude.Maybe TimingInformation)
+commitTransactionResult_timingInformation = Lens.lens (\CommitTransactionResult' {timingInformation} -> timingInformation) (\s@CommitTransactionResult' {} a -> s {timingInformation = a} :: CommitTransactionResult)
 
 -- | The transaction ID of the committed transaction.
 commitTransactionResult_transactionId :: Lens.Lens' CommitTransactionResult (Prelude.Maybe Prelude.Text)
@@ -98,21 +98,21 @@ instance Data.FromJSON CommitTransactionResult where
       ( \x ->
           CommitTransactionResult'
             Prelude.<$> (x Data..:? "CommitDigest")
-            Prelude.<*> (x Data..:? "TimingInformation")
             Prelude.<*> (x Data..:? "ConsumedIOs")
+            Prelude.<*> (x Data..:? "TimingInformation")
             Prelude.<*> (x Data..:? "TransactionId")
       )
 
 instance Prelude.Hashable CommitTransactionResult where
   hashWithSalt _salt CommitTransactionResult' {..} =
     _salt `Prelude.hashWithSalt` commitDigest
-      `Prelude.hashWithSalt` timingInformation
       `Prelude.hashWithSalt` consumedIOs
+      `Prelude.hashWithSalt` timingInformation
       `Prelude.hashWithSalt` transactionId
 
 instance Prelude.NFData CommitTransactionResult where
   rnf CommitTransactionResult' {..} =
     Prelude.rnf commitDigest
-      `Prelude.seq` Prelude.rnf timingInformation
       `Prelude.seq` Prelude.rnf consumedIOs
+      `Prelude.seq` Prelude.rnf timingInformation
       `Prelude.seq` Prelude.rnf transactionId

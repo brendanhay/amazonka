@@ -31,12 +31,12 @@ import Amazonka.QLDBSession.Types.TimingInformation
 --
 -- /See:/ 'newExecuteStatementResult' smart constructor.
 data ExecuteStatementResult = ExecuteStatementResult'
-  { -- | Contains server-side performance information for the command.
-    timingInformation :: Prelude.Maybe TimingInformation,
-    -- | Contains metrics about the number of I\/O requests that were consumed.
+  { -- | Contains metrics about the number of I\/O requests that were consumed.
     consumedIOs :: Prelude.Maybe IOUsage,
     -- | Contains the details of the first fetched page.
-    firstPage :: Prelude.Maybe Page
+    firstPage :: Prelude.Maybe Page,
+    -- | Contains server-side performance information for the command.
+    timingInformation :: Prelude.Maybe TimingInformation
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,24 +48,20 @@ data ExecuteStatementResult = ExecuteStatementResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'timingInformation', 'executeStatementResult_timingInformation' - Contains server-side performance information for the command.
---
 -- 'consumedIOs', 'executeStatementResult_consumedIOs' - Contains metrics about the number of I\/O requests that were consumed.
 --
 -- 'firstPage', 'executeStatementResult_firstPage' - Contains the details of the first fetched page.
+--
+-- 'timingInformation', 'executeStatementResult_timingInformation' - Contains server-side performance information for the command.
 newExecuteStatementResult ::
   ExecuteStatementResult
 newExecuteStatementResult =
   ExecuteStatementResult'
-    { timingInformation =
+    { consumedIOs =
         Prelude.Nothing,
-      consumedIOs = Prelude.Nothing,
-      firstPage = Prelude.Nothing
+      firstPage = Prelude.Nothing,
+      timingInformation = Prelude.Nothing
     }
-
--- | Contains server-side performance information for the command.
-executeStatementResult_timingInformation :: Lens.Lens' ExecuteStatementResult (Prelude.Maybe TimingInformation)
-executeStatementResult_timingInformation = Lens.lens (\ExecuteStatementResult' {timingInformation} -> timingInformation) (\s@ExecuteStatementResult' {} a -> s {timingInformation = a} :: ExecuteStatementResult)
 
 -- | Contains metrics about the number of I\/O requests that were consumed.
 executeStatementResult_consumedIOs :: Lens.Lens' ExecuteStatementResult (Prelude.Maybe IOUsage)
@@ -75,25 +71,29 @@ executeStatementResult_consumedIOs = Lens.lens (\ExecuteStatementResult' {consum
 executeStatementResult_firstPage :: Lens.Lens' ExecuteStatementResult (Prelude.Maybe Page)
 executeStatementResult_firstPage = Lens.lens (\ExecuteStatementResult' {firstPage} -> firstPage) (\s@ExecuteStatementResult' {} a -> s {firstPage = a} :: ExecuteStatementResult)
 
+-- | Contains server-side performance information for the command.
+executeStatementResult_timingInformation :: Lens.Lens' ExecuteStatementResult (Prelude.Maybe TimingInformation)
+executeStatementResult_timingInformation = Lens.lens (\ExecuteStatementResult' {timingInformation} -> timingInformation) (\s@ExecuteStatementResult' {} a -> s {timingInformation = a} :: ExecuteStatementResult)
+
 instance Data.FromJSON ExecuteStatementResult where
   parseJSON =
     Data.withObject
       "ExecuteStatementResult"
       ( \x ->
           ExecuteStatementResult'
-            Prelude.<$> (x Data..:? "TimingInformation")
-            Prelude.<*> (x Data..:? "ConsumedIOs")
+            Prelude.<$> (x Data..:? "ConsumedIOs")
             Prelude.<*> (x Data..:? "FirstPage")
+            Prelude.<*> (x Data..:? "TimingInformation")
       )
 
 instance Prelude.Hashable ExecuteStatementResult where
   hashWithSalt _salt ExecuteStatementResult' {..} =
-    _salt `Prelude.hashWithSalt` timingInformation
-      `Prelude.hashWithSalt` consumedIOs
+    _salt `Prelude.hashWithSalt` consumedIOs
       `Prelude.hashWithSalt` firstPage
+      `Prelude.hashWithSalt` timingInformation
 
 instance Prelude.NFData ExecuteStatementResult where
   rnf ExecuteStatementResult' {..} =
-    Prelude.rnf timingInformation
-      `Prelude.seq` Prelude.rnf consumedIOs
+    Prelude.rnf consumedIOs
       `Prelude.seq` Prelude.rnf firstPage
+      `Prelude.seq` Prelude.rnf timingInformation

@@ -20,13 +20,13 @@ module Amazonka.ComputeOptimizer.Types
     -- * Errors
     _AccessDeniedException,
     _InternalServerException,
-    _OptInRequiredException,
-    _ServiceUnavailableException,
-    _ResourceNotFoundException,
-    _LimitExceededException,
-    _ThrottlingException,
-    _MissingAuthenticationToken,
     _InvalidParameterValueException,
+    _LimitExceededException,
+    _MissingAuthenticationToken,
+    _OptInRequiredException,
+    _ResourceNotFoundException,
+    _ServiceUnavailableException,
+    _ThrottlingException,
 
     -- * CpuVendorArchitecture
     CpuVendorArchitecture (..),
@@ -63,6 +63,9 @@ module Amazonka.ComputeOptimizer.Types
 
     -- * ExportableVolumeField
     ExportableVolumeField (..),
+
+    -- * ExternalMetricsSource
+    ExternalMetricsSource (..),
 
     -- * FileFormat
     FileFormat (..),
@@ -142,52 +145,52 @@ module Amazonka.ComputeOptimizer.Types
     -- * AccountEnrollmentStatus
     AccountEnrollmentStatus (..),
     newAccountEnrollmentStatus,
-    accountEnrollmentStatus_lastUpdatedTimestamp,
-    accountEnrollmentStatus_statusReason,
-    accountEnrollmentStatus_status,
     accountEnrollmentStatus_accountId,
+    accountEnrollmentStatus_lastUpdatedTimestamp,
+    accountEnrollmentStatus_status,
+    accountEnrollmentStatus_statusReason,
 
     -- * AutoScalingGroupConfiguration
     AutoScalingGroupConfiguration (..),
     newAutoScalingGroupConfiguration,
-    autoScalingGroupConfiguration_instanceType,
-    autoScalingGroupConfiguration_minSize,
-    autoScalingGroupConfiguration_maxSize,
     autoScalingGroupConfiguration_desiredCapacity,
+    autoScalingGroupConfiguration_instanceType,
+    autoScalingGroupConfiguration_maxSize,
+    autoScalingGroupConfiguration_minSize,
 
     -- * AutoScalingGroupRecommendation
     AutoScalingGroupRecommendation (..),
     newAutoScalingGroupRecommendation,
-    autoScalingGroupRecommendation_currentPerformanceRisk,
-    autoScalingGroupRecommendation_autoScalingGroupArn,
-    autoScalingGroupRecommendation_inferredWorkloadTypes,
-    autoScalingGroupRecommendation_recommendationOptions,
-    autoScalingGroupRecommendation_lastRefreshTimestamp,
-    autoScalingGroupRecommendation_currentConfiguration,
-    autoScalingGroupRecommendation_lookBackPeriodInDays,
-    autoScalingGroupRecommendation_autoScalingGroupName,
     autoScalingGroupRecommendation_accountId,
+    autoScalingGroupRecommendation_autoScalingGroupArn,
+    autoScalingGroupRecommendation_autoScalingGroupName,
+    autoScalingGroupRecommendation_currentConfiguration,
+    autoScalingGroupRecommendation_currentPerformanceRisk,
     autoScalingGroupRecommendation_effectiveRecommendationPreferences,
-    autoScalingGroupRecommendation_utilizationMetrics,
     autoScalingGroupRecommendation_finding,
+    autoScalingGroupRecommendation_inferredWorkloadTypes,
+    autoScalingGroupRecommendation_lastRefreshTimestamp,
+    autoScalingGroupRecommendation_lookBackPeriodInDays,
+    autoScalingGroupRecommendation_recommendationOptions,
+    autoScalingGroupRecommendation_utilizationMetrics,
 
     -- * AutoScalingGroupRecommendationOption
     AutoScalingGroupRecommendationOption (..),
     newAutoScalingGroupRecommendationOption,
-    autoScalingGroupRecommendationOption_performanceRisk,
-    autoScalingGroupRecommendationOption_migrationEffort,
     autoScalingGroupRecommendationOption_configuration,
-    autoScalingGroupRecommendationOption_savingsOpportunity,
-    autoScalingGroupRecommendationOption_rank,
+    autoScalingGroupRecommendationOption_migrationEffort,
+    autoScalingGroupRecommendationOption_performanceRisk,
     autoScalingGroupRecommendationOption_projectedUtilizationMetrics,
+    autoScalingGroupRecommendationOption_rank,
+    autoScalingGroupRecommendationOption_savingsOpportunity,
 
     -- * CurrentPerformanceRiskRatings
     CurrentPerformanceRiskRatings (..),
     newCurrentPerformanceRiskRatings,
-    currentPerformanceRiskRatings_veryLow,
-    currentPerformanceRiskRatings_low,
     currentPerformanceRiskRatings_high,
+    currentPerformanceRiskRatings_low,
     currentPerformanceRiskRatings_medium,
+    currentPerformanceRiskRatings_veryLow,
 
     -- * EBSFilter
     EBSFilter (..),
@@ -205,9 +208,10 @@ module Amazonka.ComputeOptimizer.Types
     -- * EffectiveRecommendationPreferences
     EffectiveRecommendationPreferences (..),
     newEffectiveRecommendationPreferences,
-    effectiveRecommendationPreferences_inferredWorkloadTypes,
-    effectiveRecommendationPreferences_enhancedInfrastructureMetrics,
     effectiveRecommendationPreferences_cpuVendorArchitectures,
+    effectiveRecommendationPreferences_enhancedInfrastructureMetrics,
+    effectiveRecommendationPreferences_externalMetricsPreference,
+    effectiveRecommendationPreferences_inferredWorkloadTypes,
 
     -- * EnrollmentFilter
     EnrollmentFilter (..),
@@ -226,6 +230,11 @@ module Amazonka.ComputeOptimizer.Types
     newExportDestination,
     exportDestination_s3,
 
+    -- * ExternalMetricsPreference
+    ExternalMetricsPreference (..),
+    newExternalMetricsPreference,
+    externalMetricsPreference_source,
+
     -- * Filter
     Filter (..),
     newFilter,
@@ -235,38 +244,38 @@ module Amazonka.ComputeOptimizer.Types
     -- * GetRecommendationError
     GetRecommendationError (..),
     newGetRecommendationError,
-    getRecommendationError_message,
     getRecommendationError_code,
     getRecommendationError_identifier,
+    getRecommendationError_message,
 
     -- * InstanceRecommendation
     InstanceRecommendation (..),
     newInstanceRecommendation,
-    instanceRecommendation_findingReasonCodes,
-    instanceRecommendation_currentPerformanceRisk,
-    instanceRecommendation_instanceName,
-    instanceRecommendation_inferredWorkloadTypes,
-    instanceRecommendation_recommendationOptions,
-    instanceRecommendation_lastRefreshTimestamp,
-    instanceRecommendation_instanceArn,
-    instanceRecommendation_lookBackPeriodInDays,
     instanceRecommendation_accountId,
-    instanceRecommendation_recommendationSources,
-    instanceRecommendation_effectiveRecommendationPreferences,
     instanceRecommendation_currentInstanceType,
-    instanceRecommendation_utilizationMetrics,
+    instanceRecommendation_currentPerformanceRisk,
+    instanceRecommendation_effectiveRecommendationPreferences,
     instanceRecommendation_finding,
+    instanceRecommendation_findingReasonCodes,
+    instanceRecommendation_inferredWorkloadTypes,
+    instanceRecommendation_instanceArn,
+    instanceRecommendation_instanceName,
+    instanceRecommendation_lastRefreshTimestamp,
+    instanceRecommendation_lookBackPeriodInDays,
+    instanceRecommendation_recommendationOptions,
+    instanceRecommendation_recommendationSources,
+    instanceRecommendation_utilizationMetrics,
 
     -- * InstanceRecommendationOption
     InstanceRecommendationOption (..),
     newInstanceRecommendationOption,
-    instanceRecommendationOption_performanceRisk,
-    instanceRecommendationOption_migrationEffort,
-    instanceRecommendationOption_savingsOpportunity,
-    instanceRecommendationOption_platformDifferences,
-    instanceRecommendationOption_rank,
     instanceRecommendationOption_instanceType,
+    instanceRecommendationOption_migrationEffort,
+    instanceRecommendationOption_performanceRisk,
+    instanceRecommendationOption_platformDifferences,
     instanceRecommendationOption_projectedUtilizationMetrics,
+    instanceRecommendationOption_rank,
+    instanceRecommendationOption_savingsOpportunity,
 
     -- * JobFilter
     JobFilter (..),
@@ -285,25 +294,25 @@ module Amazonka.ComputeOptimizer.Types
     LambdaFunctionMemoryRecommendationOption (..),
     newLambdaFunctionMemoryRecommendationOption,
     lambdaFunctionMemoryRecommendationOption_memorySize,
-    lambdaFunctionMemoryRecommendationOption_savingsOpportunity,
-    lambdaFunctionMemoryRecommendationOption_rank,
     lambdaFunctionMemoryRecommendationOption_projectedUtilizationMetrics,
+    lambdaFunctionMemoryRecommendationOption_rank,
+    lambdaFunctionMemoryRecommendationOption_savingsOpportunity,
 
     -- * LambdaFunctionRecommendation
     LambdaFunctionRecommendation (..),
     newLambdaFunctionRecommendation,
+    lambdaFunctionRecommendation_accountId,
+    lambdaFunctionRecommendation_currentMemorySize,
+    lambdaFunctionRecommendation_currentPerformanceRisk,
+    lambdaFunctionRecommendation_finding,
     lambdaFunctionRecommendation_findingReasonCodes,
     lambdaFunctionRecommendation_functionArn,
-    lambdaFunctionRecommendation_currentPerformanceRisk,
-    lambdaFunctionRecommendation_currentMemorySize,
-    lambdaFunctionRecommendation_numberOfInvocations,
-    lambdaFunctionRecommendation_lastRefreshTimestamp,
     lambdaFunctionRecommendation_functionVersion,
+    lambdaFunctionRecommendation_lastRefreshTimestamp,
     lambdaFunctionRecommendation_lookbackPeriodInDays,
-    lambdaFunctionRecommendation_accountId,
-    lambdaFunctionRecommendation_utilizationMetrics,
     lambdaFunctionRecommendation_memorySizeRecommendationOptions,
-    lambdaFunctionRecommendation_finding,
+    lambdaFunctionRecommendation_numberOfInvocations,
+    lambdaFunctionRecommendation_utilizationMetrics,
 
     -- * LambdaFunctionRecommendationFilter
     LambdaFunctionRecommendationFilter (..),
@@ -334,13 +343,13 @@ module Amazonka.ComputeOptimizer.Types
     -- * RecommendationExportJob
     RecommendationExportJob (..),
     newRecommendationExportJob,
+    recommendationExportJob_creationTimestamp,
     recommendationExportJob_destination,
+    recommendationExportJob_failureReason,
+    recommendationExportJob_jobId,
     recommendationExportJob_lastUpdatedTimestamp,
     recommendationExportJob_resourceType,
-    recommendationExportJob_jobId,
     recommendationExportJob_status,
-    recommendationExportJob_creationTimestamp,
-    recommendationExportJob_failureReason,
 
     -- * RecommendationPreferences
     RecommendationPreferences (..),
@@ -350,38 +359,39 @@ module Amazonka.ComputeOptimizer.Types
     -- * RecommendationPreferencesDetail
     RecommendationPreferencesDetail (..),
     newRecommendationPreferencesDetail,
-    recommendationPreferencesDetail_resourceType,
-    recommendationPreferencesDetail_inferredWorkloadTypes,
     recommendationPreferencesDetail_enhancedInfrastructureMetrics,
+    recommendationPreferencesDetail_externalMetricsPreference,
+    recommendationPreferencesDetail_inferredWorkloadTypes,
+    recommendationPreferencesDetail_resourceType,
     recommendationPreferencesDetail_scope,
 
     -- * RecommendationSource
     RecommendationSource (..),
     newRecommendationSource,
-    recommendationSource_recommendationSourceType,
     recommendationSource_recommendationSourceArn,
+    recommendationSource_recommendationSourceType,
 
     -- * RecommendationSummary
     RecommendationSummary (..),
     newRecommendationSummary,
-    recommendationSummary_currentPerformanceRiskRatings,
-    recommendationSummary_savingsOpportunity,
-    recommendationSummary_recommendationResourceType,
-    recommendationSummary_summaries,
     recommendationSummary_accountId,
+    recommendationSummary_currentPerformanceRiskRatings,
+    recommendationSummary_recommendationResourceType,
+    recommendationSummary_savingsOpportunity,
+    recommendationSummary_summaries,
 
     -- * RecommendedOptionProjectedMetric
     RecommendedOptionProjectedMetric (..),
     newRecommendedOptionProjectedMetric,
-    recommendedOptionProjectedMetric_rank,
     recommendedOptionProjectedMetric_projectedMetrics,
+    recommendedOptionProjectedMetric_rank,
     recommendedOptionProjectedMetric_recommendedInstanceType,
 
     -- * S3Destination
     S3Destination (..),
     newS3Destination,
-    s3Destination_key,
     s3Destination_bucket,
+    s3Destination_key,
     s3Destination_metadataKey,
 
     -- * S3DestinationConfig
@@ -393,8 +403,8 @@ module Amazonka.ComputeOptimizer.Types
     -- * SavingsOpportunity
     SavingsOpportunity (..),
     newSavingsOpportunity,
-    savingsOpportunity_savingsOpportunityPercentage,
     savingsOpportunity_estimatedMonthlySavings,
+    savingsOpportunity_savingsOpportunityPercentage,
 
     -- * Scope
     Scope (..),
@@ -419,33 +429,33 @@ module Amazonka.ComputeOptimizer.Types
     -- * VolumeConfiguration
     VolumeConfiguration (..),
     newVolumeConfiguration,
-    volumeConfiguration_volumeBurstThroughput,
-    volumeConfiguration_volumeType,
-    volumeConfiguration_volumeSize,
     volumeConfiguration_volumeBaselineIOPS,
     volumeConfiguration_volumeBaselineThroughput,
     volumeConfiguration_volumeBurstIOPS,
+    volumeConfiguration_volumeBurstThroughput,
+    volumeConfiguration_volumeSize,
+    volumeConfiguration_volumeType,
 
     -- * VolumeRecommendation
     VolumeRecommendation (..),
     newVolumeRecommendation,
-    volumeRecommendation_currentPerformanceRisk,
-    volumeRecommendation_lastRefreshTimestamp,
-    volumeRecommendation_currentConfiguration,
-    volumeRecommendation_volumeArn,
-    volumeRecommendation_lookBackPeriodInDays,
     volumeRecommendation_accountId,
-    volumeRecommendation_utilizationMetrics,
-    volumeRecommendation_volumeRecommendationOptions,
+    volumeRecommendation_currentConfiguration,
+    volumeRecommendation_currentPerformanceRisk,
     volumeRecommendation_finding,
+    volumeRecommendation_lastRefreshTimestamp,
+    volumeRecommendation_lookBackPeriodInDays,
+    volumeRecommendation_utilizationMetrics,
+    volumeRecommendation_volumeArn,
+    volumeRecommendation_volumeRecommendationOptions,
 
     -- * VolumeRecommendationOption
     VolumeRecommendationOption (..),
     newVolumeRecommendationOption,
-    volumeRecommendationOption_performanceRisk,
     volumeRecommendationOption_configuration,
-    volumeRecommendationOption_savingsOpportunity,
+    volumeRecommendationOption_performanceRisk,
     volumeRecommendationOption_rank,
+    volumeRecommendationOption_savingsOpportunity,
   )
 where
 
@@ -472,6 +482,8 @@ import Amazonka.ComputeOptimizer.Types.ExportableAutoScalingGroupField
 import Amazonka.ComputeOptimizer.Types.ExportableInstanceField
 import Amazonka.ComputeOptimizer.Types.ExportableLambdaFunctionField
 import Amazonka.ComputeOptimizer.Types.ExportableVolumeField
+import Amazonka.ComputeOptimizer.Types.ExternalMetricsPreference
+import Amazonka.ComputeOptimizer.Types.ExternalMetricsSource
 import Amazonka.ComputeOptimizer.Types.FileFormat
 import Amazonka.ComputeOptimizer.Types.Filter
 import Amazonka.ComputeOptimizer.Types.FilterName
@@ -554,28 +566,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -583,13 +589,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -597,6 +607,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient access to perform this action.
@@ -613,26 +625,12 @@ _InternalServerException =
     defaultService
     "InternalServerException"
 
--- | The account is not opted in to Compute Optimizer.
-_OptInRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_OptInRequiredException =
+-- | The value supplied for the input parameter is out of range or not valid.
+_InvalidParameterValueException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterValueException =
   Core._MatchServiceError
     defaultService
-    "OptInRequiredException"
-
--- | The request has failed due to a temporary failure of the server.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceUnavailableException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceUnavailableException"
-
--- | A resource that is required for the action doesn\'t exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
+    "InvalidParameterValueException"
 
 -- | The request exceeds a limit of the service.
 _LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -640,13 +638,6 @@ _LimitExceededException =
   Core._MatchServiceError
     defaultService
     "LimitExceededException"
-
--- | The request was denied due to request throttling.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ThrottlingException =
-  Core._MatchServiceError
-    defaultService
-    "ThrottlingException"
 
 -- | The request must contain either a valid (registered) Amazon Web Services
 -- access key ID or X.509 certificate.
@@ -656,9 +647,30 @@ _MissingAuthenticationToken =
     defaultService
     "MissingAuthenticationToken"
 
--- | The value supplied for the input parameter is out of range or not valid.
-_InvalidParameterValueException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidParameterValueException =
+-- | The account is not opted in to Compute Optimizer.
+_OptInRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OptInRequiredException =
   Core._MatchServiceError
     defaultService
-    "InvalidParameterValueException"
+    "OptInRequiredException"
+
+-- | A resource that is required for the action doesn\'t exist.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+
+-- | The request has failed due to a temporary failure of the server.
+_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceUnavailableException"
+
+-- | The request was denied due to request throttling.
+_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException =
+  Core._MatchServiceError
+    defaultService
+    "ThrottlingException"

@@ -42,6 +42,7 @@ module Amazonka.ComputeOptimizer.GetEffectiveRecommendationPreferences
 
     -- * Response Lenses
     getEffectiveRecommendationPreferencesResponse_enhancedInfrastructureMetrics,
+    getEffectiveRecommendationPreferencesResponse_externalMetricsPreference,
     getEffectiveRecommendationPreferencesResponse_httpStatus,
   )
 where
@@ -106,6 +107,7 @@ instance
       ( \s h x ->
           GetEffectiveRecommendationPreferencesResponse'
             Prelude.<$> (x Data..?> "enhancedInfrastructureMetrics")
+              Prelude.<*> (x Data..?> "externalMetricsPreference")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -184,6 +186,23 @@ data GetEffectiveRecommendationPreferencesResponse = GetEffectiveRecommendationP
     -- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html Enhanced infrastructure metrics>
     -- in the /Compute Optimizer User Guide/.
     enhancedInfrastructureMetrics :: Prelude.Maybe EnhancedInfrastructureMetrics,
+    -- | The provider of the external metrics recommendation preference.
+    -- Considers all applicable preferences that you might have set at the
+    -- account and organization level.
+    --
+    -- If the preference is applied in the latest recommendation refresh, an
+    -- object with a valid @source@ value appears in the response. If the
+    -- preference isn\'t applied to the recommendations already, then this
+    -- object doesn\'t appear in the response.
+    --
+    -- To validate whether the preference is applied to your last generated set
+    -- of recommendations, review the @effectiveRecommendationPreferences@
+    -- value in the response of the GetEC2InstanceRecommendations actions.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html Enhanced infrastructure metrics>
+    -- in the /Compute Optimizer User Guide/.
+    externalMetricsPreference :: Prelude.Maybe ExternalMetricsPreference,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -214,6 +233,23 @@ data GetEffectiveRecommendationPreferencesResponse = GetEffectiveRecommendationP
 -- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html Enhanced infrastructure metrics>
 -- in the /Compute Optimizer User Guide/.
 --
+-- 'externalMetricsPreference', 'getEffectiveRecommendationPreferencesResponse_externalMetricsPreference' - The provider of the external metrics recommendation preference.
+-- Considers all applicable preferences that you might have set at the
+-- account and organization level.
+--
+-- If the preference is applied in the latest recommendation refresh, an
+-- object with a valid @source@ value appears in the response. If the
+-- preference isn\'t applied to the recommendations already, then this
+-- object doesn\'t appear in the response.
+--
+-- To validate whether the preference is applied to your last generated set
+-- of recommendations, review the @effectiveRecommendationPreferences@
+-- value in the response of the GetEC2InstanceRecommendations actions.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html Enhanced infrastructure metrics>
+-- in the /Compute Optimizer User Guide/.
+--
 -- 'httpStatus', 'getEffectiveRecommendationPreferencesResponse_httpStatus' - The response's http status code.
 newGetEffectiveRecommendationPreferencesResponse ::
   -- | 'httpStatus'
@@ -223,6 +259,8 @@ newGetEffectiveRecommendationPreferencesResponse
   pHttpStatus_ =
     GetEffectiveRecommendationPreferencesResponse'
       { enhancedInfrastructureMetrics =
+          Prelude.Nothing,
+        externalMetricsPreference =
           Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
@@ -246,6 +284,25 @@ newGetEffectiveRecommendationPreferencesResponse
 getEffectiveRecommendationPreferencesResponse_enhancedInfrastructureMetrics :: Lens.Lens' GetEffectiveRecommendationPreferencesResponse (Prelude.Maybe EnhancedInfrastructureMetrics)
 getEffectiveRecommendationPreferencesResponse_enhancedInfrastructureMetrics = Lens.lens (\GetEffectiveRecommendationPreferencesResponse' {enhancedInfrastructureMetrics} -> enhancedInfrastructureMetrics) (\s@GetEffectiveRecommendationPreferencesResponse' {} a -> s {enhancedInfrastructureMetrics = a} :: GetEffectiveRecommendationPreferencesResponse)
 
+-- | The provider of the external metrics recommendation preference.
+-- Considers all applicable preferences that you might have set at the
+-- account and organization level.
+--
+-- If the preference is applied in the latest recommendation refresh, an
+-- object with a valid @source@ value appears in the response. If the
+-- preference isn\'t applied to the recommendations already, then this
+-- object doesn\'t appear in the response.
+--
+-- To validate whether the preference is applied to your last generated set
+-- of recommendations, review the @effectiveRecommendationPreferences@
+-- value in the response of the GetEC2InstanceRecommendations actions.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html Enhanced infrastructure metrics>
+-- in the /Compute Optimizer User Guide/.
+getEffectiveRecommendationPreferencesResponse_externalMetricsPreference :: Lens.Lens' GetEffectiveRecommendationPreferencesResponse (Prelude.Maybe ExternalMetricsPreference)
+getEffectiveRecommendationPreferencesResponse_externalMetricsPreference = Lens.lens (\GetEffectiveRecommendationPreferencesResponse' {externalMetricsPreference} -> externalMetricsPreference) (\s@GetEffectiveRecommendationPreferencesResponse' {} a -> s {externalMetricsPreference = a} :: GetEffectiveRecommendationPreferencesResponse)
+
 -- | The response's http status code.
 getEffectiveRecommendationPreferencesResponse_httpStatus :: Lens.Lens' GetEffectiveRecommendationPreferencesResponse Prelude.Int
 getEffectiveRecommendationPreferencesResponse_httpStatus = Lens.lens (\GetEffectiveRecommendationPreferencesResponse' {httpStatus} -> httpStatus) (\s@GetEffectiveRecommendationPreferencesResponse' {} a -> s {httpStatus = a} :: GetEffectiveRecommendationPreferencesResponse)
@@ -257,4 +314,5 @@ instance
   rnf
     GetEffectiveRecommendationPreferencesResponse' {..} =
       Prelude.rnf enhancedInfrastructureMetrics
+        `Prelude.seq` Prelude.rnf externalMetricsPreference
         `Prelude.seq` Prelude.rnf httpStatus

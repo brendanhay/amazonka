@@ -39,26 +39,26 @@ module Amazonka.ComputeOptimizer
     -- ** InternalServerException
     _InternalServerException,
 
-    -- ** OptInRequiredException
-    _OptInRequiredException,
-
-    -- ** ServiceUnavailableException
-    _ServiceUnavailableException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
+    -- ** InvalidParameterValueException
+    _InvalidParameterValueException,
 
     -- ** LimitExceededException
     _LimitExceededException,
 
-    -- ** ThrottlingException
-    _ThrottlingException,
-
     -- ** MissingAuthenticationToken
     _MissingAuthenticationToken,
 
-    -- ** InvalidParameterValueException
-    _InvalidParameterValueException,
+    -- ** OptInRequiredException
+    _OptInRequiredException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
 
     -- * Waiters
     -- $waiters
@@ -212,6 +212,9 @@ module Amazonka.ComputeOptimizer
     -- ** ExportableVolumeField
     ExportableVolumeField (..),
 
+    -- ** ExternalMetricsSource
+    ExternalMetricsSource (..),
+
     -- ** FileFormat
     FileFormat (..),
 
@@ -330,6 +333,10 @@ module Amazonka.ComputeOptimizer
     -- ** ExportDestination
     ExportDestination (ExportDestination'),
     newExportDestination,
+
+    -- ** ExternalMetricsPreference
+    ExternalMetricsPreference (ExternalMetricsPreference'),
+    newExternalMetricsPreference,
 
     -- ** Filter
     Filter (Filter'),

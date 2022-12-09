@@ -32,8 +32,9 @@ module Amazonka.ComputeOptimizer.PutRecommendationPreferences
     newPutRecommendationPreferences,
 
     -- * Request Lenses
-    putRecommendationPreferences_inferredWorkloadTypes,
     putRecommendationPreferences_enhancedInfrastructureMetrics,
+    putRecommendationPreferences_externalMetricsPreference,
+    putRecommendationPreferences_inferredWorkloadTypes,
     putRecommendationPreferences_scope,
     putRecommendationPreferences_resourceType,
 
@@ -56,7 +57,30 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutRecommendationPreferences' smart constructor.
 data PutRecommendationPreferences = PutRecommendationPreferences'
-  { -- | The status of the inferred workload types recommendation preference to
+  { -- | The status of the enhanced infrastructure metrics recommendation
+    -- preference to create or update.
+    --
+    -- Specify the @Active@ status to activate the preference, or specify
+    -- @Inactive@ to deactivate the preference.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html Enhanced infrastructure metrics>
+    -- in the /Compute Optimizer User Guide/.
+    enhancedInfrastructureMetrics :: Prelude.Maybe EnhancedInfrastructureMetrics,
+    -- | The provider of the external metrics recommendation preference to create
+    -- or update.
+    --
+    -- Specify a valid provider in the @source@ field to activate the
+    -- preference. To delete this preference, see the
+    -- DeleteRecommendationPreferences action.
+    --
+    -- This preference can only be set for the @Ec2Instance@ resource type.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/external-metrics-ingestion.html External metrics ingestion>
+    -- in the /Compute Optimizer User Guide/.
+    externalMetricsPreference :: Prelude.Maybe ExternalMetricsPreference,
+    -- | The status of the inferred workload types recommendation preference to
     -- create or update.
     --
     -- The inferred workload type feature is active by default. To deactivate
@@ -69,16 +93,6 @@ data PutRecommendationPreferences = PutRecommendationPreferences'
     -- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/inferred-workload-types.html Inferred workload types>
     -- in the /Compute Optimizer User Guide/.
     inferredWorkloadTypes :: Prelude.Maybe InferredWorkloadTypesPreference,
-    -- | The status of the enhanced infrastructure metrics recommendation
-    -- preference to create or update.
-    --
-    -- Specify the @Active@ status to activate the preference, or specify
-    -- @Inactive@ to deactivate the preference.
-    --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html Enhanced infrastructure metrics>
-    -- in the /Compute Optimizer User Guide/.
-    enhancedInfrastructureMetrics :: Prelude.Maybe EnhancedInfrastructureMetrics,
     -- | An object that describes the scope of the recommendation preference to
     -- create.
     --
@@ -119,6 +133,29 @@ data PutRecommendationPreferences = PutRecommendationPreferences'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'enhancedInfrastructureMetrics', 'putRecommendationPreferences_enhancedInfrastructureMetrics' - The status of the enhanced infrastructure metrics recommendation
+-- preference to create or update.
+--
+-- Specify the @Active@ status to activate the preference, or specify
+-- @Inactive@ to deactivate the preference.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html Enhanced infrastructure metrics>
+-- in the /Compute Optimizer User Guide/.
+--
+-- 'externalMetricsPreference', 'putRecommendationPreferences_externalMetricsPreference' - The provider of the external metrics recommendation preference to create
+-- or update.
+--
+-- Specify a valid provider in the @source@ field to activate the
+-- preference. To delete this preference, see the
+-- DeleteRecommendationPreferences action.
+--
+-- This preference can only be set for the @Ec2Instance@ resource type.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/external-metrics-ingestion.html External metrics ingestion>
+-- in the /Compute Optimizer User Guide/.
+--
 -- 'inferredWorkloadTypes', 'putRecommendationPreferences_inferredWorkloadTypes' - The status of the inferred workload types recommendation preference to
 -- create or update.
 --
@@ -130,16 +167,6 @@ data PutRecommendationPreferences = PutRecommendationPreferences'
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/inferred-workload-types.html Inferred workload types>
--- in the /Compute Optimizer User Guide/.
---
--- 'enhancedInfrastructureMetrics', 'putRecommendationPreferences_enhancedInfrastructureMetrics' - The status of the enhanced infrastructure metrics recommendation
--- preference to create or update.
---
--- Specify the @Active@ status to activate the preference, or specify
--- @Inactive@ to deactivate the preference.
---
--- For more information, see
--- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html Enhanced infrastructure metrics>
 -- in the /Compute Optimizer User Guide/.
 --
 -- 'scope', 'putRecommendationPreferences_scope' - An object that describes the scope of the recommendation preference to
@@ -176,13 +203,40 @@ newPutRecommendationPreferences ::
   PutRecommendationPreferences
 newPutRecommendationPreferences pResourceType_ =
   PutRecommendationPreferences'
-    { inferredWorkloadTypes =
+    { enhancedInfrastructureMetrics =
         Prelude.Nothing,
-      enhancedInfrastructureMetrics =
-        Prelude.Nothing,
+      externalMetricsPreference = Prelude.Nothing,
+      inferredWorkloadTypes = Prelude.Nothing,
       scope = Prelude.Nothing,
       resourceType = pResourceType_
     }
+
+-- | The status of the enhanced infrastructure metrics recommendation
+-- preference to create or update.
+--
+-- Specify the @Active@ status to activate the preference, or specify
+-- @Inactive@ to deactivate the preference.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html Enhanced infrastructure metrics>
+-- in the /Compute Optimizer User Guide/.
+putRecommendationPreferences_enhancedInfrastructureMetrics :: Lens.Lens' PutRecommendationPreferences (Prelude.Maybe EnhancedInfrastructureMetrics)
+putRecommendationPreferences_enhancedInfrastructureMetrics = Lens.lens (\PutRecommendationPreferences' {enhancedInfrastructureMetrics} -> enhancedInfrastructureMetrics) (\s@PutRecommendationPreferences' {} a -> s {enhancedInfrastructureMetrics = a} :: PutRecommendationPreferences)
+
+-- | The provider of the external metrics recommendation preference to create
+-- or update.
+--
+-- Specify a valid provider in the @source@ field to activate the
+-- preference. To delete this preference, see the
+-- DeleteRecommendationPreferences action.
+--
+-- This preference can only be set for the @Ec2Instance@ resource type.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/external-metrics-ingestion.html External metrics ingestion>
+-- in the /Compute Optimizer User Guide/.
+putRecommendationPreferences_externalMetricsPreference :: Lens.Lens' PutRecommendationPreferences (Prelude.Maybe ExternalMetricsPreference)
+putRecommendationPreferences_externalMetricsPreference = Lens.lens (\PutRecommendationPreferences' {externalMetricsPreference} -> externalMetricsPreference) (\s@PutRecommendationPreferences' {} a -> s {externalMetricsPreference = a} :: PutRecommendationPreferences)
 
 -- | The status of the inferred workload types recommendation preference to
 -- create or update.
@@ -198,18 +252,6 @@ newPutRecommendationPreferences pResourceType_ =
 -- in the /Compute Optimizer User Guide/.
 putRecommendationPreferences_inferredWorkloadTypes :: Lens.Lens' PutRecommendationPreferences (Prelude.Maybe InferredWorkloadTypesPreference)
 putRecommendationPreferences_inferredWorkloadTypes = Lens.lens (\PutRecommendationPreferences' {inferredWorkloadTypes} -> inferredWorkloadTypes) (\s@PutRecommendationPreferences' {} a -> s {inferredWorkloadTypes = a} :: PutRecommendationPreferences)
-
--- | The status of the enhanced infrastructure metrics recommendation
--- preference to create or update.
---
--- Specify the @Active@ status to activate the preference, or specify
--- @Inactive@ to deactivate the preference.
---
--- For more information, see
--- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html Enhanced infrastructure metrics>
--- in the /Compute Optimizer User Guide/.
-putRecommendationPreferences_enhancedInfrastructureMetrics :: Lens.Lens' PutRecommendationPreferences (Prelude.Maybe EnhancedInfrastructureMetrics)
-putRecommendationPreferences_enhancedInfrastructureMetrics = Lens.lens (\PutRecommendationPreferences' {enhancedInfrastructureMetrics} -> enhancedInfrastructureMetrics) (\s@PutRecommendationPreferences' {} a -> s {enhancedInfrastructureMetrics = a} :: PutRecommendationPreferences)
 
 -- | An object that describes the scope of the recommendation preference to
 -- create.
@@ -262,15 +304,18 @@ instance
     PutRecommendationPreferences
   where
   hashWithSalt _salt PutRecommendationPreferences' {..} =
-    _salt `Prelude.hashWithSalt` inferredWorkloadTypes
+    _salt
       `Prelude.hashWithSalt` enhancedInfrastructureMetrics
+      `Prelude.hashWithSalt` externalMetricsPreference
+      `Prelude.hashWithSalt` inferredWorkloadTypes
       `Prelude.hashWithSalt` scope
       `Prelude.hashWithSalt` resourceType
 
 instance Prelude.NFData PutRecommendationPreferences where
   rnf PutRecommendationPreferences' {..} =
-    Prelude.rnf inferredWorkloadTypes
-      `Prelude.seq` Prelude.rnf enhancedInfrastructureMetrics
+    Prelude.rnf enhancedInfrastructureMetrics
+      `Prelude.seq` Prelude.rnf externalMetricsPreference
+      `Prelude.seq` Prelude.rnf inferredWorkloadTypes
       `Prelude.seq` Prelude.rnf scope
       `Prelude.seq` Prelude.rnf resourceType
 
@@ -293,10 +338,12 @@ instance Data.ToJSON PutRecommendationPreferences where
   toJSON PutRecommendationPreferences' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("inferredWorkloadTypes" Data..=)
-              Prelude.<$> inferredWorkloadTypes,
-            ("enhancedInfrastructureMetrics" Data..=)
+          [ ("enhancedInfrastructureMetrics" Data..=)
               Prelude.<$> enhancedInfrastructureMetrics,
+            ("externalMetricsPreference" Data..=)
+              Prelude.<$> externalMetricsPreference,
+            ("inferredWorkloadTypes" Data..=)
+              Prelude.<$> inferredWorkloadTypes,
             ("scope" Data..=) Prelude.<$> scope,
             Prelude.Just ("resourceType" Data..= resourceType)
           ]

@@ -33,9 +33,9 @@ module Amazonka.ComputeOptimizer.GetEBSVolumeRecommendations
 
     -- * Request Lenses
     getEBSVolumeRecommendations_accountIds,
-    getEBSVolumeRecommendations_nextToken,
     getEBSVolumeRecommendations_filters,
     getEBSVolumeRecommendations_maxResults,
+    getEBSVolumeRecommendations_nextToken,
     getEBSVolumeRecommendations_volumeArns,
 
     -- * Destructuring the Response
@@ -43,8 +43,8 @@ module Amazonka.ComputeOptimizer.GetEBSVolumeRecommendations
     newGetEBSVolumeRecommendationsResponse,
 
     -- * Response Lenses
-    getEBSVolumeRecommendationsResponse_nextToken,
     getEBSVolumeRecommendationsResponse_errors,
+    getEBSVolumeRecommendationsResponse_nextToken,
     getEBSVolumeRecommendationsResponse_volumeRecommendations,
     getEBSVolumeRecommendationsResponse_httpStatus,
   )
@@ -69,8 +69,6 @@ data GetEBSVolumeRecommendations = GetEBSVolumeRecommendations'
     --
     -- Only one account ID can be specified per request.
     accountIds :: Prelude.Maybe [Prelude.Text],
-    -- | The token to advance to the next page of volume recommendations.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | An array of objects to specify a filter that returns a more specific
     -- list of volume recommendations.
     filters :: Prelude.Maybe [EBSFilter],
@@ -80,6 +78,8 @@ data GetEBSVolumeRecommendations = GetEBSVolumeRecommendations'
     -- To retrieve the remaining results, make another request with the
     -- returned @nextToken@ value.
     maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The token to advance to the next page of volume recommendations.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the volumes for which to return
     -- recommendations.
     volumeArns :: Prelude.Maybe [Prelude.Text]
@@ -103,8 +103,6 @@ data GetEBSVolumeRecommendations = GetEBSVolumeRecommendations'
 --
 -- Only one account ID can be specified per request.
 --
--- 'nextToken', 'getEBSVolumeRecommendations_nextToken' - The token to advance to the next page of volume recommendations.
---
 -- 'filters', 'getEBSVolumeRecommendations_filters' - An array of objects to specify a filter that returns a more specific
 -- list of volume recommendations.
 --
@@ -114,6 +112,8 @@ data GetEBSVolumeRecommendations = GetEBSVolumeRecommendations'
 -- To retrieve the remaining results, make another request with the
 -- returned @nextToken@ value.
 --
+-- 'nextToken', 'getEBSVolumeRecommendations_nextToken' - The token to advance to the next page of volume recommendations.
+--
 -- 'volumeArns', 'getEBSVolumeRecommendations_volumeArns' - The Amazon Resource Name (ARN) of the volumes for which to return
 -- recommendations.
 newGetEBSVolumeRecommendations ::
@@ -122,9 +122,9 @@ newGetEBSVolumeRecommendations =
   GetEBSVolumeRecommendations'
     { accountIds =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       filters = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       volumeArns = Prelude.Nothing
     }
 
@@ -139,10 +139,6 @@ newGetEBSVolumeRecommendations =
 getEBSVolumeRecommendations_accountIds :: Lens.Lens' GetEBSVolumeRecommendations (Prelude.Maybe [Prelude.Text])
 getEBSVolumeRecommendations_accountIds = Lens.lens (\GetEBSVolumeRecommendations' {accountIds} -> accountIds) (\s@GetEBSVolumeRecommendations' {} a -> s {accountIds = a} :: GetEBSVolumeRecommendations) Prelude.. Lens.mapping Lens.coerced
 
--- | The token to advance to the next page of volume recommendations.
-getEBSVolumeRecommendations_nextToken :: Lens.Lens' GetEBSVolumeRecommendations (Prelude.Maybe Prelude.Text)
-getEBSVolumeRecommendations_nextToken = Lens.lens (\GetEBSVolumeRecommendations' {nextToken} -> nextToken) (\s@GetEBSVolumeRecommendations' {} a -> s {nextToken = a} :: GetEBSVolumeRecommendations)
-
 -- | An array of objects to specify a filter that returns a more specific
 -- list of volume recommendations.
 getEBSVolumeRecommendations_filters :: Lens.Lens' GetEBSVolumeRecommendations (Prelude.Maybe [EBSFilter])
@@ -155,6 +151,10 @@ getEBSVolumeRecommendations_filters = Lens.lens (\GetEBSVolumeRecommendations' {
 -- returned @nextToken@ value.
 getEBSVolumeRecommendations_maxResults :: Lens.Lens' GetEBSVolumeRecommendations (Prelude.Maybe Prelude.Int)
 getEBSVolumeRecommendations_maxResults = Lens.lens (\GetEBSVolumeRecommendations' {maxResults} -> maxResults) (\s@GetEBSVolumeRecommendations' {} a -> s {maxResults = a} :: GetEBSVolumeRecommendations)
+
+-- | The token to advance to the next page of volume recommendations.
+getEBSVolumeRecommendations_nextToken :: Lens.Lens' GetEBSVolumeRecommendations (Prelude.Maybe Prelude.Text)
+getEBSVolumeRecommendations_nextToken = Lens.lens (\GetEBSVolumeRecommendations' {nextToken} -> nextToken) (\s@GetEBSVolumeRecommendations' {} a -> s {nextToken = a} :: GetEBSVolumeRecommendations)
 
 -- | The Amazon Resource Name (ARN) of the volumes for which to return
 -- recommendations.
@@ -171,8 +171,8 @@ instance Core.AWSRequest GetEBSVolumeRecommendations where
     Response.receiveJSON
       ( \s h x ->
           GetEBSVolumeRecommendationsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "errors" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "errors" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> ( x Data..?> "volumeRecommendations"
                             Core..!@ Prelude.mempty
                         )
@@ -182,17 +182,17 @@ instance Core.AWSRequest GetEBSVolumeRecommendations where
 instance Prelude.Hashable GetEBSVolumeRecommendations where
   hashWithSalt _salt GetEBSVolumeRecommendations' {..} =
     _salt `Prelude.hashWithSalt` accountIds
-      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` volumeArns
 
 instance Prelude.NFData GetEBSVolumeRecommendations where
   rnf GetEBSVolumeRecommendations' {..} =
     Prelude.rnf accountIds
-      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf volumeArns
 
 instance Data.ToHeaders GetEBSVolumeRecommendations where
@@ -215,9 +215,9 @@ instance Data.ToJSON GetEBSVolumeRecommendations where
     Data.object
       ( Prelude.catMaybes
           [ ("accountIds" Data..=) Prelude.<$> accountIds,
-            ("nextToken" Data..=) Prelude.<$> nextToken,
             ("filters" Data..=) Prelude.<$> filters,
             ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             ("volumeArns" Data..=) Prelude.<$> volumeArns
           ]
       )
@@ -230,16 +230,16 @@ instance Data.ToQuery GetEBSVolumeRecommendations where
 
 -- | /See:/ 'newGetEBSVolumeRecommendationsResponse' smart constructor.
 data GetEBSVolumeRecommendationsResponse = GetEBSVolumeRecommendationsResponse'
-  { -- | The token to use to advance to the next page of volume recommendations.
-    --
-    -- This value is null when there are no more pages of volume
-    -- recommendations to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of objects that describe errors of the request.
+  { -- | An array of objects that describe errors of the request.
     --
     -- For example, an error is returned if you request recommendations for an
     -- unsupported volume.
     errors :: Prelude.Maybe [GetRecommendationError],
+    -- | The token to use to advance to the next page of volume recommendations.
+    --
+    -- This value is null when there are no more pages of volume
+    -- recommendations to return.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | An array of objects that describe volume recommendations.
     volumeRecommendations :: Prelude.Maybe [VolumeRecommendation],
     -- | The response's http status code.
@@ -255,15 +255,15 @@ data GetEBSVolumeRecommendationsResponse = GetEBSVolumeRecommendationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getEBSVolumeRecommendationsResponse_nextToken' - The token to use to advance to the next page of volume recommendations.
---
--- This value is null when there are no more pages of volume
--- recommendations to return.
---
 -- 'errors', 'getEBSVolumeRecommendationsResponse_errors' - An array of objects that describe errors of the request.
 --
 -- For example, an error is returned if you request recommendations for an
 -- unsupported volume.
+--
+-- 'nextToken', 'getEBSVolumeRecommendationsResponse_nextToken' - The token to use to advance to the next page of volume recommendations.
+--
+-- This value is null when there are no more pages of volume
+-- recommendations to return.
 --
 -- 'volumeRecommendations', 'getEBSVolumeRecommendationsResponse_volumeRecommendations' - An array of objects that describe volume recommendations.
 --
@@ -274,20 +274,13 @@ newGetEBSVolumeRecommendationsResponse ::
   GetEBSVolumeRecommendationsResponse
 newGetEBSVolumeRecommendationsResponse pHttpStatus_ =
   GetEBSVolumeRecommendationsResponse'
-    { nextToken =
+    { errors =
         Prelude.Nothing,
-      errors = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       volumeRecommendations =
         Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token to use to advance to the next page of volume recommendations.
---
--- This value is null when there are no more pages of volume
--- recommendations to return.
-getEBSVolumeRecommendationsResponse_nextToken :: Lens.Lens' GetEBSVolumeRecommendationsResponse (Prelude.Maybe Prelude.Text)
-getEBSVolumeRecommendationsResponse_nextToken = Lens.lens (\GetEBSVolumeRecommendationsResponse' {nextToken} -> nextToken) (\s@GetEBSVolumeRecommendationsResponse' {} a -> s {nextToken = a} :: GetEBSVolumeRecommendationsResponse)
 
 -- | An array of objects that describe errors of the request.
 --
@@ -295,6 +288,13 @@ getEBSVolumeRecommendationsResponse_nextToken = Lens.lens (\GetEBSVolumeRecommen
 -- unsupported volume.
 getEBSVolumeRecommendationsResponse_errors :: Lens.Lens' GetEBSVolumeRecommendationsResponse (Prelude.Maybe [GetRecommendationError])
 getEBSVolumeRecommendationsResponse_errors = Lens.lens (\GetEBSVolumeRecommendationsResponse' {errors} -> errors) (\s@GetEBSVolumeRecommendationsResponse' {} a -> s {errors = a} :: GetEBSVolumeRecommendationsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token to use to advance to the next page of volume recommendations.
+--
+-- This value is null when there are no more pages of volume
+-- recommendations to return.
+getEBSVolumeRecommendationsResponse_nextToken :: Lens.Lens' GetEBSVolumeRecommendationsResponse (Prelude.Maybe Prelude.Text)
+getEBSVolumeRecommendationsResponse_nextToken = Lens.lens (\GetEBSVolumeRecommendationsResponse' {nextToken} -> nextToken) (\s@GetEBSVolumeRecommendationsResponse' {} a -> s {nextToken = a} :: GetEBSVolumeRecommendationsResponse)
 
 -- | An array of objects that describe volume recommendations.
 getEBSVolumeRecommendationsResponse_volumeRecommendations :: Lens.Lens' GetEBSVolumeRecommendationsResponse (Prelude.Maybe [VolumeRecommendation])
@@ -309,7 +309,7 @@ instance
     GetEBSVolumeRecommendationsResponse
   where
   rnf GetEBSVolumeRecommendationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf errors
+    Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf volumeRecommendations
       `Prelude.seq` Prelude.rnf httpStatus

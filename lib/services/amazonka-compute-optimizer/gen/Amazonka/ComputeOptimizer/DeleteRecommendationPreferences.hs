@@ -74,10 +74,6 @@ data DeleteRecommendationPreferences = DeleteRecommendationPreferences'
     -- @AutoScalingGroup@.
     resourceType :: ResourceType,
     -- | The name of the recommendation preference to delete.
-    --
-    -- Enhanced infrastructure metrics (@EnhancedInfrastructureMetrics@) is the
-    -- only feature that can be activated through preferences. Therefore, it is
-    -- also the only recommendation preference that can be deleted.
     recommendationPreferenceNames :: [RecommendationPreferenceName]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -109,10 +105,6 @@ data DeleteRecommendationPreferences = DeleteRecommendationPreferences'
 -- @AutoScalingGroup@.
 --
 -- 'recommendationPreferenceNames', 'deleteRecommendationPreferences_recommendationPreferenceNames' - The name of the recommendation preference to delete.
---
--- Enhanced infrastructure metrics (@EnhancedInfrastructureMetrics@) is the
--- only feature that can be activated through preferences. Therefore, it is
--- also the only recommendation preference that can be deleted.
 newDeleteRecommendationPreferences ::
   -- | 'resourceType'
   ResourceType ->
@@ -149,10 +141,6 @@ deleteRecommendationPreferences_resourceType :: Lens.Lens' DeleteRecommendationP
 deleteRecommendationPreferences_resourceType = Lens.lens (\DeleteRecommendationPreferences' {resourceType} -> resourceType) (\s@DeleteRecommendationPreferences' {} a -> s {resourceType = a} :: DeleteRecommendationPreferences)
 
 -- | The name of the recommendation preference to delete.
---
--- Enhanced infrastructure metrics (@EnhancedInfrastructureMetrics@) is the
--- only feature that can be activated through preferences. Therefore, it is
--- also the only recommendation preference that can be deleted.
 deleteRecommendationPreferences_recommendationPreferenceNames :: Lens.Lens' DeleteRecommendationPreferences [RecommendationPreferenceName]
 deleteRecommendationPreferences_recommendationPreferenceNames = Lens.lens (\DeleteRecommendationPreferences' {recommendationPreferenceNames} -> recommendationPreferenceNames) (\s@DeleteRecommendationPreferences' {} a -> s {recommendationPreferenceNames = a} :: DeleteRecommendationPreferences) Prelude.. Lens.coerced
 

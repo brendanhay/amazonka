@@ -38,11 +38,11 @@ module Amazonka.ComputeOptimizer.ExportAutoScalingGroupRecommendations
 
     -- * Request Lenses
     exportAutoScalingGroupRecommendations_accountIds,
-    exportAutoScalingGroupRecommendations_recommendationPreferences,
+    exportAutoScalingGroupRecommendations_fieldsToExport,
+    exportAutoScalingGroupRecommendations_fileFormat,
     exportAutoScalingGroupRecommendations_filters,
     exportAutoScalingGroupRecommendations_includeMemberAccounts,
-    exportAutoScalingGroupRecommendations_fileFormat,
-    exportAutoScalingGroupRecommendations_fieldsToExport,
+    exportAutoScalingGroupRecommendations_recommendationPreferences,
     exportAutoScalingGroupRecommendations_s3DestinationConfig,
 
     -- * Destructuring the Response
@@ -81,9 +81,15 @@ data ExportAutoScalingGroupRecommendations = ExportAutoScalingGroupRecommendatio
     --
     -- You can specify multiple account IDs per request.
     accountIds :: Prelude.Maybe [Prelude.Text],
-    -- | An object to specify the preferences for the Auto Scaling group
-    -- recommendations to export.
-    recommendationPreferences :: Prelude.Maybe RecommendationPreferences,
+    -- | The recommendations data to include in the export file. For more
+    -- information about the fields that can be exported, see
+    -- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files Exported files>
+    -- in the /Compute Optimizer User Guide/.
+    fieldsToExport :: Prelude.Maybe [ExportableAutoScalingGroupField],
+    -- | The format of the export file.
+    --
+    -- The only export file format currently supported is @Csv@.
+    fileFormat :: Prelude.Maybe FileFormat,
     -- | An array of objects to specify a filter that exports a more specific set
     -- of Auto Scaling group recommendations.
     filters :: Prelude.Maybe [Filter],
@@ -106,15 +112,9 @@ data ExportAutoScalingGroupRecommendations = ExportAutoScalingGroupRecommendatio
     -- Recommendations for member accounts are not included in the export if
     -- this parameter, or the account IDs parameter, is omitted.
     includeMemberAccounts :: Prelude.Maybe Prelude.Bool,
-    -- | The format of the export file.
-    --
-    -- The only export file format currently supported is @Csv@.
-    fileFormat :: Prelude.Maybe FileFormat,
-    -- | The recommendations data to include in the export file. For more
-    -- information about the fields that can be exported, see
-    -- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files Exported files>
-    -- in the /Compute Optimizer User Guide/.
-    fieldsToExport :: Prelude.Maybe [ExportableAutoScalingGroupField],
+    -- | An object to specify the preferences for the Auto Scaling group
+    -- recommendations to export.
+    recommendationPreferences :: Prelude.Maybe RecommendationPreferences,
     -- | An object to specify the destination Amazon Simple Storage Service
     -- (Amazon S3) bucket name and key prefix for the export job.
     --
@@ -155,8 +155,14 @@ data ExportAutoScalingGroupRecommendations = ExportAutoScalingGroupRecommendatio
 --
 -- You can specify multiple account IDs per request.
 --
--- 'recommendationPreferences', 'exportAutoScalingGroupRecommendations_recommendationPreferences' - An object to specify the preferences for the Auto Scaling group
--- recommendations to export.
+-- 'fieldsToExport', 'exportAutoScalingGroupRecommendations_fieldsToExport' - The recommendations data to include in the export file. For more
+-- information about the fields that can be exported, see
+-- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files Exported files>
+-- in the /Compute Optimizer User Guide/.
+--
+-- 'fileFormat', 'exportAutoScalingGroupRecommendations_fileFormat' - The format of the export file.
+--
+-- The only export file format currently supported is @Csv@.
 --
 -- 'filters', 'exportAutoScalingGroupRecommendations_filters' - An array of objects to specify a filter that exports a more specific set
 -- of Auto Scaling group recommendations.
@@ -180,14 +186,8 @@ data ExportAutoScalingGroupRecommendations = ExportAutoScalingGroupRecommendatio
 -- Recommendations for member accounts are not included in the export if
 -- this parameter, or the account IDs parameter, is omitted.
 --
--- 'fileFormat', 'exportAutoScalingGroupRecommendations_fileFormat' - The format of the export file.
---
--- The only export file format currently supported is @Csv@.
---
--- 'fieldsToExport', 'exportAutoScalingGroupRecommendations_fieldsToExport' - The recommendations data to include in the export file. For more
--- information about the fields that can be exported, see
--- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files Exported files>
--- in the /Compute Optimizer User Guide/.
+-- 'recommendationPreferences', 'exportAutoScalingGroupRecommendations_recommendationPreferences' - An object to specify the preferences for the Auto Scaling group
+-- recommendations to export.
 --
 -- 's3DestinationConfig', 'exportAutoScalingGroupRecommendations_s3DestinationConfig' - An object to specify the destination Amazon Simple Storage Service
 -- (Amazon S3) bucket name and key prefix for the export job.
@@ -211,13 +211,13 @@ newExportAutoScalingGroupRecommendations
     ExportAutoScalingGroupRecommendations'
       { accountIds =
           Prelude.Nothing,
-        recommendationPreferences =
-          Prelude.Nothing,
+        fieldsToExport = Prelude.Nothing,
+        fileFormat = Prelude.Nothing,
         filters = Prelude.Nothing,
         includeMemberAccounts =
           Prelude.Nothing,
-        fileFormat = Prelude.Nothing,
-        fieldsToExport = Prelude.Nothing,
+        recommendationPreferences =
+          Prelude.Nothing,
         s3DestinationConfig =
           pS3DestinationConfig_
       }
@@ -239,10 +239,18 @@ newExportAutoScalingGroupRecommendations
 exportAutoScalingGroupRecommendations_accountIds :: Lens.Lens' ExportAutoScalingGroupRecommendations (Prelude.Maybe [Prelude.Text])
 exportAutoScalingGroupRecommendations_accountIds = Lens.lens (\ExportAutoScalingGroupRecommendations' {accountIds} -> accountIds) (\s@ExportAutoScalingGroupRecommendations' {} a -> s {accountIds = a} :: ExportAutoScalingGroupRecommendations) Prelude.. Lens.mapping Lens.coerced
 
--- | An object to specify the preferences for the Auto Scaling group
--- recommendations to export.
-exportAutoScalingGroupRecommendations_recommendationPreferences :: Lens.Lens' ExportAutoScalingGroupRecommendations (Prelude.Maybe RecommendationPreferences)
-exportAutoScalingGroupRecommendations_recommendationPreferences = Lens.lens (\ExportAutoScalingGroupRecommendations' {recommendationPreferences} -> recommendationPreferences) (\s@ExportAutoScalingGroupRecommendations' {} a -> s {recommendationPreferences = a} :: ExportAutoScalingGroupRecommendations)
+-- | The recommendations data to include in the export file. For more
+-- information about the fields that can be exported, see
+-- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files Exported files>
+-- in the /Compute Optimizer User Guide/.
+exportAutoScalingGroupRecommendations_fieldsToExport :: Lens.Lens' ExportAutoScalingGroupRecommendations (Prelude.Maybe [ExportableAutoScalingGroupField])
+exportAutoScalingGroupRecommendations_fieldsToExport = Lens.lens (\ExportAutoScalingGroupRecommendations' {fieldsToExport} -> fieldsToExport) (\s@ExportAutoScalingGroupRecommendations' {} a -> s {fieldsToExport = a} :: ExportAutoScalingGroupRecommendations) Prelude.. Lens.mapping Lens.coerced
+
+-- | The format of the export file.
+--
+-- The only export file format currently supported is @Csv@.
+exportAutoScalingGroupRecommendations_fileFormat :: Lens.Lens' ExportAutoScalingGroupRecommendations (Prelude.Maybe FileFormat)
+exportAutoScalingGroupRecommendations_fileFormat = Lens.lens (\ExportAutoScalingGroupRecommendations' {fileFormat} -> fileFormat) (\s@ExportAutoScalingGroupRecommendations' {} a -> s {fileFormat = a} :: ExportAutoScalingGroupRecommendations)
 
 -- | An array of objects to specify a filter that exports a more specific set
 -- of Auto Scaling group recommendations.
@@ -270,18 +278,10 @@ exportAutoScalingGroupRecommendations_filters = Lens.lens (\ExportAutoScalingGro
 exportAutoScalingGroupRecommendations_includeMemberAccounts :: Lens.Lens' ExportAutoScalingGroupRecommendations (Prelude.Maybe Prelude.Bool)
 exportAutoScalingGroupRecommendations_includeMemberAccounts = Lens.lens (\ExportAutoScalingGroupRecommendations' {includeMemberAccounts} -> includeMemberAccounts) (\s@ExportAutoScalingGroupRecommendations' {} a -> s {includeMemberAccounts = a} :: ExportAutoScalingGroupRecommendations)
 
--- | The format of the export file.
---
--- The only export file format currently supported is @Csv@.
-exportAutoScalingGroupRecommendations_fileFormat :: Lens.Lens' ExportAutoScalingGroupRecommendations (Prelude.Maybe FileFormat)
-exportAutoScalingGroupRecommendations_fileFormat = Lens.lens (\ExportAutoScalingGroupRecommendations' {fileFormat} -> fileFormat) (\s@ExportAutoScalingGroupRecommendations' {} a -> s {fileFormat = a} :: ExportAutoScalingGroupRecommendations)
-
--- | The recommendations data to include in the export file. For more
--- information about the fields that can be exported, see
--- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files Exported files>
--- in the /Compute Optimizer User Guide/.
-exportAutoScalingGroupRecommendations_fieldsToExport :: Lens.Lens' ExportAutoScalingGroupRecommendations (Prelude.Maybe [ExportableAutoScalingGroupField])
-exportAutoScalingGroupRecommendations_fieldsToExport = Lens.lens (\ExportAutoScalingGroupRecommendations' {fieldsToExport} -> fieldsToExport) (\s@ExportAutoScalingGroupRecommendations' {} a -> s {fieldsToExport = a} :: ExportAutoScalingGroupRecommendations) Prelude.. Lens.mapping Lens.coerced
+-- | An object to specify the preferences for the Auto Scaling group
+-- recommendations to export.
+exportAutoScalingGroupRecommendations_recommendationPreferences :: Lens.Lens' ExportAutoScalingGroupRecommendations (Prelude.Maybe RecommendationPreferences)
+exportAutoScalingGroupRecommendations_recommendationPreferences = Lens.lens (\ExportAutoScalingGroupRecommendations' {recommendationPreferences} -> recommendationPreferences) (\s@ExportAutoScalingGroupRecommendations' {} a -> s {recommendationPreferences = a} :: ExportAutoScalingGroupRecommendations)
 
 -- | An object to specify the destination Amazon Simple Storage Service
 -- (Amazon S3) bucket name and key prefix for the export job.
@@ -326,11 +326,11 @@ instance
     _salt
     ExportAutoScalingGroupRecommendations' {..} =
       _salt `Prelude.hashWithSalt` accountIds
-        `Prelude.hashWithSalt` recommendationPreferences
+        `Prelude.hashWithSalt` fieldsToExport
+        `Prelude.hashWithSalt` fileFormat
         `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` includeMemberAccounts
-        `Prelude.hashWithSalt` fileFormat
-        `Prelude.hashWithSalt` fieldsToExport
+        `Prelude.hashWithSalt` recommendationPreferences
         `Prelude.hashWithSalt` s3DestinationConfig
 
 instance
@@ -339,11 +339,11 @@ instance
   where
   rnf ExportAutoScalingGroupRecommendations' {..} =
     Prelude.rnf accountIds
-      `Prelude.seq` Prelude.rnf recommendationPreferences
+      `Prelude.seq` Prelude.rnf fieldsToExport
+      `Prelude.seq` Prelude.rnf fileFormat
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf includeMemberAccounts
-      `Prelude.seq` Prelude.rnf fileFormat
-      `Prelude.seq` Prelude.rnf fieldsToExport
+      `Prelude.seq` Prelude.rnf recommendationPreferences
       `Prelude.seq` Prelude.rnf s3DestinationConfig
 
 instance
@@ -372,14 +372,14 @@ instance
     Data.object
       ( Prelude.catMaybes
           [ ("accountIds" Data..=) Prelude.<$> accountIds,
-            ("recommendationPreferences" Data..=)
-              Prelude.<$> recommendationPreferences,
+            ("fieldsToExport" Data..=)
+              Prelude.<$> fieldsToExport,
+            ("fileFormat" Data..=) Prelude.<$> fileFormat,
             ("filters" Data..=) Prelude.<$> filters,
             ("includeMemberAccounts" Data..=)
               Prelude.<$> includeMemberAccounts,
-            ("fileFormat" Data..=) Prelude.<$> fileFormat,
-            ("fieldsToExport" Data..=)
-              Prelude.<$> fieldsToExport,
+            ("recommendationPreferences" Data..=)
+              Prelude.<$> recommendationPreferences,
             Prelude.Just
               ("s3DestinationConfig" Data..= s3DestinationConfig)
           ]

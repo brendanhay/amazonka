@@ -42,16 +42,16 @@ module Amazonka.ComputeOptimizer.GetRecommendationSummaries
 
     -- * Request Lenses
     getRecommendationSummaries_accountIds,
-    getRecommendationSummaries_nextToken,
     getRecommendationSummaries_maxResults,
+    getRecommendationSummaries_nextToken,
 
     -- * Destructuring the Response
     GetRecommendationSummariesResponse (..),
     newGetRecommendationSummariesResponse,
 
     -- * Response Lenses
-    getRecommendationSummariesResponse_recommendationSummaries,
     getRecommendationSummariesResponse_nextToken,
+    getRecommendationSummariesResponse_recommendationSummaries,
     getRecommendationSummariesResponse_httpStatus,
   )
 where
@@ -75,14 +75,14 @@ data GetRecommendationSummaries = GetRecommendationSummaries'
     --
     -- Only one account ID can be specified per request.
     accountIds :: Prelude.Maybe [Prelude.Text],
-    -- | The token to advance to the next page of recommendation summaries.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of recommendation summaries to return with a single
     -- request.
     --
     -- To retrieve the remaining results, make another request with the
     -- returned @nextToken@ value.
-    maxResults :: Prelude.Maybe Prelude.Int
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The token to advance to the next page of recommendation summaries.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -103,21 +103,21 @@ data GetRecommendationSummaries = GetRecommendationSummaries'
 --
 -- Only one account ID can be specified per request.
 --
--- 'nextToken', 'getRecommendationSummaries_nextToken' - The token to advance to the next page of recommendation summaries.
---
 -- 'maxResults', 'getRecommendationSummaries_maxResults' - The maximum number of recommendation summaries to return with a single
 -- request.
 --
 -- To retrieve the remaining results, make another request with the
 -- returned @nextToken@ value.
+--
+-- 'nextToken', 'getRecommendationSummaries_nextToken' - The token to advance to the next page of recommendation summaries.
 newGetRecommendationSummaries ::
   GetRecommendationSummaries
 newGetRecommendationSummaries =
   GetRecommendationSummaries'
     { accountIds =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
 
 -- | The ID of the Amazon Web Services account for which to return
@@ -131,10 +131,6 @@ newGetRecommendationSummaries =
 getRecommendationSummaries_accountIds :: Lens.Lens' GetRecommendationSummaries (Prelude.Maybe [Prelude.Text])
 getRecommendationSummaries_accountIds = Lens.lens (\GetRecommendationSummaries' {accountIds} -> accountIds) (\s@GetRecommendationSummaries' {} a -> s {accountIds = a} :: GetRecommendationSummaries) Prelude.. Lens.mapping Lens.coerced
 
--- | The token to advance to the next page of recommendation summaries.
-getRecommendationSummaries_nextToken :: Lens.Lens' GetRecommendationSummaries (Prelude.Maybe Prelude.Text)
-getRecommendationSummaries_nextToken = Lens.lens (\GetRecommendationSummaries' {nextToken} -> nextToken) (\s@GetRecommendationSummaries' {} a -> s {nextToken = a} :: GetRecommendationSummaries)
-
 -- | The maximum number of recommendation summaries to return with a single
 -- request.
 --
@@ -142,6 +138,10 @@ getRecommendationSummaries_nextToken = Lens.lens (\GetRecommendationSummaries' {
 -- returned @nextToken@ value.
 getRecommendationSummaries_maxResults :: Lens.Lens' GetRecommendationSummaries (Prelude.Maybe Prelude.Int)
 getRecommendationSummaries_maxResults = Lens.lens (\GetRecommendationSummaries' {maxResults} -> maxResults) (\s@GetRecommendationSummaries' {} a -> s {maxResults = a} :: GetRecommendationSummaries)
+
+-- | The token to advance to the next page of recommendation summaries.
+getRecommendationSummaries_nextToken :: Lens.Lens' GetRecommendationSummaries (Prelude.Maybe Prelude.Text)
+getRecommendationSummaries_nextToken = Lens.lens (\GetRecommendationSummaries' {nextToken} -> nextToken) (\s@GetRecommendationSummaries' {} a -> s {nextToken = a} :: GetRecommendationSummaries)
 
 instance Core.AWSRequest GetRecommendationSummaries where
   type
@@ -153,24 +153,24 @@ instance Core.AWSRequest GetRecommendationSummaries where
     Response.receiveJSON
       ( \s h x ->
           GetRecommendationSummariesResponse'
-            Prelude.<$> ( x Data..?> "recommendationSummaries"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "recommendationSummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetRecommendationSummaries where
   hashWithSalt _salt GetRecommendationSummaries' {..} =
     _salt `Prelude.hashWithSalt` accountIds
-      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData GetRecommendationSummaries where
   rnf GetRecommendationSummaries' {..} =
     Prelude.rnf accountIds
-      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders GetRecommendationSummaries where
   toHeaders =
@@ -192,8 +192,8 @@ instance Data.ToJSON GetRecommendationSummaries where
     Data.object
       ( Prelude.catMaybes
           [ ("accountIds" Data..=) Prelude.<$> accountIds,
-            ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -205,14 +205,14 @@ instance Data.ToQuery GetRecommendationSummaries where
 
 -- | /See:/ 'newGetRecommendationSummariesResponse' smart constructor.
 data GetRecommendationSummariesResponse = GetRecommendationSummariesResponse'
-  { -- | An array of objects that summarize a recommendation.
-    recommendationSummaries :: Prelude.Maybe [RecommendationSummary],
-    -- | The token to use to advance to the next page of recommendation
+  { -- | The token to use to advance to the next page of recommendation
     -- summaries.
     --
     -- This value is null when there are no more pages of recommendation
     -- summaries to return.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of objects that summarize a recommendation.
+    recommendationSummaries :: Prelude.Maybe [RecommendationSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -226,13 +226,13 @@ data GetRecommendationSummariesResponse = GetRecommendationSummariesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'recommendationSummaries', 'getRecommendationSummariesResponse_recommendationSummaries' - An array of objects that summarize a recommendation.
---
 -- 'nextToken', 'getRecommendationSummariesResponse_nextToken' - The token to use to advance to the next page of recommendation
 -- summaries.
 --
 -- This value is null when there are no more pages of recommendation
 -- summaries to return.
+--
+-- 'recommendationSummaries', 'getRecommendationSummariesResponse_recommendationSummaries' - An array of objects that summarize a recommendation.
 --
 -- 'httpStatus', 'getRecommendationSummariesResponse_httpStatus' - The response's http status code.
 newGetRecommendationSummariesResponse ::
@@ -241,15 +241,12 @@ newGetRecommendationSummariesResponse ::
   GetRecommendationSummariesResponse
 newGetRecommendationSummariesResponse pHttpStatus_ =
   GetRecommendationSummariesResponse'
-    { recommendationSummaries =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      recommendationSummaries =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of objects that summarize a recommendation.
-getRecommendationSummariesResponse_recommendationSummaries :: Lens.Lens' GetRecommendationSummariesResponse (Prelude.Maybe [RecommendationSummary])
-getRecommendationSummariesResponse_recommendationSummaries = Lens.lens (\GetRecommendationSummariesResponse' {recommendationSummaries} -> recommendationSummaries) (\s@GetRecommendationSummariesResponse' {} a -> s {recommendationSummaries = a} :: GetRecommendationSummariesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to advance to the next page of recommendation
 -- summaries.
@@ -258,6 +255,10 @@ getRecommendationSummariesResponse_recommendationSummaries = Lens.lens (\GetReco
 -- summaries to return.
 getRecommendationSummariesResponse_nextToken :: Lens.Lens' GetRecommendationSummariesResponse (Prelude.Maybe Prelude.Text)
 getRecommendationSummariesResponse_nextToken = Lens.lens (\GetRecommendationSummariesResponse' {nextToken} -> nextToken) (\s@GetRecommendationSummariesResponse' {} a -> s {nextToken = a} :: GetRecommendationSummariesResponse)
+
+-- | An array of objects that summarize a recommendation.
+getRecommendationSummariesResponse_recommendationSummaries :: Lens.Lens' GetRecommendationSummariesResponse (Prelude.Maybe [RecommendationSummary])
+getRecommendationSummariesResponse_recommendationSummaries = Lens.lens (\GetRecommendationSummariesResponse' {recommendationSummaries} -> recommendationSummaries) (\s@GetRecommendationSummariesResponse' {} a -> s {recommendationSummaries = a} :: GetRecommendationSummariesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getRecommendationSummariesResponse_httpStatus :: Lens.Lens' GetRecommendationSummariesResponse Prelude.Int
@@ -268,6 +269,6 @@ instance
     GetRecommendationSummariesResponse
   where
   rnf GetRecommendationSummariesResponse' {..} =
-    Prelude.rnf recommendationSummaries
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf recommendationSummaries
       `Prelude.seq` Prelude.rnf httpStatus

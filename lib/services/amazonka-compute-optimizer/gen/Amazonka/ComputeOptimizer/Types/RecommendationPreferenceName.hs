@@ -21,6 +21,7 @@ module Amazonka.ComputeOptimizer.Types.RecommendationPreferenceName
   ( RecommendationPreferenceName
       ( ..,
         RecommendationPreferenceName_EnhancedInfrastructureMetrics,
+        RecommendationPreferenceName_ExternalMetricsPreference,
         RecommendationPreferenceName_InferredWorkloadTypes
       ),
   )
@@ -61,11 +62,15 @@ newtype RecommendationPreferenceName = RecommendationPreferenceName'
 pattern RecommendationPreferenceName_EnhancedInfrastructureMetrics :: RecommendationPreferenceName
 pattern RecommendationPreferenceName_EnhancedInfrastructureMetrics = RecommendationPreferenceName' "EnhancedInfrastructureMetrics"
 
+pattern RecommendationPreferenceName_ExternalMetricsPreference :: RecommendationPreferenceName
+pattern RecommendationPreferenceName_ExternalMetricsPreference = RecommendationPreferenceName' "ExternalMetricsPreference"
+
 pattern RecommendationPreferenceName_InferredWorkloadTypes :: RecommendationPreferenceName
 pattern RecommendationPreferenceName_InferredWorkloadTypes = RecommendationPreferenceName' "InferredWorkloadTypes"
 
 {-# COMPLETE
   RecommendationPreferenceName_EnhancedInfrastructureMetrics,
+  RecommendationPreferenceName_ExternalMetricsPreference,
   RecommendationPreferenceName_InferredWorkloadTypes,
   RecommendationPreferenceName'
   #-}

@@ -38,10 +38,10 @@ module Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations
 
     -- * Request Lenses
     exportEBSVolumeRecommendations_accountIds,
+    exportEBSVolumeRecommendations_fieldsToExport,
+    exportEBSVolumeRecommendations_fileFormat,
     exportEBSVolumeRecommendations_filters,
     exportEBSVolumeRecommendations_includeMemberAccounts,
-    exportEBSVolumeRecommendations_fileFormat,
-    exportEBSVolumeRecommendations_fieldsToExport,
     exportEBSVolumeRecommendations_s3DestinationConfig,
 
     -- * Destructuring the Response
@@ -80,6 +80,15 @@ data ExportEBSVolumeRecommendations = ExportEBSVolumeRecommendations'
     --
     -- You can specify multiple account IDs per request.
     accountIds :: Prelude.Maybe [Prelude.Text],
+    -- | The recommendations data to include in the export file. For more
+    -- information about the fields that can be exported, see
+    -- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files Exported files>
+    -- in the /Compute Optimizer User Guide/.
+    fieldsToExport :: Prelude.Maybe [ExportableVolumeField],
+    -- | The format of the export file.
+    --
+    -- The only export file format currently supported is @Csv@.
+    fileFormat :: Prelude.Maybe FileFormat,
     -- | An array of objects to specify a filter that exports a more specific set
     -- of Amazon EBS volume recommendations.
     filters :: Prelude.Maybe [EBSFilter],
@@ -102,15 +111,6 @@ data ExportEBSVolumeRecommendations = ExportEBSVolumeRecommendations'
     -- Recommendations for member accounts are not included in the export if
     -- this parameter, or the account IDs parameter, is omitted.
     includeMemberAccounts :: Prelude.Maybe Prelude.Bool,
-    -- | The format of the export file.
-    --
-    -- The only export file format currently supported is @Csv@.
-    fileFormat :: Prelude.Maybe FileFormat,
-    -- | The recommendations data to include in the export file. For more
-    -- information about the fields that can be exported, see
-    -- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files Exported files>
-    -- in the /Compute Optimizer User Guide/.
-    fieldsToExport :: Prelude.Maybe [ExportableVolumeField],
     s3DestinationConfig :: S3DestinationConfig
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -138,6 +138,15 @@ data ExportEBSVolumeRecommendations = ExportEBSVolumeRecommendations'
 --
 -- You can specify multiple account IDs per request.
 --
+-- 'fieldsToExport', 'exportEBSVolumeRecommendations_fieldsToExport' - The recommendations data to include in the export file. For more
+-- information about the fields that can be exported, see
+-- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files Exported files>
+-- in the /Compute Optimizer User Guide/.
+--
+-- 'fileFormat', 'exportEBSVolumeRecommendations_fileFormat' - The format of the export file.
+--
+-- The only export file format currently supported is @Csv@.
+--
 -- 'filters', 'exportEBSVolumeRecommendations_filters' - An array of objects to specify a filter that exports a more specific set
 -- of Amazon EBS volume recommendations.
 --
@@ -160,15 +169,6 @@ data ExportEBSVolumeRecommendations = ExportEBSVolumeRecommendations'
 -- Recommendations for member accounts are not included in the export if
 -- this parameter, or the account IDs parameter, is omitted.
 --
--- 'fileFormat', 'exportEBSVolumeRecommendations_fileFormat' - The format of the export file.
---
--- The only export file format currently supported is @Csv@.
---
--- 'fieldsToExport', 'exportEBSVolumeRecommendations_fieldsToExport' - The recommendations data to include in the export file. For more
--- information about the fields that can be exported, see
--- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files Exported files>
--- in the /Compute Optimizer User Guide/.
---
 -- 's3DestinationConfig', 'exportEBSVolumeRecommendations_s3DestinationConfig' - Undocumented member.
 newExportEBSVolumeRecommendations ::
   -- | 's3DestinationConfig'
@@ -179,10 +179,10 @@ newExportEBSVolumeRecommendations
     ExportEBSVolumeRecommendations'
       { accountIds =
           Prelude.Nothing,
+        fieldsToExport = Prelude.Nothing,
+        fileFormat = Prelude.Nothing,
         filters = Prelude.Nothing,
         includeMemberAccounts = Prelude.Nothing,
-        fileFormat = Prelude.Nothing,
-        fieldsToExport = Prelude.Nothing,
         s3DestinationConfig = pS3DestinationConfig_
       }
 
@@ -202,6 +202,19 @@ newExportEBSVolumeRecommendations
 -- You can specify multiple account IDs per request.
 exportEBSVolumeRecommendations_accountIds :: Lens.Lens' ExportEBSVolumeRecommendations (Prelude.Maybe [Prelude.Text])
 exportEBSVolumeRecommendations_accountIds = Lens.lens (\ExportEBSVolumeRecommendations' {accountIds} -> accountIds) (\s@ExportEBSVolumeRecommendations' {} a -> s {accountIds = a} :: ExportEBSVolumeRecommendations) Prelude.. Lens.mapping Lens.coerced
+
+-- | The recommendations data to include in the export file. For more
+-- information about the fields that can be exported, see
+-- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files Exported files>
+-- in the /Compute Optimizer User Guide/.
+exportEBSVolumeRecommendations_fieldsToExport :: Lens.Lens' ExportEBSVolumeRecommendations (Prelude.Maybe [ExportableVolumeField])
+exportEBSVolumeRecommendations_fieldsToExport = Lens.lens (\ExportEBSVolumeRecommendations' {fieldsToExport} -> fieldsToExport) (\s@ExportEBSVolumeRecommendations' {} a -> s {fieldsToExport = a} :: ExportEBSVolumeRecommendations) Prelude.. Lens.mapping Lens.coerced
+
+-- | The format of the export file.
+--
+-- The only export file format currently supported is @Csv@.
+exportEBSVolumeRecommendations_fileFormat :: Lens.Lens' ExportEBSVolumeRecommendations (Prelude.Maybe FileFormat)
+exportEBSVolumeRecommendations_fileFormat = Lens.lens (\ExportEBSVolumeRecommendations' {fileFormat} -> fileFormat) (\s@ExportEBSVolumeRecommendations' {} a -> s {fileFormat = a} :: ExportEBSVolumeRecommendations)
 
 -- | An array of objects to specify a filter that exports a more specific set
 -- of Amazon EBS volume recommendations.
@@ -228,19 +241,6 @@ exportEBSVolumeRecommendations_filters = Lens.lens (\ExportEBSVolumeRecommendati
 -- this parameter, or the account IDs parameter, is omitted.
 exportEBSVolumeRecommendations_includeMemberAccounts :: Lens.Lens' ExportEBSVolumeRecommendations (Prelude.Maybe Prelude.Bool)
 exportEBSVolumeRecommendations_includeMemberAccounts = Lens.lens (\ExportEBSVolumeRecommendations' {includeMemberAccounts} -> includeMemberAccounts) (\s@ExportEBSVolumeRecommendations' {} a -> s {includeMemberAccounts = a} :: ExportEBSVolumeRecommendations)
-
--- | The format of the export file.
---
--- The only export file format currently supported is @Csv@.
-exportEBSVolumeRecommendations_fileFormat :: Lens.Lens' ExportEBSVolumeRecommendations (Prelude.Maybe FileFormat)
-exportEBSVolumeRecommendations_fileFormat = Lens.lens (\ExportEBSVolumeRecommendations' {fileFormat} -> fileFormat) (\s@ExportEBSVolumeRecommendations' {} a -> s {fileFormat = a} :: ExportEBSVolumeRecommendations)
-
--- | The recommendations data to include in the export file. For more
--- information about the fields that can be exported, see
--- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files Exported files>
--- in the /Compute Optimizer User Guide/.
-exportEBSVolumeRecommendations_fieldsToExport :: Lens.Lens' ExportEBSVolumeRecommendations (Prelude.Maybe [ExportableVolumeField])
-exportEBSVolumeRecommendations_fieldsToExport = Lens.lens (\ExportEBSVolumeRecommendations' {fieldsToExport} -> fieldsToExport) (\s@ExportEBSVolumeRecommendations' {} a -> s {fieldsToExport = a} :: ExportEBSVolumeRecommendations) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 exportEBSVolumeRecommendations_s3DestinationConfig :: Lens.Lens' ExportEBSVolumeRecommendations S3DestinationConfig
@@ -272,10 +272,10 @@ instance
     _salt
     ExportEBSVolumeRecommendations' {..} =
       _salt `Prelude.hashWithSalt` accountIds
+        `Prelude.hashWithSalt` fieldsToExport
+        `Prelude.hashWithSalt` fileFormat
         `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` includeMemberAccounts
-        `Prelude.hashWithSalt` fileFormat
-        `Prelude.hashWithSalt` fieldsToExport
         `Prelude.hashWithSalt` s3DestinationConfig
 
 instance
@@ -284,10 +284,10 @@ instance
   where
   rnf ExportEBSVolumeRecommendations' {..} =
     Prelude.rnf accountIds
+      `Prelude.seq` Prelude.rnf fieldsToExport
+      `Prelude.seq` Prelude.rnf fileFormat
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf includeMemberAccounts
-      `Prelude.seq` Prelude.rnf fileFormat
-      `Prelude.seq` Prelude.rnf fieldsToExport
       `Prelude.seq` Prelude.rnf s3DestinationConfig
 
 instance
@@ -313,12 +313,12 @@ instance Data.ToJSON ExportEBSVolumeRecommendations where
     Data.object
       ( Prelude.catMaybes
           [ ("accountIds" Data..=) Prelude.<$> accountIds,
+            ("fieldsToExport" Data..=)
+              Prelude.<$> fieldsToExport,
+            ("fileFormat" Data..=) Prelude.<$> fileFormat,
             ("filters" Data..=) Prelude.<$> filters,
             ("includeMemberAccounts" Data..=)
               Prelude.<$> includeMemberAccounts,
-            ("fileFormat" Data..=) Prelude.<$> fileFormat,
-            ("fieldsToExport" Data..=)
-              Prelude.<$> fieldsToExport,
             Prelude.Just
               ("s3DestinationConfig" Data..= s3DestinationConfig)
           ]

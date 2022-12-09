@@ -20,6 +20,7 @@
 module Amazonka.ComputeOptimizer.Types.RecommendationPreferencesDetail where
 
 import Amazonka.ComputeOptimizer.Types.EnhancedInfrastructureMetrics
+import Amazonka.ComputeOptimizer.Types.ExternalMetricsPreference
 import Amazonka.ComputeOptimizer.Types.InferredWorkloadTypesPreference
 import Amazonka.ComputeOptimizer.Types.ResourceType
 import Amazonka.ComputeOptimizer.Types.Scope
@@ -32,29 +33,38 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRecommendationPreferencesDetail' smart constructor.
 data RecommendationPreferencesDetail = RecommendationPreferencesDetail'
-  { -- | The target resource type of the recommendation preference to create.
-    --
-    -- The @Ec2Instance@ option encompasses standalone instances and instances
-    -- that are part of Auto Scaling groups. The @AutoScalingGroup@ option
-    -- encompasses only instances that are part of an Auto Scaling group.
-    resourceType :: Prelude.Maybe ResourceType,
-    -- | The status of the inferred workload types recommendation preference.
-    --
-    -- A status of @Active@ confirms that the preference is applied in the
-    -- latest recommendation refresh. A status of @Inactive@ confirms that
-    -- it\'s not yet applied to recommendations.
-    inferredWorkloadTypes :: Prelude.Maybe InferredWorkloadTypesPreference,
-    -- | The status of the enhanced infrastructure metrics recommendation
+  { -- | The status of the enhanced infrastructure metrics recommendation
     -- preference.
     --
-    -- A status of @Active@ confirms that the preference is applied in the
-    -- latest recommendation refresh, and a status of @Inactive@ confirms that
-    -- it\'s not yet applied to recommendations.
+    -- When the recommendations page is refreshed, a status of @Active@
+    -- confirms that the preference is applied to the recommendations, and a
+    -- status of @Inactive@ confirms that the preference isn\'t yet applied to
+    -- recommendations.
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html Enhanced infrastructure metrics>
     -- in the /Compute Optimizer User Guide/.
     enhancedInfrastructureMetrics :: Prelude.Maybe EnhancedInfrastructureMetrics,
+    -- | An object that describes the external metrics recommendation preference.
+    --
+    -- If the preference is applied in the latest recommendation refresh, an
+    -- object with a valid @source@ value appears in the response. If the
+    -- preference isn\'t applied to the recommendations already, then this
+    -- object doesn\'t appear in the response.
+    externalMetricsPreference :: Prelude.Maybe ExternalMetricsPreference,
+    -- | The status of the inferred workload types recommendation preference.
+    --
+    -- When the recommendations page is refreshed, a status of @Active@
+    -- confirms that the preference is applied to the recommendations, and a
+    -- status of @Inactive@ confirms that the preference isn\'t yet applied to
+    -- recommendations.
+    inferredWorkloadTypes :: Prelude.Maybe InferredWorkloadTypesPreference,
+    -- | The target resource type of the recommendation preference to create.
+    --
+    -- The @Ec2Instance@ option encompasses standalone instances and instances
+    -- that are part of Auto Scaling groups. The @AutoScalingGroup@ option
+    -- encompasses only instances that are part of an Auto Scaling group.
+    resourceType :: Prelude.Maybe ResourceType,
     -- | An object that describes the scope of the recommendation preference.
     --
     -- Recommendation preferences can be created at the organization level (for
@@ -74,28 +84,37 @@ data RecommendationPreferencesDetail = RecommendationPreferencesDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'enhancedInfrastructureMetrics', 'recommendationPreferencesDetail_enhancedInfrastructureMetrics' - The status of the enhanced infrastructure metrics recommendation
+-- preference.
+--
+-- When the recommendations page is refreshed, a status of @Active@
+-- confirms that the preference is applied to the recommendations, and a
+-- status of @Inactive@ confirms that the preference isn\'t yet applied to
+-- recommendations.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html Enhanced infrastructure metrics>
+-- in the /Compute Optimizer User Guide/.
+--
+-- 'externalMetricsPreference', 'recommendationPreferencesDetail_externalMetricsPreference' - An object that describes the external metrics recommendation preference.
+--
+-- If the preference is applied in the latest recommendation refresh, an
+-- object with a valid @source@ value appears in the response. If the
+-- preference isn\'t applied to the recommendations already, then this
+-- object doesn\'t appear in the response.
+--
+-- 'inferredWorkloadTypes', 'recommendationPreferencesDetail_inferredWorkloadTypes' - The status of the inferred workload types recommendation preference.
+--
+-- When the recommendations page is refreshed, a status of @Active@
+-- confirms that the preference is applied to the recommendations, and a
+-- status of @Inactive@ confirms that the preference isn\'t yet applied to
+-- recommendations.
+--
 -- 'resourceType', 'recommendationPreferencesDetail_resourceType' - The target resource type of the recommendation preference to create.
 --
 -- The @Ec2Instance@ option encompasses standalone instances and instances
 -- that are part of Auto Scaling groups. The @AutoScalingGroup@ option
 -- encompasses only instances that are part of an Auto Scaling group.
---
--- 'inferredWorkloadTypes', 'recommendationPreferencesDetail_inferredWorkloadTypes' - The status of the inferred workload types recommendation preference.
---
--- A status of @Active@ confirms that the preference is applied in the
--- latest recommendation refresh. A status of @Inactive@ confirms that
--- it\'s not yet applied to recommendations.
---
--- 'enhancedInfrastructureMetrics', 'recommendationPreferencesDetail_enhancedInfrastructureMetrics' - The status of the enhanced infrastructure metrics recommendation
--- preference.
---
--- A status of @Active@ confirms that the preference is applied in the
--- latest recommendation refresh, and a status of @Inactive@ confirms that
--- it\'s not yet applied to recommendations.
---
--- For more information, see
--- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html Enhanced infrastructure metrics>
--- in the /Compute Optimizer User Guide/.
 --
 -- 'scope', 'recommendationPreferencesDetail_scope' - An object that describes the scope of the recommendation preference.
 --
@@ -108,13 +127,46 @@ newRecommendationPreferencesDetail ::
   RecommendationPreferencesDetail
 newRecommendationPreferencesDetail =
   RecommendationPreferencesDetail'
-    { resourceType =
+    { enhancedInfrastructureMetrics =
+        Prelude.Nothing,
+      externalMetricsPreference =
         Prelude.Nothing,
       inferredWorkloadTypes = Prelude.Nothing,
-      enhancedInfrastructureMetrics =
-        Prelude.Nothing,
+      resourceType = Prelude.Nothing,
       scope = Prelude.Nothing
     }
+
+-- | The status of the enhanced infrastructure metrics recommendation
+-- preference.
+--
+-- When the recommendations page is refreshed, a status of @Active@
+-- confirms that the preference is applied to the recommendations, and a
+-- status of @Inactive@ confirms that the preference isn\'t yet applied to
+-- recommendations.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html Enhanced infrastructure metrics>
+-- in the /Compute Optimizer User Guide/.
+recommendationPreferencesDetail_enhancedInfrastructureMetrics :: Lens.Lens' RecommendationPreferencesDetail (Prelude.Maybe EnhancedInfrastructureMetrics)
+recommendationPreferencesDetail_enhancedInfrastructureMetrics = Lens.lens (\RecommendationPreferencesDetail' {enhancedInfrastructureMetrics} -> enhancedInfrastructureMetrics) (\s@RecommendationPreferencesDetail' {} a -> s {enhancedInfrastructureMetrics = a} :: RecommendationPreferencesDetail)
+
+-- | An object that describes the external metrics recommendation preference.
+--
+-- If the preference is applied in the latest recommendation refresh, an
+-- object with a valid @source@ value appears in the response. If the
+-- preference isn\'t applied to the recommendations already, then this
+-- object doesn\'t appear in the response.
+recommendationPreferencesDetail_externalMetricsPreference :: Lens.Lens' RecommendationPreferencesDetail (Prelude.Maybe ExternalMetricsPreference)
+recommendationPreferencesDetail_externalMetricsPreference = Lens.lens (\RecommendationPreferencesDetail' {externalMetricsPreference} -> externalMetricsPreference) (\s@RecommendationPreferencesDetail' {} a -> s {externalMetricsPreference = a} :: RecommendationPreferencesDetail)
+
+-- | The status of the inferred workload types recommendation preference.
+--
+-- When the recommendations page is refreshed, a status of @Active@
+-- confirms that the preference is applied to the recommendations, and a
+-- status of @Inactive@ confirms that the preference isn\'t yet applied to
+-- recommendations.
+recommendationPreferencesDetail_inferredWorkloadTypes :: Lens.Lens' RecommendationPreferencesDetail (Prelude.Maybe InferredWorkloadTypesPreference)
+recommendationPreferencesDetail_inferredWorkloadTypes = Lens.lens (\RecommendationPreferencesDetail' {inferredWorkloadTypes} -> inferredWorkloadTypes) (\s@RecommendationPreferencesDetail' {} a -> s {inferredWorkloadTypes = a} :: RecommendationPreferencesDetail)
 
 -- | The target resource type of the recommendation preference to create.
 --
@@ -123,27 +175,6 @@ newRecommendationPreferencesDetail =
 -- encompasses only instances that are part of an Auto Scaling group.
 recommendationPreferencesDetail_resourceType :: Lens.Lens' RecommendationPreferencesDetail (Prelude.Maybe ResourceType)
 recommendationPreferencesDetail_resourceType = Lens.lens (\RecommendationPreferencesDetail' {resourceType} -> resourceType) (\s@RecommendationPreferencesDetail' {} a -> s {resourceType = a} :: RecommendationPreferencesDetail)
-
--- | The status of the inferred workload types recommendation preference.
---
--- A status of @Active@ confirms that the preference is applied in the
--- latest recommendation refresh. A status of @Inactive@ confirms that
--- it\'s not yet applied to recommendations.
-recommendationPreferencesDetail_inferredWorkloadTypes :: Lens.Lens' RecommendationPreferencesDetail (Prelude.Maybe InferredWorkloadTypesPreference)
-recommendationPreferencesDetail_inferredWorkloadTypes = Lens.lens (\RecommendationPreferencesDetail' {inferredWorkloadTypes} -> inferredWorkloadTypes) (\s@RecommendationPreferencesDetail' {} a -> s {inferredWorkloadTypes = a} :: RecommendationPreferencesDetail)
-
--- | The status of the enhanced infrastructure metrics recommendation
--- preference.
---
--- A status of @Active@ confirms that the preference is applied in the
--- latest recommendation refresh, and a status of @Inactive@ confirms that
--- it\'s not yet applied to recommendations.
---
--- For more information, see
--- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html Enhanced infrastructure metrics>
--- in the /Compute Optimizer User Guide/.
-recommendationPreferencesDetail_enhancedInfrastructureMetrics :: Lens.Lens' RecommendationPreferencesDetail (Prelude.Maybe EnhancedInfrastructureMetrics)
-recommendationPreferencesDetail_enhancedInfrastructureMetrics = Lens.lens (\RecommendationPreferencesDetail' {enhancedInfrastructureMetrics} -> enhancedInfrastructureMetrics) (\s@RecommendationPreferencesDetail' {} a -> s {enhancedInfrastructureMetrics = a} :: RecommendationPreferencesDetail)
 
 -- | An object that describes the scope of the recommendation preference.
 --
@@ -164,9 +195,10 @@ instance
       "RecommendationPreferencesDetail"
       ( \x ->
           RecommendationPreferencesDetail'
-            Prelude.<$> (x Data..:? "resourceType")
+            Prelude.<$> (x Data..:? "enhancedInfrastructureMetrics")
+            Prelude.<*> (x Data..:? "externalMetricsPreference")
             Prelude.<*> (x Data..:? "inferredWorkloadTypes")
-            Prelude.<*> (x Data..:? "enhancedInfrastructureMetrics")
+            Prelude.<*> (x Data..:? "resourceType")
             Prelude.<*> (x Data..:? "scope")
       )
 
@@ -177,9 +209,11 @@ instance
   hashWithSalt
     _salt
     RecommendationPreferencesDetail' {..} =
-      _salt `Prelude.hashWithSalt` resourceType
-        `Prelude.hashWithSalt` inferredWorkloadTypes
+      _salt
         `Prelude.hashWithSalt` enhancedInfrastructureMetrics
+        `Prelude.hashWithSalt` externalMetricsPreference
+        `Prelude.hashWithSalt` inferredWorkloadTypes
+        `Prelude.hashWithSalt` resourceType
         `Prelude.hashWithSalt` scope
 
 instance
@@ -187,7 +221,8 @@ instance
     RecommendationPreferencesDetail
   where
   rnf RecommendationPreferencesDetail' {..} =
-    Prelude.rnf resourceType
+    Prelude.rnf enhancedInfrastructureMetrics
+      `Prelude.seq` Prelude.rnf externalMetricsPreference
       `Prelude.seq` Prelude.rnf inferredWorkloadTypes
-      `Prelude.seq` Prelude.rnf enhancedInfrastructureMetrics
+      `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf scope

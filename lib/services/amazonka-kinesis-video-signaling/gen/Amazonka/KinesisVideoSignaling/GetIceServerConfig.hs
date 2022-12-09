@@ -45,8 +45,8 @@ module Amazonka.KinesisVideoSignaling.GetIceServerConfig
 
     -- * Request Lenses
     getIceServerConfig_clientId,
-    getIceServerConfig_username,
     getIceServerConfig_service,
+    getIceServerConfig_username,
     getIceServerConfig_channelARN,
 
     -- * Destructuring the Response
@@ -72,11 +72,11 @@ data GetIceServerConfig = GetIceServerConfig'
   { -- | Unique identifier for the viewer. Must be unique within the signaling
     -- channel.
     clientId :: Prelude.Maybe Prelude.Text,
-    -- | An optional user ID to be associated with the credentials.
-    username :: Prelude.Maybe Prelude.Text,
     -- | Specifies the desired service. Currently, @TURN@ is the only valid
     -- value.
     service :: Prelude.Maybe Service,
+    -- | An optional user ID to be associated with the credentials.
+    username :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the signaling channel to be used for the peer-to-peer
     -- connection between configured peers.
     channelARN :: Prelude.Text
@@ -94,10 +94,10 @@ data GetIceServerConfig = GetIceServerConfig'
 -- 'clientId', 'getIceServerConfig_clientId' - Unique identifier for the viewer. Must be unique within the signaling
 -- channel.
 --
--- 'username', 'getIceServerConfig_username' - An optional user ID to be associated with the credentials.
---
 -- 'service', 'getIceServerConfig_service' - Specifies the desired service. Currently, @TURN@ is the only valid
 -- value.
+--
+-- 'username', 'getIceServerConfig_username' - An optional user ID to be associated with the credentials.
 --
 -- 'channelARN', 'getIceServerConfig_channelARN' - The ARN of the signaling channel to be used for the peer-to-peer
 -- connection between configured peers.
@@ -108,8 +108,8 @@ newGetIceServerConfig ::
 newGetIceServerConfig pChannelARN_ =
   GetIceServerConfig'
     { clientId = Prelude.Nothing,
-      username = Prelude.Nothing,
       service = Prelude.Nothing,
+      username = Prelude.Nothing,
       channelARN = pChannelARN_
     }
 
@@ -118,14 +118,14 @@ newGetIceServerConfig pChannelARN_ =
 getIceServerConfig_clientId :: Lens.Lens' GetIceServerConfig (Prelude.Maybe Prelude.Text)
 getIceServerConfig_clientId = Lens.lens (\GetIceServerConfig' {clientId} -> clientId) (\s@GetIceServerConfig' {} a -> s {clientId = a} :: GetIceServerConfig)
 
--- | An optional user ID to be associated with the credentials.
-getIceServerConfig_username :: Lens.Lens' GetIceServerConfig (Prelude.Maybe Prelude.Text)
-getIceServerConfig_username = Lens.lens (\GetIceServerConfig' {username} -> username) (\s@GetIceServerConfig' {} a -> s {username = a} :: GetIceServerConfig)
-
 -- | Specifies the desired service. Currently, @TURN@ is the only valid
 -- value.
 getIceServerConfig_service :: Lens.Lens' GetIceServerConfig (Prelude.Maybe Service)
 getIceServerConfig_service = Lens.lens (\GetIceServerConfig' {service} -> service) (\s@GetIceServerConfig' {} a -> s {service = a} :: GetIceServerConfig)
+
+-- | An optional user ID to be associated with the credentials.
+getIceServerConfig_username :: Lens.Lens' GetIceServerConfig (Prelude.Maybe Prelude.Text)
+getIceServerConfig_username = Lens.lens (\GetIceServerConfig' {username} -> username) (\s@GetIceServerConfig' {} a -> s {username = a} :: GetIceServerConfig)
 
 -- | The ARN of the signaling channel to be used for the peer-to-peer
 -- connection between configured peers.
@@ -149,15 +149,15 @@ instance Core.AWSRequest GetIceServerConfig where
 instance Prelude.Hashable GetIceServerConfig where
   hashWithSalt _salt GetIceServerConfig' {..} =
     _salt `Prelude.hashWithSalt` clientId
-      `Prelude.hashWithSalt` username
       `Prelude.hashWithSalt` service
+      `Prelude.hashWithSalt` username
       `Prelude.hashWithSalt` channelARN
 
 instance Prelude.NFData GetIceServerConfig where
   rnf GetIceServerConfig' {..} =
     Prelude.rnf clientId
-      `Prelude.seq` Prelude.rnf username
       `Prelude.seq` Prelude.rnf service
+      `Prelude.seq` Prelude.rnf username
       `Prelude.seq` Prelude.rnf channelARN
 
 instance Data.ToHeaders GetIceServerConfig where
@@ -168,8 +168,8 @@ instance Data.ToJSON GetIceServerConfig where
     Data.object
       ( Prelude.catMaybes
           [ ("ClientId" Data..=) Prelude.<$> clientId,
-            ("Username" Data..=) Prelude.<$> username,
             ("Service" Data..=) Prelude.<$> service,
+            ("Username" Data..=) Prelude.<$> username,
             Prelude.Just ("ChannelARN" Data..= channelARN)
           ]
       )

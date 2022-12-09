@@ -16,8 +16,8 @@ module Amazonka.KinesisVideoSignaling.Lens
 
     -- ** GetIceServerConfig
     getIceServerConfig_clientId,
-    getIceServerConfig_username,
     getIceServerConfig_service,
+    getIceServerConfig_username,
     getIceServerConfig_channelARN,
     getIceServerConfigResponse_iceServerList,
     getIceServerConfigResponse_httpStatus,
@@ -34,8 +34,8 @@ module Amazonka.KinesisVideoSignaling.Lens
     -- ** IceServer
     iceServer_password,
     iceServer_ttl,
-    iceServer_username,
     iceServer_uris,
+    iceServer_username,
   )
 where
 

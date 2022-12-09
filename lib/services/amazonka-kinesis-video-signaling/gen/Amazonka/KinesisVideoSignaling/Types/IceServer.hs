@@ -33,13 +33,13 @@ data IceServer = IceServer'
     -- | The period of time, in seconds, during which the username and password
     -- are valid.
     ttl :: Prelude.Maybe Prelude.Natural,
-    -- | A username to login to the ICE server.
-    username :: Prelude.Maybe Prelude.Text,
     -- | An array of URIs, in the form specified in the
     -- <https://tools.ietf.org/html/draft-petithuguenin-behave-turn-uris-03 I-D.petithuguenin-behave-turn-uris>
     -- spec. These URIs provide the different addresses and\/or protocols that
     -- can be used to reach the TURN server.
-    uris :: Prelude.Maybe [Prelude.Text]
+    uris :: Prelude.Maybe [Prelude.Text],
+    -- | A username to login to the ICE server.
+    username :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,20 +56,20 @@ data IceServer = IceServer'
 -- 'ttl', 'iceServer_ttl' - The period of time, in seconds, during which the username and password
 -- are valid.
 --
--- 'username', 'iceServer_username' - A username to login to the ICE server.
---
 -- 'uris', 'iceServer_uris' - An array of URIs, in the form specified in the
 -- <https://tools.ietf.org/html/draft-petithuguenin-behave-turn-uris-03 I-D.petithuguenin-behave-turn-uris>
 -- spec. These URIs provide the different addresses and\/or protocols that
 -- can be used to reach the TURN server.
+--
+-- 'username', 'iceServer_username' - A username to login to the ICE server.
 newIceServer ::
   IceServer
 newIceServer =
   IceServer'
     { password = Prelude.Nothing,
       ttl = Prelude.Nothing,
-      username = Prelude.Nothing,
-      uris = Prelude.Nothing
+      uris = Prelude.Nothing,
+      username = Prelude.Nothing
     }
 
 -- | A password to login to the ICE server.
@@ -81,16 +81,16 @@ iceServer_password = Lens.lens (\IceServer' {password} -> password) (\s@IceServe
 iceServer_ttl :: Lens.Lens' IceServer (Prelude.Maybe Prelude.Natural)
 iceServer_ttl = Lens.lens (\IceServer' {ttl} -> ttl) (\s@IceServer' {} a -> s {ttl = a} :: IceServer)
 
--- | A username to login to the ICE server.
-iceServer_username :: Lens.Lens' IceServer (Prelude.Maybe Prelude.Text)
-iceServer_username = Lens.lens (\IceServer' {username} -> username) (\s@IceServer' {} a -> s {username = a} :: IceServer)
-
 -- | An array of URIs, in the form specified in the
 -- <https://tools.ietf.org/html/draft-petithuguenin-behave-turn-uris-03 I-D.petithuguenin-behave-turn-uris>
 -- spec. These URIs provide the different addresses and\/or protocols that
 -- can be used to reach the TURN server.
 iceServer_uris :: Lens.Lens' IceServer (Prelude.Maybe [Prelude.Text])
 iceServer_uris = Lens.lens (\IceServer' {uris} -> uris) (\s@IceServer' {} a -> s {uris = a} :: IceServer) Prelude.. Lens.mapping Lens.coerced
+
+-- | A username to login to the ICE server.
+iceServer_username :: Lens.Lens' IceServer (Prelude.Maybe Prelude.Text)
+iceServer_username = Lens.lens (\IceServer' {username} -> username) (\s@IceServer' {} a -> s {username = a} :: IceServer)
 
 instance Data.FromJSON IceServer where
   parseJSON =
@@ -100,20 +100,20 @@ instance Data.FromJSON IceServer where
           IceServer'
             Prelude.<$> (x Data..:? "Password")
             Prelude.<*> (x Data..:? "Ttl")
-            Prelude.<*> (x Data..:? "Username")
             Prelude.<*> (x Data..:? "Uris" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Username")
       )
 
 instance Prelude.Hashable IceServer where
   hashWithSalt _salt IceServer' {..} =
     _salt `Prelude.hashWithSalt` password
       `Prelude.hashWithSalt` ttl
-      `Prelude.hashWithSalt` username
       `Prelude.hashWithSalt` uris
+      `Prelude.hashWithSalt` username
 
 instance Prelude.NFData IceServer where
   rnf IceServer' {..} =
     Prelude.rnf password
       `Prelude.seq` Prelude.rnf ttl
-      `Prelude.seq` Prelude.rnf username
       `Prelude.seq` Prelude.rnf uris
+      `Prelude.seq` Prelude.rnf username

@@ -95,6 +95,7 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 - `amazonka-sagemaker-geospatial`: Build, train, and deploy ML models using geospatial data. [Overview](https://aws.amazon.com/sagemaker/geospatial/)
 - `amazonka-scheduler`: Amazon EventBridge Scheduler is a serverless scheduler that allows you to create, run, and manage tasks from one central, managed service. [Overview](https://docs.aws.amazon.com/scheduler/latest/UserGuide/what-is-scheduler.html)
 - `amazonka-securitylake`: Amazon Security Lake automatically centralizes security data from cloud, on-premises, and custom sources into a purpose-built data lake stored in your account. [Overview](https://aws.amazon.com/security-lake/)
+- `amazonka-simspaceweaver`: A managed service that lets you create expansive simulation worlds at increased levels of complexity and scale. [Overview](https://aws.amazon.com/simspaceweaver/)
 - `amazonka-sms-voice`: Looks like an alternate binding to the Pinpoint SMS and Voice API. Maybe stick with `amazonka-pinpoint-sms-voice-v2`? [Overview](https://docs.aws.amazon.com/pinpoint-sms-voice/latest/APIReference/welcome.html)
 - `amazonka-ssm-sap`: Actions and data types for AWS Systems Manager for SAP.
 - `amazonka-support-app`: You can use the AWS Support App to manage your AWS support cases in Slack. You can invite your team members to chat channels, respond to case updates, and chat directly with support agents. [Overview](https://docs.aws.amazon.com/awssupport/latest/user/aws-support-app-for-slack.html)

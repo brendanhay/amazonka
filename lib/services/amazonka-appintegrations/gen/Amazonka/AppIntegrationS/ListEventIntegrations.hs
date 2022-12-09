@@ -27,16 +27,16 @@ module Amazonka.AppIntegrationS.ListEventIntegrations
     newListEventIntegrations,
 
     -- * Request Lenses
-    listEventIntegrations_nextToken,
     listEventIntegrations_maxResults,
+    listEventIntegrations_nextToken,
 
     -- * Destructuring the Response
     ListEventIntegrationsResponse (..),
     newListEventIntegrationsResponse,
 
     -- * Response Lenses
-    listEventIntegrationsResponse_nextToken,
     listEventIntegrationsResponse_eventIntegrations,
+    listEventIntegrationsResponse_nextToken,
     listEventIntegrationsResponse_httpStatus,
   )
 where
@@ -51,12 +51,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListEventIntegrations' smart constructor.
 data ListEventIntegrations = ListEventIntegrations'
-  { -- | The token for the next set of results. Use the value returned in the
+  { -- | The maximum number of results to return per page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per page.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,28 +68,29 @@ data ListEventIntegrations = ListEventIntegrations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listEventIntegrations_maxResults' - The maximum number of results to return per page.
+--
 -- 'nextToken', 'listEventIntegrations_nextToken' - The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
---
--- 'maxResults', 'listEventIntegrations_maxResults' - The maximum number of results to return per page.
 newListEventIntegrations ::
   ListEventIntegrations
 newListEventIntegrations =
   ListEventIntegrations'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of results to return per page.
+listEventIntegrations_maxResults :: Lens.Lens' ListEventIntegrations (Prelude.Maybe Prelude.Natural)
+listEventIntegrations_maxResults = Lens.lens (\ListEventIntegrations' {maxResults} -> maxResults) (\s@ListEventIntegrations' {} a -> s {maxResults = a} :: ListEventIntegrations)
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
 listEventIntegrations_nextToken :: Lens.Lens' ListEventIntegrations (Prelude.Maybe Prelude.Text)
 listEventIntegrations_nextToken = Lens.lens (\ListEventIntegrations' {nextToken} -> nextToken) (\s@ListEventIntegrations' {} a -> s {nextToken = a} :: ListEventIntegrations)
-
--- | The maximum number of results to return per page.
-listEventIntegrations_maxResults :: Lens.Lens' ListEventIntegrations (Prelude.Maybe Prelude.Natural)
-listEventIntegrations_maxResults = Lens.lens (\ListEventIntegrations' {maxResults} -> maxResults) (\s@ListEventIntegrations' {} a -> s {maxResults = a} :: ListEventIntegrations)
 
 instance Core.AWSRequest ListEventIntegrations where
   type
@@ -101,20 +102,20 @@ instance Core.AWSRequest ListEventIntegrations where
     Response.receiveJSON
       ( \s h x ->
           ListEventIntegrationsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "EventIntegrations")
+            Prelude.<$> (x Data..?> "EventIntegrations")
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListEventIntegrations where
   hashWithSalt _salt ListEventIntegrations' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListEventIntegrations where
   rnf ListEventIntegrations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListEventIntegrations where
   toHeaders =
@@ -133,17 +134,17 @@ instance Data.ToPath ListEventIntegrations where
 instance Data.ToQuery ListEventIntegrations where
   toQuery ListEventIntegrations' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListEventIntegrationsResponse' smart constructor.
 data ListEventIntegrationsResponse = ListEventIntegrationsResponse'
-  { -- | If there are additional results, this is the token for the next set of
+  { -- | The event integrations.
+    eventIntegrations :: Prelude.Maybe (Prelude.NonEmpty EventIntegration),
+    -- | If there are additional results, this is the token for the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The event integrations.
-    eventIntegrations :: Prelude.Maybe (Prelude.NonEmpty EventIntegration),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -157,10 +158,10 @@ data ListEventIntegrationsResponse = ListEventIntegrationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'eventIntegrations', 'listEventIntegrationsResponse_eventIntegrations' - The event integrations.
+--
 -- 'nextToken', 'listEventIntegrationsResponse_nextToken' - If there are additional results, this is the token for the next set of
 -- results.
---
--- 'eventIntegrations', 'listEventIntegrationsResponse_eventIntegrations' - The event integrations.
 --
 -- 'httpStatus', 'listEventIntegrationsResponse_httpStatus' - The response's http status code.
 newListEventIntegrationsResponse ::
@@ -169,20 +170,20 @@ newListEventIntegrationsResponse ::
   ListEventIntegrationsResponse
 newListEventIntegrationsResponse pHttpStatus_ =
   ListEventIntegrationsResponse'
-    { nextToken =
+    { eventIntegrations =
         Prelude.Nothing,
-      eventIntegrations = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The event integrations.
+listEventIntegrationsResponse_eventIntegrations :: Lens.Lens' ListEventIntegrationsResponse (Prelude.Maybe (Prelude.NonEmpty EventIntegration))
+listEventIntegrationsResponse_eventIntegrations = Lens.lens (\ListEventIntegrationsResponse' {eventIntegrations} -> eventIntegrations) (\s@ListEventIntegrationsResponse' {} a -> s {eventIntegrations = a} :: ListEventIntegrationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If there are additional results, this is the token for the next set of
 -- results.
 listEventIntegrationsResponse_nextToken :: Lens.Lens' ListEventIntegrationsResponse (Prelude.Maybe Prelude.Text)
 listEventIntegrationsResponse_nextToken = Lens.lens (\ListEventIntegrationsResponse' {nextToken} -> nextToken) (\s@ListEventIntegrationsResponse' {} a -> s {nextToken = a} :: ListEventIntegrationsResponse)
-
--- | The event integrations.
-listEventIntegrationsResponse_eventIntegrations :: Lens.Lens' ListEventIntegrationsResponse (Prelude.Maybe (Prelude.NonEmpty EventIntegration))
-listEventIntegrationsResponse_eventIntegrations = Lens.lens (\ListEventIntegrationsResponse' {eventIntegrations} -> eventIntegrations) (\s@ListEventIntegrationsResponse' {} a -> s {eventIntegrations = a} :: ListEventIntegrationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listEventIntegrationsResponse_httpStatus :: Lens.Lens' ListEventIntegrationsResponse Prelude.Int
@@ -190,6 +191,6 @@ listEventIntegrationsResponse_httpStatus = Lens.lens (\ListEventIntegrationsResp
 
 instance Prelude.NFData ListEventIntegrationsResponse where
   rnf ListEventIntegrationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf eventIntegrations
+    Prelude.rnf eventIntegrations
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

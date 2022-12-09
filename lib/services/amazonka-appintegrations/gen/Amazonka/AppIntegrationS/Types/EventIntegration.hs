@@ -29,18 +29,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEventIntegration' smart constructor.
 data EventIntegration = EventIntegration'
-  { -- | The tags.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The name of the event integration.
-    name :: Prelude.Maybe Prelude.Text,
+  { -- | The event integration description.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The Amazon EventBridge bus for the event integration.
     eventBridgeBus :: Prelude.Maybe Prelude.Text,
     -- | The event integration filter.
     eventFilter :: Prelude.Maybe EventFilter,
-    -- | The event integration description.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the event integration.
-    eventIntegrationArn :: Prelude.Maybe Prelude.Text
+    eventIntegrationArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the event integration.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The tags.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,36 +52,32 @@ data EventIntegration = EventIntegration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'eventIntegration_tags' - The tags.
---
--- 'name', 'eventIntegration_name' - The name of the event integration.
+-- 'description', 'eventIntegration_description' - The event integration description.
 --
 -- 'eventBridgeBus', 'eventIntegration_eventBridgeBus' - The Amazon EventBridge bus for the event integration.
 --
 -- 'eventFilter', 'eventIntegration_eventFilter' - The event integration filter.
 --
--- 'description', 'eventIntegration_description' - The event integration description.
---
 -- 'eventIntegrationArn', 'eventIntegration_eventIntegrationArn' - The Amazon Resource Name (ARN) of the event integration.
+--
+-- 'name', 'eventIntegration_name' - The name of the event integration.
+--
+-- 'tags', 'eventIntegration_tags' - The tags.
 newEventIntegration ::
   EventIntegration
 newEventIntegration =
   EventIntegration'
-    { tags = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { description = Prelude.Nothing,
       eventBridgeBus = Prelude.Nothing,
       eventFilter = Prelude.Nothing,
-      description = Prelude.Nothing,
-      eventIntegrationArn = Prelude.Nothing
+      eventIntegrationArn = Prelude.Nothing,
+      name = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
 
--- | The tags.
-eventIntegration_tags :: Lens.Lens' EventIntegration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-eventIntegration_tags = Lens.lens (\EventIntegration' {tags} -> tags) (\s@EventIntegration' {} a -> s {tags = a} :: EventIntegration) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the event integration.
-eventIntegration_name :: Lens.Lens' EventIntegration (Prelude.Maybe Prelude.Text)
-eventIntegration_name = Lens.lens (\EventIntegration' {name} -> name) (\s@EventIntegration' {} a -> s {name = a} :: EventIntegration)
+-- | The event integration description.
+eventIntegration_description :: Lens.Lens' EventIntegration (Prelude.Maybe Prelude.Text)
+eventIntegration_description = Lens.lens (\EventIntegration' {description} -> description) (\s@EventIntegration' {} a -> s {description = a} :: EventIntegration)
 
 -- | The Amazon EventBridge bus for the event integration.
 eventIntegration_eventBridgeBus :: Lens.Lens' EventIntegration (Prelude.Maybe Prelude.Text)
@@ -91,13 +87,17 @@ eventIntegration_eventBridgeBus = Lens.lens (\EventIntegration' {eventBridgeBus}
 eventIntegration_eventFilter :: Lens.Lens' EventIntegration (Prelude.Maybe EventFilter)
 eventIntegration_eventFilter = Lens.lens (\EventIntegration' {eventFilter} -> eventFilter) (\s@EventIntegration' {} a -> s {eventFilter = a} :: EventIntegration)
 
--- | The event integration description.
-eventIntegration_description :: Lens.Lens' EventIntegration (Prelude.Maybe Prelude.Text)
-eventIntegration_description = Lens.lens (\EventIntegration' {description} -> description) (\s@EventIntegration' {} a -> s {description = a} :: EventIntegration)
-
 -- | The Amazon Resource Name (ARN) of the event integration.
 eventIntegration_eventIntegrationArn :: Lens.Lens' EventIntegration (Prelude.Maybe Prelude.Text)
 eventIntegration_eventIntegrationArn = Lens.lens (\EventIntegration' {eventIntegrationArn} -> eventIntegrationArn) (\s@EventIntegration' {} a -> s {eventIntegrationArn = a} :: EventIntegration)
+
+-- | The name of the event integration.
+eventIntegration_name :: Lens.Lens' EventIntegration (Prelude.Maybe Prelude.Text)
+eventIntegration_name = Lens.lens (\EventIntegration' {name} -> name) (\s@EventIntegration' {} a -> s {name = a} :: EventIntegration)
+
+-- | The tags.
+eventIntegration_tags :: Lens.Lens' EventIntegration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+eventIntegration_tags = Lens.lens (\EventIntegration' {tags} -> tags) (\s@EventIntegration' {} a -> s {tags = a} :: EventIntegration) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON EventIntegration where
   parseJSON =
@@ -105,28 +105,28 @@ instance Data.FromJSON EventIntegration where
       "EventIntegration"
       ( \x ->
           EventIntegration'
-            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "Name")
+            Prelude.<$> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "EventBridgeBus")
             Prelude.<*> (x Data..:? "EventFilter")
-            Prelude.<*> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "EventIntegrationArn")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable EventIntegration where
   hashWithSalt _salt EventIntegration' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` eventBridgeBus
       `Prelude.hashWithSalt` eventFilter
-      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` eventIntegrationArn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData EventIntegration where
   rnf EventIntegration' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf eventBridgeBus
       `Prelude.seq` Prelude.rnf eventFilter
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf eventIntegrationArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags

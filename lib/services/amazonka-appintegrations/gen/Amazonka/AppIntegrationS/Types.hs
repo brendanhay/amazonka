@@ -20,11 +20,11 @@ module Amazonka.AppIntegrationS.Types
     -- * Errors
     _AccessDeniedException,
     _DuplicateResourceException,
+    _InternalServiceError,
+    _InvalidRequestException,
     _ResourceNotFoundException,
     _ResourceQuotaExceededException,
-    _InternalServiceError,
     _ThrottlingException,
-    _InvalidRequestException,
 
     -- * DataIntegrationAssociationSummary
     DataIntegrationAssociationSummary (..),
@@ -36,9 +36,9 @@ module Amazonka.AppIntegrationS.Types
     -- * DataIntegrationSummary
     DataIntegrationSummary (..),
     newDataIntegrationSummary,
+    dataIntegrationSummary_arn,
     dataIntegrationSummary_name,
     dataIntegrationSummary_sourceURI,
-    dataIntegrationSummary_arn,
 
     -- * EventFilter
     EventFilter (..),
@@ -48,29 +48,29 @@ module Amazonka.AppIntegrationS.Types
     -- * EventIntegration
     EventIntegration (..),
     newEventIntegration,
-    eventIntegration_tags,
-    eventIntegration_name,
+    eventIntegration_description,
     eventIntegration_eventBridgeBus,
     eventIntegration_eventFilter,
-    eventIntegration_description,
     eventIntegration_eventIntegrationArn,
+    eventIntegration_name,
+    eventIntegration_tags,
 
     -- * EventIntegrationAssociation
     EventIntegrationAssociation (..),
     newEventIntegrationAssociation,
-    eventIntegrationAssociation_eventBridgeRuleName,
+    eventIntegrationAssociation_clientAssociationMetadata,
     eventIntegrationAssociation_clientId,
-    eventIntegrationAssociation_eventIntegrationName,
+    eventIntegrationAssociation_eventBridgeRuleName,
     eventIntegrationAssociation_eventIntegrationAssociationArn,
     eventIntegrationAssociation_eventIntegrationAssociationId,
-    eventIntegrationAssociation_clientAssociationMetadata,
+    eventIntegrationAssociation_eventIntegrationName,
 
     -- * ScheduleConfiguration
     ScheduleConfiguration (..),
     newScheduleConfiguration,
+    scheduleConfiguration_firstExecutionFrom,
     scheduleConfiguration_object,
     scheduleConfiguration_scheduleExpression,
-    scheduleConfiguration_firstExecutionFrom,
   )
 where
 
@@ -110,28 +110,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -139,13 +133,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -153,6 +151,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient access to perform this action.
@@ -171,6 +171,22 @@ _DuplicateResourceException =
     "DuplicateResourceException"
     Prelude.. Core.hasStatus 409
 
+-- | Request processing failed due to an error or failure with the service.
+_InternalServiceError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServiceError =
+  Core._MatchServiceError
+    defaultService
+    "InternalServiceError"
+    Prelude.. Core.hasStatus 500
+
+-- | The request is not valid.
+_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidRequestException"
+    Prelude.. Core.hasStatus 400
+
 -- | The specified resource was not found.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
@@ -187,14 +203,6 @@ _ResourceQuotaExceededException =
     "ResourceQuotaExceededException"
     Prelude.. Core.hasStatus 429
 
--- | Request processing failed due to an error or failure with the service.
-_InternalServiceError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServiceError =
-  Core._MatchServiceError
-    defaultService
-    "InternalServiceError"
-    Prelude.. Core.hasStatus 500
-
 -- | The throttling limit has been exceeded.
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ThrottlingException =
@@ -202,11 +210,3 @@ _ThrottlingException =
     defaultService
     "ThrottlingException"
     Prelude.. Core.hasStatus 429
-
--- | The request is not valid.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidRequestException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidRequestException"
-    Prelude.. Core.hasStatus 400

@@ -33,20 +33,20 @@ module Amazonka.AppIntegrationS
     -- ** DuplicateResourceException
     _DuplicateResourceException,
 
+    -- ** InternalServiceError
+    _InternalServiceError,
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
+
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
     -- ** ResourceQuotaExceededException
     _ResourceQuotaExceededException,
 
-    -- ** InternalServiceError
-    _InternalServiceError,
-
     -- ** ThrottlingException
     _ThrottlingException,
-
-    -- ** InvalidRequestException
-    _InvalidRequestException,
 
     -- * Waiters
     -- $waiters

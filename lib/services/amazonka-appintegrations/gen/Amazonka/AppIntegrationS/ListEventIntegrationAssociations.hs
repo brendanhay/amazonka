@@ -28,8 +28,8 @@ module Amazonka.AppIntegrationS.ListEventIntegrationAssociations
     newListEventIntegrationAssociations,
 
     -- * Request Lenses
-    listEventIntegrationAssociations_nextToken,
     listEventIntegrationAssociations_maxResults,
+    listEventIntegrationAssociations_nextToken,
     listEventIntegrationAssociations_eventIntegrationName,
 
     -- * Destructuring the Response
@@ -37,8 +37,8 @@ module Amazonka.AppIntegrationS.ListEventIntegrationAssociations
     newListEventIntegrationAssociationsResponse,
 
     -- * Response Lenses
-    listEventIntegrationAssociationsResponse_nextToken,
     listEventIntegrationAssociationsResponse_eventIntegrationAssociations,
+    listEventIntegrationAssociationsResponse_nextToken,
     listEventIntegrationAssociationsResponse_httpStatus,
   )
 where
@@ -53,12 +53,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListEventIntegrationAssociations' smart constructor.
 data ListEventIntegrationAssociations = ListEventIntegrationAssociations'
-  { -- | The token for the next set of results. Use the value returned in the
+  { -- | The maximum number of results to return per page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name of the event integration.
     eventIntegrationName :: Prelude.Text
   }
@@ -72,11 +72,11 @@ data ListEventIntegrationAssociations = ListEventIntegrationAssociations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listEventIntegrationAssociations_maxResults' - The maximum number of results to return per page.
+--
 -- 'nextToken', 'listEventIntegrationAssociations_nextToken' - The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
---
--- 'maxResults', 'listEventIntegrationAssociations_maxResults' - The maximum number of results to return per page.
 --
 -- 'eventIntegrationName', 'listEventIntegrationAssociations_eventIntegrationName' - The name of the event integration.
 newListEventIntegrationAssociations ::
@@ -86,22 +86,22 @@ newListEventIntegrationAssociations ::
 newListEventIntegrationAssociations
   pEventIntegrationName_ =
     ListEventIntegrationAssociations'
-      { nextToken =
+      { maxResults =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         eventIntegrationName =
           pEventIntegrationName_
       }
+
+-- | The maximum number of results to return per page.
+listEventIntegrationAssociations_maxResults :: Lens.Lens' ListEventIntegrationAssociations (Prelude.Maybe Prelude.Natural)
+listEventIntegrationAssociations_maxResults = Lens.lens (\ListEventIntegrationAssociations' {maxResults} -> maxResults) (\s@ListEventIntegrationAssociations' {} a -> s {maxResults = a} :: ListEventIntegrationAssociations)
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
 listEventIntegrationAssociations_nextToken :: Lens.Lens' ListEventIntegrationAssociations (Prelude.Maybe Prelude.Text)
 listEventIntegrationAssociations_nextToken = Lens.lens (\ListEventIntegrationAssociations' {nextToken} -> nextToken) (\s@ListEventIntegrationAssociations' {} a -> s {nextToken = a} :: ListEventIntegrationAssociations)
-
--- | The maximum number of results to return per page.
-listEventIntegrationAssociations_maxResults :: Lens.Lens' ListEventIntegrationAssociations (Prelude.Maybe Prelude.Natural)
-listEventIntegrationAssociations_maxResults = Lens.lens (\ListEventIntegrationAssociations' {maxResults} -> maxResults) (\s@ListEventIntegrationAssociations' {} a -> s {maxResults = a} :: ListEventIntegrationAssociations)
 
 -- | The name of the event integration.
 listEventIntegrationAssociations_eventIntegrationName :: Lens.Lens' ListEventIntegrationAssociations Prelude.Text
@@ -120,8 +120,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListEventIntegrationAssociationsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "EventIntegrationAssociations")
+            Prelude.<$> (x Data..?> "EventIntegrationAssociations")
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,8 +132,8 @@ instance
   hashWithSalt
     _salt
     ListEventIntegrationAssociations' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` eventIntegrationName
 
 instance
@@ -141,8 +141,8 @@ instance
     ListEventIntegrationAssociations
   where
   rnf ListEventIntegrationAssociations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf eventIntegrationName
 
 instance
@@ -173,17 +173,17 @@ instance
   where
   toQuery ListEventIntegrationAssociations' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListEventIntegrationAssociationsResponse' smart constructor.
 data ListEventIntegrationAssociationsResponse = ListEventIntegrationAssociationsResponse'
-  { -- | If there are additional results, this is the token for the next set of
+  { -- | The event integration associations.
+    eventIntegrationAssociations :: Prelude.Maybe (Prelude.NonEmpty EventIntegrationAssociation),
+    -- | If there are additional results, this is the token for the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The event integration associations.
-    eventIntegrationAssociations :: Prelude.Maybe (Prelude.NonEmpty EventIntegrationAssociation),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -197,10 +197,10 @@ data ListEventIntegrationAssociationsResponse = ListEventIntegrationAssociations
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'eventIntegrationAssociations', 'listEventIntegrationAssociationsResponse_eventIntegrationAssociations' - The event integration associations.
+--
 -- 'nextToken', 'listEventIntegrationAssociationsResponse_nextToken' - If there are additional results, this is the token for the next set of
 -- results.
---
--- 'eventIntegrationAssociations', 'listEventIntegrationAssociationsResponse_eventIntegrationAssociations' - The event integration associations.
 --
 -- 'httpStatus', 'listEventIntegrationAssociationsResponse_httpStatus' - The response's http status code.
 newListEventIntegrationAssociationsResponse ::
@@ -210,21 +210,20 @@ newListEventIntegrationAssociationsResponse ::
 newListEventIntegrationAssociationsResponse
   pHttpStatus_ =
     ListEventIntegrationAssociationsResponse'
-      { nextToken =
+      { eventIntegrationAssociations =
           Prelude.Nothing,
-        eventIntegrationAssociations =
-          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | The event integration associations.
+listEventIntegrationAssociationsResponse_eventIntegrationAssociations :: Lens.Lens' ListEventIntegrationAssociationsResponse (Prelude.Maybe (Prelude.NonEmpty EventIntegrationAssociation))
+listEventIntegrationAssociationsResponse_eventIntegrationAssociations = Lens.lens (\ListEventIntegrationAssociationsResponse' {eventIntegrationAssociations} -> eventIntegrationAssociations) (\s@ListEventIntegrationAssociationsResponse' {} a -> s {eventIntegrationAssociations = a} :: ListEventIntegrationAssociationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If there are additional results, this is the token for the next set of
 -- results.
 listEventIntegrationAssociationsResponse_nextToken :: Lens.Lens' ListEventIntegrationAssociationsResponse (Prelude.Maybe Prelude.Text)
 listEventIntegrationAssociationsResponse_nextToken = Lens.lens (\ListEventIntegrationAssociationsResponse' {nextToken} -> nextToken) (\s@ListEventIntegrationAssociationsResponse' {} a -> s {nextToken = a} :: ListEventIntegrationAssociationsResponse)
-
--- | The event integration associations.
-listEventIntegrationAssociationsResponse_eventIntegrationAssociations :: Lens.Lens' ListEventIntegrationAssociationsResponse (Prelude.Maybe (Prelude.NonEmpty EventIntegrationAssociation))
-listEventIntegrationAssociationsResponse_eventIntegrationAssociations = Lens.lens (\ListEventIntegrationAssociationsResponse' {eventIntegrationAssociations} -> eventIntegrationAssociations) (\s@ListEventIntegrationAssociationsResponse' {} a -> s {eventIntegrationAssociations = a} :: ListEventIntegrationAssociationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listEventIntegrationAssociationsResponse_httpStatus :: Lens.Lens' ListEventIntegrationAssociationsResponse Prelude.Int
@@ -235,6 +234,6 @@ instance
     ListEventIntegrationAssociationsResponse
   where
   rnf ListEventIntegrationAssociationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf eventIntegrationAssociations
+    Prelude.rnf eventIntegrationAssociations
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

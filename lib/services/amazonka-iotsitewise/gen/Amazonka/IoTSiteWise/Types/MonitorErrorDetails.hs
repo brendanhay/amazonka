@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMonitorErrorDetails' smart constructor.
 data MonitorErrorDetails = MonitorErrorDetails'
-  { -- | The error message.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The error code.
-    code :: Prelude.Maybe MonitorErrorCode
+  { -- | The error code.
+    code :: Prelude.Maybe MonitorErrorCode,
+    -- | The error message.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data MonitorErrorDetails = MonitorErrorDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'monitorErrorDetails_message' - The error message.
---
 -- 'code', 'monitorErrorDetails_code' - The error code.
+--
+-- 'message', 'monitorErrorDetails_message' - The error message.
 newMonitorErrorDetails ::
   MonitorErrorDetails
 newMonitorErrorDetails =
   MonitorErrorDetails'
-    { message = Prelude.Nothing,
-      code = Prelude.Nothing
+    { code = Prelude.Nothing,
+      message = Prelude.Nothing
     }
-
--- | The error message.
-monitorErrorDetails_message :: Lens.Lens' MonitorErrorDetails (Prelude.Maybe Prelude.Text)
-monitorErrorDetails_message = Lens.lens (\MonitorErrorDetails' {message} -> message) (\s@MonitorErrorDetails' {} a -> s {message = a} :: MonitorErrorDetails)
 
 -- | The error code.
 monitorErrorDetails_code :: Lens.Lens' MonitorErrorDetails (Prelude.Maybe MonitorErrorCode)
 monitorErrorDetails_code = Lens.lens (\MonitorErrorDetails' {code} -> code) (\s@MonitorErrorDetails' {} a -> s {code = a} :: MonitorErrorDetails)
+
+-- | The error message.
+monitorErrorDetails_message :: Lens.Lens' MonitorErrorDetails (Prelude.Maybe Prelude.Text)
+monitorErrorDetails_message = Lens.lens (\MonitorErrorDetails' {message} -> message) (\s@MonitorErrorDetails' {} a -> s {message = a} :: MonitorErrorDetails)
 
 instance Data.FromJSON MonitorErrorDetails where
   parseJSON =
@@ -69,15 +69,15 @@ instance Data.FromJSON MonitorErrorDetails where
       "MonitorErrorDetails"
       ( \x ->
           MonitorErrorDetails'
-            Prelude.<$> (x Data..:? "message")
-            Prelude.<*> (x Data..:? "code")
+            Prelude.<$> (x Data..:? "code")
+            Prelude.<*> (x Data..:? "message")
       )
 
 instance Prelude.Hashable MonitorErrorDetails where
   hashWithSalt _salt MonitorErrorDetails' {..} =
-    _salt `Prelude.hashWithSalt` message
-      `Prelude.hashWithSalt` code
+    _salt `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` message
 
 instance Prelude.NFData MonitorErrorDetails where
   rnf MonitorErrorDetails' {..} =
-    Prelude.rnf message `Prelude.seq` Prelude.rnf code
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

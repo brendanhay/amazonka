@@ -32,9 +32,9 @@ module Amazonka.IoTSiteWise.ListBulkImportJobs
     newListBulkImportJobs,
 
     -- * Request Lenses
-    listBulkImportJobs_nextToken,
     listBulkImportJobs_filter,
     listBulkImportJobs_maxResults,
+    listBulkImportJobs_nextToken,
 
     -- * Destructuring the Response
     ListBulkImportJobsResponse (..),
@@ -57,13 +57,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListBulkImportJobs' smart constructor.
 data ListBulkImportJobs = ListBulkImportJobs'
-  { -- | The token to be used for the next set of paginated results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | You can use a filter to select the bulk import jobs that you want to
+  { -- | You can use a filter to select the bulk import jobs that you want to
     -- retrieve.
     filter' :: Prelude.Maybe ListBulkImportJobsFilter,
     -- | The maximum number of results to return for each paginated request.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to be used for the next set of paginated results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,24 +75,20 @@ data ListBulkImportJobs = ListBulkImportJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listBulkImportJobs_nextToken' - The token to be used for the next set of paginated results.
---
 -- 'filter'', 'listBulkImportJobs_filter' - You can use a filter to select the bulk import jobs that you want to
 -- retrieve.
 --
 -- 'maxResults', 'listBulkImportJobs_maxResults' - The maximum number of results to return for each paginated request.
+--
+-- 'nextToken', 'listBulkImportJobs_nextToken' - The token to be used for the next set of paginated results.
 newListBulkImportJobs ::
   ListBulkImportJobs
 newListBulkImportJobs =
   ListBulkImportJobs'
-    { nextToken = Prelude.Nothing,
-      filter' = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { filter' = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token to be used for the next set of paginated results.
-listBulkImportJobs_nextToken :: Lens.Lens' ListBulkImportJobs (Prelude.Maybe Prelude.Text)
-listBulkImportJobs_nextToken = Lens.lens (\ListBulkImportJobs' {nextToken} -> nextToken) (\s@ListBulkImportJobs' {} a -> s {nextToken = a} :: ListBulkImportJobs)
 
 -- | You can use a filter to select the bulk import jobs that you want to
 -- retrieve.
@@ -102,6 +98,10 @@ listBulkImportJobs_filter = Lens.lens (\ListBulkImportJobs' {filter'} -> filter'
 -- | The maximum number of results to return for each paginated request.
 listBulkImportJobs_maxResults :: Lens.Lens' ListBulkImportJobs (Prelude.Maybe Prelude.Natural)
 listBulkImportJobs_maxResults = Lens.lens (\ListBulkImportJobs' {maxResults} -> maxResults) (\s@ListBulkImportJobs' {} a -> s {maxResults = a} :: ListBulkImportJobs)
+
+-- | The token to be used for the next set of paginated results.
+listBulkImportJobs_nextToken :: Lens.Lens' ListBulkImportJobs (Prelude.Maybe Prelude.Text)
+listBulkImportJobs_nextToken = Lens.lens (\ListBulkImportJobs' {nextToken} -> nextToken) (\s@ListBulkImportJobs' {} a -> s {nextToken = a} :: ListBulkImportJobs)
 
 instance Core.AWSPager ListBulkImportJobs where
   page rq rs
@@ -139,15 +139,15 @@ instance Core.AWSRequest ListBulkImportJobs where
 
 instance Prelude.Hashable ListBulkImportJobs where
   hashWithSalt _salt ListBulkImportJobs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filter'
+    _salt `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListBulkImportJobs where
   rnf ListBulkImportJobs' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filter'
+    Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListBulkImportJobs where
   toHeaders =
@@ -166,9 +166,9 @@ instance Data.ToPath ListBulkImportJobs where
 instance Data.ToQuery ListBulkImportJobs where
   toQuery ListBulkImportJobs' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "filter" Data.=: filter',
-        "maxResults" Data.=: maxResults
+      [ "filter" Data.=: filter',
+        "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListBulkImportJobsResponse' smart constructor.

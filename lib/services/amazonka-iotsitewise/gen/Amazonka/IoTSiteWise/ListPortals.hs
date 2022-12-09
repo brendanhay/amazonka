@@ -29,8 +29,8 @@ module Amazonka.IoTSiteWise.ListPortals
     newListPortals,
 
     -- * Request Lenses
-    listPortals_nextToken,
     listPortals_maxResults,
+    listPortals_nextToken,
 
     -- * Destructuring the Response
     ListPortalsResponse (..),
@@ -53,12 +53,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPortals' smart constructor.
 data ListPortals = ListPortals'
-  { -- | The token to be used for the next set of paginated results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return for each paginated request.
+  { -- | The maximum number of results to return for each paginated request.
     --
     -- Default: 50
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to be used for the next set of paginated results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,28 +70,28 @@ data ListPortals = ListPortals'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPortals_nextToken' - The token to be used for the next set of paginated results.
---
 -- 'maxResults', 'listPortals_maxResults' - The maximum number of results to return for each paginated request.
 --
 -- Default: 50
+--
+-- 'nextToken', 'listPortals_nextToken' - The token to be used for the next set of paginated results.
 newListPortals ::
   ListPortals
 newListPortals =
   ListPortals'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token to be used for the next set of paginated results.
-listPortals_nextToken :: Lens.Lens' ListPortals (Prelude.Maybe Prelude.Text)
-listPortals_nextToken = Lens.lens (\ListPortals' {nextToken} -> nextToken) (\s@ListPortals' {} a -> s {nextToken = a} :: ListPortals)
 
 -- | The maximum number of results to return for each paginated request.
 --
 -- Default: 50
 listPortals_maxResults :: Lens.Lens' ListPortals (Prelude.Maybe Prelude.Natural)
 listPortals_maxResults = Lens.lens (\ListPortals' {maxResults} -> maxResults) (\s@ListPortals' {} a -> s {maxResults = a} :: ListPortals)
+
+-- | The token to be used for the next set of paginated results.
+listPortals_nextToken :: Lens.Lens' ListPortals (Prelude.Maybe Prelude.Text)
+listPortals_nextToken = Lens.lens (\ListPortals' {nextToken} -> nextToken) (\s@ListPortals' {} a -> s {nextToken = a} :: ListPortals)
 
 instance Core.AWSPager ListPortals where
   page rq rs
@@ -130,13 +130,13 @@ instance Core.AWSRequest ListPortals where
 
 instance Prelude.Hashable ListPortals where
   hashWithSalt _salt ListPortals' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListPortals where
   rnf ListPortals' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListPortals where
   toHeaders =
@@ -155,8 +155,8 @@ instance Data.ToPath ListPortals where
 instance Data.ToQuery ListPortals where
   toQuery ListPortals' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListPortalsResponse' smart constructor.

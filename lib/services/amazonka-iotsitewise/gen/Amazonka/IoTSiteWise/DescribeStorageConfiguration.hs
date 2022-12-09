@@ -31,9 +31,9 @@ module Amazonka.IoTSiteWise.DescribeStorageConfiguration
     newDescribeStorageConfigurationResponse,
 
     -- * Response Lenses
-    describeStorageConfigurationResponse_multiLayerStorage,
     describeStorageConfigurationResponse_disassociatedDataStorage,
     describeStorageConfigurationResponse_lastUpdateDate,
+    describeStorageConfigurationResponse_multiLayerStorage,
     describeStorageConfigurationResponse_retentionPeriod,
     describeStorageConfigurationResponse_httpStatus,
     describeStorageConfigurationResponse_storageType,
@@ -74,9 +74,9 @@ instance Core.AWSRequest DescribeStorageConfiguration where
     Response.receiveJSON
       ( \s h x ->
           DescribeStorageConfigurationResponse'
-            Prelude.<$> (x Data..?> "multiLayerStorage")
-            Prelude.<*> (x Data..?> "disassociatedDataStorage")
+            Prelude.<$> (x Data..?> "disassociatedDataStorage")
             Prelude.<*> (x Data..?> "lastUpdateDate")
+            Prelude.<*> (x Data..?> "multiLayerStorage")
             Prelude.<*> (x Data..?> "retentionPeriod")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "storageType")
@@ -113,9 +113,7 @@ instance Data.ToQuery DescribeStorageConfiguration where
 
 -- | /See:/ 'newDescribeStorageConfigurationResponse' smart constructor.
 data DescribeStorageConfigurationResponse = DescribeStorageConfigurationResponse'
-  { -- | Contains information about the storage destination.
-    multiLayerStorage :: Prelude.Maybe MultiLayerStorage,
-    -- | Contains the storage configuration for time series (data streams) that
+  { -- | Contains the storage configuration for time series (data streams) that
     -- aren\'t associated with asset properties. The @disassociatedDataStorage@
     -- can be one of the following values:
     --
@@ -134,6 +132,8 @@ data DescribeStorageConfigurationResponse = DescribeStorageConfigurationResponse
     disassociatedDataStorage :: Prelude.Maybe DisassociatedDataStorageState,
     -- | The date the storage configuration was last updated, in Unix epoch time.
     lastUpdateDate :: Prelude.Maybe Data.POSIX,
+    -- | Contains information about the storage destination.
+    multiLayerStorage :: Prelude.Maybe MultiLayerStorage,
     -- | How many days your data is kept in the hot tier. By default, your data
     -- is kept indefinitely in the hot tier.
     retentionPeriod :: Prelude.Maybe RetentionPeriod,
@@ -161,8 +161,6 @@ data DescribeStorageConfigurationResponse = DescribeStorageConfigurationResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'multiLayerStorage', 'describeStorageConfigurationResponse_multiLayerStorage' - Contains information about the storage destination.
---
 -- 'disassociatedDataStorage', 'describeStorageConfigurationResponse_disassociatedDataStorage' - Contains the storage configuration for time series (data streams) that
 -- aren\'t associated with asset properties. The @disassociatedDataStorage@
 -- can be one of the following values:
@@ -181,6 +179,8 @@ data DescribeStorageConfigurationResponse = DescribeStorageConfigurationResponse
 -- in the /IoT SiteWise User Guide/.
 --
 -- 'lastUpdateDate', 'describeStorageConfigurationResponse_lastUpdateDate' - The date the storage configuration was last updated, in Unix epoch time.
+--
+-- 'multiLayerStorage', 'describeStorageConfigurationResponse_multiLayerStorage' - Contains information about the storage destination.
 --
 -- 'retentionPeriod', 'describeStorageConfigurationResponse_retentionPeriod' - How many days your data is kept in the hot tier. By default, your data
 -- is kept indefinitely in the hot tier.
@@ -211,21 +211,16 @@ newDescribeStorageConfigurationResponse
   pStorageType_
   pConfigurationStatus_ =
     DescribeStorageConfigurationResponse'
-      { multiLayerStorage =
-          Prelude.Nothing,
-        disassociatedDataStorage =
+      { disassociatedDataStorage =
           Prelude.Nothing,
         lastUpdateDate = Prelude.Nothing,
+        multiLayerStorage = Prelude.Nothing,
         retentionPeriod = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         storageType = pStorageType_,
         configurationStatus =
           pConfigurationStatus_
       }
-
--- | Contains information about the storage destination.
-describeStorageConfigurationResponse_multiLayerStorage :: Lens.Lens' DescribeStorageConfigurationResponse (Prelude.Maybe MultiLayerStorage)
-describeStorageConfigurationResponse_multiLayerStorage = Lens.lens (\DescribeStorageConfigurationResponse' {multiLayerStorage} -> multiLayerStorage) (\s@DescribeStorageConfigurationResponse' {} a -> s {multiLayerStorage = a} :: DescribeStorageConfigurationResponse)
 
 -- | Contains the storage configuration for time series (data streams) that
 -- aren\'t associated with asset properties. The @disassociatedDataStorage@
@@ -249,6 +244,10 @@ describeStorageConfigurationResponse_disassociatedDataStorage = Lens.lens (\Desc
 -- | The date the storage configuration was last updated, in Unix epoch time.
 describeStorageConfigurationResponse_lastUpdateDate :: Lens.Lens' DescribeStorageConfigurationResponse (Prelude.Maybe Prelude.UTCTime)
 describeStorageConfigurationResponse_lastUpdateDate = Lens.lens (\DescribeStorageConfigurationResponse' {lastUpdateDate} -> lastUpdateDate) (\s@DescribeStorageConfigurationResponse' {} a -> s {lastUpdateDate = a} :: DescribeStorageConfigurationResponse) Prelude.. Lens.mapping Data._Time
+
+-- | Contains information about the storage destination.
+describeStorageConfigurationResponse_multiLayerStorage :: Lens.Lens' DescribeStorageConfigurationResponse (Prelude.Maybe MultiLayerStorage)
+describeStorageConfigurationResponse_multiLayerStorage = Lens.lens (\DescribeStorageConfigurationResponse' {multiLayerStorage} -> multiLayerStorage) (\s@DescribeStorageConfigurationResponse' {} a -> s {multiLayerStorage = a} :: DescribeStorageConfigurationResponse)
 
 -- | How many days your data is kept in the hot tier. By default, your data
 -- is kept indefinitely in the hot tier.
@@ -280,9 +279,9 @@ instance
     DescribeStorageConfigurationResponse
   where
   rnf DescribeStorageConfigurationResponse' {..} =
-    Prelude.rnf multiLayerStorage
-      `Prelude.seq` Prelude.rnf disassociatedDataStorage
+    Prelude.rnf disassociatedDataStorage
       `Prelude.seq` Prelude.rnf lastUpdateDate
+      `Prelude.seq` Prelude.rnf multiLayerStorage
       `Prelude.seq` Prelude.rnf retentionPeriod
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf storageType

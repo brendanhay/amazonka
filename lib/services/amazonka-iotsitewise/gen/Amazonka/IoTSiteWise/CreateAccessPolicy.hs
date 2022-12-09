@@ -29,8 +29,8 @@ module Amazonka.IoTSiteWise.CreateAccessPolicy
     newCreateAccessPolicy,
 
     -- * Request Lenses
-    createAccessPolicy_tags,
     createAccessPolicy_clientToken,
+    createAccessPolicy_tags,
     createAccessPolicy_accessPolicyIdentity,
     createAccessPolicy_accessPolicyResource,
     createAccessPolicy_accessPolicyPermission,
@@ -56,15 +56,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateAccessPolicy' smart constructor.
 data CreateAccessPolicy = CreateAccessPolicy'
-  { -- | A list of key-value pairs that contain metadata for the access policy.
+  { -- | A unique case-sensitive identifier that you can provide to ensure the
+    -- idempotency of the request. Don\'t reuse this client token if a new
+    -- idempotent request is required.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of key-value pairs that contain metadata for the access policy.
     -- For more information, see
     -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html Tagging your IoT SiteWise resources>
     -- in the /IoT SiteWise User Guide/.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A unique case-sensitive identifier that you can provide to ensure the
-    -- idempotency of the request. Don\'t reuse this client token if a new
-    -- idempotent request is required.
-    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The identity for this access policy. Choose an IAM Identity Center user,
     -- an IAM Identity Center group, or an IAM user.
     accessPolicyIdentity :: Identity,
@@ -85,14 +85,14 @@ data CreateAccessPolicy = CreateAccessPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clientToken', 'createAccessPolicy_clientToken' - A unique case-sensitive identifier that you can provide to ensure the
+-- idempotency of the request. Don\'t reuse this client token if a new
+-- idempotent request is required.
+--
 -- 'tags', 'createAccessPolicy_tags' - A list of key-value pairs that contain metadata for the access policy.
 -- For more information, see
 -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html Tagging your IoT SiteWise resources>
 -- in the /IoT SiteWise User Guide/.
---
--- 'clientToken', 'createAccessPolicy_clientToken' - A unique case-sensitive identifier that you can provide to ensure the
--- idempotency of the request. Don\'t reuse this client token if a new
--- idempotent request is required.
 --
 -- 'accessPolicyIdentity', 'createAccessPolicy_accessPolicyIdentity' - The identity for this access policy. Choose an IAM Identity Center user,
 -- an IAM Identity Center group, or an IAM user.
@@ -115,12 +115,18 @@ newCreateAccessPolicy
   pAccessPolicyResource_
   pAccessPolicyPermission_ =
     CreateAccessPolicy'
-      { tags = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
+      { clientToken = Prelude.Nothing,
+        tags = Prelude.Nothing,
         accessPolicyIdentity = pAccessPolicyIdentity_,
         accessPolicyResource = pAccessPolicyResource_,
         accessPolicyPermission = pAccessPolicyPermission_
       }
+
+-- | A unique case-sensitive identifier that you can provide to ensure the
+-- idempotency of the request. Don\'t reuse this client token if a new
+-- idempotent request is required.
+createAccessPolicy_clientToken :: Lens.Lens' CreateAccessPolicy (Prelude.Maybe Prelude.Text)
+createAccessPolicy_clientToken = Lens.lens (\CreateAccessPolicy' {clientToken} -> clientToken) (\s@CreateAccessPolicy' {} a -> s {clientToken = a} :: CreateAccessPolicy)
 
 -- | A list of key-value pairs that contain metadata for the access policy.
 -- For more information, see
@@ -128,12 +134,6 @@ newCreateAccessPolicy
 -- in the /IoT SiteWise User Guide/.
 createAccessPolicy_tags :: Lens.Lens' CreateAccessPolicy (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createAccessPolicy_tags = Lens.lens (\CreateAccessPolicy' {tags} -> tags) (\s@CreateAccessPolicy' {} a -> s {tags = a} :: CreateAccessPolicy) Prelude.. Lens.mapping Lens.coerced
-
--- | A unique case-sensitive identifier that you can provide to ensure the
--- idempotency of the request. Don\'t reuse this client token if a new
--- idempotent request is required.
-createAccessPolicy_clientToken :: Lens.Lens' CreateAccessPolicy (Prelude.Maybe Prelude.Text)
-createAccessPolicy_clientToken = Lens.lens (\CreateAccessPolicy' {clientToken} -> clientToken) (\s@CreateAccessPolicy' {} a -> s {clientToken = a} :: CreateAccessPolicy)
 
 -- | The identity for this access policy. Choose an IAM Identity Center user,
 -- an IAM Identity Center group, or an IAM user.
@@ -167,16 +167,16 @@ instance Core.AWSRequest CreateAccessPolicy where
 
 instance Prelude.Hashable CreateAccessPolicy where
   hashWithSalt _salt CreateAccessPolicy' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` accessPolicyIdentity
       `Prelude.hashWithSalt` accessPolicyResource
       `Prelude.hashWithSalt` accessPolicyPermission
 
 instance Prelude.NFData CreateAccessPolicy where
   rnf CreateAccessPolicy' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf accessPolicyIdentity
       `Prelude.seq` Prelude.rnf accessPolicyResource
       `Prelude.seq` Prelude.rnf accessPolicyPermission
@@ -196,8 +196,8 @@ instance Data.ToJSON CreateAccessPolicy where
   toJSON CreateAccessPolicy' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("clientToken" Data..=) Prelude.<$> clientToken,
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ( "accessPolicyIdentity"
                   Data..= accessPolicyIdentity

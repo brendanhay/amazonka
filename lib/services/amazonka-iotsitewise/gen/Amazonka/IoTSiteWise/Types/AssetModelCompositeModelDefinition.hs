@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAssetModelCompositeModelDefinition' smart constructor.
 data AssetModelCompositeModelDefinition = AssetModelCompositeModelDefinition'
-  { -- | The asset property definitions for this composite model.
-    properties :: Prelude.Maybe [AssetModelPropertyDefinition],
-    -- | The description of the composite model.
+  { -- | The description of the composite model.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The asset property definitions for this composite model.
+    properties :: Prelude.Maybe [AssetModelPropertyDefinition],
     -- | The name of the composite model.
     name :: Prelude.Text,
     -- | The type of the composite model. For alarm composite models, this type
@@ -50,9 +50,9 @@ data AssetModelCompositeModelDefinition = AssetModelCompositeModelDefinition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'properties', 'assetModelCompositeModelDefinition_properties' - The asset property definitions for this composite model.
---
 -- 'description', 'assetModelCompositeModelDefinition_description' - The description of the composite model.
+--
+-- 'properties', 'assetModelCompositeModelDefinition_properties' - The asset property definitions for this composite model.
 --
 -- 'name', 'assetModelCompositeModelDefinition_name' - The name of the composite model.
 --
@@ -66,20 +66,20 @@ newAssetModelCompositeModelDefinition ::
   AssetModelCompositeModelDefinition
 newAssetModelCompositeModelDefinition pName_ pType_ =
   AssetModelCompositeModelDefinition'
-    { properties =
+    { description =
         Prelude.Nothing,
-      description = Prelude.Nothing,
+      properties = Prelude.Nothing,
       name = pName_,
       type' = pType_
     }
 
--- | The asset property definitions for this composite model.
-assetModelCompositeModelDefinition_properties :: Lens.Lens' AssetModelCompositeModelDefinition (Prelude.Maybe [AssetModelPropertyDefinition])
-assetModelCompositeModelDefinition_properties = Lens.lens (\AssetModelCompositeModelDefinition' {properties} -> properties) (\s@AssetModelCompositeModelDefinition' {} a -> s {properties = a} :: AssetModelCompositeModelDefinition) Prelude.. Lens.mapping Lens.coerced
-
 -- | The description of the composite model.
 assetModelCompositeModelDefinition_description :: Lens.Lens' AssetModelCompositeModelDefinition (Prelude.Maybe Prelude.Text)
 assetModelCompositeModelDefinition_description = Lens.lens (\AssetModelCompositeModelDefinition' {description} -> description) (\s@AssetModelCompositeModelDefinition' {} a -> s {description = a} :: AssetModelCompositeModelDefinition)
+
+-- | The asset property definitions for this composite model.
+assetModelCompositeModelDefinition_properties :: Lens.Lens' AssetModelCompositeModelDefinition (Prelude.Maybe [AssetModelPropertyDefinition])
+assetModelCompositeModelDefinition_properties = Lens.lens (\AssetModelCompositeModelDefinition' {properties} -> properties) (\s@AssetModelCompositeModelDefinition' {} a -> s {properties = a} :: AssetModelCompositeModelDefinition) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the composite model.
 assetModelCompositeModelDefinition_name :: Lens.Lens' AssetModelCompositeModelDefinition Prelude.Text
@@ -97,8 +97,8 @@ instance
   hashWithSalt
     _salt
     AssetModelCompositeModelDefinition' {..} =
-      _salt `Prelude.hashWithSalt` properties
-        `Prelude.hashWithSalt` description
+      _salt `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` properties
         `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` type'
 
@@ -107,8 +107,8 @@ instance
     AssetModelCompositeModelDefinition
   where
   rnf AssetModelCompositeModelDefinition' {..} =
-    Prelude.rnf properties
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf properties
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf type'
 
@@ -119,8 +119,8 @@ instance
   toJSON AssetModelCompositeModelDefinition' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("properties" Data..=) Prelude.<$> properties,
-            ("description" Data..=) Prelude.<$> description,
+          [ ("description" Data..=) Prelude.<$> description,
+            ("properties" Data..=) Prelude.<$> properties,
             Prelude.Just ("name" Data..= name),
             Prelude.Just ("type" Data..= type')
           ]

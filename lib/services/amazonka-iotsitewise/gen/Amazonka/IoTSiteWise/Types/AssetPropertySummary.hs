@@ -36,11 +36,11 @@ data AssetPropertySummary = AssetPropertySummary'
     -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html Mapping industrial data streams to asset properties>
     -- in the /IoT SiteWise User Guide/.
     alias :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the composite model that contains the asset property.
+    assetCompositeModelId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the property.
     id :: Prelude.Maybe Prelude.Text,
     notification :: Prelude.Maybe PropertyNotification,
-    -- | The ID of the composite model that contains the asset property.
-    assetCompositeModelId :: Prelude.Maybe Prelude.Text,
     -- | The unit of measure (such as Newtons or RPM) of the asset property.
     unit :: Prelude.Maybe Prelude.Text
   }
@@ -61,11 +61,11 @@ data AssetPropertySummary = AssetPropertySummary'
 -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html Mapping industrial data streams to asset properties>
 -- in the /IoT SiteWise User Guide/.
 --
+-- 'assetCompositeModelId', 'assetPropertySummary_assetCompositeModelId' - The ID of the composite model that contains the asset property.
+--
 -- 'id', 'assetPropertySummary_id' - The ID of the property.
 --
 -- 'notification', 'assetPropertySummary_notification' - Undocumented member.
---
--- 'assetCompositeModelId', 'assetPropertySummary_assetCompositeModelId' - The ID of the composite model that contains the asset property.
 --
 -- 'unit', 'assetPropertySummary_unit' - The unit of measure (such as Newtons or RPM) of the asset property.
 newAssetPropertySummary ::
@@ -73,9 +73,9 @@ newAssetPropertySummary ::
 newAssetPropertySummary =
   AssetPropertySummary'
     { alias = Prelude.Nothing,
+      assetCompositeModelId = Prelude.Nothing,
       id = Prelude.Nothing,
       notification = Prelude.Nothing,
-      assetCompositeModelId = Prelude.Nothing,
       unit = Prelude.Nothing
     }
 
@@ -88,6 +88,10 @@ newAssetPropertySummary =
 assetPropertySummary_alias :: Lens.Lens' AssetPropertySummary (Prelude.Maybe Prelude.Text)
 assetPropertySummary_alias = Lens.lens (\AssetPropertySummary' {alias} -> alias) (\s@AssetPropertySummary' {} a -> s {alias = a} :: AssetPropertySummary)
 
+-- | The ID of the composite model that contains the asset property.
+assetPropertySummary_assetCompositeModelId :: Lens.Lens' AssetPropertySummary (Prelude.Maybe Prelude.Text)
+assetPropertySummary_assetCompositeModelId = Lens.lens (\AssetPropertySummary' {assetCompositeModelId} -> assetCompositeModelId) (\s@AssetPropertySummary' {} a -> s {assetCompositeModelId = a} :: AssetPropertySummary)
+
 -- | The ID of the property.
 assetPropertySummary_id :: Lens.Lens' AssetPropertySummary (Prelude.Maybe Prelude.Text)
 assetPropertySummary_id = Lens.lens (\AssetPropertySummary' {id} -> id) (\s@AssetPropertySummary' {} a -> s {id = a} :: AssetPropertySummary)
@@ -95,10 +99,6 @@ assetPropertySummary_id = Lens.lens (\AssetPropertySummary' {id} -> id) (\s@Asse
 -- | Undocumented member.
 assetPropertySummary_notification :: Lens.Lens' AssetPropertySummary (Prelude.Maybe PropertyNotification)
 assetPropertySummary_notification = Lens.lens (\AssetPropertySummary' {notification} -> notification) (\s@AssetPropertySummary' {} a -> s {notification = a} :: AssetPropertySummary)
-
--- | The ID of the composite model that contains the asset property.
-assetPropertySummary_assetCompositeModelId :: Lens.Lens' AssetPropertySummary (Prelude.Maybe Prelude.Text)
-assetPropertySummary_assetCompositeModelId = Lens.lens (\AssetPropertySummary' {assetCompositeModelId} -> assetCompositeModelId) (\s@AssetPropertySummary' {} a -> s {assetCompositeModelId = a} :: AssetPropertySummary)
 
 -- | The unit of measure (such as Newtons or RPM) of the asset property.
 assetPropertySummary_unit :: Lens.Lens' AssetPropertySummary (Prelude.Maybe Prelude.Text)
@@ -111,24 +111,24 @@ instance Data.FromJSON AssetPropertySummary where
       ( \x ->
           AssetPropertySummary'
             Prelude.<$> (x Data..:? "alias")
+            Prelude.<*> (x Data..:? "assetCompositeModelId")
             Prelude.<*> (x Data..:? "id")
             Prelude.<*> (x Data..:? "notification")
-            Prelude.<*> (x Data..:? "assetCompositeModelId")
             Prelude.<*> (x Data..:? "unit")
       )
 
 instance Prelude.Hashable AssetPropertySummary where
   hashWithSalt _salt AssetPropertySummary' {..} =
     _salt `Prelude.hashWithSalt` alias
+      `Prelude.hashWithSalt` assetCompositeModelId
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` notification
-      `Prelude.hashWithSalt` assetCompositeModelId
       `Prelude.hashWithSalt` unit
 
 instance Prelude.NFData AssetPropertySummary where
   rnf AssetPropertySummary' {..} =
     Prelude.rnf alias
+      `Prelude.seq` Prelude.rnf assetCompositeModelId
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf notification
-      `Prelude.seq` Prelude.rnf assetCompositeModelId
       `Prelude.seq` Prelude.rnf unit

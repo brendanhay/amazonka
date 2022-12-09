@@ -37,14 +37,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newIdentity' smart constructor.
 data Identity = Identity'
-  { -- | An IAM role identity.
+  { -- | An IAM Identity Center group identity.
+    group' :: Prelude.Maybe GroupIdentity,
+    -- | An IAM role identity.
     iamRole :: Prelude.Maybe IAMRoleIdentity,
-    -- | An IAM Identity Center user identity.
-    user :: Prelude.Maybe UserIdentity,
     -- | An IAM user identity.
     iamUser :: Prelude.Maybe IAMUserIdentity,
-    -- | An IAM Identity Center group identity.
-    group' :: Prelude.Maybe GroupIdentity
+    -- | An IAM Identity Center user identity.
+    user :: Prelude.Maybe UserIdentity
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,38 +56,38 @@ data Identity = Identity'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'iamRole', 'identity_iamRole' - An IAM role identity.
+-- 'group'', 'identity_group' - An IAM Identity Center group identity.
 --
--- 'user', 'identity_user' - An IAM Identity Center user identity.
+-- 'iamRole', 'identity_iamRole' - An IAM role identity.
 --
 -- 'iamUser', 'identity_iamUser' - An IAM user identity.
 --
--- 'group'', 'identity_group' - An IAM Identity Center group identity.
+-- 'user', 'identity_user' - An IAM Identity Center user identity.
 newIdentity ::
   Identity
 newIdentity =
   Identity'
-    { iamRole = Prelude.Nothing,
-      user = Prelude.Nothing,
+    { group' = Prelude.Nothing,
+      iamRole = Prelude.Nothing,
       iamUser = Prelude.Nothing,
-      group' = Prelude.Nothing
+      user = Prelude.Nothing
     }
+
+-- | An IAM Identity Center group identity.
+identity_group :: Lens.Lens' Identity (Prelude.Maybe GroupIdentity)
+identity_group = Lens.lens (\Identity' {group'} -> group') (\s@Identity' {} a -> s {group' = a} :: Identity)
 
 -- | An IAM role identity.
 identity_iamRole :: Lens.Lens' Identity (Prelude.Maybe IAMRoleIdentity)
 identity_iamRole = Lens.lens (\Identity' {iamRole} -> iamRole) (\s@Identity' {} a -> s {iamRole = a} :: Identity)
 
--- | An IAM Identity Center user identity.
-identity_user :: Lens.Lens' Identity (Prelude.Maybe UserIdentity)
-identity_user = Lens.lens (\Identity' {user} -> user) (\s@Identity' {} a -> s {user = a} :: Identity)
-
 -- | An IAM user identity.
 identity_iamUser :: Lens.Lens' Identity (Prelude.Maybe IAMUserIdentity)
 identity_iamUser = Lens.lens (\Identity' {iamUser} -> iamUser) (\s@Identity' {} a -> s {iamUser = a} :: Identity)
 
--- | An IAM Identity Center group identity.
-identity_group :: Lens.Lens' Identity (Prelude.Maybe GroupIdentity)
-identity_group = Lens.lens (\Identity' {group'} -> group') (\s@Identity' {} a -> s {group' = a} :: Identity)
+-- | An IAM Identity Center user identity.
+identity_user :: Lens.Lens' Identity (Prelude.Maybe UserIdentity)
+identity_user = Lens.lens (\Identity' {user} -> user) (\s@Identity' {} a -> s {user = a} :: Identity)
 
 instance Data.FromJSON Identity where
   parseJSON =
@@ -95,33 +95,33 @@ instance Data.FromJSON Identity where
       "Identity"
       ( \x ->
           Identity'
-            Prelude.<$> (x Data..:? "iamRole")
-            Prelude.<*> (x Data..:? "user")
+            Prelude.<$> (x Data..:? "group")
+            Prelude.<*> (x Data..:? "iamRole")
             Prelude.<*> (x Data..:? "iamUser")
-            Prelude.<*> (x Data..:? "group")
+            Prelude.<*> (x Data..:? "user")
       )
 
 instance Prelude.Hashable Identity where
   hashWithSalt _salt Identity' {..} =
-    _salt `Prelude.hashWithSalt` iamRole
-      `Prelude.hashWithSalt` user
+    _salt `Prelude.hashWithSalt` group'
+      `Prelude.hashWithSalt` iamRole
       `Prelude.hashWithSalt` iamUser
-      `Prelude.hashWithSalt` group'
+      `Prelude.hashWithSalt` user
 
 instance Prelude.NFData Identity where
   rnf Identity' {..} =
-    Prelude.rnf iamRole
-      `Prelude.seq` Prelude.rnf user
+    Prelude.rnf group'
+      `Prelude.seq` Prelude.rnf iamRole
       `Prelude.seq` Prelude.rnf iamUser
-      `Prelude.seq` Prelude.rnf group'
+      `Prelude.seq` Prelude.rnf user
 
 instance Data.ToJSON Identity where
   toJSON Identity' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("iamRole" Data..=) Prelude.<$> iamRole,
-            ("user" Data..=) Prelude.<$> user,
+          [ ("group" Data..=) Prelude.<$> group',
+            ("iamRole" Data..=) Prelude.<$> iamRole,
             ("iamUser" Data..=) Prelude.<$> iamUser,
-            ("group" Data..=) Prelude.<$> group'
+            ("user" Data..=) Prelude.<$> user
           ]
       )

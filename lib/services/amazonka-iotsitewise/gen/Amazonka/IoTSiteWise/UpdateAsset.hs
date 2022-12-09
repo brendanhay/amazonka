@@ -29,8 +29,8 @@ module Amazonka.IoTSiteWise.UpdateAsset
     newUpdateAsset,
 
     -- * Request Lenses
-    updateAsset_clientToken,
     updateAsset_assetDescription,
+    updateAsset_clientToken,
     updateAsset_assetId,
     updateAsset_assetName,
 
@@ -54,12 +54,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateAsset' smart constructor.
 data UpdateAsset = UpdateAsset'
-  { -- | A unique case-sensitive identifier that you can provide to ensure the
+  { -- | A description for the asset.
+    assetDescription :: Prelude.Maybe Prelude.Text,
+    -- | A unique case-sensitive identifier that you can provide to ensure the
     -- idempotency of the request. Don\'t reuse this client token if a new
     -- idempotent request is required.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | A description for the asset.
-    assetDescription :: Prelude.Maybe Prelude.Text,
     -- | The ID of the asset to update.
     assetId :: Prelude.Text,
     -- | A friendly name for the asset.
@@ -75,11 +75,11 @@ data UpdateAsset = UpdateAsset'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'assetDescription', 'updateAsset_assetDescription' - A description for the asset.
+--
 -- 'clientToken', 'updateAsset_clientToken' - A unique case-sensitive identifier that you can provide to ensure the
 -- idempotency of the request. Don\'t reuse this client token if a new
 -- idempotent request is required.
---
--- 'assetDescription', 'updateAsset_assetDescription' - A description for the asset.
 --
 -- 'assetId', 'updateAsset_assetId' - The ID of the asset to update.
 --
@@ -92,21 +92,21 @@ newUpdateAsset ::
   UpdateAsset
 newUpdateAsset pAssetId_ pAssetName_ =
   UpdateAsset'
-    { clientToken = Prelude.Nothing,
-      assetDescription = Prelude.Nothing,
+    { assetDescription = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
       assetId = pAssetId_,
       assetName = pAssetName_
     }
+
+-- | A description for the asset.
+updateAsset_assetDescription :: Lens.Lens' UpdateAsset (Prelude.Maybe Prelude.Text)
+updateAsset_assetDescription = Lens.lens (\UpdateAsset' {assetDescription} -> assetDescription) (\s@UpdateAsset' {} a -> s {assetDescription = a} :: UpdateAsset)
 
 -- | A unique case-sensitive identifier that you can provide to ensure the
 -- idempotency of the request. Don\'t reuse this client token if a new
 -- idempotent request is required.
 updateAsset_clientToken :: Lens.Lens' UpdateAsset (Prelude.Maybe Prelude.Text)
 updateAsset_clientToken = Lens.lens (\UpdateAsset' {clientToken} -> clientToken) (\s@UpdateAsset' {} a -> s {clientToken = a} :: UpdateAsset)
-
--- | A description for the asset.
-updateAsset_assetDescription :: Lens.Lens' UpdateAsset (Prelude.Maybe Prelude.Text)
-updateAsset_assetDescription = Lens.lens (\UpdateAsset' {assetDescription} -> assetDescription) (\s@UpdateAsset' {} a -> s {assetDescription = a} :: UpdateAsset)
 
 -- | The ID of the asset to update.
 updateAsset_assetId :: Lens.Lens' UpdateAsset Prelude.Text
@@ -130,15 +130,15 @@ instance Core.AWSRequest UpdateAsset where
 
 instance Prelude.Hashable UpdateAsset where
   hashWithSalt _salt UpdateAsset' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` assetDescription
+    _salt `Prelude.hashWithSalt` assetDescription
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` assetId
       `Prelude.hashWithSalt` assetName
 
 instance Prelude.NFData UpdateAsset where
   rnf UpdateAsset' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf assetDescription
+    Prelude.rnf assetDescription
+      `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf assetId
       `Prelude.seq` Prelude.rnf assetName
 
@@ -157,9 +157,9 @@ instance Data.ToJSON UpdateAsset where
   toJSON UpdateAsset' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Data..=) Prelude.<$> clientToken,
-            ("assetDescription" Data..=)
+          [ ("assetDescription" Data..=)
               Prelude.<$> assetDescription,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
             Prelude.Just ("assetName" Data..= assetName)
           ]
       )

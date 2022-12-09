@@ -29,10 +29,10 @@ module Amazonka.IoTSiteWise.ListTimeSeries
     newListTimeSeries,
 
     -- * Request Lenses
-    listTimeSeries_nextToken,
+    listTimeSeries_aliasPrefix,
     listTimeSeries_assetId,
     listTimeSeries_maxResults,
-    listTimeSeries_aliasPrefix,
+    listTimeSeries_nextToken,
     listTimeSeries_timeSeriesType,
 
     -- * Destructuring the Response
@@ -56,14 +56,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListTimeSeries' smart constructor.
 data ListTimeSeries = ListTimeSeries'
-  { -- | The token to be used for the next set of paginated results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The alias prefix of the time series.
+    aliasPrefix :: Prelude.Maybe Prelude.Text,
     -- | The ID of the asset in which the asset property was created.
     assetId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return for each paginated request.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The alias prefix of the time series.
-    aliasPrefix :: Prelude.Maybe Prelude.Text,
+    -- | The token to be used for the next set of paginated results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The type of the time series. The time series type can be one of the
     -- following values:
     --
@@ -83,13 +83,13 @@ data ListTimeSeries = ListTimeSeries'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listTimeSeries_nextToken' - The token to be used for the next set of paginated results.
+-- 'aliasPrefix', 'listTimeSeries_aliasPrefix' - The alias prefix of the time series.
 --
 -- 'assetId', 'listTimeSeries_assetId' - The ID of the asset in which the asset property was created.
 --
 -- 'maxResults', 'listTimeSeries_maxResults' - The maximum number of results to return for each paginated request.
 --
--- 'aliasPrefix', 'listTimeSeries_aliasPrefix' - The alias prefix of the time series.
+-- 'nextToken', 'listTimeSeries_nextToken' - The token to be used for the next set of paginated results.
 --
 -- 'timeSeriesType', 'listTimeSeries_timeSeriesType' - The type of the time series. The time series type can be one of the
 -- following values:
@@ -102,16 +102,16 @@ newListTimeSeries ::
   ListTimeSeries
 newListTimeSeries =
   ListTimeSeries'
-    { nextToken = Prelude.Nothing,
+    { aliasPrefix = Prelude.Nothing,
       assetId = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      aliasPrefix = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       timeSeriesType = Prelude.Nothing
     }
 
--- | The token to be used for the next set of paginated results.
-listTimeSeries_nextToken :: Lens.Lens' ListTimeSeries (Prelude.Maybe Prelude.Text)
-listTimeSeries_nextToken = Lens.lens (\ListTimeSeries' {nextToken} -> nextToken) (\s@ListTimeSeries' {} a -> s {nextToken = a} :: ListTimeSeries)
+-- | The alias prefix of the time series.
+listTimeSeries_aliasPrefix :: Lens.Lens' ListTimeSeries (Prelude.Maybe Prelude.Text)
+listTimeSeries_aliasPrefix = Lens.lens (\ListTimeSeries' {aliasPrefix} -> aliasPrefix) (\s@ListTimeSeries' {} a -> s {aliasPrefix = a} :: ListTimeSeries)
 
 -- | The ID of the asset in which the asset property was created.
 listTimeSeries_assetId :: Lens.Lens' ListTimeSeries (Prelude.Maybe Prelude.Text)
@@ -121,9 +121,9 @@ listTimeSeries_assetId = Lens.lens (\ListTimeSeries' {assetId} -> assetId) (\s@L
 listTimeSeries_maxResults :: Lens.Lens' ListTimeSeries (Prelude.Maybe Prelude.Natural)
 listTimeSeries_maxResults = Lens.lens (\ListTimeSeries' {maxResults} -> maxResults) (\s@ListTimeSeries' {} a -> s {maxResults = a} :: ListTimeSeries)
 
--- | The alias prefix of the time series.
-listTimeSeries_aliasPrefix :: Lens.Lens' ListTimeSeries (Prelude.Maybe Prelude.Text)
-listTimeSeries_aliasPrefix = Lens.lens (\ListTimeSeries' {aliasPrefix} -> aliasPrefix) (\s@ListTimeSeries' {} a -> s {aliasPrefix = a} :: ListTimeSeries)
+-- | The token to be used for the next set of paginated results.
+listTimeSeries_nextToken :: Lens.Lens' ListTimeSeries (Prelude.Maybe Prelude.Text)
+listTimeSeries_nextToken = Lens.lens (\ListTimeSeries' {nextToken} -> nextToken) (\s@ListTimeSeries' {} a -> s {nextToken = a} :: ListTimeSeries)
 
 -- | The type of the time series. The time series type can be one of the
 -- following values:
@@ -174,18 +174,18 @@ instance Core.AWSRequest ListTimeSeries where
 
 instance Prelude.Hashable ListTimeSeries where
   hashWithSalt _salt ListTimeSeries' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` aliasPrefix
       `Prelude.hashWithSalt` assetId
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` aliasPrefix
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` timeSeriesType
 
 instance Prelude.NFData ListTimeSeries where
   rnf ListTimeSeries' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf aliasPrefix
       `Prelude.seq` Prelude.rnf assetId
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf aliasPrefix
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf timeSeriesType
 
 instance Data.ToHeaders ListTimeSeries where
@@ -205,10 +205,10 @@ instance Data.ToPath ListTimeSeries where
 instance Data.ToQuery ListTimeSeries where
   toQuery ListTimeSeries' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
+      [ "aliasPrefix" Data.=: aliasPrefix,
         "assetId" Data.=: assetId,
         "maxResults" Data.=: maxResults,
-        "aliasPrefix" Data.=: aliasPrefix,
+        "nextToken" Data.=: nextToken,
         "timeSeriesType" Data.=: timeSeriesType
       ]
 

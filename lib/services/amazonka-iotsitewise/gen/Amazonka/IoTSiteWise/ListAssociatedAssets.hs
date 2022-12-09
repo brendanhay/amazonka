@@ -36,10 +36,10 @@ module Amazonka.IoTSiteWise.ListAssociatedAssets
     newListAssociatedAssets,
 
     -- * Request Lenses
-    listAssociatedAssets_nextToken,
-    listAssociatedAssets_traversalDirection,
     listAssociatedAssets_hierarchyId,
     listAssociatedAssets_maxResults,
+    listAssociatedAssets_nextToken,
+    listAssociatedAssets_traversalDirection,
     listAssociatedAssets_assetId,
 
     -- * Destructuring the Response
@@ -63,20 +63,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAssociatedAssets' smart constructor.
 data ListAssociatedAssets = ListAssociatedAssets'
-  { -- | The token to be used for the next set of paginated results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The direction to list associated assets. Choose one of the following
-    -- options:
-    --
-    -- -   @CHILD@ – The list includes all child assets associated to the
-    --     asset. The @hierarchyId@ parameter is required if you choose
-    --     @CHILD@.
-    --
-    -- -   @PARENT@ – The list includes the asset\'s parent asset.
-    --
-    -- Default: @CHILD@
-    traversalDirection :: Prelude.Maybe TraversalDirection,
-    -- | The ID of the hierarchy by which child assets are associated to the
+  { -- | The ID of the hierarchy by which child assets are associated to the
     -- asset. To find a hierarchy ID, use the
     -- <https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAsset.html DescribeAsset>
     -- or
@@ -92,6 +79,19 @@ data ListAssociatedAssets = ListAssociatedAssets'
     --
     -- Default: 50
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to be used for the next set of paginated results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The direction to list associated assets. Choose one of the following
+    -- options:
+    --
+    -- -   @CHILD@ – The list includes all child assets associated to the
+    --     asset. The @hierarchyId@ parameter is required if you choose
+    --     @CHILD@.
+    --
+    -- -   @PARENT@ – The list includes the asset\'s parent asset.
+    --
+    -- Default: @CHILD@
+    traversalDirection :: Prelude.Maybe TraversalDirection,
     -- | The ID of the asset to query.
     assetId :: Prelude.Text
   }
@@ -104,19 +104,6 @@ data ListAssociatedAssets = ListAssociatedAssets'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'listAssociatedAssets_nextToken' - The token to be used for the next set of paginated results.
---
--- 'traversalDirection', 'listAssociatedAssets_traversalDirection' - The direction to list associated assets. Choose one of the following
--- options:
---
--- -   @CHILD@ – The list includes all child assets associated to the
---     asset. The @hierarchyId@ parameter is required if you choose
---     @CHILD@.
---
--- -   @PARENT@ – The list includes the asset\'s parent asset.
---
--- Default: @CHILD@
 --
 -- 'hierarchyId', 'listAssociatedAssets_hierarchyId' - The ID of the hierarchy by which child assets are associated to the
 -- asset. To find a hierarchy ID, use the
@@ -134,25 +121,9 @@ data ListAssociatedAssets = ListAssociatedAssets'
 --
 -- Default: 50
 --
--- 'assetId', 'listAssociatedAssets_assetId' - The ID of the asset to query.
-newListAssociatedAssets ::
-  -- | 'assetId'
-  Prelude.Text ->
-  ListAssociatedAssets
-newListAssociatedAssets pAssetId_ =
-  ListAssociatedAssets'
-    { nextToken = Prelude.Nothing,
-      traversalDirection = Prelude.Nothing,
-      hierarchyId = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      assetId = pAssetId_
-    }
-
--- | The token to be used for the next set of paginated results.
-listAssociatedAssets_nextToken :: Lens.Lens' ListAssociatedAssets (Prelude.Maybe Prelude.Text)
-listAssociatedAssets_nextToken = Lens.lens (\ListAssociatedAssets' {nextToken} -> nextToken) (\s@ListAssociatedAssets' {} a -> s {nextToken = a} :: ListAssociatedAssets)
-
--- | The direction to list associated assets. Choose one of the following
+-- 'nextToken', 'listAssociatedAssets_nextToken' - The token to be used for the next set of paginated results.
+--
+-- 'traversalDirection', 'listAssociatedAssets_traversalDirection' - The direction to list associated assets. Choose one of the following
 -- options:
 --
 -- -   @CHILD@ – The list includes all child assets associated to the
@@ -162,8 +133,21 @@ listAssociatedAssets_nextToken = Lens.lens (\ListAssociatedAssets' {nextToken} -
 -- -   @PARENT@ – The list includes the asset\'s parent asset.
 --
 -- Default: @CHILD@
-listAssociatedAssets_traversalDirection :: Lens.Lens' ListAssociatedAssets (Prelude.Maybe TraversalDirection)
-listAssociatedAssets_traversalDirection = Lens.lens (\ListAssociatedAssets' {traversalDirection} -> traversalDirection) (\s@ListAssociatedAssets' {} a -> s {traversalDirection = a} :: ListAssociatedAssets)
+--
+-- 'assetId', 'listAssociatedAssets_assetId' - The ID of the asset to query.
+newListAssociatedAssets ::
+  -- | 'assetId'
+  Prelude.Text ->
+  ListAssociatedAssets
+newListAssociatedAssets pAssetId_ =
+  ListAssociatedAssets'
+    { hierarchyId =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      traversalDirection = Prelude.Nothing,
+      assetId = pAssetId_
+    }
 
 -- | The ID of the hierarchy by which child assets are associated to the
 -- asset. To find a hierarchy ID, use the
@@ -184,6 +168,23 @@ listAssociatedAssets_hierarchyId = Lens.lens (\ListAssociatedAssets' {hierarchyI
 -- Default: 50
 listAssociatedAssets_maxResults :: Lens.Lens' ListAssociatedAssets (Prelude.Maybe Prelude.Natural)
 listAssociatedAssets_maxResults = Lens.lens (\ListAssociatedAssets' {maxResults} -> maxResults) (\s@ListAssociatedAssets' {} a -> s {maxResults = a} :: ListAssociatedAssets)
+
+-- | The token to be used for the next set of paginated results.
+listAssociatedAssets_nextToken :: Lens.Lens' ListAssociatedAssets (Prelude.Maybe Prelude.Text)
+listAssociatedAssets_nextToken = Lens.lens (\ListAssociatedAssets' {nextToken} -> nextToken) (\s@ListAssociatedAssets' {} a -> s {nextToken = a} :: ListAssociatedAssets)
+
+-- | The direction to list associated assets. Choose one of the following
+-- options:
+--
+-- -   @CHILD@ – The list includes all child assets associated to the
+--     asset. The @hierarchyId@ parameter is required if you choose
+--     @CHILD@.
+--
+-- -   @PARENT@ – The list includes the asset\'s parent asset.
+--
+-- Default: @CHILD@
+listAssociatedAssets_traversalDirection :: Lens.Lens' ListAssociatedAssets (Prelude.Maybe TraversalDirection)
+listAssociatedAssets_traversalDirection = Lens.lens (\ListAssociatedAssets' {traversalDirection} -> traversalDirection) (\s@ListAssociatedAssets' {} a -> s {traversalDirection = a} :: ListAssociatedAssets)
 
 -- | The ID of the asset to query.
 listAssociatedAssets_assetId :: Lens.Lens' ListAssociatedAssets Prelude.Text
@@ -229,18 +230,18 @@ instance Core.AWSRequest ListAssociatedAssets where
 
 instance Prelude.Hashable ListAssociatedAssets where
   hashWithSalt _salt ListAssociatedAssets' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` traversalDirection
-      `Prelude.hashWithSalt` hierarchyId
+    _salt `Prelude.hashWithSalt` hierarchyId
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` traversalDirection
       `Prelude.hashWithSalt` assetId
 
 instance Prelude.NFData ListAssociatedAssets where
   rnf ListAssociatedAssets' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf traversalDirection
-      `Prelude.seq` Prelude.rnf hierarchyId
+    Prelude.rnf hierarchyId
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf traversalDirection
       `Prelude.seq` Prelude.rnf assetId
 
 instance Data.ToHeaders ListAssociatedAssets where
@@ -262,10 +263,10 @@ instance Data.ToPath ListAssociatedAssets where
 instance Data.ToQuery ListAssociatedAssets where
   toQuery ListAssociatedAssets' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "traversalDirection" Data.=: traversalDirection,
-        "hierarchyId" Data.=: hierarchyId,
-        "maxResults" Data.=: maxResults
+      [ "hierarchyId" Data.=: hierarchyId,
+        "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
+        "traversalDirection" Data.=: traversalDirection
       ]
 
 -- | /See:/ 'newListAssociatedAssetsResponse' smart constructor.

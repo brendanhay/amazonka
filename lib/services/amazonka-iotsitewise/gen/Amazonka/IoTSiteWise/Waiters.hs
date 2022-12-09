@@ -27,34 +27,6 @@ import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 
 -- | Polls 'Amazonka.IoTSiteWise.DescribeAsset' every 3 seconds until a successful state is reached. An error is returned after 20 failed checks.
-newAssetNotExists :: Core.Wait DescribeAsset
-newAssetNotExists =
-  Core.Wait
-    { Core.name = "AssetNotExists",
-      Core.attempts = 20,
-      Core.delay = 3,
-      Core.acceptors =
-        [ Core.matchError
-            "ResourceNotFoundException"
-            Core.AcceptSuccess
-        ]
-    }
-
--- | Polls 'Amazonka.IoTSiteWise.DescribePortal' every 3 seconds until a successful state is reached. An error is returned after 20 failed checks.
-newPortalNotExists :: Core.Wait DescribePortal
-newPortalNotExists =
-  Core.Wait
-    { Core.name = "PortalNotExists",
-      Core.attempts = 20,
-      Core.delay = 3,
-      Core.acceptors =
-        [ Core.matchError
-            "ResourceNotFoundException"
-            Core.AcceptSuccess
-        ]
-    }
-
--- | Polls 'Amazonka.IoTSiteWise.DescribeAsset' every 3 seconds until a successful state is reached. An error is returned after 20 failed checks.
 newAssetActive :: Core.Wait DescribeAsset
 newAssetActive =
   Core.Wait
@@ -76,20 +48,6 @@ newAssetActive =
                 Prelude.. assetStatus_state
                 Prelude.. Lens.to Data.toTextCI
             )
-        ]
-    }
-
--- | Polls 'Amazonka.IoTSiteWise.DescribeAssetModel' every 3 seconds until a successful state is reached. An error is returned after 20 failed checks.
-newAssetModelNotExists :: Core.Wait DescribeAssetModel
-newAssetModelNotExists =
-  Core.Wait
-    { Core.name = "AssetModelNotExists",
-      Core.attempts = 20,
-      Core.delay = 3,
-      Core.acceptors =
-        [ Core.matchError
-            "ResourceNotFoundException"
-            Core.AcceptSuccess
         ]
     }
 
@@ -118,6 +76,34 @@ newAssetModelActive =
         ]
     }
 
+-- | Polls 'Amazonka.IoTSiteWise.DescribeAssetModel' every 3 seconds until a successful state is reached. An error is returned after 20 failed checks.
+newAssetModelNotExists :: Core.Wait DescribeAssetModel
+newAssetModelNotExists =
+  Core.Wait
+    { Core.name = "AssetModelNotExists",
+      Core.attempts = 20,
+      Core.delay = 3,
+      Core.acceptors =
+        [ Core.matchError
+            "ResourceNotFoundException"
+            Core.AcceptSuccess
+        ]
+    }
+
+-- | Polls 'Amazonka.IoTSiteWise.DescribeAsset' every 3 seconds until a successful state is reached. An error is returned after 20 failed checks.
+newAssetNotExists :: Core.Wait DescribeAsset
+newAssetNotExists =
+  Core.Wait
+    { Core.name = "AssetNotExists",
+      Core.attempts = 20,
+      Core.delay = 3,
+      Core.acceptors =
+        [ Core.matchError
+            "ResourceNotFoundException"
+            Core.AcceptSuccess
+        ]
+    }
+
 -- | Polls 'Amazonka.IoTSiteWise.DescribePortal' every 3 seconds until a successful state is reached. An error is returned after 20 failed checks.
 newPortalActive :: Core.Wait DescribePortal
 newPortalActive =
@@ -133,5 +119,19 @@ newPortalActive =
                 Prelude.. portalStatus_state
                 Prelude.. Lens.to Data.toTextCI
             )
+        ]
+    }
+
+-- | Polls 'Amazonka.IoTSiteWise.DescribePortal' every 3 seconds until a successful state is reached. An error is returned after 20 failed checks.
+newPortalNotExists :: Core.Wait DescribePortal
+newPortalNotExists =
+  Core.Wait
+    { Core.name = "PortalNotExists",
+      Core.attempts = 20,
+      Core.delay = 3,
+      Core.acceptors =
+        [ Core.matchError
+            "ResourceNotFoundException"
+            Core.AcceptSuccess
         ]
     }

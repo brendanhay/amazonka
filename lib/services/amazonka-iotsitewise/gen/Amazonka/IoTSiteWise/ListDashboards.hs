@@ -30,8 +30,8 @@ module Amazonka.IoTSiteWise.ListDashboards
     newListDashboards,
 
     -- * Request Lenses
-    listDashboards_nextToken,
     listDashboards_maxResults,
+    listDashboards_nextToken,
     listDashboards_projectId,
 
     -- * Destructuring the Response
@@ -55,12 +55,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDashboards' smart constructor.
 data ListDashboards = ListDashboards'
-  { -- | The token to be used for the next set of paginated results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return for each paginated request.
+  { -- | The maximum number of results to return for each paginated request.
     --
     -- Default: 50
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to be used for the next set of paginated results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the project.
     projectId :: Prelude.Text
   }
@@ -74,11 +74,11 @@ data ListDashboards = ListDashboards'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listDashboards_nextToken' - The token to be used for the next set of paginated results.
---
 -- 'maxResults', 'listDashboards_maxResults' - The maximum number of results to return for each paginated request.
 --
 -- Default: 50
+--
+-- 'nextToken', 'listDashboards_nextToken' - The token to be used for the next set of paginated results.
 --
 -- 'projectId', 'listDashboards_projectId' - The ID of the project.
 newListDashboards ::
@@ -87,20 +87,20 @@ newListDashboards ::
   ListDashboards
 newListDashboards pProjectId_ =
   ListDashboards'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       projectId = pProjectId_
     }
-
--- | The token to be used for the next set of paginated results.
-listDashboards_nextToken :: Lens.Lens' ListDashboards (Prelude.Maybe Prelude.Text)
-listDashboards_nextToken = Lens.lens (\ListDashboards' {nextToken} -> nextToken) (\s@ListDashboards' {} a -> s {nextToken = a} :: ListDashboards)
 
 -- | The maximum number of results to return for each paginated request.
 --
 -- Default: 50
 listDashboards_maxResults :: Lens.Lens' ListDashboards (Prelude.Maybe Prelude.Natural)
 listDashboards_maxResults = Lens.lens (\ListDashboards' {maxResults} -> maxResults) (\s@ListDashboards' {} a -> s {maxResults = a} :: ListDashboards)
+
+-- | The token to be used for the next set of paginated results.
+listDashboards_nextToken :: Lens.Lens' ListDashboards (Prelude.Maybe Prelude.Text)
+listDashboards_nextToken = Lens.lens (\ListDashboards' {nextToken} -> nextToken) (\s@ListDashboards' {} a -> s {nextToken = a} :: ListDashboards)
 
 -- | The ID of the project.
 listDashboards_projectId :: Lens.Lens' ListDashboards Prelude.Text
@@ -145,14 +145,14 @@ instance Core.AWSRequest ListDashboards where
 
 instance Prelude.Hashable ListDashboards where
   hashWithSalt _salt ListDashboards' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` projectId
 
 instance Prelude.NFData ListDashboards where
   rnf ListDashboards' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf projectId
 
 instance Data.ToHeaders ListDashboards where
@@ -172,8 +172,8 @@ instance Data.ToPath ListDashboards where
 instance Data.ToQuery ListDashboards where
   toQuery ListDashboards' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults,
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
         "projectId" Data.=: projectId
       ]
 

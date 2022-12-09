@@ -31,9 +31,9 @@ module Amazonka.IoTSiteWise.ListAssetProperties
     newListAssetProperties,
 
     -- * Request Lenses
-    listAssetProperties_nextToken,
     listAssetProperties_filter,
     listAssetProperties_maxResults,
+    listAssetProperties_nextToken,
     listAssetProperties_assetId,
 
     -- * Destructuring the Response
@@ -57,9 +57,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAssetProperties' smart constructor.
 data ListAssetProperties = ListAssetProperties'
-  { -- | The token to be used for the next set of paginated results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filters the requested list of asset properties. You can choose one of
+  { -- | Filters the requested list of asset properties. You can choose one of
     -- the following options:
     --
     -- -   @ALL@ – The list includes all asset properties for a given asset
@@ -73,6 +71,8 @@ data ListAssetProperties = ListAssetProperties'
     -- | The maximum number of results to return for each paginated request. If
     -- not specified, the default value is 50.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to be used for the next set of paginated results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the asset.
     assetId :: Prelude.Text
   }
@@ -85,8 +85,6 @@ data ListAssetProperties = ListAssetProperties'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'listAssetProperties_nextToken' - The token to be used for the next set of paginated results.
 --
 -- 'filter'', 'listAssetProperties_filter' - Filters the requested list of asset properties. You can choose one of
 -- the following options:
@@ -102,6 +100,8 @@ data ListAssetProperties = ListAssetProperties'
 -- 'maxResults', 'listAssetProperties_maxResults' - The maximum number of results to return for each paginated request. If
 -- not specified, the default value is 50.
 --
+-- 'nextToken', 'listAssetProperties_nextToken' - The token to be used for the next set of paginated results.
+--
 -- 'assetId', 'listAssetProperties_assetId' - The ID of the asset.
 newListAssetProperties ::
   -- | 'assetId'
@@ -109,15 +109,11 @@ newListAssetProperties ::
   ListAssetProperties
 newListAssetProperties pAssetId_ =
   ListAssetProperties'
-    { nextToken = Prelude.Nothing,
-      filter' = Prelude.Nothing,
+    { filter' = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       assetId = pAssetId_
     }
-
--- | The token to be used for the next set of paginated results.
-listAssetProperties_nextToken :: Lens.Lens' ListAssetProperties (Prelude.Maybe Prelude.Text)
-listAssetProperties_nextToken = Lens.lens (\ListAssetProperties' {nextToken} -> nextToken) (\s@ListAssetProperties' {} a -> s {nextToken = a} :: ListAssetProperties)
 
 -- | Filters the requested list of asset properties. You can choose one of
 -- the following options:
@@ -136,6 +132,10 @@ listAssetProperties_filter = Lens.lens (\ListAssetProperties' {filter'} -> filte
 -- not specified, the default value is 50.
 listAssetProperties_maxResults :: Lens.Lens' ListAssetProperties (Prelude.Maybe Prelude.Natural)
 listAssetProperties_maxResults = Lens.lens (\ListAssetProperties' {maxResults} -> maxResults) (\s@ListAssetProperties' {} a -> s {maxResults = a} :: ListAssetProperties)
+
+-- | The token to be used for the next set of paginated results.
+listAssetProperties_nextToken :: Lens.Lens' ListAssetProperties (Prelude.Maybe Prelude.Text)
+listAssetProperties_nextToken = Lens.lens (\ListAssetProperties' {nextToken} -> nextToken) (\s@ListAssetProperties' {} a -> s {nextToken = a} :: ListAssetProperties)
 
 -- | The ID of the asset.
 listAssetProperties_assetId :: Lens.Lens' ListAssetProperties Prelude.Text
@@ -181,16 +181,16 @@ instance Core.AWSRequest ListAssetProperties where
 
 instance Prelude.Hashable ListAssetProperties where
   hashWithSalt _salt ListAssetProperties' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filter'
+    _salt `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` assetId
 
 instance Prelude.NFData ListAssetProperties where
   rnf ListAssetProperties' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filter'
+    Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf assetId
 
 instance Data.ToHeaders ListAssetProperties where
@@ -212,9 +212,9 @@ instance Data.ToPath ListAssetProperties where
 instance Data.ToQuery ListAssetProperties where
   toQuery ListAssetProperties' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "filter" Data.=: filter',
-        "maxResults" Data.=: maxResults
+      [ "filter" Data.=: filter',
+        "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListAssetPropertiesResponse' smart constructor.

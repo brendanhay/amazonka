@@ -29,8 +29,8 @@ module Amazonka.IoTSiteWise.ListGateways
     newListGateways,
 
     -- * Request Lenses
-    listGateways_nextToken,
     listGateways_maxResults,
+    listGateways_nextToken,
 
     -- * Destructuring the Response
     ListGatewaysResponse (..),
@@ -53,12 +53,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListGateways' smart constructor.
 data ListGateways = ListGateways'
-  { -- | The token to be used for the next set of paginated results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return for each paginated request.
+  { -- | The maximum number of results to return for each paginated request.
     --
     -- Default: 50
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to be used for the next set of paginated results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,28 +70,28 @@ data ListGateways = ListGateways'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listGateways_nextToken' - The token to be used for the next set of paginated results.
---
 -- 'maxResults', 'listGateways_maxResults' - The maximum number of results to return for each paginated request.
 --
 -- Default: 50
+--
+-- 'nextToken', 'listGateways_nextToken' - The token to be used for the next set of paginated results.
 newListGateways ::
   ListGateways
 newListGateways =
   ListGateways'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token to be used for the next set of paginated results.
-listGateways_nextToken :: Lens.Lens' ListGateways (Prelude.Maybe Prelude.Text)
-listGateways_nextToken = Lens.lens (\ListGateways' {nextToken} -> nextToken) (\s@ListGateways' {} a -> s {nextToken = a} :: ListGateways)
 
 -- | The maximum number of results to return for each paginated request.
 --
 -- Default: 50
 listGateways_maxResults :: Lens.Lens' ListGateways (Prelude.Maybe Prelude.Natural)
 listGateways_maxResults = Lens.lens (\ListGateways' {maxResults} -> maxResults) (\s@ListGateways' {} a -> s {maxResults = a} :: ListGateways)
+
+-- | The token to be used for the next set of paginated results.
+listGateways_nextToken :: Lens.Lens' ListGateways (Prelude.Maybe Prelude.Text)
+listGateways_nextToken = Lens.lens (\ListGateways' {nextToken} -> nextToken) (\s@ListGateways' {} a -> s {nextToken = a} :: ListGateways)
 
 instance Core.AWSPager ListGateways where
   page rq rs
@@ -127,13 +127,13 @@ instance Core.AWSRequest ListGateways where
 
 instance Prelude.Hashable ListGateways where
   hashWithSalt _salt ListGateways' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListGateways where
   rnf ListGateways' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListGateways where
   toHeaders =
@@ -152,8 +152,8 @@ instance Data.ToPath ListGateways where
 instance Data.ToQuery ListGateways where
   toQuery ListGateways' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListGatewaysResponse' smart constructor.

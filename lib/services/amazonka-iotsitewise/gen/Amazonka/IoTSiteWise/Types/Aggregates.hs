@@ -28,18 +28,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAggregates' smart constructor.
 data Aggregates = Aggregates'
-  { -- | The minimum value of the time series over a time interval window.
-    minimum :: Prelude.Maybe Prelude.Double,
-    -- | The standard deviation of the time series over a time interval window.
-    standardDeviation :: Prelude.Maybe Prelude.Double,
-    -- | The average (mean) value of the time series over a time interval window.
+  { -- | The average (mean) value of the time series over a time interval window.
     average :: Prelude.Maybe Prelude.Double,
     -- | The count of data points in the time series over a time interval window.
     count :: Prelude.Maybe Prelude.Double,
-    -- | The sum of the time series over a time interval window.
-    sum :: Prelude.Maybe Prelude.Double,
     -- | The maximum value of the time series over a time interval window.
-    maximum :: Prelude.Maybe Prelude.Double
+    maximum :: Prelude.Maybe Prelude.Double,
+    -- | The minimum value of the time series over a time interval window.
+    minimum :: Prelude.Maybe Prelude.Double,
+    -- | The standard deviation of the time series over a time interval window.
+    standardDeviation :: Prelude.Maybe Prelude.Double,
+    -- | The sum of the time series over a time interval window.
+    sum :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,36 +51,28 @@ data Aggregates = Aggregates'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'minimum', 'aggregates_minimum' - The minimum value of the time series over a time interval window.
---
--- 'standardDeviation', 'aggregates_standardDeviation' - The standard deviation of the time series over a time interval window.
---
 -- 'average', 'aggregates_average' - The average (mean) value of the time series over a time interval window.
 --
 -- 'count', 'aggregates_count' - The count of data points in the time series over a time interval window.
 --
--- 'sum', 'aggregates_sum' - The sum of the time series over a time interval window.
---
 -- 'maximum', 'aggregates_maximum' - The maximum value of the time series over a time interval window.
+--
+-- 'minimum', 'aggregates_minimum' - The minimum value of the time series over a time interval window.
+--
+-- 'standardDeviation', 'aggregates_standardDeviation' - The standard deviation of the time series over a time interval window.
+--
+-- 'sum', 'aggregates_sum' - The sum of the time series over a time interval window.
 newAggregates ::
   Aggregates
 newAggregates =
   Aggregates'
-    { minimum = Prelude.Nothing,
-      standardDeviation = Prelude.Nothing,
-      average = Prelude.Nothing,
+    { average = Prelude.Nothing,
       count = Prelude.Nothing,
-      sum = Prelude.Nothing,
-      maximum = Prelude.Nothing
+      maximum = Prelude.Nothing,
+      minimum = Prelude.Nothing,
+      standardDeviation = Prelude.Nothing,
+      sum = Prelude.Nothing
     }
-
--- | The minimum value of the time series over a time interval window.
-aggregates_minimum :: Lens.Lens' Aggregates (Prelude.Maybe Prelude.Double)
-aggregates_minimum = Lens.lens (\Aggregates' {minimum} -> minimum) (\s@Aggregates' {} a -> s {minimum = a} :: Aggregates)
-
--- | The standard deviation of the time series over a time interval window.
-aggregates_standardDeviation :: Lens.Lens' Aggregates (Prelude.Maybe Prelude.Double)
-aggregates_standardDeviation = Lens.lens (\Aggregates' {standardDeviation} -> standardDeviation) (\s@Aggregates' {} a -> s {standardDeviation = a} :: Aggregates)
 
 -- | The average (mean) value of the time series over a time interval window.
 aggregates_average :: Lens.Lens' Aggregates (Prelude.Maybe Prelude.Double)
@@ -90,13 +82,21 @@ aggregates_average = Lens.lens (\Aggregates' {average} -> average) (\s@Aggregate
 aggregates_count :: Lens.Lens' Aggregates (Prelude.Maybe Prelude.Double)
 aggregates_count = Lens.lens (\Aggregates' {count} -> count) (\s@Aggregates' {} a -> s {count = a} :: Aggregates)
 
--- | The sum of the time series over a time interval window.
-aggregates_sum :: Lens.Lens' Aggregates (Prelude.Maybe Prelude.Double)
-aggregates_sum = Lens.lens (\Aggregates' {sum} -> sum) (\s@Aggregates' {} a -> s {sum = a} :: Aggregates)
-
 -- | The maximum value of the time series over a time interval window.
 aggregates_maximum :: Lens.Lens' Aggregates (Prelude.Maybe Prelude.Double)
 aggregates_maximum = Lens.lens (\Aggregates' {maximum} -> maximum) (\s@Aggregates' {} a -> s {maximum = a} :: Aggregates)
+
+-- | The minimum value of the time series over a time interval window.
+aggregates_minimum :: Lens.Lens' Aggregates (Prelude.Maybe Prelude.Double)
+aggregates_minimum = Lens.lens (\Aggregates' {minimum} -> minimum) (\s@Aggregates' {} a -> s {minimum = a} :: Aggregates)
+
+-- | The standard deviation of the time series over a time interval window.
+aggregates_standardDeviation :: Lens.Lens' Aggregates (Prelude.Maybe Prelude.Double)
+aggregates_standardDeviation = Lens.lens (\Aggregates' {standardDeviation} -> standardDeviation) (\s@Aggregates' {} a -> s {standardDeviation = a} :: Aggregates)
+
+-- | The sum of the time series over a time interval window.
+aggregates_sum :: Lens.Lens' Aggregates (Prelude.Maybe Prelude.Double)
+aggregates_sum = Lens.lens (\Aggregates' {sum} -> sum) (\s@Aggregates' {} a -> s {sum = a} :: Aggregates)
 
 instance Data.FromJSON Aggregates where
   parseJSON =
@@ -104,28 +104,28 @@ instance Data.FromJSON Aggregates where
       "Aggregates"
       ( \x ->
           Aggregates'
-            Prelude.<$> (x Data..:? "minimum")
-            Prelude.<*> (x Data..:? "standardDeviation")
-            Prelude.<*> (x Data..:? "average")
+            Prelude.<$> (x Data..:? "average")
             Prelude.<*> (x Data..:? "count")
-            Prelude.<*> (x Data..:? "sum")
             Prelude.<*> (x Data..:? "maximum")
+            Prelude.<*> (x Data..:? "minimum")
+            Prelude.<*> (x Data..:? "standardDeviation")
+            Prelude.<*> (x Data..:? "sum")
       )
 
 instance Prelude.Hashable Aggregates where
   hashWithSalt _salt Aggregates' {..} =
-    _salt `Prelude.hashWithSalt` minimum
-      `Prelude.hashWithSalt` standardDeviation
-      `Prelude.hashWithSalt` average
+    _salt `Prelude.hashWithSalt` average
       `Prelude.hashWithSalt` count
-      `Prelude.hashWithSalt` sum
       `Prelude.hashWithSalt` maximum
+      `Prelude.hashWithSalt` minimum
+      `Prelude.hashWithSalt` standardDeviation
+      `Prelude.hashWithSalt` sum
 
 instance Prelude.NFData Aggregates where
   rnf Aggregates' {..} =
-    Prelude.rnf minimum
-      `Prelude.seq` Prelude.rnf standardDeviation
-      `Prelude.seq` Prelude.rnf average
+    Prelude.rnf average
       `Prelude.seq` Prelude.rnf count
-      `Prelude.seq` Prelude.rnf sum
       `Prelude.seq` Prelude.rnf maximum
+      `Prelude.seq` Prelude.rnf minimum
+      `Prelude.seq` Prelude.rnf standardDeviation
+      `Prelude.seq` Prelude.rnf sum

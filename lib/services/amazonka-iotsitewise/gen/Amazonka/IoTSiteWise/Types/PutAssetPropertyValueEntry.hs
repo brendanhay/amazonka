@@ -32,15 +32,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPutAssetPropertyValueEntry' smart constructor.
 data PutAssetPropertyValueEntry = PutAssetPropertyValueEntry'
-  { -- | The alias that identifies the property, such as an OPC-UA server data
+  { -- | The ID of the asset to update.
+    assetId :: Prelude.Maybe Prelude.Text,
+    -- | The alias that identifies the property, such as an OPC-UA server data
     -- stream path (for example,
     -- @\/company\/windfarm\/3\/turbine\/7\/temperature@). For more
     -- information, see
     -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html Mapping industrial data streams to asset properties>
     -- in the /IoT SiteWise User Guide/.
     propertyAlias :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the asset to update.
-    assetId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the asset property for this entry.
     propertyId :: Prelude.Maybe Prelude.Text,
     -- | The user specified ID for the entry. You can use this ID to identify
@@ -60,14 +60,14 @@ data PutAssetPropertyValueEntry = PutAssetPropertyValueEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'assetId', 'putAssetPropertyValueEntry_assetId' - The ID of the asset to update.
+--
 -- 'propertyAlias', 'putAssetPropertyValueEntry_propertyAlias' - The alias that identifies the property, such as an OPC-UA server data
 -- stream path (for example,
 -- @\/company\/windfarm\/3\/turbine\/7\/temperature@). For more
 -- information, see
 -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html Mapping industrial data streams to asset properties>
 -- in the /IoT SiteWise User Guide/.
---
--- 'assetId', 'putAssetPropertyValueEntry_assetId' - The ID of the asset to update.
 --
 -- 'propertyId', 'putAssetPropertyValueEntry_propertyId' - The ID of the asset property for this entry.
 --
@@ -82,13 +82,17 @@ newPutAssetPropertyValueEntry ::
   PutAssetPropertyValueEntry
 newPutAssetPropertyValueEntry pEntryId_ =
   PutAssetPropertyValueEntry'
-    { propertyAlias =
+    { assetId =
         Prelude.Nothing,
-      assetId = Prelude.Nothing,
+      propertyAlias = Prelude.Nothing,
       propertyId = Prelude.Nothing,
       entryId = pEntryId_,
       propertyValues = Prelude.mempty
     }
+
+-- | The ID of the asset to update.
+putAssetPropertyValueEntry_assetId :: Lens.Lens' PutAssetPropertyValueEntry (Prelude.Maybe Prelude.Text)
+putAssetPropertyValueEntry_assetId = Lens.lens (\PutAssetPropertyValueEntry' {assetId} -> assetId) (\s@PutAssetPropertyValueEntry' {} a -> s {assetId = a} :: PutAssetPropertyValueEntry)
 
 -- | The alias that identifies the property, such as an OPC-UA server data
 -- stream path (for example,
@@ -98,10 +102,6 @@ newPutAssetPropertyValueEntry pEntryId_ =
 -- in the /IoT SiteWise User Guide/.
 putAssetPropertyValueEntry_propertyAlias :: Lens.Lens' PutAssetPropertyValueEntry (Prelude.Maybe Prelude.Text)
 putAssetPropertyValueEntry_propertyAlias = Lens.lens (\PutAssetPropertyValueEntry' {propertyAlias} -> propertyAlias) (\s@PutAssetPropertyValueEntry' {} a -> s {propertyAlias = a} :: PutAssetPropertyValueEntry)
-
--- | The ID of the asset to update.
-putAssetPropertyValueEntry_assetId :: Lens.Lens' PutAssetPropertyValueEntry (Prelude.Maybe Prelude.Text)
-putAssetPropertyValueEntry_assetId = Lens.lens (\PutAssetPropertyValueEntry' {assetId} -> assetId) (\s@PutAssetPropertyValueEntry' {} a -> s {assetId = a} :: PutAssetPropertyValueEntry)
 
 -- | The ID of the asset property for this entry.
 putAssetPropertyValueEntry_propertyId :: Lens.Lens' PutAssetPropertyValueEntry (Prelude.Maybe Prelude.Text)
@@ -119,16 +119,16 @@ putAssetPropertyValueEntry_propertyValues = Lens.lens (\PutAssetPropertyValueEnt
 
 instance Prelude.Hashable PutAssetPropertyValueEntry where
   hashWithSalt _salt PutAssetPropertyValueEntry' {..} =
-    _salt `Prelude.hashWithSalt` propertyAlias
-      `Prelude.hashWithSalt` assetId
+    _salt `Prelude.hashWithSalt` assetId
+      `Prelude.hashWithSalt` propertyAlias
       `Prelude.hashWithSalt` propertyId
       `Prelude.hashWithSalt` entryId
       `Prelude.hashWithSalt` propertyValues
 
 instance Prelude.NFData PutAssetPropertyValueEntry where
   rnf PutAssetPropertyValueEntry' {..} =
-    Prelude.rnf propertyAlias
-      `Prelude.seq` Prelude.rnf assetId
+    Prelude.rnf assetId
+      `Prelude.seq` Prelude.rnf propertyAlias
       `Prelude.seq` Prelude.rnf propertyId
       `Prelude.seq` Prelude.rnf entryId
       `Prelude.seq` Prelude.rnf propertyValues
@@ -137,8 +137,8 @@ instance Data.ToJSON PutAssetPropertyValueEntry where
   toJSON PutAssetPropertyValueEntry' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("propertyAlias" Data..=) Prelude.<$> propertyAlias,
-            ("assetId" Data..=) Prelude.<$> assetId,
+          [ ("assetId" Data..=) Prelude.<$> assetId,
+            ("propertyAlias" Data..=) Prelude.<$> propertyAlias,
             ("propertyId" Data..=) Prelude.<$> propertyId,
             Prelude.Just ("entryId" Data..= entryId),
             Prelude.Just

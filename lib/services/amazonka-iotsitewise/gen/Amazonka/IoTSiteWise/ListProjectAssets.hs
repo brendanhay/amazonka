@@ -30,8 +30,8 @@ module Amazonka.IoTSiteWise.ListProjectAssets
     newListProjectAssets,
 
     -- * Request Lenses
-    listProjectAssets_nextToken,
     listProjectAssets_maxResults,
+    listProjectAssets_nextToken,
     listProjectAssets_projectId,
 
     -- * Destructuring the Response
@@ -55,12 +55,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListProjectAssets' smart constructor.
 data ListProjectAssets = ListProjectAssets'
-  { -- | The token to be used for the next set of paginated results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return for each paginated request.
+  { -- | The maximum number of results to return for each paginated request.
     --
     -- Default: 50
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to be used for the next set of paginated results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the project.
     projectId :: Prelude.Text
   }
@@ -74,11 +74,11 @@ data ListProjectAssets = ListProjectAssets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listProjectAssets_nextToken' - The token to be used for the next set of paginated results.
---
 -- 'maxResults', 'listProjectAssets_maxResults' - The maximum number of results to return for each paginated request.
 --
 -- Default: 50
+--
+-- 'nextToken', 'listProjectAssets_nextToken' - The token to be used for the next set of paginated results.
 --
 -- 'projectId', 'listProjectAssets_projectId' - The ID of the project.
 newListProjectAssets ::
@@ -87,20 +87,20 @@ newListProjectAssets ::
   ListProjectAssets
 newListProjectAssets pProjectId_ =
   ListProjectAssets'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       projectId = pProjectId_
     }
-
--- | The token to be used for the next set of paginated results.
-listProjectAssets_nextToken :: Lens.Lens' ListProjectAssets (Prelude.Maybe Prelude.Text)
-listProjectAssets_nextToken = Lens.lens (\ListProjectAssets' {nextToken} -> nextToken) (\s@ListProjectAssets' {} a -> s {nextToken = a} :: ListProjectAssets)
 
 -- | The maximum number of results to return for each paginated request.
 --
 -- Default: 50
 listProjectAssets_maxResults :: Lens.Lens' ListProjectAssets (Prelude.Maybe Prelude.Natural)
 listProjectAssets_maxResults = Lens.lens (\ListProjectAssets' {maxResults} -> maxResults) (\s@ListProjectAssets' {} a -> s {maxResults = a} :: ListProjectAssets)
+
+-- | The token to be used for the next set of paginated results.
+listProjectAssets_nextToken :: Lens.Lens' ListProjectAssets (Prelude.Maybe Prelude.Text)
+listProjectAssets_nextToken = Lens.lens (\ListProjectAssets' {nextToken} -> nextToken) (\s@ListProjectAssets' {} a -> s {nextToken = a} :: ListProjectAssets)
 
 -- | The ID of the project.
 listProjectAssets_projectId :: Lens.Lens' ListProjectAssets Prelude.Text
@@ -142,14 +142,14 @@ instance Core.AWSRequest ListProjectAssets where
 
 instance Prelude.Hashable ListProjectAssets where
   hashWithSalt _salt ListProjectAssets' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` projectId
 
 instance Prelude.NFData ListProjectAssets where
   rnf ListProjectAssets' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf projectId
 
 instance Data.ToHeaders ListProjectAssets where
@@ -171,8 +171,8 @@ instance Data.ToPath ListProjectAssets where
 instance Data.ToQuery ListProjectAssets where
   toQuery ListProjectAssets' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListProjectAssetsResponse' smart constructor.

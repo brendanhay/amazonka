@@ -31,26 +31,26 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newApiKey' smart constructor.
 data ApiKey = ApiKey'
-  { -- | The collection of tags. Each tag element is associated with a given
-    -- resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | The timestamp when the API Key was created.
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | An AWS Marketplace customer identifier , when integrating with the AWS
     -- SaaS Marketplace.
     customerId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the API Key.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp when the API Key was last updated.
-    lastUpdatedDate :: Prelude.Maybe Data.POSIX,
     -- | The description of the API Key.
     description :: Prelude.Maybe Prelude.Text,
-    -- | A list of Stage resources that are associated with the ApiKey resource.
-    stageKeys :: Prelude.Maybe [Prelude.Text],
-    -- | The identifier of the API Key.
-    id :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the API Key can be used by callers.
     enabled :: Prelude.Maybe Prelude.Bool,
-    -- | The timestamp when the API Key was created.
-    createdDate :: Prelude.Maybe Data.POSIX,
+    -- | The identifier of the API Key.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp when the API Key was last updated.
+    lastUpdatedDate :: Prelude.Maybe Data.POSIX,
+    -- | The name of the API Key.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | A list of Stage resources that are associated with the ApiKey resource.
+    stageKeys :: Prelude.Maybe [Prelude.Text],
+    -- | The collection of tags. Each tag element is associated with a given
+    -- resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The value of the API Key.
     value :: Prelude.Maybe Prelude.Text
   }
@@ -64,80 +64,80 @@ data ApiKey = ApiKey'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'apiKey_tags' - The collection of tags. Each tag element is associated with a given
--- resource.
+-- 'createdDate', 'apiKey_createdDate' - The timestamp when the API Key was created.
 --
 -- 'customerId', 'apiKey_customerId' - An AWS Marketplace customer identifier , when integrating with the AWS
 -- SaaS Marketplace.
 --
--- 'name', 'apiKey_name' - The name of the API Key.
---
--- 'lastUpdatedDate', 'apiKey_lastUpdatedDate' - The timestamp when the API Key was last updated.
---
 -- 'description', 'apiKey_description' - The description of the API Key.
---
--- 'stageKeys', 'apiKey_stageKeys' - A list of Stage resources that are associated with the ApiKey resource.
---
--- 'id', 'apiKey_id' - The identifier of the API Key.
 --
 -- 'enabled', 'apiKey_enabled' - Specifies whether the API Key can be used by callers.
 --
--- 'createdDate', 'apiKey_createdDate' - The timestamp when the API Key was created.
+-- 'id', 'apiKey_id' - The identifier of the API Key.
+--
+-- 'lastUpdatedDate', 'apiKey_lastUpdatedDate' - The timestamp when the API Key was last updated.
+--
+-- 'name', 'apiKey_name' - The name of the API Key.
+--
+-- 'stageKeys', 'apiKey_stageKeys' - A list of Stage resources that are associated with the ApiKey resource.
+--
+-- 'tags', 'apiKey_tags' - The collection of tags. Each tag element is associated with a given
+-- resource.
 --
 -- 'value', 'apiKey_value' - The value of the API Key.
 newApiKey ::
   ApiKey
 newApiKey =
   ApiKey'
-    { tags = Prelude.Nothing,
+    { createdDate = Prelude.Nothing,
       customerId = Prelude.Nothing,
-      name = Prelude.Nothing,
-      lastUpdatedDate = Prelude.Nothing,
       description = Prelude.Nothing,
-      stageKeys = Prelude.Nothing,
-      id = Prelude.Nothing,
       enabled = Prelude.Nothing,
-      createdDate = Prelude.Nothing,
+      id = Prelude.Nothing,
+      lastUpdatedDate = Prelude.Nothing,
+      name = Prelude.Nothing,
+      stageKeys = Prelude.Nothing,
+      tags = Prelude.Nothing,
       value = Prelude.Nothing
     }
 
--- | The collection of tags. Each tag element is associated with a given
--- resource.
-apiKey_tags :: Lens.Lens' ApiKey (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-apiKey_tags = Lens.lens (\ApiKey' {tags} -> tags) (\s@ApiKey' {} a -> s {tags = a} :: ApiKey) Prelude.. Lens.mapping Lens.coerced
+-- | The timestamp when the API Key was created.
+apiKey_createdDate :: Lens.Lens' ApiKey (Prelude.Maybe Prelude.UTCTime)
+apiKey_createdDate = Lens.lens (\ApiKey' {createdDate} -> createdDate) (\s@ApiKey' {} a -> s {createdDate = a} :: ApiKey) Prelude.. Lens.mapping Data._Time
 
 -- | An AWS Marketplace customer identifier , when integrating with the AWS
 -- SaaS Marketplace.
 apiKey_customerId :: Lens.Lens' ApiKey (Prelude.Maybe Prelude.Text)
 apiKey_customerId = Lens.lens (\ApiKey' {customerId} -> customerId) (\s@ApiKey' {} a -> s {customerId = a} :: ApiKey)
 
--- | The name of the API Key.
-apiKey_name :: Lens.Lens' ApiKey (Prelude.Maybe Prelude.Text)
-apiKey_name = Lens.lens (\ApiKey' {name} -> name) (\s@ApiKey' {} a -> s {name = a} :: ApiKey)
-
--- | The timestamp when the API Key was last updated.
-apiKey_lastUpdatedDate :: Lens.Lens' ApiKey (Prelude.Maybe Prelude.UTCTime)
-apiKey_lastUpdatedDate = Lens.lens (\ApiKey' {lastUpdatedDate} -> lastUpdatedDate) (\s@ApiKey' {} a -> s {lastUpdatedDate = a} :: ApiKey) Prelude.. Lens.mapping Data._Time
-
 -- | The description of the API Key.
 apiKey_description :: Lens.Lens' ApiKey (Prelude.Maybe Prelude.Text)
 apiKey_description = Lens.lens (\ApiKey' {description} -> description) (\s@ApiKey' {} a -> s {description = a} :: ApiKey)
-
--- | A list of Stage resources that are associated with the ApiKey resource.
-apiKey_stageKeys :: Lens.Lens' ApiKey (Prelude.Maybe [Prelude.Text])
-apiKey_stageKeys = Lens.lens (\ApiKey' {stageKeys} -> stageKeys) (\s@ApiKey' {} a -> s {stageKeys = a} :: ApiKey) Prelude.. Lens.mapping Lens.coerced
-
--- | The identifier of the API Key.
-apiKey_id :: Lens.Lens' ApiKey (Prelude.Maybe Prelude.Text)
-apiKey_id = Lens.lens (\ApiKey' {id} -> id) (\s@ApiKey' {} a -> s {id = a} :: ApiKey)
 
 -- | Specifies whether the API Key can be used by callers.
 apiKey_enabled :: Lens.Lens' ApiKey (Prelude.Maybe Prelude.Bool)
 apiKey_enabled = Lens.lens (\ApiKey' {enabled} -> enabled) (\s@ApiKey' {} a -> s {enabled = a} :: ApiKey)
 
--- | The timestamp when the API Key was created.
-apiKey_createdDate :: Lens.Lens' ApiKey (Prelude.Maybe Prelude.UTCTime)
-apiKey_createdDate = Lens.lens (\ApiKey' {createdDate} -> createdDate) (\s@ApiKey' {} a -> s {createdDate = a} :: ApiKey) Prelude.. Lens.mapping Data._Time
+-- | The identifier of the API Key.
+apiKey_id :: Lens.Lens' ApiKey (Prelude.Maybe Prelude.Text)
+apiKey_id = Lens.lens (\ApiKey' {id} -> id) (\s@ApiKey' {} a -> s {id = a} :: ApiKey)
+
+-- | The timestamp when the API Key was last updated.
+apiKey_lastUpdatedDate :: Lens.Lens' ApiKey (Prelude.Maybe Prelude.UTCTime)
+apiKey_lastUpdatedDate = Lens.lens (\ApiKey' {lastUpdatedDate} -> lastUpdatedDate) (\s@ApiKey' {} a -> s {lastUpdatedDate = a} :: ApiKey) Prelude.. Lens.mapping Data._Time
+
+-- | The name of the API Key.
+apiKey_name :: Lens.Lens' ApiKey (Prelude.Maybe Prelude.Text)
+apiKey_name = Lens.lens (\ApiKey' {name} -> name) (\s@ApiKey' {} a -> s {name = a} :: ApiKey)
+
+-- | A list of Stage resources that are associated with the ApiKey resource.
+apiKey_stageKeys :: Lens.Lens' ApiKey (Prelude.Maybe [Prelude.Text])
+apiKey_stageKeys = Lens.lens (\ApiKey' {stageKeys} -> stageKeys) (\s@ApiKey' {} a -> s {stageKeys = a} :: ApiKey) Prelude.. Lens.mapping Lens.coerced
+
+-- | The collection of tags. Each tag element is associated with a given
+-- resource.
+apiKey_tags :: Lens.Lens' ApiKey (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+apiKey_tags = Lens.lens (\ApiKey' {tags} -> tags) (\s@ApiKey' {} a -> s {tags = a} :: ApiKey) Prelude.. Lens.mapping Lens.coerced
 
 -- | The value of the API Key.
 apiKey_value :: Lens.Lens' ApiKey (Prelude.Maybe Prelude.Text)
@@ -149,40 +149,40 @@ instance Data.FromJSON ApiKey where
       "ApiKey"
       ( \x ->
           ApiKey'
-            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "createdDate")
             Prelude.<*> (x Data..:? "customerId")
-            Prelude.<*> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "lastUpdatedDate")
             Prelude.<*> (x Data..:? "description")
-            Prelude.<*> (x Data..:? "stageKeys" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "id")
             Prelude.<*> (x Data..:? "enabled")
-            Prelude.<*> (x Data..:? "createdDate")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "lastUpdatedDate")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "stageKeys" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable ApiKey where
   hashWithSalt _salt ApiKey' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` createdDate
       `Prelude.hashWithSalt` customerId
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` lastUpdatedDate
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` stageKeys
-      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` enabled
-      `Prelude.hashWithSalt` createdDate
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` lastUpdatedDate
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` stageKeys
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData ApiKey where
   rnf ApiKey' {..} =
-    Prelude.rnf tags
+    Prelude.rnf createdDate
       `Prelude.seq` Prelude.rnf customerId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf lastUpdatedDate
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf stageKeys
-      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf lastUpdatedDate
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf stageKeys
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf value

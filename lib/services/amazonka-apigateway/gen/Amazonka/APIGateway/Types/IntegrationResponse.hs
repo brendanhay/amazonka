@@ -31,7 +31,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newIntegrationResponse' smart constructor.
 data IntegrationResponse = IntegrationResponse'
-  { -- | A key-value map specifying response parameters that are passed to the
+  { -- | Specifies how to handle response payload content type conversions.
+    -- Supported values are @CONVERT_TO_BINARY@ and @CONVERT_TO_TEXT@, with the
+    -- following behaviors:
+    --
+    -- If this property is not defined, the response payload will be passed
+    -- through from the integration response to the method response without
+    -- modification.
+    contentHandling :: Prelude.Maybe ContentHandlingStrategy,
+    -- | A key-value map specifying response parameters that are passed to the
     -- method response from the back end. The key is a method response header
     -- parameter name and the mapped value is an integration response header
     -- value, a static value enclosed within a pair of single quotes, or a JSON
@@ -56,14 +64,6 @@ data IntegrationResponse = IntegrationResponse'
     -- Lambda function, the AWS Lambda function error header is matched. For
     -- all other HTTP and AWS back ends, the HTTP status code is matched.
     selectionPattern :: Prelude.Maybe Prelude.Text,
-    -- | Specifies how to handle response payload content type conversions.
-    -- Supported values are @CONVERT_TO_BINARY@ and @CONVERT_TO_TEXT@, with the
-    -- following behaviors:
-    --
-    -- If this property is not defined, the response payload will be passed
-    -- through from the integration response to the method response without
-    -- modification.
-    contentHandling :: Prelude.Maybe ContentHandlingStrategy,
     -- | Specifies the status code that is used to map the integration response
     -- to an existing MethodResponse.
     statusCode :: Prelude.Maybe Prelude.Text
@@ -77,6 +77,14 @@ data IntegrationResponse = IntegrationResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'contentHandling', 'integrationResponse_contentHandling' - Specifies how to handle response payload content type conversions.
+-- Supported values are @CONVERT_TO_BINARY@ and @CONVERT_TO_TEXT@, with the
+-- following behaviors:
+--
+-- If this property is not defined, the response payload will be passed
+-- through from the integration response to the method response without
+-- modification.
 --
 -- 'responseParameters', 'integrationResponse_responseParameters' - A key-value map specifying response parameters that are passed to the
 -- method response from the back end. The key is a method response header
@@ -103,27 +111,29 @@ data IntegrationResponse = IntegrationResponse'
 -- Lambda function, the AWS Lambda function error header is matched. For
 -- all other HTTP and AWS back ends, the HTTP status code is matched.
 --
--- 'contentHandling', 'integrationResponse_contentHandling' - Specifies how to handle response payload content type conversions.
--- Supported values are @CONVERT_TO_BINARY@ and @CONVERT_TO_TEXT@, with the
--- following behaviors:
---
--- If this property is not defined, the response payload will be passed
--- through from the integration response to the method response without
--- modification.
---
 -- 'statusCode', 'integrationResponse_statusCode' - Specifies the status code that is used to map the integration response
 -- to an existing MethodResponse.
 newIntegrationResponse ::
   IntegrationResponse
 newIntegrationResponse =
   IntegrationResponse'
-    { responseParameters =
+    { contentHandling =
         Prelude.Nothing,
+      responseParameters = Prelude.Nothing,
       responseTemplates = Prelude.Nothing,
       selectionPattern = Prelude.Nothing,
-      contentHandling = Prelude.Nothing,
       statusCode = Prelude.Nothing
     }
+
+-- | Specifies how to handle response payload content type conversions.
+-- Supported values are @CONVERT_TO_BINARY@ and @CONVERT_TO_TEXT@, with the
+-- following behaviors:
+--
+-- If this property is not defined, the response payload will be passed
+-- through from the integration response to the method response without
+-- modification.
+integrationResponse_contentHandling :: Lens.Lens' IntegrationResponse (Prelude.Maybe ContentHandlingStrategy)
+integrationResponse_contentHandling = Lens.lens (\IntegrationResponse' {contentHandling} -> contentHandling) (\s@IntegrationResponse' {} a -> s {contentHandling = a} :: IntegrationResponse)
 
 -- | A key-value map specifying response parameters that are passed to the
 -- method response from the back end. The key is a method response header
@@ -156,16 +166,6 @@ integrationResponse_responseTemplates = Lens.lens (\IntegrationResponse' {respon
 integrationResponse_selectionPattern :: Lens.Lens' IntegrationResponse (Prelude.Maybe Prelude.Text)
 integrationResponse_selectionPattern = Lens.lens (\IntegrationResponse' {selectionPattern} -> selectionPattern) (\s@IntegrationResponse' {} a -> s {selectionPattern = a} :: IntegrationResponse)
 
--- | Specifies how to handle response payload content type conversions.
--- Supported values are @CONVERT_TO_BINARY@ and @CONVERT_TO_TEXT@, with the
--- following behaviors:
---
--- If this property is not defined, the response payload will be passed
--- through from the integration response to the method response without
--- modification.
-integrationResponse_contentHandling :: Lens.Lens' IntegrationResponse (Prelude.Maybe ContentHandlingStrategy)
-integrationResponse_contentHandling = Lens.lens (\IntegrationResponse' {contentHandling} -> contentHandling) (\s@IntegrationResponse' {} a -> s {contentHandling = a} :: IntegrationResponse)
-
 -- | Specifies the status code that is used to map the integration response
 -- to an existing MethodResponse.
 integrationResponse_statusCode :: Lens.Lens' IntegrationResponse (Prelude.Maybe Prelude.Text)
@@ -177,29 +177,29 @@ instance Data.FromJSON IntegrationResponse where
       "IntegrationResponse"
       ( \x ->
           IntegrationResponse'
-            Prelude.<$> ( x Data..:? "responseParameters"
+            Prelude.<$> (x Data..:? "contentHandling")
+            Prelude.<*> ( x Data..:? "responseParameters"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> ( x Data..:? "responseTemplates"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "selectionPattern")
-            Prelude.<*> (x Data..:? "contentHandling")
             Prelude.<*> (x Data..:? "statusCode")
       )
 
 instance Prelude.Hashable IntegrationResponse where
   hashWithSalt _salt IntegrationResponse' {..} =
-    _salt `Prelude.hashWithSalt` responseParameters
+    _salt `Prelude.hashWithSalt` contentHandling
+      `Prelude.hashWithSalt` responseParameters
       `Prelude.hashWithSalt` responseTemplates
       `Prelude.hashWithSalt` selectionPattern
-      `Prelude.hashWithSalt` contentHandling
       `Prelude.hashWithSalt` statusCode
 
 instance Prelude.NFData IntegrationResponse where
   rnf IntegrationResponse' {..} =
-    Prelude.rnf responseParameters
+    Prelude.rnf contentHandling
+      `Prelude.seq` Prelude.rnf responseParameters
       `Prelude.seq` Prelude.rnf responseTemplates
       `Prelude.seq` Prelude.rnf selectionPattern
-      `Prelude.seq` Prelude.rnf contentHandling
       `Prelude.seq` Prelude.rnf statusCode

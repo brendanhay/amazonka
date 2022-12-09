@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBasePathMapping' smart constructor.
 data BasePathMapping = BasePathMapping'
-  { -- | The string identifier of the associated RestApi.
+  { -- | The base path name that callers of the API must provide as part of the
+    -- URL after the domain name.
+    basePath :: Prelude.Maybe Prelude.Text,
+    -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Maybe Prelude.Text,
     -- | The name of the associated stage.
-    stage :: Prelude.Maybe Prelude.Text,
-    -- | The base path name that callers of the API must provide as part of the
-    -- URL after the domain name.
-    basePath :: Prelude.Maybe Prelude.Text
+    stage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,20 +47,25 @@ data BasePathMapping = BasePathMapping'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'basePath', 'basePathMapping_basePath' - The base path name that callers of the API must provide as part of the
+-- URL after the domain name.
+--
 -- 'restApiId', 'basePathMapping_restApiId' - The string identifier of the associated RestApi.
 --
 -- 'stage', 'basePathMapping_stage' - The name of the associated stage.
---
--- 'basePath', 'basePathMapping_basePath' - The base path name that callers of the API must provide as part of the
--- URL after the domain name.
 newBasePathMapping ::
   BasePathMapping
 newBasePathMapping =
   BasePathMapping'
-    { restApiId = Prelude.Nothing,
-      stage = Prelude.Nothing,
-      basePath = Prelude.Nothing
+    { basePath = Prelude.Nothing,
+      restApiId = Prelude.Nothing,
+      stage = Prelude.Nothing
     }
+
+-- | The base path name that callers of the API must provide as part of the
+-- URL after the domain name.
+basePathMapping_basePath :: Lens.Lens' BasePathMapping (Prelude.Maybe Prelude.Text)
+basePathMapping_basePath = Lens.lens (\BasePathMapping' {basePath} -> basePath) (\s@BasePathMapping' {} a -> s {basePath = a} :: BasePathMapping)
 
 -- | The string identifier of the associated RestApi.
 basePathMapping_restApiId :: Lens.Lens' BasePathMapping (Prelude.Maybe Prelude.Text)
@@ -70,30 +75,25 @@ basePathMapping_restApiId = Lens.lens (\BasePathMapping' {restApiId} -> restApiI
 basePathMapping_stage :: Lens.Lens' BasePathMapping (Prelude.Maybe Prelude.Text)
 basePathMapping_stage = Lens.lens (\BasePathMapping' {stage} -> stage) (\s@BasePathMapping' {} a -> s {stage = a} :: BasePathMapping)
 
--- | The base path name that callers of the API must provide as part of the
--- URL after the domain name.
-basePathMapping_basePath :: Lens.Lens' BasePathMapping (Prelude.Maybe Prelude.Text)
-basePathMapping_basePath = Lens.lens (\BasePathMapping' {basePath} -> basePath) (\s@BasePathMapping' {} a -> s {basePath = a} :: BasePathMapping)
-
 instance Data.FromJSON BasePathMapping where
   parseJSON =
     Data.withObject
       "BasePathMapping"
       ( \x ->
           BasePathMapping'
-            Prelude.<$> (x Data..:? "restApiId")
+            Prelude.<$> (x Data..:? "basePath")
+            Prelude.<*> (x Data..:? "restApiId")
             Prelude.<*> (x Data..:? "stage")
-            Prelude.<*> (x Data..:? "basePath")
       )
 
 instance Prelude.Hashable BasePathMapping where
   hashWithSalt _salt BasePathMapping' {..} =
-    _salt `Prelude.hashWithSalt` restApiId
+    _salt `Prelude.hashWithSalt` basePath
+      `Prelude.hashWithSalt` restApiId
       `Prelude.hashWithSalt` stage
-      `Prelude.hashWithSalt` basePath
 
 instance Prelude.NFData BasePathMapping where
   rnf BasePathMapping' {..} =
-    Prelude.rnf restApiId
+    Prelude.rnf basePath
+      `Prelude.seq` Prelude.rnf restApiId
       `Prelude.seq` Prelude.rnf stage
-      `Prelude.seq` Prelude.rnf basePath

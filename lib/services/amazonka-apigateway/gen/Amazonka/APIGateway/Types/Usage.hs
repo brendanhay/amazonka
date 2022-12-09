@@ -28,20 +28,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUsage' smart constructor.
 data Usage = Usage'
-  { -- | The usage data, as daily logs of used and remaining quotas, over the
+  { -- | The ending date of the usage data.
+    endDate :: Prelude.Maybe Prelude.Text,
+    -- | The usage data, as daily logs of used and remaining quotas, over the
     -- specified time interval indexed over the API keys in a usage plan. For
     -- example,
     -- @{..., \"values\" : { \"{api_key}\" : [ [0, 100], [10, 90], [100, 10]]}@,
     -- where @{api_key}@ stands for an API key value and the daily log entry is
     -- of the format @[used quota, remaining quota]@.
     items :: Prelude.Maybe (Prelude.HashMap Prelude.Text [[Prelude.Integer]]),
-    -- | The ending date of the usage data.
-    endDate :: Prelude.Maybe Prelude.Text,
+    position :: Prelude.Maybe Prelude.Text,
     -- | The starting date of the usage data.
     startDate :: Prelude.Maybe Prelude.Text,
     -- | The plan Id associated with this usage data.
-    usagePlanId :: Prelude.Maybe Prelude.Text,
-    position :: Prelude.Maybe Prelude.Text
+    usagePlanId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,6 +53,8 @@ data Usage = Usage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'endDate', 'usage_endDate' - The ending date of the usage data.
+--
 -- 'items', 'usage_items' - The usage data, as daily logs of used and remaining quotas, over the
 -- specified time interval indexed over the API keys in a usage plan. For
 -- example,
@@ -60,23 +62,25 @@ data Usage = Usage'
 -- where @{api_key}@ stands for an API key value and the daily log entry is
 -- of the format @[used quota, remaining quota]@.
 --
--- 'endDate', 'usage_endDate' - The ending date of the usage data.
+-- 'position', 'usage_position' - Undocumented member.
 --
 -- 'startDate', 'usage_startDate' - The starting date of the usage data.
 --
 -- 'usagePlanId', 'usage_usagePlanId' - The plan Id associated with this usage data.
---
--- 'position', 'usage_position' - Undocumented member.
 newUsage ::
   Usage
 newUsage =
   Usage'
-    { items = Prelude.Nothing,
-      endDate = Prelude.Nothing,
+    { endDate = Prelude.Nothing,
+      items = Prelude.Nothing,
+      position = Prelude.Nothing,
       startDate = Prelude.Nothing,
-      usagePlanId = Prelude.Nothing,
-      position = Prelude.Nothing
+      usagePlanId = Prelude.Nothing
     }
+
+-- | The ending date of the usage data.
+usage_endDate :: Lens.Lens' Usage (Prelude.Maybe Prelude.Text)
+usage_endDate = Lens.lens (\Usage' {endDate} -> endDate) (\s@Usage' {} a -> s {endDate = a} :: Usage)
 
 -- | The usage data, as daily logs of used and remaining quotas, over the
 -- specified time interval indexed over the API keys in a usage plan. For
@@ -87,9 +91,9 @@ newUsage =
 usage_items :: Lens.Lens' Usage (Prelude.Maybe (Prelude.HashMap Prelude.Text [[Prelude.Integer]]))
 usage_items = Lens.lens (\Usage' {items} -> items) (\s@Usage' {} a -> s {items = a} :: Usage) Prelude.. Lens.mapping Lens.coerced
 
--- | The ending date of the usage data.
-usage_endDate :: Lens.Lens' Usage (Prelude.Maybe Prelude.Text)
-usage_endDate = Lens.lens (\Usage' {endDate} -> endDate) (\s@Usage' {} a -> s {endDate = a} :: Usage)
+-- | Undocumented member.
+usage_position :: Lens.Lens' Usage (Prelude.Maybe Prelude.Text)
+usage_position = Lens.lens (\Usage' {position} -> position) (\s@Usage' {} a -> s {position = a} :: Usage)
 
 -- | The starting date of the usage data.
 usage_startDate :: Lens.Lens' Usage (Prelude.Maybe Prelude.Text)
@@ -99,35 +103,31 @@ usage_startDate = Lens.lens (\Usage' {startDate} -> startDate) (\s@Usage' {} a -
 usage_usagePlanId :: Lens.Lens' Usage (Prelude.Maybe Prelude.Text)
 usage_usagePlanId = Lens.lens (\Usage' {usagePlanId} -> usagePlanId) (\s@Usage' {} a -> s {usagePlanId = a} :: Usage)
 
--- | Undocumented member.
-usage_position :: Lens.Lens' Usage (Prelude.Maybe Prelude.Text)
-usage_position = Lens.lens (\Usage' {position} -> position) (\s@Usage' {} a -> s {position = a} :: Usage)
-
 instance Data.FromJSON Usage where
   parseJSON =
     Data.withObject
       "Usage"
       ( \x ->
           Usage'
-            Prelude.<$> (x Data..:? "values" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "endDate")
+            Prelude.<$> (x Data..:? "endDate")
+            Prelude.<*> (x Data..:? "values" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "position")
             Prelude.<*> (x Data..:? "startDate")
             Prelude.<*> (x Data..:? "usagePlanId")
-            Prelude.<*> (x Data..:? "position")
       )
 
 instance Prelude.Hashable Usage where
   hashWithSalt _salt Usage' {..} =
-    _salt `Prelude.hashWithSalt` items
-      `Prelude.hashWithSalt` endDate
+    _salt `Prelude.hashWithSalt` endDate
+      `Prelude.hashWithSalt` items
+      `Prelude.hashWithSalt` position
       `Prelude.hashWithSalt` startDate
       `Prelude.hashWithSalt` usagePlanId
-      `Prelude.hashWithSalt` position
 
 instance Prelude.NFData Usage where
   rnf Usage' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf endDate
+    Prelude.rnf endDate
+      `Prelude.seq` Prelude.rnf items
+      `Prelude.seq` Prelude.rnf position
       `Prelude.seq` Prelude.rnf startDate
       `Prelude.seq` Prelude.rnf usagePlanId
-      `Prelude.seq` Prelude.rnf position

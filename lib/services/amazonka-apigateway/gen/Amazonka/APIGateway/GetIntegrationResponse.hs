@@ -37,10 +37,10 @@ module Amazonka.APIGateway.GetIntegrationResponse
     newIntegrationResponse,
 
     -- * Response Lenses
+    integrationResponse_contentHandling,
     integrationResponse_responseParameters,
     integrationResponse_responseTemplates,
     integrationResponse_selectionPattern,
-    integrationResponse_contentHandling,
     integrationResponse_statusCode,
   )
 where

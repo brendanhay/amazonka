@@ -28,16 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeploymentCanarySettings' smart constructor.
 data DeploymentCanarySettings = DeploymentCanarySettings'
-  { -- | A Boolean flag to indicate whether the canary release deployment uses
-    -- the stage cache or not.
-    useStageCache :: Prelude.Maybe Prelude.Bool,
+  { -- | The percentage (0.0-100.0) of traffic routed to the canary deployment.
+    percentTraffic :: Prelude.Maybe Prelude.Double,
     -- | A stage variable overrides used for the canary release deployment. They
     -- can override existing stage variables or add new stage variables for the
     -- canary release deployment. These stage variables are represented as a
     -- string-to-string map between stage variable names and their values.
     stageVariableOverrides :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The percentage (0.0-100.0) of traffic routed to the canary deployment.
-    percentTraffic :: Prelude.Maybe Prelude.Double
+    -- | A Boolean flag to indicate whether the canary release deployment uses
+    -- the stage cache or not.
+    useStageCache :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,29 +49,28 @@ data DeploymentCanarySettings = DeploymentCanarySettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'useStageCache', 'deploymentCanarySettings_useStageCache' - A Boolean flag to indicate whether the canary release deployment uses
--- the stage cache or not.
+-- 'percentTraffic', 'deploymentCanarySettings_percentTraffic' - The percentage (0.0-100.0) of traffic routed to the canary deployment.
 --
 -- 'stageVariableOverrides', 'deploymentCanarySettings_stageVariableOverrides' - A stage variable overrides used for the canary release deployment. They
 -- can override existing stage variables or add new stage variables for the
 -- canary release deployment. These stage variables are represented as a
 -- string-to-string map between stage variable names and their values.
 --
--- 'percentTraffic', 'deploymentCanarySettings_percentTraffic' - The percentage (0.0-100.0) of traffic routed to the canary deployment.
+-- 'useStageCache', 'deploymentCanarySettings_useStageCache' - A Boolean flag to indicate whether the canary release deployment uses
+-- the stage cache or not.
 newDeploymentCanarySettings ::
   DeploymentCanarySettings
 newDeploymentCanarySettings =
   DeploymentCanarySettings'
-    { useStageCache =
+    { percentTraffic =
         Prelude.Nothing,
       stageVariableOverrides = Prelude.Nothing,
-      percentTraffic = Prelude.Nothing
+      useStageCache = Prelude.Nothing
     }
 
--- | A Boolean flag to indicate whether the canary release deployment uses
--- the stage cache or not.
-deploymentCanarySettings_useStageCache :: Lens.Lens' DeploymentCanarySettings (Prelude.Maybe Prelude.Bool)
-deploymentCanarySettings_useStageCache = Lens.lens (\DeploymentCanarySettings' {useStageCache} -> useStageCache) (\s@DeploymentCanarySettings' {} a -> s {useStageCache = a} :: DeploymentCanarySettings)
+-- | The percentage (0.0-100.0) of traffic routed to the canary deployment.
+deploymentCanarySettings_percentTraffic :: Lens.Lens' DeploymentCanarySettings (Prelude.Maybe Prelude.Double)
+deploymentCanarySettings_percentTraffic = Lens.lens (\DeploymentCanarySettings' {percentTraffic} -> percentTraffic) (\s@DeploymentCanarySettings' {} a -> s {percentTraffic = a} :: DeploymentCanarySettings)
 
 -- | A stage variable overrides used for the canary release deployment. They
 -- can override existing stage variables or add new stage variables for the
@@ -80,30 +79,31 @@ deploymentCanarySettings_useStageCache = Lens.lens (\DeploymentCanarySettings' {
 deploymentCanarySettings_stageVariableOverrides :: Lens.Lens' DeploymentCanarySettings (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 deploymentCanarySettings_stageVariableOverrides = Lens.lens (\DeploymentCanarySettings' {stageVariableOverrides} -> stageVariableOverrides) (\s@DeploymentCanarySettings' {} a -> s {stageVariableOverrides = a} :: DeploymentCanarySettings) Prelude.. Lens.mapping Lens.coerced
 
--- | The percentage (0.0-100.0) of traffic routed to the canary deployment.
-deploymentCanarySettings_percentTraffic :: Lens.Lens' DeploymentCanarySettings (Prelude.Maybe Prelude.Double)
-deploymentCanarySettings_percentTraffic = Lens.lens (\DeploymentCanarySettings' {percentTraffic} -> percentTraffic) (\s@DeploymentCanarySettings' {} a -> s {percentTraffic = a} :: DeploymentCanarySettings)
+-- | A Boolean flag to indicate whether the canary release deployment uses
+-- the stage cache or not.
+deploymentCanarySettings_useStageCache :: Lens.Lens' DeploymentCanarySettings (Prelude.Maybe Prelude.Bool)
+deploymentCanarySettings_useStageCache = Lens.lens (\DeploymentCanarySettings' {useStageCache} -> useStageCache) (\s@DeploymentCanarySettings' {} a -> s {useStageCache = a} :: DeploymentCanarySettings)
 
 instance Prelude.Hashable DeploymentCanarySettings where
   hashWithSalt _salt DeploymentCanarySettings' {..} =
-    _salt `Prelude.hashWithSalt` useStageCache
+    _salt `Prelude.hashWithSalt` percentTraffic
       `Prelude.hashWithSalt` stageVariableOverrides
-      `Prelude.hashWithSalt` percentTraffic
+      `Prelude.hashWithSalt` useStageCache
 
 instance Prelude.NFData DeploymentCanarySettings where
   rnf DeploymentCanarySettings' {..} =
-    Prelude.rnf useStageCache
+    Prelude.rnf percentTraffic
       `Prelude.seq` Prelude.rnf stageVariableOverrides
-      `Prelude.seq` Prelude.rnf percentTraffic
+      `Prelude.seq` Prelude.rnf useStageCache
 
 instance Data.ToJSON DeploymentCanarySettings where
   toJSON DeploymentCanarySettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("useStageCache" Data..=) Prelude.<$> useStageCache,
+          [ ("percentTraffic" Data..=)
+              Prelude.<$> percentTraffic,
             ("stageVariableOverrides" Data..=)
               Prelude.<$> stageVariableOverrides,
-            ("percentTraffic" Data..=)
-              Prelude.<$> percentTraffic
+            ("useStageCache" Data..=) Prelude.<$> useStageCache
           ]
       )

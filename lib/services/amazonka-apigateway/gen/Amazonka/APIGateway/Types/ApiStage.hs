@@ -31,11 +31,11 @@ import qualified Amazonka.Prelude as Prelude
 data ApiStage = ApiStage'
   { -- | API Id of the associated API stage in a usage plan.
     apiId :: Prelude.Maybe Prelude.Text,
+    -- | API stage name of the associated API stage in a usage plan.
+    stage :: Prelude.Maybe Prelude.Text,
     -- | Map containing method level throttling information for API stage in a
     -- usage plan.
-    throttle :: Prelude.Maybe (Prelude.HashMap Prelude.Text ThrottleSettings),
-    -- | API stage name of the associated API stage in a usage plan.
-    stage :: Prelude.Maybe Prelude.Text
+    throttle :: Prelude.Maybe (Prelude.HashMap Prelude.Text ThrottleSettings)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,31 +49,31 @@ data ApiStage = ApiStage'
 --
 -- 'apiId', 'apiStage_apiId' - API Id of the associated API stage in a usage plan.
 --
+-- 'stage', 'apiStage_stage' - API stage name of the associated API stage in a usage plan.
+--
 -- 'throttle', 'apiStage_throttle' - Map containing method level throttling information for API stage in a
 -- usage plan.
---
--- 'stage', 'apiStage_stage' - API stage name of the associated API stage in a usage plan.
 newApiStage ::
   ApiStage
 newApiStage =
   ApiStage'
     { apiId = Prelude.Nothing,
-      throttle = Prelude.Nothing,
-      stage = Prelude.Nothing
+      stage = Prelude.Nothing,
+      throttle = Prelude.Nothing
     }
 
 -- | API Id of the associated API stage in a usage plan.
 apiStage_apiId :: Lens.Lens' ApiStage (Prelude.Maybe Prelude.Text)
 apiStage_apiId = Lens.lens (\ApiStage' {apiId} -> apiId) (\s@ApiStage' {} a -> s {apiId = a} :: ApiStage)
 
+-- | API stage name of the associated API stage in a usage plan.
+apiStage_stage :: Lens.Lens' ApiStage (Prelude.Maybe Prelude.Text)
+apiStage_stage = Lens.lens (\ApiStage' {stage} -> stage) (\s@ApiStage' {} a -> s {stage = a} :: ApiStage)
+
 -- | Map containing method level throttling information for API stage in a
 -- usage plan.
 apiStage_throttle :: Lens.Lens' ApiStage (Prelude.Maybe (Prelude.HashMap Prelude.Text ThrottleSettings))
 apiStage_throttle = Lens.lens (\ApiStage' {throttle} -> throttle) (\s@ApiStage' {} a -> s {throttle = a} :: ApiStage) Prelude.. Lens.mapping Lens.coerced
-
--- | API stage name of the associated API stage in a usage plan.
-apiStage_stage :: Lens.Lens' ApiStage (Prelude.Maybe Prelude.Text)
-apiStage_stage = Lens.lens (\ApiStage' {stage} -> stage) (\s@ApiStage' {} a -> s {stage = a} :: ApiStage)
 
 instance Data.FromJSON ApiStage where
   parseJSON =
@@ -82,28 +82,28 @@ instance Data.FromJSON ApiStage where
       ( \x ->
           ApiStage'
             Prelude.<$> (x Data..:? "apiId")
-            Prelude.<*> (x Data..:? "throttle" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "stage")
+            Prelude.<*> (x Data..:? "throttle" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ApiStage where
   hashWithSalt _salt ApiStage' {..} =
     _salt `Prelude.hashWithSalt` apiId
-      `Prelude.hashWithSalt` throttle
       `Prelude.hashWithSalt` stage
+      `Prelude.hashWithSalt` throttle
 
 instance Prelude.NFData ApiStage where
   rnf ApiStage' {..} =
     Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf throttle
       `Prelude.seq` Prelude.rnf stage
+      `Prelude.seq` Prelude.rnf throttle
 
 instance Data.ToJSON ApiStage where
   toJSON ApiStage' {..} =
     Data.object
       ( Prelude.catMaybes
           [ ("apiId" Data..=) Prelude.<$> apiId,
-            ("throttle" Data..=) Prelude.<$> throttle,
-            ("stage" Data..=) Prelude.<$> stage
+            ("stage" Data..=) Prelude.<$> stage,
+            ("throttle" Data..=) Prelude.<$> throttle
           ]
       )

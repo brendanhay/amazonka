@@ -38,9 +38,9 @@ module Amazonka.APIGateway.UpdateMethodResponse
     newMethodResponse,
 
     -- * Response Lenses
+    methodResponse_responseModels,
     methodResponse_responseParameters,
     methodResponse_statusCode,
-    methodResponse_responseModels,
   )
 where
 

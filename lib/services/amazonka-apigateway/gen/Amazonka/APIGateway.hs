@@ -25,8 +25,14 @@ module Amazonka.APIGateway
     -- * Errors
     -- $errors
 
-    -- ** UnauthorizedException
-    _UnauthorizedException,
+    -- ** BadRequestException
+    _BadRequestException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- ** NotFoundException
     _NotFoundException,
@@ -34,17 +40,11 @@ module Amazonka.APIGateway
     -- ** ServiceUnavailableException
     _ServiceUnavailableException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
-
-    -- ** ConflictException
-    _ConflictException,
-
-    -- ** BadRequestException
-    _BadRequestException,
-
     -- ** TooManyRequestsException
     _TooManyRequestsException,
+
+    -- ** UnauthorizedException
+    _UnauthorizedException,
 
     -- * Waiters
     -- $waiters

@@ -28,11 +28,11 @@ module Amazonka.APIGateway.TestInvokeAuthorizer
     newTestInvokeAuthorizer,
 
     -- * Request Lenses
-    testInvokeAuthorizer_multiValueHeaders,
-    testInvokeAuthorizer_headers,
-    testInvokeAuthorizer_body,
-    testInvokeAuthorizer_pathWithQueryString,
     testInvokeAuthorizer_additionalContext,
+    testInvokeAuthorizer_body,
+    testInvokeAuthorizer_headers,
+    testInvokeAuthorizer_multiValueHeaders,
+    testInvokeAuthorizer_pathWithQueryString,
     testInvokeAuthorizer_stageVariables,
     testInvokeAuthorizer_restApiId,
     testInvokeAuthorizer_authorizerId,
@@ -42,13 +42,13 @@ module Amazonka.APIGateway.TestInvokeAuthorizer
     newTestInvokeAuthorizerResponse,
 
     -- * Response Lenses
+    testInvokeAuthorizerResponse_authorization,
+    testInvokeAuthorizerResponse_claims,
+    testInvokeAuthorizerResponse_clientStatus,
+    testInvokeAuthorizerResponse_latency,
+    testInvokeAuthorizerResponse_log,
     testInvokeAuthorizerResponse_policy,
     testInvokeAuthorizerResponse_principalId,
-    testInvokeAuthorizerResponse_latency,
-    testInvokeAuthorizerResponse_clientStatus,
-    testInvokeAuthorizerResponse_claims,
-    testInvokeAuthorizerResponse_authorization,
-    testInvokeAuthorizerResponse_log,
     testInvokeAuthorizerResponse_httpStatus,
   )
 where
@@ -65,22 +65,22 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newTestInvokeAuthorizer' smart constructor.
 data TestInvokeAuthorizer = TestInvokeAuthorizer'
-  { -- | The headers as a map from string to list of values to simulate an
-    -- incoming invocation request. This is where the incoming authorization
-    -- token, or identity source, may be specified.
-    multiValueHeaders :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
+  { -- | A key-value map of additional context variables.
+    additionalContext :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The simulated request body of an incoming invocation request.
+    body :: Prelude.Maybe Prelude.Text,
     -- | A key-value map of headers to simulate an incoming invocation request.
     -- This is where the incoming authorization token, or identity source,
     -- should be specified.
     headers :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The simulated request body of an incoming invocation request.
-    body :: Prelude.Maybe Prelude.Text,
+    -- | The headers as a map from string to list of values to simulate an
+    -- incoming invocation request. This is where the incoming authorization
+    -- token, or identity source, may be specified.
+    multiValueHeaders :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
     -- | The URI path, including query string, of the simulated invocation
     -- request. Use this to specify path parameters and query string
     -- parameters.
     pathWithQueryString :: Prelude.Maybe Prelude.Text,
-    -- | A key-value map of additional context variables.
-    additionalContext :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A key-value map of stage variables to simulate an invocation on a
     -- deployed Stage.
     stageVariables :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
@@ -99,21 +99,21 @@ data TestInvokeAuthorizer = TestInvokeAuthorizer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'multiValueHeaders', 'testInvokeAuthorizer_multiValueHeaders' - The headers as a map from string to list of values to simulate an
--- incoming invocation request. This is where the incoming authorization
--- token, or identity source, may be specified.
+-- 'additionalContext', 'testInvokeAuthorizer_additionalContext' - A key-value map of additional context variables.
+--
+-- 'body', 'testInvokeAuthorizer_body' - The simulated request body of an incoming invocation request.
 --
 -- 'headers', 'testInvokeAuthorizer_headers' - A key-value map of headers to simulate an incoming invocation request.
 -- This is where the incoming authorization token, or identity source,
 -- should be specified.
 --
--- 'body', 'testInvokeAuthorizer_body' - The simulated request body of an incoming invocation request.
+-- 'multiValueHeaders', 'testInvokeAuthorizer_multiValueHeaders' - The headers as a map from string to list of values to simulate an
+-- incoming invocation request. This is where the incoming authorization
+-- token, or identity source, may be specified.
 --
 -- 'pathWithQueryString', 'testInvokeAuthorizer_pathWithQueryString' - The URI path, including query string, of the simulated invocation
 -- request. Use this to specify path parameters and query string
 -- parameters.
---
--- 'additionalContext', 'testInvokeAuthorizer_additionalContext' - A key-value map of additional context variables.
 --
 -- 'stageVariables', 'testInvokeAuthorizer_stageVariables' - A key-value map of stage variables to simulate an invocation on a
 -- deployed Stage.
@@ -129,22 +129,24 @@ newTestInvokeAuthorizer ::
   TestInvokeAuthorizer
 newTestInvokeAuthorizer pRestApiId_ pAuthorizerId_ =
   TestInvokeAuthorizer'
-    { multiValueHeaders =
+    { additionalContext =
         Prelude.Nothing,
-      headers = Prelude.Nothing,
       body = Prelude.Nothing,
+      headers = Prelude.Nothing,
+      multiValueHeaders = Prelude.Nothing,
       pathWithQueryString = Prelude.Nothing,
-      additionalContext = Prelude.Nothing,
       stageVariables = Prelude.Nothing,
       restApiId = pRestApiId_,
       authorizerId = pAuthorizerId_
     }
 
--- | The headers as a map from string to list of values to simulate an
--- incoming invocation request. This is where the incoming authorization
--- token, or identity source, may be specified.
-testInvokeAuthorizer_multiValueHeaders :: Lens.Lens' TestInvokeAuthorizer (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-testInvokeAuthorizer_multiValueHeaders = Lens.lens (\TestInvokeAuthorizer' {multiValueHeaders} -> multiValueHeaders) (\s@TestInvokeAuthorizer' {} a -> s {multiValueHeaders = a} :: TestInvokeAuthorizer) Prelude.. Lens.mapping Lens.coerced
+-- | A key-value map of additional context variables.
+testInvokeAuthorizer_additionalContext :: Lens.Lens' TestInvokeAuthorizer (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+testInvokeAuthorizer_additionalContext = Lens.lens (\TestInvokeAuthorizer' {additionalContext} -> additionalContext) (\s@TestInvokeAuthorizer' {} a -> s {additionalContext = a} :: TestInvokeAuthorizer) Prelude.. Lens.mapping Lens.coerced
+
+-- | The simulated request body of an incoming invocation request.
+testInvokeAuthorizer_body :: Lens.Lens' TestInvokeAuthorizer (Prelude.Maybe Prelude.Text)
+testInvokeAuthorizer_body = Lens.lens (\TestInvokeAuthorizer' {body} -> body) (\s@TestInvokeAuthorizer' {} a -> s {body = a} :: TestInvokeAuthorizer)
 
 -- | A key-value map of headers to simulate an incoming invocation request.
 -- This is where the incoming authorization token, or identity source,
@@ -152,19 +154,17 @@ testInvokeAuthorizer_multiValueHeaders = Lens.lens (\TestInvokeAuthorizer' {mult
 testInvokeAuthorizer_headers :: Lens.Lens' TestInvokeAuthorizer (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 testInvokeAuthorizer_headers = Lens.lens (\TestInvokeAuthorizer' {headers} -> headers) (\s@TestInvokeAuthorizer' {} a -> s {headers = a} :: TestInvokeAuthorizer) Prelude.. Lens.mapping Lens.coerced
 
--- | The simulated request body of an incoming invocation request.
-testInvokeAuthorizer_body :: Lens.Lens' TestInvokeAuthorizer (Prelude.Maybe Prelude.Text)
-testInvokeAuthorizer_body = Lens.lens (\TestInvokeAuthorizer' {body} -> body) (\s@TestInvokeAuthorizer' {} a -> s {body = a} :: TestInvokeAuthorizer)
+-- | The headers as a map from string to list of values to simulate an
+-- incoming invocation request. This is where the incoming authorization
+-- token, or identity source, may be specified.
+testInvokeAuthorizer_multiValueHeaders :: Lens.Lens' TestInvokeAuthorizer (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
+testInvokeAuthorizer_multiValueHeaders = Lens.lens (\TestInvokeAuthorizer' {multiValueHeaders} -> multiValueHeaders) (\s@TestInvokeAuthorizer' {} a -> s {multiValueHeaders = a} :: TestInvokeAuthorizer) Prelude.. Lens.mapping Lens.coerced
 
 -- | The URI path, including query string, of the simulated invocation
 -- request. Use this to specify path parameters and query string
 -- parameters.
 testInvokeAuthorizer_pathWithQueryString :: Lens.Lens' TestInvokeAuthorizer (Prelude.Maybe Prelude.Text)
 testInvokeAuthorizer_pathWithQueryString = Lens.lens (\TestInvokeAuthorizer' {pathWithQueryString} -> pathWithQueryString) (\s@TestInvokeAuthorizer' {} a -> s {pathWithQueryString = a} :: TestInvokeAuthorizer)
-
--- | A key-value map of additional context variables.
-testInvokeAuthorizer_additionalContext :: Lens.Lens' TestInvokeAuthorizer (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-testInvokeAuthorizer_additionalContext = Lens.lens (\TestInvokeAuthorizer' {additionalContext} -> additionalContext) (\s@TestInvokeAuthorizer' {} a -> s {additionalContext = a} :: TestInvokeAuthorizer) Prelude.. Lens.mapping Lens.coerced
 
 -- | A key-value map of stage variables to simulate an invocation on a
 -- deployed Stage.
@@ -189,34 +189,34 @@ instance Core.AWSRequest TestInvokeAuthorizer where
     Response.receiveJSON
       ( \s h x ->
           TestInvokeAuthorizerResponse'
-            Prelude.<$> (x Data..?> "policy")
-            Prelude.<*> (x Data..?> "principalId")
-            Prelude.<*> (x Data..?> "latency")
-            Prelude.<*> (x Data..?> "clientStatus")
+            Prelude.<$> (x Data..?> "authorization" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "claims" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "authorization" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "clientStatus")
+            Prelude.<*> (x Data..?> "latency")
             Prelude.<*> (x Data..?> "log")
+            Prelude.<*> (x Data..?> "policy")
+            Prelude.<*> (x Data..?> "principalId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable TestInvokeAuthorizer where
   hashWithSalt _salt TestInvokeAuthorizer' {..} =
-    _salt `Prelude.hashWithSalt` multiValueHeaders
-      `Prelude.hashWithSalt` headers
+    _salt `Prelude.hashWithSalt` additionalContext
       `Prelude.hashWithSalt` body
+      `Prelude.hashWithSalt` headers
+      `Prelude.hashWithSalt` multiValueHeaders
       `Prelude.hashWithSalt` pathWithQueryString
-      `Prelude.hashWithSalt` additionalContext
       `Prelude.hashWithSalt` stageVariables
       `Prelude.hashWithSalt` restApiId
       `Prelude.hashWithSalt` authorizerId
 
 instance Prelude.NFData TestInvokeAuthorizer where
   rnf TestInvokeAuthorizer' {..} =
-    Prelude.rnf multiValueHeaders
-      `Prelude.seq` Prelude.rnf headers
+    Prelude.rnf additionalContext
       `Prelude.seq` Prelude.rnf body
+      `Prelude.seq` Prelude.rnf headers
+      `Prelude.seq` Prelude.rnf multiValueHeaders
       `Prelude.seq` Prelude.rnf pathWithQueryString
-      `Prelude.seq` Prelude.rnf additionalContext
       `Prelude.seq` Prelude.rnf stageVariables
       `Prelude.seq` Prelude.rnf restApiId
       `Prelude.seq` Prelude.rnf authorizerId
@@ -234,14 +234,14 @@ instance Data.ToJSON TestInvokeAuthorizer where
   toJSON TestInvokeAuthorizer' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("multiValueHeaders" Data..=)
-              Prelude.<$> multiValueHeaders,
-            ("headers" Data..=) Prelude.<$> headers,
+          [ ("additionalContext" Data..=)
+              Prelude.<$> additionalContext,
             ("body" Data..=) Prelude.<$> body,
+            ("headers" Data..=) Prelude.<$> headers,
+            ("multiValueHeaders" Data..=)
+              Prelude.<$> multiValueHeaders,
             ("pathWithQueryString" Data..=)
               Prelude.<$> pathWithQueryString,
-            ("additionalContext" Data..=)
-              Prelude.<$> additionalContext,
             ("stageVariables" Data..=)
               Prelude.<$> stageVariables
           ]
@@ -264,22 +264,22 @@ instance Data.ToQuery TestInvokeAuthorizer where
 --
 -- /See:/ 'newTestInvokeAuthorizerResponse' smart constructor.
 data TestInvokeAuthorizerResponse = TestInvokeAuthorizerResponse'
-  { -- | The JSON policy document returned by the Authorizer
-    policy :: Prelude.Maybe Prelude.Text,
-    -- | The principal identity returned by the Authorizer
-    principalId :: Prelude.Maybe Prelude.Text,
-    -- | The execution latency of the test authorizer request.
-    latency :: Prelude.Maybe Prelude.Integer,
-    -- | The HTTP status code that the client would have received. Value is 0 if
-    -- the authorizer succeeded.
-    clientStatus :: Prelude.Maybe Prelude.Int,
+  { -- | The authorization response.
+    authorization :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
     -- | The open identity claims, with any supported custom attributes, returned
     -- from the Cognito Your User Pool configured for the API.
     claims :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The authorization response.
-    authorization :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
+    -- | The HTTP status code that the client would have received. Value is 0 if
+    -- the authorizer succeeded.
+    clientStatus :: Prelude.Maybe Prelude.Int,
+    -- | The execution latency of the test authorizer request.
+    latency :: Prelude.Maybe Prelude.Integer,
     -- | The API Gateway execution log for the test authorizer request.
     log :: Prelude.Maybe Prelude.Text,
+    -- | The JSON policy document returned by the Authorizer
+    policy :: Prelude.Maybe Prelude.Text,
+    -- | The principal identity returned by the Authorizer
+    principalId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -293,21 +293,21 @@ data TestInvokeAuthorizerResponse = TestInvokeAuthorizerResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policy', 'testInvokeAuthorizerResponse_policy' - The JSON policy document returned by the Authorizer
---
--- 'principalId', 'testInvokeAuthorizerResponse_principalId' - The principal identity returned by the Authorizer
---
--- 'latency', 'testInvokeAuthorizerResponse_latency' - The execution latency of the test authorizer request.
---
--- 'clientStatus', 'testInvokeAuthorizerResponse_clientStatus' - The HTTP status code that the client would have received. Value is 0 if
--- the authorizer succeeded.
+-- 'authorization', 'testInvokeAuthorizerResponse_authorization' - The authorization response.
 --
 -- 'claims', 'testInvokeAuthorizerResponse_claims' - The open identity claims, with any supported custom attributes, returned
 -- from the Cognito Your User Pool configured for the API.
 --
--- 'authorization', 'testInvokeAuthorizerResponse_authorization' - The authorization response.
+-- 'clientStatus', 'testInvokeAuthorizerResponse_clientStatus' - The HTTP status code that the client would have received. Value is 0 if
+-- the authorizer succeeded.
+--
+-- 'latency', 'testInvokeAuthorizerResponse_latency' - The execution latency of the test authorizer request.
 --
 -- 'log', 'testInvokeAuthorizerResponse_log' - The API Gateway execution log for the test authorizer request.
+--
+-- 'policy', 'testInvokeAuthorizerResponse_policy' - The JSON policy document returned by the Authorizer
+--
+-- 'principalId', 'testInvokeAuthorizerResponse_principalId' - The principal identity returned by the Authorizer
 --
 -- 'httpStatus', 'testInvokeAuthorizerResponse_httpStatus' - The response's http status code.
 newTestInvokeAuthorizerResponse ::
@@ -316,16 +316,38 @@ newTestInvokeAuthorizerResponse ::
   TestInvokeAuthorizerResponse
 newTestInvokeAuthorizerResponse pHttpStatus_ =
   TestInvokeAuthorizerResponse'
-    { policy =
+    { authorization =
         Prelude.Nothing,
-      principalId = Prelude.Nothing,
-      latency = Prelude.Nothing,
-      clientStatus = Prelude.Nothing,
       claims = Prelude.Nothing,
-      authorization = Prelude.Nothing,
+      clientStatus = Prelude.Nothing,
+      latency = Prelude.Nothing,
       log = Prelude.Nothing,
+      policy = Prelude.Nothing,
+      principalId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The authorization response.
+testInvokeAuthorizerResponse_authorization :: Lens.Lens' TestInvokeAuthorizerResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
+testInvokeAuthorizerResponse_authorization = Lens.lens (\TestInvokeAuthorizerResponse' {authorization} -> authorization) (\s@TestInvokeAuthorizerResponse' {} a -> s {authorization = a} :: TestInvokeAuthorizerResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The open identity claims, with any supported custom attributes, returned
+-- from the Cognito Your User Pool configured for the API.
+testInvokeAuthorizerResponse_claims :: Lens.Lens' TestInvokeAuthorizerResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+testInvokeAuthorizerResponse_claims = Lens.lens (\TestInvokeAuthorizerResponse' {claims} -> claims) (\s@TestInvokeAuthorizerResponse' {} a -> s {claims = a} :: TestInvokeAuthorizerResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The HTTP status code that the client would have received. Value is 0 if
+-- the authorizer succeeded.
+testInvokeAuthorizerResponse_clientStatus :: Lens.Lens' TestInvokeAuthorizerResponse (Prelude.Maybe Prelude.Int)
+testInvokeAuthorizerResponse_clientStatus = Lens.lens (\TestInvokeAuthorizerResponse' {clientStatus} -> clientStatus) (\s@TestInvokeAuthorizerResponse' {} a -> s {clientStatus = a} :: TestInvokeAuthorizerResponse)
+
+-- | The execution latency of the test authorizer request.
+testInvokeAuthorizerResponse_latency :: Lens.Lens' TestInvokeAuthorizerResponse (Prelude.Maybe Prelude.Integer)
+testInvokeAuthorizerResponse_latency = Lens.lens (\TestInvokeAuthorizerResponse' {latency} -> latency) (\s@TestInvokeAuthorizerResponse' {} a -> s {latency = a} :: TestInvokeAuthorizerResponse)
+
+-- | The API Gateway execution log for the test authorizer request.
+testInvokeAuthorizerResponse_log :: Lens.Lens' TestInvokeAuthorizerResponse (Prelude.Maybe Prelude.Text)
+testInvokeAuthorizerResponse_log = Lens.lens (\TestInvokeAuthorizerResponse' {log} -> log) (\s@TestInvokeAuthorizerResponse' {} a -> s {log = a} :: TestInvokeAuthorizerResponse)
 
 -- | The JSON policy document returned by the Authorizer
 testInvokeAuthorizerResponse_policy :: Lens.Lens' TestInvokeAuthorizerResponse (Prelude.Maybe Prelude.Text)
@@ -335,39 +357,17 @@ testInvokeAuthorizerResponse_policy = Lens.lens (\TestInvokeAuthorizerResponse' 
 testInvokeAuthorizerResponse_principalId :: Lens.Lens' TestInvokeAuthorizerResponse (Prelude.Maybe Prelude.Text)
 testInvokeAuthorizerResponse_principalId = Lens.lens (\TestInvokeAuthorizerResponse' {principalId} -> principalId) (\s@TestInvokeAuthorizerResponse' {} a -> s {principalId = a} :: TestInvokeAuthorizerResponse)
 
--- | The execution latency of the test authorizer request.
-testInvokeAuthorizerResponse_latency :: Lens.Lens' TestInvokeAuthorizerResponse (Prelude.Maybe Prelude.Integer)
-testInvokeAuthorizerResponse_latency = Lens.lens (\TestInvokeAuthorizerResponse' {latency} -> latency) (\s@TestInvokeAuthorizerResponse' {} a -> s {latency = a} :: TestInvokeAuthorizerResponse)
-
--- | The HTTP status code that the client would have received. Value is 0 if
--- the authorizer succeeded.
-testInvokeAuthorizerResponse_clientStatus :: Lens.Lens' TestInvokeAuthorizerResponse (Prelude.Maybe Prelude.Int)
-testInvokeAuthorizerResponse_clientStatus = Lens.lens (\TestInvokeAuthorizerResponse' {clientStatus} -> clientStatus) (\s@TestInvokeAuthorizerResponse' {} a -> s {clientStatus = a} :: TestInvokeAuthorizerResponse)
-
--- | The open identity claims, with any supported custom attributes, returned
--- from the Cognito Your User Pool configured for the API.
-testInvokeAuthorizerResponse_claims :: Lens.Lens' TestInvokeAuthorizerResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-testInvokeAuthorizerResponse_claims = Lens.lens (\TestInvokeAuthorizerResponse' {claims} -> claims) (\s@TestInvokeAuthorizerResponse' {} a -> s {claims = a} :: TestInvokeAuthorizerResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The authorization response.
-testInvokeAuthorizerResponse_authorization :: Lens.Lens' TestInvokeAuthorizerResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-testInvokeAuthorizerResponse_authorization = Lens.lens (\TestInvokeAuthorizerResponse' {authorization} -> authorization) (\s@TestInvokeAuthorizerResponse' {} a -> s {authorization = a} :: TestInvokeAuthorizerResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The API Gateway execution log for the test authorizer request.
-testInvokeAuthorizerResponse_log :: Lens.Lens' TestInvokeAuthorizerResponse (Prelude.Maybe Prelude.Text)
-testInvokeAuthorizerResponse_log = Lens.lens (\TestInvokeAuthorizerResponse' {log} -> log) (\s@TestInvokeAuthorizerResponse' {} a -> s {log = a} :: TestInvokeAuthorizerResponse)
-
 -- | The response's http status code.
 testInvokeAuthorizerResponse_httpStatus :: Lens.Lens' TestInvokeAuthorizerResponse Prelude.Int
 testInvokeAuthorizerResponse_httpStatus = Lens.lens (\TestInvokeAuthorizerResponse' {httpStatus} -> httpStatus) (\s@TestInvokeAuthorizerResponse' {} a -> s {httpStatus = a} :: TestInvokeAuthorizerResponse)
 
 instance Prelude.NFData TestInvokeAuthorizerResponse where
   rnf TestInvokeAuthorizerResponse' {..} =
-    Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf principalId
-      `Prelude.seq` Prelude.rnf latency
-      `Prelude.seq` Prelude.rnf clientStatus
+    Prelude.rnf authorization
       `Prelude.seq` Prelude.rnf claims
-      `Prelude.seq` Prelude.rnf authorization
+      `Prelude.seq` Prelude.rnf clientStatus
+      `Prelude.seq` Prelude.rnf latency
       `Prelude.seq` Prelude.rnf log
+      `Prelude.seq` Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf principalId
       `Prelude.seq` Prelude.rnf httpStatus

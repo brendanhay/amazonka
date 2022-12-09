@@ -29,8 +29,8 @@ module Amazonka.APIGateway.GetUsagePlans
     newGetUsagePlans,
 
     -- * Request Lenses
-    getUsagePlans_limit,
     getUsagePlans_keyId,
+    getUsagePlans_limit,
     getUsagePlans_position,
 
     -- * Destructuring the Response
@@ -56,11 +56,11 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newGetUsagePlans' smart constructor.
 data GetUsagePlans = GetUsagePlans'
-  { -- | The maximum number of returned results per page. The default value is 25
+  { -- | The identifier of the API key associated with the usage plans.
+    keyId :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of returned results per page. The default value is 25
     -- and the maximum value is 500.
     limit :: Prelude.Maybe Prelude.Int,
-    -- | The identifier of the API key associated with the usage plans.
-    keyId :: Prelude.Maybe Prelude.Text,
     -- | The current pagination position in the paged result set.
     position :: Prelude.Maybe Prelude.Text
   }
@@ -74,29 +74,29 @@ data GetUsagePlans = GetUsagePlans'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'keyId', 'getUsagePlans_keyId' - The identifier of the API key associated with the usage plans.
+--
 -- 'limit', 'getUsagePlans_limit' - The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
---
--- 'keyId', 'getUsagePlans_keyId' - The identifier of the API key associated with the usage plans.
 --
 -- 'position', 'getUsagePlans_position' - The current pagination position in the paged result set.
 newGetUsagePlans ::
   GetUsagePlans
 newGetUsagePlans =
   GetUsagePlans'
-    { limit = Prelude.Nothing,
-      keyId = Prelude.Nothing,
+    { keyId = Prelude.Nothing,
+      limit = Prelude.Nothing,
       position = Prelude.Nothing
     }
+
+-- | The identifier of the API key associated with the usage plans.
+getUsagePlans_keyId :: Lens.Lens' GetUsagePlans (Prelude.Maybe Prelude.Text)
+getUsagePlans_keyId = Lens.lens (\GetUsagePlans' {keyId} -> keyId) (\s@GetUsagePlans' {} a -> s {keyId = a} :: GetUsagePlans)
 
 -- | The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
 getUsagePlans_limit :: Lens.Lens' GetUsagePlans (Prelude.Maybe Prelude.Int)
 getUsagePlans_limit = Lens.lens (\GetUsagePlans' {limit} -> limit) (\s@GetUsagePlans' {} a -> s {limit = a} :: GetUsagePlans)
-
--- | The identifier of the API key associated with the usage plans.
-getUsagePlans_keyId :: Lens.Lens' GetUsagePlans (Prelude.Maybe Prelude.Text)
-getUsagePlans_keyId = Lens.lens (\GetUsagePlans' {keyId} -> keyId) (\s@GetUsagePlans' {} a -> s {keyId = a} :: GetUsagePlans)
 
 -- | The current pagination position in the paged result set.
 getUsagePlans_position :: Lens.Lens' GetUsagePlans (Prelude.Maybe Prelude.Text)
@@ -138,14 +138,14 @@ instance Core.AWSRequest GetUsagePlans where
 
 instance Prelude.Hashable GetUsagePlans where
   hashWithSalt _salt GetUsagePlans' {..} =
-    _salt `Prelude.hashWithSalt` limit
-      `Prelude.hashWithSalt` keyId
+    _salt `Prelude.hashWithSalt` keyId
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` position
 
 instance Prelude.NFData GetUsagePlans where
   rnf GetUsagePlans' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf keyId
+    Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf position
 
 instance Data.ToHeaders GetUsagePlans where
@@ -163,8 +163,8 @@ instance Data.ToPath GetUsagePlans where
 instance Data.ToQuery GetUsagePlans where
   toQuery GetUsagePlans' {..} =
     Prelude.mconcat
-      [ "limit" Data.=: limit,
-        "keyId" Data.=: keyId,
+      [ "keyId" Data.=: keyId,
+        "limit" Data.=: limit,
         "position" Data.=: position
       ]
 

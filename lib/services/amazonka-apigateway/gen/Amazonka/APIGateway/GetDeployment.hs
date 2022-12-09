@@ -36,10 +36,10 @@ module Amazonka.APIGateway.GetDeployment
     newDeployment,
 
     -- * Response Lenses
+    deployment_apiSummary,
+    deployment_createdDate,
     deployment_description,
     deployment_id,
-    deployment_createdDate,
-    deployment_apiSummary,
   )
 where
 

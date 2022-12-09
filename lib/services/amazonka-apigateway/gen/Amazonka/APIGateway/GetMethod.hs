@@ -36,17 +36,17 @@ module Amazonka.APIGateway.GetMethod
     newMethod,
 
     -- * Response Lenses
-    method_requestModels,
-    method_requestParameters,
-    method_methodResponses,
     method_apiKeyRequired,
-    method_requestValidatorId,
-    method_httpMethod,
-    method_methodIntegration,
     method_authorizationScopes,
     method_authorizationType,
-    method_operationName,
     method_authorizerId,
+    method_httpMethod,
+    method_methodIntegration,
+    method_methodResponses,
+    method_operationName,
+    method_requestModels,
+    method_requestParameters,
+    method_requestValidatorId,
   )
 where
 

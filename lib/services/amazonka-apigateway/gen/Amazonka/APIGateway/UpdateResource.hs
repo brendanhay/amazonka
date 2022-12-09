@@ -36,10 +36,10 @@ module Amazonka.APIGateway.UpdateResource
     newResource,
 
     -- * Response Lenses
-    resource_pathPart,
-    resource_path,
-    resource_parentId,
     resource_id,
+    resource_parentId,
+    resource_path,
+    resource_pathPart,
     resource_resourceMethods,
   )
 where

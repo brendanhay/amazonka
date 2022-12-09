@@ -29,15 +29,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAccount' smart constructor.
 data Account = Account'
-  { -- | The ARN of an Amazon CloudWatch role for the current Account.
+  { -- | The version of the API keys used for the account.
+    apiKeyVersion :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of an Amazon CloudWatch role for the current Account.
     cloudwatchRoleArn :: Prelude.Maybe Prelude.Text,
     -- | A list of features supported for the account. When usage plans are
     -- enabled, the features list will include an entry of @\"UsagePlans\"@.
     features :: Prelude.Maybe [Prelude.Text],
     -- | Specifies the API request limits configured for the current Account.
-    throttleSettings :: Prelude.Maybe ThrottleSettings,
-    -- | The version of the API keys used for the account.
-    apiKeyVersion :: Prelude.Maybe Prelude.Text
+    throttleSettings :: Prelude.Maybe ThrottleSettings
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,23 +49,27 @@ data Account = Account'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'apiKeyVersion', 'account_apiKeyVersion' - The version of the API keys used for the account.
+--
 -- 'cloudwatchRoleArn', 'account_cloudwatchRoleArn' - The ARN of an Amazon CloudWatch role for the current Account.
 --
 -- 'features', 'account_features' - A list of features supported for the account. When usage plans are
 -- enabled, the features list will include an entry of @\"UsagePlans\"@.
 --
 -- 'throttleSettings', 'account_throttleSettings' - Specifies the API request limits configured for the current Account.
---
--- 'apiKeyVersion', 'account_apiKeyVersion' - The version of the API keys used for the account.
 newAccount ::
   Account
 newAccount =
   Account'
-    { cloudwatchRoleArn = Prelude.Nothing,
+    { apiKeyVersion = Prelude.Nothing,
+      cloudwatchRoleArn = Prelude.Nothing,
       features = Prelude.Nothing,
-      throttleSettings = Prelude.Nothing,
-      apiKeyVersion = Prelude.Nothing
+      throttleSettings = Prelude.Nothing
     }
+
+-- | The version of the API keys used for the account.
+account_apiKeyVersion :: Lens.Lens' Account (Prelude.Maybe Prelude.Text)
+account_apiKeyVersion = Lens.lens (\Account' {apiKeyVersion} -> apiKeyVersion) (\s@Account' {} a -> s {apiKeyVersion = a} :: Account)
 
 -- | The ARN of an Amazon CloudWatch role for the current Account.
 account_cloudwatchRoleArn :: Lens.Lens' Account (Prelude.Maybe Prelude.Text)
@@ -80,32 +84,28 @@ account_features = Lens.lens (\Account' {features} -> features) (\s@Account' {} 
 account_throttleSettings :: Lens.Lens' Account (Prelude.Maybe ThrottleSettings)
 account_throttleSettings = Lens.lens (\Account' {throttleSettings} -> throttleSettings) (\s@Account' {} a -> s {throttleSettings = a} :: Account)
 
--- | The version of the API keys used for the account.
-account_apiKeyVersion :: Lens.Lens' Account (Prelude.Maybe Prelude.Text)
-account_apiKeyVersion = Lens.lens (\Account' {apiKeyVersion} -> apiKeyVersion) (\s@Account' {} a -> s {apiKeyVersion = a} :: Account)
-
 instance Data.FromJSON Account where
   parseJSON =
     Data.withObject
       "Account"
       ( \x ->
           Account'
-            Prelude.<$> (x Data..:? "cloudwatchRoleArn")
+            Prelude.<$> (x Data..:? "apiKeyVersion")
+            Prelude.<*> (x Data..:? "cloudwatchRoleArn")
             Prelude.<*> (x Data..:? "features" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "throttleSettings")
-            Prelude.<*> (x Data..:? "apiKeyVersion")
       )
 
 instance Prelude.Hashable Account where
   hashWithSalt _salt Account' {..} =
-    _salt `Prelude.hashWithSalt` cloudwatchRoleArn
+    _salt `Prelude.hashWithSalt` apiKeyVersion
+      `Prelude.hashWithSalt` cloudwatchRoleArn
       `Prelude.hashWithSalt` features
       `Prelude.hashWithSalt` throttleSettings
-      `Prelude.hashWithSalt` apiKeyVersion
 
 instance Prelude.NFData Account where
   rnf Account' {..} =
-    Prelude.rnf cloudwatchRoleArn
+    Prelude.rnf apiKeyVersion
+      `Prelude.seq` Prelude.rnf cloudwatchRoleArn
       `Prelude.seq` Prelude.rnf features
       `Prelude.seq` Prelude.rnf throttleSettings
-      `Prelude.seq` Prelude.rnf apiKeyVersion

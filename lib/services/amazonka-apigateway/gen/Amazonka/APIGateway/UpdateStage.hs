@@ -36,23 +36,23 @@ module Amazonka.APIGateway.UpdateStage
     newStage,
 
     -- * Response Lenses
-    stage_tags,
-    stage_webAclArn,
-    stage_stageName,
-    stage_cacheClusterEnabled,
     stage_accessLogSettings,
+    stage_cacheClusterEnabled,
+    stage_cacheClusterSize,
     stage_cacheClusterStatus,
+    stage_canarySettings,
+    stage_clientCertificateId,
+    stage_createdDate,
     stage_deploymentId,
+    stage_description,
+    stage_documentationVersion,
     stage_lastUpdatedDate,
     stage_methodSettings,
-    stage_description,
+    stage_stageName,
+    stage_tags,
     stage_tracingEnabled,
-    stage_clientCertificateId,
-    stage_cacheClusterSize,
-    stage_canarySettings,
-    stage_createdDate,
-    stage_documentationVersion,
     stage_variables,
+    stage_webAclArn,
   )
 where
 

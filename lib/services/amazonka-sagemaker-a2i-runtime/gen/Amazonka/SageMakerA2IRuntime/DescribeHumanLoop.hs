@@ -37,8 +37,8 @@ module Amazonka.SageMakerA2IRuntime.DescribeHumanLoop
 
     -- * Response Lenses
     describeHumanLoopResponse_failureCode,
-    describeHumanLoopResponse_humanLoopOutput,
     describeHumanLoopResponse_failureReason,
+    describeHumanLoopResponse_humanLoopOutput,
     describeHumanLoopResponse_httpStatus,
     describeHumanLoopResponse_creationTime,
     describeHumanLoopResponse_humanLoopStatus,
@@ -94,8 +94,8 @@ instance Core.AWSRequest DescribeHumanLoop where
       ( \s h x ->
           DescribeHumanLoopResponse'
             Prelude.<$> (x Data..?> "FailureCode")
-            Prelude.<*> (x Data..?> "HumanLoopOutput")
             Prelude.<*> (x Data..?> "FailureReason")
+            Prelude.<*> (x Data..?> "HumanLoopOutput")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "CreationTime")
             Prelude.<*> (x Data..:> "HumanLoopStatus")
@@ -129,11 +129,11 @@ data DescribeHumanLoopResponse = DescribeHumanLoopResponse'
     --
     -- Possible values: @ValidationError@, @Expired@, @InternalError@
     failureCode :: Prelude.Maybe Prelude.Text,
-    -- | An object that contains information about the output of the human loop.
-    humanLoopOutput :: Prelude.Maybe HumanLoopOutput,
     -- | The reason why a human loop failed. The failure reason is returned when
     -- the status of the human loop is @Failed@.
     failureReason :: Prelude.Maybe Prelude.Text,
+    -- | An object that contains information about the output of the human loop.
+    humanLoopOutput :: Prelude.Maybe HumanLoopOutput,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The creation time when Amazon Augmented AI created the human loop.
@@ -163,10 +163,10 @@ data DescribeHumanLoopResponse = DescribeHumanLoopResponse'
 --
 -- Possible values: @ValidationError@, @Expired@, @InternalError@
 --
--- 'humanLoopOutput', 'describeHumanLoopResponse_humanLoopOutput' - An object that contains information about the output of the human loop.
---
 -- 'failureReason', 'describeHumanLoopResponse_failureReason' - The reason why a human loop failed. The failure reason is returned when
 -- the status of the human loop is @Failed@.
+--
+-- 'humanLoopOutput', 'describeHumanLoopResponse_humanLoopOutput' - An object that contains information about the output of the human loop.
 --
 -- 'httpStatus', 'describeHumanLoopResponse_httpStatus' - The response's http status code.
 --
@@ -205,8 +205,8 @@ newDescribeHumanLoopResponse
     DescribeHumanLoopResponse'
       { failureCode =
           Prelude.Nothing,
-        humanLoopOutput = Prelude.Nothing,
         failureReason = Prelude.Nothing,
+        humanLoopOutput = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         creationTime = Data._Time Lens.# pCreationTime_,
         humanLoopStatus = pHumanLoopStatus_,
@@ -221,14 +221,14 @@ newDescribeHumanLoopResponse
 describeHumanLoopResponse_failureCode :: Lens.Lens' DescribeHumanLoopResponse (Prelude.Maybe Prelude.Text)
 describeHumanLoopResponse_failureCode = Lens.lens (\DescribeHumanLoopResponse' {failureCode} -> failureCode) (\s@DescribeHumanLoopResponse' {} a -> s {failureCode = a} :: DescribeHumanLoopResponse)
 
--- | An object that contains information about the output of the human loop.
-describeHumanLoopResponse_humanLoopOutput :: Lens.Lens' DescribeHumanLoopResponse (Prelude.Maybe HumanLoopOutput)
-describeHumanLoopResponse_humanLoopOutput = Lens.lens (\DescribeHumanLoopResponse' {humanLoopOutput} -> humanLoopOutput) (\s@DescribeHumanLoopResponse' {} a -> s {humanLoopOutput = a} :: DescribeHumanLoopResponse)
-
 -- | The reason why a human loop failed. The failure reason is returned when
 -- the status of the human loop is @Failed@.
 describeHumanLoopResponse_failureReason :: Lens.Lens' DescribeHumanLoopResponse (Prelude.Maybe Prelude.Text)
 describeHumanLoopResponse_failureReason = Lens.lens (\DescribeHumanLoopResponse' {failureReason} -> failureReason) (\s@DescribeHumanLoopResponse' {} a -> s {failureReason = a} :: DescribeHumanLoopResponse)
+
+-- | An object that contains information about the output of the human loop.
+describeHumanLoopResponse_humanLoopOutput :: Lens.Lens' DescribeHumanLoopResponse (Prelude.Maybe HumanLoopOutput)
+describeHumanLoopResponse_humanLoopOutput = Lens.lens (\DescribeHumanLoopResponse' {humanLoopOutput} -> humanLoopOutput) (\s@DescribeHumanLoopResponse' {} a -> s {humanLoopOutput = a} :: DescribeHumanLoopResponse)
 
 -- | The response's http status code.
 describeHumanLoopResponse_httpStatus :: Lens.Lens' DescribeHumanLoopResponse Prelude.Int
@@ -259,8 +259,8 @@ describeHumanLoopResponse_flowDefinitionArn = Lens.lens (\DescribeHumanLoopRespo
 instance Prelude.NFData DescribeHumanLoopResponse where
   rnf DescribeHumanLoopResponse' {..} =
     Prelude.rnf failureCode
-      `Prelude.seq` Prelude.rnf humanLoopOutput
       `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf humanLoopOutput
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf humanLoopStatus

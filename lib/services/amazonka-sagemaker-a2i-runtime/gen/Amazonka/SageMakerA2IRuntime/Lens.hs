@@ -21,8 +21,8 @@ module Amazonka.SageMakerA2IRuntime.Lens
     -- ** DescribeHumanLoop
     describeHumanLoop_humanLoopName,
     describeHumanLoopResponse_failureCode,
-    describeHumanLoopResponse_humanLoopOutput,
     describeHumanLoopResponse_failureReason,
+    describeHumanLoopResponse_humanLoopOutput,
     describeHumanLoopResponse_httpStatus,
     describeHumanLoopResponse_creationTime,
     describeHumanLoopResponse_humanLoopStatus,
@@ -31,11 +31,11 @@ module Amazonka.SageMakerA2IRuntime.Lens
     describeHumanLoopResponse_flowDefinitionArn,
 
     -- ** ListHumanLoops
-    listHumanLoops_sortOrder,
-    listHumanLoops_nextToken,
+    listHumanLoops_creationTimeAfter,
     listHumanLoops_creationTimeBefore,
     listHumanLoops_maxResults,
-    listHumanLoops_creationTimeAfter,
+    listHumanLoops_nextToken,
+    listHumanLoops_sortOrder,
     listHumanLoops_flowDefinitionArn,
     listHumanLoopsResponse_nextToken,
     listHumanLoopsResponse_httpStatus,
@@ -65,11 +65,11 @@ module Amazonka.SageMakerA2IRuntime.Lens
     humanLoopOutput_outputS3Uri,
 
     -- ** HumanLoopSummary
-    humanLoopSummary_humanLoopStatus,
-    humanLoopSummary_humanLoopName,
-    humanLoopSummary_flowDefinitionArn,
     humanLoopSummary_creationTime,
     humanLoopSummary_failureReason,
+    humanLoopSummary_flowDefinitionArn,
+    humanLoopSummary_humanLoopName,
+    humanLoopSummary_humanLoopStatus,
   )
 where
 

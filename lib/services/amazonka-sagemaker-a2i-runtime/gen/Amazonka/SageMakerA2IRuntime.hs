@@ -53,17 +53,17 @@ module Amazonka.SageMakerA2IRuntime
     -- * Errors
     -- $errors
 
+    -- ** ConflictException
+    _ConflictException,
+
     -- ** InternalServerException
     _InternalServerException,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
-    -- ** ConflictException
-    _ConflictException,
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
 
     -- ** ThrottlingException
     _ThrottlingException,

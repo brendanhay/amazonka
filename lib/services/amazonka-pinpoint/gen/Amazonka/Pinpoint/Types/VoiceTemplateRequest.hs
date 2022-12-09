@@ -29,15 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVoiceTemplateRequest' smart constructor.
 data VoiceTemplateRequest = VoiceTemplateRequest'
-  { -- | A string-to-string map of key-value pairs that defines the tags to
-    -- associate with the message template. Each tag consists of a required tag
-    -- key and an associated tag value.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The name of the voice to use when delivering messages that are based on
-    -- the message template. For a list of supported voices, see the
-    -- <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide>.
-    voiceId :: Prelude.Maybe Prelude.Text,
-    -- | The text of the script to use in messages that are based on the message
+  { -- | The text of the script to use in messages that are based on the message
     -- template, in plain text format.
     body :: Prelude.Maybe Prelude.Text,
     -- | A JSON object that specifies the default values to use for message
@@ -54,7 +46,15 @@ data VoiceTemplateRequest = VoiceTemplateRequest'
     -- <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide>.
     languageCode :: Prelude.Maybe Prelude.Text,
     -- | A custom description of the message template.
-    templateDescription :: Prelude.Maybe Prelude.Text
+    templateDescription :: Prelude.Maybe Prelude.Text,
+    -- | The name of the voice to use when delivering messages that are based on
+    -- the message template. For a list of supported voices, see the
+    -- <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide>.
+    voiceId :: Prelude.Maybe Prelude.Text,
+    -- | A string-to-string map of key-value pairs that defines the tags to
+    -- associate with the message template. Each tag consists of a required tag
+    -- key and an associated tag value.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,14 +65,6 @@ data VoiceTemplateRequest = VoiceTemplateRequest'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'tags', 'voiceTemplateRequest_tags' - A string-to-string map of key-value pairs that defines the tags to
--- associate with the message template. Each tag consists of a required tag
--- key and an associated tag value.
---
--- 'voiceId', 'voiceTemplateRequest_voiceId' - The name of the voice to use when delivering messages that are based on
--- the message template. For a list of supported voices, see the
--- <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide>.
 --
 -- 'body', 'voiceTemplateRequest_body' - The text of the script to use in messages that are based on the message
 -- template, in plain text format.
@@ -91,29 +83,25 @@ data VoiceTemplateRequest = VoiceTemplateRequest'
 -- <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide>.
 --
 -- 'templateDescription', 'voiceTemplateRequest_templateDescription' - A custom description of the message template.
+--
+-- 'voiceId', 'voiceTemplateRequest_voiceId' - The name of the voice to use when delivering messages that are based on
+-- the message template. For a list of supported voices, see the
+-- <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide>.
+--
+-- 'tags', 'voiceTemplateRequest_tags' - A string-to-string map of key-value pairs that defines the tags to
+-- associate with the message template. Each tag consists of a required tag
+-- key and an associated tag value.
 newVoiceTemplateRequest ::
   VoiceTemplateRequest
 newVoiceTemplateRequest =
   VoiceTemplateRequest'
-    { tags = Prelude.Nothing,
-      voiceId = Prelude.Nothing,
-      body = Prelude.Nothing,
+    { body = Prelude.Nothing,
       defaultSubstitutions = Prelude.Nothing,
       languageCode = Prelude.Nothing,
-      templateDescription = Prelude.Nothing
+      templateDescription = Prelude.Nothing,
+      voiceId = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
-
--- | A string-to-string map of key-value pairs that defines the tags to
--- associate with the message template. Each tag consists of a required tag
--- key and an associated tag value.
-voiceTemplateRequest_tags :: Lens.Lens' VoiceTemplateRequest (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-voiceTemplateRequest_tags = Lens.lens (\VoiceTemplateRequest' {tags} -> tags) (\s@VoiceTemplateRequest' {} a -> s {tags = a} :: VoiceTemplateRequest) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the voice to use when delivering messages that are based on
--- the message template. For a list of supported voices, see the
--- <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide>.
-voiceTemplateRequest_voiceId :: Lens.Lens' VoiceTemplateRequest (Prelude.Maybe Prelude.Text)
-voiceTemplateRequest_voiceId = Lens.lens (\VoiceTemplateRequest' {voiceId} -> voiceId) (\s@VoiceTemplateRequest' {} a -> s {voiceId = a} :: VoiceTemplateRequest)
 
 -- | The text of the script to use in messages that are based on the message
 -- template, in plain text format.
@@ -141,35 +129,47 @@ voiceTemplateRequest_languageCode = Lens.lens (\VoiceTemplateRequest' {languageC
 voiceTemplateRequest_templateDescription :: Lens.Lens' VoiceTemplateRequest (Prelude.Maybe Prelude.Text)
 voiceTemplateRequest_templateDescription = Lens.lens (\VoiceTemplateRequest' {templateDescription} -> templateDescription) (\s@VoiceTemplateRequest' {} a -> s {templateDescription = a} :: VoiceTemplateRequest)
 
+-- | The name of the voice to use when delivering messages that are based on
+-- the message template. For a list of supported voices, see the
+-- <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide>.
+voiceTemplateRequest_voiceId :: Lens.Lens' VoiceTemplateRequest (Prelude.Maybe Prelude.Text)
+voiceTemplateRequest_voiceId = Lens.lens (\VoiceTemplateRequest' {voiceId} -> voiceId) (\s@VoiceTemplateRequest' {} a -> s {voiceId = a} :: VoiceTemplateRequest)
+
+-- | A string-to-string map of key-value pairs that defines the tags to
+-- associate with the message template. Each tag consists of a required tag
+-- key and an associated tag value.
+voiceTemplateRequest_tags :: Lens.Lens' VoiceTemplateRequest (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+voiceTemplateRequest_tags = Lens.lens (\VoiceTemplateRequest' {tags} -> tags) (\s@VoiceTemplateRequest' {} a -> s {tags = a} :: VoiceTemplateRequest) Prelude.. Lens.mapping Lens.coerced
+
 instance Prelude.Hashable VoiceTemplateRequest where
   hashWithSalt _salt VoiceTemplateRequest' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` voiceId
-      `Prelude.hashWithSalt` body
+    _salt `Prelude.hashWithSalt` body
       `Prelude.hashWithSalt` defaultSubstitutions
       `Prelude.hashWithSalt` languageCode
       `Prelude.hashWithSalt` templateDescription
+      `Prelude.hashWithSalt` voiceId
+      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData VoiceTemplateRequest where
   rnf VoiceTemplateRequest' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf voiceId
-      `Prelude.seq` Prelude.rnf body
+    Prelude.rnf body
       `Prelude.seq` Prelude.rnf defaultSubstitutions
       `Prelude.seq` Prelude.rnf languageCode
       `Prelude.seq` Prelude.rnf templateDescription
+      `Prelude.seq` Prelude.rnf voiceId
+      `Prelude.seq` Prelude.rnf tags
 
 instance Data.ToJSON VoiceTemplateRequest where
   toJSON VoiceTemplateRequest' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("VoiceId" Data..=) Prelude.<$> voiceId,
-            ("Body" Data..=) Prelude.<$> body,
+          [ ("Body" Data..=) Prelude.<$> body,
             ("DefaultSubstitutions" Data..=)
               Prelude.<$> defaultSubstitutions,
             ("LanguageCode" Data..=) Prelude.<$> languageCode,
             ("TemplateDescription" Data..=)
-              Prelude.<$> templateDescription
+              Prelude.<$> templateDescription,
+            ("VoiceId" Data..=) Prelude.<$> voiceId,
+            ("tags" Data..=) Prelude.<$> tags
           ]
       )

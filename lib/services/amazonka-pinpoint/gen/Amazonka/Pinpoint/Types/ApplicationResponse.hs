@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newApplicationResponse' smart constructor.
 data ApplicationResponse = ApplicationResponse'
-  { -- | A string-to-string map of key-value pairs that identifies the tags that
+  { -- | The date and time when the Application was created.
+    creationDate :: Prelude.Maybe Prelude.Text,
+    -- | A string-to-string map of key-value pairs that identifies the tags that
     -- are associated with the application. Each tag consists of a required tag
     -- key and an associated tag value.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The date and time when the Application was created.
-    creationDate :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
     id :: Prelude.Text,
@@ -53,11 +53,11 @@ data ApplicationResponse = ApplicationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'creationDate', 'applicationResponse_creationDate' - The date and time when the Application was created.
+--
 -- 'tags', 'applicationResponse_tags' - A string-to-string map of key-value pairs that identifies the tags that
 -- are associated with the application. Each tag consists of a required tag
 -- key and an associated tag value.
---
--- 'creationDate', 'applicationResponse_creationDate' - The date and time when the Application was created.
 --
 -- 'id', 'applicationResponse_id' - The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
@@ -76,22 +76,23 @@ newApplicationResponse ::
   ApplicationResponse
 newApplicationResponse pId_ pArn_ pName_ =
   ApplicationResponse'
-    { tags = Prelude.Nothing,
-      creationDate = Prelude.Nothing,
+    { creationDate =
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
       id = pId_,
       arn = pArn_,
       name = pName_
     }
+
+-- | The date and time when the Application was created.
+applicationResponse_creationDate :: Lens.Lens' ApplicationResponse (Prelude.Maybe Prelude.Text)
+applicationResponse_creationDate = Lens.lens (\ApplicationResponse' {creationDate} -> creationDate) (\s@ApplicationResponse' {} a -> s {creationDate = a} :: ApplicationResponse)
 
 -- | A string-to-string map of key-value pairs that identifies the tags that
 -- are associated with the application. Each tag consists of a required tag
 -- key and an associated tag value.
 applicationResponse_tags :: Lens.Lens' ApplicationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 applicationResponse_tags = Lens.lens (\ApplicationResponse' {tags} -> tags) (\s@ApplicationResponse' {} a -> s {tags = a} :: ApplicationResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The date and time when the Application was created.
-applicationResponse_creationDate :: Lens.Lens' ApplicationResponse (Prelude.Maybe Prelude.Text)
-applicationResponse_creationDate = Lens.lens (\ApplicationResponse' {creationDate} -> creationDate) (\s@ApplicationResponse' {} a -> s {creationDate = a} :: ApplicationResponse)
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
@@ -113,8 +114,8 @@ instance Data.FromJSON ApplicationResponse where
       "ApplicationResponse"
       ( \x ->
           ApplicationResponse'
-            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<$> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "Id")
             Prelude.<*> (x Data..: "Arn")
             Prelude.<*> (x Data..: "Name")
@@ -122,16 +123,16 @@ instance Data.FromJSON ApplicationResponse where
 
 instance Prelude.Hashable ApplicationResponse where
   hashWithSalt _salt ApplicationResponse' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` creationDate
+    _salt `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData ApplicationResponse where
   rnf ApplicationResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf creationDate
+    Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf name

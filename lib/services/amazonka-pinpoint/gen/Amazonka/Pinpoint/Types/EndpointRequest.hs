@@ -32,27 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEndpointRequest' smart constructor.
 data EndpointRequest = EndpointRequest'
-  { -- | The demographic information for the endpoint, such as the time zone and
-    -- platform.
-    demographic :: Prelude.Maybe EndpointDemographic,
-    -- | One or more custom attributes that describe the user who\'s associated
-    -- with the endpoint.
-    user :: Prelude.Maybe EndpointUser,
-    -- | The unique identifier for the most recent request to update the
-    -- endpoint.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | One or more custom metrics that your app reports to Amazon Pinpoint for
-    -- the endpoint.
-    metrics :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double),
-    -- | The geographic information for the endpoint.
-    location :: Prelude.Maybe EndpointLocation,
-    -- | Specifies whether the user who\'s associated with the endpoint has opted
-    -- out of receiving messages and push notifications from you. Possible
-    -- values are: ALL, the user has opted out and doesn\'t want to receive any
-    -- messages or push notifications; and, NONE, the user hasn\'t opted out
-    -- and wants to receive all messages and push notifications.
-    optOut :: Prelude.Maybe Prelude.Text,
-    -- | The destination address for messages or push notifications that you send
+  { -- | The destination address for messages or push notifications that you send
     -- to the endpoint. The address varies by channel. For a push-notification
     -- channel, use the token provided by the push notification service, such
     -- as an Apple Push Notification service (APNs) device token or a Firebase
@@ -60,8 +40,6 @@ data EndpointRequest = EndpointRequest'
     -- phone number in E.164 format, such as +12065550100. For the email
     -- channel, use an email address.
     address :: Prelude.Maybe Prelude.Text,
-    -- | The date and time, in ISO 8601 format, when the endpoint is updated.
-    effectiveDate :: Prelude.Maybe Prelude.Text,
     -- | One or more custom attributes that describe the endpoint by associating
     -- a name with an array of values. For example, the value of a custom
     -- attribute named Interests might be: [\"Science\", \"Music\",
@@ -75,6 +53,14 @@ data EndpointRequest = EndpointRequest'
     -- Pinpoint console can\'t display attribute names that contain these
     -- characters. This restriction doesn\'t apply to attribute values.
     attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
+    -- | The channel to use when sending messages or push notifications to the
+    -- endpoint.
+    channelType :: Prelude.Maybe ChannelType,
+    -- | The demographic information for the endpoint, such as the time zone and
+    -- platform.
+    demographic :: Prelude.Maybe EndpointDemographic,
+    -- | The date and time, in ISO 8601 format, when the endpoint is updated.
+    effectiveDate :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether to send messages or push notifications to the
     -- endpoint. Valid values are: ACTIVE, messages are sent to the endpoint;
     -- and, INACTIVE, messages aren’t sent to the endpoint.
@@ -84,9 +70,23 @@ data EndpointRequest = EndpointRequest'
     -- automatically sets this value to INACTIVE if you update another endpoint
     -- that has the same address specified by the Address property.
     endpointStatus :: Prelude.Maybe Prelude.Text,
-    -- | The channel to use when sending messages or push notifications to the
+    -- | The geographic information for the endpoint.
+    location :: Prelude.Maybe EndpointLocation,
+    -- | One or more custom metrics that your app reports to Amazon Pinpoint for
+    -- the endpoint.
+    metrics :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double),
+    -- | Specifies whether the user who\'s associated with the endpoint has opted
+    -- out of receiving messages and push notifications from you. Possible
+    -- values are: ALL, the user has opted out and doesn\'t want to receive any
+    -- messages or push notifications; and, NONE, the user hasn\'t opted out
+    -- and wants to receive all messages and push notifications.
+    optOut :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier for the most recent request to update the
     -- endpoint.
-    channelType :: Prelude.Maybe ChannelType
+    requestId :: Prelude.Maybe Prelude.Text,
+    -- | One or more custom attributes that describe the user who\'s associated
+    -- with the endpoint.
+    user :: Prelude.Maybe EndpointUser
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -98,26 +98,6 @@ data EndpointRequest = EndpointRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'demographic', 'endpointRequest_demographic' - The demographic information for the endpoint, such as the time zone and
--- platform.
---
--- 'user', 'endpointRequest_user' - One or more custom attributes that describe the user who\'s associated
--- with the endpoint.
---
--- 'requestId', 'endpointRequest_requestId' - The unique identifier for the most recent request to update the
--- endpoint.
---
--- 'metrics', 'endpointRequest_metrics' - One or more custom metrics that your app reports to Amazon Pinpoint for
--- the endpoint.
---
--- 'location', 'endpointRequest_location' - The geographic information for the endpoint.
---
--- 'optOut', 'endpointRequest_optOut' - Specifies whether the user who\'s associated with the endpoint has opted
--- out of receiving messages and push notifications from you. Possible
--- values are: ALL, the user has opted out and doesn\'t want to receive any
--- messages or push notifications; and, NONE, the user hasn\'t opted out
--- and wants to receive all messages and push notifications.
---
 -- 'address', 'endpointRequest_address' - The destination address for messages or push notifications that you send
 -- to the endpoint. The address varies by channel. For a push-notification
 -- channel, use the token provided by the push notification service, such
@@ -125,8 +105,6 @@ data EndpointRequest = EndpointRequest'
 -- Cloud Messaging (FCM) registration token. For the SMS channel, use a
 -- phone number in E.164 format, such as +12065550100. For the email
 -- channel, use an email address.
---
--- 'effectiveDate', 'endpointRequest_effectiveDate' - The date and time, in ISO 8601 format, when the endpoint is updated.
 --
 -- 'attributes', 'endpointRequest_attributes' - One or more custom attributes that describe the endpoint by associating
 -- a name with an array of values. For example, the value of a custom
@@ -141,6 +119,14 @@ data EndpointRequest = EndpointRequest'
 -- Pinpoint console can\'t display attribute names that contain these
 -- characters. This restriction doesn\'t apply to attribute values.
 --
+-- 'channelType', 'endpointRequest_channelType' - The channel to use when sending messages or push notifications to the
+-- endpoint.
+--
+-- 'demographic', 'endpointRequest_demographic' - The demographic information for the endpoint, such as the time zone and
+-- platform.
+--
+-- 'effectiveDate', 'endpointRequest_effectiveDate' - The date and time, in ISO 8601 format, when the endpoint is updated.
+--
 -- 'endpointStatus', 'endpointRequest_endpointStatus' - Specifies whether to send messages or push notifications to the
 -- endpoint. Valid values are: ACTIVE, messages are sent to the endpoint;
 -- and, INACTIVE, messages aren’t sent to the endpoint.
@@ -150,56 +136,38 @@ data EndpointRequest = EndpointRequest'
 -- automatically sets this value to INACTIVE if you update another endpoint
 -- that has the same address specified by the Address property.
 --
--- 'channelType', 'endpointRequest_channelType' - The channel to use when sending messages or push notifications to the
--- endpoint.
-newEndpointRequest ::
-  EndpointRequest
-newEndpointRequest =
-  EndpointRequest'
-    { demographic = Prelude.Nothing,
-      user = Prelude.Nothing,
-      requestId = Prelude.Nothing,
-      metrics = Prelude.Nothing,
-      location = Prelude.Nothing,
-      optOut = Prelude.Nothing,
-      address = Prelude.Nothing,
-      effectiveDate = Prelude.Nothing,
-      attributes = Prelude.Nothing,
-      endpointStatus = Prelude.Nothing,
-      channelType = Prelude.Nothing
-    }
-
--- | The demographic information for the endpoint, such as the time zone and
--- platform.
-endpointRequest_demographic :: Lens.Lens' EndpointRequest (Prelude.Maybe EndpointDemographic)
-endpointRequest_demographic = Lens.lens (\EndpointRequest' {demographic} -> demographic) (\s@EndpointRequest' {} a -> s {demographic = a} :: EndpointRequest)
-
--- | One or more custom attributes that describe the user who\'s associated
--- with the endpoint.
-endpointRequest_user :: Lens.Lens' EndpointRequest (Prelude.Maybe EndpointUser)
-endpointRequest_user = Lens.lens (\EndpointRequest' {user} -> user) (\s@EndpointRequest' {} a -> s {user = a} :: EndpointRequest)
-
--- | The unique identifier for the most recent request to update the
--- endpoint.
-endpointRequest_requestId :: Lens.Lens' EndpointRequest (Prelude.Maybe Prelude.Text)
-endpointRequest_requestId = Lens.lens (\EndpointRequest' {requestId} -> requestId) (\s@EndpointRequest' {} a -> s {requestId = a} :: EndpointRequest)
-
--- | One or more custom metrics that your app reports to Amazon Pinpoint for
+-- 'location', 'endpointRequest_location' - The geographic information for the endpoint.
+--
+-- 'metrics', 'endpointRequest_metrics' - One or more custom metrics that your app reports to Amazon Pinpoint for
 -- the endpoint.
-endpointRequest_metrics :: Lens.Lens' EndpointRequest (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double))
-endpointRequest_metrics = Lens.lens (\EndpointRequest' {metrics} -> metrics) (\s@EndpointRequest' {} a -> s {metrics = a} :: EndpointRequest) Prelude.. Lens.mapping Lens.coerced
-
--- | The geographic information for the endpoint.
-endpointRequest_location :: Lens.Lens' EndpointRequest (Prelude.Maybe EndpointLocation)
-endpointRequest_location = Lens.lens (\EndpointRequest' {location} -> location) (\s@EndpointRequest' {} a -> s {location = a} :: EndpointRequest)
-
--- | Specifies whether the user who\'s associated with the endpoint has opted
+--
+-- 'optOut', 'endpointRequest_optOut' - Specifies whether the user who\'s associated with the endpoint has opted
 -- out of receiving messages and push notifications from you. Possible
 -- values are: ALL, the user has opted out and doesn\'t want to receive any
 -- messages or push notifications; and, NONE, the user hasn\'t opted out
 -- and wants to receive all messages and push notifications.
-endpointRequest_optOut :: Lens.Lens' EndpointRequest (Prelude.Maybe Prelude.Text)
-endpointRequest_optOut = Lens.lens (\EndpointRequest' {optOut} -> optOut) (\s@EndpointRequest' {} a -> s {optOut = a} :: EndpointRequest)
+--
+-- 'requestId', 'endpointRequest_requestId' - The unique identifier for the most recent request to update the
+-- endpoint.
+--
+-- 'user', 'endpointRequest_user' - One or more custom attributes that describe the user who\'s associated
+-- with the endpoint.
+newEndpointRequest ::
+  EndpointRequest
+newEndpointRequest =
+  EndpointRequest'
+    { address = Prelude.Nothing,
+      attributes = Prelude.Nothing,
+      channelType = Prelude.Nothing,
+      demographic = Prelude.Nothing,
+      effectiveDate = Prelude.Nothing,
+      endpointStatus = Prelude.Nothing,
+      location = Prelude.Nothing,
+      metrics = Prelude.Nothing,
+      optOut = Prelude.Nothing,
+      requestId = Prelude.Nothing,
+      user = Prelude.Nothing
+    }
 
 -- | The destination address for messages or push notifications that you send
 -- to the endpoint. The address varies by channel. For a push-notification
@@ -210,10 +178,6 @@ endpointRequest_optOut = Lens.lens (\EndpointRequest' {optOut} -> optOut) (\s@En
 -- channel, use an email address.
 endpointRequest_address :: Lens.Lens' EndpointRequest (Prelude.Maybe Prelude.Text)
 endpointRequest_address = Lens.lens (\EndpointRequest' {address} -> address) (\s@EndpointRequest' {} a -> s {address = a} :: EndpointRequest)
-
--- | The date and time, in ISO 8601 format, when the endpoint is updated.
-endpointRequest_effectiveDate :: Lens.Lens' EndpointRequest (Prelude.Maybe Prelude.Text)
-endpointRequest_effectiveDate = Lens.lens (\EndpointRequest' {effectiveDate} -> effectiveDate) (\s@EndpointRequest' {} a -> s {effectiveDate = a} :: EndpointRequest)
 
 -- | One or more custom attributes that describe the endpoint by associating
 -- a name with an array of values. For example, the value of a custom
@@ -230,6 +194,20 @@ endpointRequest_effectiveDate = Lens.lens (\EndpointRequest' {effectiveDate} -> 
 endpointRequest_attributes :: Lens.Lens' EndpointRequest (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
 endpointRequest_attributes = Lens.lens (\EndpointRequest' {attributes} -> attributes) (\s@EndpointRequest' {} a -> s {attributes = a} :: EndpointRequest) Prelude.. Lens.mapping Lens.coerced
 
+-- | The channel to use when sending messages or push notifications to the
+-- endpoint.
+endpointRequest_channelType :: Lens.Lens' EndpointRequest (Prelude.Maybe ChannelType)
+endpointRequest_channelType = Lens.lens (\EndpointRequest' {channelType} -> channelType) (\s@EndpointRequest' {} a -> s {channelType = a} :: EndpointRequest)
+
+-- | The demographic information for the endpoint, such as the time zone and
+-- platform.
+endpointRequest_demographic :: Lens.Lens' EndpointRequest (Prelude.Maybe EndpointDemographic)
+endpointRequest_demographic = Lens.lens (\EndpointRequest' {demographic} -> demographic) (\s@EndpointRequest' {} a -> s {demographic = a} :: EndpointRequest)
+
+-- | The date and time, in ISO 8601 format, when the endpoint is updated.
+endpointRequest_effectiveDate :: Lens.Lens' EndpointRequest (Prelude.Maybe Prelude.Text)
+endpointRequest_effectiveDate = Lens.lens (\EndpointRequest' {effectiveDate} -> effectiveDate) (\s@EndpointRequest' {} a -> s {effectiveDate = a} :: EndpointRequest)
+
 -- | Specifies whether to send messages or push notifications to the
 -- endpoint. Valid values are: ACTIVE, messages are sent to the endpoint;
 -- and, INACTIVE, messages aren’t sent to the endpoint.
@@ -241,54 +219,76 @@ endpointRequest_attributes = Lens.lens (\EndpointRequest' {attributes} -> attrib
 endpointRequest_endpointStatus :: Lens.Lens' EndpointRequest (Prelude.Maybe Prelude.Text)
 endpointRequest_endpointStatus = Lens.lens (\EndpointRequest' {endpointStatus} -> endpointStatus) (\s@EndpointRequest' {} a -> s {endpointStatus = a} :: EndpointRequest)
 
--- | The channel to use when sending messages or push notifications to the
+-- | The geographic information for the endpoint.
+endpointRequest_location :: Lens.Lens' EndpointRequest (Prelude.Maybe EndpointLocation)
+endpointRequest_location = Lens.lens (\EndpointRequest' {location} -> location) (\s@EndpointRequest' {} a -> s {location = a} :: EndpointRequest)
+
+-- | One or more custom metrics that your app reports to Amazon Pinpoint for
+-- the endpoint.
+endpointRequest_metrics :: Lens.Lens' EndpointRequest (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double))
+endpointRequest_metrics = Lens.lens (\EndpointRequest' {metrics} -> metrics) (\s@EndpointRequest' {} a -> s {metrics = a} :: EndpointRequest) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specifies whether the user who\'s associated with the endpoint has opted
+-- out of receiving messages and push notifications from you. Possible
+-- values are: ALL, the user has opted out and doesn\'t want to receive any
+-- messages or push notifications; and, NONE, the user hasn\'t opted out
+-- and wants to receive all messages and push notifications.
+endpointRequest_optOut :: Lens.Lens' EndpointRequest (Prelude.Maybe Prelude.Text)
+endpointRequest_optOut = Lens.lens (\EndpointRequest' {optOut} -> optOut) (\s@EndpointRequest' {} a -> s {optOut = a} :: EndpointRequest)
+
+-- | The unique identifier for the most recent request to update the
 -- endpoint.
-endpointRequest_channelType :: Lens.Lens' EndpointRequest (Prelude.Maybe ChannelType)
-endpointRequest_channelType = Lens.lens (\EndpointRequest' {channelType} -> channelType) (\s@EndpointRequest' {} a -> s {channelType = a} :: EndpointRequest)
+endpointRequest_requestId :: Lens.Lens' EndpointRequest (Prelude.Maybe Prelude.Text)
+endpointRequest_requestId = Lens.lens (\EndpointRequest' {requestId} -> requestId) (\s@EndpointRequest' {} a -> s {requestId = a} :: EndpointRequest)
+
+-- | One or more custom attributes that describe the user who\'s associated
+-- with the endpoint.
+endpointRequest_user :: Lens.Lens' EndpointRequest (Prelude.Maybe EndpointUser)
+endpointRequest_user = Lens.lens (\EndpointRequest' {user} -> user) (\s@EndpointRequest' {} a -> s {user = a} :: EndpointRequest)
 
 instance Prelude.Hashable EndpointRequest where
   hashWithSalt _salt EndpointRequest' {..} =
-    _salt `Prelude.hashWithSalt` demographic
-      `Prelude.hashWithSalt` user
-      `Prelude.hashWithSalt` requestId
-      `Prelude.hashWithSalt` metrics
-      `Prelude.hashWithSalt` location
-      `Prelude.hashWithSalt` optOut
-      `Prelude.hashWithSalt` address
-      `Prelude.hashWithSalt` effectiveDate
+    _salt `Prelude.hashWithSalt` address
       `Prelude.hashWithSalt` attributes
-      `Prelude.hashWithSalt` endpointStatus
       `Prelude.hashWithSalt` channelType
+      `Prelude.hashWithSalt` demographic
+      `Prelude.hashWithSalt` effectiveDate
+      `Prelude.hashWithSalt` endpointStatus
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` metrics
+      `Prelude.hashWithSalt` optOut
+      `Prelude.hashWithSalt` requestId
+      `Prelude.hashWithSalt` user
 
 instance Prelude.NFData EndpointRequest where
   rnf EndpointRequest' {..} =
-    Prelude.rnf demographic
-      `Prelude.seq` Prelude.rnf user
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf metrics
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf optOut
-      `Prelude.seq` Prelude.rnf address
-      `Prelude.seq` Prelude.rnf effectiveDate
+    Prelude.rnf address
       `Prelude.seq` Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf endpointStatus
       `Prelude.seq` Prelude.rnf channelType
+      `Prelude.seq` Prelude.rnf demographic
+      `Prelude.seq` Prelude.rnf effectiveDate
+      `Prelude.seq` Prelude.rnf endpointStatus
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf metrics
+      `Prelude.seq` Prelude.rnf optOut
+      `Prelude.seq` Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf user
 
 instance Data.ToJSON EndpointRequest where
   toJSON EndpointRequest' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Demographic" Data..=) Prelude.<$> demographic,
-            ("User" Data..=) Prelude.<$> user,
-            ("RequestId" Data..=) Prelude.<$> requestId,
-            ("Metrics" Data..=) Prelude.<$> metrics,
-            ("Location" Data..=) Prelude.<$> location,
-            ("OptOut" Data..=) Prelude.<$> optOut,
-            ("Address" Data..=) Prelude.<$> address,
-            ("EffectiveDate" Data..=) Prelude.<$> effectiveDate,
+          [ ("Address" Data..=) Prelude.<$> address,
             ("Attributes" Data..=) Prelude.<$> attributes,
+            ("ChannelType" Data..=) Prelude.<$> channelType,
+            ("Demographic" Data..=) Prelude.<$> demographic,
+            ("EffectiveDate" Data..=) Prelude.<$> effectiveDate,
             ("EndpointStatus" Data..=)
               Prelude.<$> endpointStatus,
-            ("ChannelType" Data..=) Prelude.<$> channelType
+            ("Location" Data..=) Prelude.<$> location,
+            ("Metrics" Data..=) Prelude.<$> metrics,
+            ("OptOut" Data..=) Prelude.<$> optOut,
+            ("RequestId" Data..=) Prelude.<$> requestId,
+            ("User" Data..=) Prelude.<$> user
           ]
       )

@@ -29,16 +29,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newQuietTime' smart constructor.
 data QuietTime = QuietTime'
-  { -- | The specific time when quiet time begins. This value has to use 24-hour
+  { -- | The specific time when quiet time ends. This value has to use 24-hour
     -- notation and be in HH:MM format, where HH is the hour (with a leading
     -- zero, if applicable) and MM is the minutes. For example, use 02:30 to
     -- represent 2:30 AM, or 14:30 to represent 2:30 PM.
-    start :: Prelude.Maybe Prelude.Text,
-    -- | The specific time when quiet time ends. This value has to use 24-hour
+    end :: Prelude.Maybe Prelude.Text,
+    -- | The specific time when quiet time begins. This value has to use 24-hour
     -- notation and be in HH:MM format, where HH is the hour (with a leading
     -- zero, if applicable) and MM is the minutes. For example, use 02:30 to
     -- represent 2:30 AM, or 14:30 to represent 2:30 PM.
-    end :: Prelude.Maybe Prelude.Text
+    start :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,12 +50,12 @@ data QuietTime = QuietTime'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'start', 'quietTime_start' - The specific time when quiet time begins. This value has to use 24-hour
+-- 'end', 'quietTime_end' - The specific time when quiet time ends. This value has to use 24-hour
 -- notation and be in HH:MM format, where HH is the hour (with a leading
 -- zero, if applicable) and MM is the minutes. For example, use 02:30 to
 -- represent 2:30 AM, or 14:30 to represent 2:30 PM.
 --
--- 'end', 'quietTime_end' - The specific time when quiet time ends. This value has to use 24-hour
+-- 'start', 'quietTime_start' - The specific time when quiet time begins. This value has to use 24-hour
 -- notation and be in HH:MM format, where HH is the hour (with a leading
 -- zero, if applicable) and MM is the minutes. For example, use 02:30 to
 -- represent 2:30 AM, or 14:30 to represent 2:30 PM.
@@ -63,16 +63,9 @@ newQuietTime ::
   QuietTime
 newQuietTime =
   QuietTime'
-    { start = Prelude.Nothing,
-      end = Prelude.Nothing
+    { end = Prelude.Nothing,
+      start = Prelude.Nothing
     }
-
--- | The specific time when quiet time begins. This value has to use 24-hour
--- notation and be in HH:MM format, where HH is the hour (with a leading
--- zero, if applicable) and MM is the minutes. For example, use 02:30 to
--- represent 2:30 AM, or 14:30 to represent 2:30 PM.
-quietTime_start :: Lens.Lens' QuietTime (Prelude.Maybe Prelude.Text)
-quietTime_start = Lens.lens (\QuietTime' {start} -> start) (\s@QuietTime' {} a -> s {start = a} :: QuietTime)
 
 -- | The specific time when quiet time ends. This value has to use 24-hour
 -- notation and be in HH:MM format, where HH is the hour (with a leading
@@ -81,29 +74,36 @@ quietTime_start = Lens.lens (\QuietTime' {start} -> start) (\s@QuietTime' {} a -
 quietTime_end :: Lens.Lens' QuietTime (Prelude.Maybe Prelude.Text)
 quietTime_end = Lens.lens (\QuietTime' {end} -> end) (\s@QuietTime' {} a -> s {end = a} :: QuietTime)
 
+-- | The specific time when quiet time begins. This value has to use 24-hour
+-- notation and be in HH:MM format, where HH is the hour (with a leading
+-- zero, if applicable) and MM is the minutes. For example, use 02:30 to
+-- represent 2:30 AM, or 14:30 to represent 2:30 PM.
+quietTime_start :: Lens.Lens' QuietTime (Prelude.Maybe Prelude.Text)
+quietTime_start = Lens.lens (\QuietTime' {start} -> start) (\s@QuietTime' {} a -> s {start = a} :: QuietTime)
+
 instance Data.FromJSON QuietTime where
   parseJSON =
     Data.withObject
       "QuietTime"
       ( \x ->
           QuietTime'
-            Prelude.<$> (x Data..:? "Start") Prelude.<*> (x Data..:? "End")
+            Prelude.<$> (x Data..:? "End") Prelude.<*> (x Data..:? "Start")
       )
 
 instance Prelude.Hashable QuietTime where
   hashWithSalt _salt QuietTime' {..} =
-    _salt `Prelude.hashWithSalt` start
-      `Prelude.hashWithSalt` end
+    _salt `Prelude.hashWithSalt` end
+      `Prelude.hashWithSalt` start
 
 instance Prelude.NFData QuietTime where
   rnf QuietTime' {..} =
-    Prelude.rnf start `Prelude.seq` Prelude.rnf end
+    Prelude.rnf end `Prelude.seq` Prelude.rnf start
 
 instance Data.ToJSON QuietTime where
   toJSON QuietTime' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Start" Data..=) Prelude.<$> start,
-            ("End" Data..=) Prelude.<$> end
+          [ ("End" Data..=) Prelude.<$> end,
+            ("Start" Data..=) Prelude.<$> start
           ]
       )

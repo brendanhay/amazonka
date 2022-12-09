@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInAppMessage' smart constructor.
 data InAppMessage = InAppMessage'
-  { -- | Custom config to be sent to SDK.
+  { -- | In-app message content.
+    content :: Prelude.Maybe [InAppMessageContent],
+    -- | Custom config to be sent to SDK.
     customConfig :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The layout of the message.
-    layout :: Prelude.Maybe Layout,
-    -- | In-app message content.
-    content :: Prelude.Maybe [InAppMessageContent]
+    layout :: Prelude.Maybe Layout
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,19 +47,23 @@ data InAppMessage = InAppMessage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'content', 'inAppMessage_content' - In-app message content.
+--
 -- 'customConfig', 'inAppMessage_customConfig' - Custom config to be sent to SDK.
 --
 -- 'layout', 'inAppMessage_layout' - The layout of the message.
---
--- 'content', 'inAppMessage_content' - In-app message content.
 newInAppMessage ::
   InAppMessage
 newInAppMessage =
   InAppMessage'
-    { customConfig = Prelude.Nothing,
-      layout = Prelude.Nothing,
-      content = Prelude.Nothing
+    { content = Prelude.Nothing,
+      customConfig = Prelude.Nothing,
+      layout = Prelude.Nothing
     }
+
+-- | In-app message content.
+inAppMessage_content :: Lens.Lens' InAppMessage (Prelude.Maybe [InAppMessageContent])
+inAppMessage_content = Lens.lens (\InAppMessage' {content} -> content) (\s@InAppMessage' {} a -> s {content = a} :: InAppMessage) Prelude.. Lens.mapping Lens.coerced
 
 -- | Custom config to be sent to SDK.
 inAppMessage_customConfig :: Lens.Lens' InAppMessage (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -69,29 +73,25 @@ inAppMessage_customConfig = Lens.lens (\InAppMessage' {customConfig} -> customCo
 inAppMessage_layout :: Lens.Lens' InAppMessage (Prelude.Maybe Layout)
 inAppMessage_layout = Lens.lens (\InAppMessage' {layout} -> layout) (\s@InAppMessage' {} a -> s {layout = a} :: InAppMessage)
 
--- | In-app message content.
-inAppMessage_content :: Lens.Lens' InAppMessage (Prelude.Maybe [InAppMessageContent])
-inAppMessage_content = Lens.lens (\InAppMessage' {content} -> content) (\s@InAppMessage' {} a -> s {content = a} :: InAppMessage) Prelude.. Lens.mapping Lens.coerced
-
 instance Data.FromJSON InAppMessage where
   parseJSON =
     Data.withObject
       "InAppMessage"
       ( \x ->
           InAppMessage'
-            Prelude.<$> (x Data..:? "CustomConfig" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Content" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CustomConfig" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "Layout")
-            Prelude.<*> (x Data..:? "Content" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable InAppMessage where
   hashWithSalt _salt InAppMessage' {..} =
-    _salt `Prelude.hashWithSalt` customConfig
+    _salt `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` customConfig
       `Prelude.hashWithSalt` layout
-      `Prelude.hashWithSalt` content
 
 instance Prelude.NFData InAppMessage where
   rnf InAppMessage' {..} =
-    Prelude.rnf customConfig
+    Prelude.rnf content
+      `Prelude.seq` Prelude.rnf customConfig
       `Prelude.seq` Prelude.rnf layout
-      `Prelude.seq` Prelude.rnf content

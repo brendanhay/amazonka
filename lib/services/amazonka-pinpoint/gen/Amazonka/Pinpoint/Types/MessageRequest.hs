@@ -32,7 +32,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMessageRequest' smart constructor.
 data MessageRequest = MessageRequest'
-  { -- | A map of custom attributes to attach to the message. For a push
+  { -- | A map of key-value pairs, where each key is an address and each value is
+    -- an
+    -- <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-addressconfiguration AddressConfiguration>
+    -- object. An address can be a push notification token, a phone number, or
+    -- an email address. You can use an
+    -- <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-addressconfiguration AddressConfiguration>
+    -- object to tailor the message for an address by specifying settings such
+    -- as content overrides and message variables.
+    addresses :: Prelude.Maybe (Prelude.HashMap Prelude.Text AddressConfiguration),
+    -- | A map of custom attributes to attach to the message. For a push
     -- notification, this payload is added to the data.pinpoint object. For an
     -- email or text message, this payload is added to email\/SMS delivery
     -- receipt event attributes.
@@ -45,15 +54,6 @@ data MessageRequest = MessageRequest'
     -- object to tailor the message for an endpoint by specifying settings such
     -- as content overrides and message variables.
     endpoints :: Prelude.Maybe (Prelude.HashMap Prelude.Text EndpointSendConfiguration),
-    -- | A map of key-value pairs, where each key is an address and each value is
-    -- an
-    -- <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-addressconfiguration AddressConfiguration>
-    -- object. An address can be a push notification token, a phone number, or
-    -- an email address. You can use an
-    -- <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-addressconfiguration AddressConfiguration>
-    -- object to tailor the message for an address by specifying settings such
-    -- as content overrides and message variables.
-    addresses :: Prelude.Maybe (Prelude.HashMap Prelude.Text AddressConfiguration),
     -- | The message template to use for the message.
     templateConfiguration :: Prelude.Maybe TemplateConfiguration,
     -- | The unique identifier for tracing the message. This identifier is
@@ -73,6 +73,15 @@ data MessageRequest = MessageRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'addresses', 'messageRequest_addresses' - A map of key-value pairs, where each key is an address and each value is
+-- an
+-- <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-addressconfiguration AddressConfiguration>
+-- object. An address can be a push notification token, a phone number, or
+-- an email address. You can use an
+-- <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-addressconfiguration AddressConfiguration>
+-- object to tailor the message for an address by specifying settings such
+-- as content overrides and message variables.
+--
 -- 'context', 'messageRequest_context' - A map of custom attributes to attach to the message. For a push
 -- notification, this payload is added to the data.pinpoint object. For an
 -- email or text message, this payload is added to email\/SMS delivery
@@ -84,15 +93,6 @@ data MessageRequest = MessageRequest'
 -- object. You can use an
 -- <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-endpointsendconfiguration EndpointSendConfiguration>
 -- object to tailor the message for an endpoint by specifying settings such
--- as content overrides and message variables.
---
--- 'addresses', 'messageRequest_addresses' - A map of key-value pairs, where each key is an address and each value is
--- an
--- <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-addressconfiguration AddressConfiguration>
--- object. An address can be a push notification token, a phone number, or
--- an email address. You can use an
--- <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-addressconfiguration AddressConfiguration>
--- object to tailor the message for an address by specifying settings such
 -- as content overrides and message variables.
 --
 -- 'templateConfiguration', 'messageRequest_templateConfiguration' - The message template to use for the message.
@@ -108,13 +108,24 @@ newMessageRequest ::
   MessageRequest
 newMessageRequest pMessageConfiguration_ =
   MessageRequest'
-    { context = Prelude.Nothing,
+    { addresses = Prelude.Nothing,
+      context = Prelude.Nothing,
       endpoints = Prelude.Nothing,
-      addresses = Prelude.Nothing,
       templateConfiguration = Prelude.Nothing,
       traceId = Prelude.Nothing,
       messageConfiguration = pMessageConfiguration_
     }
+
+-- | A map of key-value pairs, where each key is an address and each value is
+-- an
+-- <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-addressconfiguration AddressConfiguration>
+-- object. An address can be a push notification token, a phone number, or
+-- an email address. You can use an
+-- <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-addressconfiguration AddressConfiguration>
+-- object to tailor the message for an address by specifying settings such
+-- as content overrides and message variables.
+messageRequest_addresses :: Lens.Lens' MessageRequest (Prelude.Maybe (Prelude.HashMap Prelude.Text AddressConfiguration))
+messageRequest_addresses = Lens.lens (\MessageRequest' {addresses} -> addresses) (\s@MessageRequest' {} a -> s {addresses = a} :: MessageRequest) Prelude.. Lens.mapping Lens.coerced
 
 -- | A map of custom attributes to attach to the message. For a push
 -- notification, this payload is added to the data.pinpoint object. For an
@@ -133,17 +144,6 @@ messageRequest_context = Lens.lens (\MessageRequest' {context} -> context) (\s@M
 messageRequest_endpoints :: Lens.Lens' MessageRequest (Prelude.Maybe (Prelude.HashMap Prelude.Text EndpointSendConfiguration))
 messageRequest_endpoints = Lens.lens (\MessageRequest' {endpoints} -> endpoints) (\s@MessageRequest' {} a -> s {endpoints = a} :: MessageRequest) Prelude.. Lens.mapping Lens.coerced
 
--- | A map of key-value pairs, where each key is an address and each value is
--- an
--- <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-addressconfiguration AddressConfiguration>
--- object. An address can be a push notification token, a phone number, or
--- an email address. You can use an
--- <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-addressconfiguration AddressConfiguration>
--- object to tailor the message for an address by specifying settings such
--- as content overrides and message variables.
-messageRequest_addresses :: Lens.Lens' MessageRequest (Prelude.Maybe (Prelude.HashMap Prelude.Text AddressConfiguration))
-messageRequest_addresses = Lens.lens (\MessageRequest' {addresses} -> addresses) (\s@MessageRequest' {} a -> s {addresses = a} :: MessageRequest) Prelude.. Lens.mapping Lens.coerced
-
 -- | The message template to use for the message.
 messageRequest_templateConfiguration :: Lens.Lens' MessageRequest (Prelude.Maybe TemplateConfiguration)
 messageRequest_templateConfiguration = Lens.lens (\MessageRequest' {templateConfiguration} -> templateConfiguration) (\s@MessageRequest' {} a -> s {templateConfiguration = a} :: MessageRequest)
@@ -160,18 +160,18 @@ messageRequest_messageConfiguration = Lens.lens (\MessageRequest' {messageConfig
 
 instance Prelude.Hashable MessageRequest where
   hashWithSalt _salt MessageRequest' {..} =
-    _salt `Prelude.hashWithSalt` context
+    _salt `Prelude.hashWithSalt` addresses
+      `Prelude.hashWithSalt` context
       `Prelude.hashWithSalt` endpoints
-      `Prelude.hashWithSalt` addresses
       `Prelude.hashWithSalt` templateConfiguration
       `Prelude.hashWithSalt` traceId
       `Prelude.hashWithSalt` messageConfiguration
 
 instance Prelude.NFData MessageRequest where
   rnf MessageRequest' {..} =
-    Prelude.rnf context
+    Prelude.rnf addresses
+      `Prelude.seq` Prelude.rnf context
       `Prelude.seq` Prelude.rnf endpoints
-      `Prelude.seq` Prelude.rnf addresses
       `Prelude.seq` Prelude.rnf templateConfiguration
       `Prelude.seq` Prelude.rnf traceId
       `Prelude.seq` Prelude.rnf messageConfiguration
@@ -180,9 +180,9 @@ instance Data.ToJSON MessageRequest where
   toJSON MessageRequest' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Context" Data..=) Prelude.<$> context,
+          [ ("Addresses" Data..=) Prelude.<$> addresses,
+            ("Context" Data..=) Prelude.<$> context,
             ("Endpoints" Data..=) Prelude.<$> endpoints,
-            ("Addresses" Data..=) Prelude.<$> addresses,
             ("TemplateConfiguration" Data..=)
               Prelude.<$> templateConfiguration,
             ("TraceId" Data..=) Prelude.<$> traceId,

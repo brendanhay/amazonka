@@ -28,8 +28,8 @@ module Amazonka.Pinpoint.GetCampaignDateRangeKpi
     newGetCampaignDateRangeKpi,
 
     -- * Request Lenses
-    getCampaignDateRangeKpi_nextToken,
     getCampaignDateRangeKpi_endTime,
+    getCampaignDateRangeKpi_nextToken,
     getCampaignDateRangeKpi_pageSize,
     getCampaignDateRangeKpi_startTime,
     getCampaignDateRangeKpi_applicationId,
@@ -56,15 +56,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetCampaignDateRangeKpi' smart constructor.
 data GetCampaignDateRangeKpi = GetCampaignDateRangeKpi'
-  { -- | The string that specifies which page of results to return in a paginated
-    -- response. This parameter is not supported for application, campaign, and
-    -- journey metrics.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The last date and time to retrieve data for, as part of an inclusive
+  { -- | The last date and time to retrieve data for, as part of an inclusive
     -- date range that filters the query results. This value should be in
     -- extended ISO 8601 format and use Coordinated Universal Time (UTC), for
     -- example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
     endTime :: Prelude.Maybe Data.POSIX,
+    -- | The string that specifies which page of results to return in a paginated
+    -- response. This parameter is not supported for application, campaign, and
+    -- journey metrics.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to include in each page of a paginated
     -- response. This parameter is not supported for application, campaign, and
     -- journey metrics.
@@ -99,14 +99,14 @@ data GetCampaignDateRangeKpi = GetCampaignDateRangeKpi'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getCampaignDateRangeKpi_nextToken' - The string that specifies which page of results to return in a paginated
--- response. This parameter is not supported for application, campaign, and
--- journey metrics.
---
 -- 'endTime', 'getCampaignDateRangeKpi_endTime' - The last date and time to retrieve data for, as part of an inclusive
 -- date range that filters the query results. This value should be in
 -- extended ISO 8601 format and use Coordinated Universal Time (UTC), for
 -- example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
+--
+-- 'nextToken', 'getCampaignDateRangeKpi_nextToken' - The string that specifies which page of results to return in a paginated
+-- response. This parameter is not supported for application, campaign, and
+-- journey metrics.
 --
 -- 'pageSize', 'getCampaignDateRangeKpi_pageSize' - The maximum number of items to include in each page of a paginated
 -- response. This parameter is not supported for application, campaign, and
@@ -143,9 +143,8 @@ newGetCampaignDateRangeKpi
   pKpiName_
   pCampaignId_ =
     GetCampaignDateRangeKpi'
-      { nextToken =
-          Prelude.Nothing,
-        endTime = Prelude.Nothing,
+      { endTime = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         pageSize = Prelude.Nothing,
         startTime = Prelude.Nothing,
         applicationId = pApplicationId_,
@@ -153,18 +152,18 @@ newGetCampaignDateRangeKpi
         campaignId = pCampaignId_
       }
 
--- | The string that specifies which page of results to return in a paginated
--- response. This parameter is not supported for application, campaign, and
--- journey metrics.
-getCampaignDateRangeKpi_nextToken :: Lens.Lens' GetCampaignDateRangeKpi (Prelude.Maybe Prelude.Text)
-getCampaignDateRangeKpi_nextToken = Lens.lens (\GetCampaignDateRangeKpi' {nextToken} -> nextToken) (\s@GetCampaignDateRangeKpi' {} a -> s {nextToken = a} :: GetCampaignDateRangeKpi)
-
 -- | The last date and time to retrieve data for, as part of an inclusive
 -- date range that filters the query results. This value should be in
 -- extended ISO 8601 format and use Coordinated Universal Time (UTC), for
 -- example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
 getCampaignDateRangeKpi_endTime :: Lens.Lens' GetCampaignDateRangeKpi (Prelude.Maybe Prelude.UTCTime)
 getCampaignDateRangeKpi_endTime = Lens.lens (\GetCampaignDateRangeKpi' {endTime} -> endTime) (\s@GetCampaignDateRangeKpi' {} a -> s {endTime = a} :: GetCampaignDateRangeKpi) Prelude.. Lens.mapping Data._Time
+
+-- | The string that specifies which page of results to return in a paginated
+-- response. This parameter is not supported for application, campaign, and
+-- journey metrics.
+getCampaignDateRangeKpi_nextToken :: Lens.Lens' GetCampaignDateRangeKpi (Prelude.Maybe Prelude.Text)
+getCampaignDateRangeKpi_nextToken = Lens.lens (\GetCampaignDateRangeKpi' {nextToken} -> nextToken) (\s@GetCampaignDateRangeKpi' {} a -> s {nextToken = a} :: GetCampaignDateRangeKpi)
 
 -- | The maximum number of items to include in each page of a paginated
 -- response. This parameter is not supported for application, campaign, and
@@ -215,8 +214,8 @@ instance Core.AWSRequest GetCampaignDateRangeKpi where
 
 instance Prelude.Hashable GetCampaignDateRangeKpi where
   hashWithSalt _salt GetCampaignDateRangeKpi' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` endTime
+    _salt `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` pageSize
       `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` applicationId
@@ -225,8 +224,8 @@ instance Prelude.Hashable GetCampaignDateRangeKpi where
 
 instance Prelude.NFData GetCampaignDateRangeKpi where
   rnf GetCampaignDateRangeKpi' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf endTime
+    Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf pageSize
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf applicationId
@@ -258,8 +257,8 @@ instance Data.ToPath GetCampaignDateRangeKpi where
 instance Data.ToQuery GetCampaignDateRangeKpi where
   toQuery GetCampaignDateRangeKpi' {..} =
     Prelude.mconcat
-      [ "next-token" Data.=: nextToken,
-        "end-time" Data.=: endTime,
+      [ "end-time" Data.=: endTime,
+        "next-token" Data.=: nextToken,
         "page-size" Data.=: pageSize,
         "start-time" Data.=: startTime
       ]

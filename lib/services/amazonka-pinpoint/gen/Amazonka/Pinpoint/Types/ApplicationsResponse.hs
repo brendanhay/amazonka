@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newApplicationsResponse' smart constructor.
 data ApplicationsResponse = ApplicationsResponse'
-  { -- | The string to use in a subsequent request to get the next page of
+  { -- | An array of responses, one for each application that was returned.
+    item :: Prelude.Maybe [ApplicationResponse],
+    -- | The string to use in a subsequent request to get the next page of
     -- results in a paginated response. This value is null if there are no
     -- additional pages.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of responses, one for each application that was returned.
-    item :: Prelude.Maybe [ApplicationResponse]
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,18 +46,22 @@ data ApplicationsResponse = ApplicationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'item', 'applicationsResponse_item' - An array of responses, one for each application that was returned.
+--
 -- 'nextToken', 'applicationsResponse_nextToken' - The string to use in a subsequent request to get the next page of
 -- results in a paginated response. This value is null if there are no
 -- additional pages.
---
--- 'item', 'applicationsResponse_item' - An array of responses, one for each application that was returned.
 newApplicationsResponse ::
   ApplicationsResponse
 newApplicationsResponse =
   ApplicationsResponse'
-    { nextToken = Prelude.Nothing,
-      item = Prelude.Nothing
+    { item = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | An array of responses, one for each application that was returned.
+applicationsResponse_item :: Lens.Lens' ApplicationsResponse (Prelude.Maybe [ApplicationResponse])
+applicationsResponse_item = Lens.lens (\ApplicationsResponse' {item} -> item) (\s@ApplicationsResponse' {} a -> s {item = a} :: ApplicationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The string to use in a subsequent request to get the next page of
 -- results in a paginated response. This value is null if there are no
@@ -65,26 +69,22 @@ newApplicationsResponse =
 applicationsResponse_nextToken :: Lens.Lens' ApplicationsResponse (Prelude.Maybe Prelude.Text)
 applicationsResponse_nextToken = Lens.lens (\ApplicationsResponse' {nextToken} -> nextToken) (\s@ApplicationsResponse' {} a -> s {nextToken = a} :: ApplicationsResponse)
 
--- | An array of responses, one for each application that was returned.
-applicationsResponse_item :: Lens.Lens' ApplicationsResponse (Prelude.Maybe [ApplicationResponse])
-applicationsResponse_item = Lens.lens (\ApplicationsResponse' {item} -> item) (\s@ApplicationsResponse' {} a -> s {item = a} :: ApplicationsResponse) Prelude.. Lens.mapping Lens.coerced
-
 instance Data.FromJSON ApplicationsResponse where
   parseJSON =
     Data.withObject
       "ApplicationsResponse"
       ( \x ->
           ApplicationsResponse'
-            Prelude.<$> (x Data..:? "NextToken")
-            Prelude.<*> (x Data..:? "Item" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Item" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "NextToken")
       )
 
 instance Prelude.Hashable ApplicationsResponse where
   hashWithSalt _salt ApplicationsResponse' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` item
+    _salt `Prelude.hashWithSalt` item
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ApplicationsResponse where
   rnf ApplicationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf item
+    Prelude.rnf item
+      `Prelude.seq` Prelude.rnf nextToken

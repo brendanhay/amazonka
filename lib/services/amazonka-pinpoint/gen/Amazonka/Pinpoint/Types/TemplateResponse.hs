@@ -30,14 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTemplateResponse' smart constructor.
 data TemplateResponse = TemplateResponse'
-  { -- | A map of key-value pairs that identifies the tags that are associated
-    -- with the message template. This object isn\'t included in a
-    -- TemplateResponse object. To retrieve this object for a template, use the
-    -- GetEmailTemplate, GetPushTemplate, GetSmsTemplate, or GetVoiceTemplate
-    -- operation, depending on the type of template that you want to retrieve
-    -- the object for.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The Amazon Resource Name (ARN) of the message template. This value
+  { -- | The Amazon Resource Name (ARN) of the message template. This value
     -- isn\'t included in a TemplateResponse object. To retrieve the ARN of a
     -- template, use the GetEmailTemplate, GetPushTemplate, GetSmsTemplate, or
     -- GetVoiceTemplate operation, depending on the type of template that you
@@ -59,6 +52,13 @@ data TemplateResponse = TemplateResponse'
     -- | The unique identifier, as an integer, for the active version of the
     -- message template.
     version :: Prelude.Maybe Prelude.Text,
+    -- | A map of key-value pairs that identifies the tags that are associated
+    -- with the message template. This object isn\'t included in a
+    -- TemplateResponse object. To retrieve this object for a template, use the
+    -- GetEmailTemplate, GetPushTemplate, GetSmsTemplate, or GetVoiceTemplate
+    -- operation, depending on the type of template that you want to retrieve
+    -- the object for.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The date, in ISO 8601 format, when the message template was last
     -- modified.
     lastModifiedDate :: Prelude.Text,
@@ -79,13 +79,6 @@ data TemplateResponse = TemplateResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'tags', 'templateResponse_tags' - A map of key-value pairs that identifies the tags that are associated
--- with the message template. This object isn\'t included in a
--- TemplateResponse object. To retrieve this object for a template, use the
--- GetEmailTemplate, GetPushTemplate, GetSmsTemplate, or GetVoiceTemplate
--- operation, depending on the type of template that you want to retrieve
--- the object for.
 --
 -- 'arn', 'templateResponse_arn' - The Amazon Resource Name (ARN) of the message template. This value
 -- isn\'t included in a TemplateResponse object. To retrieve the ARN of a
@@ -108,6 +101,13 @@ data TemplateResponse = TemplateResponse'
 --
 -- 'version', 'templateResponse_version' - The unique identifier, as an integer, for the active version of the
 -- message template.
+--
+-- 'tags', 'templateResponse_tags' - A map of key-value pairs that identifies the tags that are associated
+-- with the message template. This object isn\'t included in a
+-- TemplateResponse object. To retrieve this object for a template, use the
+-- GetEmailTemplate, GetPushTemplate, GetSmsTemplate, or GetVoiceTemplate
+-- operation, depending on the type of template that you want to retrieve
+-- the object for.
 --
 -- 'lastModifiedDate', 'templateResponse_lastModifiedDate' - The date, in ISO 8601 format, when the message template was last
 -- modified.
@@ -134,25 +134,16 @@ newTemplateResponse
   pTemplateName_
   pTemplateType_ =
     TemplateResponse'
-      { tags = Prelude.Nothing,
-        arn = Prelude.Nothing,
+      { arn = Prelude.Nothing,
         defaultSubstitutions = Prelude.Nothing,
         templateDescription = Prelude.Nothing,
         version = Prelude.Nothing,
+        tags = Prelude.Nothing,
         lastModifiedDate = pLastModifiedDate_,
         creationDate = pCreationDate_,
         templateName = pTemplateName_,
         templateType = pTemplateType_
       }
-
--- | A map of key-value pairs that identifies the tags that are associated
--- with the message template. This object isn\'t included in a
--- TemplateResponse object. To retrieve this object for a template, use the
--- GetEmailTemplate, GetPushTemplate, GetSmsTemplate, or GetVoiceTemplate
--- operation, depending on the type of template that you want to retrieve
--- the object for.
-templateResponse_tags :: Lens.Lens' TemplateResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-templateResponse_tags = Lens.lens (\TemplateResponse' {tags} -> tags) (\s@TemplateResponse' {} a -> s {tags = a} :: TemplateResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the message template. This value
 -- isn\'t included in a TemplateResponse object. To retrieve the ARN of a
@@ -184,6 +175,15 @@ templateResponse_templateDescription = Lens.lens (\TemplateResponse' {templateDe
 templateResponse_version :: Lens.Lens' TemplateResponse (Prelude.Maybe Prelude.Text)
 templateResponse_version = Lens.lens (\TemplateResponse' {version} -> version) (\s@TemplateResponse' {} a -> s {version = a} :: TemplateResponse)
 
+-- | A map of key-value pairs that identifies the tags that are associated
+-- with the message template. This object isn\'t included in a
+-- TemplateResponse object. To retrieve this object for a template, use the
+-- GetEmailTemplate, GetPushTemplate, GetSmsTemplate, or GetVoiceTemplate
+-- operation, depending on the type of template that you want to retrieve
+-- the object for.
+templateResponse_tags :: Lens.Lens' TemplateResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+templateResponse_tags = Lens.lens (\TemplateResponse' {tags} -> tags) (\s@TemplateResponse' {} a -> s {tags = a} :: TemplateResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The date, in ISO 8601 format, when the message template was last
 -- modified.
 templateResponse_lastModifiedDate :: Lens.Lens' TemplateResponse Prelude.Text
@@ -208,11 +208,11 @@ instance Data.FromJSON TemplateResponse where
       "TemplateResponse"
       ( \x ->
           TemplateResponse'
-            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<$> (x Data..:? "Arn")
             Prelude.<*> (x Data..:? "DefaultSubstitutions")
             Prelude.<*> (x Data..:? "TemplateDescription")
             Prelude.<*> (x Data..:? "Version")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "LastModifiedDate")
             Prelude.<*> (x Data..: "CreationDate")
             Prelude.<*> (x Data..: "TemplateName")
@@ -221,11 +221,11 @@ instance Data.FromJSON TemplateResponse where
 
 instance Prelude.Hashable TemplateResponse where
   hashWithSalt _salt TemplateResponse' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` defaultSubstitutions
       `Prelude.hashWithSalt` templateDescription
       `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` lastModifiedDate
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` templateName
@@ -233,11 +233,11 @@ instance Prelude.Hashable TemplateResponse where
 
 instance Prelude.NFData TemplateResponse where
   rnf TemplateResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf defaultSubstitutions
       `Prelude.seq` Prelude.rnf templateDescription
       `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf lastModifiedDate
       `Prelude.seq` Prelude.rnf creationDate
       `Prelude.seq` Prelude.rnf templateName

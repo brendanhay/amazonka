@@ -31,13 +31,25 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAPNSPushNotificationTemplate' smart constructor.
 data APNSPushNotificationTemplate = APNSPushNotificationTemplate'
-  { -- | The message body to use in push notifications that are based on the
+  { -- | The action to occur if a recipient taps a push notification that\'s
+    -- based on the message template. Valid values are:
+    --
+    -- -   OPEN_APP - Your app opens or it becomes the foreground app if it was
+    --     sent to the background. This is the default action.
+    --
+    -- -   DEEP_LINK - Your app opens and displays a designated user interface
+    --     in the app. This setting uses the deep-linking features of the iOS
+    --     platform.
+    --
+    -- -   URL - The default mobile browser on the recipient\'s device opens
+    --     and loads the web page at a URL that you specify.
+    action :: Prelude.Maybe Action,
+    -- | The message body to use in push notifications that are based on the
     -- message template.
     body :: Prelude.Maybe Prelude.Text,
-    -- | The URL to open in the recipient\'s default mobile browser, if a
-    -- recipient taps a push notification that\'s based on the message template
-    -- and the value of the Action property is URL.
-    url :: Prelude.Maybe Prelude.Text,
+    -- | The URL of an image or video to display in push notifications that are
+    -- based on the message template.
+    mediaUrl :: Prelude.Maybe Prelude.Text,
     -- | The raw, JSON-formatted string to use as the payload for push
     -- notifications that are based on the message template. If specified, this
     -- value overrides all other content for the message template.
@@ -53,22 +65,10 @@ data APNSPushNotificationTemplate = APNSPushNotificationTemplate'
     -- template. This title appears above the notification message on a
     -- recipient\'s device.
     title :: Prelude.Maybe Prelude.Text,
-    -- | The URL of an image or video to display in push notifications that are
-    -- based on the message template.
-    mediaUrl :: Prelude.Maybe Prelude.Text,
-    -- | The action to occur if a recipient taps a push notification that\'s
-    -- based on the message template. Valid values are:
-    --
-    -- -   OPEN_APP - Your app opens or it becomes the foreground app if it was
-    --     sent to the background. This is the default action.
-    --
-    -- -   DEEP_LINK - Your app opens and displays a designated user interface
-    --     in the app. This setting uses the deep-linking features of the iOS
-    --     platform.
-    --
-    -- -   URL - The default mobile browser on the recipient\'s device opens
-    --     and loads the web page at a URL that you specify.
-    action :: Prelude.Maybe Action
+    -- | The URL to open in the recipient\'s default mobile browser, if a
+    -- recipient taps a push notification that\'s based on the message template
+    -- and the value of the Action property is URL.
+    url :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,12 +80,24 @@ data APNSPushNotificationTemplate = APNSPushNotificationTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'action', 'aPNSPushNotificationTemplate_action' - The action to occur if a recipient taps a push notification that\'s
+-- based on the message template. Valid values are:
+--
+-- -   OPEN_APP - Your app opens or it becomes the foreground app if it was
+--     sent to the background. This is the default action.
+--
+-- -   DEEP_LINK - Your app opens and displays a designated user interface
+--     in the app. This setting uses the deep-linking features of the iOS
+--     platform.
+--
+-- -   URL - The default mobile browser on the recipient\'s device opens
+--     and loads the web page at a URL that you specify.
+--
 -- 'body', 'aPNSPushNotificationTemplate_body' - The message body to use in push notifications that are based on the
 -- message template.
 --
--- 'url', 'aPNSPushNotificationTemplate_url' - The URL to open in the recipient\'s default mobile browser, if a
--- recipient taps a push notification that\'s based on the message template
--- and the value of the Action property is URL.
+-- 'mediaUrl', 'aPNSPushNotificationTemplate_mediaUrl' - The URL of an image or video to display in push notifications that are
+-- based on the message template.
 --
 -- 'rawContent', 'aPNSPushNotificationTemplate_rawContent' - The raw, JSON-formatted string to use as the payload for push
 -- notifications that are based on the message template. If specified, this
@@ -102,10 +114,24 @@ data APNSPushNotificationTemplate = APNSPushNotificationTemplate'
 -- template. This title appears above the notification message on a
 -- recipient\'s device.
 --
--- 'mediaUrl', 'aPNSPushNotificationTemplate_mediaUrl' - The URL of an image or video to display in push notifications that are
--- based on the message template.
---
--- 'action', 'aPNSPushNotificationTemplate_action' - The action to occur if a recipient taps a push notification that\'s
+-- 'url', 'aPNSPushNotificationTemplate_url' - The URL to open in the recipient\'s default mobile browser, if a
+-- recipient taps a push notification that\'s based on the message template
+-- and the value of the Action property is URL.
+newAPNSPushNotificationTemplate ::
+  APNSPushNotificationTemplate
+newAPNSPushNotificationTemplate =
+  APNSPushNotificationTemplate'
+    { action =
+        Prelude.Nothing,
+      body = Prelude.Nothing,
+      mediaUrl = Prelude.Nothing,
+      rawContent = Prelude.Nothing,
+      sound = Prelude.Nothing,
+      title = Prelude.Nothing,
+      url = Prelude.Nothing
+    }
+
+-- | The action to occur if a recipient taps a push notification that\'s
 -- based on the message template. Valid values are:
 --
 -- -   OPEN_APP - Your app opens or it becomes the foreground app if it was
@@ -117,30 +143,18 @@ data APNSPushNotificationTemplate = APNSPushNotificationTemplate'
 --
 -- -   URL - The default mobile browser on the recipient\'s device opens
 --     and loads the web page at a URL that you specify.
-newAPNSPushNotificationTemplate ::
-  APNSPushNotificationTemplate
-newAPNSPushNotificationTemplate =
-  APNSPushNotificationTemplate'
-    { body =
-        Prelude.Nothing,
-      url = Prelude.Nothing,
-      rawContent = Prelude.Nothing,
-      sound = Prelude.Nothing,
-      title = Prelude.Nothing,
-      mediaUrl = Prelude.Nothing,
-      action = Prelude.Nothing
-    }
+aPNSPushNotificationTemplate_action :: Lens.Lens' APNSPushNotificationTemplate (Prelude.Maybe Action)
+aPNSPushNotificationTemplate_action = Lens.lens (\APNSPushNotificationTemplate' {action} -> action) (\s@APNSPushNotificationTemplate' {} a -> s {action = a} :: APNSPushNotificationTemplate)
 
 -- | The message body to use in push notifications that are based on the
 -- message template.
 aPNSPushNotificationTemplate_body :: Lens.Lens' APNSPushNotificationTemplate (Prelude.Maybe Prelude.Text)
 aPNSPushNotificationTemplate_body = Lens.lens (\APNSPushNotificationTemplate' {body} -> body) (\s@APNSPushNotificationTemplate' {} a -> s {body = a} :: APNSPushNotificationTemplate)
 
--- | The URL to open in the recipient\'s default mobile browser, if a
--- recipient taps a push notification that\'s based on the message template
--- and the value of the Action property is URL.
-aPNSPushNotificationTemplate_url :: Lens.Lens' APNSPushNotificationTemplate (Prelude.Maybe Prelude.Text)
-aPNSPushNotificationTemplate_url = Lens.lens (\APNSPushNotificationTemplate' {url} -> url) (\s@APNSPushNotificationTemplate' {} a -> s {url = a} :: APNSPushNotificationTemplate)
+-- | The URL of an image or video to display in push notifications that are
+-- based on the message template.
+aPNSPushNotificationTemplate_mediaUrl :: Lens.Lens' APNSPushNotificationTemplate (Prelude.Maybe Prelude.Text)
+aPNSPushNotificationTemplate_mediaUrl = Lens.lens (\APNSPushNotificationTemplate' {mediaUrl} -> mediaUrl) (\s@APNSPushNotificationTemplate' {} a -> s {mediaUrl = a} :: APNSPushNotificationTemplate)
 
 -- | The raw, JSON-formatted string to use as the payload for push
 -- notifications that are based on the message template. If specified, this
@@ -163,25 +177,11 @@ aPNSPushNotificationTemplate_sound = Lens.lens (\APNSPushNotificationTemplate' {
 aPNSPushNotificationTemplate_title :: Lens.Lens' APNSPushNotificationTemplate (Prelude.Maybe Prelude.Text)
 aPNSPushNotificationTemplate_title = Lens.lens (\APNSPushNotificationTemplate' {title} -> title) (\s@APNSPushNotificationTemplate' {} a -> s {title = a} :: APNSPushNotificationTemplate)
 
--- | The URL of an image or video to display in push notifications that are
--- based on the message template.
-aPNSPushNotificationTemplate_mediaUrl :: Lens.Lens' APNSPushNotificationTemplate (Prelude.Maybe Prelude.Text)
-aPNSPushNotificationTemplate_mediaUrl = Lens.lens (\APNSPushNotificationTemplate' {mediaUrl} -> mediaUrl) (\s@APNSPushNotificationTemplate' {} a -> s {mediaUrl = a} :: APNSPushNotificationTemplate)
-
--- | The action to occur if a recipient taps a push notification that\'s
--- based on the message template. Valid values are:
---
--- -   OPEN_APP - Your app opens or it becomes the foreground app if it was
---     sent to the background. This is the default action.
---
--- -   DEEP_LINK - Your app opens and displays a designated user interface
---     in the app. This setting uses the deep-linking features of the iOS
---     platform.
---
--- -   URL - The default mobile browser on the recipient\'s device opens
---     and loads the web page at a URL that you specify.
-aPNSPushNotificationTemplate_action :: Lens.Lens' APNSPushNotificationTemplate (Prelude.Maybe Action)
-aPNSPushNotificationTemplate_action = Lens.lens (\APNSPushNotificationTemplate' {action} -> action) (\s@APNSPushNotificationTemplate' {} a -> s {action = a} :: APNSPushNotificationTemplate)
+-- | The URL to open in the recipient\'s default mobile browser, if a
+-- recipient taps a push notification that\'s based on the message template
+-- and the value of the Action property is URL.
+aPNSPushNotificationTemplate_url :: Lens.Lens' APNSPushNotificationTemplate (Prelude.Maybe Prelude.Text)
+aPNSPushNotificationTemplate_url = Lens.lens (\APNSPushNotificationTemplate' {url} -> url) (\s@APNSPushNotificationTemplate' {} a -> s {url = a} :: APNSPushNotificationTemplate)
 
 instance Data.FromJSON APNSPushNotificationTemplate where
   parseJSON =
@@ -189,13 +189,13 @@ instance Data.FromJSON APNSPushNotificationTemplate where
       "APNSPushNotificationTemplate"
       ( \x ->
           APNSPushNotificationTemplate'
-            Prelude.<$> (x Data..:? "Body")
-            Prelude.<*> (x Data..:? "Url")
+            Prelude.<$> (x Data..:? "Action")
+            Prelude.<*> (x Data..:? "Body")
+            Prelude.<*> (x Data..:? "MediaUrl")
             Prelude.<*> (x Data..:? "RawContent")
             Prelude.<*> (x Data..:? "Sound")
             Prelude.<*> (x Data..:? "Title")
-            Prelude.<*> (x Data..:? "MediaUrl")
-            Prelude.<*> (x Data..:? "Action")
+            Prelude.<*> (x Data..:? "Url")
       )
 
 instance
@@ -203,34 +203,34 @@ instance
     APNSPushNotificationTemplate
   where
   hashWithSalt _salt APNSPushNotificationTemplate' {..} =
-    _salt `Prelude.hashWithSalt` body
-      `Prelude.hashWithSalt` url
+    _salt `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` body
+      `Prelude.hashWithSalt` mediaUrl
       `Prelude.hashWithSalt` rawContent
       `Prelude.hashWithSalt` sound
       `Prelude.hashWithSalt` title
-      `Prelude.hashWithSalt` mediaUrl
-      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` url
 
 instance Prelude.NFData APNSPushNotificationTemplate where
   rnf APNSPushNotificationTemplate' {..} =
-    Prelude.rnf body
-      `Prelude.seq` Prelude.rnf url
+    Prelude.rnf action
+      `Prelude.seq` Prelude.rnf body
+      `Prelude.seq` Prelude.rnf mediaUrl
       `Prelude.seq` Prelude.rnf rawContent
       `Prelude.seq` Prelude.rnf sound
       `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf mediaUrl
-      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf url
 
 instance Data.ToJSON APNSPushNotificationTemplate where
   toJSON APNSPushNotificationTemplate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Body" Data..=) Prelude.<$> body,
-            ("Url" Data..=) Prelude.<$> url,
+          [ ("Action" Data..=) Prelude.<$> action,
+            ("Body" Data..=) Prelude.<$> body,
+            ("MediaUrl" Data..=) Prelude.<$> mediaUrl,
             ("RawContent" Data..=) Prelude.<$> rawContent,
             ("Sound" Data..=) Prelude.<$> sound,
             ("Title" Data..=) Prelude.<$> title,
-            ("MediaUrl" Data..=) Prelude.<$> mediaUrl,
-            ("Action" Data..=) Prelude.<$> action
+            ("Url" Data..=) Prelude.<$> url
           ]
       )

@@ -32,14 +32,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newExportJobResource' smart constructor.
 data ExportJobResource = ExportJobResource'
-  { -- | The version of the segment that the endpoint definitions were exported
-    -- from.
-    segmentVersion :: Prelude.Maybe Prelude.Int,
-    -- | The identifier for the segment that the endpoint definitions were
+  { -- | The identifier for the segment that the endpoint definitions were
     -- exported from. If this value isn\'t present, Amazon Pinpoint exported
     -- definitions for all the endpoints that are associated with the
     -- application.
     segmentId :: Prelude.Maybe Prelude.Text,
+    -- | The version of the segment that the endpoint definitions were exported
+    -- from.
+    segmentVersion :: Prelude.Maybe Prelude.Int,
     -- | The URL of the location in an Amazon Simple Storage Service (Amazon S3)
     -- bucket where the endpoint definitions were exported to. This location is
     -- typically a folder that contains multiple files. The URL should be in
@@ -60,13 +60,13 @@ data ExportJobResource = ExportJobResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'segmentVersion', 'exportJobResource_segmentVersion' - The version of the segment that the endpoint definitions were exported
--- from.
---
 -- 'segmentId', 'exportJobResource_segmentId' - The identifier for the segment that the endpoint definitions were
 -- exported from. If this value isn\'t present, Amazon Pinpoint exported
 -- definitions for all the endpoints that are associated with the
 -- application.
+--
+-- 'segmentVersion', 'exportJobResource_segmentVersion' - The version of the segment that the endpoint definitions were exported
+-- from.
 --
 -- 's3UrlPrefix', 'exportJobResource_s3UrlPrefix' - The URL of the location in an Amazon Simple Storage Service (Amazon S3)
 -- bucket where the endpoint definitions were exported to. This location is
@@ -84,17 +84,11 @@ newExportJobResource ::
   ExportJobResource
 newExportJobResource pS3UrlPrefix_ pRoleArn_ =
   ExportJobResource'
-    { segmentVersion =
-        Prelude.Nothing,
-      segmentId = Prelude.Nothing,
+    { segmentId = Prelude.Nothing,
+      segmentVersion = Prelude.Nothing,
       s3UrlPrefix = pS3UrlPrefix_,
       roleArn = pRoleArn_
     }
-
--- | The version of the segment that the endpoint definitions were exported
--- from.
-exportJobResource_segmentVersion :: Lens.Lens' ExportJobResource (Prelude.Maybe Prelude.Int)
-exportJobResource_segmentVersion = Lens.lens (\ExportJobResource' {segmentVersion} -> segmentVersion) (\s@ExportJobResource' {} a -> s {segmentVersion = a} :: ExportJobResource)
 
 -- | The identifier for the segment that the endpoint definitions were
 -- exported from. If this value isn\'t present, Amazon Pinpoint exported
@@ -102,6 +96,11 @@ exportJobResource_segmentVersion = Lens.lens (\ExportJobResource' {segmentVersio
 -- application.
 exportJobResource_segmentId :: Lens.Lens' ExportJobResource (Prelude.Maybe Prelude.Text)
 exportJobResource_segmentId = Lens.lens (\ExportJobResource' {segmentId} -> segmentId) (\s@ExportJobResource' {} a -> s {segmentId = a} :: ExportJobResource)
+
+-- | The version of the segment that the endpoint definitions were exported
+-- from.
+exportJobResource_segmentVersion :: Lens.Lens' ExportJobResource (Prelude.Maybe Prelude.Int)
+exportJobResource_segmentVersion = Lens.lens (\ExportJobResource' {segmentVersion} -> segmentVersion) (\s@ExportJobResource' {} a -> s {segmentVersion = a} :: ExportJobResource)
 
 -- | The URL of the location in an Amazon Simple Storage Service (Amazon S3)
 -- bucket where the endpoint definitions were exported to. This location is
@@ -122,22 +121,22 @@ instance Data.FromJSON ExportJobResource where
       "ExportJobResource"
       ( \x ->
           ExportJobResource'
-            Prelude.<$> (x Data..:? "SegmentVersion")
-            Prelude.<*> (x Data..:? "SegmentId")
+            Prelude.<$> (x Data..:? "SegmentId")
+            Prelude.<*> (x Data..:? "SegmentVersion")
             Prelude.<*> (x Data..: "S3UrlPrefix")
             Prelude.<*> (x Data..: "RoleArn")
       )
 
 instance Prelude.Hashable ExportJobResource where
   hashWithSalt _salt ExportJobResource' {..} =
-    _salt `Prelude.hashWithSalt` segmentVersion
-      `Prelude.hashWithSalt` segmentId
+    _salt `Prelude.hashWithSalt` segmentId
+      `Prelude.hashWithSalt` segmentVersion
       `Prelude.hashWithSalt` s3UrlPrefix
       `Prelude.hashWithSalt` roleArn
 
 instance Prelude.NFData ExportJobResource where
   rnf ExportJobResource' {..} =
-    Prelude.rnf segmentVersion
-      `Prelude.seq` Prelude.rnf segmentId
+    Prelude.rnf segmentId
+      `Prelude.seq` Prelude.rnf segmentVersion
       `Prelude.seq` Prelude.rnf s3UrlPrefix
       `Prelude.seq` Prelude.rnf roleArn

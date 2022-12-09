@@ -21,23 +21,23 @@ module Amazonka.MediaStore
     -- * Errors
     -- $errors
 
-    -- ** PolicyNotFoundException
-    _PolicyNotFoundException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
-
-    -- ** InternalServerError
-    _InternalServerError,
-
     -- ** ContainerInUseException
     _ContainerInUseException,
+
+    -- ** ContainerNotFoundException
+    _ContainerNotFoundException,
 
     -- ** CorsPolicyNotFoundException
     _CorsPolicyNotFoundException,
 
-    -- ** ContainerNotFoundException
-    _ContainerNotFoundException,
+    -- ** InternalServerError
+    _InternalServerError,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** PolicyNotFoundException
+    _PolicyNotFoundException,
 
     -- * Waiters
     -- $waiters

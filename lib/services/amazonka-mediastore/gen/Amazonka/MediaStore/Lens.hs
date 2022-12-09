@@ -66,8 +66,8 @@ module Amazonka.MediaStore.Lens
     getMetricPolicyResponse_metricPolicy,
 
     -- ** ListContainers
-    listContainers_nextToken,
     listContainers_maxResults,
+    listContainers_nextToken,
     listContainersResponse_nextToken,
     listContainersResponse_httpStatus,
     listContainersResponse_containers,
@@ -118,12 +118,12 @@ module Amazonka.MediaStore.Lens
     -- * Types
 
     -- ** Container
-    container_name,
-    container_accessLoggingEnabled,
     container_arn,
-    container_status,
+    container_accessLoggingEnabled,
     container_creationTime,
     container_endpoint,
+    container_name,
+    container_status,
 
     -- ** CorsRule
     corsRule_allowedMethods,

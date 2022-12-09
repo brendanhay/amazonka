@@ -39,8 +39,8 @@ module Amazonka.MediaStore.ListContainers
     newListContainers,
 
     -- * Request Lenses
-    listContainers_nextToken,
     listContainers_maxResults,
+    listContainers_nextToken,
 
     -- * Destructuring the Response
     ListContainersResponse (..),
@@ -63,14 +63,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListContainers' smart constructor.
 data ListContainers = ListContainers'
-  { -- | Only if you used @MaxResults@ in the first command, enter the token
+  { -- | Enter the maximum number of containers in the response. Use from 1 to
+    -- 255 characters.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Only if you used @MaxResults@ in the first command, enter the token
     -- (which was included in the previous response) to obtain the next set of
     -- containers. This token is included in a response only if there actually
     -- are more containers to list.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Enter the maximum number of containers in the response. Use from 1 to
-    -- 255 characters.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,20 +82,25 @@ data ListContainers = ListContainers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listContainers_maxResults' - Enter the maximum number of containers in the response. Use from 1 to
+-- 255 characters.
+--
 -- 'nextToken', 'listContainers_nextToken' - Only if you used @MaxResults@ in the first command, enter the token
 -- (which was included in the previous response) to obtain the next set of
 -- containers. This token is included in a response only if there actually
 -- are more containers to list.
---
--- 'maxResults', 'listContainers_maxResults' - Enter the maximum number of containers in the response. Use from 1 to
--- 255 characters.
 newListContainers ::
   ListContainers
 newListContainers =
   ListContainers'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | Enter the maximum number of containers in the response. Use from 1 to
+-- 255 characters.
+listContainers_maxResults :: Lens.Lens' ListContainers (Prelude.Maybe Prelude.Natural)
+listContainers_maxResults = Lens.lens (\ListContainers' {maxResults} -> maxResults) (\s@ListContainers' {} a -> s {maxResults = a} :: ListContainers)
 
 -- | Only if you used @MaxResults@ in the first command, enter the token
 -- (which was included in the previous response) to obtain the next set of
@@ -103,11 +108,6 @@ newListContainers =
 -- are more containers to list.
 listContainers_nextToken :: Lens.Lens' ListContainers (Prelude.Maybe Prelude.Text)
 listContainers_nextToken = Lens.lens (\ListContainers' {nextToken} -> nextToken) (\s@ListContainers' {} a -> s {nextToken = a} :: ListContainers)
-
--- | Enter the maximum number of containers in the response. Use from 1 to
--- 255 characters.
-listContainers_maxResults :: Lens.Lens' ListContainers (Prelude.Maybe Prelude.Natural)
-listContainers_maxResults = Lens.lens (\ListContainers' {maxResults} -> maxResults) (\s@ListContainers' {} a -> s {maxResults = a} :: ListContainers)
 
 instance Core.AWSPager ListContainers where
   page rq rs
@@ -144,13 +144,13 @@ instance Core.AWSRequest ListContainers where
 
 instance Prelude.Hashable ListContainers where
   hashWithSalt _salt ListContainers' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListContainers where
   rnf ListContainers' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListContainers where
   toHeaders =
@@ -171,8 +171,8 @@ instance Data.ToJSON ListContainers where
   toJSON ListContainers' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

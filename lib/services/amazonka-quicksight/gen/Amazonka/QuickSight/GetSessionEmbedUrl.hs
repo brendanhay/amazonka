@@ -41,9 +41,9 @@ module Amazonka.QuickSight.GetSessionEmbedUrl
     newGetSessionEmbedUrl,
 
     -- * Request Lenses
+    getSessionEmbedUrl_entryPoint,
     getSessionEmbedUrl_sessionLifetimeInMinutes,
     getSessionEmbedUrl_userArn,
-    getSessionEmbedUrl_entryPoint,
     getSessionEmbedUrl_awsAccountId,
 
     -- * Destructuring the Response
@@ -51,8 +51,8 @@ module Amazonka.QuickSight.GetSessionEmbedUrl
     newGetSessionEmbedUrlResponse,
 
     -- * Response Lenses
-    getSessionEmbedUrlResponse_requestId,
     getSessionEmbedUrlResponse_embedUrl,
+    getSessionEmbedUrlResponse_requestId,
     getSessionEmbedUrlResponse_status,
   )
 where
@@ -67,7 +67,24 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetSessionEmbedUrl' smart constructor.
 data GetSessionEmbedUrl = GetSessionEmbedUrl'
-  { -- | How many minutes the session is valid. The session lifetime must be
+  { -- | The URL you use to access the embedded session. The entry point URL is
+    -- constrained to the following paths:
+    --
+    -- -   @\/start@
+    --
+    -- -   @\/start\/analyses@
+    --
+    -- -   @\/start\/dashboards@
+    --
+    -- -   @\/start\/favorites@
+    --
+    -- -   @\/dashboards\/DashboardId @ - where @DashboardId@ is the actual ID
+    --     key from the Amazon QuickSight console URL of the dashboard
+    --
+    -- -   @\/analyses\/AnalysisId @ - where @AnalysisId@ is the actual ID key
+    --     from the Amazon QuickSight console URL of the analysis
+    entryPoint :: Prelude.Maybe Prelude.Text,
+    -- | How many minutes the session is valid. The session lifetime must be
     -- 15-600 minutes.
     sessionLifetimeInMinutes :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon QuickSight user\'s Amazon Resource Name (ARN), for use with
@@ -86,23 +103,6 @@ data GetSessionEmbedUrl = GetSessionEmbedUrl'
     -- Omit this parameter for users in the third group, IAM users and IAM
     -- role-based sessions.
     userArn :: Prelude.Maybe Prelude.Text,
-    -- | The URL you use to access the embedded session. The entry point URL is
-    -- constrained to the following paths:
-    --
-    -- -   @\/start@
-    --
-    -- -   @\/start\/analyses@
-    --
-    -- -   @\/start\/dashboards@
-    --
-    -- -   @\/start\/favorites@
-    --
-    -- -   @\/dashboards\/DashboardId @ - where @DashboardId@ is the actual ID
-    --     key from the Amazon QuickSight console URL of the dashboard
-    --
-    -- -   @\/analyses\/AnalysisId @ - where @AnalysisId@ is the actual ID key
-    --     from the Amazon QuickSight console URL of the analysis
-    entryPoint :: Prelude.Maybe Prelude.Text,
     -- | The ID for the Amazon Web Services account associated with your Amazon
     -- QuickSight subscription.
     awsAccountId :: Prelude.Text
@@ -116,6 +116,23 @@ data GetSessionEmbedUrl = GetSessionEmbedUrl'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'entryPoint', 'getSessionEmbedUrl_entryPoint' - The URL you use to access the embedded session. The entry point URL is
+-- constrained to the following paths:
+--
+-- -   @\/start@
+--
+-- -   @\/start\/analyses@
+--
+-- -   @\/start\/dashboards@
+--
+-- -   @\/start\/favorites@
+--
+-- -   @\/dashboards\/DashboardId @ - where @DashboardId@ is the actual ID
+--     key from the Amazon QuickSight console URL of the dashboard
+--
+-- -   @\/analyses\/AnalysisId @ - where @AnalysisId@ is the actual ID key
+--     from the Amazon QuickSight console URL of the analysis
 --
 -- 'sessionLifetimeInMinutes', 'getSessionEmbedUrl_sessionLifetimeInMinutes' - How many minutes the session is valid. The session lifetime must be
 -- 15-600 minutes.
@@ -136,7 +153,21 @@ data GetSessionEmbedUrl = GetSessionEmbedUrl'
 -- Omit this parameter for users in the third group, IAM users and IAM
 -- role-based sessions.
 --
--- 'entryPoint', 'getSessionEmbedUrl_entryPoint' - The URL you use to access the embedded session. The entry point URL is
+-- 'awsAccountId', 'getSessionEmbedUrl_awsAccountId' - The ID for the Amazon Web Services account associated with your Amazon
+-- QuickSight subscription.
+newGetSessionEmbedUrl ::
+  -- | 'awsAccountId'
+  Prelude.Text ->
+  GetSessionEmbedUrl
+newGetSessionEmbedUrl pAwsAccountId_ =
+  GetSessionEmbedUrl'
+    { entryPoint = Prelude.Nothing,
+      sessionLifetimeInMinutes = Prelude.Nothing,
+      userArn = Prelude.Nothing,
+      awsAccountId = pAwsAccountId_
+    }
+
+-- | The URL you use to access the embedded session. The entry point URL is
 -- constrained to the following paths:
 --
 -- -   @\/start@
@@ -152,21 +183,8 @@ data GetSessionEmbedUrl = GetSessionEmbedUrl'
 --
 -- -   @\/analyses\/AnalysisId @ - where @AnalysisId@ is the actual ID key
 --     from the Amazon QuickSight console URL of the analysis
---
--- 'awsAccountId', 'getSessionEmbedUrl_awsAccountId' - The ID for the Amazon Web Services account associated with your Amazon
--- QuickSight subscription.
-newGetSessionEmbedUrl ::
-  -- | 'awsAccountId'
-  Prelude.Text ->
-  GetSessionEmbedUrl
-newGetSessionEmbedUrl pAwsAccountId_ =
-  GetSessionEmbedUrl'
-    { sessionLifetimeInMinutes =
-        Prelude.Nothing,
-      userArn = Prelude.Nothing,
-      entryPoint = Prelude.Nothing,
-      awsAccountId = pAwsAccountId_
-    }
+getSessionEmbedUrl_entryPoint :: Lens.Lens' GetSessionEmbedUrl (Prelude.Maybe Prelude.Text)
+getSessionEmbedUrl_entryPoint = Lens.lens (\GetSessionEmbedUrl' {entryPoint} -> entryPoint) (\s@GetSessionEmbedUrl' {} a -> s {entryPoint = a} :: GetSessionEmbedUrl)
 
 -- | How many minutes the session is valid. The session lifetime must be
 -- 15-600 minutes.
@@ -191,25 +209,6 @@ getSessionEmbedUrl_sessionLifetimeInMinutes = Lens.lens (\GetSessionEmbedUrl' {s
 getSessionEmbedUrl_userArn :: Lens.Lens' GetSessionEmbedUrl (Prelude.Maybe Prelude.Text)
 getSessionEmbedUrl_userArn = Lens.lens (\GetSessionEmbedUrl' {userArn} -> userArn) (\s@GetSessionEmbedUrl' {} a -> s {userArn = a} :: GetSessionEmbedUrl)
 
--- | The URL you use to access the embedded session. The entry point URL is
--- constrained to the following paths:
---
--- -   @\/start@
---
--- -   @\/start\/analyses@
---
--- -   @\/start\/dashboards@
---
--- -   @\/start\/favorites@
---
--- -   @\/dashboards\/DashboardId @ - where @DashboardId@ is the actual ID
---     key from the Amazon QuickSight console URL of the dashboard
---
--- -   @\/analyses\/AnalysisId @ - where @AnalysisId@ is the actual ID key
---     from the Amazon QuickSight console URL of the analysis
-getSessionEmbedUrl_entryPoint :: Lens.Lens' GetSessionEmbedUrl (Prelude.Maybe Prelude.Text)
-getSessionEmbedUrl_entryPoint = Lens.lens (\GetSessionEmbedUrl' {entryPoint} -> entryPoint) (\s@GetSessionEmbedUrl' {} a -> s {entryPoint = a} :: GetSessionEmbedUrl)
-
 -- | The ID for the Amazon Web Services account associated with your Amazon
 -- QuickSight subscription.
 getSessionEmbedUrl_awsAccountId :: Lens.Lens' GetSessionEmbedUrl Prelude.Text
@@ -225,24 +224,23 @@ instance Core.AWSRequest GetSessionEmbedUrl where
     Response.receiveJSON
       ( \s h x ->
           GetSessionEmbedUrlResponse'
-            Prelude.<$> (x Data..?> "RequestId")
-            Prelude.<*> (x Data..?> "EmbedUrl")
+            Prelude.<$> (x Data..?> "EmbedUrl")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetSessionEmbedUrl where
   hashWithSalt _salt GetSessionEmbedUrl' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` entryPoint
       `Prelude.hashWithSalt` sessionLifetimeInMinutes
       `Prelude.hashWithSalt` userArn
-      `Prelude.hashWithSalt` entryPoint
       `Prelude.hashWithSalt` awsAccountId
 
 instance Prelude.NFData GetSessionEmbedUrl where
   rnf GetSessionEmbedUrl' {..} =
-    Prelude.rnf sessionLifetimeInMinutes
+    Prelude.rnf entryPoint
+      `Prelude.seq` Prelude.rnf sessionLifetimeInMinutes
       `Prelude.seq` Prelude.rnf userArn
-      `Prelude.seq` Prelude.rnf entryPoint
       `Prelude.seq` Prelude.rnf awsAccountId
 
 instance Data.ToHeaders GetSessionEmbedUrl where
@@ -267,21 +265,21 @@ instance Data.ToPath GetSessionEmbedUrl where
 instance Data.ToQuery GetSessionEmbedUrl where
   toQuery GetSessionEmbedUrl' {..} =
     Prelude.mconcat
-      [ "session-lifetime" Data.=: sessionLifetimeInMinutes,
-        "user-arn" Data.=: userArn,
-        "entry-point" Data.=: entryPoint
+      [ "entry-point" Data.=: entryPoint,
+        "session-lifetime" Data.=: sessionLifetimeInMinutes,
+        "user-arn" Data.=: userArn
       ]
 
 -- | /See:/ 'newGetSessionEmbedUrlResponse' smart constructor.
 data GetSessionEmbedUrlResponse = GetSessionEmbedUrlResponse'
-  { -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | A single-use URL that you can put into your server-side web page to
+  { -- | A single-use URL that you can put into your server-side web page to
     -- embed your Amazon QuickSight session. This URL is valid for 5 minutes.
     -- The API operation provides the URL with an @auth_code@ value that
     -- enables one (and only one) sign-on to a user session that is valid for
     -- 10 hours.
     embedUrl :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -295,13 +293,13 @@ data GetSessionEmbedUrlResponse = GetSessionEmbedUrlResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'getSessionEmbedUrlResponse_requestId' - The Amazon Web Services request ID for this operation.
---
 -- 'embedUrl', 'getSessionEmbedUrlResponse_embedUrl' - A single-use URL that you can put into your server-side web page to
 -- embed your Amazon QuickSight session. This URL is valid for 5 minutes.
 -- The API operation provides the URL with an @auth_code@ value that
 -- enables one (and only one) sign-on to a user session that is valid for
 -- 10 hours.
+--
+-- 'requestId', 'getSessionEmbedUrlResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'status', 'getSessionEmbedUrlResponse_status' - The HTTP status of the request.
 newGetSessionEmbedUrlResponse ::
@@ -310,15 +308,11 @@ newGetSessionEmbedUrlResponse ::
   GetSessionEmbedUrlResponse
 newGetSessionEmbedUrlResponse pStatus_ =
   GetSessionEmbedUrlResponse'
-    { requestId =
+    { embedUrl =
         Prelude.Nothing,
-      embedUrl = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       status = pStatus_
     }
-
--- | The Amazon Web Services request ID for this operation.
-getSessionEmbedUrlResponse_requestId :: Lens.Lens' GetSessionEmbedUrlResponse (Prelude.Maybe Prelude.Text)
-getSessionEmbedUrlResponse_requestId = Lens.lens (\GetSessionEmbedUrlResponse' {requestId} -> requestId) (\s@GetSessionEmbedUrlResponse' {} a -> s {requestId = a} :: GetSessionEmbedUrlResponse)
 
 -- | A single-use URL that you can put into your server-side web page to
 -- embed your Amazon QuickSight session. This URL is valid for 5 minutes.
@@ -328,12 +322,16 @@ getSessionEmbedUrlResponse_requestId = Lens.lens (\GetSessionEmbedUrlResponse' {
 getSessionEmbedUrlResponse_embedUrl :: Lens.Lens' GetSessionEmbedUrlResponse (Prelude.Maybe Prelude.Text)
 getSessionEmbedUrlResponse_embedUrl = Lens.lens (\GetSessionEmbedUrlResponse' {embedUrl} -> embedUrl) (\s@GetSessionEmbedUrlResponse' {} a -> s {embedUrl = a} :: GetSessionEmbedUrlResponse) Prelude.. Lens.mapping Data._Sensitive
 
+-- | The Amazon Web Services request ID for this operation.
+getSessionEmbedUrlResponse_requestId :: Lens.Lens' GetSessionEmbedUrlResponse (Prelude.Maybe Prelude.Text)
+getSessionEmbedUrlResponse_requestId = Lens.lens (\GetSessionEmbedUrlResponse' {requestId} -> requestId) (\s@GetSessionEmbedUrlResponse' {} a -> s {requestId = a} :: GetSessionEmbedUrlResponse)
+
 -- | The HTTP status of the request.
 getSessionEmbedUrlResponse_status :: Lens.Lens' GetSessionEmbedUrlResponse Prelude.Int
 getSessionEmbedUrlResponse_status = Lens.lens (\GetSessionEmbedUrlResponse' {status} -> status) (\s@GetSessionEmbedUrlResponse' {} a -> s {status = a} :: GetSessionEmbedUrlResponse)
 
 instance Prelude.NFData GetSessionEmbedUrlResponse where
   rnf GetSessionEmbedUrlResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf embedUrl
+    Prelude.rnf embedUrl
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf status

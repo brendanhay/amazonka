@@ -67,3 +67,10 @@ instance Prelude.Hashable ColumnGroupColumnSchema where
 
 instance Prelude.NFData ColumnGroupColumnSchema where
   rnf ColumnGroupColumnSchema' {..} = Prelude.rnf name
+
+instance Data.ToJSON ColumnGroupColumnSchema where
+  toJSON ColumnGroupColumnSchema' {..} =
+    Data.object
+      ( Prelude.catMaybes
+          [("Name" Data..=) Prelude.<$> name]
+      )

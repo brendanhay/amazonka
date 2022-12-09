@@ -36,8 +36,8 @@ module Amazonka.QuickSight.RestoreAnalysis
 
     -- * Response Lenses
     restoreAnalysisResponse_analysisId,
-    restoreAnalysisResponse_requestId,
     restoreAnalysisResponse_arn,
+    restoreAnalysisResponse_requestId,
     restoreAnalysisResponse_status,
   )
 where
@@ -101,8 +101,8 @@ instance Core.AWSRequest RestoreAnalysis where
       ( \s h x ->
           RestoreAnalysisResponse'
             Prelude.<$> (x Data..?> "AnalysisId")
-            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,10 +146,10 @@ instance Data.ToQuery RestoreAnalysis where
 data RestoreAnalysisResponse = RestoreAnalysisResponse'
   { -- | The ID of the analysis that you\'re restoring.
     analysisId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the analysis that you\'re restoring.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -165,9 +165,9 @@ data RestoreAnalysisResponse = RestoreAnalysisResponse'
 --
 -- 'analysisId', 'restoreAnalysisResponse_analysisId' - The ID of the analysis that you\'re restoring.
 --
--- 'requestId', 'restoreAnalysisResponse_requestId' - The Amazon Web Services request ID for this operation.
---
 -- 'arn', 'restoreAnalysisResponse_arn' - The Amazon Resource Name (ARN) of the analysis that you\'re restoring.
+--
+-- 'requestId', 'restoreAnalysisResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'status', 'restoreAnalysisResponse_status' - The HTTP status of the request.
 newRestoreAnalysisResponse ::
@@ -178,8 +178,8 @@ newRestoreAnalysisResponse pStatus_ =
   RestoreAnalysisResponse'
     { analysisId =
         Prelude.Nothing,
-      requestId = Prelude.Nothing,
       arn = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       status = pStatus_
     }
 
@@ -187,13 +187,13 @@ newRestoreAnalysisResponse pStatus_ =
 restoreAnalysisResponse_analysisId :: Lens.Lens' RestoreAnalysisResponse (Prelude.Maybe Prelude.Text)
 restoreAnalysisResponse_analysisId = Lens.lens (\RestoreAnalysisResponse' {analysisId} -> analysisId) (\s@RestoreAnalysisResponse' {} a -> s {analysisId = a} :: RestoreAnalysisResponse)
 
--- | The Amazon Web Services request ID for this operation.
-restoreAnalysisResponse_requestId :: Lens.Lens' RestoreAnalysisResponse (Prelude.Maybe Prelude.Text)
-restoreAnalysisResponse_requestId = Lens.lens (\RestoreAnalysisResponse' {requestId} -> requestId) (\s@RestoreAnalysisResponse' {} a -> s {requestId = a} :: RestoreAnalysisResponse)
-
 -- | The Amazon Resource Name (ARN) of the analysis that you\'re restoring.
 restoreAnalysisResponse_arn :: Lens.Lens' RestoreAnalysisResponse (Prelude.Maybe Prelude.Text)
 restoreAnalysisResponse_arn = Lens.lens (\RestoreAnalysisResponse' {arn} -> arn) (\s@RestoreAnalysisResponse' {} a -> s {arn = a} :: RestoreAnalysisResponse)
+
+-- | The Amazon Web Services request ID for this operation.
+restoreAnalysisResponse_requestId :: Lens.Lens' RestoreAnalysisResponse (Prelude.Maybe Prelude.Text)
+restoreAnalysisResponse_requestId = Lens.lens (\RestoreAnalysisResponse' {requestId} -> requestId) (\s@RestoreAnalysisResponse' {} a -> s {requestId = a} :: RestoreAnalysisResponse)
 
 -- | The HTTP status of the request.
 restoreAnalysisResponse_status :: Lens.Lens' RestoreAnalysisResponse Prelude.Int
@@ -202,6 +202,6 @@ restoreAnalysisResponse_status = Lens.lens (\RestoreAnalysisResponse' {status} -
 instance Prelude.NFData RestoreAnalysisResponse where
   rnf RestoreAnalysisResponse' {..} =
     Prelude.rnf analysisId
-      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf status

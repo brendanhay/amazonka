@@ -28,8 +28,8 @@ module Amazonka.QuickSight.ListUsers
     newListUsers,
 
     -- * Request Lenses
-    listUsers_nextToken,
     listUsers_maxResults,
+    listUsers_nextToken,
     listUsers_awsAccountId,
     listUsers_namespace,
 
@@ -55,10 +55,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListUsers' smart constructor.
 data ListUsers = ListUsers'
-  { -- | A pagination token that can be used in a subsequent request.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return from this request.
+  { -- | The maximum number of results to return from this request.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A pagination token that can be used in a subsequent request.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID for the Amazon Web Services account that the user is in.
     -- Currently, you use the ID for the Amazon Web Services account that
     -- contains your Amazon QuickSight account.
@@ -76,9 +76,9 @@ data ListUsers = ListUsers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listUsers_nextToken' - A pagination token that can be used in a subsequent request.
---
 -- 'maxResults', 'listUsers_maxResults' - The maximum number of results to return from this request.
+--
+-- 'nextToken', 'listUsers_nextToken' - A pagination token that can be used in a subsequent request.
 --
 -- 'awsAccountId', 'listUsers_awsAccountId' - The ID for the Amazon Web Services account that the user is in.
 -- Currently, you use the ID for the Amazon Web Services account that
@@ -93,19 +93,19 @@ newListUsers ::
   ListUsers
 newListUsers pAwsAccountId_ pNamespace_ =
   ListUsers'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       awsAccountId = pAwsAccountId_,
       namespace = pNamespace_
     }
 
--- | A pagination token that can be used in a subsequent request.
-listUsers_nextToken :: Lens.Lens' ListUsers (Prelude.Maybe Prelude.Text)
-listUsers_nextToken = Lens.lens (\ListUsers' {nextToken} -> nextToken) (\s@ListUsers' {} a -> s {nextToken = a} :: ListUsers)
-
 -- | The maximum number of results to return from this request.
 listUsers_maxResults :: Lens.Lens' ListUsers (Prelude.Maybe Prelude.Natural)
 listUsers_maxResults = Lens.lens (\ListUsers' {maxResults} -> maxResults) (\s@ListUsers' {} a -> s {maxResults = a} :: ListUsers)
+
+-- | A pagination token that can be used in a subsequent request.
+listUsers_nextToken :: Lens.Lens' ListUsers (Prelude.Maybe Prelude.Text)
+listUsers_nextToken = Lens.lens (\ListUsers' {nextToken} -> nextToken) (\s@ListUsers' {} a -> s {nextToken = a} :: ListUsers)
 
 -- | The ID for the Amazon Web Services account that the user is in.
 -- Currently, you use the ID for the Amazon Web Services account that
@@ -133,15 +133,15 @@ instance Core.AWSRequest ListUsers where
 
 instance Prelude.Hashable ListUsers where
   hashWithSalt _salt ListUsers' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` namespace
 
 instance Prelude.NFData ListUsers where
   rnf ListUsers' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf namespace
 
@@ -169,8 +169,8 @@ instance Data.ToPath ListUsers where
 instance Data.ToQuery ListUsers where
   toQuery ListUsers' {..} =
     Prelude.mconcat
-      [ "next-token" Data.=: nextToken,
-        "max-results" Data.=: maxResults
+      [ "max-results" Data.=: maxResults,
+        "next-token" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListUsersResponse' smart constructor.

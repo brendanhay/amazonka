@@ -24,6 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.DashboardErrorType
+import Amazonka.QuickSight.Types.Entity
 
 -- | Dashboard error.
 --
@@ -32,7 +33,8 @@ data DashboardError = DashboardError'
   { -- | Message.
     message :: Prelude.Maybe Prelude.Text,
     -- | Type.
-    type' :: Prelude.Maybe DashboardErrorType
+    type' :: Prelude.Maybe DashboardErrorType,
+    violatedEntities :: Prelude.Maybe [Entity]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,12 +49,15 @@ data DashboardError = DashboardError'
 -- 'message', 'dashboardError_message' - Message.
 --
 -- 'type'', 'dashboardError_type' - Type.
+--
+-- 'violatedEntities', 'dashboardError_violatedEntities' -
 newDashboardError ::
   DashboardError
 newDashboardError =
   DashboardError'
     { message = Prelude.Nothing,
-      type' = Prelude.Nothing
+      type' = Prelude.Nothing,
+      violatedEntities = Prelude.Nothing
     }
 
 -- | Message.
@@ -63,6 +68,10 @@ dashboardError_message = Lens.lens (\DashboardError' {message} -> message) (\s@D
 dashboardError_type :: Lens.Lens' DashboardError (Prelude.Maybe DashboardErrorType)
 dashboardError_type = Lens.lens (\DashboardError' {type'} -> type') (\s@DashboardError' {} a -> s {type' = a} :: DashboardError)
 
+-- |
+dashboardError_violatedEntities :: Lens.Lens' DashboardError (Prelude.Maybe [Entity])
+dashboardError_violatedEntities = Lens.lens (\DashboardError' {violatedEntities} -> violatedEntities) (\s@DashboardError' {} a -> s {violatedEntities = a} :: DashboardError) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON DashboardError where
   parseJSON =
     Data.withObject
@@ -71,13 +80,19 @@ instance Data.FromJSON DashboardError where
           DashboardError'
             Prelude.<$> (x Data..:? "Message")
             Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> ( x Data..:? "ViolatedEntities"
+                            Data..!= Prelude.mempty
+                        )
       )
 
 instance Prelude.Hashable DashboardError where
   hashWithSalt _salt DashboardError' {..} =
     _salt `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` violatedEntities
 
 instance Prelude.NFData DashboardError where
   rnf DashboardError' {..} =
-    Prelude.rnf message `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf message
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf violatedEntities

@@ -33,12 +33,12 @@ import Amazonka.QuickSight.Types.S3Source
 --
 -- /See:/ 'newPhysicalTable' smart constructor.
 data PhysicalTable = PhysicalTable'
-  { -- | A physical table type for as S3 data source.
-    s3Source :: Prelude.Maybe S3Source,
+  { -- | A physical table type built from the results of the custom SQL query.
+    customSql :: Prelude.Maybe CustomSql,
     -- | A physical table type for relational data sources.
     relationalTable :: Prelude.Maybe RelationalTable,
-    -- | A physical table type built from the results of the custom SQL query.
-    customSql :: Prelude.Maybe CustomSql
+    -- | A physical table type for as S3 data source.
+    s3Source :: Prelude.Maybe S3Source
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,31 +50,31 @@ data PhysicalTable = PhysicalTable'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 's3Source', 'physicalTable_s3Source' - A physical table type for as S3 data source.
+-- 'customSql', 'physicalTable_customSql' - A physical table type built from the results of the custom SQL query.
 --
 -- 'relationalTable', 'physicalTable_relationalTable' - A physical table type for relational data sources.
 --
--- 'customSql', 'physicalTable_customSql' - A physical table type built from the results of the custom SQL query.
+-- 's3Source', 'physicalTable_s3Source' - A physical table type for as S3 data source.
 newPhysicalTable ::
   PhysicalTable
 newPhysicalTable =
   PhysicalTable'
-    { s3Source = Prelude.Nothing,
+    { customSql = Prelude.Nothing,
       relationalTable = Prelude.Nothing,
-      customSql = Prelude.Nothing
+      s3Source = Prelude.Nothing
     }
 
--- | A physical table type for as S3 data source.
-physicalTable_s3Source :: Lens.Lens' PhysicalTable (Prelude.Maybe S3Source)
-physicalTable_s3Source = Lens.lens (\PhysicalTable' {s3Source} -> s3Source) (\s@PhysicalTable' {} a -> s {s3Source = a} :: PhysicalTable)
+-- | A physical table type built from the results of the custom SQL query.
+physicalTable_customSql :: Lens.Lens' PhysicalTable (Prelude.Maybe CustomSql)
+physicalTable_customSql = Lens.lens (\PhysicalTable' {customSql} -> customSql) (\s@PhysicalTable' {} a -> s {customSql = a} :: PhysicalTable)
 
 -- | A physical table type for relational data sources.
 physicalTable_relationalTable :: Lens.Lens' PhysicalTable (Prelude.Maybe RelationalTable)
 physicalTable_relationalTable = Lens.lens (\PhysicalTable' {relationalTable} -> relationalTable) (\s@PhysicalTable' {} a -> s {relationalTable = a} :: PhysicalTable)
 
--- | A physical table type built from the results of the custom SQL query.
-physicalTable_customSql :: Lens.Lens' PhysicalTable (Prelude.Maybe CustomSql)
-physicalTable_customSql = Lens.lens (\PhysicalTable' {customSql} -> customSql) (\s@PhysicalTable' {} a -> s {customSql = a} :: PhysicalTable)
+-- | A physical table type for as S3 data source.
+physicalTable_s3Source :: Lens.Lens' PhysicalTable (Prelude.Maybe S3Source)
+physicalTable_s3Source = Lens.lens (\PhysicalTable' {s3Source} -> s3Source) (\s@PhysicalTable' {} a -> s {s3Source = a} :: PhysicalTable)
 
 instance Data.FromJSON PhysicalTable where
   parseJSON =
@@ -82,30 +82,30 @@ instance Data.FromJSON PhysicalTable where
       "PhysicalTable"
       ( \x ->
           PhysicalTable'
-            Prelude.<$> (x Data..:? "S3Source")
+            Prelude.<$> (x Data..:? "CustomSql")
             Prelude.<*> (x Data..:? "RelationalTable")
-            Prelude.<*> (x Data..:? "CustomSql")
+            Prelude.<*> (x Data..:? "S3Source")
       )
 
 instance Prelude.Hashable PhysicalTable where
   hashWithSalt _salt PhysicalTable' {..} =
-    _salt `Prelude.hashWithSalt` s3Source
+    _salt `Prelude.hashWithSalt` customSql
       `Prelude.hashWithSalt` relationalTable
-      `Prelude.hashWithSalt` customSql
+      `Prelude.hashWithSalt` s3Source
 
 instance Prelude.NFData PhysicalTable where
   rnf PhysicalTable' {..} =
-    Prelude.rnf s3Source
+    Prelude.rnf customSql
       `Prelude.seq` Prelude.rnf relationalTable
-      `Prelude.seq` Prelude.rnf customSql
+      `Prelude.seq` Prelude.rnf s3Source
 
 instance Data.ToJSON PhysicalTable where
   toJSON PhysicalTable' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("S3Source" Data..=) Prelude.<$> s3Source,
+          [ ("CustomSql" Data..=) Prelude.<$> customSql,
             ("RelationalTable" Data..=)
               Prelude.<$> relationalTable,
-            ("CustomSql" Data..=) Prelude.<$> customSql
+            ("S3Source" Data..=) Prelude.<$> s3Source
           ]
       )

@@ -47,10 +47,10 @@ module Amazonka.QuickSight.CreateIngestion
     newCreateIngestionResponse,
 
     -- * Response Lenses
-    createIngestionResponse_ingestionStatus,
-    createIngestionResponse_requestId,
     createIngestionResponse_arn,
     createIngestionResponse_ingestionId,
+    createIngestionResponse_ingestionStatus,
+    createIngestionResponse_requestId,
     createIngestionResponse_status,
   )
 where
@@ -136,10 +136,10 @@ instance Core.AWSRequest CreateIngestion where
     Response.receiveJSON
       ( \s h x ->
           CreateIngestionResponse'
-            Prelude.<$> (x Data..?> "IngestionStatus")
-            Prelude.<*> (x Data..?> "RequestId")
-            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (x Data..?> "IngestionId")
+            Prelude.<*> (x Data..?> "IngestionStatus")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -193,14 +193,14 @@ instance Data.ToQuery CreateIngestion where
 
 -- | /See:/ 'newCreateIngestionResponse' smart constructor.
 data CreateIngestionResponse = CreateIngestionResponse'
-  { -- | The ingestion status.
-    ingestionStatus :: Prelude.Maybe IngestionStatus,
-    -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) for the data ingestion.
+  { -- | The Amazon Resource Name (ARN) for the data ingestion.
     arn :: Prelude.Maybe Prelude.Text,
     -- | An ID for the ingestion.
     ingestionId :: Prelude.Maybe Prelude.Text,
+    -- | The ingestion status.
+    ingestionStatus :: Prelude.Maybe IngestionStatus,
+    -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -214,13 +214,13 @@ data CreateIngestionResponse = CreateIngestionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ingestionStatus', 'createIngestionResponse_ingestionStatus' - The ingestion status.
---
--- 'requestId', 'createIngestionResponse_requestId' - The Amazon Web Services request ID for this operation.
---
 -- 'arn', 'createIngestionResponse_arn' - The Amazon Resource Name (ARN) for the data ingestion.
 --
 -- 'ingestionId', 'createIngestionResponse_ingestionId' - An ID for the ingestion.
+--
+-- 'ingestionStatus', 'createIngestionResponse_ingestionStatus' - The ingestion status.
+--
+-- 'requestId', 'createIngestionResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'status', 'createIngestionResponse_status' - The HTTP status of the request.
 newCreateIngestionResponse ::
@@ -229,21 +229,12 @@ newCreateIngestionResponse ::
   CreateIngestionResponse
 newCreateIngestionResponse pStatus_ =
   CreateIngestionResponse'
-    { ingestionStatus =
-        Prelude.Nothing,
-      requestId = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       ingestionId = Prelude.Nothing,
+      ingestionStatus = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       status = pStatus_
     }
-
--- | The ingestion status.
-createIngestionResponse_ingestionStatus :: Lens.Lens' CreateIngestionResponse (Prelude.Maybe IngestionStatus)
-createIngestionResponse_ingestionStatus = Lens.lens (\CreateIngestionResponse' {ingestionStatus} -> ingestionStatus) (\s@CreateIngestionResponse' {} a -> s {ingestionStatus = a} :: CreateIngestionResponse)
-
--- | The Amazon Web Services request ID for this operation.
-createIngestionResponse_requestId :: Lens.Lens' CreateIngestionResponse (Prelude.Maybe Prelude.Text)
-createIngestionResponse_requestId = Lens.lens (\CreateIngestionResponse' {requestId} -> requestId) (\s@CreateIngestionResponse' {} a -> s {requestId = a} :: CreateIngestionResponse)
 
 -- | The Amazon Resource Name (ARN) for the data ingestion.
 createIngestionResponse_arn :: Lens.Lens' CreateIngestionResponse (Prelude.Maybe Prelude.Text)
@@ -253,14 +244,22 @@ createIngestionResponse_arn = Lens.lens (\CreateIngestionResponse' {arn} -> arn)
 createIngestionResponse_ingestionId :: Lens.Lens' CreateIngestionResponse (Prelude.Maybe Prelude.Text)
 createIngestionResponse_ingestionId = Lens.lens (\CreateIngestionResponse' {ingestionId} -> ingestionId) (\s@CreateIngestionResponse' {} a -> s {ingestionId = a} :: CreateIngestionResponse)
 
+-- | The ingestion status.
+createIngestionResponse_ingestionStatus :: Lens.Lens' CreateIngestionResponse (Prelude.Maybe IngestionStatus)
+createIngestionResponse_ingestionStatus = Lens.lens (\CreateIngestionResponse' {ingestionStatus} -> ingestionStatus) (\s@CreateIngestionResponse' {} a -> s {ingestionStatus = a} :: CreateIngestionResponse)
+
+-- | The Amazon Web Services request ID for this operation.
+createIngestionResponse_requestId :: Lens.Lens' CreateIngestionResponse (Prelude.Maybe Prelude.Text)
+createIngestionResponse_requestId = Lens.lens (\CreateIngestionResponse' {requestId} -> requestId) (\s@CreateIngestionResponse' {} a -> s {requestId = a} :: CreateIngestionResponse)
+
 -- | The HTTP status of the request.
 createIngestionResponse_status :: Lens.Lens' CreateIngestionResponse Prelude.Int
 createIngestionResponse_status = Lens.lens (\CreateIngestionResponse' {status} -> status) (\s@CreateIngestionResponse' {} a -> s {status = a} :: CreateIngestionResponse)
 
 instance Prelude.NFData CreateIngestionResponse where
   rnf CreateIngestionResponse' {..} =
-    Prelude.rnf ingestionStatus
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf ingestionId
+      `Prelude.seq` Prelude.rnf ingestionStatus
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf status

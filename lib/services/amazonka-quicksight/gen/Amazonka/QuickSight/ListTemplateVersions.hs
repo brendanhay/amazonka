@@ -30,8 +30,8 @@ module Amazonka.QuickSight.ListTemplateVersions
     newListTemplateVersions,
 
     -- * Request Lenses
-    listTemplateVersions_nextToken,
     listTemplateVersions_maxResults,
+    listTemplateVersions_nextToken,
     listTemplateVersions_awsAccountId,
     listTemplateVersions_templateId,
 
@@ -57,11 +57,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListTemplateVersions' smart constructor.
 data ListTemplateVersions = ListTemplateVersions'
-  { -- | The token for the next set of results, or null if there are no more
+  { -- | The maximum number of results to be returned per request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results, or null if there are no more
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to be returned per request.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the Amazon Web Services account that contains the templates
     -- that you\'re listing.
     awsAccountId :: Prelude.Text,
@@ -78,10 +78,10 @@ data ListTemplateVersions = ListTemplateVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listTemplateVersions_maxResults' - The maximum number of results to be returned per request.
+--
 -- 'nextToken', 'listTemplateVersions_nextToken' - The token for the next set of results, or null if there are no more
 -- results.
---
--- 'maxResults', 'listTemplateVersions_maxResults' - The maximum number of results to be returned per request.
 --
 -- 'awsAccountId', 'listTemplateVersions_awsAccountId' - The ID of the Amazon Web Services account that contains the templates
 -- that you\'re listing.
@@ -95,20 +95,20 @@ newListTemplateVersions ::
   ListTemplateVersions
 newListTemplateVersions pAwsAccountId_ pTemplateId_ =
   ListTemplateVersions'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       awsAccountId = pAwsAccountId_,
       templateId = pTemplateId_
     }
+
+-- | The maximum number of results to be returned per request.
+listTemplateVersions_maxResults :: Lens.Lens' ListTemplateVersions (Prelude.Maybe Prelude.Natural)
+listTemplateVersions_maxResults = Lens.lens (\ListTemplateVersions' {maxResults} -> maxResults) (\s@ListTemplateVersions' {} a -> s {maxResults = a} :: ListTemplateVersions)
 
 -- | The token for the next set of results, or null if there are no more
 -- results.
 listTemplateVersions_nextToken :: Lens.Lens' ListTemplateVersions (Prelude.Maybe Prelude.Text)
 listTemplateVersions_nextToken = Lens.lens (\ListTemplateVersions' {nextToken} -> nextToken) (\s@ListTemplateVersions' {} a -> s {nextToken = a} :: ListTemplateVersions)
-
--- | The maximum number of results to be returned per request.
-listTemplateVersions_maxResults :: Lens.Lens' ListTemplateVersions (Prelude.Maybe Prelude.Natural)
-listTemplateVersions_maxResults = Lens.lens (\ListTemplateVersions' {maxResults} -> maxResults) (\s@ListTemplateVersions' {} a -> s {maxResults = a} :: ListTemplateVersions)
 
 -- | The ID of the Amazon Web Services account that contains the templates
 -- that you\'re listing.
@@ -161,15 +161,15 @@ instance Core.AWSRequest ListTemplateVersions where
 
 instance Prelude.Hashable ListTemplateVersions where
   hashWithSalt _salt ListTemplateVersions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` templateId
 
 instance Prelude.NFData ListTemplateVersions where
   rnf ListTemplateVersions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf templateId
 
@@ -197,8 +197,8 @@ instance Data.ToPath ListTemplateVersions where
 instance Data.ToQuery ListTemplateVersions where
   toQuery ListTemplateVersions' {..} =
     Prelude.mconcat
-      [ "next-token" Data.=: nextToken,
-        "max-results" Data.=: maxResults
+      [ "max-results" Data.=: maxResults,
+        "next-token" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListTemplateVersionsResponse' smart constructor.

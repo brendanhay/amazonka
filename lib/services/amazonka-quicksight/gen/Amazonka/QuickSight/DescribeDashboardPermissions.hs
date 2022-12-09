@@ -35,11 +35,11 @@ module Amazonka.QuickSight.DescribeDashboardPermissions
     newDescribeDashboardPermissionsResponse,
 
     -- * Response Lenses
-    describeDashboardPermissionsResponse_linkSharingConfiguration,
-    describeDashboardPermissionsResponse_requestId,
-    describeDashboardPermissionsResponse_permissions,
-    describeDashboardPermissionsResponse_dashboardId,
     describeDashboardPermissionsResponse_dashboardArn,
+    describeDashboardPermissionsResponse_dashboardId,
+    describeDashboardPermissionsResponse_linkSharingConfiguration,
+    describeDashboardPermissionsResponse_permissions,
+    describeDashboardPermissionsResponse_requestId,
     describeDashboardPermissionsResponse_status,
   )
 where
@@ -108,11 +108,11 @@ instance Core.AWSRequest DescribeDashboardPermissions where
     Response.receiveJSON
       ( \s h x ->
           DescribeDashboardPermissionsResponse'
-            Prelude.<$> (x Data..?> "LinkSharingConfiguration")
-            Prelude.<*> (x Data..?> "RequestId")
-            Prelude.<*> (x Data..?> "Permissions")
+            Prelude.<$> (x Data..?> "DashboardArn")
             Prelude.<*> (x Data..?> "DashboardId")
-            Prelude.<*> (x Data..?> "DashboardArn")
+            Prelude.<*> (x Data..?> "LinkSharingConfiguration")
+            Prelude.<*> (x Data..?> "Permissions")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,20 +155,20 @@ instance Data.ToQuery DescribeDashboardPermissions where
 
 -- | /See:/ 'newDescribeDashboardPermissionsResponse' smart constructor.
 data DescribeDashboardPermissionsResponse = DescribeDashboardPermissionsResponse'
-  { -- | A structure that contains the configuration of a shareable link that
+  { -- | The Amazon Resource Name (ARN) of the dashboard.
+    dashboardArn :: Prelude.Maybe Prelude.Text,
+    -- | The ID for the dashboard.
+    dashboardId :: Prelude.Maybe Prelude.Text,
+    -- | A structure that contains the configuration of a shareable link that
     -- grants access to the dashboard. Your users can use the link to view and
     -- interact with the dashboard, if the dashboard has been shared with them.
     -- For more information about sharing dashboards, see
     -- <https://docs.aws.amazon.com/quicksight/latest/user/sharing-a-dashboard.html Sharing Dashboards>.
     linkSharingConfiguration :: Prelude.Maybe LinkSharingConfiguration,
-    -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Maybe Prelude.Text,
     -- | A structure that contains the permissions for the dashboard.
     permissions :: Prelude.Maybe (Prelude.NonEmpty ResourcePermission),
-    -- | The ID for the dashboard.
-    dashboardId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the dashboard.
-    dashboardArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -182,19 +182,19 @@ data DescribeDashboardPermissionsResponse = DescribeDashboardPermissionsResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dashboardArn', 'describeDashboardPermissionsResponse_dashboardArn' - The Amazon Resource Name (ARN) of the dashboard.
+--
+-- 'dashboardId', 'describeDashboardPermissionsResponse_dashboardId' - The ID for the dashboard.
+--
 -- 'linkSharingConfiguration', 'describeDashboardPermissionsResponse_linkSharingConfiguration' - A structure that contains the configuration of a shareable link that
 -- grants access to the dashboard. Your users can use the link to view and
 -- interact with the dashboard, if the dashboard has been shared with them.
 -- For more information about sharing dashboards, see
 -- <https://docs.aws.amazon.com/quicksight/latest/user/sharing-a-dashboard.html Sharing Dashboards>.
 --
--- 'requestId', 'describeDashboardPermissionsResponse_requestId' - The Amazon Web Services request ID for this operation.
---
 -- 'permissions', 'describeDashboardPermissionsResponse_permissions' - A structure that contains the permissions for the dashboard.
 --
--- 'dashboardId', 'describeDashboardPermissionsResponse_dashboardId' - The ID for the dashboard.
---
--- 'dashboardArn', 'describeDashboardPermissionsResponse_dashboardArn' - The Amazon Resource Name (ARN) of the dashboard.
+-- 'requestId', 'describeDashboardPermissionsResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'status', 'describeDashboardPermissionsResponse_status' - The HTTP status of the request.
 newDescribeDashboardPermissionsResponse ::
@@ -203,14 +203,23 @@ newDescribeDashboardPermissionsResponse ::
   DescribeDashboardPermissionsResponse
 newDescribeDashboardPermissionsResponse pStatus_ =
   DescribeDashboardPermissionsResponse'
-    { linkSharingConfiguration =
+    { dashboardArn =
         Prelude.Nothing,
-      requestId = Prelude.Nothing,
-      permissions = Prelude.Nothing,
       dashboardId = Prelude.Nothing,
-      dashboardArn = Prelude.Nothing,
+      linkSharingConfiguration =
+        Prelude.Nothing,
+      permissions = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       status = pStatus_
     }
+
+-- | The Amazon Resource Name (ARN) of the dashboard.
+describeDashboardPermissionsResponse_dashboardArn :: Lens.Lens' DescribeDashboardPermissionsResponse (Prelude.Maybe Prelude.Text)
+describeDashboardPermissionsResponse_dashboardArn = Lens.lens (\DescribeDashboardPermissionsResponse' {dashboardArn} -> dashboardArn) (\s@DescribeDashboardPermissionsResponse' {} a -> s {dashboardArn = a} :: DescribeDashboardPermissionsResponse)
+
+-- | The ID for the dashboard.
+describeDashboardPermissionsResponse_dashboardId :: Lens.Lens' DescribeDashboardPermissionsResponse (Prelude.Maybe Prelude.Text)
+describeDashboardPermissionsResponse_dashboardId = Lens.lens (\DescribeDashboardPermissionsResponse' {dashboardId} -> dashboardId) (\s@DescribeDashboardPermissionsResponse' {} a -> s {dashboardId = a} :: DescribeDashboardPermissionsResponse)
 
 -- | A structure that contains the configuration of a shareable link that
 -- grants access to the dashboard. Your users can use the link to view and
@@ -220,21 +229,13 @@ newDescribeDashboardPermissionsResponse pStatus_ =
 describeDashboardPermissionsResponse_linkSharingConfiguration :: Lens.Lens' DescribeDashboardPermissionsResponse (Prelude.Maybe LinkSharingConfiguration)
 describeDashboardPermissionsResponse_linkSharingConfiguration = Lens.lens (\DescribeDashboardPermissionsResponse' {linkSharingConfiguration} -> linkSharingConfiguration) (\s@DescribeDashboardPermissionsResponse' {} a -> s {linkSharingConfiguration = a} :: DescribeDashboardPermissionsResponse)
 
--- | The Amazon Web Services request ID for this operation.
-describeDashboardPermissionsResponse_requestId :: Lens.Lens' DescribeDashboardPermissionsResponse (Prelude.Maybe Prelude.Text)
-describeDashboardPermissionsResponse_requestId = Lens.lens (\DescribeDashboardPermissionsResponse' {requestId} -> requestId) (\s@DescribeDashboardPermissionsResponse' {} a -> s {requestId = a} :: DescribeDashboardPermissionsResponse)
-
 -- | A structure that contains the permissions for the dashboard.
 describeDashboardPermissionsResponse_permissions :: Lens.Lens' DescribeDashboardPermissionsResponse (Prelude.Maybe (Prelude.NonEmpty ResourcePermission))
 describeDashboardPermissionsResponse_permissions = Lens.lens (\DescribeDashboardPermissionsResponse' {permissions} -> permissions) (\s@DescribeDashboardPermissionsResponse' {} a -> s {permissions = a} :: DescribeDashboardPermissionsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The ID for the dashboard.
-describeDashboardPermissionsResponse_dashboardId :: Lens.Lens' DescribeDashboardPermissionsResponse (Prelude.Maybe Prelude.Text)
-describeDashboardPermissionsResponse_dashboardId = Lens.lens (\DescribeDashboardPermissionsResponse' {dashboardId} -> dashboardId) (\s@DescribeDashboardPermissionsResponse' {} a -> s {dashboardId = a} :: DescribeDashboardPermissionsResponse)
-
--- | The Amazon Resource Name (ARN) of the dashboard.
-describeDashboardPermissionsResponse_dashboardArn :: Lens.Lens' DescribeDashboardPermissionsResponse (Prelude.Maybe Prelude.Text)
-describeDashboardPermissionsResponse_dashboardArn = Lens.lens (\DescribeDashboardPermissionsResponse' {dashboardArn} -> dashboardArn) (\s@DescribeDashboardPermissionsResponse' {} a -> s {dashboardArn = a} :: DescribeDashboardPermissionsResponse)
+-- | The Amazon Web Services request ID for this operation.
+describeDashboardPermissionsResponse_requestId :: Lens.Lens' DescribeDashboardPermissionsResponse (Prelude.Maybe Prelude.Text)
+describeDashboardPermissionsResponse_requestId = Lens.lens (\DescribeDashboardPermissionsResponse' {requestId} -> requestId) (\s@DescribeDashboardPermissionsResponse' {} a -> s {requestId = a} :: DescribeDashboardPermissionsResponse)
 
 -- | The HTTP status of the request.
 describeDashboardPermissionsResponse_status :: Lens.Lens' DescribeDashboardPermissionsResponse Prelude.Int
@@ -245,9 +246,9 @@ instance
     DescribeDashboardPermissionsResponse
   where
   rnf DescribeDashboardPermissionsResponse' {..} =
-    Prelude.rnf linkSharingConfiguration
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf permissions
+    Prelude.rnf dashboardArn
       `Prelude.seq` Prelude.rnf dashboardId
-      `Prelude.seq` Prelude.rnf dashboardArn
+      `Prelude.seq` Prelude.rnf linkSharingConfiguration
+      `Prelude.seq` Prelude.rnf permissions
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf status

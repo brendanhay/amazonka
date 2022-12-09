@@ -30,10 +30,10 @@ import Amazonka.QuickSight.Types.DataSetSchema
 --
 -- /See:/ 'newDataSetConfiguration' smart constructor.
 data DataSetConfiguration = DataSetConfiguration'
-  { -- | Dataset schema.
-    dataSetSchema :: Prelude.Maybe DataSetSchema,
-    -- | A structure containing the list of column group schemas.
+  { -- | A structure containing the list of column group schemas.
     columnGroupSchemaList :: Prelude.Maybe [ColumnGroupSchema],
+    -- | Dataset schema.
+    dataSetSchema :: Prelude.Maybe DataSetSchema,
     -- | Placeholder.
     placeholder :: Prelude.Maybe Prelude.Text
   }
@@ -47,28 +47,28 @@ data DataSetConfiguration = DataSetConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dataSetSchema', 'dataSetConfiguration_dataSetSchema' - Dataset schema.
---
 -- 'columnGroupSchemaList', 'dataSetConfiguration_columnGroupSchemaList' - A structure containing the list of column group schemas.
+--
+-- 'dataSetSchema', 'dataSetConfiguration_dataSetSchema' - Dataset schema.
 --
 -- 'placeholder', 'dataSetConfiguration_placeholder' - Placeholder.
 newDataSetConfiguration ::
   DataSetConfiguration
 newDataSetConfiguration =
   DataSetConfiguration'
-    { dataSetSchema =
+    { columnGroupSchemaList =
         Prelude.Nothing,
-      columnGroupSchemaList = Prelude.Nothing,
+      dataSetSchema = Prelude.Nothing,
       placeholder = Prelude.Nothing
     }
-
--- | Dataset schema.
-dataSetConfiguration_dataSetSchema :: Lens.Lens' DataSetConfiguration (Prelude.Maybe DataSetSchema)
-dataSetConfiguration_dataSetSchema = Lens.lens (\DataSetConfiguration' {dataSetSchema} -> dataSetSchema) (\s@DataSetConfiguration' {} a -> s {dataSetSchema = a} :: DataSetConfiguration)
 
 -- | A structure containing the list of column group schemas.
 dataSetConfiguration_columnGroupSchemaList :: Lens.Lens' DataSetConfiguration (Prelude.Maybe [ColumnGroupSchema])
 dataSetConfiguration_columnGroupSchemaList = Lens.lens (\DataSetConfiguration' {columnGroupSchemaList} -> columnGroupSchemaList) (\s@DataSetConfiguration' {} a -> s {columnGroupSchemaList = a} :: DataSetConfiguration) Prelude.. Lens.mapping Lens.coerced
+
+-- | Dataset schema.
+dataSetConfiguration_dataSetSchema :: Lens.Lens' DataSetConfiguration (Prelude.Maybe DataSetSchema)
+dataSetConfiguration_dataSetSchema = Lens.lens (\DataSetConfiguration' {dataSetSchema} -> dataSetSchema) (\s@DataSetConfiguration' {} a -> s {dataSetSchema = a} :: DataSetConfiguration)
 
 -- | Placeholder.
 dataSetConfiguration_placeholder :: Lens.Lens' DataSetConfiguration (Prelude.Maybe Prelude.Text)
@@ -80,21 +80,32 @@ instance Data.FromJSON DataSetConfiguration where
       "DataSetConfiguration"
       ( \x ->
           DataSetConfiguration'
-            Prelude.<$> (x Data..:? "DataSetSchema")
-            Prelude.<*> ( x Data..:? "ColumnGroupSchemaList"
+            Prelude.<$> ( x Data..:? "ColumnGroupSchemaList"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "DataSetSchema")
             Prelude.<*> (x Data..:? "Placeholder")
       )
 
 instance Prelude.Hashable DataSetConfiguration where
   hashWithSalt _salt DataSetConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` dataSetSchema
-      `Prelude.hashWithSalt` columnGroupSchemaList
+    _salt `Prelude.hashWithSalt` columnGroupSchemaList
+      `Prelude.hashWithSalt` dataSetSchema
       `Prelude.hashWithSalt` placeholder
 
 instance Prelude.NFData DataSetConfiguration where
   rnf DataSetConfiguration' {..} =
-    Prelude.rnf dataSetSchema
-      `Prelude.seq` Prelude.rnf columnGroupSchemaList
+    Prelude.rnf columnGroupSchemaList
+      `Prelude.seq` Prelude.rnf dataSetSchema
       `Prelude.seq` Prelude.rnf placeholder
+
+instance Data.ToJSON DataSetConfiguration where
+  toJSON DataSetConfiguration' {..} =
+    Data.object
+      ( Prelude.catMaybes
+          [ ("ColumnGroupSchemaList" Data..=)
+              Prelude.<$> columnGroupSchemaList,
+            ("DataSetSchema" Data..=) Prelude.<$> dataSetSchema,
+            ("Placeholder" Data..=) Prelude.<$> placeholder
+          ]
+      )

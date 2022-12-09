@@ -36,9 +36,9 @@ module Amazonka.QuickSight.DeleteDashboard
     newDeleteDashboardResponse,
 
     -- * Response Lenses
-    deleteDashboardResponse_requestId,
     deleteDashboardResponse_arn,
     deleteDashboardResponse_dashboardId,
+    deleteDashboardResponse_requestId,
     deleteDashboardResponse_status,
   )
 where
@@ -116,9 +116,9 @@ instance Core.AWSRequest DeleteDashboard where
     Response.receiveJSON
       ( \s h x ->
           DeleteDashboardResponse'
-            Prelude.<$> (x Data..?> "RequestId")
-            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (x Data..?> "DashboardId")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,12 +161,12 @@ instance Data.ToQuery DeleteDashboard where
 
 -- | /See:/ 'newDeleteDashboardResponse' smart constructor.
 data DeleteDashboardResponse = DeleteDashboardResponse'
-  { -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The Secure Socket Layer (SSL) properties that apply for the resource.
+  { -- | The Secure Socket Layer (SSL) properties that apply for the resource.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the dashboard.
     dashboardId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -180,11 +180,11 @@ data DeleteDashboardResponse = DeleteDashboardResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'deleteDashboardResponse_requestId' - The Amazon Web Services request ID for this operation.
---
 -- 'arn', 'deleteDashboardResponse_arn' - The Secure Socket Layer (SSL) properties that apply for the resource.
 --
 -- 'dashboardId', 'deleteDashboardResponse_dashboardId' - The ID of the dashboard.
+--
+-- 'requestId', 'deleteDashboardResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'status', 'deleteDashboardResponse_status' - The HTTP status of the request.
 newDeleteDashboardResponse ::
@@ -193,16 +193,11 @@ newDeleteDashboardResponse ::
   DeleteDashboardResponse
 newDeleteDashboardResponse pStatus_ =
   DeleteDashboardResponse'
-    { requestId =
-        Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       dashboardId = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       status = pStatus_
     }
-
--- | The Amazon Web Services request ID for this operation.
-deleteDashboardResponse_requestId :: Lens.Lens' DeleteDashboardResponse (Prelude.Maybe Prelude.Text)
-deleteDashboardResponse_requestId = Lens.lens (\DeleteDashboardResponse' {requestId} -> requestId) (\s@DeleteDashboardResponse' {} a -> s {requestId = a} :: DeleteDashboardResponse)
 
 -- | The Secure Socket Layer (SSL) properties that apply for the resource.
 deleteDashboardResponse_arn :: Lens.Lens' DeleteDashboardResponse (Prelude.Maybe Prelude.Text)
@@ -212,13 +207,17 @@ deleteDashboardResponse_arn = Lens.lens (\DeleteDashboardResponse' {arn} -> arn)
 deleteDashboardResponse_dashboardId :: Lens.Lens' DeleteDashboardResponse (Prelude.Maybe Prelude.Text)
 deleteDashboardResponse_dashboardId = Lens.lens (\DeleteDashboardResponse' {dashboardId} -> dashboardId) (\s@DeleteDashboardResponse' {} a -> s {dashboardId = a} :: DeleteDashboardResponse)
 
+-- | The Amazon Web Services request ID for this operation.
+deleteDashboardResponse_requestId :: Lens.Lens' DeleteDashboardResponse (Prelude.Maybe Prelude.Text)
+deleteDashboardResponse_requestId = Lens.lens (\DeleteDashboardResponse' {requestId} -> requestId) (\s@DeleteDashboardResponse' {} a -> s {requestId = a} :: DeleteDashboardResponse)
+
 -- | The HTTP status of the request.
 deleteDashboardResponse_status :: Lens.Lens' DeleteDashboardResponse Prelude.Int
 deleteDashboardResponse_status = Lens.lens (\DeleteDashboardResponse' {status} -> status) (\s@DeleteDashboardResponse' {} a -> s {status = a} :: DeleteDashboardResponse)
 
 instance Prelude.NFData DeleteDashboardResponse where
   rnf DeleteDashboardResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf dashboardId
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf status

@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMemberIdArnPair' smart constructor.
 data MemberIdArnPair = MemberIdArnPair'
-  { -- | The ID of the member.
-    memberId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the member.
-    memberArn :: Prelude.Maybe Prelude.Text
+  { -- | The Amazon Resource Name (ARN) of the member.
+    memberArn :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the member.
+    memberId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data MemberIdArnPair = MemberIdArnPair'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'memberId', 'memberIdArnPair_memberId' - The ID of the member.
---
 -- 'memberArn', 'memberIdArnPair_memberArn' - The Amazon Resource Name (ARN) of the member.
+--
+-- 'memberId', 'memberIdArnPair_memberId' - The ID of the member.
 newMemberIdArnPair ::
   MemberIdArnPair
 newMemberIdArnPair =
   MemberIdArnPair'
-    { memberId = Prelude.Nothing,
-      memberArn = Prelude.Nothing
+    { memberArn = Prelude.Nothing,
+      memberId = Prelude.Nothing
     }
-
--- | The ID of the member.
-memberIdArnPair_memberId :: Lens.Lens' MemberIdArnPair (Prelude.Maybe Prelude.Text)
-memberIdArnPair_memberId = Lens.lens (\MemberIdArnPair' {memberId} -> memberId) (\s@MemberIdArnPair' {} a -> s {memberId = a} :: MemberIdArnPair)
 
 -- | The Amazon Resource Name (ARN) of the member.
 memberIdArnPair_memberArn :: Lens.Lens' MemberIdArnPair (Prelude.Maybe Prelude.Text)
 memberIdArnPair_memberArn = Lens.lens (\MemberIdArnPair' {memberArn} -> memberArn) (\s@MemberIdArnPair' {} a -> s {memberArn = a} :: MemberIdArnPair)
+
+-- | The ID of the member.
+memberIdArnPair_memberId :: Lens.Lens' MemberIdArnPair (Prelude.Maybe Prelude.Text)
+memberIdArnPair_memberId = Lens.lens (\MemberIdArnPair' {memberId} -> memberId) (\s@MemberIdArnPair' {} a -> s {memberId = a} :: MemberIdArnPair)
 
 instance Data.FromJSON MemberIdArnPair where
   parseJSON =
@@ -69,16 +69,16 @@ instance Data.FromJSON MemberIdArnPair where
       "MemberIdArnPair"
       ( \x ->
           MemberIdArnPair'
-            Prelude.<$> (x Data..:? "MemberId")
-            Prelude.<*> (x Data..:? "MemberArn")
+            Prelude.<$> (x Data..:? "MemberArn")
+            Prelude.<*> (x Data..:? "MemberId")
       )
 
 instance Prelude.Hashable MemberIdArnPair where
   hashWithSalt _salt MemberIdArnPair' {..} =
-    _salt `Prelude.hashWithSalt` memberId
-      `Prelude.hashWithSalt` memberArn
+    _salt `Prelude.hashWithSalt` memberArn
+      `Prelude.hashWithSalt` memberId
 
 instance Prelude.NFData MemberIdArnPair where
   rnf MemberIdArnPair' {..} =
-    Prelude.rnf memberId
-      `Prelude.seq` Prelude.rnf memberArn
+    Prelude.rnf memberArn
+      `Prelude.seq` Prelude.rnf memberId

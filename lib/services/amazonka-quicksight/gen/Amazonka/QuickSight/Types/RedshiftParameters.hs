@@ -30,13 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRedshiftParameters' smart constructor.
 data RedshiftParameters = RedshiftParameters'
-  { -- | Port. This field can be blank if the @ClusterId@ is provided.
-    port :: Prelude.Maybe Prelude.Natural,
-    -- | Host. This field can be blank if @ClusterId@ is provided.
-    host :: Prelude.Maybe Prelude.Text,
-    -- | Cluster ID. This field can be blank if the @Host@ and @Port@ are
+  { -- | Cluster ID. This field can be blank if the @Host@ and @Port@ are
     -- provided.
     clusterId :: Prelude.Maybe Prelude.Text,
+    -- | Host. This field can be blank if @ClusterId@ is provided.
+    host :: Prelude.Maybe Prelude.Text,
+    -- | Port. This field can be blank if the @ClusterId@ is provided.
+    port :: Prelude.Maybe Prelude.Natural,
     -- | Database.
     database :: Prelude.Text
   }
@@ -50,12 +50,12 @@ data RedshiftParameters = RedshiftParameters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'port', 'redshiftParameters_port' - Port. This field can be blank if the @ClusterId@ is provided.
+-- 'clusterId', 'redshiftParameters_clusterId' - Cluster ID. This field can be blank if the @Host@ and @Port@ are
+-- provided.
 --
 -- 'host', 'redshiftParameters_host' - Host. This field can be blank if @ClusterId@ is provided.
 --
--- 'clusterId', 'redshiftParameters_clusterId' - Cluster ID. This field can be blank if the @Host@ and @Port@ are
--- provided.
+-- 'port', 'redshiftParameters_port' - Port. This field can be blank if the @ClusterId@ is provided.
 --
 -- 'database', 'redshiftParameters_database' - Database.
 newRedshiftParameters ::
@@ -64,24 +64,24 @@ newRedshiftParameters ::
   RedshiftParameters
 newRedshiftParameters pDatabase_ =
   RedshiftParameters'
-    { port = Prelude.Nothing,
+    { clusterId = Prelude.Nothing,
       host = Prelude.Nothing,
-      clusterId = Prelude.Nothing,
+      port = Prelude.Nothing,
       database = pDatabase_
     }
-
--- | Port. This field can be blank if the @ClusterId@ is provided.
-redshiftParameters_port :: Lens.Lens' RedshiftParameters (Prelude.Maybe Prelude.Natural)
-redshiftParameters_port = Lens.lens (\RedshiftParameters' {port} -> port) (\s@RedshiftParameters' {} a -> s {port = a} :: RedshiftParameters)
-
--- | Host. This field can be blank if @ClusterId@ is provided.
-redshiftParameters_host :: Lens.Lens' RedshiftParameters (Prelude.Maybe Prelude.Text)
-redshiftParameters_host = Lens.lens (\RedshiftParameters' {host} -> host) (\s@RedshiftParameters' {} a -> s {host = a} :: RedshiftParameters)
 
 -- | Cluster ID. This field can be blank if the @Host@ and @Port@ are
 -- provided.
 redshiftParameters_clusterId :: Lens.Lens' RedshiftParameters (Prelude.Maybe Prelude.Text)
 redshiftParameters_clusterId = Lens.lens (\RedshiftParameters' {clusterId} -> clusterId) (\s@RedshiftParameters' {} a -> s {clusterId = a} :: RedshiftParameters)
+
+-- | Host. This field can be blank if @ClusterId@ is provided.
+redshiftParameters_host :: Lens.Lens' RedshiftParameters (Prelude.Maybe Prelude.Text)
+redshiftParameters_host = Lens.lens (\RedshiftParameters' {host} -> host) (\s@RedshiftParameters' {} a -> s {host = a} :: RedshiftParameters)
+
+-- | Port. This field can be blank if the @ClusterId@ is provided.
+redshiftParameters_port :: Lens.Lens' RedshiftParameters (Prelude.Maybe Prelude.Natural)
+redshiftParameters_port = Lens.lens (\RedshiftParameters' {port} -> port) (\s@RedshiftParameters' {} a -> s {port = a} :: RedshiftParameters)
 
 -- | Database.
 redshiftParameters_database :: Lens.Lens' RedshiftParameters Prelude.Text
@@ -93,33 +93,33 @@ instance Data.FromJSON RedshiftParameters where
       "RedshiftParameters"
       ( \x ->
           RedshiftParameters'
-            Prelude.<$> (x Data..:? "Port")
+            Prelude.<$> (x Data..:? "ClusterId")
             Prelude.<*> (x Data..:? "Host")
-            Prelude.<*> (x Data..:? "ClusterId")
+            Prelude.<*> (x Data..:? "Port")
             Prelude.<*> (x Data..: "Database")
       )
 
 instance Prelude.Hashable RedshiftParameters where
   hashWithSalt _salt RedshiftParameters' {..} =
-    _salt `Prelude.hashWithSalt` port
+    _salt `Prelude.hashWithSalt` clusterId
       `Prelude.hashWithSalt` host
-      `Prelude.hashWithSalt` clusterId
+      `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` database
 
 instance Prelude.NFData RedshiftParameters where
   rnf RedshiftParameters' {..} =
-    Prelude.rnf port
+    Prelude.rnf clusterId
       `Prelude.seq` Prelude.rnf host
-      `Prelude.seq` Prelude.rnf clusterId
+      `Prelude.seq` Prelude.rnf port
       `Prelude.seq` Prelude.rnf database
 
 instance Data.ToJSON RedshiftParameters where
   toJSON RedshiftParameters' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Port" Data..=) Prelude.<$> port,
+          [ ("ClusterId" Data..=) Prelude.<$> clusterId,
             ("Host" Data..=) Prelude.<$> host,
-            ("ClusterId" Data..=) Prelude.<$> clusterId,
+            ("Port" Data..=) Prelude.<$> port,
             Prelude.Just ("Database" Data..= database)
           ]
       )

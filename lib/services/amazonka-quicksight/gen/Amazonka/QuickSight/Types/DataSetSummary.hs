@@ -30,25 +30,25 @@ import Amazonka.QuickSight.Types.RowLevelPermissionDataSet
 --
 -- /See:/ 'newDataSetSummary' smart constructor.
 data DataSetSummary = DataSetSummary'
-  { -- | A display name for the dataset.
-    name :: Prelude.Maybe Prelude.Text,
+  { -- | The Amazon Resource Name (ARN) of the dataset.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates if the dataset has column level permission
     -- configured.
     columnLevelPermissionRulesApplied :: Prelude.Maybe Prelude.Bool,
     -- | The time that this dataset was created.
     createdTime :: Prelude.Maybe Data.POSIX,
-    -- | The Amazon Resource Name (ARN) of the dataset.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The last time that this dataset was updated.
-    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
-    -- | The row-level security configuration for the dataset.
-    rowLevelPermissionDataSet :: Prelude.Maybe RowLevelPermissionDataSet,
-    -- | Whether or not the row level permission tags are applied.
-    rowLevelPermissionTagConfigurationApplied :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the dataset.
     dataSetId :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether you want to import the data into SPICE.
-    importMode :: Prelude.Maybe DataSetImportMode
+    importMode :: Prelude.Maybe DataSetImportMode,
+    -- | The last time that this dataset was updated.
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
+    -- | A display name for the dataset.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The row-level security configuration for the dataset.
+    rowLevelPermissionDataSet :: Prelude.Maybe RowLevelPermissionDataSet,
+    -- | Whether or not the row level permission tags are applied.
+    rowLevelPermissionTagConfigurationApplied :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,43 +60,43 @@ data DataSetSummary = DataSetSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'dataSetSummary_name' - A display name for the dataset.
+-- 'arn', 'dataSetSummary_arn' - The Amazon Resource Name (ARN) of the dataset.
 --
 -- 'columnLevelPermissionRulesApplied', 'dataSetSummary_columnLevelPermissionRulesApplied' - A value that indicates if the dataset has column level permission
 -- configured.
 --
 -- 'createdTime', 'dataSetSummary_createdTime' - The time that this dataset was created.
 --
--- 'arn', 'dataSetSummary_arn' - The Amazon Resource Name (ARN) of the dataset.
+-- 'dataSetId', 'dataSetSummary_dataSetId' - The ID of the dataset.
+--
+-- 'importMode', 'dataSetSummary_importMode' - A value that indicates whether you want to import the data into SPICE.
 --
 -- 'lastUpdatedTime', 'dataSetSummary_lastUpdatedTime' - The last time that this dataset was updated.
+--
+-- 'name', 'dataSetSummary_name' - A display name for the dataset.
 --
 -- 'rowLevelPermissionDataSet', 'dataSetSummary_rowLevelPermissionDataSet' - The row-level security configuration for the dataset.
 --
 -- 'rowLevelPermissionTagConfigurationApplied', 'dataSetSummary_rowLevelPermissionTagConfigurationApplied' - Whether or not the row level permission tags are applied.
---
--- 'dataSetId', 'dataSetSummary_dataSetId' - The ID of the dataset.
---
--- 'importMode', 'dataSetSummary_importMode' - A value that indicates whether you want to import the data into SPICE.
 newDataSetSummary ::
   DataSetSummary
 newDataSetSummary =
   DataSetSummary'
-    { name = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       columnLevelPermissionRulesApplied = Prelude.Nothing,
       createdTime = Prelude.Nothing,
-      arn = Prelude.Nothing,
+      dataSetId = Prelude.Nothing,
+      importMode = Prelude.Nothing,
       lastUpdatedTime = Prelude.Nothing,
+      name = Prelude.Nothing,
       rowLevelPermissionDataSet = Prelude.Nothing,
       rowLevelPermissionTagConfigurationApplied =
-        Prelude.Nothing,
-      dataSetId = Prelude.Nothing,
-      importMode = Prelude.Nothing
+        Prelude.Nothing
     }
 
--- | A display name for the dataset.
-dataSetSummary_name :: Lens.Lens' DataSetSummary (Prelude.Maybe Prelude.Text)
-dataSetSummary_name = Lens.lens (\DataSetSummary' {name} -> name) (\s@DataSetSummary' {} a -> s {name = a} :: DataSetSummary)
+-- | The Amazon Resource Name (ARN) of the dataset.
+dataSetSummary_arn :: Lens.Lens' DataSetSummary (Prelude.Maybe Prelude.Text)
+dataSetSummary_arn = Lens.lens (\DataSetSummary' {arn} -> arn) (\s@DataSetSummary' {} a -> s {arn = a} :: DataSetSummary)
 
 -- | A value that indicates if the dataset has column level permission
 -- configured.
@@ -107,13 +107,21 @@ dataSetSummary_columnLevelPermissionRulesApplied = Lens.lens (\DataSetSummary' {
 dataSetSummary_createdTime :: Lens.Lens' DataSetSummary (Prelude.Maybe Prelude.UTCTime)
 dataSetSummary_createdTime = Lens.lens (\DataSetSummary' {createdTime} -> createdTime) (\s@DataSetSummary' {} a -> s {createdTime = a} :: DataSetSummary) Prelude.. Lens.mapping Data._Time
 
--- | The Amazon Resource Name (ARN) of the dataset.
-dataSetSummary_arn :: Lens.Lens' DataSetSummary (Prelude.Maybe Prelude.Text)
-dataSetSummary_arn = Lens.lens (\DataSetSummary' {arn} -> arn) (\s@DataSetSummary' {} a -> s {arn = a} :: DataSetSummary)
+-- | The ID of the dataset.
+dataSetSummary_dataSetId :: Lens.Lens' DataSetSummary (Prelude.Maybe Prelude.Text)
+dataSetSummary_dataSetId = Lens.lens (\DataSetSummary' {dataSetId} -> dataSetId) (\s@DataSetSummary' {} a -> s {dataSetId = a} :: DataSetSummary)
+
+-- | A value that indicates whether you want to import the data into SPICE.
+dataSetSummary_importMode :: Lens.Lens' DataSetSummary (Prelude.Maybe DataSetImportMode)
+dataSetSummary_importMode = Lens.lens (\DataSetSummary' {importMode} -> importMode) (\s@DataSetSummary' {} a -> s {importMode = a} :: DataSetSummary)
 
 -- | The last time that this dataset was updated.
 dataSetSummary_lastUpdatedTime :: Lens.Lens' DataSetSummary (Prelude.Maybe Prelude.UTCTime)
 dataSetSummary_lastUpdatedTime = Lens.lens (\DataSetSummary' {lastUpdatedTime} -> lastUpdatedTime) (\s@DataSetSummary' {} a -> s {lastUpdatedTime = a} :: DataSetSummary) Prelude.. Lens.mapping Data._Time
+
+-- | A display name for the dataset.
+dataSetSummary_name :: Lens.Lens' DataSetSummary (Prelude.Maybe Prelude.Text)
+dataSetSummary_name = Lens.lens (\DataSetSummary' {name} -> name) (\s@DataSetSummary' {} a -> s {name = a} :: DataSetSummary)
 
 -- | The row-level security configuration for the dataset.
 dataSetSummary_rowLevelPermissionDataSet :: Lens.Lens' DataSetSummary (Prelude.Maybe RowLevelPermissionDataSet)
@@ -123,53 +131,46 @@ dataSetSummary_rowLevelPermissionDataSet = Lens.lens (\DataSetSummary' {rowLevel
 dataSetSummary_rowLevelPermissionTagConfigurationApplied :: Lens.Lens' DataSetSummary (Prelude.Maybe Prelude.Bool)
 dataSetSummary_rowLevelPermissionTagConfigurationApplied = Lens.lens (\DataSetSummary' {rowLevelPermissionTagConfigurationApplied} -> rowLevelPermissionTagConfigurationApplied) (\s@DataSetSummary' {} a -> s {rowLevelPermissionTagConfigurationApplied = a} :: DataSetSummary)
 
--- | The ID of the dataset.
-dataSetSummary_dataSetId :: Lens.Lens' DataSetSummary (Prelude.Maybe Prelude.Text)
-dataSetSummary_dataSetId = Lens.lens (\DataSetSummary' {dataSetId} -> dataSetId) (\s@DataSetSummary' {} a -> s {dataSetId = a} :: DataSetSummary)
-
--- | A value that indicates whether you want to import the data into SPICE.
-dataSetSummary_importMode :: Lens.Lens' DataSetSummary (Prelude.Maybe DataSetImportMode)
-dataSetSummary_importMode = Lens.lens (\DataSetSummary' {importMode} -> importMode) (\s@DataSetSummary' {} a -> s {importMode = a} :: DataSetSummary)
-
 instance Data.FromJSON DataSetSummary where
   parseJSON =
     Data.withObject
       "DataSetSummary"
       ( \x ->
           DataSetSummary'
-            Prelude.<$> (x Data..:? "Name")
+            Prelude.<$> (x Data..:? "Arn")
             Prelude.<*> (x Data..:? "ColumnLevelPermissionRulesApplied")
             Prelude.<*> (x Data..:? "CreatedTime")
-            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "DataSetId")
+            Prelude.<*> (x Data..:? "ImportMode")
             Prelude.<*> (x Data..:? "LastUpdatedTime")
+            Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "RowLevelPermissionDataSet")
             Prelude.<*> ( x
                             Data..:? "RowLevelPermissionTagConfigurationApplied"
                         )
-            Prelude.<*> (x Data..:? "DataSetId")
-            Prelude.<*> (x Data..:? "ImportMode")
       )
 
 instance Prelude.Hashable DataSetSummary where
   hashWithSalt _salt DataSetSummary' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` columnLevelPermissionRulesApplied
       `Prelude.hashWithSalt` createdTime
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` lastUpdatedTime
-      `Prelude.hashWithSalt` rowLevelPermissionDataSet
-      `Prelude.hashWithSalt` rowLevelPermissionTagConfigurationApplied
       `Prelude.hashWithSalt` dataSetId
       `Prelude.hashWithSalt` importMode
+      `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` rowLevelPermissionDataSet
+      `Prelude.hashWithSalt` rowLevelPermissionTagConfigurationApplied
 
 instance Prelude.NFData DataSetSummary where
   rnf DataSetSummary' {..} =
-    Prelude.rnf name
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf columnLevelPermissionRulesApplied
       `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf rowLevelPermissionDataSet
-      `Prelude.seq` Prelude.rnf rowLevelPermissionTagConfigurationApplied
       `Prelude.seq` Prelude.rnf dataSetId
       `Prelude.seq` Prelude.rnf importMode
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf rowLevelPermissionDataSet
+      `Prelude.seq` Prelude.rnf
+        rowLevelPermissionTagConfigurationApplied

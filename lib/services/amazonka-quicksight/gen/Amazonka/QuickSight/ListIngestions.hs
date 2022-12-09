@@ -29,8 +29,8 @@ module Amazonka.QuickSight.ListIngestions
     newListIngestions,
 
     -- * Request Lenses
-    listIngestions_nextToken,
     listIngestions_maxResults,
+    listIngestions_nextToken,
     listIngestions_dataSetId,
     listIngestions_awsAccountId,
 
@@ -39,9 +39,9 @@ module Amazonka.QuickSight.ListIngestions
     newListIngestionsResponse,
 
     -- * Response Lenses
+    listIngestionsResponse_ingestions,
     listIngestionsResponse_nextToken,
     listIngestionsResponse_requestId,
-    listIngestionsResponse_ingestions,
     listIngestionsResponse_status,
   )
 where
@@ -56,11 +56,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListIngestions' smart constructor.
 data ListIngestions = ListIngestions'
-  { -- | The token for the next set of results, or null if there are no more
+  { -- | The maximum number of results to be returned per request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results, or null if there are no more
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to be returned per request.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the dataset used in the ingestion.
     dataSetId :: Prelude.Text,
     -- | The Amazon Web Services account ID.
@@ -76,10 +76,10 @@ data ListIngestions = ListIngestions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listIngestions_maxResults' - The maximum number of results to be returned per request.
+--
 -- 'nextToken', 'listIngestions_nextToken' - The token for the next set of results, or null if there are no more
 -- results.
---
--- 'maxResults', 'listIngestions_maxResults' - The maximum number of results to be returned per request.
 --
 -- 'dataSetId', 'listIngestions_dataSetId' - The ID of the dataset used in the ingestion.
 --
@@ -92,20 +92,20 @@ newListIngestions ::
   ListIngestions
 newListIngestions pDataSetId_ pAwsAccountId_ =
   ListIngestions'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       dataSetId = pDataSetId_,
       awsAccountId = pAwsAccountId_
     }
+
+-- | The maximum number of results to be returned per request.
+listIngestions_maxResults :: Lens.Lens' ListIngestions (Prelude.Maybe Prelude.Natural)
+listIngestions_maxResults = Lens.lens (\ListIngestions' {maxResults} -> maxResults) (\s@ListIngestions' {} a -> s {maxResults = a} :: ListIngestions)
 
 -- | The token for the next set of results, or null if there are no more
 -- results.
 listIngestions_nextToken :: Lens.Lens' ListIngestions (Prelude.Maybe Prelude.Text)
 listIngestions_nextToken = Lens.lens (\ListIngestions' {nextToken} -> nextToken) (\s@ListIngestions' {} a -> s {nextToken = a} :: ListIngestions)
-
--- | The maximum number of results to be returned per request.
-listIngestions_maxResults :: Lens.Lens' ListIngestions (Prelude.Maybe Prelude.Natural)
-listIngestions_maxResults = Lens.lens (\ListIngestions' {maxResults} -> maxResults) (\s@ListIngestions' {} a -> s {maxResults = a} :: ListIngestions)
 
 -- | The ID of the dataset used in the ingestion.
 listIngestions_dataSetId :: Lens.Lens' ListIngestions Prelude.Text
@@ -146,23 +146,23 @@ instance Core.AWSRequest ListIngestions where
     Response.receiveJSON
       ( \s h x ->
           ListIngestionsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<$> (x Data..?> "Ingestions" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (x Data..?> "RequestId")
-            Prelude.<*> (x Data..?> "Ingestions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListIngestions where
   hashWithSalt _salt ListIngestions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` dataSetId
       `Prelude.hashWithSalt` awsAccountId
 
 instance Prelude.NFData ListIngestions where
   rnf ListIngestions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf dataSetId
       `Prelude.seq` Prelude.rnf awsAccountId
 
@@ -190,19 +190,19 @@ instance Data.ToPath ListIngestions where
 instance Data.ToQuery ListIngestions where
   toQuery ListIngestions' {..} =
     Prelude.mconcat
-      [ "next-token" Data.=: nextToken,
-        "max-results" Data.=: maxResults
+      [ "max-results" Data.=: maxResults,
+        "next-token" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListIngestionsResponse' smart constructor.
 data ListIngestionsResponse = ListIngestionsResponse'
-  { -- | The token for the next set of results, or null if there are no more
+  { -- | A list of the ingestions.
+    ingestions :: Prelude.Maybe [Ingestion],
+    -- | The token for the next set of results, or null if there are no more
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services request ID for this operation.
     requestId :: Prelude.Maybe Prelude.Text,
-    -- | A list of the ingestions.
-    ingestions :: Prelude.Maybe [Ingestion],
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -216,12 +216,12 @@ data ListIngestionsResponse = ListIngestionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'ingestions', 'listIngestionsResponse_ingestions' - A list of the ingestions.
+--
 -- 'nextToken', 'listIngestionsResponse_nextToken' - The token for the next set of results, or null if there are no more
 -- results.
 --
 -- 'requestId', 'listIngestionsResponse_requestId' - The Amazon Web Services request ID for this operation.
---
--- 'ingestions', 'listIngestionsResponse_ingestions' - A list of the ingestions.
 --
 -- 'status', 'listIngestionsResponse_status' - The HTTP status of the request.
 newListIngestionsResponse ::
@@ -230,12 +230,16 @@ newListIngestionsResponse ::
   ListIngestionsResponse
 newListIngestionsResponse pStatus_ =
   ListIngestionsResponse'
-    { nextToken =
+    { ingestions =
         Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       requestId = Prelude.Nothing,
-      ingestions = Prelude.Nothing,
       status = pStatus_
     }
+
+-- | A list of the ingestions.
+listIngestionsResponse_ingestions :: Lens.Lens' ListIngestionsResponse (Prelude.Maybe [Ingestion])
+listIngestionsResponse_ingestions = Lens.lens (\ListIngestionsResponse' {ingestions} -> ingestions) (\s@ListIngestionsResponse' {} a -> s {ingestions = a} :: ListIngestionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results, or null if there are no more
 -- results.
@@ -246,17 +250,13 @@ listIngestionsResponse_nextToken = Lens.lens (\ListIngestionsResponse' {nextToke
 listIngestionsResponse_requestId :: Lens.Lens' ListIngestionsResponse (Prelude.Maybe Prelude.Text)
 listIngestionsResponse_requestId = Lens.lens (\ListIngestionsResponse' {requestId} -> requestId) (\s@ListIngestionsResponse' {} a -> s {requestId = a} :: ListIngestionsResponse)
 
--- | A list of the ingestions.
-listIngestionsResponse_ingestions :: Lens.Lens' ListIngestionsResponse (Prelude.Maybe [Ingestion])
-listIngestionsResponse_ingestions = Lens.lens (\ListIngestionsResponse' {ingestions} -> ingestions) (\s@ListIngestionsResponse' {} a -> s {ingestions = a} :: ListIngestionsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The HTTP status of the request.
 listIngestionsResponse_status :: Lens.Lens' ListIngestionsResponse Prelude.Int
 listIngestionsResponse_status = Lens.lens (\ListIngestionsResponse' {status} -> status) (\s@ListIngestionsResponse' {} a -> s {status = a} :: ListIngestionsResponse)
 
 instance Prelude.NFData ListIngestionsResponse where
   rnf ListIngestionsResponse' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf ingestions
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf ingestions
       `Prelude.seq` Prelude.rnf status

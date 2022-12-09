@@ -40,21 +40,21 @@ import Amazonka.QuickSight.Types.Edition
 --
 -- /See:/ 'newAccountInfo' smart constructor.
 data AccountInfo = AccountInfo'
-  { -- | The way that your Amazon QuickSight account is authenticated.
-    authenticationType :: Prelude.Maybe Prelude.Text,
-    -- | The email address that will be used for Amazon QuickSight to send
-    -- notifications regarding your Amazon Web Services account or Amazon
-    -- QuickSight subscription.
-    notificationEmail :: Prelude.Maybe Prelude.Text,
-    -- | The edition of your Amazon QuickSight account.
-    edition :: Prelude.Maybe Edition,
-    -- | The status of your account subscription.
-    accountSubscriptionStatus :: Prelude.Maybe Prelude.Text,
-    -- | The account name that you provided for the Amazon QuickSight
+  { -- | The account name that you provided for the Amazon QuickSight
     -- subscription in your Amazon Web Services account. You create this name
     -- when you sign up for Amazon QuickSight. It\'s unique over all of Amazon
     -- Web Services, and it appears only when users sign in.
-    accountName :: Prelude.Maybe Prelude.Text
+    accountName :: Prelude.Maybe Prelude.Text,
+    -- | The status of your account subscription.
+    accountSubscriptionStatus :: Prelude.Maybe Prelude.Text,
+    -- | The way that your Amazon QuickSight account is authenticated.
+    authenticationType :: Prelude.Maybe Prelude.Text,
+    -- | The edition of your Amazon QuickSight account.
+    edition :: Prelude.Maybe Edition,
+    -- | The email address that will be used for Amazon QuickSight to send
+    -- notifications regarding your Amazon Web Services account or Amazon
+    -- QuickSight subscription.
+    notificationEmail :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,48 +66,30 @@ data AccountInfo = AccountInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authenticationType', 'accountInfo_authenticationType' - The way that your Amazon QuickSight account is authenticated.
---
--- 'notificationEmail', 'accountInfo_notificationEmail' - The email address that will be used for Amazon QuickSight to send
--- notifications regarding your Amazon Web Services account or Amazon
--- QuickSight subscription.
---
--- 'edition', 'accountInfo_edition' - The edition of your Amazon QuickSight account.
---
--- 'accountSubscriptionStatus', 'accountInfo_accountSubscriptionStatus' - The status of your account subscription.
---
 -- 'accountName', 'accountInfo_accountName' - The account name that you provided for the Amazon QuickSight
 -- subscription in your Amazon Web Services account. You create this name
 -- when you sign up for Amazon QuickSight. It\'s unique over all of Amazon
 -- Web Services, and it appears only when users sign in.
+--
+-- 'accountSubscriptionStatus', 'accountInfo_accountSubscriptionStatus' - The status of your account subscription.
+--
+-- 'authenticationType', 'accountInfo_authenticationType' - The way that your Amazon QuickSight account is authenticated.
+--
+-- 'edition', 'accountInfo_edition' - The edition of your Amazon QuickSight account.
+--
+-- 'notificationEmail', 'accountInfo_notificationEmail' - The email address that will be used for Amazon QuickSight to send
+-- notifications regarding your Amazon Web Services account or Amazon
+-- QuickSight subscription.
 newAccountInfo ::
   AccountInfo
 newAccountInfo =
   AccountInfo'
-    { authenticationType = Prelude.Nothing,
-      notificationEmail = Prelude.Nothing,
-      edition = Prelude.Nothing,
+    { accountName = Prelude.Nothing,
       accountSubscriptionStatus = Prelude.Nothing,
-      accountName = Prelude.Nothing
+      authenticationType = Prelude.Nothing,
+      edition = Prelude.Nothing,
+      notificationEmail = Prelude.Nothing
     }
-
--- | The way that your Amazon QuickSight account is authenticated.
-accountInfo_authenticationType :: Lens.Lens' AccountInfo (Prelude.Maybe Prelude.Text)
-accountInfo_authenticationType = Lens.lens (\AccountInfo' {authenticationType} -> authenticationType) (\s@AccountInfo' {} a -> s {authenticationType = a} :: AccountInfo)
-
--- | The email address that will be used for Amazon QuickSight to send
--- notifications regarding your Amazon Web Services account or Amazon
--- QuickSight subscription.
-accountInfo_notificationEmail :: Lens.Lens' AccountInfo (Prelude.Maybe Prelude.Text)
-accountInfo_notificationEmail = Lens.lens (\AccountInfo' {notificationEmail} -> notificationEmail) (\s@AccountInfo' {} a -> s {notificationEmail = a} :: AccountInfo)
-
--- | The edition of your Amazon QuickSight account.
-accountInfo_edition :: Lens.Lens' AccountInfo (Prelude.Maybe Edition)
-accountInfo_edition = Lens.lens (\AccountInfo' {edition} -> edition) (\s@AccountInfo' {} a -> s {edition = a} :: AccountInfo)
-
--- | The status of your account subscription.
-accountInfo_accountSubscriptionStatus :: Lens.Lens' AccountInfo (Prelude.Maybe Prelude.Text)
-accountInfo_accountSubscriptionStatus = Lens.lens (\AccountInfo' {accountSubscriptionStatus} -> accountSubscriptionStatus) (\s@AccountInfo' {} a -> s {accountSubscriptionStatus = a} :: AccountInfo)
 
 -- | The account name that you provided for the Amazon QuickSight
 -- subscription in your Amazon Web Services account. You create this name
@@ -116,31 +98,49 @@ accountInfo_accountSubscriptionStatus = Lens.lens (\AccountInfo' {accountSubscri
 accountInfo_accountName :: Lens.Lens' AccountInfo (Prelude.Maybe Prelude.Text)
 accountInfo_accountName = Lens.lens (\AccountInfo' {accountName} -> accountName) (\s@AccountInfo' {} a -> s {accountName = a} :: AccountInfo)
 
+-- | The status of your account subscription.
+accountInfo_accountSubscriptionStatus :: Lens.Lens' AccountInfo (Prelude.Maybe Prelude.Text)
+accountInfo_accountSubscriptionStatus = Lens.lens (\AccountInfo' {accountSubscriptionStatus} -> accountSubscriptionStatus) (\s@AccountInfo' {} a -> s {accountSubscriptionStatus = a} :: AccountInfo)
+
+-- | The way that your Amazon QuickSight account is authenticated.
+accountInfo_authenticationType :: Lens.Lens' AccountInfo (Prelude.Maybe Prelude.Text)
+accountInfo_authenticationType = Lens.lens (\AccountInfo' {authenticationType} -> authenticationType) (\s@AccountInfo' {} a -> s {authenticationType = a} :: AccountInfo)
+
+-- | The edition of your Amazon QuickSight account.
+accountInfo_edition :: Lens.Lens' AccountInfo (Prelude.Maybe Edition)
+accountInfo_edition = Lens.lens (\AccountInfo' {edition} -> edition) (\s@AccountInfo' {} a -> s {edition = a} :: AccountInfo)
+
+-- | The email address that will be used for Amazon QuickSight to send
+-- notifications regarding your Amazon Web Services account or Amazon
+-- QuickSight subscription.
+accountInfo_notificationEmail :: Lens.Lens' AccountInfo (Prelude.Maybe Prelude.Text)
+accountInfo_notificationEmail = Lens.lens (\AccountInfo' {notificationEmail} -> notificationEmail) (\s@AccountInfo' {} a -> s {notificationEmail = a} :: AccountInfo)
+
 instance Data.FromJSON AccountInfo where
   parseJSON =
     Data.withObject
       "AccountInfo"
       ( \x ->
           AccountInfo'
-            Prelude.<$> (x Data..:? "AuthenticationType")
-            Prelude.<*> (x Data..:? "NotificationEmail")
-            Prelude.<*> (x Data..:? "Edition")
+            Prelude.<$> (x Data..:? "AccountName")
             Prelude.<*> (x Data..:? "AccountSubscriptionStatus")
-            Prelude.<*> (x Data..:? "AccountName")
+            Prelude.<*> (x Data..:? "AuthenticationType")
+            Prelude.<*> (x Data..:? "Edition")
+            Prelude.<*> (x Data..:? "NotificationEmail")
       )
 
 instance Prelude.Hashable AccountInfo where
   hashWithSalt _salt AccountInfo' {..} =
-    _salt `Prelude.hashWithSalt` authenticationType
-      `Prelude.hashWithSalt` notificationEmail
-      `Prelude.hashWithSalt` edition
+    _salt `Prelude.hashWithSalt` accountName
       `Prelude.hashWithSalt` accountSubscriptionStatus
-      `Prelude.hashWithSalt` accountName
+      `Prelude.hashWithSalt` authenticationType
+      `Prelude.hashWithSalt` edition
+      `Prelude.hashWithSalt` notificationEmail
 
 instance Prelude.NFData AccountInfo where
   rnf AccountInfo' {..} =
-    Prelude.rnf authenticationType
-      `Prelude.seq` Prelude.rnf notificationEmail
-      `Prelude.seq` Prelude.rnf edition
+    Prelude.rnf accountName
       `Prelude.seq` Prelude.rnf accountSubscriptionStatus
-      `Prelude.seq` Prelude.rnf accountName
+      `Prelude.seq` Prelude.rnf authenticationType
+      `Prelude.seq` Prelude.rnf edition
+      `Prelude.seq` Prelude.rnf notificationEmail

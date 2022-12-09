@@ -35,10 +35,10 @@ module Amazonka.QuickSight.DescribeAnalysisPermissions
     newDescribeAnalysisPermissionsResponse,
 
     -- * Response Lenses
-    describeAnalysisPermissionsResponse_analysisId,
-    describeAnalysisPermissionsResponse_requestId,
-    describeAnalysisPermissionsResponse_permissions,
     describeAnalysisPermissionsResponse_analysisArn,
+    describeAnalysisPermissionsResponse_analysisId,
+    describeAnalysisPermissionsResponse_permissions,
+    describeAnalysisPermissionsResponse_requestId,
     describeAnalysisPermissionsResponse_status,
   )
 where
@@ -113,10 +113,10 @@ instance Core.AWSRequest DescribeAnalysisPermissions where
     Response.receiveJSON
       ( \s h x ->
           DescribeAnalysisPermissionsResponse'
-            Prelude.<$> (x Data..?> "AnalysisId")
-            Prelude.<*> (x Data..?> "RequestId")
+            Prelude.<$> (x Data..?> "AnalysisArn")
+            Prelude.<*> (x Data..?> "AnalysisId")
             Prelude.<*> (x Data..?> "Permissions")
-            Prelude.<*> (x Data..?> "AnalysisArn")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,16 +156,16 @@ instance Data.ToQuery DescribeAnalysisPermissions where
 
 -- | /See:/ 'newDescribeAnalysisPermissionsResponse' smart constructor.
 data DescribeAnalysisPermissionsResponse = DescribeAnalysisPermissionsResponse'
-  { -- | The ID of the analysis whose permissions you\'re describing.
+  { -- | The Amazon Resource Name (ARN) of the analysis whose permissions you\'re
+    -- describing.
+    analysisArn :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the analysis whose permissions you\'re describing.
     analysisId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Maybe Prelude.Text,
     -- | A structure that describes the principals and the resource-level
     -- permissions on an analysis.
     permissions :: Prelude.Maybe (Prelude.NonEmpty ResourcePermission),
-    -- | The Amazon Resource Name (ARN) of the analysis whose permissions you\'re
-    -- describing.
-    analysisArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -179,15 +179,15 @@ data DescribeAnalysisPermissionsResponse = DescribeAnalysisPermissionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'analysisId', 'describeAnalysisPermissionsResponse_analysisId' - The ID of the analysis whose permissions you\'re describing.
+-- 'analysisArn', 'describeAnalysisPermissionsResponse_analysisArn' - The Amazon Resource Name (ARN) of the analysis whose permissions you\'re
+-- describing.
 --
--- 'requestId', 'describeAnalysisPermissionsResponse_requestId' - The Amazon Web Services request ID for this operation.
+-- 'analysisId', 'describeAnalysisPermissionsResponse_analysisId' - The ID of the analysis whose permissions you\'re describing.
 --
 -- 'permissions', 'describeAnalysisPermissionsResponse_permissions' - A structure that describes the principals and the resource-level
 -- permissions on an analysis.
 --
--- 'analysisArn', 'describeAnalysisPermissionsResponse_analysisArn' - The Amazon Resource Name (ARN) of the analysis whose permissions you\'re
--- describing.
+-- 'requestId', 'describeAnalysisPermissionsResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'status', 'describeAnalysisPermissionsResponse_status' - The HTTP status of the request.
 newDescribeAnalysisPermissionsResponse ::
@@ -196,31 +196,31 @@ newDescribeAnalysisPermissionsResponse ::
   DescribeAnalysisPermissionsResponse
 newDescribeAnalysisPermissionsResponse pStatus_ =
   DescribeAnalysisPermissionsResponse'
-    { analysisId =
+    { analysisArn =
         Prelude.Nothing,
-      requestId = Prelude.Nothing,
+      analysisId = Prelude.Nothing,
       permissions = Prelude.Nothing,
-      analysisArn = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       status = pStatus_
     }
+
+-- | The Amazon Resource Name (ARN) of the analysis whose permissions you\'re
+-- describing.
+describeAnalysisPermissionsResponse_analysisArn :: Lens.Lens' DescribeAnalysisPermissionsResponse (Prelude.Maybe Prelude.Text)
+describeAnalysisPermissionsResponse_analysisArn = Lens.lens (\DescribeAnalysisPermissionsResponse' {analysisArn} -> analysisArn) (\s@DescribeAnalysisPermissionsResponse' {} a -> s {analysisArn = a} :: DescribeAnalysisPermissionsResponse)
 
 -- | The ID of the analysis whose permissions you\'re describing.
 describeAnalysisPermissionsResponse_analysisId :: Lens.Lens' DescribeAnalysisPermissionsResponse (Prelude.Maybe Prelude.Text)
 describeAnalysisPermissionsResponse_analysisId = Lens.lens (\DescribeAnalysisPermissionsResponse' {analysisId} -> analysisId) (\s@DescribeAnalysisPermissionsResponse' {} a -> s {analysisId = a} :: DescribeAnalysisPermissionsResponse)
-
--- | The Amazon Web Services request ID for this operation.
-describeAnalysisPermissionsResponse_requestId :: Lens.Lens' DescribeAnalysisPermissionsResponse (Prelude.Maybe Prelude.Text)
-describeAnalysisPermissionsResponse_requestId = Lens.lens (\DescribeAnalysisPermissionsResponse' {requestId} -> requestId) (\s@DescribeAnalysisPermissionsResponse' {} a -> s {requestId = a} :: DescribeAnalysisPermissionsResponse)
 
 -- | A structure that describes the principals and the resource-level
 -- permissions on an analysis.
 describeAnalysisPermissionsResponse_permissions :: Lens.Lens' DescribeAnalysisPermissionsResponse (Prelude.Maybe (Prelude.NonEmpty ResourcePermission))
 describeAnalysisPermissionsResponse_permissions = Lens.lens (\DescribeAnalysisPermissionsResponse' {permissions} -> permissions) (\s@DescribeAnalysisPermissionsResponse' {} a -> s {permissions = a} :: DescribeAnalysisPermissionsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon Resource Name (ARN) of the analysis whose permissions you\'re
--- describing.
-describeAnalysisPermissionsResponse_analysisArn :: Lens.Lens' DescribeAnalysisPermissionsResponse (Prelude.Maybe Prelude.Text)
-describeAnalysisPermissionsResponse_analysisArn = Lens.lens (\DescribeAnalysisPermissionsResponse' {analysisArn} -> analysisArn) (\s@DescribeAnalysisPermissionsResponse' {} a -> s {analysisArn = a} :: DescribeAnalysisPermissionsResponse)
+-- | The Amazon Web Services request ID for this operation.
+describeAnalysisPermissionsResponse_requestId :: Lens.Lens' DescribeAnalysisPermissionsResponse (Prelude.Maybe Prelude.Text)
+describeAnalysisPermissionsResponse_requestId = Lens.lens (\DescribeAnalysisPermissionsResponse' {requestId} -> requestId) (\s@DescribeAnalysisPermissionsResponse' {} a -> s {requestId = a} :: DescribeAnalysisPermissionsResponse)
 
 -- | The HTTP status of the request.
 describeAnalysisPermissionsResponse_status :: Lens.Lens' DescribeAnalysisPermissionsResponse Prelude.Int
@@ -231,8 +231,8 @@ instance
     DescribeAnalysisPermissionsResponse
   where
   rnf DescribeAnalysisPermissionsResponse' {..} =
-    Prelude.rnf analysisId
-      `Prelude.seq` Prelude.rnf requestId
+    Prelude.rnf analysisArn
+      `Prelude.seq` Prelude.rnf analysisId
       `Prelude.seq` Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf analysisArn
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf status

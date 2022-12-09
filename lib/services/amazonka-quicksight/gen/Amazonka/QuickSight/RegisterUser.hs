@@ -29,13 +29,13 @@ module Amazonka.QuickSight.RegisterUser
     newRegisterUser,
 
     -- * Request Lenses
-    registerUser_iamArn,
-    registerUser_externalLoginFederationProviderType,
     registerUser_customFederationProviderUrl,
-    registerUser_userName,
-    registerUser_externalLoginId,
     registerUser_customPermissionsName,
+    registerUser_externalLoginFederationProviderType,
+    registerUser_externalLoginId,
+    registerUser_iamArn,
     registerUser_sessionName,
+    registerUser_userName,
     registerUser_identityType,
     registerUser_email,
     registerUser_userRole,
@@ -47,9 +47,9 @@ module Amazonka.QuickSight.RegisterUser
     newRegisterUserResponse,
 
     -- * Response Lenses
-    registerUserResponse_userInvitationUrl,
-    registerUserResponse_user,
     registerUserResponse_requestId,
+    registerUserResponse_user,
+    registerUserResponse_userInvitationUrl,
     registerUserResponse_status,
   )
 where
@@ -64,34 +64,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRegisterUser' smart constructor.
 data RegisterUser = RegisterUser'
-  { -- | The ARN of the IAM user or role that you are registering with Amazon
-    -- QuickSight.
-    iamArn :: Prelude.Maybe Prelude.Text,
-    -- | The type of supported external login provider that provides identity to
-    -- let a user federate into Amazon QuickSight with an associated Identity
-    -- and Access Management(IAM) role. The type of supported external login
-    -- provider can be one of the following.
-    --
-    -- -   @COGNITO@: Amazon Cognito. The provider URL is
-    --     cognito-identity.amazonaws.com. When choosing the @COGNITO@ provider
-    --     type, don’t use the \"CustomFederationProviderUrl\" parameter which
-    --     is only needed when the external provider is custom.
-    --
-    -- -   @CUSTOM_OIDC@: Custom OpenID Connect (OIDC) provider. When choosing
-    --     @CUSTOM_OIDC@ type, use the @CustomFederationProviderUrl@ parameter
-    --     to provide the custom OIDC provider URL.
-    externalLoginFederationProviderType :: Prelude.Maybe Prelude.Text,
-    -- | The URL of the custom OpenID Connect (OIDC) provider that provides
+  { -- | The URL of the custom OpenID Connect (OIDC) provider that provides
     -- identity to let a user federate into Amazon QuickSight with an
     -- associated Identity and Access Management(IAM) role. This parameter
     -- should only be used when @ExternalLoginFederationProviderType@ parameter
     -- is set to @CUSTOM_OIDC@.
     customFederationProviderUrl :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon QuickSight user name that you want to create for the user you
-    -- are registering.
-    userName :: Prelude.Maybe Prelude.Text,
-    -- | The identity ID for a user in the external login provider.
-    externalLoginId :: Prelude.Maybe Prelude.Text,
     -- | (Enterprise edition only) The name of the custom permissions profile
     -- that you want to assign to this user. Customized permissions allows you
     -- to control a user\'s access by restricting access the following
@@ -122,6 +100,25 @@ data RegisterUser = RegisterUser'
     -- This feature is available only to Amazon QuickSight Enterprise edition
     -- subscriptions.
     customPermissionsName :: Prelude.Maybe Prelude.Text,
+    -- | The type of supported external login provider that provides identity to
+    -- let a user federate into Amazon QuickSight with an associated Identity
+    -- and Access Management(IAM) role. The type of supported external login
+    -- provider can be one of the following.
+    --
+    -- -   @COGNITO@: Amazon Cognito. The provider URL is
+    --     cognito-identity.amazonaws.com. When choosing the @COGNITO@ provider
+    --     type, don’t use the \"CustomFederationProviderUrl\" parameter which
+    --     is only needed when the external provider is custom.
+    --
+    -- -   @CUSTOM_OIDC@: Custom OpenID Connect (OIDC) provider. When choosing
+    --     @CUSTOM_OIDC@ type, use the @CustomFederationProviderUrl@ parameter
+    --     to provide the custom OIDC provider URL.
+    externalLoginFederationProviderType :: Prelude.Maybe Prelude.Text,
+    -- | The identity ID for a user in the external login provider.
+    externalLoginId :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the IAM user or role that you are registering with Amazon
+    -- QuickSight.
+    iamArn :: Prelude.Maybe Prelude.Text,
     -- | You need to use this parameter only when you register one or more users
     -- using an assumed IAM role. You don\'t need to provide the session name
     -- for other scenarios, for example when you are registering an IAM user or
@@ -131,6 +128,9 @@ data RegisterUser = RegisterUser'
     -- <https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role.html assume-role>
     -- in the /CLI Reference./
     sessionName :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon QuickSight user name that you want to create for the user you
+    -- are registering.
+    userName :: Prelude.Maybe Prelude.Text,
     -- | Amazon QuickSight supports several ways of managing the identity of
     -- users. This parameter accepts two values:
     --
@@ -173,33 +173,11 @@ data RegisterUser = RegisterUser'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'iamArn', 'registerUser_iamArn' - The ARN of the IAM user or role that you are registering with Amazon
--- QuickSight.
---
--- 'externalLoginFederationProviderType', 'registerUser_externalLoginFederationProviderType' - The type of supported external login provider that provides identity to
--- let a user federate into Amazon QuickSight with an associated Identity
--- and Access Management(IAM) role. The type of supported external login
--- provider can be one of the following.
---
--- -   @COGNITO@: Amazon Cognito. The provider URL is
---     cognito-identity.amazonaws.com. When choosing the @COGNITO@ provider
---     type, don’t use the \"CustomFederationProviderUrl\" parameter which
---     is only needed when the external provider is custom.
---
--- -   @CUSTOM_OIDC@: Custom OpenID Connect (OIDC) provider. When choosing
---     @CUSTOM_OIDC@ type, use the @CustomFederationProviderUrl@ parameter
---     to provide the custom OIDC provider URL.
---
 -- 'customFederationProviderUrl', 'registerUser_customFederationProviderUrl' - The URL of the custom OpenID Connect (OIDC) provider that provides
 -- identity to let a user federate into Amazon QuickSight with an
 -- associated Identity and Access Management(IAM) role. This parameter
 -- should only be used when @ExternalLoginFederationProviderType@ parameter
 -- is set to @CUSTOM_OIDC@.
---
--- 'userName', 'registerUser_userName' - The Amazon QuickSight user name that you want to create for the user you
--- are registering.
---
--- 'externalLoginId', 'registerUser_externalLoginId' - The identity ID for a user in the external login provider.
 --
 -- 'customPermissionsName', 'registerUser_customPermissionsName' - (Enterprise edition only) The name of the custom permissions profile
 -- that you want to assign to this user. Customized permissions allows you
@@ -231,6 +209,25 @@ data RegisterUser = RegisterUser'
 -- This feature is available only to Amazon QuickSight Enterprise edition
 -- subscriptions.
 --
+-- 'externalLoginFederationProviderType', 'registerUser_externalLoginFederationProviderType' - The type of supported external login provider that provides identity to
+-- let a user federate into Amazon QuickSight with an associated Identity
+-- and Access Management(IAM) role. The type of supported external login
+-- provider can be one of the following.
+--
+-- -   @COGNITO@: Amazon Cognito. The provider URL is
+--     cognito-identity.amazonaws.com. When choosing the @COGNITO@ provider
+--     type, don’t use the \"CustomFederationProviderUrl\" parameter which
+--     is only needed when the external provider is custom.
+--
+-- -   @CUSTOM_OIDC@: Custom OpenID Connect (OIDC) provider. When choosing
+--     @CUSTOM_OIDC@ type, use the @CustomFederationProviderUrl@ parameter
+--     to provide the custom OIDC provider URL.
+--
+-- 'externalLoginId', 'registerUser_externalLoginId' - The identity ID for a user in the external login provider.
+--
+-- 'iamArn', 'registerUser_iamArn' - The ARN of the IAM user or role that you are registering with Amazon
+-- QuickSight.
+--
 -- 'sessionName', 'registerUser_sessionName' - You need to use this parameter only when you register one or more users
 -- using an assumed IAM role. You don\'t need to provide the session name
 -- for other scenarios, for example when you are registering an IAM user or
@@ -239,6 +236,9 @@ data RegisterUser = RegisterUser'
 -- information on assuming IAM roles, see
 -- <https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role.html assume-role>
 -- in the /CLI Reference./
+--
+-- 'userName', 'registerUser_userName' - The Amazon QuickSight user name that you want to create for the user you
+-- are registering.
 --
 -- 'identityType', 'registerUser_identityType' - Amazon QuickSight supports several ways of managing the identity of
 -- users. This parameter accepts two values:
@@ -289,41 +289,21 @@ newRegisterUser
   pAwsAccountId_
   pNamespace_ =
     RegisterUser'
-      { iamArn = Prelude.Nothing,
+      { customFederationProviderUrl =
+          Prelude.Nothing,
+        customPermissionsName = Prelude.Nothing,
         externalLoginFederationProviderType =
           Prelude.Nothing,
-        customFederationProviderUrl = Prelude.Nothing,
-        userName = Prelude.Nothing,
         externalLoginId = Prelude.Nothing,
-        customPermissionsName = Prelude.Nothing,
+        iamArn = Prelude.Nothing,
         sessionName = Prelude.Nothing,
+        userName = Prelude.Nothing,
         identityType = pIdentityType_,
         email = pEmail_,
         userRole = pUserRole_,
         awsAccountId = pAwsAccountId_,
         namespace = pNamespace_
       }
-
--- | The ARN of the IAM user or role that you are registering with Amazon
--- QuickSight.
-registerUser_iamArn :: Lens.Lens' RegisterUser (Prelude.Maybe Prelude.Text)
-registerUser_iamArn = Lens.lens (\RegisterUser' {iamArn} -> iamArn) (\s@RegisterUser' {} a -> s {iamArn = a} :: RegisterUser)
-
--- | The type of supported external login provider that provides identity to
--- let a user federate into Amazon QuickSight with an associated Identity
--- and Access Management(IAM) role. The type of supported external login
--- provider can be one of the following.
---
--- -   @COGNITO@: Amazon Cognito. The provider URL is
---     cognito-identity.amazonaws.com. When choosing the @COGNITO@ provider
---     type, don’t use the \"CustomFederationProviderUrl\" parameter which
---     is only needed when the external provider is custom.
---
--- -   @CUSTOM_OIDC@: Custom OpenID Connect (OIDC) provider. When choosing
---     @CUSTOM_OIDC@ type, use the @CustomFederationProviderUrl@ parameter
---     to provide the custom OIDC provider URL.
-registerUser_externalLoginFederationProviderType :: Lens.Lens' RegisterUser (Prelude.Maybe Prelude.Text)
-registerUser_externalLoginFederationProviderType = Lens.lens (\RegisterUser' {externalLoginFederationProviderType} -> externalLoginFederationProviderType) (\s@RegisterUser' {} a -> s {externalLoginFederationProviderType = a} :: RegisterUser)
 
 -- | The URL of the custom OpenID Connect (OIDC) provider that provides
 -- identity to let a user federate into Amazon QuickSight with an
@@ -332,15 +312,6 @@ registerUser_externalLoginFederationProviderType = Lens.lens (\RegisterUser' {ex
 -- is set to @CUSTOM_OIDC@.
 registerUser_customFederationProviderUrl :: Lens.Lens' RegisterUser (Prelude.Maybe Prelude.Text)
 registerUser_customFederationProviderUrl = Lens.lens (\RegisterUser' {customFederationProviderUrl} -> customFederationProviderUrl) (\s@RegisterUser' {} a -> s {customFederationProviderUrl = a} :: RegisterUser)
-
--- | The Amazon QuickSight user name that you want to create for the user you
--- are registering.
-registerUser_userName :: Lens.Lens' RegisterUser (Prelude.Maybe Prelude.Text)
-registerUser_userName = Lens.lens (\RegisterUser' {userName} -> userName) (\s@RegisterUser' {} a -> s {userName = a} :: RegisterUser)
-
--- | The identity ID for a user in the external login provider.
-registerUser_externalLoginId :: Lens.Lens' RegisterUser (Prelude.Maybe Prelude.Text)
-registerUser_externalLoginId = Lens.lens (\RegisterUser' {externalLoginId} -> externalLoginId) (\s@RegisterUser' {} a -> s {externalLoginId = a} :: RegisterUser)
 
 -- | (Enterprise edition only) The name of the custom permissions profile
 -- that you want to assign to this user. Customized permissions allows you
@@ -374,6 +345,31 @@ registerUser_externalLoginId = Lens.lens (\RegisterUser' {externalLoginId} -> ex
 registerUser_customPermissionsName :: Lens.Lens' RegisterUser (Prelude.Maybe Prelude.Text)
 registerUser_customPermissionsName = Lens.lens (\RegisterUser' {customPermissionsName} -> customPermissionsName) (\s@RegisterUser' {} a -> s {customPermissionsName = a} :: RegisterUser)
 
+-- | The type of supported external login provider that provides identity to
+-- let a user federate into Amazon QuickSight with an associated Identity
+-- and Access Management(IAM) role. The type of supported external login
+-- provider can be one of the following.
+--
+-- -   @COGNITO@: Amazon Cognito. The provider URL is
+--     cognito-identity.amazonaws.com. When choosing the @COGNITO@ provider
+--     type, don’t use the \"CustomFederationProviderUrl\" parameter which
+--     is only needed when the external provider is custom.
+--
+-- -   @CUSTOM_OIDC@: Custom OpenID Connect (OIDC) provider. When choosing
+--     @CUSTOM_OIDC@ type, use the @CustomFederationProviderUrl@ parameter
+--     to provide the custom OIDC provider URL.
+registerUser_externalLoginFederationProviderType :: Lens.Lens' RegisterUser (Prelude.Maybe Prelude.Text)
+registerUser_externalLoginFederationProviderType = Lens.lens (\RegisterUser' {externalLoginFederationProviderType} -> externalLoginFederationProviderType) (\s@RegisterUser' {} a -> s {externalLoginFederationProviderType = a} :: RegisterUser)
+
+-- | The identity ID for a user in the external login provider.
+registerUser_externalLoginId :: Lens.Lens' RegisterUser (Prelude.Maybe Prelude.Text)
+registerUser_externalLoginId = Lens.lens (\RegisterUser' {externalLoginId} -> externalLoginId) (\s@RegisterUser' {} a -> s {externalLoginId = a} :: RegisterUser)
+
+-- | The ARN of the IAM user or role that you are registering with Amazon
+-- QuickSight.
+registerUser_iamArn :: Lens.Lens' RegisterUser (Prelude.Maybe Prelude.Text)
+registerUser_iamArn = Lens.lens (\RegisterUser' {iamArn} -> iamArn) (\s@RegisterUser' {} a -> s {iamArn = a} :: RegisterUser)
+
 -- | You need to use this parameter only when you register one or more users
 -- using an assumed IAM role. You don\'t need to provide the session name
 -- for other scenarios, for example when you are registering an IAM user or
@@ -384,6 +380,11 @@ registerUser_customPermissionsName = Lens.lens (\RegisterUser' {customPermission
 -- in the /CLI Reference./
 registerUser_sessionName :: Lens.Lens' RegisterUser (Prelude.Maybe Prelude.Text)
 registerUser_sessionName = Lens.lens (\RegisterUser' {sessionName} -> sessionName) (\s@RegisterUser' {} a -> s {sessionName = a} :: RegisterUser)
+
+-- | The Amazon QuickSight user name that you want to create for the user you
+-- are registering.
+registerUser_userName :: Lens.Lens' RegisterUser (Prelude.Maybe Prelude.Text)
+registerUser_userName = Lens.lens (\RegisterUser' {userName} -> userName) (\s@RegisterUser' {} a -> s {userName = a} :: RegisterUser)
 
 -- | Amazon QuickSight supports several ways of managing the identity of
 -- users. This parameter accepts two values:
@@ -434,21 +435,22 @@ instance Core.AWSRequest RegisterUser where
     Response.receiveJSON
       ( \s h x ->
           RegisterUserResponse'
-            Prelude.<$> (x Data..?> "UserInvitationUrl")
+            Prelude.<$> (x Data..?> "RequestId")
             Prelude.<*> (x Data..?> "User")
-            Prelude.<*> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "UserInvitationUrl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable RegisterUser where
   hashWithSalt _salt RegisterUser' {..} =
-    _salt `Prelude.hashWithSalt` iamArn
-      `Prelude.hashWithSalt` externalLoginFederationProviderType
+    _salt
       `Prelude.hashWithSalt` customFederationProviderUrl
-      `Prelude.hashWithSalt` userName
-      `Prelude.hashWithSalt` externalLoginId
       `Prelude.hashWithSalt` customPermissionsName
+      `Prelude.hashWithSalt` externalLoginFederationProviderType
+      `Prelude.hashWithSalt` externalLoginId
+      `Prelude.hashWithSalt` iamArn
       `Prelude.hashWithSalt` sessionName
+      `Prelude.hashWithSalt` userName
       `Prelude.hashWithSalt` identityType
       `Prelude.hashWithSalt` email
       `Prelude.hashWithSalt` userRole
@@ -457,13 +459,13 @@ instance Prelude.Hashable RegisterUser where
 
 instance Prelude.NFData RegisterUser where
   rnf RegisterUser' {..} =
-    Prelude.rnf iamArn
-      `Prelude.seq` Prelude.rnf externalLoginFederationProviderType
-      `Prelude.seq` Prelude.rnf customFederationProviderUrl
-      `Prelude.seq` Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf externalLoginId
+    Prelude.rnf customFederationProviderUrl
       `Prelude.seq` Prelude.rnf customPermissionsName
+      `Prelude.seq` Prelude.rnf externalLoginFederationProviderType
+      `Prelude.seq` Prelude.rnf externalLoginId
+      `Prelude.seq` Prelude.rnf iamArn
       `Prelude.seq` Prelude.rnf sessionName
+      `Prelude.seq` Prelude.rnf userName
       `Prelude.seq` Prelude.rnf identityType
       `Prelude.seq` Prelude.rnf email
       `Prelude.seq` Prelude.rnf userRole
@@ -485,17 +487,17 @@ instance Data.ToJSON RegisterUser where
   toJSON RegisterUser' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("IamArn" Data..=) Prelude.<$> iamArn,
-            ("ExternalLoginFederationProviderType" Data..=)
-              Prelude.<$> externalLoginFederationProviderType,
-            ("CustomFederationProviderUrl" Data..=)
+          [ ("CustomFederationProviderUrl" Data..=)
               Prelude.<$> customFederationProviderUrl,
-            ("UserName" Data..=) Prelude.<$> userName,
-            ("ExternalLoginId" Data..=)
-              Prelude.<$> externalLoginId,
             ("CustomPermissionsName" Data..=)
               Prelude.<$> customPermissionsName,
+            ("ExternalLoginFederationProviderType" Data..=)
+              Prelude.<$> externalLoginFederationProviderType,
+            ("ExternalLoginId" Data..=)
+              Prelude.<$> externalLoginId,
+            ("IamArn" Data..=) Prelude.<$> iamArn,
             ("SessionName" Data..=) Prelude.<$> sessionName,
+            ("UserName" Data..=) Prelude.<$> userName,
             Prelude.Just ("IdentityType" Data..= identityType),
             Prelude.Just ("Email" Data..= email),
             Prelude.Just ("UserRole" Data..= userRole)
@@ -517,13 +519,13 @@ instance Data.ToQuery RegisterUser where
 
 -- | /See:/ 'newRegisterUserResponse' smart constructor.
 data RegisterUserResponse = RegisterUserResponse'
-  { -- | The URL the user visits to complete registration and provide a password.
-    -- This is returned only for users with an identity type of @QUICKSIGHT@.
-    userInvitationUrl :: Prelude.Maybe Prelude.Text,
+  { -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The user\'s user name.
     user :: Prelude.Maybe User,
-    -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Maybe Prelude.Text,
+    -- | The URL the user visits to complete registration and provide a password.
+    -- This is returned only for users with an identity type of @QUICKSIGHT@.
+    userInvitationUrl :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -537,12 +539,12 @@ data RegisterUserResponse = RegisterUserResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'userInvitationUrl', 'registerUserResponse_userInvitationUrl' - The URL the user visits to complete registration and provide a password.
--- This is returned only for users with an identity type of @QUICKSIGHT@.
+-- 'requestId', 'registerUserResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'user', 'registerUserResponse_user' - The user\'s user name.
 --
--- 'requestId', 'registerUserResponse_requestId' - The Amazon Web Services request ID for this operation.
+-- 'userInvitationUrl', 'registerUserResponse_userInvitationUrl' - The URL the user visits to complete registration and provide a password.
+-- This is returned only for users with an identity type of @QUICKSIGHT@.
 --
 -- 'status', 'registerUserResponse_status' - The HTTP status of the request.
 newRegisterUserResponse ::
@@ -551,25 +553,24 @@ newRegisterUserResponse ::
   RegisterUserResponse
 newRegisterUserResponse pStatus_ =
   RegisterUserResponse'
-    { userInvitationUrl =
-        Prelude.Nothing,
+    { requestId = Prelude.Nothing,
       user = Prelude.Nothing,
-      requestId = Prelude.Nothing,
+      userInvitationUrl = Prelude.Nothing,
       status = pStatus_
     }
 
--- | The URL the user visits to complete registration and provide a password.
--- This is returned only for users with an identity type of @QUICKSIGHT@.
-registerUserResponse_userInvitationUrl :: Lens.Lens' RegisterUserResponse (Prelude.Maybe Prelude.Text)
-registerUserResponse_userInvitationUrl = Lens.lens (\RegisterUserResponse' {userInvitationUrl} -> userInvitationUrl) (\s@RegisterUserResponse' {} a -> s {userInvitationUrl = a} :: RegisterUserResponse)
+-- | The Amazon Web Services request ID for this operation.
+registerUserResponse_requestId :: Lens.Lens' RegisterUserResponse (Prelude.Maybe Prelude.Text)
+registerUserResponse_requestId = Lens.lens (\RegisterUserResponse' {requestId} -> requestId) (\s@RegisterUserResponse' {} a -> s {requestId = a} :: RegisterUserResponse)
 
 -- | The user\'s user name.
 registerUserResponse_user :: Lens.Lens' RegisterUserResponse (Prelude.Maybe User)
 registerUserResponse_user = Lens.lens (\RegisterUserResponse' {user} -> user) (\s@RegisterUserResponse' {} a -> s {user = a} :: RegisterUserResponse)
 
--- | The Amazon Web Services request ID for this operation.
-registerUserResponse_requestId :: Lens.Lens' RegisterUserResponse (Prelude.Maybe Prelude.Text)
-registerUserResponse_requestId = Lens.lens (\RegisterUserResponse' {requestId} -> requestId) (\s@RegisterUserResponse' {} a -> s {requestId = a} :: RegisterUserResponse)
+-- | The URL the user visits to complete registration and provide a password.
+-- This is returned only for users with an identity type of @QUICKSIGHT@.
+registerUserResponse_userInvitationUrl :: Lens.Lens' RegisterUserResponse (Prelude.Maybe Prelude.Text)
+registerUserResponse_userInvitationUrl = Lens.lens (\RegisterUserResponse' {userInvitationUrl} -> userInvitationUrl) (\s@RegisterUserResponse' {} a -> s {userInvitationUrl = a} :: RegisterUserResponse)
 
 -- | The HTTP status of the request.
 registerUserResponse_status :: Lens.Lens' RegisterUserResponse Prelude.Int
@@ -577,7 +578,7 @@ registerUserResponse_status = Lens.lens (\RegisterUserResponse' {status} -> stat
 
 instance Prelude.NFData RegisterUserResponse where
   rnf RegisterUserResponse' {..} =
-    Prelude.rnf userInvitationUrl
+    Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf user
-      `Prelude.seq` Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf userInvitationUrl
       `Prelude.seq` Prelude.rnf status

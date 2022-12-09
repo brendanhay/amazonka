@@ -33,11 +33,11 @@ import Amazonka.QuickSight.Types.AnonymousUserQSearchBarEmbeddingConfiguration
 -- /See:/ 'newAnonymousUserEmbeddingExperienceConfiguration' smart constructor.
 data AnonymousUserEmbeddingExperienceConfiguration = AnonymousUserEmbeddingExperienceConfiguration'
   { -- | The type of embedding experience. In this case, Amazon QuickSight
-    -- visuals.
-    dashboardVisual :: Prelude.Maybe AnonymousUserDashboardVisualEmbeddingConfiguration,
-    -- | The type of embedding experience. In this case, Amazon QuickSight
     -- dashboards.
     dashboard :: Prelude.Maybe AnonymousUserDashboardEmbeddingConfiguration,
+    -- | The type of embedding experience. In this case, Amazon QuickSight
+    -- visuals.
+    dashboardVisual :: Prelude.Maybe AnonymousUserDashboardVisualEmbeddingConfiguration,
     -- | The Q search bar that you want to use for anonymous user embedding.
     qSearchBar :: Prelude.Maybe AnonymousUserQSearchBarEmbeddingConfiguration
   }
@@ -51,32 +51,33 @@ data AnonymousUserEmbeddingExperienceConfiguration = AnonymousUserEmbeddingExper
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dashboardVisual', 'anonymousUserEmbeddingExperienceConfiguration_dashboardVisual' - The type of embedding experience. In this case, Amazon QuickSight
--- visuals.
---
 -- 'dashboard', 'anonymousUserEmbeddingExperienceConfiguration_dashboard' - The type of embedding experience. In this case, Amazon QuickSight
 -- dashboards.
+--
+-- 'dashboardVisual', 'anonymousUserEmbeddingExperienceConfiguration_dashboardVisual' - The type of embedding experience. In this case, Amazon QuickSight
+-- visuals.
 --
 -- 'qSearchBar', 'anonymousUserEmbeddingExperienceConfiguration_qSearchBar' - The Q search bar that you want to use for anonymous user embedding.
 newAnonymousUserEmbeddingExperienceConfiguration ::
   AnonymousUserEmbeddingExperienceConfiguration
 newAnonymousUserEmbeddingExperienceConfiguration =
   AnonymousUserEmbeddingExperienceConfiguration'
-    { dashboardVisual =
+    { dashboard =
         Prelude.Nothing,
-      dashboard = Prelude.Nothing,
+      dashboardVisual =
+        Prelude.Nothing,
       qSearchBar = Prelude.Nothing
     }
-
--- | The type of embedding experience. In this case, Amazon QuickSight
--- visuals.
-anonymousUserEmbeddingExperienceConfiguration_dashboardVisual :: Lens.Lens' AnonymousUserEmbeddingExperienceConfiguration (Prelude.Maybe AnonymousUserDashboardVisualEmbeddingConfiguration)
-anonymousUserEmbeddingExperienceConfiguration_dashboardVisual = Lens.lens (\AnonymousUserEmbeddingExperienceConfiguration' {dashboardVisual} -> dashboardVisual) (\s@AnonymousUserEmbeddingExperienceConfiguration' {} a -> s {dashboardVisual = a} :: AnonymousUserEmbeddingExperienceConfiguration)
 
 -- | The type of embedding experience. In this case, Amazon QuickSight
 -- dashboards.
 anonymousUserEmbeddingExperienceConfiguration_dashboard :: Lens.Lens' AnonymousUserEmbeddingExperienceConfiguration (Prelude.Maybe AnonymousUserDashboardEmbeddingConfiguration)
 anonymousUserEmbeddingExperienceConfiguration_dashboard = Lens.lens (\AnonymousUserEmbeddingExperienceConfiguration' {dashboard} -> dashboard) (\s@AnonymousUserEmbeddingExperienceConfiguration' {} a -> s {dashboard = a} :: AnonymousUserEmbeddingExperienceConfiguration)
+
+-- | The type of embedding experience. In this case, Amazon QuickSight
+-- visuals.
+anonymousUserEmbeddingExperienceConfiguration_dashboardVisual :: Lens.Lens' AnonymousUserEmbeddingExperienceConfiguration (Prelude.Maybe AnonymousUserDashboardVisualEmbeddingConfiguration)
+anonymousUserEmbeddingExperienceConfiguration_dashboardVisual = Lens.lens (\AnonymousUserEmbeddingExperienceConfiguration' {dashboardVisual} -> dashboardVisual) (\s@AnonymousUserEmbeddingExperienceConfiguration' {} a -> s {dashboardVisual = a} :: AnonymousUserEmbeddingExperienceConfiguration)
 
 -- | The Q search bar that you want to use for anonymous user embedding.
 anonymousUserEmbeddingExperienceConfiguration_qSearchBar :: Lens.Lens' AnonymousUserEmbeddingExperienceConfiguration (Prelude.Maybe AnonymousUserQSearchBarEmbeddingConfiguration)
@@ -89,8 +90,8 @@ instance
   hashWithSalt
     _salt
     AnonymousUserEmbeddingExperienceConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` dashboardVisual
-        `Prelude.hashWithSalt` dashboard
+      _salt `Prelude.hashWithSalt` dashboard
+        `Prelude.hashWithSalt` dashboardVisual
         `Prelude.hashWithSalt` qSearchBar
 
 instance
@@ -99,8 +100,8 @@ instance
   where
   rnf
     AnonymousUserEmbeddingExperienceConfiguration' {..} =
-      Prelude.rnf dashboardVisual
-        `Prelude.seq` Prelude.rnf dashboard
+      Prelude.rnf dashboard
+        `Prelude.seq` Prelude.rnf dashboardVisual
         `Prelude.seq` Prelude.rnf qSearchBar
 
 instance
@@ -111,9 +112,9 @@ instance
     AnonymousUserEmbeddingExperienceConfiguration' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ ("DashboardVisual" Data..=)
+            [ ("Dashboard" Data..=) Prelude.<$> dashboard,
+              ("DashboardVisual" Data..=)
                 Prelude.<$> dashboardVisual,
-              ("Dashboard" Data..=) Prelude.<$> dashboard,
               ("QSearchBar" Data..=) Prelude.<$> qSearchBar
             ]
         )

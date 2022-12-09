@@ -37,10 +37,10 @@ module Amazonka.QuickSight.UpdateTemplatePermissions
     newUpdateTemplatePermissionsResponse,
 
     -- * Response Lenses
-    updateTemplatePermissionsResponse_requestId,
     updateTemplatePermissionsResponse_permissions,
-    updateTemplatePermissionsResponse_templateId,
+    updateTemplatePermissionsResponse_requestId,
     updateTemplatePermissionsResponse_templateArn,
+    updateTemplatePermissionsResponse_templateId,
     updateTemplatePermissionsResponse_status,
   )
 where
@@ -124,10 +124,10 @@ instance Core.AWSRequest UpdateTemplatePermissions where
     Response.receiveJSON
       ( \s h x ->
           UpdateTemplatePermissionsResponse'
-            Prelude.<$> (x Data..?> "RequestId")
-            Prelude.<*> (x Data..?> "Permissions")
-            Prelude.<*> (x Data..?> "TemplateId")
+            Prelude.<$> (x Data..?> "Permissions")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (x Data..?> "TemplateArn")
+            Prelude.<*> (x Data..?> "TemplateId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -182,14 +182,14 @@ instance Data.ToQuery UpdateTemplatePermissions where
 
 -- | /See:/ 'newUpdateTemplatePermissionsResponse' smart constructor.
 data UpdateTemplatePermissionsResponse = UpdateTemplatePermissionsResponse'
-  { -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | A list of resource permissions to be set on the template.
+  { -- | A list of resource permissions to be set on the template.
     permissions :: Prelude.Maybe (Prelude.NonEmpty ResourcePermission),
-    -- | The ID for the template.
-    templateId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the template.
     templateArn :: Prelude.Maybe Prelude.Text,
+    -- | The ID for the template.
+    templateId :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -203,13 +203,13 @@ data UpdateTemplatePermissionsResponse = UpdateTemplatePermissionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'updateTemplatePermissionsResponse_requestId' - The Amazon Web Services request ID for this operation.
---
 -- 'permissions', 'updateTemplatePermissionsResponse_permissions' - A list of resource permissions to be set on the template.
 --
--- 'templateId', 'updateTemplatePermissionsResponse_templateId' - The ID for the template.
+-- 'requestId', 'updateTemplatePermissionsResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'templateArn', 'updateTemplatePermissionsResponse_templateArn' - The Amazon Resource Name (ARN) of the template.
+--
+-- 'templateId', 'updateTemplatePermissionsResponse_templateId' - The ID for the template.
 --
 -- 'status', 'updateTemplatePermissionsResponse_status' - The HTTP status of the request.
 newUpdateTemplatePermissionsResponse ::
@@ -218,29 +218,29 @@ newUpdateTemplatePermissionsResponse ::
   UpdateTemplatePermissionsResponse
 newUpdateTemplatePermissionsResponse pStatus_ =
   UpdateTemplatePermissionsResponse'
-    { requestId =
+    { permissions =
         Prelude.Nothing,
-      permissions = Prelude.Nothing,
-      templateId = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       templateArn = Prelude.Nothing,
+      templateId = Prelude.Nothing,
       status = pStatus_
     }
-
--- | The Amazon Web Services request ID for this operation.
-updateTemplatePermissionsResponse_requestId :: Lens.Lens' UpdateTemplatePermissionsResponse (Prelude.Maybe Prelude.Text)
-updateTemplatePermissionsResponse_requestId = Lens.lens (\UpdateTemplatePermissionsResponse' {requestId} -> requestId) (\s@UpdateTemplatePermissionsResponse' {} a -> s {requestId = a} :: UpdateTemplatePermissionsResponse)
 
 -- | A list of resource permissions to be set on the template.
 updateTemplatePermissionsResponse_permissions :: Lens.Lens' UpdateTemplatePermissionsResponse (Prelude.Maybe (Prelude.NonEmpty ResourcePermission))
 updateTemplatePermissionsResponse_permissions = Lens.lens (\UpdateTemplatePermissionsResponse' {permissions} -> permissions) (\s@UpdateTemplatePermissionsResponse' {} a -> s {permissions = a} :: UpdateTemplatePermissionsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The ID for the template.
-updateTemplatePermissionsResponse_templateId :: Lens.Lens' UpdateTemplatePermissionsResponse (Prelude.Maybe Prelude.Text)
-updateTemplatePermissionsResponse_templateId = Lens.lens (\UpdateTemplatePermissionsResponse' {templateId} -> templateId) (\s@UpdateTemplatePermissionsResponse' {} a -> s {templateId = a} :: UpdateTemplatePermissionsResponse)
+-- | The Amazon Web Services request ID for this operation.
+updateTemplatePermissionsResponse_requestId :: Lens.Lens' UpdateTemplatePermissionsResponse (Prelude.Maybe Prelude.Text)
+updateTemplatePermissionsResponse_requestId = Lens.lens (\UpdateTemplatePermissionsResponse' {requestId} -> requestId) (\s@UpdateTemplatePermissionsResponse' {} a -> s {requestId = a} :: UpdateTemplatePermissionsResponse)
 
 -- | The Amazon Resource Name (ARN) of the template.
 updateTemplatePermissionsResponse_templateArn :: Lens.Lens' UpdateTemplatePermissionsResponse (Prelude.Maybe Prelude.Text)
 updateTemplatePermissionsResponse_templateArn = Lens.lens (\UpdateTemplatePermissionsResponse' {templateArn} -> templateArn) (\s@UpdateTemplatePermissionsResponse' {} a -> s {templateArn = a} :: UpdateTemplatePermissionsResponse)
+
+-- | The ID for the template.
+updateTemplatePermissionsResponse_templateId :: Lens.Lens' UpdateTemplatePermissionsResponse (Prelude.Maybe Prelude.Text)
+updateTemplatePermissionsResponse_templateId = Lens.lens (\UpdateTemplatePermissionsResponse' {templateId} -> templateId) (\s@UpdateTemplatePermissionsResponse' {} a -> s {templateId = a} :: UpdateTemplatePermissionsResponse)
 
 -- | The HTTP status of the request.
 updateTemplatePermissionsResponse_status :: Lens.Lens' UpdateTemplatePermissionsResponse Prelude.Int
@@ -251,8 +251,8 @@ instance
     UpdateTemplatePermissionsResponse
   where
   rnf UpdateTemplatePermissionsResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf templateId
+    Prelude.rnf permissions
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf templateArn
+      `Prelude.seq` Prelude.rnf templateId
       `Prelude.seq` Prelude.rnf status

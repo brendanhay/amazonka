@@ -37,8 +37,8 @@ module Amazonka.QuickSight.CreateGroupMembership
     newCreateGroupMembershipResponse,
 
     -- * Response Lenses
-    createGroupMembershipResponse_requestId,
     createGroupMembershipResponse_groupMember,
+    createGroupMembershipResponse_requestId,
     createGroupMembershipResponse_status,
   )
 where
@@ -133,8 +133,8 @@ instance Core.AWSRequest CreateGroupMembership where
     Response.receiveJSON
       ( \s h x ->
           CreateGroupMembershipResponse'
-            Prelude.<$> (x Data..?> "RequestId")
-            Prelude.<*> (x Data..?> "GroupMember")
+            Prelude.<$> (x Data..?> "GroupMember")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -184,10 +184,10 @@ instance Data.ToQuery CreateGroupMembership where
 
 -- | /See:/ 'newCreateGroupMembershipResponse' smart constructor.
 data CreateGroupMembershipResponse = CreateGroupMembershipResponse'
-  { -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The group member.
+  { -- | The group member.
     groupMember :: Prelude.Maybe GroupMember,
+    -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -201,9 +201,9 @@ data CreateGroupMembershipResponse = CreateGroupMembershipResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'createGroupMembershipResponse_requestId' - The Amazon Web Services request ID for this operation.
---
 -- 'groupMember', 'createGroupMembershipResponse_groupMember' - The group member.
+--
+-- 'requestId', 'createGroupMembershipResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'status', 'createGroupMembershipResponse_status' - The HTTP status of the request.
 newCreateGroupMembershipResponse ::
@@ -212,19 +212,19 @@ newCreateGroupMembershipResponse ::
   CreateGroupMembershipResponse
 newCreateGroupMembershipResponse pStatus_ =
   CreateGroupMembershipResponse'
-    { requestId =
+    { groupMember =
         Prelude.Nothing,
-      groupMember = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       status = pStatus_
     }
-
--- | The Amazon Web Services request ID for this operation.
-createGroupMembershipResponse_requestId :: Lens.Lens' CreateGroupMembershipResponse (Prelude.Maybe Prelude.Text)
-createGroupMembershipResponse_requestId = Lens.lens (\CreateGroupMembershipResponse' {requestId} -> requestId) (\s@CreateGroupMembershipResponse' {} a -> s {requestId = a} :: CreateGroupMembershipResponse)
 
 -- | The group member.
 createGroupMembershipResponse_groupMember :: Lens.Lens' CreateGroupMembershipResponse (Prelude.Maybe GroupMember)
 createGroupMembershipResponse_groupMember = Lens.lens (\CreateGroupMembershipResponse' {groupMember} -> groupMember) (\s@CreateGroupMembershipResponse' {} a -> s {groupMember = a} :: CreateGroupMembershipResponse)
+
+-- | The Amazon Web Services request ID for this operation.
+createGroupMembershipResponse_requestId :: Lens.Lens' CreateGroupMembershipResponse (Prelude.Maybe Prelude.Text)
+createGroupMembershipResponse_requestId = Lens.lens (\CreateGroupMembershipResponse' {requestId} -> requestId) (\s@CreateGroupMembershipResponse' {} a -> s {requestId = a} :: CreateGroupMembershipResponse)
 
 -- | The HTTP status of the request.
 createGroupMembershipResponse_status :: Lens.Lens' CreateGroupMembershipResponse Prelude.Int
@@ -232,6 +232,6 @@ createGroupMembershipResponse_status = Lens.lens (\CreateGroupMembershipResponse
 
 instance Prelude.NFData CreateGroupMembershipResponse where
   rnf CreateGroupMembershipResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf groupMember
+    Prelude.rnf groupMember
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf status

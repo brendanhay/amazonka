@@ -36,9 +36,9 @@ module Amazonka.QuickSight.UpdateFolder
     newUpdateFolderResponse,
 
     -- * Response Lenses
-    updateFolderResponse_requestId,
     updateFolderResponse_arn,
     updateFolderResponse_folderId,
+    updateFolderResponse_requestId,
     updateFolderResponse_status,
   )
 where
@@ -113,9 +113,9 @@ instance Core.AWSRequest UpdateFolder where
     Response.receiveJSON
       ( \s h x ->
           UpdateFolderResponse'
-            Prelude.<$> (x Data..?> "RequestId")
-            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (x Data..?> "FolderId")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -163,12 +163,12 @@ instance Data.ToQuery UpdateFolder where
 
 -- | /See:/ 'newUpdateFolderResponse' smart constructor.
 data UpdateFolderResponse = UpdateFolderResponse'
-  { -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the folder.
+  { -- | The Amazon Resource Name (ARN) of the folder.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the folder.
     folderId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -182,11 +182,11 @@ data UpdateFolderResponse = UpdateFolderResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'updateFolderResponse_requestId' - The Amazon Web Services request ID for this operation.
---
 -- 'arn', 'updateFolderResponse_arn' - The Amazon Resource Name (ARN) of the folder.
 --
 -- 'folderId', 'updateFolderResponse_folderId' - The ID of the folder.
+--
+-- 'requestId', 'updateFolderResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'status', 'updateFolderResponse_status' - The HTTP status of the request.
 newUpdateFolderResponse ::
@@ -195,15 +195,11 @@ newUpdateFolderResponse ::
   UpdateFolderResponse
 newUpdateFolderResponse pStatus_ =
   UpdateFolderResponse'
-    { requestId = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       folderId = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       status = pStatus_
     }
-
--- | The Amazon Web Services request ID for this operation.
-updateFolderResponse_requestId :: Lens.Lens' UpdateFolderResponse (Prelude.Maybe Prelude.Text)
-updateFolderResponse_requestId = Lens.lens (\UpdateFolderResponse' {requestId} -> requestId) (\s@UpdateFolderResponse' {} a -> s {requestId = a} :: UpdateFolderResponse)
 
 -- | The Amazon Resource Name (ARN) of the folder.
 updateFolderResponse_arn :: Lens.Lens' UpdateFolderResponse (Prelude.Maybe Prelude.Text)
@@ -213,13 +209,17 @@ updateFolderResponse_arn = Lens.lens (\UpdateFolderResponse' {arn} -> arn) (\s@U
 updateFolderResponse_folderId :: Lens.Lens' UpdateFolderResponse (Prelude.Maybe Prelude.Text)
 updateFolderResponse_folderId = Lens.lens (\UpdateFolderResponse' {folderId} -> folderId) (\s@UpdateFolderResponse' {} a -> s {folderId = a} :: UpdateFolderResponse)
 
+-- | The Amazon Web Services request ID for this operation.
+updateFolderResponse_requestId :: Lens.Lens' UpdateFolderResponse (Prelude.Maybe Prelude.Text)
+updateFolderResponse_requestId = Lens.lens (\UpdateFolderResponse' {requestId} -> requestId) (\s@UpdateFolderResponse' {} a -> s {requestId = a} :: UpdateFolderResponse)
+
 -- | The HTTP status of the request.
 updateFolderResponse_status :: Lens.Lens' UpdateFolderResponse Prelude.Int
 updateFolderResponse_status = Lens.lens (\UpdateFolderResponse' {status} -> status) (\s@UpdateFolderResponse' {} a -> s {status = a} :: UpdateFolderResponse)
 
 instance Prelude.NFData UpdateFolderResponse where
   rnf UpdateFolderResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf folderId
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf status

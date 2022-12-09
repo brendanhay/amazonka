@@ -37,12 +37,12 @@ import Amazonka.QuickSight.Types.RegisteredUserQuickSightConsoleEmbeddingConfigu
 --
 -- /See:/ 'newRegisteredUserEmbeddingExperienceConfiguration' smart constructor.
 data RegisteredUserEmbeddingExperienceConfiguration = RegisteredUserEmbeddingExperienceConfiguration'
-  { -- | The type of embedding experience. In this case, Amazon QuickSight
-    -- visuals.
-    dashboardVisual :: Prelude.Maybe RegisteredUserDashboardVisualEmbeddingConfiguration,
-    -- | The configuration details for providing a dashboard embedding
+  { -- | The configuration details for providing a dashboard embedding
     -- experience.
     dashboard :: Prelude.Maybe RegisteredUserDashboardEmbeddingConfiguration,
+    -- | The type of embedding experience. In this case, Amazon QuickSight
+    -- visuals.
+    dashboardVisual :: Prelude.Maybe RegisteredUserDashboardVisualEmbeddingConfiguration,
     -- | The configuration details for embedding the Q search bar.
     --
     -- For more information about embedding the Q search bar, see
@@ -84,11 +84,11 @@ data RegisteredUserEmbeddingExperienceConfiguration = RegisteredUserEmbeddingExp
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dashboardVisual', 'registeredUserEmbeddingExperienceConfiguration_dashboardVisual' - The type of embedding experience. In this case, Amazon QuickSight
--- visuals.
---
 -- 'dashboard', 'registeredUserEmbeddingExperienceConfiguration_dashboard' - The configuration details for providing a dashboard embedding
 -- experience.
+--
+-- 'dashboardVisual', 'registeredUserEmbeddingExperienceConfiguration_dashboardVisual' - The type of embedding experience. In this case, Amazon QuickSight
+-- visuals.
 --
 -- 'qSearchBar', 'registeredUserEmbeddingExperienceConfiguration_qSearchBar' - The configuration details for embedding the Q search bar.
 --
@@ -123,24 +123,25 @@ newRegisteredUserEmbeddingExperienceConfiguration ::
   RegisteredUserEmbeddingExperienceConfiguration
 newRegisteredUserEmbeddingExperienceConfiguration =
   RegisteredUserEmbeddingExperienceConfiguration'
-    { dashboardVisual =
+    { dashboard =
         Prelude.Nothing,
-      dashboard = Prelude.Nothing,
+      dashboardVisual =
+        Prelude.Nothing,
       qSearchBar =
         Prelude.Nothing,
       quickSightConsole =
         Prelude.Nothing
     }
 
--- | The type of embedding experience. In this case, Amazon QuickSight
--- visuals.
-registeredUserEmbeddingExperienceConfiguration_dashboardVisual :: Lens.Lens' RegisteredUserEmbeddingExperienceConfiguration (Prelude.Maybe RegisteredUserDashboardVisualEmbeddingConfiguration)
-registeredUserEmbeddingExperienceConfiguration_dashboardVisual = Lens.lens (\RegisteredUserEmbeddingExperienceConfiguration' {dashboardVisual} -> dashboardVisual) (\s@RegisteredUserEmbeddingExperienceConfiguration' {} a -> s {dashboardVisual = a} :: RegisteredUserEmbeddingExperienceConfiguration)
-
 -- | The configuration details for providing a dashboard embedding
 -- experience.
 registeredUserEmbeddingExperienceConfiguration_dashboard :: Lens.Lens' RegisteredUserEmbeddingExperienceConfiguration (Prelude.Maybe RegisteredUserDashboardEmbeddingConfiguration)
 registeredUserEmbeddingExperienceConfiguration_dashboard = Lens.lens (\RegisteredUserEmbeddingExperienceConfiguration' {dashboard} -> dashboard) (\s@RegisteredUserEmbeddingExperienceConfiguration' {} a -> s {dashboard = a} :: RegisteredUserEmbeddingExperienceConfiguration)
+
+-- | The type of embedding experience. In this case, Amazon QuickSight
+-- visuals.
+registeredUserEmbeddingExperienceConfiguration_dashboardVisual :: Lens.Lens' RegisteredUserEmbeddingExperienceConfiguration (Prelude.Maybe RegisteredUserDashboardVisualEmbeddingConfiguration)
+registeredUserEmbeddingExperienceConfiguration_dashboardVisual = Lens.lens (\RegisteredUserEmbeddingExperienceConfiguration' {dashboardVisual} -> dashboardVisual) (\s@RegisteredUserEmbeddingExperienceConfiguration' {} a -> s {dashboardVisual = a} :: RegisteredUserEmbeddingExperienceConfiguration)
 
 -- | The configuration details for embedding the Q search bar.
 --
@@ -183,8 +184,8 @@ instance
   hashWithSalt
     _salt
     RegisteredUserEmbeddingExperienceConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` dashboardVisual
-        `Prelude.hashWithSalt` dashboard
+      _salt `Prelude.hashWithSalt` dashboard
+        `Prelude.hashWithSalt` dashboardVisual
         `Prelude.hashWithSalt` qSearchBar
         `Prelude.hashWithSalt` quickSightConsole
 
@@ -194,8 +195,8 @@ instance
   where
   rnf
     RegisteredUserEmbeddingExperienceConfiguration' {..} =
-      Prelude.rnf dashboardVisual
-        `Prelude.seq` Prelude.rnf dashboard
+      Prelude.rnf dashboard
+        `Prelude.seq` Prelude.rnf dashboardVisual
         `Prelude.seq` Prelude.rnf qSearchBar
         `Prelude.seq` Prelude.rnf quickSightConsole
 
@@ -207,9 +208,9 @@ instance
     RegisteredUserEmbeddingExperienceConfiguration' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ ("DashboardVisual" Data..=)
+            [ ("Dashboard" Data..=) Prelude.<$> dashboard,
+              ("DashboardVisual" Data..=)
                 Prelude.<$> dashboardVisual,
-              ("Dashboard" Data..=) Prelude.<$> dashboard,
               ("QSearchBar" Data..=) Prelude.<$> qSearchBar,
               ("QuickSightConsole" Data..=)
                 Prelude.<$> quickSightConsole

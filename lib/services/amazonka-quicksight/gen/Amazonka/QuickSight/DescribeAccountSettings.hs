@@ -35,8 +35,8 @@ module Amazonka.QuickSight.DescribeAccountSettings
     newDescribeAccountSettingsResponse,
 
     -- * Response Lenses
-    describeAccountSettingsResponse_requestId,
     describeAccountSettingsResponse_accountSettings,
+    describeAccountSettingsResponse_requestId,
     describeAccountSettingsResponse_status,
   )
 where
@@ -92,8 +92,8 @@ instance Core.AWSRequest DescribeAccountSettings where
     Response.receiveJSON
       ( \s h x ->
           DescribeAccountSettingsResponse'
-            Prelude.<$> (x Data..?> "RequestId")
-            Prelude.<*> (x Data..?> "AccountSettings")
+            Prelude.<$> (x Data..?> "AccountSettings")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -126,9 +126,7 @@ instance Data.ToQuery DescribeAccountSettings where
 
 -- | /See:/ 'newDescribeAccountSettingsResponse' smart constructor.
 data DescribeAccountSettingsResponse = DescribeAccountSettingsResponse'
-  { -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon QuickSight settings for this Amazon Web Services account.
+  { -- | The Amazon QuickSight settings for this Amazon Web Services account.
     -- This information includes the edition of Amazon Amazon QuickSight that
     -- you subscribed to (Standard or Enterprise) and the notification email
     -- for the Amazon QuickSight subscription.
@@ -140,6 +138,8 @@ data DescribeAccountSettingsResponse = DescribeAccountSettingsResponse'
     -- edition that you subscribe to applies to Amazon QuickSight in every
     -- Amazon Web Services Region where you use it.
     accountSettings :: Prelude.Maybe AccountSettings,
+    -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -153,8 +153,6 @@ data DescribeAccountSettingsResponse = DescribeAccountSettingsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'describeAccountSettingsResponse_requestId' - The Amazon Web Services request ID for this operation.
---
 -- 'accountSettings', 'describeAccountSettingsResponse_accountSettings' - The Amazon QuickSight settings for this Amazon Web Services account.
 -- This information includes the edition of Amazon Amazon QuickSight that
 -- you subscribed to (Standard or Enterprise) and the notification email
@@ -167,6 +165,8 @@ data DescribeAccountSettingsResponse = DescribeAccountSettingsResponse'
 -- edition that you subscribe to applies to Amazon QuickSight in every
 -- Amazon Web Services Region where you use it.
 --
+-- 'requestId', 'describeAccountSettingsResponse_requestId' - The Amazon Web Services request ID for this operation.
+--
 -- 'status', 'describeAccountSettingsResponse_status' - The HTTP status of the request.
 newDescribeAccountSettingsResponse ::
   -- | 'status'
@@ -174,15 +174,11 @@ newDescribeAccountSettingsResponse ::
   DescribeAccountSettingsResponse
 newDescribeAccountSettingsResponse pStatus_ =
   DescribeAccountSettingsResponse'
-    { requestId =
+    { accountSettings =
         Prelude.Nothing,
-      accountSettings = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       status = pStatus_
     }
-
--- | The Amazon Web Services request ID for this operation.
-describeAccountSettingsResponse_requestId :: Lens.Lens' DescribeAccountSettingsResponse (Prelude.Maybe Prelude.Text)
-describeAccountSettingsResponse_requestId = Lens.lens (\DescribeAccountSettingsResponse' {requestId} -> requestId) (\s@DescribeAccountSettingsResponse' {} a -> s {requestId = a} :: DescribeAccountSettingsResponse)
 
 -- | The Amazon QuickSight settings for this Amazon Web Services account.
 -- This information includes the edition of Amazon Amazon QuickSight that
@@ -198,6 +194,10 @@ describeAccountSettingsResponse_requestId = Lens.lens (\DescribeAccountSettingsR
 describeAccountSettingsResponse_accountSettings :: Lens.Lens' DescribeAccountSettingsResponse (Prelude.Maybe AccountSettings)
 describeAccountSettingsResponse_accountSettings = Lens.lens (\DescribeAccountSettingsResponse' {accountSettings} -> accountSettings) (\s@DescribeAccountSettingsResponse' {} a -> s {accountSettings = a} :: DescribeAccountSettingsResponse)
 
+-- | The Amazon Web Services request ID for this operation.
+describeAccountSettingsResponse_requestId :: Lens.Lens' DescribeAccountSettingsResponse (Prelude.Maybe Prelude.Text)
+describeAccountSettingsResponse_requestId = Lens.lens (\DescribeAccountSettingsResponse' {requestId} -> requestId) (\s@DescribeAccountSettingsResponse' {} a -> s {requestId = a} :: DescribeAccountSettingsResponse)
+
 -- | The HTTP status of the request.
 describeAccountSettingsResponse_status :: Lens.Lens' DescribeAccountSettingsResponse Prelude.Int
 describeAccountSettingsResponse_status = Lens.lens (\DescribeAccountSettingsResponse' {status} -> status) (\s@DescribeAccountSettingsResponse' {} a -> s {status = a} :: DescribeAccountSettingsResponse)
@@ -207,6 +207,6 @@ instance
     DescribeAccountSettingsResponse
   where
   rnf DescribeAccountSettingsResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf accountSettings
+    Prelude.rnf accountSettings
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf status

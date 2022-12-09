@@ -35,10 +35,10 @@ module Amazonka.QuickSight.DescribeTemplatePermissions
     newDescribeTemplatePermissionsResponse,
 
     -- * Response Lenses
-    describeTemplatePermissionsResponse_requestId,
     describeTemplatePermissionsResponse_permissions,
-    describeTemplatePermissionsResponse_templateId,
+    describeTemplatePermissionsResponse_requestId,
     describeTemplatePermissionsResponse_templateArn,
+    describeTemplatePermissionsResponse_templateId,
     describeTemplatePermissionsResponse_status,
   )
 where
@@ -107,10 +107,10 @@ instance Core.AWSRequest DescribeTemplatePermissions where
     Response.receiveJSON
       ( \s h x ->
           DescribeTemplatePermissionsResponse'
-            Prelude.<$> (x Data..?> "RequestId")
-            Prelude.<*> (x Data..?> "Permissions")
-            Prelude.<*> (x Data..?> "TemplateId")
+            Prelude.<$> (x Data..?> "Permissions")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (x Data..?> "TemplateArn")
+            Prelude.<*> (x Data..?> "TemplateId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -150,14 +150,14 @@ instance Data.ToQuery DescribeTemplatePermissions where
 
 -- | /See:/ 'newDescribeTemplatePermissionsResponse' smart constructor.
 data DescribeTemplatePermissionsResponse = DescribeTemplatePermissionsResponse'
-  { -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | A list of resource permissions to be set on the template.
+  { -- | A list of resource permissions to be set on the template.
     permissions :: Prelude.Maybe (Prelude.NonEmpty ResourcePermission),
-    -- | The ID for the template.
-    templateId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the template.
     templateArn :: Prelude.Maybe Prelude.Text,
+    -- | The ID for the template.
+    templateId :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -171,13 +171,13 @@ data DescribeTemplatePermissionsResponse = DescribeTemplatePermissionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'describeTemplatePermissionsResponse_requestId' - The Amazon Web Services request ID for this operation.
---
 -- 'permissions', 'describeTemplatePermissionsResponse_permissions' - A list of resource permissions to be set on the template.
 --
--- 'templateId', 'describeTemplatePermissionsResponse_templateId' - The ID for the template.
+-- 'requestId', 'describeTemplatePermissionsResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'templateArn', 'describeTemplatePermissionsResponse_templateArn' - The Amazon Resource Name (ARN) of the template.
+--
+-- 'templateId', 'describeTemplatePermissionsResponse_templateId' - The ID for the template.
 --
 -- 'status', 'describeTemplatePermissionsResponse_status' - The HTTP status of the request.
 newDescribeTemplatePermissionsResponse ::
@@ -186,29 +186,29 @@ newDescribeTemplatePermissionsResponse ::
   DescribeTemplatePermissionsResponse
 newDescribeTemplatePermissionsResponse pStatus_ =
   DescribeTemplatePermissionsResponse'
-    { requestId =
+    { permissions =
         Prelude.Nothing,
-      permissions = Prelude.Nothing,
-      templateId = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       templateArn = Prelude.Nothing,
+      templateId = Prelude.Nothing,
       status = pStatus_
     }
-
--- | The Amazon Web Services request ID for this operation.
-describeTemplatePermissionsResponse_requestId :: Lens.Lens' DescribeTemplatePermissionsResponse (Prelude.Maybe Prelude.Text)
-describeTemplatePermissionsResponse_requestId = Lens.lens (\DescribeTemplatePermissionsResponse' {requestId} -> requestId) (\s@DescribeTemplatePermissionsResponse' {} a -> s {requestId = a} :: DescribeTemplatePermissionsResponse)
 
 -- | A list of resource permissions to be set on the template.
 describeTemplatePermissionsResponse_permissions :: Lens.Lens' DescribeTemplatePermissionsResponse (Prelude.Maybe (Prelude.NonEmpty ResourcePermission))
 describeTemplatePermissionsResponse_permissions = Lens.lens (\DescribeTemplatePermissionsResponse' {permissions} -> permissions) (\s@DescribeTemplatePermissionsResponse' {} a -> s {permissions = a} :: DescribeTemplatePermissionsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The ID for the template.
-describeTemplatePermissionsResponse_templateId :: Lens.Lens' DescribeTemplatePermissionsResponse (Prelude.Maybe Prelude.Text)
-describeTemplatePermissionsResponse_templateId = Lens.lens (\DescribeTemplatePermissionsResponse' {templateId} -> templateId) (\s@DescribeTemplatePermissionsResponse' {} a -> s {templateId = a} :: DescribeTemplatePermissionsResponse)
+-- | The Amazon Web Services request ID for this operation.
+describeTemplatePermissionsResponse_requestId :: Lens.Lens' DescribeTemplatePermissionsResponse (Prelude.Maybe Prelude.Text)
+describeTemplatePermissionsResponse_requestId = Lens.lens (\DescribeTemplatePermissionsResponse' {requestId} -> requestId) (\s@DescribeTemplatePermissionsResponse' {} a -> s {requestId = a} :: DescribeTemplatePermissionsResponse)
 
 -- | The Amazon Resource Name (ARN) of the template.
 describeTemplatePermissionsResponse_templateArn :: Lens.Lens' DescribeTemplatePermissionsResponse (Prelude.Maybe Prelude.Text)
 describeTemplatePermissionsResponse_templateArn = Lens.lens (\DescribeTemplatePermissionsResponse' {templateArn} -> templateArn) (\s@DescribeTemplatePermissionsResponse' {} a -> s {templateArn = a} :: DescribeTemplatePermissionsResponse)
+
+-- | The ID for the template.
+describeTemplatePermissionsResponse_templateId :: Lens.Lens' DescribeTemplatePermissionsResponse (Prelude.Maybe Prelude.Text)
+describeTemplatePermissionsResponse_templateId = Lens.lens (\DescribeTemplatePermissionsResponse' {templateId} -> templateId) (\s@DescribeTemplatePermissionsResponse' {} a -> s {templateId = a} :: DescribeTemplatePermissionsResponse)
 
 -- | The HTTP status of the request.
 describeTemplatePermissionsResponse_status :: Lens.Lens' DescribeTemplatePermissionsResponse Prelude.Int
@@ -219,8 +219,8 @@ instance
     DescribeTemplatePermissionsResponse
   where
   rnf DescribeTemplatePermissionsResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf templateId
+    Prelude.rnf permissions
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf templateArn
+      `Prelude.seq` Prelude.rnf templateId
       `Prelude.seq` Prelude.rnf status

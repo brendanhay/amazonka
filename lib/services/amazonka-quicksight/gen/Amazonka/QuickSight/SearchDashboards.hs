@@ -32,8 +32,8 @@ module Amazonka.QuickSight.SearchDashboards
     newSearchDashboards,
 
     -- * Request Lenses
-    searchDashboards_nextToken,
     searchDashboards_maxResults,
+    searchDashboards_nextToken,
     searchDashboards_awsAccountId,
     searchDashboards_filters,
 
@@ -59,11 +59,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSearchDashboards' smart constructor.
 data SearchDashboards = SearchDashboards'
-  { -- | The token for the next set of results, or null if there are no more
+  { -- | The maximum number of results to be returned per request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results, or null if there are no more
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to be returned per request.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the Amazon Web Services account that contains the user whose
     -- dashboards you\'re searching for.
     awsAccountId :: Prelude.Text,
@@ -82,10 +82,10 @@ data SearchDashboards = SearchDashboards'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'searchDashboards_maxResults' - The maximum number of results to be returned per request.
+--
 -- 'nextToken', 'searchDashboards_nextToken' - The token for the next set of results, or null if there are no more
 -- results.
---
--- 'maxResults', 'searchDashboards_maxResults' - The maximum number of results to be returned per request.
 --
 -- 'awsAccountId', 'searchDashboards_awsAccountId' - The ID of the Amazon Web Services account that contains the user whose
 -- dashboards you\'re searching for.
@@ -101,20 +101,20 @@ newSearchDashboards ::
   SearchDashboards
 newSearchDashboards pAwsAccountId_ pFilters_ =
   SearchDashboards'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       awsAccountId = pAwsAccountId_,
       filters = Lens.coerced Lens.# pFilters_
     }
+
+-- | The maximum number of results to be returned per request.
+searchDashboards_maxResults :: Lens.Lens' SearchDashboards (Prelude.Maybe Prelude.Natural)
+searchDashboards_maxResults = Lens.lens (\SearchDashboards' {maxResults} -> maxResults) (\s@SearchDashboards' {} a -> s {maxResults = a} :: SearchDashboards)
 
 -- | The token for the next set of results, or null if there are no more
 -- results.
 searchDashboards_nextToken :: Lens.Lens' SearchDashboards (Prelude.Maybe Prelude.Text)
 searchDashboards_nextToken = Lens.lens (\SearchDashboards' {nextToken} -> nextToken) (\s@SearchDashboards' {} a -> s {nextToken = a} :: SearchDashboards)
-
--- | The maximum number of results to be returned per request.
-searchDashboards_maxResults :: Lens.Lens' SearchDashboards (Prelude.Maybe Prelude.Natural)
-searchDashboards_maxResults = Lens.lens (\SearchDashboards' {maxResults} -> maxResults) (\s@SearchDashboards' {} a -> s {maxResults = a} :: SearchDashboards)
 
 -- | The ID of the Amazon Web Services account that contains the user whose
 -- dashboards you\'re searching for.
@@ -169,15 +169,15 @@ instance Core.AWSRequest SearchDashboards where
 
 instance Prelude.Hashable SearchDashboards where
   hashWithSalt _salt SearchDashboards' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` filters
 
 instance Prelude.NFData SearchDashboards where
   rnf SearchDashboards' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf filters
 
@@ -196,8 +196,8 @@ instance Data.ToJSON SearchDashboards where
   toJSON SearchDashboards' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("Filters" Data..= filters)
           ]
       )

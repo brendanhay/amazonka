@@ -31,9 +31,9 @@ data DateTimeParameter = DateTimeParameter'
   { -- | A display name for the date-time parameter.
     name :: Prelude.Text,
     -- | The values for the date-time parameter.
-    values :: [Data.POSIX]
+    values :: [Data.Sensitive Data.POSIX]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DateTimeParameter' with all optional fields omitted.

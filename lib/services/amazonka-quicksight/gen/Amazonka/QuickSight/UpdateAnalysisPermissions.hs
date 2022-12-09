@@ -37,10 +37,10 @@ module Amazonka.QuickSight.UpdateAnalysisPermissions
     newUpdateAnalysisPermissionsResponse,
 
     -- * Response Lenses
-    updateAnalysisPermissionsResponse_analysisId,
-    updateAnalysisPermissionsResponse_requestId,
-    updateAnalysisPermissionsResponse_permissions,
     updateAnalysisPermissionsResponse_analysisArn,
+    updateAnalysisPermissionsResponse_analysisId,
+    updateAnalysisPermissionsResponse_permissions,
+    updateAnalysisPermissionsResponse_requestId,
     updateAnalysisPermissionsResponse_status,
   )
 where
@@ -139,10 +139,10 @@ instance Core.AWSRequest UpdateAnalysisPermissions where
     Response.receiveJSON
       ( \s h x ->
           UpdateAnalysisPermissionsResponse'
-            Prelude.<$> (x Data..?> "AnalysisId")
-            Prelude.<*> (x Data..?> "RequestId")
+            Prelude.<$> (x Data..?> "AnalysisArn")
+            Prelude.<*> (x Data..?> "AnalysisId")
             Prelude.<*> (x Data..?> "Permissions")
-            Prelude.<*> (x Data..?> "AnalysisArn")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -197,15 +197,15 @@ instance Data.ToQuery UpdateAnalysisPermissions where
 
 -- | /See:/ 'newUpdateAnalysisPermissionsResponse' smart constructor.
 data UpdateAnalysisPermissionsResponse = UpdateAnalysisPermissionsResponse'
-  { -- | The ID of the analysis that you updated permissions for.
+  { -- | The Amazon Resource Name (ARN) of the analysis that you updated.
+    analysisArn :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the analysis that you updated permissions for.
     analysisId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Maybe Prelude.Text,
     -- | A structure that describes the principals and the resource-level
     -- permissions on an analysis.
     permissions :: Prelude.Maybe (Prelude.NonEmpty ResourcePermission),
-    -- | The Amazon Resource Name (ARN) of the analysis that you updated.
-    analysisArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -219,14 +219,14 @@ data UpdateAnalysisPermissionsResponse = UpdateAnalysisPermissionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'analysisId', 'updateAnalysisPermissionsResponse_analysisId' - The ID of the analysis that you updated permissions for.
+-- 'analysisArn', 'updateAnalysisPermissionsResponse_analysisArn' - The Amazon Resource Name (ARN) of the analysis that you updated.
 --
--- 'requestId', 'updateAnalysisPermissionsResponse_requestId' - The Amazon Web Services request ID for this operation.
+-- 'analysisId', 'updateAnalysisPermissionsResponse_analysisId' - The ID of the analysis that you updated permissions for.
 --
 -- 'permissions', 'updateAnalysisPermissionsResponse_permissions' - A structure that describes the principals and the resource-level
 -- permissions on an analysis.
 --
--- 'analysisArn', 'updateAnalysisPermissionsResponse_analysisArn' - The Amazon Resource Name (ARN) of the analysis that you updated.
+-- 'requestId', 'updateAnalysisPermissionsResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'status', 'updateAnalysisPermissionsResponse_status' - The HTTP status of the request.
 newUpdateAnalysisPermissionsResponse ::
@@ -235,30 +235,30 @@ newUpdateAnalysisPermissionsResponse ::
   UpdateAnalysisPermissionsResponse
 newUpdateAnalysisPermissionsResponse pStatus_ =
   UpdateAnalysisPermissionsResponse'
-    { analysisId =
+    { analysisArn =
         Prelude.Nothing,
-      requestId = Prelude.Nothing,
+      analysisId = Prelude.Nothing,
       permissions = Prelude.Nothing,
-      analysisArn = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       status = pStatus_
     }
+
+-- | The Amazon Resource Name (ARN) of the analysis that you updated.
+updateAnalysisPermissionsResponse_analysisArn :: Lens.Lens' UpdateAnalysisPermissionsResponse (Prelude.Maybe Prelude.Text)
+updateAnalysisPermissionsResponse_analysisArn = Lens.lens (\UpdateAnalysisPermissionsResponse' {analysisArn} -> analysisArn) (\s@UpdateAnalysisPermissionsResponse' {} a -> s {analysisArn = a} :: UpdateAnalysisPermissionsResponse)
 
 -- | The ID of the analysis that you updated permissions for.
 updateAnalysisPermissionsResponse_analysisId :: Lens.Lens' UpdateAnalysisPermissionsResponse (Prelude.Maybe Prelude.Text)
 updateAnalysisPermissionsResponse_analysisId = Lens.lens (\UpdateAnalysisPermissionsResponse' {analysisId} -> analysisId) (\s@UpdateAnalysisPermissionsResponse' {} a -> s {analysisId = a} :: UpdateAnalysisPermissionsResponse)
-
--- | The Amazon Web Services request ID for this operation.
-updateAnalysisPermissionsResponse_requestId :: Lens.Lens' UpdateAnalysisPermissionsResponse (Prelude.Maybe Prelude.Text)
-updateAnalysisPermissionsResponse_requestId = Lens.lens (\UpdateAnalysisPermissionsResponse' {requestId} -> requestId) (\s@UpdateAnalysisPermissionsResponse' {} a -> s {requestId = a} :: UpdateAnalysisPermissionsResponse)
 
 -- | A structure that describes the principals and the resource-level
 -- permissions on an analysis.
 updateAnalysisPermissionsResponse_permissions :: Lens.Lens' UpdateAnalysisPermissionsResponse (Prelude.Maybe (Prelude.NonEmpty ResourcePermission))
 updateAnalysisPermissionsResponse_permissions = Lens.lens (\UpdateAnalysisPermissionsResponse' {permissions} -> permissions) (\s@UpdateAnalysisPermissionsResponse' {} a -> s {permissions = a} :: UpdateAnalysisPermissionsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon Resource Name (ARN) of the analysis that you updated.
-updateAnalysisPermissionsResponse_analysisArn :: Lens.Lens' UpdateAnalysisPermissionsResponse (Prelude.Maybe Prelude.Text)
-updateAnalysisPermissionsResponse_analysisArn = Lens.lens (\UpdateAnalysisPermissionsResponse' {analysisArn} -> analysisArn) (\s@UpdateAnalysisPermissionsResponse' {} a -> s {analysisArn = a} :: UpdateAnalysisPermissionsResponse)
+-- | The Amazon Web Services request ID for this operation.
+updateAnalysisPermissionsResponse_requestId :: Lens.Lens' UpdateAnalysisPermissionsResponse (Prelude.Maybe Prelude.Text)
+updateAnalysisPermissionsResponse_requestId = Lens.lens (\UpdateAnalysisPermissionsResponse' {requestId} -> requestId) (\s@UpdateAnalysisPermissionsResponse' {} a -> s {requestId = a} :: UpdateAnalysisPermissionsResponse)
 
 -- | The HTTP status of the request.
 updateAnalysisPermissionsResponse_status :: Lens.Lens' UpdateAnalysisPermissionsResponse Prelude.Int
@@ -269,8 +269,8 @@ instance
     UpdateAnalysisPermissionsResponse
   where
   rnf UpdateAnalysisPermissionsResponse' {..} =
-    Prelude.rnf analysisId
-      `Prelude.seq` Prelude.rnf requestId
+    Prelude.rnf analysisArn
+      `Prelude.seq` Prelude.rnf analysisId
       `Prelude.seq` Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf analysisArn
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf status

@@ -28,8 +28,8 @@ module Amazonka.QuickSight.SearchGroups
     newSearchGroups,
 
     -- * Request Lenses
-    searchGroups_nextToken,
     searchGroups_maxResults,
+    searchGroups_nextToken,
     searchGroups_awsAccountId,
     searchGroups_namespace,
     searchGroups_filters,
@@ -39,9 +39,9 @@ module Amazonka.QuickSight.SearchGroups
     newSearchGroupsResponse,
 
     -- * Response Lenses
+    searchGroupsResponse_groupList,
     searchGroupsResponse_nextToken,
     searchGroupsResponse_requestId,
-    searchGroupsResponse_groupList,
     searchGroupsResponse_status,
   )
 where
@@ -56,10 +56,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSearchGroups' smart constructor.
 data SearchGroups = SearchGroups'
-  { -- | A pagination token that can be used in a subsequent request.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return from this request.
+  { -- | The maximum number of results to return from this request.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A pagination token that can be used in a subsequent request.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID for the Amazon Web Services account that the group is in.
     -- Currently, you use the ID for the Amazon Web Services account that
     -- contains your Amazon QuickSight account.
@@ -80,9 +80,9 @@ data SearchGroups = SearchGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'searchGroups_nextToken' - A pagination token that can be used in a subsequent request.
---
 -- 'maxResults', 'searchGroups_maxResults' - The maximum number of results to return from this request.
+--
+-- 'nextToken', 'searchGroups_nextToken' - A pagination token that can be used in a subsequent request.
 --
 -- 'awsAccountId', 'searchGroups_awsAccountId' - The ID for the Amazon Web Services account that the group is in.
 -- Currently, you use the ID for the Amazon Web Services account that
@@ -102,20 +102,20 @@ newSearchGroups ::
   SearchGroups
 newSearchGroups pAwsAccountId_ pNamespace_ pFilters_ =
   SearchGroups'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       awsAccountId = pAwsAccountId_,
       namespace = pNamespace_,
       filters = Lens.coerced Lens.# pFilters_
     }
 
--- | A pagination token that can be used in a subsequent request.
-searchGroups_nextToken :: Lens.Lens' SearchGroups (Prelude.Maybe Prelude.Text)
-searchGroups_nextToken = Lens.lens (\SearchGroups' {nextToken} -> nextToken) (\s@SearchGroups' {} a -> s {nextToken = a} :: SearchGroups)
-
 -- | The maximum number of results to return from this request.
 searchGroups_maxResults :: Lens.Lens' SearchGroups (Prelude.Maybe Prelude.Natural)
 searchGroups_maxResults = Lens.lens (\SearchGroups' {maxResults} -> maxResults) (\s@SearchGroups' {} a -> s {maxResults = a} :: SearchGroups)
+
+-- | A pagination token that can be used in a subsequent request.
+searchGroups_nextToken :: Lens.Lens' SearchGroups (Prelude.Maybe Prelude.Text)
+searchGroups_nextToken = Lens.lens (\SearchGroups' {nextToken} -> nextToken) (\s@SearchGroups' {} a -> s {nextToken = a} :: SearchGroups)
 
 -- | The ID for the Amazon Web Services account that the group is in.
 -- Currently, you use the ID for the Amazon Web Services account that
@@ -140,24 +140,24 @@ instance Core.AWSRequest SearchGroups where
     Response.receiveJSON
       ( \s h x ->
           SearchGroupsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<$> (x Data..?> "GroupList" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (x Data..?> "RequestId")
-            Prelude.<*> (x Data..?> "GroupList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable SearchGroups where
   hashWithSalt _salt SearchGroups' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` filters
 
 instance Prelude.NFData SearchGroups where
   rnf SearchGroups' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf namespace
       `Prelude.seq` Prelude.rnf filters
@@ -193,19 +193,19 @@ instance Data.ToPath SearchGroups where
 instance Data.ToQuery SearchGroups where
   toQuery SearchGroups' {..} =
     Prelude.mconcat
-      [ "next-token" Data.=: nextToken,
-        "max-results" Data.=: maxResults
+      [ "max-results" Data.=: maxResults,
+        "next-token" Data.=: nextToken
       ]
 
 -- | /See:/ 'newSearchGroupsResponse' smart constructor.
 data SearchGroupsResponse = SearchGroupsResponse'
-  { -- | A pagination token that can be used in a subsequent request.
+  { -- | A list of groups in a specified namespace that match the filters you set
+    -- in your @SearchGroups@ request.
+    groupList :: Prelude.Maybe [Group],
+    -- | A pagination token that can be used in a subsequent request.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services request ID for this operation.
     requestId :: Prelude.Maybe Prelude.Text,
-    -- | A list of groups in a specified namespace that match the filters you set
-    -- in your @SearchGroups@ request.
-    groupList :: Prelude.Maybe [Group],
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -219,12 +219,12 @@ data SearchGroupsResponse = SearchGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'groupList', 'searchGroupsResponse_groupList' - A list of groups in a specified namespace that match the filters you set
+-- in your @SearchGroups@ request.
+--
 -- 'nextToken', 'searchGroupsResponse_nextToken' - A pagination token that can be used in a subsequent request.
 --
 -- 'requestId', 'searchGroupsResponse_requestId' - The Amazon Web Services request ID for this operation.
---
--- 'groupList', 'searchGroupsResponse_groupList' - A list of groups in a specified namespace that match the filters you set
--- in your @SearchGroups@ request.
 --
 -- 'status', 'searchGroupsResponse_status' - The HTTP status of the request.
 newSearchGroupsResponse ::
@@ -233,11 +233,16 @@ newSearchGroupsResponse ::
   SearchGroupsResponse
 newSearchGroupsResponse pStatus_ =
   SearchGroupsResponse'
-    { nextToken = Prelude.Nothing,
+    { groupList = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       requestId = Prelude.Nothing,
-      groupList = Prelude.Nothing,
       status = pStatus_
     }
+
+-- | A list of groups in a specified namespace that match the filters you set
+-- in your @SearchGroups@ request.
+searchGroupsResponse_groupList :: Lens.Lens' SearchGroupsResponse (Prelude.Maybe [Group])
+searchGroupsResponse_groupList = Lens.lens (\SearchGroupsResponse' {groupList} -> groupList) (\s@SearchGroupsResponse' {} a -> s {groupList = a} :: SearchGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A pagination token that can be used in a subsequent request.
 searchGroupsResponse_nextToken :: Lens.Lens' SearchGroupsResponse (Prelude.Maybe Prelude.Text)
@@ -247,18 +252,13 @@ searchGroupsResponse_nextToken = Lens.lens (\SearchGroupsResponse' {nextToken} -
 searchGroupsResponse_requestId :: Lens.Lens' SearchGroupsResponse (Prelude.Maybe Prelude.Text)
 searchGroupsResponse_requestId = Lens.lens (\SearchGroupsResponse' {requestId} -> requestId) (\s@SearchGroupsResponse' {} a -> s {requestId = a} :: SearchGroupsResponse)
 
--- | A list of groups in a specified namespace that match the filters you set
--- in your @SearchGroups@ request.
-searchGroupsResponse_groupList :: Lens.Lens' SearchGroupsResponse (Prelude.Maybe [Group])
-searchGroupsResponse_groupList = Lens.lens (\SearchGroupsResponse' {groupList} -> groupList) (\s@SearchGroupsResponse' {} a -> s {groupList = a} :: SearchGroupsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The HTTP status of the request.
 searchGroupsResponse_status :: Lens.Lens' SearchGroupsResponse Prelude.Int
 searchGroupsResponse_status = Lens.lens (\SearchGroupsResponse' {status} -> status) (\s@SearchGroupsResponse' {} a -> s {status = a} :: SearchGroupsResponse)
 
 instance Prelude.NFData SearchGroupsResponse where
   rnf SearchGroupsResponse' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf groupList
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf groupList
       `Prelude.seq` Prelude.rnf status

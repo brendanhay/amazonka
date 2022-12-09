@@ -44,8 +44,8 @@ module Amazonka.QuickSight.CreateGroup
     newCreateGroupResponse,
 
     -- * Response Lenses
-    createGroupResponse_requestId,
     createGroupResponse_group,
+    createGroupResponse_requestId,
     createGroupResponse_status,
   )
 where
@@ -134,8 +134,8 @@ instance Core.AWSRequest CreateGroup where
     Response.receiveJSON
       ( \s h x ->
           CreateGroupResponse'
-            Prelude.<$> (x Data..?> "RequestId")
-            Prelude.<*> (x Data..?> "Group")
+            Prelude.<$> (x Data..?> "Group")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -190,10 +190,10 @@ instance Data.ToQuery CreateGroup where
 --
 -- /See:/ 'newCreateGroupResponse' smart constructor.
 data CreateGroupResponse = CreateGroupResponse'
-  { -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the group.
+  { -- | The name of the group.
     group' :: Prelude.Maybe Group,
+    -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -207,9 +207,9 @@ data CreateGroupResponse = CreateGroupResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'createGroupResponse_requestId' - The Amazon Web Services request ID for this operation.
---
 -- 'group'', 'createGroupResponse_group' - The name of the group.
+--
+-- 'requestId', 'createGroupResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'status', 'createGroupResponse_status' - The HTTP status of the request.
 newCreateGroupResponse ::
@@ -218,18 +218,18 @@ newCreateGroupResponse ::
   CreateGroupResponse
 newCreateGroupResponse pStatus_ =
   CreateGroupResponse'
-    { requestId = Prelude.Nothing,
-      group' = Prelude.Nothing,
+    { group' = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       status = pStatus_
     }
-
--- | The Amazon Web Services request ID for this operation.
-createGroupResponse_requestId :: Lens.Lens' CreateGroupResponse (Prelude.Maybe Prelude.Text)
-createGroupResponse_requestId = Lens.lens (\CreateGroupResponse' {requestId} -> requestId) (\s@CreateGroupResponse' {} a -> s {requestId = a} :: CreateGroupResponse)
 
 -- | The name of the group.
 createGroupResponse_group :: Lens.Lens' CreateGroupResponse (Prelude.Maybe Group)
 createGroupResponse_group = Lens.lens (\CreateGroupResponse' {group'} -> group') (\s@CreateGroupResponse' {} a -> s {group' = a} :: CreateGroupResponse)
+
+-- | The Amazon Web Services request ID for this operation.
+createGroupResponse_requestId :: Lens.Lens' CreateGroupResponse (Prelude.Maybe Prelude.Text)
+createGroupResponse_requestId = Lens.lens (\CreateGroupResponse' {requestId} -> requestId) (\s@CreateGroupResponse' {} a -> s {requestId = a} :: CreateGroupResponse)
 
 -- | The HTTP status of the request.
 createGroupResponse_status :: Lens.Lens' CreateGroupResponse Prelude.Int
@@ -237,6 +237,6 @@ createGroupResponse_status = Lens.lens (\CreateGroupResponse' {status} -> status
 
 instance Prelude.NFData CreateGroupResponse where
   rnf CreateGroupResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf group'
+    Prelude.rnf group'
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf status

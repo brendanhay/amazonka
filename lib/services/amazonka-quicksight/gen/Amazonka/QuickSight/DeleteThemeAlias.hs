@@ -38,9 +38,9 @@ module Amazonka.QuickSight.DeleteThemeAlias
     newDeleteThemeAliasResponse,
 
     -- * Response Lenses
-    deleteThemeAliasResponse_requestId,
-    deleteThemeAliasResponse_arn,
     deleteThemeAliasResponse_aliasName,
+    deleteThemeAliasResponse_arn,
+    deleteThemeAliasResponse_requestId,
     deleteThemeAliasResponse_themeId,
     deleteThemeAliasResponse_status,
   )
@@ -121,9 +121,9 @@ instance Core.AWSRequest DeleteThemeAlias where
     Response.receiveJSON
       ( \s h x ->
           DeleteThemeAliasResponse'
-            Prelude.<$> (x Data..?> "RequestId")
+            Prelude.<$> (x Data..?> "AliasName")
             Prelude.<*> (x Data..?> "Arn")
-            Prelude.<*> (x Data..?> "AliasName")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (x Data..?> "ThemeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -167,13 +167,13 @@ instance Data.ToQuery DeleteThemeAlias where
 
 -- | /See:/ 'newDeleteThemeAliasResponse' smart constructor.
 data DeleteThemeAliasResponse = DeleteThemeAliasResponse'
-  { -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Maybe Prelude.Text,
+  { -- | The name for the theme alias.
+    aliasName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the theme resource using the deleted
     -- alias.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The name for the theme alias.
-    aliasName :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | An ID for the theme associated with the deletion.
     themeId :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
@@ -189,12 +189,12 @@ data DeleteThemeAliasResponse = DeleteThemeAliasResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'deleteThemeAliasResponse_requestId' - The Amazon Web Services request ID for this operation.
+-- 'aliasName', 'deleteThemeAliasResponse_aliasName' - The name for the theme alias.
 --
 -- 'arn', 'deleteThemeAliasResponse_arn' - The Amazon Resource Name (ARN) of the theme resource using the deleted
 -- alias.
 --
--- 'aliasName', 'deleteThemeAliasResponse_aliasName' - The name for the theme alias.
+-- 'requestId', 'deleteThemeAliasResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'themeId', 'deleteThemeAliasResponse_themeId' - An ID for the theme associated with the deletion.
 --
@@ -205,26 +205,26 @@ newDeleteThemeAliasResponse ::
   DeleteThemeAliasResponse
 newDeleteThemeAliasResponse pStatus_ =
   DeleteThemeAliasResponse'
-    { requestId =
+    { aliasName =
         Prelude.Nothing,
       arn = Prelude.Nothing,
-      aliasName = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       themeId = Prelude.Nothing,
       status = pStatus_
     }
 
--- | The Amazon Web Services request ID for this operation.
-deleteThemeAliasResponse_requestId :: Lens.Lens' DeleteThemeAliasResponse (Prelude.Maybe Prelude.Text)
-deleteThemeAliasResponse_requestId = Lens.lens (\DeleteThemeAliasResponse' {requestId} -> requestId) (\s@DeleteThemeAliasResponse' {} a -> s {requestId = a} :: DeleteThemeAliasResponse)
+-- | The name for the theme alias.
+deleteThemeAliasResponse_aliasName :: Lens.Lens' DeleteThemeAliasResponse (Prelude.Maybe Prelude.Text)
+deleteThemeAliasResponse_aliasName = Lens.lens (\DeleteThemeAliasResponse' {aliasName} -> aliasName) (\s@DeleteThemeAliasResponse' {} a -> s {aliasName = a} :: DeleteThemeAliasResponse)
 
 -- | The Amazon Resource Name (ARN) of the theme resource using the deleted
 -- alias.
 deleteThemeAliasResponse_arn :: Lens.Lens' DeleteThemeAliasResponse (Prelude.Maybe Prelude.Text)
 deleteThemeAliasResponse_arn = Lens.lens (\DeleteThemeAliasResponse' {arn} -> arn) (\s@DeleteThemeAliasResponse' {} a -> s {arn = a} :: DeleteThemeAliasResponse)
 
--- | The name for the theme alias.
-deleteThemeAliasResponse_aliasName :: Lens.Lens' DeleteThemeAliasResponse (Prelude.Maybe Prelude.Text)
-deleteThemeAliasResponse_aliasName = Lens.lens (\DeleteThemeAliasResponse' {aliasName} -> aliasName) (\s@DeleteThemeAliasResponse' {} a -> s {aliasName = a} :: DeleteThemeAliasResponse)
+-- | The Amazon Web Services request ID for this operation.
+deleteThemeAliasResponse_requestId :: Lens.Lens' DeleteThemeAliasResponse (Prelude.Maybe Prelude.Text)
+deleteThemeAliasResponse_requestId = Lens.lens (\DeleteThemeAliasResponse' {requestId} -> requestId) (\s@DeleteThemeAliasResponse' {} a -> s {requestId = a} :: DeleteThemeAliasResponse)
 
 -- | An ID for the theme associated with the deletion.
 deleteThemeAliasResponse_themeId :: Lens.Lens' DeleteThemeAliasResponse (Prelude.Maybe Prelude.Text)
@@ -236,8 +236,8 @@ deleteThemeAliasResponse_status = Lens.lens (\DeleteThemeAliasResponse' {status}
 
 instance Prelude.NFData DeleteThemeAliasResponse where
   rnf DeleteThemeAliasResponse' {..} =
-    Prelude.rnf requestId
+    Prelude.rnf aliasName
       `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf aliasName
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf themeId
       `Prelude.seq` Prelude.rnf status

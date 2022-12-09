@@ -31,9 +31,9 @@ data IntegerParameter = IntegerParameter'
   { -- | The name of the integer parameter.
     name :: Prelude.Text,
     -- | The values for the integer parameter.
-    values :: [Prelude.Integer]
+    values :: [Data.Sensitive Prelude.Integer]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'IntegerParameter' with all optional fields omitted.

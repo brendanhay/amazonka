@@ -35,8 +35,8 @@ module Amazonka.QuickSight.DescribeAnalysis
     newDescribeAnalysisResponse,
 
     -- * Response Lenses
-    describeAnalysisResponse_requestId,
     describeAnalysisResponse_analysis,
+    describeAnalysisResponse_requestId,
     describeAnalysisResponse_status,
   )
 where
@@ -108,8 +108,8 @@ instance Core.AWSRequest DescribeAnalysis where
     Response.receiveJSON
       ( \s h x ->
           DescribeAnalysisResponse'
-            Prelude.<$> (x Data..?> "RequestId")
-            Prelude.<*> (x Data..?> "Analysis")
+            Prelude.<$> (x Data..?> "Analysis")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,11 +148,11 @@ instance Data.ToQuery DescribeAnalysis where
 
 -- | /See:/ 'newDescribeAnalysisResponse' smart constructor.
 data DescribeAnalysisResponse = DescribeAnalysisResponse'
-  { -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | A metadata structure that contains summary information for the analysis
+  { -- | A metadata structure that contains summary information for the analysis
     -- that you\'re describing.
     analysis :: Prelude.Maybe Analysis,
+    -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -166,10 +166,10 @@ data DescribeAnalysisResponse = DescribeAnalysisResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'describeAnalysisResponse_requestId' - The Amazon Web Services request ID for this operation.
---
 -- 'analysis', 'describeAnalysisResponse_analysis' - A metadata structure that contains summary information for the analysis
 -- that you\'re describing.
+--
+-- 'requestId', 'describeAnalysisResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'status', 'describeAnalysisResponse_status' - The HTTP status of the request.
 newDescribeAnalysisResponse ::
@@ -178,20 +178,20 @@ newDescribeAnalysisResponse ::
   DescribeAnalysisResponse
 newDescribeAnalysisResponse pStatus_ =
   DescribeAnalysisResponse'
-    { requestId =
+    { analysis =
         Prelude.Nothing,
-      analysis = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       status = pStatus_
     }
-
--- | The Amazon Web Services request ID for this operation.
-describeAnalysisResponse_requestId :: Lens.Lens' DescribeAnalysisResponse (Prelude.Maybe Prelude.Text)
-describeAnalysisResponse_requestId = Lens.lens (\DescribeAnalysisResponse' {requestId} -> requestId) (\s@DescribeAnalysisResponse' {} a -> s {requestId = a} :: DescribeAnalysisResponse)
 
 -- | A metadata structure that contains summary information for the analysis
 -- that you\'re describing.
 describeAnalysisResponse_analysis :: Lens.Lens' DescribeAnalysisResponse (Prelude.Maybe Analysis)
 describeAnalysisResponse_analysis = Lens.lens (\DescribeAnalysisResponse' {analysis} -> analysis) (\s@DescribeAnalysisResponse' {} a -> s {analysis = a} :: DescribeAnalysisResponse)
+
+-- | The Amazon Web Services request ID for this operation.
+describeAnalysisResponse_requestId :: Lens.Lens' DescribeAnalysisResponse (Prelude.Maybe Prelude.Text)
+describeAnalysisResponse_requestId = Lens.lens (\DescribeAnalysisResponse' {requestId} -> requestId) (\s@DescribeAnalysisResponse' {} a -> s {requestId = a} :: DescribeAnalysisResponse)
 
 -- | The HTTP status of the request.
 describeAnalysisResponse_status :: Lens.Lens' DescribeAnalysisResponse Prelude.Int
@@ -199,6 +199,6 @@ describeAnalysisResponse_status = Lens.lens (\DescribeAnalysisResponse' {status}
 
 instance Prelude.NFData DescribeAnalysisResponse where
   rnf DescribeAnalysisResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf analysis
+    Prelude.rnf analysis
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf status

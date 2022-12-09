@@ -29,16 +29,16 @@ import Amazonka.QuickSight.Types.ResourceStatus
 --
 -- /See:/ 'newDashboardVersionSummary' smart constructor.
 data DashboardVersionSummary = DashboardVersionSummary'
-  { -- | Source entity ARN.
-    sourceEntityArn :: Prelude.Maybe Prelude.Text,
+  { -- | The Amazon Resource Name (ARN) of the resource.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The time that this dashboard version was created.
     createdTime :: Prelude.Maybe Data.POSIX,
-    -- | The Amazon Resource Name (ARN) of the resource.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The HTTP status of the request.
-    status :: Prelude.Maybe ResourceStatus,
     -- | Description.
     description :: Prelude.Maybe Prelude.Text,
+    -- | Source entity ARN.
+    sourceEntityArn :: Prelude.Maybe Prelude.Text,
+    -- | The HTTP status of the request.
+    status :: Prelude.Maybe ResourceStatus,
     -- | Version number.
     versionNumber :: Prelude.Maybe Prelude.Natural
   }
@@ -52,49 +52,48 @@ data DashboardVersionSummary = DashboardVersionSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceEntityArn', 'dashboardVersionSummary_sourceEntityArn' - Source entity ARN.
+-- 'arn', 'dashboardVersionSummary_arn' - The Amazon Resource Name (ARN) of the resource.
 --
 -- 'createdTime', 'dashboardVersionSummary_createdTime' - The time that this dashboard version was created.
 --
--- 'arn', 'dashboardVersionSummary_arn' - The Amazon Resource Name (ARN) of the resource.
+-- 'description', 'dashboardVersionSummary_description' - Description.
+--
+-- 'sourceEntityArn', 'dashboardVersionSummary_sourceEntityArn' - Source entity ARN.
 --
 -- 'status', 'dashboardVersionSummary_status' - The HTTP status of the request.
---
--- 'description', 'dashboardVersionSummary_description' - Description.
 --
 -- 'versionNumber', 'dashboardVersionSummary_versionNumber' - Version number.
 newDashboardVersionSummary ::
   DashboardVersionSummary
 newDashboardVersionSummary =
   DashboardVersionSummary'
-    { sourceEntityArn =
-        Prelude.Nothing,
+    { arn = Prelude.Nothing,
       createdTime = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      status = Prelude.Nothing,
       description = Prelude.Nothing,
+      sourceEntityArn = Prelude.Nothing,
+      status = Prelude.Nothing,
       versionNumber = Prelude.Nothing
     }
-
--- | Source entity ARN.
-dashboardVersionSummary_sourceEntityArn :: Lens.Lens' DashboardVersionSummary (Prelude.Maybe Prelude.Text)
-dashboardVersionSummary_sourceEntityArn = Lens.lens (\DashboardVersionSummary' {sourceEntityArn} -> sourceEntityArn) (\s@DashboardVersionSummary' {} a -> s {sourceEntityArn = a} :: DashboardVersionSummary)
-
--- | The time that this dashboard version was created.
-dashboardVersionSummary_createdTime :: Lens.Lens' DashboardVersionSummary (Prelude.Maybe Prelude.UTCTime)
-dashboardVersionSummary_createdTime = Lens.lens (\DashboardVersionSummary' {createdTime} -> createdTime) (\s@DashboardVersionSummary' {} a -> s {createdTime = a} :: DashboardVersionSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the resource.
 dashboardVersionSummary_arn :: Lens.Lens' DashboardVersionSummary (Prelude.Maybe Prelude.Text)
 dashboardVersionSummary_arn = Lens.lens (\DashboardVersionSummary' {arn} -> arn) (\s@DashboardVersionSummary' {} a -> s {arn = a} :: DashboardVersionSummary)
 
--- | The HTTP status of the request.
-dashboardVersionSummary_status :: Lens.Lens' DashboardVersionSummary (Prelude.Maybe ResourceStatus)
-dashboardVersionSummary_status = Lens.lens (\DashboardVersionSummary' {status} -> status) (\s@DashboardVersionSummary' {} a -> s {status = a} :: DashboardVersionSummary)
+-- | The time that this dashboard version was created.
+dashboardVersionSummary_createdTime :: Lens.Lens' DashboardVersionSummary (Prelude.Maybe Prelude.UTCTime)
+dashboardVersionSummary_createdTime = Lens.lens (\DashboardVersionSummary' {createdTime} -> createdTime) (\s@DashboardVersionSummary' {} a -> s {createdTime = a} :: DashboardVersionSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Description.
 dashboardVersionSummary_description :: Lens.Lens' DashboardVersionSummary (Prelude.Maybe Prelude.Text)
 dashboardVersionSummary_description = Lens.lens (\DashboardVersionSummary' {description} -> description) (\s@DashboardVersionSummary' {} a -> s {description = a} :: DashboardVersionSummary)
+
+-- | Source entity ARN.
+dashboardVersionSummary_sourceEntityArn :: Lens.Lens' DashboardVersionSummary (Prelude.Maybe Prelude.Text)
+dashboardVersionSummary_sourceEntityArn = Lens.lens (\DashboardVersionSummary' {sourceEntityArn} -> sourceEntityArn) (\s@DashboardVersionSummary' {} a -> s {sourceEntityArn = a} :: DashboardVersionSummary)
+
+-- | The HTTP status of the request.
+dashboardVersionSummary_status :: Lens.Lens' DashboardVersionSummary (Prelude.Maybe ResourceStatus)
+dashboardVersionSummary_status = Lens.lens (\DashboardVersionSummary' {status} -> status) (\s@DashboardVersionSummary' {} a -> s {status = a} :: DashboardVersionSummary)
 
 -- | Version number.
 dashboardVersionSummary_versionNumber :: Lens.Lens' DashboardVersionSummary (Prelude.Maybe Prelude.Natural)
@@ -106,28 +105,28 @@ instance Data.FromJSON DashboardVersionSummary where
       "DashboardVersionSummary"
       ( \x ->
           DashboardVersionSummary'
-            Prelude.<$> (x Data..:? "SourceEntityArn")
+            Prelude.<$> (x Data..:? "Arn")
             Prelude.<*> (x Data..:? "CreatedTime")
-            Prelude.<*> (x Data..:? "Arn")
-            Prelude.<*> (x Data..:? "Status")
             Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "SourceEntityArn")
+            Prelude.<*> (x Data..:? "Status")
             Prelude.<*> (x Data..:? "VersionNumber")
       )
 
 instance Prelude.Hashable DashboardVersionSummary where
   hashWithSalt _salt DashboardVersionSummary' {..} =
-    _salt `Prelude.hashWithSalt` sourceEntityArn
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` sourceEntityArn
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` versionNumber
 
 instance Prelude.NFData DashboardVersionSummary where
   rnf DashboardVersionSummary' {..} =
-    Prelude.rnf sourceEntityArn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf sourceEntityArn
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf versionNumber

@@ -53,9 +53,9 @@ module Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser
     newGenerateEmbedUrlForAnonymousUser,
 
     -- * Request Lenses
-    generateEmbedUrlForAnonymousUser_sessionTags,
-    generateEmbedUrlForAnonymousUser_sessionLifetimeInMinutes,
     generateEmbedUrlForAnonymousUser_allowedDomains,
+    generateEmbedUrlForAnonymousUser_sessionLifetimeInMinutes,
+    generateEmbedUrlForAnonymousUser_sessionTags,
     generateEmbedUrlForAnonymousUser_awsAccountId,
     generateEmbedUrlForAnonymousUser_namespace,
     generateEmbedUrlForAnonymousUser_authorizedResourceArns,
@@ -83,20 +83,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGenerateEmbedUrlForAnonymousUser' smart constructor.
 data GenerateEmbedUrlForAnonymousUser = GenerateEmbedUrlForAnonymousUser'
-  { -- | The session tags used for row-level security. Before you use this
-    -- parameter, make sure that you have configured the relevant datasets
-    -- using the @DataSet$RowLevelPermissionTagConfiguration@ parameter so that
-    -- session tags can be used to provide row-level security.
-    --
-    -- These are not the tags used for the Amazon Web Services resource tagging
-    -- feature. For more information, see
-    -- <https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-rls-tags.html Using Row-Level Security (RLS) with Tags>in
-    -- the /Amazon QuickSight User Guide/.
-    sessionTags :: Prelude.Maybe (Prelude.NonEmpty SessionTag),
-    -- | How many minutes the session is valid. The session lifetime must be in
-    -- [15-600] minutes range.
-    sessionLifetimeInMinutes :: Prelude.Maybe Prelude.Natural,
-    -- | The domains that you want to add to the allow list for access to the
+  { -- | The domains that you want to add to the allow list for access to the
     -- generated URL that is then embedded. This optional parameter overrides
     -- the static domains that are configured in the Manage QuickSight menu in
     -- the Amazon QuickSight console. Instead, it allows only the domains that
@@ -107,6 +94,19 @@ data GenerateEmbedUrlForAnonymousUser = GenerateEmbedUrlForAnonymousUser'
     -- @*@. For example, @https:\/\/*.sapp.amazon.com@ includes all subdomains
     -- under @https:\/\/sapp.amazon.com@.
     allowedDomains :: Prelude.Maybe [Prelude.Text],
+    -- | How many minutes the session is valid. The session lifetime must be in
+    -- [15-600] minutes range.
+    sessionLifetimeInMinutes :: Prelude.Maybe Prelude.Natural,
+    -- | The session tags used for row-level security. Before you use this
+    -- parameter, make sure that you have configured the relevant datasets
+    -- using the @DataSet$RowLevelPermissionTagConfiguration@ parameter so that
+    -- session tags can be used to provide row-level security.
+    --
+    -- These are not the tags used for the Amazon Web Services resource tagging
+    -- feature. For more information, see
+    -- <https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-rls-tags.html Using Row-Level Security (RLS) with Tags>in
+    -- the /Amazon QuickSight User Guide/.
+    sessionTags :: Prelude.Maybe (Prelude.NonEmpty SessionTag),
     -- | The ID for the Amazon Web Services account that contains the dashboard
     -- that you\'re embedding.
     awsAccountId :: Prelude.Text,
@@ -133,19 +133,6 @@ data GenerateEmbedUrlForAnonymousUser = GenerateEmbedUrlForAnonymousUser'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sessionTags', 'generateEmbedUrlForAnonymousUser_sessionTags' - The session tags used for row-level security. Before you use this
--- parameter, make sure that you have configured the relevant datasets
--- using the @DataSet$RowLevelPermissionTagConfiguration@ parameter so that
--- session tags can be used to provide row-level security.
---
--- These are not the tags used for the Amazon Web Services resource tagging
--- feature. For more information, see
--- <https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-rls-tags.html Using Row-Level Security (RLS) with Tags>in
--- the /Amazon QuickSight User Guide/.
---
--- 'sessionLifetimeInMinutes', 'generateEmbedUrlForAnonymousUser_sessionLifetimeInMinutes' - How many minutes the session is valid. The session lifetime must be in
--- [15-600] minutes range.
---
 -- 'allowedDomains', 'generateEmbedUrlForAnonymousUser_allowedDomains' - The domains that you want to add to the allow list for access to the
 -- generated URL that is then embedded. This optional parameter overrides
 -- the static domains that are configured in the Manage QuickSight menu in
@@ -156,6 +143,19 @@ data GenerateEmbedUrlForAnonymousUser = GenerateEmbedUrlForAnonymousUser'
 -- To include all subdomains under a specific domain to the allow list, use
 -- @*@. For example, @https:\/\/*.sapp.amazon.com@ includes all subdomains
 -- under @https:\/\/sapp.amazon.com@.
+--
+-- 'sessionLifetimeInMinutes', 'generateEmbedUrlForAnonymousUser_sessionLifetimeInMinutes' - How many minutes the session is valid. The session lifetime must be in
+-- [15-600] minutes range.
+--
+-- 'sessionTags', 'generateEmbedUrlForAnonymousUser_sessionTags' - The session tags used for row-level security. Before you use this
+-- parameter, make sure that you have configured the relevant datasets
+-- using the @DataSet$RowLevelPermissionTagConfiguration@ parameter so that
+-- session tags can be used to provide row-level security.
+--
+-- These are not the tags used for the Amazon Web Services resource tagging
+-- feature. For more information, see
+-- <https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-rls-tags.html Using Row-Level Security (RLS) with Tags>in
+-- the /Amazon QuickSight User Guide/.
 --
 -- 'awsAccountId', 'generateEmbedUrlForAnonymousUser_awsAccountId' - The ID for the Amazon Web Services account that contains the dashboard
 -- that you\'re embedding.
@@ -184,34 +184,17 @@ newGenerateEmbedUrlForAnonymousUser
   pNamespace_
   pExperienceConfiguration_ =
     GenerateEmbedUrlForAnonymousUser'
-      { sessionTags =
+      { allowedDomains =
           Prelude.Nothing,
         sessionLifetimeInMinutes =
           Prelude.Nothing,
-        allowedDomains = Prelude.Nothing,
+        sessionTags = Prelude.Nothing,
         awsAccountId = pAwsAccountId_,
         namespace = pNamespace_,
         authorizedResourceArns = Prelude.mempty,
         experienceConfiguration =
           pExperienceConfiguration_
       }
-
--- | The session tags used for row-level security. Before you use this
--- parameter, make sure that you have configured the relevant datasets
--- using the @DataSet$RowLevelPermissionTagConfiguration@ parameter so that
--- session tags can be used to provide row-level security.
---
--- These are not the tags used for the Amazon Web Services resource tagging
--- feature. For more information, see
--- <https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-rls-tags.html Using Row-Level Security (RLS) with Tags>in
--- the /Amazon QuickSight User Guide/.
-generateEmbedUrlForAnonymousUser_sessionTags :: Lens.Lens' GenerateEmbedUrlForAnonymousUser (Prelude.Maybe (Prelude.NonEmpty SessionTag))
-generateEmbedUrlForAnonymousUser_sessionTags = Lens.lens (\GenerateEmbedUrlForAnonymousUser' {sessionTags} -> sessionTags) (\s@GenerateEmbedUrlForAnonymousUser' {} a -> s {sessionTags = a} :: GenerateEmbedUrlForAnonymousUser) Prelude.. Lens.mapping Lens.coerced
-
--- | How many minutes the session is valid. The session lifetime must be in
--- [15-600] minutes range.
-generateEmbedUrlForAnonymousUser_sessionLifetimeInMinutes :: Lens.Lens' GenerateEmbedUrlForAnonymousUser (Prelude.Maybe Prelude.Natural)
-generateEmbedUrlForAnonymousUser_sessionLifetimeInMinutes = Lens.lens (\GenerateEmbedUrlForAnonymousUser' {sessionLifetimeInMinutes} -> sessionLifetimeInMinutes) (\s@GenerateEmbedUrlForAnonymousUser' {} a -> s {sessionLifetimeInMinutes = a} :: GenerateEmbedUrlForAnonymousUser)
 
 -- | The domains that you want to add to the allow list for access to the
 -- generated URL that is then embedded. This optional parameter overrides
@@ -225,6 +208,23 @@ generateEmbedUrlForAnonymousUser_sessionLifetimeInMinutes = Lens.lens (\Generate
 -- under @https:\/\/sapp.amazon.com@.
 generateEmbedUrlForAnonymousUser_allowedDomains :: Lens.Lens' GenerateEmbedUrlForAnonymousUser (Prelude.Maybe [Prelude.Text])
 generateEmbedUrlForAnonymousUser_allowedDomains = Lens.lens (\GenerateEmbedUrlForAnonymousUser' {allowedDomains} -> allowedDomains) (\s@GenerateEmbedUrlForAnonymousUser' {} a -> s {allowedDomains = a} :: GenerateEmbedUrlForAnonymousUser) Prelude.. Lens.mapping Lens.coerced
+
+-- | How many minutes the session is valid. The session lifetime must be in
+-- [15-600] minutes range.
+generateEmbedUrlForAnonymousUser_sessionLifetimeInMinutes :: Lens.Lens' GenerateEmbedUrlForAnonymousUser (Prelude.Maybe Prelude.Natural)
+generateEmbedUrlForAnonymousUser_sessionLifetimeInMinutes = Lens.lens (\GenerateEmbedUrlForAnonymousUser' {sessionLifetimeInMinutes} -> sessionLifetimeInMinutes) (\s@GenerateEmbedUrlForAnonymousUser' {} a -> s {sessionLifetimeInMinutes = a} :: GenerateEmbedUrlForAnonymousUser)
+
+-- | The session tags used for row-level security. Before you use this
+-- parameter, make sure that you have configured the relevant datasets
+-- using the @DataSet$RowLevelPermissionTagConfiguration@ parameter so that
+-- session tags can be used to provide row-level security.
+--
+-- These are not the tags used for the Amazon Web Services resource tagging
+-- feature. For more information, see
+-- <https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-rls-tags.html Using Row-Level Security (RLS) with Tags>in
+-- the /Amazon QuickSight User Guide/.
+generateEmbedUrlForAnonymousUser_sessionTags :: Lens.Lens' GenerateEmbedUrlForAnonymousUser (Prelude.Maybe (Prelude.NonEmpty SessionTag))
+generateEmbedUrlForAnonymousUser_sessionTags = Lens.lens (\GenerateEmbedUrlForAnonymousUser' {sessionTags} -> sessionTags) (\s@GenerateEmbedUrlForAnonymousUser' {} a -> s {sessionTags = a} :: GenerateEmbedUrlForAnonymousUser) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID for the Amazon Web Services account that contains the dashboard
 -- that you\'re embedding.
@@ -275,9 +275,9 @@ instance
   hashWithSalt
     _salt
     GenerateEmbedUrlForAnonymousUser' {..} =
-      _salt `Prelude.hashWithSalt` sessionTags
+      _salt `Prelude.hashWithSalt` allowedDomains
         `Prelude.hashWithSalt` sessionLifetimeInMinutes
-        `Prelude.hashWithSalt` allowedDomains
+        `Prelude.hashWithSalt` sessionTags
         `Prelude.hashWithSalt` awsAccountId
         `Prelude.hashWithSalt` namespace
         `Prelude.hashWithSalt` authorizedResourceArns
@@ -288,9 +288,9 @@ instance
     GenerateEmbedUrlForAnonymousUser
   where
   rnf GenerateEmbedUrlForAnonymousUser' {..} =
-    Prelude.rnf sessionTags
+    Prelude.rnf allowedDomains
       `Prelude.seq` Prelude.rnf sessionLifetimeInMinutes
-      `Prelude.seq` Prelude.rnf allowedDomains
+      `Prelude.seq` Prelude.rnf sessionTags
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf namespace
       `Prelude.seq` Prelude.rnf authorizedResourceArns
@@ -314,11 +314,11 @@ instance Data.ToJSON GenerateEmbedUrlForAnonymousUser where
   toJSON GenerateEmbedUrlForAnonymousUser' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SessionTags" Data..=) Prelude.<$> sessionTags,
+          [ ("AllowedDomains" Data..=)
+              Prelude.<$> allowedDomains,
             ("SessionLifetimeInMinutes" Data..=)
               Prelude.<$> sessionLifetimeInMinutes,
-            ("AllowedDomains" Data..=)
-              Prelude.<$> allowedDomains,
+            ("SessionTags" Data..=) Prelude.<$> sessionTags,
             Prelude.Just ("Namespace" Data..= namespace),
             Prelude.Just
               ( "AuthorizedResourceArns"

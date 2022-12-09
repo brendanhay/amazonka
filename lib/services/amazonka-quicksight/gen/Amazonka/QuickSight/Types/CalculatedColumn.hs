@@ -36,9 +36,9 @@ data CalculatedColumn = CalculatedColumn'
     -- column.
     columnId :: Prelude.Text,
     -- | An expression that defines the calculated column.
-    expression :: Prelude.Text
+    expression :: Data.Sensitive Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CalculatedColumn' with all optional fields omitted.
@@ -71,7 +71,7 @@ newCalculatedColumn
     CalculatedColumn'
       { columnName = pColumnName_,
         columnId = pColumnId_,
-        expression = pExpression_
+        expression = Data._Sensitive Lens.# pExpression_
       }
 
 -- | Column name.
@@ -87,7 +87,7 @@ calculatedColumn_columnId = Lens.lens (\CalculatedColumn' {columnId} -> columnId
 
 -- | An expression that defines the calculated column.
 calculatedColumn_expression :: Lens.Lens' CalculatedColumn Prelude.Text
-calculatedColumn_expression = Lens.lens (\CalculatedColumn' {expression} -> expression) (\s@CalculatedColumn' {} a -> s {expression = a} :: CalculatedColumn)
+calculatedColumn_expression = Lens.lens (\CalculatedColumn' {expression} -> expression) (\s@CalculatedColumn' {} a -> s {expression = a} :: CalculatedColumn) Prelude.. Data._Sensitive
 
 instance Data.FromJSON CalculatedColumn where
   parseJSON =

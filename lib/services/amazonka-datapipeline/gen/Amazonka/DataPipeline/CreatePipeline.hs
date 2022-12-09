@@ -28,8 +28,8 @@ module Amazonka.DataPipeline.CreatePipeline
     newCreatePipeline,
 
     -- * Request Lenses
-    createPipeline_tags,
     createPipeline_description,
+    createPipeline_tags,
     createPipeline_name,
     createPipeline_uniqueId,
 
@@ -55,13 +55,13 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreatePipeline' smart constructor.
 data CreatePipeline = CreatePipeline'
-  { -- | A list of tags to associate with the pipeline at creation. Tags let you
+  { -- | The description for the pipeline.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | A list of tags to associate with the pipeline at creation. Tags let you
     -- control access to pipelines. For more information, see
     -- <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines>
     -- in the /AWS Data Pipeline Developer Guide/.
     tags :: Prelude.Maybe [Tag],
-    -- | The description for the pipeline.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The name for the pipeline. You can use the same name for multiple
     -- pipelines associated with your AWS account, because AWS Data Pipeline
     -- assigns each pipeline a unique pipeline identifier.
@@ -90,12 +90,12 @@ data CreatePipeline = CreatePipeline'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'createPipeline_description' - The description for the pipeline.
+--
 -- 'tags', 'createPipeline_tags' - A list of tags to associate with the pipeline at creation. Tags let you
 -- control access to pipelines. For more information, see
 -- <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines>
 -- in the /AWS Data Pipeline Developer Guide/.
---
--- 'description', 'createPipeline_description' - The description for the pipeline.
 --
 -- 'name', 'createPipeline_name' - The name for the pipeline. You can use the same name for multiple
 -- pipelines associated with your AWS account, because AWS Data Pipeline
@@ -121,11 +121,15 @@ newCreatePipeline ::
   CreatePipeline
 newCreatePipeline pName_ pUniqueId_ =
   CreatePipeline'
-    { tags = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_,
       uniqueId = pUniqueId_
     }
+
+-- | The description for the pipeline.
+createPipeline_description :: Lens.Lens' CreatePipeline (Prelude.Maybe Prelude.Text)
+createPipeline_description = Lens.lens (\CreatePipeline' {description} -> description) (\s@CreatePipeline' {} a -> s {description = a} :: CreatePipeline)
 
 -- | A list of tags to associate with the pipeline at creation. Tags let you
 -- control access to pipelines. For more information, see
@@ -133,10 +137,6 @@ newCreatePipeline pName_ pUniqueId_ =
 -- in the /AWS Data Pipeline Developer Guide/.
 createPipeline_tags :: Lens.Lens' CreatePipeline (Prelude.Maybe [Tag])
 createPipeline_tags = Lens.lens (\CreatePipeline' {tags} -> tags) (\s@CreatePipeline' {} a -> s {tags = a} :: CreatePipeline) Prelude.. Lens.mapping Lens.coerced
-
--- | The description for the pipeline.
-createPipeline_description :: Lens.Lens' CreatePipeline (Prelude.Maybe Prelude.Text)
-createPipeline_description = Lens.lens (\CreatePipeline' {description} -> description) (\s@CreatePipeline' {} a -> s {description = a} :: CreatePipeline)
 
 -- | The name for the pipeline. You can use the same name for multiple
 -- pipelines associated with your AWS account, because AWS Data Pipeline
@@ -175,15 +175,15 @@ instance Core.AWSRequest CreatePipeline where
 
 instance Prelude.Hashable CreatePipeline where
   hashWithSalt _salt CreatePipeline' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` uniqueId
 
 instance Prelude.NFData CreatePipeline where
   rnf CreatePipeline' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf uniqueId
 
@@ -206,8 +206,8 @@ instance Data.ToJSON CreatePipeline where
   toJSON CreatePipeline' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("description" Data..=) Prelude.<$> description,
+          [ ("description" Data..=) Prelude.<$> description,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("name" Data..= name),
             Prelude.Just ("uniqueId" Data..= uniqueId)
           ]

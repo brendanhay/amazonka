@@ -33,14 +33,14 @@ data TaskObject = TaskObject'
   { -- | The ID of the pipeline task attempt object. AWS Data Pipeline uses this
     -- value to track how many times a task is attempted.
     attemptId :: Prelude.Maybe Prelude.Text,
-    -- | An internal identifier for the task. This ID is passed to the
-    -- SetTaskStatus and ReportTaskProgress actions.
-    taskId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the pipeline that provided the task.
-    pipelineId :: Prelude.Maybe Prelude.Text,
     -- | Connection information for the location where the task runner will
     -- publish the output of the task.
-    objects :: Prelude.Maybe (Prelude.HashMap Prelude.Text PipelineObject)
+    objects :: Prelude.Maybe (Prelude.HashMap Prelude.Text PipelineObject),
+    -- | The ID of the pipeline that provided the task.
+    pipelineId :: Prelude.Maybe Prelude.Text,
+    -- | An internal identifier for the task. This ID is passed to the
+    -- SetTaskStatus and ReportTaskProgress actions.
+    taskId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,21 +55,21 @@ data TaskObject = TaskObject'
 -- 'attemptId', 'taskObject_attemptId' - The ID of the pipeline task attempt object. AWS Data Pipeline uses this
 -- value to track how many times a task is attempted.
 --
--- 'taskId', 'taskObject_taskId' - An internal identifier for the task. This ID is passed to the
--- SetTaskStatus and ReportTaskProgress actions.
+-- 'objects', 'taskObject_objects' - Connection information for the location where the task runner will
+-- publish the output of the task.
 --
 -- 'pipelineId', 'taskObject_pipelineId' - The ID of the pipeline that provided the task.
 --
--- 'objects', 'taskObject_objects' - Connection information for the location where the task runner will
--- publish the output of the task.
+-- 'taskId', 'taskObject_taskId' - An internal identifier for the task. This ID is passed to the
+-- SetTaskStatus and ReportTaskProgress actions.
 newTaskObject ::
   TaskObject
 newTaskObject =
   TaskObject'
     { attemptId = Prelude.Nothing,
-      taskId = Prelude.Nothing,
+      objects = Prelude.Nothing,
       pipelineId = Prelude.Nothing,
-      objects = Prelude.Nothing
+      taskId = Prelude.Nothing
     }
 
 -- | The ID of the pipeline task attempt object. AWS Data Pipeline uses this
@@ -77,19 +77,19 @@ newTaskObject =
 taskObject_attemptId :: Lens.Lens' TaskObject (Prelude.Maybe Prelude.Text)
 taskObject_attemptId = Lens.lens (\TaskObject' {attemptId} -> attemptId) (\s@TaskObject' {} a -> s {attemptId = a} :: TaskObject)
 
--- | An internal identifier for the task. This ID is passed to the
--- SetTaskStatus and ReportTaskProgress actions.
-taskObject_taskId :: Lens.Lens' TaskObject (Prelude.Maybe Prelude.Text)
-taskObject_taskId = Lens.lens (\TaskObject' {taskId} -> taskId) (\s@TaskObject' {} a -> s {taskId = a} :: TaskObject)
+-- | Connection information for the location where the task runner will
+-- publish the output of the task.
+taskObject_objects :: Lens.Lens' TaskObject (Prelude.Maybe (Prelude.HashMap Prelude.Text PipelineObject))
+taskObject_objects = Lens.lens (\TaskObject' {objects} -> objects) (\s@TaskObject' {} a -> s {objects = a} :: TaskObject) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the pipeline that provided the task.
 taskObject_pipelineId :: Lens.Lens' TaskObject (Prelude.Maybe Prelude.Text)
 taskObject_pipelineId = Lens.lens (\TaskObject' {pipelineId} -> pipelineId) (\s@TaskObject' {} a -> s {pipelineId = a} :: TaskObject)
 
--- | Connection information for the location where the task runner will
--- publish the output of the task.
-taskObject_objects :: Lens.Lens' TaskObject (Prelude.Maybe (Prelude.HashMap Prelude.Text PipelineObject))
-taskObject_objects = Lens.lens (\TaskObject' {objects} -> objects) (\s@TaskObject' {} a -> s {objects = a} :: TaskObject) Prelude.. Lens.mapping Lens.coerced
+-- | An internal identifier for the task. This ID is passed to the
+-- SetTaskStatus and ReportTaskProgress actions.
+taskObject_taskId :: Lens.Lens' TaskObject (Prelude.Maybe Prelude.Text)
+taskObject_taskId = Lens.lens (\TaskObject' {taskId} -> taskId) (\s@TaskObject' {} a -> s {taskId = a} :: TaskObject)
 
 instance Data.FromJSON TaskObject where
   parseJSON =
@@ -98,21 +98,21 @@ instance Data.FromJSON TaskObject where
       ( \x ->
           TaskObject'
             Prelude.<$> (x Data..:? "attemptId")
-            Prelude.<*> (x Data..:? "taskId")
-            Prelude.<*> (x Data..:? "pipelineId")
             Prelude.<*> (x Data..:? "objects" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "pipelineId")
+            Prelude.<*> (x Data..:? "taskId")
       )
 
 instance Prelude.Hashable TaskObject where
   hashWithSalt _salt TaskObject' {..} =
     _salt `Prelude.hashWithSalt` attemptId
-      `Prelude.hashWithSalt` taskId
-      `Prelude.hashWithSalt` pipelineId
       `Prelude.hashWithSalt` objects
+      `Prelude.hashWithSalt` pipelineId
+      `Prelude.hashWithSalt` taskId
 
 instance Prelude.NFData TaskObject where
   rnf TaskObject' {..} =
     Prelude.rnf attemptId
-      `Prelude.seq` Prelude.rnf taskId
-      `Prelude.seq` Prelude.rnf pipelineId
       `Prelude.seq` Prelude.rnf objects
+      `Prelude.seq` Prelude.rnf pipelineId
+      `Prelude.seq` Prelude.rnf taskId

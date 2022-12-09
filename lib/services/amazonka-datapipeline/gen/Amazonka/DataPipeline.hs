@@ -41,20 +41,20 @@ module Amazonka.DataPipeline
     -- * Errors
     -- $errors
 
-    -- ** PipelineNotFoundException
-    _PipelineNotFoundException,
-
     -- ** InternalServiceError
     _InternalServiceError,
-
-    -- ** TaskNotFoundException
-    _TaskNotFoundException,
 
     -- ** InvalidRequestException
     _InvalidRequestException,
 
     -- ** PipelineDeletedException
     _PipelineDeletedException,
+
+    -- ** PipelineNotFoundException
+    _PipelineNotFoundException,
+
+    -- ** TaskNotFoundException
+    _TaskNotFoundException,
 
     -- * Waiters
     -- $waiters

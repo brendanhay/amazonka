@@ -37,8 +37,8 @@ module Amazonka.DataPipeline.ListPipelines
     newListPipelinesResponse,
 
     -- * Response Lenses
-    listPipelinesResponse_marker,
     listPipelinesResponse_hasMoreResults,
+    listPipelinesResponse_marker,
     listPipelinesResponse_httpStatus,
     listPipelinesResponse_pipelineIdList,
   )
@@ -118,8 +118,8 @@ instance Core.AWSRequest ListPipelines where
     Response.receiveJSON
       ( \s h x ->
           ListPipelinesResponse'
-            Prelude.<$> (x Data..?> "marker")
-            Prelude.<*> (x Data..?> "hasMoreResults")
+            Prelude.<$> (x Data..?> "hasMoreResults")
+            Prelude.<*> (x Data..?> "marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> ( x Data..?> "pipelineIdList"
                             Core..!@ Prelude.mempty
@@ -163,13 +163,13 @@ instance Data.ToQuery ListPipelines where
 --
 -- /See:/ 'newListPipelinesResponse' smart constructor.
 data ListPipelinesResponse = ListPipelinesResponse'
-  { -- | The starting point for the next page of results. To view the next page
+  { -- | Indicates whether there are more results that can be obtained by a
+    -- subsequent call.
+    hasMoreResults :: Prelude.Maybe Prelude.Bool,
+    -- | The starting point for the next page of results. To view the next page
     -- of results, call @ListPipelinesOutput@ again with this marker value. If
     -- the value is null, there are no more results.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether there are more results that can be obtained by a
-    -- subsequent call.
-    hasMoreResults :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The pipeline identifiers. If you require additional information about
@@ -187,12 +187,12 @@ data ListPipelinesResponse = ListPipelinesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'hasMoreResults', 'listPipelinesResponse_hasMoreResults' - Indicates whether there are more results that can be obtained by a
+-- subsequent call.
+--
 -- 'marker', 'listPipelinesResponse_marker' - The starting point for the next page of results. To view the next page
 -- of results, call @ListPipelinesOutput@ again with this marker value. If
 -- the value is null, there are no more results.
---
--- 'hasMoreResults', 'listPipelinesResponse_hasMoreResults' - Indicates whether there are more results that can be obtained by a
--- subsequent call.
 --
 -- 'httpStatus', 'listPipelinesResponse_httpStatus' - The response's http status code.
 --
@@ -205,22 +205,23 @@ newListPipelinesResponse ::
   ListPipelinesResponse
 newListPipelinesResponse pHttpStatus_ =
   ListPipelinesResponse'
-    { marker = Prelude.Nothing,
-      hasMoreResults = Prelude.Nothing,
+    { hasMoreResults =
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_,
       pipelineIdList = Prelude.mempty
     }
+
+-- | Indicates whether there are more results that can be obtained by a
+-- subsequent call.
+listPipelinesResponse_hasMoreResults :: Lens.Lens' ListPipelinesResponse (Prelude.Maybe Prelude.Bool)
+listPipelinesResponse_hasMoreResults = Lens.lens (\ListPipelinesResponse' {hasMoreResults} -> hasMoreResults) (\s@ListPipelinesResponse' {} a -> s {hasMoreResults = a} :: ListPipelinesResponse)
 
 -- | The starting point for the next page of results. To view the next page
 -- of results, call @ListPipelinesOutput@ again with this marker value. If
 -- the value is null, there are no more results.
 listPipelinesResponse_marker :: Lens.Lens' ListPipelinesResponse (Prelude.Maybe Prelude.Text)
 listPipelinesResponse_marker = Lens.lens (\ListPipelinesResponse' {marker} -> marker) (\s@ListPipelinesResponse' {} a -> s {marker = a} :: ListPipelinesResponse)
-
--- | Indicates whether there are more results that can be obtained by a
--- subsequent call.
-listPipelinesResponse_hasMoreResults :: Lens.Lens' ListPipelinesResponse (Prelude.Maybe Prelude.Bool)
-listPipelinesResponse_hasMoreResults = Lens.lens (\ListPipelinesResponse' {hasMoreResults} -> hasMoreResults) (\s@ListPipelinesResponse' {} a -> s {hasMoreResults = a} :: ListPipelinesResponse)
 
 -- | The response's http status code.
 listPipelinesResponse_httpStatus :: Lens.Lens' ListPipelinesResponse Prelude.Int
@@ -234,7 +235,7 @@ listPipelinesResponse_pipelineIdList = Lens.lens (\ListPipelinesResponse' {pipel
 
 instance Prelude.NFData ListPipelinesResponse where
   rnf ListPipelinesResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf hasMoreResults
+    Prelude.rnf hasMoreResults
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf pipelineIdList

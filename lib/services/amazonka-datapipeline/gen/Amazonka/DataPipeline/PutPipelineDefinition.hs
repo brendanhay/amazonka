@@ -41,8 +41,8 @@ module Amazonka.DataPipeline.PutPipelineDefinition
     newPutPipelineDefinition,
 
     -- * Request Lenses
-    putPipelineDefinition_parameterValues,
     putPipelineDefinition_parameterObjects,
+    putPipelineDefinition_parameterValues,
     putPipelineDefinition_pipelineId,
     putPipelineDefinition_pipelineObjects,
 
@@ -70,10 +70,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newPutPipelineDefinition' smart constructor.
 data PutPipelineDefinition = PutPipelineDefinition'
-  { -- | The parameter values used with the pipeline.
-    parameterValues :: Prelude.Maybe [ParameterValue],
-    -- | The parameter objects used with the pipeline.
+  { -- | The parameter objects used with the pipeline.
     parameterObjects :: Prelude.Maybe [ParameterObject],
+    -- | The parameter values used with the pipeline.
+    parameterValues :: Prelude.Maybe [ParameterValue],
     -- | The ID of the pipeline.
     pipelineId :: Prelude.Text,
     -- | The objects that define the pipeline. These objects overwrite the
@@ -90,9 +90,9 @@ data PutPipelineDefinition = PutPipelineDefinition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'parameterValues', 'putPipelineDefinition_parameterValues' - The parameter values used with the pipeline.
---
 -- 'parameterObjects', 'putPipelineDefinition_parameterObjects' - The parameter objects used with the pipeline.
+--
+-- 'parameterValues', 'putPipelineDefinition_parameterValues' - The parameter values used with the pipeline.
 --
 -- 'pipelineId', 'putPipelineDefinition_pipelineId' - The ID of the pipeline.
 --
@@ -104,20 +104,20 @@ newPutPipelineDefinition ::
   PutPipelineDefinition
 newPutPipelineDefinition pPipelineId_ =
   PutPipelineDefinition'
-    { parameterValues =
+    { parameterObjects =
         Prelude.Nothing,
-      parameterObjects = Prelude.Nothing,
+      parameterValues = Prelude.Nothing,
       pipelineId = pPipelineId_,
       pipelineObjects = Prelude.mempty
     }
 
--- | The parameter values used with the pipeline.
-putPipelineDefinition_parameterValues :: Lens.Lens' PutPipelineDefinition (Prelude.Maybe [ParameterValue])
-putPipelineDefinition_parameterValues = Lens.lens (\PutPipelineDefinition' {parameterValues} -> parameterValues) (\s@PutPipelineDefinition' {} a -> s {parameterValues = a} :: PutPipelineDefinition) Prelude.. Lens.mapping Lens.coerced
-
 -- | The parameter objects used with the pipeline.
 putPipelineDefinition_parameterObjects :: Lens.Lens' PutPipelineDefinition (Prelude.Maybe [ParameterObject])
 putPipelineDefinition_parameterObjects = Lens.lens (\PutPipelineDefinition' {parameterObjects} -> parameterObjects) (\s@PutPipelineDefinition' {} a -> s {parameterObjects = a} :: PutPipelineDefinition) Prelude.. Lens.mapping Lens.coerced
+
+-- | The parameter values used with the pipeline.
+putPipelineDefinition_parameterValues :: Lens.Lens' PutPipelineDefinition (Prelude.Maybe [ParameterValue])
+putPipelineDefinition_parameterValues = Lens.lens (\PutPipelineDefinition' {parameterValues} -> parameterValues) (\s@PutPipelineDefinition' {} a -> s {parameterValues = a} :: PutPipelineDefinition) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the pipeline.
 putPipelineDefinition_pipelineId :: Lens.Lens' PutPipelineDefinition Prelude.Text
@@ -150,15 +150,15 @@ instance Core.AWSRequest PutPipelineDefinition where
 
 instance Prelude.Hashable PutPipelineDefinition where
   hashWithSalt _salt PutPipelineDefinition' {..} =
-    _salt `Prelude.hashWithSalt` parameterValues
-      `Prelude.hashWithSalt` parameterObjects
+    _salt `Prelude.hashWithSalt` parameterObjects
+      `Prelude.hashWithSalt` parameterValues
       `Prelude.hashWithSalt` pipelineId
       `Prelude.hashWithSalt` pipelineObjects
 
 instance Prelude.NFData PutPipelineDefinition where
   rnf PutPipelineDefinition' {..} =
-    Prelude.rnf parameterValues
-      `Prelude.seq` Prelude.rnf parameterObjects
+    Prelude.rnf parameterObjects
+      `Prelude.seq` Prelude.rnf parameterValues
       `Prelude.seq` Prelude.rnf pipelineId
       `Prelude.seq` Prelude.rnf pipelineObjects
 
@@ -181,10 +181,10 @@ instance Data.ToJSON PutPipelineDefinition where
   toJSON PutPipelineDefinition' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("parameterValues" Data..=)
-              Prelude.<$> parameterValues,
-            ("parameterObjects" Data..=)
+          [ ("parameterObjects" Data..=)
               Prelude.<$> parameterObjects,
+            ("parameterValues" Data..=)
+              Prelude.<$> parameterValues,
             Prelude.Just ("pipelineId" Data..= pipelineId),
             Prelude.Just
               ("pipelineObjects" Data..= pipelineObjects)

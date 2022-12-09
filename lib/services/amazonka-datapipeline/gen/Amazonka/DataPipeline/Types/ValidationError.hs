@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newValidationError' smart constructor.
 data ValidationError = ValidationError'
-  { -- | The identifier of the object that contains the validation error.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | A description of the validation error.
-    errors :: Prelude.Maybe [Prelude.Text]
+  { -- | A description of the validation error.
+    errors :: Prelude.Maybe [Prelude.Text],
+    -- | The identifier of the object that contains the validation error.
+    id :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,24 @@ data ValidationError = ValidationError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'validationError_id' - The identifier of the object that contains the validation error.
---
 -- 'errors', 'validationError_errors' - A description of the validation error.
+--
+-- 'id', 'validationError_id' - The identifier of the object that contains the validation error.
 newValidationError ::
   ValidationError
 newValidationError =
   ValidationError'
-    { id = Prelude.Nothing,
-      errors = Prelude.Nothing
+    { errors = Prelude.Nothing,
+      id = Prelude.Nothing
     }
-
--- | The identifier of the object that contains the validation error.
-validationError_id :: Lens.Lens' ValidationError (Prelude.Maybe Prelude.Text)
-validationError_id = Lens.lens (\ValidationError' {id} -> id) (\s@ValidationError' {} a -> s {id = a} :: ValidationError)
 
 -- | A description of the validation error.
 validationError_errors :: Lens.Lens' ValidationError (Prelude.Maybe [Prelude.Text])
 validationError_errors = Lens.lens (\ValidationError' {errors} -> errors) (\s@ValidationError' {} a -> s {errors = a} :: ValidationError) Prelude.. Lens.mapping Lens.coerced
+
+-- | The identifier of the object that contains the validation error.
+validationError_id :: Lens.Lens' ValidationError (Prelude.Maybe Prelude.Text)
+validationError_id = Lens.lens (\ValidationError' {id} -> id) (\s@ValidationError' {} a -> s {id = a} :: ValidationError)
 
 instance Data.FromJSON ValidationError where
   parseJSON =
@@ -70,15 +70,15 @@ instance Data.FromJSON ValidationError where
       "ValidationError"
       ( \x ->
           ValidationError'
-            Prelude.<$> (x Data..:? "id")
-            Prelude.<*> (x Data..:? "errors" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "errors" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "id")
       )
 
 instance Prelude.Hashable ValidationError where
   hashWithSalt _salt ValidationError' {..} =
-    _salt `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` errors
+    _salt `Prelude.hashWithSalt` errors
+      `Prelude.hashWithSalt` id
 
 instance Prelude.NFData ValidationError where
   rnf ValidationError' {..} =
-    Prelude.rnf id `Prelude.seq` Prelude.rnf errors
+    Prelude.rnf errors `Prelude.seq` Prelude.rnf id

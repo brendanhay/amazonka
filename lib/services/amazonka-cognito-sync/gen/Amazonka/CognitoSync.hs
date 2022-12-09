@@ -42,44 +42,44 @@ module Amazonka.CognitoSync
     -- * Errors
     -- $errors
 
-    -- ** ConcurrentModificationException
-    _ConcurrentModificationException,
-
-    -- ** InternalErrorException
-    _InternalErrorException,
-
     -- ** AlreadyStreamedException
     _AlreadyStreamedException,
 
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
-
-    -- ** ResourceConflictException
-    _ResourceConflictException,
-
-    -- ** InvalidLambdaFunctionOutputException
-    _InvalidLambdaFunctionOutputException,
-
-    -- ** InvalidConfigurationException
-    _InvalidConfigurationException,
+    -- ** ConcurrentModificationException
+    _ConcurrentModificationException,
 
     -- ** DuplicateRequestException
     _DuplicateRequestException,
 
-    -- ** NotAuthorizedException
-    _NotAuthorizedException,
+    -- ** InternalErrorException
+    _InternalErrorException,
+
+    -- ** InvalidConfigurationException
+    _InvalidConfigurationException,
+
+    -- ** InvalidLambdaFunctionOutputException
+    _InvalidLambdaFunctionOutputException,
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
 
     -- ** LambdaThrottledException
     _LambdaThrottledException,
 
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** NotAuthorizedException
+    _NotAuthorizedException,
+
+    -- ** ResourceConflictException
+    _ResourceConflictException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
     -- ** TooManyRequestsException
     _TooManyRequestsException,
-
-    -- ** InvalidParameterException
-    _InvalidParameterException,
 
     -- * Waiters
     -- $waiters

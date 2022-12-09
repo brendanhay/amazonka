@@ -39,10 +39,10 @@ module Amazonka.CognitoSync.GetBulkPublishDetails
 
     -- * Response Lenses
     getBulkPublishDetailsResponse_bulkPublishCompleteTime,
+    getBulkPublishDetailsResponse_bulkPublishStartTime,
+    getBulkPublishDetailsResponse_bulkPublishStatus,
     getBulkPublishDetailsResponse_failureMessage,
     getBulkPublishDetailsResponse_identityPoolId,
-    getBulkPublishDetailsResponse_bulkPublishStatus,
-    getBulkPublishDetailsResponse_bulkPublishStartTime,
     getBulkPublishDetailsResponse_httpStatus,
   )
 where
@@ -104,10 +104,10 @@ instance Core.AWSRequest GetBulkPublishDetails where
       ( \s h x ->
           GetBulkPublishDetailsResponse'
             Prelude.<$> (x Data..?> "BulkPublishCompleteTime")
+            Prelude.<*> (x Data..?> "BulkPublishStartTime")
+            Prelude.<*> (x Data..?> "BulkPublishStatus")
             Prelude.<*> (x Data..?> "FailureMessage")
             Prelude.<*> (x Data..?> "IdentityPoolId")
-            Prelude.<*> (x Data..?> "BulkPublishStatus")
-            Prelude.<*> (x Data..?> "BulkPublishStartTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -151,13 +151,8 @@ data GetBulkPublishDetailsResponse = GetBulkPublishDetailsResponse'
   { -- | If BulkPublishStatus is SUCCEEDED, the time the last bulk publish
     -- operation completed.
     bulkPublishCompleteTime :: Prelude.Maybe Data.POSIX,
-    -- | If BulkPublishStatus is FAILED this field will contain the error message
-    -- that caused the bulk publish to fail.
-    failureMessage :: Prelude.Maybe Prelude.Text,
-    -- | A name-spaced GUID (for example,
-    -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
-    -- Cognito. GUID generation is unique within a region.
-    identityPoolId :: Prelude.Maybe Prelude.Text,
+    -- | The date\/time at which the last bulk publish was initiated.
+    bulkPublishStartTime :: Prelude.Maybe Data.POSIX,
     -- | Status of the last bulk publish operation, valid values are:
     --
     -- NOT_STARTED - No bulk publish has been requested for this identity pool
@@ -170,8 +165,13 @@ data GetBulkPublishDetailsResponse = GetBulkPublishDetailsResponse'
     -- FAILED - Some portion of the data has failed to publish, check
     -- FailureMessage for the cause.
     bulkPublishStatus :: Prelude.Maybe BulkPublishStatus,
-    -- | The date\/time at which the last bulk publish was initiated.
-    bulkPublishStartTime :: Prelude.Maybe Data.POSIX,
+    -- | If BulkPublishStatus is FAILED this field will contain the error message
+    -- that caused the bulk publish to fail.
+    failureMessage :: Prelude.Maybe Prelude.Text,
+    -- | A name-spaced GUID (for example,
+    -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+    -- Cognito. GUID generation is unique within a region.
+    identityPoolId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -188,12 +188,7 @@ data GetBulkPublishDetailsResponse = GetBulkPublishDetailsResponse'
 -- 'bulkPublishCompleteTime', 'getBulkPublishDetailsResponse_bulkPublishCompleteTime' - If BulkPublishStatus is SUCCEEDED, the time the last bulk publish
 -- operation completed.
 --
--- 'failureMessage', 'getBulkPublishDetailsResponse_failureMessage' - If BulkPublishStatus is FAILED this field will contain the error message
--- that caused the bulk publish to fail.
---
--- 'identityPoolId', 'getBulkPublishDetailsResponse_identityPoolId' - A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito. GUID generation is unique within a region.
+-- 'bulkPublishStartTime', 'getBulkPublishDetailsResponse_bulkPublishStartTime' - The date\/time at which the last bulk publish was initiated.
 --
 -- 'bulkPublishStatus', 'getBulkPublishDetailsResponse_bulkPublishStatus' - Status of the last bulk publish operation, valid values are:
 --
@@ -207,7 +202,12 @@ data GetBulkPublishDetailsResponse = GetBulkPublishDetailsResponse'
 -- FAILED - Some portion of the data has failed to publish, check
 -- FailureMessage for the cause.
 --
--- 'bulkPublishStartTime', 'getBulkPublishDetailsResponse_bulkPublishStartTime' - The date\/time at which the last bulk publish was initiated.
+-- 'failureMessage', 'getBulkPublishDetailsResponse_failureMessage' - If BulkPublishStatus is FAILED this field will contain the error message
+-- that caused the bulk publish to fail.
+--
+-- 'identityPoolId', 'getBulkPublishDetailsResponse_identityPoolId' - A name-spaced GUID (for example,
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+-- Cognito. GUID generation is unique within a region.
 --
 -- 'httpStatus', 'getBulkPublishDetailsResponse_httpStatus' - The response's http status code.
 newGetBulkPublishDetailsResponse ::
@@ -218,10 +218,10 @@ newGetBulkPublishDetailsResponse pHttpStatus_ =
   GetBulkPublishDetailsResponse'
     { bulkPublishCompleteTime =
         Prelude.Nothing,
+      bulkPublishStartTime = Prelude.Nothing,
+      bulkPublishStatus = Prelude.Nothing,
       failureMessage = Prelude.Nothing,
       identityPoolId = Prelude.Nothing,
-      bulkPublishStatus = Prelude.Nothing,
-      bulkPublishStartTime = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -230,16 +230,9 @@ newGetBulkPublishDetailsResponse pHttpStatus_ =
 getBulkPublishDetailsResponse_bulkPublishCompleteTime :: Lens.Lens' GetBulkPublishDetailsResponse (Prelude.Maybe Prelude.UTCTime)
 getBulkPublishDetailsResponse_bulkPublishCompleteTime = Lens.lens (\GetBulkPublishDetailsResponse' {bulkPublishCompleteTime} -> bulkPublishCompleteTime) (\s@GetBulkPublishDetailsResponse' {} a -> s {bulkPublishCompleteTime = a} :: GetBulkPublishDetailsResponse) Prelude.. Lens.mapping Data._Time
 
--- | If BulkPublishStatus is FAILED this field will contain the error message
--- that caused the bulk publish to fail.
-getBulkPublishDetailsResponse_failureMessage :: Lens.Lens' GetBulkPublishDetailsResponse (Prelude.Maybe Prelude.Text)
-getBulkPublishDetailsResponse_failureMessage = Lens.lens (\GetBulkPublishDetailsResponse' {failureMessage} -> failureMessage) (\s@GetBulkPublishDetailsResponse' {} a -> s {failureMessage = a} :: GetBulkPublishDetailsResponse)
-
--- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito. GUID generation is unique within a region.
-getBulkPublishDetailsResponse_identityPoolId :: Lens.Lens' GetBulkPublishDetailsResponse (Prelude.Maybe Prelude.Text)
-getBulkPublishDetailsResponse_identityPoolId = Lens.lens (\GetBulkPublishDetailsResponse' {identityPoolId} -> identityPoolId) (\s@GetBulkPublishDetailsResponse' {} a -> s {identityPoolId = a} :: GetBulkPublishDetailsResponse)
+-- | The date\/time at which the last bulk publish was initiated.
+getBulkPublishDetailsResponse_bulkPublishStartTime :: Lens.Lens' GetBulkPublishDetailsResponse (Prelude.Maybe Prelude.UTCTime)
+getBulkPublishDetailsResponse_bulkPublishStartTime = Lens.lens (\GetBulkPublishDetailsResponse' {bulkPublishStartTime} -> bulkPublishStartTime) (\s@GetBulkPublishDetailsResponse' {} a -> s {bulkPublishStartTime = a} :: GetBulkPublishDetailsResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Status of the last bulk publish operation, valid values are:
 --
@@ -255,9 +248,16 @@ getBulkPublishDetailsResponse_identityPoolId = Lens.lens (\GetBulkPublishDetails
 getBulkPublishDetailsResponse_bulkPublishStatus :: Lens.Lens' GetBulkPublishDetailsResponse (Prelude.Maybe BulkPublishStatus)
 getBulkPublishDetailsResponse_bulkPublishStatus = Lens.lens (\GetBulkPublishDetailsResponse' {bulkPublishStatus} -> bulkPublishStatus) (\s@GetBulkPublishDetailsResponse' {} a -> s {bulkPublishStatus = a} :: GetBulkPublishDetailsResponse)
 
--- | The date\/time at which the last bulk publish was initiated.
-getBulkPublishDetailsResponse_bulkPublishStartTime :: Lens.Lens' GetBulkPublishDetailsResponse (Prelude.Maybe Prelude.UTCTime)
-getBulkPublishDetailsResponse_bulkPublishStartTime = Lens.lens (\GetBulkPublishDetailsResponse' {bulkPublishStartTime} -> bulkPublishStartTime) (\s@GetBulkPublishDetailsResponse' {} a -> s {bulkPublishStartTime = a} :: GetBulkPublishDetailsResponse) Prelude.. Lens.mapping Data._Time
+-- | If BulkPublishStatus is FAILED this field will contain the error message
+-- that caused the bulk publish to fail.
+getBulkPublishDetailsResponse_failureMessage :: Lens.Lens' GetBulkPublishDetailsResponse (Prelude.Maybe Prelude.Text)
+getBulkPublishDetailsResponse_failureMessage = Lens.lens (\GetBulkPublishDetailsResponse' {failureMessage} -> failureMessage) (\s@GetBulkPublishDetailsResponse' {} a -> s {failureMessage = a} :: GetBulkPublishDetailsResponse)
+
+-- | A name-spaced GUID (for example,
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+-- Cognito. GUID generation is unique within a region.
+getBulkPublishDetailsResponse_identityPoolId :: Lens.Lens' GetBulkPublishDetailsResponse (Prelude.Maybe Prelude.Text)
+getBulkPublishDetailsResponse_identityPoolId = Lens.lens (\GetBulkPublishDetailsResponse' {identityPoolId} -> identityPoolId) (\s@GetBulkPublishDetailsResponse' {} a -> s {identityPoolId = a} :: GetBulkPublishDetailsResponse)
 
 -- | The response's http status code.
 getBulkPublishDetailsResponse_httpStatus :: Lens.Lens' GetBulkPublishDetailsResponse Prelude.Int
@@ -266,8 +266,8 @@ getBulkPublishDetailsResponse_httpStatus = Lens.lens (\GetBulkPublishDetailsResp
 instance Prelude.NFData GetBulkPublishDetailsResponse where
   rnf GetBulkPublishDetailsResponse' {..} =
     Prelude.rnf bulkPublishCompleteTime
+      `Prelude.seq` Prelude.rnf bulkPublishStartTime
+      `Prelude.seq` Prelude.rnf bulkPublishStatus
       `Prelude.seq` Prelude.rnf failureMessage
       `Prelude.seq` Prelude.rnf identityPoolId
-      `Prelude.seq` Prelude.rnf bulkPublishStatus
-      `Prelude.seq` Prelude.rnf bulkPublishStartTime
       `Prelude.seq` Prelude.rnf httpStatus

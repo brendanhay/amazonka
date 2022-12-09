@@ -44,8 +44,8 @@ module Amazonka.CognitoSync.UpdateRecords
     newUpdateRecords,
 
     -- * Request Lenses
-    updateRecords_deviceId,
     updateRecords_clientContext,
+    updateRecords_deviceId,
     updateRecords_recordPatches,
     updateRecords_identityPoolId,
     updateRecords_identityId,
@@ -75,12 +75,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUpdateRecords' smart constructor.
 data UpdateRecords = UpdateRecords'
-  { -- | The unique ID generated for this device by Cognito.
-    deviceId :: Prelude.Maybe Prelude.Text,
-    -- | Intended to supply a device ID that will populate the lastModifiedBy
+  { -- | Intended to supply a device ID that will populate the lastModifiedBy
     -- field referenced in other methods. The ClientContext field is not yet
     -- implemented.
     clientContext :: Prelude.Maybe Prelude.Text,
+    -- | The unique ID generated for this device by Cognito.
+    deviceId :: Prelude.Maybe Prelude.Text,
     -- | A list of patch operations.
     recordPatches :: Prelude.Maybe [RecordPatch],
     -- | A name-spaced GUID (for example,
@@ -108,11 +108,11 @@ data UpdateRecords = UpdateRecords'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deviceId', 'updateRecords_deviceId' - The unique ID generated for this device by Cognito.
---
 -- 'clientContext', 'updateRecords_clientContext' - Intended to supply a device ID that will populate the lastModifiedBy
 -- field referenced in other methods. The ClientContext field is not yet
 -- implemented.
+--
+-- 'deviceId', 'updateRecords_deviceId' - The unique ID generated for this device by Cognito.
 --
 -- 'recordPatches', 'updateRecords_recordPatches' - A list of patch operations.
 --
@@ -145,8 +145,8 @@ newUpdateRecords
   pDatasetName_
   pSyncSessionToken_ =
     UpdateRecords'
-      { deviceId = Prelude.Nothing,
-        clientContext = Prelude.Nothing,
+      { clientContext = Prelude.Nothing,
+        deviceId = Prelude.Nothing,
         recordPatches = Prelude.Nothing,
         identityPoolId = pIdentityPoolId_,
         identityId = pIdentityId_,
@@ -154,15 +154,15 @@ newUpdateRecords
         syncSessionToken = pSyncSessionToken_
       }
 
--- | The unique ID generated for this device by Cognito.
-updateRecords_deviceId :: Lens.Lens' UpdateRecords (Prelude.Maybe Prelude.Text)
-updateRecords_deviceId = Lens.lens (\UpdateRecords' {deviceId} -> deviceId) (\s@UpdateRecords' {} a -> s {deviceId = a} :: UpdateRecords)
-
 -- | Intended to supply a device ID that will populate the lastModifiedBy
 -- field referenced in other methods. The ClientContext field is not yet
 -- implemented.
 updateRecords_clientContext :: Lens.Lens' UpdateRecords (Prelude.Maybe Prelude.Text)
 updateRecords_clientContext = Lens.lens (\UpdateRecords' {clientContext} -> clientContext) (\s@UpdateRecords' {} a -> s {clientContext = a} :: UpdateRecords)
+
+-- | The unique ID generated for this device by Cognito.
+updateRecords_deviceId :: Lens.Lens' UpdateRecords (Prelude.Maybe Prelude.Text)
+updateRecords_deviceId = Lens.lens (\UpdateRecords' {deviceId} -> deviceId) (\s@UpdateRecords' {} a -> s {deviceId = a} :: UpdateRecords)
 
 -- | A list of patch operations.
 updateRecords_recordPatches :: Lens.Lens' UpdateRecords (Prelude.Maybe [RecordPatch])
@@ -206,8 +206,8 @@ instance Core.AWSRequest UpdateRecords where
 
 instance Prelude.Hashable UpdateRecords where
   hashWithSalt _salt UpdateRecords' {..} =
-    _salt `Prelude.hashWithSalt` deviceId
-      `Prelude.hashWithSalt` clientContext
+    _salt `Prelude.hashWithSalt` clientContext
+      `Prelude.hashWithSalt` deviceId
       `Prelude.hashWithSalt` recordPatches
       `Prelude.hashWithSalt` identityPoolId
       `Prelude.hashWithSalt` identityId
@@ -216,8 +216,8 @@ instance Prelude.Hashable UpdateRecords where
 
 instance Prelude.NFData UpdateRecords where
   rnf UpdateRecords' {..} =
-    Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf clientContext
+    Prelude.rnf clientContext
+      `Prelude.seq` Prelude.rnf deviceId
       `Prelude.seq` Prelude.rnf recordPatches
       `Prelude.seq` Prelude.rnf identityPoolId
       `Prelude.seq` Prelude.rnf identityId

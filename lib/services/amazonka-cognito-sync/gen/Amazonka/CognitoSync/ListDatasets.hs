@@ -33,8 +33,8 @@ module Amazonka.CognitoSync.ListDatasets
     newListDatasets,
 
     -- * Request Lenses
-    listDatasets_nextToken,
     listDatasets_maxResults,
+    listDatasets_nextToken,
     listDatasets_identityId,
     listDatasets_identityPoolId,
 
@@ -43,9 +43,9 @@ module Amazonka.CognitoSync.ListDatasets
     newListDatasetsResponse,
 
     -- * Response Lenses
-    listDatasetsResponse_nextToken,
-    listDatasetsResponse_datasets,
     listDatasetsResponse_count,
+    listDatasetsResponse_datasets,
+    listDatasetsResponse_nextToken,
     listDatasetsResponse_httpStatus,
   )
 where
@@ -62,10 +62,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListDatasets' smart constructor.
 data ListDatasets = ListDatasets'
-  { -- | A pagination token for obtaining the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to be returned.
+  { -- | The maximum number of results to be returned.
     maxResults :: Prelude.Maybe Prelude.Int,
+    -- | A pagination token for obtaining the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A name-spaced GUID (for example,
     -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
     -- Cognito. GUID generation is unique within a region.
@@ -85,9 +85,9 @@ data ListDatasets = ListDatasets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listDatasets_nextToken' - A pagination token for obtaining the next page of results.
---
 -- 'maxResults', 'listDatasets_maxResults' - The maximum number of results to be returned.
+--
+-- 'nextToken', 'listDatasets_nextToken' - A pagination token for obtaining the next page of results.
 --
 -- 'identityId', 'listDatasets_identityId' - A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
@@ -104,19 +104,19 @@ newListDatasets ::
   ListDatasets
 newListDatasets pIdentityId_ pIdentityPoolId_ =
   ListDatasets'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       identityId = pIdentityId_,
       identityPoolId = pIdentityPoolId_
     }
 
--- | A pagination token for obtaining the next page of results.
-listDatasets_nextToken :: Lens.Lens' ListDatasets (Prelude.Maybe Prelude.Text)
-listDatasets_nextToken = Lens.lens (\ListDatasets' {nextToken} -> nextToken) (\s@ListDatasets' {} a -> s {nextToken = a} :: ListDatasets)
-
 -- | The maximum number of results to be returned.
 listDatasets_maxResults :: Lens.Lens' ListDatasets (Prelude.Maybe Prelude.Int)
 listDatasets_maxResults = Lens.lens (\ListDatasets' {maxResults} -> maxResults) (\s@ListDatasets' {} a -> s {maxResults = a} :: ListDatasets)
+
+-- | A pagination token for obtaining the next page of results.
+listDatasets_nextToken :: Lens.Lens' ListDatasets (Prelude.Maybe Prelude.Text)
+listDatasets_nextToken = Lens.lens (\ListDatasets' {nextToken} -> nextToken) (\s@ListDatasets' {} a -> s {nextToken = a} :: ListDatasets)
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
@@ -138,23 +138,23 @@ instance Core.AWSRequest ListDatasets where
     Response.receiveJSON
       ( \s h x ->
           ListDatasetsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<$> (x Data..?> "Count")
             Prelude.<*> (x Data..?> "Datasets" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "Count")
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListDatasets where
   hashWithSalt _salt ListDatasets' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` identityId
       `Prelude.hashWithSalt` identityPoolId
 
 instance Prelude.NFData ListDatasets where
   rnf ListDatasets' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf identityId
       `Prelude.seq` Prelude.rnf identityPoolId
 
@@ -182,20 +182,20 @@ instance Data.ToPath ListDatasets where
 instance Data.ToQuery ListDatasets where
   toQuery ListDatasets' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | Returned for a successful ListDatasets request.
 --
 -- /See:/ 'newListDatasetsResponse' smart constructor.
 data ListDatasetsResponse = ListDatasetsResponse'
-  { -- | A pagination token for obtaining the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | Number of datasets returned.
+    count :: Prelude.Maybe Prelude.Int,
     -- | A set of datasets.
     datasets :: Prelude.Maybe [Dataset],
-    -- | Number of datasets returned.
-    count :: Prelude.Maybe Prelude.Int,
+    -- | A pagination token for obtaining the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -209,11 +209,11 @@ data ListDatasetsResponse = ListDatasetsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listDatasetsResponse_nextToken' - A pagination token for obtaining the next page of results.
+-- 'count', 'listDatasetsResponse_count' - Number of datasets returned.
 --
 -- 'datasets', 'listDatasetsResponse_datasets' - A set of datasets.
 --
--- 'count', 'listDatasetsResponse_count' - Number of datasets returned.
+-- 'nextToken', 'listDatasetsResponse_nextToken' - A pagination token for obtaining the next page of results.
 --
 -- 'httpStatus', 'listDatasetsResponse_httpStatus' - The response's http status code.
 newListDatasetsResponse ::
@@ -222,23 +222,23 @@ newListDatasetsResponse ::
   ListDatasetsResponse
 newListDatasetsResponse pHttpStatus_ =
   ListDatasetsResponse'
-    { nextToken = Prelude.Nothing,
+    { count = Prelude.Nothing,
       datasets = Prelude.Nothing,
-      count = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | A pagination token for obtaining the next page of results.
-listDatasetsResponse_nextToken :: Lens.Lens' ListDatasetsResponse (Prelude.Maybe Prelude.Text)
-listDatasetsResponse_nextToken = Lens.lens (\ListDatasetsResponse' {nextToken} -> nextToken) (\s@ListDatasetsResponse' {} a -> s {nextToken = a} :: ListDatasetsResponse)
+-- | Number of datasets returned.
+listDatasetsResponse_count :: Lens.Lens' ListDatasetsResponse (Prelude.Maybe Prelude.Int)
+listDatasetsResponse_count = Lens.lens (\ListDatasetsResponse' {count} -> count) (\s@ListDatasetsResponse' {} a -> s {count = a} :: ListDatasetsResponse)
 
 -- | A set of datasets.
 listDatasetsResponse_datasets :: Lens.Lens' ListDatasetsResponse (Prelude.Maybe [Dataset])
 listDatasetsResponse_datasets = Lens.lens (\ListDatasetsResponse' {datasets} -> datasets) (\s@ListDatasetsResponse' {} a -> s {datasets = a} :: ListDatasetsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | Number of datasets returned.
-listDatasetsResponse_count :: Lens.Lens' ListDatasetsResponse (Prelude.Maybe Prelude.Int)
-listDatasetsResponse_count = Lens.lens (\ListDatasetsResponse' {count} -> count) (\s@ListDatasetsResponse' {} a -> s {count = a} :: ListDatasetsResponse)
+-- | A pagination token for obtaining the next page of results.
+listDatasetsResponse_nextToken :: Lens.Lens' ListDatasetsResponse (Prelude.Maybe Prelude.Text)
+listDatasetsResponse_nextToken = Lens.lens (\ListDatasetsResponse' {nextToken} -> nextToken) (\s@ListDatasetsResponse' {} a -> s {nextToken = a} :: ListDatasetsResponse)
 
 -- | The response's http status code.
 listDatasetsResponse_httpStatus :: Lens.Lens' ListDatasetsResponse Prelude.Int
@@ -246,7 +246,7 @@ listDatasetsResponse_httpStatus = Lens.lens (\ListDatasetsResponse' {httpStatus}
 
 instance Prelude.NFData ListDatasetsResponse where
   rnf ListDatasetsResponse' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf count
       `Prelude.seq` Prelude.rnf datasets
-      `Prelude.seq` Prelude.rnf count
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

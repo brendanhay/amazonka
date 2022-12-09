@@ -47,10 +47,10 @@ module Amazonka.CognitoSync.Lens
     -- ** GetBulkPublishDetails
     getBulkPublishDetails_identityPoolId,
     getBulkPublishDetailsResponse_bulkPublishCompleteTime,
+    getBulkPublishDetailsResponse_bulkPublishStartTime,
+    getBulkPublishDetailsResponse_bulkPublishStatus,
     getBulkPublishDetailsResponse_failureMessage,
     getBulkPublishDetailsResponse_identityPoolId,
-    getBulkPublishDetailsResponse_bulkPublishStatus,
-    getBulkPublishDetailsResponse_bulkPublishStartTime,
     getBulkPublishDetailsResponse_httpStatus,
 
     -- ** GetCognitoEvents
@@ -66,41 +66,41 @@ module Amazonka.CognitoSync.Lens
     getIdentityPoolConfigurationResponse_httpStatus,
 
     -- ** ListDatasets
-    listDatasets_nextToken,
     listDatasets_maxResults,
+    listDatasets_nextToken,
     listDatasets_identityId,
     listDatasets_identityPoolId,
-    listDatasetsResponse_nextToken,
-    listDatasetsResponse_datasets,
     listDatasetsResponse_count,
+    listDatasetsResponse_datasets,
+    listDatasetsResponse_nextToken,
     listDatasetsResponse_httpStatus,
 
     -- ** ListIdentityPoolUsage
-    listIdentityPoolUsage_nextToken,
     listIdentityPoolUsage_maxResults,
-    listIdentityPoolUsageResponse_nextToken,
+    listIdentityPoolUsage_nextToken,
     listIdentityPoolUsageResponse_count,
-    listIdentityPoolUsageResponse_maxResults,
     listIdentityPoolUsageResponse_identityPoolUsages,
+    listIdentityPoolUsageResponse_maxResults,
+    listIdentityPoolUsageResponse_nextToken,
     listIdentityPoolUsageResponse_httpStatus,
 
     -- ** ListRecords
-    listRecords_nextToken,
-    listRecords_syncSessionToken,
     listRecords_lastSyncCount,
     listRecords_maxResults,
+    listRecords_nextToken,
+    listRecords_syncSessionToken,
     listRecords_identityPoolId,
     listRecords_identityId,
     listRecords_datasetName,
-    listRecordsResponse_records,
-    listRecordsResponse_nextToken,
-    listRecordsResponse_datasetExists,
-    listRecordsResponse_syncSessionToken,
-    listRecordsResponse_mergedDatasetNames,
-    listRecordsResponse_datasetSyncCount,
     listRecordsResponse_count,
-    listRecordsResponse_lastModifiedBy,
     listRecordsResponse_datasetDeletedAfterRequestedSyncCount,
+    listRecordsResponse_datasetExists,
+    listRecordsResponse_datasetSyncCount,
+    listRecordsResponse_lastModifiedBy,
+    listRecordsResponse_mergedDatasetNames,
+    listRecordsResponse_nextToken,
+    listRecordsResponse_records,
+    listRecordsResponse_syncSessionToken,
     listRecordsResponse_httpStatus,
 
     -- ** RegisterDevice
@@ -139,8 +139,8 @@ module Amazonka.CognitoSync.Lens
     unsubscribeFromDatasetResponse_httpStatus,
 
     -- ** UpdateRecords
-    updateRecords_deviceId,
     updateRecords_clientContext,
+    updateRecords_deviceId,
     updateRecords_recordPatches,
     updateRecords_identityPoolId,
     updateRecords_identityId,
@@ -153,41 +153,41 @@ module Amazonka.CognitoSync.Lens
 
     -- ** CognitoStreams
     cognitoStreams_roleArn,
-    cognitoStreams_streamingStatus,
     cognitoStreams_streamName,
+    cognitoStreams_streamingStatus,
 
     -- ** Dataset
-    dataset_numRecords,
-    dataset_lastModifiedDate,
+    dataset_creationDate,
     dataset_dataStorage,
     dataset_datasetName,
-    dataset_creationDate,
-    dataset_lastModifiedBy,
     dataset_identityId,
+    dataset_lastModifiedBy,
+    dataset_lastModifiedDate,
+    dataset_numRecords,
 
     -- ** IdentityPoolUsage
-    identityPoolUsage_lastModifiedDate,
     identityPoolUsage_dataStorage,
-    identityPoolUsage_syncSessionsCount,
     identityPoolUsage_identityPoolId,
+    identityPoolUsage_lastModifiedDate,
+    identityPoolUsage_syncSessionsCount,
 
     -- ** IdentityUsage
-    identityUsage_datasetCount,
-    identityUsage_lastModifiedDate,
     identityUsage_dataStorage,
-    identityUsage_identityPoolId,
+    identityUsage_datasetCount,
     identityUsage_identityId,
+    identityUsage_identityPoolId,
+    identityUsage_lastModifiedDate,
 
     -- ** PushSync
-    pushSync_roleArn,
     pushSync_applicationArns,
+    pushSync_roleArn,
 
     -- ** Record
-    record_key,
-    record_lastModifiedDate,
-    record_lastModifiedBy,
-    record_syncCount,
     record_deviceLastModifiedDate,
+    record_key,
+    record_lastModifiedBy,
+    record_lastModifiedDate,
+    record_syncCount,
     record_value,
 
     -- ** RecordPatch

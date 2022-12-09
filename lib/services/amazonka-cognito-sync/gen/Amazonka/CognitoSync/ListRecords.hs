@@ -34,10 +34,10 @@ module Amazonka.CognitoSync.ListRecords
     newListRecords,
 
     -- * Request Lenses
-    listRecords_nextToken,
-    listRecords_syncSessionToken,
     listRecords_lastSyncCount,
     listRecords_maxResults,
+    listRecords_nextToken,
+    listRecords_syncSessionToken,
     listRecords_identityPoolId,
     listRecords_identityId,
     listRecords_datasetName,
@@ -47,15 +47,15 @@ module Amazonka.CognitoSync.ListRecords
     newListRecordsResponse,
 
     -- * Response Lenses
-    listRecordsResponse_records,
-    listRecordsResponse_nextToken,
-    listRecordsResponse_datasetExists,
-    listRecordsResponse_syncSessionToken,
-    listRecordsResponse_mergedDatasetNames,
-    listRecordsResponse_datasetSyncCount,
     listRecordsResponse_count,
-    listRecordsResponse_lastModifiedBy,
     listRecordsResponse_datasetDeletedAfterRequestedSyncCount,
+    listRecordsResponse_datasetExists,
+    listRecordsResponse_datasetSyncCount,
+    listRecordsResponse_lastModifiedBy,
+    listRecordsResponse_mergedDatasetNames,
+    listRecordsResponse_nextToken,
+    listRecordsResponse_records,
+    listRecordsResponse_syncSessionToken,
     listRecordsResponse_httpStatus,
   )
 where
@@ -72,14 +72,14 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListRecords' smart constructor.
 data ListRecords = ListRecords'
-  { -- | A pagination token for obtaining the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A token containing a session ID, identity ID, and expiration.
-    syncSessionToken :: Prelude.Maybe Prelude.Text,
-    -- | The last server sync count for this record.
+  { -- | The last server sync count for this record.
     lastSyncCount :: Prelude.Maybe Prelude.Integer,
     -- | The maximum number of results to be returned.
     maxResults :: Prelude.Maybe Prelude.Int,
+    -- | A pagination token for obtaining the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A token containing a session ID, identity ID, and expiration.
+    syncSessionToken :: Prelude.Maybe Prelude.Text,
     -- | A name-spaced GUID (for example,
     -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
     -- Cognito. GUID generation is unique within a region.
@@ -102,13 +102,13 @@ data ListRecords = ListRecords'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listRecords_nextToken' - A pagination token for obtaining the next page of results.
---
--- 'syncSessionToken', 'listRecords_syncSessionToken' - A token containing a session ID, identity ID, and expiration.
---
 -- 'lastSyncCount', 'listRecords_lastSyncCount' - The last server sync count for this record.
 --
 -- 'maxResults', 'listRecords_maxResults' - The maximum number of results to be returned.
+--
+-- 'nextToken', 'listRecords_nextToken' - A pagination token for obtaining the next page of results.
+--
+-- 'syncSessionToken', 'listRecords_syncSessionToken' - A token containing a session ID, identity ID, and expiration.
 --
 -- 'identityPoolId', 'listRecords_identityPoolId' - A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
@@ -133,22 +133,14 @@ newListRecords
   pIdentityId_
   pDatasetName_ =
     ListRecords'
-      { nextToken = Prelude.Nothing,
-        syncSessionToken = Prelude.Nothing,
-        lastSyncCount = Prelude.Nothing,
+      { lastSyncCount = Prelude.Nothing,
         maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
+        syncSessionToken = Prelude.Nothing,
         identityPoolId = pIdentityPoolId_,
         identityId = pIdentityId_,
         datasetName = pDatasetName_
       }
-
--- | A pagination token for obtaining the next page of results.
-listRecords_nextToken :: Lens.Lens' ListRecords (Prelude.Maybe Prelude.Text)
-listRecords_nextToken = Lens.lens (\ListRecords' {nextToken} -> nextToken) (\s@ListRecords' {} a -> s {nextToken = a} :: ListRecords)
-
--- | A token containing a session ID, identity ID, and expiration.
-listRecords_syncSessionToken :: Lens.Lens' ListRecords (Prelude.Maybe Prelude.Text)
-listRecords_syncSessionToken = Lens.lens (\ListRecords' {syncSessionToken} -> syncSessionToken) (\s@ListRecords' {} a -> s {syncSessionToken = a} :: ListRecords)
 
 -- | The last server sync count for this record.
 listRecords_lastSyncCount :: Lens.Lens' ListRecords (Prelude.Maybe Prelude.Integer)
@@ -157,6 +149,14 @@ listRecords_lastSyncCount = Lens.lens (\ListRecords' {lastSyncCount} -> lastSync
 -- | The maximum number of results to be returned.
 listRecords_maxResults :: Lens.Lens' ListRecords (Prelude.Maybe Prelude.Int)
 listRecords_maxResults = Lens.lens (\ListRecords' {maxResults} -> maxResults) (\s@ListRecords' {} a -> s {maxResults = a} :: ListRecords)
+
+-- | A pagination token for obtaining the next page of results.
+listRecords_nextToken :: Lens.Lens' ListRecords (Prelude.Maybe Prelude.Text)
+listRecords_nextToken = Lens.lens (\ListRecords' {nextToken} -> nextToken) (\s@ListRecords' {} a -> s {nextToken = a} :: ListRecords)
+
+-- | A token containing a session ID, identity ID, and expiration.
+listRecords_syncSessionToken :: Lens.Lens' ListRecords (Prelude.Maybe Prelude.Text)
+listRecords_syncSessionToken = Lens.lens (\ListRecords' {syncSessionToken} -> syncSessionToken) (\s@ListRecords' {} a -> s {syncSessionToken = a} :: ListRecords)
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
@@ -183,36 +183,36 @@ instance Core.AWSRequest ListRecords where
     Response.receiveJSON
       ( \s h x ->
           ListRecordsResponse'
-            Prelude.<$> (x Data..?> "Records" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<$> (x Data..?> "Count")
+            Prelude.<*> (x Data..?> "DatasetDeletedAfterRequestedSyncCount")
             Prelude.<*> (x Data..?> "DatasetExists")
-            Prelude.<*> (x Data..?> "SyncSessionToken")
+            Prelude.<*> (x Data..?> "DatasetSyncCount")
+            Prelude.<*> (x Data..?> "LastModifiedBy")
             Prelude.<*> ( x Data..?> "MergedDatasetNames"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "DatasetSyncCount")
-            Prelude.<*> (x Data..?> "Count")
-            Prelude.<*> (x Data..?> "LastModifiedBy")
-            Prelude.<*> (x Data..?> "DatasetDeletedAfterRequestedSyncCount")
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Records" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "SyncSessionToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListRecords where
   hashWithSalt _salt ListRecords' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` syncSessionToken
-      `Prelude.hashWithSalt` lastSyncCount
+    _salt `Prelude.hashWithSalt` lastSyncCount
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` syncSessionToken
       `Prelude.hashWithSalt` identityPoolId
       `Prelude.hashWithSalt` identityId
       `Prelude.hashWithSalt` datasetName
 
 instance Prelude.NFData ListRecords where
   rnf ListRecords' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf syncSessionToken
-      `Prelude.seq` Prelude.rnf lastSyncCount
+    Prelude.rnf lastSyncCount
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf syncSessionToken
       `Prelude.seq` Prelude.rnf identityPoolId
       `Prelude.seq` Prelude.rnf identityId
       `Prelude.seq` Prelude.rnf datasetName
@@ -243,34 +243,34 @@ instance Data.ToPath ListRecords where
 instance Data.ToQuery ListRecords where
   toQuery ListRecords' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "syncSessionToken" Data.=: syncSessionToken,
-        "lastSyncCount" Data.=: lastSyncCount,
-        "maxResults" Data.=: maxResults
+      [ "lastSyncCount" Data.=: lastSyncCount,
+        "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
+        "syncSessionToken" Data.=: syncSessionToken
       ]
 
 -- | Returned for a successful ListRecordsRequest.
 --
 -- /See:/ 'newListRecordsResponse' smart constructor.
 data ListRecordsResponse = ListRecordsResponse'
-  { -- | A list of all records.
-    records :: Prelude.Maybe [Record],
-    -- | A pagination token for obtaining the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether the dataset exists.
-    datasetExists :: Prelude.Maybe Prelude.Bool,
-    -- | A token containing a session ID, identity ID, and expiration.
-    syncSessionToken :: Prelude.Maybe Prelude.Text,
-    -- | Names of merged datasets.
-    mergedDatasetNames :: Prelude.Maybe [Prelude.Text],
-    -- | Server sync count for this dataset.
-    datasetSyncCount :: Prelude.Maybe Prelude.Integer,
-    -- | Total number of records.
+  { -- | Total number of records.
     count :: Prelude.Maybe Prelude.Int,
-    -- | The user\/device that made the last change to this record.
-    lastModifiedBy :: Prelude.Maybe Prelude.Text,
     -- | A boolean value specifying whether to delete the dataset locally.
     datasetDeletedAfterRequestedSyncCount :: Prelude.Maybe Prelude.Bool,
+    -- | Indicates whether the dataset exists.
+    datasetExists :: Prelude.Maybe Prelude.Bool,
+    -- | Server sync count for this dataset.
+    datasetSyncCount :: Prelude.Maybe Prelude.Integer,
+    -- | The user\/device that made the last change to this record.
+    lastModifiedBy :: Prelude.Maybe Prelude.Text,
+    -- | Names of merged datasets.
+    mergedDatasetNames :: Prelude.Maybe [Prelude.Text],
+    -- | A pagination token for obtaining the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of all records.
+    records :: Prelude.Maybe [Record],
+    -- | A token containing a session ID, identity ID, and expiration.
+    syncSessionToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -284,23 +284,23 @@ data ListRecordsResponse = ListRecordsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'records', 'listRecordsResponse_records' - A list of all records.
+-- 'count', 'listRecordsResponse_count' - Total number of records.
 --
--- 'nextToken', 'listRecordsResponse_nextToken' - A pagination token for obtaining the next page of results.
+-- 'datasetDeletedAfterRequestedSyncCount', 'listRecordsResponse_datasetDeletedAfterRequestedSyncCount' - A boolean value specifying whether to delete the dataset locally.
 --
 -- 'datasetExists', 'listRecordsResponse_datasetExists' - Indicates whether the dataset exists.
 --
--- 'syncSessionToken', 'listRecordsResponse_syncSessionToken' - A token containing a session ID, identity ID, and expiration.
---
--- 'mergedDatasetNames', 'listRecordsResponse_mergedDatasetNames' - Names of merged datasets.
---
 -- 'datasetSyncCount', 'listRecordsResponse_datasetSyncCount' - Server sync count for this dataset.
---
--- 'count', 'listRecordsResponse_count' - Total number of records.
 --
 -- 'lastModifiedBy', 'listRecordsResponse_lastModifiedBy' - The user\/device that made the last change to this record.
 --
--- 'datasetDeletedAfterRequestedSyncCount', 'listRecordsResponse_datasetDeletedAfterRequestedSyncCount' - A boolean value specifying whether to delete the dataset locally.
+-- 'mergedDatasetNames', 'listRecordsResponse_mergedDatasetNames' - Names of merged datasets.
+--
+-- 'nextToken', 'listRecordsResponse_nextToken' - A pagination token for obtaining the next page of results.
+--
+-- 'records', 'listRecordsResponse_records' - A list of all records.
+--
+-- 'syncSessionToken', 'listRecordsResponse_syncSessionToken' - A token containing a session ID, identity ID, and expiration.
 --
 -- 'httpStatus', 'listRecordsResponse_httpStatus' - The response's http status code.
 newListRecordsResponse ::
@@ -309,54 +309,54 @@ newListRecordsResponse ::
   ListRecordsResponse
 newListRecordsResponse pHttpStatus_ =
   ListRecordsResponse'
-    { records = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      datasetExists = Prelude.Nothing,
-      syncSessionToken = Prelude.Nothing,
-      mergedDatasetNames = Prelude.Nothing,
-      datasetSyncCount = Prelude.Nothing,
-      count = Prelude.Nothing,
-      lastModifiedBy = Prelude.Nothing,
+    { count = Prelude.Nothing,
       datasetDeletedAfterRequestedSyncCount =
         Prelude.Nothing,
+      datasetExists = Prelude.Nothing,
+      datasetSyncCount = Prelude.Nothing,
+      lastModifiedBy = Prelude.Nothing,
+      mergedDatasetNames = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      records = Prelude.Nothing,
+      syncSessionToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of all records.
-listRecordsResponse_records :: Lens.Lens' ListRecordsResponse (Prelude.Maybe [Record])
-listRecordsResponse_records = Lens.lens (\ListRecordsResponse' {records} -> records) (\s@ListRecordsResponse' {} a -> s {records = a} :: ListRecordsResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | A pagination token for obtaining the next page of results.
-listRecordsResponse_nextToken :: Lens.Lens' ListRecordsResponse (Prelude.Maybe Prelude.Text)
-listRecordsResponse_nextToken = Lens.lens (\ListRecordsResponse' {nextToken} -> nextToken) (\s@ListRecordsResponse' {} a -> s {nextToken = a} :: ListRecordsResponse)
-
--- | Indicates whether the dataset exists.
-listRecordsResponse_datasetExists :: Lens.Lens' ListRecordsResponse (Prelude.Maybe Prelude.Bool)
-listRecordsResponse_datasetExists = Lens.lens (\ListRecordsResponse' {datasetExists} -> datasetExists) (\s@ListRecordsResponse' {} a -> s {datasetExists = a} :: ListRecordsResponse)
-
--- | A token containing a session ID, identity ID, and expiration.
-listRecordsResponse_syncSessionToken :: Lens.Lens' ListRecordsResponse (Prelude.Maybe Prelude.Text)
-listRecordsResponse_syncSessionToken = Lens.lens (\ListRecordsResponse' {syncSessionToken} -> syncSessionToken) (\s@ListRecordsResponse' {} a -> s {syncSessionToken = a} :: ListRecordsResponse)
-
--- | Names of merged datasets.
-listRecordsResponse_mergedDatasetNames :: Lens.Lens' ListRecordsResponse (Prelude.Maybe [Prelude.Text])
-listRecordsResponse_mergedDatasetNames = Lens.lens (\ListRecordsResponse' {mergedDatasetNames} -> mergedDatasetNames) (\s@ListRecordsResponse' {} a -> s {mergedDatasetNames = a} :: ListRecordsResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | Server sync count for this dataset.
-listRecordsResponse_datasetSyncCount :: Lens.Lens' ListRecordsResponse (Prelude.Maybe Prelude.Integer)
-listRecordsResponse_datasetSyncCount = Lens.lens (\ListRecordsResponse' {datasetSyncCount} -> datasetSyncCount) (\s@ListRecordsResponse' {} a -> s {datasetSyncCount = a} :: ListRecordsResponse)
 
 -- | Total number of records.
 listRecordsResponse_count :: Lens.Lens' ListRecordsResponse (Prelude.Maybe Prelude.Int)
 listRecordsResponse_count = Lens.lens (\ListRecordsResponse' {count} -> count) (\s@ListRecordsResponse' {} a -> s {count = a} :: ListRecordsResponse)
 
+-- | A boolean value specifying whether to delete the dataset locally.
+listRecordsResponse_datasetDeletedAfterRequestedSyncCount :: Lens.Lens' ListRecordsResponse (Prelude.Maybe Prelude.Bool)
+listRecordsResponse_datasetDeletedAfterRequestedSyncCount = Lens.lens (\ListRecordsResponse' {datasetDeletedAfterRequestedSyncCount} -> datasetDeletedAfterRequestedSyncCount) (\s@ListRecordsResponse' {} a -> s {datasetDeletedAfterRequestedSyncCount = a} :: ListRecordsResponse)
+
+-- | Indicates whether the dataset exists.
+listRecordsResponse_datasetExists :: Lens.Lens' ListRecordsResponse (Prelude.Maybe Prelude.Bool)
+listRecordsResponse_datasetExists = Lens.lens (\ListRecordsResponse' {datasetExists} -> datasetExists) (\s@ListRecordsResponse' {} a -> s {datasetExists = a} :: ListRecordsResponse)
+
+-- | Server sync count for this dataset.
+listRecordsResponse_datasetSyncCount :: Lens.Lens' ListRecordsResponse (Prelude.Maybe Prelude.Integer)
+listRecordsResponse_datasetSyncCount = Lens.lens (\ListRecordsResponse' {datasetSyncCount} -> datasetSyncCount) (\s@ListRecordsResponse' {} a -> s {datasetSyncCount = a} :: ListRecordsResponse)
+
 -- | The user\/device that made the last change to this record.
 listRecordsResponse_lastModifiedBy :: Lens.Lens' ListRecordsResponse (Prelude.Maybe Prelude.Text)
 listRecordsResponse_lastModifiedBy = Lens.lens (\ListRecordsResponse' {lastModifiedBy} -> lastModifiedBy) (\s@ListRecordsResponse' {} a -> s {lastModifiedBy = a} :: ListRecordsResponse)
 
--- | A boolean value specifying whether to delete the dataset locally.
-listRecordsResponse_datasetDeletedAfterRequestedSyncCount :: Lens.Lens' ListRecordsResponse (Prelude.Maybe Prelude.Bool)
-listRecordsResponse_datasetDeletedAfterRequestedSyncCount = Lens.lens (\ListRecordsResponse' {datasetDeletedAfterRequestedSyncCount} -> datasetDeletedAfterRequestedSyncCount) (\s@ListRecordsResponse' {} a -> s {datasetDeletedAfterRequestedSyncCount = a} :: ListRecordsResponse)
+-- | Names of merged datasets.
+listRecordsResponse_mergedDatasetNames :: Lens.Lens' ListRecordsResponse (Prelude.Maybe [Prelude.Text])
+listRecordsResponse_mergedDatasetNames = Lens.lens (\ListRecordsResponse' {mergedDatasetNames} -> mergedDatasetNames) (\s@ListRecordsResponse' {} a -> s {mergedDatasetNames = a} :: ListRecordsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A pagination token for obtaining the next page of results.
+listRecordsResponse_nextToken :: Lens.Lens' ListRecordsResponse (Prelude.Maybe Prelude.Text)
+listRecordsResponse_nextToken = Lens.lens (\ListRecordsResponse' {nextToken} -> nextToken) (\s@ListRecordsResponse' {} a -> s {nextToken = a} :: ListRecordsResponse)
+
+-- | A list of all records.
+listRecordsResponse_records :: Lens.Lens' ListRecordsResponse (Prelude.Maybe [Record])
+listRecordsResponse_records = Lens.lens (\ListRecordsResponse' {records} -> records) (\s@ListRecordsResponse' {} a -> s {records = a} :: ListRecordsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A token containing a session ID, identity ID, and expiration.
+listRecordsResponse_syncSessionToken :: Lens.Lens' ListRecordsResponse (Prelude.Maybe Prelude.Text)
+listRecordsResponse_syncSessionToken = Lens.lens (\ListRecordsResponse' {syncSessionToken} -> syncSessionToken) (\s@ListRecordsResponse' {} a -> s {syncSessionToken = a} :: ListRecordsResponse)
 
 -- | The response's http status code.
 listRecordsResponse_httpStatus :: Lens.Lens' ListRecordsResponse Prelude.Int
@@ -364,13 +364,13 @@ listRecordsResponse_httpStatus = Lens.lens (\ListRecordsResponse' {httpStatus} -
 
 instance Prelude.NFData ListRecordsResponse where
   rnf ListRecordsResponse' {..} =
-    Prelude.rnf records
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf datasetExists
-      `Prelude.seq` Prelude.rnf syncSessionToken
-      `Prelude.seq` Prelude.rnf mergedDatasetNames
-      `Prelude.seq` Prelude.rnf datasetSyncCount
-      `Prelude.seq` Prelude.rnf count
-      `Prelude.seq` Prelude.rnf lastModifiedBy
+    Prelude.rnf count
       `Prelude.seq` Prelude.rnf datasetDeletedAfterRequestedSyncCount
+      `Prelude.seq` Prelude.rnf datasetExists
+      `Prelude.seq` Prelude.rnf datasetSyncCount
+      `Prelude.seq` Prelude.rnf lastModifiedBy
+      `Prelude.seq` Prelude.rnf mergedDatasetNames
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf records
+      `Prelude.seq` Prelude.rnf syncSessionToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -29,17 +29,17 @@ module Amazonka.Personalize.ListMetricAttributionMetrics
     newListMetricAttributionMetrics,
 
     -- * Request Lenses
-    listMetricAttributionMetrics_nextToken,
     listMetricAttributionMetrics_maxResults,
     listMetricAttributionMetrics_metricAttributionArn,
+    listMetricAttributionMetrics_nextToken,
 
     -- * Destructuring the Response
     ListMetricAttributionMetricsResponse (..),
     newListMetricAttributionMetricsResponse,
 
     -- * Response Lenses
-    listMetricAttributionMetricsResponse_nextToken,
     listMetricAttributionMetricsResponse_metrics,
+    listMetricAttributionMetricsResponse_nextToken,
     listMetricAttributionMetricsResponse_httpStatus,
   )
 where
@@ -54,14 +54,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListMetricAttributionMetrics' smart constructor.
 data ListMetricAttributionMetrics = ListMetricAttributionMetrics'
-  { -- | Specify the pagination token from a previous request to retrieve the
-    -- next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of metrics to return in one page of results.
+  { -- | The maximum number of metrics to return in one page of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name (ARN) of the metric attribution to retrieve
     -- attributes for.
-    metricAttributionArn :: Prelude.Maybe Prelude.Text
+    metricAttributionArn :: Prelude.Maybe Prelude.Text,
+    -- | Specify the pagination token from a previous request to retrieve the
+    -- next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,27 +73,22 @@ data ListMetricAttributionMetrics = ListMetricAttributionMetrics'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listMetricAttributionMetrics_nextToken' - Specify the pagination token from a previous request to retrieve the
--- next page of results.
---
 -- 'maxResults', 'listMetricAttributionMetrics_maxResults' - The maximum number of metrics to return in one page of results.
 --
 -- 'metricAttributionArn', 'listMetricAttributionMetrics_metricAttributionArn' - The Amazon Resource Name (ARN) of the metric attribution to retrieve
 -- attributes for.
+--
+-- 'nextToken', 'listMetricAttributionMetrics_nextToken' - Specify the pagination token from a previous request to retrieve the
+-- next page of results.
 newListMetricAttributionMetrics ::
   ListMetricAttributionMetrics
 newListMetricAttributionMetrics =
   ListMetricAttributionMetrics'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      metricAttributionArn = Prelude.Nothing
+      metricAttributionArn = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | Specify the pagination token from a previous request to retrieve the
--- next page of results.
-listMetricAttributionMetrics_nextToken :: Lens.Lens' ListMetricAttributionMetrics (Prelude.Maybe Prelude.Text)
-listMetricAttributionMetrics_nextToken = Lens.lens (\ListMetricAttributionMetrics' {nextToken} -> nextToken) (\s@ListMetricAttributionMetrics' {} a -> s {nextToken = a} :: ListMetricAttributionMetrics)
 
 -- | The maximum number of metrics to return in one page of results.
 listMetricAttributionMetrics_maxResults :: Lens.Lens' ListMetricAttributionMetrics (Prelude.Maybe Prelude.Natural)
@@ -103,6 +98,11 @@ listMetricAttributionMetrics_maxResults = Lens.lens (\ListMetricAttributionMetri
 -- attributes for.
 listMetricAttributionMetrics_metricAttributionArn :: Lens.Lens' ListMetricAttributionMetrics (Prelude.Maybe Prelude.Text)
 listMetricAttributionMetrics_metricAttributionArn = Lens.lens (\ListMetricAttributionMetrics' {metricAttributionArn} -> metricAttributionArn) (\s@ListMetricAttributionMetrics' {} a -> s {metricAttributionArn = a} :: ListMetricAttributionMetrics)
+
+-- | Specify the pagination token from a previous request to retrieve the
+-- next page of results.
+listMetricAttributionMetrics_nextToken :: Lens.Lens' ListMetricAttributionMetrics (Prelude.Maybe Prelude.Text)
+listMetricAttributionMetrics_nextToken = Lens.lens (\ListMetricAttributionMetrics' {nextToken} -> nextToken) (\s@ListMetricAttributionMetrics' {} a -> s {nextToken = a} :: ListMetricAttributionMetrics)
 
 instance Core.AWSPager ListMetricAttributionMetrics where
   page rq rs
@@ -136,8 +136,8 @@ instance Core.AWSRequest ListMetricAttributionMetrics where
     Response.receiveJSON
       ( \s h x ->
           ListMetricAttributionMetricsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "metrics" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "metrics" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,15 +146,15 @@ instance
     ListMetricAttributionMetrics
   where
   hashWithSalt _salt ListMetricAttributionMetrics' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` metricAttributionArn
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListMetricAttributionMetrics where
   rnf ListMetricAttributionMetrics' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf metricAttributionArn
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListMetricAttributionMetrics where
   toHeaders =
@@ -175,10 +175,10 @@ instance Data.ToJSON ListMetricAttributionMetrics where
   toJSON ListMetricAttributionMetrics' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
             ("metricAttributionArn" Data..=)
-              Prelude.<$> metricAttributionArn
+              Prelude.<$> metricAttributionArn,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -190,12 +190,12 @@ instance Data.ToQuery ListMetricAttributionMetrics where
 
 -- | /See:/ 'newListMetricAttributionMetricsResponse' smart constructor.
 data ListMetricAttributionMetricsResponse = ListMetricAttributionMetricsResponse'
-  { -- | Specify the pagination token from a previous
+  { -- | The metrics for the specified metric attribution.
+    metrics :: Prelude.Maybe [MetricAttribute],
+    -- | Specify the pagination token from a previous
     -- @ListMetricAttributionMetricsResponse@ request to retrieve the next page
     -- of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The metrics for the specified metric attribution.
-    metrics :: Prelude.Maybe [MetricAttribute],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -209,11 +209,11 @@ data ListMetricAttributionMetricsResponse = ListMetricAttributionMetricsResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'metrics', 'listMetricAttributionMetricsResponse_metrics' - The metrics for the specified metric attribution.
+--
 -- 'nextToken', 'listMetricAttributionMetricsResponse_nextToken' - Specify the pagination token from a previous
 -- @ListMetricAttributionMetricsResponse@ request to retrieve the next page
 -- of results.
---
--- 'metrics', 'listMetricAttributionMetricsResponse_metrics' - The metrics for the specified metric attribution.
 --
 -- 'httpStatus', 'listMetricAttributionMetricsResponse_httpStatus' - The response's http status code.
 newListMetricAttributionMetricsResponse ::
@@ -222,21 +222,21 @@ newListMetricAttributionMetricsResponse ::
   ListMetricAttributionMetricsResponse
 newListMetricAttributionMetricsResponse pHttpStatus_ =
   ListMetricAttributionMetricsResponse'
-    { nextToken =
+    { metrics =
         Prelude.Nothing,
-      metrics = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The metrics for the specified metric attribution.
+listMetricAttributionMetricsResponse_metrics :: Lens.Lens' ListMetricAttributionMetricsResponse (Prelude.Maybe [MetricAttribute])
+listMetricAttributionMetricsResponse_metrics = Lens.lens (\ListMetricAttributionMetricsResponse' {metrics} -> metrics) (\s@ListMetricAttributionMetricsResponse' {} a -> s {metrics = a} :: ListMetricAttributionMetricsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specify the pagination token from a previous
 -- @ListMetricAttributionMetricsResponse@ request to retrieve the next page
 -- of results.
 listMetricAttributionMetricsResponse_nextToken :: Lens.Lens' ListMetricAttributionMetricsResponse (Prelude.Maybe Prelude.Text)
 listMetricAttributionMetricsResponse_nextToken = Lens.lens (\ListMetricAttributionMetricsResponse' {nextToken} -> nextToken) (\s@ListMetricAttributionMetricsResponse' {} a -> s {nextToken = a} :: ListMetricAttributionMetricsResponse)
-
--- | The metrics for the specified metric attribution.
-listMetricAttributionMetricsResponse_metrics :: Lens.Lens' ListMetricAttributionMetricsResponse (Prelude.Maybe [MetricAttribute])
-listMetricAttributionMetricsResponse_metrics = Lens.lens (\ListMetricAttributionMetricsResponse' {metrics} -> metrics) (\s@ListMetricAttributionMetricsResponse' {} a -> s {metrics = a} :: ListMetricAttributionMetricsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listMetricAttributionMetricsResponse_httpStatus :: Lens.Lens' ListMetricAttributionMetricsResponse Prelude.Int
@@ -247,6 +247,6 @@ instance
     ListMetricAttributionMetricsResponse
   where
   rnf ListMetricAttributionMetricsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf metrics
+    Prelude.rnf metrics
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

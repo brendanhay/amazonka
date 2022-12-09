@@ -31,12 +31,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSolutionSummary' smart constructor.
 data SolutionSummary = SolutionSummary'
-  { -- | The Amazon Resource Name (ARN) of the solution.
-    solutionArn :: Prelude.Maybe Prelude.Text,
+  { -- | The date and time (in Unix time) that the solution was created.
+    creationDateTime :: Prelude.Maybe Data.POSIX,
+    -- | The date and time (in Unix time) that the solution was last updated.
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the solution.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The date and time (in Unix time) that the solution was created.
-    creationDateTime :: Prelude.Maybe Data.POSIX,
+    -- | The Amazon Resource Name (ARN) of the recipe used by the solution.
+    recipeArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the solution.
+    solutionArn :: Prelude.Maybe Prelude.Text,
     -- | The status of the solution.
     --
     -- A solution can be in one of the following states:
@@ -44,11 +48,7 @@ data SolutionSummary = SolutionSummary'
     -- -   CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
     --
     -- -   DELETE PENDING > DELETE IN_PROGRESS
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the recipe used by the solution.
-    recipeArn :: Prelude.Maybe Prelude.Text,
-    -- | The date and time (in Unix time) that the solution was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX
+    status :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,11 +60,15 @@ data SolutionSummary = SolutionSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'solutionArn', 'solutionSummary_solutionArn' - The Amazon Resource Name (ARN) of the solution.
+-- 'creationDateTime', 'solutionSummary_creationDateTime' - The date and time (in Unix time) that the solution was created.
+--
+-- 'lastUpdatedDateTime', 'solutionSummary_lastUpdatedDateTime' - The date and time (in Unix time) that the solution was last updated.
 --
 -- 'name', 'solutionSummary_name' - The name of the solution.
 --
--- 'creationDateTime', 'solutionSummary_creationDateTime' - The date and time (in Unix time) that the solution was created.
+-- 'recipeArn', 'solutionSummary_recipeArn' - The Amazon Resource Name (ARN) of the recipe used by the solution.
+--
+-- 'solutionArn', 'solutionSummary_solutionArn' - The Amazon Resource Name (ARN) of the solution.
 --
 -- 'status', 'solutionSummary_status' - The status of the solution.
 --
@@ -73,33 +77,38 @@ data SolutionSummary = SolutionSummary'
 -- -   CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
 --
 -- -   DELETE PENDING > DELETE IN_PROGRESS
---
--- 'recipeArn', 'solutionSummary_recipeArn' - The Amazon Resource Name (ARN) of the recipe used by the solution.
---
--- 'lastUpdatedDateTime', 'solutionSummary_lastUpdatedDateTime' - The date and time (in Unix time) that the solution was last updated.
 newSolutionSummary ::
   SolutionSummary
 newSolutionSummary =
   SolutionSummary'
-    { solutionArn = Prelude.Nothing,
+    { creationDateTime =
+        Prelude.Nothing,
+      lastUpdatedDateTime = Prelude.Nothing,
       name = Prelude.Nothing,
-      creationDateTime = Prelude.Nothing,
-      status = Prelude.Nothing,
       recipeArn = Prelude.Nothing,
-      lastUpdatedDateTime = Prelude.Nothing
+      solutionArn = Prelude.Nothing,
+      status = Prelude.Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the solution.
-solutionSummary_solutionArn :: Lens.Lens' SolutionSummary (Prelude.Maybe Prelude.Text)
-solutionSummary_solutionArn = Lens.lens (\SolutionSummary' {solutionArn} -> solutionArn) (\s@SolutionSummary' {} a -> s {solutionArn = a} :: SolutionSummary)
+-- | The date and time (in Unix time) that the solution was created.
+solutionSummary_creationDateTime :: Lens.Lens' SolutionSummary (Prelude.Maybe Prelude.UTCTime)
+solutionSummary_creationDateTime = Lens.lens (\SolutionSummary' {creationDateTime} -> creationDateTime) (\s@SolutionSummary' {} a -> s {creationDateTime = a} :: SolutionSummary) Prelude.. Lens.mapping Data._Time
+
+-- | The date and time (in Unix time) that the solution was last updated.
+solutionSummary_lastUpdatedDateTime :: Lens.Lens' SolutionSummary (Prelude.Maybe Prelude.UTCTime)
+solutionSummary_lastUpdatedDateTime = Lens.lens (\SolutionSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@SolutionSummary' {} a -> s {lastUpdatedDateTime = a} :: SolutionSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the solution.
 solutionSummary_name :: Lens.Lens' SolutionSummary (Prelude.Maybe Prelude.Text)
 solutionSummary_name = Lens.lens (\SolutionSummary' {name} -> name) (\s@SolutionSummary' {} a -> s {name = a} :: SolutionSummary)
 
--- | The date and time (in Unix time) that the solution was created.
-solutionSummary_creationDateTime :: Lens.Lens' SolutionSummary (Prelude.Maybe Prelude.UTCTime)
-solutionSummary_creationDateTime = Lens.lens (\SolutionSummary' {creationDateTime} -> creationDateTime) (\s@SolutionSummary' {} a -> s {creationDateTime = a} :: SolutionSummary) Prelude.. Lens.mapping Data._Time
+-- | The Amazon Resource Name (ARN) of the recipe used by the solution.
+solutionSummary_recipeArn :: Lens.Lens' SolutionSummary (Prelude.Maybe Prelude.Text)
+solutionSummary_recipeArn = Lens.lens (\SolutionSummary' {recipeArn} -> recipeArn) (\s@SolutionSummary' {} a -> s {recipeArn = a} :: SolutionSummary)
+
+-- | The Amazon Resource Name (ARN) of the solution.
+solutionSummary_solutionArn :: Lens.Lens' SolutionSummary (Prelude.Maybe Prelude.Text)
+solutionSummary_solutionArn = Lens.lens (\SolutionSummary' {solutionArn} -> solutionArn) (\s@SolutionSummary' {} a -> s {solutionArn = a} :: SolutionSummary)
 
 -- | The status of the solution.
 --
@@ -111,42 +120,34 @@ solutionSummary_creationDateTime = Lens.lens (\SolutionSummary' {creationDateTim
 solutionSummary_status :: Lens.Lens' SolutionSummary (Prelude.Maybe Prelude.Text)
 solutionSummary_status = Lens.lens (\SolutionSummary' {status} -> status) (\s@SolutionSummary' {} a -> s {status = a} :: SolutionSummary)
 
--- | The Amazon Resource Name (ARN) of the recipe used by the solution.
-solutionSummary_recipeArn :: Lens.Lens' SolutionSummary (Prelude.Maybe Prelude.Text)
-solutionSummary_recipeArn = Lens.lens (\SolutionSummary' {recipeArn} -> recipeArn) (\s@SolutionSummary' {} a -> s {recipeArn = a} :: SolutionSummary)
-
--- | The date and time (in Unix time) that the solution was last updated.
-solutionSummary_lastUpdatedDateTime :: Lens.Lens' SolutionSummary (Prelude.Maybe Prelude.UTCTime)
-solutionSummary_lastUpdatedDateTime = Lens.lens (\SolutionSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@SolutionSummary' {} a -> s {lastUpdatedDateTime = a} :: SolutionSummary) Prelude.. Lens.mapping Data._Time
-
 instance Data.FromJSON SolutionSummary where
   parseJSON =
     Data.withObject
       "SolutionSummary"
       ( \x ->
           SolutionSummary'
-            Prelude.<$> (x Data..:? "solutionArn")
-            Prelude.<*> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "creationDateTime")
-            Prelude.<*> (x Data..:? "status")
-            Prelude.<*> (x Data..:? "recipeArn")
+            Prelude.<$> (x Data..:? "creationDateTime")
             Prelude.<*> (x Data..:? "lastUpdatedDateTime")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "recipeArn")
+            Prelude.<*> (x Data..:? "solutionArn")
+            Prelude.<*> (x Data..:? "status")
       )
 
 instance Prelude.Hashable SolutionSummary where
   hashWithSalt _salt SolutionSummary' {..} =
-    _salt `Prelude.hashWithSalt` solutionArn
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` creationDateTime
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` recipeArn
+    _salt `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` lastUpdatedDateTime
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` recipeArn
+      `Prelude.hashWithSalt` solutionArn
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData SolutionSummary where
   rnf SolutionSummary' {..} =
-    Prelude.rnf solutionArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf recipeArn
+    Prelude.rnf creationDateTime
       `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf recipeArn
+      `Prelude.seq` Prelude.rnf solutionArn
+      `Prelude.seq` Prelude.rnf status

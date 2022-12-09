@@ -35,6 +35,11 @@ data RecommenderUpdateSummary = RecommenderUpdateSummary'
   { -- | The date and time (in Unix format) that the recommender update was
     -- created.
     creationDateTime :: Prelude.Maybe Data.POSIX,
+    -- | If a recommender update fails, the reason behind the failure.
+    failureReason :: Prelude.Maybe Prelude.Text,
+    -- | The date and time (in Unix time) that the recommender update was last
+    -- updated.
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
     -- | The configuration details of the recommender update.
     recommenderConfig :: Prelude.Maybe RecommenderConfig,
     -- | The status of the recommender update.
@@ -47,12 +52,7 @@ data RecommenderUpdateSummary = RecommenderUpdateSummary'
     --     IN_PROGRESS > ACTIVE
     --
     -- -   DELETE PENDING > DELETE IN_PROGRESS
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The date and time (in Unix time) that the recommender update was last
-    -- updated.
-    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
-    -- | If a recommender update fails, the reason behind the failure.
-    failureReason :: Prelude.Maybe Prelude.Text
+    status :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,6 +67,11 @@ data RecommenderUpdateSummary = RecommenderUpdateSummary'
 -- 'creationDateTime', 'recommenderUpdateSummary_creationDateTime' - The date and time (in Unix format) that the recommender update was
 -- created.
 --
+-- 'failureReason', 'recommenderUpdateSummary_failureReason' - If a recommender update fails, the reason behind the failure.
+--
+-- 'lastUpdatedDateTime', 'recommenderUpdateSummary_lastUpdatedDateTime' - The date and time (in Unix time) that the recommender update was last
+-- updated.
+--
 -- 'recommenderConfig', 'recommenderUpdateSummary_recommenderConfig' - The configuration details of the recommender update.
 --
 -- 'status', 'recommenderUpdateSummary_status' - The status of the recommender update.
@@ -79,27 +84,31 @@ data RecommenderUpdateSummary = RecommenderUpdateSummary'
 --     IN_PROGRESS > ACTIVE
 --
 -- -   DELETE PENDING > DELETE IN_PROGRESS
---
--- 'lastUpdatedDateTime', 'recommenderUpdateSummary_lastUpdatedDateTime' - The date and time (in Unix time) that the recommender update was last
--- updated.
---
--- 'failureReason', 'recommenderUpdateSummary_failureReason' - If a recommender update fails, the reason behind the failure.
 newRecommenderUpdateSummary ::
   RecommenderUpdateSummary
 newRecommenderUpdateSummary =
   RecommenderUpdateSummary'
     { creationDateTime =
         Prelude.Nothing,
-      recommenderConfig = Prelude.Nothing,
-      status = Prelude.Nothing,
+      failureReason = Prelude.Nothing,
       lastUpdatedDateTime = Prelude.Nothing,
-      failureReason = Prelude.Nothing
+      recommenderConfig = Prelude.Nothing,
+      status = Prelude.Nothing
     }
 
 -- | The date and time (in Unix format) that the recommender update was
 -- created.
 recommenderUpdateSummary_creationDateTime :: Lens.Lens' RecommenderUpdateSummary (Prelude.Maybe Prelude.UTCTime)
 recommenderUpdateSummary_creationDateTime = Lens.lens (\RecommenderUpdateSummary' {creationDateTime} -> creationDateTime) (\s@RecommenderUpdateSummary' {} a -> s {creationDateTime = a} :: RecommenderUpdateSummary) Prelude.. Lens.mapping Data._Time
+
+-- | If a recommender update fails, the reason behind the failure.
+recommenderUpdateSummary_failureReason :: Lens.Lens' RecommenderUpdateSummary (Prelude.Maybe Prelude.Text)
+recommenderUpdateSummary_failureReason = Lens.lens (\RecommenderUpdateSummary' {failureReason} -> failureReason) (\s@RecommenderUpdateSummary' {} a -> s {failureReason = a} :: RecommenderUpdateSummary)
+
+-- | The date and time (in Unix time) that the recommender update was last
+-- updated.
+recommenderUpdateSummary_lastUpdatedDateTime :: Lens.Lens' RecommenderUpdateSummary (Prelude.Maybe Prelude.UTCTime)
+recommenderUpdateSummary_lastUpdatedDateTime = Lens.lens (\RecommenderUpdateSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@RecommenderUpdateSummary' {} a -> s {lastUpdatedDateTime = a} :: RecommenderUpdateSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The configuration details of the recommender update.
 recommenderUpdateSummary_recommenderConfig :: Lens.Lens' RecommenderUpdateSummary (Prelude.Maybe RecommenderConfig)
@@ -118,15 +127,6 @@ recommenderUpdateSummary_recommenderConfig = Lens.lens (\RecommenderUpdateSummar
 recommenderUpdateSummary_status :: Lens.Lens' RecommenderUpdateSummary (Prelude.Maybe Prelude.Text)
 recommenderUpdateSummary_status = Lens.lens (\RecommenderUpdateSummary' {status} -> status) (\s@RecommenderUpdateSummary' {} a -> s {status = a} :: RecommenderUpdateSummary)
 
--- | The date and time (in Unix time) that the recommender update was last
--- updated.
-recommenderUpdateSummary_lastUpdatedDateTime :: Lens.Lens' RecommenderUpdateSummary (Prelude.Maybe Prelude.UTCTime)
-recommenderUpdateSummary_lastUpdatedDateTime = Lens.lens (\RecommenderUpdateSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@RecommenderUpdateSummary' {} a -> s {lastUpdatedDateTime = a} :: RecommenderUpdateSummary) Prelude.. Lens.mapping Data._Time
-
--- | If a recommender update fails, the reason behind the failure.
-recommenderUpdateSummary_failureReason :: Lens.Lens' RecommenderUpdateSummary (Prelude.Maybe Prelude.Text)
-recommenderUpdateSummary_failureReason = Lens.lens (\RecommenderUpdateSummary' {failureReason} -> failureReason) (\s@RecommenderUpdateSummary' {} a -> s {failureReason = a} :: RecommenderUpdateSummary)
-
 instance Data.FromJSON RecommenderUpdateSummary where
   parseJSON =
     Data.withObject
@@ -134,24 +134,24 @@ instance Data.FromJSON RecommenderUpdateSummary where
       ( \x ->
           RecommenderUpdateSummary'
             Prelude.<$> (x Data..:? "creationDateTime")
+            Prelude.<*> (x Data..:? "failureReason")
+            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
             Prelude.<*> (x Data..:? "recommenderConfig")
             Prelude.<*> (x Data..:? "status")
-            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
-            Prelude.<*> (x Data..:? "failureReason")
       )
 
 instance Prelude.Hashable RecommenderUpdateSummary where
   hashWithSalt _salt RecommenderUpdateSummary' {..} =
     _salt `Prelude.hashWithSalt` creationDateTime
+      `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` lastUpdatedDateTime
       `Prelude.hashWithSalt` recommenderConfig
       `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` lastUpdatedDateTime
-      `Prelude.hashWithSalt` failureReason
 
 instance Prelude.NFData RecommenderUpdateSummary where
   rnf RecommenderUpdateSummary' {..} =
     Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
       `Prelude.seq` Prelude.rnf recommenderConfig
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf failureReason

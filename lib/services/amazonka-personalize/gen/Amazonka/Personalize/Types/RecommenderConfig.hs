@@ -28,16 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRecommenderConfig' smart constructor.
 data RecommenderConfig = RecommenderConfig'
-  { -- | Specifies the requested minimum provisioned recommendation requests per
-    -- second that Amazon Personalize will support.
-    minRecommendationRequestsPerSecond :: Prelude.Maybe Prelude.Natural,
-    -- | Specifies the exploration configuration hyperparameters, including
+  { -- | Specifies the exploration configuration hyperparameters, including
     -- @explorationWeight@ and @explorationItemAgeCutOff@, you want to use to
     -- configure the amount of item exploration Amazon Personalize uses when
     -- recommending items. Provide @itemExplorationConfig@ data only if your
     -- recommenders generate personalized recommendations for a user (not
     -- popular items or similar items).
-    itemExplorationConfig :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    itemExplorationConfig :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Specifies the requested minimum provisioned recommendation requests per
+    -- second that Amazon Personalize will support.
+    minRecommendationRequestsPerSecond :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,28 +49,23 @@ data RecommenderConfig = RecommenderConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'minRecommendationRequestsPerSecond', 'recommenderConfig_minRecommendationRequestsPerSecond' - Specifies the requested minimum provisioned recommendation requests per
--- second that Amazon Personalize will support.
---
 -- 'itemExplorationConfig', 'recommenderConfig_itemExplorationConfig' - Specifies the exploration configuration hyperparameters, including
 -- @explorationWeight@ and @explorationItemAgeCutOff@, you want to use to
 -- configure the amount of item exploration Amazon Personalize uses when
 -- recommending items. Provide @itemExplorationConfig@ data only if your
 -- recommenders generate personalized recommendations for a user (not
 -- popular items or similar items).
+--
+-- 'minRecommendationRequestsPerSecond', 'recommenderConfig_minRecommendationRequestsPerSecond' - Specifies the requested minimum provisioned recommendation requests per
+-- second that Amazon Personalize will support.
 newRecommenderConfig ::
   RecommenderConfig
 newRecommenderConfig =
   RecommenderConfig'
-    { minRecommendationRequestsPerSecond =
+    { itemExplorationConfig =
         Prelude.Nothing,
-      itemExplorationConfig = Prelude.Nothing
+      minRecommendationRequestsPerSecond = Prelude.Nothing
     }
-
--- | Specifies the requested minimum provisioned recommendation requests per
--- second that Amazon Personalize will support.
-recommenderConfig_minRecommendationRequestsPerSecond :: Lens.Lens' RecommenderConfig (Prelude.Maybe Prelude.Natural)
-recommenderConfig_minRecommendationRequestsPerSecond = Lens.lens (\RecommenderConfig' {minRecommendationRequestsPerSecond} -> minRecommendationRequestsPerSecond) (\s@RecommenderConfig' {} a -> s {minRecommendationRequestsPerSecond = a} :: RecommenderConfig)
 
 -- | Specifies the exploration configuration hyperparameters, including
 -- @explorationWeight@ and @explorationItemAgeCutOff@, you want to use to
@@ -81,36 +76,40 @@ recommenderConfig_minRecommendationRequestsPerSecond = Lens.lens (\RecommenderCo
 recommenderConfig_itemExplorationConfig :: Lens.Lens' RecommenderConfig (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 recommenderConfig_itemExplorationConfig = Lens.lens (\RecommenderConfig' {itemExplorationConfig} -> itemExplorationConfig) (\s@RecommenderConfig' {} a -> s {itemExplorationConfig = a} :: RecommenderConfig) Prelude.. Lens.mapping Lens.coerced
 
+-- | Specifies the requested minimum provisioned recommendation requests per
+-- second that Amazon Personalize will support.
+recommenderConfig_minRecommendationRequestsPerSecond :: Lens.Lens' RecommenderConfig (Prelude.Maybe Prelude.Natural)
+recommenderConfig_minRecommendationRequestsPerSecond = Lens.lens (\RecommenderConfig' {minRecommendationRequestsPerSecond} -> minRecommendationRequestsPerSecond) (\s@RecommenderConfig' {} a -> s {minRecommendationRequestsPerSecond = a} :: RecommenderConfig)
+
 instance Data.FromJSON RecommenderConfig where
   parseJSON =
     Data.withObject
       "RecommenderConfig"
       ( \x ->
           RecommenderConfig'
-            Prelude.<$> (x Data..:? "minRecommendationRequestsPerSecond")
-            Prelude.<*> ( x Data..:? "itemExplorationConfig"
+            Prelude.<$> ( x Data..:? "itemExplorationConfig"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "minRecommendationRequestsPerSecond")
       )
 
 instance Prelude.Hashable RecommenderConfig where
   hashWithSalt _salt RecommenderConfig' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` itemExplorationConfig
       `Prelude.hashWithSalt` minRecommendationRequestsPerSecond
-      `Prelude.hashWithSalt` itemExplorationConfig
 
 instance Prelude.NFData RecommenderConfig where
   rnf RecommenderConfig' {..} =
-    Prelude.rnf minRecommendationRequestsPerSecond
-      `Prelude.seq` Prelude.rnf itemExplorationConfig
+    Prelude.rnf itemExplorationConfig
+      `Prelude.seq` Prelude.rnf minRecommendationRequestsPerSecond
 
 instance Data.ToJSON RecommenderConfig where
   toJSON RecommenderConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("minRecommendationRequestsPerSecond" Data..=)
-              Prelude.<$> minRecommendationRequestsPerSecond,
-            ("itemExplorationConfig" Data..=)
-              Prelude.<$> itemExplorationConfig
+          [ ("itemExplorationConfig" Data..=)
+              Prelude.<$> itemExplorationConfig,
+            ("minRecommendationRequestsPerSecond" Data..=)
+              Prelude.<$> minRecommendationRequestsPerSecond
           ]
       )

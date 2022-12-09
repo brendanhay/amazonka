@@ -69,8 +69,8 @@ module Amazonka.Personalize.CreateSolutionVersion
     newCreateSolutionVersion,
 
     -- * Request Lenses
-    createSolutionVersion_tags,
     createSolutionVersion_name,
+    createSolutionVersion_tags,
     createSolutionVersion_trainingMode,
     createSolutionVersion_solutionArn,
 
@@ -94,12 +94,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateSolutionVersion' smart constructor.
 data CreateSolutionVersion = CreateSolutionVersion'
-  { -- | A list of
+  { -- | The name of the solution version.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | A list of
     -- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
     -- to apply to the solution version.
     tags :: Prelude.Maybe [Tag],
-    -- | The name of the solution version.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The scope of training to be performed when creating the solution
     -- version. The @FULL@ option trains the solution version based on the
     -- entirety of the input solution\'s training data, while the @UPDATE@
@@ -129,11 +129,11 @@ data CreateSolutionVersion = CreateSolutionVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'createSolutionVersion_name' - The name of the solution version.
+--
 -- 'tags', 'createSolutionVersion_tags' - A list of
 -- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
 -- to apply to the solution version.
---
--- 'name', 'createSolutionVersion_name' - The name of the solution version.
 --
 -- 'trainingMode', 'createSolutionVersion_trainingMode' - The scope of training to be performed when creating the solution
 -- version. The @FULL@ option trains the solution version based on the
@@ -158,21 +158,21 @@ newCreateSolutionVersion ::
   CreateSolutionVersion
 newCreateSolutionVersion pSolutionArn_ =
   CreateSolutionVersion'
-    { tags = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      tags = Prelude.Nothing,
       trainingMode = Prelude.Nothing,
       solutionArn = pSolutionArn_
     }
+
+-- | The name of the solution version.
+createSolutionVersion_name :: Lens.Lens' CreateSolutionVersion (Prelude.Maybe Prelude.Text)
+createSolutionVersion_name = Lens.lens (\CreateSolutionVersion' {name} -> name) (\s@CreateSolutionVersion' {} a -> s {name = a} :: CreateSolutionVersion)
 
 -- | A list of
 -- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
 -- to apply to the solution version.
 createSolutionVersion_tags :: Lens.Lens' CreateSolutionVersion (Prelude.Maybe [Tag])
 createSolutionVersion_tags = Lens.lens (\CreateSolutionVersion' {tags} -> tags) (\s@CreateSolutionVersion' {} a -> s {tags = a} :: CreateSolutionVersion) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the solution version.
-createSolutionVersion_name :: Lens.Lens' CreateSolutionVersion (Prelude.Maybe Prelude.Text)
-createSolutionVersion_name = Lens.lens (\CreateSolutionVersion' {name} -> name) (\s@CreateSolutionVersion' {} a -> s {name = a} :: CreateSolutionVersion)
 
 -- | The scope of training to be performed when creating the solution
 -- version. The @FULL@ option trains the solution version based on the
@@ -212,15 +212,15 @@ instance Core.AWSRequest CreateSolutionVersion where
 
 instance Prelude.Hashable CreateSolutionVersion where
   hashWithSalt _salt CreateSolutionVersion' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` trainingMode
       `Prelude.hashWithSalt` solutionArn
 
 instance Prelude.NFData CreateSolutionVersion where
   rnf CreateSolutionVersion' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf trainingMode
       `Prelude.seq` Prelude.rnf solutionArn
 
@@ -243,8 +243,8 @@ instance Data.ToJSON CreateSolutionVersion where
   toJSON CreateSolutionVersion' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("name" Data..=) Prelude.<$> name,
+          [ ("name" Data..=) Prelude.<$> name,
+            ("tags" Data..=) Prelude.<$> tags,
             ("trainingMode" Data..=) Prelude.<$> trainingMode,
             Prelude.Just ("solutionArn" Data..= solutionArn)
           ]

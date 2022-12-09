@@ -70,8 +70,8 @@ module Amazonka.Personalize.CreateEventTracker
     newCreateEventTrackerResponse,
 
     -- * Response Lenses
-    createEventTrackerResponse_trackingId,
     createEventTrackerResponse_eventTrackerArn,
+    createEventTrackerResponse_trackingId,
     createEventTrackerResponse_httpStatus,
   )
 where
@@ -152,8 +152,8 @@ instance Core.AWSRequest CreateEventTracker where
     Response.receiveJSON
       ( \s h x ->
           CreateEventTrackerResponse'
-            Prelude.<$> (x Data..?> "trackingId")
-            Prelude.<*> (x Data..?> "eventTrackerArn")
+            Prelude.<$> (x Data..?> "eventTrackerArn")
+            Prelude.<*> (x Data..?> "trackingId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -203,12 +203,12 @@ instance Data.ToQuery CreateEventTracker where
 
 -- | /See:/ 'newCreateEventTrackerResponse' smart constructor.
 data CreateEventTrackerResponse = CreateEventTrackerResponse'
-  { -- | The ID of the event tracker. Include this ID in requests to the
+  { -- | The ARN of the event tracker.
+    eventTrackerArn :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the event tracker. Include this ID in requests to the
     -- <https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html PutEvents>
     -- API.
     trackingId :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the event tracker.
-    eventTrackerArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -222,11 +222,11 @@ data CreateEventTrackerResponse = CreateEventTrackerResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'eventTrackerArn', 'createEventTrackerResponse_eventTrackerArn' - The ARN of the event tracker.
+--
 -- 'trackingId', 'createEventTrackerResponse_trackingId' - The ID of the event tracker. Include this ID in requests to the
 -- <https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html PutEvents>
 -- API.
---
--- 'eventTrackerArn', 'createEventTrackerResponse_eventTrackerArn' - The ARN of the event tracker.
 --
 -- 'httpStatus', 'createEventTrackerResponse_httpStatus' - The response's http status code.
 newCreateEventTrackerResponse ::
@@ -235,11 +235,15 @@ newCreateEventTrackerResponse ::
   CreateEventTrackerResponse
 newCreateEventTrackerResponse pHttpStatus_ =
   CreateEventTrackerResponse'
-    { trackingId =
+    { eventTrackerArn =
         Prelude.Nothing,
-      eventTrackerArn = Prelude.Nothing,
+      trackingId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The ARN of the event tracker.
+createEventTrackerResponse_eventTrackerArn :: Lens.Lens' CreateEventTrackerResponse (Prelude.Maybe Prelude.Text)
+createEventTrackerResponse_eventTrackerArn = Lens.lens (\CreateEventTrackerResponse' {eventTrackerArn} -> eventTrackerArn) (\s@CreateEventTrackerResponse' {} a -> s {eventTrackerArn = a} :: CreateEventTrackerResponse)
 
 -- | The ID of the event tracker. Include this ID in requests to the
 -- <https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html PutEvents>
@@ -247,16 +251,12 @@ newCreateEventTrackerResponse pHttpStatus_ =
 createEventTrackerResponse_trackingId :: Lens.Lens' CreateEventTrackerResponse (Prelude.Maybe Prelude.Text)
 createEventTrackerResponse_trackingId = Lens.lens (\CreateEventTrackerResponse' {trackingId} -> trackingId) (\s@CreateEventTrackerResponse' {} a -> s {trackingId = a} :: CreateEventTrackerResponse)
 
--- | The ARN of the event tracker.
-createEventTrackerResponse_eventTrackerArn :: Lens.Lens' CreateEventTrackerResponse (Prelude.Maybe Prelude.Text)
-createEventTrackerResponse_eventTrackerArn = Lens.lens (\CreateEventTrackerResponse' {eventTrackerArn} -> eventTrackerArn) (\s@CreateEventTrackerResponse' {} a -> s {eventTrackerArn = a} :: CreateEventTrackerResponse)
-
 -- | The response's http status code.
 createEventTrackerResponse_httpStatus :: Lens.Lens' CreateEventTrackerResponse Prelude.Int
 createEventTrackerResponse_httpStatus = Lens.lens (\CreateEventTrackerResponse' {httpStatus} -> httpStatus) (\s@CreateEventTrackerResponse' {} a -> s {httpStatus = a} :: CreateEventTrackerResponse)
 
 instance Prelude.NFData CreateEventTrackerResponse where
   rnf CreateEventTrackerResponse' {..} =
-    Prelude.rnf trackingId
-      `Prelude.seq` Prelude.rnf eventTrackerArn
+    Prelude.rnf eventTrackerArn
+      `Prelude.seq` Prelude.rnf trackingId
       `Prelude.seq` Prelude.rnf httpStatus

@@ -29,25 +29,25 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFilter' smart constructor.
 data Filter = Filter'
-  { -- | The name of the filter.
-    name :: Prelude.Maybe Prelude.Text,
+  { -- | The time at which the filter was created.
+    creationDateTime :: Prelude.Maybe Data.POSIX,
+    -- | The ARN of the dataset group to which the filter belongs.
+    datasetGroupArn :: Prelude.Maybe Prelude.Text,
+    -- | If the filter failed, the reason for its failure.
+    failureReason :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the filter.
     filterArn :: Prelude.Maybe Prelude.Text,
-    -- | The time at which the filter was created.
-    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | Specifies the type of item interactions to filter out of recommendation
     -- results. The filter expression must follow specific format rules. For
     -- information about filter expression structure and syntax, see
     -- <https://docs.aws.amazon.com/personalize/latest/dg/filter-expressions.html Filter expressions>.
     filterExpression :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The status of the filter.
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the dataset group to which the filter belongs.
-    datasetGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The time at which the filter was last updated.
     lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
-    -- | If the filter failed, the reason for its failure.
-    failureReason :: Prelude.Maybe Prelude.Text
+    -- | The name of the filter.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The status of the filter.
+    status :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -59,49 +59,53 @@ data Filter = Filter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'filter_name' - The name of the filter.
+-- 'creationDateTime', 'filter_creationDateTime' - The time at which the filter was created.
+--
+-- 'datasetGroupArn', 'filter_datasetGroupArn' - The ARN of the dataset group to which the filter belongs.
+--
+-- 'failureReason', 'filter_failureReason' - If the filter failed, the reason for its failure.
 --
 -- 'filterArn', 'filter_filterArn' - The ARN of the filter.
---
--- 'creationDateTime', 'filter_creationDateTime' - The time at which the filter was created.
 --
 -- 'filterExpression', 'filter_filterExpression' - Specifies the type of item interactions to filter out of recommendation
 -- results. The filter expression must follow specific format rules. For
 -- information about filter expression structure and syntax, see
 -- <https://docs.aws.amazon.com/personalize/latest/dg/filter-expressions.html Filter expressions>.
 --
--- 'status', 'filter_status' - The status of the filter.
---
--- 'datasetGroupArn', 'filter_datasetGroupArn' - The ARN of the dataset group to which the filter belongs.
---
 -- 'lastUpdatedDateTime', 'filter_lastUpdatedDateTime' - The time at which the filter was last updated.
 --
--- 'failureReason', 'filter_failureReason' - If the filter failed, the reason for its failure.
+-- 'name', 'filter_name' - The name of the filter.
+--
+-- 'status', 'filter_status' - The status of the filter.
 newFilter ::
   Filter
 newFilter =
   Filter'
-    { name = Prelude.Nothing,
-      filterArn = Prelude.Nothing,
-      creationDateTime = Prelude.Nothing,
-      filterExpression = Prelude.Nothing,
-      status = Prelude.Nothing,
+    { creationDateTime = Prelude.Nothing,
       datasetGroupArn = Prelude.Nothing,
+      failureReason = Prelude.Nothing,
+      filterArn = Prelude.Nothing,
+      filterExpression = Prelude.Nothing,
       lastUpdatedDateTime = Prelude.Nothing,
-      failureReason = Prelude.Nothing
+      name = Prelude.Nothing,
+      status = Prelude.Nothing
     }
-
--- | The name of the filter.
-filter_name :: Lens.Lens' Filter (Prelude.Maybe Prelude.Text)
-filter_name = Lens.lens (\Filter' {name} -> name) (\s@Filter' {} a -> s {name = a} :: Filter)
-
--- | The ARN of the filter.
-filter_filterArn :: Lens.Lens' Filter (Prelude.Maybe Prelude.Text)
-filter_filterArn = Lens.lens (\Filter' {filterArn} -> filterArn) (\s@Filter' {} a -> s {filterArn = a} :: Filter)
 
 -- | The time at which the filter was created.
 filter_creationDateTime :: Lens.Lens' Filter (Prelude.Maybe Prelude.UTCTime)
 filter_creationDateTime = Lens.lens (\Filter' {creationDateTime} -> creationDateTime) (\s@Filter' {} a -> s {creationDateTime = a} :: Filter) Prelude.. Lens.mapping Data._Time
+
+-- | The ARN of the dataset group to which the filter belongs.
+filter_datasetGroupArn :: Lens.Lens' Filter (Prelude.Maybe Prelude.Text)
+filter_datasetGroupArn = Lens.lens (\Filter' {datasetGroupArn} -> datasetGroupArn) (\s@Filter' {} a -> s {datasetGroupArn = a} :: Filter)
+
+-- | If the filter failed, the reason for its failure.
+filter_failureReason :: Lens.Lens' Filter (Prelude.Maybe Prelude.Text)
+filter_failureReason = Lens.lens (\Filter' {failureReason} -> failureReason) (\s@Filter' {} a -> s {failureReason = a} :: Filter)
+
+-- | The ARN of the filter.
+filter_filterArn :: Lens.Lens' Filter (Prelude.Maybe Prelude.Text)
+filter_filterArn = Lens.lens (\Filter' {filterArn} -> filterArn) (\s@Filter' {} a -> s {filterArn = a} :: Filter)
 
 -- | Specifies the type of item interactions to filter out of recommendation
 -- results. The filter expression must follow specific format rules. For
@@ -110,21 +114,17 @@ filter_creationDateTime = Lens.lens (\Filter' {creationDateTime} -> creationDate
 filter_filterExpression :: Lens.Lens' Filter (Prelude.Maybe Prelude.Text)
 filter_filterExpression = Lens.lens (\Filter' {filterExpression} -> filterExpression) (\s@Filter' {} a -> s {filterExpression = a} :: Filter) Prelude.. Lens.mapping Data._Sensitive
 
--- | The status of the filter.
-filter_status :: Lens.Lens' Filter (Prelude.Maybe Prelude.Text)
-filter_status = Lens.lens (\Filter' {status} -> status) (\s@Filter' {} a -> s {status = a} :: Filter)
-
--- | The ARN of the dataset group to which the filter belongs.
-filter_datasetGroupArn :: Lens.Lens' Filter (Prelude.Maybe Prelude.Text)
-filter_datasetGroupArn = Lens.lens (\Filter' {datasetGroupArn} -> datasetGroupArn) (\s@Filter' {} a -> s {datasetGroupArn = a} :: Filter)
-
 -- | The time at which the filter was last updated.
 filter_lastUpdatedDateTime :: Lens.Lens' Filter (Prelude.Maybe Prelude.UTCTime)
 filter_lastUpdatedDateTime = Lens.lens (\Filter' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@Filter' {} a -> s {lastUpdatedDateTime = a} :: Filter) Prelude.. Lens.mapping Data._Time
 
--- | If the filter failed, the reason for its failure.
-filter_failureReason :: Lens.Lens' Filter (Prelude.Maybe Prelude.Text)
-filter_failureReason = Lens.lens (\Filter' {failureReason} -> failureReason) (\s@Filter' {} a -> s {failureReason = a} :: Filter)
+-- | The name of the filter.
+filter_name :: Lens.Lens' Filter (Prelude.Maybe Prelude.Text)
+filter_name = Lens.lens (\Filter' {name} -> name) (\s@Filter' {} a -> s {name = a} :: Filter)
+
+-- | The status of the filter.
+filter_status :: Lens.Lens' Filter (Prelude.Maybe Prelude.Text)
+filter_status = Lens.lens (\Filter' {status} -> status) (\s@Filter' {} a -> s {status = a} :: Filter)
 
 instance Data.FromJSON Filter where
   parseJSON =
@@ -132,34 +132,34 @@ instance Data.FromJSON Filter where
       "Filter"
       ( \x ->
           Filter'
-            Prelude.<$> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "filterArn")
-            Prelude.<*> (x Data..:? "creationDateTime")
-            Prelude.<*> (x Data..:? "filterExpression")
-            Prelude.<*> (x Data..:? "status")
+            Prelude.<$> (x Data..:? "creationDateTime")
             Prelude.<*> (x Data..:? "datasetGroupArn")
-            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
             Prelude.<*> (x Data..:? "failureReason")
+            Prelude.<*> (x Data..:? "filterArn")
+            Prelude.<*> (x Data..:? "filterExpression")
+            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "status")
       )
 
 instance Prelude.Hashable Filter where
   hashWithSalt _salt Filter' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` filterArn
-      `Prelude.hashWithSalt` creationDateTime
-      `Prelude.hashWithSalt` filterExpression
-      `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` datasetGroupArn
-      `Prelude.hashWithSalt` lastUpdatedDateTime
       `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` filterArn
+      `Prelude.hashWithSalt` filterExpression
+      `Prelude.hashWithSalt` lastUpdatedDateTime
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData Filter where
   rnf Filter' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf filterArn
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf filterExpression
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf creationDateTime
       `Prelude.seq` Prelude.rnf datasetGroupArn
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
       `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf filterArn
+      `Prelude.seq` Prelude.rnf filterExpression
+      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf status

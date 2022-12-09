@@ -34,9 +34,9 @@ module Amazonka.Personalize.ListRecommenders
     newListRecommenders,
 
     -- * Request Lenses
-    listRecommenders_nextToken,
-    listRecommenders_maxResults,
     listRecommenders_datasetGroupArn,
+    listRecommenders_maxResults,
+    listRecommenders_nextToken,
 
     -- * Destructuring the Response
     ListRecommendersResponse (..),
@@ -59,15 +59,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListRecommenders' smart constructor.
 data ListRecommenders = ListRecommenders'
-  { -- | A token returned from the previous call to @ListRecommenders@ for
-    -- getting the next set of recommenders (if they exist).
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of recommenders to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The Amazon Resource Name (ARN) of the Domain dataset group to list the
+  { -- | The Amazon Resource Name (ARN) of the Domain dataset group to list the
     -- recommenders for. When a Domain dataset group is not specified, all the
     -- recommenders associated with the account are listed.
-    datasetGroupArn :: Prelude.Maybe Prelude.Text
+    datasetGroupArn :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of recommenders to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token returned from the previous call to @ListRecommenders@ for
+    -- getting the next set of recommenders (if they exist).
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,37 +79,38 @@ data ListRecommenders = ListRecommenders'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listRecommenders_nextToken' - A token returned from the previous call to @ListRecommenders@ for
--- getting the next set of recommenders (if they exist).
---
--- 'maxResults', 'listRecommenders_maxResults' - The maximum number of recommenders to return.
---
 -- 'datasetGroupArn', 'listRecommenders_datasetGroupArn' - The Amazon Resource Name (ARN) of the Domain dataset group to list the
 -- recommenders for. When a Domain dataset group is not specified, all the
 -- recommenders associated with the account are listed.
+--
+-- 'maxResults', 'listRecommenders_maxResults' - The maximum number of recommenders to return.
+--
+-- 'nextToken', 'listRecommenders_nextToken' - A token returned from the previous call to @ListRecommenders@ for
+-- getting the next set of recommenders (if they exist).
 newListRecommenders ::
   ListRecommenders
 newListRecommenders =
   ListRecommenders'
-    { nextToken = Prelude.Nothing,
+    { datasetGroupArn =
+        Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      datasetGroupArn = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
-
--- | A token returned from the previous call to @ListRecommenders@ for
--- getting the next set of recommenders (if they exist).
-listRecommenders_nextToken :: Lens.Lens' ListRecommenders (Prelude.Maybe Prelude.Text)
-listRecommenders_nextToken = Lens.lens (\ListRecommenders' {nextToken} -> nextToken) (\s@ListRecommenders' {} a -> s {nextToken = a} :: ListRecommenders)
-
--- | The maximum number of recommenders to return.
-listRecommenders_maxResults :: Lens.Lens' ListRecommenders (Prelude.Maybe Prelude.Natural)
-listRecommenders_maxResults = Lens.lens (\ListRecommenders' {maxResults} -> maxResults) (\s@ListRecommenders' {} a -> s {maxResults = a} :: ListRecommenders)
 
 -- | The Amazon Resource Name (ARN) of the Domain dataset group to list the
 -- recommenders for. When a Domain dataset group is not specified, all the
 -- recommenders associated with the account are listed.
 listRecommenders_datasetGroupArn :: Lens.Lens' ListRecommenders (Prelude.Maybe Prelude.Text)
 listRecommenders_datasetGroupArn = Lens.lens (\ListRecommenders' {datasetGroupArn} -> datasetGroupArn) (\s@ListRecommenders' {} a -> s {datasetGroupArn = a} :: ListRecommenders)
+
+-- | The maximum number of recommenders to return.
+listRecommenders_maxResults :: Lens.Lens' ListRecommenders (Prelude.Maybe Prelude.Natural)
+listRecommenders_maxResults = Lens.lens (\ListRecommenders' {maxResults} -> maxResults) (\s@ListRecommenders' {} a -> s {maxResults = a} :: ListRecommenders)
+
+-- | A token returned from the previous call to @ListRecommenders@ for
+-- getting the next set of recommenders (if they exist).
+listRecommenders_nextToken :: Lens.Lens' ListRecommenders (Prelude.Maybe Prelude.Text)
+listRecommenders_nextToken = Lens.lens (\ListRecommenders' {nextToken} -> nextToken) (\s@ListRecommenders' {} a -> s {nextToken = a} :: ListRecommenders)
 
 instance Core.AWSPager ListRecommenders where
   page rq rs
@@ -150,15 +151,15 @@ instance Core.AWSRequest ListRecommenders where
 
 instance Prelude.Hashable ListRecommenders where
   hashWithSalt _salt ListRecommenders' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` datasetGroupArn
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` datasetGroupArn
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListRecommenders where
   rnf ListRecommenders' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf datasetGroupArn
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf datasetGroupArn
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListRecommenders where
   toHeaders =
@@ -179,10 +180,10 @@ instance Data.ToJSON ListRecommenders where
   toJSON ListRecommenders' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+          [ ("datasetGroupArn" Data..=)
+              Prelude.<$> datasetGroupArn,
             ("maxResults" Data..=) Prelude.<$> maxResults,
-            ("datasetGroupArn" Data..=)
-              Prelude.<$> datasetGroupArn
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

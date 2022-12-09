@@ -39,15 +39,24 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDatasetGroup' smart constructor.
 data DatasetGroup = DatasetGroup'
-  { -- | The name of the dataset group.
+  { -- | The creation date and time (in Unix time) of the dataset group.
+    creationDateTime :: Prelude.Maybe Data.POSIX,
+    -- | The Amazon Resource Name (ARN) of the dataset group.
+    datasetGroupArn :: Prelude.Maybe Prelude.Text,
+    -- | The domain of a Domain dataset group.
+    domain :: Prelude.Maybe Domain,
+    -- | If creating a dataset group fails, provides the reason why.
+    failureReason :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the Key Management Service (KMS) key
+    -- used to encrypt the datasets.
+    kmsKeyArn :: Prelude.Maybe Prelude.Text,
+    -- | The last update date and time (in Unix time) of the dataset group.
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
+    -- | The name of the dataset group.
     name :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the IAM role that has permissions to create the dataset
     -- group.
     roleArn :: Prelude.Maybe Prelude.Text,
-    -- | The creation date and time (in Unix time) of the dataset group.
-    creationDateTime :: Prelude.Maybe Data.POSIX,
-    -- | The domain of a Domain dataset group.
-    domain :: Prelude.Maybe Domain,
     -- | The current status of the dataset group.
     --
     -- A dataset group can be in one of the following states:
@@ -55,16 +64,7 @@ data DatasetGroup = DatasetGroup'
     -- -   CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
     --
     -- -   DELETE PENDING
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the Key Management Service (KMS) key
-    -- used to encrypt the datasets.
-    kmsKeyArn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the dataset group.
-    datasetGroupArn :: Prelude.Maybe Prelude.Text,
-    -- | The last update date and time (in Unix time) of the dataset group.
-    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
-    -- | If creating a dataset group fails, provides the reason why.
-    failureReason :: Prelude.Maybe Prelude.Text
+    status :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,14 +76,23 @@ data DatasetGroup = DatasetGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'creationDateTime', 'datasetGroup_creationDateTime' - The creation date and time (in Unix time) of the dataset group.
+--
+-- 'datasetGroupArn', 'datasetGroup_datasetGroupArn' - The Amazon Resource Name (ARN) of the dataset group.
+--
+-- 'domain', 'datasetGroup_domain' - The domain of a Domain dataset group.
+--
+-- 'failureReason', 'datasetGroup_failureReason' - If creating a dataset group fails, provides the reason why.
+--
+-- 'kmsKeyArn', 'datasetGroup_kmsKeyArn' - The Amazon Resource Name (ARN) of the Key Management Service (KMS) key
+-- used to encrypt the datasets.
+--
+-- 'lastUpdatedDateTime', 'datasetGroup_lastUpdatedDateTime' - The last update date and time (in Unix time) of the dataset group.
+--
 -- 'name', 'datasetGroup_name' - The name of the dataset group.
 --
 -- 'roleArn', 'datasetGroup_roleArn' - The ARN of the IAM role that has permissions to create the dataset
 -- group.
---
--- 'creationDateTime', 'datasetGroup_creationDateTime' - The creation date and time (in Unix time) of the dataset group.
---
--- 'domain', 'datasetGroup_domain' - The domain of a Domain dataset group.
 --
 -- 'status', 'datasetGroup_status' - The current status of the dataset group.
 --
@@ -92,29 +101,45 @@ data DatasetGroup = DatasetGroup'
 -- -   CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
 --
 -- -   DELETE PENDING
---
--- 'kmsKeyArn', 'datasetGroup_kmsKeyArn' - The Amazon Resource Name (ARN) of the Key Management Service (KMS) key
--- used to encrypt the datasets.
---
--- 'datasetGroupArn', 'datasetGroup_datasetGroupArn' - The Amazon Resource Name (ARN) of the dataset group.
---
--- 'lastUpdatedDateTime', 'datasetGroup_lastUpdatedDateTime' - The last update date and time (in Unix time) of the dataset group.
---
--- 'failureReason', 'datasetGroup_failureReason' - If creating a dataset group fails, provides the reason why.
 newDatasetGroup ::
   DatasetGroup
 newDatasetGroup =
   DatasetGroup'
-    { name = Prelude.Nothing,
-      roleArn = Prelude.Nothing,
-      creationDateTime = Prelude.Nothing,
-      domain = Prelude.Nothing,
-      status = Prelude.Nothing,
-      kmsKeyArn = Prelude.Nothing,
+    { creationDateTime = Prelude.Nothing,
       datasetGroupArn = Prelude.Nothing,
+      domain = Prelude.Nothing,
+      failureReason = Prelude.Nothing,
+      kmsKeyArn = Prelude.Nothing,
       lastUpdatedDateTime = Prelude.Nothing,
-      failureReason = Prelude.Nothing
+      name = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
+      status = Prelude.Nothing
     }
+
+-- | The creation date and time (in Unix time) of the dataset group.
+datasetGroup_creationDateTime :: Lens.Lens' DatasetGroup (Prelude.Maybe Prelude.UTCTime)
+datasetGroup_creationDateTime = Lens.lens (\DatasetGroup' {creationDateTime} -> creationDateTime) (\s@DatasetGroup' {} a -> s {creationDateTime = a} :: DatasetGroup) Prelude.. Lens.mapping Data._Time
+
+-- | The Amazon Resource Name (ARN) of the dataset group.
+datasetGroup_datasetGroupArn :: Lens.Lens' DatasetGroup (Prelude.Maybe Prelude.Text)
+datasetGroup_datasetGroupArn = Lens.lens (\DatasetGroup' {datasetGroupArn} -> datasetGroupArn) (\s@DatasetGroup' {} a -> s {datasetGroupArn = a} :: DatasetGroup)
+
+-- | The domain of a Domain dataset group.
+datasetGroup_domain :: Lens.Lens' DatasetGroup (Prelude.Maybe Domain)
+datasetGroup_domain = Lens.lens (\DatasetGroup' {domain} -> domain) (\s@DatasetGroup' {} a -> s {domain = a} :: DatasetGroup)
+
+-- | If creating a dataset group fails, provides the reason why.
+datasetGroup_failureReason :: Lens.Lens' DatasetGroup (Prelude.Maybe Prelude.Text)
+datasetGroup_failureReason = Lens.lens (\DatasetGroup' {failureReason} -> failureReason) (\s@DatasetGroup' {} a -> s {failureReason = a} :: DatasetGroup)
+
+-- | The Amazon Resource Name (ARN) of the Key Management Service (KMS) key
+-- used to encrypt the datasets.
+datasetGroup_kmsKeyArn :: Lens.Lens' DatasetGroup (Prelude.Maybe Prelude.Text)
+datasetGroup_kmsKeyArn = Lens.lens (\DatasetGroup' {kmsKeyArn} -> kmsKeyArn) (\s@DatasetGroup' {} a -> s {kmsKeyArn = a} :: DatasetGroup)
+
+-- | The last update date and time (in Unix time) of the dataset group.
+datasetGroup_lastUpdatedDateTime :: Lens.Lens' DatasetGroup (Prelude.Maybe Prelude.UTCTime)
+datasetGroup_lastUpdatedDateTime = Lens.lens (\DatasetGroup' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@DatasetGroup' {} a -> s {lastUpdatedDateTime = a} :: DatasetGroup) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the dataset group.
 datasetGroup_name :: Lens.Lens' DatasetGroup (Prelude.Maybe Prelude.Text)
@@ -124,14 +149,6 @@ datasetGroup_name = Lens.lens (\DatasetGroup' {name} -> name) (\s@DatasetGroup' 
 -- group.
 datasetGroup_roleArn :: Lens.Lens' DatasetGroup (Prelude.Maybe Prelude.Text)
 datasetGroup_roleArn = Lens.lens (\DatasetGroup' {roleArn} -> roleArn) (\s@DatasetGroup' {} a -> s {roleArn = a} :: DatasetGroup)
-
--- | The creation date and time (in Unix time) of the dataset group.
-datasetGroup_creationDateTime :: Lens.Lens' DatasetGroup (Prelude.Maybe Prelude.UTCTime)
-datasetGroup_creationDateTime = Lens.lens (\DatasetGroup' {creationDateTime} -> creationDateTime) (\s@DatasetGroup' {} a -> s {creationDateTime = a} :: DatasetGroup) Prelude.. Lens.mapping Data._Time
-
--- | The domain of a Domain dataset group.
-datasetGroup_domain :: Lens.Lens' DatasetGroup (Prelude.Maybe Domain)
-datasetGroup_domain = Lens.lens (\DatasetGroup' {domain} -> domain) (\s@DatasetGroup' {} a -> s {domain = a} :: DatasetGroup)
 
 -- | The current status of the dataset group.
 --
@@ -143,60 +160,43 @@ datasetGroup_domain = Lens.lens (\DatasetGroup' {domain} -> domain) (\s@DatasetG
 datasetGroup_status :: Lens.Lens' DatasetGroup (Prelude.Maybe Prelude.Text)
 datasetGroup_status = Lens.lens (\DatasetGroup' {status} -> status) (\s@DatasetGroup' {} a -> s {status = a} :: DatasetGroup)
 
--- | The Amazon Resource Name (ARN) of the Key Management Service (KMS) key
--- used to encrypt the datasets.
-datasetGroup_kmsKeyArn :: Lens.Lens' DatasetGroup (Prelude.Maybe Prelude.Text)
-datasetGroup_kmsKeyArn = Lens.lens (\DatasetGroup' {kmsKeyArn} -> kmsKeyArn) (\s@DatasetGroup' {} a -> s {kmsKeyArn = a} :: DatasetGroup)
-
--- | The Amazon Resource Name (ARN) of the dataset group.
-datasetGroup_datasetGroupArn :: Lens.Lens' DatasetGroup (Prelude.Maybe Prelude.Text)
-datasetGroup_datasetGroupArn = Lens.lens (\DatasetGroup' {datasetGroupArn} -> datasetGroupArn) (\s@DatasetGroup' {} a -> s {datasetGroupArn = a} :: DatasetGroup)
-
--- | The last update date and time (in Unix time) of the dataset group.
-datasetGroup_lastUpdatedDateTime :: Lens.Lens' DatasetGroup (Prelude.Maybe Prelude.UTCTime)
-datasetGroup_lastUpdatedDateTime = Lens.lens (\DatasetGroup' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@DatasetGroup' {} a -> s {lastUpdatedDateTime = a} :: DatasetGroup) Prelude.. Lens.mapping Data._Time
-
--- | If creating a dataset group fails, provides the reason why.
-datasetGroup_failureReason :: Lens.Lens' DatasetGroup (Prelude.Maybe Prelude.Text)
-datasetGroup_failureReason = Lens.lens (\DatasetGroup' {failureReason} -> failureReason) (\s@DatasetGroup' {} a -> s {failureReason = a} :: DatasetGroup)
-
 instance Data.FromJSON DatasetGroup where
   parseJSON =
     Data.withObject
       "DatasetGroup"
       ( \x ->
           DatasetGroup'
-            Prelude.<$> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "roleArn")
-            Prelude.<*> (x Data..:? "creationDateTime")
-            Prelude.<*> (x Data..:? "domain")
-            Prelude.<*> (x Data..:? "status")
-            Prelude.<*> (x Data..:? "kmsKeyArn")
+            Prelude.<$> (x Data..:? "creationDateTime")
             Prelude.<*> (x Data..:? "datasetGroupArn")
-            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
+            Prelude.<*> (x Data..:? "domain")
             Prelude.<*> (x Data..:? "failureReason")
+            Prelude.<*> (x Data..:? "kmsKeyArn")
+            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "roleArn")
+            Prelude.<*> (x Data..:? "status")
       )
 
 instance Prelude.Hashable DatasetGroup where
   hashWithSalt _salt DatasetGroup' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` roleArn
-      `Prelude.hashWithSalt` creationDateTime
-      `Prelude.hashWithSalt` domain
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` kmsKeyArn
+    _salt `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` datasetGroupArn
-      `Prelude.hashWithSalt` lastUpdatedDateTime
+      `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` kmsKeyArn
+      `Prelude.hashWithSalt` lastUpdatedDateTime
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData DatasetGroup where
   rnf DatasetGroup' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf kmsKeyArn
+    Prelude.rnf creationDateTime
       `Prelude.seq` Prelude.rnf datasetGroupArn
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf kmsKeyArn
+      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf status

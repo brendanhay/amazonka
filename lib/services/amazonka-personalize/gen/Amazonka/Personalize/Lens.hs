@@ -15,10 +15,10 @@ module Amazonka.Personalize.Lens
   ( -- * Operations
 
     -- ** CreateBatchInferenceJob
-    createBatchInferenceJob_tags,
+    createBatchInferenceJob_batchInferenceJobConfig,
     createBatchInferenceJob_filterArn,
     createBatchInferenceJob_numResults,
-    createBatchInferenceJob_batchInferenceJobConfig,
+    createBatchInferenceJob_tags,
     createBatchInferenceJob_jobName,
     createBatchInferenceJob_solutionVersionArn,
     createBatchInferenceJob_jobInput,
@@ -28,9 +28,9 @@ module Amazonka.Personalize.Lens
     createBatchInferenceJobResponse_httpStatus,
 
     -- ** CreateBatchSegmentJob
-    createBatchSegmentJob_tags,
     createBatchSegmentJob_filterArn,
     createBatchSegmentJob_numResults,
+    createBatchSegmentJob_tags,
     createBatchSegmentJob_jobName,
     createBatchSegmentJob_solutionVersionArn,
     createBatchSegmentJob_jobInput,
@@ -40,9 +40,9 @@ module Amazonka.Personalize.Lens
     createBatchSegmentJobResponse_httpStatus,
 
     -- ** CreateCampaign
-    createCampaign_tags,
     createCampaign_campaignConfig,
     createCampaign_minProvisionedTPS,
+    createCampaign_tags,
     createCampaign_name,
     createCampaign_solutionVersionArn,
     createCampaignResponse_campaignArn,
@@ -58,8 +58,8 @@ module Amazonka.Personalize.Lens
     createDatasetResponse_httpStatus,
 
     -- ** CreateDatasetExportJob
-    createDatasetExportJob_tags,
     createDatasetExportJob_ingestionMode,
+    createDatasetExportJob_tags,
     createDatasetExportJob_jobName,
     createDatasetExportJob_datasetArn,
     createDatasetExportJob_roleArn,
@@ -68,19 +68,19 @@ module Amazonka.Personalize.Lens
     createDatasetExportJobResponse_httpStatus,
 
     -- ** CreateDatasetGroup
-    createDatasetGroup_tags,
-    createDatasetGroup_roleArn,
     createDatasetGroup_domain,
     createDatasetGroup_kmsKeyArn,
+    createDatasetGroup_roleArn,
+    createDatasetGroup_tags,
     createDatasetGroup_name,
-    createDatasetGroupResponse_domain,
     createDatasetGroupResponse_datasetGroupArn,
+    createDatasetGroupResponse_domain,
     createDatasetGroupResponse_httpStatus,
 
     -- ** CreateDatasetImportJob
-    createDatasetImportJob_tags,
-    createDatasetImportJob_publishAttributionMetricsToS3,
     createDatasetImportJob_importMode,
+    createDatasetImportJob_publishAttributionMetricsToS3,
+    createDatasetImportJob_tags,
     createDatasetImportJob_jobName,
     createDatasetImportJob_datasetArn,
     createDatasetImportJob_dataSource,
@@ -92,8 +92,8 @@ module Amazonka.Personalize.Lens
     createEventTracker_tags,
     createEventTracker_name,
     createEventTracker_datasetGroupArn,
-    createEventTrackerResponse_trackingId,
     createEventTrackerResponse_eventTrackerArn,
+    createEventTrackerResponse_trackingId,
     createEventTrackerResponse_httpStatus,
 
     -- ** CreateFilter
@@ -113,8 +113,8 @@ module Amazonka.Personalize.Lens
     createMetricAttributionResponse_httpStatus,
 
     -- ** CreateRecommender
-    createRecommender_tags,
     createRecommender_recommenderConfig,
+    createRecommender_tags,
     createRecommender_name,
     createRecommender_datasetGroupArn,
     createRecommender_recipeArn,
@@ -129,20 +129,20 @@ module Amazonka.Personalize.Lens
     createSchemaResponse_httpStatus,
 
     -- ** CreateSolution
-    createSolution_tags,
     createSolution_eventType,
     createSolution_performAutoML,
     createSolution_performHPO,
-    createSolution_solutionConfig,
     createSolution_recipeArn,
+    createSolution_solutionConfig,
+    createSolution_tags,
     createSolution_name,
     createSolution_datasetGroupArn,
     createSolutionResponse_solutionArn,
     createSolutionResponse_httpStatus,
 
     -- ** CreateSolutionVersion
-    createSolutionVersion_tags,
     createSolutionVersion_name,
+    createSolutionVersion_tags,
     createSolutionVersion_trainingMode,
     createSolutionVersion_solutionArn,
     createSolutionVersionResponse_solutionVersionArn,
@@ -267,128 +267,128 @@ module Amazonka.Personalize.Lens
     getSolutionMetricsResponse_httpStatus,
 
     -- ** ListBatchInferenceJobs
-    listBatchInferenceJobs_nextToken,
     listBatchInferenceJobs_maxResults,
+    listBatchInferenceJobs_nextToken,
     listBatchInferenceJobs_solutionVersionArn,
-    listBatchInferenceJobsResponse_nextToken,
     listBatchInferenceJobsResponse_batchInferenceJobs,
+    listBatchInferenceJobsResponse_nextToken,
     listBatchInferenceJobsResponse_httpStatus,
 
     -- ** ListBatchSegmentJobs
-    listBatchSegmentJobs_nextToken,
     listBatchSegmentJobs_maxResults,
+    listBatchSegmentJobs_nextToken,
     listBatchSegmentJobs_solutionVersionArn,
-    listBatchSegmentJobsResponse_nextToken,
     listBatchSegmentJobsResponse_batchSegmentJobs,
+    listBatchSegmentJobsResponse_nextToken,
     listBatchSegmentJobsResponse_httpStatus,
 
     -- ** ListCampaigns
-    listCampaigns_solutionArn,
-    listCampaigns_nextToken,
     listCampaigns_maxResults,
-    listCampaignsResponse_nextToken,
+    listCampaigns_nextToken,
+    listCampaigns_solutionArn,
     listCampaignsResponse_campaigns,
+    listCampaignsResponse_nextToken,
     listCampaignsResponse_httpStatus,
 
     -- ** ListDatasetExportJobs
-    listDatasetExportJobs_nextToken,
     listDatasetExportJobs_datasetArn,
     listDatasetExportJobs_maxResults,
-    listDatasetExportJobsResponse_nextToken,
+    listDatasetExportJobs_nextToken,
     listDatasetExportJobsResponse_datasetExportJobs,
+    listDatasetExportJobsResponse_nextToken,
     listDatasetExportJobsResponse_httpStatus,
 
     -- ** ListDatasetGroups
-    listDatasetGroups_nextToken,
     listDatasetGroups_maxResults,
-    listDatasetGroupsResponse_nextToken,
+    listDatasetGroups_nextToken,
     listDatasetGroupsResponse_datasetGroups,
+    listDatasetGroupsResponse_nextToken,
     listDatasetGroupsResponse_httpStatus,
 
     -- ** ListDatasetImportJobs
-    listDatasetImportJobs_nextToken,
     listDatasetImportJobs_datasetArn,
     listDatasetImportJobs_maxResults,
-    listDatasetImportJobsResponse_nextToken,
+    listDatasetImportJobs_nextToken,
     listDatasetImportJobsResponse_datasetImportJobs,
+    listDatasetImportJobsResponse_nextToken,
     listDatasetImportJobsResponse_httpStatus,
 
     -- ** ListDatasets
-    listDatasets_nextToken,
-    listDatasets_maxResults,
     listDatasets_datasetGroupArn,
-    listDatasetsResponse_nextToken,
+    listDatasets_maxResults,
+    listDatasets_nextToken,
     listDatasetsResponse_datasets,
+    listDatasetsResponse_nextToken,
     listDatasetsResponse_httpStatus,
 
     -- ** ListEventTrackers
-    listEventTrackers_nextToken,
-    listEventTrackers_maxResults,
     listEventTrackers_datasetGroupArn,
-    listEventTrackersResponse_nextToken,
+    listEventTrackers_maxResults,
+    listEventTrackers_nextToken,
     listEventTrackersResponse_eventTrackers,
+    listEventTrackersResponse_nextToken,
     listEventTrackersResponse_httpStatus,
 
     -- ** ListFilters
-    listFilters_nextToken,
-    listFilters_maxResults,
     listFilters_datasetGroupArn,
-    listFiltersResponse_nextToken,
+    listFilters_maxResults,
+    listFilters_nextToken,
     listFiltersResponse_filters,
+    listFiltersResponse_nextToken,
     listFiltersResponse_httpStatus,
 
     -- ** ListMetricAttributionMetrics
-    listMetricAttributionMetrics_nextToken,
     listMetricAttributionMetrics_maxResults,
     listMetricAttributionMetrics_metricAttributionArn,
-    listMetricAttributionMetricsResponse_nextToken,
+    listMetricAttributionMetrics_nextToken,
     listMetricAttributionMetricsResponse_metrics,
+    listMetricAttributionMetricsResponse_nextToken,
     listMetricAttributionMetricsResponse_httpStatus,
 
     -- ** ListMetricAttributions
-    listMetricAttributions_nextToken,
-    listMetricAttributions_maxResults,
     listMetricAttributions_datasetGroupArn,
-    listMetricAttributionsResponse_nextToken,
+    listMetricAttributions_maxResults,
+    listMetricAttributions_nextToken,
     listMetricAttributionsResponse_metricAttributions,
+    listMetricAttributionsResponse_nextToken,
     listMetricAttributionsResponse_httpStatus,
 
     -- ** ListRecipes
-    listRecipes_nextToken,
-    listRecipes_recipeProvider,
     listRecipes_domain,
     listRecipes_maxResults,
-    listRecipesResponse_recipes,
+    listRecipes_nextToken,
+    listRecipes_recipeProvider,
     listRecipesResponse_nextToken,
+    listRecipesResponse_recipes,
     listRecipesResponse_httpStatus,
 
     -- ** ListRecommenders
-    listRecommenders_nextToken,
-    listRecommenders_maxResults,
     listRecommenders_datasetGroupArn,
+    listRecommenders_maxResults,
+    listRecommenders_nextToken,
     listRecommendersResponse_nextToken,
     listRecommendersResponse_recommenders,
     listRecommendersResponse_httpStatus,
 
     -- ** ListSchemas
-    listSchemas_nextToken,
     listSchemas_maxResults,
+    listSchemas_nextToken,
     listSchemasResponse_nextToken,
     listSchemasResponse_schemas,
     listSchemasResponse_httpStatus,
 
     -- ** ListSolutionVersions
-    listSolutionVersions_solutionArn,
-    listSolutionVersions_nextToken,
     listSolutionVersions_maxResults,
+    listSolutionVersions_nextToken,
+    listSolutionVersions_solutionArn,
     listSolutionVersionsResponse_nextToken,
     listSolutionVersionsResponse_solutionVersions,
     listSolutionVersionsResponse_httpStatus,
 
     -- ** ListSolutions
-    listSolutions_nextToken,
-    listSolutions_maxResults,
     listSolutions_datasetGroupArn,
+    listSolutions_maxResults,
+    listSolutions_nextToken,
     listSolutionsResponse_nextToken,
     listSolutionsResponse_solutions,
     listSolutionsResponse_httpStatus,
@@ -431,8 +431,8 @@ module Amazonka.Personalize.Lens
 
     -- ** UpdateMetricAttribution
     updateMetricAttribution_addMetrics,
-    updateMetricAttribution_metricsOutputConfig,
     updateMetricAttribution_metricAttributionArn,
+    updateMetricAttribution_metricsOutputConfig,
     updateMetricAttribution_removeMetrics,
     updateMetricAttributionResponse_metricAttributionArn,
     updateMetricAttributionResponse_httpStatus,
@@ -446,42 +446,42 @@ module Amazonka.Personalize.Lens
     -- * Types
 
     -- ** Algorithm
+    algorithm_algorithmArn,
     algorithm_algorithmImage,
+    algorithm_creationDateTime,
+    algorithm_defaultHyperParameterRanges,
+    algorithm_defaultHyperParameters,
+    algorithm_defaultResourceConfig,
+    algorithm_lastUpdatedDateTime,
     algorithm_name,
     algorithm_roleArn,
-    algorithm_defaultHyperParameterRanges,
-    algorithm_creationDateTime,
-    algorithm_algorithmArn,
     algorithm_trainingInputMode,
-    algorithm_defaultResourceConfig,
-    algorithm_defaultHyperParameters,
-    algorithm_lastUpdatedDateTime,
 
     -- ** AlgorithmImage
     algorithmImage_name,
     algorithmImage_dockerURI,
 
     -- ** AutoMLConfig
-    autoMLConfig_recipeList,
     autoMLConfig_metricName,
+    autoMLConfig_recipeList,
 
     -- ** AutoMLResult
     autoMLResult_bestRecipeArn,
 
     -- ** BatchInferenceJob
-    batchInferenceJob_roleArn,
-    batchInferenceJob_filterArn,
-    batchInferenceJob_jobOutput,
-    batchInferenceJob_creationDateTime,
-    batchInferenceJob_jobName,
-    batchInferenceJob_numResults,
-    batchInferenceJob_status,
-    batchInferenceJob_batchInferenceJobConfig,
     batchInferenceJob_batchInferenceJobArn,
-    batchInferenceJob_solutionVersionArn,
-    batchInferenceJob_jobInput,
-    batchInferenceJob_lastUpdatedDateTime,
+    batchInferenceJob_batchInferenceJobConfig,
+    batchInferenceJob_creationDateTime,
     batchInferenceJob_failureReason,
+    batchInferenceJob_filterArn,
+    batchInferenceJob_jobInput,
+    batchInferenceJob_jobName,
+    batchInferenceJob_jobOutput,
+    batchInferenceJob_lastUpdatedDateTime,
+    batchInferenceJob_numResults,
+    batchInferenceJob_roleArn,
+    batchInferenceJob_solutionVersionArn,
+    batchInferenceJob_status,
 
     -- ** BatchInferenceJobConfig
     batchInferenceJobConfig_itemExplorationConfig,
@@ -493,27 +493,27 @@ module Amazonka.Personalize.Lens
     batchInferenceJobOutput_s3DataDestination,
 
     -- ** BatchInferenceJobSummary
-    batchInferenceJobSummary_creationDateTime,
-    batchInferenceJobSummary_jobName,
-    batchInferenceJobSummary_status,
     batchInferenceJobSummary_batchInferenceJobArn,
-    batchInferenceJobSummary_solutionVersionArn,
-    batchInferenceJobSummary_lastUpdatedDateTime,
+    batchInferenceJobSummary_creationDateTime,
     batchInferenceJobSummary_failureReason,
+    batchInferenceJobSummary_jobName,
+    batchInferenceJobSummary_lastUpdatedDateTime,
+    batchInferenceJobSummary_solutionVersionArn,
+    batchInferenceJobSummary_status,
 
     -- ** BatchSegmentJob
-    batchSegmentJob_roleArn,
-    batchSegmentJob_filterArn,
-    batchSegmentJob_jobOutput,
-    batchSegmentJob_creationDateTime,
-    batchSegmentJob_jobName,
-    batchSegmentJob_numResults,
-    batchSegmentJob_status,
-    batchSegmentJob_solutionVersionArn,
-    batchSegmentJob_jobInput,
-    batchSegmentJob_lastUpdatedDateTime,
-    batchSegmentJob_failureReason,
     batchSegmentJob_batchSegmentJobArn,
+    batchSegmentJob_creationDateTime,
+    batchSegmentJob_failureReason,
+    batchSegmentJob_filterArn,
+    batchSegmentJob_jobInput,
+    batchSegmentJob_jobName,
+    batchSegmentJob_jobOutput,
+    batchSegmentJob_lastUpdatedDateTime,
+    batchSegmentJob_numResults,
+    batchSegmentJob_roleArn,
+    batchSegmentJob_solutionVersionArn,
+    batchSegmentJob_status,
 
     -- ** BatchSegmentJobInput
     batchSegmentJobInput_s3DataSource,
@@ -522,221 +522,221 @@ module Amazonka.Personalize.Lens
     batchSegmentJobOutput_s3DataDestination,
 
     -- ** BatchSegmentJobSummary
-    batchSegmentJobSummary_creationDateTime,
-    batchSegmentJobSummary_jobName,
-    batchSegmentJobSummary_status,
-    batchSegmentJobSummary_solutionVersionArn,
-    batchSegmentJobSummary_lastUpdatedDateTime,
-    batchSegmentJobSummary_failureReason,
     batchSegmentJobSummary_batchSegmentJobArn,
+    batchSegmentJobSummary_creationDateTime,
+    batchSegmentJobSummary_failureReason,
+    batchSegmentJobSummary_jobName,
+    batchSegmentJobSummary_lastUpdatedDateTime,
+    batchSegmentJobSummary_solutionVersionArn,
+    batchSegmentJobSummary_status,
 
     -- ** Campaign
-    campaign_name,
-    campaign_creationDateTime,
-    campaign_latestCampaignUpdate,
-    campaign_campaignConfig,
-    campaign_status,
-    campaign_minProvisionedTPS,
-    campaign_solutionVersionArn,
     campaign_campaignArn,
-    campaign_lastUpdatedDateTime,
+    campaign_campaignConfig,
+    campaign_creationDateTime,
     campaign_failureReason,
+    campaign_lastUpdatedDateTime,
+    campaign_latestCampaignUpdate,
+    campaign_minProvisionedTPS,
+    campaign_name,
+    campaign_solutionVersionArn,
+    campaign_status,
 
     -- ** CampaignConfig
     campaignConfig_itemExplorationConfig,
 
     -- ** CampaignSummary
-    campaignSummary_name,
-    campaignSummary_creationDateTime,
-    campaignSummary_status,
     campaignSummary_campaignArn,
-    campaignSummary_lastUpdatedDateTime,
+    campaignSummary_creationDateTime,
     campaignSummary_failureReason,
+    campaignSummary_lastUpdatedDateTime,
+    campaignSummary_name,
+    campaignSummary_status,
 
     -- ** CampaignUpdateSummary
-    campaignUpdateSummary_creationDateTime,
     campaignUpdateSummary_campaignConfig,
-    campaignUpdateSummary_status,
+    campaignUpdateSummary_creationDateTime,
+    campaignUpdateSummary_failureReason,
+    campaignUpdateSummary_lastUpdatedDateTime,
     campaignUpdateSummary_minProvisionedTPS,
     campaignUpdateSummary_solutionVersionArn,
-    campaignUpdateSummary_lastUpdatedDateTime,
-    campaignUpdateSummary_failureReason,
+    campaignUpdateSummary_status,
 
     -- ** CategoricalHyperParameterRange
     categoricalHyperParameterRange_name,
     categoricalHyperParameterRange_values,
 
     -- ** ContinuousHyperParameterRange
-    continuousHyperParameterRange_name,
-    continuousHyperParameterRange_minValue,
     continuousHyperParameterRange_maxValue,
+    continuousHyperParameterRange_minValue,
+    continuousHyperParameterRange_name,
 
     -- ** DataSource
     dataSource_dataLocation,
 
     -- ** Dataset
-    dataset_name,
     dataset_creationDateTime,
-    dataset_datasetType,
-    dataset_status,
     dataset_datasetArn,
-    dataset_schemaArn,
     dataset_datasetGroupArn,
+    dataset_datasetType,
     dataset_lastUpdatedDateTime,
+    dataset_name,
+    dataset_schemaArn,
+    dataset_status,
 
     -- ** DatasetExportJob
-    datasetExportJob_roleArn,
-    datasetExportJob_jobOutput,
     datasetExportJob_creationDateTime,
-    datasetExportJob_jobName,
-    datasetExportJob_status,
     datasetExportJob_datasetArn,
-    datasetExportJob_ingestionMode,
     datasetExportJob_datasetExportJobArn,
-    datasetExportJob_lastUpdatedDateTime,
     datasetExportJob_failureReason,
+    datasetExportJob_ingestionMode,
+    datasetExportJob_jobName,
+    datasetExportJob_jobOutput,
+    datasetExportJob_lastUpdatedDateTime,
+    datasetExportJob_roleArn,
+    datasetExportJob_status,
 
     -- ** DatasetExportJobOutput
     datasetExportJobOutput_s3DataDestination,
 
     -- ** DatasetExportJobSummary
     datasetExportJobSummary_creationDateTime,
-    datasetExportJobSummary_jobName,
-    datasetExportJobSummary_status,
     datasetExportJobSummary_datasetExportJobArn,
-    datasetExportJobSummary_lastUpdatedDateTime,
     datasetExportJobSummary_failureReason,
+    datasetExportJobSummary_jobName,
+    datasetExportJobSummary_lastUpdatedDateTime,
+    datasetExportJobSummary_status,
 
     -- ** DatasetGroup
+    datasetGroup_creationDateTime,
+    datasetGroup_datasetGroupArn,
+    datasetGroup_domain,
+    datasetGroup_failureReason,
+    datasetGroup_kmsKeyArn,
+    datasetGroup_lastUpdatedDateTime,
     datasetGroup_name,
     datasetGroup_roleArn,
-    datasetGroup_creationDateTime,
-    datasetGroup_domain,
     datasetGroup_status,
-    datasetGroup_kmsKeyArn,
-    datasetGroup_datasetGroupArn,
-    datasetGroup_lastUpdatedDateTime,
-    datasetGroup_failureReason,
 
     -- ** DatasetGroupSummary
-    datasetGroupSummary_name,
     datasetGroupSummary_creationDateTime,
-    datasetGroupSummary_domain,
-    datasetGroupSummary_status,
     datasetGroupSummary_datasetGroupArn,
-    datasetGroupSummary_lastUpdatedDateTime,
+    datasetGroupSummary_domain,
     datasetGroupSummary_failureReason,
+    datasetGroupSummary_lastUpdatedDateTime,
+    datasetGroupSummary_name,
+    datasetGroupSummary_status,
 
     -- ** DatasetImportJob
-    datasetImportJob_roleArn,
     datasetImportJob_creationDateTime,
-    datasetImportJob_jobName,
-    datasetImportJob_status,
-    datasetImportJob_publishAttributionMetricsToS3,
+    datasetImportJob_dataSource,
     datasetImportJob_datasetArn,
     datasetImportJob_datasetImportJobArn,
-    datasetImportJob_dataSource,
-    datasetImportJob_importMode,
-    datasetImportJob_lastUpdatedDateTime,
     datasetImportJob_failureReason,
+    datasetImportJob_importMode,
+    datasetImportJob_jobName,
+    datasetImportJob_lastUpdatedDateTime,
+    datasetImportJob_publishAttributionMetricsToS3,
+    datasetImportJob_roleArn,
+    datasetImportJob_status,
 
     -- ** DatasetImportJobSummary
     datasetImportJobSummary_creationDateTime,
-    datasetImportJobSummary_jobName,
-    datasetImportJobSummary_status,
     datasetImportJobSummary_datasetImportJobArn,
-    datasetImportJobSummary_importMode,
-    datasetImportJobSummary_lastUpdatedDateTime,
     datasetImportJobSummary_failureReason,
+    datasetImportJobSummary_importMode,
+    datasetImportJobSummary_jobName,
+    datasetImportJobSummary_lastUpdatedDateTime,
+    datasetImportJobSummary_status,
 
     -- ** DatasetSchema
-    datasetSchema_name,
     datasetSchema_creationDateTime,
     datasetSchema_domain,
-    datasetSchema_schemaArn,
-    datasetSchema_schema,
     datasetSchema_lastUpdatedDateTime,
+    datasetSchema_name,
+    datasetSchema_schema,
+    datasetSchema_schemaArn,
 
     -- ** DatasetSchemaSummary
-    datasetSchemaSummary_name,
     datasetSchemaSummary_creationDateTime,
     datasetSchemaSummary_domain,
-    datasetSchemaSummary_schemaArn,
     datasetSchemaSummary_lastUpdatedDateTime,
+    datasetSchemaSummary_name,
+    datasetSchemaSummary_schemaArn,
 
     -- ** DatasetSummary
-    datasetSummary_name,
     datasetSummary_creationDateTime,
-    datasetSummary_datasetType,
-    datasetSummary_status,
     datasetSummary_datasetArn,
+    datasetSummary_datasetType,
     datasetSummary_lastUpdatedDateTime,
+    datasetSummary_name,
+    datasetSummary_status,
 
     -- ** DefaultCategoricalHyperParameterRange
-    defaultCategoricalHyperParameterRange_name,
     defaultCategoricalHyperParameterRange_isTunable,
+    defaultCategoricalHyperParameterRange_name,
     defaultCategoricalHyperParameterRange_values,
 
     -- ** DefaultContinuousHyperParameterRange
-    defaultContinuousHyperParameterRange_name,
-    defaultContinuousHyperParameterRange_minValue,
     defaultContinuousHyperParameterRange_isTunable,
     defaultContinuousHyperParameterRange_maxValue,
+    defaultContinuousHyperParameterRange_minValue,
+    defaultContinuousHyperParameterRange_name,
 
     -- ** DefaultHyperParameterRanges
-    defaultHyperParameterRanges_integerHyperParameterRanges,
     defaultHyperParameterRanges_categoricalHyperParameterRanges,
     defaultHyperParameterRanges_continuousHyperParameterRanges,
+    defaultHyperParameterRanges_integerHyperParameterRanges,
 
     -- ** DefaultIntegerHyperParameterRange
-    defaultIntegerHyperParameterRange_name,
-    defaultIntegerHyperParameterRange_minValue,
     defaultIntegerHyperParameterRange_isTunable,
     defaultIntegerHyperParameterRange_maxValue,
+    defaultIntegerHyperParameterRange_minValue,
+    defaultIntegerHyperParameterRange_name,
 
     -- ** EventTracker
-    eventTracker_name,
-    eventTracker_creationDateTime,
-    eventTracker_trackingId,
-    eventTracker_eventTrackerArn,
-    eventTracker_status,
     eventTracker_accountId,
+    eventTracker_creationDateTime,
     eventTracker_datasetGroupArn,
+    eventTracker_eventTrackerArn,
     eventTracker_lastUpdatedDateTime,
+    eventTracker_name,
+    eventTracker_status,
+    eventTracker_trackingId,
 
     -- ** EventTrackerSummary
-    eventTrackerSummary_name,
     eventTrackerSummary_creationDateTime,
     eventTrackerSummary_eventTrackerArn,
-    eventTrackerSummary_status,
     eventTrackerSummary_lastUpdatedDateTime,
+    eventTrackerSummary_name,
+    eventTrackerSummary_status,
 
     -- ** FeatureTransformation
-    featureTransformation_name,
     featureTransformation_creationDateTime,
-    featureTransformation_featureTransformationArn,
-    featureTransformation_status,
     featureTransformation_defaultParameters,
+    featureTransformation_featureTransformationArn,
     featureTransformation_lastUpdatedDateTime,
+    featureTransformation_name,
+    featureTransformation_status,
 
     -- ** Filter
-    filter_name,
-    filter_filterArn,
     filter_creationDateTime,
-    filter_filterExpression,
-    filter_status,
     filter_datasetGroupArn,
-    filter_lastUpdatedDateTime,
     filter_failureReason,
+    filter_filterArn,
+    filter_filterExpression,
+    filter_lastUpdatedDateTime,
+    filter_name,
+    filter_status,
 
     -- ** FilterSummary
-    filterSummary_name,
-    filterSummary_filterArn,
     filterSummary_creationDateTime,
-    filterSummary_status,
     filterSummary_datasetGroupArn,
-    filterSummary_lastUpdatedDateTime,
     filterSummary_failureReason,
+    filterSummary_filterArn,
+    filterSummary_lastUpdatedDateTime,
+    filterSummary_name,
+    filterSummary_status,
 
     -- ** HPOConfig
     hPOConfig_algorithmHyperParameterRanges,
@@ -744,23 +744,23 @@ module Amazonka.Personalize.Lens
     hPOConfig_hpoResourceConfig,
 
     -- ** HPOObjective
-    hPOObjective_type,
     hPOObjective_metricName,
     hPOObjective_metricRegex,
+    hPOObjective_type,
 
     -- ** HPOResourceConfig
-    hPOResourceConfig_maxParallelTrainingJobs,
     hPOResourceConfig_maxNumberOfTrainingJobs,
+    hPOResourceConfig_maxParallelTrainingJobs,
 
     -- ** HyperParameterRanges
-    hyperParameterRanges_integerHyperParameterRanges,
     hyperParameterRanges_categoricalHyperParameterRanges,
     hyperParameterRanges_continuousHyperParameterRanges,
+    hyperParameterRanges_integerHyperParameterRanges,
 
     -- ** IntegerHyperParameterRange
-    integerHyperParameterRange_name,
-    integerHyperParameterRange_minValue,
     integerHyperParameterRange_maxValue,
+    integerHyperParameterRange_minValue,
+    integerHyperParameterRange_name,
 
     -- ** MetricAttribute
     metricAttribute_eventType,
@@ -768,143 +768,143 @@ module Amazonka.Personalize.Lens
     metricAttribute_expression,
 
     -- ** MetricAttribution
-    metricAttribution_name,
     metricAttribution_creationDateTime,
-    metricAttribution_status,
-    metricAttribution_metricsOutputConfig,
-    metricAttribution_metricAttributionArn,
     metricAttribution_datasetGroupArn,
-    metricAttribution_lastUpdatedDateTime,
     metricAttribution_failureReason,
+    metricAttribution_lastUpdatedDateTime,
+    metricAttribution_metricAttributionArn,
+    metricAttribution_metricsOutputConfig,
+    metricAttribution_name,
+    metricAttribution_status,
 
     -- ** MetricAttributionOutput
     metricAttributionOutput_s3DataDestination,
     metricAttributionOutput_roleArn,
 
     -- ** MetricAttributionSummary
-    metricAttributionSummary_name,
     metricAttributionSummary_creationDateTime,
-    metricAttributionSummary_status,
-    metricAttributionSummary_metricAttributionArn,
-    metricAttributionSummary_lastUpdatedDateTime,
     metricAttributionSummary_failureReason,
+    metricAttributionSummary_lastUpdatedDateTime,
+    metricAttributionSummary_metricAttributionArn,
+    metricAttributionSummary_name,
+    metricAttributionSummary_status,
 
     -- ** OptimizationObjective
-    optimizationObjective_objectiveSensitivity,
     optimizationObjective_itemAttribute,
+    optimizationObjective_objectiveSensitivity,
 
     -- ** Recipe
-    recipe_name,
-    recipe_creationDateTime,
-    recipe_featureTransformationArn,
-    recipe_status,
-    recipe_description,
     recipe_algorithmArn,
-    recipe_recipeType,
-    recipe_recipeArn,
+    recipe_creationDateTime,
+    recipe_description,
+    recipe_featureTransformationArn,
     recipe_lastUpdatedDateTime,
+    recipe_name,
+    recipe_recipeArn,
+    recipe_recipeType,
+    recipe_status,
 
     -- ** RecipeSummary
-    recipeSummary_name,
     recipeSummary_creationDateTime,
     recipeSummary_domain,
-    recipeSummary_status,
-    recipeSummary_recipeArn,
     recipeSummary_lastUpdatedDateTime,
+    recipeSummary_name,
+    recipeSummary_recipeArn,
+    recipeSummary_status,
 
     -- ** Recommender
-    recommender_name,
     recommender_creationDateTime,
+    recommender_datasetGroupArn,
+    recommender_failureReason,
+    recommender_lastUpdatedDateTime,
+    recommender_latestRecommenderUpdate,
+    recommender_modelMetrics,
+    recommender_name,
+    recommender_recipeArn,
     recommender_recommenderArn,
     recommender_recommenderConfig,
-    recommender_latestRecommenderUpdate,
     recommender_status,
-    recommender_modelMetrics,
-    recommender_datasetGroupArn,
-    recommender_recipeArn,
-    recommender_lastUpdatedDateTime,
-    recommender_failureReason,
 
     -- ** RecommenderConfig
-    recommenderConfig_minRecommendationRequestsPerSecond,
     recommenderConfig_itemExplorationConfig,
+    recommenderConfig_minRecommendationRequestsPerSecond,
 
     -- ** RecommenderSummary
-    recommenderSummary_name,
     recommenderSummary_creationDateTime,
+    recommenderSummary_datasetGroupArn,
+    recommenderSummary_lastUpdatedDateTime,
+    recommenderSummary_name,
+    recommenderSummary_recipeArn,
     recommenderSummary_recommenderArn,
     recommenderSummary_recommenderConfig,
     recommenderSummary_status,
-    recommenderSummary_datasetGroupArn,
-    recommenderSummary_recipeArn,
-    recommenderSummary_lastUpdatedDateTime,
 
     -- ** RecommenderUpdateSummary
     recommenderUpdateSummary_creationDateTime,
+    recommenderUpdateSummary_failureReason,
+    recommenderUpdateSummary_lastUpdatedDateTime,
     recommenderUpdateSummary_recommenderConfig,
     recommenderUpdateSummary_status,
-    recommenderUpdateSummary_lastUpdatedDateTime,
-    recommenderUpdateSummary_failureReason,
 
     -- ** S3DataConfig
     s3DataConfig_kmsKeyArn,
     s3DataConfig_path,
 
     -- ** Solution
-    solution_solutionArn,
+    solution_autoMLResult,
+    solution_creationDateTime,
+    solution_datasetGroupArn,
     solution_eventType,
+    solution_lastUpdatedDateTime,
     solution_latestSolutionVersion,
     solution_name,
     solution_performAutoML,
     solution_performHPO,
-    solution_creationDateTime,
-    solution_solutionConfig,
-    solution_autoMLResult,
-    solution_status,
-    solution_datasetGroupArn,
     solution_recipeArn,
-    solution_lastUpdatedDateTime,
+    solution_solutionArn,
+    solution_solutionConfig,
+    solution_status,
 
     -- ** SolutionConfig
-    solutionConfig_featureTransformationParameters,
-    solutionConfig_optimizationObjective,
     solutionConfig_algorithmHyperParameters,
     solutionConfig_autoMLConfig,
     solutionConfig_eventValueThreshold,
+    solutionConfig_featureTransformationParameters,
     solutionConfig_hpoConfig,
+    solutionConfig_optimizationObjective,
 
     -- ** SolutionSummary
-    solutionSummary_solutionArn,
-    solutionSummary_name,
     solutionSummary_creationDateTime,
-    solutionSummary_status,
-    solutionSummary_recipeArn,
     solutionSummary_lastUpdatedDateTime,
+    solutionSummary_name,
+    solutionSummary_recipeArn,
+    solutionSummary_solutionArn,
+    solutionSummary_status,
 
     -- ** SolutionVersion
-    solutionVersion_solutionArn,
+    solutionVersion_creationDateTime,
+    solutionVersion_datasetGroupArn,
     solutionVersion_eventType,
+    solutionVersion_failureReason,
+    solutionVersion_lastUpdatedDateTime,
     solutionVersion_name,
-    solutionVersion_tunedHPOParams,
     solutionVersion_performAutoML,
     solutionVersion_performHPO,
-    solutionVersion_creationDateTime,
+    solutionVersion_recipeArn,
+    solutionVersion_solutionArn,
     solutionVersion_solutionConfig,
+    solutionVersion_solutionVersionArn,
     solutionVersion_status,
     solutionVersion_trainingHours,
     solutionVersion_trainingMode,
-    solutionVersion_datasetGroupArn,
-    solutionVersion_solutionVersionArn,
-    solutionVersion_recipeArn,
-    solutionVersion_lastUpdatedDateTime,
-    solutionVersion_failureReason,
+    solutionVersion_tunedHPOParams,
 
     -- ** SolutionVersionSummary
     solutionVersionSummary_creationDateTime,
-    solutionVersionSummary_status,
-    solutionVersionSummary_solutionVersionArn,
-    solutionVersionSummary_lastUpdatedDateTime,
     solutionVersionSummary_failureReason,
+    solutionVersionSummary_lastUpdatedDateTime,
+    solutionVersionSummary_solutionVersionArn,
+    solutionVersionSummary_status,
 
     -- ** Tag
     tag_tagKey,

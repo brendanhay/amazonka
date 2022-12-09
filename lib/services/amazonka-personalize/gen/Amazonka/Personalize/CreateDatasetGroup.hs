@@ -78,10 +78,10 @@ module Amazonka.Personalize.CreateDatasetGroup
     newCreateDatasetGroup,
 
     -- * Request Lenses
-    createDatasetGroup_tags,
-    createDatasetGroup_roleArn,
     createDatasetGroup_domain,
     createDatasetGroup_kmsKeyArn,
+    createDatasetGroup_roleArn,
+    createDatasetGroup_tags,
     createDatasetGroup_name,
 
     -- * Destructuring the Response
@@ -89,8 +89,8 @@ module Amazonka.Personalize.CreateDatasetGroup
     newCreateDatasetGroupResponse,
 
     -- * Response Lenses
-    createDatasetGroupResponse_domain,
     createDatasetGroupResponse_datasetGroupArn,
+    createDatasetGroupResponse_domain,
     createDatasetGroupResponse_httpStatus,
   )
 where
@@ -105,15 +105,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDatasetGroup' smart constructor.
 data CreateDatasetGroup = CreateDatasetGroup'
-  { -- | A list of
-    -- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
-    -- to apply to the dataset group.
-    tags :: Prelude.Maybe [Tag],
-    -- | The ARN of the Identity and Access Management (IAM) role that has
-    -- permissions to access the Key Management Service (KMS) key. Supplying an
-    -- IAM role is only valid when also specifying a KMS key.
-    roleArn :: Prelude.Maybe Prelude.Text,
-    -- | The domain of the dataset group. Specify a domain to create a Domain
+  { -- | The domain of the dataset group. Specify a domain to create a Domain
     -- dataset group. The domain you specify determines the default schemas for
     -- datasets and the use cases available for recommenders. If you don\'t
     -- specify a domain, you create a Custom dataset group with solution
@@ -122,6 +114,14 @@ data CreateDatasetGroup = CreateDatasetGroup'
     -- | The Amazon Resource Name (ARN) of a Key Management Service (KMS) key
     -- used to encrypt the datasets.
     kmsKeyArn :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the Identity and Access Management (IAM) role that has
+    -- permissions to access the Key Management Service (KMS) key. Supplying an
+    -- IAM role is only valid when also specifying a KMS key.
+    roleArn :: Prelude.Maybe Prelude.Text,
+    -- | A list of
+    -- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+    -- to apply to the dataset group.
+    tags :: Prelude.Maybe [Tag],
     -- | The name for the new dataset group.
     name :: Prelude.Text
   }
@@ -135,14 +135,6 @@ data CreateDatasetGroup = CreateDatasetGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createDatasetGroup_tags' - A list of
--- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
--- to apply to the dataset group.
---
--- 'roleArn', 'createDatasetGroup_roleArn' - The ARN of the Identity and Access Management (IAM) role that has
--- permissions to access the Key Management Service (KMS) key. Supplying an
--- IAM role is only valid when also specifying a KMS key.
---
 -- 'domain', 'createDatasetGroup_domain' - The domain of the dataset group. Specify a domain to create a Domain
 -- dataset group. The domain you specify determines the default schemas for
 -- datasets and the use cases available for recommenders. If you don\'t
@@ -152,6 +144,14 @@ data CreateDatasetGroup = CreateDatasetGroup'
 -- 'kmsKeyArn', 'createDatasetGroup_kmsKeyArn' - The Amazon Resource Name (ARN) of a Key Management Service (KMS) key
 -- used to encrypt the datasets.
 --
+-- 'roleArn', 'createDatasetGroup_roleArn' - The ARN of the Identity and Access Management (IAM) role that has
+-- permissions to access the Key Management Service (KMS) key. Supplying an
+-- IAM role is only valid when also specifying a KMS key.
+--
+-- 'tags', 'createDatasetGroup_tags' - A list of
+-- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+-- to apply to the dataset group.
+--
 -- 'name', 'createDatasetGroup_name' - The name for the new dataset group.
 newCreateDatasetGroup ::
   -- | 'name'
@@ -159,24 +159,12 @@ newCreateDatasetGroup ::
   CreateDatasetGroup
 newCreateDatasetGroup pName_ =
   CreateDatasetGroup'
-    { tags = Prelude.Nothing,
-      roleArn = Prelude.Nothing,
-      domain = Prelude.Nothing,
+    { domain = Prelude.Nothing,
       kmsKeyArn = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_
     }
-
--- | A list of
--- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
--- to apply to the dataset group.
-createDatasetGroup_tags :: Lens.Lens' CreateDatasetGroup (Prelude.Maybe [Tag])
-createDatasetGroup_tags = Lens.lens (\CreateDatasetGroup' {tags} -> tags) (\s@CreateDatasetGroup' {} a -> s {tags = a} :: CreateDatasetGroup) Prelude.. Lens.mapping Lens.coerced
-
--- | The ARN of the Identity and Access Management (IAM) role that has
--- permissions to access the Key Management Service (KMS) key. Supplying an
--- IAM role is only valid when also specifying a KMS key.
-createDatasetGroup_roleArn :: Lens.Lens' CreateDatasetGroup (Prelude.Maybe Prelude.Text)
-createDatasetGroup_roleArn = Lens.lens (\CreateDatasetGroup' {roleArn} -> roleArn) (\s@CreateDatasetGroup' {} a -> s {roleArn = a} :: CreateDatasetGroup)
 
 -- | The domain of the dataset group. Specify a domain to create a Domain
 -- dataset group. The domain you specify determines the default schemas for
@@ -190,6 +178,18 @@ createDatasetGroup_domain = Lens.lens (\CreateDatasetGroup' {domain} -> domain) 
 -- used to encrypt the datasets.
 createDatasetGroup_kmsKeyArn :: Lens.Lens' CreateDatasetGroup (Prelude.Maybe Prelude.Text)
 createDatasetGroup_kmsKeyArn = Lens.lens (\CreateDatasetGroup' {kmsKeyArn} -> kmsKeyArn) (\s@CreateDatasetGroup' {} a -> s {kmsKeyArn = a} :: CreateDatasetGroup)
+
+-- | The ARN of the Identity and Access Management (IAM) role that has
+-- permissions to access the Key Management Service (KMS) key. Supplying an
+-- IAM role is only valid when also specifying a KMS key.
+createDatasetGroup_roleArn :: Lens.Lens' CreateDatasetGroup (Prelude.Maybe Prelude.Text)
+createDatasetGroup_roleArn = Lens.lens (\CreateDatasetGroup' {roleArn} -> roleArn) (\s@CreateDatasetGroup' {} a -> s {roleArn = a} :: CreateDatasetGroup)
+
+-- | A list of
+-- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+-- to apply to the dataset group.
+createDatasetGroup_tags :: Lens.Lens' CreateDatasetGroup (Prelude.Maybe [Tag])
+createDatasetGroup_tags = Lens.lens (\CreateDatasetGroup' {tags} -> tags) (\s@CreateDatasetGroup' {} a -> s {tags = a} :: CreateDatasetGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name for the new dataset group.
 createDatasetGroup_name :: Lens.Lens' CreateDatasetGroup Prelude.Text
@@ -205,25 +205,25 @@ instance Core.AWSRequest CreateDatasetGroup where
     Response.receiveJSON
       ( \s h x ->
           CreateDatasetGroupResponse'
-            Prelude.<$> (x Data..?> "domain")
-            Prelude.<*> (x Data..?> "datasetGroupArn")
+            Prelude.<$> (x Data..?> "datasetGroupArn")
+            Prelude.<*> (x Data..?> "domain")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateDatasetGroup where
   hashWithSalt _salt CreateDatasetGroup' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` roleArn
-      `Prelude.hashWithSalt` domain
+    _salt `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` kmsKeyArn
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateDatasetGroup where
   rnf CreateDatasetGroup' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf domain
+    Prelude.rnf domain
       `Prelude.seq` Prelude.rnf kmsKeyArn
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders CreateDatasetGroup where
@@ -245,10 +245,10 @@ instance Data.ToJSON CreateDatasetGroup where
   toJSON CreateDatasetGroup' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("roleArn" Data..=) Prelude.<$> roleArn,
-            ("domain" Data..=) Prelude.<$> domain,
+          [ ("domain" Data..=) Prelude.<$> domain,
             ("kmsKeyArn" Data..=) Prelude.<$> kmsKeyArn,
+            ("roleArn" Data..=) Prelude.<$> roleArn,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("name" Data..= name)
           ]
       )
@@ -261,10 +261,10 @@ instance Data.ToQuery CreateDatasetGroup where
 
 -- | /See:/ 'newCreateDatasetGroupResponse' smart constructor.
 data CreateDatasetGroupResponse = CreateDatasetGroupResponse'
-  { -- | The domain for the new Domain dataset group.
-    domain :: Prelude.Maybe Domain,
-    -- | The Amazon Resource Name (ARN) of the new dataset group.
+  { -- | The Amazon Resource Name (ARN) of the new dataset group.
     datasetGroupArn :: Prelude.Maybe Prelude.Text,
+    -- | The domain for the new Domain dataset group.
+    domain :: Prelude.Maybe Domain,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -278,9 +278,9 @@ data CreateDatasetGroupResponse = CreateDatasetGroupResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domain', 'createDatasetGroupResponse_domain' - The domain for the new Domain dataset group.
---
 -- 'datasetGroupArn', 'createDatasetGroupResponse_datasetGroupArn' - The Amazon Resource Name (ARN) of the new dataset group.
+--
+-- 'domain', 'createDatasetGroupResponse_domain' - The domain for the new Domain dataset group.
 --
 -- 'httpStatus', 'createDatasetGroupResponse_httpStatus' - The response's http status code.
 newCreateDatasetGroupResponse ::
@@ -289,19 +289,19 @@ newCreateDatasetGroupResponse ::
   CreateDatasetGroupResponse
 newCreateDatasetGroupResponse pHttpStatus_ =
   CreateDatasetGroupResponse'
-    { domain =
+    { datasetGroupArn =
         Prelude.Nothing,
-      datasetGroupArn = Prelude.Nothing,
+      domain = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The domain for the new Domain dataset group.
-createDatasetGroupResponse_domain :: Lens.Lens' CreateDatasetGroupResponse (Prelude.Maybe Domain)
-createDatasetGroupResponse_domain = Lens.lens (\CreateDatasetGroupResponse' {domain} -> domain) (\s@CreateDatasetGroupResponse' {} a -> s {domain = a} :: CreateDatasetGroupResponse)
 
 -- | The Amazon Resource Name (ARN) of the new dataset group.
 createDatasetGroupResponse_datasetGroupArn :: Lens.Lens' CreateDatasetGroupResponse (Prelude.Maybe Prelude.Text)
 createDatasetGroupResponse_datasetGroupArn = Lens.lens (\CreateDatasetGroupResponse' {datasetGroupArn} -> datasetGroupArn) (\s@CreateDatasetGroupResponse' {} a -> s {datasetGroupArn = a} :: CreateDatasetGroupResponse)
+
+-- | The domain for the new Domain dataset group.
+createDatasetGroupResponse_domain :: Lens.Lens' CreateDatasetGroupResponse (Prelude.Maybe Domain)
+createDatasetGroupResponse_domain = Lens.lens (\CreateDatasetGroupResponse' {domain} -> domain) (\s@CreateDatasetGroupResponse' {} a -> s {domain = a} :: CreateDatasetGroupResponse)
 
 -- | The response's http status code.
 createDatasetGroupResponse_httpStatus :: Lens.Lens' CreateDatasetGroupResponse Prelude.Int
@@ -309,6 +309,6 @@ createDatasetGroupResponse_httpStatus = Lens.lens (\CreateDatasetGroupResponse' 
 
 instance Prelude.NFData CreateDatasetGroupResponse where
   rnf CreateDatasetGroupResponse' {..} =
-    Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf datasetGroupArn
+    Prelude.rnf datasetGroupArn
+      `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf httpStatus

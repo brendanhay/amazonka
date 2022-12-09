@@ -29,10 +29,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRecommenderSummary' smart constructor.
 data RecommenderSummary = RecommenderSummary'
-  { -- | The name of the recommender.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The date and time (in Unix format) that the recommender was created.
+  { -- | The date and time (in Unix format) that the recommender was created.
     creationDateTime :: Prelude.Maybe Data.POSIX,
+    -- | The Amazon Resource Name (ARN) of the Domain dataset group that contains
+    -- the recommender.
+    datasetGroupArn :: Prelude.Maybe Prelude.Text,
+    -- | The date and time (in Unix format) that the recommender was last
+    -- updated.
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
+    -- | The name of the recommender.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the recipe (Domain dataset group use
+    -- case) that the recommender was created for.
+    recipeArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the recommender.
     recommenderArn :: Prelude.Maybe Prelude.Text,
     -- | The configuration details of the recommender.
@@ -46,16 +55,7 @@ data RecommenderSummary = RecommenderSummary'
     --     IN_PROGRESS > ACTIVE
     --
     -- -   DELETE PENDING > DELETE IN_PROGRESS
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the Domain dataset group that contains
-    -- the recommender.
-    datasetGroupArn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the recipe (Domain dataset group use
-    -- case) that the recommender was created for.
-    recipeArn :: Prelude.Maybe Prelude.Text,
-    -- | The date and time (in Unix format) that the recommender was last
-    -- updated.
-    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX
+    status :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,9 +67,18 @@ data RecommenderSummary = RecommenderSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'creationDateTime', 'recommenderSummary_creationDateTime' - The date and time (in Unix format) that the recommender was created.
+--
+-- 'datasetGroupArn', 'recommenderSummary_datasetGroupArn' - The Amazon Resource Name (ARN) of the Domain dataset group that contains
+-- the recommender.
+--
+-- 'lastUpdatedDateTime', 'recommenderSummary_lastUpdatedDateTime' - The date and time (in Unix format) that the recommender was last
+-- updated.
+--
 -- 'name', 'recommenderSummary_name' - The name of the recommender.
 --
--- 'creationDateTime', 'recommenderSummary_creationDateTime' - The date and time (in Unix format) that the recommender was created.
+-- 'recipeArn', 'recommenderSummary_recipeArn' - The Amazon Resource Name (ARN) of the recipe (Domain dataset group use
+-- case) that the recommender was created for.
 --
 -- 'recommenderArn', 'recommenderSummary_recommenderArn' - The Amazon Resource Name (ARN) of the recommender.
 --
@@ -84,36 +93,43 @@ data RecommenderSummary = RecommenderSummary'
 --     IN_PROGRESS > ACTIVE
 --
 -- -   DELETE PENDING > DELETE IN_PROGRESS
---
--- 'datasetGroupArn', 'recommenderSummary_datasetGroupArn' - The Amazon Resource Name (ARN) of the Domain dataset group that contains
--- the recommender.
---
--- 'recipeArn', 'recommenderSummary_recipeArn' - The Amazon Resource Name (ARN) of the recipe (Domain dataset group use
--- case) that the recommender was created for.
---
--- 'lastUpdatedDateTime', 'recommenderSummary_lastUpdatedDateTime' - The date and time (in Unix format) that the recommender was last
--- updated.
 newRecommenderSummary ::
   RecommenderSummary
 newRecommenderSummary =
   RecommenderSummary'
-    { name = Prelude.Nothing,
-      creationDateTime = Prelude.Nothing,
+    { creationDateTime =
+        Prelude.Nothing,
+      datasetGroupArn = Prelude.Nothing,
+      lastUpdatedDateTime = Prelude.Nothing,
+      name = Prelude.Nothing,
+      recipeArn = Prelude.Nothing,
       recommenderArn = Prelude.Nothing,
       recommenderConfig = Prelude.Nothing,
-      status = Prelude.Nothing,
-      datasetGroupArn = Prelude.Nothing,
-      recipeArn = Prelude.Nothing,
-      lastUpdatedDateTime = Prelude.Nothing
+      status = Prelude.Nothing
     }
+
+-- | The date and time (in Unix format) that the recommender was created.
+recommenderSummary_creationDateTime :: Lens.Lens' RecommenderSummary (Prelude.Maybe Prelude.UTCTime)
+recommenderSummary_creationDateTime = Lens.lens (\RecommenderSummary' {creationDateTime} -> creationDateTime) (\s@RecommenderSummary' {} a -> s {creationDateTime = a} :: RecommenderSummary) Prelude.. Lens.mapping Data._Time
+
+-- | The Amazon Resource Name (ARN) of the Domain dataset group that contains
+-- the recommender.
+recommenderSummary_datasetGroupArn :: Lens.Lens' RecommenderSummary (Prelude.Maybe Prelude.Text)
+recommenderSummary_datasetGroupArn = Lens.lens (\RecommenderSummary' {datasetGroupArn} -> datasetGroupArn) (\s@RecommenderSummary' {} a -> s {datasetGroupArn = a} :: RecommenderSummary)
+
+-- | The date and time (in Unix format) that the recommender was last
+-- updated.
+recommenderSummary_lastUpdatedDateTime :: Lens.Lens' RecommenderSummary (Prelude.Maybe Prelude.UTCTime)
+recommenderSummary_lastUpdatedDateTime = Lens.lens (\RecommenderSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@RecommenderSummary' {} a -> s {lastUpdatedDateTime = a} :: RecommenderSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the recommender.
 recommenderSummary_name :: Lens.Lens' RecommenderSummary (Prelude.Maybe Prelude.Text)
 recommenderSummary_name = Lens.lens (\RecommenderSummary' {name} -> name) (\s@RecommenderSummary' {} a -> s {name = a} :: RecommenderSummary)
 
--- | The date and time (in Unix format) that the recommender was created.
-recommenderSummary_creationDateTime :: Lens.Lens' RecommenderSummary (Prelude.Maybe Prelude.UTCTime)
-recommenderSummary_creationDateTime = Lens.lens (\RecommenderSummary' {creationDateTime} -> creationDateTime) (\s@RecommenderSummary' {} a -> s {creationDateTime = a} :: RecommenderSummary) Prelude.. Lens.mapping Data._Time
+-- | The Amazon Resource Name (ARN) of the recipe (Domain dataset group use
+-- case) that the recommender was created for.
+recommenderSummary_recipeArn :: Lens.Lens' RecommenderSummary (Prelude.Maybe Prelude.Text)
+recommenderSummary_recipeArn = Lens.lens (\RecommenderSummary' {recipeArn} -> recipeArn) (\s@RecommenderSummary' {} a -> s {recipeArn = a} :: RecommenderSummary)
 
 -- | The Amazon Resource Name (ARN) of the recommender.
 recommenderSummary_recommenderArn :: Lens.Lens' RecommenderSummary (Prelude.Maybe Prelude.Text)
@@ -135,55 +151,40 @@ recommenderSummary_recommenderConfig = Lens.lens (\RecommenderSummary' {recommen
 recommenderSummary_status :: Lens.Lens' RecommenderSummary (Prelude.Maybe Prelude.Text)
 recommenderSummary_status = Lens.lens (\RecommenderSummary' {status} -> status) (\s@RecommenderSummary' {} a -> s {status = a} :: RecommenderSummary)
 
--- | The Amazon Resource Name (ARN) of the Domain dataset group that contains
--- the recommender.
-recommenderSummary_datasetGroupArn :: Lens.Lens' RecommenderSummary (Prelude.Maybe Prelude.Text)
-recommenderSummary_datasetGroupArn = Lens.lens (\RecommenderSummary' {datasetGroupArn} -> datasetGroupArn) (\s@RecommenderSummary' {} a -> s {datasetGroupArn = a} :: RecommenderSummary)
-
--- | The Amazon Resource Name (ARN) of the recipe (Domain dataset group use
--- case) that the recommender was created for.
-recommenderSummary_recipeArn :: Lens.Lens' RecommenderSummary (Prelude.Maybe Prelude.Text)
-recommenderSummary_recipeArn = Lens.lens (\RecommenderSummary' {recipeArn} -> recipeArn) (\s@RecommenderSummary' {} a -> s {recipeArn = a} :: RecommenderSummary)
-
--- | The date and time (in Unix format) that the recommender was last
--- updated.
-recommenderSummary_lastUpdatedDateTime :: Lens.Lens' RecommenderSummary (Prelude.Maybe Prelude.UTCTime)
-recommenderSummary_lastUpdatedDateTime = Lens.lens (\RecommenderSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@RecommenderSummary' {} a -> s {lastUpdatedDateTime = a} :: RecommenderSummary) Prelude.. Lens.mapping Data._Time
-
 instance Data.FromJSON RecommenderSummary where
   parseJSON =
     Data.withObject
       "RecommenderSummary"
       ( \x ->
           RecommenderSummary'
-            Prelude.<$> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "creationDateTime")
+            Prelude.<$> (x Data..:? "creationDateTime")
+            Prelude.<*> (x Data..:? "datasetGroupArn")
+            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "recipeArn")
             Prelude.<*> (x Data..:? "recommenderArn")
             Prelude.<*> (x Data..:? "recommenderConfig")
             Prelude.<*> (x Data..:? "status")
-            Prelude.<*> (x Data..:? "datasetGroupArn")
-            Prelude.<*> (x Data..:? "recipeArn")
-            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
       )
 
 instance Prelude.Hashable RecommenderSummary where
   hashWithSalt _salt RecommenderSummary' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` creationDateTime
+    _salt `Prelude.hashWithSalt` creationDateTime
+      `Prelude.hashWithSalt` datasetGroupArn
+      `Prelude.hashWithSalt` lastUpdatedDateTime
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` recipeArn
       `Prelude.hashWithSalt` recommenderArn
       `Prelude.hashWithSalt` recommenderConfig
       `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` datasetGroupArn
-      `Prelude.hashWithSalt` recipeArn
-      `Prelude.hashWithSalt` lastUpdatedDateTime
 
 instance Prelude.NFData RecommenderSummary where
   rnf RecommenderSummary' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf creationDateTime
+    Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf datasetGroupArn
+      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf recipeArn
       `Prelude.seq` Prelude.rnf recommenderArn
       `Prelude.seq` Prelude.rnf recommenderConfig
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf datasetGroupArn
-      `Prelude.seq` Prelude.rnf recipeArn
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime

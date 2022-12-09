@@ -30,10 +30,10 @@ module Amazonka.Personalize.CreateBatchInferenceJob
     newCreateBatchInferenceJob,
 
     -- * Request Lenses
-    createBatchInferenceJob_tags,
+    createBatchInferenceJob_batchInferenceJobConfig,
     createBatchInferenceJob_filterArn,
     createBatchInferenceJob_numResults,
-    createBatchInferenceJob_batchInferenceJobConfig,
+    createBatchInferenceJob_tags,
     createBatchInferenceJob_jobName,
     createBatchInferenceJob_solutionVersionArn,
     createBatchInferenceJob_jobInput,
@@ -60,18 +60,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateBatchInferenceJob' smart constructor.
 data CreateBatchInferenceJob = CreateBatchInferenceJob'
-  { -- | A list of
-    -- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
-    -- to apply to the batch inference job.
-    tags :: Prelude.Maybe [Tag],
+  { -- | The configuration details of a batch inference job.
+    batchInferenceJobConfig :: Prelude.Maybe BatchInferenceJobConfig,
     -- | The ARN of the filter to apply to the batch inference job. For more
     -- information on using filters, see
     -- <https://docs.aws.amazon.com/personalize/latest/dg/filter-batch.html Filtering batch recommendations>.
     filterArn :: Prelude.Maybe Prelude.Text,
     -- | The number of recommendations to retrieve.
     numResults :: Prelude.Maybe Prelude.Int,
-    -- | The configuration details of a batch inference job.
-    batchInferenceJobConfig :: Prelude.Maybe BatchInferenceJobConfig,
+    -- | A list of
+    -- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+    -- to apply to the batch inference job.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the batch inference job to create.
     jobName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the solution version that will be used
@@ -97,9 +97,7 @@ data CreateBatchInferenceJob = CreateBatchInferenceJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createBatchInferenceJob_tags' - A list of
--- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
--- to apply to the batch inference job.
+-- 'batchInferenceJobConfig', 'createBatchInferenceJob_batchInferenceJobConfig' - The configuration details of a batch inference job.
 --
 -- 'filterArn', 'createBatchInferenceJob_filterArn' - The ARN of the filter to apply to the batch inference job. For more
 -- information on using filters, see
@@ -107,7 +105,9 @@ data CreateBatchInferenceJob = CreateBatchInferenceJob'
 --
 -- 'numResults', 'createBatchInferenceJob_numResults' - The number of recommendations to retrieve.
 --
--- 'batchInferenceJobConfig', 'createBatchInferenceJob_batchInferenceJobConfig' - The configuration details of a batch inference job.
+-- 'tags', 'createBatchInferenceJob_tags' - A list of
+-- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+-- to apply to the batch inference job.
 --
 -- 'jobName', 'createBatchInferenceJob_jobName' - The name of the batch inference job to create.
 --
@@ -141,10 +141,11 @@ newCreateBatchInferenceJob
   pJobOutput_
   pRoleArn_ =
     CreateBatchInferenceJob'
-      { tags = Prelude.Nothing,
+      { batchInferenceJobConfig =
+          Prelude.Nothing,
         filterArn = Prelude.Nothing,
         numResults = Prelude.Nothing,
-        batchInferenceJobConfig = Prelude.Nothing,
+        tags = Prelude.Nothing,
         jobName = pJobName_,
         solutionVersionArn = pSolutionVersionArn_,
         jobInput = pJobInput_,
@@ -152,11 +153,9 @@ newCreateBatchInferenceJob
         roleArn = pRoleArn_
       }
 
--- | A list of
--- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
--- to apply to the batch inference job.
-createBatchInferenceJob_tags :: Lens.Lens' CreateBatchInferenceJob (Prelude.Maybe [Tag])
-createBatchInferenceJob_tags = Lens.lens (\CreateBatchInferenceJob' {tags} -> tags) (\s@CreateBatchInferenceJob' {} a -> s {tags = a} :: CreateBatchInferenceJob) Prelude.. Lens.mapping Lens.coerced
+-- | The configuration details of a batch inference job.
+createBatchInferenceJob_batchInferenceJobConfig :: Lens.Lens' CreateBatchInferenceJob (Prelude.Maybe BatchInferenceJobConfig)
+createBatchInferenceJob_batchInferenceJobConfig = Lens.lens (\CreateBatchInferenceJob' {batchInferenceJobConfig} -> batchInferenceJobConfig) (\s@CreateBatchInferenceJob' {} a -> s {batchInferenceJobConfig = a} :: CreateBatchInferenceJob)
 
 -- | The ARN of the filter to apply to the batch inference job. For more
 -- information on using filters, see
@@ -168,9 +167,11 @@ createBatchInferenceJob_filterArn = Lens.lens (\CreateBatchInferenceJob' {filter
 createBatchInferenceJob_numResults :: Lens.Lens' CreateBatchInferenceJob (Prelude.Maybe Prelude.Int)
 createBatchInferenceJob_numResults = Lens.lens (\CreateBatchInferenceJob' {numResults} -> numResults) (\s@CreateBatchInferenceJob' {} a -> s {numResults = a} :: CreateBatchInferenceJob)
 
--- | The configuration details of a batch inference job.
-createBatchInferenceJob_batchInferenceJobConfig :: Lens.Lens' CreateBatchInferenceJob (Prelude.Maybe BatchInferenceJobConfig)
-createBatchInferenceJob_batchInferenceJobConfig = Lens.lens (\CreateBatchInferenceJob' {batchInferenceJobConfig} -> batchInferenceJobConfig) (\s@CreateBatchInferenceJob' {} a -> s {batchInferenceJobConfig = a} :: CreateBatchInferenceJob)
+-- | A list of
+-- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+-- to apply to the batch inference job.
+createBatchInferenceJob_tags :: Lens.Lens' CreateBatchInferenceJob (Prelude.Maybe [Tag])
+createBatchInferenceJob_tags = Lens.lens (\CreateBatchInferenceJob' {tags} -> tags) (\s@CreateBatchInferenceJob' {} a -> s {tags = a} :: CreateBatchInferenceJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the batch inference job to create.
 createBatchInferenceJob_jobName :: Lens.Lens' CreateBatchInferenceJob Prelude.Text
@@ -212,10 +213,11 @@ instance Core.AWSRequest CreateBatchInferenceJob where
 
 instance Prelude.Hashable CreateBatchInferenceJob where
   hashWithSalt _salt CreateBatchInferenceJob' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` batchInferenceJobConfig
       `Prelude.hashWithSalt` filterArn
       `Prelude.hashWithSalt` numResults
-      `Prelude.hashWithSalt` batchInferenceJobConfig
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` solutionVersionArn
       `Prelude.hashWithSalt` jobInput
@@ -224,10 +226,10 @@ instance Prelude.Hashable CreateBatchInferenceJob where
 
 instance Prelude.NFData CreateBatchInferenceJob where
   rnf CreateBatchInferenceJob' {..} =
-    Prelude.rnf tags
+    Prelude.rnf batchInferenceJobConfig
       `Prelude.seq` Prelude.rnf filterArn
       `Prelude.seq` Prelude.rnf numResults
-      `Prelude.seq` Prelude.rnf batchInferenceJobConfig
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf jobName
       `Prelude.seq` Prelude.rnf solutionVersionArn
       `Prelude.seq` Prelude.rnf jobInput
@@ -253,11 +255,11 @@ instance Data.ToJSON CreateBatchInferenceJob where
   toJSON CreateBatchInferenceJob' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
+          [ ("batchInferenceJobConfig" Data..=)
+              Prelude.<$> batchInferenceJobConfig,
             ("filterArn" Data..=) Prelude.<$> filterArn,
             ("numResults" Data..=) Prelude.<$> numResults,
-            ("batchInferenceJobConfig" Data..=)
-              Prelude.<$> batchInferenceJobConfig,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("jobName" Data..= jobName),
             Prelude.Just
               ("solutionVersionArn" Data..= solutionVersionArn),

@@ -45,8 +45,8 @@ module Amazonka.Personalize.CreateDatasetExportJob
     newCreateDatasetExportJob,
 
     -- * Request Lenses
-    createDatasetExportJob_tags,
     createDatasetExportJob_ingestionMode,
+    createDatasetExportJob_tags,
     createDatasetExportJob_jobName,
     createDatasetExportJob_datasetArn,
     createDatasetExportJob_roleArn,
@@ -72,16 +72,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDatasetExportJob' smart constructor.
 data CreateDatasetExportJob = CreateDatasetExportJob'
-  { -- | A list of
-    -- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
-    -- to apply to the dataset export job.
-    tags :: Prelude.Maybe [Tag],
-    -- | The data to export, based on how you imported the data. You can choose
+  { -- | The data to export, based on how you imported the data. You can choose
     -- to export only @BULK@ data that you imported using a dataset import job,
     -- only @PUT@ data that you imported incrementally (using the console,
     -- PutEvents, PutUsers and PutItems operations), or @ALL@ for both types.
     -- The default value is @PUT@.
     ingestionMode :: Prelude.Maybe IngestionMode,
+    -- | A list of
+    -- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+    -- to apply to the dataset export job.
+    tags :: Prelude.Maybe [Tag],
     -- | The name for the dataset export job.
     jobName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the dataset that contains the data to
@@ -103,15 +103,15 @@ data CreateDatasetExportJob = CreateDatasetExportJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createDatasetExportJob_tags' - A list of
--- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
--- to apply to the dataset export job.
---
 -- 'ingestionMode', 'createDatasetExportJob_ingestionMode' - The data to export, based on how you imported the data. You can choose
 -- to export only @BULK@ data that you imported using a dataset import job,
 -- only @PUT@ data that you imported incrementally (using the console,
 -- PutEvents, PutUsers and PutItems operations), or @ALL@ for both types.
 -- The default value is @PUT@.
+--
+-- 'tags', 'createDatasetExportJob_tags' - A list of
+-- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+-- to apply to the dataset export job.
 --
 -- 'jobName', 'createDatasetExportJob_jobName' - The name for the dataset export job.
 --
@@ -138,19 +138,14 @@ newCreateDatasetExportJob
   pRoleArn_
   pJobOutput_ =
     CreateDatasetExportJob'
-      { tags = Prelude.Nothing,
-        ingestionMode = Prelude.Nothing,
+      { ingestionMode =
+          Prelude.Nothing,
+        tags = Prelude.Nothing,
         jobName = pJobName_,
         datasetArn = pDatasetArn_,
         roleArn = pRoleArn_,
         jobOutput = pJobOutput_
       }
-
--- | A list of
--- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
--- to apply to the dataset export job.
-createDatasetExportJob_tags :: Lens.Lens' CreateDatasetExportJob (Prelude.Maybe [Tag])
-createDatasetExportJob_tags = Lens.lens (\CreateDatasetExportJob' {tags} -> tags) (\s@CreateDatasetExportJob' {} a -> s {tags = a} :: CreateDatasetExportJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | The data to export, based on how you imported the data. You can choose
 -- to export only @BULK@ data that you imported using a dataset import job,
@@ -159,6 +154,12 @@ createDatasetExportJob_tags = Lens.lens (\CreateDatasetExportJob' {tags} -> tags
 -- The default value is @PUT@.
 createDatasetExportJob_ingestionMode :: Lens.Lens' CreateDatasetExportJob (Prelude.Maybe IngestionMode)
 createDatasetExportJob_ingestionMode = Lens.lens (\CreateDatasetExportJob' {ingestionMode} -> ingestionMode) (\s@CreateDatasetExportJob' {} a -> s {ingestionMode = a} :: CreateDatasetExportJob)
+
+-- | A list of
+-- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+-- to apply to the dataset export job.
+createDatasetExportJob_tags :: Lens.Lens' CreateDatasetExportJob (Prelude.Maybe [Tag])
+createDatasetExportJob_tags = Lens.lens (\CreateDatasetExportJob' {tags} -> tags) (\s@CreateDatasetExportJob' {} a -> s {tags = a} :: CreateDatasetExportJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name for the dataset export job.
 createDatasetExportJob_jobName :: Lens.Lens' CreateDatasetExportJob Prelude.Text
@@ -194,8 +195,8 @@ instance Core.AWSRequest CreateDatasetExportJob where
 
 instance Prelude.Hashable CreateDatasetExportJob where
   hashWithSalt _salt CreateDatasetExportJob' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` ingestionMode
+    _salt `Prelude.hashWithSalt` ingestionMode
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` datasetArn
       `Prelude.hashWithSalt` roleArn
@@ -203,8 +204,8 @@ instance Prelude.Hashable CreateDatasetExportJob where
 
 instance Prelude.NFData CreateDatasetExportJob where
   rnf CreateDatasetExportJob' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf ingestionMode
+    Prelude.rnf ingestionMode
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf jobName
       `Prelude.seq` Prelude.rnf datasetArn
       `Prelude.seq` Prelude.rnf roleArn
@@ -229,8 +230,8 @@ instance Data.ToJSON CreateDatasetExportJob where
   toJSON CreateDatasetExportJob' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("ingestionMode" Data..=) Prelude.<$> ingestionMode,
+          [ ("ingestionMode" Data..=) Prelude.<$> ingestionMode,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("jobName" Data..= jobName),
             Prelude.Just ("datasetArn" Data..= datasetArn),
             Prelude.Just ("roleArn" Data..= roleArn),

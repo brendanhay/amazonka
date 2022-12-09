@@ -32,9 +32,9 @@ module Amazonka.Personalize.ListSolutionVersions
     newListSolutionVersions,
 
     -- * Request Lenses
-    listSolutionVersions_solutionArn,
-    listSolutionVersions_nextToken,
     listSolutionVersions_maxResults,
+    listSolutionVersions_nextToken,
+    listSolutionVersions_solutionArn,
 
     -- * Destructuring the Response
     ListSolutionVersionsResponse (..),
@@ -57,13 +57,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListSolutionVersions' smart constructor.
 data ListSolutionVersions = ListSolutionVersions'
-  { -- | The Amazon Resource Name (ARN) of the solution.
-    solutionArn :: Prelude.Maybe Prelude.Text,
+  { -- | The maximum number of solution versions to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A token returned from the previous call to @ListSolutionVersions@ for
     -- getting the next set of solution versions (if they exist).
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of solution versions to return.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    -- | The Amazon Resource Name (ARN) of the solution.
+    solutionArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,34 +75,33 @@ data ListSolutionVersions = ListSolutionVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'solutionArn', 'listSolutionVersions_solutionArn' - The Amazon Resource Name (ARN) of the solution.
+-- 'maxResults', 'listSolutionVersions_maxResults' - The maximum number of solution versions to return.
 --
 -- 'nextToken', 'listSolutionVersions_nextToken' - A token returned from the previous call to @ListSolutionVersions@ for
 -- getting the next set of solution versions (if they exist).
 --
--- 'maxResults', 'listSolutionVersions_maxResults' - The maximum number of solution versions to return.
+-- 'solutionArn', 'listSolutionVersions_solutionArn' - The Amazon Resource Name (ARN) of the solution.
 newListSolutionVersions ::
   ListSolutionVersions
 newListSolutionVersions =
   ListSolutionVersions'
-    { solutionArn =
-        Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      solutionArn = Prelude.Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the solution.
-listSolutionVersions_solutionArn :: Lens.Lens' ListSolutionVersions (Prelude.Maybe Prelude.Text)
-listSolutionVersions_solutionArn = Lens.lens (\ListSolutionVersions' {solutionArn} -> solutionArn) (\s@ListSolutionVersions' {} a -> s {solutionArn = a} :: ListSolutionVersions)
+-- | The maximum number of solution versions to return.
+listSolutionVersions_maxResults :: Lens.Lens' ListSolutionVersions (Prelude.Maybe Prelude.Natural)
+listSolutionVersions_maxResults = Lens.lens (\ListSolutionVersions' {maxResults} -> maxResults) (\s@ListSolutionVersions' {} a -> s {maxResults = a} :: ListSolutionVersions)
 
 -- | A token returned from the previous call to @ListSolutionVersions@ for
 -- getting the next set of solution versions (if they exist).
 listSolutionVersions_nextToken :: Lens.Lens' ListSolutionVersions (Prelude.Maybe Prelude.Text)
 listSolutionVersions_nextToken = Lens.lens (\ListSolutionVersions' {nextToken} -> nextToken) (\s@ListSolutionVersions' {} a -> s {nextToken = a} :: ListSolutionVersions)
 
--- | The maximum number of solution versions to return.
-listSolutionVersions_maxResults :: Lens.Lens' ListSolutionVersions (Prelude.Maybe Prelude.Natural)
-listSolutionVersions_maxResults = Lens.lens (\ListSolutionVersions' {maxResults} -> maxResults) (\s@ListSolutionVersions' {} a -> s {maxResults = a} :: ListSolutionVersions)
+-- | The Amazon Resource Name (ARN) of the solution.
+listSolutionVersions_solutionArn :: Lens.Lens' ListSolutionVersions (Prelude.Maybe Prelude.Text)
+listSolutionVersions_solutionArn = Lens.lens (\ListSolutionVersions' {solutionArn} -> solutionArn) (\s@ListSolutionVersions' {} a -> s {solutionArn = a} :: ListSolutionVersions)
 
 instance Core.AWSPager ListSolutionVersions where
   page rq rs
@@ -145,15 +144,15 @@ instance Core.AWSRequest ListSolutionVersions where
 
 instance Prelude.Hashable ListSolutionVersions where
   hashWithSalt _salt ListSolutionVersions' {..} =
-    _salt `Prelude.hashWithSalt` solutionArn
+    _salt `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` solutionArn
 
 instance Prelude.NFData ListSolutionVersions where
   rnf ListSolutionVersions' {..} =
-    Prelude.rnf solutionArn
+    Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf solutionArn
 
 instance Data.ToHeaders ListSolutionVersions where
   toHeaders =
@@ -174,9 +173,9 @@ instance Data.ToJSON ListSolutionVersions where
   toJSON ListSolutionVersions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("solutionArn" Data..=) Prelude.<$> solutionArn,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
             ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+            ("solutionArn" Data..=) Prelude.<$> solutionArn
           ]
       )
 

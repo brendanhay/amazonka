@@ -28,8 +28,8 @@ module Amazonka.Personalize.UpdateMetricAttribution
 
     -- * Request Lenses
     updateMetricAttribution_addMetrics,
-    updateMetricAttribution_metricsOutputConfig,
     updateMetricAttribution_metricAttributionArn,
+    updateMetricAttribution_metricsOutputConfig,
     updateMetricAttribution_removeMetrics,
 
     -- * Destructuring the Response
@@ -54,10 +54,10 @@ import qualified Amazonka.Response as Response
 data UpdateMetricAttribution = UpdateMetricAttribution'
   { -- | Add new metric attributes to the metric attribution.
     addMetrics :: Prelude.Maybe [MetricAttribute],
-    -- | An output config for the metric attribution.
-    metricsOutputConfig :: Prelude.Maybe MetricAttributionOutput,
     -- | The Amazon Resource Name (ARN) for the metric attribution to update.
     metricAttributionArn :: Prelude.Maybe Prelude.Text,
+    -- | An output config for the metric attribution.
+    metricsOutputConfig :: Prelude.Maybe MetricAttributionOutput,
     -- | Remove metric attributes from the metric attribution.
     removeMetrics :: Prelude.Maybe [Prelude.Text]
   }
@@ -73,9 +73,9 @@ data UpdateMetricAttribution = UpdateMetricAttribution'
 --
 -- 'addMetrics', 'updateMetricAttribution_addMetrics' - Add new metric attributes to the metric attribution.
 --
--- 'metricsOutputConfig', 'updateMetricAttribution_metricsOutputConfig' - An output config for the metric attribution.
---
 -- 'metricAttributionArn', 'updateMetricAttribution_metricAttributionArn' - The Amazon Resource Name (ARN) for the metric attribution to update.
+--
+-- 'metricsOutputConfig', 'updateMetricAttribution_metricsOutputConfig' - An output config for the metric attribution.
 --
 -- 'removeMetrics', 'updateMetricAttribution_removeMetrics' - Remove metric attributes from the metric attribution.
 newUpdateMetricAttribution ::
@@ -84,8 +84,8 @@ newUpdateMetricAttribution =
   UpdateMetricAttribution'
     { addMetrics =
         Prelude.Nothing,
-      metricsOutputConfig = Prelude.Nothing,
       metricAttributionArn = Prelude.Nothing,
+      metricsOutputConfig = Prelude.Nothing,
       removeMetrics = Prelude.Nothing
     }
 
@@ -93,13 +93,13 @@ newUpdateMetricAttribution =
 updateMetricAttribution_addMetrics :: Lens.Lens' UpdateMetricAttribution (Prelude.Maybe [MetricAttribute])
 updateMetricAttribution_addMetrics = Lens.lens (\UpdateMetricAttribution' {addMetrics} -> addMetrics) (\s@UpdateMetricAttribution' {} a -> s {addMetrics = a} :: UpdateMetricAttribution) Prelude.. Lens.mapping Lens.coerced
 
--- | An output config for the metric attribution.
-updateMetricAttribution_metricsOutputConfig :: Lens.Lens' UpdateMetricAttribution (Prelude.Maybe MetricAttributionOutput)
-updateMetricAttribution_metricsOutputConfig = Lens.lens (\UpdateMetricAttribution' {metricsOutputConfig} -> metricsOutputConfig) (\s@UpdateMetricAttribution' {} a -> s {metricsOutputConfig = a} :: UpdateMetricAttribution)
-
 -- | The Amazon Resource Name (ARN) for the metric attribution to update.
 updateMetricAttribution_metricAttributionArn :: Lens.Lens' UpdateMetricAttribution (Prelude.Maybe Prelude.Text)
 updateMetricAttribution_metricAttributionArn = Lens.lens (\UpdateMetricAttribution' {metricAttributionArn} -> metricAttributionArn) (\s@UpdateMetricAttribution' {} a -> s {metricAttributionArn = a} :: UpdateMetricAttribution)
+
+-- | An output config for the metric attribution.
+updateMetricAttribution_metricsOutputConfig :: Lens.Lens' UpdateMetricAttribution (Prelude.Maybe MetricAttributionOutput)
+updateMetricAttribution_metricsOutputConfig = Lens.lens (\UpdateMetricAttribution' {metricsOutputConfig} -> metricsOutputConfig) (\s@UpdateMetricAttribution' {} a -> s {metricsOutputConfig = a} :: UpdateMetricAttribution)
 
 -- | Remove metric attributes from the metric attribution.
 updateMetricAttribution_removeMetrics :: Lens.Lens' UpdateMetricAttribution (Prelude.Maybe [Prelude.Text])
@@ -122,15 +122,15 @@ instance Core.AWSRequest UpdateMetricAttribution where
 instance Prelude.Hashable UpdateMetricAttribution where
   hashWithSalt _salt UpdateMetricAttribution' {..} =
     _salt `Prelude.hashWithSalt` addMetrics
-      `Prelude.hashWithSalt` metricsOutputConfig
       `Prelude.hashWithSalt` metricAttributionArn
+      `Prelude.hashWithSalt` metricsOutputConfig
       `Prelude.hashWithSalt` removeMetrics
 
 instance Prelude.NFData UpdateMetricAttribution where
   rnf UpdateMetricAttribution' {..} =
     Prelude.rnf addMetrics
-      `Prelude.seq` Prelude.rnf metricsOutputConfig
       `Prelude.seq` Prelude.rnf metricAttributionArn
+      `Prelude.seq` Prelude.rnf metricsOutputConfig
       `Prelude.seq` Prelude.rnf removeMetrics
 
 instance Data.ToHeaders UpdateMetricAttribution where
@@ -153,10 +153,10 @@ instance Data.ToJSON UpdateMetricAttribution where
     Data.object
       ( Prelude.catMaybes
           [ ("addMetrics" Data..=) Prelude.<$> addMetrics,
-            ("metricsOutputConfig" Data..=)
-              Prelude.<$> metricsOutputConfig,
             ("metricAttributionArn" Data..=)
               Prelude.<$> metricAttributionArn,
+            ("metricsOutputConfig" Data..=)
+              Prelude.<$> metricsOutputConfig,
             ("removeMetrics" Data..=) Prelude.<$> removeMetrics
           ]
       )

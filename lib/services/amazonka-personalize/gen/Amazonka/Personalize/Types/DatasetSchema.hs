@@ -30,19 +30,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDatasetSchema' smart constructor.
 data DatasetSchema = DatasetSchema'
-  { -- | The name of the schema.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The date and time (in Unix time) that the schema was created.
+  { -- | The date and time (in Unix time) that the schema was created.
     creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The domain of a schema that you created for a dataset in a Domain
     -- dataset group.
     domain :: Prelude.Maybe Domain,
-    -- | The Amazon Resource Name (ARN) of the schema.
-    schemaArn :: Prelude.Maybe Prelude.Text,
+    -- | The date and time (in Unix time) that the schema was last updated.
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
+    -- | The name of the schema.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The schema.
     schema :: Prelude.Maybe Prelude.Text,
-    -- | The date and time (in Unix time) that the schema was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX
+    -- | The Amazon Resource Name (ARN) of the schema.
+    schemaArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,33 +54,29 @@ data DatasetSchema = DatasetSchema'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'datasetSchema_name' - The name of the schema.
---
 -- 'creationDateTime', 'datasetSchema_creationDateTime' - The date and time (in Unix time) that the schema was created.
 --
 -- 'domain', 'datasetSchema_domain' - The domain of a schema that you created for a dataset in a Domain
 -- dataset group.
 --
--- 'schemaArn', 'datasetSchema_schemaArn' - The Amazon Resource Name (ARN) of the schema.
+-- 'lastUpdatedDateTime', 'datasetSchema_lastUpdatedDateTime' - The date and time (in Unix time) that the schema was last updated.
+--
+-- 'name', 'datasetSchema_name' - The name of the schema.
 --
 -- 'schema', 'datasetSchema_schema' - The schema.
 --
--- 'lastUpdatedDateTime', 'datasetSchema_lastUpdatedDateTime' - The date and time (in Unix time) that the schema was last updated.
+-- 'schemaArn', 'datasetSchema_schemaArn' - The Amazon Resource Name (ARN) of the schema.
 newDatasetSchema ::
   DatasetSchema
 newDatasetSchema =
   DatasetSchema'
-    { name = Prelude.Nothing,
-      creationDateTime = Prelude.Nothing,
+    { creationDateTime = Prelude.Nothing,
       domain = Prelude.Nothing,
-      schemaArn = Prelude.Nothing,
+      lastUpdatedDateTime = Prelude.Nothing,
+      name = Prelude.Nothing,
       schema = Prelude.Nothing,
-      lastUpdatedDateTime = Prelude.Nothing
+      schemaArn = Prelude.Nothing
     }
-
--- | The name of the schema.
-datasetSchema_name :: Lens.Lens' DatasetSchema (Prelude.Maybe Prelude.Text)
-datasetSchema_name = Lens.lens (\DatasetSchema' {name} -> name) (\s@DatasetSchema' {} a -> s {name = a} :: DatasetSchema)
 
 -- | The date and time (in Unix time) that the schema was created.
 datasetSchema_creationDateTime :: Lens.Lens' DatasetSchema (Prelude.Maybe Prelude.UTCTime)
@@ -91,17 +87,21 @@ datasetSchema_creationDateTime = Lens.lens (\DatasetSchema' {creationDateTime} -
 datasetSchema_domain :: Lens.Lens' DatasetSchema (Prelude.Maybe Domain)
 datasetSchema_domain = Lens.lens (\DatasetSchema' {domain} -> domain) (\s@DatasetSchema' {} a -> s {domain = a} :: DatasetSchema)
 
--- | The Amazon Resource Name (ARN) of the schema.
-datasetSchema_schemaArn :: Lens.Lens' DatasetSchema (Prelude.Maybe Prelude.Text)
-datasetSchema_schemaArn = Lens.lens (\DatasetSchema' {schemaArn} -> schemaArn) (\s@DatasetSchema' {} a -> s {schemaArn = a} :: DatasetSchema)
+-- | The date and time (in Unix time) that the schema was last updated.
+datasetSchema_lastUpdatedDateTime :: Lens.Lens' DatasetSchema (Prelude.Maybe Prelude.UTCTime)
+datasetSchema_lastUpdatedDateTime = Lens.lens (\DatasetSchema' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@DatasetSchema' {} a -> s {lastUpdatedDateTime = a} :: DatasetSchema) Prelude.. Lens.mapping Data._Time
+
+-- | The name of the schema.
+datasetSchema_name :: Lens.Lens' DatasetSchema (Prelude.Maybe Prelude.Text)
+datasetSchema_name = Lens.lens (\DatasetSchema' {name} -> name) (\s@DatasetSchema' {} a -> s {name = a} :: DatasetSchema)
 
 -- | The schema.
 datasetSchema_schema :: Lens.Lens' DatasetSchema (Prelude.Maybe Prelude.Text)
 datasetSchema_schema = Lens.lens (\DatasetSchema' {schema} -> schema) (\s@DatasetSchema' {} a -> s {schema = a} :: DatasetSchema)
 
--- | The date and time (in Unix time) that the schema was last updated.
-datasetSchema_lastUpdatedDateTime :: Lens.Lens' DatasetSchema (Prelude.Maybe Prelude.UTCTime)
-datasetSchema_lastUpdatedDateTime = Lens.lens (\DatasetSchema' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@DatasetSchema' {} a -> s {lastUpdatedDateTime = a} :: DatasetSchema) Prelude.. Lens.mapping Data._Time
+-- | The Amazon Resource Name (ARN) of the schema.
+datasetSchema_schemaArn :: Lens.Lens' DatasetSchema (Prelude.Maybe Prelude.Text)
+datasetSchema_schemaArn = Lens.lens (\DatasetSchema' {schemaArn} -> schemaArn) (\s@DatasetSchema' {} a -> s {schemaArn = a} :: DatasetSchema)
 
 instance Data.FromJSON DatasetSchema where
   parseJSON =
@@ -109,28 +109,28 @@ instance Data.FromJSON DatasetSchema where
       "DatasetSchema"
       ( \x ->
           DatasetSchema'
-            Prelude.<$> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "creationDateTime")
+            Prelude.<$> (x Data..:? "creationDateTime")
             Prelude.<*> (x Data..:? "domain")
-            Prelude.<*> (x Data..:? "schemaArn")
-            Prelude.<*> (x Data..:? "schema")
             Prelude.<*> (x Data..:? "lastUpdatedDateTime")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "schema")
+            Prelude.<*> (x Data..:? "schemaArn")
       )
 
 instance Prelude.Hashable DatasetSchema where
   hashWithSalt _salt DatasetSchema' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` creationDateTime
+    _salt `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` domain
-      `Prelude.hashWithSalt` schemaArn
-      `Prelude.hashWithSalt` schema
       `Prelude.hashWithSalt` lastUpdatedDateTime
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` schema
+      `Prelude.hashWithSalt` schemaArn
 
 instance Prelude.NFData DatasetSchema where
   rnf DatasetSchema' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf creationDateTime
+    Prelude.rnf creationDateTime
       `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf schemaArn
-      `Prelude.seq` Prelude.rnf schema
       `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf schema
+      `Prelude.seq` Prelude.rnf schemaArn

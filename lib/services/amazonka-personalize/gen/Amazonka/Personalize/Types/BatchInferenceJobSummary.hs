@@ -32,10 +32,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBatchInferenceJobSummary' smart constructor.
 data BatchInferenceJobSummary = BatchInferenceJobSummary'
-  { -- | The time at which the batch inference job was created.
+  { -- | The Amazon Resource Name (ARN) of the batch inference job.
+    batchInferenceJobArn :: Prelude.Maybe Prelude.Text,
+    -- | The time at which the batch inference job was created.
     creationDateTime :: Prelude.Maybe Data.POSIX,
+    -- | If the batch inference job failed, the reason for the failure.
+    failureReason :: Prelude.Maybe Prelude.Text,
     -- | The name of the batch inference job.
     jobName :: Prelude.Maybe Prelude.Text,
+    -- | The time at which the batch inference job was last updated.
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
+    -- | The ARN of the solution version used by the batch inference job.
+    solutionVersionArn :: Prelude.Maybe Prelude.Text,
     -- | The status of the batch inference job. The status is one of the
     -- following values:
     --
@@ -46,15 +54,7 @@ data BatchInferenceJobSummary = BatchInferenceJobSummary'
     -- -   ACTIVE
     --
     -- -   CREATE FAILED
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the batch inference job.
-    batchInferenceJobArn :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the solution version used by the batch inference job.
-    solutionVersionArn :: Prelude.Maybe Prelude.Text,
-    -- | The time at which the batch inference job was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
-    -- | If the batch inference job failed, the reason for the failure.
-    failureReason :: Prelude.Maybe Prelude.Text
+    status :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,9 +66,17 @@ data BatchInferenceJobSummary = BatchInferenceJobSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'batchInferenceJobArn', 'batchInferenceJobSummary_batchInferenceJobArn' - The Amazon Resource Name (ARN) of the batch inference job.
+--
 -- 'creationDateTime', 'batchInferenceJobSummary_creationDateTime' - The time at which the batch inference job was created.
 --
+-- 'failureReason', 'batchInferenceJobSummary_failureReason' - If the batch inference job failed, the reason for the failure.
+--
 -- 'jobName', 'batchInferenceJobSummary_jobName' - The name of the batch inference job.
+--
+-- 'lastUpdatedDateTime', 'batchInferenceJobSummary_lastUpdatedDateTime' - The time at which the batch inference job was last updated.
+--
+-- 'solutionVersionArn', 'batchInferenceJobSummary_solutionVersionArn' - The ARN of the solution version used by the batch inference job.
 --
 -- 'status', 'batchInferenceJobSummary_status' - The status of the batch inference job. The status is one of the
 -- following values:
@@ -80,35 +88,43 @@ data BatchInferenceJobSummary = BatchInferenceJobSummary'
 -- -   ACTIVE
 --
 -- -   CREATE FAILED
---
--- 'batchInferenceJobArn', 'batchInferenceJobSummary_batchInferenceJobArn' - The Amazon Resource Name (ARN) of the batch inference job.
---
--- 'solutionVersionArn', 'batchInferenceJobSummary_solutionVersionArn' - The ARN of the solution version used by the batch inference job.
---
--- 'lastUpdatedDateTime', 'batchInferenceJobSummary_lastUpdatedDateTime' - The time at which the batch inference job was last updated.
---
--- 'failureReason', 'batchInferenceJobSummary_failureReason' - If the batch inference job failed, the reason for the failure.
 newBatchInferenceJobSummary ::
   BatchInferenceJobSummary
 newBatchInferenceJobSummary =
   BatchInferenceJobSummary'
-    { creationDateTime =
+    { batchInferenceJobArn =
         Prelude.Nothing,
+      creationDateTime = Prelude.Nothing,
+      failureReason = Prelude.Nothing,
       jobName = Prelude.Nothing,
-      status = Prelude.Nothing,
-      batchInferenceJobArn = Prelude.Nothing,
-      solutionVersionArn = Prelude.Nothing,
       lastUpdatedDateTime = Prelude.Nothing,
-      failureReason = Prelude.Nothing
+      solutionVersionArn = Prelude.Nothing,
+      status = Prelude.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the batch inference job.
+batchInferenceJobSummary_batchInferenceJobArn :: Lens.Lens' BatchInferenceJobSummary (Prelude.Maybe Prelude.Text)
+batchInferenceJobSummary_batchInferenceJobArn = Lens.lens (\BatchInferenceJobSummary' {batchInferenceJobArn} -> batchInferenceJobArn) (\s@BatchInferenceJobSummary' {} a -> s {batchInferenceJobArn = a} :: BatchInferenceJobSummary)
 
 -- | The time at which the batch inference job was created.
 batchInferenceJobSummary_creationDateTime :: Lens.Lens' BatchInferenceJobSummary (Prelude.Maybe Prelude.UTCTime)
 batchInferenceJobSummary_creationDateTime = Lens.lens (\BatchInferenceJobSummary' {creationDateTime} -> creationDateTime) (\s@BatchInferenceJobSummary' {} a -> s {creationDateTime = a} :: BatchInferenceJobSummary) Prelude.. Lens.mapping Data._Time
 
+-- | If the batch inference job failed, the reason for the failure.
+batchInferenceJobSummary_failureReason :: Lens.Lens' BatchInferenceJobSummary (Prelude.Maybe Prelude.Text)
+batchInferenceJobSummary_failureReason = Lens.lens (\BatchInferenceJobSummary' {failureReason} -> failureReason) (\s@BatchInferenceJobSummary' {} a -> s {failureReason = a} :: BatchInferenceJobSummary)
+
 -- | The name of the batch inference job.
 batchInferenceJobSummary_jobName :: Lens.Lens' BatchInferenceJobSummary (Prelude.Maybe Prelude.Text)
 batchInferenceJobSummary_jobName = Lens.lens (\BatchInferenceJobSummary' {jobName} -> jobName) (\s@BatchInferenceJobSummary' {} a -> s {jobName = a} :: BatchInferenceJobSummary)
+
+-- | The time at which the batch inference job was last updated.
+batchInferenceJobSummary_lastUpdatedDateTime :: Lens.Lens' BatchInferenceJobSummary (Prelude.Maybe Prelude.UTCTime)
+batchInferenceJobSummary_lastUpdatedDateTime = Lens.lens (\BatchInferenceJobSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@BatchInferenceJobSummary' {} a -> s {lastUpdatedDateTime = a} :: BatchInferenceJobSummary) Prelude.. Lens.mapping Data._Time
+
+-- | The ARN of the solution version used by the batch inference job.
+batchInferenceJobSummary_solutionVersionArn :: Lens.Lens' BatchInferenceJobSummary (Prelude.Maybe Prelude.Text)
+batchInferenceJobSummary_solutionVersionArn = Lens.lens (\BatchInferenceJobSummary' {solutionVersionArn} -> solutionVersionArn) (\s@BatchInferenceJobSummary' {} a -> s {solutionVersionArn = a} :: BatchInferenceJobSummary)
 
 -- | The status of the batch inference job. The status is one of the
 -- following values:
@@ -123,53 +139,37 @@ batchInferenceJobSummary_jobName = Lens.lens (\BatchInferenceJobSummary' {jobNam
 batchInferenceJobSummary_status :: Lens.Lens' BatchInferenceJobSummary (Prelude.Maybe Prelude.Text)
 batchInferenceJobSummary_status = Lens.lens (\BatchInferenceJobSummary' {status} -> status) (\s@BatchInferenceJobSummary' {} a -> s {status = a} :: BatchInferenceJobSummary)
 
--- | The Amazon Resource Name (ARN) of the batch inference job.
-batchInferenceJobSummary_batchInferenceJobArn :: Lens.Lens' BatchInferenceJobSummary (Prelude.Maybe Prelude.Text)
-batchInferenceJobSummary_batchInferenceJobArn = Lens.lens (\BatchInferenceJobSummary' {batchInferenceJobArn} -> batchInferenceJobArn) (\s@BatchInferenceJobSummary' {} a -> s {batchInferenceJobArn = a} :: BatchInferenceJobSummary)
-
--- | The ARN of the solution version used by the batch inference job.
-batchInferenceJobSummary_solutionVersionArn :: Lens.Lens' BatchInferenceJobSummary (Prelude.Maybe Prelude.Text)
-batchInferenceJobSummary_solutionVersionArn = Lens.lens (\BatchInferenceJobSummary' {solutionVersionArn} -> solutionVersionArn) (\s@BatchInferenceJobSummary' {} a -> s {solutionVersionArn = a} :: BatchInferenceJobSummary)
-
--- | The time at which the batch inference job was last updated.
-batchInferenceJobSummary_lastUpdatedDateTime :: Lens.Lens' BatchInferenceJobSummary (Prelude.Maybe Prelude.UTCTime)
-batchInferenceJobSummary_lastUpdatedDateTime = Lens.lens (\BatchInferenceJobSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@BatchInferenceJobSummary' {} a -> s {lastUpdatedDateTime = a} :: BatchInferenceJobSummary) Prelude.. Lens.mapping Data._Time
-
--- | If the batch inference job failed, the reason for the failure.
-batchInferenceJobSummary_failureReason :: Lens.Lens' BatchInferenceJobSummary (Prelude.Maybe Prelude.Text)
-batchInferenceJobSummary_failureReason = Lens.lens (\BatchInferenceJobSummary' {failureReason} -> failureReason) (\s@BatchInferenceJobSummary' {} a -> s {failureReason = a} :: BatchInferenceJobSummary)
-
 instance Data.FromJSON BatchInferenceJobSummary where
   parseJSON =
     Data.withObject
       "BatchInferenceJobSummary"
       ( \x ->
           BatchInferenceJobSummary'
-            Prelude.<$> (x Data..:? "creationDateTime")
-            Prelude.<*> (x Data..:? "jobName")
-            Prelude.<*> (x Data..:? "status")
-            Prelude.<*> (x Data..:? "batchInferenceJobArn")
-            Prelude.<*> (x Data..:? "solutionVersionArn")
-            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
+            Prelude.<$> (x Data..:? "batchInferenceJobArn")
+            Prelude.<*> (x Data..:? "creationDateTime")
             Prelude.<*> (x Data..:? "failureReason")
+            Prelude.<*> (x Data..:? "jobName")
+            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
+            Prelude.<*> (x Data..:? "solutionVersionArn")
+            Prelude.<*> (x Data..:? "status")
       )
 
 instance Prelude.Hashable BatchInferenceJobSummary where
   hashWithSalt _salt BatchInferenceJobSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationDateTime
-      `Prelude.hashWithSalt` jobName
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` batchInferenceJobArn
-      `Prelude.hashWithSalt` solutionVersionArn
-      `Prelude.hashWithSalt` lastUpdatedDateTime
+    _salt `Prelude.hashWithSalt` batchInferenceJobArn
+      `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` lastUpdatedDateTime
+      `Prelude.hashWithSalt` solutionVersionArn
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData BatchInferenceJobSummary where
   rnf BatchInferenceJobSummary' {..} =
-    Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf batchInferenceJobArn
-      `Prelude.seq` Prelude.rnf solutionVersionArn
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+    Prelude.rnf batchInferenceJobArn
+      `Prelude.seq` Prelude.rnf creationDateTime
       `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf solutionVersionArn
+      `Prelude.seq` Prelude.rnf status

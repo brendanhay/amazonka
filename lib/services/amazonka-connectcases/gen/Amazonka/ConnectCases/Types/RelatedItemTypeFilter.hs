@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRelatedItemTypeFilter' smart constructor.
 data RelatedItemTypeFilter = RelatedItemTypeFilter'
-  { -- | A filter for related items of type @Contact@.
-    contact :: Prelude.Maybe ContactFilter,
-    -- | A filter for related items of type @Comment@.
-    comment :: Prelude.Maybe CommentFilter
+  { -- | A filter for related items of type @Comment@.
+    comment :: Prelude.Maybe CommentFilter,
+    -- | A filter for related items of type @Contact@.
+    contact :: Prelude.Maybe ContactFilter
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,40 +46,40 @@ data RelatedItemTypeFilter = RelatedItemTypeFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'contact', 'relatedItemTypeFilter_contact' - A filter for related items of type @Contact@.
---
 -- 'comment', 'relatedItemTypeFilter_comment' - A filter for related items of type @Comment@.
+--
+-- 'contact', 'relatedItemTypeFilter_contact' - A filter for related items of type @Contact@.
 newRelatedItemTypeFilter ::
   RelatedItemTypeFilter
 newRelatedItemTypeFilter =
   RelatedItemTypeFilter'
-    { contact = Prelude.Nothing,
-      comment = Prelude.Nothing
+    { comment = Prelude.Nothing,
+      contact = Prelude.Nothing
     }
-
--- | A filter for related items of type @Contact@.
-relatedItemTypeFilter_contact :: Lens.Lens' RelatedItemTypeFilter (Prelude.Maybe ContactFilter)
-relatedItemTypeFilter_contact = Lens.lens (\RelatedItemTypeFilter' {contact} -> contact) (\s@RelatedItemTypeFilter' {} a -> s {contact = a} :: RelatedItemTypeFilter)
 
 -- | A filter for related items of type @Comment@.
 relatedItemTypeFilter_comment :: Lens.Lens' RelatedItemTypeFilter (Prelude.Maybe CommentFilter)
 relatedItemTypeFilter_comment = Lens.lens (\RelatedItemTypeFilter' {comment} -> comment) (\s@RelatedItemTypeFilter' {} a -> s {comment = a} :: RelatedItemTypeFilter)
 
+-- | A filter for related items of type @Contact@.
+relatedItemTypeFilter_contact :: Lens.Lens' RelatedItemTypeFilter (Prelude.Maybe ContactFilter)
+relatedItemTypeFilter_contact = Lens.lens (\RelatedItemTypeFilter' {contact} -> contact) (\s@RelatedItemTypeFilter' {} a -> s {contact = a} :: RelatedItemTypeFilter)
+
 instance Prelude.Hashable RelatedItemTypeFilter where
   hashWithSalt _salt RelatedItemTypeFilter' {..} =
-    _salt `Prelude.hashWithSalt` contact
-      `Prelude.hashWithSalt` comment
+    _salt `Prelude.hashWithSalt` comment
+      `Prelude.hashWithSalt` contact
 
 instance Prelude.NFData RelatedItemTypeFilter where
   rnf RelatedItemTypeFilter' {..} =
-    Prelude.rnf contact
-      `Prelude.seq` Prelude.rnf comment
+    Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf contact
 
 instance Data.ToJSON RelatedItemTypeFilter where
   toJSON RelatedItemTypeFilter' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("contact" Data..=) Prelude.<$> contact,
-            ("comment" Data..=) Prelude.<$> comment
+          [ ("comment" Data..=) Prelude.<$> comment,
+            ("contact" Data..=) Prelude.<$> contact
           ]
       )

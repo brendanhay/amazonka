@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCaseFilter' smart constructor.
 data CaseFilter = CaseFilter'
-  { -- | A list of fields to filter on.
-    field :: Prelude.Maybe FieldFilter,
-    -- | Provides \"and all\" filtering.
+  { -- | Provides \"and all\" filtering.
     andAll :: Prelude.Maybe [CaseFilter],
+    -- | A list of fields to filter on.
+    field :: Prelude.Maybe FieldFilter,
     not :: Prelude.Maybe CaseFilter
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,27 +45,27 @@ data CaseFilter = CaseFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'field', 'caseFilter_field' - A list of fields to filter on.
---
 -- 'andAll', 'caseFilter_andAll' - Provides \"and all\" filtering.
+--
+-- 'field', 'caseFilter_field' - A list of fields to filter on.
 --
 -- 'not', 'caseFilter_not' - Undocumented member.
 newCaseFilter ::
   CaseFilter
 newCaseFilter =
   CaseFilter'
-    { field = Prelude.Nothing,
-      andAll = Prelude.Nothing,
+    { andAll = Prelude.Nothing,
+      field = Prelude.Nothing,
       not = Prelude.Nothing
     }
-
--- | A list of fields to filter on.
-caseFilter_field :: Lens.Lens' CaseFilter (Prelude.Maybe FieldFilter)
-caseFilter_field = Lens.lens (\CaseFilter' {field} -> field) (\s@CaseFilter' {} a -> s {field = a} :: CaseFilter)
 
 -- | Provides \"and all\" filtering.
 caseFilter_andAll :: Lens.Lens' CaseFilter (Prelude.Maybe [CaseFilter])
 caseFilter_andAll = Lens.lens (\CaseFilter' {andAll} -> andAll) (\s@CaseFilter' {} a -> s {andAll = a} :: CaseFilter) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of fields to filter on.
+caseFilter_field :: Lens.Lens' CaseFilter (Prelude.Maybe FieldFilter)
+caseFilter_field = Lens.lens (\CaseFilter' {field} -> field) (\s@CaseFilter' {} a -> s {field = a} :: CaseFilter)
 
 -- | Undocumented member.
 caseFilter_not :: Lens.Lens' CaseFilter (Prelude.Maybe CaseFilter)
@@ -73,22 +73,22 @@ caseFilter_not = Lens.lens (\CaseFilter' {not} -> not) (\s@CaseFilter' {} a -> s
 
 instance Prelude.Hashable CaseFilter where
   hashWithSalt _salt CaseFilter' {..} =
-    _salt `Prelude.hashWithSalt` field
-      `Prelude.hashWithSalt` andAll
+    _salt `Prelude.hashWithSalt` andAll
+      `Prelude.hashWithSalt` field
       `Prelude.hashWithSalt` not
 
 instance Prelude.NFData CaseFilter where
   rnf CaseFilter' {..} =
-    Prelude.rnf field
-      `Prelude.seq` Prelude.rnf andAll
+    Prelude.rnf andAll
+      `Prelude.seq` Prelude.rnf field
       `Prelude.seq` Prelude.rnf not
 
 instance Data.ToJSON CaseFilter where
   toJSON CaseFilter' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("field" Data..=) Prelude.<$> field,
-            ("andAll" Data..=) Prelude.<$> andAll,
+          [ ("andAll" Data..=) Prelude.<$> andAll,
+            ("field" Data..=) Prelude.<$> field,
             ("not" Data..=) Prelude.<$> not
           ]
       )

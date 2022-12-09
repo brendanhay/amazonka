@@ -28,8 +28,8 @@ module Amazonka.ConnectCases.ListLayouts
     newListLayouts,
 
     -- * Request Lenses
-    listLayouts_nextToken,
     listLayouts_maxResults,
+    listLayouts_nextToken,
     listLayouts_domainId,
 
     -- * Destructuring the Response
@@ -53,12 +53,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListLayouts' smart constructor.
 data ListLayouts = ListLayouts'
-  { -- | The token for the next set of results. Use the value returned in the
+  { -- | The maximum number of results to return per page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The unique identifier of the Cases domain.
     domainId :: Prelude.Text
   }
@@ -72,11 +72,11 @@ data ListLayouts = ListLayouts'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listLayouts_maxResults' - The maximum number of results to return per page.
+--
 -- 'nextToken', 'listLayouts_nextToken' - The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
---
--- 'maxResults', 'listLayouts_maxResults' - The maximum number of results to return per page.
 --
 -- 'domainId', 'listLayouts_domainId' - The unique identifier of the Cases domain.
 newListLayouts ::
@@ -85,20 +85,20 @@ newListLayouts ::
   ListLayouts
 newListLayouts pDomainId_ =
   ListLayouts'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       domainId = pDomainId_
     }
+
+-- | The maximum number of results to return per page.
+listLayouts_maxResults :: Lens.Lens' ListLayouts (Prelude.Maybe Prelude.Natural)
+listLayouts_maxResults = Lens.lens (\ListLayouts' {maxResults} -> maxResults) (\s@ListLayouts' {} a -> s {maxResults = a} :: ListLayouts)
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
 listLayouts_nextToken :: Lens.Lens' ListLayouts (Prelude.Maybe Prelude.Text)
 listLayouts_nextToken = Lens.lens (\ListLayouts' {nextToken} -> nextToken) (\s@ListLayouts' {} a -> s {nextToken = a} :: ListLayouts)
-
--- | The maximum number of results to return per page.
-listLayouts_maxResults :: Lens.Lens' ListLayouts (Prelude.Maybe Prelude.Natural)
-listLayouts_maxResults = Lens.lens (\ListLayouts' {maxResults} -> maxResults) (\s@ListLayouts' {} a -> s {maxResults = a} :: ListLayouts)
 
 -- | The unique identifier of the Cases domain.
 listLayouts_domainId :: Lens.Lens' ListLayouts Prelude.Text
@@ -119,14 +119,14 @@ instance Core.AWSRequest ListLayouts where
 
 instance Prelude.Hashable ListLayouts where
   hashWithSalt _salt ListLayouts' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` domainId
 
 instance Prelude.NFData ListLayouts where
   rnf ListLayouts' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf domainId
 
 instance Data.ToHeaders ListLayouts where
@@ -151,8 +151,8 @@ instance Data.ToPath ListLayouts where
 instance Data.ToQuery ListLayouts where
   toQuery ListLayouts' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListLayoutsResponse' smart constructor.

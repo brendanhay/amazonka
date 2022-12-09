@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGetFieldResponse' smart constructor.
 data GetFieldResponse = GetFieldResponse'
-  { -- | A map of of key-value pairs that represent tags on a resource. Tags are
+  { -- | Description of the field.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | A map of of key-value pairs that represent tags on a resource. Tags are
     -- used to organize, track, or control access for this resource.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Description of the field.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the field.
     fieldArn :: Prelude.Text,
     -- | Unique identifier of the field.
@@ -56,10 +56,10 @@ data GetFieldResponse = GetFieldResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'getFieldResponse_description' - Description of the field.
+--
 -- 'tags', 'getFieldResponse_tags' - A map of of key-value pairs that represent tags on a resource. Tags are
 -- used to organize, track, or control access for this resource.
---
--- 'description', 'getFieldResponse_description' - Description of the field.
 --
 -- 'fieldArn', 'getFieldResponse_fieldArn' - The Amazon Resource Name (ARN) of the field.
 --
@@ -89,8 +89,8 @@ newGetFieldResponse
   pNamespace_
   pType_ =
     GetFieldResponse'
-      { tags = Prelude.Nothing,
-        description = Prelude.Nothing,
+      { description = Prelude.Nothing,
+        tags = Prelude.Nothing,
         fieldArn = pFieldArn_,
         fieldId = pFieldId_,
         name = pName_,
@@ -98,14 +98,14 @@ newGetFieldResponse
         type' = pType_
       }
 
+-- | Description of the field.
+getFieldResponse_description :: Lens.Lens' GetFieldResponse (Prelude.Maybe Prelude.Text)
+getFieldResponse_description = Lens.lens (\GetFieldResponse' {description} -> description) (\s@GetFieldResponse' {} a -> s {description = a} :: GetFieldResponse)
+
 -- | A map of of key-value pairs that represent tags on a resource. Tags are
 -- used to organize, track, or control access for this resource.
 getFieldResponse_tags :: Lens.Lens' GetFieldResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 getFieldResponse_tags = Lens.lens (\GetFieldResponse' {tags} -> tags) (\s@GetFieldResponse' {} a -> s {tags = a} :: GetFieldResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | Description of the field.
-getFieldResponse_description :: Lens.Lens' GetFieldResponse (Prelude.Maybe Prelude.Text)
-getFieldResponse_description = Lens.lens (\GetFieldResponse' {description} -> description) (\s@GetFieldResponse' {} a -> s {description = a} :: GetFieldResponse)
 
 -- | The Amazon Resource Name (ARN) of the field.
 getFieldResponse_fieldArn :: Lens.Lens' GetFieldResponse Prelude.Text
@@ -133,8 +133,8 @@ instance Data.FromJSON GetFieldResponse where
       "GetFieldResponse"
       ( \x ->
           GetFieldResponse'
-            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "description")
+            Prelude.<$> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "fieldArn")
             Prelude.<*> (x Data..: "fieldId")
             Prelude.<*> (x Data..: "name")
@@ -144,8 +144,8 @@ instance Data.FromJSON GetFieldResponse where
 
 instance Prelude.Hashable GetFieldResponse where
   hashWithSalt _salt GetFieldResponse' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` fieldArn
       `Prelude.hashWithSalt` fieldId
       `Prelude.hashWithSalt` name
@@ -154,8 +154,8 @@ instance Prelude.Hashable GetFieldResponse where
 
 instance Prelude.NFData GetFieldResponse where
   rnf GetFieldResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf fieldArn
       `Prelude.seq` Prelude.rnf fieldId
       `Prelude.seq` Prelude.rnf name

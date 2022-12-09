@@ -27,8 +27,8 @@ module Amazonka.ConnectCases.ListCasesForContact
     newListCasesForContact,
 
     -- * Request Lenses
-    listCasesForContact_nextToken,
     listCasesForContact_maxResults,
+    listCasesForContact_nextToken,
     listCasesForContact_contactArn,
     listCasesForContact_domainId,
 
@@ -53,12 +53,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListCasesForContact' smart constructor.
 data ListCasesForContact = ListCasesForContact'
-  { -- | The token for the next set of results. Use the value returned in the
+  { -- | The maximum number of results to return per page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A unique identifier of a contact in Amazon Connect.
     contactArn :: Prelude.Text,
     -- | The unique identifier of the Cases domain.
@@ -74,11 +74,11 @@ data ListCasesForContact = ListCasesForContact'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listCasesForContact_maxResults' - The maximum number of results to return per page.
+--
 -- 'nextToken', 'listCasesForContact_nextToken' - The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
---
--- 'maxResults', 'listCasesForContact_maxResults' - The maximum number of results to return per page.
 --
 -- 'contactArn', 'listCasesForContact_contactArn' - A unique identifier of a contact in Amazon Connect.
 --
@@ -91,21 +91,21 @@ newListCasesForContact ::
   ListCasesForContact
 newListCasesForContact pContactArn_ pDomainId_ =
   ListCasesForContact'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       contactArn = pContactArn_,
       domainId = pDomainId_
     }
+
+-- | The maximum number of results to return per page.
+listCasesForContact_maxResults :: Lens.Lens' ListCasesForContact (Prelude.Maybe Prelude.Natural)
+listCasesForContact_maxResults = Lens.lens (\ListCasesForContact' {maxResults} -> maxResults) (\s@ListCasesForContact' {} a -> s {maxResults = a} :: ListCasesForContact)
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
 listCasesForContact_nextToken :: Lens.Lens' ListCasesForContact (Prelude.Maybe Prelude.Text)
 listCasesForContact_nextToken = Lens.lens (\ListCasesForContact' {nextToken} -> nextToken) (\s@ListCasesForContact' {} a -> s {nextToken = a} :: ListCasesForContact)
-
--- | The maximum number of results to return per page.
-listCasesForContact_maxResults :: Lens.Lens' ListCasesForContact (Prelude.Maybe Prelude.Natural)
-listCasesForContact_maxResults = Lens.lens (\ListCasesForContact' {maxResults} -> maxResults) (\s@ListCasesForContact' {} a -> s {maxResults = a} :: ListCasesForContact)
 
 -- | A unique identifier of a contact in Amazon Connect.
 listCasesForContact_contactArn :: Lens.Lens' ListCasesForContact Prelude.Text
@@ -132,15 +132,15 @@ instance Core.AWSRequest ListCasesForContact where
 
 instance Prelude.Hashable ListCasesForContact where
   hashWithSalt _salt ListCasesForContact' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` contactArn
       `Prelude.hashWithSalt` domainId
 
 instance Prelude.NFData ListCasesForContact where
   rnf ListCasesForContact' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf contactArn
       `Prelude.seq` Prelude.rnf domainId
 
@@ -159,8 +159,8 @@ instance Data.ToJSON ListCasesForContact where
   toJSON ListCasesForContact' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("contactArn" Data..= contactArn)
           ]
       )

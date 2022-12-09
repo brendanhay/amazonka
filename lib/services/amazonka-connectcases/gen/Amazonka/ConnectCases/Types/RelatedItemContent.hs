@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRelatedItemContent' smart constructor.
 data RelatedItemContent = RelatedItemContent'
-  { -- | Represents the content of a contact to be returned to agents.
-    contact :: Prelude.Maybe ContactContent,
-    -- | Represents the content of a comment to be returned to agents.
-    comment :: Prelude.Maybe CommentContent
+  { -- | Represents the content of a comment to be returned to agents.
+    comment :: Prelude.Maybe CommentContent,
+    -- | Represents the content of a contact to be returned to agents.
+    contact :: Prelude.Maybe ContactContent
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,24 @@ data RelatedItemContent = RelatedItemContent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'contact', 'relatedItemContent_contact' - Represents the content of a contact to be returned to agents.
---
 -- 'comment', 'relatedItemContent_comment' - Represents the content of a comment to be returned to agents.
+--
+-- 'contact', 'relatedItemContent_contact' - Represents the content of a contact to be returned to agents.
 newRelatedItemContent ::
   RelatedItemContent
 newRelatedItemContent =
   RelatedItemContent'
-    { contact = Prelude.Nothing,
-      comment = Prelude.Nothing
+    { comment = Prelude.Nothing,
+      contact = Prelude.Nothing
     }
-
--- | Represents the content of a contact to be returned to agents.
-relatedItemContent_contact :: Lens.Lens' RelatedItemContent (Prelude.Maybe ContactContent)
-relatedItemContent_contact = Lens.lens (\RelatedItemContent' {contact} -> contact) (\s@RelatedItemContent' {} a -> s {contact = a} :: RelatedItemContent)
 
 -- | Represents the content of a comment to be returned to agents.
 relatedItemContent_comment :: Lens.Lens' RelatedItemContent (Prelude.Maybe CommentContent)
 relatedItemContent_comment = Lens.lens (\RelatedItemContent' {comment} -> comment) (\s@RelatedItemContent' {} a -> s {comment = a} :: RelatedItemContent)
+
+-- | Represents the content of a contact to be returned to agents.
+relatedItemContent_contact :: Lens.Lens' RelatedItemContent (Prelude.Maybe ContactContent)
+relatedItemContent_contact = Lens.lens (\RelatedItemContent' {contact} -> contact) (\s@RelatedItemContent' {} a -> s {contact = a} :: RelatedItemContent)
 
 instance Data.FromJSON RelatedItemContent where
   parseJSON =
@@ -70,16 +70,16 @@ instance Data.FromJSON RelatedItemContent where
       "RelatedItemContent"
       ( \x ->
           RelatedItemContent'
-            Prelude.<$> (x Data..:? "contact")
-            Prelude.<*> (x Data..:? "comment")
+            Prelude.<$> (x Data..:? "comment")
+            Prelude.<*> (x Data..:? "contact")
       )
 
 instance Prelude.Hashable RelatedItemContent where
   hashWithSalt _salt RelatedItemContent' {..} =
-    _salt `Prelude.hashWithSalt` contact
-      `Prelude.hashWithSalt` comment
+    _salt `Prelude.hashWithSalt` comment
+      `Prelude.hashWithSalt` contact
 
 instance Prelude.NFData RelatedItemContent where
   rnf RelatedItemContent' {..} =
-    Prelude.rnf contact
-      `Prelude.seq` Prelude.rnf comment
+    Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf contact

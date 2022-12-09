@@ -71,10 +71,10 @@ module Amazonka.ConnectCases.Lens
     createRelatedItemResponse_relatedItemId,
 
     -- ** CreateTemplate
-    createTemplate_layoutConfiguration,
-    createTemplate_status,
     createTemplate_description,
+    createTemplate_layoutConfiguration,
     createTemplate_requiredFields,
+    createTemplate_status,
     createTemplate_domainId,
     createTemplate_name,
     createTemplateResponse_httpStatus,
@@ -86,8 +86,8 @@ module Amazonka.ConnectCases.Lens
     getCase_caseId,
     getCase_domainId,
     getCase_fields,
-    getCaseResponse_tags,
     getCaseResponse_nextToken,
+    getCaseResponse_tags,
     getCaseResponse_httpStatus,
     getCaseResponse_fields,
     getCaseResponse_templateId,
@@ -120,10 +120,10 @@ module Amazonka.ConnectCases.Lens
     -- ** GetTemplate
     getTemplate_domainId,
     getTemplate_templateId,
-    getTemplateResponse_tags,
-    getTemplateResponse_layoutConfiguration,
     getTemplateResponse_description,
+    getTemplateResponse_layoutConfiguration,
     getTemplateResponse_requiredFields,
+    getTemplateResponse_tags,
     getTemplateResponse_httpStatus,
     getTemplateResponse_name,
     getTemplateResponse_status,
@@ -131,8 +131,8 @@ module Amazonka.ConnectCases.Lens
     getTemplateResponse_templateId,
 
     -- ** ListCasesForContact
-    listCasesForContact_nextToken,
     listCasesForContact_maxResults,
+    listCasesForContact_nextToken,
     listCasesForContact_contactArn,
     listCasesForContact_domainId,
     listCasesForContactResponse_nextToken,
@@ -140,15 +140,15 @@ module Amazonka.ConnectCases.Lens
     listCasesForContactResponse_cases,
 
     -- ** ListDomains
-    listDomains_nextToken,
     listDomains_maxResults,
+    listDomains_nextToken,
     listDomainsResponse_nextToken,
     listDomainsResponse_httpStatus,
     listDomainsResponse_domains,
 
     -- ** ListFieldOptions
-    listFieldOptions_nextToken,
     listFieldOptions_maxResults,
+    listFieldOptions_nextToken,
     listFieldOptions_values,
     listFieldOptions_domainId,
     listFieldOptions_fieldId,
@@ -157,16 +157,16 @@ module Amazonka.ConnectCases.Lens
     listFieldOptionsResponse_options,
 
     -- ** ListFields
-    listFields_nextToken,
     listFields_maxResults,
+    listFields_nextToken,
     listFields_domainId,
     listFieldsResponse_nextToken,
     listFieldsResponse_httpStatus,
     listFieldsResponse_fields,
 
     -- ** ListLayouts
-    listLayouts_nextToken,
     listLayouts_maxResults,
+    listLayouts_nextToken,
     listLayouts_domainId,
     listLayoutsResponse_nextToken,
     listLayoutsResponse_httpStatus,
@@ -178,9 +178,9 @@ module Amazonka.ConnectCases.Lens
     listTagsForResourceResponse_httpStatus,
 
     -- ** ListTemplates
+    listTemplates_maxResults,
     listTemplates_nextToken,
     listTemplates_status,
-    listTemplates_maxResults,
     listTemplates_domainId,
     listTemplatesResponse_nextToken,
     listTemplatesResponse_httpStatus,
@@ -192,10 +192,10 @@ module Amazonka.ConnectCases.Lens
     putCaseEventConfigurationResponse_httpStatus,
 
     -- ** SearchCases
-    searchCases_nextToken,
     searchCases_fields,
     searchCases_filter,
     searchCases_maxResults,
+    searchCases_nextToken,
     searchCases_searchTerm,
     searchCases_sorts,
     searchCases_domainId,
@@ -204,9 +204,9 @@ module Amazonka.ConnectCases.Lens
     searchCasesResponse_cases,
 
     -- ** SearchRelatedItems
-    searchRelatedItems_nextToken,
     searchRelatedItems_filters,
     searchRelatedItems_maxResults,
+    searchRelatedItems_nextToken,
     searchRelatedItems_caseId,
     searchRelatedItems_domainId,
     searchRelatedItemsResponse_nextToken,
@@ -228,25 +228,25 @@ module Amazonka.ConnectCases.Lens
     updateCaseResponse_httpStatus,
 
     -- ** UpdateField
-    updateField_name,
     updateField_description,
+    updateField_name,
     updateField_domainId,
     updateField_fieldId,
     updateFieldResponse_httpStatus,
 
     -- ** UpdateLayout
-    updateLayout_name,
     updateLayout_content,
+    updateLayout_name,
     updateLayout_domainId,
     updateLayout_layoutId,
     updateLayoutResponse_httpStatus,
 
     -- ** UpdateTemplate
+    updateTemplate_description,
     updateTemplate_layoutConfiguration,
     updateTemplate_name,
-    updateTemplate_status,
-    updateTemplate_description,
     updateTemplate_requiredFields,
+    updateTemplate_status,
     updateTemplate_domainId,
     updateTemplate_templateId,
     updateTemplateResponse_httpStatus,
@@ -254,15 +254,15 @@ module Amazonka.ConnectCases.Lens
     -- * Types
 
     -- ** BasicLayout
-    basicLayout_topPanel,
     basicLayout_moreInfo,
+    basicLayout_topPanel,
 
     -- ** CaseEventIncludedData
     caseEventIncludedData_fields,
 
     -- ** CaseFilter
-    caseFilter_field,
     caseFilter_andAll,
+    caseFilter_field,
     caseFilter_not,
 
     -- ** CaseSummary
@@ -306,12 +306,12 @@ module Amazonka.ConnectCases.Lens
     fieldError_id,
 
     -- ** FieldFilter
-    fieldFilter_lessThan,
     fieldFilter_contains,
-    fieldFilter_greaterThanOrEqualTo,
     fieldFilter_equalTo,
-    fieldFilter_lessThanOrEqualTo,
     fieldFilter_greaterThan,
+    fieldFilter_greaterThanOrEqualTo,
+    fieldFilter_lessThan,
+    fieldFilter_lessThanOrEqualTo,
 
     -- ** FieldGroup
     fieldGroup_name,
@@ -345,13 +345,13 @@ module Amazonka.ConnectCases.Lens
     fieldValue_value,
 
     -- ** FieldValueUnion
-    fieldValueUnion_doubleValue,
     fieldValueUnion_booleanValue,
+    fieldValueUnion_doubleValue,
     fieldValueUnion_stringValue,
 
     -- ** GetFieldResponse
-    getFieldResponse_tags,
     getFieldResponse_description,
+    getFieldResponse_tags,
     getFieldResponse_fieldArn,
     getFieldResponse_fieldId,
     getFieldResponse_name,
@@ -373,19 +373,19 @@ module Amazonka.ConnectCases.Lens
     layoutSummary_name,
 
     -- ** RelatedItemContent
-    relatedItemContent_contact,
     relatedItemContent_comment,
+    relatedItemContent_contact,
 
     -- ** RelatedItemEventIncludedData
     relatedItemEventIncludedData_includeContent,
 
     -- ** RelatedItemInputContent
-    relatedItemInputContent_contact,
     relatedItemInputContent_comment,
+    relatedItemInputContent_contact,
 
     -- ** RelatedItemTypeFilter
-    relatedItemTypeFilter_contact,
     relatedItemTypeFilter_comment,
+    relatedItemTypeFilter_contact,
 
     -- ** RequiredField
     requiredField_fieldId,

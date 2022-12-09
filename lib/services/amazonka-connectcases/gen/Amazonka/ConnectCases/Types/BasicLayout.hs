@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBasicLayout' smart constructor.
 data BasicLayout = BasicLayout'
-  { -- | This represents sections in a panel of the page layout.
-    topPanel :: Prelude.Maybe LayoutSections,
-    -- | This represents sections in a tab of the page layout.
-    moreInfo :: Prelude.Maybe LayoutSections
+  { -- | This represents sections in a tab of the page layout.
+    moreInfo :: Prelude.Maybe LayoutSections,
+    -- | This represents sections in a panel of the page layout.
+    topPanel :: Prelude.Maybe LayoutSections
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,24 @@ data BasicLayout = BasicLayout'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'topPanel', 'basicLayout_topPanel' - This represents sections in a panel of the page layout.
---
 -- 'moreInfo', 'basicLayout_moreInfo' - This represents sections in a tab of the page layout.
+--
+-- 'topPanel', 'basicLayout_topPanel' - This represents sections in a panel of the page layout.
 newBasicLayout ::
   BasicLayout
 newBasicLayout =
   BasicLayout'
-    { topPanel = Prelude.Nothing,
-      moreInfo = Prelude.Nothing
+    { moreInfo = Prelude.Nothing,
+      topPanel = Prelude.Nothing
     }
-
--- | This represents sections in a panel of the page layout.
-basicLayout_topPanel :: Lens.Lens' BasicLayout (Prelude.Maybe LayoutSections)
-basicLayout_topPanel = Lens.lens (\BasicLayout' {topPanel} -> topPanel) (\s@BasicLayout' {} a -> s {topPanel = a} :: BasicLayout)
 
 -- | This represents sections in a tab of the page layout.
 basicLayout_moreInfo :: Lens.Lens' BasicLayout (Prelude.Maybe LayoutSections)
 basicLayout_moreInfo = Lens.lens (\BasicLayout' {moreInfo} -> moreInfo) (\s@BasicLayout' {} a -> s {moreInfo = a} :: BasicLayout)
+
+-- | This represents sections in a panel of the page layout.
+basicLayout_topPanel :: Lens.Lens' BasicLayout (Prelude.Maybe LayoutSections)
+basicLayout_topPanel = Lens.lens (\BasicLayout' {topPanel} -> topPanel) (\s@BasicLayout' {} a -> s {topPanel = a} :: BasicLayout)
 
 instance Data.FromJSON BasicLayout where
   parseJSON =
@@ -70,25 +70,25 @@ instance Data.FromJSON BasicLayout where
       "BasicLayout"
       ( \x ->
           BasicLayout'
-            Prelude.<$> (x Data..:? "topPanel")
-            Prelude.<*> (x Data..:? "moreInfo")
+            Prelude.<$> (x Data..:? "moreInfo")
+            Prelude.<*> (x Data..:? "topPanel")
       )
 
 instance Prelude.Hashable BasicLayout where
   hashWithSalt _salt BasicLayout' {..} =
-    _salt `Prelude.hashWithSalt` topPanel
-      `Prelude.hashWithSalt` moreInfo
+    _salt `Prelude.hashWithSalt` moreInfo
+      `Prelude.hashWithSalt` topPanel
 
 instance Prelude.NFData BasicLayout where
   rnf BasicLayout' {..} =
-    Prelude.rnf topPanel
-      `Prelude.seq` Prelude.rnf moreInfo
+    Prelude.rnf moreInfo
+      `Prelude.seq` Prelude.rnf topPanel
 
 instance Data.ToJSON BasicLayout where
   toJSON BasicLayout' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("topPanel" Data..=) Prelude.<$> topPanel,
-            ("moreInfo" Data..=) Prelude.<$> moreInfo
+          [ ("moreInfo" Data..=) Prelude.<$> moreInfo,
+            ("topPanel" Data..=) Prelude.<$> topPanel
           ]
       )

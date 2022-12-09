@@ -36,8 +36,8 @@ module Amazonka.ConnectCases.UpdateLayout
     newUpdateLayout,
 
     -- * Request Lenses
-    updateLayout_name,
     updateLayout_content,
+    updateLayout_name,
     updateLayout_domainId,
     updateLayout_layoutId,
 
@@ -60,11 +60,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateLayout' smart constructor.
 data UpdateLayout = UpdateLayout'
-  { -- | The name of the layout. It must be unique per domain.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Information about which fields will be present in the layout, the order
+  { -- | Information about which fields will be present in the layout, the order
     -- of the fields, and a read-only attribute of the field.
     content :: Prelude.Maybe LayoutContent,
+    -- | The name of the layout. It must be unique per domain.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the Cases domain.
     domainId :: Prelude.Text,
     -- | The unique identifier of the layout.
@@ -80,10 +80,10 @@ data UpdateLayout = UpdateLayout'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateLayout_name' - The name of the layout. It must be unique per domain.
---
 -- 'content', 'updateLayout_content' - Information about which fields will be present in the layout, the order
 -- of the fields, and a read-only attribute of the field.
+--
+-- 'name', 'updateLayout_name' - The name of the layout. It must be unique per domain.
 --
 -- 'domainId', 'updateLayout_domainId' - The unique identifier of the Cases domain.
 --
@@ -96,20 +96,20 @@ newUpdateLayout ::
   UpdateLayout
 newUpdateLayout pDomainId_ pLayoutId_ =
   UpdateLayout'
-    { name = Prelude.Nothing,
-      content = Prelude.Nothing,
+    { content = Prelude.Nothing,
+      name = Prelude.Nothing,
       domainId = pDomainId_,
       layoutId = pLayoutId_
     }
-
--- | The name of the layout. It must be unique per domain.
-updateLayout_name :: Lens.Lens' UpdateLayout (Prelude.Maybe Prelude.Text)
-updateLayout_name = Lens.lens (\UpdateLayout' {name} -> name) (\s@UpdateLayout' {} a -> s {name = a} :: UpdateLayout)
 
 -- | Information about which fields will be present in the layout, the order
 -- of the fields, and a read-only attribute of the field.
 updateLayout_content :: Lens.Lens' UpdateLayout (Prelude.Maybe LayoutContent)
 updateLayout_content = Lens.lens (\UpdateLayout' {content} -> content) (\s@UpdateLayout' {} a -> s {content = a} :: UpdateLayout)
+
+-- | The name of the layout. It must be unique per domain.
+updateLayout_name :: Lens.Lens' UpdateLayout (Prelude.Maybe Prelude.Text)
+updateLayout_name = Lens.lens (\UpdateLayout' {name} -> name) (\s@UpdateLayout' {} a -> s {name = a} :: UpdateLayout)
 
 -- | The unique identifier of the Cases domain.
 updateLayout_domainId :: Lens.Lens' UpdateLayout Prelude.Text
@@ -132,15 +132,15 @@ instance Core.AWSRequest UpdateLayout where
 
 instance Prelude.Hashable UpdateLayout where
   hashWithSalt _salt UpdateLayout' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` content
+    _salt `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` layoutId
 
 instance Prelude.NFData UpdateLayout where
   rnf UpdateLayout' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf content
+    Prelude.rnf content
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf domainId
       `Prelude.seq` Prelude.rnf layoutId
 
@@ -159,8 +159,8 @@ instance Data.ToJSON UpdateLayout where
   toJSON UpdateLayout' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("name" Data..=) Prelude.<$> name,
-            ("content" Data..=) Prelude.<$> content
+          [ ("content" Data..=) Prelude.<$> content,
+            ("name" Data..=) Prelude.<$> name
           ]
       )
 

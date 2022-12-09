@@ -27,8 +27,8 @@ module Amazonka.ConnectCases.ListFields
     newListFields,
 
     -- * Request Lenses
-    listFields_nextToken,
     listFields_maxResults,
+    listFields_nextToken,
     listFields_domainId,
 
     -- * Destructuring the Response
@@ -52,12 +52,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListFields' smart constructor.
 data ListFields = ListFields'
-  { -- | The token for the next set of results. Use the value returned in the
+  { -- | The maximum number of results to return per page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The unique identifier of the Cases domain.
     domainId :: Prelude.Text
   }
@@ -71,11 +71,11 @@ data ListFields = ListFields'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listFields_maxResults' - The maximum number of results to return per page.
+--
 -- 'nextToken', 'listFields_nextToken' - The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
---
--- 'maxResults', 'listFields_maxResults' - The maximum number of results to return per page.
 --
 -- 'domainId', 'listFields_domainId' - The unique identifier of the Cases domain.
 newListFields ::
@@ -84,20 +84,20 @@ newListFields ::
   ListFields
 newListFields pDomainId_ =
   ListFields'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       domainId = pDomainId_
     }
+
+-- | The maximum number of results to return per page.
+listFields_maxResults :: Lens.Lens' ListFields (Prelude.Maybe Prelude.Natural)
+listFields_maxResults = Lens.lens (\ListFields' {maxResults} -> maxResults) (\s@ListFields' {} a -> s {maxResults = a} :: ListFields)
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
 listFields_nextToken :: Lens.Lens' ListFields (Prelude.Maybe Prelude.Text)
 listFields_nextToken = Lens.lens (\ListFields' {nextToken} -> nextToken) (\s@ListFields' {} a -> s {nextToken = a} :: ListFields)
-
--- | The maximum number of results to return per page.
-listFields_maxResults :: Lens.Lens' ListFields (Prelude.Maybe Prelude.Natural)
-listFields_maxResults = Lens.lens (\ListFields' {maxResults} -> maxResults) (\s@ListFields' {} a -> s {maxResults = a} :: ListFields)
 
 -- | The unique identifier of the Cases domain.
 listFields_domainId :: Lens.Lens' ListFields Prelude.Text
@@ -118,14 +118,14 @@ instance Core.AWSRequest ListFields where
 
 instance Prelude.Hashable ListFields where
   hashWithSalt _salt ListFields' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` domainId
 
 instance Prelude.NFData ListFields where
   rnf ListFields' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf domainId
 
 instance Data.ToHeaders ListFields where
@@ -150,8 +150,8 @@ instance Data.ToPath ListFields where
 instance Data.ToQuery ListFields where
   toQuery ListFields' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListFieldsResponse' smart constructor.

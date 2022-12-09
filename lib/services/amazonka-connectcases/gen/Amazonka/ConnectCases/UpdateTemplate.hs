@@ -32,11 +32,11 @@ module Amazonka.ConnectCases.UpdateTemplate
     newUpdateTemplate,
 
     -- * Request Lenses
+    updateTemplate_description,
     updateTemplate_layoutConfiguration,
     updateTemplate_name,
-    updateTemplate_status,
-    updateTemplate_description,
     updateTemplate_requiredFields,
+    updateTemplate_status,
     updateTemplate_domainId,
     updateTemplate_templateId,
 
@@ -59,17 +59,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateTemplate' smart constructor.
 data UpdateTemplate = UpdateTemplate'
-  { -- | Configuration of layouts associated to the template.
+  { -- | A brief description of the template.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Configuration of layouts associated to the template.
     layoutConfiguration :: Prelude.Maybe LayoutConfiguration,
     -- | The name of the template. It must be unique per domain.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The status of the template.
-    status :: Prelude.Maybe TemplateStatus,
-    -- | A brief description of the template.
-    description :: Prelude.Maybe Prelude.Text,
     -- | A list of fields that must contain a value for a case to be successfully
     -- created with this template.
     requiredFields :: Prelude.Maybe [RequiredField],
+    -- | The status of the template.
+    status :: Prelude.Maybe TemplateStatus,
     -- | The unique identifier of the Cases domain.
     domainId :: Prelude.Text,
     -- | A unique identifier for the template.
@@ -85,16 +85,16 @@ data UpdateTemplate = UpdateTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'updateTemplate_description' - A brief description of the template.
+--
 -- 'layoutConfiguration', 'updateTemplate_layoutConfiguration' - Configuration of layouts associated to the template.
 --
 -- 'name', 'updateTemplate_name' - The name of the template. It must be unique per domain.
 --
--- 'status', 'updateTemplate_status' - The status of the template.
---
--- 'description', 'updateTemplate_description' - A brief description of the template.
---
 -- 'requiredFields', 'updateTemplate_requiredFields' - A list of fields that must contain a value for a case to be successfully
 -- created with this template.
+--
+-- 'status', 'updateTemplate_status' - The status of the template.
 --
 -- 'domainId', 'updateTemplate_domainId' - The unique identifier of the Cases domain.
 --
@@ -107,15 +107,18 @@ newUpdateTemplate ::
   UpdateTemplate
 newUpdateTemplate pDomainId_ pTemplateId_ =
   UpdateTemplate'
-    { layoutConfiguration =
-        Prelude.Nothing,
+    { description = Prelude.Nothing,
+      layoutConfiguration = Prelude.Nothing,
       name = Prelude.Nothing,
-      status = Prelude.Nothing,
-      description = Prelude.Nothing,
       requiredFields = Prelude.Nothing,
+      status = Prelude.Nothing,
       domainId = pDomainId_,
       templateId = pTemplateId_
     }
+
+-- | A brief description of the template.
+updateTemplate_description :: Lens.Lens' UpdateTemplate (Prelude.Maybe Prelude.Text)
+updateTemplate_description = Lens.lens (\UpdateTemplate' {description} -> description) (\s@UpdateTemplate' {} a -> s {description = a} :: UpdateTemplate)
 
 -- | Configuration of layouts associated to the template.
 updateTemplate_layoutConfiguration :: Lens.Lens' UpdateTemplate (Prelude.Maybe LayoutConfiguration)
@@ -125,18 +128,14 @@ updateTemplate_layoutConfiguration = Lens.lens (\UpdateTemplate' {layoutConfigur
 updateTemplate_name :: Lens.Lens' UpdateTemplate (Prelude.Maybe Prelude.Text)
 updateTemplate_name = Lens.lens (\UpdateTemplate' {name} -> name) (\s@UpdateTemplate' {} a -> s {name = a} :: UpdateTemplate)
 
--- | The status of the template.
-updateTemplate_status :: Lens.Lens' UpdateTemplate (Prelude.Maybe TemplateStatus)
-updateTemplate_status = Lens.lens (\UpdateTemplate' {status} -> status) (\s@UpdateTemplate' {} a -> s {status = a} :: UpdateTemplate)
-
--- | A brief description of the template.
-updateTemplate_description :: Lens.Lens' UpdateTemplate (Prelude.Maybe Prelude.Text)
-updateTemplate_description = Lens.lens (\UpdateTemplate' {description} -> description) (\s@UpdateTemplate' {} a -> s {description = a} :: UpdateTemplate)
-
 -- | A list of fields that must contain a value for a case to be successfully
 -- created with this template.
 updateTemplate_requiredFields :: Lens.Lens' UpdateTemplate (Prelude.Maybe [RequiredField])
 updateTemplate_requiredFields = Lens.lens (\UpdateTemplate' {requiredFields} -> requiredFields) (\s@UpdateTemplate' {} a -> s {requiredFields = a} :: UpdateTemplate) Prelude.. Lens.mapping Lens.coerced
+
+-- | The status of the template.
+updateTemplate_status :: Lens.Lens' UpdateTemplate (Prelude.Maybe TemplateStatus)
+updateTemplate_status = Lens.lens (\UpdateTemplate' {status} -> status) (\s@UpdateTemplate' {} a -> s {status = a} :: UpdateTemplate)
 
 -- | The unique identifier of the Cases domain.
 updateTemplate_domainId :: Lens.Lens' UpdateTemplate Prelude.Text
@@ -161,21 +160,21 @@ instance Core.AWSRequest UpdateTemplate where
 
 instance Prelude.Hashable UpdateTemplate where
   hashWithSalt _salt UpdateTemplate' {..} =
-    _salt `Prelude.hashWithSalt` layoutConfiguration
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` layoutConfiguration
       `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` requiredFields
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` templateId
 
 instance Prelude.NFData UpdateTemplate where
   rnf UpdateTemplate' {..} =
-    Prelude.rnf layoutConfiguration
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf layoutConfiguration
       `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf requiredFields
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf domainId
       `Prelude.seq` Prelude.rnf templateId
 
@@ -194,13 +193,13 @@ instance Data.ToJSON UpdateTemplate where
   toJSON UpdateTemplate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("layoutConfiguration" Data..=)
+          [ ("description" Data..=) Prelude.<$> description,
+            ("layoutConfiguration" Data..=)
               Prelude.<$> layoutConfiguration,
             ("name" Data..=) Prelude.<$> name,
-            ("status" Data..=) Prelude.<$> status,
-            ("description" Data..=) Prelude.<$> description,
             ("requiredFields" Data..=)
-              Prelude.<$> requiredFields
+              Prelude.<$> requiredFields,
+            ("status" Data..=) Prelude.<$> status
           ]
       )
 

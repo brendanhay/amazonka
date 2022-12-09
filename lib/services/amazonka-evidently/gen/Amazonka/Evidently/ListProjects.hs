@@ -30,16 +30,16 @@ module Amazonka.Evidently.ListProjects
     newListProjects,
 
     -- * Request Lenses
-    listProjects_nextToken,
     listProjects_maxResults,
+    listProjects_nextToken,
 
     -- * Destructuring the Response
     ListProjectsResponse (..),
     newListProjectsResponse,
 
     -- * Response Lenses
-    listProjectsResponse_projects,
     listProjectsResponse_nextToken,
+    listProjectsResponse_projects,
     listProjectsResponse_httpStatus,
   )
 where
@@ -54,11 +54,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListProjects' smart constructor.
 data ListProjects = ListProjects'
-  { -- | The token to use when requesting the next set of results. You received
+  { -- | The maximum number of results to include in the response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to use when requesting the next set of results. You received
     -- this token from a previous @ListProjects@ operation.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to include in the response.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,26 +70,26 @@ data ListProjects = ListProjects'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listProjects_maxResults' - The maximum number of results to include in the response.
+--
 -- 'nextToken', 'listProjects_nextToken' - The token to use when requesting the next set of results. You received
 -- this token from a previous @ListProjects@ operation.
---
--- 'maxResults', 'listProjects_maxResults' - The maximum number of results to include in the response.
 newListProjects ::
   ListProjects
 newListProjects =
   ListProjects'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of results to include in the response.
+listProjects_maxResults :: Lens.Lens' ListProjects (Prelude.Maybe Prelude.Natural)
+listProjects_maxResults = Lens.lens (\ListProjects' {maxResults} -> maxResults) (\s@ListProjects' {} a -> s {maxResults = a} :: ListProjects)
 
 -- | The token to use when requesting the next set of results. You received
 -- this token from a previous @ListProjects@ operation.
 listProjects_nextToken :: Lens.Lens' ListProjects (Prelude.Maybe Prelude.Text)
 listProjects_nextToken = Lens.lens (\ListProjects' {nextToken} -> nextToken) (\s@ListProjects' {} a -> s {nextToken = a} :: ListProjects)
-
--- | The maximum number of results to include in the response.
-listProjects_maxResults :: Lens.Lens' ListProjects (Prelude.Maybe Prelude.Natural)
-listProjects_maxResults = Lens.lens (\ListProjects' {maxResults} -> maxResults) (\s@ListProjects' {} a -> s {maxResults = a} :: ListProjects)
 
 instance Core.AWSPager ListProjects where
   page rq rs
@@ -118,20 +118,20 @@ instance Core.AWSRequest ListProjects where
     Response.receiveJSON
       ( \s h x ->
           ListProjectsResponse'
-            Prelude.<$> (x Data..?> "projects" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "projects" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListProjects where
   hashWithSalt _salt ListProjects' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListProjects where
   rnf ListProjects' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListProjects where
   toHeaders =
@@ -150,18 +150,18 @@ instance Data.ToPath ListProjects where
 instance Data.ToQuery ListProjects where
   toQuery ListProjects' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListProjectsResponse' smart constructor.
 data ListProjectsResponse = ListProjectsResponse'
-  { -- | An array of structures that contain the configuration details of the
-    -- projects in the Region.
-    projects :: Prelude.Maybe [ProjectSummary],
-    -- | The token to use in a subsequent @ListProjects@ operation to return the
+  { -- | The token to use in a subsequent @ListProjects@ operation to return the
     -- next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of structures that contain the configuration details of the
+    -- projects in the Region.
+    projects :: Prelude.Maybe [ProjectSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -175,11 +175,11 @@ data ListProjectsResponse = ListProjectsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'projects', 'listProjectsResponse_projects' - An array of structures that contain the configuration details of the
--- projects in the Region.
---
 -- 'nextToken', 'listProjectsResponse_nextToken' - The token to use in a subsequent @ListProjects@ operation to return the
 -- next set of results.
+--
+-- 'projects', 'listProjectsResponse_projects' - An array of structures that contain the configuration details of the
+-- projects in the Region.
 --
 -- 'httpStatus', 'listProjectsResponse_httpStatus' - The response's http status code.
 newListProjectsResponse ::
@@ -188,20 +188,20 @@ newListProjectsResponse ::
   ListProjectsResponse
 newListProjectsResponse pHttpStatus_ =
   ListProjectsResponse'
-    { projects = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      projects = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of structures that contain the configuration details of the
--- projects in the Region.
-listProjectsResponse_projects :: Lens.Lens' ListProjectsResponse (Prelude.Maybe [ProjectSummary])
-listProjectsResponse_projects = Lens.lens (\ListProjectsResponse' {projects} -> projects) (\s@ListProjectsResponse' {} a -> s {projects = a} :: ListProjectsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use in a subsequent @ListProjects@ operation to return the
 -- next set of results.
 listProjectsResponse_nextToken :: Lens.Lens' ListProjectsResponse (Prelude.Maybe Prelude.Text)
 listProjectsResponse_nextToken = Lens.lens (\ListProjectsResponse' {nextToken} -> nextToken) (\s@ListProjectsResponse' {} a -> s {nextToken = a} :: ListProjectsResponse)
+
+-- | An array of structures that contain the configuration details of the
+-- projects in the Region.
+listProjectsResponse_projects :: Lens.Lens' ListProjectsResponse (Prelude.Maybe [ProjectSummary])
+listProjectsResponse_projects = Lens.lens (\ListProjectsResponse' {projects} -> projects) (\s@ListProjectsResponse' {} a -> s {projects = a} :: ListProjectsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listProjectsResponse_httpStatus :: Lens.Lens' ListProjectsResponse Prelude.Int
@@ -209,6 +209,6 @@ listProjectsResponse_httpStatus = Lens.lens (\ListProjectsResponse' {httpStatus}
 
 instance Prelude.NFData ListProjectsResponse where
   rnf ListProjectsResponse' {..} =
-    Prelude.rnf projects
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf projects
       `Prelude.seq` Prelude.rnf httpStatus

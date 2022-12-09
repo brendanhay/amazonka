@@ -30,8 +30,8 @@ module Amazonka.Evidently.ListSegmentReferences
     newListSegmentReferences,
 
     -- * Request Lenses
-    listSegmentReferences_nextToken,
     listSegmentReferences_maxResults,
+    listSegmentReferences_nextToken,
     listSegmentReferences_segment,
     listSegmentReferences_type,
 
@@ -56,12 +56,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListSegmentReferences' smart constructor.
 data ListSegmentReferences = ListSegmentReferences'
-  { -- | The token to use when requesting the next set of results. You received
-    -- this token from a previous @ListSegmentReferences@ operation.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to include in the response. If you omit
+  { -- | The maximum number of results to include in the response. If you omit
     -- this, the default of 50 is used.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to use when requesting the next set of results. You received
+    -- this token from a previous @ListSegmentReferences@ operation.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the segment that you want to view information for.
     segment :: Prelude.Text,
     -- | Specifies whether to return information about launches or experiments
@@ -78,11 +78,11 @@ data ListSegmentReferences = ListSegmentReferences'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listSegmentReferences_nextToken' - The token to use when requesting the next set of results. You received
--- this token from a previous @ListSegmentReferences@ operation.
---
 -- 'maxResults', 'listSegmentReferences_maxResults' - The maximum number of results to include in the response. If you omit
 -- this, the default of 50 is used.
+--
+-- 'nextToken', 'listSegmentReferences_nextToken' - The token to use when requesting the next set of results. You received
+-- this token from a previous @ListSegmentReferences@ operation.
 --
 -- 'segment', 'listSegmentReferences_segment' - The ARN of the segment that you want to view information for.
 --
@@ -96,21 +96,22 @@ newListSegmentReferences ::
   ListSegmentReferences
 newListSegmentReferences pSegment_ pType_ =
   ListSegmentReferences'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       segment = pSegment_,
       type' = pType_
     }
-
--- | The token to use when requesting the next set of results. You received
--- this token from a previous @ListSegmentReferences@ operation.
-listSegmentReferences_nextToken :: Lens.Lens' ListSegmentReferences (Prelude.Maybe Prelude.Text)
-listSegmentReferences_nextToken = Lens.lens (\ListSegmentReferences' {nextToken} -> nextToken) (\s@ListSegmentReferences' {} a -> s {nextToken = a} :: ListSegmentReferences)
 
 -- | The maximum number of results to include in the response. If you omit
 -- this, the default of 50 is used.
 listSegmentReferences_maxResults :: Lens.Lens' ListSegmentReferences (Prelude.Maybe Prelude.Natural)
 listSegmentReferences_maxResults = Lens.lens (\ListSegmentReferences' {maxResults} -> maxResults) (\s@ListSegmentReferences' {} a -> s {maxResults = a} :: ListSegmentReferences)
+
+-- | The token to use when requesting the next set of results. You received
+-- this token from a previous @ListSegmentReferences@ operation.
+listSegmentReferences_nextToken :: Lens.Lens' ListSegmentReferences (Prelude.Maybe Prelude.Text)
+listSegmentReferences_nextToken = Lens.lens (\ListSegmentReferences' {nextToken} -> nextToken) (\s@ListSegmentReferences' {} a -> s {nextToken = a} :: ListSegmentReferences)
 
 -- | The ARN of the segment that you want to view information for.
 listSegmentReferences_segment :: Lens.Lens' ListSegmentReferences Prelude.Text
@@ -160,15 +161,15 @@ instance Core.AWSRequest ListSegmentReferences where
 
 instance Prelude.Hashable ListSegmentReferences where
   hashWithSalt _salt ListSegmentReferences' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` segment
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData ListSegmentReferences where
   rnf ListSegmentReferences' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf segment
       `Prelude.seq` Prelude.rnf type'
 
@@ -191,8 +192,8 @@ instance Data.ToPath ListSegmentReferences where
 instance Data.ToQuery ListSegmentReferences where
   toQuery ListSegmentReferences' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults,
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
         "type" Data.=: type'
       ]
 

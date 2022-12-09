@@ -39,10 +39,10 @@ module Amazonka.Evidently.GetExperimentResults
 
     -- * Request Lenses
     getExperimentResults_baseStat,
-    getExperimentResults_period,
-    getExperimentResults_resultStats,
     getExperimentResults_endTime,
+    getExperimentResults_period,
     getExperimentResults_reportNames,
+    getExperimentResults_resultStats,
     getExperimentResults_startTime,
     getExperimentResults_experiment,
     getExperimentResults_metricNames,
@@ -54,10 +54,10 @@ module Amazonka.Evidently.GetExperimentResults
     newGetExperimentResultsResponse,
 
     -- * Response Lenses
-    getExperimentResultsResponse_timestamps,
     getExperimentResultsResponse_details,
     getExperimentResultsResponse_reports,
     getExperimentResultsResponse_resultsData,
+    getExperimentResultsResponse_timestamps,
     getExperimentResultsResponse_httpStatus,
   )
 where
@@ -76,8 +76,14 @@ data GetExperimentResults = GetExperimentResults'
     -- valid value is @mean@, which uses the mean of the collected values as
     -- the statistic.
     baseStat :: Prelude.Maybe ExperimentBaseStat,
+    -- | The date and time that the experiment ended, if it is completed. This
+    -- must be no longer than 30 days after the experiment start time.
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | In seconds, the amount of time to aggregate results together.
     period :: Prelude.Maybe Prelude.Natural,
+    -- | The names of the report types that you want to see. Currently,
+    -- @BayesianInference@ is the only valid value.
+    reportNames :: Prelude.Maybe [ExperimentReportName],
     -- | The statistics that you want to see in the returned results.
     --
     -- -   @PValue@ specifies to use p-values for the results. A p-value is
@@ -101,12 +107,6 @@ data GetExperimentResults = GetExperimentResults'
     --     in the @baseStat@ parameter. Therefore, if @baseStat@ is @mean@,
     --     this returns the mean of the values collected for each variation.
     resultStats :: Prelude.Maybe [ExperimentResultRequestType],
-    -- | The date and time that the experiment ended, if it is completed. This
-    -- must be no longer than 30 days after the experiment start time.
-    endTime :: Prelude.Maybe Data.POSIX,
-    -- | The names of the report types that you want to see. Currently,
-    -- @BayesianInference@ is the only valid value.
-    reportNames :: Prelude.Maybe [ExperimentReportName],
     -- | The date and time that the experiment started.
     startTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the experiment to retrieve the results of.
@@ -134,7 +134,13 @@ data GetExperimentResults = GetExperimentResults'
 -- valid value is @mean@, which uses the mean of the collected values as
 -- the statistic.
 --
+-- 'endTime', 'getExperimentResults_endTime' - The date and time that the experiment ended, if it is completed. This
+-- must be no longer than 30 days after the experiment start time.
+--
 -- 'period', 'getExperimentResults_period' - In seconds, the amount of time to aggregate results together.
+--
+-- 'reportNames', 'getExperimentResults_reportNames' - The names of the report types that you want to see. Currently,
+-- @BayesianInference@ is the only valid value.
 --
 -- 'resultStats', 'getExperimentResults_resultStats' - The statistics that you want to see in the returned results.
 --
@@ -158,12 +164,6 @@ data GetExperimentResults = GetExperimentResults'
 --     for each variation. The statistic uses the same statistic specified
 --     in the @baseStat@ parameter. Therefore, if @baseStat@ is @mean@,
 --     this returns the mean of the values collected for each variation.
---
--- 'endTime', 'getExperimentResults_endTime' - The date and time that the experiment ended, if it is completed. This
--- must be no longer than 30 days after the experiment start time.
---
--- 'reportNames', 'getExperimentResults_reportNames' - The names of the report types that you want to see. Currently,
--- @BayesianInference@ is the only valid value.
 --
 -- 'startTime', 'getExperimentResults_startTime' - The date and time that the experiment started.
 --
@@ -193,10 +193,10 @@ newGetExperimentResults
   pTreatmentNames_ =
     GetExperimentResults'
       { baseStat = Prelude.Nothing,
-        period = Prelude.Nothing,
-        resultStats = Prelude.Nothing,
         endTime = Prelude.Nothing,
+        period = Prelude.Nothing,
         reportNames = Prelude.Nothing,
+        resultStats = Prelude.Nothing,
         startTime = Prelude.Nothing,
         experiment = pExperiment_,
         metricNames = Lens.coerced Lens.# pMetricNames_,
@@ -211,9 +211,19 @@ newGetExperimentResults
 getExperimentResults_baseStat :: Lens.Lens' GetExperimentResults (Prelude.Maybe ExperimentBaseStat)
 getExperimentResults_baseStat = Lens.lens (\GetExperimentResults' {baseStat} -> baseStat) (\s@GetExperimentResults' {} a -> s {baseStat = a} :: GetExperimentResults)
 
+-- | The date and time that the experiment ended, if it is completed. This
+-- must be no longer than 30 days after the experiment start time.
+getExperimentResults_endTime :: Lens.Lens' GetExperimentResults (Prelude.Maybe Prelude.UTCTime)
+getExperimentResults_endTime = Lens.lens (\GetExperimentResults' {endTime} -> endTime) (\s@GetExperimentResults' {} a -> s {endTime = a} :: GetExperimentResults) Prelude.. Lens.mapping Data._Time
+
 -- | In seconds, the amount of time to aggregate results together.
 getExperimentResults_period :: Lens.Lens' GetExperimentResults (Prelude.Maybe Prelude.Natural)
 getExperimentResults_period = Lens.lens (\GetExperimentResults' {period} -> period) (\s@GetExperimentResults' {} a -> s {period = a} :: GetExperimentResults)
+
+-- | The names of the report types that you want to see. Currently,
+-- @BayesianInference@ is the only valid value.
+getExperimentResults_reportNames :: Lens.Lens' GetExperimentResults (Prelude.Maybe [ExperimentReportName])
+getExperimentResults_reportNames = Lens.lens (\GetExperimentResults' {reportNames} -> reportNames) (\s@GetExperimentResults' {} a -> s {reportNames = a} :: GetExperimentResults) Prelude.. Lens.mapping Lens.coerced
 
 -- | The statistics that you want to see in the returned results.
 --
@@ -239,16 +249,6 @@ getExperimentResults_period = Lens.lens (\GetExperimentResults' {period} -> peri
 --     this returns the mean of the values collected for each variation.
 getExperimentResults_resultStats :: Lens.Lens' GetExperimentResults (Prelude.Maybe [ExperimentResultRequestType])
 getExperimentResults_resultStats = Lens.lens (\GetExperimentResults' {resultStats} -> resultStats) (\s@GetExperimentResults' {} a -> s {resultStats = a} :: GetExperimentResults) Prelude.. Lens.mapping Lens.coerced
-
--- | The date and time that the experiment ended, if it is completed. This
--- must be no longer than 30 days after the experiment start time.
-getExperimentResults_endTime :: Lens.Lens' GetExperimentResults (Prelude.Maybe Prelude.UTCTime)
-getExperimentResults_endTime = Lens.lens (\GetExperimentResults' {endTime} -> endTime) (\s@GetExperimentResults' {} a -> s {endTime = a} :: GetExperimentResults) Prelude.. Lens.mapping Data._Time
-
--- | The names of the report types that you want to see. Currently,
--- @BayesianInference@ is the only valid value.
-getExperimentResults_reportNames :: Lens.Lens' GetExperimentResults (Prelude.Maybe [ExperimentReportName])
-getExperimentResults_reportNames = Lens.lens (\GetExperimentResults' {reportNames} -> reportNames) (\s@GetExperimentResults' {} a -> s {reportNames = a} :: GetExperimentResults) Prelude.. Lens.mapping Lens.coerced
 
 -- | The date and time that the experiment started.
 getExperimentResults_startTime :: Lens.Lens' GetExperimentResults (Prelude.Maybe Prelude.UTCTime)
@@ -282,20 +282,20 @@ instance Core.AWSRequest GetExperimentResults where
     Response.receiveJSON
       ( \s h x ->
           GetExperimentResultsResponse'
-            Prelude.<$> (x Data..?> "timestamps" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "details")
+            Prelude.<$> (x Data..?> "details")
             Prelude.<*> (x Data..?> "reports" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "resultsData" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "timestamps" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetExperimentResults where
   hashWithSalt _salt GetExperimentResults' {..} =
     _salt `Prelude.hashWithSalt` baseStat
-      `Prelude.hashWithSalt` period
-      `Prelude.hashWithSalt` resultStats
       `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` period
       `Prelude.hashWithSalt` reportNames
+      `Prelude.hashWithSalt` resultStats
       `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` experiment
       `Prelude.hashWithSalt` metricNames
@@ -305,10 +305,10 @@ instance Prelude.Hashable GetExperimentResults where
 instance Prelude.NFData GetExperimentResults where
   rnf GetExperimentResults' {..} =
     Prelude.rnf baseStat
-      `Prelude.seq` Prelude.rnf period
-      `Prelude.seq` Prelude.rnf resultStats
       `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf period
       `Prelude.seq` Prelude.rnf reportNames
+      `Prelude.seq` Prelude.rnf resultStats
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf experiment
       `Prelude.seq` Prelude.rnf metricNames
@@ -331,10 +331,10 @@ instance Data.ToJSON GetExperimentResults where
     Data.object
       ( Prelude.catMaybes
           [ ("baseStat" Data..=) Prelude.<$> baseStat,
-            ("period" Data..=) Prelude.<$> period,
-            ("resultStats" Data..=) Prelude.<$> resultStats,
             ("endTime" Data..=) Prelude.<$> endTime,
+            ("period" Data..=) Prelude.<$> period,
             ("reportNames" Data..=) Prelude.<$> reportNames,
+            ("resultStats" Data..=) Prelude.<$> resultStats,
             ("startTime" Data..=) Prelude.<$> startTime,
             Prelude.Just ("metricNames" Data..= metricNames),
             Prelude.Just
@@ -357,9 +357,7 @@ instance Data.ToQuery GetExperimentResults where
 
 -- | /See:/ 'newGetExperimentResultsResponse' smart constructor.
 data GetExperimentResultsResponse = GetExperimentResultsResponse'
-  { -- | The timestamps of each result returned.
-    timestamps :: Prelude.Maybe [Data.POSIX],
-    -- | If the experiment doesn\'t yet have enough events to provide valid
+  { -- | If the experiment doesn\'t yet have enough events to provide valid
     -- results, this field is returned with the message
     -- @Not enough events to generate results@. If there are enough events to
     -- provide valid results, this field is not returned.
@@ -369,6 +367,8 @@ data GetExperimentResultsResponse = GetExperimentResultsResponse'
     -- | An array of structures that include experiment results including metric
     -- names and values.
     resultsData :: Prelude.Maybe [ExperimentResultsData],
+    -- | The timestamps of each result returned.
+    timestamps :: Prelude.Maybe [Data.POSIX],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -382,8 +382,6 @@ data GetExperimentResultsResponse = GetExperimentResultsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'timestamps', 'getExperimentResultsResponse_timestamps' - The timestamps of each result returned.
---
 -- 'details', 'getExperimentResultsResponse_details' - If the experiment doesn\'t yet have enough events to provide valid
 -- results, this field is returned with the message
 -- @Not enough events to generate results@. If there are enough events to
@@ -394,6 +392,8 @@ data GetExperimentResultsResponse = GetExperimentResultsResponse'
 -- 'resultsData', 'getExperimentResultsResponse_resultsData' - An array of structures that include experiment results including metric
 -- names and values.
 --
+-- 'timestamps', 'getExperimentResultsResponse_timestamps' - The timestamps of each result returned.
+--
 -- 'httpStatus', 'getExperimentResultsResponse_httpStatus' - The response's http status code.
 newGetExperimentResultsResponse ::
   -- | 'httpStatus'
@@ -401,17 +401,13 @@ newGetExperimentResultsResponse ::
   GetExperimentResultsResponse
 newGetExperimentResultsResponse pHttpStatus_ =
   GetExperimentResultsResponse'
-    { timestamps =
+    { details =
         Prelude.Nothing,
-      details = Prelude.Nothing,
       reports = Prelude.Nothing,
       resultsData = Prelude.Nothing,
+      timestamps = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The timestamps of each result returned.
-getExperimentResultsResponse_timestamps :: Lens.Lens' GetExperimentResultsResponse (Prelude.Maybe [Prelude.UTCTime])
-getExperimentResultsResponse_timestamps = Lens.lens (\GetExperimentResultsResponse' {timestamps} -> timestamps) (\s@GetExperimentResultsResponse' {} a -> s {timestamps = a} :: GetExperimentResultsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the experiment doesn\'t yet have enough events to provide valid
 -- results, this field is returned with the message
@@ -429,14 +425,18 @@ getExperimentResultsResponse_reports = Lens.lens (\GetExperimentResultsResponse'
 getExperimentResultsResponse_resultsData :: Lens.Lens' GetExperimentResultsResponse (Prelude.Maybe [ExperimentResultsData])
 getExperimentResultsResponse_resultsData = Lens.lens (\GetExperimentResultsResponse' {resultsData} -> resultsData) (\s@GetExperimentResultsResponse' {} a -> s {resultsData = a} :: GetExperimentResultsResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The timestamps of each result returned.
+getExperimentResultsResponse_timestamps :: Lens.Lens' GetExperimentResultsResponse (Prelude.Maybe [Prelude.UTCTime])
+getExperimentResultsResponse_timestamps = Lens.lens (\GetExperimentResultsResponse' {timestamps} -> timestamps) (\s@GetExperimentResultsResponse' {} a -> s {timestamps = a} :: GetExperimentResultsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 getExperimentResultsResponse_httpStatus :: Lens.Lens' GetExperimentResultsResponse Prelude.Int
 getExperimentResultsResponse_httpStatus = Lens.lens (\GetExperimentResultsResponse' {httpStatus} -> httpStatus) (\s@GetExperimentResultsResponse' {} a -> s {httpStatus = a} :: GetExperimentResultsResponse)
 
 instance Prelude.NFData GetExperimentResultsResponse where
   rnf GetExperimentResultsResponse' {..} =
-    Prelude.rnf timestamps
-      `Prelude.seq` Prelude.rnf details
+    Prelude.rnf details
       `Prelude.seq` Prelude.rnf reports
       `Prelude.seq` Prelude.rnf resultsData
+      `Prelude.seq` Prelude.rnf timestamps
       `Prelude.seq` Prelude.rnf httpStatus

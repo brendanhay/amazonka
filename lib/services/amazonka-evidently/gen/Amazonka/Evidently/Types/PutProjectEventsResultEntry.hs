@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPutProjectEventsResultEntry' smart constructor.
 data PutProjectEventsResultEntry = PutProjectEventsResultEntry'
-  { -- | If the @PutProjectEvents@ operation has an error, the error message is
+  { -- | If the @PutProjectEvents@ operation has an error, the error code is
+    -- returned here.
+    errorCode :: Prelude.Maybe Prelude.Text,
+    -- | If the @PutProjectEvents@ operation has an error, the error message is
     -- returned here.
     errorMessage :: Prelude.Maybe Prelude.Text,
     -- | A unique ID assigned to this @PutProjectEvents@ operation.
-    eventId :: Prelude.Maybe Prelude.Text,
-    -- | If the @PutProjectEvents@ operation has an error, the error code is
-    -- returned here.
-    errorCode :: Prelude.Maybe Prelude.Text
+    eventId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,22 +48,27 @@ data PutProjectEventsResultEntry = PutProjectEventsResultEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'errorCode', 'putProjectEventsResultEntry_errorCode' - If the @PutProjectEvents@ operation has an error, the error code is
+-- returned here.
+--
 -- 'errorMessage', 'putProjectEventsResultEntry_errorMessage' - If the @PutProjectEvents@ operation has an error, the error message is
 -- returned here.
 --
 -- 'eventId', 'putProjectEventsResultEntry_eventId' - A unique ID assigned to this @PutProjectEvents@ operation.
---
--- 'errorCode', 'putProjectEventsResultEntry_errorCode' - If the @PutProjectEvents@ operation has an error, the error code is
--- returned here.
 newPutProjectEventsResultEntry ::
   PutProjectEventsResultEntry
 newPutProjectEventsResultEntry =
   PutProjectEventsResultEntry'
-    { errorMessage =
+    { errorCode =
         Prelude.Nothing,
-      eventId = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+      errorMessage = Prelude.Nothing,
+      eventId = Prelude.Nothing
     }
+
+-- | If the @PutProjectEvents@ operation has an error, the error code is
+-- returned here.
+putProjectEventsResultEntry_errorCode :: Lens.Lens' PutProjectEventsResultEntry (Prelude.Maybe Prelude.Text)
+putProjectEventsResultEntry_errorCode = Lens.lens (\PutProjectEventsResultEntry' {errorCode} -> errorCode) (\s@PutProjectEventsResultEntry' {} a -> s {errorCode = a} :: PutProjectEventsResultEntry)
 
 -- | If the @PutProjectEvents@ operation has an error, the error message is
 -- returned here.
@@ -74,30 +79,25 @@ putProjectEventsResultEntry_errorMessage = Lens.lens (\PutProjectEventsResultEnt
 putProjectEventsResultEntry_eventId :: Lens.Lens' PutProjectEventsResultEntry (Prelude.Maybe Prelude.Text)
 putProjectEventsResultEntry_eventId = Lens.lens (\PutProjectEventsResultEntry' {eventId} -> eventId) (\s@PutProjectEventsResultEntry' {} a -> s {eventId = a} :: PutProjectEventsResultEntry)
 
--- | If the @PutProjectEvents@ operation has an error, the error code is
--- returned here.
-putProjectEventsResultEntry_errorCode :: Lens.Lens' PutProjectEventsResultEntry (Prelude.Maybe Prelude.Text)
-putProjectEventsResultEntry_errorCode = Lens.lens (\PutProjectEventsResultEntry' {errorCode} -> errorCode) (\s@PutProjectEventsResultEntry' {} a -> s {errorCode = a} :: PutProjectEventsResultEntry)
-
 instance Data.FromJSON PutProjectEventsResultEntry where
   parseJSON =
     Data.withObject
       "PutProjectEventsResultEntry"
       ( \x ->
           PutProjectEventsResultEntry'
-            Prelude.<$> (x Data..:? "errorMessage")
+            Prelude.<$> (x Data..:? "errorCode")
+            Prelude.<*> (x Data..:? "errorMessage")
             Prelude.<*> (x Data..:? "eventId")
-            Prelude.<*> (x Data..:? "errorCode")
       )
 
 instance Prelude.Hashable PutProjectEventsResultEntry where
   hashWithSalt _salt PutProjectEventsResultEntry' {..} =
-    _salt `Prelude.hashWithSalt` errorMessage
+    _salt `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` eventId
-      `Prelude.hashWithSalt` errorCode
 
 instance Prelude.NFData PutProjectEventsResultEntry where
   rnf PutProjectEventsResultEntry' {..} =
-    Prelude.rnf errorMessage
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage
       `Prelude.seq` Prelude.rnf eventId
-      `Prelude.seq` Prelude.rnf errorCode

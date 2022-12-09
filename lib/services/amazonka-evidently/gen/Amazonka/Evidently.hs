@@ -34,20 +34,20 @@ module Amazonka.Evidently
     -- ** AccessDeniedException
     _AccessDeniedException,
 
+    -- ** ConflictException
+    _ConflictException,
+
     -- ** InternalServerException
     _InternalServerException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- ** ServiceQuotaExceededException
     _ServiceQuotaExceededException,
 
     -- ** ServiceUnavailableException
     _ServiceUnavailableException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** ConflictException
-    _ConflictException,
 
     -- ** ThrottlingException
     _ThrottlingException,

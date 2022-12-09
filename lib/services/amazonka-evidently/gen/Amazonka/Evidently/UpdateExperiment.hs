@@ -30,14 +30,14 @@ module Amazonka.Evidently.UpdateExperiment
     newUpdateExperiment,
 
     -- * Request Lenses
-    updateExperiment_removeSegment,
-    updateExperiment_onlineAbConfig,
     updateExperiment_description,
-    updateExperiment_treatments,
+    updateExperiment_metricGoals,
+    updateExperiment_onlineAbConfig,
+    updateExperiment_randomizationSalt,
+    updateExperiment_removeSegment,
     updateExperiment_samplingRate,
     updateExperiment_segment,
-    updateExperiment_metricGoals,
-    updateExperiment_randomizationSalt,
+    updateExperiment_treatments,
     updateExperiment_experiment,
     updateExperiment_project,
 
@@ -61,19 +61,25 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateExperiment' smart constructor.
 data UpdateExperiment = UpdateExperiment'
-  { -- | Removes a segment from being used in an experiment. You can\'t use this
-    -- parameter if the experiment is currently running.
-    removeSegment :: Prelude.Maybe Prelude.Bool,
+  { -- | An optional description of the experiment.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | An array of structures that defines the metrics used for the experiment,
+    -- and whether a higher or lower value for each metric is the goal.
+    metricGoals :: Prelude.Maybe (Prelude.NonEmpty MetricGoalConfig),
     -- | A structure that contains the configuration of which variation o use as
     -- the \"control\" version. The \"control\" version is used for comparison
     -- with other variations. This structure also specifies how much experiment
     -- traffic is allocated to each variation.
     onlineAbConfig :: Prelude.Maybe OnlineAbConfig,
-    -- | An optional description of the experiment.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | An array of structures that define the variations being tested in the
-    -- experiment.
-    treatments :: Prelude.Maybe [TreatmentConfig],
+    -- | When Evidently assigns a particular user session to an experiment, it
+    -- must use a randomization ID to determine which variation the user
+    -- session is served. This randomization ID is a combination of the entity
+    -- ID and @randomizationSalt@. If you omit @randomizationSalt@, Evidently
+    -- uses the experiment name as the @randomizationSalt@.
+    randomizationSalt :: Prelude.Maybe Prelude.Text,
+    -- | Removes a segment from being used in an experiment. You can\'t use this
+    -- parameter if the experiment is currently running.
+    removeSegment :: Prelude.Maybe Prelude.Bool,
     -- | The portion of the available audience that you want to allocate to this
     -- experiment, in thousandths of a percent. The available audience is the
     -- total audience minus the audience that you have allocated to overrides
@@ -87,15 +93,9 @@ data UpdateExperiment = UpdateExperiment'
     -- used in the experiment. You can\'t use this parameter if the experiment
     -- is currently running.
     segment :: Prelude.Maybe Prelude.Text,
-    -- | An array of structures that defines the metrics used for the experiment,
-    -- and whether a higher or lower value for each metric is the goal.
-    metricGoals :: Prelude.Maybe (Prelude.NonEmpty MetricGoalConfig),
-    -- | When Evidently assigns a particular user session to an experiment, it
-    -- must use a randomization ID to determine which variation the user
-    -- session is served. This randomization ID is a combination of the entity
-    -- ID and @randomizationSalt@. If you omit @randomizationSalt@, Evidently
-    -- uses the experiment name as the @randomizationSalt@.
-    randomizationSalt :: Prelude.Maybe Prelude.Text,
+    -- | An array of structures that define the variations being tested in the
+    -- experiment.
+    treatments :: Prelude.Maybe [TreatmentConfig],
     -- | The name of the experiment to update.
     experiment :: Prelude.Text,
     -- | The name or ARN of the project that contains the experiment that you
@@ -112,18 +112,24 @@ data UpdateExperiment = UpdateExperiment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'removeSegment', 'updateExperiment_removeSegment' - Removes a segment from being used in an experiment. You can\'t use this
--- parameter if the experiment is currently running.
+-- 'description', 'updateExperiment_description' - An optional description of the experiment.
+--
+-- 'metricGoals', 'updateExperiment_metricGoals' - An array of structures that defines the metrics used for the experiment,
+-- and whether a higher or lower value for each metric is the goal.
 --
 -- 'onlineAbConfig', 'updateExperiment_onlineAbConfig' - A structure that contains the configuration of which variation o use as
 -- the \"control\" version. The \"control\" version is used for comparison
 -- with other variations. This structure also specifies how much experiment
 -- traffic is allocated to each variation.
 --
--- 'description', 'updateExperiment_description' - An optional description of the experiment.
+-- 'randomizationSalt', 'updateExperiment_randomizationSalt' - When Evidently assigns a particular user session to an experiment, it
+-- must use a randomization ID to determine which variation the user
+-- session is served. This randomization ID is a combination of the entity
+-- ID and @randomizationSalt@. If you omit @randomizationSalt@, Evidently
+-- uses the experiment name as the @randomizationSalt@.
 --
--- 'treatments', 'updateExperiment_treatments' - An array of structures that define the variations being tested in the
--- experiment.
+-- 'removeSegment', 'updateExperiment_removeSegment' - Removes a segment from being used in an experiment. You can\'t use this
+-- parameter if the experiment is currently running.
 --
 -- 'samplingRate', 'updateExperiment_samplingRate' - The portion of the available audience that you want to allocate to this
 -- experiment, in thousandths of a percent. The available audience is the
@@ -138,14 +144,8 @@ data UpdateExperiment = UpdateExperiment'
 -- used in the experiment. You can\'t use this parameter if the experiment
 -- is currently running.
 --
--- 'metricGoals', 'updateExperiment_metricGoals' - An array of structures that defines the metrics used for the experiment,
--- and whether a higher or lower value for each metric is the goal.
---
--- 'randomizationSalt', 'updateExperiment_randomizationSalt' - When Evidently assigns a particular user session to an experiment, it
--- must use a randomization ID to determine which variation the user
--- session is served. This randomization ID is a combination of the entity
--- ID and @randomizationSalt@. If you omit @randomizationSalt@, Evidently
--- uses the experiment name as the @randomizationSalt@.
+-- 'treatments', 'updateExperiment_treatments' - An array of structures that define the variations being tested in the
+-- experiment.
 --
 -- 'experiment', 'updateExperiment_experiment' - The name of the experiment to update.
 --
@@ -159,22 +159,26 @@ newUpdateExperiment ::
   UpdateExperiment
 newUpdateExperiment pExperiment_ pProject_ =
   UpdateExperiment'
-    { removeSegment = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      metricGoals = Prelude.Nothing,
       onlineAbConfig = Prelude.Nothing,
-      description = Prelude.Nothing,
-      treatments = Prelude.Nothing,
+      randomizationSalt = Prelude.Nothing,
+      removeSegment = Prelude.Nothing,
       samplingRate = Prelude.Nothing,
       segment = Prelude.Nothing,
-      metricGoals = Prelude.Nothing,
-      randomizationSalt = Prelude.Nothing,
+      treatments = Prelude.Nothing,
       experiment = pExperiment_,
       project = pProject_
     }
 
--- | Removes a segment from being used in an experiment. You can\'t use this
--- parameter if the experiment is currently running.
-updateExperiment_removeSegment :: Lens.Lens' UpdateExperiment (Prelude.Maybe Prelude.Bool)
-updateExperiment_removeSegment = Lens.lens (\UpdateExperiment' {removeSegment} -> removeSegment) (\s@UpdateExperiment' {} a -> s {removeSegment = a} :: UpdateExperiment)
+-- | An optional description of the experiment.
+updateExperiment_description :: Lens.Lens' UpdateExperiment (Prelude.Maybe Prelude.Text)
+updateExperiment_description = Lens.lens (\UpdateExperiment' {description} -> description) (\s@UpdateExperiment' {} a -> s {description = a} :: UpdateExperiment)
+
+-- | An array of structures that defines the metrics used for the experiment,
+-- and whether a higher or lower value for each metric is the goal.
+updateExperiment_metricGoals :: Lens.Lens' UpdateExperiment (Prelude.Maybe (Prelude.NonEmpty MetricGoalConfig))
+updateExperiment_metricGoals = Lens.lens (\UpdateExperiment' {metricGoals} -> metricGoals) (\s@UpdateExperiment' {} a -> s {metricGoals = a} :: UpdateExperiment) Prelude.. Lens.mapping Lens.coerced
 
 -- | A structure that contains the configuration of which variation o use as
 -- the \"control\" version. The \"control\" version is used for comparison
@@ -183,14 +187,18 @@ updateExperiment_removeSegment = Lens.lens (\UpdateExperiment' {removeSegment} -
 updateExperiment_onlineAbConfig :: Lens.Lens' UpdateExperiment (Prelude.Maybe OnlineAbConfig)
 updateExperiment_onlineAbConfig = Lens.lens (\UpdateExperiment' {onlineAbConfig} -> onlineAbConfig) (\s@UpdateExperiment' {} a -> s {onlineAbConfig = a} :: UpdateExperiment)
 
--- | An optional description of the experiment.
-updateExperiment_description :: Lens.Lens' UpdateExperiment (Prelude.Maybe Prelude.Text)
-updateExperiment_description = Lens.lens (\UpdateExperiment' {description} -> description) (\s@UpdateExperiment' {} a -> s {description = a} :: UpdateExperiment)
+-- | When Evidently assigns a particular user session to an experiment, it
+-- must use a randomization ID to determine which variation the user
+-- session is served. This randomization ID is a combination of the entity
+-- ID and @randomizationSalt@. If you omit @randomizationSalt@, Evidently
+-- uses the experiment name as the @randomizationSalt@.
+updateExperiment_randomizationSalt :: Lens.Lens' UpdateExperiment (Prelude.Maybe Prelude.Text)
+updateExperiment_randomizationSalt = Lens.lens (\UpdateExperiment' {randomizationSalt} -> randomizationSalt) (\s@UpdateExperiment' {} a -> s {randomizationSalt = a} :: UpdateExperiment)
 
--- | An array of structures that define the variations being tested in the
--- experiment.
-updateExperiment_treatments :: Lens.Lens' UpdateExperiment (Prelude.Maybe [TreatmentConfig])
-updateExperiment_treatments = Lens.lens (\UpdateExperiment' {treatments} -> treatments) (\s@UpdateExperiment' {} a -> s {treatments = a} :: UpdateExperiment) Prelude.. Lens.mapping Lens.coerced
+-- | Removes a segment from being used in an experiment. You can\'t use this
+-- parameter if the experiment is currently running.
+updateExperiment_removeSegment :: Lens.Lens' UpdateExperiment (Prelude.Maybe Prelude.Bool)
+updateExperiment_removeSegment = Lens.lens (\UpdateExperiment' {removeSegment} -> removeSegment) (\s@UpdateExperiment' {} a -> s {removeSegment = a} :: UpdateExperiment)
 
 -- | The portion of the available audience that you want to allocate to this
 -- experiment, in thousandths of a percent. The available audience is the
@@ -209,18 +217,10 @@ updateExperiment_samplingRate = Lens.lens (\UpdateExperiment' {samplingRate} -> 
 updateExperiment_segment :: Lens.Lens' UpdateExperiment (Prelude.Maybe Prelude.Text)
 updateExperiment_segment = Lens.lens (\UpdateExperiment' {segment} -> segment) (\s@UpdateExperiment' {} a -> s {segment = a} :: UpdateExperiment)
 
--- | An array of structures that defines the metrics used for the experiment,
--- and whether a higher or lower value for each metric is the goal.
-updateExperiment_metricGoals :: Lens.Lens' UpdateExperiment (Prelude.Maybe (Prelude.NonEmpty MetricGoalConfig))
-updateExperiment_metricGoals = Lens.lens (\UpdateExperiment' {metricGoals} -> metricGoals) (\s@UpdateExperiment' {} a -> s {metricGoals = a} :: UpdateExperiment) Prelude.. Lens.mapping Lens.coerced
-
--- | When Evidently assigns a particular user session to an experiment, it
--- must use a randomization ID to determine which variation the user
--- session is served. This randomization ID is a combination of the entity
--- ID and @randomizationSalt@. If you omit @randomizationSalt@, Evidently
--- uses the experiment name as the @randomizationSalt@.
-updateExperiment_randomizationSalt :: Lens.Lens' UpdateExperiment (Prelude.Maybe Prelude.Text)
-updateExperiment_randomizationSalt = Lens.lens (\UpdateExperiment' {randomizationSalt} -> randomizationSalt) (\s@UpdateExperiment' {} a -> s {randomizationSalt = a} :: UpdateExperiment)
+-- | An array of structures that define the variations being tested in the
+-- experiment.
+updateExperiment_treatments :: Lens.Lens' UpdateExperiment (Prelude.Maybe [TreatmentConfig])
+updateExperiment_treatments = Lens.lens (\UpdateExperiment' {treatments} -> treatments) (\s@UpdateExperiment' {} a -> s {treatments = a} :: UpdateExperiment) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the experiment to update.
 updateExperiment_experiment :: Lens.Lens' UpdateExperiment Prelude.Text
@@ -247,27 +247,27 @@ instance Core.AWSRequest UpdateExperiment where
 
 instance Prelude.Hashable UpdateExperiment where
   hashWithSalt _salt UpdateExperiment' {..} =
-    _salt `Prelude.hashWithSalt` removeSegment
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` metricGoals
       `Prelude.hashWithSalt` onlineAbConfig
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` treatments
+      `Prelude.hashWithSalt` randomizationSalt
+      `Prelude.hashWithSalt` removeSegment
       `Prelude.hashWithSalt` samplingRate
       `Prelude.hashWithSalt` segment
-      `Prelude.hashWithSalt` metricGoals
-      `Prelude.hashWithSalt` randomizationSalt
+      `Prelude.hashWithSalt` treatments
       `Prelude.hashWithSalt` experiment
       `Prelude.hashWithSalt` project
 
 instance Prelude.NFData UpdateExperiment where
   rnf UpdateExperiment' {..} =
-    Prelude.rnf removeSegment
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf metricGoals
       `Prelude.seq` Prelude.rnf onlineAbConfig
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf treatments
+      `Prelude.seq` Prelude.rnf randomizationSalt
+      `Prelude.seq` Prelude.rnf removeSegment
       `Prelude.seq` Prelude.rnf samplingRate
       `Prelude.seq` Prelude.rnf segment
-      `Prelude.seq` Prelude.rnf metricGoals
-      `Prelude.seq` Prelude.rnf randomizationSalt
+      `Prelude.seq` Prelude.rnf treatments
       `Prelude.seq` Prelude.rnf experiment
       `Prelude.seq` Prelude.rnf project
 
@@ -286,16 +286,16 @@ instance Data.ToJSON UpdateExperiment where
   toJSON UpdateExperiment' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("removeSegment" Data..=) Prelude.<$> removeSegment,
+          [ ("description" Data..=) Prelude.<$> description,
+            ("metricGoals" Data..=) Prelude.<$> metricGoals,
             ("onlineAbConfig" Data..=)
               Prelude.<$> onlineAbConfig,
-            ("description" Data..=) Prelude.<$> description,
-            ("treatments" Data..=) Prelude.<$> treatments,
+            ("randomizationSalt" Data..=)
+              Prelude.<$> randomizationSalt,
+            ("removeSegment" Data..=) Prelude.<$> removeSegment,
             ("samplingRate" Data..=) Prelude.<$> samplingRate,
             ("segment" Data..=) Prelude.<$> segment,
-            ("metricGoals" Data..=) Prelude.<$> metricGoals,
-            ("randomizationSalt" Data..=)
-              Prelude.<$> randomizationSalt
+            ("treatments" Data..=) Prelude.<$> treatments
           ]
       )
 

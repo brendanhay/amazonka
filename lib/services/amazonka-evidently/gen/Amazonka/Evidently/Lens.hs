@@ -21,12 +21,12 @@ module Amazonka.Evidently.Lens
     batchEvaluateFeatureResponse_httpStatus,
 
     -- ** CreateExperiment
-    createExperiment_tags,
-    createExperiment_onlineAbConfig,
     createExperiment_description,
+    createExperiment_onlineAbConfig,
+    createExperiment_randomizationSalt,
     createExperiment_samplingRate,
     createExperiment_segment,
-    createExperiment_randomizationSalt,
+    createExperiment_tags,
     createExperiment_metricGoals,
     createExperiment_name,
     createExperiment_project,
@@ -35,11 +35,11 @@ module Amazonka.Evidently.Lens
     createExperimentResponse_experiment,
 
     -- ** CreateFeature
-    createFeature_tags,
-    createFeature_evaluationStrategy,
+    createFeature_defaultVariation,
     createFeature_description,
     createFeature_entityOverrides,
-    createFeature_defaultVariation,
+    createFeature_evaluationStrategy,
+    createFeature_tags,
     createFeature_name,
     createFeature_project,
     createFeature_variations,
@@ -47,11 +47,11 @@ module Amazonka.Evidently.Lens
     createFeatureResponse_httpStatus,
 
     -- ** CreateLaunch
-    createLaunch_tags,
     createLaunch_description,
-    createLaunch_scheduledSplitsConfig,
     createLaunch_metricMonitors,
     createLaunch_randomizationSalt,
+    createLaunch_scheduledSplitsConfig,
+    createLaunch_tags,
     createLaunch_groups,
     createLaunch_name,
     createLaunch_project,
@@ -59,17 +59,17 @@ module Amazonka.Evidently.Lens
     createLaunchResponse_launch,
 
     -- ** CreateProject
-    createProject_tags,
-    createProject_dataDelivery,
     createProject_appConfigResource,
+    createProject_dataDelivery,
     createProject_description,
+    createProject_tags,
     createProject_name,
     createProjectResponse_httpStatus,
     createProjectResponse_project,
 
     -- ** CreateSegment
-    createSegment_tags,
     createSegment_description,
+    createSegment_tags,
     createSegment_name,
     createSegment_pattern,
     createSegmentResponse_httpStatus,
@@ -103,10 +103,10 @@ module Amazonka.Evidently.Lens
     evaluateFeature_entityId,
     evaluateFeature_feature,
     evaluateFeature_project,
-    evaluateFeatureResponse_variation,
     evaluateFeatureResponse_details,
     evaluateFeatureResponse_reason,
     evaluateFeatureResponse_value,
+    evaluateFeatureResponse_variation,
     evaluateFeatureResponse_httpStatus,
 
     -- ** GetExperiment
@@ -117,19 +117,19 @@ module Amazonka.Evidently.Lens
 
     -- ** GetExperimentResults
     getExperimentResults_baseStat,
-    getExperimentResults_period,
-    getExperimentResults_resultStats,
     getExperimentResults_endTime,
+    getExperimentResults_period,
     getExperimentResults_reportNames,
+    getExperimentResults_resultStats,
     getExperimentResults_startTime,
     getExperimentResults_experiment,
     getExperimentResults_metricNames,
     getExperimentResults_project,
     getExperimentResults_treatmentNames,
-    getExperimentResultsResponse_timestamps,
     getExperimentResultsResponse_details,
     getExperimentResultsResponse_reports,
     getExperimentResultsResponse_resultsData,
+    getExperimentResultsResponse_timestamps,
     getExperimentResultsResponse_httpStatus,
 
     -- ** GetFeature
@@ -155,41 +155,41 @@ module Amazonka.Evidently.Lens
     getSegmentResponse_segment,
 
     -- ** ListExperiments
+    listExperiments_maxResults,
     listExperiments_nextToken,
     listExperiments_status,
-    listExperiments_maxResults,
     listExperiments_project,
     listExperimentsResponse_experiments,
     listExperimentsResponse_nextToken,
     listExperimentsResponse_httpStatus,
 
     -- ** ListFeatures
-    listFeatures_nextToken,
     listFeatures_maxResults,
+    listFeatures_nextToken,
     listFeatures_project,
-    listFeaturesResponse_nextToken,
     listFeaturesResponse_features,
+    listFeaturesResponse_nextToken,
     listFeaturesResponse_httpStatus,
 
     -- ** ListLaunches
+    listLaunches_maxResults,
     listLaunches_nextToken,
     listLaunches_status,
-    listLaunches_maxResults,
     listLaunches_project,
-    listLaunchesResponse_nextToken,
     listLaunchesResponse_launches,
+    listLaunchesResponse_nextToken,
     listLaunchesResponse_httpStatus,
 
     -- ** ListProjects
-    listProjects_nextToken,
     listProjects_maxResults,
-    listProjectsResponse_projects,
+    listProjects_nextToken,
     listProjectsResponse_nextToken,
+    listProjectsResponse_projects,
     listProjectsResponse_httpStatus,
 
     -- ** ListSegmentReferences
-    listSegmentReferences_nextToken,
     listSegmentReferences_maxResults,
+    listSegmentReferences_nextToken,
     listSegmentReferences_segment,
     listSegmentReferences_type,
     listSegmentReferencesResponse_nextToken,
@@ -197,8 +197,8 @@ module Amazonka.Evidently.Lens
     listSegmentReferencesResponse_httpStatus,
 
     -- ** ListSegments
-    listSegments_nextToken,
     listSegments_maxResults,
+    listSegments_nextToken,
     listSegmentsResponse_nextToken,
     listSegmentsResponse_segments,
     listSegmentsResponse_httpStatus,
@@ -211,8 +211,8 @@ module Amazonka.Evidently.Lens
     -- ** PutProjectEvents
     putProjectEvents_events,
     putProjectEvents_project,
-    putProjectEventsResponse_failedEventCount,
     putProjectEventsResponse_eventResults,
+    putProjectEventsResponse_failedEventCount,
     putProjectEventsResponse_httpStatus,
 
     -- ** StartExperiment
@@ -261,26 +261,26 @@ module Amazonka.Evidently.Lens
     untagResourceResponse_httpStatus,
 
     -- ** UpdateExperiment
-    updateExperiment_removeSegment,
-    updateExperiment_onlineAbConfig,
     updateExperiment_description,
-    updateExperiment_treatments,
+    updateExperiment_metricGoals,
+    updateExperiment_onlineAbConfig,
+    updateExperiment_randomizationSalt,
+    updateExperiment_removeSegment,
     updateExperiment_samplingRate,
     updateExperiment_segment,
-    updateExperiment_metricGoals,
-    updateExperiment_randomizationSalt,
+    updateExperiment_treatments,
     updateExperiment_experiment,
     updateExperiment_project,
     updateExperimentResponse_httpStatus,
     updateExperimentResponse_experiment,
 
     -- ** UpdateFeature
-    updateFeature_evaluationStrategy,
-    updateFeature_description,
     updateFeature_addOrUpdateVariations,
-    updateFeature_entityOverrides,
-    updateFeature_removeVariations,
     updateFeature_defaultVariation,
+    updateFeature_description,
+    updateFeature_entityOverrides,
+    updateFeature_evaluationStrategy,
+    updateFeature_removeVariations,
     updateFeature_feature,
     updateFeature_project,
     updateFeatureResponse_httpStatus,
@@ -288,10 +288,10 @@ module Amazonka.Evidently.Lens
 
     -- ** UpdateLaunch
     updateLaunch_description,
-    updateLaunch_scheduledSplitsConfig,
-    updateLaunch_metricMonitors,
     updateLaunch_groups,
+    updateLaunch_metricMonitors,
     updateLaunch_randomizationSalt,
+    updateLaunch_scheduledSplitsConfig,
     updateLaunch_launch,
     updateLaunch_project,
     updateLaunchResponse_httpStatus,
@@ -325,11 +325,11 @@ module Amazonka.Evidently.Lens
     evaluationRequest_feature,
 
     -- ** EvaluationResult
-    evaluationResult_variation,
     evaluationResult_details,
     evaluationResult_project,
     evaluationResult_reason,
     evaluationResult_value,
+    evaluationResult_variation,
     evaluationResult_entityId,
     evaluationResult_feature,
 
@@ -343,18 +343,18 @@ module Amazonka.Evidently.Lens
     event_type,
 
     -- ** Experiment
-    experiment_schedule,
-    experiment_tags,
-    experiment_onlineAbDefinition,
-    experiment_statusReason,
     experiment_description,
-    experiment_project,
     experiment_execution,
-    experiment_treatments,
-    experiment_samplingRate,
-    experiment_segment,
     experiment_metricGoals,
+    experiment_onlineAbDefinition,
+    experiment_project,
     experiment_randomizationSalt,
+    experiment_samplingRate,
+    experiment_schedule,
+    experiment_segment,
+    experiment_statusReason,
+    experiment_tags,
+    experiment_treatments,
     experiment_arn,
     experiment_createdTime,
     experiment_lastUpdatedTime,
@@ -367,27 +367,27 @@ module Amazonka.Evidently.Lens
     experimentExecution_startedTime,
 
     -- ** ExperimentReport
+    experimentReport_content,
+    experimentReport_metricName,
     experimentReport_reportName,
     experimentReport_treatmentName,
-    experimentReport_metricName,
-    experimentReport_content,
 
     -- ** ExperimentResultsData
-    experimentResultsData_treatmentName,
     experimentResultsData_metricName,
-    experimentResultsData_values,
     experimentResultsData_resultStat,
+    experimentResultsData_treatmentName,
+    experimentResultsData_values,
 
     -- ** ExperimentSchedule
     experimentSchedule_analysisCompleteTime,
 
     -- ** Feature
-    feature_tags,
-    feature_description,
-    feature_project,
-    feature_evaluationRules,
-    feature_entityOverrides,
     feature_defaultVariation,
+    feature_description,
+    feature_entityOverrides,
+    feature_evaluationRules,
+    feature_project,
+    feature_tags,
     feature_arn,
     feature_createdTime,
     feature_evaluationStrategy,
@@ -398,10 +398,10 @@ module Amazonka.Evidently.Lens
     feature_variations,
 
     -- ** FeatureSummary
-    featureSummary_tags,
-    featureSummary_project,
-    featureSummary_evaluationRules,
     featureSummary_defaultVariation,
+    featureSummary_evaluationRules,
+    featureSummary_project,
+    featureSummary_tags,
     featureSummary_arn,
     featureSummary_createdTime,
     featureSummary_evaluationStrategy,
@@ -410,15 +410,15 @@ module Amazonka.Evidently.Lens
     featureSummary_status,
 
     -- ** Launch
-    launch_tags,
+    launch_description,
+    launch_execution,
+    launch_groups,
+    launch_metricMonitors,
+    launch_project,
+    launch_randomizationSalt,
     launch_scheduledSplitsDefinition,
     launch_statusReason,
-    launch_description,
-    launch_project,
-    launch_execution,
-    launch_metricMonitors,
-    launch_groups,
-    launch_randomizationSalt,
+    launch_tags,
     launch_arn,
     launch_createdTime,
     launch_lastUpdatedTime,
@@ -442,15 +442,15 @@ module Amazonka.Evidently.Lens
     launchGroupConfig_variation,
 
     -- ** MetricDefinition
-    metricDefinition_name,
-    metricDefinition_valueKey,
-    metricDefinition_unitLabel,
-    metricDefinition_eventPattern,
     metricDefinition_entityIdKey,
+    metricDefinition_eventPattern,
+    metricDefinition_name,
+    metricDefinition_unitLabel,
+    metricDefinition_valueKey,
 
     -- ** MetricDefinitionConfig
-    metricDefinitionConfig_unitLabel,
     metricDefinitionConfig_eventPattern,
+    metricDefinitionConfig_unitLabel,
     metricDefinitionConfig_entityIdKey,
     metricDefinitionConfig_name,
     metricDefinitionConfig_valueKey,
@@ -478,15 +478,15 @@ module Amazonka.Evidently.Lens
     onlineAbDefinition_treatmentWeights,
 
     -- ** Project
-    project_tags,
-    project_dataDelivery,
-    project_appConfigResource,
-    project_description,
+    project_activeExperimentCount,
     project_activeLaunchCount,
+    project_appConfigResource,
+    project_dataDelivery,
+    project_description,
+    project_experimentCount,
     project_featureCount,
     project_launchCount,
-    project_experimentCount,
-    project_activeExperimentCount,
+    project_tags,
     project_arn,
     project_createdTime,
     project_lastUpdatedTime,
@@ -499,8 +499,8 @@ module Amazonka.Evidently.Lens
     projectAppConfigResource_environmentId,
 
     -- ** ProjectAppConfigResourceConfig
-    projectAppConfigResourceConfig_environmentId,
     projectAppConfigResourceConfig_applicationId,
+    projectAppConfigResourceConfig_environmentId,
 
     -- ** ProjectDataDelivery
     projectDataDelivery_cloudWatchLogs,
@@ -511,13 +511,13 @@ module Amazonka.Evidently.Lens
     projectDataDeliveryConfig_s3Destination,
 
     -- ** ProjectSummary
-    projectSummary_tags,
-    projectSummary_description,
+    projectSummary_activeExperimentCount,
     projectSummary_activeLaunchCount,
+    projectSummary_description,
+    projectSummary_experimentCount,
     projectSummary_featureCount,
     projectSummary_launchCount,
-    projectSummary_experimentCount,
-    projectSummary_activeExperimentCount,
+    projectSummary_tags,
     projectSummary_arn,
     projectSummary_createdTime,
     projectSummary_lastUpdatedTime,
@@ -525,16 +525,16 @@ module Amazonka.Evidently.Lens
     projectSummary_status,
 
     -- ** PutProjectEventsResultEntry
+    putProjectEventsResultEntry_errorCode,
     putProjectEventsResultEntry_errorMessage,
     putProjectEventsResultEntry_eventId,
-    putProjectEventsResultEntry_errorCode,
 
     -- ** RefResource
     refResource_arn,
-    refResource_status,
     refResource_endTime,
     refResource_lastUpdatedOn,
     refResource_startTime,
+    refResource_status,
     refResource_name,
     refResource_type,
 
@@ -563,10 +563,10 @@ module Amazonka.Evidently.Lens
     scheduledSplitsLaunchDefinition_steps,
 
     -- ** Segment
-    segment_tags,
     segment_description,
-    segment_launchCount,
     segment_experimentCount,
+    segment_launchCount,
+    segment_tags,
     segment_arn,
     segment_createdTime,
     segment_lastUpdatedTime,
@@ -590,10 +590,10 @@ module Amazonka.Evidently.Lens
     treatmentConfig_variation,
 
     -- ** VariableValue
-    variableValue_doubleValue,
-    variableValue_stringValue,
-    variableValue_longValue,
     variableValue_boolValue,
+    variableValue_doubleValue,
+    variableValue_longValue,
+    variableValue_stringValue,
 
     -- ** Variation
     variation_name,

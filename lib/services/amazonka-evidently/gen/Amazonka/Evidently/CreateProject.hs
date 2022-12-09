@@ -32,10 +32,10 @@ module Amazonka.Evidently.CreateProject
     newCreateProject,
 
     -- * Request Lenses
-    createProject_tags,
-    createProject_dataDelivery,
     createProject_appConfigResource,
+    createProject_dataDelivery,
     createProject_description,
+    createProject_tags,
     createProject_name,
 
     -- * Destructuring the Response
@@ -58,23 +58,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateProject' smart constructor.
 data CreateProject = CreateProject'
-  { -- | Assigns one or more tags (key-value pairs) to the project.
-    --
-    -- Tags can help you organize and categorize your resources. You can also
-    -- use them to scope user permissions by granting a user permission to
-    -- access or change only resources with certain tag values.
-    --
-    -- Tags don\'t have any semantic meaning to Amazon Web Services and are
-    -- interpreted strictly as strings of characters.
-    --
-    -- >  <p>You can associate as many as 50 tags with a project.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A structure that contains information about where Evidently is to store
-    -- evaluation events for longer term storage, if you choose to do so. If
-    -- you choose not to store these events, Evidently deletes them after using
-    -- them to produce metrics and other experiment results that you can view.
-    dataDelivery :: Prelude.Maybe ProjectDataDeliveryConfig,
-    -- | Use this parameter if the project will use /client-side evaluation
+  { -- | Use this parameter if the project will use /client-side evaluation
     -- powered by AppConfig/. Client-side evaluation allows your application to
     -- assign variations to user sessions locally instead of by calling the
     -- <https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html EvaluateFeature>
@@ -89,8 +73,24 @@ data CreateProject = CreateProject'
     -- To create a project that uses client-side evaluation, you must have the
     -- @evidently:ExportProjectAsConfiguration@ permission.
     appConfigResource :: Prelude.Maybe ProjectAppConfigResourceConfig,
+    -- | A structure that contains information about where Evidently is to store
+    -- evaluation events for longer term storage, if you choose to do so. If
+    -- you choose not to store these events, Evidently deletes them after using
+    -- them to produce metrics and other experiment results that you can view.
+    dataDelivery :: Prelude.Maybe ProjectDataDeliveryConfig,
     -- | An optional description of the project.
     description :: Prelude.Maybe Prelude.Text,
+    -- | Assigns one or more tags (key-value pairs) to the project.
+    --
+    -- Tags can help you organize and categorize your resources. You can also
+    -- use them to scope user permissions by granting a user permission to
+    -- access or change only resources with certain tag values.
+    --
+    -- Tags don\'t have any semantic meaning to Amazon Web Services and are
+    -- interpreted strictly as strings of characters.
+    --
+    -- >  <p>You can associate as many as 50 tags with a project.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name for the project.
     name :: Prelude.Text
   }
@@ -103,22 +103,6 @@ data CreateProject = CreateProject'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'tags', 'createProject_tags' - Assigns one or more tags (key-value pairs) to the project.
---
--- Tags can help you organize and categorize your resources. You can also
--- use them to scope user permissions by granting a user permission to
--- access or change only resources with certain tag values.
---
--- Tags don\'t have any semantic meaning to Amazon Web Services and are
--- interpreted strictly as strings of characters.
---
--- >  <p>You can associate as many as 50 tags with a project.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
---
--- 'dataDelivery', 'createProject_dataDelivery' - A structure that contains information about where Evidently is to store
--- evaluation events for longer term storage, if you choose to do so. If
--- you choose not to store these events, Evidently deletes them after using
--- them to produce metrics and other experiment results that you can view.
 --
 -- 'appConfigResource', 'createProject_appConfigResource' - Use this parameter if the project will use /client-side evaluation
 -- powered by AppConfig/. Client-side evaluation allows your application to
@@ -135,23 +119,14 @@ data CreateProject = CreateProject'
 -- To create a project that uses client-side evaluation, you must have the
 -- @evidently:ExportProjectAsConfiguration@ permission.
 --
+-- 'dataDelivery', 'createProject_dataDelivery' - A structure that contains information about where Evidently is to store
+-- evaluation events for longer term storage, if you choose to do so. If
+-- you choose not to store these events, Evidently deletes them after using
+-- them to produce metrics and other experiment results that you can view.
+--
 -- 'description', 'createProject_description' - An optional description of the project.
 --
--- 'name', 'createProject_name' - The name for the project.
-newCreateProject ::
-  -- | 'name'
-  Prelude.Text ->
-  CreateProject
-newCreateProject pName_ =
-  CreateProject'
-    { tags = Prelude.Nothing,
-      dataDelivery = Prelude.Nothing,
-      appConfigResource = Prelude.Nothing,
-      description = Prelude.Nothing,
-      name = pName_
-    }
-
--- | Assigns one or more tags (key-value pairs) to the project.
+-- 'tags', 'createProject_tags' - Assigns one or more tags (key-value pairs) to the project.
 --
 -- Tags can help you organize and categorize your resources. You can also
 -- use them to scope user permissions by granting a user permission to
@@ -161,15 +136,20 @@ newCreateProject pName_ =
 -- interpreted strictly as strings of characters.
 --
 -- >  <p>You can associate as many as 50 tags with a project.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
-createProject_tags :: Lens.Lens' CreateProject (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createProject_tags = Lens.lens (\CreateProject' {tags} -> tags) (\s@CreateProject' {} a -> s {tags = a} :: CreateProject) Prelude.. Lens.mapping Lens.coerced
-
--- | A structure that contains information about where Evidently is to store
--- evaluation events for longer term storage, if you choose to do so. If
--- you choose not to store these events, Evidently deletes them after using
--- them to produce metrics and other experiment results that you can view.
-createProject_dataDelivery :: Lens.Lens' CreateProject (Prelude.Maybe ProjectDataDeliveryConfig)
-createProject_dataDelivery = Lens.lens (\CreateProject' {dataDelivery} -> dataDelivery) (\s@CreateProject' {} a -> s {dataDelivery = a} :: CreateProject)
+--
+-- 'name', 'createProject_name' - The name for the project.
+newCreateProject ::
+  -- | 'name'
+  Prelude.Text ->
+  CreateProject
+newCreateProject pName_ =
+  CreateProject'
+    { appConfigResource = Prelude.Nothing,
+      dataDelivery = Prelude.Nothing,
+      description = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      name = pName_
+    }
 
 -- | Use this parameter if the project will use /client-side evaluation
 -- powered by AppConfig/. Client-side evaluation allows your application to
@@ -188,9 +168,29 @@ createProject_dataDelivery = Lens.lens (\CreateProject' {dataDelivery} -> dataDe
 createProject_appConfigResource :: Lens.Lens' CreateProject (Prelude.Maybe ProjectAppConfigResourceConfig)
 createProject_appConfigResource = Lens.lens (\CreateProject' {appConfigResource} -> appConfigResource) (\s@CreateProject' {} a -> s {appConfigResource = a} :: CreateProject)
 
+-- | A structure that contains information about where Evidently is to store
+-- evaluation events for longer term storage, if you choose to do so. If
+-- you choose not to store these events, Evidently deletes them after using
+-- them to produce metrics and other experiment results that you can view.
+createProject_dataDelivery :: Lens.Lens' CreateProject (Prelude.Maybe ProjectDataDeliveryConfig)
+createProject_dataDelivery = Lens.lens (\CreateProject' {dataDelivery} -> dataDelivery) (\s@CreateProject' {} a -> s {dataDelivery = a} :: CreateProject)
+
 -- | An optional description of the project.
 createProject_description :: Lens.Lens' CreateProject (Prelude.Maybe Prelude.Text)
 createProject_description = Lens.lens (\CreateProject' {description} -> description) (\s@CreateProject' {} a -> s {description = a} :: CreateProject)
+
+-- | Assigns one or more tags (key-value pairs) to the project.
+--
+-- Tags can help you organize and categorize your resources. You can also
+-- use them to scope user permissions by granting a user permission to
+-- access or change only resources with certain tag values.
+--
+-- Tags don\'t have any semantic meaning to Amazon Web Services and are
+-- interpreted strictly as strings of characters.
+--
+-- >  <p>You can associate as many as 50 tags with a project.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
+createProject_tags :: Lens.Lens' CreateProject (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createProject_tags = Lens.lens (\CreateProject' {tags} -> tags) (\s@CreateProject' {} a -> s {tags = a} :: CreateProject) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name for the project.
 createProject_name :: Lens.Lens' CreateProject Prelude.Text
@@ -212,18 +212,18 @@ instance Core.AWSRequest CreateProject where
 
 instance Prelude.Hashable CreateProject where
   hashWithSalt _salt CreateProject' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` appConfigResource
       `Prelude.hashWithSalt` dataDelivery
-      `Prelude.hashWithSalt` appConfigResource
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateProject where
   rnf CreateProject' {..} =
-    Prelude.rnf tags
+    Prelude.rnf appConfigResource
       `Prelude.seq` Prelude.rnf dataDelivery
-      `Prelude.seq` Prelude.rnf appConfigResource
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders CreateProject where
@@ -241,11 +241,11 @@ instance Data.ToJSON CreateProject where
   toJSON CreateProject' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("dataDelivery" Data..=) Prelude.<$> dataDelivery,
-            ("appConfigResource" Data..=)
+          [ ("appConfigResource" Data..=)
               Prelude.<$> appConfigResource,
+            ("dataDelivery" Data..=) Prelude.<$> dataDelivery,
             ("description" Data..=) Prelude.<$> description,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("name" Data..= name)
           ]
       )

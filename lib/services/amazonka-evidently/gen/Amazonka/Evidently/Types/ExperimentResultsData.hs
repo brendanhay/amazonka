@@ -30,15 +30,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newExperimentResultsData' smart constructor.
 data ExperimentResultsData = ExperimentResultsData'
-  { -- | The treatment, or variation, that returned the @values@ in this
+  { -- | The name of the metric.
+    metricName :: Prelude.Maybe Prelude.Text,
+    -- | The experiment statistic that these results pertain to.
+    resultStat :: Prelude.Maybe ExperimentResultResponseType,
+    -- | The treatment, or variation, that returned the @values@ in this
     -- structure.
     treatmentName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the metric.
-    metricName :: Prelude.Maybe Prelude.Text,
     -- | The values for the @metricName@ that were recorded in the experiment.
-    values :: Prelude.Maybe [Prelude.Double],
-    -- | The experiment statistic that these results pertain to.
-    resultStat :: Prelude.Maybe ExperimentResultResponseType
+    values :: Prelude.Maybe [Prelude.Double]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,41 +50,41 @@ data ExperimentResultsData = ExperimentResultsData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'metricName', 'experimentResultsData_metricName' - The name of the metric.
+--
+-- 'resultStat', 'experimentResultsData_resultStat' - The experiment statistic that these results pertain to.
+--
 -- 'treatmentName', 'experimentResultsData_treatmentName' - The treatment, or variation, that returned the @values@ in this
 -- structure.
 --
--- 'metricName', 'experimentResultsData_metricName' - The name of the metric.
---
 -- 'values', 'experimentResultsData_values' - The values for the @metricName@ that were recorded in the experiment.
---
--- 'resultStat', 'experimentResultsData_resultStat' - The experiment statistic that these results pertain to.
 newExperimentResultsData ::
   ExperimentResultsData
 newExperimentResultsData =
   ExperimentResultsData'
-    { treatmentName =
+    { metricName =
         Prelude.Nothing,
-      metricName = Prelude.Nothing,
-      values = Prelude.Nothing,
-      resultStat = Prelude.Nothing
+      resultStat = Prelude.Nothing,
+      treatmentName = Prelude.Nothing,
+      values = Prelude.Nothing
     }
+
+-- | The name of the metric.
+experimentResultsData_metricName :: Lens.Lens' ExperimentResultsData (Prelude.Maybe Prelude.Text)
+experimentResultsData_metricName = Lens.lens (\ExperimentResultsData' {metricName} -> metricName) (\s@ExperimentResultsData' {} a -> s {metricName = a} :: ExperimentResultsData)
+
+-- | The experiment statistic that these results pertain to.
+experimentResultsData_resultStat :: Lens.Lens' ExperimentResultsData (Prelude.Maybe ExperimentResultResponseType)
+experimentResultsData_resultStat = Lens.lens (\ExperimentResultsData' {resultStat} -> resultStat) (\s@ExperimentResultsData' {} a -> s {resultStat = a} :: ExperimentResultsData)
 
 -- | The treatment, or variation, that returned the @values@ in this
 -- structure.
 experimentResultsData_treatmentName :: Lens.Lens' ExperimentResultsData (Prelude.Maybe Prelude.Text)
 experimentResultsData_treatmentName = Lens.lens (\ExperimentResultsData' {treatmentName} -> treatmentName) (\s@ExperimentResultsData' {} a -> s {treatmentName = a} :: ExperimentResultsData)
 
--- | The name of the metric.
-experimentResultsData_metricName :: Lens.Lens' ExperimentResultsData (Prelude.Maybe Prelude.Text)
-experimentResultsData_metricName = Lens.lens (\ExperimentResultsData' {metricName} -> metricName) (\s@ExperimentResultsData' {} a -> s {metricName = a} :: ExperimentResultsData)
-
 -- | The values for the @metricName@ that were recorded in the experiment.
 experimentResultsData_values :: Lens.Lens' ExperimentResultsData (Prelude.Maybe [Prelude.Double])
 experimentResultsData_values = Lens.lens (\ExperimentResultsData' {values} -> values) (\s@ExperimentResultsData' {} a -> s {values = a} :: ExperimentResultsData) Prelude.. Lens.mapping Lens.coerced
-
--- | The experiment statistic that these results pertain to.
-experimentResultsData_resultStat :: Lens.Lens' ExperimentResultsData (Prelude.Maybe ExperimentResultResponseType)
-experimentResultsData_resultStat = Lens.lens (\ExperimentResultsData' {resultStat} -> resultStat) (\s@ExperimentResultsData' {} a -> s {resultStat = a} :: ExperimentResultsData)
 
 instance Data.FromJSON ExperimentResultsData where
   parseJSON =
@@ -92,22 +92,22 @@ instance Data.FromJSON ExperimentResultsData where
       "ExperimentResultsData"
       ( \x ->
           ExperimentResultsData'
-            Prelude.<$> (x Data..:? "treatmentName")
-            Prelude.<*> (x Data..:? "metricName")
-            Prelude.<*> (x Data..:? "values" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "metricName")
             Prelude.<*> (x Data..:? "resultStat")
+            Prelude.<*> (x Data..:? "treatmentName")
+            Prelude.<*> (x Data..:? "values" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ExperimentResultsData where
   hashWithSalt _salt ExperimentResultsData' {..} =
-    _salt `Prelude.hashWithSalt` treatmentName
-      `Prelude.hashWithSalt` metricName
-      `Prelude.hashWithSalt` values
+    _salt `Prelude.hashWithSalt` metricName
       `Prelude.hashWithSalt` resultStat
+      `Prelude.hashWithSalt` treatmentName
+      `Prelude.hashWithSalt` values
 
 instance Prelude.NFData ExperimentResultsData where
   rnf ExperimentResultsData' {..} =
-    Prelude.rnf treatmentName
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf metricName
       `Prelude.seq` Prelude.rnf resultStat
+      `Prelude.seq` Prelude.rnf treatmentName
+      `Prelude.seq` Prelude.rnf values

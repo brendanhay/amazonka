@@ -31,12 +31,12 @@ module Amazonka.Evidently.UpdateFeature
     newUpdateFeature,
 
     -- * Request Lenses
-    updateFeature_evaluationStrategy,
-    updateFeature_description,
     updateFeature_addOrUpdateVariations,
-    updateFeature_entityOverrides,
-    updateFeature_removeVariations,
     updateFeature_defaultVariation,
+    updateFeature_description,
+    updateFeature_entityOverrides,
+    updateFeature_evaluationStrategy,
+    updateFeature_removeVariations,
     updateFeature_feature,
     updateFeature_project,
 
@@ -60,34 +60,34 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateFeature' smart constructor.
 data UpdateFeature = UpdateFeature'
-  { -- | Specify @ALL_RULES@ to activate the traffic allocation specified by any
-    -- ongoing launches or experiments. Specify @DEFAULT_VARIATION@ to serve
-    -- the default variation to all users instead.
-    evaluationStrategy :: Prelude.Maybe FeatureEvaluationStrategy,
-    -- | An optional description of the feature.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | To update variation configurations for this feature, or add new ones,
+  { -- | To update variation configurations for this feature, or add new ones,
     -- specify this structure. In this array, include any variations that you
     -- want to add or update. If the array includes a variation name that
     -- already exists for this feature, it is updated. If it includes a new
     -- variation name, it is added as a new variation.
     addOrUpdateVariations :: Prelude.Maybe (Prelude.NonEmpty VariationConfig),
+    -- | The name of the variation to use as the default variation. The default
+    -- variation is served to users who are not allocated to any ongoing
+    -- launches or experiments of this feature.
+    defaultVariation :: Prelude.Maybe Prelude.Text,
+    -- | An optional description of the feature.
+    description :: Prelude.Maybe Prelude.Text,
     -- | Specified users that should always be served a specific variation of a
     -- feature. Each user is specified by a key-value pair . For each key,
     -- specify a user by entering their user ID, account ID, or some other
     -- identifier. For the value, specify the name of the variation that they
     -- are to be served.
     entityOverrides :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Specify @ALL_RULES@ to activate the traffic allocation specified by any
+    -- ongoing launches or experiments. Specify @DEFAULT_VARIATION@ to serve
+    -- the default variation to all users instead.
+    evaluationStrategy :: Prelude.Maybe FeatureEvaluationStrategy,
     -- | Removes a variation from the feature. If the variation you specify
     -- doesn\'t exist, then this makes no change and does not report an error.
     --
     -- This operation fails if you try to remove a variation that is part of an
     -- ongoing launch or experiment.
     removeVariations :: Prelude.Maybe [Prelude.Text],
-    -- | The name of the variation to use as the default variation. The default
-    -- variation is served to users who are not allocated to any ongoing
-    -- launches or experiments of this feature.
-    defaultVariation :: Prelude.Maybe Prelude.Text,
     -- | The name of the feature to be updated.
     feature :: Prelude.Text,
     -- | The name or ARN of the project that contains the feature to be updated.
@@ -103,17 +103,17 @@ data UpdateFeature = UpdateFeature'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'evaluationStrategy', 'updateFeature_evaluationStrategy' - Specify @ALL_RULES@ to activate the traffic allocation specified by any
--- ongoing launches or experiments. Specify @DEFAULT_VARIATION@ to serve
--- the default variation to all users instead.
---
--- 'description', 'updateFeature_description' - An optional description of the feature.
---
 -- 'addOrUpdateVariations', 'updateFeature_addOrUpdateVariations' - To update variation configurations for this feature, or add new ones,
 -- specify this structure. In this array, include any variations that you
 -- want to add or update. If the array includes a variation name that
 -- already exists for this feature, it is updated. If it includes a new
 -- variation name, it is added as a new variation.
+--
+-- 'defaultVariation', 'updateFeature_defaultVariation' - The name of the variation to use as the default variation. The default
+-- variation is served to users who are not allocated to any ongoing
+-- launches or experiments of this feature.
+--
+-- 'description', 'updateFeature_description' - An optional description of the feature.
 --
 -- 'entityOverrides', 'updateFeature_entityOverrides' - Specified users that should always be served a specific variation of a
 -- feature. Each user is specified by a key-value pair . For each key,
@@ -121,15 +121,15 @@ data UpdateFeature = UpdateFeature'
 -- identifier. For the value, specify the name of the variation that they
 -- are to be served.
 --
+-- 'evaluationStrategy', 'updateFeature_evaluationStrategy' - Specify @ALL_RULES@ to activate the traffic allocation specified by any
+-- ongoing launches or experiments. Specify @DEFAULT_VARIATION@ to serve
+-- the default variation to all users instead.
+--
 -- 'removeVariations', 'updateFeature_removeVariations' - Removes a variation from the feature. If the variation you specify
 -- doesn\'t exist, then this makes no change and does not report an error.
 --
 -- This operation fails if you try to remove a variation that is part of an
 -- ongoing launch or experiment.
---
--- 'defaultVariation', 'updateFeature_defaultVariation' - The name of the variation to use as the default variation. The default
--- variation is served to users who are not allocated to any ongoing
--- launches or experiments of this feature.
 --
 -- 'feature', 'updateFeature_feature' - The name of the feature to be updated.
 --
@@ -142,26 +142,16 @@ newUpdateFeature ::
   UpdateFeature
 newUpdateFeature pFeature_ pProject_ =
   UpdateFeature'
-    { evaluationStrategy =
+    { addOrUpdateVariations =
         Prelude.Nothing,
-      description = Prelude.Nothing,
-      addOrUpdateVariations = Prelude.Nothing,
-      entityOverrides = Prelude.Nothing,
-      removeVariations = Prelude.Nothing,
       defaultVariation = Prelude.Nothing,
+      description = Prelude.Nothing,
+      entityOverrides = Prelude.Nothing,
+      evaluationStrategy = Prelude.Nothing,
+      removeVariations = Prelude.Nothing,
       feature = pFeature_,
       project = pProject_
     }
-
--- | Specify @ALL_RULES@ to activate the traffic allocation specified by any
--- ongoing launches or experiments. Specify @DEFAULT_VARIATION@ to serve
--- the default variation to all users instead.
-updateFeature_evaluationStrategy :: Lens.Lens' UpdateFeature (Prelude.Maybe FeatureEvaluationStrategy)
-updateFeature_evaluationStrategy = Lens.lens (\UpdateFeature' {evaluationStrategy} -> evaluationStrategy) (\s@UpdateFeature' {} a -> s {evaluationStrategy = a} :: UpdateFeature)
-
--- | An optional description of the feature.
-updateFeature_description :: Lens.Lens' UpdateFeature (Prelude.Maybe Prelude.Text)
-updateFeature_description = Lens.lens (\UpdateFeature' {description} -> description) (\s@UpdateFeature' {} a -> s {description = a} :: UpdateFeature)
 
 -- | To update variation configurations for this feature, or add new ones,
 -- specify this structure. In this array, include any variations that you
@@ -171,6 +161,16 @@ updateFeature_description = Lens.lens (\UpdateFeature' {description} -> descript
 updateFeature_addOrUpdateVariations :: Lens.Lens' UpdateFeature (Prelude.Maybe (Prelude.NonEmpty VariationConfig))
 updateFeature_addOrUpdateVariations = Lens.lens (\UpdateFeature' {addOrUpdateVariations} -> addOrUpdateVariations) (\s@UpdateFeature' {} a -> s {addOrUpdateVariations = a} :: UpdateFeature) Prelude.. Lens.mapping Lens.coerced
 
+-- | The name of the variation to use as the default variation. The default
+-- variation is served to users who are not allocated to any ongoing
+-- launches or experiments of this feature.
+updateFeature_defaultVariation :: Lens.Lens' UpdateFeature (Prelude.Maybe Prelude.Text)
+updateFeature_defaultVariation = Lens.lens (\UpdateFeature' {defaultVariation} -> defaultVariation) (\s@UpdateFeature' {} a -> s {defaultVariation = a} :: UpdateFeature)
+
+-- | An optional description of the feature.
+updateFeature_description :: Lens.Lens' UpdateFeature (Prelude.Maybe Prelude.Text)
+updateFeature_description = Lens.lens (\UpdateFeature' {description} -> description) (\s@UpdateFeature' {} a -> s {description = a} :: UpdateFeature)
+
 -- | Specified users that should always be served a specific variation of a
 -- feature. Each user is specified by a key-value pair . For each key,
 -- specify a user by entering their user ID, account ID, or some other
@@ -179,6 +179,12 @@ updateFeature_addOrUpdateVariations = Lens.lens (\UpdateFeature' {addOrUpdateVar
 updateFeature_entityOverrides :: Lens.Lens' UpdateFeature (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 updateFeature_entityOverrides = Lens.lens (\UpdateFeature' {entityOverrides} -> entityOverrides) (\s@UpdateFeature' {} a -> s {entityOverrides = a} :: UpdateFeature) Prelude.. Lens.mapping Lens.coerced
 
+-- | Specify @ALL_RULES@ to activate the traffic allocation specified by any
+-- ongoing launches or experiments. Specify @DEFAULT_VARIATION@ to serve
+-- the default variation to all users instead.
+updateFeature_evaluationStrategy :: Lens.Lens' UpdateFeature (Prelude.Maybe FeatureEvaluationStrategy)
+updateFeature_evaluationStrategy = Lens.lens (\UpdateFeature' {evaluationStrategy} -> evaluationStrategy) (\s@UpdateFeature' {} a -> s {evaluationStrategy = a} :: UpdateFeature)
+
 -- | Removes a variation from the feature. If the variation you specify
 -- doesn\'t exist, then this makes no change and does not report an error.
 --
@@ -186,12 +192,6 @@ updateFeature_entityOverrides = Lens.lens (\UpdateFeature' {entityOverrides} -> 
 -- ongoing launch or experiment.
 updateFeature_removeVariations :: Lens.Lens' UpdateFeature (Prelude.Maybe [Prelude.Text])
 updateFeature_removeVariations = Lens.lens (\UpdateFeature' {removeVariations} -> removeVariations) (\s@UpdateFeature' {} a -> s {removeVariations = a} :: UpdateFeature) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the variation to use as the default variation. The default
--- variation is served to users who are not allocated to any ongoing
--- launches or experiments of this feature.
-updateFeature_defaultVariation :: Lens.Lens' UpdateFeature (Prelude.Maybe Prelude.Text)
-updateFeature_defaultVariation = Lens.lens (\UpdateFeature' {defaultVariation} -> defaultVariation) (\s@UpdateFeature' {} a -> s {defaultVariation = a} :: UpdateFeature)
 
 -- | The name of the feature to be updated.
 updateFeature_feature :: Lens.Lens' UpdateFeature Prelude.Text
@@ -217,23 +217,23 @@ instance Core.AWSRequest UpdateFeature where
 
 instance Prelude.Hashable UpdateFeature where
   hashWithSalt _salt UpdateFeature' {..} =
-    _salt `Prelude.hashWithSalt` evaluationStrategy
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` addOrUpdateVariations
-      `Prelude.hashWithSalt` entityOverrides
-      `Prelude.hashWithSalt` removeVariations
+    _salt `Prelude.hashWithSalt` addOrUpdateVariations
       `Prelude.hashWithSalt` defaultVariation
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` entityOverrides
+      `Prelude.hashWithSalt` evaluationStrategy
+      `Prelude.hashWithSalt` removeVariations
       `Prelude.hashWithSalt` feature
       `Prelude.hashWithSalt` project
 
 instance Prelude.NFData UpdateFeature where
   rnf UpdateFeature' {..} =
-    Prelude.rnf evaluationStrategy
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf addOrUpdateVariations
-      `Prelude.seq` Prelude.rnf entityOverrides
-      `Prelude.seq` Prelude.rnf removeVariations
+    Prelude.rnf addOrUpdateVariations
       `Prelude.seq` Prelude.rnf defaultVariation
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf entityOverrides
+      `Prelude.seq` Prelude.rnf evaluationStrategy
+      `Prelude.seq` Prelude.rnf removeVariations
       `Prelude.seq` Prelude.rnf feature
       `Prelude.seq` Prelude.rnf project
 
@@ -252,17 +252,17 @@ instance Data.ToJSON UpdateFeature where
   toJSON UpdateFeature' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("evaluationStrategy" Data..=)
-              Prelude.<$> evaluationStrategy,
-            ("description" Data..=) Prelude.<$> description,
-            ("addOrUpdateVariations" Data..=)
+          [ ("addOrUpdateVariations" Data..=)
               Prelude.<$> addOrUpdateVariations,
+            ("defaultVariation" Data..=)
+              Prelude.<$> defaultVariation,
+            ("description" Data..=) Prelude.<$> description,
             ("entityOverrides" Data..=)
               Prelude.<$> entityOverrides,
+            ("evaluationStrategy" Data..=)
+              Prelude.<$> evaluationStrategy,
             ("removeVariations" Data..=)
-              Prelude.<$> removeVariations,
-            ("defaultVariation" Data..=)
-              Prelude.<$> defaultVariation
+              Prelude.<$> removeVariations
           ]
       )
 

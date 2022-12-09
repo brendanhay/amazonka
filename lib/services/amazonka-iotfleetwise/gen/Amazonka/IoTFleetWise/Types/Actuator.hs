@@ -34,16 +34,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newActuator' smart constructor.
 data Actuator = Actuator'
-  { -- | The specified possible maximum value of an actuator.
-    max :: Prelude.Maybe Prelude.Double,
-    -- | A brief description of the actuator.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The specified possible minimum value of an actuator.
-    min :: Prelude.Maybe Prelude.Double,
+  { -- | A list of possible values an actuator can take.
+    allowedValues :: Prelude.Maybe [Prelude.Text],
     -- | A specified value for the actuator.
     assignedValue :: Prelude.Maybe Prelude.Text,
-    -- | A list of possible values an actuator can take.
-    allowedValues :: Prelude.Maybe [Prelude.Text],
+    -- | A brief description of the actuator.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The specified possible maximum value of an actuator.
+    max :: Prelude.Maybe Prelude.Double,
+    -- | The specified possible minimum value of an actuator.
+    min :: Prelude.Maybe Prelude.Double,
     -- | The scientific unit for the actuator.
     unit :: Prelude.Maybe Prelude.Text,
     -- | The fully qualified name of the actuator. For example, the fully
@@ -62,15 +62,15 @@ data Actuator = Actuator'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'max', 'actuator_max' - The specified possible maximum value of an actuator.
---
--- 'description', 'actuator_description' - A brief description of the actuator.
---
--- 'min', 'actuator_min' - The specified possible minimum value of an actuator.
+-- 'allowedValues', 'actuator_allowedValues' - A list of possible values an actuator can take.
 --
 -- 'assignedValue', 'actuator_assignedValue' - A specified value for the actuator.
 --
--- 'allowedValues', 'actuator_allowedValues' - A list of possible values an actuator can take.
+-- 'description', 'actuator_description' - A brief description of the actuator.
+--
+-- 'max', 'actuator_max' - The specified possible maximum value of an actuator.
+--
+-- 'min', 'actuator_min' - The specified possible minimum value of an actuator.
 --
 -- 'unit', 'actuator_unit' - The scientific unit for the actuator.
 --
@@ -86,35 +86,35 @@ newActuator ::
   Actuator
 newActuator pFullyQualifiedName_ pDataType_ =
   Actuator'
-    { max = Prelude.Nothing,
-      description = Prelude.Nothing,
-      min = Prelude.Nothing,
+    { allowedValues = Prelude.Nothing,
       assignedValue = Prelude.Nothing,
-      allowedValues = Prelude.Nothing,
+      description = Prelude.Nothing,
+      max = Prelude.Nothing,
+      min = Prelude.Nothing,
       unit = Prelude.Nothing,
       fullyQualifiedName = pFullyQualifiedName_,
       dataType = pDataType_
     }
 
--- | The specified possible maximum value of an actuator.
-actuator_max :: Lens.Lens' Actuator (Prelude.Maybe Prelude.Double)
-actuator_max = Lens.lens (\Actuator' {max} -> max) (\s@Actuator' {} a -> s {max = a} :: Actuator)
-
--- | A brief description of the actuator.
-actuator_description :: Lens.Lens' Actuator (Prelude.Maybe Prelude.Text)
-actuator_description = Lens.lens (\Actuator' {description} -> description) (\s@Actuator' {} a -> s {description = a} :: Actuator)
-
--- | The specified possible minimum value of an actuator.
-actuator_min :: Lens.Lens' Actuator (Prelude.Maybe Prelude.Double)
-actuator_min = Lens.lens (\Actuator' {min} -> min) (\s@Actuator' {} a -> s {min = a} :: Actuator)
+-- | A list of possible values an actuator can take.
+actuator_allowedValues :: Lens.Lens' Actuator (Prelude.Maybe [Prelude.Text])
+actuator_allowedValues = Lens.lens (\Actuator' {allowedValues} -> allowedValues) (\s@Actuator' {} a -> s {allowedValues = a} :: Actuator) Prelude.. Lens.mapping Lens.coerced
 
 -- | A specified value for the actuator.
 actuator_assignedValue :: Lens.Lens' Actuator (Prelude.Maybe Prelude.Text)
 actuator_assignedValue = Lens.lens (\Actuator' {assignedValue} -> assignedValue) (\s@Actuator' {} a -> s {assignedValue = a} :: Actuator)
 
--- | A list of possible values an actuator can take.
-actuator_allowedValues :: Lens.Lens' Actuator (Prelude.Maybe [Prelude.Text])
-actuator_allowedValues = Lens.lens (\Actuator' {allowedValues} -> allowedValues) (\s@Actuator' {} a -> s {allowedValues = a} :: Actuator) Prelude.. Lens.mapping Lens.coerced
+-- | A brief description of the actuator.
+actuator_description :: Lens.Lens' Actuator (Prelude.Maybe Prelude.Text)
+actuator_description = Lens.lens (\Actuator' {description} -> description) (\s@Actuator' {} a -> s {description = a} :: Actuator)
+
+-- | The specified possible maximum value of an actuator.
+actuator_max :: Lens.Lens' Actuator (Prelude.Maybe Prelude.Double)
+actuator_max = Lens.lens (\Actuator' {max} -> max) (\s@Actuator' {} a -> s {max = a} :: Actuator)
+
+-- | The specified possible minimum value of an actuator.
+actuator_min :: Lens.Lens' Actuator (Prelude.Maybe Prelude.Double)
+actuator_min = Lens.lens (\Actuator' {min} -> min) (\s@Actuator' {} a -> s {min = a} :: Actuator)
 
 -- | The scientific unit for the actuator.
 actuator_unit :: Lens.Lens' Actuator (Prelude.Maybe Prelude.Text)
@@ -135,11 +135,11 @@ instance Data.FromJSON Actuator where
       "Actuator"
       ( \x ->
           Actuator'
-            Prelude.<$> (x Data..:? "max")
-            Prelude.<*> (x Data..:? "description")
-            Prelude.<*> (x Data..:? "min")
+            Prelude.<$> (x Data..:? "allowedValues" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "assignedValue")
-            Prelude.<*> (x Data..:? "allowedValues" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "max")
+            Prelude.<*> (x Data..:? "min")
             Prelude.<*> (x Data..:? "unit")
             Prelude.<*> (x Data..: "fullyQualifiedName")
             Prelude.<*> (x Data..: "dataType")
@@ -147,22 +147,22 @@ instance Data.FromJSON Actuator where
 
 instance Prelude.Hashable Actuator where
   hashWithSalt _salt Actuator' {..} =
-    _salt `Prelude.hashWithSalt` max
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` min
+    _salt `Prelude.hashWithSalt` allowedValues
       `Prelude.hashWithSalt` assignedValue
-      `Prelude.hashWithSalt` allowedValues
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` max
+      `Prelude.hashWithSalt` min
       `Prelude.hashWithSalt` unit
       `Prelude.hashWithSalt` fullyQualifiedName
       `Prelude.hashWithSalt` dataType
 
 instance Prelude.NFData Actuator where
   rnf Actuator' {..} =
-    Prelude.rnf max
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf min
+    Prelude.rnf allowedValues
       `Prelude.seq` Prelude.rnf assignedValue
-      `Prelude.seq` Prelude.rnf allowedValues
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf max
+      `Prelude.seq` Prelude.rnf min
       `Prelude.seq` Prelude.rnf unit
       `Prelude.seq` Prelude.rnf fullyQualifiedName
       `Prelude.seq` Prelude.rnf dataType
@@ -171,11 +171,11 @@ instance Data.ToJSON Actuator where
   toJSON Actuator' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("max" Data..=) Prelude.<$> max,
-            ("description" Data..=) Prelude.<$> description,
-            ("min" Data..=) Prelude.<$> min,
+          [ ("allowedValues" Data..=) Prelude.<$> allowedValues,
             ("assignedValue" Data..=) Prelude.<$> assignedValue,
-            ("allowedValues" Data..=) Prelude.<$> allowedValues,
+            ("description" Data..=) Prelude.<$> description,
+            ("max" Data..=) Prelude.<$> max,
+            ("min" Data..=) Prelude.<$> min,
             ("unit" Data..=) Prelude.<$> unit,
             Prelude.Just
               ("fullyQualifiedName" Data..= fullyQualifiedName),

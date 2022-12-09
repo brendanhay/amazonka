@@ -21,41 +21,41 @@ module Amazonka.IoTFleetWise.Lens
 
     -- ** BatchCreateVehicle
     batchCreateVehicle_vehicles,
-    batchCreateVehicleResponse_vehicles,
     batchCreateVehicleResponse_errors,
+    batchCreateVehicleResponse_vehicles,
     batchCreateVehicleResponse_httpStatus,
 
     -- ** BatchUpdateVehicle
     batchUpdateVehicle_vehicles,
-    batchUpdateVehicleResponse_vehicles,
     batchUpdateVehicleResponse_errors,
+    batchUpdateVehicleResponse_vehicles,
     batchUpdateVehicleResponse_httpStatus,
 
     -- ** CreateCampaign
-    createCampaign_tags,
     createCampaign_compression,
     createCampaign_dataExtraDimensions,
-    createCampaign_expiryTime,
-    createCampaign_diagnosticsMode,
     createCampaign_description,
-    createCampaign_spoolingMode,
+    createCampaign_diagnosticsMode,
+    createCampaign_expiryTime,
     createCampaign_postTriggerCollectionDuration,
     createCampaign_priority,
-    createCampaign_startTime,
     createCampaign_signalsToCollect,
+    createCampaign_spoolingMode,
+    createCampaign_startTime,
+    createCampaign_tags,
     createCampaign_name,
     createCampaign_signalCatalogArn,
     createCampaign_targetArn,
     createCampaign_collectionScheme,
-    createCampaignResponse_name,
     createCampaignResponse_arn,
+    createCampaignResponse_name,
     createCampaignResponse_httpStatus,
 
     -- ** CreateDecoderManifest
-    createDecoderManifest_tags,
-    createDecoderManifest_signalDecoders,
     createDecoderManifest_description,
     createDecoderManifest_networkInterfaces,
+    createDecoderManifest_signalDecoders,
+    createDecoderManifest_tags,
     createDecoderManifest_name,
     createDecoderManifest_modelManifestArn,
     createDecoderManifestResponse_httpStatus,
@@ -63,8 +63,8 @@ module Amazonka.IoTFleetWise.Lens
     createDecoderManifestResponse_arn,
 
     -- ** CreateFleet
-    createFleet_tags,
     createFleet_description,
+    createFleet_tags,
     createFleet_fleetId,
     createFleet_signalCatalogArn,
     createFleetResponse_httpStatus,
@@ -72,8 +72,8 @@ module Amazonka.IoTFleetWise.Lens
     createFleetResponse_arn,
 
     -- ** CreateModelManifest
-    createModelManifest_tags,
     createModelManifest_description,
+    createModelManifest_tags,
     createModelManifest_name,
     createModelManifest_nodes,
     createModelManifest_signalCatalogArn,
@@ -82,30 +82,30 @@ module Amazonka.IoTFleetWise.Lens
     createModelManifestResponse_arn,
 
     -- ** CreateSignalCatalog
-    createSignalCatalog_tags,
-    createSignalCatalog_nodes,
     createSignalCatalog_description,
+    createSignalCatalog_nodes,
+    createSignalCatalog_tags,
     createSignalCatalog_name,
     createSignalCatalogResponse_httpStatus,
     createSignalCatalogResponse_name,
     createSignalCatalogResponse_arn,
 
     -- ** CreateVehicle
-    createVehicle_tags,
-    createVehicle_attributes,
     createVehicle_associationBehavior,
+    createVehicle_attributes,
+    createVehicle_tags,
     createVehicle_vehicleName,
     createVehicle_modelManifestArn,
     createVehicle_decoderManifestArn,
-    createVehicleResponse_thingArn,
     createVehicleResponse_arn,
+    createVehicleResponse_thingArn,
     createVehicleResponse_vehicleName,
     createVehicleResponse_httpStatus,
 
     -- ** DeleteCampaign
     deleteCampaign_name,
-    deleteCampaignResponse_name,
     deleteCampaignResponse_arn,
+    deleteCampaignResponse_name,
     deleteCampaignResponse_httpStatus,
 
     -- ** DeleteDecoderManifest
@@ -145,31 +145,31 @@ module Amazonka.IoTFleetWise.Lens
 
     -- ** GetCampaign
     getCampaign_name,
+    getCampaignResponse_arn,
+    getCampaignResponse_collectionScheme,
+    getCampaignResponse_compression,
+    getCampaignResponse_creationTime,
+    getCampaignResponse_dataExtraDimensions,
+    getCampaignResponse_description,
+    getCampaignResponse_diagnosticsMode,
+    getCampaignResponse_expiryTime,
     getCampaignResponse_lastModificationTime,
     getCampaignResponse_name,
-    getCampaignResponse_compression,
-    getCampaignResponse_dataExtraDimensions,
-    getCampaignResponse_expiryTime,
-    getCampaignResponse_targetArn,
-    getCampaignResponse_arn,
-    getCampaignResponse_status,
-    getCampaignResponse_diagnosticsMode,
-    getCampaignResponse_description,
-    getCampaignResponse_spoolingMode,
     getCampaignResponse_postTriggerCollectionDuration,
     getCampaignResponse_priority,
-    getCampaignResponse_creationTime,
     getCampaignResponse_signalCatalogArn,
-    getCampaignResponse_collectionScheme,
-    getCampaignResponse_startTime,
     getCampaignResponse_signalsToCollect,
+    getCampaignResponse_spoolingMode,
+    getCampaignResponse_startTime,
+    getCampaignResponse_status,
+    getCampaignResponse_targetArn,
     getCampaignResponse_httpStatus,
 
     -- ** GetDecoderManifest
     getDecoderManifest_name,
+    getDecoderManifestResponse_description,
     getDecoderManifestResponse_modelManifestArn,
     getDecoderManifestResponse_status,
-    getDecoderManifestResponse_description,
     getDecoderManifestResponse_httpStatus,
     getDecoderManifestResponse_name,
     getDecoderManifestResponse_arn,
@@ -192,9 +192,9 @@ module Amazonka.IoTFleetWise.Lens
 
     -- ** GetModelManifest
     getModelManifest_name,
-    getModelManifestResponse_status,
     getModelManifestResponse_description,
     getModelManifestResponse_signalCatalogArn,
+    getModelManifestResponse_status,
     getModelManifestResponse_httpStatus,
     getModelManifestResponse_name,
     getModelManifestResponse_arn,
@@ -212,8 +212,8 @@ module Amazonka.IoTFleetWise.Lens
 
     -- ** GetSignalCatalog
     getSignalCatalog_name,
-    getSignalCatalogResponse_nodeCounts,
     getSignalCatalogResponse_description,
+    getSignalCatalogResponse_nodeCounts,
     getSignalCatalogResponse_httpStatus,
     getSignalCatalogResponse_name,
     getSignalCatalogResponse_arn,
@@ -222,21 +222,21 @@ module Amazonka.IoTFleetWise.Lens
 
     -- ** GetVehicle
     getVehicle_vehicleName,
+    getVehicleResponse_arn,
+    getVehicleResponse_attributes,
+    getVehicleResponse_creationTime,
+    getVehicleResponse_decoderManifestArn,
     getVehicleResponse_lastModificationTime,
     getVehicleResponse_modelManifestArn,
-    getVehicleResponse_arn,
     getVehicleResponse_vehicleName,
-    getVehicleResponse_creationTime,
-    getVehicleResponse_attributes,
-    getVehicleResponse_decoderManifestArn,
     getVehicleResponse_httpStatus,
 
     -- ** GetVehicleStatus
-    getVehicleStatus_nextToken,
     getVehicleStatus_maxResults,
+    getVehicleStatus_nextToken,
     getVehicleStatus_vehicleName,
-    getVehicleStatusResponse_nextToken,
     getVehicleStatusResponse_campaigns,
+    getVehicleStatusResponse_nextToken,
     getVehicleStatusResponse_httpStatus,
 
     -- ** ImportDecoderManifest
@@ -247,8 +247,8 @@ module Amazonka.IoTFleetWise.Lens
     importDecoderManifestResponse_arn,
 
     -- ** ImportSignalCatalog
-    importSignalCatalog_tags,
     importSignalCatalog_description,
+    importSignalCatalog_tags,
     importSignalCatalog_vss,
     importSignalCatalog_name,
     importSignalCatalogResponse_httpStatus,
@@ -256,79 +256,79 @@ module Amazonka.IoTFleetWise.Lens
     importSignalCatalogResponse_arn,
 
     -- ** ListCampaigns
+    listCampaigns_maxResults,
     listCampaigns_nextToken,
     listCampaigns_status,
-    listCampaigns_maxResults,
     listCampaignsResponse_campaignSummaries,
     listCampaignsResponse_nextToken,
     listCampaignsResponse_httpStatus,
 
     -- ** ListDecoderManifestNetworkInterfaces
-    listDecoderManifestNetworkInterfaces_nextToken,
     listDecoderManifestNetworkInterfaces_maxResults,
+    listDecoderManifestNetworkInterfaces_nextToken,
     listDecoderManifestNetworkInterfaces_name,
-    listDecoderManifestNetworkInterfacesResponse_nextToken,
     listDecoderManifestNetworkInterfacesResponse_networkInterfaces,
+    listDecoderManifestNetworkInterfacesResponse_nextToken,
     listDecoderManifestNetworkInterfacesResponse_httpStatus,
 
     -- ** ListDecoderManifestSignals
-    listDecoderManifestSignals_nextToken,
     listDecoderManifestSignals_maxResults,
+    listDecoderManifestSignals_nextToken,
     listDecoderManifestSignals_name,
     listDecoderManifestSignalsResponse_nextToken,
     listDecoderManifestSignalsResponse_signalDecoders,
     listDecoderManifestSignalsResponse_httpStatus,
 
     -- ** ListDecoderManifests
-    listDecoderManifests_nextToken,
-    listDecoderManifests_modelManifestArn,
     listDecoderManifests_maxResults,
+    listDecoderManifests_modelManifestArn,
+    listDecoderManifests_nextToken,
     listDecoderManifestsResponse_nextToken,
     listDecoderManifestsResponse_summaries,
     listDecoderManifestsResponse_httpStatus,
 
     -- ** ListFleets
-    listFleets_nextToken,
     listFleets_maxResults,
-    listFleetsResponse_nextToken,
+    listFleets_nextToken,
     listFleetsResponse_fleetSummaries,
+    listFleetsResponse_nextToken,
     listFleetsResponse_httpStatus,
 
     -- ** ListFleetsForVehicle
-    listFleetsForVehicle_nextToken,
     listFleetsForVehicle_maxResults,
+    listFleetsForVehicle_nextToken,
     listFleetsForVehicle_vehicleName,
-    listFleetsForVehicleResponse_nextToken,
     listFleetsForVehicleResponse_fleets,
+    listFleetsForVehicleResponse_nextToken,
     listFleetsForVehicleResponse_httpStatus,
 
     -- ** ListModelManifestNodes
-    listModelManifestNodes_nextToken,
     listModelManifestNodes_maxResults,
+    listModelManifestNodes_nextToken,
     listModelManifestNodes_name,
     listModelManifestNodesResponse_nextToken,
     listModelManifestNodesResponse_nodes,
     listModelManifestNodesResponse_httpStatus,
 
     -- ** ListModelManifests
-    listModelManifests_nextToken,
     listModelManifests_maxResults,
+    listModelManifests_nextToken,
     listModelManifests_signalCatalogArn,
     listModelManifestsResponse_nextToken,
     listModelManifestsResponse_summaries,
     listModelManifestsResponse_httpStatus,
 
     -- ** ListSignalCatalogNodes
-    listSignalCatalogNodes_nextToken,
     listSignalCatalogNodes_maxResults,
+    listSignalCatalogNodes_nextToken,
     listSignalCatalogNodes_name,
     listSignalCatalogNodesResponse_nextToken,
     listSignalCatalogNodesResponse_nodes,
     listSignalCatalogNodesResponse_httpStatus,
 
     -- ** ListSignalCatalogs
-    listSignalCatalogs_nextToken,
     listSignalCatalogs_maxResults,
+    listSignalCatalogs_nextToken,
     listSignalCatalogsResponse_nextToken,
     listSignalCatalogsResponse_summaries,
     listSignalCatalogsResponse_httpStatus,
@@ -339,19 +339,19 @@ module Amazonka.IoTFleetWise.Lens
     listTagsForResourceResponse_httpStatus,
 
     -- ** ListVehicles
-    listVehicles_nextToken,
-    listVehicles_modelManifestArn,
     listVehicles_maxResults,
+    listVehicles_modelManifestArn,
+    listVehicles_nextToken,
     listVehiclesResponse_nextToken,
     listVehiclesResponse_vehicleSummaries,
     listVehiclesResponse_httpStatus,
 
     -- ** ListVehiclesInFleet
-    listVehiclesInFleet_nextToken,
     listVehiclesInFleet_maxResults,
+    listVehiclesInFleet_nextToken,
     listVehiclesInFleet_fleetId,
-    listVehiclesInFleetResponse_vehicles,
     listVehiclesInFleetResponse_nextToken,
+    listVehiclesInFleetResponse_vehicles,
     listVehiclesInFleetResponse_httpStatus,
 
     -- ** PutLoggingOptions
@@ -383,20 +383,20 @@ module Amazonka.IoTFleetWise.Lens
     updateCampaign_description,
     updateCampaign_name,
     updateCampaign_action,
-    updateCampaignResponse_name,
     updateCampaignResponse_arn,
+    updateCampaignResponse_name,
     updateCampaignResponse_status,
     updateCampaignResponse_httpStatus,
 
     -- ** UpdateDecoderManifest
-    updateDecoderManifest_networkInterfacesToUpdate,
+    updateDecoderManifest_description,
     updateDecoderManifest_networkInterfacesToAdd,
     updateDecoderManifest_networkInterfacesToRemove,
-    updateDecoderManifest_signalDecodersToUpdate,
+    updateDecoderManifest_networkInterfacesToUpdate,
     updateDecoderManifest_signalDecodersToAdd,
-    updateDecoderManifest_status,
-    updateDecoderManifest_description,
     updateDecoderManifest_signalDecodersToRemove,
+    updateDecoderManifest_signalDecodersToUpdate,
+    updateDecoderManifest_status,
     updateDecoderManifest_name,
     updateDecoderManifestResponse_httpStatus,
     updateDecoderManifestResponse_name,
@@ -410,19 +410,19 @@ module Amazonka.IoTFleetWise.Lens
     updateFleetResponse_httpStatus,
 
     -- ** UpdateModelManifest
-    updateModelManifest_nodesToRemove,
-    updateModelManifest_nodesToAdd,
-    updateModelManifest_status,
     updateModelManifest_description,
+    updateModelManifest_nodesToAdd,
+    updateModelManifest_nodesToRemove,
+    updateModelManifest_status,
     updateModelManifest_name,
     updateModelManifestResponse_httpStatus,
     updateModelManifestResponse_name,
     updateModelManifestResponse_arn,
 
     -- ** UpdateSignalCatalog
-    updateSignalCatalog_nodesToRemove,
-    updateSignalCatalog_nodesToAdd,
     updateSignalCatalog_description,
+    updateSignalCatalog_nodesToAdd,
+    updateSignalCatalog_nodesToRemove,
     updateSignalCatalog_nodesToUpdate,
     updateSignalCatalog_name,
     updateSignalCatalogResponse_httpStatus,
@@ -430,10 +430,10 @@ module Amazonka.IoTFleetWise.Lens
     updateSignalCatalogResponse_arn,
 
     -- ** UpdateVehicle
-    updateVehicle_modelManifestArn,
+    updateVehicle_attributeUpdateMode,
     updateVehicle_attributes,
     updateVehicle_decoderManifestArn,
-    updateVehicle_attributeUpdateMode,
+    updateVehicle_modelManifestArn,
     updateVehicle_vehicleName,
     updateVehicleResponse_arn,
     updateVehicleResponse_vehicleName,
@@ -442,22 +442,22 @@ module Amazonka.IoTFleetWise.Lens
     -- * Types
 
     -- ** Actuator
-    actuator_max,
-    actuator_description,
-    actuator_min,
-    actuator_assignedValue,
     actuator_allowedValues,
+    actuator_assignedValue,
+    actuator_description,
+    actuator_max,
+    actuator_min,
     actuator_unit,
     actuator_fullyQualifiedName,
     actuator_dataType,
 
     -- ** Attribute
-    attribute_max,
+    attribute_allowedValues,
+    attribute_assignedValue,
     attribute_defaultValue,
     attribute_description,
+    attribute_max,
     attribute_min,
-    attribute_assignedValue,
-    attribute_allowedValues,
     attribute_unit,
     attribute_fullyQualifiedName,
     attribute_dataType,
@@ -467,12 +467,12 @@ module Amazonka.IoTFleetWise.Lens
     branch_fullyQualifiedName,
 
     -- ** CampaignSummary
-    campaignSummary_name,
-    campaignSummary_targetArn,
     campaignSummary_arn,
-    campaignSummary_status,
     campaignSummary_description,
+    campaignSummary_name,
     campaignSummary_signalCatalogArn,
+    campaignSummary_status,
+    campaignSummary_targetArn,
     campaignSummary_creationTime,
     campaignSummary_lastModificationTime,
 
@@ -501,8 +501,8 @@ module Amazonka.IoTFleetWise.Lens
     cloudWatchLogDeliveryOptions_logType,
 
     -- ** CollectionScheme
-    collectionScheme_timeBasedCollectionScheme,
     collectionScheme_conditionBasedCollectionScheme,
+    collectionScheme_timeBasedCollectionScheme,
 
     -- ** ConditionBasedCollectionScheme
     conditionBasedCollectionScheme_conditionLanguageVersion,
@@ -511,35 +511,35 @@ module Amazonka.IoTFleetWise.Lens
     conditionBasedCollectionScheme_expression,
 
     -- ** CreateVehicleError
-    createVehicleError_message,
     createVehicleError_code,
+    createVehicleError_message,
     createVehicleError_vehicleName,
 
     -- ** CreateVehicleRequestItem
-    createVehicleRequestItem_tags,
-    createVehicleRequestItem_attributes,
     createVehicleRequestItem_associationBehavior,
+    createVehicleRequestItem_attributes,
+    createVehicleRequestItem_tags,
     createVehicleRequestItem_vehicleName,
     createVehicleRequestItem_modelManifestArn,
     createVehicleRequestItem_decoderManifestArn,
 
     -- ** CreateVehicleResponseItem
-    createVehicleResponseItem_thingArn,
     createVehicleResponseItem_arn,
+    createVehicleResponseItem_thingArn,
     createVehicleResponseItem_vehicleName,
 
     -- ** DecoderManifestSummary
-    decoderManifestSummary_name,
-    decoderManifestSummary_modelManifestArn,
     decoderManifestSummary_arn,
-    decoderManifestSummary_status,
     decoderManifestSummary_description,
+    decoderManifestSummary_modelManifestArn,
+    decoderManifestSummary_name,
+    decoderManifestSummary_status,
     decoderManifestSummary_creationTime,
     decoderManifestSummary_lastModificationTime,
 
     -- ** FleetSummary
-    fleetSummary_lastModificationTime,
     fleetSummary_description,
+    fleetSummary_lastModificationTime,
     fleetSummary_id,
     fleetSummary_arn,
     fleetSummary_signalCatalogArn,
@@ -557,11 +557,11 @@ module Amazonka.IoTFleetWise.Lens
     iamResources_roleArn,
 
     -- ** ModelManifestSummary
-    modelManifestSummary_name,
     modelManifestSummary_arn,
-    modelManifestSummary_status,
     modelManifestSummary_description,
+    modelManifestSummary_name,
     modelManifestSummary_signalCatalogArn,
+    modelManifestSummary_status,
     modelManifestSummary_creationTime,
     modelManifestSummary_lastModificationTime,
 
@@ -569,30 +569,30 @@ module Amazonka.IoTFleetWise.Lens
     networkFileDefinition_canDbc,
 
     -- ** NetworkInterface
-    networkInterface_obdInterface,
     networkInterface_canInterface,
+    networkInterface_obdInterface,
     networkInterface_interfaceId,
     networkInterface_type,
 
     -- ** Node
-    node_branch,
-    node_attribute,
     node_actuator,
+    node_attribute,
+    node_branch,
     node_sensor,
 
     -- ** NodeCounts
-    nodeCounts_totalSensors,
-    nodeCounts_totalNodes,
     nodeCounts_totalActuators,
     nodeCounts_totalAttributes,
     nodeCounts_totalBranches,
+    nodeCounts_totalNodes,
+    nodeCounts_totalSensors,
 
     -- ** ObdInterface
-    obdInterface_pidRequestIntervalSeconds,
-    obdInterface_obdStandard,
-    obdInterface_hasTransmissionEcu,
-    obdInterface_useExtendedIds,
     obdInterface_dtcRequestIntervalSeconds,
+    obdInterface_hasTransmissionEcu,
+    obdInterface_obdStandard,
+    obdInterface_pidRequestIntervalSeconds,
+    obdInterface_useExtendedIds,
     obdInterface_name,
     obdInterface_requestMessageId,
 
@@ -608,19 +608,19 @@ module Amazonka.IoTFleetWise.Lens
     obdSignal_byteLength,
 
     -- ** Sensor
-    sensor_max,
-    sensor_description,
-    sensor_min,
     sensor_allowedValues,
+    sensor_description,
+    sensor_max,
+    sensor_min,
     sensor_unit,
     sensor_fullyQualifiedName,
     sensor_dataType,
 
     -- ** SignalCatalogSummary
-    signalCatalogSummary_lastModificationTime,
-    signalCatalogSummary_name,
     signalCatalogSummary_arn,
     signalCatalogSummary_creationTime,
+    signalCatalogSummary_lastModificationTime,
+    signalCatalogSummary_name,
 
     -- ** SignalDecoder
     signalDecoder_canSignal,
@@ -630,8 +630,8 @@ module Amazonka.IoTFleetWise.Lens
     signalDecoder_interfaceId,
 
     -- ** SignalInformation
-    signalInformation_minimumSamplingIntervalMs,
     signalInformation_maxSampleCount,
+    signalInformation_minimumSamplingIntervalMs,
     signalInformation_name,
 
     -- ** Tag
@@ -643,8 +643,8 @@ module Amazonka.IoTFleetWise.Lens
 
     -- ** TimestreamRegistrationResponse
     timestreamRegistrationResponse_errorMessage,
-    timestreamRegistrationResponse_timestreamTableArn,
     timestreamRegistrationResponse_timestreamDatabaseArn,
+    timestreamRegistrationResponse_timestreamTableArn,
     timestreamRegistrationResponse_timestreamDatabaseName,
     timestreamRegistrationResponse_timestreamTableName,
     timestreamRegistrationResponse_registrationStatus,
@@ -654,15 +654,15 @@ module Amazonka.IoTFleetWise.Lens
     timestreamResources_timestreamTableName,
 
     -- ** UpdateVehicleError
-    updateVehicleError_message,
     updateVehicleError_code,
+    updateVehicleError_message,
     updateVehicleError_vehicleName,
 
     -- ** UpdateVehicleRequestItem
-    updateVehicleRequestItem_modelManifestArn,
+    updateVehicleRequestItem_attributeUpdateMode,
     updateVehicleRequestItem_attributes,
     updateVehicleRequestItem_decoderManifestArn,
-    updateVehicleRequestItem_attributeUpdateMode,
+    updateVehicleRequestItem_modelManifestArn,
     updateVehicleRequestItem_vehicleName,
 
     -- ** UpdateVehicleResponseItem

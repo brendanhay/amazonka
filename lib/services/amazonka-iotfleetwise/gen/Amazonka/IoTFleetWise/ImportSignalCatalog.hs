@@ -28,8 +28,8 @@ module Amazonka.IoTFleetWise.ImportSignalCatalog
     newImportSignalCatalog,
 
     -- * Request Lenses
-    importSignalCatalog_tags,
     importSignalCatalog_description,
+    importSignalCatalog_tags,
     importSignalCatalog_vss,
     importSignalCatalog_name,
 
@@ -54,10 +54,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newImportSignalCatalog' smart constructor.
 data ImportSignalCatalog = ImportSignalCatalog'
-  { -- | Metadata that can be used to manage the signal catalog.
-    tags :: Prelude.Maybe [Tag],
-    -- | A brief description of the signal catalog.
+  { -- | A brief description of the signal catalog.
     description :: Prelude.Maybe Prelude.Text,
+    -- | Metadata that can be used to manage the signal catalog.
+    tags :: Prelude.Maybe [Tag],
     -- | The contents of the Vehicle Signal Specification (VSS) configuration.
     -- VSS is a precise language used to describe and model signals in vehicle
     -- networks.
@@ -75,9 +75,9 @@ data ImportSignalCatalog = ImportSignalCatalog'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'importSignalCatalog_tags' - Metadata that can be used to manage the signal catalog.
---
 -- 'description', 'importSignalCatalog_description' - A brief description of the signal catalog.
+--
+-- 'tags', 'importSignalCatalog_tags' - Metadata that can be used to manage the signal catalog.
 --
 -- 'vss', 'importSignalCatalog_vss' - The contents of the Vehicle Signal Specification (VSS) configuration.
 -- VSS is a precise language used to describe and model signals in vehicle
@@ -90,19 +90,19 @@ newImportSignalCatalog ::
   ImportSignalCatalog
 newImportSignalCatalog pName_ =
   ImportSignalCatalog'
-    { tags = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       vss = Prelude.Nothing,
       name = pName_
     }
 
--- | Metadata that can be used to manage the signal catalog.
-importSignalCatalog_tags :: Lens.Lens' ImportSignalCatalog (Prelude.Maybe [Tag])
-importSignalCatalog_tags = Lens.lens (\ImportSignalCatalog' {tags} -> tags) (\s@ImportSignalCatalog' {} a -> s {tags = a} :: ImportSignalCatalog) Prelude.. Lens.mapping Lens.coerced
-
 -- | A brief description of the signal catalog.
 importSignalCatalog_description :: Lens.Lens' ImportSignalCatalog (Prelude.Maybe Prelude.Text)
 importSignalCatalog_description = Lens.lens (\ImportSignalCatalog' {description} -> description) (\s@ImportSignalCatalog' {} a -> s {description = a} :: ImportSignalCatalog)
+
+-- | Metadata that can be used to manage the signal catalog.
+importSignalCatalog_tags :: Lens.Lens' ImportSignalCatalog (Prelude.Maybe [Tag])
+importSignalCatalog_tags = Lens.lens (\ImportSignalCatalog' {tags} -> tags) (\s@ImportSignalCatalog' {} a -> s {tags = a} :: ImportSignalCatalog) Prelude.. Lens.mapping Lens.coerced
 
 -- | The contents of the Vehicle Signal Specification (VSS) configuration.
 -- VSS is a precise language used to describe and model signals in vehicle
@@ -131,15 +131,15 @@ instance Core.AWSRequest ImportSignalCatalog where
 
 instance Prelude.Hashable ImportSignalCatalog where
   hashWithSalt _salt ImportSignalCatalog' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` vss
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData ImportSignalCatalog where
   rnf ImportSignalCatalog' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf vss
       `Prelude.seq` Prelude.rnf name
 
@@ -162,8 +162,8 @@ instance Data.ToJSON ImportSignalCatalog where
   toJSON ImportSignalCatalog' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("description" Data..=) Prelude.<$> description,
+          [ ("description" Data..=) Prelude.<$> description,
+            ("tags" Data..=) Prelude.<$> tags,
             ("vss" Data..=) Prelude.<$> vss,
             Prelude.Just ("name" Data..= name)
           ]

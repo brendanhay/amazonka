@@ -30,18 +30,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newModelManifestSummary' smart constructor.
 data ModelManifestSummary = ModelManifestSummary'
-  { -- | The name of the vehicle model.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the vehicle model.
+  { -- | The Amazon Resource Name (ARN) of the vehicle model.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | A brief description of the vehicle model.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The name of the vehicle model.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the signal catalog associated with the vehicle model.
+    signalCatalogArn :: Prelude.Maybe Prelude.Text,
     -- | The state of the vehicle model. If the status is @ACTIVE@, the vehicle
     -- model can\'t be edited. If the status is @DRAFT@, you can edit the
     -- vehicle model.
     status :: Prelude.Maybe ManifestStatus,
-    -- | A brief description of the vehicle model.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the signal catalog associated with the vehicle model.
-    signalCatalogArn :: Prelude.Maybe Prelude.Text,
     -- | The time the vehicle model was created, in seconds since epoch (January
     -- 1, 1970 at midnight UTC time).
     creationTime :: Data.POSIX,
@@ -59,17 +59,17 @@ data ModelManifestSummary = ModelManifestSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'arn', 'modelManifestSummary_arn' - The Amazon Resource Name (ARN) of the vehicle model.
+--
+-- 'description', 'modelManifestSummary_description' - A brief description of the vehicle model.
+--
 -- 'name', 'modelManifestSummary_name' - The name of the vehicle model.
 --
--- 'arn', 'modelManifestSummary_arn' - The Amazon Resource Name (ARN) of the vehicle model.
+-- 'signalCatalogArn', 'modelManifestSummary_signalCatalogArn' - The ARN of the signal catalog associated with the vehicle model.
 --
 -- 'status', 'modelManifestSummary_status' - The state of the vehicle model. If the status is @ACTIVE@, the vehicle
 -- model can\'t be edited. If the status is @DRAFT@, you can edit the
 -- vehicle model.
---
--- 'description', 'modelManifestSummary_description' - A brief description of the vehicle model.
---
--- 'signalCatalogArn', 'modelManifestSummary_signalCatalogArn' - The ARN of the signal catalog associated with the vehicle model.
 --
 -- 'creationTime', 'modelManifestSummary_creationTime' - The time the vehicle model was created, in seconds since epoch (January
 -- 1, 1970 at midnight UTC time).
@@ -86,37 +86,37 @@ newModelManifestSummary
   pCreationTime_
   pLastModificationTime_ =
     ModelManifestSummary'
-      { name = Prelude.Nothing,
-        arn = Prelude.Nothing,
-        status = Prelude.Nothing,
+      { arn = Prelude.Nothing,
         description = Prelude.Nothing,
+        name = Prelude.Nothing,
         signalCatalogArn = Prelude.Nothing,
+        status = Prelude.Nothing,
         creationTime = Data._Time Lens.# pCreationTime_,
         lastModificationTime =
           Data._Time Lens.# pLastModificationTime_
       }
 
+-- | The Amazon Resource Name (ARN) of the vehicle model.
+modelManifestSummary_arn :: Lens.Lens' ModelManifestSummary (Prelude.Maybe Prelude.Text)
+modelManifestSummary_arn = Lens.lens (\ModelManifestSummary' {arn} -> arn) (\s@ModelManifestSummary' {} a -> s {arn = a} :: ModelManifestSummary)
+
+-- | A brief description of the vehicle model.
+modelManifestSummary_description :: Lens.Lens' ModelManifestSummary (Prelude.Maybe Prelude.Text)
+modelManifestSummary_description = Lens.lens (\ModelManifestSummary' {description} -> description) (\s@ModelManifestSummary' {} a -> s {description = a} :: ModelManifestSummary)
+
 -- | The name of the vehicle model.
 modelManifestSummary_name :: Lens.Lens' ModelManifestSummary (Prelude.Maybe Prelude.Text)
 modelManifestSummary_name = Lens.lens (\ModelManifestSummary' {name} -> name) (\s@ModelManifestSummary' {} a -> s {name = a} :: ModelManifestSummary)
 
--- | The Amazon Resource Name (ARN) of the vehicle model.
-modelManifestSummary_arn :: Lens.Lens' ModelManifestSummary (Prelude.Maybe Prelude.Text)
-modelManifestSummary_arn = Lens.lens (\ModelManifestSummary' {arn} -> arn) (\s@ModelManifestSummary' {} a -> s {arn = a} :: ModelManifestSummary)
+-- | The ARN of the signal catalog associated with the vehicle model.
+modelManifestSummary_signalCatalogArn :: Lens.Lens' ModelManifestSummary (Prelude.Maybe Prelude.Text)
+modelManifestSummary_signalCatalogArn = Lens.lens (\ModelManifestSummary' {signalCatalogArn} -> signalCatalogArn) (\s@ModelManifestSummary' {} a -> s {signalCatalogArn = a} :: ModelManifestSummary)
 
 -- | The state of the vehicle model. If the status is @ACTIVE@, the vehicle
 -- model can\'t be edited. If the status is @DRAFT@, you can edit the
 -- vehicle model.
 modelManifestSummary_status :: Lens.Lens' ModelManifestSummary (Prelude.Maybe ManifestStatus)
 modelManifestSummary_status = Lens.lens (\ModelManifestSummary' {status} -> status) (\s@ModelManifestSummary' {} a -> s {status = a} :: ModelManifestSummary)
-
--- | A brief description of the vehicle model.
-modelManifestSummary_description :: Lens.Lens' ModelManifestSummary (Prelude.Maybe Prelude.Text)
-modelManifestSummary_description = Lens.lens (\ModelManifestSummary' {description} -> description) (\s@ModelManifestSummary' {} a -> s {description = a} :: ModelManifestSummary)
-
--- | The ARN of the signal catalog associated with the vehicle model.
-modelManifestSummary_signalCatalogArn :: Lens.Lens' ModelManifestSummary (Prelude.Maybe Prelude.Text)
-modelManifestSummary_signalCatalogArn = Lens.lens (\ModelManifestSummary' {signalCatalogArn} -> signalCatalogArn) (\s@ModelManifestSummary' {} a -> s {signalCatalogArn = a} :: ModelManifestSummary)
 
 -- | The time the vehicle model was created, in seconds since epoch (January
 -- 1, 1970 at midnight UTC time).
@@ -134,31 +134,31 @@ instance Data.FromJSON ModelManifestSummary where
       "ModelManifestSummary"
       ( \x ->
           ModelManifestSummary'
-            Prelude.<$> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "arn")
-            Prelude.<*> (x Data..:? "status")
+            Prelude.<$> (x Data..:? "arn")
             Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "signalCatalogArn")
+            Prelude.<*> (x Data..:? "status")
             Prelude.<*> (x Data..: "creationTime")
             Prelude.<*> (x Data..: "lastModificationTime")
       )
 
 instance Prelude.Hashable ModelManifestSummary where
   hashWithSalt _salt ModelManifestSummary' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` signalCatalogArn
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` lastModificationTime
 
 instance Prelude.NFData ModelManifestSummary where
   rnf ModelManifestSummary' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf signalCatalogArn
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf lastModificationTime

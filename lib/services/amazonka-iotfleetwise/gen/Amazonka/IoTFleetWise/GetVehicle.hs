@@ -34,13 +34,13 @@ module Amazonka.IoTFleetWise.GetVehicle
     newGetVehicleResponse,
 
     -- * Response Lenses
+    getVehicleResponse_arn,
+    getVehicleResponse_attributes,
+    getVehicleResponse_creationTime,
+    getVehicleResponse_decoderManifestArn,
     getVehicleResponse_lastModificationTime,
     getVehicleResponse_modelManifestArn,
-    getVehicleResponse_arn,
     getVehicleResponse_vehicleName,
-    getVehicleResponse_creationTime,
-    getVehicleResponse_attributes,
-    getVehicleResponse_decoderManifestArn,
     getVehicleResponse_httpStatus,
   )
 where
@@ -88,13 +88,13 @@ instance Core.AWSRequest GetVehicle where
     Response.receiveJSON
       ( \s h x ->
           GetVehicleResponse'
-            Prelude.<$> (x Data..?> "lastModificationTime")
-            Prelude.<*> (x Data..?> "modelManifestArn")
-            Prelude.<*> (x Data..?> "arn")
-            Prelude.<*> (x Data..?> "vehicleName")
-            Prelude.<*> (x Data..?> "creationTime")
+            Prelude.<$> (x Data..?> "arn")
             Prelude.<*> (x Data..?> "attributes" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "creationTime")
             Prelude.<*> (x Data..?> "decoderManifestArn")
+            Prelude.<*> (x Data..?> "lastModificationTime")
+            Prelude.<*> (x Data..?> "modelManifestArn")
+            Prelude.<*> (x Data..?> "vehicleName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -135,25 +135,25 @@ instance Data.ToQuery GetVehicle where
 
 -- | /See:/ 'newGetVehicleResponse' smart constructor.
 data GetVehicleResponse = GetVehicleResponse'
-  { -- | The time the vehicle was last updated in seconds since epoch (January 1,
-    -- 1970 at midnight UTC time).
-    lastModificationTime :: Prelude.Maybe Data.POSIX,
-    -- | The ARN of a vehicle model (model manifest) associated with the vehicle.
-    modelManifestArn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the vehicle to retrieve information
+  { -- | The Amazon Resource Name (ARN) of the vehicle to retrieve information
     -- about.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the vehicle.
-    vehicleName :: Prelude.Maybe Prelude.Text,
-    -- | The time the vehicle was created in seconds since epoch (January 1, 1970
-    -- at midnight UTC time).
-    creationTime :: Prelude.Maybe Data.POSIX,
     -- | Static information about a vehicle in a key-value pair. For example:
     --
     -- @\"engineType\"@ : @\"1.3 L R2\"@
     attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The time the vehicle was created in seconds since epoch (January 1, 1970
+    -- at midnight UTC time).
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The ARN of a decoder manifest associated with the vehicle.
     decoderManifestArn :: Prelude.Maybe Prelude.Text,
+    -- | The time the vehicle was last updated in seconds since epoch (January 1,
+    -- 1970 at midnight UTC time).
+    lastModificationTime :: Prelude.Maybe Data.POSIX,
+    -- | The ARN of a vehicle model (model manifest) associated with the vehicle.
+    modelManifestArn :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the vehicle.
+    vehicleName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -167,24 +167,24 @@ data GetVehicleResponse = GetVehicleResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastModificationTime', 'getVehicleResponse_lastModificationTime' - The time the vehicle was last updated in seconds since epoch (January 1,
--- 1970 at midnight UTC time).
---
--- 'modelManifestArn', 'getVehicleResponse_modelManifestArn' - The ARN of a vehicle model (model manifest) associated with the vehicle.
---
 -- 'arn', 'getVehicleResponse_arn' - The Amazon Resource Name (ARN) of the vehicle to retrieve information
 -- about.
---
--- 'vehicleName', 'getVehicleResponse_vehicleName' - The ID of the vehicle.
---
--- 'creationTime', 'getVehicleResponse_creationTime' - The time the vehicle was created in seconds since epoch (January 1, 1970
--- at midnight UTC time).
 --
 -- 'attributes', 'getVehicleResponse_attributes' - Static information about a vehicle in a key-value pair. For example:
 --
 -- @\"engineType\"@ : @\"1.3 L R2\"@
 --
+-- 'creationTime', 'getVehicleResponse_creationTime' - The time the vehicle was created in seconds since epoch (January 1, 1970
+-- at midnight UTC time).
+--
 -- 'decoderManifestArn', 'getVehicleResponse_decoderManifestArn' - The ARN of a decoder manifest associated with the vehicle.
+--
+-- 'lastModificationTime', 'getVehicleResponse_lastModificationTime' - The time the vehicle was last updated in seconds since epoch (January 1,
+-- 1970 at midnight UTC time).
+--
+-- 'modelManifestArn', 'getVehicleResponse_modelManifestArn' - The ARN of a vehicle model (model manifest) associated with the vehicle.
+--
+-- 'vehicleName', 'getVehicleResponse_vehicleName' - The ID of the vehicle.
 --
 -- 'httpStatus', 'getVehicleResponse_httpStatus' - The response's http status code.
 newGetVehicleResponse ::
@@ -193,16 +193,35 @@ newGetVehicleResponse ::
   GetVehicleResponse
 newGetVehicleResponse pHttpStatus_ =
   GetVehicleResponse'
-    { lastModificationTime =
-        Prelude.Nothing,
-      modelManifestArn = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      vehicleName = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       attributes = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
       decoderManifestArn = Prelude.Nothing,
+      lastModificationTime = Prelude.Nothing,
+      modelManifestArn = Prelude.Nothing,
+      vehicleName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The Amazon Resource Name (ARN) of the vehicle to retrieve information
+-- about.
+getVehicleResponse_arn :: Lens.Lens' GetVehicleResponse (Prelude.Maybe Prelude.Text)
+getVehicleResponse_arn = Lens.lens (\GetVehicleResponse' {arn} -> arn) (\s@GetVehicleResponse' {} a -> s {arn = a} :: GetVehicleResponse)
+
+-- | Static information about a vehicle in a key-value pair. For example:
+--
+-- @\"engineType\"@ : @\"1.3 L R2\"@
+getVehicleResponse_attributes :: Lens.Lens' GetVehicleResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getVehicleResponse_attributes = Lens.lens (\GetVehicleResponse' {attributes} -> attributes) (\s@GetVehicleResponse' {} a -> s {attributes = a} :: GetVehicleResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The time the vehicle was created in seconds since epoch (January 1, 1970
+-- at midnight UTC time).
+getVehicleResponse_creationTime :: Lens.Lens' GetVehicleResponse (Prelude.Maybe Prelude.UTCTime)
+getVehicleResponse_creationTime = Lens.lens (\GetVehicleResponse' {creationTime} -> creationTime) (\s@GetVehicleResponse' {} a -> s {creationTime = a} :: GetVehicleResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The ARN of a decoder manifest associated with the vehicle.
+getVehicleResponse_decoderManifestArn :: Lens.Lens' GetVehicleResponse (Prelude.Maybe Prelude.Text)
+getVehicleResponse_decoderManifestArn = Lens.lens (\GetVehicleResponse' {decoderManifestArn} -> decoderManifestArn) (\s@GetVehicleResponse' {} a -> s {decoderManifestArn = a} :: GetVehicleResponse)
 
 -- | The time the vehicle was last updated in seconds since epoch (January 1,
 -- 1970 at midnight UTC time).
@@ -213,29 +232,9 @@ getVehicleResponse_lastModificationTime = Lens.lens (\GetVehicleResponse' {lastM
 getVehicleResponse_modelManifestArn :: Lens.Lens' GetVehicleResponse (Prelude.Maybe Prelude.Text)
 getVehicleResponse_modelManifestArn = Lens.lens (\GetVehicleResponse' {modelManifestArn} -> modelManifestArn) (\s@GetVehicleResponse' {} a -> s {modelManifestArn = a} :: GetVehicleResponse)
 
--- | The Amazon Resource Name (ARN) of the vehicle to retrieve information
--- about.
-getVehicleResponse_arn :: Lens.Lens' GetVehicleResponse (Prelude.Maybe Prelude.Text)
-getVehicleResponse_arn = Lens.lens (\GetVehicleResponse' {arn} -> arn) (\s@GetVehicleResponse' {} a -> s {arn = a} :: GetVehicleResponse)
-
 -- | The ID of the vehicle.
 getVehicleResponse_vehicleName :: Lens.Lens' GetVehicleResponse (Prelude.Maybe Prelude.Text)
 getVehicleResponse_vehicleName = Lens.lens (\GetVehicleResponse' {vehicleName} -> vehicleName) (\s@GetVehicleResponse' {} a -> s {vehicleName = a} :: GetVehicleResponse)
-
--- | The time the vehicle was created in seconds since epoch (January 1, 1970
--- at midnight UTC time).
-getVehicleResponse_creationTime :: Lens.Lens' GetVehicleResponse (Prelude.Maybe Prelude.UTCTime)
-getVehicleResponse_creationTime = Lens.lens (\GetVehicleResponse' {creationTime} -> creationTime) (\s@GetVehicleResponse' {} a -> s {creationTime = a} :: GetVehicleResponse) Prelude.. Lens.mapping Data._Time
-
--- | Static information about a vehicle in a key-value pair. For example:
---
--- @\"engineType\"@ : @\"1.3 L R2\"@
-getVehicleResponse_attributes :: Lens.Lens' GetVehicleResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getVehicleResponse_attributes = Lens.lens (\GetVehicleResponse' {attributes} -> attributes) (\s@GetVehicleResponse' {} a -> s {attributes = a} :: GetVehicleResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The ARN of a decoder manifest associated with the vehicle.
-getVehicleResponse_decoderManifestArn :: Lens.Lens' GetVehicleResponse (Prelude.Maybe Prelude.Text)
-getVehicleResponse_decoderManifestArn = Lens.lens (\GetVehicleResponse' {decoderManifestArn} -> decoderManifestArn) (\s@GetVehicleResponse' {} a -> s {decoderManifestArn = a} :: GetVehicleResponse)
 
 -- | The response's http status code.
 getVehicleResponse_httpStatus :: Lens.Lens' GetVehicleResponse Prelude.Int
@@ -243,11 +242,11 @@ getVehicleResponse_httpStatus = Lens.lens (\GetVehicleResponse' {httpStatus} -> 
 
 instance Prelude.NFData GetVehicleResponse where
   rnf GetVehicleResponse' {..} =
-    Prelude.rnf lastModificationTime
-      `Prelude.seq` Prelude.rnf modelManifestArn
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf vehicleName
-      `Prelude.seq` Prelude.rnf creationTime
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf decoderManifestArn
+      `Prelude.seq` Prelude.rnf lastModificationTime
+      `Prelude.seq` Prelude.rnf modelManifestArn
+      `Prelude.seq` Prelude.rnf vehicleName
       `Prelude.seq` Prelude.rnf httpStatus

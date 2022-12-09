@@ -29,17 +29,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newObdInterface' smart constructor.
 data ObdInterface = ObdInterface'
-  { -- | The maximum number message requests per second.
-    pidRequestIntervalSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | The standard OBD II PID.
-    obdStandard :: Prelude.Maybe Prelude.Text,
-    -- | Whether the vehicle has a transmission control module (TCM).
-    hasTransmissionEcu :: Prelude.Maybe Prelude.Bool,
-    -- | Whether to use extended IDs in the message.
-    useExtendedIds :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number message requests per diagnostic trouble code per
+  { -- | The maximum number message requests per diagnostic trouble code per
     -- second.
     dtcRequestIntervalSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | Whether the vehicle has a transmission control module (TCM).
+    hasTransmissionEcu :: Prelude.Maybe Prelude.Bool,
+    -- | The standard OBD II PID.
+    obdStandard :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number message requests per second.
+    pidRequestIntervalSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | Whether to use extended IDs in the message.
+    useExtendedIds :: Prelude.Maybe Prelude.Bool,
     -- | The name of the interface.
     name :: Prelude.Text,
     -- | The ID of the message requesting vehicle data.
@@ -55,16 +55,16 @@ data ObdInterface = ObdInterface'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pidRequestIntervalSeconds', 'obdInterface_pidRequestIntervalSeconds' - The maximum number message requests per second.
---
--- 'obdStandard', 'obdInterface_obdStandard' - The standard OBD II PID.
+-- 'dtcRequestIntervalSeconds', 'obdInterface_dtcRequestIntervalSeconds' - The maximum number message requests per diagnostic trouble code per
+-- second.
 --
 -- 'hasTransmissionEcu', 'obdInterface_hasTransmissionEcu' - Whether the vehicle has a transmission control module (TCM).
 --
--- 'useExtendedIds', 'obdInterface_useExtendedIds' - Whether to use extended IDs in the message.
+-- 'obdStandard', 'obdInterface_obdStandard' - The standard OBD II PID.
 --
--- 'dtcRequestIntervalSeconds', 'obdInterface_dtcRequestIntervalSeconds' - The maximum number message requests per diagnostic trouble code per
--- second.
+-- 'pidRequestIntervalSeconds', 'obdInterface_pidRequestIntervalSeconds' - The maximum number message requests per second.
+--
+-- 'useExtendedIds', 'obdInterface_useExtendedIds' - Whether to use extended IDs in the message.
 --
 -- 'name', 'obdInterface_name' - The name of the interface.
 --
@@ -77,36 +77,36 @@ newObdInterface ::
   ObdInterface
 newObdInterface pName_ pRequestMessageId_ =
   ObdInterface'
-    { pidRequestIntervalSeconds =
+    { dtcRequestIntervalSeconds =
         Prelude.Nothing,
-      obdStandard = Prelude.Nothing,
       hasTransmissionEcu = Prelude.Nothing,
+      obdStandard = Prelude.Nothing,
+      pidRequestIntervalSeconds = Prelude.Nothing,
       useExtendedIds = Prelude.Nothing,
-      dtcRequestIntervalSeconds = Prelude.Nothing,
       name = pName_,
       requestMessageId = pRequestMessageId_
     }
-
--- | The maximum number message requests per second.
-obdInterface_pidRequestIntervalSeconds :: Lens.Lens' ObdInterface (Prelude.Maybe Prelude.Natural)
-obdInterface_pidRequestIntervalSeconds = Lens.lens (\ObdInterface' {pidRequestIntervalSeconds} -> pidRequestIntervalSeconds) (\s@ObdInterface' {} a -> s {pidRequestIntervalSeconds = a} :: ObdInterface)
-
--- | The standard OBD II PID.
-obdInterface_obdStandard :: Lens.Lens' ObdInterface (Prelude.Maybe Prelude.Text)
-obdInterface_obdStandard = Lens.lens (\ObdInterface' {obdStandard} -> obdStandard) (\s@ObdInterface' {} a -> s {obdStandard = a} :: ObdInterface)
-
--- | Whether the vehicle has a transmission control module (TCM).
-obdInterface_hasTransmissionEcu :: Lens.Lens' ObdInterface (Prelude.Maybe Prelude.Bool)
-obdInterface_hasTransmissionEcu = Lens.lens (\ObdInterface' {hasTransmissionEcu} -> hasTransmissionEcu) (\s@ObdInterface' {} a -> s {hasTransmissionEcu = a} :: ObdInterface)
-
--- | Whether to use extended IDs in the message.
-obdInterface_useExtendedIds :: Lens.Lens' ObdInterface (Prelude.Maybe Prelude.Bool)
-obdInterface_useExtendedIds = Lens.lens (\ObdInterface' {useExtendedIds} -> useExtendedIds) (\s@ObdInterface' {} a -> s {useExtendedIds = a} :: ObdInterface)
 
 -- | The maximum number message requests per diagnostic trouble code per
 -- second.
 obdInterface_dtcRequestIntervalSeconds :: Lens.Lens' ObdInterface (Prelude.Maybe Prelude.Natural)
 obdInterface_dtcRequestIntervalSeconds = Lens.lens (\ObdInterface' {dtcRequestIntervalSeconds} -> dtcRequestIntervalSeconds) (\s@ObdInterface' {} a -> s {dtcRequestIntervalSeconds = a} :: ObdInterface)
+
+-- | Whether the vehicle has a transmission control module (TCM).
+obdInterface_hasTransmissionEcu :: Lens.Lens' ObdInterface (Prelude.Maybe Prelude.Bool)
+obdInterface_hasTransmissionEcu = Lens.lens (\ObdInterface' {hasTransmissionEcu} -> hasTransmissionEcu) (\s@ObdInterface' {} a -> s {hasTransmissionEcu = a} :: ObdInterface)
+
+-- | The standard OBD II PID.
+obdInterface_obdStandard :: Lens.Lens' ObdInterface (Prelude.Maybe Prelude.Text)
+obdInterface_obdStandard = Lens.lens (\ObdInterface' {obdStandard} -> obdStandard) (\s@ObdInterface' {} a -> s {obdStandard = a} :: ObdInterface)
+
+-- | The maximum number message requests per second.
+obdInterface_pidRequestIntervalSeconds :: Lens.Lens' ObdInterface (Prelude.Maybe Prelude.Natural)
+obdInterface_pidRequestIntervalSeconds = Lens.lens (\ObdInterface' {pidRequestIntervalSeconds} -> pidRequestIntervalSeconds) (\s@ObdInterface' {} a -> s {pidRequestIntervalSeconds = a} :: ObdInterface)
+
+-- | Whether to use extended IDs in the message.
+obdInterface_useExtendedIds :: Lens.Lens' ObdInterface (Prelude.Maybe Prelude.Bool)
+obdInterface_useExtendedIds = Lens.lens (\ObdInterface' {useExtendedIds} -> useExtendedIds) (\s@ObdInterface' {} a -> s {useExtendedIds = a} :: ObdInterface)
 
 -- | The name of the interface.
 obdInterface_name :: Lens.Lens' ObdInterface Prelude.Text
@@ -122,11 +122,11 @@ instance Data.FromJSON ObdInterface where
       "ObdInterface"
       ( \x ->
           ObdInterface'
-            Prelude.<$> (x Data..:? "pidRequestIntervalSeconds")
-            Prelude.<*> (x Data..:? "obdStandard")
+            Prelude.<$> (x Data..:? "dtcRequestIntervalSeconds")
             Prelude.<*> (x Data..:? "hasTransmissionEcu")
+            Prelude.<*> (x Data..:? "obdStandard")
+            Prelude.<*> (x Data..:? "pidRequestIntervalSeconds")
             Prelude.<*> (x Data..:? "useExtendedIds")
-            Prelude.<*> (x Data..:? "dtcRequestIntervalSeconds")
             Prelude.<*> (x Data..: "name")
             Prelude.<*> (x Data..: "requestMessageId")
       )
@@ -134,21 +134,21 @@ instance Data.FromJSON ObdInterface where
 instance Prelude.Hashable ObdInterface where
   hashWithSalt _salt ObdInterface' {..} =
     _salt
-      `Prelude.hashWithSalt` pidRequestIntervalSeconds
-      `Prelude.hashWithSalt` obdStandard
-      `Prelude.hashWithSalt` hasTransmissionEcu
-      `Prelude.hashWithSalt` useExtendedIds
       `Prelude.hashWithSalt` dtcRequestIntervalSeconds
+      `Prelude.hashWithSalt` hasTransmissionEcu
+      `Prelude.hashWithSalt` obdStandard
+      `Prelude.hashWithSalt` pidRequestIntervalSeconds
+      `Prelude.hashWithSalt` useExtendedIds
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` requestMessageId
 
 instance Prelude.NFData ObdInterface where
   rnf ObdInterface' {..} =
-    Prelude.rnf pidRequestIntervalSeconds
-      `Prelude.seq` Prelude.rnf obdStandard
+    Prelude.rnf dtcRequestIntervalSeconds
       `Prelude.seq` Prelude.rnf hasTransmissionEcu
+      `Prelude.seq` Prelude.rnf obdStandard
+      `Prelude.seq` Prelude.rnf pidRequestIntervalSeconds
       `Prelude.seq` Prelude.rnf useExtendedIds
-      `Prelude.seq` Prelude.rnf dtcRequestIntervalSeconds
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf requestMessageId
 
@@ -156,15 +156,15 @@ instance Data.ToJSON ObdInterface where
   toJSON ObdInterface' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("pidRequestIntervalSeconds" Data..=)
-              Prelude.<$> pidRequestIntervalSeconds,
-            ("obdStandard" Data..=) Prelude.<$> obdStandard,
+          [ ("dtcRequestIntervalSeconds" Data..=)
+              Prelude.<$> dtcRequestIntervalSeconds,
             ("hasTransmissionEcu" Data..=)
               Prelude.<$> hasTransmissionEcu,
+            ("obdStandard" Data..=) Prelude.<$> obdStandard,
+            ("pidRequestIntervalSeconds" Data..=)
+              Prelude.<$> pidRequestIntervalSeconds,
             ("useExtendedIds" Data..=)
               Prelude.<$> useExtendedIds,
-            ("dtcRequestIntervalSeconds" Data..=)
-              Prelude.<$> dtcRequestIntervalSeconds,
             Prelude.Just ("name" Data..= name),
             Prelude.Just
               ("requestMessageId" Data..= requestMessageId)

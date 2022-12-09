@@ -35,8 +35,8 @@ module Amazonka.IoTFleetWise.DeleteCampaign
     newDeleteCampaignResponse,
 
     -- * Response Lenses
-    deleteCampaignResponse_name,
     deleteCampaignResponse_arn,
+    deleteCampaignResponse_name,
     deleteCampaignResponse_httpStatus,
   )
 where
@@ -86,8 +86,8 @@ instance Core.AWSRequest DeleteCampaign where
     Response.receiveJSON
       ( \s h x ->
           DeleteCampaignResponse'
-            Prelude.<$> (x Data..?> "name")
-            Prelude.<*> (x Data..?> "arn")
+            Prelude.<$> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "name")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -128,12 +128,12 @@ instance Data.ToQuery DeleteCampaign where
 
 -- | /See:/ 'newDeleteCampaignResponse' smart constructor.
 data DeleteCampaignResponse = DeleteCampaignResponse'
-  { -- | The name of the deleted campaign.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the deleted campaign.
+  { -- | The Amazon Resource Name (ARN) of the deleted campaign.
     --
     -- The ARN isn’t returned if a campaign doesn’t exist.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the deleted campaign.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -147,11 +147,11 @@ data DeleteCampaignResponse = DeleteCampaignResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'deleteCampaignResponse_name' - The name of the deleted campaign.
---
 -- 'arn', 'deleteCampaignResponse_arn' - The Amazon Resource Name (ARN) of the deleted campaign.
 --
 -- The ARN isn’t returned if a campaign doesn’t exist.
+--
+-- 'name', 'deleteCampaignResponse_name' - The name of the deleted campaign.
 --
 -- 'httpStatus', 'deleteCampaignResponse_httpStatus' - The response's http status code.
 newDeleteCampaignResponse ::
@@ -160,14 +160,10 @@ newDeleteCampaignResponse ::
   DeleteCampaignResponse
 newDeleteCampaignResponse pHttpStatus_ =
   DeleteCampaignResponse'
-    { name = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
+      name = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The name of the deleted campaign.
-deleteCampaignResponse_name :: Lens.Lens' DeleteCampaignResponse (Prelude.Maybe Prelude.Text)
-deleteCampaignResponse_name = Lens.lens (\DeleteCampaignResponse' {name} -> name) (\s@DeleteCampaignResponse' {} a -> s {name = a} :: DeleteCampaignResponse)
 
 -- | The Amazon Resource Name (ARN) of the deleted campaign.
 --
@@ -175,12 +171,16 @@ deleteCampaignResponse_name = Lens.lens (\DeleteCampaignResponse' {name} -> name
 deleteCampaignResponse_arn :: Lens.Lens' DeleteCampaignResponse (Prelude.Maybe Prelude.Text)
 deleteCampaignResponse_arn = Lens.lens (\DeleteCampaignResponse' {arn} -> arn) (\s@DeleteCampaignResponse' {} a -> s {arn = a} :: DeleteCampaignResponse)
 
+-- | The name of the deleted campaign.
+deleteCampaignResponse_name :: Lens.Lens' DeleteCampaignResponse (Prelude.Maybe Prelude.Text)
+deleteCampaignResponse_name = Lens.lens (\DeleteCampaignResponse' {name} -> name) (\s@DeleteCampaignResponse' {} a -> s {name = a} :: DeleteCampaignResponse)
+
 -- | The response's http status code.
 deleteCampaignResponse_httpStatus :: Lens.Lens' DeleteCampaignResponse Prelude.Int
 deleteCampaignResponse_httpStatus = Lens.lens (\DeleteCampaignResponse' {httpStatus} -> httpStatus) (\s@DeleteCampaignResponse' {} a -> s {httpStatus = a} :: DeleteCampaignResponse)
 
 instance Prelude.NFData DeleteCampaignResponse where
   rnf DeleteCampaignResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf httpStatus

@@ -30,14 +30,14 @@ module Amazonka.IoTFleetWise.UpdateDecoderManifest
     newUpdateDecoderManifest,
 
     -- * Request Lenses
-    updateDecoderManifest_networkInterfacesToUpdate,
+    updateDecoderManifest_description,
     updateDecoderManifest_networkInterfacesToAdd,
     updateDecoderManifest_networkInterfacesToRemove,
-    updateDecoderManifest_signalDecodersToUpdate,
+    updateDecoderManifest_networkInterfacesToUpdate,
     updateDecoderManifest_signalDecodersToAdd,
-    updateDecoderManifest_status,
-    updateDecoderManifest_description,
     updateDecoderManifest_signalDecodersToRemove,
+    updateDecoderManifest_signalDecodersToUpdate,
+    updateDecoderManifest_status,
     updateDecoderManifest_name,
 
     -- * Destructuring the Response
@@ -61,28 +61,28 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateDecoderManifest' smart constructor.
 data UpdateDecoderManifest = UpdateDecoderManifest'
-  { -- | A list of information about the network interfaces to update in the
-    -- decoder manifest.
-    networkInterfacesToUpdate :: Prelude.Maybe (Prelude.NonEmpty NetworkInterface),
+  { -- | A brief description of the decoder manifest to update.
+    description :: Prelude.Maybe Prelude.Text,
     -- | A list of information about the network interfaces to add to the decoder
     -- manifest.
     networkInterfacesToAdd :: Prelude.Maybe (Prelude.NonEmpty NetworkInterface),
     -- | A list of network interfaces to remove from the decoder manifest.
     networkInterfacesToRemove :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | A list of updated information about decoding signals to update in the
+    -- | A list of information about the network interfaces to update in the
     -- decoder manifest.
-    signalDecodersToUpdate :: Prelude.Maybe (Prelude.NonEmpty SignalDecoder),
+    networkInterfacesToUpdate :: Prelude.Maybe (Prelude.NonEmpty NetworkInterface),
     -- | A list of information about decoding additional signals to add to the
     -- decoder manifest.
     signalDecodersToAdd :: Prelude.Maybe (Prelude.NonEmpty SignalDecoder),
+    -- | A list of signal decoders to remove from the decoder manifest.
+    signalDecodersToRemove :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | A list of updated information about decoding signals to update in the
+    -- decoder manifest.
+    signalDecodersToUpdate :: Prelude.Maybe (Prelude.NonEmpty SignalDecoder),
     -- | The state of the decoder manifest. If the status is @ACTIVE@, the
     -- decoder manifest can\'t be edited. If the status is @DRAFT@, you can
     -- edit the decoder manifest.
     status :: Prelude.Maybe ManifestStatus,
-    -- | A brief description of the decoder manifest to update.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | A list of signal decoders to remove from the decoder manifest.
-    signalDecodersToRemove :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The name of the decoder manifest to update.
     name :: Prelude.Text
   }
@@ -96,27 +96,27 @@ data UpdateDecoderManifest = UpdateDecoderManifest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'networkInterfacesToUpdate', 'updateDecoderManifest_networkInterfacesToUpdate' - A list of information about the network interfaces to update in the
--- decoder manifest.
+-- 'description', 'updateDecoderManifest_description' - A brief description of the decoder manifest to update.
 --
 -- 'networkInterfacesToAdd', 'updateDecoderManifest_networkInterfacesToAdd' - A list of information about the network interfaces to add to the decoder
 -- manifest.
 --
 -- 'networkInterfacesToRemove', 'updateDecoderManifest_networkInterfacesToRemove' - A list of network interfaces to remove from the decoder manifest.
 --
--- 'signalDecodersToUpdate', 'updateDecoderManifest_signalDecodersToUpdate' - A list of updated information about decoding signals to update in the
+-- 'networkInterfacesToUpdate', 'updateDecoderManifest_networkInterfacesToUpdate' - A list of information about the network interfaces to update in the
 -- decoder manifest.
 --
 -- 'signalDecodersToAdd', 'updateDecoderManifest_signalDecodersToAdd' - A list of information about decoding additional signals to add to the
 -- decoder manifest.
 --
+-- 'signalDecodersToRemove', 'updateDecoderManifest_signalDecodersToRemove' - A list of signal decoders to remove from the decoder manifest.
+--
+-- 'signalDecodersToUpdate', 'updateDecoderManifest_signalDecodersToUpdate' - A list of updated information about decoding signals to update in the
+-- decoder manifest.
+--
 -- 'status', 'updateDecoderManifest_status' - The state of the decoder manifest. If the status is @ACTIVE@, the
 -- decoder manifest can\'t be edited. If the status is @DRAFT@, you can
 -- edit the decoder manifest.
---
--- 'description', 'updateDecoderManifest_description' - A brief description of the decoder manifest to update.
---
--- 'signalDecodersToRemove', 'updateDecoderManifest_signalDecodersToRemove' - A list of signal decoders to remove from the decoder manifest.
 --
 -- 'name', 'updateDecoderManifest_name' - The name of the decoder manifest to update.
 newUpdateDecoderManifest ::
@@ -125,22 +125,21 @@ newUpdateDecoderManifest ::
   UpdateDecoderManifest
 newUpdateDecoderManifest pName_ =
   UpdateDecoderManifest'
-    { networkInterfacesToUpdate =
+    { description =
         Prelude.Nothing,
       networkInterfacesToAdd = Prelude.Nothing,
       networkInterfacesToRemove = Prelude.Nothing,
-      signalDecodersToUpdate = Prelude.Nothing,
+      networkInterfacesToUpdate = Prelude.Nothing,
       signalDecodersToAdd = Prelude.Nothing,
-      status = Prelude.Nothing,
-      description = Prelude.Nothing,
       signalDecodersToRemove = Prelude.Nothing,
+      signalDecodersToUpdate = Prelude.Nothing,
+      status = Prelude.Nothing,
       name = pName_
     }
 
--- | A list of information about the network interfaces to update in the
--- decoder manifest.
-updateDecoderManifest_networkInterfacesToUpdate :: Lens.Lens' UpdateDecoderManifest (Prelude.Maybe (Prelude.NonEmpty NetworkInterface))
-updateDecoderManifest_networkInterfacesToUpdate = Lens.lens (\UpdateDecoderManifest' {networkInterfacesToUpdate} -> networkInterfacesToUpdate) (\s@UpdateDecoderManifest' {} a -> s {networkInterfacesToUpdate = a} :: UpdateDecoderManifest) Prelude.. Lens.mapping Lens.coerced
+-- | A brief description of the decoder manifest to update.
+updateDecoderManifest_description :: Lens.Lens' UpdateDecoderManifest (Prelude.Maybe Prelude.Text)
+updateDecoderManifest_description = Lens.lens (\UpdateDecoderManifest' {description} -> description) (\s@UpdateDecoderManifest' {} a -> s {description = a} :: UpdateDecoderManifest)
 
 -- | A list of information about the network interfaces to add to the decoder
 -- manifest.
@@ -151,29 +150,30 @@ updateDecoderManifest_networkInterfacesToAdd = Lens.lens (\UpdateDecoderManifest
 updateDecoderManifest_networkInterfacesToRemove :: Lens.Lens' UpdateDecoderManifest (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 updateDecoderManifest_networkInterfacesToRemove = Lens.lens (\UpdateDecoderManifest' {networkInterfacesToRemove} -> networkInterfacesToRemove) (\s@UpdateDecoderManifest' {} a -> s {networkInterfacesToRemove = a} :: UpdateDecoderManifest) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of updated information about decoding signals to update in the
+-- | A list of information about the network interfaces to update in the
 -- decoder manifest.
-updateDecoderManifest_signalDecodersToUpdate :: Lens.Lens' UpdateDecoderManifest (Prelude.Maybe (Prelude.NonEmpty SignalDecoder))
-updateDecoderManifest_signalDecodersToUpdate = Lens.lens (\UpdateDecoderManifest' {signalDecodersToUpdate} -> signalDecodersToUpdate) (\s@UpdateDecoderManifest' {} a -> s {signalDecodersToUpdate = a} :: UpdateDecoderManifest) Prelude.. Lens.mapping Lens.coerced
+updateDecoderManifest_networkInterfacesToUpdate :: Lens.Lens' UpdateDecoderManifest (Prelude.Maybe (Prelude.NonEmpty NetworkInterface))
+updateDecoderManifest_networkInterfacesToUpdate = Lens.lens (\UpdateDecoderManifest' {networkInterfacesToUpdate} -> networkInterfacesToUpdate) (\s@UpdateDecoderManifest' {} a -> s {networkInterfacesToUpdate = a} :: UpdateDecoderManifest) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of information about decoding additional signals to add to the
 -- decoder manifest.
 updateDecoderManifest_signalDecodersToAdd :: Lens.Lens' UpdateDecoderManifest (Prelude.Maybe (Prelude.NonEmpty SignalDecoder))
 updateDecoderManifest_signalDecodersToAdd = Lens.lens (\UpdateDecoderManifest' {signalDecodersToAdd} -> signalDecodersToAdd) (\s@UpdateDecoderManifest' {} a -> s {signalDecodersToAdd = a} :: UpdateDecoderManifest) Prelude.. Lens.mapping Lens.coerced
 
+-- | A list of signal decoders to remove from the decoder manifest.
+updateDecoderManifest_signalDecodersToRemove :: Lens.Lens' UpdateDecoderManifest (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+updateDecoderManifest_signalDecodersToRemove = Lens.lens (\UpdateDecoderManifest' {signalDecodersToRemove} -> signalDecodersToRemove) (\s@UpdateDecoderManifest' {} a -> s {signalDecodersToRemove = a} :: UpdateDecoderManifest) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of updated information about decoding signals to update in the
+-- decoder manifest.
+updateDecoderManifest_signalDecodersToUpdate :: Lens.Lens' UpdateDecoderManifest (Prelude.Maybe (Prelude.NonEmpty SignalDecoder))
+updateDecoderManifest_signalDecodersToUpdate = Lens.lens (\UpdateDecoderManifest' {signalDecodersToUpdate} -> signalDecodersToUpdate) (\s@UpdateDecoderManifest' {} a -> s {signalDecodersToUpdate = a} :: UpdateDecoderManifest) Prelude.. Lens.mapping Lens.coerced
+
 -- | The state of the decoder manifest. If the status is @ACTIVE@, the
 -- decoder manifest can\'t be edited. If the status is @DRAFT@, you can
 -- edit the decoder manifest.
 updateDecoderManifest_status :: Lens.Lens' UpdateDecoderManifest (Prelude.Maybe ManifestStatus)
 updateDecoderManifest_status = Lens.lens (\UpdateDecoderManifest' {status} -> status) (\s@UpdateDecoderManifest' {} a -> s {status = a} :: UpdateDecoderManifest)
-
--- | A brief description of the decoder manifest to update.
-updateDecoderManifest_description :: Lens.Lens' UpdateDecoderManifest (Prelude.Maybe Prelude.Text)
-updateDecoderManifest_description = Lens.lens (\UpdateDecoderManifest' {description} -> description) (\s@UpdateDecoderManifest' {} a -> s {description = a} :: UpdateDecoderManifest)
-
--- | A list of signal decoders to remove from the decoder manifest.
-updateDecoderManifest_signalDecodersToRemove :: Lens.Lens' UpdateDecoderManifest (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-updateDecoderManifest_signalDecodersToRemove = Lens.lens (\UpdateDecoderManifest' {signalDecodersToRemove} -> signalDecodersToRemove) (\s@UpdateDecoderManifest' {} a -> s {signalDecodersToRemove = a} :: UpdateDecoderManifest) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the decoder manifest to update.
 updateDecoderManifest_name :: Lens.Lens' UpdateDecoderManifest Prelude.Text
@@ -196,27 +196,26 @@ instance Core.AWSRequest UpdateDecoderManifest where
 
 instance Prelude.Hashable UpdateDecoderManifest where
   hashWithSalt _salt UpdateDecoderManifest' {..} =
-    _salt
-      `Prelude.hashWithSalt` networkInterfacesToUpdate
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` networkInterfacesToAdd
       `Prelude.hashWithSalt` networkInterfacesToRemove
-      `Prelude.hashWithSalt` signalDecodersToUpdate
+      `Prelude.hashWithSalt` networkInterfacesToUpdate
       `Prelude.hashWithSalt` signalDecodersToAdd
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` signalDecodersToRemove
+      `Prelude.hashWithSalt` signalDecodersToUpdate
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData UpdateDecoderManifest where
   rnf UpdateDecoderManifest' {..} =
-    Prelude.rnf networkInterfacesToUpdate
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf networkInterfacesToAdd
       `Prelude.seq` Prelude.rnf networkInterfacesToRemove
-      `Prelude.seq` Prelude.rnf signalDecodersToUpdate
+      `Prelude.seq` Prelude.rnf networkInterfacesToUpdate
       `Prelude.seq` Prelude.rnf signalDecodersToAdd
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf signalDecodersToRemove
+      `Prelude.seq` Prelude.rnf signalDecodersToUpdate
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders UpdateDecoderManifest where
@@ -238,20 +237,20 @@ instance Data.ToJSON UpdateDecoderManifest where
   toJSON UpdateDecoderManifest' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("networkInterfacesToUpdate" Data..=)
-              Prelude.<$> networkInterfacesToUpdate,
+          [ ("description" Data..=) Prelude.<$> description,
             ("networkInterfacesToAdd" Data..=)
               Prelude.<$> networkInterfacesToAdd,
             ("networkInterfacesToRemove" Data..=)
               Prelude.<$> networkInterfacesToRemove,
-            ("signalDecodersToUpdate" Data..=)
-              Prelude.<$> signalDecodersToUpdate,
+            ("networkInterfacesToUpdate" Data..=)
+              Prelude.<$> networkInterfacesToUpdate,
             ("signalDecodersToAdd" Data..=)
               Prelude.<$> signalDecodersToAdd,
-            ("status" Data..=) Prelude.<$> status,
-            ("description" Data..=) Prelude.<$> description,
             ("signalDecodersToRemove" Data..=)
               Prelude.<$> signalDecodersToRemove,
+            ("signalDecodersToUpdate" Data..=)
+              Prelude.<$> signalDecodersToUpdate,
+            ("status" Data..=) Prelude.<$> status,
             Prelude.Just ("name" Data..= name)
           ]
       )

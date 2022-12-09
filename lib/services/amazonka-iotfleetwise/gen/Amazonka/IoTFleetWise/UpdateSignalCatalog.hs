@@ -27,9 +27,9 @@ module Amazonka.IoTFleetWise.UpdateSignalCatalog
     newUpdateSignalCatalog,
 
     -- * Request Lenses
-    updateSignalCatalog_nodesToRemove,
-    updateSignalCatalog_nodesToAdd,
     updateSignalCatalog_description,
+    updateSignalCatalog_nodesToAdd,
+    updateSignalCatalog_nodesToRemove,
     updateSignalCatalog_nodesToUpdate,
     updateSignalCatalog_name,
 
@@ -54,13 +54,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateSignalCatalog' smart constructor.
 data UpdateSignalCatalog = UpdateSignalCatalog'
-  { -- | A list of @fullyQualifiedName@ of nodes to remove from the signal
-    -- catalog.
-    nodesToRemove :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+  { -- | A brief description of the signal catalog to update.
+    description :: Prelude.Maybe Prelude.Text,
     -- | A list of information about nodes to add to the signal catalog.
     nodesToAdd :: Prelude.Maybe [Node],
-    -- | A brief description of the signal catalog to update.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | A list of @fullyQualifiedName@ of nodes to remove from the signal
+    -- catalog.
+    nodesToRemove :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | A list of information about nodes to update in the signal catalog.
     nodesToUpdate :: Prelude.Maybe [Node],
     -- | The name of the signal catalog to update.
@@ -76,12 +76,12 @@ data UpdateSignalCatalog = UpdateSignalCatalog'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nodesToRemove', 'updateSignalCatalog_nodesToRemove' - A list of @fullyQualifiedName@ of nodes to remove from the signal
--- catalog.
+-- 'description', 'updateSignalCatalog_description' - A brief description of the signal catalog to update.
 --
 -- 'nodesToAdd', 'updateSignalCatalog_nodesToAdd' - A list of information about nodes to add to the signal catalog.
 --
--- 'description', 'updateSignalCatalog_description' - A brief description of the signal catalog to update.
+-- 'nodesToRemove', 'updateSignalCatalog_nodesToRemove' - A list of @fullyQualifiedName@ of nodes to remove from the signal
+-- catalog.
 --
 -- 'nodesToUpdate', 'updateSignalCatalog_nodesToUpdate' - A list of information about nodes to update in the signal catalog.
 --
@@ -92,26 +92,25 @@ newUpdateSignalCatalog ::
   UpdateSignalCatalog
 newUpdateSignalCatalog pName_ =
   UpdateSignalCatalog'
-    { nodesToRemove =
-        Prelude.Nothing,
+    { description = Prelude.Nothing,
       nodesToAdd = Prelude.Nothing,
-      description = Prelude.Nothing,
+      nodesToRemove = Prelude.Nothing,
       nodesToUpdate = Prelude.Nothing,
       name = pName_
     }
 
--- | A list of @fullyQualifiedName@ of nodes to remove from the signal
--- catalog.
-updateSignalCatalog_nodesToRemove :: Lens.Lens' UpdateSignalCatalog (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-updateSignalCatalog_nodesToRemove = Lens.lens (\UpdateSignalCatalog' {nodesToRemove} -> nodesToRemove) (\s@UpdateSignalCatalog' {} a -> s {nodesToRemove = a} :: UpdateSignalCatalog) Prelude.. Lens.mapping Lens.coerced
+-- | A brief description of the signal catalog to update.
+updateSignalCatalog_description :: Lens.Lens' UpdateSignalCatalog (Prelude.Maybe Prelude.Text)
+updateSignalCatalog_description = Lens.lens (\UpdateSignalCatalog' {description} -> description) (\s@UpdateSignalCatalog' {} a -> s {description = a} :: UpdateSignalCatalog)
 
 -- | A list of information about nodes to add to the signal catalog.
 updateSignalCatalog_nodesToAdd :: Lens.Lens' UpdateSignalCatalog (Prelude.Maybe [Node])
 updateSignalCatalog_nodesToAdd = Lens.lens (\UpdateSignalCatalog' {nodesToAdd} -> nodesToAdd) (\s@UpdateSignalCatalog' {} a -> s {nodesToAdd = a} :: UpdateSignalCatalog) Prelude.. Lens.mapping Lens.coerced
 
--- | A brief description of the signal catalog to update.
-updateSignalCatalog_description :: Lens.Lens' UpdateSignalCatalog (Prelude.Maybe Prelude.Text)
-updateSignalCatalog_description = Lens.lens (\UpdateSignalCatalog' {description} -> description) (\s@UpdateSignalCatalog' {} a -> s {description = a} :: UpdateSignalCatalog)
+-- | A list of @fullyQualifiedName@ of nodes to remove from the signal
+-- catalog.
+updateSignalCatalog_nodesToRemove :: Lens.Lens' UpdateSignalCatalog (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+updateSignalCatalog_nodesToRemove = Lens.lens (\UpdateSignalCatalog' {nodesToRemove} -> nodesToRemove) (\s@UpdateSignalCatalog' {} a -> s {nodesToRemove = a} :: UpdateSignalCatalog) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of information about nodes to update in the signal catalog.
 updateSignalCatalog_nodesToUpdate :: Lens.Lens' UpdateSignalCatalog (Prelude.Maybe [Node])
@@ -138,17 +137,17 @@ instance Core.AWSRequest UpdateSignalCatalog where
 
 instance Prelude.Hashable UpdateSignalCatalog where
   hashWithSalt _salt UpdateSignalCatalog' {..} =
-    _salt `Prelude.hashWithSalt` nodesToRemove
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` nodesToAdd
-      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` nodesToRemove
       `Prelude.hashWithSalt` nodesToUpdate
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData UpdateSignalCatalog where
   rnf UpdateSignalCatalog' {..} =
-    Prelude.rnf nodesToRemove
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf nodesToAdd
-      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf nodesToRemove
       `Prelude.seq` Prelude.rnf nodesToUpdate
       `Prelude.seq` Prelude.rnf name
 
@@ -171,9 +170,9 @@ instance Data.ToJSON UpdateSignalCatalog where
   toJSON UpdateSignalCatalog' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nodesToRemove" Data..=) Prelude.<$> nodesToRemove,
+          [ ("description" Data..=) Prelude.<$> description,
             ("nodesToAdd" Data..=) Prelude.<$> nodesToAdd,
-            ("description" Data..=) Prelude.<$> description,
+            ("nodesToRemove" Data..=) Prelude.<$> nodesToRemove,
             ("nodesToUpdate" Data..=) Prelude.<$> nodesToUpdate,
             Prelude.Just ("name" Data..= name)
           ]

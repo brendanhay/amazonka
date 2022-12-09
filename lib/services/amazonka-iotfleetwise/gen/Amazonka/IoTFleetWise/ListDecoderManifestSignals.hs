@@ -33,8 +33,8 @@ module Amazonka.IoTFleetWise.ListDecoderManifestSignals
     newListDecoderManifestSignals,
 
     -- * Request Lenses
-    listDecoderManifestSignals_nextToken,
     listDecoderManifestSignals_maxResults,
+    listDecoderManifestSignals_nextToken,
     listDecoderManifestSignals_name,
 
     -- * Destructuring the Response
@@ -58,7 +58,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDecoderManifestSignals' smart constructor.
 data ListDecoderManifestSignals = ListDecoderManifestSignals'
-  { -- | A pagination token for the next set of results.
+  { -- | The maximum number of items to return, between 1 and 100, inclusive.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A pagination token for the next set of results.
     --
     -- If the results of a search are large, only a portion of the results are
     -- returned, and a @nextToken@ pagination token is returned in the
@@ -66,8 +68,6 @@ data ListDecoderManifestSignals = ListDecoderManifestSignals'
     -- request and include the returned token. When all results have been
     -- returned, the response does not contain a pagination token value.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return, between 1 and 100, inclusive.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name of the decoder manifest to list information about.
     name :: Prelude.Text
   }
@@ -81,6 +81,8 @@ data ListDecoderManifestSignals = ListDecoderManifestSignals'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listDecoderManifestSignals_maxResults' - The maximum number of items to return, between 1 and 100, inclusive.
+--
 -- 'nextToken', 'listDecoderManifestSignals_nextToken' - A pagination token for the next set of results.
 --
 -- If the results of a search are large, only a portion of the results are
@@ -89,8 +91,6 @@ data ListDecoderManifestSignals = ListDecoderManifestSignals'
 -- request and include the returned token. When all results have been
 -- returned, the response does not contain a pagination token value.
 --
--- 'maxResults', 'listDecoderManifestSignals_maxResults' - The maximum number of items to return, between 1 and 100, inclusive.
---
 -- 'name', 'listDecoderManifestSignals_name' - The name of the decoder manifest to list information about.
 newListDecoderManifestSignals ::
   -- | 'name'
@@ -98,11 +98,15 @@ newListDecoderManifestSignals ::
   ListDecoderManifestSignals
 newListDecoderManifestSignals pName_ =
   ListDecoderManifestSignals'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       name = pName_
     }
+
+-- | The maximum number of items to return, between 1 and 100, inclusive.
+listDecoderManifestSignals_maxResults :: Lens.Lens' ListDecoderManifestSignals (Prelude.Maybe Prelude.Natural)
+listDecoderManifestSignals_maxResults = Lens.lens (\ListDecoderManifestSignals' {maxResults} -> maxResults) (\s@ListDecoderManifestSignals' {} a -> s {maxResults = a} :: ListDecoderManifestSignals)
 
 -- | A pagination token for the next set of results.
 --
@@ -113,10 +117,6 @@ newListDecoderManifestSignals pName_ =
 -- returned, the response does not contain a pagination token value.
 listDecoderManifestSignals_nextToken :: Lens.Lens' ListDecoderManifestSignals (Prelude.Maybe Prelude.Text)
 listDecoderManifestSignals_nextToken = Lens.lens (\ListDecoderManifestSignals' {nextToken} -> nextToken) (\s@ListDecoderManifestSignals' {} a -> s {nextToken = a} :: ListDecoderManifestSignals)
-
--- | The maximum number of items to return, between 1 and 100, inclusive.
-listDecoderManifestSignals_maxResults :: Lens.Lens' ListDecoderManifestSignals (Prelude.Maybe Prelude.Natural)
-listDecoderManifestSignals_maxResults = Lens.lens (\ListDecoderManifestSignals' {maxResults} -> maxResults) (\s@ListDecoderManifestSignals' {} a -> s {maxResults = a} :: ListDecoderManifestSignals)
 
 -- | The name of the decoder manifest to list information about.
 listDecoderManifestSignals_name :: Lens.Lens' ListDecoderManifestSignals Prelude.Text
@@ -162,14 +162,14 @@ instance Core.AWSRequest ListDecoderManifestSignals where
 
 instance Prelude.Hashable ListDecoderManifestSignals where
   hashWithSalt _salt ListDecoderManifestSignals' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData ListDecoderManifestSignals where
   rnf ListDecoderManifestSignals' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders ListDecoderManifestSignals where
@@ -191,8 +191,8 @@ instance Data.ToJSON ListDecoderManifestSignals where
   toJSON ListDecoderManifestSignals' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("name" Data..= name)
           ]
       )

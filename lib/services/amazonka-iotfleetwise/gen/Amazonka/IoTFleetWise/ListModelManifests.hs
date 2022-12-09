@@ -32,8 +32,8 @@ module Amazonka.IoTFleetWise.ListModelManifests
     newListModelManifests,
 
     -- * Request Lenses
-    listModelManifests_nextToken,
     listModelManifests_maxResults,
+    listModelManifests_nextToken,
     listModelManifests_signalCatalogArn,
 
     -- * Destructuring the Response
@@ -57,7 +57,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListModelManifests' smart constructor.
 data ListModelManifests = ListModelManifests'
-  { -- | A pagination token for the next set of results.
+  { -- | The maximum number of items to return, between 1 and 100, inclusive.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A pagination token for the next set of results.
     --
     -- If the results of a search are large, only a portion of the results are
     -- returned, and a @nextToken@ pagination token is returned in the
@@ -65,8 +67,6 @@ data ListModelManifests = ListModelManifests'
     -- request and include the returned token. When all results have been
     -- returned, the response does not contain a pagination token value.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return, between 1 and 100, inclusive.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ARN of a signal catalog. If you specify a signal catalog, only the
     -- vehicle models associated with it are returned.
     signalCatalogArn :: Prelude.Maybe Prelude.Text
@@ -81,6 +81,8 @@ data ListModelManifests = ListModelManifests'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listModelManifests_maxResults' - The maximum number of items to return, between 1 and 100, inclusive.
+--
 -- 'nextToken', 'listModelManifests_nextToken' - A pagination token for the next set of results.
 --
 -- If the results of a search are large, only a portion of the results are
@@ -89,18 +91,20 @@ data ListModelManifests = ListModelManifests'
 -- request and include the returned token. When all results have been
 -- returned, the response does not contain a pagination token value.
 --
--- 'maxResults', 'listModelManifests_maxResults' - The maximum number of items to return, between 1 and 100, inclusive.
---
 -- 'signalCatalogArn', 'listModelManifests_signalCatalogArn' - The ARN of a signal catalog. If you specify a signal catalog, only the
 -- vehicle models associated with it are returned.
 newListModelManifests ::
   ListModelManifests
 newListModelManifests =
   ListModelManifests'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       signalCatalogArn = Prelude.Nothing
     }
+
+-- | The maximum number of items to return, between 1 and 100, inclusive.
+listModelManifests_maxResults :: Lens.Lens' ListModelManifests (Prelude.Maybe Prelude.Natural)
+listModelManifests_maxResults = Lens.lens (\ListModelManifests' {maxResults} -> maxResults) (\s@ListModelManifests' {} a -> s {maxResults = a} :: ListModelManifests)
 
 -- | A pagination token for the next set of results.
 --
@@ -111,10 +115,6 @@ newListModelManifests =
 -- returned, the response does not contain a pagination token value.
 listModelManifests_nextToken :: Lens.Lens' ListModelManifests (Prelude.Maybe Prelude.Text)
 listModelManifests_nextToken = Lens.lens (\ListModelManifests' {nextToken} -> nextToken) (\s@ListModelManifests' {} a -> s {nextToken = a} :: ListModelManifests)
-
--- | The maximum number of items to return, between 1 and 100, inclusive.
-listModelManifests_maxResults :: Lens.Lens' ListModelManifests (Prelude.Maybe Prelude.Natural)
-listModelManifests_maxResults = Lens.lens (\ListModelManifests' {maxResults} -> maxResults) (\s@ListModelManifests' {} a -> s {maxResults = a} :: ListModelManifests)
 
 -- | The ARN of a signal catalog. If you specify a signal catalog, only the
 -- vehicle models associated with it are returned.
@@ -160,14 +160,14 @@ instance Core.AWSRequest ListModelManifests where
 
 instance Prelude.Hashable ListModelManifests where
   hashWithSalt _salt ListModelManifests' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` signalCatalogArn
 
 instance Prelude.NFData ListModelManifests where
   rnf ListModelManifests' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf signalCatalogArn
 
 instance Data.ToHeaders ListModelManifests where
@@ -189,8 +189,8 @@ instance Data.ToJSON ListModelManifests where
   toJSON ListModelManifests' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             ("signalCatalogArn" Data..=)
               Prelude.<$> signalCatalogArn
           ]

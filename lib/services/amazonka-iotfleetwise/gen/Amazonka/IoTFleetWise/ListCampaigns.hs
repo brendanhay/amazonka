@@ -32,9 +32,9 @@ module Amazonka.IoTFleetWise.ListCampaigns
     newListCampaigns,
 
     -- * Request Lenses
+    listCampaigns_maxResults,
     listCampaigns_nextToken,
     listCampaigns_status,
-    listCampaigns_maxResults,
 
     -- * Destructuring the Response
     ListCampaignsResponse (..),
@@ -57,7 +57,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListCampaigns' smart constructor.
 data ListCampaigns = ListCampaigns'
-  { -- | A pagination token for the next set of results.
+  { -- | The maximum number of items to return, between 1 and 100, inclusive.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A pagination token for the next set of results.
     --
     -- If the results of a search are large, only a portion of the results are
     -- returned, and a @nextToken@ pagination token is returned in the
@@ -68,9 +70,7 @@ data ListCampaigns = ListCampaigns'
     -- | Optional parameter to filter the results by the status of each created
     -- campaign in your account. The status can be one of: @CREATING@,
     -- @WAITING_FOR_APPROVAL@, @RUNNING@, or @SUSPENDED@.
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return, between 1 and 100, inclusive.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    status :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,6 +81,8 @@ data ListCampaigns = ListCampaigns'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'maxResults', 'listCampaigns_maxResults' - The maximum number of items to return, between 1 and 100, inclusive.
 --
 -- 'nextToken', 'listCampaigns_nextToken' - A pagination token for the next set of results.
 --
@@ -93,16 +95,18 @@ data ListCampaigns = ListCampaigns'
 -- 'status', 'listCampaigns_status' - Optional parameter to filter the results by the status of each created
 -- campaign in your account. The status can be one of: @CREATING@,
 -- @WAITING_FOR_APPROVAL@, @RUNNING@, or @SUSPENDED@.
---
--- 'maxResults', 'listCampaigns_maxResults' - The maximum number of items to return, between 1 and 100, inclusive.
 newListCampaigns ::
   ListCampaigns
 newListCampaigns =
   ListCampaigns'
-    { nextToken = Prelude.Nothing,
-      status = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      status = Prelude.Nothing
     }
+
+-- | The maximum number of items to return, between 1 and 100, inclusive.
+listCampaigns_maxResults :: Lens.Lens' ListCampaigns (Prelude.Maybe Prelude.Natural)
+listCampaigns_maxResults = Lens.lens (\ListCampaigns' {maxResults} -> maxResults) (\s@ListCampaigns' {} a -> s {maxResults = a} :: ListCampaigns)
 
 -- | A pagination token for the next set of results.
 --
@@ -119,10 +123,6 @@ listCampaigns_nextToken = Lens.lens (\ListCampaigns' {nextToken} -> nextToken) (
 -- @WAITING_FOR_APPROVAL@, @RUNNING@, or @SUSPENDED@.
 listCampaigns_status :: Lens.Lens' ListCampaigns (Prelude.Maybe Prelude.Text)
 listCampaigns_status = Lens.lens (\ListCampaigns' {status} -> status) (\s@ListCampaigns' {} a -> s {status = a} :: ListCampaigns)
-
--- | The maximum number of items to return, between 1 and 100, inclusive.
-listCampaigns_maxResults :: Lens.Lens' ListCampaigns (Prelude.Maybe Prelude.Natural)
-listCampaigns_maxResults = Lens.lens (\ListCampaigns' {maxResults} -> maxResults) (\s@ListCampaigns' {} a -> s {maxResults = a} :: ListCampaigns)
 
 instance Core.AWSPager ListCampaigns where
   page rq rs
@@ -163,15 +163,15 @@ instance Core.AWSRequest ListCampaigns where
 
 instance Prelude.Hashable ListCampaigns where
   hashWithSalt _salt ListCampaigns' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListCampaigns where
   rnf ListCampaigns' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf maxResults
 
 instance Data.ToHeaders ListCampaigns where
   toHeaders =
@@ -192,9 +192,9 @@ instance Data.ToJSON ListCampaigns where
   toJSON ListCampaigns' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("status" Data..=) Prelude.<$> status,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("status" Data..=) Prelude.<$> status
           ]
       )
 

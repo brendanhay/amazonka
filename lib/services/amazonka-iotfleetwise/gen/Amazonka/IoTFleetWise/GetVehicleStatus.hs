@@ -30,8 +30,8 @@ module Amazonka.IoTFleetWise.GetVehicleStatus
     newGetVehicleStatus,
 
     -- * Request Lenses
-    getVehicleStatus_nextToken,
     getVehicleStatus_maxResults,
+    getVehicleStatus_nextToken,
     getVehicleStatus_vehicleName,
 
     -- * Destructuring the Response
@@ -39,8 +39,8 @@ module Amazonka.IoTFleetWise.GetVehicleStatus
     newGetVehicleStatusResponse,
 
     -- * Response Lenses
-    getVehicleStatusResponse_nextToken,
     getVehicleStatusResponse_campaigns,
+    getVehicleStatusResponse_nextToken,
     getVehicleStatusResponse_httpStatus,
   )
 where
@@ -55,7 +55,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetVehicleStatus' smart constructor.
 data GetVehicleStatus = GetVehicleStatus'
-  { -- | A pagination token for the next set of results.
+  { -- | The maximum number of items to return, between 1 and 100, inclusive.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A pagination token for the next set of results.
     --
     -- If the results of a search are large, only a portion of the results are
     -- returned, and a @nextToken@ pagination token is returned in the
@@ -63,8 +65,6 @@ data GetVehicleStatus = GetVehicleStatus'
     -- request and include the returned token. When all results have been
     -- returned, the response does not contain a pagination token value.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return, between 1 and 100, inclusive.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the vehicle to retrieve information about.
     vehicleName :: Prelude.Text
   }
@@ -78,6 +78,8 @@ data GetVehicleStatus = GetVehicleStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'getVehicleStatus_maxResults' - The maximum number of items to return, between 1 and 100, inclusive.
+--
 -- 'nextToken', 'getVehicleStatus_nextToken' - A pagination token for the next set of results.
 --
 -- If the results of a search are large, only a portion of the results are
@@ -86,8 +88,6 @@ data GetVehicleStatus = GetVehicleStatus'
 -- request and include the returned token. When all results have been
 -- returned, the response does not contain a pagination token value.
 --
--- 'maxResults', 'getVehicleStatus_maxResults' - The maximum number of items to return, between 1 and 100, inclusive.
---
 -- 'vehicleName', 'getVehicleStatus_vehicleName' - The ID of the vehicle to retrieve information about.
 newGetVehicleStatus ::
   -- | 'vehicleName'
@@ -95,10 +95,14 @@ newGetVehicleStatus ::
   GetVehicleStatus
 newGetVehicleStatus pVehicleName_ =
   GetVehicleStatus'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       vehicleName = pVehicleName_
     }
+
+-- | The maximum number of items to return, between 1 and 100, inclusive.
+getVehicleStatus_maxResults :: Lens.Lens' GetVehicleStatus (Prelude.Maybe Prelude.Natural)
+getVehicleStatus_maxResults = Lens.lens (\GetVehicleStatus' {maxResults} -> maxResults) (\s@GetVehicleStatus' {} a -> s {maxResults = a} :: GetVehicleStatus)
 
 -- | A pagination token for the next set of results.
 --
@@ -109,10 +113,6 @@ newGetVehicleStatus pVehicleName_ =
 -- returned, the response does not contain a pagination token value.
 getVehicleStatus_nextToken :: Lens.Lens' GetVehicleStatus (Prelude.Maybe Prelude.Text)
 getVehicleStatus_nextToken = Lens.lens (\GetVehicleStatus' {nextToken} -> nextToken) (\s@GetVehicleStatus' {} a -> s {nextToken = a} :: GetVehicleStatus)
-
--- | The maximum number of items to return, between 1 and 100, inclusive.
-getVehicleStatus_maxResults :: Lens.Lens' GetVehicleStatus (Prelude.Maybe Prelude.Natural)
-getVehicleStatus_maxResults = Lens.lens (\GetVehicleStatus' {maxResults} -> maxResults) (\s@GetVehicleStatus' {} a -> s {maxResults = a} :: GetVehicleStatus)
 
 -- | The ID of the vehicle to retrieve information about.
 getVehicleStatus_vehicleName :: Lens.Lens' GetVehicleStatus Prelude.Text
@@ -150,21 +150,21 @@ instance Core.AWSRequest GetVehicleStatus where
     Response.receiveJSON
       ( \s h x ->
           GetVehicleStatusResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "campaigns" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "campaigns" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetVehicleStatus where
   hashWithSalt _salt GetVehicleStatus' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` vehicleName
 
 instance Prelude.NFData GetVehicleStatus where
   rnf GetVehicleStatus' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf vehicleName
 
 instance Data.ToHeaders GetVehicleStatus where
@@ -186,8 +186,8 @@ instance Data.ToJSON GetVehicleStatus where
   toJSON GetVehicleStatus' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("vehicleName" Data..= vehicleName)
           ]
       )
@@ -200,12 +200,12 @@ instance Data.ToQuery GetVehicleStatus where
 
 -- | /See:/ 'newGetVehicleStatusResponse' smart constructor.
 data GetVehicleStatusResponse = GetVehicleStatusResponse'
-  { -- | The token to retrieve the next set of results, or @null@ if there are no
-    -- more results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Lists information about the state of the vehicle with deployed
+  { -- | Lists information about the state of the vehicle with deployed
     -- campaigns.
     campaigns :: Prelude.Maybe [VehicleStatus],
+    -- | The token to retrieve the next set of results, or @null@ if there are no
+    -- more results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -219,11 +219,11 @@ data GetVehicleStatusResponse = GetVehicleStatusResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getVehicleStatusResponse_nextToken' - The token to retrieve the next set of results, or @null@ if there are no
--- more results.
---
 -- 'campaigns', 'getVehicleStatusResponse_campaigns' - Lists information about the state of the vehicle with deployed
 -- campaigns.
+--
+-- 'nextToken', 'getVehicleStatusResponse_nextToken' - The token to retrieve the next set of results, or @null@ if there are no
+-- more results.
 --
 -- 'httpStatus', 'getVehicleStatusResponse_httpStatus' - The response's http status code.
 newGetVehicleStatusResponse ::
@@ -232,21 +232,21 @@ newGetVehicleStatusResponse ::
   GetVehicleStatusResponse
 newGetVehicleStatusResponse pHttpStatus_ =
   GetVehicleStatusResponse'
-    { nextToken =
+    { campaigns =
         Prelude.Nothing,
-      campaigns = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token to retrieve the next set of results, or @null@ if there are no
--- more results.
-getVehicleStatusResponse_nextToken :: Lens.Lens' GetVehicleStatusResponse (Prelude.Maybe Prelude.Text)
-getVehicleStatusResponse_nextToken = Lens.lens (\GetVehicleStatusResponse' {nextToken} -> nextToken) (\s@GetVehicleStatusResponse' {} a -> s {nextToken = a} :: GetVehicleStatusResponse)
 
 -- | Lists information about the state of the vehicle with deployed
 -- campaigns.
 getVehicleStatusResponse_campaigns :: Lens.Lens' GetVehicleStatusResponse (Prelude.Maybe [VehicleStatus])
 getVehicleStatusResponse_campaigns = Lens.lens (\GetVehicleStatusResponse' {campaigns} -> campaigns) (\s@GetVehicleStatusResponse' {} a -> s {campaigns = a} :: GetVehicleStatusResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token to retrieve the next set of results, or @null@ if there are no
+-- more results.
+getVehicleStatusResponse_nextToken :: Lens.Lens' GetVehicleStatusResponse (Prelude.Maybe Prelude.Text)
+getVehicleStatusResponse_nextToken = Lens.lens (\GetVehicleStatusResponse' {nextToken} -> nextToken) (\s@GetVehicleStatusResponse' {} a -> s {nextToken = a} :: GetVehicleStatusResponse)
 
 -- | The response's http status code.
 getVehicleStatusResponse_httpStatus :: Lens.Lens' GetVehicleStatusResponse Prelude.Int
@@ -254,6 +254,6 @@ getVehicleStatusResponse_httpStatus = Lens.lens (\GetVehicleStatusResponse' {htt
 
 instance Prelude.NFData GetVehicleStatusResponse where
   rnf GetVehicleStatusResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf campaigns
+    Prelude.rnf campaigns
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

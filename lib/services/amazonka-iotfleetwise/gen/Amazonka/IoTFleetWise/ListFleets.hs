@@ -33,16 +33,16 @@ module Amazonka.IoTFleetWise.ListFleets
     newListFleets,
 
     -- * Request Lenses
-    listFleets_nextToken,
     listFleets_maxResults,
+    listFleets_nextToken,
 
     -- * Destructuring the Response
     ListFleetsResponse (..),
     newListFleetsResponse,
 
     -- * Response Lenses
-    listFleetsResponse_nextToken,
     listFleetsResponse_fleetSummaries,
+    listFleetsResponse_nextToken,
     listFleetsResponse_httpStatus,
   )
 where
@@ -57,16 +57,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListFleets' smart constructor.
 data ListFleets = ListFleets'
-  { -- | A pagination token for the next set of results.
+  { -- | The maximum number of items to return, between 1 and 100, inclusive.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A pagination token for the next set of results.
     --
     -- If the results of a search are large, only a portion of the results are
     -- returned, and a @nextToken@ pagination token is returned in the
     -- response. To retrieve the next set of results, reissue the search
     -- request and include the returned token. When all results have been
     -- returned, the response does not contain a pagination token value.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return, between 1 and 100, inclusive.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,6 +78,8 @@ data ListFleets = ListFleets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listFleets_maxResults' - The maximum number of items to return, between 1 and 100, inclusive.
+--
 -- 'nextToken', 'listFleets_nextToken' - A pagination token for the next set of results.
 --
 -- If the results of a search are large, only a portion of the results are
@@ -85,15 +87,17 @@ data ListFleets = ListFleets'
 -- response. To retrieve the next set of results, reissue the search
 -- request and include the returned token. When all results have been
 -- returned, the response does not contain a pagination token value.
---
--- 'maxResults', 'listFleets_maxResults' - The maximum number of items to return, between 1 and 100, inclusive.
 newListFleets ::
   ListFleets
 newListFleets =
   ListFleets'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of items to return, between 1 and 100, inclusive.
+listFleets_maxResults :: Lens.Lens' ListFleets (Prelude.Maybe Prelude.Natural)
+listFleets_maxResults = Lens.lens (\ListFleets' {maxResults} -> maxResults) (\s@ListFleets' {} a -> s {maxResults = a} :: ListFleets)
 
 -- | A pagination token for the next set of results.
 --
@@ -104,10 +108,6 @@ newListFleets =
 -- returned, the response does not contain a pagination token value.
 listFleets_nextToken :: Lens.Lens' ListFleets (Prelude.Maybe Prelude.Text)
 listFleets_nextToken = Lens.lens (\ListFleets' {nextToken} -> nextToken) (\s@ListFleets' {} a -> s {nextToken = a} :: ListFleets)
-
--- | The maximum number of items to return, between 1 and 100, inclusive.
-listFleets_maxResults :: Lens.Lens' ListFleets (Prelude.Maybe Prelude.Natural)
-listFleets_maxResults = Lens.lens (\ListFleets' {maxResults} -> maxResults) (\s@ListFleets' {} a -> s {maxResults = a} :: ListFleets)
 
 instance Core.AWSPager ListFleets where
   page rq rs
@@ -137,20 +137,20 @@ instance Core.AWSRequest ListFleets where
     Response.receiveJSON
       ( \s h x ->
           ListFleetsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "fleetSummaries" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "fleetSummaries" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListFleets where
   hashWithSalt _salt ListFleets' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListFleets where
   rnf ListFleets' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListFleets where
   toHeaders =
@@ -171,8 +171,8 @@ instance Data.ToJSON ListFleets where
   toJSON ListFleets' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -184,11 +184,11 @@ instance Data.ToQuery ListFleets where
 
 -- | /See:/ 'newListFleetsResponse' smart constructor.
 data ListFleetsResponse = ListFleetsResponse'
-  { -- | The token to retrieve the next set of results, or @null@ if there are no
+  { -- | A list of information for each fleet.
+    fleetSummaries :: Prelude.Maybe [FleetSummary],
+    -- | The token to retrieve the next set of results, or @null@ if there are no
     -- more results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of information for each fleet.
-    fleetSummaries :: Prelude.Maybe [FleetSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -202,10 +202,10 @@ data ListFleetsResponse = ListFleetsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'fleetSummaries', 'listFleetsResponse_fleetSummaries' - A list of information for each fleet.
+--
 -- 'nextToken', 'listFleetsResponse_nextToken' - The token to retrieve the next set of results, or @null@ if there are no
 -- more results.
---
--- 'fleetSummaries', 'listFleetsResponse_fleetSummaries' - A list of information for each fleet.
 --
 -- 'httpStatus', 'listFleetsResponse_httpStatus' - The response's http status code.
 newListFleetsResponse ::
@@ -214,19 +214,20 @@ newListFleetsResponse ::
   ListFleetsResponse
 newListFleetsResponse pHttpStatus_ =
   ListFleetsResponse'
-    { nextToken = Prelude.Nothing,
-      fleetSummaries = Prelude.Nothing,
+    { fleetSummaries =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of information for each fleet.
+listFleetsResponse_fleetSummaries :: Lens.Lens' ListFleetsResponse (Prelude.Maybe [FleetSummary])
+listFleetsResponse_fleetSummaries = Lens.lens (\ListFleetsResponse' {fleetSummaries} -> fleetSummaries) (\s@ListFleetsResponse' {} a -> s {fleetSummaries = a} :: ListFleetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to retrieve the next set of results, or @null@ if there are no
 -- more results.
 listFleetsResponse_nextToken :: Lens.Lens' ListFleetsResponse (Prelude.Maybe Prelude.Text)
 listFleetsResponse_nextToken = Lens.lens (\ListFleetsResponse' {nextToken} -> nextToken) (\s@ListFleetsResponse' {} a -> s {nextToken = a} :: ListFleetsResponse)
-
--- | A list of information for each fleet.
-listFleetsResponse_fleetSummaries :: Lens.Lens' ListFleetsResponse (Prelude.Maybe [FleetSummary])
-listFleetsResponse_fleetSummaries = Lens.lens (\ListFleetsResponse' {fleetSummaries} -> fleetSummaries) (\s@ListFleetsResponse' {} a -> s {fleetSummaries = a} :: ListFleetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listFleetsResponse_httpStatus :: Lens.Lens' ListFleetsResponse Prelude.Int
@@ -234,6 +235,6 @@ listFleetsResponse_httpStatus = Lens.lens (\ListFleetsResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListFleetsResponse where
   rnf ListFleetsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf fleetSummaries
+    Prelude.rnf fleetSummaries
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -35,8 +35,8 @@ module Amazonka.IoTFleetWise.ListSignalCatalogs
     newListSignalCatalogs,
 
     -- * Request Lenses
-    listSignalCatalogs_nextToken,
     listSignalCatalogs_maxResults,
+    listSignalCatalogs_nextToken,
 
     -- * Destructuring the Response
     ListSignalCatalogsResponse (..),
@@ -59,16 +59,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListSignalCatalogs' smart constructor.
 data ListSignalCatalogs = ListSignalCatalogs'
-  { -- | A pagination token for the next set of results.
+  { -- | The maximum number of items to return, between 1 and 100, inclusive.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A pagination token for the next set of results.
     --
     -- If the results of a search are large, only a portion of the results are
     -- returned, and a @nextToken@ pagination token is returned in the
     -- response. To retrieve the next set of results, reissue the search
     -- request and include the returned token. When all results have been
     -- returned, the response does not contain a pagination token value.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return, between 1 and 100, inclusive.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,6 +80,8 @@ data ListSignalCatalogs = ListSignalCatalogs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listSignalCatalogs_maxResults' - The maximum number of items to return, between 1 and 100, inclusive.
+--
 -- 'nextToken', 'listSignalCatalogs_nextToken' - A pagination token for the next set of results.
 --
 -- If the results of a search are large, only a portion of the results are
@@ -87,15 +89,17 @@ data ListSignalCatalogs = ListSignalCatalogs'
 -- response. To retrieve the next set of results, reissue the search
 -- request and include the returned token. When all results have been
 -- returned, the response does not contain a pagination token value.
---
--- 'maxResults', 'listSignalCatalogs_maxResults' - The maximum number of items to return, between 1 and 100, inclusive.
 newListSignalCatalogs ::
   ListSignalCatalogs
 newListSignalCatalogs =
   ListSignalCatalogs'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of items to return, between 1 and 100, inclusive.
+listSignalCatalogs_maxResults :: Lens.Lens' ListSignalCatalogs (Prelude.Maybe Prelude.Natural)
+listSignalCatalogs_maxResults = Lens.lens (\ListSignalCatalogs' {maxResults} -> maxResults) (\s@ListSignalCatalogs' {} a -> s {maxResults = a} :: ListSignalCatalogs)
 
 -- | A pagination token for the next set of results.
 --
@@ -106,10 +110,6 @@ newListSignalCatalogs =
 -- returned, the response does not contain a pagination token value.
 listSignalCatalogs_nextToken :: Lens.Lens' ListSignalCatalogs (Prelude.Maybe Prelude.Text)
 listSignalCatalogs_nextToken = Lens.lens (\ListSignalCatalogs' {nextToken} -> nextToken) (\s@ListSignalCatalogs' {} a -> s {nextToken = a} :: ListSignalCatalogs)
-
--- | The maximum number of items to return, between 1 and 100, inclusive.
-listSignalCatalogs_maxResults :: Lens.Lens' ListSignalCatalogs (Prelude.Maybe Prelude.Natural)
-listSignalCatalogs_maxResults = Lens.lens (\ListSignalCatalogs' {maxResults} -> maxResults) (\s@ListSignalCatalogs' {} a -> s {maxResults = a} :: ListSignalCatalogs)
 
 instance Core.AWSPager ListSignalCatalogs where
   page rq rs
@@ -150,13 +150,13 @@ instance Core.AWSRequest ListSignalCatalogs where
 
 instance Prelude.Hashable ListSignalCatalogs where
   hashWithSalt _salt ListSignalCatalogs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListSignalCatalogs where
   rnf ListSignalCatalogs' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListSignalCatalogs where
   toHeaders =
@@ -177,8 +177,8 @@ instance Data.ToJSON ListSignalCatalogs where
   toJSON ListSignalCatalogs' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

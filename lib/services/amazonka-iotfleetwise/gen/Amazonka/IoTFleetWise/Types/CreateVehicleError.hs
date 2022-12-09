@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCreateVehicleError' smart constructor.
 data CreateVehicleError = CreateVehicleError'
-  { -- | A description of the HTTP error.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | An HTTP error code.
+  { -- | An HTTP error code.
     code :: Prelude.Maybe Prelude.Text,
+    -- | A description of the HTTP error.
+    message :: Prelude.Maybe Prelude.Text,
     -- | The ID of the vehicle with the error.
     vehicleName :: Prelude.Maybe Prelude.Text
   }
@@ -45,27 +45,27 @@ data CreateVehicleError = CreateVehicleError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'createVehicleError_message' - A description of the HTTP error.
---
 -- 'code', 'createVehicleError_code' - An HTTP error code.
+--
+-- 'message', 'createVehicleError_message' - A description of the HTTP error.
 --
 -- 'vehicleName', 'createVehicleError_vehicleName' - The ID of the vehicle with the error.
 newCreateVehicleError ::
   CreateVehicleError
 newCreateVehicleError =
   CreateVehicleError'
-    { message = Prelude.Nothing,
-      code = Prelude.Nothing,
+    { code = Prelude.Nothing,
+      message = Prelude.Nothing,
       vehicleName = Prelude.Nothing
     }
-
--- | A description of the HTTP error.
-createVehicleError_message :: Lens.Lens' CreateVehicleError (Prelude.Maybe Prelude.Text)
-createVehicleError_message = Lens.lens (\CreateVehicleError' {message} -> message) (\s@CreateVehicleError' {} a -> s {message = a} :: CreateVehicleError)
 
 -- | An HTTP error code.
 createVehicleError_code :: Lens.Lens' CreateVehicleError (Prelude.Maybe Prelude.Text)
 createVehicleError_code = Lens.lens (\CreateVehicleError' {code} -> code) (\s@CreateVehicleError' {} a -> s {code = a} :: CreateVehicleError)
+
+-- | A description of the HTTP error.
+createVehicleError_message :: Lens.Lens' CreateVehicleError (Prelude.Maybe Prelude.Text)
+createVehicleError_message = Lens.lens (\CreateVehicleError' {message} -> message) (\s@CreateVehicleError' {} a -> s {message = a} :: CreateVehicleError)
 
 -- | The ID of the vehicle with the error.
 createVehicleError_vehicleName :: Lens.Lens' CreateVehicleError (Prelude.Maybe Prelude.Text)
@@ -77,19 +77,19 @@ instance Data.FromJSON CreateVehicleError where
       "CreateVehicleError"
       ( \x ->
           CreateVehicleError'
-            Prelude.<$> (x Data..:? "message")
-            Prelude.<*> (x Data..:? "code")
+            Prelude.<$> (x Data..:? "code")
+            Prelude.<*> (x Data..:? "message")
             Prelude.<*> (x Data..:? "vehicleName")
       )
 
 instance Prelude.Hashable CreateVehicleError where
   hashWithSalt _salt CreateVehicleError' {..} =
-    _salt `Prelude.hashWithSalt` message
-      `Prelude.hashWithSalt` code
+    _salt `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` vehicleName
 
 instance Prelude.NFData CreateVehicleError where
   rnf CreateVehicleError' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf code
+    Prelude.rnf code
+      `Prelude.seq` Prelude.rnf message
       `Prelude.seq` Prelude.rnf vehicleName

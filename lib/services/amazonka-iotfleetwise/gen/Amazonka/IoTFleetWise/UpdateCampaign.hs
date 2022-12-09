@@ -37,8 +37,8 @@ module Amazonka.IoTFleetWise.UpdateCampaign
     newUpdateCampaignResponse,
 
     -- * Response Lenses
-    updateCampaignResponse_name,
     updateCampaignResponse_arn,
+    updateCampaignResponse_name,
     updateCampaignResponse_status,
     updateCampaignResponse_httpStatus,
   )
@@ -157,8 +157,8 @@ instance Core.AWSRequest UpdateCampaign where
     Response.receiveJSON
       ( \s h x ->
           UpdateCampaignResponse'
-            Prelude.<$> (x Data..?> "name")
-            Prelude.<*> (x Data..?> "arn")
+            Prelude.<$> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "name")
             Prelude.<*> (x Data..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -212,10 +212,10 @@ instance Data.ToQuery UpdateCampaign where
 
 -- | /See:/ 'newUpdateCampaignResponse' smart constructor.
 data UpdateCampaignResponse = UpdateCampaignResponse'
-  { -- | The name of the updated campaign.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the campaign.
+  { -- | The Amazon Resource Name (ARN) of the campaign.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the updated campaign.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The state of a campaign. The status can be one of:
     --
     -- -   @CREATING@ - Amazon Web Services IoT FleetWise is processing your
@@ -244,9 +244,9 @@ data UpdateCampaignResponse = UpdateCampaignResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateCampaignResponse_name' - The name of the updated campaign.
---
 -- 'arn', 'updateCampaignResponse_arn' - The Amazon Resource Name (ARN) of the campaign.
+--
+-- 'name', 'updateCampaignResponse_name' - The name of the updated campaign.
 --
 -- 'status', 'updateCampaignResponse_status' - The state of a campaign. The status can be one of:
 --
@@ -270,19 +270,19 @@ newUpdateCampaignResponse ::
   UpdateCampaignResponse
 newUpdateCampaignResponse pHttpStatus_ =
   UpdateCampaignResponse'
-    { name = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
+      name = Prelude.Nothing,
       status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The name of the updated campaign.
-updateCampaignResponse_name :: Lens.Lens' UpdateCampaignResponse (Prelude.Maybe Prelude.Text)
-updateCampaignResponse_name = Lens.lens (\UpdateCampaignResponse' {name} -> name) (\s@UpdateCampaignResponse' {} a -> s {name = a} :: UpdateCampaignResponse)
-
 -- | The Amazon Resource Name (ARN) of the campaign.
 updateCampaignResponse_arn :: Lens.Lens' UpdateCampaignResponse (Prelude.Maybe Prelude.Text)
 updateCampaignResponse_arn = Lens.lens (\UpdateCampaignResponse' {arn} -> arn) (\s@UpdateCampaignResponse' {} a -> s {arn = a} :: UpdateCampaignResponse)
+
+-- | The name of the updated campaign.
+updateCampaignResponse_name :: Lens.Lens' UpdateCampaignResponse (Prelude.Maybe Prelude.Text)
+updateCampaignResponse_name = Lens.lens (\UpdateCampaignResponse' {name} -> name) (\s@UpdateCampaignResponse' {} a -> s {name = a} :: UpdateCampaignResponse)
 
 -- | The state of a campaign. The status can be one of:
 --
@@ -307,7 +307,7 @@ updateCampaignResponse_httpStatus = Lens.lens (\UpdateCampaignResponse' {httpSta
 
 instance Prelude.NFData UpdateCampaignResponse where
   rnf UpdateCampaignResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

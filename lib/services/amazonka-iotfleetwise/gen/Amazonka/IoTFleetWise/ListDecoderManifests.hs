@@ -32,9 +32,9 @@ module Amazonka.IoTFleetWise.ListDecoderManifests
     newListDecoderManifests,
 
     -- * Request Lenses
-    listDecoderManifests_nextToken,
-    listDecoderManifests_modelManifestArn,
     listDecoderManifests_maxResults,
+    listDecoderManifests_modelManifestArn,
+    listDecoderManifests_nextToken,
 
     -- * Destructuring the Response
     ListDecoderManifestsResponse (..),
@@ -57,19 +57,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDecoderManifests' smart constructor.
 data ListDecoderManifests = ListDecoderManifests'
-  { -- | A pagination token for the next set of results.
+  { -- | The maximum number of items to return, between 1 and 100, inclusive.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The Amazon Resource Name (ARN) of a vehicle model (model manifest)
+    -- associated with the decoder manifest.
+    modelManifestArn :: Prelude.Maybe Prelude.Text,
+    -- | A pagination token for the next set of results.
     --
     -- If the results of a search are large, only a portion of the results are
     -- returned, and a @nextToken@ pagination token is returned in the
     -- response. To retrieve the next set of results, reissue the search
     -- request and include the returned token. When all results have been
     -- returned, the response does not contain a pagination token value.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of a vehicle model (model manifest)
-    -- associated with the decoder manifest.
-    modelManifestArn :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return, between 1 and 100, inclusive.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,6 +81,11 @@ data ListDecoderManifests = ListDecoderManifests'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listDecoderManifests_maxResults' - The maximum number of items to return, between 1 and 100, inclusive.
+--
+-- 'modelManifestArn', 'listDecoderManifests_modelManifestArn' - The Amazon Resource Name (ARN) of a vehicle model (model manifest)
+-- associated with the decoder manifest.
+--
 -- 'nextToken', 'listDecoderManifests_nextToken' - A pagination token for the next set of results.
 --
 -- If the results of a search are large, only a portion of the results are
@@ -88,19 +93,23 @@ data ListDecoderManifests = ListDecoderManifests'
 -- response. To retrieve the next set of results, reissue the search
 -- request and include the returned token. When all results have been
 -- returned, the response does not contain a pagination token value.
---
--- 'modelManifestArn', 'listDecoderManifests_modelManifestArn' - The Amazon Resource Name (ARN) of a vehicle model (model manifest)
--- associated with the decoder manifest.
---
--- 'maxResults', 'listDecoderManifests_maxResults' - The maximum number of items to return, between 1 and 100, inclusive.
 newListDecoderManifests ::
   ListDecoderManifests
 newListDecoderManifests =
   ListDecoderManifests'
-    { nextToken = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
       modelManifestArn = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of items to return, between 1 and 100, inclusive.
+listDecoderManifests_maxResults :: Lens.Lens' ListDecoderManifests (Prelude.Maybe Prelude.Natural)
+listDecoderManifests_maxResults = Lens.lens (\ListDecoderManifests' {maxResults} -> maxResults) (\s@ListDecoderManifests' {} a -> s {maxResults = a} :: ListDecoderManifests)
+
+-- | The Amazon Resource Name (ARN) of a vehicle model (model manifest)
+-- associated with the decoder manifest.
+listDecoderManifests_modelManifestArn :: Lens.Lens' ListDecoderManifests (Prelude.Maybe Prelude.Text)
+listDecoderManifests_modelManifestArn = Lens.lens (\ListDecoderManifests' {modelManifestArn} -> modelManifestArn) (\s@ListDecoderManifests' {} a -> s {modelManifestArn = a} :: ListDecoderManifests)
 
 -- | A pagination token for the next set of results.
 --
@@ -111,15 +120,6 @@ newListDecoderManifests =
 -- returned, the response does not contain a pagination token value.
 listDecoderManifests_nextToken :: Lens.Lens' ListDecoderManifests (Prelude.Maybe Prelude.Text)
 listDecoderManifests_nextToken = Lens.lens (\ListDecoderManifests' {nextToken} -> nextToken) (\s@ListDecoderManifests' {} a -> s {nextToken = a} :: ListDecoderManifests)
-
--- | The Amazon Resource Name (ARN) of a vehicle model (model manifest)
--- associated with the decoder manifest.
-listDecoderManifests_modelManifestArn :: Lens.Lens' ListDecoderManifests (Prelude.Maybe Prelude.Text)
-listDecoderManifests_modelManifestArn = Lens.lens (\ListDecoderManifests' {modelManifestArn} -> modelManifestArn) (\s@ListDecoderManifests' {} a -> s {modelManifestArn = a} :: ListDecoderManifests)
-
--- | The maximum number of items to return, between 1 and 100, inclusive.
-listDecoderManifests_maxResults :: Lens.Lens' ListDecoderManifests (Prelude.Maybe Prelude.Natural)
-listDecoderManifests_maxResults = Lens.lens (\ListDecoderManifests' {maxResults} -> maxResults) (\s@ListDecoderManifests' {} a -> s {maxResults = a} :: ListDecoderManifests)
 
 instance Core.AWSPager ListDecoderManifests where
   page rq rs
@@ -160,15 +160,15 @@ instance Core.AWSRequest ListDecoderManifests where
 
 instance Prelude.Hashable ListDecoderManifests where
   hashWithSalt _salt ListDecoderManifests' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` modelManifestArn
-      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListDecoderManifests where
   rnf ListDecoderManifests' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf modelManifestArn
-      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListDecoderManifests where
   toHeaders =
@@ -189,10 +189,10 @@ instance Data.ToJSON ListDecoderManifests where
   toJSON ListDecoderManifests' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
             ("modelManifestArn" Data..=)
               Prelude.<$> modelManifestArn,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

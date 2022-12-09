@@ -33,8 +33,8 @@ module Amazonka.IoTFleetWise.ListModelManifestNodes
     newListModelManifestNodes,
 
     -- * Request Lenses
-    listModelManifestNodes_nextToken,
     listModelManifestNodes_maxResults,
+    listModelManifestNodes_nextToken,
     listModelManifestNodes_name,
 
     -- * Destructuring the Response
@@ -58,7 +58,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListModelManifestNodes' smart constructor.
 data ListModelManifestNodes = ListModelManifestNodes'
-  { -- | A pagination token for the next set of results.
+  { -- | The maximum number of items to return, between 1 and 100, inclusive.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A pagination token for the next set of results.
     --
     -- If the results of a search are large, only a portion of the results are
     -- returned, and a @nextToken@ pagination token is returned in the
@@ -66,8 +68,6 @@ data ListModelManifestNodes = ListModelManifestNodes'
     -- request and include the returned token. When all results have been
     -- returned, the response does not contain a pagination token value.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return, between 1 and 100, inclusive.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name of the vehicle model to list information about.
     name :: Prelude.Text
   }
@@ -81,6 +81,8 @@ data ListModelManifestNodes = ListModelManifestNodes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listModelManifestNodes_maxResults' - The maximum number of items to return, between 1 and 100, inclusive.
+--
 -- 'nextToken', 'listModelManifestNodes_nextToken' - A pagination token for the next set of results.
 --
 -- If the results of a search are large, only a portion of the results are
@@ -89,8 +91,6 @@ data ListModelManifestNodes = ListModelManifestNodes'
 -- request and include the returned token. When all results have been
 -- returned, the response does not contain a pagination token value.
 --
--- 'maxResults', 'listModelManifestNodes_maxResults' - The maximum number of items to return, between 1 and 100, inclusive.
---
 -- 'name', 'listModelManifestNodes_name' - The name of the vehicle model to list information about.
 newListModelManifestNodes ::
   -- | 'name'
@@ -98,11 +98,15 @@ newListModelManifestNodes ::
   ListModelManifestNodes
 newListModelManifestNodes pName_ =
   ListModelManifestNodes'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       name = pName_
     }
+
+-- | The maximum number of items to return, between 1 and 100, inclusive.
+listModelManifestNodes_maxResults :: Lens.Lens' ListModelManifestNodes (Prelude.Maybe Prelude.Natural)
+listModelManifestNodes_maxResults = Lens.lens (\ListModelManifestNodes' {maxResults} -> maxResults) (\s@ListModelManifestNodes' {} a -> s {maxResults = a} :: ListModelManifestNodes)
 
 -- | A pagination token for the next set of results.
 --
@@ -113,10 +117,6 @@ newListModelManifestNodes pName_ =
 -- returned, the response does not contain a pagination token value.
 listModelManifestNodes_nextToken :: Lens.Lens' ListModelManifestNodes (Prelude.Maybe Prelude.Text)
 listModelManifestNodes_nextToken = Lens.lens (\ListModelManifestNodes' {nextToken} -> nextToken) (\s@ListModelManifestNodes' {} a -> s {nextToken = a} :: ListModelManifestNodes)
-
--- | The maximum number of items to return, between 1 and 100, inclusive.
-listModelManifestNodes_maxResults :: Lens.Lens' ListModelManifestNodes (Prelude.Maybe Prelude.Natural)
-listModelManifestNodes_maxResults = Lens.lens (\ListModelManifestNodes' {maxResults} -> maxResults) (\s@ListModelManifestNodes' {} a -> s {maxResults = a} :: ListModelManifestNodes)
 
 -- | The name of the vehicle model to list information about.
 listModelManifestNodes_name :: Lens.Lens' ListModelManifestNodes Prelude.Text
@@ -161,14 +161,14 @@ instance Core.AWSRequest ListModelManifestNodes where
 
 instance Prelude.Hashable ListModelManifestNodes where
   hashWithSalt _salt ListModelManifestNodes' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData ListModelManifestNodes where
   rnf ListModelManifestNodes' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders ListModelManifestNodes where
@@ -190,8 +190,8 @@ instance Data.ToJSON ListModelManifestNodes where
   toJSON ListModelManifestNodes' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("name" Data..= name)
           ]
       )

@@ -37,9 +37,9 @@ module Amazonka.IoTFleetWise.CreateVehicle
     newCreateVehicle,
 
     -- * Request Lenses
-    createVehicle_tags,
-    createVehicle_attributes,
     createVehicle_associationBehavior,
+    createVehicle_attributes,
+    createVehicle_tags,
     createVehicle_vehicleName,
     createVehicle_modelManifestArn,
     createVehicle_decoderManifestArn,
@@ -49,8 +49,8 @@ module Amazonka.IoTFleetWise.CreateVehicle
     newCreateVehicleResponse,
 
     -- * Response Lenses
-    createVehicleResponse_thingArn,
     createVehicleResponse_arn,
+    createVehicleResponse_thingArn,
     createVehicleResponse_vehicleName,
     createVehicleResponse_httpStatus,
   )
@@ -66,17 +66,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateVehicle' smart constructor.
 data CreateVehicle = CreateVehicle'
-  { -- | Metadata that can be used to manage the vehicle.
-    tags :: Prelude.Maybe [Tag],
-    -- | Static information about a vehicle in a key-value pair. For example:
-    -- @\"engineType\"@ : @\"1.3 L R2\"@
-    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | An option to create a new Amazon Web Services IoT thing when creating a
+  { -- | An option to create a new Amazon Web Services IoT thing when creating a
     -- vehicle, or to validate an existing Amazon Web Services IoT thing as a
     -- vehicle.
     --
     -- Default: @@
     associationBehavior :: Prelude.Maybe VehicleAssociationBehavior,
+    -- | Static information about a vehicle in a key-value pair. For example:
+    -- @\"engineType\"@ : @\"1.3 L R2\"@
+    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Metadata that can be used to manage the vehicle.
+    tags :: Prelude.Maybe [Tag],
     -- | The unique ID of the vehicle to create.
     vehicleName :: Prelude.Text,
     -- | The Amazon Resource Name ARN of a vehicle model.
@@ -94,16 +94,16 @@ data CreateVehicle = CreateVehicle'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createVehicle_tags' - Metadata that can be used to manage the vehicle.
---
--- 'attributes', 'createVehicle_attributes' - Static information about a vehicle in a key-value pair. For example:
--- @\"engineType\"@ : @\"1.3 L R2\"@
---
 -- 'associationBehavior', 'createVehicle_associationBehavior' - An option to create a new Amazon Web Services IoT thing when creating a
 -- vehicle, or to validate an existing Amazon Web Services IoT thing as a
 -- vehicle.
 --
 -- Default: @@
+--
+-- 'attributes', 'createVehicle_attributes' - Static information about a vehicle in a key-value pair. For example:
+-- @\"engineType\"@ : @\"1.3 L R2\"@
+--
+-- 'tags', 'createVehicle_tags' - Metadata that can be used to manage the vehicle.
 --
 -- 'vehicleName', 'createVehicle_vehicleName' - The unique ID of the vehicle to create.
 --
@@ -123,22 +123,14 @@ newCreateVehicle
   pModelManifestArn_
   pDecoderManifestArn_ =
     CreateVehicle'
-      { tags = Prelude.Nothing,
+      { associationBehavior =
+          Prelude.Nothing,
         attributes = Prelude.Nothing,
-        associationBehavior = Prelude.Nothing,
+        tags = Prelude.Nothing,
         vehicleName = pVehicleName_,
         modelManifestArn = pModelManifestArn_,
         decoderManifestArn = pDecoderManifestArn_
       }
-
--- | Metadata that can be used to manage the vehicle.
-createVehicle_tags :: Lens.Lens' CreateVehicle (Prelude.Maybe [Tag])
-createVehicle_tags = Lens.lens (\CreateVehicle' {tags} -> tags) (\s@CreateVehicle' {} a -> s {tags = a} :: CreateVehicle) Prelude.. Lens.mapping Lens.coerced
-
--- | Static information about a vehicle in a key-value pair. For example:
--- @\"engineType\"@ : @\"1.3 L R2\"@
-createVehicle_attributes :: Lens.Lens' CreateVehicle (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createVehicle_attributes = Lens.lens (\CreateVehicle' {attributes} -> attributes) (\s@CreateVehicle' {} a -> s {attributes = a} :: CreateVehicle) Prelude.. Lens.mapping Lens.coerced
 
 -- | An option to create a new Amazon Web Services IoT thing when creating a
 -- vehicle, or to validate an existing Amazon Web Services IoT thing as a
@@ -147,6 +139,15 @@ createVehicle_attributes = Lens.lens (\CreateVehicle' {attributes} -> attributes
 -- Default: @@
 createVehicle_associationBehavior :: Lens.Lens' CreateVehicle (Prelude.Maybe VehicleAssociationBehavior)
 createVehicle_associationBehavior = Lens.lens (\CreateVehicle' {associationBehavior} -> associationBehavior) (\s@CreateVehicle' {} a -> s {associationBehavior = a} :: CreateVehicle)
+
+-- | Static information about a vehicle in a key-value pair. For example:
+-- @\"engineType\"@ : @\"1.3 L R2\"@
+createVehicle_attributes :: Lens.Lens' CreateVehicle (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createVehicle_attributes = Lens.lens (\CreateVehicle' {attributes} -> attributes) (\s@CreateVehicle' {} a -> s {attributes = a} :: CreateVehicle) Prelude.. Lens.mapping Lens.coerced
+
+-- | Metadata that can be used to manage the vehicle.
+createVehicle_tags :: Lens.Lens' CreateVehicle (Prelude.Maybe [Tag])
+createVehicle_tags = Lens.lens (\CreateVehicle' {tags} -> tags) (\s@CreateVehicle' {} a -> s {tags = a} :: CreateVehicle) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unique ID of the vehicle to create.
 createVehicle_vehicleName :: Lens.Lens' CreateVehicle Prelude.Text
@@ -170,26 +171,26 @@ instance Core.AWSRequest CreateVehicle where
     Response.receiveJSON
       ( \s h x ->
           CreateVehicleResponse'
-            Prelude.<$> (x Data..?> "thingArn")
-            Prelude.<*> (x Data..?> "arn")
+            Prelude.<$> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "thingArn")
             Prelude.<*> (x Data..?> "vehicleName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateVehicle where
   hashWithSalt _salt CreateVehicle' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` associationBehavior
       `Prelude.hashWithSalt` attributes
-      `Prelude.hashWithSalt` associationBehavior
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` vehicleName
       `Prelude.hashWithSalt` modelManifestArn
       `Prelude.hashWithSalt` decoderManifestArn
 
 instance Prelude.NFData CreateVehicle where
   rnf CreateVehicle' {..} =
-    Prelude.rnf tags
+    Prelude.rnf associationBehavior
       `Prelude.seq` Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf associationBehavior
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf vehicleName
       `Prelude.seq` Prelude.rnf modelManifestArn
       `Prelude.seq` Prelude.rnf decoderManifestArn
@@ -213,10 +214,10 @@ instance Data.ToJSON CreateVehicle where
   toJSON CreateVehicle' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("attributes" Data..=) Prelude.<$> attributes,
-            ("associationBehavior" Data..=)
+          [ ("associationBehavior" Data..=)
               Prelude.<$> associationBehavior,
+            ("attributes" Data..=) Prelude.<$> attributes,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("vehicleName" Data..= vehicleName),
             Prelude.Just
               ("modelManifestArn" Data..= modelManifestArn),
@@ -233,10 +234,10 @@ instance Data.ToQuery CreateVehicle where
 
 -- | /See:/ 'newCreateVehicleResponse' smart constructor.
 data CreateVehicleResponse = CreateVehicleResponse'
-  { -- | The ARN of a created or validated Amazon Web Services IoT thing.
-    thingArn :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the created vehicle.
+  { -- | The ARN of the created vehicle.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of a created or validated Amazon Web Services IoT thing.
+    thingArn :: Prelude.Maybe Prelude.Text,
     -- | The unique ID of the created vehicle.
     vehicleName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -252,9 +253,9 @@ data CreateVehicleResponse = CreateVehicleResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'thingArn', 'createVehicleResponse_thingArn' - The ARN of a created or validated Amazon Web Services IoT thing.
---
 -- 'arn', 'createVehicleResponse_arn' - The ARN of the created vehicle.
+--
+-- 'thingArn', 'createVehicleResponse_thingArn' - The ARN of a created or validated Amazon Web Services IoT thing.
 --
 -- 'vehicleName', 'createVehicleResponse_vehicleName' - The unique ID of the created vehicle.
 --
@@ -265,19 +266,19 @@ newCreateVehicleResponse ::
   CreateVehicleResponse
 newCreateVehicleResponse pHttpStatus_ =
   CreateVehicleResponse'
-    { thingArn = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
+      thingArn = Prelude.Nothing,
       vehicleName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The ARN of a created or validated Amazon Web Services IoT thing.
-createVehicleResponse_thingArn :: Lens.Lens' CreateVehicleResponse (Prelude.Maybe Prelude.Text)
-createVehicleResponse_thingArn = Lens.lens (\CreateVehicleResponse' {thingArn} -> thingArn) (\s@CreateVehicleResponse' {} a -> s {thingArn = a} :: CreateVehicleResponse)
-
 -- | The ARN of the created vehicle.
 createVehicleResponse_arn :: Lens.Lens' CreateVehicleResponse (Prelude.Maybe Prelude.Text)
 createVehicleResponse_arn = Lens.lens (\CreateVehicleResponse' {arn} -> arn) (\s@CreateVehicleResponse' {} a -> s {arn = a} :: CreateVehicleResponse)
+
+-- | The ARN of a created or validated Amazon Web Services IoT thing.
+createVehicleResponse_thingArn :: Lens.Lens' CreateVehicleResponse (Prelude.Maybe Prelude.Text)
+createVehicleResponse_thingArn = Lens.lens (\CreateVehicleResponse' {thingArn} -> thingArn) (\s@CreateVehicleResponse' {} a -> s {thingArn = a} :: CreateVehicleResponse)
 
 -- | The unique ID of the created vehicle.
 createVehicleResponse_vehicleName :: Lens.Lens' CreateVehicleResponse (Prelude.Maybe Prelude.Text)
@@ -289,7 +290,7 @@ createVehicleResponse_httpStatus = Lens.lens (\CreateVehicleResponse' {httpStatu
 
 instance Prelude.NFData CreateVehicleResponse where
   rnf CreateVehicleResponse' {..} =
-    Prelude.rnf thingArn
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf thingArn
       `Prelude.seq` Prelude.rnf vehicleName
       `Prelude.seq` Prelude.rnf httpStatus

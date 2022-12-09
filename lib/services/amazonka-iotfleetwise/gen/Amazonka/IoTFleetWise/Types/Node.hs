@@ -33,18 +33,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNode' smart constructor.
 data Node = Node'
-  { -- | Information about a node specified as a branch.
+  { -- | Information about a node specified as an actuator.
     --
-    -- A group of signals that are defined in a hierarchical structure.
-    branch :: Prelude.Maybe Branch,
+    -- An actuator is a digital representation of a vehicle device.
+    actuator :: Prelude.Maybe Actuator,
     -- | Information about a node specified as an attribute.
     --
     -- An attribute represents static information about a vehicle.
     attribute :: Prelude.Maybe Attribute,
-    -- | Information about a node specified as an actuator.
+    -- | Information about a node specified as a branch.
     --
-    -- An actuator is a digital representation of a vehicle device.
-    actuator :: Prelude.Maybe Actuator,
+    -- A group of signals that are defined in a hierarchical structure.
+    branch :: Prelude.Maybe Branch,
     sensor :: Prelude.Maybe Sensor
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -57,34 +57,34 @@ data Node = Node'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'branch', 'node_branch' - Information about a node specified as a branch.
+-- 'actuator', 'node_actuator' - Information about a node specified as an actuator.
 --
--- A group of signals that are defined in a hierarchical structure.
+-- An actuator is a digital representation of a vehicle device.
 --
 -- 'attribute', 'node_attribute' - Information about a node specified as an attribute.
 --
 -- An attribute represents static information about a vehicle.
 --
--- 'actuator', 'node_actuator' - Information about a node specified as an actuator.
+-- 'branch', 'node_branch' - Information about a node specified as a branch.
 --
--- An actuator is a digital representation of a vehicle device.
+-- A group of signals that are defined in a hierarchical structure.
 --
 -- 'sensor', 'node_sensor' - Undocumented member.
 newNode ::
   Node
 newNode =
   Node'
-    { branch = Prelude.Nothing,
+    { actuator = Prelude.Nothing,
       attribute = Prelude.Nothing,
-      actuator = Prelude.Nothing,
+      branch = Prelude.Nothing,
       sensor = Prelude.Nothing
     }
 
--- | Information about a node specified as a branch.
+-- | Information about a node specified as an actuator.
 --
--- A group of signals that are defined in a hierarchical structure.
-node_branch :: Lens.Lens' Node (Prelude.Maybe Branch)
-node_branch = Lens.lens (\Node' {branch} -> branch) (\s@Node' {} a -> s {branch = a} :: Node)
+-- An actuator is a digital representation of a vehicle device.
+node_actuator :: Lens.Lens' Node (Prelude.Maybe Actuator)
+node_actuator = Lens.lens (\Node' {actuator} -> actuator) (\s@Node' {} a -> s {actuator = a} :: Node)
 
 -- | Information about a node specified as an attribute.
 --
@@ -92,11 +92,11 @@ node_branch = Lens.lens (\Node' {branch} -> branch) (\s@Node' {} a -> s {branch 
 node_attribute :: Lens.Lens' Node (Prelude.Maybe Attribute)
 node_attribute = Lens.lens (\Node' {attribute} -> attribute) (\s@Node' {} a -> s {attribute = a} :: Node)
 
--- | Information about a node specified as an actuator.
+-- | Information about a node specified as a branch.
 --
--- An actuator is a digital representation of a vehicle device.
-node_actuator :: Lens.Lens' Node (Prelude.Maybe Actuator)
-node_actuator = Lens.lens (\Node' {actuator} -> actuator) (\s@Node' {} a -> s {actuator = a} :: Node)
+-- A group of signals that are defined in a hierarchical structure.
+node_branch :: Lens.Lens' Node (Prelude.Maybe Branch)
+node_branch = Lens.lens (\Node' {branch} -> branch) (\s@Node' {} a -> s {branch = a} :: Node)
 
 -- | Undocumented member.
 node_sensor :: Lens.Lens' Node (Prelude.Maybe Sensor)
@@ -108,33 +108,33 @@ instance Data.FromJSON Node where
       "Node"
       ( \x ->
           Node'
-            Prelude.<$> (x Data..:? "branch")
+            Prelude.<$> (x Data..:? "actuator")
             Prelude.<*> (x Data..:? "attribute")
-            Prelude.<*> (x Data..:? "actuator")
+            Prelude.<*> (x Data..:? "branch")
             Prelude.<*> (x Data..:? "sensor")
       )
 
 instance Prelude.Hashable Node where
   hashWithSalt _salt Node' {..} =
-    _salt `Prelude.hashWithSalt` branch
+    _salt `Prelude.hashWithSalt` actuator
       `Prelude.hashWithSalt` attribute
-      `Prelude.hashWithSalt` actuator
+      `Prelude.hashWithSalt` branch
       `Prelude.hashWithSalt` sensor
 
 instance Prelude.NFData Node where
   rnf Node' {..} =
-    Prelude.rnf branch
+    Prelude.rnf actuator
       `Prelude.seq` Prelude.rnf attribute
-      `Prelude.seq` Prelude.rnf actuator
+      `Prelude.seq` Prelude.rnf branch
       `Prelude.seq` Prelude.rnf sensor
 
 instance Data.ToJSON Node where
   toJSON Node' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("branch" Data..=) Prelude.<$> branch,
+          [ ("actuator" Data..=) Prelude.<$> actuator,
             ("attribute" Data..=) Prelude.<$> attribute,
-            ("actuator" Data..=) Prelude.<$> actuator,
+            ("branch" Data..=) Prelude.<$> branch,
             ("sensor" Data..=) Prelude.<$> sensor
           ]
       )

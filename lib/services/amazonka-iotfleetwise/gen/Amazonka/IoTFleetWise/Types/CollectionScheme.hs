@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCollectionScheme' smart constructor.
 data CollectionScheme = CollectionScheme'
-  { -- | Information about a collection scheme that uses a time period to decide
-    -- how often to collect data.
-    timeBasedCollectionScheme :: Prelude.Maybe TimeBasedCollectionScheme,
-    -- | Information about a collection scheme that uses a simple logical
+  { -- | Information about a collection scheme that uses a simple logical
     -- expression to recognize what data to collect.
-    conditionBasedCollectionScheme :: Prelude.Maybe ConditionBasedCollectionScheme
+    conditionBasedCollectionScheme :: Prelude.Maybe ConditionBasedCollectionScheme,
+    -- | Information about a collection scheme that uses a time period to decide
+    -- how often to collect data.
+    timeBasedCollectionScheme :: Prelude.Maybe TimeBasedCollectionScheme
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,29 +47,29 @@ data CollectionScheme = CollectionScheme'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'timeBasedCollectionScheme', 'collectionScheme_timeBasedCollectionScheme' - Information about a collection scheme that uses a time period to decide
--- how often to collect data.
---
 -- 'conditionBasedCollectionScheme', 'collectionScheme_conditionBasedCollectionScheme' - Information about a collection scheme that uses a simple logical
 -- expression to recognize what data to collect.
+--
+-- 'timeBasedCollectionScheme', 'collectionScheme_timeBasedCollectionScheme' - Information about a collection scheme that uses a time period to decide
+-- how often to collect data.
 newCollectionScheme ::
   CollectionScheme
 newCollectionScheme =
   CollectionScheme'
-    { timeBasedCollectionScheme =
+    { conditionBasedCollectionScheme =
         Prelude.Nothing,
-      conditionBasedCollectionScheme = Prelude.Nothing
+      timeBasedCollectionScheme = Prelude.Nothing
     }
-
--- | Information about a collection scheme that uses a time period to decide
--- how often to collect data.
-collectionScheme_timeBasedCollectionScheme :: Lens.Lens' CollectionScheme (Prelude.Maybe TimeBasedCollectionScheme)
-collectionScheme_timeBasedCollectionScheme = Lens.lens (\CollectionScheme' {timeBasedCollectionScheme} -> timeBasedCollectionScheme) (\s@CollectionScheme' {} a -> s {timeBasedCollectionScheme = a} :: CollectionScheme)
 
 -- | Information about a collection scheme that uses a simple logical
 -- expression to recognize what data to collect.
 collectionScheme_conditionBasedCollectionScheme :: Lens.Lens' CollectionScheme (Prelude.Maybe ConditionBasedCollectionScheme)
 collectionScheme_conditionBasedCollectionScheme = Lens.lens (\CollectionScheme' {conditionBasedCollectionScheme} -> conditionBasedCollectionScheme) (\s@CollectionScheme' {} a -> s {conditionBasedCollectionScheme = a} :: CollectionScheme)
+
+-- | Information about a collection scheme that uses a time period to decide
+-- how often to collect data.
+collectionScheme_timeBasedCollectionScheme :: Lens.Lens' CollectionScheme (Prelude.Maybe TimeBasedCollectionScheme)
+collectionScheme_timeBasedCollectionScheme = Lens.lens (\CollectionScheme' {timeBasedCollectionScheme} -> timeBasedCollectionScheme) (\s@CollectionScheme' {} a -> s {timeBasedCollectionScheme = a} :: CollectionScheme)
 
 instance Data.FromJSON CollectionScheme where
   parseJSON =
@@ -77,28 +77,28 @@ instance Data.FromJSON CollectionScheme where
       "CollectionScheme"
       ( \x ->
           CollectionScheme'
-            Prelude.<$> (x Data..:? "timeBasedCollectionScheme")
-            Prelude.<*> (x Data..:? "conditionBasedCollectionScheme")
+            Prelude.<$> (x Data..:? "conditionBasedCollectionScheme")
+            Prelude.<*> (x Data..:? "timeBasedCollectionScheme")
       )
 
 instance Prelude.Hashable CollectionScheme where
   hashWithSalt _salt CollectionScheme' {..} =
     _salt
-      `Prelude.hashWithSalt` timeBasedCollectionScheme
       `Prelude.hashWithSalt` conditionBasedCollectionScheme
+      `Prelude.hashWithSalt` timeBasedCollectionScheme
 
 instance Prelude.NFData CollectionScheme where
   rnf CollectionScheme' {..} =
-    Prelude.rnf timeBasedCollectionScheme
-      `Prelude.seq` Prelude.rnf conditionBasedCollectionScheme
+    Prelude.rnf conditionBasedCollectionScheme
+      `Prelude.seq` Prelude.rnf timeBasedCollectionScheme
 
 instance Data.ToJSON CollectionScheme where
   toJSON CollectionScheme' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("timeBasedCollectionScheme" Data..=)
-              Prelude.<$> timeBasedCollectionScheme,
-            ("conditionBasedCollectionScheme" Data..=)
-              Prelude.<$> conditionBasedCollectionScheme
+          [ ("conditionBasedCollectionScheme" Data..=)
+              Prelude.<$> conditionBasedCollectionScheme,
+            ("timeBasedCollectionScheme" Data..=)
+              Prelude.<$> timeBasedCollectionScheme
           ]
       )

@@ -41,8 +41,8 @@ module Amazonka.IoTFleetWise.BatchCreateVehicle
     newBatchCreateVehicleResponse,
 
     -- * Response Lenses
-    batchCreateVehicleResponse_vehicles,
     batchCreateVehicleResponse_errors,
+    batchCreateVehicleResponse_vehicles,
     batchCreateVehicleResponse_httpStatus,
   )
 where
@@ -93,8 +93,8 @@ instance Core.AWSRequest BatchCreateVehicle where
     Response.receiveJSON
       ( \s h x ->
           BatchCreateVehicleResponse'
-            Prelude.<$> (x Data..?> "vehicles" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "errors" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "errors" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "vehicles" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -135,12 +135,12 @@ instance Data.ToQuery BatchCreateVehicle where
 
 -- | /See:/ 'newBatchCreateVehicleResponse' smart constructor.
 data BatchCreateVehicleResponse = BatchCreateVehicleResponse'
-  { -- | A list of information about a batch of created vehicles. For more
-    -- information, see the API data type.
-    vehicles :: Prelude.Maybe [CreateVehicleResponseItem],
-    -- | A list of information about creation errors, or an empty list if there
+  { -- | A list of information about creation errors, or an empty list if there
     -- aren\'t any errors.
     errors :: Prelude.Maybe [CreateVehicleError],
+    -- | A list of information about a batch of created vehicles. For more
+    -- information, see the API data type.
+    vehicles :: Prelude.Maybe [CreateVehicleResponseItem],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -154,11 +154,11 @@ data BatchCreateVehicleResponse = BatchCreateVehicleResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vehicles', 'batchCreateVehicleResponse_vehicles' - A list of information about a batch of created vehicles. For more
--- information, see the API data type.
---
 -- 'errors', 'batchCreateVehicleResponse_errors' - A list of information about creation errors, or an empty list if there
 -- aren\'t any errors.
+--
+-- 'vehicles', 'batchCreateVehicleResponse_vehicles' - A list of information about a batch of created vehicles. For more
+-- information, see the API data type.
 --
 -- 'httpStatus', 'batchCreateVehicleResponse_httpStatus' - The response's http status code.
 newBatchCreateVehicleResponse ::
@@ -167,21 +167,21 @@ newBatchCreateVehicleResponse ::
   BatchCreateVehicleResponse
 newBatchCreateVehicleResponse pHttpStatus_ =
   BatchCreateVehicleResponse'
-    { vehicles =
+    { errors =
         Prelude.Nothing,
-      errors = Prelude.Nothing,
+      vehicles = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of information about a batch of created vehicles. For more
--- information, see the API data type.
-batchCreateVehicleResponse_vehicles :: Lens.Lens' BatchCreateVehicleResponse (Prelude.Maybe [CreateVehicleResponseItem])
-batchCreateVehicleResponse_vehicles = Lens.lens (\BatchCreateVehicleResponse' {vehicles} -> vehicles) (\s@BatchCreateVehicleResponse' {} a -> s {vehicles = a} :: BatchCreateVehicleResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of information about creation errors, or an empty list if there
 -- aren\'t any errors.
 batchCreateVehicleResponse_errors :: Lens.Lens' BatchCreateVehicleResponse (Prelude.Maybe [CreateVehicleError])
 batchCreateVehicleResponse_errors = Lens.lens (\BatchCreateVehicleResponse' {errors} -> errors) (\s@BatchCreateVehicleResponse' {} a -> s {errors = a} :: BatchCreateVehicleResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of information about a batch of created vehicles. For more
+-- information, see the API data type.
+batchCreateVehicleResponse_vehicles :: Lens.Lens' BatchCreateVehicleResponse (Prelude.Maybe [CreateVehicleResponseItem])
+batchCreateVehicleResponse_vehicles = Lens.lens (\BatchCreateVehicleResponse' {vehicles} -> vehicles) (\s@BatchCreateVehicleResponse' {} a -> s {vehicles = a} :: BatchCreateVehicleResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchCreateVehicleResponse_httpStatus :: Lens.Lens' BatchCreateVehicleResponse Prelude.Int
@@ -189,6 +189,6 @@ batchCreateVehicleResponse_httpStatus = Lens.lens (\BatchCreateVehicleResponse' 
 
 instance Prelude.NFData BatchCreateVehicleResponse where
   rnf BatchCreateVehicleResponse' {..} =
-    Prelude.rnf vehicles
-      `Prelude.seq` Prelude.rnf errors
+    Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf vehicles
       `Prelude.seq` Prelude.rnf httpStatus

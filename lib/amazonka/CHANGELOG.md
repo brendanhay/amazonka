@@ -52,6 +52,7 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 
 - `amazonka-appconfigdata`: The data plane APIs your application uses to retrieve configuration data. [Overview](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/Welcome.html#Welcome_AWS_AppConfig_Data)
 - `amazonka-amplifyuibuilder`: A programmatic interface for creating and configuring user interface (UI) component libraries and themes for use in your Amplify applications. [Overview](https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/Welcome.html)
+- `amazonka-arc-zonal-shift`: Zonal shift is a function within the Amazon Route 53 Application Recovery Controller (Route 53 ARC). With zonal shifting, you can shift your load balancer resources away from an impaired Availability Zone with a single action. [Overview](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/zonal-shift.html)
 - `amazonka-backupgateway`: Backup gateway is downloadable AWS Backup software that you deploy to your VMware infrastructure to connect your VMware VMs to AWS Backup.
 - `amazonka-backup-storage`
 - `amazonka-billingconductor`: The AWS Billing Conductor is a customizable billing service, allowing you to customize your billing data to match your desired business structure. [Overview](https://aws.amazon.com/aws-cost-management/aws-billing-conductor/)

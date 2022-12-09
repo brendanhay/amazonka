@@ -34,11 +34,11 @@ module Amazonka.MediaStoreData.DescribeObject
     newDescribeObjectResponse,
 
     -- * Response Lenses
-    describeObjectResponse_contentLength,
-    describeObjectResponse_lastModified,
     describeObjectResponse_cacheControl,
-    describeObjectResponse_eTag,
+    describeObjectResponse_contentLength,
     describeObjectResponse_contentType,
+    describeObjectResponse_eTag,
+    describeObjectResponse_lastModified,
     describeObjectResponse_httpStatus,
   )
 where
@@ -91,11 +91,11 @@ instance Core.AWSRequest DescribeObject where
     Response.receiveEmpty
       ( \s h x ->
           DescribeObjectResponse'
-            Prelude.<$> (h Data..#? "Content-Length")
-            Prelude.<*> (h Data..#? "Last-Modified")
-            Prelude.<*> (h Data..#? "Cache-Control")
-            Prelude.<*> (h Data..#? "ETag")
+            Prelude.<$> (h Data..#? "Cache-Control")
+            Prelude.<*> (h Data..#? "Content-Length")
             Prelude.<*> (h Data..#? "Content-Type")
+            Prelude.<*> (h Data..#? "ETag")
+            Prelude.<*> (h Data..#? "Last-Modified")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,21 +118,21 @@ instance Data.ToQuery DescribeObject where
 
 -- | /See:/ 'newDescribeObjectResponse' smart constructor.
 data DescribeObjectResponse = DescribeObjectResponse'
-  { -- | The length of the object in bytes.
-    contentLength :: Prelude.Maybe Prelude.Natural,
-    -- | The date and time that the object was last modified.
-    lastModified :: Prelude.Maybe Data.POSIX,
-    -- | An optional @CacheControl@ header that allows the caller to control the
+  { -- | An optional @CacheControl@ header that allows the caller to control the
     -- object\'s cache behavior. Headers can be passed in as specified in the
     -- HTTP at
     -- <https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9>.
     --
     -- Headers with a custom user-defined value are also accepted.
     cacheControl :: Prelude.Maybe Prelude.Text,
-    -- | The ETag that represents a unique instance of the object.
-    eTag :: Prelude.Maybe Prelude.Text,
+    -- | The length of the object in bytes.
+    contentLength :: Prelude.Maybe Prelude.Natural,
     -- | The content type of the object.
     contentType :: Prelude.Maybe Prelude.Text,
+    -- | The ETag that represents a unique instance of the object.
+    eTag :: Prelude.Maybe Prelude.Text,
+    -- | The date and time that the object was last modified.
+    lastModified :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -146,10 +146,6 @@ data DescribeObjectResponse = DescribeObjectResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'contentLength', 'describeObjectResponse_contentLength' - The length of the object in bytes.
---
--- 'lastModified', 'describeObjectResponse_lastModified' - The date and time that the object was last modified.
---
 -- 'cacheControl', 'describeObjectResponse_cacheControl' - An optional @CacheControl@ header that allows the caller to control the
 -- object\'s cache behavior. Headers can be passed in as specified in the
 -- HTTP at
@@ -157,9 +153,13 @@ data DescribeObjectResponse = DescribeObjectResponse'
 --
 -- Headers with a custom user-defined value are also accepted.
 --
--- 'eTag', 'describeObjectResponse_eTag' - The ETag that represents a unique instance of the object.
+-- 'contentLength', 'describeObjectResponse_contentLength' - The length of the object in bytes.
 --
 -- 'contentType', 'describeObjectResponse_contentType' - The content type of the object.
+--
+-- 'eTag', 'describeObjectResponse_eTag' - The ETag that represents a unique instance of the object.
+--
+-- 'lastModified', 'describeObjectResponse_lastModified' - The date and time that the object was last modified.
 --
 -- 'httpStatus', 'describeObjectResponse_httpStatus' - The response's http status code.
 newDescribeObjectResponse ::
@@ -168,22 +168,14 @@ newDescribeObjectResponse ::
   DescribeObjectResponse
 newDescribeObjectResponse pHttpStatus_ =
   DescribeObjectResponse'
-    { contentLength =
+    { cacheControl =
         Prelude.Nothing,
-      lastModified = Prelude.Nothing,
-      cacheControl = Prelude.Nothing,
-      eTag = Prelude.Nothing,
+      contentLength = Prelude.Nothing,
       contentType = Prelude.Nothing,
+      eTag = Prelude.Nothing,
+      lastModified = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The length of the object in bytes.
-describeObjectResponse_contentLength :: Lens.Lens' DescribeObjectResponse (Prelude.Maybe Prelude.Natural)
-describeObjectResponse_contentLength = Lens.lens (\DescribeObjectResponse' {contentLength} -> contentLength) (\s@DescribeObjectResponse' {} a -> s {contentLength = a} :: DescribeObjectResponse)
-
--- | The date and time that the object was last modified.
-describeObjectResponse_lastModified :: Lens.Lens' DescribeObjectResponse (Prelude.Maybe Prelude.UTCTime)
-describeObjectResponse_lastModified = Lens.lens (\DescribeObjectResponse' {lastModified} -> lastModified) (\s@DescribeObjectResponse' {} a -> s {lastModified = a} :: DescribeObjectResponse) Prelude.. Lens.mapping Data._Time
 
 -- | An optional @CacheControl@ header that allows the caller to control the
 -- object\'s cache behavior. Headers can be passed in as specified in the
@@ -194,13 +186,21 @@ describeObjectResponse_lastModified = Lens.lens (\DescribeObjectResponse' {lastM
 describeObjectResponse_cacheControl :: Lens.Lens' DescribeObjectResponse (Prelude.Maybe Prelude.Text)
 describeObjectResponse_cacheControl = Lens.lens (\DescribeObjectResponse' {cacheControl} -> cacheControl) (\s@DescribeObjectResponse' {} a -> s {cacheControl = a} :: DescribeObjectResponse)
 
--- | The ETag that represents a unique instance of the object.
-describeObjectResponse_eTag :: Lens.Lens' DescribeObjectResponse (Prelude.Maybe Prelude.Text)
-describeObjectResponse_eTag = Lens.lens (\DescribeObjectResponse' {eTag} -> eTag) (\s@DescribeObjectResponse' {} a -> s {eTag = a} :: DescribeObjectResponse)
+-- | The length of the object in bytes.
+describeObjectResponse_contentLength :: Lens.Lens' DescribeObjectResponse (Prelude.Maybe Prelude.Natural)
+describeObjectResponse_contentLength = Lens.lens (\DescribeObjectResponse' {contentLength} -> contentLength) (\s@DescribeObjectResponse' {} a -> s {contentLength = a} :: DescribeObjectResponse)
 
 -- | The content type of the object.
 describeObjectResponse_contentType :: Lens.Lens' DescribeObjectResponse (Prelude.Maybe Prelude.Text)
 describeObjectResponse_contentType = Lens.lens (\DescribeObjectResponse' {contentType} -> contentType) (\s@DescribeObjectResponse' {} a -> s {contentType = a} :: DescribeObjectResponse)
+
+-- | The ETag that represents a unique instance of the object.
+describeObjectResponse_eTag :: Lens.Lens' DescribeObjectResponse (Prelude.Maybe Prelude.Text)
+describeObjectResponse_eTag = Lens.lens (\DescribeObjectResponse' {eTag} -> eTag) (\s@DescribeObjectResponse' {} a -> s {eTag = a} :: DescribeObjectResponse)
+
+-- | The date and time that the object was last modified.
+describeObjectResponse_lastModified :: Lens.Lens' DescribeObjectResponse (Prelude.Maybe Prelude.UTCTime)
+describeObjectResponse_lastModified = Lens.lens (\DescribeObjectResponse' {lastModified} -> lastModified) (\s@DescribeObjectResponse' {} a -> s {lastModified = a} :: DescribeObjectResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeObjectResponse_httpStatus :: Lens.Lens' DescribeObjectResponse Prelude.Int
@@ -208,9 +208,9 @@ describeObjectResponse_httpStatus = Lens.lens (\DescribeObjectResponse' {httpSta
 
 instance Prelude.NFData DescribeObjectResponse where
   rnf DescribeObjectResponse' {..} =
-    Prelude.rnf contentLength
-      `Prelude.seq` Prelude.rnf lastModified
-      `Prelude.seq` Prelude.rnf cacheControl
-      `Prelude.seq` Prelude.rnf eTag
+    Prelude.rnf cacheControl
+      `Prelude.seq` Prelude.rnf contentLength
       `Prelude.seq` Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf lastModified
       `Prelude.seq` Prelude.rnf httpStatus

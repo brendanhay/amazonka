@@ -21,17 +21,17 @@ module Amazonka.MediaStoreData
     -- * Errors
     -- $errors
 
+    -- ** ContainerNotFoundException
+    _ContainerNotFoundException,
+
+    -- ** InternalServerError
+    _InternalServerError,
+
     -- ** ObjectNotFoundException
     _ObjectNotFoundException,
 
     -- ** RequestedRangeNotSatisfiableException
     _RequestedRangeNotSatisfiableException,
-
-    -- ** InternalServerError
-    _InternalServerError,
-
-    -- ** ContainerNotFoundException
-    _ContainerNotFoundException,
 
     -- * Waiters
     -- $waiters

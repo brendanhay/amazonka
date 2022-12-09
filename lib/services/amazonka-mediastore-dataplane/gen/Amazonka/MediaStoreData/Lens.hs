@@ -20,54 +20,54 @@ module Amazonka.MediaStoreData.Lens
 
     -- ** DescribeObject
     describeObject_path,
-    describeObjectResponse_contentLength,
-    describeObjectResponse_lastModified,
     describeObjectResponse_cacheControl,
-    describeObjectResponse_eTag,
+    describeObjectResponse_contentLength,
     describeObjectResponse_contentType,
+    describeObjectResponse_eTag,
+    describeObjectResponse_lastModified,
     describeObjectResponse_httpStatus,
 
     -- ** GetObject
     getObject_range,
     getObject_path,
+    getObjectResponse_cacheControl,
     getObjectResponse_contentLength,
     getObjectResponse_contentRange,
-    getObjectResponse_lastModified,
-    getObjectResponse_cacheControl,
-    getObjectResponse_eTag,
     getObjectResponse_contentType,
+    getObjectResponse_eTag,
+    getObjectResponse_lastModified,
     getObjectResponse_statusCode,
     getObjectResponse_body,
 
     -- ** ListItems
+    listItems_maxResults,
     listItems_nextToken,
     listItems_path,
-    listItems_maxResults,
     listItemsResponse_items,
     listItemsResponse_nextToken,
     listItemsResponse_httpStatus,
 
     -- ** PutObject
-    putObject_uploadAvailability,
     putObject_cacheControl,
-    putObject_storageClass,
     putObject_contentType,
+    putObject_storageClass,
+    putObject_uploadAvailability,
     putObject_path,
     putObject_body,
-    putObjectResponse_storageClass,
-    putObjectResponse_eTag,
     putObjectResponse_contentSHA256,
+    putObjectResponse_eTag,
+    putObjectResponse_storageClass,
     putObjectResponse_httpStatus,
 
     -- * Types
 
     -- ** Item
+    item_contentLength,
+    item_contentType,
+    item_eTag,
+    item_lastModified,
     item_name,
     item_type,
-    item_contentLength,
-    item_lastModified,
-    item_eTag,
-    item_contentType,
   )
 where
 

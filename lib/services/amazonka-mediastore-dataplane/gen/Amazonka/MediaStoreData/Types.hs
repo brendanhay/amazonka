@@ -18,10 +18,10 @@ module Amazonka.MediaStoreData.Types
     defaultService,
 
     -- * Errors
+    _ContainerNotFoundException,
+    _InternalServerError,
     _ObjectNotFoundException,
     _RequestedRangeNotSatisfiableException,
-    _InternalServerError,
-    _ContainerNotFoundException,
 
     -- * ItemType
     ItemType (..),
@@ -35,12 +35,12 @@ module Amazonka.MediaStoreData.Types
     -- * Item
     Item (..),
     newItem,
+    item_contentLength,
+    item_contentType,
+    item_eTag,
+    item_lastModified,
     item_name,
     item_type,
-    item_contentLength,
-    item_lastModified,
-    item_eTag,
-    item_contentType,
   )
 where
 
@@ -78,28 +78,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -107,13 +101,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -121,7 +119,24 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
+
+-- | The specified container was not found for the specified account.
+_ContainerNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ContainerNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ContainerNotFoundException"
+    Prelude.. Core.hasStatus 404
+
+-- | The service is temporarily unavailable.
+_InternalServerError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerError =
+  Core._MatchServiceError
+    defaultService
+    "InternalServerError"
 
 -- | Could not perform an operation on an object that does not exist.
 _ObjectNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -138,18 +153,3 @@ _RequestedRangeNotSatisfiableException =
     defaultService
     "RequestedRangeNotSatisfiableException"
     Prelude.. Core.hasStatus 416
-
--- | The service is temporarily unavailable.
-_InternalServerError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerError =
-  Core._MatchServiceError
-    defaultService
-    "InternalServerError"
-
--- | The specified container was not found for the specified account.
-_ContainerNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ContainerNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ContainerNotFoundException"
-    Prelude.. Core.hasStatus 404

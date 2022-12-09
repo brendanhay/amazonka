@@ -19,15 +19,15 @@ module Amazonka.BackupStorage.Types
 
     -- * Errors
     _AccessDeniedException,
-    _KMSInvalidKeyUsageException,
     _DataAlreadyExistsException,
-    _ServiceUnavailableException,
-    _ResourceNotFoundException,
-    _NotReadableInputStreamException,
-    _ServiceInternalException,
-    _ThrottlingException,
     _IllegalArgumentException,
+    _KMSInvalidKeyUsageException,
+    _NotReadableInputStreamException,
+    _ResourceNotFoundException,
     _RetryableException,
+    _ServiceInternalException,
+    _ServiceUnavailableException,
+    _ThrottlingException,
 
     -- * DataChecksumAlgorithm
     DataChecksumAlgorithm (..),
@@ -90,28 +90,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -119,13 +113,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -133,6 +131,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Prism for AccessDeniedException' errors.
@@ -143,15 +143,6 @@ _AccessDeniedException =
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
--- | Non-retryable exception. Indicates the KMS key usage is incorrect. See
--- exception message for details.
-_KMSInvalidKeyUsageException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_KMSInvalidKeyUsageException =
-  Core._MatchServiceError
-    defaultService
-    "KMSInvalidKeyUsageException"
-    Prelude.. Core.hasStatus 400
-
 -- | Non-retryable exception. Attempted to create already existing object or
 -- chunk. This message contains a checksum of already presented data.
 _DataAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -160,49 +151,6 @@ _DataAlreadyExistsException =
     defaultService
     "DataAlreadyExistsException"
     Prelude.. Core.hasStatus 400
-
--- | Retryable exception, indicates internal server error.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceUnavailableException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceUnavailableException"
-    Prelude.. Core.hasStatus 503
-
--- | Non-retryable exception. Attempted to make an operation on non-existing
--- or expired resource.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 404
-
--- | Retryalble exception. Indicated issues while reading an input stream due
--- to the networking issues or connection drop on the client side.
-_NotReadableInputStreamException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NotReadableInputStreamException =
-  Core._MatchServiceError
-    defaultService
-    "NotReadableInputStreamException"
-    Prelude.. Core.hasStatus 400
-
--- | Deprecated. To be removed from the model.
-_ServiceInternalException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceInternalException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceInternalException"
-    Prelude.. Core.hasStatus 500
-
--- | Increased rate over throttling limits. Can be retried with exponential
--- backoff.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ThrottlingException =
-  Core._MatchServiceError
-    defaultService
-    "ThrottlingException"
-    Prelude.. Core.hasStatus 429
 
 -- | Non-retryable exception, indicates client error (wrong argument passed
 -- to API). See exception message for details.
@@ -213,6 +161,33 @@ _IllegalArgumentException =
     "IllegalArgumentException"
     Prelude.. Core.hasStatus 400
 
+-- | Non-retryable exception. Indicates the KMS key usage is incorrect. See
+-- exception message for details.
+_KMSInvalidKeyUsageException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KMSInvalidKeyUsageException =
+  Core._MatchServiceError
+    defaultService
+    "KMSInvalidKeyUsageException"
+    Prelude.. Core.hasStatus 400
+
+-- | Retryalble exception. Indicated issues while reading an input stream due
+-- to the networking issues or connection drop on the client side.
+_NotReadableInputStreamException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotReadableInputStreamException =
+  Core._MatchServiceError
+    defaultService
+    "NotReadableInputStreamException"
+    Prelude.. Core.hasStatus 400
+
+-- | Non-retryable exception. Attempted to make an operation on non-existing
+-- or expired resource.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404
+
 -- | Retryable exception. In general indicates internal failure that can be
 -- fixed by retry.
 _RetryableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -221,3 +196,28 @@ _RetryableException =
     defaultService
     "RetryableException"
     Prelude.. Core.hasStatus 500
+
+-- | Deprecated. To be removed from the model.
+_ServiceInternalException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceInternalException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceInternalException"
+    Prelude.. Core.hasStatus 500
+
+-- | Retryable exception, indicates internal server error.
+_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceUnavailableException"
+    Prelude.. Core.hasStatus 503
+
+-- | Increased rate over throttling limits. Can be retried with exponential
+-- backoff.
+_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException =
+  Core._MatchServiceError
+    defaultService
+    "ThrottlingException"
+    Prelude.. Core.hasStatus 429

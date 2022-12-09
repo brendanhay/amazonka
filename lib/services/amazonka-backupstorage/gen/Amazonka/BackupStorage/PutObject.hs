@@ -28,13 +28,13 @@ module Amazonka.BackupStorage.PutObject
     newPutObject,
 
     -- * Request Lenses
-    putObject_objectChecksum,
-    putObject_metadataString,
+    putObject_inlineChunkChecksum,
     putObject_inlineChunkChecksumAlgorithm,
     putObject_inlineChunkLength,
-    putObject_inlineChunkChecksum,
-    putObject_throwOnDuplicate,
+    putObject_metadataString,
+    putObject_objectChecksum,
     putObject_objectChecksumAlgorithm,
+    putObject_throwOnDuplicate,
     putObject_backupJobId,
     putObject_objectName,
     putObject_inlineChunk,
@@ -62,21 +62,21 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutObject' smart constructor.
 data PutObject = PutObject'
-  { -- | object checksum
-    objectChecksum :: Prelude.Maybe Prelude.Text,
-    -- | Store user defined metadata like backup checksum, disk ids, restore
-    -- metadata etc.
-    metadataString :: Prelude.Maybe Prelude.Text,
+  { -- | Inline chunk checksum
+    inlineChunkChecksum :: Prelude.Maybe Prelude.Text,
     -- | Inline chunk checksum algorithm
     inlineChunkChecksumAlgorithm :: Prelude.Maybe Prelude.Text,
     -- | Length of the inline chunk data.
     inlineChunkLength :: Prelude.Maybe Prelude.Integer,
-    -- | Inline chunk checksum
-    inlineChunkChecksum :: Prelude.Maybe Prelude.Text,
-    -- | Throw an exception if Object name is already exist.
-    throwOnDuplicate :: Prelude.Maybe Prelude.Bool,
+    -- | Store user defined metadata like backup checksum, disk ids, restore
+    -- metadata etc.
+    metadataString :: Prelude.Maybe Prelude.Text,
+    -- | object checksum
+    objectChecksum :: Prelude.Maybe Prelude.Text,
     -- | object checksum algorithm
     objectChecksumAlgorithm :: Prelude.Maybe SummaryChecksumAlgorithm,
+    -- | Throw an exception if Object name is already exist.
+    throwOnDuplicate :: Prelude.Maybe Prelude.Bool,
     -- | Backup job Id for the in-progress backup.
     backupJobId :: Prelude.Text,
     -- | The name of the Object to be uploaded.
@@ -94,20 +94,20 @@ data PutObject = PutObject'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'objectChecksum', 'putObject_objectChecksum' - object checksum
---
--- 'metadataString', 'putObject_metadataString' - Store user defined metadata like backup checksum, disk ids, restore
--- metadata etc.
+-- 'inlineChunkChecksum', 'putObject_inlineChunkChecksum' - Inline chunk checksum
 --
 -- 'inlineChunkChecksumAlgorithm', 'putObject_inlineChunkChecksumAlgorithm' - Inline chunk checksum algorithm
 --
 -- 'inlineChunkLength', 'putObject_inlineChunkLength' - Length of the inline chunk data.
 --
--- 'inlineChunkChecksum', 'putObject_inlineChunkChecksum' - Inline chunk checksum
+-- 'metadataString', 'putObject_metadataString' - Store user defined metadata like backup checksum, disk ids, restore
+-- metadata etc.
 --
--- 'throwOnDuplicate', 'putObject_throwOnDuplicate' - Throw an exception if Object name is already exist.
+-- 'objectChecksum', 'putObject_objectChecksum' - object checksum
 --
 -- 'objectChecksumAlgorithm', 'putObject_objectChecksumAlgorithm' - object checksum algorithm
+--
+-- 'throwOnDuplicate', 'putObject_throwOnDuplicate' - Throw an exception if Object name is already exist.
 --
 -- 'backupJobId', 'putObject_backupJobId' - Backup job Id for the in-progress backup.
 --
@@ -124,26 +124,21 @@ newPutObject ::
   PutObject
 newPutObject pBackupJobId_ pObjectName_ pInlineChunk_ =
   PutObject'
-    { objectChecksum = Prelude.Nothing,
-      metadataString = Prelude.Nothing,
+    { inlineChunkChecksum = Prelude.Nothing,
       inlineChunkChecksumAlgorithm = Prelude.Nothing,
       inlineChunkLength = Prelude.Nothing,
-      inlineChunkChecksum = Prelude.Nothing,
-      throwOnDuplicate = Prelude.Nothing,
+      metadataString = Prelude.Nothing,
+      objectChecksum = Prelude.Nothing,
       objectChecksumAlgorithm = Prelude.Nothing,
+      throwOnDuplicate = Prelude.Nothing,
       backupJobId = pBackupJobId_,
       objectName = pObjectName_,
       inlineChunk = pInlineChunk_
     }
 
--- | object checksum
-putObject_objectChecksum :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Text)
-putObject_objectChecksum = Lens.lens (\PutObject' {objectChecksum} -> objectChecksum) (\s@PutObject' {} a -> s {objectChecksum = a} :: PutObject)
-
--- | Store user defined metadata like backup checksum, disk ids, restore
--- metadata etc.
-putObject_metadataString :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Text)
-putObject_metadataString = Lens.lens (\PutObject' {metadataString} -> metadataString) (\s@PutObject' {} a -> s {metadataString = a} :: PutObject)
+-- | Inline chunk checksum
+putObject_inlineChunkChecksum :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Text)
+putObject_inlineChunkChecksum = Lens.lens (\PutObject' {inlineChunkChecksum} -> inlineChunkChecksum) (\s@PutObject' {} a -> s {inlineChunkChecksum = a} :: PutObject)
 
 -- | Inline chunk checksum algorithm
 putObject_inlineChunkChecksumAlgorithm :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Text)
@@ -153,17 +148,22 @@ putObject_inlineChunkChecksumAlgorithm = Lens.lens (\PutObject' {inlineChunkChec
 putObject_inlineChunkLength :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Integer)
 putObject_inlineChunkLength = Lens.lens (\PutObject' {inlineChunkLength} -> inlineChunkLength) (\s@PutObject' {} a -> s {inlineChunkLength = a} :: PutObject)
 
--- | Inline chunk checksum
-putObject_inlineChunkChecksum :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Text)
-putObject_inlineChunkChecksum = Lens.lens (\PutObject' {inlineChunkChecksum} -> inlineChunkChecksum) (\s@PutObject' {} a -> s {inlineChunkChecksum = a} :: PutObject)
+-- | Store user defined metadata like backup checksum, disk ids, restore
+-- metadata etc.
+putObject_metadataString :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Text)
+putObject_metadataString = Lens.lens (\PutObject' {metadataString} -> metadataString) (\s@PutObject' {} a -> s {metadataString = a} :: PutObject)
 
--- | Throw an exception if Object name is already exist.
-putObject_throwOnDuplicate :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Bool)
-putObject_throwOnDuplicate = Lens.lens (\PutObject' {throwOnDuplicate} -> throwOnDuplicate) (\s@PutObject' {} a -> s {throwOnDuplicate = a} :: PutObject)
+-- | object checksum
+putObject_objectChecksum :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Text)
+putObject_objectChecksum = Lens.lens (\PutObject' {objectChecksum} -> objectChecksum) (\s@PutObject' {} a -> s {objectChecksum = a} :: PutObject)
 
 -- | object checksum algorithm
 putObject_objectChecksumAlgorithm :: Lens.Lens' PutObject (Prelude.Maybe SummaryChecksumAlgorithm)
 putObject_objectChecksumAlgorithm = Lens.lens (\PutObject' {objectChecksumAlgorithm} -> objectChecksumAlgorithm) (\s@PutObject' {} a -> s {objectChecksumAlgorithm = a} :: PutObject)
+
+-- | Throw an exception if Object name is already exist.
+putObject_throwOnDuplicate :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Bool)
+putObject_throwOnDuplicate = Lens.lens (\PutObject' {throwOnDuplicate} -> throwOnDuplicate) (\s@PutObject' {} a -> s {throwOnDuplicate = a} :: PutObject)
 
 -- | Backup job Id for the in-progress backup.
 putObject_backupJobId :: Lens.Lens' PutObject Prelude.Text
@@ -219,15 +219,15 @@ instance Data.ToPath PutObject where
 instance Data.ToQuery PutObject where
   toQuery PutObject' {..} =
     Prelude.mconcat
-      [ "object-checksum" Data.=: objectChecksum,
-        "metadata-string" Data.=: metadataString,
+      [ "checksum" Data.=: inlineChunkChecksum,
         "checksum-algorithm"
           Data.=: inlineChunkChecksumAlgorithm,
         "length" Data.=: inlineChunkLength,
-        "checksum" Data.=: inlineChunkChecksum,
-        "throwOnDuplicate" Data.=: throwOnDuplicate,
+        "metadata-string" Data.=: metadataString,
+        "object-checksum" Data.=: objectChecksum,
         "object-checksum-algorithm"
-          Data.=: objectChecksumAlgorithm
+          Data.=: objectChecksumAlgorithm,
+        "throwOnDuplicate" Data.=: throwOnDuplicate
       ]
 
 -- | /See:/ 'newPutObjectResponse' smart constructor.

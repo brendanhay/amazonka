@@ -35,10 +35,10 @@ module Amazonka.BackupStorage.GetObjectMetadata
     newGetObjectMetadataResponse,
 
     -- * Response Lenses
-    getObjectMetadataResponse_metadataString,
     getObjectMetadataResponse_metadataBlobChecksum,
     getObjectMetadataResponse_metadataBlobChecksumAlgorithm,
     getObjectMetadataResponse_metadataBlobLength,
+    getObjectMetadataResponse_metadataString,
     getObjectMetadataResponse_httpStatus,
     getObjectMetadataResponse_metadataBlob,
   )
@@ -102,10 +102,10 @@ instance Core.AWSRequest GetObjectMetadata where
     Response.receiveBody
       ( \s h x ->
           GetObjectMetadataResponse'
-            Prelude.<$> (h Data..#? "x-amz-metadata-string")
-            Prelude.<*> (h Data..#? "x-amz-checksum")
+            Prelude.<$> (h Data..#? "x-amz-checksum")
             Prelude.<*> (h Data..#? "x-amz-checksum-algorithm")
             Prelude.<*> (h Data..#? "x-amz-data-length")
+            Prelude.<*> (h Data..#? "x-amz-metadata-string")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
       )
@@ -146,14 +146,14 @@ instance Data.ToQuery GetObjectMetadata where
 
 -- | /See:/ 'newGetObjectMetadataResponse' smart constructor.
 data GetObjectMetadataResponse = GetObjectMetadataResponse'
-  { -- | Metadata string.
-    metadataString :: Prelude.Maybe Prelude.Text,
-    -- | MetadataBlob checksum.
+  { -- | MetadataBlob checksum.
     metadataBlobChecksum :: Prelude.Maybe Prelude.Text,
     -- | Checksum algorithm.
     metadataBlobChecksumAlgorithm :: Prelude.Maybe DataChecksumAlgorithm,
     -- | The size of MetadataBlob.
     metadataBlobLength :: Prelude.Maybe Prelude.Integer,
+    -- | Metadata string.
+    metadataString :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | Metadata blob.
@@ -169,13 +169,13 @@ data GetObjectMetadataResponse = GetObjectMetadataResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'metadataString', 'getObjectMetadataResponse_metadataString' - Metadata string.
---
 -- 'metadataBlobChecksum', 'getObjectMetadataResponse_metadataBlobChecksum' - MetadataBlob checksum.
 --
 -- 'metadataBlobChecksumAlgorithm', 'getObjectMetadataResponse_metadataBlobChecksumAlgorithm' - Checksum algorithm.
 --
 -- 'metadataBlobLength', 'getObjectMetadataResponse_metadataBlobLength' - The size of MetadataBlob.
+--
+-- 'metadataString', 'getObjectMetadataResponse_metadataString' - Metadata string.
 --
 -- 'httpStatus', 'getObjectMetadataResponse_httpStatus' - The response's http status code.
 --
@@ -190,18 +190,14 @@ newGetObjectMetadataResponse
   pHttpStatus_
   pMetadataBlob_ =
     GetObjectMetadataResponse'
-      { metadataString =
+      { metadataBlobChecksum =
           Prelude.Nothing,
-        metadataBlobChecksum = Prelude.Nothing,
         metadataBlobChecksumAlgorithm = Prelude.Nothing,
         metadataBlobLength = Prelude.Nothing,
+        metadataString = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         metadataBlob = pMetadataBlob_
       }
-
--- | Metadata string.
-getObjectMetadataResponse_metadataString :: Lens.Lens' GetObjectMetadataResponse (Prelude.Maybe Prelude.Text)
-getObjectMetadataResponse_metadataString = Lens.lens (\GetObjectMetadataResponse' {metadataString} -> metadataString) (\s@GetObjectMetadataResponse' {} a -> s {metadataString = a} :: GetObjectMetadataResponse)
 
 -- | MetadataBlob checksum.
 getObjectMetadataResponse_metadataBlobChecksum :: Lens.Lens' GetObjectMetadataResponse (Prelude.Maybe Prelude.Text)
@@ -214,6 +210,10 @@ getObjectMetadataResponse_metadataBlobChecksumAlgorithm = Lens.lens (\GetObjectM
 -- | The size of MetadataBlob.
 getObjectMetadataResponse_metadataBlobLength :: Lens.Lens' GetObjectMetadataResponse (Prelude.Maybe Prelude.Integer)
 getObjectMetadataResponse_metadataBlobLength = Lens.lens (\GetObjectMetadataResponse' {metadataBlobLength} -> metadataBlobLength) (\s@GetObjectMetadataResponse' {} a -> s {metadataBlobLength = a} :: GetObjectMetadataResponse)
+
+-- | Metadata string.
+getObjectMetadataResponse_metadataString :: Lens.Lens' GetObjectMetadataResponse (Prelude.Maybe Prelude.Text)
+getObjectMetadataResponse_metadataString = Lens.lens (\GetObjectMetadataResponse' {metadataString} -> metadataString) (\s@GetObjectMetadataResponse' {} a -> s {metadataString = a} :: GetObjectMetadataResponse)
 
 -- | The response's http status code.
 getObjectMetadataResponse_httpStatus :: Lens.Lens' GetObjectMetadataResponse Prelude.Int

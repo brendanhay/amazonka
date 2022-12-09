@@ -27,8 +27,8 @@ module Amazonka.BackupStorage.ListChunks
     newListChunks,
 
     -- * Request Lenses
-    listChunks_nextToken,
     listChunks_maxResults,
+    listChunks_nextToken,
     listChunks_storageJobId,
     listChunks_objectToken,
 
@@ -53,10 +53,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListChunks' smart constructor.
 data ListChunks = ListChunks'
-  { -- | Pagination token
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Maximum number of chunks
+  { -- | Maximum number of chunks
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Pagination token
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Storage job id
     storageJobId :: Prelude.Text,
     -- | Object token
@@ -72,9 +72,9 @@ data ListChunks = ListChunks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listChunks_nextToken' - Pagination token
---
 -- 'maxResults', 'listChunks_maxResults' - Maximum number of chunks
+--
+-- 'nextToken', 'listChunks_nextToken' - Pagination token
 --
 -- 'storageJobId', 'listChunks_storageJobId' - Storage job id
 --
@@ -87,19 +87,19 @@ newListChunks ::
   ListChunks
 newListChunks pStorageJobId_ pObjectToken_ =
   ListChunks'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       storageJobId = pStorageJobId_,
       objectToken = pObjectToken_
     }
 
--- | Pagination token
-listChunks_nextToken :: Lens.Lens' ListChunks (Prelude.Maybe Prelude.Text)
-listChunks_nextToken = Lens.lens (\ListChunks' {nextToken} -> nextToken) (\s@ListChunks' {} a -> s {nextToken = a} :: ListChunks)
-
 -- | Maximum number of chunks
 listChunks_maxResults :: Lens.Lens' ListChunks (Prelude.Maybe Prelude.Natural)
 listChunks_maxResults = Lens.lens (\ListChunks' {maxResults} -> maxResults) (\s@ListChunks' {} a -> s {maxResults = a} :: ListChunks)
+
+-- | Pagination token
+listChunks_nextToken :: Lens.Lens' ListChunks (Prelude.Maybe Prelude.Text)
+listChunks_nextToken = Lens.lens (\ListChunks' {nextToken} -> nextToken) (\s@ListChunks' {} a -> s {nextToken = a} :: ListChunks)
 
 -- | Storage job id
 listChunks_storageJobId :: Lens.Lens' ListChunks Prelude.Text
@@ -124,15 +124,15 @@ instance Core.AWSRequest ListChunks where
 
 instance Prelude.Hashable ListChunks where
   hashWithSalt _salt ListChunks' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` storageJobId
       `Prelude.hashWithSalt` objectToken
 
 instance Prelude.NFData ListChunks where
   rnf ListChunks' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf storageJobId
       `Prelude.seq` Prelude.rnf objectToken
 
@@ -160,8 +160,8 @@ instance Data.ToPath ListChunks where
 instance Data.ToQuery ListChunks where
   toQuery ListChunks' {..} =
     Prelude.mconcat
-      [ "next-token" Data.=: nextToken,
-        "max-results" Data.=: maxResults
+      [ "max-results" Data.=: maxResults,
+        "next-token" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListChunksResponse' smart constructor.

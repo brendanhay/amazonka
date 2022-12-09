@@ -27,10 +27,10 @@ module Amazonka.BackupStorage.NotifyObjectComplete
     newNotifyObjectComplete,
 
     -- * Request Lenses
-    notifyObjectComplete_metadataString,
     notifyObjectComplete_metadataBlobChecksum,
     notifyObjectComplete_metadataBlobChecksumAlgorithm,
     notifyObjectComplete_metadataBlobLength,
+    notifyObjectComplete_metadataString,
     notifyObjectComplete_backupJobId,
     notifyObjectComplete_uploadId,
     notifyObjectComplete_objectChecksum,
@@ -58,15 +58,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newNotifyObjectComplete' smart constructor.
 data NotifyObjectComplete = NotifyObjectComplete'
-  { -- | Optional metadata associated with an Object. Maximum string length is
-    -- 256 bytes.
-    metadataString :: Prelude.Maybe Prelude.Text,
-    -- | Checksum of MetadataBlob.
+  { -- | Checksum of MetadataBlob.
     metadataBlobChecksum :: Prelude.Maybe Prelude.Text,
     -- | Checksum algorithm.
     metadataBlobChecksumAlgorithm :: Prelude.Maybe DataChecksumAlgorithm,
     -- | The size of MetadataBlob.
     metadataBlobLength :: Prelude.Maybe Prelude.Integer,
+    -- | Optional metadata associated with an Object. Maximum string length is
+    -- 256 bytes.
+    metadataString :: Prelude.Maybe Prelude.Text,
     -- | Backup job Id for the in-progress backup
     backupJobId :: Prelude.Text,
     -- | Upload Id for the in-progress upload
@@ -88,14 +88,14 @@ data NotifyObjectComplete = NotifyObjectComplete'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'metadataString', 'notifyObjectComplete_metadataString' - Optional metadata associated with an Object. Maximum string length is
--- 256 bytes.
---
 -- 'metadataBlobChecksum', 'notifyObjectComplete_metadataBlobChecksum' - Checksum of MetadataBlob.
 --
 -- 'metadataBlobChecksumAlgorithm', 'notifyObjectComplete_metadataBlobChecksumAlgorithm' - Checksum algorithm.
 --
 -- 'metadataBlobLength', 'notifyObjectComplete_metadataBlobLength' - The size of MetadataBlob.
+--
+-- 'metadataString', 'notifyObjectComplete_metadataString' - Optional metadata associated with an Object. Maximum string length is
+-- 256 bytes.
 --
 -- 'backupJobId', 'notifyObjectComplete_backupJobId' - Backup job Id for the in-progress backup
 --
@@ -125,22 +125,17 @@ newNotifyObjectComplete
   pObjectChecksumAlgorithm_
   pMetadataBlob_ =
     NotifyObjectComplete'
-      { metadataString =
+      { metadataBlobChecksum =
           Prelude.Nothing,
-        metadataBlobChecksum = Prelude.Nothing,
         metadataBlobChecksumAlgorithm = Prelude.Nothing,
         metadataBlobLength = Prelude.Nothing,
+        metadataString = Prelude.Nothing,
         backupJobId = pBackupJobId_,
         uploadId = pUploadId_,
         objectChecksum = pObjectChecksum_,
         objectChecksumAlgorithm = pObjectChecksumAlgorithm_,
         metadataBlob = pMetadataBlob_
       }
-
--- | Optional metadata associated with an Object. Maximum string length is
--- 256 bytes.
-notifyObjectComplete_metadataString :: Lens.Lens' NotifyObjectComplete (Prelude.Maybe Prelude.Text)
-notifyObjectComplete_metadataString = Lens.lens (\NotifyObjectComplete' {metadataString} -> metadataString) (\s@NotifyObjectComplete' {} a -> s {metadataString = a} :: NotifyObjectComplete)
 
 -- | Checksum of MetadataBlob.
 notifyObjectComplete_metadataBlobChecksum :: Lens.Lens' NotifyObjectComplete (Prelude.Maybe Prelude.Text)
@@ -153,6 +148,11 @@ notifyObjectComplete_metadataBlobChecksumAlgorithm = Lens.lens (\NotifyObjectCom
 -- | The size of MetadataBlob.
 notifyObjectComplete_metadataBlobLength :: Lens.Lens' NotifyObjectComplete (Prelude.Maybe Prelude.Integer)
 notifyObjectComplete_metadataBlobLength = Lens.lens (\NotifyObjectComplete' {metadataBlobLength} -> metadataBlobLength) (\s@NotifyObjectComplete' {} a -> s {metadataBlobLength = a} :: NotifyObjectComplete)
+
+-- | Optional metadata associated with an Object. Maximum string length is
+-- 256 bytes.
+notifyObjectComplete_metadataString :: Lens.Lens' NotifyObjectComplete (Prelude.Maybe Prelude.Text)
+notifyObjectComplete_metadataString = Lens.lens (\NotifyObjectComplete' {metadataString} -> metadataString) (\s@NotifyObjectComplete' {} a -> s {metadataString = a} :: NotifyObjectComplete)
 
 -- | Backup job Id for the in-progress backup
 notifyObjectComplete_backupJobId :: Lens.Lens' NotifyObjectComplete Prelude.Text
@@ -217,11 +217,11 @@ instance Data.ToPath NotifyObjectComplete where
 instance Data.ToQuery NotifyObjectComplete where
   toQuery NotifyObjectComplete' {..} =
     Prelude.mconcat
-      [ "metadata-string" Data.=: metadataString,
-        "metadata-checksum" Data.=: metadataBlobChecksum,
+      [ "metadata-checksum" Data.=: metadataBlobChecksum,
         "metadata-checksum-algorithm"
           Data.=: metadataBlobChecksumAlgorithm,
         "metadata-blob-length" Data.=: metadataBlobLength,
+        "metadata-string" Data.=: metadataString,
         "checksum" Data.=: objectChecksum,
         "checksum-algorithm" Data.=: objectChecksumAlgorithm
       ]

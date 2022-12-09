@@ -19,23 +19,23 @@ module Amazonka.SageMakerRuntime
     -- * Errors
     -- $errors
 
-    -- ** ModelError
-    _ModelError,
-
-    -- ** ServiceUnavailable
-    _ServiceUnavailable,
-
-    -- ** ModelNotReadyException
-    _ModelNotReadyException,
-
-    -- ** ValidationError
-    _ValidationError,
+    -- ** InternalDependencyException
+    _InternalDependencyException,
 
     -- ** InternalFailure
     _InternalFailure,
 
-    -- ** InternalDependencyException
-    _InternalDependencyException,
+    -- ** ModelError
+    _ModelError,
+
+    -- ** ModelNotReadyException
+    _ModelNotReadyException,
+
+    -- ** ServiceUnavailable
+    _ServiceUnavailable,
+
+    -- ** ValidationError
+    _ValidationError,
 
     -- * Waiters
     -- $waiters

@@ -32,17 +32,17 @@ module Amazonka.NetworkManager.DescribeGlobalNetworks
     newDescribeGlobalNetworks,
 
     -- * Request Lenses
-    describeGlobalNetworks_nextToken,
     describeGlobalNetworks_globalNetworkIds,
     describeGlobalNetworks_maxResults,
+    describeGlobalNetworks_nextToken,
 
     -- * Destructuring the Response
     DescribeGlobalNetworksResponse (..),
     newDescribeGlobalNetworksResponse,
 
     -- * Response Lenses
-    describeGlobalNetworksResponse_nextToken,
     describeGlobalNetworksResponse_globalNetworks,
+    describeGlobalNetworksResponse_nextToken,
     describeGlobalNetworksResponse_httpStatus,
   )
 where
@@ -57,12 +57,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeGlobalNetworks' smart constructor.
 data DescribeGlobalNetworks = DescribeGlobalNetworks'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The IDs of one or more global networks. The maximum is 10.
+  { -- | The IDs of one or more global networks. The maximum is 10.
     globalNetworkIds :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of results to return.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,24 +74,20 @@ data DescribeGlobalNetworks = DescribeGlobalNetworks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeGlobalNetworks_nextToken' - The token for the next page of results.
---
 -- 'globalNetworkIds', 'describeGlobalNetworks_globalNetworkIds' - The IDs of one or more global networks. The maximum is 10.
 --
 -- 'maxResults', 'describeGlobalNetworks_maxResults' - The maximum number of results to return.
+--
+-- 'nextToken', 'describeGlobalNetworks_nextToken' - The token for the next page of results.
 newDescribeGlobalNetworks ::
   DescribeGlobalNetworks
 newDescribeGlobalNetworks =
   DescribeGlobalNetworks'
-    { nextToken =
+    { globalNetworkIds =
         Prelude.Nothing,
-      globalNetworkIds = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token for the next page of results.
-describeGlobalNetworks_nextToken :: Lens.Lens' DescribeGlobalNetworks (Prelude.Maybe Prelude.Text)
-describeGlobalNetworks_nextToken = Lens.lens (\DescribeGlobalNetworks' {nextToken} -> nextToken) (\s@DescribeGlobalNetworks' {} a -> s {nextToken = a} :: DescribeGlobalNetworks)
 
 -- | The IDs of one or more global networks. The maximum is 10.
 describeGlobalNetworks_globalNetworkIds :: Lens.Lens' DescribeGlobalNetworks (Prelude.Maybe [Prelude.Text])
@@ -100,6 +96,10 @@ describeGlobalNetworks_globalNetworkIds = Lens.lens (\DescribeGlobalNetworks' {g
 -- | The maximum number of results to return.
 describeGlobalNetworks_maxResults :: Lens.Lens' DescribeGlobalNetworks (Prelude.Maybe Prelude.Natural)
 describeGlobalNetworks_maxResults = Lens.lens (\DescribeGlobalNetworks' {maxResults} -> maxResults) (\s@DescribeGlobalNetworks' {} a -> s {maxResults = a} :: DescribeGlobalNetworks)
+
+-- | The token for the next page of results.
+describeGlobalNetworks_nextToken :: Lens.Lens' DescribeGlobalNetworks (Prelude.Maybe Prelude.Text)
+describeGlobalNetworks_nextToken = Lens.lens (\DescribeGlobalNetworks' {nextToken} -> nextToken) (\s@DescribeGlobalNetworks' {} a -> s {nextToken = a} :: DescribeGlobalNetworks)
 
 instance Core.AWSPager DescribeGlobalNetworks where
   page rq rs
@@ -133,22 +133,22 @@ instance Core.AWSRequest DescribeGlobalNetworks where
     Response.receiveJSON
       ( \s h x ->
           DescribeGlobalNetworksResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "GlobalNetworks" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "GlobalNetworks" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeGlobalNetworks where
   hashWithSalt _salt DescribeGlobalNetworks' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` globalNetworkIds
+    _salt `Prelude.hashWithSalt` globalNetworkIds
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeGlobalNetworks where
   rnf DescribeGlobalNetworks' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf globalNetworkIds
+    Prelude.rnf globalNetworkIds
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeGlobalNetworks where
   toHeaders =
@@ -167,21 +167,21 @@ instance Data.ToPath DescribeGlobalNetworks where
 instance Data.ToQuery DescribeGlobalNetworks where
   toQuery DescribeGlobalNetworks' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "globalNetworkIds"
+      [ "globalNetworkIds"
           Data.=: Data.toQuery
             ( Data.toQueryList "member"
                 Prelude.<$> globalNetworkIds
             ),
-        "maxResults" Data.=: maxResults
+        "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newDescribeGlobalNetworksResponse' smart constructor.
 data DescribeGlobalNetworksResponse = DescribeGlobalNetworksResponse'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the global networks.
+  { -- | Information about the global networks.
     globalNetworks :: Prelude.Maybe [GlobalNetwork],
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -195,9 +195,9 @@ data DescribeGlobalNetworksResponse = DescribeGlobalNetworksResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeGlobalNetworksResponse_nextToken' - The token for the next page of results.
---
 -- 'globalNetworks', 'describeGlobalNetworksResponse_globalNetworks' - Information about the global networks.
+--
+-- 'nextToken', 'describeGlobalNetworksResponse_nextToken' - The token for the next page of results.
 --
 -- 'httpStatus', 'describeGlobalNetworksResponse_httpStatus' - The response's http status code.
 newDescribeGlobalNetworksResponse ::
@@ -206,19 +206,19 @@ newDescribeGlobalNetworksResponse ::
   DescribeGlobalNetworksResponse
 newDescribeGlobalNetworksResponse pHttpStatus_ =
   DescribeGlobalNetworksResponse'
-    { nextToken =
+    { globalNetworks =
         Prelude.Nothing,
-      globalNetworks = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token for the next page of results.
-describeGlobalNetworksResponse_nextToken :: Lens.Lens' DescribeGlobalNetworksResponse (Prelude.Maybe Prelude.Text)
-describeGlobalNetworksResponse_nextToken = Lens.lens (\DescribeGlobalNetworksResponse' {nextToken} -> nextToken) (\s@DescribeGlobalNetworksResponse' {} a -> s {nextToken = a} :: DescribeGlobalNetworksResponse)
 
 -- | Information about the global networks.
 describeGlobalNetworksResponse_globalNetworks :: Lens.Lens' DescribeGlobalNetworksResponse (Prelude.Maybe [GlobalNetwork])
 describeGlobalNetworksResponse_globalNetworks = Lens.lens (\DescribeGlobalNetworksResponse' {globalNetworks} -> globalNetworks) (\s@DescribeGlobalNetworksResponse' {} a -> s {globalNetworks = a} :: DescribeGlobalNetworksResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token for the next page of results.
+describeGlobalNetworksResponse_nextToken :: Lens.Lens' DescribeGlobalNetworksResponse (Prelude.Maybe Prelude.Text)
+describeGlobalNetworksResponse_nextToken = Lens.lens (\DescribeGlobalNetworksResponse' {nextToken} -> nextToken) (\s@DescribeGlobalNetworksResponse' {} a -> s {nextToken = a} :: DescribeGlobalNetworksResponse)
 
 -- | The response's http status code.
 describeGlobalNetworksResponse_httpStatus :: Lens.Lens' DescribeGlobalNetworksResponse Prelude.Int
@@ -229,6 +229,6 @@ instance
     DescribeGlobalNetworksResponse
   where
   rnf DescribeGlobalNetworksResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf globalNetworks
+    Prelude.rnf globalNetworks
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

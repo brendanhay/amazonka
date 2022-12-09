@@ -33,20 +33,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCoreNetworkChangeEvent' smart constructor.
 data CoreNetworkChangeEvent = CoreNetworkChangeEvent'
-  { -- | Describes the type of change event.
-    type' :: Prelude.Maybe ChangeType,
-    -- | The status of the core network change event.
-    status :: Prelude.Maybe ChangeStatus,
+  { -- | The action taken for the change event.
+    action :: Prelude.Maybe ChangeAction,
+    -- | The timestamp for an event change in status.
+    eventTime :: Prelude.Maybe Data.POSIX,
     -- | Uniquely identifies the path for a change within the changeset. For
     -- example, the @IdentifierPath@ for a core network segment change might be
     -- @\"CORE_NETWORK_SEGMENT\/us-east-1\/devsegment\"@.
     identifierPath :: Prelude.Maybe Prelude.Text,
-    -- | The action taken for the change event.
-    action :: Prelude.Maybe ChangeAction,
+    -- | The status of the core network change event.
+    status :: Prelude.Maybe ChangeStatus,
+    -- | Describes the type of change event.
+    type' :: Prelude.Maybe ChangeType,
     -- | Details of the change event.
-    values :: Prelude.Maybe CoreNetworkChangeEventValues,
-    -- | The timestamp for an event change in status.
-    eventTime :: Prelude.Maybe Data.POSIX
+    values :: Prelude.Maybe CoreNetworkChangeEventValues
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,38 +58,38 @@ data CoreNetworkChangeEvent = CoreNetworkChangeEvent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'coreNetworkChangeEvent_type' - Describes the type of change event.
+-- 'action', 'coreNetworkChangeEvent_action' - The action taken for the change event.
 --
--- 'status', 'coreNetworkChangeEvent_status' - The status of the core network change event.
+-- 'eventTime', 'coreNetworkChangeEvent_eventTime' - The timestamp for an event change in status.
 --
 -- 'identifierPath', 'coreNetworkChangeEvent_identifierPath' - Uniquely identifies the path for a change within the changeset. For
 -- example, the @IdentifierPath@ for a core network segment change might be
 -- @\"CORE_NETWORK_SEGMENT\/us-east-1\/devsegment\"@.
 --
--- 'action', 'coreNetworkChangeEvent_action' - The action taken for the change event.
+-- 'status', 'coreNetworkChangeEvent_status' - The status of the core network change event.
+--
+-- 'type'', 'coreNetworkChangeEvent_type' - Describes the type of change event.
 --
 -- 'values', 'coreNetworkChangeEvent_values' - Details of the change event.
---
--- 'eventTime', 'coreNetworkChangeEvent_eventTime' - The timestamp for an event change in status.
 newCoreNetworkChangeEvent ::
   CoreNetworkChangeEvent
 newCoreNetworkChangeEvent =
   CoreNetworkChangeEvent'
-    { type' = Prelude.Nothing,
-      status = Prelude.Nothing,
+    { action = Prelude.Nothing,
+      eventTime = Prelude.Nothing,
       identifierPath = Prelude.Nothing,
-      action = Prelude.Nothing,
-      values = Prelude.Nothing,
-      eventTime = Prelude.Nothing
+      status = Prelude.Nothing,
+      type' = Prelude.Nothing,
+      values = Prelude.Nothing
     }
 
--- | Describes the type of change event.
-coreNetworkChangeEvent_type :: Lens.Lens' CoreNetworkChangeEvent (Prelude.Maybe ChangeType)
-coreNetworkChangeEvent_type = Lens.lens (\CoreNetworkChangeEvent' {type'} -> type') (\s@CoreNetworkChangeEvent' {} a -> s {type' = a} :: CoreNetworkChangeEvent)
+-- | The action taken for the change event.
+coreNetworkChangeEvent_action :: Lens.Lens' CoreNetworkChangeEvent (Prelude.Maybe ChangeAction)
+coreNetworkChangeEvent_action = Lens.lens (\CoreNetworkChangeEvent' {action} -> action) (\s@CoreNetworkChangeEvent' {} a -> s {action = a} :: CoreNetworkChangeEvent)
 
--- | The status of the core network change event.
-coreNetworkChangeEvent_status :: Lens.Lens' CoreNetworkChangeEvent (Prelude.Maybe ChangeStatus)
-coreNetworkChangeEvent_status = Lens.lens (\CoreNetworkChangeEvent' {status} -> status) (\s@CoreNetworkChangeEvent' {} a -> s {status = a} :: CoreNetworkChangeEvent)
+-- | The timestamp for an event change in status.
+coreNetworkChangeEvent_eventTime :: Lens.Lens' CoreNetworkChangeEvent (Prelude.Maybe Prelude.UTCTime)
+coreNetworkChangeEvent_eventTime = Lens.lens (\CoreNetworkChangeEvent' {eventTime} -> eventTime) (\s@CoreNetworkChangeEvent' {} a -> s {eventTime = a} :: CoreNetworkChangeEvent) Prelude.. Lens.mapping Data._Time
 
 -- | Uniquely identifies the path for a change within the changeset. For
 -- example, the @IdentifierPath@ for a core network segment change might be
@@ -97,17 +97,17 @@ coreNetworkChangeEvent_status = Lens.lens (\CoreNetworkChangeEvent' {status} -> 
 coreNetworkChangeEvent_identifierPath :: Lens.Lens' CoreNetworkChangeEvent (Prelude.Maybe Prelude.Text)
 coreNetworkChangeEvent_identifierPath = Lens.lens (\CoreNetworkChangeEvent' {identifierPath} -> identifierPath) (\s@CoreNetworkChangeEvent' {} a -> s {identifierPath = a} :: CoreNetworkChangeEvent)
 
--- | The action taken for the change event.
-coreNetworkChangeEvent_action :: Lens.Lens' CoreNetworkChangeEvent (Prelude.Maybe ChangeAction)
-coreNetworkChangeEvent_action = Lens.lens (\CoreNetworkChangeEvent' {action} -> action) (\s@CoreNetworkChangeEvent' {} a -> s {action = a} :: CoreNetworkChangeEvent)
+-- | The status of the core network change event.
+coreNetworkChangeEvent_status :: Lens.Lens' CoreNetworkChangeEvent (Prelude.Maybe ChangeStatus)
+coreNetworkChangeEvent_status = Lens.lens (\CoreNetworkChangeEvent' {status} -> status) (\s@CoreNetworkChangeEvent' {} a -> s {status = a} :: CoreNetworkChangeEvent)
+
+-- | Describes the type of change event.
+coreNetworkChangeEvent_type :: Lens.Lens' CoreNetworkChangeEvent (Prelude.Maybe ChangeType)
+coreNetworkChangeEvent_type = Lens.lens (\CoreNetworkChangeEvent' {type'} -> type') (\s@CoreNetworkChangeEvent' {} a -> s {type' = a} :: CoreNetworkChangeEvent)
 
 -- | Details of the change event.
 coreNetworkChangeEvent_values :: Lens.Lens' CoreNetworkChangeEvent (Prelude.Maybe CoreNetworkChangeEventValues)
 coreNetworkChangeEvent_values = Lens.lens (\CoreNetworkChangeEvent' {values} -> values) (\s@CoreNetworkChangeEvent' {} a -> s {values = a} :: CoreNetworkChangeEvent)
-
--- | The timestamp for an event change in status.
-coreNetworkChangeEvent_eventTime :: Lens.Lens' CoreNetworkChangeEvent (Prelude.Maybe Prelude.UTCTime)
-coreNetworkChangeEvent_eventTime = Lens.lens (\CoreNetworkChangeEvent' {eventTime} -> eventTime) (\s@CoreNetworkChangeEvent' {} a -> s {eventTime = a} :: CoreNetworkChangeEvent) Prelude.. Lens.mapping Data._Time
 
 instance Data.FromJSON CoreNetworkChangeEvent where
   parseJSON =
@@ -115,28 +115,28 @@ instance Data.FromJSON CoreNetworkChangeEvent where
       "CoreNetworkChangeEvent"
       ( \x ->
           CoreNetworkChangeEvent'
-            Prelude.<$> (x Data..:? "Type")
-            Prelude.<*> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "IdentifierPath")
-            Prelude.<*> (x Data..:? "Action")
-            Prelude.<*> (x Data..:? "Values")
+            Prelude.<$> (x Data..:? "Action")
             Prelude.<*> (x Data..:? "EventTime")
+            Prelude.<*> (x Data..:? "IdentifierPath")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Values")
       )
 
 instance Prelude.Hashable CoreNetworkChangeEvent where
   hashWithSalt _salt CoreNetworkChangeEvent' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` identifierPath
-      `Prelude.hashWithSalt` action
-      `Prelude.hashWithSalt` values
+    _salt `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` eventTime
+      `Prelude.hashWithSalt` identifierPath
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` values
 
 instance Prelude.NFData CoreNetworkChangeEvent where
   rnf CoreNetworkChangeEvent' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf identifierPath
-      `Prelude.seq` Prelude.rnf action
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf action
       `Prelude.seq` Prelude.rnf eventTime
+      `Prelude.seq` Prelude.rnf identifierPath
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf values

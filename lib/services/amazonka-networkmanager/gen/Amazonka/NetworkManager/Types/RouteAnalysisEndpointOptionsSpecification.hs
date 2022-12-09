@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRouteAnalysisEndpointOptionsSpecification' smart constructor.
 data RouteAnalysisEndpointOptionsSpecification = RouteAnalysisEndpointOptionsSpecification'
-  { -- | The ARN of the transit gateway attachment.
-    transitGatewayAttachmentArn :: Prelude.Maybe Prelude.Text,
-    -- | The IP address.
-    ipAddress :: Prelude.Maybe Prelude.Text
+  { -- | The IP address.
+    ipAddress :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the transit gateway attachment.
+    transitGatewayAttachmentArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,26 @@ data RouteAnalysisEndpointOptionsSpecification = RouteAnalysisEndpointOptionsSpe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'transitGatewayAttachmentArn', 'routeAnalysisEndpointOptionsSpecification_transitGatewayAttachmentArn' - The ARN of the transit gateway attachment.
---
 -- 'ipAddress', 'routeAnalysisEndpointOptionsSpecification_ipAddress' - The IP address.
+--
+-- 'transitGatewayAttachmentArn', 'routeAnalysisEndpointOptionsSpecification_transitGatewayAttachmentArn' - The ARN of the transit gateway attachment.
 newRouteAnalysisEndpointOptionsSpecification ::
   RouteAnalysisEndpointOptionsSpecification
 newRouteAnalysisEndpointOptionsSpecification =
   RouteAnalysisEndpointOptionsSpecification'
-    { transitGatewayAttachmentArn =
+    { ipAddress =
         Prelude.Nothing,
-      ipAddress = Prelude.Nothing
+      transitGatewayAttachmentArn =
+        Prelude.Nothing
     }
-
--- | The ARN of the transit gateway attachment.
-routeAnalysisEndpointOptionsSpecification_transitGatewayAttachmentArn :: Lens.Lens' RouteAnalysisEndpointOptionsSpecification (Prelude.Maybe Prelude.Text)
-routeAnalysisEndpointOptionsSpecification_transitGatewayAttachmentArn = Lens.lens (\RouteAnalysisEndpointOptionsSpecification' {transitGatewayAttachmentArn} -> transitGatewayAttachmentArn) (\s@RouteAnalysisEndpointOptionsSpecification' {} a -> s {transitGatewayAttachmentArn = a} :: RouteAnalysisEndpointOptionsSpecification)
 
 -- | The IP address.
 routeAnalysisEndpointOptionsSpecification_ipAddress :: Lens.Lens' RouteAnalysisEndpointOptionsSpecification (Prelude.Maybe Prelude.Text)
 routeAnalysisEndpointOptionsSpecification_ipAddress = Lens.lens (\RouteAnalysisEndpointOptionsSpecification' {ipAddress} -> ipAddress) (\s@RouteAnalysisEndpointOptionsSpecification' {} a -> s {ipAddress = a} :: RouteAnalysisEndpointOptionsSpecification)
+
+-- | The ARN of the transit gateway attachment.
+routeAnalysisEndpointOptionsSpecification_transitGatewayAttachmentArn :: Lens.Lens' RouteAnalysisEndpointOptionsSpecification (Prelude.Maybe Prelude.Text)
+routeAnalysisEndpointOptionsSpecification_transitGatewayAttachmentArn = Lens.lens (\RouteAnalysisEndpointOptionsSpecification' {transitGatewayAttachmentArn} -> transitGatewayAttachmentArn) (\s@RouteAnalysisEndpointOptionsSpecification' {} a -> s {transitGatewayAttachmentArn = a} :: RouteAnalysisEndpointOptionsSpecification)
 
 instance
   Prelude.Hashable
@@ -70,17 +71,16 @@ instance
   hashWithSalt
     _salt
     RouteAnalysisEndpointOptionsSpecification' {..} =
-      _salt
+      _salt `Prelude.hashWithSalt` ipAddress
         `Prelude.hashWithSalt` transitGatewayAttachmentArn
-        `Prelude.hashWithSalt` ipAddress
 
 instance
   Prelude.NFData
     RouteAnalysisEndpointOptionsSpecification
   where
   rnf RouteAnalysisEndpointOptionsSpecification' {..} =
-    Prelude.rnf transitGatewayAttachmentArn
-      `Prelude.seq` Prelude.rnf ipAddress
+    Prelude.rnf ipAddress
+      `Prelude.seq` Prelude.rnf transitGatewayAttachmentArn
 
 instance
   Data.ToJSON
@@ -89,8 +89,8 @@ instance
   toJSON RouteAnalysisEndpointOptionsSpecification' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("TransitGatewayAttachmentArn" Data..=)
-              Prelude.<$> transitGatewayAttachmentArn,
-            ("IpAddress" Data..=) Prelude.<$> ipAddress
+          [ ("IpAddress" Data..=) Prelude.<$> ipAddress,
+            ("TransitGatewayAttachmentArn" Data..=)
+              Prelude.<$> transitGatewayAttachmentArn
           ]
       )

@@ -29,9 +29,9 @@ module Amazonka.NetworkManager.GetConnectPeerAssociations
     newGetConnectPeerAssociations,
 
     -- * Request Lenses
-    getConnectPeerAssociations_nextToken,
     getConnectPeerAssociations_connectPeerIds,
     getConnectPeerAssociations_maxResults,
+    getConnectPeerAssociations_nextToken,
     getConnectPeerAssociations_globalNetworkId,
 
     -- * Destructuring the Response
@@ -39,8 +39,8 @@ module Amazonka.NetworkManager.GetConnectPeerAssociations
     newGetConnectPeerAssociationsResponse,
 
     -- * Response Lenses
-    getConnectPeerAssociationsResponse_nextToken,
     getConnectPeerAssociationsResponse_connectPeerAssociations,
+    getConnectPeerAssociationsResponse_nextToken,
     getConnectPeerAssociationsResponse_httpStatus,
   )
 where
@@ -55,12 +55,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetConnectPeerAssociations' smart constructor.
 data GetConnectPeerAssociations = GetConnectPeerAssociations'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The IDs of the Connect peers.
+  { -- | The IDs of the Connect peers.
     connectPeerIds :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of results to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the global network.
     globalNetworkId :: Prelude.Text
   }
@@ -74,11 +74,11 @@ data GetConnectPeerAssociations = GetConnectPeerAssociations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getConnectPeerAssociations_nextToken' - The token for the next page of results.
---
 -- 'connectPeerIds', 'getConnectPeerAssociations_connectPeerIds' - The IDs of the Connect peers.
 --
 -- 'maxResults', 'getConnectPeerAssociations_maxResults' - The maximum number of results to return.
+--
+-- 'nextToken', 'getConnectPeerAssociations_nextToken' - The token for the next page of results.
 --
 -- 'globalNetworkId', 'getConnectPeerAssociations_globalNetworkId' - The ID of the global network.
 newGetConnectPeerAssociations ::
@@ -87,16 +87,12 @@ newGetConnectPeerAssociations ::
   GetConnectPeerAssociations
 newGetConnectPeerAssociations pGlobalNetworkId_ =
   GetConnectPeerAssociations'
-    { nextToken =
+    { connectPeerIds =
         Prelude.Nothing,
-      connectPeerIds = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       globalNetworkId = pGlobalNetworkId_
     }
-
--- | The token for the next page of results.
-getConnectPeerAssociations_nextToken :: Lens.Lens' GetConnectPeerAssociations (Prelude.Maybe Prelude.Text)
-getConnectPeerAssociations_nextToken = Lens.lens (\GetConnectPeerAssociations' {nextToken} -> nextToken) (\s@GetConnectPeerAssociations' {} a -> s {nextToken = a} :: GetConnectPeerAssociations)
 
 -- | The IDs of the Connect peers.
 getConnectPeerAssociations_connectPeerIds :: Lens.Lens' GetConnectPeerAssociations (Prelude.Maybe [Prelude.Text])
@@ -105,6 +101,10 @@ getConnectPeerAssociations_connectPeerIds = Lens.lens (\GetConnectPeerAssociatio
 -- | The maximum number of results to return.
 getConnectPeerAssociations_maxResults :: Lens.Lens' GetConnectPeerAssociations (Prelude.Maybe Prelude.Natural)
 getConnectPeerAssociations_maxResults = Lens.lens (\GetConnectPeerAssociations' {maxResults} -> maxResults) (\s@GetConnectPeerAssociations' {} a -> s {maxResults = a} :: GetConnectPeerAssociations)
+
+-- | The token for the next page of results.
+getConnectPeerAssociations_nextToken :: Lens.Lens' GetConnectPeerAssociations (Prelude.Maybe Prelude.Text)
+getConnectPeerAssociations_nextToken = Lens.lens (\GetConnectPeerAssociations' {nextToken} -> nextToken) (\s@GetConnectPeerAssociations' {} a -> s {nextToken = a} :: GetConnectPeerAssociations)
 
 -- | The ID of the global network.
 getConnectPeerAssociations_globalNetworkId :: Lens.Lens' GetConnectPeerAssociations Prelude.Text
@@ -142,25 +142,25 @@ instance Core.AWSRequest GetConnectPeerAssociations where
     Response.receiveJSON
       ( \s h x ->
           GetConnectPeerAssociationsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ConnectPeerAssociations"
+            Prelude.<$> ( x Data..?> "ConnectPeerAssociations"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetConnectPeerAssociations where
   hashWithSalt _salt GetConnectPeerAssociations' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` connectPeerIds
+    _salt `Prelude.hashWithSalt` connectPeerIds
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` globalNetworkId
 
 instance Prelude.NFData GetConnectPeerAssociations where
   rnf GetConnectPeerAssociations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf connectPeerIds
+    Prelude.rnf connectPeerIds
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf globalNetworkId
 
 instance Data.ToHeaders GetConnectPeerAssociations where
@@ -185,21 +185,21 @@ instance Data.ToPath GetConnectPeerAssociations where
 instance Data.ToQuery GetConnectPeerAssociations where
   toQuery GetConnectPeerAssociations' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "connectPeerIds"
+      [ "connectPeerIds"
           Data.=: Data.toQuery
             ( Data.toQueryList "member"
                 Prelude.<$> connectPeerIds
             ),
-        "maxResults" Data.=: maxResults
+        "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newGetConnectPeerAssociationsResponse' smart constructor.
 data GetConnectPeerAssociationsResponse = GetConnectPeerAssociationsResponse'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Displays a list of Connect peer associations.
+  { -- | Displays a list of Connect peer associations.
     connectPeerAssociations :: Prelude.Maybe [ConnectPeerAssociation],
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -213,9 +213,9 @@ data GetConnectPeerAssociationsResponse = GetConnectPeerAssociationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getConnectPeerAssociationsResponse_nextToken' - The token for the next page of results.
---
 -- 'connectPeerAssociations', 'getConnectPeerAssociationsResponse_connectPeerAssociations' - Displays a list of Connect peer associations.
+--
+-- 'nextToken', 'getConnectPeerAssociationsResponse_nextToken' - The token for the next page of results.
 --
 -- 'httpStatus', 'getConnectPeerAssociationsResponse_httpStatus' - The response's http status code.
 newGetConnectPeerAssociationsResponse ::
@@ -224,20 +224,19 @@ newGetConnectPeerAssociationsResponse ::
   GetConnectPeerAssociationsResponse
 newGetConnectPeerAssociationsResponse pHttpStatus_ =
   GetConnectPeerAssociationsResponse'
-    { nextToken =
+    { connectPeerAssociations =
         Prelude.Nothing,
-      connectPeerAssociations =
-        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token for the next page of results.
-getConnectPeerAssociationsResponse_nextToken :: Lens.Lens' GetConnectPeerAssociationsResponse (Prelude.Maybe Prelude.Text)
-getConnectPeerAssociationsResponse_nextToken = Lens.lens (\GetConnectPeerAssociationsResponse' {nextToken} -> nextToken) (\s@GetConnectPeerAssociationsResponse' {} a -> s {nextToken = a} :: GetConnectPeerAssociationsResponse)
 
 -- | Displays a list of Connect peer associations.
 getConnectPeerAssociationsResponse_connectPeerAssociations :: Lens.Lens' GetConnectPeerAssociationsResponse (Prelude.Maybe [ConnectPeerAssociation])
 getConnectPeerAssociationsResponse_connectPeerAssociations = Lens.lens (\GetConnectPeerAssociationsResponse' {connectPeerAssociations} -> connectPeerAssociations) (\s@GetConnectPeerAssociationsResponse' {} a -> s {connectPeerAssociations = a} :: GetConnectPeerAssociationsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token for the next page of results.
+getConnectPeerAssociationsResponse_nextToken :: Lens.Lens' GetConnectPeerAssociationsResponse (Prelude.Maybe Prelude.Text)
+getConnectPeerAssociationsResponse_nextToken = Lens.lens (\GetConnectPeerAssociationsResponse' {nextToken} -> nextToken) (\s@GetConnectPeerAssociationsResponse' {} a -> s {nextToken = a} :: GetConnectPeerAssociationsResponse)
 
 -- | The response's http status code.
 getConnectPeerAssociationsResponse_httpStatus :: Lens.Lens' GetConnectPeerAssociationsResponse Prelude.Int
@@ -248,6 +247,6 @@ instance
     GetConnectPeerAssociationsResponse
   where
   rnf GetConnectPeerAssociationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf connectPeerAssociations
+    Prelude.rnf connectPeerAssociations
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

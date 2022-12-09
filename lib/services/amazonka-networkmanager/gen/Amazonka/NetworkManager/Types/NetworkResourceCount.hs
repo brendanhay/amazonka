@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNetworkResourceCount' smart constructor.
 data NetworkResourceCount = NetworkResourceCount'
-  { -- | The resource type.
-    resourceType :: Prelude.Maybe Prelude.Text,
-    -- | The resource count.
-    count :: Prelude.Maybe Prelude.Int
+  { -- | The resource count.
+    count :: Prelude.Maybe Prelude.Int,
+    -- | The resource type.
+    resourceType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,24 @@ data NetworkResourceCount = NetworkResourceCount'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceType', 'networkResourceCount_resourceType' - The resource type.
---
 -- 'count', 'networkResourceCount_count' - The resource count.
+--
+-- 'resourceType', 'networkResourceCount_resourceType' - The resource type.
 newNetworkResourceCount ::
   NetworkResourceCount
 newNetworkResourceCount =
   NetworkResourceCount'
-    { resourceType =
-        Prelude.Nothing,
-      count = Prelude.Nothing
+    { count = Prelude.Nothing,
+      resourceType = Prelude.Nothing
     }
-
--- | The resource type.
-networkResourceCount_resourceType :: Lens.Lens' NetworkResourceCount (Prelude.Maybe Prelude.Text)
-networkResourceCount_resourceType = Lens.lens (\NetworkResourceCount' {resourceType} -> resourceType) (\s@NetworkResourceCount' {} a -> s {resourceType = a} :: NetworkResourceCount)
 
 -- | The resource count.
 networkResourceCount_count :: Lens.Lens' NetworkResourceCount (Prelude.Maybe Prelude.Int)
 networkResourceCount_count = Lens.lens (\NetworkResourceCount' {count} -> count) (\s@NetworkResourceCount' {} a -> s {count = a} :: NetworkResourceCount)
+
+-- | The resource type.
+networkResourceCount_resourceType :: Lens.Lens' NetworkResourceCount (Prelude.Maybe Prelude.Text)
+networkResourceCount_resourceType = Lens.lens (\NetworkResourceCount' {resourceType} -> resourceType) (\s@NetworkResourceCount' {} a -> s {resourceType = a} :: NetworkResourceCount)
 
 instance Data.FromJSON NetworkResourceCount where
   parseJSON =
@@ -69,16 +68,16 @@ instance Data.FromJSON NetworkResourceCount where
       "NetworkResourceCount"
       ( \x ->
           NetworkResourceCount'
-            Prelude.<$> (x Data..:? "ResourceType")
-            Prelude.<*> (x Data..:? "Count")
+            Prelude.<$> (x Data..:? "Count")
+            Prelude.<*> (x Data..:? "ResourceType")
       )
 
 instance Prelude.Hashable NetworkResourceCount where
   hashWithSalt _salt NetworkResourceCount' {..} =
-    _salt `Prelude.hashWithSalt` resourceType
-      `Prelude.hashWithSalt` count
+    _salt `Prelude.hashWithSalt` count
+      `Prelude.hashWithSalt` resourceType
 
 instance Prelude.NFData NetworkResourceCount where
   rnf NetworkResourceCount' {..} =
-    Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf count
+    Prelude.rnf count
+      `Prelude.seq` Prelude.rnf resourceType

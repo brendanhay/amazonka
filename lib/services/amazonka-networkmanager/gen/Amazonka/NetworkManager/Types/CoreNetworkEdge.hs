@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCoreNetworkEdge' smart constructor.
 data CoreNetworkEdge = CoreNetworkEdge'
-  { -- | The Region where a core network edge is located.
-    edgeLocation :: Prelude.Maybe Prelude.Text,
-    -- | The ASN of a core network edge.
+  { -- | The ASN of a core network edge.
     asn :: Prelude.Maybe Prelude.Integer,
+    -- | The Region where a core network edge is located.
+    edgeLocation :: Prelude.Maybe Prelude.Text,
     -- | The inside IP addresses used for core network edges.
     insideCidrBlocks :: Prelude.Maybe [Prelude.Text]
   }
@@ -45,27 +45,27 @@ data CoreNetworkEdge = CoreNetworkEdge'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'edgeLocation', 'coreNetworkEdge_edgeLocation' - The Region where a core network edge is located.
---
 -- 'asn', 'coreNetworkEdge_asn' - The ASN of a core network edge.
+--
+-- 'edgeLocation', 'coreNetworkEdge_edgeLocation' - The Region where a core network edge is located.
 --
 -- 'insideCidrBlocks', 'coreNetworkEdge_insideCidrBlocks' - The inside IP addresses used for core network edges.
 newCoreNetworkEdge ::
   CoreNetworkEdge
 newCoreNetworkEdge =
   CoreNetworkEdge'
-    { edgeLocation = Prelude.Nothing,
-      asn = Prelude.Nothing,
+    { asn = Prelude.Nothing,
+      edgeLocation = Prelude.Nothing,
       insideCidrBlocks = Prelude.Nothing
     }
-
--- | The Region where a core network edge is located.
-coreNetworkEdge_edgeLocation :: Lens.Lens' CoreNetworkEdge (Prelude.Maybe Prelude.Text)
-coreNetworkEdge_edgeLocation = Lens.lens (\CoreNetworkEdge' {edgeLocation} -> edgeLocation) (\s@CoreNetworkEdge' {} a -> s {edgeLocation = a} :: CoreNetworkEdge)
 
 -- | The ASN of a core network edge.
 coreNetworkEdge_asn :: Lens.Lens' CoreNetworkEdge (Prelude.Maybe Prelude.Integer)
 coreNetworkEdge_asn = Lens.lens (\CoreNetworkEdge' {asn} -> asn) (\s@CoreNetworkEdge' {} a -> s {asn = a} :: CoreNetworkEdge)
+
+-- | The Region where a core network edge is located.
+coreNetworkEdge_edgeLocation :: Lens.Lens' CoreNetworkEdge (Prelude.Maybe Prelude.Text)
+coreNetworkEdge_edgeLocation = Lens.lens (\CoreNetworkEdge' {edgeLocation} -> edgeLocation) (\s@CoreNetworkEdge' {} a -> s {edgeLocation = a} :: CoreNetworkEdge)
 
 -- | The inside IP addresses used for core network edges.
 coreNetworkEdge_insideCidrBlocks :: Lens.Lens' CoreNetworkEdge (Prelude.Maybe [Prelude.Text])
@@ -77,8 +77,8 @@ instance Data.FromJSON CoreNetworkEdge where
       "CoreNetworkEdge"
       ( \x ->
           CoreNetworkEdge'
-            Prelude.<$> (x Data..:? "EdgeLocation")
-            Prelude.<*> (x Data..:? "Asn")
+            Prelude.<$> (x Data..:? "Asn")
+            Prelude.<*> (x Data..:? "EdgeLocation")
             Prelude.<*> ( x Data..:? "InsideCidrBlocks"
                             Data..!= Prelude.mempty
                         )
@@ -86,12 +86,12 @@ instance Data.FromJSON CoreNetworkEdge where
 
 instance Prelude.Hashable CoreNetworkEdge where
   hashWithSalt _salt CoreNetworkEdge' {..} =
-    _salt `Prelude.hashWithSalt` edgeLocation
-      `Prelude.hashWithSalt` asn
+    _salt `Prelude.hashWithSalt` asn
+      `Prelude.hashWithSalt` edgeLocation
       `Prelude.hashWithSalt` insideCidrBlocks
 
 instance Prelude.NFData CoreNetworkEdge where
   rnf CoreNetworkEdge' {..} =
-    Prelude.rnf edgeLocation
-      `Prelude.seq` Prelude.rnf asn
+    Prelude.rnf asn
+      `Prelude.seq` Prelude.rnf edgeLocation
       `Prelude.seq` Prelude.rnf insideCidrBlocks

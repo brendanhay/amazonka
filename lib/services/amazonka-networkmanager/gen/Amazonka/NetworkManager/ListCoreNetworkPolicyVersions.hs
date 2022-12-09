@@ -29,8 +29,8 @@ module Amazonka.NetworkManager.ListCoreNetworkPolicyVersions
     newListCoreNetworkPolicyVersions,
 
     -- * Request Lenses
-    listCoreNetworkPolicyVersions_nextToken,
     listCoreNetworkPolicyVersions_maxResults,
+    listCoreNetworkPolicyVersions_nextToken,
     listCoreNetworkPolicyVersions_coreNetworkId,
 
     -- * Destructuring the Response
@@ -38,8 +38,8 @@ module Amazonka.NetworkManager.ListCoreNetworkPolicyVersions
     newListCoreNetworkPolicyVersionsResponse,
 
     -- * Response Lenses
-    listCoreNetworkPolicyVersionsResponse_nextToken,
     listCoreNetworkPolicyVersionsResponse_coreNetworkPolicyVersions,
+    listCoreNetworkPolicyVersionsResponse_nextToken,
     listCoreNetworkPolicyVersionsResponse_httpStatus,
   )
 where
@@ -54,10 +54,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListCoreNetworkPolicyVersions' smart constructor.
 data ListCoreNetworkPolicyVersions = ListCoreNetworkPolicyVersions'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return.
+  { -- | The maximum number of results to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of a core network.
     coreNetworkId :: Prelude.Text
   }
@@ -71,9 +71,9 @@ data ListCoreNetworkPolicyVersions = ListCoreNetworkPolicyVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listCoreNetworkPolicyVersions_nextToken' - The token for the next page of results.
---
 -- 'maxResults', 'listCoreNetworkPolicyVersions_maxResults' - The maximum number of results to return.
+--
+-- 'nextToken', 'listCoreNetworkPolicyVersions_nextToken' - The token for the next page of results.
 --
 -- 'coreNetworkId', 'listCoreNetworkPolicyVersions_coreNetworkId' - The ID of a core network.
 newListCoreNetworkPolicyVersions ::
@@ -82,19 +82,19 @@ newListCoreNetworkPolicyVersions ::
   ListCoreNetworkPolicyVersions
 newListCoreNetworkPolicyVersions pCoreNetworkId_ =
   ListCoreNetworkPolicyVersions'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       coreNetworkId = pCoreNetworkId_
     }
-
--- | The token for the next page of results.
-listCoreNetworkPolicyVersions_nextToken :: Lens.Lens' ListCoreNetworkPolicyVersions (Prelude.Maybe Prelude.Text)
-listCoreNetworkPolicyVersions_nextToken = Lens.lens (\ListCoreNetworkPolicyVersions' {nextToken} -> nextToken) (\s@ListCoreNetworkPolicyVersions' {} a -> s {nextToken = a} :: ListCoreNetworkPolicyVersions)
 
 -- | The maximum number of results to return.
 listCoreNetworkPolicyVersions_maxResults :: Lens.Lens' ListCoreNetworkPolicyVersions (Prelude.Maybe Prelude.Natural)
 listCoreNetworkPolicyVersions_maxResults = Lens.lens (\ListCoreNetworkPolicyVersions' {maxResults} -> maxResults) (\s@ListCoreNetworkPolicyVersions' {} a -> s {maxResults = a} :: ListCoreNetworkPolicyVersions)
+
+-- | The token for the next page of results.
+listCoreNetworkPolicyVersions_nextToken :: Lens.Lens' ListCoreNetworkPolicyVersions (Prelude.Maybe Prelude.Text)
+listCoreNetworkPolicyVersions_nextToken = Lens.lens (\ListCoreNetworkPolicyVersions' {nextToken} -> nextToken) (\s@ListCoreNetworkPolicyVersions' {} a -> s {nextToken = a} :: ListCoreNetworkPolicyVersions)
 
 -- | The ID of a core network.
 listCoreNetworkPolicyVersions_coreNetworkId :: Lens.Lens' ListCoreNetworkPolicyVersions Prelude.Text
@@ -135,10 +135,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListCoreNetworkPolicyVersionsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "CoreNetworkPolicyVersions"
+            Prelude.<$> ( x Data..?> "CoreNetworkPolicyVersions"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,14 +147,14 @@ instance
     ListCoreNetworkPolicyVersions
   where
   hashWithSalt _salt ListCoreNetworkPolicyVersions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` coreNetworkId
 
 instance Prelude.NFData ListCoreNetworkPolicyVersions where
   rnf ListCoreNetworkPolicyVersions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf coreNetworkId
 
 instance Data.ToHeaders ListCoreNetworkPolicyVersions where
@@ -179,16 +179,16 @@ instance Data.ToPath ListCoreNetworkPolicyVersions where
 instance Data.ToQuery ListCoreNetworkPolicyVersions where
   toQuery ListCoreNetworkPolicyVersions' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListCoreNetworkPolicyVersionsResponse' smart constructor.
 data ListCoreNetworkPolicyVersionsResponse = ListCoreNetworkPolicyVersionsResponse'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Describes core network policy versions.
+  { -- | Describes core network policy versions.
     coreNetworkPolicyVersions :: Prelude.Maybe [CoreNetworkPolicyVersion],
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -202,9 +202,9 @@ data ListCoreNetworkPolicyVersionsResponse = ListCoreNetworkPolicyVersionsRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listCoreNetworkPolicyVersionsResponse_nextToken' - The token for the next page of results.
---
 -- 'coreNetworkPolicyVersions', 'listCoreNetworkPolicyVersionsResponse_coreNetworkPolicyVersions' - Describes core network policy versions.
+--
+-- 'nextToken', 'listCoreNetworkPolicyVersionsResponse_nextToken' - The token for the next page of results.
 --
 -- 'httpStatus', 'listCoreNetworkPolicyVersionsResponse_httpStatus' - The response's http status code.
 newListCoreNetworkPolicyVersionsResponse ::
@@ -213,20 +213,19 @@ newListCoreNetworkPolicyVersionsResponse ::
   ListCoreNetworkPolicyVersionsResponse
 newListCoreNetworkPolicyVersionsResponse pHttpStatus_ =
   ListCoreNetworkPolicyVersionsResponse'
-    { nextToken =
+    { coreNetworkPolicyVersions =
         Prelude.Nothing,
-      coreNetworkPolicyVersions =
-        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token for the next page of results.
-listCoreNetworkPolicyVersionsResponse_nextToken :: Lens.Lens' ListCoreNetworkPolicyVersionsResponse (Prelude.Maybe Prelude.Text)
-listCoreNetworkPolicyVersionsResponse_nextToken = Lens.lens (\ListCoreNetworkPolicyVersionsResponse' {nextToken} -> nextToken) (\s@ListCoreNetworkPolicyVersionsResponse' {} a -> s {nextToken = a} :: ListCoreNetworkPolicyVersionsResponse)
 
 -- | Describes core network policy versions.
 listCoreNetworkPolicyVersionsResponse_coreNetworkPolicyVersions :: Lens.Lens' ListCoreNetworkPolicyVersionsResponse (Prelude.Maybe [CoreNetworkPolicyVersion])
 listCoreNetworkPolicyVersionsResponse_coreNetworkPolicyVersions = Lens.lens (\ListCoreNetworkPolicyVersionsResponse' {coreNetworkPolicyVersions} -> coreNetworkPolicyVersions) (\s@ListCoreNetworkPolicyVersionsResponse' {} a -> s {coreNetworkPolicyVersions = a} :: ListCoreNetworkPolicyVersionsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token for the next page of results.
+listCoreNetworkPolicyVersionsResponse_nextToken :: Lens.Lens' ListCoreNetworkPolicyVersionsResponse (Prelude.Maybe Prelude.Text)
+listCoreNetworkPolicyVersionsResponse_nextToken = Lens.lens (\ListCoreNetworkPolicyVersionsResponse' {nextToken} -> nextToken) (\s@ListCoreNetworkPolicyVersionsResponse' {} a -> s {nextToken = a} :: ListCoreNetworkPolicyVersionsResponse)
 
 -- | The response's http status code.
 listCoreNetworkPolicyVersionsResponse_httpStatus :: Lens.Lens' ListCoreNetworkPolicyVersionsResponse Prelude.Int
@@ -237,6 +236,6 @@ instance
     ListCoreNetworkPolicyVersionsResponse
   where
   rnf ListCoreNetworkPolicyVersionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf coreNetworkPolicyVersions
+    Prelude.rnf coreNetworkPolicyVersions
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

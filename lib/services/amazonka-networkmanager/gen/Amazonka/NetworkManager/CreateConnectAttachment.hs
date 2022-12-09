@@ -33,8 +33,8 @@ module Amazonka.NetworkManager.CreateConnectAttachment
     newCreateConnectAttachment,
 
     -- * Request Lenses
-    createConnectAttachment_tags,
     createConnectAttachment_clientToken,
+    createConnectAttachment_tags,
     createConnectAttachment_coreNetworkId,
     createConnectAttachment_edgeLocation,
     createConnectAttachment_transportAttachmentId,
@@ -60,10 +60,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateConnectAttachment' smart constructor.
 data CreateConnectAttachment = CreateConnectAttachment'
-  { -- | The list of key-value tags associated with the request.
-    tags :: Prelude.Maybe [Tag],
-    -- | The client token associated with the request.
+  { -- | The client token associated with the request.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The list of key-value tags associated with the request.
+    tags :: Prelude.Maybe [Tag],
     -- | The ID of a core network where you want to create the attachment.
     coreNetworkId :: Prelude.Text,
     -- | The Region where the edge is located.
@@ -83,9 +83,9 @@ data CreateConnectAttachment = CreateConnectAttachment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createConnectAttachment_tags' - The list of key-value tags associated with the request.
---
 -- 'clientToken', 'createConnectAttachment_clientToken' - The client token associated with the request.
+--
+-- 'tags', 'createConnectAttachment_tags' - The list of key-value tags associated with the request.
 --
 -- 'coreNetworkId', 'createConnectAttachment_coreNetworkId' - The ID of a core network where you want to create the attachment.
 --
@@ -110,21 +110,22 @@ newCreateConnectAttachment
   pTransportAttachmentId_
   pOptions_ =
     CreateConnectAttachment'
-      { tags = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
+      { clientToken =
+          Prelude.Nothing,
+        tags = Prelude.Nothing,
         coreNetworkId = pCoreNetworkId_,
         edgeLocation = pEdgeLocation_,
         transportAttachmentId = pTransportAttachmentId_,
         options = pOptions_
       }
 
--- | The list of key-value tags associated with the request.
-createConnectAttachment_tags :: Lens.Lens' CreateConnectAttachment (Prelude.Maybe [Tag])
-createConnectAttachment_tags = Lens.lens (\CreateConnectAttachment' {tags} -> tags) (\s@CreateConnectAttachment' {} a -> s {tags = a} :: CreateConnectAttachment) Prelude.. Lens.mapping Lens.coerced
-
 -- | The client token associated with the request.
 createConnectAttachment_clientToken :: Lens.Lens' CreateConnectAttachment (Prelude.Maybe Prelude.Text)
 createConnectAttachment_clientToken = Lens.lens (\CreateConnectAttachment' {clientToken} -> clientToken) (\s@CreateConnectAttachment' {} a -> s {clientToken = a} :: CreateConnectAttachment)
+
+-- | The list of key-value tags associated with the request.
+createConnectAttachment_tags :: Lens.Lens' CreateConnectAttachment (Prelude.Maybe [Tag])
+createConnectAttachment_tags = Lens.lens (\CreateConnectAttachment' {tags} -> tags) (\s@CreateConnectAttachment' {} a -> s {tags = a} :: CreateConnectAttachment) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of a core network where you want to create the attachment.
 createConnectAttachment_coreNetworkId :: Lens.Lens' CreateConnectAttachment Prelude.Text
@@ -158,8 +159,8 @@ instance Core.AWSRequest CreateConnectAttachment where
 
 instance Prelude.Hashable CreateConnectAttachment where
   hashWithSalt _salt CreateConnectAttachment' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` coreNetworkId
       `Prelude.hashWithSalt` edgeLocation
       `Prelude.hashWithSalt` transportAttachmentId
@@ -167,8 +168,8 @@ instance Prelude.Hashable CreateConnectAttachment where
 
 instance Prelude.NFData CreateConnectAttachment where
   rnf CreateConnectAttachment' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf coreNetworkId
       `Prelude.seq` Prelude.rnf edgeLocation
       `Prelude.seq` Prelude.rnf transportAttachmentId
@@ -189,8 +190,8 @@ instance Data.ToJSON CreateConnectAttachment where
   toJSON CreateConnectAttachment' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ClientToken" Data..=) Prelude.<$> clientToken,
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("CoreNetworkId" Data..= coreNetworkId),
             Prelude.Just ("EdgeLocation" Data..= edgeLocation),
             Prelude.Just

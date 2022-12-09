@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAccountStatus' smart constructor.
 data AccountStatus = AccountStatus'
-  { -- | The status of SLR deployment for the account.
-    sLRDeploymentStatus :: Prelude.Maybe Prelude.Text,
-    -- | The ID of an account within the Amazon Web Services Organization.
-    accountId :: Prelude.Maybe Prelude.Text
+  { -- | The ID of an account within the Amazon Web Services Organization.
+    accountId :: Prelude.Maybe Prelude.Text,
+    -- | The status of SLR deployment for the account.
+    sLRDeploymentStatus :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,24 @@ data AccountStatus = AccountStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sLRDeploymentStatus', 'accountStatus_sLRDeploymentStatus' - The status of SLR deployment for the account.
---
 -- 'accountId', 'accountStatus_accountId' - The ID of an account within the Amazon Web Services Organization.
+--
+-- 'sLRDeploymentStatus', 'accountStatus_sLRDeploymentStatus' - The status of SLR deployment for the account.
 newAccountStatus ::
   AccountStatus
 newAccountStatus =
   AccountStatus'
-    { sLRDeploymentStatus =
-        Prelude.Nothing,
-      accountId = Prelude.Nothing
+    { accountId = Prelude.Nothing,
+      sLRDeploymentStatus = Prelude.Nothing
     }
-
--- | The status of SLR deployment for the account.
-accountStatus_sLRDeploymentStatus :: Lens.Lens' AccountStatus (Prelude.Maybe Prelude.Text)
-accountStatus_sLRDeploymentStatus = Lens.lens (\AccountStatus' {sLRDeploymentStatus} -> sLRDeploymentStatus) (\s@AccountStatus' {} a -> s {sLRDeploymentStatus = a} :: AccountStatus)
 
 -- | The ID of an account within the Amazon Web Services Organization.
 accountStatus_accountId :: Lens.Lens' AccountStatus (Prelude.Maybe Prelude.Text)
 accountStatus_accountId = Lens.lens (\AccountStatus' {accountId} -> accountId) (\s@AccountStatus' {} a -> s {accountId = a} :: AccountStatus)
+
+-- | The status of SLR deployment for the account.
+accountStatus_sLRDeploymentStatus :: Lens.Lens' AccountStatus (Prelude.Maybe Prelude.Text)
+accountStatus_sLRDeploymentStatus = Lens.lens (\AccountStatus' {sLRDeploymentStatus} -> sLRDeploymentStatus) (\s@AccountStatus' {} a -> s {sLRDeploymentStatus = a} :: AccountStatus)
 
 instance Data.FromJSON AccountStatus where
   parseJSON =
@@ -70,16 +69,16 @@ instance Data.FromJSON AccountStatus where
       "AccountStatus"
       ( \x ->
           AccountStatus'
-            Prelude.<$> (x Data..:? "SLRDeploymentStatus")
-            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<$> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "SLRDeploymentStatus")
       )
 
 instance Prelude.Hashable AccountStatus where
   hashWithSalt _salt AccountStatus' {..} =
-    _salt `Prelude.hashWithSalt` sLRDeploymentStatus
-      `Prelude.hashWithSalt` accountId
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` sLRDeploymentStatus
 
 instance Prelude.NFData AccountStatus where
   rnf AccountStatus' {..} =
-    Prelude.rnf sLRDeploymentStatus
-      `Prelude.seq` Prelude.rnf accountId
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf sLRDeploymentStatus

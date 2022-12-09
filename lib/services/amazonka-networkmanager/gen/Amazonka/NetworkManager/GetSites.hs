@@ -29,9 +29,9 @@ module Amazonka.NetworkManager.GetSites
     newGetSites,
 
     -- * Request Lenses
+    getSites_maxResults,
     getSites_nextToken,
     getSites_siteIds,
-    getSites_maxResults,
     getSites_globalNetworkId,
 
     -- * Destructuring the Response
@@ -39,8 +39,8 @@ module Amazonka.NetworkManager.GetSites
     newGetSitesResponse,
 
     -- * Response Lenses
-    getSitesResponse_sites,
     getSitesResponse_nextToken,
+    getSitesResponse_sites,
     getSitesResponse_httpStatus,
   )
 where
@@ -55,12 +55,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetSites' smart constructor.
 data GetSites = GetSites'
-  { -- | The token for the next page of results.
+  { -- | The maximum number of results to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | One or more site IDs. The maximum is 10.
     siteIds :: Prelude.Maybe [Prelude.Text],
-    -- | The maximum number of results to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the global network.
     globalNetworkId :: Prelude.Text
   }
@@ -74,11 +74,11 @@ data GetSites = GetSites'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'getSites_maxResults' - The maximum number of results to return.
+--
 -- 'nextToken', 'getSites_nextToken' - The token for the next page of results.
 --
 -- 'siteIds', 'getSites_siteIds' - One or more site IDs. The maximum is 10.
---
--- 'maxResults', 'getSites_maxResults' - The maximum number of results to return.
 --
 -- 'globalNetworkId', 'getSites_globalNetworkId' - The ID of the global network.
 newGetSites ::
@@ -87,11 +87,15 @@ newGetSites ::
   GetSites
 newGetSites pGlobalNetworkId_ =
   GetSites'
-    { nextToken = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       siteIds = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       globalNetworkId = pGlobalNetworkId_
     }
+
+-- | The maximum number of results to return.
+getSites_maxResults :: Lens.Lens' GetSites (Prelude.Maybe Prelude.Natural)
+getSites_maxResults = Lens.lens (\GetSites' {maxResults} -> maxResults) (\s@GetSites' {} a -> s {maxResults = a} :: GetSites)
 
 -- | The token for the next page of results.
 getSites_nextToken :: Lens.Lens' GetSites (Prelude.Maybe Prelude.Text)
@@ -100,10 +104,6 @@ getSites_nextToken = Lens.lens (\GetSites' {nextToken} -> nextToken) (\s@GetSite
 -- | One or more site IDs. The maximum is 10.
 getSites_siteIds :: Lens.Lens' GetSites (Prelude.Maybe [Prelude.Text])
 getSites_siteIds = Lens.lens (\GetSites' {siteIds} -> siteIds) (\s@GetSites' {} a -> s {siteIds = a} :: GetSites) Prelude.. Lens.mapping Lens.coerced
-
--- | The maximum number of results to return.
-getSites_maxResults :: Lens.Lens' GetSites (Prelude.Maybe Prelude.Natural)
-getSites_maxResults = Lens.lens (\GetSites' {maxResults} -> maxResults) (\s@GetSites' {} a -> s {maxResults = a} :: GetSites)
 
 -- | The ID of the global network.
 getSites_globalNetworkId :: Lens.Lens' GetSites Prelude.Text
@@ -136,23 +136,23 @@ instance Core.AWSRequest GetSites where
     Response.receiveJSON
       ( \s h x ->
           GetSitesResponse'
-            Prelude.<$> (x Data..?> "Sites" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Sites" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetSites where
   hashWithSalt _salt GetSites' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` siteIds
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` globalNetworkId
 
 instance Prelude.NFData GetSites where
   rnf GetSites' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf siteIds
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf globalNetworkId
 
 instance Data.ToHeaders GetSites where
@@ -177,19 +177,19 @@ instance Data.ToPath GetSites where
 instance Data.ToQuery GetSites where
   toQuery GetSites' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
         "siteIds"
           Data.=: Data.toQuery
-            (Data.toQueryList "member" Prelude.<$> siteIds),
-        "maxResults" Data.=: maxResults
+            (Data.toQueryList "member" Prelude.<$> siteIds)
       ]
 
 -- | /See:/ 'newGetSitesResponse' smart constructor.
 data GetSitesResponse = GetSitesResponse'
-  { -- | The sites.
-    sites :: Prelude.Maybe [Site],
-    -- | The token for the next page of results.
+  { -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The sites.
+    sites :: Prelude.Maybe [Site],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -203,9 +203,9 @@ data GetSitesResponse = GetSitesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sites', 'getSitesResponse_sites' - The sites.
---
 -- 'nextToken', 'getSitesResponse_nextToken' - The token for the next page of results.
+--
+-- 'sites', 'getSitesResponse_sites' - The sites.
 --
 -- 'httpStatus', 'getSitesResponse_httpStatus' - The response's http status code.
 newGetSitesResponse ::
@@ -214,18 +214,18 @@ newGetSitesResponse ::
   GetSitesResponse
 newGetSitesResponse pHttpStatus_ =
   GetSitesResponse'
-    { sites = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      sites = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The sites.
-getSitesResponse_sites :: Lens.Lens' GetSitesResponse (Prelude.Maybe [Site])
-getSitesResponse_sites = Lens.lens (\GetSitesResponse' {sites} -> sites) (\s@GetSitesResponse' {} a -> s {sites = a} :: GetSitesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next page of results.
 getSitesResponse_nextToken :: Lens.Lens' GetSitesResponse (Prelude.Maybe Prelude.Text)
 getSitesResponse_nextToken = Lens.lens (\GetSitesResponse' {nextToken} -> nextToken) (\s@GetSitesResponse' {} a -> s {nextToken = a} :: GetSitesResponse)
+
+-- | The sites.
+getSitesResponse_sites :: Lens.Lens' GetSitesResponse (Prelude.Maybe [Site])
+getSitesResponse_sites = Lens.lens (\GetSitesResponse' {sites} -> sites) (\s@GetSitesResponse' {} a -> s {sites = a} :: GetSitesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getSitesResponse_httpStatus :: Lens.Lens' GetSitesResponse Prelude.Int
@@ -233,6 +233,6 @@ getSitesResponse_httpStatus = Lens.lens (\GetSitesResponse' {httpStatus} -> http
 
 instance Prelude.NFData GetSitesResponse where
   rnf GetSitesResponse' {..} =
-    Prelude.rnf sites
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sites
       `Prelude.seq` Prelude.rnf httpStatus

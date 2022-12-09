@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPathComponent' smart constructor.
 data PathComponent = PathComponent'
-  { -- | The sequence number in the path. The destination is 0.
-    sequence :: Prelude.Maybe Prelude.Int,
-    -- | The destination CIDR block in the route table.
+  { -- | The destination CIDR block in the route table.
     destinationCidrBlock :: Prelude.Maybe Prelude.Text,
     -- | The resource.
-    resource :: Prelude.Maybe NetworkResourceSummary
+    resource :: Prelude.Maybe NetworkResourceSummary,
+    -- | The sequence number in the path. The destination is 0.
+    sequence :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,23 +46,20 @@ data PathComponent = PathComponent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sequence', 'pathComponent_sequence' - The sequence number in the path. The destination is 0.
---
 -- 'destinationCidrBlock', 'pathComponent_destinationCidrBlock' - The destination CIDR block in the route table.
 --
 -- 'resource', 'pathComponent_resource' - The resource.
+--
+-- 'sequence', 'pathComponent_sequence' - The sequence number in the path. The destination is 0.
 newPathComponent ::
   PathComponent
 newPathComponent =
   PathComponent'
-    { sequence = Prelude.Nothing,
-      destinationCidrBlock = Prelude.Nothing,
-      resource = Prelude.Nothing
+    { destinationCidrBlock =
+        Prelude.Nothing,
+      resource = Prelude.Nothing,
+      sequence = Prelude.Nothing
     }
-
--- | The sequence number in the path. The destination is 0.
-pathComponent_sequence :: Lens.Lens' PathComponent (Prelude.Maybe Prelude.Int)
-pathComponent_sequence = Lens.lens (\PathComponent' {sequence} -> sequence) (\s@PathComponent' {} a -> s {sequence = a} :: PathComponent)
 
 -- | The destination CIDR block in the route table.
 pathComponent_destinationCidrBlock :: Lens.Lens' PathComponent (Prelude.Maybe Prelude.Text)
@@ -72,25 +69,29 @@ pathComponent_destinationCidrBlock = Lens.lens (\PathComponent' {destinationCidr
 pathComponent_resource :: Lens.Lens' PathComponent (Prelude.Maybe NetworkResourceSummary)
 pathComponent_resource = Lens.lens (\PathComponent' {resource} -> resource) (\s@PathComponent' {} a -> s {resource = a} :: PathComponent)
 
+-- | The sequence number in the path. The destination is 0.
+pathComponent_sequence :: Lens.Lens' PathComponent (Prelude.Maybe Prelude.Int)
+pathComponent_sequence = Lens.lens (\PathComponent' {sequence} -> sequence) (\s@PathComponent' {} a -> s {sequence = a} :: PathComponent)
+
 instance Data.FromJSON PathComponent where
   parseJSON =
     Data.withObject
       "PathComponent"
       ( \x ->
           PathComponent'
-            Prelude.<$> (x Data..:? "Sequence")
-            Prelude.<*> (x Data..:? "DestinationCidrBlock")
+            Prelude.<$> (x Data..:? "DestinationCidrBlock")
             Prelude.<*> (x Data..:? "Resource")
+            Prelude.<*> (x Data..:? "Sequence")
       )
 
 instance Prelude.Hashable PathComponent where
   hashWithSalt _salt PathComponent' {..} =
-    _salt `Prelude.hashWithSalt` sequence
-      `Prelude.hashWithSalt` destinationCidrBlock
+    _salt `Prelude.hashWithSalt` destinationCidrBlock
       `Prelude.hashWithSalt` resource
+      `Prelude.hashWithSalt` sequence
 
 instance Prelude.NFData PathComponent where
   rnf PathComponent' {..} =
-    Prelude.rnf sequence
-      `Prelude.seq` Prelude.rnf destinationCidrBlock
+    Prelude.rnf destinationCidrBlock
       `Prelude.seq` Prelude.rnf resource
+      `Prelude.seq` Prelude.rnf sequence

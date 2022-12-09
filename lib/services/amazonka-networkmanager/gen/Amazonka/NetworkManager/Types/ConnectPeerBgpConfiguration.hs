@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConnectPeerBgpConfiguration' smart constructor.
 data ConnectPeerBgpConfiguration = ConnectPeerBgpConfiguration'
-  { -- | The ASN of the Connect peer.
-    peerAsn :: Prelude.Maybe Prelude.Integer,
-    -- | The address of a core network.
+  { -- | The address of a core network.
     coreNetworkAddress :: Prelude.Maybe Prelude.Text,
     -- | The ASN of the Coret Network.
     coreNetworkAsn :: Prelude.Maybe Prelude.Integer,
     -- | The address of a core network Connect peer.
-    peerAddress :: Prelude.Maybe Prelude.Text
+    peerAddress :: Prelude.Maybe Prelude.Text,
+    -- | The ASN of the Connect peer.
+    peerAsn :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,27 +47,23 @@ data ConnectPeerBgpConfiguration = ConnectPeerBgpConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'peerAsn', 'connectPeerBgpConfiguration_peerAsn' - The ASN of the Connect peer.
---
 -- 'coreNetworkAddress', 'connectPeerBgpConfiguration_coreNetworkAddress' - The address of a core network.
 --
 -- 'coreNetworkAsn', 'connectPeerBgpConfiguration_coreNetworkAsn' - The ASN of the Coret Network.
 --
 -- 'peerAddress', 'connectPeerBgpConfiguration_peerAddress' - The address of a core network Connect peer.
+--
+-- 'peerAsn', 'connectPeerBgpConfiguration_peerAsn' - The ASN of the Connect peer.
 newConnectPeerBgpConfiguration ::
   ConnectPeerBgpConfiguration
 newConnectPeerBgpConfiguration =
   ConnectPeerBgpConfiguration'
-    { peerAsn =
+    { coreNetworkAddress =
         Prelude.Nothing,
-      coreNetworkAddress = Prelude.Nothing,
       coreNetworkAsn = Prelude.Nothing,
-      peerAddress = Prelude.Nothing
+      peerAddress = Prelude.Nothing,
+      peerAsn = Prelude.Nothing
     }
-
--- | The ASN of the Connect peer.
-connectPeerBgpConfiguration_peerAsn :: Lens.Lens' ConnectPeerBgpConfiguration (Prelude.Maybe Prelude.Integer)
-connectPeerBgpConfiguration_peerAsn = Lens.lens (\ConnectPeerBgpConfiguration' {peerAsn} -> peerAsn) (\s@ConnectPeerBgpConfiguration' {} a -> s {peerAsn = a} :: ConnectPeerBgpConfiguration)
 
 -- | The address of a core network.
 connectPeerBgpConfiguration_coreNetworkAddress :: Lens.Lens' ConnectPeerBgpConfiguration (Prelude.Maybe Prelude.Text)
@@ -81,28 +77,32 @@ connectPeerBgpConfiguration_coreNetworkAsn = Lens.lens (\ConnectPeerBgpConfigura
 connectPeerBgpConfiguration_peerAddress :: Lens.Lens' ConnectPeerBgpConfiguration (Prelude.Maybe Prelude.Text)
 connectPeerBgpConfiguration_peerAddress = Lens.lens (\ConnectPeerBgpConfiguration' {peerAddress} -> peerAddress) (\s@ConnectPeerBgpConfiguration' {} a -> s {peerAddress = a} :: ConnectPeerBgpConfiguration)
 
+-- | The ASN of the Connect peer.
+connectPeerBgpConfiguration_peerAsn :: Lens.Lens' ConnectPeerBgpConfiguration (Prelude.Maybe Prelude.Integer)
+connectPeerBgpConfiguration_peerAsn = Lens.lens (\ConnectPeerBgpConfiguration' {peerAsn} -> peerAsn) (\s@ConnectPeerBgpConfiguration' {} a -> s {peerAsn = a} :: ConnectPeerBgpConfiguration)
+
 instance Data.FromJSON ConnectPeerBgpConfiguration where
   parseJSON =
     Data.withObject
       "ConnectPeerBgpConfiguration"
       ( \x ->
           ConnectPeerBgpConfiguration'
-            Prelude.<$> (x Data..:? "PeerAsn")
-            Prelude.<*> (x Data..:? "CoreNetworkAddress")
+            Prelude.<$> (x Data..:? "CoreNetworkAddress")
             Prelude.<*> (x Data..:? "CoreNetworkAsn")
             Prelude.<*> (x Data..:? "PeerAddress")
+            Prelude.<*> (x Data..:? "PeerAsn")
       )
 
 instance Prelude.Hashable ConnectPeerBgpConfiguration where
   hashWithSalt _salt ConnectPeerBgpConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` peerAsn
-      `Prelude.hashWithSalt` coreNetworkAddress
+    _salt `Prelude.hashWithSalt` coreNetworkAddress
       `Prelude.hashWithSalt` coreNetworkAsn
       `Prelude.hashWithSalt` peerAddress
+      `Prelude.hashWithSalt` peerAsn
 
 instance Prelude.NFData ConnectPeerBgpConfiguration where
   rnf ConnectPeerBgpConfiguration' {..} =
-    Prelude.rnf peerAsn
-      `Prelude.seq` Prelude.rnf coreNetworkAddress
+    Prelude.rnf coreNetworkAddress
       `Prelude.seq` Prelude.rnf coreNetworkAsn
       `Prelude.seq` Prelude.rnf peerAddress
+      `Prelude.seq` Prelude.rnf peerAsn

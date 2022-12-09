@@ -27,8 +27,8 @@ module Amazonka.NetworkManager.CreateGlobalNetwork
     newCreateGlobalNetwork,
 
     -- * Request Lenses
-    createGlobalNetwork_tags,
     createGlobalNetwork_description,
+    createGlobalNetwork_tags,
 
     -- * Destructuring the Response
     CreateGlobalNetworkResponse (..),
@@ -50,12 +50,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateGlobalNetwork' smart constructor.
 data CreateGlobalNetwork = CreateGlobalNetwork'
-  { -- | The tags to apply to the resource during creation.
-    tags :: Prelude.Maybe [Tag],
-    -- | A description of the global network.
+  { -- | A description of the global network.
     --
     -- Constraints: Maximum length of 256 characters.
-    description :: Prelude.Maybe Prelude.Text
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The tags to apply to the resource during creation.
+    tags :: Prelude.Maybe [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,28 +67,28 @@ data CreateGlobalNetwork = CreateGlobalNetwork'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createGlobalNetwork_tags' - The tags to apply to the resource during creation.
---
 -- 'description', 'createGlobalNetwork_description' - A description of the global network.
 --
 -- Constraints: Maximum length of 256 characters.
+--
+-- 'tags', 'createGlobalNetwork_tags' - The tags to apply to the resource during creation.
 newCreateGlobalNetwork ::
   CreateGlobalNetwork
 newCreateGlobalNetwork =
   CreateGlobalNetwork'
-    { tags = Prelude.Nothing,
-      description = Prelude.Nothing
+    { description = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
-
--- | The tags to apply to the resource during creation.
-createGlobalNetwork_tags :: Lens.Lens' CreateGlobalNetwork (Prelude.Maybe [Tag])
-createGlobalNetwork_tags = Lens.lens (\CreateGlobalNetwork' {tags} -> tags) (\s@CreateGlobalNetwork' {} a -> s {tags = a} :: CreateGlobalNetwork) Prelude.. Lens.mapping Lens.coerced
 
 -- | A description of the global network.
 --
 -- Constraints: Maximum length of 256 characters.
 createGlobalNetwork_description :: Lens.Lens' CreateGlobalNetwork (Prelude.Maybe Prelude.Text)
 createGlobalNetwork_description = Lens.lens (\CreateGlobalNetwork' {description} -> description) (\s@CreateGlobalNetwork' {} a -> s {description = a} :: CreateGlobalNetwork)
+
+-- | The tags to apply to the resource during creation.
+createGlobalNetwork_tags :: Lens.Lens' CreateGlobalNetwork (Prelude.Maybe [Tag])
+createGlobalNetwork_tags = Lens.lens (\CreateGlobalNetwork' {tags} -> tags) (\s@CreateGlobalNetwork' {} a -> s {tags = a} :: CreateGlobalNetwork) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest CreateGlobalNetwork where
   type
@@ -106,13 +106,13 @@ instance Core.AWSRequest CreateGlobalNetwork where
 
 instance Prelude.Hashable CreateGlobalNetwork where
   hashWithSalt _salt CreateGlobalNetwork' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData CreateGlobalNetwork where
   rnf CreateGlobalNetwork' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
 
 instance Data.ToHeaders CreateGlobalNetwork where
   toHeaders =
@@ -129,8 +129,8 @@ instance Data.ToJSON CreateGlobalNetwork where
   toJSON CreateGlobalNetwork' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Description" Data..=) Prelude.<$> description
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("Tags" Data..=) Prelude.<$> tags
           ]
       )
 

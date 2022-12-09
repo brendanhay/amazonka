@@ -30,9 +30,9 @@ module Amazonka.NetworkManager.GetNetworkResourceCounts
     newGetNetworkResourceCounts,
 
     -- * Request Lenses
-    getNetworkResourceCounts_resourceType,
-    getNetworkResourceCounts_nextToken,
     getNetworkResourceCounts_maxResults,
+    getNetworkResourceCounts_nextToken,
+    getNetworkResourceCounts_resourceType,
     getNetworkResourceCounts_globalNetworkId,
 
     -- * Destructuring the Response
@@ -40,8 +40,8 @@ module Amazonka.NetworkManager.GetNetworkResourceCounts
     newGetNetworkResourceCountsResponse,
 
     -- * Response Lenses
-    getNetworkResourceCountsResponse_nextToken,
     getNetworkResourceCountsResponse_networkResourceCounts,
+    getNetworkResourceCountsResponse_nextToken,
     getNetworkResourceCountsResponse_httpStatus,
   )
 where
@@ -56,7 +56,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetNetworkResourceCounts' smart constructor.
 data GetNetworkResourceCounts = GetNetworkResourceCounts'
-  { -- | The resource type.
+  { -- | The maximum number of results to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The resource type.
     --
     -- The following are the supported resource types for Direct Connect:
     --
@@ -90,10 +94,6 @@ data GetNetworkResourceCounts = GetNetworkResourceCounts'
     --
     -- -   @vpn-connection@
     resourceType :: Prelude.Maybe Prelude.Text,
-    -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the global network.
     globalNetworkId :: Prelude.Text
   }
@@ -106,6 +106,10 @@ data GetNetworkResourceCounts = GetNetworkResourceCounts'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'maxResults', 'getNetworkResourceCounts_maxResults' - The maximum number of results to return.
+--
+-- 'nextToken', 'getNetworkResourceCounts_nextToken' - The token for the next page of results.
 --
 -- 'resourceType', 'getNetworkResourceCounts_resourceType' - The resource type.
 --
@@ -141,10 +145,6 @@ data GetNetworkResourceCounts = GetNetworkResourceCounts'
 --
 -- -   @vpn-connection@
 --
--- 'nextToken', 'getNetworkResourceCounts_nextToken' - The token for the next page of results.
---
--- 'maxResults', 'getNetworkResourceCounts_maxResults' - The maximum number of results to return.
---
 -- 'globalNetworkId', 'getNetworkResourceCounts_globalNetworkId' - The ID of the global network.
 newGetNetworkResourceCounts ::
   -- | 'globalNetworkId'
@@ -152,12 +152,20 @@ newGetNetworkResourceCounts ::
   GetNetworkResourceCounts
 newGetNetworkResourceCounts pGlobalNetworkId_ =
   GetNetworkResourceCounts'
-    { resourceType =
+    { maxResults =
         Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
       globalNetworkId = pGlobalNetworkId_
     }
+
+-- | The maximum number of results to return.
+getNetworkResourceCounts_maxResults :: Lens.Lens' GetNetworkResourceCounts (Prelude.Maybe Prelude.Natural)
+getNetworkResourceCounts_maxResults = Lens.lens (\GetNetworkResourceCounts' {maxResults} -> maxResults) (\s@GetNetworkResourceCounts' {} a -> s {maxResults = a} :: GetNetworkResourceCounts)
+
+-- | The token for the next page of results.
+getNetworkResourceCounts_nextToken :: Lens.Lens' GetNetworkResourceCounts (Prelude.Maybe Prelude.Text)
+getNetworkResourceCounts_nextToken = Lens.lens (\GetNetworkResourceCounts' {nextToken} -> nextToken) (\s@GetNetworkResourceCounts' {} a -> s {nextToken = a} :: GetNetworkResourceCounts)
 
 -- | The resource type.
 --
@@ -195,14 +203,6 @@ newGetNetworkResourceCounts pGlobalNetworkId_ =
 getNetworkResourceCounts_resourceType :: Lens.Lens' GetNetworkResourceCounts (Prelude.Maybe Prelude.Text)
 getNetworkResourceCounts_resourceType = Lens.lens (\GetNetworkResourceCounts' {resourceType} -> resourceType) (\s@GetNetworkResourceCounts' {} a -> s {resourceType = a} :: GetNetworkResourceCounts)
 
--- | The token for the next page of results.
-getNetworkResourceCounts_nextToken :: Lens.Lens' GetNetworkResourceCounts (Prelude.Maybe Prelude.Text)
-getNetworkResourceCounts_nextToken = Lens.lens (\GetNetworkResourceCounts' {nextToken} -> nextToken) (\s@GetNetworkResourceCounts' {} a -> s {nextToken = a} :: GetNetworkResourceCounts)
-
--- | The maximum number of results to return.
-getNetworkResourceCounts_maxResults :: Lens.Lens' GetNetworkResourceCounts (Prelude.Maybe Prelude.Natural)
-getNetworkResourceCounts_maxResults = Lens.lens (\GetNetworkResourceCounts' {maxResults} -> maxResults) (\s@GetNetworkResourceCounts' {} a -> s {maxResults = a} :: GetNetworkResourceCounts)
-
 -- | The ID of the global network.
 getNetworkResourceCounts_globalNetworkId :: Lens.Lens' GetNetworkResourceCounts Prelude.Text
 getNetworkResourceCounts_globalNetworkId = Lens.lens (\GetNetworkResourceCounts' {globalNetworkId} -> globalNetworkId) (\s@GetNetworkResourceCounts' {} a -> s {globalNetworkId = a} :: GetNetworkResourceCounts)
@@ -239,25 +239,25 @@ instance Core.AWSRequest GetNetworkResourceCounts where
     Response.receiveJSON
       ( \s h x ->
           GetNetworkResourceCountsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "NetworkResourceCounts"
+            Prelude.<$> ( x Data..?> "NetworkResourceCounts"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetNetworkResourceCounts where
   hashWithSalt _salt GetNetworkResourceCounts' {..} =
-    _salt `Prelude.hashWithSalt` resourceType
+    _salt `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` globalNetworkId
 
 instance Prelude.NFData GetNetworkResourceCounts where
   rnf GetNetworkResourceCounts' {..} =
-    Prelude.rnf resourceType
+    Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf globalNetworkId
 
 instance Data.ToHeaders GetNetworkResourceCounts where
@@ -282,17 +282,17 @@ instance Data.ToPath GetNetworkResourceCounts where
 instance Data.ToQuery GetNetworkResourceCounts where
   toQuery GetNetworkResourceCounts' {..} =
     Prelude.mconcat
-      [ "resourceType" Data.=: resourceType,
+      [ "maxResults" Data.=: maxResults,
         "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+        "resourceType" Data.=: resourceType
       ]
 
 -- | /See:/ 'newGetNetworkResourceCountsResponse' smart constructor.
 data GetNetworkResourceCountsResponse = GetNetworkResourceCountsResponse'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The count of resources.
+  { -- | The count of resources.
     networkResourceCounts :: Prelude.Maybe [NetworkResourceCount],
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -306,9 +306,9 @@ data GetNetworkResourceCountsResponse = GetNetworkResourceCountsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getNetworkResourceCountsResponse_nextToken' - The token for the next page of results.
---
 -- 'networkResourceCounts', 'getNetworkResourceCountsResponse_networkResourceCounts' - The count of resources.
+--
+-- 'nextToken', 'getNetworkResourceCountsResponse_nextToken' - The token for the next page of results.
 --
 -- 'httpStatus', 'getNetworkResourceCountsResponse_httpStatus' - The response's http status code.
 newGetNetworkResourceCountsResponse ::
@@ -317,19 +317,19 @@ newGetNetworkResourceCountsResponse ::
   GetNetworkResourceCountsResponse
 newGetNetworkResourceCountsResponse pHttpStatus_ =
   GetNetworkResourceCountsResponse'
-    { nextToken =
+    { networkResourceCounts =
         Prelude.Nothing,
-      networkResourceCounts = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token for the next page of results.
-getNetworkResourceCountsResponse_nextToken :: Lens.Lens' GetNetworkResourceCountsResponse (Prelude.Maybe Prelude.Text)
-getNetworkResourceCountsResponse_nextToken = Lens.lens (\GetNetworkResourceCountsResponse' {nextToken} -> nextToken) (\s@GetNetworkResourceCountsResponse' {} a -> s {nextToken = a} :: GetNetworkResourceCountsResponse)
 
 -- | The count of resources.
 getNetworkResourceCountsResponse_networkResourceCounts :: Lens.Lens' GetNetworkResourceCountsResponse (Prelude.Maybe [NetworkResourceCount])
 getNetworkResourceCountsResponse_networkResourceCounts = Lens.lens (\GetNetworkResourceCountsResponse' {networkResourceCounts} -> networkResourceCounts) (\s@GetNetworkResourceCountsResponse' {} a -> s {networkResourceCounts = a} :: GetNetworkResourceCountsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token for the next page of results.
+getNetworkResourceCountsResponse_nextToken :: Lens.Lens' GetNetworkResourceCountsResponse (Prelude.Maybe Prelude.Text)
+getNetworkResourceCountsResponse_nextToken = Lens.lens (\GetNetworkResourceCountsResponse' {nextToken} -> nextToken) (\s@GetNetworkResourceCountsResponse' {} a -> s {nextToken = a} :: GetNetworkResourceCountsResponse)
 
 -- | The response's http status code.
 getNetworkResourceCountsResponse_httpStatus :: Lens.Lens' GetNetworkResourceCountsResponse Prelude.Int
@@ -340,6 +340,6 @@ instance
     GetNetworkResourceCountsResponse
   where
   rnf GetNetworkResourceCountsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf networkResourceCounts
+    Prelude.rnf networkResourceCounts
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

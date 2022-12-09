@@ -29,20 +29,20 @@ module Amazonka.NetworkManager.ListAttachments
     newListAttachments,
 
     -- * Request Lenses
+    listAttachments_attachmentType,
     listAttachments_coreNetworkId,
-    listAttachments_nextToken,
-    listAttachments_state,
     listAttachments_edgeLocation,
     listAttachments_maxResults,
-    listAttachments_attachmentType,
+    listAttachments_nextToken,
+    listAttachments_state,
 
     -- * Destructuring the Response
     ListAttachmentsResponse (..),
     newListAttachmentsResponse,
 
     -- * Response Lenses
-    listAttachmentsResponse_nextToken,
     listAttachmentsResponse_attachments,
+    listAttachmentsResponse_nextToken,
     listAttachmentsResponse_httpStatus,
   )
 where
@@ -57,18 +57,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAttachments' smart constructor.
 data ListAttachments = ListAttachments'
-  { -- | The ID of a core network.
+  { -- | The type of attachment.
+    attachmentType :: Prelude.Maybe AttachmentType,
+    -- | The ID of a core network.
     coreNetworkId :: Prelude.Maybe Prelude.Text,
-    -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The state of the attachment.
-    state :: Prelude.Maybe AttachmentState,
     -- | The Region where the edge is located.
     edgeLocation :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The type of attachment.
-    attachmentType :: Prelude.Maybe AttachmentType
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The state of the attachment.
+    state :: Prelude.Maybe AttachmentState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,40 +80,36 @@ data ListAttachments = ListAttachments'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'attachmentType', 'listAttachments_attachmentType' - The type of attachment.
+--
 -- 'coreNetworkId', 'listAttachments_coreNetworkId' - The ID of a core network.
---
--- 'nextToken', 'listAttachments_nextToken' - The token for the next page of results.
---
--- 'state', 'listAttachments_state' - The state of the attachment.
 --
 -- 'edgeLocation', 'listAttachments_edgeLocation' - The Region where the edge is located.
 --
 -- 'maxResults', 'listAttachments_maxResults' - The maximum number of results to return.
 --
--- 'attachmentType', 'listAttachments_attachmentType' - The type of attachment.
+-- 'nextToken', 'listAttachments_nextToken' - The token for the next page of results.
+--
+-- 'state', 'listAttachments_state' - The state of the attachment.
 newListAttachments ::
   ListAttachments
 newListAttachments =
   ListAttachments'
-    { coreNetworkId = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      state = Prelude.Nothing,
+    { attachmentType = Prelude.Nothing,
+      coreNetworkId = Prelude.Nothing,
       edgeLocation = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      attachmentType = Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      state = Prelude.Nothing
     }
+
+-- | The type of attachment.
+listAttachments_attachmentType :: Lens.Lens' ListAttachments (Prelude.Maybe AttachmentType)
+listAttachments_attachmentType = Lens.lens (\ListAttachments' {attachmentType} -> attachmentType) (\s@ListAttachments' {} a -> s {attachmentType = a} :: ListAttachments)
 
 -- | The ID of a core network.
 listAttachments_coreNetworkId :: Lens.Lens' ListAttachments (Prelude.Maybe Prelude.Text)
 listAttachments_coreNetworkId = Lens.lens (\ListAttachments' {coreNetworkId} -> coreNetworkId) (\s@ListAttachments' {} a -> s {coreNetworkId = a} :: ListAttachments)
-
--- | The token for the next page of results.
-listAttachments_nextToken :: Lens.Lens' ListAttachments (Prelude.Maybe Prelude.Text)
-listAttachments_nextToken = Lens.lens (\ListAttachments' {nextToken} -> nextToken) (\s@ListAttachments' {} a -> s {nextToken = a} :: ListAttachments)
-
--- | The state of the attachment.
-listAttachments_state :: Lens.Lens' ListAttachments (Prelude.Maybe AttachmentState)
-listAttachments_state = Lens.lens (\ListAttachments' {state} -> state) (\s@ListAttachments' {} a -> s {state = a} :: ListAttachments)
 
 -- | The Region where the edge is located.
 listAttachments_edgeLocation :: Lens.Lens' ListAttachments (Prelude.Maybe Prelude.Text)
@@ -123,9 +119,13 @@ listAttachments_edgeLocation = Lens.lens (\ListAttachments' {edgeLocation} -> ed
 listAttachments_maxResults :: Lens.Lens' ListAttachments (Prelude.Maybe Prelude.Natural)
 listAttachments_maxResults = Lens.lens (\ListAttachments' {maxResults} -> maxResults) (\s@ListAttachments' {} a -> s {maxResults = a} :: ListAttachments)
 
--- | The type of attachment.
-listAttachments_attachmentType :: Lens.Lens' ListAttachments (Prelude.Maybe AttachmentType)
-listAttachments_attachmentType = Lens.lens (\ListAttachments' {attachmentType} -> attachmentType) (\s@ListAttachments' {} a -> s {attachmentType = a} :: ListAttachments)
+-- | The token for the next page of results.
+listAttachments_nextToken :: Lens.Lens' ListAttachments (Prelude.Maybe Prelude.Text)
+listAttachments_nextToken = Lens.lens (\ListAttachments' {nextToken} -> nextToken) (\s@ListAttachments' {} a -> s {nextToken = a} :: ListAttachments)
+
+-- | The state of the attachment.
+listAttachments_state :: Lens.Lens' ListAttachments (Prelude.Maybe AttachmentState)
+listAttachments_state = Lens.lens (\ListAttachments' {state} -> state) (\s@ListAttachments' {} a -> s {state = a} :: ListAttachments)
 
 instance Core.AWSPager ListAttachments where
   page rq rs
@@ -159,28 +159,28 @@ instance Core.AWSRequest ListAttachments where
     Response.receiveJSON
       ( \s h x ->
           ListAttachmentsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Attachments" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Attachments" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListAttachments where
   hashWithSalt _salt ListAttachments' {..} =
-    _salt `Prelude.hashWithSalt` coreNetworkId
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` state
+    _salt `Prelude.hashWithSalt` attachmentType
+      `Prelude.hashWithSalt` coreNetworkId
       `Prelude.hashWithSalt` edgeLocation
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` attachmentType
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` state
 
 instance Prelude.NFData ListAttachments where
   rnf ListAttachments' {..} =
-    Prelude.rnf coreNetworkId
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf attachmentType
+      `Prelude.seq` Prelude.rnf coreNetworkId
       `Prelude.seq` Prelude.rnf edgeLocation
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf attachmentType
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf state
 
 instance Data.ToHeaders ListAttachments where
   toHeaders =
@@ -199,20 +199,20 @@ instance Data.ToPath ListAttachments where
 instance Data.ToQuery ListAttachments where
   toQuery ListAttachments' {..} =
     Prelude.mconcat
-      [ "coreNetworkId" Data.=: coreNetworkId,
-        "nextToken" Data.=: nextToken,
-        "state" Data.=: state,
+      [ "attachmentType" Data.=: attachmentType,
+        "coreNetworkId" Data.=: coreNetworkId,
         "edgeLocation" Data.=: edgeLocation,
         "maxResults" Data.=: maxResults,
-        "attachmentType" Data.=: attachmentType
+        "nextToken" Data.=: nextToken,
+        "state" Data.=: state
       ]
 
 -- | /See:/ 'newListAttachmentsResponse' smart constructor.
 data ListAttachmentsResponse = ListAttachmentsResponse'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Describes the list of attachments.
+  { -- | Describes the list of attachments.
     attachments :: Prelude.Maybe [Attachment],
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -226,9 +226,9 @@ data ListAttachmentsResponse = ListAttachmentsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAttachmentsResponse_nextToken' - The token for the next page of results.
---
 -- 'attachments', 'listAttachmentsResponse_attachments' - Describes the list of attachments.
+--
+-- 'nextToken', 'listAttachmentsResponse_nextToken' - The token for the next page of results.
 --
 -- 'httpStatus', 'listAttachmentsResponse_httpStatus' - The response's http status code.
 newListAttachmentsResponse ::
@@ -237,19 +237,19 @@ newListAttachmentsResponse ::
   ListAttachmentsResponse
 newListAttachmentsResponse pHttpStatus_ =
   ListAttachmentsResponse'
-    { nextToken =
+    { attachments =
         Prelude.Nothing,
-      attachments = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token for the next page of results.
-listAttachmentsResponse_nextToken :: Lens.Lens' ListAttachmentsResponse (Prelude.Maybe Prelude.Text)
-listAttachmentsResponse_nextToken = Lens.lens (\ListAttachmentsResponse' {nextToken} -> nextToken) (\s@ListAttachmentsResponse' {} a -> s {nextToken = a} :: ListAttachmentsResponse)
 
 -- | Describes the list of attachments.
 listAttachmentsResponse_attachments :: Lens.Lens' ListAttachmentsResponse (Prelude.Maybe [Attachment])
 listAttachmentsResponse_attachments = Lens.lens (\ListAttachmentsResponse' {attachments} -> attachments) (\s@ListAttachmentsResponse' {} a -> s {attachments = a} :: ListAttachmentsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token for the next page of results.
+listAttachmentsResponse_nextToken :: Lens.Lens' ListAttachmentsResponse (Prelude.Maybe Prelude.Text)
+listAttachmentsResponse_nextToken = Lens.lens (\ListAttachmentsResponse' {nextToken} -> nextToken) (\s@ListAttachmentsResponse' {} a -> s {nextToken = a} :: ListAttachmentsResponse)
 
 -- | The response's http status code.
 listAttachmentsResponse_httpStatus :: Lens.Lens' ListAttachmentsResponse Prelude.Int
@@ -257,6 +257,6 @@ listAttachmentsResponse_httpStatus = Lens.lens (\ListAttachmentsResponse' {httpS
 
 instance Prelude.NFData ListAttachmentsResponse where
   rnf ListAttachmentsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf attachments
+    Prelude.rnf attachments
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

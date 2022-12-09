@@ -27,9 +27,9 @@ module Amazonka.NetworkManager.UpdateVpcAttachment
     newUpdateVpcAttachment,
 
     -- * Request Lenses
+    updateVpcAttachment_addSubnetArns,
     updateVpcAttachment_options,
     updateVpcAttachment_removeSubnetArns,
-    updateVpcAttachment_addSubnetArns,
     updateVpcAttachment_attachmentId,
 
     -- * Destructuring the Response
@@ -52,12 +52,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateVpcAttachment' smart constructor.
 data UpdateVpcAttachment = UpdateVpcAttachment'
-  { -- | Additional options for updating the VPC attachment.
+  { -- | Adds a subnet ARN to the VPC attachment.
+    addSubnetArns :: Prelude.Maybe [Prelude.Text],
+    -- | Additional options for updating the VPC attachment.
     options :: Prelude.Maybe VpcOptions,
     -- | Removes a subnet ARN from the attachment.
     removeSubnetArns :: Prelude.Maybe [Prelude.Text],
-    -- | Adds a subnet ARN to the VPC attachment.
-    addSubnetArns :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the attachment.
     attachmentId :: Prelude.Text
   }
@@ -71,11 +71,11 @@ data UpdateVpcAttachment = UpdateVpcAttachment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'addSubnetArns', 'updateVpcAttachment_addSubnetArns' - Adds a subnet ARN to the VPC attachment.
+--
 -- 'options', 'updateVpcAttachment_options' - Additional options for updating the VPC attachment.
 --
 -- 'removeSubnetArns', 'updateVpcAttachment_removeSubnetArns' - Removes a subnet ARN from the attachment.
---
--- 'addSubnetArns', 'updateVpcAttachment_addSubnetArns' - Adds a subnet ARN to the VPC attachment.
 --
 -- 'attachmentId', 'updateVpcAttachment_attachmentId' - The ID of the attachment.
 newUpdateVpcAttachment ::
@@ -84,11 +84,16 @@ newUpdateVpcAttachment ::
   UpdateVpcAttachment
 newUpdateVpcAttachment pAttachmentId_ =
   UpdateVpcAttachment'
-    { options = Prelude.Nothing,
+    { addSubnetArns =
+        Prelude.Nothing,
+      options = Prelude.Nothing,
       removeSubnetArns = Prelude.Nothing,
-      addSubnetArns = Prelude.Nothing,
       attachmentId = pAttachmentId_
     }
+
+-- | Adds a subnet ARN to the VPC attachment.
+updateVpcAttachment_addSubnetArns :: Lens.Lens' UpdateVpcAttachment (Prelude.Maybe [Prelude.Text])
+updateVpcAttachment_addSubnetArns = Lens.lens (\UpdateVpcAttachment' {addSubnetArns} -> addSubnetArns) (\s@UpdateVpcAttachment' {} a -> s {addSubnetArns = a} :: UpdateVpcAttachment) Prelude.. Lens.mapping Lens.coerced
 
 -- | Additional options for updating the VPC attachment.
 updateVpcAttachment_options :: Lens.Lens' UpdateVpcAttachment (Prelude.Maybe VpcOptions)
@@ -97,10 +102,6 @@ updateVpcAttachment_options = Lens.lens (\UpdateVpcAttachment' {options} -> opti
 -- | Removes a subnet ARN from the attachment.
 updateVpcAttachment_removeSubnetArns :: Lens.Lens' UpdateVpcAttachment (Prelude.Maybe [Prelude.Text])
 updateVpcAttachment_removeSubnetArns = Lens.lens (\UpdateVpcAttachment' {removeSubnetArns} -> removeSubnetArns) (\s@UpdateVpcAttachment' {} a -> s {removeSubnetArns = a} :: UpdateVpcAttachment) Prelude.. Lens.mapping Lens.coerced
-
--- | Adds a subnet ARN to the VPC attachment.
-updateVpcAttachment_addSubnetArns :: Lens.Lens' UpdateVpcAttachment (Prelude.Maybe [Prelude.Text])
-updateVpcAttachment_addSubnetArns = Lens.lens (\UpdateVpcAttachment' {addSubnetArns} -> addSubnetArns) (\s@UpdateVpcAttachment' {} a -> s {addSubnetArns = a} :: UpdateVpcAttachment) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the attachment.
 updateVpcAttachment_attachmentId :: Lens.Lens' UpdateVpcAttachment Prelude.Text
@@ -122,16 +123,16 @@ instance Core.AWSRequest UpdateVpcAttachment where
 
 instance Prelude.Hashable UpdateVpcAttachment where
   hashWithSalt _salt UpdateVpcAttachment' {..} =
-    _salt `Prelude.hashWithSalt` options
+    _salt `Prelude.hashWithSalt` addSubnetArns
+      `Prelude.hashWithSalt` options
       `Prelude.hashWithSalt` removeSubnetArns
-      `Prelude.hashWithSalt` addSubnetArns
       `Prelude.hashWithSalt` attachmentId
 
 instance Prelude.NFData UpdateVpcAttachment where
   rnf UpdateVpcAttachment' {..} =
-    Prelude.rnf options
+    Prelude.rnf addSubnetArns
+      `Prelude.seq` Prelude.rnf options
       `Prelude.seq` Prelude.rnf removeSubnetArns
-      `Prelude.seq` Prelude.rnf addSubnetArns
       `Prelude.seq` Prelude.rnf attachmentId
 
 instance Data.ToHeaders UpdateVpcAttachment where
@@ -149,10 +150,10 @@ instance Data.ToJSON UpdateVpcAttachment where
   toJSON UpdateVpcAttachment' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Options" Data..=) Prelude.<$> options,
+          [ ("AddSubnetArns" Data..=) Prelude.<$> addSubnetArns,
+            ("Options" Data..=) Prelude.<$> options,
             ("RemoveSubnetArns" Data..=)
-              Prelude.<$> removeSubnetArns,
-            ("AddSubnetArns" Data..=) Prelude.<$> addSubnetArns
+              Prelude.<$> removeSubnetArns
           ]
       )
 

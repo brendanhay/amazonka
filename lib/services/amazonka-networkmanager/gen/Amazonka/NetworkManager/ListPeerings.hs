@@ -30,11 +30,11 @@ module Amazonka.NetworkManager.ListPeerings
 
     -- * Request Lenses
     listPeerings_coreNetworkId,
+    listPeerings_edgeLocation,
+    listPeerings_maxResults,
     listPeerings_nextToken,
     listPeerings_peeringType,
     listPeerings_state,
-    listPeerings_edgeLocation,
-    listPeerings_maxResults,
 
     -- * Destructuring the Response
     ListPeeringsResponse (..),
@@ -59,16 +59,16 @@ import qualified Amazonka.Response as Response
 data ListPeerings = ListPeerings'
   { -- | The ID of a core network.
     coreNetworkId :: Prelude.Maybe Prelude.Text,
+    -- | Returns a list edge locations for the
+    edgeLocation :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Returns a list of a peering requests.
     peeringType :: Prelude.Maybe PeeringType,
     -- | Returns a list of the peering request states.
-    state :: Prelude.Maybe PeeringState,
-    -- | Returns a list edge locations for the
-    edgeLocation :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    state :: Prelude.Maybe PeeringState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,30 +82,38 @@ data ListPeerings = ListPeerings'
 --
 -- 'coreNetworkId', 'listPeerings_coreNetworkId' - The ID of a core network.
 --
+-- 'edgeLocation', 'listPeerings_edgeLocation' - Returns a list edge locations for the
+--
+-- 'maxResults', 'listPeerings_maxResults' - The maximum number of results to return.
+--
 -- 'nextToken', 'listPeerings_nextToken' - The token for the next page of results.
 --
 -- 'peeringType', 'listPeerings_peeringType' - Returns a list of a peering requests.
 --
 -- 'state', 'listPeerings_state' - Returns a list of the peering request states.
---
--- 'edgeLocation', 'listPeerings_edgeLocation' - Returns a list edge locations for the
---
--- 'maxResults', 'listPeerings_maxResults' - The maximum number of results to return.
 newListPeerings ::
   ListPeerings
 newListPeerings =
   ListPeerings'
     { coreNetworkId = Prelude.Nothing,
+      edgeLocation = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       nextToken = Prelude.Nothing,
       peeringType = Prelude.Nothing,
-      state = Prelude.Nothing,
-      edgeLocation = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      state = Prelude.Nothing
     }
 
 -- | The ID of a core network.
 listPeerings_coreNetworkId :: Lens.Lens' ListPeerings (Prelude.Maybe Prelude.Text)
 listPeerings_coreNetworkId = Lens.lens (\ListPeerings' {coreNetworkId} -> coreNetworkId) (\s@ListPeerings' {} a -> s {coreNetworkId = a} :: ListPeerings)
+
+-- | Returns a list edge locations for the
+listPeerings_edgeLocation :: Lens.Lens' ListPeerings (Prelude.Maybe Prelude.Text)
+listPeerings_edgeLocation = Lens.lens (\ListPeerings' {edgeLocation} -> edgeLocation) (\s@ListPeerings' {} a -> s {edgeLocation = a} :: ListPeerings)
+
+-- | The maximum number of results to return.
+listPeerings_maxResults :: Lens.Lens' ListPeerings (Prelude.Maybe Prelude.Natural)
+listPeerings_maxResults = Lens.lens (\ListPeerings' {maxResults} -> maxResults) (\s@ListPeerings' {} a -> s {maxResults = a} :: ListPeerings)
 
 -- | The token for the next page of results.
 listPeerings_nextToken :: Lens.Lens' ListPeerings (Prelude.Maybe Prelude.Text)
@@ -118,14 +126,6 @@ listPeerings_peeringType = Lens.lens (\ListPeerings' {peeringType} -> peeringTyp
 -- | Returns a list of the peering request states.
 listPeerings_state :: Lens.Lens' ListPeerings (Prelude.Maybe PeeringState)
 listPeerings_state = Lens.lens (\ListPeerings' {state} -> state) (\s@ListPeerings' {} a -> s {state = a} :: ListPeerings)
-
--- | Returns a list edge locations for the
-listPeerings_edgeLocation :: Lens.Lens' ListPeerings (Prelude.Maybe Prelude.Text)
-listPeerings_edgeLocation = Lens.lens (\ListPeerings' {edgeLocation} -> edgeLocation) (\s@ListPeerings' {} a -> s {edgeLocation = a} :: ListPeerings)
-
--- | The maximum number of results to return.
-listPeerings_maxResults :: Lens.Lens' ListPeerings (Prelude.Maybe Prelude.Natural)
-listPeerings_maxResults = Lens.lens (\ListPeerings' {maxResults} -> maxResults) (\s@ListPeerings' {} a -> s {maxResults = a} :: ListPeerings)
 
 instance Core.AWSPager ListPeerings where
   page rq rs
@@ -162,20 +162,20 @@ instance Core.AWSRequest ListPeerings where
 instance Prelude.Hashable ListPeerings where
   hashWithSalt _salt ListPeerings' {..} =
     _salt `Prelude.hashWithSalt` coreNetworkId
+      `Prelude.hashWithSalt` edgeLocation
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` peeringType
       `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` edgeLocation
-      `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListPeerings where
   rnf ListPeerings' {..} =
     Prelude.rnf coreNetworkId
+      `Prelude.seq` Prelude.rnf edgeLocation
+      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf peeringType
       `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf edgeLocation
-      `Prelude.seq` Prelude.rnf maxResults
 
 instance Data.ToHeaders ListPeerings where
   toHeaders =
@@ -195,11 +195,11 @@ instance Data.ToQuery ListPeerings where
   toQuery ListPeerings' {..} =
     Prelude.mconcat
       [ "coreNetworkId" Data.=: coreNetworkId,
+        "edgeLocation" Data.=: edgeLocation,
+        "maxResults" Data.=: maxResults,
         "nextToken" Data.=: nextToken,
         "peeringType" Data.=: peeringType,
-        "state" Data.=: state,
-        "edgeLocation" Data.=: edgeLocation,
-        "maxResults" Data.=: maxResults
+        "state" Data.=: state
       ]
 
 -- | /See:/ 'newListPeeringsResponse' smart constructor.

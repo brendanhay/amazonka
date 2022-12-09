@@ -27,9 +27,9 @@ module Amazonka.NetworkManager.CreateSite
     newCreateSite,
 
     -- * Request Lenses
-    createSite_tags,
     createSite_description,
     createSite_location,
+    createSite_tags,
     createSite_globalNetworkId,
 
     -- * Destructuring the Response
@@ -52,9 +52,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateSite' smart constructor.
 data CreateSite = CreateSite'
-  { -- | The tags to apply to the resource during creation.
-    tags :: Prelude.Maybe [Tag],
-    -- | A description of your site.
+  { -- | A description of your site.
     --
     -- Constraints: Maximum length of 256 characters.
     description :: Prelude.Maybe Prelude.Text,
@@ -68,6 +66,8 @@ data CreateSite = CreateSite'
     --
     -- -   @Longitude@: The longitude of the site.
     location :: Prelude.Maybe (Data.Sensitive Location),
+    -- | The tags to apply to the resource during creation.
+    tags :: Prelude.Maybe [Tag],
     -- | The ID of the global network.
     globalNetworkId :: Prelude.Text
   }
@@ -80,8 +80,6 @@ data CreateSite = CreateSite'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'tags', 'createSite_tags' - The tags to apply to the resource during creation.
 --
 -- 'description', 'createSite_description' - A description of your site.
 --
@@ -97,6 +95,8 @@ data CreateSite = CreateSite'
 --
 -- -   @Longitude@: The longitude of the site.
 --
+-- 'tags', 'createSite_tags' - The tags to apply to the resource during creation.
+--
 -- 'globalNetworkId', 'createSite_globalNetworkId' - The ID of the global network.
 newCreateSite ::
   -- | 'globalNetworkId'
@@ -104,15 +104,11 @@ newCreateSite ::
   CreateSite
 newCreateSite pGlobalNetworkId_ =
   CreateSite'
-    { tags = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
       location = Prelude.Nothing,
+      tags = Prelude.Nothing,
       globalNetworkId = pGlobalNetworkId_
     }
-
--- | The tags to apply to the resource during creation.
-createSite_tags :: Lens.Lens' CreateSite (Prelude.Maybe [Tag])
-createSite_tags = Lens.lens (\CreateSite' {tags} -> tags) (\s@CreateSite' {} a -> s {tags = a} :: CreateSite) Prelude.. Lens.mapping Lens.coerced
 
 -- | A description of your site.
 --
@@ -132,6 +128,10 @@ createSite_description = Lens.lens (\CreateSite' {description} -> description) (
 createSite_location :: Lens.Lens' CreateSite (Prelude.Maybe Location)
 createSite_location = Lens.lens (\CreateSite' {location} -> location) (\s@CreateSite' {} a -> s {location = a} :: CreateSite) Prelude.. Lens.mapping Data._Sensitive
 
+-- | The tags to apply to the resource during creation.
+createSite_tags :: Lens.Lens' CreateSite (Prelude.Maybe [Tag])
+createSite_tags = Lens.lens (\CreateSite' {tags} -> tags) (\s@CreateSite' {} a -> s {tags = a} :: CreateSite) Prelude.. Lens.mapping Lens.coerced
+
 -- | The ID of the global network.
 createSite_globalNetworkId :: Lens.Lens' CreateSite Prelude.Text
 createSite_globalNetworkId = Lens.lens (\CreateSite' {globalNetworkId} -> globalNetworkId) (\s@CreateSite' {} a -> s {globalNetworkId = a} :: CreateSite)
@@ -150,16 +150,16 @@ instance Core.AWSRequest CreateSite where
 
 instance Prelude.Hashable CreateSite where
   hashWithSalt _salt CreateSite' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` globalNetworkId
 
 instance Prelude.NFData CreateSite where
   rnf CreateSite' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf globalNetworkId
 
 instance Data.ToHeaders CreateSite where
@@ -177,9 +177,9 @@ instance Data.ToJSON CreateSite where
   toJSON CreateSite' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Description" Data..=) Prelude.<$> description,
-            ("Location" Data..=) Prelude.<$> location
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("Location" Data..=) Prelude.<$> location,
+            ("Tags" Data..=) Prelude.<$> tags
           ]
       )
 

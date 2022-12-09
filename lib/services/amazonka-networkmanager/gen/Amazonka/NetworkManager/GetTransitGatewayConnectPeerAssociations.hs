@@ -30,9 +30,9 @@ module Amazonka.NetworkManager.GetTransitGatewayConnectPeerAssociations
     newGetTransitGatewayConnectPeerAssociations,
 
     -- * Request Lenses
-    getTransitGatewayConnectPeerAssociations_transitGatewayConnectPeerArns,
-    getTransitGatewayConnectPeerAssociations_nextToken,
     getTransitGatewayConnectPeerAssociations_maxResults,
+    getTransitGatewayConnectPeerAssociations_nextToken,
+    getTransitGatewayConnectPeerAssociations_transitGatewayConnectPeerArns,
     getTransitGatewayConnectPeerAssociations_globalNetworkId,
 
     -- * Destructuring the Response
@@ -56,12 +56,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetTransitGatewayConnectPeerAssociations' smart constructor.
 data GetTransitGatewayConnectPeerAssociations = GetTransitGatewayConnectPeerAssociations'
-  { -- | One or more transit gateway Connect peer Amazon Resource Names (ARNs).
-    transitGatewayConnectPeerArns :: Prelude.Maybe [Prelude.Text],
+  { -- | The maximum number of results to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | One or more transit gateway Connect peer Amazon Resource Names (ARNs).
+    transitGatewayConnectPeerArns :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the global network.
     globalNetworkId :: Prelude.Text
   }
@@ -75,11 +75,11 @@ data GetTransitGatewayConnectPeerAssociations = GetTransitGatewayConnectPeerAsso
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'transitGatewayConnectPeerArns', 'getTransitGatewayConnectPeerAssociations_transitGatewayConnectPeerArns' - One or more transit gateway Connect peer Amazon Resource Names (ARNs).
+-- 'maxResults', 'getTransitGatewayConnectPeerAssociations_maxResults' - The maximum number of results to return.
 --
 -- 'nextToken', 'getTransitGatewayConnectPeerAssociations_nextToken' - The token for the next page of results.
 --
--- 'maxResults', 'getTransitGatewayConnectPeerAssociations_maxResults' - The maximum number of results to return.
+-- 'transitGatewayConnectPeerArns', 'getTransitGatewayConnectPeerAssociations_transitGatewayConnectPeerArns' - One or more transit gateway Connect peer Amazon Resource Names (ARNs).
 --
 -- 'globalNetworkId', 'getTransitGatewayConnectPeerAssociations_globalNetworkId' - The ID of the global network.
 newGetTransitGatewayConnectPeerAssociations ::
@@ -89,25 +89,26 @@ newGetTransitGatewayConnectPeerAssociations ::
 newGetTransitGatewayConnectPeerAssociations
   pGlobalNetworkId_ =
     GetTransitGatewayConnectPeerAssociations'
-      { transitGatewayConnectPeerArns =
+      { maxResults =
           Prelude.Nothing,
         nextToken = Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+        transitGatewayConnectPeerArns =
+          Prelude.Nothing,
         globalNetworkId =
           pGlobalNetworkId_
       }
 
--- | One or more transit gateway Connect peer Amazon Resource Names (ARNs).
-getTransitGatewayConnectPeerAssociations_transitGatewayConnectPeerArns :: Lens.Lens' GetTransitGatewayConnectPeerAssociations (Prelude.Maybe [Prelude.Text])
-getTransitGatewayConnectPeerAssociations_transitGatewayConnectPeerArns = Lens.lens (\GetTransitGatewayConnectPeerAssociations' {transitGatewayConnectPeerArns} -> transitGatewayConnectPeerArns) (\s@GetTransitGatewayConnectPeerAssociations' {} a -> s {transitGatewayConnectPeerArns = a} :: GetTransitGatewayConnectPeerAssociations) Prelude.. Lens.mapping Lens.coerced
+-- | The maximum number of results to return.
+getTransitGatewayConnectPeerAssociations_maxResults :: Lens.Lens' GetTransitGatewayConnectPeerAssociations (Prelude.Maybe Prelude.Natural)
+getTransitGatewayConnectPeerAssociations_maxResults = Lens.lens (\GetTransitGatewayConnectPeerAssociations' {maxResults} -> maxResults) (\s@GetTransitGatewayConnectPeerAssociations' {} a -> s {maxResults = a} :: GetTransitGatewayConnectPeerAssociations)
 
 -- | The token for the next page of results.
 getTransitGatewayConnectPeerAssociations_nextToken :: Lens.Lens' GetTransitGatewayConnectPeerAssociations (Prelude.Maybe Prelude.Text)
 getTransitGatewayConnectPeerAssociations_nextToken = Lens.lens (\GetTransitGatewayConnectPeerAssociations' {nextToken} -> nextToken) (\s@GetTransitGatewayConnectPeerAssociations' {} a -> s {nextToken = a} :: GetTransitGatewayConnectPeerAssociations)
 
--- | The maximum number of results to return.
-getTransitGatewayConnectPeerAssociations_maxResults :: Lens.Lens' GetTransitGatewayConnectPeerAssociations (Prelude.Maybe Prelude.Natural)
-getTransitGatewayConnectPeerAssociations_maxResults = Lens.lens (\GetTransitGatewayConnectPeerAssociations' {maxResults} -> maxResults) (\s@GetTransitGatewayConnectPeerAssociations' {} a -> s {maxResults = a} :: GetTransitGatewayConnectPeerAssociations)
+-- | One or more transit gateway Connect peer Amazon Resource Names (ARNs).
+getTransitGatewayConnectPeerAssociations_transitGatewayConnectPeerArns :: Lens.Lens' GetTransitGatewayConnectPeerAssociations (Prelude.Maybe [Prelude.Text])
+getTransitGatewayConnectPeerAssociations_transitGatewayConnectPeerArns = Lens.lens (\GetTransitGatewayConnectPeerAssociations' {transitGatewayConnectPeerArns} -> transitGatewayConnectPeerArns) (\s@GetTransitGatewayConnectPeerAssociations' {} a -> s {transitGatewayConnectPeerArns = a} :: GetTransitGatewayConnectPeerAssociations) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the global network.
 getTransitGatewayConnectPeerAssociations_globalNetworkId :: Lens.Lens' GetTransitGatewayConnectPeerAssociations Prelude.Text
@@ -166,10 +167,9 @@ instance
   hashWithSalt
     _salt
     GetTransitGatewayConnectPeerAssociations' {..} =
-      _salt
-        `Prelude.hashWithSalt` transitGatewayConnectPeerArns
+      _salt `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` transitGatewayConnectPeerArns
         `Prelude.hashWithSalt` globalNetworkId
 
 instance
@@ -177,9 +177,9 @@ instance
     GetTransitGatewayConnectPeerAssociations
   where
   rnf GetTransitGatewayConnectPeerAssociations' {..} =
-    Prelude.rnf transitGatewayConnectPeerArns
+    Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf transitGatewayConnectPeerArns
       `Prelude.seq` Prelude.rnf globalNetworkId
 
 instance
@@ -213,13 +213,13 @@ instance
   where
   toQuery GetTransitGatewayConnectPeerAssociations' {..} =
     Prelude.mconcat
-      [ "transitGatewayConnectPeerArns"
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
+        "transitGatewayConnectPeerArns"
           Data.=: Data.toQuery
             ( Data.toQueryList "member"
                 Prelude.<$> transitGatewayConnectPeerArns
-            ),
-        "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+            )
       ]
 
 -- | /See:/ 'newGetTransitGatewayConnectPeerAssociationsResponse' smart constructor.

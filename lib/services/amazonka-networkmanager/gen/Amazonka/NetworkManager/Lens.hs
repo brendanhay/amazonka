@@ -51,8 +51,8 @@ module Amazonka.NetworkManager.Lens
     associateTransitGatewayConnectPeerResponse_httpStatus,
 
     -- ** CreateConnectAttachment
-    createConnectAttachment_tags,
     createConnectAttachment_clientToken,
+    createConnectAttachment_tags,
     createConnectAttachment_coreNetworkId,
     createConnectAttachment_edgeLocation,
     createConnectAttachment_transportAttachmentId,
@@ -61,10 +61,10 @@ module Amazonka.NetworkManager.Lens
     createConnectAttachmentResponse_httpStatus,
 
     -- ** CreateConnectPeer
-    createConnectPeer_tags,
+    createConnectPeer_bgpOptions,
     createConnectPeer_clientToken,
     createConnectPeer_coreNetworkAddress,
-    createConnectPeer_bgpOptions,
+    createConnectPeer_tags,
     createConnectPeer_connectAttachmentId,
     createConnectPeer_peerAddress,
     createConnectPeer_insideCidrBlocks,
@@ -72,10 +72,10 @@ module Amazonka.NetworkManager.Lens
     createConnectPeerResponse_httpStatus,
 
     -- ** CreateConnection
-    createConnection_tags,
-    createConnection_linkId,
-    createConnection_description,
     createConnection_connectedLinkId,
+    createConnection_description,
+    createConnection_linkId,
+    createConnection_tags,
     createConnection_globalNetworkId,
     createConnection_deviceId,
     createConnection_connectedDeviceId,
@@ -83,39 +83,39 @@ module Amazonka.NetworkManager.Lens
     createConnectionResponse_httpStatus,
 
     -- ** CreateCoreNetwork
-    createCoreNetwork_tags,
     createCoreNetwork_clientToken,
     createCoreNetwork_description,
     createCoreNetwork_policyDocument,
+    createCoreNetwork_tags,
     createCoreNetwork_globalNetworkId,
     createCoreNetworkResponse_coreNetwork,
     createCoreNetworkResponse_httpStatus,
 
     -- ** CreateDevice
-    createDevice_tags,
-    createDevice_type,
-    createDevice_model,
     createDevice_aWSLocation,
     createDevice_description,
-    createDevice_siteId,
     createDevice_location,
+    createDevice_model,
     createDevice_serialNumber,
+    createDevice_siteId,
+    createDevice_tags,
+    createDevice_type,
     createDevice_vendor,
     createDevice_globalNetworkId,
     createDeviceResponse_device,
     createDeviceResponse_httpStatus,
 
     -- ** CreateGlobalNetwork
-    createGlobalNetwork_tags,
     createGlobalNetwork_description,
+    createGlobalNetwork_tags,
     createGlobalNetworkResponse_globalNetwork,
     createGlobalNetworkResponse_httpStatus,
 
     -- ** CreateLink
+    createLink_description,
+    createLink_provider,
     createLink_tags,
     createLink_type,
-    createLink_provider,
-    createLink_description,
     createLink_globalNetworkId,
     createLink_bandwidth,
     createLink_siteId,
@@ -123,41 +123,41 @@ module Amazonka.NetworkManager.Lens
     createLinkResponse_httpStatus,
 
     -- ** CreateSite
-    createSite_tags,
     createSite_description,
     createSite_location,
+    createSite_tags,
     createSite_globalNetworkId,
     createSiteResponse_site,
     createSiteResponse_httpStatus,
 
     -- ** CreateSiteToSiteVpnAttachment
-    createSiteToSiteVpnAttachment_tags,
     createSiteToSiteVpnAttachment_clientToken,
+    createSiteToSiteVpnAttachment_tags,
     createSiteToSiteVpnAttachment_coreNetworkId,
     createSiteToSiteVpnAttachment_vpnConnectionArn,
     createSiteToSiteVpnAttachmentResponse_siteToSiteVpnAttachment,
     createSiteToSiteVpnAttachmentResponse_httpStatus,
 
     -- ** CreateTransitGatewayPeering
-    createTransitGatewayPeering_tags,
     createTransitGatewayPeering_clientToken,
+    createTransitGatewayPeering_tags,
     createTransitGatewayPeering_coreNetworkId,
     createTransitGatewayPeering_transitGatewayArn,
     createTransitGatewayPeeringResponse_transitGatewayPeering,
     createTransitGatewayPeeringResponse_httpStatus,
 
     -- ** CreateTransitGatewayRouteTableAttachment
-    createTransitGatewayRouteTableAttachment_tags,
     createTransitGatewayRouteTableAttachment_clientToken,
+    createTransitGatewayRouteTableAttachment_tags,
     createTransitGatewayRouteTableAttachment_peeringId,
     createTransitGatewayRouteTableAttachment_transitGatewayRouteTableArn,
     createTransitGatewayRouteTableAttachmentResponse_transitGatewayRouteTableAttachment,
     createTransitGatewayRouteTableAttachmentResponse_httpStatus,
 
     -- ** CreateVpcAttachment
-    createVpcAttachment_tags,
     createVpcAttachment_clientToken,
     createVpcAttachment_options,
+    createVpcAttachment_tags,
     createVpcAttachment_coreNetworkId,
     createVpcAttachment_vpcArn,
     createVpcAttachment_subnetArns,
@@ -230,11 +230,11 @@ module Amazonka.NetworkManager.Lens
     deregisterTransitGatewayResponse_httpStatus,
 
     -- ** DescribeGlobalNetworks
-    describeGlobalNetworks_nextToken,
     describeGlobalNetworks_globalNetworkIds,
     describeGlobalNetworks_maxResults,
-    describeGlobalNetworksResponse_nextToken,
+    describeGlobalNetworks_nextToken,
     describeGlobalNetworksResponse_globalNetworks,
+    describeGlobalNetworksResponse_nextToken,
     describeGlobalNetworksResponse_httpStatus,
 
     -- ** DisassociateConnectPeer
@@ -278,22 +278,22 @@ module Amazonka.NetworkManager.Lens
     getConnectPeerResponse_httpStatus,
 
     -- ** GetConnectPeerAssociations
-    getConnectPeerAssociations_nextToken,
     getConnectPeerAssociations_connectPeerIds,
     getConnectPeerAssociations_maxResults,
+    getConnectPeerAssociations_nextToken,
     getConnectPeerAssociations_globalNetworkId,
-    getConnectPeerAssociationsResponse_nextToken,
     getConnectPeerAssociationsResponse_connectPeerAssociations,
+    getConnectPeerAssociationsResponse_nextToken,
     getConnectPeerAssociationsResponse_httpStatus,
 
     -- ** GetConnections
-    getConnections_nextToken,
-    getConnections_deviceId,
     getConnections_connectionIds,
+    getConnections_deviceId,
     getConnections_maxResults,
+    getConnections_nextToken,
     getConnections_globalNetworkId,
-    getConnectionsResponse_nextToken,
     getConnectionsResponse_connections,
+    getConnectionsResponse_nextToken,
     getConnectionsResponse_httpStatus,
 
     -- ** GetCoreNetwork
@@ -302,21 +302,21 @@ module Amazonka.NetworkManager.Lens
     getCoreNetworkResponse_httpStatus,
 
     -- ** GetCoreNetworkChangeEvents
-    getCoreNetworkChangeEvents_nextToken,
     getCoreNetworkChangeEvents_maxResults,
+    getCoreNetworkChangeEvents_nextToken,
     getCoreNetworkChangeEvents_coreNetworkId,
     getCoreNetworkChangeEvents_policyVersionId,
-    getCoreNetworkChangeEventsResponse_nextToken,
     getCoreNetworkChangeEventsResponse_coreNetworkChangeEvents,
+    getCoreNetworkChangeEventsResponse_nextToken,
     getCoreNetworkChangeEventsResponse_httpStatus,
 
     -- ** GetCoreNetworkChangeSet
-    getCoreNetworkChangeSet_nextToken,
     getCoreNetworkChangeSet_maxResults,
+    getCoreNetworkChangeSet_nextToken,
     getCoreNetworkChangeSet_coreNetworkId,
     getCoreNetworkChangeSet_policyVersionId,
-    getCoreNetworkChangeSetResponse_nextToken,
     getCoreNetworkChangeSetResponse_coreNetworkChanges,
+    getCoreNetworkChangeSetResponse_nextToken,
     getCoreNetworkChangeSetResponse_httpStatus,
 
     -- ** GetCoreNetworkPolicy
@@ -327,113 +327,113 @@ module Amazonka.NetworkManager.Lens
     getCoreNetworkPolicyResponse_httpStatus,
 
     -- ** GetCustomerGatewayAssociations
-    getCustomerGatewayAssociations_nextToken,
     getCustomerGatewayAssociations_customerGatewayArns,
     getCustomerGatewayAssociations_maxResults,
+    getCustomerGatewayAssociations_nextToken,
     getCustomerGatewayAssociations_globalNetworkId,
-    getCustomerGatewayAssociationsResponse_nextToken,
     getCustomerGatewayAssociationsResponse_customerGatewayAssociations,
+    getCustomerGatewayAssociationsResponse_nextToken,
     getCustomerGatewayAssociationsResponse_httpStatus,
 
     -- ** GetDevices
+    getDevices_deviceIds,
+    getDevices_maxResults,
     getDevices_nextToken,
     getDevices_siteId,
-    getDevices_maxResults,
-    getDevices_deviceIds,
     getDevices_globalNetworkId,
     getDevicesResponse_devices,
     getDevicesResponse_nextToken,
     getDevicesResponse_httpStatus,
 
     -- ** GetLinkAssociations
-    getLinkAssociations_linkId,
-    getLinkAssociations_nextToken,
     getLinkAssociations_deviceId,
+    getLinkAssociations_linkId,
     getLinkAssociations_maxResults,
+    getLinkAssociations_nextToken,
     getLinkAssociations_globalNetworkId,
-    getLinkAssociationsResponse_nextToken,
     getLinkAssociationsResponse_linkAssociations,
+    getLinkAssociationsResponse_nextToken,
     getLinkAssociationsResponse_httpStatus,
 
     -- ** GetLinks
     getLinks_linkIds,
+    getLinks_maxResults,
     getLinks_nextToken,
-    getLinks_type,
     getLinks_provider,
     getLinks_siteId,
-    getLinks_maxResults,
+    getLinks_type,
     getLinks_globalNetworkId,
-    getLinksResponse_nextToken,
     getLinksResponse_links,
+    getLinksResponse_nextToken,
     getLinksResponse_httpStatus,
 
     -- ** GetNetworkResourceCounts
-    getNetworkResourceCounts_resourceType,
-    getNetworkResourceCounts_nextToken,
     getNetworkResourceCounts_maxResults,
+    getNetworkResourceCounts_nextToken,
+    getNetworkResourceCounts_resourceType,
     getNetworkResourceCounts_globalNetworkId,
-    getNetworkResourceCountsResponse_nextToken,
     getNetworkResourceCountsResponse_networkResourceCounts,
+    getNetworkResourceCountsResponse_nextToken,
     getNetworkResourceCountsResponse_httpStatus,
 
     -- ** GetNetworkResourceRelationships
-    getNetworkResourceRelationships_resourceType,
-    getNetworkResourceRelationships_coreNetworkId,
-    getNetworkResourceRelationships_nextToken,
     getNetworkResourceRelationships_accountId,
-    getNetworkResourceRelationships_maxResults,
-    getNetworkResourceRelationships_registeredGatewayArn,
     getNetworkResourceRelationships_awsRegion,
+    getNetworkResourceRelationships_coreNetworkId,
+    getNetworkResourceRelationships_maxResults,
+    getNetworkResourceRelationships_nextToken,
+    getNetworkResourceRelationships_registeredGatewayArn,
     getNetworkResourceRelationships_resourceArn,
+    getNetworkResourceRelationships_resourceType,
     getNetworkResourceRelationships_globalNetworkId,
     getNetworkResourceRelationshipsResponse_nextToken,
     getNetworkResourceRelationshipsResponse_relationships,
     getNetworkResourceRelationshipsResponse_httpStatus,
 
     -- ** GetNetworkResources
-    getNetworkResources_resourceType,
-    getNetworkResources_coreNetworkId,
-    getNetworkResources_nextToken,
     getNetworkResources_accountId,
-    getNetworkResources_maxResults,
-    getNetworkResources_registeredGatewayArn,
     getNetworkResources_awsRegion,
+    getNetworkResources_coreNetworkId,
+    getNetworkResources_maxResults,
+    getNetworkResources_nextToken,
+    getNetworkResources_registeredGatewayArn,
     getNetworkResources_resourceArn,
+    getNetworkResources_resourceType,
     getNetworkResources_globalNetworkId,
-    getNetworkResourcesResponse_nextToken,
     getNetworkResourcesResponse_networkResources,
+    getNetworkResourcesResponse_nextToken,
     getNetworkResourcesResponse_httpStatus,
 
     -- ** GetNetworkRoutes
-    getNetworkRoutes_supernetOfMatches,
-    getNetworkRoutes_subnetOfMatches,
-    getNetworkRoutes_types,
-    getNetworkRoutes_exactCidrMatches,
-    getNetworkRoutes_prefixListIds,
     getNetworkRoutes_destinationFilters,
+    getNetworkRoutes_exactCidrMatches,
     getNetworkRoutes_longestPrefixMatches,
+    getNetworkRoutes_prefixListIds,
     getNetworkRoutes_states,
+    getNetworkRoutes_subnetOfMatches,
+    getNetworkRoutes_supernetOfMatches,
+    getNetworkRoutes_types,
     getNetworkRoutes_globalNetworkId,
     getNetworkRoutes_routeTableIdentifier,
-    getNetworkRoutesResponse_routeTableArn,
-    getNetworkRoutesResponse_networkRoutes,
-    getNetworkRoutesResponse_routeTableType,
     getNetworkRoutesResponse_coreNetworkSegmentEdge,
+    getNetworkRoutesResponse_networkRoutes,
+    getNetworkRoutesResponse_routeTableArn,
     getNetworkRoutesResponse_routeTableTimestamp,
+    getNetworkRoutesResponse_routeTableType,
     getNetworkRoutesResponse_httpStatus,
 
     -- ** GetNetworkTelemetry
-    getNetworkTelemetry_resourceType,
-    getNetworkTelemetry_coreNetworkId,
-    getNetworkTelemetry_nextToken,
     getNetworkTelemetry_accountId,
-    getNetworkTelemetry_maxResults,
-    getNetworkTelemetry_registeredGatewayArn,
     getNetworkTelemetry_awsRegion,
+    getNetworkTelemetry_coreNetworkId,
+    getNetworkTelemetry_maxResults,
+    getNetworkTelemetry_nextToken,
+    getNetworkTelemetry_registeredGatewayArn,
     getNetworkTelemetry_resourceArn,
+    getNetworkTelemetry_resourceType,
     getNetworkTelemetry_globalNetworkId,
-    getNetworkTelemetryResponse_nextToken,
     getNetworkTelemetryResponse_networkTelemetry,
+    getNetworkTelemetryResponse_nextToken,
     getNetworkTelemetryResponse_httpStatus,
 
     -- ** GetResourcePolicy
@@ -453,18 +453,18 @@ module Amazonka.NetworkManager.Lens
     getSiteToSiteVpnAttachmentResponse_httpStatus,
 
     -- ** GetSites
+    getSites_maxResults,
     getSites_nextToken,
     getSites_siteIds,
-    getSites_maxResults,
     getSites_globalNetworkId,
-    getSitesResponse_sites,
     getSitesResponse_nextToken,
+    getSitesResponse_sites,
     getSitesResponse_httpStatus,
 
     -- ** GetTransitGatewayConnectPeerAssociations
-    getTransitGatewayConnectPeerAssociations_transitGatewayConnectPeerArns,
-    getTransitGatewayConnectPeerAssociations_nextToken,
     getTransitGatewayConnectPeerAssociations_maxResults,
+    getTransitGatewayConnectPeerAssociations_nextToken,
+    getTransitGatewayConnectPeerAssociations_transitGatewayConnectPeerArns,
     getTransitGatewayConnectPeerAssociations_globalNetworkId,
     getTransitGatewayConnectPeerAssociationsResponse_nextToken,
     getTransitGatewayConnectPeerAssociationsResponse_transitGatewayConnectPeerAssociations,
@@ -476,9 +476,9 @@ module Amazonka.NetworkManager.Lens
     getTransitGatewayPeeringResponse_httpStatus,
 
     -- ** GetTransitGatewayRegistrations
+    getTransitGatewayRegistrations_maxResults,
     getTransitGatewayRegistrations_nextToken,
     getTransitGatewayRegistrations_transitGatewayArns,
-    getTransitGatewayRegistrations_maxResults,
     getTransitGatewayRegistrations_globalNetworkId,
     getTransitGatewayRegistrationsResponse_nextToken,
     getTransitGatewayRegistrationsResponse_transitGatewayRegistrations,
@@ -495,54 +495,54 @@ module Amazonka.NetworkManager.Lens
     getVpcAttachmentResponse_httpStatus,
 
     -- ** ListAttachments
+    listAttachments_attachmentType,
     listAttachments_coreNetworkId,
-    listAttachments_nextToken,
-    listAttachments_state,
     listAttachments_edgeLocation,
     listAttachments_maxResults,
-    listAttachments_attachmentType,
-    listAttachmentsResponse_nextToken,
+    listAttachments_nextToken,
+    listAttachments_state,
     listAttachmentsResponse_attachments,
+    listAttachmentsResponse_nextToken,
     listAttachmentsResponse_httpStatus,
 
     -- ** ListConnectPeers
-    listConnectPeers_coreNetworkId,
-    listConnectPeers_nextToken,
     listConnectPeers_connectAttachmentId,
+    listConnectPeers_coreNetworkId,
     listConnectPeers_maxResults,
-    listConnectPeersResponse_nextToken,
+    listConnectPeers_nextToken,
     listConnectPeersResponse_connectPeers,
+    listConnectPeersResponse_nextToken,
     listConnectPeersResponse_httpStatus,
 
     -- ** ListCoreNetworkPolicyVersions
-    listCoreNetworkPolicyVersions_nextToken,
     listCoreNetworkPolicyVersions_maxResults,
+    listCoreNetworkPolicyVersions_nextToken,
     listCoreNetworkPolicyVersions_coreNetworkId,
-    listCoreNetworkPolicyVersionsResponse_nextToken,
     listCoreNetworkPolicyVersionsResponse_coreNetworkPolicyVersions,
+    listCoreNetworkPolicyVersionsResponse_nextToken,
     listCoreNetworkPolicyVersionsResponse_httpStatus,
 
     -- ** ListCoreNetworks
-    listCoreNetworks_nextToken,
     listCoreNetworks_maxResults,
-    listCoreNetworksResponse_nextToken,
+    listCoreNetworks_nextToken,
     listCoreNetworksResponse_coreNetworks,
+    listCoreNetworksResponse_nextToken,
     listCoreNetworksResponse_httpStatus,
 
     -- ** ListOrganizationServiceAccessStatus
-    listOrganizationServiceAccessStatus_nextToken,
     listOrganizationServiceAccessStatus_maxResults,
+    listOrganizationServiceAccessStatus_nextToken,
     listOrganizationServiceAccessStatusResponse_nextToken,
     listOrganizationServiceAccessStatusResponse_organizationStatus,
     listOrganizationServiceAccessStatusResponse_httpStatus,
 
     -- ** ListPeerings
     listPeerings_coreNetworkId,
+    listPeerings_edgeLocation,
+    listPeerings_maxResults,
     listPeerings_nextToken,
     listPeerings_peeringType,
     listPeerings_state,
-    listPeerings_edgeLocation,
-    listPeerings_maxResults,
     listPeeringsResponse_nextToken,
     listPeeringsResponse_peerings,
     listPeeringsResponse_httpStatus,
@@ -554,8 +554,8 @@ module Amazonka.NetworkManager.Lens
 
     -- ** PutCoreNetworkPolicy
     putCoreNetworkPolicy_clientToken,
-    putCoreNetworkPolicy_latestVersionId,
     putCoreNetworkPolicy_description,
+    putCoreNetworkPolicy_latestVersionId,
     putCoreNetworkPolicy_coreNetworkId,
     putCoreNetworkPolicy_policyDocument,
     putCoreNetworkPolicyResponse_coreNetworkPolicy,
@@ -608,9 +608,9 @@ module Amazonka.NetworkManager.Lens
     untagResourceResponse_httpStatus,
 
     -- ** UpdateConnection
-    updateConnection_linkId,
-    updateConnection_description,
     updateConnection_connectedLinkId,
+    updateConnection_description,
+    updateConnection_linkId,
     updateConnection_globalNetworkId,
     updateConnection_connectionId,
     updateConnectionResponse_connection,
@@ -623,13 +623,13 @@ module Amazonka.NetworkManager.Lens
     updateCoreNetworkResponse_httpStatus,
 
     -- ** UpdateDevice
-    updateDevice_type,
-    updateDevice_model,
     updateDevice_aWSLocation,
     updateDevice_description,
-    updateDevice_siteId,
     updateDevice_location,
+    updateDevice_model,
     updateDevice_serialNumber,
+    updateDevice_siteId,
+    updateDevice_type,
     updateDevice_vendor,
     updateDevice_globalNetworkId,
     updateDevice_deviceId,
@@ -643,10 +643,10 @@ module Amazonka.NetworkManager.Lens
     updateGlobalNetworkResponse_httpStatus,
 
     -- ** UpdateLink
-    updateLink_type,
     updateLink_bandwidth,
-    updateLink_provider,
     updateLink_description,
+    updateLink_provider,
+    updateLink_type,
     updateLink_globalNetworkId,
     updateLink_linkId,
     updateLinkResponse_link,
@@ -669,9 +669,9 @@ module Amazonka.NetworkManager.Lens
     updateSiteResponse_httpStatus,
 
     -- ** UpdateVpcAttachment
+    updateVpcAttachment_addSubnetArns,
     updateVpcAttachment_options,
     updateVpcAttachment_removeSubnetArns,
-    updateVpcAttachment_addSubnetArns,
     updateVpcAttachment_attachmentId,
     updateVpcAttachmentResponse_vpcAttachment,
     updateVpcAttachmentResponse_httpStatus,
@@ -679,27 +679,27 @@ module Amazonka.NetworkManager.Lens
     -- * Types
 
     -- ** AWSLocation
-    aWSLocation_zone,
     aWSLocation_subnetArn,
+    aWSLocation_zone,
 
     -- ** AccountStatus
-    accountStatus_sLRDeploymentStatus,
     accountStatus_accountId,
+    accountStatus_sLRDeploymentStatus,
 
     -- ** Attachment
-    attachment_tags,
-    attachment_proposedSegmentChange,
-    attachment_coreNetworkId,
-    attachment_state,
-    attachment_edgeLocation,
     attachment_attachmentId,
-    attachment_segmentName,
-    attachment_coreNetworkArn,
-    attachment_ownerAccountId,
-    attachment_attachmentType,
-    attachment_resourceArn,
     attachment_attachmentPolicyRuleNumber,
+    attachment_attachmentType,
+    attachment_coreNetworkArn,
+    attachment_coreNetworkId,
     attachment_createdAt,
+    attachment_edgeLocation,
+    attachment_ownerAccountId,
+    attachment_proposedSegmentChange,
+    attachment_resourceArn,
+    attachment_segmentName,
+    attachment_state,
+    attachment_tags,
     attachment_updatedAt,
 
     -- ** Bandwidth
@@ -711,34 +711,34 @@ module Amazonka.NetworkManager.Lens
 
     -- ** ConnectAttachment
     connectAttachment_attachment,
-    connectAttachment_transportAttachmentId,
     connectAttachment_options,
+    connectAttachment_transportAttachmentId,
 
     -- ** ConnectAttachmentOptions
     connectAttachmentOptions_protocol,
 
     -- ** ConnectPeer
-    connectPeer_tags,
-    connectPeer_coreNetworkId,
-    connectPeer_connectAttachmentId,
     connectPeer_configuration,
-    connectPeer_state,
-    connectPeer_edgeLocation,
+    connectPeer_connectAttachmentId,
     connectPeer_connectPeerId,
+    connectPeer_coreNetworkId,
     connectPeer_createdAt,
+    connectPeer_edgeLocation,
+    connectPeer_state,
+    connectPeer_tags,
 
     -- ** ConnectPeerAssociation
+    connectPeerAssociation_connectPeerId,
+    connectPeerAssociation_deviceId,
     connectPeerAssociation_globalNetworkId,
     connectPeerAssociation_linkId,
-    connectPeerAssociation_deviceId,
     connectPeerAssociation_state,
-    connectPeerAssociation_connectPeerId,
 
     -- ** ConnectPeerBgpConfiguration
-    connectPeerBgpConfiguration_peerAsn,
     connectPeerBgpConfiguration_coreNetworkAddress,
     connectPeerBgpConfiguration_coreNetworkAsn,
     connectPeerBgpConfiguration_peerAddress,
+    connectPeerBgpConfiguration_peerAsn,
 
     -- ** ConnectPeerConfiguration
     connectPeerConfiguration_bgpConfigurations,
@@ -748,88 +748,88 @@ module Amazonka.NetworkManager.Lens
     connectPeerConfiguration_protocol,
 
     -- ** ConnectPeerSummary
-    connectPeerSummary_tags,
-    connectPeerSummary_coreNetworkId,
     connectPeerSummary_connectAttachmentId,
-    connectPeerSummary_edgeLocation,
-    connectPeerSummary_connectPeerState,
     connectPeerSummary_connectPeerId,
+    connectPeerSummary_connectPeerState,
+    connectPeerSummary_coreNetworkId,
     connectPeerSummary_createdAt,
+    connectPeerSummary_edgeLocation,
+    connectPeerSummary_tags,
 
     -- ** Connection
-    connection_globalNetworkId,
-    connection_tags,
-    connection_linkId,
-    connection_deviceId,
     connection_connectedDeviceId,
-    connection_state,
-    connection_connectionId,
-    connection_description,
-    connection_connectionArn,
     connection_connectedLinkId,
+    connection_connectionArn,
+    connection_connectionId,
     connection_createdAt,
+    connection_description,
+    connection_deviceId,
+    connection_globalNetworkId,
+    connection_linkId,
+    connection_state,
+    connection_tags,
 
     -- ** ConnectionHealth
-    connectionHealth_type,
-    connectionHealth_timestamp,
     connectionHealth_status,
+    connectionHealth_timestamp,
+    connectionHealth_type,
 
     -- ** CoreNetwork
-    coreNetwork_globalNetworkId,
-    coreNetwork_tags,
-    coreNetwork_edges,
-    coreNetwork_coreNetworkId,
-    coreNetwork_state,
-    coreNetwork_description,
     coreNetwork_coreNetworkArn,
+    coreNetwork_coreNetworkId,
     coreNetwork_createdAt,
+    coreNetwork_description,
+    coreNetwork_edges,
+    coreNetwork_globalNetworkId,
     coreNetwork_segments,
+    coreNetwork_state,
+    coreNetwork_tags,
 
     -- ** CoreNetworkChange
-    coreNetworkChange_newValues,
-    coreNetworkChange_type,
-    coreNetworkChange_previousValues,
+    coreNetworkChange_action,
     coreNetworkChange_identifier,
     coreNetworkChange_identifierPath,
-    coreNetworkChange_action,
+    coreNetworkChange_newValues,
+    coreNetworkChange_previousValues,
+    coreNetworkChange_type,
 
     -- ** CoreNetworkChangeEvent
-    coreNetworkChangeEvent_type,
-    coreNetworkChangeEvent_status,
-    coreNetworkChangeEvent_identifierPath,
     coreNetworkChangeEvent_action,
-    coreNetworkChangeEvent_values,
     coreNetworkChangeEvent_eventTime,
+    coreNetworkChangeEvent_identifierPath,
+    coreNetworkChangeEvent_status,
+    coreNetworkChangeEvent_type,
+    coreNetworkChangeEvent_values,
 
     -- ** CoreNetworkChangeEventValues
+    coreNetworkChangeEventValues_attachmentId,
     coreNetworkChangeEventValues_cidr,
     coreNetworkChangeEventValues_edgeLocation,
-    coreNetworkChangeEventValues_attachmentId,
     coreNetworkChangeEventValues_segmentName,
 
     -- ** CoreNetworkChangeValues
-    coreNetworkChangeValues_sharedSegments,
-    coreNetworkChangeValues_cidr,
     coreNetworkChangeValues_asn,
-    coreNetworkChangeValues_segmentName,
+    coreNetworkChangeValues_cidr,
+    coreNetworkChangeValues_destinationIdentifier,
     coreNetworkChangeValues_edgeLocations,
     coreNetworkChangeValues_insideCidrBlocks,
-    coreNetworkChangeValues_destinationIdentifier,
+    coreNetworkChangeValues_segmentName,
+    coreNetworkChangeValues_sharedSegments,
 
     -- ** CoreNetworkEdge
-    coreNetworkEdge_edgeLocation,
     coreNetworkEdge_asn,
+    coreNetworkEdge_edgeLocation,
     coreNetworkEdge_insideCidrBlocks,
 
     -- ** CoreNetworkPolicy
     coreNetworkPolicy_alias,
-    coreNetworkPolicy_coreNetworkId,
     coreNetworkPolicy_changeSetState,
-    coreNetworkPolicy_policyVersionId,
-    coreNetworkPolicy_policyErrors,
+    coreNetworkPolicy_coreNetworkId,
+    coreNetworkPolicy_createdAt,
     coreNetworkPolicy_description,
     coreNetworkPolicy_policyDocument,
-    coreNetworkPolicy_createdAt,
+    coreNetworkPolicy_policyErrors,
+    coreNetworkPolicy_policyVersionId,
 
     -- ** CoreNetworkPolicyError
     coreNetworkPolicyError_path,
@@ -838,16 +838,16 @@ module Amazonka.NetworkManager.Lens
 
     -- ** CoreNetworkPolicyVersion
     coreNetworkPolicyVersion_alias,
-    coreNetworkPolicyVersion_coreNetworkId,
     coreNetworkPolicyVersion_changeSetState,
-    coreNetworkPolicyVersion_policyVersionId,
-    coreNetworkPolicyVersion_description,
+    coreNetworkPolicyVersion_coreNetworkId,
     coreNetworkPolicyVersion_createdAt,
+    coreNetworkPolicyVersion_description,
+    coreNetworkPolicyVersion_policyVersionId,
 
     -- ** CoreNetworkSegment
+    coreNetworkSegment_edgeLocations,
     coreNetworkSegment_name,
     coreNetworkSegment_sharedSegments,
-    coreNetworkSegment_edgeLocations,
 
     -- ** CoreNetworkSegmentEdgeIdentifier
     coreNetworkSegmentEdgeIdentifier_coreNetworkId,
@@ -855,196 +855,196 @@ module Amazonka.NetworkManager.Lens
     coreNetworkSegmentEdgeIdentifier_segmentName,
 
     -- ** CoreNetworkSummary
-    coreNetworkSummary_globalNetworkId,
-    coreNetworkSummary_tags,
-    coreNetworkSummary_coreNetworkId,
-    coreNetworkSummary_state,
-    coreNetworkSummary_description,
     coreNetworkSummary_coreNetworkArn,
+    coreNetworkSummary_coreNetworkId,
+    coreNetworkSummary_description,
+    coreNetworkSummary_globalNetworkId,
     coreNetworkSummary_ownerAccountId,
+    coreNetworkSummary_state,
+    coreNetworkSummary_tags,
 
     -- ** CustomerGatewayAssociation
+    customerGatewayAssociation_customerGatewayArn,
+    customerGatewayAssociation_deviceId,
     customerGatewayAssociation_globalNetworkId,
     customerGatewayAssociation_linkId,
-    customerGatewayAssociation_deviceId,
     customerGatewayAssociation_state,
-    customerGatewayAssociation_customerGatewayArn,
 
     -- ** Device
+    device_aWSLocation,
+    device_createdAt,
+    device_description,
+    device_deviceArn,
+    device_deviceId,
     device_globalNetworkId,
+    device_location,
+    device_model,
+    device_serialNumber,
+    device_siteId,
+    device_state,
     device_tags,
     device_type,
-    device_model,
-    device_aWSLocation,
-    device_deviceId,
-    device_state,
-    device_description,
-    device_siteId,
-    device_location,
-    device_serialNumber,
     device_vendor,
-    device_createdAt,
-    device_deviceArn,
 
     -- ** GlobalNetwork
-    globalNetwork_globalNetworkId,
-    globalNetwork_tags,
-    globalNetwork_state,
+    globalNetwork_createdAt,
     globalNetwork_description,
     globalNetwork_globalNetworkArn,
-    globalNetwork_createdAt,
+    globalNetwork_globalNetworkId,
+    globalNetwork_state,
+    globalNetwork_tags,
 
     -- ** Link
-    link_globalNetworkId,
-    link_tags,
-    link_linkId,
-    link_type,
     link_bandwidth,
-    link_state,
-    link_provider,
-    link_description,
-    link_siteId,
     link_createdAt,
+    link_description,
+    link_globalNetworkId,
     link_linkArn,
+    link_linkId,
+    link_provider,
+    link_siteId,
+    link_state,
+    link_tags,
+    link_type,
 
     -- ** LinkAssociation
-    linkAssociation_globalNetworkId,
-    linkAssociation_linkId,
     linkAssociation_deviceId,
+    linkAssociation_globalNetworkId,
     linkAssociation_linkAssociationState,
+    linkAssociation_linkId,
 
     -- ** Location
-    location_longitude,
     location_address,
     location_latitude,
+    location_longitude,
 
     -- ** NetworkResource
-    networkResource_resourceId,
-    networkResource_tags,
-    networkResource_resourceType,
-    networkResource_coreNetworkId,
-    networkResource_metadata,
     networkResource_accountId,
-    networkResource_registeredGatewayArn,
     networkResource_awsRegion,
-    networkResource_definitionTimestamp,
-    networkResource_resourceArn,
+    networkResource_coreNetworkId,
     networkResource_definition,
+    networkResource_definitionTimestamp,
+    networkResource_metadata,
+    networkResource_registeredGatewayArn,
+    networkResource_resourceArn,
+    networkResource_resourceId,
+    networkResource_resourceType,
+    networkResource_tags,
 
     -- ** NetworkResourceCount
-    networkResourceCount_resourceType,
     networkResourceCount_count,
+    networkResourceCount_resourceType,
 
     -- ** NetworkResourceSummary
-    networkResourceSummary_resourceType,
+    networkResourceSummary_definition,
     networkResourceSummary_isMiddlebox,
+    networkResourceSummary_nameTag,
     networkResourceSummary_registeredGatewayArn,
     networkResourceSummary_resourceArn,
-    networkResourceSummary_definition,
-    networkResourceSummary_nameTag,
+    networkResourceSummary_resourceType,
 
     -- ** NetworkRoute
-    networkRoute_type,
-    networkRoute_prefixListId,
-    networkRoute_state,
     networkRoute_destinationCidrBlock,
     networkRoute_destinations,
+    networkRoute_prefixListId,
+    networkRoute_state,
+    networkRoute_type,
 
     -- ** NetworkRouteDestination
+    networkRouteDestination_coreNetworkAttachmentId,
+    networkRouteDestination_edgeLocation,
     networkRouteDestination_resourceId,
     networkRouteDestination_resourceType,
-    networkRouteDestination_coreNetworkAttachmentId,
-    networkRouteDestination_transitGatewayAttachmentId,
-    networkRouteDestination_edgeLocation,
     networkRouteDestination_segmentName,
+    networkRouteDestination_transitGatewayAttachmentId,
 
     -- ** NetworkTelemetry
-    networkTelemetry_resourceId,
-    networkTelemetry_resourceType,
-    networkTelemetry_coreNetworkId,
     networkTelemetry_accountId,
     networkTelemetry_address,
-    networkTelemetry_registeredGatewayArn,
-    networkTelemetry_health,
     networkTelemetry_awsRegion,
+    networkTelemetry_coreNetworkId,
+    networkTelemetry_health,
+    networkTelemetry_registeredGatewayArn,
     networkTelemetry_resourceArn,
+    networkTelemetry_resourceId,
+    networkTelemetry_resourceType,
 
     -- ** OrganizationStatus
-    organizationStatus_sLRDeploymentStatus,
     organizationStatus_accountStatusList,
-    organizationStatus_organizationId,
     organizationStatus_organizationAwsServiceAccessStatus,
+    organizationStatus_organizationId,
+    organizationStatus_sLRDeploymentStatus,
 
     -- ** PathComponent
-    pathComponent_sequence,
     pathComponent_destinationCidrBlock,
     pathComponent_resource,
+    pathComponent_sequence,
 
     -- ** Peering
-    peering_tags,
-    peering_coreNetworkId,
-    peering_peeringType,
-    peering_state,
-    peering_edgeLocation,
     peering_coreNetworkArn,
+    peering_coreNetworkId,
+    peering_createdAt,
+    peering_edgeLocation,
     peering_ownerAccountId,
     peering_peeringId,
+    peering_peeringType,
     peering_resourceArn,
-    peering_createdAt,
+    peering_state,
+    peering_tags,
 
     -- ** ProposedSegmentChange
-    proposedSegmentChange_tags,
-    proposedSegmentChange_segmentName,
     proposedSegmentChange_attachmentPolicyRuleNumber,
+    proposedSegmentChange_segmentName,
+    proposedSegmentChange_tags,
 
     -- ** Relationship
     relationship_from,
     relationship_to,
 
     -- ** RouteAnalysis
-    routeAnalysis_globalNetworkId,
     routeAnalysis_destination,
+    routeAnalysis_forwardPath,
+    routeAnalysis_globalNetworkId,
+    routeAnalysis_includeReturnPath,
+    routeAnalysis_ownerAccountId,
     routeAnalysis_returnPath,
     routeAnalysis_routeAnalysisId,
-    routeAnalysis_includeReturnPath,
+    routeAnalysis_source,
     routeAnalysis_startTimestamp,
     routeAnalysis_status,
-    routeAnalysis_source,
-    routeAnalysis_ownerAccountId,
     routeAnalysis_useMiddleboxes,
-    routeAnalysis_forwardPath,
 
     -- ** RouteAnalysisCompletion
-    routeAnalysisCompletion_resultCode,
     routeAnalysisCompletion_reasonCode,
     routeAnalysisCompletion_reasonContext,
+    routeAnalysisCompletion_resultCode,
 
     -- ** RouteAnalysisEndpointOptions
-    routeAnalysisEndpointOptions_transitGatewayAttachmentArn,
-    routeAnalysisEndpointOptions_transitGatewayArn,
     routeAnalysisEndpointOptions_ipAddress,
+    routeAnalysisEndpointOptions_transitGatewayArn,
+    routeAnalysisEndpointOptions_transitGatewayAttachmentArn,
 
     -- ** RouteAnalysisEndpointOptionsSpecification
-    routeAnalysisEndpointOptionsSpecification_transitGatewayAttachmentArn,
     routeAnalysisEndpointOptionsSpecification_ipAddress,
+    routeAnalysisEndpointOptionsSpecification_transitGatewayAttachmentArn,
 
     -- ** RouteAnalysisPath
-    routeAnalysisPath_path,
     routeAnalysisPath_completionStatus,
+    routeAnalysisPath_path,
 
     -- ** RouteTableIdentifier
     routeTableIdentifier_coreNetworkSegmentEdge,
     routeTableIdentifier_transitGatewayRouteTableArn,
 
     -- ** Site
-    site_globalNetworkId,
-    site_tags,
-    site_siteArn,
-    site_state,
-    site_description,
-    site_siteId,
-    site_location,
     site_createdAt,
+    site_description,
+    site_globalNetworkId,
+    site_location,
+    site_siteArn,
+    site_siteId,
+    site_state,
+    site_tags,
 
     -- ** SiteToSiteVpnAttachment
     siteToSiteVpnAttachment_attachment,
@@ -1055,25 +1055,25 @@ module Amazonka.NetworkManager.Lens
     tag_value,
 
     -- ** TransitGatewayConnectPeerAssociation
+    transitGatewayConnectPeerAssociation_deviceId,
     transitGatewayConnectPeerAssociation_globalNetworkId,
     transitGatewayConnectPeerAssociation_linkId,
-    transitGatewayConnectPeerAssociation_deviceId,
     transitGatewayConnectPeerAssociation_state,
     transitGatewayConnectPeerAssociation_transitGatewayConnectPeerArn,
 
     -- ** TransitGatewayPeering
+    transitGatewayPeering_peering,
     transitGatewayPeering_transitGatewayArn,
     transitGatewayPeering_transitGatewayPeeringAttachmentId,
-    transitGatewayPeering_peering,
 
     -- ** TransitGatewayRegistration
     transitGatewayRegistration_globalNetworkId,
-    transitGatewayRegistration_transitGatewayArn,
     transitGatewayRegistration_state,
+    transitGatewayRegistration_transitGatewayArn,
 
     -- ** TransitGatewayRegistrationStateReason
-    transitGatewayRegistrationStateReason_message,
     transitGatewayRegistrationStateReason_code,
+    transitGatewayRegistrationStateReason_message,
 
     -- ** TransitGatewayRouteTableAttachment
     transitGatewayRouteTableAttachment_attachment,
@@ -1082,8 +1082,8 @@ module Amazonka.NetworkManager.Lens
 
     -- ** VpcAttachment
     vpcAttachment_attachment,
-    vpcAttachment_subnetArns,
     vpcAttachment_options,
+    vpcAttachment_subnetArns,
 
     -- ** VpcOptions
     vpcOptions_ipv6Support,

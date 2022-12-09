@@ -33,16 +33,16 @@ data CoreNetworkPolicyVersion = CoreNetworkPolicyVersion'
   { -- | Whether a core network policy is the current policy or the most recently
     -- submitted policy.
     alias :: Prelude.Maybe CoreNetworkPolicyAlias,
-    -- | The ID of a core network.
-    coreNetworkId :: Prelude.Maybe Prelude.Text,
     -- | The status of the policy version change set.
     changeSetState :: Prelude.Maybe ChangeSetState,
-    -- | The ID of the policy version.
-    policyVersionId :: Prelude.Maybe Prelude.Int,
+    -- | The ID of a core network.
+    coreNetworkId :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp when a core network policy version was created.
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The description of a core network policy version.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp when a core network policy version was created.
-    createdAt :: Prelude.Maybe Data.POSIX
+    -- | The ID of the policy version.
+    policyVersionId :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,25 +57,25 @@ data CoreNetworkPolicyVersion = CoreNetworkPolicyVersion'
 -- 'alias', 'coreNetworkPolicyVersion_alias' - Whether a core network policy is the current policy or the most recently
 -- submitted policy.
 --
--- 'coreNetworkId', 'coreNetworkPolicyVersion_coreNetworkId' - The ID of a core network.
---
 -- 'changeSetState', 'coreNetworkPolicyVersion_changeSetState' - The status of the policy version change set.
 --
--- 'policyVersionId', 'coreNetworkPolicyVersion_policyVersionId' - The ID of the policy version.
+-- 'coreNetworkId', 'coreNetworkPolicyVersion_coreNetworkId' - The ID of a core network.
+--
+-- 'createdAt', 'coreNetworkPolicyVersion_createdAt' - The timestamp when a core network policy version was created.
 --
 -- 'description', 'coreNetworkPolicyVersion_description' - The description of a core network policy version.
 --
--- 'createdAt', 'coreNetworkPolicyVersion_createdAt' - The timestamp when a core network policy version was created.
+-- 'policyVersionId', 'coreNetworkPolicyVersion_policyVersionId' - The ID of the policy version.
 newCoreNetworkPolicyVersion ::
   CoreNetworkPolicyVersion
 newCoreNetworkPolicyVersion =
   CoreNetworkPolicyVersion'
     { alias = Prelude.Nothing,
-      coreNetworkId = Prelude.Nothing,
       changeSetState = Prelude.Nothing,
-      policyVersionId = Prelude.Nothing,
+      coreNetworkId = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
       description = Prelude.Nothing,
-      createdAt = Prelude.Nothing
+      policyVersionId = Prelude.Nothing
     }
 
 -- | Whether a core network policy is the current policy or the most recently
@@ -83,25 +83,25 @@ newCoreNetworkPolicyVersion =
 coreNetworkPolicyVersion_alias :: Lens.Lens' CoreNetworkPolicyVersion (Prelude.Maybe CoreNetworkPolicyAlias)
 coreNetworkPolicyVersion_alias = Lens.lens (\CoreNetworkPolicyVersion' {alias} -> alias) (\s@CoreNetworkPolicyVersion' {} a -> s {alias = a} :: CoreNetworkPolicyVersion)
 
--- | The ID of a core network.
-coreNetworkPolicyVersion_coreNetworkId :: Lens.Lens' CoreNetworkPolicyVersion (Prelude.Maybe Prelude.Text)
-coreNetworkPolicyVersion_coreNetworkId = Lens.lens (\CoreNetworkPolicyVersion' {coreNetworkId} -> coreNetworkId) (\s@CoreNetworkPolicyVersion' {} a -> s {coreNetworkId = a} :: CoreNetworkPolicyVersion)
-
 -- | The status of the policy version change set.
 coreNetworkPolicyVersion_changeSetState :: Lens.Lens' CoreNetworkPolicyVersion (Prelude.Maybe ChangeSetState)
 coreNetworkPolicyVersion_changeSetState = Lens.lens (\CoreNetworkPolicyVersion' {changeSetState} -> changeSetState) (\s@CoreNetworkPolicyVersion' {} a -> s {changeSetState = a} :: CoreNetworkPolicyVersion)
 
--- | The ID of the policy version.
-coreNetworkPolicyVersion_policyVersionId :: Lens.Lens' CoreNetworkPolicyVersion (Prelude.Maybe Prelude.Int)
-coreNetworkPolicyVersion_policyVersionId = Lens.lens (\CoreNetworkPolicyVersion' {policyVersionId} -> policyVersionId) (\s@CoreNetworkPolicyVersion' {} a -> s {policyVersionId = a} :: CoreNetworkPolicyVersion)
+-- | The ID of a core network.
+coreNetworkPolicyVersion_coreNetworkId :: Lens.Lens' CoreNetworkPolicyVersion (Prelude.Maybe Prelude.Text)
+coreNetworkPolicyVersion_coreNetworkId = Lens.lens (\CoreNetworkPolicyVersion' {coreNetworkId} -> coreNetworkId) (\s@CoreNetworkPolicyVersion' {} a -> s {coreNetworkId = a} :: CoreNetworkPolicyVersion)
+
+-- | The timestamp when a core network policy version was created.
+coreNetworkPolicyVersion_createdAt :: Lens.Lens' CoreNetworkPolicyVersion (Prelude.Maybe Prelude.UTCTime)
+coreNetworkPolicyVersion_createdAt = Lens.lens (\CoreNetworkPolicyVersion' {createdAt} -> createdAt) (\s@CoreNetworkPolicyVersion' {} a -> s {createdAt = a} :: CoreNetworkPolicyVersion) Prelude.. Lens.mapping Data._Time
 
 -- | The description of a core network policy version.
 coreNetworkPolicyVersion_description :: Lens.Lens' CoreNetworkPolicyVersion (Prelude.Maybe Prelude.Text)
 coreNetworkPolicyVersion_description = Lens.lens (\CoreNetworkPolicyVersion' {description} -> description) (\s@CoreNetworkPolicyVersion' {} a -> s {description = a} :: CoreNetworkPolicyVersion)
 
--- | The timestamp when a core network policy version was created.
-coreNetworkPolicyVersion_createdAt :: Lens.Lens' CoreNetworkPolicyVersion (Prelude.Maybe Prelude.UTCTime)
-coreNetworkPolicyVersion_createdAt = Lens.lens (\CoreNetworkPolicyVersion' {createdAt} -> createdAt) (\s@CoreNetworkPolicyVersion' {} a -> s {createdAt = a} :: CoreNetworkPolicyVersion) Prelude.. Lens.mapping Data._Time
+-- | The ID of the policy version.
+coreNetworkPolicyVersion_policyVersionId :: Lens.Lens' CoreNetworkPolicyVersion (Prelude.Maybe Prelude.Int)
+coreNetworkPolicyVersion_policyVersionId = Lens.lens (\CoreNetworkPolicyVersion' {policyVersionId} -> policyVersionId) (\s@CoreNetworkPolicyVersion' {} a -> s {policyVersionId = a} :: CoreNetworkPolicyVersion)
 
 instance Data.FromJSON CoreNetworkPolicyVersion where
   parseJSON =
@@ -110,27 +110,27 @@ instance Data.FromJSON CoreNetworkPolicyVersion where
       ( \x ->
           CoreNetworkPolicyVersion'
             Prelude.<$> (x Data..:? "Alias")
-            Prelude.<*> (x Data..:? "CoreNetworkId")
             Prelude.<*> (x Data..:? "ChangeSetState")
-            Prelude.<*> (x Data..:? "PolicyVersionId")
-            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "CoreNetworkId")
             Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "PolicyVersionId")
       )
 
 instance Prelude.Hashable CoreNetworkPolicyVersion where
   hashWithSalt _salt CoreNetworkPolicyVersion' {..} =
     _salt `Prelude.hashWithSalt` alias
-      `Prelude.hashWithSalt` coreNetworkId
       `Prelude.hashWithSalt` changeSetState
-      `Prelude.hashWithSalt` policyVersionId
-      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` coreNetworkId
       `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` policyVersionId
 
 instance Prelude.NFData CoreNetworkPolicyVersion where
   rnf CoreNetworkPolicyVersion' {..} =
     Prelude.rnf alias
-      `Prelude.seq` Prelude.rnf coreNetworkId
       `Prelude.seq` Prelude.rnf changeSetState
-      `Prelude.seq` Prelude.rnf policyVersionId
-      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf coreNetworkId
       `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf policyVersionId

@@ -29,16 +29,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConnectPeerAssociation' smart constructor.
 data ConnectPeerAssociation = ConnectPeerAssociation'
-  { -- | The ID of the global network.
+  { -- | The ID of the Connect peer.
+    connectPeerId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the device to connect to.
+    deviceId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the global network.
     globalNetworkId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the link.
     linkId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the device to connect to.
-    deviceId :: Prelude.Maybe Prelude.Text,
     -- | The state of the Connect peer association.
-    state :: Prelude.Maybe ConnectPeerAssociationState,
-    -- | The ID of the Connect peer.
-    connectPeerId :: Prelude.Maybe Prelude.Text
+    state :: Prelude.Maybe ConnectPeerAssociationState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,26 +50,34 @@ data ConnectPeerAssociation = ConnectPeerAssociation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'connectPeerId', 'connectPeerAssociation_connectPeerId' - The ID of the Connect peer.
+--
+-- 'deviceId', 'connectPeerAssociation_deviceId' - The ID of the device to connect to.
+--
 -- 'globalNetworkId', 'connectPeerAssociation_globalNetworkId' - The ID of the global network.
 --
 -- 'linkId', 'connectPeerAssociation_linkId' - The ID of the link.
 --
--- 'deviceId', 'connectPeerAssociation_deviceId' - The ID of the device to connect to.
---
 -- 'state', 'connectPeerAssociation_state' - The state of the Connect peer association.
---
--- 'connectPeerId', 'connectPeerAssociation_connectPeerId' - The ID of the Connect peer.
 newConnectPeerAssociation ::
   ConnectPeerAssociation
 newConnectPeerAssociation =
   ConnectPeerAssociation'
-    { globalNetworkId =
+    { connectPeerId =
         Prelude.Nothing,
-      linkId = Prelude.Nothing,
       deviceId = Prelude.Nothing,
-      state = Prelude.Nothing,
-      connectPeerId = Prelude.Nothing
+      globalNetworkId = Prelude.Nothing,
+      linkId = Prelude.Nothing,
+      state = Prelude.Nothing
     }
+
+-- | The ID of the Connect peer.
+connectPeerAssociation_connectPeerId :: Lens.Lens' ConnectPeerAssociation (Prelude.Maybe Prelude.Text)
+connectPeerAssociation_connectPeerId = Lens.lens (\ConnectPeerAssociation' {connectPeerId} -> connectPeerId) (\s@ConnectPeerAssociation' {} a -> s {connectPeerId = a} :: ConnectPeerAssociation)
+
+-- | The ID of the device to connect to.
+connectPeerAssociation_deviceId :: Lens.Lens' ConnectPeerAssociation (Prelude.Maybe Prelude.Text)
+connectPeerAssociation_deviceId = Lens.lens (\ConnectPeerAssociation' {deviceId} -> deviceId) (\s@ConnectPeerAssociation' {} a -> s {deviceId = a} :: ConnectPeerAssociation)
 
 -- | The ID of the global network.
 connectPeerAssociation_globalNetworkId :: Lens.Lens' ConnectPeerAssociation (Prelude.Maybe Prelude.Text)
@@ -79,17 +87,9 @@ connectPeerAssociation_globalNetworkId = Lens.lens (\ConnectPeerAssociation' {gl
 connectPeerAssociation_linkId :: Lens.Lens' ConnectPeerAssociation (Prelude.Maybe Prelude.Text)
 connectPeerAssociation_linkId = Lens.lens (\ConnectPeerAssociation' {linkId} -> linkId) (\s@ConnectPeerAssociation' {} a -> s {linkId = a} :: ConnectPeerAssociation)
 
--- | The ID of the device to connect to.
-connectPeerAssociation_deviceId :: Lens.Lens' ConnectPeerAssociation (Prelude.Maybe Prelude.Text)
-connectPeerAssociation_deviceId = Lens.lens (\ConnectPeerAssociation' {deviceId} -> deviceId) (\s@ConnectPeerAssociation' {} a -> s {deviceId = a} :: ConnectPeerAssociation)
-
 -- | The state of the Connect peer association.
 connectPeerAssociation_state :: Lens.Lens' ConnectPeerAssociation (Prelude.Maybe ConnectPeerAssociationState)
 connectPeerAssociation_state = Lens.lens (\ConnectPeerAssociation' {state} -> state) (\s@ConnectPeerAssociation' {} a -> s {state = a} :: ConnectPeerAssociation)
-
--- | The ID of the Connect peer.
-connectPeerAssociation_connectPeerId :: Lens.Lens' ConnectPeerAssociation (Prelude.Maybe Prelude.Text)
-connectPeerAssociation_connectPeerId = Lens.lens (\ConnectPeerAssociation' {connectPeerId} -> connectPeerId) (\s@ConnectPeerAssociation' {} a -> s {connectPeerId = a} :: ConnectPeerAssociation)
 
 instance Data.FromJSON ConnectPeerAssociation where
   parseJSON =
@@ -97,25 +97,25 @@ instance Data.FromJSON ConnectPeerAssociation where
       "ConnectPeerAssociation"
       ( \x ->
           ConnectPeerAssociation'
-            Prelude.<$> (x Data..:? "GlobalNetworkId")
-            Prelude.<*> (x Data..:? "LinkId")
+            Prelude.<$> (x Data..:? "ConnectPeerId")
             Prelude.<*> (x Data..:? "DeviceId")
+            Prelude.<*> (x Data..:? "GlobalNetworkId")
+            Prelude.<*> (x Data..:? "LinkId")
             Prelude.<*> (x Data..:? "State")
-            Prelude.<*> (x Data..:? "ConnectPeerId")
       )
 
 instance Prelude.Hashable ConnectPeerAssociation where
   hashWithSalt _salt ConnectPeerAssociation' {..} =
-    _salt `Prelude.hashWithSalt` globalNetworkId
-      `Prelude.hashWithSalt` linkId
+    _salt `Prelude.hashWithSalt` connectPeerId
       `Prelude.hashWithSalt` deviceId
+      `Prelude.hashWithSalt` globalNetworkId
+      `Prelude.hashWithSalt` linkId
       `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` connectPeerId
 
 instance Prelude.NFData ConnectPeerAssociation where
   rnf ConnectPeerAssociation' {..} =
-    Prelude.rnf globalNetworkId
-      `Prelude.seq` Prelude.rnf linkId
+    Prelude.rnf connectPeerId
       `Prelude.seq` Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf globalNetworkId
+      `Prelude.seq` Prelude.rnf linkId
       `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf connectPeerId

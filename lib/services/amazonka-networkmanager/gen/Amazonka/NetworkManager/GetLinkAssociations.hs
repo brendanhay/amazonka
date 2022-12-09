@@ -30,10 +30,10 @@ module Amazonka.NetworkManager.GetLinkAssociations
     newGetLinkAssociations,
 
     -- * Request Lenses
-    getLinkAssociations_linkId,
-    getLinkAssociations_nextToken,
     getLinkAssociations_deviceId,
+    getLinkAssociations_linkId,
     getLinkAssociations_maxResults,
+    getLinkAssociations_nextToken,
     getLinkAssociations_globalNetworkId,
 
     -- * Destructuring the Response
@@ -41,8 +41,8 @@ module Amazonka.NetworkManager.GetLinkAssociations
     newGetLinkAssociationsResponse,
 
     -- * Response Lenses
-    getLinkAssociationsResponse_nextToken,
     getLinkAssociationsResponse_linkAssociations,
+    getLinkAssociationsResponse_nextToken,
     getLinkAssociationsResponse_httpStatus,
   )
 where
@@ -57,14 +57,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetLinkAssociations' smart constructor.
 data GetLinkAssociations = GetLinkAssociations'
-  { -- | The ID of the link.
-    linkId :: Prelude.Maybe Prelude.Text,
-    -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the device.
+  { -- | The ID of the device.
     deviceId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the link.
+    linkId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the global network.
     globalNetworkId :: Prelude.Text
   }
@@ -78,13 +78,13 @@ data GetLinkAssociations = GetLinkAssociations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'linkId', 'getLinkAssociations_linkId' - The ID of the link.
---
--- 'nextToken', 'getLinkAssociations_nextToken' - The token for the next page of results.
---
 -- 'deviceId', 'getLinkAssociations_deviceId' - The ID of the device.
 --
+-- 'linkId', 'getLinkAssociations_linkId' - The ID of the link.
+--
 -- 'maxResults', 'getLinkAssociations_maxResults' - The maximum number of results to return.
+--
+-- 'nextToken', 'getLinkAssociations_nextToken' - The token for the next page of results.
 --
 -- 'globalNetworkId', 'getLinkAssociations_globalNetworkId' - The ID of the global network.
 newGetLinkAssociations ::
@@ -93,28 +93,28 @@ newGetLinkAssociations ::
   GetLinkAssociations
 newGetLinkAssociations pGlobalNetworkId_ =
   GetLinkAssociations'
-    { linkId = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      deviceId = Prelude.Nothing,
+    { deviceId = Prelude.Nothing,
+      linkId = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       globalNetworkId = pGlobalNetworkId_
     }
-
--- | The ID of the link.
-getLinkAssociations_linkId :: Lens.Lens' GetLinkAssociations (Prelude.Maybe Prelude.Text)
-getLinkAssociations_linkId = Lens.lens (\GetLinkAssociations' {linkId} -> linkId) (\s@GetLinkAssociations' {} a -> s {linkId = a} :: GetLinkAssociations)
-
--- | The token for the next page of results.
-getLinkAssociations_nextToken :: Lens.Lens' GetLinkAssociations (Prelude.Maybe Prelude.Text)
-getLinkAssociations_nextToken = Lens.lens (\GetLinkAssociations' {nextToken} -> nextToken) (\s@GetLinkAssociations' {} a -> s {nextToken = a} :: GetLinkAssociations)
 
 -- | The ID of the device.
 getLinkAssociations_deviceId :: Lens.Lens' GetLinkAssociations (Prelude.Maybe Prelude.Text)
 getLinkAssociations_deviceId = Lens.lens (\GetLinkAssociations' {deviceId} -> deviceId) (\s@GetLinkAssociations' {} a -> s {deviceId = a} :: GetLinkAssociations)
 
+-- | The ID of the link.
+getLinkAssociations_linkId :: Lens.Lens' GetLinkAssociations (Prelude.Maybe Prelude.Text)
+getLinkAssociations_linkId = Lens.lens (\GetLinkAssociations' {linkId} -> linkId) (\s@GetLinkAssociations' {} a -> s {linkId = a} :: GetLinkAssociations)
+
 -- | The maximum number of results to return.
 getLinkAssociations_maxResults :: Lens.Lens' GetLinkAssociations (Prelude.Maybe Prelude.Natural)
 getLinkAssociations_maxResults = Lens.lens (\GetLinkAssociations' {maxResults} -> maxResults) (\s@GetLinkAssociations' {} a -> s {maxResults = a} :: GetLinkAssociations)
+
+-- | The token for the next page of results.
+getLinkAssociations_nextToken :: Lens.Lens' GetLinkAssociations (Prelude.Maybe Prelude.Text)
+getLinkAssociations_nextToken = Lens.lens (\GetLinkAssociations' {nextToken} -> nextToken) (\s@GetLinkAssociations' {} a -> s {nextToken = a} :: GetLinkAssociations)
 
 -- | The ID of the global network.
 getLinkAssociations_globalNetworkId :: Lens.Lens' GetLinkAssociations Prelude.Text
@@ -152,27 +152,27 @@ instance Core.AWSRequest GetLinkAssociations where
     Response.receiveJSON
       ( \s h x ->
           GetLinkAssociationsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "LinkAssociations"
+            Prelude.<$> ( x Data..?> "LinkAssociations"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetLinkAssociations where
   hashWithSalt _salt GetLinkAssociations' {..} =
-    _salt `Prelude.hashWithSalt` linkId
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` deviceId
+    _salt `Prelude.hashWithSalt` deviceId
+      `Prelude.hashWithSalt` linkId
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` globalNetworkId
 
 instance Prelude.NFData GetLinkAssociations where
   rnf GetLinkAssociations' {..} =
-    Prelude.rnf linkId
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf deviceId
+    Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf linkId
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf globalNetworkId
 
 instance Data.ToHeaders GetLinkAssociations where
@@ -197,18 +197,18 @@ instance Data.ToPath GetLinkAssociations where
 instance Data.ToQuery GetLinkAssociations where
   toQuery GetLinkAssociations' {..} =
     Prelude.mconcat
-      [ "linkId" Data.=: linkId,
-        "nextToken" Data.=: nextToken,
-        "deviceId" Data.=: deviceId,
-        "maxResults" Data.=: maxResults
+      [ "deviceId" Data.=: deviceId,
+        "linkId" Data.=: linkId,
+        "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newGetLinkAssociationsResponse' smart constructor.
 data GetLinkAssociationsResponse = GetLinkAssociationsResponse'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The link associations.
+  { -- | The link associations.
     linkAssociations :: Prelude.Maybe [LinkAssociation],
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -222,9 +222,9 @@ data GetLinkAssociationsResponse = GetLinkAssociationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getLinkAssociationsResponse_nextToken' - The token for the next page of results.
---
 -- 'linkAssociations', 'getLinkAssociationsResponse_linkAssociations' - The link associations.
+--
+-- 'nextToken', 'getLinkAssociationsResponse_nextToken' - The token for the next page of results.
 --
 -- 'httpStatus', 'getLinkAssociationsResponse_httpStatus' - The response's http status code.
 newGetLinkAssociationsResponse ::
@@ -233,19 +233,19 @@ newGetLinkAssociationsResponse ::
   GetLinkAssociationsResponse
 newGetLinkAssociationsResponse pHttpStatus_ =
   GetLinkAssociationsResponse'
-    { nextToken =
+    { linkAssociations =
         Prelude.Nothing,
-      linkAssociations = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token for the next page of results.
-getLinkAssociationsResponse_nextToken :: Lens.Lens' GetLinkAssociationsResponse (Prelude.Maybe Prelude.Text)
-getLinkAssociationsResponse_nextToken = Lens.lens (\GetLinkAssociationsResponse' {nextToken} -> nextToken) (\s@GetLinkAssociationsResponse' {} a -> s {nextToken = a} :: GetLinkAssociationsResponse)
 
 -- | The link associations.
 getLinkAssociationsResponse_linkAssociations :: Lens.Lens' GetLinkAssociationsResponse (Prelude.Maybe [LinkAssociation])
 getLinkAssociationsResponse_linkAssociations = Lens.lens (\GetLinkAssociationsResponse' {linkAssociations} -> linkAssociations) (\s@GetLinkAssociationsResponse' {} a -> s {linkAssociations = a} :: GetLinkAssociationsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token for the next page of results.
+getLinkAssociationsResponse_nextToken :: Lens.Lens' GetLinkAssociationsResponse (Prelude.Maybe Prelude.Text)
+getLinkAssociationsResponse_nextToken = Lens.lens (\GetLinkAssociationsResponse' {nextToken} -> nextToken) (\s@GetLinkAssociationsResponse' {} a -> s {nextToken = a} :: GetLinkAssociationsResponse)
 
 -- | The response's http status code.
 getLinkAssociationsResponse_httpStatus :: Lens.Lens' GetLinkAssociationsResponse Prelude.Int
@@ -253,6 +253,6 @@ getLinkAssociationsResponse_httpStatus = Lens.lens (\GetLinkAssociationsResponse
 
 instance Prelude.NFData GetLinkAssociationsResponse where
   rnf GetLinkAssociationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf linkAssociations
+    Prelude.rnf linkAssociations
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

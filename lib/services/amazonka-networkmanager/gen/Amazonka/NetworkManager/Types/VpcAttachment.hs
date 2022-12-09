@@ -32,10 +32,10 @@ import qualified Amazonka.Prelude as Prelude
 data VpcAttachment = VpcAttachment'
   { -- | Provides details about the VPC attachment.
     attachment :: Prelude.Maybe Attachment,
-    -- | The subnet ARNs.
-    subnetArns :: Prelude.Maybe [Prelude.Text],
     -- | Provides details about the VPC attachment.
-    options :: Prelude.Maybe VpcOptions
+    options :: Prelude.Maybe VpcOptions,
+    -- | The subnet ARNs.
+    subnetArns :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,29 +49,29 @@ data VpcAttachment = VpcAttachment'
 --
 -- 'attachment', 'vpcAttachment_attachment' - Provides details about the VPC attachment.
 --
--- 'subnetArns', 'vpcAttachment_subnetArns' - The subnet ARNs.
---
 -- 'options', 'vpcAttachment_options' - Provides details about the VPC attachment.
+--
+-- 'subnetArns', 'vpcAttachment_subnetArns' - The subnet ARNs.
 newVpcAttachment ::
   VpcAttachment
 newVpcAttachment =
   VpcAttachment'
     { attachment = Prelude.Nothing,
-      subnetArns = Prelude.Nothing,
-      options = Prelude.Nothing
+      options = Prelude.Nothing,
+      subnetArns = Prelude.Nothing
     }
 
 -- | Provides details about the VPC attachment.
 vpcAttachment_attachment :: Lens.Lens' VpcAttachment (Prelude.Maybe Attachment)
 vpcAttachment_attachment = Lens.lens (\VpcAttachment' {attachment} -> attachment) (\s@VpcAttachment' {} a -> s {attachment = a} :: VpcAttachment)
 
--- | The subnet ARNs.
-vpcAttachment_subnetArns :: Lens.Lens' VpcAttachment (Prelude.Maybe [Prelude.Text])
-vpcAttachment_subnetArns = Lens.lens (\VpcAttachment' {subnetArns} -> subnetArns) (\s@VpcAttachment' {} a -> s {subnetArns = a} :: VpcAttachment) Prelude.. Lens.mapping Lens.coerced
-
 -- | Provides details about the VPC attachment.
 vpcAttachment_options :: Lens.Lens' VpcAttachment (Prelude.Maybe VpcOptions)
 vpcAttachment_options = Lens.lens (\VpcAttachment' {options} -> options) (\s@VpcAttachment' {} a -> s {options = a} :: VpcAttachment)
+
+-- | The subnet ARNs.
+vpcAttachment_subnetArns :: Lens.Lens' VpcAttachment (Prelude.Maybe [Prelude.Text])
+vpcAttachment_subnetArns = Lens.lens (\VpcAttachment' {subnetArns} -> subnetArns) (\s@VpcAttachment' {} a -> s {subnetArns = a} :: VpcAttachment) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON VpcAttachment where
   parseJSON =
@@ -80,18 +80,18 @@ instance Data.FromJSON VpcAttachment where
       ( \x ->
           VpcAttachment'
             Prelude.<$> (x Data..:? "Attachment")
-            Prelude.<*> (x Data..:? "SubnetArns" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "Options")
+            Prelude.<*> (x Data..:? "SubnetArns" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable VpcAttachment where
   hashWithSalt _salt VpcAttachment' {..} =
     _salt `Prelude.hashWithSalt` attachment
-      `Prelude.hashWithSalt` subnetArns
       `Prelude.hashWithSalt` options
+      `Prelude.hashWithSalt` subnetArns
 
 instance Prelude.NFData VpcAttachment where
   rnf VpcAttachment' {..} =
     Prelude.rnf attachment
-      `Prelude.seq` Prelude.rnf subnetArns
       `Prelude.seq` Prelude.rnf options
+      `Prelude.seq` Prelude.rnf subnetArns

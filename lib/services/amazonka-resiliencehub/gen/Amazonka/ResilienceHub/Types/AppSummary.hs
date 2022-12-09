@@ -31,16 +31,16 @@ import Amazonka.ResilienceHub.Types.AppStatusType
 --
 -- /See:/ 'newAppSummary' smart constructor.
 data AppSummary = AppSummary'
-  { -- | The current resiliency score for the application.
-    resiliencyScore :: Prelude.Maybe Prelude.Double,
+  { -- | Assessment execution schedule with \'Daily\' or \'Disabled\' values.
+    assessmentSchedule :: Prelude.Maybe AppAssessmentScheduleType,
     -- | The current status of compliance for the resiliency policy.
     complianceStatus :: Prelude.Maybe AppComplianceStatusType,
-    -- | The status of the application.
-    status :: Prelude.Maybe AppStatusType,
     -- | The optional description for an app.
     description :: Prelude.Maybe Prelude.Text,
-    -- | Assessment execution schedule with \'Daily\' or \'Disabled\' values.
-    assessmentSchedule :: Prelude.Maybe AppAssessmentScheduleType,
+    -- | The current resiliency score for the application.
+    resiliencyScore :: Prelude.Maybe Prelude.Double,
+    -- | The status of the application.
+    status :: Prelude.Maybe AppStatusType,
     -- | The Amazon Resource Name (ARN) of the application. The format for this
     -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
     -- For more information about ARNs, see
@@ -62,15 +62,15 @@ data AppSummary = AppSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resiliencyScore', 'appSummary_resiliencyScore' - The current resiliency score for the application.
+-- 'assessmentSchedule', 'appSummary_assessmentSchedule' - Assessment execution schedule with \'Daily\' or \'Disabled\' values.
 --
 -- 'complianceStatus', 'appSummary_complianceStatus' - The current status of compliance for the resiliency policy.
 --
--- 'status', 'appSummary_status' - The status of the application.
---
 -- 'description', 'appSummary_description' - The optional description for an app.
 --
--- 'assessmentSchedule', 'appSummary_assessmentSchedule' - Assessment execution schedule with \'Daily\' or \'Disabled\' values.
+-- 'resiliencyScore', 'appSummary_resiliencyScore' - The current resiliency score for the application.
+--
+-- 'status', 'appSummary_status' - The status of the application.
 --
 -- 'appArn', 'appSummary_appArn' - The Amazon Resource Name (ARN) of the application. The format for this
 -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
@@ -91,35 +91,35 @@ newAppSummary ::
   AppSummary
 newAppSummary pAppArn_ pCreationTime_ pName_ =
   AppSummary'
-    { resiliencyScore = Prelude.Nothing,
+    { assessmentSchedule = Prelude.Nothing,
       complianceStatus = Prelude.Nothing,
-      status = Prelude.Nothing,
       description = Prelude.Nothing,
-      assessmentSchedule = Prelude.Nothing,
+      resiliencyScore = Prelude.Nothing,
+      status = Prelude.Nothing,
       appArn = pAppArn_,
       creationTime = Data._Time Lens.# pCreationTime_,
       name = pName_
     }
 
--- | The current resiliency score for the application.
-appSummary_resiliencyScore :: Lens.Lens' AppSummary (Prelude.Maybe Prelude.Double)
-appSummary_resiliencyScore = Lens.lens (\AppSummary' {resiliencyScore} -> resiliencyScore) (\s@AppSummary' {} a -> s {resiliencyScore = a} :: AppSummary)
+-- | Assessment execution schedule with \'Daily\' or \'Disabled\' values.
+appSummary_assessmentSchedule :: Lens.Lens' AppSummary (Prelude.Maybe AppAssessmentScheduleType)
+appSummary_assessmentSchedule = Lens.lens (\AppSummary' {assessmentSchedule} -> assessmentSchedule) (\s@AppSummary' {} a -> s {assessmentSchedule = a} :: AppSummary)
 
 -- | The current status of compliance for the resiliency policy.
 appSummary_complianceStatus :: Lens.Lens' AppSummary (Prelude.Maybe AppComplianceStatusType)
 appSummary_complianceStatus = Lens.lens (\AppSummary' {complianceStatus} -> complianceStatus) (\s@AppSummary' {} a -> s {complianceStatus = a} :: AppSummary)
 
--- | The status of the application.
-appSummary_status :: Lens.Lens' AppSummary (Prelude.Maybe AppStatusType)
-appSummary_status = Lens.lens (\AppSummary' {status} -> status) (\s@AppSummary' {} a -> s {status = a} :: AppSummary)
-
 -- | The optional description for an app.
 appSummary_description :: Lens.Lens' AppSummary (Prelude.Maybe Prelude.Text)
 appSummary_description = Lens.lens (\AppSummary' {description} -> description) (\s@AppSummary' {} a -> s {description = a} :: AppSummary)
 
--- | Assessment execution schedule with \'Daily\' or \'Disabled\' values.
-appSummary_assessmentSchedule :: Lens.Lens' AppSummary (Prelude.Maybe AppAssessmentScheduleType)
-appSummary_assessmentSchedule = Lens.lens (\AppSummary' {assessmentSchedule} -> assessmentSchedule) (\s@AppSummary' {} a -> s {assessmentSchedule = a} :: AppSummary)
+-- | The current resiliency score for the application.
+appSummary_resiliencyScore :: Lens.Lens' AppSummary (Prelude.Maybe Prelude.Double)
+appSummary_resiliencyScore = Lens.lens (\AppSummary' {resiliencyScore} -> resiliencyScore) (\s@AppSummary' {} a -> s {resiliencyScore = a} :: AppSummary)
+
+-- | The status of the application.
+appSummary_status :: Lens.Lens' AppSummary (Prelude.Maybe AppStatusType)
+appSummary_status = Lens.lens (\AppSummary' {status} -> status) (\s@AppSummary' {} a -> s {status = a} :: AppSummary)
 
 -- | The Amazon Resource Name (ARN) of the application. The format for this
 -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
@@ -143,11 +143,11 @@ instance Data.FromJSON AppSummary where
       "AppSummary"
       ( \x ->
           AppSummary'
-            Prelude.<$> (x Data..:? "resiliencyScore")
+            Prelude.<$> (x Data..:? "assessmentSchedule")
             Prelude.<*> (x Data..:? "complianceStatus")
-            Prelude.<*> (x Data..:? "status")
             Prelude.<*> (x Data..:? "description")
-            Prelude.<*> (x Data..:? "assessmentSchedule")
+            Prelude.<*> (x Data..:? "resiliencyScore")
+            Prelude.<*> (x Data..:? "status")
             Prelude.<*> (x Data..: "appArn")
             Prelude.<*> (x Data..: "creationTime")
             Prelude.<*> (x Data..: "name")
@@ -155,22 +155,22 @@ instance Data.FromJSON AppSummary where
 
 instance Prelude.Hashable AppSummary where
   hashWithSalt _salt AppSummary' {..} =
-    _salt `Prelude.hashWithSalt` resiliencyScore
+    _salt `Prelude.hashWithSalt` assessmentSchedule
       `Prelude.hashWithSalt` complianceStatus
-      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` assessmentSchedule
+      `Prelude.hashWithSalt` resiliencyScore
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` appArn
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData AppSummary where
   rnf AppSummary' {..} =
-    Prelude.rnf resiliencyScore
+    Prelude.rnf assessmentSchedule
       `Prelude.seq` Prelude.rnf complianceStatus
-      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf assessmentSchedule
+      `Prelude.seq` Prelude.rnf resiliencyScore
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf appArn
       `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf name

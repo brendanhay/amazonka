@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLogicalResourceId' smart constructor.
 data LogicalResourceId = LogicalResourceId'
-  { -- | The name of the Terraform S3 state file this resource belongs to.
-    terraformSourceName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the CloudFormation stack this resource belongs to.
+  { -- | The name of the CloudFormation stack this resource belongs to.
     logicalStackName :: Prelude.Maybe Prelude.Text,
     -- | The name of the resource group that this resource belongs to.
     resourceGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the Terraform S3 state file this resource belongs to.
+    terraformSourceName :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the resource.
     identifier :: Prelude.Text
   }
@@ -47,11 +47,11 @@ data LogicalResourceId = LogicalResourceId'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'terraformSourceName', 'logicalResourceId_terraformSourceName' - The name of the Terraform S3 state file this resource belongs to.
---
 -- 'logicalStackName', 'logicalResourceId_logicalStackName' - The name of the CloudFormation stack this resource belongs to.
 --
 -- 'resourceGroupName', 'logicalResourceId_resourceGroupName' - The name of the resource group that this resource belongs to.
+--
+-- 'terraformSourceName', 'logicalResourceId_terraformSourceName' - The name of the Terraform S3 state file this resource belongs to.
 --
 -- 'identifier', 'logicalResourceId_identifier' - The identifier of the resource.
 newLogicalResourceId ::
@@ -60,16 +60,12 @@ newLogicalResourceId ::
   LogicalResourceId
 newLogicalResourceId pIdentifier_ =
   LogicalResourceId'
-    { terraformSourceName =
+    { logicalStackName =
         Prelude.Nothing,
-      logicalStackName = Prelude.Nothing,
       resourceGroupName = Prelude.Nothing,
+      terraformSourceName = Prelude.Nothing,
       identifier = pIdentifier_
     }
-
--- | The name of the Terraform S3 state file this resource belongs to.
-logicalResourceId_terraformSourceName :: Lens.Lens' LogicalResourceId (Prelude.Maybe Prelude.Text)
-logicalResourceId_terraformSourceName = Lens.lens (\LogicalResourceId' {terraformSourceName} -> terraformSourceName) (\s@LogicalResourceId' {} a -> s {terraformSourceName = a} :: LogicalResourceId)
 
 -- | The name of the CloudFormation stack this resource belongs to.
 logicalResourceId_logicalStackName :: Lens.Lens' LogicalResourceId (Prelude.Maybe Prelude.Text)
@@ -78,6 +74,10 @@ logicalResourceId_logicalStackName = Lens.lens (\LogicalResourceId' {logicalStac
 -- | The name of the resource group that this resource belongs to.
 logicalResourceId_resourceGroupName :: Lens.Lens' LogicalResourceId (Prelude.Maybe Prelude.Text)
 logicalResourceId_resourceGroupName = Lens.lens (\LogicalResourceId' {resourceGroupName} -> resourceGroupName) (\s@LogicalResourceId' {} a -> s {resourceGroupName = a} :: LogicalResourceId)
+
+-- | The name of the Terraform S3 state file this resource belongs to.
+logicalResourceId_terraformSourceName :: Lens.Lens' LogicalResourceId (Prelude.Maybe Prelude.Text)
+logicalResourceId_terraformSourceName = Lens.lens (\LogicalResourceId' {terraformSourceName} -> terraformSourceName) (\s@LogicalResourceId' {} a -> s {terraformSourceName = a} :: LogicalResourceId)
 
 -- | The identifier of the resource.
 logicalResourceId_identifier :: Lens.Lens' LogicalResourceId Prelude.Text
@@ -89,22 +89,22 @@ instance Data.FromJSON LogicalResourceId where
       "LogicalResourceId"
       ( \x ->
           LogicalResourceId'
-            Prelude.<$> (x Data..:? "terraformSourceName")
-            Prelude.<*> (x Data..:? "logicalStackName")
+            Prelude.<$> (x Data..:? "logicalStackName")
             Prelude.<*> (x Data..:? "resourceGroupName")
+            Prelude.<*> (x Data..:? "terraformSourceName")
             Prelude.<*> (x Data..: "identifier")
       )
 
 instance Prelude.Hashable LogicalResourceId where
   hashWithSalt _salt LogicalResourceId' {..} =
-    _salt `Prelude.hashWithSalt` terraformSourceName
-      `Prelude.hashWithSalt` logicalStackName
+    _salt `Prelude.hashWithSalt` logicalStackName
       `Prelude.hashWithSalt` resourceGroupName
+      `Prelude.hashWithSalt` terraformSourceName
       `Prelude.hashWithSalt` identifier
 
 instance Prelude.NFData LogicalResourceId where
   rnf LogicalResourceId' {..} =
-    Prelude.rnf terraformSourceName
-      `Prelude.seq` Prelude.rnf logicalStackName
+    Prelude.rnf logicalStackName
       `Prelude.seq` Prelude.rnf resourceGroupName
+      `Prelude.seq` Prelude.rnf terraformSourceName
       `Prelude.seq` Prelude.rnf identifier

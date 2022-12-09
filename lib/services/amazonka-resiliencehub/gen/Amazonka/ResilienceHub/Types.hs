@@ -19,10 +19,10 @@ module Amazonka.ResilienceHub.Types
 
     -- * Errors
     _AccessDeniedException,
-    _InternalServerException,
-    _ServiceQuotaExceededException,
-    _ResourceNotFoundException,
     _ConflictException,
+    _InternalServerException,
+    _ResourceNotFoundException,
+    _ServiceQuotaExceededException,
     _ThrottlingException,
     _ValidationException,
 
@@ -104,10 +104,10 @@ module Amazonka.ResilienceHub.Types
     -- * AlarmRecommendation
     AlarmRecommendation (..),
     newAlarmRecommendation,
-    alarmRecommendation_items,
-    alarmRecommendation_prerequisite,
     alarmRecommendation_appComponentName,
     alarmRecommendation_description,
+    alarmRecommendation_items,
+    alarmRecommendation_prerequisite,
     alarmRecommendation_name,
     alarmRecommendation_recommendationId,
     alarmRecommendation_referenceId,
@@ -116,15 +116,15 @@ module Amazonka.ResilienceHub.Types
     -- * App
     App (..),
     newApp,
-    app_tags,
-    app_resiliencyScore,
+    app_assessmentSchedule,
     app_complianceStatus,
-    app_status,
     app_description,
     app_lastAppComplianceEvaluationTime,
-    app_policyArn,
-    app_assessmentSchedule,
     app_lastResiliencyScoreEvaluationTime,
+    app_policyArn,
+    app_resiliencyScore,
+    app_status,
+    app_tags,
     app_appArn,
     app_creationTime,
     app_name,
@@ -132,19 +132,19 @@ module Amazonka.ResilienceHub.Types
     -- * AppAssessment
     AppAssessment (..),
     newAppAssessment,
-    appAssessment_tags,
-    appAssessment_policy,
-    appAssessment_message,
-    appAssessment_assessmentName,
-    appAssessment_resiliencyScore,
-    appAssessment_complianceStatus,
-    appAssessment_endTime,
-    appAssessment_appVersion,
     appAssessment_appArn,
-    appAssessment_cost,
-    appAssessment_startTime,
+    appAssessment_appVersion,
+    appAssessment_assessmentName,
     appAssessment_compliance,
+    appAssessment_complianceStatus,
+    appAssessment_cost,
+    appAssessment_endTime,
+    appAssessment_message,
+    appAssessment_policy,
+    appAssessment_resiliencyScore,
     appAssessment_resourceErrorsDetails,
+    appAssessment_startTime,
+    appAssessment_tags,
     appAssessment_assessmentArn,
     appAssessment_assessmentStatus,
     appAssessment_invoker,
@@ -152,15 +152,15 @@ module Amazonka.ResilienceHub.Types
     -- * AppAssessmentSummary
     AppAssessmentSummary (..),
     newAppAssessmentSummary,
-    appAssessmentSummary_message,
-    appAssessmentSummary_assessmentName,
-    appAssessmentSummary_resiliencyScore,
-    appAssessmentSummary_complianceStatus,
-    appAssessmentSummary_invoker,
-    appAssessmentSummary_endTime,
-    appAssessmentSummary_appVersion,
     appAssessmentSummary_appArn,
+    appAssessmentSummary_appVersion,
+    appAssessmentSummary_assessmentName,
+    appAssessmentSummary_complianceStatus,
     appAssessmentSummary_cost,
+    appAssessmentSummary_endTime,
+    appAssessmentSummary_invoker,
+    appAssessmentSummary_message,
+    appAssessmentSummary_resiliencyScore,
     appAssessmentSummary_startTime,
     appAssessmentSummary_assessmentArn,
     appAssessmentSummary_assessmentStatus,
@@ -174,21 +174,21 @@ module Amazonka.ResilienceHub.Types
     -- * AppComponentCompliance
     AppComponentCompliance (..),
     newAppComponentCompliance,
+    appComponentCompliance_appComponentName,
+    appComponentCompliance_compliance,
+    appComponentCompliance_cost,
     appComponentCompliance_message,
     appComponentCompliance_resiliencyScore,
-    appComponentCompliance_appComponentName,
     appComponentCompliance_status,
-    appComponentCompliance_cost,
-    appComponentCompliance_compliance,
 
     -- * AppSummary
     AppSummary (..),
     newAppSummary,
-    appSummary_resiliencyScore,
-    appSummary_complianceStatus,
-    appSummary_status,
-    appSummary_description,
     appSummary_assessmentSchedule,
+    appSummary_complianceStatus,
+    appSummary_description,
+    appSummary_resiliencyScore,
+    appSummary_status,
     appSummary_appArn,
     appSummary_creationTime,
     appSummary_name,
@@ -208,12 +208,12 @@ module Amazonka.ResilienceHub.Types
     -- * ConfigRecommendation
     ConfigRecommendation (..),
     newConfigRecommendation,
+    configRecommendation_appComponentName,
+    configRecommendation_compliance,
+    configRecommendation_cost,
+    configRecommendation_description,
     configRecommendation_haArchitecture,
     configRecommendation_recommendationCompliance,
-    configRecommendation_appComponentName,
-    configRecommendation_description,
-    configRecommendation_cost,
-    configRecommendation_compliance,
     configRecommendation_suggestedChanges,
     configRecommendation_name,
     configRecommendation_optimizationType,
@@ -229,15 +229,15 @@ module Amazonka.ResilienceHub.Types
     -- * DisruptionCompliance
     DisruptionCompliance (..),
     newDisruptionCompliance,
-    disruptionCompliance_rpoReferenceId,
-    disruptionCompliance_message,
-    disruptionCompliance_achievableRtoInSecs,
-    disruptionCompliance_rtoDescription,
-    disruptionCompliance_currentRtoInSecs,
-    disruptionCompliance_rtoReferenceId,
     disruptionCompliance_achievableRpoInSecs,
-    disruptionCompliance_rpoDescription,
+    disruptionCompliance_achievableRtoInSecs,
     disruptionCompliance_currentRpoInSecs,
+    disruptionCompliance_currentRtoInSecs,
+    disruptionCompliance_message,
+    disruptionCompliance_rpoDescription,
+    disruptionCompliance_rpoReferenceId,
+    disruptionCompliance_rtoDescription,
+    disruptionCompliance_rtoReferenceId,
     disruptionCompliance_complianceStatus,
 
     -- * FailurePolicy
@@ -249,9 +249,9 @@ module Amazonka.ResilienceHub.Types
     -- * LogicalResourceId
     LogicalResourceId (..),
     newLogicalResourceId,
-    logicalResourceId_terraformSourceName,
     logicalResourceId_logicalStackName,
     logicalResourceId_resourceGroupName,
+    logicalResourceId_terraformSourceName,
     logicalResourceId_identifier,
 
     -- * PhysicalResource
@@ -276,29 +276,29 @@ module Amazonka.ResilienceHub.Types
     newRecommendationDisruptionCompliance,
     recommendationDisruptionCompliance_expectedRpoDescription,
     recommendationDisruptionCompliance_expectedRpoInSecs,
-    recommendationDisruptionCompliance_expectedRtoInSecs,
     recommendationDisruptionCompliance_expectedRtoDescription,
+    recommendationDisruptionCompliance_expectedRtoInSecs,
     recommendationDisruptionCompliance_expectedComplianceStatus,
 
     -- * RecommendationItem
     RecommendationItem (..),
     newRecommendationItem,
-    recommendationItem_resourceId,
     recommendationItem_alreadyImplemented,
+    recommendationItem_resourceId,
     recommendationItem_targetAccountId,
     recommendationItem_targetRegion,
 
     -- * RecommendationTemplate
     RecommendationTemplate (..),
     newRecommendationTemplate,
-    recommendationTemplate_tags,
+    recommendationTemplate_appArn,
+    recommendationTemplate_endTime,
     recommendationTemplate_message,
     recommendationTemplate_needsReplacements,
-    recommendationTemplate_endTime,
     recommendationTemplate_recommendationIds,
-    recommendationTemplate_templatesLocation,
-    recommendationTemplate_appArn,
     recommendationTemplate_startTime,
+    recommendationTemplate_tags,
+    recommendationTemplate_templatesLocation,
     recommendationTemplate_assessmentArn,
     recommendationTemplate_format,
     recommendationTemplate_name,
@@ -309,15 +309,15 @@ module Amazonka.ResilienceHub.Types
     -- * ResiliencyPolicy
     ResiliencyPolicy (..),
     newResiliencyPolicy,
-    resiliencyPolicy_tags,
-    resiliencyPolicy_policyName,
-    resiliencyPolicy_policy,
+    resiliencyPolicy_creationTime,
     resiliencyPolicy_dataLocationConstraint,
     resiliencyPolicy_estimatedCostTier,
-    resiliencyPolicy_tier,
+    resiliencyPolicy_policy,
     resiliencyPolicy_policyArn,
-    resiliencyPolicy_creationTime,
     resiliencyPolicy_policyDescription,
+    resiliencyPolicy_policyName,
+    resiliencyPolicy_tags,
+    resiliencyPolicy_tier,
 
     -- * ResiliencyScore
     ResiliencyScore (..),
@@ -329,8 +329,8 @@ module Amazonka.ResilienceHub.Types
     ResourceError (..),
     newResourceError,
     resourceError_logicalResourceId,
-    resourceError_reason,
     resourceError_physicalResourceId,
+    resourceError_reason,
 
     -- * ResourceErrorsDetails
     ResourceErrorsDetails (..),
@@ -341,11 +341,11 @@ module Amazonka.ResilienceHub.Types
     -- * ResourceMapping
     ResourceMapping (..),
     newResourceMapping,
-    resourceMapping_terraformSourceName,
-    resourceMapping_resourceName,
+    resourceMapping_appRegistryAppName,
     resourceMapping_logicalStackName,
     resourceMapping_resourceGroupName,
-    resourceMapping_appRegistryAppName,
+    resourceMapping_resourceName,
+    resourceMapping_terraformSourceName,
     resourceMapping_mappingType,
     resourceMapping_physicalResourceId,
 
@@ -358,11 +358,11 @@ module Amazonka.ResilienceHub.Types
     -- * SopRecommendation
     SopRecommendation (..),
     newSopRecommendation,
+    sopRecommendation_appComponentName,
+    sopRecommendation_description,
     sopRecommendation_items,
     sopRecommendation_name,
     sopRecommendation_prerequisite,
-    sopRecommendation_appComponentName,
-    sopRecommendation_description,
     sopRecommendation_recommendationId,
     sopRecommendation_referenceId,
     sopRecommendation_serviceType,
@@ -375,16 +375,16 @@ module Amazonka.ResilienceHub.Types
     -- * TestRecommendation
     TestRecommendation (..),
     newTestRecommendation,
-    testRecommendation_items,
-    testRecommendation_name,
-    testRecommendation_type,
-    testRecommendation_dependsOnAlarms,
-    testRecommendation_prerequisite,
-    testRecommendation_risk,
-    testRecommendation_recommendationId,
     testRecommendation_appComponentName,
+    testRecommendation_dependsOnAlarms,
     testRecommendation_description,
     testRecommendation_intent,
+    testRecommendation_items,
+    testRecommendation_name,
+    testRecommendation_prerequisite,
+    testRecommendation_recommendationId,
+    testRecommendation_risk,
+    testRecommendation_type,
     testRecommendation_referenceId,
 
     -- * UnsupportedResource
@@ -480,28 +480,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -509,13 +503,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -523,6 +521,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You don\'t have permissions to perform the requested operation. The user
@@ -535,33 +535,6 @@ _AccessDeniedException =
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
--- | This exception occurs when there is an internal failure in the AWS
--- Resilience Hub service.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServerException"
-    Prelude.. Core.hasStatus 500
-
--- | You have exceeded your service quota. To perform the requested action,
--- remove some of the relevant resources, or use Service Quotas to request
--- a service quota increase.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceQuotaExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceQuotaExceededException"
-    Prelude.. Core.hasStatus 402
-
--- | The specified resource could not be found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 404
-
 -- | Occurs when a conflict with a previous successful write is detected.
 -- This generally occurs when the previous write did not have time to
 -- propagate to the host serving the current request. A retry (with
@@ -573,6 +546,33 @@ _ConflictException =
     defaultService
     "ConflictException"
     Prelude.. Core.hasStatus 409
+
+-- | This exception occurs when there is an internal failure in the AWS
+-- Resilience Hub service.
+_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException =
+  Core._MatchServiceError
+    defaultService
+    "InternalServerException"
+    Prelude.. Core.hasStatus 500
+
+-- | The specified resource could not be found.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404
+
+-- | You have exceeded your service quota. To perform the requested action,
+-- remove some of the relevant resources, or use Service Quotas to request
+-- a service quota increase.
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceQuotaExceededException"
+    Prelude.. Core.hasStatus 402
 
 -- | The limit on the number of requests per second was exceeded.
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

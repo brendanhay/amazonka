@@ -30,16 +30,16 @@ import Amazonka.ResilienceHub.Types.ResourceMappingType
 --
 -- /See:/ 'newResourceMapping' smart constructor.
 data ResourceMapping = ResourceMapping'
-  { -- | The short name of the Terraform source.
-    terraformSourceName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the resource this resource is mapped to.
-    resourceName :: Prelude.Maybe Prelude.Text,
+  { -- | The name of the application this resource is mapped to.
+    appRegistryAppName :: Prelude.Maybe Prelude.Text,
     -- | The name of the CloudFormation stack this resource is mapped to.
     logicalStackName :: Prelude.Maybe Prelude.Text,
     -- | The name of the resource group this resource is mapped to.
     resourceGroupName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the application this resource is mapped to.
-    appRegistryAppName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the resource this resource is mapped to.
+    resourceName :: Prelude.Maybe Prelude.Text,
+    -- | The short name of the Terraform source.
+    terraformSourceName :: Prelude.Maybe Prelude.Text,
     -- | Specifies the type of resource mapping.
     --
     -- [AppRegistryApp]
@@ -72,15 +72,15 @@ data ResourceMapping = ResourceMapping'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'terraformSourceName', 'resourceMapping_terraformSourceName' - The short name of the Terraform source.
---
--- 'resourceName', 'resourceMapping_resourceName' - The name of the resource this resource is mapped to.
+-- 'appRegistryAppName', 'resourceMapping_appRegistryAppName' - The name of the application this resource is mapped to.
 --
 -- 'logicalStackName', 'resourceMapping_logicalStackName' - The name of the CloudFormation stack this resource is mapped to.
 --
 -- 'resourceGroupName', 'resourceMapping_resourceGroupName' - The name of the resource group this resource is mapped to.
 --
--- 'appRegistryAppName', 'resourceMapping_appRegistryAppName' - The name of the application this resource is mapped to.
+-- 'resourceName', 'resourceMapping_resourceName' - The name of the resource this resource is mapped to.
+--
+-- 'terraformSourceName', 'resourceMapping_terraformSourceName' - The short name of the Terraform source.
 --
 -- 'mappingType', 'resourceMapping_mappingType' - Specifies the type of resource mapping.
 --
@@ -110,23 +110,19 @@ newResourceMapping ::
   ResourceMapping
 newResourceMapping pMappingType_ pPhysicalResourceId_ =
   ResourceMapping'
-    { terraformSourceName =
+    { appRegistryAppName =
         Prelude.Nothing,
-      resourceName = Prelude.Nothing,
       logicalStackName = Prelude.Nothing,
       resourceGroupName = Prelude.Nothing,
-      appRegistryAppName = Prelude.Nothing,
+      resourceName = Prelude.Nothing,
+      terraformSourceName = Prelude.Nothing,
       mappingType = pMappingType_,
       physicalResourceId = pPhysicalResourceId_
     }
 
--- | The short name of the Terraform source.
-resourceMapping_terraformSourceName :: Lens.Lens' ResourceMapping (Prelude.Maybe Prelude.Text)
-resourceMapping_terraformSourceName = Lens.lens (\ResourceMapping' {terraformSourceName} -> terraformSourceName) (\s@ResourceMapping' {} a -> s {terraformSourceName = a} :: ResourceMapping)
-
--- | The name of the resource this resource is mapped to.
-resourceMapping_resourceName :: Lens.Lens' ResourceMapping (Prelude.Maybe Prelude.Text)
-resourceMapping_resourceName = Lens.lens (\ResourceMapping' {resourceName} -> resourceName) (\s@ResourceMapping' {} a -> s {resourceName = a} :: ResourceMapping)
+-- | The name of the application this resource is mapped to.
+resourceMapping_appRegistryAppName :: Lens.Lens' ResourceMapping (Prelude.Maybe Prelude.Text)
+resourceMapping_appRegistryAppName = Lens.lens (\ResourceMapping' {appRegistryAppName} -> appRegistryAppName) (\s@ResourceMapping' {} a -> s {appRegistryAppName = a} :: ResourceMapping)
 
 -- | The name of the CloudFormation stack this resource is mapped to.
 resourceMapping_logicalStackName :: Lens.Lens' ResourceMapping (Prelude.Maybe Prelude.Text)
@@ -136,9 +132,13 @@ resourceMapping_logicalStackName = Lens.lens (\ResourceMapping' {logicalStackNam
 resourceMapping_resourceGroupName :: Lens.Lens' ResourceMapping (Prelude.Maybe Prelude.Text)
 resourceMapping_resourceGroupName = Lens.lens (\ResourceMapping' {resourceGroupName} -> resourceGroupName) (\s@ResourceMapping' {} a -> s {resourceGroupName = a} :: ResourceMapping)
 
--- | The name of the application this resource is mapped to.
-resourceMapping_appRegistryAppName :: Lens.Lens' ResourceMapping (Prelude.Maybe Prelude.Text)
-resourceMapping_appRegistryAppName = Lens.lens (\ResourceMapping' {appRegistryAppName} -> appRegistryAppName) (\s@ResourceMapping' {} a -> s {appRegistryAppName = a} :: ResourceMapping)
+-- | The name of the resource this resource is mapped to.
+resourceMapping_resourceName :: Lens.Lens' ResourceMapping (Prelude.Maybe Prelude.Text)
+resourceMapping_resourceName = Lens.lens (\ResourceMapping' {resourceName} -> resourceName) (\s@ResourceMapping' {} a -> s {resourceName = a} :: ResourceMapping)
+
+-- | The short name of the Terraform source.
+resourceMapping_terraformSourceName :: Lens.Lens' ResourceMapping (Prelude.Maybe Prelude.Text)
+resourceMapping_terraformSourceName = Lens.lens (\ResourceMapping' {terraformSourceName} -> terraformSourceName) (\s@ResourceMapping' {} a -> s {terraformSourceName = a} :: ResourceMapping)
 
 -- | Specifies the type of resource mapping.
 --
@@ -171,32 +171,32 @@ instance Data.FromJSON ResourceMapping where
       "ResourceMapping"
       ( \x ->
           ResourceMapping'
-            Prelude.<$> (x Data..:? "terraformSourceName")
-            Prelude.<*> (x Data..:? "resourceName")
+            Prelude.<$> (x Data..:? "appRegistryAppName")
             Prelude.<*> (x Data..:? "logicalStackName")
             Prelude.<*> (x Data..:? "resourceGroupName")
-            Prelude.<*> (x Data..:? "appRegistryAppName")
+            Prelude.<*> (x Data..:? "resourceName")
+            Prelude.<*> (x Data..:? "terraformSourceName")
             Prelude.<*> (x Data..: "mappingType")
             Prelude.<*> (x Data..: "physicalResourceId")
       )
 
 instance Prelude.Hashable ResourceMapping where
   hashWithSalt _salt ResourceMapping' {..} =
-    _salt `Prelude.hashWithSalt` terraformSourceName
-      `Prelude.hashWithSalt` resourceName
+    _salt `Prelude.hashWithSalt` appRegistryAppName
       `Prelude.hashWithSalt` logicalStackName
       `Prelude.hashWithSalt` resourceGroupName
-      `Prelude.hashWithSalt` appRegistryAppName
+      `Prelude.hashWithSalt` resourceName
+      `Prelude.hashWithSalt` terraformSourceName
       `Prelude.hashWithSalt` mappingType
       `Prelude.hashWithSalt` physicalResourceId
 
 instance Prelude.NFData ResourceMapping where
   rnf ResourceMapping' {..} =
-    Prelude.rnf terraformSourceName
-      `Prelude.seq` Prelude.rnf resourceName
+    Prelude.rnf appRegistryAppName
       `Prelude.seq` Prelude.rnf logicalStackName
       `Prelude.seq` Prelude.rnf resourceGroupName
-      `Prelude.seq` Prelude.rnf appRegistryAppName
+      `Prelude.seq` Prelude.rnf resourceName
+      `Prelude.seq` Prelude.rnf terraformSourceName
       `Prelude.seq` Prelude.rnf mappingType
       `Prelude.seq` Prelude.rnf physicalResourceId
 
@@ -204,15 +204,15 @@ instance Data.ToJSON ResourceMapping where
   toJSON ResourceMapping' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("terraformSourceName" Data..=)
-              Prelude.<$> terraformSourceName,
-            ("resourceName" Data..=) Prelude.<$> resourceName,
+          [ ("appRegistryAppName" Data..=)
+              Prelude.<$> appRegistryAppName,
             ("logicalStackName" Data..=)
               Prelude.<$> logicalStackName,
             ("resourceGroupName" Data..=)
               Prelude.<$> resourceGroupName,
-            ("appRegistryAppName" Data..=)
-              Prelude.<$> appRegistryAppName,
+            ("resourceName" Data..=) Prelude.<$> resourceName,
+            ("terraformSourceName" Data..=)
+              Prelude.<$> terraformSourceName,
             Prelude.Just ("mappingType" Data..= mappingType),
             Prelude.Just
               ("physicalResourceId" Data..= physicalResourceId)

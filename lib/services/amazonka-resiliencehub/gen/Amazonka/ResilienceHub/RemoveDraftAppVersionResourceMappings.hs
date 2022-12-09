@@ -27,11 +27,11 @@ module Amazonka.ResilienceHub.RemoveDraftAppVersionResourceMappings
     newRemoveDraftAppVersionResourceMappings,
 
     -- * Request Lenses
-    removeDraftAppVersionResourceMappings_resourceGroupNames,
-    removeDraftAppVersionResourceMappings_terraformSourceNames,
-    removeDraftAppVersionResourceMappings_resourceNames,
     removeDraftAppVersionResourceMappings_appRegistryAppNames,
     removeDraftAppVersionResourceMappings_logicalStackNames,
+    removeDraftAppVersionResourceMappings_resourceGroupNames,
+    removeDraftAppVersionResourceMappings_resourceNames,
+    removeDraftAppVersionResourceMappings_terraformSourceNames,
     removeDraftAppVersionResourceMappings_appArn,
 
     -- * Destructuring the Response
@@ -39,8 +39,8 @@ module Amazonka.ResilienceHub.RemoveDraftAppVersionResourceMappings
     newRemoveDraftAppVersionResourceMappingsResponse,
 
     -- * Response Lenses
-    removeDraftAppVersionResourceMappingsResponse_appVersion,
     removeDraftAppVersionResourceMappingsResponse_appArn,
+    removeDraftAppVersionResourceMappingsResponse_appVersion,
     removeDraftAppVersionResourceMappingsResponse_httpStatus,
   )
 where
@@ -55,18 +55,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRemoveDraftAppVersionResourceMappings' smart constructor.
 data RemoveDraftAppVersionResourceMappings = RemoveDraftAppVersionResourceMappings'
-  { -- | The names of the resource groups to remove from the resource mappings.
-    resourceGroupNames :: Prelude.Maybe [Prelude.Text],
-    -- | > </p>
-    terraformSourceNames :: Prelude.Maybe [Prelude.Text],
-    -- | The names of the resources to remove from the resource mappings.
-    resourceNames :: Prelude.Maybe [Prelude.Text],
-    -- | The names of the registered applications to remove from the resource
+  { -- | The names of the registered applications to remove from the resource
     -- mappings.
     appRegistryAppNames :: Prelude.Maybe [Prelude.Text],
     -- | The names of the CloudFormation stacks to remove from the resource
     -- mappings.
     logicalStackNames :: Prelude.Maybe [Prelude.Text],
+    -- | The names of the resource groups to remove from the resource mappings.
+    resourceGroupNames :: Prelude.Maybe [Prelude.Text],
+    -- | The names of the resources to remove from the resource mappings.
+    resourceNames :: Prelude.Maybe [Prelude.Text],
+    -- | > </p>
+    terraformSourceNames :: Prelude.Maybe [Prelude.Text],
     -- | The Amazon Resource Name (ARN) of the application. The format for this
     -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
     -- For more information about ARNs, see
@@ -84,17 +84,17 @@ data RemoveDraftAppVersionResourceMappings = RemoveDraftAppVersionResourceMappin
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceGroupNames', 'removeDraftAppVersionResourceMappings_resourceGroupNames' - The names of the resource groups to remove from the resource mappings.
---
--- 'terraformSourceNames', 'removeDraftAppVersionResourceMappings_terraformSourceNames' - > </p>
---
--- 'resourceNames', 'removeDraftAppVersionResourceMappings_resourceNames' - The names of the resources to remove from the resource mappings.
---
 -- 'appRegistryAppNames', 'removeDraftAppVersionResourceMappings_appRegistryAppNames' - The names of the registered applications to remove from the resource
 -- mappings.
 --
 -- 'logicalStackNames', 'removeDraftAppVersionResourceMappings_logicalStackNames' - The names of the CloudFormation stacks to remove from the resource
 -- mappings.
+--
+-- 'resourceGroupNames', 'removeDraftAppVersionResourceMappings_resourceGroupNames' - The names of the resource groups to remove from the resource mappings.
+--
+-- 'resourceNames', 'removeDraftAppVersionResourceMappings_resourceNames' - The names of the resources to remove from the resource mappings.
+--
+-- 'terraformSourceNames', 'removeDraftAppVersionResourceMappings_terraformSourceNames' - > </p>
 --
 -- 'appArn', 'removeDraftAppVersionResourceMappings_appArn' - The Amazon Resource Name (ARN) of the application. The format for this
 -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
@@ -107,28 +107,15 @@ newRemoveDraftAppVersionResourceMappings ::
   RemoveDraftAppVersionResourceMappings
 newRemoveDraftAppVersionResourceMappings pAppArn_ =
   RemoveDraftAppVersionResourceMappings'
-    { resourceGroupNames =
-        Prelude.Nothing,
-      terraformSourceNames =
-        Prelude.Nothing,
-      resourceNames = Prelude.Nothing,
-      appRegistryAppNames =
+    { appRegistryAppNames =
         Prelude.Nothing,
       logicalStackNames = Prelude.Nothing,
+      resourceGroupNames = Prelude.Nothing,
+      resourceNames = Prelude.Nothing,
+      terraformSourceNames =
+        Prelude.Nothing,
       appArn = pAppArn_
     }
-
--- | The names of the resource groups to remove from the resource mappings.
-removeDraftAppVersionResourceMappings_resourceGroupNames :: Lens.Lens' RemoveDraftAppVersionResourceMappings (Prelude.Maybe [Prelude.Text])
-removeDraftAppVersionResourceMappings_resourceGroupNames = Lens.lens (\RemoveDraftAppVersionResourceMappings' {resourceGroupNames} -> resourceGroupNames) (\s@RemoveDraftAppVersionResourceMappings' {} a -> s {resourceGroupNames = a} :: RemoveDraftAppVersionResourceMappings) Prelude.. Lens.mapping Lens.coerced
-
--- | > </p>
-removeDraftAppVersionResourceMappings_terraformSourceNames :: Lens.Lens' RemoveDraftAppVersionResourceMappings (Prelude.Maybe [Prelude.Text])
-removeDraftAppVersionResourceMappings_terraformSourceNames = Lens.lens (\RemoveDraftAppVersionResourceMappings' {terraformSourceNames} -> terraformSourceNames) (\s@RemoveDraftAppVersionResourceMappings' {} a -> s {terraformSourceNames = a} :: RemoveDraftAppVersionResourceMappings) Prelude.. Lens.mapping Lens.coerced
-
--- | The names of the resources to remove from the resource mappings.
-removeDraftAppVersionResourceMappings_resourceNames :: Lens.Lens' RemoveDraftAppVersionResourceMappings (Prelude.Maybe [Prelude.Text])
-removeDraftAppVersionResourceMappings_resourceNames = Lens.lens (\RemoveDraftAppVersionResourceMappings' {resourceNames} -> resourceNames) (\s@RemoveDraftAppVersionResourceMappings' {} a -> s {resourceNames = a} :: RemoveDraftAppVersionResourceMappings) Prelude.. Lens.mapping Lens.coerced
 
 -- | The names of the registered applications to remove from the resource
 -- mappings.
@@ -139,6 +126,18 @@ removeDraftAppVersionResourceMappings_appRegistryAppNames = Lens.lens (\RemoveDr
 -- mappings.
 removeDraftAppVersionResourceMappings_logicalStackNames :: Lens.Lens' RemoveDraftAppVersionResourceMappings (Prelude.Maybe [Prelude.Text])
 removeDraftAppVersionResourceMappings_logicalStackNames = Lens.lens (\RemoveDraftAppVersionResourceMappings' {logicalStackNames} -> logicalStackNames) (\s@RemoveDraftAppVersionResourceMappings' {} a -> s {logicalStackNames = a} :: RemoveDraftAppVersionResourceMappings) Prelude.. Lens.mapping Lens.coerced
+
+-- | The names of the resource groups to remove from the resource mappings.
+removeDraftAppVersionResourceMappings_resourceGroupNames :: Lens.Lens' RemoveDraftAppVersionResourceMappings (Prelude.Maybe [Prelude.Text])
+removeDraftAppVersionResourceMappings_resourceGroupNames = Lens.lens (\RemoveDraftAppVersionResourceMappings' {resourceGroupNames} -> resourceGroupNames) (\s@RemoveDraftAppVersionResourceMappings' {} a -> s {resourceGroupNames = a} :: RemoveDraftAppVersionResourceMappings) Prelude.. Lens.mapping Lens.coerced
+
+-- | The names of the resources to remove from the resource mappings.
+removeDraftAppVersionResourceMappings_resourceNames :: Lens.Lens' RemoveDraftAppVersionResourceMappings (Prelude.Maybe [Prelude.Text])
+removeDraftAppVersionResourceMappings_resourceNames = Lens.lens (\RemoveDraftAppVersionResourceMappings' {resourceNames} -> resourceNames) (\s@RemoveDraftAppVersionResourceMappings' {} a -> s {resourceNames = a} :: RemoveDraftAppVersionResourceMappings) Prelude.. Lens.mapping Lens.coerced
+
+-- | > </p>
+removeDraftAppVersionResourceMappings_terraformSourceNames :: Lens.Lens' RemoveDraftAppVersionResourceMappings (Prelude.Maybe [Prelude.Text])
+removeDraftAppVersionResourceMappings_terraformSourceNames = Lens.lens (\RemoveDraftAppVersionResourceMappings' {terraformSourceNames} -> terraformSourceNames) (\s@RemoveDraftAppVersionResourceMappings' {} a -> s {terraformSourceNames = a} :: RemoveDraftAppVersionResourceMappings) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the application. The format for this
 -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
@@ -162,8 +161,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           RemoveDraftAppVersionResourceMappingsResponse'
-            Prelude.<$> (x Data..?> "appVersion")
-              Prelude.<*> (x Data..?> "appArn")
+            Prelude.<$> (x Data..?> "appArn")
+              Prelude.<*> (x Data..?> "appVersion")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -174,11 +173,11 @@ instance
   hashWithSalt
     _salt
     RemoveDraftAppVersionResourceMappings' {..} =
-      _salt `Prelude.hashWithSalt` resourceGroupNames
-        `Prelude.hashWithSalt` terraformSourceNames
-        `Prelude.hashWithSalt` resourceNames
-        `Prelude.hashWithSalt` appRegistryAppNames
+      _salt `Prelude.hashWithSalt` appRegistryAppNames
         `Prelude.hashWithSalt` logicalStackNames
+        `Prelude.hashWithSalt` resourceGroupNames
+        `Prelude.hashWithSalt` resourceNames
+        `Prelude.hashWithSalt` terraformSourceNames
         `Prelude.hashWithSalt` appArn
 
 instance
@@ -186,11 +185,11 @@ instance
     RemoveDraftAppVersionResourceMappings
   where
   rnf RemoveDraftAppVersionResourceMappings' {..} =
-    Prelude.rnf resourceGroupNames
-      `Prelude.seq` Prelude.rnf terraformSourceNames
-      `Prelude.seq` Prelude.rnf resourceNames
-      `Prelude.seq` Prelude.rnf appRegistryAppNames
+    Prelude.rnf appRegistryAppNames
       `Prelude.seq` Prelude.rnf logicalStackNames
+      `Prelude.seq` Prelude.rnf resourceGroupNames
+      `Prelude.seq` Prelude.rnf resourceNames
+      `Prelude.seq` Prelude.rnf terraformSourceNames
       `Prelude.seq` Prelude.rnf appArn
 
 instance
@@ -214,15 +213,15 @@ instance
   toJSON RemoveDraftAppVersionResourceMappings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("resourceGroupNames" Data..=)
-              Prelude.<$> resourceGroupNames,
-            ("terraformSourceNames" Data..=)
-              Prelude.<$> terraformSourceNames,
-            ("resourceNames" Data..=) Prelude.<$> resourceNames,
-            ("appRegistryAppNames" Data..=)
+          [ ("appRegistryAppNames" Data..=)
               Prelude.<$> appRegistryAppNames,
             ("logicalStackNames" Data..=)
               Prelude.<$> logicalStackNames,
+            ("resourceGroupNames" Data..=)
+              Prelude.<$> resourceGroupNames,
+            ("resourceNames" Data..=) Prelude.<$> resourceNames,
+            ("terraformSourceNames" Data..=)
+              Prelude.<$> terraformSourceNames,
             Prelude.Just ("appArn" Data..= appArn)
           ]
       )
@@ -243,14 +242,14 @@ instance
 
 -- | /See:/ 'newRemoveDraftAppVersionResourceMappingsResponse' smart constructor.
 data RemoveDraftAppVersionResourceMappingsResponse = RemoveDraftAppVersionResourceMappingsResponse'
-  { -- | The version of the application.
-    appVersion :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the application. The format for this
+  { -- | The Amazon Resource Name (ARN) of the application. The format for this
     -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /AWS General Reference/.
     appArn :: Prelude.Maybe Prelude.Text,
+    -- | The version of the application.
+    appVersion :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -264,13 +263,13 @@ data RemoveDraftAppVersionResourceMappingsResponse = RemoveDraftAppVersionResour
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'appVersion', 'removeDraftAppVersionResourceMappingsResponse_appVersion' - The version of the application.
---
 -- 'appArn', 'removeDraftAppVersionResourceMappingsResponse_appArn' - The Amazon Resource Name (ARN) of the application. The format for this
 -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /AWS General Reference/.
+--
+-- 'appVersion', 'removeDraftAppVersionResourceMappingsResponse_appVersion' - The version of the application.
 --
 -- 'httpStatus', 'removeDraftAppVersionResourceMappingsResponse_httpStatus' - The response's http status code.
 newRemoveDraftAppVersionResourceMappingsResponse ::
@@ -280,15 +279,11 @@ newRemoveDraftAppVersionResourceMappingsResponse ::
 newRemoveDraftAppVersionResourceMappingsResponse
   pHttpStatus_ =
     RemoveDraftAppVersionResourceMappingsResponse'
-      { appVersion =
+      { appArn =
           Prelude.Nothing,
-        appArn = Prelude.Nothing,
+        appVersion = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The version of the application.
-removeDraftAppVersionResourceMappingsResponse_appVersion :: Lens.Lens' RemoveDraftAppVersionResourceMappingsResponse (Prelude.Maybe Prelude.Text)
-removeDraftAppVersionResourceMappingsResponse_appVersion = Lens.lens (\RemoveDraftAppVersionResourceMappingsResponse' {appVersion} -> appVersion) (\s@RemoveDraftAppVersionResourceMappingsResponse' {} a -> s {appVersion = a} :: RemoveDraftAppVersionResourceMappingsResponse)
 
 -- | The Amazon Resource Name (ARN) of the application. The format for this
 -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
@@ -297,6 +292,10 @@ removeDraftAppVersionResourceMappingsResponse_appVersion = Lens.lens (\RemoveDra
 -- in the /AWS General Reference/.
 removeDraftAppVersionResourceMappingsResponse_appArn :: Lens.Lens' RemoveDraftAppVersionResourceMappingsResponse (Prelude.Maybe Prelude.Text)
 removeDraftAppVersionResourceMappingsResponse_appArn = Lens.lens (\RemoveDraftAppVersionResourceMappingsResponse' {appArn} -> appArn) (\s@RemoveDraftAppVersionResourceMappingsResponse' {} a -> s {appArn = a} :: RemoveDraftAppVersionResourceMappingsResponse)
+
+-- | The version of the application.
+removeDraftAppVersionResourceMappingsResponse_appVersion :: Lens.Lens' RemoveDraftAppVersionResourceMappingsResponse (Prelude.Maybe Prelude.Text)
+removeDraftAppVersionResourceMappingsResponse_appVersion = Lens.lens (\RemoveDraftAppVersionResourceMappingsResponse' {appVersion} -> appVersion) (\s@RemoveDraftAppVersionResourceMappingsResponse' {} a -> s {appVersion = a} :: RemoveDraftAppVersionResourceMappingsResponse)
 
 -- | The response's http status code.
 removeDraftAppVersionResourceMappingsResponse_httpStatus :: Lens.Lens' RemoveDraftAppVersionResourceMappingsResponse Prelude.Int
@@ -308,6 +307,6 @@ instance
   where
   rnf
     RemoveDraftAppVersionResourceMappingsResponse' {..} =
-      Prelude.rnf appVersion
-        `Prelude.seq` Prelude.rnf appArn
+      Prelude.rnf appArn
+        `Prelude.seq` Prelude.rnf appVersion
         `Prelude.seq` Prelude.rnf httpStatus

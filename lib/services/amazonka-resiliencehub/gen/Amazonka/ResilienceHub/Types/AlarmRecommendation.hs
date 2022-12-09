@@ -30,14 +30,14 @@ import Amazonka.ResilienceHub.Types.RecommendationItem
 --
 -- /See:/ 'newAlarmRecommendation' smart constructor.
 data AlarmRecommendation = AlarmRecommendation'
-  { -- | The list of CloudWatch alarm recommendations.
-    items :: Prelude.Maybe [RecommendationItem],
-    -- | The prerequisite for the alarm recommendation.
-    prerequisite :: Prelude.Maybe Prelude.Text,
-    -- | The application component for the CloudWatch alarm recommendation.
+  { -- | The application component for the CloudWatch alarm recommendation.
     appComponentName :: Prelude.Maybe Prelude.Text,
     -- | The description of the recommendation.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The list of CloudWatch alarm recommendations.
+    items :: Prelude.Maybe [RecommendationItem],
+    -- | The prerequisite for the alarm recommendation.
+    prerequisite :: Prelude.Maybe Prelude.Text,
     -- | The name of the alarm recommendation.
     name :: Prelude.Text,
     -- | The identifier of the alarm recommendation.
@@ -57,13 +57,13 @@ data AlarmRecommendation = AlarmRecommendation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'items', 'alarmRecommendation_items' - The list of CloudWatch alarm recommendations.
---
--- 'prerequisite', 'alarmRecommendation_prerequisite' - The prerequisite for the alarm recommendation.
---
 -- 'appComponentName', 'alarmRecommendation_appComponentName' - The application component for the CloudWatch alarm recommendation.
 --
 -- 'description', 'alarmRecommendation_description' - The description of the recommendation.
+--
+-- 'items', 'alarmRecommendation_items' - The list of CloudWatch alarm recommendations.
+--
+-- 'prerequisite', 'alarmRecommendation_prerequisite' - The prerequisite for the alarm recommendation.
 --
 -- 'name', 'alarmRecommendation_name' - The name of the alarm recommendation.
 --
@@ -88,23 +88,16 @@ newAlarmRecommendation
   pReferenceId_
   pType_ =
     AlarmRecommendation'
-      { items = Prelude.Nothing,
-        prerequisite = Prelude.Nothing,
-        appComponentName = Prelude.Nothing,
+      { appComponentName =
+          Prelude.Nothing,
         description = Prelude.Nothing,
+        items = Prelude.Nothing,
+        prerequisite = Prelude.Nothing,
         name = pName_,
         recommendationId = pRecommendationId_,
         referenceId = pReferenceId_,
         type' = pType_
       }
-
--- | The list of CloudWatch alarm recommendations.
-alarmRecommendation_items :: Lens.Lens' AlarmRecommendation (Prelude.Maybe [RecommendationItem])
-alarmRecommendation_items = Lens.lens (\AlarmRecommendation' {items} -> items) (\s@AlarmRecommendation' {} a -> s {items = a} :: AlarmRecommendation) Prelude.. Lens.mapping Lens.coerced
-
--- | The prerequisite for the alarm recommendation.
-alarmRecommendation_prerequisite :: Lens.Lens' AlarmRecommendation (Prelude.Maybe Prelude.Text)
-alarmRecommendation_prerequisite = Lens.lens (\AlarmRecommendation' {prerequisite} -> prerequisite) (\s@AlarmRecommendation' {} a -> s {prerequisite = a} :: AlarmRecommendation)
 
 -- | The application component for the CloudWatch alarm recommendation.
 alarmRecommendation_appComponentName :: Lens.Lens' AlarmRecommendation (Prelude.Maybe Prelude.Text)
@@ -113,6 +106,14 @@ alarmRecommendation_appComponentName = Lens.lens (\AlarmRecommendation' {appComp
 -- | The description of the recommendation.
 alarmRecommendation_description :: Lens.Lens' AlarmRecommendation (Prelude.Maybe Prelude.Text)
 alarmRecommendation_description = Lens.lens (\AlarmRecommendation' {description} -> description) (\s@AlarmRecommendation' {} a -> s {description = a} :: AlarmRecommendation)
+
+-- | The list of CloudWatch alarm recommendations.
+alarmRecommendation_items :: Lens.Lens' AlarmRecommendation (Prelude.Maybe [RecommendationItem])
+alarmRecommendation_items = Lens.lens (\AlarmRecommendation' {items} -> items) (\s@AlarmRecommendation' {} a -> s {items = a} :: AlarmRecommendation) Prelude.. Lens.mapping Lens.coerced
+
+-- | The prerequisite for the alarm recommendation.
+alarmRecommendation_prerequisite :: Lens.Lens' AlarmRecommendation (Prelude.Maybe Prelude.Text)
+alarmRecommendation_prerequisite = Lens.lens (\AlarmRecommendation' {prerequisite} -> prerequisite) (\s@AlarmRecommendation' {} a -> s {prerequisite = a} :: AlarmRecommendation)
 
 -- | The name of the alarm recommendation.
 alarmRecommendation_name :: Lens.Lens' AlarmRecommendation Prelude.Text
@@ -136,10 +137,10 @@ instance Data.FromJSON AlarmRecommendation where
       "AlarmRecommendation"
       ( \x ->
           AlarmRecommendation'
-            Prelude.<$> (x Data..:? "items" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "prerequisite")
-            Prelude.<*> (x Data..:? "appComponentName")
+            Prelude.<$> (x Data..:? "appComponentName")
             Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "items" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "prerequisite")
             Prelude.<*> (x Data..: "name")
             Prelude.<*> (x Data..: "recommendationId")
             Prelude.<*> (x Data..: "referenceId")
@@ -148,10 +149,10 @@ instance Data.FromJSON AlarmRecommendation where
 
 instance Prelude.Hashable AlarmRecommendation where
   hashWithSalt _salt AlarmRecommendation' {..} =
-    _salt `Prelude.hashWithSalt` items
-      `Prelude.hashWithSalt` prerequisite
-      `Prelude.hashWithSalt` appComponentName
+    _salt `Prelude.hashWithSalt` appComponentName
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` items
+      `Prelude.hashWithSalt` prerequisite
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` recommendationId
       `Prelude.hashWithSalt` referenceId
@@ -159,10 +160,10 @@ instance Prelude.Hashable AlarmRecommendation where
 
 instance Prelude.NFData AlarmRecommendation where
   rnf AlarmRecommendation' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf prerequisite
-      `Prelude.seq` Prelude.rnf appComponentName
+    Prelude.rnf appComponentName
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf items
+      `Prelude.seq` Prelude.rnf prerequisite
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf recommendationId
       `Prelude.seq` Prelude.rnf referenceId

@@ -27,8 +27,8 @@ module Amazonka.ResilienceHub.ListAppComponentCompliances
     newListAppComponentCompliances,
 
     -- * Request Lenses
-    listAppComponentCompliances_nextToken,
     listAppComponentCompliances_maxResults,
+    listAppComponentCompliances_nextToken,
     listAppComponentCompliances_assessmentArn,
 
     -- * Destructuring the Response
@@ -52,12 +52,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAppComponentCompliances' smart constructor.
 data ListAppComponentCompliances = ListAppComponentCompliances'
-  { -- | Null, or the token from a previous call to get the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to include in the response. If more
+  { -- | The maximum number of results to include in the response. If more
     -- results exist than the specified @MaxResults@ value, a token is included
     -- in the response so that the remaining results can be retrieved.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Null, or the token from a previous call to get the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the assessment. The format for this
     -- ARN is:
     -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
@@ -76,11 +76,11 @@ data ListAppComponentCompliances = ListAppComponentCompliances'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAppComponentCompliances_nextToken' - Null, or the token from a previous call to get the next set of results.
---
 -- 'maxResults', 'listAppComponentCompliances_maxResults' - The maximum number of results to include in the response. If more
 -- results exist than the specified @MaxResults@ value, a token is included
 -- in the response so that the remaining results can be retrieved.
+--
+-- 'nextToken', 'listAppComponentCompliances_nextToken' - Null, or the token from a previous call to get the next set of results.
 --
 -- 'assessmentArn', 'listAppComponentCompliances_assessmentArn' - The Amazon Resource Name (ARN) of the assessment. The format for this
 -- ARN is:
@@ -94,21 +94,21 @@ newListAppComponentCompliances ::
   ListAppComponentCompliances
 newListAppComponentCompliances pAssessmentArn_ =
   ListAppComponentCompliances'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       assessmentArn = pAssessmentArn_
     }
-
--- | Null, or the token from a previous call to get the next set of results.
-listAppComponentCompliances_nextToken :: Lens.Lens' ListAppComponentCompliances (Prelude.Maybe Prelude.Text)
-listAppComponentCompliances_nextToken = Lens.lens (\ListAppComponentCompliances' {nextToken} -> nextToken) (\s@ListAppComponentCompliances' {} a -> s {nextToken = a} :: ListAppComponentCompliances)
 
 -- | The maximum number of results to include in the response. If more
 -- results exist than the specified @MaxResults@ value, a token is included
 -- in the response so that the remaining results can be retrieved.
 listAppComponentCompliances_maxResults :: Lens.Lens' ListAppComponentCompliances (Prelude.Maybe Prelude.Natural)
 listAppComponentCompliances_maxResults = Lens.lens (\ListAppComponentCompliances' {maxResults} -> maxResults) (\s@ListAppComponentCompliances' {} a -> s {maxResults = a} :: ListAppComponentCompliances)
+
+-- | Null, or the token from a previous call to get the next set of results.
+listAppComponentCompliances_nextToken :: Lens.Lens' ListAppComponentCompliances (Prelude.Maybe Prelude.Text)
+listAppComponentCompliances_nextToken = Lens.lens (\ListAppComponentCompliances' {nextToken} -> nextToken) (\s@ListAppComponentCompliances' {} a -> s {nextToken = a} :: ListAppComponentCompliances)
 
 -- | The Amazon Resource Name (ARN) of the assessment. The format for this
 -- ARN is:
@@ -138,14 +138,14 @@ instance Core.AWSRequest ListAppComponentCompliances where
 
 instance Prelude.Hashable ListAppComponentCompliances where
   hashWithSalt _salt ListAppComponentCompliances' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` assessmentArn
 
 instance Prelude.NFData ListAppComponentCompliances where
   rnf ListAppComponentCompliances' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf assessmentArn
 
 instance Data.ToHeaders ListAppComponentCompliances where
@@ -163,8 +163,8 @@ instance Data.ToJSON ListAppComponentCompliances where
   toJSON ListAppComponentCompliances' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("assessmentArn" Data..= assessmentArn)
           ]

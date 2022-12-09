@@ -39,11 +39,11 @@ module Amazonka.ResilienceHub.CreateApp
     newCreateApp,
 
     -- * Request Lenses
-    createApp_tags,
+    createApp_assessmentSchedule,
     createApp_clientToken,
     createApp_description,
     createApp_policyArn,
-    createApp_assessmentSchedule,
+    createApp_tags,
     createApp_name,
 
     -- * Destructuring the Response
@@ -66,9 +66,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateApp' smart constructor.
 data CreateApp = CreateApp'
-  { -- | The tags assigned to the resource. A tag is a label that you assign to
-    -- an Amazon Web Services resource. Each tag consists of a key\/value pair.
-    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+  { -- | Assessment execution schedule with \'Daily\' or \'Disabled\' values.
+    assessmentSchedule :: Prelude.Maybe AppAssessmentScheduleType,
     -- | Used for an idempotency token. A client token is a unique,
     -- case-sensitive string of up to 64 ASCII characters. You should not reuse
     -- the same client token for other API requests.
@@ -82,8 +81,9 @@ data CreateApp = CreateApp'
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /AWS General Reference/.
     policyArn :: Prelude.Maybe Prelude.Text,
-    -- | Assessment execution schedule with \'Daily\' or \'Disabled\' values.
-    assessmentSchedule :: Prelude.Maybe AppAssessmentScheduleType,
+    -- | The tags assigned to the resource. A tag is a label that you assign to
+    -- an Amazon Web Services resource. Each tag consists of a key\/value pair.
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The name for the application.
     name :: Prelude.Text
   }
@@ -97,8 +97,7 @@ data CreateApp = CreateApp'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createApp_tags' - The tags assigned to the resource. A tag is a label that you assign to
--- an Amazon Web Services resource. Each tag consists of a key\/value pair.
+-- 'assessmentSchedule', 'createApp_assessmentSchedule' - Assessment execution schedule with \'Daily\' or \'Disabled\' values.
 --
 -- 'clientToken', 'createApp_clientToken' - Used for an idempotency token. A client token is a unique,
 -- case-sensitive string of up to 64 ASCII characters. You should not reuse
@@ -113,7 +112,8 @@ data CreateApp = CreateApp'
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /AWS General Reference/.
 --
--- 'assessmentSchedule', 'createApp_assessmentSchedule' - Assessment execution schedule with \'Daily\' or \'Disabled\' values.
+-- 'tags', 'createApp_tags' - The tags assigned to the resource. A tag is a label that you assign to
+-- an Amazon Web Services resource. Each tag consists of a key\/value pair.
 --
 -- 'name', 'createApp_name' - The name for the application.
 newCreateApp ::
@@ -122,18 +122,17 @@ newCreateApp ::
   CreateApp
 newCreateApp pName_ =
   CreateApp'
-    { tags = Prelude.Nothing,
+    { assessmentSchedule = Prelude.Nothing,
       clientToken = Prelude.Nothing,
       description = Prelude.Nothing,
       policyArn = Prelude.Nothing,
-      assessmentSchedule = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_
     }
 
--- | The tags assigned to the resource. A tag is a label that you assign to
--- an Amazon Web Services resource. Each tag consists of a key\/value pair.
-createApp_tags :: Lens.Lens' CreateApp (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createApp_tags = Lens.lens (\CreateApp' {tags} -> tags) (\s@CreateApp' {} a -> s {tags = a} :: CreateApp) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
+-- | Assessment execution schedule with \'Daily\' or \'Disabled\' values.
+createApp_assessmentSchedule :: Lens.Lens' CreateApp (Prelude.Maybe AppAssessmentScheduleType)
+createApp_assessmentSchedule = Lens.lens (\CreateApp' {assessmentSchedule} -> assessmentSchedule) (\s@CreateApp' {} a -> s {assessmentSchedule = a} :: CreateApp)
 
 -- | Used for an idempotency token. A client token is a unique,
 -- case-sensitive string of up to 64 ASCII characters. You should not reuse
@@ -154,9 +153,10 @@ createApp_description = Lens.lens (\CreateApp' {description} -> description) (\s
 createApp_policyArn :: Lens.Lens' CreateApp (Prelude.Maybe Prelude.Text)
 createApp_policyArn = Lens.lens (\CreateApp' {policyArn} -> policyArn) (\s@CreateApp' {} a -> s {policyArn = a} :: CreateApp)
 
--- | Assessment execution schedule with \'Daily\' or \'Disabled\' values.
-createApp_assessmentSchedule :: Lens.Lens' CreateApp (Prelude.Maybe AppAssessmentScheduleType)
-createApp_assessmentSchedule = Lens.lens (\CreateApp' {assessmentSchedule} -> assessmentSchedule) (\s@CreateApp' {} a -> s {assessmentSchedule = a} :: CreateApp)
+-- | The tags assigned to the resource. A tag is a label that you assign to
+-- an Amazon Web Services resource. Each tag consists of a key\/value pair.
+createApp_tags :: Lens.Lens' CreateApp (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createApp_tags = Lens.lens (\CreateApp' {tags} -> tags) (\s@CreateApp' {} a -> s {tags = a} :: CreateApp) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The name for the application.
 createApp_name :: Lens.Lens' CreateApp Prelude.Text
@@ -176,20 +176,20 @@ instance Core.AWSRequest CreateApp where
 
 instance Prelude.Hashable CreateApp where
   hashWithSalt _salt CreateApp' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` assessmentSchedule
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` policyArn
-      `Prelude.hashWithSalt` assessmentSchedule
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateApp where
   rnf CreateApp' {..} =
-    Prelude.rnf tags
+    Prelude.rnf assessmentSchedule
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf policyArn
-      `Prelude.seq` Prelude.rnf assessmentSchedule
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders CreateApp where
@@ -207,12 +207,12 @@ instance Data.ToJSON CreateApp where
   toJSON CreateApp' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
+          [ ("assessmentSchedule" Data..=)
+              Prelude.<$> assessmentSchedule,
             ("clientToken" Data..=) Prelude.<$> clientToken,
             ("description" Data..=) Prelude.<$> description,
             ("policyArn" Data..=) Prelude.<$> policyArn,
-            ("assessmentSchedule" Data..=)
-              Prelude.<$> assessmentSchedule,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("name" Data..= name)
           ]
       )

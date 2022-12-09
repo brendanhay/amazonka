@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRecommendationItem' smart constructor.
 data RecommendationItem = RecommendationItem'
-  { -- | The resource identifier.
-    resourceId :: Prelude.Maybe Prelude.Text,
-    -- | Specifies if the recommendation has already been implemented.
+  { -- | Specifies if the recommendation has already been implemented.
     alreadyImplemented :: Prelude.Maybe Prelude.Bool,
+    -- | The resource identifier.
+    resourceId :: Prelude.Maybe Prelude.Text,
     -- | The target account identifier.
     targetAccountId :: Prelude.Maybe Prelude.Text,
     -- | The target region.
@@ -47,9 +47,9 @@ data RecommendationItem = RecommendationItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceId', 'recommendationItem_resourceId' - The resource identifier.
---
 -- 'alreadyImplemented', 'recommendationItem_alreadyImplemented' - Specifies if the recommendation has already been implemented.
+--
+-- 'resourceId', 'recommendationItem_resourceId' - The resource identifier.
 --
 -- 'targetAccountId', 'recommendationItem_targetAccountId' - The target account identifier.
 --
@@ -58,19 +58,20 @@ newRecommendationItem ::
   RecommendationItem
 newRecommendationItem =
   RecommendationItem'
-    { resourceId = Prelude.Nothing,
-      alreadyImplemented = Prelude.Nothing,
+    { alreadyImplemented =
+        Prelude.Nothing,
+      resourceId = Prelude.Nothing,
       targetAccountId = Prelude.Nothing,
       targetRegion = Prelude.Nothing
     }
 
--- | The resource identifier.
-recommendationItem_resourceId :: Lens.Lens' RecommendationItem (Prelude.Maybe Prelude.Text)
-recommendationItem_resourceId = Lens.lens (\RecommendationItem' {resourceId} -> resourceId) (\s@RecommendationItem' {} a -> s {resourceId = a} :: RecommendationItem)
-
 -- | Specifies if the recommendation has already been implemented.
 recommendationItem_alreadyImplemented :: Lens.Lens' RecommendationItem (Prelude.Maybe Prelude.Bool)
 recommendationItem_alreadyImplemented = Lens.lens (\RecommendationItem' {alreadyImplemented} -> alreadyImplemented) (\s@RecommendationItem' {} a -> s {alreadyImplemented = a} :: RecommendationItem)
+
+-- | The resource identifier.
+recommendationItem_resourceId :: Lens.Lens' RecommendationItem (Prelude.Maybe Prelude.Text)
+recommendationItem_resourceId = Lens.lens (\RecommendationItem' {resourceId} -> resourceId) (\s@RecommendationItem' {} a -> s {resourceId = a} :: RecommendationItem)
 
 -- | The target account identifier.
 recommendationItem_targetAccountId :: Lens.Lens' RecommendationItem (Prelude.Maybe Prelude.Text)
@@ -86,22 +87,22 @@ instance Data.FromJSON RecommendationItem where
       "RecommendationItem"
       ( \x ->
           RecommendationItem'
-            Prelude.<$> (x Data..:? "resourceId")
-            Prelude.<*> (x Data..:? "alreadyImplemented")
+            Prelude.<$> (x Data..:? "alreadyImplemented")
+            Prelude.<*> (x Data..:? "resourceId")
             Prelude.<*> (x Data..:? "targetAccountId")
             Prelude.<*> (x Data..:? "targetRegion")
       )
 
 instance Prelude.Hashable RecommendationItem where
   hashWithSalt _salt RecommendationItem' {..} =
-    _salt `Prelude.hashWithSalt` resourceId
-      `Prelude.hashWithSalt` alreadyImplemented
+    _salt `Prelude.hashWithSalt` alreadyImplemented
+      `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` targetAccountId
       `Prelude.hashWithSalt` targetRegion
 
 instance Prelude.NFData RecommendationItem where
   rnf RecommendationItem' {..} =
-    Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf alreadyImplemented
+    Prelude.rnf alreadyImplemented
+      `Prelude.seq` Prelude.rnf resourceId
       `Prelude.seq` Prelude.rnf targetAccountId
       `Prelude.seq` Prelude.rnf targetRegion

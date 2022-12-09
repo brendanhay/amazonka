@@ -27,8 +27,8 @@ module Amazonka.ResilienceHub.StartAppAssessment
     newStartAppAssessment,
 
     -- * Request Lenses
-    startAppAssessment_tags,
     startAppAssessment_clientToken,
+    startAppAssessment_tags,
     startAppAssessment_appArn,
     startAppAssessment_appVersion,
     startAppAssessment_assessmentName,
@@ -53,13 +53,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartAppAssessment' smart constructor.
 data StartAppAssessment = StartAppAssessment'
-  { -- | The tags assigned to the resource. A tag is a label that you assign to
-    -- an Amazon Web Services resource. Each tag consists of a key\/value pair.
-    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
-    -- | Used for an idempotency token. A client token is a unique,
+  { -- | Used for an idempotency token. A client token is a unique,
     -- case-sensitive string of up to 64 ASCII characters. You should not reuse
     -- the same client token for other API requests.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The tags assigned to the resource. A tag is a label that you assign to
+    -- an Amazon Web Services resource. Each tag consists of a key\/value pair.
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The Amazon Resource Name (ARN) of the application. The format for this
     -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
     -- For more information about ARNs, see
@@ -81,12 +81,12 @@ data StartAppAssessment = StartAppAssessment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'startAppAssessment_tags' - The tags assigned to the resource. A tag is a label that you assign to
--- an Amazon Web Services resource. Each tag consists of a key\/value pair.
---
 -- 'clientToken', 'startAppAssessment_clientToken' - Used for an idempotency token. A client token is a unique,
 -- case-sensitive string of up to 64 ASCII characters. You should not reuse
 -- the same client token for other API requests.
+--
+-- 'tags', 'startAppAssessment_tags' - The tags assigned to the resource. A tag is a label that you assign to
+-- an Amazon Web Services resource. Each tag consists of a key\/value pair.
 --
 -- 'appArn', 'startAppAssessment_appArn' - The Amazon Resource Name (ARN) of the application. The format for this
 -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
@@ -110,23 +110,23 @@ newStartAppAssessment
   pAppVersion_
   pAssessmentName_ =
     StartAppAssessment'
-      { tags = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
+      { clientToken = Prelude.Nothing,
+        tags = Prelude.Nothing,
         appArn = pAppArn_,
         appVersion = pAppVersion_,
         assessmentName = pAssessmentName_
       }
-
--- | The tags assigned to the resource. A tag is a label that you assign to
--- an Amazon Web Services resource. Each tag consists of a key\/value pair.
-startAppAssessment_tags :: Lens.Lens' StartAppAssessment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-startAppAssessment_tags = Lens.lens (\StartAppAssessment' {tags} -> tags) (\s@StartAppAssessment' {} a -> s {tags = a} :: StartAppAssessment) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | Used for an idempotency token. A client token is a unique,
 -- case-sensitive string of up to 64 ASCII characters. You should not reuse
 -- the same client token for other API requests.
 startAppAssessment_clientToken :: Lens.Lens' StartAppAssessment (Prelude.Maybe Prelude.Text)
 startAppAssessment_clientToken = Lens.lens (\StartAppAssessment' {clientToken} -> clientToken) (\s@StartAppAssessment' {} a -> s {clientToken = a} :: StartAppAssessment)
+
+-- | The tags assigned to the resource. A tag is a label that you assign to
+-- an Amazon Web Services resource. Each tag consists of a key\/value pair.
+startAppAssessment_tags :: Lens.Lens' StartAppAssessment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+startAppAssessment_tags = Lens.lens (\StartAppAssessment' {tags} -> tags) (\s@StartAppAssessment' {} a -> s {tags = a} :: StartAppAssessment) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The Amazon Resource Name (ARN) of the application. The format for this
 -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
@@ -160,16 +160,16 @@ instance Core.AWSRequest StartAppAssessment where
 
 instance Prelude.Hashable StartAppAssessment where
   hashWithSalt _salt StartAppAssessment' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` appArn
       `Prelude.hashWithSalt` appVersion
       `Prelude.hashWithSalt` assessmentName
 
 instance Prelude.NFData StartAppAssessment where
   rnf StartAppAssessment' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf appArn
       `Prelude.seq` Prelude.rnf appVersion
       `Prelude.seq` Prelude.rnf assessmentName
@@ -189,8 +189,8 @@ instance Data.ToJSON StartAppAssessment where
   toJSON StartAppAssessment' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("clientToken" Data..=) Prelude.<$> clientToken,
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("appArn" Data..= appArn),
             Prelude.Just ("appVersion" Data..= appVersion),
             Prelude.Just

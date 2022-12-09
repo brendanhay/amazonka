@@ -27,10 +27,10 @@ module Amazonka.ResilienceHub.CreateResiliencyPolicy
     newCreateResiliencyPolicy,
 
     -- * Request Lenses
-    createResiliencyPolicy_tags,
-    createResiliencyPolicy_dataLocationConstraint,
     createResiliencyPolicy_clientToken,
+    createResiliencyPolicy_dataLocationConstraint,
     createResiliencyPolicy_policyDescription,
+    createResiliencyPolicy_tags,
     createResiliencyPolicy_policy,
     createResiliencyPolicy_policyName,
     createResiliencyPolicy_tier,
@@ -55,18 +55,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateResiliencyPolicy' smart constructor.
 data CreateResiliencyPolicy = CreateResiliencyPolicy'
-  { -- | The tags assigned to the resource. A tag is a label that you assign to
-    -- an Amazon Web Services resource. Each tag consists of a key\/value pair.
-    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
-    -- | Specifies a high-level geographical location constraint for where your
-    -- resilience policy data can be stored.
-    dataLocationConstraint :: Prelude.Maybe DataLocationConstraint,
-    -- | Used for an idempotency token. A client token is a unique,
+  { -- | Used for an idempotency token. A client token is a unique,
     -- case-sensitive string of up to 64 ASCII characters. You should not reuse
     -- the same client token for other API requests.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | Specifies a high-level geographical location constraint for where your
+    -- resilience policy data can be stored.
+    dataLocationConstraint :: Prelude.Maybe DataLocationConstraint,
     -- | The description for the policy.
     policyDescription :: Prelude.Maybe Prelude.Text,
+    -- | The tags assigned to the resource. A tag is a label that you assign to
+    -- an Amazon Web Services resource. Each tag consists of a key\/value pair.
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The type of resiliency policy to be created, including the recovery time
     -- objective (RTO) and recovery point objective (RPO) in seconds.
     policy :: Prelude.HashMap DisruptionType FailurePolicy,
@@ -86,17 +86,17 @@ data CreateResiliencyPolicy = CreateResiliencyPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createResiliencyPolicy_tags' - The tags assigned to the resource. A tag is a label that you assign to
--- an Amazon Web Services resource. Each tag consists of a key\/value pair.
---
--- 'dataLocationConstraint', 'createResiliencyPolicy_dataLocationConstraint' - Specifies a high-level geographical location constraint for where your
--- resilience policy data can be stored.
---
 -- 'clientToken', 'createResiliencyPolicy_clientToken' - Used for an idempotency token. A client token is a unique,
 -- case-sensitive string of up to 64 ASCII characters. You should not reuse
 -- the same client token for other API requests.
 --
+-- 'dataLocationConstraint', 'createResiliencyPolicy_dataLocationConstraint' - Specifies a high-level geographical location constraint for where your
+-- resilience policy data can be stored.
+--
 -- 'policyDescription', 'createResiliencyPolicy_policyDescription' - The description for the policy.
+--
+-- 'tags', 'createResiliencyPolicy_tags' - The tags assigned to the resource. A tag is a label that you assign to
+-- an Amazon Web Services resource. Each tag consists of a key\/value pair.
 --
 -- 'policy', 'createResiliencyPolicy_policy' - The type of resiliency policy to be created, including the recovery time
 -- objective (RTO) and recovery point objective (RPO) in seconds.
@@ -113,24 +113,15 @@ newCreateResiliencyPolicy ::
   CreateResiliencyPolicy
 newCreateResiliencyPolicy pPolicyName_ pTier_ =
   CreateResiliencyPolicy'
-    { tags = Prelude.Nothing,
+    { clientToken =
+        Prelude.Nothing,
       dataLocationConstraint = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
       policyDescription = Prelude.Nothing,
+      tags = Prelude.Nothing,
       policy = Prelude.mempty,
       policyName = pPolicyName_,
       tier = pTier_
     }
-
--- | The tags assigned to the resource. A tag is a label that you assign to
--- an Amazon Web Services resource. Each tag consists of a key\/value pair.
-createResiliencyPolicy_tags :: Lens.Lens' CreateResiliencyPolicy (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createResiliencyPolicy_tags = Lens.lens (\CreateResiliencyPolicy' {tags} -> tags) (\s@CreateResiliencyPolicy' {} a -> s {tags = a} :: CreateResiliencyPolicy) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
-
--- | Specifies a high-level geographical location constraint for where your
--- resilience policy data can be stored.
-createResiliencyPolicy_dataLocationConstraint :: Lens.Lens' CreateResiliencyPolicy (Prelude.Maybe DataLocationConstraint)
-createResiliencyPolicy_dataLocationConstraint = Lens.lens (\CreateResiliencyPolicy' {dataLocationConstraint} -> dataLocationConstraint) (\s@CreateResiliencyPolicy' {} a -> s {dataLocationConstraint = a} :: CreateResiliencyPolicy)
 
 -- | Used for an idempotency token. A client token is a unique,
 -- case-sensitive string of up to 64 ASCII characters. You should not reuse
@@ -138,9 +129,19 @@ createResiliencyPolicy_dataLocationConstraint = Lens.lens (\CreateResiliencyPoli
 createResiliencyPolicy_clientToken :: Lens.Lens' CreateResiliencyPolicy (Prelude.Maybe Prelude.Text)
 createResiliencyPolicy_clientToken = Lens.lens (\CreateResiliencyPolicy' {clientToken} -> clientToken) (\s@CreateResiliencyPolicy' {} a -> s {clientToken = a} :: CreateResiliencyPolicy)
 
+-- | Specifies a high-level geographical location constraint for where your
+-- resilience policy data can be stored.
+createResiliencyPolicy_dataLocationConstraint :: Lens.Lens' CreateResiliencyPolicy (Prelude.Maybe DataLocationConstraint)
+createResiliencyPolicy_dataLocationConstraint = Lens.lens (\CreateResiliencyPolicy' {dataLocationConstraint} -> dataLocationConstraint) (\s@CreateResiliencyPolicy' {} a -> s {dataLocationConstraint = a} :: CreateResiliencyPolicy)
+
 -- | The description for the policy.
 createResiliencyPolicy_policyDescription :: Lens.Lens' CreateResiliencyPolicy (Prelude.Maybe Prelude.Text)
 createResiliencyPolicy_policyDescription = Lens.lens (\CreateResiliencyPolicy' {policyDescription} -> policyDescription) (\s@CreateResiliencyPolicy' {} a -> s {policyDescription = a} :: CreateResiliencyPolicy)
+
+-- | The tags assigned to the resource. A tag is a label that you assign to
+-- an Amazon Web Services resource. Each tag consists of a key\/value pair.
+createResiliencyPolicy_tags :: Lens.Lens' CreateResiliencyPolicy (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createResiliencyPolicy_tags = Lens.lens (\CreateResiliencyPolicy' {tags} -> tags) (\s@CreateResiliencyPolicy' {} a -> s {tags = a} :: CreateResiliencyPolicy) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The type of resiliency policy to be created, including the recovery time
 -- objective (RTO) and recovery point objective (RPO) in seconds.
@@ -172,20 +173,20 @@ instance Core.AWSRequest CreateResiliencyPolicy where
 
 instance Prelude.Hashable CreateResiliencyPolicy where
   hashWithSalt _salt CreateResiliencyPolicy' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` dataLocationConstraint
-      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` policyDescription
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` policy
       `Prelude.hashWithSalt` policyName
       `Prelude.hashWithSalt` tier
 
 instance Prelude.NFData CreateResiliencyPolicy where
   rnf CreateResiliencyPolicy' {..} =
-    Prelude.rnf tags
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf dataLocationConstraint
-      `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf policyDescription
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf policy
       `Prelude.seq` Prelude.rnf policyName
       `Prelude.seq` Prelude.rnf tier
@@ -205,12 +206,12 @@ instance Data.ToJSON CreateResiliencyPolicy where
   toJSON CreateResiliencyPolicy' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
             ("dataLocationConstraint" Data..=)
               Prelude.<$> dataLocationConstraint,
-            ("clientToken" Data..=) Prelude.<$> clientToken,
             ("policyDescription" Data..=)
               Prelude.<$> policyDescription,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("policy" Data..= policy),
             Prelude.Just ("policyName" Data..= policyName),
             Prelude.Just ("tier" Data..= tier)

@@ -27,10 +27,10 @@ module Amazonka.ResilienceHub.ListApps
     newListApps,
 
     -- * Request Lenses
+    listApps_appArn,
+    listApps_maxResults,
     listApps_name,
     listApps_nextToken,
-    listApps_maxResults,
-    listApps_appArn,
 
     -- * Destructuring the Response
     ListAppsResponse (..),
@@ -53,20 +53,20 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListApps' smart constructor.
 data ListApps = ListApps'
-  { -- | The name for the one of the listed applications.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Null, or the token from a previous call to get the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to include in the response. If more
-    -- results exist than the specified @MaxResults@ value, a token is included
-    -- in the response so that the remaining results can be retrieved.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The Amazon Resource Name (ARN) of the application. The format for this
+  { -- | The Amazon Resource Name (ARN) of the application. The format for this
     -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /AWS General Reference/.
-    appArn :: Prelude.Maybe Prelude.Text
+    appArn :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to include in the response. If more
+    -- results exist than the specified @MaxResults@ value, a token is included
+    -- in the response so that the remaining results can be retrieved.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The name for the one of the listed applications.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | Null, or the token from a previous call to get the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,42 +78,28 @@ data ListApps = ListApps'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'listApps_name' - The name for the one of the listed applications.
---
--- 'nextToken', 'listApps_nextToken' - Null, or the token from a previous call to get the next set of results.
---
--- 'maxResults', 'listApps_maxResults' - The maximum number of results to include in the response. If more
--- results exist than the specified @MaxResults@ value, a token is included
--- in the response so that the remaining results can be retrieved.
---
 -- 'appArn', 'listApps_appArn' - The Amazon Resource Name (ARN) of the application. The format for this
 -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /AWS General Reference/.
+--
+-- 'maxResults', 'listApps_maxResults' - The maximum number of results to include in the response. If more
+-- results exist than the specified @MaxResults@ value, a token is included
+-- in the response so that the remaining results can be retrieved.
+--
+-- 'name', 'listApps_name' - The name for the one of the listed applications.
+--
+-- 'nextToken', 'listApps_nextToken' - Null, or the token from a previous call to get the next set of results.
 newListApps ::
   ListApps
 newListApps =
   ListApps'
-    { name = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { appArn = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      appArn = Prelude.Nothing
+      name = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The name for the one of the listed applications.
-listApps_name :: Lens.Lens' ListApps (Prelude.Maybe Prelude.Text)
-listApps_name = Lens.lens (\ListApps' {name} -> name) (\s@ListApps' {} a -> s {name = a} :: ListApps)
-
--- | Null, or the token from a previous call to get the next set of results.
-listApps_nextToken :: Lens.Lens' ListApps (Prelude.Maybe Prelude.Text)
-listApps_nextToken = Lens.lens (\ListApps' {nextToken} -> nextToken) (\s@ListApps' {} a -> s {nextToken = a} :: ListApps)
-
--- | The maximum number of results to include in the response. If more
--- results exist than the specified @MaxResults@ value, a token is included
--- in the response so that the remaining results can be retrieved.
-listApps_maxResults :: Lens.Lens' ListApps (Prelude.Maybe Prelude.Natural)
-listApps_maxResults = Lens.lens (\ListApps' {maxResults} -> maxResults) (\s@ListApps' {} a -> s {maxResults = a} :: ListApps)
 
 -- | The Amazon Resource Name (ARN) of the application. The format for this
 -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
@@ -122,6 +108,20 @@ listApps_maxResults = Lens.lens (\ListApps' {maxResults} -> maxResults) (\s@List
 -- in the /AWS General Reference/.
 listApps_appArn :: Lens.Lens' ListApps (Prelude.Maybe Prelude.Text)
 listApps_appArn = Lens.lens (\ListApps' {appArn} -> appArn) (\s@ListApps' {} a -> s {appArn = a} :: ListApps)
+
+-- | The maximum number of results to include in the response. If more
+-- results exist than the specified @MaxResults@ value, a token is included
+-- in the response so that the remaining results can be retrieved.
+listApps_maxResults :: Lens.Lens' ListApps (Prelude.Maybe Prelude.Natural)
+listApps_maxResults = Lens.lens (\ListApps' {maxResults} -> maxResults) (\s@ListApps' {} a -> s {maxResults = a} :: ListApps)
+
+-- | The name for the one of the listed applications.
+listApps_name :: Lens.Lens' ListApps (Prelude.Maybe Prelude.Text)
+listApps_name = Lens.lens (\ListApps' {name} -> name) (\s@ListApps' {} a -> s {name = a} :: ListApps)
+
+-- | Null, or the token from a previous call to get the next set of results.
+listApps_nextToken :: Lens.Lens' ListApps (Prelude.Maybe Prelude.Text)
+listApps_nextToken = Lens.lens (\ListApps' {nextToken} -> nextToken) (\s@ListApps' {} a -> s {nextToken = a} :: ListApps)
 
 instance Core.AWSRequest ListApps where
   type AWSResponse ListApps = ListAppsResponse
@@ -138,17 +138,17 @@ instance Core.AWSRequest ListApps where
 
 instance Prelude.Hashable ListApps where
   hashWithSalt _salt ListApps' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` appArn
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` appArn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListApps where
   rnf ListApps' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf appArn
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf appArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListApps where
   toHeaders =
@@ -167,10 +167,10 @@ instance Data.ToPath ListApps where
 instance Data.ToQuery ListApps where
   toQuery ListApps' {..} =
     Prelude.mconcat
-      [ "name" Data.=: name,
-        "nextToken" Data.=: nextToken,
+      [ "appArn" Data.=: appArn,
         "maxResults" Data.=: maxResults,
-        "appArn" Data.=: appArn
+        "name" Data.=: name,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListAppsResponse' smart constructor.

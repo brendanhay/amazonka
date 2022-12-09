@@ -29,7 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newQueryRuntimeStatisticsTimeline' smart constructor.
 data QueryRuntimeStatisticsTimeline = QueryRuntimeStatisticsTimeline'
-  { -- | The number of milliseconds that the query was in your query queue
+  { -- | The number of milliseconds that the query took to execute.
+    engineExecutionTimeInMillis :: Prelude.Maybe Prelude.Integer,
+    -- | The number of milliseconds that Athena took to plan the query processing
+    -- flow. This includes the time spent retrieving table partitions from the
+    -- data source. Note that because the query engine performs the query
+    -- planning, query planning time is a subset of engine processing time.
+    queryPlanningTimeInMillis :: Prelude.Maybe Prelude.Integer,
+    -- | The number of milliseconds that the query was in your query queue
     -- waiting for resources. Note that if transient errors occur, Athena might
     -- automatically add the query back to the queue.
     queryQueueTimeInMillis :: Prelude.Maybe Prelude.Integer,
@@ -37,14 +44,7 @@ data QueryRuntimeStatisticsTimeline = QueryRuntimeStatisticsTimeline'
     -- query results after the query engine finished running the query.
     serviceProcessingTimeInMillis :: Prelude.Maybe Prelude.Integer,
     -- | The number of milliseconds that Athena took to run the query.
-    totalExecutionTimeInMillis :: Prelude.Maybe Prelude.Integer,
-    -- | The number of milliseconds that the query took to execute.
-    engineExecutionTimeInMillis :: Prelude.Maybe Prelude.Integer,
-    -- | The number of milliseconds that Athena took to plan the query processing
-    -- flow. This includes the time spent retrieving table partitions from the
-    -- data source. Note that because the query engine performs the query
-    -- planning, query planning time is a subset of engine processing time.
-    queryPlanningTimeInMillis :: Prelude.Maybe Prelude.Integer
+    totalExecutionTimeInMillis :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,6 +56,13 @@ data QueryRuntimeStatisticsTimeline = QueryRuntimeStatisticsTimeline'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'engineExecutionTimeInMillis', 'queryRuntimeStatisticsTimeline_engineExecutionTimeInMillis' - The number of milliseconds that the query took to execute.
+--
+-- 'queryPlanningTimeInMillis', 'queryRuntimeStatisticsTimeline_queryPlanningTimeInMillis' - The number of milliseconds that Athena took to plan the query processing
+-- flow. This includes the time spent retrieving table partitions from the
+-- data source. Note that because the query engine performs the query
+-- planning, query planning time is a subset of engine processing time.
+--
 -- 'queryQueueTimeInMillis', 'queryRuntimeStatisticsTimeline_queryQueueTimeInMillis' - The number of milliseconds that the query was in your query queue
 -- waiting for resources. Note that if transient errors occur, Athena might
 -- automatically add the query back to the queue.
@@ -64,27 +71,30 @@ data QueryRuntimeStatisticsTimeline = QueryRuntimeStatisticsTimeline'
 -- query results after the query engine finished running the query.
 --
 -- 'totalExecutionTimeInMillis', 'queryRuntimeStatisticsTimeline_totalExecutionTimeInMillis' - The number of milliseconds that Athena took to run the query.
---
--- 'engineExecutionTimeInMillis', 'queryRuntimeStatisticsTimeline_engineExecutionTimeInMillis' - The number of milliseconds that the query took to execute.
---
--- 'queryPlanningTimeInMillis', 'queryRuntimeStatisticsTimeline_queryPlanningTimeInMillis' - The number of milliseconds that Athena took to plan the query processing
--- flow. This includes the time spent retrieving table partitions from the
--- data source. Note that because the query engine performs the query
--- planning, query planning time is a subset of engine processing time.
 newQueryRuntimeStatisticsTimeline ::
   QueryRuntimeStatisticsTimeline
 newQueryRuntimeStatisticsTimeline =
   QueryRuntimeStatisticsTimeline'
-    { queryQueueTimeInMillis =
+    { engineExecutionTimeInMillis =
         Prelude.Nothing,
+      queryPlanningTimeInMillis = Prelude.Nothing,
+      queryQueueTimeInMillis = Prelude.Nothing,
       serviceProcessingTimeInMillis =
         Prelude.Nothing,
       totalExecutionTimeInMillis =
-        Prelude.Nothing,
-      engineExecutionTimeInMillis =
-        Prelude.Nothing,
-      queryPlanningTimeInMillis = Prelude.Nothing
+        Prelude.Nothing
     }
+
+-- | The number of milliseconds that the query took to execute.
+queryRuntimeStatisticsTimeline_engineExecutionTimeInMillis :: Lens.Lens' QueryRuntimeStatisticsTimeline (Prelude.Maybe Prelude.Integer)
+queryRuntimeStatisticsTimeline_engineExecutionTimeInMillis = Lens.lens (\QueryRuntimeStatisticsTimeline' {engineExecutionTimeInMillis} -> engineExecutionTimeInMillis) (\s@QueryRuntimeStatisticsTimeline' {} a -> s {engineExecutionTimeInMillis = a} :: QueryRuntimeStatisticsTimeline)
+
+-- | The number of milliseconds that Athena took to plan the query processing
+-- flow. This includes the time spent retrieving table partitions from the
+-- data source. Note that because the query engine performs the query
+-- planning, query planning time is a subset of engine processing time.
+queryRuntimeStatisticsTimeline_queryPlanningTimeInMillis :: Lens.Lens' QueryRuntimeStatisticsTimeline (Prelude.Maybe Prelude.Integer)
+queryRuntimeStatisticsTimeline_queryPlanningTimeInMillis = Lens.lens (\QueryRuntimeStatisticsTimeline' {queryPlanningTimeInMillis} -> queryPlanningTimeInMillis) (\s@QueryRuntimeStatisticsTimeline' {} a -> s {queryPlanningTimeInMillis = a} :: QueryRuntimeStatisticsTimeline)
 
 -- | The number of milliseconds that the query was in your query queue
 -- waiting for resources. Note that if transient errors occur, Athena might
@@ -101,28 +111,17 @@ queryRuntimeStatisticsTimeline_serviceProcessingTimeInMillis = Lens.lens (\Query
 queryRuntimeStatisticsTimeline_totalExecutionTimeInMillis :: Lens.Lens' QueryRuntimeStatisticsTimeline (Prelude.Maybe Prelude.Integer)
 queryRuntimeStatisticsTimeline_totalExecutionTimeInMillis = Lens.lens (\QueryRuntimeStatisticsTimeline' {totalExecutionTimeInMillis} -> totalExecutionTimeInMillis) (\s@QueryRuntimeStatisticsTimeline' {} a -> s {totalExecutionTimeInMillis = a} :: QueryRuntimeStatisticsTimeline)
 
--- | The number of milliseconds that the query took to execute.
-queryRuntimeStatisticsTimeline_engineExecutionTimeInMillis :: Lens.Lens' QueryRuntimeStatisticsTimeline (Prelude.Maybe Prelude.Integer)
-queryRuntimeStatisticsTimeline_engineExecutionTimeInMillis = Lens.lens (\QueryRuntimeStatisticsTimeline' {engineExecutionTimeInMillis} -> engineExecutionTimeInMillis) (\s@QueryRuntimeStatisticsTimeline' {} a -> s {engineExecutionTimeInMillis = a} :: QueryRuntimeStatisticsTimeline)
-
--- | The number of milliseconds that Athena took to plan the query processing
--- flow. This includes the time spent retrieving table partitions from the
--- data source. Note that because the query engine performs the query
--- planning, query planning time is a subset of engine processing time.
-queryRuntimeStatisticsTimeline_queryPlanningTimeInMillis :: Lens.Lens' QueryRuntimeStatisticsTimeline (Prelude.Maybe Prelude.Integer)
-queryRuntimeStatisticsTimeline_queryPlanningTimeInMillis = Lens.lens (\QueryRuntimeStatisticsTimeline' {queryPlanningTimeInMillis} -> queryPlanningTimeInMillis) (\s@QueryRuntimeStatisticsTimeline' {} a -> s {queryPlanningTimeInMillis = a} :: QueryRuntimeStatisticsTimeline)
-
 instance Data.FromJSON QueryRuntimeStatisticsTimeline where
   parseJSON =
     Data.withObject
       "QueryRuntimeStatisticsTimeline"
       ( \x ->
           QueryRuntimeStatisticsTimeline'
-            Prelude.<$> (x Data..:? "QueryQueueTimeInMillis")
+            Prelude.<$> (x Data..:? "EngineExecutionTimeInMillis")
+            Prelude.<*> (x Data..:? "QueryPlanningTimeInMillis")
+            Prelude.<*> (x Data..:? "QueryQueueTimeInMillis")
             Prelude.<*> (x Data..:? "ServiceProcessingTimeInMillis")
             Prelude.<*> (x Data..:? "TotalExecutionTimeInMillis")
-            Prelude.<*> (x Data..:? "EngineExecutionTimeInMillis")
-            Prelude.<*> (x Data..:? "QueryPlanningTimeInMillis")
       )
 
 instance
@@ -132,19 +131,20 @@ instance
   hashWithSalt
     _salt
     QueryRuntimeStatisticsTimeline' {..} =
-      _salt `Prelude.hashWithSalt` queryQueueTimeInMillis
-        `Prelude.hashWithSalt` serviceProcessingTimeInMillis
-        `Prelude.hashWithSalt` totalExecutionTimeInMillis
+      _salt
         `Prelude.hashWithSalt` engineExecutionTimeInMillis
         `Prelude.hashWithSalt` queryPlanningTimeInMillis
+        `Prelude.hashWithSalt` queryQueueTimeInMillis
+        `Prelude.hashWithSalt` serviceProcessingTimeInMillis
+        `Prelude.hashWithSalt` totalExecutionTimeInMillis
 
 instance
   Prelude.NFData
     QueryRuntimeStatisticsTimeline
   where
   rnf QueryRuntimeStatisticsTimeline' {..} =
-    Prelude.rnf queryQueueTimeInMillis
+    Prelude.rnf engineExecutionTimeInMillis
+      `Prelude.seq` Prelude.rnf queryPlanningTimeInMillis
+      `Prelude.seq` Prelude.rnf queryQueueTimeInMillis
       `Prelude.seq` Prelude.rnf serviceProcessingTimeInMillis
       `Prelude.seq` Prelude.rnf totalExecutionTimeInMillis
-      `Prelude.seq` Prelude.rnf engineExecutionTimeInMillis
-      `Prelude.seq` Prelude.rnf queryPlanningTimeInMillis

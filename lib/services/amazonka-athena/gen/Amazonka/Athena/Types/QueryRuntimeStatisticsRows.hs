@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 data QueryRuntimeStatisticsRows = QueryRuntimeStatisticsRows'
   { -- | The number of bytes read to execute the query.
     inputBytes :: Prelude.Maybe Prelude.Integer,
-    -- | The number of bytes returned by the query.
-    outputBytes :: Prelude.Maybe Prelude.Integer,
     -- | The number of rows read to execute the query.
     inputRows :: Prelude.Maybe Prelude.Integer,
+    -- | The number of bytes returned by the query.
+    outputBytes :: Prelude.Maybe Prelude.Integer,
     -- | The number of rows returned by the query.
     outputRows :: Prelude.Maybe Prelude.Integer
   }
@@ -50,9 +50,9 @@ data QueryRuntimeStatisticsRows = QueryRuntimeStatisticsRows'
 --
 -- 'inputBytes', 'queryRuntimeStatisticsRows_inputBytes' - The number of bytes read to execute the query.
 --
--- 'outputBytes', 'queryRuntimeStatisticsRows_outputBytes' - The number of bytes returned by the query.
---
 -- 'inputRows', 'queryRuntimeStatisticsRows_inputRows' - The number of rows read to execute the query.
+--
+-- 'outputBytes', 'queryRuntimeStatisticsRows_outputBytes' - The number of bytes returned by the query.
 --
 -- 'outputRows', 'queryRuntimeStatisticsRows_outputRows' - The number of rows returned by the query.
 newQueryRuntimeStatisticsRows ::
@@ -61,8 +61,8 @@ newQueryRuntimeStatisticsRows =
   QueryRuntimeStatisticsRows'
     { inputBytes =
         Prelude.Nothing,
-      outputBytes = Prelude.Nothing,
       inputRows = Prelude.Nothing,
+      outputBytes = Prelude.Nothing,
       outputRows = Prelude.Nothing
     }
 
@@ -70,13 +70,13 @@ newQueryRuntimeStatisticsRows =
 queryRuntimeStatisticsRows_inputBytes :: Lens.Lens' QueryRuntimeStatisticsRows (Prelude.Maybe Prelude.Integer)
 queryRuntimeStatisticsRows_inputBytes = Lens.lens (\QueryRuntimeStatisticsRows' {inputBytes} -> inputBytes) (\s@QueryRuntimeStatisticsRows' {} a -> s {inputBytes = a} :: QueryRuntimeStatisticsRows)
 
--- | The number of bytes returned by the query.
-queryRuntimeStatisticsRows_outputBytes :: Lens.Lens' QueryRuntimeStatisticsRows (Prelude.Maybe Prelude.Integer)
-queryRuntimeStatisticsRows_outputBytes = Lens.lens (\QueryRuntimeStatisticsRows' {outputBytes} -> outputBytes) (\s@QueryRuntimeStatisticsRows' {} a -> s {outputBytes = a} :: QueryRuntimeStatisticsRows)
-
 -- | The number of rows read to execute the query.
 queryRuntimeStatisticsRows_inputRows :: Lens.Lens' QueryRuntimeStatisticsRows (Prelude.Maybe Prelude.Integer)
 queryRuntimeStatisticsRows_inputRows = Lens.lens (\QueryRuntimeStatisticsRows' {inputRows} -> inputRows) (\s@QueryRuntimeStatisticsRows' {} a -> s {inputRows = a} :: QueryRuntimeStatisticsRows)
+
+-- | The number of bytes returned by the query.
+queryRuntimeStatisticsRows_outputBytes :: Lens.Lens' QueryRuntimeStatisticsRows (Prelude.Maybe Prelude.Integer)
+queryRuntimeStatisticsRows_outputBytes = Lens.lens (\QueryRuntimeStatisticsRows' {outputBytes} -> outputBytes) (\s@QueryRuntimeStatisticsRows' {} a -> s {outputBytes = a} :: QueryRuntimeStatisticsRows)
 
 -- | The number of rows returned by the query.
 queryRuntimeStatisticsRows_outputRows :: Lens.Lens' QueryRuntimeStatisticsRows (Prelude.Maybe Prelude.Integer)
@@ -89,21 +89,21 @@ instance Data.FromJSON QueryRuntimeStatisticsRows where
       ( \x ->
           QueryRuntimeStatisticsRows'
             Prelude.<$> (x Data..:? "InputBytes")
-            Prelude.<*> (x Data..:? "OutputBytes")
             Prelude.<*> (x Data..:? "InputRows")
+            Prelude.<*> (x Data..:? "OutputBytes")
             Prelude.<*> (x Data..:? "OutputRows")
       )
 
 instance Prelude.Hashable QueryRuntimeStatisticsRows where
   hashWithSalt _salt QueryRuntimeStatisticsRows' {..} =
     _salt `Prelude.hashWithSalt` inputBytes
-      `Prelude.hashWithSalt` outputBytes
       `Prelude.hashWithSalt` inputRows
+      `Prelude.hashWithSalt` outputBytes
       `Prelude.hashWithSalt` outputRows
 
 instance Prelude.NFData QueryRuntimeStatisticsRows where
   rnf QueryRuntimeStatisticsRows' {..} =
     Prelude.rnf inputBytes
-      `Prelude.seq` Prelude.rnf outputBytes
       `Prelude.seq` Prelude.rnf inputRows
+      `Prelude.seq` Prelude.rnf outputBytes
       `Prelude.seq` Prelude.rnf outputRows

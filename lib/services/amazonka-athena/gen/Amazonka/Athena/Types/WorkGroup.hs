@@ -50,12 +50,12 @@ data WorkGroup = WorkGroup'
     -- @WorkGroupConfiguration@. See
     -- WorkGroupConfiguration$EnforceWorkGroupConfiguration.
     configuration :: Prelude.Maybe WorkGroupConfiguration,
-    -- | The state of the workgroup: ENABLED or DISABLED.
-    state :: Prelude.Maybe WorkGroupState,
-    -- | The workgroup description.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The date and time the workgroup was created.
     creationTime :: Prelude.Maybe Data.POSIX,
+    -- | The workgroup description.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The state of the workgroup: ENABLED or DISABLED.
+    state :: Prelude.Maybe WorkGroupState,
     -- | The workgroup name.
     name :: Prelude.Text
   }
@@ -79,11 +79,11 @@ data WorkGroup = WorkGroup'
 -- @WorkGroupConfiguration@. See
 -- WorkGroupConfiguration$EnforceWorkGroupConfiguration.
 --
--- 'state', 'workGroup_state' - The state of the workgroup: ENABLED or DISABLED.
+-- 'creationTime', 'workGroup_creationTime' - The date and time the workgroup was created.
 --
 -- 'description', 'workGroup_description' - The workgroup description.
 --
--- 'creationTime', 'workGroup_creationTime' - The date and time the workgroup was created.
+-- 'state', 'workGroup_state' - The state of the workgroup: ENABLED or DISABLED.
 --
 -- 'name', 'workGroup_name' - The workgroup name.
 newWorkGroup ::
@@ -93,9 +93,9 @@ newWorkGroup ::
 newWorkGroup pName_ =
   WorkGroup'
     { configuration = Prelude.Nothing,
-      state = Prelude.Nothing,
-      description = Prelude.Nothing,
       creationTime = Prelude.Nothing,
+      description = Prelude.Nothing,
+      state = Prelude.Nothing,
       name = pName_
     }
 
@@ -111,17 +111,17 @@ newWorkGroup pName_ =
 workGroup_configuration :: Lens.Lens' WorkGroup (Prelude.Maybe WorkGroupConfiguration)
 workGroup_configuration = Lens.lens (\WorkGroup' {configuration} -> configuration) (\s@WorkGroup' {} a -> s {configuration = a} :: WorkGroup)
 
--- | The state of the workgroup: ENABLED or DISABLED.
-workGroup_state :: Lens.Lens' WorkGroup (Prelude.Maybe WorkGroupState)
-workGroup_state = Lens.lens (\WorkGroup' {state} -> state) (\s@WorkGroup' {} a -> s {state = a} :: WorkGroup)
+-- | The date and time the workgroup was created.
+workGroup_creationTime :: Lens.Lens' WorkGroup (Prelude.Maybe Prelude.UTCTime)
+workGroup_creationTime = Lens.lens (\WorkGroup' {creationTime} -> creationTime) (\s@WorkGroup' {} a -> s {creationTime = a} :: WorkGroup) Prelude.. Lens.mapping Data._Time
 
 -- | The workgroup description.
 workGroup_description :: Lens.Lens' WorkGroup (Prelude.Maybe Prelude.Text)
 workGroup_description = Lens.lens (\WorkGroup' {description} -> description) (\s@WorkGroup' {} a -> s {description = a} :: WorkGroup)
 
--- | The date and time the workgroup was created.
-workGroup_creationTime :: Lens.Lens' WorkGroup (Prelude.Maybe Prelude.UTCTime)
-workGroup_creationTime = Lens.lens (\WorkGroup' {creationTime} -> creationTime) (\s@WorkGroup' {} a -> s {creationTime = a} :: WorkGroup) Prelude.. Lens.mapping Data._Time
+-- | The state of the workgroup: ENABLED or DISABLED.
+workGroup_state :: Lens.Lens' WorkGroup (Prelude.Maybe WorkGroupState)
+workGroup_state = Lens.lens (\WorkGroup' {state} -> state) (\s@WorkGroup' {} a -> s {state = a} :: WorkGroup)
 
 -- | The workgroup name.
 workGroup_name :: Lens.Lens' WorkGroup Prelude.Text
@@ -134,24 +134,24 @@ instance Data.FromJSON WorkGroup where
       ( \x ->
           WorkGroup'
             Prelude.<$> (x Data..:? "Configuration")
-            Prelude.<*> (x Data..:? "State")
-            Prelude.<*> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "State")
             Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable WorkGroup where
   hashWithSalt _salt WorkGroup' {..} =
     _salt `Prelude.hashWithSalt` configuration
-      `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData WorkGroup where
   rnf WorkGroup' {..} =
     Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf name

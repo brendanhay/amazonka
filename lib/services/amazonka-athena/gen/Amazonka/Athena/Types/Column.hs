@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newColumn' smart constructor.
 data Column = Column'
-  { -- | The data type of the column.
-    type' :: Prelude.Maybe Prelude.Text,
-    -- | Optional information about the column.
+  { -- | Optional information about the column.
     comment :: Prelude.Maybe Prelude.Text,
+    -- | The data type of the column.
+    type' :: Prelude.Maybe Prelude.Text,
     -- | The name of the column.
     name :: Prelude.Text
   }
@@ -45,9 +45,9 @@ data Column = Column'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'column_type' - The data type of the column.
---
 -- 'comment', 'column_comment' - Optional information about the column.
+--
+-- 'type'', 'column_type' - The data type of the column.
 --
 -- 'name', 'column_name' - The name of the column.
 newColumn ::
@@ -56,18 +56,18 @@ newColumn ::
   Column
 newColumn pName_ =
   Column'
-    { type' = Prelude.Nothing,
-      comment = Prelude.Nothing,
+    { comment = Prelude.Nothing,
+      type' = Prelude.Nothing,
       name = pName_
     }
-
--- | The data type of the column.
-column_type :: Lens.Lens' Column (Prelude.Maybe Prelude.Text)
-column_type = Lens.lens (\Column' {type'} -> type') (\s@Column' {} a -> s {type' = a} :: Column)
 
 -- | Optional information about the column.
 column_comment :: Lens.Lens' Column (Prelude.Maybe Prelude.Text)
 column_comment = Lens.lens (\Column' {comment} -> comment) (\s@Column' {} a -> s {comment = a} :: Column)
+
+-- | The data type of the column.
+column_type :: Lens.Lens' Column (Prelude.Maybe Prelude.Text)
+column_type = Lens.lens (\Column' {type'} -> type') (\s@Column' {} a -> s {type' = a} :: Column)
 
 -- | The name of the column.
 column_name :: Lens.Lens' Column Prelude.Text
@@ -79,19 +79,19 @@ instance Data.FromJSON Column where
       "Column"
       ( \x ->
           Column'
-            Prelude.<$> (x Data..:? "Type")
-            Prelude.<*> (x Data..:? "Comment")
+            Prelude.<$> (x Data..:? "Comment")
+            Prelude.<*> (x Data..:? "Type")
             Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable Column where
   hashWithSalt _salt Column' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` comment
+    _salt `Prelude.hashWithSalt` comment
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData Column where
   rnf Column' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf comment
+    Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf name

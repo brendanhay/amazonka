@@ -33,8 +33,8 @@ module Amazonka.Athena.CreateNamedQuery
 
     -- * Request Lenses
     createNamedQuery_clientRequestToken,
-    createNamedQuery_workGroup,
     createNamedQuery_description,
+    createNamedQuery_workGroup,
     createNamedQuery_name,
     createNamedQuery_database,
     createNamedQuery_queryString,
@@ -71,10 +71,10 @@ data CreateNamedQuery = CreateNamedQuery'
     -- Amazon Web Services CLI, you must provide this token or the action will
     -- fail.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | The name of the workgroup in which the named query is being created.
-    workGroup :: Prelude.Maybe Prelude.Text,
     -- | The query description.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The name of the workgroup in which the named query is being created.
+    workGroup :: Prelude.Maybe Prelude.Text,
     -- | The query name.
     name :: Prelude.Text,
     -- | The database to which the query belongs.
@@ -104,9 +104,9 @@ data CreateNamedQuery = CreateNamedQuery'
 -- Amazon Web Services CLI, you must provide this token or the action will
 -- fail.
 --
--- 'workGroup', 'createNamedQuery_workGroup' - The name of the workgroup in which the named query is being created.
---
 -- 'description', 'createNamedQuery_description' - The query description.
+--
+-- 'workGroup', 'createNamedQuery_workGroup' - The name of the workgroup in which the named query is being created.
 --
 -- 'name', 'createNamedQuery_name' - The query name.
 --
@@ -125,8 +125,8 @@ newCreateNamedQuery pName_ pDatabase_ pQueryString_ =
   CreateNamedQuery'
     { clientRequestToken =
         Prelude.Nothing,
-      workGroup = Prelude.Nothing,
       description = Prelude.Nothing,
+      workGroup = Prelude.Nothing,
       name = pName_,
       database = pDatabase_,
       queryString = pQueryString_
@@ -146,13 +146,13 @@ newCreateNamedQuery pName_ pDatabase_ pQueryString_ =
 createNamedQuery_clientRequestToken :: Lens.Lens' CreateNamedQuery (Prelude.Maybe Prelude.Text)
 createNamedQuery_clientRequestToken = Lens.lens (\CreateNamedQuery' {clientRequestToken} -> clientRequestToken) (\s@CreateNamedQuery' {} a -> s {clientRequestToken = a} :: CreateNamedQuery)
 
--- | The name of the workgroup in which the named query is being created.
-createNamedQuery_workGroup :: Lens.Lens' CreateNamedQuery (Prelude.Maybe Prelude.Text)
-createNamedQuery_workGroup = Lens.lens (\CreateNamedQuery' {workGroup} -> workGroup) (\s@CreateNamedQuery' {} a -> s {workGroup = a} :: CreateNamedQuery)
-
 -- | The query description.
 createNamedQuery_description :: Lens.Lens' CreateNamedQuery (Prelude.Maybe Prelude.Text)
 createNamedQuery_description = Lens.lens (\CreateNamedQuery' {description} -> description) (\s@CreateNamedQuery' {} a -> s {description = a} :: CreateNamedQuery)
+
+-- | The name of the workgroup in which the named query is being created.
+createNamedQuery_workGroup :: Lens.Lens' CreateNamedQuery (Prelude.Maybe Prelude.Text)
+createNamedQuery_workGroup = Lens.lens (\CreateNamedQuery' {workGroup} -> workGroup) (\s@CreateNamedQuery' {} a -> s {workGroup = a} :: CreateNamedQuery)
 
 -- | The query name.
 createNamedQuery_name :: Lens.Lens' CreateNamedQuery Prelude.Text
@@ -183,8 +183,8 @@ instance Core.AWSRequest CreateNamedQuery where
 instance Prelude.Hashable CreateNamedQuery where
   hashWithSalt _salt CreateNamedQuery' {..} =
     _salt `Prelude.hashWithSalt` clientRequestToken
-      `Prelude.hashWithSalt` workGroup
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` workGroup
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` database
       `Prelude.hashWithSalt` queryString
@@ -192,8 +192,8 @@ instance Prelude.Hashable CreateNamedQuery where
 instance Prelude.NFData CreateNamedQuery where
   rnf CreateNamedQuery' {..} =
     Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf workGroup
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf workGroup
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf database
       `Prelude.seq` Prelude.rnf queryString
@@ -219,8 +219,8 @@ instance Data.ToJSON CreateNamedQuery where
       ( Prelude.catMaybes
           [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("WorkGroup" Data..=) Prelude.<$> workGroup,
             ("Description" Data..=) Prelude.<$> description,
+            ("WorkGroup" Data..=) Prelude.<$> workGroup,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("Database" Data..= database),
             Prelude.Just ("QueryString" Data..= queryString)

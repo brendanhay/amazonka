@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNamedQuery' smart constructor.
 data NamedQuery = NamedQuery'
-  { -- | The name of the workgroup that contains the named query.
-    workGroup :: Prelude.Maybe Prelude.Text,
-    -- | The query description.
+  { -- | The query description.
     description :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the query.
     namedQueryId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the workgroup that contains the named query.
+    workGroup :: Prelude.Maybe Prelude.Text,
     -- | The query name.
     name :: Prelude.Text,
     -- | The database to which the query belongs.
@@ -52,11 +52,11 @@ data NamedQuery = NamedQuery'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'workGroup', 'namedQuery_workGroup' - The name of the workgroup that contains the named query.
---
 -- 'description', 'namedQuery_description' - The query description.
 --
 -- 'namedQueryId', 'namedQuery_namedQueryId' - The unique identifier of the query.
+--
+-- 'workGroup', 'namedQuery_workGroup' - The name of the workgroup that contains the named query.
 --
 -- 'name', 'namedQuery_name' - The query name.
 --
@@ -73,17 +73,13 @@ newNamedQuery ::
   NamedQuery
 newNamedQuery pName_ pDatabase_ pQueryString_ =
   NamedQuery'
-    { workGroup = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
       namedQueryId = Prelude.Nothing,
+      workGroup = Prelude.Nothing,
       name = pName_,
       database = pDatabase_,
       queryString = pQueryString_
     }
-
--- | The name of the workgroup that contains the named query.
-namedQuery_workGroup :: Lens.Lens' NamedQuery (Prelude.Maybe Prelude.Text)
-namedQuery_workGroup = Lens.lens (\NamedQuery' {workGroup} -> workGroup) (\s@NamedQuery' {} a -> s {workGroup = a} :: NamedQuery)
 
 -- | The query description.
 namedQuery_description :: Lens.Lens' NamedQuery (Prelude.Maybe Prelude.Text)
@@ -92,6 +88,10 @@ namedQuery_description = Lens.lens (\NamedQuery' {description} -> description) (
 -- | The unique identifier of the query.
 namedQuery_namedQueryId :: Lens.Lens' NamedQuery (Prelude.Maybe Prelude.Text)
 namedQuery_namedQueryId = Lens.lens (\NamedQuery' {namedQueryId} -> namedQueryId) (\s@NamedQuery' {} a -> s {namedQueryId = a} :: NamedQuery)
+
+-- | The name of the workgroup that contains the named query.
+namedQuery_workGroup :: Lens.Lens' NamedQuery (Prelude.Maybe Prelude.Text)
+namedQuery_workGroup = Lens.lens (\NamedQuery' {workGroup} -> workGroup) (\s@NamedQuery' {} a -> s {workGroup = a} :: NamedQuery)
 
 -- | The query name.
 namedQuery_name :: Lens.Lens' NamedQuery Prelude.Text
@@ -111,9 +111,9 @@ instance Data.FromJSON NamedQuery where
       "NamedQuery"
       ( \x ->
           NamedQuery'
-            Prelude.<$> (x Data..:? "WorkGroup")
-            Prelude.<*> (x Data..:? "Description")
+            Prelude.<$> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "NamedQueryId")
+            Prelude.<*> (x Data..:? "WorkGroup")
             Prelude.<*> (x Data..: "Name")
             Prelude.<*> (x Data..: "Database")
             Prelude.<*> (x Data..: "QueryString")
@@ -121,18 +121,18 @@ instance Data.FromJSON NamedQuery where
 
 instance Prelude.Hashable NamedQuery where
   hashWithSalt _salt NamedQuery' {..} =
-    _salt `Prelude.hashWithSalt` workGroup
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` namedQueryId
+      `Prelude.hashWithSalt` workGroup
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` database
       `Prelude.hashWithSalt` queryString
 
 instance Prelude.NFData NamedQuery where
   rnf NamedQuery' {..} =
-    Prelude.rnf workGroup
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf namedQueryId
+      `Prelude.seq` Prelude.rnf workGroup
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf database
       `Prelude.seq` Prelude.rnf queryString

@@ -49,40 +49,69 @@ library
     Amazonka.Athena.BatchGetQueryExecution
     Amazonka.Athena.CreateDataCatalog
     Amazonka.Athena.CreateNamedQuery
+    Amazonka.Athena.CreateNotebook
     Amazonka.Athena.CreatePreparedStatement
+    Amazonka.Athena.CreatePresignedNotebookUrl
     Amazonka.Athena.CreateWorkGroup
     Amazonka.Athena.DeleteDataCatalog
     Amazonka.Athena.DeleteNamedQuery
+    Amazonka.Athena.DeleteNotebook
     Amazonka.Athena.DeletePreparedStatement
     Amazonka.Athena.DeleteWorkGroup
+    Amazonka.Athena.ExportNotebook
+    Amazonka.Athena.GetCalculationExecution
+    Amazonka.Athena.GetCalculationExecutionCode
+    Amazonka.Athena.GetCalculationExecutionStatus
     Amazonka.Athena.GetDatabase
     Amazonka.Athena.GetDataCatalog
     Amazonka.Athena.GetNamedQuery
+    Amazonka.Athena.GetNotebookMetadata
     Amazonka.Athena.GetPreparedStatement
     Amazonka.Athena.GetQueryExecution
     Amazonka.Athena.GetQueryResults
     Amazonka.Athena.GetQueryRuntimeStatistics
+    Amazonka.Athena.GetSession
+    Amazonka.Athena.GetSessionStatus
     Amazonka.Athena.GetTableMetadata
     Amazonka.Athena.GetWorkGroup
+    Amazonka.Athena.ImportNotebook
     Amazonka.Athena.Lens
+    Amazonka.Athena.ListApplicationDPUSizes
+    Amazonka.Athena.ListCalculationExecutions
     Amazonka.Athena.ListDatabases
     Amazonka.Athena.ListDataCatalogs
     Amazonka.Athena.ListEngineVersions
+    Amazonka.Athena.ListExecutors
     Amazonka.Athena.ListNamedQueries
+    Amazonka.Athena.ListNotebookMetadata
+    Amazonka.Athena.ListNotebookSessions
     Amazonka.Athena.ListPreparedStatements
     Amazonka.Athena.ListQueryExecutions
+    Amazonka.Athena.ListSessions
     Amazonka.Athena.ListTableMetadata
     Amazonka.Athena.ListTagsForResource
     Amazonka.Athena.ListWorkGroups
+    Amazonka.Athena.StartCalculationExecution
     Amazonka.Athena.StartQueryExecution
+    Amazonka.Athena.StartSession
+    Amazonka.Athena.StopCalculationExecution
     Amazonka.Athena.StopQueryExecution
     Amazonka.Athena.TagResource
+    Amazonka.Athena.TerminateSession
     Amazonka.Athena.Types
     Amazonka.Athena.Types.AclConfiguration
+    Amazonka.Athena.Types.ApplicationDPUSizes
     Amazonka.Athena.Types.AthenaError
+    Amazonka.Athena.Types.CalculationConfiguration
+    Amazonka.Athena.Types.CalculationExecutionState
+    Amazonka.Athena.Types.CalculationResult
+    Amazonka.Athena.Types.CalculationStatistics
+    Amazonka.Athena.Types.CalculationStatus
+    Amazonka.Athena.Types.CalculationSummary
     Amazonka.Athena.Types.Column
     Amazonka.Athena.Types.ColumnInfo
     Amazonka.Athena.Types.ColumnNullable
+    Amazonka.Athena.Types.CustomerContentEncryptionConfiguration
     Amazonka.Athena.Types.Database
     Amazonka.Athena.Types.DataCatalog
     Amazonka.Athena.Types.DataCatalogSummary
@@ -90,8 +119,16 @@ library
     Amazonka.Athena.Types.Datum
     Amazonka.Athena.Types.EncryptionConfiguration
     Amazonka.Athena.Types.EncryptionOption
+    Amazonka.Athena.Types.EngineConfiguration
     Amazonka.Athena.Types.EngineVersion
+    Amazonka.Athena.Types.ExecutorsSummary
+    Amazonka.Athena.Types.ExecutorState
+    Amazonka.Athena.Types.ExecutorType
+    Amazonka.Athena.Types.FilterDefinition
     Amazonka.Athena.Types.NamedQuery
+    Amazonka.Athena.Types.NotebookMetadata
+    Amazonka.Athena.Types.NotebookSessionSummary
+    Amazonka.Athena.Types.NotebookType
     Amazonka.Athena.Types.PreparedStatement
     Amazonka.Athena.Types.PreparedStatementSummary
     Amazonka.Athena.Types.QueryExecution
@@ -113,6 +150,11 @@ library
     Amazonka.Athena.Types.ResultSetMetadata
     Amazonka.Athena.Types.Row
     Amazonka.Athena.Types.S3AclOption
+    Amazonka.Athena.Types.SessionConfiguration
+    Amazonka.Athena.Types.SessionState
+    Amazonka.Athena.Types.SessionStatistics
+    Amazonka.Athena.Types.SessionStatus
+    Amazonka.Athena.Types.SessionSummary
     Amazonka.Athena.Types.StatementType
     Amazonka.Athena.Types.TableMetadata
     Amazonka.Athena.Types.Tag
@@ -127,6 +169,8 @@ library
     Amazonka.Athena.UntagResource
     Amazonka.Athena.UpdateDataCatalog
     Amazonka.Athena.UpdateNamedQuery
+    Amazonka.Athena.UpdateNotebook
+    Amazonka.Athena.UpdateNotebookMetadata
     Amazonka.Athena.UpdatePreparedStatement
     Amazonka.Athena.UpdateWorkGroup
     Amazonka.Athena.Waiters

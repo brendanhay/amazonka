@@ -30,13 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDataCatalogSummary' smart constructor.
 data DataCatalogSummary = DataCatalogSummary'
-  { -- | The data catalog type.
-    type' :: Prelude.Maybe DataCatalogType,
-    -- | The name of the data catalog. The catalog name is unique for the Amazon
+  { -- | The name of the data catalog. The catalog name is unique for the Amazon
     -- Web Services account and can use a maximum of 127 alphanumeric,
     -- underscore, at sign, or hyphen characters. The remainder of the length
     -- constraint of 256 is reserved for use by Athena.
-    catalogName :: Prelude.Maybe Prelude.Text
+    catalogName :: Prelude.Maybe Prelude.Text,
+    -- | The data catalog type.
+    type' :: Prelude.Maybe DataCatalogType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,23 +48,19 @@ data DataCatalogSummary = DataCatalogSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'dataCatalogSummary_type' - The data catalog type.
---
 -- 'catalogName', 'dataCatalogSummary_catalogName' - The name of the data catalog. The catalog name is unique for the Amazon
 -- Web Services account and can use a maximum of 127 alphanumeric,
 -- underscore, at sign, or hyphen characters. The remainder of the length
 -- constraint of 256 is reserved for use by Athena.
+--
+-- 'type'', 'dataCatalogSummary_type' - The data catalog type.
 newDataCatalogSummary ::
   DataCatalogSummary
 newDataCatalogSummary =
   DataCatalogSummary'
-    { type' = Prelude.Nothing,
-      catalogName = Prelude.Nothing
+    { catalogName = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
-
--- | The data catalog type.
-dataCatalogSummary_type :: Lens.Lens' DataCatalogSummary (Prelude.Maybe DataCatalogType)
-dataCatalogSummary_type = Lens.lens (\DataCatalogSummary' {type'} -> type') (\s@DataCatalogSummary' {} a -> s {type' = a} :: DataCatalogSummary)
 
 -- | The name of the data catalog. The catalog name is unique for the Amazon
 -- Web Services account and can use a maximum of 127 alphanumeric,
@@ -73,22 +69,26 @@ dataCatalogSummary_type = Lens.lens (\DataCatalogSummary' {type'} -> type') (\s@
 dataCatalogSummary_catalogName :: Lens.Lens' DataCatalogSummary (Prelude.Maybe Prelude.Text)
 dataCatalogSummary_catalogName = Lens.lens (\DataCatalogSummary' {catalogName} -> catalogName) (\s@DataCatalogSummary' {} a -> s {catalogName = a} :: DataCatalogSummary)
 
+-- | The data catalog type.
+dataCatalogSummary_type :: Lens.Lens' DataCatalogSummary (Prelude.Maybe DataCatalogType)
+dataCatalogSummary_type = Lens.lens (\DataCatalogSummary' {type'} -> type') (\s@DataCatalogSummary' {} a -> s {type' = a} :: DataCatalogSummary)
+
 instance Data.FromJSON DataCatalogSummary where
   parseJSON =
     Data.withObject
       "DataCatalogSummary"
       ( \x ->
           DataCatalogSummary'
-            Prelude.<$> (x Data..:? "Type")
-            Prelude.<*> (x Data..:? "CatalogName")
+            Prelude.<$> (x Data..:? "CatalogName")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable DataCatalogSummary where
   hashWithSalt _salt DataCatalogSummary' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` catalogName
+    _salt `Prelude.hashWithSalt` catalogName
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData DataCatalogSummary where
   rnf DataCatalogSummary' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf catalogName
+    Prelude.rnf catalogName
+      `Prelude.seq` Prelude.rnf type'

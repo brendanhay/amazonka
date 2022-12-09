@@ -33,15 +33,8 @@ import qualified Amazonka.Prelude as Prelude
 data ResultConfigurationUpdates = ResultConfigurationUpdates'
   { -- | The ACL configuration for the query results.
     aclConfiguration :: Prelude.Maybe AclConfiguration,
-    -- | If set to \"true\", indicates that the previously-specified encryption
-    -- configuration (also known as the client-side setting) for queries in
-    -- this workgroup should be ignored and set to null. If set to \"false\" or
-    -- not set, and a value is present in the @EncryptionConfiguration@ in
-    -- @ResultConfigurationUpdates@ (the client-side setting), the
-    -- @EncryptionConfiguration@ in the workgroup\'s @ResultConfiguration@ will
-    -- be updated with the new value. For more information, see
-    -- <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings>.
-    removeEncryptionConfiguration :: Prelude.Maybe Prelude.Bool,
+    -- | The encryption configuration for the query results.
+    encryptionConfiguration :: Prelude.Maybe EncryptionConfiguration,
     -- | The Amazon Web Services account ID that you expect to be the owner of
     -- the Amazon S3 bucket specified by ResultConfiguration$OutputLocation. If
     -- set, Athena uses the value for @ExpectedBucketOwner@ when it makes
@@ -56,14 +49,6 @@ data ResultConfigurationUpdates = ResultConfigurationUpdates'
     -- workgroup. See WorkGroupConfiguration$EnforceWorkGroupConfiguration and
     -- <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings>.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
-    -- | If set to @true@, indicates that the previously-specified ACL
-    -- configuration for queries in this workgroup should be ignored and set to
-    -- null. If set to @false@ or not set, and a value is present in the
-    -- @AclConfiguration@ of @ResultConfigurationUpdates@, the
-    -- @AclConfiguration@ in the workgroup\'s @ResultConfiguration@ is updated
-    -- with the new value. For more information, see
-    -- <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings>.
-    removeAclConfiguration :: Prelude.Maybe Prelude.Bool,
     -- | The location in Amazon S3 where your query results are stored, such as
     -- @s3:\/\/path\/to\/query\/bucket\/@. For more information, see
     -- <https://docs.aws.amazon.com/athena/latest/ug/querying.html Query Results>
@@ -74,6 +59,23 @@ data ResultConfigurationUpdates = ResultConfigurationUpdates'
     -- @WorkGroupConfiguration@. See
     -- WorkGroupConfiguration$EnforceWorkGroupConfiguration.
     outputLocation :: Prelude.Maybe Prelude.Text,
+    -- | If set to @true@, indicates that the previously-specified ACL
+    -- configuration for queries in this workgroup should be ignored and set to
+    -- null. If set to @false@ or not set, and a value is present in the
+    -- @AclConfiguration@ of @ResultConfigurationUpdates@, the
+    -- @AclConfiguration@ in the workgroup\'s @ResultConfiguration@ is updated
+    -- with the new value. For more information, see
+    -- <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings>.
+    removeAclConfiguration :: Prelude.Maybe Prelude.Bool,
+    -- | If set to \"true\", indicates that the previously-specified encryption
+    -- configuration (also known as the client-side setting) for queries in
+    -- this workgroup should be ignored and set to null. If set to \"false\" or
+    -- not set, and a value is present in the @EncryptionConfiguration@ in
+    -- @ResultConfigurationUpdates@ (the client-side setting), the
+    -- @EncryptionConfiguration@ in the workgroup\'s @ResultConfiguration@ will
+    -- be updated with the new value. For more information, see
+    -- <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings>.
+    removeEncryptionConfiguration :: Prelude.Maybe Prelude.Bool,
     -- | If set to \"true\", removes the Amazon Web Services account ID
     -- previously specified for ResultConfiguration$ExpectedBucketOwner. If set
     -- to \"false\" or not set, and a value is present in the
@@ -91,9 +93,7 @@ data ResultConfigurationUpdates = ResultConfigurationUpdates'
     -- @OutputLocation@ in the workgroup\'s @ResultConfiguration@ will be
     -- updated with the new value. For more information, see
     -- <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings>.
-    removeOutputLocation :: Prelude.Maybe Prelude.Bool,
-    -- | The encryption configuration for the query results.
-    encryptionConfiguration :: Prelude.Maybe EncryptionConfiguration
+    removeOutputLocation :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -107,14 +107,7 @@ data ResultConfigurationUpdates = ResultConfigurationUpdates'
 --
 -- 'aclConfiguration', 'resultConfigurationUpdates_aclConfiguration' - The ACL configuration for the query results.
 --
--- 'removeEncryptionConfiguration', 'resultConfigurationUpdates_removeEncryptionConfiguration' - If set to \"true\", indicates that the previously-specified encryption
--- configuration (also known as the client-side setting) for queries in
--- this workgroup should be ignored and set to null. If set to \"false\" or
--- not set, and a value is present in the @EncryptionConfiguration@ in
--- @ResultConfigurationUpdates@ (the client-side setting), the
--- @EncryptionConfiguration@ in the workgroup\'s @ResultConfiguration@ will
--- be updated with the new value. For more information, see
--- <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings>.
+-- 'encryptionConfiguration', 'resultConfigurationUpdates_encryptionConfiguration' - The encryption configuration for the query results.
 --
 -- 'expectedBucketOwner', 'resultConfigurationUpdates_expectedBucketOwner' - The Amazon Web Services account ID that you expect to be the owner of
 -- the Amazon S3 bucket specified by ResultConfiguration$OutputLocation. If
@@ -130,14 +123,6 @@ data ResultConfigurationUpdates = ResultConfigurationUpdates'
 -- workgroup. See WorkGroupConfiguration$EnforceWorkGroupConfiguration and
 -- <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings>.
 --
--- 'removeAclConfiguration', 'resultConfigurationUpdates_removeAclConfiguration' - If set to @true@, indicates that the previously-specified ACL
--- configuration for queries in this workgroup should be ignored and set to
--- null. If set to @false@ or not set, and a value is present in the
--- @AclConfiguration@ of @ResultConfigurationUpdates@, the
--- @AclConfiguration@ in the workgroup\'s @ResultConfiguration@ is updated
--- with the new value. For more information, see
--- <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings>.
---
 -- 'outputLocation', 'resultConfigurationUpdates_outputLocation' - The location in Amazon S3 where your query results are stored, such as
 -- @s3:\/\/path\/to\/query\/bucket\/@. For more information, see
 -- <https://docs.aws.amazon.com/athena/latest/ug/querying.html Query Results>
@@ -147,6 +132,23 @@ data ResultConfigurationUpdates = ResultConfigurationUpdates'
 -- specified in @EnforceWorkGroupConfiguration@ (true\/false) in the
 -- @WorkGroupConfiguration@. See
 -- WorkGroupConfiguration$EnforceWorkGroupConfiguration.
+--
+-- 'removeAclConfiguration', 'resultConfigurationUpdates_removeAclConfiguration' - If set to @true@, indicates that the previously-specified ACL
+-- configuration for queries in this workgroup should be ignored and set to
+-- null. If set to @false@ or not set, and a value is present in the
+-- @AclConfiguration@ of @ResultConfigurationUpdates@, the
+-- @AclConfiguration@ in the workgroup\'s @ResultConfiguration@ is updated
+-- with the new value. For more information, see
+-- <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings>.
+--
+-- 'removeEncryptionConfiguration', 'resultConfigurationUpdates_removeEncryptionConfiguration' - If set to \"true\", indicates that the previously-specified encryption
+-- configuration (also known as the client-side setting) for queries in
+-- this workgroup should be ignored and set to null. If set to \"false\" or
+-- not set, and a value is present in the @EncryptionConfiguration@ in
+-- @ResultConfigurationUpdates@ (the client-side setting), the
+-- @EncryptionConfiguration@ in the workgroup\'s @ResultConfiguration@ will
+-- be updated with the new value. For more information, see
+-- <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings>.
 --
 -- 'removeExpectedBucketOwner', 'resultConfigurationUpdates_removeExpectedBucketOwner' - If set to \"true\", removes the Amazon Web Services account ID
 -- previously specified for ResultConfiguration$ExpectedBucketOwner. If set
@@ -165,37 +167,28 @@ data ResultConfigurationUpdates = ResultConfigurationUpdates'
 -- @OutputLocation@ in the workgroup\'s @ResultConfiguration@ will be
 -- updated with the new value. For more information, see
 -- <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings>.
---
--- 'encryptionConfiguration', 'resultConfigurationUpdates_encryptionConfiguration' - The encryption configuration for the query results.
 newResultConfigurationUpdates ::
   ResultConfigurationUpdates
 newResultConfigurationUpdates =
   ResultConfigurationUpdates'
     { aclConfiguration =
         Prelude.Nothing,
-      removeEncryptionConfiguration = Prelude.Nothing,
+      encryptionConfiguration = Prelude.Nothing,
       expectedBucketOwner = Prelude.Nothing,
-      removeAclConfiguration = Prelude.Nothing,
       outputLocation = Prelude.Nothing,
+      removeAclConfiguration = Prelude.Nothing,
+      removeEncryptionConfiguration = Prelude.Nothing,
       removeExpectedBucketOwner = Prelude.Nothing,
-      removeOutputLocation = Prelude.Nothing,
-      encryptionConfiguration = Prelude.Nothing
+      removeOutputLocation = Prelude.Nothing
     }
 
 -- | The ACL configuration for the query results.
 resultConfigurationUpdates_aclConfiguration :: Lens.Lens' ResultConfigurationUpdates (Prelude.Maybe AclConfiguration)
 resultConfigurationUpdates_aclConfiguration = Lens.lens (\ResultConfigurationUpdates' {aclConfiguration} -> aclConfiguration) (\s@ResultConfigurationUpdates' {} a -> s {aclConfiguration = a} :: ResultConfigurationUpdates)
 
--- | If set to \"true\", indicates that the previously-specified encryption
--- configuration (also known as the client-side setting) for queries in
--- this workgroup should be ignored and set to null. If set to \"false\" or
--- not set, and a value is present in the @EncryptionConfiguration@ in
--- @ResultConfigurationUpdates@ (the client-side setting), the
--- @EncryptionConfiguration@ in the workgroup\'s @ResultConfiguration@ will
--- be updated with the new value. For more information, see
--- <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings>.
-resultConfigurationUpdates_removeEncryptionConfiguration :: Lens.Lens' ResultConfigurationUpdates (Prelude.Maybe Prelude.Bool)
-resultConfigurationUpdates_removeEncryptionConfiguration = Lens.lens (\ResultConfigurationUpdates' {removeEncryptionConfiguration} -> removeEncryptionConfiguration) (\s@ResultConfigurationUpdates' {} a -> s {removeEncryptionConfiguration = a} :: ResultConfigurationUpdates)
+-- | The encryption configuration for the query results.
+resultConfigurationUpdates_encryptionConfiguration :: Lens.Lens' ResultConfigurationUpdates (Prelude.Maybe EncryptionConfiguration)
+resultConfigurationUpdates_encryptionConfiguration = Lens.lens (\ResultConfigurationUpdates' {encryptionConfiguration} -> encryptionConfiguration) (\s@ResultConfigurationUpdates' {} a -> s {encryptionConfiguration = a} :: ResultConfigurationUpdates)
 
 -- | The Amazon Web Services account ID that you expect to be the owner of
 -- the Amazon S3 bucket specified by ResultConfiguration$OutputLocation. If
@@ -213,16 +206,6 @@ resultConfigurationUpdates_removeEncryptionConfiguration = Lens.lens (\ResultCon
 resultConfigurationUpdates_expectedBucketOwner :: Lens.Lens' ResultConfigurationUpdates (Prelude.Maybe Prelude.Text)
 resultConfigurationUpdates_expectedBucketOwner = Lens.lens (\ResultConfigurationUpdates' {expectedBucketOwner} -> expectedBucketOwner) (\s@ResultConfigurationUpdates' {} a -> s {expectedBucketOwner = a} :: ResultConfigurationUpdates)
 
--- | If set to @true@, indicates that the previously-specified ACL
--- configuration for queries in this workgroup should be ignored and set to
--- null. If set to @false@ or not set, and a value is present in the
--- @AclConfiguration@ of @ResultConfigurationUpdates@, the
--- @AclConfiguration@ in the workgroup\'s @ResultConfiguration@ is updated
--- with the new value. For more information, see
--- <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings>.
-resultConfigurationUpdates_removeAclConfiguration :: Lens.Lens' ResultConfigurationUpdates (Prelude.Maybe Prelude.Bool)
-resultConfigurationUpdates_removeAclConfiguration = Lens.lens (\ResultConfigurationUpdates' {removeAclConfiguration} -> removeAclConfiguration) (\s@ResultConfigurationUpdates' {} a -> s {removeAclConfiguration = a} :: ResultConfigurationUpdates)
-
 -- | The location in Amazon S3 where your query results are stored, such as
 -- @s3:\/\/path\/to\/query\/bucket\/@. For more information, see
 -- <https://docs.aws.amazon.com/athena/latest/ug/querying.html Query Results>
@@ -234,6 +217,27 @@ resultConfigurationUpdates_removeAclConfiguration = Lens.lens (\ResultConfigurat
 -- WorkGroupConfiguration$EnforceWorkGroupConfiguration.
 resultConfigurationUpdates_outputLocation :: Lens.Lens' ResultConfigurationUpdates (Prelude.Maybe Prelude.Text)
 resultConfigurationUpdates_outputLocation = Lens.lens (\ResultConfigurationUpdates' {outputLocation} -> outputLocation) (\s@ResultConfigurationUpdates' {} a -> s {outputLocation = a} :: ResultConfigurationUpdates)
+
+-- | If set to @true@, indicates that the previously-specified ACL
+-- configuration for queries in this workgroup should be ignored and set to
+-- null. If set to @false@ or not set, and a value is present in the
+-- @AclConfiguration@ of @ResultConfigurationUpdates@, the
+-- @AclConfiguration@ in the workgroup\'s @ResultConfiguration@ is updated
+-- with the new value. For more information, see
+-- <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings>.
+resultConfigurationUpdates_removeAclConfiguration :: Lens.Lens' ResultConfigurationUpdates (Prelude.Maybe Prelude.Bool)
+resultConfigurationUpdates_removeAclConfiguration = Lens.lens (\ResultConfigurationUpdates' {removeAclConfiguration} -> removeAclConfiguration) (\s@ResultConfigurationUpdates' {} a -> s {removeAclConfiguration = a} :: ResultConfigurationUpdates)
+
+-- | If set to \"true\", indicates that the previously-specified encryption
+-- configuration (also known as the client-side setting) for queries in
+-- this workgroup should be ignored and set to null. If set to \"false\" or
+-- not set, and a value is present in the @EncryptionConfiguration@ in
+-- @ResultConfigurationUpdates@ (the client-side setting), the
+-- @EncryptionConfiguration@ in the workgroup\'s @ResultConfiguration@ will
+-- be updated with the new value. For more information, see
+-- <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings>.
+resultConfigurationUpdates_removeEncryptionConfiguration :: Lens.Lens' ResultConfigurationUpdates (Prelude.Maybe Prelude.Bool)
+resultConfigurationUpdates_removeEncryptionConfiguration = Lens.lens (\ResultConfigurationUpdates' {removeEncryptionConfiguration} -> removeEncryptionConfiguration) (\s@ResultConfigurationUpdates' {} a -> s {removeEncryptionConfiguration = a} :: ResultConfigurationUpdates)
 
 -- | If set to \"true\", removes the Amazon Web Services account ID
 -- previously specified for ResultConfiguration$ExpectedBucketOwner. If set
@@ -257,31 +261,27 @@ resultConfigurationUpdates_removeExpectedBucketOwner = Lens.lens (\ResultConfigu
 resultConfigurationUpdates_removeOutputLocation :: Lens.Lens' ResultConfigurationUpdates (Prelude.Maybe Prelude.Bool)
 resultConfigurationUpdates_removeOutputLocation = Lens.lens (\ResultConfigurationUpdates' {removeOutputLocation} -> removeOutputLocation) (\s@ResultConfigurationUpdates' {} a -> s {removeOutputLocation = a} :: ResultConfigurationUpdates)
 
--- | The encryption configuration for the query results.
-resultConfigurationUpdates_encryptionConfiguration :: Lens.Lens' ResultConfigurationUpdates (Prelude.Maybe EncryptionConfiguration)
-resultConfigurationUpdates_encryptionConfiguration = Lens.lens (\ResultConfigurationUpdates' {encryptionConfiguration} -> encryptionConfiguration) (\s@ResultConfigurationUpdates' {} a -> s {encryptionConfiguration = a} :: ResultConfigurationUpdates)
-
 instance Prelude.Hashable ResultConfigurationUpdates where
   hashWithSalt _salt ResultConfigurationUpdates' {..} =
     _salt `Prelude.hashWithSalt` aclConfiguration
-      `Prelude.hashWithSalt` removeEncryptionConfiguration
+      `Prelude.hashWithSalt` encryptionConfiguration
       `Prelude.hashWithSalt` expectedBucketOwner
-      `Prelude.hashWithSalt` removeAclConfiguration
       `Prelude.hashWithSalt` outputLocation
+      `Prelude.hashWithSalt` removeAclConfiguration
+      `Prelude.hashWithSalt` removeEncryptionConfiguration
       `Prelude.hashWithSalt` removeExpectedBucketOwner
       `Prelude.hashWithSalt` removeOutputLocation
-      `Prelude.hashWithSalt` encryptionConfiguration
 
 instance Prelude.NFData ResultConfigurationUpdates where
   rnf ResultConfigurationUpdates' {..} =
     Prelude.rnf aclConfiguration
-      `Prelude.seq` Prelude.rnf removeEncryptionConfiguration
+      `Prelude.seq` Prelude.rnf encryptionConfiguration
       `Prelude.seq` Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf removeAclConfiguration
       `Prelude.seq` Prelude.rnf outputLocation
+      `Prelude.seq` Prelude.rnf removeAclConfiguration
+      `Prelude.seq` Prelude.rnf removeEncryptionConfiguration
       `Prelude.seq` Prelude.rnf removeExpectedBucketOwner
       `Prelude.seq` Prelude.rnf removeOutputLocation
-      `Prelude.seq` Prelude.rnf encryptionConfiguration
 
 instance Data.ToJSON ResultConfigurationUpdates where
   toJSON ResultConfigurationUpdates' {..} =
@@ -289,19 +289,19 @@ instance Data.ToJSON ResultConfigurationUpdates where
       ( Prelude.catMaybes
           [ ("AclConfiguration" Data..=)
               Prelude.<$> aclConfiguration,
-            ("RemoveEncryptionConfiguration" Data..=)
-              Prelude.<$> removeEncryptionConfiguration,
+            ("EncryptionConfiguration" Data..=)
+              Prelude.<$> encryptionConfiguration,
             ("ExpectedBucketOwner" Data..=)
               Prelude.<$> expectedBucketOwner,
-            ("RemoveAclConfiguration" Data..=)
-              Prelude.<$> removeAclConfiguration,
             ("OutputLocation" Data..=)
               Prelude.<$> outputLocation,
+            ("RemoveAclConfiguration" Data..=)
+              Prelude.<$> removeAclConfiguration,
+            ("RemoveEncryptionConfiguration" Data..=)
+              Prelude.<$> removeEncryptionConfiguration,
             ("RemoveExpectedBucketOwner" Data..=)
               Prelude.<$> removeExpectedBucketOwner,
             ("RemoveOutputLocation" Data..=)
-              Prelude.<$> removeOutputLocation,
-            ("EncryptionConfiguration" Data..=)
-              Prelude.<$> encryptionConfiguration
+              Prelude.<$> removeOutputLocation
           ]
       )

@@ -27,17 +27,17 @@ module Amazonka.ComprehendMedical.ListSNOMEDCTInferenceJobs
     newListSNOMEDCTInferenceJobs,
 
     -- * Request Lenses
-    listSNOMEDCTInferenceJobs_nextToken,
     listSNOMEDCTInferenceJobs_filter,
     listSNOMEDCTInferenceJobs_maxResults,
+    listSNOMEDCTInferenceJobs_nextToken,
 
     -- * Destructuring the Response
     ListSNOMEDCTInferenceJobsResponse (..),
     newListSNOMEDCTInferenceJobsResponse,
 
     -- * Response Lenses
-    listSNOMEDCTInferenceJobsResponse_nextToken,
     listSNOMEDCTInferenceJobsResponse_comprehendMedicalAsyncJobPropertiesList,
+    listSNOMEDCTInferenceJobsResponse_nextToken,
     listSNOMEDCTInferenceJobsResponse_httpStatus,
   )
 where
@@ -52,12 +52,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListSNOMEDCTInferenceJobs' smart constructor.
 data ListSNOMEDCTInferenceJobs = ListSNOMEDCTInferenceJobs'
-  { -- | Identifies the next page of InferSNOMEDCT results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    filter' :: Prelude.Maybe ComprehendMedicalAsyncJobFilter,
+  { filter' :: Prelude.Maybe ComprehendMedicalAsyncJobFilter,
     -- | The maximum number of results to return in each page. The default is
     -- 100.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Identifies the next page of InferSNOMEDCT results to return.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,25 +69,21 @@ data ListSNOMEDCTInferenceJobs = ListSNOMEDCTInferenceJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listSNOMEDCTInferenceJobs_nextToken' - Identifies the next page of InferSNOMEDCT results to return.
---
 -- 'filter'', 'listSNOMEDCTInferenceJobs_filter' - Undocumented member.
 --
 -- 'maxResults', 'listSNOMEDCTInferenceJobs_maxResults' - The maximum number of results to return in each page. The default is
 -- 100.
+--
+-- 'nextToken', 'listSNOMEDCTInferenceJobs_nextToken' - Identifies the next page of InferSNOMEDCT results to return.
 newListSNOMEDCTInferenceJobs ::
   ListSNOMEDCTInferenceJobs
 newListSNOMEDCTInferenceJobs =
   ListSNOMEDCTInferenceJobs'
-    { nextToken =
+    { filter' =
         Prelude.Nothing,
-      filter' = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | Identifies the next page of InferSNOMEDCT results to return.
-listSNOMEDCTInferenceJobs_nextToken :: Lens.Lens' ListSNOMEDCTInferenceJobs (Prelude.Maybe Prelude.Text)
-listSNOMEDCTInferenceJobs_nextToken = Lens.lens (\ListSNOMEDCTInferenceJobs' {nextToken} -> nextToken) (\s@ListSNOMEDCTInferenceJobs' {} a -> s {nextToken = a} :: ListSNOMEDCTInferenceJobs)
 
 -- | Undocumented member.
 listSNOMEDCTInferenceJobs_filter :: Lens.Lens' ListSNOMEDCTInferenceJobs (Prelude.Maybe ComprehendMedicalAsyncJobFilter)
@@ -97,6 +93,10 @@ listSNOMEDCTInferenceJobs_filter = Lens.lens (\ListSNOMEDCTInferenceJobs' {filte
 -- 100.
 listSNOMEDCTInferenceJobs_maxResults :: Lens.Lens' ListSNOMEDCTInferenceJobs (Prelude.Maybe Prelude.Natural)
 listSNOMEDCTInferenceJobs_maxResults = Lens.lens (\ListSNOMEDCTInferenceJobs' {maxResults} -> maxResults) (\s@ListSNOMEDCTInferenceJobs' {} a -> s {maxResults = a} :: ListSNOMEDCTInferenceJobs)
+
+-- | Identifies the next page of InferSNOMEDCT results to return.
+listSNOMEDCTInferenceJobs_nextToken :: Lens.Lens' ListSNOMEDCTInferenceJobs (Prelude.Maybe Prelude.Text)
+listSNOMEDCTInferenceJobs_nextToken = Lens.lens (\ListSNOMEDCTInferenceJobs' {nextToken} -> nextToken) (\s@ListSNOMEDCTInferenceJobs' {} a -> s {nextToken = a} :: ListSNOMEDCTInferenceJobs)
 
 instance Core.AWSRequest ListSNOMEDCTInferenceJobs where
   type
@@ -108,24 +108,24 @@ instance Core.AWSRequest ListSNOMEDCTInferenceJobs where
     Response.receiveJSON
       ( \s h x ->
           ListSNOMEDCTInferenceJobsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ComprehendMedicalAsyncJobPropertiesList"
+            Prelude.<$> ( x Data..?> "ComprehendMedicalAsyncJobPropertiesList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListSNOMEDCTInferenceJobs where
   hashWithSalt _salt ListSNOMEDCTInferenceJobs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filter'
+    _salt `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListSNOMEDCTInferenceJobs where
   rnf ListSNOMEDCTInferenceJobs' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filter'
+    Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListSNOMEDCTInferenceJobs where
   toHeaders =
@@ -146,9 +146,9 @@ instance Data.ToJSON ListSNOMEDCTInferenceJobs where
   toJSON ListSNOMEDCTInferenceJobs' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filter" Data..=) Prelude.<$> filter',
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("Filter" Data..=) Prelude.<$> filter',
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -160,10 +160,10 @@ instance Data.ToQuery ListSNOMEDCTInferenceJobs where
 
 -- | /See:/ 'newListSNOMEDCTInferenceJobsResponse' smart constructor.
 data ListSNOMEDCTInferenceJobsResponse = ListSNOMEDCTInferenceJobsResponse'
-  { -- | Identifies the next page of results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list containing the properties of each job that is returned.
+  { -- | A list containing the properties of each job that is returned.
     comprehendMedicalAsyncJobPropertiesList :: Prelude.Maybe [ComprehendMedicalAsyncJobProperties],
+    -- | Identifies the next page of results to return.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -177,9 +177,9 @@ data ListSNOMEDCTInferenceJobsResponse = ListSNOMEDCTInferenceJobsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listSNOMEDCTInferenceJobsResponse_nextToken' - Identifies the next page of results to return.
---
 -- 'comprehendMedicalAsyncJobPropertiesList', 'listSNOMEDCTInferenceJobsResponse_comprehendMedicalAsyncJobPropertiesList' - A list containing the properties of each job that is returned.
+--
+-- 'nextToken', 'listSNOMEDCTInferenceJobsResponse_nextToken' - Identifies the next page of results to return.
 --
 -- 'httpStatus', 'listSNOMEDCTInferenceJobsResponse_httpStatus' - The response's http status code.
 newListSNOMEDCTInferenceJobsResponse ::
@@ -188,20 +188,19 @@ newListSNOMEDCTInferenceJobsResponse ::
   ListSNOMEDCTInferenceJobsResponse
 newListSNOMEDCTInferenceJobsResponse pHttpStatus_ =
   ListSNOMEDCTInferenceJobsResponse'
-    { nextToken =
+    { comprehendMedicalAsyncJobPropertiesList =
         Prelude.Nothing,
-      comprehendMedicalAsyncJobPropertiesList =
-        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Identifies the next page of results to return.
-listSNOMEDCTInferenceJobsResponse_nextToken :: Lens.Lens' ListSNOMEDCTInferenceJobsResponse (Prelude.Maybe Prelude.Text)
-listSNOMEDCTInferenceJobsResponse_nextToken = Lens.lens (\ListSNOMEDCTInferenceJobsResponse' {nextToken} -> nextToken) (\s@ListSNOMEDCTInferenceJobsResponse' {} a -> s {nextToken = a} :: ListSNOMEDCTInferenceJobsResponse)
 
 -- | A list containing the properties of each job that is returned.
 listSNOMEDCTInferenceJobsResponse_comprehendMedicalAsyncJobPropertiesList :: Lens.Lens' ListSNOMEDCTInferenceJobsResponse (Prelude.Maybe [ComprehendMedicalAsyncJobProperties])
 listSNOMEDCTInferenceJobsResponse_comprehendMedicalAsyncJobPropertiesList = Lens.lens (\ListSNOMEDCTInferenceJobsResponse' {comprehendMedicalAsyncJobPropertiesList} -> comprehendMedicalAsyncJobPropertiesList) (\s@ListSNOMEDCTInferenceJobsResponse' {} a -> s {comprehendMedicalAsyncJobPropertiesList = a} :: ListSNOMEDCTInferenceJobsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Identifies the next page of results to return.
+listSNOMEDCTInferenceJobsResponse_nextToken :: Lens.Lens' ListSNOMEDCTInferenceJobsResponse (Prelude.Maybe Prelude.Text)
+listSNOMEDCTInferenceJobsResponse_nextToken = Lens.lens (\ListSNOMEDCTInferenceJobsResponse' {nextToken} -> nextToken) (\s@ListSNOMEDCTInferenceJobsResponse' {} a -> s {nextToken = a} :: ListSNOMEDCTInferenceJobsResponse)
 
 -- | The response's http status code.
 listSNOMEDCTInferenceJobsResponse_httpStatus :: Lens.Lens' ListSNOMEDCTInferenceJobsResponse Prelude.Int
@@ -212,6 +211,6 @@ instance
     ListSNOMEDCTInferenceJobsResponse
   where
   rnf ListSNOMEDCTInferenceJobsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf comprehendMedicalAsyncJobPropertiesList
+    Prelude.rnf comprehendMedicalAsyncJobPropertiesList
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

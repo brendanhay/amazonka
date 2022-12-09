@@ -28,17 +28,17 @@ module Amazonka.ComprehendMedical.ListPHIDetectionJobs
     newListPHIDetectionJobs,
 
     -- * Request Lenses
-    listPHIDetectionJobs_nextToken,
     listPHIDetectionJobs_filter,
     listPHIDetectionJobs_maxResults,
+    listPHIDetectionJobs_nextToken,
 
     -- * Destructuring the Response
     ListPHIDetectionJobsResponse (..),
     newListPHIDetectionJobsResponse,
 
     -- * Response Lenses
-    listPHIDetectionJobsResponse_nextToken,
     listPHIDetectionJobsResponse_comprehendMedicalAsyncJobPropertiesList,
+    listPHIDetectionJobsResponse_nextToken,
     listPHIDetectionJobsResponse_httpStatus,
   )
 where
@@ -53,15 +53,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPHIDetectionJobs' smart constructor.
 data ListPHIDetectionJobs = ListPHIDetectionJobs'
-  { -- | Identifies the next page of results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filters the jobs that are returned. You can filter jobs based on their
+  { -- | Filters the jobs that are returned. You can filter jobs based on their
     -- names, status, or the date and time that they were submitted. You can
     -- only set one filter at a time.
     filter' :: Prelude.Maybe ComprehendMedicalAsyncJobFilter,
     -- | The maximum number of results to return in each page. The default is
     -- 100.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Identifies the next page of results to return.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,26 +73,22 @@ data ListPHIDetectionJobs = ListPHIDetectionJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPHIDetectionJobs_nextToken' - Identifies the next page of results to return.
---
 -- 'filter'', 'listPHIDetectionJobs_filter' - Filters the jobs that are returned. You can filter jobs based on their
 -- names, status, or the date and time that they were submitted. You can
 -- only set one filter at a time.
 --
 -- 'maxResults', 'listPHIDetectionJobs_maxResults' - The maximum number of results to return in each page. The default is
 -- 100.
+--
+-- 'nextToken', 'listPHIDetectionJobs_nextToken' - Identifies the next page of results to return.
 newListPHIDetectionJobs ::
   ListPHIDetectionJobs
 newListPHIDetectionJobs =
   ListPHIDetectionJobs'
-    { nextToken = Prelude.Nothing,
-      filter' = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { filter' = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | Identifies the next page of results to return.
-listPHIDetectionJobs_nextToken :: Lens.Lens' ListPHIDetectionJobs (Prelude.Maybe Prelude.Text)
-listPHIDetectionJobs_nextToken = Lens.lens (\ListPHIDetectionJobs' {nextToken} -> nextToken) (\s@ListPHIDetectionJobs' {} a -> s {nextToken = a} :: ListPHIDetectionJobs)
 
 -- | Filters the jobs that are returned. You can filter jobs based on their
 -- names, status, or the date and time that they were submitted. You can
@@ -105,6 +101,10 @@ listPHIDetectionJobs_filter = Lens.lens (\ListPHIDetectionJobs' {filter'} -> fil
 listPHIDetectionJobs_maxResults :: Lens.Lens' ListPHIDetectionJobs (Prelude.Maybe Prelude.Natural)
 listPHIDetectionJobs_maxResults = Lens.lens (\ListPHIDetectionJobs' {maxResults} -> maxResults) (\s@ListPHIDetectionJobs' {} a -> s {maxResults = a} :: ListPHIDetectionJobs)
 
+-- | Identifies the next page of results to return.
+listPHIDetectionJobs_nextToken :: Lens.Lens' ListPHIDetectionJobs (Prelude.Maybe Prelude.Text)
+listPHIDetectionJobs_nextToken = Lens.lens (\ListPHIDetectionJobs' {nextToken} -> nextToken) (\s@ListPHIDetectionJobs' {} a -> s {nextToken = a} :: ListPHIDetectionJobs)
+
 instance Core.AWSRequest ListPHIDetectionJobs where
   type
     AWSResponse ListPHIDetectionJobs =
@@ -115,24 +115,24 @@ instance Core.AWSRequest ListPHIDetectionJobs where
     Response.receiveJSON
       ( \s h x ->
           ListPHIDetectionJobsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ComprehendMedicalAsyncJobPropertiesList"
+            Prelude.<$> ( x Data..?> "ComprehendMedicalAsyncJobPropertiesList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListPHIDetectionJobs where
   hashWithSalt _salt ListPHIDetectionJobs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filter'
+    _salt `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListPHIDetectionJobs where
   rnf ListPHIDetectionJobs' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filter'
+    Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListPHIDetectionJobs where
   toHeaders =
@@ -153,9 +153,9 @@ instance Data.ToJSON ListPHIDetectionJobs where
   toJSON ListPHIDetectionJobs' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filter" Data..=) Prelude.<$> filter',
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("Filter" Data..=) Prelude.<$> filter',
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -167,10 +167,10 @@ instance Data.ToQuery ListPHIDetectionJobs where
 
 -- | /See:/ 'newListPHIDetectionJobsResponse' smart constructor.
 data ListPHIDetectionJobsResponse = ListPHIDetectionJobsResponse'
-  { -- | Identifies the next page of results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list containing the properties of each job returned.
+  { -- | A list containing the properties of each job returned.
     comprehendMedicalAsyncJobPropertiesList :: Prelude.Maybe [ComprehendMedicalAsyncJobProperties],
+    -- | Identifies the next page of results to return.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -184,9 +184,9 @@ data ListPHIDetectionJobsResponse = ListPHIDetectionJobsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPHIDetectionJobsResponse_nextToken' - Identifies the next page of results to return.
---
 -- 'comprehendMedicalAsyncJobPropertiesList', 'listPHIDetectionJobsResponse_comprehendMedicalAsyncJobPropertiesList' - A list containing the properties of each job returned.
+--
+-- 'nextToken', 'listPHIDetectionJobsResponse_nextToken' - Identifies the next page of results to return.
 --
 -- 'httpStatus', 'listPHIDetectionJobsResponse_httpStatus' - The response's http status code.
 newListPHIDetectionJobsResponse ::
@@ -195,20 +195,19 @@ newListPHIDetectionJobsResponse ::
   ListPHIDetectionJobsResponse
 newListPHIDetectionJobsResponse pHttpStatus_ =
   ListPHIDetectionJobsResponse'
-    { nextToken =
+    { comprehendMedicalAsyncJobPropertiesList =
         Prelude.Nothing,
-      comprehendMedicalAsyncJobPropertiesList =
-        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Identifies the next page of results to return.
-listPHIDetectionJobsResponse_nextToken :: Lens.Lens' ListPHIDetectionJobsResponse (Prelude.Maybe Prelude.Text)
-listPHIDetectionJobsResponse_nextToken = Lens.lens (\ListPHIDetectionJobsResponse' {nextToken} -> nextToken) (\s@ListPHIDetectionJobsResponse' {} a -> s {nextToken = a} :: ListPHIDetectionJobsResponse)
 
 -- | A list containing the properties of each job returned.
 listPHIDetectionJobsResponse_comprehendMedicalAsyncJobPropertiesList :: Lens.Lens' ListPHIDetectionJobsResponse (Prelude.Maybe [ComprehendMedicalAsyncJobProperties])
 listPHIDetectionJobsResponse_comprehendMedicalAsyncJobPropertiesList = Lens.lens (\ListPHIDetectionJobsResponse' {comprehendMedicalAsyncJobPropertiesList} -> comprehendMedicalAsyncJobPropertiesList) (\s@ListPHIDetectionJobsResponse' {} a -> s {comprehendMedicalAsyncJobPropertiesList = a} :: ListPHIDetectionJobsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Identifies the next page of results to return.
+listPHIDetectionJobsResponse_nextToken :: Lens.Lens' ListPHIDetectionJobsResponse (Prelude.Maybe Prelude.Text)
+listPHIDetectionJobsResponse_nextToken = Lens.lens (\ListPHIDetectionJobsResponse' {nextToken} -> nextToken) (\s@ListPHIDetectionJobsResponse' {} a -> s {nextToken = a} :: ListPHIDetectionJobsResponse)
 
 -- | The response's http status code.
 listPHIDetectionJobsResponse_httpStatus :: Lens.Lens' ListPHIDetectionJobsResponse Prelude.Int
@@ -216,6 +215,6 @@ listPHIDetectionJobsResponse_httpStatus = Lens.lens (\ListPHIDetectionJobsRespon
 
 instance Prelude.NFData ListPHIDetectionJobsResponse where
   rnf ListPHIDetectionJobsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf comprehendMedicalAsyncJobPropertiesList
+    Prelude.rnf comprehendMedicalAsyncJobPropertiesList
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -31,11 +31,11 @@ import qualified Amazonka.Prelude as Prelude
 data RxNormConcept = RxNormConcept'
   { -- | RxNorm concept ID, also known as the RxCUI.
     code :: Prelude.Maybe Prelude.Text,
+    -- | The description of the RxNorm concept.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The level of confidence that Amazon Comprehend Medical has that the
     -- entity is accurately linked to the reported RxNorm concept.
-    score :: Prelude.Maybe Prelude.Double,
-    -- | The description of the RxNorm concept.
-    description :: Prelude.Maybe Prelude.Text
+    score :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,31 +49,31 @@ data RxNormConcept = RxNormConcept'
 --
 -- 'code', 'rxNormConcept_code' - RxNorm concept ID, also known as the RxCUI.
 --
+-- 'description', 'rxNormConcept_description' - The description of the RxNorm concept.
+--
 -- 'score', 'rxNormConcept_score' - The level of confidence that Amazon Comprehend Medical has that the
 -- entity is accurately linked to the reported RxNorm concept.
---
--- 'description', 'rxNormConcept_description' - The description of the RxNorm concept.
 newRxNormConcept ::
   RxNormConcept
 newRxNormConcept =
   RxNormConcept'
     { code = Prelude.Nothing,
-      score = Prelude.Nothing,
-      description = Prelude.Nothing
+      description = Prelude.Nothing,
+      score = Prelude.Nothing
     }
 
 -- | RxNorm concept ID, also known as the RxCUI.
 rxNormConcept_code :: Lens.Lens' RxNormConcept (Prelude.Maybe Prelude.Text)
 rxNormConcept_code = Lens.lens (\RxNormConcept' {code} -> code) (\s@RxNormConcept' {} a -> s {code = a} :: RxNormConcept)
 
+-- | The description of the RxNorm concept.
+rxNormConcept_description :: Lens.Lens' RxNormConcept (Prelude.Maybe Prelude.Text)
+rxNormConcept_description = Lens.lens (\RxNormConcept' {description} -> description) (\s@RxNormConcept' {} a -> s {description = a} :: RxNormConcept)
+
 -- | The level of confidence that Amazon Comprehend Medical has that the
 -- entity is accurately linked to the reported RxNorm concept.
 rxNormConcept_score :: Lens.Lens' RxNormConcept (Prelude.Maybe Prelude.Double)
 rxNormConcept_score = Lens.lens (\RxNormConcept' {score} -> score) (\s@RxNormConcept' {} a -> s {score = a} :: RxNormConcept)
-
--- | The description of the RxNorm concept.
-rxNormConcept_description :: Lens.Lens' RxNormConcept (Prelude.Maybe Prelude.Text)
-rxNormConcept_description = Lens.lens (\RxNormConcept' {description} -> description) (\s@RxNormConcept' {} a -> s {description = a} :: RxNormConcept)
 
 instance Data.FromJSON RxNormConcept where
   parseJSON =
@@ -82,18 +82,18 @@ instance Data.FromJSON RxNormConcept where
       ( \x ->
           RxNormConcept'
             Prelude.<$> (x Data..:? "Code")
-            Prelude.<*> (x Data..:? "Score")
             Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "Score")
       )
 
 instance Prelude.Hashable RxNormConcept where
   hashWithSalt _salt RxNormConcept' {..} =
     _salt `Prelude.hashWithSalt` code
-      `Prelude.hashWithSalt` score
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` score
 
 instance Prelude.NFData RxNormConcept where
   rnf RxNormConcept' {..} =
     Prelude.rnf code
-      `Prelude.seq` Prelude.rnf score
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf score

@@ -33,11 +33,11 @@ data SNOMEDCTDetails = SNOMEDCTDetails'
   { -- | The edition of SNOMED-CT used. The edition used for the InferSNOMEDCT
     -- editions is the US edition.
     edition :: Prelude.Maybe Prelude.Text,
-    -- | The version date of the SNOMED-CT ontology used.
-    versionDate :: Prelude.Maybe Prelude.Text,
     -- | The language used in the SNOMED-CT ontology. All Amazon Comprehend
     -- Medical operations are US English (en).
-    language :: Prelude.Maybe Prelude.Text
+    language :: Prelude.Maybe Prelude.Text,
+    -- | The version date of the SNOMED-CT ontology used.
+    versionDate :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,17 +52,17 @@ data SNOMEDCTDetails = SNOMEDCTDetails'
 -- 'edition', 'sNOMEDCTDetails_edition' - The edition of SNOMED-CT used. The edition used for the InferSNOMEDCT
 -- editions is the US edition.
 --
--- 'versionDate', 'sNOMEDCTDetails_versionDate' - The version date of the SNOMED-CT ontology used.
---
 -- 'language', 'sNOMEDCTDetails_language' - The language used in the SNOMED-CT ontology. All Amazon Comprehend
 -- Medical operations are US English (en).
+--
+-- 'versionDate', 'sNOMEDCTDetails_versionDate' - The version date of the SNOMED-CT ontology used.
 newSNOMEDCTDetails ::
   SNOMEDCTDetails
 newSNOMEDCTDetails =
   SNOMEDCTDetails'
     { edition = Prelude.Nothing,
-      versionDate = Prelude.Nothing,
-      language = Prelude.Nothing
+      language = Prelude.Nothing,
+      versionDate = Prelude.Nothing
     }
 
 -- | The edition of SNOMED-CT used. The edition used for the InferSNOMEDCT
@@ -70,14 +70,14 @@ newSNOMEDCTDetails =
 sNOMEDCTDetails_edition :: Lens.Lens' SNOMEDCTDetails (Prelude.Maybe Prelude.Text)
 sNOMEDCTDetails_edition = Lens.lens (\SNOMEDCTDetails' {edition} -> edition) (\s@SNOMEDCTDetails' {} a -> s {edition = a} :: SNOMEDCTDetails)
 
--- | The version date of the SNOMED-CT ontology used.
-sNOMEDCTDetails_versionDate :: Lens.Lens' SNOMEDCTDetails (Prelude.Maybe Prelude.Text)
-sNOMEDCTDetails_versionDate = Lens.lens (\SNOMEDCTDetails' {versionDate} -> versionDate) (\s@SNOMEDCTDetails' {} a -> s {versionDate = a} :: SNOMEDCTDetails)
-
 -- | The language used in the SNOMED-CT ontology. All Amazon Comprehend
 -- Medical operations are US English (en).
 sNOMEDCTDetails_language :: Lens.Lens' SNOMEDCTDetails (Prelude.Maybe Prelude.Text)
 sNOMEDCTDetails_language = Lens.lens (\SNOMEDCTDetails' {language} -> language) (\s@SNOMEDCTDetails' {} a -> s {language = a} :: SNOMEDCTDetails)
+
+-- | The version date of the SNOMED-CT ontology used.
+sNOMEDCTDetails_versionDate :: Lens.Lens' SNOMEDCTDetails (Prelude.Maybe Prelude.Text)
+sNOMEDCTDetails_versionDate = Lens.lens (\SNOMEDCTDetails' {versionDate} -> versionDate) (\s@SNOMEDCTDetails' {} a -> s {versionDate = a} :: SNOMEDCTDetails)
 
 instance Data.FromJSON SNOMEDCTDetails where
   parseJSON =
@@ -86,18 +86,18 @@ instance Data.FromJSON SNOMEDCTDetails where
       ( \x ->
           SNOMEDCTDetails'
             Prelude.<$> (x Data..:? "Edition")
-            Prelude.<*> (x Data..:? "VersionDate")
             Prelude.<*> (x Data..:? "Language")
+            Prelude.<*> (x Data..:? "VersionDate")
       )
 
 instance Prelude.Hashable SNOMEDCTDetails where
   hashWithSalt _salt SNOMEDCTDetails' {..} =
     _salt `Prelude.hashWithSalt` edition
-      `Prelude.hashWithSalt` versionDate
       `Prelude.hashWithSalt` language
+      `Prelude.hashWithSalt` versionDate
 
 instance Prelude.NFData SNOMEDCTDetails where
   rnf SNOMEDCTDetails' {..} =
     Prelude.rnf edition
-      `Prelude.seq` Prelude.rnf versionDate
       `Prelude.seq` Prelude.rnf language
+      `Prelude.seq` Prelude.rnf versionDate

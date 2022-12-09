@@ -38,37 +38,37 @@ data SNOMEDCTAttribute = SNOMEDCTAttribute'
   { -- | The 0-based character offset in the input text that shows where the
     -- attribute begins. The offset returns the UTF-8 code point in the string.
     beginOffset :: Prelude.Maybe Prelude.Int,
-    -- | The level of confidence that Comprehend Medical has that this attribute
-    -- is correctly related to this entity.
-    relationshipScore :: Prelude.Maybe Prelude.Double,
-    -- | The type of attribute. Possible types include DX_NAME, ACUITY,
-    -- DIRECTION, SYSTEM_ORGAN_SITE,TEST_NAME, TEST_VALUE, TEST_UNIT,
-    -- PROCEDURE_NAME, and TREATMENT_NAME.
-    type' :: Prelude.Maybe SNOMEDCTAttributeType,
-    -- | Contextual information for an attribute. Examples include signs,
-    -- symptoms, diagnosis, and negation.
-    traits :: Prelude.Maybe [SNOMEDCTTrait],
-    -- | The level of confidence that Comprehend Medical has that the segment of
-    -- text is correctly recognized as an attribute.
-    score :: Prelude.Maybe Prelude.Double,
+    -- | The category of the detected attribute. Possible categories include
+    -- MEDICAL_CONDITION, ANATOMY, and TEST_TREATMENT_PROCEDURE.
+    category :: Prelude.Maybe SNOMEDCTEntityCategory,
+    -- | The 0-based character offset in the input text that shows where the
+    -- attribute ends. The offset returns the UTF-8 code point in the string.
+    endOffset :: Prelude.Maybe Prelude.Int,
     -- | The numeric identifier for this attribute. This is a monotonically
     -- increasing id unique within this response rather than a global unique
     -- identifier.
     id :: Prelude.Maybe Prelude.Int,
-    -- | The 0-based character offset in the input text that shows where the
-    -- attribute ends. The offset returns the UTF-8 code point in the string.
-    endOffset :: Prelude.Maybe Prelude.Int,
+    -- | The level of confidence that Comprehend Medical has that this attribute
+    -- is correctly related to this entity.
+    relationshipScore :: Prelude.Maybe Prelude.Double,
     -- | The type of relationship that exists between the entity and the related
     -- attribute.
     relationshipType :: Prelude.Maybe SNOMEDCTRelationshipType,
-    -- | The category of the detected attribute. Possible categories include
-    -- MEDICAL_CONDITION, ANATOMY, and TEST_TREATMENT_PROCEDURE.
-    category :: Prelude.Maybe SNOMEDCTEntityCategory,
-    -- | The segment of input text extracted as this attribute.
-    text :: Prelude.Maybe Prelude.Text,
     -- | The SNOMED-CT concepts specific to an attribute, along with a score
     -- indicating the likelihood of the match.
-    sNOMEDCTConcepts :: Prelude.Maybe [SNOMEDCTConcept]
+    sNOMEDCTConcepts :: Prelude.Maybe [SNOMEDCTConcept],
+    -- | The level of confidence that Comprehend Medical has that the segment of
+    -- text is correctly recognized as an attribute.
+    score :: Prelude.Maybe Prelude.Double,
+    -- | The segment of input text extracted as this attribute.
+    text :: Prelude.Maybe Prelude.Text,
+    -- | Contextual information for an attribute. Examples include signs,
+    -- symptoms, diagnosis, and negation.
+    traits :: Prelude.Maybe [SNOMEDCTTrait],
+    -- | The type of attribute. Possible types include DX_NAME, ACUITY,
+    -- DIRECTION, SYSTEM_ORGAN_SITE,TEST_NAME, TEST_VALUE, TEST_UNIT,
+    -- PROCEDURE_NAME, and TREATMENT_NAME.
+    type' :: Prelude.Maybe SNOMEDCTAttributeType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -83,51 +83,51 @@ data SNOMEDCTAttribute = SNOMEDCTAttribute'
 -- 'beginOffset', 'sNOMEDCTAttribute_beginOffset' - The 0-based character offset in the input text that shows where the
 -- attribute begins. The offset returns the UTF-8 code point in the string.
 --
--- 'relationshipScore', 'sNOMEDCTAttribute_relationshipScore' - The level of confidence that Comprehend Medical has that this attribute
--- is correctly related to this entity.
+-- 'category', 'sNOMEDCTAttribute_category' - The category of the detected attribute. Possible categories include
+-- MEDICAL_CONDITION, ANATOMY, and TEST_TREATMENT_PROCEDURE.
 --
--- 'type'', 'sNOMEDCTAttribute_type' - The type of attribute. Possible types include DX_NAME, ACUITY,
--- DIRECTION, SYSTEM_ORGAN_SITE,TEST_NAME, TEST_VALUE, TEST_UNIT,
--- PROCEDURE_NAME, and TREATMENT_NAME.
---
--- 'traits', 'sNOMEDCTAttribute_traits' - Contextual information for an attribute. Examples include signs,
--- symptoms, diagnosis, and negation.
---
--- 'score', 'sNOMEDCTAttribute_score' - The level of confidence that Comprehend Medical has that the segment of
--- text is correctly recognized as an attribute.
+-- 'endOffset', 'sNOMEDCTAttribute_endOffset' - The 0-based character offset in the input text that shows where the
+-- attribute ends. The offset returns the UTF-8 code point in the string.
 --
 -- 'id', 'sNOMEDCTAttribute_id' - The numeric identifier for this attribute. This is a monotonically
 -- increasing id unique within this response rather than a global unique
 -- identifier.
 --
--- 'endOffset', 'sNOMEDCTAttribute_endOffset' - The 0-based character offset in the input text that shows where the
--- attribute ends. The offset returns the UTF-8 code point in the string.
+-- 'relationshipScore', 'sNOMEDCTAttribute_relationshipScore' - The level of confidence that Comprehend Medical has that this attribute
+-- is correctly related to this entity.
 --
 -- 'relationshipType', 'sNOMEDCTAttribute_relationshipType' - The type of relationship that exists between the entity and the related
 -- attribute.
 --
--- 'category', 'sNOMEDCTAttribute_category' - The category of the detected attribute. Possible categories include
--- MEDICAL_CONDITION, ANATOMY, and TEST_TREATMENT_PROCEDURE.
+-- 'sNOMEDCTConcepts', 'sNOMEDCTAttribute_sNOMEDCTConcepts' - The SNOMED-CT concepts specific to an attribute, along with a score
+-- indicating the likelihood of the match.
+--
+-- 'score', 'sNOMEDCTAttribute_score' - The level of confidence that Comprehend Medical has that the segment of
+-- text is correctly recognized as an attribute.
 --
 -- 'text', 'sNOMEDCTAttribute_text' - The segment of input text extracted as this attribute.
 --
--- 'sNOMEDCTConcepts', 'sNOMEDCTAttribute_sNOMEDCTConcepts' - The SNOMED-CT concepts specific to an attribute, along with a score
--- indicating the likelihood of the match.
+-- 'traits', 'sNOMEDCTAttribute_traits' - Contextual information for an attribute. Examples include signs,
+-- symptoms, diagnosis, and negation.
+--
+-- 'type'', 'sNOMEDCTAttribute_type' - The type of attribute. Possible types include DX_NAME, ACUITY,
+-- DIRECTION, SYSTEM_ORGAN_SITE,TEST_NAME, TEST_VALUE, TEST_UNIT,
+-- PROCEDURE_NAME, and TREATMENT_NAME.
 newSNOMEDCTAttribute ::
   SNOMEDCTAttribute
 newSNOMEDCTAttribute =
   SNOMEDCTAttribute'
     { beginOffset = Prelude.Nothing,
-      relationshipScore = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      traits = Prelude.Nothing,
-      score = Prelude.Nothing,
-      id = Prelude.Nothing,
-      endOffset = Prelude.Nothing,
-      relationshipType = Prelude.Nothing,
       category = Prelude.Nothing,
+      endOffset = Prelude.Nothing,
+      id = Prelude.Nothing,
+      relationshipScore = Prelude.Nothing,
+      relationshipType = Prelude.Nothing,
+      sNOMEDCTConcepts = Prelude.Nothing,
+      score = Prelude.Nothing,
       text = Prelude.Nothing,
-      sNOMEDCTConcepts = Prelude.Nothing
+      traits = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | The 0-based character offset in the input text that shows where the
@@ -135,26 +135,15 @@ newSNOMEDCTAttribute =
 sNOMEDCTAttribute_beginOffset :: Lens.Lens' SNOMEDCTAttribute (Prelude.Maybe Prelude.Int)
 sNOMEDCTAttribute_beginOffset = Lens.lens (\SNOMEDCTAttribute' {beginOffset} -> beginOffset) (\s@SNOMEDCTAttribute' {} a -> s {beginOffset = a} :: SNOMEDCTAttribute)
 
--- | The level of confidence that Comprehend Medical has that this attribute
--- is correctly related to this entity.
-sNOMEDCTAttribute_relationshipScore :: Lens.Lens' SNOMEDCTAttribute (Prelude.Maybe Prelude.Double)
-sNOMEDCTAttribute_relationshipScore = Lens.lens (\SNOMEDCTAttribute' {relationshipScore} -> relationshipScore) (\s@SNOMEDCTAttribute' {} a -> s {relationshipScore = a} :: SNOMEDCTAttribute)
+-- | The category of the detected attribute. Possible categories include
+-- MEDICAL_CONDITION, ANATOMY, and TEST_TREATMENT_PROCEDURE.
+sNOMEDCTAttribute_category :: Lens.Lens' SNOMEDCTAttribute (Prelude.Maybe SNOMEDCTEntityCategory)
+sNOMEDCTAttribute_category = Lens.lens (\SNOMEDCTAttribute' {category} -> category) (\s@SNOMEDCTAttribute' {} a -> s {category = a} :: SNOMEDCTAttribute)
 
--- | The type of attribute. Possible types include DX_NAME, ACUITY,
--- DIRECTION, SYSTEM_ORGAN_SITE,TEST_NAME, TEST_VALUE, TEST_UNIT,
--- PROCEDURE_NAME, and TREATMENT_NAME.
-sNOMEDCTAttribute_type :: Lens.Lens' SNOMEDCTAttribute (Prelude.Maybe SNOMEDCTAttributeType)
-sNOMEDCTAttribute_type = Lens.lens (\SNOMEDCTAttribute' {type'} -> type') (\s@SNOMEDCTAttribute' {} a -> s {type' = a} :: SNOMEDCTAttribute)
-
--- | Contextual information for an attribute. Examples include signs,
--- symptoms, diagnosis, and negation.
-sNOMEDCTAttribute_traits :: Lens.Lens' SNOMEDCTAttribute (Prelude.Maybe [SNOMEDCTTrait])
-sNOMEDCTAttribute_traits = Lens.lens (\SNOMEDCTAttribute' {traits} -> traits) (\s@SNOMEDCTAttribute' {} a -> s {traits = a} :: SNOMEDCTAttribute) Prelude.. Lens.mapping Lens.coerced
-
--- | The level of confidence that Comprehend Medical has that the segment of
--- text is correctly recognized as an attribute.
-sNOMEDCTAttribute_score :: Lens.Lens' SNOMEDCTAttribute (Prelude.Maybe Prelude.Double)
-sNOMEDCTAttribute_score = Lens.lens (\SNOMEDCTAttribute' {score} -> score) (\s@SNOMEDCTAttribute' {} a -> s {score = a} :: SNOMEDCTAttribute)
+-- | The 0-based character offset in the input text that shows where the
+-- attribute ends. The offset returns the UTF-8 code point in the string.
+sNOMEDCTAttribute_endOffset :: Lens.Lens' SNOMEDCTAttribute (Prelude.Maybe Prelude.Int)
+sNOMEDCTAttribute_endOffset = Lens.lens (\SNOMEDCTAttribute' {endOffset} -> endOffset) (\s@SNOMEDCTAttribute' {} a -> s {endOffset = a} :: SNOMEDCTAttribute)
 
 -- | The numeric identifier for this attribute. This is a monotonically
 -- increasing id unique within this response rather than a global unique
@@ -162,29 +151,40 @@ sNOMEDCTAttribute_score = Lens.lens (\SNOMEDCTAttribute' {score} -> score) (\s@S
 sNOMEDCTAttribute_id :: Lens.Lens' SNOMEDCTAttribute (Prelude.Maybe Prelude.Int)
 sNOMEDCTAttribute_id = Lens.lens (\SNOMEDCTAttribute' {id} -> id) (\s@SNOMEDCTAttribute' {} a -> s {id = a} :: SNOMEDCTAttribute)
 
--- | The 0-based character offset in the input text that shows where the
--- attribute ends. The offset returns the UTF-8 code point in the string.
-sNOMEDCTAttribute_endOffset :: Lens.Lens' SNOMEDCTAttribute (Prelude.Maybe Prelude.Int)
-sNOMEDCTAttribute_endOffset = Lens.lens (\SNOMEDCTAttribute' {endOffset} -> endOffset) (\s@SNOMEDCTAttribute' {} a -> s {endOffset = a} :: SNOMEDCTAttribute)
+-- | The level of confidence that Comprehend Medical has that this attribute
+-- is correctly related to this entity.
+sNOMEDCTAttribute_relationshipScore :: Lens.Lens' SNOMEDCTAttribute (Prelude.Maybe Prelude.Double)
+sNOMEDCTAttribute_relationshipScore = Lens.lens (\SNOMEDCTAttribute' {relationshipScore} -> relationshipScore) (\s@SNOMEDCTAttribute' {} a -> s {relationshipScore = a} :: SNOMEDCTAttribute)
 
 -- | The type of relationship that exists between the entity and the related
 -- attribute.
 sNOMEDCTAttribute_relationshipType :: Lens.Lens' SNOMEDCTAttribute (Prelude.Maybe SNOMEDCTRelationshipType)
 sNOMEDCTAttribute_relationshipType = Lens.lens (\SNOMEDCTAttribute' {relationshipType} -> relationshipType) (\s@SNOMEDCTAttribute' {} a -> s {relationshipType = a} :: SNOMEDCTAttribute)
 
--- | The category of the detected attribute. Possible categories include
--- MEDICAL_CONDITION, ANATOMY, and TEST_TREATMENT_PROCEDURE.
-sNOMEDCTAttribute_category :: Lens.Lens' SNOMEDCTAttribute (Prelude.Maybe SNOMEDCTEntityCategory)
-sNOMEDCTAttribute_category = Lens.lens (\SNOMEDCTAttribute' {category} -> category) (\s@SNOMEDCTAttribute' {} a -> s {category = a} :: SNOMEDCTAttribute)
+-- | The SNOMED-CT concepts specific to an attribute, along with a score
+-- indicating the likelihood of the match.
+sNOMEDCTAttribute_sNOMEDCTConcepts :: Lens.Lens' SNOMEDCTAttribute (Prelude.Maybe [SNOMEDCTConcept])
+sNOMEDCTAttribute_sNOMEDCTConcepts = Lens.lens (\SNOMEDCTAttribute' {sNOMEDCTConcepts} -> sNOMEDCTConcepts) (\s@SNOMEDCTAttribute' {} a -> s {sNOMEDCTConcepts = a} :: SNOMEDCTAttribute) Prelude.. Lens.mapping Lens.coerced
+
+-- | The level of confidence that Comprehend Medical has that the segment of
+-- text is correctly recognized as an attribute.
+sNOMEDCTAttribute_score :: Lens.Lens' SNOMEDCTAttribute (Prelude.Maybe Prelude.Double)
+sNOMEDCTAttribute_score = Lens.lens (\SNOMEDCTAttribute' {score} -> score) (\s@SNOMEDCTAttribute' {} a -> s {score = a} :: SNOMEDCTAttribute)
 
 -- | The segment of input text extracted as this attribute.
 sNOMEDCTAttribute_text :: Lens.Lens' SNOMEDCTAttribute (Prelude.Maybe Prelude.Text)
 sNOMEDCTAttribute_text = Lens.lens (\SNOMEDCTAttribute' {text} -> text) (\s@SNOMEDCTAttribute' {} a -> s {text = a} :: SNOMEDCTAttribute)
 
--- | The SNOMED-CT concepts specific to an attribute, along with a score
--- indicating the likelihood of the match.
-sNOMEDCTAttribute_sNOMEDCTConcepts :: Lens.Lens' SNOMEDCTAttribute (Prelude.Maybe [SNOMEDCTConcept])
-sNOMEDCTAttribute_sNOMEDCTConcepts = Lens.lens (\SNOMEDCTAttribute' {sNOMEDCTConcepts} -> sNOMEDCTConcepts) (\s@SNOMEDCTAttribute' {} a -> s {sNOMEDCTConcepts = a} :: SNOMEDCTAttribute) Prelude.. Lens.mapping Lens.coerced
+-- | Contextual information for an attribute. Examples include signs,
+-- symptoms, diagnosis, and negation.
+sNOMEDCTAttribute_traits :: Lens.Lens' SNOMEDCTAttribute (Prelude.Maybe [SNOMEDCTTrait])
+sNOMEDCTAttribute_traits = Lens.lens (\SNOMEDCTAttribute' {traits} -> traits) (\s@SNOMEDCTAttribute' {} a -> s {traits = a} :: SNOMEDCTAttribute) Prelude.. Lens.mapping Lens.coerced
+
+-- | The type of attribute. Possible types include DX_NAME, ACUITY,
+-- DIRECTION, SYSTEM_ORGAN_SITE,TEST_NAME, TEST_VALUE, TEST_UNIT,
+-- PROCEDURE_NAME, and TREATMENT_NAME.
+sNOMEDCTAttribute_type :: Lens.Lens' SNOMEDCTAttribute (Prelude.Maybe SNOMEDCTAttributeType)
+sNOMEDCTAttribute_type = Lens.lens (\SNOMEDCTAttribute' {type'} -> type') (\s@SNOMEDCTAttribute' {} a -> s {type' = a} :: SNOMEDCTAttribute)
 
 instance Data.FromJSON SNOMEDCTAttribute where
   parseJSON =
@@ -193,44 +193,44 @@ instance Data.FromJSON SNOMEDCTAttribute where
       ( \x ->
           SNOMEDCTAttribute'
             Prelude.<$> (x Data..:? "BeginOffset")
-            Prelude.<*> (x Data..:? "RelationshipScore")
-            Prelude.<*> (x Data..:? "Type")
-            Prelude.<*> (x Data..:? "Traits" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "Score")
-            Prelude.<*> (x Data..:? "Id")
-            Prelude.<*> (x Data..:? "EndOffset")
-            Prelude.<*> (x Data..:? "RelationshipType")
             Prelude.<*> (x Data..:? "Category")
-            Prelude.<*> (x Data..:? "Text")
+            Prelude.<*> (x Data..:? "EndOffset")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "RelationshipScore")
+            Prelude.<*> (x Data..:? "RelationshipType")
             Prelude.<*> ( x Data..:? "SNOMEDCTConcepts"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "Score")
+            Prelude.<*> (x Data..:? "Text")
+            Prelude.<*> (x Data..:? "Traits" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable SNOMEDCTAttribute where
   hashWithSalt _salt SNOMEDCTAttribute' {..} =
     _salt `Prelude.hashWithSalt` beginOffset
-      `Prelude.hashWithSalt` relationshipScore
-      `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` traits
-      `Prelude.hashWithSalt` score
-      `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` endOffset
-      `Prelude.hashWithSalt` relationshipType
       `Prelude.hashWithSalt` category
-      `Prelude.hashWithSalt` text
+      `Prelude.hashWithSalt` endOffset
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` relationshipScore
+      `Prelude.hashWithSalt` relationshipType
       `Prelude.hashWithSalt` sNOMEDCTConcepts
+      `Prelude.hashWithSalt` score
+      `Prelude.hashWithSalt` text
+      `Prelude.hashWithSalt` traits
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData SNOMEDCTAttribute where
   rnf SNOMEDCTAttribute' {..} =
     Prelude.rnf beginOffset
-      `Prelude.seq` Prelude.rnf relationshipScore
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf traits
-      `Prelude.seq` Prelude.rnf score
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf endOffset
-      `Prelude.seq` Prelude.rnf relationshipType
       `Prelude.seq` Prelude.rnf category
-      `Prelude.seq` Prelude.rnf text
+      `Prelude.seq` Prelude.rnf endOffset
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf relationshipScore
+      `Prelude.seq` Prelude.rnf relationshipType
       `Prelude.seq` Prelude.rnf sNOMEDCTConcepts
+      `Prelude.seq` Prelude.rnf score
+      `Prelude.seq` Prelude.rnf text
+      `Prelude.seq` Prelude.rnf traits
+      `Prelude.seq` Prelude.rnf type'

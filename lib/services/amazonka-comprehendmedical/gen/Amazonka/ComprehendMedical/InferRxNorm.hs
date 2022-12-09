@@ -37,8 +37,8 @@ module Amazonka.ComprehendMedical.InferRxNorm
     newInferRxNormResponse,
 
     -- * Response Lenses
-    inferRxNormResponse_paginationToken,
     inferRxNormResponse_modelVersion,
+    inferRxNormResponse_paginationToken,
     inferRxNormResponse_httpStatus,
     inferRxNormResponse_entities,
   )
@@ -89,8 +89,8 @@ instance Core.AWSRequest InferRxNorm where
     Response.receiveJSON
       ( \s h x ->
           InferRxNormResponse'
-            Prelude.<$> (x Data..?> "PaginationToken")
-            Prelude.<*> (x Data..?> "ModelVersion")
+            Prelude.<$> (x Data..?> "ModelVersion")
+            Prelude.<*> (x Data..?> "PaginationToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "Entities" Core..!@ Prelude.mempty)
       )
@@ -132,14 +132,14 @@ instance Data.ToQuery InferRxNorm where
 
 -- | /See:/ 'newInferRxNormResponse' smart constructor.
 data InferRxNormResponse = InferRxNormResponse'
-  { -- | If the result of the previous request to @InferRxNorm@ was truncated,
-    -- include the @PaginationToken@ to fetch the next page of medication
-    -- entities.
-    paginationToken :: Prelude.Maybe Prelude.Text,
-    -- | The version of the model used to analyze the documents, in the format
+  { -- | The version of the model used to analyze the documents, in the format
     -- /n/./n/./n/ You can use this information to track the model used for a
     -- particular batch of documents.
     modelVersion :: Prelude.Maybe Prelude.Text,
+    -- | If the result of the previous request to @InferRxNorm@ was truncated,
+    -- include the @PaginationToken@ to fetch the next page of medication
+    -- entities.
+    paginationToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The medication entities detected in the text linked to RxNorm concepts.
@@ -157,13 +157,13 @@ data InferRxNormResponse = InferRxNormResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'paginationToken', 'inferRxNormResponse_paginationToken' - If the result of the previous request to @InferRxNorm@ was truncated,
--- include the @PaginationToken@ to fetch the next page of medication
--- entities.
---
 -- 'modelVersion', 'inferRxNormResponse_modelVersion' - The version of the model used to analyze the documents, in the format
 -- /n/./n/./n/ You can use this information to track the model used for a
 -- particular batch of documents.
+--
+-- 'paginationToken', 'inferRxNormResponse_paginationToken' - If the result of the previous request to @InferRxNorm@ was truncated,
+-- include the @PaginationToken@ to fetch the next page of medication
+-- entities.
 --
 -- 'httpStatus', 'inferRxNormResponse_httpStatus' - The response's http status code.
 --
@@ -176,24 +176,24 @@ newInferRxNormResponse ::
   InferRxNormResponse
 newInferRxNormResponse pHttpStatus_ =
   InferRxNormResponse'
-    { paginationToken =
+    { modelVersion =
         Prelude.Nothing,
-      modelVersion = Prelude.Nothing,
+      paginationToken = Prelude.Nothing,
       httpStatus = pHttpStatus_,
       entities = Prelude.mempty
     }
-
--- | If the result of the previous request to @InferRxNorm@ was truncated,
--- include the @PaginationToken@ to fetch the next page of medication
--- entities.
-inferRxNormResponse_paginationToken :: Lens.Lens' InferRxNormResponse (Prelude.Maybe Prelude.Text)
-inferRxNormResponse_paginationToken = Lens.lens (\InferRxNormResponse' {paginationToken} -> paginationToken) (\s@InferRxNormResponse' {} a -> s {paginationToken = a} :: InferRxNormResponse)
 
 -- | The version of the model used to analyze the documents, in the format
 -- /n/./n/./n/ You can use this information to track the model used for a
 -- particular batch of documents.
 inferRxNormResponse_modelVersion :: Lens.Lens' InferRxNormResponse (Prelude.Maybe Prelude.Text)
 inferRxNormResponse_modelVersion = Lens.lens (\InferRxNormResponse' {modelVersion} -> modelVersion) (\s@InferRxNormResponse' {} a -> s {modelVersion = a} :: InferRxNormResponse)
+
+-- | If the result of the previous request to @InferRxNorm@ was truncated,
+-- include the @PaginationToken@ to fetch the next page of medication
+-- entities.
+inferRxNormResponse_paginationToken :: Lens.Lens' InferRxNormResponse (Prelude.Maybe Prelude.Text)
+inferRxNormResponse_paginationToken = Lens.lens (\InferRxNormResponse' {paginationToken} -> paginationToken) (\s@InferRxNormResponse' {} a -> s {paginationToken = a} :: InferRxNormResponse)
 
 -- | The response's http status code.
 inferRxNormResponse_httpStatus :: Lens.Lens' InferRxNormResponse Prelude.Int
@@ -207,7 +207,7 @@ inferRxNormResponse_entities = Lens.lens (\InferRxNormResponse' {entities} -> en
 
 instance Prelude.NFData InferRxNormResponse where
   rnf InferRxNormResponse' {..} =
-    Prelude.rnf paginationToken
-      `Prelude.seq` Prelude.rnf modelVersion
+    Prelude.rnf modelVersion
+      `Prelude.seq` Prelude.rnf paginationToken
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf entities

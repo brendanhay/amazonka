@@ -38,8 +38,8 @@ module Amazonka.ComprehendMedical.InferICD10CM
     newInferICD10CMResponse,
 
     -- * Response Lenses
-    inferICD10CMResponse_paginationToken,
     inferICD10CMResponse_modelVersion,
+    inferICD10CMResponse_paginationToken,
     inferICD10CMResponse_httpStatus,
     inferICD10CMResponse_entities,
   )
@@ -90,8 +90,8 @@ instance Core.AWSRequest InferICD10CM where
     Response.receiveJSON
       ( \s h x ->
           InferICD10CMResponse'
-            Prelude.<$> (x Data..?> "PaginationToken")
-            Prelude.<*> (x Data..?> "ModelVersion")
+            Prelude.<$> (x Data..?> "ModelVersion")
+            Prelude.<*> (x Data..?> "PaginationToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "Entities" Core..!@ Prelude.mempty)
       )
@@ -133,14 +133,14 @@ instance Data.ToQuery InferICD10CM where
 
 -- | /See:/ 'newInferICD10CMResponse' smart constructor.
 data InferICD10CMResponse = InferICD10CMResponse'
-  { -- | If the result of the previous request to @InferICD10CM@ was truncated,
-    -- include the @PaginationToken@ to fetch the next page of medical
-    -- condition entities.
-    paginationToken :: Prelude.Maybe Prelude.Text,
-    -- | The version of the model used to analyze the documents, in the format
+  { -- | The version of the model used to analyze the documents, in the format
     -- /n/./n/./n/ You can use this information to track the model used for a
     -- particular batch of documents.
     modelVersion :: Prelude.Maybe Prelude.Text,
+    -- | If the result of the previous request to @InferICD10CM@ was truncated,
+    -- include the @PaginationToken@ to fetch the next page of medical
+    -- condition entities.
+    paginationToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The medical conditions detected in the text linked to ICD-10-CM
@@ -158,13 +158,13 @@ data InferICD10CMResponse = InferICD10CMResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'paginationToken', 'inferICD10CMResponse_paginationToken' - If the result of the previous request to @InferICD10CM@ was truncated,
--- include the @PaginationToken@ to fetch the next page of medical
--- condition entities.
---
 -- 'modelVersion', 'inferICD10CMResponse_modelVersion' - The version of the model used to analyze the documents, in the format
 -- /n/./n/./n/ You can use this information to track the model used for a
 -- particular batch of documents.
+--
+-- 'paginationToken', 'inferICD10CMResponse_paginationToken' - If the result of the previous request to @InferICD10CM@ was truncated,
+-- include the @PaginationToken@ to fetch the next page of medical
+-- condition entities.
 --
 -- 'httpStatus', 'inferICD10CMResponse_httpStatus' - The response's http status code.
 --
@@ -177,24 +177,24 @@ newInferICD10CMResponse ::
   InferICD10CMResponse
 newInferICD10CMResponse pHttpStatus_ =
   InferICD10CMResponse'
-    { paginationToken =
+    { modelVersion =
         Prelude.Nothing,
-      modelVersion = Prelude.Nothing,
+      paginationToken = Prelude.Nothing,
       httpStatus = pHttpStatus_,
       entities = Prelude.mempty
     }
-
--- | If the result of the previous request to @InferICD10CM@ was truncated,
--- include the @PaginationToken@ to fetch the next page of medical
--- condition entities.
-inferICD10CMResponse_paginationToken :: Lens.Lens' InferICD10CMResponse (Prelude.Maybe Prelude.Text)
-inferICD10CMResponse_paginationToken = Lens.lens (\InferICD10CMResponse' {paginationToken} -> paginationToken) (\s@InferICD10CMResponse' {} a -> s {paginationToken = a} :: InferICD10CMResponse)
 
 -- | The version of the model used to analyze the documents, in the format
 -- /n/./n/./n/ You can use this information to track the model used for a
 -- particular batch of documents.
 inferICD10CMResponse_modelVersion :: Lens.Lens' InferICD10CMResponse (Prelude.Maybe Prelude.Text)
 inferICD10CMResponse_modelVersion = Lens.lens (\InferICD10CMResponse' {modelVersion} -> modelVersion) (\s@InferICD10CMResponse' {} a -> s {modelVersion = a} :: InferICD10CMResponse)
+
+-- | If the result of the previous request to @InferICD10CM@ was truncated,
+-- include the @PaginationToken@ to fetch the next page of medical
+-- condition entities.
+inferICD10CMResponse_paginationToken :: Lens.Lens' InferICD10CMResponse (Prelude.Maybe Prelude.Text)
+inferICD10CMResponse_paginationToken = Lens.lens (\InferICD10CMResponse' {paginationToken} -> paginationToken) (\s@InferICD10CMResponse' {} a -> s {paginationToken = a} :: InferICD10CMResponse)
 
 -- | The response's http status code.
 inferICD10CMResponse_httpStatus :: Lens.Lens' InferICD10CMResponse Prelude.Int
@@ -208,7 +208,7 @@ inferICD10CMResponse_entities = Lens.lens (\InferICD10CMResponse' {entities} -> 
 
 instance Prelude.NFData InferICD10CMResponse where
   rnf InferICD10CMResponse' {..} =
-    Prelude.rnf paginationToken
-      `Prelude.seq` Prelude.rnf modelVersion
+    Prelude.rnf modelVersion
+      `Prelude.seq` Prelude.rnf paginationToken
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf entities

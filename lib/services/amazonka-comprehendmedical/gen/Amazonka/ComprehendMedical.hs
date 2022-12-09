@@ -23,26 +23,26 @@ module Amazonka.ComprehendMedical
     -- ** InternalServerException
     _InternalServerException,
 
-    -- ** ServiceUnavailableException
-    _ServiceUnavailableException,
+    -- ** InvalidEncodingException
+    _InvalidEncodingException,
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
+
     -- ** TextSizeLimitExceededException
     _TextSizeLimitExceededException,
-
-    -- ** ValidationException
-    _ValidationException,
-
-    -- ** InvalidEncodingException
-    _InvalidEncodingException,
 
     -- ** TooManyRequestsException
     _TooManyRequestsException,
 
-    -- ** InvalidRequestException
-    _InvalidRequestException,
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters

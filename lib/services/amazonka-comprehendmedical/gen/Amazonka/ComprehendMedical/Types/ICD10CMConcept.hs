@@ -32,11 +32,11 @@ data ICD10CMConcept = ICD10CMConcept'
   { -- | The ICD-10-CM code that identifies the concept found in the knowledge
     -- base from the Centers for Disease Control.
     code :: Prelude.Maybe Prelude.Text,
+    -- | The long description of the ICD-10-CM code in the ontology.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The level of confidence that Amazon Comprehend Medical has that the
     -- entity is accurately linked to an ICD-10-CM concept.
-    score :: Prelude.Maybe Prelude.Double,
-    -- | The long description of the ICD-10-CM code in the ontology.
-    description :: Prelude.Maybe Prelude.Text
+    score :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,17 +51,17 @@ data ICD10CMConcept = ICD10CMConcept'
 -- 'code', 'iCD10CMConcept_code' - The ICD-10-CM code that identifies the concept found in the knowledge
 -- base from the Centers for Disease Control.
 --
+-- 'description', 'iCD10CMConcept_description' - The long description of the ICD-10-CM code in the ontology.
+--
 -- 'score', 'iCD10CMConcept_score' - The level of confidence that Amazon Comprehend Medical has that the
 -- entity is accurately linked to an ICD-10-CM concept.
---
--- 'description', 'iCD10CMConcept_description' - The long description of the ICD-10-CM code in the ontology.
 newICD10CMConcept ::
   ICD10CMConcept
 newICD10CMConcept =
   ICD10CMConcept'
     { code = Prelude.Nothing,
-      score = Prelude.Nothing,
-      description = Prelude.Nothing
+      description = Prelude.Nothing,
+      score = Prelude.Nothing
     }
 
 -- | The ICD-10-CM code that identifies the concept found in the knowledge
@@ -69,14 +69,14 @@ newICD10CMConcept =
 iCD10CMConcept_code :: Lens.Lens' ICD10CMConcept (Prelude.Maybe Prelude.Text)
 iCD10CMConcept_code = Lens.lens (\ICD10CMConcept' {code} -> code) (\s@ICD10CMConcept' {} a -> s {code = a} :: ICD10CMConcept)
 
+-- | The long description of the ICD-10-CM code in the ontology.
+iCD10CMConcept_description :: Lens.Lens' ICD10CMConcept (Prelude.Maybe Prelude.Text)
+iCD10CMConcept_description = Lens.lens (\ICD10CMConcept' {description} -> description) (\s@ICD10CMConcept' {} a -> s {description = a} :: ICD10CMConcept)
+
 -- | The level of confidence that Amazon Comprehend Medical has that the
 -- entity is accurately linked to an ICD-10-CM concept.
 iCD10CMConcept_score :: Lens.Lens' ICD10CMConcept (Prelude.Maybe Prelude.Double)
 iCD10CMConcept_score = Lens.lens (\ICD10CMConcept' {score} -> score) (\s@ICD10CMConcept' {} a -> s {score = a} :: ICD10CMConcept)
-
--- | The long description of the ICD-10-CM code in the ontology.
-iCD10CMConcept_description :: Lens.Lens' ICD10CMConcept (Prelude.Maybe Prelude.Text)
-iCD10CMConcept_description = Lens.lens (\ICD10CMConcept' {description} -> description) (\s@ICD10CMConcept' {} a -> s {description = a} :: ICD10CMConcept)
 
 instance Data.FromJSON ICD10CMConcept where
   parseJSON =
@@ -85,18 +85,18 @@ instance Data.FromJSON ICD10CMConcept where
       ( \x ->
           ICD10CMConcept'
             Prelude.<$> (x Data..:? "Code")
-            Prelude.<*> (x Data..:? "Score")
             Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "Score")
       )
 
 instance Prelude.Hashable ICD10CMConcept where
   hashWithSalt _salt ICD10CMConcept' {..} =
     _salt `Prelude.hashWithSalt` code
-      `Prelude.hashWithSalt` score
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` score
 
 instance Prelude.NFData ICD10CMConcept where
   rnf ICD10CMConcept' {..} =
     Prelude.rnf code
-      `Prelude.seq` Prelude.rnf score
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf score

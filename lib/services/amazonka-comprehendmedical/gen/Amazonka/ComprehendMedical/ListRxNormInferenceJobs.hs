@@ -27,17 +27,17 @@ module Amazonka.ComprehendMedical.ListRxNormInferenceJobs
     newListRxNormInferenceJobs,
 
     -- * Request Lenses
-    listRxNormInferenceJobs_nextToken,
     listRxNormInferenceJobs_filter,
     listRxNormInferenceJobs_maxResults,
+    listRxNormInferenceJobs_nextToken,
 
     -- * Destructuring the Response
     ListRxNormInferenceJobsResponse (..),
     newListRxNormInferenceJobsResponse,
 
     -- * Response Lenses
-    listRxNormInferenceJobsResponse_nextToken,
     listRxNormInferenceJobsResponse_comprehendMedicalAsyncJobPropertiesList,
+    listRxNormInferenceJobsResponse_nextToken,
     listRxNormInferenceJobsResponse_httpStatus,
   )
 where
@@ -52,14 +52,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListRxNormInferenceJobs' smart constructor.
 data ListRxNormInferenceJobs = ListRxNormInferenceJobs'
-  { -- | Identifies the next page of results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filters the jobs that are returned. You can filter jobs based on their
+  { -- | Filters the jobs that are returned. You can filter jobs based on their
     -- names, status, or the date and time that they were submitted. You can
     -- only set one filter at a time.
     filter' :: Prelude.Maybe ComprehendMedicalAsyncJobFilter,
     -- | Identifies the next page of results to return.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Identifies the next page of results to return.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,26 +71,21 @@ data ListRxNormInferenceJobs = ListRxNormInferenceJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listRxNormInferenceJobs_nextToken' - Identifies the next page of results to return.
---
 -- 'filter'', 'listRxNormInferenceJobs_filter' - Filters the jobs that are returned. You can filter jobs based on their
 -- names, status, or the date and time that they were submitted. You can
 -- only set one filter at a time.
 --
 -- 'maxResults', 'listRxNormInferenceJobs_maxResults' - Identifies the next page of results to return.
+--
+-- 'nextToken', 'listRxNormInferenceJobs_nextToken' - Identifies the next page of results to return.
 newListRxNormInferenceJobs ::
   ListRxNormInferenceJobs
 newListRxNormInferenceJobs =
   ListRxNormInferenceJobs'
-    { nextToken =
-        Prelude.Nothing,
-      filter' = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { filter' = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | Identifies the next page of results to return.
-listRxNormInferenceJobs_nextToken :: Lens.Lens' ListRxNormInferenceJobs (Prelude.Maybe Prelude.Text)
-listRxNormInferenceJobs_nextToken = Lens.lens (\ListRxNormInferenceJobs' {nextToken} -> nextToken) (\s@ListRxNormInferenceJobs' {} a -> s {nextToken = a} :: ListRxNormInferenceJobs)
 
 -- | Filters the jobs that are returned. You can filter jobs based on their
 -- names, status, or the date and time that they were submitted. You can
@@ -102,6 +97,10 @@ listRxNormInferenceJobs_filter = Lens.lens (\ListRxNormInferenceJobs' {filter'} 
 listRxNormInferenceJobs_maxResults :: Lens.Lens' ListRxNormInferenceJobs (Prelude.Maybe Prelude.Natural)
 listRxNormInferenceJobs_maxResults = Lens.lens (\ListRxNormInferenceJobs' {maxResults} -> maxResults) (\s@ListRxNormInferenceJobs' {} a -> s {maxResults = a} :: ListRxNormInferenceJobs)
 
+-- | Identifies the next page of results to return.
+listRxNormInferenceJobs_nextToken :: Lens.Lens' ListRxNormInferenceJobs (Prelude.Maybe Prelude.Text)
+listRxNormInferenceJobs_nextToken = Lens.lens (\ListRxNormInferenceJobs' {nextToken} -> nextToken) (\s@ListRxNormInferenceJobs' {} a -> s {nextToken = a} :: ListRxNormInferenceJobs)
+
 instance Core.AWSRequest ListRxNormInferenceJobs where
   type
     AWSResponse ListRxNormInferenceJobs =
@@ -112,24 +111,24 @@ instance Core.AWSRequest ListRxNormInferenceJobs where
     Response.receiveJSON
       ( \s h x ->
           ListRxNormInferenceJobsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ComprehendMedicalAsyncJobPropertiesList"
+            Prelude.<$> ( x Data..?> "ComprehendMedicalAsyncJobPropertiesList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListRxNormInferenceJobs where
   hashWithSalt _salt ListRxNormInferenceJobs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filter'
+    _salt `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListRxNormInferenceJobs where
   rnf ListRxNormInferenceJobs' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filter'
+    Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListRxNormInferenceJobs where
   toHeaders =
@@ -150,9 +149,9 @@ instance Data.ToJSON ListRxNormInferenceJobs where
   toJSON ListRxNormInferenceJobs' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filter" Data..=) Prelude.<$> filter',
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("Filter" Data..=) Prelude.<$> filter',
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -164,11 +163,11 @@ instance Data.ToQuery ListRxNormInferenceJobs where
 
 -- | /See:/ 'newListRxNormInferenceJobsResponse' smart constructor.
 data ListRxNormInferenceJobsResponse = ListRxNormInferenceJobsResponse'
-  { -- | Identifies the next page of results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in each page. The default is
+  { -- | The maximum number of results to return in each page. The default is
     -- 100.
     comprehendMedicalAsyncJobPropertiesList :: Prelude.Maybe [ComprehendMedicalAsyncJobProperties],
+    -- | Identifies the next page of results to return.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -182,10 +181,10 @@ data ListRxNormInferenceJobsResponse = ListRxNormInferenceJobsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listRxNormInferenceJobsResponse_nextToken' - Identifies the next page of results to return.
---
 -- 'comprehendMedicalAsyncJobPropertiesList', 'listRxNormInferenceJobsResponse_comprehendMedicalAsyncJobPropertiesList' - The maximum number of results to return in each page. The default is
 -- 100.
+--
+-- 'nextToken', 'listRxNormInferenceJobsResponse_nextToken' - Identifies the next page of results to return.
 --
 -- 'httpStatus', 'listRxNormInferenceJobsResponse_httpStatus' - The response's http status code.
 newListRxNormInferenceJobsResponse ::
@@ -194,21 +193,20 @@ newListRxNormInferenceJobsResponse ::
   ListRxNormInferenceJobsResponse
 newListRxNormInferenceJobsResponse pHttpStatus_ =
   ListRxNormInferenceJobsResponse'
-    { nextToken =
+    { comprehendMedicalAsyncJobPropertiesList =
         Prelude.Nothing,
-      comprehendMedicalAsyncJobPropertiesList =
-        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Identifies the next page of results to return.
-listRxNormInferenceJobsResponse_nextToken :: Lens.Lens' ListRxNormInferenceJobsResponse (Prelude.Maybe Prelude.Text)
-listRxNormInferenceJobsResponse_nextToken = Lens.lens (\ListRxNormInferenceJobsResponse' {nextToken} -> nextToken) (\s@ListRxNormInferenceJobsResponse' {} a -> s {nextToken = a} :: ListRxNormInferenceJobsResponse)
 
 -- | The maximum number of results to return in each page. The default is
 -- 100.
 listRxNormInferenceJobsResponse_comprehendMedicalAsyncJobPropertiesList :: Lens.Lens' ListRxNormInferenceJobsResponse (Prelude.Maybe [ComprehendMedicalAsyncJobProperties])
 listRxNormInferenceJobsResponse_comprehendMedicalAsyncJobPropertiesList = Lens.lens (\ListRxNormInferenceJobsResponse' {comprehendMedicalAsyncJobPropertiesList} -> comprehendMedicalAsyncJobPropertiesList) (\s@ListRxNormInferenceJobsResponse' {} a -> s {comprehendMedicalAsyncJobPropertiesList = a} :: ListRxNormInferenceJobsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Identifies the next page of results to return.
+listRxNormInferenceJobsResponse_nextToken :: Lens.Lens' ListRxNormInferenceJobsResponse (Prelude.Maybe Prelude.Text)
+listRxNormInferenceJobsResponse_nextToken = Lens.lens (\ListRxNormInferenceJobsResponse' {nextToken} -> nextToken) (\s@ListRxNormInferenceJobsResponse' {} a -> s {nextToken = a} :: ListRxNormInferenceJobsResponse)
 
 -- | The response's http status code.
 listRxNormInferenceJobsResponse_httpStatus :: Lens.Lens' ListRxNormInferenceJobsResponse Prelude.Int
@@ -219,6 +217,6 @@ instance
     ListRxNormInferenceJobsResponse
   where
   rnf ListRxNormInferenceJobsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf comprehendMedicalAsyncJobPropertiesList
+    Prelude.rnf comprehendMedicalAsyncJobPropertiesList
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

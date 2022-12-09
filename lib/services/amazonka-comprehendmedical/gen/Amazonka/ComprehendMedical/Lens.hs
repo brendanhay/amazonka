@@ -56,65 +56,65 @@ module Amazonka.ComprehendMedical.Lens
 
     -- ** InferICD10CM
     inferICD10CM_text,
-    inferICD10CMResponse_paginationToken,
     inferICD10CMResponse_modelVersion,
+    inferICD10CMResponse_paginationToken,
     inferICD10CMResponse_httpStatus,
     inferICD10CMResponse_entities,
 
     -- ** InferRxNorm
     inferRxNorm_text,
-    inferRxNormResponse_paginationToken,
     inferRxNormResponse_modelVersion,
+    inferRxNormResponse_paginationToken,
     inferRxNormResponse_httpStatus,
     inferRxNormResponse_entities,
 
     -- ** InferSNOMEDCT
     inferSNOMEDCT_text,
+    inferSNOMEDCTResponse_characters,
+    inferSNOMEDCTResponse_modelVersion,
     inferSNOMEDCTResponse_paginationToken,
     inferSNOMEDCTResponse_sNOMEDCTDetails,
-    inferSNOMEDCTResponse_modelVersion,
-    inferSNOMEDCTResponse_characters,
     inferSNOMEDCTResponse_httpStatus,
     inferSNOMEDCTResponse_entities,
 
     -- ** ListEntitiesDetectionV2Jobs
-    listEntitiesDetectionV2Jobs_nextToken,
     listEntitiesDetectionV2Jobs_filter,
     listEntitiesDetectionV2Jobs_maxResults,
-    listEntitiesDetectionV2JobsResponse_nextToken,
+    listEntitiesDetectionV2Jobs_nextToken,
     listEntitiesDetectionV2JobsResponse_comprehendMedicalAsyncJobPropertiesList,
+    listEntitiesDetectionV2JobsResponse_nextToken,
     listEntitiesDetectionV2JobsResponse_httpStatus,
 
     -- ** ListICD10CMInferenceJobs
-    listICD10CMInferenceJobs_nextToken,
     listICD10CMInferenceJobs_filter,
     listICD10CMInferenceJobs_maxResults,
-    listICD10CMInferenceJobsResponse_nextToken,
+    listICD10CMInferenceJobs_nextToken,
     listICD10CMInferenceJobsResponse_comprehendMedicalAsyncJobPropertiesList,
+    listICD10CMInferenceJobsResponse_nextToken,
     listICD10CMInferenceJobsResponse_httpStatus,
 
     -- ** ListPHIDetectionJobs
-    listPHIDetectionJobs_nextToken,
     listPHIDetectionJobs_filter,
     listPHIDetectionJobs_maxResults,
-    listPHIDetectionJobsResponse_nextToken,
+    listPHIDetectionJobs_nextToken,
     listPHIDetectionJobsResponse_comprehendMedicalAsyncJobPropertiesList,
+    listPHIDetectionJobsResponse_nextToken,
     listPHIDetectionJobsResponse_httpStatus,
 
     -- ** ListRxNormInferenceJobs
-    listRxNormInferenceJobs_nextToken,
     listRxNormInferenceJobs_filter,
     listRxNormInferenceJobs_maxResults,
-    listRxNormInferenceJobsResponse_nextToken,
+    listRxNormInferenceJobs_nextToken,
     listRxNormInferenceJobsResponse_comprehendMedicalAsyncJobPropertiesList,
+    listRxNormInferenceJobsResponse_nextToken,
     listRxNormInferenceJobsResponse_httpStatus,
 
     -- ** ListSNOMEDCTInferenceJobs
-    listSNOMEDCTInferenceJobs_nextToken,
     listSNOMEDCTInferenceJobs_filter,
     listSNOMEDCTInferenceJobs_maxResults,
-    listSNOMEDCTInferenceJobsResponse_nextToken,
+    listSNOMEDCTInferenceJobs_nextToken,
     listSNOMEDCTInferenceJobsResponse_comprehendMedicalAsyncJobPropertiesList,
+    listSNOMEDCTInferenceJobsResponse_nextToken,
     listSNOMEDCTInferenceJobsResponse_httpStatus,
 
     -- ** StartEntitiesDetectionV2Job
@@ -201,80 +201,80 @@ module Amazonka.ComprehendMedical.Lens
 
     -- ** Attribute
     attribute_beginOffset,
-    attribute_relationshipScore,
-    attribute_type,
-    attribute_traits,
-    attribute_score,
-    attribute_id,
-    attribute_endOffset,
-    attribute_relationshipType,
     attribute_category,
+    attribute_endOffset,
+    attribute_id,
+    attribute_relationshipScore,
+    attribute_relationshipType,
+    attribute_score,
     attribute_text,
+    attribute_traits,
+    attribute_type,
 
     -- ** Characters
     characters_originalTextCharacters,
 
     -- ** ComprehendMedicalAsyncJobFilter
-    comprehendMedicalAsyncJobFilter_jobStatus,
     comprehendMedicalAsyncJobFilter_jobName,
-    comprehendMedicalAsyncJobFilter_submitTimeBefore,
+    comprehendMedicalAsyncJobFilter_jobStatus,
     comprehendMedicalAsyncJobFilter_submitTimeAfter,
+    comprehendMedicalAsyncJobFilter_submitTimeBefore,
 
     -- ** ComprehendMedicalAsyncJobProperties
-    comprehendMedicalAsyncJobProperties_outputDataConfig,
-    comprehendMedicalAsyncJobProperties_message,
-    comprehendMedicalAsyncJobProperties_jobStatus,
-    comprehendMedicalAsyncJobProperties_expirationTime,
-    comprehendMedicalAsyncJobProperties_jobName,
-    comprehendMedicalAsyncJobProperties_submitTime,
-    comprehendMedicalAsyncJobProperties_kmsKey,
-    comprehendMedicalAsyncJobProperties_jobId,
-    comprehendMedicalAsyncJobProperties_modelVersion,
     comprehendMedicalAsyncJobProperties_dataAccessRoleArn,
     comprehendMedicalAsyncJobProperties_endTime,
+    comprehendMedicalAsyncJobProperties_expirationTime,
+    comprehendMedicalAsyncJobProperties_inputDataConfig,
+    comprehendMedicalAsyncJobProperties_jobId,
+    comprehendMedicalAsyncJobProperties_jobName,
+    comprehendMedicalAsyncJobProperties_jobStatus,
+    comprehendMedicalAsyncJobProperties_kmsKey,
     comprehendMedicalAsyncJobProperties_languageCode,
     comprehendMedicalAsyncJobProperties_manifestFilePath,
-    comprehendMedicalAsyncJobProperties_inputDataConfig,
+    comprehendMedicalAsyncJobProperties_message,
+    comprehendMedicalAsyncJobProperties_modelVersion,
+    comprehendMedicalAsyncJobProperties_outputDataConfig,
+    comprehendMedicalAsyncJobProperties_submitTime,
 
     -- ** Entity
-    entity_beginOffset,
-    entity_type,
-    entity_traits,
-    entity_score,
-    entity_id,
-    entity_endOffset,
-    entity_category,
     entity_attributes,
+    entity_beginOffset,
+    entity_category,
+    entity_endOffset,
+    entity_id,
+    entity_score,
     entity_text,
+    entity_traits,
+    entity_type,
 
     -- ** ICD10CMAttribute
     iCD10CMAttribute_beginOffset,
-    iCD10CMAttribute_relationshipScore,
-    iCD10CMAttribute_type,
-    iCD10CMAttribute_traits,
-    iCD10CMAttribute_score,
-    iCD10CMAttribute_id,
-    iCD10CMAttribute_endOffset,
-    iCD10CMAttribute_relationshipType,
     iCD10CMAttribute_category,
+    iCD10CMAttribute_endOffset,
+    iCD10CMAttribute_id,
+    iCD10CMAttribute_relationshipScore,
+    iCD10CMAttribute_relationshipType,
+    iCD10CMAttribute_score,
     iCD10CMAttribute_text,
+    iCD10CMAttribute_traits,
+    iCD10CMAttribute_type,
 
     -- ** ICD10CMConcept
     iCD10CMConcept_code,
-    iCD10CMConcept_score,
     iCD10CMConcept_description,
+    iCD10CMConcept_score,
 
     -- ** ICD10CMEntity
-    iCD10CMEntity_beginOffset,
-    iCD10CMEntity_type,
-    iCD10CMEntity_traits,
-    iCD10CMEntity_score,
-    iCD10CMEntity_id,
-    iCD10CMEntity_endOffset,
-    iCD10CMEntity_category,
     iCD10CMEntity_attributes,
-    iCD10CMEntity_text,
+    iCD10CMEntity_beginOffset,
+    iCD10CMEntity_category,
+    iCD10CMEntity_endOffset,
     iCD10CMEntity_iCD10CMConcepts,
+    iCD10CMEntity_id,
+    iCD10CMEntity_score,
+    iCD10CMEntity_text,
+    iCD10CMEntity_traits,
+    iCD10CMEntity_type,
 
     -- ** ICD10CMTrait
     iCD10CMTrait_name,
@@ -290,30 +290,30 @@ module Amazonka.ComprehendMedical.Lens
 
     -- ** RxNormAttribute
     rxNormAttribute_beginOffset,
-    rxNormAttribute_relationshipScore,
-    rxNormAttribute_type,
-    rxNormAttribute_traits,
-    rxNormAttribute_score,
-    rxNormAttribute_id,
     rxNormAttribute_endOffset,
+    rxNormAttribute_id,
+    rxNormAttribute_relationshipScore,
+    rxNormAttribute_score,
     rxNormAttribute_text,
+    rxNormAttribute_traits,
+    rxNormAttribute_type,
 
     -- ** RxNormConcept
     rxNormConcept_code,
-    rxNormConcept_score,
     rxNormConcept_description,
+    rxNormConcept_score,
 
     -- ** RxNormEntity
-    rxNormEntity_beginOffset,
-    rxNormEntity_type,
-    rxNormEntity_rxNormConcepts,
-    rxNormEntity_traits,
-    rxNormEntity_score,
-    rxNormEntity_id,
-    rxNormEntity_endOffset,
-    rxNormEntity_category,
     rxNormEntity_attributes,
+    rxNormEntity_beginOffset,
+    rxNormEntity_category,
+    rxNormEntity_endOffset,
+    rxNormEntity_id,
+    rxNormEntity_rxNormConcepts,
+    rxNormEntity_score,
     rxNormEntity_text,
+    rxNormEntity_traits,
+    rxNormEntity_type,
 
     -- ** RxNormTrait
     rxNormTrait_name,
@@ -321,38 +321,38 @@ module Amazonka.ComprehendMedical.Lens
 
     -- ** SNOMEDCTAttribute
     sNOMEDCTAttribute_beginOffset,
-    sNOMEDCTAttribute_relationshipScore,
-    sNOMEDCTAttribute_type,
-    sNOMEDCTAttribute_traits,
-    sNOMEDCTAttribute_score,
-    sNOMEDCTAttribute_id,
-    sNOMEDCTAttribute_endOffset,
-    sNOMEDCTAttribute_relationshipType,
     sNOMEDCTAttribute_category,
-    sNOMEDCTAttribute_text,
+    sNOMEDCTAttribute_endOffset,
+    sNOMEDCTAttribute_id,
+    sNOMEDCTAttribute_relationshipScore,
+    sNOMEDCTAttribute_relationshipType,
     sNOMEDCTAttribute_sNOMEDCTConcepts,
+    sNOMEDCTAttribute_score,
+    sNOMEDCTAttribute_text,
+    sNOMEDCTAttribute_traits,
+    sNOMEDCTAttribute_type,
 
     -- ** SNOMEDCTConcept
     sNOMEDCTConcept_code,
-    sNOMEDCTConcept_score,
     sNOMEDCTConcept_description,
+    sNOMEDCTConcept_score,
 
     -- ** SNOMEDCTDetails
     sNOMEDCTDetails_edition,
-    sNOMEDCTDetails_versionDate,
     sNOMEDCTDetails_language,
+    sNOMEDCTDetails_versionDate,
 
     -- ** SNOMEDCTEntity
-    sNOMEDCTEntity_beginOffset,
-    sNOMEDCTEntity_type,
-    sNOMEDCTEntity_traits,
-    sNOMEDCTEntity_score,
-    sNOMEDCTEntity_id,
-    sNOMEDCTEntity_endOffset,
-    sNOMEDCTEntity_category,
     sNOMEDCTEntity_attributes,
-    sNOMEDCTEntity_text,
+    sNOMEDCTEntity_beginOffset,
+    sNOMEDCTEntity_category,
+    sNOMEDCTEntity_endOffset,
+    sNOMEDCTEntity_id,
     sNOMEDCTEntity_sNOMEDCTConcepts,
+    sNOMEDCTEntity_score,
+    sNOMEDCTEntity_text,
+    sNOMEDCTEntity_traits,
+    sNOMEDCTEntity_type,
 
     -- ** SNOMEDCTTrait
     sNOMEDCTTrait_name,
@@ -363,8 +363,8 @@ module Amazonka.ComprehendMedical.Lens
     trait_score,
 
     -- ** UnmappedAttribute
-    unmappedAttribute_type,
     unmappedAttribute_attribute,
+    unmappedAttribute_type,
   )
 where
 

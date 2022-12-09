@@ -27,17 +27,17 @@ module Amazonka.ComprehendMedical.ListICD10CMInferenceJobs
     newListICD10CMInferenceJobs,
 
     -- * Request Lenses
-    listICD10CMInferenceJobs_nextToken,
     listICD10CMInferenceJobs_filter,
     listICD10CMInferenceJobs_maxResults,
+    listICD10CMInferenceJobs_nextToken,
 
     -- * Destructuring the Response
     ListICD10CMInferenceJobsResponse (..),
     newListICD10CMInferenceJobsResponse,
 
     -- * Response Lenses
-    listICD10CMInferenceJobsResponse_nextToken,
     listICD10CMInferenceJobsResponse_comprehendMedicalAsyncJobPropertiesList,
+    listICD10CMInferenceJobsResponse_nextToken,
     listICD10CMInferenceJobsResponse_httpStatus,
   )
 where
@@ -52,15 +52,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListICD10CMInferenceJobs' smart constructor.
 data ListICD10CMInferenceJobs = ListICD10CMInferenceJobs'
-  { -- | Identifies the next page of results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filters the jobs that are returned. You can filter jobs based on their
+  { -- | Filters the jobs that are returned. You can filter jobs based on their
     -- names, status, or the date and time that they were submitted. You can
     -- only set one filter at a time.
     filter' :: Prelude.Maybe ComprehendMedicalAsyncJobFilter,
     -- | The maximum number of results to return in each page. The default is
     -- 100.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Identifies the next page of results to return.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,27 +72,23 @@ data ListICD10CMInferenceJobs = ListICD10CMInferenceJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listICD10CMInferenceJobs_nextToken' - Identifies the next page of results to return.
---
 -- 'filter'', 'listICD10CMInferenceJobs_filter' - Filters the jobs that are returned. You can filter jobs based on their
 -- names, status, or the date and time that they were submitted. You can
 -- only set one filter at a time.
 --
 -- 'maxResults', 'listICD10CMInferenceJobs_maxResults' - The maximum number of results to return in each page. The default is
 -- 100.
+--
+-- 'nextToken', 'listICD10CMInferenceJobs_nextToken' - Identifies the next page of results to return.
 newListICD10CMInferenceJobs ::
   ListICD10CMInferenceJobs
 newListICD10CMInferenceJobs =
   ListICD10CMInferenceJobs'
-    { nextToken =
+    { filter' =
         Prelude.Nothing,
-      filter' = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | Identifies the next page of results to return.
-listICD10CMInferenceJobs_nextToken :: Lens.Lens' ListICD10CMInferenceJobs (Prelude.Maybe Prelude.Text)
-listICD10CMInferenceJobs_nextToken = Lens.lens (\ListICD10CMInferenceJobs' {nextToken} -> nextToken) (\s@ListICD10CMInferenceJobs' {} a -> s {nextToken = a} :: ListICD10CMInferenceJobs)
 
 -- | Filters the jobs that are returned. You can filter jobs based on their
 -- names, status, or the date and time that they were submitted. You can
@@ -105,6 +101,10 @@ listICD10CMInferenceJobs_filter = Lens.lens (\ListICD10CMInferenceJobs' {filter'
 listICD10CMInferenceJobs_maxResults :: Lens.Lens' ListICD10CMInferenceJobs (Prelude.Maybe Prelude.Natural)
 listICD10CMInferenceJobs_maxResults = Lens.lens (\ListICD10CMInferenceJobs' {maxResults} -> maxResults) (\s@ListICD10CMInferenceJobs' {} a -> s {maxResults = a} :: ListICD10CMInferenceJobs)
 
+-- | Identifies the next page of results to return.
+listICD10CMInferenceJobs_nextToken :: Lens.Lens' ListICD10CMInferenceJobs (Prelude.Maybe Prelude.Text)
+listICD10CMInferenceJobs_nextToken = Lens.lens (\ListICD10CMInferenceJobs' {nextToken} -> nextToken) (\s@ListICD10CMInferenceJobs' {} a -> s {nextToken = a} :: ListICD10CMInferenceJobs)
+
 instance Core.AWSRequest ListICD10CMInferenceJobs where
   type
     AWSResponse ListICD10CMInferenceJobs =
@@ -115,24 +115,24 @@ instance Core.AWSRequest ListICD10CMInferenceJobs where
     Response.receiveJSON
       ( \s h x ->
           ListICD10CMInferenceJobsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ComprehendMedicalAsyncJobPropertiesList"
+            Prelude.<$> ( x Data..?> "ComprehendMedicalAsyncJobPropertiesList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListICD10CMInferenceJobs where
   hashWithSalt _salt ListICD10CMInferenceJobs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filter'
+    _salt `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListICD10CMInferenceJobs where
   rnf ListICD10CMInferenceJobs' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filter'
+    Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListICD10CMInferenceJobs where
   toHeaders =
@@ -153,9 +153,9 @@ instance Data.ToJSON ListICD10CMInferenceJobs where
   toJSON ListICD10CMInferenceJobs' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filter" Data..=) Prelude.<$> filter',
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("Filter" Data..=) Prelude.<$> filter',
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -167,10 +167,10 @@ instance Data.ToQuery ListICD10CMInferenceJobs where
 
 -- | /See:/ 'newListICD10CMInferenceJobsResponse' smart constructor.
 data ListICD10CMInferenceJobsResponse = ListICD10CMInferenceJobsResponse'
-  { -- | Identifies the next page of results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list containing the properties of each job that is returned.
+  { -- | A list containing the properties of each job that is returned.
     comprehendMedicalAsyncJobPropertiesList :: Prelude.Maybe [ComprehendMedicalAsyncJobProperties],
+    -- | Identifies the next page of results to return.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -184,9 +184,9 @@ data ListICD10CMInferenceJobsResponse = ListICD10CMInferenceJobsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listICD10CMInferenceJobsResponse_nextToken' - Identifies the next page of results to return.
---
 -- 'comprehendMedicalAsyncJobPropertiesList', 'listICD10CMInferenceJobsResponse_comprehendMedicalAsyncJobPropertiesList' - A list containing the properties of each job that is returned.
+--
+-- 'nextToken', 'listICD10CMInferenceJobsResponse_nextToken' - Identifies the next page of results to return.
 --
 -- 'httpStatus', 'listICD10CMInferenceJobsResponse_httpStatus' - The response's http status code.
 newListICD10CMInferenceJobsResponse ::
@@ -195,20 +195,19 @@ newListICD10CMInferenceJobsResponse ::
   ListICD10CMInferenceJobsResponse
 newListICD10CMInferenceJobsResponse pHttpStatus_ =
   ListICD10CMInferenceJobsResponse'
-    { nextToken =
+    { comprehendMedicalAsyncJobPropertiesList =
         Prelude.Nothing,
-      comprehendMedicalAsyncJobPropertiesList =
-        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Identifies the next page of results to return.
-listICD10CMInferenceJobsResponse_nextToken :: Lens.Lens' ListICD10CMInferenceJobsResponse (Prelude.Maybe Prelude.Text)
-listICD10CMInferenceJobsResponse_nextToken = Lens.lens (\ListICD10CMInferenceJobsResponse' {nextToken} -> nextToken) (\s@ListICD10CMInferenceJobsResponse' {} a -> s {nextToken = a} :: ListICD10CMInferenceJobsResponse)
 
 -- | A list containing the properties of each job that is returned.
 listICD10CMInferenceJobsResponse_comprehendMedicalAsyncJobPropertiesList :: Lens.Lens' ListICD10CMInferenceJobsResponse (Prelude.Maybe [ComprehendMedicalAsyncJobProperties])
 listICD10CMInferenceJobsResponse_comprehendMedicalAsyncJobPropertiesList = Lens.lens (\ListICD10CMInferenceJobsResponse' {comprehendMedicalAsyncJobPropertiesList} -> comprehendMedicalAsyncJobPropertiesList) (\s@ListICD10CMInferenceJobsResponse' {} a -> s {comprehendMedicalAsyncJobPropertiesList = a} :: ListICD10CMInferenceJobsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Identifies the next page of results to return.
+listICD10CMInferenceJobsResponse_nextToken :: Lens.Lens' ListICD10CMInferenceJobsResponse (Prelude.Maybe Prelude.Text)
+listICD10CMInferenceJobsResponse_nextToken = Lens.lens (\ListICD10CMInferenceJobsResponse' {nextToken} -> nextToken) (\s@ListICD10CMInferenceJobsResponse' {} a -> s {nextToken = a} :: ListICD10CMInferenceJobsResponse)
 
 -- | The response's http status code.
 listICD10CMInferenceJobsResponse_httpStatus :: Lens.Lens' ListICD10CMInferenceJobsResponse Prelude.Int
@@ -219,6 +218,6 @@ instance
     ListICD10CMInferenceJobsResponse
   where
   rnf ListICD10CMInferenceJobsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf comprehendMedicalAsyncJobPropertiesList
+    Prelude.rnf comprehendMedicalAsyncJobPropertiesList
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

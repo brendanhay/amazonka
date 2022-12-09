@@ -38,17 +38,17 @@ module Amazonka.OpsWorksCM.DescribeBackups
 
     -- * Request Lenses
     describeBackups_backupId,
+    describeBackups_maxResults,
     describeBackups_nextToken,
     describeBackups_serverName,
-    describeBackups_maxResults,
 
     -- * Destructuring the Response
     DescribeBackupsResponse (..),
     newDescribeBackupsResponse,
 
     -- * Response Lenses
-    describeBackupsResponse_nextToken,
     describeBackupsResponse_backups,
+    describeBackupsResponse_nextToken,
     describeBackupsResponse_httpStatus,
   )
 where
@@ -66,11 +66,11 @@ data DescribeBackups = DescribeBackups'
   { -- | Describes a single backup.
     backupId :: Prelude.Maybe Prelude.Text,
     -- | This is not currently implemented for @DescribeBackups@ requests.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | This is not currently implemented for @DescribeBackups@ requests.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Returns backups for the server with the specified ServerName.
-    serverName :: Prelude.Maybe Prelude.Text,
-    -- | This is not currently implemented for @DescribeBackups@ requests.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    serverName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,24 +84,28 @@ data DescribeBackups = DescribeBackups'
 --
 -- 'backupId', 'describeBackups_backupId' - Describes a single backup.
 --
+-- 'maxResults', 'describeBackups_maxResults' - This is not currently implemented for @DescribeBackups@ requests.
+--
 -- 'nextToken', 'describeBackups_nextToken' - This is not currently implemented for @DescribeBackups@ requests.
 --
 -- 'serverName', 'describeBackups_serverName' - Returns backups for the server with the specified ServerName.
---
--- 'maxResults', 'describeBackups_maxResults' - This is not currently implemented for @DescribeBackups@ requests.
 newDescribeBackups ::
   DescribeBackups
 newDescribeBackups =
   DescribeBackups'
     { backupId = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      serverName = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      serverName = Prelude.Nothing
     }
 
 -- | Describes a single backup.
 describeBackups_backupId :: Lens.Lens' DescribeBackups (Prelude.Maybe Prelude.Text)
 describeBackups_backupId = Lens.lens (\DescribeBackups' {backupId} -> backupId) (\s@DescribeBackups' {} a -> s {backupId = a} :: DescribeBackups)
+
+-- | This is not currently implemented for @DescribeBackups@ requests.
+describeBackups_maxResults :: Lens.Lens' DescribeBackups (Prelude.Maybe Prelude.Natural)
+describeBackups_maxResults = Lens.lens (\DescribeBackups' {maxResults} -> maxResults) (\s@DescribeBackups' {} a -> s {maxResults = a} :: DescribeBackups)
 
 -- | This is not currently implemented for @DescribeBackups@ requests.
 describeBackups_nextToken :: Lens.Lens' DescribeBackups (Prelude.Maybe Prelude.Text)
@@ -110,10 +114,6 @@ describeBackups_nextToken = Lens.lens (\DescribeBackups' {nextToken} -> nextToke
 -- | Returns backups for the server with the specified ServerName.
 describeBackups_serverName :: Lens.Lens' DescribeBackups (Prelude.Maybe Prelude.Text)
 describeBackups_serverName = Lens.lens (\DescribeBackups' {serverName} -> serverName) (\s@DescribeBackups' {} a -> s {serverName = a} :: DescribeBackups)
-
--- | This is not currently implemented for @DescribeBackups@ requests.
-describeBackups_maxResults :: Lens.Lens' DescribeBackups (Prelude.Maybe Prelude.Natural)
-describeBackups_maxResults = Lens.lens (\DescribeBackups' {maxResults} -> maxResults) (\s@DescribeBackups' {} a -> s {maxResults = a} :: DescribeBackups)
 
 instance Core.AWSPager DescribeBackups where
   page rq rs
@@ -146,24 +146,24 @@ instance Core.AWSRequest DescribeBackups where
     Response.receiveJSON
       ( \s h x ->
           DescribeBackupsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Backups" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Backups" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeBackups where
   hashWithSalt _salt DescribeBackups' {..} =
     _salt `Prelude.hashWithSalt` backupId
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` serverName
-      `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData DescribeBackups where
   rnf DescribeBackups' {..} =
     Prelude.rnf backupId
+      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf serverName
-      `Prelude.seq` Prelude.rnf maxResults
 
 instance Data.ToHeaders DescribeBackups where
   toHeaders =
@@ -185,9 +185,9 @@ instance Data.ToJSON DescribeBackups where
     Data.object
       ( Prelude.catMaybes
           [ ("BackupId" Data..=) Prelude.<$> backupId,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("ServerName" Data..=) Prelude.<$> serverName,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+            ("ServerName" Data..=) Prelude.<$> serverName
           ]
       )
 
@@ -199,10 +199,10 @@ instance Data.ToQuery DescribeBackups where
 
 -- | /See:/ 'newDescribeBackupsResponse' smart constructor.
 data DescribeBackupsResponse = DescribeBackupsResponse'
-  { -- | This is not currently implemented for @DescribeBackups@ requests.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Contains the response to a @DescribeBackups@ request.
+  { -- | Contains the response to a @DescribeBackups@ request.
     backups :: Prelude.Maybe [Backup],
+    -- | This is not currently implemented for @DescribeBackups@ requests.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -216,9 +216,9 @@ data DescribeBackupsResponse = DescribeBackupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeBackupsResponse_nextToken' - This is not currently implemented for @DescribeBackups@ requests.
---
 -- 'backups', 'describeBackupsResponse_backups' - Contains the response to a @DescribeBackups@ request.
+--
+-- 'nextToken', 'describeBackupsResponse_nextToken' - This is not currently implemented for @DescribeBackups@ requests.
 --
 -- 'httpStatus', 'describeBackupsResponse_httpStatus' - The response's http status code.
 newDescribeBackupsResponse ::
@@ -227,19 +227,18 @@ newDescribeBackupsResponse ::
   DescribeBackupsResponse
 newDescribeBackupsResponse pHttpStatus_ =
   DescribeBackupsResponse'
-    { nextToken =
-        Prelude.Nothing,
-      backups = Prelude.Nothing,
+    { backups = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | This is not currently implemented for @DescribeBackups@ requests.
-describeBackupsResponse_nextToken :: Lens.Lens' DescribeBackupsResponse (Prelude.Maybe Prelude.Text)
-describeBackupsResponse_nextToken = Lens.lens (\DescribeBackupsResponse' {nextToken} -> nextToken) (\s@DescribeBackupsResponse' {} a -> s {nextToken = a} :: DescribeBackupsResponse)
 
 -- | Contains the response to a @DescribeBackups@ request.
 describeBackupsResponse_backups :: Lens.Lens' DescribeBackupsResponse (Prelude.Maybe [Backup])
 describeBackupsResponse_backups = Lens.lens (\DescribeBackupsResponse' {backups} -> backups) (\s@DescribeBackupsResponse' {} a -> s {backups = a} :: DescribeBackupsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | This is not currently implemented for @DescribeBackups@ requests.
+describeBackupsResponse_nextToken :: Lens.Lens' DescribeBackupsResponse (Prelude.Maybe Prelude.Text)
+describeBackupsResponse_nextToken = Lens.lens (\DescribeBackupsResponse' {nextToken} -> nextToken) (\s@DescribeBackupsResponse' {} a -> s {nextToken = a} :: DescribeBackupsResponse)
 
 -- | The response's http status code.
 describeBackupsResponse_httpStatus :: Lens.Lens' DescribeBackupsResponse Prelude.Int
@@ -247,6 +246,6 @@ describeBackupsResponse_httpStatus = Lens.lens (\DescribeBackupsResponse' {httpS
 
 instance Prelude.NFData DescribeBackupsResponse where
   rnf DescribeBackupsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf backups
+    Prelude.rnf backups
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

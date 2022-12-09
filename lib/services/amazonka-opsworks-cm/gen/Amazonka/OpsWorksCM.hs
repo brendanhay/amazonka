@@ -89,20 +89,20 @@ module Amazonka.OpsWorksCM
     -- * Errors
     -- $errors
 
-    -- ** ResourceAlreadyExistsException
-    _ResourceAlreadyExistsException,
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
 
     -- ** InvalidStateException
     _InvalidStateException,
 
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
     -- ** LimitExceededException
     _LimitExceededException,
 
-    -- ** InvalidNextTokenException
-    _InvalidNextTokenException,
+    -- ** ResourceAlreadyExistsException
+    _ResourceAlreadyExistsException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- ** ValidationException
     _ValidationException,

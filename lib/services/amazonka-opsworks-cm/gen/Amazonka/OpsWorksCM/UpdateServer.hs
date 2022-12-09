@@ -29,10 +29,10 @@ module Amazonka.OpsWorksCM.UpdateServer
     newUpdateServer,
 
     -- * Request Lenses
-    updateServer_preferredBackupWindow,
     updateServer_backupRetentionCount,
-    updateServer_preferredMaintenanceWindow,
     updateServer_disableAutomatedBackup,
+    updateServer_preferredBackupWindow,
+    updateServer_preferredMaintenanceWindow,
     updateServer_serverName,
 
     -- * Destructuring the Response
@@ -55,13 +55,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateServer' smart constructor.
 data UpdateServer = UpdateServer'
-  { preferredBackupWindow :: Prelude.Maybe Prelude.Text,
-    -- | Sets the number of automated backups that you want to keep.
+  { -- | Sets the number of automated backups that you want to keep.
     backupRetentionCount :: Prelude.Maybe Prelude.Int,
-    preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
     -- | Setting DisableAutomatedBackup to @true@ disables automated or scheduled
     -- backups. Automated backups are enabled by default.
     disableAutomatedBackup :: Prelude.Maybe Prelude.Bool,
+    preferredBackupWindow :: Prelude.Maybe Prelude.Text,
+    preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
     -- | The name of the server to update.
     serverName :: Prelude.Text
   }
@@ -75,14 +75,14 @@ data UpdateServer = UpdateServer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'preferredBackupWindow', 'updateServer_preferredBackupWindow' - Undocumented member.
---
 -- 'backupRetentionCount', 'updateServer_backupRetentionCount' - Sets the number of automated backups that you want to keep.
---
--- 'preferredMaintenanceWindow', 'updateServer_preferredMaintenanceWindow' - Undocumented member.
 --
 -- 'disableAutomatedBackup', 'updateServer_disableAutomatedBackup' - Setting DisableAutomatedBackup to @true@ disables automated or scheduled
 -- backups. Automated backups are enabled by default.
+--
+-- 'preferredBackupWindow', 'updateServer_preferredBackupWindow' - Undocumented member.
+--
+-- 'preferredMaintenanceWindow', 'updateServer_preferredMaintenanceWindow' - Undocumented member.
 --
 -- 'serverName', 'updateServer_serverName' - The name of the server to update.
 newUpdateServer ::
@@ -91,30 +91,30 @@ newUpdateServer ::
   UpdateServer
 newUpdateServer pServerName_ =
   UpdateServer'
-    { preferredBackupWindow =
+    { backupRetentionCount =
         Prelude.Nothing,
-      backupRetentionCount = Prelude.Nothing,
-      preferredMaintenanceWindow = Prelude.Nothing,
       disableAutomatedBackup = Prelude.Nothing,
+      preferredBackupWindow = Prelude.Nothing,
+      preferredMaintenanceWindow = Prelude.Nothing,
       serverName = pServerName_
     }
-
--- | Undocumented member.
-updateServer_preferredBackupWindow :: Lens.Lens' UpdateServer (Prelude.Maybe Prelude.Text)
-updateServer_preferredBackupWindow = Lens.lens (\UpdateServer' {preferredBackupWindow} -> preferredBackupWindow) (\s@UpdateServer' {} a -> s {preferredBackupWindow = a} :: UpdateServer)
 
 -- | Sets the number of automated backups that you want to keep.
 updateServer_backupRetentionCount :: Lens.Lens' UpdateServer (Prelude.Maybe Prelude.Int)
 updateServer_backupRetentionCount = Lens.lens (\UpdateServer' {backupRetentionCount} -> backupRetentionCount) (\s@UpdateServer' {} a -> s {backupRetentionCount = a} :: UpdateServer)
 
--- | Undocumented member.
-updateServer_preferredMaintenanceWindow :: Lens.Lens' UpdateServer (Prelude.Maybe Prelude.Text)
-updateServer_preferredMaintenanceWindow = Lens.lens (\UpdateServer' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@UpdateServer' {} a -> s {preferredMaintenanceWindow = a} :: UpdateServer)
-
 -- | Setting DisableAutomatedBackup to @true@ disables automated or scheduled
 -- backups. Automated backups are enabled by default.
 updateServer_disableAutomatedBackup :: Lens.Lens' UpdateServer (Prelude.Maybe Prelude.Bool)
 updateServer_disableAutomatedBackup = Lens.lens (\UpdateServer' {disableAutomatedBackup} -> disableAutomatedBackup) (\s@UpdateServer' {} a -> s {disableAutomatedBackup = a} :: UpdateServer)
+
+-- | Undocumented member.
+updateServer_preferredBackupWindow :: Lens.Lens' UpdateServer (Prelude.Maybe Prelude.Text)
+updateServer_preferredBackupWindow = Lens.lens (\UpdateServer' {preferredBackupWindow} -> preferredBackupWindow) (\s@UpdateServer' {} a -> s {preferredBackupWindow = a} :: UpdateServer)
+
+-- | Undocumented member.
+updateServer_preferredMaintenanceWindow :: Lens.Lens' UpdateServer (Prelude.Maybe Prelude.Text)
+updateServer_preferredMaintenanceWindow = Lens.lens (\UpdateServer' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@UpdateServer' {} a -> s {preferredMaintenanceWindow = a} :: UpdateServer)
 
 -- | The name of the server to update.
 updateServer_serverName :: Lens.Lens' UpdateServer Prelude.Text
@@ -134,18 +134,18 @@ instance Core.AWSRequest UpdateServer where
 
 instance Prelude.Hashable UpdateServer where
   hashWithSalt _salt UpdateServer' {..} =
-    _salt `Prelude.hashWithSalt` preferredBackupWindow
-      `Prelude.hashWithSalt` backupRetentionCount
-      `Prelude.hashWithSalt` preferredMaintenanceWindow
+    _salt `Prelude.hashWithSalt` backupRetentionCount
       `Prelude.hashWithSalt` disableAutomatedBackup
+      `Prelude.hashWithSalt` preferredBackupWindow
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
       `Prelude.hashWithSalt` serverName
 
 instance Prelude.NFData UpdateServer where
   rnf UpdateServer' {..} =
-    Prelude.rnf preferredBackupWindow
-      `Prelude.seq` Prelude.rnf backupRetentionCount
-      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
+    Prelude.rnf backupRetentionCount
       `Prelude.seq` Prelude.rnf disableAutomatedBackup
+      `Prelude.seq` Prelude.rnf preferredBackupWindow
+      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
       `Prelude.seq` Prelude.rnf serverName
 
 instance Data.ToHeaders UpdateServer where
@@ -167,14 +167,14 @@ instance Data.ToJSON UpdateServer where
   toJSON UpdateServer' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("PreferredBackupWindow" Data..=)
-              Prelude.<$> preferredBackupWindow,
-            ("BackupRetentionCount" Data..=)
+          [ ("BackupRetentionCount" Data..=)
               Prelude.<$> backupRetentionCount,
-            ("PreferredMaintenanceWindow" Data..=)
-              Prelude.<$> preferredMaintenanceWindow,
             ("DisableAutomatedBackup" Data..=)
               Prelude.<$> disableAutomatedBackup,
+            ("PreferredBackupWindow" Data..=)
+              Prelude.<$> preferredBackupWindow,
+            ("PreferredMaintenanceWindow" Data..=)
+              Prelude.<$> preferredMaintenanceWindow,
             Prelude.Just ("ServerName" Data..= serverName)
           ]
       )

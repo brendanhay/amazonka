@@ -35,8 +35,8 @@ module Amazonka.MechanicalTurk.GetAssignment
     newGetAssignmentResponse,
 
     -- * Response Lenses
-    getAssignmentResponse_hit,
     getAssignmentResponse_assignment,
+    getAssignmentResponse_hit,
     getAssignmentResponse_httpStatus,
   )
 where
@@ -86,8 +86,8 @@ instance Core.AWSRequest GetAssignment where
     Response.receiveJSON
       ( \s h x ->
           GetAssignmentResponse'
-            Prelude.<$> (x Data..?> "HIT")
-            Prelude.<*> (x Data..?> "Assignment")
+            Prelude.<$> (x Data..?> "Assignment")
+            Prelude.<*> (x Data..?> "HIT")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -128,11 +128,11 @@ instance Data.ToQuery GetAssignment where
 
 -- | /See:/ 'newGetAssignmentResponse' smart constructor.
 data GetAssignmentResponse = GetAssignmentResponse'
-  { -- | The HIT associated with this assignment. The response includes one HIT
+  { -- | The assignment. The response includes one Assignment element.
+    assignment :: Prelude.Maybe Assignment,
+    -- | The HIT associated with this assignment. The response includes one HIT
     -- element.
     hit :: Prelude.Maybe HIT,
-    -- | The assignment. The response includes one Assignment element.
-    assignment :: Prelude.Maybe Assignment,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -146,10 +146,10 @@ data GetAssignmentResponse = GetAssignmentResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'assignment', 'getAssignmentResponse_assignment' - The assignment. The response includes one Assignment element.
+--
 -- 'hit', 'getAssignmentResponse_hit' - The HIT associated with this assignment. The response includes one HIT
 -- element.
---
--- 'assignment', 'getAssignmentResponse_assignment' - The assignment. The response includes one Assignment element.
 --
 -- 'httpStatus', 'getAssignmentResponse_httpStatus' - The response's http status code.
 newGetAssignmentResponse ::
@@ -158,19 +158,20 @@ newGetAssignmentResponse ::
   GetAssignmentResponse
 newGetAssignmentResponse pHttpStatus_ =
   GetAssignmentResponse'
-    { hit = Prelude.Nothing,
-      assignment = Prelude.Nothing,
+    { assignment =
+        Prelude.Nothing,
+      hit = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The assignment. The response includes one Assignment element.
+getAssignmentResponse_assignment :: Lens.Lens' GetAssignmentResponse (Prelude.Maybe Assignment)
+getAssignmentResponse_assignment = Lens.lens (\GetAssignmentResponse' {assignment} -> assignment) (\s@GetAssignmentResponse' {} a -> s {assignment = a} :: GetAssignmentResponse)
 
 -- | The HIT associated with this assignment. The response includes one HIT
 -- element.
 getAssignmentResponse_hit :: Lens.Lens' GetAssignmentResponse (Prelude.Maybe HIT)
 getAssignmentResponse_hit = Lens.lens (\GetAssignmentResponse' {hit} -> hit) (\s@GetAssignmentResponse' {} a -> s {hit = a} :: GetAssignmentResponse)
-
--- | The assignment. The response includes one Assignment element.
-getAssignmentResponse_assignment :: Lens.Lens' GetAssignmentResponse (Prelude.Maybe Assignment)
-getAssignmentResponse_assignment = Lens.lens (\GetAssignmentResponse' {assignment} -> assignment) (\s@GetAssignmentResponse' {} a -> s {assignment = a} :: GetAssignmentResponse)
 
 -- | The response's http status code.
 getAssignmentResponse_httpStatus :: Lens.Lens' GetAssignmentResponse Prelude.Int
@@ -178,6 +179,6 @@ getAssignmentResponse_httpStatus = Lens.lens (\GetAssignmentResponse' {httpStatu
 
 instance Prelude.NFData GetAssignmentResponse where
   rnf GetAssignmentResponse' {..} =
-    Prelude.rnf hit
-      `Prelude.seq` Prelude.rnf assignment
+    Prelude.rnf assignment
+      `Prelude.seq` Prelude.rnf hit
       `Prelude.seq` Prelude.rnf httpStatus

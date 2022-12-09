@@ -30,8 +30,8 @@ module Amazonka.MechanicalTurk.ListWorkerBlocks
     newListWorkerBlocks,
 
     -- * Request Lenses
-    listWorkerBlocks_nextToken,
     listWorkerBlocks_maxResults,
+    listWorkerBlocks_nextToken,
 
     -- * Destructuring the Response
     ListWorkerBlocksResponse (..),
@@ -55,9 +55,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListWorkerBlocks' smart constructor.
 data ListWorkerBlocks = ListWorkerBlocks'
-  { -- | Pagination token
-    nextToken :: Prelude.Maybe Prelude.Text,
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Pagination token
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,24 +69,24 @@ data ListWorkerBlocks = ListWorkerBlocks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listWorkerBlocks_nextToken' - Pagination token
---
 -- 'maxResults', 'listWorkerBlocks_maxResults' - Undocumented member.
+--
+-- 'nextToken', 'listWorkerBlocks_nextToken' - Pagination token
 newListWorkerBlocks ::
   ListWorkerBlocks
 newListWorkerBlocks =
   ListWorkerBlocks'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | Pagination token
-listWorkerBlocks_nextToken :: Lens.Lens' ListWorkerBlocks (Prelude.Maybe Prelude.Text)
-listWorkerBlocks_nextToken = Lens.lens (\ListWorkerBlocks' {nextToken} -> nextToken) (\s@ListWorkerBlocks' {} a -> s {nextToken = a} :: ListWorkerBlocks)
 
 -- | Undocumented member.
 listWorkerBlocks_maxResults :: Lens.Lens' ListWorkerBlocks (Prelude.Maybe Prelude.Natural)
 listWorkerBlocks_maxResults = Lens.lens (\ListWorkerBlocks' {maxResults} -> maxResults) (\s@ListWorkerBlocks' {} a -> s {maxResults = a} :: ListWorkerBlocks)
+
+-- | Pagination token
+listWorkerBlocks_nextToken :: Lens.Lens' ListWorkerBlocks (Prelude.Maybe Prelude.Text)
+listWorkerBlocks_nextToken = Lens.lens (\ListWorkerBlocks' {nextToken} -> nextToken) (\s@ListWorkerBlocks' {} a -> s {nextToken = a} :: ListWorkerBlocks)
 
 instance Core.AWSPager ListWorkerBlocks where
   page rq rs
@@ -128,13 +128,13 @@ instance Core.AWSRequest ListWorkerBlocks where
 
 instance Prelude.Hashable ListWorkerBlocks where
   hashWithSalt _salt ListWorkerBlocks' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListWorkerBlocks where
   rnf ListWorkerBlocks' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListWorkerBlocks where
   toHeaders =
@@ -155,8 +155,8 @@ instance Data.ToJSON ListWorkerBlocks where
   toJSON ListWorkerBlocks' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

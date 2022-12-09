@@ -31,17 +31,17 @@ module Amazonka.MechanicalTurk.ListHITs
     newListHITs,
 
     -- * Request Lenses
-    listHITs_nextToken,
     listHITs_maxResults,
+    listHITs_nextToken,
 
     -- * Destructuring the Response
     ListHITsResponse (..),
     newListHITsResponse,
 
     -- * Response Lenses
+    listHITsResponse_hITs,
     listHITsResponse_nextToken,
     listHITsResponse_numResults,
-    listHITsResponse_hITs,
     listHITsResponse_httpStatus,
   )
 where
@@ -56,9 +56,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListHITs' smart constructor.
 data ListHITs = ListHITs'
-  { -- | Pagination token
-    nextToken :: Prelude.Maybe Prelude.Text,
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Pagination token
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,24 +70,24 @@ data ListHITs = ListHITs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listHITs_nextToken' - Pagination token
---
 -- 'maxResults', 'listHITs_maxResults' - Undocumented member.
+--
+-- 'nextToken', 'listHITs_nextToken' - Pagination token
 newListHITs ::
   ListHITs
 newListHITs =
   ListHITs'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | Pagination token
-listHITs_nextToken :: Lens.Lens' ListHITs (Prelude.Maybe Prelude.Text)
-listHITs_nextToken = Lens.lens (\ListHITs' {nextToken} -> nextToken) (\s@ListHITs' {} a -> s {nextToken = a} :: ListHITs)
 
 -- | Undocumented member.
 listHITs_maxResults :: Lens.Lens' ListHITs (Prelude.Maybe Prelude.Natural)
 listHITs_maxResults = Lens.lens (\ListHITs' {maxResults} -> maxResults) (\s@ListHITs' {} a -> s {maxResults = a} :: ListHITs)
+
+-- | Pagination token
+listHITs_nextToken :: Lens.Lens' ListHITs (Prelude.Maybe Prelude.Text)
+listHITs_nextToken = Lens.lens (\ListHITs' {nextToken} -> nextToken) (\s@ListHITs' {} a -> s {nextToken = a} :: ListHITs)
 
 instance Core.AWSPager ListHITs where
   page rq rs
@@ -116,21 +116,21 @@ instance Core.AWSRequest ListHITs where
     Response.receiveJSON
       ( \s h x ->
           ListHITsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<$> (x Data..?> "HITs" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (x Data..?> "NumResults")
-            Prelude.<*> (x Data..?> "HITs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListHITs where
   hashWithSalt _salt ListHITs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListHITs where
   rnf ListHITs' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListHITs where
   toHeaders =
@@ -151,8 +151,8 @@ instance Data.ToJSON ListHITs where
   toJSON ListHITs' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -164,12 +164,12 @@ instance Data.ToQuery ListHITs where
 
 -- | /See:/ 'newListHITsResponse' smart constructor.
 data ListHITsResponse = ListHITsResponse'
-  { nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The list of HIT elements returned by the query.
+    hITs :: Prelude.Maybe [HIT],
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The number of HITs on this page in the filtered results list, equivalent
     -- to the number of HITs being returned by this call.
     numResults :: Prelude.Maybe Prelude.Int,
-    -- | The list of HIT elements returned by the query.
-    hITs :: Prelude.Maybe [HIT],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -183,12 +183,12 @@ data ListHITsResponse = ListHITsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'hITs', 'listHITsResponse_hITs' - The list of HIT elements returned by the query.
+--
 -- 'nextToken', 'listHITsResponse_nextToken' - Undocumented member.
 --
 -- 'numResults', 'listHITsResponse_numResults' - The number of HITs on this page in the filtered results list, equivalent
 -- to the number of HITs being returned by this call.
---
--- 'hITs', 'listHITsResponse_hITs' - The list of HIT elements returned by the query.
 --
 -- 'httpStatus', 'listHITsResponse_httpStatus' - The response's http status code.
 newListHITsResponse ::
@@ -197,11 +197,15 @@ newListHITsResponse ::
   ListHITsResponse
 newListHITsResponse pHttpStatus_ =
   ListHITsResponse'
-    { nextToken = Prelude.Nothing,
+    { hITs = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       numResults = Prelude.Nothing,
-      hITs = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The list of HIT elements returned by the query.
+listHITsResponse_hITs :: Lens.Lens' ListHITsResponse (Prelude.Maybe [HIT])
+listHITsResponse_hITs = Lens.lens (\ListHITsResponse' {hITs} -> hITs) (\s@ListHITsResponse' {} a -> s {hITs = a} :: ListHITsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 listHITsResponse_nextToken :: Lens.Lens' ListHITsResponse (Prelude.Maybe Prelude.Text)
@@ -212,17 +216,13 @@ listHITsResponse_nextToken = Lens.lens (\ListHITsResponse' {nextToken} -> nextTo
 listHITsResponse_numResults :: Lens.Lens' ListHITsResponse (Prelude.Maybe Prelude.Int)
 listHITsResponse_numResults = Lens.lens (\ListHITsResponse' {numResults} -> numResults) (\s@ListHITsResponse' {} a -> s {numResults = a} :: ListHITsResponse)
 
--- | The list of HIT elements returned by the query.
-listHITsResponse_hITs :: Lens.Lens' ListHITsResponse (Prelude.Maybe [HIT])
-listHITsResponse_hITs = Lens.lens (\ListHITsResponse' {hITs} -> hITs) (\s@ListHITsResponse' {} a -> s {hITs = a} :: ListHITsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listHITsResponse_httpStatus :: Lens.Lens' ListHITsResponse Prelude.Int
 listHITsResponse_httpStatus = Lens.lens (\ListHITsResponse' {httpStatus} -> httpStatus) (\s@ListHITsResponse' {} a -> s {httpStatus = a} :: ListHITsResponse)
 
 instance Prelude.NFData ListHITsResponse where
   rnf ListHITsResponse' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf hITs
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf numResults
-      `Prelude.seq` Prelude.rnf hITs
       `Prelude.seq` Prelude.rnf httpStatus

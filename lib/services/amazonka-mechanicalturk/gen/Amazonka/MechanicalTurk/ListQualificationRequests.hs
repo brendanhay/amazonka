@@ -32,9 +32,9 @@ module Amazonka.MechanicalTurk.ListQualificationRequests
     newListQualificationRequests,
 
     -- * Request Lenses
-    listQualificationRequests_qualificationTypeId,
-    listQualificationRequests_nextToken,
     listQualificationRequests_maxResults,
+    listQualificationRequests_nextToken,
+    listQualificationRequests_qualificationTypeId,
 
     -- * Destructuring the Response
     ListQualificationRequestsResponse (..),
@@ -58,11 +58,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListQualificationRequests' smart constructor.
 data ListQualificationRequests = ListQualificationRequests'
-  { -- | The ID of the QualificationType.
-    qualificationTypeId :: Prelude.Maybe Prelude.Text,
+  { -- | The maximum number of results to return in a single call.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in a single call.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    -- | The ID of the QualificationType.
+    qualificationTypeId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,32 +74,32 @@ data ListQualificationRequests = ListQualificationRequests'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'qualificationTypeId', 'listQualificationRequests_qualificationTypeId' - The ID of the QualificationType.
+-- 'maxResults', 'listQualificationRequests_maxResults' - The maximum number of results to return in a single call.
 --
 -- 'nextToken', 'listQualificationRequests_nextToken' - Undocumented member.
 --
--- 'maxResults', 'listQualificationRequests_maxResults' - The maximum number of results to return in a single call.
+-- 'qualificationTypeId', 'listQualificationRequests_qualificationTypeId' - The ID of the QualificationType.
 newListQualificationRequests ::
   ListQualificationRequests
 newListQualificationRequests =
   ListQualificationRequests'
-    { qualificationTypeId =
+    { maxResults =
         Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      qualificationTypeId = Prelude.Nothing
     }
 
--- | The ID of the QualificationType.
-listQualificationRequests_qualificationTypeId :: Lens.Lens' ListQualificationRequests (Prelude.Maybe Prelude.Text)
-listQualificationRequests_qualificationTypeId = Lens.lens (\ListQualificationRequests' {qualificationTypeId} -> qualificationTypeId) (\s@ListQualificationRequests' {} a -> s {qualificationTypeId = a} :: ListQualificationRequests)
+-- | The maximum number of results to return in a single call.
+listQualificationRequests_maxResults :: Lens.Lens' ListQualificationRequests (Prelude.Maybe Prelude.Natural)
+listQualificationRequests_maxResults = Lens.lens (\ListQualificationRequests' {maxResults} -> maxResults) (\s@ListQualificationRequests' {} a -> s {maxResults = a} :: ListQualificationRequests)
 
 -- | Undocumented member.
 listQualificationRequests_nextToken :: Lens.Lens' ListQualificationRequests (Prelude.Maybe Prelude.Text)
 listQualificationRequests_nextToken = Lens.lens (\ListQualificationRequests' {nextToken} -> nextToken) (\s@ListQualificationRequests' {} a -> s {nextToken = a} :: ListQualificationRequests)
 
--- | The maximum number of results to return in a single call.
-listQualificationRequests_maxResults :: Lens.Lens' ListQualificationRequests (Prelude.Maybe Prelude.Natural)
-listQualificationRequests_maxResults = Lens.lens (\ListQualificationRequests' {maxResults} -> maxResults) (\s@ListQualificationRequests' {} a -> s {maxResults = a} :: ListQualificationRequests)
+-- | The ID of the QualificationType.
+listQualificationRequests_qualificationTypeId :: Lens.Lens' ListQualificationRequests (Prelude.Maybe Prelude.Text)
+listQualificationRequests_qualificationTypeId = Lens.lens (\ListQualificationRequests' {qualificationTypeId} -> qualificationTypeId) (\s@ListQualificationRequests' {} a -> s {qualificationTypeId = a} :: ListQualificationRequests)
 
 instance Core.AWSPager ListQualificationRequests where
   page rq rs
@@ -143,15 +143,15 @@ instance Core.AWSRequest ListQualificationRequests where
 
 instance Prelude.Hashable ListQualificationRequests where
   hashWithSalt _salt ListQualificationRequests' {..} =
-    _salt `Prelude.hashWithSalt` qualificationTypeId
+    _salt `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` qualificationTypeId
 
 instance Prelude.NFData ListQualificationRequests where
   rnf ListQualificationRequests' {..} =
-    Prelude.rnf qualificationTypeId
+    Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf qualificationTypeId
 
 instance Data.ToHeaders ListQualificationRequests where
   toHeaders =
@@ -172,10 +172,10 @@ instance Data.ToJSON ListQualificationRequests where
   toJSON ListQualificationRequests' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("QualificationTypeId" Data..=)
-              Prelude.<$> qualificationTypeId,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+            ("QualificationTypeId" Data..=)
+              Prelude.<$> qualificationTypeId
           ]
       )
 

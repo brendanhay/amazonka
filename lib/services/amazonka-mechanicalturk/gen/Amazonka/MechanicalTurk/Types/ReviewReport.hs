@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newReviewReport' smart constructor.
 data ReviewReport = ReviewReport'
-  { -- | A list of ReviewResults objects for each action specified in the Review
+  { -- | A list of ReviewAction objects for each action specified in the Review
     -- Policy.
-    reviewResults :: Prelude.Maybe [ReviewResultDetail],
-    -- | A list of ReviewAction objects for each action specified in the Review
+    reviewActions :: Prelude.Maybe [ReviewActionDetail],
+    -- | A list of ReviewResults objects for each action specified in the Review
     -- Policy.
-    reviewActions :: Prelude.Maybe [ReviewActionDetail]
+    reviewResults :: Prelude.Maybe [ReviewResultDetail]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,28 +48,28 @@ data ReviewReport = ReviewReport'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'reviewResults', 'reviewReport_reviewResults' - A list of ReviewResults objects for each action specified in the Review
+-- 'reviewActions', 'reviewReport_reviewActions' - A list of ReviewAction objects for each action specified in the Review
 -- Policy.
 --
--- 'reviewActions', 'reviewReport_reviewActions' - A list of ReviewAction objects for each action specified in the Review
+-- 'reviewResults', 'reviewReport_reviewResults' - A list of ReviewResults objects for each action specified in the Review
 -- Policy.
 newReviewReport ::
   ReviewReport
 newReviewReport =
   ReviewReport'
-    { reviewResults = Prelude.Nothing,
-      reviewActions = Prelude.Nothing
+    { reviewActions = Prelude.Nothing,
+      reviewResults = Prelude.Nothing
     }
-
--- | A list of ReviewResults objects for each action specified in the Review
--- Policy.
-reviewReport_reviewResults :: Lens.Lens' ReviewReport (Prelude.Maybe [ReviewResultDetail])
-reviewReport_reviewResults = Lens.lens (\ReviewReport' {reviewResults} -> reviewResults) (\s@ReviewReport' {} a -> s {reviewResults = a} :: ReviewReport) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of ReviewAction objects for each action specified in the Review
 -- Policy.
 reviewReport_reviewActions :: Lens.Lens' ReviewReport (Prelude.Maybe [ReviewActionDetail])
 reviewReport_reviewActions = Lens.lens (\ReviewReport' {reviewActions} -> reviewActions) (\s@ReviewReport' {} a -> s {reviewActions = a} :: ReviewReport) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of ReviewResults objects for each action specified in the Review
+-- Policy.
+reviewReport_reviewResults :: Lens.Lens' ReviewReport (Prelude.Maybe [ReviewResultDetail])
+reviewReport_reviewResults = Lens.lens (\ReviewReport' {reviewResults} -> reviewResults) (\s@ReviewReport' {} a -> s {reviewResults = a} :: ReviewReport) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON ReviewReport where
   parseJSON =
@@ -77,16 +77,16 @@ instance Data.FromJSON ReviewReport where
       "ReviewReport"
       ( \x ->
           ReviewReport'
-            Prelude.<$> (x Data..:? "ReviewResults" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "ReviewActions" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "ReviewActions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ReviewResults" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ReviewReport where
   hashWithSalt _salt ReviewReport' {..} =
-    _salt `Prelude.hashWithSalt` reviewResults
-      `Prelude.hashWithSalt` reviewActions
+    _salt `Prelude.hashWithSalt` reviewActions
+      `Prelude.hashWithSalt` reviewResults
 
 instance Prelude.NFData ReviewReport where
   rnf ReviewReport' {..} =
-    Prelude.rnf reviewResults
-      `Prelude.seq` Prelude.rnf reviewActions
+    Prelude.rnf reviewActions
+      `Prelude.seq` Prelude.rnf reviewResults

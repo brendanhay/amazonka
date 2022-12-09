@@ -41,8 +41,8 @@ module Amazonka.ConnectParticipant.SendMessage
     newSendMessageResponse,
 
     -- * Response Lenses
-    sendMessageResponse_id,
     sendMessageResponse_absoluteTime,
+    sendMessageResponse_id,
     sendMessageResponse_httpStatus,
   )
 where
@@ -129,8 +129,8 @@ instance Core.AWSRequest SendMessage where
     Response.receiveJSON
       ( \s h x ->
           SendMessageResponse'
-            Prelude.<$> (x Data..?> "Id")
-            Prelude.<*> (x Data..?> "AbsoluteTime")
+            Prelude.<$> (x Data..?> "AbsoluteTime")
+            Prelude.<*> (x Data..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -174,13 +174,13 @@ instance Data.ToQuery SendMessage where
 
 -- | /See:/ 'newSendMessageResponse' smart constructor.
 data SendMessageResponse = SendMessageResponse'
-  { -- | The ID of the message.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The time when the message was sent.
+  { -- | The time when the message was sent.
     --
     -- It\'s specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For
     -- example, 2019-11-08T02:41:28.172Z.
     absoluteTime :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the message.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -194,12 +194,12 @@ data SendMessageResponse = SendMessageResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'sendMessageResponse_id' - The ID of the message.
---
 -- 'absoluteTime', 'sendMessageResponse_absoluteTime' - The time when the message was sent.
 --
 -- It\'s specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For
 -- example, 2019-11-08T02:41:28.172Z.
+--
+-- 'id', 'sendMessageResponse_id' - The ID of the message.
 --
 -- 'httpStatus', 'sendMessageResponse_httpStatus' - The response's http status code.
 newSendMessageResponse ::
@@ -208,14 +208,11 @@ newSendMessageResponse ::
   SendMessageResponse
 newSendMessageResponse pHttpStatus_ =
   SendMessageResponse'
-    { id = Prelude.Nothing,
-      absoluteTime = Prelude.Nothing,
+    { absoluteTime =
+        Prelude.Nothing,
+      id = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ID of the message.
-sendMessageResponse_id :: Lens.Lens' SendMessageResponse (Prelude.Maybe Prelude.Text)
-sendMessageResponse_id = Lens.lens (\SendMessageResponse' {id} -> id) (\s@SendMessageResponse' {} a -> s {id = a} :: SendMessageResponse)
 
 -- | The time when the message was sent.
 --
@@ -224,12 +221,16 @@ sendMessageResponse_id = Lens.lens (\SendMessageResponse' {id} -> id) (\s@SendMe
 sendMessageResponse_absoluteTime :: Lens.Lens' SendMessageResponse (Prelude.Maybe Prelude.Text)
 sendMessageResponse_absoluteTime = Lens.lens (\SendMessageResponse' {absoluteTime} -> absoluteTime) (\s@SendMessageResponse' {} a -> s {absoluteTime = a} :: SendMessageResponse)
 
+-- | The ID of the message.
+sendMessageResponse_id :: Lens.Lens' SendMessageResponse (Prelude.Maybe Prelude.Text)
+sendMessageResponse_id = Lens.lens (\SendMessageResponse' {id} -> id) (\s@SendMessageResponse' {} a -> s {id = a} :: SendMessageResponse)
+
 -- | The response's http status code.
 sendMessageResponse_httpStatus :: Lens.Lens' SendMessageResponse Prelude.Int
 sendMessageResponse_httpStatus = Lens.lens (\SendMessageResponse' {httpStatus} -> httpStatus) (\s@SendMessageResponse' {} a -> s {httpStatus = a} :: SendMessageResponse)
 
 instance Prelude.NFData SendMessageResponse where
   rnf SendMessageResponse' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf absoluteTime
+    Prelude.rnf absoluteTime
+      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf httpStatus

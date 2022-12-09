@@ -41,8 +41,8 @@ module Amazonka.ConnectParticipant.SendEvent
     newSendEventResponse,
 
     -- * Response Lenses
-    sendEventResponse_id,
     sendEventResponse_absoluteTime,
+    sendEventResponse_id,
     sendEventResponse_httpStatus,
   )
 where
@@ -139,8 +139,8 @@ instance Core.AWSRequest SendEvent where
     Response.receiveJSON
       ( \s h x ->
           SendEventResponse'
-            Prelude.<$> (x Data..?> "Id")
-            Prelude.<*> (x Data..?> "AbsoluteTime")
+            Prelude.<$> (x Data..?> "AbsoluteTime")
+            Prelude.<*> (x Data..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -184,13 +184,13 @@ instance Data.ToQuery SendEvent where
 
 -- | /See:/ 'newSendEventResponse' smart constructor.
 data SendEventResponse = SendEventResponse'
-  { -- | The ID of the response.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The time when the event was sent.
+  { -- | The time when the event was sent.
     --
     -- It\'s specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For
     -- example, 2019-11-08T02:41:28.172Z.
     absoluteTime :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the response.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -204,12 +204,12 @@ data SendEventResponse = SendEventResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'sendEventResponse_id' - The ID of the response.
---
 -- 'absoluteTime', 'sendEventResponse_absoluteTime' - The time when the event was sent.
 --
 -- It\'s specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For
 -- example, 2019-11-08T02:41:28.172Z.
+--
+-- 'id', 'sendEventResponse_id' - The ID of the response.
 --
 -- 'httpStatus', 'sendEventResponse_httpStatus' - The response's http status code.
 newSendEventResponse ::
@@ -218,14 +218,10 @@ newSendEventResponse ::
   SendEventResponse
 newSendEventResponse pHttpStatus_ =
   SendEventResponse'
-    { id = Prelude.Nothing,
-      absoluteTime = Prelude.Nothing,
+    { absoluteTime = Prelude.Nothing,
+      id = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ID of the response.
-sendEventResponse_id :: Lens.Lens' SendEventResponse (Prelude.Maybe Prelude.Text)
-sendEventResponse_id = Lens.lens (\SendEventResponse' {id} -> id) (\s@SendEventResponse' {} a -> s {id = a} :: SendEventResponse)
 
 -- | The time when the event was sent.
 --
@@ -234,12 +230,16 @@ sendEventResponse_id = Lens.lens (\SendEventResponse' {id} -> id) (\s@SendEventR
 sendEventResponse_absoluteTime :: Lens.Lens' SendEventResponse (Prelude.Maybe Prelude.Text)
 sendEventResponse_absoluteTime = Lens.lens (\SendEventResponse' {absoluteTime} -> absoluteTime) (\s@SendEventResponse' {} a -> s {absoluteTime = a} :: SendEventResponse)
 
+-- | The ID of the response.
+sendEventResponse_id :: Lens.Lens' SendEventResponse (Prelude.Maybe Prelude.Text)
+sendEventResponse_id = Lens.lens (\SendEventResponse' {id} -> id) (\s@SendEventResponse' {} a -> s {id = a} :: SendEventResponse)
+
 -- | The response's http status code.
 sendEventResponse_httpStatus :: Lens.Lens' SendEventResponse Prelude.Int
 sendEventResponse_httpStatus = Lens.lens (\SendEventResponse' {httpStatus} -> httpStatus) (\s@SendEventResponse' {} a -> s {httpStatus = a} :: SendEventResponse)
 
 instance Prelude.NFData SendEventResponse where
   rnf SendEventResponse' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf absoluteTime
+    Prelude.rnf absoluteTime
+      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf httpStatus

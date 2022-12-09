@@ -32,12 +32,12 @@ module Amazonka.ConnectParticipant.GetTranscript
     newGetTranscript,
 
     -- * Request Lenses
-    getTranscript_sortOrder,
-    getTranscript_nextToken,
     getTranscript_contactId,
-    getTranscript_startPosition,
     getTranscript_maxResults,
+    getTranscript_nextToken,
     getTranscript_scanDirection,
+    getTranscript_sortOrder,
+    getTranscript_startPosition,
     getTranscript_connectionToken,
 
     -- * Destructuring the Response
@@ -45,9 +45,9 @@ module Amazonka.ConnectParticipant.GetTranscript
     newGetTranscriptResponse,
 
     -- * Response Lenses
+    getTranscriptResponse_initialContactId,
     getTranscriptResponse_nextToken,
     getTranscriptResponse_transcript,
-    getTranscriptResponse_initialContactId,
     getTranscriptResponse_httpStatus,
   )
 where
@@ -62,22 +62,22 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetTranscript' smart constructor.
 data GetTranscript = GetTranscript'
-  { -- | The sort order for the records. Default: DESCENDING.
-    sortOrder :: Prelude.Maybe SortKey,
+  { -- | The contactId from the current contact chain for which transcript is
+    -- needed.
+    contactId :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return in the page. Default: 10.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The pagination token. Use the value returned previously in the next
     -- subsequent request to retrieve the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The contactId from the current contact chain for which transcript is
-    -- needed.
-    contactId :: Prelude.Maybe Prelude.Text,
-    -- | A filtering option for where to start.
-    startPosition :: Prelude.Maybe StartPosition,
-    -- | The maximum number of results to return in the page. Default: 10.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The direction from StartPosition from which to retrieve message.
     -- Default: BACKWARD when no StartPosition is provided, FORWARD with
     -- StartPosition.
     scanDirection :: Prelude.Maybe ScanDirection,
+    -- | The sort order for the records. Default: DESCENDING.
+    sortOrder :: Prelude.Maybe SortKey,
+    -- | A filtering option for where to start.
+    startPosition :: Prelude.Maybe StartPosition,
     -- | The authentication token associated with the participant\'s connection.
     connectionToken :: Prelude.Text
   }
@@ -91,21 +91,21 @@ data GetTranscript = GetTranscript'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'getTranscript_sortOrder' - The sort order for the records. Default: DESCENDING.
+-- 'contactId', 'getTranscript_contactId' - The contactId from the current contact chain for which transcript is
+-- needed.
+--
+-- 'maxResults', 'getTranscript_maxResults' - The maximum number of results to return in the page. Default: 10.
 --
 -- 'nextToken', 'getTranscript_nextToken' - The pagination token. Use the value returned previously in the next
 -- subsequent request to retrieve the next set of results.
 --
--- 'contactId', 'getTranscript_contactId' - The contactId from the current contact chain for which transcript is
--- needed.
---
--- 'startPosition', 'getTranscript_startPosition' - A filtering option for where to start.
---
--- 'maxResults', 'getTranscript_maxResults' - The maximum number of results to return in the page. Default: 10.
---
 -- 'scanDirection', 'getTranscript_scanDirection' - The direction from StartPosition from which to retrieve message.
 -- Default: BACKWARD when no StartPosition is provided, FORWARD with
 -- StartPosition.
+--
+-- 'sortOrder', 'getTranscript_sortOrder' - The sort order for the records. Default: DESCENDING.
+--
+-- 'startPosition', 'getTranscript_startPosition' - A filtering option for where to start.
 --
 -- 'connectionToken', 'getTranscript_connectionToken' - The authentication token associated with the participant\'s connection.
 newGetTranscript ::
@@ -114,42 +114,42 @@ newGetTranscript ::
   GetTranscript
 newGetTranscript pConnectionToken_ =
   GetTranscript'
-    { sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      contactId = Prelude.Nothing,
-      startPosition = Prelude.Nothing,
+    { contactId = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       scanDirection = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
+      startPosition = Prelude.Nothing,
       connectionToken = pConnectionToken_
     }
-
--- | The sort order for the records. Default: DESCENDING.
-getTranscript_sortOrder :: Lens.Lens' GetTranscript (Prelude.Maybe SortKey)
-getTranscript_sortOrder = Lens.lens (\GetTranscript' {sortOrder} -> sortOrder) (\s@GetTranscript' {} a -> s {sortOrder = a} :: GetTranscript)
-
--- | The pagination token. Use the value returned previously in the next
--- subsequent request to retrieve the next set of results.
-getTranscript_nextToken :: Lens.Lens' GetTranscript (Prelude.Maybe Prelude.Text)
-getTranscript_nextToken = Lens.lens (\GetTranscript' {nextToken} -> nextToken) (\s@GetTranscript' {} a -> s {nextToken = a} :: GetTranscript)
 
 -- | The contactId from the current contact chain for which transcript is
 -- needed.
 getTranscript_contactId :: Lens.Lens' GetTranscript (Prelude.Maybe Prelude.Text)
 getTranscript_contactId = Lens.lens (\GetTranscript' {contactId} -> contactId) (\s@GetTranscript' {} a -> s {contactId = a} :: GetTranscript)
 
--- | A filtering option for where to start.
-getTranscript_startPosition :: Lens.Lens' GetTranscript (Prelude.Maybe StartPosition)
-getTranscript_startPosition = Lens.lens (\GetTranscript' {startPosition} -> startPosition) (\s@GetTranscript' {} a -> s {startPosition = a} :: GetTranscript)
-
 -- | The maximum number of results to return in the page. Default: 10.
 getTranscript_maxResults :: Lens.Lens' GetTranscript (Prelude.Maybe Prelude.Natural)
 getTranscript_maxResults = Lens.lens (\GetTranscript' {maxResults} -> maxResults) (\s@GetTranscript' {} a -> s {maxResults = a} :: GetTranscript)
+
+-- | The pagination token. Use the value returned previously in the next
+-- subsequent request to retrieve the next set of results.
+getTranscript_nextToken :: Lens.Lens' GetTranscript (Prelude.Maybe Prelude.Text)
+getTranscript_nextToken = Lens.lens (\GetTranscript' {nextToken} -> nextToken) (\s@GetTranscript' {} a -> s {nextToken = a} :: GetTranscript)
 
 -- | The direction from StartPosition from which to retrieve message.
 -- Default: BACKWARD when no StartPosition is provided, FORWARD with
 -- StartPosition.
 getTranscript_scanDirection :: Lens.Lens' GetTranscript (Prelude.Maybe ScanDirection)
 getTranscript_scanDirection = Lens.lens (\GetTranscript' {scanDirection} -> scanDirection) (\s@GetTranscript' {} a -> s {scanDirection = a} :: GetTranscript)
+
+-- | The sort order for the records. Default: DESCENDING.
+getTranscript_sortOrder :: Lens.Lens' GetTranscript (Prelude.Maybe SortKey)
+getTranscript_sortOrder = Lens.lens (\GetTranscript' {sortOrder} -> sortOrder) (\s@GetTranscript' {} a -> s {sortOrder = a} :: GetTranscript)
+
+-- | A filtering option for where to start.
+getTranscript_startPosition :: Lens.Lens' GetTranscript (Prelude.Maybe StartPosition)
+getTranscript_startPosition = Lens.lens (\GetTranscript' {startPosition} -> startPosition) (\s@GetTranscript' {} a -> s {startPosition = a} :: GetTranscript)
 
 -- | The authentication token associated with the participant\'s connection.
 getTranscript_connectionToken :: Lens.Lens' GetTranscript Prelude.Text
@@ -165,30 +165,30 @@ instance Core.AWSRequest GetTranscript where
     Response.receiveJSON
       ( \s h x ->
           GetTranscriptResponse'
-            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<$> (x Data..?> "InitialContactId")
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (x Data..?> "Transcript" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "InitialContactId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetTranscript where
   hashWithSalt _salt GetTranscript' {..} =
-    _salt `Prelude.hashWithSalt` sortOrder
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` contactId
-      `Prelude.hashWithSalt` startPosition
+    _salt `Prelude.hashWithSalt` contactId
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` scanDirection
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` startPosition
       `Prelude.hashWithSalt` connectionToken
 
 instance Prelude.NFData GetTranscript where
   rnf GetTranscript' {..} =
-    Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf contactId
-      `Prelude.seq` Prelude.rnf startPosition
+    Prelude.rnf contactId
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf scanDirection
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf startPosition
       `Prelude.seq` Prelude.rnf connectionToken
 
 instance Data.ToHeaders GetTranscript where
@@ -203,12 +203,12 @@ instance Data.ToJSON GetTranscript where
   toJSON GetTranscript' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
-            ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("ContactId" Data..=) Prelude.<$> contactId,
-            ("StartPosition" Data..=) Prelude.<$> startPosition,
+          [ ("ContactId" Data..=) Prelude.<$> contactId,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("ScanDirection" Data..=) Prelude.<$> scanDirection
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("ScanDirection" Data..=) Prelude.<$> scanDirection,
+            ("SortOrder" Data..=) Prelude.<$> sortOrder,
+            ("StartPosition" Data..=) Prelude.<$> startPosition
           ]
       )
 
@@ -220,13 +220,13 @@ instance Data.ToQuery GetTranscript where
 
 -- | /See:/ 'newGetTranscriptResponse' smart constructor.
 data GetTranscriptResponse = GetTranscriptResponse'
-  { -- | The pagination token. Use the value returned previously in the next
+  { -- | The initial contact ID for the contact.
+    initialContactId :: Prelude.Maybe Prelude.Text,
+    -- | The pagination token. Use the value returned previously in the next
     -- subsequent request to retrieve the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The list of messages in the session.
     transcript :: Prelude.Maybe [Item],
-    -- | The initial contact ID for the contact.
-    initialContactId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -240,12 +240,12 @@ data GetTranscriptResponse = GetTranscriptResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'initialContactId', 'getTranscriptResponse_initialContactId' - The initial contact ID for the contact.
+--
 -- 'nextToken', 'getTranscriptResponse_nextToken' - The pagination token. Use the value returned previously in the next
 -- subsequent request to retrieve the next set of results.
 --
 -- 'transcript', 'getTranscriptResponse_transcript' - The list of messages in the session.
---
--- 'initialContactId', 'getTranscriptResponse_initialContactId' - The initial contact ID for the contact.
 --
 -- 'httpStatus', 'getTranscriptResponse_httpStatus' - The response's http status code.
 newGetTranscriptResponse ::
@@ -254,11 +254,16 @@ newGetTranscriptResponse ::
   GetTranscriptResponse
 newGetTranscriptResponse pHttpStatus_ =
   GetTranscriptResponse'
-    { nextToken = Prelude.Nothing,
+    { initialContactId =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       transcript = Prelude.Nothing,
-      initialContactId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The initial contact ID for the contact.
+getTranscriptResponse_initialContactId :: Lens.Lens' GetTranscriptResponse (Prelude.Maybe Prelude.Text)
+getTranscriptResponse_initialContactId = Lens.lens (\GetTranscriptResponse' {initialContactId} -> initialContactId) (\s@GetTranscriptResponse' {} a -> s {initialContactId = a} :: GetTranscriptResponse)
 
 -- | The pagination token. Use the value returned previously in the next
 -- subsequent request to retrieve the next set of results.
@@ -269,17 +274,13 @@ getTranscriptResponse_nextToken = Lens.lens (\GetTranscriptResponse' {nextToken}
 getTranscriptResponse_transcript :: Lens.Lens' GetTranscriptResponse (Prelude.Maybe [Item])
 getTranscriptResponse_transcript = Lens.lens (\GetTranscriptResponse' {transcript} -> transcript) (\s@GetTranscriptResponse' {} a -> s {transcript = a} :: GetTranscriptResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The initial contact ID for the contact.
-getTranscriptResponse_initialContactId :: Lens.Lens' GetTranscriptResponse (Prelude.Maybe Prelude.Text)
-getTranscriptResponse_initialContactId = Lens.lens (\GetTranscriptResponse' {initialContactId} -> initialContactId) (\s@GetTranscriptResponse' {} a -> s {initialContactId = a} :: GetTranscriptResponse)
-
 -- | The response's http status code.
 getTranscriptResponse_httpStatus :: Lens.Lens' GetTranscriptResponse Prelude.Int
 getTranscriptResponse_httpStatus = Lens.lens (\GetTranscriptResponse' {httpStatus} -> httpStatus) (\s@GetTranscriptResponse' {} a -> s {httpStatus = a} :: GetTranscriptResponse)
 
 instance Prelude.NFData GetTranscriptResponse where
   rnf GetTranscriptResponse' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf initialContactId
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf transcript
-      `Prelude.seq` Prelude.rnf initialContactId
       `Prelude.seq` Prelude.rnf httpStatus

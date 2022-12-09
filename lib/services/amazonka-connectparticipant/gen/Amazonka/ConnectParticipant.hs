@@ -29,14 +29,14 @@ module Amazonka.ConnectParticipant
     -- ** AccessDeniedException
     _AccessDeniedException,
 
+    -- ** ConflictException
+    _ConflictException,
+
     -- ** InternalServerException
     _InternalServerException,
 
     -- ** ServiceQuotaExceededException
     _ServiceQuotaExceededException,
-
-    -- ** ConflictException
-    _ConflictException,
 
     -- ** ThrottlingException
     _ThrottlingException,

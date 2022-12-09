@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStartPosition' smart constructor.
 data StartPosition = StartPosition'
-  { -- | The ID of the message or event where to start.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The time in ISO format where to start.
+  { -- | The time in ISO format where to start.
     --
     -- It\'s specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For
     -- example, 2019-11-08T02:41:28.172Z.
     absoluteTime :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the message or event where to start.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The start position of the most recent message where you want to start.
     mostRecent :: Prelude.Maybe Prelude.Natural
   }
@@ -49,26 +49,22 @@ data StartPosition = StartPosition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'startPosition_id' - The ID of the message or event where to start.
---
 -- 'absoluteTime', 'startPosition_absoluteTime' - The time in ISO format where to start.
 --
 -- It\'s specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For
 -- example, 2019-11-08T02:41:28.172Z.
+--
+-- 'id', 'startPosition_id' - The ID of the message or event where to start.
 --
 -- 'mostRecent', 'startPosition_mostRecent' - The start position of the most recent message where you want to start.
 newStartPosition ::
   StartPosition
 newStartPosition =
   StartPosition'
-    { id = Prelude.Nothing,
-      absoluteTime = Prelude.Nothing,
+    { absoluteTime = Prelude.Nothing,
+      id = Prelude.Nothing,
       mostRecent = Prelude.Nothing
     }
-
--- | The ID of the message or event where to start.
-startPosition_id :: Lens.Lens' StartPosition (Prelude.Maybe Prelude.Text)
-startPosition_id = Lens.lens (\StartPosition' {id} -> id) (\s@StartPosition' {} a -> s {id = a} :: StartPosition)
 
 -- | The time in ISO format where to start.
 --
@@ -77,28 +73,32 @@ startPosition_id = Lens.lens (\StartPosition' {id} -> id) (\s@StartPosition' {} 
 startPosition_absoluteTime :: Lens.Lens' StartPosition (Prelude.Maybe Prelude.Text)
 startPosition_absoluteTime = Lens.lens (\StartPosition' {absoluteTime} -> absoluteTime) (\s@StartPosition' {} a -> s {absoluteTime = a} :: StartPosition)
 
+-- | The ID of the message or event where to start.
+startPosition_id :: Lens.Lens' StartPosition (Prelude.Maybe Prelude.Text)
+startPosition_id = Lens.lens (\StartPosition' {id} -> id) (\s@StartPosition' {} a -> s {id = a} :: StartPosition)
+
 -- | The start position of the most recent message where you want to start.
 startPosition_mostRecent :: Lens.Lens' StartPosition (Prelude.Maybe Prelude.Natural)
 startPosition_mostRecent = Lens.lens (\StartPosition' {mostRecent} -> mostRecent) (\s@StartPosition' {} a -> s {mostRecent = a} :: StartPosition)
 
 instance Prelude.Hashable StartPosition where
   hashWithSalt _salt StartPosition' {..} =
-    _salt `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` absoluteTime
+    _salt `Prelude.hashWithSalt` absoluteTime
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` mostRecent
 
 instance Prelude.NFData StartPosition where
   rnf StartPosition' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf absoluteTime
+    Prelude.rnf absoluteTime
+      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf mostRecent
 
 instance Data.ToJSON StartPosition where
   toJSON StartPosition' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Id" Data..=) Prelude.<$> id,
-            ("AbsoluteTime" Data..=) Prelude.<$> absoluteTime,
+          [ ("AbsoluteTime" Data..=) Prelude.<$> absoluteTime,
+            ("Id" Data..=) Prelude.<$> id,
             ("MostRecent" Data..=) Prelude.<$> mostRecent
           ]
       )

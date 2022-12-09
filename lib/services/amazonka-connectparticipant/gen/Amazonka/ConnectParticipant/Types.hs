@@ -19,9 +19,9 @@ module Amazonka.ConnectParticipant.Types
 
     -- * Errors
     _AccessDeniedException,
+    _ConflictException,
     _InternalServerException,
     _ServiceQuotaExceededException,
-    _ConflictException,
     _ThrottlingException,
     _ValidationException,
 
@@ -46,42 +46,42 @@ module Amazonka.ConnectParticipant.Types
     -- * AttachmentItem
     AttachmentItem (..),
     newAttachmentItem,
-    attachmentItem_status,
     attachmentItem_attachmentId,
     attachmentItem_attachmentName,
     attachmentItem_contentType,
+    attachmentItem_status,
 
     -- * ConnectionCredentials
     ConnectionCredentials (..),
     newConnectionCredentials,
-    connectionCredentials_expiry,
     connectionCredentials_connectionToken,
+    connectionCredentials_expiry,
 
     -- * Item
     Item (..),
     newItem,
-    item_type,
-    item_participantId,
-    item_displayName,
-    item_id,
     item_absoluteTime,
-    item_participantRole,
     item_attachments,
     item_content,
     item_contentType,
+    item_displayName,
+    item_id,
+    item_participantId,
+    item_participantRole,
+    item_type,
 
     -- * StartPosition
     StartPosition (..),
     newStartPosition,
-    startPosition_id,
     startPosition_absoluteTime,
+    startPosition_id,
     startPosition_mostRecent,
 
     -- * UploadMetadata
     UploadMetadata (..),
     newUploadMetadata,
-    uploadMetadata_url,
     uploadMetadata_headersToInclude,
+    uploadMetadata_url,
     uploadMetadata_urlExpiry,
 
     -- * Websocket
@@ -135,28 +135,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -164,13 +158,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -178,6 +176,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient access to perform this action.
@@ -187,6 +187,14 @@ _AccessDeniedException =
     defaultService
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
+
+-- | An attachment with that identifier is already being uploaded.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
 
 -- | This exception occurs when there is an internal failure in the Amazon
 -- Connect service.
@@ -204,14 +212,6 @@ _ServiceQuotaExceededException =
     defaultService
     "ServiceQuotaExceededException"
     Prelude.. Core.hasStatus 402
-
--- | An attachment with that identifier is already being uploaded.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
 
 -- | The request was denied due to request throttling.
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

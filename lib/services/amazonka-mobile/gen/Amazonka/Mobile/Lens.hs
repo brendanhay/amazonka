@@ -15,17 +15,17 @@ module Amazonka.Mobile.Lens
   ( -- * Operations
 
     -- ** CreateProject
-    createProject_name,
     createProject_contents,
-    createProject_snapshotId,
+    createProject_name,
     createProject_region,
+    createProject_snapshotId,
     createProjectResponse_details,
     createProjectResponse_httpStatus,
 
     -- ** DeleteProject
     deleteProject_projectId,
-    deleteProjectResponse_orphanedResources,
     deleteProjectResponse_deletedResources,
+    deleteProjectResponse_orphanedResources,
     deleteProjectResponse_httpStatus,
 
     -- ** DescribeBundle
@@ -40,8 +40,8 @@ module Amazonka.Mobile.Lens
     describeProjectResponse_httpStatus,
 
     -- ** ExportBundle
-    exportBundle_projectId,
     exportBundle_platform,
+    exportBundle_projectId,
     exportBundle_bundleId,
     exportBundleResponse_downloadUrl,
     exportBundleResponse_httpStatus,
@@ -54,17 +54,17 @@ module Amazonka.Mobile.Lens
     exportProjectResponse_httpStatus,
 
     -- ** ListBundles
-    listBundles_nextToken,
     listBundles_maxResults,
-    listBundlesResponse_nextToken,
+    listBundles_nextToken,
     listBundlesResponse_bundleList,
+    listBundlesResponse_nextToken,
     listBundlesResponse_httpStatus,
 
     -- ** ListProjects
-    listProjects_nextToken,
     listProjects_maxResults,
-    listProjectsResponse_projects,
+    listProjects_nextToken,
     listProjectsResponse_nextToken,
+    listProjectsResponse_projects,
     listProjectsResponse_httpStatus,
 
     -- ** UpdateProject
@@ -77,32 +77,32 @@ module Amazonka.Mobile.Lens
 
     -- ** BundleDetails
     bundleDetails_availablePlatforms,
+    bundleDetails_bundleId,
     bundleDetails_description,
     bundleDetails_iconUrl,
     bundleDetails_title,
-    bundleDetails_bundleId,
     bundleDetails_version,
 
     -- ** ProjectDetails
-    projectDetails_name,
     projectDetails_consoleUrl,
+    projectDetails_createdDate,
     projectDetails_lastUpdatedDate,
-    projectDetails_state,
+    projectDetails_name,
     projectDetails_projectId,
     projectDetails_region,
-    projectDetails_createdDate,
     projectDetails_resources,
+    projectDetails_state,
 
     -- ** ProjectSummary
     projectSummary_name,
     projectSummary_projectId,
 
     -- ** Resource
+    resource_arn,
+    resource_attributes,
+    resource_feature,
     resource_name,
     resource_type,
-    resource_arn,
-    resource_feature,
-    resource_attributes,
   )
 where
 

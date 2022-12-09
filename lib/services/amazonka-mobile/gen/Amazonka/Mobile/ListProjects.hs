@@ -29,16 +29,16 @@ module Amazonka.Mobile.ListProjects
     newListProjects,
 
     -- * Request Lenses
-    listProjects_nextToken,
     listProjects_maxResults,
+    listProjects_nextToken,
 
     -- * Destructuring the Response
     ListProjectsResponse (..),
     newListProjectsResponse,
 
     -- * Response Lenses
-    listProjectsResponse_projects,
     listProjectsResponse_nextToken,
+    listProjectsResponse_projects,
     listProjectsResponse_httpStatus,
   )
 where
@@ -55,12 +55,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListProjects' smart constructor.
 data ListProjects = ListProjects'
-  { -- | Pagination token. Set to null to start listing projects from start. If
+  { -- | Maximum number of records to list in a single response.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | Pagination token. Set to null to start listing projects from start. If
     -- non-null pagination token is returned in a result, then pass its value
     -- in here in another request to list more projects.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Maximum number of records to list in a single response.
-    maxResults :: Prelude.Maybe Prelude.Int
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,28 +72,28 @@ data ListProjects = ListProjects'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listProjects_maxResults' - Maximum number of records to list in a single response.
+--
 -- 'nextToken', 'listProjects_nextToken' - Pagination token. Set to null to start listing projects from start. If
 -- non-null pagination token is returned in a result, then pass its value
 -- in here in another request to list more projects.
---
--- 'maxResults', 'listProjects_maxResults' - Maximum number of records to list in a single response.
 newListProjects ::
   ListProjects
 newListProjects =
   ListProjects'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | Maximum number of records to list in a single response.
+listProjects_maxResults :: Lens.Lens' ListProjects (Prelude.Maybe Prelude.Int)
+listProjects_maxResults = Lens.lens (\ListProjects' {maxResults} -> maxResults) (\s@ListProjects' {} a -> s {maxResults = a} :: ListProjects)
 
 -- | Pagination token. Set to null to start listing projects from start. If
 -- non-null pagination token is returned in a result, then pass its value
 -- in here in another request to list more projects.
 listProjects_nextToken :: Lens.Lens' ListProjects (Prelude.Maybe Prelude.Text)
 listProjects_nextToken = Lens.lens (\ListProjects' {nextToken} -> nextToken) (\s@ListProjects' {} a -> s {nextToken = a} :: ListProjects)
-
--- | Maximum number of records to list in a single response.
-listProjects_maxResults :: Lens.Lens' ListProjects (Prelude.Maybe Prelude.Int)
-listProjects_maxResults = Lens.lens (\ListProjects' {maxResults} -> maxResults) (\s@ListProjects' {} a -> s {maxResults = a} :: ListProjects)
 
 instance Core.AWSPager ListProjects where
   page rq rs
@@ -122,20 +122,20 @@ instance Core.AWSRequest ListProjects where
     Response.receiveJSON
       ( \s h x ->
           ListProjectsResponse'
-            Prelude.<$> (x Data..?> "projects" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "projects" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListProjects where
   hashWithSalt _salt ListProjects' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListProjects where
   rnf ListProjects' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListProjects where
   toHeaders =
@@ -154,16 +154,16 @@ instance Data.ToPath ListProjects where
 instance Data.ToQuery ListProjects where
   toQuery ListProjects' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | Result structure used for requests to list projects in AWS Mobile Hub.
 --
 -- /See:/ 'newListProjectsResponse' smart constructor.
 data ListProjectsResponse = ListProjectsResponse'
-  { projects :: Prelude.Maybe [ProjectSummary],
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { nextToken :: Prelude.Maybe Prelude.Text,
+    projects :: Prelude.Maybe [ProjectSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -177,9 +177,9 @@ data ListProjectsResponse = ListProjectsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'projects', 'listProjectsResponse_projects' - Undocumented member.
---
 -- 'nextToken', 'listProjectsResponse_nextToken' - Undocumented member.
+--
+-- 'projects', 'listProjectsResponse_projects' - Undocumented member.
 --
 -- 'httpStatus', 'listProjectsResponse_httpStatus' - The response's http status code.
 newListProjectsResponse ::
@@ -188,18 +188,18 @@ newListProjectsResponse ::
   ListProjectsResponse
 newListProjectsResponse pHttpStatus_ =
   ListProjectsResponse'
-    { projects = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      projects = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-listProjectsResponse_projects :: Lens.Lens' ListProjectsResponse (Prelude.Maybe [ProjectSummary])
-listProjectsResponse_projects = Lens.lens (\ListProjectsResponse' {projects} -> projects) (\s@ListProjectsResponse' {} a -> s {projects = a} :: ListProjectsResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | Undocumented member.
 listProjectsResponse_nextToken :: Lens.Lens' ListProjectsResponse (Prelude.Maybe Prelude.Text)
 listProjectsResponse_nextToken = Lens.lens (\ListProjectsResponse' {nextToken} -> nextToken) (\s@ListProjectsResponse' {} a -> s {nextToken = a} :: ListProjectsResponse)
+
+-- | Undocumented member.
+listProjectsResponse_projects :: Lens.Lens' ListProjectsResponse (Prelude.Maybe [ProjectSummary])
+listProjectsResponse_projects = Lens.lens (\ListProjectsResponse' {projects} -> projects) (\s@ListProjectsResponse' {} a -> s {projects = a} :: ListProjectsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listProjectsResponse_httpStatus :: Lens.Lens' ListProjectsResponse Prelude.Int
@@ -207,6 +207,6 @@ listProjectsResponse_httpStatus = Lens.lens (\ListProjectsResponse' {httpStatus}
 
 instance Prelude.NFData ListProjectsResponse where
   rnf ListProjectsResponse' {..} =
-    Prelude.rnf projects
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf projects
       `Prelude.seq` Prelude.rnf httpStatus

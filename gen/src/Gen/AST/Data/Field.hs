@@ -77,7 +77,7 @@ mkFields ::
   StructF (Shape Solved) ->
   [Field]
 mkFields (Lens.view metadata -> m) s st =
-  sortFields rs $ zipWith mk [1 ..] $ Map.toList (st ^. members)
+  sortFields rs $ zipWith mk [1 ..] $ Map.toAscList (st ^. members)
   where
     mk :: Int -> (Id, Ref) -> Field
     mk i (k, v) =
@@ -107,15 +107,11 @@ mkFields (Lens.view metadata -> m) s st =
       Uni x -> Just x
       Bi -> Nothing
 
--- | Ensures that isStreaming fields appear last in the parameter ordering,
--- but doesn't affect the rest of the order which is determined by parsing
--- of the JSON service definition.
+-- | Ensures that isStreaming fields appear last in the parameter ordering.
 sortFields :: [Id] -> [Field] -> [Field]
 sortFields xs =
   zipWith (Lens.set fieldOrdinal) [1 ..]
-    -- FIXME: optimise
-    . List.sortBy (Ord.comparing isStreaming)
-    . List.sortBy (Ord.comparing idx)
+    . List.sortBy (Ord.comparing isStreaming <> Ord.comparing idx)
   where
     idx x = fromMaybe (-1) (List.elemIndex (_fieldId x) xs)
 

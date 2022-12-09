@@ -29,17 +29,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBotMetadata' smart constructor.
 data BotMetadata = BotMetadata'
-  { -- | The name of the bot.
-    name :: Prelude.Maybe Prelude.Text,
+  { -- | The date that the bot was created.
+    createdDate :: Prelude.Maybe Data.POSIX,
+    -- | A description of the bot.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The date that the bot was updated. When you create a bot, the creation
     -- date and last updated date are the same.
     lastUpdatedDate :: Prelude.Maybe Data.POSIX,
+    -- | The name of the bot.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The status of the bot.
     status :: Prelude.Maybe LexStatus,
-    -- | A description of the bot.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The date that the bot was created.
-    createdDate :: Prelude.Maybe Data.POSIX,
     -- | The version of the bot. For a new bot, the version is always @$LATEST@.
     version :: Prelude.Maybe Prelude.Text
   }
@@ -53,50 +53,50 @@ data BotMetadata = BotMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'botMetadata_name' - The name of the bot.
+-- 'createdDate', 'botMetadata_createdDate' - The date that the bot was created.
+--
+-- 'description', 'botMetadata_description' - A description of the bot.
 --
 -- 'lastUpdatedDate', 'botMetadata_lastUpdatedDate' - The date that the bot was updated. When you create a bot, the creation
 -- date and last updated date are the same.
 --
+-- 'name', 'botMetadata_name' - The name of the bot.
+--
 -- 'status', 'botMetadata_status' - The status of the bot.
---
--- 'description', 'botMetadata_description' - A description of the bot.
---
--- 'createdDate', 'botMetadata_createdDate' - The date that the bot was created.
 --
 -- 'version', 'botMetadata_version' - The version of the bot. For a new bot, the version is always @$LATEST@.
 newBotMetadata ::
   BotMetadata
 newBotMetadata =
   BotMetadata'
-    { name = Prelude.Nothing,
-      lastUpdatedDate = Prelude.Nothing,
-      status = Prelude.Nothing,
+    { createdDate = Prelude.Nothing,
       description = Prelude.Nothing,
-      createdDate = Prelude.Nothing,
+      lastUpdatedDate = Prelude.Nothing,
+      name = Prelude.Nothing,
+      status = Prelude.Nothing,
       version = Prelude.Nothing
     }
 
--- | The name of the bot.
-botMetadata_name :: Lens.Lens' BotMetadata (Prelude.Maybe Prelude.Text)
-botMetadata_name = Lens.lens (\BotMetadata' {name} -> name) (\s@BotMetadata' {} a -> s {name = a} :: BotMetadata)
+-- | The date that the bot was created.
+botMetadata_createdDate :: Lens.Lens' BotMetadata (Prelude.Maybe Prelude.UTCTime)
+botMetadata_createdDate = Lens.lens (\BotMetadata' {createdDate} -> createdDate) (\s@BotMetadata' {} a -> s {createdDate = a} :: BotMetadata) Prelude.. Lens.mapping Data._Time
+
+-- | A description of the bot.
+botMetadata_description :: Lens.Lens' BotMetadata (Prelude.Maybe Prelude.Text)
+botMetadata_description = Lens.lens (\BotMetadata' {description} -> description) (\s@BotMetadata' {} a -> s {description = a} :: BotMetadata)
 
 -- | The date that the bot was updated. When you create a bot, the creation
 -- date and last updated date are the same.
 botMetadata_lastUpdatedDate :: Lens.Lens' BotMetadata (Prelude.Maybe Prelude.UTCTime)
 botMetadata_lastUpdatedDate = Lens.lens (\BotMetadata' {lastUpdatedDate} -> lastUpdatedDate) (\s@BotMetadata' {} a -> s {lastUpdatedDate = a} :: BotMetadata) Prelude.. Lens.mapping Data._Time
 
+-- | The name of the bot.
+botMetadata_name :: Lens.Lens' BotMetadata (Prelude.Maybe Prelude.Text)
+botMetadata_name = Lens.lens (\BotMetadata' {name} -> name) (\s@BotMetadata' {} a -> s {name = a} :: BotMetadata)
+
 -- | The status of the bot.
 botMetadata_status :: Lens.Lens' BotMetadata (Prelude.Maybe LexStatus)
 botMetadata_status = Lens.lens (\BotMetadata' {status} -> status) (\s@BotMetadata' {} a -> s {status = a} :: BotMetadata)
-
--- | A description of the bot.
-botMetadata_description :: Lens.Lens' BotMetadata (Prelude.Maybe Prelude.Text)
-botMetadata_description = Lens.lens (\BotMetadata' {description} -> description) (\s@BotMetadata' {} a -> s {description = a} :: BotMetadata)
-
--- | The date that the bot was created.
-botMetadata_createdDate :: Lens.Lens' BotMetadata (Prelude.Maybe Prelude.UTCTime)
-botMetadata_createdDate = Lens.lens (\BotMetadata' {createdDate} -> createdDate) (\s@BotMetadata' {} a -> s {createdDate = a} :: BotMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | The version of the bot. For a new bot, the version is always @$LATEST@.
 botMetadata_version :: Lens.Lens' BotMetadata (Prelude.Maybe Prelude.Text)
@@ -108,28 +108,28 @@ instance Data.FromJSON BotMetadata where
       "BotMetadata"
       ( \x ->
           BotMetadata'
-            Prelude.<$> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "lastUpdatedDate")
-            Prelude.<*> (x Data..:? "status")
+            Prelude.<$> (x Data..:? "createdDate")
             Prelude.<*> (x Data..:? "description")
-            Prelude.<*> (x Data..:? "createdDate")
+            Prelude.<*> (x Data..:? "lastUpdatedDate")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "status")
             Prelude.<*> (x Data..:? "version")
       )
 
 instance Prelude.Hashable BotMetadata where
   hashWithSalt _salt BotMetadata' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` lastUpdatedDate
-      `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` createdDate
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` createdDate
+      `Prelude.hashWithSalt` lastUpdatedDate
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData BotMetadata where
   rnf BotMetadata' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf lastUpdatedDate
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf createdDate
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf lastUpdatedDate
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf version

@@ -49,23 +49,23 @@ module Amazonka.LexModels.CreateBotVersion
     newCreateBotVersionResponse,
 
     -- * Response Lenses
-    createBotVersionResponse_detectSentiment,
-    createBotVersionResponse_voiceId,
-    createBotVersionResponse_name,
-    createBotVersionResponse_locale,
-    createBotVersionResponse_lastUpdatedDate,
-    createBotVersionResponse_intents,
-    createBotVersionResponse_status,
-    createBotVersionResponse_description,
-    createBotVersionResponse_idleSessionTTLInSeconds,
-    createBotVersionResponse_enableModelImprovements,
+    createBotVersionResponse_abortStatement,
     createBotVersionResponse_checksum,
     createBotVersionResponse_childDirected,
-    createBotVersionResponse_abortStatement,
     createBotVersionResponse_clarificationPrompt,
     createBotVersionResponse_createdDate,
+    createBotVersionResponse_description,
+    createBotVersionResponse_detectSentiment,
+    createBotVersionResponse_enableModelImprovements,
     createBotVersionResponse_failureReason,
+    createBotVersionResponse_idleSessionTTLInSeconds,
+    createBotVersionResponse_intents,
+    createBotVersionResponse_lastUpdatedDate,
+    createBotVersionResponse_locale,
+    createBotVersionResponse_name,
+    createBotVersionResponse_status,
     createBotVersionResponse_version,
+    createBotVersionResponse_voiceId,
     createBotVersionResponse_httpStatus,
   )
 where
@@ -141,23 +141,23 @@ instance Core.AWSRequest CreateBotVersion where
     Response.receiveJSON
       ( \s h x ->
           CreateBotVersionResponse'
-            Prelude.<$> (x Data..?> "detectSentiment")
-            Prelude.<*> (x Data..?> "voiceId")
-            Prelude.<*> (x Data..?> "name")
-            Prelude.<*> (x Data..?> "locale")
-            Prelude.<*> (x Data..?> "lastUpdatedDate")
-            Prelude.<*> (x Data..?> "intents" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "status")
-            Prelude.<*> (x Data..?> "description")
-            Prelude.<*> (x Data..?> "idleSessionTTLInSeconds")
-            Prelude.<*> (x Data..?> "enableModelImprovements")
+            Prelude.<$> (x Data..?> "abortStatement")
             Prelude.<*> (x Data..?> "checksum")
             Prelude.<*> (x Data..?> "childDirected")
-            Prelude.<*> (x Data..?> "abortStatement")
             Prelude.<*> (x Data..?> "clarificationPrompt")
             Prelude.<*> (x Data..?> "createdDate")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "detectSentiment")
+            Prelude.<*> (x Data..?> "enableModelImprovements")
             Prelude.<*> (x Data..?> "failureReason")
+            Prelude.<*> (x Data..?> "idleSessionTTLInSeconds")
+            Prelude.<*> (x Data..?> "intents" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "lastUpdatedDate")
+            Prelude.<*> (x Data..?> "locale")
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "status")
             Prelude.<*> (x Data..?> "version")
+            Prelude.<*> (x Data..?> "voiceId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -198,34 +198,9 @@ instance Data.ToQuery CreateBotVersion where
 
 -- | /See:/ 'newCreateBotVersionResponse' smart constructor.
 data CreateBotVersionResponse = CreateBotVersionResponse'
-  { -- | Indicates whether utterances entered by the user should be sent to
-    -- Amazon Comprehend for sentiment analysis.
-    detectSentiment :: Prelude.Maybe Prelude.Bool,
-    -- | The Amazon Polly voice ID that Amazon Lex uses for voice interactions
-    -- with the user.
-    voiceId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the bot.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the target locale for the bot.
-    locale :: Prelude.Maybe Locale,
-    -- | The date when the @$LATEST@ version of this bot was updated.
-    lastUpdatedDate :: Prelude.Maybe Data.POSIX,
-    -- | An array of @Intent@ objects. For more information, see PutBot.
-    intents :: Prelude.Maybe [Intent],
-    -- | When you send a request to create or update a bot, Amazon Lex sets the
-    -- @status@ response element to @BUILDING@. After Amazon Lex builds the
-    -- bot, it sets @status@ to @READY@. If Amazon Lex can\'t build the bot, it
-    -- sets @status@ to @FAILED@. Amazon Lex returns the reason for the failure
-    -- in the @failureReason@ response element.
-    status :: Prelude.Maybe LexStatus,
-    -- | A description of the bot.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The maximum time in seconds that Amazon Lex retains the data gathered in
-    -- a conversation. For more information, see PutBot.
-    idleSessionTTLInSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | Indicates whether the bot uses accuracy improvements. @true@ indicates
-    -- that the bot is using the improvements, otherwise, @false@.
-    enableModelImprovements :: Prelude.Maybe Prelude.Bool,
+  { -- | The message that Amazon Lex uses to cancel a conversation. For more
+    -- information, see PutBot.
+    abortStatement :: Prelude.Maybe Statement,
     -- | Checksum identifying the version of the bot that was created.
     checksum :: Prelude.Maybe Prelude.Text,
     -- | For each Amazon Lex bot created with the Amazon Lex Model Building
@@ -254,19 +229,44 @@ data CreateBotVersionResponse = CreateBotVersionResponse'
     -- targeted, in whole or in part, to children under age 13, see the
     -- <https://aws.amazon.com/lex/faqs#data-security Amazon Lex FAQ.>
     childDirected :: Prelude.Maybe Prelude.Bool,
-    -- | The message that Amazon Lex uses to cancel a conversation. For more
-    -- information, see PutBot.
-    abortStatement :: Prelude.Maybe Statement,
     -- | The message that Amazon Lex uses when it doesn\'t understand the user\'s
     -- request. For more information, see PutBot.
     clarificationPrompt :: Prelude.Maybe Prompt,
     -- | The date when the bot version was created.
     createdDate :: Prelude.Maybe Data.POSIX,
+    -- | A description of the bot.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether utterances entered by the user should be sent to
+    -- Amazon Comprehend for sentiment analysis.
+    detectSentiment :: Prelude.Maybe Prelude.Bool,
+    -- | Indicates whether the bot uses accuracy improvements. @true@ indicates
+    -- that the bot is using the improvements, otherwise, @false@.
+    enableModelImprovements :: Prelude.Maybe Prelude.Bool,
     -- | If @status@ is @FAILED@, Amazon Lex provides the reason that it failed
     -- to build the bot.
     failureReason :: Prelude.Maybe Prelude.Text,
+    -- | The maximum time in seconds that Amazon Lex retains the data gathered in
+    -- a conversation. For more information, see PutBot.
+    idleSessionTTLInSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | An array of @Intent@ objects. For more information, see PutBot.
+    intents :: Prelude.Maybe [Intent],
+    -- | The date when the @$LATEST@ version of this bot was updated.
+    lastUpdatedDate :: Prelude.Maybe Data.POSIX,
+    -- | Specifies the target locale for the bot.
+    locale :: Prelude.Maybe Locale,
+    -- | The name of the bot.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | When you send a request to create or update a bot, Amazon Lex sets the
+    -- @status@ response element to @BUILDING@. After Amazon Lex builds the
+    -- bot, it sets @status@ to @READY@. If Amazon Lex can\'t build the bot, it
+    -- sets @status@ to @FAILED@. Amazon Lex returns the reason for the failure
+    -- in the @failureReason@ response element.
+    status :: Prelude.Maybe LexStatus,
     -- | The version of the bot.
     version :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Polly voice ID that Amazon Lex uses for voice interactions
+    -- with the user.
+    voiceId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -280,33 +280,8 @@ data CreateBotVersionResponse = CreateBotVersionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'detectSentiment', 'createBotVersionResponse_detectSentiment' - Indicates whether utterances entered by the user should be sent to
--- Amazon Comprehend for sentiment analysis.
---
--- 'voiceId', 'createBotVersionResponse_voiceId' - The Amazon Polly voice ID that Amazon Lex uses for voice interactions
--- with the user.
---
--- 'name', 'createBotVersionResponse_name' - The name of the bot.
---
--- 'locale', 'createBotVersionResponse_locale' - Specifies the target locale for the bot.
---
--- 'lastUpdatedDate', 'createBotVersionResponse_lastUpdatedDate' - The date when the @$LATEST@ version of this bot was updated.
---
--- 'intents', 'createBotVersionResponse_intents' - An array of @Intent@ objects. For more information, see PutBot.
---
--- 'status', 'createBotVersionResponse_status' - When you send a request to create or update a bot, Amazon Lex sets the
--- @status@ response element to @BUILDING@. After Amazon Lex builds the
--- bot, it sets @status@ to @READY@. If Amazon Lex can\'t build the bot, it
--- sets @status@ to @FAILED@. Amazon Lex returns the reason for the failure
--- in the @failureReason@ response element.
---
--- 'description', 'createBotVersionResponse_description' - A description of the bot.
---
--- 'idleSessionTTLInSeconds', 'createBotVersionResponse_idleSessionTTLInSeconds' - The maximum time in seconds that Amazon Lex retains the data gathered in
--- a conversation. For more information, see PutBot.
---
--- 'enableModelImprovements', 'createBotVersionResponse_enableModelImprovements' - Indicates whether the bot uses accuracy improvements. @true@ indicates
--- that the bot is using the improvements, otherwise, @false@.
+-- 'abortStatement', 'createBotVersionResponse_abortStatement' - The message that Amazon Lex uses to cancel a conversation. For more
+-- information, see PutBot.
 --
 -- 'checksum', 'createBotVersionResponse_checksum' - Checksum identifying the version of the bot that was created.
 --
@@ -336,18 +311,43 @@ data CreateBotVersionResponse = CreateBotVersionResponse'
 -- targeted, in whole or in part, to children under age 13, see the
 -- <https://aws.amazon.com/lex/faqs#data-security Amazon Lex FAQ.>
 --
--- 'abortStatement', 'createBotVersionResponse_abortStatement' - The message that Amazon Lex uses to cancel a conversation. For more
--- information, see PutBot.
---
 -- 'clarificationPrompt', 'createBotVersionResponse_clarificationPrompt' - The message that Amazon Lex uses when it doesn\'t understand the user\'s
 -- request. For more information, see PutBot.
 --
 -- 'createdDate', 'createBotVersionResponse_createdDate' - The date when the bot version was created.
 --
+-- 'description', 'createBotVersionResponse_description' - A description of the bot.
+--
+-- 'detectSentiment', 'createBotVersionResponse_detectSentiment' - Indicates whether utterances entered by the user should be sent to
+-- Amazon Comprehend for sentiment analysis.
+--
+-- 'enableModelImprovements', 'createBotVersionResponse_enableModelImprovements' - Indicates whether the bot uses accuracy improvements. @true@ indicates
+-- that the bot is using the improvements, otherwise, @false@.
+--
 -- 'failureReason', 'createBotVersionResponse_failureReason' - If @status@ is @FAILED@, Amazon Lex provides the reason that it failed
 -- to build the bot.
 --
+-- 'idleSessionTTLInSeconds', 'createBotVersionResponse_idleSessionTTLInSeconds' - The maximum time in seconds that Amazon Lex retains the data gathered in
+-- a conversation. For more information, see PutBot.
+--
+-- 'intents', 'createBotVersionResponse_intents' - An array of @Intent@ objects. For more information, see PutBot.
+--
+-- 'lastUpdatedDate', 'createBotVersionResponse_lastUpdatedDate' - The date when the @$LATEST@ version of this bot was updated.
+--
+-- 'locale', 'createBotVersionResponse_locale' - Specifies the target locale for the bot.
+--
+-- 'name', 'createBotVersionResponse_name' - The name of the bot.
+--
+-- 'status', 'createBotVersionResponse_status' - When you send a request to create or update a bot, Amazon Lex sets the
+-- @status@ response element to @BUILDING@. After Amazon Lex builds the
+-- bot, it sets @status@ to @READY@. If Amazon Lex can\'t build the bot, it
+-- sets @status@ to @FAILED@. Amazon Lex returns the reason for the failure
+-- in the @failureReason@ response element.
+--
 -- 'version', 'createBotVersionResponse_version' - The version of the bot.
+--
+-- 'voiceId', 'createBotVersionResponse_voiceId' - The Amazon Polly voice ID that Amazon Lex uses for voice interactions
+-- with the user.
 --
 -- 'httpStatus', 'createBotVersionResponse_httpStatus' - The response's http status code.
 newCreateBotVersionResponse ::
@@ -356,74 +356,31 @@ newCreateBotVersionResponse ::
   CreateBotVersionResponse
 newCreateBotVersionResponse pHttpStatus_ =
   CreateBotVersionResponse'
-    { detectSentiment =
+    { abortStatement =
         Prelude.Nothing,
-      voiceId = Prelude.Nothing,
-      name = Prelude.Nothing,
-      locale = Prelude.Nothing,
-      lastUpdatedDate = Prelude.Nothing,
-      intents = Prelude.Nothing,
-      status = Prelude.Nothing,
-      description = Prelude.Nothing,
-      idleSessionTTLInSeconds = Prelude.Nothing,
-      enableModelImprovements = Prelude.Nothing,
       checksum = Prelude.Nothing,
       childDirected = Prelude.Nothing,
-      abortStatement = Prelude.Nothing,
       clarificationPrompt = Prelude.Nothing,
       createdDate = Prelude.Nothing,
+      description = Prelude.Nothing,
+      detectSentiment = Prelude.Nothing,
+      enableModelImprovements = Prelude.Nothing,
       failureReason = Prelude.Nothing,
+      idleSessionTTLInSeconds = Prelude.Nothing,
+      intents = Prelude.Nothing,
+      lastUpdatedDate = Prelude.Nothing,
+      locale = Prelude.Nothing,
+      name = Prelude.Nothing,
+      status = Prelude.Nothing,
       version = Prelude.Nothing,
+      voiceId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | Indicates whether utterances entered by the user should be sent to
--- Amazon Comprehend for sentiment analysis.
-createBotVersionResponse_detectSentiment :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe Prelude.Bool)
-createBotVersionResponse_detectSentiment = Lens.lens (\CreateBotVersionResponse' {detectSentiment} -> detectSentiment) (\s@CreateBotVersionResponse' {} a -> s {detectSentiment = a} :: CreateBotVersionResponse)
-
--- | The Amazon Polly voice ID that Amazon Lex uses for voice interactions
--- with the user.
-createBotVersionResponse_voiceId :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe Prelude.Text)
-createBotVersionResponse_voiceId = Lens.lens (\CreateBotVersionResponse' {voiceId} -> voiceId) (\s@CreateBotVersionResponse' {} a -> s {voiceId = a} :: CreateBotVersionResponse)
-
--- | The name of the bot.
-createBotVersionResponse_name :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe Prelude.Text)
-createBotVersionResponse_name = Lens.lens (\CreateBotVersionResponse' {name} -> name) (\s@CreateBotVersionResponse' {} a -> s {name = a} :: CreateBotVersionResponse)
-
--- | Specifies the target locale for the bot.
-createBotVersionResponse_locale :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe Locale)
-createBotVersionResponse_locale = Lens.lens (\CreateBotVersionResponse' {locale} -> locale) (\s@CreateBotVersionResponse' {} a -> s {locale = a} :: CreateBotVersionResponse)
-
--- | The date when the @$LATEST@ version of this bot was updated.
-createBotVersionResponse_lastUpdatedDate :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe Prelude.UTCTime)
-createBotVersionResponse_lastUpdatedDate = Lens.lens (\CreateBotVersionResponse' {lastUpdatedDate} -> lastUpdatedDate) (\s@CreateBotVersionResponse' {} a -> s {lastUpdatedDate = a} :: CreateBotVersionResponse) Prelude.. Lens.mapping Data._Time
-
--- | An array of @Intent@ objects. For more information, see PutBot.
-createBotVersionResponse_intents :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe [Intent])
-createBotVersionResponse_intents = Lens.lens (\CreateBotVersionResponse' {intents} -> intents) (\s@CreateBotVersionResponse' {} a -> s {intents = a} :: CreateBotVersionResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | When you send a request to create or update a bot, Amazon Lex sets the
--- @status@ response element to @BUILDING@. After Amazon Lex builds the
--- bot, it sets @status@ to @READY@. If Amazon Lex can\'t build the bot, it
--- sets @status@ to @FAILED@. Amazon Lex returns the reason for the failure
--- in the @failureReason@ response element.
-createBotVersionResponse_status :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe LexStatus)
-createBotVersionResponse_status = Lens.lens (\CreateBotVersionResponse' {status} -> status) (\s@CreateBotVersionResponse' {} a -> s {status = a} :: CreateBotVersionResponse)
-
--- | A description of the bot.
-createBotVersionResponse_description :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe Prelude.Text)
-createBotVersionResponse_description = Lens.lens (\CreateBotVersionResponse' {description} -> description) (\s@CreateBotVersionResponse' {} a -> s {description = a} :: CreateBotVersionResponse)
-
--- | The maximum time in seconds that Amazon Lex retains the data gathered in
--- a conversation. For more information, see PutBot.
-createBotVersionResponse_idleSessionTTLInSeconds :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe Prelude.Natural)
-createBotVersionResponse_idleSessionTTLInSeconds = Lens.lens (\CreateBotVersionResponse' {idleSessionTTLInSeconds} -> idleSessionTTLInSeconds) (\s@CreateBotVersionResponse' {} a -> s {idleSessionTTLInSeconds = a} :: CreateBotVersionResponse)
-
--- | Indicates whether the bot uses accuracy improvements. @true@ indicates
--- that the bot is using the improvements, otherwise, @false@.
-createBotVersionResponse_enableModelImprovements :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe Prelude.Bool)
-createBotVersionResponse_enableModelImprovements = Lens.lens (\CreateBotVersionResponse' {enableModelImprovements} -> enableModelImprovements) (\s@CreateBotVersionResponse' {} a -> s {enableModelImprovements = a} :: CreateBotVersionResponse)
+-- | The message that Amazon Lex uses to cancel a conversation. For more
+-- information, see PutBot.
+createBotVersionResponse_abortStatement :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe Statement)
+createBotVersionResponse_abortStatement = Lens.lens (\CreateBotVersionResponse' {abortStatement} -> abortStatement) (\s@CreateBotVersionResponse' {} a -> s {abortStatement = a} :: CreateBotVersionResponse)
 
 -- | Checksum identifying the version of the bot that was created.
 createBotVersionResponse_checksum :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe Prelude.Text)
@@ -457,11 +414,6 @@ createBotVersionResponse_checksum = Lens.lens (\CreateBotVersionResponse' {check
 createBotVersionResponse_childDirected :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe Prelude.Bool)
 createBotVersionResponse_childDirected = Lens.lens (\CreateBotVersionResponse' {childDirected} -> childDirected) (\s@CreateBotVersionResponse' {} a -> s {childDirected = a} :: CreateBotVersionResponse)
 
--- | The message that Amazon Lex uses to cancel a conversation. For more
--- information, see PutBot.
-createBotVersionResponse_abortStatement :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe Statement)
-createBotVersionResponse_abortStatement = Lens.lens (\CreateBotVersionResponse' {abortStatement} -> abortStatement) (\s@CreateBotVersionResponse' {} a -> s {abortStatement = a} :: CreateBotVersionResponse)
-
 -- | The message that Amazon Lex uses when it doesn\'t understand the user\'s
 -- request. For more information, see PutBot.
 createBotVersionResponse_clarificationPrompt :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe Prompt)
@@ -471,14 +423,62 @@ createBotVersionResponse_clarificationPrompt = Lens.lens (\CreateBotVersionRespo
 createBotVersionResponse_createdDate :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe Prelude.UTCTime)
 createBotVersionResponse_createdDate = Lens.lens (\CreateBotVersionResponse' {createdDate} -> createdDate) (\s@CreateBotVersionResponse' {} a -> s {createdDate = a} :: CreateBotVersionResponse) Prelude.. Lens.mapping Data._Time
 
+-- | A description of the bot.
+createBotVersionResponse_description :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe Prelude.Text)
+createBotVersionResponse_description = Lens.lens (\CreateBotVersionResponse' {description} -> description) (\s@CreateBotVersionResponse' {} a -> s {description = a} :: CreateBotVersionResponse)
+
+-- | Indicates whether utterances entered by the user should be sent to
+-- Amazon Comprehend for sentiment analysis.
+createBotVersionResponse_detectSentiment :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe Prelude.Bool)
+createBotVersionResponse_detectSentiment = Lens.lens (\CreateBotVersionResponse' {detectSentiment} -> detectSentiment) (\s@CreateBotVersionResponse' {} a -> s {detectSentiment = a} :: CreateBotVersionResponse)
+
+-- | Indicates whether the bot uses accuracy improvements. @true@ indicates
+-- that the bot is using the improvements, otherwise, @false@.
+createBotVersionResponse_enableModelImprovements :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe Prelude.Bool)
+createBotVersionResponse_enableModelImprovements = Lens.lens (\CreateBotVersionResponse' {enableModelImprovements} -> enableModelImprovements) (\s@CreateBotVersionResponse' {} a -> s {enableModelImprovements = a} :: CreateBotVersionResponse)
+
 -- | If @status@ is @FAILED@, Amazon Lex provides the reason that it failed
 -- to build the bot.
 createBotVersionResponse_failureReason :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe Prelude.Text)
 createBotVersionResponse_failureReason = Lens.lens (\CreateBotVersionResponse' {failureReason} -> failureReason) (\s@CreateBotVersionResponse' {} a -> s {failureReason = a} :: CreateBotVersionResponse)
 
+-- | The maximum time in seconds that Amazon Lex retains the data gathered in
+-- a conversation. For more information, see PutBot.
+createBotVersionResponse_idleSessionTTLInSeconds :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe Prelude.Natural)
+createBotVersionResponse_idleSessionTTLInSeconds = Lens.lens (\CreateBotVersionResponse' {idleSessionTTLInSeconds} -> idleSessionTTLInSeconds) (\s@CreateBotVersionResponse' {} a -> s {idleSessionTTLInSeconds = a} :: CreateBotVersionResponse)
+
+-- | An array of @Intent@ objects. For more information, see PutBot.
+createBotVersionResponse_intents :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe [Intent])
+createBotVersionResponse_intents = Lens.lens (\CreateBotVersionResponse' {intents} -> intents) (\s@CreateBotVersionResponse' {} a -> s {intents = a} :: CreateBotVersionResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The date when the @$LATEST@ version of this bot was updated.
+createBotVersionResponse_lastUpdatedDate :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe Prelude.UTCTime)
+createBotVersionResponse_lastUpdatedDate = Lens.lens (\CreateBotVersionResponse' {lastUpdatedDate} -> lastUpdatedDate) (\s@CreateBotVersionResponse' {} a -> s {lastUpdatedDate = a} :: CreateBotVersionResponse) Prelude.. Lens.mapping Data._Time
+
+-- | Specifies the target locale for the bot.
+createBotVersionResponse_locale :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe Locale)
+createBotVersionResponse_locale = Lens.lens (\CreateBotVersionResponse' {locale} -> locale) (\s@CreateBotVersionResponse' {} a -> s {locale = a} :: CreateBotVersionResponse)
+
+-- | The name of the bot.
+createBotVersionResponse_name :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe Prelude.Text)
+createBotVersionResponse_name = Lens.lens (\CreateBotVersionResponse' {name} -> name) (\s@CreateBotVersionResponse' {} a -> s {name = a} :: CreateBotVersionResponse)
+
+-- | When you send a request to create or update a bot, Amazon Lex sets the
+-- @status@ response element to @BUILDING@. After Amazon Lex builds the
+-- bot, it sets @status@ to @READY@. If Amazon Lex can\'t build the bot, it
+-- sets @status@ to @FAILED@. Amazon Lex returns the reason for the failure
+-- in the @failureReason@ response element.
+createBotVersionResponse_status :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe LexStatus)
+createBotVersionResponse_status = Lens.lens (\CreateBotVersionResponse' {status} -> status) (\s@CreateBotVersionResponse' {} a -> s {status = a} :: CreateBotVersionResponse)
+
 -- | The version of the bot.
 createBotVersionResponse_version :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe Prelude.Text)
 createBotVersionResponse_version = Lens.lens (\CreateBotVersionResponse' {version} -> version) (\s@CreateBotVersionResponse' {} a -> s {version = a} :: CreateBotVersionResponse)
+
+-- | The Amazon Polly voice ID that Amazon Lex uses for voice interactions
+-- with the user.
+createBotVersionResponse_voiceId :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe Prelude.Text)
+createBotVersionResponse_voiceId = Lens.lens (\CreateBotVersionResponse' {voiceId} -> voiceId) (\s@CreateBotVersionResponse' {} a -> s {voiceId = a} :: CreateBotVersionResponse)
 
 -- | The response's http status code.
 createBotVersionResponse_httpStatus :: Lens.Lens' CreateBotVersionResponse Prelude.Int
@@ -486,21 +486,21 @@ createBotVersionResponse_httpStatus = Lens.lens (\CreateBotVersionResponse' {htt
 
 instance Prelude.NFData CreateBotVersionResponse where
   rnf CreateBotVersionResponse' {..} =
-    Prelude.rnf detectSentiment
-      `Prelude.seq` Prelude.rnf voiceId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf locale
-      `Prelude.seq` Prelude.rnf lastUpdatedDate
-      `Prelude.seq` Prelude.rnf intents
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf idleSessionTTLInSeconds
-      `Prelude.seq` Prelude.rnf enableModelImprovements
+    Prelude.rnf abortStatement
       `Prelude.seq` Prelude.rnf checksum
       `Prelude.seq` Prelude.rnf childDirected
-      `Prelude.seq` Prelude.rnf abortStatement
       `Prelude.seq` Prelude.rnf clarificationPrompt
       `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf detectSentiment
+      `Prelude.seq` Prelude.rnf enableModelImprovements
       `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf idleSessionTTLInSeconds
+      `Prelude.seq` Prelude.rnf intents
+      `Prelude.seq` Prelude.rnf lastUpdatedDate
+      `Prelude.seq` Prelude.rnf locale
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf voiceId
       `Prelude.seq` Prelude.rnf httpStatus

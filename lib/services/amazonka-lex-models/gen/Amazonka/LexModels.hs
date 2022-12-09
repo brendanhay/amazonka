@@ -23,29 +23,29 @@ module Amazonka.LexModels
     -- * Errors
     -- $errors
 
-    -- ** PreconditionFailedException
-    _PreconditionFailedException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
-
-    -- ** NotFoundException
-    _NotFoundException,
-
-    -- ** ResourceInUseException
-    _ResourceInUseException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
-
-    -- ** ConflictException
-    _ConflictException,
 
     -- ** BadRequestException
     _BadRequestException,
 
+    -- ** ConflictException
+    _ConflictException,
+
     -- ** InternalFailureException
     _InternalFailureException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** NotFoundException
+    _NotFoundException,
+
+    -- ** PreconditionFailedException
+    _PreconditionFailedException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
 
     -- * Waiters
     -- $waiters

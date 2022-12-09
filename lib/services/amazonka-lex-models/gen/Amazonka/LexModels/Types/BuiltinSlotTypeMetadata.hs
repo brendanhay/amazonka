@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBuiltinSlotTypeMetadata' smart constructor.
 data BuiltinSlotTypeMetadata = BuiltinSlotTypeMetadata'
-  { -- | A list of target locales for the slot.
-    supportedLocales :: Prelude.Maybe [Locale],
-    -- | A unique identifier for the built-in slot type. To find the signature
+  { -- | A unique identifier for the built-in slot type. To find the signature
     -- for a slot type, see
     -- <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/slot-type-reference Slot Type Reference>
     -- in the /Alexa Skills Kit/.
-    signature :: Prelude.Maybe Prelude.Text
+    signature :: Prelude.Maybe Prelude.Text,
+    -- | A list of target locales for the slot.
+    supportedLocales :: Prelude.Maybe [Locale]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,24 +47,20 @@ data BuiltinSlotTypeMetadata = BuiltinSlotTypeMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'supportedLocales', 'builtinSlotTypeMetadata_supportedLocales' - A list of target locales for the slot.
---
 -- 'signature', 'builtinSlotTypeMetadata_signature' - A unique identifier for the built-in slot type. To find the signature
 -- for a slot type, see
 -- <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/slot-type-reference Slot Type Reference>
 -- in the /Alexa Skills Kit/.
+--
+-- 'supportedLocales', 'builtinSlotTypeMetadata_supportedLocales' - A list of target locales for the slot.
 newBuiltinSlotTypeMetadata ::
   BuiltinSlotTypeMetadata
 newBuiltinSlotTypeMetadata =
   BuiltinSlotTypeMetadata'
-    { supportedLocales =
+    { signature =
         Prelude.Nothing,
-      signature = Prelude.Nothing
+      supportedLocales = Prelude.Nothing
     }
-
--- | A list of target locales for the slot.
-builtinSlotTypeMetadata_supportedLocales :: Lens.Lens' BuiltinSlotTypeMetadata (Prelude.Maybe [Locale])
-builtinSlotTypeMetadata_supportedLocales = Lens.lens (\BuiltinSlotTypeMetadata' {supportedLocales} -> supportedLocales) (\s@BuiltinSlotTypeMetadata' {} a -> s {supportedLocales = a} :: BuiltinSlotTypeMetadata) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique identifier for the built-in slot type. To find the signature
 -- for a slot type, see
@@ -73,24 +69,28 @@ builtinSlotTypeMetadata_supportedLocales = Lens.lens (\BuiltinSlotTypeMetadata' 
 builtinSlotTypeMetadata_signature :: Lens.Lens' BuiltinSlotTypeMetadata (Prelude.Maybe Prelude.Text)
 builtinSlotTypeMetadata_signature = Lens.lens (\BuiltinSlotTypeMetadata' {signature} -> signature) (\s@BuiltinSlotTypeMetadata' {} a -> s {signature = a} :: BuiltinSlotTypeMetadata)
 
+-- | A list of target locales for the slot.
+builtinSlotTypeMetadata_supportedLocales :: Lens.Lens' BuiltinSlotTypeMetadata (Prelude.Maybe [Locale])
+builtinSlotTypeMetadata_supportedLocales = Lens.lens (\BuiltinSlotTypeMetadata' {supportedLocales} -> supportedLocales) (\s@BuiltinSlotTypeMetadata' {} a -> s {supportedLocales = a} :: BuiltinSlotTypeMetadata) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON BuiltinSlotTypeMetadata where
   parseJSON =
     Data.withObject
       "BuiltinSlotTypeMetadata"
       ( \x ->
           BuiltinSlotTypeMetadata'
-            Prelude.<$> ( x Data..:? "supportedLocales"
+            Prelude.<$> (x Data..:? "signature")
+            Prelude.<*> ( x Data..:? "supportedLocales"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "signature")
       )
 
 instance Prelude.Hashable BuiltinSlotTypeMetadata where
   hashWithSalt _salt BuiltinSlotTypeMetadata' {..} =
-    _salt `Prelude.hashWithSalt` supportedLocales
-      `Prelude.hashWithSalt` signature
+    _salt `Prelude.hashWithSalt` signature
+      `Prelude.hashWithSalt` supportedLocales
 
 instance Prelude.NFData BuiltinSlotTypeMetadata where
   rnf BuiltinSlotTypeMetadata' {..} =
-    Prelude.rnf supportedLocales
-      `Prelude.seq` Prelude.rnf signature
+    Prelude.rnf signature
+      `Prelude.seq` Prelude.rnf supportedLocales

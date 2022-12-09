@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBuiltinIntentMetadata' smart constructor.
 data BuiltinIntentMetadata = BuiltinIntentMetadata'
-  { -- | A list of identifiers for the locales that the intent supports.
-    supportedLocales :: Prelude.Maybe [Locale],
-    -- | A unique identifier for the built-in intent. To find the signature for
+  { -- | A unique identifier for the built-in intent. To find the signature for
     -- an intent, see
     -- <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents Standard Built-in Intents>
     -- in the /Alexa Skills Kit/.
-    signature :: Prelude.Maybe Prelude.Text
+    signature :: Prelude.Maybe Prelude.Text,
+    -- | A list of identifiers for the locales that the intent supports.
+    supportedLocales :: Prelude.Maybe [Locale]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,24 +47,19 @@ data BuiltinIntentMetadata = BuiltinIntentMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'supportedLocales', 'builtinIntentMetadata_supportedLocales' - A list of identifiers for the locales that the intent supports.
---
 -- 'signature', 'builtinIntentMetadata_signature' - A unique identifier for the built-in intent. To find the signature for
 -- an intent, see
 -- <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents Standard Built-in Intents>
 -- in the /Alexa Skills Kit/.
+--
+-- 'supportedLocales', 'builtinIntentMetadata_supportedLocales' - A list of identifiers for the locales that the intent supports.
 newBuiltinIntentMetadata ::
   BuiltinIntentMetadata
 newBuiltinIntentMetadata =
   BuiltinIntentMetadata'
-    { supportedLocales =
-        Prelude.Nothing,
-      signature = Prelude.Nothing
+    { signature = Prelude.Nothing,
+      supportedLocales = Prelude.Nothing
     }
-
--- | A list of identifiers for the locales that the intent supports.
-builtinIntentMetadata_supportedLocales :: Lens.Lens' BuiltinIntentMetadata (Prelude.Maybe [Locale])
-builtinIntentMetadata_supportedLocales = Lens.lens (\BuiltinIntentMetadata' {supportedLocales} -> supportedLocales) (\s@BuiltinIntentMetadata' {} a -> s {supportedLocales = a} :: BuiltinIntentMetadata) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique identifier for the built-in intent. To find the signature for
 -- an intent, see
@@ -73,24 +68,28 @@ builtinIntentMetadata_supportedLocales = Lens.lens (\BuiltinIntentMetadata' {sup
 builtinIntentMetadata_signature :: Lens.Lens' BuiltinIntentMetadata (Prelude.Maybe Prelude.Text)
 builtinIntentMetadata_signature = Lens.lens (\BuiltinIntentMetadata' {signature} -> signature) (\s@BuiltinIntentMetadata' {} a -> s {signature = a} :: BuiltinIntentMetadata)
 
+-- | A list of identifiers for the locales that the intent supports.
+builtinIntentMetadata_supportedLocales :: Lens.Lens' BuiltinIntentMetadata (Prelude.Maybe [Locale])
+builtinIntentMetadata_supportedLocales = Lens.lens (\BuiltinIntentMetadata' {supportedLocales} -> supportedLocales) (\s@BuiltinIntentMetadata' {} a -> s {supportedLocales = a} :: BuiltinIntentMetadata) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON BuiltinIntentMetadata where
   parseJSON =
     Data.withObject
       "BuiltinIntentMetadata"
       ( \x ->
           BuiltinIntentMetadata'
-            Prelude.<$> ( x Data..:? "supportedLocales"
+            Prelude.<$> (x Data..:? "signature")
+            Prelude.<*> ( x Data..:? "supportedLocales"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "signature")
       )
 
 instance Prelude.Hashable BuiltinIntentMetadata where
   hashWithSalt _salt BuiltinIntentMetadata' {..} =
-    _salt `Prelude.hashWithSalt` supportedLocales
-      `Prelude.hashWithSalt` signature
+    _salt `Prelude.hashWithSalt` signature
+      `Prelude.hashWithSalt` supportedLocales
 
 instance Prelude.NFData BuiltinIntentMetadata where
   rnf BuiltinIntentMetadata' {..} =
-    Prelude.rnf supportedLocales
-      `Prelude.seq` Prelude.rnf signature
+    Prelude.rnf signature
+      `Prelude.seq` Prelude.rnf supportedLocales

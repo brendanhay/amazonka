@@ -41,8 +41,8 @@ module Amazonka.LexModels.GetSlotTypeVersions
     newGetSlotTypeVersions,
 
     -- * Request Lenses
-    getSlotTypeVersions_nextToken,
     getSlotTypeVersions_maxResults,
+    getSlotTypeVersions_nextToken,
     getSlotTypeVersions_name,
 
     -- * Destructuring the Response
@@ -66,14 +66,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetSlotTypeVersions' smart constructor.
 data GetSlotTypeVersions = GetSlotTypeVersions'
-  { -- | A pagination token for fetching the next page of slot type versions. If
+  { -- | The maximum number of slot type versions to return in the response. The
+    -- default is 10.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A pagination token for fetching the next page of slot type versions. If
     -- the response to this call is truncated, Amazon Lex returns a pagination
     -- token in the response. To fetch the next page of versions, specify the
     -- pagination token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of slot type versions to return in the response. The
-    -- default is 10.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name of the slot type for which versions should be returned.
     name :: Prelude.Text
   }
@@ -87,13 +87,13 @@ data GetSlotTypeVersions = GetSlotTypeVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'getSlotTypeVersions_maxResults' - The maximum number of slot type versions to return in the response. The
+-- default is 10.
+--
 -- 'nextToken', 'getSlotTypeVersions_nextToken' - A pagination token for fetching the next page of slot type versions. If
 -- the response to this call is truncated, Amazon Lex returns a pagination
 -- token in the response. To fetch the next page of versions, specify the
 -- pagination token in the next request.
---
--- 'maxResults', 'getSlotTypeVersions_maxResults' - The maximum number of slot type versions to return in the response. The
--- default is 10.
 --
 -- 'name', 'getSlotTypeVersions_name' - The name of the slot type for which versions should be returned.
 newGetSlotTypeVersions ::
@@ -102,10 +102,15 @@ newGetSlotTypeVersions ::
   GetSlotTypeVersions
 newGetSlotTypeVersions pName_ =
   GetSlotTypeVersions'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       name = pName_
     }
+
+-- | The maximum number of slot type versions to return in the response. The
+-- default is 10.
+getSlotTypeVersions_maxResults :: Lens.Lens' GetSlotTypeVersions (Prelude.Maybe Prelude.Natural)
+getSlotTypeVersions_maxResults = Lens.lens (\GetSlotTypeVersions' {maxResults} -> maxResults) (\s@GetSlotTypeVersions' {} a -> s {maxResults = a} :: GetSlotTypeVersions)
 
 -- | A pagination token for fetching the next page of slot type versions. If
 -- the response to this call is truncated, Amazon Lex returns a pagination
@@ -113,11 +118,6 @@ newGetSlotTypeVersions pName_ =
 -- pagination token in the next request.
 getSlotTypeVersions_nextToken :: Lens.Lens' GetSlotTypeVersions (Prelude.Maybe Prelude.Text)
 getSlotTypeVersions_nextToken = Lens.lens (\GetSlotTypeVersions' {nextToken} -> nextToken) (\s@GetSlotTypeVersions' {} a -> s {nextToken = a} :: GetSlotTypeVersions)
-
--- | The maximum number of slot type versions to return in the response. The
--- default is 10.
-getSlotTypeVersions_maxResults :: Lens.Lens' GetSlotTypeVersions (Prelude.Maybe Prelude.Natural)
-getSlotTypeVersions_maxResults = Lens.lens (\GetSlotTypeVersions' {maxResults} -> maxResults) (\s@GetSlotTypeVersions' {} a -> s {maxResults = a} :: GetSlotTypeVersions)
 
 -- | The name of the slot type for which versions should be returned.
 getSlotTypeVersions_name :: Lens.Lens' GetSlotTypeVersions Prelude.Text
@@ -162,14 +162,14 @@ instance Core.AWSRequest GetSlotTypeVersions where
 
 instance Prelude.Hashable GetSlotTypeVersions where
   hashWithSalt _salt GetSlotTypeVersions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData GetSlotTypeVersions where
   rnf GetSlotTypeVersions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders GetSlotTypeVersions where
@@ -191,8 +191,8 @@ instance Data.ToPath GetSlotTypeVersions where
 instance Data.ToQuery GetSlotTypeVersions where
   toQuery GetSlotTypeVersions' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newGetSlotTypeVersionsResponse' smart constructor.

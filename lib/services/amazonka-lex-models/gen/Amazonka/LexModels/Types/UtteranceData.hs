@@ -28,17 +28,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUtteranceData' smart constructor.
 data UtteranceData = UtteranceData'
-  { -- | The date that the utterance was first recorded.
-    firstUtteredDate :: Prelude.Maybe Data.POSIX,
-    -- | The number of times that the utterance was processed.
+  { -- | The number of times that the utterance was processed.
     count :: Prelude.Maybe Prelude.Int,
-    -- | The text that was entered by the user or the text representation of an
-    -- audio clip.
-    utteranceString :: Prelude.Maybe Prelude.Text,
     -- | The total number of individuals that used the utterance.
     distinctUsers :: Prelude.Maybe Prelude.Int,
+    -- | The date that the utterance was first recorded.
+    firstUtteredDate :: Prelude.Maybe Data.POSIX,
     -- | The date that the utterance was last recorded.
-    lastUtteredDate :: Prelude.Maybe Data.POSIX
+    lastUtteredDate :: Prelude.Maybe Data.POSIX,
+    -- | The text that was entered by the user or the text representation of an
+    -- audio clip.
+    utteranceString :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,47 +50,47 @@ data UtteranceData = UtteranceData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'firstUtteredDate', 'utteranceData_firstUtteredDate' - The date that the utterance was first recorded.
---
 -- 'count', 'utteranceData_count' - The number of times that the utterance was processed.
---
--- 'utteranceString', 'utteranceData_utteranceString' - The text that was entered by the user or the text representation of an
--- audio clip.
 --
 -- 'distinctUsers', 'utteranceData_distinctUsers' - The total number of individuals that used the utterance.
 --
+-- 'firstUtteredDate', 'utteranceData_firstUtteredDate' - The date that the utterance was first recorded.
+--
 -- 'lastUtteredDate', 'utteranceData_lastUtteredDate' - The date that the utterance was last recorded.
+--
+-- 'utteranceString', 'utteranceData_utteranceString' - The text that was entered by the user or the text representation of an
+-- audio clip.
 newUtteranceData ::
   UtteranceData
 newUtteranceData =
   UtteranceData'
-    { firstUtteredDate = Prelude.Nothing,
-      count = Prelude.Nothing,
-      utteranceString = Prelude.Nothing,
+    { count = Prelude.Nothing,
       distinctUsers = Prelude.Nothing,
-      lastUtteredDate = Prelude.Nothing
+      firstUtteredDate = Prelude.Nothing,
+      lastUtteredDate = Prelude.Nothing,
+      utteranceString = Prelude.Nothing
     }
-
--- | The date that the utterance was first recorded.
-utteranceData_firstUtteredDate :: Lens.Lens' UtteranceData (Prelude.Maybe Prelude.UTCTime)
-utteranceData_firstUtteredDate = Lens.lens (\UtteranceData' {firstUtteredDate} -> firstUtteredDate) (\s@UtteranceData' {} a -> s {firstUtteredDate = a} :: UtteranceData) Prelude.. Lens.mapping Data._Time
 
 -- | The number of times that the utterance was processed.
 utteranceData_count :: Lens.Lens' UtteranceData (Prelude.Maybe Prelude.Int)
 utteranceData_count = Lens.lens (\UtteranceData' {count} -> count) (\s@UtteranceData' {} a -> s {count = a} :: UtteranceData)
 
--- | The text that was entered by the user or the text representation of an
--- audio clip.
-utteranceData_utteranceString :: Lens.Lens' UtteranceData (Prelude.Maybe Prelude.Text)
-utteranceData_utteranceString = Lens.lens (\UtteranceData' {utteranceString} -> utteranceString) (\s@UtteranceData' {} a -> s {utteranceString = a} :: UtteranceData)
-
 -- | The total number of individuals that used the utterance.
 utteranceData_distinctUsers :: Lens.Lens' UtteranceData (Prelude.Maybe Prelude.Int)
 utteranceData_distinctUsers = Lens.lens (\UtteranceData' {distinctUsers} -> distinctUsers) (\s@UtteranceData' {} a -> s {distinctUsers = a} :: UtteranceData)
 
+-- | The date that the utterance was first recorded.
+utteranceData_firstUtteredDate :: Lens.Lens' UtteranceData (Prelude.Maybe Prelude.UTCTime)
+utteranceData_firstUtteredDate = Lens.lens (\UtteranceData' {firstUtteredDate} -> firstUtteredDate) (\s@UtteranceData' {} a -> s {firstUtteredDate = a} :: UtteranceData) Prelude.. Lens.mapping Data._Time
+
 -- | The date that the utterance was last recorded.
 utteranceData_lastUtteredDate :: Lens.Lens' UtteranceData (Prelude.Maybe Prelude.UTCTime)
 utteranceData_lastUtteredDate = Lens.lens (\UtteranceData' {lastUtteredDate} -> lastUtteredDate) (\s@UtteranceData' {} a -> s {lastUtteredDate = a} :: UtteranceData) Prelude.. Lens.mapping Data._Time
+
+-- | The text that was entered by the user or the text representation of an
+-- audio clip.
+utteranceData_utteranceString :: Lens.Lens' UtteranceData (Prelude.Maybe Prelude.Text)
+utteranceData_utteranceString = Lens.lens (\UtteranceData' {utteranceString} -> utteranceString) (\s@UtteranceData' {} a -> s {utteranceString = a} :: UtteranceData)
 
 instance Data.FromJSON UtteranceData where
   parseJSON =
@@ -98,25 +98,25 @@ instance Data.FromJSON UtteranceData where
       "UtteranceData"
       ( \x ->
           UtteranceData'
-            Prelude.<$> (x Data..:? "firstUtteredDate")
-            Prelude.<*> (x Data..:? "count")
-            Prelude.<*> (x Data..:? "utteranceString")
+            Prelude.<$> (x Data..:? "count")
             Prelude.<*> (x Data..:? "distinctUsers")
+            Prelude.<*> (x Data..:? "firstUtteredDate")
             Prelude.<*> (x Data..:? "lastUtteredDate")
+            Prelude.<*> (x Data..:? "utteranceString")
       )
 
 instance Prelude.Hashable UtteranceData where
   hashWithSalt _salt UtteranceData' {..} =
-    _salt `Prelude.hashWithSalt` firstUtteredDate
-      `Prelude.hashWithSalt` count
-      `Prelude.hashWithSalt` utteranceString
+    _salt `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` distinctUsers
+      `Prelude.hashWithSalt` firstUtteredDate
       `Prelude.hashWithSalt` lastUtteredDate
+      `Prelude.hashWithSalt` utteranceString
 
 instance Prelude.NFData UtteranceData where
   rnf UtteranceData' {..} =
-    Prelude.rnf firstUtteredDate
-      `Prelude.seq` Prelude.rnf count
-      `Prelude.seq` Prelude.rnf utteranceString
+    Prelude.rnf count
       `Prelude.seq` Prelude.rnf distinctUsers
+      `Prelude.seq` Prelude.rnf firstUtteredDate
       `Prelude.seq` Prelude.rnf lastUtteredDate
+      `Prelude.seq` Prelude.rnf utteranceString

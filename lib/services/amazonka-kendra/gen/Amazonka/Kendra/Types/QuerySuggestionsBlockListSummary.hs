@@ -36,17 +36,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newQuerySuggestionsBlockListSummary' smart constructor.
 data QuerySuggestionsBlockListSummary = QuerySuggestionsBlockListSummary'
-  { -- | The name of the block list.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The number of items in the block list file.
-    itemCount :: Prelude.Maybe Prelude.Int,
-    -- | The status of the block list.
-    status :: Prelude.Maybe QuerySuggestionsBlockListStatus,
-    -- | The identifier of a block list.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The date-time summary information for a query suggestions block list was
+  { -- | The date-time summary information for a query suggestions block list was
     -- last created.
     createdAt :: Prelude.Maybe Data.POSIX,
+    -- | The identifier of a block list.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The number of items in the block list file.
+    itemCount :: Prelude.Maybe Prelude.Int,
+    -- | The name of the block list.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The status of the block list.
+    status :: Prelude.Maybe QuerySuggestionsBlockListStatus,
     -- | The date-time the block list was last updated.
     updatedAt :: Prelude.Maybe Data.POSIX
   }
@@ -60,51 +60,51 @@ data QuerySuggestionsBlockListSummary = QuerySuggestionsBlockListSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'querySuggestionsBlockListSummary_name' - The name of the block list.
---
--- 'itemCount', 'querySuggestionsBlockListSummary_itemCount' - The number of items in the block list file.
---
--- 'status', 'querySuggestionsBlockListSummary_status' - The status of the block list.
+-- 'createdAt', 'querySuggestionsBlockListSummary_createdAt' - The date-time summary information for a query suggestions block list was
+-- last created.
 --
 -- 'id', 'querySuggestionsBlockListSummary_id' - The identifier of a block list.
 --
--- 'createdAt', 'querySuggestionsBlockListSummary_createdAt' - The date-time summary information for a query suggestions block list was
--- last created.
+-- 'itemCount', 'querySuggestionsBlockListSummary_itemCount' - The number of items in the block list file.
+--
+-- 'name', 'querySuggestionsBlockListSummary_name' - The name of the block list.
+--
+-- 'status', 'querySuggestionsBlockListSummary_status' - The status of the block list.
 --
 -- 'updatedAt', 'querySuggestionsBlockListSummary_updatedAt' - The date-time the block list was last updated.
 newQuerySuggestionsBlockListSummary ::
   QuerySuggestionsBlockListSummary
 newQuerySuggestionsBlockListSummary =
   QuerySuggestionsBlockListSummary'
-    { name =
+    { createdAt =
         Prelude.Nothing,
-      itemCount = Prelude.Nothing,
-      status = Prelude.Nothing,
       id = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
+      itemCount = Prelude.Nothing,
+      name = Prelude.Nothing,
+      status = Prelude.Nothing,
       updatedAt = Prelude.Nothing
     }
-
--- | The name of the block list.
-querySuggestionsBlockListSummary_name :: Lens.Lens' QuerySuggestionsBlockListSummary (Prelude.Maybe Prelude.Text)
-querySuggestionsBlockListSummary_name = Lens.lens (\QuerySuggestionsBlockListSummary' {name} -> name) (\s@QuerySuggestionsBlockListSummary' {} a -> s {name = a} :: QuerySuggestionsBlockListSummary)
-
--- | The number of items in the block list file.
-querySuggestionsBlockListSummary_itemCount :: Lens.Lens' QuerySuggestionsBlockListSummary (Prelude.Maybe Prelude.Int)
-querySuggestionsBlockListSummary_itemCount = Lens.lens (\QuerySuggestionsBlockListSummary' {itemCount} -> itemCount) (\s@QuerySuggestionsBlockListSummary' {} a -> s {itemCount = a} :: QuerySuggestionsBlockListSummary)
-
--- | The status of the block list.
-querySuggestionsBlockListSummary_status :: Lens.Lens' QuerySuggestionsBlockListSummary (Prelude.Maybe QuerySuggestionsBlockListStatus)
-querySuggestionsBlockListSummary_status = Lens.lens (\QuerySuggestionsBlockListSummary' {status} -> status) (\s@QuerySuggestionsBlockListSummary' {} a -> s {status = a} :: QuerySuggestionsBlockListSummary)
-
--- | The identifier of a block list.
-querySuggestionsBlockListSummary_id :: Lens.Lens' QuerySuggestionsBlockListSummary (Prelude.Maybe Prelude.Text)
-querySuggestionsBlockListSummary_id = Lens.lens (\QuerySuggestionsBlockListSummary' {id} -> id) (\s@QuerySuggestionsBlockListSummary' {} a -> s {id = a} :: QuerySuggestionsBlockListSummary)
 
 -- | The date-time summary information for a query suggestions block list was
 -- last created.
 querySuggestionsBlockListSummary_createdAt :: Lens.Lens' QuerySuggestionsBlockListSummary (Prelude.Maybe Prelude.UTCTime)
 querySuggestionsBlockListSummary_createdAt = Lens.lens (\QuerySuggestionsBlockListSummary' {createdAt} -> createdAt) (\s@QuerySuggestionsBlockListSummary' {} a -> s {createdAt = a} :: QuerySuggestionsBlockListSummary) Prelude.. Lens.mapping Data._Time
+
+-- | The identifier of a block list.
+querySuggestionsBlockListSummary_id :: Lens.Lens' QuerySuggestionsBlockListSummary (Prelude.Maybe Prelude.Text)
+querySuggestionsBlockListSummary_id = Lens.lens (\QuerySuggestionsBlockListSummary' {id} -> id) (\s@QuerySuggestionsBlockListSummary' {} a -> s {id = a} :: QuerySuggestionsBlockListSummary)
+
+-- | The number of items in the block list file.
+querySuggestionsBlockListSummary_itemCount :: Lens.Lens' QuerySuggestionsBlockListSummary (Prelude.Maybe Prelude.Int)
+querySuggestionsBlockListSummary_itemCount = Lens.lens (\QuerySuggestionsBlockListSummary' {itemCount} -> itemCount) (\s@QuerySuggestionsBlockListSummary' {} a -> s {itemCount = a} :: QuerySuggestionsBlockListSummary)
+
+-- | The name of the block list.
+querySuggestionsBlockListSummary_name :: Lens.Lens' QuerySuggestionsBlockListSummary (Prelude.Maybe Prelude.Text)
+querySuggestionsBlockListSummary_name = Lens.lens (\QuerySuggestionsBlockListSummary' {name} -> name) (\s@QuerySuggestionsBlockListSummary' {} a -> s {name = a} :: QuerySuggestionsBlockListSummary)
+
+-- | The status of the block list.
+querySuggestionsBlockListSummary_status :: Lens.Lens' QuerySuggestionsBlockListSummary (Prelude.Maybe QuerySuggestionsBlockListStatus)
+querySuggestionsBlockListSummary_status = Lens.lens (\QuerySuggestionsBlockListSummary' {status} -> status) (\s@QuerySuggestionsBlockListSummary' {} a -> s {status = a} :: QuerySuggestionsBlockListSummary)
 
 -- | The date-time the block list was last updated.
 querySuggestionsBlockListSummary_updatedAt :: Lens.Lens' QuerySuggestionsBlockListSummary (Prelude.Maybe Prelude.UTCTime)
@@ -119,11 +119,11 @@ instance
       "QuerySuggestionsBlockListSummary"
       ( \x ->
           QuerySuggestionsBlockListSummary'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "ItemCount")
-            Prelude.<*> (x Data..:? "Status")
+            Prelude.<$> (x Data..:? "CreatedAt")
             Prelude.<*> (x Data..:? "Id")
-            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "ItemCount")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Status")
             Prelude.<*> (x Data..:? "UpdatedAt")
       )
 
@@ -134,11 +134,11 @@ instance
   hashWithSalt
     _salt
     QuerySuggestionsBlockListSummary' {..} =
-      _salt `Prelude.hashWithSalt` name
-        `Prelude.hashWithSalt` itemCount
-        `Prelude.hashWithSalt` status
+      _salt `Prelude.hashWithSalt` createdAt
         `Prelude.hashWithSalt` id
-        `Prelude.hashWithSalt` createdAt
+        `Prelude.hashWithSalt` itemCount
+        `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` status
         `Prelude.hashWithSalt` updatedAt
 
 instance
@@ -146,9 +146,9 @@ instance
     QuerySuggestionsBlockListSummary
   where
   rnf QuerySuggestionsBlockListSummary' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf itemCount
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf itemCount
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf updatedAt

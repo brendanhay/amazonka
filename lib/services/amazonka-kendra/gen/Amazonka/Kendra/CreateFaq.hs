@@ -34,11 +34,11 @@ module Amazonka.Kendra.CreateFaq
     newCreateFaq,
 
     -- * Request Lenses
-    createFaq_tags,
     createFaq_clientToken,
     createFaq_description,
-    createFaq_languageCode,
     createFaq_fileFormat,
+    createFaq_languageCode,
+    createFaq_tags,
     createFaq_indexId,
     createFaq_name,
     createFaq_s3Path,
@@ -64,20 +64,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateFaq' smart constructor.
 data CreateFaq = CreateFaq'
-  { -- | A list of key-value pairs that identify the FAQ. You can use the tags to
-    -- identify and organize your resources and to control access to resources.
-    tags :: Prelude.Maybe [Tag],
-    -- | A token that you provide to identify the request to create a FAQ.
+  { -- | A token that you provide to identify the request to create a FAQ.
     -- Multiple calls to the @CreateFaqRequest@ API with the same client token
     -- will create only one FAQ.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | A description for the FAQ.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The code for a language. This allows you to support a language for the
-    -- FAQ document. English is supported by default. For more information on
-    -- supported languages, including their codes, see
-    -- <https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html Adding documents in languages other than English>.
-    languageCode :: Prelude.Maybe Prelude.Text,
     -- | The format of the FAQ input file. You can choose between a basic CSV
     -- format, a CSV format that includes customs attributes in a header, and a
     -- JSON format that includes custom attributes.
@@ -88,6 +80,14 @@ data CreateFaq = CreateFaq'
     -- For more information, see
     -- <https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html Adding questions and answers>.
     fileFormat :: Prelude.Maybe FaqFileFormat,
+    -- | The code for a language. This allows you to support a language for the
+    -- FAQ document. English is supported by default. For more information on
+    -- supported languages, including their codes, see
+    -- <https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html Adding documents in languages other than English>.
+    languageCode :: Prelude.Maybe Prelude.Text,
+    -- | A list of key-value pairs that identify the FAQ. You can use the tags to
+    -- identify and organize your resources and to control access to resources.
+    tags :: Prelude.Maybe [Tag],
     -- | The identifier of the index for the FAQ.
     indexId :: Prelude.Text,
     -- | A name for the FAQ.
@@ -109,19 +109,11 @@ data CreateFaq = CreateFaq'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createFaq_tags' - A list of key-value pairs that identify the FAQ. You can use the tags to
--- identify and organize your resources and to control access to resources.
---
 -- 'clientToken', 'createFaq_clientToken' - A token that you provide to identify the request to create a FAQ.
 -- Multiple calls to the @CreateFaqRequest@ API with the same client token
 -- will create only one FAQ.
 --
 -- 'description', 'createFaq_description' - A description for the FAQ.
---
--- 'languageCode', 'createFaq_languageCode' - The code for a language. This allows you to support a language for the
--- FAQ document. English is supported by default. For more information on
--- supported languages, including their codes, see
--- <https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html Adding documents in languages other than English>.
 --
 -- 'fileFormat', 'createFaq_fileFormat' - The format of the FAQ input file. You can choose between a basic CSV
 -- format, a CSV format that includes customs attributes in a header, and a
@@ -132,6 +124,14 @@ data CreateFaq = CreateFaq'
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html Adding questions and answers>.
+--
+-- 'languageCode', 'createFaq_languageCode' - The code for a language. This allows you to support a language for the
+-- FAQ document. English is supported by default. For more information on
+-- supported languages, including their codes, see
+-- <https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html Adding documents in languages other than English>.
+--
+-- 'tags', 'createFaq_tags' - A list of key-value pairs that identify the FAQ. You can use the tags to
+-- identify and organize your resources and to control access to resources.
 --
 -- 'indexId', 'createFaq_indexId' - The identifier of the index for the FAQ.
 --
@@ -154,21 +154,16 @@ newCreateFaq ::
   CreateFaq
 newCreateFaq pIndexId_ pName_ pS3Path_ pRoleArn_ =
   CreateFaq'
-    { tags = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
+    { clientToken = Prelude.Nothing,
       description = Prelude.Nothing,
-      languageCode = Prelude.Nothing,
       fileFormat = Prelude.Nothing,
+      languageCode = Prelude.Nothing,
+      tags = Prelude.Nothing,
       indexId = pIndexId_,
       name = pName_,
       s3Path = pS3Path_,
       roleArn = pRoleArn_
     }
-
--- | A list of key-value pairs that identify the FAQ. You can use the tags to
--- identify and organize your resources and to control access to resources.
-createFaq_tags :: Lens.Lens' CreateFaq (Prelude.Maybe [Tag])
-createFaq_tags = Lens.lens (\CreateFaq' {tags} -> tags) (\s@CreateFaq' {} a -> s {tags = a} :: CreateFaq) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token that you provide to identify the request to create a FAQ.
 -- Multiple calls to the @CreateFaqRequest@ API with the same client token
@@ -179,13 +174,6 @@ createFaq_clientToken = Lens.lens (\CreateFaq' {clientToken} -> clientToken) (\s
 -- | A description for the FAQ.
 createFaq_description :: Lens.Lens' CreateFaq (Prelude.Maybe Prelude.Text)
 createFaq_description = Lens.lens (\CreateFaq' {description} -> description) (\s@CreateFaq' {} a -> s {description = a} :: CreateFaq)
-
--- | The code for a language. This allows you to support a language for the
--- FAQ document. English is supported by default. For more information on
--- supported languages, including their codes, see
--- <https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html Adding documents in languages other than English>.
-createFaq_languageCode :: Lens.Lens' CreateFaq (Prelude.Maybe Prelude.Text)
-createFaq_languageCode = Lens.lens (\CreateFaq' {languageCode} -> languageCode) (\s@CreateFaq' {} a -> s {languageCode = a} :: CreateFaq)
 
 -- | The format of the FAQ input file. You can choose between a basic CSV
 -- format, a CSV format that includes customs attributes in a header, and a
@@ -198,6 +186,18 @@ createFaq_languageCode = Lens.lens (\CreateFaq' {languageCode} -> languageCode) 
 -- <https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html Adding questions and answers>.
 createFaq_fileFormat :: Lens.Lens' CreateFaq (Prelude.Maybe FaqFileFormat)
 createFaq_fileFormat = Lens.lens (\CreateFaq' {fileFormat} -> fileFormat) (\s@CreateFaq' {} a -> s {fileFormat = a} :: CreateFaq)
+
+-- | The code for a language. This allows you to support a language for the
+-- FAQ document. English is supported by default. For more information on
+-- supported languages, including their codes, see
+-- <https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html Adding documents in languages other than English>.
+createFaq_languageCode :: Lens.Lens' CreateFaq (Prelude.Maybe Prelude.Text)
+createFaq_languageCode = Lens.lens (\CreateFaq' {languageCode} -> languageCode) (\s@CreateFaq' {} a -> s {languageCode = a} :: CreateFaq)
+
+-- | A list of key-value pairs that identify the FAQ. You can use the tags to
+-- identify and organize your resources and to control access to resources.
+createFaq_tags :: Lens.Lens' CreateFaq (Prelude.Maybe [Tag])
+createFaq_tags = Lens.lens (\CreateFaq' {tags} -> tags) (\s@CreateFaq' {} a -> s {tags = a} :: CreateFaq) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the index for the FAQ.
 createFaq_indexId :: Lens.Lens' CreateFaq Prelude.Text
@@ -231,11 +231,11 @@ instance Core.AWSRequest CreateFaq where
 
 instance Prelude.Hashable CreateFaq where
   hashWithSalt _salt CreateFaq' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` languageCode
       `Prelude.hashWithSalt` fileFormat
+      `Prelude.hashWithSalt` languageCode
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` indexId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` s3Path
@@ -243,11 +243,11 @@ instance Prelude.Hashable CreateFaq where
 
 instance Prelude.NFData CreateFaq where
   rnf CreateFaq' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf languageCode
       `Prelude.seq` Prelude.rnf fileFormat
+      `Prelude.seq` Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf indexId
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf s3Path
@@ -272,11 +272,11 @@ instance Data.ToJSON CreateFaq where
   toJSON CreateFaq' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ClientToken" Data..=) Prelude.<$> clientToken,
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
             ("Description" Data..=) Prelude.<$> description,
-            ("LanguageCode" Data..=) Prelude.<$> languageCode,
             ("FileFormat" Data..=) Prelude.<$> fileFormat,
+            ("LanguageCode" Data..=) Prelude.<$> languageCode,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("IndexId" Data..= indexId),
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("S3Path" Data..= s3Path),
@@ -292,7 +292,7 @@ instance Data.ToQuery CreateFaq where
 
 -- | /See:/ 'newCreateFaqResponse' smart constructor.
 data CreateFaqResponse = CreateFaqResponse'
-  { -- | The unique identifier of the FAQ.
+  { -- | The identifier of the FAQ.
     id :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -307,7 +307,7 @@ data CreateFaqResponse = CreateFaqResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'createFaqResponse_id' - The unique identifier of the FAQ.
+-- 'id', 'createFaqResponse_id' - The identifier of the FAQ.
 --
 -- 'httpStatus', 'createFaqResponse_httpStatus' - The response's http status code.
 newCreateFaqResponse ::
@@ -320,7 +320,7 @@ newCreateFaqResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The unique identifier of the FAQ.
+-- | The identifier of the FAQ.
 createFaqResponse_id :: Lens.Lens' CreateFaqResponse (Prelude.Maybe Prelude.Text)
 createFaqResponse_id = Lens.lens (\CreateFaqResponse' {id} -> id) (\s@CreateFaqResponse' {} a -> s {id = a} :: CreateFaqResponse)
 

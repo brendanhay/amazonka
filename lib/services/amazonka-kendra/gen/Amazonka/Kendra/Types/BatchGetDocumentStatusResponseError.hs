@@ -30,14 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBatchGetDocumentStatusResponseError' smart constructor.
 data BatchGetDocumentStatusResponseError = BatchGetDocumentStatusResponseError'
-  { -- | States that the API could not get the status of a document. This could
-    -- be because the request is not valid or there is a system error.
-    errorMessage :: Prelude.Maybe Prelude.Text,
+  { -- | The identifier of the document whose status could not be retrieved.
+    documentId :: Prelude.Maybe Prelude.Text,
     -- | Indicates the source of the error.
     errorCode :: Prelude.Maybe ErrorCode,
-    -- | The unique identifier of the document whose status could not be
-    -- retrieved.
-    documentId :: Prelude.Maybe Prelude.Text
+    -- | States that the API could not get the status of a document. This could
+    -- be because the request is not valid or there is a system error.
+    errorMessage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,36 +48,34 @@ data BatchGetDocumentStatusResponseError = BatchGetDocumentStatusResponseError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'errorMessage', 'batchGetDocumentStatusResponseError_errorMessage' - States that the API could not get the status of a document. This could
--- be because the request is not valid or there is a system error.
+-- 'documentId', 'batchGetDocumentStatusResponseError_documentId' - The identifier of the document whose status could not be retrieved.
 --
 -- 'errorCode', 'batchGetDocumentStatusResponseError_errorCode' - Indicates the source of the error.
 --
--- 'documentId', 'batchGetDocumentStatusResponseError_documentId' - The unique identifier of the document whose status could not be
--- retrieved.
+-- 'errorMessage', 'batchGetDocumentStatusResponseError_errorMessage' - States that the API could not get the status of a document. This could
+-- be because the request is not valid or there is a system error.
 newBatchGetDocumentStatusResponseError ::
   BatchGetDocumentStatusResponseError
 newBatchGetDocumentStatusResponseError =
   BatchGetDocumentStatusResponseError'
-    { errorMessage =
+    { documentId =
         Prelude.Nothing,
       errorCode = Prelude.Nothing,
-      documentId = Prelude.Nothing
+      errorMessage = Prelude.Nothing
     }
 
--- | States that the API could not get the status of a document. This could
--- be because the request is not valid or there is a system error.
-batchGetDocumentStatusResponseError_errorMessage :: Lens.Lens' BatchGetDocumentStatusResponseError (Prelude.Maybe Prelude.Text)
-batchGetDocumentStatusResponseError_errorMessage = Lens.lens (\BatchGetDocumentStatusResponseError' {errorMessage} -> errorMessage) (\s@BatchGetDocumentStatusResponseError' {} a -> s {errorMessage = a} :: BatchGetDocumentStatusResponseError)
+-- | The identifier of the document whose status could not be retrieved.
+batchGetDocumentStatusResponseError_documentId :: Lens.Lens' BatchGetDocumentStatusResponseError (Prelude.Maybe Prelude.Text)
+batchGetDocumentStatusResponseError_documentId = Lens.lens (\BatchGetDocumentStatusResponseError' {documentId} -> documentId) (\s@BatchGetDocumentStatusResponseError' {} a -> s {documentId = a} :: BatchGetDocumentStatusResponseError)
 
 -- | Indicates the source of the error.
 batchGetDocumentStatusResponseError_errorCode :: Lens.Lens' BatchGetDocumentStatusResponseError (Prelude.Maybe ErrorCode)
 batchGetDocumentStatusResponseError_errorCode = Lens.lens (\BatchGetDocumentStatusResponseError' {errorCode} -> errorCode) (\s@BatchGetDocumentStatusResponseError' {} a -> s {errorCode = a} :: BatchGetDocumentStatusResponseError)
 
--- | The unique identifier of the document whose status could not be
--- retrieved.
-batchGetDocumentStatusResponseError_documentId :: Lens.Lens' BatchGetDocumentStatusResponseError (Prelude.Maybe Prelude.Text)
-batchGetDocumentStatusResponseError_documentId = Lens.lens (\BatchGetDocumentStatusResponseError' {documentId} -> documentId) (\s@BatchGetDocumentStatusResponseError' {} a -> s {documentId = a} :: BatchGetDocumentStatusResponseError)
+-- | States that the API could not get the status of a document. This could
+-- be because the request is not valid or there is a system error.
+batchGetDocumentStatusResponseError_errorMessage :: Lens.Lens' BatchGetDocumentStatusResponseError (Prelude.Maybe Prelude.Text)
+batchGetDocumentStatusResponseError_errorMessage = Lens.lens (\BatchGetDocumentStatusResponseError' {errorMessage} -> errorMessage) (\s@BatchGetDocumentStatusResponseError' {} a -> s {errorMessage = a} :: BatchGetDocumentStatusResponseError)
 
 instance
   Data.FromJSON
@@ -89,9 +86,9 @@ instance
       "BatchGetDocumentStatusResponseError"
       ( \x ->
           BatchGetDocumentStatusResponseError'
-            Prelude.<$> (x Data..:? "ErrorMessage")
+            Prelude.<$> (x Data..:? "DocumentId")
             Prelude.<*> (x Data..:? "ErrorCode")
-            Prelude.<*> (x Data..:? "DocumentId")
+            Prelude.<*> (x Data..:? "ErrorMessage")
       )
 
 instance
@@ -101,15 +98,15 @@ instance
   hashWithSalt
     _salt
     BatchGetDocumentStatusResponseError' {..} =
-      _salt `Prelude.hashWithSalt` errorMessage
+      _salt `Prelude.hashWithSalt` documentId
         `Prelude.hashWithSalt` errorCode
-        `Prelude.hashWithSalt` documentId
+        `Prelude.hashWithSalt` errorMessage
 
 instance
   Prelude.NFData
     BatchGetDocumentStatusResponseError
   where
   rnf BatchGetDocumentStatusResponseError' {..} =
-    Prelude.rnf errorMessage
+    Prelude.rnf documentId
       `Prelude.seq` Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf documentId
+      `Prelude.seq` Prelude.rnf errorMessage

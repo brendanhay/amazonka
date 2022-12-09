@@ -28,8 +28,8 @@ module Amazonka.Kendra.ListEntityPersonas
     newListEntityPersonas,
 
     -- * Request Lenses
-    listEntityPersonas_nextToken,
     listEntityPersonas_maxResults,
+    listEntityPersonas_nextToken,
     listEntityPersonas_id,
     listEntityPersonas_indexId,
 
@@ -54,13 +54,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListEntityPersonas' smart constructor.
 data ListEntityPersonas = ListEntityPersonas'
-  { -- | If the previous response was incomplete (because there is more data to
+  { -- | The maximum number of returned users or groups.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the previous response was incomplete (because there is more data to
     -- retrieve), Amazon Kendra returns a pagination token in the response. You
     -- can use this pagination token to retrieve the next set of users or
     -- groups.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of returned users or groups.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of your Amazon Kendra experience.
     id :: Prelude.Text,
     -- | The identifier of the index for your Amazon Kendra experience.
@@ -76,12 +76,12 @@ data ListEntityPersonas = ListEntityPersonas'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listEntityPersonas_maxResults' - The maximum number of returned users or groups.
+--
 -- 'nextToken', 'listEntityPersonas_nextToken' - If the previous response was incomplete (because there is more data to
 -- retrieve), Amazon Kendra returns a pagination token in the response. You
 -- can use this pagination token to retrieve the next set of users or
 -- groups.
---
--- 'maxResults', 'listEntityPersonas_maxResults' - The maximum number of returned users or groups.
 --
 -- 'id', 'listEntityPersonas_id' - The identifier of your Amazon Kendra experience.
 --
@@ -94,11 +94,15 @@ newListEntityPersonas ::
   ListEntityPersonas
 newListEntityPersonas pId_ pIndexId_ =
   ListEntityPersonas'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       id = pId_,
       indexId = pIndexId_
     }
+
+-- | The maximum number of returned users or groups.
+listEntityPersonas_maxResults :: Lens.Lens' ListEntityPersonas (Prelude.Maybe Prelude.Natural)
+listEntityPersonas_maxResults = Lens.lens (\ListEntityPersonas' {maxResults} -> maxResults) (\s@ListEntityPersonas' {} a -> s {maxResults = a} :: ListEntityPersonas)
 
 -- | If the previous response was incomplete (because there is more data to
 -- retrieve), Amazon Kendra returns a pagination token in the response. You
@@ -106,10 +110,6 @@ newListEntityPersonas pId_ pIndexId_ =
 -- groups.
 listEntityPersonas_nextToken :: Lens.Lens' ListEntityPersonas (Prelude.Maybe Prelude.Text)
 listEntityPersonas_nextToken = Lens.lens (\ListEntityPersonas' {nextToken} -> nextToken) (\s@ListEntityPersonas' {} a -> s {nextToken = a} :: ListEntityPersonas)
-
--- | The maximum number of returned users or groups.
-listEntityPersonas_maxResults :: Lens.Lens' ListEntityPersonas (Prelude.Maybe Prelude.Natural)
-listEntityPersonas_maxResults = Lens.lens (\ListEntityPersonas' {maxResults} -> maxResults) (\s@ListEntityPersonas' {} a -> s {maxResults = a} :: ListEntityPersonas)
 
 -- | The identifier of your Amazon Kendra experience.
 listEntityPersonas_id :: Lens.Lens' ListEntityPersonas Prelude.Text
@@ -136,15 +136,15 @@ instance Core.AWSRequest ListEntityPersonas where
 
 instance Prelude.Hashable ListEntityPersonas where
   hashWithSalt _salt ListEntityPersonas' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` indexId
 
 instance Prelude.NFData ListEntityPersonas where
   rnf ListEntityPersonas' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf indexId
 
@@ -167,8 +167,8 @@ instance Data.ToJSON ListEntityPersonas where
   toJSON ListEntityPersonas' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("Id" Data..= id),
             Prelude.Just ("IndexId" Data..= indexId)
           ]

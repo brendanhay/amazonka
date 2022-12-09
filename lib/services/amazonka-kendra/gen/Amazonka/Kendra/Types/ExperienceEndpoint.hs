@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newExperienceEndpoint' smart constructor.
 data ExperienceEndpoint = ExperienceEndpoint'
-  { -- | The type of endpoint for your Amazon Kendra experience. The type
+  { -- | The endpoint of your Amazon Kendra experience.
+    endpoint :: Prelude.Maybe Prelude.Text,
+    -- | The type of endpoint for your Amazon Kendra experience. The type
     -- currently available is @HOME@, which is a unique and fully hosted URL to
     -- the home page of your Amazon Kendra experience.
-    endpointType :: Prelude.Maybe EndpointType,
-    -- | The endpoint of your Amazon Kendra experience.
-    endpoint :: Prelude.Maybe Prelude.Text
+    endpointType :: Prelude.Maybe EndpointType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,18 +47,22 @@ data ExperienceEndpoint = ExperienceEndpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'endpoint', 'experienceEndpoint_endpoint' - The endpoint of your Amazon Kendra experience.
+--
 -- 'endpointType', 'experienceEndpoint_endpointType' - The type of endpoint for your Amazon Kendra experience. The type
 -- currently available is @HOME@, which is a unique and fully hosted URL to
 -- the home page of your Amazon Kendra experience.
---
--- 'endpoint', 'experienceEndpoint_endpoint' - The endpoint of your Amazon Kendra experience.
 newExperienceEndpoint ::
   ExperienceEndpoint
 newExperienceEndpoint =
   ExperienceEndpoint'
-    { endpointType = Prelude.Nothing,
-      endpoint = Prelude.Nothing
+    { endpoint = Prelude.Nothing,
+      endpointType = Prelude.Nothing
     }
+
+-- | The endpoint of your Amazon Kendra experience.
+experienceEndpoint_endpoint :: Lens.Lens' ExperienceEndpoint (Prelude.Maybe Prelude.Text)
+experienceEndpoint_endpoint = Lens.lens (\ExperienceEndpoint' {endpoint} -> endpoint) (\s@ExperienceEndpoint' {} a -> s {endpoint = a} :: ExperienceEndpoint)
 
 -- | The type of endpoint for your Amazon Kendra experience. The type
 -- currently available is @HOME@, which is a unique and fully hosted URL to
@@ -66,26 +70,22 @@ newExperienceEndpoint =
 experienceEndpoint_endpointType :: Lens.Lens' ExperienceEndpoint (Prelude.Maybe EndpointType)
 experienceEndpoint_endpointType = Lens.lens (\ExperienceEndpoint' {endpointType} -> endpointType) (\s@ExperienceEndpoint' {} a -> s {endpointType = a} :: ExperienceEndpoint)
 
--- | The endpoint of your Amazon Kendra experience.
-experienceEndpoint_endpoint :: Lens.Lens' ExperienceEndpoint (Prelude.Maybe Prelude.Text)
-experienceEndpoint_endpoint = Lens.lens (\ExperienceEndpoint' {endpoint} -> endpoint) (\s@ExperienceEndpoint' {} a -> s {endpoint = a} :: ExperienceEndpoint)
-
 instance Data.FromJSON ExperienceEndpoint where
   parseJSON =
     Data.withObject
       "ExperienceEndpoint"
       ( \x ->
           ExperienceEndpoint'
-            Prelude.<$> (x Data..:? "EndpointType")
-            Prelude.<*> (x Data..:? "Endpoint")
+            Prelude.<$> (x Data..:? "Endpoint")
+            Prelude.<*> (x Data..:? "EndpointType")
       )
 
 instance Prelude.Hashable ExperienceEndpoint where
   hashWithSalt _salt ExperienceEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` endpointType
-      `Prelude.hashWithSalt` endpoint
+    _salt `Prelude.hashWithSalt` endpoint
+      `Prelude.hashWithSalt` endpointType
 
 instance Prelude.NFData ExperienceEndpoint where
   rnf ExperienceEndpoint' {..} =
-    Prelude.rnf endpointType
-      `Prelude.seq` Prelude.rnf endpoint
+    Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf endpointType

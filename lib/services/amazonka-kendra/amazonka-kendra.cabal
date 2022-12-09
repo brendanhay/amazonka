@@ -218,6 +218,7 @@ library
     Amazonka.Kendra.Types.PrincipalType
     Amazonka.Kendra.Types.ProxyConfiguration
     Amazonka.Kendra.Types.QueryIdentifiersEnclosingOption
+    Amazonka.Kendra.Types.QueryResultFormat
     Amazonka.Kendra.Types.QueryResultItem
     Amazonka.Kendra.Types.QueryResultType
     Amazonka.Kendra.Types.QuerySuggestionsBlockListStatus
@@ -267,6 +268,9 @@ library
     Amazonka.Kendra.Types.SuggestionHighlight
     Amazonka.Kendra.Types.SuggestionTextWithHighlights
     Amazonka.Kendra.Types.SuggestionValue
+    Amazonka.Kendra.Types.TableCell
+    Amazonka.Kendra.Types.TableExcerpt
+    Amazonka.Kendra.Types.TableRow
     Amazonka.Kendra.Types.Tag
     Amazonka.Kendra.Types.Template
     Amazonka.Kendra.Types.TemplateConfiguration

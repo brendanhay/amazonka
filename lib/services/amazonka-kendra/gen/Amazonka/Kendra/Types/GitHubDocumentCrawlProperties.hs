@@ -31,20 +31,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGitHubDocumentCrawlProperties' smart constructor.
 data GitHubDocumentCrawlProperties = GitHubDocumentCrawlProperties'
-  { -- | @TRUE@ to index all comments on pull requests.
-    crawlPullRequestComment :: Prelude.Maybe Prelude.Bool,
-    -- | @TRUE@ to index all files with a repository.
-    crawlRepositoryDocuments :: Prelude.Maybe Prelude.Bool,
-    -- | @TRUE@ to include all comment attachments for pull requests.
-    crawlPullRequestCommentAttachment :: Prelude.Maybe Prelude.Bool,
-    -- | @TRUE@ to index all pull requests within a repository.
-    crawlPullRequest :: Prelude.Maybe Prelude.Bool,
+  { -- | @TRUE@ to index all issues within a repository.
+    crawlIssue :: Prelude.Maybe Prelude.Bool,
     -- | @TRUE@ to index all comments on issues.
     crawlIssueComment :: Prelude.Maybe Prelude.Bool,
     -- | @TRUE@ to include all comment attachments for issues.
     crawlIssueCommentAttachment :: Prelude.Maybe Prelude.Bool,
-    -- | @TRUE@ to index all issues within a repository.
-    crawlIssue :: Prelude.Maybe Prelude.Bool
+    -- | @TRUE@ to index all pull requests within a repository.
+    crawlPullRequest :: Prelude.Maybe Prelude.Bool,
+    -- | @TRUE@ to index all comments on pull requests.
+    crawlPullRequestComment :: Prelude.Maybe Prelude.Bool,
+    -- | @TRUE@ to include all comment attachments for pull requests.
+    crawlPullRequestCommentAttachment :: Prelude.Maybe Prelude.Bool,
+    -- | @TRUE@ to index all files with a repository.
+    crawlRepositoryDocuments :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,50 +56,38 @@ data GitHubDocumentCrawlProperties = GitHubDocumentCrawlProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'crawlPullRequestComment', 'gitHubDocumentCrawlProperties_crawlPullRequestComment' - @TRUE@ to index all comments on pull requests.
---
--- 'crawlRepositoryDocuments', 'gitHubDocumentCrawlProperties_crawlRepositoryDocuments' - @TRUE@ to index all files with a repository.
---
--- 'crawlPullRequestCommentAttachment', 'gitHubDocumentCrawlProperties_crawlPullRequestCommentAttachment' - @TRUE@ to include all comment attachments for pull requests.
---
--- 'crawlPullRequest', 'gitHubDocumentCrawlProperties_crawlPullRequest' - @TRUE@ to index all pull requests within a repository.
+-- 'crawlIssue', 'gitHubDocumentCrawlProperties_crawlIssue' - @TRUE@ to index all issues within a repository.
 --
 -- 'crawlIssueComment', 'gitHubDocumentCrawlProperties_crawlIssueComment' - @TRUE@ to index all comments on issues.
 --
 -- 'crawlIssueCommentAttachment', 'gitHubDocumentCrawlProperties_crawlIssueCommentAttachment' - @TRUE@ to include all comment attachments for issues.
 --
--- 'crawlIssue', 'gitHubDocumentCrawlProperties_crawlIssue' - @TRUE@ to index all issues within a repository.
+-- 'crawlPullRequest', 'gitHubDocumentCrawlProperties_crawlPullRequest' - @TRUE@ to index all pull requests within a repository.
+--
+-- 'crawlPullRequestComment', 'gitHubDocumentCrawlProperties_crawlPullRequestComment' - @TRUE@ to index all comments on pull requests.
+--
+-- 'crawlPullRequestCommentAttachment', 'gitHubDocumentCrawlProperties_crawlPullRequestCommentAttachment' - @TRUE@ to include all comment attachments for pull requests.
+--
+-- 'crawlRepositoryDocuments', 'gitHubDocumentCrawlProperties_crawlRepositoryDocuments' - @TRUE@ to index all files with a repository.
 newGitHubDocumentCrawlProperties ::
   GitHubDocumentCrawlProperties
 newGitHubDocumentCrawlProperties =
   GitHubDocumentCrawlProperties'
-    { crawlPullRequestComment =
+    { crawlIssue =
         Prelude.Nothing,
-      crawlRepositoryDocuments = Prelude.Nothing,
-      crawlPullRequestCommentAttachment =
-        Prelude.Nothing,
-      crawlPullRequest = Prelude.Nothing,
       crawlIssueComment = Prelude.Nothing,
       crawlIssueCommentAttachment =
         Prelude.Nothing,
-      crawlIssue = Prelude.Nothing
+      crawlPullRequest = Prelude.Nothing,
+      crawlPullRequestComment = Prelude.Nothing,
+      crawlPullRequestCommentAttachment =
+        Prelude.Nothing,
+      crawlRepositoryDocuments = Prelude.Nothing
     }
 
--- | @TRUE@ to index all comments on pull requests.
-gitHubDocumentCrawlProperties_crawlPullRequestComment :: Lens.Lens' GitHubDocumentCrawlProperties (Prelude.Maybe Prelude.Bool)
-gitHubDocumentCrawlProperties_crawlPullRequestComment = Lens.lens (\GitHubDocumentCrawlProperties' {crawlPullRequestComment} -> crawlPullRequestComment) (\s@GitHubDocumentCrawlProperties' {} a -> s {crawlPullRequestComment = a} :: GitHubDocumentCrawlProperties)
-
--- | @TRUE@ to index all files with a repository.
-gitHubDocumentCrawlProperties_crawlRepositoryDocuments :: Lens.Lens' GitHubDocumentCrawlProperties (Prelude.Maybe Prelude.Bool)
-gitHubDocumentCrawlProperties_crawlRepositoryDocuments = Lens.lens (\GitHubDocumentCrawlProperties' {crawlRepositoryDocuments} -> crawlRepositoryDocuments) (\s@GitHubDocumentCrawlProperties' {} a -> s {crawlRepositoryDocuments = a} :: GitHubDocumentCrawlProperties)
-
--- | @TRUE@ to include all comment attachments for pull requests.
-gitHubDocumentCrawlProperties_crawlPullRequestCommentAttachment :: Lens.Lens' GitHubDocumentCrawlProperties (Prelude.Maybe Prelude.Bool)
-gitHubDocumentCrawlProperties_crawlPullRequestCommentAttachment = Lens.lens (\GitHubDocumentCrawlProperties' {crawlPullRequestCommentAttachment} -> crawlPullRequestCommentAttachment) (\s@GitHubDocumentCrawlProperties' {} a -> s {crawlPullRequestCommentAttachment = a} :: GitHubDocumentCrawlProperties)
-
--- | @TRUE@ to index all pull requests within a repository.
-gitHubDocumentCrawlProperties_crawlPullRequest :: Lens.Lens' GitHubDocumentCrawlProperties (Prelude.Maybe Prelude.Bool)
-gitHubDocumentCrawlProperties_crawlPullRequest = Lens.lens (\GitHubDocumentCrawlProperties' {crawlPullRequest} -> crawlPullRequest) (\s@GitHubDocumentCrawlProperties' {} a -> s {crawlPullRequest = a} :: GitHubDocumentCrawlProperties)
+-- | @TRUE@ to index all issues within a repository.
+gitHubDocumentCrawlProperties_crawlIssue :: Lens.Lens' GitHubDocumentCrawlProperties (Prelude.Maybe Prelude.Bool)
+gitHubDocumentCrawlProperties_crawlIssue = Lens.lens (\GitHubDocumentCrawlProperties' {crawlIssue} -> crawlIssue) (\s@GitHubDocumentCrawlProperties' {} a -> s {crawlIssue = a} :: GitHubDocumentCrawlProperties)
 
 -- | @TRUE@ to index all comments on issues.
 gitHubDocumentCrawlProperties_crawlIssueComment :: Lens.Lens' GitHubDocumentCrawlProperties (Prelude.Maybe Prelude.Bool)
@@ -109,9 +97,21 @@ gitHubDocumentCrawlProperties_crawlIssueComment = Lens.lens (\GitHubDocumentCraw
 gitHubDocumentCrawlProperties_crawlIssueCommentAttachment :: Lens.Lens' GitHubDocumentCrawlProperties (Prelude.Maybe Prelude.Bool)
 gitHubDocumentCrawlProperties_crawlIssueCommentAttachment = Lens.lens (\GitHubDocumentCrawlProperties' {crawlIssueCommentAttachment} -> crawlIssueCommentAttachment) (\s@GitHubDocumentCrawlProperties' {} a -> s {crawlIssueCommentAttachment = a} :: GitHubDocumentCrawlProperties)
 
--- | @TRUE@ to index all issues within a repository.
-gitHubDocumentCrawlProperties_crawlIssue :: Lens.Lens' GitHubDocumentCrawlProperties (Prelude.Maybe Prelude.Bool)
-gitHubDocumentCrawlProperties_crawlIssue = Lens.lens (\GitHubDocumentCrawlProperties' {crawlIssue} -> crawlIssue) (\s@GitHubDocumentCrawlProperties' {} a -> s {crawlIssue = a} :: GitHubDocumentCrawlProperties)
+-- | @TRUE@ to index all pull requests within a repository.
+gitHubDocumentCrawlProperties_crawlPullRequest :: Lens.Lens' GitHubDocumentCrawlProperties (Prelude.Maybe Prelude.Bool)
+gitHubDocumentCrawlProperties_crawlPullRequest = Lens.lens (\GitHubDocumentCrawlProperties' {crawlPullRequest} -> crawlPullRequest) (\s@GitHubDocumentCrawlProperties' {} a -> s {crawlPullRequest = a} :: GitHubDocumentCrawlProperties)
+
+-- | @TRUE@ to index all comments on pull requests.
+gitHubDocumentCrawlProperties_crawlPullRequestComment :: Lens.Lens' GitHubDocumentCrawlProperties (Prelude.Maybe Prelude.Bool)
+gitHubDocumentCrawlProperties_crawlPullRequestComment = Lens.lens (\GitHubDocumentCrawlProperties' {crawlPullRequestComment} -> crawlPullRequestComment) (\s@GitHubDocumentCrawlProperties' {} a -> s {crawlPullRequestComment = a} :: GitHubDocumentCrawlProperties)
+
+-- | @TRUE@ to include all comment attachments for pull requests.
+gitHubDocumentCrawlProperties_crawlPullRequestCommentAttachment :: Lens.Lens' GitHubDocumentCrawlProperties (Prelude.Maybe Prelude.Bool)
+gitHubDocumentCrawlProperties_crawlPullRequestCommentAttachment = Lens.lens (\GitHubDocumentCrawlProperties' {crawlPullRequestCommentAttachment} -> crawlPullRequestCommentAttachment) (\s@GitHubDocumentCrawlProperties' {} a -> s {crawlPullRequestCommentAttachment = a} :: GitHubDocumentCrawlProperties)
+
+-- | @TRUE@ to index all files with a repository.
+gitHubDocumentCrawlProperties_crawlRepositoryDocuments :: Lens.Lens' GitHubDocumentCrawlProperties (Prelude.Maybe Prelude.Bool)
+gitHubDocumentCrawlProperties_crawlRepositoryDocuments = Lens.lens (\GitHubDocumentCrawlProperties' {crawlRepositoryDocuments} -> crawlRepositoryDocuments) (\s@GitHubDocumentCrawlProperties' {} a -> s {crawlRepositoryDocuments = a} :: GitHubDocumentCrawlProperties)
 
 instance Data.FromJSON GitHubDocumentCrawlProperties where
   parseJSON =
@@ -119,13 +119,13 @@ instance Data.FromJSON GitHubDocumentCrawlProperties where
       "GitHubDocumentCrawlProperties"
       ( \x ->
           GitHubDocumentCrawlProperties'
-            Prelude.<$> (x Data..:? "CrawlPullRequestComment")
-            Prelude.<*> (x Data..:? "CrawlRepositoryDocuments")
-            Prelude.<*> (x Data..:? "CrawlPullRequestCommentAttachment")
-            Prelude.<*> (x Data..:? "CrawlPullRequest")
+            Prelude.<$> (x Data..:? "CrawlIssue")
             Prelude.<*> (x Data..:? "CrawlIssueComment")
             Prelude.<*> (x Data..:? "CrawlIssueCommentAttachment")
-            Prelude.<*> (x Data..:? "CrawlIssue")
+            Prelude.<*> (x Data..:? "CrawlPullRequest")
+            Prelude.<*> (x Data..:? "CrawlPullRequestComment")
+            Prelude.<*> (x Data..:? "CrawlPullRequestCommentAttachment")
+            Prelude.<*> (x Data..:? "CrawlRepositoryDocuments")
       )
 
 instance
@@ -133,41 +133,40 @@ instance
     GitHubDocumentCrawlProperties
   where
   hashWithSalt _salt GitHubDocumentCrawlProperties' {..} =
-    _salt
-      `Prelude.hashWithSalt` crawlPullRequestComment
-      `Prelude.hashWithSalt` crawlRepositoryDocuments
-      `Prelude.hashWithSalt` crawlPullRequestCommentAttachment
-      `Prelude.hashWithSalt` crawlPullRequest
+    _salt `Prelude.hashWithSalt` crawlIssue
       `Prelude.hashWithSalt` crawlIssueComment
       `Prelude.hashWithSalt` crawlIssueCommentAttachment
-      `Prelude.hashWithSalt` crawlIssue
+      `Prelude.hashWithSalt` crawlPullRequest
+      `Prelude.hashWithSalt` crawlPullRequestComment
+      `Prelude.hashWithSalt` crawlPullRequestCommentAttachment
+      `Prelude.hashWithSalt` crawlRepositoryDocuments
 
 instance Prelude.NFData GitHubDocumentCrawlProperties where
   rnf GitHubDocumentCrawlProperties' {..} =
-    Prelude.rnf crawlPullRequestComment
-      `Prelude.seq` Prelude.rnf crawlRepositoryDocuments
-      `Prelude.seq` Prelude.rnf crawlPullRequestCommentAttachment
-      `Prelude.seq` Prelude.rnf crawlPullRequest
+    Prelude.rnf crawlIssue
       `Prelude.seq` Prelude.rnf crawlIssueComment
       `Prelude.seq` Prelude.rnf crawlIssueCommentAttachment
-      `Prelude.seq` Prelude.rnf crawlIssue
+      `Prelude.seq` Prelude.rnf crawlPullRequest
+      `Prelude.seq` Prelude.rnf crawlPullRequestComment
+      `Prelude.seq` Prelude.rnf crawlPullRequestCommentAttachment
+      `Prelude.seq` Prelude.rnf crawlRepositoryDocuments
 
 instance Data.ToJSON GitHubDocumentCrawlProperties where
   toJSON GitHubDocumentCrawlProperties' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("CrawlPullRequestComment" Data..=)
-              Prelude.<$> crawlPullRequestComment,
-            ("CrawlRepositoryDocuments" Data..=)
-              Prelude.<$> crawlRepositoryDocuments,
-            ("CrawlPullRequestCommentAttachment" Data..=)
-              Prelude.<$> crawlPullRequestCommentAttachment,
-            ("CrawlPullRequest" Data..=)
-              Prelude.<$> crawlPullRequest,
+          [ ("CrawlIssue" Data..=) Prelude.<$> crawlIssue,
             ("CrawlIssueComment" Data..=)
               Prelude.<$> crawlIssueComment,
             ("CrawlIssueCommentAttachment" Data..=)
               Prelude.<$> crawlIssueCommentAttachment,
-            ("CrawlIssue" Data..=) Prelude.<$> crawlIssue
+            ("CrawlPullRequest" Data..=)
+              Prelude.<$> crawlPullRequest,
+            ("CrawlPullRequestComment" Data..=)
+              Prelude.<$> crawlPullRequestComment,
+            ("CrawlPullRequestCommentAttachment" Data..=)
+              Prelude.<$> crawlPullRequestCommentAttachment,
+            ("CrawlRepositoryDocuments" Data..=)
+              Prelude.<$> crawlRepositoryDocuments
           ]
       )

@@ -30,13 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newColumnConfiguration' smart constructor.
 data ColumnConfiguration = ColumnConfiguration'
-  { -- | An array of objects that map database column names to the corresponding
+  { -- | The column that contains the title of the document.
+    documentTitleColumnName :: Prelude.Maybe Prelude.Text,
+    -- | An array of objects that map database column names to the corresponding
     -- fields in an index. You must first create the fields in the index using
     -- the @UpdateIndex@ API.
     fieldMappings :: Prelude.Maybe (Prelude.NonEmpty DataSourceToIndexFieldMapping),
-    -- | The column that contains the title of the document.
-    documentTitleColumnName :: Prelude.Maybe Prelude.Text,
-    -- | The column that provides the document\'s unique identifier.
+    -- | The column that provides the document\'s identifier.
     documentIdColumnName :: Prelude.Text,
     -- | The column that contains the contents of the document.
     documentDataColumnName :: Prelude.Text,
@@ -54,13 +54,13 @@ data ColumnConfiguration = ColumnConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'documentTitleColumnName', 'columnConfiguration_documentTitleColumnName' - The column that contains the title of the document.
+--
 -- 'fieldMappings', 'columnConfiguration_fieldMappings' - An array of objects that map database column names to the corresponding
 -- fields in an index. You must first create the fields in the index using
 -- the @UpdateIndex@ API.
 --
--- 'documentTitleColumnName', 'columnConfiguration_documentTitleColumnName' - The column that contains the title of the document.
---
--- 'documentIdColumnName', 'columnConfiguration_documentIdColumnName' - The column that provides the document\'s unique identifier.
+-- 'documentIdColumnName', 'columnConfiguration_documentIdColumnName' - The column that provides the document\'s identifier.
 --
 -- 'documentDataColumnName', 'columnConfiguration_documentDataColumnName' - The column that contains the contents of the document.
 --
@@ -79,14 +79,18 @@ newColumnConfiguration
   pDocumentDataColumnName_
   pChangeDetectingColumns_ =
     ColumnConfiguration'
-      { fieldMappings =
+      { documentTitleColumnName =
           Prelude.Nothing,
-        documentTitleColumnName = Prelude.Nothing,
+        fieldMappings = Prelude.Nothing,
         documentIdColumnName = pDocumentIdColumnName_,
         documentDataColumnName = pDocumentDataColumnName_,
         changeDetectingColumns =
           Lens.coerced Lens.# pChangeDetectingColumns_
       }
+
+-- | The column that contains the title of the document.
+columnConfiguration_documentTitleColumnName :: Lens.Lens' ColumnConfiguration (Prelude.Maybe Prelude.Text)
+columnConfiguration_documentTitleColumnName = Lens.lens (\ColumnConfiguration' {documentTitleColumnName} -> documentTitleColumnName) (\s@ColumnConfiguration' {} a -> s {documentTitleColumnName = a} :: ColumnConfiguration)
 
 -- | An array of objects that map database column names to the corresponding
 -- fields in an index. You must first create the fields in the index using
@@ -94,11 +98,7 @@ newColumnConfiguration
 columnConfiguration_fieldMappings :: Lens.Lens' ColumnConfiguration (Prelude.Maybe (Prelude.NonEmpty DataSourceToIndexFieldMapping))
 columnConfiguration_fieldMappings = Lens.lens (\ColumnConfiguration' {fieldMappings} -> fieldMappings) (\s@ColumnConfiguration' {} a -> s {fieldMappings = a} :: ColumnConfiguration) Prelude.. Lens.mapping Lens.coerced
 
--- | The column that contains the title of the document.
-columnConfiguration_documentTitleColumnName :: Lens.Lens' ColumnConfiguration (Prelude.Maybe Prelude.Text)
-columnConfiguration_documentTitleColumnName = Lens.lens (\ColumnConfiguration' {documentTitleColumnName} -> documentTitleColumnName) (\s@ColumnConfiguration' {} a -> s {documentTitleColumnName = a} :: ColumnConfiguration)
-
--- | The column that provides the document\'s unique identifier.
+-- | The column that provides the document\'s identifier.
 columnConfiguration_documentIdColumnName :: Lens.Lens' ColumnConfiguration Prelude.Text
 columnConfiguration_documentIdColumnName = Lens.lens (\ColumnConfiguration' {documentIdColumnName} -> documentIdColumnName) (\s@ColumnConfiguration' {} a -> s {documentIdColumnName = a} :: ColumnConfiguration)
 
@@ -117,8 +117,8 @@ instance Data.FromJSON ColumnConfiguration where
       "ColumnConfiguration"
       ( \x ->
           ColumnConfiguration'
-            Prelude.<$> (x Data..:? "FieldMappings")
-            Prelude.<*> (x Data..:? "DocumentTitleColumnName")
+            Prelude.<$> (x Data..:? "DocumentTitleColumnName")
+            Prelude.<*> (x Data..:? "FieldMappings")
             Prelude.<*> (x Data..: "DocumentIdColumnName")
             Prelude.<*> (x Data..: "DocumentDataColumnName")
             Prelude.<*> (x Data..: "ChangeDetectingColumns")
@@ -126,16 +126,17 @@ instance Data.FromJSON ColumnConfiguration where
 
 instance Prelude.Hashable ColumnConfiguration where
   hashWithSalt _salt ColumnConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` fieldMappings
+    _salt
       `Prelude.hashWithSalt` documentTitleColumnName
+      `Prelude.hashWithSalt` fieldMappings
       `Prelude.hashWithSalt` documentIdColumnName
       `Prelude.hashWithSalt` documentDataColumnName
       `Prelude.hashWithSalt` changeDetectingColumns
 
 instance Prelude.NFData ColumnConfiguration where
   rnf ColumnConfiguration' {..} =
-    Prelude.rnf fieldMappings
-      `Prelude.seq` Prelude.rnf documentTitleColumnName
+    Prelude.rnf documentTitleColumnName
+      `Prelude.seq` Prelude.rnf fieldMappings
       `Prelude.seq` Prelude.rnf documentIdColumnName
       `Prelude.seq` Prelude.rnf documentDataColumnName
       `Prelude.seq` Prelude.rnf changeDetectingColumns
@@ -144,9 +145,9 @@ instance Data.ToJSON ColumnConfiguration where
   toJSON ColumnConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("FieldMappings" Data..=) Prelude.<$> fieldMappings,
-            ("DocumentTitleColumnName" Data..=)
+          [ ("DocumentTitleColumnName" Data..=)
               Prelude.<$> documentTitleColumnName,
+            ("FieldMappings" Data..=) Prelude.<$> fieldMappings,
             Prelude.Just
               ( "DocumentIdColumnName"
                   Data..= documentIdColumnName

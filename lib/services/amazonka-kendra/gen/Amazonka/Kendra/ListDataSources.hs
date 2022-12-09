@@ -27,8 +27,8 @@ module Amazonka.Kendra.ListDataSources
     newListDataSources,
 
     -- * Request Lenses
-    listDataSources_nextToken,
     listDataSources_maxResults,
+    listDataSources_nextToken,
     listDataSources_indexId,
 
     -- * Destructuring the Response
@@ -52,13 +52,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDataSources' smart constructor.
 data ListDataSources = ListDataSources'
-  { -- | If the previous response was incomplete (because there is more data to
+  { -- | The maximum number of data source connectors to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the previous response was incomplete (because there is more data to
     -- retrieve), Amazon Kendra returns a pagination token in the response. You
     -- can use this pagination token to retrieve the next set of data source
-    -- connectors (@DataSourceSummaryItems@).
+    -- connectors.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of data source connectors to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the index used with one or more data source
     -- connectors.
     indexId :: Prelude.Text
@@ -73,12 +73,12 @@ data ListDataSources = ListDataSources'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listDataSources_maxResults' - The maximum number of data source connectors to return.
+--
 -- 'nextToken', 'listDataSources_nextToken' - If the previous response was incomplete (because there is more data to
 -- retrieve), Amazon Kendra returns a pagination token in the response. You
 -- can use this pagination token to retrieve the next set of data source
--- connectors (@DataSourceSummaryItems@).
---
--- 'maxResults', 'listDataSources_maxResults' - The maximum number of data source connectors to return.
+-- connectors.
 --
 -- 'indexId', 'listDataSources_indexId' - The identifier of the index used with one or more data source
 -- connectors.
@@ -88,21 +88,21 @@ newListDataSources ::
   ListDataSources
 newListDataSources pIndexId_ =
   ListDataSources'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       indexId = pIndexId_
     }
-
--- | If the previous response was incomplete (because there is more data to
--- retrieve), Amazon Kendra returns a pagination token in the response. You
--- can use this pagination token to retrieve the next set of data source
--- connectors (@DataSourceSummaryItems@).
-listDataSources_nextToken :: Lens.Lens' ListDataSources (Prelude.Maybe Prelude.Text)
-listDataSources_nextToken = Lens.lens (\ListDataSources' {nextToken} -> nextToken) (\s@ListDataSources' {} a -> s {nextToken = a} :: ListDataSources)
 
 -- | The maximum number of data source connectors to return.
 listDataSources_maxResults :: Lens.Lens' ListDataSources (Prelude.Maybe Prelude.Natural)
 listDataSources_maxResults = Lens.lens (\ListDataSources' {maxResults} -> maxResults) (\s@ListDataSources' {} a -> s {maxResults = a} :: ListDataSources)
+
+-- | If the previous response was incomplete (because there is more data to
+-- retrieve), Amazon Kendra returns a pagination token in the response. You
+-- can use this pagination token to retrieve the next set of data source
+-- connectors.
+listDataSources_nextToken :: Lens.Lens' ListDataSources (Prelude.Maybe Prelude.Text)
+listDataSources_nextToken = Lens.lens (\ListDataSources' {nextToken} -> nextToken) (\s@ListDataSources' {} a -> s {nextToken = a} :: ListDataSources)
 
 -- | The identifier of the index used with one or more data source
 -- connectors.
@@ -126,14 +126,14 @@ instance Core.AWSRequest ListDataSources where
 
 instance Prelude.Hashable ListDataSources where
   hashWithSalt _salt ListDataSources' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` indexId
 
 instance Prelude.NFData ListDataSources where
   rnf ListDataSources' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf indexId
 
 instance Data.ToHeaders ListDataSources where
@@ -155,8 +155,8 @@ instance Data.ToJSON ListDataSources where
   toJSON ListDataSources' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("IndexId" Data..= indexId)
           ]
       )

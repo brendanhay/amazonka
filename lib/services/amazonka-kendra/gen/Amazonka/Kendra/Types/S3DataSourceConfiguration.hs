@@ -31,31 +31,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newS3DataSourceConfiguration' smart constructor.
 data S3DataSourceConfiguration = S3DataSourceConfiguration'
-  { -- | A list of glob patterns for documents that should be indexed. If a
-    -- document that matches an inclusion pattern also matches an exclusion
-    -- pattern, the document is not indexed.
-    --
-    -- Some
-    -- <https://docs.aws.amazon.com/cli/latest/reference/s3/#use-of-exclude-and-include-filters examples>
-    -- are:
-    --
-    -- -   /*.txt/ will include all text files in a directory (files with the
-    --     extension .txt).
-    --
-    -- -   /**\/*.txt/ will include all text files in a directory and its
-    --     subdirectories.
-    --
-    -- -   /*tax*/ will include all files in a directory that contain \'tax\'
-    --     in the file name, such as \'tax\', \'taxes\', \'income_tax\'.
-    inclusionPatterns :: Prelude.Maybe [Prelude.Text],
-    documentsMetadataConfiguration :: Prelude.Maybe DocumentsMetadataConfiguration,
-    -- | Provides the path to the S3 bucket that contains the user context
+  { -- | Provides the path to the S3 bucket that contains the user context
     -- filtering files for the data source. For the format of the file, see
     -- <https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html Access control for S3 data sources>.
     accessControlListConfiguration :: Prelude.Maybe AccessControlListConfiguration,
-    -- | A list of S3 prefixes for the documents that should be included in the
-    -- index.
-    inclusionPrefixes :: Prelude.Maybe [Prelude.Text],
+    documentsMetadataConfiguration :: Prelude.Maybe DocumentsMetadataConfiguration,
     -- | A list of glob patterns for documents that should not be indexed. If a
     -- document that matches an inclusion prefix or inclusion pattern also
     -- matches an exclusion pattern, the document is not indexed.
@@ -74,6 +54,26 @@ data S3DataSourceConfiguration = S3DataSourceConfiguration'
     -- -   /**\/*internal*/ will exclude all internal-related files in a
     --     directory and its subdirectories.
     exclusionPatterns :: Prelude.Maybe [Prelude.Text],
+    -- | A list of glob patterns for documents that should be indexed. If a
+    -- document that matches an inclusion pattern also matches an exclusion
+    -- pattern, the document is not indexed.
+    --
+    -- Some
+    -- <https://docs.aws.amazon.com/cli/latest/reference/s3/#use-of-exclude-and-include-filters examples>
+    -- are:
+    --
+    -- -   /*.txt/ will include all text files in a directory (files with the
+    --     extension .txt).
+    --
+    -- -   /**\/*.txt/ will include all text files in a directory and its
+    --     subdirectories.
+    --
+    -- -   /*tax*/ will include all files in a directory that contain \'tax\'
+    --     in the file name, such as \'tax\', \'taxes\', \'income_tax\'.
+    inclusionPatterns :: Prelude.Maybe [Prelude.Text],
+    -- | A list of S3 prefixes for the documents that should be included in the
+    -- index.
+    inclusionPrefixes :: Prelude.Maybe [Prelude.Text],
     -- | The name of the bucket that contains the documents.
     bucketName :: Prelude.Text
   }
@@ -87,31 +87,11 @@ data S3DataSourceConfiguration = S3DataSourceConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'inclusionPatterns', 's3DataSourceConfiguration_inclusionPatterns' - A list of glob patterns for documents that should be indexed. If a
--- document that matches an inclusion pattern also matches an exclusion
--- pattern, the document is not indexed.
---
--- Some
--- <https://docs.aws.amazon.com/cli/latest/reference/s3/#use-of-exclude-and-include-filters examples>
--- are:
---
--- -   /*.txt/ will include all text files in a directory (files with the
---     extension .txt).
---
--- -   /**\/*.txt/ will include all text files in a directory and its
---     subdirectories.
---
--- -   /*tax*/ will include all files in a directory that contain \'tax\'
---     in the file name, such as \'tax\', \'taxes\', \'income_tax\'.
---
--- 'documentsMetadataConfiguration', 's3DataSourceConfiguration_documentsMetadataConfiguration' - Undocumented member.
---
 -- 'accessControlListConfiguration', 's3DataSourceConfiguration_accessControlListConfiguration' - Provides the path to the S3 bucket that contains the user context
 -- filtering files for the data source. For the format of the file, see
 -- <https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html Access control for S3 data sources>.
 --
--- 'inclusionPrefixes', 's3DataSourceConfiguration_inclusionPrefixes' - A list of S3 prefixes for the documents that should be included in the
--- index.
+-- 'documentsMetadataConfiguration', 's3DataSourceConfiguration_documentsMetadataConfiguration' - Undocumented member.
 --
 -- 'exclusionPatterns', 's3DataSourceConfiguration_exclusionPatterns' - A list of glob patterns for documents that should not be indexed. If a
 -- document that matches an inclusion prefix or inclusion pattern also
@@ -131,23 +111,7 @@ data S3DataSourceConfiguration = S3DataSourceConfiguration'
 -- -   /**\/*internal*/ will exclude all internal-related files in a
 --     directory and its subdirectories.
 --
--- 'bucketName', 's3DataSourceConfiguration_bucketName' - The name of the bucket that contains the documents.
-newS3DataSourceConfiguration ::
-  -- | 'bucketName'
-  Prelude.Text ->
-  S3DataSourceConfiguration
-newS3DataSourceConfiguration pBucketName_ =
-  S3DataSourceConfiguration'
-    { inclusionPatterns =
-        Prelude.Nothing,
-      documentsMetadataConfiguration = Prelude.Nothing,
-      accessControlListConfiguration = Prelude.Nothing,
-      inclusionPrefixes = Prelude.Nothing,
-      exclusionPatterns = Prelude.Nothing,
-      bucketName = pBucketName_
-    }
-
--- | A list of glob patterns for documents that should be indexed. If a
+-- 'inclusionPatterns', 's3DataSourceConfiguration_inclusionPatterns' - A list of glob patterns for documents that should be indexed. If a
 -- document that matches an inclusion pattern also matches an exclusion
 -- pattern, the document is not indexed.
 --
@@ -163,12 +127,25 @@ newS3DataSourceConfiguration pBucketName_ =
 --
 -- -   /*tax*/ will include all files in a directory that contain \'tax\'
 --     in the file name, such as \'tax\', \'taxes\', \'income_tax\'.
-s3DataSourceConfiguration_inclusionPatterns :: Lens.Lens' S3DataSourceConfiguration (Prelude.Maybe [Prelude.Text])
-s3DataSourceConfiguration_inclusionPatterns = Lens.lens (\S3DataSourceConfiguration' {inclusionPatterns} -> inclusionPatterns) (\s@S3DataSourceConfiguration' {} a -> s {inclusionPatterns = a} :: S3DataSourceConfiguration) Prelude.. Lens.mapping Lens.coerced
-
--- | Undocumented member.
-s3DataSourceConfiguration_documentsMetadataConfiguration :: Lens.Lens' S3DataSourceConfiguration (Prelude.Maybe DocumentsMetadataConfiguration)
-s3DataSourceConfiguration_documentsMetadataConfiguration = Lens.lens (\S3DataSourceConfiguration' {documentsMetadataConfiguration} -> documentsMetadataConfiguration) (\s@S3DataSourceConfiguration' {} a -> s {documentsMetadataConfiguration = a} :: S3DataSourceConfiguration)
+--
+-- 'inclusionPrefixes', 's3DataSourceConfiguration_inclusionPrefixes' - A list of S3 prefixes for the documents that should be included in the
+-- index.
+--
+-- 'bucketName', 's3DataSourceConfiguration_bucketName' - The name of the bucket that contains the documents.
+newS3DataSourceConfiguration ::
+  -- | 'bucketName'
+  Prelude.Text ->
+  S3DataSourceConfiguration
+newS3DataSourceConfiguration pBucketName_ =
+  S3DataSourceConfiguration'
+    { accessControlListConfiguration =
+        Prelude.Nothing,
+      documentsMetadataConfiguration = Prelude.Nothing,
+      exclusionPatterns = Prelude.Nothing,
+      inclusionPatterns = Prelude.Nothing,
+      inclusionPrefixes = Prelude.Nothing,
+      bucketName = pBucketName_
+    }
 
 -- | Provides the path to the S3 bucket that contains the user context
 -- filtering files for the data source. For the format of the file, see
@@ -176,10 +153,9 @@ s3DataSourceConfiguration_documentsMetadataConfiguration = Lens.lens (\S3DataSou
 s3DataSourceConfiguration_accessControlListConfiguration :: Lens.Lens' S3DataSourceConfiguration (Prelude.Maybe AccessControlListConfiguration)
 s3DataSourceConfiguration_accessControlListConfiguration = Lens.lens (\S3DataSourceConfiguration' {accessControlListConfiguration} -> accessControlListConfiguration) (\s@S3DataSourceConfiguration' {} a -> s {accessControlListConfiguration = a} :: S3DataSourceConfiguration)
 
--- | A list of S3 prefixes for the documents that should be included in the
--- index.
-s3DataSourceConfiguration_inclusionPrefixes :: Lens.Lens' S3DataSourceConfiguration (Prelude.Maybe [Prelude.Text])
-s3DataSourceConfiguration_inclusionPrefixes = Lens.lens (\S3DataSourceConfiguration' {inclusionPrefixes} -> inclusionPrefixes) (\s@S3DataSourceConfiguration' {} a -> s {inclusionPrefixes = a} :: S3DataSourceConfiguration) Prelude.. Lens.mapping Lens.coerced
+-- | Undocumented member.
+s3DataSourceConfiguration_documentsMetadataConfiguration :: Lens.Lens' S3DataSourceConfiguration (Prelude.Maybe DocumentsMetadataConfiguration)
+s3DataSourceConfiguration_documentsMetadataConfiguration = Lens.lens (\S3DataSourceConfiguration' {documentsMetadataConfiguration} -> documentsMetadataConfiguration) (\s@S3DataSourceConfiguration' {} a -> s {documentsMetadataConfiguration = a} :: S3DataSourceConfiguration)
 
 -- | A list of glob patterns for documents that should not be indexed. If a
 -- document that matches an inclusion prefix or inclusion pattern also
@@ -201,6 +177,30 @@ s3DataSourceConfiguration_inclusionPrefixes = Lens.lens (\S3DataSourceConfigurat
 s3DataSourceConfiguration_exclusionPatterns :: Lens.Lens' S3DataSourceConfiguration (Prelude.Maybe [Prelude.Text])
 s3DataSourceConfiguration_exclusionPatterns = Lens.lens (\S3DataSourceConfiguration' {exclusionPatterns} -> exclusionPatterns) (\s@S3DataSourceConfiguration' {} a -> s {exclusionPatterns = a} :: S3DataSourceConfiguration) Prelude.. Lens.mapping Lens.coerced
 
+-- | A list of glob patterns for documents that should be indexed. If a
+-- document that matches an inclusion pattern also matches an exclusion
+-- pattern, the document is not indexed.
+--
+-- Some
+-- <https://docs.aws.amazon.com/cli/latest/reference/s3/#use-of-exclude-and-include-filters examples>
+-- are:
+--
+-- -   /*.txt/ will include all text files in a directory (files with the
+--     extension .txt).
+--
+-- -   /**\/*.txt/ will include all text files in a directory and its
+--     subdirectories.
+--
+-- -   /*tax*/ will include all files in a directory that contain \'tax\'
+--     in the file name, such as \'tax\', \'taxes\', \'income_tax\'.
+s3DataSourceConfiguration_inclusionPatterns :: Lens.Lens' S3DataSourceConfiguration (Prelude.Maybe [Prelude.Text])
+s3DataSourceConfiguration_inclusionPatterns = Lens.lens (\S3DataSourceConfiguration' {inclusionPatterns} -> inclusionPatterns) (\s@S3DataSourceConfiguration' {} a -> s {inclusionPatterns = a} :: S3DataSourceConfiguration) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of S3 prefixes for the documents that should be included in the
+-- index.
+s3DataSourceConfiguration_inclusionPrefixes :: Lens.Lens' S3DataSourceConfiguration (Prelude.Maybe [Prelude.Text])
+s3DataSourceConfiguration_inclusionPrefixes = Lens.lens (\S3DataSourceConfiguration' {inclusionPrefixes} -> inclusionPrefixes) (\s@S3DataSourceConfiguration' {} a -> s {inclusionPrefixes = a} :: S3DataSourceConfiguration) Prelude.. Lens.mapping Lens.coerced
+
 -- | The name of the bucket that contains the documents.
 s3DataSourceConfiguration_bucketName :: Lens.Lens' S3DataSourceConfiguration Prelude.Text
 s3DataSourceConfiguration_bucketName = Lens.lens (\S3DataSourceConfiguration' {bucketName} -> bucketName) (\s@S3DataSourceConfiguration' {} a -> s {bucketName = a} :: S3DataSourceConfiguration)
@@ -211,15 +211,15 @@ instance Data.FromJSON S3DataSourceConfiguration where
       "S3DataSourceConfiguration"
       ( \x ->
           S3DataSourceConfiguration'
-            Prelude.<$> ( x Data..:? "InclusionPatterns"
-                            Data..!= Prelude.mempty
-                        )
+            Prelude.<$> (x Data..:? "AccessControlListConfiguration")
             Prelude.<*> (x Data..:? "DocumentsMetadataConfiguration")
-            Prelude.<*> (x Data..:? "AccessControlListConfiguration")
-            Prelude.<*> ( x Data..:? "InclusionPrefixes"
+            Prelude.<*> ( x Data..:? "ExclusionPatterns"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ExclusionPatterns"
+            Prelude.<*> ( x Data..:? "InclusionPatterns"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x Data..:? "InclusionPrefixes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "BucketName")
@@ -227,36 +227,37 @@ instance Data.FromJSON S3DataSourceConfiguration where
 
 instance Prelude.Hashable S3DataSourceConfiguration where
   hashWithSalt _salt S3DataSourceConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` inclusionPatterns
-      `Prelude.hashWithSalt` documentsMetadataConfiguration
+    _salt
       `Prelude.hashWithSalt` accessControlListConfiguration
-      `Prelude.hashWithSalt` inclusionPrefixes
+      `Prelude.hashWithSalt` documentsMetadataConfiguration
       `Prelude.hashWithSalt` exclusionPatterns
+      `Prelude.hashWithSalt` inclusionPatterns
+      `Prelude.hashWithSalt` inclusionPrefixes
       `Prelude.hashWithSalt` bucketName
 
 instance Prelude.NFData S3DataSourceConfiguration where
   rnf S3DataSourceConfiguration' {..} =
-    Prelude.rnf inclusionPatterns
+    Prelude.rnf accessControlListConfiguration
       `Prelude.seq` Prelude.rnf documentsMetadataConfiguration
-      `Prelude.seq` Prelude.rnf accessControlListConfiguration
-      `Prelude.seq` Prelude.rnf inclusionPrefixes
       `Prelude.seq` Prelude.rnf exclusionPatterns
+      `Prelude.seq` Prelude.rnf inclusionPatterns
+      `Prelude.seq` Prelude.rnf inclusionPrefixes
       `Prelude.seq` Prelude.rnf bucketName
 
 instance Data.ToJSON S3DataSourceConfiguration where
   toJSON S3DataSourceConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("InclusionPatterns" Data..=)
-              Prelude.<$> inclusionPatterns,
+          [ ("AccessControlListConfiguration" Data..=)
+              Prelude.<$> accessControlListConfiguration,
             ("DocumentsMetadataConfiguration" Data..=)
               Prelude.<$> documentsMetadataConfiguration,
-            ("AccessControlListConfiguration" Data..=)
-              Prelude.<$> accessControlListConfiguration,
-            ("InclusionPrefixes" Data..=)
-              Prelude.<$> inclusionPrefixes,
             ("ExclusionPatterns" Data..=)
               Prelude.<$> exclusionPatterns,
+            ("InclusionPatterns" Data..=)
+              Prelude.<$> inclusionPatterns,
+            ("InclusionPrefixes" Data..=)
+              Prelude.<$> inclusionPrefixes,
             Prelude.Just ("BucketName" Data..= bucketName)
           ]
       )

@@ -31,8 +31,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRelevanceFeedback' smart constructor.
 data RelevanceFeedback = RelevanceFeedback'
-  { -- | The unique identifier of the search result that the user provided
-    -- relevance feedback for.
+  { -- | The identifier of the search result that the user provided relevance
+    -- feedback for.
     resultId :: Prelude.Text,
     -- | Whether to document was relevant or not relevant to the search.
     relevanceValue :: RelevanceType
@@ -47,8 +47,8 @@ data RelevanceFeedback = RelevanceFeedback'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resultId', 'relevanceFeedback_resultId' - The unique identifier of the search result that the user provided
--- relevance feedback for.
+-- 'resultId', 'relevanceFeedback_resultId' - The identifier of the search result that the user provided relevance
+-- feedback for.
 --
 -- 'relevanceValue', 'relevanceFeedback_relevanceValue' - Whether to document was relevant or not relevant to the search.
 newRelevanceFeedback ::
@@ -63,8 +63,8 @@ newRelevanceFeedback pResultId_ pRelevanceValue_ =
       relevanceValue = pRelevanceValue_
     }
 
--- | The unique identifier of the search result that the user provided
--- relevance feedback for.
+-- | The identifier of the search result that the user provided relevance
+-- feedback for.
 relevanceFeedback_resultId :: Lens.Lens' RelevanceFeedback Prelude.Text
 relevanceFeedback_resultId = Lens.lens (\RelevanceFeedback' {resultId} -> resultId) (\s@RelevanceFeedback' {} a -> s {resultId = a} :: RelevanceFeedback)
 

@@ -49,7 +49,7 @@ data DocumentInfo = DocumentInfo'
     -- -   If @dataSourceId@ and @jobExecutionId@ are provided, but @version@
     --     is not, the version defaults to \"0\".
     attributes :: Prelude.Maybe [DocumentAttribute],
-    -- | The unique identifier of the document.
+    -- | The identifier of the document.
     documentId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -82,7 +82,7 @@ data DocumentInfo = DocumentInfo'
 -- -   If @dataSourceId@ and @jobExecutionId@ are provided, but @version@
 --     is not, the version defaults to \"0\".
 --
--- 'documentId', 'documentInfo_documentId' - The unique identifier of the document.
+-- 'documentId', 'documentInfo_documentId' - The identifier of the document.
 newDocumentInfo ::
   -- | 'documentId'
   Prelude.Text ->
@@ -115,7 +115,7 @@ newDocumentInfo pDocumentId_ =
 documentInfo_attributes :: Lens.Lens' DocumentInfo (Prelude.Maybe [DocumentAttribute])
 documentInfo_attributes = Lens.lens (\DocumentInfo' {attributes} -> attributes) (\s@DocumentInfo' {} a -> s {attributes = a} :: DocumentInfo) Prelude.. Lens.mapping Lens.coerced
 
--- | The unique identifier of the document.
+-- | The identifier of the document.
 documentInfo_documentId :: Lens.Lens' DocumentInfo Prelude.Text
 documentInfo_documentId = Lens.lens (\DocumentInfo' {documentId} -> documentId) (\s@DocumentInfo' {} a -> s {documentId = a} :: DocumentInfo)
 

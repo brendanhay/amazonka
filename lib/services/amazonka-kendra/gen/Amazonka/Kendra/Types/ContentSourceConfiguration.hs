@@ -30,15 +30,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newContentSourceConfiguration' smart constructor.
 data ContentSourceConfiguration = ContentSourceConfiguration'
-  { -- | @TRUE@ to use documents you indexed directly using the
+  { -- | The identifier of the data sources you want to use for your Amazon
+    -- Kendra experience.
+    dataSourceIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | @TRUE@ to use documents you indexed directly using the
     -- @BatchPutDocument@ API.
     directPutContent :: Prelude.Maybe Prelude.Bool,
     -- | The identifier of the FAQs that you want to use for your Amazon Kendra
     -- experience.
-    faqIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The identifier of the data sources you want to use for your Amazon
-    -- Kendra experience.
-    dataSourceIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
+    faqIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,23 +50,28 @@ data ContentSourceConfiguration = ContentSourceConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dataSourceIds', 'contentSourceConfiguration_dataSourceIds' - The identifier of the data sources you want to use for your Amazon
+-- Kendra experience.
+--
 -- 'directPutContent', 'contentSourceConfiguration_directPutContent' - @TRUE@ to use documents you indexed directly using the
 -- @BatchPutDocument@ API.
 --
 -- 'faqIds', 'contentSourceConfiguration_faqIds' - The identifier of the FAQs that you want to use for your Amazon Kendra
 -- experience.
---
--- 'dataSourceIds', 'contentSourceConfiguration_dataSourceIds' - The identifier of the data sources you want to use for your Amazon
--- Kendra experience.
 newContentSourceConfiguration ::
   ContentSourceConfiguration
 newContentSourceConfiguration =
   ContentSourceConfiguration'
-    { directPutContent =
+    { dataSourceIds =
         Prelude.Nothing,
-      faqIds = Prelude.Nothing,
-      dataSourceIds = Prelude.Nothing
+      directPutContent = Prelude.Nothing,
+      faqIds = Prelude.Nothing
     }
+
+-- | The identifier of the data sources you want to use for your Amazon
+-- Kendra experience.
+contentSourceConfiguration_dataSourceIds :: Lens.Lens' ContentSourceConfiguration (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+contentSourceConfiguration_dataSourceIds = Lens.lens (\ContentSourceConfiguration' {dataSourceIds} -> dataSourceIds) (\s@ContentSourceConfiguration' {} a -> s {dataSourceIds = a} :: ContentSourceConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | @TRUE@ to use documents you indexed directly using the
 -- @BatchPutDocument@ API.
@@ -78,41 +83,36 @@ contentSourceConfiguration_directPutContent = Lens.lens (\ContentSourceConfigura
 contentSourceConfiguration_faqIds :: Lens.Lens' ContentSourceConfiguration (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 contentSourceConfiguration_faqIds = Lens.lens (\ContentSourceConfiguration' {faqIds} -> faqIds) (\s@ContentSourceConfiguration' {} a -> s {faqIds = a} :: ContentSourceConfiguration) Prelude.. Lens.mapping Lens.coerced
 
--- | The identifier of the data sources you want to use for your Amazon
--- Kendra experience.
-contentSourceConfiguration_dataSourceIds :: Lens.Lens' ContentSourceConfiguration (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-contentSourceConfiguration_dataSourceIds = Lens.lens (\ContentSourceConfiguration' {dataSourceIds} -> dataSourceIds) (\s@ContentSourceConfiguration' {} a -> s {dataSourceIds = a} :: ContentSourceConfiguration) Prelude.. Lens.mapping Lens.coerced
-
 instance Data.FromJSON ContentSourceConfiguration where
   parseJSON =
     Data.withObject
       "ContentSourceConfiguration"
       ( \x ->
           ContentSourceConfiguration'
-            Prelude.<$> (x Data..:? "DirectPutContent")
+            Prelude.<$> (x Data..:? "DataSourceIds")
+            Prelude.<*> (x Data..:? "DirectPutContent")
             Prelude.<*> (x Data..:? "FaqIds")
-            Prelude.<*> (x Data..:? "DataSourceIds")
       )
 
 instance Prelude.Hashable ContentSourceConfiguration where
   hashWithSalt _salt ContentSourceConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` directPutContent
+    _salt `Prelude.hashWithSalt` dataSourceIds
+      `Prelude.hashWithSalt` directPutContent
       `Prelude.hashWithSalt` faqIds
-      `Prelude.hashWithSalt` dataSourceIds
 
 instance Prelude.NFData ContentSourceConfiguration where
   rnf ContentSourceConfiguration' {..} =
-    Prelude.rnf directPutContent
+    Prelude.rnf dataSourceIds
+      `Prelude.seq` Prelude.rnf directPutContent
       `Prelude.seq` Prelude.rnf faqIds
-      `Prelude.seq` Prelude.rnf dataSourceIds
 
 instance Data.ToJSON ContentSourceConfiguration where
   toJSON ContentSourceConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("DirectPutContent" Data..=)
+          [ ("DataSourceIds" Data..=) Prelude.<$> dataSourceIds,
+            ("DirectPutContent" Data..=)
               Prelude.<$> directPutContent,
-            ("FaqIds" Data..=) Prelude.<$> faqIds,
-            ("DataSourceIds" Data..=) Prelude.<$> dataSourceIds
+            ("FaqIds" Data..=) Prelude.<$> faqIds
           ]
       )

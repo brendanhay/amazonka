@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUserTokenConfiguration' smart constructor.
 data UserTokenConfiguration = UserTokenConfiguration'
-  { -- | Information about the JWT token type configuration.
-    jwtTokenTypeConfiguration :: Prelude.Maybe JwtTokenTypeConfiguration,
-    -- | Information about the JSON token type configuration.
-    jsonTokenTypeConfiguration :: Prelude.Maybe JsonTokenTypeConfiguration
+  { -- | Information about the JSON token type configuration.
+    jsonTokenTypeConfiguration :: Prelude.Maybe JsonTokenTypeConfiguration,
+    -- | Information about the JWT token type configuration.
+    jwtTokenTypeConfiguration :: Prelude.Maybe JwtTokenTypeConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,25 +45,25 @@ data UserTokenConfiguration = UserTokenConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jwtTokenTypeConfiguration', 'userTokenConfiguration_jwtTokenTypeConfiguration' - Information about the JWT token type configuration.
---
 -- 'jsonTokenTypeConfiguration', 'userTokenConfiguration_jsonTokenTypeConfiguration' - Information about the JSON token type configuration.
+--
+-- 'jwtTokenTypeConfiguration', 'userTokenConfiguration_jwtTokenTypeConfiguration' - Information about the JWT token type configuration.
 newUserTokenConfiguration ::
   UserTokenConfiguration
 newUserTokenConfiguration =
   UserTokenConfiguration'
-    { jwtTokenTypeConfiguration =
+    { jsonTokenTypeConfiguration =
         Prelude.Nothing,
-      jsonTokenTypeConfiguration = Prelude.Nothing
+      jwtTokenTypeConfiguration = Prelude.Nothing
     }
-
--- | Information about the JWT token type configuration.
-userTokenConfiguration_jwtTokenTypeConfiguration :: Lens.Lens' UserTokenConfiguration (Prelude.Maybe JwtTokenTypeConfiguration)
-userTokenConfiguration_jwtTokenTypeConfiguration = Lens.lens (\UserTokenConfiguration' {jwtTokenTypeConfiguration} -> jwtTokenTypeConfiguration) (\s@UserTokenConfiguration' {} a -> s {jwtTokenTypeConfiguration = a} :: UserTokenConfiguration)
 
 -- | Information about the JSON token type configuration.
 userTokenConfiguration_jsonTokenTypeConfiguration :: Lens.Lens' UserTokenConfiguration (Prelude.Maybe JsonTokenTypeConfiguration)
 userTokenConfiguration_jsonTokenTypeConfiguration = Lens.lens (\UserTokenConfiguration' {jsonTokenTypeConfiguration} -> jsonTokenTypeConfiguration) (\s@UserTokenConfiguration' {} a -> s {jsonTokenTypeConfiguration = a} :: UserTokenConfiguration)
+
+-- | Information about the JWT token type configuration.
+userTokenConfiguration_jwtTokenTypeConfiguration :: Lens.Lens' UserTokenConfiguration (Prelude.Maybe JwtTokenTypeConfiguration)
+userTokenConfiguration_jwtTokenTypeConfiguration = Lens.lens (\UserTokenConfiguration' {jwtTokenTypeConfiguration} -> jwtTokenTypeConfiguration) (\s@UserTokenConfiguration' {} a -> s {jwtTokenTypeConfiguration = a} :: UserTokenConfiguration)
 
 instance Data.FromJSON UserTokenConfiguration where
   parseJSON =
@@ -71,28 +71,28 @@ instance Data.FromJSON UserTokenConfiguration where
       "UserTokenConfiguration"
       ( \x ->
           UserTokenConfiguration'
-            Prelude.<$> (x Data..:? "JwtTokenTypeConfiguration")
-            Prelude.<*> (x Data..:? "JsonTokenTypeConfiguration")
+            Prelude.<$> (x Data..:? "JsonTokenTypeConfiguration")
+            Prelude.<*> (x Data..:? "JwtTokenTypeConfiguration")
       )
 
 instance Prelude.Hashable UserTokenConfiguration where
   hashWithSalt _salt UserTokenConfiguration' {..} =
     _salt
-      `Prelude.hashWithSalt` jwtTokenTypeConfiguration
       `Prelude.hashWithSalt` jsonTokenTypeConfiguration
+      `Prelude.hashWithSalt` jwtTokenTypeConfiguration
 
 instance Prelude.NFData UserTokenConfiguration where
   rnf UserTokenConfiguration' {..} =
-    Prelude.rnf jwtTokenTypeConfiguration
-      `Prelude.seq` Prelude.rnf jsonTokenTypeConfiguration
+    Prelude.rnf jsonTokenTypeConfiguration
+      `Prelude.seq` Prelude.rnf jwtTokenTypeConfiguration
 
 instance Data.ToJSON UserTokenConfiguration where
   toJSON UserTokenConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("JwtTokenTypeConfiguration" Data..=)
-              Prelude.<$> jwtTokenTypeConfiguration,
-            ("JsonTokenTypeConfiguration" Data..=)
-              Prelude.<$> jsonTokenTypeConfiguration
+          [ ("JsonTokenTypeConfiguration" Data..=)
+              Prelude.<$> jsonTokenTypeConfiguration,
+            ("JwtTokenTypeConfiguration" Data..=)
+              Prelude.<$> jwtTokenTypeConfiguration
           ]
       )

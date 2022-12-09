@@ -29,10 +29,10 @@ module Amazonka.Kendra.UpdateExperience
     newUpdateExperience,
 
     -- * Request Lenses
-    updateExperience_name,
-    updateExperience_roleArn,
     updateExperience_configuration,
     updateExperience_description,
+    updateExperience_name,
+    updateExperience_roleArn,
     updateExperience_id,
     updateExperience_indexId,
 
@@ -52,7 +52,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateExperience' smart constructor.
 data UpdateExperience = UpdateExperience'
-  { -- | A new name for your Amazon Kendra experience.
+  { -- | Configuration information you want to update for your Amazon Kendra
+    -- experience.
+    configuration :: Prelude.Maybe ExperienceConfiguration,
+    -- | A new description for your Amazon Kendra experience.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | A new name for your Amazon Kendra experience.
     name :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of a role with permission to access
     -- @Query@ API, @QuerySuggestions@ API, @SubmitFeedback@ API, and IAM
@@ -60,11 +65,6 @@ data UpdateExperience = UpdateExperience'
     -- information, see
     -- <https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html IAM roles for Amazon Kendra>.
     roleArn :: Prelude.Maybe Prelude.Text,
-    -- | Configuration information you want to update for your Amazon Kendra
-    -- experience.
-    configuration :: Prelude.Maybe ExperienceConfiguration,
-    -- | A new description for your Amazon Kendra experience.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The identifier of your Amazon Kendra experience you want to update.
     id :: Prelude.Text,
     -- | The identifier of the index for your Amazon Kendra experience.
@@ -80,6 +80,11 @@ data UpdateExperience = UpdateExperience'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'configuration', 'updateExperience_configuration' - Configuration information you want to update for your Amazon Kendra
+-- experience.
+--
+-- 'description', 'updateExperience_description' - A new description for your Amazon Kendra experience.
+--
 -- 'name', 'updateExperience_name' - A new name for your Amazon Kendra experience.
 --
 -- 'roleArn', 'updateExperience_roleArn' - The Amazon Resource Name (ARN) of a role with permission to access
@@ -87,11 +92,6 @@ data UpdateExperience = UpdateExperience'
 -- Identity Center that stores your user and group information. For more
 -- information, see
 -- <https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html IAM roles for Amazon Kendra>.
---
--- 'configuration', 'updateExperience_configuration' - Configuration information you want to update for your Amazon Kendra
--- experience.
---
--- 'description', 'updateExperience_description' - A new description for your Amazon Kendra experience.
 --
 -- 'id', 'updateExperience_id' - The identifier of your Amazon Kendra experience you want to update.
 --
@@ -104,13 +104,22 @@ newUpdateExperience ::
   UpdateExperience
 newUpdateExperience pId_ pIndexId_ =
   UpdateExperience'
-    { name = Prelude.Nothing,
-      roleArn = Prelude.Nothing,
-      configuration = Prelude.Nothing,
+    { configuration = Prelude.Nothing,
       description = Prelude.Nothing,
+      name = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
       id = pId_,
       indexId = pIndexId_
     }
+
+-- | Configuration information you want to update for your Amazon Kendra
+-- experience.
+updateExperience_configuration :: Lens.Lens' UpdateExperience (Prelude.Maybe ExperienceConfiguration)
+updateExperience_configuration = Lens.lens (\UpdateExperience' {configuration} -> configuration) (\s@UpdateExperience' {} a -> s {configuration = a} :: UpdateExperience)
+
+-- | A new description for your Amazon Kendra experience.
+updateExperience_description :: Lens.Lens' UpdateExperience (Prelude.Maybe Prelude.Text)
+updateExperience_description = Lens.lens (\UpdateExperience' {description} -> description) (\s@UpdateExperience' {} a -> s {description = a} :: UpdateExperience)
 
 -- | A new name for your Amazon Kendra experience.
 updateExperience_name :: Lens.Lens' UpdateExperience (Prelude.Maybe Prelude.Text)
@@ -123,15 +132,6 @@ updateExperience_name = Lens.lens (\UpdateExperience' {name} -> name) (\s@Update
 -- <https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html IAM roles for Amazon Kendra>.
 updateExperience_roleArn :: Lens.Lens' UpdateExperience (Prelude.Maybe Prelude.Text)
 updateExperience_roleArn = Lens.lens (\UpdateExperience' {roleArn} -> roleArn) (\s@UpdateExperience' {} a -> s {roleArn = a} :: UpdateExperience)
-
--- | Configuration information you want to update for your Amazon Kendra
--- experience.
-updateExperience_configuration :: Lens.Lens' UpdateExperience (Prelude.Maybe ExperienceConfiguration)
-updateExperience_configuration = Lens.lens (\UpdateExperience' {configuration} -> configuration) (\s@UpdateExperience' {} a -> s {configuration = a} :: UpdateExperience)
-
--- | A new description for your Amazon Kendra experience.
-updateExperience_description :: Lens.Lens' UpdateExperience (Prelude.Maybe Prelude.Text)
-updateExperience_description = Lens.lens (\UpdateExperience' {description} -> description) (\s@UpdateExperience' {} a -> s {description = a} :: UpdateExperience)
 
 -- | The identifier of your Amazon Kendra experience you want to update.
 updateExperience_id :: Lens.Lens' UpdateExperience Prelude.Text
@@ -152,19 +152,19 @@ instance Core.AWSRequest UpdateExperience where
 
 instance Prelude.Hashable UpdateExperience where
   hashWithSalt _salt UpdateExperience' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` roleArn
-      `Prelude.hashWithSalt` configuration
+    _salt `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` indexId
 
 instance Prelude.NFData UpdateExperience where
   rnf UpdateExperience' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf configuration
+    Prelude.rnf configuration
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf indexId
 
@@ -187,10 +187,10 @@ instance Data.ToJSON UpdateExperience where
   toJSON UpdateExperience' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
-            ("RoleArn" Data..=) Prelude.<$> roleArn,
-            ("Configuration" Data..=) Prelude.<$> configuration,
+          [ ("Configuration" Data..=) Prelude.<$> configuration,
             ("Description" Data..=) Prelude.<$> description,
+            ("Name" Data..=) Prelude.<$> name,
+            ("RoleArn" Data..=) Prelude.<$> roleArn,
             Prelude.Just ("Id" Data..= id),
             Prelude.Just ("IndexId" Data..= indexId)
           ]

@@ -31,17 +31,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSalesforceChatterFeedConfiguration' smart constructor.
 data SalesforceChatterFeedConfiguration = SalesforceChatterFeedConfiguration'
-  { -- | Filters the documents in the feed based on status of the user. When you
+  { -- | The name of the column in the Salesforce FeedItem table that contains
+    -- the title of the document. This is typically the @Title@ column.
+    documentTitleFieldName :: Prelude.Maybe Prelude.Text,
+    -- | Maps fields from a Salesforce chatter feed into Amazon Kendra index
+    -- fields.
+    fieldMappings :: Prelude.Maybe (Prelude.NonEmpty DataSourceToIndexFieldMapping),
+    -- | Filters the documents in the feed based on status of the user. When you
     -- specify @ACTIVE_USERS@ only documents from users who have an active
     -- account are indexed. When you specify @STANDARD_USER@ only documents for
     -- Salesforce standard users are documented. You can specify both.
     includeFilterTypes :: Prelude.Maybe (Prelude.NonEmpty SalesforceChatterFeedIncludeFilterType),
-    -- | Maps fields from a Salesforce chatter feed into Amazon Kendra index
-    -- fields.
-    fieldMappings :: Prelude.Maybe (Prelude.NonEmpty DataSourceToIndexFieldMapping),
-    -- | The name of the column in the Salesforce FeedItem table that contains
-    -- the title of the document. This is typically the @Title@ column.
-    documentTitleFieldName :: Prelude.Maybe Prelude.Text,
     -- | The name of the column in the Salesforce FeedItem table that contains
     -- the content to index. Typically this is the @Body@ column.
     documentDataFieldName :: Prelude.Text
@@ -56,16 +56,16 @@ data SalesforceChatterFeedConfiguration = SalesforceChatterFeedConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'includeFilterTypes', 'salesforceChatterFeedConfiguration_includeFilterTypes' - Filters the documents in the feed based on status of the user. When you
--- specify @ACTIVE_USERS@ only documents from users who have an active
--- account are indexed. When you specify @STANDARD_USER@ only documents for
--- Salesforce standard users are documented. You can specify both.
+-- 'documentTitleFieldName', 'salesforceChatterFeedConfiguration_documentTitleFieldName' - The name of the column in the Salesforce FeedItem table that contains
+-- the title of the document. This is typically the @Title@ column.
 --
 -- 'fieldMappings', 'salesforceChatterFeedConfiguration_fieldMappings' - Maps fields from a Salesforce chatter feed into Amazon Kendra index
 -- fields.
 --
--- 'documentTitleFieldName', 'salesforceChatterFeedConfiguration_documentTitleFieldName' - The name of the column in the Salesforce FeedItem table that contains
--- the title of the document. This is typically the @Title@ column.
+-- 'includeFilterTypes', 'salesforceChatterFeedConfiguration_includeFilterTypes' - Filters the documents in the feed based on status of the user. When you
+-- specify @ACTIVE_USERS@ only documents from users who have an active
+-- account are indexed. When you specify @STANDARD_USER@ only documents for
+-- Salesforce standard users are documented. You can specify both.
 --
 -- 'documentDataFieldName', 'salesforceChatterFeedConfiguration_documentDataFieldName' - The name of the column in the Salesforce FeedItem table that contains
 -- the content to index. Typically this is the @Body@ column.
@@ -76,14 +76,23 @@ newSalesforceChatterFeedConfiguration ::
 newSalesforceChatterFeedConfiguration
   pDocumentDataFieldName_ =
     SalesforceChatterFeedConfiguration'
-      { includeFilterTypes =
+      { documentTitleFieldName =
           Prelude.Nothing,
         fieldMappings = Prelude.Nothing,
-        documentTitleFieldName =
-          Prelude.Nothing,
+        includeFilterTypes = Prelude.Nothing,
         documentDataFieldName =
           pDocumentDataFieldName_
       }
+
+-- | The name of the column in the Salesforce FeedItem table that contains
+-- the title of the document. This is typically the @Title@ column.
+salesforceChatterFeedConfiguration_documentTitleFieldName :: Lens.Lens' SalesforceChatterFeedConfiguration (Prelude.Maybe Prelude.Text)
+salesforceChatterFeedConfiguration_documentTitleFieldName = Lens.lens (\SalesforceChatterFeedConfiguration' {documentTitleFieldName} -> documentTitleFieldName) (\s@SalesforceChatterFeedConfiguration' {} a -> s {documentTitleFieldName = a} :: SalesforceChatterFeedConfiguration)
+
+-- | Maps fields from a Salesforce chatter feed into Amazon Kendra index
+-- fields.
+salesforceChatterFeedConfiguration_fieldMappings :: Lens.Lens' SalesforceChatterFeedConfiguration (Prelude.Maybe (Prelude.NonEmpty DataSourceToIndexFieldMapping))
+salesforceChatterFeedConfiguration_fieldMappings = Lens.lens (\SalesforceChatterFeedConfiguration' {fieldMappings} -> fieldMappings) (\s@SalesforceChatterFeedConfiguration' {} a -> s {fieldMappings = a} :: SalesforceChatterFeedConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | Filters the documents in the feed based on status of the user. When you
 -- specify @ACTIVE_USERS@ only documents from users who have an active
@@ -91,16 +100,6 @@ newSalesforceChatterFeedConfiguration
 -- Salesforce standard users are documented. You can specify both.
 salesforceChatterFeedConfiguration_includeFilterTypes :: Lens.Lens' SalesforceChatterFeedConfiguration (Prelude.Maybe (Prelude.NonEmpty SalesforceChatterFeedIncludeFilterType))
 salesforceChatterFeedConfiguration_includeFilterTypes = Lens.lens (\SalesforceChatterFeedConfiguration' {includeFilterTypes} -> includeFilterTypes) (\s@SalesforceChatterFeedConfiguration' {} a -> s {includeFilterTypes = a} :: SalesforceChatterFeedConfiguration) Prelude.. Lens.mapping Lens.coerced
-
--- | Maps fields from a Salesforce chatter feed into Amazon Kendra index
--- fields.
-salesforceChatterFeedConfiguration_fieldMappings :: Lens.Lens' SalesforceChatterFeedConfiguration (Prelude.Maybe (Prelude.NonEmpty DataSourceToIndexFieldMapping))
-salesforceChatterFeedConfiguration_fieldMappings = Lens.lens (\SalesforceChatterFeedConfiguration' {fieldMappings} -> fieldMappings) (\s@SalesforceChatterFeedConfiguration' {} a -> s {fieldMappings = a} :: SalesforceChatterFeedConfiguration) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the column in the Salesforce FeedItem table that contains
--- the title of the document. This is typically the @Title@ column.
-salesforceChatterFeedConfiguration_documentTitleFieldName :: Lens.Lens' SalesforceChatterFeedConfiguration (Prelude.Maybe Prelude.Text)
-salesforceChatterFeedConfiguration_documentTitleFieldName = Lens.lens (\SalesforceChatterFeedConfiguration' {documentTitleFieldName} -> documentTitleFieldName) (\s@SalesforceChatterFeedConfiguration' {} a -> s {documentTitleFieldName = a} :: SalesforceChatterFeedConfiguration)
 
 -- | The name of the column in the Salesforce FeedItem table that contains
 -- the content to index. Typically this is the @Body@ column.
@@ -116,9 +115,9 @@ instance
       "SalesforceChatterFeedConfiguration"
       ( \x ->
           SalesforceChatterFeedConfiguration'
-            Prelude.<$> (x Data..:? "IncludeFilterTypes")
+            Prelude.<$> (x Data..:? "DocumentTitleFieldName")
             Prelude.<*> (x Data..:? "FieldMappings")
-            Prelude.<*> (x Data..:? "DocumentTitleFieldName")
+            Prelude.<*> (x Data..:? "IncludeFilterTypes")
             Prelude.<*> (x Data..: "DocumentDataFieldName")
       )
 
@@ -129,9 +128,9 @@ instance
   hashWithSalt
     _salt
     SalesforceChatterFeedConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` includeFilterTypes
+      _salt `Prelude.hashWithSalt` documentTitleFieldName
         `Prelude.hashWithSalt` fieldMappings
-        `Prelude.hashWithSalt` documentTitleFieldName
+        `Prelude.hashWithSalt` includeFilterTypes
         `Prelude.hashWithSalt` documentDataFieldName
 
 instance
@@ -139,9 +138,9 @@ instance
     SalesforceChatterFeedConfiguration
   where
   rnf SalesforceChatterFeedConfiguration' {..} =
-    Prelude.rnf includeFilterTypes
+    Prelude.rnf documentTitleFieldName
       `Prelude.seq` Prelude.rnf fieldMappings
-      `Prelude.seq` Prelude.rnf documentTitleFieldName
+      `Prelude.seq` Prelude.rnf includeFilterTypes
       `Prelude.seq` Prelude.rnf documentDataFieldName
 
 instance
@@ -151,11 +150,11 @@ instance
   toJSON SalesforceChatterFeedConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("IncludeFilterTypes" Data..=)
-              Prelude.<$> includeFilterTypes,
-            ("FieldMappings" Data..=) Prelude.<$> fieldMappings,
-            ("DocumentTitleFieldName" Data..=)
+          [ ("DocumentTitleFieldName" Data..=)
               Prelude.<$> documentTitleFieldName,
+            ("FieldMappings" Data..=) Prelude.<$> fieldMappings,
+            ("IncludeFilterTypes" Data..=)
+              Prelude.<$> includeFilterTypes,
             Prelude.Just
               ( "DocumentDataFieldName"
                   Data..= documentDataFieldName

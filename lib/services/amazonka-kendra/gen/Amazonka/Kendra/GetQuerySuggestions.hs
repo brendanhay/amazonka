@@ -188,7 +188,7 @@ instance Data.ToQuery GetQuerySuggestions where
 
 -- | /See:/ 'newGetQuerySuggestionsResponse' smart constructor.
 data GetQuerySuggestionsResponse = GetQuerySuggestionsResponse'
-  { -- | The unique identifier for a list of query suggestions for an index.
+  { -- | The identifier for a list of query suggestions for an index.
     querySuggestionsId :: Prelude.Maybe Prelude.Text,
     -- | A list of query suggestions for an index.
     suggestions :: Prelude.Maybe [Suggestion],
@@ -205,7 +205,7 @@ data GetQuerySuggestionsResponse = GetQuerySuggestionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'querySuggestionsId', 'getQuerySuggestionsResponse_querySuggestionsId' - The unique identifier for a list of query suggestions for an index.
+-- 'querySuggestionsId', 'getQuerySuggestionsResponse_querySuggestionsId' - The identifier for a list of query suggestions for an index.
 --
 -- 'suggestions', 'getQuerySuggestionsResponse_suggestions' - A list of query suggestions for an index.
 --
@@ -222,7 +222,7 @@ newGetQuerySuggestionsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The unique identifier for a list of query suggestions for an index.
+-- | The identifier for a list of query suggestions for an index.
 getQuerySuggestionsResponse_querySuggestionsId :: Lens.Lens' GetQuerySuggestionsResponse (Prelude.Maybe Prelude.Text)
 getQuerySuggestionsResponse_querySuggestionsId = Lens.lens (\GetQuerySuggestionsResponse' {querySuggestionsId} -> querySuggestionsId) (\s@GetQuerySuggestionsResponse' {} a -> s {querySuggestionsId = a} :: GetQuerySuggestionsResponse)
 

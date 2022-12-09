@@ -30,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newClickFeedback' smart constructor.
 data ClickFeedback = ClickFeedback'
-  { -- | The unique identifier of the search result that was clicked.
+  { -- | The identifier of the search result that was clicked.
     resultId :: Prelude.Text,
     -- | The Unix timestamp of the date and time that the result was clicked.
     clickTime :: Data.POSIX
@@ -45,7 +45,7 @@ data ClickFeedback = ClickFeedback'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resultId', 'clickFeedback_resultId' - The unique identifier of the search result that was clicked.
+-- 'resultId', 'clickFeedback_resultId' - The identifier of the search result that was clicked.
 --
 -- 'clickTime', 'clickFeedback_clickTime' - The Unix timestamp of the date and time that the result was clicked.
 newClickFeedback ::
@@ -60,7 +60,7 @@ newClickFeedback pResultId_ pClickTime_ =
       clickTime = Data._Time Lens.# pClickTime_
     }
 
--- | The unique identifier of the search result that was clicked.
+-- | The identifier of the search result that was clicked.
 clickFeedback_resultId :: Lens.Lens' ClickFeedback Prelude.Text
 clickFeedback_resultId = Lens.lens (\ClickFeedback' {resultId} -> resultId) (\s@ClickFeedback' {} a -> s {resultId = a} :: ClickFeedback)
 

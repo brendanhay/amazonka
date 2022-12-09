@@ -30,16 +30,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSalesforceCustomKnowledgeArticleTypeConfiguration' smart constructor.
 data SalesforceCustomKnowledgeArticleTypeConfiguration = SalesforceCustomKnowledgeArticleTypeConfiguration'
-  { -- | Maps attributes or field names of the custom knowledge article to Amazon
+  { -- | The name of the field in the custom knowledge article that contains the
+    -- document title.
+    documentTitleFieldName :: Prelude.Maybe Prelude.Text,
+    -- | Maps attributes or field names of the custom knowledge article to Amazon
     -- Kendra index field names. To create custom fields, use the @UpdateIndex@
     -- API before you map to Salesforce fields. For more information, see
     -- <https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html Mapping data source fields>.
     -- The Salesforce data source field names must exist in your Salesforce
     -- custom metadata.
     fieldMappings :: Prelude.Maybe (Prelude.NonEmpty DataSourceToIndexFieldMapping),
-    -- | The name of the field in the custom knowledge article that contains the
-    -- document title.
-    documentTitleFieldName :: Prelude.Maybe Prelude.Text,
     -- | The name of the configuration.
     name :: Prelude.Text,
     -- | The name of the field in the custom knowledge article that contains the
@@ -56,15 +56,15 @@ data SalesforceCustomKnowledgeArticleTypeConfiguration = SalesforceCustomKnowled
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'documentTitleFieldName', 'salesforceCustomKnowledgeArticleTypeConfiguration_documentTitleFieldName' - The name of the field in the custom knowledge article that contains the
+-- document title.
+--
 -- 'fieldMappings', 'salesforceCustomKnowledgeArticleTypeConfiguration_fieldMappings' - Maps attributes or field names of the custom knowledge article to Amazon
 -- Kendra index field names. To create custom fields, use the @UpdateIndex@
 -- API before you map to Salesforce fields. For more information, see
 -- <https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html Mapping data source fields>.
 -- The Salesforce data source field names must exist in your Salesforce
 -- custom metadata.
---
--- 'documentTitleFieldName', 'salesforceCustomKnowledgeArticleTypeConfiguration_documentTitleFieldName' - The name of the field in the custom knowledge article that contains the
--- document title.
 --
 -- 'name', 'salesforceCustomKnowledgeArticleTypeConfiguration_name' - The name of the configuration.
 --
@@ -80,14 +80,19 @@ newSalesforceCustomKnowledgeArticleTypeConfiguration
   pName_
   pDocumentDataFieldName_ =
     SalesforceCustomKnowledgeArticleTypeConfiguration'
-      { fieldMappings =
+      { documentTitleFieldName =
           Prelude.Nothing,
-        documentTitleFieldName =
+        fieldMappings =
           Prelude.Nothing,
         name = pName_,
         documentDataFieldName =
           pDocumentDataFieldName_
       }
+
+-- | The name of the field in the custom knowledge article that contains the
+-- document title.
+salesforceCustomKnowledgeArticleTypeConfiguration_documentTitleFieldName :: Lens.Lens' SalesforceCustomKnowledgeArticleTypeConfiguration (Prelude.Maybe Prelude.Text)
+salesforceCustomKnowledgeArticleTypeConfiguration_documentTitleFieldName = Lens.lens (\SalesforceCustomKnowledgeArticleTypeConfiguration' {documentTitleFieldName} -> documentTitleFieldName) (\s@SalesforceCustomKnowledgeArticleTypeConfiguration' {} a -> s {documentTitleFieldName = a} :: SalesforceCustomKnowledgeArticleTypeConfiguration)
 
 -- | Maps attributes or field names of the custom knowledge article to Amazon
 -- Kendra index field names. To create custom fields, use the @UpdateIndex@
@@ -97,11 +102,6 @@ newSalesforceCustomKnowledgeArticleTypeConfiguration
 -- custom metadata.
 salesforceCustomKnowledgeArticleTypeConfiguration_fieldMappings :: Lens.Lens' SalesforceCustomKnowledgeArticleTypeConfiguration (Prelude.Maybe (Prelude.NonEmpty DataSourceToIndexFieldMapping))
 salesforceCustomKnowledgeArticleTypeConfiguration_fieldMappings = Lens.lens (\SalesforceCustomKnowledgeArticleTypeConfiguration' {fieldMappings} -> fieldMappings) (\s@SalesforceCustomKnowledgeArticleTypeConfiguration' {} a -> s {fieldMappings = a} :: SalesforceCustomKnowledgeArticleTypeConfiguration) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the field in the custom knowledge article that contains the
--- document title.
-salesforceCustomKnowledgeArticleTypeConfiguration_documentTitleFieldName :: Lens.Lens' SalesforceCustomKnowledgeArticleTypeConfiguration (Prelude.Maybe Prelude.Text)
-salesforceCustomKnowledgeArticleTypeConfiguration_documentTitleFieldName = Lens.lens (\SalesforceCustomKnowledgeArticleTypeConfiguration' {documentTitleFieldName} -> documentTitleFieldName) (\s@SalesforceCustomKnowledgeArticleTypeConfiguration' {} a -> s {documentTitleFieldName = a} :: SalesforceCustomKnowledgeArticleTypeConfiguration)
 
 -- | The name of the configuration.
 salesforceCustomKnowledgeArticleTypeConfiguration_name :: Lens.Lens' SalesforceCustomKnowledgeArticleTypeConfiguration Prelude.Text
@@ -121,8 +121,8 @@ instance
       "SalesforceCustomKnowledgeArticleTypeConfiguration"
       ( \x ->
           SalesforceCustomKnowledgeArticleTypeConfiguration'
-            Prelude.<$> (x Data..:? "FieldMappings")
-              Prelude.<*> (x Data..:? "DocumentTitleFieldName")
+            Prelude.<$> (x Data..:? "DocumentTitleFieldName")
+              Prelude.<*> (x Data..:? "FieldMappings")
               Prelude.<*> (x Data..: "Name")
               Prelude.<*> (x Data..: "DocumentDataFieldName")
       )
@@ -134,8 +134,8 @@ instance
   hashWithSalt
     _salt
     SalesforceCustomKnowledgeArticleTypeConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` fieldMappings
-        `Prelude.hashWithSalt` documentTitleFieldName
+      _salt `Prelude.hashWithSalt` documentTitleFieldName
+        `Prelude.hashWithSalt` fieldMappings
         `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` documentDataFieldName
 
@@ -145,8 +145,8 @@ instance
   where
   rnf
     SalesforceCustomKnowledgeArticleTypeConfiguration' {..} =
-      Prelude.rnf fieldMappings
-        `Prelude.seq` Prelude.rnf documentTitleFieldName
+      Prelude.rnf documentTitleFieldName
+        `Prelude.seq` Prelude.rnf fieldMappings
         `Prelude.seq` Prelude.rnf name
         `Prelude.seq` Prelude.rnf documentDataFieldName
 
@@ -158,9 +158,9 @@ instance
     SalesforceCustomKnowledgeArticleTypeConfiguration' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ ("FieldMappings" Data..=) Prelude.<$> fieldMappings,
-              ("DocumentTitleFieldName" Data..=)
+            [ ("DocumentTitleFieldName" Data..=)
                 Prelude.<$> documentTitleFieldName,
+              ("FieldMappings" Data..=) Prelude.<$> fieldMappings,
               Prelude.Just ("Name" Data..= name),
               Prelude.Just
                 ( "DocumentDataFieldName"

@@ -31,16 +31,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSalesforceStandardObjectConfiguration' smart constructor.
 data SalesforceStandardObjectConfiguration = SalesforceStandardObjectConfiguration'
-  { -- | Maps attributes or field names of the standard object to Amazon Kendra
+  { -- | The name of the field in the standard object table that contains the
+    -- document title.
+    documentTitleFieldName :: Prelude.Maybe Prelude.Text,
+    -- | Maps attributes or field names of the standard object to Amazon Kendra
     -- index field names. To create custom fields, use the @UpdateIndex@ API
     -- before you map to Salesforce fields. For more information, see
     -- <https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html Mapping data source fields>.
     -- The Salesforce data source field names must exist in your Salesforce
     -- custom metadata.
     fieldMappings :: Prelude.Maybe (Prelude.NonEmpty DataSourceToIndexFieldMapping),
-    -- | The name of the field in the standard object table that contains the
-    -- document title.
-    documentTitleFieldName :: Prelude.Maybe Prelude.Text,
     -- | The name of the standard object.
     name :: SalesforceStandardObjectName,
     -- | The name of the field in the standard object table that contains the
@@ -57,15 +57,15 @@ data SalesforceStandardObjectConfiguration = SalesforceStandardObjectConfigurati
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'documentTitleFieldName', 'salesforceStandardObjectConfiguration_documentTitleFieldName' - The name of the field in the standard object table that contains the
+-- document title.
+--
 -- 'fieldMappings', 'salesforceStandardObjectConfiguration_fieldMappings' - Maps attributes or field names of the standard object to Amazon Kendra
 -- index field names. To create custom fields, use the @UpdateIndex@ API
 -- before you map to Salesforce fields. For more information, see
 -- <https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html Mapping data source fields>.
 -- The Salesforce data source field names must exist in your Salesforce
 -- custom metadata.
---
--- 'documentTitleFieldName', 'salesforceStandardObjectConfiguration_documentTitleFieldName' - The name of the field in the standard object table that contains the
--- document title.
 --
 -- 'name', 'salesforceStandardObjectConfiguration_name' - The name of the standard object.
 --
@@ -81,14 +81,18 @@ newSalesforceStandardObjectConfiguration
   pName_
   pDocumentDataFieldName_ =
     SalesforceStandardObjectConfiguration'
-      { fieldMappings =
+      { documentTitleFieldName =
           Prelude.Nothing,
-        documentTitleFieldName =
-          Prelude.Nothing,
+        fieldMappings = Prelude.Nothing,
         name = pName_,
         documentDataFieldName =
           pDocumentDataFieldName_
       }
+
+-- | The name of the field in the standard object table that contains the
+-- document title.
+salesforceStandardObjectConfiguration_documentTitleFieldName :: Lens.Lens' SalesforceStandardObjectConfiguration (Prelude.Maybe Prelude.Text)
+salesforceStandardObjectConfiguration_documentTitleFieldName = Lens.lens (\SalesforceStandardObjectConfiguration' {documentTitleFieldName} -> documentTitleFieldName) (\s@SalesforceStandardObjectConfiguration' {} a -> s {documentTitleFieldName = a} :: SalesforceStandardObjectConfiguration)
 
 -- | Maps attributes or field names of the standard object to Amazon Kendra
 -- index field names. To create custom fields, use the @UpdateIndex@ API
@@ -98,11 +102,6 @@ newSalesforceStandardObjectConfiguration
 -- custom metadata.
 salesforceStandardObjectConfiguration_fieldMappings :: Lens.Lens' SalesforceStandardObjectConfiguration (Prelude.Maybe (Prelude.NonEmpty DataSourceToIndexFieldMapping))
 salesforceStandardObjectConfiguration_fieldMappings = Lens.lens (\SalesforceStandardObjectConfiguration' {fieldMappings} -> fieldMappings) (\s@SalesforceStandardObjectConfiguration' {} a -> s {fieldMappings = a} :: SalesforceStandardObjectConfiguration) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the field in the standard object table that contains the
--- document title.
-salesforceStandardObjectConfiguration_documentTitleFieldName :: Lens.Lens' SalesforceStandardObjectConfiguration (Prelude.Maybe Prelude.Text)
-salesforceStandardObjectConfiguration_documentTitleFieldName = Lens.lens (\SalesforceStandardObjectConfiguration' {documentTitleFieldName} -> documentTitleFieldName) (\s@SalesforceStandardObjectConfiguration' {} a -> s {documentTitleFieldName = a} :: SalesforceStandardObjectConfiguration)
 
 -- | The name of the standard object.
 salesforceStandardObjectConfiguration_name :: Lens.Lens' SalesforceStandardObjectConfiguration SalesforceStandardObjectName
@@ -122,8 +121,8 @@ instance
       "SalesforceStandardObjectConfiguration"
       ( \x ->
           SalesforceStandardObjectConfiguration'
-            Prelude.<$> (x Data..:? "FieldMappings")
-            Prelude.<*> (x Data..:? "DocumentTitleFieldName")
+            Prelude.<$> (x Data..:? "DocumentTitleFieldName")
+            Prelude.<*> (x Data..:? "FieldMappings")
             Prelude.<*> (x Data..: "Name")
             Prelude.<*> (x Data..: "DocumentDataFieldName")
       )
@@ -135,8 +134,8 @@ instance
   hashWithSalt
     _salt
     SalesforceStandardObjectConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` fieldMappings
-        `Prelude.hashWithSalt` documentTitleFieldName
+      _salt `Prelude.hashWithSalt` documentTitleFieldName
+        `Prelude.hashWithSalt` fieldMappings
         `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` documentDataFieldName
 
@@ -145,8 +144,8 @@ instance
     SalesforceStandardObjectConfiguration
   where
   rnf SalesforceStandardObjectConfiguration' {..} =
-    Prelude.rnf fieldMappings
-      `Prelude.seq` Prelude.rnf documentTitleFieldName
+    Prelude.rnf documentTitleFieldName
+      `Prelude.seq` Prelude.rnf fieldMappings
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf documentDataFieldName
 
@@ -157,9 +156,9 @@ instance
   toJSON SalesforceStandardObjectConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("FieldMappings" Data..=) Prelude.<$> fieldMappings,
-            ("DocumentTitleFieldName" Data..=)
+          [ ("DocumentTitleFieldName" Data..=)
               Prelude.<$> documentTitleFieldName,
+            ("FieldMappings" Data..=) Prelude.<$> fieldMappings,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just
               ( "DocumentDataFieldName"

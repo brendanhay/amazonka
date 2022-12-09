@@ -34,11 +34,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newExperienceEntitiesSummary' smart constructor.
 data ExperienceEntitiesSummary = ExperienceEntitiesSummary'
-  { -- | The identifier of a user or group in your IAM Identity Center identity
+  { -- | Information about the user entity.
+    displayData :: Prelude.Maybe EntityDisplayData,
+    -- | The identifier of a user or group in your IAM Identity Center identity
     -- source. For example, a user ID could be an email.
     entityId :: Prelude.Maybe Prelude.Text,
-    -- | Information about the user entity.
-    displayData :: Prelude.Maybe EntityDisplayData,
     -- | Shows the type as @User@ or @Group@.
     entityType :: Prelude.Maybe EntityType
   }
@@ -52,30 +52,30 @@ data ExperienceEntitiesSummary = ExperienceEntitiesSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'displayData', 'experienceEntitiesSummary_displayData' - Information about the user entity.
+--
 -- 'entityId', 'experienceEntitiesSummary_entityId' - The identifier of a user or group in your IAM Identity Center identity
 -- source. For example, a user ID could be an email.
---
--- 'displayData', 'experienceEntitiesSummary_displayData' - Information about the user entity.
 --
 -- 'entityType', 'experienceEntitiesSummary_entityType' - Shows the type as @User@ or @Group@.
 newExperienceEntitiesSummary ::
   ExperienceEntitiesSummary
 newExperienceEntitiesSummary =
   ExperienceEntitiesSummary'
-    { entityId =
+    { displayData =
         Prelude.Nothing,
-      displayData = Prelude.Nothing,
+      entityId = Prelude.Nothing,
       entityType = Prelude.Nothing
     }
+
+-- | Information about the user entity.
+experienceEntitiesSummary_displayData :: Lens.Lens' ExperienceEntitiesSummary (Prelude.Maybe EntityDisplayData)
+experienceEntitiesSummary_displayData = Lens.lens (\ExperienceEntitiesSummary' {displayData} -> displayData) (\s@ExperienceEntitiesSummary' {} a -> s {displayData = a} :: ExperienceEntitiesSummary)
 
 -- | The identifier of a user or group in your IAM Identity Center identity
 -- source. For example, a user ID could be an email.
 experienceEntitiesSummary_entityId :: Lens.Lens' ExperienceEntitiesSummary (Prelude.Maybe Prelude.Text)
 experienceEntitiesSummary_entityId = Lens.lens (\ExperienceEntitiesSummary' {entityId} -> entityId) (\s@ExperienceEntitiesSummary' {} a -> s {entityId = a} :: ExperienceEntitiesSummary)
-
--- | Information about the user entity.
-experienceEntitiesSummary_displayData :: Lens.Lens' ExperienceEntitiesSummary (Prelude.Maybe EntityDisplayData)
-experienceEntitiesSummary_displayData = Lens.lens (\ExperienceEntitiesSummary' {displayData} -> displayData) (\s@ExperienceEntitiesSummary' {} a -> s {displayData = a} :: ExperienceEntitiesSummary)
 
 -- | Shows the type as @User@ or @Group@.
 experienceEntitiesSummary_entityType :: Lens.Lens' ExperienceEntitiesSummary (Prelude.Maybe EntityType)
@@ -87,19 +87,19 @@ instance Data.FromJSON ExperienceEntitiesSummary where
       "ExperienceEntitiesSummary"
       ( \x ->
           ExperienceEntitiesSummary'
-            Prelude.<$> (x Data..:? "EntityId")
-            Prelude.<*> (x Data..:? "DisplayData")
+            Prelude.<$> (x Data..:? "DisplayData")
+            Prelude.<*> (x Data..:? "EntityId")
             Prelude.<*> (x Data..:? "EntityType")
       )
 
 instance Prelude.Hashable ExperienceEntitiesSummary where
   hashWithSalt _salt ExperienceEntitiesSummary' {..} =
-    _salt `Prelude.hashWithSalt` entityId
-      `Prelude.hashWithSalt` displayData
+    _salt `Prelude.hashWithSalt` displayData
+      `Prelude.hashWithSalt` entityId
       `Prelude.hashWithSalt` entityType
 
 instance Prelude.NFData ExperienceEntitiesSummary where
   rnf ExperienceEntitiesSummary' {..} =
-    Prelude.rnf entityId
-      `Prelude.seq` Prelude.rnf displayData
+    Prelude.rnf displayData
+      `Prelude.seq` Prelude.rnf entityId
       `Prelude.seq` Prelude.rnf entityType

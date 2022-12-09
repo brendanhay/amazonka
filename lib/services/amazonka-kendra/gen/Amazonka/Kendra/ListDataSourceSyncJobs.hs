@@ -27,8 +27,8 @@ module Amazonka.Kendra.ListDataSourceSyncJobs
     newListDataSourceSyncJobs,
 
     -- * Request Lenses
-    listDataSourceSyncJobs_nextToken,
     listDataSourceSyncJobs_maxResults,
+    listDataSourceSyncJobs_nextToken,
     listDataSourceSyncJobs_startTimeFilter,
     listDataSourceSyncJobs_statusFilter,
     listDataSourceSyncJobs_id,
@@ -39,8 +39,8 @@ module Amazonka.Kendra.ListDataSourceSyncJobs
     newListDataSourceSyncJobsResponse,
 
     -- * Response Lenses
-    listDataSourceSyncJobsResponse_nextToken,
     listDataSourceSyncJobsResponse_history,
+    listDataSourceSyncJobsResponse_nextToken,
     listDataSourceSyncJobsResponse_httpStatus,
   )
 where
@@ -55,14 +55,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDataSourceSyncJobs' smart constructor.
 data ListDataSourceSyncJobs = ListDataSourceSyncJobs'
-  { -- | If the previous response was incomplete (because there is more data to
-    -- retrieve), Amazon Kendra returns a pagination token in the response. You
-    -- can use this pagination token to retrieve the next set of jobs.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of synchronization jobs to return in the response. If
+  { -- | The maximum number of synchronization jobs to return in the response. If
     -- there are fewer results in the list, this response contains only the
     -- actual results.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the previous response was incomplete (because there is more data to
+    -- retrieve), Amazon Kendra returns a pagination token in the response. You
+    -- can use this pagination token to retrieve the next set of jobs.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | When specified, the synchronization jobs returned in the list are
     -- limited to jobs between the specified dates.
     startTimeFilter :: Prelude.Maybe TimeRange,
@@ -84,13 +84,13 @@ data ListDataSourceSyncJobs = ListDataSourceSyncJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listDataSourceSyncJobs_nextToken' - If the previous response was incomplete (because there is more data to
--- retrieve), Amazon Kendra returns a pagination token in the response. You
--- can use this pagination token to retrieve the next set of jobs.
---
 -- 'maxResults', 'listDataSourceSyncJobs_maxResults' - The maximum number of synchronization jobs to return in the response. If
 -- there are fewer results in the list, this response contains only the
 -- actual results.
+--
+-- 'nextToken', 'listDataSourceSyncJobs_nextToken' - If the previous response was incomplete (because there is more data to
+-- retrieve), Amazon Kendra returns a pagination token in the response. You
+-- can use this pagination token to retrieve the next set of jobs.
 --
 -- 'startTimeFilter', 'listDataSourceSyncJobs_startTimeFilter' - When specified, the synchronization jobs returned in the list are
 -- limited to jobs between the specified dates.
@@ -109,26 +109,26 @@ newListDataSourceSyncJobs ::
   ListDataSourceSyncJobs
 newListDataSourceSyncJobs pId_ pIndexId_ =
   ListDataSourceSyncJobs'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       startTimeFilter = Prelude.Nothing,
       statusFilter = Prelude.Nothing,
       id = pId_,
       indexId = pIndexId_
     }
 
--- | If the previous response was incomplete (because there is more data to
--- retrieve), Amazon Kendra returns a pagination token in the response. You
--- can use this pagination token to retrieve the next set of jobs.
-listDataSourceSyncJobs_nextToken :: Lens.Lens' ListDataSourceSyncJobs (Prelude.Maybe Prelude.Text)
-listDataSourceSyncJobs_nextToken = Lens.lens (\ListDataSourceSyncJobs' {nextToken} -> nextToken) (\s@ListDataSourceSyncJobs' {} a -> s {nextToken = a} :: ListDataSourceSyncJobs)
-
 -- | The maximum number of synchronization jobs to return in the response. If
 -- there are fewer results in the list, this response contains only the
 -- actual results.
 listDataSourceSyncJobs_maxResults :: Lens.Lens' ListDataSourceSyncJobs (Prelude.Maybe Prelude.Natural)
 listDataSourceSyncJobs_maxResults = Lens.lens (\ListDataSourceSyncJobs' {maxResults} -> maxResults) (\s@ListDataSourceSyncJobs' {} a -> s {maxResults = a} :: ListDataSourceSyncJobs)
+
+-- | If the previous response was incomplete (because there is more data to
+-- retrieve), Amazon Kendra returns a pagination token in the response. You
+-- can use this pagination token to retrieve the next set of jobs.
+listDataSourceSyncJobs_nextToken :: Lens.Lens' ListDataSourceSyncJobs (Prelude.Maybe Prelude.Text)
+listDataSourceSyncJobs_nextToken = Lens.lens (\ListDataSourceSyncJobs' {nextToken} -> nextToken) (\s@ListDataSourceSyncJobs' {} a -> s {nextToken = a} :: ListDataSourceSyncJobs)
 
 -- | When specified, the synchronization jobs returned in the list are
 -- limited to jobs between the specified dates.
@@ -158,15 +158,15 @@ instance Core.AWSRequest ListDataSourceSyncJobs where
     Response.receiveJSON
       ( \s h x ->
           ListDataSourceSyncJobsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "History" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "History" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListDataSourceSyncJobs where
   hashWithSalt _salt ListDataSourceSyncJobs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` startTimeFilter
       `Prelude.hashWithSalt` statusFilter
       `Prelude.hashWithSalt` id
@@ -174,8 +174,8 @@ instance Prelude.Hashable ListDataSourceSyncJobs where
 
 instance Prelude.NFData ListDataSourceSyncJobs where
   rnf ListDataSourceSyncJobs' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf startTimeFilter
       `Prelude.seq` Prelude.rnf statusFilter
       `Prelude.seq` Prelude.rnf id
@@ -200,8 +200,8 @@ instance Data.ToJSON ListDataSourceSyncJobs where
   toJSON ListDataSourceSyncJobs' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("StartTimeFilter" Data..=)
               Prelude.<$> startTimeFilter,
             ("StatusFilter" Data..=) Prelude.<$> statusFilter,
@@ -218,11 +218,11 @@ instance Data.ToQuery ListDataSourceSyncJobs where
 
 -- | /See:/ 'newListDataSourceSyncJobsResponse' smart constructor.
 data ListDataSourceSyncJobsResponse = ListDataSourceSyncJobsResponse'
-  { -- | If the response is truncated, Amazon Kendra returns this token that you
+  { -- | A history of synchronization jobs for the data source connector.
+    history :: Prelude.Maybe [DataSourceSyncJob],
+    -- | If the response is truncated, Amazon Kendra returns this token that you
     -- can use in the subsequent request to retrieve the next set of jobs.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A history of synchronization jobs for the data source connector.
-    history :: Prelude.Maybe [DataSourceSyncJob],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -236,10 +236,10 @@ data ListDataSourceSyncJobsResponse = ListDataSourceSyncJobsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'history', 'listDataSourceSyncJobsResponse_history' - A history of synchronization jobs for the data source connector.
+--
 -- 'nextToken', 'listDataSourceSyncJobsResponse_nextToken' - If the response is truncated, Amazon Kendra returns this token that you
 -- can use in the subsequent request to retrieve the next set of jobs.
---
--- 'history', 'listDataSourceSyncJobsResponse_history' - A history of synchronization jobs for the data source connector.
 --
 -- 'httpStatus', 'listDataSourceSyncJobsResponse_httpStatus' - The response's http status code.
 newListDataSourceSyncJobsResponse ::
@@ -248,20 +248,20 @@ newListDataSourceSyncJobsResponse ::
   ListDataSourceSyncJobsResponse
 newListDataSourceSyncJobsResponse pHttpStatus_ =
   ListDataSourceSyncJobsResponse'
-    { nextToken =
+    { history =
         Prelude.Nothing,
-      history = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A history of synchronization jobs for the data source connector.
+listDataSourceSyncJobsResponse_history :: Lens.Lens' ListDataSourceSyncJobsResponse (Prelude.Maybe [DataSourceSyncJob])
+listDataSourceSyncJobsResponse_history = Lens.lens (\ListDataSourceSyncJobsResponse' {history} -> history) (\s@ListDataSourceSyncJobsResponse' {} a -> s {history = a} :: ListDataSourceSyncJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the response is truncated, Amazon Kendra returns this token that you
 -- can use in the subsequent request to retrieve the next set of jobs.
 listDataSourceSyncJobsResponse_nextToken :: Lens.Lens' ListDataSourceSyncJobsResponse (Prelude.Maybe Prelude.Text)
 listDataSourceSyncJobsResponse_nextToken = Lens.lens (\ListDataSourceSyncJobsResponse' {nextToken} -> nextToken) (\s@ListDataSourceSyncJobsResponse' {} a -> s {nextToken = a} :: ListDataSourceSyncJobsResponse)
-
--- | A history of synchronization jobs for the data source connector.
-listDataSourceSyncJobsResponse_history :: Lens.Lens' ListDataSourceSyncJobsResponse (Prelude.Maybe [DataSourceSyncJob])
-listDataSourceSyncJobsResponse_history = Lens.lens (\ListDataSourceSyncJobsResponse' {history} -> history) (\s@ListDataSourceSyncJobsResponse' {} a -> s {history = a} :: ListDataSourceSyncJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listDataSourceSyncJobsResponse_httpStatus :: Lens.Lens' ListDataSourceSyncJobsResponse Prelude.Int
@@ -272,6 +272,6 @@ instance
     ListDataSourceSyncJobsResponse
   where
   rnf ListDataSourceSyncJobsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf history
+    Prelude.rnf history
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

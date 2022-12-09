@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newWarning' smart constructor.
 data Warning = Warning'
-  { -- | The message that explains the problem with the query.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The code used to show the type of warning for the query.
-    code :: Prelude.Maybe WarningCode
+  { -- | The code used to show the type of warning for the query.
+    code :: Prelude.Maybe WarningCode,
+    -- | The message that explains the problem with the query.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data Warning = Warning'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'warning_message' - The message that explains the problem with the query.
---
 -- 'code', 'warning_code' - The code used to show the type of warning for the query.
+--
+-- 'message', 'warning_message' - The message that explains the problem with the query.
 newWarning ::
   Warning
 newWarning =
   Warning'
-    { message = Prelude.Nothing,
-      code = Prelude.Nothing
+    { code = Prelude.Nothing,
+      message = Prelude.Nothing
     }
-
--- | The message that explains the problem with the query.
-warning_message :: Lens.Lens' Warning (Prelude.Maybe Prelude.Text)
-warning_message = Lens.lens (\Warning' {message} -> message) (\s@Warning' {} a -> s {message = a} :: Warning)
 
 -- | The code used to show the type of warning for the query.
 warning_code :: Lens.Lens' Warning (Prelude.Maybe WarningCode)
 warning_code = Lens.lens (\Warning' {code} -> code) (\s@Warning' {} a -> s {code = a} :: Warning)
+
+-- | The message that explains the problem with the query.
+warning_message :: Lens.Lens' Warning (Prelude.Maybe Prelude.Text)
+warning_message = Lens.lens (\Warning' {message} -> message) (\s@Warning' {} a -> s {message = a} :: Warning)
 
 instance Data.FromJSON Warning where
   parseJSON =
@@ -69,15 +69,15 @@ instance Data.FromJSON Warning where
       "Warning"
       ( \x ->
           Warning'
-            Prelude.<$> (x Data..:? "Message")
-            Prelude.<*> (x Data..:? "Code")
+            Prelude.<$> (x Data..:? "Code")
+            Prelude.<*> (x Data..:? "Message")
       )
 
 instance Prelude.Hashable Warning where
   hashWithSalt _salt Warning' {..} =
-    _salt `Prelude.hashWithSalt` message
-      `Prelude.hashWithSalt` code
+    _salt `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` message
 
 instance Prelude.NFData Warning where
   rnf Warning' {..} =
-    Prelude.rnf message `Prelude.seq` Prelude.rnf code
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

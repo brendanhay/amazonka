@@ -27,16 +27,16 @@ module Amazonka.Kendra.ListIndices
     newListIndices,
 
     -- * Request Lenses
-    listIndices_nextToken,
     listIndices_maxResults,
+    listIndices_nextToken,
 
     -- * Destructuring the Response
     ListIndicesResponse (..),
     newListIndicesResponse,
 
     -- * Response Lenses
-    listIndicesResponse_nextToken,
     listIndicesResponse_indexConfigurationSummaryItems,
+    listIndicesResponse_nextToken,
     listIndicesResponse_httpStatus,
   )
 where
@@ -51,13 +51,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListIndices' smart constructor.
 data ListIndices = ListIndices'
-  { -- | If the previous response was incomplete (because there is more data to
+  { -- | The maximum number of indices to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the previous response was incomplete (because there is more data to
     -- retrieve), Amazon Kendra returns a pagination token in the response. You
-    -- can use this pagination token to retrieve the next set of indexes
-    -- (@DataSourceSummaryItems@).
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of data sources to return.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    -- can use this pagination token to retrieve the next set of indexes.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,30 +68,28 @@ data ListIndices = ListIndices'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listIndices_maxResults' - The maximum number of indices to return.
+--
 -- 'nextToken', 'listIndices_nextToken' - If the previous response was incomplete (because there is more data to
 -- retrieve), Amazon Kendra returns a pagination token in the response. You
--- can use this pagination token to retrieve the next set of indexes
--- (@DataSourceSummaryItems@).
---
--- 'maxResults', 'listIndices_maxResults' - The maximum number of data sources to return.
+-- can use this pagination token to retrieve the next set of indexes.
 newListIndices ::
   ListIndices
 newListIndices =
   ListIndices'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of indices to return.
+listIndices_maxResults :: Lens.Lens' ListIndices (Prelude.Maybe Prelude.Natural)
+listIndices_maxResults = Lens.lens (\ListIndices' {maxResults} -> maxResults) (\s@ListIndices' {} a -> s {maxResults = a} :: ListIndices)
 
 -- | If the previous response was incomplete (because there is more data to
 -- retrieve), Amazon Kendra returns a pagination token in the response. You
--- can use this pagination token to retrieve the next set of indexes
--- (@DataSourceSummaryItems@).
+-- can use this pagination token to retrieve the next set of indexes.
 listIndices_nextToken :: Lens.Lens' ListIndices (Prelude.Maybe Prelude.Text)
 listIndices_nextToken = Lens.lens (\ListIndices' {nextToken} -> nextToken) (\s@ListIndices' {} a -> s {nextToken = a} :: ListIndices)
-
--- | The maximum number of data sources to return.
-listIndices_maxResults :: Lens.Lens' ListIndices (Prelude.Maybe Prelude.Natural)
-listIndices_maxResults = Lens.lens (\ListIndices' {maxResults} -> maxResults) (\s@ListIndices' {} a -> s {maxResults = a} :: ListIndices)
 
 instance Core.AWSRequest ListIndices where
   type AWSResponse ListIndices = ListIndicesResponse
@@ -102,22 +99,22 @@ instance Core.AWSRequest ListIndices where
     Response.receiveJSON
       ( \s h x ->
           ListIndicesResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "IndexConfigurationSummaryItems"
+            Prelude.<$> ( x Data..?> "IndexConfigurationSummaryItems"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListIndices where
   hashWithSalt _salt ListIndices' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListIndices where
   rnf ListIndices' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListIndices where
   toHeaders =
@@ -138,8 +135,8 @@ instance Data.ToJSON ListIndices where
   toJSON ListIndices' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -151,12 +148,12 @@ instance Data.ToQuery ListIndices where
 
 -- | /See:/ 'newListIndicesResponse' smart constructor.
 data ListIndicesResponse = ListIndicesResponse'
-  { -- | If the response is truncated, Amazon Kendra returns this token that you
-    -- can use in the subsequent request to retrieve the next set of indexes.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of summary information on the configuration of one or more
+  { -- | An array of summary information on the configuration of one or more
     -- indexes.
     indexConfigurationSummaryItems :: Prelude.Maybe [IndexConfigurationSummary],
+    -- | If the response is truncated, Amazon Kendra returns this token that you
+    -- can use in the subsequent request to retrieve the next set of indexes.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -170,11 +167,11 @@ data ListIndicesResponse = ListIndicesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listIndicesResponse_nextToken' - If the response is truncated, Amazon Kendra returns this token that you
--- can use in the subsequent request to retrieve the next set of indexes.
---
 -- 'indexConfigurationSummaryItems', 'listIndicesResponse_indexConfigurationSummaryItems' - An array of summary information on the configuration of one or more
 -- indexes.
+--
+-- 'nextToken', 'listIndicesResponse_nextToken' - If the response is truncated, Amazon Kendra returns this token that you
+-- can use in the subsequent request to retrieve the next set of indexes.
 --
 -- 'httpStatus', 'listIndicesResponse_httpStatus' - The response's http status code.
 newListIndicesResponse ::
@@ -183,20 +180,21 @@ newListIndicesResponse ::
   ListIndicesResponse
 newListIndicesResponse pHttpStatus_ =
   ListIndicesResponse'
-    { nextToken = Prelude.Nothing,
-      indexConfigurationSummaryItems = Prelude.Nothing,
+    { indexConfigurationSummaryItems =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | If the response is truncated, Amazon Kendra returns this token that you
--- can use in the subsequent request to retrieve the next set of indexes.
-listIndicesResponse_nextToken :: Lens.Lens' ListIndicesResponse (Prelude.Maybe Prelude.Text)
-listIndicesResponse_nextToken = Lens.lens (\ListIndicesResponse' {nextToken} -> nextToken) (\s@ListIndicesResponse' {} a -> s {nextToken = a} :: ListIndicesResponse)
 
 -- | An array of summary information on the configuration of one or more
 -- indexes.
 listIndicesResponse_indexConfigurationSummaryItems :: Lens.Lens' ListIndicesResponse (Prelude.Maybe [IndexConfigurationSummary])
 listIndicesResponse_indexConfigurationSummaryItems = Lens.lens (\ListIndicesResponse' {indexConfigurationSummaryItems} -> indexConfigurationSummaryItems) (\s@ListIndicesResponse' {} a -> s {indexConfigurationSummaryItems = a} :: ListIndicesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | If the response is truncated, Amazon Kendra returns this token that you
+-- can use in the subsequent request to retrieve the next set of indexes.
+listIndicesResponse_nextToken :: Lens.Lens' ListIndicesResponse (Prelude.Maybe Prelude.Text)
+listIndicesResponse_nextToken = Lens.lens (\ListIndicesResponse' {nextToken} -> nextToken) (\s@ListIndicesResponse' {} a -> s {nextToken = a} :: ListIndicesResponse)
 
 -- | The response's http status code.
 listIndicesResponse_httpStatus :: Lens.Lens' ListIndicesResponse Prelude.Int
@@ -204,6 +202,6 @@ listIndicesResponse_httpStatus = Lens.lens (\ListIndicesResponse' {httpStatus} -
 
 instance Prelude.NFData ListIndicesResponse where
   rnf ListIndicesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf indexConfigurationSummaryItems
+    Prelude.rnf indexConfigurationSummaryItems
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

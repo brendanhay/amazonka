@@ -18,17 +18,17 @@ module Amazonka.Kendra.Types
     defaultService,
 
     -- * Errors
-    _ResourceUnavailableException,
     _AccessDeniedException,
-    _InternalServerException,
-    _ServiceQuotaExceededException,
-    _ResourceNotFoundException,
-    _ResourceInUseException,
     _ConflictException,
+    _InternalServerException,
+    _InvalidRequestException,
+    _ResourceAlreadyExistException,
+    _ResourceInUseException,
+    _ResourceNotFoundException,
+    _ResourceUnavailableException,
+    _ServiceQuotaExceededException,
     _ThrottlingException,
     _ValidationException,
-    _ResourceAlreadyExistException,
-    _InvalidRequestException,
 
     -- * AdditionalResultAttributeValueType
     AdditionalResultAttributeValueType (..),
@@ -138,6 +138,9 @@ module Amazonka.Kendra.Types
     -- * QueryIdentifiersEnclosingOption
     QueryIdentifiersEnclosingOption (..),
 
+    -- * QueryResultFormat
+    QueryResultFormat (..),
+
     -- * QueryResultType
     QueryResultType (..),
 
@@ -231,15 +234,15 @@ module Amazonka.Kendra.Types
     -- * AlfrescoConfiguration
     AlfrescoConfiguration (..),
     newAlfrescoConfiguration,
+    alfrescoConfiguration_blogFieldMappings,
+    alfrescoConfiguration_crawlComments,
+    alfrescoConfiguration_crawlSystemFolders,
+    alfrescoConfiguration_documentLibraryFieldMappings,
+    alfrescoConfiguration_entityFilter,
+    alfrescoConfiguration_exclusionPatterns,
+    alfrescoConfiguration_inclusionPatterns,
     alfrescoConfiguration_vpcConfiguration,
     alfrescoConfiguration_wikiFieldMappings,
-    alfrescoConfiguration_documentLibraryFieldMappings,
-    alfrescoConfiguration_crawlSystemFolders,
-    alfrescoConfiguration_inclusionPatterns,
-    alfrescoConfiguration_entityFilter,
-    alfrescoConfiguration_crawlComments,
-    alfrescoConfiguration_blogFieldMappings,
-    alfrescoConfiguration_exclusionPatterns,
     alfrescoConfiguration_siteUrl,
     alfrescoConfiguration_siteId,
     alfrescoConfiguration_secretArn,
@@ -248,16 +251,16 @@ module Amazonka.Kendra.Types
     -- * AttributeFilter
     AttributeFilter (..),
     newAttributeFilter,
+    attributeFilter_andAllFilters,
     attributeFilter_containsAll,
     attributeFilter_containsAny,
-    attributeFilter_lessThan,
-    attributeFilter_andAllFilters,
-    attributeFilter_orAllFilters,
-    attributeFilter_notFilter,
-    attributeFilter_greaterThanOrEquals,
     attributeFilter_equalsTo,
     attributeFilter_greaterThan,
+    attributeFilter_greaterThanOrEquals,
+    attributeFilter_lessThan,
     attributeFilter_lessThanOrEquals,
+    attributeFilter_notFilter,
+    attributeFilter_orAllFilters,
 
     -- * AuthenticationConfiguration
     AuthenticationConfiguration (..),
@@ -274,38 +277,38 @@ module Amazonka.Kendra.Types
     -- * BatchDeleteDocumentResponseFailedDocument
     BatchDeleteDocumentResponseFailedDocument (..),
     newBatchDeleteDocumentResponseFailedDocument,
+    batchDeleteDocumentResponseFailedDocument_errorCode,
     batchDeleteDocumentResponseFailedDocument_errorMessage,
     batchDeleteDocumentResponseFailedDocument_id,
-    batchDeleteDocumentResponseFailedDocument_errorCode,
 
     -- * BatchGetDocumentStatusResponseError
     BatchGetDocumentStatusResponseError (..),
     newBatchGetDocumentStatusResponseError,
-    batchGetDocumentStatusResponseError_errorMessage,
-    batchGetDocumentStatusResponseError_errorCode,
     batchGetDocumentStatusResponseError_documentId,
+    batchGetDocumentStatusResponseError_errorCode,
+    batchGetDocumentStatusResponseError_errorMessage,
 
     -- * BatchPutDocumentResponseFailedDocument
     BatchPutDocumentResponseFailedDocument (..),
     newBatchPutDocumentResponseFailedDocument,
+    batchPutDocumentResponseFailedDocument_errorCode,
     batchPutDocumentResponseFailedDocument_errorMessage,
     batchPutDocumentResponseFailedDocument_id,
-    batchPutDocumentResponseFailedDocument_errorCode,
 
     -- * BoxConfiguration
     BoxConfiguration (..),
     newBoxConfiguration,
+    boxConfiguration_commentFieldMappings,
+    boxConfiguration_crawlComments,
+    boxConfiguration_crawlTasks,
+    boxConfiguration_crawlWebLinks,
+    boxConfiguration_exclusionPatterns,
+    boxConfiguration_fileFieldMappings,
+    boxConfiguration_inclusionPatterns,
+    boxConfiguration_taskFieldMappings,
     boxConfiguration_useChangeLog,
     boxConfiguration_vpcConfiguration,
-    boxConfiguration_fileFieldMappings,
-    boxConfiguration_crawlWebLinks,
-    boxConfiguration_commentFieldMappings,
-    boxConfiguration_inclusionPatterns,
     boxConfiguration_webLinkFieldMappings,
-    boxConfiguration_crawlTasks,
-    boxConfiguration_crawlComments,
-    boxConfiguration_taskFieldMappings,
-    boxConfiguration_exclusionPatterns,
     boxConfiguration_enterpriseId,
     boxConfiguration_secretArn,
 
@@ -324,8 +327,8 @@ module Amazonka.Kendra.Types
     -- * ColumnConfiguration
     ColumnConfiguration (..),
     newColumnConfiguration,
-    columnConfiguration_fieldMappings,
     columnConfiguration_documentTitleColumnName,
+    columnConfiguration_fieldMappings,
     columnConfiguration_documentIdColumnName,
     columnConfiguration_documentDataColumnName,
     columnConfiguration_changeDetectingColumns,
@@ -340,8 +343,8 @@ module Amazonka.Kendra.Types
     ConfluenceAttachmentToIndexFieldMapping (..),
     newConfluenceAttachmentToIndexFieldMapping,
     confluenceAttachmentToIndexFieldMapping_dataSourceFieldName,
-    confluenceAttachmentToIndexFieldMapping_indexFieldName,
     confluenceAttachmentToIndexFieldMapping_dateFieldFormat,
+    confluenceAttachmentToIndexFieldMapping_indexFieldName,
 
     -- * ConfluenceBlogConfiguration
     ConfluenceBlogConfiguration (..),
@@ -352,21 +355,21 @@ module Amazonka.Kendra.Types
     ConfluenceBlogToIndexFieldMapping (..),
     newConfluenceBlogToIndexFieldMapping,
     confluenceBlogToIndexFieldMapping_dataSourceFieldName,
-    confluenceBlogToIndexFieldMapping_indexFieldName,
     confluenceBlogToIndexFieldMapping_dateFieldFormat,
+    confluenceBlogToIndexFieldMapping_indexFieldName,
 
     -- * ConfluenceConfiguration
     ConfluenceConfiguration (..),
     newConfluenceConfiguration,
-    confluenceConfiguration_vpcConfiguration,
-    confluenceConfiguration_proxyConfiguration,
-    confluenceConfiguration_pageConfiguration,
-    confluenceConfiguration_authenticationType,
-    confluenceConfiguration_inclusionPatterns,
-    confluenceConfiguration_spaceConfiguration,
-    confluenceConfiguration_blogConfiguration,
     confluenceConfiguration_attachmentConfiguration,
+    confluenceConfiguration_authenticationType,
+    confluenceConfiguration_blogConfiguration,
     confluenceConfiguration_exclusionPatterns,
+    confluenceConfiguration_inclusionPatterns,
+    confluenceConfiguration_pageConfiguration,
+    confluenceConfiguration_proxyConfiguration,
+    confluenceConfiguration_spaceConfiguration,
+    confluenceConfiguration_vpcConfiguration,
     confluenceConfiguration_serverUrl,
     confluenceConfiguration_secretArn,
     confluenceConfiguration_version,
@@ -380,24 +383,24 @@ module Amazonka.Kendra.Types
     ConfluencePageToIndexFieldMapping (..),
     newConfluencePageToIndexFieldMapping,
     confluencePageToIndexFieldMapping_dataSourceFieldName,
-    confluencePageToIndexFieldMapping_indexFieldName,
     confluencePageToIndexFieldMapping_dateFieldFormat,
+    confluencePageToIndexFieldMapping_indexFieldName,
 
     -- * ConfluenceSpaceConfiguration
     ConfluenceSpaceConfiguration (..),
     newConfluenceSpaceConfiguration,
-    confluenceSpaceConfiguration_crawlPersonalSpaces,
     confluenceSpaceConfiguration_crawlArchivedSpaces,
+    confluenceSpaceConfiguration_crawlPersonalSpaces,
     confluenceSpaceConfiguration_excludeSpaces,
-    confluenceSpaceConfiguration_spaceFieldMappings,
     confluenceSpaceConfiguration_includeSpaces,
+    confluenceSpaceConfiguration_spaceFieldMappings,
 
     -- * ConfluenceSpaceToIndexFieldMapping
     ConfluenceSpaceToIndexFieldMapping (..),
     newConfluenceSpaceToIndexFieldMapping,
     confluenceSpaceToIndexFieldMapping_dataSourceFieldName,
-    confluenceSpaceToIndexFieldMapping_indexFieldName,
     confluenceSpaceToIndexFieldMapping_dateFieldFormat,
+    confluenceSpaceToIndexFieldMapping_indexFieldName,
 
     -- * ConnectionConfiguration
     ConnectionConfiguration (..),
@@ -411,47 +414,47 @@ module Amazonka.Kendra.Types
     -- * ContentSourceConfiguration
     ContentSourceConfiguration (..),
     newContentSourceConfiguration,
+    contentSourceConfiguration_dataSourceIds,
     contentSourceConfiguration_directPutContent,
     contentSourceConfiguration_faqIds,
-    contentSourceConfiguration_dataSourceIds,
 
     -- * Correction
     Correction (..),
     newCorrection,
     correction_beginOffset,
+    correction_correctedTerm,
     correction_endOffset,
     correction_term,
-    correction_correctedTerm,
 
     -- * CustomDocumentEnrichmentConfiguration
     CustomDocumentEnrichmentConfiguration (..),
     newCustomDocumentEnrichmentConfiguration,
-    customDocumentEnrichmentConfiguration_roleArn,
     customDocumentEnrichmentConfiguration_inlineConfigurations,
     customDocumentEnrichmentConfiguration_postExtractionHookConfiguration,
     customDocumentEnrichmentConfiguration_preExtractionHookConfiguration,
+    customDocumentEnrichmentConfiguration_roleArn,
 
     -- * DataSourceConfiguration
     DataSourceConfiguration (..),
     newDataSourceConfiguration,
-    dataSourceConfiguration_googleDriveConfiguration,
-    dataSourceConfiguration_s3Configuration,
-    dataSourceConfiguration_gitHubConfiguration,
-    dataSourceConfiguration_workDocsConfiguration,
-    dataSourceConfiguration_quipConfiguration,
-    dataSourceConfiguration_jiraConfiguration,
-    dataSourceConfiguration_confluenceConfiguration,
-    dataSourceConfiguration_boxConfiguration,
-    dataSourceConfiguration_oneDriveConfiguration,
-    dataSourceConfiguration_sharePointConfiguration,
-    dataSourceConfiguration_fsxConfiguration,
-    dataSourceConfiguration_salesforceConfiguration,
-    dataSourceConfiguration_databaseConfiguration,
-    dataSourceConfiguration_serviceNowConfiguration,
-    dataSourceConfiguration_templateConfiguration,
-    dataSourceConfiguration_slackConfiguration,
-    dataSourceConfiguration_webCrawlerConfiguration,
     dataSourceConfiguration_alfrescoConfiguration,
+    dataSourceConfiguration_boxConfiguration,
+    dataSourceConfiguration_confluenceConfiguration,
+    dataSourceConfiguration_databaseConfiguration,
+    dataSourceConfiguration_fsxConfiguration,
+    dataSourceConfiguration_gitHubConfiguration,
+    dataSourceConfiguration_googleDriveConfiguration,
+    dataSourceConfiguration_jiraConfiguration,
+    dataSourceConfiguration_oneDriveConfiguration,
+    dataSourceConfiguration_quipConfiguration,
+    dataSourceConfiguration_s3Configuration,
+    dataSourceConfiguration_salesforceConfiguration,
+    dataSourceConfiguration_serviceNowConfiguration,
+    dataSourceConfiguration_sharePointConfiguration,
+    dataSourceConfiguration_slackConfiguration,
+    dataSourceConfiguration_templateConfiguration,
+    dataSourceConfiguration_webCrawlerConfiguration,
+    dataSourceConfiguration_workDocsConfiguration,
 
     -- * DataSourceGroup
     DataSourceGroup (..),
@@ -462,25 +465,25 @@ module Amazonka.Kendra.Types
     -- * DataSourceSummary
     DataSourceSummary (..),
     newDataSourceSummary,
-    dataSourceSummary_name,
-    dataSourceSummary_type,
-    dataSourceSummary_status,
+    dataSourceSummary_createdAt,
     dataSourceSummary_id,
     dataSourceSummary_languageCode,
-    dataSourceSummary_createdAt,
+    dataSourceSummary_name,
+    dataSourceSummary_status,
+    dataSourceSummary_type,
     dataSourceSummary_updatedAt,
 
     -- * DataSourceSyncJob
     DataSourceSyncJob (..),
     newDataSourceSyncJob,
     dataSourceSyncJob_dataSourceErrorCode,
-    dataSourceSyncJob_errorMessage,
-    dataSourceSyncJob_status,
-    dataSourceSyncJob_metrics,
     dataSourceSyncJob_endTime,
-    dataSourceSyncJob_executionId,
     dataSourceSyncJob_errorCode,
+    dataSourceSyncJob_errorMessage,
+    dataSourceSyncJob_executionId,
+    dataSourceSyncJob_metrics,
     dataSourceSyncJob_startTime,
+    dataSourceSyncJob_status,
 
     -- * DataSourceSyncJobMetricTarget
     DataSourceSyncJobMetricTarget (..),
@@ -491,11 +494,11 @@ module Amazonka.Kendra.Types
     -- * DataSourceSyncJobMetrics
     DataSourceSyncJobMetrics (..),
     newDataSourceSyncJobMetrics,
-    dataSourceSyncJobMetrics_documentsScanned,
     dataSourceSyncJobMetrics_documentsAdded,
-    dataSourceSyncJobMetrics_documentsModified,
-    dataSourceSyncJobMetrics_documentsFailed,
     dataSourceSyncJobMetrics_documentsDeleted,
+    dataSourceSyncJobMetrics_documentsFailed,
+    dataSourceSyncJobMetrics_documentsModified,
+    dataSourceSyncJobMetrics_documentsScanned,
 
     -- * DataSourceToIndexFieldMapping
     DataSourceToIndexFieldMapping (..),
@@ -513,9 +516,9 @@ module Amazonka.Kendra.Types
     -- * DatabaseConfiguration
     DatabaseConfiguration (..),
     newDatabaseConfiguration,
-    databaseConfiguration_vpcConfiguration,
     databaseConfiguration_aclConfiguration,
     databaseConfiguration_sqlConfiguration,
+    databaseConfiguration_vpcConfiguration,
     databaseConfiguration_databaseEngineType,
     databaseConfiguration_connectionConfiguration,
     databaseConfiguration_columnConfiguration,
@@ -523,14 +526,14 @@ module Amazonka.Kendra.Types
     -- * Document
     Document (..),
     newDocument,
-    document_accessControlList,
-    document_blob,
-    document_title,
-    document_s3Path,
-    document_attributes,
-    document_hierarchicalAccessControlList,
     document_accessControlConfigurationId,
+    document_accessControlList,
+    document_attributes,
+    document_blob,
     document_contentType,
+    document_hierarchicalAccessControlList,
+    document_s3Path,
+    document_title,
     document_id,
 
     -- * DocumentAttribute
@@ -549,24 +552,24 @@ module Amazonka.Kendra.Types
     -- * DocumentAttributeTarget
     DocumentAttributeTarget (..),
     newDocumentAttributeTarget,
-    documentAttributeTarget_targetDocumentAttributeValue,
     documentAttributeTarget_targetDocumentAttributeKey,
+    documentAttributeTarget_targetDocumentAttributeValue,
     documentAttributeTarget_targetDocumentAttributeValueDeletion,
 
     -- * DocumentAttributeValue
     DocumentAttributeValue (..),
     newDocumentAttributeValue,
-    documentAttributeValue_stringValue,
     documentAttributeValue_dateValue,
     documentAttributeValue_longValue,
     documentAttributeValue_stringListValue,
+    documentAttributeValue_stringValue,
 
     -- * DocumentAttributeValueCountPair
     DocumentAttributeValueCountPair (..),
     newDocumentAttributeValueCountPair,
-    documentAttributeValueCountPair_facetResults,
     documentAttributeValueCountPair_count,
     documentAttributeValueCountPair_documentAttributeValue,
+    documentAttributeValueCountPair_facetResults,
 
     -- * DocumentInfo
     DocumentInfo (..),
@@ -602,11 +605,11 @@ module Amazonka.Kendra.Types
     -- * EntityDisplayData
     EntityDisplayData (..),
     newEntityDisplayData,
-    entityDisplayData_identifiedUserName,
     entityDisplayData_firstName,
-    entityDisplayData_userName,
     entityDisplayData_groupName,
+    entityDisplayData_identifiedUserName,
     entityDisplayData_lastName,
+    entityDisplayData_userName,
 
     -- * EntityPersonaConfiguration
     EntityPersonaConfiguration (..),
@@ -623,38 +626,38 @@ module Amazonka.Kendra.Types
     -- * ExperienceEndpoint
     ExperienceEndpoint (..),
     newExperienceEndpoint,
-    experienceEndpoint_endpointType,
     experienceEndpoint_endpoint,
+    experienceEndpoint_endpointType,
 
     -- * ExperienceEntitiesSummary
     ExperienceEntitiesSummary (..),
     newExperienceEntitiesSummary,
-    experienceEntitiesSummary_entityId,
     experienceEntitiesSummary_displayData,
+    experienceEntitiesSummary_entityId,
     experienceEntitiesSummary_entityType,
 
     -- * ExperiencesSummary
     ExperiencesSummary (..),
     newExperiencesSummary,
-    experiencesSummary_name,
-    experiencesSummary_status,
+    experiencesSummary_createdAt,
     experiencesSummary_endpoints,
     experiencesSummary_id,
-    experiencesSummary_createdAt,
+    experiencesSummary_name,
+    experiencesSummary_status,
 
     -- * Facet
     Facet (..),
     newFacet,
+    facet_documentAttributeKey,
     facet_facets,
     facet_maxResults,
-    facet_documentAttributeKey,
 
     -- * FacetResult
     FacetResult (..),
     newFacetResult,
+    facetResult_documentAttributeKey,
     facetResult_documentAttributeValueCountPairs,
     facetResult_documentAttributeValueType,
-    facetResult_documentAttributeKey,
 
     -- * FailedEntity
     FailedEntity (..),
@@ -670,21 +673,21 @@ module Amazonka.Kendra.Types
     -- * FaqSummary
     FaqSummary (..),
     newFaqSummary,
-    faqSummary_name,
-    faqSummary_status,
+    faqSummary_createdAt,
+    faqSummary_fileFormat,
     faqSummary_id,
     faqSummary_languageCode,
-    faqSummary_createdAt,
+    faqSummary_name,
+    faqSummary_status,
     faqSummary_updatedAt,
-    faqSummary_fileFormat,
 
     -- * FsxConfiguration
     FsxConfiguration (..),
     newFsxConfiguration,
-    fsxConfiguration_inclusionPatterns,
-    fsxConfiguration_fieldMappings,
-    fsxConfiguration_secretArn,
     fsxConfiguration_exclusionPatterns,
+    fsxConfiguration_fieldMappings,
+    fsxConfiguration_inclusionPatterns,
+    fsxConfiguration_secretArn,
     fsxConfiguration_fileSystemId,
     fsxConfiguration_fileSystemType,
     fsxConfiguration_vpcConfiguration,
@@ -692,72 +695,72 @@ module Amazonka.Kendra.Types
     -- * GitHubConfiguration
     GitHubConfiguration (..),
     newGitHubConfiguration,
-    gitHubConfiguration_gitHubIssueAttachmentConfigurationFieldMappings,
-    gitHubConfiguration_useChangeLog,
-    gitHubConfiguration_vpcConfiguration,
-    gitHubConfiguration_type,
-    gitHubConfiguration_repositoryFilter,
-    gitHubConfiguration_saaSConfiguration,
-    gitHubConfiguration_gitHubRepositoryConfigurationFieldMappings,
-    gitHubConfiguration_gitHubPullRequestCommentConfigurationFieldMappings,
-    gitHubConfiguration_gitHubIssueCommentConfigurationFieldMappings,
-    gitHubConfiguration_onPremiseConfiguration,
+    gitHubConfiguration_exclusionFileNamePatterns,
+    gitHubConfiguration_exclusionFileTypePatterns,
+    gitHubConfiguration_exclusionFolderNamePatterns,
     gitHubConfiguration_gitHubCommitConfigurationFieldMappings,
     gitHubConfiguration_gitHubDocumentCrawlProperties,
-    gitHubConfiguration_gitHubPullRequestDocumentConfigurationFieldMappings,
-    gitHubConfiguration_exclusionFolderNamePatterns,
+    gitHubConfiguration_gitHubIssueAttachmentConfigurationFieldMappings,
+    gitHubConfiguration_gitHubIssueCommentConfigurationFieldMappings,
     gitHubConfiguration_gitHubIssueDocumentConfigurationFieldMappings,
-    gitHubConfiguration_inclusionFolderNamePatterns,
-    gitHubConfiguration_exclusionFileTypePatterns,
+    gitHubConfiguration_gitHubPullRequestCommentConfigurationFieldMappings,
+    gitHubConfiguration_gitHubPullRequestDocumentAttachmentConfigurationFieldMappings,
+    gitHubConfiguration_gitHubPullRequestDocumentConfigurationFieldMappings,
+    gitHubConfiguration_gitHubRepositoryConfigurationFieldMappings,
     gitHubConfiguration_inclusionFileNamePatterns,
     gitHubConfiguration_inclusionFileTypePatterns,
-    gitHubConfiguration_exclusionFileNamePatterns,
-    gitHubConfiguration_gitHubPullRequestDocumentAttachmentConfigurationFieldMappings,
+    gitHubConfiguration_inclusionFolderNamePatterns,
+    gitHubConfiguration_onPremiseConfiguration,
+    gitHubConfiguration_repositoryFilter,
+    gitHubConfiguration_saaSConfiguration,
+    gitHubConfiguration_type,
+    gitHubConfiguration_useChangeLog,
+    gitHubConfiguration_vpcConfiguration,
     gitHubConfiguration_secretArn,
 
     -- * GitHubDocumentCrawlProperties
     GitHubDocumentCrawlProperties (..),
     newGitHubDocumentCrawlProperties,
-    gitHubDocumentCrawlProperties_crawlPullRequestComment,
-    gitHubDocumentCrawlProperties_crawlRepositoryDocuments,
-    gitHubDocumentCrawlProperties_crawlPullRequestCommentAttachment,
-    gitHubDocumentCrawlProperties_crawlPullRequest,
+    gitHubDocumentCrawlProperties_crawlIssue,
     gitHubDocumentCrawlProperties_crawlIssueComment,
     gitHubDocumentCrawlProperties_crawlIssueCommentAttachment,
-    gitHubDocumentCrawlProperties_crawlIssue,
+    gitHubDocumentCrawlProperties_crawlPullRequest,
+    gitHubDocumentCrawlProperties_crawlPullRequestComment,
+    gitHubDocumentCrawlProperties_crawlPullRequestCommentAttachment,
+    gitHubDocumentCrawlProperties_crawlRepositoryDocuments,
 
     -- * GoogleDriveConfiguration
     GoogleDriveConfiguration (..),
     newGoogleDriveConfiguration,
-    googleDriveConfiguration_inclusionPatterns,
-    googleDriveConfiguration_fieldMappings,
+    googleDriveConfiguration_excludeMimeTypes,
     googleDriveConfiguration_excludeSharedDrives,
     googleDriveConfiguration_excludeUserAccounts,
-    googleDriveConfiguration_excludeMimeTypes,
     googleDriveConfiguration_exclusionPatterns,
+    googleDriveConfiguration_fieldMappings,
+    googleDriveConfiguration_inclusionPatterns,
     googleDriveConfiguration_secretArn,
 
     -- * GroupMembers
     GroupMembers (..),
     newGroupMembers,
-    groupMembers_memberUsers,
     groupMembers_memberGroups,
+    groupMembers_memberUsers,
     groupMembers_s3PathforGroupMembers,
 
     -- * GroupOrderingIdSummary
     GroupOrderingIdSummary (..),
     newGroupOrderingIdSummary,
-    groupOrderingIdSummary_lastUpdatedAt,
-    groupOrderingIdSummary_status,
-    groupOrderingIdSummary_receivedAt,
-    groupOrderingIdSummary_orderingId,
     groupOrderingIdSummary_failureReason,
+    groupOrderingIdSummary_lastUpdatedAt,
+    groupOrderingIdSummary_orderingId,
+    groupOrderingIdSummary_receivedAt,
+    groupOrderingIdSummary_status,
 
     -- * GroupSummary
     GroupSummary (..),
     newGroupSummary,
-    groupSummary_orderingId,
     groupSummary_groupId,
+    groupSummary_orderingId,
 
     -- * HierarchicalPrincipal
     HierarchicalPrincipal (..),
@@ -767,8 +770,8 @@ module Amazonka.Kendra.Types
     -- * Highlight
     Highlight (..),
     newHighlight,
-    highlight_type,
     highlight_topAnswer,
+    highlight_type,
     highlight_beginOffset,
     highlight_endOffset,
 
@@ -782,9 +785,9 @@ module Amazonka.Kendra.Types
     -- * IndexConfigurationSummary
     IndexConfigurationSummary (..),
     newIndexConfigurationSummary,
-    indexConfigurationSummary_name,
     indexConfigurationSummary_edition,
     indexConfigurationSummary_id,
+    indexConfigurationSummary_name,
     indexConfigurationSummary_createdAt,
     indexConfigurationSummary_updatedAt,
     indexConfigurationSummary_status,
@@ -798,26 +801,26 @@ module Amazonka.Kendra.Types
     -- * InlineCustomDocumentEnrichmentConfiguration
     InlineCustomDocumentEnrichmentConfiguration (..),
     newInlineCustomDocumentEnrichmentConfiguration,
-    inlineCustomDocumentEnrichmentConfiguration_target,
     inlineCustomDocumentEnrichmentConfiguration_condition,
     inlineCustomDocumentEnrichmentConfiguration_documentContentDeletion,
+    inlineCustomDocumentEnrichmentConfiguration_target,
 
     -- * JiraConfiguration
     JiraConfiguration (..),
     newJiraConfiguration,
+    jiraConfiguration_attachmentFieldMappings,
+    jiraConfiguration_commentFieldMappings,
+    jiraConfiguration_exclusionPatterns,
+    jiraConfiguration_inclusionPatterns,
+    jiraConfiguration_issueFieldMappings,
+    jiraConfiguration_issueSubEntityFilter,
+    jiraConfiguration_issueType,
+    jiraConfiguration_project,
+    jiraConfiguration_projectFieldMappings,
+    jiraConfiguration_status,
     jiraConfiguration_useChangeLog,
     jiraConfiguration_vpcConfiguration,
-    jiraConfiguration_projectFieldMappings,
-    jiraConfiguration_attachmentFieldMappings,
-    jiraConfiguration_issueType,
-    jiraConfiguration_commentFieldMappings,
-    jiraConfiguration_issueSubEntityFilter,
-    jiraConfiguration_inclusionPatterns,
-    jiraConfiguration_status,
-    jiraConfiguration_project,
     jiraConfiguration_workLogFieldMappings,
-    jiraConfiguration_issueFieldMappings,
-    jiraConfiguration_exclusionPatterns,
     jiraConfiguration_jiraAccountUrl,
     jiraConfiguration_secretArn,
 
@@ -830,12 +833,12 @@ module Amazonka.Kendra.Types
     -- * JwtTokenTypeConfiguration
     JwtTokenTypeConfiguration (..),
     newJwtTokenTypeConfiguration,
-    jwtTokenTypeConfiguration_issuer,
-    jwtTokenTypeConfiguration_userNameAttributeField,
-    jwtTokenTypeConfiguration_url,
-    jwtTokenTypeConfiguration_groupAttributeField,
-    jwtTokenTypeConfiguration_secretManagerArn,
     jwtTokenTypeConfiguration_claimRegex,
+    jwtTokenTypeConfiguration_groupAttributeField,
+    jwtTokenTypeConfiguration_issuer,
+    jwtTokenTypeConfiguration_secretManagerArn,
+    jwtTokenTypeConfiguration_url,
+    jwtTokenTypeConfiguration_userNameAttributeField,
     jwtTokenTypeConfiguration_keyLocation,
 
     -- * MemberGroup
@@ -859,10 +862,10 @@ module Amazonka.Kendra.Types
     -- * OneDriveConfiguration
     OneDriveConfiguration (..),
     newOneDriveConfiguration,
-    oneDriveConfiguration_inclusionPatterns,
-    oneDriveConfiguration_fieldMappings,
     oneDriveConfiguration_disableLocalGroups,
     oneDriveConfiguration_exclusionPatterns,
+    oneDriveConfiguration_fieldMappings,
+    oneDriveConfiguration_inclusionPatterns,
     oneDriveConfiguration_tenantDomain,
     oneDriveConfiguration_secretArn,
     oneDriveConfiguration_oneDriveUsers,
@@ -876,9 +879,9 @@ module Amazonka.Kendra.Types
     -- * PersonasSummary
     PersonasSummary (..),
     newPersonasSummary,
+    personasSummary_createdAt,
     personasSummary_entityId,
     personasSummary_persona,
-    personasSummary_createdAt,
     personasSummary_updatedAt,
 
     -- * Principal
@@ -899,49 +902,51 @@ module Amazonka.Kendra.Types
     -- * QueryResultItem
     QueryResultItem (..),
     newQueryResultItem,
-    queryResultItem_type,
-    queryResultItem_documentTitle,
-    queryResultItem_documentAttributes,
-    queryResultItem_scoreAttributes,
-    queryResultItem_id,
-    queryResultItem_feedbackToken,
     queryResultItem_additionalAttributes,
+    queryResultItem_documentAttributes,
     queryResultItem_documentExcerpt,
     queryResultItem_documentId,
+    queryResultItem_documentTitle,
     queryResultItem_documentURI,
+    queryResultItem_feedbackToken,
+    queryResultItem_format,
+    queryResultItem_id,
+    queryResultItem_scoreAttributes,
+    queryResultItem_tableExcerpt,
+    queryResultItem_type,
 
     -- * QuerySuggestionsBlockListSummary
     QuerySuggestionsBlockListSummary (..),
     newQuerySuggestionsBlockListSummary,
-    querySuggestionsBlockListSummary_name,
-    querySuggestionsBlockListSummary_itemCount,
-    querySuggestionsBlockListSummary_status,
-    querySuggestionsBlockListSummary_id,
     querySuggestionsBlockListSummary_createdAt,
+    querySuggestionsBlockListSummary_id,
+    querySuggestionsBlockListSummary_itemCount,
+    querySuggestionsBlockListSummary_name,
+    querySuggestionsBlockListSummary_status,
     querySuggestionsBlockListSummary_updatedAt,
 
     -- * QuipConfiguration
     QuipConfiguration (..),
     newQuipConfiguration,
-    quipConfiguration_vpcConfiguration,
     quipConfiguration_attachmentFieldMappings,
     quipConfiguration_crawlAttachments,
-    quipConfiguration_messageFieldMappings,
-    quipConfiguration_inclusionPatterns,
-    quipConfiguration_crawlFileComments,
-    quipConfiguration_folderIds,
     quipConfiguration_crawlChatRooms,
-    quipConfiguration_threadFieldMappings,
+    quipConfiguration_crawlFileComments,
     quipConfiguration_exclusionPatterns,
+    quipConfiguration_folderIds,
+    quipConfiguration_inclusionPatterns,
+    quipConfiguration_messageFieldMappings,
+    quipConfiguration_threadFieldMappings,
+    quipConfiguration_vpcConfiguration,
     quipConfiguration_domain,
     quipConfiguration_secretArn,
 
     -- * Relevance
     Relevance (..),
     newRelevance,
-    relevance_importance,
-    relevance_freshness,
     relevance_duration,
+    relevance_freshness,
+    relevance_importance,
     relevance_rankOrder,
     relevance_valueImportanceMap,
 
@@ -954,11 +959,11 @@ module Amazonka.Kendra.Types
     -- * S3DataSourceConfiguration
     S3DataSourceConfiguration (..),
     newS3DataSourceConfiguration,
-    s3DataSourceConfiguration_inclusionPatterns,
-    s3DataSourceConfiguration_documentsMetadataConfiguration,
     s3DataSourceConfiguration_accessControlListConfiguration,
-    s3DataSourceConfiguration_inclusionPrefixes,
+    s3DataSourceConfiguration_documentsMetadataConfiguration,
     s3DataSourceConfiguration_exclusionPatterns,
+    s3DataSourceConfiguration_inclusionPatterns,
+    s3DataSourceConfiguration_inclusionPrefixes,
     s3DataSourceConfiguration_bucketName,
 
     -- * S3Path
@@ -976,20 +981,20 @@ module Amazonka.Kendra.Types
     -- * SalesforceChatterFeedConfiguration
     SalesforceChatterFeedConfiguration (..),
     newSalesforceChatterFeedConfiguration,
-    salesforceChatterFeedConfiguration_includeFilterTypes,
-    salesforceChatterFeedConfiguration_fieldMappings,
     salesforceChatterFeedConfiguration_documentTitleFieldName,
+    salesforceChatterFeedConfiguration_fieldMappings,
+    salesforceChatterFeedConfiguration_includeFilterTypes,
     salesforceChatterFeedConfiguration_documentDataFieldName,
 
     -- * SalesforceConfiguration
     SalesforceConfiguration (..),
     newSalesforceConfiguration,
-    salesforceConfiguration_includeAttachmentFilePatterns,
+    salesforceConfiguration_chatterFeedConfiguration,
     salesforceConfiguration_crawlAttachments,
     salesforceConfiguration_excludeAttachmentFilePatterns,
-    salesforceConfiguration_standardObjectAttachmentConfiguration,
-    salesforceConfiguration_chatterFeedConfiguration,
+    salesforceConfiguration_includeAttachmentFilePatterns,
     salesforceConfiguration_knowledgeArticleConfiguration,
+    salesforceConfiguration_standardObjectAttachmentConfiguration,
     salesforceConfiguration_standardObjectConfigurations,
     salesforceConfiguration_serverUrl,
     salesforceConfiguration_secretArn,
@@ -997,36 +1002,36 @@ module Amazonka.Kendra.Types
     -- * SalesforceCustomKnowledgeArticleTypeConfiguration
     SalesforceCustomKnowledgeArticleTypeConfiguration (..),
     newSalesforceCustomKnowledgeArticleTypeConfiguration,
-    salesforceCustomKnowledgeArticleTypeConfiguration_fieldMappings,
     salesforceCustomKnowledgeArticleTypeConfiguration_documentTitleFieldName,
+    salesforceCustomKnowledgeArticleTypeConfiguration_fieldMappings,
     salesforceCustomKnowledgeArticleTypeConfiguration_name,
     salesforceCustomKnowledgeArticleTypeConfiguration_documentDataFieldName,
 
     -- * SalesforceKnowledgeArticleConfiguration
     SalesforceKnowledgeArticleConfiguration (..),
     newSalesforceKnowledgeArticleConfiguration,
-    salesforceKnowledgeArticleConfiguration_standardKnowledgeArticleTypeConfiguration,
     salesforceKnowledgeArticleConfiguration_customKnowledgeArticleTypeConfigurations,
+    salesforceKnowledgeArticleConfiguration_standardKnowledgeArticleTypeConfiguration,
     salesforceKnowledgeArticleConfiguration_includedStates,
 
     -- * SalesforceStandardKnowledgeArticleTypeConfiguration
     SalesforceStandardKnowledgeArticleTypeConfiguration (..),
     newSalesforceStandardKnowledgeArticleTypeConfiguration,
-    salesforceStandardKnowledgeArticleTypeConfiguration_fieldMappings,
     salesforceStandardKnowledgeArticleTypeConfiguration_documentTitleFieldName,
+    salesforceStandardKnowledgeArticleTypeConfiguration_fieldMappings,
     salesforceStandardKnowledgeArticleTypeConfiguration_documentDataFieldName,
 
     -- * SalesforceStandardObjectAttachmentConfiguration
     SalesforceStandardObjectAttachmentConfiguration (..),
     newSalesforceStandardObjectAttachmentConfiguration,
-    salesforceStandardObjectAttachmentConfiguration_fieldMappings,
     salesforceStandardObjectAttachmentConfiguration_documentTitleFieldName,
+    salesforceStandardObjectAttachmentConfiguration_fieldMappings,
 
     -- * SalesforceStandardObjectConfiguration
     SalesforceStandardObjectConfiguration (..),
     newSalesforceStandardObjectConfiguration,
-    salesforceStandardObjectConfiguration_fieldMappings,
     salesforceStandardObjectConfiguration_documentTitleFieldName,
+    salesforceStandardObjectConfiguration_fieldMappings,
     salesforceStandardObjectConfiguration_name,
     salesforceStandardObjectConfiguration_documentDataFieldName,
 
@@ -1039,9 +1044,9 @@ module Amazonka.Kendra.Types
     Search (..),
     newSearch,
     search_displayable,
-    search_sortable,
-    search_searchable,
     search_facetable,
+    search_searchable,
+    search_sortable,
 
     -- * SeedUrlConfiguration
     SeedUrlConfiguration (..),
@@ -1058,8 +1063,8 @@ module Amazonka.Kendra.Types
     ServiceNowConfiguration (..),
     newServiceNowConfiguration,
     serviceNowConfiguration_authenticationType,
-    serviceNowConfiguration_serviceCatalogConfiguration,
     serviceNowConfiguration_knowledgeArticleConfiguration,
+    serviceNowConfiguration_serviceCatalogConfiguration,
     serviceNowConfiguration_hostUrl,
     serviceNowConfiguration_secretArn,
     serviceNowConfiguration_serviceNowBuildVersion,
@@ -1067,38 +1072,38 @@ module Amazonka.Kendra.Types
     -- * ServiceNowKnowledgeArticleConfiguration
     ServiceNowKnowledgeArticleConfiguration (..),
     newServiceNowKnowledgeArticleConfiguration,
-    serviceNowKnowledgeArticleConfiguration_filterQuery,
-    serviceNowKnowledgeArticleConfiguration_includeAttachmentFilePatterns,
     serviceNowKnowledgeArticleConfiguration_crawlAttachments,
+    serviceNowKnowledgeArticleConfiguration_documentTitleFieldName,
     serviceNowKnowledgeArticleConfiguration_excludeAttachmentFilePatterns,
     serviceNowKnowledgeArticleConfiguration_fieldMappings,
-    serviceNowKnowledgeArticleConfiguration_documentTitleFieldName,
+    serviceNowKnowledgeArticleConfiguration_filterQuery,
+    serviceNowKnowledgeArticleConfiguration_includeAttachmentFilePatterns,
     serviceNowKnowledgeArticleConfiguration_documentDataFieldName,
 
     -- * ServiceNowServiceCatalogConfiguration
     ServiceNowServiceCatalogConfiguration (..),
     newServiceNowServiceCatalogConfiguration,
-    serviceNowServiceCatalogConfiguration_includeAttachmentFilePatterns,
     serviceNowServiceCatalogConfiguration_crawlAttachments,
+    serviceNowServiceCatalogConfiguration_documentTitleFieldName,
     serviceNowServiceCatalogConfiguration_excludeAttachmentFilePatterns,
     serviceNowServiceCatalogConfiguration_fieldMappings,
-    serviceNowServiceCatalogConfiguration_documentTitleFieldName,
+    serviceNowServiceCatalogConfiguration_includeAttachmentFilePatterns,
     serviceNowServiceCatalogConfiguration_documentDataFieldName,
 
     -- * SharePointConfiguration
     SharePointConfiguration (..),
     newSharePointConfiguration,
+    sharePointConfiguration_authenticationType,
+    sharePointConfiguration_crawlAttachments,
+    sharePointConfiguration_disableLocalGroups,
+    sharePointConfiguration_documentTitleFieldName,
+    sharePointConfiguration_exclusionPatterns,
+    sharePointConfiguration_fieldMappings,
+    sharePointConfiguration_inclusionPatterns,
+    sharePointConfiguration_proxyConfiguration,
+    sharePointConfiguration_sslCertificateS3Path,
     sharePointConfiguration_useChangeLog,
     sharePointConfiguration_vpcConfiguration,
-    sharePointConfiguration_proxyConfiguration,
-    sharePointConfiguration_authenticationType,
-    sharePointConfiguration_sslCertificateS3Path,
-    sharePointConfiguration_crawlAttachments,
-    sharePointConfiguration_inclusionPatterns,
-    sharePointConfiguration_fieldMappings,
-    sharePointConfiguration_documentTitleFieldName,
-    sharePointConfiguration_disableLocalGroups,
-    sharePointConfiguration_exclusionPatterns,
     sharePointConfiguration_sharePointVersion,
     sharePointConfiguration_urls,
     sharePointConfiguration_secretArn,
@@ -1111,16 +1116,16 @@ module Amazonka.Kendra.Types
     -- * SlackConfiguration
     SlackConfiguration (..),
     newSlackConfiguration,
-    slackConfiguration_useChangeLog,
-    slackConfiguration_vpcConfiguration,
     slackConfiguration_crawlBotMessage,
+    slackConfiguration_excludeArchived,
+    slackConfiguration_exclusionPatterns,
+    slackConfiguration_fieldMappings,
     slackConfiguration_inclusionPatterns,
     slackConfiguration_lookBackPeriod,
-    slackConfiguration_excludeArchived,
-    slackConfiguration_fieldMappings,
-    slackConfiguration_publicChannelFilter,
     slackConfiguration_privateChannelFilter,
-    slackConfiguration_exclusionPatterns,
+    slackConfiguration_publicChannelFilter,
+    slackConfiguration_useChangeLog,
+    slackConfiguration_vpcConfiguration,
     slackConfiguration_teamId,
     slackConfiguration_secretArn,
     slackConfiguration_slackEntityList,
@@ -1135,8 +1140,8 @@ module Amazonka.Kendra.Types
     -- * SpellCorrectedQuery
     SpellCorrectedQuery (..),
     newSpellCorrectedQuery,
-    spellCorrectedQuery_suggestedQueryText,
     spellCorrectedQuery_corrections,
+    spellCorrectedQuery_suggestedQueryText,
 
     -- * SpellCorrectionConfiguration
     SpellCorrectionConfiguration (..),
@@ -1151,9 +1156,9 @@ module Amazonka.Kendra.Types
     -- * Status
     Status (..),
     newStatus,
-    status_failureCode,
     status_documentId,
     status_documentStatus,
+    status_failureCode,
     status_failureReason,
 
     -- * Suggestion
@@ -1178,6 +1183,25 @@ module Amazonka.Kendra.Types
     SuggestionValue (..),
     newSuggestionValue,
     suggestionValue_text,
+
+    -- * TableCell
+    TableCell (..),
+    newTableCell,
+    tableCell_header,
+    tableCell_highlighted,
+    tableCell_topAnswer,
+    tableCell_value,
+
+    -- * TableExcerpt
+    TableExcerpt (..),
+    newTableExcerpt,
+    tableExcerpt_rows,
+    tableExcerpt_totalNumberOfRows,
+
+    -- * TableRow
+    TableRow (..),
+    newTableRow,
+    tableRow_cells,
 
     -- * Tag
     Tag (..),
@@ -1209,10 +1233,10 @@ module Amazonka.Kendra.Types
     -- * ThesaurusSummary
     ThesaurusSummary (..),
     newThesaurusSummary,
+    thesaurusSummary_createdAt,
+    thesaurusSummary_id,
     thesaurusSummary_name,
     thesaurusSummary_status,
-    thesaurusSummary_id,
-    thesaurusSummary_createdAt,
     thesaurusSummary_updatedAt,
 
     -- * TimeRange
@@ -1231,9 +1255,9 @@ module Amazonka.Kendra.Types
     UserContext (..),
     newUserContext,
     userContext_dataSourceGroups,
-    userContext_userId,
     userContext_groups,
     userContext_token,
+    userContext_userId,
 
     -- * UserGroupResolutionConfiguration
     UserGroupResolutionConfiguration (..),
@@ -1248,36 +1272,36 @@ module Amazonka.Kendra.Types
     -- * UserTokenConfiguration
     UserTokenConfiguration (..),
     newUserTokenConfiguration,
-    userTokenConfiguration_jwtTokenTypeConfiguration,
     userTokenConfiguration_jsonTokenTypeConfiguration,
+    userTokenConfiguration_jwtTokenTypeConfiguration,
 
     -- * Warning
     Warning (..),
     newWarning,
-    warning_message,
     warning_code,
+    warning_message,
 
     -- * WebCrawlerConfiguration
     WebCrawlerConfiguration (..),
     newWebCrawlerConfiguration,
-    webCrawlerConfiguration_proxyConfiguration,
-    webCrawlerConfiguration_maxContentSizePerPageInMegaBytes,
-    webCrawlerConfiguration_maxUrlsPerMinuteCrawlRate,
-    webCrawlerConfiguration_urlExclusionPatterns,
-    webCrawlerConfiguration_maxLinksPerPage,
-    webCrawlerConfiguration_crawlDepth,
     webCrawlerConfiguration_authenticationConfiguration,
+    webCrawlerConfiguration_crawlDepth,
+    webCrawlerConfiguration_maxContentSizePerPageInMegaBytes,
+    webCrawlerConfiguration_maxLinksPerPage,
+    webCrawlerConfiguration_maxUrlsPerMinuteCrawlRate,
+    webCrawlerConfiguration_proxyConfiguration,
+    webCrawlerConfiguration_urlExclusionPatterns,
     webCrawlerConfiguration_urlInclusionPatterns,
     webCrawlerConfiguration_urls,
 
     -- * WorkDocsConfiguration
     WorkDocsConfiguration (..),
     newWorkDocsConfiguration,
-    workDocsConfiguration_useChangeLog,
-    workDocsConfiguration_inclusionPatterns,
-    workDocsConfiguration_fieldMappings,
     workDocsConfiguration_crawlComments,
     workDocsConfiguration_exclusionPatterns,
+    workDocsConfiguration_fieldMappings,
+    workDocsConfiguration_inclusionPatterns,
+    workDocsConfiguration_useChangeLog,
     workDocsConfiguration_organizationId,
   )
 where
@@ -1404,6 +1428,7 @@ import Amazonka.Kendra.Types.PrincipalMappingStatus
 import Amazonka.Kendra.Types.PrincipalType
 import Amazonka.Kendra.Types.ProxyConfiguration
 import Amazonka.Kendra.Types.QueryIdentifiersEnclosingOption
+import Amazonka.Kendra.Types.QueryResultFormat
 import Amazonka.Kendra.Types.QueryResultItem
 import Amazonka.Kendra.Types.QueryResultType
 import Amazonka.Kendra.Types.QuerySuggestionsBlockListStatus
@@ -1453,6 +1478,9 @@ import Amazonka.Kendra.Types.Suggestion
 import Amazonka.Kendra.Types.SuggestionHighlight
 import Amazonka.Kendra.Types.SuggestionTextWithHighlights
 import Amazonka.Kendra.Types.SuggestionValue
+import Amazonka.Kendra.Types.TableCell
+import Amazonka.Kendra.Types.TableExcerpt
+import Amazonka.Kendra.Types.TableRow
 import Amazonka.Kendra.Types.Tag
 import Amazonka.Kendra.Types.Template
 import Amazonka.Kendra.Types.TemplateConfiguration
@@ -1502,28 +1530,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -1531,13 +1553,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -1545,81 +1571,98 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
--- |
-_ResourceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceUnavailableException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceUnavailableException"
-
--- |
+-- | You don\'t have sufficient access to perform this action. Please ensure
+-- you have the required permission policies and user accounts and try
+-- again.
 _AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
     "AccessDeniedException"
 
--- |
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServerException"
-
--- |
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceQuotaExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceQuotaExceededException"
-
--- |
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-
--- |
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceInUseException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceInUseException"
-
--- |
+-- | A conflict occurred with the request. Please fix any inconsistences with
+-- your resources and try again.
 _ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
     "ConflictException"
 
--- |
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ThrottlingException =
+-- | An issue occurred with the internal server used for your Amazon Kendra
+-- service. Please wait a few minutes and try again, or contact
+-- <http://aws.amazon.com/aws.amazon.com/contact-us Support> for help.
+_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException =
   Core._MatchServiceError
     defaultService
-    "ThrottlingException"
+    "InternalServerException"
 
--- |
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ValidationException =
+-- | The input to the request is not valid. Please provide the correct input
+-- and try again.
+_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException =
   Core._MatchServiceError
     defaultService
-    "ValidationException"
+    "InvalidRequestException"
 
--- |
+-- | The resource you want to use already exists. Please check you have
+-- provided the correct resource and try again.
 _ResourceAlreadyExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceAlreadyExistException =
   Core._MatchServiceError
     defaultService
     "ResourceAlreadyExistException"
 
--- | The input to the request is not valid.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidRequestException =
+-- | The resource you want to use is currently in use. Please check you have
+-- provided the correct resource and try again.
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException =
   Core._MatchServiceError
     defaultService
-    "InvalidRequestException"
+    "ResourceInUseException"
+
+-- | The resource you want to use doesn’t exist. Please check you have
+-- provided the correct resource and try again.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+
+-- | The resource you want to use isn\'t available. Please check you have
+-- provided the correct resource and try again.
+_ResourceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceUnavailableException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceUnavailableException"
+
+-- | You have exceeded the set limits for your Amazon Kendra service. Please
+-- see Quotas[hyperlink Kendra Quotas pg] for more information, or contact
+-- <http://aws.amazon.com/aws.amazon.com/contact-us Support> to inquire
+-- about an increase of limits.
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceQuotaExceededException"
+
+-- | The request was denied due to request throttling. Please reduce the
+-- number of requests and try again.
+_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException =
+  Core._MatchServiceError
+    defaultService
+    "ThrottlingException"
+
+-- | The input fails to satisfy the constraints set by the Amazon Kendra
+-- service. Please provide the correct input and try again.
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
+  Core._MatchServiceError
+    defaultService
+    "ValidationException"

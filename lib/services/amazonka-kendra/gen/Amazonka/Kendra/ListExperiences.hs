@@ -30,8 +30,8 @@ module Amazonka.Kendra.ListExperiences
     newListExperiences,
 
     -- * Request Lenses
-    listExperiences_nextToken,
     listExperiences_maxResults,
+    listExperiences_nextToken,
     listExperiences_indexId,
 
     -- * Destructuring the Response
@@ -55,13 +55,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListExperiences' smart constructor.
 data ListExperiences = ListExperiences'
-  { -- | If the previous response was incomplete (because there is more data to
+  { -- | The maximum number of returned Amazon Kendra experiences.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the previous response was incomplete (because there is more data to
     -- retrieve), Amazon Kendra returns a pagination token in the response. You
     -- can use this pagination token to retrieve the next set of Amazon Kendra
     -- experiences.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of returned Amazon Kendra experiences.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the index for your Amazon Kendra experience.
     indexId :: Prelude.Text
   }
@@ -75,12 +75,12 @@ data ListExperiences = ListExperiences'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listExperiences_maxResults' - The maximum number of returned Amazon Kendra experiences.
+--
 -- 'nextToken', 'listExperiences_nextToken' - If the previous response was incomplete (because there is more data to
 -- retrieve), Amazon Kendra returns a pagination token in the response. You
 -- can use this pagination token to retrieve the next set of Amazon Kendra
 -- experiences.
---
--- 'maxResults', 'listExperiences_maxResults' - The maximum number of returned Amazon Kendra experiences.
 --
 -- 'indexId', 'listExperiences_indexId' - The identifier of the index for your Amazon Kendra experience.
 newListExperiences ::
@@ -89,10 +89,14 @@ newListExperiences ::
   ListExperiences
 newListExperiences pIndexId_ =
   ListExperiences'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       indexId = pIndexId_
     }
+
+-- | The maximum number of returned Amazon Kendra experiences.
+listExperiences_maxResults :: Lens.Lens' ListExperiences (Prelude.Maybe Prelude.Natural)
+listExperiences_maxResults = Lens.lens (\ListExperiences' {maxResults} -> maxResults) (\s@ListExperiences' {} a -> s {maxResults = a} :: ListExperiences)
 
 -- | If the previous response was incomplete (because there is more data to
 -- retrieve), Amazon Kendra returns a pagination token in the response. You
@@ -100,10 +104,6 @@ newListExperiences pIndexId_ =
 -- experiences.
 listExperiences_nextToken :: Lens.Lens' ListExperiences (Prelude.Maybe Prelude.Text)
 listExperiences_nextToken = Lens.lens (\ListExperiences' {nextToken} -> nextToken) (\s@ListExperiences' {} a -> s {nextToken = a} :: ListExperiences)
-
--- | The maximum number of returned Amazon Kendra experiences.
-listExperiences_maxResults :: Lens.Lens' ListExperiences (Prelude.Maybe Prelude.Natural)
-listExperiences_maxResults = Lens.lens (\ListExperiences' {maxResults} -> maxResults) (\s@ListExperiences' {} a -> s {maxResults = a} :: ListExperiences)
 
 -- | The identifier of the index for your Amazon Kendra experience.
 listExperiences_indexId :: Lens.Lens' ListExperiences Prelude.Text
@@ -126,14 +126,14 @@ instance Core.AWSRequest ListExperiences where
 
 instance Prelude.Hashable ListExperiences where
   hashWithSalt _salt ListExperiences' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` indexId
 
 instance Prelude.NFData ListExperiences where
   rnf ListExperiences' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf indexId
 
 instance Data.ToHeaders ListExperiences where
@@ -155,8 +155,8 @@ instance Data.ToJSON ListExperiences where
   toJSON ListExperiences' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("IndexId" Data..= indexId)
           ]
       )

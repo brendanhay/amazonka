@@ -41,9 +41,9 @@ module Amazonka.Kendra.UpdateQuerySuggestionsBlockList
     newUpdateQuerySuggestionsBlockList,
 
     -- * Request Lenses
+    updateQuerySuggestionsBlockList_description,
     updateQuerySuggestionsBlockList_name,
     updateQuerySuggestionsBlockList_roleArn,
-    updateQuerySuggestionsBlockList_description,
     updateQuerySuggestionsBlockList_sourceS3Path,
     updateQuerySuggestionsBlockList_indexId,
     updateQuerySuggestionsBlockList_id,
@@ -64,13 +64,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateQuerySuggestionsBlockList' smart constructor.
 data UpdateQuerySuggestionsBlockList = UpdateQuerySuggestionsBlockList'
-  { -- | A new name for the block list.
+  { -- | A new description for the block list.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | A new name for the block list.
     name :: Prelude.Maybe Prelude.Text,
     -- | The IAM (Identity and Access Management) role used to access the block
     -- list text file in S3.
     roleArn :: Prelude.Maybe Prelude.Text,
-    -- | A new description for the block list.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The S3 path where your block list text file sits in S3.
     --
     -- If you update your block list and provide the same path to the block
@@ -98,12 +98,12 @@ data UpdateQuerySuggestionsBlockList = UpdateQuerySuggestionsBlockList'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'updateQuerySuggestionsBlockList_description' - A new description for the block list.
+--
 -- 'name', 'updateQuerySuggestionsBlockList_name' - A new name for the block list.
 --
 -- 'roleArn', 'updateQuerySuggestionsBlockList_roleArn' - The IAM (Identity and Access Management) role used to access the block
 -- list text file in S3.
---
--- 'description', 'updateQuerySuggestionsBlockList_description' - A new description for the block list.
 --
 -- 'sourceS3Path', 'updateQuerySuggestionsBlockList_sourceS3Path' - The S3 path where your block list text file sits in S3.
 --
@@ -128,14 +128,18 @@ newUpdateQuerySuggestionsBlockList ::
   UpdateQuerySuggestionsBlockList
 newUpdateQuerySuggestionsBlockList pIndexId_ pId_ =
   UpdateQuerySuggestionsBlockList'
-    { name =
+    { description =
         Prelude.Nothing,
+      name = Prelude.Nothing,
       roleArn = Prelude.Nothing,
-      description = Prelude.Nothing,
       sourceS3Path = Prelude.Nothing,
       indexId = pIndexId_,
       id = pId_
     }
+
+-- | A new description for the block list.
+updateQuerySuggestionsBlockList_description :: Lens.Lens' UpdateQuerySuggestionsBlockList (Prelude.Maybe Prelude.Text)
+updateQuerySuggestionsBlockList_description = Lens.lens (\UpdateQuerySuggestionsBlockList' {description} -> description) (\s@UpdateQuerySuggestionsBlockList' {} a -> s {description = a} :: UpdateQuerySuggestionsBlockList)
 
 -- | A new name for the block list.
 updateQuerySuggestionsBlockList_name :: Lens.Lens' UpdateQuerySuggestionsBlockList (Prelude.Maybe Prelude.Text)
@@ -145,10 +149,6 @@ updateQuerySuggestionsBlockList_name = Lens.lens (\UpdateQuerySuggestionsBlockLi
 -- list text file in S3.
 updateQuerySuggestionsBlockList_roleArn :: Lens.Lens' UpdateQuerySuggestionsBlockList (Prelude.Maybe Prelude.Text)
 updateQuerySuggestionsBlockList_roleArn = Lens.lens (\UpdateQuerySuggestionsBlockList' {roleArn} -> roleArn) (\s@UpdateQuerySuggestionsBlockList' {} a -> s {roleArn = a} :: UpdateQuerySuggestionsBlockList)
-
--- | A new description for the block list.
-updateQuerySuggestionsBlockList_description :: Lens.Lens' UpdateQuerySuggestionsBlockList (Prelude.Maybe Prelude.Text)
-updateQuerySuggestionsBlockList_description = Lens.lens (\UpdateQuerySuggestionsBlockList' {description} -> description) (\s@UpdateQuerySuggestionsBlockList' {} a -> s {description = a} :: UpdateQuerySuggestionsBlockList)
 
 -- | The S3 path where your block list text file sits in S3.
 --
@@ -192,9 +192,9 @@ instance
   hashWithSalt
     _salt
     UpdateQuerySuggestionsBlockList' {..} =
-      _salt `Prelude.hashWithSalt` name
+      _salt `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` roleArn
-        `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` sourceS3Path
         `Prelude.hashWithSalt` indexId
         `Prelude.hashWithSalt` id
@@ -204,9 +204,9 @@ instance
     UpdateQuerySuggestionsBlockList
   where
   rnf UpdateQuerySuggestionsBlockList' {..} =
-    Prelude.rnf name
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf sourceS3Path
       `Prelude.seq` Prelude.rnf indexId
       `Prelude.seq` Prelude.rnf id
@@ -233,9 +233,9 @@ instance Data.ToJSON UpdateQuerySuggestionsBlockList where
   toJSON UpdateQuerySuggestionsBlockList' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("Name" Data..=) Prelude.<$> name,
             ("RoleArn" Data..=) Prelude.<$> roleArn,
-            ("Description" Data..=) Prelude.<$> description,
             ("SourceS3Path" Data..=) Prelude.<$> sourceS3Path,
             Prelude.Just ("IndexId" Data..= indexId),
             Prelude.Just ("Id" Data..= id)

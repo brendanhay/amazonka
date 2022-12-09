@@ -27,9 +27,9 @@ module Amazonka.Kendra.UpdateThesaurus
     newUpdateThesaurus,
 
     -- * Request Lenses
+    updateThesaurus_description,
     updateThesaurus_name,
     updateThesaurus_roleArn,
-    updateThesaurus_description,
     updateThesaurus_sourceS3Path,
     updateThesaurus_id,
     updateThesaurus_indexId,
@@ -50,13 +50,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateThesaurus' smart constructor.
 data UpdateThesaurus = UpdateThesaurus'
-  { -- | A new name for the thesaurus.
+  { -- | A new description for the thesaurus.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | A new name for the thesaurus.
     name :: Prelude.Maybe Prelude.Text,
     -- | An IAM role that gives Amazon Kendra permissions to access thesaurus
     -- file specified in @SourceS3Path@.
     roleArn :: Prelude.Maybe Prelude.Text,
-    -- | A new description for the thesaurus.
-    description :: Prelude.Maybe Prelude.Text,
     sourceS3Path :: Prelude.Maybe S3Path,
     -- | The identifier of the thesaurus you want to update.
     id :: Prelude.Text,
@@ -73,12 +73,12 @@ data UpdateThesaurus = UpdateThesaurus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'updateThesaurus_description' - A new description for the thesaurus.
+--
 -- 'name', 'updateThesaurus_name' - A new name for the thesaurus.
 --
 -- 'roleArn', 'updateThesaurus_roleArn' - An IAM role that gives Amazon Kendra permissions to access thesaurus
 -- file specified in @SourceS3Path@.
---
--- 'description', 'updateThesaurus_description' - A new description for the thesaurus.
 --
 -- 'sourceS3Path', 'updateThesaurus_sourceS3Path' - Undocumented member.
 --
@@ -93,13 +93,17 @@ newUpdateThesaurus ::
   UpdateThesaurus
 newUpdateThesaurus pId_ pIndexId_ =
   UpdateThesaurus'
-    { name = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      name = Prelude.Nothing,
       roleArn = Prelude.Nothing,
-      description = Prelude.Nothing,
       sourceS3Path = Prelude.Nothing,
       id = pId_,
       indexId = pIndexId_
     }
+
+-- | A new description for the thesaurus.
+updateThesaurus_description :: Lens.Lens' UpdateThesaurus (Prelude.Maybe Prelude.Text)
+updateThesaurus_description = Lens.lens (\UpdateThesaurus' {description} -> description) (\s@UpdateThesaurus' {} a -> s {description = a} :: UpdateThesaurus)
 
 -- | A new name for the thesaurus.
 updateThesaurus_name :: Lens.Lens' UpdateThesaurus (Prelude.Maybe Prelude.Text)
@@ -109,10 +113,6 @@ updateThesaurus_name = Lens.lens (\UpdateThesaurus' {name} -> name) (\s@UpdateTh
 -- file specified in @SourceS3Path@.
 updateThesaurus_roleArn :: Lens.Lens' UpdateThesaurus (Prelude.Maybe Prelude.Text)
 updateThesaurus_roleArn = Lens.lens (\UpdateThesaurus' {roleArn} -> roleArn) (\s@UpdateThesaurus' {} a -> s {roleArn = a} :: UpdateThesaurus)
-
--- | A new description for the thesaurus.
-updateThesaurus_description :: Lens.Lens' UpdateThesaurus (Prelude.Maybe Prelude.Text)
-updateThesaurus_description = Lens.lens (\UpdateThesaurus' {description} -> description) (\s@UpdateThesaurus' {} a -> s {description = a} :: UpdateThesaurus)
 
 -- | Undocumented member.
 updateThesaurus_sourceS3Path :: Lens.Lens' UpdateThesaurus (Prelude.Maybe S3Path)
@@ -137,18 +137,18 @@ instance Core.AWSRequest UpdateThesaurus where
 
 instance Prelude.Hashable UpdateThesaurus where
   hashWithSalt _salt UpdateThesaurus' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` roleArn
-      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` sourceS3Path
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` indexId
 
 instance Prelude.NFData UpdateThesaurus where
   rnf UpdateThesaurus' {..} =
-    Prelude.rnf name
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf sourceS3Path
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf indexId
@@ -172,9 +172,9 @@ instance Data.ToJSON UpdateThesaurus where
   toJSON UpdateThesaurus' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("Name" Data..=) Prelude.<$> name,
             ("RoleArn" Data..=) Prelude.<$> roleArn,
-            ("Description" Data..=) Prelude.<$> description,
             ("SourceS3Path" Data..=) Prelude.<$> sourceS3Path,
             Prelude.Just ("Id" Data..= id),
             Prelude.Just ("IndexId" Data..= indexId)

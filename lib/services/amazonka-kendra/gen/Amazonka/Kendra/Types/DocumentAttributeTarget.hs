@@ -46,17 +46,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDocumentAttributeTarget' smart constructor.
 data DocumentAttributeTarget = DocumentAttributeTarget'
-  { -- | The target value you want to create for the target attribute.
-    --
-    -- For example, \'Finance\' could be the target value for the target
-    -- attribute key \'Department\'.
-    targetDocumentAttributeValue :: Prelude.Maybe DocumentAttributeValue,
-    -- | The identifier of the target document attribute or metadata field.
+  { -- | The identifier of the target document attribute or metadata field.
     --
     -- For example, \'Department\' could be an identifier for the target
     -- attribute or metadata field that includes the department names
     -- associated with the documents.
     targetDocumentAttributeKey :: Prelude.Maybe Prelude.Text,
+    -- | The target value you want to create for the target attribute.
+    --
+    -- For example, \'Finance\' could be the target value for the target
+    -- attribute key \'Department\'.
+    targetDocumentAttributeValue :: Prelude.Maybe DocumentAttributeValue,
     -- | @TRUE@ to delete the existing target value for your specified target
     -- attribute key. You cannot create a target value and set this to @TRUE@.
     -- To create a target value (@TargetDocumentAttributeValue@), set this to
@@ -73,16 +73,16 @@ data DocumentAttributeTarget = DocumentAttributeTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetDocumentAttributeValue', 'documentAttributeTarget_targetDocumentAttributeValue' - The target value you want to create for the target attribute.
---
--- For example, \'Finance\' could be the target value for the target
--- attribute key \'Department\'.
---
 -- 'targetDocumentAttributeKey', 'documentAttributeTarget_targetDocumentAttributeKey' - The identifier of the target document attribute or metadata field.
 --
 -- For example, \'Department\' could be an identifier for the target
 -- attribute or metadata field that includes the department names
 -- associated with the documents.
+--
+-- 'targetDocumentAttributeValue', 'documentAttributeTarget_targetDocumentAttributeValue' - The target value you want to create for the target attribute.
+--
+-- For example, \'Finance\' could be the target value for the target
+-- attribute key \'Department\'.
 --
 -- 'targetDocumentAttributeValueDeletion', 'documentAttributeTarget_targetDocumentAttributeValueDeletion' - @TRUE@ to delete the existing target value for your specified target
 -- attribute key. You cannot create a target value and set this to @TRUE@.
@@ -92,19 +92,12 @@ newDocumentAttributeTarget ::
   DocumentAttributeTarget
 newDocumentAttributeTarget =
   DocumentAttributeTarget'
-    { targetDocumentAttributeValue =
+    { targetDocumentAttributeKey =
         Prelude.Nothing,
-      targetDocumentAttributeKey = Prelude.Nothing,
+      targetDocumentAttributeValue = Prelude.Nothing,
       targetDocumentAttributeValueDeletion =
         Prelude.Nothing
     }
-
--- | The target value you want to create for the target attribute.
---
--- For example, \'Finance\' could be the target value for the target
--- attribute key \'Department\'.
-documentAttributeTarget_targetDocumentAttributeValue :: Lens.Lens' DocumentAttributeTarget (Prelude.Maybe DocumentAttributeValue)
-documentAttributeTarget_targetDocumentAttributeValue = Lens.lens (\DocumentAttributeTarget' {targetDocumentAttributeValue} -> targetDocumentAttributeValue) (\s@DocumentAttributeTarget' {} a -> s {targetDocumentAttributeValue = a} :: DocumentAttributeTarget)
 
 -- | The identifier of the target document attribute or metadata field.
 --
@@ -113,6 +106,13 @@ documentAttributeTarget_targetDocumentAttributeValue = Lens.lens (\DocumentAttri
 -- associated with the documents.
 documentAttributeTarget_targetDocumentAttributeKey :: Lens.Lens' DocumentAttributeTarget (Prelude.Maybe Prelude.Text)
 documentAttributeTarget_targetDocumentAttributeKey = Lens.lens (\DocumentAttributeTarget' {targetDocumentAttributeKey} -> targetDocumentAttributeKey) (\s@DocumentAttributeTarget' {} a -> s {targetDocumentAttributeKey = a} :: DocumentAttributeTarget)
+
+-- | The target value you want to create for the target attribute.
+--
+-- For example, \'Finance\' could be the target value for the target
+-- attribute key \'Department\'.
+documentAttributeTarget_targetDocumentAttributeValue :: Lens.Lens' DocumentAttributeTarget (Prelude.Maybe DocumentAttributeValue)
+documentAttributeTarget_targetDocumentAttributeValue = Lens.lens (\DocumentAttributeTarget' {targetDocumentAttributeValue} -> targetDocumentAttributeValue) (\s@DocumentAttributeTarget' {} a -> s {targetDocumentAttributeValue = a} :: DocumentAttributeTarget)
 
 -- | @TRUE@ to delete the existing target value for your specified target
 -- attribute key. You cannot create a target value and set this to @TRUE@.
@@ -127,32 +127,32 @@ instance Data.FromJSON DocumentAttributeTarget where
       "DocumentAttributeTarget"
       ( \x ->
           DocumentAttributeTarget'
-            Prelude.<$> (x Data..:? "TargetDocumentAttributeValue")
-            Prelude.<*> (x Data..:? "TargetDocumentAttributeKey")
+            Prelude.<$> (x Data..:? "TargetDocumentAttributeKey")
+            Prelude.<*> (x Data..:? "TargetDocumentAttributeValue")
             Prelude.<*> (x Data..:? "TargetDocumentAttributeValueDeletion")
       )
 
 instance Prelude.Hashable DocumentAttributeTarget where
   hashWithSalt _salt DocumentAttributeTarget' {..} =
     _salt
-      `Prelude.hashWithSalt` targetDocumentAttributeValue
       `Prelude.hashWithSalt` targetDocumentAttributeKey
+      `Prelude.hashWithSalt` targetDocumentAttributeValue
       `Prelude.hashWithSalt` targetDocumentAttributeValueDeletion
 
 instance Prelude.NFData DocumentAttributeTarget where
   rnf DocumentAttributeTarget' {..} =
-    Prelude.rnf targetDocumentAttributeValue
-      `Prelude.seq` Prelude.rnf targetDocumentAttributeKey
+    Prelude.rnf targetDocumentAttributeKey
+      `Prelude.seq` Prelude.rnf targetDocumentAttributeValue
       `Prelude.seq` Prelude.rnf targetDocumentAttributeValueDeletion
 
 instance Data.ToJSON DocumentAttributeTarget where
   toJSON DocumentAttributeTarget' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("TargetDocumentAttributeValue" Data..=)
-              Prelude.<$> targetDocumentAttributeValue,
-            ("TargetDocumentAttributeKey" Data..=)
+          [ ("TargetDocumentAttributeKey" Data..=)
               Prelude.<$> targetDocumentAttributeKey,
+            ("TargetDocumentAttributeValue" Data..=)
+              Prelude.<$> targetDocumentAttributeValue,
             ("TargetDocumentAttributeValueDeletion" Data..=)
               Prelude.<$> targetDocumentAttributeValueDeletion
           ]

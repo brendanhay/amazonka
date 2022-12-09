@@ -47,8 +47,8 @@ module Amazonka.Kendra.PutPrincipalMapping
 
     -- * Request Lenses
     putPrincipalMapping_dataSourceId,
-    putPrincipalMapping_roleArn,
     putPrincipalMapping_orderingId,
+    putPrincipalMapping_roleArn,
     putPrincipalMapping_indexId,
     putPrincipalMapping_groupId,
     putPrincipalMapping_groupMembers,
@@ -78,12 +78,6 @@ data PutPrincipalMapping = PutPrincipalMapping'
     -- sources Confluence and Salesforce. However, \"Sales and Marketing\" team
     -- only needs access to customer-related documents stored in Salesforce.
     dataSourceId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of a role that has access to the S3 file
-    -- that contains your list of users or sub groups that belong to a group.
-    --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds IAM roles for Amazon Kendra>.
-    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The timestamp identifier you specify to ensure Amazon Kendra does not
     -- override the latest @PUT@ action with previous actions. The highest
     -- number ID, which is the ordering ID, is the latest action you want to
@@ -100,6 +94,12 @@ data PutPrincipalMapping = PutPrincipalMapping'
     -- The default ordering ID is the current UNIX time in milliseconds that
     -- the action was received by Amazon Kendra.
     orderingId :: Prelude.Maybe Prelude.Natural,
+    -- | The Amazon Resource Name (ARN) of a role that has access to the S3 file
+    -- that contains your list of users or sub groups that belong to a group.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds IAM roles for Amazon Kendra>.
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the index you want to map users to their groups.
     indexId :: Prelude.Text,
     -- | The identifier of the group you want to map its users to.
@@ -136,12 +136,6 @@ data PutPrincipalMapping = PutPrincipalMapping'
 -- sources Confluence and Salesforce. However, \"Sales and Marketing\" team
 -- only needs access to customer-related documents stored in Salesforce.
 --
--- 'roleArn', 'putPrincipalMapping_roleArn' - The Amazon Resource Name (ARN) of a role that has access to the S3 file
--- that contains your list of users or sub groups that belong to a group.
---
--- For more information, see
--- <https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds IAM roles for Amazon Kendra>.
---
 -- 'orderingId', 'putPrincipalMapping_orderingId' - The timestamp identifier you specify to ensure Amazon Kendra does not
 -- override the latest @PUT@ action with previous actions. The highest
 -- number ID, which is the ordering ID, is the latest action you want to
@@ -157,6 +151,12 @@ data PutPrincipalMapping = PutPrincipalMapping'
 --
 -- The default ordering ID is the current UNIX time in milliseconds that
 -- the action was received by Amazon Kendra.
+--
+-- 'roleArn', 'putPrincipalMapping_roleArn' - The Amazon Resource Name (ARN) of a role that has access to the S3 file
+-- that contains your list of users or sub groups that belong to a group.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds IAM roles for Amazon Kendra>.
 --
 -- 'indexId', 'putPrincipalMapping_indexId' - The identifier of the index you want to map users to their groups.
 --
@@ -188,8 +188,8 @@ newPutPrincipalMapping
     PutPrincipalMapping'
       { dataSourceId =
           Prelude.Nothing,
-        roleArn = Prelude.Nothing,
         orderingId = Prelude.Nothing,
+        roleArn = Prelude.Nothing,
         indexId = pIndexId_,
         groupId = pGroupId_,
         groupMembers = pGroupMembers_
@@ -205,14 +205,6 @@ newPutPrincipalMapping
 -- only needs access to customer-related documents stored in Salesforce.
 putPrincipalMapping_dataSourceId :: Lens.Lens' PutPrincipalMapping (Prelude.Maybe Prelude.Text)
 putPrincipalMapping_dataSourceId = Lens.lens (\PutPrincipalMapping' {dataSourceId} -> dataSourceId) (\s@PutPrincipalMapping' {} a -> s {dataSourceId = a} :: PutPrincipalMapping)
-
--- | The Amazon Resource Name (ARN) of a role that has access to the S3 file
--- that contains your list of users or sub groups that belong to a group.
---
--- For more information, see
--- <https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds IAM roles for Amazon Kendra>.
-putPrincipalMapping_roleArn :: Lens.Lens' PutPrincipalMapping (Prelude.Maybe Prelude.Text)
-putPrincipalMapping_roleArn = Lens.lens (\PutPrincipalMapping' {roleArn} -> roleArn) (\s@PutPrincipalMapping' {} a -> s {roleArn = a} :: PutPrincipalMapping)
 
 -- | The timestamp identifier you specify to ensure Amazon Kendra does not
 -- override the latest @PUT@ action with previous actions. The highest
@@ -231,6 +223,14 @@ putPrincipalMapping_roleArn = Lens.lens (\PutPrincipalMapping' {roleArn} -> role
 -- the action was received by Amazon Kendra.
 putPrincipalMapping_orderingId :: Lens.Lens' PutPrincipalMapping (Prelude.Maybe Prelude.Natural)
 putPrincipalMapping_orderingId = Lens.lens (\PutPrincipalMapping' {orderingId} -> orderingId) (\s@PutPrincipalMapping' {} a -> s {orderingId = a} :: PutPrincipalMapping)
+
+-- | The Amazon Resource Name (ARN) of a role that has access to the S3 file
+-- that contains your list of users or sub groups that belong to a group.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds IAM roles for Amazon Kendra>.
+putPrincipalMapping_roleArn :: Lens.Lens' PutPrincipalMapping (Prelude.Maybe Prelude.Text)
+putPrincipalMapping_roleArn = Lens.lens (\PutPrincipalMapping' {roleArn} -> roleArn) (\s@PutPrincipalMapping' {} a -> s {roleArn = a} :: PutPrincipalMapping)
 
 -- | The identifier of the index you want to map users to their groups.
 putPrincipalMapping_indexId :: Lens.Lens' PutPrincipalMapping Prelude.Text
@@ -266,8 +266,8 @@ instance Core.AWSRequest PutPrincipalMapping where
 instance Prelude.Hashable PutPrincipalMapping where
   hashWithSalt _salt PutPrincipalMapping' {..} =
     _salt `Prelude.hashWithSalt` dataSourceId
-      `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` orderingId
+      `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` indexId
       `Prelude.hashWithSalt` groupId
       `Prelude.hashWithSalt` groupMembers
@@ -275,8 +275,8 @@ instance Prelude.Hashable PutPrincipalMapping where
 instance Prelude.NFData PutPrincipalMapping where
   rnf PutPrincipalMapping' {..} =
     Prelude.rnf dataSourceId
-      `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf orderingId
+      `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf indexId
       `Prelude.seq` Prelude.rnf groupId
       `Prelude.seq` Prelude.rnf groupMembers
@@ -301,8 +301,8 @@ instance Data.ToJSON PutPrincipalMapping where
     Data.object
       ( Prelude.catMaybes
           [ ("DataSourceId" Data..=) Prelude.<$> dataSourceId,
-            ("RoleArn" Data..=) Prelude.<$> roleArn,
             ("OrderingId" Data..=) Prelude.<$> orderingId,
+            ("RoleArn" Data..=) Prelude.<$> roleArn,
             Prelude.Just ("IndexId" Data..= indexId),
             Prelude.Just ("GroupId" Data..= groupId),
             Prelude.Just ("GroupMembers" Data..= groupMembers)

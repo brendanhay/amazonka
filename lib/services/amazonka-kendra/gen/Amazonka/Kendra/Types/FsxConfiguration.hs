@@ -32,13 +32,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFsxConfiguration' smart constructor.
 data FsxConfiguration = FsxConfiguration'
-  { -- | A list of regular expression patterns to include certain files in your
-    -- Amazon FSx file system. Files that match the patterns are included in
-    -- the index. Files that don\'t match the patterns are excluded from the
+  { -- | A list of regular expression patterns to exclude certain files in your
+    -- Amazon FSx file system. Files that match the patterns are excluded from
+    -- the index. Files that don\'t match the patterns are included in the
     -- index. If a file matches both an inclusion and exclusion pattern, the
     -- exclusion pattern takes precedence and the file isn\'t included in the
     -- index.
-    inclusionPatterns :: Prelude.Maybe [Prelude.Text],
+    exclusionPatterns :: Prelude.Maybe [Prelude.Text],
     -- | A list of @DataSourceToIndexFieldMapping@ objects that map Amazon FSx
     -- data source attributes or field names to Amazon Kendra index field
     -- names. To create custom fields, use the @UpdateIndex@ API before you map
@@ -47,6 +47,13 @@ data FsxConfiguration = FsxConfiguration'
     -- The Amazon FSx data source field names must exist in your Amazon FSx
     -- custom metadata.
     fieldMappings :: Prelude.Maybe (Prelude.NonEmpty DataSourceToIndexFieldMapping),
+    -- | A list of regular expression patterns to include certain files in your
+    -- Amazon FSx file system. Files that match the patterns are included in
+    -- the index. Files that don\'t match the patterns are excluded from the
+    -- index. If a file matches both an inclusion and exclusion pattern, the
+    -- exclusion pattern takes precedence and the file isn\'t included in the
+    -- index.
+    inclusionPatterns :: Prelude.Maybe [Prelude.Text],
     -- | The Amazon Resource Name (ARN) of an Secrets Manager secret that
     -- contains the key-value pairs required to connect to your Amazon FSx file
     -- system. Windows is currently the only supported type. The secret must
@@ -60,13 +67,6 @@ data FsxConfiguration = FsxConfiguration'
     -- -   password—The password of the Active Directory user account with read
     --     and mounting access to the Amazon FSx Windows file system.
     secretArn :: Prelude.Maybe Prelude.Text,
-    -- | A list of regular expression patterns to exclude certain files in your
-    -- Amazon FSx file system. Files that match the patterns are excluded from
-    -- the index. Files that don\'t match the patterns are included in the
-    -- index. If a file matches both an inclusion and exclusion pattern, the
-    -- exclusion pattern takes precedence and the file isn\'t included in the
-    -- index.
-    exclusionPatterns :: Prelude.Maybe [Prelude.Text],
     -- | The identifier of the Amazon FSx file system.
     --
     -- You can find your file system ID on the file system dashboard in the
@@ -92,9 +92,9 @@ data FsxConfiguration = FsxConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'inclusionPatterns', 'fsxConfiguration_inclusionPatterns' - A list of regular expression patterns to include certain files in your
--- Amazon FSx file system. Files that match the patterns are included in
--- the index. Files that don\'t match the patterns are excluded from the
+-- 'exclusionPatterns', 'fsxConfiguration_exclusionPatterns' - A list of regular expression patterns to exclude certain files in your
+-- Amazon FSx file system. Files that match the patterns are excluded from
+-- the index. Files that don\'t match the patterns are included in the
 -- index. If a file matches both an inclusion and exclusion pattern, the
 -- exclusion pattern takes precedence and the file isn\'t included in the
 -- index.
@@ -106,6 +106,13 @@ data FsxConfiguration = FsxConfiguration'
 -- <https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html Mapping data source fields>.
 -- The Amazon FSx data source field names must exist in your Amazon FSx
 -- custom metadata.
+--
+-- 'inclusionPatterns', 'fsxConfiguration_inclusionPatterns' - A list of regular expression patterns to include certain files in your
+-- Amazon FSx file system. Files that match the patterns are included in
+-- the index. Files that don\'t match the patterns are excluded from the
+-- index. If a file matches both an inclusion and exclusion pattern, the
+-- exclusion pattern takes precedence and the file isn\'t included in the
+-- index.
 --
 -- 'secretArn', 'fsxConfiguration_secretArn' - The Amazon Resource Name (ARN) of an Secrets Manager secret that
 -- contains the key-value pairs required to connect to your Amazon FSx file
@@ -119,13 +126,6 @@ data FsxConfiguration = FsxConfiguration'
 --
 -- -   password—The password of the Active Directory user account with read
 --     and mounting access to the Amazon FSx Windows file system.
---
--- 'exclusionPatterns', 'fsxConfiguration_exclusionPatterns' - A list of regular expression patterns to exclude certain files in your
--- Amazon FSx file system. Files that match the patterns are excluded from
--- the index. Files that don\'t match the patterns are included in the
--- index. If a file matches both an inclusion and exclusion pattern, the
--- exclusion pattern takes precedence and the file isn\'t included in the
--- index.
 --
 -- 'fileSystemId', 'fsxConfiguration_fileSystemId' - The identifier of the Amazon FSx file system.
 --
@@ -153,24 +153,24 @@ newFsxConfiguration
   pFileSystemType_
   pVpcConfiguration_ =
     FsxConfiguration'
-      { inclusionPatterns =
+      { exclusionPatterns =
           Prelude.Nothing,
         fieldMappings = Prelude.Nothing,
+        inclusionPatterns = Prelude.Nothing,
         secretArn = Prelude.Nothing,
-        exclusionPatterns = Prelude.Nothing,
         fileSystemId = pFileSystemId_,
         fileSystemType = pFileSystemType_,
         vpcConfiguration = pVpcConfiguration_
       }
 
--- | A list of regular expression patterns to include certain files in your
--- Amazon FSx file system. Files that match the patterns are included in
--- the index. Files that don\'t match the patterns are excluded from the
+-- | A list of regular expression patterns to exclude certain files in your
+-- Amazon FSx file system. Files that match the patterns are excluded from
+-- the index. Files that don\'t match the patterns are included in the
 -- index. If a file matches both an inclusion and exclusion pattern, the
 -- exclusion pattern takes precedence and the file isn\'t included in the
 -- index.
-fsxConfiguration_inclusionPatterns :: Lens.Lens' FsxConfiguration (Prelude.Maybe [Prelude.Text])
-fsxConfiguration_inclusionPatterns = Lens.lens (\FsxConfiguration' {inclusionPatterns} -> inclusionPatterns) (\s@FsxConfiguration' {} a -> s {inclusionPatterns = a} :: FsxConfiguration) Prelude.. Lens.mapping Lens.coerced
+fsxConfiguration_exclusionPatterns :: Lens.Lens' FsxConfiguration (Prelude.Maybe [Prelude.Text])
+fsxConfiguration_exclusionPatterns = Lens.lens (\FsxConfiguration' {exclusionPatterns} -> exclusionPatterns) (\s@FsxConfiguration' {} a -> s {exclusionPatterns = a} :: FsxConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of @DataSourceToIndexFieldMapping@ objects that map Amazon FSx
 -- data source attributes or field names to Amazon Kendra index field
@@ -181,6 +181,15 @@ fsxConfiguration_inclusionPatterns = Lens.lens (\FsxConfiguration' {inclusionPat
 -- custom metadata.
 fsxConfiguration_fieldMappings :: Lens.Lens' FsxConfiguration (Prelude.Maybe (Prelude.NonEmpty DataSourceToIndexFieldMapping))
 fsxConfiguration_fieldMappings = Lens.lens (\FsxConfiguration' {fieldMappings} -> fieldMappings) (\s@FsxConfiguration' {} a -> s {fieldMappings = a} :: FsxConfiguration) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of regular expression patterns to include certain files in your
+-- Amazon FSx file system. Files that match the patterns are included in
+-- the index. Files that don\'t match the patterns are excluded from the
+-- index. If a file matches both an inclusion and exclusion pattern, the
+-- exclusion pattern takes precedence and the file isn\'t included in the
+-- index.
+fsxConfiguration_inclusionPatterns :: Lens.Lens' FsxConfiguration (Prelude.Maybe [Prelude.Text])
+fsxConfiguration_inclusionPatterns = Lens.lens (\FsxConfiguration' {inclusionPatterns} -> inclusionPatterns) (\s@FsxConfiguration' {} a -> s {inclusionPatterns = a} :: FsxConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of an Secrets Manager secret that
 -- contains the key-value pairs required to connect to your Amazon FSx file
@@ -196,15 +205,6 @@ fsxConfiguration_fieldMappings = Lens.lens (\FsxConfiguration' {fieldMappings} -
 --     and mounting access to the Amazon FSx Windows file system.
 fsxConfiguration_secretArn :: Lens.Lens' FsxConfiguration (Prelude.Maybe Prelude.Text)
 fsxConfiguration_secretArn = Lens.lens (\FsxConfiguration' {secretArn} -> secretArn) (\s@FsxConfiguration' {} a -> s {secretArn = a} :: FsxConfiguration)
-
--- | A list of regular expression patterns to exclude certain files in your
--- Amazon FSx file system. Files that match the patterns are excluded from
--- the index. Files that don\'t match the patterns are included in the
--- index. If a file matches both an inclusion and exclusion pattern, the
--- exclusion pattern takes precedence and the file isn\'t included in the
--- index.
-fsxConfiguration_exclusionPatterns :: Lens.Lens' FsxConfiguration (Prelude.Maybe [Prelude.Text])
-fsxConfiguration_exclusionPatterns = Lens.lens (\FsxConfiguration' {exclusionPatterns} -> exclusionPatterns) (\s@FsxConfiguration' {} a -> s {exclusionPatterns = a} :: FsxConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the Amazon FSx file system.
 --
@@ -232,14 +232,14 @@ instance Data.FromJSON FsxConfiguration where
       "FsxConfiguration"
       ( \x ->
           FsxConfiguration'
-            Prelude.<$> ( x Data..:? "InclusionPatterns"
+            Prelude.<$> ( x Data..:? "ExclusionPatterns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "FieldMappings")
-            Prelude.<*> (x Data..:? "SecretArn")
-            Prelude.<*> ( x Data..:? "ExclusionPatterns"
+            Prelude.<*> ( x Data..:? "InclusionPatterns"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "SecretArn")
             Prelude.<*> (x Data..: "FileSystemId")
             Prelude.<*> (x Data..: "FileSystemType")
             Prelude.<*> (x Data..: "VpcConfiguration")
@@ -247,20 +247,20 @@ instance Data.FromJSON FsxConfiguration where
 
 instance Prelude.Hashable FsxConfiguration where
   hashWithSalt _salt FsxConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` inclusionPatterns
+    _salt `Prelude.hashWithSalt` exclusionPatterns
       `Prelude.hashWithSalt` fieldMappings
+      `Prelude.hashWithSalt` inclusionPatterns
       `Prelude.hashWithSalt` secretArn
-      `Prelude.hashWithSalt` exclusionPatterns
       `Prelude.hashWithSalt` fileSystemId
       `Prelude.hashWithSalt` fileSystemType
       `Prelude.hashWithSalt` vpcConfiguration
 
 instance Prelude.NFData FsxConfiguration where
   rnf FsxConfiguration' {..} =
-    Prelude.rnf inclusionPatterns
+    Prelude.rnf exclusionPatterns
       `Prelude.seq` Prelude.rnf fieldMappings
+      `Prelude.seq` Prelude.rnf inclusionPatterns
       `Prelude.seq` Prelude.rnf secretArn
-      `Prelude.seq` Prelude.rnf exclusionPatterns
       `Prelude.seq` Prelude.rnf fileSystemId
       `Prelude.seq` Prelude.rnf fileSystemType
       `Prelude.seq` Prelude.rnf vpcConfiguration
@@ -269,12 +269,12 @@ instance Data.ToJSON FsxConfiguration where
   toJSON FsxConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("InclusionPatterns" Data..=)
-              Prelude.<$> inclusionPatterns,
-            ("FieldMappings" Data..=) Prelude.<$> fieldMappings,
-            ("SecretArn" Data..=) Prelude.<$> secretArn,
-            ("ExclusionPatterns" Data..=)
+          [ ("ExclusionPatterns" Data..=)
               Prelude.<$> exclusionPatterns,
+            ("FieldMappings" Data..=) Prelude.<$> fieldMappings,
+            ("InclusionPatterns" Data..=)
+              Prelude.<$> inclusionPatterns,
+            ("SecretArn" Data..=) Prelude.<$> secretArn,
             Prelude.Just ("FileSystemId" Data..= fileSystemId),
             Prelude.Just
               ("FileSystemType" Data..= fileSystemType),

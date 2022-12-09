@@ -31,7 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDocumentAttributeValueCountPair' smart constructor.
 data DocumentAttributeValueCountPair = DocumentAttributeValueCountPair'
-  { -- | Contains the results of a document attribute that is a nested facet. A
+  { -- | The number of documents in the response that have the attribute value
+    -- for the key.
+    count :: Prelude.Maybe Prelude.Int,
+    -- | The value of the attribute. For example, \"HR\".
+    documentAttributeValue :: Prelude.Maybe DocumentAttributeValue,
+    -- | Contains the results of a document attribute that is a nested facet. A
     -- @FacetResult@ contains the counts for each facet nested within a facet.
     --
     -- For example, the document attribute or facet \"Department\" includes a
@@ -42,12 +47,7 @@ data DocumentAttributeValueCountPair = DocumentAttributeValueCountPair'
     -- department but also by a sub department within a department. The counts
     -- for documents that belong to \"Frontend\" and \"Backend\" within
     -- \"Engineering\" are returned for a query.
-    facetResults :: Prelude.Maybe [FacetResult],
-    -- | The number of documents in the response that have the attribute value
-    -- for the key.
-    count :: Prelude.Maybe Prelude.Int,
-    -- | The value of the attribute. For example, \"HR\".
-    documentAttributeValue :: Prelude.Maybe DocumentAttributeValue
+    facetResults :: Prelude.Maybe [FacetResult]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,6 +58,11 @@ data DocumentAttributeValueCountPair = DocumentAttributeValueCountPair'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'count', 'documentAttributeValueCountPair_count' - The number of documents in the response that have the attribute value
+-- for the key.
+--
+-- 'documentAttributeValue', 'documentAttributeValueCountPair_documentAttributeValue' - The value of the attribute. For example, \"HR\".
 --
 -- 'facetResults', 'documentAttributeValueCountPair_facetResults' - Contains the results of a document attribute that is a nested facet. A
 -- @FacetResult@ contains the counts for each facet nested within a facet.
@@ -70,20 +75,24 @@ data DocumentAttributeValueCountPair = DocumentAttributeValueCountPair'
 -- department but also by a sub department within a department. The counts
 -- for documents that belong to \"Frontend\" and \"Backend\" within
 -- \"Engineering\" are returned for a query.
---
--- 'count', 'documentAttributeValueCountPair_count' - The number of documents in the response that have the attribute value
--- for the key.
---
--- 'documentAttributeValue', 'documentAttributeValueCountPair_documentAttributeValue' - The value of the attribute. For example, \"HR\".
 newDocumentAttributeValueCountPair ::
   DocumentAttributeValueCountPair
 newDocumentAttributeValueCountPair =
   DocumentAttributeValueCountPair'
-    { facetResults =
+    { count =
         Prelude.Nothing,
-      count = Prelude.Nothing,
-      documentAttributeValue = Prelude.Nothing
+      documentAttributeValue = Prelude.Nothing,
+      facetResults = Prelude.Nothing
     }
+
+-- | The number of documents in the response that have the attribute value
+-- for the key.
+documentAttributeValueCountPair_count :: Lens.Lens' DocumentAttributeValueCountPair (Prelude.Maybe Prelude.Int)
+documentAttributeValueCountPair_count = Lens.lens (\DocumentAttributeValueCountPair' {count} -> count) (\s@DocumentAttributeValueCountPair' {} a -> s {count = a} :: DocumentAttributeValueCountPair)
+
+-- | The value of the attribute. For example, \"HR\".
+documentAttributeValueCountPair_documentAttributeValue :: Lens.Lens' DocumentAttributeValueCountPair (Prelude.Maybe DocumentAttributeValue)
+documentAttributeValueCountPair_documentAttributeValue = Lens.lens (\DocumentAttributeValueCountPair' {documentAttributeValue} -> documentAttributeValue) (\s@DocumentAttributeValueCountPair' {} a -> s {documentAttributeValue = a} :: DocumentAttributeValueCountPair)
 
 -- | Contains the results of a document attribute that is a nested facet. A
 -- @FacetResult@ contains the counts for each facet nested within a facet.
@@ -99,15 +108,6 @@ newDocumentAttributeValueCountPair =
 documentAttributeValueCountPair_facetResults :: Lens.Lens' DocumentAttributeValueCountPair (Prelude.Maybe [FacetResult])
 documentAttributeValueCountPair_facetResults = Lens.lens (\DocumentAttributeValueCountPair' {facetResults} -> facetResults) (\s@DocumentAttributeValueCountPair' {} a -> s {facetResults = a} :: DocumentAttributeValueCountPair) Prelude.. Lens.mapping Lens.coerced
 
--- | The number of documents in the response that have the attribute value
--- for the key.
-documentAttributeValueCountPair_count :: Lens.Lens' DocumentAttributeValueCountPair (Prelude.Maybe Prelude.Int)
-documentAttributeValueCountPair_count = Lens.lens (\DocumentAttributeValueCountPair' {count} -> count) (\s@DocumentAttributeValueCountPair' {} a -> s {count = a} :: DocumentAttributeValueCountPair)
-
--- | The value of the attribute. For example, \"HR\".
-documentAttributeValueCountPair_documentAttributeValue :: Lens.Lens' DocumentAttributeValueCountPair (Prelude.Maybe DocumentAttributeValue)
-documentAttributeValueCountPair_documentAttributeValue = Lens.lens (\DocumentAttributeValueCountPair' {documentAttributeValue} -> documentAttributeValue) (\s@DocumentAttributeValueCountPair' {} a -> s {documentAttributeValue = a} :: DocumentAttributeValueCountPair)
-
 instance
   Data.FromJSON
     DocumentAttributeValueCountPair
@@ -117,9 +117,9 @@ instance
       "DocumentAttributeValueCountPair"
       ( \x ->
           DocumentAttributeValueCountPair'
-            Prelude.<$> (x Data..:? "FacetResults" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "Count")
+            Prelude.<$> (x Data..:? "Count")
             Prelude.<*> (x Data..:? "DocumentAttributeValue")
+            Prelude.<*> (x Data..:? "FacetResults" Data..!= Prelude.mempty)
       )
 
 instance
@@ -129,15 +129,15 @@ instance
   hashWithSalt
     _salt
     DocumentAttributeValueCountPair' {..} =
-      _salt `Prelude.hashWithSalt` facetResults
-        `Prelude.hashWithSalt` count
+      _salt `Prelude.hashWithSalt` count
         `Prelude.hashWithSalt` documentAttributeValue
+        `Prelude.hashWithSalt` facetResults
 
 instance
   Prelude.NFData
     DocumentAttributeValueCountPair
   where
   rnf DocumentAttributeValueCountPair' {..} =
-    Prelude.rnf facetResults
-      `Prelude.seq` Prelude.rnf count
+    Prelude.rnf count
       `Prelude.seq` Prelude.rnf documentAttributeValue
+      `Prelude.seq` Prelude.rnf facetResults

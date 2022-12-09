@@ -48,15 +48,15 @@ data UserContext = UserContext'
   { -- | The list of data source groups you want to filter search results based
     -- on groups\' access to documents in that data source.
     dataSourceGroups :: Prelude.Maybe (Prelude.NonEmpty DataSourceGroup),
-    -- | The identifier of the user you want to filter search results based on
-    -- their access to documents.
-    userId :: Prelude.Maybe Prelude.Text,
     -- | The list of groups you want to filter search results based on the
     -- groups\' access to documents.
     groups :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The user context token for filtering search results for a user. It must
     -- be a JWT or a JSON token.
-    token :: Prelude.Maybe Prelude.Text
+    token :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the user you want to filter search results based on
+    -- their access to documents.
+    userId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,33 +71,28 @@ data UserContext = UserContext'
 -- 'dataSourceGroups', 'userContext_dataSourceGroups' - The list of data source groups you want to filter search results based
 -- on groups\' access to documents in that data source.
 --
--- 'userId', 'userContext_userId' - The identifier of the user you want to filter search results based on
--- their access to documents.
---
 -- 'groups', 'userContext_groups' - The list of groups you want to filter search results based on the
 -- groups\' access to documents.
 --
 -- 'token', 'userContext_token' - The user context token for filtering search results for a user. It must
 -- be a JWT or a JSON token.
+--
+-- 'userId', 'userContext_userId' - The identifier of the user you want to filter search results based on
+-- their access to documents.
 newUserContext ::
   UserContext
 newUserContext =
   UserContext'
     { dataSourceGroups = Prelude.Nothing,
-      userId = Prelude.Nothing,
       groups = Prelude.Nothing,
-      token = Prelude.Nothing
+      token = Prelude.Nothing,
+      userId = Prelude.Nothing
     }
 
 -- | The list of data source groups you want to filter search results based
 -- on groups\' access to documents in that data source.
 userContext_dataSourceGroups :: Lens.Lens' UserContext (Prelude.Maybe (Prelude.NonEmpty DataSourceGroup))
 userContext_dataSourceGroups = Lens.lens (\UserContext' {dataSourceGroups} -> dataSourceGroups) (\s@UserContext' {} a -> s {dataSourceGroups = a} :: UserContext) Prelude.. Lens.mapping Lens.coerced
-
--- | The identifier of the user you want to filter search results based on
--- their access to documents.
-userContext_userId :: Lens.Lens' UserContext (Prelude.Maybe Prelude.Text)
-userContext_userId = Lens.lens (\UserContext' {userId} -> userId) (\s@UserContext' {} a -> s {userId = a} :: UserContext)
 
 -- | The list of groups you want to filter search results based on the
 -- groups\' access to documents.
@@ -109,19 +104,24 @@ userContext_groups = Lens.lens (\UserContext' {groups} -> groups) (\s@UserContex
 userContext_token :: Lens.Lens' UserContext (Prelude.Maybe Prelude.Text)
 userContext_token = Lens.lens (\UserContext' {token} -> token) (\s@UserContext' {} a -> s {token = a} :: UserContext)
 
+-- | The identifier of the user you want to filter search results based on
+-- their access to documents.
+userContext_userId :: Lens.Lens' UserContext (Prelude.Maybe Prelude.Text)
+userContext_userId = Lens.lens (\UserContext' {userId} -> userId) (\s@UserContext' {} a -> s {userId = a} :: UserContext)
+
 instance Prelude.Hashable UserContext where
   hashWithSalt _salt UserContext' {..} =
     _salt `Prelude.hashWithSalt` dataSourceGroups
-      `Prelude.hashWithSalt` userId
       `Prelude.hashWithSalt` groups
       `Prelude.hashWithSalt` token
+      `Prelude.hashWithSalt` userId
 
 instance Prelude.NFData UserContext where
   rnf UserContext' {..} =
     Prelude.rnf dataSourceGroups
-      `Prelude.seq` Prelude.rnf userId
       `Prelude.seq` Prelude.rnf groups
       `Prelude.seq` Prelude.rnf token
+      `Prelude.seq` Prelude.rnf userId
 
 instance Data.ToJSON UserContext where
   toJSON UserContext' {..} =
@@ -129,8 +129,8 @@ instance Data.ToJSON UserContext where
       ( Prelude.catMaybes
           [ ("DataSourceGroups" Data..=)
               Prelude.<$> dataSourceGroups,
-            ("UserId" Data..=) Prelude.<$> userId,
             ("Groups" Data..=) Prelude.<$> groups,
-            ("Token" Data..=) Prelude.<$> token
+            ("Token" Data..=) Prelude.<$> token,
+            ("UserId" Data..=) Prelude.<$> userId
           ]
       )

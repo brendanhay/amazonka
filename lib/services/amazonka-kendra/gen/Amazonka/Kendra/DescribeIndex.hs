@@ -34,22 +34,22 @@ module Amazonka.Kendra.DescribeIndex
     newDescribeIndexResponse,
 
     -- * Response Lenses
+    describeIndexResponse_capacityUnits,
+    describeIndexResponse_createdAt,
+    describeIndexResponse_description,
+    describeIndexResponse_documentMetadataConfigurations,
+    describeIndexResponse_edition,
+    describeIndexResponse_errorMessage,
+    describeIndexResponse_id,
+    describeIndexResponse_indexStatistics,
     describeIndexResponse_name,
     describeIndexResponse_roleArn,
-    describeIndexResponse_capacityUnits,
-    describeIndexResponse_errorMessage,
-    describeIndexResponse_userGroupResolutionConfiguration,
     describeIndexResponse_serverSideEncryptionConfiguration,
-    describeIndexResponse_edition,
     describeIndexResponse_status,
-    describeIndexResponse_id,
-    describeIndexResponse_description,
-    describeIndexResponse_userTokenConfigurations,
-    describeIndexResponse_userContextPolicy,
-    describeIndexResponse_indexStatistics,
-    describeIndexResponse_createdAt,
     describeIndexResponse_updatedAt,
-    describeIndexResponse_documentMetadataConfigurations,
+    describeIndexResponse_userContextPolicy,
+    describeIndexResponse_userGroupResolutionConfiguration,
+    describeIndexResponse_userTokenConfigurations,
     describeIndexResponse_httpStatus,
   )
 where
@@ -98,24 +98,24 @@ instance Core.AWSRequest DescribeIndex where
     Response.receiveJSON
       ( \s h x ->
           DescribeIndexResponse'
-            Prelude.<$> (x Data..?> "Name")
-            Prelude.<*> (x Data..?> "RoleArn")
-            Prelude.<*> (x Data..?> "CapacityUnits")
-            Prelude.<*> (x Data..?> "ErrorMessage")
-            Prelude.<*> (x Data..?> "UserGroupResolutionConfiguration")
-            Prelude.<*> (x Data..?> "ServerSideEncryptionConfiguration")
-            Prelude.<*> (x Data..?> "Edition")
-            Prelude.<*> (x Data..?> "Status")
-            Prelude.<*> (x Data..?> "Id")
+            Prelude.<$> (x Data..?> "CapacityUnits")
+            Prelude.<*> (x Data..?> "CreatedAt")
             Prelude.<*> (x Data..?> "Description")
-            Prelude.<*> ( x Data..?> "UserTokenConfigurations"
+            Prelude.<*> ( x Data..?> "DocumentMetadataConfigurations"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "UserContextPolicy")
+            Prelude.<*> (x Data..?> "Edition")
+            Prelude.<*> (x Data..?> "ErrorMessage")
+            Prelude.<*> (x Data..?> "Id")
             Prelude.<*> (x Data..?> "IndexStatistics")
-            Prelude.<*> (x Data..?> "CreatedAt")
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "RoleArn")
+            Prelude.<*> (x Data..?> "ServerSideEncryptionConfiguration")
+            Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (x Data..?> "UpdatedAt")
-            Prelude.<*> ( x Data..?> "DocumentMetadataConfigurations"
+            Prelude.<*> (x Data..?> "UserContextPolicy")
+            Prelude.<*> (x Data..?> "UserGroupResolutionConfiguration")
+            Prelude.<*> ( x Data..?> "UserTokenConfigurations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -156,54 +156,54 @@ instance Data.ToQuery DescribeIndex where
 
 -- | /See:/ 'newDescribeIndexResponse' smart constructor.
 data DescribeIndexResponse = DescribeIndexResponse'
-  { -- | The name of the index.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the IAM role that gives Amazon Kendra
-    -- permission to write to your Amazon Cloudwatch logs.
-    roleArn :: Prelude.Maybe Prelude.Text,
-    -- | For Enterprise Edition indexes, you can choose to use additional
+  { -- | For Enterprise Edition indexes, you can choose to use additional
     -- capacity to meet the needs of your application. This contains the
     -- capacity units used for the index. A query or document storage capacity
     -- of zero indicates that the index is using the default capacity. For more
     -- information on the default capacity for an index and adjusting this, see
     -- <https://docs.aws.amazon.com/kendra/latest/dg/adjusting-capacity.html Adjusting capacity>.
     capacityUnits :: Prelude.Maybe CapacityUnitsConfiguration,
-    -- | When the @Status@ field value is @FAILED@, the @ErrorMessage@ field
-    -- contains a message that explains why.
-    errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | Whether you have enabled the configuration for fetching access levels of
-    -- groups and users from an IAM Identity Center (successor to Single
-    -- Sign-On) identity source.
-    userGroupResolutionConfiguration :: Prelude.Maybe UserGroupResolutionConfiguration,
-    -- | The identifier of the KMScustomer master key (CMK) that is used to
-    -- encrypt your data. Amazon Kendra doesn\'t support asymmetric CMKs.
-    serverSideEncryptionConfiguration :: Prelude.Maybe ServerSideEncryptionConfiguration,
-    -- | The Amazon Kendra edition used for the index. You decide the edition
-    -- when you create the index.
-    edition :: Prelude.Maybe IndexEdition,
-    -- | The current status of the index. When the value is @ACTIVE@, the index
-    -- is ready for use. If the @Status@ field value is @FAILED@, the
-    -- @ErrorMessage@ field contains a message that explains why.
-    status :: Prelude.Maybe IndexStatus,
-    -- | The identifier of the index.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The description for the index.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The user token configuration for the Amazon Kendra index.
-    userTokenConfigurations :: Prelude.Maybe [UserTokenConfiguration],
-    -- | The user context policy for the Amazon Kendra index.
-    userContextPolicy :: Prelude.Maybe UserContextPolicy,
-    -- | Provides information about the number of FAQ questions and answers and
-    -- the number of text documents indexed.
-    indexStatistics :: Prelude.Maybe IndexStatistics,
     -- | The Unix datetime that the index was created.
     createdAt :: Prelude.Maybe Data.POSIX,
-    -- | The Unix datetime that the index was last updated.
-    updatedAt :: Prelude.Maybe Data.POSIX,
+    -- | The description for the index.
+    description :: Prelude.Maybe Prelude.Text,
     -- | Configuration information for document metadata or fields. Document
     -- metadata are fields or attributes associated with your documents. For
     -- example, the company department name associated with each document.
     documentMetadataConfigurations :: Prelude.Maybe [DocumentMetadataConfiguration],
+    -- | The Amazon Kendra edition used for the index. You decide the edition
+    -- when you create the index.
+    edition :: Prelude.Maybe IndexEdition,
+    -- | When the @Status@ field value is @FAILED@, the @ErrorMessage@ field
+    -- contains a message that explains why.
+    errorMessage :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the index.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | Provides information about the number of FAQ questions and answers and
+    -- the number of text documents indexed.
+    indexStatistics :: Prelude.Maybe IndexStatistics,
+    -- | The name of the index.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the IAM role that gives Amazon Kendra
+    -- permission to write to your Amazon Cloudwatch logs.
+    roleArn :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the KMScustomer master key (CMK) that is used to
+    -- encrypt your data. Amazon Kendra doesn\'t support asymmetric CMKs.
+    serverSideEncryptionConfiguration :: Prelude.Maybe ServerSideEncryptionConfiguration,
+    -- | The current status of the index. When the value is @ACTIVE@, the index
+    -- is ready for use. If the @Status@ field value is @FAILED@, the
+    -- @ErrorMessage@ field contains a message that explains why.
+    status :: Prelude.Maybe IndexStatus,
+    -- | The Unix datetime that the index was last updated.
+    updatedAt :: Prelude.Maybe Data.POSIX,
+    -- | The user context policy for the Amazon Kendra index.
+    userContextPolicy :: Prelude.Maybe UserContextPolicy,
+    -- | Whether you have enabled the configuration for fetching access levels of
+    -- groups and users from an IAM Identity Center (successor to Single
+    -- Sign-On) identity source.
+    userGroupResolutionConfiguration :: Prelude.Maybe UserGroupResolutionConfiguration,
+    -- | The user token configuration for the Amazon Kendra index.
+    userTokenConfigurations :: Prelude.Maybe [UserTokenConfiguration],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -217,11 +217,6 @@ data DescribeIndexResponse = DescribeIndexResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'describeIndexResponse_name' - The name of the index.
---
--- 'roleArn', 'describeIndexResponse_roleArn' - The Amazon Resource Name (ARN) of the IAM role that gives Amazon Kendra
--- permission to write to your Amazon Cloudwatch logs.
---
 -- 'capacityUnits', 'describeIndexResponse_capacityUnits' - For Enterprise Edition indexes, you can choose to use additional
 -- capacity to meet the needs of your application. This contains the
 -- capacity units used for the index. A query or document storage capacity
@@ -229,41 +224,46 @@ data DescribeIndexResponse = DescribeIndexResponse'
 -- information on the default capacity for an index and adjusting this, see
 -- <https://docs.aws.amazon.com/kendra/latest/dg/adjusting-capacity.html Adjusting capacity>.
 --
--- 'errorMessage', 'describeIndexResponse_errorMessage' - When the @Status@ field value is @FAILED@, the @ErrorMessage@ field
--- contains a message that explains why.
+-- 'createdAt', 'describeIndexResponse_createdAt' - The Unix datetime that the index was created.
 --
--- 'userGroupResolutionConfiguration', 'describeIndexResponse_userGroupResolutionConfiguration' - Whether you have enabled the configuration for fetching access levels of
--- groups and users from an IAM Identity Center (successor to Single
--- Sign-On) identity source.
+-- 'description', 'describeIndexResponse_description' - The description for the index.
 --
--- 'serverSideEncryptionConfiguration', 'describeIndexResponse_serverSideEncryptionConfiguration' - The identifier of the KMScustomer master key (CMK) that is used to
--- encrypt your data. Amazon Kendra doesn\'t support asymmetric CMKs.
+-- 'documentMetadataConfigurations', 'describeIndexResponse_documentMetadataConfigurations' - Configuration information for document metadata or fields. Document
+-- metadata are fields or attributes associated with your documents. For
+-- example, the company department name associated with each document.
 --
 -- 'edition', 'describeIndexResponse_edition' - The Amazon Kendra edition used for the index. You decide the edition
 -- when you create the index.
+--
+-- 'errorMessage', 'describeIndexResponse_errorMessage' - When the @Status@ field value is @FAILED@, the @ErrorMessage@ field
+-- contains a message that explains why.
+--
+-- 'id', 'describeIndexResponse_id' - The identifier of the index.
+--
+-- 'indexStatistics', 'describeIndexResponse_indexStatistics' - Provides information about the number of FAQ questions and answers and
+-- the number of text documents indexed.
+--
+-- 'name', 'describeIndexResponse_name' - The name of the index.
+--
+-- 'roleArn', 'describeIndexResponse_roleArn' - The Amazon Resource Name (ARN) of the IAM role that gives Amazon Kendra
+-- permission to write to your Amazon Cloudwatch logs.
+--
+-- 'serverSideEncryptionConfiguration', 'describeIndexResponse_serverSideEncryptionConfiguration' - The identifier of the KMScustomer master key (CMK) that is used to
+-- encrypt your data. Amazon Kendra doesn\'t support asymmetric CMKs.
 --
 -- 'status', 'describeIndexResponse_status' - The current status of the index. When the value is @ACTIVE@, the index
 -- is ready for use. If the @Status@ field value is @FAILED@, the
 -- @ErrorMessage@ field contains a message that explains why.
 --
--- 'id', 'describeIndexResponse_id' - The identifier of the index.
---
--- 'description', 'describeIndexResponse_description' - The description for the index.
---
--- 'userTokenConfigurations', 'describeIndexResponse_userTokenConfigurations' - The user token configuration for the Amazon Kendra index.
+-- 'updatedAt', 'describeIndexResponse_updatedAt' - The Unix datetime that the index was last updated.
 --
 -- 'userContextPolicy', 'describeIndexResponse_userContextPolicy' - The user context policy for the Amazon Kendra index.
 --
--- 'indexStatistics', 'describeIndexResponse_indexStatistics' - Provides information about the number of FAQ questions and answers and
--- the number of text documents indexed.
+-- 'userGroupResolutionConfiguration', 'describeIndexResponse_userGroupResolutionConfiguration' - Whether you have enabled the configuration for fetching access levels of
+-- groups and users from an IAM Identity Center (successor to Single
+-- Sign-On) identity source.
 --
--- 'createdAt', 'describeIndexResponse_createdAt' - The Unix datetime that the index was created.
---
--- 'updatedAt', 'describeIndexResponse_updatedAt' - The Unix datetime that the index was last updated.
---
--- 'documentMetadataConfigurations', 'describeIndexResponse_documentMetadataConfigurations' - Configuration information for document metadata or fields. Document
--- metadata are fields or attributes associated with your documents. For
--- example, the company department name associated with each document.
+-- 'userTokenConfigurations', 'describeIndexResponse_userTokenConfigurations' - The user token configuration for the Amazon Kendra index.
 --
 -- 'httpStatus', 'describeIndexResponse_httpStatus' - The response's http status code.
 newDescribeIndexResponse ::
@@ -272,33 +272,25 @@ newDescribeIndexResponse ::
   DescribeIndexResponse
 newDescribeIndexResponse pHttpStatus_ =
   DescribeIndexResponse'
-    { name = Prelude.Nothing,
-      roleArn = Prelude.Nothing,
-      capacityUnits = Prelude.Nothing,
-      errorMessage = Prelude.Nothing,
-      userGroupResolutionConfiguration = Prelude.Nothing,
-      serverSideEncryptionConfiguration = Prelude.Nothing,
-      edition = Prelude.Nothing,
-      status = Prelude.Nothing,
-      id = Prelude.Nothing,
-      description = Prelude.Nothing,
-      userTokenConfigurations = Prelude.Nothing,
-      userContextPolicy = Prelude.Nothing,
-      indexStatistics = Prelude.Nothing,
+    { capacityUnits =
+        Prelude.Nothing,
       createdAt = Prelude.Nothing,
-      updatedAt = Prelude.Nothing,
+      description = Prelude.Nothing,
       documentMetadataConfigurations = Prelude.Nothing,
+      edition = Prelude.Nothing,
+      errorMessage = Prelude.Nothing,
+      id = Prelude.Nothing,
+      indexStatistics = Prelude.Nothing,
+      name = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
+      serverSideEncryptionConfiguration = Prelude.Nothing,
+      status = Prelude.Nothing,
+      updatedAt = Prelude.Nothing,
+      userContextPolicy = Prelude.Nothing,
+      userGroupResolutionConfiguration = Prelude.Nothing,
+      userTokenConfigurations = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The name of the index.
-describeIndexResponse_name :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe Prelude.Text)
-describeIndexResponse_name = Lens.lens (\DescribeIndexResponse' {name} -> name) (\s@DescribeIndexResponse' {} a -> s {name = a} :: DescribeIndexResponse)
-
--- | The Amazon Resource Name (ARN) of the IAM role that gives Amazon Kendra
--- permission to write to your Amazon Cloudwatch logs.
-describeIndexResponse_roleArn :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe Prelude.Text)
-describeIndexResponse_roleArn = Lens.lens (\DescribeIndexResponse' {roleArn} -> roleArn) (\s@DescribeIndexResponse' {} a -> s {roleArn = a} :: DescribeIndexResponse)
 
 -- | For Enterprise Edition indexes, you can choose to use additional
 -- capacity to meet the needs of your application. This contains the
@@ -309,61 +301,13 @@ describeIndexResponse_roleArn = Lens.lens (\DescribeIndexResponse' {roleArn} -> 
 describeIndexResponse_capacityUnits :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe CapacityUnitsConfiguration)
 describeIndexResponse_capacityUnits = Lens.lens (\DescribeIndexResponse' {capacityUnits} -> capacityUnits) (\s@DescribeIndexResponse' {} a -> s {capacityUnits = a} :: DescribeIndexResponse)
 
--- | When the @Status@ field value is @FAILED@, the @ErrorMessage@ field
--- contains a message that explains why.
-describeIndexResponse_errorMessage :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe Prelude.Text)
-describeIndexResponse_errorMessage = Lens.lens (\DescribeIndexResponse' {errorMessage} -> errorMessage) (\s@DescribeIndexResponse' {} a -> s {errorMessage = a} :: DescribeIndexResponse)
-
--- | Whether you have enabled the configuration for fetching access levels of
--- groups and users from an IAM Identity Center (successor to Single
--- Sign-On) identity source.
-describeIndexResponse_userGroupResolutionConfiguration :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe UserGroupResolutionConfiguration)
-describeIndexResponse_userGroupResolutionConfiguration = Lens.lens (\DescribeIndexResponse' {userGroupResolutionConfiguration} -> userGroupResolutionConfiguration) (\s@DescribeIndexResponse' {} a -> s {userGroupResolutionConfiguration = a} :: DescribeIndexResponse)
-
--- | The identifier of the KMScustomer master key (CMK) that is used to
--- encrypt your data. Amazon Kendra doesn\'t support asymmetric CMKs.
-describeIndexResponse_serverSideEncryptionConfiguration :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe ServerSideEncryptionConfiguration)
-describeIndexResponse_serverSideEncryptionConfiguration = Lens.lens (\DescribeIndexResponse' {serverSideEncryptionConfiguration} -> serverSideEncryptionConfiguration) (\s@DescribeIndexResponse' {} a -> s {serverSideEncryptionConfiguration = a} :: DescribeIndexResponse)
-
--- | The Amazon Kendra edition used for the index. You decide the edition
--- when you create the index.
-describeIndexResponse_edition :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe IndexEdition)
-describeIndexResponse_edition = Lens.lens (\DescribeIndexResponse' {edition} -> edition) (\s@DescribeIndexResponse' {} a -> s {edition = a} :: DescribeIndexResponse)
-
--- | The current status of the index. When the value is @ACTIVE@, the index
--- is ready for use. If the @Status@ field value is @FAILED@, the
--- @ErrorMessage@ field contains a message that explains why.
-describeIndexResponse_status :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe IndexStatus)
-describeIndexResponse_status = Lens.lens (\DescribeIndexResponse' {status} -> status) (\s@DescribeIndexResponse' {} a -> s {status = a} :: DescribeIndexResponse)
-
--- | The identifier of the index.
-describeIndexResponse_id :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe Prelude.Text)
-describeIndexResponse_id = Lens.lens (\DescribeIndexResponse' {id} -> id) (\s@DescribeIndexResponse' {} a -> s {id = a} :: DescribeIndexResponse)
-
--- | The description for the index.
-describeIndexResponse_description :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe Prelude.Text)
-describeIndexResponse_description = Lens.lens (\DescribeIndexResponse' {description} -> description) (\s@DescribeIndexResponse' {} a -> s {description = a} :: DescribeIndexResponse)
-
--- | The user token configuration for the Amazon Kendra index.
-describeIndexResponse_userTokenConfigurations :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe [UserTokenConfiguration])
-describeIndexResponse_userTokenConfigurations = Lens.lens (\DescribeIndexResponse' {userTokenConfigurations} -> userTokenConfigurations) (\s@DescribeIndexResponse' {} a -> s {userTokenConfigurations = a} :: DescribeIndexResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The user context policy for the Amazon Kendra index.
-describeIndexResponse_userContextPolicy :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe UserContextPolicy)
-describeIndexResponse_userContextPolicy = Lens.lens (\DescribeIndexResponse' {userContextPolicy} -> userContextPolicy) (\s@DescribeIndexResponse' {} a -> s {userContextPolicy = a} :: DescribeIndexResponse)
-
--- | Provides information about the number of FAQ questions and answers and
--- the number of text documents indexed.
-describeIndexResponse_indexStatistics :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe IndexStatistics)
-describeIndexResponse_indexStatistics = Lens.lens (\DescribeIndexResponse' {indexStatistics} -> indexStatistics) (\s@DescribeIndexResponse' {} a -> s {indexStatistics = a} :: DescribeIndexResponse)
-
 -- | The Unix datetime that the index was created.
 describeIndexResponse_createdAt :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe Prelude.UTCTime)
 describeIndexResponse_createdAt = Lens.lens (\DescribeIndexResponse' {createdAt} -> createdAt) (\s@DescribeIndexResponse' {} a -> s {createdAt = a} :: DescribeIndexResponse) Prelude.. Lens.mapping Data._Time
 
--- | The Unix datetime that the index was last updated.
-describeIndexResponse_updatedAt :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe Prelude.UTCTime)
-describeIndexResponse_updatedAt = Lens.lens (\DescribeIndexResponse' {updatedAt} -> updatedAt) (\s@DescribeIndexResponse' {} a -> s {updatedAt = a} :: DescribeIndexResponse) Prelude.. Lens.mapping Data._Time
+-- | The description for the index.
+describeIndexResponse_description :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe Prelude.Text)
+describeIndexResponse_description = Lens.lens (\DescribeIndexResponse' {description} -> description) (\s@DescribeIndexResponse' {} a -> s {description = a} :: DescribeIndexResponse)
 
 -- | Configuration information for document metadata or fields. Document
 -- metadata are fields or attributes associated with your documents. For
@@ -371,27 +315,84 @@ describeIndexResponse_updatedAt = Lens.lens (\DescribeIndexResponse' {updatedAt}
 describeIndexResponse_documentMetadataConfigurations :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe [DocumentMetadataConfiguration])
 describeIndexResponse_documentMetadataConfigurations = Lens.lens (\DescribeIndexResponse' {documentMetadataConfigurations} -> documentMetadataConfigurations) (\s@DescribeIndexResponse' {} a -> s {documentMetadataConfigurations = a} :: DescribeIndexResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The Amazon Kendra edition used for the index. You decide the edition
+-- when you create the index.
+describeIndexResponse_edition :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe IndexEdition)
+describeIndexResponse_edition = Lens.lens (\DescribeIndexResponse' {edition} -> edition) (\s@DescribeIndexResponse' {} a -> s {edition = a} :: DescribeIndexResponse)
+
+-- | When the @Status@ field value is @FAILED@, the @ErrorMessage@ field
+-- contains a message that explains why.
+describeIndexResponse_errorMessage :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe Prelude.Text)
+describeIndexResponse_errorMessage = Lens.lens (\DescribeIndexResponse' {errorMessage} -> errorMessage) (\s@DescribeIndexResponse' {} a -> s {errorMessage = a} :: DescribeIndexResponse)
+
+-- | The identifier of the index.
+describeIndexResponse_id :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe Prelude.Text)
+describeIndexResponse_id = Lens.lens (\DescribeIndexResponse' {id} -> id) (\s@DescribeIndexResponse' {} a -> s {id = a} :: DescribeIndexResponse)
+
+-- | Provides information about the number of FAQ questions and answers and
+-- the number of text documents indexed.
+describeIndexResponse_indexStatistics :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe IndexStatistics)
+describeIndexResponse_indexStatistics = Lens.lens (\DescribeIndexResponse' {indexStatistics} -> indexStatistics) (\s@DescribeIndexResponse' {} a -> s {indexStatistics = a} :: DescribeIndexResponse)
+
+-- | The name of the index.
+describeIndexResponse_name :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe Prelude.Text)
+describeIndexResponse_name = Lens.lens (\DescribeIndexResponse' {name} -> name) (\s@DescribeIndexResponse' {} a -> s {name = a} :: DescribeIndexResponse)
+
+-- | The Amazon Resource Name (ARN) of the IAM role that gives Amazon Kendra
+-- permission to write to your Amazon Cloudwatch logs.
+describeIndexResponse_roleArn :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe Prelude.Text)
+describeIndexResponse_roleArn = Lens.lens (\DescribeIndexResponse' {roleArn} -> roleArn) (\s@DescribeIndexResponse' {} a -> s {roleArn = a} :: DescribeIndexResponse)
+
+-- | The identifier of the KMScustomer master key (CMK) that is used to
+-- encrypt your data. Amazon Kendra doesn\'t support asymmetric CMKs.
+describeIndexResponse_serverSideEncryptionConfiguration :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe ServerSideEncryptionConfiguration)
+describeIndexResponse_serverSideEncryptionConfiguration = Lens.lens (\DescribeIndexResponse' {serverSideEncryptionConfiguration} -> serverSideEncryptionConfiguration) (\s@DescribeIndexResponse' {} a -> s {serverSideEncryptionConfiguration = a} :: DescribeIndexResponse)
+
+-- | The current status of the index. When the value is @ACTIVE@, the index
+-- is ready for use. If the @Status@ field value is @FAILED@, the
+-- @ErrorMessage@ field contains a message that explains why.
+describeIndexResponse_status :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe IndexStatus)
+describeIndexResponse_status = Lens.lens (\DescribeIndexResponse' {status} -> status) (\s@DescribeIndexResponse' {} a -> s {status = a} :: DescribeIndexResponse)
+
+-- | The Unix datetime that the index was last updated.
+describeIndexResponse_updatedAt :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe Prelude.UTCTime)
+describeIndexResponse_updatedAt = Lens.lens (\DescribeIndexResponse' {updatedAt} -> updatedAt) (\s@DescribeIndexResponse' {} a -> s {updatedAt = a} :: DescribeIndexResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The user context policy for the Amazon Kendra index.
+describeIndexResponse_userContextPolicy :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe UserContextPolicy)
+describeIndexResponse_userContextPolicy = Lens.lens (\DescribeIndexResponse' {userContextPolicy} -> userContextPolicy) (\s@DescribeIndexResponse' {} a -> s {userContextPolicy = a} :: DescribeIndexResponse)
+
+-- | Whether you have enabled the configuration for fetching access levels of
+-- groups and users from an IAM Identity Center (successor to Single
+-- Sign-On) identity source.
+describeIndexResponse_userGroupResolutionConfiguration :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe UserGroupResolutionConfiguration)
+describeIndexResponse_userGroupResolutionConfiguration = Lens.lens (\DescribeIndexResponse' {userGroupResolutionConfiguration} -> userGroupResolutionConfiguration) (\s@DescribeIndexResponse' {} a -> s {userGroupResolutionConfiguration = a} :: DescribeIndexResponse)
+
+-- | The user token configuration for the Amazon Kendra index.
+describeIndexResponse_userTokenConfigurations :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe [UserTokenConfiguration])
+describeIndexResponse_userTokenConfigurations = Lens.lens (\DescribeIndexResponse' {userTokenConfigurations} -> userTokenConfigurations) (\s@DescribeIndexResponse' {} a -> s {userTokenConfigurations = a} :: DescribeIndexResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 describeIndexResponse_httpStatus :: Lens.Lens' DescribeIndexResponse Prelude.Int
 describeIndexResponse_httpStatus = Lens.lens (\DescribeIndexResponse' {httpStatus} -> httpStatus) (\s@DescribeIndexResponse' {} a -> s {httpStatus = a} :: DescribeIndexResponse)
 
 instance Prelude.NFData DescribeIndexResponse where
   rnf DescribeIndexResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf capacityUnits
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf userGroupResolutionConfiguration
-      `Prelude.seq` Prelude.rnf serverSideEncryptionConfiguration
-      `Prelude.seq` Prelude.rnf edition
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf userTokenConfigurations
-      `Prelude.seq` Prelude.rnf userContextPolicy
-      `Prelude.seq` Prelude.rnf indexStatistics
+    Prelude.rnf capacityUnits
       `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf documentMetadataConfigurations
+      `Prelude.seq` Prelude.rnf edition
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf indexStatistics
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf serverSideEncryptionConfiguration
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf userContextPolicy
       `Prelude.seq` Prelude.rnf
-        documentMetadataConfigurations
+        userGroupResolutionConfiguration
+      `Prelude.seq` Prelude.rnf userTokenConfigurations
       `Prelude.seq` Prelude.rnf httpStatus

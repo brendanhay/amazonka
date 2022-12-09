@@ -44,9 +44,9 @@ module Amazonka.Kendra.CreateQuerySuggestionsBlockList
     newCreateQuerySuggestionsBlockList,
 
     -- * Request Lenses
-    createQuerySuggestionsBlockList_tags,
     createQuerySuggestionsBlockList_clientToken,
     createQuerySuggestionsBlockList_description,
+    createQuerySuggestionsBlockList_tags,
     createQuerySuggestionsBlockList_indexId,
     createQuerySuggestionsBlockList_name,
     createQuerySuggestionsBlockList_sourceS3Path,
@@ -72,10 +72,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateQuerySuggestionsBlockList' smart constructor.
 data CreateQuerySuggestionsBlockList = CreateQuerySuggestionsBlockList'
-  { -- | A tag that you can assign to a block list that categorizes the block
-    -- list.
-    tags :: Prelude.Maybe [Tag],
-    -- | A token that you provide to identify the request to create a query
+  { -- | A token that you provide to identify the request to create a query
     -- suggestions block list.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | A user-friendly description for the block list.
@@ -83,6 +80,9 @@ data CreateQuerySuggestionsBlockList = CreateQuerySuggestionsBlockList'
     -- For example, the description \"List of all offensive words that can
     -- appear in user queries and need to be blocked from suggestions.\"
     description :: Prelude.Maybe Prelude.Text,
+    -- | A tag that you can assign to a block list that categorizes the block
+    -- list.
+    tags :: Prelude.Maybe [Tag],
     -- | The identifier of the index you want to create a query suggestions block
     -- list for.
     indexId :: Prelude.Text,
@@ -118,9 +118,6 @@ data CreateQuerySuggestionsBlockList = CreateQuerySuggestionsBlockList'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createQuerySuggestionsBlockList_tags' - A tag that you can assign to a block list that categorizes the block
--- list.
---
 -- 'clientToken', 'createQuerySuggestionsBlockList_clientToken' - A token that you provide to identify the request to create a query
 -- suggestions block list.
 --
@@ -128,6 +125,9 @@ data CreateQuerySuggestionsBlockList = CreateQuerySuggestionsBlockList'
 --
 -- For example, the description \"List of all offensive words that can
 -- appear in user queries and need to be blocked from suggestions.\"
+--
+-- 'tags', 'createQuerySuggestionsBlockList_tags' - A tag that you can assign to a block list that categorizes the block
+-- list.
 --
 -- 'indexId', 'createQuerySuggestionsBlockList_indexId' - The identifier of the index you want to create a query suggestions block
 -- list for.
@@ -168,20 +168,15 @@ newCreateQuerySuggestionsBlockList
   pSourceS3Path_
   pRoleArn_ =
     CreateQuerySuggestionsBlockList'
-      { tags =
+      { clientToken =
           Prelude.Nothing,
-        clientToken = Prelude.Nothing,
         description = Prelude.Nothing,
+        tags = Prelude.Nothing,
         indexId = pIndexId_,
         name = pName_,
         sourceS3Path = pSourceS3Path_,
         roleArn = pRoleArn_
       }
-
--- | A tag that you can assign to a block list that categorizes the block
--- list.
-createQuerySuggestionsBlockList_tags :: Lens.Lens' CreateQuerySuggestionsBlockList (Prelude.Maybe [Tag])
-createQuerySuggestionsBlockList_tags = Lens.lens (\CreateQuerySuggestionsBlockList' {tags} -> tags) (\s@CreateQuerySuggestionsBlockList' {} a -> s {tags = a} :: CreateQuerySuggestionsBlockList) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token that you provide to identify the request to create a query
 -- suggestions block list.
@@ -194,6 +189,11 @@ createQuerySuggestionsBlockList_clientToken = Lens.lens (\CreateQuerySuggestions
 -- appear in user queries and need to be blocked from suggestions.\"
 createQuerySuggestionsBlockList_description :: Lens.Lens' CreateQuerySuggestionsBlockList (Prelude.Maybe Prelude.Text)
 createQuerySuggestionsBlockList_description = Lens.lens (\CreateQuerySuggestionsBlockList' {description} -> description) (\s@CreateQuerySuggestionsBlockList' {} a -> s {description = a} :: CreateQuerySuggestionsBlockList)
+
+-- | A tag that you can assign to a block list that categorizes the block
+-- list.
+createQuerySuggestionsBlockList_tags :: Lens.Lens' CreateQuerySuggestionsBlockList (Prelude.Maybe [Tag])
+createQuerySuggestionsBlockList_tags = Lens.lens (\CreateQuerySuggestionsBlockList' {tags} -> tags) (\s@CreateQuerySuggestionsBlockList' {} a -> s {tags = a} :: CreateQuerySuggestionsBlockList) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the index you want to create a query suggestions block
 -- list for.
@@ -251,9 +251,9 @@ instance
   hashWithSalt
     _salt
     CreateQuerySuggestionsBlockList' {..} =
-      _salt `Prelude.hashWithSalt` tags
-        `Prelude.hashWithSalt` clientToken
+      _salt `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` indexId
         `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` sourceS3Path
@@ -264,9 +264,9 @@ instance
     CreateQuerySuggestionsBlockList
   where
   rnf CreateQuerySuggestionsBlockList' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf indexId
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf sourceS3Path
@@ -294,9 +294,9 @@ instance Data.ToJSON CreateQuerySuggestionsBlockList where
   toJSON CreateQuerySuggestionsBlockList' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ClientToken" Data..=) Prelude.<$> clientToken,
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
             ("Description" Data..=) Prelude.<$> description,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("IndexId" Data..= indexId),
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("SourceS3Path" Data..= sourceS3Path),
@@ -312,7 +312,7 @@ instance Data.ToQuery CreateQuerySuggestionsBlockList where
 
 -- | /See:/ 'newCreateQuerySuggestionsBlockListResponse' smart constructor.
 data CreateQuerySuggestionsBlockListResponse = CreateQuerySuggestionsBlockListResponse'
-  { -- | The unique identifier of the created block list.
+  { -- | The identifier of the created block list.
     id :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -327,7 +327,7 @@ data CreateQuerySuggestionsBlockListResponse = CreateQuerySuggestionsBlockListRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'createQuerySuggestionsBlockListResponse_id' - The unique identifier of the created block list.
+-- 'id', 'createQuerySuggestionsBlockListResponse_id' - The identifier of the created block list.
 --
 -- 'httpStatus', 'createQuerySuggestionsBlockListResponse_httpStatus' - The response's http status code.
 newCreateQuerySuggestionsBlockListResponse ::
@@ -342,7 +342,7 @@ newCreateQuerySuggestionsBlockListResponse
         httpStatus = pHttpStatus_
       }
 
--- | The unique identifier of the created block list.
+-- | The identifier of the created block list.
 createQuerySuggestionsBlockListResponse_id :: Lens.Lens' CreateQuerySuggestionsBlockListResponse (Prelude.Maybe Prelude.Text)
 createQuerySuggestionsBlockListResponse_id = Lens.lens (\CreateQuerySuggestionsBlockListResponse' {id} -> id) (\s@CreateQuerySuggestionsBlockListResponse' {} a -> s {id = a} :: CreateQuerySuggestionsBlockListResponse)
 

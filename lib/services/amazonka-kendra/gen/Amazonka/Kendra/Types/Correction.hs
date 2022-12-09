@@ -31,13 +31,13 @@ data Correction = Correction'
   { -- | The zero-based location in the response string or text where the
     -- corrected word starts.
     beginOffset :: Prelude.Maybe Prelude.Int,
+    -- | The string or text of a corrected misspelled word in a query.
+    correctedTerm :: Prelude.Maybe Prelude.Text,
     -- | The zero-based location in the response string or text where the
     -- corrected word ends.
     endOffset :: Prelude.Maybe Prelude.Int,
     -- | The string or text of a misspelled word in a query.
-    term :: Prelude.Maybe Prelude.Text,
-    -- | The string or text of a corrected misspelled word in a query.
-    correctedTerm :: Prelude.Maybe Prelude.Text
+    term :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,26 +52,30 @@ data Correction = Correction'
 -- 'beginOffset', 'correction_beginOffset' - The zero-based location in the response string or text where the
 -- corrected word starts.
 --
+-- 'correctedTerm', 'correction_correctedTerm' - The string or text of a corrected misspelled word in a query.
+--
 -- 'endOffset', 'correction_endOffset' - The zero-based location in the response string or text where the
 -- corrected word ends.
 --
 -- 'term', 'correction_term' - The string or text of a misspelled word in a query.
---
--- 'correctedTerm', 'correction_correctedTerm' - The string or text of a corrected misspelled word in a query.
 newCorrection ::
   Correction
 newCorrection =
   Correction'
     { beginOffset = Prelude.Nothing,
+      correctedTerm = Prelude.Nothing,
       endOffset = Prelude.Nothing,
-      term = Prelude.Nothing,
-      correctedTerm = Prelude.Nothing
+      term = Prelude.Nothing
     }
 
 -- | The zero-based location in the response string or text where the
 -- corrected word starts.
 correction_beginOffset :: Lens.Lens' Correction (Prelude.Maybe Prelude.Int)
 correction_beginOffset = Lens.lens (\Correction' {beginOffset} -> beginOffset) (\s@Correction' {} a -> s {beginOffset = a} :: Correction)
+
+-- | The string or text of a corrected misspelled word in a query.
+correction_correctedTerm :: Lens.Lens' Correction (Prelude.Maybe Prelude.Text)
+correction_correctedTerm = Lens.lens (\Correction' {correctedTerm} -> correctedTerm) (\s@Correction' {} a -> s {correctedTerm = a} :: Correction)
 
 -- | The zero-based location in the response string or text where the
 -- corrected word ends.
@@ -82,10 +86,6 @@ correction_endOffset = Lens.lens (\Correction' {endOffset} -> endOffset) (\s@Cor
 correction_term :: Lens.Lens' Correction (Prelude.Maybe Prelude.Text)
 correction_term = Lens.lens (\Correction' {term} -> term) (\s@Correction' {} a -> s {term = a} :: Correction)
 
--- | The string or text of a corrected misspelled word in a query.
-correction_correctedTerm :: Lens.Lens' Correction (Prelude.Maybe Prelude.Text)
-correction_correctedTerm = Lens.lens (\Correction' {correctedTerm} -> correctedTerm) (\s@Correction' {} a -> s {correctedTerm = a} :: Correction)
-
 instance Data.FromJSON Correction where
   parseJSON =
     Data.withObject
@@ -93,21 +93,21 @@ instance Data.FromJSON Correction where
       ( \x ->
           Correction'
             Prelude.<$> (x Data..:? "BeginOffset")
+            Prelude.<*> (x Data..:? "CorrectedTerm")
             Prelude.<*> (x Data..:? "EndOffset")
             Prelude.<*> (x Data..:? "Term")
-            Prelude.<*> (x Data..:? "CorrectedTerm")
       )
 
 instance Prelude.Hashable Correction where
   hashWithSalt _salt Correction' {..} =
     _salt `Prelude.hashWithSalt` beginOffset
+      `Prelude.hashWithSalt` correctedTerm
       `Prelude.hashWithSalt` endOffset
       `Prelude.hashWithSalt` term
-      `Prelude.hashWithSalt` correctedTerm
 
 instance Prelude.NFData Correction where
   rnf Correction' {..} =
     Prelude.rnf beginOffset
+      `Prelude.seq` Prelude.rnf correctedTerm
       `Prelude.seq` Prelude.rnf endOffset
       `Prelude.seq` Prelude.rnf term
-      `Prelude.seq` Prelude.rnf correctedTerm

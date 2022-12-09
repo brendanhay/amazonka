@@ -47,18 +47,18 @@ module Amazonka.Kendra.Query
     newQuery,
 
     -- * Request Lenses
+    query_attributeFilter,
     query_documentRelevanceOverrideConfigurations,
-    query_requestedDocumentAttributes,
-    query_userContext,
-    query_queryText,
-    query_queryResultTypeFilter,
     query_facets,
     query_pageNumber,
     query_pageSize,
-    query_spellCorrectionConfiguration,
+    query_queryResultTypeFilter,
+    query_queryText,
+    query_requestedDocumentAttributes,
     query_sortingConfiguration,
+    query_spellCorrectionConfiguration,
+    query_userContext,
     query_visitorId,
-    query_attributeFilter,
     query_indexId,
 
     -- * Destructuring the Response
@@ -66,12 +66,12 @@ module Amazonka.Kendra.Query
     newQueryResponse,
 
     -- * Response Lenses
-    queryResponse_spellCorrectedQueries,
     queryResponse_facetResults,
     queryResponse_queryId,
     queryResponse_resultItems,
-    queryResponse_warnings,
+    queryResponse_spellCorrectedQueries,
     queryResponse_totalNumberOfResults,
+    queryResponse_warnings,
     queryResponse_httpStatus,
   )
 where
@@ -86,7 +86,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newQuery' smart constructor.
 data Query = Query'
-  { -- | Overrides relevance tuning configurations of fields or attributes set at
+  { -- | Enables filtered searches based on document attributes. You can only
+    -- provide one attribute filter; however, the @AndAllFilters@, @NotFilter@,
+    -- and @OrAllFilters@ parameters contain a list of other filters.
+    --
+    -- The @AttributeFilter@ parameter enables you to create a set of filtering
+    -- rules that a document must satisfy to be included in the query results.
+    attributeFilter :: Prelude.Maybe AttributeFilter,
+    -- | Overrides relevance tuning configurations of fields or attributes set at
     -- the index level.
     --
     -- If you use this API to override the relevance tuning configured at the
@@ -102,17 +109,6 @@ data Query = Query'
     -- but you use this API to override only some of these fields, then for the
     -- fields you did not override, the importance is set to 1.
     documentRelevanceOverrideConfigurations :: Prelude.Maybe [DocumentRelevanceConfiguration],
-    -- | An array of document attributes to include in the response. You can
-    -- limit the response to include certain document attributes. By default
-    -- all document attributes are included in the response.
-    requestedDocumentAttributes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The user context token or user and group information.
-    userContext :: Prelude.Maybe UserContext,
-    -- | The text to search for.
-    queryText :: Prelude.Maybe Prelude.Text,
-    -- | Sets the type of query. Only results for the specified query type are
-    -- returned.
-    queryResultTypeFilter :: Prelude.Maybe QueryResultType,
     -- | An array of documents attributes. Amazon Kendra returns a count for each
     -- attribute key specified. This helps your users narrow their search.
     facets :: Prelude.Maybe [Facet],
@@ -124,8 +120,17 @@ data Query = Query'
     -- The default page size is 10. The maximum number of results returned is
     -- 100. If you ask for more than 100 results, only 100 are returned.
     pageSize :: Prelude.Maybe Prelude.Int,
-    -- | Enables suggested spell corrections for queries.
-    spellCorrectionConfiguration :: Prelude.Maybe SpellCorrectionConfiguration,
+    -- | Sets the type of query. Only results for the specified query type are
+    -- returned.
+    queryResultTypeFilter :: Prelude.Maybe QueryResultType,
+    -- | The input query text for the search. Amazon Kendra truncates queries at
+    -- 30 token words, which excludes punctuation and stop words. Truncation
+    -- still applies if you use Boolean or more advanced, complex queries.
+    queryText :: Prelude.Maybe Prelude.Text,
+    -- | An array of document attributes to include in the response. You can
+    -- limit the response to include certain document attributes. By default
+    -- all document attributes are included in the response.
+    requestedDocumentAttributes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | Provides information that determines how the results of the query are
     -- sorted. You can set the field that Amazon Kendra should sort the results
     -- on, and specify whether the results should be sorted in ascending or
@@ -135,19 +140,16 @@ data Query = Query'
     -- If you don\'t provide sorting configuration, the results are sorted by
     -- the relevance that Amazon Kendra determines for the result.
     sortingConfiguration :: Prelude.Maybe SortingConfiguration,
+    -- | Enables suggested spell corrections for queries.
+    spellCorrectionConfiguration :: Prelude.Maybe SpellCorrectionConfiguration,
+    -- | The user context token or user and group information.
+    userContext :: Prelude.Maybe UserContext,
     -- | Provides an identifier for a specific user. The @VisitorId@ should be a
     -- unique identifier, such as a GUID. Don\'t use personally identifiable
     -- information, such as the user\'s email address, as the @VisitorId@.
     visitorId :: Prelude.Maybe Prelude.Text,
-    -- | Enables filtered searches based on document attributes. You can only
-    -- provide one attribute filter; however, the @AndAllFilters@, @NotFilter@,
-    -- and @OrAllFilters@ parameters contain a list of other filters.
-    --
-    -- The @AttributeFilter@ parameter enables you to create a set of filtering
-    -- rules that a document must satisfy to be included in the query results.
-    attributeFilter :: Prelude.Maybe AttributeFilter,
-    -- | The unique identifier of the index to search. The identifier is returned
-    -- in the response from the @CreateIndex@ API.
+    -- | The identifier of the index to search. The identifier is returned in the
+    -- response from the @CreateIndex@ API.
     indexId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -159,6 +161,13 @@ data Query = Query'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'attributeFilter', 'query_attributeFilter' - Enables filtered searches based on document attributes. You can only
+-- provide one attribute filter; however, the @AndAllFilters@, @NotFilter@,
+-- and @OrAllFilters@ parameters contain a list of other filters.
+--
+-- The @AttributeFilter@ parameter enables you to create a set of filtering
+-- rules that a document must satisfy to be included in the query results.
 --
 -- 'documentRelevanceOverrideConfigurations', 'query_documentRelevanceOverrideConfigurations' - Overrides relevance tuning configurations of fields or attributes set at
 -- the index level.
@@ -176,17 +185,6 @@ data Query = Query'
 -- but you use this API to override only some of these fields, then for the
 -- fields you did not override, the importance is set to 1.
 --
--- 'requestedDocumentAttributes', 'query_requestedDocumentAttributes' - An array of document attributes to include in the response. You can
--- limit the response to include certain document attributes. By default
--- all document attributes are included in the response.
---
--- 'userContext', 'query_userContext' - The user context token or user and group information.
---
--- 'queryText', 'query_queryText' - The text to search for.
---
--- 'queryResultTypeFilter', 'query_queryResultTypeFilter' - Sets the type of query. Only results for the specified query type are
--- returned.
---
 -- 'facets', 'query_facets' - An array of documents attributes. Amazon Kendra returns a count for each
 -- attribute key specified. This helps your users narrow their search.
 --
@@ -198,7 +196,16 @@ data Query = Query'
 -- The default page size is 10. The maximum number of results returned is
 -- 100. If you ask for more than 100 results, only 100 are returned.
 --
--- 'spellCorrectionConfiguration', 'query_spellCorrectionConfiguration' - Enables suggested spell corrections for queries.
+-- 'queryResultTypeFilter', 'query_queryResultTypeFilter' - Sets the type of query. Only results for the specified query type are
+-- returned.
+--
+-- 'queryText', 'query_queryText' - The input query text for the search. Amazon Kendra truncates queries at
+-- 30 token words, which excludes punctuation and stop words. Truncation
+-- still applies if you use Boolean or more advanced, complex queries.
+--
+-- 'requestedDocumentAttributes', 'query_requestedDocumentAttributes' - An array of document attributes to include in the response. You can
+-- limit the response to include certain document attributes. By default
+-- all document attributes are included in the response.
 --
 -- 'sortingConfiguration', 'query_sortingConfiguration' - Provides information that determines how the results of the query are
 -- sorted. You can set the field that Amazon Kendra should sort the results
@@ -209,40 +216,46 @@ data Query = Query'
 -- If you don\'t provide sorting configuration, the results are sorted by
 -- the relevance that Amazon Kendra determines for the result.
 --
+-- 'spellCorrectionConfiguration', 'query_spellCorrectionConfiguration' - Enables suggested spell corrections for queries.
+--
+-- 'userContext', 'query_userContext' - The user context token or user and group information.
+--
 -- 'visitorId', 'query_visitorId' - Provides an identifier for a specific user. The @VisitorId@ should be a
 -- unique identifier, such as a GUID. Don\'t use personally identifiable
 -- information, such as the user\'s email address, as the @VisitorId@.
 --
--- 'attributeFilter', 'query_attributeFilter' - Enables filtered searches based on document attributes. You can only
--- provide one attribute filter; however, the @AndAllFilters@, @NotFilter@,
--- and @OrAllFilters@ parameters contain a list of other filters.
---
--- The @AttributeFilter@ parameter enables you to create a set of filtering
--- rules that a document must satisfy to be included in the query results.
---
--- 'indexId', 'query_indexId' - The unique identifier of the index to search. The identifier is returned
--- in the response from the @CreateIndex@ API.
+-- 'indexId', 'query_indexId' - The identifier of the index to search. The identifier is returned in the
+-- response from the @CreateIndex@ API.
 newQuery ::
   -- | 'indexId'
   Prelude.Text ->
   Query
 newQuery pIndexId_ =
   Query'
-    { documentRelevanceOverrideConfigurations =
+    { attributeFilter = Prelude.Nothing,
+      documentRelevanceOverrideConfigurations =
         Prelude.Nothing,
-      requestedDocumentAttributes = Prelude.Nothing,
-      userContext = Prelude.Nothing,
-      queryText = Prelude.Nothing,
-      queryResultTypeFilter = Prelude.Nothing,
       facets = Prelude.Nothing,
       pageNumber = Prelude.Nothing,
       pageSize = Prelude.Nothing,
-      spellCorrectionConfiguration = Prelude.Nothing,
+      queryResultTypeFilter = Prelude.Nothing,
+      queryText = Prelude.Nothing,
+      requestedDocumentAttributes = Prelude.Nothing,
       sortingConfiguration = Prelude.Nothing,
+      spellCorrectionConfiguration = Prelude.Nothing,
+      userContext = Prelude.Nothing,
       visitorId = Prelude.Nothing,
-      attributeFilter = Prelude.Nothing,
       indexId = pIndexId_
     }
+
+-- | Enables filtered searches based on document attributes. You can only
+-- provide one attribute filter; however, the @AndAllFilters@, @NotFilter@,
+-- and @OrAllFilters@ parameters contain a list of other filters.
+--
+-- The @AttributeFilter@ parameter enables you to create a set of filtering
+-- rules that a document must satisfy to be included in the query results.
+query_attributeFilter :: Lens.Lens' Query (Prelude.Maybe AttributeFilter)
+query_attributeFilter = Lens.lens (\Query' {attributeFilter} -> attributeFilter) (\s@Query' {} a -> s {attributeFilter = a} :: Query)
 
 -- | Overrides relevance tuning configurations of fields or attributes set at
 -- the index level.
@@ -262,25 +275,6 @@ newQuery pIndexId_ =
 query_documentRelevanceOverrideConfigurations :: Lens.Lens' Query (Prelude.Maybe [DocumentRelevanceConfiguration])
 query_documentRelevanceOverrideConfigurations = Lens.lens (\Query' {documentRelevanceOverrideConfigurations} -> documentRelevanceOverrideConfigurations) (\s@Query' {} a -> s {documentRelevanceOverrideConfigurations = a} :: Query) Prelude.. Lens.mapping Lens.coerced
 
--- | An array of document attributes to include in the response. You can
--- limit the response to include certain document attributes. By default
--- all document attributes are included in the response.
-query_requestedDocumentAttributes :: Lens.Lens' Query (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-query_requestedDocumentAttributes = Lens.lens (\Query' {requestedDocumentAttributes} -> requestedDocumentAttributes) (\s@Query' {} a -> s {requestedDocumentAttributes = a} :: Query) Prelude.. Lens.mapping Lens.coerced
-
--- | The user context token or user and group information.
-query_userContext :: Lens.Lens' Query (Prelude.Maybe UserContext)
-query_userContext = Lens.lens (\Query' {userContext} -> userContext) (\s@Query' {} a -> s {userContext = a} :: Query)
-
--- | The text to search for.
-query_queryText :: Lens.Lens' Query (Prelude.Maybe Prelude.Text)
-query_queryText = Lens.lens (\Query' {queryText} -> queryText) (\s@Query' {} a -> s {queryText = a} :: Query)
-
--- | Sets the type of query. Only results for the specified query type are
--- returned.
-query_queryResultTypeFilter :: Lens.Lens' Query (Prelude.Maybe QueryResultType)
-query_queryResultTypeFilter = Lens.lens (\Query' {queryResultTypeFilter} -> queryResultTypeFilter) (\s@Query' {} a -> s {queryResultTypeFilter = a} :: Query)
-
 -- | An array of documents attributes. Amazon Kendra returns a count for each
 -- attribute key specified. This helps your users narrow their search.
 query_facets :: Lens.Lens' Query (Prelude.Maybe [Facet])
@@ -298,9 +292,22 @@ query_pageNumber = Lens.lens (\Query' {pageNumber} -> pageNumber) (\s@Query' {} 
 query_pageSize :: Lens.Lens' Query (Prelude.Maybe Prelude.Int)
 query_pageSize = Lens.lens (\Query' {pageSize} -> pageSize) (\s@Query' {} a -> s {pageSize = a} :: Query)
 
--- | Enables suggested spell corrections for queries.
-query_spellCorrectionConfiguration :: Lens.Lens' Query (Prelude.Maybe SpellCorrectionConfiguration)
-query_spellCorrectionConfiguration = Lens.lens (\Query' {spellCorrectionConfiguration} -> spellCorrectionConfiguration) (\s@Query' {} a -> s {spellCorrectionConfiguration = a} :: Query)
+-- | Sets the type of query. Only results for the specified query type are
+-- returned.
+query_queryResultTypeFilter :: Lens.Lens' Query (Prelude.Maybe QueryResultType)
+query_queryResultTypeFilter = Lens.lens (\Query' {queryResultTypeFilter} -> queryResultTypeFilter) (\s@Query' {} a -> s {queryResultTypeFilter = a} :: Query)
+
+-- | The input query text for the search. Amazon Kendra truncates queries at
+-- 30 token words, which excludes punctuation and stop words. Truncation
+-- still applies if you use Boolean or more advanced, complex queries.
+query_queryText :: Lens.Lens' Query (Prelude.Maybe Prelude.Text)
+query_queryText = Lens.lens (\Query' {queryText} -> queryText) (\s@Query' {} a -> s {queryText = a} :: Query)
+
+-- | An array of document attributes to include in the response. You can
+-- limit the response to include certain document attributes. By default
+-- all document attributes are included in the response.
+query_requestedDocumentAttributes :: Lens.Lens' Query (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+query_requestedDocumentAttributes = Lens.lens (\Query' {requestedDocumentAttributes} -> requestedDocumentAttributes) (\s@Query' {} a -> s {requestedDocumentAttributes = a} :: Query) Prelude.. Lens.mapping Lens.coerced
 
 -- | Provides information that determines how the results of the query are
 -- sorted. You can set the field that Amazon Kendra should sort the results
@@ -313,23 +320,22 @@ query_spellCorrectionConfiguration = Lens.lens (\Query' {spellCorrectionConfigur
 query_sortingConfiguration :: Lens.Lens' Query (Prelude.Maybe SortingConfiguration)
 query_sortingConfiguration = Lens.lens (\Query' {sortingConfiguration} -> sortingConfiguration) (\s@Query' {} a -> s {sortingConfiguration = a} :: Query)
 
+-- | Enables suggested spell corrections for queries.
+query_spellCorrectionConfiguration :: Lens.Lens' Query (Prelude.Maybe SpellCorrectionConfiguration)
+query_spellCorrectionConfiguration = Lens.lens (\Query' {spellCorrectionConfiguration} -> spellCorrectionConfiguration) (\s@Query' {} a -> s {spellCorrectionConfiguration = a} :: Query)
+
+-- | The user context token or user and group information.
+query_userContext :: Lens.Lens' Query (Prelude.Maybe UserContext)
+query_userContext = Lens.lens (\Query' {userContext} -> userContext) (\s@Query' {} a -> s {userContext = a} :: Query)
+
 -- | Provides an identifier for a specific user. The @VisitorId@ should be a
 -- unique identifier, such as a GUID. Don\'t use personally identifiable
 -- information, such as the user\'s email address, as the @VisitorId@.
 query_visitorId :: Lens.Lens' Query (Prelude.Maybe Prelude.Text)
 query_visitorId = Lens.lens (\Query' {visitorId} -> visitorId) (\s@Query' {} a -> s {visitorId = a} :: Query)
 
--- | Enables filtered searches based on document attributes. You can only
--- provide one attribute filter; however, the @AndAllFilters@, @NotFilter@,
--- and @OrAllFilters@ parameters contain a list of other filters.
---
--- The @AttributeFilter@ parameter enables you to create a set of filtering
--- rules that a document must satisfy to be included in the query results.
-query_attributeFilter :: Lens.Lens' Query (Prelude.Maybe AttributeFilter)
-query_attributeFilter = Lens.lens (\Query' {attributeFilter} -> attributeFilter) (\s@Query' {} a -> s {attributeFilter = a} :: Query)
-
--- | The unique identifier of the index to search. The identifier is returned
--- in the response from the @CreateIndex@ API.
+-- | The identifier of the index to search. The identifier is returned in the
+-- response from the @CreateIndex@ API.
 query_indexId :: Lens.Lens' Query Prelude.Text
 query_indexId = Lens.lens (\Query' {indexId} -> indexId) (\s@Query' {} a -> s {indexId = a} :: Query)
 
@@ -341,48 +347,47 @@ instance Core.AWSRequest Query where
     Response.receiveJSON
       ( \s h x ->
           QueryResponse'
-            Prelude.<$> ( x Data..?> "SpellCorrectedQueries"
-                            Core..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Data..?> "FacetResults" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "FacetResults" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "QueryId")
             Prelude.<*> (x Data..?> "ResultItems" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "Warnings")
+            Prelude.<*> ( x Data..?> "SpellCorrectedQueries"
+                            Core..!@ Prelude.mempty
+                        )
             Prelude.<*> (x Data..?> "TotalNumberOfResults")
+            Prelude.<*> (x Data..?> "Warnings")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable Query where
   hashWithSalt _salt Query' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` attributeFilter
       `Prelude.hashWithSalt` documentRelevanceOverrideConfigurations
-      `Prelude.hashWithSalt` requestedDocumentAttributes
-      `Prelude.hashWithSalt` userContext
-      `Prelude.hashWithSalt` queryText
-      `Prelude.hashWithSalt` queryResultTypeFilter
       `Prelude.hashWithSalt` facets
       `Prelude.hashWithSalt` pageNumber
       `Prelude.hashWithSalt` pageSize
-      `Prelude.hashWithSalt` spellCorrectionConfiguration
+      `Prelude.hashWithSalt` queryResultTypeFilter
+      `Prelude.hashWithSalt` queryText
+      `Prelude.hashWithSalt` requestedDocumentAttributes
       `Prelude.hashWithSalt` sortingConfiguration
+      `Prelude.hashWithSalt` spellCorrectionConfiguration
+      `Prelude.hashWithSalt` userContext
       `Prelude.hashWithSalt` visitorId
-      `Prelude.hashWithSalt` attributeFilter
       `Prelude.hashWithSalt` indexId
 
 instance Prelude.NFData Query where
   rnf Query' {..} =
-    Prelude.rnf documentRelevanceOverrideConfigurations
-      `Prelude.seq` Prelude.rnf requestedDocumentAttributes
-      `Prelude.seq` Prelude.rnf userContext
-      `Prelude.seq` Prelude.rnf queryText
-      `Prelude.seq` Prelude.rnf queryResultTypeFilter
+    Prelude.rnf attributeFilter
+      `Prelude.seq` Prelude.rnf documentRelevanceOverrideConfigurations
       `Prelude.seq` Prelude.rnf facets
       `Prelude.seq` Prelude.rnf pageNumber
       `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf spellCorrectionConfiguration
+      `Prelude.seq` Prelude.rnf queryResultTypeFilter
+      `Prelude.seq` Prelude.rnf queryText
+      `Prelude.seq` Prelude.rnf requestedDocumentAttributes
       `Prelude.seq` Prelude.rnf sortingConfiguration
+      `Prelude.seq` Prelude.rnf spellCorrectionConfiguration
+      `Prelude.seq` Prelude.rnf userContext
       `Prelude.seq` Prelude.rnf visitorId
-      `Prelude.seq` Prelude.rnf attributeFilter
       `Prelude.seq` Prelude.rnf indexId
 
 instance Data.ToHeaders Query where
@@ -404,24 +409,24 @@ instance Data.ToJSON Query where
   toJSON Query' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("DocumentRelevanceOverrideConfigurations" Data..=)
+          [ ("AttributeFilter" Data..=)
+              Prelude.<$> attributeFilter,
+            ("DocumentRelevanceOverrideConfigurations" Data..=)
               Prelude.<$> documentRelevanceOverrideConfigurations,
-            ("RequestedDocumentAttributes" Data..=)
-              Prelude.<$> requestedDocumentAttributes,
-            ("UserContext" Data..=) Prelude.<$> userContext,
-            ("QueryText" Data..=) Prelude.<$> queryText,
-            ("QueryResultTypeFilter" Data..=)
-              Prelude.<$> queryResultTypeFilter,
             ("Facets" Data..=) Prelude.<$> facets,
             ("PageNumber" Data..=) Prelude.<$> pageNumber,
             ("PageSize" Data..=) Prelude.<$> pageSize,
-            ("SpellCorrectionConfiguration" Data..=)
-              Prelude.<$> spellCorrectionConfiguration,
+            ("QueryResultTypeFilter" Data..=)
+              Prelude.<$> queryResultTypeFilter,
+            ("QueryText" Data..=) Prelude.<$> queryText,
+            ("RequestedDocumentAttributes" Data..=)
+              Prelude.<$> requestedDocumentAttributes,
             ("SortingConfiguration" Data..=)
               Prelude.<$> sortingConfiguration,
+            ("SpellCorrectionConfiguration" Data..=)
+              Prelude.<$> spellCorrectionConfiguration,
+            ("UserContext" Data..=) Prelude.<$> userContext,
             ("VisitorId" Data..=) Prelude.<$> visitorId,
-            ("AttributeFilter" Data..=)
-              Prelude.<$> attributeFilter,
             Prelude.Just ("IndexId" Data..= indexId)
           ]
       )
@@ -434,17 +439,21 @@ instance Data.ToQuery Query where
 
 -- | /See:/ 'newQueryResponse' smart constructor.
 data QueryResponse = QueryResponse'
-  { -- | A list of information related to suggested spell corrections for a
-    -- query.
-    spellCorrectedQueries :: Prelude.Maybe [SpellCorrectedQuery],
-    -- | Contains the facet results. A @FacetResult@ contains the counts for each
+  { -- | Contains the facet results. A @FacetResult@ contains the counts for each
     -- attribute key that was specified in the @Facets@ input parameter.
     facetResults :: Prelude.Maybe [FacetResult],
-    -- | The unique identifier for the search. You use @QueryId@ to identify the
-    -- search when using the feedback API.
+    -- | The identifier for the search. You use @QueryId@ to identify the search
+    -- when using the feedback API.
     queryId :: Prelude.Maybe Prelude.Text,
     -- | The results of the search.
     resultItems :: Prelude.Maybe [QueryResultItem],
+    -- | A list of information related to suggested spell corrections for a
+    -- query.
+    spellCorrectedQueries :: Prelude.Maybe [SpellCorrectedQuery],
+    -- | The total number of items found by the search; however, you can only
+    -- retrieve up to 100 items. For example, if the search found 192 items,
+    -- you can only retrieve the first 100 of the items.
+    totalNumberOfResults :: Prelude.Maybe Prelude.Int,
     -- | A list of warning codes and their messages on problems with your query.
     --
     -- Amazon Kendra currently only supports one type of warning, which is a
@@ -452,10 +461,6 @@ data QueryResponse = QueryResponse'
     -- query syntax, see
     -- <https://docs.aws.amazon.com/kendra/latest/dg/searching-example.html#searching-index-query-syntax Searching with advanced query syntax>.
     warnings :: Prelude.Maybe (Prelude.NonEmpty Warning),
-    -- | The total number of items found by the search; however, you can only
-    -- retrieve up to 100 items. For example, if the search found 192 items,
-    -- you can only retrieve the first 100 of the items.
-    totalNumberOfResults :: Prelude.Maybe Prelude.Int,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -469,16 +474,20 @@ data QueryResponse = QueryResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'spellCorrectedQueries', 'queryResponse_spellCorrectedQueries' - A list of information related to suggested spell corrections for a
--- query.
---
 -- 'facetResults', 'queryResponse_facetResults' - Contains the facet results. A @FacetResult@ contains the counts for each
 -- attribute key that was specified in the @Facets@ input parameter.
 --
--- 'queryId', 'queryResponse_queryId' - The unique identifier for the search. You use @QueryId@ to identify the
--- search when using the feedback API.
+-- 'queryId', 'queryResponse_queryId' - The identifier for the search. You use @QueryId@ to identify the search
+-- when using the feedback API.
 --
 -- 'resultItems', 'queryResponse_resultItems' - The results of the search.
+--
+-- 'spellCorrectedQueries', 'queryResponse_spellCorrectedQueries' - A list of information related to suggested spell corrections for a
+-- query.
+--
+-- 'totalNumberOfResults', 'queryResponse_totalNumberOfResults' - The total number of items found by the search; however, you can only
+-- retrieve up to 100 items. For example, if the search found 192 items,
+-- you can only retrieve the first 100 of the items.
 --
 -- 'warnings', 'queryResponse_warnings' - A list of warning codes and their messages on problems with your query.
 --
@@ -487,10 +496,6 @@ data QueryResponse = QueryResponse'
 -- query syntax, see
 -- <https://docs.aws.amazon.com/kendra/latest/dg/searching-example.html#searching-index-query-syntax Searching with advanced query syntax>.
 --
--- 'totalNumberOfResults', 'queryResponse_totalNumberOfResults' - The total number of items found by the search; however, you can only
--- retrieve up to 100 items. For example, if the search found 192 items,
--- you can only retrieve the first 100 of the items.
---
 -- 'httpStatus', 'queryResponse_httpStatus' - The response's http status code.
 newQueryResponse ::
   -- | 'httpStatus'
@@ -498,34 +503,39 @@ newQueryResponse ::
   QueryResponse
 newQueryResponse pHttpStatus_ =
   QueryResponse'
-    { spellCorrectedQueries =
-        Prelude.Nothing,
-      facetResults = Prelude.Nothing,
+    { facetResults = Prelude.Nothing,
       queryId = Prelude.Nothing,
       resultItems = Prelude.Nothing,
-      warnings = Prelude.Nothing,
+      spellCorrectedQueries = Prelude.Nothing,
       totalNumberOfResults = Prelude.Nothing,
+      warnings = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of information related to suggested spell corrections for a
--- query.
-queryResponse_spellCorrectedQueries :: Lens.Lens' QueryResponse (Prelude.Maybe [SpellCorrectedQuery])
-queryResponse_spellCorrectedQueries = Lens.lens (\QueryResponse' {spellCorrectedQueries} -> spellCorrectedQueries) (\s@QueryResponse' {} a -> s {spellCorrectedQueries = a} :: QueryResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Contains the facet results. A @FacetResult@ contains the counts for each
 -- attribute key that was specified in the @Facets@ input parameter.
 queryResponse_facetResults :: Lens.Lens' QueryResponse (Prelude.Maybe [FacetResult])
 queryResponse_facetResults = Lens.lens (\QueryResponse' {facetResults} -> facetResults) (\s@QueryResponse' {} a -> s {facetResults = a} :: QueryResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The unique identifier for the search. You use @QueryId@ to identify the
--- search when using the feedback API.
+-- | The identifier for the search. You use @QueryId@ to identify the search
+-- when using the feedback API.
 queryResponse_queryId :: Lens.Lens' QueryResponse (Prelude.Maybe Prelude.Text)
 queryResponse_queryId = Lens.lens (\QueryResponse' {queryId} -> queryId) (\s@QueryResponse' {} a -> s {queryId = a} :: QueryResponse)
 
 -- | The results of the search.
 queryResponse_resultItems :: Lens.Lens' QueryResponse (Prelude.Maybe [QueryResultItem])
 queryResponse_resultItems = Lens.lens (\QueryResponse' {resultItems} -> resultItems) (\s@QueryResponse' {} a -> s {resultItems = a} :: QueryResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of information related to suggested spell corrections for a
+-- query.
+queryResponse_spellCorrectedQueries :: Lens.Lens' QueryResponse (Prelude.Maybe [SpellCorrectedQuery])
+queryResponse_spellCorrectedQueries = Lens.lens (\QueryResponse' {spellCorrectedQueries} -> spellCorrectedQueries) (\s@QueryResponse' {} a -> s {spellCorrectedQueries = a} :: QueryResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The total number of items found by the search; however, you can only
+-- retrieve up to 100 items. For example, if the search found 192 items,
+-- you can only retrieve the first 100 of the items.
+queryResponse_totalNumberOfResults :: Lens.Lens' QueryResponse (Prelude.Maybe Prelude.Int)
+queryResponse_totalNumberOfResults = Lens.lens (\QueryResponse' {totalNumberOfResults} -> totalNumberOfResults) (\s@QueryResponse' {} a -> s {totalNumberOfResults = a} :: QueryResponse)
 
 -- | A list of warning codes and their messages on problems with your query.
 --
@@ -536,22 +546,16 @@ queryResponse_resultItems = Lens.lens (\QueryResponse' {resultItems} -> resultIt
 queryResponse_warnings :: Lens.Lens' QueryResponse (Prelude.Maybe (Prelude.NonEmpty Warning))
 queryResponse_warnings = Lens.lens (\QueryResponse' {warnings} -> warnings) (\s@QueryResponse' {} a -> s {warnings = a} :: QueryResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The total number of items found by the search; however, you can only
--- retrieve up to 100 items. For example, if the search found 192 items,
--- you can only retrieve the first 100 of the items.
-queryResponse_totalNumberOfResults :: Lens.Lens' QueryResponse (Prelude.Maybe Prelude.Int)
-queryResponse_totalNumberOfResults = Lens.lens (\QueryResponse' {totalNumberOfResults} -> totalNumberOfResults) (\s@QueryResponse' {} a -> s {totalNumberOfResults = a} :: QueryResponse)
-
 -- | The response's http status code.
 queryResponse_httpStatus :: Lens.Lens' QueryResponse Prelude.Int
 queryResponse_httpStatus = Lens.lens (\QueryResponse' {httpStatus} -> httpStatus) (\s@QueryResponse' {} a -> s {httpStatus = a} :: QueryResponse)
 
 instance Prelude.NFData QueryResponse where
   rnf QueryResponse' {..} =
-    Prelude.rnf spellCorrectedQueries
-      `Prelude.seq` Prelude.rnf facetResults
+    Prelude.rnf facetResults
       `Prelude.seq` Prelude.rnf queryId
       `Prelude.seq` Prelude.rnf resultItems
-      `Prelude.seq` Prelude.rnf warnings
+      `Prelude.seq` Prelude.rnf spellCorrectedQueries
       `Prelude.seq` Prelude.rnf totalNumberOfResults
+      `Prelude.seq` Prelude.rnf warnings
       `Prelude.seq` Prelude.rnf httpStatus

@@ -35,18 +35,18 @@ module Amazonka.Kendra.DescribeFaq
     newDescribeFaqResponse,
 
     -- * Response Lenses
+    describeFaqResponse_createdAt,
+    describeFaqResponse_description,
+    describeFaqResponse_errorMessage,
+    describeFaqResponse_fileFormat,
+    describeFaqResponse_id,
     describeFaqResponse_indexId,
+    describeFaqResponse_languageCode,
     describeFaqResponse_name,
     describeFaqResponse_roleArn,
-    describeFaqResponse_errorMessage,
-    describeFaqResponse_status,
-    describeFaqResponse_id,
-    describeFaqResponse_description,
-    describeFaqResponse_languageCode,
     describeFaqResponse_s3Path,
-    describeFaqResponse_createdAt,
+    describeFaqResponse_status,
     describeFaqResponse_updatedAt,
-    describeFaqResponse_fileFormat,
     describeFaqResponse_httpStatus,
   )
 where
@@ -104,18 +104,18 @@ instance Core.AWSRequest DescribeFaq where
     Response.receiveJSON
       ( \s h x ->
           DescribeFaqResponse'
-            Prelude.<$> (x Data..?> "IndexId")
+            Prelude.<$> (x Data..?> "CreatedAt")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "ErrorMessage")
+            Prelude.<*> (x Data..?> "FileFormat")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "IndexId")
+            Prelude.<*> (x Data..?> "LanguageCode")
             Prelude.<*> (x Data..?> "Name")
             Prelude.<*> (x Data..?> "RoleArn")
-            Prelude.<*> (x Data..?> "ErrorMessage")
-            Prelude.<*> (x Data..?> "Status")
-            Prelude.<*> (x Data..?> "Id")
-            Prelude.<*> (x Data..?> "Description")
-            Prelude.<*> (x Data..?> "LanguageCode")
             Prelude.<*> (x Data..?> "S3Path")
-            Prelude.<*> (x Data..?> "CreatedAt")
+            Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (x Data..?> "UpdatedAt")
-            Prelude.<*> (x Data..?> "FileFormat")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,34 +160,34 @@ instance Data.ToQuery DescribeFaq where
 
 -- | /See:/ 'newDescribeFaqResponse' smart constructor.
 data DescribeFaqResponse = DescribeFaqResponse'
-  { -- | The identifier of the index for the FAQ.
-    indexId :: Prelude.Maybe Prelude.Text,
-    -- | The name that you gave the FAQ when it was created.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the role that provides access to the
-    -- S3 bucket containing the input files for the FAQ.
-    roleArn :: Prelude.Maybe Prelude.Text,
+  { -- | The date and time that the FAQ was created.
+    createdAt :: Prelude.Maybe Data.POSIX,
+    -- | The description of the FAQ that you provided when it was created.
+    description :: Prelude.Maybe Prelude.Text,
     -- | If the @Status@ field is @FAILED@, the @ErrorMessage@ field contains the
     -- reason why the FAQ failed.
     errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | The status of the FAQ. It is ready to use when the status is @ACTIVE@.
-    status :: Prelude.Maybe FaqStatus,
+    -- | The file format used by the input files for the FAQ.
+    fileFormat :: Prelude.Maybe FaqFileFormat,
     -- | The identifier of the FAQ.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The description of the FAQ that you provided when it was created.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the index for the FAQ.
+    indexId :: Prelude.Maybe Prelude.Text,
     -- | The code for a language. This shows a supported language for the FAQ
     -- document. English is supported by default. For more information on
     -- supported languages, including their codes, see
     -- <https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html Adding documents in languages other than English>.
     languageCode :: Prelude.Maybe Prelude.Text,
+    -- | The name that you gave the FAQ when it was created.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the role that provides access to the
+    -- S3 bucket containing the input files for the FAQ.
+    roleArn :: Prelude.Maybe Prelude.Text,
     s3Path :: Prelude.Maybe S3Path,
-    -- | The date and time that the FAQ was created.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    -- | The status of the FAQ. It is ready to use when the status is @ACTIVE@.
+    status :: Prelude.Maybe FaqStatus,
     -- | The date and time that the FAQ was last updated.
     updatedAt :: Prelude.Maybe Data.POSIX,
-    -- | The file format used by the input files for the FAQ.
-    fileFormat :: Prelude.Maybe FaqFileFormat,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -201,34 +201,34 @@ data DescribeFaqResponse = DescribeFaqResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'indexId', 'describeFaqResponse_indexId' - The identifier of the index for the FAQ.
+-- 'createdAt', 'describeFaqResponse_createdAt' - The date and time that the FAQ was created.
 --
--- 'name', 'describeFaqResponse_name' - The name that you gave the FAQ when it was created.
---
--- 'roleArn', 'describeFaqResponse_roleArn' - The Amazon Resource Name (ARN) of the role that provides access to the
--- S3 bucket containing the input files for the FAQ.
+-- 'description', 'describeFaqResponse_description' - The description of the FAQ that you provided when it was created.
 --
 -- 'errorMessage', 'describeFaqResponse_errorMessage' - If the @Status@ field is @FAILED@, the @ErrorMessage@ field contains the
 -- reason why the FAQ failed.
 --
--- 'status', 'describeFaqResponse_status' - The status of the FAQ. It is ready to use when the status is @ACTIVE@.
+-- 'fileFormat', 'describeFaqResponse_fileFormat' - The file format used by the input files for the FAQ.
 --
 -- 'id', 'describeFaqResponse_id' - The identifier of the FAQ.
 --
--- 'description', 'describeFaqResponse_description' - The description of the FAQ that you provided when it was created.
+-- 'indexId', 'describeFaqResponse_indexId' - The identifier of the index for the FAQ.
 --
 -- 'languageCode', 'describeFaqResponse_languageCode' - The code for a language. This shows a supported language for the FAQ
 -- document. English is supported by default. For more information on
 -- supported languages, including their codes, see
 -- <https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html Adding documents in languages other than English>.
 --
+-- 'name', 'describeFaqResponse_name' - The name that you gave the FAQ when it was created.
+--
+-- 'roleArn', 'describeFaqResponse_roleArn' - The Amazon Resource Name (ARN) of the role that provides access to the
+-- S3 bucket containing the input files for the FAQ.
+--
 -- 's3Path', 'describeFaqResponse_s3Path' - Undocumented member.
 --
--- 'createdAt', 'describeFaqResponse_createdAt' - The date and time that the FAQ was created.
+-- 'status', 'describeFaqResponse_status' - The status of the FAQ. It is ready to use when the status is @ACTIVE@.
 --
 -- 'updatedAt', 'describeFaqResponse_updatedAt' - The date and time that the FAQ was last updated.
---
--- 'fileFormat', 'describeFaqResponse_fileFormat' - The file format used by the input files for the FAQ.
 --
 -- 'httpStatus', 'describeFaqResponse_httpStatus' - The response's http status code.
 newDescribeFaqResponse ::
@@ -237,24 +237,52 @@ newDescribeFaqResponse ::
   DescribeFaqResponse
 newDescribeFaqResponse pHttpStatus_ =
   DescribeFaqResponse'
-    { indexId = Prelude.Nothing,
+    { createdAt = Prelude.Nothing,
+      description = Prelude.Nothing,
+      errorMessage = Prelude.Nothing,
+      fileFormat = Prelude.Nothing,
+      id = Prelude.Nothing,
+      indexId = Prelude.Nothing,
+      languageCode = Prelude.Nothing,
       name = Prelude.Nothing,
       roleArn = Prelude.Nothing,
-      errorMessage = Prelude.Nothing,
-      status = Prelude.Nothing,
-      id = Prelude.Nothing,
-      description = Prelude.Nothing,
-      languageCode = Prelude.Nothing,
       s3Path = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
+      status = Prelude.Nothing,
       updatedAt = Prelude.Nothing,
-      fileFormat = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The date and time that the FAQ was created.
+describeFaqResponse_createdAt :: Lens.Lens' DescribeFaqResponse (Prelude.Maybe Prelude.UTCTime)
+describeFaqResponse_createdAt = Lens.lens (\DescribeFaqResponse' {createdAt} -> createdAt) (\s@DescribeFaqResponse' {} a -> s {createdAt = a} :: DescribeFaqResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The description of the FAQ that you provided when it was created.
+describeFaqResponse_description :: Lens.Lens' DescribeFaqResponse (Prelude.Maybe Prelude.Text)
+describeFaqResponse_description = Lens.lens (\DescribeFaqResponse' {description} -> description) (\s@DescribeFaqResponse' {} a -> s {description = a} :: DescribeFaqResponse)
+
+-- | If the @Status@ field is @FAILED@, the @ErrorMessage@ field contains the
+-- reason why the FAQ failed.
+describeFaqResponse_errorMessage :: Lens.Lens' DescribeFaqResponse (Prelude.Maybe Prelude.Text)
+describeFaqResponse_errorMessage = Lens.lens (\DescribeFaqResponse' {errorMessage} -> errorMessage) (\s@DescribeFaqResponse' {} a -> s {errorMessage = a} :: DescribeFaqResponse)
+
+-- | The file format used by the input files for the FAQ.
+describeFaqResponse_fileFormat :: Lens.Lens' DescribeFaqResponse (Prelude.Maybe FaqFileFormat)
+describeFaqResponse_fileFormat = Lens.lens (\DescribeFaqResponse' {fileFormat} -> fileFormat) (\s@DescribeFaqResponse' {} a -> s {fileFormat = a} :: DescribeFaqResponse)
+
+-- | The identifier of the FAQ.
+describeFaqResponse_id :: Lens.Lens' DescribeFaqResponse (Prelude.Maybe Prelude.Text)
+describeFaqResponse_id = Lens.lens (\DescribeFaqResponse' {id} -> id) (\s@DescribeFaqResponse' {} a -> s {id = a} :: DescribeFaqResponse)
 
 -- | The identifier of the index for the FAQ.
 describeFaqResponse_indexId :: Lens.Lens' DescribeFaqResponse (Prelude.Maybe Prelude.Text)
 describeFaqResponse_indexId = Lens.lens (\DescribeFaqResponse' {indexId} -> indexId) (\s@DescribeFaqResponse' {} a -> s {indexId = a} :: DescribeFaqResponse)
+
+-- | The code for a language. This shows a supported language for the FAQ
+-- document. English is supported by default. For more information on
+-- supported languages, including their codes, see
+-- <https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html Adding documents in languages other than English>.
+describeFaqResponse_languageCode :: Lens.Lens' DescribeFaqResponse (Prelude.Maybe Prelude.Text)
+describeFaqResponse_languageCode = Lens.lens (\DescribeFaqResponse' {languageCode} -> languageCode) (\s@DescribeFaqResponse' {} a -> s {languageCode = a} :: DescribeFaqResponse)
 
 -- | The name that you gave the FAQ when it was created.
 describeFaqResponse_name :: Lens.Lens' DescribeFaqResponse (Prelude.Maybe Prelude.Text)
@@ -265,45 +293,17 @@ describeFaqResponse_name = Lens.lens (\DescribeFaqResponse' {name} -> name) (\s@
 describeFaqResponse_roleArn :: Lens.Lens' DescribeFaqResponse (Prelude.Maybe Prelude.Text)
 describeFaqResponse_roleArn = Lens.lens (\DescribeFaqResponse' {roleArn} -> roleArn) (\s@DescribeFaqResponse' {} a -> s {roleArn = a} :: DescribeFaqResponse)
 
--- | If the @Status@ field is @FAILED@, the @ErrorMessage@ field contains the
--- reason why the FAQ failed.
-describeFaqResponse_errorMessage :: Lens.Lens' DescribeFaqResponse (Prelude.Maybe Prelude.Text)
-describeFaqResponse_errorMessage = Lens.lens (\DescribeFaqResponse' {errorMessage} -> errorMessage) (\s@DescribeFaqResponse' {} a -> s {errorMessage = a} :: DescribeFaqResponse)
+-- | Undocumented member.
+describeFaqResponse_s3Path :: Lens.Lens' DescribeFaqResponse (Prelude.Maybe S3Path)
+describeFaqResponse_s3Path = Lens.lens (\DescribeFaqResponse' {s3Path} -> s3Path) (\s@DescribeFaqResponse' {} a -> s {s3Path = a} :: DescribeFaqResponse)
 
 -- | The status of the FAQ. It is ready to use when the status is @ACTIVE@.
 describeFaqResponse_status :: Lens.Lens' DescribeFaqResponse (Prelude.Maybe FaqStatus)
 describeFaqResponse_status = Lens.lens (\DescribeFaqResponse' {status} -> status) (\s@DescribeFaqResponse' {} a -> s {status = a} :: DescribeFaqResponse)
 
--- | The identifier of the FAQ.
-describeFaqResponse_id :: Lens.Lens' DescribeFaqResponse (Prelude.Maybe Prelude.Text)
-describeFaqResponse_id = Lens.lens (\DescribeFaqResponse' {id} -> id) (\s@DescribeFaqResponse' {} a -> s {id = a} :: DescribeFaqResponse)
-
--- | The description of the FAQ that you provided when it was created.
-describeFaqResponse_description :: Lens.Lens' DescribeFaqResponse (Prelude.Maybe Prelude.Text)
-describeFaqResponse_description = Lens.lens (\DescribeFaqResponse' {description} -> description) (\s@DescribeFaqResponse' {} a -> s {description = a} :: DescribeFaqResponse)
-
--- | The code for a language. This shows a supported language for the FAQ
--- document. English is supported by default. For more information on
--- supported languages, including their codes, see
--- <https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html Adding documents in languages other than English>.
-describeFaqResponse_languageCode :: Lens.Lens' DescribeFaqResponse (Prelude.Maybe Prelude.Text)
-describeFaqResponse_languageCode = Lens.lens (\DescribeFaqResponse' {languageCode} -> languageCode) (\s@DescribeFaqResponse' {} a -> s {languageCode = a} :: DescribeFaqResponse)
-
--- | Undocumented member.
-describeFaqResponse_s3Path :: Lens.Lens' DescribeFaqResponse (Prelude.Maybe S3Path)
-describeFaqResponse_s3Path = Lens.lens (\DescribeFaqResponse' {s3Path} -> s3Path) (\s@DescribeFaqResponse' {} a -> s {s3Path = a} :: DescribeFaqResponse)
-
--- | The date and time that the FAQ was created.
-describeFaqResponse_createdAt :: Lens.Lens' DescribeFaqResponse (Prelude.Maybe Prelude.UTCTime)
-describeFaqResponse_createdAt = Lens.lens (\DescribeFaqResponse' {createdAt} -> createdAt) (\s@DescribeFaqResponse' {} a -> s {createdAt = a} :: DescribeFaqResponse) Prelude.. Lens.mapping Data._Time
-
 -- | The date and time that the FAQ was last updated.
 describeFaqResponse_updatedAt :: Lens.Lens' DescribeFaqResponse (Prelude.Maybe Prelude.UTCTime)
 describeFaqResponse_updatedAt = Lens.lens (\DescribeFaqResponse' {updatedAt} -> updatedAt) (\s@DescribeFaqResponse' {} a -> s {updatedAt = a} :: DescribeFaqResponse) Prelude.. Lens.mapping Data._Time
-
--- | The file format used by the input files for the FAQ.
-describeFaqResponse_fileFormat :: Lens.Lens' DescribeFaqResponse (Prelude.Maybe FaqFileFormat)
-describeFaqResponse_fileFormat = Lens.lens (\DescribeFaqResponse' {fileFormat} -> fileFormat) (\s@DescribeFaqResponse' {} a -> s {fileFormat = a} :: DescribeFaqResponse)
 
 -- | The response's http status code.
 describeFaqResponse_httpStatus :: Lens.Lens' DescribeFaqResponse Prelude.Int
@@ -311,16 +311,16 @@ describeFaqResponse_httpStatus = Lens.lens (\DescribeFaqResponse' {httpStatus} -
 
 instance Prelude.NFData DescribeFaqResponse where
   rnf DescribeFaqResponse' {..} =
-    Prelude.rnf indexId
+    Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf fileFormat
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf indexId
+      `Prelude.seq` Prelude.rnf languageCode
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf languageCode
       `Prelude.seq` Prelude.rnf s3Path
-      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf fileFormat
       `Prelude.seq` Prelude.rnf httpStatus

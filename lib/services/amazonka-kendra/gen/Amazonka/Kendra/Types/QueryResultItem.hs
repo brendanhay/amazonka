@@ -24,8 +24,10 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.AdditionalResultAttribute
 import Amazonka.Kendra.Types.DocumentAttribute
+import Amazonka.Kendra.Types.QueryResultFormat
 import Amazonka.Kendra.Types.QueryResultType
 import Amazonka.Kendra.Types.ScoreAttributes
+import Amazonka.Kendra.Types.TableExcerpt
 import Amazonka.Kendra.Types.TextWithHighlights
 import qualified Amazonka.Prelude as Prelude
 
@@ -38,15 +40,35 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newQueryResultItem' smart constructor.
 data QueryResultItem = QueryResultItem'
-  { -- | The type of document.
-    type' :: Prelude.Maybe QueryResultType,
-    -- | The title of the document. Contains the text of the title and
-    -- information for highlighting the relevant terms in the title.
-    documentTitle :: Prelude.Maybe TextWithHighlights,
+  { -- | One or more additional attributes associated with the query result.
+    additionalAttributes :: Prelude.Maybe [AdditionalResultAttribute],
     -- | An array of document attributes assigned to a document in the search
     -- results. For example, the document author (@_author@) or the source URI
     -- (@_source_uri@) of the document.
     documentAttributes :: Prelude.Maybe [DocumentAttribute],
+    -- | An extract of the text in the document. Contains information about
+    -- highlighting the relevant terms in the excerpt.
+    documentExcerpt :: Prelude.Maybe TextWithHighlights,
+    -- | The identifier for the document.
+    documentId :: Prelude.Maybe Prelude.Text,
+    -- | The title of the document. Contains the text of the title and
+    -- information for highlighting the relevant terms in the title.
+    documentTitle :: Prelude.Maybe TextWithHighlights,
+    -- | The URI of the original location of the document.
+    documentURI :: Prelude.Maybe Prelude.Text,
+    -- | A token that identifies a particular result from a particular query. Use
+    -- this token to provide click-through feedback for the result. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/kendra/latest/dg/submitting-feedback.html Submitting feedback>
+    -- .
+    feedbackToken :: Prelude.Maybe Prelude.Text,
+    -- | If the @Type@ of document within the response is @ANSWER@, then it is
+    -- either a @TABLE@ answer or @TEXT@ answer. If it\'s a table answer, a
+    -- table excerpt is returned in @TableExcerpt@. If it\'s a text answer, a
+    -- text excerpt is returned in @DocumentExcerpt@.
+    format :: Prelude.Maybe QueryResultFormat,
+    -- | The identifier for the query result.
+    id :: Prelude.Maybe Prelude.Text,
     -- | Indicates the confidence that Amazon Kendra has that a result matches
     -- the query that you provided. Each result is placed into a bin that
     -- indicates the confidence, @VERY_HIGH@, @HIGH@, @MEDIUM@ and @LOW@. You
@@ -57,23 +79,11 @@ data QueryResultItem = QueryResultItem'
     -- @DOCUMENT@ and Amazon Kendra is not confident that the result matches
     -- the query.
     scoreAttributes :: Prelude.Maybe ScoreAttributes,
-    -- | The unique identifier for the query result.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | A token that identifies a particular result from a particular query. Use
-    -- this token to provide click-through feedback for the result. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/kendra/latest/dg/submitting-feedback.html Submitting feedback>
-    -- .
-    feedbackToken :: Prelude.Maybe Prelude.Text,
-    -- | One or more additional attributes associated with the query result.
-    additionalAttributes :: Prelude.Maybe [AdditionalResultAttribute],
-    -- | An extract of the text in the document. Contains information about
-    -- highlighting the relevant terms in the excerpt.
-    documentExcerpt :: Prelude.Maybe TextWithHighlights,
-    -- | The unique identifier for the document.
-    documentId :: Prelude.Maybe Prelude.Text,
-    -- | The URI of the original location of the document.
-    documentURI :: Prelude.Maybe Prelude.Text
+    -- | An excerpt from a table within a document.
+    tableExcerpt :: Prelude.Maybe TableExcerpt,
+    -- | The type of document within the response. For example, a response could
+    -- include a question-answer that\'s relevant to the query.
+    type' :: Prelude.Maybe QueryResultType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,14 +95,34 @@ data QueryResultItem = QueryResultItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'queryResultItem_type' - The type of document.
---
--- 'documentTitle', 'queryResultItem_documentTitle' - The title of the document. Contains the text of the title and
--- information for highlighting the relevant terms in the title.
+-- 'additionalAttributes', 'queryResultItem_additionalAttributes' - One or more additional attributes associated with the query result.
 --
 -- 'documentAttributes', 'queryResultItem_documentAttributes' - An array of document attributes assigned to a document in the search
 -- results. For example, the document author (@_author@) or the source URI
 -- (@_source_uri@) of the document.
+--
+-- 'documentExcerpt', 'queryResultItem_documentExcerpt' - An extract of the text in the document. Contains information about
+-- highlighting the relevant terms in the excerpt.
+--
+-- 'documentId', 'queryResultItem_documentId' - The identifier for the document.
+--
+-- 'documentTitle', 'queryResultItem_documentTitle' - The title of the document. Contains the text of the title and
+-- information for highlighting the relevant terms in the title.
+--
+-- 'documentURI', 'queryResultItem_documentURI' - The URI of the original location of the document.
+--
+-- 'feedbackToken', 'queryResultItem_feedbackToken' - A token that identifies a particular result from a particular query. Use
+-- this token to provide click-through feedback for the result. For more
+-- information, see
+-- <https://docs.aws.amazon.com/kendra/latest/dg/submitting-feedback.html Submitting feedback>
+-- .
+--
+-- 'format', 'queryResultItem_format' - If the @Type@ of document within the response is @ANSWER@, then it is
+-- either a @TABLE@ answer or @TEXT@ answer. If it\'s a table answer, a
+-- table excerpt is returned in @TableExcerpt@. If it\'s a text answer, a
+-- text excerpt is returned in @DocumentExcerpt@.
+--
+-- 'id', 'queryResultItem_id' - The identifier for the query result.
 --
 -- 'scoreAttributes', 'queryResultItem_scoreAttributes' - Indicates the confidence that Amazon Kendra has that a result matches
 -- the query that you provided. Each result is placed into a bin that
@@ -104,52 +134,75 @@ data QueryResultItem = QueryResultItem'
 -- @DOCUMENT@ and Amazon Kendra is not confident that the result matches
 -- the query.
 --
--- 'id', 'queryResultItem_id' - The unique identifier for the query result.
+-- 'tableExcerpt', 'queryResultItem_tableExcerpt' - An excerpt from a table within a document.
 --
--- 'feedbackToken', 'queryResultItem_feedbackToken' - A token that identifies a particular result from a particular query. Use
--- this token to provide click-through feedback for the result. For more
--- information, see
--- <https://docs.aws.amazon.com/kendra/latest/dg/submitting-feedback.html Submitting feedback>
--- .
---
--- 'additionalAttributes', 'queryResultItem_additionalAttributes' - One or more additional attributes associated with the query result.
---
--- 'documentExcerpt', 'queryResultItem_documentExcerpt' - An extract of the text in the document. Contains information about
--- highlighting the relevant terms in the excerpt.
---
--- 'documentId', 'queryResultItem_documentId' - The unique identifier for the document.
---
--- 'documentURI', 'queryResultItem_documentURI' - The URI of the original location of the document.
+-- 'type'', 'queryResultItem_type' - The type of document within the response. For example, a response could
+-- include a question-answer that\'s relevant to the query.
 newQueryResultItem ::
   QueryResultItem
 newQueryResultItem =
   QueryResultItem'
-    { type' = Prelude.Nothing,
-      documentTitle = Prelude.Nothing,
+    { additionalAttributes =
+        Prelude.Nothing,
       documentAttributes = Prelude.Nothing,
-      scoreAttributes = Prelude.Nothing,
-      id = Prelude.Nothing,
-      feedbackToken = Prelude.Nothing,
-      additionalAttributes = Prelude.Nothing,
       documentExcerpt = Prelude.Nothing,
       documentId = Prelude.Nothing,
-      documentURI = Prelude.Nothing
+      documentTitle = Prelude.Nothing,
+      documentURI = Prelude.Nothing,
+      feedbackToken = Prelude.Nothing,
+      format = Prelude.Nothing,
+      id = Prelude.Nothing,
+      scoreAttributes = Prelude.Nothing,
+      tableExcerpt = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
--- | The type of document.
-queryResultItem_type :: Lens.Lens' QueryResultItem (Prelude.Maybe QueryResultType)
-queryResultItem_type = Lens.lens (\QueryResultItem' {type'} -> type') (\s@QueryResultItem' {} a -> s {type' = a} :: QueryResultItem)
-
--- | The title of the document. Contains the text of the title and
--- information for highlighting the relevant terms in the title.
-queryResultItem_documentTitle :: Lens.Lens' QueryResultItem (Prelude.Maybe TextWithHighlights)
-queryResultItem_documentTitle = Lens.lens (\QueryResultItem' {documentTitle} -> documentTitle) (\s@QueryResultItem' {} a -> s {documentTitle = a} :: QueryResultItem)
+-- | One or more additional attributes associated with the query result.
+queryResultItem_additionalAttributes :: Lens.Lens' QueryResultItem (Prelude.Maybe [AdditionalResultAttribute])
+queryResultItem_additionalAttributes = Lens.lens (\QueryResultItem' {additionalAttributes} -> additionalAttributes) (\s@QueryResultItem' {} a -> s {additionalAttributes = a} :: QueryResultItem) Prelude.. Lens.mapping Lens.coerced
 
 -- | An array of document attributes assigned to a document in the search
 -- results. For example, the document author (@_author@) or the source URI
 -- (@_source_uri@) of the document.
 queryResultItem_documentAttributes :: Lens.Lens' QueryResultItem (Prelude.Maybe [DocumentAttribute])
 queryResultItem_documentAttributes = Lens.lens (\QueryResultItem' {documentAttributes} -> documentAttributes) (\s@QueryResultItem' {} a -> s {documentAttributes = a} :: QueryResultItem) Prelude.. Lens.mapping Lens.coerced
+
+-- | An extract of the text in the document. Contains information about
+-- highlighting the relevant terms in the excerpt.
+queryResultItem_documentExcerpt :: Lens.Lens' QueryResultItem (Prelude.Maybe TextWithHighlights)
+queryResultItem_documentExcerpt = Lens.lens (\QueryResultItem' {documentExcerpt} -> documentExcerpt) (\s@QueryResultItem' {} a -> s {documentExcerpt = a} :: QueryResultItem)
+
+-- | The identifier for the document.
+queryResultItem_documentId :: Lens.Lens' QueryResultItem (Prelude.Maybe Prelude.Text)
+queryResultItem_documentId = Lens.lens (\QueryResultItem' {documentId} -> documentId) (\s@QueryResultItem' {} a -> s {documentId = a} :: QueryResultItem)
+
+-- | The title of the document. Contains the text of the title and
+-- information for highlighting the relevant terms in the title.
+queryResultItem_documentTitle :: Lens.Lens' QueryResultItem (Prelude.Maybe TextWithHighlights)
+queryResultItem_documentTitle = Lens.lens (\QueryResultItem' {documentTitle} -> documentTitle) (\s@QueryResultItem' {} a -> s {documentTitle = a} :: QueryResultItem)
+
+-- | The URI of the original location of the document.
+queryResultItem_documentURI :: Lens.Lens' QueryResultItem (Prelude.Maybe Prelude.Text)
+queryResultItem_documentURI = Lens.lens (\QueryResultItem' {documentURI} -> documentURI) (\s@QueryResultItem' {} a -> s {documentURI = a} :: QueryResultItem)
+
+-- | A token that identifies a particular result from a particular query. Use
+-- this token to provide click-through feedback for the result. For more
+-- information, see
+-- <https://docs.aws.amazon.com/kendra/latest/dg/submitting-feedback.html Submitting feedback>
+-- .
+queryResultItem_feedbackToken :: Lens.Lens' QueryResultItem (Prelude.Maybe Prelude.Text)
+queryResultItem_feedbackToken = Lens.lens (\QueryResultItem' {feedbackToken} -> feedbackToken) (\s@QueryResultItem' {} a -> s {feedbackToken = a} :: QueryResultItem)
+
+-- | If the @Type@ of document within the response is @ANSWER@, then it is
+-- either a @TABLE@ answer or @TEXT@ answer. If it\'s a table answer, a
+-- table excerpt is returned in @TableExcerpt@. If it\'s a text answer, a
+-- text excerpt is returned in @DocumentExcerpt@.
+queryResultItem_format :: Lens.Lens' QueryResultItem (Prelude.Maybe QueryResultFormat)
+queryResultItem_format = Lens.lens (\QueryResultItem' {format} -> format) (\s@QueryResultItem' {} a -> s {format = a} :: QueryResultItem)
+
+-- | The identifier for the query result.
+queryResultItem_id :: Lens.Lens' QueryResultItem (Prelude.Maybe Prelude.Text)
+queryResultItem_id = Lens.lens (\QueryResultItem' {id} -> id) (\s@QueryResultItem' {} a -> s {id = a} :: QueryResultItem)
 
 -- | Indicates the confidence that Amazon Kendra has that a result matches
 -- the query that you provided. Each result is placed into a bin that
@@ -163,34 +216,14 @@ queryResultItem_documentAttributes = Lens.lens (\QueryResultItem' {documentAttri
 queryResultItem_scoreAttributes :: Lens.Lens' QueryResultItem (Prelude.Maybe ScoreAttributes)
 queryResultItem_scoreAttributes = Lens.lens (\QueryResultItem' {scoreAttributes} -> scoreAttributes) (\s@QueryResultItem' {} a -> s {scoreAttributes = a} :: QueryResultItem)
 
--- | The unique identifier for the query result.
-queryResultItem_id :: Lens.Lens' QueryResultItem (Prelude.Maybe Prelude.Text)
-queryResultItem_id = Lens.lens (\QueryResultItem' {id} -> id) (\s@QueryResultItem' {} a -> s {id = a} :: QueryResultItem)
+-- | An excerpt from a table within a document.
+queryResultItem_tableExcerpt :: Lens.Lens' QueryResultItem (Prelude.Maybe TableExcerpt)
+queryResultItem_tableExcerpt = Lens.lens (\QueryResultItem' {tableExcerpt} -> tableExcerpt) (\s@QueryResultItem' {} a -> s {tableExcerpt = a} :: QueryResultItem)
 
--- | A token that identifies a particular result from a particular query. Use
--- this token to provide click-through feedback for the result. For more
--- information, see
--- <https://docs.aws.amazon.com/kendra/latest/dg/submitting-feedback.html Submitting feedback>
--- .
-queryResultItem_feedbackToken :: Lens.Lens' QueryResultItem (Prelude.Maybe Prelude.Text)
-queryResultItem_feedbackToken = Lens.lens (\QueryResultItem' {feedbackToken} -> feedbackToken) (\s@QueryResultItem' {} a -> s {feedbackToken = a} :: QueryResultItem)
-
--- | One or more additional attributes associated with the query result.
-queryResultItem_additionalAttributes :: Lens.Lens' QueryResultItem (Prelude.Maybe [AdditionalResultAttribute])
-queryResultItem_additionalAttributes = Lens.lens (\QueryResultItem' {additionalAttributes} -> additionalAttributes) (\s@QueryResultItem' {} a -> s {additionalAttributes = a} :: QueryResultItem) Prelude.. Lens.mapping Lens.coerced
-
--- | An extract of the text in the document. Contains information about
--- highlighting the relevant terms in the excerpt.
-queryResultItem_documentExcerpt :: Lens.Lens' QueryResultItem (Prelude.Maybe TextWithHighlights)
-queryResultItem_documentExcerpt = Lens.lens (\QueryResultItem' {documentExcerpt} -> documentExcerpt) (\s@QueryResultItem' {} a -> s {documentExcerpt = a} :: QueryResultItem)
-
--- | The unique identifier for the document.
-queryResultItem_documentId :: Lens.Lens' QueryResultItem (Prelude.Maybe Prelude.Text)
-queryResultItem_documentId = Lens.lens (\QueryResultItem' {documentId} -> documentId) (\s@QueryResultItem' {} a -> s {documentId = a} :: QueryResultItem)
-
--- | The URI of the original location of the document.
-queryResultItem_documentURI :: Lens.Lens' QueryResultItem (Prelude.Maybe Prelude.Text)
-queryResultItem_documentURI = Lens.lens (\QueryResultItem' {documentURI} -> documentURI) (\s@QueryResultItem' {} a -> s {documentURI = a} :: QueryResultItem)
+-- | The type of document within the response. For example, a response could
+-- include a question-answer that\'s relevant to the query.
+queryResultItem_type :: Lens.Lens' QueryResultItem (Prelude.Maybe QueryResultType)
+queryResultItem_type = Lens.lens (\QueryResultItem' {type'} -> type') (\s@QueryResultItem' {} a -> s {type' = a} :: QueryResultItem)
 
 instance Data.FromJSON QueryResultItem where
   parseJSON =
@@ -198,44 +231,50 @@ instance Data.FromJSON QueryResultItem where
       "QueryResultItem"
       ( \x ->
           QueryResultItem'
-            Prelude.<$> (x Data..:? "Type")
-            Prelude.<*> (x Data..:? "DocumentTitle")
-            Prelude.<*> ( x Data..:? "DocumentAttributes"
+            Prelude.<$> ( x Data..:? "AdditionalAttributes"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "ScoreAttributes")
-            Prelude.<*> (x Data..:? "Id")
-            Prelude.<*> (x Data..:? "FeedbackToken")
-            Prelude.<*> ( x Data..:? "AdditionalAttributes"
+            Prelude.<*> ( x Data..:? "DocumentAttributes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "DocumentExcerpt")
             Prelude.<*> (x Data..:? "DocumentId")
+            Prelude.<*> (x Data..:? "DocumentTitle")
             Prelude.<*> (x Data..:? "DocumentURI")
+            Prelude.<*> (x Data..:? "FeedbackToken")
+            Prelude.<*> (x Data..:? "Format")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "ScoreAttributes")
+            Prelude.<*> (x Data..:? "TableExcerpt")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable QueryResultItem where
   hashWithSalt _salt QueryResultItem' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` documentTitle
+    _salt `Prelude.hashWithSalt` additionalAttributes
       `Prelude.hashWithSalt` documentAttributes
-      `Prelude.hashWithSalt` scoreAttributes
-      `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` feedbackToken
-      `Prelude.hashWithSalt` additionalAttributes
       `Prelude.hashWithSalt` documentExcerpt
       `Prelude.hashWithSalt` documentId
+      `Prelude.hashWithSalt` documentTitle
       `Prelude.hashWithSalt` documentURI
+      `Prelude.hashWithSalt` feedbackToken
+      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` scoreAttributes
+      `Prelude.hashWithSalt` tableExcerpt
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData QueryResultItem where
   rnf QueryResultItem' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf documentTitle
+    Prelude.rnf additionalAttributes
       `Prelude.seq` Prelude.rnf documentAttributes
-      `Prelude.seq` Prelude.rnf scoreAttributes
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf feedbackToken
-      `Prelude.seq` Prelude.rnf additionalAttributes
       `Prelude.seq` Prelude.rnf documentExcerpt
       `Prelude.seq` Prelude.rnf documentId
+      `Prelude.seq` Prelude.rnf documentTitle
       `Prelude.seq` Prelude.rnf documentURI
+      `Prelude.seq` Prelude.rnf feedbackToken
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf scoreAttributes
+      `Prelude.seq` Prelude.rnf tableExcerpt
+      `Prelude.seq` Prelude.rnf type'

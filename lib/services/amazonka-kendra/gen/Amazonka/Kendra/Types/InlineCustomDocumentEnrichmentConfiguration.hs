@@ -37,15 +37,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInlineCustomDocumentEnrichmentConfiguration' smart constructor.
 data InlineCustomDocumentEnrichmentConfiguration = InlineCustomDocumentEnrichmentConfiguration'
-  { -- | Configuration of the target document attribute or metadata field when
-    -- ingesting documents into Amazon Kendra. You can also include a value.
-    target :: Prelude.Maybe DocumentAttributeTarget,
-    -- | Configuration of the condition used for the target document attribute or
+  { -- | Configuration of the condition used for the target document attribute or
     -- metadata field when ingesting documents into Amazon Kendra.
     condition :: Prelude.Maybe DocumentAttributeCondition,
     -- | @TRUE@ to delete content if the condition used for the target attribute
     -- is met.
-    documentContentDeletion :: Prelude.Maybe Prelude.Bool
+    documentContentDeletion :: Prelude.Maybe Prelude.Bool,
+    -- | Configuration of the target document attribute or metadata field when
+    -- ingesting documents into Amazon Kendra. You can also include a value.
+    target :: Prelude.Maybe DocumentAttributeTarget
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,29 +57,24 @@ data InlineCustomDocumentEnrichmentConfiguration = InlineCustomDocumentEnrichmen
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'target', 'inlineCustomDocumentEnrichmentConfiguration_target' - Configuration of the target document attribute or metadata field when
--- ingesting documents into Amazon Kendra. You can also include a value.
---
 -- 'condition', 'inlineCustomDocumentEnrichmentConfiguration_condition' - Configuration of the condition used for the target document attribute or
 -- metadata field when ingesting documents into Amazon Kendra.
 --
 -- 'documentContentDeletion', 'inlineCustomDocumentEnrichmentConfiguration_documentContentDeletion' - @TRUE@ to delete content if the condition used for the target attribute
 -- is met.
+--
+-- 'target', 'inlineCustomDocumentEnrichmentConfiguration_target' - Configuration of the target document attribute or metadata field when
+-- ingesting documents into Amazon Kendra. You can also include a value.
 newInlineCustomDocumentEnrichmentConfiguration ::
   InlineCustomDocumentEnrichmentConfiguration
 newInlineCustomDocumentEnrichmentConfiguration =
   InlineCustomDocumentEnrichmentConfiguration'
-    { target =
+    { condition =
         Prelude.Nothing,
-      condition = Prelude.Nothing,
       documentContentDeletion =
-        Prelude.Nothing
+        Prelude.Nothing,
+      target = Prelude.Nothing
     }
-
--- | Configuration of the target document attribute or metadata field when
--- ingesting documents into Amazon Kendra. You can also include a value.
-inlineCustomDocumentEnrichmentConfiguration_target :: Lens.Lens' InlineCustomDocumentEnrichmentConfiguration (Prelude.Maybe DocumentAttributeTarget)
-inlineCustomDocumentEnrichmentConfiguration_target = Lens.lens (\InlineCustomDocumentEnrichmentConfiguration' {target} -> target) (\s@InlineCustomDocumentEnrichmentConfiguration' {} a -> s {target = a} :: InlineCustomDocumentEnrichmentConfiguration)
 
 -- | Configuration of the condition used for the target document attribute or
 -- metadata field when ingesting documents into Amazon Kendra.
@@ -91,6 +86,11 @@ inlineCustomDocumentEnrichmentConfiguration_condition = Lens.lens (\InlineCustom
 inlineCustomDocumentEnrichmentConfiguration_documentContentDeletion :: Lens.Lens' InlineCustomDocumentEnrichmentConfiguration (Prelude.Maybe Prelude.Bool)
 inlineCustomDocumentEnrichmentConfiguration_documentContentDeletion = Lens.lens (\InlineCustomDocumentEnrichmentConfiguration' {documentContentDeletion} -> documentContentDeletion) (\s@InlineCustomDocumentEnrichmentConfiguration' {} a -> s {documentContentDeletion = a} :: InlineCustomDocumentEnrichmentConfiguration)
 
+-- | Configuration of the target document attribute or metadata field when
+-- ingesting documents into Amazon Kendra. You can also include a value.
+inlineCustomDocumentEnrichmentConfiguration_target :: Lens.Lens' InlineCustomDocumentEnrichmentConfiguration (Prelude.Maybe DocumentAttributeTarget)
+inlineCustomDocumentEnrichmentConfiguration_target = Lens.lens (\InlineCustomDocumentEnrichmentConfiguration' {target} -> target) (\s@InlineCustomDocumentEnrichmentConfiguration' {} a -> s {target = a} :: InlineCustomDocumentEnrichmentConfiguration)
+
 instance
   Data.FromJSON
     InlineCustomDocumentEnrichmentConfiguration
@@ -100,9 +100,9 @@ instance
       "InlineCustomDocumentEnrichmentConfiguration"
       ( \x ->
           InlineCustomDocumentEnrichmentConfiguration'
-            Prelude.<$> (x Data..:? "Target")
-              Prelude.<*> (x Data..:? "Condition")
+            Prelude.<$> (x Data..:? "Condition")
               Prelude.<*> (x Data..:? "DocumentContentDeletion")
+              Prelude.<*> (x Data..:? "Target")
       )
 
 instance
@@ -112,18 +112,18 @@ instance
   hashWithSalt
     _salt
     InlineCustomDocumentEnrichmentConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` target
-        `Prelude.hashWithSalt` condition
+      _salt `Prelude.hashWithSalt` condition
         `Prelude.hashWithSalt` documentContentDeletion
+        `Prelude.hashWithSalt` target
 
 instance
   Prelude.NFData
     InlineCustomDocumentEnrichmentConfiguration
   where
   rnf InlineCustomDocumentEnrichmentConfiguration' {..} =
-    Prelude.rnf target
-      `Prelude.seq` Prelude.rnf condition
+    Prelude.rnf condition
       `Prelude.seq` Prelude.rnf documentContentDeletion
+      `Prelude.seq` Prelude.rnf target
 
 instance
   Data.ToJSON
@@ -133,9 +133,9 @@ instance
     InlineCustomDocumentEnrichmentConfiguration' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ ("Target" Data..=) Prelude.<$> target,
-              ("Condition" Data..=) Prelude.<$> condition,
+            [ ("Condition" Data..=) Prelude.<$> condition,
               ("DocumentContentDeletion" Data..=)
-                Prelude.<$> documentContentDeletion
+                Prelude.<$> documentContentDeletion,
+              ("Target" Data..=) Prelude.<$> target
             ]
         )

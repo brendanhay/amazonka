@@ -52,9 +52,9 @@ module Amazonka.Kendra.UpdateAccessControlConfiguration
 
     -- * Request Lenses
     updateAccessControlConfiguration_accessControlList,
-    updateAccessControlConfiguration_name,
     updateAccessControlConfiguration_description,
     updateAccessControlConfiguration_hierarchicalAccessControlList,
+    updateAccessControlConfiguration_name,
     updateAccessControlConfiguration_indexId,
     updateAccessControlConfiguration_id,
 
@@ -82,8 +82,6 @@ data UpdateAccessControlConfiguration = UpdateAccessControlConfiguration'
     -- context filtering, where search results are filtered based on the user
     -- or their group access to documents.
     accessControlList :: Prelude.Maybe [Principal],
-    -- | A new name for the access control configuration.
-    name :: Prelude.Maybe Prelude.Text,
     -- | A new description for the access control configuration.
     description :: Prelude.Maybe Prelude.Text,
     -- | The updated list of
@@ -91,6 +89,8 @@ data UpdateAccessControlConfiguration = UpdateAccessControlConfiguration'
     -- lists that define the hierarchy for which documents users should have
     -- access to.
     hierarchicalAccessControlList :: Prelude.Maybe (Prelude.NonEmpty HierarchicalPrincipal),
+    -- | A new name for the access control configuration.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the index for an access control configuration.
     indexId :: Prelude.Text,
     -- | The identifier of the access control configuration you want to update.
@@ -111,14 +111,14 @@ data UpdateAccessControlConfiguration = UpdateAccessControlConfiguration'
 -- context filtering, where search results are filtered based on the user
 -- or their group access to documents.
 --
--- 'name', 'updateAccessControlConfiguration_name' - A new name for the access control configuration.
---
 -- 'description', 'updateAccessControlConfiguration_description' - A new description for the access control configuration.
 --
 -- 'hierarchicalAccessControlList', 'updateAccessControlConfiguration_hierarchicalAccessControlList' - The updated list of
 -- <https://docs.aws.amazon.com/kendra/latest/dg/API_Principal.html principal>
 -- lists that define the hierarchy for which documents users should have
 -- access to.
+--
+-- 'name', 'updateAccessControlConfiguration_name' - A new name for the access control configuration.
 --
 -- 'indexId', 'updateAccessControlConfiguration_indexId' - The identifier of the index for an access control configuration.
 --
@@ -133,10 +133,10 @@ newUpdateAccessControlConfiguration pIndexId_ pId_ =
   UpdateAccessControlConfiguration'
     { accessControlList =
         Prelude.Nothing,
-      name = Prelude.Nothing,
       description = Prelude.Nothing,
       hierarchicalAccessControlList =
         Prelude.Nothing,
+      name = Prelude.Nothing,
       indexId = pIndexId_,
       id = pId_
     }
@@ -148,10 +148,6 @@ newUpdateAccessControlConfiguration pIndexId_ pId_ =
 updateAccessControlConfiguration_accessControlList :: Lens.Lens' UpdateAccessControlConfiguration (Prelude.Maybe [Principal])
 updateAccessControlConfiguration_accessControlList = Lens.lens (\UpdateAccessControlConfiguration' {accessControlList} -> accessControlList) (\s@UpdateAccessControlConfiguration' {} a -> s {accessControlList = a} :: UpdateAccessControlConfiguration) Prelude.. Lens.mapping Lens.coerced
 
--- | A new name for the access control configuration.
-updateAccessControlConfiguration_name :: Lens.Lens' UpdateAccessControlConfiguration (Prelude.Maybe Prelude.Text)
-updateAccessControlConfiguration_name = Lens.lens (\UpdateAccessControlConfiguration' {name} -> name) (\s@UpdateAccessControlConfiguration' {} a -> s {name = a} :: UpdateAccessControlConfiguration)
-
 -- | A new description for the access control configuration.
 updateAccessControlConfiguration_description :: Lens.Lens' UpdateAccessControlConfiguration (Prelude.Maybe Prelude.Text)
 updateAccessControlConfiguration_description = Lens.lens (\UpdateAccessControlConfiguration' {description} -> description) (\s@UpdateAccessControlConfiguration' {} a -> s {description = a} :: UpdateAccessControlConfiguration)
@@ -162,6 +158,10 @@ updateAccessControlConfiguration_description = Lens.lens (\UpdateAccessControlCo
 -- access to.
 updateAccessControlConfiguration_hierarchicalAccessControlList :: Lens.Lens' UpdateAccessControlConfiguration (Prelude.Maybe (Prelude.NonEmpty HierarchicalPrincipal))
 updateAccessControlConfiguration_hierarchicalAccessControlList = Lens.lens (\UpdateAccessControlConfiguration' {hierarchicalAccessControlList} -> hierarchicalAccessControlList) (\s@UpdateAccessControlConfiguration' {} a -> s {hierarchicalAccessControlList = a} :: UpdateAccessControlConfiguration) Prelude.. Lens.mapping Lens.coerced
+
+-- | A new name for the access control configuration.
+updateAccessControlConfiguration_name :: Lens.Lens' UpdateAccessControlConfiguration (Prelude.Maybe Prelude.Text)
+updateAccessControlConfiguration_name = Lens.lens (\UpdateAccessControlConfiguration' {name} -> name) (\s@UpdateAccessControlConfiguration' {} a -> s {name = a} :: UpdateAccessControlConfiguration)
 
 -- | The identifier of the index for an access control configuration.
 updateAccessControlConfiguration_indexId :: Lens.Lens' UpdateAccessControlConfiguration Prelude.Text
@@ -195,9 +195,9 @@ instance
     _salt
     UpdateAccessControlConfiguration' {..} =
       _salt `Prelude.hashWithSalt` accessControlList
-        `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` hierarchicalAccessControlList
+        `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` indexId
         `Prelude.hashWithSalt` id
 
@@ -207,9 +207,9 @@ instance
   where
   rnf UpdateAccessControlConfiguration' {..} =
     Prelude.rnf accessControlList
-      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf hierarchicalAccessControlList
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf indexId
       `Prelude.seq` Prelude.rnf id
 
@@ -237,10 +237,10 @@ instance Data.ToJSON UpdateAccessControlConfiguration where
       ( Prelude.catMaybes
           [ ("AccessControlList" Data..=)
               Prelude.<$> accessControlList,
-            ("Name" Data..=) Prelude.<$> name,
             ("Description" Data..=) Prelude.<$> description,
             ("HierarchicalAccessControlList" Data..=)
               Prelude.<$> hierarchicalAccessControlList,
+            ("Name" Data..=) Prelude.<$> name,
             Prelude.Just ("IndexId" Data..= indexId),
             Prelude.Just ("Id" Data..= id)
           ]

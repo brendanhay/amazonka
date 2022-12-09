@@ -29,8 +29,8 @@ module Amazonka.Kendra.GetSnapshots
     newGetSnapshots,
 
     -- * Request Lenses
-    getSnapshots_nextToken,
     getSnapshots_maxResults,
+    getSnapshots_nextToken,
     getSnapshots_indexId,
     getSnapshots_interval,
     getSnapshots_metricType,
@@ -40,10 +40,10 @@ module Amazonka.Kendra.GetSnapshots
     newGetSnapshotsResponse,
 
     -- * Response Lenses
-    getSnapshotsResponse_snapShotTimeFilter,
     getSnapshotsResponse_nextToken,
-    getSnapshotsResponse_snapshotsDataHeader,
+    getSnapshotsResponse_snapShotTimeFilter,
     getSnapshotsResponse_snapshotsData,
+    getSnapshotsResponse_snapshotsDataHeader,
     getSnapshotsResponse_httpStatus,
   )
 where
@@ -58,13 +58,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetSnapshots' smart constructor.
 data GetSnapshots = GetSnapshots'
-  { -- | If the previous response was incomplete (because there is more data to
+  { -- | The maximum number of returned data for the metric.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | If the previous response was incomplete (because there is more data to
     -- retrieve), Amazon Kendra returns a pagination token in the response. You
     -- can use this pagination token to retrieve the next set of search metrics
     -- data.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of returned data for the metric.
-    maxResults :: Prelude.Maybe Prelude.Int,
     -- | The identifier of the index to get search metrics data.
     indexId :: Prelude.Text,
     -- | The time interval or time window to get search metrics data. The time
@@ -106,12 +106,12 @@ data GetSnapshots = GetSnapshots'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'getSnapshots_maxResults' - The maximum number of returned data for the metric.
+--
 -- 'nextToken', 'getSnapshots_nextToken' - If the previous response was incomplete (because there is more data to
 -- retrieve), Amazon Kendra returns a pagination token in the response. You
 -- can use this pagination token to retrieve the next set of search metrics
 -- data.
---
--- 'maxResults', 'getSnapshots_maxResults' - The maximum number of returned data for the metric.
 --
 -- 'indexId', 'getSnapshots_indexId' - The identifier of the index to get search metrics data.
 --
@@ -152,12 +152,16 @@ newGetSnapshots ::
   GetSnapshots
 newGetSnapshots pIndexId_ pInterval_ pMetricType_ =
   GetSnapshots'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       indexId = pIndexId_,
       interval = pInterval_,
       metricType = pMetricType_
     }
+
+-- | The maximum number of returned data for the metric.
+getSnapshots_maxResults :: Lens.Lens' GetSnapshots (Prelude.Maybe Prelude.Int)
+getSnapshots_maxResults = Lens.lens (\GetSnapshots' {maxResults} -> maxResults) (\s@GetSnapshots' {} a -> s {maxResults = a} :: GetSnapshots)
 
 -- | If the previous response was incomplete (because there is more data to
 -- retrieve), Amazon Kendra returns a pagination token in the response. You
@@ -165,10 +169,6 @@ newGetSnapshots pIndexId_ pInterval_ pMetricType_ =
 -- data.
 getSnapshots_nextToken :: Lens.Lens' GetSnapshots (Prelude.Maybe Prelude.Text)
 getSnapshots_nextToken = Lens.lens (\GetSnapshots' {nextToken} -> nextToken) (\s@GetSnapshots' {} a -> s {nextToken = a} :: GetSnapshots)
-
--- | The maximum number of returned data for the metric.
-getSnapshots_maxResults :: Lens.Lens' GetSnapshots (Prelude.Maybe Prelude.Int)
-getSnapshots_maxResults = Lens.lens (\GetSnapshots' {maxResults} -> maxResults) (\s@GetSnapshots' {} a -> s {maxResults = a} :: GetSnapshots)
 
 -- | The identifier of the index to get search metrics data.
 getSnapshots_indexId :: Lens.Lens' GetSnapshots Prelude.Text
@@ -214,27 +214,27 @@ instance Core.AWSRequest GetSnapshots where
     Response.receiveJSON
       ( \s h x ->
           GetSnapshotsResponse'
-            Prelude.<$> (x Data..?> "SnapShotTimeFilter")
-            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "SnapShotTimeFilter")
+            Prelude.<*> (x Data..?> "SnapshotsData" Core..!@ Prelude.mempty)
             Prelude.<*> ( x Data..?> "SnapshotsDataHeader"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "SnapshotsData" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetSnapshots where
   hashWithSalt _salt GetSnapshots' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` indexId
       `Prelude.hashWithSalt` interval
       `Prelude.hashWithSalt` metricType
 
 instance Prelude.NFData GetSnapshots where
   rnf GetSnapshots' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf indexId
       `Prelude.seq` Prelude.rnf interval
       `Prelude.seq` Prelude.rnf metricType
@@ -258,8 +258,8 @@ instance Data.ToJSON GetSnapshots where
   toJSON GetSnapshots' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("IndexId" Data..= indexId),
             Prelude.Just ("Interval" Data..= interval),
             Prelude.Just ("MetricType" Data..= metricType)
@@ -274,18 +274,18 @@ instance Data.ToQuery GetSnapshots where
 
 -- | /See:/ 'newGetSnapshotsResponse' smart constructor.
 data GetSnapshotsResponse = GetSnapshotsResponse'
-  { -- | The date-time for the beginning and end of the time window for the
-    -- search metrics data.
-    snapShotTimeFilter :: Prelude.Maybe TimeRange,
-    -- | If the response is truncated, Amazon Kendra returns this token, which
+  { -- | If the response is truncated, Amazon Kendra returns this token, which
     -- you can use in a later request to retrieve the next set of search
     -- metrics data.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The column headers for the search metrics data.
-    snapshotsDataHeader :: Prelude.Maybe [Prelude.Text],
+    -- | The date-time for the beginning and end of the time window for the
+    -- search metrics data.
+    snapShotTimeFilter :: Prelude.Maybe TimeRange,
     -- | The search metrics data. The data returned depends on the metric type
     -- you requested.
     snapshotsData :: Prelude.Maybe [[Prelude.Text]],
+    -- | The column headers for the search metrics data.
+    snapshotsDataHeader :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -299,17 +299,17 @@ data GetSnapshotsResponse = GetSnapshotsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'snapShotTimeFilter', 'getSnapshotsResponse_snapShotTimeFilter' - The date-time for the beginning and end of the time window for the
--- search metrics data.
---
 -- 'nextToken', 'getSnapshotsResponse_nextToken' - If the response is truncated, Amazon Kendra returns this token, which
 -- you can use in a later request to retrieve the next set of search
 -- metrics data.
 --
--- 'snapshotsDataHeader', 'getSnapshotsResponse_snapshotsDataHeader' - The column headers for the search metrics data.
+-- 'snapShotTimeFilter', 'getSnapshotsResponse_snapShotTimeFilter' - The date-time for the beginning and end of the time window for the
+-- search metrics data.
 --
 -- 'snapshotsData', 'getSnapshotsResponse_snapshotsData' - The search metrics data. The data returned depends on the metric type
 -- you requested.
+--
+-- 'snapshotsDataHeader', 'getSnapshotsResponse_snapshotsDataHeader' - The column headers for the search metrics data.
 --
 -- 'httpStatus', 'getSnapshotsResponse_httpStatus' - The response's http status code.
 newGetSnapshotsResponse ::
@@ -318,18 +318,12 @@ newGetSnapshotsResponse ::
   GetSnapshotsResponse
 newGetSnapshotsResponse pHttpStatus_ =
   GetSnapshotsResponse'
-    { snapShotTimeFilter =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      snapshotsDataHeader = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      snapShotTimeFilter = Prelude.Nothing,
       snapshotsData = Prelude.Nothing,
+      snapshotsDataHeader = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The date-time for the beginning and end of the time window for the
--- search metrics data.
-getSnapshotsResponse_snapShotTimeFilter :: Lens.Lens' GetSnapshotsResponse (Prelude.Maybe TimeRange)
-getSnapshotsResponse_snapShotTimeFilter = Lens.lens (\GetSnapshotsResponse' {snapShotTimeFilter} -> snapShotTimeFilter) (\s@GetSnapshotsResponse' {} a -> s {snapShotTimeFilter = a} :: GetSnapshotsResponse)
 
 -- | If the response is truncated, Amazon Kendra returns this token, which
 -- you can use in a later request to retrieve the next set of search
@@ -337,14 +331,19 @@ getSnapshotsResponse_snapShotTimeFilter = Lens.lens (\GetSnapshotsResponse' {sna
 getSnapshotsResponse_nextToken :: Lens.Lens' GetSnapshotsResponse (Prelude.Maybe Prelude.Text)
 getSnapshotsResponse_nextToken = Lens.lens (\GetSnapshotsResponse' {nextToken} -> nextToken) (\s@GetSnapshotsResponse' {} a -> s {nextToken = a} :: GetSnapshotsResponse)
 
--- | The column headers for the search metrics data.
-getSnapshotsResponse_snapshotsDataHeader :: Lens.Lens' GetSnapshotsResponse (Prelude.Maybe [Prelude.Text])
-getSnapshotsResponse_snapshotsDataHeader = Lens.lens (\GetSnapshotsResponse' {snapshotsDataHeader} -> snapshotsDataHeader) (\s@GetSnapshotsResponse' {} a -> s {snapshotsDataHeader = a} :: GetSnapshotsResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The date-time for the beginning and end of the time window for the
+-- search metrics data.
+getSnapshotsResponse_snapShotTimeFilter :: Lens.Lens' GetSnapshotsResponse (Prelude.Maybe TimeRange)
+getSnapshotsResponse_snapShotTimeFilter = Lens.lens (\GetSnapshotsResponse' {snapShotTimeFilter} -> snapShotTimeFilter) (\s@GetSnapshotsResponse' {} a -> s {snapShotTimeFilter = a} :: GetSnapshotsResponse)
 
 -- | The search metrics data. The data returned depends on the metric type
 -- you requested.
 getSnapshotsResponse_snapshotsData :: Lens.Lens' GetSnapshotsResponse (Prelude.Maybe [[Prelude.Text]])
 getSnapshotsResponse_snapshotsData = Lens.lens (\GetSnapshotsResponse' {snapshotsData} -> snapshotsData) (\s@GetSnapshotsResponse' {} a -> s {snapshotsData = a} :: GetSnapshotsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The column headers for the search metrics data.
+getSnapshotsResponse_snapshotsDataHeader :: Lens.Lens' GetSnapshotsResponse (Prelude.Maybe [Prelude.Text])
+getSnapshotsResponse_snapshotsDataHeader = Lens.lens (\GetSnapshotsResponse' {snapshotsDataHeader} -> snapshotsDataHeader) (\s@GetSnapshotsResponse' {} a -> s {snapshotsDataHeader = a} :: GetSnapshotsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getSnapshotsResponse_httpStatus :: Lens.Lens' GetSnapshotsResponse Prelude.Int
@@ -352,8 +351,8 @@ getSnapshotsResponse_httpStatus = Lens.lens (\GetSnapshotsResponse' {httpStatus}
 
 instance Prelude.NFData GetSnapshotsResponse where
   rnf GetSnapshotsResponse' {..} =
-    Prelude.rnf snapShotTimeFilter
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf snapshotsDataHeader
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf snapShotTimeFilter
       `Prelude.seq` Prelude.rnf snapshotsData
+      `Prelude.seq` Prelude.rnf snapshotsDataHeader
       `Prelude.seq` Prelude.rnf httpStatus

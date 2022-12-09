@@ -30,15 +30,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStatus' smart constructor.
 data Status = Status'
-  { -- | Indicates the source of the error.
-    failureCode :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier of the document.
+  { -- | The identifier of the document.
     documentId :: Prelude.Maybe Prelude.Text,
     -- | The current status of a document.
     --
     -- If the document was submitted for deletion, the status is @NOT_FOUND@
     -- after the document is deleted.
     documentStatus :: Prelude.Maybe DocumentStatus,
+    -- | Indicates the source of the error.
+    failureCode :: Prelude.Maybe Prelude.Text,
     -- | Provides detailed information about why the document couldn\'t be
     -- indexed. Use this information to correct the error before you resubmit
     -- the document for indexing.
@@ -54,14 +54,14 @@ data Status = Status'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'failureCode', 'status_failureCode' - Indicates the source of the error.
---
--- 'documentId', 'status_documentId' - The unique identifier of the document.
+-- 'documentId', 'status_documentId' - The identifier of the document.
 --
 -- 'documentStatus', 'status_documentStatus' - The current status of a document.
 --
 -- If the document was submitted for deletion, the status is @NOT_FOUND@
 -- after the document is deleted.
+--
+-- 'failureCode', 'status_failureCode' - Indicates the source of the error.
 --
 -- 'failureReason', 'status_failureReason' - Provides detailed information about why the document couldn\'t be
 -- indexed. Use this information to correct the error before you resubmit
@@ -70,17 +70,13 @@ newStatus ::
   Status
 newStatus =
   Status'
-    { failureCode = Prelude.Nothing,
-      documentId = Prelude.Nothing,
+    { documentId = Prelude.Nothing,
       documentStatus = Prelude.Nothing,
+      failureCode = Prelude.Nothing,
       failureReason = Prelude.Nothing
     }
 
--- | Indicates the source of the error.
-status_failureCode :: Lens.Lens' Status (Prelude.Maybe Prelude.Text)
-status_failureCode = Lens.lens (\Status' {failureCode} -> failureCode) (\s@Status' {} a -> s {failureCode = a} :: Status)
-
--- | The unique identifier of the document.
+-- | The identifier of the document.
 status_documentId :: Lens.Lens' Status (Prelude.Maybe Prelude.Text)
 status_documentId = Lens.lens (\Status' {documentId} -> documentId) (\s@Status' {} a -> s {documentId = a} :: Status)
 
@@ -90,6 +86,10 @@ status_documentId = Lens.lens (\Status' {documentId} -> documentId) (\s@Status' 
 -- after the document is deleted.
 status_documentStatus :: Lens.Lens' Status (Prelude.Maybe DocumentStatus)
 status_documentStatus = Lens.lens (\Status' {documentStatus} -> documentStatus) (\s@Status' {} a -> s {documentStatus = a} :: Status)
+
+-- | Indicates the source of the error.
+status_failureCode :: Lens.Lens' Status (Prelude.Maybe Prelude.Text)
+status_failureCode = Lens.lens (\Status' {failureCode} -> failureCode) (\s@Status' {} a -> s {failureCode = a} :: Status)
 
 -- | Provides detailed information about why the document couldn\'t be
 -- indexed. Use this information to correct the error before you resubmit
@@ -103,22 +103,22 @@ instance Data.FromJSON Status where
       "Status"
       ( \x ->
           Status'
-            Prelude.<$> (x Data..:? "FailureCode")
-            Prelude.<*> (x Data..:? "DocumentId")
+            Prelude.<$> (x Data..:? "DocumentId")
             Prelude.<*> (x Data..:? "DocumentStatus")
+            Prelude.<*> (x Data..:? "FailureCode")
             Prelude.<*> (x Data..:? "FailureReason")
       )
 
 instance Prelude.Hashable Status where
   hashWithSalt _salt Status' {..} =
-    _salt `Prelude.hashWithSalt` failureCode
-      `Prelude.hashWithSalt` documentId
+    _salt `Prelude.hashWithSalt` documentId
       `Prelude.hashWithSalt` documentStatus
+      `Prelude.hashWithSalt` failureCode
       `Prelude.hashWithSalt` failureReason
 
 instance Prelude.NFData Status where
   rnf Status' {..} =
-    Prelude.rnf failureCode
-      `Prelude.seq` Prelude.rnf documentId
+    Prelude.rnf documentId
       `Prelude.seq` Prelude.rnf documentStatus
+      `Prelude.seq` Prelude.rnf failureCode
       `Prelude.seq` Prelude.rnf failureReason

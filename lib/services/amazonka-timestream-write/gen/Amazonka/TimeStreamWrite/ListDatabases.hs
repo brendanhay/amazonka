@@ -31,16 +31,16 @@ module Amazonka.TimeStreamWrite.ListDatabases
     newListDatabases,
 
     -- * Request Lenses
-    listDatabases_nextToken,
     listDatabases_maxResults,
+    listDatabases_nextToken,
 
     -- * Destructuring the Response
     ListDatabasesResponse (..),
     newListDatabasesResponse,
 
     -- * Response Lenses
-    listDatabasesResponse_nextToken,
     listDatabasesResponse_databases,
+    listDatabasesResponse_nextToken,
     listDatabasesResponse_httpStatus,
   )
 where
@@ -55,14 +55,14 @@ import Amazonka.TimeStreamWrite.Types
 
 -- | /See:/ 'newListDatabases' smart constructor.
 data ListDatabases = ListDatabases'
-  { -- | The pagination token. To resume pagination, provide the NextToken value
-    -- as argument of a subsequent API invocation.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The total number of items to return in the output. If the total number
+  { -- | The total number of items to return in the output. If the total number
     -- of items available is more than the value specified, a NextToken is
     -- provided in the output. To resume pagination, provide the NextToken
     -- value as argument of a subsequent API invocation.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token. To resume pagination, provide the NextToken value
+    -- as argument of a subsequent API invocation.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,25 +74,20 @@ data ListDatabases = ListDatabases'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listDatabases_nextToken' - The pagination token. To resume pagination, provide the NextToken value
--- as argument of a subsequent API invocation.
---
 -- 'maxResults', 'listDatabases_maxResults' - The total number of items to return in the output. If the total number
 -- of items available is more than the value specified, a NextToken is
 -- provided in the output. To resume pagination, provide the NextToken
 -- value as argument of a subsequent API invocation.
+--
+-- 'nextToken', 'listDatabases_nextToken' - The pagination token. To resume pagination, provide the NextToken value
+-- as argument of a subsequent API invocation.
 newListDatabases ::
   ListDatabases
 newListDatabases =
   ListDatabases'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The pagination token. To resume pagination, provide the NextToken value
--- as argument of a subsequent API invocation.
-listDatabases_nextToken :: Lens.Lens' ListDatabases (Prelude.Maybe Prelude.Text)
-listDatabases_nextToken = Lens.lens (\ListDatabases' {nextToken} -> nextToken) (\s@ListDatabases' {} a -> s {nextToken = a} :: ListDatabases)
 
 -- | The total number of items to return in the output. If the total number
 -- of items available is more than the value specified, a NextToken is
@@ -100,6 +95,11 @@ listDatabases_nextToken = Lens.lens (\ListDatabases' {nextToken} -> nextToken) (
 -- value as argument of a subsequent API invocation.
 listDatabases_maxResults :: Lens.Lens' ListDatabases (Prelude.Maybe Prelude.Natural)
 listDatabases_maxResults = Lens.lens (\ListDatabases' {maxResults} -> maxResults) (\s@ListDatabases' {} a -> s {maxResults = a} :: ListDatabases)
+
+-- | The pagination token. To resume pagination, provide the NextToken value
+-- as argument of a subsequent API invocation.
+listDatabases_nextToken :: Lens.Lens' ListDatabases (Prelude.Maybe Prelude.Text)
+listDatabases_nextToken = Lens.lens (\ListDatabases' {nextToken} -> nextToken) (\s@ListDatabases' {} a -> s {nextToken = a} :: ListDatabases)
 
 instance Core.AWSRequest ListDatabases where
   type
@@ -111,20 +111,20 @@ instance Core.AWSRequest ListDatabases where
     Response.receiveJSON
       ( \s h x ->
           ListDatabasesResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Databases" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Databases" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListDatabases where
   hashWithSalt _salt ListDatabases' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListDatabases where
   rnf ListDatabases' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListDatabases where
   toHeaders =
@@ -145,8 +145,8 @@ instance Data.ToJSON ListDatabases where
   toJSON ListDatabases' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -158,11 +158,11 @@ instance Data.ToQuery ListDatabases where
 
 -- | /See:/ 'newListDatabasesResponse' smart constructor.
 data ListDatabasesResponse = ListDatabasesResponse'
-  { -- | The pagination token. This parameter is returned when the response is
+  { -- | A list of database names.
+    databases :: Prelude.Maybe [Database],
+    -- | The pagination token. This parameter is returned when the response is
     -- truncated.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of database names.
-    databases :: Prelude.Maybe [Database],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -176,10 +176,10 @@ data ListDatabasesResponse = ListDatabasesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'databases', 'listDatabasesResponse_databases' - A list of database names.
+--
 -- 'nextToken', 'listDatabasesResponse_nextToken' - The pagination token. This parameter is returned when the response is
 -- truncated.
---
--- 'databases', 'listDatabasesResponse_databases' - A list of database names.
 --
 -- 'httpStatus', 'listDatabasesResponse_httpStatus' - The response's http status code.
 newListDatabasesResponse ::
@@ -188,19 +188,19 @@ newListDatabasesResponse ::
   ListDatabasesResponse
 newListDatabasesResponse pHttpStatus_ =
   ListDatabasesResponse'
-    { nextToken = Prelude.Nothing,
-      databases = Prelude.Nothing,
+    { databases = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of database names.
+listDatabasesResponse_databases :: Lens.Lens' ListDatabasesResponse (Prelude.Maybe [Database])
+listDatabasesResponse_databases = Lens.lens (\ListDatabasesResponse' {databases} -> databases) (\s@ListDatabasesResponse' {} a -> s {databases = a} :: ListDatabasesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token. This parameter is returned when the response is
 -- truncated.
 listDatabasesResponse_nextToken :: Lens.Lens' ListDatabasesResponse (Prelude.Maybe Prelude.Text)
 listDatabasesResponse_nextToken = Lens.lens (\ListDatabasesResponse' {nextToken} -> nextToken) (\s@ListDatabasesResponse' {} a -> s {nextToken = a} :: ListDatabasesResponse)
-
--- | A list of database names.
-listDatabasesResponse_databases :: Lens.Lens' ListDatabasesResponse (Prelude.Maybe [Database])
-listDatabasesResponse_databases = Lens.lens (\ListDatabasesResponse' {databases} -> databases) (\s@ListDatabasesResponse' {} a -> s {databases = a} :: ListDatabasesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listDatabasesResponse_httpStatus :: Lens.Lens' ListDatabasesResponse Prelude.Int
@@ -208,6 +208,6 @@ listDatabasesResponse_httpStatus = Lens.lens (\ListDatabasesResponse' {httpStatu
 
 instance Prelude.NFData ListDatabasesResponse where
   rnf ListDatabasesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf databases
+    Prelude.rnf databases
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -35,8 +35,8 @@ module Amazonka.TimeStreamWrite.CreateDatabase
     newCreateDatabase,
 
     -- * Request Lenses
-    createDatabase_tags,
     createDatabase_kmsKeyId,
+    createDatabase_tags,
     createDatabase_databaseName,
 
     -- * Destructuring the Response
@@ -59,14 +59,14 @@ import Amazonka.TimeStreamWrite.Types
 
 -- | /See:/ 'newCreateDatabase' smart constructor.
 data CreateDatabase = CreateDatabase'
-  { -- | A list of key-value pairs to label the table.
-    tags :: Prelude.Maybe [Tag],
-    -- | The KMS key for the database. If the KMS key is not specified, the
+  { -- | The KMS key for the database. If the KMS key is not specified, the
     -- database will be encrypted with a Timestream managed KMS key located in
     -- your account. Refer to
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk Amazon Web Services managed KMS keys>
     -- for more info.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | A list of key-value pairs to label the table.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the Timestream database.
     databaseName :: Prelude.Text
   }
@@ -80,13 +80,13 @@ data CreateDatabase = CreateDatabase'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createDatabase_tags' - A list of key-value pairs to label the table.
---
 -- 'kmsKeyId', 'createDatabase_kmsKeyId' - The KMS key for the database. If the KMS key is not specified, the
 -- database will be encrypted with a Timestream managed KMS key located in
 -- your account. Refer to
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk Amazon Web Services managed KMS keys>
 -- for more info.
+--
+-- 'tags', 'createDatabase_tags' - A list of key-value pairs to label the table.
 --
 -- 'databaseName', 'createDatabase_databaseName' - The name of the Timestream database.
 newCreateDatabase ::
@@ -95,14 +95,10 @@ newCreateDatabase ::
   CreateDatabase
 newCreateDatabase pDatabaseName_ =
   CreateDatabase'
-    { tags = Prelude.Nothing,
-      kmsKeyId = Prelude.Nothing,
+    { kmsKeyId = Prelude.Nothing,
+      tags = Prelude.Nothing,
       databaseName = pDatabaseName_
     }
-
--- | A list of key-value pairs to label the table.
-createDatabase_tags :: Lens.Lens' CreateDatabase (Prelude.Maybe [Tag])
-createDatabase_tags = Lens.lens (\CreateDatabase' {tags} -> tags) (\s@CreateDatabase' {} a -> s {tags = a} :: CreateDatabase) Prelude.. Lens.mapping Lens.coerced
 
 -- | The KMS key for the database. If the KMS key is not specified, the
 -- database will be encrypted with a Timestream managed KMS key located in
@@ -111,6 +107,10 @@ createDatabase_tags = Lens.lens (\CreateDatabase' {tags} -> tags) (\s@CreateData
 -- for more info.
 createDatabase_kmsKeyId :: Lens.Lens' CreateDatabase (Prelude.Maybe Prelude.Text)
 createDatabase_kmsKeyId = Lens.lens (\CreateDatabase' {kmsKeyId} -> kmsKeyId) (\s@CreateDatabase' {} a -> s {kmsKeyId = a} :: CreateDatabase)
+
+-- | A list of key-value pairs to label the table.
+createDatabase_tags :: Lens.Lens' CreateDatabase (Prelude.Maybe [Tag])
+createDatabase_tags = Lens.lens (\CreateDatabase' {tags} -> tags) (\s@CreateDatabase' {} a -> s {tags = a} :: CreateDatabase) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the Timestream database.
 createDatabase_databaseName :: Lens.Lens' CreateDatabase Prelude.Text
@@ -132,14 +132,14 @@ instance Core.AWSRequest CreateDatabase where
 
 instance Prelude.Hashable CreateDatabase where
   hashWithSalt _salt CreateDatabase' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` kmsKeyId
+    _salt `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` databaseName
 
 instance Prelude.NFData CreateDatabase where
   rnf CreateDatabase' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf kmsKeyId
+    Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf databaseName
 
 instance Data.ToHeaders CreateDatabase where
@@ -161,8 +161,8 @@ instance Data.ToJSON CreateDatabase where
   toJSON CreateDatabase' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+          [ ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("DatabaseName" Data..= databaseName)
           ]
       )

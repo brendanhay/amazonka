@@ -37,12 +37,12 @@ module Amazonka.MigrationHubReFactorSpaces.UpdateRoute
     newUpdateRouteResponse,
 
     -- * Response Lenses
+    updateRouteResponse_applicationId,
     updateRouteResponse_arn,
-    updateRouteResponse_state,
     updateRouteResponse_lastUpdatedTime,
     updateRouteResponse_routeId,
-    updateRouteResponse_applicationId,
     updateRouteResponse_serviceId,
+    updateRouteResponse_state,
     updateRouteResponse_httpStatus,
   )
 where
@@ -132,12 +132,12 @@ instance Core.AWSRequest UpdateRoute where
     Response.receiveJSON
       ( \s h x ->
           UpdateRouteResponse'
-            Prelude.<$> (x Data..?> "Arn")
-            Prelude.<*> (x Data..?> "State")
+            Prelude.<$> (x Data..?> "ApplicationId")
+            Prelude.<*> (x Data..?> "Arn")
             Prelude.<*> (x Data..?> "LastUpdatedTime")
             Prelude.<*> (x Data..?> "RouteId")
-            Prelude.<*> (x Data..?> "ApplicationId")
             Prelude.<*> (x Data..?> "ServiceId")
+            Prelude.<*> (x Data..?> "State")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -191,23 +191,23 @@ instance Data.ToQuery UpdateRoute where
 
 -- | /See:/ 'newUpdateRouteResponse' smart constructor.
 data UpdateRouteResponse = UpdateRouteResponse'
-  { -- | The Amazon Resource Name (ARN) of the route. The format for this ARN is
+  { -- | The ID of the application in which the route is being updated.
+    applicationId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the route. The format for this ARN is
     -- @arn:aws:refactor-spaces:region:account-id:resource-type\/resource-id @.
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /Amazon Web Services General Reference/.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The current state of the route.
-    state :: Prelude.Maybe RouteState,
     -- | A timestamp that indicates when the route was last updated.
     lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The unique identifier of the route.
     routeId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the application in which the route is being updated.
-    applicationId :: Prelude.Maybe Prelude.Text,
     -- | The ID of service in which the route was created. Traffic that matches
     -- this route is forwarded to this service.
     serviceId :: Prelude.Maybe Prelude.Text,
+    -- | The current state of the route.
+    state :: Prelude.Maybe RouteState,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -221,22 +221,22 @@ data UpdateRouteResponse = UpdateRouteResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'applicationId', 'updateRouteResponse_applicationId' - The ID of the application in which the route is being updated.
+--
 -- 'arn', 'updateRouteResponse_arn' - The Amazon Resource Name (ARN) of the route. The format for this ARN is
 -- @arn:aws:refactor-spaces:region:account-id:resource-type\/resource-id @.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /Amazon Web Services General Reference/.
 --
--- 'state', 'updateRouteResponse_state' - The current state of the route.
---
 -- 'lastUpdatedTime', 'updateRouteResponse_lastUpdatedTime' - A timestamp that indicates when the route was last updated.
 --
 -- 'routeId', 'updateRouteResponse_routeId' - The unique identifier of the route.
 --
--- 'applicationId', 'updateRouteResponse_applicationId' - The ID of the application in which the route is being updated.
---
 -- 'serviceId', 'updateRouteResponse_serviceId' - The ID of service in which the route was created. Traffic that matches
 -- this route is forwarded to this service.
+--
+-- 'state', 'updateRouteResponse_state' - The current state of the route.
 --
 -- 'httpStatus', 'updateRouteResponse_httpStatus' - The response's http status code.
 newUpdateRouteResponse ::
@@ -245,14 +245,19 @@ newUpdateRouteResponse ::
   UpdateRouteResponse
 newUpdateRouteResponse pHttpStatus_ =
   UpdateRouteResponse'
-    { arn = Prelude.Nothing,
-      state = Prelude.Nothing,
+    { applicationId =
+        Prelude.Nothing,
+      arn = Prelude.Nothing,
       lastUpdatedTime = Prelude.Nothing,
       routeId = Prelude.Nothing,
-      applicationId = Prelude.Nothing,
       serviceId = Prelude.Nothing,
+      state = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The ID of the application in which the route is being updated.
+updateRouteResponse_applicationId :: Lens.Lens' UpdateRouteResponse (Prelude.Maybe Prelude.Text)
+updateRouteResponse_applicationId = Lens.lens (\UpdateRouteResponse' {applicationId} -> applicationId) (\s@UpdateRouteResponse' {} a -> s {applicationId = a} :: UpdateRouteResponse)
 
 -- | The Amazon Resource Name (ARN) of the route. The format for this ARN is
 -- @arn:aws:refactor-spaces:region:account-id:resource-type\/resource-id @.
@@ -262,10 +267,6 @@ newUpdateRouteResponse pHttpStatus_ =
 updateRouteResponse_arn :: Lens.Lens' UpdateRouteResponse (Prelude.Maybe Prelude.Text)
 updateRouteResponse_arn = Lens.lens (\UpdateRouteResponse' {arn} -> arn) (\s@UpdateRouteResponse' {} a -> s {arn = a} :: UpdateRouteResponse)
 
--- | The current state of the route.
-updateRouteResponse_state :: Lens.Lens' UpdateRouteResponse (Prelude.Maybe RouteState)
-updateRouteResponse_state = Lens.lens (\UpdateRouteResponse' {state} -> state) (\s@UpdateRouteResponse' {} a -> s {state = a} :: UpdateRouteResponse)
-
 -- | A timestamp that indicates when the route was last updated.
 updateRouteResponse_lastUpdatedTime :: Lens.Lens' UpdateRouteResponse (Prelude.Maybe Prelude.UTCTime)
 updateRouteResponse_lastUpdatedTime = Lens.lens (\UpdateRouteResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@UpdateRouteResponse' {} a -> s {lastUpdatedTime = a} :: UpdateRouteResponse) Prelude.. Lens.mapping Data._Time
@@ -274,14 +275,14 @@ updateRouteResponse_lastUpdatedTime = Lens.lens (\UpdateRouteResponse' {lastUpda
 updateRouteResponse_routeId :: Lens.Lens' UpdateRouteResponse (Prelude.Maybe Prelude.Text)
 updateRouteResponse_routeId = Lens.lens (\UpdateRouteResponse' {routeId} -> routeId) (\s@UpdateRouteResponse' {} a -> s {routeId = a} :: UpdateRouteResponse)
 
--- | The ID of the application in which the route is being updated.
-updateRouteResponse_applicationId :: Lens.Lens' UpdateRouteResponse (Prelude.Maybe Prelude.Text)
-updateRouteResponse_applicationId = Lens.lens (\UpdateRouteResponse' {applicationId} -> applicationId) (\s@UpdateRouteResponse' {} a -> s {applicationId = a} :: UpdateRouteResponse)
-
 -- | The ID of service in which the route was created. Traffic that matches
 -- this route is forwarded to this service.
 updateRouteResponse_serviceId :: Lens.Lens' UpdateRouteResponse (Prelude.Maybe Prelude.Text)
 updateRouteResponse_serviceId = Lens.lens (\UpdateRouteResponse' {serviceId} -> serviceId) (\s@UpdateRouteResponse' {} a -> s {serviceId = a} :: UpdateRouteResponse)
+
+-- | The current state of the route.
+updateRouteResponse_state :: Lens.Lens' UpdateRouteResponse (Prelude.Maybe RouteState)
+updateRouteResponse_state = Lens.lens (\UpdateRouteResponse' {state} -> state) (\s@UpdateRouteResponse' {} a -> s {state = a} :: UpdateRouteResponse)
 
 -- | The response's http status code.
 updateRouteResponse_httpStatus :: Lens.Lens' UpdateRouteResponse Prelude.Int
@@ -289,10 +290,10 @@ updateRouteResponse_httpStatus = Lens.lens (\UpdateRouteResponse' {httpStatus} -
 
 instance Prelude.NFData UpdateRouteResponse where
   rnf UpdateRouteResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf lastUpdatedTime
       `Prelude.seq` Prelude.rnf routeId
-      `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf serviceId
+      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf httpStatus

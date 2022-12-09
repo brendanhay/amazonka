@@ -36,12 +36,12 @@ module Amazonka.MigrationHubReFactorSpaces.DeleteRoute
     newDeleteRouteResponse,
 
     -- * Response Lenses
+    deleteRouteResponse_applicationId,
     deleteRouteResponse_arn,
-    deleteRouteResponse_state,
     deleteRouteResponse_lastUpdatedTime,
     deleteRouteResponse_routeId,
-    deleteRouteResponse_applicationId,
     deleteRouteResponse_serviceId,
+    deleteRouteResponse_state,
     deleteRouteResponse_httpStatus,
   )
 where
@@ -117,12 +117,12 @@ instance Core.AWSRequest DeleteRoute where
     Response.receiveJSON
       ( \s h x ->
           DeleteRouteResponse'
-            Prelude.<$> (x Data..?> "Arn")
-            Prelude.<*> (x Data..?> "State")
+            Prelude.<$> (x Data..?> "ApplicationId")
+            Prelude.<*> (x Data..?> "Arn")
             Prelude.<*> (x Data..?> "LastUpdatedTime")
             Prelude.<*> (x Data..?> "RouteId")
-            Prelude.<*> (x Data..?> "ApplicationId")
             Prelude.<*> (x Data..?> "ServiceId")
+            Prelude.<*> (x Data..?> "State")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -165,18 +165,18 @@ instance Data.ToQuery DeleteRoute where
 
 -- | /See:/ 'newDeleteRouteResponse' smart constructor.
 data DeleteRouteResponse = DeleteRouteResponse'
-  { -- | The Amazon Resource Name (ARN) of the route.
+  { -- | The ID of the application that the route belongs to.
+    applicationId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the route.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The current state of the route.
-    state :: Prelude.Maybe RouteState,
     -- | A timestamp that indicates when the route was last updated.
     lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The ID of the route to delete.
     routeId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the application that the route belongs to.
-    applicationId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the service that the route belongs to.
     serviceId :: Prelude.Maybe Prelude.Text,
+    -- | The current state of the route.
+    state :: Prelude.Maybe RouteState,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -190,17 +190,17 @@ data DeleteRouteResponse = DeleteRouteResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'deleteRouteResponse_arn' - The Amazon Resource Name (ARN) of the route.
+-- 'applicationId', 'deleteRouteResponse_applicationId' - The ID of the application that the route belongs to.
 --
--- 'state', 'deleteRouteResponse_state' - The current state of the route.
+-- 'arn', 'deleteRouteResponse_arn' - The Amazon Resource Name (ARN) of the route.
 --
 -- 'lastUpdatedTime', 'deleteRouteResponse_lastUpdatedTime' - A timestamp that indicates when the route was last updated.
 --
 -- 'routeId', 'deleteRouteResponse_routeId' - The ID of the route to delete.
 --
--- 'applicationId', 'deleteRouteResponse_applicationId' - The ID of the application that the route belongs to.
---
 -- 'serviceId', 'deleteRouteResponse_serviceId' - The ID of the service that the route belongs to.
+--
+-- 'state', 'deleteRouteResponse_state' - The current state of the route.
 --
 -- 'httpStatus', 'deleteRouteResponse_httpStatus' - The response's http status code.
 newDeleteRouteResponse ::
@@ -209,22 +209,23 @@ newDeleteRouteResponse ::
   DeleteRouteResponse
 newDeleteRouteResponse pHttpStatus_ =
   DeleteRouteResponse'
-    { arn = Prelude.Nothing,
-      state = Prelude.Nothing,
+    { applicationId =
+        Prelude.Nothing,
+      arn = Prelude.Nothing,
       lastUpdatedTime = Prelude.Nothing,
       routeId = Prelude.Nothing,
-      applicationId = Prelude.Nothing,
       serviceId = Prelude.Nothing,
+      state = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The ID of the application that the route belongs to.
+deleteRouteResponse_applicationId :: Lens.Lens' DeleteRouteResponse (Prelude.Maybe Prelude.Text)
+deleteRouteResponse_applicationId = Lens.lens (\DeleteRouteResponse' {applicationId} -> applicationId) (\s@DeleteRouteResponse' {} a -> s {applicationId = a} :: DeleteRouteResponse)
 
 -- | The Amazon Resource Name (ARN) of the route.
 deleteRouteResponse_arn :: Lens.Lens' DeleteRouteResponse (Prelude.Maybe Prelude.Text)
 deleteRouteResponse_arn = Lens.lens (\DeleteRouteResponse' {arn} -> arn) (\s@DeleteRouteResponse' {} a -> s {arn = a} :: DeleteRouteResponse)
-
--- | The current state of the route.
-deleteRouteResponse_state :: Lens.Lens' DeleteRouteResponse (Prelude.Maybe RouteState)
-deleteRouteResponse_state = Lens.lens (\DeleteRouteResponse' {state} -> state) (\s@DeleteRouteResponse' {} a -> s {state = a} :: DeleteRouteResponse)
 
 -- | A timestamp that indicates when the route was last updated.
 deleteRouteResponse_lastUpdatedTime :: Lens.Lens' DeleteRouteResponse (Prelude.Maybe Prelude.UTCTime)
@@ -234,13 +235,13 @@ deleteRouteResponse_lastUpdatedTime = Lens.lens (\DeleteRouteResponse' {lastUpda
 deleteRouteResponse_routeId :: Lens.Lens' DeleteRouteResponse (Prelude.Maybe Prelude.Text)
 deleteRouteResponse_routeId = Lens.lens (\DeleteRouteResponse' {routeId} -> routeId) (\s@DeleteRouteResponse' {} a -> s {routeId = a} :: DeleteRouteResponse)
 
--- | The ID of the application that the route belongs to.
-deleteRouteResponse_applicationId :: Lens.Lens' DeleteRouteResponse (Prelude.Maybe Prelude.Text)
-deleteRouteResponse_applicationId = Lens.lens (\DeleteRouteResponse' {applicationId} -> applicationId) (\s@DeleteRouteResponse' {} a -> s {applicationId = a} :: DeleteRouteResponse)
-
 -- | The ID of the service that the route belongs to.
 deleteRouteResponse_serviceId :: Lens.Lens' DeleteRouteResponse (Prelude.Maybe Prelude.Text)
 deleteRouteResponse_serviceId = Lens.lens (\DeleteRouteResponse' {serviceId} -> serviceId) (\s@DeleteRouteResponse' {} a -> s {serviceId = a} :: DeleteRouteResponse)
+
+-- | The current state of the route.
+deleteRouteResponse_state :: Lens.Lens' DeleteRouteResponse (Prelude.Maybe RouteState)
+deleteRouteResponse_state = Lens.lens (\DeleteRouteResponse' {state} -> state) (\s@DeleteRouteResponse' {} a -> s {state = a} :: DeleteRouteResponse)
 
 -- | The response's http status code.
 deleteRouteResponse_httpStatus :: Lens.Lens' DeleteRouteResponse Prelude.Int
@@ -248,10 +249,10 @@ deleteRouteResponse_httpStatus = Lens.lens (\DeleteRouteResponse' {httpStatus} -
 
 instance Prelude.NFData DeleteRouteResponse where
   rnf DeleteRouteResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf lastUpdatedTime
       `Prelude.seq` Prelude.rnf routeId
-      `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf serviceId
+      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf httpStatus

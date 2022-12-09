@@ -85,10 +85,10 @@ module Amazonka.MigrationHubReFactorSpaces.CreateRoute
     newCreateRoute,
 
     -- * Request Lenses
-    createRoute_tags,
-    createRoute_uriPathRoute,
     createRoute_clientToken,
     createRoute_defaultRoute,
+    createRoute_tags,
+    createRoute_uriPathRoute,
     createRoute_applicationIdentifier,
     createRoute_environmentIdentifier,
     createRoute_routeType,
@@ -99,18 +99,18 @@ module Amazonka.MigrationHubReFactorSpaces.CreateRoute
     newCreateRouteResponse,
 
     -- * Response Lenses
-    createRouteResponse_tags,
-    createRouteResponse_routeType,
-    createRouteResponse_uriPathRoute,
-    createRouteResponse_createdTime,
-    createRouteResponse_createdByAccountId,
+    createRouteResponse_applicationId,
     createRouteResponse_arn,
-    createRouteResponse_state,
+    createRouteResponse_createdByAccountId,
+    createRouteResponse_createdTime,
     createRouteResponse_lastUpdatedTime,
     createRouteResponse_ownerAccountId,
     createRouteResponse_routeId,
-    createRouteResponse_applicationId,
+    createRouteResponse_routeType,
     createRouteResponse_serviceId,
+    createRouteResponse_state,
+    createRouteResponse_tags,
+    createRouteResponse_uriPathRoute,
     createRouteResponse_httpStatus,
   )
 where
@@ -125,16 +125,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateRoute' smart constructor.
 data CreateRoute = CreateRoute'
-  { -- | The tags to assign to the route. A tag is a label that you assign to an
-    -- Amazon Web Services resource. Each tag consists of a key-value pair..
-    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
-    -- | The configuration for the URI path route type.
-    uriPathRoute :: Prelude.Maybe UriPathRouteInput,
-    -- | A unique, case-sensitive identifier that you provide to ensure the
+  { -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | Configuration for the default route type.
     defaultRoute :: Prelude.Maybe DefaultRouteInput,
+    -- | The tags to assign to the route. A tag is a label that you assign to an
+    -- Amazon Web Services resource. Each tag consists of a key-value pair..
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    -- | The configuration for the URI path route type.
+    uriPathRoute :: Prelude.Maybe UriPathRouteInput,
     -- | The ID of the application within which the route is being created.
     applicationIdentifier :: Prelude.Text,
     -- | The ID of the environment in which the route is created.
@@ -158,15 +158,15 @@ data CreateRoute = CreateRoute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createRoute_tags' - The tags to assign to the route. A tag is a label that you assign to an
--- Amazon Web Services resource. Each tag consists of a key-value pair..
---
--- 'uriPathRoute', 'createRoute_uriPathRoute' - The configuration for the URI path route type.
---
 -- 'clientToken', 'createRoute_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
 --
 -- 'defaultRoute', 'createRoute_defaultRoute' - Configuration for the default route type.
+--
+-- 'tags', 'createRoute_tags' - The tags to assign to the route. A tag is a label that you assign to an
+-- Amazon Web Services resource. Each tag consists of a key-value pair..
+--
+-- 'uriPathRoute', 'createRoute_uriPathRoute' - The configuration for the URI path route type.
 --
 -- 'applicationIdentifier', 'createRoute_applicationIdentifier' - The ID of the application within which the route is being created.
 --
@@ -195,24 +195,15 @@ newCreateRoute
   pRouteType_
   pServiceIdentifier_ =
     CreateRoute'
-      { tags = Prelude.Nothing,
-        uriPathRoute = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
+      { clientToken = Prelude.Nothing,
         defaultRoute = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        uriPathRoute = Prelude.Nothing,
         applicationIdentifier = pApplicationIdentifier_,
         environmentIdentifier = pEnvironmentIdentifier_,
         routeType = pRouteType_,
         serviceIdentifier = pServiceIdentifier_
       }
-
--- | The tags to assign to the route. A tag is a label that you assign to an
--- Amazon Web Services resource. Each tag consists of a key-value pair..
-createRoute_tags :: Lens.Lens' CreateRoute (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createRoute_tags = Lens.lens (\CreateRoute' {tags} -> tags) (\s@CreateRoute' {} a -> s {tags = a} :: CreateRoute) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
-
--- | The configuration for the URI path route type.
-createRoute_uriPathRoute :: Lens.Lens' CreateRoute (Prelude.Maybe UriPathRouteInput)
-createRoute_uriPathRoute = Lens.lens (\CreateRoute' {uriPathRoute} -> uriPathRoute) (\s@CreateRoute' {} a -> s {uriPathRoute = a} :: CreateRoute)
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
@@ -222,6 +213,15 @@ createRoute_clientToken = Lens.lens (\CreateRoute' {clientToken} -> clientToken)
 -- | Configuration for the default route type.
 createRoute_defaultRoute :: Lens.Lens' CreateRoute (Prelude.Maybe DefaultRouteInput)
 createRoute_defaultRoute = Lens.lens (\CreateRoute' {defaultRoute} -> defaultRoute) (\s@CreateRoute' {} a -> s {defaultRoute = a} :: CreateRoute)
+
+-- | The tags to assign to the route. A tag is a label that you assign to an
+-- Amazon Web Services resource. Each tag consists of a key-value pair..
+createRoute_tags :: Lens.Lens' CreateRoute (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createRoute_tags = Lens.lens (\CreateRoute' {tags} -> tags) (\s@CreateRoute' {} a -> s {tags = a} :: CreateRoute) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
+
+-- | The configuration for the URI path route type.
+createRoute_uriPathRoute :: Lens.Lens' CreateRoute (Prelude.Maybe UriPathRouteInput)
+createRoute_uriPathRoute = Lens.lens (\CreateRoute' {uriPathRoute} -> uriPathRoute) (\s@CreateRoute' {} a -> s {uriPathRoute = a} :: CreateRoute)
 
 -- | The ID of the application within which the route is being created.
 createRoute_applicationIdentifier :: Lens.Lens' CreateRoute Prelude.Text
@@ -251,27 +251,27 @@ instance Core.AWSRequest CreateRoute where
     Response.receiveJSON
       ( \s h x ->
           CreateRouteResponse'
-            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "RouteType")
-            Prelude.<*> (x Data..?> "UriPathRoute")
-            Prelude.<*> (x Data..?> "CreatedTime")
-            Prelude.<*> (x Data..?> "CreatedByAccountId")
+            Prelude.<$> (x Data..?> "ApplicationId")
             Prelude.<*> (x Data..?> "Arn")
-            Prelude.<*> (x Data..?> "State")
+            Prelude.<*> (x Data..?> "CreatedByAccountId")
+            Prelude.<*> (x Data..?> "CreatedTime")
             Prelude.<*> (x Data..?> "LastUpdatedTime")
             Prelude.<*> (x Data..?> "OwnerAccountId")
             Prelude.<*> (x Data..?> "RouteId")
-            Prelude.<*> (x Data..?> "ApplicationId")
+            Prelude.<*> (x Data..?> "RouteType")
             Prelude.<*> (x Data..?> "ServiceId")
+            Prelude.<*> (x Data..?> "State")
+            Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "UriPathRoute")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateRoute where
   hashWithSalt _salt CreateRoute' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` uriPathRoute
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` defaultRoute
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` uriPathRoute
       `Prelude.hashWithSalt` applicationIdentifier
       `Prelude.hashWithSalt` environmentIdentifier
       `Prelude.hashWithSalt` routeType
@@ -279,10 +279,10 @@ instance Prelude.Hashable CreateRoute where
 
 instance Prelude.NFData CreateRoute where
   rnf CreateRoute' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf uriPathRoute
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf defaultRoute
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf uriPathRoute
       `Prelude.seq` Prelude.rnf applicationIdentifier
       `Prelude.seq` Prelude.rnf environmentIdentifier
       `Prelude.seq` Prelude.rnf routeType
@@ -303,10 +303,10 @@ instance Data.ToJSON CreateRoute where
   toJSON CreateRoute' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("UriPathRoute" Data..=) Prelude.<$> uriPathRoute,
-            ("ClientToken" Data..=) Prelude.<$> clientToken,
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
             ("DefaultRoute" Data..=) Prelude.<$> defaultRoute,
+            ("Tags" Data..=) Prelude.<$> tags,
+            ("UriPathRoute" Data..=) Prelude.<$> uriPathRoute,
             Prelude.Just ("RouteType" Data..= routeType),
             Prelude.Just
               ("ServiceIdentifier" Data..= serviceIdentifier)
@@ -328,39 +328,39 @@ instance Data.ToQuery CreateRoute where
 
 -- | /See:/ 'newCreateRouteResponse' smart constructor.
 data CreateRouteResponse = CreateRouteResponse'
-  { -- | The tags assigned to the created route. A tag is a label that you assign
-    -- to an Amazon Web Services resource. Each tag consists of a key-value
-    -- pair.
-    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
-    -- | The route type of the route.
-    routeType :: Prelude.Maybe RouteType,
-    -- | Configuration for the URI path route type.
-    uriPathRoute :: Prelude.Maybe UriPathRouteInput,
-    -- | A timestamp that indicates when the route is created.
-    createdTime :: Prelude.Maybe Data.POSIX,
-    -- | The Amazon Web Services account ID of the route creator.
-    createdByAccountId :: Prelude.Maybe Prelude.Text,
+  { -- | The ID of the application in which the route is created.
+    applicationId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the route. The format for this ARN is
     -- @arn:aws:refactor-spaces:region:account-id:resource-type\/resource-id @.
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /Amazon Web Services General Reference/.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The current state of the route. Activation state only allows @ACTIVE@ or
-    -- @INACTIVE@ as user inputs. @FAILED@ is a route state that is system
-    -- generated.
-    state :: Prelude.Maybe RouteState,
+    -- | The Amazon Web Services account ID of the route creator.
+    createdByAccountId :: Prelude.Maybe Prelude.Text,
+    -- | A timestamp that indicates when the route is created.
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | A timestamp that indicates when the route was last updated.
     lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Web Services account ID of the route owner.
     ownerAccountId :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the route.
     routeId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the application in which the route is created.
-    applicationId :: Prelude.Maybe Prelude.Text,
+    -- | The route type of the route.
+    routeType :: Prelude.Maybe RouteType,
     -- | The ID of service in which the route is created. Traffic that matches
     -- this route is forwarded to this service.
     serviceId :: Prelude.Maybe Prelude.Text,
+    -- | The current state of the route. Activation state only allows @ACTIVE@ or
+    -- @INACTIVE@ as user inputs. @FAILED@ is a route state that is system
+    -- generated.
+    state :: Prelude.Maybe RouteState,
+    -- | The tags assigned to the created route. A tag is a label that you assign
+    -- to an Amazon Web Services resource. Each tag consists of a key-value
+    -- pair.
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    -- | Configuration for the URI path route type.
+    uriPathRoute :: Prelude.Maybe UriPathRouteInput,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -374,17 +374,7 @@ data CreateRouteResponse = CreateRouteResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createRouteResponse_tags' - The tags assigned to the created route. A tag is a label that you assign
--- to an Amazon Web Services resource. Each tag consists of a key-value
--- pair.
---
--- 'routeType', 'createRouteResponse_routeType' - The route type of the route.
---
--- 'uriPathRoute', 'createRouteResponse_uriPathRoute' - Configuration for the URI path route type.
---
--- 'createdTime', 'createRouteResponse_createdTime' - A timestamp that indicates when the route is created.
---
--- 'createdByAccountId', 'createRouteResponse_createdByAccountId' - The Amazon Web Services account ID of the route creator.
+-- 'applicationId', 'createRouteResponse_applicationId' - The ID of the application in which the route is created.
 --
 -- 'arn', 'createRouteResponse_arn' - The Amazon Resource Name (ARN) of the route. The format for this ARN is
 -- @arn:aws:refactor-spaces:region:account-id:resource-type\/resource-id @.
@@ -392,9 +382,9 @@ data CreateRouteResponse = CreateRouteResponse'
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /Amazon Web Services General Reference/.
 --
--- 'state', 'createRouteResponse_state' - The current state of the route. Activation state only allows @ACTIVE@ or
--- @INACTIVE@ as user inputs. @FAILED@ is a route state that is system
--- generated.
+-- 'createdByAccountId', 'createRouteResponse_createdByAccountId' - The Amazon Web Services account ID of the route creator.
+--
+-- 'createdTime', 'createRouteResponse_createdTime' - A timestamp that indicates when the route is created.
 --
 -- 'lastUpdatedTime', 'createRouteResponse_lastUpdatedTime' - A timestamp that indicates when the route was last updated.
 --
@@ -402,10 +392,20 @@ data CreateRouteResponse = CreateRouteResponse'
 --
 -- 'routeId', 'createRouteResponse_routeId' - The unique identifier of the route.
 --
--- 'applicationId', 'createRouteResponse_applicationId' - The ID of the application in which the route is created.
+-- 'routeType', 'createRouteResponse_routeType' - The route type of the route.
 --
 -- 'serviceId', 'createRouteResponse_serviceId' - The ID of service in which the route is created. Traffic that matches
 -- this route is forwarded to this service.
+--
+-- 'state', 'createRouteResponse_state' - The current state of the route. Activation state only allows @ACTIVE@ or
+-- @INACTIVE@ as user inputs. @FAILED@ is a route state that is system
+-- generated.
+--
+-- 'tags', 'createRouteResponse_tags' - The tags assigned to the created route. A tag is a label that you assign
+-- to an Amazon Web Services resource. Each tag consists of a key-value
+-- pair.
+--
+-- 'uriPathRoute', 'createRouteResponse_uriPathRoute' - Configuration for the URI path route type.
 --
 -- 'httpStatus', 'createRouteResponse_httpStatus' - The response's http status code.
 newCreateRouteResponse ::
@@ -414,42 +414,25 @@ newCreateRouteResponse ::
   CreateRouteResponse
 newCreateRouteResponse pHttpStatus_ =
   CreateRouteResponse'
-    { tags = Prelude.Nothing,
-      routeType = Prelude.Nothing,
-      uriPathRoute = Prelude.Nothing,
-      createdTime = Prelude.Nothing,
-      createdByAccountId = Prelude.Nothing,
+    { applicationId =
+        Prelude.Nothing,
       arn = Prelude.Nothing,
-      state = Prelude.Nothing,
+      createdByAccountId = Prelude.Nothing,
+      createdTime = Prelude.Nothing,
       lastUpdatedTime = Prelude.Nothing,
       ownerAccountId = Prelude.Nothing,
       routeId = Prelude.Nothing,
-      applicationId = Prelude.Nothing,
+      routeType = Prelude.Nothing,
       serviceId = Prelude.Nothing,
+      state = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      uriPathRoute = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The tags assigned to the created route. A tag is a label that you assign
--- to an Amazon Web Services resource. Each tag consists of a key-value
--- pair.
-createRouteResponse_tags :: Lens.Lens' CreateRouteResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createRouteResponse_tags = Lens.lens (\CreateRouteResponse' {tags} -> tags) (\s@CreateRouteResponse' {} a -> s {tags = a} :: CreateRouteResponse) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
-
--- | The route type of the route.
-createRouteResponse_routeType :: Lens.Lens' CreateRouteResponse (Prelude.Maybe RouteType)
-createRouteResponse_routeType = Lens.lens (\CreateRouteResponse' {routeType} -> routeType) (\s@CreateRouteResponse' {} a -> s {routeType = a} :: CreateRouteResponse)
-
--- | Configuration for the URI path route type.
-createRouteResponse_uriPathRoute :: Lens.Lens' CreateRouteResponse (Prelude.Maybe UriPathRouteInput)
-createRouteResponse_uriPathRoute = Lens.lens (\CreateRouteResponse' {uriPathRoute} -> uriPathRoute) (\s@CreateRouteResponse' {} a -> s {uriPathRoute = a} :: CreateRouteResponse)
-
--- | A timestamp that indicates when the route is created.
-createRouteResponse_createdTime :: Lens.Lens' CreateRouteResponse (Prelude.Maybe Prelude.UTCTime)
-createRouteResponse_createdTime = Lens.lens (\CreateRouteResponse' {createdTime} -> createdTime) (\s@CreateRouteResponse' {} a -> s {createdTime = a} :: CreateRouteResponse) Prelude.. Lens.mapping Data._Time
-
--- | The Amazon Web Services account ID of the route creator.
-createRouteResponse_createdByAccountId :: Lens.Lens' CreateRouteResponse (Prelude.Maybe Prelude.Text)
-createRouteResponse_createdByAccountId = Lens.lens (\CreateRouteResponse' {createdByAccountId} -> createdByAccountId) (\s@CreateRouteResponse' {} a -> s {createdByAccountId = a} :: CreateRouteResponse)
+-- | The ID of the application in which the route is created.
+createRouteResponse_applicationId :: Lens.Lens' CreateRouteResponse (Prelude.Maybe Prelude.Text)
+createRouteResponse_applicationId = Lens.lens (\CreateRouteResponse' {applicationId} -> applicationId) (\s@CreateRouteResponse' {} a -> s {applicationId = a} :: CreateRouteResponse)
 
 -- | The Amazon Resource Name (ARN) of the route. The format for this ARN is
 -- @arn:aws:refactor-spaces:region:account-id:resource-type\/resource-id @.
@@ -459,11 +442,13 @@ createRouteResponse_createdByAccountId = Lens.lens (\CreateRouteResponse' {creat
 createRouteResponse_arn :: Lens.Lens' CreateRouteResponse (Prelude.Maybe Prelude.Text)
 createRouteResponse_arn = Lens.lens (\CreateRouteResponse' {arn} -> arn) (\s@CreateRouteResponse' {} a -> s {arn = a} :: CreateRouteResponse)
 
--- | The current state of the route. Activation state only allows @ACTIVE@ or
--- @INACTIVE@ as user inputs. @FAILED@ is a route state that is system
--- generated.
-createRouteResponse_state :: Lens.Lens' CreateRouteResponse (Prelude.Maybe RouteState)
-createRouteResponse_state = Lens.lens (\CreateRouteResponse' {state} -> state) (\s@CreateRouteResponse' {} a -> s {state = a} :: CreateRouteResponse)
+-- | The Amazon Web Services account ID of the route creator.
+createRouteResponse_createdByAccountId :: Lens.Lens' CreateRouteResponse (Prelude.Maybe Prelude.Text)
+createRouteResponse_createdByAccountId = Lens.lens (\CreateRouteResponse' {createdByAccountId} -> createdByAccountId) (\s@CreateRouteResponse' {} a -> s {createdByAccountId = a} :: CreateRouteResponse)
+
+-- | A timestamp that indicates when the route is created.
+createRouteResponse_createdTime :: Lens.Lens' CreateRouteResponse (Prelude.Maybe Prelude.UTCTime)
+createRouteResponse_createdTime = Lens.lens (\CreateRouteResponse' {createdTime} -> createdTime) (\s@CreateRouteResponse' {} a -> s {createdTime = a} :: CreateRouteResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A timestamp that indicates when the route was last updated.
 createRouteResponse_lastUpdatedTime :: Lens.Lens' CreateRouteResponse (Prelude.Maybe Prelude.UTCTime)
@@ -477,14 +462,30 @@ createRouteResponse_ownerAccountId = Lens.lens (\CreateRouteResponse' {ownerAcco
 createRouteResponse_routeId :: Lens.Lens' CreateRouteResponse (Prelude.Maybe Prelude.Text)
 createRouteResponse_routeId = Lens.lens (\CreateRouteResponse' {routeId} -> routeId) (\s@CreateRouteResponse' {} a -> s {routeId = a} :: CreateRouteResponse)
 
--- | The ID of the application in which the route is created.
-createRouteResponse_applicationId :: Lens.Lens' CreateRouteResponse (Prelude.Maybe Prelude.Text)
-createRouteResponse_applicationId = Lens.lens (\CreateRouteResponse' {applicationId} -> applicationId) (\s@CreateRouteResponse' {} a -> s {applicationId = a} :: CreateRouteResponse)
+-- | The route type of the route.
+createRouteResponse_routeType :: Lens.Lens' CreateRouteResponse (Prelude.Maybe RouteType)
+createRouteResponse_routeType = Lens.lens (\CreateRouteResponse' {routeType} -> routeType) (\s@CreateRouteResponse' {} a -> s {routeType = a} :: CreateRouteResponse)
 
 -- | The ID of service in which the route is created. Traffic that matches
 -- this route is forwarded to this service.
 createRouteResponse_serviceId :: Lens.Lens' CreateRouteResponse (Prelude.Maybe Prelude.Text)
 createRouteResponse_serviceId = Lens.lens (\CreateRouteResponse' {serviceId} -> serviceId) (\s@CreateRouteResponse' {} a -> s {serviceId = a} :: CreateRouteResponse)
+
+-- | The current state of the route. Activation state only allows @ACTIVE@ or
+-- @INACTIVE@ as user inputs. @FAILED@ is a route state that is system
+-- generated.
+createRouteResponse_state :: Lens.Lens' CreateRouteResponse (Prelude.Maybe RouteState)
+createRouteResponse_state = Lens.lens (\CreateRouteResponse' {state} -> state) (\s@CreateRouteResponse' {} a -> s {state = a} :: CreateRouteResponse)
+
+-- | The tags assigned to the created route. A tag is a label that you assign
+-- to an Amazon Web Services resource. Each tag consists of a key-value
+-- pair.
+createRouteResponse_tags :: Lens.Lens' CreateRouteResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createRouteResponse_tags = Lens.lens (\CreateRouteResponse' {tags} -> tags) (\s@CreateRouteResponse' {} a -> s {tags = a} :: CreateRouteResponse) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
+
+-- | Configuration for the URI path route type.
+createRouteResponse_uriPathRoute :: Lens.Lens' CreateRouteResponse (Prelude.Maybe UriPathRouteInput)
+createRouteResponse_uriPathRoute = Lens.lens (\CreateRouteResponse' {uriPathRoute} -> uriPathRoute) (\s@CreateRouteResponse' {} a -> s {uriPathRoute = a} :: CreateRouteResponse)
 
 -- | The response's http status code.
 createRouteResponse_httpStatus :: Lens.Lens' CreateRouteResponse Prelude.Int
@@ -492,16 +493,16 @@ createRouteResponse_httpStatus = Lens.lens (\CreateRouteResponse' {httpStatus} -
 
 instance Prelude.NFData CreateRouteResponse where
   rnf CreateRouteResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf routeType
-      `Prelude.seq` Prelude.rnf uriPathRoute
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf createdByAccountId
+    Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf createdByAccountId
+      `Prelude.seq` Prelude.rnf createdTime
       `Prelude.seq` Prelude.rnf lastUpdatedTime
       `Prelude.seq` Prelude.rnf ownerAccountId
       `Prelude.seq` Prelude.rnf routeId
-      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf routeType
       `Prelude.seq` Prelude.rnf serviceId
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf uriPathRoute
       `Prelude.seq` Prelude.rnf httpStatus

@@ -37,12 +37,12 @@ module Amazonka.MigrationHubReFactorSpaces.DeleteApplication
     newDeleteApplicationResponse,
 
     -- * Response Lenses
-    deleteApplicationResponse_name,
-    deleteApplicationResponse_arn,
-    deleteApplicationResponse_state,
-    deleteApplicationResponse_lastUpdatedTime,
-    deleteApplicationResponse_environmentId,
     deleteApplicationResponse_applicationId,
+    deleteApplicationResponse_arn,
+    deleteApplicationResponse_environmentId,
+    deleteApplicationResponse_lastUpdatedTime,
+    deleteApplicationResponse_name,
+    deleteApplicationResponse_state,
     deleteApplicationResponse_httpStatus,
   )
 where
@@ -108,12 +108,12 @@ instance Core.AWSRequest DeleteApplication where
     Response.receiveJSON
       ( \s h x ->
           DeleteApplicationResponse'
-            Prelude.<$> (x Data..?> "Name")
+            Prelude.<$> (x Data..?> "ApplicationId")
             Prelude.<*> (x Data..?> "Arn")
-            Prelude.<*> (x Data..?> "State")
-            Prelude.<*> (x Data..?> "LastUpdatedTime")
             Prelude.<*> (x Data..?> "EnvironmentId")
-            Prelude.<*> (x Data..?> "ApplicationId")
+            Prelude.<*> (x Data..?> "LastUpdatedTime")
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "State")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -152,18 +152,18 @@ instance Data.ToQuery DeleteApplication where
 
 -- | /See:/ 'newDeleteApplicationResponse' smart constructor.
 data DeleteApplicationResponse = DeleteApplicationResponse'
-  { -- | The name of the application.
-    name :: Prelude.Maybe Prelude.Text,
+  { -- | The ID of the application.
+    applicationId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the application.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The current state of the application.
-    state :: Prelude.Maybe ApplicationState,
-    -- | A timestamp that indicates when the environment was last updated.
-    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The unique identifier of the application’s environment.
     environmentId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the application.
-    applicationId :: Prelude.Maybe Prelude.Text,
+    -- | A timestamp that indicates when the environment was last updated.
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
+    -- | The name of the application.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The current state of the application.
+    state :: Prelude.Maybe ApplicationState,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -177,17 +177,17 @@ data DeleteApplicationResponse = DeleteApplicationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'deleteApplicationResponse_name' - The name of the application.
+-- 'applicationId', 'deleteApplicationResponse_applicationId' - The ID of the application.
 --
 -- 'arn', 'deleteApplicationResponse_arn' - The Amazon Resource Name (ARN) of the application.
 --
--- 'state', 'deleteApplicationResponse_state' - The current state of the application.
+-- 'environmentId', 'deleteApplicationResponse_environmentId' - The unique identifier of the application’s environment.
 --
 -- 'lastUpdatedTime', 'deleteApplicationResponse_lastUpdatedTime' - A timestamp that indicates when the environment was last updated.
 --
--- 'environmentId', 'deleteApplicationResponse_environmentId' - The unique identifier of the application’s environment.
+-- 'name', 'deleteApplicationResponse_name' - The name of the application.
 --
--- 'applicationId', 'deleteApplicationResponse_applicationId' - The ID of the application.
+-- 'state', 'deleteApplicationResponse_state' - The current state of the application.
 --
 -- 'httpStatus', 'deleteApplicationResponse_httpStatus' - The response's http status code.
 newDeleteApplicationResponse ::
@@ -196,38 +196,39 @@ newDeleteApplicationResponse ::
   DeleteApplicationResponse
 newDeleteApplicationResponse pHttpStatus_ =
   DeleteApplicationResponse'
-    { name = Prelude.Nothing,
+    { applicationId =
+        Prelude.Nothing,
       arn = Prelude.Nothing,
-      state = Prelude.Nothing,
-      lastUpdatedTime = Prelude.Nothing,
       environmentId = Prelude.Nothing,
-      applicationId = Prelude.Nothing,
+      lastUpdatedTime = Prelude.Nothing,
+      name = Prelude.Nothing,
+      state = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The name of the application.
-deleteApplicationResponse_name :: Lens.Lens' DeleteApplicationResponse (Prelude.Maybe Prelude.Text)
-deleteApplicationResponse_name = Lens.lens (\DeleteApplicationResponse' {name} -> name) (\s@DeleteApplicationResponse' {} a -> s {name = a} :: DeleteApplicationResponse)
+-- | The ID of the application.
+deleteApplicationResponse_applicationId :: Lens.Lens' DeleteApplicationResponse (Prelude.Maybe Prelude.Text)
+deleteApplicationResponse_applicationId = Lens.lens (\DeleteApplicationResponse' {applicationId} -> applicationId) (\s@DeleteApplicationResponse' {} a -> s {applicationId = a} :: DeleteApplicationResponse)
 
 -- | The Amazon Resource Name (ARN) of the application.
 deleteApplicationResponse_arn :: Lens.Lens' DeleteApplicationResponse (Prelude.Maybe Prelude.Text)
 deleteApplicationResponse_arn = Lens.lens (\DeleteApplicationResponse' {arn} -> arn) (\s@DeleteApplicationResponse' {} a -> s {arn = a} :: DeleteApplicationResponse)
 
--- | The current state of the application.
-deleteApplicationResponse_state :: Lens.Lens' DeleteApplicationResponse (Prelude.Maybe ApplicationState)
-deleteApplicationResponse_state = Lens.lens (\DeleteApplicationResponse' {state} -> state) (\s@DeleteApplicationResponse' {} a -> s {state = a} :: DeleteApplicationResponse)
+-- | The unique identifier of the application’s environment.
+deleteApplicationResponse_environmentId :: Lens.Lens' DeleteApplicationResponse (Prelude.Maybe Prelude.Text)
+deleteApplicationResponse_environmentId = Lens.lens (\DeleteApplicationResponse' {environmentId} -> environmentId) (\s@DeleteApplicationResponse' {} a -> s {environmentId = a} :: DeleteApplicationResponse)
 
 -- | A timestamp that indicates when the environment was last updated.
 deleteApplicationResponse_lastUpdatedTime :: Lens.Lens' DeleteApplicationResponse (Prelude.Maybe Prelude.UTCTime)
 deleteApplicationResponse_lastUpdatedTime = Lens.lens (\DeleteApplicationResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@DeleteApplicationResponse' {} a -> s {lastUpdatedTime = a} :: DeleteApplicationResponse) Prelude.. Lens.mapping Data._Time
 
--- | The unique identifier of the application’s environment.
-deleteApplicationResponse_environmentId :: Lens.Lens' DeleteApplicationResponse (Prelude.Maybe Prelude.Text)
-deleteApplicationResponse_environmentId = Lens.lens (\DeleteApplicationResponse' {environmentId} -> environmentId) (\s@DeleteApplicationResponse' {} a -> s {environmentId = a} :: DeleteApplicationResponse)
+-- | The name of the application.
+deleteApplicationResponse_name :: Lens.Lens' DeleteApplicationResponse (Prelude.Maybe Prelude.Text)
+deleteApplicationResponse_name = Lens.lens (\DeleteApplicationResponse' {name} -> name) (\s@DeleteApplicationResponse' {} a -> s {name = a} :: DeleteApplicationResponse)
 
--- | The ID of the application.
-deleteApplicationResponse_applicationId :: Lens.Lens' DeleteApplicationResponse (Prelude.Maybe Prelude.Text)
-deleteApplicationResponse_applicationId = Lens.lens (\DeleteApplicationResponse' {applicationId} -> applicationId) (\s@DeleteApplicationResponse' {} a -> s {applicationId = a} :: DeleteApplicationResponse)
+-- | The current state of the application.
+deleteApplicationResponse_state :: Lens.Lens' DeleteApplicationResponse (Prelude.Maybe ApplicationState)
+deleteApplicationResponse_state = Lens.lens (\DeleteApplicationResponse' {state} -> state) (\s@DeleteApplicationResponse' {} a -> s {state = a} :: DeleteApplicationResponse)
 
 -- | The response's http status code.
 deleteApplicationResponse_httpStatus :: Lens.Lens' DeleteApplicationResponse Prelude.Int
@@ -235,10 +236,10 @@ deleteApplicationResponse_httpStatus = Lens.lens (\DeleteApplicationResponse' {h
 
 instance Prelude.NFData DeleteApplicationResponse where
   rnf DeleteApplicationResponse' {..} =
-    Prelude.rnf name
+    Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
       `Prelude.seq` Prelude.rnf environmentId
-      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf httpStatus

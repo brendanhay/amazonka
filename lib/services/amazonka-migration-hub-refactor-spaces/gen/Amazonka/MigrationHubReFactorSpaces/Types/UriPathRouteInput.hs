@@ -30,14 +30,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUriPathRouteInput' smart constructor.
 data UriPathRouteInput = UriPathRouteInput'
-  { -- | A list of HTTP methods to match. An empty list matches all values. If a
-    -- method is present, only HTTP requests using that method are forwarded to
-    -- this route’s service.
-    methods :: Prelude.Maybe [HttpMethod],
-    -- | Indicates whether to match all subpaths of the given source path. If
+  { -- | Indicates whether to match all subpaths of the given source path. If
     -- this value is @false@, requests must match the source path exactly
     -- before they are forwarded to this route\'s service.
     includeChildPaths :: Prelude.Maybe Prelude.Bool,
+    -- | A list of HTTP methods to match. An empty list matches all values. If a
+    -- method is present, only HTTP requests using that method are forwarded to
+    -- this route’s service.
+    methods :: Prelude.Maybe [HttpMethod],
     -- | If set to @ACTIVE@, traffic is forwarded to this route’s service after
     -- the route is created.
     activationState :: RouteActivationState,
@@ -55,13 +55,13 @@ data UriPathRouteInput = UriPathRouteInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'methods', 'uriPathRouteInput_methods' - A list of HTTP methods to match. An empty list matches all values. If a
--- method is present, only HTTP requests using that method are forwarded to
--- this route’s service.
---
 -- 'includeChildPaths', 'uriPathRouteInput_includeChildPaths' - Indicates whether to match all subpaths of the given source path. If
 -- this value is @false@, requests must match the source path exactly
 -- before they are forwarded to this route\'s service.
+--
+-- 'methods', 'uriPathRouteInput_methods' - A list of HTTP methods to match. An empty list matches all values. If a
+-- method is present, only HTTP requests using that method are forwarded to
+-- this route’s service.
 --
 -- 'activationState', 'uriPathRouteInput_activationState' - If set to @ACTIVE@, traffic is forwarded to this route’s service after
 -- the route is created.
@@ -76,23 +76,24 @@ newUriPathRouteInput ::
   UriPathRouteInput
 newUriPathRouteInput pActivationState_ pSourcePath_ =
   UriPathRouteInput'
-    { methods = Prelude.Nothing,
-      includeChildPaths = Prelude.Nothing,
+    { includeChildPaths =
+        Prelude.Nothing,
+      methods = Prelude.Nothing,
       activationState = pActivationState_,
       sourcePath = pSourcePath_
     }
-
--- | A list of HTTP methods to match. An empty list matches all values. If a
--- method is present, only HTTP requests using that method are forwarded to
--- this route’s service.
-uriPathRouteInput_methods :: Lens.Lens' UriPathRouteInput (Prelude.Maybe [HttpMethod])
-uriPathRouteInput_methods = Lens.lens (\UriPathRouteInput' {methods} -> methods) (\s@UriPathRouteInput' {} a -> s {methods = a} :: UriPathRouteInput) Prelude.. Lens.mapping Lens.coerced
 
 -- | Indicates whether to match all subpaths of the given source path. If
 -- this value is @false@, requests must match the source path exactly
 -- before they are forwarded to this route\'s service.
 uriPathRouteInput_includeChildPaths :: Lens.Lens' UriPathRouteInput (Prelude.Maybe Prelude.Bool)
 uriPathRouteInput_includeChildPaths = Lens.lens (\UriPathRouteInput' {includeChildPaths} -> includeChildPaths) (\s@UriPathRouteInput' {} a -> s {includeChildPaths = a} :: UriPathRouteInput)
+
+-- | A list of HTTP methods to match. An empty list matches all values. If a
+-- method is present, only HTTP requests using that method are forwarded to
+-- this route’s service.
+uriPathRouteInput_methods :: Lens.Lens' UriPathRouteInput (Prelude.Maybe [HttpMethod])
+uriPathRouteInput_methods = Lens.lens (\UriPathRouteInput' {methods} -> methods) (\s@UriPathRouteInput' {} a -> s {methods = a} :: UriPathRouteInput) Prelude.. Lens.mapping Lens.coerced
 
 -- | If set to @ACTIVE@, traffic is forwarded to this route’s service after
 -- the route is created.
@@ -110,23 +111,23 @@ instance Data.FromJSON UriPathRouteInput where
       "UriPathRouteInput"
       ( \x ->
           UriPathRouteInput'
-            Prelude.<$> (x Data..:? "Methods" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "IncludeChildPaths")
+            Prelude.<$> (x Data..:? "IncludeChildPaths")
+            Prelude.<*> (x Data..:? "Methods" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "ActivationState")
             Prelude.<*> (x Data..: "SourcePath")
       )
 
 instance Prelude.Hashable UriPathRouteInput where
   hashWithSalt _salt UriPathRouteInput' {..} =
-    _salt `Prelude.hashWithSalt` methods
-      `Prelude.hashWithSalt` includeChildPaths
+    _salt `Prelude.hashWithSalt` includeChildPaths
+      `Prelude.hashWithSalt` methods
       `Prelude.hashWithSalt` activationState
       `Prelude.hashWithSalt` sourcePath
 
 instance Prelude.NFData UriPathRouteInput where
   rnf UriPathRouteInput' {..} =
-    Prelude.rnf methods
-      `Prelude.seq` Prelude.rnf includeChildPaths
+    Prelude.rnf includeChildPaths
+      `Prelude.seq` Prelude.rnf methods
       `Prelude.seq` Prelude.rnf activationState
       `Prelude.seq` Prelude.rnf sourcePath
 
@@ -134,9 +135,9 @@ instance Data.ToJSON UriPathRouteInput where
   toJSON UriPathRouteInput' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Methods" Data..=) Prelude.<$> methods,
-            ("IncludeChildPaths" Data..=)
+          [ ("IncludeChildPaths" Data..=)
               Prelude.<$> includeChildPaths,
+            ("Methods" Data..=) Prelude.<$> methods,
             Prelude.Just
               ("ActivationState" Data..= activationState),
             Prelude.Just ("SourcePath" Data..= sourcePath)

@@ -29,9 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newApiGatewayProxyInput' smart constructor.
 data ApiGatewayProxyInput = ApiGatewayProxyInput'
-  { -- | The name of the API Gateway stage. The name defaults to @prod@.
-    stageName :: Prelude.Maybe Prelude.Text,
-    -- | The type of endpoint to use for the API Gateway proxy. If no value is
+  { -- | The type of endpoint to use for the API Gateway proxy. If no value is
     -- specified in the request, the value is set to @REGIONAL@ by default.
     --
     -- If the value is set to @PRIVATE@ in the request, this creates a private
@@ -39,7 +37,9 @@ data ApiGatewayProxyInput = ApiGatewayProxyInput'
     -- endpoint can only be accessed by using Amazon Virtual Private Cloud
     -- (Amazon VPC) endpoints for Amazon API Gateway that have been granted
     -- access.
-    endpointType :: Prelude.Maybe ApiGatewayEndpointType
+    endpointType :: Prelude.Maybe ApiGatewayEndpointType,
+    -- | The name of the API Gateway stage. The name defaults to @prod@.
+    stageName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,8 +51,6 @@ data ApiGatewayProxyInput = ApiGatewayProxyInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stageName', 'apiGatewayProxyInput_stageName' - The name of the API Gateway stage. The name defaults to @prod@.
---
 -- 'endpointType', 'apiGatewayProxyInput_endpointType' - The type of endpoint to use for the API Gateway proxy. If no value is
 -- specified in the request, the value is set to @REGIONAL@ by default.
 --
@@ -61,17 +59,16 @@ data ApiGatewayProxyInput = ApiGatewayProxyInput'
 -- endpoint can only be accessed by using Amazon Virtual Private Cloud
 -- (Amazon VPC) endpoints for Amazon API Gateway that have been granted
 -- access.
+--
+-- 'stageName', 'apiGatewayProxyInput_stageName' - The name of the API Gateway stage. The name defaults to @prod@.
 newApiGatewayProxyInput ::
   ApiGatewayProxyInput
 newApiGatewayProxyInput =
   ApiGatewayProxyInput'
-    { stageName = Prelude.Nothing,
-      endpointType = Prelude.Nothing
+    { endpointType =
+        Prelude.Nothing,
+      stageName = Prelude.Nothing
     }
-
--- | The name of the API Gateway stage. The name defaults to @prod@.
-apiGatewayProxyInput_stageName :: Lens.Lens' ApiGatewayProxyInput (Prelude.Maybe Prelude.Text)
-apiGatewayProxyInput_stageName = Lens.lens (\ApiGatewayProxyInput' {stageName} -> stageName) (\s@ApiGatewayProxyInput' {} a -> s {stageName = a} :: ApiGatewayProxyInput)
 
 -- | The type of endpoint to use for the API Gateway proxy. If no value is
 -- specified in the request, the value is set to @REGIONAL@ by default.
@@ -84,31 +81,35 @@ apiGatewayProxyInput_stageName = Lens.lens (\ApiGatewayProxyInput' {stageName} -
 apiGatewayProxyInput_endpointType :: Lens.Lens' ApiGatewayProxyInput (Prelude.Maybe ApiGatewayEndpointType)
 apiGatewayProxyInput_endpointType = Lens.lens (\ApiGatewayProxyInput' {endpointType} -> endpointType) (\s@ApiGatewayProxyInput' {} a -> s {endpointType = a} :: ApiGatewayProxyInput)
 
+-- | The name of the API Gateway stage. The name defaults to @prod@.
+apiGatewayProxyInput_stageName :: Lens.Lens' ApiGatewayProxyInput (Prelude.Maybe Prelude.Text)
+apiGatewayProxyInput_stageName = Lens.lens (\ApiGatewayProxyInput' {stageName} -> stageName) (\s@ApiGatewayProxyInput' {} a -> s {stageName = a} :: ApiGatewayProxyInput)
+
 instance Data.FromJSON ApiGatewayProxyInput where
   parseJSON =
     Data.withObject
       "ApiGatewayProxyInput"
       ( \x ->
           ApiGatewayProxyInput'
-            Prelude.<$> (x Data..:? "StageName")
-            Prelude.<*> (x Data..:? "EndpointType")
+            Prelude.<$> (x Data..:? "EndpointType")
+            Prelude.<*> (x Data..:? "StageName")
       )
 
 instance Prelude.Hashable ApiGatewayProxyInput where
   hashWithSalt _salt ApiGatewayProxyInput' {..} =
-    _salt `Prelude.hashWithSalt` stageName
-      `Prelude.hashWithSalt` endpointType
+    _salt `Prelude.hashWithSalt` endpointType
+      `Prelude.hashWithSalt` stageName
 
 instance Prelude.NFData ApiGatewayProxyInput where
   rnf ApiGatewayProxyInput' {..} =
-    Prelude.rnf stageName
-      `Prelude.seq` Prelude.rnf endpointType
+    Prelude.rnf endpointType
+      `Prelude.seq` Prelude.rnf stageName
 
 instance Data.ToJSON ApiGatewayProxyInput where
   toJSON ApiGatewayProxyInput' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("StageName" Data..=) Prelude.<$> stageName,
-            ("EndpointType" Data..=) Prelude.<$> endpointType
+          [ ("EndpointType" Data..=) Prelude.<$> endpointType,
+            ("StageName" Data..=) Prelude.<$> stageName
           ]
       )

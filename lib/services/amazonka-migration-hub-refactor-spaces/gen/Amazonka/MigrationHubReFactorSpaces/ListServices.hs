@@ -30,8 +30,8 @@ module Amazonka.MigrationHubReFactorSpaces.ListServices
     newListServices,
 
     -- * Request Lenses
-    listServices_nextToken,
     listServices_maxResults,
+    listServices_nextToken,
     listServices_applicationIdentifier,
     listServices_environmentIdentifier,
 
@@ -56,12 +56,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListServices' smart constructor.
 data ListServices = ListServices'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return with a single call. To retrieve
+  { -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the application.
     applicationIdentifier :: Prelude.Text,
     -- | The ID of the environment.
@@ -77,11 +77,11 @@ data ListServices = ListServices'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listServices_nextToken' - The token for the next page of results.
---
 -- 'maxResults', 'listServices_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
+--
+-- 'nextToken', 'listServices_nextToken' - The token for the next page of results.
 --
 -- 'applicationIdentifier', 'listServices_applicationIdentifier' - The ID of the application.
 --
@@ -96,21 +96,21 @@ newListServices
   pApplicationIdentifier_
   pEnvironmentIdentifier_ =
     ListServices'
-      { nextToken = Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+      { maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         applicationIdentifier = pApplicationIdentifier_,
         environmentIdentifier = pEnvironmentIdentifier_
       }
-
--- | The token for the next page of results.
-listServices_nextToken :: Lens.Lens' ListServices (Prelude.Maybe Prelude.Text)
-listServices_nextToken = Lens.lens (\ListServices' {nextToken} -> nextToken) (\s@ListServices' {} a -> s {nextToken = a} :: ListServices)
 
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
 listServices_maxResults :: Lens.Lens' ListServices (Prelude.Maybe Prelude.Natural)
 listServices_maxResults = Lens.lens (\ListServices' {maxResults} -> maxResults) (\s@ListServices' {} a -> s {maxResults = a} :: ListServices)
+
+-- | The token for the next page of results.
+listServices_nextToken :: Lens.Lens' ListServices (Prelude.Maybe Prelude.Text)
+listServices_nextToken = Lens.lens (\ListServices' {nextToken} -> nextToken) (\s@ListServices' {} a -> s {nextToken = a} :: ListServices)
 
 -- | The ID of the application.
 listServices_applicationIdentifier :: Lens.Lens' ListServices Prelude.Text
@@ -157,15 +157,15 @@ instance Core.AWSRequest ListServices where
 
 instance Prelude.Hashable ListServices where
   hashWithSalt _salt ListServices' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` applicationIdentifier
       `Prelude.hashWithSalt` environmentIdentifier
 
 instance Prelude.NFData ListServices where
   rnf ListServices' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf applicationIdentifier
       `Prelude.seq` Prelude.rnf environmentIdentifier
 
@@ -193,8 +193,8 @@ instance Data.ToPath ListServices where
 instance Data.ToQuery ListServices where
   toQuery ListServices' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListServicesResponse' smart constructor.

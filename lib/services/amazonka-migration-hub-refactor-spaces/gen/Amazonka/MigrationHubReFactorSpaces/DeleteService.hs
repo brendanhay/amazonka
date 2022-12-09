@@ -36,13 +36,13 @@ module Amazonka.MigrationHubReFactorSpaces.DeleteService
     newDeleteServiceResponse,
 
     -- * Response Lenses
-    deleteServiceResponse_name,
-    deleteServiceResponse_arn,
-    deleteServiceResponse_state,
-    deleteServiceResponse_lastUpdatedTime,
-    deleteServiceResponse_environmentId,
     deleteServiceResponse_applicationId,
+    deleteServiceResponse_arn,
+    deleteServiceResponse_environmentId,
+    deleteServiceResponse_lastUpdatedTime,
+    deleteServiceResponse_name,
     deleteServiceResponse_serviceId,
+    deleteServiceResponse_state,
     deleteServiceResponse_httpStatus,
   )
 where
@@ -132,13 +132,13 @@ instance Core.AWSRequest DeleteService where
     Response.receiveJSON
       ( \s h x ->
           DeleteServiceResponse'
-            Prelude.<$> (x Data..?> "Name")
+            Prelude.<$> (x Data..?> "ApplicationId")
             Prelude.<*> (x Data..?> "Arn")
-            Prelude.<*> (x Data..?> "State")
-            Prelude.<*> (x Data..?> "LastUpdatedTime")
             Prelude.<*> (x Data..?> "EnvironmentId")
-            Prelude.<*> (x Data..?> "ApplicationId")
+            Prelude.<*> (x Data..?> "LastUpdatedTime")
+            Prelude.<*> (x Data..?> "Name")
             Prelude.<*> (x Data..?> "ServiceId")
+            Prelude.<*> (x Data..?> "State")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -181,20 +181,20 @@ instance Data.ToQuery DeleteService where
 
 -- | /See:/ 'newDeleteServiceResponse' smart constructor.
 data DeleteServiceResponse = DeleteServiceResponse'
-  { -- | The name of the service.
-    name :: Prelude.Maybe Prelude.Text,
+  { -- | The ID of the application that the service is in.
+    applicationId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the service.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The current state of the service.
-    state :: Prelude.Maybe ServiceState,
-    -- | A timestamp that indicates when the service was last updated.
-    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The unique identifier of the environment.
     environmentId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the application that the service is in.
-    applicationId :: Prelude.Maybe Prelude.Text,
+    -- | A timestamp that indicates when the service was last updated.
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
+    -- | The name of the service.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the service.
     serviceId :: Prelude.Maybe Prelude.Text,
+    -- | The current state of the service.
+    state :: Prelude.Maybe ServiceState,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -208,19 +208,19 @@ data DeleteServiceResponse = DeleteServiceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'deleteServiceResponse_name' - The name of the service.
+-- 'applicationId', 'deleteServiceResponse_applicationId' - The ID of the application that the service is in.
 --
 -- 'arn', 'deleteServiceResponse_arn' - The Amazon Resource Name (ARN) of the service.
 --
--- 'state', 'deleteServiceResponse_state' - The current state of the service.
+-- 'environmentId', 'deleteServiceResponse_environmentId' - The unique identifier of the environment.
 --
 -- 'lastUpdatedTime', 'deleteServiceResponse_lastUpdatedTime' - A timestamp that indicates when the service was last updated.
 --
--- 'environmentId', 'deleteServiceResponse_environmentId' - The unique identifier of the environment.
---
--- 'applicationId', 'deleteServiceResponse_applicationId' - The ID of the application that the service is in.
+-- 'name', 'deleteServiceResponse_name' - The name of the service.
 --
 -- 'serviceId', 'deleteServiceResponse_serviceId' - The unique identifier of the service.
+--
+-- 'state', 'deleteServiceResponse_state' - The current state of the service.
 --
 -- 'httpStatus', 'deleteServiceResponse_httpStatus' - The response's http status code.
 newDeleteServiceResponse ::
@@ -229,43 +229,44 @@ newDeleteServiceResponse ::
   DeleteServiceResponse
 newDeleteServiceResponse pHttpStatus_ =
   DeleteServiceResponse'
-    { name = Prelude.Nothing,
+    { applicationId =
+        Prelude.Nothing,
       arn = Prelude.Nothing,
-      state = Prelude.Nothing,
-      lastUpdatedTime = Prelude.Nothing,
       environmentId = Prelude.Nothing,
-      applicationId = Prelude.Nothing,
+      lastUpdatedTime = Prelude.Nothing,
+      name = Prelude.Nothing,
       serviceId = Prelude.Nothing,
+      state = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The name of the service.
-deleteServiceResponse_name :: Lens.Lens' DeleteServiceResponse (Prelude.Maybe Prelude.Text)
-deleteServiceResponse_name = Lens.lens (\DeleteServiceResponse' {name} -> name) (\s@DeleteServiceResponse' {} a -> s {name = a} :: DeleteServiceResponse)
-
--- | The Amazon Resource Name (ARN) of the service.
-deleteServiceResponse_arn :: Lens.Lens' DeleteServiceResponse (Prelude.Maybe Prelude.Text)
-deleteServiceResponse_arn = Lens.lens (\DeleteServiceResponse' {arn} -> arn) (\s@DeleteServiceResponse' {} a -> s {arn = a} :: DeleteServiceResponse)
-
--- | The current state of the service.
-deleteServiceResponse_state :: Lens.Lens' DeleteServiceResponse (Prelude.Maybe ServiceState)
-deleteServiceResponse_state = Lens.lens (\DeleteServiceResponse' {state} -> state) (\s@DeleteServiceResponse' {} a -> s {state = a} :: DeleteServiceResponse)
-
--- | A timestamp that indicates when the service was last updated.
-deleteServiceResponse_lastUpdatedTime :: Lens.Lens' DeleteServiceResponse (Prelude.Maybe Prelude.UTCTime)
-deleteServiceResponse_lastUpdatedTime = Lens.lens (\DeleteServiceResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@DeleteServiceResponse' {} a -> s {lastUpdatedTime = a} :: DeleteServiceResponse) Prelude.. Lens.mapping Data._Time
-
--- | The unique identifier of the environment.
-deleteServiceResponse_environmentId :: Lens.Lens' DeleteServiceResponse (Prelude.Maybe Prelude.Text)
-deleteServiceResponse_environmentId = Lens.lens (\DeleteServiceResponse' {environmentId} -> environmentId) (\s@DeleteServiceResponse' {} a -> s {environmentId = a} :: DeleteServiceResponse)
 
 -- | The ID of the application that the service is in.
 deleteServiceResponse_applicationId :: Lens.Lens' DeleteServiceResponse (Prelude.Maybe Prelude.Text)
 deleteServiceResponse_applicationId = Lens.lens (\DeleteServiceResponse' {applicationId} -> applicationId) (\s@DeleteServiceResponse' {} a -> s {applicationId = a} :: DeleteServiceResponse)
 
+-- | The Amazon Resource Name (ARN) of the service.
+deleteServiceResponse_arn :: Lens.Lens' DeleteServiceResponse (Prelude.Maybe Prelude.Text)
+deleteServiceResponse_arn = Lens.lens (\DeleteServiceResponse' {arn} -> arn) (\s@DeleteServiceResponse' {} a -> s {arn = a} :: DeleteServiceResponse)
+
+-- | The unique identifier of the environment.
+deleteServiceResponse_environmentId :: Lens.Lens' DeleteServiceResponse (Prelude.Maybe Prelude.Text)
+deleteServiceResponse_environmentId = Lens.lens (\DeleteServiceResponse' {environmentId} -> environmentId) (\s@DeleteServiceResponse' {} a -> s {environmentId = a} :: DeleteServiceResponse)
+
+-- | A timestamp that indicates when the service was last updated.
+deleteServiceResponse_lastUpdatedTime :: Lens.Lens' DeleteServiceResponse (Prelude.Maybe Prelude.UTCTime)
+deleteServiceResponse_lastUpdatedTime = Lens.lens (\DeleteServiceResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@DeleteServiceResponse' {} a -> s {lastUpdatedTime = a} :: DeleteServiceResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The name of the service.
+deleteServiceResponse_name :: Lens.Lens' DeleteServiceResponse (Prelude.Maybe Prelude.Text)
+deleteServiceResponse_name = Lens.lens (\DeleteServiceResponse' {name} -> name) (\s@DeleteServiceResponse' {} a -> s {name = a} :: DeleteServiceResponse)
+
 -- | The unique identifier of the service.
 deleteServiceResponse_serviceId :: Lens.Lens' DeleteServiceResponse (Prelude.Maybe Prelude.Text)
 deleteServiceResponse_serviceId = Lens.lens (\DeleteServiceResponse' {serviceId} -> serviceId) (\s@DeleteServiceResponse' {} a -> s {serviceId = a} :: DeleteServiceResponse)
+
+-- | The current state of the service.
+deleteServiceResponse_state :: Lens.Lens' DeleteServiceResponse (Prelude.Maybe ServiceState)
+deleteServiceResponse_state = Lens.lens (\DeleteServiceResponse' {state} -> state) (\s@DeleteServiceResponse' {} a -> s {state = a} :: DeleteServiceResponse)
 
 -- | The response's http status code.
 deleteServiceResponse_httpStatus :: Lens.Lens' DeleteServiceResponse Prelude.Int
@@ -273,11 +274,11 @@ deleteServiceResponse_httpStatus = Lens.lens (\DeleteServiceResponse' {httpStatu
 
 instance Prelude.NFData DeleteServiceResponse where
   rnf DeleteServiceResponse' {..} =
-    Prelude.rnf name
+    Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
       `Prelude.seq` Prelude.rnf environmentId
-      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf serviceId
+      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf httpStatus

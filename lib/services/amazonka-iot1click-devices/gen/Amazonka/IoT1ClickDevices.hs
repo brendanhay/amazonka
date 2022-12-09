@@ -21,26 +21,26 @@ module Amazonka.IoT1ClickDevices
     -- * Errors
     -- $errors
 
-    -- ** PreconditionFailedException
-    _PreconditionFailedException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** RangeNotSatisfiableException
-    _RangeNotSatisfiableException,
-
     -- ** ForbiddenException
     _ForbiddenException,
 
-    -- ** ResourceConflictException
-    _ResourceConflictException,
+    -- ** InternalFailureException
+    _InternalFailureException,
 
     -- ** InvalidRequestException
     _InvalidRequestException,
 
-    -- ** InternalFailureException
-    _InternalFailureException,
+    -- ** PreconditionFailedException
+    _PreconditionFailedException,
+
+    -- ** RangeNotSatisfiableException
+    _RangeNotSatisfiableException,
+
+    -- ** ResourceConflictException
+    _ResourceConflictException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- * Waiters
     -- $waiters

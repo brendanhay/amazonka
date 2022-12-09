@@ -32,8 +32,8 @@ module Amazonka.ApplicationCostProfiler.ListReportDefinitions
     newListReportDefinitions,
 
     -- * Request Lenses
-    listReportDefinitions_nextToken,
     listReportDefinitions_maxResults,
+    listReportDefinitions_nextToken,
 
     -- * Destructuring the Response
     ListReportDefinitionsResponse (..),
@@ -56,10 +56,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListReportDefinitions' smart constructor.
 data ListReportDefinitions = ListReportDefinitions'
-  { -- | The token value from a previous call to access the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return.
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { -- | The maximum number of results to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token value from a previous call to access the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,24 +71,25 @@ data ListReportDefinitions = ListReportDefinitions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listReportDefinitions_nextToken' - The token value from a previous call to access the next page of results.
---
 -- 'maxResults', 'listReportDefinitions_maxResults' - The maximum number of results to return.
+--
+-- 'nextToken', 'listReportDefinitions_nextToken' - The token value from a previous call to access the next page of results.
 newListReportDefinitions ::
   ListReportDefinitions
 newListReportDefinitions =
   ListReportDefinitions'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token value from a previous call to access the next page of results.
-listReportDefinitions_nextToken :: Lens.Lens' ListReportDefinitions (Prelude.Maybe Prelude.Text)
-listReportDefinitions_nextToken = Lens.lens (\ListReportDefinitions' {nextToken} -> nextToken) (\s@ListReportDefinitions' {} a -> s {nextToken = a} :: ListReportDefinitions)
 
 -- | The maximum number of results to return.
 listReportDefinitions_maxResults :: Lens.Lens' ListReportDefinitions (Prelude.Maybe Prelude.Natural)
 listReportDefinitions_maxResults = Lens.lens (\ListReportDefinitions' {maxResults} -> maxResults) (\s@ListReportDefinitions' {} a -> s {maxResults = a} :: ListReportDefinitions)
+
+-- | The token value from a previous call to access the next page of results.
+listReportDefinitions_nextToken :: Lens.Lens' ListReportDefinitions (Prelude.Maybe Prelude.Text)
+listReportDefinitions_nextToken = Lens.lens (\ListReportDefinitions' {nextToken} -> nextToken) (\s@ListReportDefinitions' {} a -> s {nextToken = a} :: ListReportDefinitions)
 
 instance Core.AWSPager ListReportDefinitions where
   page rq rs
@@ -131,13 +132,13 @@ instance Core.AWSRequest ListReportDefinitions where
 
 instance Prelude.Hashable ListReportDefinitions where
   hashWithSalt _salt ListReportDefinitions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListReportDefinitions where
   rnf ListReportDefinitions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListReportDefinitions where
   toHeaders =
@@ -156,8 +157,8 @@ instance Data.ToPath ListReportDefinitions where
 instance Data.ToQuery ListReportDefinitions where
   toQuery ListReportDefinitions' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListReportDefinitionsResponse' smart constructor.

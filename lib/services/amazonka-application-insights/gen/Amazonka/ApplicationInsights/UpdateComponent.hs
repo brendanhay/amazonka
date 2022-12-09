@@ -28,8 +28,8 @@ module Amazonka.ApplicationInsights.UpdateComponent
     newUpdateComponent,
 
     -- * Request Lenses
-    updateComponent_resourceList,
     updateComponent_newComponentName,
+    updateComponent_resourceList,
     updateComponent_resourceGroupName,
     updateComponent_componentName,
 
@@ -52,10 +52,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateComponent' smart constructor.
 data UpdateComponent = UpdateComponent'
-  { -- | The list of resource ARNs that belong to the component.
-    resourceList :: Prelude.Maybe [Prelude.Text],
-    -- | The new name of the component.
+  { -- | The new name of the component.
     newComponentName' :: Prelude.Maybe Prelude.Text,
+    -- | The list of resource ARNs that belong to the component.
+    resourceList :: Prelude.Maybe [Prelude.Text],
     -- | The name of the resource group.
     resourceGroupName :: Prelude.Text,
     -- | The name of the component.
@@ -71,9 +71,9 @@ data UpdateComponent = UpdateComponent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceList', 'updateComponent_resourceList' - The list of resource ARNs that belong to the component.
---
 -- 'newComponentName'', 'updateComponent_newComponentName' - The new name of the component.
+--
+-- 'resourceList', 'updateComponent_resourceList' - The list of resource ARNs that belong to the component.
 --
 -- 'resourceGroupName', 'updateComponent_resourceGroupName' - The name of the resource group.
 --
@@ -88,19 +88,20 @@ newUpdateComponent
   pResourceGroupName_
   pComponentName_ =
     UpdateComponent'
-      { resourceList = Prelude.Nothing,
-        newComponentName' = Prelude.Nothing,
+      { newComponentName' =
+          Prelude.Nothing,
+        resourceList = Prelude.Nothing,
         resourceGroupName = pResourceGroupName_,
         componentName = pComponentName_
       }
 
--- | The list of resource ARNs that belong to the component.
-updateComponent_resourceList :: Lens.Lens' UpdateComponent (Prelude.Maybe [Prelude.Text])
-updateComponent_resourceList = Lens.lens (\UpdateComponent' {resourceList} -> resourceList) (\s@UpdateComponent' {} a -> s {resourceList = a} :: UpdateComponent) Prelude.. Lens.mapping Lens.coerced
-
 -- | The new name of the component.
 updateComponent_newComponentName :: Lens.Lens' UpdateComponent (Prelude.Maybe Prelude.Text)
 updateComponent_newComponentName = Lens.lens (\UpdateComponent' {newComponentName'} -> newComponentName') (\s@UpdateComponent' {} a -> s {newComponentName' = a} :: UpdateComponent)
+
+-- | The list of resource ARNs that belong to the component.
+updateComponent_resourceList :: Lens.Lens' UpdateComponent (Prelude.Maybe [Prelude.Text])
+updateComponent_resourceList = Lens.lens (\UpdateComponent' {resourceList} -> resourceList) (\s@UpdateComponent' {} a -> s {resourceList = a} :: UpdateComponent) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the resource group.
 updateComponent_resourceGroupName :: Lens.Lens' UpdateComponent Prelude.Text
@@ -125,15 +126,15 @@ instance Core.AWSRequest UpdateComponent where
 
 instance Prelude.Hashable UpdateComponent where
   hashWithSalt _salt UpdateComponent' {..} =
-    _salt `Prelude.hashWithSalt` resourceList
-      `Prelude.hashWithSalt` newComponentName'
+    _salt `Prelude.hashWithSalt` newComponentName'
+      `Prelude.hashWithSalt` resourceList
       `Prelude.hashWithSalt` resourceGroupName
       `Prelude.hashWithSalt` componentName
 
 instance Prelude.NFData UpdateComponent where
   rnf UpdateComponent' {..} =
-    Prelude.rnf resourceList
-      `Prelude.seq` Prelude.rnf newComponentName'
+    Prelude.rnf newComponentName'
+      `Prelude.seq` Prelude.rnf resourceList
       `Prelude.seq` Prelude.rnf resourceGroupName
       `Prelude.seq` Prelude.rnf componentName
 
@@ -156,9 +157,9 @@ instance Data.ToJSON UpdateComponent where
   toJSON UpdateComponent' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ResourceList" Data..=) Prelude.<$> resourceList,
-            ("NewComponentName" Data..=)
+          [ ("NewComponentName" Data..=)
               Prelude.<$> newComponentName',
+            ("ResourceList" Data..=) Prelude.<$> resourceList,
             Prelude.Just
               ("ResourceGroupName" Data..= resourceGroupName),
             Prelude.Just

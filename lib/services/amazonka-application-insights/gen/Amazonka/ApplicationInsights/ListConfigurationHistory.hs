@@ -37,11 +37,11 @@ module Amazonka.ApplicationInsights.ListConfigurationHistory
     newListConfigurationHistory,
 
     -- * Request Lenses
-    listConfigurationHistory_nextToken,
     listConfigurationHistory_endTime,
-    listConfigurationHistory_resourceGroupName,
-    listConfigurationHistory_maxResults,
     listConfigurationHistory_eventStatus,
+    listConfigurationHistory_maxResults,
+    listConfigurationHistory_nextToken,
+    listConfigurationHistory_resourceGroupName,
     listConfigurationHistory_startTime,
 
     -- * Destructuring the Response
@@ -49,8 +49,8 @@ module Amazonka.ApplicationInsights.ListConfigurationHistory
     newListConfigurationHistoryResponse,
 
     -- * Response Lenses
-    listConfigurationHistoryResponse_nextToken,
     listConfigurationHistoryResponse_eventList,
+    listConfigurationHistoryResponse_nextToken,
     listConfigurationHistoryResponse_httpStatus,
   )
 where
@@ -65,16 +65,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListConfigurationHistory' smart constructor.
 data ListConfigurationHistory = ListConfigurationHistory'
-  { -- | The @NextToken@ value returned from a previous paginated
-    -- @ListConfigurationHistory@ request where @MaxResults@ was used and the
-    -- results exceeded the value of that parameter. Pagination continues from
-    -- the end of the previous results that returned the @NextToken@ value.
-    -- This value is @null@ when there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The end time of the event.
+  { -- | The end time of the event.
     endTime :: Prelude.Maybe Data.POSIX,
-    -- | Resource group to which the application belongs.
-    resourceGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The status of the configuration update event. Possible values include
+    -- INFO, WARN, and ERROR.
+    eventStatus :: Prelude.Maybe ConfigurationEventStatus,
     -- | The maximum number of results returned by @ListConfigurationHistory@ in
     -- paginated output. When this parameter is used,
     -- @ListConfigurationHistory@ returns only @MaxResults@ in a single page
@@ -84,9 +79,14 @@ data ListConfigurationHistory = ListConfigurationHistory'
     -- If this parameter is not used, then @ListConfigurationHistory@ returns
     -- all results.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The status of the configuration update event. Possible values include
-    -- INFO, WARN, and ERROR.
-    eventStatus :: Prelude.Maybe ConfigurationEventStatus,
+    -- | The @NextToken@ value returned from a previous paginated
+    -- @ListConfigurationHistory@ request where @MaxResults@ was used and the
+    -- results exceeded the value of that parameter. Pagination continues from
+    -- the end of the previous results that returned the @NextToken@ value.
+    -- This value is @null@ when there are no more results to return.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Resource group to which the application belongs.
+    resourceGroupName :: Prelude.Maybe Prelude.Text,
     -- | The start time of the event.
     startTime :: Prelude.Maybe Data.POSIX
   }
@@ -100,15 +100,10 @@ data ListConfigurationHistory = ListConfigurationHistory'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listConfigurationHistory_nextToken' - The @NextToken@ value returned from a previous paginated
--- @ListConfigurationHistory@ request where @MaxResults@ was used and the
--- results exceeded the value of that parameter. Pagination continues from
--- the end of the previous results that returned the @NextToken@ value.
--- This value is @null@ when there are no more results to return.
---
 -- 'endTime', 'listConfigurationHistory_endTime' - The end time of the event.
 --
--- 'resourceGroupName', 'listConfigurationHistory_resourceGroupName' - Resource group to which the application belongs.
+-- 'eventStatus', 'listConfigurationHistory_eventStatus' - The status of the configuration update event. Possible values include
+-- INFO, WARN, and ERROR.
 --
 -- 'maxResults', 'listConfigurationHistory_maxResults' - The maximum number of results returned by @ListConfigurationHistory@ in
 -- paginated output. When this parameter is used,
@@ -119,38 +114,36 @@ data ListConfigurationHistory = ListConfigurationHistory'
 -- If this parameter is not used, then @ListConfigurationHistory@ returns
 -- all results.
 --
--- 'eventStatus', 'listConfigurationHistory_eventStatus' - The status of the configuration update event. Possible values include
--- INFO, WARN, and ERROR.
+-- 'nextToken', 'listConfigurationHistory_nextToken' - The @NextToken@ value returned from a previous paginated
+-- @ListConfigurationHistory@ request where @MaxResults@ was used and the
+-- results exceeded the value of that parameter. Pagination continues from
+-- the end of the previous results that returned the @NextToken@ value.
+-- This value is @null@ when there are no more results to return.
+--
+-- 'resourceGroupName', 'listConfigurationHistory_resourceGroupName' - Resource group to which the application belongs.
 --
 -- 'startTime', 'listConfigurationHistory_startTime' - The start time of the event.
 newListConfigurationHistory ::
   ListConfigurationHistory
 newListConfigurationHistory =
   ListConfigurationHistory'
-    { nextToken =
+    { endTime =
         Prelude.Nothing,
-      endTime = Prelude.Nothing,
-      resourceGroupName = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       eventStatus = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      resourceGroupName = Prelude.Nothing,
       startTime = Prelude.Nothing
     }
-
--- | The @NextToken@ value returned from a previous paginated
--- @ListConfigurationHistory@ request where @MaxResults@ was used and the
--- results exceeded the value of that parameter. Pagination continues from
--- the end of the previous results that returned the @NextToken@ value.
--- This value is @null@ when there are no more results to return.
-listConfigurationHistory_nextToken :: Lens.Lens' ListConfigurationHistory (Prelude.Maybe Prelude.Text)
-listConfigurationHistory_nextToken = Lens.lens (\ListConfigurationHistory' {nextToken} -> nextToken) (\s@ListConfigurationHistory' {} a -> s {nextToken = a} :: ListConfigurationHistory)
 
 -- | The end time of the event.
 listConfigurationHistory_endTime :: Lens.Lens' ListConfigurationHistory (Prelude.Maybe Prelude.UTCTime)
 listConfigurationHistory_endTime = Lens.lens (\ListConfigurationHistory' {endTime} -> endTime) (\s@ListConfigurationHistory' {} a -> s {endTime = a} :: ListConfigurationHistory) Prelude.. Lens.mapping Data._Time
 
--- | Resource group to which the application belongs.
-listConfigurationHistory_resourceGroupName :: Lens.Lens' ListConfigurationHistory (Prelude.Maybe Prelude.Text)
-listConfigurationHistory_resourceGroupName = Lens.lens (\ListConfigurationHistory' {resourceGroupName} -> resourceGroupName) (\s@ListConfigurationHistory' {} a -> s {resourceGroupName = a} :: ListConfigurationHistory)
+-- | The status of the configuration update event. Possible values include
+-- INFO, WARN, and ERROR.
+listConfigurationHistory_eventStatus :: Lens.Lens' ListConfigurationHistory (Prelude.Maybe ConfigurationEventStatus)
+listConfigurationHistory_eventStatus = Lens.lens (\ListConfigurationHistory' {eventStatus} -> eventStatus) (\s@ListConfigurationHistory' {} a -> s {eventStatus = a} :: ListConfigurationHistory)
 
 -- | The maximum number of results returned by @ListConfigurationHistory@ in
 -- paginated output. When this parameter is used,
@@ -163,10 +156,17 @@ listConfigurationHistory_resourceGroupName = Lens.lens (\ListConfigurationHistor
 listConfigurationHistory_maxResults :: Lens.Lens' ListConfigurationHistory (Prelude.Maybe Prelude.Natural)
 listConfigurationHistory_maxResults = Lens.lens (\ListConfigurationHistory' {maxResults} -> maxResults) (\s@ListConfigurationHistory' {} a -> s {maxResults = a} :: ListConfigurationHistory)
 
--- | The status of the configuration update event. Possible values include
--- INFO, WARN, and ERROR.
-listConfigurationHistory_eventStatus :: Lens.Lens' ListConfigurationHistory (Prelude.Maybe ConfigurationEventStatus)
-listConfigurationHistory_eventStatus = Lens.lens (\ListConfigurationHistory' {eventStatus} -> eventStatus) (\s@ListConfigurationHistory' {} a -> s {eventStatus = a} :: ListConfigurationHistory)
+-- | The @NextToken@ value returned from a previous paginated
+-- @ListConfigurationHistory@ request where @MaxResults@ was used and the
+-- results exceeded the value of that parameter. Pagination continues from
+-- the end of the previous results that returned the @NextToken@ value.
+-- This value is @null@ when there are no more results to return.
+listConfigurationHistory_nextToken :: Lens.Lens' ListConfigurationHistory (Prelude.Maybe Prelude.Text)
+listConfigurationHistory_nextToken = Lens.lens (\ListConfigurationHistory' {nextToken} -> nextToken) (\s@ListConfigurationHistory' {} a -> s {nextToken = a} :: ListConfigurationHistory)
+
+-- | Resource group to which the application belongs.
+listConfigurationHistory_resourceGroupName :: Lens.Lens' ListConfigurationHistory (Prelude.Maybe Prelude.Text)
+listConfigurationHistory_resourceGroupName = Lens.lens (\ListConfigurationHistory' {resourceGroupName} -> resourceGroupName) (\s@ListConfigurationHistory' {} a -> s {resourceGroupName = a} :: ListConfigurationHistory)
 
 -- | The start time of the event.
 listConfigurationHistory_startTime :: Lens.Lens' ListConfigurationHistory (Prelude.Maybe Prelude.UTCTime)
@@ -182,27 +182,27 @@ instance Core.AWSRequest ListConfigurationHistory where
     Response.receiveJSON
       ( \s h x ->
           ListConfigurationHistoryResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "EventList" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "EventList" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListConfigurationHistory where
   hashWithSalt _salt ListConfigurationHistory' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` endTime
-      `Prelude.hashWithSalt` resourceGroupName
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` eventStatus
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` resourceGroupName
       `Prelude.hashWithSalt` startTime
 
 instance Prelude.NFData ListConfigurationHistory where
   rnf ListConfigurationHistory' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf resourceGroupName
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf eventStatus
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resourceGroupName
       `Prelude.seq` Prelude.rnf startTime
 
 instance Data.ToHeaders ListConfigurationHistory where
@@ -224,12 +224,12 @@ instance Data.ToJSON ListConfigurationHistory where
   toJSON ListConfigurationHistory' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("EndTime" Data..=) Prelude.<$> endTime,
+          [ ("EndTime" Data..=) Prelude.<$> endTime,
+            ("EventStatus" Data..=) Prelude.<$> eventStatus,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("ResourceGroupName" Data..=)
               Prelude.<$> resourceGroupName,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("EventStatus" Data..=) Prelude.<$> eventStatus,
             ("StartTime" Data..=) Prelude.<$> startTime
           ]
       )
@@ -242,13 +242,13 @@ instance Data.ToQuery ListConfigurationHistory where
 
 -- | /See:/ 'newListConfigurationHistoryResponse' smart constructor.
 data ListConfigurationHistoryResponse = ListConfigurationHistoryResponse'
-  { -- | The @NextToken@ value to include in a future @ListConfigurationHistory@
+  { -- | The list of configuration events and their corresponding details.
+    eventList :: Prelude.Maybe [ConfigurationEvent],
+    -- | The @NextToken@ value to include in a future @ListConfigurationHistory@
     -- request. When the results of a @ListConfigurationHistory@ request exceed
     -- @MaxResults@, this value can be used to retrieve the next page of
     -- results. This value is @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of configuration events and their corresponding details.
-    eventList :: Prelude.Maybe [ConfigurationEvent],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -262,12 +262,12 @@ data ListConfigurationHistoryResponse = ListConfigurationHistoryResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'eventList', 'listConfigurationHistoryResponse_eventList' - The list of configuration events and their corresponding details.
+--
 -- 'nextToken', 'listConfigurationHistoryResponse_nextToken' - The @NextToken@ value to include in a future @ListConfigurationHistory@
 -- request. When the results of a @ListConfigurationHistory@ request exceed
 -- @MaxResults@, this value can be used to retrieve the next page of
 -- results. This value is @null@ when there are no more results to return.
---
--- 'eventList', 'listConfigurationHistoryResponse_eventList' - The list of configuration events and their corresponding details.
 --
 -- 'httpStatus', 'listConfigurationHistoryResponse_httpStatus' - The response's http status code.
 newListConfigurationHistoryResponse ::
@@ -276,11 +276,15 @@ newListConfigurationHistoryResponse ::
   ListConfigurationHistoryResponse
 newListConfigurationHistoryResponse pHttpStatus_ =
   ListConfigurationHistoryResponse'
-    { nextToken =
+    { eventList =
         Prelude.Nothing,
-      eventList = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The list of configuration events and their corresponding details.
+listConfigurationHistoryResponse_eventList :: Lens.Lens' ListConfigurationHistoryResponse (Prelude.Maybe [ConfigurationEvent])
+listConfigurationHistoryResponse_eventList = Lens.lens (\ListConfigurationHistoryResponse' {eventList} -> eventList) (\s@ListConfigurationHistoryResponse' {} a -> s {eventList = a} :: ListConfigurationHistoryResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The @NextToken@ value to include in a future @ListConfigurationHistory@
 -- request. When the results of a @ListConfigurationHistory@ request exceed
@@ -288,10 +292,6 @@ newListConfigurationHistoryResponse pHttpStatus_ =
 -- results. This value is @null@ when there are no more results to return.
 listConfigurationHistoryResponse_nextToken :: Lens.Lens' ListConfigurationHistoryResponse (Prelude.Maybe Prelude.Text)
 listConfigurationHistoryResponse_nextToken = Lens.lens (\ListConfigurationHistoryResponse' {nextToken} -> nextToken) (\s@ListConfigurationHistoryResponse' {} a -> s {nextToken = a} :: ListConfigurationHistoryResponse)
-
--- | The list of configuration events and their corresponding details.
-listConfigurationHistoryResponse_eventList :: Lens.Lens' ListConfigurationHistoryResponse (Prelude.Maybe [ConfigurationEvent])
-listConfigurationHistoryResponse_eventList = Lens.lens (\ListConfigurationHistoryResponse' {eventList} -> eventList) (\s@ListConfigurationHistoryResponse' {} a -> s {eventList = a} :: ListConfigurationHistoryResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listConfigurationHistoryResponse_httpStatus :: Lens.Lens' ListConfigurationHistoryResponse Prelude.Int
@@ -302,6 +302,6 @@ instance
     ListConfigurationHistoryResponse
   where
   rnf ListConfigurationHistoryResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf eventList
+    Prelude.rnf eventList
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

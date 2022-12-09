@@ -19,12 +19,12 @@ module Amazonka.ApplicationInsights.Types
 
     -- * Errors
     _AccessDeniedException,
-    _InternalServerException,
-    _TooManyTagsException,
-    _TagsAlreadyExistException,
-    _ResourceNotFoundException,
-    _ResourceInUseException,
     _BadRequestException,
+    _InternalServerException,
+    _ResourceInUseException,
+    _ResourceNotFoundException,
+    _TagsAlreadyExistException,
+    _TooManyTagsException,
     _ValidationException,
 
     -- * CloudWatchEventSource
@@ -66,108 +66,108 @@ module Amazonka.ApplicationInsights.Types
     -- * ApplicationComponent
     ApplicationComponent (..),
     newApplicationComponent,
-    applicationComponent_resourceType,
-    applicationComponent_componentRemarks,
     applicationComponent_componentName,
+    applicationComponent_componentRemarks,
     applicationComponent_detectedWorkload,
-    applicationComponent_tier,
     applicationComponent_monitor,
     applicationComponent_osType,
+    applicationComponent_resourceType,
+    applicationComponent_tier,
 
     -- * ApplicationInfo
     ApplicationInfo (..),
     newApplicationInfo,
-    applicationInfo_lifeCycle,
     applicationInfo_autoConfigEnabled,
-    applicationInfo_discoveryType,
-    applicationInfo_opsItemSNSTopicArn,
     applicationInfo_cWEMonitorEnabled,
-    applicationInfo_resourceGroupName,
-    applicationInfo_remarks,
+    applicationInfo_discoveryType,
+    applicationInfo_lifeCycle,
     applicationInfo_opsCenterEnabled,
+    applicationInfo_opsItemSNSTopicArn,
+    applicationInfo_remarks,
+    applicationInfo_resourceGroupName,
 
     -- * ConfigurationEvent
     ConfigurationEvent (..),
     newConfigurationEvent,
-    configurationEvent_eventResourceName,
-    configurationEvent_monitoredResourceARN,
-    configurationEvent_eventStatus,
-    configurationEvent_eventResourceType,
-    configurationEvent_eventTime,
     configurationEvent_eventDetail,
+    configurationEvent_eventResourceName,
+    configurationEvent_eventResourceType,
+    configurationEvent_eventStatus,
+    configurationEvent_eventTime,
+    configurationEvent_monitoredResourceARN,
 
     -- * LogPattern
     LogPattern (..),
     newLogPattern,
     logPattern_pattern,
     logPattern_patternName,
-    logPattern_rank,
     logPattern_patternSetName,
+    logPattern_rank,
 
     -- * Observation
     Observation (..),
     newObservation,
+    observation_cloudWatchEventDetailType,
     observation_cloudWatchEventId,
-    observation_xRayFaultPercent,
+    observation_cloudWatchEventSource,
+    observation_codeDeployApplication,
+    observation_codeDeployDeploymentGroup,
+    observation_codeDeployDeploymentId,
+    observation_codeDeployInstanceGroupId,
+    observation_codeDeployState,
+    observation_ebsCause,
+    observation_ebsEvent,
+    observation_ebsRequestId,
+    observation_ebsResult,
+    observation_ec2State,
+    observation_endTime,
+    observation_healthEventArn,
+    observation_healthEventDescription,
+    observation_healthEventTypeCategory,
+    observation_healthEventTypeCode,
+    observation_healthService,
+    observation_id,
+    observation_lineTime,
     observation_logFilter,
     observation_logGroup,
-    observation_codeDeployState,
-    observation_codeDeployInstanceGroupId,
-    observation_codeDeployDeploymentGroup,
-    observation_sourceARN,
-    observation_xRayRequestAverageLatency,
-    observation_healthEventDescription,
-    observation_xRayThrottlePercent,
-    observation_ebsCause,
-    observation_healthEventTypeCategory,
-    observation_xRayNodeType,
-    observation_statesArn,
-    observation_statesInput,
-    observation_healthEventArn,
-    observation_ebsRequestId,
-    observation_xRayErrorPercent,
-    observation_cloudWatchEventSource,
-    observation_sourceType,
-    observation_endTime,
-    observation_id,
-    observation_ebsEvent,
-    observation_rdsEventCategories,
-    observation_ec2State,
-    observation_statesStatus,
-    observation_healthEventTypeCode,
-    observation_statesExecutionArn,
-    observation_metricName,
-    observation_s3EventName,
-    observation_ebsResult,
-    observation_cloudWatchEventDetailType,
-    observation_codeDeployApplication,
-    observation_lineTime,
-    observation_codeDeployDeploymentId,
     observation_logText,
-    observation_xRayNodeName,
-    observation_unit,
-    observation_healthService,
-    observation_startTime,
+    observation_metricName,
     observation_metricNamespace,
+    observation_rdsEventCategories,
     observation_rdsEventMessage,
-    observation_xRayRequestCount,
+    observation_s3EventName,
+    observation_sourceARN,
+    observation_sourceType,
+    observation_startTime,
+    observation_statesArn,
+    observation_statesExecutionArn,
+    observation_statesInput,
+    observation_statesStatus,
+    observation_unit,
     observation_value,
+    observation_xRayErrorPercent,
+    observation_xRayFaultPercent,
+    observation_xRayNodeName,
+    observation_xRayNodeType,
+    observation_xRayRequestAverageLatency,
+    observation_xRayRequestCount,
+    observation_xRayThrottlePercent,
 
     -- * Problem
     Problem (..),
     newProblem,
     problem_affectedResource,
-    problem_recurringCount,
-    problem_feedback,
-    problem_status,
     problem_endTime,
+    problem_feedback,
     problem_id,
     problem_insights,
-    problem_resourceGroupName,
-    problem_title,
-    problem_severityLevel,
     problem_lastRecurrenceTime,
+    problem_recurringCount,
+    problem_resourceGroupName,
+    problem_severityLevel,
     problem_startTime,
+    problem_status,
+    problem_title,
 
     -- * RelatedObservations
     RelatedObservations (..),
@@ -233,28 +233,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -262,13 +256,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -276,6 +274,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | User does not have permissions to perform this action.
@@ -285,6 +285,13 @@ _AccessDeniedException =
     defaultService
     "AccessDeniedException"
 
+-- | The request is not understood by the server.
+_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequestException =
+  Core._MatchServiceError
+    defaultService
+    "BadRequestException"
+
 -- | The server encountered an internal error and is unable to complete the
 -- request.
 _InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -292,6 +299,27 @@ _InternalServerException =
   Core._MatchServiceError
     defaultService
     "InternalServerException"
+
+-- | The resource is already created or in use.
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceInUseException"
+
+-- | The resource does not exist in the customer account.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+
+-- | Tags are already registered for the specified application ARN.
+_TagsAlreadyExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TagsAlreadyExistException =
+  Core._MatchServiceError
+    defaultService
+    "TagsAlreadyExistException"
 
 -- | The number of the provided tags is beyond the limit, or the number of
 -- total tags you are trying to attach to the specified resource exceeds
@@ -301,34 +329,6 @@ _TooManyTagsException =
   Core._MatchServiceError
     defaultService
     "TooManyTagsException"
-
--- | Tags are already registered for the specified application ARN.
-_TagsAlreadyExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TagsAlreadyExistException =
-  Core._MatchServiceError
-    defaultService
-    "TagsAlreadyExistException"
-
--- | The resource does not exist in the customer account.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-
--- | The resource is already created or in use.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceInUseException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceInUseException"
-
--- | The request is not understood by the server.
-_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_BadRequestException =
-  Core._MatchServiceError
-    defaultService
-    "BadRequestException"
 
 -- | The parameter is not valid.
 _ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

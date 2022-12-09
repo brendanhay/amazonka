@@ -28,8 +28,8 @@ module Amazonka.ApplicationInsights.ListComponents
     newListComponents,
 
     -- * Request Lenses
-    listComponents_nextToken,
     listComponents_maxResults,
+    listComponents_nextToken,
     listComponents_resourceGroupName,
 
     -- * Destructuring the Response
@@ -37,8 +37,8 @@ module Amazonka.ApplicationInsights.ListComponents
     newListComponentsResponse,
 
     -- * Response Lenses
-    listComponentsResponse_nextToken,
     listComponentsResponse_applicationComponentList,
+    listComponentsResponse_nextToken,
     listComponentsResponse_httpStatus,
   )
 where
@@ -53,12 +53,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListComponents' smart constructor.
 data ListComponents = ListComponents'
-  { -- | The token to request the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in a single call. To retrieve
+  { -- | The maximum number of results to return in a single call. To retrieve
     -- the remaining results, make another call with the returned @NextToken@
     -- value.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to request the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the resource group.
     resourceGroupName :: Prelude.Text
   }
@@ -72,11 +72,11 @@ data ListComponents = ListComponents'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listComponents_nextToken' - The token to request the next page of results.
---
 -- 'maxResults', 'listComponents_maxResults' - The maximum number of results to return in a single call. To retrieve
 -- the remaining results, make another call with the returned @NextToken@
 -- value.
+--
+-- 'nextToken', 'listComponents_nextToken' - The token to request the next page of results.
 --
 -- 'resourceGroupName', 'listComponents_resourceGroupName' - The name of the resource group.
 newListComponents ::
@@ -85,20 +85,20 @@ newListComponents ::
   ListComponents
 newListComponents pResourceGroupName_ =
   ListComponents'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       resourceGroupName = pResourceGroupName_
     }
-
--- | The token to request the next page of results.
-listComponents_nextToken :: Lens.Lens' ListComponents (Prelude.Maybe Prelude.Text)
-listComponents_nextToken = Lens.lens (\ListComponents' {nextToken} -> nextToken) (\s@ListComponents' {} a -> s {nextToken = a} :: ListComponents)
 
 -- | The maximum number of results to return in a single call. To retrieve
 -- the remaining results, make another call with the returned @NextToken@
 -- value.
 listComponents_maxResults :: Lens.Lens' ListComponents (Prelude.Maybe Prelude.Natural)
 listComponents_maxResults = Lens.lens (\ListComponents' {maxResults} -> maxResults) (\s@ListComponents' {} a -> s {maxResults = a} :: ListComponents)
+
+-- | The token to request the next page of results.
+listComponents_nextToken :: Lens.Lens' ListComponents (Prelude.Maybe Prelude.Text)
+listComponents_nextToken = Lens.lens (\ListComponents' {nextToken} -> nextToken) (\s@ListComponents' {} a -> s {nextToken = a} :: ListComponents)
 
 -- | The name of the resource group.
 listComponents_resourceGroupName :: Lens.Lens' ListComponents Prelude.Text
@@ -114,23 +114,23 @@ instance Core.AWSRequest ListComponents where
     Response.receiveJSON
       ( \s h x ->
           ListComponentsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ApplicationComponentList"
+            Prelude.<$> ( x Data..?> "ApplicationComponentList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListComponents where
   hashWithSalt _salt ListComponents' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceGroupName
 
 instance Prelude.NFData ListComponents where
   rnf ListComponents' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf resourceGroupName
 
 instance Data.ToHeaders ListComponents where
@@ -152,8 +152,8 @@ instance Data.ToJSON ListComponents where
   toJSON ListComponents' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("ResourceGroupName" Data..= resourceGroupName)
           ]
@@ -167,10 +167,10 @@ instance Data.ToQuery ListComponents where
 
 -- | /See:/ 'newListComponentsResponse' smart constructor.
 data ListComponentsResponse = ListComponentsResponse'
-  { -- | The token to request the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of application components.
+  { -- | The list of application components.
     applicationComponentList :: Prelude.Maybe [ApplicationComponent],
+    -- | The token to request the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -184,9 +184,9 @@ data ListComponentsResponse = ListComponentsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listComponentsResponse_nextToken' - The token to request the next page of results.
---
 -- 'applicationComponentList', 'listComponentsResponse_applicationComponentList' - The list of application components.
+--
+-- 'nextToken', 'listComponentsResponse_nextToken' - The token to request the next page of results.
 --
 -- 'httpStatus', 'listComponentsResponse_httpStatus' - The response's http status code.
 newListComponentsResponse ::
@@ -195,19 +195,19 @@ newListComponentsResponse ::
   ListComponentsResponse
 newListComponentsResponse pHttpStatus_ =
   ListComponentsResponse'
-    { nextToken =
+    { applicationComponentList =
         Prelude.Nothing,
-      applicationComponentList = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token to request the next page of results.
-listComponentsResponse_nextToken :: Lens.Lens' ListComponentsResponse (Prelude.Maybe Prelude.Text)
-listComponentsResponse_nextToken = Lens.lens (\ListComponentsResponse' {nextToken} -> nextToken) (\s@ListComponentsResponse' {} a -> s {nextToken = a} :: ListComponentsResponse)
 
 -- | The list of application components.
 listComponentsResponse_applicationComponentList :: Lens.Lens' ListComponentsResponse (Prelude.Maybe [ApplicationComponent])
 listComponentsResponse_applicationComponentList = Lens.lens (\ListComponentsResponse' {applicationComponentList} -> applicationComponentList) (\s@ListComponentsResponse' {} a -> s {applicationComponentList = a} :: ListComponentsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token to request the next page of results.
+listComponentsResponse_nextToken :: Lens.Lens' ListComponentsResponse (Prelude.Maybe Prelude.Text)
+listComponentsResponse_nextToken = Lens.lens (\ListComponentsResponse' {nextToken} -> nextToken) (\s@ListComponentsResponse' {} a -> s {nextToken = a} :: ListComponentsResponse)
 
 -- | The response's http status code.
 listComponentsResponse_httpStatus :: Lens.Lens' ListComponentsResponse Prelude.Int
@@ -215,6 +215,6 @@ listComponentsResponse_httpStatus = Lens.lens (\ListComponentsResponse' {httpSta
 
 instance Prelude.NFData ListComponentsResponse where
   rnf ListComponentsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf applicationComponentList
+    Prelude.rnf applicationComponentList
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

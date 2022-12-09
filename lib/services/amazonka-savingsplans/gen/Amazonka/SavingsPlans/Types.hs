@@ -19,8 +19,8 @@ module Amazonka.SavingsPlans.Types
 
     -- * Errors
     _InternalServerException,
-    _ServiceQuotaExceededException,
     _ResourceNotFoundException,
+    _ServiceQuotaExceededException,
     _ValidationException,
 
     -- * CurrencyCode
@@ -65,34 +65,34 @@ module Amazonka.SavingsPlans.Types
     -- * ParentSavingsPlanOffering
     ParentSavingsPlanOffering (..),
     newParentSavingsPlanOffering,
-    parentSavingsPlanOffering_planType,
-    parentSavingsPlanOffering_durationSeconds,
     parentSavingsPlanOffering_currency,
+    parentSavingsPlanOffering_durationSeconds,
     parentSavingsPlanOffering_offeringId,
     parentSavingsPlanOffering_paymentOption,
     parentSavingsPlanOffering_planDescription,
+    parentSavingsPlanOffering_planType,
 
     -- * SavingsPlan
     SavingsPlan (..),
     newSavingsPlan,
-    savingsPlan_tags,
-    savingsPlan_upfrontPaymentAmount,
+    savingsPlan_commitment,
+    savingsPlan_currency,
+    savingsPlan_description,
+    savingsPlan_ec2InstanceFamily,
+    savingsPlan_end,
+    savingsPlan_offeringId,
+    savingsPlan_paymentOption,
     savingsPlan_productTypes,
     savingsPlan_recurringPaymentAmount,
+    savingsPlan_region,
+    savingsPlan_savingsPlanArn,
     savingsPlan_savingsPlanId,
+    savingsPlan_savingsPlanType,
     savingsPlan_start,
     savingsPlan_state,
-    savingsPlan_commitment,
-    savingsPlan_description,
-    savingsPlan_end,
-    savingsPlan_region,
-    savingsPlan_ec2InstanceFamily,
-    savingsPlan_savingsPlanType,
-    savingsPlan_currency,
+    savingsPlan_tags,
     savingsPlan_termDurationInSeconds,
-    savingsPlan_offeringId,
-    savingsPlan_savingsPlanArn,
-    savingsPlan_paymentOption,
+    savingsPlan_upfrontPaymentAmount,
 
     -- * SavingsPlanFilter
     SavingsPlanFilter (..),
@@ -103,17 +103,17 @@ module Amazonka.SavingsPlans.Types
     -- * SavingsPlanOffering
     SavingsPlanOffering (..),
     newSavingsPlanOffering,
-    savingsPlanOffering_productTypes,
+    savingsPlanOffering_currency,
+    savingsPlanOffering_description,
+    savingsPlanOffering_durationSeconds,
+    savingsPlanOffering_offeringId,
+    savingsPlanOffering_operation,
+    savingsPlanOffering_paymentOption,
     savingsPlanOffering_planType,
+    savingsPlanOffering_productTypes,
     savingsPlanOffering_properties,
     savingsPlanOffering_serviceCode,
     savingsPlanOffering_usageType,
-    savingsPlanOffering_description,
-    savingsPlanOffering_durationSeconds,
-    savingsPlanOffering_currency,
-    savingsPlanOffering_offeringId,
-    savingsPlanOffering_paymentOption,
-    savingsPlanOffering_operation,
 
     -- * SavingsPlanOfferingFilterElement
     SavingsPlanOfferingFilterElement (..),
@@ -130,14 +130,14 @@ module Amazonka.SavingsPlans.Types
     -- * SavingsPlanOfferingRate
     SavingsPlanOfferingRate (..),
     newSavingsPlanOfferingRate,
-    savingsPlanOfferingRate_rate,
+    savingsPlanOfferingRate_operation,
     savingsPlanOfferingRate_productType,
     savingsPlanOfferingRate_properties,
-    savingsPlanOfferingRate_serviceCode,
-    savingsPlanOfferingRate_usageType,
+    savingsPlanOfferingRate_rate,
     savingsPlanOfferingRate_savingsPlanOffering,
+    savingsPlanOfferingRate_serviceCode,
     savingsPlanOfferingRate_unit,
-    savingsPlanOfferingRate_operation,
+    savingsPlanOfferingRate_usageType,
 
     -- * SavingsPlanOfferingRateFilterElement
     SavingsPlanOfferingRateFilterElement (..),
@@ -154,14 +154,14 @@ module Amazonka.SavingsPlans.Types
     -- * SavingsPlanRate
     SavingsPlanRate (..),
     newSavingsPlanRate,
-    savingsPlanRate_rate,
+    savingsPlanRate_currency,
+    savingsPlanRate_operation,
     savingsPlanRate_productType,
     savingsPlanRate_properties,
+    savingsPlanRate_rate,
     savingsPlanRate_serviceCode,
-    savingsPlanRate_usageType,
-    savingsPlanRate_currency,
     savingsPlanRate_unit,
-    savingsPlanRate_operation,
+    savingsPlanRate_usageType,
 
     -- * SavingsPlanRateFilter
     SavingsPlanRateFilter (..),
@@ -232,28 +232,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -261,13 +255,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -275,6 +273,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | An unexpected error occurred.
@@ -285,14 +285,6 @@ _InternalServerException =
     "InternalServerException"
     Prelude.. Core.hasStatus 500
 
--- | A service quota has been exceeded.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceQuotaExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceQuotaExceededException"
-    Prelude.. Core.hasStatus 402
-
 -- | The specified resource was not found.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
@@ -300,6 +292,14 @@ _ResourceNotFoundException =
     defaultService
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
+
+-- | A service quota has been exceeded.
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceQuotaExceededException"
+    Prelude.. Core.hasStatus 402
 
 -- | One of the input parameters is not valid.
 _ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

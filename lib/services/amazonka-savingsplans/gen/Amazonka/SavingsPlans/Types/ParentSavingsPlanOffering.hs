@@ -31,18 +31,18 @@ import Amazonka.SavingsPlans.Types.SavingsPlanType
 --
 -- /See:/ 'newParentSavingsPlanOffering' smart constructor.
 data ParentSavingsPlanOffering = ParentSavingsPlanOffering'
-  { -- | The plan type.
-    planType :: Prelude.Maybe SavingsPlanType,
+  { -- | The currency.
+    currency :: Prelude.Maybe CurrencyCode,
     -- | The duration, in seconds.
     durationSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | The currency.
-    currency :: Prelude.Maybe CurrencyCode,
     -- | The ID of the offering.
     offeringId :: Prelude.Maybe Prelude.Text,
     -- | The payment option.
     paymentOption :: Prelude.Maybe SavingsPlanPaymentOption,
     -- | The description.
-    planDescription :: Prelude.Maybe Prelude.Text
+    planDescription :: Prelude.Maybe Prelude.Text,
+    -- | The plan type.
+    planType :: Prelude.Maybe SavingsPlanType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,41 +54,37 @@ data ParentSavingsPlanOffering = ParentSavingsPlanOffering'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'planType', 'parentSavingsPlanOffering_planType' - The plan type.
+-- 'currency', 'parentSavingsPlanOffering_currency' - The currency.
 --
 -- 'durationSeconds', 'parentSavingsPlanOffering_durationSeconds' - The duration, in seconds.
---
--- 'currency', 'parentSavingsPlanOffering_currency' - The currency.
 --
 -- 'offeringId', 'parentSavingsPlanOffering_offeringId' - The ID of the offering.
 --
 -- 'paymentOption', 'parentSavingsPlanOffering_paymentOption' - The payment option.
 --
 -- 'planDescription', 'parentSavingsPlanOffering_planDescription' - The description.
+--
+-- 'planType', 'parentSavingsPlanOffering_planType' - The plan type.
 newParentSavingsPlanOffering ::
   ParentSavingsPlanOffering
 newParentSavingsPlanOffering =
   ParentSavingsPlanOffering'
-    { planType =
+    { currency =
         Prelude.Nothing,
       durationSeconds = Prelude.Nothing,
-      currency = Prelude.Nothing,
       offeringId = Prelude.Nothing,
       paymentOption = Prelude.Nothing,
-      planDescription = Prelude.Nothing
+      planDescription = Prelude.Nothing,
+      planType = Prelude.Nothing
     }
-
--- | The plan type.
-parentSavingsPlanOffering_planType :: Lens.Lens' ParentSavingsPlanOffering (Prelude.Maybe SavingsPlanType)
-parentSavingsPlanOffering_planType = Lens.lens (\ParentSavingsPlanOffering' {planType} -> planType) (\s@ParentSavingsPlanOffering' {} a -> s {planType = a} :: ParentSavingsPlanOffering)
-
--- | The duration, in seconds.
-parentSavingsPlanOffering_durationSeconds :: Lens.Lens' ParentSavingsPlanOffering (Prelude.Maybe Prelude.Natural)
-parentSavingsPlanOffering_durationSeconds = Lens.lens (\ParentSavingsPlanOffering' {durationSeconds} -> durationSeconds) (\s@ParentSavingsPlanOffering' {} a -> s {durationSeconds = a} :: ParentSavingsPlanOffering)
 
 -- | The currency.
 parentSavingsPlanOffering_currency :: Lens.Lens' ParentSavingsPlanOffering (Prelude.Maybe CurrencyCode)
 parentSavingsPlanOffering_currency = Lens.lens (\ParentSavingsPlanOffering' {currency} -> currency) (\s@ParentSavingsPlanOffering' {} a -> s {currency = a} :: ParentSavingsPlanOffering)
+
+-- | The duration, in seconds.
+parentSavingsPlanOffering_durationSeconds :: Lens.Lens' ParentSavingsPlanOffering (Prelude.Maybe Prelude.Natural)
+parentSavingsPlanOffering_durationSeconds = Lens.lens (\ParentSavingsPlanOffering' {durationSeconds} -> durationSeconds) (\s@ParentSavingsPlanOffering' {} a -> s {durationSeconds = a} :: ParentSavingsPlanOffering)
 
 -- | The ID of the offering.
 parentSavingsPlanOffering_offeringId :: Lens.Lens' ParentSavingsPlanOffering (Prelude.Maybe Prelude.Text)
@@ -102,34 +98,38 @@ parentSavingsPlanOffering_paymentOption = Lens.lens (\ParentSavingsPlanOffering'
 parentSavingsPlanOffering_planDescription :: Lens.Lens' ParentSavingsPlanOffering (Prelude.Maybe Prelude.Text)
 parentSavingsPlanOffering_planDescription = Lens.lens (\ParentSavingsPlanOffering' {planDescription} -> planDescription) (\s@ParentSavingsPlanOffering' {} a -> s {planDescription = a} :: ParentSavingsPlanOffering)
 
+-- | The plan type.
+parentSavingsPlanOffering_planType :: Lens.Lens' ParentSavingsPlanOffering (Prelude.Maybe SavingsPlanType)
+parentSavingsPlanOffering_planType = Lens.lens (\ParentSavingsPlanOffering' {planType} -> planType) (\s@ParentSavingsPlanOffering' {} a -> s {planType = a} :: ParentSavingsPlanOffering)
+
 instance Data.FromJSON ParentSavingsPlanOffering where
   parseJSON =
     Data.withObject
       "ParentSavingsPlanOffering"
       ( \x ->
           ParentSavingsPlanOffering'
-            Prelude.<$> (x Data..:? "planType")
+            Prelude.<$> (x Data..:? "currency")
             Prelude.<*> (x Data..:? "durationSeconds")
-            Prelude.<*> (x Data..:? "currency")
             Prelude.<*> (x Data..:? "offeringId")
             Prelude.<*> (x Data..:? "paymentOption")
             Prelude.<*> (x Data..:? "planDescription")
+            Prelude.<*> (x Data..:? "planType")
       )
 
 instance Prelude.Hashable ParentSavingsPlanOffering where
   hashWithSalt _salt ParentSavingsPlanOffering' {..} =
-    _salt `Prelude.hashWithSalt` planType
+    _salt `Prelude.hashWithSalt` currency
       `Prelude.hashWithSalt` durationSeconds
-      `Prelude.hashWithSalt` currency
       `Prelude.hashWithSalt` offeringId
       `Prelude.hashWithSalt` paymentOption
       `Prelude.hashWithSalt` planDescription
+      `Prelude.hashWithSalt` planType
 
 instance Prelude.NFData ParentSavingsPlanOffering where
   rnf ParentSavingsPlanOffering' {..} =
-    Prelude.rnf planType
+    Prelude.rnf currency
       `Prelude.seq` Prelude.rnf durationSeconds
-      `Prelude.seq` Prelude.rnf currency
       `Prelude.seq` Prelude.rnf offeringId
       `Prelude.seq` Prelude.rnf paymentOption
       `Prelude.seq` Prelude.rnf planDescription
+      `Prelude.seq` Prelude.rnf planType

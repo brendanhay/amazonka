@@ -27,16 +27,16 @@ module Amazonka.SavingsPlans.DescribeSavingsPlansOfferingRates
     newDescribeSavingsPlansOfferingRates,
 
     -- * Request Lenses
-    describeSavingsPlansOfferingRates_nextToken,
-    describeSavingsPlansOfferingRates_usageTypes,
-    describeSavingsPlansOfferingRates_operations,
     describeSavingsPlansOfferingRates_filters,
+    describeSavingsPlansOfferingRates_maxResults,
+    describeSavingsPlansOfferingRates_nextToken,
+    describeSavingsPlansOfferingRates_operations,
+    describeSavingsPlansOfferingRates_products,
     describeSavingsPlansOfferingRates_savingsPlanOfferingIds,
     describeSavingsPlansOfferingRates_savingsPlanPaymentOptions,
-    describeSavingsPlansOfferingRates_products,
-    describeSavingsPlansOfferingRates_maxResults,
     describeSavingsPlansOfferingRates_savingsPlanTypes,
     describeSavingsPlansOfferingRates_serviceCodes,
+    describeSavingsPlansOfferingRates_usageTypes,
 
     -- * Destructuring the Response
     DescribeSavingsPlansOfferingRatesResponse (..),
@@ -59,27 +59,27 @@ import Amazonka.SavingsPlans.Types
 
 -- | /See:/ 'newDescribeSavingsPlansOfferingRates' smart constructor.
 data DescribeSavingsPlansOfferingRates = DescribeSavingsPlansOfferingRates'
-  { -- | The token for the next page of results.
+  { -- | The filters.
+    filters :: Prelude.Maybe [SavingsPlanOfferingRateFilterElement],
+    -- | The maximum number of results to return with a single call. To retrieve
+    -- additional results, make another call with the returned token value.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The usage details of the line item in the billing report.
-    usageTypes :: Prelude.Maybe [Prelude.Text],
     -- | The specific AWS operation for the line item in the billing report.
     operations :: Prelude.Maybe [Prelude.Text],
-    -- | The filters.
-    filters :: Prelude.Maybe [SavingsPlanOfferingRateFilterElement],
+    -- | The AWS products.
+    products :: Prelude.Maybe [SavingsPlanProductType],
     -- | The IDs of the offerings.
     savingsPlanOfferingIds :: Prelude.Maybe [Prelude.Text],
     -- | The payment options.
     savingsPlanPaymentOptions :: Prelude.Maybe [SavingsPlanPaymentOption],
-    -- | The AWS products.
-    products :: Prelude.Maybe [SavingsPlanProductType],
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- additional results, make another call with the returned token value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The plan types.
     savingsPlanTypes :: Prelude.Maybe [SavingsPlanType],
     -- | The services.
-    serviceCodes :: Prelude.Maybe [SavingsPlanRateServiceCode]
+    serviceCodes :: Prelude.Maybe [SavingsPlanRateServiceCode],
+    -- | The usage details of the line item in the billing report.
+    usageTypes :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -91,59 +91,64 @@ data DescribeSavingsPlansOfferingRates = DescribeSavingsPlansOfferingRates'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeSavingsPlansOfferingRates_nextToken' - The token for the next page of results.
+-- 'filters', 'describeSavingsPlansOfferingRates_filters' - The filters.
 --
--- 'usageTypes', 'describeSavingsPlansOfferingRates_usageTypes' - The usage details of the line item in the billing report.
+-- 'maxResults', 'describeSavingsPlansOfferingRates_maxResults' - The maximum number of results to return with a single call. To retrieve
+-- additional results, make another call with the returned token value.
+--
+-- 'nextToken', 'describeSavingsPlansOfferingRates_nextToken' - The token for the next page of results.
 --
 -- 'operations', 'describeSavingsPlansOfferingRates_operations' - The specific AWS operation for the line item in the billing report.
 --
--- 'filters', 'describeSavingsPlansOfferingRates_filters' - The filters.
+-- 'products', 'describeSavingsPlansOfferingRates_products' - The AWS products.
 --
 -- 'savingsPlanOfferingIds', 'describeSavingsPlansOfferingRates_savingsPlanOfferingIds' - The IDs of the offerings.
 --
 -- 'savingsPlanPaymentOptions', 'describeSavingsPlansOfferingRates_savingsPlanPaymentOptions' - The payment options.
 --
--- 'products', 'describeSavingsPlansOfferingRates_products' - The AWS products.
---
--- 'maxResults', 'describeSavingsPlansOfferingRates_maxResults' - The maximum number of results to return with a single call. To retrieve
--- additional results, make another call with the returned token value.
---
 -- 'savingsPlanTypes', 'describeSavingsPlansOfferingRates_savingsPlanTypes' - The plan types.
 --
 -- 'serviceCodes', 'describeSavingsPlansOfferingRates_serviceCodes' - The services.
+--
+-- 'usageTypes', 'describeSavingsPlansOfferingRates_usageTypes' - The usage details of the line item in the billing report.
 newDescribeSavingsPlansOfferingRates ::
   DescribeSavingsPlansOfferingRates
 newDescribeSavingsPlansOfferingRates =
   DescribeSavingsPlansOfferingRates'
-    { nextToken =
+    { filters =
         Prelude.Nothing,
-      usageTypes = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       operations = Prelude.Nothing,
-      filters = Prelude.Nothing,
+      products = Prelude.Nothing,
       savingsPlanOfferingIds = Prelude.Nothing,
       savingsPlanPaymentOptions =
         Prelude.Nothing,
-      products = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       savingsPlanTypes = Prelude.Nothing,
-      serviceCodes = Prelude.Nothing
+      serviceCodes = Prelude.Nothing,
+      usageTypes = Prelude.Nothing
     }
+
+-- | The filters.
+describeSavingsPlansOfferingRates_filters :: Lens.Lens' DescribeSavingsPlansOfferingRates (Prelude.Maybe [SavingsPlanOfferingRateFilterElement])
+describeSavingsPlansOfferingRates_filters = Lens.lens (\DescribeSavingsPlansOfferingRates' {filters} -> filters) (\s@DescribeSavingsPlansOfferingRates' {} a -> s {filters = a} :: DescribeSavingsPlansOfferingRates) Prelude.. Lens.mapping Lens.coerced
+
+-- | The maximum number of results to return with a single call. To retrieve
+-- additional results, make another call with the returned token value.
+describeSavingsPlansOfferingRates_maxResults :: Lens.Lens' DescribeSavingsPlansOfferingRates (Prelude.Maybe Prelude.Natural)
+describeSavingsPlansOfferingRates_maxResults = Lens.lens (\DescribeSavingsPlansOfferingRates' {maxResults} -> maxResults) (\s@DescribeSavingsPlansOfferingRates' {} a -> s {maxResults = a} :: DescribeSavingsPlansOfferingRates)
 
 -- | The token for the next page of results.
 describeSavingsPlansOfferingRates_nextToken :: Lens.Lens' DescribeSavingsPlansOfferingRates (Prelude.Maybe Prelude.Text)
 describeSavingsPlansOfferingRates_nextToken = Lens.lens (\DescribeSavingsPlansOfferingRates' {nextToken} -> nextToken) (\s@DescribeSavingsPlansOfferingRates' {} a -> s {nextToken = a} :: DescribeSavingsPlansOfferingRates)
 
--- | The usage details of the line item in the billing report.
-describeSavingsPlansOfferingRates_usageTypes :: Lens.Lens' DescribeSavingsPlansOfferingRates (Prelude.Maybe [Prelude.Text])
-describeSavingsPlansOfferingRates_usageTypes = Lens.lens (\DescribeSavingsPlansOfferingRates' {usageTypes} -> usageTypes) (\s@DescribeSavingsPlansOfferingRates' {} a -> s {usageTypes = a} :: DescribeSavingsPlansOfferingRates) Prelude.. Lens.mapping Lens.coerced
-
 -- | The specific AWS operation for the line item in the billing report.
 describeSavingsPlansOfferingRates_operations :: Lens.Lens' DescribeSavingsPlansOfferingRates (Prelude.Maybe [Prelude.Text])
 describeSavingsPlansOfferingRates_operations = Lens.lens (\DescribeSavingsPlansOfferingRates' {operations} -> operations) (\s@DescribeSavingsPlansOfferingRates' {} a -> s {operations = a} :: DescribeSavingsPlansOfferingRates) Prelude.. Lens.mapping Lens.coerced
 
--- | The filters.
-describeSavingsPlansOfferingRates_filters :: Lens.Lens' DescribeSavingsPlansOfferingRates (Prelude.Maybe [SavingsPlanOfferingRateFilterElement])
-describeSavingsPlansOfferingRates_filters = Lens.lens (\DescribeSavingsPlansOfferingRates' {filters} -> filters) (\s@DescribeSavingsPlansOfferingRates' {} a -> s {filters = a} :: DescribeSavingsPlansOfferingRates) Prelude.. Lens.mapping Lens.coerced
+-- | The AWS products.
+describeSavingsPlansOfferingRates_products :: Lens.Lens' DescribeSavingsPlansOfferingRates (Prelude.Maybe [SavingsPlanProductType])
+describeSavingsPlansOfferingRates_products = Lens.lens (\DescribeSavingsPlansOfferingRates' {products} -> products) (\s@DescribeSavingsPlansOfferingRates' {} a -> s {products = a} :: DescribeSavingsPlansOfferingRates) Prelude.. Lens.mapping Lens.coerced
 
 -- | The IDs of the offerings.
 describeSavingsPlansOfferingRates_savingsPlanOfferingIds :: Lens.Lens' DescribeSavingsPlansOfferingRates (Prelude.Maybe [Prelude.Text])
@@ -153,15 +158,6 @@ describeSavingsPlansOfferingRates_savingsPlanOfferingIds = Lens.lens (\DescribeS
 describeSavingsPlansOfferingRates_savingsPlanPaymentOptions :: Lens.Lens' DescribeSavingsPlansOfferingRates (Prelude.Maybe [SavingsPlanPaymentOption])
 describeSavingsPlansOfferingRates_savingsPlanPaymentOptions = Lens.lens (\DescribeSavingsPlansOfferingRates' {savingsPlanPaymentOptions} -> savingsPlanPaymentOptions) (\s@DescribeSavingsPlansOfferingRates' {} a -> s {savingsPlanPaymentOptions = a} :: DescribeSavingsPlansOfferingRates) Prelude.. Lens.mapping Lens.coerced
 
--- | The AWS products.
-describeSavingsPlansOfferingRates_products :: Lens.Lens' DescribeSavingsPlansOfferingRates (Prelude.Maybe [SavingsPlanProductType])
-describeSavingsPlansOfferingRates_products = Lens.lens (\DescribeSavingsPlansOfferingRates' {products} -> products) (\s@DescribeSavingsPlansOfferingRates' {} a -> s {products = a} :: DescribeSavingsPlansOfferingRates) Prelude.. Lens.mapping Lens.coerced
-
--- | The maximum number of results to return with a single call. To retrieve
--- additional results, make another call with the returned token value.
-describeSavingsPlansOfferingRates_maxResults :: Lens.Lens' DescribeSavingsPlansOfferingRates (Prelude.Maybe Prelude.Natural)
-describeSavingsPlansOfferingRates_maxResults = Lens.lens (\DescribeSavingsPlansOfferingRates' {maxResults} -> maxResults) (\s@DescribeSavingsPlansOfferingRates' {} a -> s {maxResults = a} :: DescribeSavingsPlansOfferingRates)
-
 -- | The plan types.
 describeSavingsPlansOfferingRates_savingsPlanTypes :: Lens.Lens' DescribeSavingsPlansOfferingRates (Prelude.Maybe [SavingsPlanType])
 describeSavingsPlansOfferingRates_savingsPlanTypes = Lens.lens (\DescribeSavingsPlansOfferingRates' {savingsPlanTypes} -> savingsPlanTypes) (\s@DescribeSavingsPlansOfferingRates' {} a -> s {savingsPlanTypes = a} :: DescribeSavingsPlansOfferingRates) Prelude.. Lens.mapping Lens.coerced
@@ -169,6 +165,10 @@ describeSavingsPlansOfferingRates_savingsPlanTypes = Lens.lens (\DescribeSavings
 -- | The services.
 describeSavingsPlansOfferingRates_serviceCodes :: Lens.Lens' DescribeSavingsPlansOfferingRates (Prelude.Maybe [SavingsPlanRateServiceCode])
 describeSavingsPlansOfferingRates_serviceCodes = Lens.lens (\DescribeSavingsPlansOfferingRates' {serviceCodes} -> serviceCodes) (\s@DescribeSavingsPlansOfferingRates' {} a -> s {serviceCodes = a} :: DescribeSavingsPlansOfferingRates) Prelude.. Lens.mapping Lens.coerced
+
+-- | The usage details of the line item in the billing report.
+describeSavingsPlansOfferingRates_usageTypes :: Lens.Lens' DescribeSavingsPlansOfferingRates (Prelude.Maybe [Prelude.Text])
+describeSavingsPlansOfferingRates_usageTypes = Lens.lens (\DescribeSavingsPlansOfferingRates' {usageTypes} -> usageTypes) (\s@DescribeSavingsPlansOfferingRates' {} a -> s {usageTypes = a} :: DescribeSavingsPlansOfferingRates) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Core.AWSRequest
@@ -195,32 +195,32 @@ instance
   hashWithSalt
     _salt
     DescribeSavingsPlansOfferingRates' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` usageTypes
+      _salt `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` operations
-        `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` products
         `Prelude.hashWithSalt` savingsPlanOfferingIds
         `Prelude.hashWithSalt` savingsPlanPaymentOptions
-        `Prelude.hashWithSalt` products
-        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` savingsPlanTypes
         `Prelude.hashWithSalt` serviceCodes
+        `Prelude.hashWithSalt` usageTypes
 
 instance
   Prelude.NFData
     DescribeSavingsPlansOfferingRates
   where
   rnf DescribeSavingsPlansOfferingRates' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf usageTypes
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf products
       `Prelude.seq` Prelude.rnf savingsPlanOfferingIds
       `Prelude.seq` Prelude.rnf savingsPlanPaymentOptions
-      `Prelude.seq` Prelude.rnf products
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf savingsPlanTypes
       `Prelude.seq` Prelude.rnf serviceCodes
+      `Prelude.seq` Prelude.rnf usageTypes
 
 instance
   Data.ToHeaders
@@ -243,19 +243,19 @@ instance
   toJSON DescribeSavingsPlansOfferingRates' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("usageTypes" Data..=) Prelude.<$> usageTypes,
+          [ ("filters" Data..=) Prelude.<$> filters,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             ("operations" Data..=) Prelude.<$> operations,
-            ("filters" Data..=) Prelude.<$> filters,
+            ("products" Data..=) Prelude.<$> products,
             ("savingsPlanOfferingIds" Data..=)
               Prelude.<$> savingsPlanOfferingIds,
             ("savingsPlanPaymentOptions" Data..=)
               Prelude.<$> savingsPlanPaymentOptions,
-            ("products" Data..=) Prelude.<$> products,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
             ("savingsPlanTypes" Data..=)
               Prelude.<$> savingsPlanTypes,
-            ("serviceCodes" Data..=) Prelude.<$> serviceCodes
+            ("serviceCodes" Data..=) Prelude.<$> serviceCodes,
+            ("usageTypes" Data..=) Prelude.<$> usageTypes
           ]
       )
 

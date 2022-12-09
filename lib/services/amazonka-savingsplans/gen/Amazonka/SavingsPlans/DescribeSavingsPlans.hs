@@ -27,10 +27,10 @@ module Amazonka.SavingsPlans.DescribeSavingsPlans
     newDescribeSavingsPlans,
 
     -- * Request Lenses
-    describeSavingsPlans_nextToken,
-    describeSavingsPlans_savingsPlanArns,
     describeSavingsPlans_filters,
     describeSavingsPlans_maxResults,
+    describeSavingsPlans_nextToken,
+    describeSavingsPlans_savingsPlanArns,
     describeSavingsPlans_savingsPlanIds,
     describeSavingsPlans_states,
 
@@ -55,15 +55,15 @@ import Amazonka.SavingsPlans.Types
 
 -- | /See:/ 'newDescribeSavingsPlans' smart constructor.
 data DescribeSavingsPlans = DescribeSavingsPlans'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Names (ARN) of the Savings Plans.
-    savingsPlanArns :: Prelude.Maybe [Prelude.Text],
-    -- | The filters.
+  { -- | The filters.
     filters :: Prelude.Maybe [SavingsPlanFilter],
     -- | The maximum number of results to return with a single call. To retrieve
     -- additional results, make another call with the returned token value.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Names (ARN) of the Savings Plans.
+    savingsPlanArns :: Prelude.Maybe [Prelude.Text],
     -- | The IDs of the Savings Plans.
     savingsPlanIds :: Prelude.Maybe [Prelude.Text],
     -- | The states.
@@ -79,14 +79,14 @@ data DescribeSavingsPlans = DescribeSavingsPlans'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeSavingsPlans_nextToken' - The token for the next page of results.
---
--- 'savingsPlanArns', 'describeSavingsPlans_savingsPlanArns' - The Amazon Resource Names (ARN) of the Savings Plans.
---
 -- 'filters', 'describeSavingsPlans_filters' - The filters.
 --
 -- 'maxResults', 'describeSavingsPlans_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- additional results, make another call with the returned token value.
+--
+-- 'nextToken', 'describeSavingsPlans_nextToken' - The token for the next page of results.
+--
+-- 'savingsPlanArns', 'describeSavingsPlans_savingsPlanArns' - The Amazon Resource Names (ARN) of the Savings Plans.
 --
 -- 'savingsPlanIds', 'describeSavingsPlans_savingsPlanIds' - The IDs of the Savings Plans.
 --
@@ -95,21 +95,13 @@ newDescribeSavingsPlans ::
   DescribeSavingsPlans
 newDescribeSavingsPlans =
   DescribeSavingsPlans'
-    { nextToken = Prelude.Nothing,
-      savingsPlanArns = Prelude.Nothing,
-      filters = Prelude.Nothing,
+    { filters = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      savingsPlanArns = Prelude.Nothing,
       savingsPlanIds = Prelude.Nothing,
       states = Prelude.Nothing
     }
-
--- | The token for the next page of results.
-describeSavingsPlans_nextToken :: Lens.Lens' DescribeSavingsPlans (Prelude.Maybe Prelude.Text)
-describeSavingsPlans_nextToken = Lens.lens (\DescribeSavingsPlans' {nextToken} -> nextToken) (\s@DescribeSavingsPlans' {} a -> s {nextToken = a} :: DescribeSavingsPlans)
-
--- | The Amazon Resource Names (ARN) of the Savings Plans.
-describeSavingsPlans_savingsPlanArns :: Lens.Lens' DescribeSavingsPlans (Prelude.Maybe [Prelude.Text])
-describeSavingsPlans_savingsPlanArns = Lens.lens (\DescribeSavingsPlans' {savingsPlanArns} -> savingsPlanArns) (\s@DescribeSavingsPlans' {} a -> s {savingsPlanArns = a} :: DescribeSavingsPlans) Prelude.. Lens.mapping Lens.coerced
 
 -- | The filters.
 describeSavingsPlans_filters :: Lens.Lens' DescribeSavingsPlans (Prelude.Maybe [SavingsPlanFilter])
@@ -119,6 +111,14 @@ describeSavingsPlans_filters = Lens.lens (\DescribeSavingsPlans' {filters} -> fi
 -- additional results, make another call with the returned token value.
 describeSavingsPlans_maxResults :: Lens.Lens' DescribeSavingsPlans (Prelude.Maybe Prelude.Natural)
 describeSavingsPlans_maxResults = Lens.lens (\DescribeSavingsPlans' {maxResults} -> maxResults) (\s@DescribeSavingsPlans' {} a -> s {maxResults = a} :: DescribeSavingsPlans)
+
+-- | The token for the next page of results.
+describeSavingsPlans_nextToken :: Lens.Lens' DescribeSavingsPlans (Prelude.Maybe Prelude.Text)
+describeSavingsPlans_nextToken = Lens.lens (\DescribeSavingsPlans' {nextToken} -> nextToken) (\s@DescribeSavingsPlans' {} a -> s {nextToken = a} :: DescribeSavingsPlans)
+
+-- | The Amazon Resource Names (ARN) of the Savings Plans.
+describeSavingsPlans_savingsPlanArns :: Lens.Lens' DescribeSavingsPlans (Prelude.Maybe [Prelude.Text])
+describeSavingsPlans_savingsPlanArns = Lens.lens (\DescribeSavingsPlans' {savingsPlanArns} -> savingsPlanArns) (\s@DescribeSavingsPlans' {} a -> s {savingsPlanArns = a} :: DescribeSavingsPlans) Prelude.. Lens.mapping Lens.coerced
 
 -- | The IDs of the Savings Plans.
 describeSavingsPlans_savingsPlanIds :: Lens.Lens' DescribeSavingsPlans (Prelude.Maybe [Prelude.Text])
@@ -145,19 +145,19 @@ instance Core.AWSRequest DescribeSavingsPlans where
 
 instance Prelude.Hashable DescribeSavingsPlans where
   hashWithSalt _salt DescribeSavingsPlans' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` savingsPlanArns
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` savingsPlanArns
       `Prelude.hashWithSalt` savingsPlanIds
       `Prelude.hashWithSalt` states
 
 instance Prelude.NFData DescribeSavingsPlans where
   rnf DescribeSavingsPlans' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf savingsPlanArns
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf savingsPlanArns
       `Prelude.seq` Prelude.rnf savingsPlanIds
       `Prelude.seq` Prelude.rnf states
 
@@ -176,11 +176,11 @@ instance Data.ToJSON DescribeSavingsPlans where
   toJSON DescribeSavingsPlans' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+          [ ("filters" Data..=) Prelude.<$> filters,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             ("savingsPlanArns" Data..=)
               Prelude.<$> savingsPlanArns,
-            ("filters" Data..=) Prelude.<$> filters,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
             ("savingsPlanIds" Data..=)
               Prelude.<$> savingsPlanIds,
             ("states" Data..=) Prelude.<$> states

@@ -27,9 +27,9 @@ module Amazonka.SavingsPlans.DescribeSavingsPlanRates
     newDescribeSavingsPlanRates,
 
     -- * Request Lenses
-    describeSavingsPlanRates_nextToken,
     describeSavingsPlanRates_filters,
     describeSavingsPlanRates_maxResults,
+    describeSavingsPlanRates_nextToken,
     describeSavingsPlanRates_savingsPlanId,
 
     -- * Destructuring the Response
@@ -54,13 +54,13 @@ import Amazonka.SavingsPlans.Types
 
 -- | /See:/ 'newDescribeSavingsPlanRates' smart constructor.
 data DescribeSavingsPlanRates = DescribeSavingsPlanRates'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The filters.
+  { -- | The filters.
     filters :: Prelude.Maybe [SavingsPlanRateFilter],
     -- | The maximum number of results to return with a single call. To retrieve
     -- additional results, make another call with the returned token value.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Savings Plan.
     savingsPlanId :: Prelude.Text
   }
@@ -74,12 +74,12 @@ data DescribeSavingsPlanRates = DescribeSavingsPlanRates'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeSavingsPlanRates_nextToken' - The token for the next page of results.
---
 -- 'filters', 'describeSavingsPlanRates_filters' - The filters.
 --
 -- 'maxResults', 'describeSavingsPlanRates_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- additional results, make another call with the returned token value.
+--
+-- 'nextToken', 'describeSavingsPlanRates_nextToken' - The token for the next page of results.
 --
 -- 'savingsPlanId', 'describeSavingsPlanRates_savingsPlanId' - The ID of the Savings Plan.
 newDescribeSavingsPlanRates ::
@@ -88,16 +88,12 @@ newDescribeSavingsPlanRates ::
   DescribeSavingsPlanRates
 newDescribeSavingsPlanRates pSavingsPlanId_ =
   DescribeSavingsPlanRates'
-    { nextToken =
+    { filters =
         Prelude.Nothing,
-      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       savingsPlanId = pSavingsPlanId_
     }
-
--- | The token for the next page of results.
-describeSavingsPlanRates_nextToken :: Lens.Lens' DescribeSavingsPlanRates (Prelude.Maybe Prelude.Text)
-describeSavingsPlanRates_nextToken = Lens.lens (\DescribeSavingsPlanRates' {nextToken} -> nextToken) (\s@DescribeSavingsPlanRates' {} a -> s {nextToken = a} :: DescribeSavingsPlanRates)
 
 -- | The filters.
 describeSavingsPlanRates_filters :: Lens.Lens' DescribeSavingsPlanRates (Prelude.Maybe [SavingsPlanRateFilter])
@@ -107,6 +103,10 @@ describeSavingsPlanRates_filters = Lens.lens (\DescribeSavingsPlanRates' {filter
 -- additional results, make another call with the returned token value.
 describeSavingsPlanRates_maxResults :: Lens.Lens' DescribeSavingsPlanRates (Prelude.Maybe Prelude.Natural)
 describeSavingsPlanRates_maxResults = Lens.lens (\DescribeSavingsPlanRates' {maxResults} -> maxResults) (\s@DescribeSavingsPlanRates' {} a -> s {maxResults = a} :: DescribeSavingsPlanRates)
+
+-- | The token for the next page of results.
+describeSavingsPlanRates_nextToken :: Lens.Lens' DescribeSavingsPlanRates (Prelude.Maybe Prelude.Text)
+describeSavingsPlanRates_nextToken = Lens.lens (\DescribeSavingsPlanRates' {nextToken} -> nextToken) (\s@DescribeSavingsPlanRates' {} a -> s {nextToken = a} :: DescribeSavingsPlanRates)
 
 -- | The ID of the Savings Plan.
 describeSavingsPlanRates_savingsPlanId :: Lens.Lens' DescribeSavingsPlanRates Prelude.Text
@@ -130,16 +130,16 @@ instance Core.AWSRequest DescribeSavingsPlanRates where
 
 instance Prelude.Hashable DescribeSavingsPlanRates where
   hashWithSalt _salt DescribeSavingsPlanRates' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` savingsPlanId
 
 instance Prelude.NFData DescribeSavingsPlanRates where
   rnf DescribeSavingsPlanRates' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf savingsPlanId
 
 instance Data.ToHeaders DescribeSavingsPlanRates where
@@ -157,9 +157,9 @@ instance Data.ToJSON DescribeSavingsPlanRates where
   toJSON DescribeSavingsPlanRates' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("filters" Data..=) Prelude.<$> filters,
+          [ ("filters" Data..=) Prelude.<$> filters,
             ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("savingsPlanId" Data..= savingsPlanId)
           ]

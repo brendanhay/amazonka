@@ -43,9 +43,9 @@ module Amazonka.CertificateManager.ExportCertificate
     newExportCertificateResponse,
 
     -- * Response Lenses
-    exportCertificateResponse_privateKey,
     exportCertificateResponse_certificate,
     exportCertificateResponse_certificateChain,
+    exportCertificateResponse_privateKey,
     exportCertificateResponse_httpStatus,
   )
 where
@@ -158,9 +158,9 @@ instance Core.AWSRequest ExportCertificate where
     Response.receiveJSON
       ( \s h x ->
           ExportCertificateResponse'
-            Prelude.<$> (x Data..?> "PrivateKey")
-            Prelude.<*> (x Data..?> "Certificate")
+            Prelude.<$> (x Data..?> "Certificate")
             Prelude.<*> (x Data..?> "CertificateChain")
+            Prelude.<*> (x Data..?> "PrivateKey")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -207,15 +207,15 @@ instance Data.ToQuery ExportCertificate where
 
 -- | /See:/ 'newExportCertificateResponse' smart constructor.
 data ExportCertificateResponse = ExportCertificateResponse'
-  { -- | The encrypted private key associated with the public key in the
-    -- certificate. The key is output in PKCS #8 format and is base64
-    -- PEM-encoded.
-    privateKey :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The base64 PEM-encoded certificate.
+  { -- | The base64 PEM-encoded certificate.
     certificate :: Prelude.Maybe Prelude.Text,
     -- | The base64 PEM-encoded certificate chain. This does not include the
     -- certificate that you are exporting.
     certificateChain :: Prelude.Maybe Prelude.Text,
+    -- | The encrypted private key associated with the public key in the
+    -- certificate. The key is output in PKCS #8 format and is base64
+    -- PEM-encoded.
+    privateKey :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -229,14 +229,14 @@ data ExportCertificateResponse = ExportCertificateResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'privateKey', 'exportCertificateResponse_privateKey' - The encrypted private key associated with the public key in the
--- certificate. The key is output in PKCS #8 format and is base64
--- PEM-encoded.
---
 -- 'certificate', 'exportCertificateResponse_certificate' - The base64 PEM-encoded certificate.
 --
 -- 'certificateChain', 'exportCertificateResponse_certificateChain' - The base64 PEM-encoded certificate chain. This does not include the
 -- certificate that you are exporting.
+--
+-- 'privateKey', 'exportCertificateResponse_privateKey' - The encrypted private key associated with the public key in the
+-- certificate. The key is output in PKCS #8 format and is base64
+-- PEM-encoded.
 --
 -- 'httpStatus', 'exportCertificateResponse_httpStatus' - The response's http status code.
 newExportCertificateResponse ::
@@ -245,18 +245,12 @@ newExportCertificateResponse ::
   ExportCertificateResponse
 newExportCertificateResponse pHttpStatus_ =
   ExportCertificateResponse'
-    { privateKey =
+    { certificate =
         Prelude.Nothing,
-      certificate = Prelude.Nothing,
       certificateChain = Prelude.Nothing,
+      privateKey = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The encrypted private key associated with the public key in the
--- certificate. The key is output in PKCS #8 format and is base64
--- PEM-encoded.
-exportCertificateResponse_privateKey :: Lens.Lens' ExportCertificateResponse (Prelude.Maybe Prelude.Text)
-exportCertificateResponse_privateKey = Lens.lens (\ExportCertificateResponse' {privateKey} -> privateKey) (\s@ExportCertificateResponse' {} a -> s {privateKey = a} :: ExportCertificateResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The base64 PEM-encoded certificate.
 exportCertificateResponse_certificate :: Lens.Lens' ExportCertificateResponse (Prelude.Maybe Prelude.Text)
@@ -267,13 +261,19 @@ exportCertificateResponse_certificate = Lens.lens (\ExportCertificateResponse' {
 exportCertificateResponse_certificateChain :: Lens.Lens' ExportCertificateResponse (Prelude.Maybe Prelude.Text)
 exportCertificateResponse_certificateChain = Lens.lens (\ExportCertificateResponse' {certificateChain} -> certificateChain) (\s@ExportCertificateResponse' {} a -> s {certificateChain = a} :: ExportCertificateResponse)
 
+-- | The encrypted private key associated with the public key in the
+-- certificate. The key is output in PKCS #8 format and is base64
+-- PEM-encoded.
+exportCertificateResponse_privateKey :: Lens.Lens' ExportCertificateResponse (Prelude.Maybe Prelude.Text)
+exportCertificateResponse_privateKey = Lens.lens (\ExportCertificateResponse' {privateKey} -> privateKey) (\s@ExportCertificateResponse' {} a -> s {privateKey = a} :: ExportCertificateResponse) Prelude.. Lens.mapping Data._Sensitive
+
 -- | The response's http status code.
 exportCertificateResponse_httpStatus :: Lens.Lens' ExportCertificateResponse Prelude.Int
 exportCertificateResponse_httpStatus = Lens.lens (\ExportCertificateResponse' {httpStatus} -> httpStatus) (\s@ExportCertificateResponse' {} a -> s {httpStatus = a} :: ExportCertificateResponse)
 
 instance Prelude.NFData ExportCertificateResponse where
   rnf ExportCertificateResponse' {..} =
-    Prelude.rnf privateKey
-      `Prelude.seq` Prelude.rnf certificate
+    Prelude.rnf certificate
       `Prelude.seq` Prelude.rnf certificateChain
+      `Prelude.seq` Prelude.rnf privateKey
       `Prelude.seq` Prelude.rnf httpStatus

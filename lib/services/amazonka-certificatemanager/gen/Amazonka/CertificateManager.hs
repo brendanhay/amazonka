@@ -24,53 +24,53 @@ module Amazonka.CertificateManager
     -- * Errors
     -- $errors
 
-    -- ** InvalidStateException
-    _InvalidStateException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
-
-    -- ** TooManyTagsException
-    _TooManyTagsException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** ResourceInUseException
-    _ResourceInUseException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
-
-    -- ** InvalidDomainValidationOptionsException
-    _InvalidDomainValidationOptionsException,
 
     -- ** ConflictException
     _ConflictException,
 
-    -- ** ThrottlingException
-    _ThrottlingException,
+    -- ** InvalidArgsException
+    _InvalidArgsException,
 
     -- ** InvalidArnException
     _InvalidArnException,
 
-    -- ** ValidationException
-    _ValidationException,
+    -- ** InvalidDomainValidationOptionsException
+    _InvalidDomainValidationOptionsException,
 
-    -- ** InvalidArgsException
-    _InvalidArgsException,
+    -- ** InvalidParameterException
+    _InvalidParameterException,
+
+    -- ** InvalidStateException
+    _InvalidStateException,
 
     -- ** InvalidTagException
     _InvalidTagException,
 
+    -- ** LimitExceededException
+    _LimitExceededException,
+
     -- ** RequestInProgressException
     _RequestInProgressException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- ** TagPolicyException
     _TagPolicyException,
 
-    -- ** InvalidParameterException
-    _InvalidParameterException,
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters

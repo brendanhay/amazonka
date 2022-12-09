@@ -18,22 +18,22 @@ module Amazonka.CertificateManager.Types
     defaultService,
 
     -- * Errors
-    _InvalidStateException,
     _AccessDeniedException,
-    _TooManyTagsException,
-    _ResourceNotFoundException,
-    _ResourceInUseException,
-    _LimitExceededException,
-    _InvalidDomainValidationOptionsException,
     _ConflictException,
-    _ThrottlingException,
-    _InvalidArnException,
-    _ValidationException,
     _InvalidArgsException,
-    _InvalidTagException,
-    _RequestInProgressException,
-    _TagPolicyException,
+    _InvalidArnException,
+    _InvalidDomainValidationOptionsException,
     _InvalidParameterException,
+    _InvalidStateException,
+    _InvalidTagException,
+    _LimitExceededException,
+    _RequestInProgressException,
+    _ResourceInUseException,
+    _ResourceNotFoundException,
+    _TagPolicyException,
+    _ThrottlingException,
+    _TooManyTagsException,
+    _ValidationException,
 
     -- * CertificateStatus
     CertificateStatus (..),
@@ -83,32 +83,32 @@ module Amazonka.CertificateManager.Types
     -- * CertificateDetail
     CertificateDetail (..),
     newCertificateDetail,
-    certificateDetail_issuer,
-    certificateDetail_domainValidationOptions,
-    certificateDetail_type,
-    certificateDetail_certificateAuthorityArn,
-    certificateDetail_domainName,
-    certificateDetail_serial,
-    certificateDetail_keyUsages,
-    certificateDetail_renewalSummary,
-    certificateDetail_keyAlgorithm,
-    certificateDetail_extendedKeyUsages,
-    certificateDetail_inUseBy,
-    certificateDetail_status,
-    certificateDetail_options,
     certificateDetail_certificateArn,
-    certificateDetail_importedAt,
-    certificateDetail_notBefore,
-    certificateDetail_revocationReason,
-    certificateDetail_signatureAlgorithm,
-    certificateDetail_revokedAt,
-    certificateDetail_subject,
-    certificateDetail_notAfter,
-    certificateDetail_renewalEligibility,
+    certificateDetail_certificateAuthorityArn,
     certificateDetail_createdAt,
-    certificateDetail_subjectAlternativeNames,
+    certificateDetail_domainName,
+    certificateDetail_domainValidationOptions,
+    certificateDetail_extendedKeyUsages,
     certificateDetail_failureReason,
+    certificateDetail_importedAt,
+    certificateDetail_inUseBy,
     certificateDetail_issuedAt,
+    certificateDetail_issuer,
+    certificateDetail_keyAlgorithm,
+    certificateDetail_keyUsages,
+    certificateDetail_notAfter,
+    certificateDetail_notBefore,
+    certificateDetail_options,
+    certificateDetail_renewalEligibility,
+    certificateDetail_renewalSummary,
+    certificateDetail_revocationReason,
+    certificateDetail_revokedAt,
+    certificateDetail_serial,
+    certificateDetail_signatureAlgorithm,
+    certificateDetail_status,
+    certificateDetail_subject,
+    certificateDetail_subjectAlternativeNames,
+    certificateDetail_type,
 
     -- * CertificateOptions
     CertificateOptions (..),
@@ -118,33 +118,33 @@ module Amazonka.CertificateManager.Types
     -- * CertificateSummary
     CertificateSummary (..),
     newCertificateSummary,
-    certificateSummary_subjectAlternativeNameSummaries,
-    certificateSummary_type,
+    certificateSummary_certificateArn,
+    certificateSummary_createdAt,
     certificateSummary_domainName,
     certificateSummary_exported,
-    certificateSummary_keyUsages,
-    certificateSummary_keyAlgorithm,
     certificateSummary_extendedKeyUsages,
-    certificateSummary_status,
     certificateSummary_hasAdditionalSubjectAlternativeNames,
-    certificateSummary_certificateArn,
     certificateSummary_importedAt,
-    certificateSummary_notBefore,
     certificateSummary_inUse,
-    certificateSummary_revokedAt,
-    certificateSummary_notAfter,
-    certificateSummary_renewalEligibility,
-    certificateSummary_createdAt,
     certificateSummary_issuedAt,
+    certificateSummary_keyAlgorithm,
+    certificateSummary_keyUsages,
+    certificateSummary_notAfter,
+    certificateSummary_notBefore,
+    certificateSummary_renewalEligibility,
+    certificateSummary_revokedAt,
+    certificateSummary_status,
+    certificateSummary_subjectAlternativeNameSummaries,
+    certificateSummary_type,
 
     -- * DomainValidation
     DomainValidation (..),
     newDomainValidation,
-    domainValidation_validationStatus,
-    domainValidation_validationDomain,
     domainValidation_resourceRecord,
+    domainValidation_validationDomain,
     domainValidation_validationEmails,
     domainValidation_validationMethod,
+    domainValidation_validationStatus,
     domainValidation_domainName,
 
     -- * DomainValidationOption
@@ -257,28 +257,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -286,13 +280,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -300,14 +298,9 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
-
--- | Processing has reached an invalid state.
-_InvalidStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidStateException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidStateException"
 
 -- | You do not have access required to perform this action.
 _AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -315,44 +308,6 @@ _AccessDeniedException =
   Core._MatchServiceError
     defaultService
     "AccessDeniedException"
-
--- | The request contains too many tags. Try the request again with fewer
--- tags.
-_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyTagsException =
-  Core._MatchServiceError
-    defaultService
-    "TooManyTagsException"
-
--- | The specified certificate cannot be found in the caller\'s account or
--- the caller\'s account cannot be found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-
--- | The certificate is in use by another Amazon Web Services service in the
--- caller\'s account. Remove the association and try again.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceInUseException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceInUseException"
-
--- | An ACM quota has been exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "LimitExceededException"
-
--- | One or more values in the DomainValidationOption structure is incorrect.
-_InvalidDomainValidationOptionsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidDomainValidationOptionsException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidDomainValidationOptionsException"
 
 -- | You are trying to update a resource or configuration that is already
 -- being created or updated. Wait for the previous operation to finish and
@@ -363,12 +318,12 @@ _ConflictException =
     defaultService
     "ConflictException"
 
--- | The request was denied because it exceeded a quota.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ThrottlingException =
+-- | One or more of of request parameters specified is not valid.
+_InvalidArgsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidArgsException =
   Core._MatchServiceError
     defaultService
-    "ThrottlingException"
+    "InvalidArgsException"
 
 -- | The requested Amazon Resource Name (ARN) does not refer to an existing
 -- resource.
@@ -378,20 +333,26 @@ _InvalidArnException =
     defaultService
     "InvalidArnException"
 
--- | The supplied input failed to satisfy constraints of an Amazon Web
--- Services service.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ValidationException =
+-- | One or more values in the DomainValidationOption structure is incorrect.
+_InvalidDomainValidationOptionsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidDomainValidationOptionsException =
   Core._MatchServiceError
     defaultService
-    "ValidationException"
+    "InvalidDomainValidationOptionsException"
 
--- | One or more of of request parameters specified is not valid.
-_InvalidArgsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidArgsException =
+-- | An input parameter was invalid.
+_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException =
   Core._MatchServiceError
     defaultService
-    "InvalidArgsException"
+    "InvalidParameterException"
+
+-- | Processing has reached an invalid state.
+_InvalidStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidStateException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidStateException"
 
 -- | One or both of the values that make up the key-value pair is not valid.
 -- For example, you cannot specify a tag value that begins with @aws:@.
@@ -401,6 +362,13 @@ _InvalidTagException =
     defaultService
     "InvalidTagException"
 
+-- | An ACM quota has been exceeded.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "LimitExceededException"
+
 -- | The certificate request is in process and the certificate in your
 -- account has not yet been issued.
 _RequestInProgressException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -408,6 +376,22 @@ _RequestInProgressException =
   Core._MatchServiceError
     defaultService
     "RequestInProgressException"
+
+-- | The certificate is in use by another Amazon Web Services service in the
+-- caller\'s account. Remove the association and try again.
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceInUseException"
+
+-- | The specified certificate cannot be found in the caller\'s account or
+-- the caller\'s account cannot be found.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
 
 -- | A specified tag did not comply with an existing tag policy and was
 -- rejected.
@@ -417,9 +401,25 @@ _TagPolicyException =
     defaultService
     "TagPolicyException"
 
--- | An input parameter was invalid.
-_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidParameterException =
+-- | The request was denied because it exceeded a quota.
+_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException =
   Core._MatchServiceError
     defaultService
-    "InvalidParameterException"
+    "ThrottlingException"
+
+-- | The request contains too many tags. Try the request again with fewer
+-- tags.
+_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyTagsException"
+
+-- | The supplied input failed to satisfy constraints of an Amazon Web
+-- Services service.
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
+  Core._MatchServiceError
+    defaultService
+    "ValidationException"

@@ -32,18 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDomainValidation' smart constructor.
 data DomainValidation = DomainValidation'
-  { -- | The validation status of the domain name. This can be one of the
-    -- following values:
-    --
-    -- -   @PENDING_VALIDATION@
-    --
-    -- -   @@SUCCESS
-    --
-    -- -   @@FAILED
-    validationStatus :: Prelude.Maybe DomainStatus,
-    -- | The domain name that ACM used to send domain validation emails.
-    validationDomain :: Prelude.Maybe Prelude.Text,
-    -- | Contains the CNAME record that you add to your DNS database for domain
+  { -- | Contains the CNAME record that you add to your DNS database for domain
     -- validation. For more information, see
     -- <https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html Use DNS to Validate Domain Ownership>.
     --
@@ -53,11 +42,22 @@ data DomainValidation = DomainValidation'
     -- \"_a79865eb4cd1a6ab990a45779b4e0b96.yourdomain.com\", only
     -- \"_a79865eb4cd1a6ab990a45779b4e0b96\" must be used.
     resourceRecord :: Prelude.Maybe ResourceRecord,
+    -- | The domain name that ACM used to send domain validation emails.
+    validationDomain :: Prelude.Maybe Prelude.Text,
     -- | A list of email addresses that ACM used to send domain validation
     -- emails.
     validationEmails :: Prelude.Maybe [Prelude.Text],
     -- | Specifies the domain validation method.
     validationMethod :: Prelude.Maybe ValidationMethod,
+    -- | The validation status of the domain name. This can be one of the
+    -- following values:
+    --
+    -- -   @PENDING_VALIDATION@
+    --
+    -- -   @@SUCCESS
+    --
+    -- -   @@FAILED
+    validationStatus :: Prelude.Maybe DomainStatus,
     -- | A fully qualified domain name (FQDN) in the certificate. For example,
     -- @www.example.com@ or @example.com@.
     domainName :: Prelude.Text
@@ -72,17 +72,6 @@ data DomainValidation = DomainValidation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'validationStatus', 'domainValidation_validationStatus' - The validation status of the domain name. This can be one of the
--- following values:
---
--- -   @PENDING_VALIDATION@
---
--- -   @@SUCCESS
---
--- -   @@FAILED
---
--- 'validationDomain', 'domainValidation_validationDomain' - The domain name that ACM used to send domain validation emails.
---
 -- 'resourceRecord', 'domainValidation_resourceRecord' - Contains the CNAME record that you add to your DNS database for domain
 -- validation. For more information, see
 -- <https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html Use DNS to Validate Domain Ownership>.
@@ -93,10 +82,21 @@ data DomainValidation = DomainValidation'
 -- \"_a79865eb4cd1a6ab990a45779b4e0b96.yourdomain.com\", only
 -- \"_a79865eb4cd1a6ab990a45779b4e0b96\" must be used.
 --
+-- 'validationDomain', 'domainValidation_validationDomain' - The domain name that ACM used to send domain validation emails.
+--
 -- 'validationEmails', 'domainValidation_validationEmails' - A list of email addresses that ACM used to send domain validation
 -- emails.
 --
 -- 'validationMethod', 'domainValidation_validationMethod' - Specifies the domain validation method.
+--
+-- 'validationStatus', 'domainValidation_validationStatus' - The validation status of the domain name. This can be one of the
+-- following values:
+--
+-- -   @PENDING_VALIDATION@
+--
+-- -   @@SUCCESS
+--
+-- -   @@FAILED
 --
 -- 'domainName', 'domainValidation_domainName' - A fully qualified domain name (FQDN) in the certificate. For example,
 -- @www.example.com@ or @example.com@.
@@ -106,29 +106,13 @@ newDomainValidation ::
   DomainValidation
 newDomainValidation pDomainName_ =
   DomainValidation'
-    { validationStatus =
-        Prelude.Nothing,
+    { resourceRecord = Prelude.Nothing,
       validationDomain = Prelude.Nothing,
-      resourceRecord = Prelude.Nothing,
       validationEmails = Prelude.Nothing,
       validationMethod = Prelude.Nothing,
+      validationStatus = Prelude.Nothing,
       domainName = pDomainName_
     }
-
--- | The validation status of the domain name. This can be one of the
--- following values:
---
--- -   @PENDING_VALIDATION@
---
--- -   @@SUCCESS
---
--- -   @@FAILED
-domainValidation_validationStatus :: Lens.Lens' DomainValidation (Prelude.Maybe DomainStatus)
-domainValidation_validationStatus = Lens.lens (\DomainValidation' {validationStatus} -> validationStatus) (\s@DomainValidation' {} a -> s {validationStatus = a} :: DomainValidation)
-
--- | The domain name that ACM used to send domain validation emails.
-domainValidation_validationDomain :: Lens.Lens' DomainValidation (Prelude.Maybe Prelude.Text)
-domainValidation_validationDomain = Lens.lens (\DomainValidation' {validationDomain} -> validationDomain) (\s@DomainValidation' {} a -> s {validationDomain = a} :: DomainValidation)
 
 -- | Contains the CNAME record that you add to your DNS database for domain
 -- validation. For more information, see
@@ -142,6 +126,10 @@ domainValidation_validationDomain = Lens.lens (\DomainValidation' {validationDom
 domainValidation_resourceRecord :: Lens.Lens' DomainValidation (Prelude.Maybe ResourceRecord)
 domainValidation_resourceRecord = Lens.lens (\DomainValidation' {resourceRecord} -> resourceRecord) (\s@DomainValidation' {} a -> s {resourceRecord = a} :: DomainValidation)
 
+-- | The domain name that ACM used to send domain validation emails.
+domainValidation_validationDomain :: Lens.Lens' DomainValidation (Prelude.Maybe Prelude.Text)
+domainValidation_validationDomain = Lens.lens (\DomainValidation' {validationDomain} -> validationDomain) (\s@DomainValidation' {} a -> s {validationDomain = a} :: DomainValidation)
+
 -- | A list of email addresses that ACM used to send domain validation
 -- emails.
 domainValidation_validationEmails :: Lens.Lens' DomainValidation (Prelude.Maybe [Prelude.Text])
@@ -150,6 +138,17 @@ domainValidation_validationEmails = Lens.lens (\DomainValidation' {validationEma
 -- | Specifies the domain validation method.
 domainValidation_validationMethod :: Lens.Lens' DomainValidation (Prelude.Maybe ValidationMethod)
 domainValidation_validationMethod = Lens.lens (\DomainValidation' {validationMethod} -> validationMethod) (\s@DomainValidation' {} a -> s {validationMethod = a} :: DomainValidation)
+
+-- | The validation status of the domain name. This can be one of the
+-- following values:
+--
+-- -   @PENDING_VALIDATION@
+--
+-- -   @@SUCCESS
+--
+-- -   @@FAILED
+domainValidation_validationStatus :: Lens.Lens' DomainValidation (Prelude.Maybe DomainStatus)
+domainValidation_validationStatus = Lens.lens (\DomainValidation' {validationStatus} -> validationStatus) (\s@DomainValidation' {} a -> s {validationStatus = a} :: DomainValidation)
 
 -- | A fully qualified domain name (FQDN) in the certificate. For example,
 -- @www.example.com@ or @example.com@.
@@ -162,30 +161,30 @@ instance Data.FromJSON DomainValidation where
       "DomainValidation"
       ( \x ->
           DomainValidation'
-            Prelude.<$> (x Data..:? "ValidationStatus")
+            Prelude.<$> (x Data..:? "ResourceRecord")
             Prelude.<*> (x Data..:? "ValidationDomain")
-            Prelude.<*> (x Data..:? "ResourceRecord")
             Prelude.<*> ( x Data..:? "ValidationEmails"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ValidationMethod")
+            Prelude.<*> (x Data..:? "ValidationStatus")
             Prelude.<*> (x Data..: "DomainName")
       )
 
 instance Prelude.Hashable DomainValidation where
   hashWithSalt _salt DomainValidation' {..} =
-    _salt `Prelude.hashWithSalt` validationStatus
+    _salt `Prelude.hashWithSalt` resourceRecord
       `Prelude.hashWithSalt` validationDomain
-      `Prelude.hashWithSalt` resourceRecord
       `Prelude.hashWithSalt` validationEmails
       `Prelude.hashWithSalt` validationMethod
+      `Prelude.hashWithSalt` validationStatus
       `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData DomainValidation where
   rnf DomainValidation' {..} =
-    Prelude.rnf validationStatus
+    Prelude.rnf resourceRecord
       `Prelude.seq` Prelude.rnf validationDomain
-      `Prelude.seq` Prelude.rnf resourceRecord
       `Prelude.seq` Prelude.rnf validationEmails
       `Prelude.seq` Prelude.rnf validationMethod
+      `Prelude.seq` Prelude.rnf validationStatus
       `Prelude.seq` Prelude.rnf domainName

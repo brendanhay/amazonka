@@ -29,20 +29,22 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDataCollectionDetails' smart constructor.
 data DataCollectionDetails = DataCollectionDetails'
-  { -- | The number of failed servers in the assessment.
+  { -- | The time the assessment completes.
+    completionTime :: Prelude.Maybe Data.POSIX,
+    -- | The number of failed servers in the assessment.
     failed :: Prelude.Maybe Prelude.Int,
+    -- | The number of servers with the assessment status @IN_PROGESS@.
+    inProgress :: Prelude.Maybe Prelude.Int,
     -- | The total number of servers in the assessment.
     servers :: Prelude.Maybe Prelude.Int,
-    -- | The status of the assessment.
-    status :: Prelude.Maybe AssessmentStatus,
-    -- | The time the assessment completes.
-    completionTime :: Prelude.Maybe Data.POSIX,
-    -- | The number of successful servers in the assessment.
-    success :: Prelude.Maybe Prelude.Int,
     -- | The start time of assessment.
     startTime :: Prelude.Maybe Data.POSIX,
-    -- | The number of servers with the assessment status @IN_PROGESS@.
-    inProgress :: Prelude.Maybe Prelude.Int
+    -- | The status of the assessment.
+    status :: Prelude.Maybe AssessmentStatus,
+    -- | The status message of the assessment.
+    statusMessage :: Prelude.Maybe Prelude.Text,
+    -- | The number of successful servers in the assessment.
+    success :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,59 +56,67 @@ data DataCollectionDetails = DataCollectionDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'completionTime', 'dataCollectionDetails_completionTime' - The time the assessment completes.
+--
 -- 'failed', 'dataCollectionDetails_failed' - The number of failed servers in the assessment.
+--
+-- 'inProgress', 'dataCollectionDetails_inProgress' - The number of servers with the assessment status @IN_PROGESS@.
 --
 -- 'servers', 'dataCollectionDetails_servers' - The total number of servers in the assessment.
 --
--- 'status', 'dataCollectionDetails_status' - The status of the assessment.
---
--- 'completionTime', 'dataCollectionDetails_completionTime' - The time the assessment completes.
---
--- 'success', 'dataCollectionDetails_success' - The number of successful servers in the assessment.
---
 -- 'startTime', 'dataCollectionDetails_startTime' - The start time of assessment.
 --
--- 'inProgress', 'dataCollectionDetails_inProgress' - The number of servers with the assessment status @IN_PROGESS@.
+-- 'status', 'dataCollectionDetails_status' - The status of the assessment.
+--
+-- 'statusMessage', 'dataCollectionDetails_statusMessage' - The status message of the assessment.
+--
+-- 'success', 'dataCollectionDetails_success' - The number of successful servers in the assessment.
 newDataCollectionDetails ::
   DataCollectionDetails
 newDataCollectionDetails =
   DataCollectionDetails'
-    { failed = Prelude.Nothing,
+    { completionTime =
+        Prelude.Nothing,
+      failed = Prelude.Nothing,
+      inProgress = Prelude.Nothing,
       servers = Prelude.Nothing,
-      status = Prelude.Nothing,
-      completionTime = Prelude.Nothing,
-      success = Prelude.Nothing,
       startTime = Prelude.Nothing,
-      inProgress = Prelude.Nothing
+      status = Prelude.Nothing,
+      statusMessage = Prelude.Nothing,
+      success = Prelude.Nothing
     }
-
--- | The number of failed servers in the assessment.
-dataCollectionDetails_failed :: Lens.Lens' DataCollectionDetails (Prelude.Maybe Prelude.Int)
-dataCollectionDetails_failed = Lens.lens (\DataCollectionDetails' {failed} -> failed) (\s@DataCollectionDetails' {} a -> s {failed = a} :: DataCollectionDetails)
-
--- | The total number of servers in the assessment.
-dataCollectionDetails_servers :: Lens.Lens' DataCollectionDetails (Prelude.Maybe Prelude.Int)
-dataCollectionDetails_servers = Lens.lens (\DataCollectionDetails' {servers} -> servers) (\s@DataCollectionDetails' {} a -> s {servers = a} :: DataCollectionDetails)
-
--- | The status of the assessment.
-dataCollectionDetails_status :: Lens.Lens' DataCollectionDetails (Prelude.Maybe AssessmentStatus)
-dataCollectionDetails_status = Lens.lens (\DataCollectionDetails' {status} -> status) (\s@DataCollectionDetails' {} a -> s {status = a} :: DataCollectionDetails)
 
 -- | The time the assessment completes.
 dataCollectionDetails_completionTime :: Lens.Lens' DataCollectionDetails (Prelude.Maybe Prelude.UTCTime)
 dataCollectionDetails_completionTime = Lens.lens (\DataCollectionDetails' {completionTime} -> completionTime) (\s@DataCollectionDetails' {} a -> s {completionTime = a} :: DataCollectionDetails) Prelude.. Lens.mapping Data._Time
 
--- | The number of successful servers in the assessment.
-dataCollectionDetails_success :: Lens.Lens' DataCollectionDetails (Prelude.Maybe Prelude.Int)
-dataCollectionDetails_success = Lens.lens (\DataCollectionDetails' {success} -> success) (\s@DataCollectionDetails' {} a -> s {success = a} :: DataCollectionDetails)
+-- | The number of failed servers in the assessment.
+dataCollectionDetails_failed :: Lens.Lens' DataCollectionDetails (Prelude.Maybe Prelude.Int)
+dataCollectionDetails_failed = Lens.lens (\DataCollectionDetails' {failed} -> failed) (\s@DataCollectionDetails' {} a -> s {failed = a} :: DataCollectionDetails)
+
+-- | The number of servers with the assessment status @IN_PROGESS@.
+dataCollectionDetails_inProgress :: Lens.Lens' DataCollectionDetails (Prelude.Maybe Prelude.Int)
+dataCollectionDetails_inProgress = Lens.lens (\DataCollectionDetails' {inProgress} -> inProgress) (\s@DataCollectionDetails' {} a -> s {inProgress = a} :: DataCollectionDetails)
+
+-- | The total number of servers in the assessment.
+dataCollectionDetails_servers :: Lens.Lens' DataCollectionDetails (Prelude.Maybe Prelude.Int)
+dataCollectionDetails_servers = Lens.lens (\DataCollectionDetails' {servers} -> servers) (\s@DataCollectionDetails' {} a -> s {servers = a} :: DataCollectionDetails)
 
 -- | The start time of assessment.
 dataCollectionDetails_startTime :: Lens.Lens' DataCollectionDetails (Prelude.Maybe Prelude.UTCTime)
 dataCollectionDetails_startTime = Lens.lens (\DataCollectionDetails' {startTime} -> startTime) (\s@DataCollectionDetails' {} a -> s {startTime = a} :: DataCollectionDetails) Prelude.. Lens.mapping Data._Time
 
--- | The number of servers with the assessment status @IN_PROGESS@.
-dataCollectionDetails_inProgress :: Lens.Lens' DataCollectionDetails (Prelude.Maybe Prelude.Int)
-dataCollectionDetails_inProgress = Lens.lens (\DataCollectionDetails' {inProgress} -> inProgress) (\s@DataCollectionDetails' {} a -> s {inProgress = a} :: DataCollectionDetails)
+-- | The status of the assessment.
+dataCollectionDetails_status :: Lens.Lens' DataCollectionDetails (Prelude.Maybe AssessmentStatus)
+dataCollectionDetails_status = Lens.lens (\DataCollectionDetails' {status} -> status) (\s@DataCollectionDetails' {} a -> s {status = a} :: DataCollectionDetails)
+
+-- | The status message of the assessment.
+dataCollectionDetails_statusMessage :: Lens.Lens' DataCollectionDetails (Prelude.Maybe Prelude.Text)
+dataCollectionDetails_statusMessage = Lens.lens (\DataCollectionDetails' {statusMessage} -> statusMessage) (\s@DataCollectionDetails' {} a -> s {statusMessage = a} :: DataCollectionDetails)
+
+-- | The number of successful servers in the assessment.
+dataCollectionDetails_success :: Lens.Lens' DataCollectionDetails (Prelude.Maybe Prelude.Int)
+dataCollectionDetails_success = Lens.lens (\DataCollectionDetails' {success} -> success) (\s@DataCollectionDetails' {} a -> s {success = a} :: DataCollectionDetails)
 
 instance Data.FromJSON DataCollectionDetails where
   parseJSON =
@@ -114,31 +124,34 @@ instance Data.FromJSON DataCollectionDetails where
       "DataCollectionDetails"
       ( \x ->
           DataCollectionDetails'
-            Prelude.<$> (x Data..:? "failed")
-            Prelude.<*> (x Data..:? "servers")
-            Prelude.<*> (x Data..:? "status")
-            Prelude.<*> (x Data..:? "completionTime")
-            Prelude.<*> (x Data..:? "success")
-            Prelude.<*> (x Data..:? "startTime")
+            Prelude.<$> (x Data..:? "completionTime")
+            Prelude.<*> (x Data..:? "failed")
             Prelude.<*> (x Data..:? "inProgress")
+            Prelude.<*> (x Data..:? "servers")
+            Prelude.<*> (x Data..:? "startTime")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "statusMessage")
+            Prelude.<*> (x Data..:? "success")
       )
 
 instance Prelude.Hashable DataCollectionDetails where
   hashWithSalt _salt DataCollectionDetails' {..} =
-    _salt `Prelude.hashWithSalt` failed
-      `Prelude.hashWithSalt` servers
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` completionTime
-      `Prelude.hashWithSalt` success
-      `Prelude.hashWithSalt` startTime
+    _salt `Prelude.hashWithSalt` completionTime
+      `Prelude.hashWithSalt` failed
       `Prelude.hashWithSalt` inProgress
+      `Prelude.hashWithSalt` servers
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` success
 
 instance Prelude.NFData DataCollectionDetails where
   rnf DataCollectionDetails' {..} =
-    Prelude.rnf failed
-      `Prelude.seq` Prelude.rnf servers
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf completionTime
-      `Prelude.seq` Prelude.rnf success
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf completionTime
+      `Prelude.seq` Prelude.rnf failed
       `Prelude.seq` Prelude.rnf inProgress
+      `Prelude.seq` Prelude.rnf servers
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf success

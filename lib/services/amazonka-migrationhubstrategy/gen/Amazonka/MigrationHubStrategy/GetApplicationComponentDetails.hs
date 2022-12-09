@@ -34,8 +34,8 @@ module Amazonka.MigrationHubStrategy.GetApplicationComponentDetails
     newGetApplicationComponentDetailsResponse,
 
     -- * Response Lenses
-    getApplicationComponentDetailsResponse_associatedApplications,
     getApplicationComponentDetailsResponse_applicationComponentDetail,
+    getApplicationComponentDetailsResponse_associatedApplications,
     getApplicationComponentDetailsResponse_associatedServerIds,
     getApplicationComponentDetailsResponse_moreApplicationResource,
     getApplicationComponentDetailsResponse_httpStatus,
@@ -97,10 +97,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetApplicationComponentDetailsResponse'
-            Prelude.<$> ( x Data..?> "associatedApplications"
+            Prelude.<$> (x Data..?> "applicationComponentDetail")
+            Prelude.<*> ( x Data..?> "associatedApplications"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "applicationComponentDetail")
             Prelude.<*> ( x Data..?> "associatedServerIds"
                             Core..!@ Prelude.mempty
                         )
@@ -150,11 +150,11 @@ instance Data.ToQuery GetApplicationComponentDetails where
 
 -- | /See:/ 'newGetApplicationComponentDetailsResponse' smart constructor.
 data GetApplicationComponentDetailsResponse = GetApplicationComponentDetailsResponse'
-  { -- | The associated application group as defined in AWS Application Discovery
+  { -- | Detailed information about an application component.
+    applicationComponentDetail :: Prelude.Maybe ApplicationComponentDetail,
+    -- | The associated application group as defined in AWS Application Discovery
     -- Service.
     associatedApplications :: Prelude.Maybe [AssociatedApplication],
-    -- | Detailed information about an application component.
-    applicationComponentDetail :: Prelude.Maybe ApplicationComponentDetail,
     -- | A list of the IDs of the servers on which the application component is
     -- running.
     associatedServerIds :: Prelude.Maybe [Prelude.Text],
@@ -174,10 +174,10 @@ data GetApplicationComponentDetailsResponse = GetApplicationComponentDetailsResp
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'applicationComponentDetail', 'getApplicationComponentDetailsResponse_applicationComponentDetail' - Detailed information about an application component.
+--
 -- 'associatedApplications', 'getApplicationComponentDetailsResponse_associatedApplications' - The associated application group as defined in AWS Application Discovery
 -- Service.
---
--- 'applicationComponentDetail', 'getApplicationComponentDetailsResponse_applicationComponentDetail' - Detailed information about an application component.
 --
 -- 'associatedServerIds', 'getApplicationComponentDetailsResponse_associatedServerIds' - A list of the IDs of the servers on which the application component is
 -- running.
@@ -193,9 +193,9 @@ newGetApplicationComponentDetailsResponse ::
 newGetApplicationComponentDetailsResponse
   pHttpStatus_ =
     GetApplicationComponentDetailsResponse'
-      { associatedApplications =
+      { applicationComponentDetail =
           Prelude.Nothing,
-        applicationComponentDetail =
+        associatedApplications =
           Prelude.Nothing,
         associatedServerIds =
           Prelude.Nothing,
@@ -204,14 +204,14 @@ newGetApplicationComponentDetailsResponse
         httpStatus = pHttpStatus_
       }
 
+-- | Detailed information about an application component.
+getApplicationComponentDetailsResponse_applicationComponentDetail :: Lens.Lens' GetApplicationComponentDetailsResponse (Prelude.Maybe ApplicationComponentDetail)
+getApplicationComponentDetailsResponse_applicationComponentDetail = Lens.lens (\GetApplicationComponentDetailsResponse' {applicationComponentDetail} -> applicationComponentDetail) (\s@GetApplicationComponentDetailsResponse' {} a -> s {applicationComponentDetail = a} :: GetApplicationComponentDetailsResponse)
+
 -- | The associated application group as defined in AWS Application Discovery
 -- Service.
 getApplicationComponentDetailsResponse_associatedApplications :: Lens.Lens' GetApplicationComponentDetailsResponse (Prelude.Maybe [AssociatedApplication])
 getApplicationComponentDetailsResponse_associatedApplications = Lens.lens (\GetApplicationComponentDetailsResponse' {associatedApplications} -> associatedApplications) (\s@GetApplicationComponentDetailsResponse' {} a -> s {associatedApplications = a} :: GetApplicationComponentDetailsResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | Detailed information about an application component.
-getApplicationComponentDetailsResponse_applicationComponentDetail :: Lens.Lens' GetApplicationComponentDetailsResponse (Prelude.Maybe ApplicationComponentDetail)
-getApplicationComponentDetailsResponse_applicationComponentDetail = Lens.lens (\GetApplicationComponentDetailsResponse' {applicationComponentDetail} -> applicationComponentDetail) (\s@GetApplicationComponentDetailsResponse' {} a -> s {applicationComponentDetail = a} :: GetApplicationComponentDetailsResponse)
 
 -- | A list of the IDs of the servers on which the application component is
 -- running.
@@ -232,8 +232,8 @@ instance
     GetApplicationComponentDetailsResponse
   where
   rnf GetApplicationComponentDetailsResponse' {..} =
-    Prelude.rnf associatedApplications
-      `Prelude.seq` Prelude.rnf applicationComponentDetail
+    Prelude.rnf applicationComponentDetail
+      `Prelude.seq` Prelude.rnf associatedApplications
       `Prelude.seq` Prelude.rnf associatedServerIds
       `Prelude.seq` Prelude.rnf moreApplicationResource
       `Prelude.seq` Prelude.rnf httpStatus

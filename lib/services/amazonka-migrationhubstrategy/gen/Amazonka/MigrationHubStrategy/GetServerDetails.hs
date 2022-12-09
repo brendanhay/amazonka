@@ -29,8 +29,8 @@ module Amazonka.MigrationHubStrategy.GetServerDetails
     newGetServerDetails,
 
     -- * Request Lenses
-    getServerDetails_nextToken,
     getServerDetails_maxResults,
+    getServerDetails_nextToken,
     getServerDetails_serverId,
 
     -- * Destructuring the Response
@@ -38,8 +38,8 @@ module Amazonka.MigrationHubStrategy.GetServerDetails
     newGetServerDetailsResponse,
 
     -- * Response Lenses
-    getServerDetailsResponse_nextToken,
     getServerDetailsResponse_associatedApplications,
+    getServerDetailsResponse_nextToken,
     getServerDetailsResponse_serverDetail,
     getServerDetailsResponse_httpStatus,
   )
@@ -55,15 +55,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetServerDetails' smart constructor.
 data GetServerDetails = GetServerDetails'
-  { -- | The token from a previous call that you use to retrieve the next set of
+  { -- | The maximum number of items to include in the response. The maximum
+    -- value is 100.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The token from a previous call that you use to retrieve the next set of
     -- results. For example, if a previous call to this action returned 100
     -- items, but you set @maxResults@ to 10. You\'ll receive a set of 10
     -- results along with a token. You then use the returned token to retrieve
     -- the next set of 10.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to include in the response. The maximum
-    -- value is 100.
-    maxResults :: Prelude.Maybe Prelude.Int,
     -- | The ID of the server.
     serverId :: Prelude.Text
   }
@@ -77,14 +77,14 @@ data GetServerDetails = GetServerDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'getServerDetails_maxResults' - The maximum number of items to include in the response. The maximum
+-- value is 100.
+--
 -- 'nextToken', 'getServerDetails_nextToken' - The token from a previous call that you use to retrieve the next set of
 -- results. For example, if a previous call to this action returned 100
 -- items, but you set @maxResults@ to 10. You\'ll receive a set of 10
 -- results along with a token. You then use the returned token to retrieve
 -- the next set of 10.
---
--- 'maxResults', 'getServerDetails_maxResults' - The maximum number of items to include in the response. The maximum
--- value is 100.
 --
 -- 'serverId', 'getServerDetails_serverId' - The ID of the server.
 newGetServerDetails ::
@@ -93,10 +93,15 @@ newGetServerDetails ::
   GetServerDetails
 newGetServerDetails pServerId_ =
   GetServerDetails'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       serverId = pServerId_
     }
+
+-- | The maximum number of items to include in the response. The maximum
+-- value is 100.
+getServerDetails_maxResults :: Lens.Lens' GetServerDetails (Prelude.Maybe Prelude.Int)
+getServerDetails_maxResults = Lens.lens (\GetServerDetails' {maxResults} -> maxResults) (\s@GetServerDetails' {} a -> s {maxResults = a} :: GetServerDetails)
 
 -- | The token from a previous call that you use to retrieve the next set of
 -- results. For example, if a previous call to this action returned 100
@@ -105,11 +110,6 @@ newGetServerDetails pServerId_ =
 -- the next set of 10.
 getServerDetails_nextToken :: Lens.Lens' GetServerDetails (Prelude.Maybe Prelude.Text)
 getServerDetails_nextToken = Lens.lens (\GetServerDetails' {nextToken} -> nextToken) (\s@GetServerDetails' {} a -> s {nextToken = a} :: GetServerDetails)
-
--- | The maximum number of items to include in the response. The maximum
--- value is 100.
-getServerDetails_maxResults :: Lens.Lens' GetServerDetails (Prelude.Maybe Prelude.Int)
-getServerDetails_maxResults = Lens.lens (\GetServerDetails' {maxResults} -> maxResults) (\s@GetServerDetails' {} a -> s {maxResults = a} :: GetServerDetails)
 
 -- | The ID of the server.
 getServerDetails_serverId :: Lens.Lens' GetServerDetails Prelude.Text
@@ -147,24 +147,24 @@ instance Core.AWSRequest GetServerDetails where
     Response.receiveJSON
       ( \s h x ->
           GetServerDetailsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "associatedApplications"
+            Prelude.<$> ( x Data..?> "associatedApplications"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (x Data..?> "serverDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetServerDetails where
   hashWithSalt _salt GetServerDetails' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` serverId
 
 instance Prelude.NFData GetServerDetails where
   rnf GetServerDetails' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf serverId
 
 instance Data.ToHeaders GetServerDetails where
@@ -186,18 +186,18 @@ instance Data.ToPath GetServerDetails where
 instance Data.ToQuery GetServerDetails where
   toQuery GetServerDetails' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newGetServerDetailsResponse' smart constructor.
 data GetServerDetailsResponse = GetServerDetailsResponse'
-  { -- | The token you use to retrieve the next set of results, or null if there
-    -- are no more results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The associated application group the server belongs to, as defined in
+  { -- | The associated application group the server belongs to, as defined in
     -- AWS Application Discovery Service.
     associatedApplications :: Prelude.Maybe [AssociatedApplication],
+    -- | The token you use to retrieve the next set of results, or null if there
+    -- are no more results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Detailed information about the server.
     serverDetail :: Prelude.Maybe ServerDetail,
     -- | The response's http status code.
@@ -213,11 +213,11 @@ data GetServerDetailsResponse = GetServerDetailsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getServerDetailsResponse_nextToken' - The token you use to retrieve the next set of results, or null if there
--- are no more results.
---
 -- 'associatedApplications', 'getServerDetailsResponse_associatedApplications' - The associated application group the server belongs to, as defined in
 -- AWS Application Discovery Service.
+--
+-- 'nextToken', 'getServerDetailsResponse_nextToken' - The token you use to retrieve the next set of results, or null if there
+-- are no more results.
 --
 -- 'serverDetail', 'getServerDetailsResponse_serverDetail' - Detailed information about the server.
 --
@@ -228,22 +228,22 @@ newGetServerDetailsResponse ::
   GetServerDetailsResponse
 newGetServerDetailsResponse pHttpStatus_ =
   GetServerDetailsResponse'
-    { nextToken =
+    { associatedApplications =
         Prelude.Nothing,
-      associatedApplications = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       serverDetail = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token you use to retrieve the next set of results, or null if there
--- are no more results.
-getServerDetailsResponse_nextToken :: Lens.Lens' GetServerDetailsResponse (Prelude.Maybe Prelude.Text)
-getServerDetailsResponse_nextToken = Lens.lens (\GetServerDetailsResponse' {nextToken} -> nextToken) (\s@GetServerDetailsResponse' {} a -> s {nextToken = a} :: GetServerDetailsResponse)
 
 -- | The associated application group the server belongs to, as defined in
 -- AWS Application Discovery Service.
 getServerDetailsResponse_associatedApplications :: Lens.Lens' GetServerDetailsResponse (Prelude.Maybe [AssociatedApplication])
 getServerDetailsResponse_associatedApplications = Lens.lens (\GetServerDetailsResponse' {associatedApplications} -> associatedApplications) (\s@GetServerDetailsResponse' {} a -> s {associatedApplications = a} :: GetServerDetailsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token you use to retrieve the next set of results, or null if there
+-- are no more results.
+getServerDetailsResponse_nextToken :: Lens.Lens' GetServerDetailsResponse (Prelude.Maybe Prelude.Text)
+getServerDetailsResponse_nextToken = Lens.lens (\GetServerDetailsResponse' {nextToken} -> nextToken) (\s@GetServerDetailsResponse' {} a -> s {nextToken = a} :: GetServerDetailsResponse)
 
 -- | Detailed information about the server.
 getServerDetailsResponse_serverDetail :: Lens.Lens' GetServerDetailsResponse (Prelude.Maybe ServerDetail)
@@ -255,7 +255,7 @@ getServerDetailsResponse_httpStatus = Lens.lens (\GetServerDetailsResponse' {htt
 
 instance Prelude.NFData GetServerDetailsResponse where
   rnf GetServerDetailsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf associatedApplications
+    Prelude.rnf associatedApplications
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf serverDetail
       `Prelude.seq` Prelude.rnf httpStatus

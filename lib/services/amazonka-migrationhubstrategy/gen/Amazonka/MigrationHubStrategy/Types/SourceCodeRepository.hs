@@ -31,10 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 data SourceCodeRepository = SourceCodeRepository'
   { -- | The branch of the source code.
     branch :: Prelude.Maybe Prelude.Text,
-    -- | The type of repository to use for the source code.
-    versionControlType :: Prelude.Maybe Prelude.Text,
+    -- | The name of the project.
+    projectName :: Prelude.Maybe Prelude.Text,
     -- | The repository name for the source code.
-    repository :: Prelude.Maybe Prelude.Text
+    repository :: Prelude.Maybe Prelude.Text,
+    -- | The type of repository to use for the source code.
+    versionControlType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,29 +50,36 @@ data SourceCodeRepository = SourceCodeRepository'
 --
 -- 'branch', 'sourceCodeRepository_branch' - The branch of the source code.
 --
--- 'versionControlType', 'sourceCodeRepository_versionControlType' - The type of repository to use for the source code.
+-- 'projectName', 'sourceCodeRepository_projectName' - The name of the project.
 --
 -- 'repository', 'sourceCodeRepository_repository' - The repository name for the source code.
+--
+-- 'versionControlType', 'sourceCodeRepository_versionControlType' - The type of repository to use for the source code.
 newSourceCodeRepository ::
   SourceCodeRepository
 newSourceCodeRepository =
   SourceCodeRepository'
     { branch = Prelude.Nothing,
-      versionControlType = Prelude.Nothing,
-      repository = Prelude.Nothing
+      projectName = Prelude.Nothing,
+      repository = Prelude.Nothing,
+      versionControlType = Prelude.Nothing
     }
 
 -- | The branch of the source code.
 sourceCodeRepository_branch :: Lens.Lens' SourceCodeRepository (Prelude.Maybe Prelude.Text)
 sourceCodeRepository_branch = Lens.lens (\SourceCodeRepository' {branch} -> branch) (\s@SourceCodeRepository' {} a -> s {branch = a} :: SourceCodeRepository)
 
--- | The type of repository to use for the source code.
-sourceCodeRepository_versionControlType :: Lens.Lens' SourceCodeRepository (Prelude.Maybe Prelude.Text)
-sourceCodeRepository_versionControlType = Lens.lens (\SourceCodeRepository' {versionControlType} -> versionControlType) (\s@SourceCodeRepository' {} a -> s {versionControlType = a} :: SourceCodeRepository)
+-- | The name of the project.
+sourceCodeRepository_projectName :: Lens.Lens' SourceCodeRepository (Prelude.Maybe Prelude.Text)
+sourceCodeRepository_projectName = Lens.lens (\SourceCodeRepository' {projectName} -> projectName) (\s@SourceCodeRepository' {} a -> s {projectName = a} :: SourceCodeRepository)
 
 -- | The repository name for the source code.
 sourceCodeRepository_repository :: Lens.Lens' SourceCodeRepository (Prelude.Maybe Prelude.Text)
 sourceCodeRepository_repository = Lens.lens (\SourceCodeRepository' {repository} -> repository) (\s@SourceCodeRepository' {} a -> s {repository = a} :: SourceCodeRepository)
+
+-- | The type of repository to use for the source code.
+sourceCodeRepository_versionControlType :: Lens.Lens' SourceCodeRepository (Prelude.Maybe Prelude.Text)
+sourceCodeRepository_versionControlType = Lens.lens (\SourceCodeRepository' {versionControlType} -> versionControlType) (\s@SourceCodeRepository' {} a -> s {versionControlType = a} :: SourceCodeRepository)
 
 instance Data.FromJSON SourceCodeRepository where
   parseJSON =
@@ -79,18 +88,21 @@ instance Data.FromJSON SourceCodeRepository where
       ( \x ->
           SourceCodeRepository'
             Prelude.<$> (x Data..:? "branch")
-            Prelude.<*> (x Data..:? "versionControlType")
+            Prelude.<*> (x Data..:? "projectName")
             Prelude.<*> (x Data..:? "repository")
+            Prelude.<*> (x Data..:? "versionControlType")
       )
 
 instance Prelude.Hashable SourceCodeRepository where
   hashWithSalt _salt SourceCodeRepository' {..} =
     _salt `Prelude.hashWithSalt` branch
-      `Prelude.hashWithSalt` versionControlType
+      `Prelude.hashWithSalt` projectName
       `Prelude.hashWithSalt` repository
+      `Prelude.hashWithSalt` versionControlType
 
 instance Prelude.NFData SourceCodeRepository where
   rnf SourceCodeRepository' {..} =
     Prelude.rnf branch
-      `Prelude.seq` Prelude.rnf versionControlType
+      `Prelude.seq` Prelude.rnf projectName
       `Prelude.seq` Prelude.rnf repository
+      `Prelude.seq` Prelude.rnf versionControlType

@@ -21,9 +21,12 @@ module Amazonka.MigrationHubStrategy.Types.SrcCodeOrDbAnalysisStatus
   ( SrcCodeOrDbAnalysisStatus
       ( ..,
         SrcCodeOrDbAnalysisStatus_ANALYSIS_FAILED,
+        SrcCodeOrDbAnalysisStatus_ANALYSIS_PARTIAL_SUCCESS,
         SrcCodeOrDbAnalysisStatus_ANALYSIS_STARTED,
         SrcCodeOrDbAnalysisStatus_ANALYSIS_SUCCESS,
-        SrcCodeOrDbAnalysisStatus_ANALYSIS_TO_BE_SCHEDULED
+        SrcCodeOrDbAnalysisStatus_ANALYSIS_TO_BE_SCHEDULED,
+        SrcCodeOrDbAnalysisStatus_CONFIGURED,
+        SrcCodeOrDbAnalysisStatus_UNCONFIGURED
       ),
   )
 where
@@ -63,6 +66,9 @@ newtype SrcCodeOrDbAnalysisStatus = SrcCodeOrDbAnalysisStatus'
 pattern SrcCodeOrDbAnalysisStatus_ANALYSIS_FAILED :: SrcCodeOrDbAnalysisStatus
 pattern SrcCodeOrDbAnalysisStatus_ANALYSIS_FAILED = SrcCodeOrDbAnalysisStatus' "ANALYSIS_FAILED"
 
+pattern SrcCodeOrDbAnalysisStatus_ANALYSIS_PARTIAL_SUCCESS :: SrcCodeOrDbAnalysisStatus
+pattern SrcCodeOrDbAnalysisStatus_ANALYSIS_PARTIAL_SUCCESS = SrcCodeOrDbAnalysisStatus' "ANALYSIS_PARTIAL_SUCCESS"
+
 pattern SrcCodeOrDbAnalysisStatus_ANALYSIS_STARTED :: SrcCodeOrDbAnalysisStatus
 pattern SrcCodeOrDbAnalysisStatus_ANALYSIS_STARTED = SrcCodeOrDbAnalysisStatus' "ANALYSIS_STARTED"
 
@@ -72,10 +78,19 @@ pattern SrcCodeOrDbAnalysisStatus_ANALYSIS_SUCCESS = SrcCodeOrDbAnalysisStatus' 
 pattern SrcCodeOrDbAnalysisStatus_ANALYSIS_TO_BE_SCHEDULED :: SrcCodeOrDbAnalysisStatus
 pattern SrcCodeOrDbAnalysisStatus_ANALYSIS_TO_BE_SCHEDULED = SrcCodeOrDbAnalysisStatus' "ANALYSIS_TO_BE_SCHEDULED"
 
+pattern SrcCodeOrDbAnalysisStatus_CONFIGURED :: SrcCodeOrDbAnalysisStatus
+pattern SrcCodeOrDbAnalysisStatus_CONFIGURED = SrcCodeOrDbAnalysisStatus' "CONFIGURED"
+
+pattern SrcCodeOrDbAnalysisStatus_UNCONFIGURED :: SrcCodeOrDbAnalysisStatus
+pattern SrcCodeOrDbAnalysisStatus_UNCONFIGURED = SrcCodeOrDbAnalysisStatus' "UNCONFIGURED"
+
 {-# COMPLETE
   SrcCodeOrDbAnalysisStatus_ANALYSIS_FAILED,
+  SrcCodeOrDbAnalysisStatus_ANALYSIS_PARTIAL_SUCCESS,
   SrcCodeOrDbAnalysisStatus_ANALYSIS_STARTED,
   SrcCodeOrDbAnalysisStatus_ANALYSIS_SUCCESS,
   SrcCodeOrDbAnalysisStatus_ANALYSIS_TO_BE_SCHEDULED,
+  SrcCodeOrDbAnalysisStatus_CONFIGURED,
+  SrcCodeOrDbAnalysisStatus_UNCONFIGURED,
   SrcCodeOrDbAnalysisStatus'
   #-}

@@ -30,14 +30,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSystemInfo' smart constructor.
 data SystemInfo = SystemInfo'
-  { -- | Operating system corresponding to a server.
-    osInfo :: Prelude.Maybe OSInfo,
-    -- | Networking information related to a server.
-    networkInfoList :: Prelude.Maybe [NetworkInfo],
+  { -- | CPU architecture type for the server.
+    cpuArchitecture :: Prelude.Maybe Prelude.Text,
     -- | File system type for the server.
     fileSystemType :: Prelude.Maybe Prelude.Text,
-    -- | CPU architecture type for the server.
-    cpuArchitecture :: Prelude.Maybe Prelude.Text
+    -- | Networking information related to a server.
+    networkInfoList :: Prelude.Maybe [NetworkInfo],
+    -- | Operating system corresponding to a server.
+    osInfo :: Prelude.Maybe OSInfo
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,38 +49,38 @@ data SystemInfo = SystemInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'osInfo', 'systemInfo_osInfo' - Operating system corresponding to a server.
---
--- 'networkInfoList', 'systemInfo_networkInfoList' - Networking information related to a server.
+-- 'cpuArchitecture', 'systemInfo_cpuArchitecture' - CPU architecture type for the server.
 --
 -- 'fileSystemType', 'systemInfo_fileSystemType' - File system type for the server.
 --
--- 'cpuArchitecture', 'systemInfo_cpuArchitecture' - CPU architecture type for the server.
+-- 'networkInfoList', 'systemInfo_networkInfoList' - Networking information related to a server.
+--
+-- 'osInfo', 'systemInfo_osInfo' - Operating system corresponding to a server.
 newSystemInfo ::
   SystemInfo
 newSystemInfo =
   SystemInfo'
-    { osInfo = Prelude.Nothing,
-      networkInfoList = Prelude.Nothing,
+    { cpuArchitecture = Prelude.Nothing,
       fileSystemType = Prelude.Nothing,
-      cpuArchitecture = Prelude.Nothing
+      networkInfoList = Prelude.Nothing,
+      osInfo = Prelude.Nothing
     }
 
--- | Operating system corresponding to a server.
-systemInfo_osInfo :: Lens.Lens' SystemInfo (Prelude.Maybe OSInfo)
-systemInfo_osInfo = Lens.lens (\SystemInfo' {osInfo} -> osInfo) (\s@SystemInfo' {} a -> s {osInfo = a} :: SystemInfo)
-
--- | Networking information related to a server.
-systemInfo_networkInfoList :: Lens.Lens' SystemInfo (Prelude.Maybe [NetworkInfo])
-systemInfo_networkInfoList = Lens.lens (\SystemInfo' {networkInfoList} -> networkInfoList) (\s@SystemInfo' {} a -> s {networkInfoList = a} :: SystemInfo) Prelude.. Lens.mapping Lens.coerced
+-- | CPU architecture type for the server.
+systemInfo_cpuArchitecture :: Lens.Lens' SystemInfo (Prelude.Maybe Prelude.Text)
+systemInfo_cpuArchitecture = Lens.lens (\SystemInfo' {cpuArchitecture} -> cpuArchitecture) (\s@SystemInfo' {} a -> s {cpuArchitecture = a} :: SystemInfo)
 
 -- | File system type for the server.
 systemInfo_fileSystemType :: Lens.Lens' SystemInfo (Prelude.Maybe Prelude.Text)
 systemInfo_fileSystemType = Lens.lens (\SystemInfo' {fileSystemType} -> fileSystemType) (\s@SystemInfo' {} a -> s {fileSystemType = a} :: SystemInfo)
 
--- | CPU architecture type for the server.
-systemInfo_cpuArchitecture :: Lens.Lens' SystemInfo (Prelude.Maybe Prelude.Text)
-systemInfo_cpuArchitecture = Lens.lens (\SystemInfo' {cpuArchitecture} -> cpuArchitecture) (\s@SystemInfo' {} a -> s {cpuArchitecture = a} :: SystemInfo)
+-- | Networking information related to a server.
+systemInfo_networkInfoList :: Lens.Lens' SystemInfo (Prelude.Maybe [NetworkInfo])
+systemInfo_networkInfoList = Lens.lens (\SystemInfo' {networkInfoList} -> networkInfoList) (\s@SystemInfo' {} a -> s {networkInfoList = a} :: SystemInfo) Prelude.. Lens.mapping Lens.coerced
+
+-- | Operating system corresponding to a server.
+systemInfo_osInfo :: Lens.Lens' SystemInfo (Prelude.Maybe OSInfo)
+systemInfo_osInfo = Lens.lens (\SystemInfo' {osInfo} -> osInfo) (\s@SystemInfo' {} a -> s {osInfo = a} :: SystemInfo)
 
 instance Data.FromJSON SystemInfo where
   parseJSON =
@@ -88,24 +88,24 @@ instance Data.FromJSON SystemInfo where
       "SystemInfo"
       ( \x ->
           SystemInfo'
-            Prelude.<$> (x Data..:? "osInfo")
+            Prelude.<$> (x Data..:? "cpuArchitecture")
+            Prelude.<*> (x Data..:? "fileSystemType")
             Prelude.<*> ( x Data..:? "networkInfoList"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "fileSystemType")
-            Prelude.<*> (x Data..:? "cpuArchitecture")
+            Prelude.<*> (x Data..:? "osInfo")
       )
 
 instance Prelude.Hashable SystemInfo where
   hashWithSalt _salt SystemInfo' {..} =
-    _salt `Prelude.hashWithSalt` osInfo
-      `Prelude.hashWithSalt` networkInfoList
+    _salt `Prelude.hashWithSalt` cpuArchitecture
       `Prelude.hashWithSalt` fileSystemType
-      `Prelude.hashWithSalt` cpuArchitecture
+      `Prelude.hashWithSalt` networkInfoList
+      `Prelude.hashWithSalt` osInfo
 
 instance Prelude.NFData SystemInfo where
   rnf SystemInfo' {..} =
-    Prelude.rnf osInfo
-      `Prelude.seq` Prelude.rnf networkInfoList
+    Prelude.rnf cpuArchitecture
       `Prelude.seq` Prelude.rnf fileSystemType
-      `Prelude.seq` Prelude.rnf cpuArchitecture
+      `Prelude.seq` Prelude.rnf networkInfoList
+      `Prelude.seq` Prelude.rnf osInfo

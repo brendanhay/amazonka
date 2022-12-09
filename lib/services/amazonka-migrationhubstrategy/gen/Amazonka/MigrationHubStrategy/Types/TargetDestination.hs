@@ -32,6 +32,7 @@ module Amazonka.MigrationHubStrategy.Types.TargetDestination
         TargetDestination_Amazon_Relational_Database_Service_on_PostgreSQL,
         TargetDestination_Aurora_MySQL,
         TargetDestination_Aurora_PostgreSQL,
+        TargetDestination_Babelfish_for_Aurora_PostgreSQL,
         TargetDestination_None_specified
       ),
   )
@@ -105,6 +106,9 @@ pattern TargetDestination_Aurora_MySQL = TargetDestination' "Aurora MySQL"
 pattern TargetDestination_Aurora_PostgreSQL :: TargetDestination
 pattern TargetDestination_Aurora_PostgreSQL = TargetDestination' "Aurora PostgreSQL"
 
+pattern TargetDestination_Babelfish_for_Aurora_PostgreSQL :: TargetDestination
+pattern TargetDestination_Babelfish_for_Aurora_PostgreSQL = TargetDestination' "Babelfish for Aurora PostgreSQL"
+
 pattern TargetDestination_None_specified :: TargetDestination
 pattern TargetDestination_None_specified = TargetDestination' "None specified"
 
@@ -121,6 +125,7 @@ pattern TargetDestination_None_specified = TargetDestination' "None specified"
   TargetDestination_Amazon_Relational_Database_Service_on_PostgreSQL,
   TargetDestination_Aurora_MySQL,
   TargetDestination_Aurora_PostgreSQL,
+  TargetDestination_Babelfish_for_Aurora_PostgreSQL,
   TargetDestination_None_specified,
   TargetDestination'
   #-}

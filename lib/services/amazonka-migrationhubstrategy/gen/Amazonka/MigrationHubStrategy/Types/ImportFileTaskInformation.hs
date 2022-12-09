@@ -29,26 +29,26 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newImportFileTaskInformation' smart constructor.
 data ImportFileTaskInformation = ImportFileTaskInformation'
-  { -- | The S3 bucket name for status report of import task.
-    statusReportS3Bucket :: Prelude.Maybe Prelude.Text,
-    -- | Status of import file task.
-    status :: Prelude.Maybe ImportFileTaskStatus,
-    -- | The time that the import task completes.
+  { -- | The time that the import task completes.
     completionTime :: Prelude.Maybe Data.POSIX,
     -- | The ID of the import file task.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The number of records that failed to be imported.
-    numberOfRecordsFailed :: Prelude.Maybe Prelude.Int,
     -- | The name of the import task given in @StartImportFileTask@.
     importName :: Prelude.Maybe Prelude.Text,
     -- | The S3 bucket where the import file is located.
     inputS3Bucket :: Prelude.Maybe Prelude.Text,
     -- | The Amazon S3 key name of the import file.
     inputS3Key :: Prelude.Maybe Prelude.Text,
+    -- | The number of records that failed to be imported.
+    numberOfRecordsFailed :: Prelude.Maybe Prelude.Int,
     -- | The number of records successfully imported.
     numberOfRecordsSuccess :: Prelude.Maybe Prelude.Int,
     -- | Start time of the import task.
     startTime :: Prelude.Maybe Data.POSIX,
+    -- | Status of import file task.
+    status :: Prelude.Maybe ImportFileTaskStatus,
+    -- | The S3 bucket name for status report of import task.
+    statusReportS3Bucket :: Prelude.Maybe Prelude.Text,
     -- | The Amazon S3 key name for status report of import task. The report
     -- contains details about whether each record imported successfully or why
     -- it did not.
@@ -64,15 +64,9 @@ data ImportFileTaskInformation = ImportFileTaskInformation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'statusReportS3Bucket', 'importFileTaskInformation_statusReportS3Bucket' - The S3 bucket name for status report of import task.
---
--- 'status', 'importFileTaskInformation_status' - Status of import file task.
---
 -- 'completionTime', 'importFileTaskInformation_completionTime' - The time that the import task completes.
 --
 -- 'id', 'importFileTaskInformation_id' - The ID of the import file task.
---
--- 'numberOfRecordsFailed', 'importFileTaskInformation_numberOfRecordsFailed' - The number of records that failed to be imported.
 --
 -- 'importName', 'importFileTaskInformation_importName' - The name of the import task given in @StartImportFileTask@.
 --
@@ -80,9 +74,15 @@ data ImportFileTaskInformation = ImportFileTaskInformation'
 --
 -- 'inputS3Key', 'importFileTaskInformation_inputS3Key' - The Amazon S3 key name of the import file.
 --
+-- 'numberOfRecordsFailed', 'importFileTaskInformation_numberOfRecordsFailed' - The number of records that failed to be imported.
+--
 -- 'numberOfRecordsSuccess', 'importFileTaskInformation_numberOfRecordsSuccess' - The number of records successfully imported.
 --
 -- 'startTime', 'importFileTaskInformation_startTime' - Start time of the import task.
+--
+-- 'status', 'importFileTaskInformation_status' - Status of import file task.
+--
+-- 'statusReportS3Bucket', 'importFileTaskInformation_statusReportS3Bucket' - The S3 bucket name for status report of import task.
 --
 -- 'statusReportS3Key', 'importFileTaskInformation_statusReportS3Key' - The Amazon S3 key name for status report of import task. The report
 -- contains details about whether each record imported successfully or why
@@ -91,27 +91,19 @@ newImportFileTaskInformation ::
   ImportFileTaskInformation
 newImportFileTaskInformation =
   ImportFileTaskInformation'
-    { statusReportS3Bucket =
+    { completionTime =
         Prelude.Nothing,
-      status = Prelude.Nothing,
-      completionTime = Prelude.Nothing,
       id = Prelude.Nothing,
-      numberOfRecordsFailed = Prelude.Nothing,
       importName = Prelude.Nothing,
       inputS3Bucket = Prelude.Nothing,
       inputS3Key = Prelude.Nothing,
+      numberOfRecordsFailed = Prelude.Nothing,
       numberOfRecordsSuccess = Prelude.Nothing,
       startTime = Prelude.Nothing,
+      status = Prelude.Nothing,
+      statusReportS3Bucket = Prelude.Nothing,
       statusReportS3Key = Prelude.Nothing
     }
-
--- | The S3 bucket name for status report of import task.
-importFileTaskInformation_statusReportS3Bucket :: Lens.Lens' ImportFileTaskInformation (Prelude.Maybe Prelude.Text)
-importFileTaskInformation_statusReportS3Bucket = Lens.lens (\ImportFileTaskInformation' {statusReportS3Bucket} -> statusReportS3Bucket) (\s@ImportFileTaskInformation' {} a -> s {statusReportS3Bucket = a} :: ImportFileTaskInformation)
-
--- | Status of import file task.
-importFileTaskInformation_status :: Lens.Lens' ImportFileTaskInformation (Prelude.Maybe ImportFileTaskStatus)
-importFileTaskInformation_status = Lens.lens (\ImportFileTaskInformation' {status} -> status) (\s@ImportFileTaskInformation' {} a -> s {status = a} :: ImportFileTaskInformation)
 
 -- | The time that the import task completes.
 importFileTaskInformation_completionTime :: Lens.Lens' ImportFileTaskInformation (Prelude.Maybe Prelude.UTCTime)
@@ -120,10 +112,6 @@ importFileTaskInformation_completionTime = Lens.lens (\ImportFileTaskInformation
 -- | The ID of the import file task.
 importFileTaskInformation_id :: Lens.Lens' ImportFileTaskInformation (Prelude.Maybe Prelude.Text)
 importFileTaskInformation_id = Lens.lens (\ImportFileTaskInformation' {id} -> id) (\s@ImportFileTaskInformation' {} a -> s {id = a} :: ImportFileTaskInformation)
-
--- | The number of records that failed to be imported.
-importFileTaskInformation_numberOfRecordsFailed :: Lens.Lens' ImportFileTaskInformation (Prelude.Maybe Prelude.Int)
-importFileTaskInformation_numberOfRecordsFailed = Lens.lens (\ImportFileTaskInformation' {numberOfRecordsFailed} -> numberOfRecordsFailed) (\s@ImportFileTaskInformation' {} a -> s {numberOfRecordsFailed = a} :: ImportFileTaskInformation)
 
 -- | The name of the import task given in @StartImportFileTask@.
 importFileTaskInformation_importName :: Lens.Lens' ImportFileTaskInformation (Prelude.Maybe Prelude.Text)
@@ -137,6 +125,10 @@ importFileTaskInformation_inputS3Bucket = Lens.lens (\ImportFileTaskInformation'
 importFileTaskInformation_inputS3Key :: Lens.Lens' ImportFileTaskInformation (Prelude.Maybe Prelude.Text)
 importFileTaskInformation_inputS3Key = Lens.lens (\ImportFileTaskInformation' {inputS3Key} -> inputS3Key) (\s@ImportFileTaskInformation' {} a -> s {inputS3Key = a} :: ImportFileTaskInformation)
 
+-- | The number of records that failed to be imported.
+importFileTaskInformation_numberOfRecordsFailed :: Lens.Lens' ImportFileTaskInformation (Prelude.Maybe Prelude.Int)
+importFileTaskInformation_numberOfRecordsFailed = Lens.lens (\ImportFileTaskInformation' {numberOfRecordsFailed} -> numberOfRecordsFailed) (\s@ImportFileTaskInformation' {} a -> s {numberOfRecordsFailed = a} :: ImportFileTaskInformation)
+
 -- | The number of records successfully imported.
 importFileTaskInformation_numberOfRecordsSuccess :: Lens.Lens' ImportFileTaskInformation (Prelude.Maybe Prelude.Int)
 importFileTaskInformation_numberOfRecordsSuccess = Lens.lens (\ImportFileTaskInformation' {numberOfRecordsSuccess} -> numberOfRecordsSuccess) (\s@ImportFileTaskInformation' {} a -> s {numberOfRecordsSuccess = a} :: ImportFileTaskInformation)
@@ -144,6 +136,14 @@ importFileTaskInformation_numberOfRecordsSuccess = Lens.lens (\ImportFileTaskInf
 -- | Start time of the import task.
 importFileTaskInformation_startTime :: Lens.Lens' ImportFileTaskInformation (Prelude.Maybe Prelude.UTCTime)
 importFileTaskInformation_startTime = Lens.lens (\ImportFileTaskInformation' {startTime} -> startTime) (\s@ImportFileTaskInformation' {} a -> s {startTime = a} :: ImportFileTaskInformation) Prelude.. Lens.mapping Data._Time
+
+-- | Status of import file task.
+importFileTaskInformation_status :: Lens.Lens' ImportFileTaskInformation (Prelude.Maybe ImportFileTaskStatus)
+importFileTaskInformation_status = Lens.lens (\ImportFileTaskInformation' {status} -> status) (\s@ImportFileTaskInformation' {} a -> s {status = a} :: ImportFileTaskInformation)
+
+-- | The S3 bucket name for status report of import task.
+importFileTaskInformation_statusReportS3Bucket :: Lens.Lens' ImportFileTaskInformation (Prelude.Maybe Prelude.Text)
+importFileTaskInformation_statusReportS3Bucket = Lens.lens (\ImportFileTaskInformation' {statusReportS3Bucket} -> statusReportS3Bucket) (\s@ImportFileTaskInformation' {} a -> s {statusReportS3Bucket = a} :: ImportFileTaskInformation)
 
 -- | The Amazon S3 key name for status report of import task. The report
 -- contains details about whether each record imported successfully or why
@@ -157,43 +157,43 @@ instance Data.FromJSON ImportFileTaskInformation where
       "ImportFileTaskInformation"
       ( \x ->
           ImportFileTaskInformation'
-            Prelude.<$> (x Data..:? "statusReportS3Bucket")
-            Prelude.<*> (x Data..:? "status")
-            Prelude.<*> (x Data..:? "completionTime")
+            Prelude.<$> (x Data..:? "completionTime")
             Prelude.<*> (x Data..:? "id")
-            Prelude.<*> (x Data..:? "numberOfRecordsFailed")
             Prelude.<*> (x Data..:? "importName")
             Prelude.<*> (x Data..:? "inputS3Bucket")
             Prelude.<*> (x Data..:? "inputS3Key")
+            Prelude.<*> (x Data..:? "numberOfRecordsFailed")
             Prelude.<*> (x Data..:? "numberOfRecordsSuccess")
             Prelude.<*> (x Data..:? "startTime")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "statusReportS3Bucket")
             Prelude.<*> (x Data..:? "statusReportS3Key")
       )
 
 instance Prelude.Hashable ImportFileTaskInformation where
   hashWithSalt _salt ImportFileTaskInformation' {..} =
-    _salt `Prelude.hashWithSalt` statusReportS3Bucket
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` completionTime
+    _salt `Prelude.hashWithSalt` completionTime
       `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` numberOfRecordsFailed
       `Prelude.hashWithSalt` importName
       `Prelude.hashWithSalt` inputS3Bucket
       `Prelude.hashWithSalt` inputS3Key
+      `Prelude.hashWithSalt` numberOfRecordsFailed
       `Prelude.hashWithSalt` numberOfRecordsSuccess
       `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` statusReportS3Bucket
       `Prelude.hashWithSalt` statusReportS3Key
 
 instance Prelude.NFData ImportFileTaskInformation where
   rnf ImportFileTaskInformation' {..} =
-    Prelude.rnf statusReportS3Bucket
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf completionTime
+    Prelude.rnf completionTime
       `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf numberOfRecordsFailed
       `Prelude.seq` Prelude.rnf importName
       `Prelude.seq` Prelude.rnf inputS3Bucket
       `Prelude.seq` Prelude.rnf inputS3Key
+      `Prelude.seq` Prelude.rnf numberOfRecordsFailed
       `Prelude.seq` Prelude.rnf numberOfRecordsSuccess
       `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf statusReportS3Bucket
       `Prelude.seq` Prelude.rnf statusReportS3Key

@@ -35,8 +35,8 @@ module Amazonka.MigrationHubStrategy.GetRecommendationReportDetails
     newGetRecommendationReportDetailsResponse,
 
     -- * Response Lenses
-    getRecommendationReportDetailsResponse_recommendationReportDetails,
     getRecommendationReportDetailsResponse_id,
+    getRecommendationReportDetailsResponse_recommendationReportDetails,
     getRecommendationReportDetailsResponse_httpStatus,
   )
 where
@@ -92,8 +92,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetRecommendationReportDetailsResponse'
-            Prelude.<$> (x Data..?> "recommendationReportDetails")
-            Prelude.<*> (x Data..?> "id")
+            Prelude.<$> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "recommendationReportDetails")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -137,11 +137,11 @@ instance Data.ToQuery GetRecommendationReportDetails where
 
 -- | /See:/ 'newGetRecommendationReportDetailsResponse' smart constructor.
 data GetRecommendationReportDetailsResponse = GetRecommendationReportDetailsResponse'
-  { -- | Detailed information about the recommendation report.
-    recommendationReportDetails :: Prelude.Maybe RecommendationReportDetails,
-    -- | The ID of the recommendation report generation task. See the response of
+  { -- | The ID of the recommendation report generation task. See the response of
     -- StartRecommendationReportGeneration.
     id :: Prelude.Maybe Prelude.Text,
+    -- | Detailed information about the recommendation report.
+    recommendationReportDetails :: Prelude.Maybe RecommendationReportDetails,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -155,10 +155,10 @@ data GetRecommendationReportDetailsResponse = GetRecommendationReportDetailsResp
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'recommendationReportDetails', 'getRecommendationReportDetailsResponse_recommendationReportDetails' - Detailed information about the recommendation report.
---
 -- 'id', 'getRecommendationReportDetailsResponse_id' - The ID of the recommendation report generation task. See the response of
 -- StartRecommendationReportGeneration.
+--
+-- 'recommendationReportDetails', 'getRecommendationReportDetailsResponse_recommendationReportDetails' - Detailed information about the recommendation report.
 --
 -- 'httpStatus', 'getRecommendationReportDetailsResponse_httpStatus' - The response's http status code.
 newGetRecommendationReportDetailsResponse ::
@@ -168,20 +168,21 @@ newGetRecommendationReportDetailsResponse ::
 newGetRecommendationReportDetailsResponse
   pHttpStatus_ =
     GetRecommendationReportDetailsResponse'
-      { recommendationReportDetails =
+      { id =
           Prelude.Nothing,
-        id = Prelude.Nothing,
+        recommendationReportDetails =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | Detailed information about the recommendation report.
-getRecommendationReportDetailsResponse_recommendationReportDetails :: Lens.Lens' GetRecommendationReportDetailsResponse (Prelude.Maybe RecommendationReportDetails)
-getRecommendationReportDetailsResponse_recommendationReportDetails = Lens.lens (\GetRecommendationReportDetailsResponse' {recommendationReportDetails} -> recommendationReportDetails) (\s@GetRecommendationReportDetailsResponse' {} a -> s {recommendationReportDetails = a} :: GetRecommendationReportDetailsResponse)
 
 -- | The ID of the recommendation report generation task. See the response of
 -- StartRecommendationReportGeneration.
 getRecommendationReportDetailsResponse_id :: Lens.Lens' GetRecommendationReportDetailsResponse (Prelude.Maybe Prelude.Text)
 getRecommendationReportDetailsResponse_id = Lens.lens (\GetRecommendationReportDetailsResponse' {id} -> id) (\s@GetRecommendationReportDetailsResponse' {} a -> s {id = a} :: GetRecommendationReportDetailsResponse)
+
+-- | Detailed information about the recommendation report.
+getRecommendationReportDetailsResponse_recommendationReportDetails :: Lens.Lens' GetRecommendationReportDetailsResponse (Prelude.Maybe RecommendationReportDetails)
+getRecommendationReportDetailsResponse_recommendationReportDetails = Lens.lens (\GetRecommendationReportDetailsResponse' {recommendationReportDetails} -> recommendationReportDetails) (\s@GetRecommendationReportDetailsResponse' {} a -> s {recommendationReportDetails = a} :: GetRecommendationReportDetailsResponse)
 
 -- | The response's http status code.
 getRecommendationReportDetailsResponse_httpStatus :: Lens.Lens' GetRecommendationReportDetailsResponse Prelude.Int
@@ -192,6 +193,6 @@ instance
     GetRecommendationReportDetailsResponse
   where
   rnf GetRecommendationReportDetailsResponse' {..} =
-    Prelude.rnf recommendationReportDetails
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf id
+      `Prelude.seq` Prelude.rnf recommendationReportDetails
       `Prelude.seq` Prelude.rnf httpStatus

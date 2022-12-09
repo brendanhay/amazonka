@@ -28,16 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBusinessGoals' smart constructor.
 data BusinessGoals = BusinessGoals'
-  { -- | Business goal to reduce the operational overhead on the team by moving
-    -- into managed services.
-    reduceOperationalOverheadWithManagedServices :: Prelude.Maybe Prelude.Natural,
-    -- | Business goal to reduce license costs.
+  { -- | Business goal to reduce license costs.
     licenseCostReduction :: Prelude.Maybe Prelude.Natural,
-    -- | Business goal to achieve migration at a fast pace.
-    speedOfMigration :: Prelude.Maybe Prelude.Natural,
     -- | Business goal to modernize infrastructure by moving to cloud native
     -- technologies.
-    modernizeInfrastructureWithCloudNativeTechnologies :: Prelude.Maybe Prelude.Natural
+    modernizeInfrastructureWithCloudNativeTechnologies :: Prelude.Maybe Prelude.Natural,
+    -- | Business goal to reduce the operational overhead on the team by moving
+    -- into managed services.
+    reduceOperationalOverheadWithManagedServices :: Prelude.Maybe Prelude.Natural,
+    -- | Business goal to achieve migration at a fast pace.
+    speedOfMigration :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,44 +49,45 @@ data BusinessGoals = BusinessGoals'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'reduceOperationalOverheadWithManagedServices', 'businessGoals_reduceOperationalOverheadWithManagedServices' - Business goal to reduce the operational overhead on the team by moving
--- into managed services.
---
 -- 'licenseCostReduction', 'businessGoals_licenseCostReduction' - Business goal to reduce license costs.
---
--- 'speedOfMigration', 'businessGoals_speedOfMigration' - Business goal to achieve migration at a fast pace.
 --
 -- 'modernizeInfrastructureWithCloudNativeTechnologies', 'businessGoals_modernizeInfrastructureWithCloudNativeTechnologies' - Business goal to modernize infrastructure by moving to cloud native
 -- technologies.
+--
+-- 'reduceOperationalOverheadWithManagedServices', 'businessGoals_reduceOperationalOverheadWithManagedServices' - Business goal to reduce the operational overhead on the team by moving
+-- into managed services.
+--
+-- 'speedOfMigration', 'businessGoals_speedOfMigration' - Business goal to achieve migration at a fast pace.
 newBusinessGoals ::
   BusinessGoals
 newBusinessGoals =
   BusinessGoals'
-    { reduceOperationalOverheadWithManagedServices =
+    { licenseCostReduction =
         Prelude.Nothing,
-      licenseCostReduction = Prelude.Nothing,
-      speedOfMigration = Prelude.Nothing,
       modernizeInfrastructureWithCloudNativeTechnologies =
-        Prelude.Nothing
+        Prelude.Nothing,
+      reduceOperationalOverheadWithManagedServices =
+        Prelude.Nothing,
+      speedOfMigration = Prelude.Nothing
     }
+
+-- | Business goal to reduce license costs.
+businessGoals_licenseCostReduction :: Lens.Lens' BusinessGoals (Prelude.Maybe Prelude.Natural)
+businessGoals_licenseCostReduction = Lens.lens (\BusinessGoals' {licenseCostReduction} -> licenseCostReduction) (\s@BusinessGoals' {} a -> s {licenseCostReduction = a} :: BusinessGoals)
+
+-- | Business goal to modernize infrastructure by moving to cloud native
+-- technologies.
+businessGoals_modernizeInfrastructureWithCloudNativeTechnologies :: Lens.Lens' BusinessGoals (Prelude.Maybe Prelude.Natural)
+businessGoals_modernizeInfrastructureWithCloudNativeTechnologies = Lens.lens (\BusinessGoals' {modernizeInfrastructureWithCloudNativeTechnologies} -> modernizeInfrastructureWithCloudNativeTechnologies) (\s@BusinessGoals' {} a -> s {modernizeInfrastructureWithCloudNativeTechnologies = a} :: BusinessGoals)
 
 -- | Business goal to reduce the operational overhead on the team by moving
 -- into managed services.
 businessGoals_reduceOperationalOverheadWithManagedServices :: Lens.Lens' BusinessGoals (Prelude.Maybe Prelude.Natural)
 businessGoals_reduceOperationalOverheadWithManagedServices = Lens.lens (\BusinessGoals' {reduceOperationalOverheadWithManagedServices} -> reduceOperationalOverheadWithManagedServices) (\s@BusinessGoals' {} a -> s {reduceOperationalOverheadWithManagedServices = a} :: BusinessGoals)
 
--- | Business goal to reduce license costs.
-businessGoals_licenseCostReduction :: Lens.Lens' BusinessGoals (Prelude.Maybe Prelude.Natural)
-businessGoals_licenseCostReduction = Lens.lens (\BusinessGoals' {licenseCostReduction} -> licenseCostReduction) (\s@BusinessGoals' {} a -> s {licenseCostReduction = a} :: BusinessGoals)
-
 -- | Business goal to achieve migration at a fast pace.
 businessGoals_speedOfMigration :: Lens.Lens' BusinessGoals (Prelude.Maybe Prelude.Natural)
 businessGoals_speedOfMigration = Lens.lens (\BusinessGoals' {speedOfMigration} -> speedOfMigration) (\s@BusinessGoals' {} a -> s {speedOfMigration = a} :: BusinessGoals)
-
--- | Business goal to modernize infrastructure by moving to cloud native
--- technologies.
-businessGoals_modernizeInfrastructureWithCloudNativeTechnologies :: Lens.Lens' BusinessGoals (Prelude.Maybe Prelude.Natural)
-businessGoals_modernizeInfrastructureWithCloudNativeTechnologies = Lens.lens (\BusinessGoals' {modernizeInfrastructureWithCloudNativeTechnologies} -> modernizeInfrastructureWithCloudNativeTechnologies) (\s@BusinessGoals' {} a -> s {modernizeInfrastructureWithCloudNativeTechnologies = a} :: BusinessGoals)
 
 instance Data.FromJSON BusinessGoals where
   parseJSON =
@@ -94,48 +95,47 @@ instance Data.FromJSON BusinessGoals where
       "BusinessGoals"
       ( \x ->
           BusinessGoals'
-            Prelude.<$> ( x
-                            Data..:? "reduceOperationalOverheadWithManagedServices"
-                        )
-            Prelude.<*> (x Data..:? "licenseCostReduction")
-            Prelude.<*> (x Data..:? "speedOfMigration")
+            Prelude.<$> (x Data..:? "licenseCostReduction")
             Prelude.<*> ( x
                             Data..:? "modernizeInfrastructureWithCloudNativeTechnologies"
                         )
+            Prelude.<*> ( x
+                            Data..:? "reduceOperationalOverheadWithManagedServices"
+                        )
+            Prelude.<*> (x Data..:? "speedOfMigration")
       )
 
 instance Prelude.Hashable BusinessGoals where
   hashWithSalt _salt BusinessGoals' {..} =
-    _salt
-      `Prelude.hashWithSalt` reduceOperationalOverheadWithManagedServices
-      `Prelude.hashWithSalt` licenseCostReduction
-      `Prelude.hashWithSalt` speedOfMigration
+    _salt `Prelude.hashWithSalt` licenseCostReduction
       `Prelude.hashWithSalt` modernizeInfrastructureWithCloudNativeTechnologies
+      `Prelude.hashWithSalt` reduceOperationalOverheadWithManagedServices
+      `Prelude.hashWithSalt` speedOfMigration
 
 instance Prelude.NFData BusinessGoals where
   rnf BusinessGoals' {..} =
-    Prelude.rnf
-      reduceOperationalOverheadWithManagedServices
-      `Prelude.seq` Prelude.rnf licenseCostReduction
-      `Prelude.seq` Prelude.rnf speedOfMigration
+    Prelude.rnf licenseCostReduction
       `Prelude.seq` Prelude.rnf
         modernizeInfrastructureWithCloudNativeTechnologies
+      `Prelude.seq` Prelude.rnf
+        reduceOperationalOverheadWithManagedServices
+      `Prelude.seq` Prelude.rnf speedOfMigration
 
 instance Data.ToJSON BusinessGoals where
   toJSON BusinessGoals' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ( "reduceOperationalOverheadWithManagedServices"
-                Data..=
-            )
-              Prelude.<$> reduceOperationalOverheadWithManagedServices,
-            ("licenseCostReduction" Data..=)
+          [ ("licenseCostReduction" Data..=)
               Prelude.<$> licenseCostReduction,
-            ("speedOfMigration" Data..=)
-              Prelude.<$> speedOfMigration,
             ( "modernizeInfrastructureWithCloudNativeTechnologies"
                 Data..=
             )
-              Prelude.<$> modernizeInfrastructureWithCloudNativeTechnologies
+              Prelude.<$> modernizeInfrastructureWithCloudNativeTechnologies,
+            ( "reduceOperationalOverheadWithManagedServices"
+                Data..=
+            )
+              Prelude.<$> reduceOperationalOverheadWithManagedServices,
+            ("speedOfMigration" Data..=)
+              Prelude.<$> speedOfMigration
           ]
       )

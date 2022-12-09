@@ -31,9 +31,10 @@ module Amazonka.MigrationHubStrategy.GetPortfolioPreferences
     newGetPortfolioPreferencesResponse,
 
     -- * Response Lenses
+    getPortfolioPreferencesResponse_applicationMode,
+    getPortfolioPreferencesResponse_applicationPreferences,
     getPortfolioPreferencesResponse_databasePreferences,
     getPortfolioPreferencesResponse_prioritizeBusinessGoals,
-    getPortfolioPreferencesResponse_applicationPreferences,
     getPortfolioPreferencesResponse_httpStatus,
   )
 where
@@ -70,9 +71,10 @@ instance Core.AWSRequest GetPortfolioPreferences where
     Response.receiveJSON
       ( \s h x ->
           GetPortfolioPreferencesResponse'
-            Prelude.<$> (x Data..?> "databasePreferences")
-            Prelude.<*> (x Data..?> "prioritizeBusinessGoals")
+            Prelude.<$> (x Data..?> "applicationMode")
             Prelude.<*> (x Data..?> "applicationPreferences")
+            Prelude.<*> (x Data..?> "databasePreferences")
+            Prelude.<*> (x Data..?> "prioritizeBusinessGoals")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -102,12 +104,14 @@ instance Data.ToQuery GetPortfolioPreferences where
 
 -- | /See:/ 'newGetPortfolioPreferencesResponse' smart constructor.
 data GetPortfolioPreferencesResponse = GetPortfolioPreferencesResponse'
-  { -- | The transformation preferences for database applications.
+  { -- | The classification for application component types.
+    applicationMode :: Prelude.Maybe ApplicationMode,
+    -- | The transformation preferences for non-database applications.
+    applicationPreferences :: Prelude.Maybe ApplicationPreferences,
+    -- | The transformation preferences for database applications.
     databasePreferences :: Prelude.Maybe DatabasePreferences,
     -- | The rank of business goals based on priority.
     prioritizeBusinessGoals :: Prelude.Maybe PrioritizeBusinessGoals,
-    -- | The transformation preferences for non-database applications.
-    applicationPreferences :: Prelude.Maybe ApplicationPreferences,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -121,11 +125,13 @@ data GetPortfolioPreferencesResponse = GetPortfolioPreferencesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'applicationMode', 'getPortfolioPreferencesResponse_applicationMode' - The classification for application component types.
+--
+-- 'applicationPreferences', 'getPortfolioPreferencesResponse_applicationPreferences' - The transformation preferences for non-database applications.
+--
 -- 'databasePreferences', 'getPortfolioPreferencesResponse_databasePreferences' - The transformation preferences for database applications.
 --
 -- 'prioritizeBusinessGoals', 'getPortfolioPreferencesResponse_prioritizeBusinessGoals' - The rank of business goals based on priority.
---
--- 'applicationPreferences', 'getPortfolioPreferencesResponse_applicationPreferences' - The transformation preferences for non-database applications.
 --
 -- 'httpStatus', 'getPortfolioPreferencesResponse_httpStatus' - The response's http status code.
 newGetPortfolioPreferencesResponse ::
@@ -134,12 +140,21 @@ newGetPortfolioPreferencesResponse ::
   GetPortfolioPreferencesResponse
 newGetPortfolioPreferencesResponse pHttpStatus_ =
   GetPortfolioPreferencesResponse'
-    { databasePreferences =
+    { applicationMode =
         Prelude.Nothing,
-      prioritizeBusinessGoals = Prelude.Nothing,
       applicationPreferences = Prelude.Nothing,
+      databasePreferences = Prelude.Nothing,
+      prioritizeBusinessGoals = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The classification for application component types.
+getPortfolioPreferencesResponse_applicationMode :: Lens.Lens' GetPortfolioPreferencesResponse (Prelude.Maybe ApplicationMode)
+getPortfolioPreferencesResponse_applicationMode = Lens.lens (\GetPortfolioPreferencesResponse' {applicationMode} -> applicationMode) (\s@GetPortfolioPreferencesResponse' {} a -> s {applicationMode = a} :: GetPortfolioPreferencesResponse)
+
+-- | The transformation preferences for non-database applications.
+getPortfolioPreferencesResponse_applicationPreferences :: Lens.Lens' GetPortfolioPreferencesResponse (Prelude.Maybe ApplicationPreferences)
+getPortfolioPreferencesResponse_applicationPreferences = Lens.lens (\GetPortfolioPreferencesResponse' {applicationPreferences} -> applicationPreferences) (\s@GetPortfolioPreferencesResponse' {} a -> s {applicationPreferences = a} :: GetPortfolioPreferencesResponse)
 
 -- | The transformation preferences for database applications.
 getPortfolioPreferencesResponse_databasePreferences :: Lens.Lens' GetPortfolioPreferencesResponse (Prelude.Maybe DatabasePreferences)
@@ -148,10 +163,6 @@ getPortfolioPreferencesResponse_databasePreferences = Lens.lens (\GetPortfolioPr
 -- | The rank of business goals based on priority.
 getPortfolioPreferencesResponse_prioritizeBusinessGoals :: Lens.Lens' GetPortfolioPreferencesResponse (Prelude.Maybe PrioritizeBusinessGoals)
 getPortfolioPreferencesResponse_prioritizeBusinessGoals = Lens.lens (\GetPortfolioPreferencesResponse' {prioritizeBusinessGoals} -> prioritizeBusinessGoals) (\s@GetPortfolioPreferencesResponse' {} a -> s {prioritizeBusinessGoals = a} :: GetPortfolioPreferencesResponse)
-
--- | The transformation preferences for non-database applications.
-getPortfolioPreferencesResponse_applicationPreferences :: Lens.Lens' GetPortfolioPreferencesResponse (Prelude.Maybe ApplicationPreferences)
-getPortfolioPreferencesResponse_applicationPreferences = Lens.lens (\GetPortfolioPreferencesResponse' {applicationPreferences} -> applicationPreferences) (\s@GetPortfolioPreferencesResponse' {} a -> s {applicationPreferences = a} :: GetPortfolioPreferencesResponse)
 
 -- | The response's http status code.
 getPortfolioPreferencesResponse_httpStatus :: Lens.Lens' GetPortfolioPreferencesResponse Prelude.Int
@@ -162,7 +173,8 @@ instance
     GetPortfolioPreferencesResponse
   where
   rnf GetPortfolioPreferencesResponse' {..} =
-    Prelude.rnf databasePreferences
-      `Prelude.seq` Prelude.rnf prioritizeBusinessGoals
+    Prelude.rnf applicationMode
       `Prelude.seq` Prelude.rnf applicationPreferences
+      `Prelude.seq` Prelude.rnf databasePreferences
+      `Prelude.seq` Prelude.rnf prioritizeBusinessGoals
       `Prelude.seq` Prelude.rnf httpStatus

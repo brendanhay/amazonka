@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newApplicationComponentStrategy' smart constructor.
 data ApplicationComponentStrategy = ApplicationComponentStrategy'
-  { -- | The recommendation status of a strategy for an application component.
-    status :: Prelude.Maybe StrategyRecommendation,
+  { -- | Set to true if the recommendation is set as preferred.
+    isPreferred :: Prelude.Maybe Prelude.Bool,
     -- | Strategy recommendation for the application component.
     recommendation :: Prelude.Maybe RecommendationSet,
-    -- | Set to true if the recommendation is set as preferred.
-    isPreferred :: Prelude.Maybe Prelude.Bool
+    -- | The recommendation status of a strategy for an application component.
+    status :: Prelude.Maybe StrategyRecommendation
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,32 +48,32 @@ data ApplicationComponentStrategy = ApplicationComponentStrategy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'applicationComponentStrategy_status' - The recommendation status of a strategy for an application component.
+-- 'isPreferred', 'applicationComponentStrategy_isPreferred' - Set to true if the recommendation is set as preferred.
 --
 -- 'recommendation', 'applicationComponentStrategy_recommendation' - Strategy recommendation for the application component.
 --
--- 'isPreferred', 'applicationComponentStrategy_isPreferred' - Set to true if the recommendation is set as preferred.
+-- 'status', 'applicationComponentStrategy_status' - The recommendation status of a strategy for an application component.
 newApplicationComponentStrategy ::
   ApplicationComponentStrategy
 newApplicationComponentStrategy =
   ApplicationComponentStrategy'
-    { status =
+    { isPreferred =
         Prelude.Nothing,
       recommendation = Prelude.Nothing,
-      isPreferred = Prelude.Nothing
+      status = Prelude.Nothing
     }
 
--- | The recommendation status of a strategy for an application component.
-applicationComponentStrategy_status :: Lens.Lens' ApplicationComponentStrategy (Prelude.Maybe StrategyRecommendation)
-applicationComponentStrategy_status = Lens.lens (\ApplicationComponentStrategy' {status} -> status) (\s@ApplicationComponentStrategy' {} a -> s {status = a} :: ApplicationComponentStrategy)
+-- | Set to true if the recommendation is set as preferred.
+applicationComponentStrategy_isPreferred :: Lens.Lens' ApplicationComponentStrategy (Prelude.Maybe Prelude.Bool)
+applicationComponentStrategy_isPreferred = Lens.lens (\ApplicationComponentStrategy' {isPreferred} -> isPreferred) (\s@ApplicationComponentStrategy' {} a -> s {isPreferred = a} :: ApplicationComponentStrategy)
 
 -- | Strategy recommendation for the application component.
 applicationComponentStrategy_recommendation :: Lens.Lens' ApplicationComponentStrategy (Prelude.Maybe RecommendationSet)
 applicationComponentStrategy_recommendation = Lens.lens (\ApplicationComponentStrategy' {recommendation} -> recommendation) (\s@ApplicationComponentStrategy' {} a -> s {recommendation = a} :: ApplicationComponentStrategy)
 
--- | Set to true if the recommendation is set as preferred.
-applicationComponentStrategy_isPreferred :: Lens.Lens' ApplicationComponentStrategy (Prelude.Maybe Prelude.Bool)
-applicationComponentStrategy_isPreferred = Lens.lens (\ApplicationComponentStrategy' {isPreferred} -> isPreferred) (\s@ApplicationComponentStrategy' {} a -> s {isPreferred = a} :: ApplicationComponentStrategy)
+-- | The recommendation status of a strategy for an application component.
+applicationComponentStrategy_status :: Lens.Lens' ApplicationComponentStrategy (Prelude.Maybe StrategyRecommendation)
+applicationComponentStrategy_status = Lens.lens (\ApplicationComponentStrategy' {status} -> status) (\s@ApplicationComponentStrategy' {} a -> s {status = a} :: ApplicationComponentStrategy)
 
 instance Data.FromJSON ApplicationComponentStrategy where
   parseJSON =
@@ -81,9 +81,9 @@ instance Data.FromJSON ApplicationComponentStrategy where
       "ApplicationComponentStrategy"
       ( \x ->
           ApplicationComponentStrategy'
-            Prelude.<$> (x Data..:? "status")
+            Prelude.<$> (x Data..:? "isPreferred")
             Prelude.<*> (x Data..:? "recommendation")
-            Prelude.<*> (x Data..:? "isPreferred")
+            Prelude.<*> (x Data..:? "status")
       )
 
 instance
@@ -91,12 +91,12 @@ instance
     ApplicationComponentStrategy
   where
   hashWithSalt _salt ApplicationComponentStrategy' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` isPreferred
       `Prelude.hashWithSalt` recommendation
-      `Prelude.hashWithSalt` isPreferred
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData ApplicationComponentStrategy where
   rnf ApplicationComponentStrategy' {..} =
-    Prelude.rnf status
+    Prelude.rnf isPreferred
       `Prelude.seq` Prelude.rnf recommendation
-      `Prelude.seq` Prelude.rnf isPreferred
+      `Prelude.seq` Prelude.rnf status

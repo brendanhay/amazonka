@@ -29,16 +29,16 @@ module Amazonka.MigrationHubStrategy.ListCollectors
     newListCollectors,
 
     -- * Request Lenses
-    listCollectors_nextToken,
     listCollectors_maxResults,
+    listCollectors_nextToken,
 
     -- * Destructuring the Response
     ListCollectorsResponse (..),
     newListCollectorsResponse,
 
     -- * Response Lenses
-    listCollectorsResponse_nextToken,
     listCollectorsResponse_collectors,
+    listCollectorsResponse_nextToken,
     listCollectorsResponse_httpStatus,
   )
 where
@@ -53,15 +53,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListCollectors' smart constructor.
 data ListCollectors = ListCollectors'
-  { -- | The token from a previous call that you use to retrieve the next set of
+  { -- | The maximum number of items to include in the response. The maximum
+    -- value is 100.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The token from a previous call that you use to retrieve the next set of
     -- results. For example, if a previous call to this action returned 100
     -- items, but you set @maxResults@ to 10. You\'ll receive a set of 10
     -- results along with a token. You then use the returned token to retrieve
     -- the next set of 10.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to include in the response. The maximum
-    -- value is 100.
-    maxResults :: Prelude.Maybe Prelude.Int
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,21 +73,26 @@ data ListCollectors = ListCollectors'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listCollectors_maxResults' - The maximum number of items to include in the response. The maximum
+-- value is 100.
+--
 -- 'nextToken', 'listCollectors_nextToken' - The token from a previous call that you use to retrieve the next set of
 -- results. For example, if a previous call to this action returned 100
 -- items, but you set @maxResults@ to 10. You\'ll receive a set of 10
 -- results along with a token. You then use the returned token to retrieve
 -- the next set of 10.
---
--- 'maxResults', 'listCollectors_maxResults' - The maximum number of items to include in the response. The maximum
--- value is 100.
 newListCollectors ::
   ListCollectors
 newListCollectors =
   ListCollectors'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of items to include in the response. The maximum
+-- value is 100.
+listCollectors_maxResults :: Lens.Lens' ListCollectors (Prelude.Maybe Prelude.Int)
+listCollectors_maxResults = Lens.lens (\ListCollectors' {maxResults} -> maxResults) (\s@ListCollectors' {} a -> s {maxResults = a} :: ListCollectors)
 
 -- | The token from a previous call that you use to retrieve the next set of
 -- results. For example, if a previous call to this action returned 100
@@ -96,11 +101,6 @@ newListCollectors =
 -- the next set of 10.
 listCollectors_nextToken :: Lens.Lens' ListCollectors (Prelude.Maybe Prelude.Text)
 listCollectors_nextToken = Lens.lens (\ListCollectors' {nextToken} -> nextToken) (\s@ListCollectors' {} a -> s {nextToken = a} :: ListCollectors)
-
--- | The maximum number of items to include in the response. The maximum
--- value is 100.
-listCollectors_maxResults :: Lens.Lens' ListCollectors (Prelude.Maybe Prelude.Int)
-listCollectors_maxResults = Lens.lens (\ListCollectors' {maxResults} -> maxResults) (\s@ListCollectors' {} a -> s {maxResults = a} :: ListCollectors)
 
 instance Core.AWSPager ListCollectors where
   page rq rs
@@ -133,20 +133,20 @@ instance Core.AWSRequest ListCollectors where
     Response.receiveJSON
       ( \s h x ->
           ListCollectorsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "Collectors" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Collectors" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListCollectors where
   hashWithSalt _salt ListCollectors' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListCollectors where
   rnf ListCollectors' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListCollectors where
   toHeaders =
@@ -165,17 +165,17 @@ instance Data.ToPath ListCollectors where
 instance Data.ToQuery ListCollectors where
   toQuery ListCollectors' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListCollectorsResponse' smart constructor.
 data ListCollectorsResponse = ListCollectorsResponse'
-  { -- | The token you use to retrieve the next set of results, or null if there
+  { -- | The list of all the installed collectors.
+    collectors :: Prelude.Maybe [Collector],
+    -- | The token you use to retrieve the next set of results, or null if there
     -- are no more results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of all the installed collectors.
-    collectors :: Prelude.Maybe [Collector],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -189,10 +189,10 @@ data ListCollectorsResponse = ListCollectorsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'collectors', 'listCollectorsResponse_collectors' - The list of all the installed collectors.
+--
 -- 'nextToken', 'listCollectorsResponse_nextToken' - The token you use to retrieve the next set of results, or null if there
 -- are no more results.
---
--- 'collectors', 'listCollectorsResponse_collectors' - The list of all the installed collectors.
 --
 -- 'httpStatus', 'listCollectorsResponse_httpStatus' - The response's http status code.
 newListCollectorsResponse ::
@@ -201,20 +201,20 @@ newListCollectorsResponse ::
   ListCollectorsResponse
 newListCollectorsResponse pHttpStatus_ =
   ListCollectorsResponse'
-    { nextToken =
+    { collectors =
         Prelude.Nothing,
-      collectors = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The list of all the installed collectors.
+listCollectorsResponse_collectors :: Lens.Lens' ListCollectorsResponse (Prelude.Maybe [Collector])
+listCollectorsResponse_collectors = Lens.lens (\ListCollectorsResponse' {collectors} -> collectors) (\s@ListCollectorsResponse' {} a -> s {collectors = a} :: ListCollectorsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token you use to retrieve the next set of results, or null if there
 -- are no more results.
 listCollectorsResponse_nextToken :: Lens.Lens' ListCollectorsResponse (Prelude.Maybe Prelude.Text)
 listCollectorsResponse_nextToken = Lens.lens (\ListCollectorsResponse' {nextToken} -> nextToken) (\s@ListCollectorsResponse' {} a -> s {nextToken = a} :: ListCollectorsResponse)
-
--- | The list of all the installed collectors.
-listCollectorsResponse_collectors :: Lens.Lens' ListCollectorsResponse (Prelude.Maybe [Collector])
-listCollectorsResponse_collectors = Lens.lens (\ListCollectorsResponse' {collectors} -> collectors) (\s@ListCollectorsResponse' {} a -> s {collectors = a} :: ListCollectorsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listCollectorsResponse_httpStatus :: Lens.Lens' ListCollectorsResponse Prelude.Int
@@ -222,6 +222,6 @@ listCollectorsResponse_httpStatus = Lens.lens (\ListCollectorsResponse' {httpSta
 
 instance Prelude.NFData ListCollectorsResponse where
   rnf ListCollectorsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf collectors
+    Prelude.rnf collectors
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

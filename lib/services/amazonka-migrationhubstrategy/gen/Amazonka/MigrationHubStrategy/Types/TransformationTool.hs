@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTransformationTool' smart constructor.
 data TransformationTool = TransformationTool'
-  { -- | Name of the tool.
+  { -- | Description of the tool.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Name of the tool.
     name :: Prelude.Maybe TransformationToolName,
     -- | URL for installing the tool.
-    tranformationToolInstallationLink :: Prelude.Maybe Prelude.Text,
-    -- | Description of the tool.
-    description :: Prelude.Maybe Prelude.Text
+    tranformationToolInstallationLink :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,19 +47,23 @@ data TransformationTool = TransformationTool'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'transformationTool_description' - Description of the tool.
+--
 -- 'name', 'transformationTool_name' - Name of the tool.
 --
 -- 'tranformationToolInstallationLink', 'transformationTool_tranformationToolInstallationLink' - URL for installing the tool.
---
--- 'description', 'transformationTool_description' - Description of the tool.
 newTransformationTool ::
   TransformationTool
 newTransformationTool =
   TransformationTool'
-    { name = Prelude.Nothing,
-      tranformationToolInstallationLink = Prelude.Nothing,
-      description = Prelude.Nothing
+    { description = Prelude.Nothing,
+      name = Prelude.Nothing,
+      tranformationToolInstallationLink = Prelude.Nothing
     }
+
+-- | Description of the tool.
+transformationTool_description :: Lens.Lens' TransformationTool (Prelude.Maybe Prelude.Text)
+transformationTool_description = Lens.lens (\TransformationTool' {description} -> description) (\s@TransformationTool' {} a -> s {description = a} :: TransformationTool)
 
 -- | Name of the tool.
 transformationTool_name :: Lens.Lens' TransformationTool (Prelude.Maybe TransformationToolName)
@@ -69,29 +73,25 @@ transformationTool_name = Lens.lens (\TransformationTool' {name} -> name) (\s@Tr
 transformationTool_tranformationToolInstallationLink :: Lens.Lens' TransformationTool (Prelude.Maybe Prelude.Text)
 transformationTool_tranformationToolInstallationLink = Lens.lens (\TransformationTool' {tranformationToolInstallationLink} -> tranformationToolInstallationLink) (\s@TransformationTool' {} a -> s {tranformationToolInstallationLink = a} :: TransformationTool)
 
--- | Description of the tool.
-transformationTool_description :: Lens.Lens' TransformationTool (Prelude.Maybe Prelude.Text)
-transformationTool_description = Lens.lens (\TransformationTool' {description} -> description) (\s@TransformationTool' {} a -> s {description = a} :: TransformationTool)
-
 instance Data.FromJSON TransformationTool where
   parseJSON =
     Data.withObject
       "TransformationTool"
       ( \x ->
           TransformationTool'
-            Prelude.<$> (x Data..:? "name")
+            Prelude.<$> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "tranformationToolInstallationLink")
-            Prelude.<*> (x Data..:? "description")
       )
 
 instance Prelude.Hashable TransformationTool where
   hashWithSalt _salt TransformationTool' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` tranformationToolInstallationLink
-      `Prelude.hashWithSalt` description
 
 instance Prelude.NFData TransformationTool where
   rnf TransformationTool' {..} =
-    Prelude.rnf name
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf tranformationToolInstallationLink
-      `Prelude.seq` Prelude.rnf description

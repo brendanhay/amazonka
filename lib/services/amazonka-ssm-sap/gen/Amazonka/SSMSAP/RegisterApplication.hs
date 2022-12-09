@@ -37,9 +37,9 @@ module Amazonka.SSMSAP.RegisterApplication
     newRegisterApplication,
 
     -- * Request Lenses
-    registerApplication_tags,
-    registerApplication_sid,
     registerApplication_sapInstanceNumber,
+    registerApplication_sid,
+    registerApplication_tags,
     registerApplication_applicationId,
     registerApplication_applicationType,
     registerApplication_instances,
@@ -66,9 +66,9 @@ import Amazonka.SSMSAP.Types
 
 -- | /See:/ 'newRegisterApplication' smart constructor.
 data RegisterApplication = RegisterApplication'
-  { tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { sapInstanceNumber :: Prelude.Maybe Prelude.Text,
     sid :: Prelude.Maybe Prelude.Text,
-    sapInstanceNumber :: Prelude.Maybe Prelude.Text,
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     applicationId :: Prelude.Text,
     applicationType :: ApplicationType,
     instances :: Prelude.NonEmpty Prelude.Text,
@@ -84,11 +84,11 @@ data RegisterApplication = RegisterApplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'registerApplication_tags' -
+-- 'sapInstanceNumber', 'registerApplication_sapInstanceNumber' -
 --
 -- 'sid', 'registerApplication_sid' -
 --
--- 'sapInstanceNumber', 'registerApplication_sapInstanceNumber' -
+-- 'tags', 'registerApplication_tags' -
 --
 -- 'applicationId', 'registerApplication_applicationId' -
 --
@@ -113,9 +113,10 @@ newRegisterApplication
   pInstances_
   pCredentials_ =
     RegisterApplication'
-      { tags = Prelude.Nothing,
+      { sapInstanceNumber =
+          Prelude.Nothing,
         sid = Prelude.Nothing,
-        sapInstanceNumber = Prelude.Nothing,
+        tags = Prelude.Nothing,
         applicationId = pApplicationId_,
         applicationType = pApplicationType_,
         instances = Lens.coerced Lens.# pInstances_,
@@ -123,16 +124,16 @@ newRegisterApplication
       }
 
 -- |
-registerApplication_tags :: Lens.Lens' RegisterApplication (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-registerApplication_tags = Lens.lens (\RegisterApplication' {tags} -> tags) (\s@RegisterApplication' {} a -> s {tags = a} :: RegisterApplication) Prelude.. Lens.mapping Lens.coerced
+registerApplication_sapInstanceNumber :: Lens.Lens' RegisterApplication (Prelude.Maybe Prelude.Text)
+registerApplication_sapInstanceNumber = Lens.lens (\RegisterApplication' {sapInstanceNumber} -> sapInstanceNumber) (\s@RegisterApplication' {} a -> s {sapInstanceNumber = a} :: RegisterApplication)
 
 -- |
 registerApplication_sid :: Lens.Lens' RegisterApplication (Prelude.Maybe Prelude.Text)
 registerApplication_sid = Lens.lens (\RegisterApplication' {sid} -> sid) (\s@RegisterApplication' {} a -> s {sid = a} :: RegisterApplication)
 
 -- |
-registerApplication_sapInstanceNumber :: Lens.Lens' RegisterApplication (Prelude.Maybe Prelude.Text)
-registerApplication_sapInstanceNumber = Lens.lens (\RegisterApplication' {sapInstanceNumber} -> sapInstanceNumber) (\s@RegisterApplication' {} a -> s {sapInstanceNumber = a} :: RegisterApplication)
+registerApplication_tags :: Lens.Lens' RegisterApplication (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+registerApplication_tags = Lens.lens (\RegisterApplication' {tags} -> tags) (\s@RegisterApplication' {} a -> s {tags = a} :: RegisterApplication) Prelude.. Lens.mapping Lens.coerced
 
 -- |
 registerApplication_applicationId :: Lens.Lens' RegisterApplication Prelude.Text
@@ -167,9 +168,9 @@ instance Core.AWSRequest RegisterApplication where
 
 instance Prelude.Hashable RegisterApplication where
   hashWithSalt _salt RegisterApplication' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` sapInstanceNumber
       `Prelude.hashWithSalt` sid
-      `Prelude.hashWithSalt` sapInstanceNumber
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` applicationType
       `Prelude.hashWithSalt` instances
@@ -177,9 +178,9 @@ instance Prelude.Hashable RegisterApplication where
 
 instance Prelude.NFData RegisterApplication where
   rnf RegisterApplication' {..} =
-    Prelude.rnf tags
+    Prelude.rnf sapInstanceNumber
       `Prelude.seq` Prelude.rnf sid
-      `Prelude.seq` Prelude.rnf sapInstanceNumber
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf applicationType
       `Prelude.seq` Prelude.rnf instances
@@ -200,10 +201,10 @@ instance Data.ToJSON RegisterApplication where
   toJSON RegisterApplication' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Sid" Data..=) Prelude.<$> sid,
-            ("SapInstanceNumber" Data..=)
+          [ ("SapInstanceNumber" Data..=)
               Prelude.<$> sapInstanceNumber,
+            ("Sid" Data..=) Prelude.<$> sid,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("ApplicationId" Data..= applicationId),
             Prelude.Just
               ("ApplicationType" Data..= applicationType),

@@ -18,9 +18,9 @@ module Amazonka.SSMSAP.Types
     defaultService,
 
     -- * Errors
+    _ConflictException,
     _InternalServerException,
     _ResourceNotFoundException,
-    _ConflictException,
     _ValidationException,
 
     -- * ApplicationStatus
@@ -56,14 +56,14 @@ module Amazonka.SSMSAP.Types
     -- * Application
     Application (..),
     newApplication,
-    application_type,
     application_appRegistryArn,
     application_arn,
-    application_status,
-    application_id,
     application_components,
+    application_id,
     application_lastUpdated,
+    application_status,
     application_statusMessage,
+    application_type,
 
     -- * ApplicationCredential
     ApplicationCredential (..),
@@ -75,78 +75,78 @@ module Amazonka.SSMSAP.Types
     -- * ApplicationSummary
     ApplicationSummary (..),
     newApplicationSummary,
-    applicationSummary_tags,
-    applicationSummary_type,
     applicationSummary_arn,
     applicationSummary_id,
+    applicationSummary_tags,
+    applicationSummary_type,
 
     -- * Component
     Component (..),
     newComponent,
-    component_primaryHost,
-    component_status,
-    component_hosts,
-    component_lastUpdated,
-    component_componentId,
     component_applicationId,
+    component_componentId,
     component_componentType,
     component_databases,
+    component_hosts,
+    component_lastUpdated,
+    component_primaryHost,
+    component_status,
 
     -- * ComponentSummary
     ComponentSummary (..),
     newComponentSummary,
-    componentSummary_tags,
-    componentSummary_componentId,
     componentSummary_applicationId,
+    componentSummary_componentId,
     componentSummary_componentType,
+    componentSummary_tags,
 
     -- * Database
     Database (..),
     newDatabase,
+    database_applicationId,
+    database_arn,
+    database_componentId,
+    database_credentials,
+    database_databaseId,
+    database_databaseName,
+    database_databaseType,
+    database_lastUpdated,
     database_primaryHost,
     database_sQLPort,
-    database_databaseName,
-    database_arn,
-    database_databaseType,
-    database_databaseId,
     database_status,
-    database_lastUpdated,
-    database_credentials,
-    database_componentId,
-    database_applicationId,
 
     -- * DatabaseSummary
     DatabaseSummary (..),
     newDatabaseSummary,
-    databaseSummary_tags,
-    databaseSummary_arn,
-    databaseSummary_databaseType,
-    databaseSummary_databaseId,
-    databaseSummary_componentId,
     databaseSummary_applicationId,
+    databaseSummary_arn,
+    databaseSummary_componentId,
+    databaseSummary_databaseId,
+    databaseSummary_databaseType,
+    databaseSummary_tags,
 
     -- * Host
     Host (..),
     newHost,
-    host_hostRole,
     host_hostIp,
     host_hostName,
+    host_hostRole,
     host_instanceId,
 
     -- * Operation
     Operation (..),
     newOperation,
-    operation_resourceId,
-    operation_resourceType,
-    operation_type,
-    operation_properties,
-    operation_status,
-    operation_lastUpdatedTime,
     operation_endTime,
     operation_id,
+    operation_lastUpdatedTime,
+    operation_properties,
     operation_resourceArn,
-    operation_statusMessage,
+    operation_resourceId,
+    operation_resourceType,
     operation_startTime,
+    operation_status,
+    operation_statusMessage,
+    operation_type,
   )
 where
 
@@ -199,28 +199,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -228,13 +222,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -242,7 +240,17 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
+
+-- |
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
 
 -- |
 _InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -259,14 +267,6 @@ _ResourceNotFoundException =
     defaultService
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
-
--- |
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
 
 -- |
 _ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

@@ -29,9 +29,9 @@ import Amazonka.SSMSAP.Types.HostRole
 --
 -- /See:/ 'newHost' smart constructor.
 data Host = Host'
-  { hostRole :: Prelude.Maybe HostRole,
-    hostIp :: Prelude.Maybe Prelude.Text,
+  { hostIp :: Prelude.Maybe Prelude.Text,
     hostName :: Prelude.Maybe Prelude.Text,
+    hostRole :: Prelude.Maybe HostRole,
     instanceId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,26 +44,22 @@ data Host = Host'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'hostRole', 'host_hostRole' -
---
 -- 'hostIp', 'host_hostIp' -
 --
 -- 'hostName', 'host_hostName' -
+--
+-- 'hostRole', 'host_hostRole' -
 --
 -- 'instanceId', 'host_instanceId' -
 newHost ::
   Host
 newHost =
   Host'
-    { hostRole = Prelude.Nothing,
-      hostIp = Prelude.Nothing,
+    { hostIp = Prelude.Nothing,
       hostName = Prelude.Nothing,
+      hostRole = Prelude.Nothing,
       instanceId = Prelude.Nothing
     }
-
--- |
-host_hostRole :: Lens.Lens' Host (Prelude.Maybe HostRole)
-host_hostRole = Lens.lens (\Host' {hostRole} -> hostRole) (\s@Host' {} a -> s {hostRole = a} :: Host)
 
 -- |
 host_hostIp :: Lens.Lens' Host (Prelude.Maybe Prelude.Text)
@@ -72,6 +68,10 @@ host_hostIp = Lens.lens (\Host' {hostIp} -> hostIp) (\s@Host' {} a -> s {hostIp 
 -- |
 host_hostName :: Lens.Lens' Host (Prelude.Maybe Prelude.Text)
 host_hostName = Lens.lens (\Host' {hostName} -> hostName) (\s@Host' {} a -> s {hostName = a} :: Host)
+
+-- |
+host_hostRole :: Lens.Lens' Host (Prelude.Maybe HostRole)
+host_hostRole = Lens.lens (\Host' {hostRole} -> hostRole) (\s@Host' {} a -> s {hostRole = a} :: Host)
 
 -- |
 host_instanceId :: Lens.Lens' Host (Prelude.Maybe Prelude.Text)
@@ -83,22 +83,22 @@ instance Data.FromJSON Host where
       "Host"
       ( \x ->
           Host'
-            Prelude.<$> (x Data..:? "HostRole")
-            Prelude.<*> (x Data..:? "HostIp")
+            Prelude.<$> (x Data..:? "HostIp")
             Prelude.<*> (x Data..:? "HostName")
+            Prelude.<*> (x Data..:? "HostRole")
             Prelude.<*> (x Data..:? "InstanceId")
       )
 
 instance Prelude.Hashable Host where
   hashWithSalt _salt Host' {..} =
-    _salt `Prelude.hashWithSalt` hostRole
-      `Prelude.hashWithSalt` hostIp
+    _salt `Prelude.hashWithSalt` hostIp
       `Prelude.hashWithSalt` hostName
+      `Prelude.hashWithSalt` hostRole
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData Host where
   rnf Host' {..} =
-    Prelude.rnf hostRole
-      `Prelude.seq` Prelude.rnf hostIp
+    Prelude.rnf hostIp
       `Prelude.seq` Prelude.rnf hostName
+      `Prelude.seq` Prelude.rnf hostRole
       `Prelude.seq` Prelude.rnf instanceId

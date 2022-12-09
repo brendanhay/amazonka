@@ -25,8 +25,8 @@ module Amazonka.SSMSAP.UpdateApplicationSettings
     newUpdateApplicationSettings,
 
     -- * Request Lenses
-    updateApplicationSettings_credentialsToRemove,
     updateApplicationSettings_credentialsToAddOrUpdate,
+    updateApplicationSettings_credentialsToRemove,
     updateApplicationSettings_applicationId,
 
     -- * Destructuring the Response
@@ -50,8 +50,8 @@ import Amazonka.SSMSAP.Types
 
 -- | /See:/ 'newUpdateApplicationSettings' smart constructor.
 data UpdateApplicationSettings = UpdateApplicationSettings'
-  { credentialsToRemove :: Prelude.Maybe (Prelude.NonEmpty ApplicationCredential),
-    credentialsToAddOrUpdate :: Prelude.Maybe (Prelude.NonEmpty ApplicationCredential),
+  { credentialsToAddOrUpdate :: Prelude.Maybe (Prelude.NonEmpty ApplicationCredential),
+    credentialsToRemove :: Prelude.Maybe (Prelude.NonEmpty ApplicationCredential),
     applicationId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -64,9 +64,9 @@ data UpdateApplicationSettings = UpdateApplicationSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'credentialsToRemove', 'updateApplicationSettings_credentialsToRemove' -
---
 -- 'credentialsToAddOrUpdate', 'updateApplicationSettings_credentialsToAddOrUpdate' -
+--
+-- 'credentialsToRemove', 'updateApplicationSettings_credentialsToRemove' -
 --
 -- 'applicationId', 'updateApplicationSettings_applicationId' -
 newUpdateApplicationSettings ::
@@ -75,19 +75,19 @@ newUpdateApplicationSettings ::
   UpdateApplicationSettings
 newUpdateApplicationSettings pApplicationId_ =
   UpdateApplicationSettings'
-    { credentialsToRemove =
+    { credentialsToAddOrUpdate =
         Prelude.Nothing,
-      credentialsToAddOrUpdate = Prelude.Nothing,
+      credentialsToRemove = Prelude.Nothing,
       applicationId = pApplicationId_
     }
 
 -- |
-updateApplicationSettings_credentialsToRemove :: Lens.Lens' UpdateApplicationSettings (Prelude.Maybe (Prelude.NonEmpty ApplicationCredential))
-updateApplicationSettings_credentialsToRemove = Lens.lens (\UpdateApplicationSettings' {credentialsToRemove} -> credentialsToRemove) (\s@UpdateApplicationSettings' {} a -> s {credentialsToRemove = a} :: UpdateApplicationSettings) Prelude.. Lens.mapping Lens.coerced
-
--- |
 updateApplicationSettings_credentialsToAddOrUpdate :: Lens.Lens' UpdateApplicationSettings (Prelude.Maybe (Prelude.NonEmpty ApplicationCredential))
 updateApplicationSettings_credentialsToAddOrUpdate = Lens.lens (\UpdateApplicationSettings' {credentialsToAddOrUpdate} -> credentialsToAddOrUpdate) (\s@UpdateApplicationSettings' {} a -> s {credentialsToAddOrUpdate = a} :: UpdateApplicationSettings) Prelude.. Lens.mapping Lens.coerced
+
+-- |
+updateApplicationSettings_credentialsToRemove :: Lens.Lens' UpdateApplicationSettings (Prelude.Maybe (Prelude.NonEmpty ApplicationCredential))
+updateApplicationSettings_credentialsToRemove = Lens.lens (\UpdateApplicationSettings' {credentialsToRemove} -> credentialsToRemove) (\s@UpdateApplicationSettings' {} a -> s {credentialsToRemove = a} :: UpdateApplicationSettings) Prelude.. Lens.mapping Lens.coerced
 
 -- |
 updateApplicationSettings_applicationId :: Lens.Lens' UpdateApplicationSettings Prelude.Text
@@ -110,14 +110,15 @@ instance Core.AWSRequest UpdateApplicationSettings where
 
 instance Prelude.Hashable UpdateApplicationSettings where
   hashWithSalt _salt UpdateApplicationSettings' {..} =
-    _salt `Prelude.hashWithSalt` credentialsToRemove
+    _salt
       `Prelude.hashWithSalt` credentialsToAddOrUpdate
+      `Prelude.hashWithSalt` credentialsToRemove
       `Prelude.hashWithSalt` applicationId
 
 instance Prelude.NFData UpdateApplicationSettings where
   rnf UpdateApplicationSettings' {..} =
-    Prelude.rnf credentialsToRemove
-      `Prelude.seq` Prelude.rnf credentialsToAddOrUpdate
+    Prelude.rnf credentialsToAddOrUpdate
+      `Prelude.seq` Prelude.rnf credentialsToRemove
       `Prelude.seq` Prelude.rnf applicationId
 
 instance Data.ToHeaders UpdateApplicationSettings where
@@ -135,10 +136,10 @@ instance Data.ToJSON UpdateApplicationSettings where
   toJSON UpdateApplicationSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("CredentialsToRemove" Data..=)
-              Prelude.<$> credentialsToRemove,
-            ("CredentialsToAddOrUpdate" Data..=)
+          [ ("CredentialsToAddOrUpdate" Data..=)
               Prelude.<$> credentialsToAddOrUpdate,
+            ("CredentialsToRemove" Data..=)
+              Prelude.<$> credentialsToRemove,
             Prelude.Just
               ("ApplicationId" Data..= applicationId)
           ]

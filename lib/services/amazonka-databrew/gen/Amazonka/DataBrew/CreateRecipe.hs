@@ -27,8 +27,8 @@ module Amazonka.DataBrew.CreateRecipe
     newCreateRecipe,
 
     -- * Request Lenses
-    createRecipe_tags,
     createRecipe_description,
+    createRecipe_tags,
     createRecipe_name,
     createRecipe_steps,
 
@@ -52,10 +52,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateRecipe' smart constructor.
 data CreateRecipe = CreateRecipe'
-  { -- | Metadata tags to apply to this recipe.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A description for the recipe.
+  { -- | A description for the recipe.
     description :: Prelude.Maybe Prelude.Text,
+    -- | Metadata tags to apply to this recipe.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A unique name for the recipe. Valid characters are alphanumeric (A-Z,
     -- a-z, 0-9), hyphen (-), period (.), and space.
     name :: Prelude.Text,
@@ -74,9 +74,9 @@ data CreateRecipe = CreateRecipe'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createRecipe_tags' - Metadata tags to apply to this recipe.
---
 -- 'description', 'createRecipe_description' - A description for the recipe.
+--
+-- 'tags', 'createRecipe_tags' - Metadata tags to apply to this recipe.
 --
 -- 'name', 'createRecipe_name' - A unique name for the recipe. Valid characters are alphanumeric (A-Z,
 -- a-z, 0-9), hyphen (-), period (.), and space.
@@ -90,19 +90,19 @@ newCreateRecipe ::
   CreateRecipe
 newCreateRecipe pName_ =
   CreateRecipe'
-    { tags = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_,
       steps = Prelude.mempty
     }
 
--- | Metadata tags to apply to this recipe.
-createRecipe_tags :: Lens.Lens' CreateRecipe (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createRecipe_tags = Lens.lens (\CreateRecipe' {tags} -> tags) (\s@CreateRecipe' {} a -> s {tags = a} :: CreateRecipe) Prelude.. Lens.mapping Lens.coerced
-
 -- | A description for the recipe.
 createRecipe_description :: Lens.Lens' CreateRecipe (Prelude.Maybe Prelude.Text)
 createRecipe_description = Lens.lens (\CreateRecipe' {description} -> description) (\s@CreateRecipe' {} a -> s {description = a} :: CreateRecipe)
+
+-- | Metadata tags to apply to this recipe.
+createRecipe_tags :: Lens.Lens' CreateRecipe (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createRecipe_tags = Lens.lens (\CreateRecipe' {tags} -> tags) (\s@CreateRecipe' {} a -> s {tags = a} :: CreateRecipe) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique name for the recipe. Valid characters are alphanumeric (A-Z,
 -- a-z, 0-9), hyphen (-), period (.), and space.
@@ -129,15 +129,15 @@ instance Core.AWSRequest CreateRecipe where
 
 instance Prelude.Hashable CreateRecipe where
   hashWithSalt _salt CreateRecipe' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` steps
 
 instance Prelude.NFData CreateRecipe where
   rnf CreateRecipe' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf steps
 
@@ -156,8 +156,8 @@ instance Data.ToJSON CreateRecipe where
   toJSON CreateRecipe' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("Steps" Data..= steps)
           ]

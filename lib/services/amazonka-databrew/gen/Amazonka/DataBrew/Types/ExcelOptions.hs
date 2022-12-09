@@ -29,15 +29,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newExcelOptions' smart constructor.
 data ExcelOptions = ExcelOptions'
-  { -- | One or more sheet numbers in the Excel file that will be included in the
+  { -- | A variable that specifies whether the first row in the file is parsed as
+    -- the header. If this value is false, column names are auto-generated.
+    headerRow :: Prelude.Maybe Prelude.Bool,
+    -- | One or more sheet numbers in the Excel file that will be included in the
     -- dataset.
     sheetIndexes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Natural),
     -- | One or more named sheets in the Excel file that will be included in the
     -- dataset.
-    sheetNames :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | A variable that specifies whether the first row in the file is parsed as
-    -- the header. If this value is false, column names are auto-generated.
-    headerRow :: Prelude.Maybe Prelude.Bool
+    sheetNames :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,22 +49,27 @@ data ExcelOptions = ExcelOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'headerRow', 'excelOptions_headerRow' - A variable that specifies whether the first row in the file is parsed as
+-- the header. If this value is false, column names are auto-generated.
+--
 -- 'sheetIndexes', 'excelOptions_sheetIndexes' - One or more sheet numbers in the Excel file that will be included in the
 -- dataset.
 --
 -- 'sheetNames', 'excelOptions_sheetNames' - One or more named sheets in the Excel file that will be included in the
 -- dataset.
---
--- 'headerRow', 'excelOptions_headerRow' - A variable that specifies whether the first row in the file is parsed as
--- the header. If this value is false, column names are auto-generated.
 newExcelOptions ::
   ExcelOptions
 newExcelOptions =
   ExcelOptions'
-    { sheetIndexes = Prelude.Nothing,
-      sheetNames = Prelude.Nothing,
-      headerRow = Prelude.Nothing
+    { headerRow = Prelude.Nothing,
+      sheetIndexes = Prelude.Nothing,
+      sheetNames = Prelude.Nothing
     }
+
+-- | A variable that specifies whether the first row in the file is parsed as
+-- the header. If this value is false, column names are auto-generated.
+excelOptions_headerRow :: Lens.Lens' ExcelOptions (Prelude.Maybe Prelude.Bool)
+excelOptions_headerRow = Lens.lens (\ExcelOptions' {headerRow} -> headerRow) (\s@ExcelOptions' {} a -> s {headerRow = a} :: ExcelOptions)
 
 -- | One or more sheet numbers in the Excel file that will be included in the
 -- dataset.
@@ -76,40 +81,35 @@ excelOptions_sheetIndexes = Lens.lens (\ExcelOptions' {sheetIndexes} -> sheetInd
 excelOptions_sheetNames :: Lens.Lens' ExcelOptions (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 excelOptions_sheetNames = Lens.lens (\ExcelOptions' {sheetNames} -> sheetNames) (\s@ExcelOptions' {} a -> s {sheetNames = a} :: ExcelOptions) Prelude.. Lens.mapping Lens.coerced
 
--- | A variable that specifies whether the first row in the file is parsed as
--- the header. If this value is false, column names are auto-generated.
-excelOptions_headerRow :: Lens.Lens' ExcelOptions (Prelude.Maybe Prelude.Bool)
-excelOptions_headerRow = Lens.lens (\ExcelOptions' {headerRow} -> headerRow) (\s@ExcelOptions' {} a -> s {headerRow = a} :: ExcelOptions)
-
 instance Data.FromJSON ExcelOptions where
   parseJSON =
     Data.withObject
       "ExcelOptions"
       ( \x ->
           ExcelOptions'
-            Prelude.<$> (x Data..:? "SheetIndexes")
+            Prelude.<$> (x Data..:? "HeaderRow")
+            Prelude.<*> (x Data..:? "SheetIndexes")
             Prelude.<*> (x Data..:? "SheetNames")
-            Prelude.<*> (x Data..:? "HeaderRow")
       )
 
 instance Prelude.Hashable ExcelOptions where
   hashWithSalt _salt ExcelOptions' {..} =
-    _salt `Prelude.hashWithSalt` sheetIndexes
+    _salt `Prelude.hashWithSalt` headerRow
+      `Prelude.hashWithSalt` sheetIndexes
       `Prelude.hashWithSalt` sheetNames
-      `Prelude.hashWithSalt` headerRow
 
 instance Prelude.NFData ExcelOptions where
   rnf ExcelOptions' {..} =
-    Prelude.rnf sheetIndexes
+    Prelude.rnf headerRow
+      `Prelude.seq` Prelude.rnf sheetIndexes
       `Prelude.seq` Prelude.rnf sheetNames
-      `Prelude.seq` Prelude.rnf headerRow
 
 instance Data.ToJSON ExcelOptions where
   toJSON ExcelOptions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SheetIndexes" Data..=) Prelude.<$> sheetIndexes,
-            ("SheetNames" Data..=) Prelude.<$> sheetNames,
-            ("HeaderRow" Data..=) Prelude.<$> headerRow
+          [ ("HeaderRow" Data..=) Prelude.<$> headerRow,
+            ("SheetIndexes" Data..=) Prelude.<$> sheetIndexes,
+            ("SheetNames" Data..=) Prelude.<$> sheetNames
           ]
       )

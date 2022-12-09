@@ -28,8 +28,8 @@ module Amazonka.DataBrew.CreateRuleset
     newCreateRuleset,
 
     -- * Request Lenses
-    createRuleset_tags,
     createRuleset_description,
+    createRuleset_tags,
     createRuleset_name,
     createRuleset_targetArn,
     createRuleset_rules,
@@ -54,10 +54,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateRuleset' smart constructor.
 data CreateRuleset = CreateRuleset'
-  { -- | Metadata tags to apply to the ruleset.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The description of the ruleset.
+  { -- | The description of the ruleset.
     description :: Prelude.Maybe Prelude.Text,
+    -- | Metadata tags to apply to the ruleset.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the ruleset to be created. Valid characters are alphanumeric
     -- (A-Z, a-z, 0-9), hyphen (-), period (.), and space.
     name :: Prelude.Text,
@@ -78,9 +78,9 @@ data CreateRuleset = CreateRuleset'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createRuleset_tags' - Metadata tags to apply to the ruleset.
---
 -- 'description', 'createRuleset_description' - The description of the ruleset.
+--
+-- 'tags', 'createRuleset_tags' - Metadata tags to apply to the ruleset.
 --
 -- 'name', 'createRuleset_name' - The name of the ruleset to be created. Valid characters are alphanumeric
 -- (A-Z, a-z, 0-9), hyphen (-), period (.), and space.
@@ -100,20 +100,20 @@ newCreateRuleset ::
   CreateRuleset
 newCreateRuleset pName_ pTargetArn_ pRules_ =
   CreateRuleset'
-    { tags = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_,
       targetArn = pTargetArn_,
       rules = Lens.coerced Lens.# pRules_
     }
 
--- | Metadata tags to apply to the ruleset.
-createRuleset_tags :: Lens.Lens' CreateRuleset (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createRuleset_tags = Lens.lens (\CreateRuleset' {tags} -> tags) (\s@CreateRuleset' {} a -> s {tags = a} :: CreateRuleset) Prelude.. Lens.mapping Lens.coerced
-
 -- | The description of the ruleset.
 createRuleset_description :: Lens.Lens' CreateRuleset (Prelude.Maybe Prelude.Text)
 createRuleset_description = Lens.lens (\CreateRuleset' {description} -> description) (\s@CreateRuleset' {} a -> s {description = a} :: CreateRuleset)
+
+-- | Metadata tags to apply to the ruleset.
+createRuleset_tags :: Lens.Lens' CreateRuleset (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createRuleset_tags = Lens.lens (\CreateRuleset' {tags} -> tags) (\s@CreateRuleset' {} a -> s {tags = a} :: CreateRuleset) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the ruleset to be created. Valid characters are alphanumeric
 -- (A-Z, a-z, 0-9), hyphen (-), period (.), and space.
@@ -146,16 +146,16 @@ instance Core.AWSRequest CreateRuleset where
 
 instance Prelude.Hashable CreateRuleset where
   hashWithSalt _salt CreateRuleset' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` targetArn
       `Prelude.hashWithSalt` rules
 
 instance Prelude.NFData CreateRuleset where
   rnf CreateRuleset' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf targetArn
       `Prelude.seq` Prelude.rnf rules
@@ -175,8 +175,8 @@ instance Data.ToJSON CreateRuleset where
   toJSON CreateRuleset' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("TargetArn" Data..= targetArn),
             Prelude.Just ("Rules" Data..= rules)

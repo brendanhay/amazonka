@@ -30,8 +30,8 @@ module Amazonka.DataBrew.ListRecipeVersions
     newListRecipeVersions,
 
     -- * Request Lenses
-    listRecipeVersions_nextToken,
     listRecipeVersions_maxResults,
+    listRecipeVersions_nextToken,
     listRecipeVersions_name,
 
     -- * Destructuring the Response
@@ -55,11 +55,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListRecipeVersions' smart constructor.
 data ListRecipeVersions = ListRecipeVersions'
-  { -- | The token returned by a previous call to retrieve the next set of
+  { -- | The maximum number of results to return in this request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token returned by a previous call to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in this request.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name of the recipe for which to return version information.
     name :: Prelude.Text
   }
@@ -73,10 +73,10 @@ data ListRecipeVersions = ListRecipeVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listRecipeVersions_maxResults' - The maximum number of results to return in this request.
+--
 -- 'nextToken', 'listRecipeVersions_nextToken' - The token returned by a previous call to retrieve the next set of
 -- results.
---
--- 'maxResults', 'listRecipeVersions_maxResults' - The maximum number of results to return in this request.
 --
 -- 'name', 'listRecipeVersions_name' - The name of the recipe for which to return version information.
 newListRecipeVersions ::
@@ -85,19 +85,19 @@ newListRecipeVersions ::
   ListRecipeVersions
 newListRecipeVersions pName_ =
   ListRecipeVersions'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       name = pName_
     }
+
+-- | The maximum number of results to return in this request.
+listRecipeVersions_maxResults :: Lens.Lens' ListRecipeVersions (Prelude.Maybe Prelude.Natural)
+listRecipeVersions_maxResults = Lens.lens (\ListRecipeVersions' {maxResults} -> maxResults) (\s@ListRecipeVersions' {} a -> s {maxResults = a} :: ListRecipeVersions)
 
 -- | The token returned by a previous call to retrieve the next set of
 -- results.
 listRecipeVersions_nextToken :: Lens.Lens' ListRecipeVersions (Prelude.Maybe Prelude.Text)
 listRecipeVersions_nextToken = Lens.lens (\ListRecipeVersions' {nextToken} -> nextToken) (\s@ListRecipeVersions' {} a -> s {nextToken = a} :: ListRecipeVersions)
-
--- | The maximum number of results to return in this request.
-listRecipeVersions_maxResults :: Lens.Lens' ListRecipeVersions (Prelude.Maybe Prelude.Natural)
-listRecipeVersions_maxResults = Lens.lens (\ListRecipeVersions' {maxResults} -> maxResults) (\s@ListRecipeVersions' {} a -> s {maxResults = a} :: ListRecipeVersions)
 
 -- | The name of the recipe for which to return version information.
 listRecipeVersions_name :: Lens.Lens' ListRecipeVersions Prelude.Text
@@ -139,14 +139,14 @@ instance Core.AWSRequest ListRecipeVersions where
 
 instance Prelude.Hashable ListRecipeVersions where
   hashWithSalt _salt ListRecipeVersions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData ListRecipeVersions where
   rnf ListRecipeVersions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders ListRecipeVersions where
@@ -166,8 +166,8 @@ instance Data.ToPath ListRecipeVersions where
 instance Data.ToQuery ListRecipeVersions where
   toQuery ListRecipeVersions' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults,
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
         "name" Data.=: name
       ]
 

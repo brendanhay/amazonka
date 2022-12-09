@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDataCatalogInputDefinition' smart constructor.
 data DataCatalogInputDefinition = DataCatalogInputDefinition'
-  { -- | Represents an Amazon location where DataBrew can store intermediate
-    -- results.
-    tempDirectory :: Prelude.Maybe S3Location,
-    -- | The unique identifier of the Amazon Web Services account that holds the
+  { -- | The unique identifier of the Amazon Web Services account that holds the
     -- Data Catalog that stores the data.
     catalogId :: Prelude.Maybe Prelude.Text,
+    -- | Represents an Amazon location where DataBrew can store intermediate
+    -- results.
+    tempDirectory :: Prelude.Maybe S3Location,
     -- | The name of a database in the Data Catalog.
     databaseName :: Prelude.Text,
     -- | The name of a database table in the Data Catalog. This table corresponds
@@ -52,11 +52,11 @@ data DataCatalogInputDefinition = DataCatalogInputDefinition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tempDirectory', 'dataCatalogInputDefinition_tempDirectory' - Represents an Amazon location where DataBrew can store intermediate
--- results.
---
 -- 'catalogId', 'dataCatalogInputDefinition_catalogId' - The unique identifier of the Amazon Web Services account that holds the
 -- Data Catalog that stores the data.
+--
+-- 'tempDirectory', 'dataCatalogInputDefinition_tempDirectory' - Represents an Amazon location where DataBrew can store intermediate
+-- results.
 --
 -- 'databaseName', 'dataCatalogInputDefinition_databaseName' - The name of a database in the Data Catalog.
 --
@@ -72,22 +72,22 @@ newDataCatalogInputDefinition
   pDatabaseName_
   pTableName_ =
     DataCatalogInputDefinition'
-      { tempDirectory =
+      { catalogId =
           Prelude.Nothing,
-        catalogId = Prelude.Nothing,
+        tempDirectory = Prelude.Nothing,
         databaseName = pDatabaseName_,
         tableName = pTableName_
       }
-
--- | Represents an Amazon location where DataBrew can store intermediate
--- results.
-dataCatalogInputDefinition_tempDirectory :: Lens.Lens' DataCatalogInputDefinition (Prelude.Maybe S3Location)
-dataCatalogInputDefinition_tempDirectory = Lens.lens (\DataCatalogInputDefinition' {tempDirectory} -> tempDirectory) (\s@DataCatalogInputDefinition' {} a -> s {tempDirectory = a} :: DataCatalogInputDefinition)
 
 -- | The unique identifier of the Amazon Web Services account that holds the
 -- Data Catalog that stores the data.
 dataCatalogInputDefinition_catalogId :: Lens.Lens' DataCatalogInputDefinition (Prelude.Maybe Prelude.Text)
 dataCatalogInputDefinition_catalogId = Lens.lens (\DataCatalogInputDefinition' {catalogId} -> catalogId) (\s@DataCatalogInputDefinition' {} a -> s {catalogId = a} :: DataCatalogInputDefinition)
+
+-- | Represents an Amazon location where DataBrew can store intermediate
+-- results.
+dataCatalogInputDefinition_tempDirectory :: Lens.Lens' DataCatalogInputDefinition (Prelude.Maybe S3Location)
+dataCatalogInputDefinition_tempDirectory = Lens.lens (\DataCatalogInputDefinition' {tempDirectory} -> tempDirectory) (\s@DataCatalogInputDefinition' {} a -> s {tempDirectory = a} :: DataCatalogInputDefinition)
 
 -- | The name of a database in the Data Catalog.
 dataCatalogInputDefinition_databaseName :: Lens.Lens' DataCatalogInputDefinition Prelude.Text
@@ -104,23 +104,23 @@ instance Data.FromJSON DataCatalogInputDefinition where
       "DataCatalogInputDefinition"
       ( \x ->
           DataCatalogInputDefinition'
-            Prelude.<$> (x Data..:? "TempDirectory")
-            Prelude.<*> (x Data..:? "CatalogId")
+            Prelude.<$> (x Data..:? "CatalogId")
+            Prelude.<*> (x Data..:? "TempDirectory")
             Prelude.<*> (x Data..: "DatabaseName")
             Prelude.<*> (x Data..: "TableName")
       )
 
 instance Prelude.Hashable DataCatalogInputDefinition where
   hashWithSalt _salt DataCatalogInputDefinition' {..} =
-    _salt `Prelude.hashWithSalt` tempDirectory
-      `Prelude.hashWithSalt` catalogId
+    _salt `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` tempDirectory
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` tableName
 
 instance Prelude.NFData DataCatalogInputDefinition where
   rnf DataCatalogInputDefinition' {..} =
-    Prelude.rnf tempDirectory
-      `Prelude.seq` Prelude.rnf catalogId
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf tempDirectory
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf tableName
 
@@ -128,8 +128,8 @@ instance Data.ToJSON DataCatalogInputDefinition where
   toJSON DataCatalogInputDefinition' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("TempDirectory" Data..=) Prelude.<$> tempDirectory,
-            ("CatalogId" Data..=) Prelude.<$> catalogId,
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
+            ("TempDirectory" Data..=) Prelude.<$> tempDirectory,
             Prelude.Just ("DatabaseName" Data..= databaseName),
             Prelude.Just ("TableName" Data..= tableName)
           ]

@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDatabaseInputDefinition' smart constructor.
 data DatabaseInputDefinition = DatabaseInputDefinition'
-  { tempDirectory :: Prelude.Maybe S3Location,
-    -- | The table within the target database.
+  { -- | The table within the target database.
     databaseTableName :: Prelude.Maybe Prelude.Text,
     -- | Custom SQL to run against the provided Glue connection. This SQL will be
     -- used as the input for DataBrew projects and jobs.
     queryString :: Prelude.Maybe Prelude.Text,
+    tempDirectory :: Prelude.Maybe S3Location,
     -- | The Glue Connection that stores the connection information for the
     -- target database.
     glueConnectionName :: Prelude.Text
@@ -49,12 +49,12 @@ data DatabaseInputDefinition = DatabaseInputDefinition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tempDirectory', 'databaseInputDefinition_tempDirectory' - Undocumented member.
---
 -- 'databaseTableName', 'databaseInputDefinition_databaseTableName' - The table within the target database.
 --
 -- 'queryString', 'databaseInputDefinition_queryString' - Custom SQL to run against the provided Glue connection. This SQL will be
 -- used as the input for DataBrew projects and jobs.
+--
+-- 'tempDirectory', 'databaseInputDefinition_tempDirectory' - Undocumented member.
 --
 -- 'glueConnectionName', 'databaseInputDefinition_glueConnectionName' - The Glue Connection that stores the connection information for the
 -- target database.
@@ -64,16 +64,12 @@ newDatabaseInputDefinition ::
   DatabaseInputDefinition
 newDatabaseInputDefinition pGlueConnectionName_ =
   DatabaseInputDefinition'
-    { tempDirectory =
+    { databaseTableName =
         Prelude.Nothing,
-      databaseTableName = Prelude.Nothing,
       queryString = Prelude.Nothing,
+      tempDirectory = Prelude.Nothing,
       glueConnectionName = pGlueConnectionName_
     }
-
--- | Undocumented member.
-databaseInputDefinition_tempDirectory :: Lens.Lens' DatabaseInputDefinition (Prelude.Maybe S3Location)
-databaseInputDefinition_tempDirectory = Lens.lens (\DatabaseInputDefinition' {tempDirectory} -> tempDirectory) (\s@DatabaseInputDefinition' {} a -> s {tempDirectory = a} :: DatabaseInputDefinition)
 
 -- | The table within the target database.
 databaseInputDefinition_databaseTableName :: Lens.Lens' DatabaseInputDefinition (Prelude.Maybe Prelude.Text)
@@ -83,6 +79,10 @@ databaseInputDefinition_databaseTableName = Lens.lens (\DatabaseInputDefinition'
 -- used as the input for DataBrew projects and jobs.
 databaseInputDefinition_queryString :: Lens.Lens' DatabaseInputDefinition (Prelude.Maybe Prelude.Text)
 databaseInputDefinition_queryString = Lens.lens (\DatabaseInputDefinition' {queryString} -> queryString) (\s@DatabaseInputDefinition' {} a -> s {queryString = a} :: DatabaseInputDefinition)
+
+-- | Undocumented member.
+databaseInputDefinition_tempDirectory :: Lens.Lens' DatabaseInputDefinition (Prelude.Maybe S3Location)
+databaseInputDefinition_tempDirectory = Lens.lens (\DatabaseInputDefinition' {tempDirectory} -> tempDirectory) (\s@DatabaseInputDefinition' {} a -> s {tempDirectory = a} :: DatabaseInputDefinition)
 
 -- | The Glue Connection that stores the connection information for the
 -- target database.
@@ -95,34 +95,34 @@ instance Data.FromJSON DatabaseInputDefinition where
       "DatabaseInputDefinition"
       ( \x ->
           DatabaseInputDefinition'
-            Prelude.<$> (x Data..:? "TempDirectory")
-            Prelude.<*> (x Data..:? "DatabaseTableName")
+            Prelude.<$> (x Data..:? "DatabaseTableName")
             Prelude.<*> (x Data..:? "QueryString")
+            Prelude.<*> (x Data..:? "TempDirectory")
             Prelude.<*> (x Data..: "GlueConnectionName")
       )
 
 instance Prelude.Hashable DatabaseInputDefinition where
   hashWithSalt _salt DatabaseInputDefinition' {..} =
-    _salt `Prelude.hashWithSalt` tempDirectory
-      `Prelude.hashWithSalt` databaseTableName
+    _salt `Prelude.hashWithSalt` databaseTableName
       `Prelude.hashWithSalt` queryString
+      `Prelude.hashWithSalt` tempDirectory
       `Prelude.hashWithSalt` glueConnectionName
 
 instance Prelude.NFData DatabaseInputDefinition where
   rnf DatabaseInputDefinition' {..} =
-    Prelude.rnf tempDirectory
-      `Prelude.seq` Prelude.rnf databaseTableName
+    Prelude.rnf databaseTableName
       `Prelude.seq` Prelude.rnf queryString
+      `Prelude.seq` Prelude.rnf tempDirectory
       `Prelude.seq` Prelude.rnf glueConnectionName
 
 instance Data.ToJSON DatabaseInputDefinition where
   toJSON DatabaseInputDefinition' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("TempDirectory" Data..=) Prelude.<$> tempDirectory,
-            ("DatabaseTableName" Data..=)
+          [ ("DatabaseTableName" Data..=)
               Prelude.<$> databaseTableName,
             ("QueryString" Data..=) Prelude.<$> queryString,
+            ("TempDirectory" Data..=) Prelude.<$> tempDirectory,
             Prelude.Just
               ("GlueConnectionName" Data..= glueConnectionName)
           ]

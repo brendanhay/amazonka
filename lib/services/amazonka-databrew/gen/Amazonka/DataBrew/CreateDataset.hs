@@ -27,10 +27,10 @@ module Amazonka.DataBrew.CreateDataset
     newCreateDataset,
 
     -- * Request Lenses
-    createDataset_tags,
-    createDataset_pathOptions,
     createDataset_format,
     createDataset_formatOptions,
+    createDataset_pathOptions,
+    createDataset_tags,
     createDataset_name,
     createDataset_input,
 
@@ -54,15 +54,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDataset' smart constructor.
 data CreateDataset = CreateDataset'
-  { -- | Metadata tags to apply to this dataset.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A set of options that defines how DataBrew interprets an Amazon S3 path
-    -- of the dataset.
-    pathOptions :: Prelude.Maybe PathOptions,
-    -- | The file format of a dataset that is created from an Amazon S3 file or
+  { -- | The file format of a dataset that is created from an Amazon S3 file or
     -- folder.
     format :: Prelude.Maybe InputFormat,
     formatOptions :: Prelude.Maybe FormatOptions,
+    -- | A set of options that defines how DataBrew interprets an Amazon S3 path
+    -- of the dataset.
+    pathOptions :: Prelude.Maybe PathOptions,
+    -- | Metadata tags to apply to this dataset.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the dataset to be created. Valid characters are alphanumeric
     -- (A-Z, a-z, 0-9), hyphen (-), period (.), and space.
     name :: Prelude.Text,
@@ -78,15 +78,15 @@ data CreateDataset = CreateDataset'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createDataset_tags' - Metadata tags to apply to this dataset.
---
--- 'pathOptions', 'createDataset_pathOptions' - A set of options that defines how DataBrew interprets an Amazon S3 path
--- of the dataset.
---
 -- 'format', 'createDataset_format' - The file format of a dataset that is created from an Amazon S3 file or
 -- folder.
 --
 -- 'formatOptions', 'createDataset_formatOptions' - Undocumented member.
+--
+-- 'pathOptions', 'createDataset_pathOptions' - A set of options that defines how DataBrew interprets an Amazon S3 path
+-- of the dataset.
+--
+-- 'tags', 'createDataset_tags' - Metadata tags to apply to this dataset.
 --
 -- 'name', 'createDataset_name' - The name of the dataset to be created. Valid characters are alphanumeric
 -- (A-Z, a-z, 0-9), hyphen (-), period (.), and space.
@@ -100,22 +100,13 @@ newCreateDataset ::
   CreateDataset
 newCreateDataset pName_ pInput_ =
   CreateDataset'
-    { tags = Prelude.Nothing,
-      pathOptions = Prelude.Nothing,
-      format = Prelude.Nothing,
+    { format = Prelude.Nothing,
       formatOptions = Prelude.Nothing,
+      pathOptions = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_,
       input = pInput_
     }
-
--- | Metadata tags to apply to this dataset.
-createDataset_tags :: Lens.Lens' CreateDataset (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createDataset_tags = Lens.lens (\CreateDataset' {tags} -> tags) (\s@CreateDataset' {} a -> s {tags = a} :: CreateDataset) Prelude.. Lens.mapping Lens.coerced
-
--- | A set of options that defines how DataBrew interprets an Amazon S3 path
--- of the dataset.
-createDataset_pathOptions :: Lens.Lens' CreateDataset (Prelude.Maybe PathOptions)
-createDataset_pathOptions = Lens.lens (\CreateDataset' {pathOptions} -> pathOptions) (\s@CreateDataset' {} a -> s {pathOptions = a} :: CreateDataset)
 
 -- | The file format of a dataset that is created from an Amazon S3 file or
 -- folder.
@@ -125,6 +116,15 @@ createDataset_format = Lens.lens (\CreateDataset' {format} -> format) (\s@Create
 -- | Undocumented member.
 createDataset_formatOptions :: Lens.Lens' CreateDataset (Prelude.Maybe FormatOptions)
 createDataset_formatOptions = Lens.lens (\CreateDataset' {formatOptions} -> formatOptions) (\s@CreateDataset' {} a -> s {formatOptions = a} :: CreateDataset)
+
+-- | A set of options that defines how DataBrew interprets an Amazon S3 path
+-- of the dataset.
+createDataset_pathOptions :: Lens.Lens' CreateDataset (Prelude.Maybe PathOptions)
+createDataset_pathOptions = Lens.lens (\CreateDataset' {pathOptions} -> pathOptions) (\s@CreateDataset' {} a -> s {pathOptions = a} :: CreateDataset)
+
+-- | Metadata tags to apply to this dataset.
+createDataset_tags :: Lens.Lens' CreateDataset (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createDataset_tags = Lens.lens (\CreateDataset' {tags} -> tags) (\s@CreateDataset' {} a -> s {tags = a} :: CreateDataset) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the dataset to be created. Valid characters are alphanumeric
 -- (A-Z, a-z, 0-9), hyphen (-), period (.), and space.
@@ -151,19 +151,19 @@ instance Core.AWSRequest CreateDataset where
 
 instance Prelude.Hashable CreateDataset where
   hashWithSalt _salt CreateDataset' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` pathOptions
-      `Prelude.hashWithSalt` format
+    _salt `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` formatOptions
+      `Prelude.hashWithSalt` pathOptions
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` input
 
 instance Prelude.NFData CreateDataset where
   rnf CreateDataset' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf pathOptions
-      `Prelude.seq` Prelude.rnf format
+    Prelude.rnf format
       `Prelude.seq` Prelude.rnf formatOptions
+      `Prelude.seq` Prelude.rnf pathOptions
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf input
 
@@ -182,10 +182,10 @@ instance Data.ToJSON CreateDataset where
   toJSON CreateDataset' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("PathOptions" Data..=) Prelude.<$> pathOptions,
-            ("Format" Data..=) Prelude.<$> format,
+          [ ("Format" Data..=) Prelude.<$> format,
             ("FormatOptions" Data..=) Prelude.<$> formatOptions,
+            ("PathOptions" Data..=) Prelude.<$> pathOptions,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("Input" Data..= input)
           ]

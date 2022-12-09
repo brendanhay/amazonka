@@ -31,13 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRule' smart constructor.
 data Rule = Rule'
-  { -- | The map of substitution variable names to their values used in a check
-    -- expression. Variable names should start with a \':\' (colon). Variable
-    -- values can either be actual values or column names. To differentiate
-    -- between the two, column names should be enclosed in backticks, for
-    -- example, @\":col1\": \"\`Column A\`\".@
-    substitutionMap :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | List of column selectors. Selectors can be used to select columns using
+  { -- | List of column selectors. Selectors can be used to select columns using
     -- a name or regular expression from the dataset. Rule will be applied to
     -- selected columns.
     columnSelectors :: Prelude.Maybe (Prelude.NonEmpty ColumnSelector),
@@ -45,6 +39,12 @@ data Rule = Rule'
     -- disabled, a profile job will not validate it during a job run. Default
     -- value is false.
     disabled :: Prelude.Maybe Prelude.Bool,
+    -- | The map of substitution variable names to their values used in a check
+    -- expression. Variable names should start with a \':\' (colon). Variable
+    -- values can either be actual values or column names. To differentiate
+    -- between the two, column names should be enclosed in backticks, for
+    -- example, @\":col1\": \"\`Column A\`\".@
+    substitutionMap :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The threshold used with a non-aggregate check expression. Non-aggregate
     -- check expressions will be applied to each row in a specific column, and
     -- the threshold will be used to determine whether the validation succeeds.
@@ -78,12 +78,6 @@ data Rule = Rule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'substitutionMap', 'rule_substitutionMap' - The map of substitution variable names to their values used in a check
--- expression. Variable names should start with a \':\' (colon). Variable
--- values can either be actual values or column names. To differentiate
--- between the two, column names should be enclosed in backticks, for
--- example, @\":col1\": \"\`Column A\`\".@
---
 -- 'columnSelectors', 'rule_columnSelectors' - List of column selectors. Selectors can be used to select columns using
 -- a name or regular expression from the dataset. Rule will be applied to
 -- selected columns.
@@ -91,6 +85,12 @@ data Rule = Rule'
 -- 'disabled', 'rule_disabled' - A value that specifies whether the rule is disabled. Once a rule is
 -- disabled, a profile job will not validate it during a job run. Default
 -- value is false.
+--
+-- 'substitutionMap', 'rule_substitutionMap' - The map of substitution variable names to their values used in a check
+-- expression. Variable names should start with a \':\' (colon). Variable
+-- values can either be actual values or column names. To differentiate
+-- between the two, column names should be enclosed in backticks, for
+-- example, @\":col1\": \"\`Column A\`\".@
 --
 -- 'threshold', 'rule_threshold' - The threshold used with a non-aggregate check expression. Non-aggregate
 -- check expressions will be applied to each row in a specific column, and
@@ -121,21 +121,13 @@ newRule ::
   Rule
 newRule pName_ pCheckExpression_ =
   Rule'
-    { substitutionMap = Prelude.Nothing,
-      columnSelectors = Prelude.Nothing,
+    { columnSelectors = Prelude.Nothing,
       disabled = Prelude.Nothing,
+      substitutionMap = Prelude.Nothing,
       threshold = Prelude.Nothing,
       name = pName_,
       checkExpression = pCheckExpression_
     }
-
--- | The map of substitution variable names to their values used in a check
--- expression. Variable names should start with a \':\' (colon). Variable
--- values can either be actual values or column names. To differentiate
--- between the two, column names should be enclosed in backticks, for
--- example, @\":col1\": \"\`Column A\`\".@
-rule_substitutionMap :: Lens.Lens' Rule (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-rule_substitutionMap = Lens.lens (\Rule' {substitutionMap} -> substitutionMap) (\s@Rule' {} a -> s {substitutionMap = a} :: Rule) Prelude.. Lens.mapping Lens.coerced
 
 -- | List of column selectors. Selectors can be used to select columns using
 -- a name or regular expression from the dataset. Rule will be applied to
@@ -148,6 +140,14 @@ rule_columnSelectors = Lens.lens (\Rule' {columnSelectors} -> columnSelectors) (
 -- value is false.
 rule_disabled :: Lens.Lens' Rule (Prelude.Maybe Prelude.Bool)
 rule_disabled = Lens.lens (\Rule' {disabled} -> disabled) (\s@Rule' {} a -> s {disabled = a} :: Rule)
+
+-- | The map of substitution variable names to their values used in a check
+-- expression. Variable names should start with a \':\' (colon). Variable
+-- values can either be actual values or column names. To differentiate
+-- between the two, column names should be enclosed in backticks, for
+-- example, @\":col1\": \"\`Column A\`\".@
+rule_substitutionMap :: Lens.Lens' Rule (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+rule_substitutionMap = Lens.lens (\Rule' {substitutionMap} -> substitutionMap) (\s@Rule' {} a -> s {substitutionMap = a} :: Rule) Prelude.. Lens.mapping Lens.coerced
 
 -- | The threshold used with a non-aggregate check expression. Non-aggregate
 -- check expressions will be applied to each row in a specific column, and
@@ -183,11 +183,11 @@ instance Data.FromJSON Rule where
       "Rule"
       ( \x ->
           Rule'
-            Prelude.<$> ( x Data..:? "SubstitutionMap"
+            Prelude.<$> (x Data..:? "ColumnSelectors")
+            Prelude.<*> (x Data..:? "Disabled")
+            Prelude.<*> ( x Data..:? "SubstitutionMap"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "ColumnSelectors")
-            Prelude.<*> (x Data..:? "Disabled")
             Prelude.<*> (x Data..:? "Threshold")
             Prelude.<*> (x Data..: "Name")
             Prelude.<*> (x Data..: "CheckExpression")
@@ -195,18 +195,18 @@ instance Data.FromJSON Rule where
 
 instance Prelude.Hashable Rule where
   hashWithSalt _salt Rule' {..} =
-    _salt `Prelude.hashWithSalt` substitutionMap
-      `Prelude.hashWithSalt` columnSelectors
+    _salt `Prelude.hashWithSalt` columnSelectors
       `Prelude.hashWithSalt` disabled
+      `Prelude.hashWithSalt` substitutionMap
       `Prelude.hashWithSalt` threshold
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` checkExpression
 
 instance Prelude.NFData Rule where
   rnf Rule' {..} =
-    Prelude.rnf substitutionMap
-      `Prelude.seq` Prelude.rnf columnSelectors
+    Prelude.rnf columnSelectors
       `Prelude.seq` Prelude.rnf disabled
+      `Prelude.seq` Prelude.rnf substitutionMap
       `Prelude.seq` Prelude.rnf threshold
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf checkExpression
@@ -215,11 +215,11 @@ instance Data.ToJSON Rule where
   toJSON Rule' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SubstitutionMap" Data..=)
-              Prelude.<$> substitutionMap,
-            ("ColumnSelectors" Data..=)
+          [ ("ColumnSelectors" Data..=)
               Prelude.<$> columnSelectors,
             ("Disabled" Data..=) Prelude.<$> disabled,
+            ("SubstitutionMap" Data..=)
+              Prelude.<$> substitutionMap,
             ("Threshold" Data..=) Prelude.<$> threshold,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just

@@ -29,8 +29,8 @@ module Amazonka.DataBrew.ListRecipes
     newListRecipes,
 
     -- * Request Lenses
-    listRecipes_nextToken,
     listRecipes_maxResults,
+    listRecipes_nextToken,
     listRecipes_recipeVersion,
 
     -- * Destructuring the Response
@@ -54,11 +54,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListRecipes' smart constructor.
 data ListRecipes = ListRecipes'
-  { -- | The token returned by a previous call to retrieve the next set of
+  { -- | The maximum number of results to return in this request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token returned by a previous call to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in this request.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Return only those recipes with a version identifier of @LATEST_WORKING@
     -- or @LATEST_PUBLISHED@. If @RecipeVersion@ is omitted, @ListRecipes@
     -- returns all of the @LATEST_PUBLISHED@ recipe versions.
@@ -76,10 +76,10 @@ data ListRecipes = ListRecipes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listRecipes_maxResults' - The maximum number of results to return in this request.
+--
 -- 'nextToken', 'listRecipes_nextToken' - The token returned by a previous call to retrieve the next set of
 -- results.
---
--- 'maxResults', 'listRecipes_maxResults' - The maximum number of results to return in this request.
 --
 -- 'recipeVersion', 'listRecipes_recipeVersion' - Return only those recipes with a version identifier of @LATEST_WORKING@
 -- or @LATEST_PUBLISHED@. If @RecipeVersion@ is omitted, @ListRecipes@
@@ -90,19 +90,19 @@ newListRecipes ::
   ListRecipes
 newListRecipes =
   ListRecipes'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       recipeVersion = Prelude.Nothing
     }
+
+-- | The maximum number of results to return in this request.
+listRecipes_maxResults :: Lens.Lens' ListRecipes (Prelude.Maybe Prelude.Natural)
+listRecipes_maxResults = Lens.lens (\ListRecipes' {maxResults} -> maxResults) (\s@ListRecipes' {} a -> s {maxResults = a} :: ListRecipes)
 
 -- | The token returned by a previous call to retrieve the next set of
 -- results.
 listRecipes_nextToken :: Lens.Lens' ListRecipes (Prelude.Maybe Prelude.Text)
 listRecipes_nextToken = Lens.lens (\ListRecipes' {nextToken} -> nextToken) (\s@ListRecipes' {} a -> s {nextToken = a} :: ListRecipes)
-
--- | The maximum number of results to return in this request.
-listRecipes_maxResults :: Lens.Lens' ListRecipes (Prelude.Maybe Prelude.Natural)
-listRecipes_maxResults = Lens.lens (\ListRecipes' {maxResults} -> maxResults) (\s@ListRecipes' {} a -> s {maxResults = a} :: ListRecipes)
 
 -- | Return only those recipes with a version identifier of @LATEST_WORKING@
 -- or @LATEST_PUBLISHED@. If @RecipeVersion@ is omitted, @ListRecipes@
@@ -143,14 +143,14 @@ instance Core.AWSRequest ListRecipes where
 
 instance Prelude.Hashable ListRecipes where
   hashWithSalt _salt ListRecipes' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` recipeVersion
 
 instance Prelude.NFData ListRecipes where
   rnf ListRecipes' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf recipeVersion
 
 instance Data.ToHeaders ListRecipes where
@@ -170,8 +170,8 @@ instance Data.ToPath ListRecipes where
 instance Data.ToQuery ListRecipes where
   toQuery ListRecipes' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults,
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
         "recipeVersion" Data.=: recipeVersion
       ]
 

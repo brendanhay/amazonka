@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newS3Location' smart constructor.
 data S3Location = S3Location'
-  { -- | The unique name of the object in the bucket.
-    key :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services account ID of the bucket owner.
+  { -- | The Amazon Web Services account ID of the bucket owner.
     bucketOwner :: Prelude.Maybe Prelude.Text,
+    -- | The unique name of the object in the bucket.
+    key :: Prelude.Maybe Prelude.Text,
     -- | The Amazon S3 bucket name.
     bucket :: Prelude.Text
   }
@@ -46,9 +46,9 @@ data S3Location = S3Location'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'key', 's3Location_key' - The unique name of the object in the bucket.
---
 -- 'bucketOwner', 's3Location_bucketOwner' - The Amazon Web Services account ID of the bucket owner.
+--
+-- 'key', 's3Location_key' - The unique name of the object in the bucket.
 --
 -- 'bucket', 's3Location_bucket' - The Amazon S3 bucket name.
 newS3Location ::
@@ -57,18 +57,18 @@ newS3Location ::
   S3Location
 newS3Location pBucket_ =
   S3Location'
-    { key = Prelude.Nothing,
-      bucketOwner = Prelude.Nothing,
+    { bucketOwner = Prelude.Nothing,
+      key = Prelude.Nothing,
       bucket = pBucket_
     }
-
--- | The unique name of the object in the bucket.
-s3Location_key :: Lens.Lens' S3Location (Prelude.Maybe Prelude.Text)
-s3Location_key = Lens.lens (\S3Location' {key} -> key) (\s@S3Location' {} a -> s {key = a} :: S3Location)
 
 -- | The Amazon Web Services account ID of the bucket owner.
 s3Location_bucketOwner :: Lens.Lens' S3Location (Prelude.Maybe Prelude.Text)
 s3Location_bucketOwner = Lens.lens (\S3Location' {bucketOwner} -> bucketOwner) (\s@S3Location' {} a -> s {bucketOwner = a} :: S3Location)
+
+-- | The unique name of the object in the bucket.
+s3Location_key :: Lens.Lens' S3Location (Prelude.Maybe Prelude.Text)
+s3Location_key = Lens.lens (\S3Location' {key} -> key) (\s@S3Location' {} a -> s {key = a} :: S3Location)
 
 -- | The Amazon S3 bucket name.
 s3Location_bucket :: Lens.Lens' S3Location Prelude.Text
@@ -80,29 +80,29 @@ instance Data.FromJSON S3Location where
       "S3Location"
       ( \x ->
           S3Location'
-            Prelude.<$> (x Data..:? "Key")
-            Prelude.<*> (x Data..:? "BucketOwner")
+            Prelude.<$> (x Data..:? "BucketOwner")
+            Prelude.<*> (x Data..:? "Key")
             Prelude.<*> (x Data..: "Bucket")
       )
 
 instance Prelude.Hashable S3Location where
   hashWithSalt _salt S3Location' {..} =
-    _salt `Prelude.hashWithSalt` key
-      `Prelude.hashWithSalt` bucketOwner
+    _salt `Prelude.hashWithSalt` bucketOwner
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` bucket
 
 instance Prelude.NFData S3Location where
   rnf S3Location' {..} =
-    Prelude.rnf key
-      `Prelude.seq` Prelude.rnf bucketOwner
+    Prelude.rnf bucketOwner
+      `Prelude.seq` Prelude.rnf key
       `Prelude.seq` Prelude.rnf bucket
 
 instance Data.ToJSON S3Location where
   toJSON S3Location' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Key" Data..=) Prelude.<$> key,
-            ("BucketOwner" Data..=) Prelude.<$> bucketOwner,
+          [ ("BucketOwner" Data..=) Prelude.<$> bucketOwner,
+            ("Key" Data..=) Prelude.<$> key,
             Prelude.Just ("Bucket" Data..= bucket)
           ]
       )

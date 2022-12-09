@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRecipeVersionErrorDetail' smart constructor.
 data RecipeVersionErrorDetail = RecipeVersionErrorDetail'
-  { -- | The text of the error message.
-    errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | The HTTP status code for the error.
+  { -- | The HTTP status code for the error.
     errorCode :: Prelude.Maybe Prelude.Text,
+    -- | The text of the error message.
+    errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The identifier for the recipe version associated with this error.
     recipeVersion :: Prelude.Maybe Prelude.Text
   }
@@ -46,28 +46,28 @@ data RecipeVersionErrorDetail = RecipeVersionErrorDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'errorMessage', 'recipeVersionErrorDetail_errorMessage' - The text of the error message.
---
 -- 'errorCode', 'recipeVersionErrorDetail_errorCode' - The HTTP status code for the error.
+--
+-- 'errorMessage', 'recipeVersionErrorDetail_errorMessage' - The text of the error message.
 --
 -- 'recipeVersion', 'recipeVersionErrorDetail_recipeVersion' - The identifier for the recipe version associated with this error.
 newRecipeVersionErrorDetail ::
   RecipeVersionErrorDetail
 newRecipeVersionErrorDetail =
   RecipeVersionErrorDetail'
-    { errorMessage =
+    { errorCode =
         Prelude.Nothing,
-      errorCode = Prelude.Nothing,
+      errorMessage = Prelude.Nothing,
       recipeVersion = Prelude.Nothing
     }
-
--- | The text of the error message.
-recipeVersionErrorDetail_errorMessage :: Lens.Lens' RecipeVersionErrorDetail (Prelude.Maybe Prelude.Text)
-recipeVersionErrorDetail_errorMessage = Lens.lens (\RecipeVersionErrorDetail' {errorMessage} -> errorMessage) (\s@RecipeVersionErrorDetail' {} a -> s {errorMessage = a} :: RecipeVersionErrorDetail)
 
 -- | The HTTP status code for the error.
 recipeVersionErrorDetail_errorCode :: Lens.Lens' RecipeVersionErrorDetail (Prelude.Maybe Prelude.Text)
 recipeVersionErrorDetail_errorCode = Lens.lens (\RecipeVersionErrorDetail' {errorCode} -> errorCode) (\s@RecipeVersionErrorDetail' {} a -> s {errorCode = a} :: RecipeVersionErrorDetail)
+
+-- | The text of the error message.
+recipeVersionErrorDetail_errorMessage :: Lens.Lens' RecipeVersionErrorDetail (Prelude.Maybe Prelude.Text)
+recipeVersionErrorDetail_errorMessage = Lens.lens (\RecipeVersionErrorDetail' {errorMessage} -> errorMessage) (\s@RecipeVersionErrorDetail' {} a -> s {errorMessage = a} :: RecipeVersionErrorDetail)
 
 -- | The identifier for the recipe version associated with this error.
 recipeVersionErrorDetail_recipeVersion :: Lens.Lens' RecipeVersionErrorDetail (Prelude.Maybe Prelude.Text)
@@ -79,19 +79,19 @@ instance Data.FromJSON RecipeVersionErrorDetail where
       "RecipeVersionErrorDetail"
       ( \x ->
           RecipeVersionErrorDetail'
-            Prelude.<$> (x Data..:? "ErrorMessage")
-            Prelude.<*> (x Data..:? "ErrorCode")
+            Prelude.<$> (x Data..:? "ErrorCode")
+            Prelude.<*> (x Data..:? "ErrorMessage")
             Prelude.<*> (x Data..:? "RecipeVersion")
       )
 
 instance Prelude.Hashable RecipeVersionErrorDetail where
   hashWithSalt _salt RecipeVersionErrorDetail' {..} =
-    _salt `Prelude.hashWithSalt` errorMessage
-      `Prelude.hashWithSalt` errorCode
+    _salt `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` recipeVersion
 
 instance Prelude.NFData RecipeVersionErrorDetail where
   rnf RecipeVersionErrorDetail' {..} =
-    Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf errorCode
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage
       `Prelude.seq` Prelude.rnf recipeVersion

@@ -27,9 +27,9 @@ module Amazonka.DataBrew.UpdateDataset
     newUpdateDataset,
 
     -- * Request Lenses
-    updateDataset_pathOptions,
     updateDataset_format,
     updateDataset_formatOptions,
+    updateDataset_pathOptions,
     updateDataset_name,
     updateDataset_input,
 
@@ -53,13 +53,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateDataset' smart constructor.
 data UpdateDataset = UpdateDataset'
-  { -- | A set of options that defines how DataBrew interprets an Amazon S3 path
-    -- of the dataset.
-    pathOptions :: Prelude.Maybe PathOptions,
-    -- | The file format of a dataset that is created from an Amazon S3 file or
+  { -- | The file format of a dataset that is created from an Amazon S3 file or
     -- folder.
     format :: Prelude.Maybe InputFormat,
     formatOptions :: Prelude.Maybe FormatOptions,
+    -- | A set of options that defines how DataBrew interprets an Amazon S3 path
+    -- of the dataset.
+    pathOptions :: Prelude.Maybe PathOptions,
     -- | The name of the dataset to be updated.
     name :: Prelude.Text,
     input :: Input
@@ -74,13 +74,13 @@ data UpdateDataset = UpdateDataset'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pathOptions', 'updateDataset_pathOptions' - A set of options that defines how DataBrew interprets an Amazon S3 path
--- of the dataset.
---
 -- 'format', 'updateDataset_format' - The file format of a dataset that is created from an Amazon S3 file or
 -- folder.
 --
 -- 'formatOptions', 'updateDataset_formatOptions' - Undocumented member.
+--
+-- 'pathOptions', 'updateDataset_pathOptions' - A set of options that defines how DataBrew interprets an Amazon S3 path
+-- of the dataset.
 --
 -- 'name', 'updateDataset_name' - The name of the dataset to be updated.
 --
@@ -93,17 +93,12 @@ newUpdateDataset ::
   UpdateDataset
 newUpdateDataset pName_ pInput_ =
   UpdateDataset'
-    { pathOptions = Prelude.Nothing,
-      format = Prelude.Nothing,
+    { format = Prelude.Nothing,
       formatOptions = Prelude.Nothing,
+      pathOptions = Prelude.Nothing,
       name = pName_,
       input = pInput_
     }
-
--- | A set of options that defines how DataBrew interprets an Amazon S3 path
--- of the dataset.
-updateDataset_pathOptions :: Lens.Lens' UpdateDataset (Prelude.Maybe PathOptions)
-updateDataset_pathOptions = Lens.lens (\UpdateDataset' {pathOptions} -> pathOptions) (\s@UpdateDataset' {} a -> s {pathOptions = a} :: UpdateDataset)
 
 -- | The file format of a dataset that is created from an Amazon S3 file or
 -- folder.
@@ -113,6 +108,11 @@ updateDataset_format = Lens.lens (\UpdateDataset' {format} -> format) (\s@Update
 -- | Undocumented member.
 updateDataset_formatOptions :: Lens.Lens' UpdateDataset (Prelude.Maybe FormatOptions)
 updateDataset_formatOptions = Lens.lens (\UpdateDataset' {formatOptions} -> formatOptions) (\s@UpdateDataset' {} a -> s {formatOptions = a} :: UpdateDataset)
+
+-- | A set of options that defines how DataBrew interprets an Amazon S3 path
+-- of the dataset.
+updateDataset_pathOptions :: Lens.Lens' UpdateDataset (Prelude.Maybe PathOptions)
+updateDataset_pathOptions = Lens.lens (\UpdateDataset' {pathOptions} -> pathOptions) (\s@UpdateDataset' {} a -> s {pathOptions = a} :: UpdateDataset)
 
 -- | The name of the dataset to be updated.
 updateDataset_name :: Lens.Lens' UpdateDataset Prelude.Text
@@ -138,17 +138,17 @@ instance Core.AWSRequest UpdateDataset where
 
 instance Prelude.Hashable UpdateDataset where
   hashWithSalt _salt UpdateDataset' {..} =
-    _salt `Prelude.hashWithSalt` pathOptions
-      `Prelude.hashWithSalt` format
+    _salt `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` formatOptions
+      `Prelude.hashWithSalt` pathOptions
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` input
 
 instance Prelude.NFData UpdateDataset where
   rnf UpdateDataset' {..} =
-    Prelude.rnf pathOptions
-      `Prelude.seq` Prelude.rnf format
+    Prelude.rnf format
       `Prelude.seq` Prelude.rnf formatOptions
+      `Prelude.seq` Prelude.rnf pathOptions
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf input
 
@@ -167,9 +167,9 @@ instance Data.ToJSON UpdateDataset where
   toJSON UpdateDataset' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("PathOptions" Data..=) Prelude.<$> pathOptions,
-            ("Format" Data..=) Prelude.<$> format,
+          [ ("Format" Data..=) Prelude.<$> format,
             ("FormatOptions" Data..=) Prelude.<$> formatOptions,
+            ("PathOptions" Data..=) Prelude.<$> pathOptions,
             Prelude.Just ("Input" Data..= input)
           ]
       )

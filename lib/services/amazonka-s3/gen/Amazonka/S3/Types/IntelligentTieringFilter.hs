@@ -32,7 +32,11 @@ import Amazonka.S3.Types.Tag
 --
 -- /See:/ 'newIntelligentTieringFilter' smart constructor.
 data IntelligentTieringFilter = IntelligentTieringFilter'
-  { tag :: Prelude.Maybe Tag,
+  { -- | A conjunction (logical AND) of predicates, which is used in evaluating a
+    -- metrics filter. The operator must have at least two predicates, and an
+    -- object must match all of the predicates in order for the filter to
+    -- apply.
+    and :: Prelude.Maybe IntelligentTieringAndOperator,
     -- | An object key name prefix that identifies the subset of objects to which
     -- the rule applies.
     --
@@ -41,11 +45,7 @@ data IntelligentTieringFilter = IntelligentTieringFilter'
     -- information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints>.
     prefix :: Prelude.Maybe Prelude.Text,
-    -- | A conjunction (logical AND) of predicates, which is used in evaluating a
-    -- metrics filter. The operator must have at least two predicates, and an
-    -- object must match all of the predicates in order for the filter to
-    -- apply.
-    and :: Prelude.Maybe IntelligentTieringAndOperator
+    tag :: Prelude.Maybe Tag
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,7 +57,10 @@ data IntelligentTieringFilter = IntelligentTieringFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tag', 'intelligentTieringFilter_tag' - Undocumented member.
+-- 'and', 'intelligentTieringFilter_and' - A conjunction (logical AND) of predicates, which is used in evaluating a
+-- metrics filter. The operator must have at least two predicates, and an
+-- object must match all of the predicates in order for the filter to
+-- apply.
 --
 -- 'prefix', 'intelligentTieringFilter_prefix' - An object key name prefix that identifies the subset of objects to which
 -- the rule applies.
@@ -67,22 +70,22 @@ data IntelligentTieringFilter = IntelligentTieringFilter'
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints>.
 --
--- 'and', 'intelligentTieringFilter_and' - A conjunction (logical AND) of predicates, which is used in evaluating a
--- metrics filter. The operator must have at least two predicates, and an
--- object must match all of the predicates in order for the filter to
--- apply.
+-- 'tag', 'intelligentTieringFilter_tag' - Undocumented member.
 newIntelligentTieringFilter ::
   IntelligentTieringFilter
 newIntelligentTieringFilter =
   IntelligentTieringFilter'
-    { tag = Prelude.Nothing,
+    { and = Prelude.Nothing,
       prefix = Prelude.Nothing,
-      and = Prelude.Nothing
+      tag = Prelude.Nothing
     }
 
--- | Undocumented member.
-intelligentTieringFilter_tag :: Lens.Lens' IntelligentTieringFilter (Prelude.Maybe Tag)
-intelligentTieringFilter_tag = Lens.lens (\IntelligentTieringFilter' {tag} -> tag) (\s@IntelligentTieringFilter' {} a -> s {tag = a} :: IntelligentTieringFilter)
+-- | A conjunction (logical AND) of predicates, which is used in evaluating a
+-- metrics filter. The operator must have at least two predicates, and an
+-- object must match all of the predicates in order for the filter to
+-- apply.
+intelligentTieringFilter_and :: Lens.Lens' IntelligentTieringFilter (Prelude.Maybe IntelligentTieringAndOperator)
+intelligentTieringFilter_and = Lens.lens (\IntelligentTieringFilter' {and} -> and) (\s@IntelligentTieringFilter' {} a -> s {and = a} :: IntelligentTieringFilter)
 
 -- | An object key name prefix that identifies the subset of objects to which
 -- the rule applies.
@@ -94,36 +97,33 @@ intelligentTieringFilter_tag = Lens.lens (\IntelligentTieringFilter' {tag} -> ta
 intelligentTieringFilter_prefix :: Lens.Lens' IntelligentTieringFilter (Prelude.Maybe Prelude.Text)
 intelligentTieringFilter_prefix = Lens.lens (\IntelligentTieringFilter' {prefix} -> prefix) (\s@IntelligentTieringFilter' {} a -> s {prefix = a} :: IntelligentTieringFilter)
 
--- | A conjunction (logical AND) of predicates, which is used in evaluating a
--- metrics filter. The operator must have at least two predicates, and an
--- object must match all of the predicates in order for the filter to
--- apply.
-intelligentTieringFilter_and :: Lens.Lens' IntelligentTieringFilter (Prelude.Maybe IntelligentTieringAndOperator)
-intelligentTieringFilter_and = Lens.lens (\IntelligentTieringFilter' {and} -> and) (\s@IntelligentTieringFilter' {} a -> s {and = a} :: IntelligentTieringFilter)
+-- | Undocumented member.
+intelligentTieringFilter_tag :: Lens.Lens' IntelligentTieringFilter (Prelude.Maybe Tag)
+intelligentTieringFilter_tag = Lens.lens (\IntelligentTieringFilter' {tag} -> tag) (\s@IntelligentTieringFilter' {} a -> s {tag = a} :: IntelligentTieringFilter)
 
 instance Data.FromXML IntelligentTieringFilter where
   parseXML x =
     IntelligentTieringFilter'
-      Prelude.<$> (x Data..@? "Tag")
+      Prelude.<$> (x Data..@? "And")
       Prelude.<*> (x Data..@? "Prefix")
-      Prelude.<*> (x Data..@? "And")
+      Prelude.<*> (x Data..@? "Tag")
 
 instance Prelude.Hashable IntelligentTieringFilter where
   hashWithSalt _salt IntelligentTieringFilter' {..} =
-    _salt `Prelude.hashWithSalt` tag
+    _salt `Prelude.hashWithSalt` and
       `Prelude.hashWithSalt` prefix
-      `Prelude.hashWithSalt` and
+      `Prelude.hashWithSalt` tag
 
 instance Prelude.NFData IntelligentTieringFilter where
   rnf IntelligentTieringFilter' {..} =
-    Prelude.rnf tag
+    Prelude.rnf and
       `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf and
+      `Prelude.seq` Prelude.rnf tag
 
 instance Data.ToXML IntelligentTieringFilter where
   toXML IntelligentTieringFilter' {..} =
     Prelude.mconcat
-      [ "Tag" Data.@= tag,
+      [ "And" Data.@= and,
         "Prefix" Data.@= prefix,
-        "And" Data.@= and
+        "Tag" Data.@= tag
       ]

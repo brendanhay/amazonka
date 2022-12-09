@@ -31,8 +31,8 @@ import Amazonka.S3.Types.NotificationConfigurationFilter
 --
 -- /See:/ 'newLambdaFunctionConfiguration' smart constructor.
 data LambdaFunctionConfiguration = LambdaFunctionConfiguration'
-  { id :: Prelude.Maybe Prelude.Text,
-    filter' :: Prelude.Maybe NotificationConfigurationFilter,
+  { filter' :: Prelude.Maybe NotificationConfigurationFilter,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Lambda function that Amazon S3
     -- invokes when the specified event type occurs.
     lambdaFunctionArn :: Prelude.Text,
@@ -52,9 +52,9 @@ data LambdaFunctionConfiguration = LambdaFunctionConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'lambdaFunctionConfiguration_id' - Undocumented member.
---
 -- 'filter'', 'lambdaFunctionConfiguration_filter' - Undocumented member.
+--
+-- 'id', 'lambdaFunctionConfiguration_id' - Undocumented member.
 --
 -- 'lambdaFunctionArn', 'lambdaFunctionConfiguration_lambdaFunctionArn' - The Amazon Resource Name (ARN) of the Lambda function that Amazon S3
 -- invokes when the specified event type occurs.
@@ -69,19 +69,20 @@ newLambdaFunctionConfiguration ::
   LambdaFunctionConfiguration
 newLambdaFunctionConfiguration pLambdaFunctionArn_ =
   LambdaFunctionConfiguration'
-    { id = Prelude.Nothing,
-      filter' = Prelude.Nothing,
+    { filter' =
+        Prelude.Nothing,
+      id = Prelude.Nothing,
       lambdaFunctionArn = pLambdaFunctionArn_,
       events = Prelude.mempty
     }
 
 -- | Undocumented member.
-lambdaFunctionConfiguration_id :: Lens.Lens' LambdaFunctionConfiguration (Prelude.Maybe Prelude.Text)
-lambdaFunctionConfiguration_id = Lens.lens (\LambdaFunctionConfiguration' {id} -> id) (\s@LambdaFunctionConfiguration' {} a -> s {id = a} :: LambdaFunctionConfiguration)
-
--- | Undocumented member.
 lambdaFunctionConfiguration_filter :: Lens.Lens' LambdaFunctionConfiguration (Prelude.Maybe NotificationConfigurationFilter)
 lambdaFunctionConfiguration_filter = Lens.lens (\LambdaFunctionConfiguration' {filter'} -> filter') (\s@LambdaFunctionConfiguration' {} a -> s {filter' = a} :: LambdaFunctionConfiguration)
+
+-- | Undocumented member.
+lambdaFunctionConfiguration_id :: Lens.Lens' LambdaFunctionConfiguration (Prelude.Maybe Prelude.Text)
+lambdaFunctionConfiguration_id = Lens.lens (\LambdaFunctionConfiguration' {id} -> id) (\s@LambdaFunctionConfiguration' {} a -> s {id = a} :: LambdaFunctionConfiguration)
 
 -- | The Amazon Resource Name (ARN) of the Lambda function that Amazon S3
 -- invokes when the specified event type occurs.
@@ -98,30 +99,30 @@ lambdaFunctionConfiguration_events = Lens.lens (\LambdaFunctionConfiguration' {e
 instance Data.FromXML LambdaFunctionConfiguration where
   parseXML x =
     LambdaFunctionConfiguration'
-      Prelude.<$> (x Data..@? "Id")
-      Prelude.<*> (x Data..@? "Filter")
+      Prelude.<$> (x Data..@? "Filter")
+      Prelude.<*> (x Data..@? "Id")
       Prelude.<*> (x Data..@ "CloudFunction")
       Prelude.<*> (Data.parseXMLList "Event" x)
 
 instance Prelude.Hashable LambdaFunctionConfiguration where
   hashWithSalt _salt LambdaFunctionConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` filter'
+    _salt `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` lambdaFunctionArn
       `Prelude.hashWithSalt` events
 
 instance Prelude.NFData LambdaFunctionConfiguration where
   rnf LambdaFunctionConfiguration' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf filter'
+    Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf lambdaFunctionArn
       `Prelude.seq` Prelude.rnf events
 
 instance Data.ToXML LambdaFunctionConfiguration where
   toXML LambdaFunctionConfiguration' {..} =
     Prelude.mconcat
-      [ "Id" Data.@= id,
-        "Filter" Data.@= filter',
+      [ "Filter" Data.@= filter',
+        "Id" Data.@= id,
         "CloudFunction" Data.@= lambdaFunctionArn,
         Data.toXMLList "Event" events
       ]

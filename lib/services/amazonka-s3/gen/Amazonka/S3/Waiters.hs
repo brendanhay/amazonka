@@ -25,11 +25,26 @@ import Amazonka.S3.HeadObject
 import Amazonka.S3.Lens
 import Amazonka.S3.Types
 
--- | Polls 'Amazonka.S3.HeadObject' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
-newObjectNotExists :: Core.Wait HeadObject
-newObjectNotExists =
+-- | Polls 'Amazonka.S3.HeadBucket' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
+newBucketExists :: Core.Wait HeadBucket
+newBucketExists =
   Core.Wait
-    { Core.name = "ObjectNotExists",
+    { Core.name = "BucketExists",
+      Core.attempts = 20,
+      Core.delay = 5,
+      Core.acceptors =
+        [ Core.matchStatus 200 Core.AcceptSuccess,
+          Core.matchStatus 301 Core.AcceptSuccess,
+          Core.matchStatus 403 Core.AcceptSuccess,
+          Core.matchStatus 404 Core.AcceptRetry
+        ]
+    }
+
+-- | Polls 'Amazonka.S3.HeadBucket' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
+newBucketNotExists :: Core.Wait HeadBucket
+newBucketNotExists =
+  Core.Wait
+    { Core.name = "BucketNotExists",
       Core.attempts = 20,
       Core.delay = 5,
       Core.acceptors =
@@ -49,28 +64,13 @@ newObjectExists =
         ]
     }
 
--- | Polls 'Amazonka.S3.HeadBucket' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
-newBucketNotExists :: Core.Wait HeadBucket
-newBucketNotExists =
+-- | Polls 'Amazonka.S3.HeadObject' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
+newObjectNotExists :: Core.Wait HeadObject
+newObjectNotExists =
   Core.Wait
-    { Core.name = "BucketNotExists",
+    { Core.name = "ObjectNotExists",
       Core.attempts = 20,
       Core.delay = 5,
       Core.acceptors =
         [Core.matchStatus 404 Core.AcceptSuccess]
-    }
-
--- | Polls 'Amazonka.S3.HeadBucket' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
-newBucketExists :: Core.Wait HeadBucket
-newBucketExists =
-  Core.Wait
-    { Core.name = "BucketExists",
-      Core.attempts = 20,
-      Core.delay = 5,
-      Core.acceptors =
-        [ Core.matchStatus 200 Core.AcceptSuccess,
-          Core.matchStatus 301 Core.AcceptSuccess,
-          Core.matchStatus 403 Core.AcceptSuccess,
-          Core.matchStatus 404 Core.AcceptRetry
-        ]
     }

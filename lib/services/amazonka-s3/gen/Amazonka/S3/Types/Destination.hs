@@ -36,11 +36,13 @@ import Amazonka.S3.Types.StorageClass
 --
 -- /See:/ 'newDestination' smart constructor.
 data Destination = Destination'
-  { -- | A container specifying S3 Replication Time Control (S3 RTC), including
-    -- whether S3 RTC is enabled and the time when all objects and operations
-    -- on objects must be replicated. Must be specified together with a
-    -- @Metrics@ block.
-    replicationTime :: Prelude.Maybe ReplicationTime,
+  { -- | Specify this only in a cross-account scenario (where source and
+    -- destination bucket owners are not the same), and you want to change
+    -- replica ownership to the Amazon Web Services account that owns the
+    -- destination bucket. If this is not specified in the replication
+    -- configuration, the replicas are owned by same Amazon Web Services
+    -- account that owns the source object.
+    accessControlTranslation :: Prelude.Maybe AccessControlTranslation,
     -- | Destination bucket owner account ID. In a cross-account scenario, if you
     -- direct Amazon S3 to change replica ownership to the Amazon Web Services
     -- account that owns the destination bucket by specifying the
@@ -49,19 +51,17 @@ data Destination = Destination'
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-change-owner.html Replication Additional Configuration: Changing the Replica Owner>
     -- in the /Amazon S3 User Guide/.
     account :: Prelude.Maybe Prelude.Text,
-    -- | A container specifying replication metrics-related settings enabling
-    -- replication metrics and events.
-    metrics :: Prelude.Maybe Metrics,
     -- | A container that provides information about encryption. If
     -- @SourceSelectionCriteria@ is specified, you must specify this element.
     encryptionConfiguration :: Prelude.Maybe EncryptionConfiguration,
-    -- | Specify this only in a cross-account scenario (where source and
-    -- destination bucket owners are not the same), and you want to change
-    -- replica ownership to the Amazon Web Services account that owns the
-    -- destination bucket. If this is not specified in the replication
-    -- configuration, the replicas are owned by same Amazon Web Services
-    -- account that owns the source object.
-    accessControlTranslation :: Prelude.Maybe AccessControlTranslation,
+    -- | A container specifying replication metrics-related settings enabling
+    -- replication metrics and events.
+    metrics :: Prelude.Maybe Metrics,
+    -- | A container specifying S3 Replication Time Control (S3 RTC), including
+    -- whether S3 RTC is enabled and the time when all objects and operations
+    -- on objects must be replicated. Must be specified together with a
+    -- @Metrics@ block.
+    replicationTime :: Prelude.Maybe ReplicationTime,
     -- | The storage class to use when replicating objects, such as S3 Standard
     -- or reduced redundancy. By default, Amazon S3 uses the storage class of
     -- the source object to create the object replica.
@@ -84,10 +84,12 @@ data Destination = Destination'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'replicationTime', 'destination_replicationTime' - A container specifying S3 Replication Time Control (S3 RTC), including
--- whether S3 RTC is enabled and the time when all objects and operations
--- on objects must be replicated. Must be specified together with a
--- @Metrics@ block.
+-- 'accessControlTranslation', 'destination_accessControlTranslation' - Specify this only in a cross-account scenario (where source and
+-- destination bucket owners are not the same), and you want to change
+-- replica ownership to the Amazon Web Services account that owns the
+-- destination bucket. If this is not specified in the replication
+-- configuration, the replicas are owned by same Amazon Web Services
+-- account that owns the source object.
 --
 -- 'account', 'destination_account' - Destination bucket owner account ID. In a cross-account scenario, if you
 -- direct Amazon S3 to change replica ownership to the Amazon Web Services
@@ -97,18 +99,16 @@ data Destination = Destination'
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-change-owner.html Replication Additional Configuration: Changing the Replica Owner>
 -- in the /Amazon S3 User Guide/.
 --
--- 'metrics', 'destination_metrics' - A container specifying replication metrics-related settings enabling
--- replication metrics and events.
---
 -- 'encryptionConfiguration', 'destination_encryptionConfiguration' - A container that provides information about encryption. If
 -- @SourceSelectionCriteria@ is specified, you must specify this element.
 --
--- 'accessControlTranslation', 'destination_accessControlTranslation' - Specify this only in a cross-account scenario (where source and
--- destination bucket owners are not the same), and you want to change
--- replica ownership to the Amazon Web Services account that owns the
--- destination bucket. If this is not specified in the replication
--- configuration, the replicas are owned by same Amazon Web Services
--- account that owns the source object.
+-- 'metrics', 'destination_metrics' - A container specifying replication metrics-related settings enabling
+-- replication metrics and events.
+--
+-- 'replicationTime', 'destination_replicationTime' - A container specifying S3 Replication Time Control (S3 RTC), including
+-- whether S3 RTC is enabled and the time when all objects and operations
+-- on objects must be replicated. Must be specified together with a
+-- @Metrics@ block.
 --
 -- 'storageClass', 'destination_storageClass' - The storage class to use when replicating objects, such as S3 Standard
 -- or reduced redundancy. By default, Amazon S3 uses the storage class of
@@ -126,21 +126,24 @@ newDestination ::
   Destination
 newDestination pBucket_ =
   Destination'
-    { replicationTime = Prelude.Nothing,
+    { accessControlTranslation =
+        Prelude.Nothing,
       account = Prelude.Nothing,
-      metrics = Prelude.Nothing,
       encryptionConfiguration = Prelude.Nothing,
-      accessControlTranslation = Prelude.Nothing,
+      metrics = Prelude.Nothing,
+      replicationTime = Prelude.Nothing,
       storageClass = Prelude.Nothing,
       bucket = pBucket_
     }
 
--- | A container specifying S3 Replication Time Control (S3 RTC), including
--- whether S3 RTC is enabled and the time when all objects and operations
--- on objects must be replicated. Must be specified together with a
--- @Metrics@ block.
-destination_replicationTime :: Lens.Lens' Destination (Prelude.Maybe ReplicationTime)
-destination_replicationTime = Lens.lens (\Destination' {replicationTime} -> replicationTime) (\s@Destination' {} a -> s {replicationTime = a} :: Destination)
+-- | Specify this only in a cross-account scenario (where source and
+-- destination bucket owners are not the same), and you want to change
+-- replica ownership to the Amazon Web Services account that owns the
+-- destination bucket. If this is not specified in the replication
+-- configuration, the replicas are owned by same Amazon Web Services
+-- account that owns the source object.
+destination_accessControlTranslation :: Lens.Lens' Destination (Prelude.Maybe AccessControlTranslation)
+destination_accessControlTranslation = Lens.lens (\Destination' {accessControlTranslation} -> accessControlTranslation) (\s@Destination' {} a -> s {accessControlTranslation = a} :: Destination)
 
 -- | Destination bucket owner account ID. In a cross-account scenario, if you
 -- direct Amazon S3 to change replica ownership to the Amazon Web Services
@@ -152,24 +155,22 @@ destination_replicationTime = Lens.lens (\Destination' {replicationTime} -> repl
 destination_account :: Lens.Lens' Destination (Prelude.Maybe Prelude.Text)
 destination_account = Lens.lens (\Destination' {account} -> account) (\s@Destination' {} a -> s {account = a} :: Destination)
 
--- | A container specifying replication metrics-related settings enabling
--- replication metrics and events.
-destination_metrics :: Lens.Lens' Destination (Prelude.Maybe Metrics)
-destination_metrics = Lens.lens (\Destination' {metrics} -> metrics) (\s@Destination' {} a -> s {metrics = a} :: Destination)
-
 -- | A container that provides information about encryption. If
 -- @SourceSelectionCriteria@ is specified, you must specify this element.
 destination_encryptionConfiguration :: Lens.Lens' Destination (Prelude.Maybe EncryptionConfiguration)
 destination_encryptionConfiguration = Lens.lens (\Destination' {encryptionConfiguration} -> encryptionConfiguration) (\s@Destination' {} a -> s {encryptionConfiguration = a} :: Destination)
 
--- | Specify this only in a cross-account scenario (where source and
--- destination bucket owners are not the same), and you want to change
--- replica ownership to the Amazon Web Services account that owns the
--- destination bucket. If this is not specified in the replication
--- configuration, the replicas are owned by same Amazon Web Services
--- account that owns the source object.
-destination_accessControlTranslation :: Lens.Lens' Destination (Prelude.Maybe AccessControlTranslation)
-destination_accessControlTranslation = Lens.lens (\Destination' {accessControlTranslation} -> accessControlTranslation) (\s@Destination' {} a -> s {accessControlTranslation = a} :: Destination)
+-- | A container specifying replication metrics-related settings enabling
+-- replication metrics and events.
+destination_metrics :: Lens.Lens' Destination (Prelude.Maybe Metrics)
+destination_metrics = Lens.lens (\Destination' {metrics} -> metrics) (\s@Destination' {} a -> s {metrics = a} :: Destination)
+
+-- | A container specifying S3 Replication Time Control (S3 RTC), including
+-- whether S3 RTC is enabled and the time when all objects and operations
+-- on objects must be replicated. Must be specified together with a
+-- @Metrics@ block.
+destination_replicationTime :: Lens.Lens' Destination (Prelude.Maybe ReplicationTime)
+destination_replicationTime = Lens.lens (\Destination' {replicationTime} -> replicationTime) (\s@Destination' {} a -> s {replicationTime = a} :: Destination)
 
 -- | The storage class to use when replicating objects, such as S3 Standard
 -- or reduced redundancy. By default, Amazon S3 uses the storage class of
@@ -189,44 +190,45 @@ destination_bucket = Lens.lens (\Destination' {bucket} -> bucket) (\s@Destinatio
 instance Data.FromXML Destination where
   parseXML x =
     Destination'
-      Prelude.<$> (x Data..@? "ReplicationTime")
+      Prelude.<$> (x Data..@? "AccessControlTranslation")
       Prelude.<*> (x Data..@? "Account")
-      Prelude.<*> (x Data..@? "Metrics")
       Prelude.<*> (x Data..@? "EncryptionConfiguration")
-      Prelude.<*> (x Data..@? "AccessControlTranslation")
+      Prelude.<*> (x Data..@? "Metrics")
+      Prelude.<*> (x Data..@? "ReplicationTime")
       Prelude.<*> (x Data..@? "StorageClass")
       Prelude.<*> (x Data..@ "Bucket")
 
 instance Prelude.Hashable Destination where
   hashWithSalt _salt Destination' {..} =
-    _salt `Prelude.hashWithSalt` replicationTime
-      `Prelude.hashWithSalt` account
-      `Prelude.hashWithSalt` metrics
-      `Prelude.hashWithSalt` encryptionConfiguration
+    _salt
       `Prelude.hashWithSalt` accessControlTranslation
+      `Prelude.hashWithSalt` account
+      `Prelude.hashWithSalt` encryptionConfiguration
+      `Prelude.hashWithSalt` metrics
+      `Prelude.hashWithSalt` replicationTime
       `Prelude.hashWithSalt` storageClass
       `Prelude.hashWithSalt` bucket
 
 instance Prelude.NFData Destination where
   rnf Destination' {..} =
-    Prelude.rnf replicationTime
+    Prelude.rnf accessControlTranslation
       `Prelude.seq` Prelude.rnf account
-      `Prelude.seq` Prelude.rnf metrics
       `Prelude.seq` Prelude.rnf encryptionConfiguration
-      `Prelude.seq` Prelude.rnf accessControlTranslation
+      `Prelude.seq` Prelude.rnf metrics
+      `Prelude.seq` Prelude.rnf replicationTime
       `Prelude.seq` Prelude.rnf storageClass
       `Prelude.seq` Prelude.rnf bucket
 
 instance Data.ToXML Destination where
   toXML Destination' {..} =
     Prelude.mconcat
-      [ "ReplicationTime" Data.@= replicationTime,
+      [ "AccessControlTranslation"
+          Data.@= accessControlTranslation,
         "Account" Data.@= account,
-        "Metrics" Data.@= metrics,
         "EncryptionConfiguration"
           Data.@= encryptionConfiguration,
-        "AccessControlTranslation"
-          Data.@= accessControlTranslation,
+        "Metrics" Data.@= metrics,
+        "ReplicationTime" Data.@= replicationTime,
         "StorageClass" Data.@= storageClass,
         "Bucket" Data.@= bucket
       ]

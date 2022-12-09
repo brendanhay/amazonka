@@ -29,16 +29,7 @@ import Amazonka.S3.Internal
 --
 -- /See:/ 'newS3ServiceError' smart constructor.
 data S3ServiceError = S3ServiceError'
-  { -- | The error key.
-    key :: Prelude.Maybe ObjectKey,
-    -- | The error message contains a generic description of the error condition
-    -- in English. It is intended for a human audience. Simple programs display
-    -- the message directly to the end user if they encounter an error
-    -- condition they don\'t know how or don\'t care to handle. Sophisticated
-    -- programs with more exhaustive error handling and proper
-    -- internationalization are more likely to ignore the error message.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The error code is a string that uniquely identifies an error condition.
+  { -- | The error code is a string that uniquely identifies an error condition.
     -- It is meant to be read and understood by programs that detect and handle
     -- errors by type.
     --
@@ -835,6 +826,15 @@ data S3ServiceError = S3ServiceError'
     --
     --     -   /SOAP Fault Code Prefix:/ Client
     code :: Prelude.Maybe Prelude.Text,
+    -- | The error key.
+    key :: Prelude.Maybe ObjectKey,
+    -- | The error message contains a generic description of the error condition
+    -- in English. It is intended for a human audience. Simple programs display
+    -- the message directly to the end user if they encounter an error
+    -- condition they don\'t know how or don\'t care to handle. Sophisticated
+    -- programs with more exhaustive error handling and proper
+    -- internationalization are more likely to ignore the error message.
+    message :: Prelude.Maybe Prelude.Text,
     -- | The version ID of the error.
     versionId :: Prelude.Maybe ObjectVersionId
   }
@@ -847,15 +847,6 @@ data S3ServiceError = S3ServiceError'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'key', 's3ServiceError_key' - The error key.
---
--- 'message', 's3ServiceError_message' - The error message contains a generic description of the error condition
--- in English. It is intended for a human audience. Simple programs display
--- the message directly to the end user if they encounter an error
--- condition they don\'t know how or don\'t care to handle. Sophisticated
--- programs with more exhaustive error handling and proper
--- internationalization are more likely to ignore the error message.
 --
 -- 'code', 's3ServiceError_code' - The error code is a string that uniquely identifies an error condition.
 -- It is meant to be read and understood by programs that detect and handle
@@ -1654,29 +1645,25 @@ data S3ServiceError = S3ServiceError'
 --
 --     -   /SOAP Fault Code Prefix:/ Client
 --
--- 'versionId', 's3ServiceError_versionId' - The version ID of the error.
-newS3ServiceError ::
-  S3ServiceError
-newS3ServiceError =
-  S3ServiceError'
-    { key = Prelude.Nothing,
-      message = Prelude.Nothing,
-      code = Prelude.Nothing,
-      versionId = Prelude.Nothing
-    }
-
--- | The error key.
-s3ServiceError_key :: Lens.Lens' S3ServiceError (Prelude.Maybe ObjectKey)
-s3ServiceError_key = Lens.lens (\S3ServiceError' {key} -> key) (\s@S3ServiceError' {} a -> s {key = a} :: S3ServiceError)
-
--- | The error message contains a generic description of the error condition
+-- 'key', 's3ServiceError_key' - The error key.
+--
+-- 'message', 's3ServiceError_message' - The error message contains a generic description of the error condition
 -- in English. It is intended for a human audience. Simple programs display
 -- the message directly to the end user if they encounter an error
 -- condition they don\'t know how or don\'t care to handle. Sophisticated
 -- programs with more exhaustive error handling and proper
 -- internationalization are more likely to ignore the error message.
-s3ServiceError_message :: Lens.Lens' S3ServiceError (Prelude.Maybe Prelude.Text)
-s3ServiceError_message = Lens.lens (\S3ServiceError' {message} -> message) (\s@S3ServiceError' {} a -> s {message = a} :: S3ServiceError)
+--
+-- 'versionId', 's3ServiceError_versionId' - The version ID of the error.
+newS3ServiceError ::
+  S3ServiceError
+newS3ServiceError =
+  S3ServiceError'
+    { code = Prelude.Nothing,
+      key = Prelude.Nothing,
+      message = Prelude.Nothing,
+      versionId = Prelude.Nothing
+    }
 
 -- | The error code is a string that uniquely identifies an error condition.
 -- It is meant to be read and understood by programs that detect and handle
@@ -2477,6 +2464,19 @@ s3ServiceError_message = Lens.lens (\S3ServiceError' {message} -> message) (\s@S
 s3ServiceError_code :: Lens.Lens' S3ServiceError (Prelude.Maybe Prelude.Text)
 s3ServiceError_code = Lens.lens (\S3ServiceError' {code} -> code) (\s@S3ServiceError' {} a -> s {code = a} :: S3ServiceError)
 
+-- | The error key.
+s3ServiceError_key :: Lens.Lens' S3ServiceError (Prelude.Maybe ObjectKey)
+s3ServiceError_key = Lens.lens (\S3ServiceError' {key} -> key) (\s@S3ServiceError' {} a -> s {key = a} :: S3ServiceError)
+
+-- | The error message contains a generic description of the error condition
+-- in English. It is intended for a human audience. Simple programs display
+-- the message directly to the end user if they encounter an error
+-- condition they don\'t know how or don\'t care to handle. Sophisticated
+-- programs with more exhaustive error handling and proper
+-- internationalization are more likely to ignore the error message.
+s3ServiceError_message :: Lens.Lens' S3ServiceError (Prelude.Maybe Prelude.Text)
+s3ServiceError_message = Lens.lens (\S3ServiceError' {message} -> message) (\s@S3ServiceError' {} a -> s {message = a} :: S3ServiceError)
+
 -- | The version ID of the error.
 s3ServiceError_versionId :: Lens.Lens' S3ServiceError (Prelude.Maybe ObjectVersionId)
 s3ServiceError_versionId = Lens.lens (\S3ServiceError' {versionId} -> versionId) (\s@S3ServiceError' {} a -> s {versionId = a} :: S3ServiceError)
@@ -2484,21 +2484,21 @@ s3ServiceError_versionId = Lens.lens (\S3ServiceError' {versionId} -> versionId)
 instance Data.FromXML S3ServiceError where
   parseXML x =
     S3ServiceError'
-      Prelude.<$> (x Data..@? "Key")
+      Prelude.<$> (x Data..@? "Code")
+      Prelude.<*> (x Data..@? "Key")
       Prelude.<*> (x Data..@? "Message")
-      Prelude.<*> (x Data..@? "Code")
       Prelude.<*> (x Data..@? "VersionId")
 
 instance Prelude.Hashable S3ServiceError where
   hashWithSalt _salt S3ServiceError' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` message
-      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` versionId
 
 instance Prelude.NFData S3ServiceError where
   rnf S3ServiceError' {..} =
-    Prelude.rnf key
+    Prelude.rnf code
+      `Prelude.seq` Prelude.rnf key
       `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf code
       `Prelude.seq` Prelude.rnf versionId

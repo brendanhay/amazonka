@@ -54,9 +54,9 @@ module Amazonka.S3.GetBucketNotificationConfiguration
 
     -- * Response Lenses
     notificationConfiguration_eventBridgeConfiguration,
+    notificationConfiguration_lambdaFunctionConfigurations,
     notificationConfiguration_queueConfigurations,
     notificationConfiguration_topicConfigurations,
-    notificationConfiguration_lambdaFunctionConfigurations,
   )
 where
 

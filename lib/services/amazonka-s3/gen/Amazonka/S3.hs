@@ -25,11 +25,11 @@ module Amazonka.S3
     -- * Errors
     -- $errors
 
-    -- ** ObjectNotInActiveTierError
-    _ObjectNotInActiveTierError,
+    -- ** BucketAlreadyExists
+    _BucketAlreadyExists,
 
-    -- ** NoSuchKey
-    _NoSuchKey,
+    -- ** BucketAlreadyOwnedByYou
+    _BucketAlreadyOwnedByYou,
 
     -- ** InvalidObjectState
     _InvalidObjectState,
@@ -37,32 +37,32 @@ module Amazonka.S3
     -- ** NoSuchBucket
     _NoSuchBucket,
 
-    -- ** BucketAlreadyOwnedByYou
-    _BucketAlreadyOwnedByYou,
-
-    -- ** ObjectAlreadyInActiveTierError
-    _ObjectAlreadyInActiveTierError,
+    -- ** NoSuchKey
+    _NoSuchKey,
 
     -- ** NoSuchUpload
     _NoSuchUpload,
 
-    -- ** BucketAlreadyExists
-    _BucketAlreadyExists,
+    -- ** ObjectAlreadyInActiveTierError
+    _ObjectAlreadyInActiveTierError,
+
+    -- ** ObjectNotInActiveTierError
+    _ObjectNotInActiveTierError,
 
     -- * Waiters
     -- $waiters
 
-    -- ** ObjectNotExists
-    newObjectNotExists,
-
-    -- ** ObjectExists
-    newObjectExists,
+    -- ** BucketExists
+    newBucketExists,
 
     -- ** BucketNotExists
     newBucketNotExists,
 
-    -- ** BucketExists
-    newBucketExists,
+    -- ** ObjectExists
+    newObjectExists,
+
+    -- ** ObjectNotExists
+    newObjectNotExists,
 
     -- * Operations
     -- $operations

@@ -51,9 +51,9 @@ module Amazonka.S3.PutBucketPolicy
 
     -- * Request Lenses
     putBucketPolicy_checksumAlgorithm,
+    putBucketPolicy_confirmRemoveSelfBucketAccess,
     putBucketPolicy_contentMD5,
     putBucketPolicy_expectedBucketOwner,
-    putBucketPolicy_confirmRemoveSelfBucketAccess,
     putBucketPolicy_bucket,
     putBucketPolicy_policy,
 
@@ -85,6 +85,9 @@ data PutBucketPolicy = PutBucketPolicy'
     -- If you provide an individual checksum, Amazon S3 ignores any provided
     -- @ChecksumAlgorithm@ parameter.
     checksumAlgorithm :: Prelude.Maybe ChecksumAlgorithm,
+    -- | Set this parameter to true to confirm that you want to remove your
+    -- permissions to change this bucket policy in the future.
+    confirmRemoveSelfBucketAccess :: Prelude.Maybe Prelude.Bool,
     -- | The MD5 hash of the request body.
     --
     -- For requests made using the Amazon Web Services Command Line Interface
@@ -95,9 +98,6 @@ data PutBucketPolicy = PutBucketPolicy'
     -- different account, the request fails with the HTTP status code
     -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
-    -- | Set this parameter to true to confirm that you want to remove your
-    -- permissions to change this bucket policy in the future.
-    confirmRemoveSelfBucketAccess :: Prelude.Maybe Prelude.Bool,
     -- | The name of the bucket.
     bucket :: BucketName,
     -- | The bucket policy as a JSON document.
@@ -125,6 +125,9 @@ data PutBucketPolicy = PutBucketPolicy'
 -- If you provide an individual checksum, Amazon S3 ignores any provided
 -- @ChecksumAlgorithm@ parameter.
 --
+-- 'confirmRemoveSelfBucketAccess', 'putBucketPolicy_confirmRemoveSelfBucketAccess' - Set this parameter to true to confirm that you want to remove your
+-- permissions to change this bucket policy in the future.
+--
 -- 'contentMD5', 'putBucketPolicy_contentMD5' - The MD5 hash of the request body.
 --
 -- For requests made using the Amazon Web Services Command Line Interface
@@ -134,9 +137,6 @@ data PutBucketPolicy = PutBucketPolicy'
 -- 'expectedBucketOwner', 'putBucketPolicy_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request fails with the HTTP status code
 -- @403 Forbidden@ (access denied).
---
--- 'confirmRemoveSelfBucketAccess', 'putBucketPolicy_confirmRemoveSelfBucketAccess' - Set this parameter to true to confirm that you want to remove your
--- permissions to change this bucket policy in the future.
 --
 -- 'bucket', 'putBucketPolicy_bucket' - The name of the bucket.
 --
@@ -151,9 +151,9 @@ newPutBucketPolicy pBucket_ pPolicy_ =
   PutBucketPolicy'
     { checksumAlgorithm =
         Prelude.Nothing,
+      confirmRemoveSelfBucketAccess = Prelude.Nothing,
       contentMD5 = Prelude.Nothing,
       expectedBucketOwner = Prelude.Nothing,
-      confirmRemoveSelfBucketAccess = Prelude.Nothing,
       bucket = pBucket_,
       policy = pPolicy_
     }
@@ -172,6 +172,11 @@ newPutBucketPolicy pBucket_ pPolicy_ =
 putBucketPolicy_checksumAlgorithm :: Lens.Lens' PutBucketPolicy (Prelude.Maybe ChecksumAlgorithm)
 putBucketPolicy_checksumAlgorithm = Lens.lens (\PutBucketPolicy' {checksumAlgorithm} -> checksumAlgorithm) (\s@PutBucketPolicy' {} a -> s {checksumAlgorithm = a} :: PutBucketPolicy)
 
+-- | Set this parameter to true to confirm that you want to remove your
+-- permissions to change this bucket policy in the future.
+putBucketPolicy_confirmRemoveSelfBucketAccess :: Lens.Lens' PutBucketPolicy (Prelude.Maybe Prelude.Bool)
+putBucketPolicy_confirmRemoveSelfBucketAccess = Lens.lens (\PutBucketPolicy' {confirmRemoveSelfBucketAccess} -> confirmRemoveSelfBucketAccess) (\s@PutBucketPolicy' {} a -> s {confirmRemoveSelfBucketAccess = a} :: PutBucketPolicy)
+
 -- | The MD5 hash of the request body.
 --
 -- For requests made using the Amazon Web Services Command Line Interface
@@ -185,11 +190,6 @@ putBucketPolicy_contentMD5 = Lens.lens (\PutBucketPolicy' {contentMD5} -> conten
 -- @403 Forbidden@ (access denied).
 putBucketPolicy_expectedBucketOwner :: Lens.Lens' PutBucketPolicy (Prelude.Maybe Prelude.Text)
 putBucketPolicy_expectedBucketOwner = Lens.lens (\PutBucketPolicy' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketPolicy' {} a -> s {expectedBucketOwner = a} :: PutBucketPolicy)
-
--- | Set this parameter to true to confirm that you want to remove your
--- permissions to change this bucket policy in the future.
-putBucketPolicy_confirmRemoveSelfBucketAccess :: Lens.Lens' PutBucketPolicy (Prelude.Maybe Prelude.Bool)
-putBucketPolicy_confirmRemoveSelfBucketAccess = Lens.lens (\PutBucketPolicy' {confirmRemoveSelfBucketAccess} -> confirmRemoveSelfBucketAccess) (\s@PutBucketPolicy' {} a -> s {confirmRemoveSelfBucketAccess = a} :: PutBucketPolicy)
 
 -- | The name of the bucket.
 putBucketPolicy_bucket :: Lens.Lens' PutBucketPolicy BucketName
@@ -213,18 +213,18 @@ instance Core.AWSRequest PutBucketPolicy where
 instance Prelude.Hashable PutBucketPolicy where
   hashWithSalt _salt PutBucketPolicy' {..} =
     _salt `Prelude.hashWithSalt` checksumAlgorithm
+      `Prelude.hashWithSalt` confirmRemoveSelfBucketAccess
       `Prelude.hashWithSalt` contentMD5
       `Prelude.hashWithSalt` expectedBucketOwner
-      `Prelude.hashWithSalt` confirmRemoveSelfBucketAccess
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` policy
 
 instance Prelude.NFData PutBucketPolicy where
   rnf PutBucketPolicy' {..} =
     Prelude.rnf checksumAlgorithm
+      `Prelude.seq` Prelude.rnf confirmRemoveSelfBucketAccess
       `Prelude.seq` Prelude.rnf contentMD5
       `Prelude.seq` Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf confirmRemoveSelfBucketAccess
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf policy
 
@@ -236,11 +236,11 @@ instance Data.ToHeaders PutBucketPolicy where
     Prelude.mconcat
       [ "x-amz-sdk-checksum-algorithm"
           Data.=# checksumAlgorithm,
+        "x-amz-confirm-remove-self-bucket-access"
+          Data.=# confirmRemoveSelfBucketAccess,
         "Content-MD5" Data.=# contentMD5,
         "x-amz-expected-bucket-owner"
-          Data.=# expectedBucketOwner,
-        "x-amz-confirm-remove-self-bucket-access"
-          Data.=# confirmRemoveSelfBucketAccess
+          Data.=# expectedBucketOwner
       ]
 
 instance Data.ToPath PutBucketPolicy where

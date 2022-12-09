@@ -35,18 +35,18 @@ import Amazonka.S3.Types.StorageClass
 data MultipartUpload = MultipartUpload'
   { -- | The algorithm that was used to create a checksum of the object.
     checksumAlgorithm :: Prelude.Maybe ChecksumAlgorithm,
-    -- | Upload ID that identifies the multipart upload.
-    uploadId :: Prelude.Maybe Prelude.Text,
+    -- | Date and time at which the multipart upload was initiated.
+    initiated :: Prelude.Maybe Data.ISO8601,
+    -- | Identifies who initiated the multipart upload.
+    initiator :: Prelude.Maybe Initiator,
     -- | Key of the object for which the multipart upload was initiated.
     key :: Prelude.Maybe ObjectKey,
     -- | Specifies the owner of the object that is part of the multipart upload.
     owner :: Prelude.Maybe Owner,
     -- | The class of storage used to store the object.
     storageClass :: Prelude.Maybe StorageClass,
-    -- | Identifies who initiated the multipart upload.
-    initiator :: Prelude.Maybe Initiator,
-    -- | Date and time at which the multipart upload was initiated.
-    initiated :: Prelude.Maybe Data.ISO8601
+    -- | Upload ID that identifies the multipart upload.
+    uploadId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,7 +60,9 @@ data MultipartUpload = MultipartUpload'
 --
 -- 'checksumAlgorithm', 'multipartUpload_checksumAlgorithm' - The algorithm that was used to create a checksum of the object.
 --
--- 'uploadId', 'multipartUpload_uploadId' - Upload ID that identifies the multipart upload.
+-- 'initiated', 'multipartUpload_initiated' - Date and time at which the multipart upload was initiated.
+--
+-- 'initiator', 'multipartUpload_initiator' - Identifies who initiated the multipart upload.
 --
 -- 'key', 'multipartUpload_key' - Key of the object for which the multipart upload was initiated.
 --
@@ -68,30 +70,32 @@ data MultipartUpload = MultipartUpload'
 --
 -- 'storageClass', 'multipartUpload_storageClass' - The class of storage used to store the object.
 --
--- 'initiator', 'multipartUpload_initiator' - Identifies who initiated the multipart upload.
---
--- 'initiated', 'multipartUpload_initiated' - Date and time at which the multipart upload was initiated.
+-- 'uploadId', 'multipartUpload_uploadId' - Upload ID that identifies the multipart upload.
 newMultipartUpload ::
   MultipartUpload
 newMultipartUpload =
   MultipartUpload'
     { checksumAlgorithm =
         Prelude.Nothing,
-      uploadId = Prelude.Nothing,
+      initiated = Prelude.Nothing,
+      initiator = Prelude.Nothing,
       key = Prelude.Nothing,
       owner = Prelude.Nothing,
       storageClass = Prelude.Nothing,
-      initiator = Prelude.Nothing,
-      initiated = Prelude.Nothing
+      uploadId = Prelude.Nothing
     }
 
 -- | The algorithm that was used to create a checksum of the object.
 multipartUpload_checksumAlgorithm :: Lens.Lens' MultipartUpload (Prelude.Maybe ChecksumAlgorithm)
 multipartUpload_checksumAlgorithm = Lens.lens (\MultipartUpload' {checksumAlgorithm} -> checksumAlgorithm) (\s@MultipartUpload' {} a -> s {checksumAlgorithm = a} :: MultipartUpload)
 
--- | Upload ID that identifies the multipart upload.
-multipartUpload_uploadId :: Lens.Lens' MultipartUpload (Prelude.Maybe Prelude.Text)
-multipartUpload_uploadId = Lens.lens (\MultipartUpload' {uploadId} -> uploadId) (\s@MultipartUpload' {} a -> s {uploadId = a} :: MultipartUpload)
+-- | Date and time at which the multipart upload was initiated.
+multipartUpload_initiated :: Lens.Lens' MultipartUpload (Prelude.Maybe Prelude.UTCTime)
+multipartUpload_initiated = Lens.lens (\MultipartUpload' {initiated} -> initiated) (\s@MultipartUpload' {} a -> s {initiated = a} :: MultipartUpload) Prelude.. Lens.mapping Data._Time
+
+-- | Identifies who initiated the multipart upload.
+multipartUpload_initiator :: Lens.Lens' MultipartUpload (Prelude.Maybe Initiator)
+multipartUpload_initiator = Lens.lens (\MultipartUpload' {initiator} -> initiator) (\s@MultipartUpload' {} a -> s {initiator = a} :: MultipartUpload)
 
 -- | Key of the object for which the multipart upload was initiated.
 multipartUpload_key :: Lens.Lens' MultipartUpload (Prelude.Maybe ObjectKey)
@@ -105,41 +109,37 @@ multipartUpload_owner = Lens.lens (\MultipartUpload' {owner} -> owner) (\s@Multi
 multipartUpload_storageClass :: Lens.Lens' MultipartUpload (Prelude.Maybe StorageClass)
 multipartUpload_storageClass = Lens.lens (\MultipartUpload' {storageClass} -> storageClass) (\s@MultipartUpload' {} a -> s {storageClass = a} :: MultipartUpload)
 
--- | Identifies who initiated the multipart upload.
-multipartUpload_initiator :: Lens.Lens' MultipartUpload (Prelude.Maybe Initiator)
-multipartUpload_initiator = Lens.lens (\MultipartUpload' {initiator} -> initiator) (\s@MultipartUpload' {} a -> s {initiator = a} :: MultipartUpload)
-
--- | Date and time at which the multipart upload was initiated.
-multipartUpload_initiated :: Lens.Lens' MultipartUpload (Prelude.Maybe Prelude.UTCTime)
-multipartUpload_initiated = Lens.lens (\MultipartUpload' {initiated} -> initiated) (\s@MultipartUpload' {} a -> s {initiated = a} :: MultipartUpload) Prelude.. Lens.mapping Data._Time
+-- | Upload ID that identifies the multipart upload.
+multipartUpload_uploadId :: Lens.Lens' MultipartUpload (Prelude.Maybe Prelude.Text)
+multipartUpload_uploadId = Lens.lens (\MultipartUpload' {uploadId} -> uploadId) (\s@MultipartUpload' {} a -> s {uploadId = a} :: MultipartUpload)
 
 instance Data.FromXML MultipartUpload where
   parseXML x =
     MultipartUpload'
       Prelude.<$> (x Data..@? "ChecksumAlgorithm")
-      Prelude.<*> (x Data..@? "UploadId")
+      Prelude.<*> (x Data..@? "Initiated")
+      Prelude.<*> (x Data..@? "Initiator")
       Prelude.<*> (x Data..@? "Key")
       Prelude.<*> (x Data..@? "Owner")
       Prelude.<*> (x Data..@? "StorageClass")
-      Prelude.<*> (x Data..@? "Initiator")
-      Prelude.<*> (x Data..@? "Initiated")
+      Prelude.<*> (x Data..@? "UploadId")
 
 instance Prelude.Hashable MultipartUpload where
   hashWithSalt _salt MultipartUpload' {..} =
     _salt `Prelude.hashWithSalt` checksumAlgorithm
-      `Prelude.hashWithSalt` uploadId
+      `Prelude.hashWithSalt` initiated
+      `Prelude.hashWithSalt` initiator
       `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` owner
       `Prelude.hashWithSalt` storageClass
-      `Prelude.hashWithSalt` initiator
-      `Prelude.hashWithSalt` initiated
+      `Prelude.hashWithSalt` uploadId
 
 instance Prelude.NFData MultipartUpload where
   rnf MultipartUpload' {..} =
     Prelude.rnf checksumAlgorithm
-      `Prelude.seq` Prelude.rnf uploadId
+      `Prelude.seq` Prelude.rnf initiated
+      `Prelude.seq` Prelude.rnf initiator
       `Prelude.seq` Prelude.rnf key
       `Prelude.seq` Prelude.rnf owner
       `Prelude.seq` Prelude.rnf storageClass
-      `Prelude.seq` Prelude.rnf initiator
-      `Prelude.seq` Prelude.rnf initiated
+      `Prelude.seq` Prelude.rnf uploadId

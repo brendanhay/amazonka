@@ -36,10 +36,10 @@ import Amazonka.S3.Types.Grantee
 --
 -- /See:/ 'newTargetGrant' smart constructor.
 data TargetGrant = TargetGrant'
-  { -- | Logging permissions assigned to the grantee for the bucket.
-    permission :: Prelude.Maybe BucketLogsPermission,
-    -- | Container for the person being granted permissions.
-    grantee :: Prelude.Maybe Grantee
+  { -- | Container for the person being granted permissions.
+    grantee :: Prelude.Maybe Grantee,
+    -- | Logging permissions assigned to the grantee for the bucket.
+    permission :: Prelude.Maybe BucketLogsPermission
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,44 +51,44 @@ data TargetGrant = TargetGrant'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'permission', 'targetGrant_permission' - Logging permissions assigned to the grantee for the bucket.
---
 -- 'grantee', 'targetGrant_grantee' - Container for the person being granted permissions.
+--
+-- 'permission', 'targetGrant_permission' - Logging permissions assigned to the grantee for the bucket.
 newTargetGrant ::
   TargetGrant
 newTargetGrant =
   TargetGrant'
-    { permission = Prelude.Nothing,
-      grantee = Prelude.Nothing
+    { grantee = Prelude.Nothing,
+      permission = Prelude.Nothing
     }
-
--- | Logging permissions assigned to the grantee for the bucket.
-targetGrant_permission :: Lens.Lens' TargetGrant (Prelude.Maybe BucketLogsPermission)
-targetGrant_permission = Lens.lens (\TargetGrant' {permission} -> permission) (\s@TargetGrant' {} a -> s {permission = a} :: TargetGrant)
 
 -- | Container for the person being granted permissions.
 targetGrant_grantee :: Lens.Lens' TargetGrant (Prelude.Maybe Grantee)
 targetGrant_grantee = Lens.lens (\TargetGrant' {grantee} -> grantee) (\s@TargetGrant' {} a -> s {grantee = a} :: TargetGrant)
 
+-- | Logging permissions assigned to the grantee for the bucket.
+targetGrant_permission :: Lens.Lens' TargetGrant (Prelude.Maybe BucketLogsPermission)
+targetGrant_permission = Lens.lens (\TargetGrant' {permission} -> permission) (\s@TargetGrant' {} a -> s {permission = a} :: TargetGrant)
+
 instance Data.FromXML TargetGrant where
   parseXML x =
     TargetGrant'
-      Prelude.<$> (x Data..@? "Permission")
-      Prelude.<*> (x Data..@? "Grantee")
+      Prelude.<$> (x Data..@? "Grantee")
+      Prelude.<*> (x Data..@? "Permission")
 
 instance Prelude.Hashable TargetGrant where
   hashWithSalt _salt TargetGrant' {..} =
-    _salt `Prelude.hashWithSalt` permission
-      `Prelude.hashWithSalt` grantee
+    _salt `Prelude.hashWithSalt` grantee
+      `Prelude.hashWithSalt` permission
 
 instance Prelude.NFData TargetGrant where
   rnf TargetGrant' {..} =
-    Prelude.rnf permission
-      `Prelude.seq` Prelude.rnf grantee
+    Prelude.rnf grantee
+      `Prelude.seq` Prelude.rnf permission
 
 instance Data.ToXML TargetGrant where
   toXML TargetGrant' {..} =
     Prelude.mconcat
-      [ "Permission" Data.@= permission,
-        "Grantee" Data.@= grantee
+      [ "Grantee" Data.@= grantee,
+        "Permission" Data.@= permission
       ]

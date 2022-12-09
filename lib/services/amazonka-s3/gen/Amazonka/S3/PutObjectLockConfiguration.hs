@@ -44,8 +44,8 @@ module Amazonka.S3.PutObjectLockConfiguration
     putObjectLockConfiguration_checksumAlgorithm,
     putObjectLockConfiguration_contentMD5,
     putObjectLockConfiguration_expectedBucketOwner,
-    putObjectLockConfiguration_requestPayer,
     putObjectLockConfiguration_objectLockConfiguration,
+    putObjectLockConfiguration_requestPayer,
     putObjectLockConfiguration_token,
     putObjectLockConfiguration_bucket,
 
@@ -91,10 +91,10 @@ data PutObjectLockConfiguration = PutObjectLockConfiguration'
     -- different account, the request fails with the HTTP status code
     -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
-    requestPayer :: Prelude.Maybe RequestPayer,
     -- | The Object Lock configuration that you want to apply to the specified
     -- bucket.
     objectLockConfiguration :: Prelude.Maybe ObjectLockConfiguration,
+    requestPayer :: Prelude.Maybe RequestPayer,
     -- | A token to allow Object Lock to be enabled for an existing bucket.
     token :: Prelude.Maybe Prelude.Text,
     -- | The bucket whose Object Lock configuration you want to create or
@@ -133,10 +133,10 @@ data PutObjectLockConfiguration = PutObjectLockConfiguration'
 -- different account, the request fails with the HTTP status code
 -- @403 Forbidden@ (access denied).
 --
--- 'requestPayer', 'putObjectLockConfiguration_requestPayer' - Undocumented member.
---
 -- 'objectLockConfiguration', 'putObjectLockConfiguration_objectLockConfiguration' - The Object Lock configuration that you want to apply to the specified
 -- bucket.
+--
+-- 'requestPayer', 'putObjectLockConfiguration_requestPayer' - Undocumented member.
 --
 -- 'token', 'putObjectLockConfiguration_token' - A token to allow Object Lock to be enabled for an existing bucket.
 --
@@ -152,8 +152,8 @@ newPutObjectLockConfiguration pBucket_ =
         Prelude.Nothing,
       contentMD5 = Prelude.Nothing,
       expectedBucketOwner = Prelude.Nothing,
-      requestPayer = Prelude.Nothing,
       objectLockConfiguration = Prelude.Nothing,
+      requestPayer = Prelude.Nothing,
       token = Prelude.Nothing,
       bucket = pBucket_
     }
@@ -186,14 +186,14 @@ putObjectLockConfiguration_contentMD5 = Lens.lens (\PutObjectLockConfiguration' 
 putObjectLockConfiguration_expectedBucketOwner :: Lens.Lens' PutObjectLockConfiguration (Prelude.Maybe Prelude.Text)
 putObjectLockConfiguration_expectedBucketOwner = Lens.lens (\PutObjectLockConfiguration' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutObjectLockConfiguration' {} a -> s {expectedBucketOwner = a} :: PutObjectLockConfiguration)
 
--- | Undocumented member.
-putObjectLockConfiguration_requestPayer :: Lens.Lens' PutObjectLockConfiguration (Prelude.Maybe RequestPayer)
-putObjectLockConfiguration_requestPayer = Lens.lens (\PutObjectLockConfiguration' {requestPayer} -> requestPayer) (\s@PutObjectLockConfiguration' {} a -> s {requestPayer = a} :: PutObjectLockConfiguration)
-
 -- | The Object Lock configuration that you want to apply to the specified
 -- bucket.
 putObjectLockConfiguration_objectLockConfiguration :: Lens.Lens' PutObjectLockConfiguration (Prelude.Maybe ObjectLockConfiguration)
 putObjectLockConfiguration_objectLockConfiguration = Lens.lens (\PutObjectLockConfiguration' {objectLockConfiguration} -> objectLockConfiguration) (\s@PutObjectLockConfiguration' {} a -> s {objectLockConfiguration = a} :: PutObjectLockConfiguration)
+
+-- | Undocumented member.
+putObjectLockConfiguration_requestPayer :: Lens.Lens' PutObjectLockConfiguration (Prelude.Maybe RequestPayer)
+putObjectLockConfiguration_requestPayer = Lens.lens (\PutObjectLockConfiguration' {requestPayer} -> requestPayer) (\s@PutObjectLockConfiguration' {} a -> s {requestPayer = a} :: PutObjectLockConfiguration)
 
 -- | A token to allow Object Lock to be enabled for an existing bucket.
 putObjectLockConfiguration_token :: Lens.Lens' PutObjectLockConfiguration (Prelude.Maybe Prelude.Text)
@@ -224,8 +224,8 @@ instance Prelude.Hashable PutObjectLockConfiguration where
     _salt `Prelude.hashWithSalt` checksumAlgorithm
       `Prelude.hashWithSalt` contentMD5
       `Prelude.hashWithSalt` expectedBucketOwner
-      `Prelude.hashWithSalt` requestPayer
       `Prelude.hashWithSalt` objectLockConfiguration
+      `Prelude.hashWithSalt` requestPayer
       `Prelude.hashWithSalt` token
       `Prelude.hashWithSalt` bucket
 
@@ -234,8 +234,8 @@ instance Prelude.NFData PutObjectLockConfiguration where
     Prelude.rnf checksumAlgorithm
       `Prelude.seq` Prelude.rnf contentMD5
       `Prelude.seq` Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf requestPayer
       `Prelude.seq` Prelude.rnf objectLockConfiguration
+      `Prelude.seq` Prelude.rnf requestPayer
       `Prelude.seq` Prelude.rnf token
       `Prelude.seq` Prelude.rnf bucket
 

@@ -109,16 +109,16 @@ module Amazonka.S3.CompleteMultipartUpload
     newCompleteMultipartUpload,
 
     -- * Request Lenses
+    completeMultipartUpload_checksumCRC32,
     completeMultipartUpload_checksumCRC32C,
     completeMultipartUpload_checksumSHA1,
-    completeMultipartUpload_expectedBucketOwner,
-    completeMultipartUpload_checksumCRC32,
-    completeMultipartUpload_requestPayer,
     completeMultipartUpload_checksumSHA256,
-    completeMultipartUpload_sSECustomerAlgorithm,
-    completeMultipartUpload_sSECustomerKeyMD5,
+    completeMultipartUpload_expectedBucketOwner,
     completeMultipartUpload_multipartUpload,
+    completeMultipartUpload_requestPayer,
+    completeMultipartUpload_sSECustomerAlgorithm,
     completeMultipartUpload_sSECustomerKey,
+    completeMultipartUpload_sSECustomerKeyMD5,
     completeMultipartUpload_bucket,
     completeMultipartUpload_key,
     completeMultipartUpload_uploadId,
@@ -128,19 +128,19 @@ module Amazonka.S3.CompleteMultipartUpload
     newCompleteMultipartUploadResponse,
 
     -- * Response Lenses
-    completeMultipartUploadResponse_serverSideEncryption,
-    completeMultipartUploadResponse_key,
-    completeMultipartUploadResponse_checksumCRC32C,
-    completeMultipartUploadResponse_bucketKeyEnabled,
-    completeMultipartUploadResponse_expiration,
-    completeMultipartUploadResponse_requestCharged,
-    completeMultipartUploadResponse_checksumSHA1,
     completeMultipartUploadResponse_bucket,
+    completeMultipartUploadResponse_bucketKeyEnabled,
     completeMultipartUploadResponse_checksumCRC32,
-    completeMultipartUploadResponse_sSEKMSKeyId,
+    completeMultipartUploadResponse_checksumCRC32C,
+    completeMultipartUploadResponse_checksumSHA1,
     completeMultipartUploadResponse_checksumSHA256,
-    completeMultipartUploadResponse_location,
     completeMultipartUploadResponse_eTag,
+    completeMultipartUploadResponse_expiration,
+    completeMultipartUploadResponse_key,
+    completeMultipartUploadResponse_location,
+    completeMultipartUploadResponse_requestCharged,
+    completeMultipartUploadResponse_sSEKMSKeyId,
+    completeMultipartUploadResponse_serverSideEncryption,
     completeMultipartUploadResponse_versionId,
     completeMultipartUploadResponse_httpStatus,
   )
@@ -158,6 +158,13 @@ import Amazonka.S3.Types
 data CompleteMultipartUpload = CompleteMultipartUpload'
   { -- | This header can be used as a data integrity check to verify that the
     -- data received is the same data that was originally sent. This header
+    -- specifies the base64-encoded, 32-bit CRC32 checksum of the object. For
+    -- more information, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+    -- in the /Amazon S3 User Guide/.
+    checksumCRC32 :: Prelude.Maybe Prelude.Text,
+    -- | This header can be used as a data integrity check to verify that the
+    -- data received is the same data that was originally sent. This header
     -- specifies the base64-encoded, 32-bit CRC32C checksum of the object. For
     -- more information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
@@ -170,18 +177,6 @@ data CompleteMultipartUpload = CompleteMultipartUpload'
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
     -- in the /Amazon S3 User Guide/.
     checksumSHA1 :: Prelude.Maybe Prelude.Text,
-    -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request fails with the HTTP status code
-    -- @403 Forbidden@ (access denied).
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
-    -- | This header can be used as a data integrity check to verify that the
-    -- data received is the same data that was originally sent. This header
-    -- specifies the base64-encoded, 32-bit CRC32 checksum of the object. For
-    -- more information, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
-    -- in the /Amazon S3 User Guide/.
-    checksumCRC32 :: Prelude.Maybe Prelude.Text,
-    requestPayer :: Prelude.Maybe RequestPayer,
     -- | This header can be used as a data integrity check to verify that the
     -- data received is the same data that was originally sent. This header
     -- specifies the base64-encoded, 256-bit SHA-256 digest of the object. For
@@ -189,26 +184,31 @@ data CompleteMultipartUpload = CompleteMultipartUpload'
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
     -- in the /Amazon S3 User Guide/.
     checksumSHA256 :: Prelude.Maybe Prelude.Text,
+    -- | The account ID of the expected bucket owner. If the bucket is owned by a
+    -- different account, the request fails with the HTTP status code
+    -- @403 Forbidden@ (access denied).
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    -- | The container for the multipart upload request information.
+    multipartUpload :: Prelude.Maybe CompletedMultipartUpload,
+    requestPayer :: Prelude.Maybe RequestPayer,
     -- | The server-side encryption (SSE) algorithm used to encrypt the object.
     -- This parameter is needed only when the object was created using a
     -- checksum algorithm. For more information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
     -- in the /Amazon S3 User Guide/.
     sSECustomerAlgorithm :: Prelude.Maybe Prelude.Text,
-    -- | The MD5 server-side encryption (SSE) customer managed key. This
-    -- parameter is needed only when the object was created using a checksum
-    -- algorithm. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
-    -- in the /Amazon S3 User Guide/.
-    sSECustomerKeyMD5 :: Prelude.Maybe Prelude.Text,
-    -- | The container for the multipart upload request information.
-    multipartUpload :: Prelude.Maybe CompletedMultipartUpload,
     -- | The server-side encryption (SSE) customer managed key. This parameter is
     -- needed only when the object was created using a checksum algorithm. For
     -- more information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
     -- in the /Amazon S3 User Guide/.
     sSECustomerKey :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The MD5 server-side encryption (SSE) customer managed key. This
+    -- parameter is needed only when the object was created using a checksum
+    -- algorithm. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
+    -- in the /Amazon S3 User Guide/.
+    sSECustomerKeyMD5 :: Prelude.Maybe Prelude.Text,
     -- | Name of the bucket to which the multipart upload was initiated.
     --
     -- When using this action with an access point, you must direct requests to
@@ -245,6 +245,13 @@ data CompleteMultipartUpload = CompleteMultipartUpload'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'checksumCRC32', 'completeMultipartUpload_checksumCRC32' - This header can be used as a data integrity check to verify that the
+-- data received is the same data that was originally sent. This header
+-- specifies the base64-encoded, 32-bit CRC32 checksum of the object. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+--
 -- 'checksumCRC32C', 'completeMultipartUpload_checksumCRC32C' - This header can be used as a data integrity check to verify that the
 -- data received is the same data that was originally sent. This header
 -- specifies the base64-encoded, 32-bit CRC32C checksum of the object. For
@@ -259,19 +266,6 @@ data CompleteMultipartUpload = CompleteMultipartUpload'
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
 -- in the /Amazon S3 User Guide/.
 --
--- 'expectedBucketOwner', 'completeMultipartUpload_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request fails with the HTTP status code
--- @403 Forbidden@ (access denied).
---
--- 'checksumCRC32', 'completeMultipartUpload_checksumCRC32' - This header can be used as a data integrity check to verify that the
--- data received is the same data that was originally sent. This header
--- specifies the base64-encoded, 32-bit CRC32 checksum of the object. For
--- more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
--- in the /Amazon S3 User Guide/.
---
--- 'requestPayer', 'completeMultipartUpload_requestPayer' - Undocumented member.
---
 -- 'checksumSHA256', 'completeMultipartUpload_checksumSHA256' - This header can be used as a data integrity check to verify that the
 -- data received is the same data that was originally sent. This header
 -- specifies the base64-encoded, 256-bit SHA-256 digest of the object. For
@@ -279,23 +273,29 @@ data CompleteMultipartUpload = CompleteMultipartUpload'
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
 -- in the /Amazon S3 User Guide/.
 --
+-- 'expectedBucketOwner', 'completeMultipartUpload_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
+--
+-- 'multipartUpload', 'completeMultipartUpload_multipartUpload' - The container for the multipart upload request information.
+--
+-- 'requestPayer', 'completeMultipartUpload_requestPayer' - Undocumented member.
+--
 -- 'sSECustomerAlgorithm', 'completeMultipartUpload_sSECustomerAlgorithm' - The server-side encryption (SSE) algorithm used to encrypt the object.
 -- This parameter is needed only when the object was created using a
 -- checksum algorithm. For more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
 -- in the /Amazon S3 User Guide/.
 --
--- 'sSECustomerKeyMD5', 'completeMultipartUpload_sSECustomerKeyMD5' - The MD5 server-side encryption (SSE) customer managed key. This
--- parameter is needed only when the object was created using a checksum
--- algorithm. For more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
--- in the /Amazon S3 User Guide/.
---
--- 'multipartUpload', 'completeMultipartUpload_multipartUpload' - The container for the multipart upload request information.
---
 -- 'sSECustomerKey', 'completeMultipartUpload_sSECustomerKey' - The server-side encryption (SSE) customer managed key. This parameter is
 -- needed only when the object was created using a checksum algorithm. For
 -- more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
+-- in the /Amazon S3 User Guide/.
+--
+-- 'sSECustomerKeyMD5', 'completeMultipartUpload_sSECustomerKeyMD5' - The MD5 server-side encryption (SSE) customer managed key. This
+-- parameter is needed only when the object was created using a checksum
+-- algorithm. For more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
 -- in the /Amazon S3 User Guide/.
 --
@@ -333,21 +333,30 @@ newCompleteMultipartUpload ::
   CompleteMultipartUpload
 newCompleteMultipartUpload pBucket_ pKey_ pUploadId_ =
   CompleteMultipartUpload'
-    { checksumCRC32C =
+    { checksumCRC32 =
         Prelude.Nothing,
+      checksumCRC32C = Prelude.Nothing,
       checksumSHA1 = Prelude.Nothing,
-      expectedBucketOwner = Prelude.Nothing,
-      checksumCRC32 = Prelude.Nothing,
-      requestPayer = Prelude.Nothing,
       checksumSHA256 = Prelude.Nothing,
-      sSECustomerAlgorithm = Prelude.Nothing,
-      sSECustomerKeyMD5 = Prelude.Nothing,
+      expectedBucketOwner = Prelude.Nothing,
       multipartUpload = Prelude.Nothing,
+      requestPayer = Prelude.Nothing,
+      sSECustomerAlgorithm = Prelude.Nothing,
       sSECustomerKey = Prelude.Nothing,
+      sSECustomerKeyMD5 = Prelude.Nothing,
       bucket = pBucket_,
       key = pKey_,
       uploadId = pUploadId_
     }
+
+-- | This header can be used as a data integrity check to verify that the
+-- data received is the same data that was originally sent. This header
+-- specifies the base64-encoded, 32-bit CRC32 checksum of the object. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+completeMultipartUpload_checksumCRC32 :: Lens.Lens' CompleteMultipartUpload (Prelude.Maybe Prelude.Text)
+completeMultipartUpload_checksumCRC32 = Lens.lens (\CompleteMultipartUpload' {checksumCRC32} -> checksumCRC32) (\s@CompleteMultipartUpload' {} a -> s {checksumCRC32 = a} :: CompleteMultipartUpload)
 
 -- | This header can be used as a data integrity check to verify that the
 -- data received is the same data that was originally sent. This header
@@ -367,25 +376,6 @@ completeMultipartUpload_checksumCRC32C = Lens.lens (\CompleteMultipartUpload' {c
 completeMultipartUpload_checksumSHA1 :: Lens.Lens' CompleteMultipartUpload (Prelude.Maybe Prelude.Text)
 completeMultipartUpload_checksumSHA1 = Lens.lens (\CompleteMultipartUpload' {checksumSHA1} -> checksumSHA1) (\s@CompleteMultipartUpload' {} a -> s {checksumSHA1 = a} :: CompleteMultipartUpload)
 
--- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request fails with the HTTP status code
--- @403 Forbidden@ (access denied).
-completeMultipartUpload_expectedBucketOwner :: Lens.Lens' CompleteMultipartUpload (Prelude.Maybe Prelude.Text)
-completeMultipartUpload_expectedBucketOwner = Lens.lens (\CompleteMultipartUpload' {expectedBucketOwner} -> expectedBucketOwner) (\s@CompleteMultipartUpload' {} a -> s {expectedBucketOwner = a} :: CompleteMultipartUpload)
-
--- | This header can be used as a data integrity check to verify that the
--- data received is the same data that was originally sent. This header
--- specifies the base64-encoded, 32-bit CRC32 checksum of the object. For
--- more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
--- in the /Amazon S3 User Guide/.
-completeMultipartUpload_checksumCRC32 :: Lens.Lens' CompleteMultipartUpload (Prelude.Maybe Prelude.Text)
-completeMultipartUpload_checksumCRC32 = Lens.lens (\CompleteMultipartUpload' {checksumCRC32} -> checksumCRC32) (\s@CompleteMultipartUpload' {} a -> s {checksumCRC32 = a} :: CompleteMultipartUpload)
-
--- | Undocumented member.
-completeMultipartUpload_requestPayer :: Lens.Lens' CompleteMultipartUpload (Prelude.Maybe RequestPayer)
-completeMultipartUpload_requestPayer = Lens.lens (\CompleteMultipartUpload' {requestPayer} -> requestPayer) (\s@CompleteMultipartUpload' {} a -> s {requestPayer = a} :: CompleteMultipartUpload)
-
 -- | This header can be used as a data integrity check to verify that the
 -- data received is the same data that was originally sent. This header
 -- specifies the base64-encoded, 256-bit SHA-256 digest of the object. For
@@ -395,6 +385,20 @@ completeMultipartUpload_requestPayer = Lens.lens (\CompleteMultipartUpload' {req
 completeMultipartUpload_checksumSHA256 :: Lens.Lens' CompleteMultipartUpload (Prelude.Maybe Prelude.Text)
 completeMultipartUpload_checksumSHA256 = Lens.lens (\CompleteMultipartUpload' {checksumSHA256} -> checksumSHA256) (\s@CompleteMultipartUpload' {} a -> s {checksumSHA256 = a} :: CompleteMultipartUpload)
 
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
+completeMultipartUpload_expectedBucketOwner :: Lens.Lens' CompleteMultipartUpload (Prelude.Maybe Prelude.Text)
+completeMultipartUpload_expectedBucketOwner = Lens.lens (\CompleteMultipartUpload' {expectedBucketOwner} -> expectedBucketOwner) (\s@CompleteMultipartUpload' {} a -> s {expectedBucketOwner = a} :: CompleteMultipartUpload)
+
+-- | The container for the multipart upload request information.
+completeMultipartUpload_multipartUpload :: Lens.Lens' CompleteMultipartUpload (Prelude.Maybe CompletedMultipartUpload)
+completeMultipartUpload_multipartUpload = Lens.lens (\CompleteMultipartUpload' {multipartUpload} -> multipartUpload) (\s@CompleteMultipartUpload' {} a -> s {multipartUpload = a} :: CompleteMultipartUpload)
+
+-- | Undocumented member.
+completeMultipartUpload_requestPayer :: Lens.Lens' CompleteMultipartUpload (Prelude.Maybe RequestPayer)
+completeMultipartUpload_requestPayer = Lens.lens (\CompleteMultipartUpload' {requestPayer} -> requestPayer) (\s@CompleteMultipartUpload' {} a -> s {requestPayer = a} :: CompleteMultipartUpload)
+
 -- | The server-side encryption (SSE) algorithm used to encrypt the object.
 -- This parameter is needed only when the object was created using a
 -- checksum algorithm. For more information, see
@@ -403,18 +407,6 @@ completeMultipartUpload_checksumSHA256 = Lens.lens (\CompleteMultipartUpload' {c
 completeMultipartUpload_sSECustomerAlgorithm :: Lens.Lens' CompleteMultipartUpload (Prelude.Maybe Prelude.Text)
 completeMultipartUpload_sSECustomerAlgorithm = Lens.lens (\CompleteMultipartUpload' {sSECustomerAlgorithm} -> sSECustomerAlgorithm) (\s@CompleteMultipartUpload' {} a -> s {sSECustomerAlgorithm = a} :: CompleteMultipartUpload)
 
--- | The MD5 server-side encryption (SSE) customer managed key. This
--- parameter is needed only when the object was created using a checksum
--- algorithm. For more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
--- in the /Amazon S3 User Guide/.
-completeMultipartUpload_sSECustomerKeyMD5 :: Lens.Lens' CompleteMultipartUpload (Prelude.Maybe Prelude.Text)
-completeMultipartUpload_sSECustomerKeyMD5 = Lens.lens (\CompleteMultipartUpload' {sSECustomerKeyMD5} -> sSECustomerKeyMD5) (\s@CompleteMultipartUpload' {} a -> s {sSECustomerKeyMD5 = a} :: CompleteMultipartUpload)
-
--- | The container for the multipart upload request information.
-completeMultipartUpload_multipartUpload :: Lens.Lens' CompleteMultipartUpload (Prelude.Maybe CompletedMultipartUpload)
-completeMultipartUpload_multipartUpload = Lens.lens (\CompleteMultipartUpload' {multipartUpload} -> multipartUpload) (\s@CompleteMultipartUpload' {} a -> s {multipartUpload = a} :: CompleteMultipartUpload)
-
 -- | The server-side encryption (SSE) customer managed key. This parameter is
 -- needed only when the object was created using a checksum algorithm. For
 -- more information, see
@@ -422,6 +414,14 @@ completeMultipartUpload_multipartUpload = Lens.lens (\CompleteMultipartUpload' {
 -- in the /Amazon S3 User Guide/.
 completeMultipartUpload_sSECustomerKey :: Lens.Lens' CompleteMultipartUpload (Prelude.Maybe Prelude.Text)
 completeMultipartUpload_sSECustomerKey = Lens.lens (\CompleteMultipartUpload' {sSECustomerKey} -> sSECustomerKey) (\s@CompleteMultipartUpload' {} a -> s {sSECustomerKey = a} :: CompleteMultipartUpload) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The MD5 server-side encryption (SSE) customer managed key. This
+-- parameter is needed only when the object was created using a checksum
+-- algorithm. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
+-- in the /Amazon S3 User Guide/.
+completeMultipartUpload_sSECustomerKeyMD5 :: Lens.Lens' CompleteMultipartUpload (Prelude.Maybe Prelude.Text)
+completeMultipartUpload_sSECustomerKeyMD5 = Lens.lens (\CompleteMultipartUpload' {sSECustomerKeyMD5} -> sSECustomerKeyMD5) (\s@CompleteMultipartUpload' {} a -> s {sSECustomerKeyMD5 = a} :: CompleteMultipartUpload)
 
 -- | Name of the bucket to which the multipart upload was initiated.
 --
@@ -465,55 +465,55 @@ instance Core.AWSRequest CompleteMultipartUpload where
     Response.receiveXML
       ( \s h x ->
           CompleteMultipartUploadResponse'
-            Prelude.<$> (h Data..#? "x-amz-server-side-encryption")
-            Prelude.<*> (x Data..@? "Key")
-            Prelude.<*> (x Data..@? "ChecksumCRC32C")
+            Prelude.<$> (x Data..@? "Bucket")
             Prelude.<*> ( h
                             Data..#? "x-amz-server-side-encryption-bucket-key-enabled"
                         )
-            Prelude.<*> (h Data..#? "x-amz-expiration")
-            Prelude.<*> (h Data..#? "x-amz-request-charged")
-            Prelude.<*> (x Data..@? "ChecksumSHA1")
-            Prelude.<*> (x Data..@? "Bucket")
             Prelude.<*> (x Data..@? "ChecksumCRC32")
+            Prelude.<*> (x Data..@? "ChecksumCRC32C")
+            Prelude.<*> (x Data..@? "ChecksumSHA1")
+            Prelude.<*> (x Data..@? "ChecksumSHA256")
+            Prelude.<*> (x Data..@? "ETag")
+            Prelude.<*> (h Data..#? "x-amz-expiration")
+            Prelude.<*> (x Data..@? "Key")
+            Prelude.<*> (x Data..@? "Location")
+            Prelude.<*> (h Data..#? "x-amz-request-charged")
             Prelude.<*> ( h
                             Data..#? "x-amz-server-side-encryption-aws-kms-key-id"
                         )
-            Prelude.<*> (x Data..@? "ChecksumSHA256")
-            Prelude.<*> (x Data..@? "Location")
-            Prelude.<*> (x Data..@? "ETag")
+            Prelude.<*> (h Data..#? "x-amz-server-side-encryption")
             Prelude.<*> (h Data..#? "x-amz-version-id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CompleteMultipartUpload where
   hashWithSalt _salt CompleteMultipartUpload' {..} =
-    _salt `Prelude.hashWithSalt` checksumCRC32C
+    _salt `Prelude.hashWithSalt` checksumCRC32
+      `Prelude.hashWithSalt` checksumCRC32C
       `Prelude.hashWithSalt` checksumSHA1
-      `Prelude.hashWithSalt` expectedBucketOwner
-      `Prelude.hashWithSalt` checksumCRC32
-      `Prelude.hashWithSalt` requestPayer
       `Prelude.hashWithSalt` checksumSHA256
-      `Prelude.hashWithSalt` sSECustomerAlgorithm
-      `Prelude.hashWithSalt` sSECustomerKeyMD5
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` multipartUpload
+      `Prelude.hashWithSalt` requestPayer
+      `Prelude.hashWithSalt` sSECustomerAlgorithm
       `Prelude.hashWithSalt` sSECustomerKey
+      `Prelude.hashWithSalt` sSECustomerKeyMD5
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` uploadId
 
 instance Prelude.NFData CompleteMultipartUpload where
   rnf CompleteMultipartUpload' {..} =
-    Prelude.rnf checksumCRC32C
+    Prelude.rnf checksumCRC32
+      `Prelude.seq` Prelude.rnf checksumCRC32C
       `Prelude.seq` Prelude.rnf checksumSHA1
-      `Prelude.seq` Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf checksumCRC32
-      `Prelude.seq` Prelude.rnf requestPayer
       `Prelude.seq` Prelude.rnf checksumSHA256
-      `Prelude.seq` Prelude.rnf sSECustomerAlgorithm
-      `Prelude.seq` Prelude.rnf sSECustomerKeyMD5
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
       `Prelude.seq` Prelude.rnf multipartUpload
+      `Prelude.seq` Prelude.rnf requestPayer
+      `Prelude.seq` Prelude.rnf sSECustomerAlgorithm
       `Prelude.seq` Prelude.rnf sSECustomerKey
+      `Prelude.seq` Prelude.rnf sSECustomerKeyMD5
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf key
       `Prelude.seq` Prelude.rnf uploadId
@@ -527,19 +527,19 @@ instance Data.ToElement CompleteMultipartUpload where
 instance Data.ToHeaders CompleteMultipartUpload where
   toHeaders CompleteMultipartUpload' {..} =
     Prelude.mconcat
-      [ "x-amz-checksum-crc32c" Data.=# checksumCRC32C,
+      [ "x-amz-checksum-crc32" Data.=# checksumCRC32,
+        "x-amz-checksum-crc32c" Data.=# checksumCRC32C,
         "x-amz-checksum-sha1" Data.=# checksumSHA1,
+        "x-amz-checksum-sha256" Data.=# checksumSHA256,
         "x-amz-expected-bucket-owner"
           Data.=# expectedBucketOwner,
-        "x-amz-checksum-crc32" Data.=# checksumCRC32,
         "x-amz-request-payer" Data.=# requestPayer,
-        "x-amz-checksum-sha256" Data.=# checksumSHA256,
         "x-amz-server-side-encryption-customer-algorithm"
           Data.=# sSECustomerAlgorithm,
-        "x-amz-server-side-encryption-customer-key-MD5"
-          Data.=# sSECustomerKeyMD5,
         "x-amz-server-side-encryption-customer-key"
-          Data.=# sSECustomerKey
+          Data.=# sSECustomerKey,
+        "x-amz-server-side-encryption-customer-key-MD5"
+          Data.=# sSECustomerKeyMD5
       ]
 
 instance Data.ToPath CompleteMultipartUpload where
@@ -553,36 +553,7 @@ instance Data.ToQuery CompleteMultipartUpload where
 
 -- | /See:/ 'newCompleteMultipartUploadResponse' smart constructor.
 data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse'
-  { -- | If you specified server-side encryption either with an Amazon S3-managed
-    -- encryption key or an Amazon Web Services KMS key in your initiate
-    -- multipart upload request, the response includes this header. It confirms
-    -- the encryption algorithm that Amazon S3 used to encrypt the object.
-    serverSideEncryption :: Prelude.Maybe ServerSideEncryption,
-    -- | The object key of the newly created object.
-    key :: Prelude.Maybe ObjectKey,
-    -- | The base64-encoded, 32-bit CRC32C checksum of the object. This will only
-    -- be present if it was uploaded with the object. With multipart uploads,
-    -- this may not be a checksum value of the object. For more information
-    -- about how checksums are calculated with multipart uploads, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
-    -- in the /Amazon S3 User Guide/.
-    checksumCRC32C :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether the multipart upload uses an S3 Bucket Key for
-    -- server-side encryption with Amazon Web Services KMS (SSE-KMS).
-    bucketKeyEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | If the object expiration is configured, this will contain the expiration
-    -- date (@expiry-date@) and rule ID (@rule-id@). The value of @rule-id@ is
-    -- URL-encoded.
-    expiration :: Prelude.Maybe Prelude.Text,
-    requestCharged :: Prelude.Maybe RequestCharged,
-    -- | The base64-encoded, 160-bit SHA-1 digest of the object. This will only
-    -- be present if it was uploaded with the object. With multipart uploads,
-    -- this may not be a checksum value of the object. For more information
-    -- about how checksums are calculated with multipart uploads, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
-    -- in the /Amazon S3 User Guide/.
-    checksumSHA1 :: Prelude.Maybe Prelude.Text,
-    -- | The name of the bucket that contains the newly created object. Does not
+  { -- | The name of the bucket that contains the newly created object. Does not
     -- return the access point ARN or access point alias if used.
     --
     -- When using this action with an access point, you must direct requests to
@@ -604,6 +575,9 @@ data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse'
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
     -- in the /Amazon S3 User Guide/.
     bucket :: Prelude.Maybe BucketName,
+    -- | Indicates whether the multipart upload uses an S3 Bucket Key for
+    -- server-side encryption with Amazon Web Services KMS (SSE-KMS).
+    bucketKeyEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The base64-encoded, 32-bit CRC32 checksum of the object. This will only
     -- be present if it was uploaded with the object. With multipart uploads,
     -- this may not be a checksum value of the object. For more information
@@ -611,10 +585,20 @@ data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse'
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
     -- in the /Amazon S3 User Guide/.
     checksumCRC32 :: Prelude.Maybe Prelude.Text,
-    -- | If present, specifies the ID of the Amazon Web Services Key Management
-    -- Service (Amazon Web Services KMS) symmetric customer managed key that
-    -- was used for the object.
-    sSEKMSKeyId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The base64-encoded, 32-bit CRC32C checksum of the object. This will only
+    -- be present if it was uploaded with the object. With multipart uploads,
+    -- this may not be a checksum value of the object. For more information
+    -- about how checksums are calculated with multipart uploads, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
+    -- in the /Amazon S3 User Guide/.
+    checksumCRC32C :: Prelude.Maybe Prelude.Text,
+    -- | The base64-encoded, 160-bit SHA-1 digest of the object. This will only
+    -- be present if it was uploaded with the object. With multipart uploads,
+    -- this may not be a checksum value of the object. For more information
+    -- about how checksums are calculated with multipart uploads, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
+    -- in the /Amazon S3 User Guide/.
+    checksumSHA1 :: Prelude.Maybe Prelude.Text,
     -- | The base64-encoded, 256-bit SHA-256 digest of the object. This will only
     -- be present if it was uploaded with the object. With multipart uploads,
     -- this may not be a checksum value of the object. For more information
@@ -622,8 +606,6 @@ data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse'
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
     -- in the /Amazon S3 User Guide/.
     checksumSHA256 :: Prelude.Maybe Prelude.Text,
-    -- | The URI that identifies the newly created object.
-    location :: Prelude.Maybe Prelude.Text,
     -- | Entity tag that identifies the newly created object\'s data. Objects
     -- with different object data will have different entity tags. The entity
     -- tag is an opaque string. The entity tag may or may not be an MD5 digest
@@ -634,6 +616,24 @@ data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse'
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
     -- in the /Amazon S3 User Guide/.
     eTag :: Prelude.Maybe ETag,
+    -- | If the object expiration is configured, this will contain the expiration
+    -- date (@expiry-date@) and rule ID (@rule-id@). The value of @rule-id@ is
+    -- URL-encoded.
+    expiration :: Prelude.Maybe Prelude.Text,
+    -- | The object key of the newly created object.
+    key :: Prelude.Maybe ObjectKey,
+    -- | The URI that identifies the newly created object.
+    location :: Prelude.Maybe Prelude.Text,
+    requestCharged :: Prelude.Maybe RequestCharged,
+    -- | If present, specifies the ID of the Amazon Web Services Key Management
+    -- Service (Amazon Web Services KMS) symmetric customer managed key that
+    -- was used for the object.
+    sSEKMSKeyId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | If you specified server-side encryption either with an Amazon S3-managed
+    -- encryption key or an Amazon Web Services KMS key in your initiate
+    -- multipart upload request, the response includes this header. It confirms
+    -- the encryption algorithm that Amazon S3 used to encrypt the object.
+    serverSideEncryption :: Prelude.Maybe ServerSideEncryption,
     -- | Version ID of the newly created object, in case the bucket has
     -- versioning turned on.
     versionId :: Prelude.Maybe ObjectVersionId,
@@ -649,36 +649,6 @@ data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'serverSideEncryption', 'completeMultipartUploadResponse_serverSideEncryption' - If you specified server-side encryption either with an Amazon S3-managed
--- encryption key or an Amazon Web Services KMS key in your initiate
--- multipart upload request, the response includes this header. It confirms
--- the encryption algorithm that Amazon S3 used to encrypt the object.
---
--- 'key', 'completeMultipartUploadResponse_key' - The object key of the newly created object.
---
--- 'checksumCRC32C', 'completeMultipartUploadResponse_checksumCRC32C' - The base64-encoded, 32-bit CRC32C checksum of the object. This will only
--- be present if it was uploaded with the object. With multipart uploads,
--- this may not be a checksum value of the object. For more information
--- about how checksums are calculated with multipart uploads, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
--- in the /Amazon S3 User Guide/.
---
--- 'bucketKeyEnabled', 'completeMultipartUploadResponse_bucketKeyEnabled' - Indicates whether the multipart upload uses an S3 Bucket Key for
--- server-side encryption with Amazon Web Services KMS (SSE-KMS).
---
--- 'expiration', 'completeMultipartUploadResponse_expiration' - If the object expiration is configured, this will contain the expiration
--- date (@expiry-date@) and rule ID (@rule-id@). The value of @rule-id@ is
--- URL-encoded.
---
--- 'requestCharged', 'completeMultipartUploadResponse_requestCharged' - Undocumented member.
---
--- 'checksumSHA1', 'completeMultipartUploadResponse_checksumSHA1' - The base64-encoded, 160-bit SHA-1 digest of the object. This will only
--- be present if it was uploaded with the object. With multipart uploads,
--- this may not be a checksum value of the object. For more information
--- about how checksums are calculated with multipart uploads, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
--- in the /Amazon S3 User Guide/.
 --
 -- 'bucket', 'completeMultipartUploadResponse_bucket' - The name of the bucket that contains the newly created object. Does not
 -- return the access point ARN or access point alias if used.
@@ -702,6 +672,9 @@ data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse'
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
 -- in the /Amazon S3 User Guide/.
 --
+-- 'bucketKeyEnabled', 'completeMultipartUploadResponse_bucketKeyEnabled' - Indicates whether the multipart upload uses an S3 Bucket Key for
+-- server-side encryption with Amazon Web Services KMS (SSE-KMS).
+--
 -- 'checksumCRC32', 'completeMultipartUploadResponse_checksumCRC32' - The base64-encoded, 32-bit CRC32 checksum of the object. This will only
 -- be present if it was uploaded with the object. With multipart uploads,
 -- this may not be a checksum value of the object. For more information
@@ -709,9 +682,19 @@ data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse'
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
 -- in the /Amazon S3 User Guide/.
 --
--- 'sSEKMSKeyId', 'completeMultipartUploadResponse_sSEKMSKeyId' - If present, specifies the ID of the Amazon Web Services Key Management
--- Service (Amazon Web Services KMS) symmetric customer managed key that
--- was used for the object.
+-- 'checksumCRC32C', 'completeMultipartUploadResponse_checksumCRC32C' - The base64-encoded, 32-bit CRC32C checksum of the object. This will only
+-- be present if it was uploaded with the object. With multipart uploads,
+-- this may not be a checksum value of the object. For more information
+-- about how checksums are calculated with multipart uploads, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+--
+-- 'checksumSHA1', 'completeMultipartUploadResponse_checksumSHA1' - The base64-encoded, 160-bit SHA-1 digest of the object. This will only
+-- be present if it was uploaded with the object. With multipart uploads,
+-- this may not be a checksum value of the object. For more information
+-- about how checksums are calculated with multipart uploads, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
+-- in the /Amazon S3 User Guide/.
 --
 -- 'checksumSHA256', 'completeMultipartUploadResponse_checksumSHA256' - The base64-encoded, 256-bit SHA-256 digest of the object. This will only
 -- be present if it was uploaded with the object. With multipart uploads,
@@ -719,8 +702,6 @@ data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse'
 -- about how checksums are calculated with multipart uploads, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
 -- in the /Amazon S3 User Guide/.
---
--- 'location', 'completeMultipartUploadResponse_location' - The URI that identifies the newly created object.
 --
 -- 'eTag', 'completeMultipartUploadResponse_eTag' - Entity tag that identifies the newly created object\'s data. Objects
 -- with different object data will have different entity tags. The entity
@@ -732,6 +713,25 @@ data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse'
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
 -- in the /Amazon S3 User Guide/.
 --
+-- 'expiration', 'completeMultipartUploadResponse_expiration' - If the object expiration is configured, this will contain the expiration
+-- date (@expiry-date@) and rule ID (@rule-id@). The value of @rule-id@ is
+-- URL-encoded.
+--
+-- 'key', 'completeMultipartUploadResponse_key' - The object key of the newly created object.
+--
+-- 'location', 'completeMultipartUploadResponse_location' - The URI that identifies the newly created object.
+--
+-- 'requestCharged', 'completeMultipartUploadResponse_requestCharged' - Undocumented member.
+--
+-- 'sSEKMSKeyId', 'completeMultipartUploadResponse_sSEKMSKeyId' - If present, specifies the ID of the Amazon Web Services Key Management
+-- Service (Amazon Web Services KMS) symmetric customer managed key that
+-- was used for the object.
+--
+-- 'serverSideEncryption', 'completeMultipartUploadResponse_serverSideEncryption' - If you specified server-side encryption either with an Amazon S3-managed
+-- encryption key or an Amazon Web Services KMS key in your initiate
+-- multipart upload request, the response includes this header. It confirms
+-- the encryption algorithm that Amazon S3 used to encrypt the object.
+--
 -- 'versionId', 'completeMultipartUploadResponse_versionId' - Version ID of the newly created object, in case the bucket has
 -- versioning turned on.
 --
@@ -742,67 +742,23 @@ newCompleteMultipartUploadResponse ::
   CompleteMultipartUploadResponse
 newCompleteMultipartUploadResponse pHttpStatus_ =
   CompleteMultipartUploadResponse'
-    { serverSideEncryption =
+    { bucket =
         Prelude.Nothing,
-      key = Prelude.Nothing,
-      checksumCRC32C = Prelude.Nothing,
       bucketKeyEnabled = Prelude.Nothing,
-      expiration = Prelude.Nothing,
-      requestCharged = Prelude.Nothing,
-      checksumSHA1 = Prelude.Nothing,
-      bucket = Prelude.Nothing,
       checksumCRC32 = Prelude.Nothing,
-      sSEKMSKeyId = Prelude.Nothing,
+      checksumCRC32C = Prelude.Nothing,
+      checksumSHA1 = Prelude.Nothing,
       checksumSHA256 = Prelude.Nothing,
-      location = Prelude.Nothing,
       eTag = Prelude.Nothing,
+      expiration = Prelude.Nothing,
+      key = Prelude.Nothing,
+      location = Prelude.Nothing,
+      requestCharged = Prelude.Nothing,
+      sSEKMSKeyId = Prelude.Nothing,
+      serverSideEncryption = Prelude.Nothing,
       versionId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | If you specified server-side encryption either with an Amazon S3-managed
--- encryption key or an Amazon Web Services KMS key in your initiate
--- multipart upload request, the response includes this header. It confirms
--- the encryption algorithm that Amazon S3 used to encrypt the object.
-completeMultipartUploadResponse_serverSideEncryption :: Lens.Lens' CompleteMultipartUploadResponse (Prelude.Maybe ServerSideEncryption)
-completeMultipartUploadResponse_serverSideEncryption = Lens.lens (\CompleteMultipartUploadResponse' {serverSideEncryption} -> serverSideEncryption) (\s@CompleteMultipartUploadResponse' {} a -> s {serverSideEncryption = a} :: CompleteMultipartUploadResponse)
-
--- | The object key of the newly created object.
-completeMultipartUploadResponse_key :: Lens.Lens' CompleteMultipartUploadResponse (Prelude.Maybe ObjectKey)
-completeMultipartUploadResponse_key = Lens.lens (\CompleteMultipartUploadResponse' {key} -> key) (\s@CompleteMultipartUploadResponse' {} a -> s {key = a} :: CompleteMultipartUploadResponse)
-
--- | The base64-encoded, 32-bit CRC32C checksum of the object. This will only
--- be present if it was uploaded with the object. With multipart uploads,
--- this may not be a checksum value of the object. For more information
--- about how checksums are calculated with multipart uploads, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
--- in the /Amazon S3 User Guide/.
-completeMultipartUploadResponse_checksumCRC32C :: Lens.Lens' CompleteMultipartUploadResponse (Prelude.Maybe Prelude.Text)
-completeMultipartUploadResponse_checksumCRC32C = Lens.lens (\CompleteMultipartUploadResponse' {checksumCRC32C} -> checksumCRC32C) (\s@CompleteMultipartUploadResponse' {} a -> s {checksumCRC32C = a} :: CompleteMultipartUploadResponse)
-
--- | Indicates whether the multipart upload uses an S3 Bucket Key for
--- server-side encryption with Amazon Web Services KMS (SSE-KMS).
-completeMultipartUploadResponse_bucketKeyEnabled :: Lens.Lens' CompleteMultipartUploadResponse (Prelude.Maybe Prelude.Bool)
-completeMultipartUploadResponse_bucketKeyEnabled = Lens.lens (\CompleteMultipartUploadResponse' {bucketKeyEnabled} -> bucketKeyEnabled) (\s@CompleteMultipartUploadResponse' {} a -> s {bucketKeyEnabled = a} :: CompleteMultipartUploadResponse)
-
--- | If the object expiration is configured, this will contain the expiration
--- date (@expiry-date@) and rule ID (@rule-id@). The value of @rule-id@ is
--- URL-encoded.
-completeMultipartUploadResponse_expiration :: Lens.Lens' CompleteMultipartUploadResponse (Prelude.Maybe Prelude.Text)
-completeMultipartUploadResponse_expiration = Lens.lens (\CompleteMultipartUploadResponse' {expiration} -> expiration) (\s@CompleteMultipartUploadResponse' {} a -> s {expiration = a} :: CompleteMultipartUploadResponse)
-
--- | Undocumented member.
-completeMultipartUploadResponse_requestCharged :: Lens.Lens' CompleteMultipartUploadResponse (Prelude.Maybe RequestCharged)
-completeMultipartUploadResponse_requestCharged = Lens.lens (\CompleteMultipartUploadResponse' {requestCharged} -> requestCharged) (\s@CompleteMultipartUploadResponse' {} a -> s {requestCharged = a} :: CompleteMultipartUploadResponse)
-
--- | The base64-encoded, 160-bit SHA-1 digest of the object. This will only
--- be present if it was uploaded with the object. With multipart uploads,
--- this may not be a checksum value of the object. For more information
--- about how checksums are calculated with multipart uploads, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
--- in the /Amazon S3 User Guide/.
-completeMultipartUploadResponse_checksumSHA1 :: Lens.Lens' CompleteMultipartUploadResponse (Prelude.Maybe Prelude.Text)
-completeMultipartUploadResponse_checksumSHA1 = Lens.lens (\CompleteMultipartUploadResponse' {checksumSHA1} -> checksumSHA1) (\s@CompleteMultipartUploadResponse' {} a -> s {checksumSHA1 = a} :: CompleteMultipartUploadResponse)
 
 -- | The name of the bucket that contains the newly created object. Does not
 -- return the access point ARN or access point alias if used.
@@ -828,6 +784,11 @@ completeMultipartUploadResponse_checksumSHA1 = Lens.lens (\CompleteMultipartUplo
 completeMultipartUploadResponse_bucket :: Lens.Lens' CompleteMultipartUploadResponse (Prelude.Maybe BucketName)
 completeMultipartUploadResponse_bucket = Lens.lens (\CompleteMultipartUploadResponse' {bucket} -> bucket) (\s@CompleteMultipartUploadResponse' {} a -> s {bucket = a} :: CompleteMultipartUploadResponse)
 
+-- | Indicates whether the multipart upload uses an S3 Bucket Key for
+-- server-side encryption with Amazon Web Services KMS (SSE-KMS).
+completeMultipartUploadResponse_bucketKeyEnabled :: Lens.Lens' CompleteMultipartUploadResponse (Prelude.Maybe Prelude.Bool)
+completeMultipartUploadResponse_bucketKeyEnabled = Lens.lens (\CompleteMultipartUploadResponse' {bucketKeyEnabled} -> bucketKeyEnabled) (\s@CompleteMultipartUploadResponse' {} a -> s {bucketKeyEnabled = a} :: CompleteMultipartUploadResponse)
+
 -- | The base64-encoded, 32-bit CRC32 checksum of the object. This will only
 -- be present if it was uploaded with the object. With multipart uploads,
 -- this may not be a checksum value of the object. For more information
@@ -837,11 +798,23 @@ completeMultipartUploadResponse_bucket = Lens.lens (\CompleteMultipartUploadResp
 completeMultipartUploadResponse_checksumCRC32 :: Lens.Lens' CompleteMultipartUploadResponse (Prelude.Maybe Prelude.Text)
 completeMultipartUploadResponse_checksumCRC32 = Lens.lens (\CompleteMultipartUploadResponse' {checksumCRC32} -> checksumCRC32) (\s@CompleteMultipartUploadResponse' {} a -> s {checksumCRC32 = a} :: CompleteMultipartUploadResponse)
 
--- | If present, specifies the ID of the Amazon Web Services Key Management
--- Service (Amazon Web Services KMS) symmetric customer managed key that
--- was used for the object.
-completeMultipartUploadResponse_sSEKMSKeyId :: Lens.Lens' CompleteMultipartUploadResponse (Prelude.Maybe Prelude.Text)
-completeMultipartUploadResponse_sSEKMSKeyId = Lens.lens (\CompleteMultipartUploadResponse' {sSEKMSKeyId} -> sSEKMSKeyId) (\s@CompleteMultipartUploadResponse' {} a -> s {sSEKMSKeyId = a} :: CompleteMultipartUploadResponse) Prelude.. Lens.mapping Data._Sensitive
+-- | The base64-encoded, 32-bit CRC32C checksum of the object. This will only
+-- be present if it was uploaded with the object. With multipart uploads,
+-- this may not be a checksum value of the object. For more information
+-- about how checksums are calculated with multipart uploads, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+completeMultipartUploadResponse_checksumCRC32C :: Lens.Lens' CompleteMultipartUploadResponse (Prelude.Maybe Prelude.Text)
+completeMultipartUploadResponse_checksumCRC32C = Lens.lens (\CompleteMultipartUploadResponse' {checksumCRC32C} -> checksumCRC32C) (\s@CompleteMultipartUploadResponse' {} a -> s {checksumCRC32C = a} :: CompleteMultipartUploadResponse)
+
+-- | The base64-encoded, 160-bit SHA-1 digest of the object. This will only
+-- be present if it was uploaded with the object. With multipart uploads,
+-- this may not be a checksum value of the object. For more information
+-- about how checksums are calculated with multipart uploads, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+completeMultipartUploadResponse_checksumSHA1 :: Lens.Lens' CompleteMultipartUploadResponse (Prelude.Maybe Prelude.Text)
+completeMultipartUploadResponse_checksumSHA1 = Lens.lens (\CompleteMultipartUploadResponse' {checksumSHA1} -> checksumSHA1) (\s@CompleteMultipartUploadResponse' {} a -> s {checksumSHA1 = a} :: CompleteMultipartUploadResponse)
 
 -- | The base64-encoded, 256-bit SHA-256 digest of the object. This will only
 -- be present if it was uploaded with the object. With multipart uploads,
@@ -851,10 +824,6 @@ completeMultipartUploadResponse_sSEKMSKeyId = Lens.lens (\CompleteMultipartUploa
 -- in the /Amazon S3 User Guide/.
 completeMultipartUploadResponse_checksumSHA256 :: Lens.Lens' CompleteMultipartUploadResponse (Prelude.Maybe Prelude.Text)
 completeMultipartUploadResponse_checksumSHA256 = Lens.lens (\CompleteMultipartUploadResponse' {checksumSHA256} -> checksumSHA256) (\s@CompleteMultipartUploadResponse' {} a -> s {checksumSHA256 = a} :: CompleteMultipartUploadResponse)
-
--- | The URI that identifies the newly created object.
-completeMultipartUploadResponse_location :: Lens.Lens' CompleteMultipartUploadResponse (Prelude.Maybe Prelude.Text)
-completeMultipartUploadResponse_location = Lens.lens (\CompleteMultipartUploadResponse' {location} -> location) (\s@CompleteMultipartUploadResponse' {} a -> s {location = a} :: CompleteMultipartUploadResponse)
 
 -- | Entity tag that identifies the newly created object\'s data. Objects
 -- with different object data will have different entity tags. The entity
@@ -867,6 +836,37 @@ completeMultipartUploadResponse_location = Lens.lens (\CompleteMultipartUploadRe
 -- in the /Amazon S3 User Guide/.
 completeMultipartUploadResponse_eTag :: Lens.Lens' CompleteMultipartUploadResponse (Prelude.Maybe ETag)
 completeMultipartUploadResponse_eTag = Lens.lens (\CompleteMultipartUploadResponse' {eTag} -> eTag) (\s@CompleteMultipartUploadResponse' {} a -> s {eTag = a} :: CompleteMultipartUploadResponse)
+
+-- | If the object expiration is configured, this will contain the expiration
+-- date (@expiry-date@) and rule ID (@rule-id@). The value of @rule-id@ is
+-- URL-encoded.
+completeMultipartUploadResponse_expiration :: Lens.Lens' CompleteMultipartUploadResponse (Prelude.Maybe Prelude.Text)
+completeMultipartUploadResponse_expiration = Lens.lens (\CompleteMultipartUploadResponse' {expiration} -> expiration) (\s@CompleteMultipartUploadResponse' {} a -> s {expiration = a} :: CompleteMultipartUploadResponse)
+
+-- | The object key of the newly created object.
+completeMultipartUploadResponse_key :: Lens.Lens' CompleteMultipartUploadResponse (Prelude.Maybe ObjectKey)
+completeMultipartUploadResponse_key = Lens.lens (\CompleteMultipartUploadResponse' {key} -> key) (\s@CompleteMultipartUploadResponse' {} a -> s {key = a} :: CompleteMultipartUploadResponse)
+
+-- | The URI that identifies the newly created object.
+completeMultipartUploadResponse_location :: Lens.Lens' CompleteMultipartUploadResponse (Prelude.Maybe Prelude.Text)
+completeMultipartUploadResponse_location = Lens.lens (\CompleteMultipartUploadResponse' {location} -> location) (\s@CompleteMultipartUploadResponse' {} a -> s {location = a} :: CompleteMultipartUploadResponse)
+
+-- | Undocumented member.
+completeMultipartUploadResponse_requestCharged :: Lens.Lens' CompleteMultipartUploadResponse (Prelude.Maybe RequestCharged)
+completeMultipartUploadResponse_requestCharged = Lens.lens (\CompleteMultipartUploadResponse' {requestCharged} -> requestCharged) (\s@CompleteMultipartUploadResponse' {} a -> s {requestCharged = a} :: CompleteMultipartUploadResponse)
+
+-- | If present, specifies the ID of the Amazon Web Services Key Management
+-- Service (Amazon Web Services KMS) symmetric customer managed key that
+-- was used for the object.
+completeMultipartUploadResponse_sSEKMSKeyId :: Lens.Lens' CompleteMultipartUploadResponse (Prelude.Maybe Prelude.Text)
+completeMultipartUploadResponse_sSEKMSKeyId = Lens.lens (\CompleteMultipartUploadResponse' {sSEKMSKeyId} -> sSEKMSKeyId) (\s@CompleteMultipartUploadResponse' {} a -> s {sSEKMSKeyId = a} :: CompleteMultipartUploadResponse) Prelude.. Lens.mapping Data._Sensitive
+
+-- | If you specified server-side encryption either with an Amazon S3-managed
+-- encryption key or an Amazon Web Services KMS key in your initiate
+-- multipart upload request, the response includes this header. It confirms
+-- the encryption algorithm that Amazon S3 used to encrypt the object.
+completeMultipartUploadResponse_serverSideEncryption :: Lens.Lens' CompleteMultipartUploadResponse (Prelude.Maybe ServerSideEncryption)
+completeMultipartUploadResponse_serverSideEncryption = Lens.lens (\CompleteMultipartUploadResponse' {serverSideEncryption} -> serverSideEncryption) (\s@CompleteMultipartUploadResponse' {} a -> s {serverSideEncryption = a} :: CompleteMultipartUploadResponse)
 
 -- | Version ID of the newly created object, in case the bucket has
 -- versioning turned on.
@@ -882,18 +882,18 @@ instance
     CompleteMultipartUploadResponse
   where
   rnf CompleteMultipartUploadResponse' {..} =
-    Prelude.rnf serverSideEncryption
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf checksumCRC32C
+    Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf bucketKeyEnabled
-      `Prelude.seq` Prelude.rnf expiration
-      `Prelude.seq` Prelude.rnf requestCharged
-      `Prelude.seq` Prelude.rnf checksumSHA1
-      `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf checksumCRC32
-      `Prelude.seq` Prelude.rnf sSEKMSKeyId
+      `Prelude.seq` Prelude.rnf checksumCRC32C
+      `Prelude.seq` Prelude.rnf checksumSHA1
       `Prelude.seq` Prelude.rnf checksumSHA256
-      `Prelude.seq` Prelude.rnf location
       `Prelude.seq` Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf expiration
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf requestCharged
+      `Prelude.seq` Prelude.rnf sSEKMSKeyId
+      `Prelude.seq` Prelude.rnf serverSideEncryption
       `Prelude.seq` Prelude.rnf versionId
       `Prelude.seq` Prelude.rnf httpStatus

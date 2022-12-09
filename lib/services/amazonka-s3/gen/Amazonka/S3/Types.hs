@@ -18,14 +18,14 @@ module Amazonka.S3.Types
     defaultService,
 
     -- * Errors
-    _ObjectNotInActiveTierError,
-    _NoSuchKey,
+    _BucketAlreadyExists,
+    _BucketAlreadyOwnedByYou,
     _InvalidObjectState,
     _NoSuchBucket,
-    _BucketAlreadyOwnedByYou,
-    _ObjectAlreadyInActiveTierError,
+    _NoSuchKey,
     _NoSuchUpload,
-    _BucketAlreadyExists,
+    _ObjectAlreadyInActiveTierError,
+    _ObjectNotInActiveTierError,
 
     -- * Re-exported Types
     module Amazonka.S3.Internal,
@@ -225,8 +225,8 @@ module Amazonka.S3.Types
     -- * AnalyticsAndOperator
     AnalyticsAndOperator (..),
     newAnalyticsAndOperator,
-    analyticsAndOperator_tags,
     analyticsAndOperator_prefix,
+    analyticsAndOperator_tags,
 
     -- * AnalyticsConfiguration
     AnalyticsConfiguration (..),
@@ -243,9 +243,9 @@ module Amazonka.S3.Types
     -- * AnalyticsFilter
     AnalyticsFilter (..),
     newAnalyticsFilter,
-    analyticsFilter_tag,
-    analyticsFilter_prefix,
     analyticsFilter_and,
+    analyticsFilter_prefix,
+    analyticsFilter_tag,
 
     -- * AnalyticsS3BucketDestination
     AnalyticsS3BucketDestination (..),
@@ -280,8 +280,8 @@ module Amazonka.S3.Types
     CORSRule (..),
     newCORSRule,
     cORSRule_allowedHeaders,
-    cORSRule_id,
     cORSRule_exposeHeaders,
+    cORSRule_id,
     cORSRule_maxAgeSeconds,
     cORSRule_allowedMethods,
     cORSRule_allowedOrigins,
@@ -289,29 +289,29 @@ module Amazonka.S3.Types
     -- * CSVInput
     CSVInput (..),
     newCSVInput,
-    cSVInput_quoteCharacter,
     cSVInput_allowQuotedRecordDelimiter,
     cSVInput_comments,
-    cSVInput_quoteEscapeCharacter,
     cSVInput_fieldDelimiter,
-    cSVInput_recordDelimiter,
     cSVInput_fileHeaderInfo,
+    cSVInput_quoteCharacter,
+    cSVInput_quoteEscapeCharacter,
+    cSVInput_recordDelimiter,
 
     -- * CSVOutput
     CSVOutput (..),
     newCSVOutput,
-    cSVOutput_quoteCharacter,
-    cSVOutput_quoteFields,
-    cSVOutput_quoteEscapeCharacter,
     cSVOutput_fieldDelimiter,
+    cSVOutput_quoteCharacter,
+    cSVOutput_quoteEscapeCharacter,
+    cSVOutput_quoteFields,
     cSVOutput_recordDelimiter,
 
     -- * Checksum
     Checksum (..),
     newChecksum,
+    checksum_checksumCRC32,
     checksum_checksumCRC32C,
     checksum_checksumSHA1,
-    checksum_checksumCRC32,
     checksum_checksumSHA256,
 
     -- * CommonPrefix
@@ -327,9 +327,9 @@ module Amazonka.S3.Types
     -- * CompletedPart
     CompletedPart (..),
     newCompletedPart,
+    completedPart_checksumCRC32,
     completedPart_checksumCRC32C,
     completedPart_checksumSHA1,
-    completedPart_checksumCRC32,
     completedPart_checksumSHA256,
     completedPart_partNumber,
     completedPart_eTag,
@@ -347,22 +347,22 @@ module Amazonka.S3.Types
     -- * CopyObjectResult
     CopyObjectResult (..),
     newCopyObjectResult,
+    copyObjectResult_checksumCRC32,
     copyObjectResult_checksumCRC32C,
     copyObjectResult_checksumSHA1,
-    copyObjectResult_checksumCRC32,
     copyObjectResult_checksumSHA256,
-    copyObjectResult_lastModified,
     copyObjectResult_eTag,
+    copyObjectResult_lastModified,
 
     -- * CopyPartResult
     CopyPartResult (..),
     newCopyPartResult,
+    copyPartResult_checksumCRC32,
     copyPartResult_checksumCRC32C,
     copyPartResult_checksumSHA1,
-    copyPartResult_checksumCRC32,
     copyPartResult_checksumSHA256,
-    copyPartResult_lastModified,
     copyPartResult_eTag,
+    copyPartResult_lastModified,
 
     -- * CreateBucketConfiguration
     CreateBucketConfiguration (..),
@@ -373,8 +373,8 @@ module Amazonka.S3.Types
     DefaultRetention (..),
     newDefaultRetention,
     defaultRetention_days,
-    defaultRetention_years,
     defaultRetention_mode,
+    defaultRetention_years,
 
     -- * Delete
     Delete (..),
@@ -385,10 +385,10 @@ module Amazonka.S3.Types
     -- * DeleteMarkerEntry
     DeleteMarkerEntry (..),
     newDeleteMarkerEntry,
-    deleteMarkerEntry_key,
     deleteMarkerEntry_isLatest,
-    deleteMarkerEntry_owner,
+    deleteMarkerEntry_key,
     deleteMarkerEntry_lastModified,
+    deleteMarkerEntry_owner,
     deleteMarkerEntry_versionId,
 
     -- * DeleteMarkerReplication
@@ -399,19 +399,19 @@ module Amazonka.S3.Types
     -- * DeletedObject
     DeletedObject (..),
     newDeletedObject,
-    deletedObject_key,
     deletedObject_deleteMarker,
     deletedObject_deleteMarkerVersionId,
+    deletedObject_key,
     deletedObject_versionId,
 
     -- * Destination
     Destination (..),
     newDestination,
-    destination_replicationTime,
-    destination_account,
-    destination_metrics,
-    destination_encryptionConfiguration,
     destination_accessControlTranslation,
+    destination_account,
+    destination_encryptionConfiguration,
+    destination_metrics,
+    destination_replicationTime,
     destination_storageClass,
     destination_bucket,
 
@@ -454,12 +454,12 @@ module Amazonka.S3.Types
     -- * GetObjectAttributesParts
     GetObjectAttributesParts (..),
     newGetObjectAttributesParts,
-    getObjectAttributesParts_parts,
-    getObjectAttributesParts_nextPartNumberMarker,
     getObjectAttributesParts_isTruncated,
-    getObjectAttributesParts_totalPartsCount,
     getObjectAttributesParts_maxParts,
+    getObjectAttributesParts_nextPartNumberMarker,
     getObjectAttributesParts_partNumberMarker,
+    getObjectAttributesParts_parts,
+    getObjectAttributesParts_totalPartsCount,
 
     -- * GlacierJobParameters
     GlacierJobParameters (..),
@@ -469,16 +469,16 @@ module Amazonka.S3.Types
     -- * Grant
     Grant (..),
     newGrant,
-    grant_permission,
     grant_grantee,
+    grant_permission,
 
     -- * Grantee
     Grantee (..),
     newGrantee,
     grantee_displayName,
-    grantee_uri,
-    grantee_id,
     grantee_emailAddress,
+    grantee_id,
+    grantee_uri,
     grantee_type,
 
     -- * IndexDocument
@@ -495,16 +495,16 @@ module Amazonka.S3.Types
     -- * InputSerialization
     InputSerialization (..),
     newInputSerialization,
-    inputSerialization_parquet,
+    inputSerialization_csv,
     inputSerialization_compressionType,
     inputSerialization_json,
-    inputSerialization_csv,
+    inputSerialization_parquet,
 
     -- * IntelligentTieringAndOperator
     IntelligentTieringAndOperator (..),
     newIntelligentTieringAndOperator,
-    intelligentTieringAndOperator_tags,
     intelligentTieringAndOperator_prefix,
+    intelligentTieringAndOperator_tags,
 
     -- * IntelligentTieringConfiguration
     IntelligentTieringConfiguration (..),
@@ -517,15 +517,15 @@ module Amazonka.S3.Types
     -- * IntelligentTieringFilter
     IntelligentTieringFilter (..),
     newIntelligentTieringFilter,
-    intelligentTieringFilter_tag,
-    intelligentTieringFilter_prefix,
     intelligentTieringFilter_and,
+    intelligentTieringFilter_prefix,
+    intelligentTieringFilter_tag,
 
     -- * InventoryConfiguration
     InventoryConfiguration (..),
     newInventoryConfiguration,
-    inventoryConfiguration_optionalFields,
     inventoryConfiguration_filter,
+    inventoryConfiguration_optionalFields,
     inventoryConfiguration_destination,
     inventoryConfiguration_isEnabled,
     inventoryConfiguration_id,
@@ -540,8 +540,8 @@ module Amazonka.S3.Types
     -- * InventoryEncryption
     InventoryEncryption (..),
     newInventoryEncryption,
-    inventoryEncryption_sses3,
     inventoryEncryption_ssekms,
+    inventoryEncryption_sses3,
 
     -- * InventoryFilter
     InventoryFilter (..),
@@ -575,47 +575,47 @@ module Amazonka.S3.Types
     -- * LambdaFunctionConfiguration
     LambdaFunctionConfiguration (..),
     newLambdaFunctionConfiguration,
-    lambdaFunctionConfiguration_id,
     lambdaFunctionConfiguration_filter,
+    lambdaFunctionConfiguration_id,
     lambdaFunctionConfiguration_lambdaFunctionArn,
     lambdaFunctionConfiguration_events,
 
     -- * LifecycleExpiration
     LifecycleExpiration (..),
     newLifecycleExpiration,
-    lifecycleExpiration_expiredObjectDeleteMarker,
     lifecycleExpiration_date,
     lifecycleExpiration_days,
+    lifecycleExpiration_expiredObjectDeleteMarker,
 
     -- * LifecycleRule
     LifecycleRule (..),
     newLifecycleRule,
-    lifecycleRule_transitions,
+    lifecycleRule_abortIncompleteMultipartUpload,
     lifecycleRule_expiration,
+    lifecycleRule_filter,
     lifecycleRule_id,
     lifecycleRule_noncurrentVersionExpiration,
-    lifecycleRule_filter,
     lifecycleRule_noncurrentVersionTransitions,
-    lifecycleRule_abortIncompleteMultipartUpload,
     lifecycleRule_prefix,
+    lifecycleRule_transitions,
     lifecycleRule_status,
 
     -- * LifecycleRuleAndOperator
     LifecycleRuleAndOperator (..),
     newLifecycleRuleAndOperator,
-    lifecycleRuleAndOperator_tags,
+    lifecycleRuleAndOperator_objectSizeGreaterThan,
     lifecycleRuleAndOperator_objectSizeLessThan,
     lifecycleRuleAndOperator_prefix,
-    lifecycleRuleAndOperator_objectSizeGreaterThan,
+    lifecycleRuleAndOperator_tags,
 
     -- * LifecycleRuleFilter
     LifecycleRuleFilter (..),
     newLifecycleRuleFilter,
-    lifecycleRuleFilter_objectSizeLessThan,
-    lifecycleRuleFilter_tag,
-    lifecycleRuleFilter_prefix,
     lifecycleRuleFilter_and,
     lifecycleRuleFilter_objectSizeGreaterThan,
+    lifecycleRuleFilter_objectSizeLessThan,
+    lifecycleRuleFilter_prefix,
+    lifecycleRuleFilter_tag,
 
     -- * LoggingEnabled
     LoggingEnabled (..),
@@ -639,9 +639,9 @@ module Amazonka.S3.Types
     -- * MetricsAndOperator
     MetricsAndOperator (..),
     newMetricsAndOperator,
-    metricsAndOperator_tags,
     metricsAndOperator_accessPointArn,
     metricsAndOperator_prefix,
+    metricsAndOperator_tags,
 
     -- * MetricsConfiguration
     MetricsConfiguration (..),
@@ -653,20 +653,20 @@ module Amazonka.S3.Types
     MetricsFilter (..),
     newMetricsFilter,
     metricsFilter_accessPointArn,
-    metricsFilter_tag,
-    metricsFilter_prefix,
     metricsFilter_and,
+    metricsFilter_prefix,
+    metricsFilter_tag,
 
     -- * MultipartUpload
     MultipartUpload (..),
     newMultipartUpload,
     multipartUpload_checksumAlgorithm,
-    multipartUpload_uploadId,
+    multipartUpload_initiated,
+    multipartUpload_initiator,
     multipartUpload_key,
     multipartUpload_owner,
     multipartUpload_storageClass,
-    multipartUpload_initiator,
-    multipartUpload_initiated,
+    multipartUpload_uploadId,
 
     -- * NoncurrentVersionExpiration
     NoncurrentVersionExpiration (..),
@@ -685,9 +685,9 @@ module Amazonka.S3.Types
     NotificationConfiguration (..),
     newNotificationConfiguration,
     notificationConfiguration_eventBridgeConfiguration,
+    notificationConfiguration_lambdaFunctionConfigurations,
     notificationConfiguration_queueConfigurations,
     notificationConfiguration_topicConfigurations,
-    notificationConfiguration_lambdaFunctionConfigurations,
 
     -- * NotificationConfigurationFilter
     NotificationConfigurationFilter (..),
@@ -736,24 +736,24 @@ module Amazonka.S3.Types
     -- * ObjectPart
     ObjectPart (..),
     newObjectPart,
+    objectPart_checksumCRC32,
     objectPart_checksumCRC32C,
     objectPart_checksumSHA1,
-    objectPart_checksumCRC32,
+    objectPart_checksumSHA256,
     objectPart_partNumber,
     objectPart_size,
-    objectPart_checksumSHA256,
 
     -- * ObjectVersion
     ObjectVersion (..),
     newObjectVersion,
     objectVersion_checksumAlgorithm,
-    objectVersion_key,
-    objectVersion_isLatest,
-    objectVersion_size,
-    objectVersion_owner,
-    objectVersion_lastModified,
-    objectVersion_storageClass,
     objectVersion_eTag,
+    objectVersion_isLatest,
+    objectVersion_key,
+    objectVersion_lastModified,
+    objectVersion_owner,
+    objectVersion_size,
+    objectVersion_storageClass,
     objectVersion_versionId,
 
     -- * OutputLocation
@@ -764,8 +764,8 @@ module Amazonka.S3.Types
     -- * OutputSerialization
     OutputSerialization (..),
     newOutputSerialization,
-    outputSerialization_json,
     outputSerialization_csv,
+    outputSerialization_json,
 
     -- * Owner
     Owner (..),
@@ -790,14 +790,14 @@ module Amazonka.S3.Types
     -- * Part
     Part (..),
     newPart,
+    part_checksumCRC32,
     part_checksumCRC32C,
     part_checksumSHA1,
-    part_checksumCRC32,
+    part_checksumSHA256,
+    part_eTag,
+    part_lastModified,
     part_partNumber,
     part_size,
-    part_checksumSHA256,
-    part_lastModified,
-    part_eTag,
 
     -- * PolicyStatus
     PolicyStatus (..),
@@ -807,9 +807,9 @@ module Amazonka.S3.Types
     -- * Progress
     Progress (..),
     newProgress,
-    progress_bytesScanned,
-    progress_bytesReturned,
     progress_bytesProcessed,
+    progress_bytesReturned,
+    progress_bytesScanned,
 
     -- * ProgressEvent
     ProgressEvent (..),
@@ -819,16 +819,16 @@ module Amazonka.S3.Types
     -- * PublicAccessBlockConfiguration
     PublicAccessBlockConfiguration (..),
     newPublicAccessBlockConfiguration,
-    publicAccessBlockConfiguration_restrictPublicBuckets,
-    publicAccessBlockConfiguration_ignorePublicAcls,
-    publicAccessBlockConfiguration_blockPublicPolicy,
     publicAccessBlockConfiguration_blockPublicAcls,
+    publicAccessBlockConfiguration_blockPublicPolicy,
+    publicAccessBlockConfiguration_ignorePublicAcls,
+    publicAccessBlockConfiguration_restrictPublicBuckets,
 
     -- * QueueConfiguration
     QueueConfiguration (..),
     newQueueConfiguration,
-    queueConfiguration_id,
     queueConfiguration_filter,
+    queueConfiguration_id,
     queueConfiguration_queueArn,
     queueConfiguration_events,
 
@@ -841,10 +841,10 @@ module Amazonka.S3.Types
     Redirect (..),
     newRedirect,
     redirect_hostName,
+    redirect_httpRedirectCode,
+    redirect_protocol,
     redirect_replaceKeyPrefixWith,
     redirect_replaceKeyWith,
-    redirect_protocol,
-    redirect_httpRedirectCode,
 
     -- * RedirectAllRequestsTo
     RedirectAllRequestsTo (..),
@@ -866,28 +866,28 @@ module Amazonka.S3.Types
     -- * ReplicationRule
     ReplicationRule (..),
     newReplicationRule,
-    replicationRule_sourceSelectionCriteria,
-    replicationRule_id,
+    replicationRule_deleteMarkerReplication,
     replicationRule_existingObjectReplication,
     replicationRule_filter,
-    replicationRule_priority,
+    replicationRule_id,
     replicationRule_prefix,
-    replicationRule_deleteMarkerReplication,
+    replicationRule_priority,
+    replicationRule_sourceSelectionCriteria,
     replicationRule_status,
     replicationRule_destination,
 
     -- * ReplicationRuleAndOperator
     ReplicationRuleAndOperator (..),
     newReplicationRuleAndOperator,
-    replicationRuleAndOperator_tags,
     replicationRuleAndOperator_prefix,
+    replicationRuleAndOperator_tags,
 
     -- * ReplicationRuleFilter
     ReplicationRuleFilter (..),
     newReplicationRuleFilter,
-    replicationRuleFilter_tag,
-    replicationRuleFilter_prefix,
     replicationRuleFilter_and,
+    replicationRuleFilter_prefix,
+    replicationRuleFilter_tag,
 
     -- * ReplicationTime
     ReplicationTime (..),
@@ -913,13 +913,13 @@ module Amazonka.S3.Types
     -- * RestoreRequest
     RestoreRequest (..),
     newRestoreRequest,
-    restoreRequest_glacierJobParameters,
-    restoreRequest_type,
     restoreRequest_days,
+    restoreRequest_description,
+    restoreRequest_glacierJobParameters,
     restoreRequest_outputLocation,
     restoreRequest_selectParameters,
-    restoreRequest_description,
     restoreRequest_tier,
+    restoreRequest_type,
 
     -- * RoutingRule
     RoutingRule (..),
@@ -936,10 +936,10 @@ module Amazonka.S3.Types
     S3Location (..),
     newS3Location,
     s3Location_accessControlList,
-    s3Location_tagging,
+    s3Location_cannedACL,
     s3Location_encryption,
     s3Location_storageClass,
-    s3Location_cannedACL,
+    s3Location_tagging,
     s3Location_userMetadata,
     s3Location_bucketName,
     s3Location_prefix,
@@ -947,9 +947,9 @@ module Amazonka.S3.Types
     -- * S3ServiceError
     S3ServiceError (..),
     newS3ServiceError,
+    s3ServiceError_code,
     s3ServiceError_key,
     s3ServiceError_message,
-    s3ServiceError_code,
     s3ServiceError_versionId,
 
     -- * SSEKMS
@@ -964,17 +964,17 @@ module Amazonka.S3.Types
     -- * ScanRange
     ScanRange (..),
     newScanRange,
-    scanRange_start,
     scanRange_end,
+    scanRange_start,
 
     -- * SelectObjectContentEventStream
     SelectObjectContentEventStream (..),
     newSelectObjectContentEventStream,
+    selectObjectContentEventStream_cont,
+    selectObjectContentEventStream_end,
     selectObjectContentEventStream_progress,
     selectObjectContentEventStream_records,
     selectObjectContentEventStream_stats,
-    selectObjectContentEventStream_end,
-    selectObjectContentEventStream_cont,
 
     -- * SelectParameters
     SelectParameters (..),
@@ -998,8 +998,8 @@ module Amazonka.S3.Types
     -- * ServerSideEncryptionRule
     ServerSideEncryptionRule (..),
     newServerSideEncryptionRule,
-    serverSideEncryptionRule_bucketKeyEnabled,
     serverSideEncryptionRule_applyServerSideEncryptionByDefault,
+    serverSideEncryptionRule_bucketKeyEnabled,
 
     -- * SourceSelectionCriteria
     SourceSelectionCriteria (..),
@@ -1015,9 +1015,9 @@ module Amazonka.S3.Types
     -- * Stats
     Stats (..),
     newStats,
-    stats_bytesScanned,
-    stats_bytesReturned,
     stats_bytesProcessed,
+    stats_bytesReturned,
+    stats_bytesScanned,
 
     -- * StatsEvent
     StatsEvent (..),
@@ -1049,8 +1049,8 @@ module Amazonka.S3.Types
     -- * TargetGrant
     TargetGrant (..),
     newTargetGrant,
-    targetGrant_permission,
     targetGrant_grantee,
+    targetGrant_permission,
 
     -- * Tiering
     Tiering (..),
@@ -1061,8 +1061,8 @@ module Amazonka.S3.Types
     -- * TopicConfiguration
     TopicConfiguration (..),
     newTopicConfiguration,
-    topicConfiguration_id,
     topicConfiguration_filter,
+    topicConfiguration_id,
     topicConfiguration_topicArn,
     topicConfiguration_events,
 
@@ -1082,10 +1082,10 @@ module Amazonka.S3.Types
     -- * WebsiteConfiguration
     WebsiteConfiguration (..),
     newWebsiteConfiguration,
-    websiteConfiguration_routingRules,
     websiteConfiguration_errorDocument,
-    websiteConfiguration_redirectAllRequestsTo,
     websiteConfiguration_indexDocument,
+    websiteConfiguration_redirectAllRequestsTo,
+    websiteConfiguration_routingRules,
   )
 where
 
@@ -1308,34 +1308,28 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
       | Lens.has
           ( Core.hasCode "BadDigest"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "contentmd5"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -1343,13 +1337,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -1363,20 +1361,30 @@ defaultService =
           )
           e =
         Prelude.Just "timeouts"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
--- | The source object of the COPY action is not in the active tier and is
--- only stored in Amazon S3 Glacier.
-_ObjectNotInActiveTierError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ObjectNotInActiveTierError =
+-- | The requested bucket name is not available. The bucket namespace is
+-- shared by all users of the system. Select a different name and try
+-- again.
+_BucketAlreadyExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BucketAlreadyExists =
   Core._MatchServiceError
     defaultService
-    "ObjectNotInActiveTierError"
+    "BucketAlreadyExists"
 
--- | The specified key does not exist.
-_NoSuchKey :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NoSuchKey =
-  Core._MatchServiceError defaultService "NoSuchKey"
+-- | The bucket you tried to create already exists, and you own it. Amazon S3
+-- returns this error in all Amazon Web Services Regions except in the
+-- North Virginia Region. For legacy compatibility, if you re-create an
+-- existing bucket that you already own in the North Virginia Region,
+-- Amazon S3 returns 200 OK and resets the bucket access control lists
+-- (ACLs).
+_BucketAlreadyOwnedByYou :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BucketAlreadyOwnedByYou =
+  Core._MatchServiceError
+    defaultService
+    "BucketAlreadyOwnedByYou"
 
 -- | Object is archived and inaccessible until restored.
 _InvalidObjectState :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1392,24 +1400,10 @@ _NoSuchBucket =
     defaultService
     "NoSuchBucket"
 
--- | The bucket you tried to create already exists, and you own it. Amazon S3
--- returns this error in all Amazon Web Services Regions except in the
--- North Virginia Region. For legacy compatibility, if you re-create an
--- existing bucket that you already own in the North Virginia Region,
--- Amazon S3 returns 200 OK and resets the bucket access control lists
--- (ACLs).
-_BucketAlreadyOwnedByYou :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_BucketAlreadyOwnedByYou =
-  Core._MatchServiceError
-    defaultService
-    "BucketAlreadyOwnedByYou"
-
--- | This action is not allowed against this storage tier.
-_ObjectAlreadyInActiveTierError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ObjectAlreadyInActiveTierError =
-  Core._MatchServiceError
-    defaultService
-    "ObjectAlreadyInActiveTierError"
+-- | The specified key does not exist.
+_NoSuchKey :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NoSuchKey =
+  Core._MatchServiceError defaultService "NoSuchKey"
 
 -- | The specified multipart upload does not exist.
 _NoSuchUpload :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1418,11 +1412,17 @@ _NoSuchUpload =
     defaultService
     "NoSuchUpload"
 
--- | The requested bucket name is not available. The bucket namespace is
--- shared by all users of the system. Select a different name and try
--- again.
-_BucketAlreadyExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_BucketAlreadyExists =
+-- | This action is not allowed against this storage tier.
+_ObjectAlreadyInActiveTierError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ObjectAlreadyInActiveTierError =
   Core._MatchServiceError
     defaultService
-    "BucketAlreadyExists"
+    "ObjectAlreadyInActiveTierError"
+
+-- | The source object of the COPY action is not in the active tier and is
+-- only stored in Amazon S3 Glacier.
+_ObjectNotInActiveTierError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ObjectNotInActiveTierError =
+  Core._MatchServiceError
+    defaultService
+    "ObjectNotInActiveTierError"

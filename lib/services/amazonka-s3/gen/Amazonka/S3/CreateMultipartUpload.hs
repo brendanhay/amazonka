@@ -248,34 +248,34 @@ module Amazonka.S3.CreateMultipartUpload
     newCreateMultipartUpload,
 
     -- * Request Lenses
-    createMultipartUpload_serverSideEncryption,
-    createMultipartUpload_checksumAlgorithm,
-    createMultipartUpload_objectLockMode,
-    createMultipartUpload_bucketKeyEnabled,
-    createMultipartUpload_websiteRedirectLocation,
-    createMultipartUpload_grantWriteACP,
-    createMultipartUpload_objectLockRetainUntilDate,
-    createMultipartUpload_grantFullControl,
     createMultipartUpload_acl,
-    createMultipartUpload_expectedBucketOwner,
-    createMultipartUpload_metadata,
-    createMultipartUpload_contentLanguage,
-    createMultipartUpload_sSEKMSKeyId,
-    createMultipartUpload_contentDisposition,
-    createMultipartUpload_objectLockLegalHoldStatus,
-    createMultipartUpload_requestPayer,
-    createMultipartUpload_sSEKMSEncryptionContext,
-    createMultipartUpload_grantRead,
-    createMultipartUpload_sSECustomerAlgorithm,
+    createMultipartUpload_bucketKeyEnabled,
     createMultipartUpload_cacheControl,
+    createMultipartUpload_checksumAlgorithm,
+    createMultipartUpload_contentDisposition,
     createMultipartUpload_contentEncoding,
-    createMultipartUpload_tagging,
-    createMultipartUpload_sSECustomerKeyMD5,
-    createMultipartUpload_expires,
-    createMultipartUpload_storageClass,
-    createMultipartUpload_grantReadACP,
+    createMultipartUpload_contentLanguage,
     createMultipartUpload_contentType,
+    createMultipartUpload_expectedBucketOwner,
+    createMultipartUpload_expires,
+    createMultipartUpload_grantFullControl,
+    createMultipartUpload_grantRead,
+    createMultipartUpload_grantReadACP,
+    createMultipartUpload_grantWriteACP,
+    createMultipartUpload_metadata,
+    createMultipartUpload_objectLockLegalHoldStatus,
+    createMultipartUpload_objectLockMode,
+    createMultipartUpload_objectLockRetainUntilDate,
+    createMultipartUpload_requestPayer,
+    createMultipartUpload_sSECustomerAlgorithm,
     createMultipartUpload_sSECustomerKey,
+    createMultipartUpload_sSECustomerKeyMD5,
+    createMultipartUpload_sSEKMSEncryptionContext,
+    createMultipartUpload_sSEKMSKeyId,
+    createMultipartUpload_serverSideEncryption,
+    createMultipartUpload_storageClass,
+    createMultipartUpload_tagging,
+    createMultipartUpload_websiteRedirectLocation,
     createMultipartUpload_bucket,
     createMultipartUpload_key,
 
@@ -284,18 +284,18 @@ module Amazonka.S3.CreateMultipartUpload
     newCreateMultipartUploadResponse,
 
     -- * Response Lenses
-    createMultipartUploadResponse_serverSideEncryption,
+    createMultipartUploadResponse_abortDate,
+    createMultipartUploadResponse_abortRuleId,
+    createMultipartUploadResponse_bucket,
+    createMultipartUploadResponse_bucketKeyEnabled,
     createMultipartUploadResponse_checksumAlgorithm,
     createMultipartUploadResponse_key,
-    createMultipartUploadResponse_bucketKeyEnabled,
     createMultipartUploadResponse_requestCharged,
-    createMultipartUploadResponse_bucket,
-    createMultipartUploadResponse_abortRuleId,
-    createMultipartUploadResponse_sSEKMSKeyId,
-    createMultipartUploadResponse_sSEKMSEncryptionContext,
-    createMultipartUploadResponse_abortDate,
     createMultipartUploadResponse_sSECustomerAlgorithm,
     createMultipartUploadResponse_sSECustomerKeyMD5,
+    createMultipartUploadResponse_sSEKMSEncryptionContext,
+    createMultipartUploadResponse_sSEKMSKeyId,
+    createMultipartUploadResponse_serverSideEncryption,
     createMultipartUploadResponse_httpStatus,
     createMultipartUploadResponse_uploadId,
   )
@@ -311,17 +311,10 @@ import Amazonka.S3.Types
 
 -- | /See:/ 'newCreateMultipartUpload' smart constructor.
 data CreateMultipartUpload = CreateMultipartUpload'
-  { -- | The server-side encryption algorithm used when storing this object in
-    -- Amazon S3 (for example, AES256, aws:kms).
-    serverSideEncryption :: Prelude.Maybe ServerSideEncryption,
-    -- | Indicates the algorithm you want Amazon S3 to use to create the checksum
-    -- for the object. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
-    -- in the /Amazon S3 User Guide/.
-    checksumAlgorithm :: Prelude.Maybe ChecksumAlgorithm,
-    -- | Specifies the Object Lock mode that you want to apply to the uploaded
-    -- object.
-    objectLockMode :: Prelude.Maybe ObjectLockMode,
+  { -- | The canned ACL to apply to the object.
+    --
+    -- This action is not supported by Amazon S3 on Outposts.
+    acl :: Prelude.Maybe ObjectCannedACL,
     -- | Specifies whether Amazon S3 should use an S3 Bucket Key for object
     -- encryption with server-side encryption using AWS KMS (SSE-KMS). Setting
     -- this header to @true@ causes Amazon S3 to use an S3 Bucket Key for
@@ -330,33 +323,73 @@ data CreateMultipartUpload = CreateMultipartUpload'
     -- Specifying this header with an object action doesn’t affect bucket-level
     -- settings for S3 Bucket Key.
     bucketKeyEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | If the bucket is configured as a website, redirects requests for this
-    -- object to another object in the same bucket or to an external URL.
-    -- Amazon S3 stores the value of this header in the object metadata.
-    websiteRedirectLocation :: Prelude.Maybe Prelude.Text,
-    -- | Allows grantee to write the ACL for the applicable object.
-    --
-    -- This action is not supported by Amazon S3 on Outposts.
-    grantWriteACP :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the date and time when you want the Object Lock to expire.
-    objectLockRetainUntilDate :: Prelude.Maybe Data.ISO8601,
+    -- | Specifies caching behavior along the request\/reply chain.
+    cacheControl :: Prelude.Maybe Prelude.Text,
+    -- | Indicates the algorithm you want Amazon S3 to use to create the checksum
+    -- for the object. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+    -- in the /Amazon S3 User Guide/.
+    checksumAlgorithm :: Prelude.Maybe ChecksumAlgorithm,
+    -- | Specifies presentational information for the object.
+    contentDisposition :: Prelude.Maybe Prelude.Text,
+    -- | Specifies what content encodings have been applied to the object and
+    -- thus what decoding mechanisms must be applied to obtain the media-type
+    -- referenced by the Content-Type header field.
+    contentEncoding :: Prelude.Maybe Prelude.Text,
+    -- | The language the content is in.
+    contentLanguage :: Prelude.Maybe Prelude.Text,
+    -- | A standard MIME type describing the format of the object data.
+    contentType :: Prelude.Maybe Prelude.Text,
+    -- | The account ID of the expected bucket owner. If the bucket is owned by a
+    -- different account, the request fails with the HTTP status code
+    -- @403 Forbidden@ (access denied).
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    -- | The date and time at which the object is no longer cacheable.
+    expires :: Prelude.Maybe Data.ISO8601,
     -- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the
     -- object.
     --
     -- This action is not supported by Amazon S3 on Outposts.
     grantFullControl :: Prelude.Maybe Prelude.Text,
-    -- | The canned ACL to apply to the object.
+    -- | Allows grantee to read the object data and its metadata.
     --
     -- This action is not supported by Amazon S3 on Outposts.
-    acl :: Prelude.Maybe ObjectCannedACL,
-    -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request fails with the HTTP status code
-    -- @403 Forbidden@ (access denied).
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    grantRead :: Prelude.Maybe Prelude.Text,
+    -- | Allows grantee to read the object ACL.
+    --
+    -- This action is not supported by Amazon S3 on Outposts.
+    grantReadACP :: Prelude.Maybe Prelude.Text,
+    -- | Allows grantee to write the ACL for the applicable object.
+    --
+    -- This action is not supported by Amazon S3 on Outposts.
+    grantWriteACP :: Prelude.Maybe Prelude.Text,
     -- | A map of metadata to store with the object in S3.
     metadata :: Prelude.HashMap Prelude.Text Prelude.Text,
-    -- | The language the content is in.
-    contentLanguage :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether you want to apply a legal hold to the uploaded object.
+    objectLockLegalHoldStatus :: Prelude.Maybe ObjectLockLegalHoldStatus,
+    -- | Specifies the Object Lock mode that you want to apply to the uploaded
+    -- object.
+    objectLockMode :: Prelude.Maybe ObjectLockMode,
+    -- | Specifies the date and time when you want the Object Lock to expire.
+    objectLockRetainUntilDate :: Prelude.Maybe Data.ISO8601,
+    requestPayer :: Prelude.Maybe RequestPayer,
+    -- | Specifies the algorithm to use to when encrypting the object (for
+    -- example, AES256).
+    sSECustomerAlgorithm :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the customer-provided encryption key for Amazon S3 to use in
+    -- encrypting data. This value is used to store the object and then it is
+    -- discarded; Amazon S3 does not store the encryption key. The key must be
+    -- appropriate for use with the algorithm specified in the
+    -- @x-amz-server-side-encryption-customer-algorithm@ header.
+    sSECustomerKey :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
+    -- 1321. Amazon S3 uses this header for a message integrity check to ensure
+    -- that the encryption key was transmitted without error.
+    sSECustomerKeyMD5 :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the Amazon Web Services KMS Encryption Context to use for
+    -- object encryption. The value of this header is a base64-encoded UTF-8
+    -- string holding JSON with the encryption context key-value pairs.
+    sSEKMSEncryptionContext :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Specifies the ID of the symmetric customer managed key to use for object
     -- encryption. All GET and PUT requests for an object protected by Amazon
     -- Web Services KMS will fail if not made via SSL or using SigV4. For
@@ -365,37 +398,9 @@ data CreateMultipartUpload = CreateMultipartUpload'
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version Specifying the Signature Version in Request Authentication>
     -- in the /Amazon S3 User Guide/.
     sSEKMSKeyId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | Specifies presentational information for the object.
-    contentDisposition :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether you want to apply a legal hold to the uploaded object.
-    objectLockLegalHoldStatus :: Prelude.Maybe ObjectLockLegalHoldStatus,
-    requestPayer :: Prelude.Maybe RequestPayer,
-    -- | Specifies the Amazon Web Services KMS Encryption Context to use for
-    -- object encryption. The value of this header is a base64-encoded UTF-8
-    -- string holding JSON with the encryption context key-value pairs.
-    sSEKMSEncryptionContext :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | Allows grantee to read the object data and its metadata.
-    --
-    -- This action is not supported by Amazon S3 on Outposts.
-    grantRead :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the algorithm to use to when encrypting the object (for
-    -- example, AES256).
-    sSECustomerAlgorithm :: Prelude.Maybe Prelude.Text,
-    -- | Specifies caching behavior along the request\/reply chain.
-    cacheControl :: Prelude.Maybe Prelude.Text,
-    -- | Specifies what content encodings have been applied to the object and
-    -- thus what decoding mechanisms must be applied to obtain the media-type
-    -- referenced by the Content-Type header field.
-    contentEncoding :: Prelude.Maybe Prelude.Text,
-    -- | The tag-set for the object. The tag-set must be encoded as URL Query
-    -- parameters.
-    tagging :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
-    -- 1321. Amazon S3 uses this header for a message integrity check to ensure
-    -- that the encryption key was transmitted without error.
-    sSECustomerKeyMD5 :: Prelude.Maybe Prelude.Text,
-    -- | The date and time at which the object is no longer cacheable.
-    expires :: Prelude.Maybe Data.ISO8601,
+    -- | The server-side encryption algorithm used when storing this object in
+    -- Amazon S3 (for example, AES256, aws:kms).
+    serverSideEncryption :: Prelude.Maybe ServerSideEncryption,
     -- | By default, Amazon S3 uses the STANDARD Storage Class to store newly
     -- created objects. The STANDARD storage class provides high durability and
     -- high availability. Depending on performance needs, you can specify a
@@ -404,18 +409,13 @@ data CreateMultipartUpload = CreateMultipartUpload'
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html Storage Classes>
     -- in the /Amazon S3 User Guide/.
     storageClass :: Prelude.Maybe StorageClass,
-    -- | Allows grantee to read the object ACL.
-    --
-    -- This action is not supported by Amazon S3 on Outposts.
-    grantReadACP :: Prelude.Maybe Prelude.Text,
-    -- | A standard MIME type describing the format of the object data.
-    contentType :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the customer-provided encryption key for Amazon S3 to use in
-    -- encrypting data. This value is used to store the object and then it is
-    -- discarded; Amazon S3 does not store the encryption key. The key must be
-    -- appropriate for use with the algorithm specified in the
-    -- @x-amz-server-side-encryption-customer-algorithm@ header.
-    sSECustomerKey :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The tag-set for the object. The tag-set must be encoded as URL Query
+    -- parameters.
+    tagging :: Prelude.Maybe Prelude.Text,
+    -- | If the bucket is configured as a website, redirects requests for this
+    -- object to another object in the same bucket or to an external URL.
+    -- Amazon S3 stores the value of this header in the object metadata.
+    websiteRedirectLocation :: Prelude.Maybe Prelude.Text,
     -- | The name of the bucket to which to initiate the upload
     --
     -- When using this action with an access point, you must direct requests to
@@ -450,16 +450,9 @@ data CreateMultipartUpload = CreateMultipartUpload'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serverSideEncryption', 'createMultipartUpload_serverSideEncryption' - The server-side encryption algorithm used when storing this object in
--- Amazon S3 (for example, AES256, aws:kms).
+-- 'acl', 'createMultipartUpload_acl' - The canned ACL to apply to the object.
 --
--- 'checksumAlgorithm', 'createMultipartUpload_checksumAlgorithm' - Indicates the algorithm you want Amazon S3 to use to create the checksum
--- for the object. For more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
--- in the /Amazon S3 User Guide/.
---
--- 'objectLockMode', 'createMultipartUpload_objectLockMode' - Specifies the Object Lock mode that you want to apply to the uploaded
--- object.
+-- This action is not supported by Amazon S3 on Outposts.
 --
 -- 'bucketKeyEnabled', 'createMultipartUpload_bucketKeyEnabled' - Specifies whether Amazon S3 should use an S3 Bucket Key for object
 -- encryption with server-side encryption using AWS KMS (SSE-KMS). Setting
@@ -469,32 +462,73 @@ data CreateMultipartUpload = CreateMultipartUpload'
 -- Specifying this header with an object action doesn’t affect bucket-level
 -- settings for S3 Bucket Key.
 --
--- 'websiteRedirectLocation', 'createMultipartUpload_websiteRedirectLocation' - If the bucket is configured as a website, redirects requests for this
--- object to another object in the same bucket or to an external URL.
--- Amazon S3 stores the value of this header in the object metadata.
+-- 'cacheControl', 'createMultipartUpload_cacheControl' - Specifies caching behavior along the request\/reply chain.
 --
--- 'grantWriteACP', 'createMultipartUpload_grantWriteACP' - Allows grantee to write the ACL for the applicable object.
+-- 'checksumAlgorithm', 'createMultipartUpload_checksumAlgorithm' - Indicates the algorithm you want Amazon S3 to use to create the checksum
+-- for the object. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+-- in the /Amazon S3 User Guide/.
 --
--- This action is not supported by Amazon S3 on Outposts.
+-- 'contentDisposition', 'createMultipartUpload_contentDisposition' - Specifies presentational information for the object.
 --
--- 'objectLockRetainUntilDate', 'createMultipartUpload_objectLockRetainUntilDate' - Specifies the date and time when you want the Object Lock to expire.
+-- 'contentEncoding', 'createMultipartUpload_contentEncoding' - Specifies what content encodings have been applied to the object and
+-- thus what decoding mechanisms must be applied to obtain the media-type
+-- referenced by the Content-Type header field.
+--
+-- 'contentLanguage', 'createMultipartUpload_contentLanguage' - The language the content is in.
+--
+-- 'contentType', 'createMultipartUpload_contentType' - A standard MIME type describing the format of the object data.
+--
+-- 'expectedBucketOwner', 'createMultipartUpload_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
+--
+-- 'expires', 'createMultipartUpload_expires' - The date and time at which the object is no longer cacheable.
 --
 -- 'grantFullControl', 'createMultipartUpload_grantFullControl' - Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the
 -- object.
 --
 -- This action is not supported by Amazon S3 on Outposts.
 --
--- 'acl', 'createMultipartUpload_acl' - The canned ACL to apply to the object.
+-- 'grantRead', 'createMultipartUpload_grantRead' - Allows grantee to read the object data and its metadata.
 --
 -- This action is not supported by Amazon S3 on Outposts.
 --
--- 'expectedBucketOwner', 'createMultipartUpload_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request fails with the HTTP status code
--- @403 Forbidden@ (access denied).
+-- 'grantReadACP', 'createMultipartUpload_grantReadACP' - Allows grantee to read the object ACL.
+--
+-- This action is not supported by Amazon S3 on Outposts.
+--
+-- 'grantWriteACP', 'createMultipartUpload_grantWriteACP' - Allows grantee to write the ACL for the applicable object.
+--
+-- This action is not supported by Amazon S3 on Outposts.
 --
 -- 'metadata', 'createMultipartUpload_metadata' - A map of metadata to store with the object in S3.
 --
--- 'contentLanguage', 'createMultipartUpload_contentLanguage' - The language the content is in.
+-- 'objectLockLegalHoldStatus', 'createMultipartUpload_objectLockLegalHoldStatus' - Specifies whether you want to apply a legal hold to the uploaded object.
+--
+-- 'objectLockMode', 'createMultipartUpload_objectLockMode' - Specifies the Object Lock mode that you want to apply to the uploaded
+-- object.
+--
+-- 'objectLockRetainUntilDate', 'createMultipartUpload_objectLockRetainUntilDate' - Specifies the date and time when you want the Object Lock to expire.
+--
+-- 'requestPayer', 'createMultipartUpload_requestPayer' - Undocumented member.
+--
+-- 'sSECustomerAlgorithm', 'createMultipartUpload_sSECustomerAlgorithm' - Specifies the algorithm to use to when encrypting the object (for
+-- example, AES256).
+--
+-- 'sSECustomerKey', 'createMultipartUpload_sSECustomerKey' - Specifies the customer-provided encryption key for Amazon S3 to use in
+-- encrypting data. This value is used to store the object and then it is
+-- discarded; Amazon S3 does not store the encryption key. The key must be
+-- appropriate for use with the algorithm specified in the
+-- @x-amz-server-side-encryption-customer-algorithm@ header.
+--
+-- 'sSECustomerKeyMD5', 'createMultipartUpload_sSECustomerKeyMD5' - Specifies the 128-bit MD5 digest of the encryption key according to RFC
+-- 1321. Amazon S3 uses this header for a message integrity check to ensure
+-- that the encryption key was transmitted without error.
+--
+-- 'sSEKMSEncryptionContext', 'createMultipartUpload_sSEKMSEncryptionContext' - Specifies the Amazon Web Services KMS Encryption Context to use for
+-- object encryption. The value of this header is a base64-encoded UTF-8
+-- string holding JSON with the encryption context key-value pairs.
 --
 -- 'sSEKMSKeyId', 'createMultipartUpload_sSEKMSKeyId' - Specifies the ID of the symmetric customer managed key to use for object
 -- encryption. All GET and PUT requests for an object protected by Amazon
@@ -504,37 +538,8 @@ data CreateMultipartUpload = CreateMultipartUpload'
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version Specifying the Signature Version in Request Authentication>
 -- in the /Amazon S3 User Guide/.
 --
--- 'contentDisposition', 'createMultipartUpload_contentDisposition' - Specifies presentational information for the object.
---
--- 'objectLockLegalHoldStatus', 'createMultipartUpload_objectLockLegalHoldStatus' - Specifies whether you want to apply a legal hold to the uploaded object.
---
--- 'requestPayer', 'createMultipartUpload_requestPayer' - Undocumented member.
---
--- 'sSEKMSEncryptionContext', 'createMultipartUpload_sSEKMSEncryptionContext' - Specifies the Amazon Web Services KMS Encryption Context to use for
--- object encryption. The value of this header is a base64-encoded UTF-8
--- string holding JSON with the encryption context key-value pairs.
---
--- 'grantRead', 'createMultipartUpload_grantRead' - Allows grantee to read the object data and its metadata.
---
--- This action is not supported by Amazon S3 on Outposts.
---
--- 'sSECustomerAlgorithm', 'createMultipartUpload_sSECustomerAlgorithm' - Specifies the algorithm to use to when encrypting the object (for
--- example, AES256).
---
--- 'cacheControl', 'createMultipartUpload_cacheControl' - Specifies caching behavior along the request\/reply chain.
---
--- 'contentEncoding', 'createMultipartUpload_contentEncoding' - Specifies what content encodings have been applied to the object and
--- thus what decoding mechanisms must be applied to obtain the media-type
--- referenced by the Content-Type header field.
---
--- 'tagging', 'createMultipartUpload_tagging' - The tag-set for the object. The tag-set must be encoded as URL Query
--- parameters.
---
--- 'sSECustomerKeyMD5', 'createMultipartUpload_sSECustomerKeyMD5' - Specifies the 128-bit MD5 digest of the encryption key according to RFC
--- 1321. Amazon S3 uses this header for a message integrity check to ensure
--- that the encryption key was transmitted without error.
---
--- 'expires', 'createMultipartUpload_expires' - The date and time at which the object is no longer cacheable.
+-- 'serverSideEncryption', 'createMultipartUpload_serverSideEncryption' - The server-side encryption algorithm used when storing this object in
+-- Amazon S3 (for example, AES256, aws:kms).
 --
 -- 'storageClass', 'createMultipartUpload_storageClass' - By default, Amazon S3 uses the STANDARD Storage Class to store newly
 -- created objects. The STANDARD storage class provides high durability and
@@ -544,17 +549,12 @@ data CreateMultipartUpload = CreateMultipartUpload'
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html Storage Classes>
 -- in the /Amazon S3 User Guide/.
 --
--- 'grantReadACP', 'createMultipartUpload_grantReadACP' - Allows grantee to read the object ACL.
+-- 'tagging', 'createMultipartUpload_tagging' - The tag-set for the object. The tag-set must be encoded as URL Query
+-- parameters.
 --
--- This action is not supported by Amazon S3 on Outposts.
---
--- 'contentType', 'createMultipartUpload_contentType' - A standard MIME type describing the format of the object data.
---
--- 'sSECustomerKey', 'createMultipartUpload_sSECustomerKey' - Specifies the customer-provided encryption key for Amazon S3 to use in
--- encrypting data. This value is used to store the object and then it is
--- discarded; Amazon S3 does not store the encryption key. The key must be
--- appropriate for use with the algorithm specified in the
--- @x-amz-server-side-encryption-customer-algorithm@ header.
+-- 'websiteRedirectLocation', 'createMultipartUpload_websiteRedirectLocation' - If the bucket is configured as a website, redirects requests for this
+-- object to another object in the same bucket or to an external URL.
+-- Amazon S3 stores the value of this header in the object metadata.
 --
 -- 'bucket', 'createMultipartUpload_bucket' - The name of the bucket to which to initiate the upload
 --
@@ -586,55 +586,43 @@ newCreateMultipartUpload ::
   CreateMultipartUpload
 newCreateMultipartUpload pBucket_ pKey_ =
   CreateMultipartUpload'
-    { serverSideEncryption =
-        Prelude.Nothing,
-      checksumAlgorithm = Prelude.Nothing,
-      objectLockMode = Prelude.Nothing,
+    { acl = Prelude.Nothing,
       bucketKeyEnabled = Prelude.Nothing,
-      websiteRedirectLocation = Prelude.Nothing,
-      grantWriteACP = Prelude.Nothing,
-      objectLockRetainUntilDate = Prelude.Nothing,
-      grantFullControl = Prelude.Nothing,
-      acl = Prelude.Nothing,
-      expectedBucketOwner = Prelude.Nothing,
-      metadata = Prelude.mempty,
-      contentLanguage = Prelude.Nothing,
-      sSEKMSKeyId = Prelude.Nothing,
-      contentDisposition = Prelude.Nothing,
-      objectLockLegalHoldStatus = Prelude.Nothing,
-      requestPayer = Prelude.Nothing,
-      sSEKMSEncryptionContext = Prelude.Nothing,
-      grantRead = Prelude.Nothing,
-      sSECustomerAlgorithm = Prelude.Nothing,
       cacheControl = Prelude.Nothing,
+      checksumAlgorithm = Prelude.Nothing,
+      contentDisposition = Prelude.Nothing,
       contentEncoding = Prelude.Nothing,
-      tagging = Prelude.Nothing,
-      sSECustomerKeyMD5 = Prelude.Nothing,
-      expires = Prelude.Nothing,
-      storageClass = Prelude.Nothing,
-      grantReadACP = Prelude.Nothing,
+      contentLanguage = Prelude.Nothing,
       contentType = Prelude.Nothing,
+      expectedBucketOwner = Prelude.Nothing,
+      expires = Prelude.Nothing,
+      grantFullControl = Prelude.Nothing,
+      grantRead = Prelude.Nothing,
+      grantReadACP = Prelude.Nothing,
+      grantWriteACP = Prelude.Nothing,
+      metadata = Prelude.mempty,
+      objectLockLegalHoldStatus = Prelude.Nothing,
+      objectLockMode = Prelude.Nothing,
+      objectLockRetainUntilDate = Prelude.Nothing,
+      requestPayer = Prelude.Nothing,
+      sSECustomerAlgorithm = Prelude.Nothing,
       sSECustomerKey = Prelude.Nothing,
+      sSECustomerKeyMD5 = Prelude.Nothing,
+      sSEKMSEncryptionContext = Prelude.Nothing,
+      sSEKMSKeyId = Prelude.Nothing,
+      serverSideEncryption = Prelude.Nothing,
+      storageClass = Prelude.Nothing,
+      tagging = Prelude.Nothing,
+      websiteRedirectLocation = Prelude.Nothing,
       bucket = pBucket_,
       key = pKey_
     }
 
--- | The server-side encryption algorithm used when storing this object in
--- Amazon S3 (for example, AES256, aws:kms).
-createMultipartUpload_serverSideEncryption :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe ServerSideEncryption)
-createMultipartUpload_serverSideEncryption = Lens.lens (\CreateMultipartUpload' {serverSideEncryption} -> serverSideEncryption) (\s@CreateMultipartUpload' {} a -> s {serverSideEncryption = a} :: CreateMultipartUpload)
-
--- | Indicates the algorithm you want Amazon S3 to use to create the checksum
--- for the object. For more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
--- in the /Amazon S3 User Guide/.
-createMultipartUpload_checksumAlgorithm :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe ChecksumAlgorithm)
-createMultipartUpload_checksumAlgorithm = Lens.lens (\CreateMultipartUpload' {checksumAlgorithm} -> checksumAlgorithm) (\s@CreateMultipartUpload' {} a -> s {checksumAlgorithm = a} :: CreateMultipartUpload)
-
--- | Specifies the Object Lock mode that you want to apply to the uploaded
--- object.
-createMultipartUpload_objectLockMode :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe ObjectLockMode)
-createMultipartUpload_objectLockMode = Lens.lens (\CreateMultipartUpload' {objectLockMode} -> objectLockMode) (\s@CreateMultipartUpload' {} a -> s {objectLockMode = a} :: CreateMultipartUpload)
+-- | The canned ACL to apply to the object.
+--
+-- This action is not supported by Amazon S3 on Outposts.
+createMultipartUpload_acl :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe ObjectCannedACL)
+createMultipartUpload_acl = Lens.lens (\CreateMultipartUpload' {acl} -> acl) (\s@CreateMultipartUpload' {} a -> s {acl = a} :: CreateMultipartUpload)
 
 -- | Specifies whether Amazon S3 should use an S3 Bucket Key for object
 -- encryption with server-side encryption using AWS KMS (SSE-KMS). Setting
@@ -646,21 +634,44 @@ createMultipartUpload_objectLockMode = Lens.lens (\CreateMultipartUpload' {objec
 createMultipartUpload_bucketKeyEnabled :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe Prelude.Bool)
 createMultipartUpload_bucketKeyEnabled = Lens.lens (\CreateMultipartUpload' {bucketKeyEnabled} -> bucketKeyEnabled) (\s@CreateMultipartUpload' {} a -> s {bucketKeyEnabled = a} :: CreateMultipartUpload)
 
--- | If the bucket is configured as a website, redirects requests for this
--- object to another object in the same bucket or to an external URL.
--- Amazon S3 stores the value of this header in the object metadata.
-createMultipartUpload_websiteRedirectLocation :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe Prelude.Text)
-createMultipartUpload_websiteRedirectLocation = Lens.lens (\CreateMultipartUpload' {websiteRedirectLocation} -> websiteRedirectLocation) (\s@CreateMultipartUpload' {} a -> s {websiteRedirectLocation = a} :: CreateMultipartUpload)
+-- | Specifies caching behavior along the request\/reply chain.
+createMultipartUpload_cacheControl :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe Prelude.Text)
+createMultipartUpload_cacheControl = Lens.lens (\CreateMultipartUpload' {cacheControl} -> cacheControl) (\s@CreateMultipartUpload' {} a -> s {cacheControl = a} :: CreateMultipartUpload)
 
--- | Allows grantee to write the ACL for the applicable object.
---
--- This action is not supported by Amazon S3 on Outposts.
-createMultipartUpload_grantWriteACP :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe Prelude.Text)
-createMultipartUpload_grantWriteACP = Lens.lens (\CreateMultipartUpload' {grantWriteACP} -> grantWriteACP) (\s@CreateMultipartUpload' {} a -> s {grantWriteACP = a} :: CreateMultipartUpload)
+-- | Indicates the algorithm you want Amazon S3 to use to create the checksum
+-- for the object. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+createMultipartUpload_checksumAlgorithm :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe ChecksumAlgorithm)
+createMultipartUpload_checksumAlgorithm = Lens.lens (\CreateMultipartUpload' {checksumAlgorithm} -> checksumAlgorithm) (\s@CreateMultipartUpload' {} a -> s {checksumAlgorithm = a} :: CreateMultipartUpload)
 
--- | Specifies the date and time when you want the Object Lock to expire.
-createMultipartUpload_objectLockRetainUntilDate :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe Prelude.UTCTime)
-createMultipartUpload_objectLockRetainUntilDate = Lens.lens (\CreateMultipartUpload' {objectLockRetainUntilDate} -> objectLockRetainUntilDate) (\s@CreateMultipartUpload' {} a -> s {objectLockRetainUntilDate = a} :: CreateMultipartUpload) Prelude.. Lens.mapping Data._Time
+-- | Specifies presentational information for the object.
+createMultipartUpload_contentDisposition :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe Prelude.Text)
+createMultipartUpload_contentDisposition = Lens.lens (\CreateMultipartUpload' {contentDisposition} -> contentDisposition) (\s@CreateMultipartUpload' {} a -> s {contentDisposition = a} :: CreateMultipartUpload)
+
+-- | Specifies what content encodings have been applied to the object and
+-- thus what decoding mechanisms must be applied to obtain the media-type
+-- referenced by the Content-Type header field.
+createMultipartUpload_contentEncoding :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe Prelude.Text)
+createMultipartUpload_contentEncoding = Lens.lens (\CreateMultipartUpload' {contentEncoding} -> contentEncoding) (\s@CreateMultipartUpload' {} a -> s {contentEncoding = a} :: CreateMultipartUpload)
+
+-- | The language the content is in.
+createMultipartUpload_contentLanguage :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe Prelude.Text)
+createMultipartUpload_contentLanguage = Lens.lens (\CreateMultipartUpload' {contentLanguage} -> contentLanguage) (\s@CreateMultipartUpload' {} a -> s {contentLanguage = a} :: CreateMultipartUpload)
+
+-- | A standard MIME type describing the format of the object data.
+createMultipartUpload_contentType :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe Prelude.Text)
+createMultipartUpload_contentType = Lens.lens (\CreateMultipartUpload' {contentType} -> contentType) (\s@CreateMultipartUpload' {} a -> s {contentType = a} :: CreateMultipartUpload)
+
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
+createMultipartUpload_expectedBucketOwner :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe Prelude.Text)
+createMultipartUpload_expectedBucketOwner = Lens.lens (\CreateMultipartUpload' {expectedBucketOwner} -> expectedBucketOwner) (\s@CreateMultipartUpload' {} a -> s {expectedBucketOwner = a} :: CreateMultipartUpload)
+
+-- | The date and time at which the object is no longer cacheable.
+createMultipartUpload_expires :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe Prelude.UTCTime)
+createMultipartUpload_expires = Lens.lens (\CreateMultipartUpload' {expires} -> expires) (\s@CreateMultipartUpload' {} a -> s {expires = a} :: CreateMultipartUpload) Prelude.. Lens.mapping Data._Time
 
 -- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the
 -- object.
@@ -669,25 +680,69 @@ createMultipartUpload_objectLockRetainUntilDate = Lens.lens (\CreateMultipartUpl
 createMultipartUpload_grantFullControl :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe Prelude.Text)
 createMultipartUpload_grantFullControl = Lens.lens (\CreateMultipartUpload' {grantFullControl} -> grantFullControl) (\s@CreateMultipartUpload' {} a -> s {grantFullControl = a} :: CreateMultipartUpload)
 
--- | The canned ACL to apply to the object.
+-- | Allows grantee to read the object data and its metadata.
 --
 -- This action is not supported by Amazon S3 on Outposts.
-createMultipartUpload_acl :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe ObjectCannedACL)
-createMultipartUpload_acl = Lens.lens (\CreateMultipartUpload' {acl} -> acl) (\s@CreateMultipartUpload' {} a -> s {acl = a} :: CreateMultipartUpload)
+createMultipartUpload_grantRead :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe Prelude.Text)
+createMultipartUpload_grantRead = Lens.lens (\CreateMultipartUpload' {grantRead} -> grantRead) (\s@CreateMultipartUpload' {} a -> s {grantRead = a} :: CreateMultipartUpload)
 
--- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request fails with the HTTP status code
--- @403 Forbidden@ (access denied).
-createMultipartUpload_expectedBucketOwner :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe Prelude.Text)
-createMultipartUpload_expectedBucketOwner = Lens.lens (\CreateMultipartUpload' {expectedBucketOwner} -> expectedBucketOwner) (\s@CreateMultipartUpload' {} a -> s {expectedBucketOwner = a} :: CreateMultipartUpload)
+-- | Allows grantee to read the object ACL.
+--
+-- This action is not supported by Amazon S3 on Outposts.
+createMultipartUpload_grantReadACP :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe Prelude.Text)
+createMultipartUpload_grantReadACP = Lens.lens (\CreateMultipartUpload' {grantReadACP} -> grantReadACP) (\s@CreateMultipartUpload' {} a -> s {grantReadACP = a} :: CreateMultipartUpload)
+
+-- | Allows grantee to write the ACL for the applicable object.
+--
+-- This action is not supported by Amazon S3 on Outposts.
+createMultipartUpload_grantWriteACP :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe Prelude.Text)
+createMultipartUpload_grantWriteACP = Lens.lens (\CreateMultipartUpload' {grantWriteACP} -> grantWriteACP) (\s@CreateMultipartUpload' {} a -> s {grantWriteACP = a} :: CreateMultipartUpload)
 
 -- | A map of metadata to store with the object in S3.
 createMultipartUpload_metadata :: Lens.Lens' CreateMultipartUpload (Prelude.HashMap Prelude.Text Prelude.Text)
 createMultipartUpload_metadata = Lens.lens (\CreateMultipartUpload' {metadata} -> metadata) (\s@CreateMultipartUpload' {} a -> s {metadata = a} :: CreateMultipartUpload) Prelude.. Lens.coerced
 
--- | The language the content is in.
-createMultipartUpload_contentLanguage :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe Prelude.Text)
-createMultipartUpload_contentLanguage = Lens.lens (\CreateMultipartUpload' {contentLanguage} -> contentLanguage) (\s@CreateMultipartUpload' {} a -> s {contentLanguage = a} :: CreateMultipartUpload)
+-- | Specifies whether you want to apply a legal hold to the uploaded object.
+createMultipartUpload_objectLockLegalHoldStatus :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe ObjectLockLegalHoldStatus)
+createMultipartUpload_objectLockLegalHoldStatus = Lens.lens (\CreateMultipartUpload' {objectLockLegalHoldStatus} -> objectLockLegalHoldStatus) (\s@CreateMultipartUpload' {} a -> s {objectLockLegalHoldStatus = a} :: CreateMultipartUpload)
+
+-- | Specifies the Object Lock mode that you want to apply to the uploaded
+-- object.
+createMultipartUpload_objectLockMode :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe ObjectLockMode)
+createMultipartUpload_objectLockMode = Lens.lens (\CreateMultipartUpload' {objectLockMode} -> objectLockMode) (\s@CreateMultipartUpload' {} a -> s {objectLockMode = a} :: CreateMultipartUpload)
+
+-- | Specifies the date and time when you want the Object Lock to expire.
+createMultipartUpload_objectLockRetainUntilDate :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe Prelude.UTCTime)
+createMultipartUpload_objectLockRetainUntilDate = Lens.lens (\CreateMultipartUpload' {objectLockRetainUntilDate} -> objectLockRetainUntilDate) (\s@CreateMultipartUpload' {} a -> s {objectLockRetainUntilDate = a} :: CreateMultipartUpload) Prelude.. Lens.mapping Data._Time
+
+-- | Undocumented member.
+createMultipartUpload_requestPayer :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe RequestPayer)
+createMultipartUpload_requestPayer = Lens.lens (\CreateMultipartUpload' {requestPayer} -> requestPayer) (\s@CreateMultipartUpload' {} a -> s {requestPayer = a} :: CreateMultipartUpload)
+
+-- | Specifies the algorithm to use to when encrypting the object (for
+-- example, AES256).
+createMultipartUpload_sSECustomerAlgorithm :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe Prelude.Text)
+createMultipartUpload_sSECustomerAlgorithm = Lens.lens (\CreateMultipartUpload' {sSECustomerAlgorithm} -> sSECustomerAlgorithm) (\s@CreateMultipartUpload' {} a -> s {sSECustomerAlgorithm = a} :: CreateMultipartUpload)
+
+-- | Specifies the customer-provided encryption key for Amazon S3 to use in
+-- encrypting data. This value is used to store the object and then it is
+-- discarded; Amazon S3 does not store the encryption key. The key must be
+-- appropriate for use with the algorithm specified in the
+-- @x-amz-server-side-encryption-customer-algorithm@ header.
+createMultipartUpload_sSECustomerKey :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe Prelude.Text)
+createMultipartUpload_sSECustomerKey = Lens.lens (\CreateMultipartUpload' {sSECustomerKey} -> sSECustomerKey) (\s@CreateMultipartUpload' {} a -> s {sSECustomerKey = a} :: CreateMultipartUpload) Prelude.. Lens.mapping Data._Sensitive
+
+-- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
+-- 1321. Amazon S3 uses this header for a message integrity check to ensure
+-- that the encryption key was transmitted without error.
+createMultipartUpload_sSECustomerKeyMD5 :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe Prelude.Text)
+createMultipartUpload_sSECustomerKeyMD5 = Lens.lens (\CreateMultipartUpload' {sSECustomerKeyMD5} -> sSECustomerKeyMD5) (\s@CreateMultipartUpload' {} a -> s {sSECustomerKeyMD5 = a} :: CreateMultipartUpload)
+
+-- | Specifies the Amazon Web Services KMS Encryption Context to use for
+-- object encryption. The value of this header is a base64-encoded UTF-8
+-- string holding JSON with the encryption context key-value pairs.
+createMultipartUpload_sSEKMSEncryptionContext :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe Prelude.Text)
+createMultipartUpload_sSEKMSEncryptionContext = Lens.lens (\CreateMultipartUpload' {sSEKMSEncryptionContext} -> sSEKMSEncryptionContext) (\s@CreateMultipartUpload' {} a -> s {sSEKMSEncryptionContext = a} :: CreateMultipartUpload) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Specifies the ID of the symmetric customer managed key to use for object
 -- encryption. All GET and PUT requests for an object protected by Amazon
@@ -699,59 +754,10 @@ createMultipartUpload_contentLanguage = Lens.lens (\CreateMultipartUpload' {cont
 createMultipartUpload_sSEKMSKeyId :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe Prelude.Text)
 createMultipartUpload_sSEKMSKeyId = Lens.lens (\CreateMultipartUpload' {sSEKMSKeyId} -> sSEKMSKeyId) (\s@CreateMultipartUpload' {} a -> s {sSEKMSKeyId = a} :: CreateMultipartUpload) Prelude.. Lens.mapping Data._Sensitive
 
--- | Specifies presentational information for the object.
-createMultipartUpload_contentDisposition :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe Prelude.Text)
-createMultipartUpload_contentDisposition = Lens.lens (\CreateMultipartUpload' {contentDisposition} -> contentDisposition) (\s@CreateMultipartUpload' {} a -> s {contentDisposition = a} :: CreateMultipartUpload)
-
--- | Specifies whether you want to apply a legal hold to the uploaded object.
-createMultipartUpload_objectLockLegalHoldStatus :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe ObjectLockLegalHoldStatus)
-createMultipartUpload_objectLockLegalHoldStatus = Lens.lens (\CreateMultipartUpload' {objectLockLegalHoldStatus} -> objectLockLegalHoldStatus) (\s@CreateMultipartUpload' {} a -> s {objectLockLegalHoldStatus = a} :: CreateMultipartUpload)
-
--- | Undocumented member.
-createMultipartUpload_requestPayer :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe RequestPayer)
-createMultipartUpload_requestPayer = Lens.lens (\CreateMultipartUpload' {requestPayer} -> requestPayer) (\s@CreateMultipartUpload' {} a -> s {requestPayer = a} :: CreateMultipartUpload)
-
--- | Specifies the Amazon Web Services KMS Encryption Context to use for
--- object encryption. The value of this header is a base64-encoded UTF-8
--- string holding JSON with the encryption context key-value pairs.
-createMultipartUpload_sSEKMSEncryptionContext :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe Prelude.Text)
-createMultipartUpload_sSEKMSEncryptionContext = Lens.lens (\CreateMultipartUpload' {sSEKMSEncryptionContext} -> sSEKMSEncryptionContext) (\s@CreateMultipartUpload' {} a -> s {sSEKMSEncryptionContext = a} :: CreateMultipartUpload) Prelude.. Lens.mapping Data._Sensitive
-
--- | Allows grantee to read the object data and its metadata.
---
--- This action is not supported by Amazon S3 on Outposts.
-createMultipartUpload_grantRead :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe Prelude.Text)
-createMultipartUpload_grantRead = Lens.lens (\CreateMultipartUpload' {grantRead} -> grantRead) (\s@CreateMultipartUpload' {} a -> s {grantRead = a} :: CreateMultipartUpload)
-
--- | Specifies the algorithm to use to when encrypting the object (for
--- example, AES256).
-createMultipartUpload_sSECustomerAlgorithm :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe Prelude.Text)
-createMultipartUpload_sSECustomerAlgorithm = Lens.lens (\CreateMultipartUpload' {sSECustomerAlgorithm} -> sSECustomerAlgorithm) (\s@CreateMultipartUpload' {} a -> s {sSECustomerAlgorithm = a} :: CreateMultipartUpload)
-
--- | Specifies caching behavior along the request\/reply chain.
-createMultipartUpload_cacheControl :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe Prelude.Text)
-createMultipartUpload_cacheControl = Lens.lens (\CreateMultipartUpload' {cacheControl} -> cacheControl) (\s@CreateMultipartUpload' {} a -> s {cacheControl = a} :: CreateMultipartUpload)
-
--- | Specifies what content encodings have been applied to the object and
--- thus what decoding mechanisms must be applied to obtain the media-type
--- referenced by the Content-Type header field.
-createMultipartUpload_contentEncoding :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe Prelude.Text)
-createMultipartUpload_contentEncoding = Lens.lens (\CreateMultipartUpload' {contentEncoding} -> contentEncoding) (\s@CreateMultipartUpload' {} a -> s {contentEncoding = a} :: CreateMultipartUpload)
-
--- | The tag-set for the object. The tag-set must be encoded as URL Query
--- parameters.
-createMultipartUpload_tagging :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe Prelude.Text)
-createMultipartUpload_tagging = Lens.lens (\CreateMultipartUpload' {tagging} -> tagging) (\s@CreateMultipartUpload' {} a -> s {tagging = a} :: CreateMultipartUpload)
-
--- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
--- 1321. Amazon S3 uses this header for a message integrity check to ensure
--- that the encryption key was transmitted without error.
-createMultipartUpload_sSECustomerKeyMD5 :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe Prelude.Text)
-createMultipartUpload_sSECustomerKeyMD5 = Lens.lens (\CreateMultipartUpload' {sSECustomerKeyMD5} -> sSECustomerKeyMD5) (\s@CreateMultipartUpload' {} a -> s {sSECustomerKeyMD5 = a} :: CreateMultipartUpload)
-
--- | The date and time at which the object is no longer cacheable.
-createMultipartUpload_expires :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe Prelude.UTCTime)
-createMultipartUpload_expires = Lens.lens (\CreateMultipartUpload' {expires} -> expires) (\s@CreateMultipartUpload' {} a -> s {expires = a} :: CreateMultipartUpload) Prelude.. Lens.mapping Data._Time
+-- | The server-side encryption algorithm used when storing this object in
+-- Amazon S3 (for example, AES256, aws:kms).
+createMultipartUpload_serverSideEncryption :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe ServerSideEncryption)
+createMultipartUpload_serverSideEncryption = Lens.lens (\CreateMultipartUpload' {serverSideEncryption} -> serverSideEncryption) (\s@CreateMultipartUpload' {} a -> s {serverSideEncryption = a} :: CreateMultipartUpload)
 
 -- | By default, Amazon S3 uses the STANDARD Storage Class to store newly
 -- created objects. The STANDARD storage class provides high durability and
@@ -763,23 +769,16 @@ createMultipartUpload_expires = Lens.lens (\CreateMultipartUpload' {expires} -> 
 createMultipartUpload_storageClass :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe StorageClass)
 createMultipartUpload_storageClass = Lens.lens (\CreateMultipartUpload' {storageClass} -> storageClass) (\s@CreateMultipartUpload' {} a -> s {storageClass = a} :: CreateMultipartUpload)
 
--- | Allows grantee to read the object ACL.
---
--- This action is not supported by Amazon S3 on Outposts.
-createMultipartUpload_grantReadACP :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe Prelude.Text)
-createMultipartUpload_grantReadACP = Lens.lens (\CreateMultipartUpload' {grantReadACP} -> grantReadACP) (\s@CreateMultipartUpload' {} a -> s {grantReadACP = a} :: CreateMultipartUpload)
+-- | The tag-set for the object. The tag-set must be encoded as URL Query
+-- parameters.
+createMultipartUpload_tagging :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe Prelude.Text)
+createMultipartUpload_tagging = Lens.lens (\CreateMultipartUpload' {tagging} -> tagging) (\s@CreateMultipartUpload' {} a -> s {tagging = a} :: CreateMultipartUpload)
 
--- | A standard MIME type describing the format of the object data.
-createMultipartUpload_contentType :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe Prelude.Text)
-createMultipartUpload_contentType = Lens.lens (\CreateMultipartUpload' {contentType} -> contentType) (\s@CreateMultipartUpload' {} a -> s {contentType = a} :: CreateMultipartUpload)
-
--- | Specifies the customer-provided encryption key for Amazon S3 to use in
--- encrypting data. This value is used to store the object and then it is
--- discarded; Amazon S3 does not store the encryption key. The key must be
--- appropriate for use with the algorithm specified in the
--- @x-amz-server-side-encryption-customer-algorithm@ header.
-createMultipartUpload_sSECustomerKey :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe Prelude.Text)
-createMultipartUpload_sSECustomerKey = Lens.lens (\CreateMultipartUpload' {sSECustomerKey} -> sSECustomerKey) (\s@CreateMultipartUpload' {} a -> s {sSECustomerKey = a} :: CreateMultipartUpload) Prelude.. Lens.mapping Data._Sensitive
+-- | If the bucket is configured as a website, redirects requests for this
+-- object to another object in the same bucket or to an external URL.
+-- Amazon S3 stores the value of this header in the object metadata.
+createMultipartUpload_websiteRedirectLocation :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe Prelude.Text)
+createMultipartUpload_websiteRedirectLocation = Lens.lens (\CreateMultipartUpload' {websiteRedirectLocation} -> websiteRedirectLocation) (\s@CreateMultipartUpload' {} a -> s {websiteRedirectLocation = a} :: CreateMultipartUpload)
 
 -- | The name of the bucket to which to initiate the upload
 --
@@ -819,98 +818,102 @@ instance Core.AWSRequest CreateMultipartUpload where
     Response.receiveXML
       ( \s h x ->
           CreateMultipartUploadResponse'
-            Prelude.<$> (h Data..#? "x-amz-server-side-encryption")
-            Prelude.<*> (h Data..#? "x-amz-checksum-algorithm")
-            Prelude.<*> (x Data..@? "Key")
+            Prelude.<$> (h Data..#? "x-amz-abort-date")
+            Prelude.<*> (h Data..#? "x-amz-abort-rule-id")
+            Prelude.<*> (x Data..@? "Bucket")
             Prelude.<*> ( h
                             Data..#? "x-amz-server-side-encryption-bucket-key-enabled"
                         )
+            Prelude.<*> (h Data..#? "x-amz-checksum-algorithm")
+            Prelude.<*> (x Data..@? "Key")
             Prelude.<*> (h Data..#? "x-amz-request-charged")
-            Prelude.<*> (x Data..@? "Bucket")
-            Prelude.<*> (h Data..#? "x-amz-abort-rule-id")
-            Prelude.<*> ( h
-                            Data..#? "x-amz-server-side-encryption-aws-kms-key-id"
-                        )
-            Prelude.<*> (h Data..#? "x-amz-server-side-encryption-context")
-            Prelude.<*> (h Data..#? "x-amz-abort-date")
             Prelude.<*> ( h
                             Data..#? "x-amz-server-side-encryption-customer-algorithm"
                         )
             Prelude.<*> ( h
                             Data..#? "x-amz-server-side-encryption-customer-key-MD5"
                         )
+            Prelude.<*> (h Data..#? "x-amz-server-side-encryption-context")
+            Prelude.<*> ( h
+                            Data..#? "x-amz-server-side-encryption-aws-kms-key-id"
+                        )
+            Prelude.<*> (h Data..#? "x-amz-server-side-encryption")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..@ "UploadId")
       )
 
 instance Prelude.Hashable CreateMultipartUpload where
   hashWithSalt _salt CreateMultipartUpload' {..} =
-    _salt `Prelude.hashWithSalt` serverSideEncryption
-      `Prelude.hashWithSalt` checksumAlgorithm
-      `Prelude.hashWithSalt` objectLockMode
+    _salt `Prelude.hashWithSalt` acl
       `Prelude.hashWithSalt` bucketKeyEnabled
-      `Prelude.hashWithSalt` websiteRedirectLocation
-      `Prelude.hashWithSalt` grantWriteACP
-      `Prelude.hashWithSalt` objectLockRetainUntilDate
-      `Prelude.hashWithSalt` grantFullControl
-      `Prelude.hashWithSalt` acl
-      `Prelude.hashWithSalt` expectedBucketOwner
-      `Prelude.hashWithSalt` metadata
-      `Prelude.hashWithSalt` contentLanguage
-      `Prelude.hashWithSalt` sSEKMSKeyId
-      `Prelude.hashWithSalt` contentDisposition
-      `Prelude.hashWithSalt` objectLockLegalHoldStatus
-      `Prelude.hashWithSalt` requestPayer
-      `Prelude.hashWithSalt` sSEKMSEncryptionContext
-      `Prelude.hashWithSalt` grantRead
-      `Prelude.hashWithSalt` sSECustomerAlgorithm
       `Prelude.hashWithSalt` cacheControl
+      `Prelude.hashWithSalt` checksumAlgorithm
+      `Prelude.hashWithSalt` contentDisposition
       `Prelude.hashWithSalt` contentEncoding
-      `Prelude.hashWithSalt` tagging
-      `Prelude.hashWithSalt` sSECustomerKeyMD5
-      `Prelude.hashWithSalt` expires
-      `Prelude.hashWithSalt` storageClass
-      `Prelude.hashWithSalt` grantReadACP
+      `Prelude.hashWithSalt` contentLanguage
       `Prelude.hashWithSalt` contentType
+      `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` expires
+      `Prelude.hashWithSalt` grantFullControl
+      `Prelude.hashWithSalt` grantRead
+      `Prelude.hashWithSalt` grantReadACP
+      `Prelude.hashWithSalt` grantWriteACP
+      `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` objectLockLegalHoldStatus
+      `Prelude.hashWithSalt` objectLockMode
+      `Prelude.hashWithSalt` objectLockRetainUntilDate
+      `Prelude.hashWithSalt` requestPayer
+      `Prelude.hashWithSalt` sSECustomerAlgorithm
       `Prelude.hashWithSalt` sSECustomerKey
+      `Prelude.hashWithSalt` sSECustomerKeyMD5
+      `Prelude.hashWithSalt` sSEKMSEncryptionContext
+      `Prelude.hashWithSalt` sSEKMSKeyId
+      `Prelude.hashWithSalt` serverSideEncryption
+      `Prelude.hashWithSalt` storageClass
+      `Prelude.hashWithSalt` tagging
+      `Prelude.hashWithSalt` websiteRedirectLocation
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` key
 
 instance Prelude.NFData CreateMultipartUpload where
   rnf CreateMultipartUpload' {..} =
-    Prelude.rnf serverSideEncryption
-      `Prelude.seq` Prelude.rnf checksumAlgorithm
-      `Prelude.seq` Prelude.rnf objectLockMode
+    Prelude.rnf acl
       `Prelude.seq` Prelude.rnf bucketKeyEnabled
-      `Prelude.seq` Prelude.rnf websiteRedirectLocation
-      `Prelude.seq` Prelude.rnf grantWriteACP
-      `Prelude.seq` Prelude.rnf objectLockRetainUntilDate
-      `Prelude.seq` Prelude.rnf grantFullControl
-      `Prelude.seq` Prelude.rnf acl
-      `Prelude.seq` Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf contentLanguage
-      `Prelude.seq` Prelude.rnf sSEKMSKeyId
-      `Prelude.seq` Prelude.rnf contentDisposition
-      `Prelude.seq` Prelude.rnf objectLockLegalHoldStatus
-      `Prelude.seq` Prelude.rnf requestPayer
-      `Prelude.seq` Prelude.rnf sSEKMSEncryptionContext
-      `Prelude.seq` Prelude.rnf grantRead
-      `Prelude.seq` Prelude.rnf sSECustomerAlgorithm
       `Prelude.seq` Prelude.rnf cacheControl
+      `Prelude.seq` Prelude.rnf checksumAlgorithm
+      `Prelude.seq` Prelude.rnf contentDisposition
       `Prelude.seq` Prelude.rnf contentEncoding
-      `Prelude.seq` Prelude.rnf tagging
+      `Prelude.seq` Prelude.rnf contentLanguage
+      `Prelude.seq` Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf expires
+      `Prelude.seq` Prelude.rnf grantFullControl
+      `Prelude.seq` Prelude.rnf grantRead
+      `Prelude.seq` Prelude.rnf grantReadACP
+      `Prelude.seq` Prelude.rnf grantWriteACP
+      `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf objectLockLegalHoldStatus
+      `Prelude.seq` Prelude.rnf objectLockMode
+      `Prelude.seq` Prelude.rnf
+        objectLockRetainUntilDate
+      `Prelude.seq` Prelude.rnf requestPayer
+      `Prelude.seq` Prelude.rnf
+        sSECustomerAlgorithm
+      `Prelude.seq` Prelude.rnf sSECustomerKey
       `Prelude.seq` Prelude.rnf
         sSECustomerKeyMD5
-      `Prelude.seq` Prelude.rnf expires
+      `Prelude.seq` Prelude.rnf
+        sSEKMSEncryptionContext
+      `Prelude.seq` Prelude.rnf
+        sSEKMSKeyId
+      `Prelude.seq` Prelude.rnf
+        serverSideEncryption
       `Prelude.seq` Prelude.rnf
         storageClass
       `Prelude.seq` Prelude.rnf
-        grantReadACP
+        tagging
       `Prelude.seq` Prelude.rnf
-        contentType
-      `Prelude.seq` Prelude.rnf
-        sSECustomerKey
+        websiteRedirectLocation
       `Prelude.seq` Prelude.rnf
         bucket
       `Prelude.seq` Prelude.rnf
@@ -919,45 +922,45 @@ instance Prelude.NFData CreateMultipartUpload where
 instance Data.ToHeaders CreateMultipartUpload where
   toHeaders CreateMultipartUpload' {..} =
     Prelude.mconcat
-      [ "x-amz-server-side-encryption"
-          Data.=# serverSideEncryption,
-        "x-amz-checksum-algorithm" Data.=# checksumAlgorithm,
-        "x-amz-object-lock-mode" Data.=# objectLockMode,
+      [ "x-amz-acl" Data.=# acl,
         "x-amz-server-side-encryption-bucket-key-enabled"
           Data.=# bucketKeyEnabled,
-        "x-amz-website-redirect-location"
-          Data.=# websiteRedirectLocation,
-        "x-amz-grant-write-acp" Data.=# grantWriteACP,
-        "x-amz-object-lock-retain-until-date"
-          Data.=# objectLockRetainUntilDate,
-        "x-amz-grant-full-control" Data.=# grantFullControl,
-        "x-amz-acl" Data.=# acl,
+        "Cache-Control" Data.=# cacheControl,
+        "x-amz-checksum-algorithm" Data.=# checksumAlgorithm,
+        "Content-Disposition" Data.=# contentDisposition,
+        "Content-Encoding" Data.=# contentEncoding,
+        "Content-Language" Data.=# contentLanguage,
+        "Content-Type" Data.=# contentType,
         "x-amz-expected-bucket-owner"
           Data.=# expectedBucketOwner,
+        "Expires" Data.=# expires,
+        "x-amz-grant-full-control" Data.=# grantFullControl,
+        "x-amz-grant-read" Data.=# grantRead,
+        "x-amz-grant-read-acp" Data.=# grantReadACP,
+        "x-amz-grant-write-acp" Data.=# grantWriteACP,
         "x-amz-meta-" Data.=# metadata,
-        "Content-Language" Data.=# contentLanguage,
-        "x-amz-server-side-encryption-aws-kms-key-id"
-          Data.=# sSEKMSKeyId,
-        "Content-Disposition" Data.=# contentDisposition,
         "x-amz-object-lock-legal-hold"
           Data.=# objectLockLegalHoldStatus,
+        "x-amz-object-lock-mode" Data.=# objectLockMode,
+        "x-amz-object-lock-retain-until-date"
+          Data.=# objectLockRetainUntilDate,
         "x-amz-request-payer" Data.=# requestPayer,
-        "x-amz-server-side-encryption-context"
-          Data.=# sSEKMSEncryptionContext,
-        "x-amz-grant-read" Data.=# grantRead,
         "x-amz-server-side-encryption-customer-algorithm"
           Data.=# sSECustomerAlgorithm,
-        "Cache-Control" Data.=# cacheControl,
-        "Content-Encoding" Data.=# contentEncoding,
-        "x-amz-tagging" Data.=# tagging,
+        "x-amz-server-side-encryption-customer-key"
+          Data.=# sSECustomerKey,
         "x-amz-server-side-encryption-customer-key-MD5"
           Data.=# sSECustomerKeyMD5,
-        "Expires" Data.=# expires,
+        "x-amz-server-side-encryption-context"
+          Data.=# sSEKMSEncryptionContext,
+        "x-amz-server-side-encryption-aws-kms-key-id"
+          Data.=# sSEKMSKeyId,
+        "x-amz-server-side-encryption"
+          Data.=# serverSideEncryption,
         "x-amz-storage-class" Data.=# storageClass,
-        "x-amz-grant-read-acp" Data.=# grantReadACP,
-        "Content-Type" Data.=# contentType,
-        "x-amz-server-side-encryption-customer-key"
-          Data.=# sSECustomerKey
+        "x-amz-tagging" Data.=# tagging,
+        "x-amz-website-redirect-location"
+          Data.=# websiteRedirectLocation
       ]
 
 instance Data.ToPath CreateMultipartUpload where
@@ -970,17 +973,21 @@ instance Data.ToQuery CreateMultipartUpload where
 
 -- | /See:/ 'newCreateMultipartUploadResponse' smart constructor.
 data CreateMultipartUploadResponse = CreateMultipartUploadResponse'
-  { -- | The server-side encryption algorithm used when storing this object in
-    -- Amazon S3 (for example, AES256, aws:kms).
-    serverSideEncryption :: Prelude.Maybe ServerSideEncryption,
-    -- | The algorithm that was used to create a checksum of the object.
-    checksumAlgorithm :: Prelude.Maybe ChecksumAlgorithm,
-    -- | Object key for which the multipart upload was initiated.
-    key :: Prelude.Maybe ObjectKey,
-    -- | Indicates whether the multipart upload uses an S3 Bucket Key for
-    -- server-side encryption with Amazon Web Services KMS (SSE-KMS).
-    bucketKeyEnabled :: Prelude.Maybe Prelude.Bool,
-    requestCharged :: Prelude.Maybe RequestCharged,
+  { -- | If the bucket has a lifecycle rule configured with an action to abort
+    -- incomplete multipart uploads and the prefix in the lifecycle rule
+    -- matches the object name in the request, the response includes this
+    -- header. The header indicates when the initiated multipart upload becomes
+    -- eligible for an abort operation. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Policy>.
+    --
+    -- The response also includes the @x-amz-abort-rule-id@ header that
+    -- provides the ID of the lifecycle configuration rule that defines this
+    -- action.
+    abortDate :: Prelude.Maybe Data.ISO8601,
+    -- | This header is returned along with the @x-amz-abort-date@ header. It
+    -- identifies the applicable lifecycle configuration rule that defines the
+    -- action to abort incomplete multipart uploads.
+    abortRuleId :: Prelude.Maybe Prelude.Text,
     -- | The name of the bucket to which the multipart upload was initiated. Does
     -- not return the access point ARN or access point alias if used.
     --
@@ -1003,29 +1010,14 @@ data CreateMultipartUploadResponse = CreateMultipartUploadResponse'
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
     -- in the /Amazon S3 User Guide/.
     bucket :: Prelude.Maybe BucketName,
-    -- | This header is returned along with the @x-amz-abort-date@ header. It
-    -- identifies the applicable lifecycle configuration rule that defines the
-    -- action to abort incomplete multipart uploads.
-    abortRuleId :: Prelude.Maybe Prelude.Text,
-    -- | If present, specifies the ID of the Amazon Web Services Key Management
-    -- Service (Amazon Web Services KMS) symmetric customer managed key that
-    -- was used for the object.
-    sSEKMSKeyId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | If present, specifies the Amazon Web Services KMS Encryption Context to
-    -- use for object encryption. The value of this header is a base64-encoded
-    -- UTF-8 string holding JSON with the encryption context key-value pairs.
-    sSEKMSEncryptionContext :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | If the bucket has a lifecycle rule configured with an action to abort
-    -- incomplete multipart uploads and the prefix in the lifecycle rule
-    -- matches the object name in the request, the response includes this
-    -- header. The header indicates when the initiated multipart upload becomes
-    -- eligible for an abort operation. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Policy>.
-    --
-    -- The response also includes the @x-amz-abort-rule-id@ header that
-    -- provides the ID of the lifecycle configuration rule that defines this
-    -- action.
-    abortDate :: Prelude.Maybe Data.ISO8601,
+    -- | Indicates whether the multipart upload uses an S3 Bucket Key for
+    -- server-side encryption with Amazon Web Services KMS (SSE-KMS).
+    bucketKeyEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The algorithm that was used to create a checksum of the object.
+    checksumAlgorithm :: Prelude.Maybe ChecksumAlgorithm,
+    -- | Object key for which the multipart upload was initiated.
+    key :: Prelude.Maybe ObjectKey,
+    requestCharged :: Prelude.Maybe RequestCharged,
     -- | If server-side encryption with a customer-provided encryption key was
     -- requested, the response will include this header confirming the
     -- encryption algorithm used.
@@ -1034,6 +1026,17 @@ data CreateMultipartUploadResponse = CreateMultipartUploadResponse'
     -- requested, the response will include this header to provide round-trip
     -- message integrity verification of the customer-provided encryption key.
     sSECustomerKeyMD5 :: Prelude.Maybe Prelude.Text,
+    -- | If present, specifies the Amazon Web Services KMS Encryption Context to
+    -- use for object encryption. The value of this header is a base64-encoded
+    -- UTF-8 string holding JSON with the encryption context key-value pairs.
+    sSEKMSEncryptionContext :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | If present, specifies the ID of the Amazon Web Services Key Management
+    -- Service (Amazon Web Services KMS) symmetric customer managed key that
+    -- was used for the object.
+    sSEKMSKeyId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The server-side encryption algorithm used when storing this object in
+    -- Amazon S3 (for example, AES256, aws:kms).
+    serverSideEncryption :: Prelude.Maybe ServerSideEncryption,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | ID for the initiated multipart upload.
@@ -1049,17 +1052,20 @@ data CreateMultipartUploadResponse = CreateMultipartUploadResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serverSideEncryption', 'createMultipartUploadResponse_serverSideEncryption' - The server-side encryption algorithm used when storing this object in
--- Amazon S3 (for example, AES256, aws:kms).
+-- 'abortDate', 'createMultipartUploadResponse_abortDate' - If the bucket has a lifecycle rule configured with an action to abort
+-- incomplete multipart uploads and the prefix in the lifecycle rule
+-- matches the object name in the request, the response includes this
+-- header. The header indicates when the initiated multipart upload becomes
+-- eligible for an abort operation. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Policy>.
 --
--- 'checksumAlgorithm', 'createMultipartUploadResponse_checksumAlgorithm' - The algorithm that was used to create a checksum of the object.
+-- The response also includes the @x-amz-abort-rule-id@ header that
+-- provides the ID of the lifecycle configuration rule that defines this
+-- action.
 --
--- 'key', 'createMultipartUploadResponse_key' - Object key for which the multipart upload was initiated.
---
--- 'bucketKeyEnabled', 'createMultipartUploadResponse_bucketKeyEnabled' - Indicates whether the multipart upload uses an S3 Bucket Key for
--- server-side encryption with Amazon Web Services KMS (SSE-KMS).
---
--- 'requestCharged', 'createMultipartUploadResponse_requestCharged' - Undocumented member.
+-- 'abortRuleId', 'createMultipartUploadResponse_abortRuleId' - This header is returned along with the @x-amz-abort-date@ header. It
+-- identifies the applicable lifecycle configuration rule that defines the
+-- action to abort incomplete multipart uploads.
 --
 -- 'bucket', 'createMultipartUploadResponse_bucket' - The name of the bucket to which the multipart upload was initiated. Does
 -- not return the access point ARN or access point alias if used.
@@ -1083,28 +1089,14 @@ data CreateMultipartUploadResponse = CreateMultipartUploadResponse'
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
 -- in the /Amazon S3 User Guide/.
 --
--- 'abortRuleId', 'createMultipartUploadResponse_abortRuleId' - This header is returned along with the @x-amz-abort-date@ header. It
--- identifies the applicable lifecycle configuration rule that defines the
--- action to abort incomplete multipart uploads.
+-- 'bucketKeyEnabled', 'createMultipartUploadResponse_bucketKeyEnabled' - Indicates whether the multipart upload uses an S3 Bucket Key for
+-- server-side encryption with Amazon Web Services KMS (SSE-KMS).
 --
--- 'sSEKMSKeyId', 'createMultipartUploadResponse_sSEKMSKeyId' - If present, specifies the ID of the Amazon Web Services Key Management
--- Service (Amazon Web Services KMS) symmetric customer managed key that
--- was used for the object.
+-- 'checksumAlgorithm', 'createMultipartUploadResponse_checksumAlgorithm' - The algorithm that was used to create a checksum of the object.
 --
--- 'sSEKMSEncryptionContext', 'createMultipartUploadResponse_sSEKMSEncryptionContext' - If present, specifies the Amazon Web Services KMS Encryption Context to
--- use for object encryption. The value of this header is a base64-encoded
--- UTF-8 string holding JSON with the encryption context key-value pairs.
+-- 'key', 'createMultipartUploadResponse_key' - Object key for which the multipart upload was initiated.
 --
--- 'abortDate', 'createMultipartUploadResponse_abortDate' - If the bucket has a lifecycle rule configured with an action to abort
--- incomplete multipart uploads and the prefix in the lifecycle rule
--- matches the object name in the request, the response includes this
--- header. The header indicates when the initiated multipart upload becomes
--- eligible for an abort operation. For more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Policy>.
---
--- The response also includes the @x-amz-abort-rule-id@ header that
--- provides the ID of the lifecycle configuration rule that defines this
--- action.
+-- 'requestCharged', 'createMultipartUploadResponse_requestCharged' - Undocumented member.
 --
 -- 'sSECustomerAlgorithm', 'createMultipartUploadResponse_sSECustomerAlgorithm' - If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header confirming the
@@ -1113,6 +1105,17 @@ data CreateMultipartUploadResponse = CreateMultipartUploadResponse'
 -- 'sSECustomerKeyMD5', 'createMultipartUploadResponse_sSECustomerKeyMD5' - If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header to provide round-trip
 -- message integrity verification of the customer-provided encryption key.
+--
+-- 'sSEKMSEncryptionContext', 'createMultipartUploadResponse_sSEKMSEncryptionContext' - If present, specifies the Amazon Web Services KMS Encryption Context to
+-- use for object encryption. The value of this header is a base64-encoded
+-- UTF-8 string holding JSON with the encryption context key-value pairs.
+--
+-- 'sSEKMSKeyId', 'createMultipartUploadResponse_sSEKMSKeyId' - If present, specifies the ID of the Amazon Web Services Key Management
+-- Service (Amazon Web Services KMS) symmetric customer managed key that
+-- was used for the object.
+--
+-- 'serverSideEncryption', 'createMultipartUploadResponse_serverSideEncryption' - The server-side encryption algorithm used when storing this object in
+-- Amazon S3 (for example, AES256, aws:kms).
 --
 -- 'httpStatus', 'createMultipartUploadResponse_httpStatus' - The response's http status code.
 --
@@ -1127,44 +1130,41 @@ newCreateMultipartUploadResponse
   pHttpStatus_
   pUploadId_ =
     CreateMultipartUploadResponse'
-      { serverSideEncryption =
+      { abortDate =
           Prelude.Nothing,
+        abortRuleId = Prelude.Nothing,
+        bucket = Prelude.Nothing,
+        bucketKeyEnabled = Prelude.Nothing,
         checksumAlgorithm = Prelude.Nothing,
         key = Prelude.Nothing,
-        bucketKeyEnabled = Prelude.Nothing,
         requestCharged = Prelude.Nothing,
-        bucket = Prelude.Nothing,
-        abortRuleId = Prelude.Nothing,
-        sSEKMSKeyId = Prelude.Nothing,
-        sSEKMSEncryptionContext = Prelude.Nothing,
-        abortDate = Prelude.Nothing,
         sSECustomerAlgorithm = Prelude.Nothing,
         sSECustomerKeyMD5 = Prelude.Nothing,
+        sSEKMSEncryptionContext = Prelude.Nothing,
+        sSEKMSKeyId = Prelude.Nothing,
+        serverSideEncryption = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         uploadId = pUploadId_
       }
 
--- | The server-side encryption algorithm used when storing this object in
--- Amazon S3 (for example, AES256, aws:kms).
-createMultipartUploadResponse_serverSideEncryption :: Lens.Lens' CreateMultipartUploadResponse (Prelude.Maybe ServerSideEncryption)
-createMultipartUploadResponse_serverSideEncryption = Lens.lens (\CreateMultipartUploadResponse' {serverSideEncryption} -> serverSideEncryption) (\s@CreateMultipartUploadResponse' {} a -> s {serverSideEncryption = a} :: CreateMultipartUploadResponse)
+-- | If the bucket has a lifecycle rule configured with an action to abort
+-- incomplete multipart uploads and the prefix in the lifecycle rule
+-- matches the object name in the request, the response includes this
+-- header. The header indicates when the initiated multipart upload becomes
+-- eligible for an abort operation. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Policy>.
+--
+-- The response also includes the @x-amz-abort-rule-id@ header that
+-- provides the ID of the lifecycle configuration rule that defines this
+-- action.
+createMultipartUploadResponse_abortDate :: Lens.Lens' CreateMultipartUploadResponse (Prelude.Maybe Prelude.UTCTime)
+createMultipartUploadResponse_abortDate = Lens.lens (\CreateMultipartUploadResponse' {abortDate} -> abortDate) (\s@CreateMultipartUploadResponse' {} a -> s {abortDate = a} :: CreateMultipartUploadResponse) Prelude.. Lens.mapping Data._Time
 
--- | The algorithm that was used to create a checksum of the object.
-createMultipartUploadResponse_checksumAlgorithm :: Lens.Lens' CreateMultipartUploadResponse (Prelude.Maybe ChecksumAlgorithm)
-createMultipartUploadResponse_checksumAlgorithm = Lens.lens (\CreateMultipartUploadResponse' {checksumAlgorithm} -> checksumAlgorithm) (\s@CreateMultipartUploadResponse' {} a -> s {checksumAlgorithm = a} :: CreateMultipartUploadResponse)
-
--- | Object key for which the multipart upload was initiated.
-createMultipartUploadResponse_key :: Lens.Lens' CreateMultipartUploadResponse (Prelude.Maybe ObjectKey)
-createMultipartUploadResponse_key = Lens.lens (\CreateMultipartUploadResponse' {key} -> key) (\s@CreateMultipartUploadResponse' {} a -> s {key = a} :: CreateMultipartUploadResponse)
-
--- | Indicates whether the multipart upload uses an S3 Bucket Key for
--- server-side encryption with Amazon Web Services KMS (SSE-KMS).
-createMultipartUploadResponse_bucketKeyEnabled :: Lens.Lens' CreateMultipartUploadResponse (Prelude.Maybe Prelude.Bool)
-createMultipartUploadResponse_bucketKeyEnabled = Lens.lens (\CreateMultipartUploadResponse' {bucketKeyEnabled} -> bucketKeyEnabled) (\s@CreateMultipartUploadResponse' {} a -> s {bucketKeyEnabled = a} :: CreateMultipartUploadResponse)
-
--- | Undocumented member.
-createMultipartUploadResponse_requestCharged :: Lens.Lens' CreateMultipartUploadResponse (Prelude.Maybe RequestCharged)
-createMultipartUploadResponse_requestCharged = Lens.lens (\CreateMultipartUploadResponse' {requestCharged} -> requestCharged) (\s@CreateMultipartUploadResponse' {} a -> s {requestCharged = a} :: CreateMultipartUploadResponse)
+-- | This header is returned along with the @x-amz-abort-date@ header. It
+-- identifies the applicable lifecycle configuration rule that defines the
+-- action to abort incomplete multipart uploads.
+createMultipartUploadResponse_abortRuleId :: Lens.Lens' CreateMultipartUploadResponse (Prelude.Maybe Prelude.Text)
+createMultipartUploadResponse_abortRuleId = Lens.lens (\CreateMultipartUploadResponse' {abortRuleId} -> abortRuleId) (\s@CreateMultipartUploadResponse' {} a -> s {abortRuleId = a} :: CreateMultipartUploadResponse)
 
 -- | The name of the bucket to which the multipart upload was initiated. Does
 -- not return the access point ARN or access point alias if used.
@@ -1190,36 +1190,22 @@ createMultipartUploadResponse_requestCharged = Lens.lens (\CreateMultipartUpload
 createMultipartUploadResponse_bucket :: Lens.Lens' CreateMultipartUploadResponse (Prelude.Maybe BucketName)
 createMultipartUploadResponse_bucket = Lens.lens (\CreateMultipartUploadResponse' {bucket} -> bucket) (\s@CreateMultipartUploadResponse' {} a -> s {bucket = a} :: CreateMultipartUploadResponse)
 
--- | This header is returned along with the @x-amz-abort-date@ header. It
--- identifies the applicable lifecycle configuration rule that defines the
--- action to abort incomplete multipart uploads.
-createMultipartUploadResponse_abortRuleId :: Lens.Lens' CreateMultipartUploadResponse (Prelude.Maybe Prelude.Text)
-createMultipartUploadResponse_abortRuleId = Lens.lens (\CreateMultipartUploadResponse' {abortRuleId} -> abortRuleId) (\s@CreateMultipartUploadResponse' {} a -> s {abortRuleId = a} :: CreateMultipartUploadResponse)
+-- | Indicates whether the multipart upload uses an S3 Bucket Key for
+-- server-side encryption with Amazon Web Services KMS (SSE-KMS).
+createMultipartUploadResponse_bucketKeyEnabled :: Lens.Lens' CreateMultipartUploadResponse (Prelude.Maybe Prelude.Bool)
+createMultipartUploadResponse_bucketKeyEnabled = Lens.lens (\CreateMultipartUploadResponse' {bucketKeyEnabled} -> bucketKeyEnabled) (\s@CreateMultipartUploadResponse' {} a -> s {bucketKeyEnabled = a} :: CreateMultipartUploadResponse)
 
--- | If present, specifies the ID of the Amazon Web Services Key Management
--- Service (Amazon Web Services KMS) symmetric customer managed key that
--- was used for the object.
-createMultipartUploadResponse_sSEKMSKeyId :: Lens.Lens' CreateMultipartUploadResponse (Prelude.Maybe Prelude.Text)
-createMultipartUploadResponse_sSEKMSKeyId = Lens.lens (\CreateMultipartUploadResponse' {sSEKMSKeyId} -> sSEKMSKeyId) (\s@CreateMultipartUploadResponse' {} a -> s {sSEKMSKeyId = a} :: CreateMultipartUploadResponse) Prelude.. Lens.mapping Data._Sensitive
+-- | The algorithm that was used to create a checksum of the object.
+createMultipartUploadResponse_checksumAlgorithm :: Lens.Lens' CreateMultipartUploadResponse (Prelude.Maybe ChecksumAlgorithm)
+createMultipartUploadResponse_checksumAlgorithm = Lens.lens (\CreateMultipartUploadResponse' {checksumAlgorithm} -> checksumAlgorithm) (\s@CreateMultipartUploadResponse' {} a -> s {checksumAlgorithm = a} :: CreateMultipartUploadResponse)
 
--- | If present, specifies the Amazon Web Services KMS Encryption Context to
--- use for object encryption. The value of this header is a base64-encoded
--- UTF-8 string holding JSON with the encryption context key-value pairs.
-createMultipartUploadResponse_sSEKMSEncryptionContext :: Lens.Lens' CreateMultipartUploadResponse (Prelude.Maybe Prelude.Text)
-createMultipartUploadResponse_sSEKMSEncryptionContext = Lens.lens (\CreateMultipartUploadResponse' {sSEKMSEncryptionContext} -> sSEKMSEncryptionContext) (\s@CreateMultipartUploadResponse' {} a -> s {sSEKMSEncryptionContext = a} :: CreateMultipartUploadResponse) Prelude.. Lens.mapping Data._Sensitive
+-- | Object key for which the multipart upload was initiated.
+createMultipartUploadResponse_key :: Lens.Lens' CreateMultipartUploadResponse (Prelude.Maybe ObjectKey)
+createMultipartUploadResponse_key = Lens.lens (\CreateMultipartUploadResponse' {key} -> key) (\s@CreateMultipartUploadResponse' {} a -> s {key = a} :: CreateMultipartUploadResponse)
 
--- | If the bucket has a lifecycle rule configured with an action to abort
--- incomplete multipart uploads and the prefix in the lifecycle rule
--- matches the object name in the request, the response includes this
--- header. The header indicates when the initiated multipart upload becomes
--- eligible for an abort operation. For more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Policy>.
---
--- The response also includes the @x-amz-abort-rule-id@ header that
--- provides the ID of the lifecycle configuration rule that defines this
--- action.
-createMultipartUploadResponse_abortDate :: Lens.Lens' CreateMultipartUploadResponse (Prelude.Maybe Prelude.UTCTime)
-createMultipartUploadResponse_abortDate = Lens.lens (\CreateMultipartUploadResponse' {abortDate} -> abortDate) (\s@CreateMultipartUploadResponse' {} a -> s {abortDate = a} :: CreateMultipartUploadResponse) Prelude.. Lens.mapping Data._Time
+-- | Undocumented member.
+createMultipartUploadResponse_requestCharged :: Lens.Lens' CreateMultipartUploadResponse (Prelude.Maybe RequestCharged)
+createMultipartUploadResponse_requestCharged = Lens.lens (\CreateMultipartUploadResponse' {requestCharged} -> requestCharged) (\s@CreateMultipartUploadResponse' {} a -> s {requestCharged = a} :: CreateMultipartUploadResponse)
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header confirming the
@@ -1233,6 +1219,23 @@ createMultipartUploadResponse_sSECustomerAlgorithm = Lens.lens (\CreateMultipart
 createMultipartUploadResponse_sSECustomerKeyMD5 :: Lens.Lens' CreateMultipartUploadResponse (Prelude.Maybe Prelude.Text)
 createMultipartUploadResponse_sSECustomerKeyMD5 = Lens.lens (\CreateMultipartUploadResponse' {sSECustomerKeyMD5} -> sSECustomerKeyMD5) (\s@CreateMultipartUploadResponse' {} a -> s {sSECustomerKeyMD5 = a} :: CreateMultipartUploadResponse)
 
+-- | If present, specifies the Amazon Web Services KMS Encryption Context to
+-- use for object encryption. The value of this header is a base64-encoded
+-- UTF-8 string holding JSON with the encryption context key-value pairs.
+createMultipartUploadResponse_sSEKMSEncryptionContext :: Lens.Lens' CreateMultipartUploadResponse (Prelude.Maybe Prelude.Text)
+createMultipartUploadResponse_sSEKMSEncryptionContext = Lens.lens (\CreateMultipartUploadResponse' {sSEKMSEncryptionContext} -> sSEKMSEncryptionContext) (\s@CreateMultipartUploadResponse' {} a -> s {sSEKMSEncryptionContext = a} :: CreateMultipartUploadResponse) Prelude.. Lens.mapping Data._Sensitive
+
+-- | If present, specifies the ID of the Amazon Web Services Key Management
+-- Service (Amazon Web Services KMS) symmetric customer managed key that
+-- was used for the object.
+createMultipartUploadResponse_sSEKMSKeyId :: Lens.Lens' CreateMultipartUploadResponse (Prelude.Maybe Prelude.Text)
+createMultipartUploadResponse_sSEKMSKeyId = Lens.lens (\CreateMultipartUploadResponse' {sSEKMSKeyId} -> sSEKMSKeyId) (\s@CreateMultipartUploadResponse' {} a -> s {sSEKMSKeyId = a} :: CreateMultipartUploadResponse) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The server-side encryption algorithm used when storing this object in
+-- Amazon S3 (for example, AES256, aws:kms).
+createMultipartUploadResponse_serverSideEncryption :: Lens.Lens' CreateMultipartUploadResponse (Prelude.Maybe ServerSideEncryption)
+createMultipartUploadResponse_serverSideEncryption = Lens.lens (\CreateMultipartUploadResponse' {serverSideEncryption} -> serverSideEncryption) (\s@CreateMultipartUploadResponse' {} a -> s {serverSideEncryption = a} :: CreateMultipartUploadResponse)
+
 -- | The response's http status code.
 createMultipartUploadResponse_httpStatus :: Lens.Lens' CreateMultipartUploadResponse Prelude.Int
 createMultipartUploadResponse_httpStatus = Lens.lens (\CreateMultipartUploadResponse' {httpStatus} -> httpStatus) (\s@CreateMultipartUploadResponse' {} a -> s {httpStatus = a} :: CreateMultipartUploadResponse)
@@ -1243,17 +1246,17 @@ createMultipartUploadResponse_uploadId = Lens.lens (\CreateMultipartUploadRespon
 
 instance Prelude.NFData CreateMultipartUploadResponse where
   rnf CreateMultipartUploadResponse' {..} =
-    Prelude.rnf serverSideEncryption
+    Prelude.rnf abortDate
+      `Prelude.seq` Prelude.rnf abortRuleId
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf bucketKeyEnabled
       `Prelude.seq` Prelude.rnf checksumAlgorithm
       `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf bucketKeyEnabled
       `Prelude.seq` Prelude.rnf requestCharged
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf abortRuleId
-      `Prelude.seq` Prelude.rnf sSEKMSKeyId
-      `Prelude.seq` Prelude.rnf sSEKMSEncryptionContext
-      `Prelude.seq` Prelude.rnf abortDate
       `Prelude.seq` Prelude.rnf sSECustomerAlgorithm
       `Prelude.seq` Prelude.rnf sSECustomerKeyMD5
+      `Prelude.seq` Prelude.rnf sSEKMSEncryptionContext
+      `Prelude.seq` Prelude.rnf sSEKMSKeyId
+      `Prelude.seq` Prelude.rnf serverSideEncryption
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf uploadId

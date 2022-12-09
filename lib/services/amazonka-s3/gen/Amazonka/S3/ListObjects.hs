@@ -51,13 +51,13 @@ module Amazonka.S3.ListObjects
     newListObjects,
 
     -- * Request Lenses
-    listObjects_maxKeys,
-    listObjects_marker,
-    listObjects_expectedBucketOwner,
-    listObjects_requestPayer,
     listObjects_delimiter,
-    listObjects_prefix,
     listObjects_encodingType,
+    listObjects_expectedBucketOwner,
+    listObjects_marker,
+    listObjects_maxKeys,
+    listObjects_prefix,
+    listObjects_requestPayer,
     listObjects_bucket,
 
     -- * Destructuring the Response
@@ -65,16 +65,16 @@ module Amazonka.S3.ListObjects
     newListObjectsResponse,
 
     -- * Response Lenses
-    listObjectsResponse_maxKeys,
     listObjectsResponse_commonPrefixes,
-    listObjectsResponse_name,
-    listObjectsResponse_marker,
     listObjectsResponse_contents,
-    listObjectsResponse_isTruncated,
     listObjectsResponse_delimiter,
+    listObjectsResponse_encodingType,
+    listObjectsResponse_isTruncated,
+    listObjectsResponse_marker,
+    listObjectsResponse_maxKeys,
+    listObjectsResponse_name,
     listObjectsResponse_nextMarker,
     listObjectsResponse_prefix,
-    listObjectsResponse_encodingType,
     listObjectsResponse_httpStatus,
   )
 where
@@ -89,27 +89,27 @@ import Amazonka.S3.Types
 
 -- | /See:/ 'newListObjects' smart constructor.
 data ListObjects = ListObjects'
-  { -- | Sets the maximum number of keys returned in the response. By default the
-    -- action returns up to 1,000 key names. The response might contain fewer
-    -- keys but will never contain more.
-    maxKeys :: Prelude.Maybe Prelude.Int,
-    -- | Marker is where you want Amazon S3 to start listing from. Amazon S3
-    -- starts listing after this specified key. Marker can be any key in the
-    -- bucket.
-    marker :: Prelude.Maybe Prelude.Text,
+  { -- | A delimiter is a character you use to group keys.
+    delimiter :: Prelude.Maybe Delimiter,
+    encodingType :: Prelude.Maybe EncodingType,
     -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request fails with the HTTP status code
     -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    -- | Marker is where you want Amazon S3 to start listing from. Amazon S3
+    -- starts listing after this specified key. Marker can be any key in the
+    -- bucket.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | Sets the maximum number of keys returned in the response. By default the
+    -- action returns up to 1,000 key names. The response might contain fewer
+    -- keys but will never contain more.
+    maxKeys :: Prelude.Maybe Prelude.Int,
+    -- | Limits the response to keys that begin with the specified prefix.
+    prefix :: Prelude.Maybe Prelude.Text,
     -- | Confirms that the requester knows that she or he will be charged for the
     -- list objects request. Bucket owners need not specify this parameter in
     -- their requests.
     requestPayer :: Prelude.Maybe RequestPayer,
-    -- | A delimiter is a character you use to group keys.
-    delimiter :: Prelude.Maybe Delimiter,
-    -- | Limits the response to keys that begin with the specified prefix.
-    prefix :: Prelude.Maybe Prelude.Text,
-    encodingType :: Prelude.Maybe EncodingType,
     -- | The name of the bucket containing the objects.
     --
     -- When using this action with an access point, you must direct requests to
@@ -142,27 +142,27 @@ data ListObjects = ListObjects'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxKeys', 'listObjects_maxKeys' - Sets the maximum number of keys returned in the response. By default the
--- action returns up to 1,000 key names. The response might contain fewer
--- keys but will never contain more.
+-- 'delimiter', 'listObjects_delimiter' - A delimiter is a character you use to group keys.
 --
--- 'marker', 'listObjects_marker' - Marker is where you want Amazon S3 to start listing from. Amazon S3
--- starts listing after this specified key. Marker can be any key in the
--- bucket.
+-- 'encodingType', 'listObjects_encodingType' - Undocumented member.
 --
 -- 'expectedBucketOwner', 'listObjects_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request fails with the HTTP status code
 -- @403 Forbidden@ (access denied).
 --
--- 'requestPayer', 'listObjects_requestPayer' - Confirms that the requester knows that she or he will be charged for the
--- list objects request. Bucket owners need not specify this parameter in
--- their requests.
+-- 'marker', 'listObjects_marker' - Marker is where you want Amazon S3 to start listing from. Amazon S3
+-- starts listing after this specified key. Marker can be any key in the
+-- bucket.
 --
--- 'delimiter', 'listObjects_delimiter' - A delimiter is a character you use to group keys.
+-- 'maxKeys', 'listObjects_maxKeys' - Sets the maximum number of keys returned in the response. By default the
+-- action returns up to 1,000 key names. The response might contain fewer
+-- keys but will never contain more.
 --
 -- 'prefix', 'listObjects_prefix' - Limits the response to keys that begin with the specified prefix.
 --
--- 'encodingType', 'listObjects_encodingType' - Undocumented member.
+-- 'requestPayer', 'listObjects_requestPayer' - Confirms that the requester knows that she or he will be charged for the
+-- list objects request. Bucket owners need not specify this parameter in
+-- their requests.
 --
 -- 'bucket', 'listObjects_bucket' - The name of the bucket containing the objects.
 --
@@ -190,27 +190,23 @@ newListObjects ::
   ListObjects
 newListObjects pBucket_ =
   ListObjects'
-    { maxKeys = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      expectedBucketOwner = Prelude.Nothing,
-      requestPayer = Prelude.Nothing,
-      delimiter = Prelude.Nothing,
-      prefix = Prelude.Nothing,
+    { delimiter = Prelude.Nothing,
       encodingType = Prelude.Nothing,
+      expectedBucketOwner = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      maxKeys = Prelude.Nothing,
+      prefix = Prelude.Nothing,
+      requestPayer = Prelude.Nothing,
       bucket = pBucket_
     }
 
--- | Sets the maximum number of keys returned in the response. By default the
--- action returns up to 1,000 key names. The response might contain fewer
--- keys but will never contain more.
-listObjects_maxKeys :: Lens.Lens' ListObjects (Prelude.Maybe Prelude.Int)
-listObjects_maxKeys = Lens.lens (\ListObjects' {maxKeys} -> maxKeys) (\s@ListObjects' {} a -> s {maxKeys = a} :: ListObjects)
+-- | A delimiter is a character you use to group keys.
+listObjects_delimiter :: Lens.Lens' ListObjects (Prelude.Maybe Delimiter)
+listObjects_delimiter = Lens.lens (\ListObjects' {delimiter} -> delimiter) (\s@ListObjects' {} a -> s {delimiter = a} :: ListObjects)
 
--- | Marker is where you want Amazon S3 to start listing from. Amazon S3
--- starts listing after this specified key. Marker can be any key in the
--- bucket.
-listObjects_marker :: Lens.Lens' ListObjects (Prelude.Maybe Prelude.Text)
-listObjects_marker = Lens.lens (\ListObjects' {marker} -> marker) (\s@ListObjects' {} a -> s {marker = a} :: ListObjects)
+-- | Undocumented member.
+listObjects_encodingType :: Lens.Lens' ListObjects (Prelude.Maybe EncodingType)
+listObjects_encodingType = Lens.lens (\ListObjects' {encodingType} -> encodingType) (\s@ListObjects' {} a -> s {encodingType = a} :: ListObjects)
 
 -- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request fails with the HTTP status code
@@ -218,23 +214,27 @@ listObjects_marker = Lens.lens (\ListObjects' {marker} -> marker) (\s@ListObject
 listObjects_expectedBucketOwner :: Lens.Lens' ListObjects (Prelude.Maybe Prelude.Text)
 listObjects_expectedBucketOwner = Lens.lens (\ListObjects' {expectedBucketOwner} -> expectedBucketOwner) (\s@ListObjects' {} a -> s {expectedBucketOwner = a} :: ListObjects)
 
--- | Confirms that the requester knows that she or he will be charged for the
--- list objects request. Bucket owners need not specify this parameter in
--- their requests.
-listObjects_requestPayer :: Lens.Lens' ListObjects (Prelude.Maybe RequestPayer)
-listObjects_requestPayer = Lens.lens (\ListObjects' {requestPayer} -> requestPayer) (\s@ListObjects' {} a -> s {requestPayer = a} :: ListObjects)
+-- | Marker is where you want Amazon S3 to start listing from. Amazon S3
+-- starts listing after this specified key. Marker can be any key in the
+-- bucket.
+listObjects_marker :: Lens.Lens' ListObjects (Prelude.Maybe Prelude.Text)
+listObjects_marker = Lens.lens (\ListObjects' {marker} -> marker) (\s@ListObjects' {} a -> s {marker = a} :: ListObjects)
 
--- | A delimiter is a character you use to group keys.
-listObjects_delimiter :: Lens.Lens' ListObjects (Prelude.Maybe Delimiter)
-listObjects_delimiter = Lens.lens (\ListObjects' {delimiter} -> delimiter) (\s@ListObjects' {} a -> s {delimiter = a} :: ListObjects)
+-- | Sets the maximum number of keys returned in the response. By default the
+-- action returns up to 1,000 key names. The response might contain fewer
+-- keys but will never contain more.
+listObjects_maxKeys :: Lens.Lens' ListObjects (Prelude.Maybe Prelude.Int)
+listObjects_maxKeys = Lens.lens (\ListObjects' {maxKeys} -> maxKeys) (\s@ListObjects' {} a -> s {maxKeys = a} :: ListObjects)
 
 -- | Limits the response to keys that begin with the specified prefix.
 listObjects_prefix :: Lens.Lens' ListObjects (Prelude.Maybe Prelude.Text)
 listObjects_prefix = Lens.lens (\ListObjects' {prefix} -> prefix) (\s@ListObjects' {} a -> s {prefix = a} :: ListObjects)
 
--- | Undocumented member.
-listObjects_encodingType :: Lens.Lens' ListObjects (Prelude.Maybe EncodingType)
-listObjects_encodingType = Lens.lens (\ListObjects' {encodingType} -> encodingType) (\s@ListObjects' {} a -> s {encodingType = a} :: ListObjects)
+-- | Confirms that the requester knows that she or he will be charged for the
+-- list objects request. Bucket owners need not specify this parameter in
+-- their requests.
+listObjects_requestPayer :: Lens.Lens' ListObjects (Prelude.Maybe RequestPayer)
+listObjects_requestPayer = Lens.lens (\ListObjects' {requestPayer} -> requestPayer) (\s@ListObjects' {} a -> s {requestPayer = a} :: ListObjects)
 
 -- | The name of the bucket containing the objects.
 --
@@ -309,39 +309,39 @@ instance Core.AWSRequest ListObjects where
     Response.receiveXML
       ( \s h x ->
           ListObjectsResponse'
-            Prelude.<$> (x Data..@? "MaxKeys")
-            Prelude.<*> (Core.may (Data.parseXMLList "CommonPrefixes") x)
-            Prelude.<*> (x Data..@? "Name")
-            Prelude.<*> (x Data..@? "Marker")
+            Prelude.<$> (Core.may (Data.parseXMLList "CommonPrefixes") x)
             Prelude.<*> (Core.may (Data.parseXMLList "Contents") x)
-            Prelude.<*> (x Data..@? "IsTruncated")
             Prelude.<*> (x Data..@? "Delimiter")
+            Prelude.<*> (x Data..@? "EncodingType")
+            Prelude.<*> (x Data..@? "IsTruncated")
+            Prelude.<*> (x Data..@? "Marker")
+            Prelude.<*> (x Data..@? "MaxKeys")
+            Prelude.<*> (x Data..@? "Name")
             Prelude.<*> (x Data..@? "NextMarker")
             Prelude.<*> (x Data..@? "Prefix")
-            Prelude.<*> (x Data..@? "EncodingType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListObjects where
   hashWithSalt _salt ListObjects' {..} =
-    _salt `Prelude.hashWithSalt` maxKeys
-      `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` expectedBucketOwner
-      `Prelude.hashWithSalt` requestPayer
-      `Prelude.hashWithSalt` delimiter
-      `Prelude.hashWithSalt` prefix
+    _salt `Prelude.hashWithSalt` delimiter
       `Prelude.hashWithSalt` encodingType
+      `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxKeys
+      `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` requestPayer
       `Prelude.hashWithSalt` bucket
 
 instance Prelude.NFData ListObjects where
   rnf ListObjects' {..} =
-    Prelude.rnf maxKeys
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf requestPayer
-      `Prelude.seq` Prelude.rnf delimiter
-      `Prelude.seq` Prelude.rnf prefix
+    Prelude.rnf delimiter
       `Prelude.seq` Prelude.rnf encodingType
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxKeys
+      `Prelude.seq` Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf requestPayer
       `Prelude.seq` Prelude.rnf bucket
 
 instance Data.ToHeaders ListObjects where
@@ -359,18 +359,16 @@ instance Data.ToPath ListObjects where
 instance Data.ToQuery ListObjects where
   toQuery ListObjects' {..} =
     Prelude.mconcat
-      [ "max-keys" Data.=: maxKeys,
+      [ "delimiter" Data.=: delimiter,
+        "encoding-type" Data.=: encodingType,
         "marker" Data.=: marker,
-        "delimiter" Data.=: delimiter,
-        "prefix" Data.=: prefix,
-        "encoding-type" Data.=: encodingType
+        "max-keys" Data.=: maxKeys,
+        "prefix" Data.=: prefix
       ]
 
 -- | /See:/ 'newListObjectsResponse' smart constructor.
 data ListObjectsResponse = ListObjectsResponse'
-  { -- | The maximum number of keys returned in the response body.
-    maxKeys :: Prelude.Maybe Prelude.Int,
-    -- | All of the keys (up to 1,000) rolled up in a common prefix count as a
+  { -- | All of the keys (up to 1,000) rolled up in a common prefix count as a
     -- single return when calculating the number of returns.
     --
     -- A response can contain CommonPrefixes only if you specify a delimiter.
@@ -386,22 +384,26 @@ data ListObjectsResponse = ListObjectsResponse'
     -- the keys that roll up into a common prefix count as a single return when
     -- calculating the number of returns.
     commonPrefixes :: Prelude.Maybe [CommonPrefix],
-    -- | The bucket name.
-    name :: Prelude.Maybe BucketName,
-    -- | Indicates where in the bucket listing begins. Marker is included in the
-    -- response if it was sent with the request.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | Metadata about each object returned.
     contents :: Prelude.Maybe [Object],
-    -- | A flag that indicates whether Amazon S3 returned all of the results that
-    -- satisfied the search criteria.
-    isTruncated :: Prelude.Maybe Prelude.Bool,
     -- | Causes keys that contain the same string between the prefix and the
     -- first occurrence of the delimiter to be rolled up into a single result
     -- element in the @CommonPrefixes@ collection. These rolled-up keys are not
     -- returned elsewhere in the response. Each rolled-up result counts as only
     -- one return against the @MaxKeys@ value.
     delimiter :: Prelude.Maybe Delimiter,
+    -- | Encoding type used by Amazon S3 to encode object keys in the response.
+    encodingType :: Prelude.Maybe EncodingType,
+    -- | A flag that indicates whether Amazon S3 returned all of the results that
+    -- satisfied the search criteria.
+    isTruncated :: Prelude.Maybe Prelude.Bool,
+    -- | Indicates where in the bucket listing begins. Marker is included in the
+    -- response if it was sent with the request.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of keys returned in the response body.
+    maxKeys :: Prelude.Maybe Prelude.Int,
+    -- | The bucket name.
+    name :: Prelude.Maybe BucketName,
     -- | When response is truncated (the IsTruncated element value in the
     -- response is true), you can use the key name in this field as marker in
     -- the subsequent request to get next set of objects. Amazon S3 lists
@@ -413,8 +415,6 @@ data ListObjectsResponse = ListObjectsResponse'
     nextMarker :: Prelude.Maybe Prelude.Text,
     -- | Keys that begin with the indicated prefix.
     prefix :: Prelude.Maybe Prelude.Text,
-    -- | Encoding type used by Amazon S3 to encode object keys in the response.
-    encodingType :: Prelude.Maybe EncodingType,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -427,8 +427,6 @@ data ListObjectsResponse = ListObjectsResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'maxKeys', 'listObjectsResponse_maxKeys' - The maximum number of keys returned in the response body.
 --
 -- 'commonPrefixes', 'listObjectsResponse_commonPrefixes' - All of the keys (up to 1,000) rolled up in a common prefix count as a
 -- single return when calculating the number of returns.
@@ -446,21 +444,25 @@ data ListObjectsResponse = ListObjectsResponse'
 -- the keys that roll up into a common prefix count as a single return when
 -- calculating the number of returns.
 --
--- 'name', 'listObjectsResponse_name' - The bucket name.
---
--- 'marker', 'listObjectsResponse_marker' - Indicates where in the bucket listing begins. Marker is included in the
--- response if it was sent with the request.
---
 -- 'contents', 'listObjectsResponse_contents' - Metadata about each object returned.
---
--- 'isTruncated', 'listObjectsResponse_isTruncated' - A flag that indicates whether Amazon S3 returned all of the results that
--- satisfied the search criteria.
 --
 -- 'delimiter', 'listObjectsResponse_delimiter' - Causes keys that contain the same string between the prefix and the
 -- first occurrence of the delimiter to be rolled up into a single result
 -- element in the @CommonPrefixes@ collection. These rolled-up keys are not
 -- returned elsewhere in the response. Each rolled-up result counts as only
 -- one return against the @MaxKeys@ value.
+--
+-- 'encodingType', 'listObjectsResponse_encodingType' - Encoding type used by Amazon S3 to encode object keys in the response.
+--
+-- 'isTruncated', 'listObjectsResponse_isTruncated' - A flag that indicates whether Amazon S3 returned all of the results that
+-- satisfied the search criteria.
+--
+-- 'marker', 'listObjectsResponse_marker' - Indicates where in the bucket listing begins. Marker is included in the
+-- response if it was sent with the request.
+--
+-- 'maxKeys', 'listObjectsResponse_maxKeys' - The maximum number of keys returned in the response body.
+--
+-- 'name', 'listObjectsResponse_name' - The bucket name.
 --
 -- 'nextMarker', 'listObjectsResponse_nextMarker' - When response is truncated (the IsTruncated element value in the
 -- response is true), you can use the key name in this field as marker in
@@ -473,8 +475,6 @@ data ListObjectsResponse = ListObjectsResponse'
 --
 -- 'prefix', 'listObjectsResponse_prefix' - Keys that begin with the indicated prefix.
 --
--- 'encodingType', 'listObjectsResponse_encodingType' - Encoding type used by Amazon S3 to encode object keys in the response.
---
 -- 'httpStatus', 'listObjectsResponse_httpStatus' - The response's http status code.
 newListObjectsResponse ::
   -- | 'httpStatus'
@@ -482,22 +482,19 @@ newListObjectsResponse ::
   ListObjectsResponse
 newListObjectsResponse pHttpStatus_ =
   ListObjectsResponse'
-    { maxKeys = Prelude.Nothing,
-      commonPrefixes = Prelude.Nothing,
-      name = Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { commonPrefixes =
+        Prelude.Nothing,
       contents = Prelude.Nothing,
-      isTruncated = Prelude.Nothing,
       delimiter = Prelude.Nothing,
+      encodingType = Prelude.Nothing,
+      isTruncated = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      maxKeys = Prelude.Nothing,
+      name = Prelude.Nothing,
       nextMarker = Prelude.Nothing,
       prefix = Prelude.Nothing,
-      encodingType = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The maximum number of keys returned in the response body.
-listObjectsResponse_maxKeys :: Lens.Lens' ListObjectsResponse (Prelude.Maybe Prelude.Int)
-listObjectsResponse_maxKeys = Lens.lens (\ListObjectsResponse' {maxKeys} -> maxKeys) (\s@ListObjectsResponse' {} a -> s {maxKeys = a} :: ListObjectsResponse)
 
 -- | All of the keys (up to 1,000) rolled up in a common prefix count as a
 -- single return when calculating the number of returns.
@@ -517,23 +514,9 @@ listObjectsResponse_maxKeys = Lens.lens (\ListObjectsResponse' {maxKeys} -> maxK
 listObjectsResponse_commonPrefixes :: Lens.Lens' ListObjectsResponse (Prelude.Maybe [CommonPrefix])
 listObjectsResponse_commonPrefixes = Lens.lens (\ListObjectsResponse' {commonPrefixes} -> commonPrefixes) (\s@ListObjectsResponse' {} a -> s {commonPrefixes = a} :: ListObjectsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The bucket name.
-listObjectsResponse_name :: Lens.Lens' ListObjectsResponse (Prelude.Maybe BucketName)
-listObjectsResponse_name = Lens.lens (\ListObjectsResponse' {name} -> name) (\s@ListObjectsResponse' {} a -> s {name = a} :: ListObjectsResponse)
-
--- | Indicates where in the bucket listing begins. Marker is included in the
--- response if it was sent with the request.
-listObjectsResponse_marker :: Lens.Lens' ListObjectsResponse (Prelude.Maybe Prelude.Text)
-listObjectsResponse_marker = Lens.lens (\ListObjectsResponse' {marker} -> marker) (\s@ListObjectsResponse' {} a -> s {marker = a} :: ListObjectsResponse)
-
 -- | Metadata about each object returned.
 listObjectsResponse_contents :: Lens.Lens' ListObjectsResponse (Prelude.Maybe [Object])
 listObjectsResponse_contents = Lens.lens (\ListObjectsResponse' {contents} -> contents) (\s@ListObjectsResponse' {} a -> s {contents = a} :: ListObjectsResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | A flag that indicates whether Amazon S3 returned all of the results that
--- satisfied the search criteria.
-listObjectsResponse_isTruncated :: Lens.Lens' ListObjectsResponse (Prelude.Maybe Prelude.Bool)
-listObjectsResponse_isTruncated = Lens.lens (\ListObjectsResponse' {isTruncated} -> isTruncated) (\s@ListObjectsResponse' {} a -> s {isTruncated = a} :: ListObjectsResponse)
 
 -- | Causes keys that contain the same string between the prefix and the
 -- first occurrence of the delimiter to be rolled up into a single result
@@ -542,6 +525,28 @@ listObjectsResponse_isTruncated = Lens.lens (\ListObjectsResponse' {isTruncated}
 -- one return against the @MaxKeys@ value.
 listObjectsResponse_delimiter :: Lens.Lens' ListObjectsResponse (Prelude.Maybe Delimiter)
 listObjectsResponse_delimiter = Lens.lens (\ListObjectsResponse' {delimiter} -> delimiter) (\s@ListObjectsResponse' {} a -> s {delimiter = a} :: ListObjectsResponse)
+
+-- | Encoding type used by Amazon S3 to encode object keys in the response.
+listObjectsResponse_encodingType :: Lens.Lens' ListObjectsResponse (Prelude.Maybe EncodingType)
+listObjectsResponse_encodingType = Lens.lens (\ListObjectsResponse' {encodingType} -> encodingType) (\s@ListObjectsResponse' {} a -> s {encodingType = a} :: ListObjectsResponse)
+
+-- | A flag that indicates whether Amazon S3 returned all of the results that
+-- satisfied the search criteria.
+listObjectsResponse_isTruncated :: Lens.Lens' ListObjectsResponse (Prelude.Maybe Prelude.Bool)
+listObjectsResponse_isTruncated = Lens.lens (\ListObjectsResponse' {isTruncated} -> isTruncated) (\s@ListObjectsResponse' {} a -> s {isTruncated = a} :: ListObjectsResponse)
+
+-- | Indicates where in the bucket listing begins. Marker is included in the
+-- response if it was sent with the request.
+listObjectsResponse_marker :: Lens.Lens' ListObjectsResponse (Prelude.Maybe Prelude.Text)
+listObjectsResponse_marker = Lens.lens (\ListObjectsResponse' {marker} -> marker) (\s@ListObjectsResponse' {} a -> s {marker = a} :: ListObjectsResponse)
+
+-- | The maximum number of keys returned in the response body.
+listObjectsResponse_maxKeys :: Lens.Lens' ListObjectsResponse (Prelude.Maybe Prelude.Int)
+listObjectsResponse_maxKeys = Lens.lens (\ListObjectsResponse' {maxKeys} -> maxKeys) (\s@ListObjectsResponse' {} a -> s {maxKeys = a} :: ListObjectsResponse)
+
+-- | The bucket name.
+listObjectsResponse_name :: Lens.Lens' ListObjectsResponse (Prelude.Maybe BucketName)
+listObjectsResponse_name = Lens.lens (\ListObjectsResponse' {name} -> name) (\s@ListObjectsResponse' {} a -> s {name = a} :: ListObjectsResponse)
 
 -- | When response is truncated (the IsTruncated element value in the
 -- response is true), you can use the key name in this field as marker in
@@ -558,24 +563,20 @@ listObjectsResponse_nextMarker = Lens.lens (\ListObjectsResponse' {nextMarker} -
 listObjectsResponse_prefix :: Lens.Lens' ListObjectsResponse (Prelude.Maybe Prelude.Text)
 listObjectsResponse_prefix = Lens.lens (\ListObjectsResponse' {prefix} -> prefix) (\s@ListObjectsResponse' {} a -> s {prefix = a} :: ListObjectsResponse)
 
--- | Encoding type used by Amazon S3 to encode object keys in the response.
-listObjectsResponse_encodingType :: Lens.Lens' ListObjectsResponse (Prelude.Maybe EncodingType)
-listObjectsResponse_encodingType = Lens.lens (\ListObjectsResponse' {encodingType} -> encodingType) (\s@ListObjectsResponse' {} a -> s {encodingType = a} :: ListObjectsResponse)
-
 -- | The response's http status code.
 listObjectsResponse_httpStatus :: Lens.Lens' ListObjectsResponse Prelude.Int
 listObjectsResponse_httpStatus = Lens.lens (\ListObjectsResponse' {httpStatus} -> httpStatus) (\s@ListObjectsResponse' {} a -> s {httpStatus = a} :: ListObjectsResponse)
 
 instance Prelude.NFData ListObjectsResponse where
   rnf ListObjectsResponse' {..} =
-    Prelude.rnf maxKeys
-      `Prelude.seq` Prelude.rnf commonPrefixes
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf commonPrefixes
       `Prelude.seq` Prelude.rnf contents
-      `Prelude.seq` Prelude.rnf isTruncated
       `Prelude.seq` Prelude.rnf delimiter
+      `Prelude.seq` Prelude.rnf encodingType
+      `Prelude.seq` Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxKeys
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf nextMarker
       `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf encodingType
       `Prelude.seq` Prelude.rnf httpStatus

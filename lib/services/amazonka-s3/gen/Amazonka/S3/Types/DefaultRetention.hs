@@ -40,13 +40,13 @@ data DefaultRetention = DefaultRetention'
   { -- | The number of days that you want to specify for the default retention
     -- period. Must be used with @Mode@.
     days :: Prelude.Maybe Prelude.Int,
-    -- | The number of years that you want to specify for the default retention
-    -- period. Must be used with @Mode@.
-    years :: Prelude.Maybe Prelude.Int,
     -- | The default Object Lock retention mode you want to apply to new objects
     -- placed in the specified bucket. Must be used with either @Days@ or
     -- @Years@.
-    mode :: Prelude.Maybe ObjectLockRetentionMode
+    mode :: Prelude.Maybe ObjectLockRetentionMode,
+    -- | The number of years that you want to specify for the default retention
+    -- period. Must be used with @Mode@.
+    years :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,19 +61,19 @@ data DefaultRetention = DefaultRetention'
 -- 'days', 'defaultRetention_days' - The number of days that you want to specify for the default retention
 -- period. Must be used with @Mode@.
 --
--- 'years', 'defaultRetention_years' - The number of years that you want to specify for the default retention
--- period. Must be used with @Mode@.
---
 -- 'mode', 'defaultRetention_mode' - The default Object Lock retention mode you want to apply to new objects
 -- placed in the specified bucket. Must be used with either @Days@ or
 -- @Years@.
+--
+-- 'years', 'defaultRetention_years' - The number of years that you want to specify for the default retention
+-- period. Must be used with @Mode@.
 newDefaultRetention ::
   DefaultRetention
 newDefaultRetention =
   DefaultRetention'
     { days = Prelude.Nothing,
-      years = Prelude.Nothing,
-      mode = Prelude.Nothing
+      mode = Prelude.Nothing,
+      years = Prelude.Nothing
     }
 
 -- | The number of days that you want to specify for the default retention
@@ -81,40 +81,40 @@ newDefaultRetention =
 defaultRetention_days :: Lens.Lens' DefaultRetention (Prelude.Maybe Prelude.Int)
 defaultRetention_days = Lens.lens (\DefaultRetention' {days} -> days) (\s@DefaultRetention' {} a -> s {days = a} :: DefaultRetention)
 
--- | The number of years that you want to specify for the default retention
--- period. Must be used with @Mode@.
-defaultRetention_years :: Lens.Lens' DefaultRetention (Prelude.Maybe Prelude.Int)
-defaultRetention_years = Lens.lens (\DefaultRetention' {years} -> years) (\s@DefaultRetention' {} a -> s {years = a} :: DefaultRetention)
-
 -- | The default Object Lock retention mode you want to apply to new objects
 -- placed in the specified bucket. Must be used with either @Days@ or
 -- @Years@.
 defaultRetention_mode :: Lens.Lens' DefaultRetention (Prelude.Maybe ObjectLockRetentionMode)
 defaultRetention_mode = Lens.lens (\DefaultRetention' {mode} -> mode) (\s@DefaultRetention' {} a -> s {mode = a} :: DefaultRetention)
 
+-- | The number of years that you want to specify for the default retention
+-- period. Must be used with @Mode@.
+defaultRetention_years :: Lens.Lens' DefaultRetention (Prelude.Maybe Prelude.Int)
+defaultRetention_years = Lens.lens (\DefaultRetention' {years} -> years) (\s@DefaultRetention' {} a -> s {years = a} :: DefaultRetention)
+
 instance Data.FromXML DefaultRetention where
   parseXML x =
     DefaultRetention'
       Prelude.<$> (x Data..@? "Days")
-      Prelude.<*> (x Data..@? "Years")
       Prelude.<*> (x Data..@? "Mode")
+      Prelude.<*> (x Data..@? "Years")
 
 instance Prelude.Hashable DefaultRetention where
   hashWithSalt _salt DefaultRetention' {..} =
     _salt `Prelude.hashWithSalt` days
-      `Prelude.hashWithSalt` years
       `Prelude.hashWithSalt` mode
+      `Prelude.hashWithSalt` years
 
 instance Prelude.NFData DefaultRetention where
   rnf DefaultRetention' {..} =
     Prelude.rnf days
-      `Prelude.seq` Prelude.rnf years
       `Prelude.seq` Prelude.rnf mode
+      `Prelude.seq` Prelude.rnf years
 
 instance Data.ToXML DefaultRetention where
   toXML DefaultRetention' {..} =
     Prelude.mconcat
       [ "Days" Data.@= days,
-        "Years" Data.@= years,
-        "Mode" Data.@= mode
+        "Mode" Data.@= mode,
+        "Years" Data.@= years
       ]

@@ -34,13 +34,13 @@ import Amazonka.S3.Types.Tag
 --
 -- /See:/ 'newAnalyticsFilter' smart constructor.
 data AnalyticsFilter = AnalyticsFilter'
-  { -- | The tag to use when evaluating an analytics filter.
-    tag :: Prelude.Maybe Tag,
+  { -- | A conjunction (logical AND) of predicates, which is used in evaluating
+    -- an analytics filter. The operator must have at least two predicates.
+    and :: Prelude.Maybe AnalyticsAndOperator,
     -- | The prefix to use when evaluating an analytics filter.
     prefix :: Prelude.Maybe Prelude.Text,
-    -- | A conjunction (logical AND) of predicates, which is used in evaluating
-    -- an analytics filter. The operator must have at least two predicates.
-    and :: Prelude.Maybe AnalyticsAndOperator
+    -- | The tag to use when evaluating an analytics filter.
+    tag :: Prelude.Maybe Tag
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,57 +52,57 @@ data AnalyticsFilter = AnalyticsFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tag', 'analyticsFilter_tag' - The tag to use when evaluating an analytics filter.
+-- 'and', 'analyticsFilter_and' - A conjunction (logical AND) of predicates, which is used in evaluating
+-- an analytics filter. The operator must have at least two predicates.
 --
 -- 'prefix', 'analyticsFilter_prefix' - The prefix to use when evaluating an analytics filter.
 --
--- 'and', 'analyticsFilter_and' - A conjunction (logical AND) of predicates, which is used in evaluating
--- an analytics filter. The operator must have at least two predicates.
+-- 'tag', 'analyticsFilter_tag' - The tag to use when evaluating an analytics filter.
 newAnalyticsFilter ::
   AnalyticsFilter
 newAnalyticsFilter =
   AnalyticsFilter'
-    { tag = Prelude.Nothing,
+    { and = Prelude.Nothing,
       prefix = Prelude.Nothing,
-      and = Prelude.Nothing
+      tag = Prelude.Nothing
     }
-
--- | The tag to use when evaluating an analytics filter.
-analyticsFilter_tag :: Lens.Lens' AnalyticsFilter (Prelude.Maybe Tag)
-analyticsFilter_tag = Lens.lens (\AnalyticsFilter' {tag} -> tag) (\s@AnalyticsFilter' {} a -> s {tag = a} :: AnalyticsFilter)
-
--- | The prefix to use when evaluating an analytics filter.
-analyticsFilter_prefix :: Lens.Lens' AnalyticsFilter (Prelude.Maybe Prelude.Text)
-analyticsFilter_prefix = Lens.lens (\AnalyticsFilter' {prefix} -> prefix) (\s@AnalyticsFilter' {} a -> s {prefix = a} :: AnalyticsFilter)
 
 -- | A conjunction (logical AND) of predicates, which is used in evaluating
 -- an analytics filter. The operator must have at least two predicates.
 analyticsFilter_and :: Lens.Lens' AnalyticsFilter (Prelude.Maybe AnalyticsAndOperator)
 analyticsFilter_and = Lens.lens (\AnalyticsFilter' {and} -> and) (\s@AnalyticsFilter' {} a -> s {and = a} :: AnalyticsFilter)
 
+-- | The prefix to use when evaluating an analytics filter.
+analyticsFilter_prefix :: Lens.Lens' AnalyticsFilter (Prelude.Maybe Prelude.Text)
+analyticsFilter_prefix = Lens.lens (\AnalyticsFilter' {prefix} -> prefix) (\s@AnalyticsFilter' {} a -> s {prefix = a} :: AnalyticsFilter)
+
+-- | The tag to use when evaluating an analytics filter.
+analyticsFilter_tag :: Lens.Lens' AnalyticsFilter (Prelude.Maybe Tag)
+analyticsFilter_tag = Lens.lens (\AnalyticsFilter' {tag} -> tag) (\s@AnalyticsFilter' {} a -> s {tag = a} :: AnalyticsFilter)
+
 instance Data.FromXML AnalyticsFilter where
   parseXML x =
     AnalyticsFilter'
-      Prelude.<$> (x Data..@? "Tag")
+      Prelude.<$> (x Data..@? "And")
       Prelude.<*> (x Data..@? "Prefix")
-      Prelude.<*> (x Data..@? "And")
+      Prelude.<*> (x Data..@? "Tag")
 
 instance Prelude.Hashable AnalyticsFilter where
   hashWithSalt _salt AnalyticsFilter' {..} =
-    _salt `Prelude.hashWithSalt` tag
+    _salt `Prelude.hashWithSalt` and
       `Prelude.hashWithSalt` prefix
-      `Prelude.hashWithSalt` and
+      `Prelude.hashWithSalt` tag
 
 instance Prelude.NFData AnalyticsFilter where
   rnf AnalyticsFilter' {..} =
-    Prelude.rnf tag
+    Prelude.rnf and
       `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf and
+      `Prelude.seq` Prelude.rnf tag
 
 instance Data.ToXML AnalyticsFilter where
   toXML AnalyticsFilter' {..} =
     Prelude.mconcat
-      [ "Tag" Data.@= tag,
+      [ "And" Data.@= and,
         "Prefix" Data.@= prefix,
-        "And" Data.@= and
+        "Tag" Data.@= tag
       ]

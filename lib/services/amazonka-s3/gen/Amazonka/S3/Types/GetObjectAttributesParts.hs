@@ -30,24 +30,24 @@ import Amazonka.S3.Types.ObjectPart
 --
 -- /See:/ 'newGetObjectAttributesParts' smart constructor.
 data GetObjectAttributesParts = GetObjectAttributesParts'
-  { -- | A container for elements related to a particular part. A response can
-    -- contain zero or more @Parts@ elements.
-    parts :: Prelude.Maybe [ObjectPart],
-    -- | When a list is truncated, this element specifies the last part in the
-    -- list, as well as the value to use for the @PartNumberMarker@ request
-    -- parameter in a subsequent request.
-    nextPartNumberMarker :: Prelude.Maybe Prelude.Int,
-    -- | Indicates whether the returned list of parts is truncated. A value of
+  { -- | Indicates whether the returned list of parts is truncated. A value of
     -- @true@ indicates that the list was truncated. A list can be truncated if
     -- the number of parts exceeds the limit returned in the @MaxParts@
     -- element.
     isTruncated :: Prelude.Maybe Prelude.Bool,
-    -- | The total number of parts.
-    totalPartsCount :: Prelude.Maybe Prelude.Int,
     -- | The maximum number of parts allowed in the response.
     maxParts :: Prelude.Maybe Prelude.Int,
+    -- | When a list is truncated, this element specifies the last part in the
+    -- list, as well as the value to use for the @PartNumberMarker@ request
+    -- parameter in a subsequent request.
+    nextPartNumberMarker :: Prelude.Maybe Prelude.Int,
     -- | The marker for the current part.
-    partNumberMarker :: Prelude.Maybe Prelude.Int
+    partNumberMarker :: Prelude.Maybe Prelude.Int,
+    -- | A container for elements related to a particular part. A response can
+    -- contain zero or more @Parts@ elements.
+    parts :: Prelude.Maybe [ObjectPart],
+    -- | The total number of parts.
+    totalPartsCount :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,45 +59,35 @@ data GetObjectAttributesParts = GetObjectAttributesParts'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'parts', 'getObjectAttributesParts_parts' - A container for elements related to a particular part. A response can
--- contain zero or more @Parts@ elements.
---
--- 'nextPartNumberMarker', 'getObjectAttributesParts_nextPartNumberMarker' - When a list is truncated, this element specifies the last part in the
--- list, as well as the value to use for the @PartNumberMarker@ request
--- parameter in a subsequent request.
---
 -- 'isTruncated', 'getObjectAttributesParts_isTruncated' - Indicates whether the returned list of parts is truncated. A value of
 -- @true@ indicates that the list was truncated. A list can be truncated if
 -- the number of parts exceeds the limit returned in the @MaxParts@
 -- element.
 --
--- 'totalPartsCount', 'getObjectAttributesParts_totalPartsCount' - The total number of parts.
---
 -- 'maxParts', 'getObjectAttributesParts_maxParts' - The maximum number of parts allowed in the response.
 --
+-- 'nextPartNumberMarker', 'getObjectAttributesParts_nextPartNumberMarker' - When a list is truncated, this element specifies the last part in the
+-- list, as well as the value to use for the @PartNumberMarker@ request
+-- parameter in a subsequent request.
+--
 -- 'partNumberMarker', 'getObjectAttributesParts_partNumberMarker' - The marker for the current part.
+--
+-- 'parts', 'getObjectAttributesParts_parts' - A container for elements related to a particular part. A response can
+-- contain zero or more @Parts@ elements.
+--
+-- 'totalPartsCount', 'getObjectAttributesParts_totalPartsCount' - The total number of parts.
 newGetObjectAttributesParts ::
   GetObjectAttributesParts
 newGetObjectAttributesParts =
   GetObjectAttributesParts'
-    { parts = Prelude.Nothing,
-      nextPartNumberMarker = Prelude.Nothing,
-      isTruncated = Prelude.Nothing,
-      totalPartsCount = Prelude.Nothing,
+    { isTruncated =
+        Prelude.Nothing,
       maxParts = Prelude.Nothing,
-      partNumberMarker = Prelude.Nothing
+      nextPartNumberMarker = Prelude.Nothing,
+      partNumberMarker = Prelude.Nothing,
+      parts = Prelude.Nothing,
+      totalPartsCount = Prelude.Nothing
     }
-
--- | A container for elements related to a particular part. A response can
--- contain zero or more @Parts@ elements.
-getObjectAttributesParts_parts :: Lens.Lens' GetObjectAttributesParts (Prelude.Maybe [ObjectPart])
-getObjectAttributesParts_parts = Lens.lens (\GetObjectAttributesParts' {parts} -> parts) (\s@GetObjectAttributesParts' {} a -> s {parts = a} :: GetObjectAttributesParts) Prelude.. Lens.mapping Lens.coerced
-
--- | When a list is truncated, this element specifies the last part in the
--- list, as well as the value to use for the @PartNumberMarker@ request
--- parameter in a subsequent request.
-getObjectAttributesParts_nextPartNumberMarker :: Lens.Lens' GetObjectAttributesParts (Prelude.Maybe Prelude.Int)
-getObjectAttributesParts_nextPartNumberMarker = Lens.lens (\GetObjectAttributesParts' {nextPartNumberMarker} -> nextPartNumberMarker) (\s@GetObjectAttributesParts' {} a -> s {nextPartNumberMarker = a} :: GetObjectAttributesParts)
 
 -- | Indicates whether the returned list of parts is truncated. A value of
 -- @true@ indicates that the list was truncated. A list can be truncated if
@@ -106,42 +96,53 @@ getObjectAttributesParts_nextPartNumberMarker = Lens.lens (\GetObjectAttributesP
 getObjectAttributesParts_isTruncated :: Lens.Lens' GetObjectAttributesParts (Prelude.Maybe Prelude.Bool)
 getObjectAttributesParts_isTruncated = Lens.lens (\GetObjectAttributesParts' {isTruncated} -> isTruncated) (\s@GetObjectAttributesParts' {} a -> s {isTruncated = a} :: GetObjectAttributesParts)
 
--- | The total number of parts.
-getObjectAttributesParts_totalPartsCount :: Lens.Lens' GetObjectAttributesParts (Prelude.Maybe Prelude.Int)
-getObjectAttributesParts_totalPartsCount = Lens.lens (\GetObjectAttributesParts' {totalPartsCount} -> totalPartsCount) (\s@GetObjectAttributesParts' {} a -> s {totalPartsCount = a} :: GetObjectAttributesParts)
-
 -- | The maximum number of parts allowed in the response.
 getObjectAttributesParts_maxParts :: Lens.Lens' GetObjectAttributesParts (Prelude.Maybe Prelude.Int)
 getObjectAttributesParts_maxParts = Lens.lens (\GetObjectAttributesParts' {maxParts} -> maxParts) (\s@GetObjectAttributesParts' {} a -> s {maxParts = a} :: GetObjectAttributesParts)
+
+-- | When a list is truncated, this element specifies the last part in the
+-- list, as well as the value to use for the @PartNumberMarker@ request
+-- parameter in a subsequent request.
+getObjectAttributesParts_nextPartNumberMarker :: Lens.Lens' GetObjectAttributesParts (Prelude.Maybe Prelude.Int)
+getObjectAttributesParts_nextPartNumberMarker = Lens.lens (\GetObjectAttributesParts' {nextPartNumberMarker} -> nextPartNumberMarker) (\s@GetObjectAttributesParts' {} a -> s {nextPartNumberMarker = a} :: GetObjectAttributesParts)
 
 -- | The marker for the current part.
 getObjectAttributesParts_partNumberMarker :: Lens.Lens' GetObjectAttributesParts (Prelude.Maybe Prelude.Int)
 getObjectAttributesParts_partNumberMarker = Lens.lens (\GetObjectAttributesParts' {partNumberMarker} -> partNumberMarker) (\s@GetObjectAttributesParts' {} a -> s {partNumberMarker = a} :: GetObjectAttributesParts)
 
+-- | A container for elements related to a particular part. A response can
+-- contain zero or more @Parts@ elements.
+getObjectAttributesParts_parts :: Lens.Lens' GetObjectAttributesParts (Prelude.Maybe [ObjectPart])
+getObjectAttributesParts_parts = Lens.lens (\GetObjectAttributesParts' {parts} -> parts) (\s@GetObjectAttributesParts' {} a -> s {parts = a} :: GetObjectAttributesParts) Prelude.. Lens.mapping Lens.coerced
+
+-- | The total number of parts.
+getObjectAttributesParts_totalPartsCount :: Lens.Lens' GetObjectAttributesParts (Prelude.Maybe Prelude.Int)
+getObjectAttributesParts_totalPartsCount = Lens.lens (\GetObjectAttributesParts' {totalPartsCount} -> totalPartsCount) (\s@GetObjectAttributesParts' {} a -> s {totalPartsCount = a} :: GetObjectAttributesParts)
+
 instance Data.FromXML GetObjectAttributesParts where
   parseXML x =
     GetObjectAttributesParts'
-      Prelude.<$> (Core.may (Data.parseXMLList "Part") x)
-      Prelude.<*> (x Data..@? "NextPartNumberMarker")
-      Prelude.<*> (x Data..@? "IsTruncated")
-      Prelude.<*> (x Data..@? "PartsCount")
+      Prelude.<$> (x Data..@? "IsTruncated")
       Prelude.<*> (x Data..@? "MaxParts")
+      Prelude.<*> (x Data..@? "NextPartNumberMarker")
       Prelude.<*> (x Data..@? "PartNumberMarker")
+      Prelude.<*> (Core.may (Data.parseXMLList "Part") x)
+      Prelude.<*> (x Data..@? "PartsCount")
 
 instance Prelude.Hashable GetObjectAttributesParts where
   hashWithSalt _salt GetObjectAttributesParts' {..} =
-    _salt `Prelude.hashWithSalt` parts
-      `Prelude.hashWithSalt` nextPartNumberMarker
-      `Prelude.hashWithSalt` isTruncated
-      `Prelude.hashWithSalt` totalPartsCount
+    _salt `Prelude.hashWithSalt` isTruncated
       `Prelude.hashWithSalt` maxParts
+      `Prelude.hashWithSalt` nextPartNumberMarker
       `Prelude.hashWithSalt` partNumberMarker
+      `Prelude.hashWithSalt` parts
+      `Prelude.hashWithSalt` totalPartsCount
 
 instance Prelude.NFData GetObjectAttributesParts where
   rnf GetObjectAttributesParts' {..} =
-    Prelude.rnf parts
-      `Prelude.seq` Prelude.rnf nextPartNumberMarker
-      `Prelude.seq` Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf totalPartsCount
+    Prelude.rnf isTruncated
       `Prelude.seq` Prelude.rnf maxParts
+      `Prelude.seq` Prelude.rnf nextPartNumberMarker
       `Prelude.seq` Prelude.rnf partNumberMarker
+      `Prelude.seq` Prelude.rnf parts
+      `Prelude.seq` Prelude.rnf totalPartsCount

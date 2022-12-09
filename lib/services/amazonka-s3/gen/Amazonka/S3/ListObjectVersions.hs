@@ -52,12 +52,12 @@ module Amazonka.S3.ListObjectVersions
     newListObjectVersions,
 
     -- * Request Lenses
-    listObjectVersions_maxKeys,
+    listObjectVersions_delimiter,
+    listObjectVersions_encodingType,
     listObjectVersions_expectedBucketOwner,
     listObjectVersions_keyMarker,
-    listObjectVersions_delimiter,
+    listObjectVersions_maxKeys,
     listObjectVersions_prefix,
-    listObjectVersions_encodingType,
     listObjectVersions_versionIdMarker,
     listObjectVersions_bucket,
 
@@ -66,19 +66,19 @@ module Amazonka.S3.ListObjectVersions
     newListObjectVersionsResponse,
 
     -- * Response Lenses
-    listObjectVersionsResponse_maxKeys,
     listObjectVersionsResponse_commonPrefixes,
-    listObjectVersionsResponse_name,
-    listObjectVersionsResponse_isTruncated,
-    listObjectVersionsResponse_keyMarker,
     listObjectVersionsResponse_deleteMarkers,
     listObjectVersionsResponse_delimiter,
-    listObjectVersionsResponse_versions,
-    listObjectVersionsResponse_prefix,
-    listObjectVersionsResponse_nextVersionIdMarker,
-    listObjectVersionsResponse_nextKeyMarker,
     listObjectVersionsResponse_encodingType,
+    listObjectVersionsResponse_isTruncated,
+    listObjectVersionsResponse_keyMarker,
+    listObjectVersionsResponse_maxKeys,
+    listObjectVersionsResponse_name,
+    listObjectVersionsResponse_nextKeyMarker,
+    listObjectVersionsResponse_nextVersionIdMarker,
+    listObjectVersionsResponse_prefix,
     listObjectVersionsResponse_versionIdMarker,
+    listObjectVersionsResponse_versions,
     listObjectVersionsResponse_httpStatus,
   )
 where
@@ -93,26 +93,27 @@ import Amazonka.S3.Types
 
 -- | /See:/ 'newListObjectVersions' smart constructor.
 data ListObjectVersions = ListObjectVersions'
-  { -- | Sets the maximum number of keys returned in the response. By default the
-    -- action returns up to 1,000 key names. The response might contain fewer
-    -- keys but will never contain more. If additional keys satisfy the search
-    -- criteria, but were not returned because max-keys was exceeded, the
-    -- response contains \<isTruncated>true\<\/isTruncated>. To return the
-    -- additional keys, see key-marker and version-id-marker.
-    maxKeys :: Prelude.Maybe Prelude.Int,
-    -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request fails with the HTTP status code
-    -- @403 Forbidden@ (access denied).
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the key to start with when listing objects in a bucket.
-    keyMarker :: Prelude.Maybe Prelude.Text,
-    -- | A delimiter is a character that you specify to group keys. All keys that
+  { -- | A delimiter is a character that you specify to group keys. All keys that
     -- contain the same string between the @prefix@ and the first occurrence of
     -- the delimiter are grouped under a single result element in
     -- CommonPrefixes. These groups are counted as one result against the
     -- max-keys limitation. These keys are not returned elsewhere in the
     -- response.
     delimiter :: Prelude.Maybe Delimiter,
+    encodingType :: Prelude.Maybe EncodingType,
+    -- | The account ID of the expected bucket owner. If the bucket is owned by a
+    -- different account, the request fails with the HTTP status code
+    -- @403 Forbidden@ (access denied).
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the key to start with when listing objects in a bucket.
+    keyMarker :: Prelude.Maybe Prelude.Text,
+    -- | Sets the maximum number of keys returned in the response. By default the
+    -- action returns up to 1,000 key names. The response might contain fewer
+    -- keys but will never contain more. If additional keys satisfy the search
+    -- criteria, but were not returned because max-keys was exceeded, the
+    -- response contains \<isTruncated>true\<\/isTruncated>. To return the
+    -- additional keys, see key-marker and version-id-marker.
+    maxKeys :: Prelude.Maybe Prelude.Int,
     -- | Use this parameter to select only those keys that begin with the
     -- specified prefix. You can use prefixes to separate a bucket into
     -- different groupings of keys. (You can think of using prefix to make
@@ -120,7 +121,6 @@ data ListObjectVersions = ListObjectVersions'
     -- use prefix with delimiter to roll up numerous objects into a single
     -- result under CommonPrefixes.
     prefix :: Prelude.Maybe Prelude.Text,
-    encodingType :: Prelude.Maybe EncodingType,
     -- | Specifies the object version you want to start listing from.
     versionIdMarker :: Prelude.Maybe Prelude.Text,
     -- | The bucket name that contains the objects.
@@ -136,19 +136,6 @@ data ListObjectVersions = ListObjectVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxKeys', 'listObjectVersions_maxKeys' - Sets the maximum number of keys returned in the response. By default the
--- action returns up to 1,000 key names. The response might contain fewer
--- keys but will never contain more. If additional keys satisfy the search
--- criteria, but were not returned because max-keys was exceeded, the
--- response contains \<isTruncated>true\<\/isTruncated>. To return the
--- additional keys, see key-marker and version-id-marker.
---
--- 'expectedBucketOwner', 'listObjectVersions_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request fails with the HTTP status code
--- @403 Forbidden@ (access denied).
---
--- 'keyMarker', 'listObjectVersions_keyMarker' - Specifies the key to start with when listing objects in a bucket.
---
 -- 'delimiter', 'listObjectVersions_delimiter' - A delimiter is a character that you specify to group keys. All keys that
 -- contain the same string between the @prefix@ and the first occurrence of
 -- the delimiter are grouped under a single result element in
@@ -156,14 +143,27 @@ data ListObjectVersions = ListObjectVersions'
 -- max-keys limitation. These keys are not returned elsewhere in the
 -- response.
 --
+-- 'encodingType', 'listObjectVersions_encodingType' - Undocumented member.
+--
+-- 'expectedBucketOwner', 'listObjectVersions_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
+--
+-- 'keyMarker', 'listObjectVersions_keyMarker' - Specifies the key to start with when listing objects in a bucket.
+--
+-- 'maxKeys', 'listObjectVersions_maxKeys' - Sets the maximum number of keys returned in the response. By default the
+-- action returns up to 1,000 key names. The response might contain fewer
+-- keys but will never contain more. If additional keys satisfy the search
+-- criteria, but were not returned because max-keys was exceeded, the
+-- response contains \<isTruncated>true\<\/isTruncated>. To return the
+-- additional keys, see key-marker and version-id-marker.
+--
 -- 'prefix', 'listObjectVersions_prefix' - Use this parameter to select only those keys that begin with the
 -- specified prefix. You can use prefixes to separate a bucket into
 -- different groupings of keys. (You can think of using prefix to make
 -- groups in the same way you\'d use a folder in a file system.) You can
 -- use prefix with delimiter to roll up numerous objects into a single
 -- result under CommonPrefixes.
---
--- 'encodingType', 'listObjectVersions_encodingType' - Undocumented member.
 --
 -- 'versionIdMarker', 'listObjectVersions_versionIdMarker' - Specifies the object version you want to start listing from.
 --
@@ -174,24 +174,28 @@ newListObjectVersions ::
   ListObjectVersions
 newListObjectVersions pBucket_ =
   ListObjectVersions'
-    { maxKeys = Prelude.Nothing,
+    { delimiter = Prelude.Nothing,
+      encodingType = Prelude.Nothing,
       expectedBucketOwner = Prelude.Nothing,
       keyMarker = Prelude.Nothing,
-      delimiter = Prelude.Nothing,
+      maxKeys = Prelude.Nothing,
       prefix = Prelude.Nothing,
-      encodingType = Prelude.Nothing,
       versionIdMarker = Prelude.Nothing,
       bucket = pBucket_
     }
 
--- | Sets the maximum number of keys returned in the response. By default the
--- action returns up to 1,000 key names. The response might contain fewer
--- keys but will never contain more. If additional keys satisfy the search
--- criteria, but were not returned because max-keys was exceeded, the
--- response contains \<isTruncated>true\<\/isTruncated>. To return the
--- additional keys, see key-marker and version-id-marker.
-listObjectVersions_maxKeys :: Lens.Lens' ListObjectVersions (Prelude.Maybe Prelude.Int)
-listObjectVersions_maxKeys = Lens.lens (\ListObjectVersions' {maxKeys} -> maxKeys) (\s@ListObjectVersions' {} a -> s {maxKeys = a} :: ListObjectVersions)
+-- | A delimiter is a character that you specify to group keys. All keys that
+-- contain the same string between the @prefix@ and the first occurrence of
+-- the delimiter are grouped under a single result element in
+-- CommonPrefixes. These groups are counted as one result against the
+-- max-keys limitation. These keys are not returned elsewhere in the
+-- response.
+listObjectVersions_delimiter :: Lens.Lens' ListObjectVersions (Prelude.Maybe Delimiter)
+listObjectVersions_delimiter = Lens.lens (\ListObjectVersions' {delimiter} -> delimiter) (\s@ListObjectVersions' {} a -> s {delimiter = a} :: ListObjectVersions)
+
+-- | Undocumented member.
+listObjectVersions_encodingType :: Lens.Lens' ListObjectVersions (Prelude.Maybe EncodingType)
+listObjectVersions_encodingType = Lens.lens (\ListObjectVersions' {encodingType} -> encodingType) (\s@ListObjectVersions' {} a -> s {encodingType = a} :: ListObjectVersions)
 
 -- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request fails with the HTTP status code
@@ -203,14 +207,14 @@ listObjectVersions_expectedBucketOwner = Lens.lens (\ListObjectVersions' {expect
 listObjectVersions_keyMarker :: Lens.Lens' ListObjectVersions (Prelude.Maybe Prelude.Text)
 listObjectVersions_keyMarker = Lens.lens (\ListObjectVersions' {keyMarker} -> keyMarker) (\s@ListObjectVersions' {} a -> s {keyMarker = a} :: ListObjectVersions)
 
--- | A delimiter is a character that you specify to group keys. All keys that
--- contain the same string between the @prefix@ and the first occurrence of
--- the delimiter are grouped under a single result element in
--- CommonPrefixes. These groups are counted as one result against the
--- max-keys limitation. These keys are not returned elsewhere in the
--- response.
-listObjectVersions_delimiter :: Lens.Lens' ListObjectVersions (Prelude.Maybe Delimiter)
-listObjectVersions_delimiter = Lens.lens (\ListObjectVersions' {delimiter} -> delimiter) (\s@ListObjectVersions' {} a -> s {delimiter = a} :: ListObjectVersions)
+-- | Sets the maximum number of keys returned in the response. By default the
+-- action returns up to 1,000 key names. The response might contain fewer
+-- keys but will never contain more. If additional keys satisfy the search
+-- criteria, but were not returned because max-keys was exceeded, the
+-- response contains \<isTruncated>true\<\/isTruncated>. To return the
+-- additional keys, see key-marker and version-id-marker.
+listObjectVersions_maxKeys :: Lens.Lens' ListObjectVersions (Prelude.Maybe Prelude.Int)
+listObjectVersions_maxKeys = Lens.lens (\ListObjectVersions' {maxKeys} -> maxKeys) (\s@ListObjectVersions' {} a -> s {maxKeys = a} :: ListObjectVersions)
 
 -- | Use this parameter to select only those keys that begin with the
 -- specified prefix. You can use prefixes to separate a bucket into
@@ -220,10 +224,6 @@ listObjectVersions_delimiter = Lens.lens (\ListObjectVersions' {delimiter} -> de
 -- result under CommonPrefixes.
 listObjectVersions_prefix :: Lens.Lens' ListObjectVersions (Prelude.Maybe Prelude.Text)
 listObjectVersions_prefix = Lens.lens (\ListObjectVersions' {prefix} -> prefix) (\s@ListObjectVersions' {} a -> s {prefix = a} :: ListObjectVersions)
-
--- | Undocumented member.
-listObjectVersions_encodingType :: Lens.Lens' ListObjectVersions (Prelude.Maybe EncodingType)
-listObjectVersions_encodingType = Lens.lens (\ListObjectVersions' {encodingType} -> encodingType) (\s@ListObjectVersions' {} a -> s {encodingType = a} :: ListObjectVersions)
 
 -- | Specifies the object version you want to start listing from.
 listObjectVersions_versionIdMarker :: Lens.Lens' ListObjectVersions (Prelude.Maybe Prelude.Text)
@@ -275,41 +275,41 @@ instance Core.AWSRequest ListObjectVersions where
     Response.receiveXML
       ( \s h x ->
           ListObjectVersionsResponse'
-            Prelude.<$> (x Data..@? "MaxKeys")
-            Prelude.<*> (Core.may (Data.parseXMLList "CommonPrefixes") x)
-            Prelude.<*> (x Data..@? "Name")
-            Prelude.<*> (x Data..@? "IsTruncated")
-            Prelude.<*> (x Data..@? "KeyMarker")
+            Prelude.<$> (Core.may (Data.parseXMLList "CommonPrefixes") x)
             Prelude.<*> (Core.may (Data.parseXMLList "DeleteMarker") x)
             Prelude.<*> (x Data..@? "Delimiter")
-            Prelude.<*> (Core.may (Data.parseXMLList "Version") x)
-            Prelude.<*> (x Data..@? "Prefix")
-            Prelude.<*> (x Data..@? "NextVersionIdMarker")
-            Prelude.<*> (x Data..@? "NextKeyMarker")
             Prelude.<*> (x Data..@? "EncodingType")
+            Prelude.<*> (x Data..@? "IsTruncated")
+            Prelude.<*> (x Data..@? "KeyMarker")
+            Prelude.<*> (x Data..@? "MaxKeys")
+            Prelude.<*> (x Data..@? "Name")
+            Prelude.<*> (x Data..@? "NextKeyMarker")
+            Prelude.<*> (x Data..@? "NextVersionIdMarker")
+            Prelude.<*> (x Data..@? "Prefix")
             Prelude.<*> (x Data..@? "VersionIdMarker")
+            Prelude.<*> (Core.may (Data.parseXMLList "Version") x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListObjectVersions where
   hashWithSalt _salt ListObjectVersions' {..} =
-    _salt `Prelude.hashWithSalt` maxKeys
+    _salt `Prelude.hashWithSalt` delimiter
+      `Prelude.hashWithSalt` encodingType
       `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` keyMarker
-      `Prelude.hashWithSalt` delimiter
+      `Prelude.hashWithSalt` maxKeys
       `Prelude.hashWithSalt` prefix
-      `Prelude.hashWithSalt` encodingType
       `Prelude.hashWithSalt` versionIdMarker
       `Prelude.hashWithSalt` bucket
 
 instance Prelude.NFData ListObjectVersions where
   rnf ListObjectVersions' {..} =
-    Prelude.rnf maxKeys
+    Prelude.rnf delimiter
+      `Prelude.seq` Prelude.rnf encodingType
       `Prelude.seq` Prelude.rnf expectedBucketOwner
       `Prelude.seq` Prelude.rnf keyMarker
-      `Prelude.seq` Prelude.rnf delimiter
+      `Prelude.seq` Prelude.rnf maxKeys
       `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf encodingType
       `Prelude.seq` Prelude.rnf versionIdMarker
       `Prelude.seq` Prelude.rnf bucket
 
@@ -327,32 +327,20 @@ instance Data.ToPath ListObjectVersions where
 instance Data.ToQuery ListObjectVersions where
   toQuery ListObjectVersions' {..} =
     Prelude.mconcat
-      [ "max-keys" Data.=: maxKeys,
-        "key-marker" Data.=: keyMarker,
-        "delimiter" Data.=: delimiter,
-        "prefix" Data.=: prefix,
+      [ "delimiter" Data.=: delimiter,
         "encoding-type" Data.=: encodingType,
+        "key-marker" Data.=: keyMarker,
+        "max-keys" Data.=: maxKeys,
+        "prefix" Data.=: prefix,
         "version-id-marker" Data.=: versionIdMarker,
         "versions"
       ]
 
 -- | /See:/ 'newListObjectVersionsResponse' smart constructor.
 data ListObjectVersionsResponse = ListObjectVersionsResponse'
-  { -- | Specifies the maximum number of objects to return.
-    maxKeys :: Prelude.Maybe Prelude.Int,
-    -- | All of the keys rolled up into a common prefix count as a single return
+  { -- | All of the keys rolled up into a common prefix count as a single return
     -- when calculating the number of returns.
     commonPrefixes :: Prelude.Maybe [CommonPrefix],
-    -- | The bucket name.
-    name :: Prelude.Maybe BucketName,
-    -- | A flag that indicates whether Amazon S3 returned all of the results that
-    -- satisfied the search criteria. If your results were truncated, you can
-    -- make a follow-up paginated request using the NextKeyMarker and
-    -- NextVersionIdMarker response parameters as a starting place in another
-    -- request to return the rest of the results.
-    isTruncated :: Prelude.Maybe Prelude.Bool,
-    -- | Marks the last key returned in a truncated response.
-    keyMarker :: Prelude.Maybe Prelude.Text,
     -- | Container for an object that is a delete marker.
     deleteMarkers :: Prelude.Maybe [DeleteMarkerEntry],
     -- | The delimiter grouping the included keys. A delimiter is a character
@@ -362,20 +350,6 @@ data ListObjectVersionsResponse = ListObjectVersionsResponse'
     -- counted as one result against the max-keys limitation. These keys are
     -- not returned elsewhere in the response.
     delimiter :: Prelude.Maybe Delimiter,
-    -- | Container for version information.
-    versions :: Prelude.Maybe [ObjectVersion],
-    -- | Selects objects that start with the value supplied by this parameter.
-    prefix :: Prelude.Maybe Prelude.Text,
-    -- | When the number of responses exceeds the value of @MaxKeys@,
-    -- @NextVersionIdMarker@ specifies the first object version not returned
-    -- that satisfies the search criteria. Use this value for the
-    -- version-id-marker request parameter in a subsequent request.
-    nextVersionIdMarker :: Prelude.Maybe Prelude.Text,
-    -- | When the number of responses exceeds the value of @MaxKeys@,
-    -- @NextKeyMarker@ specifies the first key not returned that satisfies the
-    -- search criteria. Use this value for the key-marker request parameter in
-    -- a subsequent request.
-    nextKeyMarker :: Prelude.Maybe Prelude.Text,
     -- | Encoding type used by Amazon S3 to encode object key names in the XML
     -- response.
     --
@@ -385,8 +359,34 @@ data ListObjectVersionsResponse = ListObjectVersionsResponse'
     --
     -- @KeyMarker, NextKeyMarker, Prefix, Key@, and @Delimiter@.
     encodingType :: Prelude.Maybe EncodingType,
+    -- | A flag that indicates whether Amazon S3 returned all of the results that
+    -- satisfied the search criteria. If your results were truncated, you can
+    -- make a follow-up paginated request using the NextKeyMarker and
+    -- NextVersionIdMarker response parameters as a starting place in another
+    -- request to return the rest of the results.
+    isTruncated :: Prelude.Maybe Prelude.Bool,
+    -- | Marks the last key returned in a truncated response.
+    keyMarker :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the maximum number of objects to return.
+    maxKeys :: Prelude.Maybe Prelude.Int,
+    -- | The bucket name.
+    name :: Prelude.Maybe BucketName,
+    -- | When the number of responses exceeds the value of @MaxKeys@,
+    -- @NextKeyMarker@ specifies the first key not returned that satisfies the
+    -- search criteria. Use this value for the key-marker request parameter in
+    -- a subsequent request.
+    nextKeyMarker :: Prelude.Maybe Prelude.Text,
+    -- | When the number of responses exceeds the value of @MaxKeys@,
+    -- @NextVersionIdMarker@ specifies the first object version not returned
+    -- that satisfies the search criteria. Use this value for the
+    -- version-id-marker request parameter in a subsequent request.
+    nextVersionIdMarker :: Prelude.Maybe Prelude.Text,
+    -- | Selects objects that start with the value supplied by this parameter.
+    prefix :: Prelude.Maybe Prelude.Text,
     -- | Marks the last version of the key returned in a truncated response.
     versionIdMarker :: Prelude.Maybe Prelude.Text,
+    -- | Container for version information.
+    versions :: Prelude.Maybe [ObjectVersion],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -400,20 +400,8 @@ data ListObjectVersionsResponse = ListObjectVersionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxKeys', 'listObjectVersionsResponse_maxKeys' - Specifies the maximum number of objects to return.
---
 -- 'commonPrefixes', 'listObjectVersionsResponse_commonPrefixes' - All of the keys rolled up into a common prefix count as a single return
 -- when calculating the number of returns.
---
--- 'name', 'listObjectVersionsResponse_name' - The bucket name.
---
--- 'isTruncated', 'listObjectVersionsResponse_isTruncated' - A flag that indicates whether Amazon S3 returned all of the results that
--- satisfied the search criteria. If your results were truncated, you can
--- make a follow-up paginated request using the NextKeyMarker and
--- NextVersionIdMarker response parameters as a starting place in another
--- request to return the rest of the results.
---
--- 'keyMarker', 'listObjectVersionsResponse_keyMarker' - Marks the last key returned in a truncated response.
 --
 -- 'deleteMarkers', 'listObjectVersionsResponse_deleteMarkers' - Container for an object that is a delete marker.
 --
@@ -424,20 +412,6 @@ data ListObjectVersionsResponse = ListObjectVersionsResponse'
 -- counted as one result against the max-keys limitation. These keys are
 -- not returned elsewhere in the response.
 --
--- 'versions', 'listObjectVersionsResponse_versions' - Container for version information.
---
--- 'prefix', 'listObjectVersionsResponse_prefix' - Selects objects that start with the value supplied by this parameter.
---
--- 'nextVersionIdMarker', 'listObjectVersionsResponse_nextVersionIdMarker' - When the number of responses exceeds the value of @MaxKeys@,
--- @NextVersionIdMarker@ specifies the first object version not returned
--- that satisfies the search criteria. Use this value for the
--- version-id-marker request parameter in a subsequent request.
---
--- 'nextKeyMarker', 'listObjectVersionsResponse_nextKeyMarker' - When the number of responses exceeds the value of @MaxKeys@,
--- @NextKeyMarker@ specifies the first key not returned that satisfies the
--- search criteria. Use this value for the key-marker request parameter in
--- a subsequent request.
---
 -- 'encodingType', 'listObjectVersionsResponse_encodingType' - Encoding type used by Amazon S3 to encode object key names in the XML
 -- response.
 --
@@ -447,7 +421,33 @@ data ListObjectVersionsResponse = ListObjectVersionsResponse'
 --
 -- @KeyMarker, NextKeyMarker, Prefix, Key@, and @Delimiter@.
 --
+-- 'isTruncated', 'listObjectVersionsResponse_isTruncated' - A flag that indicates whether Amazon S3 returned all of the results that
+-- satisfied the search criteria. If your results were truncated, you can
+-- make a follow-up paginated request using the NextKeyMarker and
+-- NextVersionIdMarker response parameters as a starting place in another
+-- request to return the rest of the results.
+--
+-- 'keyMarker', 'listObjectVersionsResponse_keyMarker' - Marks the last key returned in a truncated response.
+--
+-- 'maxKeys', 'listObjectVersionsResponse_maxKeys' - Specifies the maximum number of objects to return.
+--
+-- 'name', 'listObjectVersionsResponse_name' - The bucket name.
+--
+-- 'nextKeyMarker', 'listObjectVersionsResponse_nextKeyMarker' - When the number of responses exceeds the value of @MaxKeys@,
+-- @NextKeyMarker@ specifies the first key not returned that satisfies the
+-- search criteria. Use this value for the key-marker request parameter in
+-- a subsequent request.
+--
+-- 'nextVersionIdMarker', 'listObjectVersionsResponse_nextVersionIdMarker' - When the number of responses exceeds the value of @MaxKeys@,
+-- @NextVersionIdMarker@ specifies the first object version not returned
+-- that satisfies the search criteria. Use this value for the
+-- version-id-marker request parameter in a subsequent request.
+--
+-- 'prefix', 'listObjectVersionsResponse_prefix' - Selects objects that start with the value supplied by this parameter.
+--
 -- 'versionIdMarker', 'listObjectVersionsResponse_versionIdMarker' - Marks the last version of the key returned in a truncated response.
+--
+-- 'versions', 'listObjectVersionsResponse_versions' - Container for version information.
 --
 -- 'httpStatus', 'listObjectVersionsResponse_httpStatus' - The response's http status code.
 newListObjectVersionsResponse ::
@@ -456,47 +456,27 @@ newListObjectVersionsResponse ::
   ListObjectVersionsResponse
 newListObjectVersionsResponse pHttpStatus_ =
   ListObjectVersionsResponse'
-    { maxKeys =
+    { commonPrefixes =
         Prelude.Nothing,
-      commonPrefixes = Prelude.Nothing,
-      name = Prelude.Nothing,
-      isTruncated = Prelude.Nothing,
-      keyMarker = Prelude.Nothing,
       deleteMarkers = Prelude.Nothing,
       delimiter = Prelude.Nothing,
-      versions = Prelude.Nothing,
-      prefix = Prelude.Nothing,
-      nextVersionIdMarker = Prelude.Nothing,
-      nextKeyMarker = Prelude.Nothing,
       encodingType = Prelude.Nothing,
+      isTruncated = Prelude.Nothing,
+      keyMarker = Prelude.Nothing,
+      maxKeys = Prelude.Nothing,
+      name = Prelude.Nothing,
+      nextKeyMarker = Prelude.Nothing,
+      nextVersionIdMarker = Prelude.Nothing,
+      prefix = Prelude.Nothing,
       versionIdMarker = Prelude.Nothing,
+      versions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Specifies the maximum number of objects to return.
-listObjectVersionsResponse_maxKeys :: Lens.Lens' ListObjectVersionsResponse (Prelude.Maybe Prelude.Int)
-listObjectVersionsResponse_maxKeys = Lens.lens (\ListObjectVersionsResponse' {maxKeys} -> maxKeys) (\s@ListObjectVersionsResponse' {} a -> s {maxKeys = a} :: ListObjectVersionsResponse)
 
 -- | All of the keys rolled up into a common prefix count as a single return
 -- when calculating the number of returns.
 listObjectVersionsResponse_commonPrefixes :: Lens.Lens' ListObjectVersionsResponse (Prelude.Maybe [CommonPrefix])
 listObjectVersionsResponse_commonPrefixes = Lens.lens (\ListObjectVersionsResponse' {commonPrefixes} -> commonPrefixes) (\s@ListObjectVersionsResponse' {} a -> s {commonPrefixes = a} :: ListObjectVersionsResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The bucket name.
-listObjectVersionsResponse_name :: Lens.Lens' ListObjectVersionsResponse (Prelude.Maybe BucketName)
-listObjectVersionsResponse_name = Lens.lens (\ListObjectVersionsResponse' {name} -> name) (\s@ListObjectVersionsResponse' {} a -> s {name = a} :: ListObjectVersionsResponse)
-
--- | A flag that indicates whether Amazon S3 returned all of the results that
--- satisfied the search criteria. If your results were truncated, you can
--- make a follow-up paginated request using the NextKeyMarker and
--- NextVersionIdMarker response parameters as a starting place in another
--- request to return the rest of the results.
-listObjectVersionsResponse_isTruncated :: Lens.Lens' ListObjectVersionsResponse (Prelude.Maybe Prelude.Bool)
-listObjectVersionsResponse_isTruncated = Lens.lens (\ListObjectVersionsResponse' {isTruncated} -> isTruncated) (\s@ListObjectVersionsResponse' {} a -> s {isTruncated = a} :: ListObjectVersionsResponse)
-
--- | Marks the last key returned in a truncated response.
-listObjectVersionsResponse_keyMarker :: Lens.Lens' ListObjectVersionsResponse (Prelude.Maybe Prelude.Text)
-listObjectVersionsResponse_keyMarker = Lens.lens (\ListObjectVersionsResponse' {keyMarker} -> keyMarker) (\s@ListObjectVersionsResponse' {} a -> s {keyMarker = a} :: ListObjectVersionsResponse)
 
 -- | Container for an object that is a delete marker.
 listObjectVersionsResponse_deleteMarkers :: Lens.Lens' ListObjectVersionsResponse (Prelude.Maybe [DeleteMarkerEntry])
@@ -511,28 +491,6 @@ listObjectVersionsResponse_deleteMarkers = Lens.lens (\ListObjectVersionsRespons
 listObjectVersionsResponse_delimiter :: Lens.Lens' ListObjectVersionsResponse (Prelude.Maybe Delimiter)
 listObjectVersionsResponse_delimiter = Lens.lens (\ListObjectVersionsResponse' {delimiter} -> delimiter) (\s@ListObjectVersionsResponse' {} a -> s {delimiter = a} :: ListObjectVersionsResponse)
 
--- | Container for version information.
-listObjectVersionsResponse_versions :: Lens.Lens' ListObjectVersionsResponse (Prelude.Maybe [ObjectVersion])
-listObjectVersionsResponse_versions = Lens.lens (\ListObjectVersionsResponse' {versions} -> versions) (\s@ListObjectVersionsResponse' {} a -> s {versions = a} :: ListObjectVersionsResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | Selects objects that start with the value supplied by this parameter.
-listObjectVersionsResponse_prefix :: Lens.Lens' ListObjectVersionsResponse (Prelude.Maybe Prelude.Text)
-listObjectVersionsResponse_prefix = Lens.lens (\ListObjectVersionsResponse' {prefix} -> prefix) (\s@ListObjectVersionsResponse' {} a -> s {prefix = a} :: ListObjectVersionsResponse)
-
--- | When the number of responses exceeds the value of @MaxKeys@,
--- @NextVersionIdMarker@ specifies the first object version not returned
--- that satisfies the search criteria. Use this value for the
--- version-id-marker request parameter in a subsequent request.
-listObjectVersionsResponse_nextVersionIdMarker :: Lens.Lens' ListObjectVersionsResponse (Prelude.Maybe Prelude.Text)
-listObjectVersionsResponse_nextVersionIdMarker = Lens.lens (\ListObjectVersionsResponse' {nextVersionIdMarker} -> nextVersionIdMarker) (\s@ListObjectVersionsResponse' {} a -> s {nextVersionIdMarker = a} :: ListObjectVersionsResponse)
-
--- | When the number of responses exceeds the value of @MaxKeys@,
--- @NextKeyMarker@ specifies the first key not returned that satisfies the
--- search criteria. Use this value for the key-marker request parameter in
--- a subsequent request.
-listObjectVersionsResponse_nextKeyMarker :: Lens.Lens' ListObjectVersionsResponse (Prelude.Maybe Prelude.Text)
-listObjectVersionsResponse_nextKeyMarker = Lens.lens (\ListObjectVersionsResponse' {nextKeyMarker} -> nextKeyMarker) (\s@ListObjectVersionsResponse' {} a -> s {nextKeyMarker = a} :: ListObjectVersionsResponse)
-
 -- | Encoding type used by Amazon S3 to encode object key names in the XML
 -- response.
 --
@@ -544,9 +502,51 @@ listObjectVersionsResponse_nextKeyMarker = Lens.lens (\ListObjectVersionsRespons
 listObjectVersionsResponse_encodingType :: Lens.Lens' ListObjectVersionsResponse (Prelude.Maybe EncodingType)
 listObjectVersionsResponse_encodingType = Lens.lens (\ListObjectVersionsResponse' {encodingType} -> encodingType) (\s@ListObjectVersionsResponse' {} a -> s {encodingType = a} :: ListObjectVersionsResponse)
 
+-- | A flag that indicates whether Amazon S3 returned all of the results that
+-- satisfied the search criteria. If your results were truncated, you can
+-- make a follow-up paginated request using the NextKeyMarker and
+-- NextVersionIdMarker response parameters as a starting place in another
+-- request to return the rest of the results.
+listObjectVersionsResponse_isTruncated :: Lens.Lens' ListObjectVersionsResponse (Prelude.Maybe Prelude.Bool)
+listObjectVersionsResponse_isTruncated = Lens.lens (\ListObjectVersionsResponse' {isTruncated} -> isTruncated) (\s@ListObjectVersionsResponse' {} a -> s {isTruncated = a} :: ListObjectVersionsResponse)
+
+-- | Marks the last key returned in a truncated response.
+listObjectVersionsResponse_keyMarker :: Lens.Lens' ListObjectVersionsResponse (Prelude.Maybe Prelude.Text)
+listObjectVersionsResponse_keyMarker = Lens.lens (\ListObjectVersionsResponse' {keyMarker} -> keyMarker) (\s@ListObjectVersionsResponse' {} a -> s {keyMarker = a} :: ListObjectVersionsResponse)
+
+-- | Specifies the maximum number of objects to return.
+listObjectVersionsResponse_maxKeys :: Lens.Lens' ListObjectVersionsResponse (Prelude.Maybe Prelude.Int)
+listObjectVersionsResponse_maxKeys = Lens.lens (\ListObjectVersionsResponse' {maxKeys} -> maxKeys) (\s@ListObjectVersionsResponse' {} a -> s {maxKeys = a} :: ListObjectVersionsResponse)
+
+-- | The bucket name.
+listObjectVersionsResponse_name :: Lens.Lens' ListObjectVersionsResponse (Prelude.Maybe BucketName)
+listObjectVersionsResponse_name = Lens.lens (\ListObjectVersionsResponse' {name} -> name) (\s@ListObjectVersionsResponse' {} a -> s {name = a} :: ListObjectVersionsResponse)
+
+-- | When the number of responses exceeds the value of @MaxKeys@,
+-- @NextKeyMarker@ specifies the first key not returned that satisfies the
+-- search criteria. Use this value for the key-marker request parameter in
+-- a subsequent request.
+listObjectVersionsResponse_nextKeyMarker :: Lens.Lens' ListObjectVersionsResponse (Prelude.Maybe Prelude.Text)
+listObjectVersionsResponse_nextKeyMarker = Lens.lens (\ListObjectVersionsResponse' {nextKeyMarker} -> nextKeyMarker) (\s@ListObjectVersionsResponse' {} a -> s {nextKeyMarker = a} :: ListObjectVersionsResponse)
+
+-- | When the number of responses exceeds the value of @MaxKeys@,
+-- @NextVersionIdMarker@ specifies the first object version not returned
+-- that satisfies the search criteria. Use this value for the
+-- version-id-marker request parameter in a subsequent request.
+listObjectVersionsResponse_nextVersionIdMarker :: Lens.Lens' ListObjectVersionsResponse (Prelude.Maybe Prelude.Text)
+listObjectVersionsResponse_nextVersionIdMarker = Lens.lens (\ListObjectVersionsResponse' {nextVersionIdMarker} -> nextVersionIdMarker) (\s@ListObjectVersionsResponse' {} a -> s {nextVersionIdMarker = a} :: ListObjectVersionsResponse)
+
+-- | Selects objects that start with the value supplied by this parameter.
+listObjectVersionsResponse_prefix :: Lens.Lens' ListObjectVersionsResponse (Prelude.Maybe Prelude.Text)
+listObjectVersionsResponse_prefix = Lens.lens (\ListObjectVersionsResponse' {prefix} -> prefix) (\s@ListObjectVersionsResponse' {} a -> s {prefix = a} :: ListObjectVersionsResponse)
+
 -- | Marks the last version of the key returned in a truncated response.
 listObjectVersionsResponse_versionIdMarker :: Lens.Lens' ListObjectVersionsResponse (Prelude.Maybe Prelude.Text)
 listObjectVersionsResponse_versionIdMarker = Lens.lens (\ListObjectVersionsResponse' {versionIdMarker} -> versionIdMarker) (\s@ListObjectVersionsResponse' {} a -> s {versionIdMarker = a} :: ListObjectVersionsResponse)
+
+-- | Container for version information.
+listObjectVersionsResponse_versions :: Lens.Lens' ListObjectVersionsResponse (Prelude.Maybe [ObjectVersion])
+listObjectVersionsResponse_versions = Lens.lens (\ListObjectVersionsResponse' {versions} -> versions) (\s@ListObjectVersionsResponse' {} a -> s {versions = a} :: ListObjectVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listObjectVersionsResponse_httpStatus :: Lens.Lens' ListObjectVersionsResponse Prelude.Int
@@ -554,17 +554,17 @@ listObjectVersionsResponse_httpStatus = Lens.lens (\ListObjectVersionsResponse' 
 
 instance Prelude.NFData ListObjectVersionsResponse where
   rnf ListObjectVersionsResponse' {..} =
-    Prelude.rnf maxKeys
-      `Prelude.seq` Prelude.rnf commonPrefixes
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf keyMarker
+    Prelude.rnf commonPrefixes
       `Prelude.seq` Prelude.rnf deleteMarkers
       `Prelude.seq` Prelude.rnf delimiter
-      `Prelude.seq` Prelude.rnf versions
-      `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf nextVersionIdMarker
-      `Prelude.seq` Prelude.rnf nextKeyMarker
       `Prelude.seq` Prelude.rnf encodingType
+      `Prelude.seq` Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf keyMarker
+      `Prelude.seq` Prelude.rnf maxKeys
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf nextKeyMarker
+      `Prelude.seq` Prelude.rnf nextVersionIdMarker
+      `Prelude.seq` Prelude.rnf prefix
       `Prelude.seq` Prelude.rnf versionIdMarker
+      `Prelude.seq` Prelude.rnf versions
       `Prelude.seq` Prelude.rnf httpStatus

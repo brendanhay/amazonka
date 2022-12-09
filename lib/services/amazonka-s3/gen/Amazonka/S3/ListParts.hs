@@ -66,12 +66,12 @@ module Amazonka.S3.ListParts
 
     -- * Request Lenses
     listParts_expectedBucketOwner,
+    listParts_maxParts,
+    listParts_partNumberMarker,
     listParts_requestPayer,
     listParts_sSECustomerAlgorithm,
-    listParts_maxParts,
-    listParts_sSECustomerKeyMD5,
-    listParts_partNumberMarker,
     listParts_sSECustomerKey,
+    listParts_sSECustomerKeyMD5,
     listParts_bucket,
     listParts_key,
     listParts_uploadId,
@@ -81,21 +81,21 @@ module Amazonka.S3.ListParts
     newListPartsResponse,
 
     -- * Response Lenses
-    listPartsResponse_checksumAlgorithm,
-    listPartsResponse_uploadId,
-    listPartsResponse_key,
-    listPartsResponse_requestCharged,
-    listPartsResponse_parts,
-    listPartsResponse_bucket,
-    listPartsResponse_abortRuleId,
-    listPartsResponse_nextPartNumberMarker,
-    listPartsResponse_isTruncated,
-    listPartsResponse_owner,
     listPartsResponse_abortDate,
-    listPartsResponse_maxParts,
-    listPartsResponse_partNumberMarker,
-    listPartsResponse_storageClass,
+    listPartsResponse_abortRuleId,
+    listPartsResponse_bucket,
+    listPartsResponse_checksumAlgorithm,
     listPartsResponse_initiator,
+    listPartsResponse_isTruncated,
+    listPartsResponse_key,
+    listPartsResponse_maxParts,
+    listPartsResponse_nextPartNumberMarker,
+    listPartsResponse_owner,
+    listPartsResponse_partNumberMarker,
+    listPartsResponse_parts,
+    listPartsResponse_requestCharged,
+    listPartsResponse_storageClass,
+    listPartsResponse_uploadId,
     listPartsResponse_httpStatus,
   )
 where
@@ -114,6 +114,11 @@ data ListParts = ListParts'
     -- different account, the request fails with the HTTP status code
     -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    -- | Sets the maximum number of parts to return.
+    maxParts :: Prelude.Maybe Prelude.Int,
+    -- | Specifies the part after which listing should begin. Only parts with
+    -- higher part numbers will be listed.
+    partNumberMarker :: Prelude.Maybe Prelude.Int,
     requestPayer :: Prelude.Maybe RequestPayer,
     -- | The server-side encryption (SSE) algorithm used to encrypt the object.
     -- This parameter is needed only when the object was created using a
@@ -121,23 +126,18 @@ data ListParts = ListParts'
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
     -- in the /Amazon S3 User Guide/.
     sSECustomerAlgorithm :: Prelude.Maybe Prelude.Text,
-    -- | Sets the maximum number of parts to return.
-    maxParts :: Prelude.Maybe Prelude.Int,
-    -- | The MD5 server-side encryption (SSE) customer managed key. This
-    -- parameter is needed only when the object was created using a checksum
-    -- algorithm. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
-    -- in the /Amazon S3 User Guide/.
-    sSECustomerKeyMD5 :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the part after which listing should begin. Only parts with
-    -- higher part numbers will be listed.
-    partNumberMarker :: Prelude.Maybe Prelude.Int,
     -- | The server-side encryption (SSE) customer managed key. This parameter is
     -- needed only when the object was created using a checksum algorithm. For
     -- more information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
     -- in the /Amazon S3 User Guide/.
     sSECustomerKey :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The MD5 server-side encryption (SSE) customer managed key. This
+    -- parameter is needed only when the object was created using a checksum
+    -- algorithm. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
+    -- in the /Amazon S3 User Guide/.
+    sSECustomerKeyMD5 :: Prelude.Maybe Prelude.Text,
     -- | The name of the bucket to which the parts are being uploaded.
     --
     -- When using this action with an access point, you must direct requests to
@@ -178,6 +178,11 @@ data ListParts = ListParts'
 -- different account, the request fails with the HTTP status code
 -- @403 Forbidden@ (access denied).
 --
+-- 'maxParts', 'listParts_maxParts' - Sets the maximum number of parts to return.
+--
+-- 'partNumberMarker', 'listParts_partNumberMarker' - Specifies the part after which listing should begin. Only parts with
+-- higher part numbers will be listed.
+--
 -- 'requestPayer', 'listParts_requestPayer' - Undocumented member.
 --
 -- 'sSECustomerAlgorithm', 'listParts_sSECustomerAlgorithm' - The server-side encryption (SSE) algorithm used to encrypt the object.
@@ -186,20 +191,15 @@ data ListParts = ListParts'
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
 -- in the /Amazon S3 User Guide/.
 --
--- 'maxParts', 'listParts_maxParts' - Sets the maximum number of parts to return.
+-- 'sSECustomerKey', 'listParts_sSECustomerKey' - The server-side encryption (SSE) customer managed key. This parameter is
+-- needed only when the object was created using a checksum algorithm. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
+-- in the /Amazon S3 User Guide/.
 --
 -- 'sSECustomerKeyMD5', 'listParts_sSECustomerKeyMD5' - The MD5 server-side encryption (SSE) customer managed key. This
 -- parameter is needed only when the object was created using a checksum
 -- algorithm. For more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
--- in the /Amazon S3 User Guide/.
---
--- 'partNumberMarker', 'listParts_partNumberMarker' - Specifies the part after which listing should begin. Only parts with
--- higher part numbers will be listed.
---
--- 'sSECustomerKey', 'listParts_sSECustomerKey' - The server-side encryption (SSE) customer managed key. This parameter is
--- needed only when the object was created using a checksum algorithm. For
--- more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
 -- in the /Amazon S3 User Guide/.
 --
@@ -238,12 +238,12 @@ newListParts ::
 newListParts pBucket_ pKey_ pUploadId_ =
   ListParts'
     { expectedBucketOwner = Prelude.Nothing,
+      maxParts = Prelude.Nothing,
+      partNumberMarker = Prelude.Nothing,
       requestPayer = Prelude.Nothing,
       sSECustomerAlgorithm = Prelude.Nothing,
-      maxParts = Prelude.Nothing,
-      sSECustomerKeyMD5 = Prelude.Nothing,
-      partNumberMarker = Prelude.Nothing,
       sSECustomerKey = Prelude.Nothing,
+      sSECustomerKeyMD5 = Prelude.Nothing,
       bucket = pBucket_,
       key = pKey_,
       uploadId = pUploadId_
@@ -254,6 +254,15 @@ newListParts pBucket_ pKey_ pUploadId_ =
 -- @403 Forbidden@ (access denied).
 listParts_expectedBucketOwner :: Lens.Lens' ListParts (Prelude.Maybe Prelude.Text)
 listParts_expectedBucketOwner = Lens.lens (\ListParts' {expectedBucketOwner} -> expectedBucketOwner) (\s@ListParts' {} a -> s {expectedBucketOwner = a} :: ListParts)
+
+-- | Sets the maximum number of parts to return.
+listParts_maxParts :: Lens.Lens' ListParts (Prelude.Maybe Prelude.Int)
+listParts_maxParts = Lens.lens (\ListParts' {maxParts} -> maxParts) (\s@ListParts' {} a -> s {maxParts = a} :: ListParts)
+
+-- | Specifies the part after which listing should begin. Only parts with
+-- higher part numbers will be listed.
+listParts_partNumberMarker :: Lens.Lens' ListParts (Prelude.Maybe Prelude.Int)
+listParts_partNumberMarker = Lens.lens (\ListParts' {partNumberMarker} -> partNumberMarker) (\s@ListParts' {} a -> s {partNumberMarker = a} :: ListParts)
 
 -- | Undocumented member.
 listParts_requestPayer :: Lens.Lens' ListParts (Prelude.Maybe RequestPayer)
@@ -267,9 +276,13 @@ listParts_requestPayer = Lens.lens (\ListParts' {requestPayer} -> requestPayer) 
 listParts_sSECustomerAlgorithm :: Lens.Lens' ListParts (Prelude.Maybe Prelude.Text)
 listParts_sSECustomerAlgorithm = Lens.lens (\ListParts' {sSECustomerAlgorithm} -> sSECustomerAlgorithm) (\s@ListParts' {} a -> s {sSECustomerAlgorithm = a} :: ListParts)
 
--- | Sets the maximum number of parts to return.
-listParts_maxParts :: Lens.Lens' ListParts (Prelude.Maybe Prelude.Int)
-listParts_maxParts = Lens.lens (\ListParts' {maxParts} -> maxParts) (\s@ListParts' {} a -> s {maxParts = a} :: ListParts)
+-- | The server-side encryption (SSE) customer managed key. This parameter is
+-- needed only when the object was created using a checksum algorithm. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
+-- in the /Amazon S3 User Guide/.
+listParts_sSECustomerKey :: Lens.Lens' ListParts (Prelude.Maybe Prelude.Text)
+listParts_sSECustomerKey = Lens.lens (\ListParts' {sSECustomerKey} -> sSECustomerKey) (\s@ListParts' {} a -> s {sSECustomerKey = a} :: ListParts) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The MD5 server-side encryption (SSE) customer managed key. This
 -- parameter is needed only when the object was created using a checksum
@@ -278,19 +291,6 @@ listParts_maxParts = Lens.lens (\ListParts' {maxParts} -> maxParts) (\s@ListPart
 -- in the /Amazon S3 User Guide/.
 listParts_sSECustomerKeyMD5 :: Lens.Lens' ListParts (Prelude.Maybe Prelude.Text)
 listParts_sSECustomerKeyMD5 = Lens.lens (\ListParts' {sSECustomerKeyMD5} -> sSECustomerKeyMD5) (\s@ListParts' {} a -> s {sSECustomerKeyMD5 = a} :: ListParts)
-
--- | Specifies the part after which listing should begin. Only parts with
--- higher part numbers will be listed.
-listParts_partNumberMarker :: Lens.Lens' ListParts (Prelude.Maybe Prelude.Int)
-listParts_partNumberMarker = Lens.lens (\ListParts' {partNumberMarker} -> partNumberMarker) (\s@ListParts' {} a -> s {partNumberMarker = a} :: ListParts)
-
--- | The server-side encryption (SSE) customer managed key. This parameter is
--- needed only when the object was created using a checksum algorithm. For
--- more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
--- in the /Amazon S3 User Guide/.
-listParts_sSECustomerKey :: Lens.Lens' ListParts (Prelude.Maybe Prelude.Text)
-listParts_sSECustomerKey = Lens.lens (\ListParts' {sSECustomerKey} -> sSECustomerKey) (\s@ListParts' {} a -> s {sSECustomerKey = a} :: ListParts) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the bucket to which the parts are being uploaded.
 --
@@ -353,33 +353,33 @@ instance Core.AWSRequest ListParts where
     Response.receiveXML
       ( \s h x ->
           ListPartsResponse'
-            Prelude.<$> (x Data..@? "ChecksumAlgorithm")
-            Prelude.<*> (x Data..@? "UploadId")
-            Prelude.<*> (x Data..@? "Key")
-            Prelude.<*> (h Data..#? "x-amz-request-charged")
-            Prelude.<*> (Core.may (Data.parseXMLList "Part") x)
-            Prelude.<*> (x Data..@? "Bucket")
+            Prelude.<$> (h Data..#? "x-amz-abort-date")
             Prelude.<*> (h Data..#? "x-amz-abort-rule-id")
-            Prelude.<*> (x Data..@? "NextPartNumberMarker")
-            Prelude.<*> (x Data..@? "IsTruncated")
-            Prelude.<*> (x Data..@? "Owner")
-            Prelude.<*> (h Data..#? "x-amz-abort-date")
-            Prelude.<*> (x Data..@? "MaxParts")
-            Prelude.<*> (x Data..@? "PartNumberMarker")
-            Prelude.<*> (x Data..@? "StorageClass")
+            Prelude.<*> (x Data..@? "Bucket")
+            Prelude.<*> (x Data..@? "ChecksumAlgorithm")
             Prelude.<*> (x Data..@? "Initiator")
+            Prelude.<*> (x Data..@? "IsTruncated")
+            Prelude.<*> (x Data..@? "Key")
+            Prelude.<*> (x Data..@? "MaxParts")
+            Prelude.<*> (x Data..@? "NextPartNumberMarker")
+            Prelude.<*> (x Data..@? "Owner")
+            Prelude.<*> (x Data..@? "PartNumberMarker")
+            Prelude.<*> (Core.may (Data.parseXMLList "Part") x)
+            Prelude.<*> (h Data..#? "x-amz-request-charged")
+            Prelude.<*> (x Data..@? "StorageClass")
+            Prelude.<*> (x Data..@? "UploadId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListParts where
   hashWithSalt _salt ListParts' {..} =
     _salt `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` maxParts
+      `Prelude.hashWithSalt` partNumberMarker
       `Prelude.hashWithSalt` requestPayer
       `Prelude.hashWithSalt` sSECustomerAlgorithm
-      `Prelude.hashWithSalt` maxParts
-      `Prelude.hashWithSalt` sSECustomerKeyMD5
-      `Prelude.hashWithSalt` partNumberMarker
       `Prelude.hashWithSalt` sSECustomerKey
+      `Prelude.hashWithSalt` sSECustomerKeyMD5
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` uploadId
@@ -387,12 +387,12 @@ instance Prelude.Hashable ListParts where
 instance Prelude.NFData ListParts where
   rnf ListParts' {..} =
     Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf maxParts
+      `Prelude.seq` Prelude.rnf partNumberMarker
       `Prelude.seq` Prelude.rnf requestPayer
       `Prelude.seq` Prelude.rnf sSECustomerAlgorithm
-      `Prelude.seq` Prelude.rnf maxParts
-      `Prelude.seq` Prelude.rnf sSECustomerKeyMD5
-      `Prelude.seq` Prelude.rnf partNumberMarker
       `Prelude.seq` Prelude.rnf sSECustomerKey
+      `Prelude.seq` Prelude.rnf sSECustomerKeyMD5
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf key
       `Prelude.seq` Prelude.rnf uploadId
@@ -405,10 +405,10 @@ instance Data.ToHeaders ListParts where
         "x-amz-request-payer" Data.=# requestPayer,
         "x-amz-server-side-encryption-customer-algorithm"
           Data.=# sSECustomerAlgorithm,
-        "x-amz-server-side-encryption-customer-key-MD5"
-          Data.=# sSECustomerKeyMD5,
         "x-amz-server-side-encryption-customer-key"
-          Data.=# sSECustomerKey
+          Data.=# sSECustomerKey,
+        "x-amz-server-side-encryption-customer-key-MD5"
+          Data.=# sSECustomerKeyMD5
       ]
 
 instance Data.ToPath ListParts where
@@ -426,36 +426,7 @@ instance Data.ToQuery ListParts where
 
 -- | /See:/ 'newListPartsResponse' smart constructor.
 data ListPartsResponse = ListPartsResponse'
-  { -- | The algorithm that was used to create a checksum of the object.
-    checksumAlgorithm :: Prelude.Maybe ChecksumAlgorithm,
-    -- | Upload ID identifying the multipart upload whose parts are being listed.
-    uploadId :: Prelude.Maybe Prelude.Text,
-    -- | Object key for which the multipart upload was initiated.
-    key :: Prelude.Maybe ObjectKey,
-    requestCharged :: Prelude.Maybe RequestCharged,
-    -- | Container for elements related to a particular part. A response can
-    -- contain zero or more @Part@ elements.
-    parts :: Prelude.Maybe [Part],
-    -- | The name of the bucket to which the multipart upload was initiated. Does
-    -- not return the access point ARN or access point alias if used.
-    bucket :: Prelude.Maybe BucketName,
-    -- | This header is returned along with the @x-amz-abort-date@ header. It
-    -- identifies applicable lifecycle configuration rule that defines the
-    -- action to abort incomplete multipart uploads.
-    abortRuleId :: Prelude.Maybe Prelude.Text,
-    -- | When a list is truncated, this element specifies the last part in the
-    -- list, as well as the value to use for the part-number-marker request
-    -- parameter in a subsequent request.
-    nextPartNumberMarker :: Prelude.Maybe Prelude.Int,
-    -- | Indicates whether the returned list of parts is truncated. A true value
-    -- indicates that the list was truncated. A list can be truncated if the
-    -- number of parts exceeds the limit returned in the MaxParts element.
-    isTruncated :: Prelude.Maybe Prelude.Bool,
-    -- | Container element that identifies the object owner, after the object is
-    -- created. If multipart upload is initiated by an IAM user, this element
-    -- provides the parent account ID and display name.
-    owner :: Prelude.Maybe Owner,
-    -- | If the bucket has a lifecycle rule configured with an action to abort
+  { -- | If the bucket has a lifecycle rule configured with an action to abort
     -- incomplete multipart uploads and the prefix in the lifecycle rule
     -- matches the object name in the request, then the response includes this
     -- header indicating when the initiated multipart upload will become
@@ -466,20 +437,49 @@ data ListPartsResponse = ListPartsResponse'
     -- will provide the ID of the lifecycle configuration rule that defines
     -- this action.
     abortDate :: Prelude.Maybe Data.ISO8601,
-    -- | Maximum number of parts that were allowed in the response.
-    maxParts :: Prelude.Maybe Prelude.Int,
-    -- | When a list is truncated, this element specifies the last part in the
-    -- list, as well as the value to use for the part-number-marker request
-    -- parameter in a subsequent request.
-    partNumberMarker :: Prelude.Maybe Prelude.Int,
-    -- | Class of storage (STANDARD or REDUCED_REDUNDANCY) used to store the
-    -- uploaded object.
-    storageClass :: Prelude.Maybe StorageClass,
+    -- | This header is returned along with the @x-amz-abort-date@ header. It
+    -- identifies applicable lifecycle configuration rule that defines the
+    -- action to abort incomplete multipart uploads.
+    abortRuleId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the bucket to which the multipart upload was initiated. Does
+    -- not return the access point ARN or access point alias if used.
+    bucket :: Prelude.Maybe BucketName,
+    -- | The algorithm that was used to create a checksum of the object.
+    checksumAlgorithm :: Prelude.Maybe ChecksumAlgorithm,
     -- | Container element that identifies who initiated the multipart upload. If
     -- the initiator is an Amazon Web Services account, this element provides
     -- the same information as the @Owner@ element. If the initiator is an IAM
     -- User, this element provides the user ARN and display name.
     initiator :: Prelude.Maybe Initiator,
+    -- | Indicates whether the returned list of parts is truncated. A true value
+    -- indicates that the list was truncated. A list can be truncated if the
+    -- number of parts exceeds the limit returned in the MaxParts element.
+    isTruncated :: Prelude.Maybe Prelude.Bool,
+    -- | Object key for which the multipart upload was initiated.
+    key :: Prelude.Maybe ObjectKey,
+    -- | Maximum number of parts that were allowed in the response.
+    maxParts :: Prelude.Maybe Prelude.Int,
+    -- | When a list is truncated, this element specifies the last part in the
+    -- list, as well as the value to use for the part-number-marker request
+    -- parameter in a subsequent request.
+    nextPartNumberMarker :: Prelude.Maybe Prelude.Int,
+    -- | Container element that identifies the object owner, after the object is
+    -- created. If multipart upload is initiated by an IAM user, this element
+    -- provides the parent account ID and display name.
+    owner :: Prelude.Maybe Owner,
+    -- | When a list is truncated, this element specifies the last part in the
+    -- list, as well as the value to use for the part-number-marker request
+    -- parameter in a subsequent request.
+    partNumberMarker :: Prelude.Maybe Prelude.Int,
+    -- | Container for elements related to a particular part. A response can
+    -- contain zero or more @Part@ elements.
+    parts :: Prelude.Maybe [Part],
+    requestCharged :: Prelude.Maybe RequestCharged,
+    -- | Class of storage (STANDARD or REDUCED_REDUNDANCY) used to store the
+    -- uploaded object.
+    storageClass :: Prelude.Maybe StorageClass,
+    -- | Upload ID identifying the multipart upload whose parts are being listed.
+    uploadId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -493,36 +493,6 @@ data ListPartsResponse = ListPartsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'checksumAlgorithm', 'listPartsResponse_checksumAlgorithm' - The algorithm that was used to create a checksum of the object.
---
--- 'uploadId', 'listPartsResponse_uploadId' - Upload ID identifying the multipart upload whose parts are being listed.
---
--- 'key', 'listPartsResponse_key' - Object key for which the multipart upload was initiated.
---
--- 'requestCharged', 'listPartsResponse_requestCharged' - Undocumented member.
---
--- 'parts', 'listPartsResponse_parts' - Container for elements related to a particular part. A response can
--- contain zero or more @Part@ elements.
---
--- 'bucket', 'listPartsResponse_bucket' - The name of the bucket to which the multipart upload was initiated. Does
--- not return the access point ARN or access point alias if used.
---
--- 'abortRuleId', 'listPartsResponse_abortRuleId' - This header is returned along with the @x-amz-abort-date@ header. It
--- identifies applicable lifecycle configuration rule that defines the
--- action to abort incomplete multipart uploads.
---
--- 'nextPartNumberMarker', 'listPartsResponse_nextPartNumberMarker' - When a list is truncated, this element specifies the last part in the
--- list, as well as the value to use for the part-number-marker request
--- parameter in a subsequent request.
---
--- 'isTruncated', 'listPartsResponse_isTruncated' - Indicates whether the returned list of parts is truncated. A true value
--- indicates that the list was truncated. A list can be truncated if the
--- number of parts exceeds the limit returned in the MaxParts element.
---
--- 'owner', 'listPartsResponse_owner' - Container element that identifies the object owner, after the object is
--- created. If multipart upload is initiated by an IAM user, this element
--- provides the parent account ID and display name.
---
 -- 'abortDate', 'listPartsResponse_abortDate' - If the bucket has a lifecycle rule configured with an action to abort
 -- incomplete multipart uploads and the prefix in the lifecycle rule
 -- matches the object name in the request, then the response includes this
@@ -534,19 +504,49 @@ data ListPartsResponse = ListPartsResponse'
 -- will provide the ID of the lifecycle configuration rule that defines
 -- this action.
 --
--- 'maxParts', 'listPartsResponse_maxParts' - Maximum number of parts that were allowed in the response.
+-- 'abortRuleId', 'listPartsResponse_abortRuleId' - This header is returned along with the @x-amz-abort-date@ header. It
+-- identifies applicable lifecycle configuration rule that defines the
+-- action to abort incomplete multipart uploads.
 --
--- 'partNumberMarker', 'listPartsResponse_partNumberMarker' - When a list is truncated, this element specifies the last part in the
--- list, as well as the value to use for the part-number-marker request
--- parameter in a subsequent request.
+-- 'bucket', 'listPartsResponse_bucket' - The name of the bucket to which the multipart upload was initiated. Does
+-- not return the access point ARN or access point alias if used.
 --
--- 'storageClass', 'listPartsResponse_storageClass' - Class of storage (STANDARD or REDUCED_REDUNDANCY) used to store the
--- uploaded object.
+-- 'checksumAlgorithm', 'listPartsResponse_checksumAlgorithm' - The algorithm that was used to create a checksum of the object.
 --
 -- 'initiator', 'listPartsResponse_initiator' - Container element that identifies who initiated the multipart upload. If
 -- the initiator is an Amazon Web Services account, this element provides
 -- the same information as the @Owner@ element. If the initiator is an IAM
 -- User, this element provides the user ARN and display name.
+--
+-- 'isTruncated', 'listPartsResponse_isTruncated' - Indicates whether the returned list of parts is truncated. A true value
+-- indicates that the list was truncated. A list can be truncated if the
+-- number of parts exceeds the limit returned in the MaxParts element.
+--
+-- 'key', 'listPartsResponse_key' - Object key for which the multipart upload was initiated.
+--
+-- 'maxParts', 'listPartsResponse_maxParts' - Maximum number of parts that were allowed in the response.
+--
+-- 'nextPartNumberMarker', 'listPartsResponse_nextPartNumberMarker' - When a list is truncated, this element specifies the last part in the
+-- list, as well as the value to use for the part-number-marker request
+-- parameter in a subsequent request.
+--
+-- 'owner', 'listPartsResponse_owner' - Container element that identifies the object owner, after the object is
+-- created. If multipart upload is initiated by an IAM user, this element
+-- provides the parent account ID and display name.
+--
+-- 'partNumberMarker', 'listPartsResponse_partNumberMarker' - When a list is truncated, this element specifies the last part in the
+-- list, as well as the value to use for the part-number-marker request
+-- parameter in a subsequent request.
+--
+-- 'parts', 'listPartsResponse_parts' - Container for elements related to a particular part. A response can
+-- contain zero or more @Part@ elements.
+--
+-- 'requestCharged', 'listPartsResponse_requestCharged' - Undocumented member.
+--
+-- 'storageClass', 'listPartsResponse_storageClass' - Class of storage (STANDARD or REDUCED_REDUNDANCY) used to store the
+-- uploaded object.
+--
+-- 'uploadId', 'listPartsResponse_uploadId' - Upload ID identifying the multipart upload whose parts are being listed.
 --
 -- 'httpStatus', 'listPartsResponse_httpStatus' - The response's http status code.
 newListPartsResponse ::
@@ -555,74 +555,23 @@ newListPartsResponse ::
   ListPartsResponse
 newListPartsResponse pHttpStatus_ =
   ListPartsResponse'
-    { checksumAlgorithm =
-        Prelude.Nothing,
-      uploadId = Prelude.Nothing,
-      key = Prelude.Nothing,
-      requestCharged = Prelude.Nothing,
-      parts = Prelude.Nothing,
-      bucket = Prelude.Nothing,
+    { abortDate = Prelude.Nothing,
       abortRuleId = Prelude.Nothing,
-      nextPartNumberMarker = Prelude.Nothing,
-      isTruncated = Prelude.Nothing,
-      owner = Prelude.Nothing,
-      abortDate = Prelude.Nothing,
-      maxParts = Prelude.Nothing,
-      partNumberMarker = Prelude.Nothing,
-      storageClass = Prelude.Nothing,
+      bucket = Prelude.Nothing,
+      checksumAlgorithm = Prelude.Nothing,
       initiator = Prelude.Nothing,
+      isTruncated = Prelude.Nothing,
+      key = Prelude.Nothing,
+      maxParts = Prelude.Nothing,
+      nextPartNumberMarker = Prelude.Nothing,
+      owner = Prelude.Nothing,
+      partNumberMarker = Prelude.Nothing,
+      parts = Prelude.Nothing,
+      requestCharged = Prelude.Nothing,
+      storageClass = Prelude.Nothing,
+      uploadId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The algorithm that was used to create a checksum of the object.
-listPartsResponse_checksumAlgorithm :: Lens.Lens' ListPartsResponse (Prelude.Maybe ChecksumAlgorithm)
-listPartsResponse_checksumAlgorithm = Lens.lens (\ListPartsResponse' {checksumAlgorithm} -> checksumAlgorithm) (\s@ListPartsResponse' {} a -> s {checksumAlgorithm = a} :: ListPartsResponse)
-
--- | Upload ID identifying the multipart upload whose parts are being listed.
-listPartsResponse_uploadId :: Lens.Lens' ListPartsResponse (Prelude.Maybe Prelude.Text)
-listPartsResponse_uploadId = Lens.lens (\ListPartsResponse' {uploadId} -> uploadId) (\s@ListPartsResponse' {} a -> s {uploadId = a} :: ListPartsResponse)
-
--- | Object key for which the multipart upload was initiated.
-listPartsResponse_key :: Lens.Lens' ListPartsResponse (Prelude.Maybe ObjectKey)
-listPartsResponse_key = Lens.lens (\ListPartsResponse' {key} -> key) (\s@ListPartsResponse' {} a -> s {key = a} :: ListPartsResponse)
-
--- | Undocumented member.
-listPartsResponse_requestCharged :: Lens.Lens' ListPartsResponse (Prelude.Maybe RequestCharged)
-listPartsResponse_requestCharged = Lens.lens (\ListPartsResponse' {requestCharged} -> requestCharged) (\s@ListPartsResponse' {} a -> s {requestCharged = a} :: ListPartsResponse)
-
--- | Container for elements related to a particular part. A response can
--- contain zero or more @Part@ elements.
-listPartsResponse_parts :: Lens.Lens' ListPartsResponse (Prelude.Maybe [Part])
-listPartsResponse_parts = Lens.lens (\ListPartsResponse' {parts} -> parts) (\s@ListPartsResponse' {} a -> s {parts = a} :: ListPartsResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the bucket to which the multipart upload was initiated. Does
--- not return the access point ARN or access point alias if used.
-listPartsResponse_bucket :: Lens.Lens' ListPartsResponse (Prelude.Maybe BucketName)
-listPartsResponse_bucket = Lens.lens (\ListPartsResponse' {bucket} -> bucket) (\s@ListPartsResponse' {} a -> s {bucket = a} :: ListPartsResponse)
-
--- | This header is returned along with the @x-amz-abort-date@ header. It
--- identifies applicable lifecycle configuration rule that defines the
--- action to abort incomplete multipart uploads.
-listPartsResponse_abortRuleId :: Lens.Lens' ListPartsResponse (Prelude.Maybe Prelude.Text)
-listPartsResponse_abortRuleId = Lens.lens (\ListPartsResponse' {abortRuleId} -> abortRuleId) (\s@ListPartsResponse' {} a -> s {abortRuleId = a} :: ListPartsResponse)
-
--- | When a list is truncated, this element specifies the last part in the
--- list, as well as the value to use for the part-number-marker request
--- parameter in a subsequent request.
-listPartsResponse_nextPartNumberMarker :: Lens.Lens' ListPartsResponse (Prelude.Maybe Prelude.Int)
-listPartsResponse_nextPartNumberMarker = Lens.lens (\ListPartsResponse' {nextPartNumberMarker} -> nextPartNumberMarker) (\s@ListPartsResponse' {} a -> s {nextPartNumberMarker = a} :: ListPartsResponse)
-
--- | Indicates whether the returned list of parts is truncated. A true value
--- indicates that the list was truncated. A list can be truncated if the
--- number of parts exceeds the limit returned in the MaxParts element.
-listPartsResponse_isTruncated :: Lens.Lens' ListPartsResponse (Prelude.Maybe Prelude.Bool)
-listPartsResponse_isTruncated = Lens.lens (\ListPartsResponse' {isTruncated} -> isTruncated) (\s@ListPartsResponse' {} a -> s {isTruncated = a} :: ListPartsResponse)
-
--- | Container element that identifies the object owner, after the object is
--- created. If multipart upload is initiated by an IAM user, this element
--- provides the parent account ID and display name.
-listPartsResponse_owner :: Lens.Lens' ListPartsResponse (Prelude.Maybe Owner)
-listPartsResponse_owner = Lens.lens (\ListPartsResponse' {owner} -> owner) (\s@ListPartsResponse' {} a -> s {owner = a} :: ListPartsResponse)
 
 -- | If the bucket has a lifecycle rule configured with an action to abort
 -- incomplete multipart uploads and the prefix in the lifecycle rule
@@ -637,20 +586,20 @@ listPartsResponse_owner = Lens.lens (\ListPartsResponse' {owner} -> owner) (\s@L
 listPartsResponse_abortDate :: Lens.Lens' ListPartsResponse (Prelude.Maybe Prelude.UTCTime)
 listPartsResponse_abortDate = Lens.lens (\ListPartsResponse' {abortDate} -> abortDate) (\s@ListPartsResponse' {} a -> s {abortDate = a} :: ListPartsResponse) Prelude.. Lens.mapping Data._Time
 
--- | Maximum number of parts that were allowed in the response.
-listPartsResponse_maxParts :: Lens.Lens' ListPartsResponse (Prelude.Maybe Prelude.Int)
-listPartsResponse_maxParts = Lens.lens (\ListPartsResponse' {maxParts} -> maxParts) (\s@ListPartsResponse' {} a -> s {maxParts = a} :: ListPartsResponse)
+-- | This header is returned along with the @x-amz-abort-date@ header. It
+-- identifies applicable lifecycle configuration rule that defines the
+-- action to abort incomplete multipart uploads.
+listPartsResponse_abortRuleId :: Lens.Lens' ListPartsResponse (Prelude.Maybe Prelude.Text)
+listPartsResponse_abortRuleId = Lens.lens (\ListPartsResponse' {abortRuleId} -> abortRuleId) (\s@ListPartsResponse' {} a -> s {abortRuleId = a} :: ListPartsResponse)
 
--- | When a list is truncated, this element specifies the last part in the
--- list, as well as the value to use for the part-number-marker request
--- parameter in a subsequent request.
-listPartsResponse_partNumberMarker :: Lens.Lens' ListPartsResponse (Prelude.Maybe Prelude.Int)
-listPartsResponse_partNumberMarker = Lens.lens (\ListPartsResponse' {partNumberMarker} -> partNumberMarker) (\s@ListPartsResponse' {} a -> s {partNumberMarker = a} :: ListPartsResponse)
+-- | The name of the bucket to which the multipart upload was initiated. Does
+-- not return the access point ARN or access point alias if used.
+listPartsResponse_bucket :: Lens.Lens' ListPartsResponse (Prelude.Maybe BucketName)
+listPartsResponse_bucket = Lens.lens (\ListPartsResponse' {bucket} -> bucket) (\s@ListPartsResponse' {} a -> s {bucket = a} :: ListPartsResponse)
 
--- | Class of storage (STANDARD or REDUCED_REDUNDANCY) used to store the
--- uploaded object.
-listPartsResponse_storageClass :: Lens.Lens' ListPartsResponse (Prelude.Maybe StorageClass)
-listPartsResponse_storageClass = Lens.lens (\ListPartsResponse' {storageClass} -> storageClass) (\s@ListPartsResponse' {} a -> s {storageClass = a} :: ListPartsResponse)
+-- | The algorithm that was used to create a checksum of the object.
+listPartsResponse_checksumAlgorithm :: Lens.Lens' ListPartsResponse (Prelude.Maybe ChecksumAlgorithm)
+listPartsResponse_checksumAlgorithm = Lens.lens (\ListPartsResponse' {checksumAlgorithm} -> checksumAlgorithm) (\s@ListPartsResponse' {} a -> s {checksumAlgorithm = a} :: ListPartsResponse)
 
 -- | Container element that identifies who initiated the multipart upload. If
 -- the initiator is an Amazon Web Services account, this element provides
@@ -659,25 +608,75 @@ listPartsResponse_storageClass = Lens.lens (\ListPartsResponse' {storageClass} -
 listPartsResponse_initiator :: Lens.Lens' ListPartsResponse (Prelude.Maybe Initiator)
 listPartsResponse_initiator = Lens.lens (\ListPartsResponse' {initiator} -> initiator) (\s@ListPartsResponse' {} a -> s {initiator = a} :: ListPartsResponse)
 
+-- | Indicates whether the returned list of parts is truncated. A true value
+-- indicates that the list was truncated. A list can be truncated if the
+-- number of parts exceeds the limit returned in the MaxParts element.
+listPartsResponse_isTruncated :: Lens.Lens' ListPartsResponse (Prelude.Maybe Prelude.Bool)
+listPartsResponse_isTruncated = Lens.lens (\ListPartsResponse' {isTruncated} -> isTruncated) (\s@ListPartsResponse' {} a -> s {isTruncated = a} :: ListPartsResponse)
+
+-- | Object key for which the multipart upload was initiated.
+listPartsResponse_key :: Lens.Lens' ListPartsResponse (Prelude.Maybe ObjectKey)
+listPartsResponse_key = Lens.lens (\ListPartsResponse' {key} -> key) (\s@ListPartsResponse' {} a -> s {key = a} :: ListPartsResponse)
+
+-- | Maximum number of parts that were allowed in the response.
+listPartsResponse_maxParts :: Lens.Lens' ListPartsResponse (Prelude.Maybe Prelude.Int)
+listPartsResponse_maxParts = Lens.lens (\ListPartsResponse' {maxParts} -> maxParts) (\s@ListPartsResponse' {} a -> s {maxParts = a} :: ListPartsResponse)
+
+-- | When a list is truncated, this element specifies the last part in the
+-- list, as well as the value to use for the part-number-marker request
+-- parameter in a subsequent request.
+listPartsResponse_nextPartNumberMarker :: Lens.Lens' ListPartsResponse (Prelude.Maybe Prelude.Int)
+listPartsResponse_nextPartNumberMarker = Lens.lens (\ListPartsResponse' {nextPartNumberMarker} -> nextPartNumberMarker) (\s@ListPartsResponse' {} a -> s {nextPartNumberMarker = a} :: ListPartsResponse)
+
+-- | Container element that identifies the object owner, after the object is
+-- created. If multipart upload is initiated by an IAM user, this element
+-- provides the parent account ID and display name.
+listPartsResponse_owner :: Lens.Lens' ListPartsResponse (Prelude.Maybe Owner)
+listPartsResponse_owner = Lens.lens (\ListPartsResponse' {owner} -> owner) (\s@ListPartsResponse' {} a -> s {owner = a} :: ListPartsResponse)
+
+-- | When a list is truncated, this element specifies the last part in the
+-- list, as well as the value to use for the part-number-marker request
+-- parameter in a subsequent request.
+listPartsResponse_partNumberMarker :: Lens.Lens' ListPartsResponse (Prelude.Maybe Prelude.Int)
+listPartsResponse_partNumberMarker = Lens.lens (\ListPartsResponse' {partNumberMarker} -> partNumberMarker) (\s@ListPartsResponse' {} a -> s {partNumberMarker = a} :: ListPartsResponse)
+
+-- | Container for elements related to a particular part. A response can
+-- contain zero or more @Part@ elements.
+listPartsResponse_parts :: Lens.Lens' ListPartsResponse (Prelude.Maybe [Part])
+listPartsResponse_parts = Lens.lens (\ListPartsResponse' {parts} -> parts) (\s@ListPartsResponse' {} a -> s {parts = a} :: ListPartsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+listPartsResponse_requestCharged :: Lens.Lens' ListPartsResponse (Prelude.Maybe RequestCharged)
+listPartsResponse_requestCharged = Lens.lens (\ListPartsResponse' {requestCharged} -> requestCharged) (\s@ListPartsResponse' {} a -> s {requestCharged = a} :: ListPartsResponse)
+
+-- | Class of storage (STANDARD or REDUCED_REDUNDANCY) used to store the
+-- uploaded object.
+listPartsResponse_storageClass :: Lens.Lens' ListPartsResponse (Prelude.Maybe StorageClass)
+listPartsResponse_storageClass = Lens.lens (\ListPartsResponse' {storageClass} -> storageClass) (\s@ListPartsResponse' {} a -> s {storageClass = a} :: ListPartsResponse)
+
+-- | Upload ID identifying the multipart upload whose parts are being listed.
+listPartsResponse_uploadId :: Lens.Lens' ListPartsResponse (Prelude.Maybe Prelude.Text)
+listPartsResponse_uploadId = Lens.lens (\ListPartsResponse' {uploadId} -> uploadId) (\s@ListPartsResponse' {} a -> s {uploadId = a} :: ListPartsResponse)
+
 -- | The response's http status code.
 listPartsResponse_httpStatus :: Lens.Lens' ListPartsResponse Prelude.Int
 listPartsResponse_httpStatus = Lens.lens (\ListPartsResponse' {httpStatus} -> httpStatus) (\s@ListPartsResponse' {} a -> s {httpStatus = a} :: ListPartsResponse)
 
 instance Prelude.NFData ListPartsResponse where
   rnf ListPartsResponse' {..} =
-    Prelude.rnf checksumAlgorithm
-      `Prelude.seq` Prelude.rnf uploadId
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf requestCharged
-      `Prelude.seq` Prelude.rnf parts
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf abortDate
       `Prelude.seq` Prelude.rnf abortRuleId
-      `Prelude.seq` Prelude.rnf nextPartNumberMarker
-      `Prelude.seq` Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf abortDate
-      `Prelude.seq` Prelude.rnf maxParts
-      `Prelude.seq` Prelude.rnf partNumberMarker
-      `Prelude.seq` Prelude.rnf storageClass
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf checksumAlgorithm
       `Prelude.seq` Prelude.rnf initiator
+      `Prelude.seq` Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf maxParts
+      `Prelude.seq` Prelude.rnf nextPartNumberMarker
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf partNumberMarker
+      `Prelude.seq` Prelude.rnf parts
+      `Prelude.seq` Prelude.rnf requestCharged
+      `Prelude.seq` Prelude.rnf storageClass
+      `Prelude.seq` Prelude.rnf uploadId
       `Prelude.seq` Prelude.rnf httpStatus

@@ -71,11 +71,11 @@ module Amazonka.KeySpaces.RestoreTable
     newRestoreTable,
 
     -- * Request Lenses
-    restoreTable_encryptionSpecificationOverride,
     restoreTable_capacitySpecificationOverride,
-    restoreTable_tagsOverride,
-    restoreTable_restoreTimestamp,
+    restoreTable_encryptionSpecificationOverride,
     restoreTable_pointInTimeRecoveryOverride,
+    restoreTable_restoreTimestamp,
+    restoreTable_tagsOverride,
     restoreTable_sourceKeyspaceName,
     restoreTable_sourceTableName,
     restoreTable_targetKeyspaceName,
@@ -101,7 +101,21 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRestoreTable' smart constructor.
 data RestoreTable = RestoreTable'
-  { -- | Specifies the encryption settings for the target table. You can choose
+  { -- | Specifies the read\/write throughput capacity mode for the target table.
+    -- The options are:
+    --
+    -- • @throughputMode:PAY_PER_REQUEST@
+    --
+    -- • @throughputMode:PROVISIONED@ - Provisioned capacity mode requires
+    -- @readCapacityUnits@ and @writeCapacityUnits@ as input.
+    --
+    -- The default is @throughput_mode:PAY_PER_REQUEST@.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html Read\/write capacity modes>
+    -- in the /Amazon Keyspaces Developer Guide/.
+    capacitySpecificationOverride :: Prelude.Maybe CapacitySpecification,
+    -- | Specifies the encryption settings for the target table. You can choose
     -- one of the following KMS key (KMS key):
     --
     -- • @type:AWS_OWNED_KMS_KEY@ - This key is owned by Amazon Keyspaces.
@@ -117,28 +131,6 @@ data RestoreTable = RestoreTable'
     -- <https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html Encryption at rest>
     -- in the /Amazon Keyspaces Developer Guide/.
     encryptionSpecificationOverride :: Prelude.Maybe EncryptionSpecification,
-    -- | Specifies the read\/write throughput capacity mode for the target table.
-    -- The options are:
-    --
-    -- • @throughputMode:PAY_PER_REQUEST@
-    --
-    -- • @throughputMode:PROVISIONED@ - Provisioned capacity mode requires
-    -- @readCapacityUnits@ and @writeCapacityUnits@ as input.
-    --
-    -- The default is @throughput_mode:PAY_PER_REQUEST@.
-    --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html Read\/write capacity modes>
-    -- in the /Amazon Keyspaces Developer Guide/.
-    capacitySpecificationOverride :: Prelude.Maybe CapacitySpecification,
-    -- | A list of key-value pair tags to be attached to the restored table.
-    --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/keyspaces/latest/devguide/tagging-keyspaces.html Adding tags and labels to Amazon Keyspaces resources>
-    -- in the /Amazon Keyspaces Developer Guide/.
-    tagsOverride :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | The restore timestamp in ISO 8601 format.
-    restoreTimestamp :: Prelude.Maybe Data.POSIX,
     -- | Specifies the @pointInTimeRecovery@ settings for the target table. The
     -- options are:
     --
@@ -152,6 +144,14 @@ data RestoreTable = RestoreTable'
     -- <https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html Point-in-time recovery>
     -- in the /Amazon Keyspaces Developer Guide/.
     pointInTimeRecoveryOverride :: Prelude.Maybe PointInTimeRecovery,
+    -- | The restore timestamp in ISO 8601 format.
+    restoreTimestamp :: Prelude.Maybe Data.POSIX,
+    -- | A list of key-value pair tags to be attached to the restored table.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/keyspaces/latest/devguide/tagging-keyspaces.html Adding tags and labels to Amazon Keyspaces resources>
+    -- in the /Amazon Keyspaces Developer Guide/.
+    tagsOverride :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The keyspace name of the source table.
     sourceKeyspaceName :: Prelude.Text,
     -- | The name of the source table.
@@ -171,6 +171,20 @@ data RestoreTable = RestoreTable'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'capacitySpecificationOverride', 'restoreTable_capacitySpecificationOverride' - Specifies the read\/write throughput capacity mode for the target table.
+-- The options are:
+--
+-- • @throughputMode:PAY_PER_REQUEST@
+--
+-- • @throughputMode:PROVISIONED@ - Provisioned capacity mode requires
+-- @readCapacityUnits@ and @writeCapacityUnits@ as input.
+--
+-- The default is @throughput_mode:PAY_PER_REQUEST@.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html Read\/write capacity modes>
+-- in the /Amazon Keyspaces Developer Guide/.
+--
 -- 'encryptionSpecificationOverride', 'restoreTable_encryptionSpecificationOverride' - Specifies the encryption settings for the target table. You can choose
 -- one of the following KMS key (KMS key):
 --
@@ -187,28 +201,6 @@ data RestoreTable = RestoreTable'
 -- <https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html Encryption at rest>
 -- in the /Amazon Keyspaces Developer Guide/.
 --
--- 'capacitySpecificationOverride', 'restoreTable_capacitySpecificationOverride' - Specifies the read\/write throughput capacity mode for the target table.
--- The options are:
---
--- • @throughputMode:PAY_PER_REQUEST@
---
--- • @throughputMode:PROVISIONED@ - Provisioned capacity mode requires
--- @readCapacityUnits@ and @writeCapacityUnits@ as input.
---
--- The default is @throughput_mode:PAY_PER_REQUEST@.
---
--- For more information, see
--- <https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html Read\/write capacity modes>
--- in the /Amazon Keyspaces Developer Guide/.
---
--- 'tagsOverride', 'restoreTable_tagsOverride' - A list of key-value pair tags to be attached to the restored table.
---
--- For more information, see
--- <https://docs.aws.amazon.com/keyspaces/latest/devguide/tagging-keyspaces.html Adding tags and labels to Amazon Keyspaces resources>
--- in the /Amazon Keyspaces Developer Guide/.
---
--- 'restoreTimestamp', 'restoreTable_restoreTimestamp' - The restore timestamp in ISO 8601 format.
---
 -- 'pointInTimeRecoveryOverride', 'restoreTable_pointInTimeRecoveryOverride' - Specifies the @pointInTimeRecovery@ settings for the target table. The
 -- options are:
 --
@@ -220,6 +212,14 @@ data RestoreTable = RestoreTable'
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html Point-in-time recovery>
+-- in the /Amazon Keyspaces Developer Guide/.
+--
+-- 'restoreTimestamp', 'restoreTable_restoreTimestamp' - The restore timestamp in ISO 8601 format.
+--
+-- 'tagsOverride', 'restoreTable_tagsOverride' - A list of key-value pair tags to be attached to the restored table.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/keyspaces/latest/devguide/tagging-keyspaces.html Adding tags and labels to Amazon Keyspaces resources>
 -- in the /Amazon Keyspaces Developer Guide/.
 --
 -- 'sourceKeyspaceName', 'restoreTable_sourceKeyspaceName' - The keyspace name of the source table.
@@ -245,17 +245,33 @@ newRestoreTable
   pTargetKeyspaceName_
   pTargetTableName_ =
     RestoreTable'
-      { encryptionSpecificationOverride =
+      { capacitySpecificationOverride =
           Prelude.Nothing,
-        capacitySpecificationOverride = Prelude.Nothing,
-        tagsOverride = Prelude.Nothing,
-        restoreTimestamp = Prelude.Nothing,
+        encryptionSpecificationOverride = Prelude.Nothing,
         pointInTimeRecoveryOverride = Prelude.Nothing,
+        restoreTimestamp = Prelude.Nothing,
+        tagsOverride = Prelude.Nothing,
         sourceKeyspaceName = pSourceKeyspaceName_,
         sourceTableName = pSourceTableName_,
         targetKeyspaceName = pTargetKeyspaceName_,
         targetTableName = pTargetTableName_
       }
+
+-- | Specifies the read\/write throughput capacity mode for the target table.
+-- The options are:
+--
+-- • @throughputMode:PAY_PER_REQUEST@
+--
+-- • @throughputMode:PROVISIONED@ - Provisioned capacity mode requires
+-- @readCapacityUnits@ and @writeCapacityUnits@ as input.
+--
+-- The default is @throughput_mode:PAY_PER_REQUEST@.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html Read\/write capacity modes>
+-- in the /Amazon Keyspaces Developer Guide/.
+restoreTable_capacitySpecificationOverride :: Lens.Lens' RestoreTable (Prelude.Maybe CapacitySpecification)
+restoreTable_capacitySpecificationOverride = Lens.lens (\RestoreTable' {capacitySpecificationOverride} -> capacitySpecificationOverride) (\s@RestoreTable' {} a -> s {capacitySpecificationOverride = a} :: RestoreTable)
 
 -- | Specifies the encryption settings for the target table. You can choose
 -- one of the following KMS key (KMS key):
@@ -275,34 +291,6 @@ newRestoreTable
 restoreTable_encryptionSpecificationOverride :: Lens.Lens' RestoreTable (Prelude.Maybe EncryptionSpecification)
 restoreTable_encryptionSpecificationOverride = Lens.lens (\RestoreTable' {encryptionSpecificationOverride} -> encryptionSpecificationOverride) (\s@RestoreTable' {} a -> s {encryptionSpecificationOverride = a} :: RestoreTable)
 
--- | Specifies the read\/write throughput capacity mode for the target table.
--- The options are:
---
--- • @throughputMode:PAY_PER_REQUEST@
---
--- • @throughputMode:PROVISIONED@ - Provisioned capacity mode requires
--- @readCapacityUnits@ and @writeCapacityUnits@ as input.
---
--- The default is @throughput_mode:PAY_PER_REQUEST@.
---
--- For more information, see
--- <https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html Read\/write capacity modes>
--- in the /Amazon Keyspaces Developer Guide/.
-restoreTable_capacitySpecificationOverride :: Lens.Lens' RestoreTable (Prelude.Maybe CapacitySpecification)
-restoreTable_capacitySpecificationOverride = Lens.lens (\RestoreTable' {capacitySpecificationOverride} -> capacitySpecificationOverride) (\s@RestoreTable' {} a -> s {capacitySpecificationOverride = a} :: RestoreTable)
-
--- | A list of key-value pair tags to be attached to the restored table.
---
--- For more information, see
--- <https://docs.aws.amazon.com/keyspaces/latest/devguide/tagging-keyspaces.html Adding tags and labels to Amazon Keyspaces resources>
--- in the /Amazon Keyspaces Developer Guide/.
-restoreTable_tagsOverride :: Lens.Lens' RestoreTable (Prelude.Maybe (Prelude.NonEmpty Tag))
-restoreTable_tagsOverride = Lens.lens (\RestoreTable' {tagsOverride} -> tagsOverride) (\s@RestoreTable' {} a -> s {tagsOverride = a} :: RestoreTable) Prelude.. Lens.mapping Lens.coerced
-
--- | The restore timestamp in ISO 8601 format.
-restoreTable_restoreTimestamp :: Lens.Lens' RestoreTable (Prelude.Maybe Prelude.UTCTime)
-restoreTable_restoreTimestamp = Lens.lens (\RestoreTable' {restoreTimestamp} -> restoreTimestamp) (\s@RestoreTable' {} a -> s {restoreTimestamp = a} :: RestoreTable) Prelude.. Lens.mapping Data._Time
-
 -- | Specifies the @pointInTimeRecovery@ settings for the target table. The
 -- options are:
 --
@@ -317,6 +305,18 @@ restoreTable_restoreTimestamp = Lens.lens (\RestoreTable' {restoreTimestamp} -> 
 -- in the /Amazon Keyspaces Developer Guide/.
 restoreTable_pointInTimeRecoveryOverride :: Lens.Lens' RestoreTable (Prelude.Maybe PointInTimeRecovery)
 restoreTable_pointInTimeRecoveryOverride = Lens.lens (\RestoreTable' {pointInTimeRecoveryOverride} -> pointInTimeRecoveryOverride) (\s@RestoreTable' {} a -> s {pointInTimeRecoveryOverride = a} :: RestoreTable)
+
+-- | The restore timestamp in ISO 8601 format.
+restoreTable_restoreTimestamp :: Lens.Lens' RestoreTable (Prelude.Maybe Prelude.UTCTime)
+restoreTable_restoreTimestamp = Lens.lens (\RestoreTable' {restoreTimestamp} -> restoreTimestamp) (\s@RestoreTable' {} a -> s {restoreTimestamp = a} :: RestoreTable) Prelude.. Lens.mapping Data._Time
+
+-- | A list of key-value pair tags to be attached to the restored table.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/keyspaces/latest/devguide/tagging-keyspaces.html Adding tags and labels to Amazon Keyspaces resources>
+-- in the /Amazon Keyspaces Developer Guide/.
+restoreTable_tagsOverride :: Lens.Lens' RestoreTable (Prelude.Maybe (Prelude.NonEmpty Tag))
+restoreTable_tagsOverride = Lens.lens (\RestoreTable' {tagsOverride} -> tagsOverride) (\s@RestoreTable' {} a -> s {tagsOverride = a} :: RestoreTable) Prelude.. Lens.mapping Lens.coerced
 
 -- | The keyspace name of the source table.
 restoreTable_sourceKeyspaceName :: Lens.Lens' RestoreTable Prelude.Text
@@ -349,11 +349,11 @@ instance Core.AWSRequest RestoreTable where
 instance Prelude.Hashable RestoreTable where
   hashWithSalt _salt RestoreTable' {..} =
     _salt
-      `Prelude.hashWithSalt` encryptionSpecificationOverride
       `Prelude.hashWithSalt` capacitySpecificationOverride
-      `Prelude.hashWithSalt` tagsOverride
-      `Prelude.hashWithSalt` restoreTimestamp
+      `Prelude.hashWithSalt` encryptionSpecificationOverride
       `Prelude.hashWithSalt` pointInTimeRecoveryOverride
+      `Prelude.hashWithSalt` restoreTimestamp
+      `Prelude.hashWithSalt` tagsOverride
       `Prelude.hashWithSalt` sourceKeyspaceName
       `Prelude.hashWithSalt` sourceTableName
       `Prelude.hashWithSalt` targetKeyspaceName
@@ -361,11 +361,11 @@ instance Prelude.Hashable RestoreTable where
 
 instance Prelude.NFData RestoreTable where
   rnf RestoreTable' {..} =
-    Prelude.rnf encryptionSpecificationOverride
-      `Prelude.seq` Prelude.rnf capacitySpecificationOverride
-      `Prelude.seq` Prelude.rnf tagsOverride
-      `Prelude.seq` Prelude.rnf restoreTimestamp
+    Prelude.rnf capacitySpecificationOverride
+      `Prelude.seq` Prelude.rnf encryptionSpecificationOverride
       `Prelude.seq` Prelude.rnf pointInTimeRecoveryOverride
+      `Prelude.seq` Prelude.rnf restoreTimestamp
+      `Prelude.seq` Prelude.rnf tagsOverride
       `Prelude.seq` Prelude.rnf sourceKeyspaceName
       `Prelude.seq` Prelude.rnf sourceTableName
       `Prelude.seq` Prelude.rnf targetKeyspaceName
@@ -390,15 +390,15 @@ instance Data.ToJSON RestoreTable where
   toJSON RestoreTable' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("encryptionSpecificationOverride" Data..=)
-              Prelude.<$> encryptionSpecificationOverride,
-            ("capacitySpecificationOverride" Data..=)
+          [ ("capacitySpecificationOverride" Data..=)
               Prelude.<$> capacitySpecificationOverride,
-            ("tagsOverride" Data..=) Prelude.<$> tagsOverride,
-            ("restoreTimestamp" Data..=)
-              Prelude.<$> restoreTimestamp,
+            ("encryptionSpecificationOverride" Data..=)
+              Prelude.<$> encryptionSpecificationOverride,
             ("pointInTimeRecoveryOverride" Data..=)
               Prelude.<$> pointInTimeRecoveryOverride,
+            ("restoreTimestamp" Data..=)
+              Prelude.<$> restoreTimestamp,
+            ("tagsOverride" Data..=) Prelude.<$> tagsOverride,
             Prelude.Just
               ("sourceKeyspaceName" Data..= sourceKeyspaceName),
             Prelude.Just

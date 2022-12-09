@@ -39,15 +39,15 @@ module Amazonka.KeySpaces.GetTable
     newGetTableResponse,
 
     -- * Response Lenses
-    getTableResponse_ttl,
-    getTableResponse_pointInTimeRecovery,
     getTableResponse_capacitySpecification,
-    getTableResponse_status,
-    getTableResponse_encryptionSpecification,
-    getTableResponse_creationTimestamp,
     getTableResponse_comment,
+    getTableResponse_creationTimestamp,
     getTableResponse_defaultTimeToLive,
+    getTableResponse_encryptionSpecification,
+    getTableResponse_pointInTimeRecovery,
     getTableResponse_schemaDefinition,
+    getTableResponse_status,
+    getTableResponse_ttl,
     getTableResponse_httpStatus,
     getTableResponse_keyspaceName,
     getTableResponse_tableName,
@@ -111,15 +111,15 @@ instance Core.AWSRequest GetTable where
     Response.receiveJSON
       ( \s h x ->
           GetTableResponse'
-            Prelude.<$> (x Data..?> "ttl")
-            Prelude.<*> (x Data..?> "pointInTimeRecovery")
-            Prelude.<*> (x Data..?> "capacitySpecification")
-            Prelude.<*> (x Data..?> "status")
-            Prelude.<*> (x Data..?> "encryptionSpecification")
-            Prelude.<*> (x Data..?> "creationTimestamp")
+            Prelude.<$> (x Data..?> "capacitySpecification")
             Prelude.<*> (x Data..?> "comment")
+            Prelude.<*> (x Data..?> "creationTimestamp")
             Prelude.<*> (x Data..?> "defaultTimeToLive")
+            Prelude.<*> (x Data..?> "encryptionSpecification")
+            Prelude.<*> (x Data..?> "pointInTimeRecovery")
             Prelude.<*> (x Data..?> "schemaDefinition")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "ttl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "keyspaceName")
             Prelude.<*> (x Data..:> "tableName")
@@ -166,28 +166,28 @@ instance Data.ToQuery GetTable where
 
 -- | /See:/ 'newGetTableResponse' smart constructor.
 data GetTableResponse = GetTableResponse'
-  { -- | The custom Time to Live settings of the specified table.
-    ttl :: Prelude.Maybe TimeToLive,
-    -- | The point-in-time recovery status of the specified table.
-    pointInTimeRecovery :: Prelude.Maybe PointInTimeRecoverySummary,
-    -- | The read\/write throughput capacity mode for a table. The options are:
+  { -- | The read\/write throughput capacity mode for a table. The options are:
     --
     -- • @throughputMode:PAY_PER_REQUEST@
     --
     -- • @throughputMode:PROVISIONED@
     capacitySpecification :: Prelude.Maybe CapacitySpecificationSummary,
-    -- | The current status of the specified table.
-    status :: Prelude.Maybe TableStatus,
-    -- | The encryption settings of the specified table.
-    encryptionSpecification :: Prelude.Maybe EncryptionSpecification,
-    -- | The creation timestamp of the specified table.
-    creationTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The the description of the specified table.
     comment :: Prelude.Maybe Comment,
+    -- | The creation timestamp of the specified table.
+    creationTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The default Time to Live settings of the specified table.
     defaultTimeToLive :: Prelude.Maybe Prelude.Natural,
+    -- | The encryption settings of the specified table.
+    encryptionSpecification :: Prelude.Maybe EncryptionSpecification,
+    -- | The point-in-time recovery status of the specified table.
+    pointInTimeRecovery :: Prelude.Maybe PointInTimeRecoverySummary,
     -- | The schema definition of the specified table.
     schemaDefinition :: Prelude.Maybe SchemaDefinition,
+    -- | The current status of the specified table.
+    status :: Prelude.Maybe TableStatus,
+    -- | The custom Time to Live settings of the specified table.
+    ttl :: Prelude.Maybe TimeToLive,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The name of the keyspace that the specified table is stored in.
@@ -207,27 +207,27 @@ data GetTableResponse = GetTableResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ttl', 'getTableResponse_ttl' - The custom Time to Live settings of the specified table.
---
--- 'pointInTimeRecovery', 'getTableResponse_pointInTimeRecovery' - The point-in-time recovery status of the specified table.
---
 -- 'capacitySpecification', 'getTableResponse_capacitySpecification' - The read\/write throughput capacity mode for a table. The options are:
 --
 -- • @throughputMode:PAY_PER_REQUEST@
 --
 -- • @throughputMode:PROVISIONED@
 --
--- 'status', 'getTableResponse_status' - The current status of the specified table.
---
--- 'encryptionSpecification', 'getTableResponse_encryptionSpecification' - The encryption settings of the specified table.
+-- 'comment', 'getTableResponse_comment' - The the description of the specified table.
 --
 -- 'creationTimestamp', 'getTableResponse_creationTimestamp' - The creation timestamp of the specified table.
 --
--- 'comment', 'getTableResponse_comment' - The the description of the specified table.
---
 -- 'defaultTimeToLive', 'getTableResponse_defaultTimeToLive' - The default Time to Live settings of the specified table.
 --
+-- 'encryptionSpecification', 'getTableResponse_encryptionSpecification' - The encryption settings of the specified table.
+--
+-- 'pointInTimeRecovery', 'getTableResponse_pointInTimeRecovery' - The point-in-time recovery status of the specified table.
+--
 -- 'schemaDefinition', 'getTableResponse_schemaDefinition' - The schema definition of the specified table.
+--
+-- 'status', 'getTableResponse_status' - The current status of the specified table.
+--
+-- 'ttl', 'getTableResponse_ttl' - The custom Time to Live settings of the specified table.
 --
 -- 'httpStatus', 'getTableResponse_httpStatus' - The response's http status code.
 --
@@ -252,28 +252,21 @@ newGetTableResponse
   pTableName_
   pResourceArn_ =
     GetTableResponse'
-      { ttl = Prelude.Nothing,
-        pointInTimeRecovery = Prelude.Nothing,
-        capacitySpecification = Prelude.Nothing,
-        status = Prelude.Nothing,
-        encryptionSpecification = Prelude.Nothing,
-        creationTimestamp = Prelude.Nothing,
+      { capacitySpecification =
+          Prelude.Nothing,
         comment = Prelude.Nothing,
+        creationTimestamp = Prelude.Nothing,
         defaultTimeToLive = Prelude.Nothing,
+        encryptionSpecification = Prelude.Nothing,
+        pointInTimeRecovery = Prelude.Nothing,
         schemaDefinition = Prelude.Nothing,
+        status = Prelude.Nothing,
+        ttl = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         keyspaceName = pKeyspaceName_,
         tableName = pTableName_,
         resourceArn = pResourceArn_
       }
-
--- | The custom Time to Live settings of the specified table.
-getTableResponse_ttl :: Lens.Lens' GetTableResponse (Prelude.Maybe TimeToLive)
-getTableResponse_ttl = Lens.lens (\GetTableResponse' {ttl} -> ttl) (\s@GetTableResponse' {} a -> s {ttl = a} :: GetTableResponse)
-
--- | The point-in-time recovery status of the specified table.
-getTableResponse_pointInTimeRecovery :: Lens.Lens' GetTableResponse (Prelude.Maybe PointInTimeRecoverySummary)
-getTableResponse_pointInTimeRecovery = Lens.lens (\GetTableResponse' {pointInTimeRecovery} -> pointInTimeRecovery) (\s@GetTableResponse' {} a -> s {pointInTimeRecovery = a} :: GetTableResponse)
 
 -- | The read\/write throughput capacity mode for a table. The options are:
 --
@@ -283,29 +276,37 @@ getTableResponse_pointInTimeRecovery = Lens.lens (\GetTableResponse' {pointInTim
 getTableResponse_capacitySpecification :: Lens.Lens' GetTableResponse (Prelude.Maybe CapacitySpecificationSummary)
 getTableResponse_capacitySpecification = Lens.lens (\GetTableResponse' {capacitySpecification} -> capacitySpecification) (\s@GetTableResponse' {} a -> s {capacitySpecification = a} :: GetTableResponse)
 
--- | The current status of the specified table.
-getTableResponse_status :: Lens.Lens' GetTableResponse (Prelude.Maybe TableStatus)
-getTableResponse_status = Lens.lens (\GetTableResponse' {status} -> status) (\s@GetTableResponse' {} a -> s {status = a} :: GetTableResponse)
-
--- | The encryption settings of the specified table.
-getTableResponse_encryptionSpecification :: Lens.Lens' GetTableResponse (Prelude.Maybe EncryptionSpecification)
-getTableResponse_encryptionSpecification = Lens.lens (\GetTableResponse' {encryptionSpecification} -> encryptionSpecification) (\s@GetTableResponse' {} a -> s {encryptionSpecification = a} :: GetTableResponse)
+-- | The the description of the specified table.
+getTableResponse_comment :: Lens.Lens' GetTableResponse (Prelude.Maybe Comment)
+getTableResponse_comment = Lens.lens (\GetTableResponse' {comment} -> comment) (\s@GetTableResponse' {} a -> s {comment = a} :: GetTableResponse)
 
 -- | The creation timestamp of the specified table.
 getTableResponse_creationTimestamp :: Lens.Lens' GetTableResponse (Prelude.Maybe Prelude.UTCTime)
 getTableResponse_creationTimestamp = Lens.lens (\GetTableResponse' {creationTimestamp} -> creationTimestamp) (\s@GetTableResponse' {} a -> s {creationTimestamp = a} :: GetTableResponse) Prelude.. Lens.mapping Data._Time
 
--- | The the description of the specified table.
-getTableResponse_comment :: Lens.Lens' GetTableResponse (Prelude.Maybe Comment)
-getTableResponse_comment = Lens.lens (\GetTableResponse' {comment} -> comment) (\s@GetTableResponse' {} a -> s {comment = a} :: GetTableResponse)
-
 -- | The default Time to Live settings of the specified table.
 getTableResponse_defaultTimeToLive :: Lens.Lens' GetTableResponse (Prelude.Maybe Prelude.Natural)
 getTableResponse_defaultTimeToLive = Lens.lens (\GetTableResponse' {defaultTimeToLive} -> defaultTimeToLive) (\s@GetTableResponse' {} a -> s {defaultTimeToLive = a} :: GetTableResponse)
 
+-- | The encryption settings of the specified table.
+getTableResponse_encryptionSpecification :: Lens.Lens' GetTableResponse (Prelude.Maybe EncryptionSpecification)
+getTableResponse_encryptionSpecification = Lens.lens (\GetTableResponse' {encryptionSpecification} -> encryptionSpecification) (\s@GetTableResponse' {} a -> s {encryptionSpecification = a} :: GetTableResponse)
+
+-- | The point-in-time recovery status of the specified table.
+getTableResponse_pointInTimeRecovery :: Lens.Lens' GetTableResponse (Prelude.Maybe PointInTimeRecoverySummary)
+getTableResponse_pointInTimeRecovery = Lens.lens (\GetTableResponse' {pointInTimeRecovery} -> pointInTimeRecovery) (\s@GetTableResponse' {} a -> s {pointInTimeRecovery = a} :: GetTableResponse)
+
 -- | The schema definition of the specified table.
 getTableResponse_schemaDefinition :: Lens.Lens' GetTableResponse (Prelude.Maybe SchemaDefinition)
 getTableResponse_schemaDefinition = Lens.lens (\GetTableResponse' {schemaDefinition} -> schemaDefinition) (\s@GetTableResponse' {} a -> s {schemaDefinition = a} :: GetTableResponse)
+
+-- | The current status of the specified table.
+getTableResponse_status :: Lens.Lens' GetTableResponse (Prelude.Maybe TableStatus)
+getTableResponse_status = Lens.lens (\GetTableResponse' {status} -> status) (\s@GetTableResponse' {} a -> s {status = a} :: GetTableResponse)
+
+-- | The custom Time to Live settings of the specified table.
+getTableResponse_ttl :: Lens.Lens' GetTableResponse (Prelude.Maybe TimeToLive)
+getTableResponse_ttl = Lens.lens (\GetTableResponse' {ttl} -> ttl) (\s@GetTableResponse' {} a -> s {ttl = a} :: GetTableResponse)
 
 -- | The response's http status code.
 getTableResponse_httpStatus :: Lens.Lens' GetTableResponse Prelude.Int
@@ -325,15 +326,15 @@ getTableResponse_resourceArn = Lens.lens (\GetTableResponse' {resourceArn} -> re
 
 instance Prelude.NFData GetTableResponse where
   rnf GetTableResponse' {..} =
-    Prelude.rnf ttl
-      `Prelude.seq` Prelude.rnf pointInTimeRecovery
-      `Prelude.seq` Prelude.rnf capacitySpecification
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf encryptionSpecification
-      `Prelude.seq` Prelude.rnf creationTimestamp
+    Prelude.rnf capacitySpecification
       `Prelude.seq` Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf creationTimestamp
       `Prelude.seq` Prelude.rnf defaultTimeToLive
+      `Prelude.seq` Prelude.rnf encryptionSpecification
+      `Prelude.seq` Prelude.rnf pointInTimeRecovery
       `Prelude.seq` Prelude.rnf schemaDefinition
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf ttl
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf keyspaceName
       `Prelude.seq` Prelude.rnf tableName

@@ -38,13 +38,13 @@ module Amazonka.KeySpaces.CreateTable
     newCreateTable,
 
     -- * Request Lenses
-    createTable_tags,
-    createTable_ttl,
-    createTable_pointInTimeRecovery,
     createTable_capacitySpecification,
-    createTable_encryptionSpecification,
     createTable_comment,
     createTable_defaultTimeToLive,
+    createTable_encryptionSpecification,
+    createTable_pointInTimeRecovery,
+    createTable_tags,
+    createTable_ttl,
     createTable_keyspaceName,
     createTable_tableName,
     createTable_schemaDefinition,
@@ -69,7 +69,58 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateTable' smart constructor.
 data CreateTable = CreateTable'
-  { -- | A list of key-value pair tags to be attached to the resource.
+  { -- | Specifies the read\/write throughput capacity mode for the table. The
+    -- options are:
+    --
+    -- • @throughputMode:PAY_PER_REQUEST@ and
+    --
+    -- • @throughputMode:PROVISIONED@ - Provisioned capacity mode requires
+    -- @readCapacityUnits@ and @writeCapacityUnits@ as input.
+    --
+    -- The default is @throughput_mode:PAY_PER_REQUEST@.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html Read\/write capacity modes>
+    -- in the /Amazon Keyspaces Developer Guide/.
+    capacitySpecification :: Prelude.Maybe CapacitySpecification,
+    -- | This parameter allows to enter a description of the table.
+    comment :: Prelude.Maybe Comment,
+    -- | The default Time to Live setting in seconds for the table.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl Setting the default TTL value for a table>
+    -- in the /Amazon Keyspaces Developer Guide/.
+    defaultTimeToLive :: Prelude.Maybe Prelude.Natural,
+    -- | Specifies how the encryption key for encryption at rest is managed for
+    -- the table. You can choose one of the following KMS key (KMS key):
+    --
+    -- • @type:AWS_OWNED_KMS_KEY@ - This key is owned by Amazon Keyspaces.
+    --
+    -- • @type:CUSTOMER_MANAGED_KMS_KEY@ - This key is stored in your account
+    -- and is created, owned, and managed by you. This option requires the
+    -- @kms_key_identifier@ of the KMS key in Amazon Resource Name (ARN) format
+    -- as input.
+    --
+    -- The default is @type:AWS_OWNED_KMS_KEY@.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html Encryption at rest>
+    -- in the /Amazon Keyspaces Developer Guide/.
+    encryptionSpecification :: Prelude.Maybe EncryptionSpecification,
+    -- | Specifies if @pointInTimeRecovery@ is enabled or disabled for the table.
+    -- The options are:
+    --
+    -- • @ENABLED@
+    --
+    -- • @DISABLED@
+    --
+    -- If it\'s not specified, the default is @DISABLED@.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html Point-in-time recovery>
+    -- in the /Amazon Keyspaces Developer Guide/.
+    pointInTimeRecovery :: Prelude.Maybe PointInTimeRecovery,
+    -- | A list of key-value pair tags to be attached to the resource.
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/keyspaces/latest/devguide/tagging-keyspaces.html Adding tags and labels to Amazon Keyspaces resources>
@@ -88,57 +139,6 @@ data CreateTable = CreateTable'
     -- <https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html Expiring data by using Amazon Keyspaces Time to Live (TTL)>
     -- in the /Amazon Keyspaces Developer Guide/.
     ttl :: Prelude.Maybe TimeToLive,
-    -- | Specifies if @pointInTimeRecovery@ is enabled or disabled for the table.
-    -- The options are:
-    --
-    -- • @ENABLED@
-    --
-    -- • @DISABLED@
-    --
-    -- If it\'s not specified, the default is @DISABLED@.
-    --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html Point-in-time recovery>
-    -- in the /Amazon Keyspaces Developer Guide/.
-    pointInTimeRecovery :: Prelude.Maybe PointInTimeRecovery,
-    -- | Specifies the read\/write throughput capacity mode for the table. The
-    -- options are:
-    --
-    -- • @throughputMode:PAY_PER_REQUEST@ and
-    --
-    -- • @throughputMode:PROVISIONED@ - Provisioned capacity mode requires
-    -- @readCapacityUnits@ and @writeCapacityUnits@ as input.
-    --
-    -- The default is @throughput_mode:PAY_PER_REQUEST@.
-    --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html Read\/write capacity modes>
-    -- in the /Amazon Keyspaces Developer Guide/.
-    capacitySpecification :: Prelude.Maybe CapacitySpecification,
-    -- | Specifies how the encryption key for encryption at rest is managed for
-    -- the table. You can choose one of the following KMS key (KMS key):
-    --
-    -- • @type:AWS_OWNED_KMS_KEY@ - This key is owned by Amazon Keyspaces.
-    --
-    -- • @type:CUSTOMER_MANAGED_KMS_KEY@ - This key is stored in your account
-    -- and is created, owned, and managed by you. This option requires the
-    -- @kms_key_identifier@ of the KMS key in Amazon Resource Name (ARN) format
-    -- as input.
-    --
-    -- The default is @type:AWS_OWNED_KMS_KEY@.
-    --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html Encryption at rest>
-    -- in the /Amazon Keyspaces Developer Guide/.
-    encryptionSpecification :: Prelude.Maybe EncryptionSpecification,
-    -- | This parameter allows to enter a description of the table.
-    comment :: Prelude.Maybe Comment,
-    -- | The default Time to Live setting in seconds for the table.
-    --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl Setting the default TTL value for a table>
-    -- in the /Amazon Keyspaces Developer Guide/.
-    defaultTimeToLive :: Prelude.Maybe Prelude.Natural,
     -- | The name of the keyspace that the table is going to be created in.
     keyspaceName :: Prelude.Text,
     -- | The name of the table.
@@ -189,38 +189,6 @@ data CreateTable = CreateTable'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createTable_tags' - A list of key-value pair tags to be attached to the resource.
---
--- For more information, see
--- <https://docs.aws.amazon.com/keyspaces/latest/devguide/tagging-keyspaces.html Adding tags and labels to Amazon Keyspaces resources>
--- in the /Amazon Keyspaces Developer Guide/.
---
--- 'ttl', 'createTable_ttl' - Enables Time to Live custom settings for the table. The options are:
---
--- • @status:enabled@
---
--- • @status:disabled@
---
--- The default is @status:disabled@. After @ttl@ is enabled, you can\'t
--- disable it for the table.
---
--- For more information, see
--- <https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html Expiring data by using Amazon Keyspaces Time to Live (TTL)>
--- in the /Amazon Keyspaces Developer Guide/.
---
--- 'pointInTimeRecovery', 'createTable_pointInTimeRecovery' - Specifies if @pointInTimeRecovery@ is enabled or disabled for the table.
--- The options are:
---
--- • @ENABLED@
---
--- • @DISABLED@
---
--- If it\'s not specified, the default is @DISABLED@.
---
--- For more information, see
--- <https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html Point-in-time recovery>
--- in the /Amazon Keyspaces Developer Guide/.
---
 -- 'capacitySpecification', 'createTable_capacitySpecification' - Specifies the read\/write throughput capacity mode for the table. The
 -- options are:
 --
@@ -233,6 +201,14 @@ data CreateTable = CreateTable'
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html Read\/write capacity modes>
+-- in the /Amazon Keyspaces Developer Guide/.
+--
+-- 'comment', 'createTable_comment' - This parameter allows to enter a description of the table.
+--
+-- 'defaultTimeToLive', 'createTable_defaultTimeToLive' - The default Time to Live setting in seconds for the table.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl Setting the default TTL value for a table>
 -- in the /Amazon Keyspaces Developer Guide/.
 --
 -- 'encryptionSpecification', 'createTable_encryptionSpecification' - Specifies how the encryption key for encryption at rest is managed for
@@ -251,12 +227,36 @@ data CreateTable = CreateTable'
 -- <https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html Encryption at rest>
 -- in the /Amazon Keyspaces Developer Guide/.
 --
--- 'comment', 'createTable_comment' - This parameter allows to enter a description of the table.
+-- 'pointInTimeRecovery', 'createTable_pointInTimeRecovery' - Specifies if @pointInTimeRecovery@ is enabled or disabled for the table.
+-- The options are:
 --
--- 'defaultTimeToLive', 'createTable_defaultTimeToLive' - The default Time to Live setting in seconds for the table.
+-- • @ENABLED@
+--
+-- • @DISABLED@
+--
+-- If it\'s not specified, the default is @DISABLED@.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl Setting the default TTL value for a table>
+-- <https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html Point-in-time recovery>
+-- in the /Amazon Keyspaces Developer Guide/.
+--
+-- 'tags', 'createTable_tags' - A list of key-value pair tags to be attached to the resource.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/keyspaces/latest/devguide/tagging-keyspaces.html Adding tags and labels to Amazon Keyspaces resources>
+-- in the /Amazon Keyspaces Developer Guide/.
+--
+-- 'ttl', 'createTable_ttl' - Enables Time to Live custom settings for the table. The options are:
+--
+-- • @status:enabled@
+--
+-- • @status:disabled@
+--
+-- The default is @status:disabled@. After @ttl@ is enabled, you can\'t
+-- disable it for the table.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html Expiring data by using Amazon Keyspaces Time to Live (TTL)>
 -- in the /Amazon Keyspaces Developer Guide/.
 --
 -- 'keyspaceName', 'createTable_keyspaceName' - The name of the keyspace that the table is going to be created in.
@@ -310,17 +310,79 @@ newCreateTable
   pTableName_
   pSchemaDefinition_ =
     CreateTable'
-      { tags = Prelude.Nothing,
-        ttl = Prelude.Nothing,
-        pointInTimeRecovery = Prelude.Nothing,
-        capacitySpecification = Prelude.Nothing,
-        encryptionSpecification = Prelude.Nothing,
+      { capacitySpecification =
+          Prelude.Nothing,
         comment = Prelude.Nothing,
         defaultTimeToLive = Prelude.Nothing,
+        encryptionSpecification = Prelude.Nothing,
+        pointInTimeRecovery = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        ttl = Prelude.Nothing,
         keyspaceName = pKeyspaceName_,
         tableName = pTableName_,
         schemaDefinition = pSchemaDefinition_
       }
+
+-- | Specifies the read\/write throughput capacity mode for the table. The
+-- options are:
+--
+-- • @throughputMode:PAY_PER_REQUEST@ and
+--
+-- • @throughputMode:PROVISIONED@ - Provisioned capacity mode requires
+-- @readCapacityUnits@ and @writeCapacityUnits@ as input.
+--
+-- The default is @throughput_mode:PAY_PER_REQUEST@.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html Read\/write capacity modes>
+-- in the /Amazon Keyspaces Developer Guide/.
+createTable_capacitySpecification :: Lens.Lens' CreateTable (Prelude.Maybe CapacitySpecification)
+createTable_capacitySpecification = Lens.lens (\CreateTable' {capacitySpecification} -> capacitySpecification) (\s@CreateTable' {} a -> s {capacitySpecification = a} :: CreateTable)
+
+-- | This parameter allows to enter a description of the table.
+createTable_comment :: Lens.Lens' CreateTable (Prelude.Maybe Comment)
+createTable_comment = Lens.lens (\CreateTable' {comment} -> comment) (\s@CreateTable' {} a -> s {comment = a} :: CreateTable)
+
+-- | The default Time to Live setting in seconds for the table.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl Setting the default TTL value for a table>
+-- in the /Amazon Keyspaces Developer Guide/.
+createTable_defaultTimeToLive :: Lens.Lens' CreateTable (Prelude.Maybe Prelude.Natural)
+createTable_defaultTimeToLive = Lens.lens (\CreateTable' {defaultTimeToLive} -> defaultTimeToLive) (\s@CreateTable' {} a -> s {defaultTimeToLive = a} :: CreateTable)
+
+-- | Specifies how the encryption key for encryption at rest is managed for
+-- the table. You can choose one of the following KMS key (KMS key):
+--
+-- • @type:AWS_OWNED_KMS_KEY@ - This key is owned by Amazon Keyspaces.
+--
+-- • @type:CUSTOMER_MANAGED_KMS_KEY@ - This key is stored in your account
+-- and is created, owned, and managed by you. This option requires the
+-- @kms_key_identifier@ of the KMS key in Amazon Resource Name (ARN) format
+-- as input.
+--
+-- The default is @type:AWS_OWNED_KMS_KEY@.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html Encryption at rest>
+-- in the /Amazon Keyspaces Developer Guide/.
+createTable_encryptionSpecification :: Lens.Lens' CreateTable (Prelude.Maybe EncryptionSpecification)
+createTable_encryptionSpecification = Lens.lens (\CreateTable' {encryptionSpecification} -> encryptionSpecification) (\s@CreateTable' {} a -> s {encryptionSpecification = a} :: CreateTable)
+
+-- | Specifies if @pointInTimeRecovery@ is enabled or disabled for the table.
+-- The options are:
+--
+-- • @ENABLED@
+--
+-- • @DISABLED@
+--
+-- If it\'s not specified, the default is @DISABLED@.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html Point-in-time recovery>
+-- in the /Amazon Keyspaces Developer Guide/.
+createTable_pointInTimeRecovery :: Lens.Lens' CreateTable (Prelude.Maybe PointInTimeRecovery)
+createTable_pointInTimeRecovery = Lens.lens (\CreateTable' {pointInTimeRecovery} -> pointInTimeRecovery) (\s@CreateTable' {} a -> s {pointInTimeRecovery = a} :: CreateTable)
 
 -- | A list of key-value pair tags to be attached to the resource.
 --
@@ -344,67 +406,6 @@ createTable_tags = Lens.lens (\CreateTable' {tags} -> tags) (\s@CreateTable' {} 
 -- in the /Amazon Keyspaces Developer Guide/.
 createTable_ttl :: Lens.Lens' CreateTable (Prelude.Maybe TimeToLive)
 createTable_ttl = Lens.lens (\CreateTable' {ttl} -> ttl) (\s@CreateTable' {} a -> s {ttl = a} :: CreateTable)
-
--- | Specifies if @pointInTimeRecovery@ is enabled or disabled for the table.
--- The options are:
---
--- • @ENABLED@
---
--- • @DISABLED@
---
--- If it\'s not specified, the default is @DISABLED@.
---
--- For more information, see
--- <https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html Point-in-time recovery>
--- in the /Amazon Keyspaces Developer Guide/.
-createTable_pointInTimeRecovery :: Lens.Lens' CreateTable (Prelude.Maybe PointInTimeRecovery)
-createTable_pointInTimeRecovery = Lens.lens (\CreateTable' {pointInTimeRecovery} -> pointInTimeRecovery) (\s@CreateTable' {} a -> s {pointInTimeRecovery = a} :: CreateTable)
-
--- | Specifies the read\/write throughput capacity mode for the table. The
--- options are:
---
--- • @throughputMode:PAY_PER_REQUEST@ and
---
--- • @throughputMode:PROVISIONED@ - Provisioned capacity mode requires
--- @readCapacityUnits@ and @writeCapacityUnits@ as input.
---
--- The default is @throughput_mode:PAY_PER_REQUEST@.
---
--- For more information, see
--- <https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html Read\/write capacity modes>
--- in the /Amazon Keyspaces Developer Guide/.
-createTable_capacitySpecification :: Lens.Lens' CreateTable (Prelude.Maybe CapacitySpecification)
-createTable_capacitySpecification = Lens.lens (\CreateTable' {capacitySpecification} -> capacitySpecification) (\s@CreateTable' {} a -> s {capacitySpecification = a} :: CreateTable)
-
--- | Specifies how the encryption key for encryption at rest is managed for
--- the table. You can choose one of the following KMS key (KMS key):
---
--- • @type:AWS_OWNED_KMS_KEY@ - This key is owned by Amazon Keyspaces.
---
--- • @type:CUSTOMER_MANAGED_KMS_KEY@ - This key is stored in your account
--- and is created, owned, and managed by you. This option requires the
--- @kms_key_identifier@ of the KMS key in Amazon Resource Name (ARN) format
--- as input.
---
--- The default is @type:AWS_OWNED_KMS_KEY@.
---
--- For more information, see
--- <https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html Encryption at rest>
--- in the /Amazon Keyspaces Developer Guide/.
-createTable_encryptionSpecification :: Lens.Lens' CreateTable (Prelude.Maybe EncryptionSpecification)
-createTable_encryptionSpecification = Lens.lens (\CreateTable' {encryptionSpecification} -> encryptionSpecification) (\s@CreateTable' {} a -> s {encryptionSpecification = a} :: CreateTable)
-
--- | This parameter allows to enter a description of the table.
-createTable_comment :: Lens.Lens' CreateTable (Prelude.Maybe Comment)
-createTable_comment = Lens.lens (\CreateTable' {comment} -> comment) (\s@CreateTable' {} a -> s {comment = a} :: CreateTable)
-
--- | The default Time to Live setting in seconds for the table.
---
--- For more information, see
--- <https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl Setting the default TTL value for a table>
--- in the /Amazon Keyspaces Developer Guide/.
-createTable_defaultTimeToLive :: Lens.Lens' CreateTable (Prelude.Maybe Prelude.Natural)
-createTable_defaultTimeToLive = Lens.lens (\CreateTable' {defaultTimeToLive} -> defaultTimeToLive) (\s@CreateTable' {} a -> s {defaultTimeToLive = a} :: CreateTable)
 
 -- | The name of the keyspace that the table is going to be created in.
 createTable_keyspaceName :: Lens.Lens' CreateTable Prelude.Text
@@ -465,26 +466,26 @@ instance Core.AWSRequest CreateTable where
 
 instance Prelude.Hashable CreateTable where
   hashWithSalt _salt CreateTable' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` ttl
-      `Prelude.hashWithSalt` pointInTimeRecovery
-      `Prelude.hashWithSalt` capacitySpecification
-      `Prelude.hashWithSalt` encryptionSpecification
+    _salt `Prelude.hashWithSalt` capacitySpecification
       `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` defaultTimeToLive
+      `Prelude.hashWithSalt` encryptionSpecification
+      `Prelude.hashWithSalt` pointInTimeRecovery
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` ttl
       `Prelude.hashWithSalt` keyspaceName
       `Prelude.hashWithSalt` tableName
       `Prelude.hashWithSalt` schemaDefinition
 
 instance Prelude.NFData CreateTable where
   rnf CreateTable' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf ttl
-      `Prelude.seq` Prelude.rnf pointInTimeRecovery
-      `Prelude.seq` Prelude.rnf capacitySpecification
-      `Prelude.seq` Prelude.rnf encryptionSpecification
+    Prelude.rnf capacitySpecification
       `Prelude.seq` Prelude.rnf comment
       `Prelude.seq` Prelude.rnf defaultTimeToLive
+      `Prelude.seq` Prelude.rnf encryptionSpecification
+      `Prelude.seq` Prelude.rnf pointInTimeRecovery
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf ttl
       `Prelude.seq` Prelude.rnf keyspaceName
       `Prelude.seq` Prelude.rnf tableName
       `Prelude.seq` Prelude.rnf schemaDefinition
@@ -508,17 +509,17 @@ instance Data.ToJSON CreateTable where
   toJSON CreateTable' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("ttl" Data..=) Prelude.<$> ttl,
-            ("pointInTimeRecovery" Data..=)
-              Prelude.<$> pointInTimeRecovery,
-            ("capacitySpecification" Data..=)
+          [ ("capacitySpecification" Data..=)
               Prelude.<$> capacitySpecification,
-            ("encryptionSpecification" Data..=)
-              Prelude.<$> encryptionSpecification,
             ("comment" Data..=) Prelude.<$> comment,
             ("defaultTimeToLive" Data..=)
               Prelude.<$> defaultTimeToLive,
+            ("encryptionSpecification" Data..=)
+              Prelude.<$> encryptionSpecification,
+            ("pointInTimeRecovery" Data..=)
+              Prelude.<$> pointInTimeRecovery,
+            ("tags" Data..=) Prelude.<$> tags,
+            ("ttl" Data..=) Prelude.<$> ttl,
             Prelude.Just ("keyspaceName" Data..= keyspaceName),
             Prelude.Just ("tableName" Data..= tableName),
             Prelude.Just

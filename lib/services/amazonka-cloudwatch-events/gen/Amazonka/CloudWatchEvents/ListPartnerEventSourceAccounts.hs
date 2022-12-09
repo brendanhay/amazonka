@@ -30,8 +30,8 @@ module Amazonka.CloudWatchEvents.ListPartnerEventSourceAccounts
     newListPartnerEventSourceAccounts,
 
     -- * Request Lenses
-    listPartnerEventSourceAccounts_nextToken,
     listPartnerEventSourceAccounts_limit,
+    listPartnerEventSourceAccounts_nextToken,
     listPartnerEventSourceAccounts_eventSourceName,
 
     -- * Destructuring the Response
@@ -55,13 +55,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPartnerEventSourceAccounts' smart constructor.
 data ListPartnerEventSourceAccounts = ListPartnerEventSourceAccounts'
-  { -- | The token returned by a previous call to this operation. Specifying this
-    -- retrieves the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifying this limits the number of results returned by this operation.
+  { -- | Specifying this limits the number of results returned by this operation.
     -- The operation also returns a NextToken which you can use in a subsequent
     -- operation to retrieve the next set of results.
     limit :: Prelude.Maybe Prelude.Natural,
+    -- | The token returned by a previous call to this operation. Specifying this
+    -- retrieves the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the partner event source to display account information
     -- about.
     eventSourceName :: Prelude.Text
@@ -76,12 +76,12 @@ data ListPartnerEventSourceAccounts = ListPartnerEventSourceAccounts'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPartnerEventSourceAccounts_nextToken' - The token returned by a previous call to this operation. Specifying this
--- retrieves the next set of results.
---
 -- 'limit', 'listPartnerEventSourceAccounts_limit' - Specifying this limits the number of results returned by this operation.
 -- The operation also returns a NextToken which you can use in a subsequent
 -- operation to retrieve the next set of results.
+--
+-- 'nextToken', 'listPartnerEventSourceAccounts_nextToken' - The token returned by a previous call to this operation. Specifying this
+-- retrieves the next set of results.
 --
 -- 'eventSourceName', 'listPartnerEventSourceAccounts_eventSourceName' - The name of the partner event source to display account information
 -- about.
@@ -91,22 +91,22 @@ newListPartnerEventSourceAccounts ::
   ListPartnerEventSourceAccounts
 newListPartnerEventSourceAccounts pEventSourceName_ =
   ListPartnerEventSourceAccounts'
-    { nextToken =
+    { limit =
         Prelude.Nothing,
-      limit = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       eventSourceName = pEventSourceName_
     }
-
--- | The token returned by a previous call to this operation. Specifying this
--- retrieves the next set of results.
-listPartnerEventSourceAccounts_nextToken :: Lens.Lens' ListPartnerEventSourceAccounts (Prelude.Maybe Prelude.Text)
-listPartnerEventSourceAccounts_nextToken = Lens.lens (\ListPartnerEventSourceAccounts' {nextToken} -> nextToken) (\s@ListPartnerEventSourceAccounts' {} a -> s {nextToken = a} :: ListPartnerEventSourceAccounts)
 
 -- | Specifying this limits the number of results returned by this operation.
 -- The operation also returns a NextToken which you can use in a subsequent
 -- operation to retrieve the next set of results.
 listPartnerEventSourceAccounts_limit :: Lens.Lens' ListPartnerEventSourceAccounts (Prelude.Maybe Prelude.Natural)
 listPartnerEventSourceAccounts_limit = Lens.lens (\ListPartnerEventSourceAccounts' {limit} -> limit) (\s@ListPartnerEventSourceAccounts' {} a -> s {limit = a} :: ListPartnerEventSourceAccounts)
+
+-- | The token returned by a previous call to this operation. Specifying this
+-- retrieves the next set of results.
+listPartnerEventSourceAccounts_nextToken :: Lens.Lens' ListPartnerEventSourceAccounts (Prelude.Maybe Prelude.Text)
+listPartnerEventSourceAccounts_nextToken = Lens.lens (\ListPartnerEventSourceAccounts' {nextToken} -> nextToken) (\s@ListPartnerEventSourceAccounts' {} a -> s {nextToken = a} :: ListPartnerEventSourceAccounts)
 
 -- | The name of the partner event source to display account information
 -- about.
@@ -140,8 +140,8 @@ instance
   hashWithSalt
     _salt
     ListPartnerEventSourceAccounts' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` limit
+      _salt `Prelude.hashWithSalt` limit
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` eventSourceName
 
 instance
@@ -149,8 +149,8 @@ instance
     ListPartnerEventSourceAccounts
   where
   rnf ListPartnerEventSourceAccounts' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf limit
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf eventSourceName
 
 instance
@@ -175,8 +175,8 @@ instance Data.ToJSON ListPartnerEventSourceAccounts where
   toJSON ListPartnerEventSourceAccounts' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Limit" Data..=) Prelude.<$> limit,
+          [ ("Limit" Data..=) Prelude.<$> limit,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("EventSourceName" Data..= eventSourceName)
           ]

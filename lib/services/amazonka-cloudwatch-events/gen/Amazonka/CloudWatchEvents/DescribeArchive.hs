@@ -34,16 +34,16 @@ module Amazonka.CloudWatchEvents.DescribeArchive
     newDescribeArchiveResponse,
 
     -- * Response Lenses
-    describeArchiveResponse_eventPattern,
-    describeArchiveResponse_retentionDays,
     describeArchiveResponse_archiveArn,
-    describeArchiveResponse_sizeBytes,
-    describeArchiveResponse_state,
+    describeArchiveResponse_archiveName,
+    describeArchiveResponse_creationTime,
     describeArchiveResponse_description,
     describeArchiveResponse_eventCount,
-    describeArchiveResponse_archiveName,
+    describeArchiveResponse_eventPattern,
     describeArchiveResponse_eventSourceArn,
-    describeArchiveResponse_creationTime,
+    describeArchiveResponse_retentionDays,
+    describeArchiveResponse_sizeBytes,
+    describeArchiveResponse_state,
     describeArchiveResponse_stateReason,
     describeArchiveResponse_httpStatus,
   )
@@ -94,16 +94,16 @@ instance Core.AWSRequest DescribeArchive where
     Response.receiveJSON
       ( \s h x ->
           DescribeArchiveResponse'
-            Prelude.<$> (x Data..?> "EventPattern")
-            Prelude.<*> (x Data..?> "RetentionDays")
-            Prelude.<*> (x Data..?> "ArchiveArn")
-            Prelude.<*> (x Data..?> "SizeBytes")
-            Prelude.<*> (x Data..?> "State")
+            Prelude.<$> (x Data..?> "ArchiveArn")
+            Prelude.<*> (x Data..?> "ArchiveName")
+            Prelude.<*> (x Data..?> "CreationTime")
             Prelude.<*> (x Data..?> "Description")
             Prelude.<*> (x Data..?> "EventCount")
-            Prelude.<*> (x Data..?> "ArchiveName")
+            Prelude.<*> (x Data..?> "EventPattern")
             Prelude.<*> (x Data..?> "EventSourceArn")
-            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "RetentionDays")
+            Prelude.<*> (x Data..?> "SizeBytes")
+            Prelude.<*> (x Data..?> "State")
             Prelude.<*> (x Data..?> "StateReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -143,26 +143,26 @@ instance Data.ToQuery DescribeArchive where
 
 -- | /See:/ 'newDescribeArchiveResponse' smart constructor.
 data DescribeArchiveResponse = DescribeArchiveResponse'
-  { -- | The event pattern used to filter events sent to the archive.
-    eventPattern :: Prelude.Maybe Prelude.Text,
-    -- | The number of days to retain events for in the archive.
-    retentionDays :: Prelude.Maybe Prelude.Natural,
-    -- | The ARN of the archive.
+  { -- | The ARN of the archive.
     archiveArn :: Prelude.Maybe Prelude.Text,
-    -- | The size of the archive in bytes.
-    sizeBytes :: Prelude.Maybe Prelude.Integer,
-    -- | The state of the archive.
-    state :: Prelude.Maybe ArchiveState,
+    -- | The name of the archive.
+    archiveName :: Prelude.Maybe Prelude.Text,
+    -- | The time at which the archive was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The description of the archive.
     description :: Prelude.Maybe Prelude.Text,
     -- | The number of events in the archive.
     eventCount :: Prelude.Maybe Prelude.Integer,
-    -- | The name of the archive.
-    archiveName :: Prelude.Maybe Prelude.Text,
+    -- | The event pattern used to filter events sent to the archive.
+    eventPattern :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the event source associated with the archive.
     eventSourceArn :: Prelude.Maybe Prelude.Text,
-    -- | The time at which the archive was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
+    -- | The number of days to retain events for in the archive.
+    retentionDays :: Prelude.Maybe Prelude.Natural,
+    -- | The size of the archive in bytes.
+    sizeBytes :: Prelude.Maybe Prelude.Integer,
+    -- | The state of the archive.
+    state :: Prelude.Maybe ArchiveState,
     -- | The reason that the archive is in the state.
     stateReason :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -178,25 +178,25 @@ data DescribeArchiveResponse = DescribeArchiveResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eventPattern', 'describeArchiveResponse_eventPattern' - The event pattern used to filter events sent to the archive.
---
--- 'retentionDays', 'describeArchiveResponse_retentionDays' - The number of days to retain events for in the archive.
---
 -- 'archiveArn', 'describeArchiveResponse_archiveArn' - The ARN of the archive.
 --
--- 'sizeBytes', 'describeArchiveResponse_sizeBytes' - The size of the archive in bytes.
+-- 'archiveName', 'describeArchiveResponse_archiveName' - The name of the archive.
 --
--- 'state', 'describeArchiveResponse_state' - The state of the archive.
+-- 'creationTime', 'describeArchiveResponse_creationTime' - The time at which the archive was created.
 --
 -- 'description', 'describeArchiveResponse_description' - The description of the archive.
 --
 -- 'eventCount', 'describeArchiveResponse_eventCount' - The number of events in the archive.
 --
--- 'archiveName', 'describeArchiveResponse_archiveName' - The name of the archive.
+-- 'eventPattern', 'describeArchiveResponse_eventPattern' - The event pattern used to filter events sent to the archive.
 --
 -- 'eventSourceArn', 'describeArchiveResponse_eventSourceArn' - The ARN of the event source associated with the archive.
 --
--- 'creationTime', 'describeArchiveResponse_creationTime' - The time at which the archive was created.
+-- 'retentionDays', 'describeArchiveResponse_retentionDays' - The number of days to retain events for in the archive.
+--
+-- 'sizeBytes', 'describeArchiveResponse_sizeBytes' - The size of the archive in bytes.
+--
+-- 'state', 'describeArchiveResponse_state' - The state of the archive.
 --
 -- 'stateReason', 'describeArchiveResponse_stateReason' - The reason that the archive is in the state.
 --
@@ -207,40 +207,32 @@ newDescribeArchiveResponse ::
   DescribeArchiveResponse
 newDescribeArchiveResponse pHttpStatus_ =
   DescribeArchiveResponse'
-    { eventPattern =
+    { archiveArn =
         Prelude.Nothing,
-      retentionDays = Prelude.Nothing,
-      archiveArn = Prelude.Nothing,
-      sizeBytes = Prelude.Nothing,
-      state = Prelude.Nothing,
+      archiveName = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
       description = Prelude.Nothing,
       eventCount = Prelude.Nothing,
-      archiveName = Prelude.Nothing,
+      eventPattern = Prelude.Nothing,
       eventSourceArn = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
+      retentionDays = Prelude.Nothing,
+      sizeBytes = Prelude.Nothing,
+      state = Prelude.Nothing,
       stateReason = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The event pattern used to filter events sent to the archive.
-describeArchiveResponse_eventPattern :: Lens.Lens' DescribeArchiveResponse (Prelude.Maybe Prelude.Text)
-describeArchiveResponse_eventPattern = Lens.lens (\DescribeArchiveResponse' {eventPattern} -> eventPattern) (\s@DescribeArchiveResponse' {} a -> s {eventPattern = a} :: DescribeArchiveResponse)
-
--- | The number of days to retain events for in the archive.
-describeArchiveResponse_retentionDays :: Lens.Lens' DescribeArchiveResponse (Prelude.Maybe Prelude.Natural)
-describeArchiveResponse_retentionDays = Lens.lens (\DescribeArchiveResponse' {retentionDays} -> retentionDays) (\s@DescribeArchiveResponse' {} a -> s {retentionDays = a} :: DescribeArchiveResponse)
 
 -- | The ARN of the archive.
 describeArchiveResponse_archiveArn :: Lens.Lens' DescribeArchiveResponse (Prelude.Maybe Prelude.Text)
 describeArchiveResponse_archiveArn = Lens.lens (\DescribeArchiveResponse' {archiveArn} -> archiveArn) (\s@DescribeArchiveResponse' {} a -> s {archiveArn = a} :: DescribeArchiveResponse)
 
--- | The size of the archive in bytes.
-describeArchiveResponse_sizeBytes :: Lens.Lens' DescribeArchiveResponse (Prelude.Maybe Prelude.Integer)
-describeArchiveResponse_sizeBytes = Lens.lens (\DescribeArchiveResponse' {sizeBytes} -> sizeBytes) (\s@DescribeArchiveResponse' {} a -> s {sizeBytes = a} :: DescribeArchiveResponse)
+-- | The name of the archive.
+describeArchiveResponse_archiveName :: Lens.Lens' DescribeArchiveResponse (Prelude.Maybe Prelude.Text)
+describeArchiveResponse_archiveName = Lens.lens (\DescribeArchiveResponse' {archiveName} -> archiveName) (\s@DescribeArchiveResponse' {} a -> s {archiveName = a} :: DescribeArchiveResponse)
 
--- | The state of the archive.
-describeArchiveResponse_state :: Lens.Lens' DescribeArchiveResponse (Prelude.Maybe ArchiveState)
-describeArchiveResponse_state = Lens.lens (\DescribeArchiveResponse' {state} -> state) (\s@DescribeArchiveResponse' {} a -> s {state = a} :: DescribeArchiveResponse)
+-- | The time at which the archive was created.
+describeArchiveResponse_creationTime :: Lens.Lens' DescribeArchiveResponse (Prelude.Maybe Prelude.UTCTime)
+describeArchiveResponse_creationTime = Lens.lens (\DescribeArchiveResponse' {creationTime} -> creationTime) (\s@DescribeArchiveResponse' {} a -> s {creationTime = a} :: DescribeArchiveResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The description of the archive.
 describeArchiveResponse_description :: Lens.Lens' DescribeArchiveResponse (Prelude.Maybe Prelude.Text)
@@ -250,17 +242,25 @@ describeArchiveResponse_description = Lens.lens (\DescribeArchiveResponse' {desc
 describeArchiveResponse_eventCount :: Lens.Lens' DescribeArchiveResponse (Prelude.Maybe Prelude.Integer)
 describeArchiveResponse_eventCount = Lens.lens (\DescribeArchiveResponse' {eventCount} -> eventCount) (\s@DescribeArchiveResponse' {} a -> s {eventCount = a} :: DescribeArchiveResponse)
 
--- | The name of the archive.
-describeArchiveResponse_archiveName :: Lens.Lens' DescribeArchiveResponse (Prelude.Maybe Prelude.Text)
-describeArchiveResponse_archiveName = Lens.lens (\DescribeArchiveResponse' {archiveName} -> archiveName) (\s@DescribeArchiveResponse' {} a -> s {archiveName = a} :: DescribeArchiveResponse)
+-- | The event pattern used to filter events sent to the archive.
+describeArchiveResponse_eventPattern :: Lens.Lens' DescribeArchiveResponse (Prelude.Maybe Prelude.Text)
+describeArchiveResponse_eventPattern = Lens.lens (\DescribeArchiveResponse' {eventPattern} -> eventPattern) (\s@DescribeArchiveResponse' {} a -> s {eventPattern = a} :: DescribeArchiveResponse)
 
 -- | The ARN of the event source associated with the archive.
 describeArchiveResponse_eventSourceArn :: Lens.Lens' DescribeArchiveResponse (Prelude.Maybe Prelude.Text)
 describeArchiveResponse_eventSourceArn = Lens.lens (\DescribeArchiveResponse' {eventSourceArn} -> eventSourceArn) (\s@DescribeArchiveResponse' {} a -> s {eventSourceArn = a} :: DescribeArchiveResponse)
 
--- | The time at which the archive was created.
-describeArchiveResponse_creationTime :: Lens.Lens' DescribeArchiveResponse (Prelude.Maybe Prelude.UTCTime)
-describeArchiveResponse_creationTime = Lens.lens (\DescribeArchiveResponse' {creationTime} -> creationTime) (\s@DescribeArchiveResponse' {} a -> s {creationTime = a} :: DescribeArchiveResponse) Prelude.. Lens.mapping Data._Time
+-- | The number of days to retain events for in the archive.
+describeArchiveResponse_retentionDays :: Lens.Lens' DescribeArchiveResponse (Prelude.Maybe Prelude.Natural)
+describeArchiveResponse_retentionDays = Lens.lens (\DescribeArchiveResponse' {retentionDays} -> retentionDays) (\s@DescribeArchiveResponse' {} a -> s {retentionDays = a} :: DescribeArchiveResponse)
+
+-- | The size of the archive in bytes.
+describeArchiveResponse_sizeBytes :: Lens.Lens' DescribeArchiveResponse (Prelude.Maybe Prelude.Integer)
+describeArchiveResponse_sizeBytes = Lens.lens (\DescribeArchiveResponse' {sizeBytes} -> sizeBytes) (\s@DescribeArchiveResponse' {} a -> s {sizeBytes = a} :: DescribeArchiveResponse)
+
+-- | The state of the archive.
+describeArchiveResponse_state :: Lens.Lens' DescribeArchiveResponse (Prelude.Maybe ArchiveState)
+describeArchiveResponse_state = Lens.lens (\DescribeArchiveResponse' {state} -> state) (\s@DescribeArchiveResponse' {} a -> s {state = a} :: DescribeArchiveResponse)
 
 -- | The reason that the archive is in the state.
 describeArchiveResponse_stateReason :: Lens.Lens' DescribeArchiveResponse (Prelude.Maybe Prelude.Text)
@@ -272,15 +272,15 @@ describeArchiveResponse_httpStatus = Lens.lens (\DescribeArchiveResponse' {httpS
 
 instance Prelude.NFData DescribeArchiveResponse where
   rnf DescribeArchiveResponse' {..} =
-    Prelude.rnf eventPattern
-      `Prelude.seq` Prelude.rnf retentionDays
-      `Prelude.seq` Prelude.rnf archiveArn
-      `Prelude.seq` Prelude.rnf sizeBytes
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf archiveArn
+      `Prelude.seq` Prelude.rnf archiveName
+      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf eventCount
-      `Prelude.seq` Prelude.rnf archiveName
+      `Prelude.seq` Prelude.rnf eventPattern
       `Prelude.seq` Prelude.rnf eventSourceArn
-      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf retentionDays
+      `Prelude.seq` Prelude.rnf sizeBytes
+      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf stateReason
       `Prelude.seq` Prelude.rnf httpStatus

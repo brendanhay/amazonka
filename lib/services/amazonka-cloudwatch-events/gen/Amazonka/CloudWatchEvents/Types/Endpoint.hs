@@ -36,32 +36,32 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEndpoint' smart constructor.
 data Endpoint = Endpoint'
-  { -- | The name of the endpoint.
-    name :: Prelude.Maybe Prelude.Text,
+  { -- | The ARN of the endpoint.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The time the endpoint was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
+    -- | A description for the endpoint.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The URL subdomain of the endpoint. For example, if the URL for Endpoint
     -- is abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is
     -- @abcde.veo@.
     endpointId :: Prelude.Maybe Prelude.Text,
+    -- | The URL of the endpoint.
+    endpointUrl :: Prelude.Maybe Prelude.Text,
+    -- | The event buses being used by the endpoint.
+    eventBuses :: Prelude.Maybe (Prelude.NonEmpty EndpointEventBus),
+    -- | The last time the endpoint was modified.
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
+    -- | The name of the endpoint.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | Whether event replication was enabled or disabled for this endpoint.
+    replicationConfig :: Prelude.Maybe ReplicationConfig,
     -- | The ARN of the role used by event replication for the endpoint.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | The routing configuration of the endpoint.
     routingConfig :: Prelude.Maybe RoutingConfig,
-    -- | The ARN of the endpoint.
-    arn :: Prelude.Maybe Prelude.Text,
     -- | The current state of the endpoint.
     state :: Prelude.Maybe EndpointState,
-    -- | Whether event replication was enabled or disabled for this endpoint.
-    replicationConfig :: Prelude.Maybe ReplicationConfig,
-    -- | A description for the endpoint.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The last time the endpoint was modified.
-    lastModifiedTime :: Prelude.Maybe Data.POSIX,
-    -- | The URL of the endpoint.
-    endpointUrl :: Prelude.Maybe Prelude.Text,
-    -- | The time the endpoint was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
-    -- | The event buses being used by the endpoint.
-    eventBuses :: Prelude.Maybe (Prelude.NonEmpty EndpointEventBus),
     -- | The reason the endpoint is in its current state.
     stateReason :: Prelude.Maybe Prelude.Text
   }
@@ -75,61 +75,89 @@ data Endpoint = Endpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'endpoint_name' - The name of the endpoint.
+-- 'arn', 'endpoint_arn' - The ARN of the endpoint.
+--
+-- 'creationTime', 'endpoint_creationTime' - The time the endpoint was created.
+--
+-- 'description', 'endpoint_description' - A description for the endpoint.
 --
 -- 'endpointId', 'endpoint_endpointId' - The URL subdomain of the endpoint. For example, if the URL for Endpoint
 -- is abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is
 -- @abcde.veo@.
 --
+-- 'endpointUrl', 'endpoint_endpointUrl' - The URL of the endpoint.
+--
+-- 'eventBuses', 'endpoint_eventBuses' - The event buses being used by the endpoint.
+--
+-- 'lastModifiedTime', 'endpoint_lastModifiedTime' - The last time the endpoint was modified.
+--
+-- 'name', 'endpoint_name' - The name of the endpoint.
+--
+-- 'replicationConfig', 'endpoint_replicationConfig' - Whether event replication was enabled or disabled for this endpoint.
+--
 -- 'roleArn', 'endpoint_roleArn' - The ARN of the role used by event replication for the endpoint.
 --
 -- 'routingConfig', 'endpoint_routingConfig' - The routing configuration of the endpoint.
 --
--- 'arn', 'endpoint_arn' - The ARN of the endpoint.
---
 -- 'state', 'endpoint_state' - The current state of the endpoint.
---
--- 'replicationConfig', 'endpoint_replicationConfig' - Whether event replication was enabled or disabled for this endpoint.
---
--- 'description', 'endpoint_description' - A description for the endpoint.
---
--- 'lastModifiedTime', 'endpoint_lastModifiedTime' - The last time the endpoint was modified.
---
--- 'endpointUrl', 'endpoint_endpointUrl' - The URL of the endpoint.
---
--- 'creationTime', 'endpoint_creationTime' - The time the endpoint was created.
---
--- 'eventBuses', 'endpoint_eventBuses' - The event buses being used by the endpoint.
 --
 -- 'stateReason', 'endpoint_stateReason' - The reason the endpoint is in its current state.
 newEndpoint ::
   Endpoint
 newEndpoint =
   Endpoint'
-    { name = Prelude.Nothing,
+    { arn = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
+      description = Prelude.Nothing,
       endpointId = Prelude.Nothing,
+      endpointUrl = Prelude.Nothing,
+      eventBuses = Prelude.Nothing,
+      lastModifiedTime = Prelude.Nothing,
+      name = Prelude.Nothing,
+      replicationConfig = Prelude.Nothing,
       roleArn = Prelude.Nothing,
       routingConfig = Prelude.Nothing,
-      arn = Prelude.Nothing,
       state = Prelude.Nothing,
-      replicationConfig = Prelude.Nothing,
-      description = Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
-      endpointUrl = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
-      eventBuses = Prelude.Nothing,
       stateReason = Prelude.Nothing
     }
 
--- | The name of the endpoint.
-endpoint_name :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
-endpoint_name = Lens.lens (\Endpoint' {name} -> name) (\s@Endpoint' {} a -> s {name = a} :: Endpoint)
+-- | The ARN of the endpoint.
+endpoint_arn :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
+endpoint_arn = Lens.lens (\Endpoint' {arn} -> arn) (\s@Endpoint' {} a -> s {arn = a} :: Endpoint)
+
+-- | The time the endpoint was created.
+endpoint_creationTime :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.UTCTime)
+endpoint_creationTime = Lens.lens (\Endpoint' {creationTime} -> creationTime) (\s@Endpoint' {} a -> s {creationTime = a} :: Endpoint) Prelude.. Lens.mapping Data._Time
+
+-- | A description for the endpoint.
+endpoint_description :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
+endpoint_description = Lens.lens (\Endpoint' {description} -> description) (\s@Endpoint' {} a -> s {description = a} :: Endpoint)
 
 -- | The URL subdomain of the endpoint. For example, if the URL for Endpoint
 -- is abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is
 -- @abcde.veo@.
 endpoint_endpointId :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
 endpoint_endpointId = Lens.lens (\Endpoint' {endpointId} -> endpointId) (\s@Endpoint' {} a -> s {endpointId = a} :: Endpoint)
+
+-- | The URL of the endpoint.
+endpoint_endpointUrl :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
+endpoint_endpointUrl = Lens.lens (\Endpoint' {endpointUrl} -> endpointUrl) (\s@Endpoint' {} a -> s {endpointUrl = a} :: Endpoint)
+
+-- | The event buses being used by the endpoint.
+endpoint_eventBuses :: Lens.Lens' Endpoint (Prelude.Maybe (Prelude.NonEmpty EndpointEventBus))
+endpoint_eventBuses = Lens.lens (\Endpoint' {eventBuses} -> eventBuses) (\s@Endpoint' {} a -> s {eventBuses = a} :: Endpoint) Prelude.. Lens.mapping Lens.coerced
+
+-- | The last time the endpoint was modified.
+endpoint_lastModifiedTime :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.UTCTime)
+endpoint_lastModifiedTime = Lens.lens (\Endpoint' {lastModifiedTime} -> lastModifiedTime) (\s@Endpoint' {} a -> s {lastModifiedTime = a} :: Endpoint) Prelude.. Lens.mapping Data._Time
+
+-- | The name of the endpoint.
+endpoint_name :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
+endpoint_name = Lens.lens (\Endpoint' {name} -> name) (\s@Endpoint' {} a -> s {name = a} :: Endpoint)
+
+-- | Whether event replication was enabled or disabled for this endpoint.
+endpoint_replicationConfig :: Lens.Lens' Endpoint (Prelude.Maybe ReplicationConfig)
+endpoint_replicationConfig = Lens.lens (\Endpoint' {replicationConfig} -> replicationConfig) (\s@Endpoint' {} a -> s {replicationConfig = a} :: Endpoint)
 
 -- | The ARN of the role used by event replication for the endpoint.
 endpoint_roleArn :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
@@ -139,37 +167,9 @@ endpoint_roleArn = Lens.lens (\Endpoint' {roleArn} -> roleArn) (\s@Endpoint' {} 
 endpoint_routingConfig :: Lens.Lens' Endpoint (Prelude.Maybe RoutingConfig)
 endpoint_routingConfig = Lens.lens (\Endpoint' {routingConfig} -> routingConfig) (\s@Endpoint' {} a -> s {routingConfig = a} :: Endpoint)
 
--- | The ARN of the endpoint.
-endpoint_arn :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
-endpoint_arn = Lens.lens (\Endpoint' {arn} -> arn) (\s@Endpoint' {} a -> s {arn = a} :: Endpoint)
-
 -- | The current state of the endpoint.
 endpoint_state :: Lens.Lens' Endpoint (Prelude.Maybe EndpointState)
 endpoint_state = Lens.lens (\Endpoint' {state} -> state) (\s@Endpoint' {} a -> s {state = a} :: Endpoint)
-
--- | Whether event replication was enabled or disabled for this endpoint.
-endpoint_replicationConfig :: Lens.Lens' Endpoint (Prelude.Maybe ReplicationConfig)
-endpoint_replicationConfig = Lens.lens (\Endpoint' {replicationConfig} -> replicationConfig) (\s@Endpoint' {} a -> s {replicationConfig = a} :: Endpoint)
-
--- | A description for the endpoint.
-endpoint_description :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
-endpoint_description = Lens.lens (\Endpoint' {description} -> description) (\s@Endpoint' {} a -> s {description = a} :: Endpoint)
-
--- | The last time the endpoint was modified.
-endpoint_lastModifiedTime :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.UTCTime)
-endpoint_lastModifiedTime = Lens.lens (\Endpoint' {lastModifiedTime} -> lastModifiedTime) (\s@Endpoint' {} a -> s {lastModifiedTime = a} :: Endpoint) Prelude.. Lens.mapping Data._Time
-
--- | The URL of the endpoint.
-endpoint_endpointUrl :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
-endpoint_endpointUrl = Lens.lens (\Endpoint' {endpointUrl} -> endpointUrl) (\s@Endpoint' {} a -> s {endpointUrl = a} :: Endpoint)
-
--- | The time the endpoint was created.
-endpoint_creationTime :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.UTCTime)
-endpoint_creationTime = Lens.lens (\Endpoint' {creationTime} -> creationTime) (\s@Endpoint' {} a -> s {creationTime = a} :: Endpoint) Prelude.. Lens.mapping Data._Time
-
--- | The event buses being used by the endpoint.
-endpoint_eventBuses :: Lens.Lens' Endpoint (Prelude.Maybe (Prelude.NonEmpty EndpointEventBus))
-endpoint_eventBuses = Lens.lens (\Endpoint' {eventBuses} -> eventBuses) (\s@Endpoint' {} a -> s {eventBuses = a} :: Endpoint) Prelude.. Lens.mapping Lens.coerced
 
 -- | The reason the endpoint is in its current state.
 endpoint_stateReason :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
@@ -181,49 +181,49 @@ instance Data.FromJSON Endpoint where
       "Endpoint"
       ( \x ->
           Endpoint'
-            Prelude.<$> (x Data..:? "Name")
+            Prelude.<$> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "EndpointId")
+            Prelude.<*> (x Data..:? "EndpointUrl")
+            Prelude.<*> (x Data..:? "EventBuses")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ReplicationConfig")
             Prelude.<*> (x Data..:? "RoleArn")
             Prelude.<*> (x Data..:? "RoutingConfig")
-            Prelude.<*> (x Data..:? "Arn")
             Prelude.<*> (x Data..:? "State")
-            Prelude.<*> (x Data..:? "ReplicationConfig")
-            Prelude.<*> (x Data..:? "Description")
-            Prelude.<*> (x Data..:? "LastModifiedTime")
-            Prelude.<*> (x Data..:? "EndpointUrl")
-            Prelude.<*> (x Data..:? "CreationTime")
-            Prelude.<*> (x Data..:? "EventBuses")
             Prelude.<*> (x Data..:? "StateReason")
       )
 
 instance Prelude.Hashable Endpoint where
   hashWithSalt _salt Endpoint' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` endpointId
+      `Prelude.hashWithSalt` endpointUrl
+      `Prelude.hashWithSalt` eventBuses
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` replicationConfig
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` routingConfig
-      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` replicationConfig
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` lastModifiedTime
-      `Prelude.hashWithSalt` endpointUrl
-      `Prelude.hashWithSalt` creationTime
-      `Prelude.hashWithSalt` eventBuses
       `Prelude.hashWithSalt` stateReason
 
 instance Prelude.NFData Endpoint where
   rnf Endpoint' {..} =
-    Prelude.rnf name
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf endpointId
+      `Prelude.seq` Prelude.rnf endpointUrl
+      `Prelude.seq` Prelude.rnf eventBuses
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf replicationConfig
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf routingConfig
-      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf replicationConfig
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf endpointUrl
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf eventBuses
       `Prelude.seq` Prelude.rnf stateReason

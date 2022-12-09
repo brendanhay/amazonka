@@ -29,11 +29,11 @@ module Amazonka.CloudWatchEvents.ListReplays
     newListReplays,
 
     -- * Request Lenses
+    listReplays_eventSourceArn,
+    listReplays_limit,
+    listReplays_namePrefix,
     listReplays_nextToken,
     listReplays_state,
-    listReplays_limit,
-    listReplays_eventSourceArn,
-    listReplays_namePrefix,
 
     -- * Destructuring the Response
     ListReplaysResponse (..),
@@ -56,18 +56,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListReplays' smart constructor.
 data ListReplays = ListReplays'
-  { -- | The token returned by a previous call to retrieve the next set of
+  { -- | The ARN of the archive from which the events are replayed.
+    eventSourceArn :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of replays to retrieve.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | A name prefix to filter the replays returned. Only replays with name
+    -- that match the prefix are returned.
+    namePrefix :: Prelude.Maybe Prelude.Text,
+    -- | The token returned by a previous call to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The state of the replay.
-    state :: Prelude.Maybe ReplayState,
-    -- | The maximum number of replays to retrieve.
-    limit :: Prelude.Maybe Prelude.Natural,
-    -- | The ARN of the archive from which the events are replayed.
-    eventSourceArn :: Prelude.Maybe Prelude.Text,
-    -- | A name prefix to filter the replays returned. Only replays with name
-    -- that match the prefix are returned.
-    namePrefix :: Prelude.Maybe Prelude.Text
+    state :: Prelude.Maybe ReplayState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,27 +79,40 @@ data ListReplays = ListReplays'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'eventSourceArn', 'listReplays_eventSourceArn' - The ARN of the archive from which the events are replayed.
+--
+-- 'limit', 'listReplays_limit' - The maximum number of replays to retrieve.
+--
+-- 'namePrefix', 'listReplays_namePrefix' - A name prefix to filter the replays returned. Only replays with name
+-- that match the prefix are returned.
+--
 -- 'nextToken', 'listReplays_nextToken' - The token returned by a previous call to retrieve the next set of
 -- results.
 --
 -- 'state', 'listReplays_state' - The state of the replay.
---
--- 'limit', 'listReplays_limit' - The maximum number of replays to retrieve.
---
--- 'eventSourceArn', 'listReplays_eventSourceArn' - The ARN of the archive from which the events are replayed.
---
--- 'namePrefix', 'listReplays_namePrefix' - A name prefix to filter the replays returned. Only replays with name
--- that match the prefix are returned.
 newListReplays ::
   ListReplays
 newListReplays =
   ListReplays'
-    { nextToken = Prelude.Nothing,
-      state = Prelude.Nothing,
+    { eventSourceArn = Prelude.Nothing,
       limit = Prelude.Nothing,
-      eventSourceArn = Prelude.Nothing,
-      namePrefix = Prelude.Nothing
+      namePrefix = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      state = Prelude.Nothing
     }
+
+-- | The ARN of the archive from which the events are replayed.
+listReplays_eventSourceArn :: Lens.Lens' ListReplays (Prelude.Maybe Prelude.Text)
+listReplays_eventSourceArn = Lens.lens (\ListReplays' {eventSourceArn} -> eventSourceArn) (\s@ListReplays' {} a -> s {eventSourceArn = a} :: ListReplays)
+
+-- | The maximum number of replays to retrieve.
+listReplays_limit :: Lens.Lens' ListReplays (Prelude.Maybe Prelude.Natural)
+listReplays_limit = Lens.lens (\ListReplays' {limit} -> limit) (\s@ListReplays' {} a -> s {limit = a} :: ListReplays)
+
+-- | A name prefix to filter the replays returned. Only replays with name
+-- that match the prefix are returned.
+listReplays_namePrefix :: Lens.Lens' ListReplays (Prelude.Maybe Prelude.Text)
+listReplays_namePrefix = Lens.lens (\ListReplays' {namePrefix} -> namePrefix) (\s@ListReplays' {} a -> s {namePrefix = a} :: ListReplays)
 
 -- | The token returned by a previous call to retrieve the next set of
 -- results.
@@ -109,19 +122,6 @@ listReplays_nextToken = Lens.lens (\ListReplays' {nextToken} -> nextToken) (\s@L
 -- | The state of the replay.
 listReplays_state :: Lens.Lens' ListReplays (Prelude.Maybe ReplayState)
 listReplays_state = Lens.lens (\ListReplays' {state} -> state) (\s@ListReplays' {} a -> s {state = a} :: ListReplays)
-
--- | The maximum number of replays to retrieve.
-listReplays_limit :: Lens.Lens' ListReplays (Prelude.Maybe Prelude.Natural)
-listReplays_limit = Lens.lens (\ListReplays' {limit} -> limit) (\s@ListReplays' {} a -> s {limit = a} :: ListReplays)
-
--- | The ARN of the archive from which the events are replayed.
-listReplays_eventSourceArn :: Lens.Lens' ListReplays (Prelude.Maybe Prelude.Text)
-listReplays_eventSourceArn = Lens.lens (\ListReplays' {eventSourceArn} -> eventSourceArn) (\s@ListReplays' {} a -> s {eventSourceArn = a} :: ListReplays)
-
--- | A name prefix to filter the replays returned. Only replays with name
--- that match the prefix are returned.
-listReplays_namePrefix :: Lens.Lens' ListReplays (Prelude.Maybe Prelude.Text)
-listReplays_namePrefix = Lens.lens (\ListReplays' {namePrefix} -> namePrefix) (\s@ListReplays' {} a -> s {namePrefix = a} :: ListReplays)
 
 instance Core.AWSRequest ListReplays where
   type AWSResponse ListReplays = ListReplaysResponse
@@ -138,19 +138,19 @@ instance Core.AWSRequest ListReplays where
 
 instance Prelude.Hashable ListReplays where
   hashWithSalt _salt ListReplays' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` state
+    _salt `Prelude.hashWithSalt` eventSourceArn
       `Prelude.hashWithSalt` limit
-      `Prelude.hashWithSalt` eventSourceArn
       `Prelude.hashWithSalt` namePrefix
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` state
 
 instance Prelude.NFData ListReplays where
   rnf ListReplays' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf eventSourceArn
       `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf eventSourceArn
       `Prelude.seq` Prelude.rnf namePrefix
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf state
 
 instance Data.ToHeaders ListReplays where
   toHeaders =
@@ -169,12 +169,12 @@ instance Data.ToJSON ListReplays where
   toJSON ListReplays' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("State" Data..=) Prelude.<$> state,
-            ("Limit" Data..=) Prelude.<$> limit,
-            ("EventSourceArn" Data..=)
+          [ ("EventSourceArn" Data..=)
               Prelude.<$> eventSourceArn,
-            ("NamePrefix" Data..=) Prelude.<$> namePrefix
+            ("Limit" Data..=) Prelude.<$> limit,
+            ("NamePrefix" Data..=) Prelude.<$> namePrefix,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("State" Data..=) Prelude.<$> state
           ]
       )
 

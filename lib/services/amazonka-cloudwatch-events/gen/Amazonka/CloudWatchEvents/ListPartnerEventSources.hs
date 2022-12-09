@@ -29,8 +29,8 @@ module Amazonka.CloudWatchEvents.ListPartnerEventSources
     newListPartnerEventSources,
 
     -- * Request Lenses
-    listPartnerEventSources_nextToken,
     listPartnerEventSources_limit,
+    listPartnerEventSources_nextToken,
     listPartnerEventSources_namePrefix,
 
     -- * Destructuring the Response
@@ -54,13 +54,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPartnerEventSources' smart constructor.
 data ListPartnerEventSources = ListPartnerEventSources'
-  { -- | The token returned by a previous call to this operation. Specifying this
-    -- retrieves the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | pecifying this limits the number of results returned by this operation.
+  { -- | pecifying this limits the number of results returned by this operation.
     -- The operation also returns a NextToken which you can use in a subsequent
     -- operation to retrieve the next set of results.
     limit :: Prelude.Maybe Prelude.Natural,
+    -- | The token returned by a previous call to this operation. Specifying this
+    -- retrieves the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | If you specify this, the results are limited to only those partner event
     -- sources that start with the string you specify.
     namePrefix :: Prelude.Text
@@ -75,12 +75,12 @@ data ListPartnerEventSources = ListPartnerEventSources'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPartnerEventSources_nextToken' - The token returned by a previous call to this operation. Specifying this
--- retrieves the next set of results.
---
 -- 'limit', 'listPartnerEventSources_limit' - pecifying this limits the number of results returned by this operation.
 -- The operation also returns a NextToken which you can use in a subsequent
 -- operation to retrieve the next set of results.
+--
+-- 'nextToken', 'listPartnerEventSources_nextToken' - The token returned by a previous call to this operation. Specifying this
+-- retrieves the next set of results.
 --
 -- 'namePrefix', 'listPartnerEventSources_namePrefix' - If you specify this, the results are limited to only those partner event
 -- sources that start with the string you specify.
@@ -90,22 +90,21 @@ newListPartnerEventSources ::
   ListPartnerEventSources
 newListPartnerEventSources pNamePrefix_ =
   ListPartnerEventSources'
-    { nextToken =
-        Prelude.Nothing,
-      limit = Prelude.Nothing,
+    { limit = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       namePrefix = pNamePrefix_
     }
-
--- | The token returned by a previous call to this operation. Specifying this
--- retrieves the next set of results.
-listPartnerEventSources_nextToken :: Lens.Lens' ListPartnerEventSources (Prelude.Maybe Prelude.Text)
-listPartnerEventSources_nextToken = Lens.lens (\ListPartnerEventSources' {nextToken} -> nextToken) (\s@ListPartnerEventSources' {} a -> s {nextToken = a} :: ListPartnerEventSources)
 
 -- | pecifying this limits the number of results returned by this operation.
 -- The operation also returns a NextToken which you can use in a subsequent
 -- operation to retrieve the next set of results.
 listPartnerEventSources_limit :: Lens.Lens' ListPartnerEventSources (Prelude.Maybe Prelude.Natural)
 listPartnerEventSources_limit = Lens.lens (\ListPartnerEventSources' {limit} -> limit) (\s@ListPartnerEventSources' {} a -> s {limit = a} :: ListPartnerEventSources)
+
+-- | The token returned by a previous call to this operation. Specifying this
+-- retrieves the next set of results.
+listPartnerEventSources_nextToken :: Lens.Lens' ListPartnerEventSources (Prelude.Maybe Prelude.Text)
+listPartnerEventSources_nextToken = Lens.lens (\ListPartnerEventSources' {nextToken} -> nextToken) (\s@ListPartnerEventSources' {} a -> s {nextToken = a} :: ListPartnerEventSources)
 
 -- | If you specify this, the results are limited to only those partner event
 -- sources that start with the string you specify.
@@ -131,14 +130,14 @@ instance Core.AWSRequest ListPartnerEventSources where
 
 instance Prelude.Hashable ListPartnerEventSources where
   hashWithSalt _salt ListPartnerEventSources' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` limit
+    _salt `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` namePrefix
 
 instance Prelude.NFData ListPartnerEventSources where
   rnf ListPartnerEventSources' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf limit
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf namePrefix
 
 instance Data.ToHeaders ListPartnerEventSources where
@@ -160,8 +159,8 @@ instance Data.ToJSON ListPartnerEventSources where
   toJSON ListPartnerEventSources' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Limit" Data..=) Prelude.<$> limit,
+          [ ("Limit" Data..=) Prelude.<$> limit,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("NamePrefix" Data..= namePrefix)
           ]
       )

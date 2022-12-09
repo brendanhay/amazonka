@@ -33,8 +33,8 @@ module Amazonka.CloudWatchEvents.RemovePermission
 
     -- * Request Lenses
     removePermission_eventBusName,
-    removePermission_statementId,
     removePermission_removeAllPermissions,
+    removePermission_statementId,
 
     -- * Destructuring the Response
     RemovePermissionResponse (..),
@@ -55,11 +55,11 @@ data RemovePermission = RemovePermission'
   { -- | The name of the event bus to revoke permissions for. If you omit this,
     -- the default event bus is used.
     eventBusName :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether to remove all permissions.
+    removeAllPermissions :: Prelude.Maybe Prelude.Bool,
     -- | The statement ID corresponding to the account that is no longer allowed
     -- to put events to the default event bus.
-    statementId :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether to remove all permissions.
-    removeAllPermissions :: Prelude.Maybe Prelude.Bool
+    statementId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,17 +74,17 @@ data RemovePermission = RemovePermission'
 -- 'eventBusName', 'removePermission_eventBusName' - The name of the event bus to revoke permissions for. If you omit this,
 -- the default event bus is used.
 --
+-- 'removeAllPermissions', 'removePermission_removeAllPermissions' - Specifies whether to remove all permissions.
+--
 -- 'statementId', 'removePermission_statementId' - The statement ID corresponding to the account that is no longer allowed
 -- to put events to the default event bus.
---
--- 'removeAllPermissions', 'removePermission_removeAllPermissions' - Specifies whether to remove all permissions.
 newRemovePermission ::
   RemovePermission
 newRemovePermission =
   RemovePermission'
     { eventBusName = Prelude.Nothing,
-      statementId = Prelude.Nothing,
-      removeAllPermissions = Prelude.Nothing
+      removeAllPermissions = Prelude.Nothing,
+      statementId = Prelude.Nothing
     }
 
 -- | The name of the event bus to revoke permissions for. If you omit this,
@@ -92,14 +92,14 @@ newRemovePermission =
 removePermission_eventBusName :: Lens.Lens' RemovePermission (Prelude.Maybe Prelude.Text)
 removePermission_eventBusName = Lens.lens (\RemovePermission' {eventBusName} -> eventBusName) (\s@RemovePermission' {} a -> s {eventBusName = a} :: RemovePermission)
 
+-- | Specifies whether to remove all permissions.
+removePermission_removeAllPermissions :: Lens.Lens' RemovePermission (Prelude.Maybe Prelude.Bool)
+removePermission_removeAllPermissions = Lens.lens (\RemovePermission' {removeAllPermissions} -> removeAllPermissions) (\s@RemovePermission' {} a -> s {removeAllPermissions = a} :: RemovePermission)
+
 -- | The statement ID corresponding to the account that is no longer allowed
 -- to put events to the default event bus.
 removePermission_statementId :: Lens.Lens' RemovePermission (Prelude.Maybe Prelude.Text)
 removePermission_statementId = Lens.lens (\RemovePermission' {statementId} -> statementId) (\s@RemovePermission' {} a -> s {statementId = a} :: RemovePermission)
-
--- | Specifies whether to remove all permissions.
-removePermission_removeAllPermissions :: Lens.Lens' RemovePermission (Prelude.Maybe Prelude.Bool)
-removePermission_removeAllPermissions = Lens.lens (\RemovePermission' {removeAllPermissions} -> removeAllPermissions) (\s@RemovePermission' {} a -> s {removeAllPermissions = a} :: RemovePermission)
 
 instance Core.AWSRequest RemovePermission where
   type
@@ -113,14 +113,14 @@ instance Core.AWSRequest RemovePermission where
 instance Prelude.Hashable RemovePermission where
   hashWithSalt _salt RemovePermission' {..} =
     _salt `Prelude.hashWithSalt` eventBusName
-      `Prelude.hashWithSalt` statementId
       `Prelude.hashWithSalt` removeAllPermissions
+      `Prelude.hashWithSalt` statementId
 
 instance Prelude.NFData RemovePermission where
   rnf RemovePermission' {..} =
     Prelude.rnf eventBusName
-      `Prelude.seq` Prelude.rnf statementId
       `Prelude.seq` Prelude.rnf removeAllPermissions
+      `Prelude.seq` Prelude.rnf statementId
 
 instance Data.ToHeaders RemovePermission where
   toHeaders =
@@ -140,9 +140,9 @@ instance Data.ToJSON RemovePermission where
     Data.object
       ( Prelude.catMaybes
           [ ("EventBusName" Data..=) Prelude.<$> eventBusName,
-            ("StatementId" Data..=) Prelude.<$> statementId,
             ("RemoveAllPermissions" Data..=)
-              Prelude.<$> removeAllPermissions
+              Prelude.<$> removeAllPermissions,
+            ("StatementId" Data..=) Prelude.<$> statementId
           ]
       )
 

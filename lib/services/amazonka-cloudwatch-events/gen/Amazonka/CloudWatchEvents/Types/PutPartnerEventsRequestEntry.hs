@@ -28,20 +28,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPutPartnerEventsRequestEntry' smart constructor.
 data PutPartnerEventsRequestEntry = PutPartnerEventsRequestEntry'
-  { -- | A free-form string used to decide what fields to expect in the event
+  { -- | A valid JSON string. There is no other schema imposed. The JSON string
+    -- may contain fields and nested subobjects.
+    detail :: Prelude.Maybe Prelude.Text,
+    -- | A free-form string used to decide what fields to expect in the event
     -- detail.
     detailType :: Prelude.Maybe Prelude.Text,
-    -- | The date and time of the event.
-    time :: Prelude.Maybe Data.POSIX,
-    -- | The event source that is generating the entry.
-    source :: Prelude.Maybe Prelude.Text,
     -- | Amazon Web Services resources, identified by Amazon Resource Name (ARN),
     -- which the event primarily concerns. Any number, including zero, may be
     -- present.
     resources :: Prelude.Maybe [Prelude.Text],
-    -- | A valid JSON string. There is no other schema imposed. The JSON string
-    -- may contain fields and nested subobjects.
-    detail :: Prelude.Maybe Prelude.Text
+    -- | The event source that is generating the entry.
+    source :: Prelude.Maybe Prelude.Text,
+    -- | The date and time of the event.
+    time :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,43 +53,40 @@ data PutPartnerEventsRequestEntry = PutPartnerEventsRequestEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'detail', 'putPartnerEventsRequestEntry_detail' - A valid JSON string. There is no other schema imposed. The JSON string
+-- may contain fields and nested subobjects.
+--
 -- 'detailType', 'putPartnerEventsRequestEntry_detailType' - A free-form string used to decide what fields to expect in the event
 -- detail.
---
--- 'time', 'putPartnerEventsRequestEntry_time' - The date and time of the event.
---
--- 'source', 'putPartnerEventsRequestEntry_source' - The event source that is generating the entry.
 --
 -- 'resources', 'putPartnerEventsRequestEntry_resources' - Amazon Web Services resources, identified by Amazon Resource Name (ARN),
 -- which the event primarily concerns. Any number, including zero, may be
 -- present.
 --
--- 'detail', 'putPartnerEventsRequestEntry_detail' - A valid JSON string. There is no other schema imposed. The JSON string
--- may contain fields and nested subobjects.
+-- 'source', 'putPartnerEventsRequestEntry_source' - The event source that is generating the entry.
+--
+-- 'time', 'putPartnerEventsRequestEntry_time' - The date and time of the event.
 newPutPartnerEventsRequestEntry ::
   PutPartnerEventsRequestEntry
 newPutPartnerEventsRequestEntry =
   PutPartnerEventsRequestEntry'
-    { detailType =
+    { detail =
         Prelude.Nothing,
-      time = Prelude.Nothing,
-      source = Prelude.Nothing,
+      detailType = Prelude.Nothing,
       resources = Prelude.Nothing,
-      detail = Prelude.Nothing
+      source = Prelude.Nothing,
+      time = Prelude.Nothing
     }
+
+-- | A valid JSON string. There is no other schema imposed. The JSON string
+-- may contain fields and nested subobjects.
+putPartnerEventsRequestEntry_detail :: Lens.Lens' PutPartnerEventsRequestEntry (Prelude.Maybe Prelude.Text)
+putPartnerEventsRequestEntry_detail = Lens.lens (\PutPartnerEventsRequestEntry' {detail} -> detail) (\s@PutPartnerEventsRequestEntry' {} a -> s {detail = a} :: PutPartnerEventsRequestEntry)
 
 -- | A free-form string used to decide what fields to expect in the event
 -- detail.
 putPartnerEventsRequestEntry_detailType :: Lens.Lens' PutPartnerEventsRequestEntry (Prelude.Maybe Prelude.Text)
 putPartnerEventsRequestEntry_detailType = Lens.lens (\PutPartnerEventsRequestEntry' {detailType} -> detailType) (\s@PutPartnerEventsRequestEntry' {} a -> s {detailType = a} :: PutPartnerEventsRequestEntry)
-
--- | The date and time of the event.
-putPartnerEventsRequestEntry_time :: Lens.Lens' PutPartnerEventsRequestEntry (Prelude.Maybe Prelude.UTCTime)
-putPartnerEventsRequestEntry_time = Lens.lens (\PutPartnerEventsRequestEntry' {time} -> time) (\s@PutPartnerEventsRequestEntry' {} a -> s {time = a} :: PutPartnerEventsRequestEntry) Prelude.. Lens.mapping Data._Time
-
--- | The event source that is generating the entry.
-putPartnerEventsRequestEntry_source :: Lens.Lens' PutPartnerEventsRequestEntry (Prelude.Maybe Prelude.Text)
-putPartnerEventsRequestEntry_source = Lens.lens (\PutPartnerEventsRequestEntry' {source} -> source) (\s@PutPartnerEventsRequestEntry' {} a -> s {source = a} :: PutPartnerEventsRequestEntry)
 
 -- | Amazon Web Services resources, identified by Amazon Resource Name (ARN),
 -- which the event primarily concerns. Any number, including zero, may be
@@ -97,38 +94,41 @@ putPartnerEventsRequestEntry_source = Lens.lens (\PutPartnerEventsRequestEntry' 
 putPartnerEventsRequestEntry_resources :: Lens.Lens' PutPartnerEventsRequestEntry (Prelude.Maybe [Prelude.Text])
 putPartnerEventsRequestEntry_resources = Lens.lens (\PutPartnerEventsRequestEntry' {resources} -> resources) (\s@PutPartnerEventsRequestEntry' {} a -> s {resources = a} :: PutPartnerEventsRequestEntry) Prelude.. Lens.mapping Lens.coerced
 
--- | A valid JSON string. There is no other schema imposed. The JSON string
--- may contain fields and nested subobjects.
-putPartnerEventsRequestEntry_detail :: Lens.Lens' PutPartnerEventsRequestEntry (Prelude.Maybe Prelude.Text)
-putPartnerEventsRequestEntry_detail = Lens.lens (\PutPartnerEventsRequestEntry' {detail} -> detail) (\s@PutPartnerEventsRequestEntry' {} a -> s {detail = a} :: PutPartnerEventsRequestEntry)
+-- | The event source that is generating the entry.
+putPartnerEventsRequestEntry_source :: Lens.Lens' PutPartnerEventsRequestEntry (Prelude.Maybe Prelude.Text)
+putPartnerEventsRequestEntry_source = Lens.lens (\PutPartnerEventsRequestEntry' {source} -> source) (\s@PutPartnerEventsRequestEntry' {} a -> s {source = a} :: PutPartnerEventsRequestEntry)
+
+-- | The date and time of the event.
+putPartnerEventsRequestEntry_time :: Lens.Lens' PutPartnerEventsRequestEntry (Prelude.Maybe Prelude.UTCTime)
+putPartnerEventsRequestEntry_time = Lens.lens (\PutPartnerEventsRequestEntry' {time} -> time) (\s@PutPartnerEventsRequestEntry' {} a -> s {time = a} :: PutPartnerEventsRequestEntry) Prelude.. Lens.mapping Data._Time
 
 instance
   Prelude.Hashable
     PutPartnerEventsRequestEntry
   where
   hashWithSalt _salt PutPartnerEventsRequestEntry' {..} =
-    _salt `Prelude.hashWithSalt` detailType
-      `Prelude.hashWithSalt` time
-      `Prelude.hashWithSalt` source
+    _salt `Prelude.hashWithSalt` detail
+      `Prelude.hashWithSalt` detailType
       `Prelude.hashWithSalt` resources
-      `Prelude.hashWithSalt` detail
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` time
 
 instance Prelude.NFData PutPartnerEventsRequestEntry where
   rnf PutPartnerEventsRequestEntry' {..} =
-    Prelude.rnf detailType
-      `Prelude.seq` Prelude.rnf time
-      `Prelude.seq` Prelude.rnf source
+    Prelude.rnf detail
+      `Prelude.seq` Prelude.rnf detailType
       `Prelude.seq` Prelude.rnf resources
-      `Prelude.seq` Prelude.rnf detail
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf time
 
 instance Data.ToJSON PutPartnerEventsRequestEntry where
   toJSON PutPartnerEventsRequestEntry' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("DetailType" Data..=) Prelude.<$> detailType,
-            ("Time" Data..=) Prelude.<$> time,
-            ("Source" Data..=) Prelude.<$> source,
+          [ ("Detail" Data..=) Prelude.<$> detail,
+            ("DetailType" Data..=) Prelude.<$> detailType,
             ("Resources" Data..=) Prelude.<$> resources,
-            ("Detail" Data..=) Prelude.<$> detail
+            ("Source" Data..=) Prelude.<$> source,
+            ("Time" Data..=) Prelude.<$> time
           ]
       )

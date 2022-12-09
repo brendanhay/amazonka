@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConnectionQueryStringParameter' smart constructor.
 data ConnectionQueryStringParameter = ConnectionQueryStringParameter'
-  { -- | The key for a query string parameter.
-    key :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether the value is secret.
+  { -- | Specifies whether the value is secret.
     isValueSecret :: Prelude.Maybe Prelude.Bool,
+    -- | The key for a query string parameter.
+    key :: Prelude.Maybe Prelude.Text,
     -- | The value associated with the key for the query string parameter.
     value :: Prelude.Maybe Prelude.Text
   }
@@ -48,28 +48,28 @@ data ConnectionQueryStringParameter = ConnectionQueryStringParameter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'key', 'connectionQueryStringParameter_key' - The key for a query string parameter.
---
 -- 'isValueSecret', 'connectionQueryStringParameter_isValueSecret' - Specifies whether the value is secret.
+--
+-- 'key', 'connectionQueryStringParameter_key' - The key for a query string parameter.
 --
 -- 'value', 'connectionQueryStringParameter_value' - The value associated with the key for the query string parameter.
 newConnectionQueryStringParameter ::
   ConnectionQueryStringParameter
 newConnectionQueryStringParameter =
   ConnectionQueryStringParameter'
-    { key =
+    { isValueSecret =
         Prelude.Nothing,
-      isValueSecret = Prelude.Nothing,
+      key = Prelude.Nothing,
       value = Prelude.Nothing
     }
-
--- | The key for a query string parameter.
-connectionQueryStringParameter_key :: Lens.Lens' ConnectionQueryStringParameter (Prelude.Maybe Prelude.Text)
-connectionQueryStringParameter_key = Lens.lens (\ConnectionQueryStringParameter' {key} -> key) (\s@ConnectionQueryStringParameter' {} a -> s {key = a} :: ConnectionQueryStringParameter)
 
 -- | Specifies whether the value is secret.
 connectionQueryStringParameter_isValueSecret :: Lens.Lens' ConnectionQueryStringParameter (Prelude.Maybe Prelude.Bool)
 connectionQueryStringParameter_isValueSecret = Lens.lens (\ConnectionQueryStringParameter' {isValueSecret} -> isValueSecret) (\s@ConnectionQueryStringParameter' {} a -> s {isValueSecret = a} :: ConnectionQueryStringParameter)
+
+-- | The key for a query string parameter.
+connectionQueryStringParameter_key :: Lens.Lens' ConnectionQueryStringParameter (Prelude.Maybe Prelude.Text)
+connectionQueryStringParameter_key = Lens.lens (\ConnectionQueryStringParameter' {key} -> key) (\s@ConnectionQueryStringParameter' {} a -> s {key = a} :: ConnectionQueryStringParameter)
 
 -- | The value associated with the key for the query string parameter.
 connectionQueryStringParameter_value :: Lens.Lens' ConnectionQueryStringParameter (Prelude.Maybe Prelude.Text)
@@ -81,8 +81,8 @@ instance Data.FromJSON ConnectionQueryStringParameter where
       "ConnectionQueryStringParameter"
       ( \x ->
           ConnectionQueryStringParameter'
-            Prelude.<$> (x Data..:? "Key")
-            Prelude.<*> (x Data..:? "IsValueSecret")
+            Prelude.<$> (x Data..:? "IsValueSecret")
+            Prelude.<*> (x Data..:? "Key")
             Prelude.<*> (x Data..:? "Value")
       )
 
@@ -93,8 +93,8 @@ instance
   hashWithSalt
     _salt
     ConnectionQueryStringParameter' {..} =
-      _salt `Prelude.hashWithSalt` key
-        `Prelude.hashWithSalt` isValueSecret
+      _salt `Prelude.hashWithSalt` isValueSecret
+        `Prelude.hashWithSalt` key
         `Prelude.hashWithSalt` value
 
 instance
@@ -102,16 +102,16 @@ instance
     ConnectionQueryStringParameter
   where
   rnf ConnectionQueryStringParameter' {..} =
-    Prelude.rnf key
-      `Prelude.seq` Prelude.rnf isValueSecret
+    Prelude.rnf isValueSecret
+      `Prelude.seq` Prelude.rnf key
       `Prelude.seq` Prelude.rnf value
 
 instance Data.ToJSON ConnectionQueryStringParameter where
   toJSON ConnectionQueryStringParameter' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Key" Data..=) Prelude.<$> key,
-            ("IsValueSecret" Data..=) Prelude.<$> isValueSecret,
+          [ ("IsValueSecret" Data..=) Prelude.<$> isValueSecret,
+            ("Key" Data..=) Prelude.<$> key,
             ("Value" Data..=) Prelude.<$> value
           ]
       )

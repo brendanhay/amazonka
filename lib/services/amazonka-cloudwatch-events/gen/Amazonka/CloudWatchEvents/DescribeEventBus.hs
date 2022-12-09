@@ -45,9 +45,9 @@ module Amazonka.CloudWatchEvents.DescribeEventBus
     newDescribeEventBusResponse,
 
     -- * Response Lenses
-    describeEventBusResponse_policy,
-    describeEventBusResponse_name,
     describeEventBusResponse_arn,
+    describeEventBusResponse_name,
+    describeEventBusResponse_policy,
     describeEventBusResponse_httpStatus,
   )
 where
@@ -98,9 +98,9 @@ instance Core.AWSRequest DescribeEventBus where
     Response.receiveJSON
       ( \s h x ->
           DescribeEventBusResponse'
-            Prelude.<$> (x Data..?> "Policy")
+            Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (x Data..?> "Name")
-            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Policy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,14 +139,14 @@ instance Data.ToQuery DescribeEventBus where
 
 -- | /See:/ 'newDescribeEventBusResponse' smart constructor.
 data DescribeEventBusResponse = DescribeEventBusResponse'
-  { -- | The policy that enables the external account to send events to your
-    -- account.
-    policy :: Prelude.Maybe Prelude.Text,
-    -- | The name of the event bus. Currently, this is always @default@.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the account permitted to write events
+  { -- | The Amazon Resource Name (ARN) of the account permitted to write events
     -- to the current account.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the event bus. Currently, this is always @default@.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The policy that enables the external account to send events to your
+    -- account.
+    policy :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -160,13 +160,13 @@ data DescribeEventBusResponse = DescribeEventBusResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policy', 'describeEventBusResponse_policy' - The policy that enables the external account to send events to your
--- account.
+-- 'arn', 'describeEventBusResponse_arn' - The Amazon Resource Name (ARN) of the account permitted to write events
+-- to the current account.
 --
 -- 'name', 'describeEventBusResponse_name' - The name of the event bus. Currently, this is always @default@.
 --
--- 'arn', 'describeEventBusResponse_arn' - The Amazon Resource Name (ARN) of the account permitted to write events
--- to the current account.
+-- 'policy', 'describeEventBusResponse_policy' - The policy that enables the external account to send events to your
+-- account.
 --
 -- 'httpStatus', 'describeEventBusResponse_httpStatus' - The response's http status code.
 newDescribeEventBusResponse ::
@@ -175,25 +175,25 @@ newDescribeEventBusResponse ::
   DescribeEventBusResponse
 newDescribeEventBusResponse pHttpStatus_ =
   DescribeEventBusResponse'
-    { policy = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       name = Prelude.Nothing,
-      arn = Prelude.Nothing,
+      policy = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The policy that enables the external account to send events to your
--- account.
-describeEventBusResponse_policy :: Lens.Lens' DescribeEventBusResponse (Prelude.Maybe Prelude.Text)
-describeEventBusResponse_policy = Lens.lens (\DescribeEventBusResponse' {policy} -> policy) (\s@DescribeEventBusResponse' {} a -> s {policy = a} :: DescribeEventBusResponse)
-
--- | The name of the event bus. Currently, this is always @default@.
-describeEventBusResponse_name :: Lens.Lens' DescribeEventBusResponse (Prelude.Maybe Prelude.Text)
-describeEventBusResponse_name = Lens.lens (\DescribeEventBusResponse' {name} -> name) (\s@DescribeEventBusResponse' {} a -> s {name = a} :: DescribeEventBusResponse)
 
 -- | The Amazon Resource Name (ARN) of the account permitted to write events
 -- to the current account.
 describeEventBusResponse_arn :: Lens.Lens' DescribeEventBusResponse (Prelude.Maybe Prelude.Text)
 describeEventBusResponse_arn = Lens.lens (\DescribeEventBusResponse' {arn} -> arn) (\s@DescribeEventBusResponse' {} a -> s {arn = a} :: DescribeEventBusResponse)
+
+-- | The name of the event bus. Currently, this is always @default@.
+describeEventBusResponse_name :: Lens.Lens' DescribeEventBusResponse (Prelude.Maybe Prelude.Text)
+describeEventBusResponse_name = Lens.lens (\DescribeEventBusResponse' {name} -> name) (\s@DescribeEventBusResponse' {} a -> s {name = a} :: DescribeEventBusResponse)
+
+-- | The policy that enables the external account to send events to your
+-- account.
+describeEventBusResponse_policy :: Lens.Lens' DescribeEventBusResponse (Prelude.Maybe Prelude.Text)
+describeEventBusResponse_policy = Lens.lens (\DescribeEventBusResponse' {policy} -> policy) (\s@DescribeEventBusResponse' {} a -> s {policy = a} :: DescribeEventBusResponse)
 
 -- | The response's http status code.
 describeEventBusResponse_httpStatus :: Lens.Lens' DescribeEventBusResponse Prelude.Int
@@ -201,7 +201,7 @@ describeEventBusResponse_httpStatus = Lens.lens (\DescribeEventBusResponse' {htt
 
 instance Prelude.NFData DescribeEventBusResponse where
   rnf DescribeEventBusResponse' {..} =
-    Prelude.rnf policy
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf policy
       `Prelude.seq` Prelude.rnf httpStatus

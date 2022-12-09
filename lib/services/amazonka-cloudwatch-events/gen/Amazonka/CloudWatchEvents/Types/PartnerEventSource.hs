@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPartnerEventSource' smart constructor.
 data PartnerEventSource = PartnerEventSource'
-  { -- | The name of the partner event source.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the partner event source.
-    arn :: Prelude.Maybe Prelude.Text
+  { -- | The ARN of the partner event source.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the partner event source.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,24 +46,24 @@ data PartnerEventSource = PartnerEventSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'partnerEventSource_name' - The name of the partner event source.
---
 -- 'arn', 'partnerEventSource_arn' - The ARN of the partner event source.
+--
+-- 'name', 'partnerEventSource_name' - The name of the partner event source.
 newPartnerEventSource ::
   PartnerEventSource
 newPartnerEventSource =
   PartnerEventSource'
-    { name = Prelude.Nothing,
-      arn = Prelude.Nothing
+    { arn = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | The name of the partner event source.
-partnerEventSource_name :: Lens.Lens' PartnerEventSource (Prelude.Maybe Prelude.Text)
-partnerEventSource_name = Lens.lens (\PartnerEventSource' {name} -> name) (\s@PartnerEventSource' {} a -> s {name = a} :: PartnerEventSource)
 
 -- | The ARN of the partner event source.
 partnerEventSource_arn :: Lens.Lens' PartnerEventSource (Prelude.Maybe Prelude.Text)
 partnerEventSource_arn = Lens.lens (\PartnerEventSource' {arn} -> arn) (\s@PartnerEventSource' {} a -> s {arn = a} :: PartnerEventSource)
+
+-- | The name of the partner event source.
+partnerEventSource_name :: Lens.Lens' PartnerEventSource (Prelude.Maybe Prelude.Text)
+partnerEventSource_name = Lens.lens (\PartnerEventSource' {name} -> name) (\s@PartnerEventSource' {} a -> s {name = a} :: PartnerEventSource)
 
 instance Data.FromJSON PartnerEventSource where
   parseJSON =
@@ -71,14 +71,14 @@ instance Data.FromJSON PartnerEventSource where
       "PartnerEventSource"
       ( \x ->
           PartnerEventSource'
-            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Arn")
+            Prelude.<$> (x Data..:? "Arn") Prelude.<*> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable PartnerEventSource where
   hashWithSalt _salt PartnerEventSource' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData PartnerEventSource where
   rnf PartnerEventSource' {..} =
-    Prelude.rnf name `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf name

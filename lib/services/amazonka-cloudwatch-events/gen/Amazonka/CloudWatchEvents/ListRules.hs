@@ -34,10 +34,10 @@ module Amazonka.CloudWatchEvents.ListRules
     newListRules,
 
     -- * Request Lenses
-    listRules_nextToken,
     listRules_eventBusName,
     listRules_limit,
     listRules_namePrefix,
+    listRules_nextToken,
 
     -- * Destructuring the Response
     ListRulesResponse (..),
@@ -60,16 +60,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListRules' smart constructor.
 data ListRules = ListRules'
-  { -- | The token returned by a previous call to retrieve the next set of
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The name or ARN of the event bus to list the rules for. If you omit
+  { -- | The name or ARN of the event bus to list the rules for. If you omit
     -- this, the default event bus is used.
     eventBusName :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return.
     limit :: Prelude.Maybe Prelude.Natural,
     -- | The prefix matching the rule name.
-    namePrefix :: Prelude.Maybe Prelude.Text
+    namePrefix :: Prelude.Maybe Prelude.Text,
+    -- | The token returned by a previous call to retrieve the next set of
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,29 +81,24 @@ data ListRules = ListRules'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listRules_nextToken' - The token returned by a previous call to retrieve the next set of
--- results.
---
 -- 'eventBusName', 'listRules_eventBusName' - The name or ARN of the event bus to list the rules for. If you omit
 -- this, the default event bus is used.
 --
 -- 'limit', 'listRules_limit' - The maximum number of results to return.
 --
 -- 'namePrefix', 'listRules_namePrefix' - The prefix matching the rule name.
+--
+-- 'nextToken', 'listRules_nextToken' - The token returned by a previous call to retrieve the next set of
+-- results.
 newListRules ::
   ListRules
 newListRules =
   ListRules'
-    { nextToken = Prelude.Nothing,
-      eventBusName = Prelude.Nothing,
+    { eventBusName = Prelude.Nothing,
       limit = Prelude.Nothing,
-      namePrefix = Prelude.Nothing
+      namePrefix = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token returned by a previous call to retrieve the next set of
--- results.
-listRules_nextToken :: Lens.Lens' ListRules (Prelude.Maybe Prelude.Text)
-listRules_nextToken = Lens.lens (\ListRules' {nextToken} -> nextToken) (\s@ListRules' {} a -> s {nextToken = a} :: ListRules)
 
 -- | The name or ARN of the event bus to list the rules for. If you omit
 -- this, the default event bus is used.
@@ -117,6 +112,11 @@ listRules_limit = Lens.lens (\ListRules' {limit} -> limit) (\s@ListRules' {} a -
 -- | The prefix matching the rule name.
 listRules_namePrefix :: Lens.Lens' ListRules (Prelude.Maybe Prelude.Text)
 listRules_namePrefix = Lens.lens (\ListRules' {namePrefix} -> namePrefix) (\s@ListRules' {} a -> s {namePrefix = a} :: ListRules)
+
+-- | The token returned by a previous call to retrieve the next set of
+-- results.
+listRules_nextToken :: Lens.Lens' ListRules (Prelude.Maybe Prelude.Text)
+listRules_nextToken = Lens.lens (\ListRules' {nextToken} -> nextToken) (\s@ListRules' {} a -> s {nextToken = a} :: ListRules)
 
 instance Core.AWSPager ListRules where
   page rq rs
@@ -152,17 +152,17 @@ instance Core.AWSRequest ListRules where
 
 instance Prelude.Hashable ListRules where
   hashWithSalt _salt ListRules' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` eventBusName
+    _salt `Prelude.hashWithSalt` eventBusName
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` namePrefix
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListRules where
   rnf ListRules' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf eventBusName
+    Prelude.rnf eventBusName
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf namePrefix
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListRules where
   toHeaders =
@@ -181,10 +181,10 @@ instance Data.ToJSON ListRules where
   toJSON ListRules' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("EventBusName" Data..=) Prelude.<$> eventBusName,
+          [ ("EventBusName" Data..=) Prelude.<$> eventBusName,
             ("Limit" Data..=) Prelude.<$> limit,
-            ("NamePrefix" Data..=) Prelude.<$> namePrefix
+            ("NamePrefix" Data..=) Prelude.<$> namePrefix,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

@@ -28,7 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPutEventsRequestEntry' smart constructor.
 data PutEventsRequestEntry = PutEventsRequestEntry'
-  { -- | Free-form string used to decide what fields to expect in the event
+  { -- | A valid JSON object. There is no other schema imposed. The JSON object
+    -- may contain fields and nested subobjects.
+    detail :: Prelude.Maybe Prelude.Text,
+    -- | Free-form string used to decide what fields to expect in the event
     -- detail.
     detailType :: Prelude.Maybe Prelude.Text,
     -- | The name or ARN of the event bus to receive the event. Only the rules
@@ -40,28 +43,25 @@ data PutEventsRequestEntry = PutEventsRequestEntry'
     -- Region here and the corresponding event bus in the other Region will be
     -- determined based on the endpoint referenced by the @EndpointId@.
     eventBusName :: Prelude.Maybe Prelude.Text,
+    -- | Amazon Web Services resources, identified by Amazon Resource Name (ARN),
+    -- which the event primarily concerns. Any number, including zero, may be
+    -- present.
+    resources :: Prelude.Maybe [Prelude.Text],
+    -- | The source of the event.
+    source :: Prelude.Maybe Prelude.Text,
     -- | The time stamp of the event, per
     -- <https://www.rfc-editor.org/rfc/rfc3339.txt RFC3339>. If no time stamp
     -- is provided, the time stamp of the
     -- <https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEvents.html PutEvents>
     -- call is used.
     time :: Prelude.Maybe Data.POSIX,
-    -- | The source of the event.
-    source :: Prelude.Maybe Prelude.Text,
-    -- | Amazon Web Services resources, identified by Amazon Resource Name (ARN),
-    -- which the event primarily concerns. Any number, including zero, may be
-    -- present.
-    resources :: Prelude.Maybe [Prelude.Text],
     -- | An X-Ray trace header, which is an http header (X-Amzn-Trace-Id) that
     -- contains the trace-id associated with the event.
     --
     -- To learn more about X-Ray trace headers, see
     -- <https://docs.aws.amazon.com/xray/latest/devguide/xray-concepts.html#xray-concepts-tracingheader Tracing header>
     -- in the X-Ray Developer Guide.
-    traceHeader :: Prelude.Maybe Prelude.Text,
-    -- | A valid JSON object. There is no other schema imposed. The JSON object
-    -- may contain fields and nested subobjects.
-    detail :: Prelude.Maybe Prelude.Text
+    traceHeader :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,6 +72,9 @@ data PutEventsRequestEntry = PutEventsRequestEntry'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'detail', 'putEventsRequestEntry_detail' - A valid JSON object. There is no other schema imposed. The JSON object
+-- may contain fields and nested subobjects.
 --
 -- 'detailType', 'putEventsRequestEntry_detailType' - Free-form string used to decide what fields to expect in the event
 -- detail.
@@ -85,17 +88,17 @@ data PutEventsRequestEntry = PutEventsRequestEntry'
 -- Region here and the corresponding event bus in the other Region will be
 -- determined based on the endpoint referenced by the @EndpointId@.
 --
+-- 'resources', 'putEventsRequestEntry_resources' - Amazon Web Services resources, identified by Amazon Resource Name (ARN),
+-- which the event primarily concerns. Any number, including zero, may be
+-- present.
+--
+-- 'source', 'putEventsRequestEntry_source' - The source of the event.
+--
 -- 'time', 'putEventsRequestEntry_time' - The time stamp of the event, per
 -- <https://www.rfc-editor.org/rfc/rfc3339.txt RFC3339>. If no time stamp
 -- is provided, the time stamp of the
 -- <https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEvents.html PutEvents>
 -- call is used.
---
--- 'source', 'putEventsRequestEntry_source' - The source of the event.
---
--- 'resources', 'putEventsRequestEntry_resources' - Amazon Web Services resources, identified by Amazon Resource Name (ARN),
--- which the event primarily concerns. Any number, including zero, may be
--- present.
 --
 -- 'traceHeader', 'putEventsRequestEntry_traceHeader' - An X-Ray trace header, which is an http header (X-Amzn-Trace-Id) that
 -- contains the trace-id associated with the event.
@@ -103,22 +106,23 @@ data PutEventsRequestEntry = PutEventsRequestEntry'
 -- To learn more about X-Ray trace headers, see
 -- <https://docs.aws.amazon.com/xray/latest/devguide/xray-concepts.html#xray-concepts-tracingheader Tracing header>
 -- in the X-Ray Developer Guide.
---
--- 'detail', 'putEventsRequestEntry_detail' - A valid JSON object. There is no other schema imposed. The JSON object
--- may contain fields and nested subobjects.
 newPutEventsRequestEntry ::
   PutEventsRequestEntry
 newPutEventsRequestEntry =
   PutEventsRequestEntry'
-    { detailType =
-        Prelude.Nothing,
+    { detail = Prelude.Nothing,
+      detailType = Prelude.Nothing,
       eventBusName = Prelude.Nothing,
-      time = Prelude.Nothing,
-      source = Prelude.Nothing,
       resources = Prelude.Nothing,
-      traceHeader = Prelude.Nothing,
-      detail = Prelude.Nothing
+      source = Prelude.Nothing,
+      time = Prelude.Nothing,
+      traceHeader = Prelude.Nothing
     }
+
+-- | A valid JSON object. There is no other schema imposed. The JSON object
+-- may contain fields and nested subobjects.
+putEventsRequestEntry_detail :: Lens.Lens' PutEventsRequestEntry (Prelude.Maybe Prelude.Text)
+putEventsRequestEntry_detail = Lens.lens (\PutEventsRequestEntry' {detail} -> detail) (\s@PutEventsRequestEntry' {} a -> s {detail = a} :: PutEventsRequestEntry)
 
 -- | Free-form string used to decide what fields to expect in the event
 -- detail.
@@ -136,6 +140,16 @@ putEventsRequestEntry_detailType = Lens.lens (\PutEventsRequestEntry' {detailTyp
 putEventsRequestEntry_eventBusName :: Lens.Lens' PutEventsRequestEntry (Prelude.Maybe Prelude.Text)
 putEventsRequestEntry_eventBusName = Lens.lens (\PutEventsRequestEntry' {eventBusName} -> eventBusName) (\s@PutEventsRequestEntry' {} a -> s {eventBusName = a} :: PutEventsRequestEntry)
 
+-- | Amazon Web Services resources, identified by Amazon Resource Name (ARN),
+-- which the event primarily concerns. Any number, including zero, may be
+-- present.
+putEventsRequestEntry_resources :: Lens.Lens' PutEventsRequestEntry (Prelude.Maybe [Prelude.Text])
+putEventsRequestEntry_resources = Lens.lens (\PutEventsRequestEntry' {resources} -> resources) (\s@PutEventsRequestEntry' {} a -> s {resources = a} :: PutEventsRequestEntry) Prelude.. Lens.mapping Lens.coerced
+
+-- | The source of the event.
+putEventsRequestEntry_source :: Lens.Lens' PutEventsRequestEntry (Prelude.Maybe Prelude.Text)
+putEventsRequestEntry_source = Lens.lens (\PutEventsRequestEntry' {source} -> source) (\s@PutEventsRequestEntry' {} a -> s {source = a} :: PutEventsRequestEntry)
+
 -- | The time stamp of the event, per
 -- <https://www.rfc-editor.org/rfc/rfc3339.txt RFC3339>. If no time stamp
 -- is provided, the time stamp of the
@@ -143,16 +157,6 @@ putEventsRequestEntry_eventBusName = Lens.lens (\PutEventsRequestEntry' {eventBu
 -- call is used.
 putEventsRequestEntry_time :: Lens.Lens' PutEventsRequestEntry (Prelude.Maybe Prelude.UTCTime)
 putEventsRequestEntry_time = Lens.lens (\PutEventsRequestEntry' {time} -> time) (\s@PutEventsRequestEntry' {} a -> s {time = a} :: PutEventsRequestEntry) Prelude.. Lens.mapping Data._Time
-
--- | The source of the event.
-putEventsRequestEntry_source :: Lens.Lens' PutEventsRequestEntry (Prelude.Maybe Prelude.Text)
-putEventsRequestEntry_source = Lens.lens (\PutEventsRequestEntry' {source} -> source) (\s@PutEventsRequestEntry' {} a -> s {source = a} :: PutEventsRequestEntry)
-
--- | Amazon Web Services resources, identified by Amazon Resource Name (ARN),
--- which the event primarily concerns. Any number, including zero, may be
--- present.
-putEventsRequestEntry_resources :: Lens.Lens' PutEventsRequestEntry (Prelude.Maybe [Prelude.Text])
-putEventsRequestEntry_resources = Lens.lens (\PutEventsRequestEntry' {resources} -> resources) (\s@PutEventsRequestEntry' {} a -> s {resources = a} :: PutEventsRequestEntry) Prelude.. Lens.mapping Lens.coerced
 
 -- | An X-Ray trace header, which is an http header (X-Amzn-Trace-Id) that
 -- contains the trace-id associated with the event.
@@ -163,41 +167,36 @@ putEventsRequestEntry_resources = Lens.lens (\PutEventsRequestEntry' {resources}
 putEventsRequestEntry_traceHeader :: Lens.Lens' PutEventsRequestEntry (Prelude.Maybe Prelude.Text)
 putEventsRequestEntry_traceHeader = Lens.lens (\PutEventsRequestEntry' {traceHeader} -> traceHeader) (\s@PutEventsRequestEntry' {} a -> s {traceHeader = a} :: PutEventsRequestEntry)
 
--- | A valid JSON object. There is no other schema imposed. The JSON object
--- may contain fields and nested subobjects.
-putEventsRequestEntry_detail :: Lens.Lens' PutEventsRequestEntry (Prelude.Maybe Prelude.Text)
-putEventsRequestEntry_detail = Lens.lens (\PutEventsRequestEntry' {detail} -> detail) (\s@PutEventsRequestEntry' {} a -> s {detail = a} :: PutEventsRequestEntry)
-
 instance Prelude.Hashable PutEventsRequestEntry where
   hashWithSalt _salt PutEventsRequestEntry' {..} =
-    _salt `Prelude.hashWithSalt` detailType
+    _salt `Prelude.hashWithSalt` detail
+      `Prelude.hashWithSalt` detailType
       `Prelude.hashWithSalt` eventBusName
-      `Prelude.hashWithSalt` time
-      `Prelude.hashWithSalt` source
       `Prelude.hashWithSalt` resources
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` time
       `Prelude.hashWithSalt` traceHeader
-      `Prelude.hashWithSalt` detail
 
 instance Prelude.NFData PutEventsRequestEntry where
   rnf PutEventsRequestEntry' {..} =
-    Prelude.rnf detailType
+    Prelude.rnf detail
+      `Prelude.seq` Prelude.rnf detailType
       `Prelude.seq` Prelude.rnf eventBusName
-      `Prelude.seq` Prelude.rnf time
-      `Prelude.seq` Prelude.rnf source
       `Prelude.seq` Prelude.rnf resources
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf time
       `Prelude.seq` Prelude.rnf traceHeader
-      `Prelude.seq` Prelude.rnf detail
 
 instance Data.ToJSON PutEventsRequestEntry where
   toJSON PutEventsRequestEntry' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("DetailType" Data..=) Prelude.<$> detailType,
+          [ ("Detail" Data..=) Prelude.<$> detail,
+            ("DetailType" Data..=) Prelude.<$> detailType,
             ("EventBusName" Data..=) Prelude.<$> eventBusName,
-            ("Time" Data..=) Prelude.<$> time,
-            ("Source" Data..=) Prelude.<$> source,
             ("Resources" Data..=) Prelude.<$> resources,
-            ("TraceHeader" Data..=) Prelude.<$> traceHeader,
-            ("Detail" Data..=) Prelude.<$> detail
+            ("Source" Data..=) Prelude.<$> source,
+            ("Time" Data..=) Prelude.<$> time,
+            ("TraceHeader" Data..=) Prelude.<$> traceHeader
           ]
       )

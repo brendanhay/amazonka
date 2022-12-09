@@ -38,18 +38,18 @@ module Amazonka.CloudWatchEvents.DescribeEndpoint
     newDescribeEndpointResponse,
 
     -- * Response Lenses
-    describeEndpointResponse_name,
+    describeEndpointResponse_arn,
+    describeEndpointResponse_creationTime,
+    describeEndpointResponse_description,
     describeEndpointResponse_endpointId,
+    describeEndpointResponse_endpointUrl,
+    describeEndpointResponse_eventBuses,
+    describeEndpointResponse_lastModifiedTime,
+    describeEndpointResponse_name,
+    describeEndpointResponse_replicationConfig,
     describeEndpointResponse_roleArn,
     describeEndpointResponse_routingConfig,
-    describeEndpointResponse_arn,
     describeEndpointResponse_state,
-    describeEndpointResponse_replicationConfig,
-    describeEndpointResponse_description,
-    describeEndpointResponse_lastModifiedTime,
-    describeEndpointResponse_endpointUrl,
-    describeEndpointResponse_creationTime,
-    describeEndpointResponse_eventBuses,
     describeEndpointResponse_stateReason,
     describeEndpointResponse_httpStatus,
   )
@@ -117,18 +117,18 @@ instance Core.AWSRequest DescribeEndpoint where
     Response.receiveJSON
       ( \s h x ->
           DescribeEndpointResponse'
-            Prelude.<$> (x Data..?> "Name")
+            Prelude.<$> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "Description")
             Prelude.<*> (x Data..?> "EndpointId")
+            Prelude.<*> (x Data..?> "EndpointUrl")
+            Prelude.<*> (x Data..?> "EventBuses")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "ReplicationConfig")
             Prelude.<*> (x Data..?> "RoleArn")
             Prelude.<*> (x Data..?> "RoutingConfig")
-            Prelude.<*> (x Data..?> "Arn")
             Prelude.<*> (x Data..?> "State")
-            Prelude.<*> (x Data..?> "ReplicationConfig")
-            Prelude.<*> (x Data..?> "Description")
-            Prelude.<*> (x Data..?> "LastModifiedTime")
-            Prelude.<*> (x Data..?> "EndpointUrl")
-            Prelude.<*> (x Data..?> "CreationTime")
-            Prelude.<*> (x Data..?> "EventBuses")
             Prelude.<*> (x Data..?> "StateReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -173,34 +173,34 @@ instance Data.ToQuery DescribeEndpoint where
 
 -- | /See:/ 'newDescribeEndpointResponse' smart constructor.
 data DescribeEndpointResponse = DescribeEndpointResponse'
-  { -- | The name of the endpoint you asked for information about.
-    name :: Prelude.Maybe Prelude.Text,
+  { -- | The ARN of the endpoint you asked for information about.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The time the endpoint you asked for information about was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
+    -- | The description of the endpoint you asked for information about.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The ID of the endpoint you asked for information about.
     endpointId :: Prelude.Maybe Prelude.Text,
+    -- | The URL of the endpoint you asked for information about.
+    endpointUrl :: Prelude.Maybe Prelude.Text,
+    -- | The event buses being used by the endpoint you asked for information
+    -- about.
+    eventBuses :: Prelude.Maybe (Prelude.NonEmpty EndpointEventBus),
+    -- | The last time the endpoint you asked for information about was modified.
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
+    -- | The name of the endpoint you asked for information about.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | Whether replication is enabled or disabled for the endpoint you asked
+    -- for information about.
+    replicationConfig :: Prelude.Maybe ReplicationConfig,
     -- | The ARN of the role used by the endpoint you asked for information
     -- about.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | The routing configuration of the endpoint you asked for information
     -- about.
     routingConfig :: Prelude.Maybe RoutingConfig,
-    -- | The ARN of the endpoint you asked for information about.
-    arn :: Prelude.Maybe Prelude.Text,
     -- | The current state of the endpoint you asked for information about.
     state :: Prelude.Maybe EndpointState,
-    -- | Whether replication is enabled or disabled for the endpoint you asked
-    -- for information about.
-    replicationConfig :: Prelude.Maybe ReplicationConfig,
-    -- | The description of the endpoint you asked for information about.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The last time the endpoint you asked for information about was modified.
-    lastModifiedTime :: Prelude.Maybe Data.POSIX,
-    -- | The URL of the endpoint you asked for information about.
-    endpointUrl :: Prelude.Maybe Prelude.Text,
-    -- | The time the endpoint you asked for information about was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
-    -- | The event buses being used by the endpoint you asked for information
-    -- about.
-    eventBuses :: Prelude.Maybe (Prelude.NonEmpty EndpointEventBus),
     -- | The reason the endpoint you asked for information about is in its
     -- current state.
     stateReason :: Prelude.Maybe Prelude.Text,
@@ -217,9 +217,25 @@ data DescribeEndpointResponse = DescribeEndpointResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'describeEndpointResponse_name' - The name of the endpoint you asked for information about.
+-- 'arn', 'describeEndpointResponse_arn' - The ARN of the endpoint you asked for information about.
+--
+-- 'creationTime', 'describeEndpointResponse_creationTime' - The time the endpoint you asked for information about was created.
+--
+-- 'description', 'describeEndpointResponse_description' - The description of the endpoint you asked for information about.
 --
 -- 'endpointId', 'describeEndpointResponse_endpointId' - The ID of the endpoint you asked for information about.
+--
+-- 'endpointUrl', 'describeEndpointResponse_endpointUrl' - The URL of the endpoint you asked for information about.
+--
+-- 'eventBuses', 'describeEndpointResponse_eventBuses' - The event buses being used by the endpoint you asked for information
+-- about.
+--
+-- 'lastModifiedTime', 'describeEndpointResponse_lastModifiedTime' - The last time the endpoint you asked for information about was modified.
+--
+-- 'name', 'describeEndpointResponse_name' - The name of the endpoint you asked for information about.
+--
+-- 'replicationConfig', 'describeEndpointResponse_replicationConfig' - Whether replication is enabled or disabled for the endpoint you asked
+-- for information about.
 --
 -- 'roleArn', 'describeEndpointResponse_roleArn' - The ARN of the role used by the endpoint you asked for information
 -- about.
@@ -227,23 +243,7 @@ data DescribeEndpointResponse = DescribeEndpointResponse'
 -- 'routingConfig', 'describeEndpointResponse_routingConfig' - The routing configuration of the endpoint you asked for information
 -- about.
 --
--- 'arn', 'describeEndpointResponse_arn' - The ARN of the endpoint you asked for information about.
---
 -- 'state', 'describeEndpointResponse_state' - The current state of the endpoint you asked for information about.
---
--- 'replicationConfig', 'describeEndpointResponse_replicationConfig' - Whether replication is enabled or disabled for the endpoint you asked
--- for information about.
---
--- 'description', 'describeEndpointResponse_description' - The description of the endpoint you asked for information about.
---
--- 'lastModifiedTime', 'describeEndpointResponse_lastModifiedTime' - The last time the endpoint you asked for information about was modified.
---
--- 'endpointUrl', 'describeEndpointResponse_endpointUrl' - The URL of the endpoint you asked for information about.
---
--- 'creationTime', 'describeEndpointResponse_creationTime' - The time the endpoint you asked for information about was created.
---
--- 'eventBuses', 'describeEndpointResponse_eventBuses' - The event buses being used by the endpoint you asked for information
--- about.
 --
 -- 'stateReason', 'describeEndpointResponse_stateReason' - The reason the endpoint you asked for information about is in its
 -- current state.
@@ -255,29 +255,59 @@ newDescribeEndpointResponse ::
   DescribeEndpointResponse
 newDescribeEndpointResponse pHttpStatus_ =
   DescribeEndpointResponse'
-    { name = Prelude.Nothing,
+    { arn = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
+      description = Prelude.Nothing,
       endpointId = Prelude.Nothing,
+      endpointUrl = Prelude.Nothing,
+      eventBuses = Prelude.Nothing,
+      lastModifiedTime = Prelude.Nothing,
+      name = Prelude.Nothing,
+      replicationConfig = Prelude.Nothing,
       roleArn = Prelude.Nothing,
       routingConfig = Prelude.Nothing,
-      arn = Prelude.Nothing,
       state = Prelude.Nothing,
-      replicationConfig = Prelude.Nothing,
-      description = Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
-      endpointUrl = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
-      eventBuses = Prelude.Nothing,
       stateReason = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The ARN of the endpoint you asked for information about.
+describeEndpointResponse_arn :: Lens.Lens' DescribeEndpointResponse (Prelude.Maybe Prelude.Text)
+describeEndpointResponse_arn = Lens.lens (\DescribeEndpointResponse' {arn} -> arn) (\s@DescribeEndpointResponse' {} a -> s {arn = a} :: DescribeEndpointResponse)
+
+-- | The time the endpoint you asked for information about was created.
+describeEndpointResponse_creationTime :: Lens.Lens' DescribeEndpointResponse (Prelude.Maybe Prelude.UTCTime)
+describeEndpointResponse_creationTime = Lens.lens (\DescribeEndpointResponse' {creationTime} -> creationTime) (\s@DescribeEndpointResponse' {} a -> s {creationTime = a} :: DescribeEndpointResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The description of the endpoint you asked for information about.
+describeEndpointResponse_description :: Lens.Lens' DescribeEndpointResponse (Prelude.Maybe Prelude.Text)
+describeEndpointResponse_description = Lens.lens (\DescribeEndpointResponse' {description} -> description) (\s@DescribeEndpointResponse' {} a -> s {description = a} :: DescribeEndpointResponse)
+
+-- | The ID of the endpoint you asked for information about.
+describeEndpointResponse_endpointId :: Lens.Lens' DescribeEndpointResponse (Prelude.Maybe Prelude.Text)
+describeEndpointResponse_endpointId = Lens.lens (\DescribeEndpointResponse' {endpointId} -> endpointId) (\s@DescribeEndpointResponse' {} a -> s {endpointId = a} :: DescribeEndpointResponse)
+
+-- | The URL of the endpoint you asked for information about.
+describeEndpointResponse_endpointUrl :: Lens.Lens' DescribeEndpointResponse (Prelude.Maybe Prelude.Text)
+describeEndpointResponse_endpointUrl = Lens.lens (\DescribeEndpointResponse' {endpointUrl} -> endpointUrl) (\s@DescribeEndpointResponse' {} a -> s {endpointUrl = a} :: DescribeEndpointResponse)
+
+-- | The event buses being used by the endpoint you asked for information
+-- about.
+describeEndpointResponse_eventBuses :: Lens.Lens' DescribeEndpointResponse (Prelude.Maybe (Prelude.NonEmpty EndpointEventBus))
+describeEndpointResponse_eventBuses = Lens.lens (\DescribeEndpointResponse' {eventBuses} -> eventBuses) (\s@DescribeEndpointResponse' {} a -> s {eventBuses = a} :: DescribeEndpointResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The last time the endpoint you asked for information about was modified.
+describeEndpointResponse_lastModifiedTime :: Lens.Lens' DescribeEndpointResponse (Prelude.Maybe Prelude.UTCTime)
+describeEndpointResponse_lastModifiedTime = Lens.lens (\DescribeEndpointResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeEndpointResponse' {} a -> s {lastModifiedTime = a} :: DescribeEndpointResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the endpoint you asked for information about.
 describeEndpointResponse_name :: Lens.Lens' DescribeEndpointResponse (Prelude.Maybe Prelude.Text)
 describeEndpointResponse_name = Lens.lens (\DescribeEndpointResponse' {name} -> name) (\s@DescribeEndpointResponse' {} a -> s {name = a} :: DescribeEndpointResponse)
 
--- | The ID of the endpoint you asked for information about.
-describeEndpointResponse_endpointId :: Lens.Lens' DescribeEndpointResponse (Prelude.Maybe Prelude.Text)
-describeEndpointResponse_endpointId = Lens.lens (\DescribeEndpointResponse' {endpointId} -> endpointId) (\s@DescribeEndpointResponse' {} a -> s {endpointId = a} :: DescribeEndpointResponse)
+-- | Whether replication is enabled or disabled for the endpoint you asked
+-- for information about.
+describeEndpointResponse_replicationConfig :: Lens.Lens' DescribeEndpointResponse (Prelude.Maybe ReplicationConfig)
+describeEndpointResponse_replicationConfig = Lens.lens (\DescribeEndpointResponse' {replicationConfig} -> replicationConfig) (\s@DescribeEndpointResponse' {} a -> s {replicationConfig = a} :: DescribeEndpointResponse)
 
 -- | The ARN of the role used by the endpoint you asked for information
 -- about.
@@ -289,39 +319,9 @@ describeEndpointResponse_roleArn = Lens.lens (\DescribeEndpointResponse' {roleAr
 describeEndpointResponse_routingConfig :: Lens.Lens' DescribeEndpointResponse (Prelude.Maybe RoutingConfig)
 describeEndpointResponse_routingConfig = Lens.lens (\DescribeEndpointResponse' {routingConfig} -> routingConfig) (\s@DescribeEndpointResponse' {} a -> s {routingConfig = a} :: DescribeEndpointResponse)
 
--- | The ARN of the endpoint you asked for information about.
-describeEndpointResponse_arn :: Lens.Lens' DescribeEndpointResponse (Prelude.Maybe Prelude.Text)
-describeEndpointResponse_arn = Lens.lens (\DescribeEndpointResponse' {arn} -> arn) (\s@DescribeEndpointResponse' {} a -> s {arn = a} :: DescribeEndpointResponse)
-
 -- | The current state of the endpoint you asked for information about.
 describeEndpointResponse_state :: Lens.Lens' DescribeEndpointResponse (Prelude.Maybe EndpointState)
 describeEndpointResponse_state = Lens.lens (\DescribeEndpointResponse' {state} -> state) (\s@DescribeEndpointResponse' {} a -> s {state = a} :: DescribeEndpointResponse)
-
--- | Whether replication is enabled or disabled for the endpoint you asked
--- for information about.
-describeEndpointResponse_replicationConfig :: Lens.Lens' DescribeEndpointResponse (Prelude.Maybe ReplicationConfig)
-describeEndpointResponse_replicationConfig = Lens.lens (\DescribeEndpointResponse' {replicationConfig} -> replicationConfig) (\s@DescribeEndpointResponse' {} a -> s {replicationConfig = a} :: DescribeEndpointResponse)
-
--- | The description of the endpoint you asked for information about.
-describeEndpointResponse_description :: Lens.Lens' DescribeEndpointResponse (Prelude.Maybe Prelude.Text)
-describeEndpointResponse_description = Lens.lens (\DescribeEndpointResponse' {description} -> description) (\s@DescribeEndpointResponse' {} a -> s {description = a} :: DescribeEndpointResponse)
-
--- | The last time the endpoint you asked for information about was modified.
-describeEndpointResponse_lastModifiedTime :: Lens.Lens' DescribeEndpointResponse (Prelude.Maybe Prelude.UTCTime)
-describeEndpointResponse_lastModifiedTime = Lens.lens (\DescribeEndpointResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeEndpointResponse' {} a -> s {lastModifiedTime = a} :: DescribeEndpointResponse) Prelude.. Lens.mapping Data._Time
-
--- | The URL of the endpoint you asked for information about.
-describeEndpointResponse_endpointUrl :: Lens.Lens' DescribeEndpointResponse (Prelude.Maybe Prelude.Text)
-describeEndpointResponse_endpointUrl = Lens.lens (\DescribeEndpointResponse' {endpointUrl} -> endpointUrl) (\s@DescribeEndpointResponse' {} a -> s {endpointUrl = a} :: DescribeEndpointResponse)
-
--- | The time the endpoint you asked for information about was created.
-describeEndpointResponse_creationTime :: Lens.Lens' DescribeEndpointResponse (Prelude.Maybe Prelude.UTCTime)
-describeEndpointResponse_creationTime = Lens.lens (\DescribeEndpointResponse' {creationTime} -> creationTime) (\s@DescribeEndpointResponse' {} a -> s {creationTime = a} :: DescribeEndpointResponse) Prelude.. Lens.mapping Data._Time
-
--- | The event buses being used by the endpoint you asked for information
--- about.
-describeEndpointResponse_eventBuses :: Lens.Lens' DescribeEndpointResponse (Prelude.Maybe (Prelude.NonEmpty EndpointEventBus))
-describeEndpointResponse_eventBuses = Lens.lens (\DescribeEndpointResponse' {eventBuses} -> eventBuses) (\s@DescribeEndpointResponse' {} a -> s {eventBuses = a} :: DescribeEndpointResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The reason the endpoint you asked for information about is in its
 -- current state.
@@ -334,17 +334,17 @@ describeEndpointResponse_httpStatus = Lens.lens (\DescribeEndpointResponse' {htt
 
 instance Prelude.NFData DescribeEndpointResponse where
   rnf DescribeEndpointResponse' {..} =
-    Prelude.rnf name
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf endpointId
+      `Prelude.seq` Prelude.rnf endpointUrl
+      `Prelude.seq` Prelude.rnf eventBuses
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf replicationConfig
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf routingConfig
-      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf replicationConfig
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf endpointUrl
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf eventBuses
       `Prelude.seq` Prelude.rnf stateReason
       `Prelude.seq` Prelude.rnf httpStatus

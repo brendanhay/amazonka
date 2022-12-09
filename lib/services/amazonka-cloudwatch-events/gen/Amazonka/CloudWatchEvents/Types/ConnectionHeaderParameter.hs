@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConnectionHeaderParameter' smart constructor.
 data ConnectionHeaderParameter = ConnectionHeaderParameter'
-  { -- | The key for the parameter.
-    key :: Prelude.Maybe Prelude.Text,
-    -- | Specified whether the value is a secret.
+  { -- | Specified whether the value is a secret.
     isValueSecret :: Prelude.Maybe Prelude.Bool,
+    -- | The key for the parameter.
+    key :: Prelude.Maybe Prelude.Text,
     -- | The value associated with the key.
     value :: Prelude.Maybe Prelude.Text
   }
@@ -47,27 +47,28 @@ data ConnectionHeaderParameter = ConnectionHeaderParameter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'key', 'connectionHeaderParameter_key' - The key for the parameter.
---
 -- 'isValueSecret', 'connectionHeaderParameter_isValueSecret' - Specified whether the value is a secret.
+--
+-- 'key', 'connectionHeaderParameter_key' - The key for the parameter.
 --
 -- 'value', 'connectionHeaderParameter_value' - The value associated with the key.
 newConnectionHeaderParameter ::
   ConnectionHeaderParameter
 newConnectionHeaderParameter =
   ConnectionHeaderParameter'
-    { key = Prelude.Nothing,
-      isValueSecret = Prelude.Nothing,
+    { isValueSecret =
+        Prelude.Nothing,
+      key = Prelude.Nothing,
       value = Prelude.Nothing
     }
-
--- | The key for the parameter.
-connectionHeaderParameter_key :: Lens.Lens' ConnectionHeaderParameter (Prelude.Maybe Prelude.Text)
-connectionHeaderParameter_key = Lens.lens (\ConnectionHeaderParameter' {key} -> key) (\s@ConnectionHeaderParameter' {} a -> s {key = a} :: ConnectionHeaderParameter)
 
 -- | Specified whether the value is a secret.
 connectionHeaderParameter_isValueSecret :: Lens.Lens' ConnectionHeaderParameter (Prelude.Maybe Prelude.Bool)
 connectionHeaderParameter_isValueSecret = Lens.lens (\ConnectionHeaderParameter' {isValueSecret} -> isValueSecret) (\s@ConnectionHeaderParameter' {} a -> s {isValueSecret = a} :: ConnectionHeaderParameter)
+
+-- | The key for the parameter.
+connectionHeaderParameter_key :: Lens.Lens' ConnectionHeaderParameter (Prelude.Maybe Prelude.Text)
+connectionHeaderParameter_key = Lens.lens (\ConnectionHeaderParameter' {key} -> key) (\s@ConnectionHeaderParameter' {} a -> s {key = a} :: ConnectionHeaderParameter)
 
 -- | The value associated with the key.
 connectionHeaderParameter_value :: Lens.Lens' ConnectionHeaderParameter (Prelude.Maybe Prelude.Text)
@@ -79,29 +80,29 @@ instance Data.FromJSON ConnectionHeaderParameter where
       "ConnectionHeaderParameter"
       ( \x ->
           ConnectionHeaderParameter'
-            Prelude.<$> (x Data..:? "Key")
-            Prelude.<*> (x Data..:? "IsValueSecret")
+            Prelude.<$> (x Data..:? "IsValueSecret")
+            Prelude.<*> (x Data..:? "Key")
             Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable ConnectionHeaderParameter where
   hashWithSalt _salt ConnectionHeaderParameter' {..} =
-    _salt `Prelude.hashWithSalt` key
-      `Prelude.hashWithSalt` isValueSecret
+    _salt `Prelude.hashWithSalt` isValueSecret
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData ConnectionHeaderParameter where
   rnf ConnectionHeaderParameter' {..} =
-    Prelude.rnf key
-      `Prelude.seq` Prelude.rnf isValueSecret
+    Prelude.rnf isValueSecret
+      `Prelude.seq` Prelude.rnf key
       `Prelude.seq` Prelude.rnf value
 
 instance Data.ToJSON ConnectionHeaderParameter where
   toJSON ConnectionHeaderParameter' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Key" Data..=) Prelude.<$> key,
-            ("IsValueSecret" Data..=) Prelude.<$> isValueSecret,
+          [ ("IsValueSecret" Data..=) Prelude.<$> isValueSecret,
+            ("Key" Data..=) Prelude.<$> key,
             ("Value" Data..=) Prelude.<$> value
           ]
       )

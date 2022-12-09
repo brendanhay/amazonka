@@ -38,29 +38,11 @@ module Amazonka.CloudWatchEvents
     -- * Errors
     -- $errors
 
-    -- ** ResourceAlreadyExistsException
-    _ResourceAlreadyExistsException,
-
-    -- ** PolicyLengthExceededException
-    _PolicyLengthExceededException,
-
-    -- ** InvalidStateException
-    _InvalidStateException,
-
     -- ** ConcurrentModificationException
     _ConcurrentModificationException,
 
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
-
-    -- ** OperationDisabledException
-    _OperationDisabledException,
-
-    -- ** ManagedRuleException
-    _ManagedRuleException,
+    -- ** IllegalStatusException
+    _IllegalStatusException,
 
     -- ** InternalException
     _InternalException,
@@ -68,8 +50,26 @@ module Amazonka.CloudWatchEvents
     -- ** InvalidEventPatternException
     _InvalidEventPatternException,
 
-    -- ** IllegalStatusException
-    _IllegalStatusException,
+    -- ** InvalidStateException
+    _InvalidStateException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** ManagedRuleException
+    _ManagedRuleException,
+
+    -- ** OperationDisabledException
+    _OperationDisabledException,
+
+    -- ** PolicyLengthExceededException
+    _PolicyLengthExceededException,
+
+    -- ** ResourceAlreadyExistsException
+    _ResourceAlreadyExistsException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- * Waiters
     -- $waiters

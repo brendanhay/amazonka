@@ -42,8 +42,8 @@ module Amazonka.CodeDeploy.BatchGetDeploymentTargets
     newBatchGetDeploymentTargets,
 
     -- * Request Lenses
-    batchGetDeploymentTargets_targetIds,
     batchGetDeploymentTargets_deploymentId,
+    batchGetDeploymentTargets_targetIds,
 
     -- * Destructuring the Response
     BatchGetDeploymentTargetsResponse (..),
@@ -65,7 +65,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newBatchGetDeploymentTargets' smart constructor.
 data BatchGetDeploymentTargets = BatchGetDeploymentTargets'
-  { -- | The unique IDs of the deployment targets. The compute platform of the
+  { -- | The unique ID of a deployment.
+    deploymentId :: Prelude.Maybe Prelude.Text,
+    -- | The unique IDs of the deployment targets. The compute platform of the
     -- deployment determines the type of the targets and their formats. The
     -- maximum number of deployment target IDs you can specify is 25.
     --
@@ -85,9 +87,7 @@ data BatchGetDeploymentTargets = BatchGetDeploymentTargets'
     -- -   For deployments that are deployed with CloudFormation, the target
     --     IDs are CloudFormation stack IDs. Their target type is
     --     @cloudFormationTarget@.
-    targetIds :: Prelude.Maybe [Prelude.Text],
-    -- | The unique ID of a deployment.
-    deploymentId :: Prelude.Maybe Prelude.Text
+    targetIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -98,6 +98,8 @@ data BatchGetDeploymentTargets = BatchGetDeploymentTargets'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'deploymentId', 'batchGetDeploymentTargets_deploymentId' - The unique ID of a deployment.
 --
 -- 'targetIds', 'batchGetDeploymentTargets_targetIds' - The unique IDs of the deployment targets. The compute platform of the
 -- deployment determines the type of the targets and their formats. The
@@ -119,16 +121,18 @@ data BatchGetDeploymentTargets = BatchGetDeploymentTargets'
 -- -   For deployments that are deployed with CloudFormation, the target
 --     IDs are CloudFormation stack IDs. Their target type is
 --     @cloudFormationTarget@.
---
--- 'deploymentId', 'batchGetDeploymentTargets_deploymentId' - The unique ID of a deployment.
 newBatchGetDeploymentTargets ::
   BatchGetDeploymentTargets
 newBatchGetDeploymentTargets =
   BatchGetDeploymentTargets'
-    { targetIds =
+    { deploymentId =
         Prelude.Nothing,
-      deploymentId = Prelude.Nothing
+      targetIds = Prelude.Nothing
     }
+
+-- | The unique ID of a deployment.
+batchGetDeploymentTargets_deploymentId :: Lens.Lens' BatchGetDeploymentTargets (Prelude.Maybe Prelude.Text)
+batchGetDeploymentTargets_deploymentId = Lens.lens (\BatchGetDeploymentTargets' {deploymentId} -> deploymentId) (\s@BatchGetDeploymentTargets' {} a -> s {deploymentId = a} :: BatchGetDeploymentTargets)
 
 -- | The unique IDs of the deployment targets. The compute platform of the
 -- deployment determines the type of the targets and their formats. The
@@ -153,10 +157,6 @@ newBatchGetDeploymentTargets =
 batchGetDeploymentTargets_targetIds :: Lens.Lens' BatchGetDeploymentTargets (Prelude.Maybe [Prelude.Text])
 batchGetDeploymentTargets_targetIds = Lens.lens (\BatchGetDeploymentTargets' {targetIds} -> targetIds) (\s@BatchGetDeploymentTargets' {} a -> s {targetIds = a} :: BatchGetDeploymentTargets) Prelude.. Lens.mapping Lens.coerced
 
--- | The unique ID of a deployment.
-batchGetDeploymentTargets_deploymentId :: Lens.Lens' BatchGetDeploymentTargets (Prelude.Maybe Prelude.Text)
-batchGetDeploymentTargets_deploymentId = Lens.lens (\BatchGetDeploymentTargets' {deploymentId} -> deploymentId) (\s@BatchGetDeploymentTargets' {} a -> s {deploymentId = a} :: BatchGetDeploymentTargets)
-
 instance Core.AWSRequest BatchGetDeploymentTargets where
   type
     AWSResponse BatchGetDeploymentTargets =
@@ -175,13 +175,13 @@ instance Core.AWSRequest BatchGetDeploymentTargets where
 
 instance Prelude.Hashable BatchGetDeploymentTargets where
   hashWithSalt _salt BatchGetDeploymentTargets' {..} =
-    _salt `Prelude.hashWithSalt` targetIds
-      `Prelude.hashWithSalt` deploymentId
+    _salt `Prelude.hashWithSalt` deploymentId
+      `Prelude.hashWithSalt` targetIds
 
 instance Prelude.NFData BatchGetDeploymentTargets where
   rnf BatchGetDeploymentTargets' {..} =
-    Prelude.rnf targetIds
-      `Prelude.seq` Prelude.rnf deploymentId
+    Prelude.rnf deploymentId
+      `Prelude.seq` Prelude.rnf targetIds
 
 instance Data.ToHeaders BatchGetDeploymentTargets where
   toHeaders =
@@ -202,8 +202,8 @@ instance Data.ToJSON BatchGetDeploymentTargets where
   toJSON BatchGetDeploymentTargets' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("targetIds" Data..=) Prelude.<$> targetIds,
-            ("deploymentId" Data..=) Prelude.<$> deploymentId
+          [ ("deploymentId" Data..=) Prelude.<$> deploymentId,
+            ("targetIds" Data..=) Prelude.<$> targetIds
           ]
       )
 

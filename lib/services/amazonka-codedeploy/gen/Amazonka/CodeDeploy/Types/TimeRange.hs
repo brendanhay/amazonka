@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTimeRange' smart constructor.
 data TimeRange = TimeRange'
-  { -- | The start time of the time range.
-    --
-    -- Specify null to leave the start time open-ended.
-    start :: Prelude.Maybe Data.POSIX,
-    -- | The end time of the time range.
+  { -- | The end time of the time range.
     --
     -- Specify null to leave the end time open-ended.
-    end :: Prelude.Maybe Data.POSIX
+    end :: Prelude.Maybe Data.POSIX,
+    -- | The start time of the time range.
+    --
+    -- Specify null to leave the start time open-ended.
+    start :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,26 +47,20 @@ data TimeRange = TimeRange'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'start', 'timeRange_start' - The start time of the time range.
---
--- Specify null to leave the start time open-ended.
---
 -- 'end', 'timeRange_end' - The end time of the time range.
 --
 -- Specify null to leave the end time open-ended.
+--
+-- 'start', 'timeRange_start' - The start time of the time range.
+--
+-- Specify null to leave the start time open-ended.
 newTimeRange ::
   TimeRange
 newTimeRange =
   TimeRange'
-    { start = Prelude.Nothing,
-      end = Prelude.Nothing
+    { end = Prelude.Nothing,
+      start = Prelude.Nothing
     }
-
--- | The start time of the time range.
---
--- Specify null to leave the start time open-ended.
-timeRange_start :: Lens.Lens' TimeRange (Prelude.Maybe Prelude.UTCTime)
-timeRange_start = Lens.lens (\TimeRange' {start} -> start) (\s@TimeRange' {} a -> s {start = a} :: TimeRange) Prelude.. Lens.mapping Data._Time
 
 -- | The end time of the time range.
 --
@@ -74,20 +68,26 @@ timeRange_start = Lens.lens (\TimeRange' {start} -> start) (\s@TimeRange' {} a -
 timeRange_end :: Lens.Lens' TimeRange (Prelude.Maybe Prelude.UTCTime)
 timeRange_end = Lens.lens (\TimeRange' {end} -> end) (\s@TimeRange' {} a -> s {end = a} :: TimeRange) Prelude.. Lens.mapping Data._Time
 
+-- | The start time of the time range.
+--
+-- Specify null to leave the start time open-ended.
+timeRange_start :: Lens.Lens' TimeRange (Prelude.Maybe Prelude.UTCTime)
+timeRange_start = Lens.lens (\TimeRange' {start} -> start) (\s@TimeRange' {} a -> s {start = a} :: TimeRange) Prelude.. Lens.mapping Data._Time
+
 instance Prelude.Hashable TimeRange where
   hashWithSalt _salt TimeRange' {..} =
-    _salt `Prelude.hashWithSalt` start
-      `Prelude.hashWithSalt` end
+    _salt `Prelude.hashWithSalt` end
+      `Prelude.hashWithSalt` start
 
 instance Prelude.NFData TimeRange where
   rnf TimeRange' {..} =
-    Prelude.rnf start `Prelude.seq` Prelude.rnf end
+    Prelude.rnf end `Prelude.seq` Prelude.rnf start
 
 instance Data.ToJSON TimeRange where
   toJSON TimeRange' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("start" Data..=) Prelude.<$> start,
-            ("end" Data..=) Prelude.<$> end
+          [ ("end" Data..=) Prelude.<$> end,
+            ("start" Data..=) Prelude.<$> start
           ]
       )

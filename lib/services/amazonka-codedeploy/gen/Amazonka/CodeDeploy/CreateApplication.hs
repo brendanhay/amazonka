@@ -27,8 +27,8 @@ module Amazonka.CodeDeploy.CreateApplication
     newCreateApplication,
 
     -- * Request Lenses
-    createApplication_tags,
     createApplication_computePlatform,
+    createApplication_tags,
     createApplication_applicationName,
 
     -- * Destructuring the Response
@@ -53,13 +53,13 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateApplication' smart constructor.
 data CreateApplication = CreateApplication'
-  { -- | The metadata that you apply to CodeDeploy applications to help you
+  { -- | The destination platform type for the deployment (@Lambda@, @Server@, or
+    -- @ECS@).
+    computePlatform :: Prelude.Maybe ComputePlatform,
+    -- | The metadata that you apply to CodeDeploy applications to help you
     -- organize and categorize them. Each tag consists of a key and an optional
     -- value, both of which you define.
     tags :: Prelude.Maybe [Tag],
-    -- | The destination platform type for the deployment (@Lambda@, @Server@, or
-    -- @ECS@).
-    computePlatform :: Prelude.Maybe ComputePlatform,
     -- | The name of the application. This name must be unique with the
     -- applicable IAM or Amazon Web Services account.
     applicationName :: Prelude.Text
@@ -74,12 +74,12 @@ data CreateApplication = CreateApplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'computePlatform', 'createApplication_computePlatform' - The destination platform type for the deployment (@Lambda@, @Server@, or
+-- @ECS@).
+--
 -- 'tags', 'createApplication_tags' - The metadata that you apply to CodeDeploy applications to help you
 -- organize and categorize them. Each tag consists of a key and an optional
 -- value, both of which you define.
---
--- 'computePlatform', 'createApplication_computePlatform' - The destination platform type for the deployment (@Lambda@, @Server@, or
--- @ECS@).
 --
 -- 'applicationName', 'createApplication_applicationName' - The name of the application. This name must be unique with the
 -- applicable IAM or Amazon Web Services account.
@@ -89,21 +89,22 @@ newCreateApplication ::
   CreateApplication
 newCreateApplication pApplicationName_ =
   CreateApplication'
-    { tags = Prelude.Nothing,
-      computePlatform = Prelude.Nothing,
+    { computePlatform =
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
       applicationName = pApplicationName_
     }
+
+-- | The destination platform type for the deployment (@Lambda@, @Server@, or
+-- @ECS@).
+createApplication_computePlatform :: Lens.Lens' CreateApplication (Prelude.Maybe ComputePlatform)
+createApplication_computePlatform = Lens.lens (\CreateApplication' {computePlatform} -> computePlatform) (\s@CreateApplication' {} a -> s {computePlatform = a} :: CreateApplication)
 
 -- | The metadata that you apply to CodeDeploy applications to help you
 -- organize and categorize them. Each tag consists of a key and an optional
 -- value, both of which you define.
 createApplication_tags :: Lens.Lens' CreateApplication (Prelude.Maybe [Tag])
 createApplication_tags = Lens.lens (\CreateApplication' {tags} -> tags) (\s@CreateApplication' {} a -> s {tags = a} :: CreateApplication) Prelude.. Lens.mapping Lens.coerced
-
--- | The destination platform type for the deployment (@Lambda@, @Server@, or
--- @ECS@).
-createApplication_computePlatform :: Lens.Lens' CreateApplication (Prelude.Maybe ComputePlatform)
-createApplication_computePlatform = Lens.lens (\CreateApplication' {computePlatform} -> computePlatform) (\s@CreateApplication' {} a -> s {computePlatform = a} :: CreateApplication)
 
 -- | The name of the application. This name must be unique with the
 -- applicable IAM or Amazon Web Services account.
@@ -126,14 +127,14 @@ instance Core.AWSRequest CreateApplication where
 
 instance Prelude.Hashable CreateApplication where
   hashWithSalt _salt CreateApplication' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` computePlatform
+    _salt `Prelude.hashWithSalt` computePlatform
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` applicationName
 
 instance Prelude.NFData CreateApplication where
   rnf CreateApplication' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf computePlatform
+    Prelude.rnf computePlatform
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf applicationName
 
 instance Data.ToHeaders CreateApplication where
@@ -155,9 +156,9 @@ instance Data.ToJSON CreateApplication where
   toJSON CreateApplication' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("computePlatform" Data..=)
+          [ ("computePlatform" Data..=)
               Prelude.<$> computePlatform,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("applicationName" Data..= applicationName)
           ]

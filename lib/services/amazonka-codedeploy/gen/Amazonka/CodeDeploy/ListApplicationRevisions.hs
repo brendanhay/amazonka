@@ -29,12 +29,12 @@ module Amazonka.CodeDeploy.ListApplicationRevisions
     newListApplicationRevisions,
 
     -- * Request Lenses
-    listApplicationRevisions_s3KeyPrefix,
-    listApplicationRevisions_s3Bucket,
-    listApplicationRevisions_sortOrder,
-    listApplicationRevisions_nextToken,
     listApplicationRevisions_deployed,
+    listApplicationRevisions_nextToken,
+    listApplicationRevisions_s3Bucket,
+    listApplicationRevisions_s3KeyPrefix,
     listApplicationRevisions_sortBy,
+    listApplicationRevisions_sortOrder,
     listApplicationRevisions_applicationName,
 
     -- * Destructuring the Response
@@ -60,27 +60,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListApplicationRevisions' smart constructor.
 data ListApplicationRevisions = ListApplicationRevisions'
-  { -- | A key prefix for the set of Amazon S3 objects to limit the search for
-    -- revisions.
-    s3KeyPrefix :: Prelude.Maybe Prelude.Text,
-    -- | An Amazon S3 bucket name to limit the search for revisions.
-    --
-    -- If set to null, all of the user\'s buckets are searched.
-    s3Bucket :: Prelude.Maybe Prelude.Text,
-    -- | The order in which to sort the list results:
-    --
-    -- -   @ascending@: ascending order.
-    --
-    -- -   @descending@: descending order.
-    --
-    -- If not specified, the results are sorted in ascending order.
-    --
-    -- If set to null, the results are sorted in an arbitrary order.
-    sortOrder :: Prelude.Maybe SortOrder,
-    -- | An identifier returned from the previous @ListApplicationRevisions@
-    -- call. It can be used to return the next set of applications in the list.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Whether to list revisions based on whether the revision is the target
+  { -- | Whether to list revisions based on whether the revision is the target
     -- revision of a deployment group:
     --
     -- -   @include@: List revisions that are target revisions of a deployment
@@ -91,6 +71,16 @@ data ListApplicationRevisions = ListApplicationRevisions'
     --
     -- -   @ignore@: List all revisions.
     deployed :: Prelude.Maybe ListStateFilterAction,
+    -- | An identifier returned from the previous @ListApplicationRevisions@
+    -- call. It can be used to return the next set of applications in the list.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An Amazon S3 bucket name to limit the search for revisions.
+    --
+    -- If set to null, all of the user\'s buckets are searched.
+    s3Bucket :: Prelude.Maybe Prelude.Text,
+    -- | A key prefix for the set of Amazon S3 objects to limit the search for
+    -- revisions.
+    s3KeyPrefix :: Prelude.Maybe Prelude.Text,
     -- | The column name to use to sort the list results:
     --
     -- -   @registerTime@: Sort by the time the revisions were registered with
@@ -105,6 +95,16 @@ data ListApplicationRevisions = ListApplicationRevisions'
     -- If not specified or set to null, the results are returned in an
     -- arbitrary order.
     sortBy :: Prelude.Maybe ApplicationRevisionSortBy,
+    -- | The order in which to sort the list results:
+    --
+    -- -   @ascending@: ascending order.
+    --
+    -- -   @descending@: descending order.
+    --
+    -- If not specified, the results are sorted in ascending order.
+    --
+    -- If set to null, the results are sorted in an arbitrary order.
+    sortOrder :: Prelude.Maybe SortOrder,
     -- | The name of an CodeDeploy application associated with the IAM user or
     -- Amazon Web Services account.
     applicationName :: Prelude.Text
@@ -119,26 +119,6 @@ data ListApplicationRevisions = ListApplicationRevisions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 's3KeyPrefix', 'listApplicationRevisions_s3KeyPrefix' - A key prefix for the set of Amazon S3 objects to limit the search for
--- revisions.
---
--- 's3Bucket', 'listApplicationRevisions_s3Bucket' - An Amazon S3 bucket name to limit the search for revisions.
---
--- If set to null, all of the user\'s buckets are searched.
---
--- 'sortOrder', 'listApplicationRevisions_sortOrder' - The order in which to sort the list results:
---
--- -   @ascending@: ascending order.
---
--- -   @descending@: descending order.
---
--- If not specified, the results are sorted in ascending order.
---
--- If set to null, the results are sorted in an arbitrary order.
---
--- 'nextToken', 'listApplicationRevisions_nextToken' - An identifier returned from the previous @ListApplicationRevisions@
--- call. It can be used to return the next set of applications in the list.
---
 -- 'deployed', 'listApplicationRevisions_deployed' - Whether to list revisions based on whether the revision is the target
 -- revision of a deployment group:
 --
@@ -149,6 +129,16 @@ data ListApplicationRevisions = ListApplicationRevisions'
 --     deployment group.
 --
 -- -   @ignore@: List all revisions.
+--
+-- 'nextToken', 'listApplicationRevisions_nextToken' - An identifier returned from the previous @ListApplicationRevisions@
+-- call. It can be used to return the next set of applications in the list.
+--
+-- 's3Bucket', 'listApplicationRevisions_s3Bucket' - An Amazon S3 bucket name to limit the search for revisions.
+--
+-- If set to null, all of the user\'s buckets are searched.
+--
+-- 's3KeyPrefix', 'listApplicationRevisions_s3KeyPrefix' - A key prefix for the set of Amazon S3 objects to limit the search for
+-- revisions.
 --
 -- 'sortBy', 'listApplicationRevisions_sortBy' - The column name to use to sort the list results:
 --
@@ -164,36 +154,7 @@ data ListApplicationRevisions = ListApplicationRevisions'
 -- If not specified or set to null, the results are returned in an
 -- arbitrary order.
 --
--- 'applicationName', 'listApplicationRevisions_applicationName' - The name of an CodeDeploy application associated with the IAM user or
--- Amazon Web Services account.
-newListApplicationRevisions ::
-  -- | 'applicationName'
-  Prelude.Text ->
-  ListApplicationRevisions
-newListApplicationRevisions pApplicationName_ =
-  ListApplicationRevisions'
-    { s3KeyPrefix =
-        Prelude.Nothing,
-      s3Bucket = Prelude.Nothing,
-      sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      deployed = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
-      applicationName = pApplicationName_
-    }
-
--- | A key prefix for the set of Amazon S3 objects to limit the search for
--- revisions.
-listApplicationRevisions_s3KeyPrefix :: Lens.Lens' ListApplicationRevisions (Prelude.Maybe Prelude.Text)
-listApplicationRevisions_s3KeyPrefix = Lens.lens (\ListApplicationRevisions' {s3KeyPrefix} -> s3KeyPrefix) (\s@ListApplicationRevisions' {} a -> s {s3KeyPrefix = a} :: ListApplicationRevisions)
-
--- | An Amazon S3 bucket name to limit the search for revisions.
---
--- If set to null, all of the user\'s buckets are searched.
-listApplicationRevisions_s3Bucket :: Lens.Lens' ListApplicationRevisions (Prelude.Maybe Prelude.Text)
-listApplicationRevisions_s3Bucket = Lens.lens (\ListApplicationRevisions' {s3Bucket} -> s3Bucket) (\s@ListApplicationRevisions' {} a -> s {s3Bucket = a} :: ListApplicationRevisions)
-
--- | The order in which to sort the list results:
+-- 'sortOrder', 'listApplicationRevisions_sortOrder' - The order in which to sort the list results:
 --
 -- -   @ascending@: ascending order.
 --
@@ -202,13 +163,24 @@ listApplicationRevisions_s3Bucket = Lens.lens (\ListApplicationRevisions' {s3Buc
 -- If not specified, the results are sorted in ascending order.
 --
 -- If set to null, the results are sorted in an arbitrary order.
-listApplicationRevisions_sortOrder :: Lens.Lens' ListApplicationRevisions (Prelude.Maybe SortOrder)
-listApplicationRevisions_sortOrder = Lens.lens (\ListApplicationRevisions' {sortOrder} -> sortOrder) (\s@ListApplicationRevisions' {} a -> s {sortOrder = a} :: ListApplicationRevisions)
-
--- | An identifier returned from the previous @ListApplicationRevisions@
--- call. It can be used to return the next set of applications in the list.
-listApplicationRevisions_nextToken :: Lens.Lens' ListApplicationRevisions (Prelude.Maybe Prelude.Text)
-listApplicationRevisions_nextToken = Lens.lens (\ListApplicationRevisions' {nextToken} -> nextToken) (\s@ListApplicationRevisions' {} a -> s {nextToken = a} :: ListApplicationRevisions)
+--
+-- 'applicationName', 'listApplicationRevisions_applicationName' - The name of an CodeDeploy application associated with the IAM user or
+-- Amazon Web Services account.
+newListApplicationRevisions ::
+  -- | 'applicationName'
+  Prelude.Text ->
+  ListApplicationRevisions
+newListApplicationRevisions pApplicationName_ =
+  ListApplicationRevisions'
+    { deployed =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      s3Bucket = Prelude.Nothing,
+      s3KeyPrefix = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
+      applicationName = pApplicationName_
+    }
 
 -- | Whether to list revisions based on whether the revision is the target
 -- revision of a deployment group:
@@ -222,6 +194,22 @@ listApplicationRevisions_nextToken = Lens.lens (\ListApplicationRevisions' {next
 -- -   @ignore@: List all revisions.
 listApplicationRevisions_deployed :: Lens.Lens' ListApplicationRevisions (Prelude.Maybe ListStateFilterAction)
 listApplicationRevisions_deployed = Lens.lens (\ListApplicationRevisions' {deployed} -> deployed) (\s@ListApplicationRevisions' {} a -> s {deployed = a} :: ListApplicationRevisions)
+
+-- | An identifier returned from the previous @ListApplicationRevisions@
+-- call. It can be used to return the next set of applications in the list.
+listApplicationRevisions_nextToken :: Lens.Lens' ListApplicationRevisions (Prelude.Maybe Prelude.Text)
+listApplicationRevisions_nextToken = Lens.lens (\ListApplicationRevisions' {nextToken} -> nextToken) (\s@ListApplicationRevisions' {} a -> s {nextToken = a} :: ListApplicationRevisions)
+
+-- | An Amazon S3 bucket name to limit the search for revisions.
+--
+-- If set to null, all of the user\'s buckets are searched.
+listApplicationRevisions_s3Bucket :: Lens.Lens' ListApplicationRevisions (Prelude.Maybe Prelude.Text)
+listApplicationRevisions_s3Bucket = Lens.lens (\ListApplicationRevisions' {s3Bucket} -> s3Bucket) (\s@ListApplicationRevisions' {} a -> s {s3Bucket = a} :: ListApplicationRevisions)
+
+-- | A key prefix for the set of Amazon S3 objects to limit the search for
+-- revisions.
+listApplicationRevisions_s3KeyPrefix :: Lens.Lens' ListApplicationRevisions (Prelude.Maybe Prelude.Text)
+listApplicationRevisions_s3KeyPrefix = Lens.lens (\ListApplicationRevisions' {s3KeyPrefix} -> s3KeyPrefix) (\s@ListApplicationRevisions' {} a -> s {s3KeyPrefix = a} :: ListApplicationRevisions)
 
 -- | The column name to use to sort the list results:
 --
@@ -238,6 +226,18 @@ listApplicationRevisions_deployed = Lens.lens (\ListApplicationRevisions' {deplo
 -- arbitrary order.
 listApplicationRevisions_sortBy :: Lens.Lens' ListApplicationRevisions (Prelude.Maybe ApplicationRevisionSortBy)
 listApplicationRevisions_sortBy = Lens.lens (\ListApplicationRevisions' {sortBy} -> sortBy) (\s@ListApplicationRevisions' {} a -> s {sortBy = a} :: ListApplicationRevisions)
+
+-- | The order in which to sort the list results:
+--
+-- -   @ascending@: ascending order.
+--
+-- -   @descending@: descending order.
+--
+-- If not specified, the results are sorted in ascending order.
+--
+-- If set to null, the results are sorted in an arbitrary order.
+listApplicationRevisions_sortOrder :: Lens.Lens' ListApplicationRevisions (Prelude.Maybe SortOrder)
+listApplicationRevisions_sortOrder = Lens.lens (\ListApplicationRevisions' {sortOrder} -> sortOrder) (\s@ListApplicationRevisions' {} a -> s {sortOrder = a} :: ListApplicationRevisions)
 
 -- | The name of an CodeDeploy application associated with the IAM user or
 -- Amazon Web Services account.
@@ -283,22 +283,22 @@ instance Core.AWSRequest ListApplicationRevisions where
 
 instance Prelude.Hashable ListApplicationRevisions where
   hashWithSalt _salt ListApplicationRevisions' {..} =
-    _salt `Prelude.hashWithSalt` s3KeyPrefix
-      `Prelude.hashWithSalt` s3Bucket
-      `Prelude.hashWithSalt` sortOrder
+    _salt `Prelude.hashWithSalt` deployed
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` deployed
+      `Prelude.hashWithSalt` s3Bucket
+      `Prelude.hashWithSalt` s3KeyPrefix
       `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` sortOrder
       `Prelude.hashWithSalt` applicationName
 
 instance Prelude.NFData ListApplicationRevisions where
   rnf ListApplicationRevisions' {..} =
-    Prelude.rnf s3KeyPrefix
-      `Prelude.seq` Prelude.rnf s3Bucket
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf deployed
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf deployed
+      `Prelude.seq` Prelude.rnf s3Bucket
+      `Prelude.seq` Prelude.rnf s3KeyPrefix
       `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf sortOrder
       `Prelude.seq` Prelude.rnf applicationName
 
 instance Data.ToHeaders ListApplicationRevisions where
@@ -320,12 +320,12 @@ instance Data.ToJSON ListApplicationRevisions where
   toJSON ListApplicationRevisions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("s3KeyPrefix" Data..=) Prelude.<$> s3KeyPrefix,
-            ("s3Bucket" Data..=) Prelude.<$> s3Bucket,
-            ("sortOrder" Data..=) Prelude.<$> sortOrder,
+          [ ("deployed" Data..=) Prelude.<$> deployed,
             ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("deployed" Data..=) Prelude.<$> deployed,
+            ("s3Bucket" Data..=) Prelude.<$> s3Bucket,
+            ("s3KeyPrefix" Data..=) Prelude.<$> s3KeyPrefix,
             ("sortBy" Data..=) Prelude.<$> sortBy,
+            ("sortOrder" Data..=) Prelude.<$> sortOrder,
             Prelude.Just
               ("applicationName" Data..= applicationName)
           ]

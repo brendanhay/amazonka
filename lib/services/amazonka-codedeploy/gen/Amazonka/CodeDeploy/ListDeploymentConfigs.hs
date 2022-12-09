@@ -37,8 +37,8 @@ module Amazonka.CodeDeploy.ListDeploymentConfigs
     newListDeploymentConfigsResponse,
 
     -- * Response Lenses
-    listDeploymentConfigsResponse_nextToken,
     listDeploymentConfigsResponse_deploymentConfigsList,
+    listDeploymentConfigsResponse_nextToken,
     listDeploymentConfigsResponse_httpStatus,
   )
 where
@@ -116,10 +116,10 @@ instance Core.AWSRequest ListDeploymentConfigs where
     Response.receiveJSON
       ( \s h x ->
           ListDeploymentConfigsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "deploymentConfigsList"
+            Prelude.<$> ( x Data..?> "deploymentConfigsList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -163,13 +163,13 @@ instance Data.ToQuery ListDeploymentConfigs where
 --
 -- /See:/ 'newListDeploymentConfigsResponse' smart constructor.
 data ListDeploymentConfigsResponse = ListDeploymentConfigsResponse'
-  { -- | If a large amount of information is returned, an identifier is also
+  { -- | A list of deployment configurations, including built-in configurations
+    -- such as @CodeDeployDefault.OneAtATime@.
+    deploymentConfigsList :: Prelude.Maybe [Prelude.Text],
+    -- | If a large amount of information is returned, an identifier is also
     -- returned. It can be used in a subsequent list deployment configurations
     -- call to return the next set of deployment configurations in the list.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of deployment configurations, including built-in configurations
-    -- such as @CodeDeployDefault.OneAtATime@.
-    deploymentConfigsList :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -183,12 +183,12 @@ data ListDeploymentConfigsResponse = ListDeploymentConfigsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'deploymentConfigsList', 'listDeploymentConfigsResponse_deploymentConfigsList' - A list of deployment configurations, including built-in configurations
+-- such as @CodeDeployDefault.OneAtATime@.
+--
 -- 'nextToken', 'listDeploymentConfigsResponse_nextToken' - If a large amount of information is returned, an identifier is also
 -- returned. It can be used in a subsequent list deployment configurations
 -- call to return the next set of deployment configurations in the list.
---
--- 'deploymentConfigsList', 'listDeploymentConfigsResponse_deploymentConfigsList' - A list of deployment configurations, including built-in configurations
--- such as @CodeDeployDefault.OneAtATime@.
 --
 -- 'httpStatus', 'listDeploymentConfigsResponse_httpStatus' - The response's http status code.
 newListDeploymentConfigsResponse ::
@@ -197,11 +197,16 @@ newListDeploymentConfigsResponse ::
   ListDeploymentConfigsResponse
 newListDeploymentConfigsResponse pHttpStatus_ =
   ListDeploymentConfigsResponse'
-    { nextToken =
+    { deploymentConfigsList =
         Prelude.Nothing,
-      deploymentConfigsList = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of deployment configurations, including built-in configurations
+-- such as @CodeDeployDefault.OneAtATime@.
+listDeploymentConfigsResponse_deploymentConfigsList :: Lens.Lens' ListDeploymentConfigsResponse (Prelude.Maybe [Prelude.Text])
+listDeploymentConfigsResponse_deploymentConfigsList = Lens.lens (\ListDeploymentConfigsResponse' {deploymentConfigsList} -> deploymentConfigsList) (\s@ListDeploymentConfigsResponse' {} a -> s {deploymentConfigsList = a} :: ListDeploymentConfigsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If a large amount of information is returned, an identifier is also
 -- returned. It can be used in a subsequent list deployment configurations
@@ -209,17 +214,12 @@ newListDeploymentConfigsResponse pHttpStatus_ =
 listDeploymentConfigsResponse_nextToken :: Lens.Lens' ListDeploymentConfigsResponse (Prelude.Maybe Prelude.Text)
 listDeploymentConfigsResponse_nextToken = Lens.lens (\ListDeploymentConfigsResponse' {nextToken} -> nextToken) (\s@ListDeploymentConfigsResponse' {} a -> s {nextToken = a} :: ListDeploymentConfigsResponse)
 
--- | A list of deployment configurations, including built-in configurations
--- such as @CodeDeployDefault.OneAtATime@.
-listDeploymentConfigsResponse_deploymentConfigsList :: Lens.Lens' ListDeploymentConfigsResponse (Prelude.Maybe [Prelude.Text])
-listDeploymentConfigsResponse_deploymentConfigsList = Lens.lens (\ListDeploymentConfigsResponse' {deploymentConfigsList} -> deploymentConfigsList) (\s@ListDeploymentConfigsResponse' {} a -> s {deploymentConfigsList = a} :: ListDeploymentConfigsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listDeploymentConfigsResponse_httpStatus :: Lens.Lens' ListDeploymentConfigsResponse Prelude.Int
 listDeploymentConfigsResponse_httpStatus = Lens.lens (\ListDeploymentConfigsResponse' {httpStatus} -> httpStatus) (\s@ListDeploymentConfigsResponse' {} a -> s {httpStatus = a} :: ListDeploymentConfigsResponse)
 
 instance Prelude.NFData ListDeploymentConfigsResponse where
   rnf ListDeploymentConfigsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf deploymentConfigsList
+    Prelude.rnf deploymentConfigsList
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

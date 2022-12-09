@@ -28,20 +28,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLambdaFunctionInfo' smart constructor.
 data LambdaFunctionInfo = LambdaFunctionInfo'
-  { -- | The percentage of production traffic that the target version of a Lambda
-    -- function receives.
-    targetVersionWeight :: Prelude.Maybe Prelude.Double,
+  { -- | The version of a Lambda function that production traffic points to.
+    currentVersion :: Prelude.Maybe Prelude.Text,
+    -- | The alias of a Lambda function. For more information, see
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html Lambda Function Aliases>
+    -- in the /Lambda Developer Guide/.
+    functionAlias :: Prelude.Maybe Prelude.Text,
     -- | The name of a Lambda function.
     functionName :: Prelude.Maybe Prelude.Text,
     -- | The version of a Lambda function that production traffic points to after
     -- the Lambda function is deployed.
     targetVersion :: Prelude.Maybe Prelude.Text,
-    -- | The version of a Lambda function that production traffic points to.
-    currentVersion :: Prelude.Maybe Prelude.Text,
-    -- | The alias of a Lambda function. For more information, see
-    -- <https://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html Lambda Function Aliases>
-    -- in the /Lambda Developer Guide/.
-    functionAlias :: Prelude.Maybe Prelude.Text
+    -- | The percentage of production traffic that the target version of a Lambda
+    -- function receives.
+    targetVersionWeight :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,44 +53,30 @@ data LambdaFunctionInfo = LambdaFunctionInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetVersionWeight', 'lambdaFunctionInfo_targetVersionWeight' - The percentage of production traffic that the target version of a Lambda
--- function receives.
+-- 'currentVersion', 'lambdaFunctionInfo_currentVersion' - The version of a Lambda function that production traffic points to.
+--
+-- 'functionAlias', 'lambdaFunctionInfo_functionAlias' - The alias of a Lambda function. For more information, see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html Lambda Function Aliases>
+-- in the /Lambda Developer Guide/.
 --
 -- 'functionName', 'lambdaFunctionInfo_functionName' - The name of a Lambda function.
 --
 -- 'targetVersion', 'lambdaFunctionInfo_targetVersion' - The version of a Lambda function that production traffic points to after
 -- the Lambda function is deployed.
 --
--- 'currentVersion', 'lambdaFunctionInfo_currentVersion' - The version of a Lambda function that production traffic points to.
---
--- 'functionAlias', 'lambdaFunctionInfo_functionAlias' - The alias of a Lambda function. For more information, see
--- <https://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html Lambda Function Aliases>
--- in the /Lambda Developer Guide/.
+-- 'targetVersionWeight', 'lambdaFunctionInfo_targetVersionWeight' - The percentage of production traffic that the target version of a Lambda
+-- function receives.
 newLambdaFunctionInfo ::
   LambdaFunctionInfo
 newLambdaFunctionInfo =
   LambdaFunctionInfo'
-    { targetVersionWeight =
+    { currentVersion =
         Prelude.Nothing,
+      functionAlias = Prelude.Nothing,
       functionName = Prelude.Nothing,
       targetVersion = Prelude.Nothing,
-      currentVersion = Prelude.Nothing,
-      functionAlias = Prelude.Nothing
+      targetVersionWeight = Prelude.Nothing
     }
-
--- | The percentage of production traffic that the target version of a Lambda
--- function receives.
-lambdaFunctionInfo_targetVersionWeight :: Lens.Lens' LambdaFunctionInfo (Prelude.Maybe Prelude.Double)
-lambdaFunctionInfo_targetVersionWeight = Lens.lens (\LambdaFunctionInfo' {targetVersionWeight} -> targetVersionWeight) (\s@LambdaFunctionInfo' {} a -> s {targetVersionWeight = a} :: LambdaFunctionInfo)
-
--- | The name of a Lambda function.
-lambdaFunctionInfo_functionName :: Lens.Lens' LambdaFunctionInfo (Prelude.Maybe Prelude.Text)
-lambdaFunctionInfo_functionName = Lens.lens (\LambdaFunctionInfo' {functionName} -> functionName) (\s@LambdaFunctionInfo' {} a -> s {functionName = a} :: LambdaFunctionInfo)
-
--- | The version of a Lambda function that production traffic points to after
--- the Lambda function is deployed.
-lambdaFunctionInfo_targetVersion :: Lens.Lens' LambdaFunctionInfo (Prelude.Maybe Prelude.Text)
-lambdaFunctionInfo_targetVersion = Lens.lens (\LambdaFunctionInfo' {targetVersion} -> targetVersion) (\s@LambdaFunctionInfo' {} a -> s {targetVersion = a} :: LambdaFunctionInfo)
 
 -- | The version of a Lambda function that production traffic points to.
 lambdaFunctionInfo_currentVersion :: Lens.Lens' LambdaFunctionInfo (Prelude.Maybe Prelude.Text)
@@ -102,31 +88,45 @@ lambdaFunctionInfo_currentVersion = Lens.lens (\LambdaFunctionInfo' {currentVers
 lambdaFunctionInfo_functionAlias :: Lens.Lens' LambdaFunctionInfo (Prelude.Maybe Prelude.Text)
 lambdaFunctionInfo_functionAlias = Lens.lens (\LambdaFunctionInfo' {functionAlias} -> functionAlias) (\s@LambdaFunctionInfo' {} a -> s {functionAlias = a} :: LambdaFunctionInfo)
 
+-- | The name of a Lambda function.
+lambdaFunctionInfo_functionName :: Lens.Lens' LambdaFunctionInfo (Prelude.Maybe Prelude.Text)
+lambdaFunctionInfo_functionName = Lens.lens (\LambdaFunctionInfo' {functionName} -> functionName) (\s@LambdaFunctionInfo' {} a -> s {functionName = a} :: LambdaFunctionInfo)
+
+-- | The version of a Lambda function that production traffic points to after
+-- the Lambda function is deployed.
+lambdaFunctionInfo_targetVersion :: Lens.Lens' LambdaFunctionInfo (Prelude.Maybe Prelude.Text)
+lambdaFunctionInfo_targetVersion = Lens.lens (\LambdaFunctionInfo' {targetVersion} -> targetVersion) (\s@LambdaFunctionInfo' {} a -> s {targetVersion = a} :: LambdaFunctionInfo)
+
+-- | The percentage of production traffic that the target version of a Lambda
+-- function receives.
+lambdaFunctionInfo_targetVersionWeight :: Lens.Lens' LambdaFunctionInfo (Prelude.Maybe Prelude.Double)
+lambdaFunctionInfo_targetVersionWeight = Lens.lens (\LambdaFunctionInfo' {targetVersionWeight} -> targetVersionWeight) (\s@LambdaFunctionInfo' {} a -> s {targetVersionWeight = a} :: LambdaFunctionInfo)
+
 instance Data.FromJSON LambdaFunctionInfo where
   parseJSON =
     Data.withObject
       "LambdaFunctionInfo"
       ( \x ->
           LambdaFunctionInfo'
-            Prelude.<$> (x Data..:? "targetVersionWeight")
+            Prelude.<$> (x Data..:? "currentVersion")
+            Prelude.<*> (x Data..:? "functionAlias")
             Prelude.<*> (x Data..:? "functionName")
             Prelude.<*> (x Data..:? "targetVersion")
-            Prelude.<*> (x Data..:? "currentVersion")
-            Prelude.<*> (x Data..:? "functionAlias")
+            Prelude.<*> (x Data..:? "targetVersionWeight")
       )
 
 instance Prelude.Hashable LambdaFunctionInfo where
   hashWithSalt _salt LambdaFunctionInfo' {..} =
-    _salt `Prelude.hashWithSalt` targetVersionWeight
+    _salt `Prelude.hashWithSalt` currentVersion
+      `Prelude.hashWithSalt` functionAlias
       `Prelude.hashWithSalt` functionName
       `Prelude.hashWithSalt` targetVersion
-      `Prelude.hashWithSalt` currentVersion
-      `Prelude.hashWithSalt` functionAlias
+      `Prelude.hashWithSalt` targetVersionWeight
 
 instance Prelude.NFData LambdaFunctionInfo where
   rnf LambdaFunctionInfo' {..} =
-    Prelude.rnf targetVersionWeight
+    Prelude.rnf currentVersion
+      `Prelude.seq` Prelude.rnf functionAlias
       `Prelude.seq` Prelude.rnf functionName
       `Prelude.seq` Prelude.rnf targetVersion
-      `Prelude.seq` Prelude.rnf currentVersion
-      `Prelude.seq` Prelude.rnf functionAlias
+      `Prelude.seq` Prelude.rnf targetVersionWeight

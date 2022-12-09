@@ -27,8 +27,8 @@ module Amazonka.CodeDeploy.UpdateApplication
     newUpdateApplication,
 
     -- * Request Lenses
-    updateApplication_newApplicationName,
     updateApplication_applicationName,
+    updateApplication_newApplicationName,
 
     -- * Destructuring the Response
     UpdateApplicationResponse (..),
@@ -48,10 +48,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUpdateApplication' smart constructor.
 data UpdateApplication = UpdateApplication'
-  { -- | The new name to give the application.
-    newApplicationName' :: Prelude.Maybe Prelude.Text,
-    -- | The current name of the application you want to change.
-    applicationName :: Prelude.Maybe Prelude.Text
+  { -- | The current name of the application you want to change.
+    applicationName :: Prelude.Maybe Prelude.Text,
+    -- | The new name to give the application.
+    newApplicationName' :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,25 +63,25 @@ data UpdateApplication = UpdateApplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'newApplicationName'', 'updateApplication_newApplicationName' - The new name to give the application.
---
 -- 'applicationName', 'updateApplication_applicationName' - The current name of the application you want to change.
+--
+-- 'newApplicationName'', 'updateApplication_newApplicationName' - The new name to give the application.
 newUpdateApplication ::
   UpdateApplication
 newUpdateApplication =
   UpdateApplication'
-    { newApplicationName' =
+    { applicationName =
         Prelude.Nothing,
-      applicationName = Prelude.Nothing
+      newApplicationName' = Prelude.Nothing
     }
-
--- | The new name to give the application.
-updateApplication_newApplicationName :: Lens.Lens' UpdateApplication (Prelude.Maybe Prelude.Text)
-updateApplication_newApplicationName = Lens.lens (\UpdateApplication' {newApplicationName'} -> newApplicationName') (\s@UpdateApplication' {} a -> s {newApplicationName' = a} :: UpdateApplication)
 
 -- | The current name of the application you want to change.
 updateApplication_applicationName :: Lens.Lens' UpdateApplication (Prelude.Maybe Prelude.Text)
 updateApplication_applicationName = Lens.lens (\UpdateApplication' {applicationName} -> applicationName) (\s@UpdateApplication' {} a -> s {applicationName = a} :: UpdateApplication)
+
+-- | The new name to give the application.
+updateApplication_newApplicationName :: Lens.Lens' UpdateApplication (Prelude.Maybe Prelude.Text)
+updateApplication_newApplicationName = Lens.lens (\UpdateApplication' {newApplicationName'} -> newApplicationName') (\s@UpdateApplication' {} a -> s {newApplicationName' = a} :: UpdateApplication)
 
 instance Core.AWSRequest UpdateApplication where
   type
@@ -94,13 +94,13 @@ instance Core.AWSRequest UpdateApplication where
 
 instance Prelude.Hashable UpdateApplication where
   hashWithSalt _salt UpdateApplication' {..} =
-    _salt `Prelude.hashWithSalt` newApplicationName'
-      `Prelude.hashWithSalt` applicationName
+    _salt `Prelude.hashWithSalt` applicationName
+      `Prelude.hashWithSalt` newApplicationName'
 
 instance Prelude.NFData UpdateApplication where
   rnf UpdateApplication' {..} =
-    Prelude.rnf newApplicationName'
-      `Prelude.seq` Prelude.rnf applicationName
+    Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf newApplicationName'
 
 instance Data.ToHeaders UpdateApplication where
   toHeaders =
@@ -121,10 +121,10 @@ instance Data.ToJSON UpdateApplication where
   toJSON UpdateApplication' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("newApplicationName" Data..=)
-              Prelude.<$> newApplicationName',
-            ("applicationName" Data..=)
-              Prelude.<$> applicationName
+          [ ("applicationName" Data..=)
+              Prelude.<$> applicationName,
+            ("newApplicationName" Data..=)
+              Prelude.<$> newApplicationName'
           ]
       )
 

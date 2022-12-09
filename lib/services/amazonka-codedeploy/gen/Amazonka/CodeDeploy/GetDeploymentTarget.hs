@@ -27,8 +27,8 @@ module Amazonka.CodeDeploy.GetDeploymentTarget
     newGetDeploymentTarget,
 
     -- * Request Lenses
-    getDeploymentTarget_targetId,
     getDeploymentTarget_deploymentId,
+    getDeploymentTarget_targetId,
 
     -- * Destructuring the Response
     GetDeploymentTargetResponse (..),
@@ -50,10 +50,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetDeploymentTarget' smart constructor.
 data GetDeploymentTarget = GetDeploymentTarget'
-  { -- | The unique ID of a deployment target.
-    targetId :: Prelude.Maybe Prelude.Text,
-    -- | The unique ID of a deployment.
-    deploymentId :: Prelude.Maybe Prelude.Text
+  { -- | The unique ID of a deployment.
+    deploymentId :: Prelude.Maybe Prelude.Text,
+    -- | The unique ID of a deployment target.
+    targetId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,24 +65,25 @@ data GetDeploymentTarget = GetDeploymentTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetId', 'getDeploymentTarget_targetId' - The unique ID of a deployment target.
---
 -- 'deploymentId', 'getDeploymentTarget_deploymentId' - The unique ID of a deployment.
+--
+-- 'targetId', 'getDeploymentTarget_targetId' - The unique ID of a deployment target.
 newGetDeploymentTarget ::
   GetDeploymentTarget
 newGetDeploymentTarget =
   GetDeploymentTarget'
-    { targetId = Prelude.Nothing,
-      deploymentId = Prelude.Nothing
+    { deploymentId =
+        Prelude.Nothing,
+      targetId = Prelude.Nothing
     }
-
--- | The unique ID of a deployment target.
-getDeploymentTarget_targetId :: Lens.Lens' GetDeploymentTarget (Prelude.Maybe Prelude.Text)
-getDeploymentTarget_targetId = Lens.lens (\GetDeploymentTarget' {targetId} -> targetId) (\s@GetDeploymentTarget' {} a -> s {targetId = a} :: GetDeploymentTarget)
 
 -- | The unique ID of a deployment.
 getDeploymentTarget_deploymentId :: Lens.Lens' GetDeploymentTarget (Prelude.Maybe Prelude.Text)
 getDeploymentTarget_deploymentId = Lens.lens (\GetDeploymentTarget' {deploymentId} -> deploymentId) (\s@GetDeploymentTarget' {} a -> s {deploymentId = a} :: GetDeploymentTarget)
+
+-- | The unique ID of a deployment target.
+getDeploymentTarget_targetId :: Lens.Lens' GetDeploymentTarget (Prelude.Maybe Prelude.Text)
+getDeploymentTarget_targetId = Lens.lens (\GetDeploymentTarget' {targetId} -> targetId) (\s@GetDeploymentTarget' {} a -> s {targetId = a} :: GetDeploymentTarget)
 
 instance Core.AWSRequest GetDeploymentTarget where
   type
@@ -100,13 +101,13 @@ instance Core.AWSRequest GetDeploymentTarget where
 
 instance Prelude.Hashable GetDeploymentTarget where
   hashWithSalt _salt GetDeploymentTarget' {..} =
-    _salt `Prelude.hashWithSalt` targetId
-      `Prelude.hashWithSalt` deploymentId
+    _salt `Prelude.hashWithSalt` deploymentId
+      `Prelude.hashWithSalt` targetId
 
 instance Prelude.NFData GetDeploymentTarget where
   rnf GetDeploymentTarget' {..} =
-    Prelude.rnf targetId
-      `Prelude.seq` Prelude.rnf deploymentId
+    Prelude.rnf deploymentId
+      `Prelude.seq` Prelude.rnf targetId
 
 instance Data.ToHeaders GetDeploymentTarget where
   toHeaders =
@@ -127,8 +128,8 @@ instance Data.ToJSON GetDeploymentTarget where
   toJSON GetDeploymentTarget' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("targetId" Data..=) Prelude.<$> targetId,
-            ("deploymentId" Data..=) Prelude.<$> deploymentId
+          [ ("deploymentId" Data..=) Prelude.<$> deploymentId,
+            ("targetId" Data..=) Prelude.<$> targetId
           ]
       )
 

@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRollbackInfo' smart constructor.
 data RollbackInfo = RollbackInfo'
-  { -- | Information that describes the status of a deployment rollback (for
+  { -- | The ID of the deployment rollback.
+    rollbackDeploymentId :: Prelude.Maybe Prelude.Text,
+    -- | Information that describes the status of a deployment rollback (for
     -- example, whether the deployment can\'t be rolled back, is in progress,
     -- failed, or succeeded).
     rollbackMessage :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the deployment rollback.
-    rollbackDeploymentId :: Prelude.Maybe Prelude.Text,
     -- | The deployment ID of the deployment that was underway and triggered a
     -- rollback deployment because it failed or was stopped.
     rollbackTriggeringDeploymentId :: Prelude.Maybe Prelude.Text
@@ -48,11 +48,11 @@ data RollbackInfo = RollbackInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'rollbackDeploymentId', 'rollbackInfo_rollbackDeploymentId' - The ID of the deployment rollback.
+--
 -- 'rollbackMessage', 'rollbackInfo_rollbackMessage' - Information that describes the status of a deployment rollback (for
 -- example, whether the deployment can\'t be rolled back, is in progress,
 -- failed, or succeeded).
---
--- 'rollbackDeploymentId', 'rollbackInfo_rollbackDeploymentId' - The ID of the deployment rollback.
 --
 -- 'rollbackTriggeringDeploymentId', 'rollbackInfo_rollbackTriggeringDeploymentId' - The deployment ID of the deployment that was underway and triggered a
 -- rollback deployment because it failed or was stopped.
@@ -60,20 +60,21 @@ newRollbackInfo ::
   RollbackInfo
 newRollbackInfo =
   RollbackInfo'
-    { rollbackMessage = Prelude.Nothing,
-      rollbackDeploymentId = Prelude.Nothing,
+    { rollbackDeploymentId =
+        Prelude.Nothing,
+      rollbackMessage = Prelude.Nothing,
       rollbackTriggeringDeploymentId = Prelude.Nothing
     }
+
+-- | The ID of the deployment rollback.
+rollbackInfo_rollbackDeploymentId :: Lens.Lens' RollbackInfo (Prelude.Maybe Prelude.Text)
+rollbackInfo_rollbackDeploymentId = Lens.lens (\RollbackInfo' {rollbackDeploymentId} -> rollbackDeploymentId) (\s@RollbackInfo' {} a -> s {rollbackDeploymentId = a} :: RollbackInfo)
 
 -- | Information that describes the status of a deployment rollback (for
 -- example, whether the deployment can\'t be rolled back, is in progress,
 -- failed, or succeeded).
 rollbackInfo_rollbackMessage :: Lens.Lens' RollbackInfo (Prelude.Maybe Prelude.Text)
 rollbackInfo_rollbackMessage = Lens.lens (\RollbackInfo' {rollbackMessage} -> rollbackMessage) (\s@RollbackInfo' {} a -> s {rollbackMessage = a} :: RollbackInfo)
-
--- | The ID of the deployment rollback.
-rollbackInfo_rollbackDeploymentId :: Lens.Lens' RollbackInfo (Prelude.Maybe Prelude.Text)
-rollbackInfo_rollbackDeploymentId = Lens.lens (\RollbackInfo' {rollbackDeploymentId} -> rollbackDeploymentId) (\s@RollbackInfo' {} a -> s {rollbackDeploymentId = a} :: RollbackInfo)
 
 -- | The deployment ID of the deployment that was underway and triggered a
 -- rollback deployment because it failed or was stopped.
@@ -86,19 +87,19 @@ instance Data.FromJSON RollbackInfo where
       "RollbackInfo"
       ( \x ->
           RollbackInfo'
-            Prelude.<$> (x Data..:? "rollbackMessage")
-            Prelude.<*> (x Data..:? "rollbackDeploymentId")
+            Prelude.<$> (x Data..:? "rollbackDeploymentId")
+            Prelude.<*> (x Data..:? "rollbackMessage")
             Prelude.<*> (x Data..:? "rollbackTriggeringDeploymentId")
       )
 
 instance Prelude.Hashable RollbackInfo where
   hashWithSalt _salt RollbackInfo' {..} =
-    _salt `Prelude.hashWithSalt` rollbackMessage
-      `Prelude.hashWithSalt` rollbackDeploymentId
+    _salt `Prelude.hashWithSalt` rollbackDeploymentId
+      `Prelude.hashWithSalt` rollbackMessage
       `Prelude.hashWithSalt` rollbackTriggeringDeploymentId
 
 instance Prelude.NFData RollbackInfo where
   rnf RollbackInfo' {..} =
-    Prelude.rnf rollbackMessage
-      `Prelude.seq` Prelude.rnf rollbackDeploymentId
+    Prelude.rnf rollbackDeploymentId
+      `Prelude.seq` Prelude.rnf rollbackMessage
       `Prelude.seq` Prelude.rnf rollbackTriggeringDeploymentId

@@ -32,10 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLoadBalancerInfo' smart constructor.
 data LoadBalancerInfo = LoadBalancerInfo'
-  { -- | The target group pair information. This is an array of
-    -- @TargeGroupPairInfo@ objects with a maximum size of one.
-    targetGroupPairInfoList :: Prelude.Maybe [TargetGroupPairInfo],
-    -- | An array that contains information about the load balancer to use for
+  { -- | An array that contains information about the load balancer to use for
     -- load balancing in a deployment. In Elastic Load Balancing, load
     -- balancers are used with Classic Load Balancers.
     --
@@ -46,7 +43,10 @@ data LoadBalancerInfo = LoadBalancerInfo'
     -- are used with Application Load Balancers.
     --
     -- Adding more than one target group to the array is not supported.
-    targetGroupInfoList :: Prelude.Maybe [TargetGroupInfo]
+    targetGroupInfoList :: Prelude.Maybe [TargetGroupInfo],
+    -- | The target group pair information. This is an array of
+    -- @TargeGroupPairInfo@ objects with a maximum size of one.
+    targetGroupPairInfoList :: Prelude.Maybe [TargetGroupPairInfo]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,9 +57,6 @@ data LoadBalancerInfo = LoadBalancerInfo'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'targetGroupPairInfoList', 'loadBalancerInfo_targetGroupPairInfoList' - The target group pair information. This is an array of
--- @TargeGroupPairInfo@ objects with a maximum size of one.
 --
 -- 'elbInfoList', 'loadBalancerInfo_elbInfoList' - An array that contains information about the load balancer to use for
 -- load balancing in a deployment. In Elastic Load Balancing, load
@@ -72,20 +69,17 @@ data LoadBalancerInfo = LoadBalancerInfo'
 -- are used with Application Load Balancers.
 --
 -- Adding more than one target group to the array is not supported.
+--
+-- 'targetGroupPairInfoList', 'loadBalancerInfo_targetGroupPairInfoList' - The target group pair information. This is an array of
+-- @TargeGroupPairInfo@ objects with a maximum size of one.
 newLoadBalancerInfo ::
   LoadBalancerInfo
 newLoadBalancerInfo =
   LoadBalancerInfo'
-    { targetGroupPairInfoList =
-        Prelude.Nothing,
-      elbInfoList = Prelude.Nothing,
-      targetGroupInfoList = Prelude.Nothing
+    { elbInfoList = Prelude.Nothing,
+      targetGroupInfoList = Prelude.Nothing,
+      targetGroupPairInfoList = Prelude.Nothing
     }
-
--- | The target group pair information. This is an array of
--- @TargeGroupPairInfo@ objects with a maximum size of one.
-loadBalancerInfo_targetGroupPairInfoList :: Lens.Lens' LoadBalancerInfo (Prelude.Maybe [TargetGroupPairInfo])
-loadBalancerInfo_targetGroupPairInfoList = Lens.lens (\LoadBalancerInfo' {targetGroupPairInfoList} -> targetGroupPairInfoList) (\s@LoadBalancerInfo' {} a -> s {targetGroupPairInfoList = a} :: LoadBalancerInfo) Prelude.. Lens.mapping Lens.coerced
 
 -- | An array that contains information about the load balancer to use for
 -- load balancing in a deployment. In Elastic Load Balancing, load
@@ -103,42 +97,46 @@ loadBalancerInfo_elbInfoList = Lens.lens (\LoadBalancerInfo' {elbInfoList} -> el
 loadBalancerInfo_targetGroupInfoList :: Lens.Lens' LoadBalancerInfo (Prelude.Maybe [TargetGroupInfo])
 loadBalancerInfo_targetGroupInfoList = Lens.lens (\LoadBalancerInfo' {targetGroupInfoList} -> targetGroupInfoList) (\s@LoadBalancerInfo' {} a -> s {targetGroupInfoList = a} :: LoadBalancerInfo) Prelude.. Lens.mapping Lens.coerced
 
+-- | The target group pair information. This is an array of
+-- @TargeGroupPairInfo@ objects with a maximum size of one.
+loadBalancerInfo_targetGroupPairInfoList :: Lens.Lens' LoadBalancerInfo (Prelude.Maybe [TargetGroupPairInfo])
+loadBalancerInfo_targetGroupPairInfoList = Lens.lens (\LoadBalancerInfo' {targetGroupPairInfoList} -> targetGroupPairInfoList) (\s@LoadBalancerInfo' {} a -> s {targetGroupPairInfoList = a} :: LoadBalancerInfo) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON LoadBalancerInfo where
   parseJSON =
     Data.withObject
       "LoadBalancerInfo"
       ( \x ->
           LoadBalancerInfo'
-            Prelude.<$> ( x Data..:? "targetGroupPairInfoList"
+            Prelude.<$> (x Data..:? "elbInfoList" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "targetGroupInfoList"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "elbInfoList" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "targetGroupInfoList"
+            Prelude.<*> ( x Data..:? "targetGroupPairInfoList"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable LoadBalancerInfo where
   hashWithSalt _salt LoadBalancerInfo' {..} =
-    _salt
-      `Prelude.hashWithSalt` targetGroupPairInfoList
-      `Prelude.hashWithSalt` elbInfoList
+    _salt `Prelude.hashWithSalt` elbInfoList
       `Prelude.hashWithSalt` targetGroupInfoList
+      `Prelude.hashWithSalt` targetGroupPairInfoList
 
 instance Prelude.NFData LoadBalancerInfo where
   rnf LoadBalancerInfo' {..} =
-    Prelude.rnf targetGroupPairInfoList
-      `Prelude.seq` Prelude.rnf elbInfoList
+    Prelude.rnf elbInfoList
       `Prelude.seq` Prelude.rnf targetGroupInfoList
+      `Prelude.seq` Prelude.rnf targetGroupPairInfoList
 
 instance Data.ToJSON LoadBalancerInfo where
   toJSON LoadBalancerInfo' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("targetGroupPairInfoList" Data..=)
-              Prelude.<$> targetGroupPairInfoList,
-            ("elbInfoList" Data..=) Prelude.<$> elbInfoList,
+          [ ("elbInfoList" Data..=) Prelude.<$> elbInfoList,
             ("targetGroupInfoList" Data..=)
-              Prelude.<$> targetGroupInfoList
+              Prelude.<$> targetGroupInfoList,
+            ("targetGroupPairInfoList" Data..=)
+              Prelude.<$> targetGroupPairInfoList
           ]
       )

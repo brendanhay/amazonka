@@ -32,21 +32,21 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLambdaTarget' smart constructor.
 data LambdaTarget = LambdaTarget'
-  { -- | The unique ID of a deployment target that has a type of @lambdaTarget@.
-    targetId :: Prelude.Maybe Prelude.Text,
-    -- | The lifecycle events of the deployment to this target Lambda function.
-    lifecycleEvents :: Prelude.Maybe [LifecycleEvent],
+  { -- | The unique ID of a deployment.
+    deploymentId :: Prelude.Maybe Prelude.Text,
     -- | A @LambdaFunctionInfo@ object that describes a target Lambda function.
     lambdaFunctionInfo :: Prelude.Maybe LambdaFunctionInfo,
     -- | The date and time when the target Lambda function was updated by a
     -- deployment.
     lastUpdatedAt :: Prelude.Maybe Data.POSIX,
-    -- | The unique ID of a deployment.
-    deploymentId :: Prelude.Maybe Prelude.Text,
+    -- | The lifecycle events of the deployment to this target Lambda function.
+    lifecycleEvents :: Prelude.Maybe [LifecycleEvent],
+    -- | The status an Lambda deployment\'s target Lambda function.
+    status :: Prelude.Maybe TargetStatus,
     -- | The Amazon Resource Name (ARN) of the target.
     targetArn :: Prelude.Maybe Prelude.Text,
-    -- | The status an Lambda deployment\'s target Lambda function.
-    status :: Prelude.Maybe TargetStatus
+    -- | The unique ID of a deployment target that has a type of @lambdaTarget@.
+    targetId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,40 +58,36 @@ data LambdaTarget = LambdaTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetId', 'lambdaTarget_targetId' - The unique ID of a deployment target that has a type of @lambdaTarget@.
---
--- 'lifecycleEvents', 'lambdaTarget_lifecycleEvents' - The lifecycle events of the deployment to this target Lambda function.
+-- 'deploymentId', 'lambdaTarget_deploymentId' - The unique ID of a deployment.
 --
 -- 'lambdaFunctionInfo', 'lambdaTarget_lambdaFunctionInfo' - A @LambdaFunctionInfo@ object that describes a target Lambda function.
 --
 -- 'lastUpdatedAt', 'lambdaTarget_lastUpdatedAt' - The date and time when the target Lambda function was updated by a
 -- deployment.
 --
--- 'deploymentId', 'lambdaTarget_deploymentId' - The unique ID of a deployment.
+-- 'lifecycleEvents', 'lambdaTarget_lifecycleEvents' - The lifecycle events of the deployment to this target Lambda function.
+--
+-- 'status', 'lambdaTarget_status' - The status an Lambda deployment\'s target Lambda function.
 --
 -- 'targetArn', 'lambdaTarget_targetArn' - The Amazon Resource Name (ARN) of the target.
 --
--- 'status', 'lambdaTarget_status' - The status an Lambda deployment\'s target Lambda function.
+-- 'targetId', 'lambdaTarget_targetId' - The unique ID of a deployment target that has a type of @lambdaTarget@.
 newLambdaTarget ::
   LambdaTarget
 newLambdaTarget =
   LambdaTarget'
-    { targetId = Prelude.Nothing,
-      lifecycleEvents = Prelude.Nothing,
+    { deploymentId = Prelude.Nothing,
       lambdaFunctionInfo = Prelude.Nothing,
       lastUpdatedAt = Prelude.Nothing,
-      deploymentId = Prelude.Nothing,
+      lifecycleEvents = Prelude.Nothing,
+      status = Prelude.Nothing,
       targetArn = Prelude.Nothing,
-      status = Prelude.Nothing
+      targetId = Prelude.Nothing
     }
 
--- | The unique ID of a deployment target that has a type of @lambdaTarget@.
-lambdaTarget_targetId :: Lens.Lens' LambdaTarget (Prelude.Maybe Prelude.Text)
-lambdaTarget_targetId = Lens.lens (\LambdaTarget' {targetId} -> targetId) (\s@LambdaTarget' {} a -> s {targetId = a} :: LambdaTarget)
-
--- | The lifecycle events of the deployment to this target Lambda function.
-lambdaTarget_lifecycleEvents :: Lens.Lens' LambdaTarget (Prelude.Maybe [LifecycleEvent])
-lambdaTarget_lifecycleEvents = Lens.lens (\LambdaTarget' {lifecycleEvents} -> lifecycleEvents) (\s@LambdaTarget' {} a -> s {lifecycleEvents = a} :: LambdaTarget) Prelude.. Lens.mapping Lens.coerced
+-- | The unique ID of a deployment.
+lambdaTarget_deploymentId :: Lens.Lens' LambdaTarget (Prelude.Maybe Prelude.Text)
+lambdaTarget_deploymentId = Lens.lens (\LambdaTarget' {deploymentId} -> deploymentId) (\s@LambdaTarget' {} a -> s {deploymentId = a} :: LambdaTarget)
 
 -- | A @LambdaFunctionInfo@ object that describes a target Lambda function.
 lambdaTarget_lambdaFunctionInfo :: Lens.Lens' LambdaTarget (Prelude.Maybe LambdaFunctionInfo)
@@ -102,17 +98,21 @@ lambdaTarget_lambdaFunctionInfo = Lens.lens (\LambdaTarget' {lambdaFunctionInfo}
 lambdaTarget_lastUpdatedAt :: Lens.Lens' LambdaTarget (Prelude.Maybe Prelude.UTCTime)
 lambdaTarget_lastUpdatedAt = Lens.lens (\LambdaTarget' {lastUpdatedAt} -> lastUpdatedAt) (\s@LambdaTarget' {} a -> s {lastUpdatedAt = a} :: LambdaTarget) Prelude.. Lens.mapping Data._Time
 
--- | The unique ID of a deployment.
-lambdaTarget_deploymentId :: Lens.Lens' LambdaTarget (Prelude.Maybe Prelude.Text)
-lambdaTarget_deploymentId = Lens.lens (\LambdaTarget' {deploymentId} -> deploymentId) (\s@LambdaTarget' {} a -> s {deploymentId = a} :: LambdaTarget)
+-- | The lifecycle events of the deployment to this target Lambda function.
+lambdaTarget_lifecycleEvents :: Lens.Lens' LambdaTarget (Prelude.Maybe [LifecycleEvent])
+lambdaTarget_lifecycleEvents = Lens.lens (\LambdaTarget' {lifecycleEvents} -> lifecycleEvents) (\s@LambdaTarget' {} a -> s {lifecycleEvents = a} :: LambdaTarget) Prelude.. Lens.mapping Lens.coerced
+
+-- | The status an Lambda deployment\'s target Lambda function.
+lambdaTarget_status :: Lens.Lens' LambdaTarget (Prelude.Maybe TargetStatus)
+lambdaTarget_status = Lens.lens (\LambdaTarget' {status} -> status) (\s@LambdaTarget' {} a -> s {status = a} :: LambdaTarget)
 
 -- | The Amazon Resource Name (ARN) of the target.
 lambdaTarget_targetArn :: Lens.Lens' LambdaTarget (Prelude.Maybe Prelude.Text)
 lambdaTarget_targetArn = Lens.lens (\LambdaTarget' {targetArn} -> targetArn) (\s@LambdaTarget' {} a -> s {targetArn = a} :: LambdaTarget)
 
--- | The status an Lambda deployment\'s target Lambda function.
-lambdaTarget_status :: Lens.Lens' LambdaTarget (Prelude.Maybe TargetStatus)
-lambdaTarget_status = Lens.lens (\LambdaTarget' {status} -> status) (\s@LambdaTarget' {} a -> s {status = a} :: LambdaTarget)
+-- | The unique ID of a deployment target that has a type of @lambdaTarget@.
+lambdaTarget_targetId :: Lens.Lens' LambdaTarget (Prelude.Maybe Prelude.Text)
+lambdaTarget_targetId = Lens.lens (\LambdaTarget' {targetId} -> targetId) (\s@LambdaTarget' {} a -> s {targetId = a} :: LambdaTarget)
 
 instance Data.FromJSON LambdaTarget where
   parseJSON =
@@ -120,33 +120,33 @@ instance Data.FromJSON LambdaTarget where
       "LambdaTarget"
       ( \x ->
           LambdaTarget'
-            Prelude.<$> (x Data..:? "targetId")
+            Prelude.<$> (x Data..:? "deploymentId")
+            Prelude.<*> (x Data..:? "lambdaFunctionInfo")
+            Prelude.<*> (x Data..:? "lastUpdatedAt")
             Prelude.<*> ( x Data..:? "lifecycleEvents"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "lambdaFunctionInfo")
-            Prelude.<*> (x Data..:? "lastUpdatedAt")
-            Prelude.<*> (x Data..:? "deploymentId")
-            Prelude.<*> (x Data..:? "targetArn")
             Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "targetArn")
+            Prelude.<*> (x Data..:? "targetId")
       )
 
 instance Prelude.Hashable LambdaTarget where
   hashWithSalt _salt LambdaTarget' {..} =
-    _salt `Prelude.hashWithSalt` targetId
-      `Prelude.hashWithSalt` lifecycleEvents
+    _salt `Prelude.hashWithSalt` deploymentId
       `Prelude.hashWithSalt` lambdaFunctionInfo
       `Prelude.hashWithSalt` lastUpdatedAt
-      `Prelude.hashWithSalt` deploymentId
-      `Prelude.hashWithSalt` targetArn
+      `Prelude.hashWithSalt` lifecycleEvents
       `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` targetArn
+      `Prelude.hashWithSalt` targetId
 
 instance Prelude.NFData LambdaTarget where
   rnf LambdaTarget' {..} =
-    Prelude.rnf targetId
-      `Prelude.seq` Prelude.rnf lifecycleEvents
+    Prelude.rnf deploymentId
       `Prelude.seq` Prelude.rnf lambdaFunctionInfo
       `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf deploymentId
-      `Prelude.seq` Prelude.rnf targetArn
+      `Prelude.seq` Prelude.rnf lifecycleEvents
       `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf targetArn
+      `Prelude.seq` Prelude.rnf targetId

@@ -27,9 +27,9 @@ module Amazonka.NetworkFirewall.DescribeRuleGroup
     newDescribeRuleGroup,
 
     -- * Request Lenses
+    describeRuleGroup_ruleGroupArn,
     describeRuleGroup_ruleGroupName,
     describeRuleGroup_type,
-    describeRuleGroup_ruleGroupArn,
 
     -- * Destructuring the Response
     DescribeRuleGroupResponse (..),
@@ -53,7 +53,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeRuleGroup' smart constructor.
 data DescribeRuleGroup = DescribeRuleGroup'
-  { -- | The descriptive name of the rule group. You can\'t change the name of a
+  { -- | The Amazon Resource Name (ARN) of the rule group.
+    --
+    -- You must specify the ARN or the name, and you can specify both.
+    ruleGroupArn :: Prelude.Maybe Prelude.Text,
+    -- | The descriptive name of the rule group. You can\'t change the name of a
     -- rule group after you create it.
     --
     -- You must specify the ARN or the name, and you can specify both.
@@ -64,11 +68,7 @@ data DescribeRuleGroup = DescribeRuleGroup'
     --
     -- This setting is required for requests that do not include the
     -- @RuleGroupARN@.
-    type' :: Prelude.Maybe RuleGroupType,
-    -- | The Amazon Resource Name (ARN) of the rule group.
-    --
-    -- You must specify the ARN or the name, and you can specify both.
-    ruleGroupArn :: Prelude.Maybe Prelude.Text
+    type' :: Prelude.Maybe RuleGroupType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,6 +79,10 @@ data DescribeRuleGroup = DescribeRuleGroup'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'ruleGroupArn', 'describeRuleGroup_ruleGroupArn' - The Amazon Resource Name (ARN) of the rule group.
+--
+-- You must specify the ARN or the name, and you can specify both.
 --
 -- 'ruleGroupName', 'describeRuleGroup_ruleGroupName' - The descriptive name of the rule group. You can\'t change the name of a
 -- rule group after you create it.
@@ -91,18 +95,20 @@ data DescribeRuleGroup = DescribeRuleGroup'
 --
 -- This setting is required for requests that do not include the
 -- @RuleGroupARN@.
---
--- 'ruleGroupArn', 'describeRuleGroup_ruleGroupArn' - The Amazon Resource Name (ARN) of the rule group.
---
--- You must specify the ARN or the name, and you can specify both.
 newDescribeRuleGroup ::
   DescribeRuleGroup
 newDescribeRuleGroup =
   DescribeRuleGroup'
-    { ruleGroupName = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      ruleGroupArn = Prelude.Nothing
+    { ruleGroupArn = Prelude.Nothing,
+      ruleGroupName = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the rule group.
+--
+-- You must specify the ARN or the name, and you can specify both.
+describeRuleGroup_ruleGroupArn :: Lens.Lens' DescribeRuleGroup (Prelude.Maybe Prelude.Text)
+describeRuleGroup_ruleGroupArn = Lens.lens (\DescribeRuleGroup' {ruleGroupArn} -> ruleGroupArn) (\s@DescribeRuleGroup' {} a -> s {ruleGroupArn = a} :: DescribeRuleGroup)
 
 -- | The descriptive name of the rule group. You can\'t change the name of a
 -- rule group after you create it.
@@ -119,12 +125,6 @@ describeRuleGroup_ruleGroupName = Lens.lens (\DescribeRuleGroup' {ruleGroupName}
 -- @RuleGroupARN@.
 describeRuleGroup_type :: Lens.Lens' DescribeRuleGroup (Prelude.Maybe RuleGroupType)
 describeRuleGroup_type = Lens.lens (\DescribeRuleGroup' {type'} -> type') (\s@DescribeRuleGroup' {} a -> s {type' = a} :: DescribeRuleGroup)
-
--- | The Amazon Resource Name (ARN) of the rule group.
---
--- You must specify the ARN or the name, and you can specify both.
-describeRuleGroup_ruleGroupArn :: Lens.Lens' DescribeRuleGroup (Prelude.Maybe Prelude.Text)
-describeRuleGroup_ruleGroupArn = Lens.lens (\DescribeRuleGroup' {ruleGroupArn} -> ruleGroupArn) (\s@DescribeRuleGroup' {} a -> s {ruleGroupArn = a} :: DescribeRuleGroup)
 
 instance Core.AWSRequest DescribeRuleGroup where
   type
@@ -144,15 +144,15 @@ instance Core.AWSRequest DescribeRuleGroup where
 
 instance Prelude.Hashable DescribeRuleGroup where
   hashWithSalt _salt DescribeRuleGroup' {..} =
-    _salt `Prelude.hashWithSalt` ruleGroupName
+    _salt `Prelude.hashWithSalt` ruleGroupArn
+      `Prelude.hashWithSalt` ruleGroupName
       `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` ruleGroupArn
 
 instance Prelude.NFData DescribeRuleGroup where
   rnf DescribeRuleGroup' {..} =
-    Prelude.rnf ruleGroupName
+    Prelude.rnf ruleGroupArn
+      `Prelude.seq` Prelude.rnf ruleGroupName
       `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf ruleGroupArn
 
 instance Data.ToHeaders DescribeRuleGroup where
   toHeaders =
@@ -173,9 +173,9 @@ instance Data.ToJSON DescribeRuleGroup where
   toJSON DescribeRuleGroup' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("RuleGroupName" Data..=) Prelude.<$> ruleGroupName,
-            ("Type" Data..=) Prelude.<$> type',
-            ("RuleGroupArn" Data..=) Prelude.<$> ruleGroupArn
+          [ ("RuleGroupArn" Data..=) Prelude.<$> ruleGroupArn,
+            ("RuleGroupName" Data..=) Prelude.<$> ruleGroupName,
+            ("Type" Data..=) Prelude.<$> type'
           ]
       )
 

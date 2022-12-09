@@ -36,9 +36,6 @@ data Attachment = Attachment'
     -- endpoint in the VPC route tables, when you redirect the VPC traffic
     -- through the endpoint.
     endpointId :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier of the subnet that you\'ve specified to be used
-    -- for a firewall endpoint.
-    subnetId :: Prelude.Maybe Prelude.Text,
     -- | The current status of the firewall endpoint in the subnet. This value
     -- reflects both the instantiation of the endpoint in the VPC subnet and
     -- the sync states that are reported in the @Config@ settings. When this
@@ -46,7 +43,10 @@ data Attachment = Attachment'
     -- handle network traffic. When the endpoint isn\'t available for traffic,
     -- this value will reflect its state, for example @CREATING@, @DELETING@,
     -- or @FAILED@.
-    status :: Prelude.Maybe AttachmentStatus
+    status :: Prelude.Maybe AttachmentStatus,
+    -- | The unique identifier of the subnet that you\'ve specified to be used
+    -- for a firewall endpoint.
+    subnetId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,9 +63,6 @@ data Attachment = Attachment'
 -- endpoint in the VPC route tables, when you redirect the VPC traffic
 -- through the endpoint.
 --
--- 'subnetId', 'attachment_subnetId' - The unique identifier of the subnet that you\'ve specified to be used
--- for a firewall endpoint.
---
 -- 'status', 'attachment_status' - The current status of the firewall endpoint in the subnet. This value
 -- reflects both the instantiation of the endpoint in the VPC subnet and
 -- the sync states that are reported in the @Config@ settings. When this
@@ -73,13 +70,16 @@ data Attachment = Attachment'
 -- handle network traffic. When the endpoint isn\'t available for traffic,
 -- this value will reflect its state, for example @CREATING@, @DELETING@,
 -- or @FAILED@.
+--
+-- 'subnetId', 'attachment_subnetId' - The unique identifier of the subnet that you\'ve specified to be used
+-- for a firewall endpoint.
 newAttachment ::
   Attachment
 newAttachment =
   Attachment'
     { endpointId = Prelude.Nothing,
-      subnetId = Prelude.Nothing,
-      status = Prelude.Nothing
+      status = Prelude.Nothing,
+      subnetId = Prelude.Nothing
     }
 
 -- | The identifier of the firewall endpoint that Network Firewall has
@@ -88,11 +88,6 @@ newAttachment =
 -- through the endpoint.
 attachment_endpointId :: Lens.Lens' Attachment (Prelude.Maybe Prelude.Text)
 attachment_endpointId = Lens.lens (\Attachment' {endpointId} -> endpointId) (\s@Attachment' {} a -> s {endpointId = a} :: Attachment)
-
--- | The unique identifier of the subnet that you\'ve specified to be used
--- for a firewall endpoint.
-attachment_subnetId :: Lens.Lens' Attachment (Prelude.Maybe Prelude.Text)
-attachment_subnetId = Lens.lens (\Attachment' {subnetId} -> subnetId) (\s@Attachment' {} a -> s {subnetId = a} :: Attachment)
 
 -- | The current status of the firewall endpoint in the subnet. This value
 -- reflects both the instantiation of the endpoint in the VPC subnet and
@@ -104,6 +99,11 @@ attachment_subnetId = Lens.lens (\Attachment' {subnetId} -> subnetId) (\s@Attach
 attachment_status :: Lens.Lens' Attachment (Prelude.Maybe AttachmentStatus)
 attachment_status = Lens.lens (\Attachment' {status} -> status) (\s@Attachment' {} a -> s {status = a} :: Attachment)
 
+-- | The unique identifier of the subnet that you\'ve specified to be used
+-- for a firewall endpoint.
+attachment_subnetId :: Lens.Lens' Attachment (Prelude.Maybe Prelude.Text)
+attachment_subnetId = Lens.lens (\Attachment' {subnetId} -> subnetId) (\s@Attachment' {} a -> s {subnetId = a} :: Attachment)
+
 instance Data.FromJSON Attachment where
   parseJSON =
     Data.withObject
@@ -111,18 +111,18 @@ instance Data.FromJSON Attachment where
       ( \x ->
           Attachment'
             Prelude.<$> (x Data..:? "EndpointId")
-            Prelude.<*> (x Data..:? "SubnetId")
             Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "SubnetId")
       )
 
 instance Prelude.Hashable Attachment where
   hashWithSalt _salt Attachment' {..} =
     _salt `Prelude.hashWithSalt` endpointId
-      `Prelude.hashWithSalt` subnetId
       `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` subnetId
 
 instance Prelude.NFData Attachment where
   rnf Attachment' {..} =
     Prelude.rnf endpointId
-      `Prelude.seq` Prelude.rnf subnetId
       `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf subnetId

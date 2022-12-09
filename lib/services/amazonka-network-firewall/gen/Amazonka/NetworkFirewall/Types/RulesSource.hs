@@ -33,7 +33,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRulesSource' smart constructor.
 data RulesSource = RulesSource'
-  { -- | Stateful inspection criteria, provided in Suricata compatible intrusion
+  { -- | Stateful inspection criteria for a domain list rule group.
+    rulesSourceList :: Prelude.Maybe RulesSourceList,
+    -- | Stateful inspection criteria, provided in Suricata compatible intrusion
     -- prevention system (IPS) rules. Suricata is an open-source network IPS
     -- that includes a standard rule-based language for network traffic
     -- inspection.
@@ -48,8 +50,6 @@ data RulesSource = RulesSource'
     -- and rule options. For information about the Suricata @Rules@ format, see
     -- <https://suricata.readthedocs.io/rules/intro.html# Rules Format>.
     statefulRules :: Prelude.Maybe [StatefulRule],
-    -- | Stateful inspection criteria for a domain list rule group.
-    rulesSourceList :: Prelude.Maybe RulesSourceList,
     -- | Stateless inspection criteria to be used in a stateless rule group.
     statelessRulesAndCustomActions :: Prelude.Maybe StatelessRulesAndCustomActions
   }
@@ -62,6 +62,8 @@ data RulesSource = RulesSource'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'rulesSourceList', 'rulesSource_rulesSourceList' - Stateful inspection criteria for a domain list rule group.
 --
 -- 'rulesString', 'rulesSource_rulesString' - Stateful inspection criteria, provided in Suricata compatible intrusion
 -- prevention system (IPS) rules. Suricata is an open-source network IPS
@@ -78,18 +80,20 @@ data RulesSource = RulesSource'
 -- and rule options. For information about the Suricata @Rules@ format, see
 -- <https://suricata.readthedocs.io/rules/intro.html# Rules Format>.
 --
--- 'rulesSourceList', 'rulesSource_rulesSourceList' - Stateful inspection criteria for a domain list rule group.
---
 -- 'statelessRulesAndCustomActions', 'rulesSource_statelessRulesAndCustomActions' - Stateless inspection criteria to be used in a stateless rule group.
 newRulesSource ::
   RulesSource
 newRulesSource =
   RulesSource'
-    { rulesString = Prelude.Nothing,
+    { rulesSourceList = Prelude.Nothing,
+      rulesString = Prelude.Nothing,
       statefulRules = Prelude.Nothing,
-      rulesSourceList = Prelude.Nothing,
       statelessRulesAndCustomActions = Prelude.Nothing
     }
+
+-- | Stateful inspection criteria for a domain list rule group.
+rulesSource_rulesSourceList :: Lens.Lens' RulesSource (Prelude.Maybe RulesSourceList)
+rulesSource_rulesSourceList = Lens.lens (\RulesSource' {rulesSourceList} -> rulesSourceList) (\s@RulesSource' {} a -> s {rulesSourceList = a} :: RulesSource)
 
 -- | Stateful inspection criteria, provided in Suricata compatible intrusion
 -- prevention system (IPS) rules. Suricata is an open-source network IPS
@@ -110,10 +114,6 @@ rulesSource_rulesString = Lens.lens (\RulesSource' {rulesString} -> rulesString)
 rulesSource_statefulRules :: Lens.Lens' RulesSource (Prelude.Maybe [StatefulRule])
 rulesSource_statefulRules = Lens.lens (\RulesSource' {statefulRules} -> statefulRules) (\s@RulesSource' {} a -> s {statefulRules = a} :: RulesSource) Prelude.. Lens.mapping Lens.coerced
 
--- | Stateful inspection criteria for a domain list rule group.
-rulesSource_rulesSourceList :: Lens.Lens' RulesSource (Prelude.Maybe RulesSourceList)
-rulesSource_rulesSourceList = Lens.lens (\RulesSource' {rulesSourceList} -> rulesSourceList) (\s@RulesSource' {} a -> s {rulesSourceList = a} :: RulesSource)
-
 -- | Stateless inspection criteria to be used in a stateless rule group.
 rulesSource_statelessRulesAndCustomActions :: Lens.Lens' RulesSource (Prelude.Maybe StatelessRulesAndCustomActions)
 rulesSource_statelessRulesAndCustomActions = Lens.lens (\RulesSource' {statelessRulesAndCustomActions} -> statelessRulesAndCustomActions) (\s@RulesSource' {} a -> s {statelessRulesAndCustomActions = a} :: RulesSource)
@@ -124,34 +124,34 @@ instance Data.FromJSON RulesSource where
       "RulesSource"
       ( \x ->
           RulesSource'
-            Prelude.<$> (x Data..:? "RulesString")
+            Prelude.<$> (x Data..:? "RulesSourceList")
+            Prelude.<*> (x Data..:? "RulesString")
             Prelude.<*> (x Data..:? "StatefulRules" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "RulesSourceList")
             Prelude.<*> (x Data..:? "StatelessRulesAndCustomActions")
       )
 
 instance Prelude.Hashable RulesSource where
   hashWithSalt _salt RulesSource' {..} =
-    _salt `Prelude.hashWithSalt` rulesString
+    _salt `Prelude.hashWithSalt` rulesSourceList
+      `Prelude.hashWithSalt` rulesString
       `Prelude.hashWithSalt` statefulRules
-      `Prelude.hashWithSalt` rulesSourceList
       `Prelude.hashWithSalt` statelessRulesAndCustomActions
 
 instance Prelude.NFData RulesSource where
   rnf RulesSource' {..} =
-    Prelude.rnf rulesString
+    Prelude.rnf rulesSourceList
+      `Prelude.seq` Prelude.rnf rulesString
       `Prelude.seq` Prelude.rnf statefulRules
-      `Prelude.seq` Prelude.rnf rulesSourceList
       `Prelude.seq` Prelude.rnf statelessRulesAndCustomActions
 
 instance Data.ToJSON RulesSource where
   toJSON RulesSource' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("RulesString" Data..=) Prelude.<$> rulesString,
-            ("StatefulRules" Data..=) Prelude.<$> statefulRules,
-            ("RulesSourceList" Data..=)
+          [ ("RulesSourceList" Data..=)
               Prelude.<$> rulesSourceList,
+            ("RulesString" Data..=) Prelude.<$> rulesString,
+            ("StatefulRules" Data..=) Prelude.<$> statefulRules,
             ("StatelessRulesAndCustomActions" Data..=)
               Prelude.<$> statelessRulesAndCustomActions
           ]

@@ -94,41 +94,41 @@ module Amazonka.NetworkFirewall
     -- * Errors
     -- $errors
 
-    -- ** InvalidTokenException
-    _InvalidTokenException,
-
-    -- ** InvalidOperationException
-    _InvalidOperationException,
-
-    -- ** UnsupportedOperationException
-    _UnsupportedOperationException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** InvalidResourcePolicyException
-    _InvalidResourcePolicyException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
-
     -- ** InsufficientCapacityException
     _InsufficientCapacityException,
 
     -- ** InternalServerError
     _InternalServerError,
 
-    -- ** ThrottlingException
-    _ThrottlingException,
+    -- ** InvalidOperationException
+    _InvalidOperationException,
 
-    -- ** ResourceOwnerCheckException
-    _ResourceOwnerCheckException,
+    -- ** InvalidRequestException
+    _InvalidRequestException,
+
+    -- ** InvalidResourcePolicyException
+    _InvalidResourcePolicyException,
+
+    -- ** InvalidTokenException
+    _InvalidTokenException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- ** LogDestinationPermissionException
     _LogDestinationPermissionException,
 
-    -- ** InvalidRequestException
-    _InvalidRequestException,
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ResourceOwnerCheckException
+    _ResourceOwnerCheckException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** UnsupportedOperationException
+    _UnsupportedOperationException,
 
     -- * Waiters
     -- $waiters

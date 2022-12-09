@@ -31,14 +31,14 @@ import Amazonka.ResourceGroupsTagging.Types.Tag
 --
 -- /See:/ 'newResourceTagMapping' smart constructor.
 data ResourceTagMapping = ResourceTagMapping'
-  { -- | The tags that have been applied to one or more Amazon Web Services
-    -- resources.
-    tags :: Prelude.Maybe [Tag],
-    -- | Information that shows whether a resource is compliant with the
+  { -- | Information that shows whether a resource is compliant with the
     -- effective tag policy, including details on any noncompliant tag keys.
     complianceDetails :: Prelude.Maybe ComplianceDetails,
     -- | The ARN of the resource.
-    resourceARN :: Prelude.Maybe Prelude.Text
+    resourceARN :: Prelude.Maybe Prelude.Text,
+    -- | The tags that have been applied to one or more Amazon Web Services
+    -- resources.
+    tags :: Prelude.Maybe [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,26 +50,22 @@ data ResourceTagMapping = ResourceTagMapping'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'resourceTagMapping_tags' - The tags that have been applied to one or more Amazon Web Services
--- resources.
---
 -- 'complianceDetails', 'resourceTagMapping_complianceDetails' - Information that shows whether a resource is compliant with the
 -- effective tag policy, including details on any noncompliant tag keys.
 --
 -- 'resourceARN', 'resourceTagMapping_resourceARN' - The ARN of the resource.
+--
+-- 'tags', 'resourceTagMapping_tags' - The tags that have been applied to one or more Amazon Web Services
+-- resources.
 newResourceTagMapping ::
   ResourceTagMapping
 newResourceTagMapping =
   ResourceTagMapping'
-    { tags = Prelude.Nothing,
-      complianceDetails = Prelude.Nothing,
-      resourceARN = Prelude.Nothing
+    { complianceDetails =
+        Prelude.Nothing,
+      resourceARN = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
-
--- | The tags that have been applied to one or more Amazon Web Services
--- resources.
-resourceTagMapping_tags :: Lens.Lens' ResourceTagMapping (Prelude.Maybe [Tag])
-resourceTagMapping_tags = Lens.lens (\ResourceTagMapping' {tags} -> tags) (\s@ResourceTagMapping' {} a -> s {tags = a} :: ResourceTagMapping) Prelude.. Lens.mapping Lens.coerced
 
 -- | Information that shows whether a resource is compliant with the
 -- effective tag policy, including details on any noncompliant tag keys.
@@ -80,25 +76,30 @@ resourceTagMapping_complianceDetails = Lens.lens (\ResourceTagMapping' {complian
 resourceTagMapping_resourceARN :: Lens.Lens' ResourceTagMapping (Prelude.Maybe Prelude.Text)
 resourceTagMapping_resourceARN = Lens.lens (\ResourceTagMapping' {resourceARN} -> resourceARN) (\s@ResourceTagMapping' {} a -> s {resourceARN = a} :: ResourceTagMapping)
 
+-- | The tags that have been applied to one or more Amazon Web Services
+-- resources.
+resourceTagMapping_tags :: Lens.Lens' ResourceTagMapping (Prelude.Maybe [Tag])
+resourceTagMapping_tags = Lens.lens (\ResourceTagMapping' {tags} -> tags) (\s@ResourceTagMapping' {} a -> s {tags = a} :: ResourceTagMapping) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON ResourceTagMapping where
   parseJSON =
     Data.withObject
       "ResourceTagMapping"
       ( \x ->
           ResourceTagMapping'
-            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "ComplianceDetails")
+            Prelude.<$> (x Data..:? "ComplianceDetails")
             Prelude.<*> (x Data..:? "ResourceARN")
+            Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ResourceTagMapping where
   hashWithSalt _salt ResourceTagMapping' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` complianceDetails
+    _salt `Prelude.hashWithSalt` complianceDetails
       `Prelude.hashWithSalt` resourceARN
+      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData ResourceTagMapping where
   rnf ResourceTagMapping' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf complianceDetails
+    Prelude.rnf complianceDetails
       `Prelude.seq` Prelude.rnf resourceARN
+      `Prelude.seq` Prelude.rnf tags

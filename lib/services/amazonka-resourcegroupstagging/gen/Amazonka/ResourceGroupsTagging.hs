@@ -22,20 +22,20 @@ module Amazonka.ResourceGroupsTagging
     -- ** ConcurrentModificationException
     _ConcurrentModificationException,
 
+    -- ** ConstraintViolationException
+    _ConstraintViolationException,
+
     -- ** InternalServiceException
     _InternalServiceException,
 
-    -- ** ThrottledException
-    _ThrottledException,
+    -- ** InvalidParameterException
+    _InvalidParameterException,
 
     -- ** PaginationTokenExpiredException
     _PaginationTokenExpiredException,
 
-    -- ** ConstraintViolationException
-    _ConstraintViolationException,
-
-    -- ** InvalidParameterException
-    _InvalidParameterException,
+    -- ** ThrottledException
+    _ThrottledException,
 
     -- * Waiters
     -- $waiters

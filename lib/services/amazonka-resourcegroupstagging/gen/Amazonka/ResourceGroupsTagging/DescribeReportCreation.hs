@@ -35,8 +35,8 @@ module Amazonka.ResourceGroupsTagging.DescribeReportCreation
 
     -- * Response Lenses
     describeReportCreationResponse_errorMessage,
-    describeReportCreationResponse_status,
     describeReportCreationResponse_s3Location,
+    describeReportCreationResponse_status,
     describeReportCreationResponse_httpStatus,
   )
 where
@@ -74,8 +74,8 @@ instance Core.AWSRequest DescribeReportCreation where
       ( \s h x ->
           DescribeReportCreationResponse'
             Prelude.<$> (x Data..?> "ErrorMessage")
-            Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (x Data..?> "S3Location")
+            Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,6 +114,9 @@ instance Data.ToQuery DescribeReportCreation where
 data DescribeReportCreationResponse = DescribeReportCreationResponse'
   { -- | Details of the common errors that all operations return.
     errorMessage :: Prelude.Maybe Prelude.Text,
+    -- | The path to the Amazon S3 bucket where the report was stored on
+    -- creation.
+    s3Location :: Prelude.Maybe Prelude.Text,
     -- | Reports the status of the operation.
     --
     -- The operation status can be one of the following:
@@ -129,9 +132,6 @@ data DescribeReportCreationResponse = DescribeReportCreationResponse'
     --
     -- -   @NO REPORT@ - No report was generated in the last 90 days.
     status :: Prelude.Maybe Prelude.Text,
-    -- | The path to the Amazon S3 bucket where the report was stored on
-    -- creation.
-    s3Location :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -146,6 +146,9 @@ data DescribeReportCreationResponse = DescribeReportCreationResponse'
 -- for backwards compatibility:
 --
 -- 'errorMessage', 'describeReportCreationResponse_errorMessage' - Details of the common errors that all operations return.
+--
+-- 's3Location', 'describeReportCreationResponse_s3Location' - The path to the Amazon S3 bucket where the report was stored on
+-- creation.
 --
 -- 'status', 'describeReportCreationResponse_status' - Reports the status of the operation.
 --
@@ -162,9 +165,6 @@ data DescribeReportCreationResponse = DescribeReportCreationResponse'
 --
 -- -   @NO REPORT@ - No report was generated in the last 90 days.
 --
--- 's3Location', 'describeReportCreationResponse_s3Location' - The path to the Amazon S3 bucket where the report was stored on
--- creation.
---
 -- 'httpStatus', 'describeReportCreationResponse_httpStatus' - The response's http status code.
 newDescribeReportCreationResponse ::
   -- | 'httpStatus'
@@ -174,14 +174,19 @@ newDescribeReportCreationResponse pHttpStatus_ =
   DescribeReportCreationResponse'
     { errorMessage =
         Prelude.Nothing,
-      status = Prelude.Nothing,
       s3Location = Prelude.Nothing,
+      status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Details of the common errors that all operations return.
 describeReportCreationResponse_errorMessage :: Lens.Lens' DescribeReportCreationResponse (Prelude.Maybe Prelude.Text)
 describeReportCreationResponse_errorMessage = Lens.lens (\DescribeReportCreationResponse' {errorMessage} -> errorMessage) (\s@DescribeReportCreationResponse' {} a -> s {errorMessage = a} :: DescribeReportCreationResponse)
+
+-- | The path to the Amazon S3 bucket where the report was stored on
+-- creation.
+describeReportCreationResponse_s3Location :: Lens.Lens' DescribeReportCreationResponse (Prelude.Maybe Prelude.Text)
+describeReportCreationResponse_s3Location = Lens.lens (\DescribeReportCreationResponse' {s3Location} -> s3Location) (\s@DescribeReportCreationResponse' {} a -> s {s3Location = a} :: DescribeReportCreationResponse)
 
 -- | Reports the status of the operation.
 --
@@ -200,11 +205,6 @@ describeReportCreationResponse_errorMessage = Lens.lens (\DescribeReportCreation
 describeReportCreationResponse_status :: Lens.Lens' DescribeReportCreationResponse (Prelude.Maybe Prelude.Text)
 describeReportCreationResponse_status = Lens.lens (\DescribeReportCreationResponse' {status} -> status) (\s@DescribeReportCreationResponse' {} a -> s {status = a} :: DescribeReportCreationResponse)
 
--- | The path to the Amazon S3 bucket where the report was stored on
--- creation.
-describeReportCreationResponse_s3Location :: Lens.Lens' DescribeReportCreationResponse (Prelude.Maybe Prelude.Text)
-describeReportCreationResponse_s3Location = Lens.lens (\DescribeReportCreationResponse' {s3Location} -> s3Location) (\s@DescribeReportCreationResponse' {} a -> s {s3Location = a} :: DescribeReportCreationResponse)
-
 -- | The response's http status code.
 describeReportCreationResponse_httpStatus :: Lens.Lens' DescribeReportCreationResponse Prelude.Int
 describeReportCreationResponse_httpStatus = Lens.lens (\DescribeReportCreationResponse' {httpStatus} -> httpStatus) (\s@DescribeReportCreationResponse' {} a -> s {httpStatus = a} :: DescribeReportCreationResponse)
@@ -215,6 +215,6 @@ instance
   where
   rnf DescribeReportCreationResponse' {..} =
     Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf s3Location
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

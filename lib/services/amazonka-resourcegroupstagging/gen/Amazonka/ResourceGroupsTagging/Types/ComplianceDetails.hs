@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newComplianceDetails' smart constructor.
 data ComplianceDetails = ComplianceDetails'
-  { -- | These tag keys on the resource are noncompliant with the effective tag
-    -- policy.
-    noncompliantKeys :: Prelude.Maybe [Prelude.Text],
-    -- | Whether a resource is compliant with the effective tag policy.
+  { -- | Whether a resource is compliant with the effective tag policy.
     complianceStatus :: Prelude.Maybe Prelude.Bool,
     -- | These are keys defined in the effective policy that are on the resource
     -- with either incorrect case treatment or noncompliant values.
-    keysWithNoncompliantValues :: Prelude.Maybe [Prelude.Text]
+    keysWithNoncompliantValues :: Prelude.Maybe [Prelude.Text],
+    -- | These tag keys on the resource are noncompliant with the effective tag
+    -- policy.
+    noncompliantKeys :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,27 +48,22 @@ data ComplianceDetails = ComplianceDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'noncompliantKeys', 'complianceDetails_noncompliantKeys' - These tag keys on the resource are noncompliant with the effective tag
--- policy.
---
 -- 'complianceStatus', 'complianceDetails_complianceStatus' - Whether a resource is compliant with the effective tag policy.
 --
 -- 'keysWithNoncompliantValues', 'complianceDetails_keysWithNoncompliantValues' - These are keys defined in the effective policy that are on the resource
 -- with either incorrect case treatment or noncompliant values.
+--
+-- 'noncompliantKeys', 'complianceDetails_noncompliantKeys' - These tag keys on the resource are noncompliant with the effective tag
+-- policy.
 newComplianceDetails ::
   ComplianceDetails
 newComplianceDetails =
   ComplianceDetails'
-    { noncompliantKeys =
+    { complianceStatus =
         Prelude.Nothing,
-      complianceStatus = Prelude.Nothing,
-      keysWithNoncompliantValues = Prelude.Nothing
+      keysWithNoncompliantValues = Prelude.Nothing,
+      noncompliantKeys = Prelude.Nothing
     }
-
--- | These tag keys on the resource are noncompliant with the effective tag
--- policy.
-complianceDetails_noncompliantKeys :: Lens.Lens' ComplianceDetails (Prelude.Maybe [Prelude.Text])
-complianceDetails_noncompliantKeys = Lens.lens (\ComplianceDetails' {noncompliantKeys} -> noncompliantKeys) (\s@ComplianceDetails' {} a -> s {noncompliantKeys = a} :: ComplianceDetails) Prelude.. Lens.mapping Lens.coerced
 
 -- | Whether a resource is compliant with the effective tag policy.
 complianceDetails_complianceStatus :: Lens.Lens' ComplianceDetails (Prelude.Maybe Prelude.Bool)
@@ -79,29 +74,34 @@ complianceDetails_complianceStatus = Lens.lens (\ComplianceDetails' {complianceS
 complianceDetails_keysWithNoncompliantValues :: Lens.Lens' ComplianceDetails (Prelude.Maybe [Prelude.Text])
 complianceDetails_keysWithNoncompliantValues = Lens.lens (\ComplianceDetails' {keysWithNoncompliantValues} -> keysWithNoncompliantValues) (\s@ComplianceDetails' {} a -> s {keysWithNoncompliantValues = a} :: ComplianceDetails) Prelude.. Lens.mapping Lens.coerced
 
+-- | These tag keys on the resource are noncompliant with the effective tag
+-- policy.
+complianceDetails_noncompliantKeys :: Lens.Lens' ComplianceDetails (Prelude.Maybe [Prelude.Text])
+complianceDetails_noncompliantKeys = Lens.lens (\ComplianceDetails' {noncompliantKeys} -> noncompliantKeys) (\s@ComplianceDetails' {} a -> s {noncompliantKeys = a} :: ComplianceDetails) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON ComplianceDetails where
   parseJSON =
     Data.withObject
       "ComplianceDetails"
       ( \x ->
           ComplianceDetails'
-            Prelude.<$> ( x Data..:? "NoncompliantKeys"
+            Prelude.<$> (x Data..:? "ComplianceStatus")
+            Prelude.<*> ( x Data..:? "KeysWithNoncompliantValues"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "ComplianceStatus")
-            Prelude.<*> ( x Data..:? "KeysWithNoncompliantValues"
+            Prelude.<*> ( x Data..:? "NoncompliantKeys"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ComplianceDetails where
   hashWithSalt _salt ComplianceDetails' {..} =
-    _salt `Prelude.hashWithSalt` noncompliantKeys
-      `Prelude.hashWithSalt` complianceStatus
+    _salt `Prelude.hashWithSalt` complianceStatus
       `Prelude.hashWithSalt` keysWithNoncompliantValues
+      `Prelude.hashWithSalt` noncompliantKeys
 
 instance Prelude.NFData ComplianceDetails where
   rnf ComplianceDetails' {..} =
-    Prelude.rnf noncompliantKeys
-      `Prelude.seq` Prelude.rnf complianceStatus
+    Prelude.rnf complianceStatus
       `Prelude.seq` Prelude.rnf keysWithNoncompliantValues
+      `Prelude.seq` Prelude.rnf noncompliantKeys

@@ -34,11 +34,11 @@ module Amazonka.GroundStation.GetSatellite
     newGetSatelliteResponse,
 
     -- * Response Lenses
-    getSatelliteResponse_satelliteArn,
     getSatelliteResponse_currentEphemeris,
-    getSatelliteResponse_satelliteId,
-    getSatelliteResponse_noradSatelliteID,
     getSatelliteResponse_groundStations,
+    getSatelliteResponse_noradSatelliteID,
+    getSatelliteResponse_satelliteArn,
+    getSatelliteResponse_satelliteId,
     getSatelliteResponse_httpStatus,
   )
 where
@@ -88,11 +88,11 @@ instance Core.AWSRequest GetSatellite where
     Response.receiveJSON
       ( \s h x ->
           GetSatelliteResponse'
-            Prelude.<$> (x Data..?> "satelliteArn")
-            Prelude.<*> (x Data..?> "currentEphemeris")
-            Prelude.<*> (x Data..?> "satelliteId")
-            Prelude.<*> (x Data..?> "noradSatelliteID")
+            Prelude.<$> (x Data..?> "currentEphemeris")
             Prelude.<*> (x Data..?> "groundStations" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "noradSatelliteID")
+            Prelude.<*> (x Data..?> "satelliteArn")
+            Prelude.<*> (x Data..?> "satelliteId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -126,17 +126,17 @@ instance Data.ToQuery GetSatellite where
 --
 -- /See:/ 'newGetSatelliteResponse' smart constructor.
 data GetSatelliteResponse = GetSatelliteResponse'
-  { -- | ARN of a satellite.
-    satelliteArn :: Prelude.Maybe Prelude.Text,
-    -- | The current ephemeris being used to compute the trajectory of the
+  { -- | The current ephemeris being used to compute the trajectory of the
     -- satellite.
     currentEphemeris :: Prelude.Maybe EphemerisMetaData,
-    -- | UUID of a satellite.
-    satelliteId :: Prelude.Maybe Prelude.Text,
-    -- | NORAD satellite ID number.
-    noradSatelliteID :: Prelude.Maybe Prelude.Natural,
     -- | A list of ground stations to which the satellite is on-boarded.
     groundStations :: Prelude.Maybe [Prelude.Text],
+    -- | NORAD satellite ID number.
+    noradSatelliteID :: Prelude.Maybe Prelude.Natural,
+    -- | ARN of a satellite.
+    satelliteArn :: Prelude.Maybe Prelude.Text,
+    -- | UUID of a satellite.
+    satelliteId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -150,16 +150,16 @@ data GetSatelliteResponse = GetSatelliteResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'satelliteArn', 'getSatelliteResponse_satelliteArn' - ARN of a satellite.
---
 -- 'currentEphemeris', 'getSatelliteResponse_currentEphemeris' - The current ephemeris being used to compute the trajectory of the
 -- satellite.
 --
--- 'satelliteId', 'getSatelliteResponse_satelliteId' - UUID of a satellite.
+-- 'groundStations', 'getSatelliteResponse_groundStations' - A list of ground stations to which the satellite is on-boarded.
 --
 -- 'noradSatelliteID', 'getSatelliteResponse_noradSatelliteID' - NORAD satellite ID number.
 --
--- 'groundStations', 'getSatelliteResponse_groundStations' - A list of ground stations to which the satellite is on-boarded.
+-- 'satelliteArn', 'getSatelliteResponse_satelliteArn' - ARN of a satellite.
+--
+-- 'satelliteId', 'getSatelliteResponse_satelliteId' - UUID of a satellite.
 --
 -- 'httpStatus', 'getSatelliteResponse_httpStatus' - The response's http status code.
 newGetSatelliteResponse ::
@@ -168,35 +168,35 @@ newGetSatelliteResponse ::
   GetSatelliteResponse
 newGetSatelliteResponse pHttpStatus_ =
   GetSatelliteResponse'
-    { satelliteArn =
+    { currentEphemeris =
         Prelude.Nothing,
-      currentEphemeris = Prelude.Nothing,
-      satelliteId = Prelude.Nothing,
-      noradSatelliteID = Prelude.Nothing,
       groundStations = Prelude.Nothing,
+      noradSatelliteID = Prelude.Nothing,
+      satelliteArn = Prelude.Nothing,
+      satelliteId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | ARN of a satellite.
-getSatelliteResponse_satelliteArn :: Lens.Lens' GetSatelliteResponse (Prelude.Maybe Prelude.Text)
-getSatelliteResponse_satelliteArn = Lens.lens (\GetSatelliteResponse' {satelliteArn} -> satelliteArn) (\s@GetSatelliteResponse' {} a -> s {satelliteArn = a} :: GetSatelliteResponse)
 
 -- | The current ephemeris being used to compute the trajectory of the
 -- satellite.
 getSatelliteResponse_currentEphemeris :: Lens.Lens' GetSatelliteResponse (Prelude.Maybe EphemerisMetaData)
 getSatelliteResponse_currentEphemeris = Lens.lens (\GetSatelliteResponse' {currentEphemeris} -> currentEphemeris) (\s@GetSatelliteResponse' {} a -> s {currentEphemeris = a} :: GetSatelliteResponse)
 
--- | UUID of a satellite.
-getSatelliteResponse_satelliteId :: Lens.Lens' GetSatelliteResponse (Prelude.Maybe Prelude.Text)
-getSatelliteResponse_satelliteId = Lens.lens (\GetSatelliteResponse' {satelliteId} -> satelliteId) (\s@GetSatelliteResponse' {} a -> s {satelliteId = a} :: GetSatelliteResponse)
+-- | A list of ground stations to which the satellite is on-boarded.
+getSatelliteResponse_groundStations :: Lens.Lens' GetSatelliteResponse (Prelude.Maybe [Prelude.Text])
+getSatelliteResponse_groundStations = Lens.lens (\GetSatelliteResponse' {groundStations} -> groundStations) (\s@GetSatelliteResponse' {} a -> s {groundStations = a} :: GetSatelliteResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | NORAD satellite ID number.
 getSatelliteResponse_noradSatelliteID :: Lens.Lens' GetSatelliteResponse (Prelude.Maybe Prelude.Natural)
 getSatelliteResponse_noradSatelliteID = Lens.lens (\GetSatelliteResponse' {noradSatelliteID} -> noradSatelliteID) (\s@GetSatelliteResponse' {} a -> s {noradSatelliteID = a} :: GetSatelliteResponse)
 
--- | A list of ground stations to which the satellite is on-boarded.
-getSatelliteResponse_groundStations :: Lens.Lens' GetSatelliteResponse (Prelude.Maybe [Prelude.Text])
-getSatelliteResponse_groundStations = Lens.lens (\GetSatelliteResponse' {groundStations} -> groundStations) (\s@GetSatelliteResponse' {} a -> s {groundStations = a} :: GetSatelliteResponse) Prelude.. Lens.mapping Lens.coerced
+-- | ARN of a satellite.
+getSatelliteResponse_satelliteArn :: Lens.Lens' GetSatelliteResponse (Prelude.Maybe Prelude.Text)
+getSatelliteResponse_satelliteArn = Lens.lens (\GetSatelliteResponse' {satelliteArn} -> satelliteArn) (\s@GetSatelliteResponse' {} a -> s {satelliteArn = a} :: GetSatelliteResponse)
+
+-- | UUID of a satellite.
+getSatelliteResponse_satelliteId :: Lens.Lens' GetSatelliteResponse (Prelude.Maybe Prelude.Text)
+getSatelliteResponse_satelliteId = Lens.lens (\GetSatelliteResponse' {satelliteId} -> satelliteId) (\s@GetSatelliteResponse' {} a -> s {satelliteId = a} :: GetSatelliteResponse)
 
 -- | The response's http status code.
 getSatelliteResponse_httpStatus :: Lens.Lens' GetSatelliteResponse Prelude.Int
@@ -204,9 +204,9 @@ getSatelliteResponse_httpStatus = Lens.lens (\GetSatelliteResponse' {httpStatus}
 
 instance Prelude.NFData GetSatelliteResponse where
   rnf GetSatelliteResponse' {..} =
-    Prelude.rnf satelliteArn
-      `Prelude.seq` Prelude.rnf currentEphemeris
-      `Prelude.seq` Prelude.rnf satelliteId
-      `Prelude.seq` Prelude.rnf noradSatelliteID
+    Prelude.rnf currentEphemeris
       `Prelude.seq` Prelude.rnf groundStations
+      `Prelude.seq` Prelude.rnf noradSatelliteID
+      `Prelude.seq` Prelude.rnf satelliteArn
+      `Prelude.seq` Prelude.rnf satelliteId
       `Prelude.seq` Prelude.rnf httpStatus

@@ -30,9 +30,9 @@ module Amazonka.GroundStation.CreateMissionProfile
     newCreateMissionProfile,
 
     -- * Request Lenses
-    createMissionProfile_tags,
-    createMissionProfile_contactPrePassDurationSeconds,
     createMissionProfile_contactPostPassDurationSeconds,
+    createMissionProfile_contactPrePassDurationSeconds,
+    createMissionProfile_tags,
     createMissionProfile_dataflowEdges,
     createMissionProfile_minimumViableContactDurationSeconds,
     createMissionProfile_name,
@@ -59,14 +59,14 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateMissionProfile' smart constructor.
 data CreateMissionProfile = CreateMissionProfile'
-  { -- | Tags assigned to a mission profile.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | Amount of time after a contact ends that you’d like to receive a
+    -- CloudWatch event indicating the pass has finished.
+    contactPostPassDurationSeconds :: Prelude.Maybe Prelude.Natural,
     -- | Amount of time prior to contact start you’d like to receive a CloudWatch
     -- event indicating an upcoming pass.
     contactPrePassDurationSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | Amount of time after a contact ends that you’d like to receive a
-    -- CloudWatch event indicating the pass has finished.
-    contactPostPassDurationSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | Tags assigned to a mission profile.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A list of lists of ARNs. Each list of ARNs is an edge, with a /from/
     -- @Config@ and a /to/ @Config@.
     dataflowEdges :: [Prelude.NonEmpty Prelude.Text],
@@ -89,13 +89,13 @@ data CreateMissionProfile = CreateMissionProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createMissionProfile_tags' - Tags assigned to a mission profile.
+-- 'contactPostPassDurationSeconds', 'createMissionProfile_contactPostPassDurationSeconds' - Amount of time after a contact ends that you’d like to receive a
+-- CloudWatch event indicating the pass has finished.
 --
 -- 'contactPrePassDurationSeconds', 'createMissionProfile_contactPrePassDurationSeconds' - Amount of time prior to contact start you’d like to receive a CloudWatch
 -- event indicating an upcoming pass.
 --
--- 'contactPostPassDurationSeconds', 'createMissionProfile_contactPostPassDurationSeconds' - Amount of time after a contact ends that you’d like to receive a
--- CloudWatch event indicating the pass has finished.
+-- 'tags', 'createMissionProfile_tags' - Tags assigned to a mission profile.
 --
 -- 'dataflowEdges', 'createMissionProfile_dataflowEdges' - A list of lists of ARNs. Each list of ARNs is an edge, with a /from/
 -- @Config@ and a /to/ @Config@.
@@ -120,9 +120,10 @@ newCreateMissionProfile
   pName_
   pTrackingConfigArn_ =
     CreateMissionProfile'
-      { tags = Prelude.Nothing,
+      { contactPostPassDurationSeconds =
+          Prelude.Nothing,
         contactPrePassDurationSeconds = Prelude.Nothing,
-        contactPostPassDurationSeconds = Prelude.Nothing,
+        tags = Prelude.Nothing,
         dataflowEdges = Prelude.mempty,
         minimumViableContactDurationSeconds =
           pMinimumViableContactDurationSeconds_,
@@ -130,19 +131,19 @@ newCreateMissionProfile
         trackingConfigArn = pTrackingConfigArn_
       }
 
--- | Tags assigned to a mission profile.
-createMissionProfile_tags :: Lens.Lens' CreateMissionProfile (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createMissionProfile_tags = Lens.lens (\CreateMissionProfile' {tags} -> tags) (\s@CreateMissionProfile' {} a -> s {tags = a} :: CreateMissionProfile) Prelude.. Lens.mapping Lens.coerced
+-- | Amount of time after a contact ends that you’d like to receive a
+-- CloudWatch event indicating the pass has finished.
+createMissionProfile_contactPostPassDurationSeconds :: Lens.Lens' CreateMissionProfile (Prelude.Maybe Prelude.Natural)
+createMissionProfile_contactPostPassDurationSeconds = Lens.lens (\CreateMissionProfile' {contactPostPassDurationSeconds} -> contactPostPassDurationSeconds) (\s@CreateMissionProfile' {} a -> s {contactPostPassDurationSeconds = a} :: CreateMissionProfile)
 
 -- | Amount of time prior to contact start you’d like to receive a CloudWatch
 -- event indicating an upcoming pass.
 createMissionProfile_contactPrePassDurationSeconds :: Lens.Lens' CreateMissionProfile (Prelude.Maybe Prelude.Natural)
 createMissionProfile_contactPrePassDurationSeconds = Lens.lens (\CreateMissionProfile' {contactPrePassDurationSeconds} -> contactPrePassDurationSeconds) (\s@CreateMissionProfile' {} a -> s {contactPrePassDurationSeconds = a} :: CreateMissionProfile)
 
--- | Amount of time after a contact ends that you’d like to receive a
--- CloudWatch event indicating the pass has finished.
-createMissionProfile_contactPostPassDurationSeconds :: Lens.Lens' CreateMissionProfile (Prelude.Maybe Prelude.Natural)
-createMissionProfile_contactPostPassDurationSeconds = Lens.lens (\CreateMissionProfile' {contactPostPassDurationSeconds} -> contactPostPassDurationSeconds) (\s@CreateMissionProfile' {} a -> s {contactPostPassDurationSeconds = a} :: CreateMissionProfile)
+-- | Tags assigned to a mission profile.
+createMissionProfile_tags :: Lens.Lens' CreateMissionProfile (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createMissionProfile_tags = Lens.lens (\CreateMissionProfile' {tags} -> tags) (\s@CreateMissionProfile' {} a -> s {tags = a} :: CreateMissionProfile) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of lists of ARNs. Each list of ARNs is an edge, with a /from/
 -- @Config@ and a /to/ @Config@.
@@ -175,9 +176,10 @@ instance Core.AWSRequest CreateMissionProfile where
 
 instance Prelude.Hashable CreateMissionProfile where
   hashWithSalt _salt CreateMissionProfile' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` contactPrePassDurationSeconds
+    _salt
       `Prelude.hashWithSalt` contactPostPassDurationSeconds
+      `Prelude.hashWithSalt` contactPrePassDurationSeconds
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` dataflowEdges
       `Prelude.hashWithSalt` minimumViableContactDurationSeconds
       `Prelude.hashWithSalt` name
@@ -185,9 +187,9 @@ instance Prelude.Hashable CreateMissionProfile where
 
 instance Prelude.NFData CreateMissionProfile where
   rnf CreateMissionProfile' {..} =
-    Prelude.rnf tags
+    Prelude.rnf contactPostPassDurationSeconds
       `Prelude.seq` Prelude.rnf contactPrePassDurationSeconds
-      `Prelude.seq` Prelude.rnf contactPostPassDurationSeconds
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf dataflowEdges
       `Prelude.seq` Prelude.rnf minimumViableContactDurationSeconds
       `Prelude.seq` Prelude.rnf name
@@ -208,11 +210,11 @@ instance Data.ToJSON CreateMissionProfile where
   toJSON CreateMissionProfile' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
+          [ ("contactPostPassDurationSeconds" Data..=)
+              Prelude.<$> contactPostPassDurationSeconds,
             ("contactPrePassDurationSeconds" Data..=)
               Prelude.<$> contactPrePassDurationSeconds,
-            ("contactPostPassDurationSeconds" Data..=)
-              Prelude.<$> contactPostPassDurationSeconds,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("dataflowEdges" Data..= dataflowEdges),
             Prelude.Just
               ( "minimumViableContactDurationSeconds"

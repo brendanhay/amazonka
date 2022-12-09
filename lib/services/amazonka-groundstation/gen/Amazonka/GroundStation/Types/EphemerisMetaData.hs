@@ -29,20 +29,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEphemerisMetaData' smart constructor.
 data EphemerisMetaData = EphemerisMetaData'
-  { -- | A name string associated with the ephemeris. Used as a human-readable
+  { -- | UUID of a customer-provided ephemeris.
+    --
+    -- This field is not populated for default ephemerides from Space Track.
+    ephemerisId :: Prelude.Maybe Prelude.Text,
+    -- | The epoch of a default, ephemeris from Space Track in UTC.
+    --
+    -- This field is not populated for customer-provided ephemerides.
+    epoch :: Prelude.Maybe Data.POSIX,
+    -- | A name string associated with the ephemeris. Used as a human-readable
     -- identifier for the ephemeris.
     --
     -- A name is only returned for customer-provider ephemerides that have a
     -- name associated.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The epoch of a default, ephemeris from Space Track in UTC.
-    --
-    -- This field is not populated for customer-provided ephemerides.
-    epoch :: Prelude.Maybe Data.POSIX,
-    -- | UUID of a customer-provided ephemeris.
-    --
-    -- This field is not populated for default ephemerides from Space Track.
-    ephemerisId :: Prelude.Maybe Prelude.Text,
     -- | The @EphemerisSource@ that generated a given ephemeris.
     source :: EphemerisSource
   }
@@ -56,19 +56,19 @@ data EphemerisMetaData = EphemerisMetaData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'ephemerisMetaData_name' - A name string associated with the ephemeris. Used as a human-readable
--- identifier for the ephemeris.
+-- 'ephemerisId', 'ephemerisMetaData_ephemerisId' - UUID of a customer-provided ephemeris.
 --
--- A name is only returned for customer-provider ephemerides that have a
--- name associated.
+-- This field is not populated for default ephemerides from Space Track.
 --
 -- 'epoch', 'ephemerisMetaData_epoch' - The epoch of a default, ephemeris from Space Track in UTC.
 --
 -- This field is not populated for customer-provided ephemerides.
 --
--- 'ephemerisId', 'ephemerisMetaData_ephemerisId' - UUID of a customer-provided ephemeris.
+-- 'name', 'ephemerisMetaData_name' - A name string associated with the ephemeris. Used as a human-readable
+-- identifier for the ephemeris.
 --
--- This field is not populated for default ephemerides from Space Track.
+-- A name is only returned for customer-provider ephemerides that have a
+-- name associated.
 --
 -- 'source', 'ephemerisMetaData_source' - The @EphemerisSource@ that generated a given ephemeris.
 newEphemerisMetaData ::
@@ -77,11 +77,23 @@ newEphemerisMetaData ::
   EphemerisMetaData
 newEphemerisMetaData pSource_ =
   EphemerisMetaData'
-    { name = Prelude.Nothing,
+    { ephemerisId = Prelude.Nothing,
       epoch = Prelude.Nothing,
-      ephemerisId = Prelude.Nothing,
+      name = Prelude.Nothing,
       source = pSource_
     }
+
+-- | UUID of a customer-provided ephemeris.
+--
+-- This field is not populated for default ephemerides from Space Track.
+ephemerisMetaData_ephemerisId :: Lens.Lens' EphemerisMetaData (Prelude.Maybe Prelude.Text)
+ephemerisMetaData_ephemerisId = Lens.lens (\EphemerisMetaData' {ephemerisId} -> ephemerisId) (\s@EphemerisMetaData' {} a -> s {ephemerisId = a} :: EphemerisMetaData)
+
+-- | The epoch of a default, ephemeris from Space Track in UTC.
+--
+-- This field is not populated for customer-provided ephemerides.
+ephemerisMetaData_epoch :: Lens.Lens' EphemerisMetaData (Prelude.Maybe Prelude.UTCTime)
+ephemerisMetaData_epoch = Lens.lens (\EphemerisMetaData' {epoch} -> epoch) (\s@EphemerisMetaData' {} a -> s {epoch = a} :: EphemerisMetaData) Prelude.. Lens.mapping Data._Time
 
 -- | A name string associated with the ephemeris. Used as a human-readable
 -- identifier for the ephemeris.
@@ -90,18 +102,6 @@ newEphemerisMetaData pSource_ =
 -- name associated.
 ephemerisMetaData_name :: Lens.Lens' EphemerisMetaData (Prelude.Maybe Prelude.Text)
 ephemerisMetaData_name = Lens.lens (\EphemerisMetaData' {name} -> name) (\s@EphemerisMetaData' {} a -> s {name = a} :: EphemerisMetaData)
-
--- | The epoch of a default, ephemeris from Space Track in UTC.
---
--- This field is not populated for customer-provided ephemerides.
-ephemerisMetaData_epoch :: Lens.Lens' EphemerisMetaData (Prelude.Maybe Prelude.UTCTime)
-ephemerisMetaData_epoch = Lens.lens (\EphemerisMetaData' {epoch} -> epoch) (\s@EphemerisMetaData' {} a -> s {epoch = a} :: EphemerisMetaData) Prelude.. Lens.mapping Data._Time
-
--- | UUID of a customer-provided ephemeris.
---
--- This field is not populated for default ephemerides from Space Track.
-ephemerisMetaData_ephemerisId :: Lens.Lens' EphemerisMetaData (Prelude.Maybe Prelude.Text)
-ephemerisMetaData_ephemerisId = Lens.lens (\EphemerisMetaData' {ephemerisId} -> ephemerisId) (\s@EphemerisMetaData' {} a -> s {ephemerisId = a} :: EphemerisMetaData)
 
 -- | The @EphemerisSource@ that generated a given ephemeris.
 ephemerisMetaData_source :: Lens.Lens' EphemerisMetaData EphemerisSource
@@ -113,22 +113,22 @@ instance Data.FromJSON EphemerisMetaData where
       "EphemerisMetaData"
       ( \x ->
           EphemerisMetaData'
-            Prelude.<$> (x Data..:? "name")
+            Prelude.<$> (x Data..:? "ephemerisId")
             Prelude.<*> (x Data..:? "epoch")
-            Prelude.<*> (x Data..:? "ephemerisId")
+            Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..: "source")
       )
 
 instance Prelude.Hashable EphemerisMetaData where
   hashWithSalt _salt EphemerisMetaData' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` ephemerisId
       `Prelude.hashWithSalt` epoch
-      `Prelude.hashWithSalt` ephemerisId
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` source
 
 instance Prelude.NFData EphemerisMetaData where
   rnf EphemerisMetaData' {..} =
-    Prelude.rnf name
+    Prelude.rnf ephemerisId
       `Prelude.seq` Prelude.rnf epoch
-      `Prelude.seq` Prelude.rnf ephemerisId
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf source

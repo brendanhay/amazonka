@@ -30,15 +30,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEphemerisItem' smart constructor.
 data EphemerisItem = EphemerisItem'
-  { -- | A name string associated with the ephemeris. Used as a human-readable
-    -- identifier for the ephemeris.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Source S3 object used for the ephemeris.
-    sourceS3Object :: Prelude.Maybe S3Object,
-    -- | The status of the ephemeris.
-    status :: Prelude.Maybe EphemerisStatus,
+  { -- | The time the ephemeris was uploaded in UTC.
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | Whether or not the ephemeris is enabled.
     enabled :: Prelude.Maybe Prelude.Bool,
+    -- | The AWS Ground Station ephemeris ID.
+    ephemerisId :: Prelude.Maybe Prelude.Text,
+    -- | A name string associated with the ephemeris. Used as a human-readable
+    -- identifier for the ephemeris.
+    name :: Prelude.Maybe Prelude.Text,
     -- | Customer-provided priority score to establish the order in which
     -- overlapping ephemerides should be used.
     --
@@ -47,10 +47,10 @@ data EphemerisItem = EphemerisItem'
     --
     -- Priority must be 1 or greater
     priority :: Prelude.Maybe Prelude.Natural,
-    -- | The time the ephemeris was uploaded in UTC.
-    creationTime :: Prelude.Maybe Data.POSIX,
-    -- | The AWS Ground Station ephemeris ID.
-    ephemerisId :: Prelude.Maybe Prelude.Text
+    -- | Source S3 object used for the ephemeris.
+    sourceS3Object :: Prelude.Maybe S3Object,
+    -- | The status of the ephemeris.
+    status :: Prelude.Maybe EphemerisStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,14 +62,14 @@ data EphemerisItem = EphemerisItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'ephemerisItem_name' - A name string associated with the ephemeris. Used as a human-readable
--- identifier for the ephemeris.
---
--- 'sourceS3Object', 'ephemerisItem_sourceS3Object' - Source S3 object used for the ephemeris.
---
--- 'status', 'ephemerisItem_status' - The status of the ephemeris.
+-- 'creationTime', 'ephemerisItem_creationTime' - The time the ephemeris was uploaded in UTC.
 --
 -- 'enabled', 'ephemerisItem_enabled' - Whether or not the ephemeris is enabled.
+--
+-- 'ephemerisId', 'ephemerisItem_ephemerisId' - The AWS Ground Station ephemeris ID.
+--
+-- 'name', 'ephemerisItem_name' - A name string associated with the ephemeris. Used as a human-readable
+-- identifier for the ephemeris.
 --
 -- 'priority', 'ephemerisItem_priority' - Customer-provided priority score to establish the order in which
 -- overlapping ephemerides should be used.
@@ -79,38 +79,38 @@ data EphemerisItem = EphemerisItem'
 --
 -- Priority must be 1 or greater
 --
--- 'creationTime', 'ephemerisItem_creationTime' - The time the ephemeris was uploaded in UTC.
+-- 'sourceS3Object', 'ephemerisItem_sourceS3Object' - Source S3 object used for the ephemeris.
 --
--- 'ephemerisId', 'ephemerisItem_ephemerisId' - The AWS Ground Station ephemeris ID.
+-- 'status', 'ephemerisItem_status' - The status of the ephemeris.
 newEphemerisItem ::
   EphemerisItem
 newEphemerisItem =
   EphemerisItem'
-    { name = Prelude.Nothing,
-      sourceS3Object = Prelude.Nothing,
-      status = Prelude.Nothing,
+    { creationTime = Prelude.Nothing,
       enabled = Prelude.Nothing,
+      ephemerisId = Prelude.Nothing,
+      name = Prelude.Nothing,
       priority = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
-      ephemerisId = Prelude.Nothing
+      sourceS3Object = Prelude.Nothing,
+      status = Prelude.Nothing
     }
+
+-- | The time the ephemeris was uploaded in UTC.
+ephemerisItem_creationTime :: Lens.Lens' EphemerisItem (Prelude.Maybe Prelude.UTCTime)
+ephemerisItem_creationTime = Lens.lens (\EphemerisItem' {creationTime} -> creationTime) (\s@EphemerisItem' {} a -> s {creationTime = a} :: EphemerisItem) Prelude.. Lens.mapping Data._Time
+
+-- | Whether or not the ephemeris is enabled.
+ephemerisItem_enabled :: Lens.Lens' EphemerisItem (Prelude.Maybe Prelude.Bool)
+ephemerisItem_enabled = Lens.lens (\EphemerisItem' {enabled} -> enabled) (\s@EphemerisItem' {} a -> s {enabled = a} :: EphemerisItem)
+
+-- | The AWS Ground Station ephemeris ID.
+ephemerisItem_ephemerisId :: Lens.Lens' EphemerisItem (Prelude.Maybe Prelude.Text)
+ephemerisItem_ephemerisId = Lens.lens (\EphemerisItem' {ephemerisId} -> ephemerisId) (\s@EphemerisItem' {} a -> s {ephemerisId = a} :: EphemerisItem)
 
 -- | A name string associated with the ephemeris. Used as a human-readable
 -- identifier for the ephemeris.
 ephemerisItem_name :: Lens.Lens' EphemerisItem (Prelude.Maybe Prelude.Text)
 ephemerisItem_name = Lens.lens (\EphemerisItem' {name} -> name) (\s@EphemerisItem' {} a -> s {name = a} :: EphemerisItem)
-
--- | Source S3 object used for the ephemeris.
-ephemerisItem_sourceS3Object :: Lens.Lens' EphemerisItem (Prelude.Maybe S3Object)
-ephemerisItem_sourceS3Object = Lens.lens (\EphemerisItem' {sourceS3Object} -> sourceS3Object) (\s@EphemerisItem' {} a -> s {sourceS3Object = a} :: EphemerisItem)
-
--- | The status of the ephemeris.
-ephemerisItem_status :: Lens.Lens' EphemerisItem (Prelude.Maybe EphemerisStatus)
-ephemerisItem_status = Lens.lens (\EphemerisItem' {status} -> status) (\s@EphemerisItem' {} a -> s {status = a} :: EphemerisItem)
-
--- | Whether or not the ephemeris is enabled.
-ephemerisItem_enabled :: Lens.Lens' EphemerisItem (Prelude.Maybe Prelude.Bool)
-ephemerisItem_enabled = Lens.lens (\EphemerisItem' {enabled} -> enabled) (\s@EphemerisItem' {} a -> s {enabled = a} :: EphemerisItem)
 
 -- | Customer-provided priority score to establish the order in which
 -- overlapping ephemerides should be used.
@@ -122,13 +122,13 @@ ephemerisItem_enabled = Lens.lens (\EphemerisItem' {enabled} -> enabled) (\s@Eph
 ephemerisItem_priority :: Lens.Lens' EphemerisItem (Prelude.Maybe Prelude.Natural)
 ephemerisItem_priority = Lens.lens (\EphemerisItem' {priority} -> priority) (\s@EphemerisItem' {} a -> s {priority = a} :: EphemerisItem)
 
--- | The time the ephemeris was uploaded in UTC.
-ephemerisItem_creationTime :: Lens.Lens' EphemerisItem (Prelude.Maybe Prelude.UTCTime)
-ephemerisItem_creationTime = Lens.lens (\EphemerisItem' {creationTime} -> creationTime) (\s@EphemerisItem' {} a -> s {creationTime = a} :: EphemerisItem) Prelude.. Lens.mapping Data._Time
+-- | Source S3 object used for the ephemeris.
+ephemerisItem_sourceS3Object :: Lens.Lens' EphemerisItem (Prelude.Maybe S3Object)
+ephemerisItem_sourceS3Object = Lens.lens (\EphemerisItem' {sourceS3Object} -> sourceS3Object) (\s@EphemerisItem' {} a -> s {sourceS3Object = a} :: EphemerisItem)
 
--- | The AWS Ground Station ephemeris ID.
-ephemerisItem_ephemerisId :: Lens.Lens' EphemerisItem (Prelude.Maybe Prelude.Text)
-ephemerisItem_ephemerisId = Lens.lens (\EphemerisItem' {ephemerisId} -> ephemerisId) (\s@EphemerisItem' {} a -> s {ephemerisId = a} :: EphemerisItem)
+-- | The status of the ephemeris.
+ephemerisItem_status :: Lens.Lens' EphemerisItem (Prelude.Maybe EphemerisStatus)
+ephemerisItem_status = Lens.lens (\EphemerisItem' {status} -> status) (\s@EphemerisItem' {} a -> s {status = a} :: EphemerisItem)
 
 instance Data.FromJSON EphemerisItem where
   parseJSON =
@@ -136,31 +136,31 @@ instance Data.FromJSON EphemerisItem where
       "EphemerisItem"
       ( \x ->
           EphemerisItem'
-            Prelude.<$> (x Data..:? "name")
+            Prelude.<$> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "enabled")
+            Prelude.<*> (x Data..:? "ephemerisId")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "priority")
             Prelude.<*> (x Data..:? "sourceS3Object")
             Prelude.<*> (x Data..:? "status")
-            Prelude.<*> (x Data..:? "enabled")
-            Prelude.<*> (x Data..:? "priority")
-            Prelude.<*> (x Data..:? "creationTime")
-            Prelude.<*> (x Data..:? "ephemerisId")
       )
 
 instance Prelude.Hashable EphemerisItem where
   hashWithSalt _salt EphemerisItem' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` ephemerisId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` priority
       `Prelude.hashWithSalt` sourceS3Object
       `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` enabled
-      `Prelude.hashWithSalt` priority
-      `Prelude.hashWithSalt` creationTime
-      `Prelude.hashWithSalt` ephemerisId
 
 instance Prelude.NFData EphemerisItem where
   rnf EphemerisItem' {..} =
-    Prelude.rnf name
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf ephemerisId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf priority
       `Prelude.seq` Prelude.rnf sourceS3Object
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf ephemerisId

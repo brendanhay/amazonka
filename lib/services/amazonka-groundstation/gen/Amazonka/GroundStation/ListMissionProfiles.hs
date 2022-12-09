@@ -29,16 +29,16 @@ module Amazonka.GroundStation.ListMissionProfiles
     newListMissionProfiles,
 
     -- * Request Lenses
-    listMissionProfiles_nextToken,
     listMissionProfiles_maxResults,
+    listMissionProfiles_nextToken,
 
     -- * Destructuring the Response
     ListMissionProfilesResponse (..),
     newListMissionProfilesResponse,
 
     -- * Response Lenses
-    listMissionProfilesResponse_nextToken,
     listMissionProfilesResponse_missionProfileList,
+    listMissionProfilesResponse_nextToken,
     listMissionProfilesResponse_httpStatus,
   )
 where
@@ -55,11 +55,11 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListMissionProfiles' smart constructor.
 data ListMissionProfiles = ListMissionProfiles'
-  { -- | Next token returned in the request of a previous @ListMissionProfiles@
+  { -- | Maximum number of mission profiles returned.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Next token returned in the request of a previous @ListMissionProfiles@
     -- call. Used to get the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Maximum number of mission profiles returned.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,26 +71,26 @@ data ListMissionProfiles = ListMissionProfiles'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listMissionProfiles_maxResults' - Maximum number of mission profiles returned.
+--
 -- 'nextToken', 'listMissionProfiles_nextToken' - Next token returned in the request of a previous @ListMissionProfiles@
 -- call. Used to get the next page of results.
---
--- 'maxResults', 'listMissionProfiles_maxResults' - Maximum number of mission profiles returned.
 newListMissionProfiles ::
   ListMissionProfiles
 newListMissionProfiles =
   ListMissionProfiles'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | Maximum number of mission profiles returned.
+listMissionProfiles_maxResults :: Lens.Lens' ListMissionProfiles (Prelude.Maybe Prelude.Natural)
+listMissionProfiles_maxResults = Lens.lens (\ListMissionProfiles' {maxResults} -> maxResults) (\s@ListMissionProfiles' {} a -> s {maxResults = a} :: ListMissionProfiles)
 
 -- | Next token returned in the request of a previous @ListMissionProfiles@
 -- call. Used to get the next page of results.
 listMissionProfiles_nextToken :: Lens.Lens' ListMissionProfiles (Prelude.Maybe Prelude.Text)
 listMissionProfiles_nextToken = Lens.lens (\ListMissionProfiles' {nextToken} -> nextToken) (\s@ListMissionProfiles' {} a -> s {nextToken = a} :: ListMissionProfiles)
-
--- | Maximum number of mission profiles returned.
-listMissionProfiles_maxResults :: Lens.Lens' ListMissionProfiles (Prelude.Maybe Prelude.Natural)
-listMissionProfiles_maxResults = Lens.lens (\ListMissionProfiles' {maxResults} -> maxResults) (\s@ListMissionProfiles' {} a -> s {maxResults = a} :: ListMissionProfiles)
 
 instance Core.AWSPager ListMissionProfiles where
   page rq rs
@@ -124,22 +124,22 @@ instance Core.AWSRequest ListMissionProfiles where
     Response.receiveJSON
       ( \s h x ->
           ListMissionProfilesResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "missionProfileList"
+            Prelude.<$> ( x Data..?> "missionProfileList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListMissionProfiles where
   hashWithSalt _salt ListMissionProfiles' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListMissionProfiles where
   rnf ListMissionProfiles' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListMissionProfiles where
   toHeaders =
@@ -158,19 +158,19 @@ instance Data.ToPath ListMissionProfiles where
 instance Data.ToQuery ListMissionProfiles where
   toQuery ListMissionProfiles' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- |
 --
 -- /See:/ 'newListMissionProfilesResponse' smart constructor.
 data ListMissionProfilesResponse = ListMissionProfilesResponse'
-  { -- | Next token returned in the response of a previous @ListMissionProfiles@
+  { -- | List of mission profiles.
+    missionProfileList :: Prelude.Maybe [MissionProfileListItem],
+    -- | Next token returned in the response of a previous @ListMissionProfiles@
     -- call. Used to get the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | List of mission profiles.
-    missionProfileList :: Prelude.Maybe [MissionProfileListItem],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -184,10 +184,10 @@ data ListMissionProfilesResponse = ListMissionProfilesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'missionProfileList', 'listMissionProfilesResponse_missionProfileList' - List of mission profiles.
+--
 -- 'nextToken', 'listMissionProfilesResponse_nextToken' - Next token returned in the response of a previous @ListMissionProfiles@
 -- call. Used to get the next page of results.
---
--- 'missionProfileList', 'listMissionProfilesResponse_missionProfileList' - List of mission profiles.
 --
 -- 'httpStatus', 'listMissionProfilesResponse_httpStatus' - The response's http status code.
 newListMissionProfilesResponse ::
@@ -196,20 +196,20 @@ newListMissionProfilesResponse ::
   ListMissionProfilesResponse
 newListMissionProfilesResponse pHttpStatus_ =
   ListMissionProfilesResponse'
-    { nextToken =
+    { missionProfileList =
         Prelude.Nothing,
-      missionProfileList = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | List of mission profiles.
+listMissionProfilesResponse_missionProfileList :: Lens.Lens' ListMissionProfilesResponse (Prelude.Maybe [MissionProfileListItem])
+listMissionProfilesResponse_missionProfileList = Lens.lens (\ListMissionProfilesResponse' {missionProfileList} -> missionProfileList) (\s@ListMissionProfilesResponse' {} a -> s {missionProfileList = a} :: ListMissionProfilesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Next token returned in the response of a previous @ListMissionProfiles@
 -- call. Used to get the next page of results.
 listMissionProfilesResponse_nextToken :: Lens.Lens' ListMissionProfilesResponse (Prelude.Maybe Prelude.Text)
 listMissionProfilesResponse_nextToken = Lens.lens (\ListMissionProfilesResponse' {nextToken} -> nextToken) (\s@ListMissionProfilesResponse' {} a -> s {nextToken = a} :: ListMissionProfilesResponse)
-
--- | List of mission profiles.
-listMissionProfilesResponse_missionProfileList :: Lens.Lens' ListMissionProfilesResponse (Prelude.Maybe [MissionProfileListItem])
-listMissionProfilesResponse_missionProfileList = Lens.lens (\ListMissionProfilesResponse' {missionProfileList} -> missionProfileList) (\s@ListMissionProfilesResponse' {} a -> s {missionProfileList = a} :: ListMissionProfilesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listMissionProfilesResponse_httpStatus :: Lens.Lens' ListMissionProfilesResponse Prelude.Int
@@ -217,6 +217,6 @@ listMissionProfilesResponse_httpStatus = Lens.lens (\ListMissionProfilesResponse
 
 instance Prelude.NFData ListMissionProfilesResponse where
   rnf ListMissionProfilesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf missionProfileList
+    Prelude.rnf missionProfileList
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

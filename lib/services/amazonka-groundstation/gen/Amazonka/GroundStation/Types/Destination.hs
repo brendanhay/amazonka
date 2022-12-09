@@ -30,15 +30,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDestination' smart constructor.
 data Destination = Destination'
-  { -- | Region of a dataflow destination.
-    dataflowDestinationRegion :: Prelude.Maybe Prelude.Text,
-    -- | UUID of a @Config@.
-    configId :: Prelude.Maybe Prelude.Text,
-    -- | Additional details for a @Config@, if type is dataflow endpoint or
+  { -- | Additional details for a @Config@, if type is dataflow endpoint or
     -- antenna demod decode.
     configDetails :: Prelude.Maybe ConfigDetails,
+    -- | UUID of a @Config@.
+    configId :: Prelude.Maybe Prelude.Text,
     -- | Type of a @Config@.
-    configType :: Prelude.Maybe ConfigCapabilityType
+    configType :: Prelude.Maybe ConfigCapabilityType,
+    -- | Region of a dataflow destination.
+    dataflowDestinationRegion :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,41 +50,40 @@ data Destination = Destination'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dataflowDestinationRegion', 'destination_dataflowDestinationRegion' - Region of a dataflow destination.
---
--- 'configId', 'destination_configId' - UUID of a @Config@.
---
 -- 'configDetails', 'destination_configDetails' - Additional details for a @Config@, if type is dataflow endpoint or
 -- antenna demod decode.
 --
+-- 'configId', 'destination_configId' - UUID of a @Config@.
+--
 -- 'configType', 'destination_configType' - Type of a @Config@.
+--
+-- 'dataflowDestinationRegion', 'destination_dataflowDestinationRegion' - Region of a dataflow destination.
 newDestination ::
   Destination
 newDestination =
   Destination'
-    { dataflowDestinationRegion =
-        Prelude.Nothing,
+    { configDetails = Prelude.Nothing,
       configId = Prelude.Nothing,
-      configDetails = Prelude.Nothing,
-      configType = Prelude.Nothing
+      configType = Prelude.Nothing,
+      dataflowDestinationRegion = Prelude.Nothing
     }
-
--- | Region of a dataflow destination.
-destination_dataflowDestinationRegion :: Lens.Lens' Destination (Prelude.Maybe Prelude.Text)
-destination_dataflowDestinationRegion = Lens.lens (\Destination' {dataflowDestinationRegion} -> dataflowDestinationRegion) (\s@Destination' {} a -> s {dataflowDestinationRegion = a} :: Destination)
-
--- | UUID of a @Config@.
-destination_configId :: Lens.Lens' Destination (Prelude.Maybe Prelude.Text)
-destination_configId = Lens.lens (\Destination' {configId} -> configId) (\s@Destination' {} a -> s {configId = a} :: Destination)
 
 -- | Additional details for a @Config@, if type is dataflow endpoint or
 -- antenna demod decode.
 destination_configDetails :: Lens.Lens' Destination (Prelude.Maybe ConfigDetails)
 destination_configDetails = Lens.lens (\Destination' {configDetails} -> configDetails) (\s@Destination' {} a -> s {configDetails = a} :: Destination)
 
+-- | UUID of a @Config@.
+destination_configId :: Lens.Lens' Destination (Prelude.Maybe Prelude.Text)
+destination_configId = Lens.lens (\Destination' {configId} -> configId) (\s@Destination' {} a -> s {configId = a} :: Destination)
+
 -- | Type of a @Config@.
 destination_configType :: Lens.Lens' Destination (Prelude.Maybe ConfigCapabilityType)
 destination_configType = Lens.lens (\Destination' {configType} -> configType) (\s@Destination' {} a -> s {configType = a} :: Destination)
+
+-- | Region of a dataflow destination.
+destination_dataflowDestinationRegion :: Lens.Lens' Destination (Prelude.Maybe Prelude.Text)
+destination_dataflowDestinationRegion = Lens.lens (\Destination' {dataflowDestinationRegion} -> dataflowDestinationRegion) (\s@Destination' {} a -> s {dataflowDestinationRegion = a} :: Destination)
 
 instance Data.FromJSON Destination where
   parseJSON =
@@ -92,23 +91,22 @@ instance Data.FromJSON Destination where
       "Destination"
       ( \x ->
           Destination'
-            Prelude.<$> (x Data..:? "dataflowDestinationRegion")
+            Prelude.<$> (x Data..:? "configDetails")
             Prelude.<*> (x Data..:? "configId")
-            Prelude.<*> (x Data..:? "configDetails")
             Prelude.<*> (x Data..:? "configType")
+            Prelude.<*> (x Data..:? "dataflowDestinationRegion")
       )
 
 instance Prelude.Hashable Destination where
   hashWithSalt _salt Destination' {..} =
-    _salt
-      `Prelude.hashWithSalt` dataflowDestinationRegion
+    _salt `Prelude.hashWithSalt` configDetails
       `Prelude.hashWithSalt` configId
-      `Prelude.hashWithSalt` configDetails
       `Prelude.hashWithSalt` configType
+      `Prelude.hashWithSalt` dataflowDestinationRegion
 
 instance Prelude.NFData Destination where
   rnf Destination' {..} =
-    Prelude.rnf dataflowDestinationRegion
+    Prelude.rnf configDetails
       `Prelude.seq` Prelude.rnf configId
-      `Prelude.seq` Prelude.rnf configDetails
       `Prelude.seq` Prelude.rnf configType
+      `Prelude.seq` Prelude.rnf dataflowDestinationRegion

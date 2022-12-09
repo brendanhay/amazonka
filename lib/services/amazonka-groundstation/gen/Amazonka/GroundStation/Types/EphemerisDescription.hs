@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEphemerisDescription' smart constructor.
 data EphemerisDescription = EphemerisDescription'
-  { -- | Source S3 object used for the ephemeris.
-    sourceS3Object :: Prelude.Maybe S3Object,
-    -- | Supplied ephemeris data.
-    ephemerisData :: Prelude.Maybe Prelude.Text
+  { -- | Supplied ephemeris data.
+    ephemerisData :: Prelude.Maybe Prelude.Text,
+    -- | Source S3 object used for the ephemeris.
+    sourceS3Object :: Prelude.Maybe S3Object
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data EphemerisDescription = EphemerisDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceS3Object', 'ephemerisDescription_sourceS3Object' - Source S3 object used for the ephemeris.
---
 -- 'ephemerisData', 'ephemerisDescription_ephemerisData' - Supplied ephemeris data.
+--
+-- 'sourceS3Object', 'ephemerisDescription_sourceS3Object' - Source S3 object used for the ephemeris.
 newEphemerisDescription ::
   EphemerisDescription
 newEphemerisDescription =
   EphemerisDescription'
-    { sourceS3Object =
+    { ephemerisData =
         Prelude.Nothing,
-      ephemerisData = Prelude.Nothing
+      sourceS3Object = Prelude.Nothing
     }
-
--- | Source S3 object used for the ephemeris.
-ephemerisDescription_sourceS3Object :: Lens.Lens' EphemerisDescription (Prelude.Maybe S3Object)
-ephemerisDescription_sourceS3Object = Lens.lens (\EphemerisDescription' {sourceS3Object} -> sourceS3Object) (\s@EphemerisDescription' {} a -> s {sourceS3Object = a} :: EphemerisDescription)
 
 -- | Supplied ephemeris data.
 ephemerisDescription_ephemerisData :: Lens.Lens' EphemerisDescription (Prelude.Maybe Prelude.Text)
 ephemerisDescription_ephemerisData = Lens.lens (\EphemerisDescription' {ephemerisData} -> ephemerisData) (\s@EphemerisDescription' {} a -> s {ephemerisData = a} :: EphemerisDescription)
+
+-- | Source S3 object used for the ephemeris.
+ephemerisDescription_sourceS3Object :: Lens.Lens' EphemerisDescription (Prelude.Maybe S3Object)
+ephemerisDescription_sourceS3Object = Lens.lens (\EphemerisDescription' {sourceS3Object} -> sourceS3Object) (\s@EphemerisDescription' {} a -> s {sourceS3Object = a} :: EphemerisDescription)
 
 instance Data.FromJSON EphemerisDescription where
   parseJSON =
@@ -70,16 +70,16 @@ instance Data.FromJSON EphemerisDescription where
       "EphemerisDescription"
       ( \x ->
           EphemerisDescription'
-            Prelude.<$> (x Data..:? "sourceS3Object")
-            Prelude.<*> (x Data..:? "ephemerisData")
+            Prelude.<$> (x Data..:? "ephemerisData")
+            Prelude.<*> (x Data..:? "sourceS3Object")
       )
 
 instance Prelude.Hashable EphemerisDescription where
   hashWithSalt _salt EphemerisDescription' {..} =
-    _salt `Prelude.hashWithSalt` sourceS3Object
-      `Prelude.hashWithSalt` ephemerisData
+    _salt `Prelude.hashWithSalt` ephemerisData
+      `Prelude.hashWithSalt` sourceS3Object
 
 instance Prelude.NFData EphemerisDescription where
   rnf EphemerisDescription' {..} =
-    Prelude.rnf sourceS3Object
-      `Prelude.seq` Prelude.rnf ephemerisData
+    Prelude.rnf ephemerisData
+      `Prelude.seq` Prelude.rnf sourceS3Object

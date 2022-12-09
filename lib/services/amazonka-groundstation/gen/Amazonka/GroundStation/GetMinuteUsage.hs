@@ -35,11 +35,11 @@ module Amazonka.GroundStation.GetMinuteUsage
     newGetMinuteUsageResponse,
 
     -- * Response Lenses
-    getMinuteUsageResponse_upcomingMinutesScheduled,
-    getMinuteUsageResponse_totalScheduledMinutes,
     getMinuteUsageResponse_estimatedMinutesRemaining,
-    getMinuteUsageResponse_totalReservedMinuteAllocation,
     getMinuteUsageResponse_isReservedMinutesCustomer,
+    getMinuteUsageResponse_totalReservedMinuteAllocation,
+    getMinuteUsageResponse_totalScheduledMinutes,
+    getMinuteUsageResponse_upcomingMinutesScheduled,
     getMinuteUsageResponse_httpStatus,
   )
 where
@@ -101,11 +101,11 @@ instance Core.AWSRequest GetMinuteUsage where
     Response.receiveJSON
       ( \s h x ->
           GetMinuteUsageResponse'
-            Prelude.<$> (x Data..?> "upcomingMinutesScheduled")
-            Prelude.<*> (x Data..?> "totalScheduledMinutes")
-            Prelude.<*> (x Data..?> "estimatedMinutesRemaining")
-            Prelude.<*> (x Data..?> "totalReservedMinuteAllocation")
+            Prelude.<$> (x Data..?> "estimatedMinutesRemaining")
             Prelude.<*> (x Data..?> "isReservedMinutesCustomer")
+            Prelude.<*> (x Data..?> "totalReservedMinuteAllocation")
+            Prelude.<*> (x Data..?> "totalScheduledMinutes")
+            Prelude.<*> (x Data..?> "upcomingMinutesScheduled")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,21 +148,21 @@ instance Data.ToQuery GetMinuteUsage where
 --
 -- /See:/ 'newGetMinuteUsageResponse' smart constructor.
 data GetMinuteUsageResponse = GetMinuteUsageResponse'
-  { -- | Upcoming minutes scheduled for an account, specific to the month being
-    -- requested.
-    upcomingMinutesScheduled :: Prelude.Maybe Prelude.Int,
-    -- | Total scheduled minutes for an account, specific to the month being
-    -- requested.
-    totalScheduledMinutes :: Prelude.Maybe Prelude.Int,
-    -- | Estimated number of minutes remaining for an account, specific to the
+  { -- | Estimated number of minutes remaining for an account, specific to the
     -- month being requested.
     estimatedMinutesRemaining :: Prelude.Maybe Prelude.Int,
-    -- | Total number of reserved minutes allocated, specific to the month being
-    -- requested.
-    totalReservedMinuteAllocation :: Prelude.Maybe Prelude.Int,
     -- | Returns whether or not an account has signed up for the reserved minutes
     -- pricing plan, specific to the month being requested.
     isReservedMinutesCustomer :: Prelude.Maybe Prelude.Bool,
+    -- | Total number of reserved minutes allocated, specific to the month being
+    -- requested.
+    totalReservedMinuteAllocation :: Prelude.Maybe Prelude.Int,
+    -- | Total scheduled minutes for an account, specific to the month being
+    -- requested.
+    totalScheduledMinutes :: Prelude.Maybe Prelude.Int,
+    -- | Upcoming minutes scheduled for an account, specific to the month being
+    -- requested.
+    upcomingMinutesScheduled :: Prelude.Maybe Prelude.Int,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -176,20 +176,20 @@ data GetMinuteUsageResponse = GetMinuteUsageResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'upcomingMinutesScheduled', 'getMinuteUsageResponse_upcomingMinutesScheduled' - Upcoming minutes scheduled for an account, specific to the month being
+-- 'estimatedMinutesRemaining', 'getMinuteUsageResponse_estimatedMinutesRemaining' - Estimated number of minutes remaining for an account, specific to the
+-- month being requested.
+--
+-- 'isReservedMinutesCustomer', 'getMinuteUsageResponse_isReservedMinutesCustomer' - Returns whether or not an account has signed up for the reserved minutes
+-- pricing plan, specific to the month being requested.
+--
+-- 'totalReservedMinuteAllocation', 'getMinuteUsageResponse_totalReservedMinuteAllocation' - Total number of reserved minutes allocated, specific to the month being
 -- requested.
 --
 -- 'totalScheduledMinutes', 'getMinuteUsageResponse_totalScheduledMinutes' - Total scheduled minutes for an account, specific to the month being
 -- requested.
 --
--- 'estimatedMinutesRemaining', 'getMinuteUsageResponse_estimatedMinutesRemaining' - Estimated number of minutes remaining for an account, specific to the
--- month being requested.
---
--- 'totalReservedMinuteAllocation', 'getMinuteUsageResponse_totalReservedMinuteAllocation' - Total number of reserved minutes allocated, specific to the month being
+-- 'upcomingMinutesScheduled', 'getMinuteUsageResponse_upcomingMinutesScheduled' - Upcoming minutes scheduled for an account, specific to the month being
 -- requested.
---
--- 'isReservedMinutesCustomer', 'getMinuteUsageResponse_isReservedMinutesCustomer' - Returns whether or not an account has signed up for the reserved minutes
--- pricing plan, specific to the month being requested.
 --
 -- 'httpStatus', 'getMinuteUsageResponse_httpStatus' - The response's http status code.
 newGetMinuteUsageResponse ::
@@ -198,39 +198,39 @@ newGetMinuteUsageResponse ::
   GetMinuteUsageResponse
 newGetMinuteUsageResponse pHttpStatus_ =
   GetMinuteUsageResponse'
-    { upcomingMinutesScheduled =
+    { estimatedMinutesRemaining =
         Prelude.Nothing,
-      totalScheduledMinutes = Prelude.Nothing,
-      estimatedMinutesRemaining = Prelude.Nothing,
-      totalReservedMinuteAllocation = Prelude.Nothing,
       isReservedMinutesCustomer = Prelude.Nothing,
+      totalReservedMinuteAllocation = Prelude.Nothing,
+      totalScheduledMinutes = Prelude.Nothing,
+      upcomingMinutesScheduled = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Upcoming minutes scheduled for an account, specific to the month being
--- requested.
-getMinuteUsageResponse_upcomingMinutesScheduled :: Lens.Lens' GetMinuteUsageResponse (Prelude.Maybe Prelude.Int)
-getMinuteUsageResponse_upcomingMinutesScheduled = Lens.lens (\GetMinuteUsageResponse' {upcomingMinutesScheduled} -> upcomingMinutesScheduled) (\s@GetMinuteUsageResponse' {} a -> s {upcomingMinutesScheduled = a} :: GetMinuteUsageResponse)
-
--- | Total scheduled minutes for an account, specific to the month being
--- requested.
-getMinuteUsageResponse_totalScheduledMinutes :: Lens.Lens' GetMinuteUsageResponse (Prelude.Maybe Prelude.Int)
-getMinuteUsageResponse_totalScheduledMinutes = Lens.lens (\GetMinuteUsageResponse' {totalScheduledMinutes} -> totalScheduledMinutes) (\s@GetMinuteUsageResponse' {} a -> s {totalScheduledMinutes = a} :: GetMinuteUsageResponse)
 
 -- | Estimated number of minutes remaining for an account, specific to the
 -- month being requested.
 getMinuteUsageResponse_estimatedMinutesRemaining :: Lens.Lens' GetMinuteUsageResponse (Prelude.Maybe Prelude.Int)
 getMinuteUsageResponse_estimatedMinutesRemaining = Lens.lens (\GetMinuteUsageResponse' {estimatedMinutesRemaining} -> estimatedMinutesRemaining) (\s@GetMinuteUsageResponse' {} a -> s {estimatedMinutesRemaining = a} :: GetMinuteUsageResponse)
 
+-- | Returns whether or not an account has signed up for the reserved minutes
+-- pricing plan, specific to the month being requested.
+getMinuteUsageResponse_isReservedMinutesCustomer :: Lens.Lens' GetMinuteUsageResponse (Prelude.Maybe Prelude.Bool)
+getMinuteUsageResponse_isReservedMinutesCustomer = Lens.lens (\GetMinuteUsageResponse' {isReservedMinutesCustomer} -> isReservedMinutesCustomer) (\s@GetMinuteUsageResponse' {} a -> s {isReservedMinutesCustomer = a} :: GetMinuteUsageResponse)
+
 -- | Total number of reserved minutes allocated, specific to the month being
 -- requested.
 getMinuteUsageResponse_totalReservedMinuteAllocation :: Lens.Lens' GetMinuteUsageResponse (Prelude.Maybe Prelude.Int)
 getMinuteUsageResponse_totalReservedMinuteAllocation = Lens.lens (\GetMinuteUsageResponse' {totalReservedMinuteAllocation} -> totalReservedMinuteAllocation) (\s@GetMinuteUsageResponse' {} a -> s {totalReservedMinuteAllocation = a} :: GetMinuteUsageResponse)
 
--- | Returns whether or not an account has signed up for the reserved minutes
--- pricing plan, specific to the month being requested.
-getMinuteUsageResponse_isReservedMinutesCustomer :: Lens.Lens' GetMinuteUsageResponse (Prelude.Maybe Prelude.Bool)
-getMinuteUsageResponse_isReservedMinutesCustomer = Lens.lens (\GetMinuteUsageResponse' {isReservedMinutesCustomer} -> isReservedMinutesCustomer) (\s@GetMinuteUsageResponse' {} a -> s {isReservedMinutesCustomer = a} :: GetMinuteUsageResponse)
+-- | Total scheduled minutes for an account, specific to the month being
+-- requested.
+getMinuteUsageResponse_totalScheduledMinutes :: Lens.Lens' GetMinuteUsageResponse (Prelude.Maybe Prelude.Int)
+getMinuteUsageResponse_totalScheduledMinutes = Lens.lens (\GetMinuteUsageResponse' {totalScheduledMinutes} -> totalScheduledMinutes) (\s@GetMinuteUsageResponse' {} a -> s {totalScheduledMinutes = a} :: GetMinuteUsageResponse)
+
+-- | Upcoming minutes scheduled for an account, specific to the month being
+-- requested.
+getMinuteUsageResponse_upcomingMinutesScheduled :: Lens.Lens' GetMinuteUsageResponse (Prelude.Maybe Prelude.Int)
+getMinuteUsageResponse_upcomingMinutesScheduled = Lens.lens (\GetMinuteUsageResponse' {upcomingMinutesScheduled} -> upcomingMinutesScheduled) (\s@GetMinuteUsageResponse' {} a -> s {upcomingMinutesScheduled = a} :: GetMinuteUsageResponse)
 
 -- | The response's http status code.
 getMinuteUsageResponse_httpStatus :: Lens.Lens' GetMinuteUsageResponse Prelude.Int
@@ -238,9 +238,9 @@ getMinuteUsageResponse_httpStatus = Lens.lens (\GetMinuteUsageResponse' {httpSta
 
 instance Prelude.NFData GetMinuteUsageResponse where
   rnf GetMinuteUsageResponse' {..} =
-    Prelude.rnf upcomingMinutesScheduled
-      `Prelude.seq` Prelude.rnf totalScheduledMinutes
-      `Prelude.seq` Prelude.rnf estimatedMinutesRemaining
-      `Prelude.seq` Prelude.rnf totalReservedMinuteAllocation
+    Prelude.rnf estimatedMinutesRemaining
       `Prelude.seq` Prelude.rnf isReservedMinutesCustomer
+      `Prelude.seq` Prelude.rnf totalReservedMinuteAllocation
+      `Prelude.seq` Prelude.rnf totalScheduledMinutes
+      `Prelude.seq` Prelude.rnf upcomingMinutesScheduled
       `Prelude.seq` Prelude.rnf httpStatus

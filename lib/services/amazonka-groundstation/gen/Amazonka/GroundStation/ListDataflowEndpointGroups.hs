@@ -29,16 +29,16 @@ module Amazonka.GroundStation.ListDataflowEndpointGroups
     newListDataflowEndpointGroups,
 
     -- * Request Lenses
-    listDataflowEndpointGroups_nextToken,
     listDataflowEndpointGroups_maxResults,
+    listDataflowEndpointGroups_nextToken,
 
     -- * Destructuring the Response
     ListDataflowEndpointGroupsResponse (..),
     newListDataflowEndpointGroupsResponse,
 
     -- * Response Lenses
-    listDataflowEndpointGroupsResponse_nextToken,
     listDataflowEndpointGroupsResponse_dataflowEndpointGroupList,
+    listDataflowEndpointGroupsResponse_nextToken,
     listDataflowEndpointGroupsResponse_httpStatus,
   )
 where
@@ -55,11 +55,11 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListDataflowEndpointGroups' smart constructor.
 data ListDataflowEndpointGroups = ListDataflowEndpointGroups'
-  { -- | Next token returned in the request of a previous
+  { -- | Maximum number of dataflow endpoint groups returned.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Next token returned in the request of a previous
     -- @ListDataflowEndpointGroups@ call. Used to get the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Maximum number of dataflow endpoint groups returned.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,27 +71,27 @@ data ListDataflowEndpointGroups = ListDataflowEndpointGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listDataflowEndpointGroups_maxResults' - Maximum number of dataflow endpoint groups returned.
+--
 -- 'nextToken', 'listDataflowEndpointGroups_nextToken' - Next token returned in the request of a previous
 -- @ListDataflowEndpointGroups@ call. Used to get the next page of results.
---
--- 'maxResults', 'listDataflowEndpointGroups_maxResults' - Maximum number of dataflow endpoint groups returned.
 newListDataflowEndpointGroups ::
   ListDataflowEndpointGroups
 newListDataflowEndpointGroups =
   ListDataflowEndpointGroups'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
+
+-- | Maximum number of dataflow endpoint groups returned.
+listDataflowEndpointGroups_maxResults :: Lens.Lens' ListDataflowEndpointGroups (Prelude.Maybe Prelude.Natural)
+listDataflowEndpointGroups_maxResults = Lens.lens (\ListDataflowEndpointGroups' {maxResults} -> maxResults) (\s@ListDataflowEndpointGroups' {} a -> s {maxResults = a} :: ListDataflowEndpointGroups)
 
 -- | Next token returned in the request of a previous
 -- @ListDataflowEndpointGroups@ call. Used to get the next page of results.
 listDataflowEndpointGroups_nextToken :: Lens.Lens' ListDataflowEndpointGroups (Prelude.Maybe Prelude.Text)
 listDataflowEndpointGroups_nextToken = Lens.lens (\ListDataflowEndpointGroups' {nextToken} -> nextToken) (\s@ListDataflowEndpointGroups' {} a -> s {nextToken = a} :: ListDataflowEndpointGroups)
-
--- | Maximum number of dataflow endpoint groups returned.
-listDataflowEndpointGroups_maxResults :: Lens.Lens' ListDataflowEndpointGroups (Prelude.Maybe Prelude.Natural)
-listDataflowEndpointGroups_maxResults = Lens.lens (\ListDataflowEndpointGroups' {maxResults} -> maxResults) (\s@ListDataflowEndpointGroups' {} a -> s {maxResults = a} :: ListDataflowEndpointGroups)
 
 instance Core.AWSPager ListDataflowEndpointGroups where
   page rq rs
@@ -125,22 +125,22 @@ instance Core.AWSRequest ListDataflowEndpointGroups where
     Response.receiveJSON
       ( \s h x ->
           ListDataflowEndpointGroupsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "dataflowEndpointGroupList"
+            Prelude.<$> ( x Data..?> "dataflowEndpointGroupList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListDataflowEndpointGroups where
   hashWithSalt _salt ListDataflowEndpointGroups' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListDataflowEndpointGroups where
   rnf ListDataflowEndpointGroups' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListDataflowEndpointGroups where
   toHeaders =
@@ -159,19 +159,19 @@ instance Data.ToPath ListDataflowEndpointGroups where
 instance Data.ToQuery ListDataflowEndpointGroups where
   toQuery ListDataflowEndpointGroups' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- |
 --
 -- /See:/ 'newListDataflowEndpointGroupsResponse' smart constructor.
 data ListDataflowEndpointGroupsResponse = ListDataflowEndpointGroupsResponse'
-  { -- | Next token returned in the response of a previous
+  { -- | A list of dataflow endpoint groups.
+    dataflowEndpointGroupList :: Prelude.Maybe [DataflowEndpointListItem],
+    -- | Next token returned in the response of a previous
     -- @ListDataflowEndpointGroups@ call. Used to get the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of dataflow endpoint groups.
-    dataflowEndpointGroupList :: Prelude.Maybe [DataflowEndpointListItem],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -185,10 +185,10 @@ data ListDataflowEndpointGroupsResponse = ListDataflowEndpointGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dataflowEndpointGroupList', 'listDataflowEndpointGroupsResponse_dataflowEndpointGroupList' - A list of dataflow endpoint groups.
+--
 -- 'nextToken', 'listDataflowEndpointGroupsResponse_nextToken' - Next token returned in the response of a previous
 -- @ListDataflowEndpointGroups@ call. Used to get the next page of results.
---
--- 'dataflowEndpointGroupList', 'listDataflowEndpointGroupsResponse_dataflowEndpointGroupList' - A list of dataflow endpoint groups.
 --
 -- 'httpStatus', 'listDataflowEndpointGroupsResponse_httpStatus' - The response's http status code.
 newListDataflowEndpointGroupsResponse ::
@@ -197,21 +197,20 @@ newListDataflowEndpointGroupsResponse ::
   ListDataflowEndpointGroupsResponse
 newListDataflowEndpointGroupsResponse pHttpStatus_ =
   ListDataflowEndpointGroupsResponse'
-    { nextToken =
+    { dataflowEndpointGroupList =
         Prelude.Nothing,
-      dataflowEndpointGroupList =
-        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of dataflow endpoint groups.
+listDataflowEndpointGroupsResponse_dataflowEndpointGroupList :: Lens.Lens' ListDataflowEndpointGroupsResponse (Prelude.Maybe [DataflowEndpointListItem])
+listDataflowEndpointGroupsResponse_dataflowEndpointGroupList = Lens.lens (\ListDataflowEndpointGroupsResponse' {dataflowEndpointGroupList} -> dataflowEndpointGroupList) (\s@ListDataflowEndpointGroupsResponse' {} a -> s {dataflowEndpointGroupList = a} :: ListDataflowEndpointGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Next token returned in the response of a previous
 -- @ListDataflowEndpointGroups@ call. Used to get the next page of results.
 listDataflowEndpointGroupsResponse_nextToken :: Lens.Lens' ListDataflowEndpointGroupsResponse (Prelude.Maybe Prelude.Text)
 listDataflowEndpointGroupsResponse_nextToken = Lens.lens (\ListDataflowEndpointGroupsResponse' {nextToken} -> nextToken) (\s@ListDataflowEndpointGroupsResponse' {} a -> s {nextToken = a} :: ListDataflowEndpointGroupsResponse)
-
--- | A list of dataflow endpoint groups.
-listDataflowEndpointGroupsResponse_dataflowEndpointGroupList :: Lens.Lens' ListDataflowEndpointGroupsResponse (Prelude.Maybe [DataflowEndpointListItem])
-listDataflowEndpointGroupsResponse_dataflowEndpointGroupList = Lens.lens (\ListDataflowEndpointGroupsResponse' {dataflowEndpointGroupList} -> dataflowEndpointGroupList) (\s@ListDataflowEndpointGroupsResponse' {} a -> s {dataflowEndpointGroupList = a} :: ListDataflowEndpointGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listDataflowEndpointGroupsResponse_httpStatus :: Lens.Lens' ListDataflowEndpointGroupsResponse Prelude.Int
@@ -222,6 +221,6 @@ instance
     ListDataflowEndpointGroupsResponse
   where
   rnf ListDataflowEndpointGroupsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf dataflowEndpointGroupList
+    Prelude.rnf dataflowEndpointGroupList
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

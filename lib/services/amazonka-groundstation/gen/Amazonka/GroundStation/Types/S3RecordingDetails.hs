@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newS3RecordingDetails' smart constructor.
 data S3RecordingDetails = S3RecordingDetails'
-  { -- | Key template used for the S3 Recording Configuration
-    keyTemplate :: Prelude.Maybe Prelude.Text,
-    -- | ARN of the bucket used.
-    bucketArn :: Prelude.Maybe Prelude.Text
+  { -- | ARN of the bucket used.
+    bucketArn :: Prelude.Maybe Prelude.Text,
+    -- | Key template used for the S3 Recording Configuration
+    keyTemplate :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data S3RecordingDetails = S3RecordingDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'keyTemplate', 's3RecordingDetails_keyTemplate' - Key template used for the S3 Recording Configuration
---
 -- 'bucketArn', 's3RecordingDetails_bucketArn' - ARN of the bucket used.
+--
+-- 'keyTemplate', 's3RecordingDetails_keyTemplate' - Key template used for the S3 Recording Configuration
 newS3RecordingDetails ::
   S3RecordingDetails
 newS3RecordingDetails =
   S3RecordingDetails'
-    { keyTemplate = Prelude.Nothing,
-      bucketArn = Prelude.Nothing
+    { bucketArn = Prelude.Nothing,
+      keyTemplate = Prelude.Nothing
     }
-
--- | Key template used for the S3 Recording Configuration
-s3RecordingDetails_keyTemplate :: Lens.Lens' S3RecordingDetails (Prelude.Maybe Prelude.Text)
-s3RecordingDetails_keyTemplate = Lens.lens (\S3RecordingDetails' {keyTemplate} -> keyTemplate) (\s@S3RecordingDetails' {} a -> s {keyTemplate = a} :: S3RecordingDetails)
 
 -- | ARN of the bucket used.
 s3RecordingDetails_bucketArn :: Lens.Lens' S3RecordingDetails (Prelude.Maybe Prelude.Text)
 s3RecordingDetails_bucketArn = Lens.lens (\S3RecordingDetails' {bucketArn} -> bucketArn) (\s@S3RecordingDetails' {} a -> s {bucketArn = a} :: S3RecordingDetails)
+
+-- | Key template used for the S3 Recording Configuration
+s3RecordingDetails_keyTemplate :: Lens.Lens' S3RecordingDetails (Prelude.Maybe Prelude.Text)
+s3RecordingDetails_keyTemplate = Lens.lens (\S3RecordingDetails' {keyTemplate} -> keyTemplate) (\s@S3RecordingDetails' {} a -> s {keyTemplate = a} :: S3RecordingDetails)
 
 instance Data.FromJSON S3RecordingDetails where
   parseJSON =
@@ -68,16 +68,16 @@ instance Data.FromJSON S3RecordingDetails where
       "S3RecordingDetails"
       ( \x ->
           S3RecordingDetails'
-            Prelude.<$> (x Data..:? "keyTemplate")
-            Prelude.<*> (x Data..:? "bucketArn")
+            Prelude.<$> (x Data..:? "bucketArn")
+            Prelude.<*> (x Data..:? "keyTemplate")
       )
 
 instance Prelude.Hashable S3RecordingDetails where
   hashWithSalt _salt S3RecordingDetails' {..} =
-    _salt `Prelude.hashWithSalt` keyTemplate
-      `Prelude.hashWithSalt` bucketArn
+    _salt `Prelude.hashWithSalt` bucketArn
+      `Prelude.hashWithSalt` keyTemplate
 
 instance Prelude.NFData S3RecordingDetails where
   rnf S3RecordingDetails' {..} =
-    Prelude.rnf keyTemplate
-      `Prelude.seq` Prelude.rnf bucketArn
+    Prelude.rnf bucketArn
+      `Prelude.seq` Prelude.rnf keyTemplate

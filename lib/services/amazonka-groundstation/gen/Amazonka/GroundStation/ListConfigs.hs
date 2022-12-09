@@ -29,16 +29,16 @@ module Amazonka.GroundStation.ListConfigs
     newListConfigs,
 
     -- * Request Lenses
-    listConfigs_nextToken,
     listConfigs_maxResults,
+    listConfigs_nextToken,
 
     -- * Destructuring the Response
     ListConfigsResponse (..),
     newListConfigsResponse,
 
     -- * Response Lenses
-    listConfigsResponse_nextToken,
     listConfigsResponse_configList,
+    listConfigsResponse_nextToken,
     listConfigsResponse_httpStatus,
   )
 where
@@ -55,11 +55,11 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListConfigs' smart constructor.
 data ListConfigs = ListConfigs'
-  { -- | Next token returned in the request of a previous @ListConfigs@ call.
+  { -- | Maximum number of @Configs@ returned.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Next token returned in the request of a previous @ListConfigs@ call.
     -- Used to get the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Maximum number of @Configs@ returned.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,26 +71,26 @@ data ListConfigs = ListConfigs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listConfigs_maxResults' - Maximum number of @Configs@ returned.
+--
 -- 'nextToken', 'listConfigs_nextToken' - Next token returned in the request of a previous @ListConfigs@ call.
 -- Used to get the next page of results.
---
--- 'maxResults', 'listConfigs_maxResults' - Maximum number of @Configs@ returned.
 newListConfigs ::
   ListConfigs
 newListConfigs =
   ListConfigs'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | Maximum number of @Configs@ returned.
+listConfigs_maxResults :: Lens.Lens' ListConfigs (Prelude.Maybe Prelude.Natural)
+listConfigs_maxResults = Lens.lens (\ListConfigs' {maxResults} -> maxResults) (\s@ListConfigs' {} a -> s {maxResults = a} :: ListConfigs)
 
 -- | Next token returned in the request of a previous @ListConfigs@ call.
 -- Used to get the next page of results.
 listConfigs_nextToken :: Lens.Lens' ListConfigs (Prelude.Maybe Prelude.Text)
 listConfigs_nextToken = Lens.lens (\ListConfigs' {nextToken} -> nextToken) (\s@ListConfigs' {} a -> s {nextToken = a} :: ListConfigs)
-
--- | Maximum number of @Configs@ returned.
-listConfigs_maxResults :: Lens.Lens' ListConfigs (Prelude.Maybe Prelude.Natural)
-listConfigs_maxResults = Lens.lens (\ListConfigs' {maxResults} -> maxResults) (\s@ListConfigs' {} a -> s {maxResults = a} :: ListConfigs)
 
 instance Core.AWSPager ListConfigs where
   page rq rs
@@ -119,20 +119,20 @@ instance Core.AWSRequest ListConfigs where
     Response.receiveJSON
       ( \s h x ->
           ListConfigsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "configList" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "configList" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListConfigs where
   hashWithSalt _salt ListConfigs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListConfigs where
   rnf ListConfigs' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListConfigs where
   toHeaders =
@@ -151,19 +151,19 @@ instance Data.ToPath ListConfigs where
 instance Data.ToQuery ListConfigs where
   toQuery ListConfigs' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- |
 --
 -- /See:/ 'newListConfigsResponse' smart constructor.
 data ListConfigsResponse = ListConfigsResponse'
-  { -- | Next token returned in the response of a previous @ListConfigs@ call.
+  { -- | List of @Config@ items.
+    configList :: Prelude.Maybe [ConfigListItem],
+    -- | Next token returned in the response of a previous @ListConfigs@ call.
     -- Used to get the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | List of @Config@ items.
-    configList :: Prelude.Maybe [ConfigListItem],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -177,10 +177,10 @@ data ListConfigsResponse = ListConfigsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'configList', 'listConfigsResponse_configList' - List of @Config@ items.
+--
 -- 'nextToken', 'listConfigsResponse_nextToken' - Next token returned in the response of a previous @ListConfigs@ call.
 -- Used to get the next page of results.
---
--- 'configList', 'listConfigsResponse_configList' - List of @Config@ items.
 --
 -- 'httpStatus', 'listConfigsResponse_httpStatus' - The response's http status code.
 newListConfigsResponse ::
@@ -189,19 +189,19 @@ newListConfigsResponse ::
   ListConfigsResponse
 newListConfigsResponse pHttpStatus_ =
   ListConfigsResponse'
-    { nextToken = Prelude.Nothing,
-      configList = Prelude.Nothing,
+    { configList = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | List of @Config@ items.
+listConfigsResponse_configList :: Lens.Lens' ListConfigsResponse (Prelude.Maybe [ConfigListItem])
+listConfigsResponse_configList = Lens.lens (\ListConfigsResponse' {configList} -> configList) (\s@ListConfigsResponse' {} a -> s {configList = a} :: ListConfigsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Next token returned in the response of a previous @ListConfigs@ call.
 -- Used to get the next page of results.
 listConfigsResponse_nextToken :: Lens.Lens' ListConfigsResponse (Prelude.Maybe Prelude.Text)
 listConfigsResponse_nextToken = Lens.lens (\ListConfigsResponse' {nextToken} -> nextToken) (\s@ListConfigsResponse' {} a -> s {nextToken = a} :: ListConfigsResponse)
-
--- | List of @Config@ items.
-listConfigsResponse_configList :: Lens.Lens' ListConfigsResponse (Prelude.Maybe [ConfigListItem])
-listConfigsResponse_configList = Lens.lens (\ListConfigsResponse' {configList} -> configList) (\s@ListConfigsResponse' {} a -> s {configList = a} :: ListConfigsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listConfigsResponse_httpStatus :: Lens.Lens' ListConfigsResponse Prelude.Int
@@ -209,6 +209,6 @@ listConfigsResponse_httpStatus = Lens.lens (\ListConfigsResponse' {httpStatus} -
 
 instance Prelude.NFData ListConfigsResponse where
   rnf ListConfigsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf configList
+    Prelude.rnf configList
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

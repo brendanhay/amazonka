@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newS3Object' smart constructor.
 data S3Object = S3Object'
-  { -- | An Amazon S3 key for the ephemeris.
-    key :: Prelude.Maybe Prelude.Text,
-    -- | An Amazon S3 Bucket name.
+  { -- | An Amazon S3 Bucket name.
     bucket :: Prelude.Maybe Prelude.Text,
+    -- | An Amazon S3 key for the ephemeris.
+    key :: Prelude.Maybe Prelude.Text,
     -- | For versioned S3 objects, the version to use for the ephemeris.
     version :: Prelude.Maybe Prelude.Text
   }
@@ -45,27 +45,27 @@ data S3Object = S3Object'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'key', 's3Object_key' - An Amazon S3 key for the ephemeris.
---
 -- 'bucket', 's3Object_bucket' - An Amazon S3 Bucket name.
+--
+-- 'key', 's3Object_key' - An Amazon S3 key for the ephemeris.
 --
 -- 'version', 's3Object_version' - For versioned S3 objects, the version to use for the ephemeris.
 newS3Object ::
   S3Object
 newS3Object =
   S3Object'
-    { key = Prelude.Nothing,
-      bucket = Prelude.Nothing,
+    { bucket = Prelude.Nothing,
+      key = Prelude.Nothing,
       version = Prelude.Nothing
     }
-
--- | An Amazon S3 key for the ephemeris.
-s3Object_key :: Lens.Lens' S3Object (Prelude.Maybe Prelude.Text)
-s3Object_key = Lens.lens (\S3Object' {key} -> key) (\s@S3Object' {} a -> s {key = a} :: S3Object)
 
 -- | An Amazon S3 Bucket name.
 s3Object_bucket :: Lens.Lens' S3Object (Prelude.Maybe Prelude.Text)
 s3Object_bucket = Lens.lens (\S3Object' {bucket} -> bucket) (\s@S3Object' {} a -> s {bucket = a} :: S3Object)
+
+-- | An Amazon S3 key for the ephemeris.
+s3Object_key :: Lens.Lens' S3Object (Prelude.Maybe Prelude.Text)
+s3Object_key = Lens.lens (\S3Object' {key} -> key) (\s@S3Object' {} a -> s {key = a} :: S3Object)
 
 -- | For versioned S3 objects, the version to use for the ephemeris.
 s3Object_version :: Lens.Lens' S3Object (Prelude.Maybe Prelude.Text)
@@ -77,29 +77,29 @@ instance Data.FromJSON S3Object where
       "S3Object"
       ( \x ->
           S3Object'
-            Prelude.<$> (x Data..:? "key")
-            Prelude.<*> (x Data..:? "bucket")
+            Prelude.<$> (x Data..:? "bucket")
+            Prelude.<*> (x Data..:? "key")
             Prelude.<*> (x Data..:? "version")
       )
 
 instance Prelude.Hashable S3Object where
   hashWithSalt _salt S3Object' {..} =
-    _salt `Prelude.hashWithSalt` key
-      `Prelude.hashWithSalt` bucket
+    _salt `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData S3Object where
   rnf S3Object' {..} =
-    Prelude.rnf key
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf key
       `Prelude.seq` Prelude.rnf version
 
 instance Data.ToJSON S3Object where
   toJSON S3Object' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("key" Data..=) Prelude.<$> key,
-            ("bucket" Data..=) Prelude.<$> bucket,
+          [ ("bucket" Data..=) Prelude.<$> bucket,
+            ("key" Data..=) Prelude.<$> key,
             ("version" Data..=) Prelude.<$> version
           ]
       )

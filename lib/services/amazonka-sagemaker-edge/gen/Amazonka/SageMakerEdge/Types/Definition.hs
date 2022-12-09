@@ -30,14 +30,14 @@ import Amazonka.SageMakerEdge.Types.ModelState
 --
 -- /See:/ 'newDefinition' smart constructor.
 data Definition = Definition'
-  { -- | The desired state of the model.
-    state :: Prelude.Maybe ModelState,
-    -- | The checksum information of the model.
+  { -- | The checksum information of the model.
     checksum :: Prelude.Maybe Checksum,
+    -- | The unique model handle.
+    modelHandle :: Prelude.Maybe Prelude.Text,
     -- | The absolute S3 location of the model.
     s3Url :: Prelude.Maybe Prelude.Text,
-    -- | The unique model handle.
-    modelHandle :: Prelude.Maybe Prelude.Text
+    -- | The desired state of the model.
+    state :: Prelude.Maybe ModelState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,38 +49,38 @@ data Definition = Definition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'state', 'definition_state' - The desired state of the model.
---
 -- 'checksum', 'definition_checksum' - The checksum information of the model.
+--
+-- 'modelHandle', 'definition_modelHandle' - The unique model handle.
 --
 -- 's3Url', 'definition_s3Url' - The absolute S3 location of the model.
 --
--- 'modelHandle', 'definition_modelHandle' - The unique model handle.
+-- 'state', 'definition_state' - The desired state of the model.
 newDefinition ::
   Definition
 newDefinition =
   Definition'
-    { state = Prelude.Nothing,
-      checksum = Prelude.Nothing,
+    { checksum = Prelude.Nothing,
+      modelHandle = Prelude.Nothing,
       s3Url = Prelude.Nothing,
-      modelHandle = Prelude.Nothing
+      state = Prelude.Nothing
     }
-
--- | The desired state of the model.
-definition_state :: Lens.Lens' Definition (Prelude.Maybe ModelState)
-definition_state = Lens.lens (\Definition' {state} -> state) (\s@Definition' {} a -> s {state = a} :: Definition)
 
 -- | The checksum information of the model.
 definition_checksum :: Lens.Lens' Definition (Prelude.Maybe Checksum)
 definition_checksum = Lens.lens (\Definition' {checksum} -> checksum) (\s@Definition' {} a -> s {checksum = a} :: Definition)
 
+-- | The unique model handle.
+definition_modelHandle :: Lens.Lens' Definition (Prelude.Maybe Prelude.Text)
+definition_modelHandle = Lens.lens (\Definition' {modelHandle} -> modelHandle) (\s@Definition' {} a -> s {modelHandle = a} :: Definition)
+
 -- | The absolute S3 location of the model.
 definition_s3Url :: Lens.Lens' Definition (Prelude.Maybe Prelude.Text)
 definition_s3Url = Lens.lens (\Definition' {s3Url} -> s3Url) (\s@Definition' {} a -> s {s3Url = a} :: Definition)
 
--- | The unique model handle.
-definition_modelHandle :: Lens.Lens' Definition (Prelude.Maybe Prelude.Text)
-definition_modelHandle = Lens.lens (\Definition' {modelHandle} -> modelHandle) (\s@Definition' {} a -> s {modelHandle = a} :: Definition)
+-- | The desired state of the model.
+definition_state :: Lens.Lens' Definition (Prelude.Maybe ModelState)
+definition_state = Lens.lens (\Definition' {state} -> state) (\s@Definition' {} a -> s {state = a} :: Definition)
 
 instance Data.FromJSON Definition where
   parseJSON =
@@ -88,22 +88,22 @@ instance Data.FromJSON Definition where
       "Definition"
       ( \x ->
           Definition'
-            Prelude.<$> (x Data..:? "State")
-            Prelude.<*> (x Data..:? "Checksum")
-            Prelude.<*> (x Data..:? "S3Url")
+            Prelude.<$> (x Data..:? "Checksum")
             Prelude.<*> (x Data..:? "ModelHandle")
+            Prelude.<*> (x Data..:? "S3Url")
+            Prelude.<*> (x Data..:? "State")
       )
 
 instance Prelude.Hashable Definition where
   hashWithSalt _salt Definition' {..} =
-    _salt `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` checksum
-      `Prelude.hashWithSalt` s3Url
+    _salt `Prelude.hashWithSalt` checksum
       `Prelude.hashWithSalt` modelHandle
+      `Prelude.hashWithSalt` s3Url
+      `Prelude.hashWithSalt` state
 
 instance Prelude.NFData Definition where
   rnf Definition' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf checksum
-      `Prelude.seq` Prelude.rnf s3Url
+    Prelude.rnf checksum
       `Prelude.seq` Prelude.rnf modelHandle
+      `Prelude.seq` Prelude.rnf s3Url
+      `Prelude.seq` Prelude.rnf state

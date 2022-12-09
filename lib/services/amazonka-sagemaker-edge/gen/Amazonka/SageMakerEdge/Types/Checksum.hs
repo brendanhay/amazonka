@@ -29,10 +29,10 @@ import Amazonka.SageMakerEdge.Types.ChecksumType
 --
 -- /See:/ 'newChecksum' smart constructor.
 data Checksum = Checksum'
-  { -- | The type of the checksum.
-    type' :: Prelude.Maybe ChecksumType,
-    -- | The checksum of the model.
-    sum :: Prelude.Maybe Prelude.Text
+  { -- | The checksum of the model.
+    sum :: Prelude.Maybe Prelude.Text,
+    -- | The type of the checksum.
+    type' :: Prelude.Maybe ChecksumType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data Checksum = Checksum'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'checksum_type' - The type of the checksum.
---
 -- 'sum', 'checksum_sum' - The checksum of the model.
+--
+-- 'type'', 'checksum_type' - The type of the checksum.
 newChecksum ::
   Checksum
 newChecksum =
   Checksum'
-    { type' = Prelude.Nothing,
-      sum = Prelude.Nothing
+    { sum = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
-
--- | The type of the checksum.
-checksum_type :: Lens.Lens' Checksum (Prelude.Maybe ChecksumType)
-checksum_type = Lens.lens (\Checksum' {type'} -> type') (\s@Checksum' {} a -> s {type' = a} :: Checksum)
 
 -- | The checksum of the model.
 checksum_sum :: Lens.Lens' Checksum (Prelude.Maybe Prelude.Text)
 checksum_sum = Lens.lens (\Checksum' {sum} -> sum) (\s@Checksum' {} a -> s {sum = a} :: Checksum)
+
+-- | The type of the checksum.
+checksum_type :: Lens.Lens' Checksum (Prelude.Maybe ChecksumType)
+checksum_type = Lens.lens (\Checksum' {type'} -> type') (\s@Checksum' {} a -> s {type' = a} :: Checksum)
 
 instance Data.FromJSON Checksum where
   parseJSON =
@@ -69,14 +69,14 @@ instance Data.FromJSON Checksum where
       "Checksum"
       ( \x ->
           Checksum'
-            Prelude.<$> (x Data..:? "Type") Prelude.<*> (x Data..:? "Sum")
+            Prelude.<$> (x Data..:? "Sum") Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable Checksum where
   hashWithSalt _salt Checksum' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` sum
+    _salt `Prelude.hashWithSalt` sum
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData Checksum where
   rnf Checksum' {..} =
-    Prelude.rnf type' `Prelude.seq` Prelude.rnf sum
+    Prelude.rnf sum `Prelude.seq` Prelude.rnf type'

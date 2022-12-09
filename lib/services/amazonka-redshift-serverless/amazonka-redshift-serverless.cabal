@@ -62,6 +62,7 @@ library
     Amazonka.RedshiftServerLess.GetRecoveryPoint
     Amazonka.RedshiftServerLess.GetResourcePolicy
     Amazonka.RedshiftServerLess.GetSnapshot
+    Amazonka.RedshiftServerLess.GetTableRestoreStatus
     Amazonka.RedshiftServerLess.GetUsageLimit
     Amazonka.RedshiftServerLess.GetWorkgroup
     Amazonka.RedshiftServerLess.Lens
@@ -69,12 +70,14 @@ library
     Amazonka.RedshiftServerLess.ListNamespaces
     Amazonka.RedshiftServerLess.ListRecoveryPoints
     Amazonka.RedshiftServerLess.ListSnapshots
+    Amazonka.RedshiftServerLess.ListTableRestoreStatus
     Amazonka.RedshiftServerLess.ListTagsForResource
     Amazonka.RedshiftServerLess.ListUsageLimits
     Amazonka.RedshiftServerLess.ListWorkgroups
     Amazonka.RedshiftServerLess.PutResourcePolicy
     Amazonka.RedshiftServerLess.RestoreFromRecoveryPoint
     Amazonka.RedshiftServerLess.RestoreFromSnapshot
+    Amazonka.RedshiftServerLess.RestoreTableFromSnapshot
     Amazonka.RedshiftServerLess.TagResource
     Amazonka.RedshiftServerLess.Types
     Amazonka.RedshiftServerLess.Types.ConfigParameter
@@ -88,6 +91,7 @@ library
     Amazonka.RedshiftServerLess.Types.ResourcePolicy
     Amazonka.RedshiftServerLess.Types.Snapshot
     Amazonka.RedshiftServerLess.Types.SnapshotStatus
+    Amazonka.RedshiftServerLess.Types.TableRestoreStatus
     Amazonka.RedshiftServerLess.Types.Tag
     Amazonka.RedshiftServerLess.Types.UsageLimit
     Amazonka.RedshiftServerLess.Types.UsageLimitBreachAction

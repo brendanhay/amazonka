@@ -27,14 +27,14 @@ module Amazonka.RedshiftServerLess.CreateNamespace
     newCreateNamespace,
 
     -- * Request Lenses
-    createNamespace_tags,
-    createNamespace_logExports,
-    createNamespace_iamRoles,
-    createNamespace_kmsKeyId,
-    createNamespace_defaultIamRoleArn,
     createNamespace_adminUserPassword,
     createNamespace_adminUsername,
     createNamespace_dbName,
+    createNamespace_defaultIamRoleArn,
+    createNamespace_iamRoles,
+    createNamespace_kmsKeyId,
+    createNamespace_logExports,
+    createNamespace_tags,
     createNamespace_namespaceName,
 
     -- * Destructuring the Response
@@ -57,20 +57,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateNamespace' smart constructor.
 data CreateNamespace = CreateNamespace'
-  { -- | A list of tag instances.
-    tags :: Prelude.Maybe [Tag],
-    -- | The types of logs the namespace can export. Available export types are
-    -- @userlog@, @connectionlog@, and @useractivitylog@.
-    logExports :: Prelude.Maybe [LogExport],
-    -- | A list of IAM roles to associate with the namespace.
-    iamRoles :: Prelude.Maybe [Prelude.Text],
-    -- | The ID of the Amazon Web Services Key Management Service key used to
-    -- encrypt your data.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the IAM role to set as a default in
-    -- the namespace.
-    defaultIamRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | The password of the administrator for the first database created in the
+  { -- | The password of the administrator for the first database created in the
     -- namespace.
     adminUserPassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The username of the administrator for the first database created in the
@@ -78,6 +65,19 @@ data CreateNamespace = CreateNamespace'
     adminUsername :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name of the first database created in the namespace.
     dbName :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the IAM role to set as a default in
+    -- the namespace.
+    defaultIamRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | A list of IAM roles to associate with the namespace.
+    iamRoles :: Prelude.Maybe [Prelude.Text],
+    -- | The ID of the Amazon Web Services Key Management Service key used to
+    -- encrypt your data.
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The types of logs the namespace can export. Available export types are
+    -- @userlog@, @connectionlog@, and @useractivitylog@.
+    logExports :: Prelude.Maybe [LogExport],
+    -- | A list of tag instances.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the namespace.
     namespaceName :: Prelude.Text
   }
@@ -91,19 +91,6 @@ data CreateNamespace = CreateNamespace'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createNamespace_tags' - A list of tag instances.
---
--- 'logExports', 'createNamespace_logExports' - The types of logs the namespace can export. Available export types are
--- @userlog@, @connectionlog@, and @useractivitylog@.
---
--- 'iamRoles', 'createNamespace_iamRoles' - A list of IAM roles to associate with the namespace.
---
--- 'kmsKeyId', 'createNamespace_kmsKeyId' - The ID of the Amazon Web Services Key Management Service key used to
--- encrypt your data.
---
--- 'defaultIamRoleArn', 'createNamespace_defaultIamRoleArn' - The Amazon Resource Name (ARN) of the IAM role to set as a default in
--- the namespace.
---
 -- 'adminUserPassword', 'createNamespace_adminUserPassword' - The password of the administrator for the first database created in the
 -- namespace.
 --
@@ -112,6 +99,19 @@ data CreateNamespace = CreateNamespace'
 --
 -- 'dbName', 'createNamespace_dbName' - The name of the first database created in the namespace.
 --
+-- 'defaultIamRoleArn', 'createNamespace_defaultIamRoleArn' - The Amazon Resource Name (ARN) of the IAM role to set as a default in
+-- the namespace.
+--
+-- 'iamRoles', 'createNamespace_iamRoles' - A list of IAM roles to associate with the namespace.
+--
+-- 'kmsKeyId', 'createNamespace_kmsKeyId' - The ID of the Amazon Web Services Key Management Service key used to
+-- encrypt your data.
+--
+-- 'logExports', 'createNamespace_logExports' - The types of logs the namespace can export. Available export types are
+-- @userlog@, @connectionlog@, and @useractivitylog@.
+--
+-- 'tags', 'createNamespace_tags' - A list of tag instances.
+--
 -- 'namespaceName', 'createNamespace_namespaceName' - The name of the namespace.
 newCreateNamespace ::
   -- | 'namespaceName'
@@ -119,39 +119,17 @@ newCreateNamespace ::
   CreateNamespace
 newCreateNamespace pNamespaceName_ =
   CreateNamespace'
-    { tags = Prelude.Nothing,
-      logExports = Prelude.Nothing,
-      iamRoles = Prelude.Nothing,
-      kmsKeyId = Prelude.Nothing,
-      defaultIamRoleArn = Prelude.Nothing,
-      adminUserPassword = Prelude.Nothing,
+    { adminUserPassword =
+        Prelude.Nothing,
       adminUsername = Prelude.Nothing,
       dbName = Prelude.Nothing,
+      defaultIamRoleArn = Prelude.Nothing,
+      iamRoles = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
+      logExports = Prelude.Nothing,
+      tags = Prelude.Nothing,
       namespaceName = pNamespaceName_
     }
-
--- | A list of tag instances.
-createNamespace_tags :: Lens.Lens' CreateNamespace (Prelude.Maybe [Tag])
-createNamespace_tags = Lens.lens (\CreateNamespace' {tags} -> tags) (\s@CreateNamespace' {} a -> s {tags = a} :: CreateNamespace) Prelude.. Lens.mapping Lens.coerced
-
--- | The types of logs the namespace can export. Available export types are
--- @userlog@, @connectionlog@, and @useractivitylog@.
-createNamespace_logExports :: Lens.Lens' CreateNamespace (Prelude.Maybe [LogExport])
-createNamespace_logExports = Lens.lens (\CreateNamespace' {logExports} -> logExports) (\s@CreateNamespace' {} a -> s {logExports = a} :: CreateNamespace) Prelude.. Lens.mapping Lens.coerced
-
--- | A list of IAM roles to associate with the namespace.
-createNamespace_iamRoles :: Lens.Lens' CreateNamespace (Prelude.Maybe [Prelude.Text])
-createNamespace_iamRoles = Lens.lens (\CreateNamespace' {iamRoles} -> iamRoles) (\s@CreateNamespace' {} a -> s {iamRoles = a} :: CreateNamespace) Prelude.. Lens.mapping Lens.coerced
-
--- | The ID of the Amazon Web Services Key Management Service key used to
--- encrypt your data.
-createNamespace_kmsKeyId :: Lens.Lens' CreateNamespace (Prelude.Maybe Prelude.Text)
-createNamespace_kmsKeyId = Lens.lens (\CreateNamespace' {kmsKeyId} -> kmsKeyId) (\s@CreateNamespace' {} a -> s {kmsKeyId = a} :: CreateNamespace)
-
--- | The Amazon Resource Name (ARN) of the IAM role to set as a default in
--- the namespace.
-createNamespace_defaultIamRoleArn :: Lens.Lens' CreateNamespace (Prelude.Maybe Prelude.Text)
-createNamespace_defaultIamRoleArn = Lens.lens (\CreateNamespace' {defaultIamRoleArn} -> defaultIamRoleArn) (\s@CreateNamespace' {} a -> s {defaultIamRoleArn = a} :: CreateNamespace)
 
 -- | The password of the administrator for the first database created in the
 -- namespace.
@@ -166,6 +144,29 @@ createNamespace_adminUsername = Lens.lens (\CreateNamespace' {adminUsername} -> 
 -- | The name of the first database created in the namespace.
 createNamespace_dbName :: Lens.Lens' CreateNamespace (Prelude.Maybe Prelude.Text)
 createNamespace_dbName = Lens.lens (\CreateNamespace' {dbName} -> dbName) (\s@CreateNamespace' {} a -> s {dbName = a} :: CreateNamespace)
+
+-- | The Amazon Resource Name (ARN) of the IAM role to set as a default in
+-- the namespace.
+createNamespace_defaultIamRoleArn :: Lens.Lens' CreateNamespace (Prelude.Maybe Prelude.Text)
+createNamespace_defaultIamRoleArn = Lens.lens (\CreateNamespace' {defaultIamRoleArn} -> defaultIamRoleArn) (\s@CreateNamespace' {} a -> s {defaultIamRoleArn = a} :: CreateNamespace)
+
+-- | A list of IAM roles to associate with the namespace.
+createNamespace_iamRoles :: Lens.Lens' CreateNamespace (Prelude.Maybe [Prelude.Text])
+createNamespace_iamRoles = Lens.lens (\CreateNamespace' {iamRoles} -> iamRoles) (\s@CreateNamespace' {} a -> s {iamRoles = a} :: CreateNamespace) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ID of the Amazon Web Services Key Management Service key used to
+-- encrypt your data.
+createNamespace_kmsKeyId :: Lens.Lens' CreateNamespace (Prelude.Maybe Prelude.Text)
+createNamespace_kmsKeyId = Lens.lens (\CreateNamespace' {kmsKeyId} -> kmsKeyId) (\s@CreateNamespace' {} a -> s {kmsKeyId = a} :: CreateNamespace)
+
+-- | The types of logs the namespace can export. Available export types are
+-- @userlog@, @connectionlog@, and @useractivitylog@.
+createNamespace_logExports :: Lens.Lens' CreateNamespace (Prelude.Maybe [LogExport])
+createNamespace_logExports = Lens.lens (\CreateNamespace' {logExports} -> logExports) (\s@CreateNamespace' {} a -> s {logExports = a} :: CreateNamespace) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of tag instances.
+createNamespace_tags :: Lens.Lens' CreateNamespace (Prelude.Maybe [Tag])
+createNamespace_tags = Lens.lens (\CreateNamespace' {tags} -> tags) (\s@CreateNamespace' {} a -> s {tags = a} :: CreateNamespace) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the namespace.
 createNamespace_namespaceName :: Lens.Lens' CreateNamespace Prelude.Text
@@ -187,26 +188,26 @@ instance Core.AWSRequest CreateNamespace where
 
 instance Prelude.Hashable CreateNamespace where
   hashWithSalt _salt CreateNamespace' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` logExports
-      `Prelude.hashWithSalt` iamRoles
-      `Prelude.hashWithSalt` kmsKeyId
-      `Prelude.hashWithSalt` defaultIamRoleArn
-      `Prelude.hashWithSalt` adminUserPassword
+    _salt `Prelude.hashWithSalt` adminUserPassword
       `Prelude.hashWithSalt` adminUsername
       `Prelude.hashWithSalt` dbName
+      `Prelude.hashWithSalt` defaultIamRoleArn
+      `Prelude.hashWithSalt` iamRoles
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` logExports
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` namespaceName
 
 instance Prelude.NFData CreateNamespace where
   rnf CreateNamespace' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf logExports
-      `Prelude.seq` Prelude.rnf iamRoles
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf defaultIamRoleArn
-      `Prelude.seq` Prelude.rnf adminUserPassword
+    Prelude.rnf adminUserPassword
       `Prelude.seq` Prelude.rnf adminUsername
       `Prelude.seq` Prelude.rnf dbName
+      `Prelude.seq` Prelude.rnf defaultIamRoleArn
+      `Prelude.seq` Prelude.rnf iamRoles
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf logExports
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf namespaceName
 
 instance Data.ToHeaders CreateNamespace where
@@ -228,16 +229,16 @@ instance Data.ToJSON CreateNamespace where
   toJSON CreateNamespace' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("logExports" Data..=) Prelude.<$> logExports,
-            ("iamRoles" Data..=) Prelude.<$> iamRoles,
-            ("kmsKeyId" Data..=) Prelude.<$> kmsKeyId,
-            ("defaultIamRoleArn" Data..=)
-              Prelude.<$> defaultIamRoleArn,
-            ("adminUserPassword" Data..=)
+          [ ("adminUserPassword" Data..=)
               Prelude.<$> adminUserPassword,
             ("adminUsername" Data..=) Prelude.<$> adminUsername,
             ("dbName" Data..=) Prelude.<$> dbName,
+            ("defaultIamRoleArn" Data..=)
+              Prelude.<$> defaultIamRoleArn,
+            ("iamRoles" Data..=) Prelude.<$> iamRoles,
+            ("kmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("logExports" Data..=) Prelude.<$> logExports,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("namespaceName" Data..= namespaceName)
           ]

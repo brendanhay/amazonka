@@ -27,9 +27,9 @@ module Amazonka.RedshiftServerLess.RestoreFromSnapshot
     newRestoreFromSnapshot,
 
     -- * Request Lenses
-    restoreFromSnapshot_snapshotName,
-    restoreFromSnapshot_snapshotArn,
     restoreFromSnapshot_ownerAccount,
+    restoreFromSnapshot_snapshotArn,
+    restoreFromSnapshot_snapshotName,
     restoreFromSnapshot_namespaceName,
     restoreFromSnapshot_workgroupName,
 
@@ -38,9 +38,9 @@ module Amazonka.RedshiftServerLess.RestoreFromSnapshot
     newRestoreFromSnapshotResponse,
 
     -- * Response Lenses
-    restoreFromSnapshotResponse_snapshotName,
-    restoreFromSnapshotResponse_ownerAccount,
     restoreFromSnapshotResponse_namespace,
+    restoreFromSnapshotResponse_ownerAccount,
+    restoreFromSnapshotResponse_snapshotName,
     restoreFromSnapshotResponse_httpStatus,
   )
 where
@@ -55,12 +55,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRestoreFromSnapshot' smart constructor.
 data RestoreFromSnapshot = RestoreFromSnapshot'
-  { -- | The name of the snapshot to restore from.
-    snapshotName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the snapshot to restore from.
-    snapshotArn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services account that owns the snapshot.
+  { -- | The Amazon Web Services account that owns the snapshot.
     ownerAccount :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the snapshot to restore from. Required
+    -- if restoring from Amazon Redshift Serverless to a provisioned cluster.
+    -- Must not be specified at the same time as @snapshotName@.
+    --
+    -- The format of the ARN is
+    -- arn:aws:redshift:\<region>:\<account_id>:snapshot:\<cluster_identifier>\/\<snapshot_identifier>.
+    snapshotArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the snapshot to restore from. Must not be specified at the
+    -- same time as @snapshotArn@.
+    snapshotName :: Prelude.Maybe Prelude.Text,
     -- | The name of the namespace to restore the snapshot to.
     namespaceName :: Prelude.Text,
     -- | The name of the workgroup used to restore the snapshot.
@@ -76,11 +82,17 @@ data RestoreFromSnapshot = RestoreFromSnapshot'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'snapshotName', 'restoreFromSnapshot_snapshotName' - The name of the snapshot to restore from.
---
--- 'snapshotArn', 'restoreFromSnapshot_snapshotArn' - The Amazon Resource Name (ARN) of the snapshot to restore from.
---
 -- 'ownerAccount', 'restoreFromSnapshot_ownerAccount' - The Amazon Web Services account that owns the snapshot.
+--
+-- 'snapshotArn', 'restoreFromSnapshot_snapshotArn' - The Amazon Resource Name (ARN) of the snapshot to restore from. Required
+-- if restoring from Amazon Redshift Serverless to a provisioned cluster.
+-- Must not be specified at the same time as @snapshotName@.
+--
+-- The format of the ARN is
+-- arn:aws:redshift:\<region>:\<account_id>:snapshot:\<cluster_identifier>\/\<snapshot_identifier>.
+--
+-- 'snapshotName', 'restoreFromSnapshot_snapshotName' - The name of the snapshot to restore from. Must not be specified at the
+-- same time as @snapshotArn@.
 --
 -- 'namespaceName', 'restoreFromSnapshot_namespaceName' - The name of the namespace to restore the snapshot to.
 --
@@ -95,25 +107,31 @@ newRestoreFromSnapshot
   pNamespaceName_
   pWorkgroupName_ =
     RestoreFromSnapshot'
-      { snapshotName =
+      { ownerAccount =
           Prelude.Nothing,
         snapshotArn = Prelude.Nothing,
-        ownerAccount = Prelude.Nothing,
+        snapshotName = Prelude.Nothing,
         namespaceName = pNamespaceName_,
         workgroupName = pWorkgroupName_
       }
 
--- | The name of the snapshot to restore from.
-restoreFromSnapshot_snapshotName :: Lens.Lens' RestoreFromSnapshot (Prelude.Maybe Prelude.Text)
-restoreFromSnapshot_snapshotName = Lens.lens (\RestoreFromSnapshot' {snapshotName} -> snapshotName) (\s@RestoreFromSnapshot' {} a -> s {snapshotName = a} :: RestoreFromSnapshot)
-
--- | The Amazon Resource Name (ARN) of the snapshot to restore from.
-restoreFromSnapshot_snapshotArn :: Lens.Lens' RestoreFromSnapshot (Prelude.Maybe Prelude.Text)
-restoreFromSnapshot_snapshotArn = Lens.lens (\RestoreFromSnapshot' {snapshotArn} -> snapshotArn) (\s@RestoreFromSnapshot' {} a -> s {snapshotArn = a} :: RestoreFromSnapshot)
-
 -- | The Amazon Web Services account that owns the snapshot.
 restoreFromSnapshot_ownerAccount :: Lens.Lens' RestoreFromSnapshot (Prelude.Maybe Prelude.Text)
 restoreFromSnapshot_ownerAccount = Lens.lens (\RestoreFromSnapshot' {ownerAccount} -> ownerAccount) (\s@RestoreFromSnapshot' {} a -> s {ownerAccount = a} :: RestoreFromSnapshot)
+
+-- | The Amazon Resource Name (ARN) of the snapshot to restore from. Required
+-- if restoring from Amazon Redshift Serverless to a provisioned cluster.
+-- Must not be specified at the same time as @snapshotName@.
+--
+-- The format of the ARN is
+-- arn:aws:redshift:\<region>:\<account_id>:snapshot:\<cluster_identifier>\/\<snapshot_identifier>.
+restoreFromSnapshot_snapshotArn :: Lens.Lens' RestoreFromSnapshot (Prelude.Maybe Prelude.Text)
+restoreFromSnapshot_snapshotArn = Lens.lens (\RestoreFromSnapshot' {snapshotArn} -> snapshotArn) (\s@RestoreFromSnapshot' {} a -> s {snapshotArn = a} :: RestoreFromSnapshot)
+
+-- | The name of the snapshot to restore from. Must not be specified at the
+-- same time as @snapshotArn@.
+restoreFromSnapshot_snapshotName :: Lens.Lens' RestoreFromSnapshot (Prelude.Maybe Prelude.Text)
+restoreFromSnapshot_snapshotName = Lens.lens (\RestoreFromSnapshot' {snapshotName} -> snapshotName) (\s@RestoreFromSnapshot' {} a -> s {snapshotName = a} :: RestoreFromSnapshot)
 
 -- | The name of the namespace to restore the snapshot to.
 restoreFromSnapshot_namespaceName :: Lens.Lens' RestoreFromSnapshot Prelude.Text
@@ -133,25 +151,25 @@ instance Core.AWSRequest RestoreFromSnapshot where
     Response.receiveJSON
       ( \s h x ->
           RestoreFromSnapshotResponse'
-            Prelude.<$> (x Data..?> "snapshotName")
+            Prelude.<$> (x Data..?> "namespace")
             Prelude.<*> (x Data..?> "ownerAccount")
-            Prelude.<*> (x Data..?> "namespace")
+            Prelude.<*> (x Data..?> "snapshotName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable RestoreFromSnapshot where
   hashWithSalt _salt RestoreFromSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` snapshotName
+    _salt `Prelude.hashWithSalt` ownerAccount
       `Prelude.hashWithSalt` snapshotArn
-      `Prelude.hashWithSalt` ownerAccount
+      `Prelude.hashWithSalt` snapshotName
       `Prelude.hashWithSalt` namespaceName
       `Prelude.hashWithSalt` workgroupName
 
 instance Prelude.NFData RestoreFromSnapshot where
   rnf RestoreFromSnapshot' {..} =
-    Prelude.rnf snapshotName
+    Prelude.rnf ownerAccount
       `Prelude.seq` Prelude.rnf snapshotArn
-      `Prelude.seq` Prelude.rnf ownerAccount
+      `Prelude.seq` Prelude.rnf snapshotName
       `Prelude.seq` Prelude.rnf namespaceName
       `Prelude.seq` Prelude.rnf workgroupName
 
@@ -174,9 +192,9 @@ instance Data.ToJSON RestoreFromSnapshot where
   toJSON RestoreFromSnapshot' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("snapshotName" Data..=) Prelude.<$> snapshotName,
+          [ ("ownerAccount" Data..=) Prelude.<$> ownerAccount,
             ("snapshotArn" Data..=) Prelude.<$> snapshotArn,
-            ("ownerAccount" Data..=) Prelude.<$> ownerAccount,
+            ("snapshotName" Data..=) Prelude.<$> snapshotName,
             Prelude.Just ("namespaceName" Data..= namespaceName),
             Prelude.Just
               ("workgroupName" Data..= workgroupName)
@@ -191,12 +209,12 @@ instance Data.ToQuery RestoreFromSnapshot where
 
 -- | /See:/ 'newRestoreFromSnapshotResponse' smart constructor.
 data RestoreFromSnapshotResponse = RestoreFromSnapshotResponse'
-  { -- | The name of the snapshot used to restore the namespace.
-    snapshotName :: Prelude.Maybe Prelude.Text,
+  { namespace :: Prelude.Maybe Namespace,
     -- | The owner Amazon Web Services; account of the snapshot that was
     -- restored.
     ownerAccount :: Prelude.Maybe Prelude.Text,
-    namespace :: Prelude.Maybe Namespace,
+    -- | The name of the snapshot used to restore the namespace.
+    snapshotName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -210,12 +228,12 @@ data RestoreFromSnapshotResponse = RestoreFromSnapshotResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'snapshotName', 'restoreFromSnapshotResponse_snapshotName' - The name of the snapshot used to restore the namespace.
+-- 'namespace', 'restoreFromSnapshotResponse_namespace' - Undocumented member.
 --
 -- 'ownerAccount', 'restoreFromSnapshotResponse_ownerAccount' - The owner Amazon Web Services; account of the snapshot that was
 -- restored.
 --
--- 'namespace', 'restoreFromSnapshotResponse_namespace' - Undocumented member.
+-- 'snapshotName', 'restoreFromSnapshotResponse_snapshotName' - The name of the snapshot used to restore the namespace.
 --
 -- 'httpStatus', 'restoreFromSnapshotResponse_httpStatus' - The response's http status code.
 newRestoreFromSnapshotResponse ::
@@ -224,25 +242,25 @@ newRestoreFromSnapshotResponse ::
   RestoreFromSnapshotResponse
 newRestoreFromSnapshotResponse pHttpStatus_ =
   RestoreFromSnapshotResponse'
-    { snapshotName =
+    { namespace =
         Prelude.Nothing,
       ownerAccount = Prelude.Nothing,
-      namespace = Prelude.Nothing,
+      snapshotName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The name of the snapshot used to restore the namespace.
-restoreFromSnapshotResponse_snapshotName :: Lens.Lens' RestoreFromSnapshotResponse (Prelude.Maybe Prelude.Text)
-restoreFromSnapshotResponse_snapshotName = Lens.lens (\RestoreFromSnapshotResponse' {snapshotName} -> snapshotName) (\s@RestoreFromSnapshotResponse' {} a -> s {snapshotName = a} :: RestoreFromSnapshotResponse)
+-- | Undocumented member.
+restoreFromSnapshotResponse_namespace :: Lens.Lens' RestoreFromSnapshotResponse (Prelude.Maybe Namespace)
+restoreFromSnapshotResponse_namespace = Lens.lens (\RestoreFromSnapshotResponse' {namespace} -> namespace) (\s@RestoreFromSnapshotResponse' {} a -> s {namespace = a} :: RestoreFromSnapshotResponse)
 
 -- | The owner Amazon Web Services; account of the snapshot that was
 -- restored.
 restoreFromSnapshotResponse_ownerAccount :: Lens.Lens' RestoreFromSnapshotResponse (Prelude.Maybe Prelude.Text)
 restoreFromSnapshotResponse_ownerAccount = Lens.lens (\RestoreFromSnapshotResponse' {ownerAccount} -> ownerAccount) (\s@RestoreFromSnapshotResponse' {} a -> s {ownerAccount = a} :: RestoreFromSnapshotResponse)
 
--- | Undocumented member.
-restoreFromSnapshotResponse_namespace :: Lens.Lens' RestoreFromSnapshotResponse (Prelude.Maybe Namespace)
-restoreFromSnapshotResponse_namespace = Lens.lens (\RestoreFromSnapshotResponse' {namespace} -> namespace) (\s@RestoreFromSnapshotResponse' {} a -> s {namespace = a} :: RestoreFromSnapshotResponse)
+-- | The name of the snapshot used to restore the namespace.
+restoreFromSnapshotResponse_snapshotName :: Lens.Lens' RestoreFromSnapshotResponse (Prelude.Maybe Prelude.Text)
+restoreFromSnapshotResponse_snapshotName = Lens.lens (\RestoreFromSnapshotResponse' {snapshotName} -> snapshotName) (\s@RestoreFromSnapshotResponse' {} a -> s {snapshotName = a} :: RestoreFromSnapshotResponse)
 
 -- | The response's http status code.
 restoreFromSnapshotResponse_httpStatus :: Lens.Lens' RestoreFromSnapshotResponse Prelude.Int
@@ -250,7 +268,7 @@ restoreFromSnapshotResponse_httpStatus = Lens.lens (\RestoreFromSnapshotResponse
 
 instance Prelude.NFData RestoreFromSnapshotResponse where
   rnf RestoreFromSnapshotResponse' {..} =
-    Prelude.rnf snapshotName
+    Prelude.rnf namespace
       `Prelude.seq` Prelude.rnf ownerAccount
-      `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf snapshotName
       `Prelude.seq` Prelude.rnf httpStatus

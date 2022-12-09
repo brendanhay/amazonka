@@ -81,6 +81,9 @@ import Test.Tasty
 --         , requestGetSnapshot $
 --             newGetSnapshot
 --
+--         , requestGetTableRestoreStatus $
+--             newGetTableRestoreStatus
+--
 --         , requestGetUsageLimit $
 --             newGetUsageLimit
 --
@@ -99,6 +102,9 @@ import Test.Tasty
 --         , requestListSnapshots $
 --             newListSnapshots
 --
+--         , requestListTableRestoreStatus $
+--             newListTableRestoreStatus
+--
 --         , requestListTagsForResource $
 --             newListTagsForResource
 --
@@ -116,6 +122,9 @@ import Test.Tasty
 --
 --         , requestRestoreFromSnapshot $
 --             newRestoreFromSnapshot
+--
+--         , requestRestoreTableFromSnapshot $
+--             newRestoreTableFromSnapshot
 --
 --         , requestTagResource $
 --             newTagResource
@@ -195,6 +204,9 @@ import Test.Tasty
 --         , responseGetSnapshot $
 --             newGetSnapshotResponse
 --
+--         , responseGetTableRestoreStatus $
+--             newGetTableRestoreStatusResponse
+--
 --         , responseGetUsageLimit $
 --             newGetUsageLimitResponse
 --
@@ -213,6 +225,9 @@ import Test.Tasty
 --         , responseListSnapshots $
 --             newListSnapshotsResponse
 --
+--         , responseListTableRestoreStatus $
+--             newListTableRestoreStatusResponse
+--
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
 --
@@ -230,6 +245,9 @@ import Test.Tasty
 --
 --         , responseRestoreFromSnapshot $
 --             newRestoreFromSnapshotResponse
+--
+--         , responseRestoreTableFromSnapshot $
+--             newRestoreTableFromSnapshotResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
@@ -365,6 +383,12 @@ requestGetSnapshot =
     "GetSnapshot"
     "fixture/GetSnapshot.yaml"
 
+requestGetTableRestoreStatus :: GetTableRestoreStatus -> TestTree
+requestGetTableRestoreStatus =
+  req
+    "GetTableRestoreStatus"
+    "fixture/GetTableRestoreStatus.yaml"
+
 requestGetUsageLimit :: GetUsageLimit -> TestTree
 requestGetUsageLimit =
   req
@@ -401,6 +425,12 @@ requestListSnapshots =
     "ListSnapshots"
     "fixture/ListSnapshots.yaml"
 
+requestListTableRestoreStatus :: ListTableRestoreStatus -> TestTree
+requestListTableRestoreStatus =
+  req
+    "ListTableRestoreStatus"
+    "fixture/ListTableRestoreStatus.yaml"
+
 requestListTagsForResource :: ListTagsForResource -> TestTree
 requestListTagsForResource =
   req
@@ -436,6 +466,12 @@ requestRestoreFromSnapshot =
   req
     "RestoreFromSnapshot"
     "fixture/RestoreFromSnapshot.yaml"
+
+requestRestoreTableFromSnapshot :: RestoreTableFromSnapshot -> TestTree
+requestRestoreTableFromSnapshot =
+  req
+    "RestoreTableFromSnapshot"
+    "fixture/RestoreTableFromSnapshot.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -625,6 +661,14 @@ responseGetSnapshot =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetSnapshot)
 
+responseGetTableRestoreStatus :: GetTableRestoreStatusResponse -> TestTree
+responseGetTableRestoreStatus =
+  res
+    "GetTableRestoreStatusResponse"
+    "fixture/GetTableRestoreStatusResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetTableRestoreStatus)
+
 responseGetUsageLimit :: GetUsageLimitResponse -> TestTree
 responseGetUsageLimit =
   res
@@ -673,6 +717,14 @@ responseListSnapshots =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListSnapshots)
 
+responseListTableRestoreStatus :: ListTableRestoreStatusResponse -> TestTree
+responseListTableRestoreStatus =
+  res
+    "ListTableRestoreStatusResponse"
+    "fixture/ListTableRestoreStatusResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTableRestoreStatus)
+
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
   res
@@ -720,6 +772,14 @@ responseRestoreFromSnapshot =
     "fixture/RestoreFromSnapshotResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy RestoreFromSnapshot)
+
+responseRestoreTableFromSnapshot :: RestoreTableFromSnapshotResponse -> TestTree
+responseRestoreTableFromSnapshot =
+  res
+    "RestoreTableFromSnapshotResponse"
+    "fixture/RestoreTableFromSnapshotResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RestoreTableFromSnapshot)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =

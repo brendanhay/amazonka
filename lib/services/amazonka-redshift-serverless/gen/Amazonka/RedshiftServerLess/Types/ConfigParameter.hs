@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConfigParameter' smart constructor.
 data ConfigParameter = ConfigParameter'
-  { -- | The value of the parameter to set.
-    parameterValue :: Prelude.Maybe Prelude.Text,
-    -- | The key of the parameter. The options are @datestyle@,
+  { -- | The key of the parameter. The options are @datestyle@,
     -- @enable_user_activity_logging@, @query_group@, @search_path@, and
     -- @max_query_execution_time@.
-    parameterKey :: Prelude.Maybe Prelude.Text
+    parameterKey :: Prelude.Maybe Prelude.Text,
+    -- | The value of the parameter to set.
+    parameterValue :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,22 +46,18 @@ data ConfigParameter = ConfigParameter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'parameterValue', 'configParameter_parameterValue' - The value of the parameter to set.
---
 -- 'parameterKey', 'configParameter_parameterKey' - The key of the parameter. The options are @datestyle@,
 -- @enable_user_activity_logging@, @query_group@, @search_path@, and
 -- @max_query_execution_time@.
+--
+-- 'parameterValue', 'configParameter_parameterValue' - The value of the parameter to set.
 newConfigParameter ::
   ConfigParameter
 newConfigParameter =
   ConfigParameter'
-    { parameterValue = Prelude.Nothing,
-      parameterKey = Prelude.Nothing
+    { parameterKey = Prelude.Nothing,
+      parameterValue = Prelude.Nothing
     }
-
--- | The value of the parameter to set.
-configParameter_parameterValue :: Lens.Lens' ConfigParameter (Prelude.Maybe Prelude.Text)
-configParameter_parameterValue = Lens.lens (\ConfigParameter' {parameterValue} -> parameterValue) (\s@ConfigParameter' {} a -> s {parameterValue = a} :: ConfigParameter)
 
 -- | The key of the parameter. The options are @datestyle@,
 -- @enable_user_activity_logging@, @query_group@, @search_path@, and
@@ -69,32 +65,36 @@ configParameter_parameterValue = Lens.lens (\ConfigParameter' {parameterValue} -
 configParameter_parameterKey :: Lens.Lens' ConfigParameter (Prelude.Maybe Prelude.Text)
 configParameter_parameterKey = Lens.lens (\ConfigParameter' {parameterKey} -> parameterKey) (\s@ConfigParameter' {} a -> s {parameterKey = a} :: ConfigParameter)
 
+-- | The value of the parameter to set.
+configParameter_parameterValue :: Lens.Lens' ConfigParameter (Prelude.Maybe Prelude.Text)
+configParameter_parameterValue = Lens.lens (\ConfigParameter' {parameterValue} -> parameterValue) (\s@ConfigParameter' {} a -> s {parameterValue = a} :: ConfigParameter)
+
 instance Data.FromJSON ConfigParameter where
   parseJSON =
     Data.withObject
       "ConfigParameter"
       ( \x ->
           ConfigParameter'
-            Prelude.<$> (x Data..:? "parameterValue")
-            Prelude.<*> (x Data..:? "parameterKey")
+            Prelude.<$> (x Data..:? "parameterKey")
+            Prelude.<*> (x Data..:? "parameterValue")
       )
 
 instance Prelude.Hashable ConfigParameter where
   hashWithSalt _salt ConfigParameter' {..} =
-    _salt `Prelude.hashWithSalt` parameterValue
-      `Prelude.hashWithSalt` parameterKey
+    _salt `Prelude.hashWithSalt` parameterKey
+      `Prelude.hashWithSalt` parameterValue
 
 instance Prelude.NFData ConfigParameter where
   rnf ConfigParameter' {..} =
-    Prelude.rnf parameterValue
-      `Prelude.seq` Prelude.rnf parameterKey
+    Prelude.rnf parameterKey
+      `Prelude.seq` Prelude.rnf parameterValue
 
 instance Data.ToJSON ConfigParameter where
   toJSON ConfigParameter' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("parameterValue" Data..=)
-              Prelude.<$> parameterValue,
-            ("parameterKey" Data..=) Prelude.<$> parameterKey
+          [ ("parameterKey" Data..=) Prelude.<$> parameterKey,
+            ("parameterValue" Data..=)
+              Prelude.<$> parameterValue
           ]
       )

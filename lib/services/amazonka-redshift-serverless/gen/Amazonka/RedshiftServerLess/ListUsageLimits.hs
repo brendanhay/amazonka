@@ -29,10 +29,10 @@ module Amazonka.RedshiftServerLess.ListUsageLimits
     newListUsageLimits,
 
     -- * Request Lenses
-    listUsageLimits_nextToken,
-    listUsageLimits_usageType,
     listUsageLimits_maxResults,
+    listUsageLimits_nextToken,
     listUsageLimits_resourceArn,
+    listUsageLimits_usageType,
 
     -- * Destructuring the Response
     ListUsageLimitsResponse (..),
@@ -55,19 +55,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListUsageLimits' smart constructor.
 data ListUsageLimits = ListUsageLimits'
-  { -- | If your initial @ListUsageLimits@ operation returns a @nextToken@, you
-    -- can include the returned @nextToken@ in subsequent @ListUsageLimits@
-    -- operations, which returns results in the next page.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Redshift Serverless feature whose limits you want to see.
-    usageType :: Prelude.Maybe UsageLimitUsageType,
-    -- | An optional parameter that specifies the maximum number of results to
+  { -- | An optional parameter that specifies the maximum number of results to
     -- return. You can use @nextToken@ to get the next page of results. The
     -- default is 100.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If your initial @ListUsageLimits@ operation returns a @nextToken@, you
+    -- can include the returned @nextToken@ in following @ListUsageLimits@
+    -- operations, which returns results in the next page.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) associated with the resource whose usage
     -- limits you want to list.
-    resourceArn :: Prelude.Maybe Prelude.Text
+    resourceArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Redshift Serverless feature whose limits you want to see.
+    usageType :: Prelude.Maybe UsageLimitUsageType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,37 +79,27 @@ data ListUsageLimits = ListUsageLimits'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listUsageLimits_nextToken' - If your initial @ListUsageLimits@ operation returns a @nextToken@, you
--- can include the returned @nextToken@ in subsequent @ListUsageLimits@
--- operations, which returns results in the next page.
---
--- 'usageType', 'listUsageLimits_usageType' - The Amazon Redshift Serverless feature whose limits you want to see.
---
 -- 'maxResults', 'listUsageLimits_maxResults' - An optional parameter that specifies the maximum number of results to
 -- return. You can use @nextToken@ to get the next page of results. The
 -- default is 100.
 --
+-- 'nextToken', 'listUsageLimits_nextToken' - If your initial @ListUsageLimits@ operation returns a @nextToken@, you
+-- can include the returned @nextToken@ in following @ListUsageLimits@
+-- operations, which returns results in the next page.
+--
 -- 'resourceArn', 'listUsageLimits_resourceArn' - The Amazon Resource Name (ARN) associated with the resource whose usage
 -- limits you want to list.
+--
+-- 'usageType', 'listUsageLimits_usageType' - The Amazon Redshift Serverless feature whose limits you want to see.
 newListUsageLimits ::
   ListUsageLimits
 newListUsageLimits =
   ListUsageLimits'
-    { nextToken = Prelude.Nothing,
-      usageType = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      resourceArn = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      resourceArn = Prelude.Nothing,
+      usageType = Prelude.Nothing
     }
-
--- | If your initial @ListUsageLimits@ operation returns a @nextToken@, you
--- can include the returned @nextToken@ in subsequent @ListUsageLimits@
--- operations, which returns results in the next page.
-listUsageLimits_nextToken :: Lens.Lens' ListUsageLimits (Prelude.Maybe Prelude.Text)
-listUsageLimits_nextToken = Lens.lens (\ListUsageLimits' {nextToken} -> nextToken) (\s@ListUsageLimits' {} a -> s {nextToken = a} :: ListUsageLimits)
-
--- | The Amazon Redshift Serverless feature whose limits you want to see.
-listUsageLimits_usageType :: Lens.Lens' ListUsageLimits (Prelude.Maybe UsageLimitUsageType)
-listUsageLimits_usageType = Lens.lens (\ListUsageLimits' {usageType} -> usageType) (\s@ListUsageLimits' {} a -> s {usageType = a} :: ListUsageLimits)
 
 -- | An optional parameter that specifies the maximum number of results to
 -- return. You can use @nextToken@ to get the next page of results. The
@@ -117,10 +107,20 @@ listUsageLimits_usageType = Lens.lens (\ListUsageLimits' {usageType} -> usageTyp
 listUsageLimits_maxResults :: Lens.Lens' ListUsageLimits (Prelude.Maybe Prelude.Natural)
 listUsageLimits_maxResults = Lens.lens (\ListUsageLimits' {maxResults} -> maxResults) (\s@ListUsageLimits' {} a -> s {maxResults = a} :: ListUsageLimits)
 
+-- | If your initial @ListUsageLimits@ operation returns a @nextToken@, you
+-- can include the returned @nextToken@ in following @ListUsageLimits@
+-- operations, which returns results in the next page.
+listUsageLimits_nextToken :: Lens.Lens' ListUsageLimits (Prelude.Maybe Prelude.Text)
+listUsageLimits_nextToken = Lens.lens (\ListUsageLimits' {nextToken} -> nextToken) (\s@ListUsageLimits' {} a -> s {nextToken = a} :: ListUsageLimits)
+
 -- | The Amazon Resource Name (ARN) associated with the resource whose usage
 -- limits you want to list.
 listUsageLimits_resourceArn :: Lens.Lens' ListUsageLimits (Prelude.Maybe Prelude.Text)
 listUsageLimits_resourceArn = Lens.lens (\ListUsageLimits' {resourceArn} -> resourceArn) (\s@ListUsageLimits' {} a -> s {resourceArn = a} :: ListUsageLimits)
+
+-- | The Amazon Redshift Serverless feature whose limits you want to see.
+listUsageLimits_usageType :: Lens.Lens' ListUsageLimits (Prelude.Maybe UsageLimitUsageType)
+listUsageLimits_usageType = Lens.lens (\ListUsageLimits' {usageType} -> usageType) (\s@ListUsageLimits' {} a -> s {usageType = a} :: ListUsageLimits)
 
 instance Core.AWSPager ListUsageLimits where
   page rq rs
@@ -162,17 +162,17 @@ instance Core.AWSRequest ListUsageLimits where
 
 instance Prelude.Hashable ListUsageLimits where
   hashWithSalt _salt ListUsageLimits' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` usageType
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` usageType
 
 instance Prelude.NFData ListUsageLimits where
   rnf ListUsageLimits' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf usageType
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf usageType
 
 instance Data.ToHeaders ListUsageLimits where
   toHeaders =
@@ -193,10 +193,10 @@ instance Data.ToJSON ListUsageLimits where
   toJSON ListUsageLimits' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("usageType" Data..=) Prelude.<$> usageType,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
-            ("resourceArn" Data..=) Prelude.<$> resourceArn
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("resourceArn" Data..=) Prelude.<$> resourceArn,
+            ("usageType" Data..=) Prelude.<$> usageType
           ]
       )
 

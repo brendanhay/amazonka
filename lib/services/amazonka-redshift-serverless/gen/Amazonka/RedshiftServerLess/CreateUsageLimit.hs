@@ -29,8 +29,8 @@ module Amazonka.RedshiftServerLess.CreateUsageLimit
     newCreateUsageLimit,
 
     -- * Request Lenses
-    createUsageLimit_period,
     createUsageLimit_breachAction,
+    createUsageLimit_period,
     createUsageLimit_amount,
     createUsageLimit_resourceArn,
     createUsageLimit_usageType,
@@ -55,12 +55,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateUsageLimit' smart constructor.
 data CreateUsageLimit = CreateUsageLimit'
-  { -- | The time period that the amount applies to. A weekly period begins on
-    -- Sunday. The default is monthly.
-    period :: Prelude.Maybe UsageLimitPeriod,
-    -- | The action that Amazon Redshift Serverless takes when the limit is
+  { -- | The action that Amazon Redshift Serverless takes when the limit is
     -- reached. The default is log.
     breachAction :: Prelude.Maybe UsageLimitBreachAction,
+    -- | The time period that the amount applies to. A weekly period begins on
+    -- Sunday. The default is monthly.
+    period :: Prelude.Maybe UsageLimitPeriod,
     -- | The limit amount. If time-based, this amount is in Redshift Processing
     -- Units (RPU) consumed per hour. If data-based, this amount is in
     -- terabytes (TB) of data transferred between Regions in cross-account
@@ -83,11 +83,11 @@ data CreateUsageLimit = CreateUsageLimit'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'period', 'createUsageLimit_period' - The time period that the amount applies to. A weekly period begins on
--- Sunday. The default is monthly.
---
 -- 'breachAction', 'createUsageLimit_breachAction' - The action that Amazon Redshift Serverless takes when the limit is
 -- reached. The default is log.
+--
+-- 'period', 'createUsageLimit_period' - The time period that the amount applies to. A weekly period begins on
+-- Sunday. The default is monthly.
 --
 -- 'amount', 'createUsageLimit_amount' - The limit amount. If time-based, this amount is in Redshift Processing
 -- Units (RPU) consumed per hour. If data-based, this amount is in
@@ -112,22 +112,22 @@ newCreateUsageLimit
   pResourceArn_
   pUsageType_ =
     CreateUsageLimit'
-      { period = Prelude.Nothing,
-        breachAction = Prelude.Nothing,
+      { breachAction = Prelude.Nothing,
+        period = Prelude.Nothing,
         amount = pAmount_,
         resourceArn = pResourceArn_,
         usageType = pUsageType_
       }
 
--- | The time period that the amount applies to. A weekly period begins on
--- Sunday. The default is monthly.
-createUsageLimit_period :: Lens.Lens' CreateUsageLimit (Prelude.Maybe UsageLimitPeriod)
-createUsageLimit_period = Lens.lens (\CreateUsageLimit' {period} -> period) (\s@CreateUsageLimit' {} a -> s {period = a} :: CreateUsageLimit)
-
 -- | The action that Amazon Redshift Serverless takes when the limit is
 -- reached. The default is log.
 createUsageLimit_breachAction :: Lens.Lens' CreateUsageLimit (Prelude.Maybe UsageLimitBreachAction)
 createUsageLimit_breachAction = Lens.lens (\CreateUsageLimit' {breachAction} -> breachAction) (\s@CreateUsageLimit' {} a -> s {breachAction = a} :: CreateUsageLimit)
+
+-- | The time period that the amount applies to. A weekly period begins on
+-- Sunday. The default is monthly.
+createUsageLimit_period :: Lens.Lens' CreateUsageLimit (Prelude.Maybe UsageLimitPeriod)
+createUsageLimit_period = Lens.lens (\CreateUsageLimit' {period} -> period) (\s@CreateUsageLimit' {} a -> s {period = a} :: CreateUsageLimit)
 
 -- | The limit amount. If time-based, this amount is in Redshift Processing
 -- Units (RPU) consumed per hour. If data-based, this amount is in
@@ -162,16 +162,16 @@ instance Core.AWSRequest CreateUsageLimit where
 
 instance Prelude.Hashable CreateUsageLimit where
   hashWithSalt _salt CreateUsageLimit' {..} =
-    _salt `Prelude.hashWithSalt` period
-      `Prelude.hashWithSalt` breachAction
+    _salt `Prelude.hashWithSalt` breachAction
+      `Prelude.hashWithSalt` period
       `Prelude.hashWithSalt` amount
       `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` usageType
 
 instance Prelude.NFData CreateUsageLimit where
   rnf CreateUsageLimit' {..} =
-    Prelude.rnf period
-      `Prelude.seq` Prelude.rnf breachAction
+    Prelude.rnf breachAction
+      `Prelude.seq` Prelude.rnf period
       `Prelude.seq` Prelude.rnf amount
       `Prelude.seq` Prelude.rnf resourceArn
       `Prelude.seq` Prelude.rnf usageType
@@ -195,8 +195,8 @@ instance Data.ToJSON CreateUsageLimit where
   toJSON CreateUsageLimit' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("period" Data..=) Prelude.<$> period,
-            ("breachAction" Data..=) Prelude.<$> breachAction,
+          [ ("breachAction" Data..=) Prelude.<$> breachAction,
+            ("period" Data..=) Prelude.<$> period,
             Prelude.Just ("amount" Data..= amount),
             Prelude.Just ("resourceArn" Data..= resourceArn),
             Prelude.Just ("usageType" Data..= usageType)

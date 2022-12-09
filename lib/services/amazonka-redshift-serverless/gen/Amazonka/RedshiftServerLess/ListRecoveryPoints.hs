@@ -29,10 +29,11 @@ module Amazonka.RedshiftServerLess.ListRecoveryPoints
     newListRecoveryPoints,
 
     -- * Request Lenses
-    listRecoveryPoints_nextToken,
-    listRecoveryPoints_namespaceName,
     listRecoveryPoints_endTime,
     listRecoveryPoints_maxResults,
+    listRecoveryPoints_namespaceArn,
+    listRecoveryPoints_namespaceName,
+    listRecoveryPoints_nextToken,
     listRecoveryPoints_startTime,
 
     -- * Destructuring the Response
@@ -56,17 +57,20 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListRecoveryPoints' smart constructor.
 data ListRecoveryPoints = ListRecoveryPoints'
-  { -- | If your initial @ListRecoveryPoints@ operation returns a @nextToken@,
-    -- you can include the returned @nextToken@ in subsequent
-    -- @ListRecoveryPoints@ operations, which returns results in the next page.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The name of the namespace to list recovery points for.
-    namespaceName :: Prelude.Maybe Prelude.Text,
-    -- | The time when creation of the recovery point finished.
+  { -- | The time when creation of the recovery point finished.
     endTime :: Prelude.Maybe Data.POSIX,
     -- | An optional parameter that specifies the maximum number of results to
-    -- return. You can use @nextToken@ to get the next page of results.
+    -- return. You can use @nextToken@ to display the next page of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The Amazon Resource Name (ARN) of the namespace from which to list
+    -- recovery points.
+    namespaceArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the namespace to list recovery points for.
+    namespaceName :: Prelude.Maybe Prelude.Text,
+    -- | If your initial @ListRecoveryPoints@ operation returns a @nextToken@,
+    -- you can include the returned @nextToken@ in following
+    -- @ListRecoveryPoints@ operations, which returns results in the next page.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The time when the recovery point\'s creation was initiated.
     startTime :: Prelude.Maybe Data.POSIX
   }
@@ -80,47 +84,56 @@ data ListRecoveryPoints = ListRecoveryPoints'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listRecoveryPoints_nextToken' - If your initial @ListRecoveryPoints@ operation returns a @nextToken@,
--- you can include the returned @nextToken@ in subsequent
--- @ListRecoveryPoints@ operations, which returns results in the next page.
---
--- 'namespaceName', 'listRecoveryPoints_namespaceName' - The name of the namespace to list recovery points for.
---
 -- 'endTime', 'listRecoveryPoints_endTime' - The time when creation of the recovery point finished.
 --
 -- 'maxResults', 'listRecoveryPoints_maxResults' - An optional parameter that specifies the maximum number of results to
--- return. You can use @nextToken@ to get the next page of results.
+-- return. You can use @nextToken@ to display the next page of results.
+--
+-- 'namespaceArn', 'listRecoveryPoints_namespaceArn' - The Amazon Resource Name (ARN) of the namespace from which to list
+-- recovery points.
+--
+-- 'namespaceName', 'listRecoveryPoints_namespaceName' - The name of the namespace to list recovery points for.
+--
+-- 'nextToken', 'listRecoveryPoints_nextToken' - If your initial @ListRecoveryPoints@ operation returns a @nextToken@,
+-- you can include the returned @nextToken@ in following
+-- @ListRecoveryPoints@ operations, which returns results in the next page.
 --
 -- 'startTime', 'listRecoveryPoints_startTime' - The time when the recovery point\'s creation was initiated.
 newListRecoveryPoints ::
   ListRecoveryPoints
 newListRecoveryPoints =
   ListRecoveryPoints'
-    { nextToken = Prelude.Nothing,
-      namespaceName = Prelude.Nothing,
-      endTime = Prelude.Nothing,
+    { endTime = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      namespaceArn = Prelude.Nothing,
+      namespaceName = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       startTime = Prelude.Nothing
     }
-
--- | If your initial @ListRecoveryPoints@ operation returns a @nextToken@,
--- you can include the returned @nextToken@ in subsequent
--- @ListRecoveryPoints@ operations, which returns results in the next page.
-listRecoveryPoints_nextToken :: Lens.Lens' ListRecoveryPoints (Prelude.Maybe Prelude.Text)
-listRecoveryPoints_nextToken = Lens.lens (\ListRecoveryPoints' {nextToken} -> nextToken) (\s@ListRecoveryPoints' {} a -> s {nextToken = a} :: ListRecoveryPoints)
-
--- | The name of the namespace to list recovery points for.
-listRecoveryPoints_namespaceName :: Lens.Lens' ListRecoveryPoints (Prelude.Maybe Prelude.Text)
-listRecoveryPoints_namespaceName = Lens.lens (\ListRecoveryPoints' {namespaceName} -> namespaceName) (\s@ListRecoveryPoints' {} a -> s {namespaceName = a} :: ListRecoveryPoints)
 
 -- | The time when creation of the recovery point finished.
 listRecoveryPoints_endTime :: Lens.Lens' ListRecoveryPoints (Prelude.Maybe Prelude.UTCTime)
 listRecoveryPoints_endTime = Lens.lens (\ListRecoveryPoints' {endTime} -> endTime) (\s@ListRecoveryPoints' {} a -> s {endTime = a} :: ListRecoveryPoints) Prelude.. Lens.mapping Data._Time
 
 -- | An optional parameter that specifies the maximum number of results to
--- return. You can use @nextToken@ to get the next page of results.
+-- return. You can use @nextToken@ to display the next page of results.
 listRecoveryPoints_maxResults :: Lens.Lens' ListRecoveryPoints (Prelude.Maybe Prelude.Natural)
 listRecoveryPoints_maxResults = Lens.lens (\ListRecoveryPoints' {maxResults} -> maxResults) (\s@ListRecoveryPoints' {} a -> s {maxResults = a} :: ListRecoveryPoints)
+
+-- | The Amazon Resource Name (ARN) of the namespace from which to list
+-- recovery points.
+listRecoveryPoints_namespaceArn :: Lens.Lens' ListRecoveryPoints (Prelude.Maybe Prelude.Text)
+listRecoveryPoints_namespaceArn = Lens.lens (\ListRecoveryPoints' {namespaceArn} -> namespaceArn) (\s@ListRecoveryPoints' {} a -> s {namespaceArn = a} :: ListRecoveryPoints)
+
+-- | The name of the namespace to list recovery points for.
+listRecoveryPoints_namespaceName :: Lens.Lens' ListRecoveryPoints (Prelude.Maybe Prelude.Text)
+listRecoveryPoints_namespaceName = Lens.lens (\ListRecoveryPoints' {namespaceName} -> namespaceName) (\s@ListRecoveryPoints' {} a -> s {namespaceName = a} :: ListRecoveryPoints)
+
+-- | If your initial @ListRecoveryPoints@ operation returns a @nextToken@,
+-- you can include the returned @nextToken@ in following
+-- @ListRecoveryPoints@ operations, which returns results in the next page.
+listRecoveryPoints_nextToken :: Lens.Lens' ListRecoveryPoints (Prelude.Maybe Prelude.Text)
+listRecoveryPoints_nextToken = Lens.lens (\ListRecoveryPoints' {nextToken} -> nextToken) (\s@ListRecoveryPoints' {} a -> s {nextToken = a} :: ListRecoveryPoints)
 
 -- | The time when the recovery point\'s creation was initiated.
 listRecoveryPoints_startTime :: Lens.Lens' ListRecoveryPoints (Prelude.Maybe Prelude.UTCTime)
@@ -165,18 +178,20 @@ instance Core.AWSRequest ListRecoveryPoints where
 
 instance Prelude.Hashable ListRecoveryPoints where
   hashWithSalt _salt ListRecoveryPoints' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` namespaceName
-      `Prelude.hashWithSalt` endTime
+    _salt `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` namespaceArn
+      `Prelude.hashWithSalt` namespaceName
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` startTime
 
 instance Prelude.NFData ListRecoveryPoints where
   rnf ListRecoveryPoints' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf namespaceName
-      `Prelude.seq` Prelude.rnf endTime
+    Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf namespaceArn
+      `Prelude.seq` Prelude.rnf namespaceName
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf startTime
 
 instance Data.ToHeaders ListRecoveryPoints where
@@ -198,10 +213,11 @@ instance Data.ToJSON ListRecoveryPoints where
   toJSON ListRecoveryPoints' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("namespaceName" Data..=) Prelude.<$> namespaceName,
-            ("endTime" Data..=) Prelude.<$> endTime,
+          [ ("endTime" Data..=) Prelude.<$> endTime,
             ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("namespaceArn" Data..=) Prelude.<$> namespaceArn,
+            ("namespaceName" Data..=) Prelude.<$> namespaceName,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             ("startTime" Data..=) Prelude.<$> startTime
           ]
       )

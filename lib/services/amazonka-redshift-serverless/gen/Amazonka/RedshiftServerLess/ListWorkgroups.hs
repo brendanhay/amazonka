@@ -29,8 +29,8 @@ module Amazonka.RedshiftServerLess.ListWorkgroups
     newListWorkgroups,
 
     -- * Request Lenses
-    listWorkgroups_nextToken,
     listWorkgroups_maxResults,
+    listWorkgroups_nextToken,
 
     -- * Destructuring the Response
     ListWorkgroupsResponse (..),
@@ -53,13 +53,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListWorkgroups' smart constructor.
 data ListWorkgroups = ListWorkgroups'
-  { -- | If your initial ListWorkgroups operation returns a @nextToken@, you can
-    -- include the returned @nextToken@ in subsequent ListNamespaces
-    -- operations, which returns results in the next page.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An optional parameter that specifies the maximum number of results to
-    -- return. You can use @nextToken@ to get the next page of results.
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { -- | An optional parameter that specifies the maximum number of results to
+    -- return. You can use @nextToken@ to display the next page of results.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If your initial ListWorkgroups operation returns a @nextToken@, you can
+    -- include the returned @nextToken@ in following ListNamespaces operations,
+    -- which returns results in the next page.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,30 +71,30 @@ data ListWorkgroups = ListWorkgroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listWorkgroups_nextToken' - If your initial ListWorkgroups operation returns a @nextToken@, you can
--- include the returned @nextToken@ in subsequent ListNamespaces
--- operations, which returns results in the next page.
---
 -- 'maxResults', 'listWorkgroups_maxResults' - An optional parameter that specifies the maximum number of results to
--- return. You can use @nextToken@ to get the next page of results.
+-- return. You can use @nextToken@ to display the next page of results.
+--
+-- 'nextToken', 'listWorkgroups_nextToken' - If your initial ListWorkgroups operation returns a @nextToken@, you can
+-- include the returned @nextToken@ in following ListNamespaces operations,
+-- which returns results in the next page.
 newListWorkgroups ::
   ListWorkgroups
 newListWorkgroups =
   ListWorkgroups'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
 
--- | If your initial ListWorkgroups operation returns a @nextToken@, you can
--- include the returned @nextToken@ in subsequent ListNamespaces
--- operations, which returns results in the next page.
-listWorkgroups_nextToken :: Lens.Lens' ListWorkgroups (Prelude.Maybe Prelude.Text)
-listWorkgroups_nextToken = Lens.lens (\ListWorkgroups' {nextToken} -> nextToken) (\s@ListWorkgroups' {} a -> s {nextToken = a} :: ListWorkgroups)
-
 -- | An optional parameter that specifies the maximum number of results to
--- return. You can use @nextToken@ to get the next page of results.
+-- return. You can use @nextToken@ to display the next page of results.
 listWorkgroups_maxResults :: Lens.Lens' ListWorkgroups (Prelude.Maybe Prelude.Natural)
 listWorkgroups_maxResults = Lens.lens (\ListWorkgroups' {maxResults} -> maxResults) (\s@ListWorkgroups' {} a -> s {maxResults = a} :: ListWorkgroups)
+
+-- | If your initial ListWorkgroups operation returns a @nextToken@, you can
+-- include the returned @nextToken@ in following ListNamespaces operations,
+-- which returns results in the next page.
+listWorkgroups_nextToken :: Lens.Lens' ListWorkgroups (Prelude.Maybe Prelude.Text)
+listWorkgroups_nextToken = Lens.lens (\ListWorkgroups' {nextToken} -> nextToken) (\s@ListWorkgroups' {} a -> s {nextToken = a} :: ListWorkgroups)
 
 instance Core.AWSPager ListWorkgroups where
   page rq rs
@@ -131,13 +131,13 @@ instance Core.AWSRequest ListWorkgroups where
 
 instance Prelude.Hashable ListWorkgroups where
   hashWithSalt _salt ListWorkgroups' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListWorkgroups where
   rnf ListWorkgroups' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListWorkgroups where
   toHeaders =
@@ -158,8 +158,8 @@ instance Data.ToJSON ListWorkgroups where
   toJSON ListWorkgroups' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

@@ -29,11 +29,11 @@ module Amazonka.RedshiftServerLess.ListSnapshots
     newListSnapshots,
 
     -- * Request Lenses
-    listSnapshots_nextToken,
-    listSnapshots_namespaceName,
-    listSnapshots_namespaceArn,
     listSnapshots_endTime,
     listSnapshots_maxResults,
+    listSnapshots_namespaceArn,
+    listSnapshots_namespaceName,
+    listSnapshots_nextToken,
     listSnapshots_ownerAccount,
     listSnapshots_startTime,
 
@@ -58,20 +58,20 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListSnapshots' smart constructor.
 data ListSnapshots = ListSnapshots'
-  { -- | If @nextToken@ is returned, there are more results available. The value
-    -- of @nextToken@ is a unique pagination token for each page. Make the call
-    -- again using the returned token to retrieve the next page.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The namespace from which to list all snapshots.
-    namespaceName :: Prelude.Maybe Prelude.Text,
+  { -- | The timestamp showing when the snapshot creation finished.
+    endTime :: Prelude.Maybe Data.POSIX,
+    -- | An optional parameter that specifies the maximum number of results to
+    -- return. You can use @nextToken@ to display the next page of results.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name (ARN) of the namespace from which to list all
     -- snapshots.
     namespaceArn :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp showing when the snapshot creation finished.
-    endTime :: Prelude.Maybe Data.POSIX,
-    -- | An optional parameter that specifies the maximum number of results to
-    -- return. You can use @nextToken@ to get the next page of results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The namespace from which to list all snapshots.
+    namespaceName :: Prelude.Maybe Prelude.Text,
+    -- | If @nextToken@ is returned, there are more results available. The value
+    -- of @nextToken@ is a unique pagination token for each page. Make the call
+    -- again using the returned token to retrieve the next page.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The owner Amazon Web Services account of the snapshot.
     ownerAccount :: Prelude.Maybe Prelude.Text,
     -- | The time when the creation of the snapshot was initiated.
@@ -87,19 +87,19 @@ data ListSnapshots = ListSnapshots'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listSnapshots_nextToken' - If @nextToken@ is returned, there are more results available. The value
--- of @nextToken@ is a unique pagination token for each page. Make the call
--- again using the returned token to retrieve the next page.
+-- 'endTime', 'listSnapshots_endTime' - The timestamp showing when the snapshot creation finished.
 --
--- 'namespaceName', 'listSnapshots_namespaceName' - The namespace from which to list all snapshots.
+-- 'maxResults', 'listSnapshots_maxResults' - An optional parameter that specifies the maximum number of results to
+-- return. You can use @nextToken@ to display the next page of results.
 --
 -- 'namespaceArn', 'listSnapshots_namespaceArn' - The Amazon Resource Name (ARN) of the namespace from which to list all
 -- snapshots.
 --
--- 'endTime', 'listSnapshots_endTime' - The timestamp showing when the snapshot creation finished.
+-- 'namespaceName', 'listSnapshots_namespaceName' - The namespace from which to list all snapshots.
 --
--- 'maxResults', 'listSnapshots_maxResults' - An optional parameter that specifies the maximum number of results to
--- return. You can use @nextToken@ to get the next page of results.
+-- 'nextToken', 'listSnapshots_nextToken' - If @nextToken@ is returned, there are more results available. The value
+-- of @nextToken@ is a unique pagination token for each page. Make the call
+-- again using the returned token to retrieve the next page.
 --
 -- 'ownerAccount', 'listSnapshots_ownerAccount' - The owner Amazon Web Services account of the snapshot.
 --
@@ -108,38 +108,38 @@ newListSnapshots ::
   ListSnapshots
 newListSnapshots =
   ListSnapshots'
-    { nextToken = Prelude.Nothing,
-      namespaceName = Prelude.Nothing,
-      namespaceArn = Prelude.Nothing,
-      endTime = Prelude.Nothing,
+    { endTime = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      namespaceArn = Prelude.Nothing,
+      namespaceName = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       ownerAccount = Prelude.Nothing,
       startTime = Prelude.Nothing
     }
-
--- | If @nextToken@ is returned, there are more results available. The value
--- of @nextToken@ is a unique pagination token for each page. Make the call
--- again using the returned token to retrieve the next page.
-listSnapshots_nextToken :: Lens.Lens' ListSnapshots (Prelude.Maybe Prelude.Text)
-listSnapshots_nextToken = Lens.lens (\ListSnapshots' {nextToken} -> nextToken) (\s@ListSnapshots' {} a -> s {nextToken = a} :: ListSnapshots)
-
--- | The namespace from which to list all snapshots.
-listSnapshots_namespaceName :: Lens.Lens' ListSnapshots (Prelude.Maybe Prelude.Text)
-listSnapshots_namespaceName = Lens.lens (\ListSnapshots' {namespaceName} -> namespaceName) (\s@ListSnapshots' {} a -> s {namespaceName = a} :: ListSnapshots)
-
--- | The Amazon Resource Name (ARN) of the namespace from which to list all
--- snapshots.
-listSnapshots_namespaceArn :: Lens.Lens' ListSnapshots (Prelude.Maybe Prelude.Text)
-listSnapshots_namespaceArn = Lens.lens (\ListSnapshots' {namespaceArn} -> namespaceArn) (\s@ListSnapshots' {} a -> s {namespaceArn = a} :: ListSnapshots)
 
 -- | The timestamp showing when the snapshot creation finished.
 listSnapshots_endTime :: Lens.Lens' ListSnapshots (Prelude.Maybe Prelude.UTCTime)
 listSnapshots_endTime = Lens.lens (\ListSnapshots' {endTime} -> endTime) (\s@ListSnapshots' {} a -> s {endTime = a} :: ListSnapshots) Prelude.. Lens.mapping Data._Time
 
 -- | An optional parameter that specifies the maximum number of results to
--- return. You can use @nextToken@ to get the next page of results.
+-- return. You can use @nextToken@ to display the next page of results.
 listSnapshots_maxResults :: Lens.Lens' ListSnapshots (Prelude.Maybe Prelude.Natural)
 listSnapshots_maxResults = Lens.lens (\ListSnapshots' {maxResults} -> maxResults) (\s@ListSnapshots' {} a -> s {maxResults = a} :: ListSnapshots)
+
+-- | The Amazon Resource Name (ARN) of the namespace from which to list all
+-- snapshots.
+listSnapshots_namespaceArn :: Lens.Lens' ListSnapshots (Prelude.Maybe Prelude.Text)
+listSnapshots_namespaceArn = Lens.lens (\ListSnapshots' {namespaceArn} -> namespaceArn) (\s@ListSnapshots' {} a -> s {namespaceArn = a} :: ListSnapshots)
+
+-- | The namespace from which to list all snapshots.
+listSnapshots_namespaceName :: Lens.Lens' ListSnapshots (Prelude.Maybe Prelude.Text)
+listSnapshots_namespaceName = Lens.lens (\ListSnapshots' {namespaceName} -> namespaceName) (\s@ListSnapshots' {} a -> s {namespaceName = a} :: ListSnapshots)
+
+-- | If @nextToken@ is returned, there are more results available. The value
+-- of @nextToken@ is a unique pagination token for each page. Make the call
+-- again using the returned token to retrieve the next page.
+listSnapshots_nextToken :: Lens.Lens' ListSnapshots (Prelude.Maybe Prelude.Text)
+listSnapshots_nextToken = Lens.lens (\ListSnapshots' {nextToken} -> nextToken) (\s@ListSnapshots' {} a -> s {nextToken = a} :: ListSnapshots)
 
 -- | The owner Amazon Web Services account of the snapshot.
 listSnapshots_ownerAccount :: Lens.Lens' ListSnapshots (Prelude.Maybe Prelude.Text)
@@ -185,21 +185,21 @@ instance Core.AWSRequest ListSnapshots where
 
 instance Prelude.Hashable ListSnapshots where
   hashWithSalt _salt ListSnapshots' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` namespaceName
-      `Prelude.hashWithSalt` namespaceArn
-      `Prelude.hashWithSalt` endTime
+    _salt `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` namespaceArn
+      `Prelude.hashWithSalt` namespaceName
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` ownerAccount
       `Prelude.hashWithSalt` startTime
 
 instance Prelude.NFData ListSnapshots where
   rnf ListSnapshots' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf namespaceName
-      `Prelude.seq` Prelude.rnf namespaceArn
-      `Prelude.seq` Prelude.rnf endTime
+    Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf namespaceArn
+      `Prelude.seq` Prelude.rnf namespaceName
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf ownerAccount
       `Prelude.seq` Prelude.rnf startTime
 
@@ -222,11 +222,11 @@ instance Data.ToJSON ListSnapshots where
   toJSON ListSnapshots' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("namespaceName" Data..=) Prelude.<$> namespaceName,
-            ("namespaceArn" Data..=) Prelude.<$> namespaceArn,
-            ("endTime" Data..=) Prelude.<$> endTime,
+          [ ("endTime" Data..=) Prelude.<$> endTime,
             ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("namespaceArn" Data..=) Prelude.<$> namespaceArn,
+            ("namespaceName" Data..=) Prelude.<$> namespaceName,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             ("ownerAccount" Data..=) Prelude.<$> ownerAccount,
             ("startTime" Data..=) Prelude.<$> startTime
           ]

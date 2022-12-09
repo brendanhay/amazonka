@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNetworkInterface' smart constructor.
 data NetworkInterface = NetworkInterface'
-  { -- | The unique identifier of the subnet.
-    subnetId :: Prelude.Maybe Prelude.Text,
-    -- | The availability Zone.
+  { -- | The availability Zone.
     availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the network interface.
     networkInterfaceId :: Prelude.Maybe Prelude.Text,
     -- | The IPv4 address of the network interface within the subnet.
-    privateIpAddress :: Prelude.Maybe Prelude.Text
+    privateIpAddress :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier of the subnet.
+    subnetId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,26 +48,23 @@ data NetworkInterface = NetworkInterface'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'subnetId', 'networkInterface_subnetId' - The unique identifier of the subnet.
---
 -- 'availabilityZone', 'networkInterface_availabilityZone' - The availability Zone.
 --
 -- 'networkInterfaceId', 'networkInterface_networkInterfaceId' - The unique identifier of the network interface.
 --
 -- 'privateIpAddress', 'networkInterface_privateIpAddress' - The IPv4 address of the network interface within the subnet.
+--
+-- 'subnetId', 'networkInterface_subnetId' - The unique identifier of the subnet.
 newNetworkInterface ::
   NetworkInterface
 newNetworkInterface =
   NetworkInterface'
-    { subnetId = Prelude.Nothing,
-      availabilityZone = Prelude.Nothing,
+    { availabilityZone =
+        Prelude.Nothing,
       networkInterfaceId = Prelude.Nothing,
-      privateIpAddress = Prelude.Nothing
+      privateIpAddress = Prelude.Nothing,
+      subnetId = Prelude.Nothing
     }
-
--- | The unique identifier of the subnet.
-networkInterface_subnetId :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
-networkInterface_subnetId = Lens.lens (\NetworkInterface' {subnetId} -> subnetId) (\s@NetworkInterface' {} a -> s {subnetId = a} :: NetworkInterface)
 
 -- | The availability Zone.
 networkInterface_availabilityZone :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
@@ -81,28 +78,32 @@ networkInterface_networkInterfaceId = Lens.lens (\NetworkInterface' {networkInte
 networkInterface_privateIpAddress :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
 networkInterface_privateIpAddress = Lens.lens (\NetworkInterface' {privateIpAddress} -> privateIpAddress) (\s@NetworkInterface' {} a -> s {privateIpAddress = a} :: NetworkInterface)
 
+-- | The unique identifier of the subnet.
+networkInterface_subnetId :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
+networkInterface_subnetId = Lens.lens (\NetworkInterface' {subnetId} -> subnetId) (\s@NetworkInterface' {} a -> s {subnetId = a} :: NetworkInterface)
+
 instance Data.FromJSON NetworkInterface where
   parseJSON =
     Data.withObject
       "NetworkInterface"
       ( \x ->
           NetworkInterface'
-            Prelude.<$> (x Data..:? "subnetId")
-            Prelude.<*> (x Data..:? "availabilityZone")
+            Prelude.<$> (x Data..:? "availabilityZone")
             Prelude.<*> (x Data..:? "networkInterfaceId")
             Prelude.<*> (x Data..:? "privateIpAddress")
+            Prelude.<*> (x Data..:? "subnetId")
       )
 
 instance Prelude.Hashable NetworkInterface where
   hashWithSalt _salt NetworkInterface' {..} =
-    _salt `Prelude.hashWithSalt` subnetId
-      `Prelude.hashWithSalt` availabilityZone
+    _salt `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` networkInterfaceId
       `Prelude.hashWithSalt` privateIpAddress
+      `Prelude.hashWithSalt` subnetId
 
 instance Prelude.NFData NetworkInterface where
   rnf NetworkInterface' {..} =
-    Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf availabilityZone
+    Prelude.rnf availabilityZone
       `Prelude.seq` Prelude.rnf networkInterfaceId
       `Prelude.seq` Prelude.rnf privateIpAddress
+      `Prelude.seq` Prelude.rnf subnetId

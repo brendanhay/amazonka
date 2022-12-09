@@ -36,8 +36,8 @@ module Amazonka.RedshiftServerLess.RestoreFromRecoveryPoint
     newRestoreFromRecoveryPointResponse,
 
     -- * Response Lenses
-    restoreFromRecoveryPointResponse_recoveryPointId,
     restoreFromRecoveryPointResponse_namespace,
+    restoreFromRecoveryPointResponse_recoveryPointId,
     restoreFromRecoveryPointResponse_httpStatus,
   )
 where
@@ -115,8 +115,8 @@ instance Core.AWSRequest RestoreFromRecoveryPoint where
     Response.receiveJSON
       ( \s h x ->
           RestoreFromRecoveryPointResponse'
-            Prelude.<$> (x Data..?> "recoveryPointId")
-            Prelude.<*> (x Data..?> "namespace")
+            Prelude.<$> (x Data..?> "namespace")
+            Prelude.<*> (x Data..?> "recoveryPointId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -168,10 +168,10 @@ instance Data.ToQuery RestoreFromRecoveryPoint where
 
 -- | /See:/ 'newRestoreFromRecoveryPointResponse' smart constructor.
 data RestoreFromRecoveryPointResponse = RestoreFromRecoveryPointResponse'
-  { -- | The unique identifier of the recovery point used for the restore.
-    recoveryPointId :: Prelude.Maybe Prelude.Text,
-    -- | The namespace that data was restored into.
+  { -- | The namespace that data was restored into.
     namespace :: Prelude.Maybe Namespace,
+    -- | The unique identifier of the recovery point used for the restore.
+    recoveryPointId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -185,9 +185,9 @@ data RestoreFromRecoveryPointResponse = RestoreFromRecoveryPointResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'recoveryPointId', 'restoreFromRecoveryPointResponse_recoveryPointId' - The unique identifier of the recovery point used for the restore.
---
 -- 'namespace', 'restoreFromRecoveryPointResponse_namespace' - The namespace that data was restored into.
+--
+-- 'recoveryPointId', 'restoreFromRecoveryPointResponse_recoveryPointId' - The unique identifier of the recovery point used for the restore.
 --
 -- 'httpStatus', 'restoreFromRecoveryPointResponse_httpStatus' - The response's http status code.
 newRestoreFromRecoveryPointResponse ::
@@ -196,19 +196,19 @@ newRestoreFromRecoveryPointResponse ::
   RestoreFromRecoveryPointResponse
 newRestoreFromRecoveryPointResponse pHttpStatus_ =
   RestoreFromRecoveryPointResponse'
-    { recoveryPointId =
+    { namespace =
         Prelude.Nothing,
-      namespace = Prelude.Nothing,
+      recoveryPointId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The unique identifier of the recovery point used for the restore.
-restoreFromRecoveryPointResponse_recoveryPointId :: Lens.Lens' RestoreFromRecoveryPointResponse (Prelude.Maybe Prelude.Text)
-restoreFromRecoveryPointResponse_recoveryPointId = Lens.lens (\RestoreFromRecoveryPointResponse' {recoveryPointId} -> recoveryPointId) (\s@RestoreFromRecoveryPointResponse' {} a -> s {recoveryPointId = a} :: RestoreFromRecoveryPointResponse)
 
 -- | The namespace that data was restored into.
 restoreFromRecoveryPointResponse_namespace :: Lens.Lens' RestoreFromRecoveryPointResponse (Prelude.Maybe Namespace)
 restoreFromRecoveryPointResponse_namespace = Lens.lens (\RestoreFromRecoveryPointResponse' {namespace} -> namespace) (\s@RestoreFromRecoveryPointResponse' {} a -> s {namespace = a} :: RestoreFromRecoveryPointResponse)
+
+-- | The unique identifier of the recovery point used for the restore.
+restoreFromRecoveryPointResponse_recoveryPointId :: Lens.Lens' RestoreFromRecoveryPointResponse (Prelude.Maybe Prelude.Text)
+restoreFromRecoveryPointResponse_recoveryPointId = Lens.lens (\RestoreFromRecoveryPointResponse' {recoveryPointId} -> recoveryPointId) (\s@RestoreFromRecoveryPointResponse' {} a -> s {recoveryPointId = a} :: RestoreFromRecoveryPointResponse)
 
 -- | The response's http status code.
 restoreFromRecoveryPointResponse_httpStatus :: Lens.Lens' RestoreFromRecoveryPointResponse Prelude.Int
@@ -219,6 +219,6 @@ instance
     RestoreFromRecoveryPointResponse
   where
   rnf RestoreFromRecoveryPointResponse' {..} =
-    Prelude.rnf recoveryPointId
-      `Prelude.seq` Prelude.rnf namespace
+    Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf recoveryPointId
       `Prelude.seq` Prelude.rnf httpStatus

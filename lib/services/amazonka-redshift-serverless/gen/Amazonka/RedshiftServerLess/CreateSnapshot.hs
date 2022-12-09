@@ -30,6 +30,7 @@ module Amazonka.RedshiftServerLess.CreateSnapshot
 
     -- * Request Lenses
     createSnapshot_retentionPeriod,
+    createSnapshot_tags,
     createSnapshot_namespaceName,
     createSnapshot_snapshotName,
 
@@ -55,6 +56,10 @@ import qualified Amazonka.Response as Response
 data CreateSnapshot = CreateSnapshot'
   { -- | How long to retain the created snapshot.
     retentionPeriod :: Prelude.Maybe Prelude.Int,
+    -- | An array of
+    -- <https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_Tag.html Tag objects>
+    -- to associate with the snapshot.
+    tags :: Prelude.Maybe [Tag],
     -- | The namespace to create a snapshot for.
     namespaceName :: Prelude.Text,
     -- | The name of the snapshot.
@@ -72,6 +77,10 @@ data CreateSnapshot = CreateSnapshot'
 --
 -- 'retentionPeriod', 'createSnapshot_retentionPeriod' - How long to retain the created snapshot.
 --
+-- 'tags', 'createSnapshot_tags' - An array of
+-- <https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_Tag.html Tag objects>
+-- to associate with the snapshot.
+--
 -- 'namespaceName', 'createSnapshot_namespaceName' - The namespace to create a snapshot for.
 --
 -- 'snapshotName', 'createSnapshot_snapshotName' - The name of the snapshot.
@@ -84,6 +93,7 @@ newCreateSnapshot ::
 newCreateSnapshot pNamespaceName_ pSnapshotName_ =
   CreateSnapshot'
     { retentionPeriod = Prelude.Nothing,
+      tags = Prelude.Nothing,
       namespaceName = pNamespaceName_,
       snapshotName = pSnapshotName_
     }
@@ -91,6 +101,12 @@ newCreateSnapshot pNamespaceName_ pSnapshotName_ =
 -- | How long to retain the created snapshot.
 createSnapshot_retentionPeriod :: Lens.Lens' CreateSnapshot (Prelude.Maybe Prelude.Int)
 createSnapshot_retentionPeriod = Lens.lens (\CreateSnapshot' {retentionPeriod} -> retentionPeriod) (\s@CreateSnapshot' {} a -> s {retentionPeriod = a} :: CreateSnapshot)
+
+-- | An array of
+-- <https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_Tag.html Tag objects>
+-- to associate with the snapshot.
+createSnapshot_tags :: Lens.Lens' CreateSnapshot (Prelude.Maybe [Tag])
+createSnapshot_tags = Lens.lens (\CreateSnapshot' {tags} -> tags) (\s@CreateSnapshot' {} a -> s {tags = a} :: CreateSnapshot) Prelude.. Lens.mapping Lens.coerced
 
 -- | The namespace to create a snapshot for.
 createSnapshot_namespaceName :: Lens.Lens' CreateSnapshot Prelude.Text
@@ -117,12 +133,14 @@ instance Core.AWSRequest CreateSnapshot where
 instance Prelude.Hashable CreateSnapshot where
   hashWithSalt _salt CreateSnapshot' {..} =
     _salt `Prelude.hashWithSalt` retentionPeriod
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` namespaceName
       `Prelude.hashWithSalt` snapshotName
 
 instance Prelude.NFData CreateSnapshot where
   rnf CreateSnapshot' {..} =
     Prelude.rnf retentionPeriod
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf namespaceName
       `Prelude.seq` Prelude.rnf snapshotName
 
@@ -147,6 +165,7 @@ instance Data.ToJSON CreateSnapshot where
       ( Prelude.catMaybes
           [ ("retentionPeriod" Data..=)
               Prelude.<$> retentionPeriod,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("namespaceName" Data..= namespaceName),
             Prelude.Just ("snapshotName" Data..= snapshotName)
           ]

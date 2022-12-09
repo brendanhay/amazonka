@@ -30,20 +30,20 @@ module Amazonka.CodeBuild
     -- * Errors
     -- $errors
 
-    -- ** ResourceAlreadyExistsException
-    _ResourceAlreadyExistsException,
+    -- ** AccountLimitExceededException
+    _AccountLimitExceededException,
 
     -- ** InvalidInputException
     _InvalidInputException,
 
-    -- ** AccountLimitExceededException
-    _AccountLimitExceededException,
+    -- ** OAuthProviderException
+    _OAuthProviderException,
+
+    -- ** ResourceAlreadyExistsException
+    _ResourceAlreadyExistsException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
-
-    -- ** OAuthProviderException
-    _OAuthProviderException,
 
     -- * Waiters
     -- $waiters

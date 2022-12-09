@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newReportWithRawData' smart constructor.
 data ReportWithRawData = ReportWithRawData'
-  { -- | The ARN of the report.
-    reportArn :: Prelude.Maybe Prelude.Text,
-    -- | The value of the requested data field from the report.
-    data' :: Prelude.Maybe Prelude.Text
+  { -- | The value of the requested data field from the report.
+    data' :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the report.
+    reportArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data ReportWithRawData = ReportWithRawData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'reportArn', 'reportWithRawData_reportArn' - The ARN of the report.
---
 -- 'data'', 'reportWithRawData_data' - The value of the requested data field from the report.
+--
+-- 'reportArn', 'reportWithRawData_reportArn' - The ARN of the report.
 newReportWithRawData ::
   ReportWithRawData
 newReportWithRawData =
   ReportWithRawData'
-    { reportArn = Prelude.Nothing,
-      data' = Prelude.Nothing
+    { data' = Prelude.Nothing,
+      reportArn = Prelude.Nothing
     }
-
--- | The ARN of the report.
-reportWithRawData_reportArn :: Lens.Lens' ReportWithRawData (Prelude.Maybe Prelude.Text)
-reportWithRawData_reportArn = Lens.lens (\ReportWithRawData' {reportArn} -> reportArn) (\s@ReportWithRawData' {} a -> s {reportArn = a} :: ReportWithRawData)
 
 -- | The value of the requested data field from the report.
 reportWithRawData_data :: Lens.Lens' ReportWithRawData (Prelude.Maybe Prelude.Text)
 reportWithRawData_data = Lens.lens (\ReportWithRawData' {data'} -> data') (\s@ReportWithRawData' {} a -> s {data' = a} :: ReportWithRawData)
+
+-- | The ARN of the report.
+reportWithRawData_reportArn :: Lens.Lens' ReportWithRawData (Prelude.Maybe Prelude.Text)
+reportWithRawData_reportArn = Lens.lens (\ReportWithRawData' {reportArn} -> reportArn) (\s@ReportWithRawData' {} a -> s {reportArn = a} :: ReportWithRawData)
 
 instance Data.FromJSON ReportWithRawData where
   parseJSON =
@@ -68,16 +68,16 @@ instance Data.FromJSON ReportWithRawData where
       "ReportWithRawData"
       ( \x ->
           ReportWithRawData'
-            Prelude.<$> (x Data..:? "reportArn")
-            Prelude.<*> (x Data..:? "data")
+            Prelude.<$> (x Data..:? "data")
+            Prelude.<*> (x Data..:? "reportArn")
       )
 
 instance Prelude.Hashable ReportWithRawData where
   hashWithSalt _salt ReportWithRawData' {..} =
-    _salt `Prelude.hashWithSalt` reportArn
-      `Prelude.hashWithSalt` data'
+    _salt `Prelude.hashWithSalt` data'
+      `Prelude.hashWithSalt` reportArn
 
 instance Prelude.NFData ReportWithRawData where
   rnf ReportWithRawData' {..} =
-    Prelude.rnf reportArn
-      `Prelude.seq` Prelude.rnf data'
+    Prelude.rnf data'
+      `Prelude.seq` Prelude.rnf reportArn

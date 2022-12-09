@@ -34,6 +34,11 @@ data BuildPhase = BuildPhase'
   { -- | Additional information about a build phase, especially to help
     -- troubleshoot a failed build.
     contexts :: Prelude.Maybe [PhaseContext],
+    -- | How long, in seconds, between the starting and ending times of the
+    -- build\'s phase.
+    durationInSeconds :: Prelude.Maybe Prelude.Integer,
+    -- | When the build phase ended, expressed in Unix time format.
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The current status of the build phase. Valid values include:
     --
     -- [FAILED]
@@ -54,8 +59,6 @@ data BuildPhase = BuildPhase'
     -- [TIMED_OUT]
     --     The build phase timed out.
     phaseStatus :: Prelude.Maybe StatusType,
-    -- | When the build phase ended, expressed in Unix time format.
-    endTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the build phase. Valid values include:
     --
     -- [BUILD]
@@ -92,9 +95,6 @@ data BuildPhase = BuildPhase'
     -- [UPLOAD_ARTIFACTS]
     --     Build output artifacts are being uploaded to the output location.
     phaseType :: Prelude.Maybe BuildPhaseType,
-    -- | How long, in seconds, between the starting and ending times of the
-    -- build\'s phase.
-    durationInSeconds :: Prelude.Maybe Prelude.Integer,
     -- | When the build phase started, expressed in Unix time format.
     startTime :: Prelude.Maybe Data.POSIX
   }
@@ -110,6 +110,11 @@ data BuildPhase = BuildPhase'
 --
 -- 'contexts', 'buildPhase_contexts' - Additional information about a build phase, especially to help
 -- troubleshoot a failed build.
+--
+-- 'durationInSeconds', 'buildPhase_durationInSeconds' - How long, in seconds, between the starting and ending times of the
+-- build\'s phase.
+--
+-- 'endTime', 'buildPhase_endTime' - When the build phase ended, expressed in Unix time format.
 --
 -- 'phaseStatus', 'buildPhase_phaseStatus' - The current status of the build phase. Valid values include:
 --
@@ -130,8 +135,6 @@ data BuildPhase = BuildPhase'
 --
 -- [TIMED_OUT]
 --     The build phase timed out.
---
--- 'endTime', 'buildPhase_endTime' - When the build phase ended, expressed in Unix time format.
 --
 -- 'phaseType', 'buildPhase_phaseType' - The name of the build phase. Valid values include:
 --
@@ -169,19 +172,16 @@ data BuildPhase = BuildPhase'
 -- [UPLOAD_ARTIFACTS]
 --     Build output artifacts are being uploaded to the output location.
 --
--- 'durationInSeconds', 'buildPhase_durationInSeconds' - How long, in seconds, between the starting and ending times of the
--- build\'s phase.
---
 -- 'startTime', 'buildPhase_startTime' - When the build phase started, expressed in Unix time format.
 newBuildPhase ::
   BuildPhase
 newBuildPhase =
   BuildPhase'
     { contexts = Prelude.Nothing,
-      phaseStatus = Prelude.Nothing,
-      endTime = Prelude.Nothing,
-      phaseType = Prelude.Nothing,
       durationInSeconds = Prelude.Nothing,
+      endTime = Prelude.Nothing,
+      phaseStatus = Prelude.Nothing,
+      phaseType = Prelude.Nothing,
       startTime = Prelude.Nothing
     }
 
@@ -189,6 +189,15 @@ newBuildPhase =
 -- troubleshoot a failed build.
 buildPhase_contexts :: Lens.Lens' BuildPhase (Prelude.Maybe [PhaseContext])
 buildPhase_contexts = Lens.lens (\BuildPhase' {contexts} -> contexts) (\s@BuildPhase' {} a -> s {contexts = a} :: BuildPhase) Prelude.. Lens.mapping Lens.coerced
+
+-- | How long, in seconds, between the starting and ending times of the
+-- build\'s phase.
+buildPhase_durationInSeconds :: Lens.Lens' BuildPhase (Prelude.Maybe Prelude.Integer)
+buildPhase_durationInSeconds = Lens.lens (\BuildPhase' {durationInSeconds} -> durationInSeconds) (\s@BuildPhase' {} a -> s {durationInSeconds = a} :: BuildPhase)
+
+-- | When the build phase ended, expressed in Unix time format.
+buildPhase_endTime :: Lens.Lens' BuildPhase (Prelude.Maybe Prelude.UTCTime)
+buildPhase_endTime = Lens.lens (\BuildPhase' {endTime} -> endTime) (\s@BuildPhase' {} a -> s {endTime = a} :: BuildPhase) Prelude.. Lens.mapping Data._Time
 
 -- | The current status of the build phase. Valid values include:
 --
@@ -211,10 +220,6 @@ buildPhase_contexts = Lens.lens (\BuildPhase' {contexts} -> contexts) (\s@BuildP
 --     The build phase timed out.
 buildPhase_phaseStatus :: Lens.Lens' BuildPhase (Prelude.Maybe StatusType)
 buildPhase_phaseStatus = Lens.lens (\BuildPhase' {phaseStatus} -> phaseStatus) (\s@BuildPhase' {} a -> s {phaseStatus = a} :: BuildPhase)
-
--- | When the build phase ended, expressed in Unix time format.
-buildPhase_endTime :: Lens.Lens' BuildPhase (Prelude.Maybe Prelude.UTCTime)
-buildPhase_endTime = Lens.lens (\BuildPhase' {endTime} -> endTime) (\s@BuildPhase' {} a -> s {endTime = a} :: BuildPhase) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the build phase. Valid values include:
 --
@@ -254,11 +259,6 @@ buildPhase_endTime = Lens.lens (\BuildPhase' {endTime} -> endTime) (\s@BuildPhas
 buildPhase_phaseType :: Lens.Lens' BuildPhase (Prelude.Maybe BuildPhaseType)
 buildPhase_phaseType = Lens.lens (\BuildPhase' {phaseType} -> phaseType) (\s@BuildPhase' {} a -> s {phaseType = a} :: BuildPhase)
 
--- | How long, in seconds, between the starting and ending times of the
--- build\'s phase.
-buildPhase_durationInSeconds :: Lens.Lens' BuildPhase (Prelude.Maybe Prelude.Integer)
-buildPhase_durationInSeconds = Lens.lens (\BuildPhase' {durationInSeconds} -> durationInSeconds) (\s@BuildPhase' {} a -> s {durationInSeconds = a} :: BuildPhase)
-
 -- | When the build phase started, expressed in Unix time format.
 buildPhase_startTime :: Lens.Lens' BuildPhase (Prelude.Maybe Prelude.UTCTime)
 buildPhase_startTime = Lens.lens (\BuildPhase' {startTime} -> startTime) (\s@BuildPhase' {} a -> s {startTime = a} :: BuildPhase) Prelude.. Lens.mapping Data._Time
@@ -270,27 +270,27 @@ instance Data.FromJSON BuildPhase where
       ( \x ->
           BuildPhase'
             Prelude.<$> (x Data..:? "contexts" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "phaseStatus")
-            Prelude.<*> (x Data..:? "endTime")
-            Prelude.<*> (x Data..:? "phaseType")
             Prelude.<*> (x Data..:? "durationInSeconds")
+            Prelude.<*> (x Data..:? "endTime")
+            Prelude.<*> (x Data..:? "phaseStatus")
+            Prelude.<*> (x Data..:? "phaseType")
             Prelude.<*> (x Data..:? "startTime")
       )
 
 instance Prelude.Hashable BuildPhase where
   hashWithSalt _salt BuildPhase' {..} =
     _salt `Prelude.hashWithSalt` contexts
-      `Prelude.hashWithSalt` phaseStatus
-      `Prelude.hashWithSalt` endTime
-      `Prelude.hashWithSalt` phaseType
       `Prelude.hashWithSalt` durationInSeconds
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` phaseStatus
+      `Prelude.hashWithSalt` phaseType
       `Prelude.hashWithSalt` startTime
 
 instance Prelude.NFData BuildPhase where
   rnf BuildPhase' {..} =
     Prelude.rnf contexts
-      `Prelude.seq` Prelude.rnf phaseStatus
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf phaseType
       `Prelude.seq` Prelude.rnf durationInSeconds
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf phaseStatus
+      `Prelude.seq` Prelude.rnf phaseType
       `Prelude.seq` Prelude.rnf startTime

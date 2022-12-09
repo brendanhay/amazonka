@@ -33,12 +33,12 @@ import qualified Amazonka.Prelude as Prelude
 data SourceCredentialsInfo = SourceCredentialsInfo'
   { -- | The Amazon Resource Name (ARN) of the token.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The type of source provider. The valid options are GITHUB,
-    -- GITHUB_ENTERPRISE, or BITBUCKET.
-    serverType :: Prelude.Maybe ServerType,
     -- | The type of authentication used by the credentials. Valid options are
     -- OAUTH, BASIC_AUTH, or PERSONAL_ACCESS_TOKEN.
-    authType :: Prelude.Maybe AuthType
+    authType :: Prelude.Maybe AuthType,
+    -- | The type of source provider. The valid options are GITHUB,
+    -- GITHUB_ENTERPRISE, or BITBUCKET.
+    serverType :: Prelude.Maybe ServerType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,33 +52,33 @@ data SourceCredentialsInfo = SourceCredentialsInfo'
 --
 -- 'arn', 'sourceCredentialsInfo_arn' - The Amazon Resource Name (ARN) of the token.
 --
--- 'serverType', 'sourceCredentialsInfo_serverType' - The type of source provider. The valid options are GITHUB,
--- GITHUB_ENTERPRISE, or BITBUCKET.
---
 -- 'authType', 'sourceCredentialsInfo_authType' - The type of authentication used by the credentials. Valid options are
 -- OAUTH, BASIC_AUTH, or PERSONAL_ACCESS_TOKEN.
+--
+-- 'serverType', 'sourceCredentialsInfo_serverType' - The type of source provider. The valid options are GITHUB,
+-- GITHUB_ENTERPRISE, or BITBUCKET.
 newSourceCredentialsInfo ::
   SourceCredentialsInfo
 newSourceCredentialsInfo =
   SourceCredentialsInfo'
     { arn = Prelude.Nothing,
-      serverType = Prelude.Nothing,
-      authType = Prelude.Nothing
+      authType = Prelude.Nothing,
+      serverType = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the token.
 sourceCredentialsInfo_arn :: Lens.Lens' SourceCredentialsInfo (Prelude.Maybe Prelude.Text)
 sourceCredentialsInfo_arn = Lens.lens (\SourceCredentialsInfo' {arn} -> arn) (\s@SourceCredentialsInfo' {} a -> s {arn = a} :: SourceCredentialsInfo)
 
--- | The type of source provider. The valid options are GITHUB,
--- GITHUB_ENTERPRISE, or BITBUCKET.
-sourceCredentialsInfo_serverType :: Lens.Lens' SourceCredentialsInfo (Prelude.Maybe ServerType)
-sourceCredentialsInfo_serverType = Lens.lens (\SourceCredentialsInfo' {serverType} -> serverType) (\s@SourceCredentialsInfo' {} a -> s {serverType = a} :: SourceCredentialsInfo)
-
 -- | The type of authentication used by the credentials. Valid options are
 -- OAUTH, BASIC_AUTH, or PERSONAL_ACCESS_TOKEN.
 sourceCredentialsInfo_authType :: Lens.Lens' SourceCredentialsInfo (Prelude.Maybe AuthType)
 sourceCredentialsInfo_authType = Lens.lens (\SourceCredentialsInfo' {authType} -> authType) (\s@SourceCredentialsInfo' {} a -> s {authType = a} :: SourceCredentialsInfo)
+
+-- | The type of source provider. The valid options are GITHUB,
+-- GITHUB_ENTERPRISE, or BITBUCKET.
+sourceCredentialsInfo_serverType :: Lens.Lens' SourceCredentialsInfo (Prelude.Maybe ServerType)
+sourceCredentialsInfo_serverType = Lens.lens (\SourceCredentialsInfo' {serverType} -> serverType) (\s@SourceCredentialsInfo' {} a -> s {serverType = a} :: SourceCredentialsInfo)
 
 instance Data.FromJSON SourceCredentialsInfo where
   parseJSON =
@@ -87,18 +87,18 @@ instance Data.FromJSON SourceCredentialsInfo where
       ( \x ->
           SourceCredentialsInfo'
             Prelude.<$> (x Data..:? "arn")
-            Prelude.<*> (x Data..:? "serverType")
             Prelude.<*> (x Data..:? "authType")
+            Prelude.<*> (x Data..:? "serverType")
       )
 
 instance Prelude.Hashable SourceCredentialsInfo where
   hashWithSalt _salt SourceCredentialsInfo' {..} =
     _salt `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` serverType
       `Prelude.hashWithSalt` authType
+      `Prelude.hashWithSalt` serverType
 
 instance Prelude.NFData SourceCredentialsInfo where
   rnf SourceCredentialsInfo' {..} =
     Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf serverType
       `Prelude.seq` Prelude.rnf authType
+      `Prelude.seq` Prelude.rnf serverType

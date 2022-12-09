@@ -27,26 +27,26 @@ module Amazonka.CodeBuild.UpdateProject
     newUpdateProject,
 
     -- * Request Lenses
-    updateProject_tags,
-    updateProject_environment,
-    updateProject_secondarySources,
+    updateProject_artifacts,
     updateProject_badgeEnabled,
-    updateProject_fileSystemLocations,
-    updateProject_timeoutInMinutes,
-    updateProject_queuedTimeoutInMinutes,
-    updateProject_vpcConfig,
-    updateProject_secondaryArtifacts,
-    updateProject_sourceVersion,
+    updateProject_buildBatchConfig,
+    updateProject_cache,
     updateProject_concurrentBuildLimit,
     updateProject_description,
-    updateProject_cache,
-    updateProject_serviceRole,
-    updateProject_secondarySourceVersions,
-    updateProject_source,
-    updateProject_logsConfig,
-    updateProject_buildBatchConfig,
     updateProject_encryptionKey,
-    updateProject_artifacts,
+    updateProject_environment,
+    updateProject_fileSystemLocations,
+    updateProject_logsConfig,
+    updateProject_queuedTimeoutInMinutes,
+    updateProject_secondaryArtifacts,
+    updateProject_secondarySourceVersions,
+    updateProject_secondarySources,
+    updateProject_serviceRole,
+    updateProject_source,
+    updateProject_sourceVersion,
+    updateProject_tags,
+    updateProject_timeoutInMinutes,
+    updateProject_vpcConfig,
     updateProject_name,
 
     -- * Destructuring the Response
@@ -69,36 +69,65 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateProject' smart constructor.
 data UpdateProject = UpdateProject'
-  { -- | An updated list of tag key and value pairs associated with this build
+  { -- | Information to be changed about the build output artifacts for the build
     -- project.
-    --
-    -- These tags are available for use by Amazon Web Services services that
-    -- support CodeBuild build project tags.
-    tags :: Prelude.Maybe [Tag],
-    -- | Information to be changed about the build environment for the build
-    -- project.
-    environment :: Prelude.Maybe ProjectEnvironment,
-    -- | An array of @ProjectSource@ objects.
-    secondarySources :: Prelude.Maybe [ProjectSource],
+    artifacts :: Prelude.Maybe ProjectArtifacts,
     -- | Set this to true to generate a publicly accessible URL for your
     -- project\'s build badge.
     badgeEnabled :: Prelude.Maybe Prelude.Bool,
+    buildBatchConfig :: Prelude.Maybe ProjectBuildBatchConfig,
+    -- | Stores recently used information so that it can be quickly accessed at a
+    -- later time.
+    cache :: Prelude.Maybe ProjectCache,
+    -- | The maximum number of concurrent builds that are allowed for this
+    -- project.
+    --
+    -- New builds are only started if the current number of builds is less than
+    -- or equal to this limit. If the current build count meets this limit, new
+    -- builds are throttled and are not run.
+    --
+    -- To remove this limit, set this value to -1.
+    concurrentBuildLimit :: Prelude.Maybe Prelude.Int,
+    -- | A new or replacement description of the build project.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The Key Management Service customer master key (CMK) to be used for
+    -- encrypting the build output artifacts.
+    --
+    -- You can use a cross-account KMS key to encrypt the build output
+    -- artifacts if your service role has permission to that key.
+    --
+    -- You can specify either the Amazon Resource Name (ARN) of the CMK or, if
+    -- available, the CMK\'s alias (using the format @alias\/\<alias-name>@).
+    encryptionKey :: Prelude.Maybe Prelude.Text,
+    -- | Information to be changed about the build environment for the build
+    -- project.
+    environment :: Prelude.Maybe ProjectEnvironment,
     -- | An array of @ProjectFileSystemLocation@ objects for a CodeBuild build
     -- project. A @ProjectFileSystemLocation@ object specifies the
     -- @identifier@, @location@, @mountOptions@, @mountPoint@, and @type@ of a
     -- file system created using Amazon Elastic File System.
     fileSystemLocations :: Prelude.Maybe [ProjectFileSystemLocation],
-    -- | The replacement value in minutes, from 5 to 480 (8 hours), for CodeBuild
-    -- to wait before timing out any related build that did not get marked as
-    -- completed.
-    timeoutInMinutes :: Prelude.Maybe Prelude.Natural,
+    -- | Information about logs for the build project. A project can create logs
+    -- in CloudWatch Logs, logs in an S3 bucket, or both.
+    logsConfig :: Prelude.Maybe LogsConfig,
     -- | The number of minutes a build is allowed to be queued before it times
     -- out.
     queuedTimeoutInMinutes :: Prelude.Maybe Prelude.Natural,
-    -- | VpcConfig enables CodeBuild to access resources in an Amazon VPC.
-    vpcConfig :: Prelude.Maybe VpcConfig,
     -- | An array of @ProjectArtifact@ objects.
     secondaryArtifacts :: Prelude.Maybe [ProjectArtifacts],
+    -- | An array of @ProjectSourceVersion@ objects. If @secondarySourceVersions@
+    -- is specified at the build level, then they take over these
+    -- @secondarySourceVersions@ (at the project level).
+    secondarySourceVersions :: Prelude.Maybe [ProjectSourceVersion],
+    -- | An array of @ProjectSource@ objects.
+    secondarySources :: Prelude.Maybe [ProjectSource],
+    -- | The replacement ARN of the IAM role that enables CodeBuild to interact
+    -- with dependent Amazon Web Services services on behalf of the Amazon Web
+    -- Services account.
+    serviceRole :: Prelude.Maybe Prelude.Text,
+    -- | Information to be changed about the build input source code for the
+    -- build project.
+    source :: Prelude.Maybe ProjectSource,
     -- | A version of the build input to be built for this project. If not
     -- specified, the latest version is used. If specified, it must be one of:
     --
@@ -126,47 +155,18 @@ data UpdateProject = UpdateProject'
     -- <https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html Source Version Sample with CodeBuild>
     -- in the /CodeBuild User Guide/.
     sourceVersion :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of concurrent builds that are allowed for this
+    -- | An updated list of tag key and value pairs associated with this build
     -- project.
     --
-    -- New builds are only started if the current number of builds is less than
-    -- or equal to this limit. If the current build count meets this limit, new
-    -- builds are throttled and are not run.
-    --
-    -- To remove this limit, set this value to -1.
-    concurrentBuildLimit :: Prelude.Maybe Prelude.Int,
-    -- | A new or replacement description of the build project.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Stores recently used information so that it can be quickly accessed at a
-    -- later time.
-    cache :: Prelude.Maybe ProjectCache,
-    -- | The replacement ARN of the IAM role that enables CodeBuild to interact
-    -- with dependent Amazon Web Services services on behalf of the Amazon Web
-    -- Services account.
-    serviceRole :: Prelude.Maybe Prelude.Text,
-    -- | An array of @ProjectSourceVersion@ objects. If @secondarySourceVersions@
-    -- is specified at the build level, then they take over these
-    -- @secondarySourceVersions@ (at the project level).
-    secondarySourceVersions :: Prelude.Maybe [ProjectSourceVersion],
-    -- | Information to be changed about the build input source code for the
-    -- build project.
-    source :: Prelude.Maybe ProjectSource,
-    -- | Information about logs for the build project. A project can create logs
-    -- in CloudWatch Logs, logs in an S3 bucket, or both.
-    logsConfig :: Prelude.Maybe LogsConfig,
-    buildBatchConfig :: Prelude.Maybe ProjectBuildBatchConfig,
-    -- | The Key Management Service customer master key (CMK) to be used for
-    -- encrypting the build output artifacts.
-    --
-    -- You can use a cross-account KMS key to encrypt the build output
-    -- artifacts if your service role has permission to that key.
-    --
-    -- You can specify either the Amazon Resource Name (ARN) of the CMK or, if
-    -- available, the CMK\'s alias (using the format @alias\/\<alias-name>@).
-    encryptionKey :: Prelude.Maybe Prelude.Text,
-    -- | Information to be changed about the build output artifacts for the build
-    -- project.
-    artifacts :: Prelude.Maybe ProjectArtifacts,
+    -- These tags are available for use by Amazon Web Services services that
+    -- support CodeBuild build project tags.
+    tags :: Prelude.Maybe [Tag],
+    -- | The replacement value in minutes, from 5 to 480 (8 hours), for CodeBuild
+    -- to wait before timing out any related build that did not get marked as
+    -- completed.
+    timeoutInMinutes :: Prelude.Maybe Prelude.Natural,
+    -- | VpcConfig enables CodeBuild to access resources in an Amazon VPC.
+    vpcConfig :: Prelude.Maybe VpcConfig,
     -- | The name of the build project.
     --
     -- You cannot change a build project\'s name.
@@ -182,35 +182,65 @@ data UpdateProject = UpdateProject'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'updateProject_tags' - An updated list of tag key and value pairs associated with this build
+-- 'artifacts', 'updateProject_artifacts' - Information to be changed about the build output artifacts for the build
 -- project.
---
--- These tags are available for use by Amazon Web Services services that
--- support CodeBuild build project tags.
---
--- 'environment', 'updateProject_environment' - Information to be changed about the build environment for the build
--- project.
---
--- 'secondarySources', 'updateProject_secondarySources' - An array of @ProjectSource@ objects.
 --
 -- 'badgeEnabled', 'updateProject_badgeEnabled' - Set this to true to generate a publicly accessible URL for your
 -- project\'s build badge.
+--
+-- 'buildBatchConfig', 'updateProject_buildBatchConfig' - Undocumented member.
+--
+-- 'cache', 'updateProject_cache' - Stores recently used information so that it can be quickly accessed at a
+-- later time.
+--
+-- 'concurrentBuildLimit', 'updateProject_concurrentBuildLimit' - The maximum number of concurrent builds that are allowed for this
+-- project.
+--
+-- New builds are only started if the current number of builds is less than
+-- or equal to this limit. If the current build count meets this limit, new
+-- builds are throttled and are not run.
+--
+-- To remove this limit, set this value to -1.
+--
+-- 'description', 'updateProject_description' - A new or replacement description of the build project.
+--
+-- 'encryptionKey', 'updateProject_encryptionKey' - The Key Management Service customer master key (CMK) to be used for
+-- encrypting the build output artifacts.
+--
+-- You can use a cross-account KMS key to encrypt the build output
+-- artifacts if your service role has permission to that key.
+--
+-- You can specify either the Amazon Resource Name (ARN) of the CMK or, if
+-- available, the CMK\'s alias (using the format @alias\/\<alias-name>@).
+--
+-- 'environment', 'updateProject_environment' - Information to be changed about the build environment for the build
+-- project.
 --
 -- 'fileSystemLocations', 'updateProject_fileSystemLocations' - An array of @ProjectFileSystemLocation@ objects for a CodeBuild build
 -- project. A @ProjectFileSystemLocation@ object specifies the
 -- @identifier@, @location@, @mountOptions@, @mountPoint@, and @type@ of a
 -- file system created using Amazon Elastic File System.
 --
--- 'timeoutInMinutes', 'updateProject_timeoutInMinutes' - The replacement value in minutes, from 5 to 480 (8 hours), for CodeBuild
--- to wait before timing out any related build that did not get marked as
--- completed.
+-- 'logsConfig', 'updateProject_logsConfig' - Information about logs for the build project. A project can create logs
+-- in CloudWatch Logs, logs in an S3 bucket, or both.
 --
 -- 'queuedTimeoutInMinutes', 'updateProject_queuedTimeoutInMinutes' - The number of minutes a build is allowed to be queued before it times
 -- out.
 --
--- 'vpcConfig', 'updateProject_vpcConfig' - VpcConfig enables CodeBuild to access resources in an Amazon VPC.
---
 -- 'secondaryArtifacts', 'updateProject_secondaryArtifacts' - An array of @ProjectArtifact@ objects.
+--
+-- 'secondarySourceVersions', 'updateProject_secondarySourceVersions' - An array of @ProjectSourceVersion@ objects. If @secondarySourceVersions@
+-- is specified at the build level, then they take over these
+-- @secondarySourceVersions@ (at the project level).
+--
+-- 'secondarySources', 'updateProject_secondarySources' - An array of @ProjectSource@ objects.
+--
+-- 'serviceRole', 'updateProject_serviceRole' - The replacement ARN of the IAM role that enables CodeBuild to interact
+-- with dependent Amazon Web Services services on behalf of the Amazon Web
+-- Services account.
+--
+-- 'source', 'updateProject_source' - Information to be changed about the build input source code for the
+-- build project.
 --
 -- 'sourceVersion', 'updateProject_sourceVersion' - A version of the build input to be built for this project. If not
 -- specified, the latest version is used. If specified, it must be one of:
@@ -239,47 +269,17 @@ data UpdateProject = UpdateProject'
 -- <https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html Source Version Sample with CodeBuild>
 -- in the /CodeBuild User Guide/.
 --
--- 'concurrentBuildLimit', 'updateProject_concurrentBuildLimit' - The maximum number of concurrent builds that are allowed for this
+-- 'tags', 'updateProject_tags' - An updated list of tag key and value pairs associated with this build
 -- project.
 --
--- New builds are only started if the current number of builds is less than
--- or equal to this limit. If the current build count meets this limit, new
--- builds are throttled and are not run.
+-- These tags are available for use by Amazon Web Services services that
+-- support CodeBuild build project tags.
 --
--- To remove this limit, set this value to -1.
+-- 'timeoutInMinutes', 'updateProject_timeoutInMinutes' - The replacement value in minutes, from 5 to 480 (8 hours), for CodeBuild
+-- to wait before timing out any related build that did not get marked as
+-- completed.
 --
--- 'description', 'updateProject_description' - A new or replacement description of the build project.
---
--- 'cache', 'updateProject_cache' - Stores recently used information so that it can be quickly accessed at a
--- later time.
---
--- 'serviceRole', 'updateProject_serviceRole' - The replacement ARN of the IAM role that enables CodeBuild to interact
--- with dependent Amazon Web Services services on behalf of the Amazon Web
--- Services account.
---
--- 'secondarySourceVersions', 'updateProject_secondarySourceVersions' - An array of @ProjectSourceVersion@ objects. If @secondarySourceVersions@
--- is specified at the build level, then they take over these
--- @secondarySourceVersions@ (at the project level).
---
--- 'source', 'updateProject_source' - Information to be changed about the build input source code for the
--- build project.
---
--- 'logsConfig', 'updateProject_logsConfig' - Information about logs for the build project. A project can create logs
--- in CloudWatch Logs, logs in an S3 bucket, or both.
---
--- 'buildBatchConfig', 'updateProject_buildBatchConfig' - Undocumented member.
---
--- 'encryptionKey', 'updateProject_encryptionKey' - The Key Management Service customer master key (CMK) to be used for
--- encrypting the build output artifacts.
---
--- You can use a cross-account KMS key to encrypt the build output
--- artifacts if your service role has permission to that key.
---
--- You can specify either the Amazon Resource Name (ARN) of the CMK or, if
--- available, the CMK\'s alias (using the format @alias\/\<alias-name>@).
---
--- 'artifacts', 'updateProject_artifacts' - Information to be changed about the build output artifacts for the build
--- project.
+-- 'vpcConfig', 'updateProject_vpcConfig' - VpcConfig enables CodeBuild to access resources in an Amazon VPC.
 --
 -- 'name', 'updateProject_name' - The name of the build project.
 --
@@ -290,50 +290,78 @@ newUpdateProject ::
   UpdateProject
 newUpdateProject pName_ =
   UpdateProject'
-    { tags = Prelude.Nothing,
-      environment = Prelude.Nothing,
-      secondarySources = Prelude.Nothing,
+    { artifacts = Prelude.Nothing,
       badgeEnabled = Prelude.Nothing,
-      fileSystemLocations = Prelude.Nothing,
-      timeoutInMinutes = Prelude.Nothing,
-      queuedTimeoutInMinutes = Prelude.Nothing,
-      vpcConfig = Prelude.Nothing,
-      secondaryArtifacts = Prelude.Nothing,
-      sourceVersion = Prelude.Nothing,
+      buildBatchConfig = Prelude.Nothing,
+      cache = Prelude.Nothing,
       concurrentBuildLimit = Prelude.Nothing,
       description = Prelude.Nothing,
-      cache = Prelude.Nothing,
-      serviceRole = Prelude.Nothing,
-      secondarySourceVersions = Prelude.Nothing,
-      source = Prelude.Nothing,
-      logsConfig = Prelude.Nothing,
-      buildBatchConfig = Prelude.Nothing,
       encryptionKey = Prelude.Nothing,
-      artifacts = Prelude.Nothing,
+      environment = Prelude.Nothing,
+      fileSystemLocations = Prelude.Nothing,
+      logsConfig = Prelude.Nothing,
+      queuedTimeoutInMinutes = Prelude.Nothing,
+      secondaryArtifacts = Prelude.Nothing,
+      secondarySourceVersions = Prelude.Nothing,
+      secondarySources = Prelude.Nothing,
+      serviceRole = Prelude.Nothing,
+      source = Prelude.Nothing,
+      sourceVersion = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      timeoutInMinutes = Prelude.Nothing,
+      vpcConfig = Prelude.Nothing,
       name = pName_
     }
 
--- | An updated list of tag key and value pairs associated with this build
+-- | Information to be changed about the build output artifacts for the build
 -- project.
---
--- These tags are available for use by Amazon Web Services services that
--- support CodeBuild build project tags.
-updateProject_tags :: Lens.Lens' UpdateProject (Prelude.Maybe [Tag])
-updateProject_tags = Lens.lens (\UpdateProject' {tags} -> tags) (\s@UpdateProject' {} a -> s {tags = a} :: UpdateProject) Prelude.. Lens.mapping Lens.coerced
-
--- | Information to be changed about the build environment for the build
--- project.
-updateProject_environment :: Lens.Lens' UpdateProject (Prelude.Maybe ProjectEnvironment)
-updateProject_environment = Lens.lens (\UpdateProject' {environment} -> environment) (\s@UpdateProject' {} a -> s {environment = a} :: UpdateProject)
-
--- | An array of @ProjectSource@ objects.
-updateProject_secondarySources :: Lens.Lens' UpdateProject (Prelude.Maybe [ProjectSource])
-updateProject_secondarySources = Lens.lens (\UpdateProject' {secondarySources} -> secondarySources) (\s@UpdateProject' {} a -> s {secondarySources = a} :: UpdateProject) Prelude.. Lens.mapping Lens.coerced
+updateProject_artifacts :: Lens.Lens' UpdateProject (Prelude.Maybe ProjectArtifacts)
+updateProject_artifacts = Lens.lens (\UpdateProject' {artifacts} -> artifacts) (\s@UpdateProject' {} a -> s {artifacts = a} :: UpdateProject)
 
 -- | Set this to true to generate a publicly accessible URL for your
 -- project\'s build badge.
 updateProject_badgeEnabled :: Lens.Lens' UpdateProject (Prelude.Maybe Prelude.Bool)
 updateProject_badgeEnabled = Lens.lens (\UpdateProject' {badgeEnabled} -> badgeEnabled) (\s@UpdateProject' {} a -> s {badgeEnabled = a} :: UpdateProject)
+
+-- | Undocumented member.
+updateProject_buildBatchConfig :: Lens.Lens' UpdateProject (Prelude.Maybe ProjectBuildBatchConfig)
+updateProject_buildBatchConfig = Lens.lens (\UpdateProject' {buildBatchConfig} -> buildBatchConfig) (\s@UpdateProject' {} a -> s {buildBatchConfig = a} :: UpdateProject)
+
+-- | Stores recently used information so that it can be quickly accessed at a
+-- later time.
+updateProject_cache :: Lens.Lens' UpdateProject (Prelude.Maybe ProjectCache)
+updateProject_cache = Lens.lens (\UpdateProject' {cache} -> cache) (\s@UpdateProject' {} a -> s {cache = a} :: UpdateProject)
+
+-- | The maximum number of concurrent builds that are allowed for this
+-- project.
+--
+-- New builds are only started if the current number of builds is less than
+-- or equal to this limit. If the current build count meets this limit, new
+-- builds are throttled and are not run.
+--
+-- To remove this limit, set this value to -1.
+updateProject_concurrentBuildLimit :: Lens.Lens' UpdateProject (Prelude.Maybe Prelude.Int)
+updateProject_concurrentBuildLimit = Lens.lens (\UpdateProject' {concurrentBuildLimit} -> concurrentBuildLimit) (\s@UpdateProject' {} a -> s {concurrentBuildLimit = a} :: UpdateProject)
+
+-- | A new or replacement description of the build project.
+updateProject_description :: Lens.Lens' UpdateProject (Prelude.Maybe Prelude.Text)
+updateProject_description = Lens.lens (\UpdateProject' {description} -> description) (\s@UpdateProject' {} a -> s {description = a} :: UpdateProject)
+
+-- | The Key Management Service customer master key (CMK) to be used for
+-- encrypting the build output artifacts.
+--
+-- You can use a cross-account KMS key to encrypt the build output
+-- artifacts if your service role has permission to that key.
+--
+-- You can specify either the Amazon Resource Name (ARN) of the CMK or, if
+-- available, the CMK\'s alias (using the format @alias\/\<alias-name>@).
+updateProject_encryptionKey :: Lens.Lens' UpdateProject (Prelude.Maybe Prelude.Text)
+updateProject_encryptionKey = Lens.lens (\UpdateProject' {encryptionKey} -> encryptionKey) (\s@UpdateProject' {} a -> s {encryptionKey = a} :: UpdateProject)
+
+-- | Information to be changed about the build environment for the build
+-- project.
+updateProject_environment :: Lens.Lens' UpdateProject (Prelude.Maybe ProjectEnvironment)
+updateProject_environment = Lens.lens (\UpdateProject' {environment} -> environment) (\s@UpdateProject' {} a -> s {environment = a} :: UpdateProject)
 
 -- | An array of @ProjectFileSystemLocation@ objects for a CodeBuild build
 -- project. A @ProjectFileSystemLocation@ object specifies the
@@ -342,24 +370,40 @@ updateProject_badgeEnabled = Lens.lens (\UpdateProject' {badgeEnabled} -> badgeE
 updateProject_fileSystemLocations :: Lens.Lens' UpdateProject (Prelude.Maybe [ProjectFileSystemLocation])
 updateProject_fileSystemLocations = Lens.lens (\UpdateProject' {fileSystemLocations} -> fileSystemLocations) (\s@UpdateProject' {} a -> s {fileSystemLocations = a} :: UpdateProject) Prelude.. Lens.mapping Lens.coerced
 
--- | The replacement value in minutes, from 5 to 480 (8 hours), for CodeBuild
--- to wait before timing out any related build that did not get marked as
--- completed.
-updateProject_timeoutInMinutes :: Lens.Lens' UpdateProject (Prelude.Maybe Prelude.Natural)
-updateProject_timeoutInMinutes = Lens.lens (\UpdateProject' {timeoutInMinutes} -> timeoutInMinutes) (\s@UpdateProject' {} a -> s {timeoutInMinutes = a} :: UpdateProject)
+-- | Information about logs for the build project. A project can create logs
+-- in CloudWatch Logs, logs in an S3 bucket, or both.
+updateProject_logsConfig :: Lens.Lens' UpdateProject (Prelude.Maybe LogsConfig)
+updateProject_logsConfig = Lens.lens (\UpdateProject' {logsConfig} -> logsConfig) (\s@UpdateProject' {} a -> s {logsConfig = a} :: UpdateProject)
 
 -- | The number of minutes a build is allowed to be queued before it times
 -- out.
 updateProject_queuedTimeoutInMinutes :: Lens.Lens' UpdateProject (Prelude.Maybe Prelude.Natural)
 updateProject_queuedTimeoutInMinutes = Lens.lens (\UpdateProject' {queuedTimeoutInMinutes} -> queuedTimeoutInMinutes) (\s@UpdateProject' {} a -> s {queuedTimeoutInMinutes = a} :: UpdateProject)
 
--- | VpcConfig enables CodeBuild to access resources in an Amazon VPC.
-updateProject_vpcConfig :: Lens.Lens' UpdateProject (Prelude.Maybe VpcConfig)
-updateProject_vpcConfig = Lens.lens (\UpdateProject' {vpcConfig} -> vpcConfig) (\s@UpdateProject' {} a -> s {vpcConfig = a} :: UpdateProject)
-
 -- | An array of @ProjectArtifact@ objects.
 updateProject_secondaryArtifacts :: Lens.Lens' UpdateProject (Prelude.Maybe [ProjectArtifacts])
 updateProject_secondaryArtifacts = Lens.lens (\UpdateProject' {secondaryArtifacts} -> secondaryArtifacts) (\s@UpdateProject' {} a -> s {secondaryArtifacts = a} :: UpdateProject) Prelude.. Lens.mapping Lens.coerced
+
+-- | An array of @ProjectSourceVersion@ objects. If @secondarySourceVersions@
+-- is specified at the build level, then they take over these
+-- @secondarySourceVersions@ (at the project level).
+updateProject_secondarySourceVersions :: Lens.Lens' UpdateProject (Prelude.Maybe [ProjectSourceVersion])
+updateProject_secondarySourceVersions = Lens.lens (\UpdateProject' {secondarySourceVersions} -> secondarySourceVersions) (\s@UpdateProject' {} a -> s {secondarySourceVersions = a} :: UpdateProject) Prelude.. Lens.mapping Lens.coerced
+
+-- | An array of @ProjectSource@ objects.
+updateProject_secondarySources :: Lens.Lens' UpdateProject (Prelude.Maybe [ProjectSource])
+updateProject_secondarySources = Lens.lens (\UpdateProject' {secondarySources} -> secondarySources) (\s@UpdateProject' {} a -> s {secondarySources = a} :: UpdateProject) Prelude.. Lens.mapping Lens.coerced
+
+-- | The replacement ARN of the IAM role that enables CodeBuild to interact
+-- with dependent Amazon Web Services services on behalf of the Amazon Web
+-- Services account.
+updateProject_serviceRole :: Lens.Lens' UpdateProject (Prelude.Maybe Prelude.Text)
+updateProject_serviceRole = Lens.lens (\UpdateProject' {serviceRole} -> serviceRole) (\s@UpdateProject' {} a -> s {serviceRole = a} :: UpdateProject)
+
+-- | Information to be changed about the build input source code for the
+-- build project.
+updateProject_source :: Lens.Lens' UpdateProject (Prelude.Maybe ProjectSource)
+updateProject_source = Lens.lens (\UpdateProject' {source} -> source) (\s@UpdateProject' {} a -> s {source = a} :: UpdateProject)
 
 -- | A version of the build input to be built for this project. If not
 -- specified, the latest version is used. If specified, it must be one of:
@@ -390,67 +434,23 @@ updateProject_secondaryArtifacts = Lens.lens (\UpdateProject' {secondaryArtifact
 updateProject_sourceVersion :: Lens.Lens' UpdateProject (Prelude.Maybe Prelude.Text)
 updateProject_sourceVersion = Lens.lens (\UpdateProject' {sourceVersion} -> sourceVersion) (\s@UpdateProject' {} a -> s {sourceVersion = a} :: UpdateProject)
 
--- | The maximum number of concurrent builds that are allowed for this
+-- | An updated list of tag key and value pairs associated with this build
 -- project.
 --
--- New builds are only started if the current number of builds is less than
--- or equal to this limit. If the current build count meets this limit, new
--- builds are throttled and are not run.
---
--- To remove this limit, set this value to -1.
-updateProject_concurrentBuildLimit :: Lens.Lens' UpdateProject (Prelude.Maybe Prelude.Int)
-updateProject_concurrentBuildLimit = Lens.lens (\UpdateProject' {concurrentBuildLimit} -> concurrentBuildLimit) (\s@UpdateProject' {} a -> s {concurrentBuildLimit = a} :: UpdateProject)
+-- These tags are available for use by Amazon Web Services services that
+-- support CodeBuild build project tags.
+updateProject_tags :: Lens.Lens' UpdateProject (Prelude.Maybe [Tag])
+updateProject_tags = Lens.lens (\UpdateProject' {tags} -> tags) (\s@UpdateProject' {} a -> s {tags = a} :: UpdateProject) Prelude.. Lens.mapping Lens.coerced
 
--- | A new or replacement description of the build project.
-updateProject_description :: Lens.Lens' UpdateProject (Prelude.Maybe Prelude.Text)
-updateProject_description = Lens.lens (\UpdateProject' {description} -> description) (\s@UpdateProject' {} a -> s {description = a} :: UpdateProject)
+-- | The replacement value in minutes, from 5 to 480 (8 hours), for CodeBuild
+-- to wait before timing out any related build that did not get marked as
+-- completed.
+updateProject_timeoutInMinutes :: Lens.Lens' UpdateProject (Prelude.Maybe Prelude.Natural)
+updateProject_timeoutInMinutes = Lens.lens (\UpdateProject' {timeoutInMinutes} -> timeoutInMinutes) (\s@UpdateProject' {} a -> s {timeoutInMinutes = a} :: UpdateProject)
 
--- | Stores recently used information so that it can be quickly accessed at a
--- later time.
-updateProject_cache :: Lens.Lens' UpdateProject (Prelude.Maybe ProjectCache)
-updateProject_cache = Lens.lens (\UpdateProject' {cache} -> cache) (\s@UpdateProject' {} a -> s {cache = a} :: UpdateProject)
-
--- | The replacement ARN of the IAM role that enables CodeBuild to interact
--- with dependent Amazon Web Services services on behalf of the Amazon Web
--- Services account.
-updateProject_serviceRole :: Lens.Lens' UpdateProject (Prelude.Maybe Prelude.Text)
-updateProject_serviceRole = Lens.lens (\UpdateProject' {serviceRole} -> serviceRole) (\s@UpdateProject' {} a -> s {serviceRole = a} :: UpdateProject)
-
--- | An array of @ProjectSourceVersion@ objects. If @secondarySourceVersions@
--- is specified at the build level, then they take over these
--- @secondarySourceVersions@ (at the project level).
-updateProject_secondarySourceVersions :: Lens.Lens' UpdateProject (Prelude.Maybe [ProjectSourceVersion])
-updateProject_secondarySourceVersions = Lens.lens (\UpdateProject' {secondarySourceVersions} -> secondarySourceVersions) (\s@UpdateProject' {} a -> s {secondarySourceVersions = a} :: UpdateProject) Prelude.. Lens.mapping Lens.coerced
-
--- | Information to be changed about the build input source code for the
--- build project.
-updateProject_source :: Lens.Lens' UpdateProject (Prelude.Maybe ProjectSource)
-updateProject_source = Lens.lens (\UpdateProject' {source} -> source) (\s@UpdateProject' {} a -> s {source = a} :: UpdateProject)
-
--- | Information about logs for the build project. A project can create logs
--- in CloudWatch Logs, logs in an S3 bucket, or both.
-updateProject_logsConfig :: Lens.Lens' UpdateProject (Prelude.Maybe LogsConfig)
-updateProject_logsConfig = Lens.lens (\UpdateProject' {logsConfig} -> logsConfig) (\s@UpdateProject' {} a -> s {logsConfig = a} :: UpdateProject)
-
--- | Undocumented member.
-updateProject_buildBatchConfig :: Lens.Lens' UpdateProject (Prelude.Maybe ProjectBuildBatchConfig)
-updateProject_buildBatchConfig = Lens.lens (\UpdateProject' {buildBatchConfig} -> buildBatchConfig) (\s@UpdateProject' {} a -> s {buildBatchConfig = a} :: UpdateProject)
-
--- | The Key Management Service customer master key (CMK) to be used for
--- encrypting the build output artifacts.
---
--- You can use a cross-account KMS key to encrypt the build output
--- artifacts if your service role has permission to that key.
---
--- You can specify either the Amazon Resource Name (ARN) of the CMK or, if
--- available, the CMK\'s alias (using the format @alias\/\<alias-name>@).
-updateProject_encryptionKey :: Lens.Lens' UpdateProject (Prelude.Maybe Prelude.Text)
-updateProject_encryptionKey = Lens.lens (\UpdateProject' {encryptionKey} -> encryptionKey) (\s@UpdateProject' {} a -> s {encryptionKey = a} :: UpdateProject)
-
--- | Information to be changed about the build output artifacts for the build
--- project.
-updateProject_artifacts :: Lens.Lens' UpdateProject (Prelude.Maybe ProjectArtifacts)
-updateProject_artifacts = Lens.lens (\UpdateProject' {artifacts} -> artifacts) (\s@UpdateProject' {} a -> s {artifacts = a} :: UpdateProject)
+-- | VpcConfig enables CodeBuild to access resources in an Amazon VPC.
+updateProject_vpcConfig :: Lens.Lens' UpdateProject (Prelude.Maybe VpcConfig)
+updateProject_vpcConfig = Lens.lens (\UpdateProject' {vpcConfig} -> vpcConfig) (\s@UpdateProject' {} a -> s {vpcConfig = a} :: UpdateProject)
 
 -- | The name of the build project.
 --
@@ -474,50 +474,50 @@ instance Core.AWSRequest UpdateProject where
 
 instance Prelude.Hashable UpdateProject where
   hashWithSalt _salt UpdateProject' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` environment
-      `Prelude.hashWithSalt` secondarySources
+    _salt `Prelude.hashWithSalt` artifacts
       `Prelude.hashWithSalt` badgeEnabled
-      `Prelude.hashWithSalt` fileSystemLocations
-      `Prelude.hashWithSalt` timeoutInMinutes
-      `Prelude.hashWithSalt` queuedTimeoutInMinutes
-      `Prelude.hashWithSalt` vpcConfig
-      `Prelude.hashWithSalt` secondaryArtifacts
-      `Prelude.hashWithSalt` sourceVersion
+      `Prelude.hashWithSalt` buildBatchConfig
+      `Prelude.hashWithSalt` cache
       `Prelude.hashWithSalt` concurrentBuildLimit
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` cache
-      `Prelude.hashWithSalt` serviceRole
-      `Prelude.hashWithSalt` secondarySourceVersions
-      `Prelude.hashWithSalt` source
-      `Prelude.hashWithSalt` logsConfig
-      `Prelude.hashWithSalt` buildBatchConfig
       `Prelude.hashWithSalt` encryptionKey
-      `Prelude.hashWithSalt` artifacts
+      `Prelude.hashWithSalt` environment
+      `Prelude.hashWithSalt` fileSystemLocations
+      `Prelude.hashWithSalt` logsConfig
+      `Prelude.hashWithSalt` queuedTimeoutInMinutes
+      `Prelude.hashWithSalt` secondaryArtifacts
+      `Prelude.hashWithSalt` secondarySourceVersions
+      `Prelude.hashWithSalt` secondarySources
+      `Prelude.hashWithSalt` serviceRole
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` sourceVersion
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` timeoutInMinutes
+      `Prelude.hashWithSalt` vpcConfig
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData UpdateProject where
   rnf UpdateProject' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf secondarySources
+    Prelude.rnf artifacts
       `Prelude.seq` Prelude.rnf badgeEnabled
-      `Prelude.seq` Prelude.rnf fileSystemLocations
-      `Prelude.seq` Prelude.rnf timeoutInMinutes
-      `Prelude.seq` Prelude.rnf queuedTimeoutInMinutes
-      `Prelude.seq` Prelude.rnf vpcConfig
-      `Prelude.seq` Prelude.rnf secondaryArtifacts
-      `Prelude.seq` Prelude.rnf sourceVersion
+      `Prelude.seq` Prelude.rnf buildBatchConfig
+      `Prelude.seq` Prelude.rnf cache
       `Prelude.seq` Prelude.rnf concurrentBuildLimit
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf cache
-      `Prelude.seq` Prelude.rnf serviceRole
-      `Prelude.seq` Prelude.rnf secondarySourceVersions
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf logsConfig
-      `Prelude.seq` Prelude.rnf buildBatchConfig
       `Prelude.seq` Prelude.rnf encryptionKey
-      `Prelude.seq` Prelude.rnf artifacts
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf fileSystemLocations
+      `Prelude.seq` Prelude.rnf logsConfig
+      `Prelude.seq` Prelude.rnf queuedTimeoutInMinutes
+      `Prelude.seq` Prelude.rnf secondaryArtifacts
+      `Prelude.seq` Prelude.rnf secondarySourceVersions
+      `Prelude.seq` Prelude.rnf secondarySources
+      `Prelude.seq` Prelude.rnf serviceRole
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf sourceVersion
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf timeoutInMinutes
+      `Prelude.seq` Prelude.rnf vpcConfig
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders UpdateProject where
@@ -539,34 +539,34 @@ instance Data.ToJSON UpdateProject where
   toJSON UpdateProject' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("environment" Data..=) Prelude.<$> environment,
-            ("secondarySources" Data..=)
-              Prelude.<$> secondarySources,
+          [ ("artifacts" Data..=) Prelude.<$> artifacts,
             ("badgeEnabled" Data..=) Prelude.<$> badgeEnabled,
-            ("fileSystemLocations" Data..=)
-              Prelude.<$> fileSystemLocations,
-            ("timeoutInMinutes" Data..=)
-              Prelude.<$> timeoutInMinutes,
-            ("queuedTimeoutInMinutes" Data..=)
-              Prelude.<$> queuedTimeoutInMinutes,
-            ("vpcConfig" Data..=) Prelude.<$> vpcConfig,
-            ("secondaryArtifacts" Data..=)
-              Prelude.<$> secondaryArtifacts,
-            ("sourceVersion" Data..=) Prelude.<$> sourceVersion,
+            ("buildBatchConfig" Data..=)
+              Prelude.<$> buildBatchConfig,
+            ("cache" Data..=) Prelude.<$> cache,
             ("concurrentBuildLimit" Data..=)
               Prelude.<$> concurrentBuildLimit,
             ("description" Data..=) Prelude.<$> description,
-            ("cache" Data..=) Prelude.<$> cache,
-            ("serviceRole" Data..=) Prelude.<$> serviceRole,
+            ("encryptionKey" Data..=) Prelude.<$> encryptionKey,
+            ("environment" Data..=) Prelude.<$> environment,
+            ("fileSystemLocations" Data..=)
+              Prelude.<$> fileSystemLocations,
+            ("logsConfig" Data..=) Prelude.<$> logsConfig,
+            ("queuedTimeoutInMinutes" Data..=)
+              Prelude.<$> queuedTimeoutInMinutes,
+            ("secondaryArtifacts" Data..=)
+              Prelude.<$> secondaryArtifacts,
             ("secondarySourceVersions" Data..=)
               Prelude.<$> secondarySourceVersions,
+            ("secondarySources" Data..=)
+              Prelude.<$> secondarySources,
+            ("serviceRole" Data..=) Prelude.<$> serviceRole,
             ("source" Data..=) Prelude.<$> source,
-            ("logsConfig" Data..=) Prelude.<$> logsConfig,
-            ("buildBatchConfig" Data..=)
-              Prelude.<$> buildBatchConfig,
-            ("encryptionKey" Data..=) Prelude.<$> encryptionKey,
-            ("artifacts" Data..=) Prelude.<$> artifacts,
+            ("sourceVersion" Data..=) Prelude.<$> sourceVersion,
+            ("tags" Data..=) Prelude.<$> tags,
+            ("timeoutInMinutes" Data..=)
+              Prelude.<$> timeoutInMinutes,
+            ("vpcConfig" Data..=) Prelude.<$> vpcConfig,
             Prelude.Just ("name" Data..= name)
           ]
       )

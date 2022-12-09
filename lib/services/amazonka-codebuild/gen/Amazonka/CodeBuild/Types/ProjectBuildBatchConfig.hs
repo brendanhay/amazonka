@@ -30,13 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newProjectBuildBatchConfig' smart constructor.
 data ProjectBuildBatchConfig = ProjectBuildBatchConfig'
-  { -- | Specifies the maximum amount of time, in minutes, that the batch build
-    -- must be completed in.
-    timeoutInMins :: Prelude.Maybe Prelude.Int,
-    -- | A @BatchRestrictions@ object that specifies the restrictions for the
-    -- batch build.
-    restrictions :: Prelude.Maybe BatchRestrictions,
-    -- | Specifies how build status reports are sent to the source provider for
+  { -- | Specifies how build status reports are sent to the source provider for
     -- the batch build. This property is only used when the source provider for
     -- your project is Bitbucket, GitHub, or GitHub Enterprise, and your
     -- project is configured to report build statuses to the source provider.
@@ -51,8 +45,14 @@ data ProjectBuildBatchConfig = ProjectBuildBatchConfig'
     -- | Specifies if the build artifacts for the batch build should be combined
     -- into a single artifact location.
     combineArtifacts :: Prelude.Maybe Prelude.Bool,
+    -- | A @BatchRestrictions@ object that specifies the restrictions for the
+    -- batch build.
+    restrictions :: Prelude.Maybe BatchRestrictions,
     -- | Specifies the service role ARN for the batch build project.
-    serviceRole :: Prelude.Maybe Prelude.Text
+    serviceRole :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the maximum amount of time, in minutes, that the batch build
+    -- must be completed in.
+    timeoutInMins :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,12 +63,6 @@ data ProjectBuildBatchConfig = ProjectBuildBatchConfig'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'timeoutInMins', 'projectBuildBatchConfig_timeoutInMins' - Specifies the maximum amount of time, in minutes, that the batch build
--- must be completed in.
---
--- 'restrictions', 'projectBuildBatchConfig_restrictions' - A @BatchRestrictions@ object that specifies the restrictions for the
--- batch build.
 --
 -- 'batchReportMode', 'projectBuildBatchConfig_batchReportMode' - Specifies how build status reports are sent to the source provider for
 -- the batch build. This property is only used when the source provider for
@@ -85,28 +79,24 @@ data ProjectBuildBatchConfig = ProjectBuildBatchConfig'
 -- 'combineArtifacts', 'projectBuildBatchConfig_combineArtifacts' - Specifies if the build artifacts for the batch build should be combined
 -- into a single artifact location.
 --
+-- 'restrictions', 'projectBuildBatchConfig_restrictions' - A @BatchRestrictions@ object that specifies the restrictions for the
+-- batch build.
+--
 -- 'serviceRole', 'projectBuildBatchConfig_serviceRole' - Specifies the service role ARN for the batch build project.
+--
+-- 'timeoutInMins', 'projectBuildBatchConfig_timeoutInMins' - Specifies the maximum amount of time, in minutes, that the batch build
+-- must be completed in.
 newProjectBuildBatchConfig ::
   ProjectBuildBatchConfig
 newProjectBuildBatchConfig =
   ProjectBuildBatchConfig'
-    { timeoutInMins =
+    { batchReportMode =
         Prelude.Nothing,
-      restrictions = Prelude.Nothing,
-      batchReportMode = Prelude.Nothing,
       combineArtifacts = Prelude.Nothing,
-      serviceRole = Prelude.Nothing
+      restrictions = Prelude.Nothing,
+      serviceRole = Prelude.Nothing,
+      timeoutInMins = Prelude.Nothing
     }
-
--- | Specifies the maximum amount of time, in minutes, that the batch build
--- must be completed in.
-projectBuildBatchConfig_timeoutInMins :: Lens.Lens' ProjectBuildBatchConfig (Prelude.Maybe Prelude.Int)
-projectBuildBatchConfig_timeoutInMins = Lens.lens (\ProjectBuildBatchConfig' {timeoutInMins} -> timeoutInMins) (\s@ProjectBuildBatchConfig' {} a -> s {timeoutInMins = a} :: ProjectBuildBatchConfig)
-
--- | A @BatchRestrictions@ object that specifies the restrictions for the
--- batch build.
-projectBuildBatchConfig_restrictions :: Lens.Lens' ProjectBuildBatchConfig (Prelude.Maybe BatchRestrictions)
-projectBuildBatchConfig_restrictions = Lens.lens (\ProjectBuildBatchConfig' {restrictions} -> restrictions) (\s@ProjectBuildBatchConfig' {} a -> s {restrictions = a} :: ProjectBuildBatchConfig)
 
 -- | Specifies how build status reports are sent to the source provider for
 -- the batch build. This property is only used when the source provider for
@@ -127,9 +117,19 @@ projectBuildBatchConfig_batchReportMode = Lens.lens (\ProjectBuildBatchConfig' {
 projectBuildBatchConfig_combineArtifacts :: Lens.Lens' ProjectBuildBatchConfig (Prelude.Maybe Prelude.Bool)
 projectBuildBatchConfig_combineArtifacts = Lens.lens (\ProjectBuildBatchConfig' {combineArtifacts} -> combineArtifacts) (\s@ProjectBuildBatchConfig' {} a -> s {combineArtifacts = a} :: ProjectBuildBatchConfig)
 
+-- | A @BatchRestrictions@ object that specifies the restrictions for the
+-- batch build.
+projectBuildBatchConfig_restrictions :: Lens.Lens' ProjectBuildBatchConfig (Prelude.Maybe BatchRestrictions)
+projectBuildBatchConfig_restrictions = Lens.lens (\ProjectBuildBatchConfig' {restrictions} -> restrictions) (\s@ProjectBuildBatchConfig' {} a -> s {restrictions = a} :: ProjectBuildBatchConfig)
+
 -- | Specifies the service role ARN for the batch build project.
 projectBuildBatchConfig_serviceRole :: Lens.Lens' ProjectBuildBatchConfig (Prelude.Maybe Prelude.Text)
 projectBuildBatchConfig_serviceRole = Lens.lens (\ProjectBuildBatchConfig' {serviceRole} -> serviceRole) (\s@ProjectBuildBatchConfig' {} a -> s {serviceRole = a} :: ProjectBuildBatchConfig)
+
+-- | Specifies the maximum amount of time, in minutes, that the batch build
+-- must be completed in.
+projectBuildBatchConfig_timeoutInMins :: Lens.Lens' ProjectBuildBatchConfig (Prelude.Maybe Prelude.Int)
+projectBuildBatchConfig_timeoutInMins = Lens.lens (\ProjectBuildBatchConfig' {timeoutInMins} -> timeoutInMins) (\s@ProjectBuildBatchConfig' {} a -> s {timeoutInMins = a} :: ProjectBuildBatchConfig)
 
 instance Data.FromJSON ProjectBuildBatchConfig where
   parseJSON =
@@ -137,39 +137,39 @@ instance Data.FromJSON ProjectBuildBatchConfig where
       "ProjectBuildBatchConfig"
       ( \x ->
           ProjectBuildBatchConfig'
-            Prelude.<$> (x Data..:? "timeoutInMins")
-            Prelude.<*> (x Data..:? "restrictions")
-            Prelude.<*> (x Data..:? "batchReportMode")
+            Prelude.<$> (x Data..:? "batchReportMode")
             Prelude.<*> (x Data..:? "combineArtifacts")
+            Prelude.<*> (x Data..:? "restrictions")
             Prelude.<*> (x Data..:? "serviceRole")
+            Prelude.<*> (x Data..:? "timeoutInMins")
       )
 
 instance Prelude.Hashable ProjectBuildBatchConfig where
   hashWithSalt _salt ProjectBuildBatchConfig' {..} =
-    _salt `Prelude.hashWithSalt` timeoutInMins
-      `Prelude.hashWithSalt` restrictions
-      `Prelude.hashWithSalt` batchReportMode
+    _salt `Prelude.hashWithSalt` batchReportMode
       `Prelude.hashWithSalt` combineArtifacts
+      `Prelude.hashWithSalt` restrictions
       `Prelude.hashWithSalt` serviceRole
+      `Prelude.hashWithSalt` timeoutInMins
 
 instance Prelude.NFData ProjectBuildBatchConfig where
   rnf ProjectBuildBatchConfig' {..} =
-    Prelude.rnf timeoutInMins
-      `Prelude.seq` Prelude.rnf restrictions
-      `Prelude.seq` Prelude.rnf batchReportMode
+    Prelude.rnf batchReportMode
       `Prelude.seq` Prelude.rnf combineArtifacts
+      `Prelude.seq` Prelude.rnf restrictions
       `Prelude.seq` Prelude.rnf serviceRole
+      `Prelude.seq` Prelude.rnf timeoutInMins
 
 instance Data.ToJSON ProjectBuildBatchConfig where
   toJSON ProjectBuildBatchConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("timeoutInMins" Data..=) Prelude.<$> timeoutInMins,
-            ("restrictions" Data..=) Prelude.<$> restrictions,
-            ("batchReportMode" Data..=)
+          [ ("batchReportMode" Data..=)
               Prelude.<$> batchReportMode,
             ("combineArtifacts" Data..=)
               Prelude.<$> combineArtifacts,
-            ("serviceRole" Data..=) Prelude.<$> serviceRole
+            ("restrictions" Data..=) Prelude.<$> restrictions,
+            ("serviceRole" Data..=) Prelude.<$> serviceRole,
+            ("timeoutInMins" Data..=) Prelude.<$> timeoutInMins
           ]
       )

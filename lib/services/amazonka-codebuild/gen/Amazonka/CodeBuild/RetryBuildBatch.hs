@@ -28,8 +28,8 @@ module Amazonka.CodeBuild.RetryBuildBatch
     newRetryBuildBatch,
 
     -- * Request Lenses
-    retryBuildBatch_idempotencyToken,
     retryBuildBatch_id,
+    retryBuildBatch_idempotencyToken,
     retryBuildBatch_retryType,
 
     -- * Destructuring the Response
@@ -52,14 +52,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRetryBuildBatch' smart constructor.
 data RetryBuildBatch = RetryBuildBatch'
-  { -- | A unique, case sensitive identifier you provide to ensure the
+  { -- | Specifies the identifier of the batch build to restart.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | A unique, case sensitive identifier you provide to ensure the
     -- idempotency of the @RetryBuildBatch@ request. The token is included in
     -- the @RetryBuildBatch@ request and is valid for five minutes. If you
     -- repeat the @RetryBuildBatch@ request with the same token, but change a
     -- parameter, CodeBuild returns a parameter mismatch error.
     idempotencyToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the identifier of the batch build to restart.
-    id :: Prelude.Maybe Prelude.Text,
     -- | Specifies the type of retry to perform.
     retryType :: Prelude.Maybe RetryBuildBatchType
   }
@@ -73,24 +73,27 @@ data RetryBuildBatch = RetryBuildBatch'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'id', 'retryBuildBatch_id' - Specifies the identifier of the batch build to restart.
+--
 -- 'idempotencyToken', 'retryBuildBatch_idempotencyToken' - A unique, case sensitive identifier you provide to ensure the
 -- idempotency of the @RetryBuildBatch@ request. The token is included in
 -- the @RetryBuildBatch@ request and is valid for five minutes. If you
 -- repeat the @RetryBuildBatch@ request with the same token, but change a
 -- parameter, CodeBuild returns a parameter mismatch error.
 --
--- 'id', 'retryBuildBatch_id' - Specifies the identifier of the batch build to restart.
---
 -- 'retryType', 'retryBuildBatch_retryType' - Specifies the type of retry to perform.
 newRetryBuildBatch ::
   RetryBuildBatch
 newRetryBuildBatch =
   RetryBuildBatch'
-    { idempotencyToken =
-        Prelude.Nothing,
-      id = Prelude.Nothing,
+    { id = Prelude.Nothing,
+      idempotencyToken = Prelude.Nothing,
       retryType = Prelude.Nothing
     }
+
+-- | Specifies the identifier of the batch build to restart.
+retryBuildBatch_id :: Lens.Lens' RetryBuildBatch (Prelude.Maybe Prelude.Text)
+retryBuildBatch_id = Lens.lens (\RetryBuildBatch' {id} -> id) (\s@RetryBuildBatch' {} a -> s {id = a} :: RetryBuildBatch)
 
 -- | A unique, case sensitive identifier you provide to ensure the
 -- idempotency of the @RetryBuildBatch@ request. The token is included in
@@ -99,10 +102,6 @@ newRetryBuildBatch =
 -- parameter, CodeBuild returns a parameter mismatch error.
 retryBuildBatch_idempotencyToken :: Lens.Lens' RetryBuildBatch (Prelude.Maybe Prelude.Text)
 retryBuildBatch_idempotencyToken = Lens.lens (\RetryBuildBatch' {idempotencyToken} -> idempotencyToken) (\s@RetryBuildBatch' {} a -> s {idempotencyToken = a} :: RetryBuildBatch)
-
--- | Specifies the identifier of the batch build to restart.
-retryBuildBatch_id :: Lens.Lens' RetryBuildBatch (Prelude.Maybe Prelude.Text)
-retryBuildBatch_id = Lens.lens (\RetryBuildBatch' {id} -> id) (\s@RetryBuildBatch' {} a -> s {id = a} :: RetryBuildBatch)
 
 -- | Specifies the type of retry to perform.
 retryBuildBatch_retryType :: Lens.Lens' RetryBuildBatch (Prelude.Maybe RetryBuildBatchType)
@@ -124,14 +123,14 @@ instance Core.AWSRequest RetryBuildBatch where
 
 instance Prelude.Hashable RetryBuildBatch where
   hashWithSalt _salt RetryBuildBatch' {..} =
-    _salt `Prelude.hashWithSalt` idempotencyToken
-      `Prelude.hashWithSalt` id
+    _salt `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` idempotencyToken
       `Prelude.hashWithSalt` retryType
 
 instance Prelude.NFData RetryBuildBatch where
   rnf RetryBuildBatch' {..} =
-    Prelude.rnf idempotencyToken
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf id
+      `Prelude.seq` Prelude.rnf idempotencyToken
       `Prelude.seq` Prelude.rnf retryType
 
 instance Data.ToHeaders RetryBuildBatch where
@@ -153,9 +152,9 @@ instance Data.ToJSON RetryBuildBatch where
   toJSON RetryBuildBatch' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("idempotencyToken" Data..=)
+          [ ("id" Data..=) Prelude.<$> id,
+            ("idempotencyToken" Data..=)
               Prelude.<$> idempotencyToken,
-            ("id" Data..=) Prelude.<$> id,
             ("retryType" Data..=) Prelude.<$> retryType
           ]
       )

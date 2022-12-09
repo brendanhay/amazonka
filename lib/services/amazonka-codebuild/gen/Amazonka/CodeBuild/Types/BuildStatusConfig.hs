@@ -29,7 +29,22 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBuildStatusConfig' smart constructor.
 data BuildStatusConfig = BuildStatusConfig'
-  { -- | Specifies the target url of the build status CodeBuild sends to the
+  { -- | Specifies the context of the build status CodeBuild sends to the source
+    -- provider. The usage of this parameter depends on the source provider.
+    --
+    -- [Bitbucket]
+    --     This parameter is used for the @name@ parameter in the Bitbucket
+    --     commit status. For more information, see
+    --     <https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build build>
+    --     in the Bitbucket API documentation.
+    --
+    -- [GitHub\/GitHub Enterprise Server]
+    --     This parameter is used for the @context@ parameter in the GitHub
+    --     commit status. For more information, see
+    --     <https://developer.github.com/v3/repos/statuses/#create-a-commit-status Create a commit status>
+    --     in the GitHub developer guide.
+    context :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the target url of the build status CodeBuild sends to the
     -- source provider. The usage of this parameter depends on the source
     -- provider.
     --
@@ -44,22 +59,7 @@ data BuildStatusConfig = BuildStatusConfig'
     --     commit status. For more information, see
     --     <https://developer.github.com/v3/repos/statuses/#create-a-commit-status Create a commit status>
     --     in the GitHub developer guide.
-    targetUrl :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the context of the build status CodeBuild sends to the source
-    -- provider. The usage of this parameter depends on the source provider.
-    --
-    -- [Bitbucket]
-    --     This parameter is used for the @name@ parameter in the Bitbucket
-    --     commit status. For more information, see
-    --     <https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build build>
-    --     in the Bitbucket API documentation.
-    --
-    -- [GitHub\/GitHub Enterprise Server]
-    --     This parameter is used for the @context@ parameter in the GitHub
-    --     commit status. For more information, see
-    --     <https://developer.github.com/v3/repos/statuses/#create-a-commit-status Create a commit status>
-    --     in the GitHub developer guide.
-    context :: Prelude.Maybe Prelude.Text
+    targetUrl :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,6 +70,21 @@ data BuildStatusConfig = BuildStatusConfig'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'context', 'buildStatusConfig_context' - Specifies the context of the build status CodeBuild sends to the source
+-- provider. The usage of this parameter depends on the source provider.
+--
+-- [Bitbucket]
+--     This parameter is used for the @name@ parameter in the Bitbucket
+--     commit status. For more information, see
+--     <https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build build>
+--     in the Bitbucket API documentation.
+--
+-- [GitHub\/GitHub Enterprise Server]
+--     This parameter is used for the @context@ parameter in the GitHub
+--     commit status. For more information, see
+--     <https://developer.github.com/v3/repos/statuses/#create-a-commit-status Create a commit status>
+--     in the GitHub developer guide.
 --
 -- 'targetUrl', 'buildStatusConfig_targetUrl' - Specifies the target url of the build status CodeBuild sends to the
 -- source provider. The usage of this parameter depends on the source
@@ -86,8 +101,15 @@ data BuildStatusConfig = BuildStatusConfig'
 --     commit status. For more information, see
 --     <https://developer.github.com/v3/repos/statuses/#create-a-commit-status Create a commit status>
 --     in the GitHub developer guide.
---
--- 'context', 'buildStatusConfig_context' - Specifies the context of the build status CodeBuild sends to the source
+newBuildStatusConfig ::
+  BuildStatusConfig
+newBuildStatusConfig =
+  BuildStatusConfig'
+    { context = Prelude.Nothing,
+      targetUrl = Prelude.Nothing
+    }
+
+-- | Specifies the context of the build status CodeBuild sends to the source
 -- provider. The usage of this parameter depends on the source provider.
 --
 -- [Bitbucket]
@@ -101,13 +123,8 @@ data BuildStatusConfig = BuildStatusConfig'
 --     commit status. For more information, see
 --     <https://developer.github.com/v3/repos/statuses/#create-a-commit-status Create a commit status>
 --     in the GitHub developer guide.
-newBuildStatusConfig ::
-  BuildStatusConfig
-newBuildStatusConfig =
-  BuildStatusConfig'
-    { targetUrl = Prelude.Nothing,
-      context = Prelude.Nothing
-    }
+buildStatusConfig_context :: Lens.Lens' BuildStatusConfig (Prelude.Maybe Prelude.Text)
+buildStatusConfig_context = Lens.lens (\BuildStatusConfig' {context} -> context) (\s@BuildStatusConfig' {} a -> s {context = a} :: BuildStatusConfig)
 
 -- | Specifies the target url of the build status CodeBuild sends to the
 -- source provider. The usage of this parameter depends on the source
@@ -127,48 +144,31 @@ newBuildStatusConfig =
 buildStatusConfig_targetUrl :: Lens.Lens' BuildStatusConfig (Prelude.Maybe Prelude.Text)
 buildStatusConfig_targetUrl = Lens.lens (\BuildStatusConfig' {targetUrl} -> targetUrl) (\s@BuildStatusConfig' {} a -> s {targetUrl = a} :: BuildStatusConfig)
 
--- | Specifies the context of the build status CodeBuild sends to the source
--- provider. The usage of this parameter depends on the source provider.
---
--- [Bitbucket]
---     This parameter is used for the @name@ parameter in the Bitbucket
---     commit status. For more information, see
---     <https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build build>
---     in the Bitbucket API documentation.
---
--- [GitHub\/GitHub Enterprise Server]
---     This parameter is used for the @context@ parameter in the GitHub
---     commit status. For more information, see
---     <https://developer.github.com/v3/repos/statuses/#create-a-commit-status Create a commit status>
---     in the GitHub developer guide.
-buildStatusConfig_context :: Lens.Lens' BuildStatusConfig (Prelude.Maybe Prelude.Text)
-buildStatusConfig_context = Lens.lens (\BuildStatusConfig' {context} -> context) (\s@BuildStatusConfig' {} a -> s {context = a} :: BuildStatusConfig)
-
 instance Data.FromJSON BuildStatusConfig where
   parseJSON =
     Data.withObject
       "BuildStatusConfig"
       ( \x ->
           BuildStatusConfig'
-            Prelude.<$> (x Data..:? "targetUrl")
-            Prelude.<*> (x Data..:? "context")
+            Prelude.<$> (x Data..:? "context")
+            Prelude.<*> (x Data..:? "targetUrl")
       )
 
 instance Prelude.Hashable BuildStatusConfig where
   hashWithSalt _salt BuildStatusConfig' {..} =
-    _salt `Prelude.hashWithSalt` targetUrl
-      `Prelude.hashWithSalt` context
+    _salt `Prelude.hashWithSalt` context
+      `Prelude.hashWithSalt` targetUrl
 
 instance Prelude.NFData BuildStatusConfig where
   rnf BuildStatusConfig' {..} =
-    Prelude.rnf targetUrl
-      `Prelude.seq` Prelude.rnf context
+    Prelude.rnf context
+      `Prelude.seq` Prelude.rnf targetUrl
 
 instance Data.ToJSON BuildStatusConfig where
   toJSON BuildStatusConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("targetUrl" Data..=) Prelude.<$> targetUrl,
-            ("context" Data..=) Prelude.<$> context
+          [ ("context" Data..=) Prelude.<$> context,
+            ("targetUrl" Data..=) Prelude.<$> targetUrl
           ]
       )

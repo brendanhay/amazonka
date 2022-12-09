@@ -69,9 +69,9 @@ module Amazonka.CodeBuild.UpdateProjectVisibility
     newUpdateProjectVisibilityResponse,
 
     -- * Response Lenses
+    updateProjectVisibilityResponse_projectArn,
     updateProjectVisibilityResponse_projectVisibility,
     updateProjectVisibilityResponse_publicProjectAlias,
-    updateProjectVisibilityResponse_projectArn,
     updateProjectVisibilityResponse_httpStatus,
   )
 where
@@ -148,9 +148,9 @@ instance Core.AWSRequest UpdateProjectVisibility where
     Response.receiveJSON
       ( \s h x ->
           UpdateProjectVisibilityResponse'
-            Prelude.<$> (x Data..?> "projectVisibility")
+            Prelude.<$> (x Data..?> "projectArn")
+            Prelude.<*> (x Data..?> "projectVisibility")
             Prelude.<*> (x Data..?> "publicProjectAlias")
-            Prelude.<*> (x Data..?> "projectArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -201,11 +201,11 @@ instance Data.ToQuery UpdateProjectVisibility where
 
 -- | /See:/ 'newUpdateProjectVisibilityResponse' smart constructor.
 data UpdateProjectVisibilityResponse = UpdateProjectVisibilityResponse'
-  { projectVisibility :: Prelude.Maybe ProjectVisibilityType,
+  { -- | The Amazon Resource Name (ARN) of the build project.
+    projectArn :: Prelude.Maybe Prelude.Text,
+    projectVisibility :: Prelude.Maybe ProjectVisibilityType,
     -- | Contains the project identifier used with the public build APIs.
     publicProjectAlias :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the build project.
-    projectArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -219,11 +219,11 @@ data UpdateProjectVisibilityResponse = UpdateProjectVisibilityResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'projectArn', 'updateProjectVisibilityResponse_projectArn' - The Amazon Resource Name (ARN) of the build project.
+--
 -- 'projectVisibility', 'updateProjectVisibilityResponse_projectVisibility' - Undocumented member.
 --
 -- 'publicProjectAlias', 'updateProjectVisibilityResponse_publicProjectAlias' - Contains the project identifier used with the public build APIs.
---
--- 'projectArn', 'updateProjectVisibilityResponse_projectArn' - The Amazon Resource Name (ARN) of the build project.
 --
 -- 'httpStatus', 'updateProjectVisibilityResponse_httpStatus' - The response's http status code.
 newUpdateProjectVisibilityResponse ::
@@ -232,12 +232,16 @@ newUpdateProjectVisibilityResponse ::
   UpdateProjectVisibilityResponse
 newUpdateProjectVisibilityResponse pHttpStatus_ =
   UpdateProjectVisibilityResponse'
-    { projectVisibility =
+    { projectArn =
         Prelude.Nothing,
+      projectVisibility = Prelude.Nothing,
       publicProjectAlias = Prelude.Nothing,
-      projectArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The Amazon Resource Name (ARN) of the build project.
+updateProjectVisibilityResponse_projectArn :: Lens.Lens' UpdateProjectVisibilityResponse (Prelude.Maybe Prelude.Text)
+updateProjectVisibilityResponse_projectArn = Lens.lens (\UpdateProjectVisibilityResponse' {projectArn} -> projectArn) (\s@UpdateProjectVisibilityResponse' {} a -> s {projectArn = a} :: UpdateProjectVisibilityResponse)
 
 -- | Undocumented member.
 updateProjectVisibilityResponse_projectVisibility :: Lens.Lens' UpdateProjectVisibilityResponse (Prelude.Maybe ProjectVisibilityType)
@@ -246,10 +250,6 @@ updateProjectVisibilityResponse_projectVisibility = Lens.lens (\UpdateProjectVis
 -- | Contains the project identifier used with the public build APIs.
 updateProjectVisibilityResponse_publicProjectAlias :: Lens.Lens' UpdateProjectVisibilityResponse (Prelude.Maybe Prelude.Text)
 updateProjectVisibilityResponse_publicProjectAlias = Lens.lens (\UpdateProjectVisibilityResponse' {publicProjectAlias} -> publicProjectAlias) (\s@UpdateProjectVisibilityResponse' {} a -> s {publicProjectAlias = a} :: UpdateProjectVisibilityResponse)
-
--- | The Amazon Resource Name (ARN) of the build project.
-updateProjectVisibilityResponse_projectArn :: Lens.Lens' UpdateProjectVisibilityResponse (Prelude.Maybe Prelude.Text)
-updateProjectVisibilityResponse_projectArn = Lens.lens (\UpdateProjectVisibilityResponse' {projectArn} -> projectArn) (\s@UpdateProjectVisibilityResponse' {} a -> s {projectArn = a} :: UpdateProjectVisibilityResponse)
 
 -- | The response's http status code.
 updateProjectVisibilityResponse_httpStatus :: Lens.Lens' UpdateProjectVisibilityResponse Prelude.Int
@@ -260,7 +260,7 @@ instance
     UpdateProjectVisibilityResponse
   where
   rnf UpdateProjectVisibilityResponse' {..} =
-    Prelude.rnf projectVisibility
+    Prelude.rnf projectArn
+      `Prelude.seq` Prelude.rnf projectVisibility
       `Prelude.seq` Prelude.rnf publicProjectAlias
-      `Prelude.seq` Prelude.rnf projectArn
       `Prelude.seq` Prelude.rnf httpStatus

@@ -34,8 +34,8 @@ module Amazonka.CodeBuild.BatchGetReportGroups
     newBatchGetReportGroupsResponse,
 
     -- * Response Lenses
-    batchGetReportGroupsResponse_reportGroupsNotFound,
     batchGetReportGroupsResponse_reportGroups,
+    batchGetReportGroupsResponse_reportGroupsNotFound,
     batchGetReportGroupsResponse_httpStatus,
   )
 where
@@ -88,8 +88,8 @@ instance Core.AWSRequest BatchGetReportGroups where
     Response.receiveJSON
       ( \s h x ->
           BatchGetReportGroupsResponse'
-            Prelude.<$> (x Data..?> "reportGroupsNotFound")
-            Prelude.<*> (x Data..?> "reportGroups")
+            Prelude.<$> (x Data..?> "reportGroups")
+            Prelude.<*> (x Data..?> "reportGroupsNotFound")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -133,11 +133,11 @@ instance Data.ToQuery BatchGetReportGroups where
 
 -- | /See:/ 'newBatchGetReportGroupsResponse' smart constructor.
 data BatchGetReportGroupsResponse = BatchGetReportGroupsResponse'
-  { -- | An array of ARNs passed to @BatchGetReportGroups@ that are not
+  { -- | The array of report groups returned by @BatchGetReportGroups@.
+    reportGroups :: Prelude.Maybe (Prelude.NonEmpty ReportGroup),
+    -- | An array of ARNs passed to @BatchGetReportGroups@ that are not
     -- associated with a @ReportGroup@.
     reportGroupsNotFound :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The array of report groups returned by @BatchGetReportGroups@.
-    reportGroups :: Prelude.Maybe (Prelude.NonEmpty ReportGroup),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -151,10 +151,10 @@ data BatchGetReportGroupsResponse = BatchGetReportGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'reportGroups', 'batchGetReportGroupsResponse_reportGroups' - The array of report groups returned by @BatchGetReportGroups@.
+--
 -- 'reportGroupsNotFound', 'batchGetReportGroupsResponse_reportGroupsNotFound' - An array of ARNs passed to @BatchGetReportGroups@ that are not
 -- associated with a @ReportGroup@.
---
--- 'reportGroups', 'batchGetReportGroupsResponse_reportGroups' - The array of report groups returned by @BatchGetReportGroups@.
 --
 -- 'httpStatus', 'batchGetReportGroupsResponse_httpStatus' - The response's http status code.
 newBatchGetReportGroupsResponse ::
@@ -163,20 +163,20 @@ newBatchGetReportGroupsResponse ::
   BatchGetReportGroupsResponse
 newBatchGetReportGroupsResponse pHttpStatus_ =
   BatchGetReportGroupsResponse'
-    { reportGroupsNotFound =
+    { reportGroups =
         Prelude.Nothing,
-      reportGroups = Prelude.Nothing,
+      reportGroupsNotFound = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The array of report groups returned by @BatchGetReportGroups@.
+batchGetReportGroupsResponse_reportGroups :: Lens.Lens' BatchGetReportGroupsResponse (Prelude.Maybe (Prelude.NonEmpty ReportGroup))
+batchGetReportGroupsResponse_reportGroups = Lens.lens (\BatchGetReportGroupsResponse' {reportGroups} -> reportGroups) (\s@BatchGetReportGroupsResponse' {} a -> s {reportGroups = a} :: BatchGetReportGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An array of ARNs passed to @BatchGetReportGroups@ that are not
 -- associated with a @ReportGroup@.
 batchGetReportGroupsResponse_reportGroupsNotFound :: Lens.Lens' BatchGetReportGroupsResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 batchGetReportGroupsResponse_reportGroupsNotFound = Lens.lens (\BatchGetReportGroupsResponse' {reportGroupsNotFound} -> reportGroupsNotFound) (\s@BatchGetReportGroupsResponse' {} a -> s {reportGroupsNotFound = a} :: BatchGetReportGroupsResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The array of report groups returned by @BatchGetReportGroups@.
-batchGetReportGroupsResponse_reportGroups :: Lens.Lens' BatchGetReportGroupsResponse (Prelude.Maybe (Prelude.NonEmpty ReportGroup))
-batchGetReportGroupsResponse_reportGroups = Lens.lens (\BatchGetReportGroupsResponse' {reportGroups} -> reportGroups) (\s@BatchGetReportGroupsResponse' {} a -> s {reportGroups = a} :: BatchGetReportGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchGetReportGroupsResponse_httpStatus :: Lens.Lens' BatchGetReportGroupsResponse Prelude.Int
@@ -184,6 +184,6 @@ batchGetReportGroupsResponse_httpStatus = Lens.lens (\BatchGetReportGroupsRespon
 
 instance Prelude.NFData BatchGetReportGroupsResponse where
   rnf BatchGetReportGroupsResponse' {..} =
-    Prelude.rnf reportGroupsNotFound
-      `Prelude.seq` Prelude.rnf reportGroups
+    Prelude.rnf reportGroups
+      `Prelude.seq` Prelude.rnf reportGroupsNotFound
       `Prelude.seq` Prelude.rnf httpStatus

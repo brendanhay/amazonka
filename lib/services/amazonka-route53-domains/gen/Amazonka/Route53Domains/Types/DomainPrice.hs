@@ -29,18 +29,18 @@ import Amazonka.Route53Domains.Types.PriceWithCurrency
 --
 -- /See:/ 'newDomainPrice' smart constructor.
 data DomainPrice = DomainPrice'
-  { -- | The name of the TLD for which the prices apply.
+  { -- | The price for changing domain ownership.
+    changeOwnershipPrice :: Prelude.Maybe PriceWithCurrency,
+    -- | The name of the TLD for which the prices apply.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The price for transferring the domain registration to Route 53.
-    transferPrice :: Prelude.Maybe PriceWithCurrency,
     -- | The price for domain registration with Route 53.
     registrationPrice :: Prelude.Maybe PriceWithCurrency,
-    -- | The price for changing domain ownership.
-    changeOwnershipPrice :: Prelude.Maybe PriceWithCurrency,
+    -- | The price for renewing domain registration with Route 53.
+    renewalPrice :: Prelude.Maybe PriceWithCurrency,
     -- | The price for restoring the domain with Route 53.
     restorationPrice :: Prelude.Maybe PriceWithCurrency,
-    -- | The price for renewing domain registration with Route 53.
-    renewalPrice :: Prelude.Maybe PriceWithCurrency
+    -- | The price for transferring the domain registration to Route 53.
+    transferPrice :: Prelude.Maybe PriceWithCurrency
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,52 +52,53 @@ data DomainPrice = DomainPrice'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'domainPrice_name' - The name of the TLD for which the prices apply.
+-- 'changeOwnershipPrice', 'domainPrice_changeOwnershipPrice' - The price for changing domain ownership.
 --
--- 'transferPrice', 'domainPrice_transferPrice' - The price for transferring the domain registration to Route 53.
+-- 'name', 'domainPrice_name' - The name of the TLD for which the prices apply.
 --
 -- 'registrationPrice', 'domainPrice_registrationPrice' - The price for domain registration with Route 53.
 --
--- 'changeOwnershipPrice', 'domainPrice_changeOwnershipPrice' - The price for changing domain ownership.
+-- 'renewalPrice', 'domainPrice_renewalPrice' - The price for renewing domain registration with Route 53.
 --
 -- 'restorationPrice', 'domainPrice_restorationPrice' - The price for restoring the domain with Route 53.
 --
--- 'renewalPrice', 'domainPrice_renewalPrice' - The price for renewing domain registration with Route 53.
+-- 'transferPrice', 'domainPrice_transferPrice' - The price for transferring the domain registration to Route 53.
 newDomainPrice ::
   DomainPrice
 newDomainPrice =
   DomainPrice'
-    { name = Prelude.Nothing,
-      transferPrice = Prelude.Nothing,
+    { changeOwnershipPrice =
+        Prelude.Nothing,
+      name = Prelude.Nothing,
       registrationPrice = Prelude.Nothing,
-      changeOwnershipPrice = Prelude.Nothing,
+      renewalPrice = Prelude.Nothing,
       restorationPrice = Prelude.Nothing,
-      renewalPrice = Prelude.Nothing
+      transferPrice = Prelude.Nothing
     }
-
--- | The name of the TLD for which the prices apply.
-domainPrice_name :: Lens.Lens' DomainPrice (Prelude.Maybe Prelude.Text)
-domainPrice_name = Lens.lens (\DomainPrice' {name} -> name) (\s@DomainPrice' {} a -> s {name = a} :: DomainPrice)
-
--- | The price for transferring the domain registration to Route 53.
-domainPrice_transferPrice :: Lens.Lens' DomainPrice (Prelude.Maybe PriceWithCurrency)
-domainPrice_transferPrice = Lens.lens (\DomainPrice' {transferPrice} -> transferPrice) (\s@DomainPrice' {} a -> s {transferPrice = a} :: DomainPrice)
-
--- | The price for domain registration with Route 53.
-domainPrice_registrationPrice :: Lens.Lens' DomainPrice (Prelude.Maybe PriceWithCurrency)
-domainPrice_registrationPrice = Lens.lens (\DomainPrice' {registrationPrice} -> registrationPrice) (\s@DomainPrice' {} a -> s {registrationPrice = a} :: DomainPrice)
 
 -- | The price for changing domain ownership.
 domainPrice_changeOwnershipPrice :: Lens.Lens' DomainPrice (Prelude.Maybe PriceWithCurrency)
 domainPrice_changeOwnershipPrice = Lens.lens (\DomainPrice' {changeOwnershipPrice} -> changeOwnershipPrice) (\s@DomainPrice' {} a -> s {changeOwnershipPrice = a} :: DomainPrice)
 
--- | The price for restoring the domain with Route 53.
-domainPrice_restorationPrice :: Lens.Lens' DomainPrice (Prelude.Maybe PriceWithCurrency)
-domainPrice_restorationPrice = Lens.lens (\DomainPrice' {restorationPrice} -> restorationPrice) (\s@DomainPrice' {} a -> s {restorationPrice = a} :: DomainPrice)
+-- | The name of the TLD for which the prices apply.
+domainPrice_name :: Lens.Lens' DomainPrice (Prelude.Maybe Prelude.Text)
+domainPrice_name = Lens.lens (\DomainPrice' {name} -> name) (\s@DomainPrice' {} a -> s {name = a} :: DomainPrice)
+
+-- | The price for domain registration with Route 53.
+domainPrice_registrationPrice :: Lens.Lens' DomainPrice (Prelude.Maybe PriceWithCurrency)
+domainPrice_registrationPrice = Lens.lens (\DomainPrice' {registrationPrice} -> registrationPrice) (\s@DomainPrice' {} a -> s {registrationPrice = a} :: DomainPrice)
 
 -- | The price for renewing domain registration with Route 53.
 domainPrice_renewalPrice :: Lens.Lens' DomainPrice (Prelude.Maybe PriceWithCurrency)
 domainPrice_renewalPrice = Lens.lens (\DomainPrice' {renewalPrice} -> renewalPrice) (\s@DomainPrice' {} a -> s {renewalPrice = a} :: DomainPrice)
+
+-- | The price for restoring the domain with Route 53.
+domainPrice_restorationPrice :: Lens.Lens' DomainPrice (Prelude.Maybe PriceWithCurrency)
+domainPrice_restorationPrice = Lens.lens (\DomainPrice' {restorationPrice} -> restorationPrice) (\s@DomainPrice' {} a -> s {restorationPrice = a} :: DomainPrice)
+
+-- | The price for transferring the domain registration to Route 53.
+domainPrice_transferPrice :: Lens.Lens' DomainPrice (Prelude.Maybe PriceWithCurrency)
+domainPrice_transferPrice = Lens.lens (\DomainPrice' {transferPrice} -> transferPrice) (\s@DomainPrice' {} a -> s {transferPrice = a} :: DomainPrice)
 
 instance Data.FromJSON DomainPrice where
   parseJSON =
@@ -105,28 +106,28 @@ instance Data.FromJSON DomainPrice where
       "DomainPrice"
       ( \x ->
           DomainPrice'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "TransferPrice")
+            Prelude.<$> (x Data..:? "ChangeOwnershipPrice")
+            Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "RegistrationPrice")
-            Prelude.<*> (x Data..:? "ChangeOwnershipPrice")
-            Prelude.<*> (x Data..:? "RestorationPrice")
             Prelude.<*> (x Data..:? "RenewalPrice")
+            Prelude.<*> (x Data..:? "RestorationPrice")
+            Prelude.<*> (x Data..:? "TransferPrice")
       )
 
 instance Prelude.Hashable DomainPrice where
   hashWithSalt _salt DomainPrice' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` transferPrice
+    _salt `Prelude.hashWithSalt` changeOwnershipPrice
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` registrationPrice
-      `Prelude.hashWithSalt` changeOwnershipPrice
-      `Prelude.hashWithSalt` restorationPrice
       `Prelude.hashWithSalt` renewalPrice
+      `Prelude.hashWithSalt` restorationPrice
+      `Prelude.hashWithSalt` transferPrice
 
 instance Prelude.NFData DomainPrice where
   rnf DomainPrice' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf transferPrice
+    Prelude.rnf changeOwnershipPrice
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf registrationPrice
-      `Prelude.seq` Prelude.rnf changeOwnershipPrice
-      `Prelude.seq` Prelude.rnf restorationPrice
       `Prelude.seq` Prelude.rnf renewalPrice
+      `Prelude.seq` Prelude.rnf restorationPrice
+      `Prelude.seq` Prelude.rnf transferPrice

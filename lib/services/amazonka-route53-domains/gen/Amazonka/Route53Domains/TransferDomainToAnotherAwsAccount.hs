@@ -65,8 +65,8 @@ module Amazonka.Route53Domains.TransferDomainToAnotherAwsAccount
     newTransferDomainToAnotherAwsAccountResponse,
 
     -- * Response Lenses
-    transferDomainToAnotherAwsAccountResponse_password,
     transferDomainToAnotherAwsAccountResponse_operationId,
+    transferDomainToAnotherAwsAccountResponse_password,
     transferDomainToAnotherAwsAccountResponse_httpStatus,
   )
 where
@@ -144,8 +144,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           TransferDomainToAnotherAwsAccountResponse'
-            Prelude.<$> (x Data..?> "Password")
-              Prelude.<*> (x Data..?> "OperationId")
+            Prelude.<$> (x Data..?> "OperationId")
+              Prelude.<*> (x Data..?> "Password")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -214,16 +214,16 @@ instance
 --
 -- /See:/ 'newTransferDomainToAnotherAwsAccountResponse' smart constructor.
 data TransferDomainToAnotherAwsAccountResponse = TransferDomainToAnotherAwsAccountResponse'
-  { -- | To finish transferring a domain to another Amazon Web Services account,
+  { -- | Identifier for tracking the progress of the request. To query the
+    -- operation status, use
+    -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail>.
+    operationId :: Prelude.Maybe Prelude.Text,
+    -- | To finish transferring a domain to another Amazon Web Services account,
     -- the account that the domain is being transferred to must submit an
     -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_AcceptDomainTransferFromAnotherAwsAccount.html AcceptDomainTransferFromAnotherAwsAccount>
     -- request. The request must include the value of the @Password@ element
     -- that was returned in the @TransferDomainToAnotherAwsAccount@ response.
     password :: Prelude.Maybe Prelude.Text,
-    -- | Identifier for tracking the progress of the request. To query the
-    -- operation status, use
-    -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail>.
-    operationId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -237,15 +237,15 @@ data TransferDomainToAnotherAwsAccountResponse = TransferDomainToAnotherAwsAccou
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'operationId', 'transferDomainToAnotherAwsAccountResponse_operationId' - Identifier for tracking the progress of the request. To query the
+-- operation status, use
+-- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail>.
+--
 -- 'password', 'transferDomainToAnotherAwsAccountResponse_password' - To finish transferring a domain to another Amazon Web Services account,
 -- the account that the domain is being transferred to must submit an
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_AcceptDomainTransferFromAnotherAwsAccount.html AcceptDomainTransferFromAnotherAwsAccount>
 -- request. The request must include the value of the @Password@ element
 -- that was returned in the @TransferDomainToAnotherAwsAccount@ response.
---
--- 'operationId', 'transferDomainToAnotherAwsAccountResponse_operationId' - Identifier for tracking the progress of the request. To query the
--- operation status, use
--- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail>.
 --
 -- 'httpStatus', 'transferDomainToAnotherAwsAccountResponse_httpStatus' - The response's http status code.
 newTransferDomainToAnotherAwsAccountResponse ::
@@ -255,11 +255,17 @@ newTransferDomainToAnotherAwsAccountResponse ::
 newTransferDomainToAnotherAwsAccountResponse
   pHttpStatus_ =
     TransferDomainToAnotherAwsAccountResponse'
-      { password =
+      { operationId =
           Prelude.Nothing,
-        operationId = Prelude.Nothing,
+        password = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | Identifier for tracking the progress of the request. To query the
+-- operation status, use
+-- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail>.
+transferDomainToAnotherAwsAccountResponse_operationId :: Lens.Lens' TransferDomainToAnotherAwsAccountResponse (Prelude.Maybe Prelude.Text)
+transferDomainToAnotherAwsAccountResponse_operationId = Lens.lens (\TransferDomainToAnotherAwsAccountResponse' {operationId} -> operationId) (\s@TransferDomainToAnotherAwsAccountResponse' {} a -> s {operationId = a} :: TransferDomainToAnotherAwsAccountResponse)
 
 -- | To finish transferring a domain to another Amazon Web Services account,
 -- the account that the domain is being transferred to must submit an
@@ -268,12 +274,6 @@ newTransferDomainToAnotherAwsAccountResponse
 -- that was returned in the @TransferDomainToAnotherAwsAccount@ response.
 transferDomainToAnotherAwsAccountResponse_password :: Lens.Lens' TransferDomainToAnotherAwsAccountResponse (Prelude.Maybe Prelude.Text)
 transferDomainToAnotherAwsAccountResponse_password = Lens.lens (\TransferDomainToAnotherAwsAccountResponse' {password} -> password) (\s@TransferDomainToAnotherAwsAccountResponse' {} a -> s {password = a} :: TransferDomainToAnotherAwsAccountResponse)
-
--- | Identifier for tracking the progress of the request. To query the
--- operation status, use
--- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail>.
-transferDomainToAnotherAwsAccountResponse_operationId :: Lens.Lens' TransferDomainToAnotherAwsAccountResponse (Prelude.Maybe Prelude.Text)
-transferDomainToAnotherAwsAccountResponse_operationId = Lens.lens (\TransferDomainToAnotherAwsAccountResponse' {operationId} -> operationId) (\s@TransferDomainToAnotherAwsAccountResponse' {} a -> s {operationId = a} :: TransferDomainToAnotherAwsAccountResponse)
 
 -- | The response's http status code.
 transferDomainToAnotherAwsAccountResponse_httpStatus :: Lens.Lens' TransferDomainToAnotherAwsAccountResponse Prelude.Int
@@ -284,6 +284,6 @@ instance
     TransferDomainToAnotherAwsAccountResponse
   where
   rnf TransferDomainToAnotherAwsAccountResponse' {..} =
-    Prelude.rnf password
-      `Prelude.seq` Prelude.rnf operationId
+    Prelude.rnf operationId
+      `Prelude.seq` Prelude.rnf password
       `Prelude.seq` Prelude.rnf httpStatus

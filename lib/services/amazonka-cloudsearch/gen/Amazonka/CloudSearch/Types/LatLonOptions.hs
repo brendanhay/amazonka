@@ -31,18 +31,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLatLonOptions' smart constructor.
 data LatLonOptions = LatLonOptions'
-  { sourceField :: Prelude.Maybe Prelude.Text,
+  { -- | A value to use for the field if the field isn\'t specified for a
+    -- document.
+    defaultValue :: Prelude.Maybe Prelude.Text,
     -- | Whether facet information can be returned for the field.
     facetEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | Whether the contents of the field can be returned in the search results.
+    returnEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Whether the contents of the field are searchable.
     searchEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Whether the field can be used to sort the search results.
     sortEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | A value to use for the field if the field isn\'t specified for a
-    -- document.
-    defaultValue :: Prelude.Maybe Prelude.Text,
-    -- | Whether the contents of the field can be returned in the search results.
-    returnEnabled :: Prelude.Maybe Prelude.Bool
+    sourceField :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,37 +54,42 @@ data LatLonOptions = LatLonOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceField', 'latLonOptions_sourceField' - Undocumented member.
+-- 'defaultValue', 'latLonOptions_defaultValue' - A value to use for the field if the field isn\'t specified for a
+-- document.
 --
 -- 'facetEnabled', 'latLonOptions_facetEnabled' - Whether facet information can be returned for the field.
+--
+-- 'returnEnabled', 'latLonOptions_returnEnabled' - Whether the contents of the field can be returned in the search results.
 --
 -- 'searchEnabled', 'latLonOptions_searchEnabled' - Whether the contents of the field are searchable.
 --
 -- 'sortEnabled', 'latLonOptions_sortEnabled' - Whether the field can be used to sort the search results.
 --
--- 'defaultValue', 'latLonOptions_defaultValue' - A value to use for the field if the field isn\'t specified for a
--- document.
---
--- 'returnEnabled', 'latLonOptions_returnEnabled' - Whether the contents of the field can be returned in the search results.
+-- 'sourceField', 'latLonOptions_sourceField' - Undocumented member.
 newLatLonOptions ::
   LatLonOptions
 newLatLonOptions =
   LatLonOptions'
-    { sourceField = Prelude.Nothing,
+    { defaultValue = Prelude.Nothing,
       facetEnabled = Prelude.Nothing,
+      returnEnabled = Prelude.Nothing,
       searchEnabled = Prelude.Nothing,
       sortEnabled = Prelude.Nothing,
-      defaultValue = Prelude.Nothing,
-      returnEnabled = Prelude.Nothing
+      sourceField = Prelude.Nothing
     }
 
--- | Undocumented member.
-latLonOptions_sourceField :: Lens.Lens' LatLonOptions (Prelude.Maybe Prelude.Text)
-latLonOptions_sourceField = Lens.lens (\LatLonOptions' {sourceField} -> sourceField) (\s@LatLonOptions' {} a -> s {sourceField = a} :: LatLonOptions)
+-- | A value to use for the field if the field isn\'t specified for a
+-- document.
+latLonOptions_defaultValue :: Lens.Lens' LatLonOptions (Prelude.Maybe Prelude.Text)
+latLonOptions_defaultValue = Lens.lens (\LatLonOptions' {defaultValue} -> defaultValue) (\s@LatLonOptions' {} a -> s {defaultValue = a} :: LatLonOptions)
 
 -- | Whether facet information can be returned for the field.
 latLonOptions_facetEnabled :: Lens.Lens' LatLonOptions (Prelude.Maybe Prelude.Bool)
 latLonOptions_facetEnabled = Lens.lens (\LatLonOptions' {facetEnabled} -> facetEnabled) (\s@LatLonOptions' {} a -> s {facetEnabled = a} :: LatLonOptions)
+
+-- | Whether the contents of the field can be returned in the search results.
+latLonOptions_returnEnabled :: Lens.Lens' LatLonOptions (Prelude.Maybe Prelude.Bool)
+latLonOptions_returnEnabled = Lens.lens (\LatLonOptions' {returnEnabled} -> returnEnabled) (\s@LatLonOptions' {} a -> s {returnEnabled = a} :: LatLonOptions)
 
 -- | Whether the contents of the field are searchable.
 latLonOptions_searchEnabled :: Lens.Lens' LatLonOptions (Prelude.Maybe Prelude.Bool)
@@ -94,50 +99,45 @@ latLonOptions_searchEnabled = Lens.lens (\LatLonOptions' {searchEnabled} -> sear
 latLonOptions_sortEnabled :: Lens.Lens' LatLonOptions (Prelude.Maybe Prelude.Bool)
 latLonOptions_sortEnabled = Lens.lens (\LatLonOptions' {sortEnabled} -> sortEnabled) (\s@LatLonOptions' {} a -> s {sortEnabled = a} :: LatLonOptions)
 
--- | A value to use for the field if the field isn\'t specified for a
--- document.
-latLonOptions_defaultValue :: Lens.Lens' LatLonOptions (Prelude.Maybe Prelude.Text)
-latLonOptions_defaultValue = Lens.lens (\LatLonOptions' {defaultValue} -> defaultValue) (\s@LatLonOptions' {} a -> s {defaultValue = a} :: LatLonOptions)
-
--- | Whether the contents of the field can be returned in the search results.
-latLonOptions_returnEnabled :: Lens.Lens' LatLonOptions (Prelude.Maybe Prelude.Bool)
-latLonOptions_returnEnabled = Lens.lens (\LatLonOptions' {returnEnabled} -> returnEnabled) (\s@LatLonOptions' {} a -> s {returnEnabled = a} :: LatLonOptions)
+-- | Undocumented member.
+latLonOptions_sourceField :: Lens.Lens' LatLonOptions (Prelude.Maybe Prelude.Text)
+latLonOptions_sourceField = Lens.lens (\LatLonOptions' {sourceField} -> sourceField) (\s@LatLonOptions' {} a -> s {sourceField = a} :: LatLonOptions)
 
 instance Data.FromXML LatLonOptions where
   parseXML x =
     LatLonOptions'
-      Prelude.<$> (x Data..@? "SourceField")
+      Prelude.<$> (x Data..@? "DefaultValue")
       Prelude.<*> (x Data..@? "FacetEnabled")
+      Prelude.<*> (x Data..@? "ReturnEnabled")
       Prelude.<*> (x Data..@? "SearchEnabled")
       Prelude.<*> (x Data..@? "SortEnabled")
-      Prelude.<*> (x Data..@? "DefaultValue")
-      Prelude.<*> (x Data..@? "ReturnEnabled")
+      Prelude.<*> (x Data..@? "SourceField")
 
 instance Prelude.Hashable LatLonOptions where
   hashWithSalt _salt LatLonOptions' {..} =
-    _salt `Prelude.hashWithSalt` sourceField
+    _salt `Prelude.hashWithSalt` defaultValue
       `Prelude.hashWithSalt` facetEnabled
+      `Prelude.hashWithSalt` returnEnabled
       `Prelude.hashWithSalt` searchEnabled
       `Prelude.hashWithSalt` sortEnabled
-      `Prelude.hashWithSalt` defaultValue
-      `Prelude.hashWithSalt` returnEnabled
+      `Prelude.hashWithSalt` sourceField
 
 instance Prelude.NFData LatLonOptions where
   rnf LatLonOptions' {..} =
-    Prelude.rnf sourceField
+    Prelude.rnf defaultValue
       `Prelude.seq` Prelude.rnf facetEnabled
+      `Prelude.seq` Prelude.rnf returnEnabled
       `Prelude.seq` Prelude.rnf searchEnabled
       `Prelude.seq` Prelude.rnf sortEnabled
-      `Prelude.seq` Prelude.rnf defaultValue
-      `Prelude.seq` Prelude.rnf returnEnabled
+      `Prelude.seq` Prelude.rnf sourceField
 
 instance Data.ToQuery LatLonOptions where
   toQuery LatLonOptions' {..} =
     Prelude.mconcat
-      [ "SourceField" Data.=: sourceField,
+      [ "DefaultValue" Data.=: defaultValue,
         "FacetEnabled" Data.=: facetEnabled,
+        "ReturnEnabled" Data.=: returnEnabled,
         "SearchEnabled" Data.=: searchEnabled,
         "SortEnabled" Data.=: sortEnabled,
-        "DefaultValue" Data.=: defaultValue,
-        "ReturnEnabled" Data.=: returnEnabled
+        "SourceField" Data.=: sourceField
       ]

@@ -31,17 +31,8 @@ module Amazonka.CloudSearch
     -- * Errors
     -- $errors
 
-    -- ** ResourceAlreadyExistsException
-    _ResourceAlreadyExistsException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** InvalidTypeException
-    _InvalidTypeException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
+    -- ** BaseException
+    _BaseException,
 
     -- ** DisabledOperationException
     _DisabledOperationException,
@@ -49,11 +40,20 @@ module Amazonka.CloudSearch
     -- ** InternalException
     _InternalException,
 
+    -- ** InvalidTypeException
+    _InvalidTypeException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** ResourceAlreadyExistsException
+    _ResourceAlreadyExistsException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
     -- ** ValidationException
     _ValidationException,
-
-    -- ** BaseException
-    _BaseException,
 
     -- * Waiters
     -- $waiters

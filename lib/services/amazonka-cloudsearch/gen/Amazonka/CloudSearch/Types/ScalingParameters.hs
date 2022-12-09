@@ -30,15 +30,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newScalingParameters' smart constructor.
 data ScalingParameters = ScalingParameters'
-  { -- | The number of partitions you want to preconfigure for your domain. Only
+  { -- | The instance type that you want to preconfigure for your domain. For
+    -- example, @search.m1.small@.
+    desiredInstanceType :: Prelude.Maybe PartitionInstanceType,
+    -- | The number of partitions you want to preconfigure for your domain. Only
     -- valid when you select @m2.2xlarge@ as the desired instance type.
     desiredPartitionCount :: Prelude.Maybe Prelude.Natural,
     -- | The number of replicas you want to preconfigure for each index
     -- partition.
-    desiredReplicationCount :: Prelude.Maybe Prelude.Natural,
-    -- | The instance type that you want to preconfigure for your domain. For
-    -- example, @search.m1.small@.
-    desiredInstanceType :: Prelude.Maybe PartitionInstanceType
+    desiredReplicationCount :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,23 +50,28 @@ data ScalingParameters = ScalingParameters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'desiredInstanceType', 'scalingParameters_desiredInstanceType' - The instance type that you want to preconfigure for your domain. For
+-- example, @search.m1.small@.
+--
 -- 'desiredPartitionCount', 'scalingParameters_desiredPartitionCount' - The number of partitions you want to preconfigure for your domain. Only
 -- valid when you select @m2.2xlarge@ as the desired instance type.
 --
 -- 'desiredReplicationCount', 'scalingParameters_desiredReplicationCount' - The number of replicas you want to preconfigure for each index
 -- partition.
---
--- 'desiredInstanceType', 'scalingParameters_desiredInstanceType' - The instance type that you want to preconfigure for your domain. For
--- example, @search.m1.small@.
 newScalingParameters ::
   ScalingParameters
 newScalingParameters =
   ScalingParameters'
-    { desiredPartitionCount =
+    { desiredInstanceType =
         Prelude.Nothing,
-      desiredReplicationCount = Prelude.Nothing,
-      desiredInstanceType = Prelude.Nothing
+      desiredPartitionCount = Prelude.Nothing,
+      desiredReplicationCount = Prelude.Nothing
     }
+
+-- | The instance type that you want to preconfigure for your domain. For
+-- example, @search.m1.small@.
+scalingParameters_desiredInstanceType :: Lens.Lens' ScalingParameters (Prelude.Maybe PartitionInstanceType)
+scalingParameters_desiredInstanceType = Lens.lens (\ScalingParameters' {desiredInstanceType} -> desiredInstanceType) (\s@ScalingParameters' {} a -> s {desiredInstanceType = a} :: ScalingParameters)
 
 -- | The number of partitions you want to preconfigure for your domain. Only
 -- valid when you select @m2.2xlarge@ as the desired instance type.
@@ -78,36 +83,31 @@ scalingParameters_desiredPartitionCount = Lens.lens (\ScalingParameters' {desire
 scalingParameters_desiredReplicationCount :: Lens.Lens' ScalingParameters (Prelude.Maybe Prelude.Natural)
 scalingParameters_desiredReplicationCount = Lens.lens (\ScalingParameters' {desiredReplicationCount} -> desiredReplicationCount) (\s@ScalingParameters' {} a -> s {desiredReplicationCount = a} :: ScalingParameters)
 
--- | The instance type that you want to preconfigure for your domain. For
--- example, @search.m1.small@.
-scalingParameters_desiredInstanceType :: Lens.Lens' ScalingParameters (Prelude.Maybe PartitionInstanceType)
-scalingParameters_desiredInstanceType = Lens.lens (\ScalingParameters' {desiredInstanceType} -> desiredInstanceType) (\s@ScalingParameters' {} a -> s {desiredInstanceType = a} :: ScalingParameters)
-
 instance Data.FromXML ScalingParameters where
   parseXML x =
     ScalingParameters'
-      Prelude.<$> (x Data..@? "DesiredPartitionCount")
+      Prelude.<$> (x Data..@? "DesiredInstanceType")
+      Prelude.<*> (x Data..@? "DesiredPartitionCount")
       Prelude.<*> (x Data..@? "DesiredReplicationCount")
-      Prelude.<*> (x Data..@? "DesiredInstanceType")
 
 instance Prelude.Hashable ScalingParameters where
   hashWithSalt _salt ScalingParameters' {..} =
-    _salt `Prelude.hashWithSalt` desiredPartitionCount
+    _salt `Prelude.hashWithSalt` desiredInstanceType
+      `Prelude.hashWithSalt` desiredPartitionCount
       `Prelude.hashWithSalt` desiredReplicationCount
-      `Prelude.hashWithSalt` desiredInstanceType
 
 instance Prelude.NFData ScalingParameters where
   rnf ScalingParameters' {..} =
-    Prelude.rnf desiredPartitionCount
+    Prelude.rnf desiredInstanceType
+      `Prelude.seq` Prelude.rnf desiredPartitionCount
       `Prelude.seq` Prelude.rnf desiredReplicationCount
-      `Prelude.seq` Prelude.rnf desiredInstanceType
 
 instance Data.ToQuery ScalingParameters where
   toQuery ScalingParameters' {..} =
     Prelude.mconcat
-      [ "DesiredPartitionCount"
+      [ "DesiredInstanceType" Data.=: desiredInstanceType,
+        "DesiredPartitionCount"
           Data.=: desiredPartitionCount,
         "DesiredReplicationCount"
-          Data.=: desiredReplicationCount,
-        "DesiredInstanceType" Data.=: desiredInstanceType
+          Data.=: desiredReplicationCount
       ]

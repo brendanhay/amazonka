@@ -39,15 +39,15 @@ data NetworkProfileData = NetworkProfileData'
     -- | The authentication standard that is used in the EAP framework.
     -- Currently, EAP_TLS is supported.
     eapMethod :: Prelude.Maybe NetworkEapMethod,
-    -- | The SSID of the Wi-Fi network.
-    ssid :: Prelude.Maybe Prelude.Text,
-    -- | The security type of the Wi-Fi network. This can be WPA2_ENTERPRISE,
-    -- WPA2_PSK, WPA_PSK, WEP, or OPEN.
-    securityType :: Prelude.Maybe NetworkSecurityType,
     -- | The ARN of the network profile associated with a device.
     networkProfileArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the network profile associated with a device.
-    networkProfileName :: Prelude.Maybe Prelude.Text
+    networkProfileName :: Prelude.Maybe Prelude.Text,
+    -- | The security type of the Wi-Fi network. This can be WPA2_ENTERPRISE,
+    -- WPA2_PSK, WPA_PSK, WEP, or OPEN.
+    securityType :: Prelude.Maybe NetworkSecurityType,
+    -- | The SSID of the Wi-Fi network.
+    ssid :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,14 +68,14 @@ data NetworkProfileData = NetworkProfileData'
 -- 'eapMethod', 'networkProfileData_eapMethod' - The authentication standard that is used in the EAP framework.
 -- Currently, EAP_TLS is supported.
 --
--- 'ssid', 'networkProfileData_ssid' - The SSID of the Wi-Fi network.
+-- 'networkProfileArn', 'networkProfileData_networkProfileArn' - The ARN of the network profile associated with a device.
+--
+-- 'networkProfileName', 'networkProfileData_networkProfileName' - The name of the network profile associated with a device.
 --
 -- 'securityType', 'networkProfileData_securityType' - The security type of the Wi-Fi network. This can be WPA2_ENTERPRISE,
 -- WPA2_PSK, WPA_PSK, WEP, or OPEN.
 --
--- 'networkProfileArn', 'networkProfileData_networkProfileArn' - The ARN of the network profile associated with a device.
---
--- 'networkProfileName', 'networkProfileData_networkProfileName' - The name of the network profile associated with a device.
+-- 'ssid', 'networkProfileData_ssid' - The SSID of the Wi-Fi network.
 newNetworkProfileData ::
   NetworkProfileData
 newNetworkProfileData =
@@ -84,10 +84,10 @@ newNetworkProfileData =
         Prelude.Nothing,
       description = Prelude.Nothing,
       eapMethod = Prelude.Nothing,
-      ssid = Prelude.Nothing,
-      securityType = Prelude.Nothing,
       networkProfileArn = Prelude.Nothing,
-      networkProfileName = Prelude.Nothing
+      networkProfileName = Prelude.Nothing,
+      securityType = Prelude.Nothing,
+      ssid = Prelude.Nothing
     }
 
 -- | The ARN of the Private Certificate Authority (PCA) created in AWS
@@ -105,15 +105,6 @@ networkProfileData_description = Lens.lens (\NetworkProfileData' {description} -
 networkProfileData_eapMethod :: Lens.Lens' NetworkProfileData (Prelude.Maybe NetworkEapMethod)
 networkProfileData_eapMethod = Lens.lens (\NetworkProfileData' {eapMethod} -> eapMethod) (\s@NetworkProfileData' {} a -> s {eapMethod = a} :: NetworkProfileData)
 
--- | The SSID of the Wi-Fi network.
-networkProfileData_ssid :: Lens.Lens' NetworkProfileData (Prelude.Maybe Prelude.Text)
-networkProfileData_ssid = Lens.lens (\NetworkProfileData' {ssid} -> ssid) (\s@NetworkProfileData' {} a -> s {ssid = a} :: NetworkProfileData)
-
--- | The security type of the Wi-Fi network. This can be WPA2_ENTERPRISE,
--- WPA2_PSK, WPA_PSK, WEP, or OPEN.
-networkProfileData_securityType :: Lens.Lens' NetworkProfileData (Prelude.Maybe NetworkSecurityType)
-networkProfileData_securityType = Lens.lens (\NetworkProfileData' {securityType} -> securityType) (\s@NetworkProfileData' {} a -> s {securityType = a} :: NetworkProfileData)
-
 -- | The ARN of the network profile associated with a device.
 networkProfileData_networkProfileArn :: Lens.Lens' NetworkProfileData (Prelude.Maybe Prelude.Text)
 networkProfileData_networkProfileArn = Lens.lens (\NetworkProfileData' {networkProfileArn} -> networkProfileArn) (\s@NetworkProfileData' {} a -> s {networkProfileArn = a} :: NetworkProfileData)
@@ -121,6 +112,15 @@ networkProfileData_networkProfileArn = Lens.lens (\NetworkProfileData' {networkP
 -- | The name of the network profile associated with a device.
 networkProfileData_networkProfileName :: Lens.Lens' NetworkProfileData (Prelude.Maybe Prelude.Text)
 networkProfileData_networkProfileName = Lens.lens (\NetworkProfileData' {networkProfileName} -> networkProfileName) (\s@NetworkProfileData' {} a -> s {networkProfileName = a} :: NetworkProfileData)
+
+-- | The security type of the Wi-Fi network. This can be WPA2_ENTERPRISE,
+-- WPA2_PSK, WPA_PSK, WEP, or OPEN.
+networkProfileData_securityType :: Lens.Lens' NetworkProfileData (Prelude.Maybe NetworkSecurityType)
+networkProfileData_securityType = Lens.lens (\NetworkProfileData' {securityType} -> securityType) (\s@NetworkProfileData' {} a -> s {securityType = a} :: NetworkProfileData)
+
+-- | The SSID of the Wi-Fi network.
+networkProfileData_ssid :: Lens.Lens' NetworkProfileData (Prelude.Maybe Prelude.Text)
+networkProfileData_ssid = Lens.lens (\NetworkProfileData' {ssid} -> ssid) (\s@NetworkProfileData' {} a -> s {ssid = a} :: NetworkProfileData)
 
 instance Data.FromJSON NetworkProfileData where
   parseJSON =
@@ -131,10 +131,10 @@ instance Data.FromJSON NetworkProfileData where
             Prelude.<$> (x Data..:? "CertificateAuthorityArn")
             Prelude.<*> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "EapMethod")
-            Prelude.<*> (x Data..:? "Ssid")
-            Prelude.<*> (x Data..:? "SecurityType")
             Prelude.<*> (x Data..:? "NetworkProfileArn")
             Prelude.<*> (x Data..:? "NetworkProfileName")
+            Prelude.<*> (x Data..:? "SecurityType")
+            Prelude.<*> (x Data..:? "Ssid")
       )
 
 instance Prelude.Hashable NetworkProfileData where
@@ -143,17 +143,17 @@ instance Prelude.Hashable NetworkProfileData where
       `Prelude.hashWithSalt` certificateAuthorityArn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` eapMethod
-      `Prelude.hashWithSalt` ssid
-      `Prelude.hashWithSalt` securityType
       `Prelude.hashWithSalt` networkProfileArn
       `Prelude.hashWithSalt` networkProfileName
+      `Prelude.hashWithSalt` securityType
+      `Prelude.hashWithSalt` ssid
 
 instance Prelude.NFData NetworkProfileData where
   rnf NetworkProfileData' {..} =
     Prelude.rnf certificateAuthorityArn
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf eapMethod
-      `Prelude.seq` Prelude.rnf ssid
-      `Prelude.seq` Prelude.rnf securityType
       `Prelude.seq` Prelude.rnf networkProfileArn
       `Prelude.seq` Prelude.rnf networkProfileName
+      `Prelude.seq` Prelude.rnf securityType
+      `Prelude.seq` Prelude.rnf ssid

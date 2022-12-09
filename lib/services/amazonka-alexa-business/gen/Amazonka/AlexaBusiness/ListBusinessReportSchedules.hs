@@ -32,8 +32,8 @@ module Amazonka.AlexaBusiness.ListBusinessReportSchedules
     newListBusinessReportSchedules,
 
     -- * Request Lenses
-    listBusinessReportSchedules_nextToken,
     listBusinessReportSchedules_maxResults,
+    listBusinessReportSchedules_nextToken,
 
     -- * Destructuring the Response
     ListBusinessReportSchedulesResponse (..),
@@ -56,11 +56,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListBusinessReportSchedules' smart constructor.
 data ListBusinessReportSchedules = ListBusinessReportSchedules'
-  { -- | The token used to list the remaining schedules from the previous API
+  { -- | The maximum number of schedules listed in the call.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token used to list the remaining schedules from the previous API
     -- call.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of schedules listed in the call.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,27 +72,27 @@ data ListBusinessReportSchedules = ListBusinessReportSchedules'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listBusinessReportSchedules_maxResults' - The maximum number of schedules listed in the call.
+--
 -- 'nextToken', 'listBusinessReportSchedules_nextToken' - The token used to list the remaining schedules from the previous API
 -- call.
---
--- 'maxResults', 'listBusinessReportSchedules_maxResults' - The maximum number of schedules listed in the call.
 newListBusinessReportSchedules ::
   ListBusinessReportSchedules
 newListBusinessReportSchedules =
   ListBusinessReportSchedules'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of schedules listed in the call.
+listBusinessReportSchedules_maxResults :: Lens.Lens' ListBusinessReportSchedules (Prelude.Maybe Prelude.Natural)
+listBusinessReportSchedules_maxResults = Lens.lens (\ListBusinessReportSchedules' {maxResults} -> maxResults) (\s@ListBusinessReportSchedules' {} a -> s {maxResults = a} :: ListBusinessReportSchedules)
 
 -- | The token used to list the remaining schedules from the previous API
 -- call.
 listBusinessReportSchedules_nextToken :: Lens.Lens' ListBusinessReportSchedules (Prelude.Maybe Prelude.Text)
 listBusinessReportSchedules_nextToken = Lens.lens (\ListBusinessReportSchedules' {nextToken} -> nextToken) (\s@ListBusinessReportSchedules' {} a -> s {nextToken = a} :: ListBusinessReportSchedules)
-
--- | The maximum number of schedules listed in the call.
-listBusinessReportSchedules_maxResults :: Lens.Lens' ListBusinessReportSchedules (Prelude.Maybe Prelude.Natural)
-listBusinessReportSchedules_maxResults = Lens.lens (\ListBusinessReportSchedules' {maxResults} -> maxResults) (\s@ListBusinessReportSchedules' {} a -> s {maxResults = a} :: ListBusinessReportSchedules)
 
 instance Core.AWSPager ListBusinessReportSchedules where
   page rq rs
@@ -135,13 +135,13 @@ instance Core.AWSRequest ListBusinessReportSchedules where
 
 instance Prelude.Hashable ListBusinessReportSchedules where
   hashWithSalt _salt ListBusinessReportSchedules' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListBusinessReportSchedules where
   rnf ListBusinessReportSchedules' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListBusinessReportSchedules where
   toHeaders =
@@ -162,8 +162,8 @@ instance Data.ToJSON ListBusinessReportSchedules where
   toJSON ListBusinessReportSchedules' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

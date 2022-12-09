@@ -34,10 +34,10 @@ import qualified Amazonka.Prelude as Prelude
 data Content = Content'
   { -- | The list of audio messages.
     audioList :: Prelude.Maybe [Audio],
-    -- | The list of text messages.
-    textList :: Prelude.Maybe [TextMessage],
     -- | The list of SSML messages.
-    ssmlList :: Prelude.Maybe [Ssml]
+    ssmlList :: Prelude.Maybe [Ssml],
+    -- | The list of text messages.
+    textList :: Prelude.Maybe [TextMessage]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,48 +51,48 @@ data Content = Content'
 --
 -- 'audioList', 'content_audioList' - The list of audio messages.
 --
--- 'textList', 'content_textList' - The list of text messages.
---
 -- 'ssmlList', 'content_ssmlList' - The list of SSML messages.
+--
+-- 'textList', 'content_textList' - The list of text messages.
 newContent ::
   Content
 newContent =
   Content'
     { audioList = Prelude.Nothing,
-      textList = Prelude.Nothing,
-      ssmlList = Prelude.Nothing
+      ssmlList = Prelude.Nothing,
+      textList = Prelude.Nothing
     }
 
 -- | The list of audio messages.
 content_audioList :: Lens.Lens' Content (Prelude.Maybe [Audio])
 content_audioList = Lens.lens (\Content' {audioList} -> audioList) (\s@Content' {} a -> s {audioList = a} :: Content) Prelude.. Lens.mapping Lens.coerced
 
--- | The list of text messages.
-content_textList :: Lens.Lens' Content (Prelude.Maybe [TextMessage])
-content_textList = Lens.lens (\Content' {textList} -> textList) (\s@Content' {} a -> s {textList = a} :: Content) Prelude.. Lens.mapping Lens.coerced
-
 -- | The list of SSML messages.
 content_ssmlList :: Lens.Lens' Content (Prelude.Maybe [Ssml])
 content_ssmlList = Lens.lens (\Content' {ssmlList} -> ssmlList) (\s@Content' {} a -> s {ssmlList = a} :: Content) Prelude.. Lens.mapping Lens.coerced
 
+-- | The list of text messages.
+content_textList :: Lens.Lens' Content (Prelude.Maybe [TextMessage])
+content_textList = Lens.lens (\Content' {textList} -> textList) (\s@Content' {} a -> s {textList = a} :: Content) Prelude.. Lens.mapping Lens.coerced
+
 instance Prelude.Hashable Content where
   hashWithSalt _salt Content' {..} =
     _salt `Prelude.hashWithSalt` audioList
-      `Prelude.hashWithSalt` textList
       `Prelude.hashWithSalt` ssmlList
+      `Prelude.hashWithSalt` textList
 
 instance Prelude.NFData Content where
   rnf Content' {..} =
     Prelude.rnf audioList
-      `Prelude.seq` Prelude.rnf textList
       `Prelude.seq` Prelude.rnf ssmlList
+      `Prelude.seq` Prelude.rnf textList
 
 instance Data.ToJSON Content where
   toJSON Content' {..} =
     Data.object
       ( Prelude.catMaybes
           [ ("AudioList" Data..=) Prelude.<$> audioList,
-            ("TextList" Data..=) Prelude.<$> textList,
-            ("SsmlList" Data..=) Prelude.<$> ssmlList
+            ("SsmlList" Data..=) Prelude.<$> ssmlList,
+            ("TextList" Data..=) Prelude.<$> textList
           ]
       )

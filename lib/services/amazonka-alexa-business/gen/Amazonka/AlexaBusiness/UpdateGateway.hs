@@ -28,8 +28,8 @@ module Amazonka.AlexaBusiness.UpdateGateway
     newUpdateGateway,
 
     -- * Request Lenses
-    updateGateway_name,
     updateGateway_description,
+    updateGateway_name,
     updateGateway_softwareVersion,
     updateGateway_gatewayArn,
 
@@ -52,10 +52,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateGateway' smart constructor.
 data UpdateGateway = UpdateGateway'
-  { -- | The updated name of the gateway.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The updated description of the gateway.
+  { -- | The updated description of the gateway.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The updated name of the gateway.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The updated software version of the gateway. The gateway automatically
     -- updates its software version during normal operation.
     softwareVersion :: Prelude.Maybe Prelude.Text,
@@ -72,9 +72,9 @@ data UpdateGateway = UpdateGateway'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateGateway_name' - The updated name of the gateway.
---
 -- 'description', 'updateGateway_description' - The updated description of the gateway.
+--
+-- 'name', 'updateGateway_name' - The updated name of the gateway.
 --
 -- 'softwareVersion', 'updateGateway_softwareVersion' - The updated software version of the gateway. The gateway automatically
 -- updates its software version during normal operation.
@@ -86,19 +86,19 @@ newUpdateGateway ::
   UpdateGateway
 newUpdateGateway pGatewayArn_ =
   UpdateGateway'
-    { name = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      name = Prelude.Nothing,
       softwareVersion = Prelude.Nothing,
       gatewayArn = pGatewayArn_
     }
 
--- | The updated name of the gateway.
-updateGateway_name :: Lens.Lens' UpdateGateway (Prelude.Maybe Prelude.Text)
-updateGateway_name = Lens.lens (\UpdateGateway' {name} -> name) (\s@UpdateGateway' {} a -> s {name = a} :: UpdateGateway)
-
 -- | The updated description of the gateway.
 updateGateway_description :: Lens.Lens' UpdateGateway (Prelude.Maybe Prelude.Text)
 updateGateway_description = Lens.lens (\UpdateGateway' {description} -> description) (\s@UpdateGateway' {} a -> s {description = a} :: UpdateGateway)
+
+-- | The updated name of the gateway.
+updateGateway_name :: Lens.Lens' UpdateGateway (Prelude.Maybe Prelude.Text)
+updateGateway_name = Lens.lens (\UpdateGateway' {name} -> name) (\s@UpdateGateway' {} a -> s {name = a} :: UpdateGateway)
 
 -- | The updated software version of the gateway. The gateway automatically
 -- updates its software version during normal operation.
@@ -124,15 +124,15 @@ instance Core.AWSRequest UpdateGateway where
 
 instance Prelude.Hashable UpdateGateway where
   hashWithSalt _salt UpdateGateway' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` softwareVersion
       `Prelude.hashWithSalt` gatewayArn
 
 instance Prelude.NFData UpdateGateway where
   rnf UpdateGateway' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf softwareVersion
       `Prelude.seq` Prelude.rnf gatewayArn
 
@@ -155,8 +155,8 @@ instance Data.ToJSON UpdateGateway where
   toJSON UpdateGateway' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("Name" Data..=) Prelude.<$> name,
             ("SoftwareVersion" Data..=)
               Prelude.<$> softwareVersion,
             Prelude.Just ("GatewayArn" Data..= gatewayArn)

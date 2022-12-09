@@ -28,8 +28,8 @@ module Amazonka.AlexaBusiness.DisassociateSkillGroupFromRoom
     newDisassociateSkillGroupFromRoom,
 
     -- * Request Lenses
-    disassociateSkillGroupFromRoom_skillGroupArn,
     disassociateSkillGroupFromRoom_roomArn,
+    disassociateSkillGroupFromRoom_skillGroupArn,
 
     -- * Destructuring the Response
     DisassociateSkillGroupFromRoomResponse (..),
@@ -50,11 +50,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDisassociateSkillGroupFromRoom' smart constructor.
 data DisassociateSkillGroupFromRoom = DisassociateSkillGroupFromRoom'
-  { -- | The ARN of the skill group to disassociate from a room. Required.
-    skillGroupArn :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the room from which the skill group is to be disassociated.
+  { -- | The ARN of the room from which the skill group is to be disassociated.
     -- Required.
-    roomArn :: Prelude.Maybe Prelude.Text
+    roomArn :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the skill group to disassociate from a room. Required.
+    skillGroupArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,27 +66,27 @@ data DisassociateSkillGroupFromRoom = DisassociateSkillGroupFromRoom'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'skillGroupArn', 'disassociateSkillGroupFromRoom_skillGroupArn' - The ARN of the skill group to disassociate from a room. Required.
---
 -- 'roomArn', 'disassociateSkillGroupFromRoom_roomArn' - The ARN of the room from which the skill group is to be disassociated.
 -- Required.
+--
+-- 'skillGroupArn', 'disassociateSkillGroupFromRoom_skillGroupArn' - The ARN of the skill group to disassociate from a room. Required.
 newDisassociateSkillGroupFromRoom ::
   DisassociateSkillGroupFromRoom
 newDisassociateSkillGroupFromRoom =
   DisassociateSkillGroupFromRoom'
-    { skillGroupArn =
+    { roomArn =
         Prelude.Nothing,
-      roomArn = Prelude.Nothing
+      skillGroupArn = Prelude.Nothing
     }
-
--- | The ARN of the skill group to disassociate from a room. Required.
-disassociateSkillGroupFromRoom_skillGroupArn :: Lens.Lens' DisassociateSkillGroupFromRoom (Prelude.Maybe Prelude.Text)
-disassociateSkillGroupFromRoom_skillGroupArn = Lens.lens (\DisassociateSkillGroupFromRoom' {skillGroupArn} -> skillGroupArn) (\s@DisassociateSkillGroupFromRoom' {} a -> s {skillGroupArn = a} :: DisassociateSkillGroupFromRoom)
 
 -- | The ARN of the room from which the skill group is to be disassociated.
 -- Required.
 disassociateSkillGroupFromRoom_roomArn :: Lens.Lens' DisassociateSkillGroupFromRoom (Prelude.Maybe Prelude.Text)
 disassociateSkillGroupFromRoom_roomArn = Lens.lens (\DisassociateSkillGroupFromRoom' {roomArn} -> roomArn) (\s@DisassociateSkillGroupFromRoom' {} a -> s {roomArn = a} :: DisassociateSkillGroupFromRoom)
+
+-- | The ARN of the skill group to disassociate from a room. Required.
+disassociateSkillGroupFromRoom_skillGroupArn :: Lens.Lens' DisassociateSkillGroupFromRoom (Prelude.Maybe Prelude.Text)
+disassociateSkillGroupFromRoom_skillGroupArn = Lens.lens (\DisassociateSkillGroupFromRoom' {skillGroupArn} -> skillGroupArn) (\s@DisassociateSkillGroupFromRoom' {} a -> s {skillGroupArn = a} :: DisassociateSkillGroupFromRoom)
 
 instance
   Core.AWSRequest
@@ -111,16 +111,16 @@ instance
   hashWithSalt
     _salt
     DisassociateSkillGroupFromRoom' {..} =
-      _salt `Prelude.hashWithSalt` skillGroupArn
-        `Prelude.hashWithSalt` roomArn
+      _salt `Prelude.hashWithSalt` roomArn
+        `Prelude.hashWithSalt` skillGroupArn
 
 instance
   Prelude.NFData
     DisassociateSkillGroupFromRoom
   where
   rnf DisassociateSkillGroupFromRoom' {..} =
-    Prelude.rnf skillGroupArn
-      `Prelude.seq` Prelude.rnf roomArn
+    Prelude.rnf roomArn
+      `Prelude.seq` Prelude.rnf skillGroupArn
 
 instance
   Data.ToHeaders
@@ -144,8 +144,8 @@ instance Data.ToJSON DisassociateSkillGroupFromRoom where
   toJSON DisassociateSkillGroupFromRoom' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SkillGroupArn" Data..=) Prelude.<$> skillGroupArn,
-            ("RoomArn" Data..=) Prelude.<$> roomArn
+          [ ("RoomArn" Data..=) Prelude.<$> roomArn,
+            ("SkillGroupArn" Data..=) Prelude.<$> skillGroupArn
           ]
       )
 

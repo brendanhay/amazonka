@@ -32,9 +32,9 @@ module Amazonka.AlexaBusiness.GetInvitationConfiguration
     newGetInvitationConfigurationResponse,
 
     -- * Response Lenses
-    getInvitationConfigurationResponse_privateSkillIds,
-    getInvitationConfigurationResponse_organizationName,
     getInvitationConfigurationResponse_contactEmail,
+    getInvitationConfigurationResponse_organizationName,
+    getInvitationConfigurationResponse_privateSkillIds,
     getInvitationConfigurationResponse_httpStatus,
   )
 where
@@ -72,11 +72,11 @@ instance Core.AWSRequest GetInvitationConfiguration where
     Response.receiveJSON
       ( \s h x ->
           GetInvitationConfigurationResponse'
-            Prelude.<$> ( x Data..?> "PrivateSkillIds"
+            Prelude.<$> (x Data..?> "ContactEmail")
+            Prelude.<*> (x Data..?> "OrganizationName")
+            Prelude.<*> ( x Data..?> "PrivateSkillIds"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "OrganizationName")
-            Prelude.<*> (x Data..?> "ContactEmail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,14 +113,14 @@ instance Data.ToQuery GetInvitationConfiguration where
 
 -- | /See:/ 'newGetInvitationConfigurationResponse' smart constructor.
 data GetInvitationConfigurationResponse = GetInvitationConfigurationResponse'
-  { -- | The list of private skill IDs that you want to recommend to the user to
-    -- enable in the invitation.
-    privateSkillIds :: Prelude.Maybe [Prelude.Text],
-    -- | The name of the organization sending the enrollment invite to a user.
-    organizationName :: Prelude.Maybe Prelude.Text,
-    -- | The email ID of the organization or individual contact that the enrolled
+  { -- | The email ID of the organization or individual contact that the enrolled
     -- user can use.
     contactEmail :: Prelude.Maybe Prelude.Text,
+    -- | The name of the organization sending the enrollment invite to a user.
+    organizationName :: Prelude.Maybe Prelude.Text,
+    -- | The list of private skill IDs that you want to recommend to the user to
+    -- enable in the invitation.
+    privateSkillIds :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -134,13 +134,13 @@ data GetInvitationConfigurationResponse = GetInvitationConfigurationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'privateSkillIds', 'getInvitationConfigurationResponse_privateSkillIds' - The list of private skill IDs that you want to recommend to the user to
--- enable in the invitation.
+-- 'contactEmail', 'getInvitationConfigurationResponse_contactEmail' - The email ID of the organization or individual contact that the enrolled
+-- user can use.
 --
 -- 'organizationName', 'getInvitationConfigurationResponse_organizationName' - The name of the organization sending the enrollment invite to a user.
 --
--- 'contactEmail', 'getInvitationConfigurationResponse_contactEmail' - The email ID of the organization or individual contact that the enrolled
--- user can use.
+-- 'privateSkillIds', 'getInvitationConfigurationResponse_privateSkillIds' - The list of private skill IDs that you want to recommend to the user to
+-- enable in the invitation.
 --
 -- 'httpStatus', 'getInvitationConfigurationResponse_httpStatus' - The response's http status code.
 newGetInvitationConfigurationResponse ::
@@ -149,26 +149,26 @@ newGetInvitationConfigurationResponse ::
   GetInvitationConfigurationResponse
 newGetInvitationConfigurationResponse pHttpStatus_ =
   GetInvitationConfigurationResponse'
-    { privateSkillIds =
+    { contactEmail =
         Prelude.Nothing,
       organizationName = Prelude.Nothing,
-      contactEmail = Prelude.Nothing,
+      privateSkillIds = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The list of private skill IDs that you want to recommend to the user to
--- enable in the invitation.
-getInvitationConfigurationResponse_privateSkillIds :: Lens.Lens' GetInvitationConfigurationResponse (Prelude.Maybe [Prelude.Text])
-getInvitationConfigurationResponse_privateSkillIds = Lens.lens (\GetInvitationConfigurationResponse' {privateSkillIds} -> privateSkillIds) (\s@GetInvitationConfigurationResponse' {} a -> s {privateSkillIds = a} :: GetInvitationConfigurationResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the organization sending the enrollment invite to a user.
-getInvitationConfigurationResponse_organizationName :: Lens.Lens' GetInvitationConfigurationResponse (Prelude.Maybe Prelude.Text)
-getInvitationConfigurationResponse_organizationName = Lens.lens (\GetInvitationConfigurationResponse' {organizationName} -> organizationName) (\s@GetInvitationConfigurationResponse' {} a -> s {organizationName = a} :: GetInvitationConfigurationResponse)
 
 -- | The email ID of the organization or individual contact that the enrolled
 -- user can use.
 getInvitationConfigurationResponse_contactEmail :: Lens.Lens' GetInvitationConfigurationResponse (Prelude.Maybe Prelude.Text)
 getInvitationConfigurationResponse_contactEmail = Lens.lens (\GetInvitationConfigurationResponse' {contactEmail} -> contactEmail) (\s@GetInvitationConfigurationResponse' {} a -> s {contactEmail = a} :: GetInvitationConfigurationResponse)
+
+-- | The name of the organization sending the enrollment invite to a user.
+getInvitationConfigurationResponse_organizationName :: Lens.Lens' GetInvitationConfigurationResponse (Prelude.Maybe Prelude.Text)
+getInvitationConfigurationResponse_organizationName = Lens.lens (\GetInvitationConfigurationResponse' {organizationName} -> organizationName) (\s@GetInvitationConfigurationResponse' {} a -> s {organizationName = a} :: GetInvitationConfigurationResponse)
+
+-- | The list of private skill IDs that you want to recommend to the user to
+-- enable in the invitation.
+getInvitationConfigurationResponse_privateSkillIds :: Lens.Lens' GetInvitationConfigurationResponse (Prelude.Maybe [Prelude.Text])
+getInvitationConfigurationResponse_privateSkillIds = Lens.lens (\GetInvitationConfigurationResponse' {privateSkillIds} -> privateSkillIds) (\s@GetInvitationConfigurationResponse' {} a -> s {privateSkillIds = a} :: GetInvitationConfigurationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getInvitationConfigurationResponse_httpStatus :: Lens.Lens' GetInvitationConfigurationResponse Prelude.Int
@@ -179,7 +179,7 @@ instance
     GetInvitationConfigurationResponse
   where
   rnf GetInvitationConfigurationResponse' {..} =
-    Prelude.rnf privateSkillIds
+    Prelude.rnf contactEmail
       `Prelude.seq` Prelude.rnf organizationName
-      `Prelude.seq` Prelude.rnf contactEmail
+      `Prelude.seq` Prelude.rnf privateSkillIds
       `Prelude.seq` Prelude.rnf httpStatus

@@ -29,8 +29,8 @@ module Amazonka.AlexaBusiness.ListTags
     newListTags,
 
     -- * Request Lenses
-    listTags_nextToken,
     listTags_maxResults,
+    listTags_nextToken,
     listTags_arn,
 
     -- * Destructuring the Response
@@ -38,8 +38,8 @@ module Amazonka.AlexaBusiness.ListTags
     newListTagsResponse,
 
     -- * Response Lenses
-    listTagsResponse_tags,
     listTagsResponse_nextToken,
+    listTagsResponse_tags,
     listTagsResponse_httpStatus,
   )
 where
@@ -54,15 +54,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListTags' smart constructor.
 data ListTags = ListTags'
-  { -- | An optional token returned from a prior request. Use this token for
+  { -- | The maximum number of results to include in the response. If more
+    -- results exist than the specified @MaxResults@ value, a token is included
+    -- in the response so that the remaining results can be retrieved.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | An optional token returned from a prior request. Use this token for
     -- pagination of results from this action. If this parameter is specified,
     -- the response includes only results beyond the token, up to the value
     -- specified by @MaxResults@.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to include in the response. If more
-    -- results exist than the specified @MaxResults@ value, a token is included
-    -- in the response so that the remaining results can be retrieved.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ARN of the specified resource for which to list tags.
     arn :: Prelude.Text
   }
@@ -76,14 +76,14 @@ data ListTags = ListTags'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listTags_maxResults' - The maximum number of results to include in the response. If more
+-- results exist than the specified @MaxResults@ value, a token is included
+-- in the response so that the remaining results can be retrieved.
+--
 -- 'nextToken', 'listTags_nextToken' - An optional token returned from a prior request. Use this token for
 -- pagination of results from this action. If this parameter is specified,
 -- the response includes only results beyond the token, up to the value
 -- specified by @MaxResults@.
---
--- 'maxResults', 'listTags_maxResults' - The maximum number of results to include in the response. If more
--- results exist than the specified @MaxResults@ value, a token is included
--- in the response so that the remaining results can be retrieved.
 --
 -- 'arn', 'listTags_arn' - The ARN of the specified resource for which to list tags.
 newListTags ::
@@ -92,10 +92,16 @@ newListTags ::
   ListTags
 newListTags pArn_ =
   ListTags'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       arn = pArn_
     }
+
+-- | The maximum number of results to include in the response. If more
+-- results exist than the specified @MaxResults@ value, a token is included
+-- in the response so that the remaining results can be retrieved.
+listTags_maxResults :: Lens.Lens' ListTags (Prelude.Maybe Prelude.Natural)
+listTags_maxResults = Lens.lens (\ListTags' {maxResults} -> maxResults) (\s@ListTags' {} a -> s {maxResults = a} :: ListTags)
 
 -- | An optional token returned from a prior request. Use this token for
 -- pagination of results from this action. If this parameter is specified,
@@ -103,12 +109,6 @@ newListTags pArn_ =
 -- specified by @MaxResults@.
 listTags_nextToken :: Lens.Lens' ListTags (Prelude.Maybe Prelude.Text)
 listTags_nextToken = Lens.lens (\ListTags' {nextToken} -> nextToken) (\s@ListTags' {} a -> s {nextToken = a} :: ListTags)
-
--- | The maximum number of results to include in the response. If more
--- results exist than the specified @MaxResults@ value, a token is included
--- in the response so that the remaining results can be retrieved.
-listTags_maxResults :: Lens.Lens' ListTags (Prelude.Maybe Prelude.Natural)
-listTags_maxResults = Lens.lens (\ListTags' {maxResults} -> maxResults) (\s@ListTags' {} a -> s {maxResults = a} :: ListTags)
 
 -- | The ARN of the specified resource for which to list tags.
 listTags_arn :: Lens.Lens' ListTags Prelude.Text
@@ -141,21 +141,21 @@ instance Core.AWSRequest ListTags where
     Response.receiveJSON
       ( \s h x ->
           ListTagsResponse'
-            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListTags where
   hashWithSalt _salt ListTags' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData ListTags where
   rnf ListTags' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf arn
 
 instance Data.ToHeaders ListTags where
@@ -175,8 +175,8 @@ instance Data.ToJSON ListTags where
   toJSON ListTags' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("Arn" Data..= arn)
           ]
       )
@@ -189,10 +189,10 @@ instance Data.ToQuery ListTags where
 
 -- | /See:/ 'newListTagsResponse' smart constructor.
 data ListTagsResponse = ListTagsResponse'
-  { -- | The tags requested for the specified resource.
-    tags :: Prelude.Maybe [Tag],
-    -- | The token returned to indicate that there is more data available.
+  { -- | The token returned to indicate that there is more data available.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The tags requested for the specified resource.
+    tags :: Prelude.Maybe [Tag],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -206,9 +206,9 @@ data ListTagsResponse = ListTagsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'listTagsResponse_tags' - The tags requested for the specified resource.
---
 -- 'nextToken', 'listTagsResponse_nextToken' - The token returned to indicate that there is more data available.
+--
+-- 'tags', 'listTagsResponse_tags' - The tags requested for the specified resource.
 --
 -- 'httpStatus', 'listTagsResponse_httpStatus' - The response's http status code.
 newListTagsResponse ::
@@ -217,18 +217,18 @@ newListTagsResponse ::
   ListTagsResponse
 newListTagsResponse pHttpStatus_ =
   ListTagsResponse'
-    { tags = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The tags requested for the specified resource.
-listTagsResponse_tags :: Lens.Lens' ListTagsResponse (Prelude.Maybe [Tag])
-listTagsResponse_tags = Lens.lens (\ListTagsResponse' {tags} -> tags) (\s@ListTagsResponse' {} a -> s {tags = a} :: ListTagsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token returned to indicate that there is more data available.
 listTagsResponse_nextToken :: Lens.Lens' ListTagsResponse (Prelude.Maybe Prelude.Text)
 listTagsResponse_nextToken = Lens.lens (\ListTagsResponse' {nextToken} -> nextToken) (\s@ListTagsResponse' {} a -> s {nextToken = a} :: ListTagsResponse)
+
+-- | The tags requested for the specified resource.
+listTagsResponse_tags :: Lens.Lens' ListTagsResponse (Prelude.Maybe [Tag])
+listTagsResponse_tags = Lens.lens (\ListTagsResponse' {tags} -> tags) (\s@ListTagsResponse' {} a -> s {tags = a} :: ListTagsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listTagsResponse_httpStatus :: Lens.Lens' ListTagsResponse Prelude.Int
@@ -236,6 +236,6 @@ listTagsResponse_httpStatus = Lens.lens (\ListTagsResponse' {httpStatus} -> http
 
 instance Prelude.NFData ListTagsResponse where
   rnf ListTagsResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

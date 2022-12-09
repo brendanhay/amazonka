@@ -27,14 +27,14 @@ module Amazonka.AlexaBusiness.CreateProfile
     newCreateProfile,
 
     -- * Request Lenses
-    createProfile_tags,
-    createProfile_setupModeDisabled,
     createProfile_clientRequestToken,
     createProfile_dataRetentionOptIn,
     createProfile_locale,
+    createProfile_maxVolumeLimit,
     createProfile_meetingRoomConfiguration,
     createProfile_pSTNEnabled,
-    createProfile_maxVolumeLimit,
+    createProfile_setupModeDisabled,
+    createProfile_tags,
     createProfile_profileName,
     createProfile_timezone,
     createProfile_address,
@@ -62,23 +62,23 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateProfile' smart constructor.
 data CreateProfile = CreateProfile'
-  { -- | The tags for the profile.
-    tags :: Prelude.Maybe [Tag],
-    -- | Whether room profile setup is enabled.
-    setupModeDisabled :: Prelude.Maybe Prelude.Bool,
-    -- | The user-specified token that is used during the creation of a profile.
+  { -- | The user-specified token that is used during the creation of a profile.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | Whether data retention of the profile is enabled.
     dataRetentionOptIn :: Prelude.Maybe Prelude.Bool,
     -- | The locale of the room profile. (This is currently only available to a
     -- limited preview audience.)
     locale :: Prelude.Maybe Prelude.Text,
+    -- | The maximum volume limit for a room profile.
+    maxVolumeLimit :: Prelude.Maybe Prelude.Int,
     -- | The meeting room settings of a room profile.
     meetingRoomConfiguration :: Prelude.Maybe CreateMeetingRoomConfiguration,
     -- | Whether PSTN calling is enabled.
     pSTNEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum volume limit for a room profile.
-    maxVolumeLimit :: Prelude.Maybe Prelude.Int,
+    -- | Whether room profile setup is enabled.
+    setupModeDisabled :: Prelude.Maybe Prelude.Bool,
+    -- | The tags for the profile.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of a room profile.
     profileName :: Prelude.Text,
     -- | The time zone used by a room profile.
@@ -102,10 +102,6 @@ data CreateProfile = CreateProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createProfile_tags' - The tags for the profile.
---
--- 'setupModeDisabled', 'createProfile_setupModeDisabled' - Whether room profile setup is enabled.
---
 -- 'clientRequestToken', 'createProfile_clientRequestToken' - The user-specified token that is used during the creation of a profile.
 --
 -- 'dataRetentionOptIn', 'createProfile_dataRetentionOptIn' - Whether data retention of the profile is enabled.
@@ -113,11 +109,15 @@ data CreateProfile = CreateProfile'
 -- 'locale', 'createProfile_locale' - The locale of the room profile. (This is currently only available to a
 -- limited preview audience.)
 --
+-- 'maxVolumeLimit', 'createProfile_maxVolumeLimit' - The maximum volume limit for a room profile.
+--
 -- 'meetingRoomConfiguration', 'createProfile_meetingRoomConfiguration' - The meeting room settings of a room profile.
 --
 -- 'pSTNEnabled', 'createProfile_pSTNEnabled' - Whether PSTN calling is enabled.
 --
--- 'maxVolumeLimit', 'createProfile_maxVolumeLimit' - The maximum volume limit for a room profile.
+-- 'setupModeDisabled', 'createProfile_setupModeDisabled' - Whether room profile setup is enabled.
+--
+-- 'tags', 'createProfile_tags' - The tags for the profile.
 --
 -- 'profileName', 'createProfile_profileName' - The name of a room profile.
 --
@@ -152,14 +152,15 @@ newCreateProfile
   pTemperatureUnit_
   pWakeWord_ =
     CreateProfile'
-      { tags = Prelude.Nothing,
-        setupModeDisabled = Prelude.Nothing,
-        clientRequestToken = Prelude.Nothing,
+      { clientRequestToken =
+          Prelude.Nothing,
         dataRetentionOptIn = Prelude.Nothing,
         locale = Prelude.Nothing,
+        maxVolumeLimit = Prelude.Nothing,
         meetingRoomConfiguration = Prelude.Nothing,
         pSTNEnabled = Prelude.Nothing,
-        maxVolumeLimit = Prelude.Nothing,
+        setupModeDisabled = Prelude.Nothing,
+        tags = Prelude.Nothing,
         profileName = pProfileName_,
         timezone = pTimezone_,
         address = pAddress_,
@@ -167,14 +168,6 @@ newCreateProfile
         temperatureUnit = pTemperatureUnit_,
         wakeWord = pWakeWord_
       }
-
--- | The tags for the profile.
-createProfile_tags :: Lens.Lens' CreateProfile (Prelude.Maybe [Tag])
-createProfile_tags = Lens.lens (\CreateProfile' {tags} -> tags) (\s@CreateProfile' {} a -> s {tags = a} :: CreateProfile) Prelude.. Lens.mapping Lens.coerced
-
--- | Whether room profile setup is enabled.
-createProfile_setupModeDisabled :: Lens.Lens' CreateProfile (Prelude.Maybe Prelude.Bool)
-createProfile_setupModeDisabled = Lens.lens (\CreateProfile' {setupModeDisabled} -> setupModeDisabled) (\s@CreateProfile' {} a -> s {setupModeDisabled = a} :: CreateProfile)
 
 -- | The user-specified token that is used during the creation of a profile.
 createProfile_clientRequestToken :: Lens.Lens' CreateProfile (Prelude.Maybe Prelude.Text)
@@ -189,6 +182,10 @@ createProfile_dataRetentionOptIn = Lens.lens (\CreateProfile' {dataRetentionOptI
 createProfile_locale :: Lens.Lens' CreateProfile (Prelude.Maybe Prelude.Text)
 createProfile_locale = Lens.lens (\CreateProfile' {locale} -> locale) (\s@CreateProfile' {} a -> s {locale = a} :: CreateProfile)
 
+-- | The maximum volume limit for a room profile.
+createProfile_maxVolumeLimit :: Lens.Lens' CreateProfile (Prelude.Maybe Prelude.Int)
+createProfile_maxVolumeLimit = Lens.lens (\CreateProfile' {maxVolumeLimit} -> maxVolumeLimit) (\s@CreateProfile' {} a -> s {maxVolumeLimit = a} :: CreateProfile)
+
 -- | The meeting room settings of a room profile.
 createProfile_meetingRoomConfiguration :: Lens.Lens' CreateProfile (Prelude.Maybe CreateMeetingRoomConfiguration)
 createProfile_meetingRoomConfiguration = Lens.lens (\CreateProfile' {meetingRoomConfiguration} -> meetingRoomConfiguration) (\s@CreateProfile' {} a -> s {meetingRoomConfiguration = a} :: CreateProfile)
@@ -197,9 +194,13 @@ createProfile_meetingRoomConfiguration = Lens.lens (\CreateProfile' {meetingRoom
 createProfile_pSTNEnabled :: Lens.Lens' CreateProfile (Prelude.Maybe Prelude.Bool)
 createProfile_pSTNEnabled = Lens.lens (\CreateProfile' {pSTNEnabled} -> pSTNEnabled) (\s@CreateProfile' {} a -> s {pSTNEnabled = a} :: CreateProfile)
 
--- | The maximum volume limit for a room profile.
-createProfile_maxVolumeLimit :: Lens.Lens' CreateProfile (Prelude.Maybe Prelude.Int)
-createProfile_maxVolumeLimit = Lens.lens (\CreateProfile' {maxVolumeLimit} -> maxVolumeLimit) (\s@CreateProfile' {} a -> s {maxVolumeLimit = a} :: CreateProfile)
+-- | Whether room profile setup is enabled.
+createProfile_setupModeDisabled :: Lens.Lens' CreateProfile (Prelude.Maybe Prelude.Bool)
+createProfile_setupModeDisabled = Lens.lens (\CreateProfile' {setupModeDisabled} -> setupModeDisabled) (\s@CreateProfile' {} a -> s {setupModeDisabled = a} :: CreateProfile)
+
+-- | The tags for the profile.
+createProfile_tags :: Lens.Lens' CreateProfile (Prelude.Maybe [Tag])
+createProfile_tags = Lens.lens (\CreateProfile' {tags} -> tags) (\s@CreateProfile' {} a -> s {tags = a} :: CreateProfile) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of a room profile.
 createProfile_profileName :: Lens.Lens' CreateProfile Prelude.Text
@@ -241,14 +242,14 @@ instance Core.AWSRequest CreateProfile where
 
 instance Prelude.Hashable CreateProfile where
   hashWithSalt _salt CreateProfile' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` setupModeDisabled
-      `Prelude.hashWithSalt` clientRequestToken
+    _salt `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` dataRetentionOptIn
       `Prelude.hashWithSalt` locale
+      `Prelude.hashWithSalt` maxVolumeLimit
       `Prelude.hashWithSalt` meetingRoomConfiguration
       `Prelude.hashWithSalt` pSTNEnabled
-      `Prelude.hashWithSalt` maxVolumeLimit
+      `Prelude.hashWithSalt` setupModeDisabled
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` profileName
       `Prelude.hashWithSalt` timezone
       `Prelude.hashWithSalt` address
@@ -258,14 +259,14 @@ instance Prelude.Hashable CreateProfile where
 
 instance Prelude.NFData CreateProfile where
   rnf CreateProfile' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf setupModeDisabled
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf dataRetentionOptIn
       `Prelude.seq` Prelude.rnf locale
+      `Prelude.seq` Prelude.rnf maxVolumeLimit
       `Prelude.seq` Prelude.rnf meetingRoomConfiguration
       `Prelude.seq` Prelude.rnf pSTNEnabled
-      `Prelude.seq` Prelude.rnf maxVolumeLimit
+      `Prelude.seq` Prelude.rnf setupModeDisabled
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf profileName
       `Prelude.seq` Prelude.rnf timezone
       `Prelude.seq` Prelude.rnf address
@@ -292,19 +293,19 @@ instance Data.ToJSON CreateProfile where
   toJSON CreateProfile' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("SetupModeDisabled" Data..=)
-              Prelude.<$> setupModeDisabled,
-            ("ClientRequestToken" Data..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
             ("DataRetentionOptIn" Data..=)
               Prelude.<$> dataRetentionOptIn,
             ("Locale" Data..=) Prelude.<$> locale,
+            ("MaxVolumeLimit" Data..=)
+              Prelude.<$> maxVolumeLimit,
             ("MeetingRoomConfiguration" Data..=)
               Prelude.<$> meetingRoomConfiguration,
             ("PSTNEnabled" Data..=) Prelude.<$> pSTNEnabled,
-            ("MaxVolumeLimit" Data..=)
-              Prelude.<$> maxVolumeLimit,
+            ("SetupModeDisabled" Data..=)
+              Prelude.<$> setupModeDisabled,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("ProfileName" Data..= profileName),
             Prelude.Just ("Timezone" Data..= timezone),
             Prelude.Just ("Address" Data..= address),

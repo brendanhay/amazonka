@@ -29,16 +29,16 @@ module Amazonka.AlexaBusiness.ListConferenceProviders
     newListConferenceProviders,
 
     -- * Request Lenses
-    listConferenceProviders_nextToken,
     listConferenceProviders_maxResults,
+    listConferenceProviders_nextToken,
 
     -- * Destructuring the Response
     ListConferenceProvidersResponse (..),
     newListConferenceProvidersResponse,
 
     -- * Response Lenses
-    listConferenceProvidersResponse_nextToken,
     listConferenceProvidersResponse_conferenceProviders,
+    listConferenceProvidersResponse_nextToken,
     listConferenceProvidersResponse_httpStatus,
   )
 where
@@ -53,11 +53,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListConferenceProviders' smart constructor.
 data ListConferenceProviders = ListConferenceProviders'
-  { -- | The tokens used for pagination.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of conference providers to be returned, per paginated
+  { -- | The maximum number of conference providers to be returned, per paginated
     -- calls.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The tokens used for pagination.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,27 +69,27 @@ data ListConferenceProviders = ListConferenceProviders'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listConferenceProviders_nextToken' - The tokens used for pagination.
---
 -- 'maxResults', 'listConferenceProviders_maxResults' - The maximum number of conference providers to be returned, per paginated
 -- calls.
+--
+-- 'nextToken', 'listConferenceProviders_nextToken' - The tokens used for pagination.
 newListConferenceProviders ::
   ListConferenceProviders
 newListConferenceProviders =
   ListConferenceProviders'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
-
--- | The tokens used for pagination.
-listConferenceProviders_nextToken :: Lens.Lens' ListConferenceProviders (Prelude.Maybe Prelude.Text)
-listConferenceProviders_nextToken = Lens.lens (\ListConferenceProviders' {nextToken} -> nextToken) (\s@ListConferenceProviders' {} a -> s {nextToken = a} :: ListConferenceProviders)
 
 -- | The maximum number of conference providers to be returned, per paginated
 -- calls.
 listConferenceProviders_maxResults :: Lens.Lens' ListConferenceProviders (Prelude.Maybe Prelude.Natural)
 listConferenceProviders_maxResults = Lens.lens (\ListConferenceProviders' {maxResults} -> maxResults) (\s@ListConferenceProviders' {} a -> s {maxResults = a} :: ListConferenceProviders)
+
+-- | The tokens used for pagination.
+listConferenceProviders_nextToken :: Lens.Lens' ListConferenceProviders (Prelude.Maybe Prelude.Text)
+listConferenceProviders_nextToken = Lens.lens (\ListConferenceProviders' {nextToken} -> nextToken) (\s@ListConferenceProviders' {} a -> s {nextToken = a} :: ListConferenceProviders)
 
 instance Core.AWSPager ListConferenceProviders where
   page rq rs
@@ -123,22 +123,22 @@ instance Core.AWSRequest ListConferenceProviders where
     Response.receiveJSON
       ( \s h x ->
           ListConferenceProvidersResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ConferenceProviders"
+            Prelude.<$> ( x Data..?> "ConferenceProviders"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListConferenceProviders where
   hashWithSalt _salt ListConferenceProviders' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListConferenceProviders where
   rnf ListConferenceProviders' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListConferenceProviders where
   toHeaders =
@@ -159,8 +159,8 @@ instance Data.ToJSON ListConferenceProviders where
   toJSON ListConferenceProviders' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -172,10 +172,10 @@ instance Data.ToQuery ListConferenceProviders where
 
 -- | /See:/ 'newListConferenceProvidersResponse' smart constructor.
 data ListConferenceProvidersResponse = ListConferenceProvidersResponse'
-  { -- | The tokens used for pagination.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The conference providers.
+  { -- | The conference providers.
     conferenceProviders :: Prelude.Maybe [ConferenceProvider],
+    -- | The tokens used for pagination.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -189,9 +189,9 @@ data ListConferenceProvidersResponse = ListConferenceProvidersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listConferenceProvidersResponse_nextToken' - The tokens used for pagination.
---
 -- 'conferenceProviders', 'listConferenceProvidersResponse_conferenceProviders' - The conference providers.
+--
+-- 'nextToken', 'listConferenceProvidersResponse_nextToken' - The tokens used for pagination.
 --
 -- 'httpStatus', 'listConferenceProvidersResponse_httpStatus' - The response's http status code.
 newListConferenceProvidersResponse ::
@@ -200,19 +200,19 @@ newListConferenceProvidersResponse ::
   ListConferenceProvidersResponse
 newListConferenceProvidersResponse pHttpStatus_ =
   ListConferenceProvidersResponse'
-    { nextToken =
+    { conferenceProviders =
         Prelude.Nothing,
-      conferenceProviders = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The tokens used for pagination.
-listConferenceProvidersResponse_nextToken :: Lens.Lens' ListConferenceProvidersResponse (Prelude.Maybe Prelude.Text)
-listConferenceProvidersResponse_nextToken = Lens.lens (\ListConferenceProvidersResponse' {nextToken} -> nextToken) (\s@ListConferenceProvidersResponse' {} a -> s {nextToken = a} :: ListConferenceProvidersResponse)
 
 -- | The conference providers.
 listConferenceProvidersResponse_conferenceProviders :: Lens.Lens' ListConferenceProvidersResponse (Prelude.Maybe [ConferenceProvider])
 listConferenceProvidersResponse_conferenceProviders = Lens.lens (\ListConferenceProvidersResponse' {conferenceProviders} -> conferenceProviders) (\s@ListConferenceProvidersResponse' {} a -> s {conferenceProviders = a} :: ListConferenceProvidersResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The tokens used for pagination.
+listConferenceProvidersResponse_nextToken :: Lens.Lens' ListConferenceProvidersResponse (Prelude.Maybe Prelude.Text)
+listConferenceProvidersResponse_nextToken = Lens.lens (\ListConferenceProvidersResponse' {nextToken} -> nextToken) (\s@ListConferenceProvidersResponse' {} a -> s {nextToken = a} :: ListConferenceProvidersResponse)
 
 -- | The response's http status code.
 listConferenceProvidersResponse_httpStatus :: Lens.Lens' ListConferenceProvidersResponse Prelude.Int
@@ -223,6 +223,6 @@ instance
     ListConferenceProvidersResponse
   where
   rnf ListConferenceProvidersResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf conferenceProviders
+    Prelude.rnf conferenceProviders
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

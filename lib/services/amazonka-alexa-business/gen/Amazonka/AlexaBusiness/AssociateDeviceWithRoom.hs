@@ -30,8 +30,8 @@ module Amazonka.AlexaBusiness.AssociateDeviceWithRoom
     newAssociateDeviceWithRoom,
 
     -- * Request Lenses
-    associateDeviceWithRoom_roomArn,
     associateDeviceWithRoom_deviceArn,
+    associateDeviceWithRoom_roomArn,
 
     -- * Destructuring the Response
     AssociateDeviceWithRoomResponse (..),
@@ -52,10 +52,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAssociateDeviceWithRoom' smart constructor.
 data AssociateDeviceWithRoom = AssociateDeviceWithRoom'
-  { -- | The ARN of the room with which to associate the device. Required.
-    roomArn :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the device to associate to a room. Required.
-    deviceArn :: Prelude.Maybe Prelude.Text
+  { -- | The ARN of the device to associate to a room. Required.
+    deviceArn :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the room with which to associate the device. Required.
+    roomArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,24 +67,25 @@ data AssociateDeviceWithRoom = AssociateDeviceWithRoom'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roomArn', 'associateDeviceWithRoom_roomArn' - The ARN of the room with which to associate the device. Required.
---
 -- 'deviceArn', 'associateDeviceWithRoom_deviceArn' - The ARN of the device to associate to a room. Required.
+--
+-- 'roomArn', 'associateDeviceWithRoom_roomArn' - The ARN of the room with which to associate the device. Required.
 newAssociateDeviceWithRoom ::
   AssociateDeviceWithRoom
 newAssociateDeviceWithRoom =
   AssociateDeviceWithRoom'
-    { roomArn = Prelude.Nothing,
-      deviceArn = Prelude.Nothing
+    { deviceArn =
+        Prelude.Nothing,
+      roomArn = Prelude.Nothing
     }
-
--- | The ARN of the room with which to associate the device. Required.
-associateDeviceWithRoom_roomArn :: Lens.Lens' AssociateDeviceWithRoom (Prelude.Maybe Prelude.Text)
-associateDeviceWithRoom_roomArn = Lens.lens (\AssociateDeviceWithRoom' {roomArn} -> roomArn) (\s@AssociateDeviceWithRoom' {} a -> s {roomArn = a} :: AssociateDeviceWithRoom)
 
 -- | The ARN of the device to associate to a room. Required.
 associateDeviceWithRoom_deviceArn :: Lens.Lens' AssociateDeviceWithRoom (Prelude.Maybe Prelude.Text)
 associateDeviceWithRoom_deviceArn = Lens.lens (\AssociateDeviceWithRoom' {deviceArn} -> deviceArn) (\s@AssociateDeviceWithRoom' {} a -> s {deviceArn = a} :: AssociateDeviceWithRoom)
+
+-- | The ARN of the room with which to associate the device. Required.
+associateDeviceWithRoom_roomArn :: Lens.Lens' AssociateDeviceWithRoom (Prelude.Maybe Prelude.Text)
+associateDeviceWithRoom_roomArn = Lens.lens (\AssociateDeviceWithRoom' {roomArn} -> roomArn) (\s@AssociateDeviceWithRoom' {} a -> s {roomArn = a} :: AssociateDeviceWithRoom)
 
 instance Core.AWSRequest AssociateDeviceWithRoom where
   type
@@ -101,13 +102,13 @@ instance Core.AWSRequest AssociateDeviceWithRoom where
 
 instance Prelude.Hashable AssociateDeviceWithRoom where
   hashWithSalt _salt AssociateDeviceWithRoom' {..} =
-    _salt `Prelude.hashWithSalt` roomArn
-      `Prelude.hashWithSalt` deviceArn
+    _salt `Prelude.hashWithSalt` deviceArn
+      `Prelude.hashWithSalt` roomArn
 
 instance Prelude.NFData AssociateDeviceWithRoom where
   rnf AssociateDeviceWithRoom' {..} =
-    Prelude.rnf roomArn
-      `Prelude.seq` Prelude.rnf deviceArn
+    Prelude.rnf deviceArn
+      `Prelude.seq` Prelude.rnf roomArn
 
 instance Data.ToHeaders AssociateDeviceWithRoom where
   toHeaders =
@@ -128,8 +129,8 @@ instance Data.ToJSON AssociateDeviceWithRoom where
   toJSON AssociateDeviceWithRoom' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("RoomArn" Data..=) Prelude.<$> roomArn,
-            ("DeviceArn" Data..=) Prelude.<$> deviceArn
+          [ ("DeviceArn" Data..=) Prelude.<$> deviceArn,
+            ("RoomArn" Data..=) Prelude.<$> roomArn
           ]
       )
 

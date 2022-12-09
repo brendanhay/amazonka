@@ -27,8 +27,8 @@ module Amazonka.AlexaBusiness.UpdateSkillGroup
     newUpdateSkillGroup,
 
     -- * Request Lenses
-    updateSkillGroup_skillGroupArn,
     updateSkillGroup_description,
+    updateSkillGroup_skillGroupArn,
     updateSkillGroup_skillGroupName,
 
     -- * Destructuring the Response
@@ -50,10 +50,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateSkillGroup' smart constructor.
 data UpdateSkillGroup = UpdateSkillGroup'
-  { -- | The ARN of the skill group to update.
-    skillGroupArn :: Prelude.Maybe Prelude.Text,
-    -- | The updated description for the skill group.
+  { -- | The updated description for the skill group.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the skill group to update.
+    skillGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The updated name for the skill group.
     skillGroupName :: Prelude.Maybe Prelude.Text
   }
@@ -67,27 +67,27 @@ data UpdateSkillGroup = UpdateSkillGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'skillGroupArn', 'updateSkillGroup_skillGroupArn' - The ARN of the skill group to update.
---
 -- 'description', 'updateSkillGroup_description' - The updated description for the skill group.
+--
+-- 'skillGroupArn', 'updateSkillGroup_skillGroupArn' - The ARN of the skill group to update.
 --
 -- 'skillGroupName', 'updateSkillGroup_skillGroupName' - The updated name for the skill group.
 newUpdateSkillGroup ::
   UpdateSkillGroup
 newUpdateSkillGroup =
   UpdateSkillGroup'
-    { skillGroupArn = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      skillGroupArn = Prelude.Nothing,
       skillGroupName = Prelude.Nothing
     }
-
--- | The ARN of the skill group to update.
-updateSkillGroup_skillGroupArn :: Lens.Lens' UpdateSkillGroup (Prelude.Maybe Prelude.Text)
-updateSkillGroup_skillGroupArn = Lens.lens (\UpdateSkillGroup' {skillGroupArn} -> skillGroupArn) (\s@UpdateSkillGroup' {} a -> s {skillGroupArn = a} :: UpdateSkillGroup)
 
 -- | The updated description for the skill group.
 updateSkillGroup_description :: Lens.Lens' UpdateSkillGroup (Prelude.Maybe Prelude.Text)
 updateSkillGroup_description = Lens.lens (\UpdateSkillGroup' {description} -> description) (\s@UpdateSkillGroup' {} a -> s {description = a} :: UpdateSkillGroup)
+
+-- | The ARN of the skill group to update.
+updateSkillGroup_skillGroupArn :: Lens.Lens' UpdateSkillGroup (Prelude.Maybe Prelude.Text)
+updateSkillGroup_skillGroupArn = Lens.lens (\UpdateSkillGroup' {skillGroupArn} -> skillGroupArn) (\s@UpdateSkillGroup' {} a -> s {skillGroupArn = a} :: UpdateSkillGroup)
 
 -- | The updated name for the skill group.
 updateSkillGroup_skillGroupName :: Lens.Lens' UpdateSkillGroup (Prelude.Maybe Prelude.Text)
@@ -108,14 +108,14 @@ instance Core.AWSRequest UpdateSkillGroup where
 
 instance Prelude.Hashable UpdateSkillGroup where
   hashWithSalt _salt UpdateSkillGroup' {..} =
-    _salt `Prelude.hashWithSalt` skillGroupArn
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` skillGroupArn
       `Prelude.hashWithSalt` skillGroupName
 
 instance Prelude.NFData UpdateSkillGroup where
   rnf UpdateSkillGroup' {..} =
-    Prelude.rnf skillGroupArn
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf skillGroupArn
       `Prelude.seq` Prelude.rnf skillGroupName
 
 instance Data.ToHeaders UpdateSkillGroup where
@@ -137,8 +137,8 @@ instance Data.ToJSON UpdateSkillGroup where
   toJSON UpdateSkillGroup' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SkillGroupArn" Data..=) Prelude.<$> skillGroupArn,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("SkillGroupArn" Data..=) Prelude.<$> skillGroupArn,
             ("SkillGroupName" Data..=)
               Prelude.<$> skillGroupName
           ]

@@ -29,50 +29,50 @@ module Amazonka.AlexaBusiness
     -- * Errors
     -- $errors
 
-    -- ** NameInUseException
-    _NameInUseException,
-
-    -- ** ResourceAssociatedException
-    _ResourceAssociatedException,
-
-    -- ** InvalidSecretsManagerResourceException
-    _InvalidSecretsManagerResourceException,
-
-    -- ** InvalidUserStatusException
-    _InvalidUserStatusException,
+    -- ** AlreadyExistsException
+    _AlreadyExistsException,
 
     -- ** ConcurrentModificationException
     _ConcurrentModificationException,
 
-    -- ** InvalidServiceLinkedRoleStateException
-    _InvalidServiceLinkedRoleStateException,
-
-    -- ** SkillNotLinkedException
-    _SkillNotLinkedException,
-
-    -- ** InvalidDeviceException
-    _InvalidDeviceException,
-
-    -- ** UnauthorizedException
-    _UnauthorizedException,
+    -- ** DeviceNotRegisteredException
+    _DeviceNotRegisteredException,
 
     -- ** InvalidCertificateAuthorityException
     _InvalidCertificateAuthorityException,
 
-    -- ** NotFoundException
-    _NotFoundException,
+    -- ** InvalidDeviceException
+    _InvalidDeviceException,
 
-    -- ** ResourceInUseException
-    _ResourceInUseException,
+    -- ** InvalidSecretsManagerResourceException
+    _InvalidSecretsManagerResourceException,
 
-    -- ** AlreadyExistsException
-    _AlreadyExistsException,
+    -- ** InvalidServiceLinkedRoleStateException
+    _InvalidServiceLinkedRoleStateException,
+
+    -- ** InvalidUserStatusException
+    _InvalidUserStatusException,
 
     -- ** LimitExceededException
     _LimitExceededException,
 
-    -- ** DeviceNotRegisteredException
-    _DeviceNotRegisteredException,
+    -- ** NameInUseException
+    _NameInUseException,
+
+    -- ** NotFoundException
+    _NotFoundException,
+
+    -- ** ResourceAssociatedException
+    _ResourceAssociatedException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
+
+    -- ** SkillNotLinkedException
+    _SkillNotLinkedException,
+
+    -- ** UnauthorizedException
+    _UnauthorizedException,
 
     -- * Waiters
     -- $waiters

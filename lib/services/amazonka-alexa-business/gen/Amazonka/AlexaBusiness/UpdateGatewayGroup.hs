@@ -28,8 +28,8 @@ module Amazonka.AlexaBusiness.UpdateGatewayGroup
     newUpdateGatewayGroup,
 
     -- * Request Lenses
-    updateGatewayGroup_name,
     updateGatewayGroup_description,
+    updateGatewayGroup_name,
     updateGatewayGroup_gatewayGroupArn,
 
     -- * Destructuring the Response
@@ -51,10 +51,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateGatewayGroup' smart constructor.
 data UpdateGatewayGroup = UpdateGatewayGroup'
-  { -- | The updated name of the gateway group.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The updated description of the gateway group.
+  { -- | The updated description of the gateway group.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The updated name of the gateway group.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the gateway group to update.
     gatewayGroupArn :: Prelude.Text
   }
@@ -68,9 +68,9 @@ data UpdateGatewayGroup = UpdateGatewayGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateGatewayGroup_name' - The updated name of the gateway group.
---
 -- 'description', 'updateGatewayGroup_description' - The updated description of the gateway group.
+--
+-- 'name', 'updateGatewayGroup_name' - The updated name of the gateway group.
 --
 -- 'gatewayGroupArn', 'updateGatewayGroup_gatewayGroupArn' - The ARN of the gateway group to update.
 newUpdateGatewayGroup ::
@@ -79,18 +79,18 @@ newUpdateGatewayGroup ::
   UpdateGatewayGroup
 newUpdateGatewayGroup pGatewayGroupArn_ =
   UpdateGatewayGroup'
-    { name = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      name = Prelude.Nothing,
       gatewayGroupArn = pGatewayGroupArn_
     }
-
--- | The updated name of the gateway group.
-updateGatewayGroup_name :: Lens.Lens' UpdateGatewayGroup (Prelude.Maybe Prelude.Text)
-updateGatewayGroup_name = Lens.lens (\UpdateGatewayGroup' {name} -> name) (\s@UpdateGatewayGroup' {} a -> s {name = a} :: UpdateGatewayGroup)
 
 -- | The updated description of the gateway group.
 updateGatewayGroup_description :: Lens.Lens' UpdateGatewayGroup (Prelude.Maybe Prelude.Text)
 updateGatewayGroup_description = Lens.lens (\UpdateGatewayGroup' {description} -> description) (\s@UpdateGatewayGroup' {} a -> s {description = a} :: UpdateGatewayGroup)
+
+-- | The updated name of the gateway group.
+updateGatewayGroup_name :: Lens.Lens' UpdateGatewayGroup (Prelude.Maybe Prelude.Text)
+updateGatewayGroup_name = Lens.lens (\UpdateGatewayGroup' {name} -> name) (\s@UpdateGatewayGroup' {} a -> s {name = a} :: UpdateGatewayGroup)
 
 -- | The ARN of the gateway group to update.
 updateGatewayGroup_gatewayGroupArn :: Lens.Lens' UpdateGatewayGroup Prelude.Text
@@ -111,14 +111,14 @@ instance Core.AWSRequest UpdateGatewayGroup where
 
 instance Prelude.Hashable UpdateGatewayGroup where
   hashWithSalt _salt UpdateGatewayGroup' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` gatewayGroupArn
 
 instance Prelude.NFData UpdateGatewayGroup where
   rnf UpdateGatewayGroup' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf gatewayGroupArn
 
 instance Data.ToHeaders UpdateGatewayGroup where
@@ -140,8 +140,8 @@ instance Data.ToJSON UpdateGatewayGroup where
   toJSON UpdateGatewayGroup' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("Name" Data..=) Prelude.<$> name,
             Prelude.Just
               ("GatewayGroupArn" Data..= gatewayGroupArn)
           ]

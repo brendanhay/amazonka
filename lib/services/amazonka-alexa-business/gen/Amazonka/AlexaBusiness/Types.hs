@@ -18,21 +18,21 @@ module Amazonka.AlexaBusiness.Types
     defaultService,
 
     -- * Errors
-    _NameInUseException,
-    _ResourceAssociatedException,
-    _InvalidSecretsManagerResourceException,
-    _InvalidUserStatusException,
-    _ConcurrentModificationException,
-    _InvalidServiceLinkedRoleStateException,
-    _SkillNotLinkedException,
-    _InvalidDeviceException,
-    _UnauthorizedException,
-    _InvalidCertificateAuthorityException,
-    _NotFoundException,
-    _ResourceInUseException,
     _AlreadyExistsException,
-    _LimitExceededException,
+    _ConcurrentModificationException,
     _DeviceNotRegisteredException,
+    _InvalidCertificateAuthorityException,
+    _InvalidDeviceException,
+    _InvalidSecretsManagerResourceException,
+    _InvalidServiceLinkedRoleStateException,
+    _InvalidUserStatusException,
+    _LimitExceededException,
+    _NameInUseException,
+    _NotFoundException,
+    _ResourceAssociatedException,
+    _ResourceInUseException,
+    _SkillNotLinkedException,
+    _UnauthorizedException,
 
     -- * BusinessReportFailureCode
     BusinessReportFailureCode (..),
@@ -121,16 +121,16 @@ module Amazonka.AlexaBusiness.Types
     -- * AddressBook
     AddressBook (..),
     newAddressBook,
-    addressBook_name,
-    addressBook_description,
     addressBook_addressBookArn,
+    addressBook_description,
+    addressBook_name,
 
     -- * AddressBookData
     AddressBookData (..),
     newAddressBookData,
-    addressBookData_name,
-    addressBookData_description,
     addressBookData_addressBookArn,
+    addressBookData_description,
+    addressBookData_name,
 
     -- * Audio
     Audio (..),
@@ -142,10 +142,10 @@ module Amazonka.AlexaBusiness.Types
     BusinessReport (..),
     newBusinessReport,
     businessReport_deliveryTime,
-    businessReport_failureCode,
     businessReport_downloadUrl,
-    businessReport_status,
+    businessReport_failureCode,
     businessReport_s3Location,
+    businessReport_status,
 
     -- * BusinessReportContentRange
     BusinessReportContentRange (..),
@@ -160,20 +160,20 @@ module Amazonka.AlexaBusiness.Types
     -- * BusinessReportS3Location
     BusinessReportS3Location (..),
     newBusinessReportS3Location,
-    businessReportS3Location_path,
     businessReportS3Location_bucketName,
+    businessReportS3Location_path,
 
     -- * BusinessReportSchedule
     BusinessReportSchedule (..),
     newBusinessReportSchedule,
-    businessReportSchedule_s3KeyPrefix,
-    businessReportSchedule_s3BucketName,
-    businessReportSchedule_format,
-    businessReportSchedule_scheduleArn,
     businessReportSchedule_contentRange,
-    businessReportSchedule_recurrence,
-    businessReportSchedule_scheduleName,
+    businessReportSchedule_format,
     businessReportSchedule_lastBusinessReport,
+    businessReportSchedule_recurrence,
+    businessReportSchedule_s3BucketName,
+    businessReportSchedule_s3KeyPrefix,
+    businessReportSchedule_scheduleArn,
+    businessReportSchedule_scheduleName,
 
     -- * Category
     Category (..),
@@ -189,41 +189,41 @@ module Amazonka.AlexaBusiness.Types
     -- * ConferenceProvider
     ConferenceProvider (..),
     newConferenceProvider,
-    conferenceProvider_iPDialIn,
-    conferenceProvider_name,
-    conferenceProvider_type,
-    conferenceProvider_meetingSetting,
-    conferenceProvider_pSTNDialIn,
     conferenceProvider_arn,
+    conferenceProvider_iPDialIn,
+    conferenceProvider_meetingSetting,
+    conferenceProvider_name,
+    conferenceProvider_pSTNDialIn,
+    conferenceProvider_type,
 
     -- * Contact
     Contact (..),
     newContact,
-    contact_firstName,
-    contact_sipAddresses,
-    contact_displayName,
     contact_contactArn,
+    contact_displayName,
+    contact_firstName,
     contact_lastName,
     contact_phoneNumber,
     contact_phoneNumbers,
+    contact_sipAddresses,
 
     -- * ContactData
     ContactData (..),
     newContactData,
-    contactData_firstName,
-    contactData_sipAddresses,
-    contactData_displayName,
     contactData_contactArn,
+    contactData_displayName,
+    contactData_firstName,
     contactData_lastName,
     contactData_phoneNumber,
     contactData_phoneNumbers,
+    contactData_sipAddresses,
 
     -- * Content
     Content (..),
     newContent,
     content_audioList,
-    content_textList,
     content_ssmlList,
+    content_textList,
 
     -- * CreateEndOfMeetingReminder
     CreateEndOfMeetingReminder (..),
@@ -241,10 +241,10 @@ module Amazonka.AlexaBusiness.Types
     -- * CreateMeetingRoomConfiguration
     CreateMeetingRoomConfiguration (..),
     newCreateMeetingRoomConfiguration,
-    createMeetingRoomConfiguration_instantBooking,
     createMeetingRoomConfiguration_endOfMeetingReminder,
-    createMeetingRoomConfiguration_roomUtilizationMetricsEnabled,
+    createMeetingRoomConfiguration_instantBooking,
     createMeetingRoomConfiguration_requireCheckIn,
+    createMeetingRoomConfiguration_roomUtilizationMetricsEnabled,
 
     -- * CreateRequireCheckIn
     CreateRequireCheckIn (..),
@@ -255,47 +255,47 @@ module Amazonka.AlexaBusiness.Types
     -- * DeveloperInfo
     DeveloperInfo (..),
     newDeveloperInfo,
-    developerInfo_email,
     developerInfo_developerName,
-    developerInfo_url,
+    developerInfo_email,
     developerInfo_privacyPolicy,
+    developerInfo_url,
 
     -- * Device
     Device (..),
     newDevice,
-    device_deviceSerialNumber,
+    device_deviceArn,
     device_deviceName,
+    device_deviceSerialNumber,
+    device_deviceStatus,
     device_deviceStatusInfo,
-    device_roomArn,
-    device_softwareVersion,
+    device_deviceType,
     device_macAddress,
     device_networkProfileInfo,
-    device_deviceStatus,
-    device_deviceArn,
-    device_deviceType,
+    device_roomArn,
+    device_softwareVersion,
 
     -- * DeviceData
     DeviceData (..),
     newDeviceData,
     deviceData_createdTime,
-    deviceData_deviceSerialNumber,
-    deviceData_deviceName,
-    deviceData_deviceStatusInfo,
-    deviceData_roomArn,
-    deviceData_softwareVersion,
-    deviceData_macAddress,
-    deviceData_deviceStatus,
     deviceData_deviceArn,
+    deviceData_deviceName,
+    deviceData_deviceSerialNumber,
+    deviceData_deviceStatus,
+    deviceData_deviceStatusInfo,
     deviceData_deviceType,
+    deviceData_macAddress,
     deviceData_networkProfileArn,
-    deviceData_roomName,
     deviceData_networkProfileName,
+    deviceData_roomArn,
+    deviceData_roomName,
+    deviceData_softwareVersion,
 
     -- * DeviceEvent
     DeviceEvent (..),
     newDeviceEvent,
-    deviceEvent_type,
     deviceEvent_timestamp,
+    deviceEvent_type,
     deviceEvent_value,
 
     -- * DeviceNetworkProfileInfo
@@ -314,16 +314,16 @@ module Amazonka.AlexaBusiness.Types
     -- * DeviceStatusInfo
     DeviceStatusInfo (..),
     newDeviceStatusInfo,
+    deviceStatusInfo_connectionStatus,
     deviceStatusInfo_connectionStatusUpdatedTime,
     deviceStatusInfo_deviceStatusDetails,
-    deviceStatusInfo_connectionStatus,
 
     -- * EndOfMeetingReminder
     EndOfMeetingReminder (..),
     newEndOfMeetingReminder,
-    endOfMeetingReminder_reminderType,
     endOfMeetingReminder_enabled,
     endOfMeetingReminder_reminderAtMinutes,
+    endOfMeetingReminder_reminderType,
 
     -- * Filter
     Filter (..),
@@ -334,33 +334,33 @@ module Amazonka.AlexaBusiness.Types
     -- * Gateway
     Gateway (..),
     newGateway,
-    gateway_name,
-    gateway_gatewayGroupArn,
     gateway_arn,
     gateway_description,
+    gateway_gatewayGroupArn,
+    gateway_name,
     gateway_softwareVersion,
 
     -- * GatewayGroup
     GatewayGroup (..),
     newGatewayGroup,
-    gatewayGroup_name,
     gatewayGroup_arn,
     gatewayGroup_description,
+    gatewayGroup_name,
 
     -- * GatewayGroupSummary
     GatewayGroupSummary (..),
     newGatewayGroupSummary,
-    gatewayGroupSummary_name,
     gatewayGroupSummary_arn,
     gatewayGroupSummary_description,
+    gatewayGroupSummary_name,
 
     -- * GatewaySummary
     GatewaySummary (..),
     newGatewaySummary,
-    gatewaySummary_name,
-    gatewaySummary_gatewayGroupArn,
     gatewaySummary_arn,
     gatewaySummary_description,
+    gatewaySummary_gatewayGroupArn,
+    gatewaySummary_name,
     gatewaySummary_softwareVersion,
 
     -- * IPDialIn
@@ -372,16 +372,16 @@ module Amazonka.AlexaBusiness.Types
     -- * InstantBooking
     InstantBooking (..),
     newInstantBooking,
-    instantBooking_enabled,
     instantBooking_durationInMinutes,
+    instantBooking_enabled,
 
     -- * MeetingRoomConfiguration
     MeetingRoomConfiguration (..),
     newMeetingRoomConfiguration,
-    meetingRoomConfiguration_instantBooking,
     meetingRoomConfiguration_endOfMeetingReminder,
-    meetingRoomConfiguration_roomUtilizationMetricsEnabled,
+    meetingRoomConfiguration_instantBooking,
     meetingRoomConfiguration_requireCheckIn,
+    meetingRoomConfiguration_roomUtilizationMetricsEnabled,
 
     -- * MeetingSetting
     MeetingSetting (..),
@@ -392,15 +392,15 @@ module Amazonka.AlexaBusiness.Types
     NetworkProfile (..),
     newNetworkProfile,
     networkProfile_certificateAuthorityArn,
+    networkProfile_currentPassword,
     networkProfile_description,
     networkProfile_eapMethod,
-    networkProfile_trustAnchors,
-    networkProfile_currentPassword,
-    networkProfile_nextPassword,
-    networkProfile_ssid,
-    networkProfile_securityType,
     networkProfile_networkProfileArn,
     networkProfile_networkProfileName,
+    networkProfile_nextPassword,
+    networkProfile_securityType,
+    networkProfile_ssid,
+    networkProfile_trustAnchors,
 
     -- * NetworkProfileData
     NetworkProfileData (..),
@@ -408,10 +408,10 @@ module Amazonka.AlexaBusiness.Types
     networkProfileData_certificateAuthorityArn,
     networkProfileData_description,
     networkProfileData_eapMethod,
-    networkProfileData_ssid,
-    networkProfileData_securityType,
     networkProfileData_networkProfileArn,
     networkProfileData_networkProfileName,
+    networkProfileData_securityType,
+    networkProfileData_ssid,
 
     -- * PSTNDialIn
     PSTNDialIn (..),
@@ -430,34 +430,34 @@ module Amazonka.AlexaBusiness.Types
     -- * Profile
     Profile (..),
     newProfile,
-    profile_setupModeDisabled,
-    profile_distanceUnit,
-    profile_dataRetentionOptIn,
-    profile_profileName,
-    profile_wakeWord,
-    profile_locale,
-    profile_meetingRoomConfiguration,
-    profile_timezone,
-    profile_profileArn,
-    profile_pSTNEnabled,
-    profile_isDefault,
     profile_address,
     profile_addressBookArn,
+    profile_dataRetentionOptIn,
+    profile_distanceUnit,
+    profile_isDefault,
+    profile_locale,
     profile_maxVolumeLimit,
+    profile_meetingRoomConfiguration,
+    profile_pSTNEnabled,
+    profile_profileArn,
+    profile_profileName,
+    profile_setupModeDisabled,
     profile_temperatureUnit,
+    profile_timezone,
+    profile_wakeWord,
 
     -- * ProfileData
     ProfileData (..),
     newProfileData,
-    profileData_distanceUnit,
-    profileData_profileName,
-    profileData_wakeWord,
-    profileData_locale,
-    profileData_timezone,
-    profileData_profileArn,
-    profileData_isDefault,
     profileData_address,
+    profileData_distanceUnit,
+    profileData_isDefault,
+    profileData_locale,
+    profileData_profileArn,
+    profileData_profileName,
     profileData_temperatureUnit,
+    profileData_timezone,
+    profileData_wakeWord,
 
     -- * RequireCheckIn
     RequireCheckIn (..),
@@ -468,20 +468,20 @@ module Amazonka.AlexaBusiness.Types
     -- * Room
     Room (..),
     newRoom,
-    room_profileArn,
-    room_roomArn,
     room_description,
+    room_profileArn,
     room_providerCalendarId,
+    room_roomArn,
     room_roomName,
 
     -- * RoomData
     RoomData (..),
     newRoomData,
-    roomData_profileName,
-    roomData_profileArn,
-    roomData_roomArn,
     roomData_description,
+    roomData_profileArn,
+    roomData_profileName,
     roomData_providerCalendarId,
+    roomData_roomArn,
     roomData_roomName,
 
     -- * RoomSkillParameter
@@ -499,57 +499,57 @@ module Amazonka.AlexaBusiness.Types
     -- * SkillDetails
     SkillDetails (..),
     newSkillDetails,
-    skillDetails_invocationPhrase,
-    skillDetails_endUserLicenseAgreement,
-    skillDetails_reviews,
-    skillDetails_releaseDate,
-    skillDetails_genericKeywords,
+    skillDetails_bulletPoints,
     skillDetails_developerInfo,
+    skillDetails_endUserLicenseAgreement,
+    skillDetails_genericKeywords,
+    skillDetails_invocationPhrase,
     skillDetails_newInThisVersionBulletPoints,
     skillDetails_productDescription,
+    skillDetails_releaseDate,
+    skillDetails_reviews,
     skillDetails_skillTypes,
-    skillDetails_bulletPoints,
 
     -- * SkillGroup
     SkillGroup (..),
     newSkillGroup,
-    skillGroup_skillGroupArn,
     skillGroup_description,
+    skillGroup_skillGroupArn,
     skillGroup_skillGroupName,
 
     -- * SkillGroupData
     SkillGroupData (..),
     newSkillGroupData,
-    skillGroupData_skillGroupArn,
     skillGroupData_description,
+    skillGroupData_skillGroupArn,
     skillGroupData_skillGroupName,
 
     -- * SkillSummary
     SkillSummary (..),
     newSkillSummary,
-    skillSummary_skillName,
-    skillSummary_supportsLinking,
     skillSummary_enablementType,
-    skillSummary_skillType,
     skillSummary_skillId,
+    skillSummary_skillName,
+    skillSummary_skillType,
+    skillSummary_supportsLinking,
 
     -- * SkillsStoreSkill
     SkillsStoreSkill (..),
     newSkillsStoreSkill,
+    skillsStoreSkill_iconUrl,
     skillsStoreSkill_sampleUtterances,
     skillsStoreSkill_shortDescription,
-    skillsStoreSkill_skillName,
-    skillsStoreSkill_iconUrl,
-    skillsStoreSkill_supportsLinking,
     skillsStoreSkill_skillDetails,
     skillsStoreSkill_skillId,
+    skillsStoreSkill_skillName,
+    skillsStoreSkill_supportsLinking,
 
     -- * SmartHomeAppliance
     SmartHomeAppliance (..),
     newSmartHomeAppliance,
-    smartHomeAppliance_manufacturerName,
     smartHomeAppliance_description,
     smartHomeAppliance_friendlyName,
+    smartHomeAppliance_manufacturerName,
 
     -- * Sort
     Sort (..),
@@ -578,23 +578,23 @@ module Amazonka.AlexaBusiness.Types
     -- * UpdateEndOfMeetingReminder
     UpdateEndOfMeetingReminder (..),
     newUpdateEndOfMeetingReminder,
-    updateEndOfMeetingReminder_reminderType,
     updateEndOfMeetingReminder_enabled,
     updateEndOfMeetingReminder_reminderAtMinutes,
+    updateEndOfMeetingReminder_reminderType,
 
     -- * UpdateInstantBooking
     UpdateInstantBooking (..),
     newUpdateInstantBooking,
-    updateInstantBooking_enabled,
     updateInstantBooking_durationInMinutes,
+    updateInstantBooking_enabled,
 
     -- * UpdateMeetingRoomConfiguration
     UpdateMeetingRoomConfiguration (..),
     newUpdateMeetingRoomConfiguration,
-    updateMeetingRoomConfiguration_instantBooking,
     updateMeetingRoomConfiguration_endOfMeetingReminder,
-    updateMeetingRoomConfiguration_roomUtilizationMetricsEnabled,
+    updateMeetingRoomConfiguration_instantBooking,
     updateMeetingRoomConfiguration_requireCheckIn,
+    updateMeetingRoomConfiguration_roomUtilizationMetricsEnabled,
 
     -- * UpdateRequireCheckIn
     UpdateRequireCheckIn (..),
@@ -605,11 +605,11 @@ module Amazonka.AlexaBusiness.Types
     -- * UserData
     UserData (..),
     newUserData,
-    userData_firstName,
     userData_email,
-    userData_enrollmentStatus,
-    userData_lastName,
     userData_enrollmentId,
+    userData_enrollmentStatus,
+    userData_firstName,
+    userData_lastName,
     userData_userArn,
   )
 where
@@ -733,28 +733,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -762,13 +756,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -776,21 +774,45 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
--- | The name sent in the request is already in use.
-_NameInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NameInUseException =
+-- | The resource being created already exists.
+_AlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AlreadyExistsException =
   Core._MatchServiceError
     defaultService
-    "NameInUseException"
+    "AlreadyExistsException"
 
--- | Another resource is associated with the resource in the request.
-_ResourceAssociatedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceAssociatedException =
+-- | There is a concurrent modification of resources.
+_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConcurrentModificationException =
   Core._MatchServiceError
     defaultService
-    "ResourceAssociatedException"
+    "ConcurrentModificationException"
+
+-- | The request failed because this device is no longer registered and
+-- therefore no longer managed by this account.
+_DeviceNotRegisteredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DeviceNotRegisteredException =
+  Core._MatchServiceError
+    defaultService
+    "DeviceNotRegisteredException"
+
+-- | The Certificate Authority can\'t issue or revoke a certificate.
+_InvalidCertificateAuthorityException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidCertificateAuthorityException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidCertificateAuthorityException"
+
+-- | The device is in an invalid state.
+_InvalidDeviceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidDeviceException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidDeviceException"
 
 -- | A password in SecretsManager is in an invalid state.
 _InvalidSecretsManagerResourceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -798,6 +820,13 @@ _InvalidSecretsManagerResourceException =
   Core._MatchServiceError
     defaultService
     "InvalidSecretsManagerResourceException"
+
+-- | The service linked role is locked for deletion.
+_InvalidServiceLinkedRoleStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidServiceLinkedRoleStateException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidServiceLinkedRoleStateException"
 
 -- | The attempt to update a user is invalid due to the user\'s current
 -- status.
@@ -807,70 +836,6 @@ _InvalidUserStatusException =
     defaultService
     "InvalidUserStatusException"
 
--- | There is a concurrent modification of resources.
-_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConcurrentModificationException =
-  Core._MatchServiceError
-    defaultService
-    "ConcurrentModificationException"
-
--- | The service linked role is locked for deletion.
-_InvalidServiceLinkedRoleStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidServiceLinkedRoleStateException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidServiceLinkedRoleStateException"
-
--- | The skill must be linked to a third-party account.
-_SkillNotLinkedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_SkillNotLinkedException =
-  Core._MatchServiceError
-    defaultService
-    "SkillNotLinkedException"
-
--- | The device is in an invalid state.
-_InvalidDeviceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidDeviceException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidDeviceException"
-
--- | The caller has no permissions to operate on the resource involved in the
--- API call.
-_UnauthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnauthorizedException =
-  Core._MatchServiceError
-    defaultService
-    "UnauthorizedException"
-
--- | The Certificate Authority can\'t issue or revoke a certificate.
-_InvalidCertificateAuthorityException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidCertificateAuthorityException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidCertificateAuthorityException"
-
--- | The resource is not found.
-_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "NotFoundException"
-
--- | The resource in the request is already in use.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceInUseException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceInUseException"
-
--- | The resource being created already exists.
-_AlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AlreadyExistsException =
-  Core._MatchServiceError
-    defaultService
-    "AlreadyExistsException"
-
 -- | You are performing an action that would put you beyond your account\'s
 -- limits.
 _LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -879,10 +844,45 @@ _LimitExceededException =
     defaultService
     "LimitExceededException"
 
--- | The request failed because this device is no longer registered and
--- therefore no longer managed by this account.
-_DeviceNotRegisteredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DeviceNotRegisteredException =
+-- | The name sent in the request is already in use.
+_NameInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NameInUseException =
   Core._MatchServiceError
     defaultService
-    "DeviceNotRegisteredException"
+    "NameInUseException"
+
+-- | The resource is not found.
+_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "NotFoundException"
+
+-- | Another resource is associated with the resource in the request.
+_ResourceAssociatedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceAssociatedException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceAssociatedException"
+
+-- | The resource in the request is already in use.
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceInUseException"
+
+-- | The skill must be linked to a third-party account.
+_SkillNotLinkedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SkillNotLinkedException =
+  Core._MatchServiceError
+    defaultService
+    "SkillNotLinkedException"
+
+-- | The caller has no permissions to operate on the resource involved in the
+-- API call.
+_UnauthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnauthorizedException =
+  Core._MatchServiceError
+    defaultService
+    "UnauthorizedException"

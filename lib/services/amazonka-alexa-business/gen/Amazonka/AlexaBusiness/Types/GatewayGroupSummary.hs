@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGatewayGroupSummary' smart constructor.
 data GatewayGroupSummary = GatewayGroupSummary'
-  { -- | The name of the gateway group.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the gateway group.
+  { -- | The ARN of the gateway group.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The description of the gateway group.
-    description :: Prelude.Maybe Prelude.Text
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The name of the gateway group.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,23 +45,19 @@ data GatewayGroupSummary = GatewayGroupSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'gatewayGroupSummary_name' - The name of the gateway group.
---
 -- 'arn', 'gatewayGroupSummary_arn' - The ARN of the gateway group.
 --
 -- 'description', 'gatewayGroupSummary_description' - The description of the gateway group.
+--
+-- 'name', 'gatewayGroupSummary_name' - The name of the gateway group.
 newGatewayGroupSummary ::
   GatewayGroupSummary
 newGatewayGroupSummary =
   GatewayGroupSummary'
-    { name = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      description = Prelude.Nothing
+    { arn = Prelude.Nothing,
+      description = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | The name of the gateway group.
-gatewayGroupSummary_name :: Lens.Lens' GatewayGroupSummary (Prelude.Maybe Prelude.Text)
-gatewayGroupSummary_name = Lens.lens (\GatewayGroupSummary' {name} -> name) (\s@GatewayGroupSummary' {} a -> s {name = a} :: GatewayGroupSummary)
 
 -- | The ARN of the gateway group.
 gatewayGroupSummary_arn :: Lens.Lens' GatewayGroupSummary (Prelude.Maybe Prelude.Text)
@@ -71,25 +67,29 @@ gatewayGroupSummary_arn = Lens.lens (\GatewayGroupSummary' {arn} -> arn) (\s@Gat
 gatewayGroupSummary_description :: Lens.Lens' GatewayGroupSummary (Prelude.Maybe Prelude.Text)
 gatewayGroupSummary_description = Lens.lens (\GatewayGroupSummary' {description} -> description) (\s@GatewayGroupSummary' {} a -> s {description = a} :: GatewayGroupSummary)
 
+-- | The name of the gateway group.
+gatewayGroupSummary_name :: Lens.Lens' GatewayGroupSummary (Prelude.Maybe Prelude.Text)
+gatewayGroupSummary_name = Lens.lens (\GatewayGroupSummary' {name} -> name) (\s@GatewayGroupSummary' {} a -> s {name = a} :: GatewayGroupSummary)
+
 instance Data.FromJSON GatewayGroupSummary where
   parseJSON =
     Data.withObject
       "GatewayGroupSummary"
       ( \x ->
           GatewayGroupSummary'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<$> (x Data..:? "Arn")
             Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable GatewayGroupSummary where
   hashWithSalt _salt GatewayGroupSummary' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData GatewayGroupSummary where
   rnf GatewayGroupSummary' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name

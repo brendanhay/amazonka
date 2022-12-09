@@ -28,16 +28,16 @@ module Amazonka.AlexaBusiness.ListGatewayGroups
     newListGatewayGroups,
 
     -- * Request Lenses
-    listGatewayGroups_nextToken,
     listGatewayGroups_maxResults,
+    listGatewayGroups_nextToken,
 
     -- * Destructuring the Response
     ListGatewayGroupsResponse (..),
     newListGatewayGroupsResponse,
 
     -- * Response Lenses
-    listGatewayGroupsResponse_nextToken,
     listGatewayGroupsResponse_gatewayGroups,
+    listGatewayGroupsResponse_nextToken,
     listGatewayGroupsResponse_httpStatus,
   )
 where
@@ -52,12 +52,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListGatewayGroups' smart constructor.
 data ListGatewayGroups = ListGatewayGroups'
-  { -- | The token used to paginate though multiple pages of gateway group
-    -- summaries.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of gateway group summaries to return. The default is
+  { -- | The maximum number of gateway group summaries to return. The default is
     -- 50.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token used to paginate though multiple pages of gateway group
+    -- summaries.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,28 +69,28 @@ data ListGatewayGroups = ListGatewayGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listGatewayGroups_nextToken' - The token used to paginate though multiple pages of gateway group
--- summaries.
---
 -- 'maxResults', 'listGatewayGroups_maxResults' - The maximum number of gateway group summaries to return. The default is
 -- 50.
+--
+-- 'nextToken', 'listGatewayGroups_nextToken' - The token used to paginate though multiple pages of gateway group
+-- summaries.
 newListGatewayGroups ::
   ListGatewayGroups
 newListGatewayGroups =
   ListGatewayGroups'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token used to paginate though multiple pages of gateway group
--- summaries.
-listGatewayGroups_nextToken :: Lens.Lens' ListGatewayGroups (Prelude.Maybe Prelude.Text)
-listGatewayGroups_nextToken = Lens.lens (\ListGatewayGroups' {nextToken} -> nextToken) (\s@ListGatewayGroups' {} a -> s {nextToken = a} :: ListGatewayGroups)
 
 -- | The maximum number of gateway group summaries to return. The default is
 -- 50.
 listGatewayGroups_maxResults :: Lens.Lens' ListGatewayGroups (Prelude.Maybe Prelude.Natural)
 listGatewayGroups_maxResults = Lens.lens (\ListGatewayGroups' {maxResults} -> maxResults) (\s@ListGatewayGroups' {} a -> s {maxResults = a} :: ListGatewayGroups)
+
+-- | The token used to paginate though multiple pages of gateway group
+-- summaries.
+listGatewayGroups_nextToken :: Lens.Lens' ListGatewayGroups (Prelude.Maybe Prelude.Text)
+listGatewayGroups_nextToken = Lens.lens (\ListGatewayGroups' {nextToken} -> nextToken) (\s@ListGatewayGroups' {} a -> s {nextToken = a} :: ListGatewayGroups)
 
 instance Core.AWSRequest ListGatewayGroups where
   type
@@ -102,20 +102,20 @@ instance Core.AWSRequest ListGatewayGroups where
     Response.receiveJSON
       ( \s h x ->
           ListGatewayGroupsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "GatewayGroups" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "GatewayGroups" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListGatewayGroups where
   hashWithSalt _salt ListGatewayGroups' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListGatewayGroups where
   rnf ListGatewayGroups' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListGatewayGroups where
   toHeaders =
@@ -136,8 +136,8 @@ instance Data.ToJSON ListGatewayGroups where
   toJSON ListGatewayGroups' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -149,11 +149,11 @@ instance Data.ToQuery ListGatewayGroups where
 
 -- | /See:/ 'newListGatewayGroupsResponse' smart constructor.
 data ListGatewayGroupsResponse = ListGatewayGroupsResponse'
-  { -- | The token used to paginate though multiple pages of gateway group
+  { -- | The gateway groups in the list.
+    gatewayGroups :: Prelude.Maybe [GatewayGroupSummary],
+    -- | The token used to paginate though multiple pages of gateway group
     -- summaries.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The gateway groups in the list.
-    gatewayGroups :: Prelude.Maybe [GatewayGroupSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -167,10 +167,10 @@ data ListGatewayGroupsResponse = ListGatewayGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'gatewayGroups', 'listGatewayGroupsResponse_gatewayGroups' - The gateway groups in the list.
+--
 -- 'nextToken', 'listGatewayGroupsResponse_nextToken' - The token used to paginate though multiple pages of gateway group
 -- summaries.
---
--- 'gatewayGroups', 'listGatewayGroupsResponse_gatewayGroups' - The gateway groups in the list.
 --
 -- 'httpStatus', 'listGatewayGroupsResponse_httpStatus' - The response's http status code.
 newListGatewayGroupsResponse ::
@@ -179,20 +179,20 @@ newListGatewayGroupsResponse ::
   ListGatewayGroupsResponse
 newListGatewayGroupsResponse pHttpStatus_ =
   ListGatewayGroupsResponse'
-    { nextToken =
+    { gatewayGroups =
         Prelude.Nothing,
-      gatewayGroups = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The gateway groups in the list.
+listGatewayGroupsResponse_gatewayGroups :: Lens.Lens' ListGatewayGroupsResponse (Prelude.Maybe [GatewayGroupSummary])
+listGatewayGroupsResponse_gatewayGroups = Lens.lens (\ListGatewayGroupsResponse' {gatewayGroups} -> gatewayGroups) (\s@ListGatewayGroupsResponse' {} a -> s {gatewayGroups = a} :: ListGatewayGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token used to paginate though multiple pages of gateway group
 -- summaries.
 listGatewayGroupsResponse_nextToken :: Lens.Lens' ListGatewayGroupsResponse (Prelude.Maybe Prelude.Text)
 listGatewayGroupsResponse_nextToken = Lens.lens (\ListGatewayGroupsResponse' {nextToken} -> nextToken) (\s@ListGatewayGroupsResponse' {} a -> s {nextToken = a} :: ListGatewayGroupsResponse)
-
--- | The gateway groups in the list.
-listGatewayGroupsResponse_gatewayGroups :: Lens.Lens' ListGatewayGroupsResponse (Prelude.Maybe [GatewayGroupSummary])
-listGatewayGroupsResponse_gatewayGroups = Lens.lens (\ListGatewayGroupsResponse' {gatewayGroups} -> gatewayGroups) (\s@ListGatewayGroupsResponse' {} a -> s {gatewayGroups = a} :: ListGatewayGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listGatewayGroupsResponse_httpStatus :: Lens.Lens' ListGatewayGroupsResponse Prelude.Int
@@ -200,6 +200,6 @@ listGatewayGroupsResponse_httpStatus = Lens.lens (\ListGatewayGroupsResponse' {h
 
 instance Prelude.NFData ListGatewayGroupsResponse where
   rnf ListGatewayGroupsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf gatewayGroups
+    Prelude.rnf gatewayGroups
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEndOfMeetingReminder' smart constructor.
 data EndOfMeetingReminder = EndOfMeetingReminder'
-  { -- | The type of sound that users hear during the end of meeting reminder.
-    reminderType :: Prelude.Maybe EndOfMeetingReminderType,
-    -- | Whether an end of meeting reminder is enabled or not.
+  { -- | Whether an end of meeting reminder is enabled or not.
     enabled :: Prelude.Maybe Prelude.Bool,
     -- | A range of 3 to 15 minutes that determines when the reminder begins.
-    reminderAtMinutes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Int)
+    reminderAtMinutes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Int),
+    -- | The type of sound that users hear during the end of meeting reminder.
+    reminderType :: Prelude.Maybe EndOfMeetingReminderType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,24 +48,19 @@ data EndOfMeetingReminder = EndOfMeetingReminder'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'reminderType', 'endOfMeetingReminder_reminderType' - The type of sound that users hear during the end of meeting reminder.
---
 -- 'enabled', 'endOfMeetingReminder_enabled' - Whether an end of meeting reminder is enabled or not.
 --
 -- 'reminderAtMinutes', 'endOfMeetingReminder_reminderAtMinutes' - A range of 3 to 15 minutes that determines when the reminder begins.
+--
+-- 'reminderType', 'endOfMeetingReminder_reminderType' - The type of sound that users hear during the end of meeting reminder.
 newEndOfMeetingReminder ::
   EndOfMeetingReminder
 newEndOfMeetingReminder =
   EndOfMeetingReminder'
-    { reminderType =
-        Prelude.Nothing,
-      enabled = Prelude.Nothing,
-      reminderAtMinutes = Prelude.Nothing
+    { enabled = Prelude.Nothing,
+      reminderAtMinutes = Prelude.Nothing,
+      reminderType = Prelude.Nothing
     }
-
--- | The type of sound that users hear during the end of meeting reminder.
-endOfMeetingReminder_reminderType :: Lens.Lens' EndOfMeetingReminder (Prelude.Maybe EndOfMeetingReminderType)
-endOfMeetingReminder_reminderType = Lens.lens (\EndOfMeetingReminder' {reminderType} -> reminderType) (\s@EndOfMeetingReminder' {} a -> s {reminderType = a} :: EndOfMeetingReminder)
 
 -- | Whether an end of meeting reminder is enabled or not.
 endOfMeetingReminder_enabled :: Lens.Lens' EndOfMeetingReminder (Prelude.Maybe Prelude.Bool)
@@ -75,25 +70,29 @@ endOfMeetingReminder_enabled = Lens.lens (\EndOfMeetingReminder' {enabled} -> en
 endOfMeetingReminder_reminderAtMinutes :: Lens.Lens' EndOfMeetingReminder (Prelude.Maybe (Prelude.NonEmpty Prelude.Int))
 endOfMeetingReminder_reminderAtMinutes = Lens.lens (\EndOfMeetingReminder' {reminderAtMinutes} -> reminderAtMinutes) (\s@EndOfMeetingReminder' {} a -> s {reminderAtMinutes = a} :: EndOfMeetingReminder) Prelude.. Lens.mapping Lens.coerced
 
+-- | The type of sound that users hear during the end of meeting reminder.
+endOfMeetingReminder_reminderType :: Lens.Lens' EndOfMeetingReminder (Prelude.Maybe EndOfMeetingReminderType)
+endOfMeetingReminder_reminderType = Lens.lens (\EndOfMeetingReminder' {reminderType} -> reminderType) (\s@EndOfMeetingReminder' {} a -> s {reminderType = a} :: EndOfMeetingReminder)
+
 instance Data.FromJSON EndOfMeetingReminder where
   parseJSON =
     Data.withObject
       "EndOfMeetingReminder"
       ( \x ->
           EndOfMeetingReminder'
-            Prelude.<$> (x Data..:? "ReminderType")
-            Prelude.<*> (x Data..:? "Enabled")
+            Prelude.<$> (x Data..:? "Enabled")
             Prelude.<*> (x Data..:? "ReminderAtMinutes")
+            Prelude.<*> (x Data..:? "ReminderType")
       )
 
 instance Prelude.Hashable EndOfMeetingReminder where
   hashWithSalt _salt EndOfMeetingReminder' {..} =
-    _salt `Prelude.hashWithSalt` reminderType
-      `Prelude.hashWithSalt` enabled
+    _salt `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` reminderAtMinutes
+      `Prelude.hashWithSalt` reminderType
 
 instance Prelude.NFData EndOfMeetingReminder where
   rnf EndOfMeetingReminder' {..} =
-    Prelude.rnf reminderType
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf reminderAtMinutes
+      `Prelude.seq` Prelude.rnf reminderType

@@ -16,6 +16,7 @@ module Amazonka.Request
     put,
 
     -- ** Specialised body
+    patchBody,
     patchJSON,
     postXML,
     postJSON,
@@ -66,6 +67,9 @@ post s x = (get s x) {method = POST}
 
 put :: ToRequest a => Service -> a -> Request a
 put s x = (get s x) {method = PUT}
+
+patchBody :: (ToRequest a, ToBody a) => Service -> a -> Request a
+patchBody s x = (putBody s x) {method = PATCH}
 
 patchJSON :: (ToRequest a, ToJSON a) => Service -> a -> Request a
 patchJSON s x = (putJSON s x) {method = PATCH}

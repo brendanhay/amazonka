@@ -33,8 +33,8 @@ module Amazonka.LicenseManager.ListAssociationsForLicenseConfiguration
     newListAssociationsForLicenseConfiguration,
 
     -- * Request Lenses
-    listAssociationsForLicenseConfiguration_nextToken,
     listAssociationsForLicenseConfiguration_maxResults,
+    listAssociationsForLicenseConfiguration_nextToken,
     listAssociationsForLicenseConfiguration_licenseConfigurationArn,
 
     -- * Destructuring the Response
@@ -42,8 +42,8 @@ module Amazonka.LicenseManager.ListAssociationsForLicenseConfiguration
     newListAssociationsForLicenseConfigurationResponse,
 
     -- * Response Lenses
-    listAssociationsForLicenseConfigurationResponse_nextToken,
     listAssociationsForLicenseConfigurationResponse_licenseConfigurationAssociations,
+    listAssociationsForLicenseConfigurationResponse_nextToken,
     listAssociationsForLicenseConfigurationResponse_httpStatus,
   )
 where
@@ -58,10 +58,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAssociationsForLicenseConfiguration' smart constructor.
 data ListAssociationsForLicenseConfiguration = ListAssociationsForLicenseConfiguration'
-  { -- | Token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Maximum number of results to return in a single call.
+  { -- | Maximum number of results to return in a single call.
     maxResults :: Prelude.Maybe Prelude.Int,
+    -- | Token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Amazon Resource Name (ARN) of a license configuration.
     licenseConfigurationArn :: Prelude.Text
   }
@@ -75,9 +75,9 @@ data ListAssociationsForLicenseConfiguration = ListAssociationsForLicenseConfigu
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAssociationsForLicenseConfiguration_nextToken' - Token for the next set of results.
---
 -- 'maxResults', 'listAssociationsForLicenseConfiguration_maxResults' - Maximum number of results to return in a single call.
+--
+-- 'nextToken', 'listAssociationsForLicenseConfiguration_nextToken' - Token for the next set of results.
 --
 -- 'licenseConfigurationArn', 'listAssociationsForLicenseConfiguration_licenseConfigurationArn' - Amazon Resource Name (ARN) of a license configuration.
 newListAssociationsForLicenseConfiguration ::
@@ -87,20 +87,20 @@ newListAssociationsForLicenseConfiguration ::
 newListAssociationsForLicenseConfiguration
   pLicenseConfigurationArn_ =
     ListAssociationsForLicenseConfiguration'
-      { nextToken =
+      { maxResults =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         licenseConfigurationArn =
           pLicenseConfigurationArn_
       }
 
--- | Token for the next set of results.
-listAssociationsForLicenseConfiguration_nextToken :: Lens.Lens' ListAssociationsForLicenseConfiguration (Prelude.Maybe Prelude.Text)
-listAssociationsForLicenseConfiguration_nextToken = Lens.lens (\ListAssociationsForLicenseConfiguration' {nextToken} -> nextToken) (\s@ListAssociationsForLicenseConfiguration' {} a -> s {nextToken = a} :: ListAssociationsForLicenseConfiguration)
-
 -- | Maximum number of results to return in a single call.
 listAssociationsForLicenseConfiguration_maxResults :: Lens.Lens' ListAssociationsForLicenseConfiguration (Prelude.Maybe Prelude.Int)
 listAssociationsForLicenseConfiguration_maxResults = Lens.lens (\ListAssociationsForLicenseConfiguration' {maxResults} -> maxResults) (\s@ListAssociationsForLicenseConfiguration' {} a -> s {maxResults = a} :: ListAssociationsForLicenseConfiguration)
+
+-- | Token for the next set of results.
+listAssociationsForLicenseConfiguration_nextToken :: Lens.Lens' ListAssociationsForLicenseConfiguration (Prelude.Maybe Prelude.Text)
+listAssociationsForLicenseConfiguration_nextToken = Lens.lens (\ListAssociationsForLicenseConfiguration' {nextToken} -> nextToken) (\s@ListAssociationsForLicenseConfiguration' {} a -> s {nextToken = a} :: ListAssociationsForLicenseConfiguration)
 
 -- | Amazon Resource Name (ARN) of a license configuration.
 listAssociationsForLicenseConfiguration_licenseConfigurationArn :: Lens.Lens' ListAssociationsForLicenseConfiguration Prelude.Text
@@ -145,10 +145,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListAssociationsForLicenseConfigurationResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-              Prelude.<*> ( x Data..?> "LicenseConfigurationAssociations"
-                              Core..!@ Prelude.mempty
-                          )
+            Prelude.<$> ( x Data..?> "LicenseConfigurationAssociations"
+                            Core..!@ Prelude.mempty
+                        )
+              Prelude.<*> (x Data..?> "NextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,8 +159,8 @@ instance
   hashWithSalt
     _salt
     ListAssociationsForLicenseConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` licenseConfigurationArn
 
 instance
@@ -168,8 +168,8 @@ instance
     ListAssociationsForLicenseConfiguration
   where
   rnf ListAssociationsForLicenseConfiguration' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf licenseConfigurationArn
 
 instance
@@ -197,8 +197,8 @@ instance
   toJSON ListAssociationsForLicenseConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ( "LicenseConfigurationArn"
                   Data..= licenseConfigurationArn
@@ -220,10 +220,10 @@ instance
 
 -- | /See:/ 'newListAssociationsForLicenseConfigurationResponse' smart constructor.
 data ListAssociationsForLicenseConfigurationResponse = ListAssociationsForLicenseConfigurationResponse'
-  { -- | Token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the associations for the license configuration.
+  { -- | Information about the associations for the license configuration.
     licenseConfigurationAssociations :: Prelude.Maybe [LicenseConfigurationAssociation],
+    -- | Token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -237,9 +237,9 @@ data ListAssociationsForLicenseConfigurationResponse = ListAssociationsForLicens
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAssociationsForLicenseConfigurationResponse_nextToken' - Token for the next set of results.
---
 -- 'licenseConfigurationAssociations', 'listAssociationsForLicenseConfigurationResponse_licenseConfigurationAssociations' - Information about the associations for the license configuration.
+--
+-- 'nextToken', 'listAssociationsForLicenseConfigurationResponse_nextToken' - Token for the next set of results.
 --
 -- 'httpStatus', 'listAssociationsForLicenseConfigurationResponse_httpStatus' - The response's http status code.
 newListAssociationsForLicenseConfigurationResponse ::
@@ -249,20 +249,20 @@ newListAssociationsForLicenseConfigurationResponse ::
 newListAssociationsForLicenseConfigurationResponse
   pHttpStatus_ =
     ListAssociationsForLicenseConfigurationResponse'
-      { nextToken =
+      { licenseConfigurationAssociations =
           Prelude.Nothing,
-        licenseConfigurationAssociations =
+        nextToken =
           Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
--- | Token for the next set of results.
-listAssociationsForLicenseConfigurationResponse_nextToken :: Lens.Lens' ListAssociationsForLicenseConfigurationResponse (Prelude.Maybe Prelude.Text)
-listAssociationsForLicenseConfigurationResponse_nextToken = Lens.lens (\ListAssociationsForLicenseConfigurationResponse' {nextToken} -> nextToken) (\s@ListAssociationsForLicenseConfigurationResponse' {} a -> s {nextToken = a} :: ListAssociationsForLicenseConfigurationResponse)
-
 -- | Information about the associations for the license configuration.
 listAssociationsForLicenseConfigurationResponse_licenseConfigurationAssociations :: Lens.Lens' ListAssociationsForLicenseConfigurationResponse (Prelude.Maybe [LicenseConfigurationAssociation])
 listAssociationsForLicenseConfigurationResponse_licenseConfigurationAssociations = Lens.lens (\ListAssociationsForLicenseConfigurationResponse' {licenseConfigurationAssociations} -> licenseConfigurationAssociations) (\s@ListAssociationsForLicenseConfigurationResponse' {} a -> s {licenseConfigurationAssociations = a} :: ListAssociationsForLicenseConfigurationResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Token for the next set of results.
+listAssociationsForLicenseConfigurationResponse_nextToken :: Lens.Lens' ListAssociationsForLicenseConfigurationResponse (Prelude.Maybe Prelude.Text)
+listAssociationsForLicenseConfigurationResponse_nextToken = Lens.lens (\ListAssociationsForLicenseConfigurationResponse' {nextToken} -> nextToken) (\s@ListAssociationsForLicenseConfigurationResponse' {} a -> s {nextToken = a} :: ListAssociationsForLicenseConfigurationResponse)
 
 -- | The response's http status code.
 listAssociationsForLicenseConfigurationResponse_httpStatus :: Lens.Lens' ListAssociationsForLicenseConfigurationResponse Prelude.Int
@@ -274,6 +274,6 @@ instance
   where
   rnf
     ListAssociationsForLicenseConfigurationResponse' {..} =
-      Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf licenseConfigurationAssociations
+      Prelude.rnf licenseConfigurationAssociations
+        `Prelude.seq` Prelude.rnf nextToken
         `Prelude.seq` Prelude.rnf httpStatus

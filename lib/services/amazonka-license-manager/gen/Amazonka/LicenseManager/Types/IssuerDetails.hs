@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newIssuerDetails' smart constructor.
 data IssuerDetails = IssuerDetails'
-  { -- | Issuer name.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Issuer key fingerprint.
+  { -- | Issuer key fingerprint.
     keyFingerprint :: Prelude.Maybe Prelude.Text,
+    -- | Issuer name.
+    name :: Prelude.Maybe Prelude.Text,
     -- | Asymmetric KMS key from Key Management Service. The KMS key must have a
     -- key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing
     -- algorithm.
@@ -47,9 +47,9 @@ data IssuerDetails = IssuerDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'issuerDetails_name' - Issuer name.
---
 -- 'keyFingerprint', 'issuerDetails_keyFingerprint' - Issuer key fingerprint.
+--
+-- 'name', 'issuerDetails_name' - Issuer name.
 --
 -- 'signKey', 'issuerDetails_signKey' - Asymmetric KMS key from Key Management Service. The KMS key must have a
 -- key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing
@@ -58,18 +58,18 @@ newIssuerDetails ::
   IssuerDetails
 newIssuerDetails =
   IssuerDetails'
-    { name = Prelude.Nothing,
-      keyFingerprint = Prelude.Nothing,
+    { keyFingerprint = Prelude.Nothing,
+      name = Prelude.Nothing,
       signKey = Prelude.Nothing
     }
-
--- | Issuer name.
-issuerDetails_name :: Lens.Lens' IssuerDetails (Prelude.Maybe Prelude.Text)
-issuerDetails_name = Lens.lens (\IssuerDetails' {name} -> name) (\s@IssuerDetails' {} a -> s {name = a} :: IssuerDetails)
 
 -- | Issuer key fingerprint.
 issuerDetails_keyFingerprint :: Lens.Lens' IssuerDetails (Prelude.Maybe Prelude.Text)
 issuerDetails_keyFingerprint = Lens.lens (\IssuerDetails' {keyFingerprint} -> keyFingerprint) (\s@IssuerDetails' {} a -> s {keyFingerprint = a} :: IssuerDetails)
+
+-- | Issuer name.
+issuerDetails_name :: Lens.Lens' IssuerDetails (Prelude.Maybe Prelude.Text)
+issuerDetails_name = Lens.lens (\IssuerDetails' {name} -> name) (\s@IssuerDetails' {} a -> s {name = a} :: IssuerDetails)
 
 -- | Asymmetric KMS key from Key Management Service. The KMS key must have a
 -- key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing
@@ -83,19 +83,19 @@ instance Data.FromJSON IssuerDetails where
       "IssuerDetails"
       ( \x ->
           IssuerDetails'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "KeyFingerprint")
+            Prelude.<$> (x Data..:? "KeyFingerprint")
+            Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "SignKey")
       )
 
 instance Prelude.Hashable IssuerDetails where
   hashWithSalt _salt IssuerDetails' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` keyFingerprint
+    _salt `Prelude.hashWithSalt` keyFingerprint
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` signKey
 
 instance Prelude.NFData IssuerDetails where
   rnf IssuerDetails' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf keyFingerprint
+    Prelude.rnf keyFingerprint
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf signKey

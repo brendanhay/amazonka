@@ -35,8 +35,8 @@ module Amazonka.LicenseManager.DeleteLicense
     newDeleteLicenseResponse,
 
     -- * Response Lenses
-    deleteLicenseResponse_status,
     deleteLicenseResponse_deletionDate,
+    deleteLicenseResponse_status,
     deleteLicenseResponse_httpStatus,
   )
 where
@@ -99,8 +99,8 @@ instance Core.AWSRequest DeleteLicense where
     Response.receiveJSON
       ( \s h x ->
           DeleteLicenseResponse'
-            Prelude.<$> (x Data..?> "Status")
-            Prelude.<*> (x Data..?> "DeletionDate")
+            Prelude.<$> (x Data..?> "DeletionDate")
+            Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,10 +147,10 @@ instance Data.ToQuery DeleteLicense where
 
 -- | /See:/ 'newDeleteLicenseResponse' smart constructor.
 data DeleteLicenseResponse = DeleteLicenseResponse'
-  { -- | License status.
-    status :: Prelude.Maybe LicenseDeletionStatus,
-    -- | Date when the license is deleted.
+  { -- | Date when the license is deleted.
     deletionDate :: Prelude.Maybe Prelude.Text,
+    -- | License status.
+    status :: Prelude.Maybe LicenseDeletionStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -164,9 +164,9 @@ data DeleteLicenseResponse = DeleteLicenseResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'deleteLicenseResponse_status' - License status.
---
 -- 'deletionDate', 'deleteLicenseResponse_deletionDate' - Date when the license is deleted.
+--
+-- 'status', 'deleteLicenseResponse_status' - License status.
 --
 -- 'httpStatus', 'deleteLicenseResponse_httpStatus' - The response's http status code.
 newDeleteLicenseResponse ::
@@ -175,18 +175,19 @@ newDeleteLicenseResponse ::
   DeleteLicenseResponse
 newDeleteLicenseResponse pHttpStatus_ =
   DeleteLicenseResponse'
-    { status = Prelude.Nothing,
-      deletionDate = Prelude.Nothing,
+    { deletionDate =
+        Prelude.Nothing,
+      status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | License status.
-deleteLicenseResponse_status :: Lens.Lens' DeleteLicenseResponse (Prelude.Maybe LicenseDeletionStatus)
-deleteLicenseResponse_status = Lens.lens (\DeleteLicenseResponse' {status} -> status) (\s@DeleteLicenseResponse' {} a -> s {status = a} :: DeleteLicenseResponse)
 
 -- | Date when the license is deleted.
 deleteLicenseResponse_deletionDate :: Lens.Lens' DeleteLicenseResponse (Prelude.Maybe Prelude.Text)
 deleteLicenseResponse_deletionDate = Lens.lens (\DeleteLicenseResponse' {deletionDate} -> deletionDate) (\s@DeleteLicenseResponse' {} a -> s {deletionDate = a} :: DeleteLicenseResponse)
+
+-- | License status.
+deleteLicenseResponse_status :: Lens.Lens' DeleteLicenseResponse (Prelude.Maybe LicenseDeletionStatus)
+deleteLicenseResponse_status = Lens.lens (\DeleteLicenseResponse' {status} -> status) (\s@DeleteLicenseResponse' {} a -> s {status = a} :: DeleteLicenseResponse)
 
 -- | The response's http status code.
 deleteLicenseResponse_httpStatus :: Lens.Lens' DeleteLicenseResponse Prelude.Int
@@ -194,6 +195,6 @@ deleteLicenseResponse_httpStatus = Lens.lens (\DeleteLicenseResponse' {httpStatu
 
 instance Prelude.NFData DeleteLicenseResponse where
   rnf DeleteLicenseResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf deletionDate
+    Prelude.rnf deletionDate
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

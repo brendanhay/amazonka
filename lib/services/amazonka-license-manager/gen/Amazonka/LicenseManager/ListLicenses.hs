@@ -27,18 +27,18 @@ module Amazonka.LicenseManager.ListLicenses
     newListLicenses,
 
     -- * Request Lenses
-    listLicenses_nextToken,
     listLicenses_filters,
     listLicenses_licenseArns,
     listLicenses_maxResults,
+    listLicenses_nextToken,
 
     -- * Destructuring the Response
     ListLicensesResponse (..),
     newListLicensesResponse,
 
     -- * Response Lenses
-    listLicensesResponse_nextToken,
     listLicensesResponse_licenses,
+    listLicensesResponse_nextToken,
     listLicensesResponse_httpStatus,
   )
 where
@@ -53,9 +53,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListLicenses' smart constructor.
 data ListLicenses = ListLicenses'
-  { -- | Token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filters to scope the results. The following filters are supported:
+  { -- | Filters to scope the results. The following filters are supported:
     --
     -- -   @Beneficiary@
     --
@@ -68,7 +66,9 @@ data ListLicenses = ListLicenses'
     -- | Amazon Resource Names (ARNs) of the licenses.
     licenseArns :: Prelude.Maybe [Prelude.Text],
     -- | Maximum number of results to return in a single call.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,8 +79,6 @@ data ListLicenses = ListLicenses'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'listLicenses_nextToken' - Token for the next set of results.
 --
 -- 'filters', 'listLicenses_filters' - Filters to scope the results. The following filters are supported:
 --
@@ -95,19 +93,17 @@ data ListLicenses = ListLicenses'
 -- 'licenseArns', 'listLicenses_licenseArns' - Amazon Resource Names (ARNs) of the licenses.
 --
 -- 'maxResults', 'listLicenses_maxResults' - Maximum number of results to return in a single call.
+--
+-- 'nextToken', 'listLicenses_nextToken' - Token for the next set of results.
 newListLicenses ::
   ListLicenses
 newListLicenses =
   ListLicenses'
-    { nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
+    { filters = Prelude.Nothing,
       licenseArns = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | Token for the next set of results.
-listLicenses_nextToken :: Lens.Lens' ListLicenses (Prelude.Maybe Prelude.Text)
-listLicenses_nextToken = Lens.lens (\ListLicenses' {nextToken} -> nextToken) (\s@ListLicenses' {} a -> s {nextToken = a} :: ListLicenses)
 
 -- | Filters to scope the results. The following filters are supported:
 --
@@ -129,6 +125,10 @@ listLicenses_licenseArns = Lens.lens (\ListLicenses' {licenseArns} -> licenseArn
 listLicenses_maxResults :: Lens.Lens' ListLicenses (Prelude.Maybe Prelude.Natural)
 listLicenses_maxResults = Lens.lens (\ListLicenses' {maxResults} -> maxResults) (\s@ListLicenses' {} a -> s {maxResults = a} :: ListLicenses)
 
+-- | Token for the next set of results.
+listLicenses_nextToken :: Lens.Lens' ListLicenses (Prelude.Maybe Prelude.Text)
+listLicenses_nextToken = Lens.lens (\ListLicenses' {nextToken} -> nextToken) (\s@ListLicenses' {} a -> s {nextToken = a} :: ListLicenses)
+
 instance Core.AWSRequest ListLicenses where
   type AWSResponse ListLicenses = ListLicensesResponse
   request overrides =
@@ -137,24 +137,24 @@ instance Core.AWSRequest ListLicenses where
     Response.receiveJSON
       ( \s h x ->
           ListLicensesResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Licenses" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Licenses" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListLicenses where
   hashWithSalt _salt ListLicenses' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` licenseArns
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListLicenses where
   rnf ListLicenses' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf licenseArns
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListLicenses where
   toHeaders =
@@ -175,10 +175,10 @@ instance Data.ToJSON ListLicenses where
   toJSON ListLicenses' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
+          [ ("Filters" Data..=) Prelude.<$> filters,
             ("LicenseArns" Data..=) Prelude.<$> licenseArns,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -190,10 +190,10 @@ instance Data.ToQuery ListLicenses where
 
 -- | /See:/ 'newListLicensesResponse' smart constructor.
 data ListLicensesResponse = ListLicensesResponse'
-  { -- | Token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | License details.
+  { -- | License details.
     licenses :: Prelude.Maybe [License],
+    -- | Token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -207,9 +207,9 @@ data ListLicensesResponse = ListLicensesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listLicensesResponse_nextToken' - Token for the next set of results.
---
 -- 'licenses', 'listLicensesResponse_licenses' - License details.
+--
+-- 'nextToken', 'listLicensesResponse_nextToken' - Token for the next set of results.
 --
 -- 'httpStatus', 'listLicensesResponse_httpStatus' - The response's http status code.
 newListLicensesResponse ::
@@ -218,18 +218,18 @@ newListLicensesResponse ::
   ListLicensesResponse
 newListLicensesResponse pHttpStatus_ =
   ListLicensesResponse'
-    { nextToken = Prelude.Nothing,
-      licenses = Prelude.Nothing,
+    { licenses = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Token for the next set of results.
-listLicensesResponse_nextToken :: Lens.Lens' ListLicensesResponse (Prelude.Maybe Prelude.Text)
-listLicensesResponse_nextToken = Lens.lens (\ListLicensesResponse' {nextToken} -> nextToken) (\s@ListLicensesResponse' {} a -> s {nextToken = a} :: ListLicensesResponse)
 
 -- | License details.
 listLicensesResponse_licenses :: Lens.Lens' ListLicensesResponse (Prelude.Maybe [License])
 listLicensesResponse_licenses = Lens.lens (\ListLicensesResponse' {licenses} -> licenses) (\s@ListLicensesResponse' {} a -> s {licenses = a} :: ListLicensesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Token for the next set of results.
+listLicensesResponse_nextToken :: Lens.Lens' ListLicensesResponse (Prelude.Maybe Prelude.Text)
+listLicensesResponse_nextToken = Lens.lens (\ListLicensesResponse' {nextToken} -> nextToken) (\s@ListLicensesResponse' {} a -> s {nextToken = a} :: ListLicensesResponse)
 
 -- | The response's http status code.
 listLicensesResponse_httpStatus :: Lens.Lens' ListLicensesResponse Prelude.Int
@@ -237,6 +237,6 @@ listLicensesResponse_httpStatus = Lens.lens (\ListLicensesResponse' {httpStatus}
 
 instance Prelude.NFData ListLicensesResponse where
   rnf ListLicensesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf licenses
+    Prelude.rnf licenses
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

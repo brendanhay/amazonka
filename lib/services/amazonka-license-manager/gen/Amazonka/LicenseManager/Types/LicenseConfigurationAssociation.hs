@@ -29,17 +29,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLicenseConfigurationAssociation' smart constructor.
 data LicenseConfigurationAssociation = LicenseConfigurationAssociation'
-  { -- | Type of server resource.
-    resourceType :: Prelude.Maybe ResourceType,
-    -- | ID of the Amazon Web Services account that owns the resource consuming
-    -- licenses.
-    resourceOwnerId :: Prelude.Maybe Prelude.Text,
+  { -- | Scope of AMI associations. The possible value is @cross-account@.
+    amiAssociationScope :: Prelude.Maybe Prelude.Text,
     -- | Time when the license configuration was associated with the resource.
     associationTime :: Prelude.Maybe Data.POSIX,
     -- | Amazon Resource Name (ARN) of the resource.
     resourceArn :: Prelude.Maybe Prelude.Text,
-    -- | Scope of AMI associations. The possible value is @cross-account@.
-    amiAssociationScope :: Prelude.Maybe Prelude.Text
+    -- | ID of the Amazon Web Services account that owns the resource consuming
+    -- licenses.
+    resourceOwnerId :: Prelude.Maybe Prelude.Text,
+    -- | Type of server resource.
+    resourceType :: Prelude.Maybe ResourceType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,36 +51,31 @@ data LicenseConfigurationAssociation = LicenseConfigurationAssociation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceType', 'licenseConfigurationAssociation_resourceType' - Type of server resource.
---
--- 'resourceOwnerId', 'licenseConfigurationAssociation_resourceOwnerId' - ID of the Amazon Web Services account that owns the resource consuming
--- licenses.
+-- 'amiAssociationScope', 'licenseConfigurationAssociation_amiAssociationScope' - Scope of AMI associations. The possible value is @cross-account@.
 --
 -- 'associationTime', 'licenseConfigurationAssociation_associationTime' - Time when the license configuration was associated with the resource.
 --
 -- 'resourceArn', 'licenseConfigurationAssociation_resourceArn' - Amazon Resource Name (ARN) of the resource.
 --
--- 'amiAssociationScope', 'licenseConfigurationAssociation_amiAssociationScope' - Scope of AMI associations. The possible value is @cross-account@.
+-- 'resourceOwnerId', 'licenseConfigurationAssociation_resourceOwnerId' - ID of the Amazon Web Services account that owns the resource consuming
+-- licenses.
+--
+-- 'resourceType', 'licenseConfigurationAssociation_resourceType' - Type of server resource.
 newLicenseConfigurationAssociation ::
   LicenseConfigurationAssociation
 newLicenseConfigurationAssociation =
   LicenseConfigurationAssociation'
-    { resourceType =
+    { amiAssociationScope =
         Prelude.Nothing,
-      resourceOwnerId = Prelude.Nothing,
       associationTime = Prelude.Nothing,
       resourceArn = Prelude.Nothing,
-      amiAssociationScope = Prelude.Nothing
+      resourceOwnerId = Prelude.Nothing,
+      resourceType = Prelude.Nothing
     }
 
--- | Type of server resource.
-licenseConfigurationAssociation_resourceType :: Lens.Lens' LicenseConfigurationAssociation (Prelude.Maybe ResourceType)
-licenseConfigurationAssociation_resourceType = Lens.lens (\LicenseConfigurationAssociation' {resourceType} -> resourceType) (\s@LicenseConfigurationAssociation' {} a -> s {resourceType = a} :: LicenseConfigurationAssociation)
-
--- | ID of the Amazon Web Services account that owns the resource consuming
--- licenses.
-licenseConfigurationAssociation_resourceOwnerId :: Lens.Lens' LicenseConfigurationAssociation (Prelude.Maybe Prelude.Text)
-licenseConfigurationAssociation_resourceOwnerId = Lens.lens (\LicenseConfigurationAssociation' {resourceOwnerId} -> resourceOwnerId) (\s@LicenseConfigurationAssociation' {} a -> s {resourceOwnerId = a} :: LicenseConfigurationAssociation)
+-- | Scope of AMI associations. The possible value is @cross-account@.
+licenseConfigurationAssociation_amiAssociationScope :: Lens.Lens' LicenseConfigurationAssociation (Prelude.Maybe Prelude.Text)
+licenseConfigurationAssociation_amiAssociationScope = Lens.lens (\LicenseConfigurationAssociation' {amiAssociationScope} -> amiAssociationScope) (\s@LicenseConfigurationAssociation' {} a -> s {amiAssociationScope = a} :: LicenseConfigurationAssociation)
 
 -- | Time when the license configuration was associated with the resource.
 licenseConfigurationAssociation_associationTime :: Lens.Lens' LicenseConfigurationAssociation (Prelude.Maybe Prelude.UTCTime)
@@ -90,9 +85,14 @@ licenseConfigurationAssociation_associationTime = Lens.lens (\LicenseConfigurati
 licenseConfigurationAssociation_resourceArn :: Lens.Lens' LicenseConfigurationAssociation (Prelude.Maybe Prelude.Text)
 licenseConfigurationAssociation_resourceArn = Lens.lens (\LicenseConfigurationAssociation' {resourceArn} -> resourceArn) (\s@LicenseConfigurationAssociation' {} a -> s {resourceArn = a} :: LicenseConfigurationAssociation)
 
--- | Scope of AMI associations. The possible value is @cross-account@.
-licenseConfigurationAssociation_amiAssociationScope :: Lens.Lens' LicenseConfigurationAssociation (Prelude.Maybe Prelude.Text)
-licenseConfigurationAssociation_amiAssociationScope = Lens.lens (\LicenseConfigurationAssociation' {amiAssociationScope} -> amiAssociationScope) (\s@LicenseConfigurationAssociation' {} a -> s {amiAssociationScope = a} :: LicenseConfigurationAssociation)
+-- | ID of the Amazon Web Services account that owns the resource consuming
+-- licenses.
+licenseConfigurationAssociation_resourceOwnerId :: Lens.Lens' LicenseConfigurationAssociation (Prelude.Maybe Prelude.Text)
+licenseConfigurationAssociation_resourceOwnerId = Lens.lens (\LicenseConfigurationAssociation' {resourceOwnerId} -> resourceOwnerId) (\s@LicenseConfigurationAssociation' {} a -> s {resourceOwnerId = a} :: LicenseConfigurationAssociation)
+
+-- | Type of server resource.
+licenseConfigurationAssociation_resourceType :: Lens.Lens' LicenseConfigurationAssociation (Prelude.Maybe ResourceType)
+licenseConfigurationAssociation_resourceType = Lens.lens (\LicenseConfigurationAssociation' {resourceType} -> resourceType) (\s@LicenseConfigurationAssociation' {} a -> s {resourceType = a} :: LicenseConfigurationAssociation)
 
 instance
   Data.FromJSON
@@ -103,11 +103,11 @@ instance
       "LicenseConfigurationAssociation"
       ( \x ->
           LicenseConfigurationAssociation'
-            Prelude.<$> (x Data..:? "ResourceType")
-            Prelude.<*> (x Data..:? "ResourceOwnerId")
+            Prelude.<$> (x Data..:? "AmiAssociationScope")
             Prelude.<*> (x Data..:? "AssociationTime")
             Prelude.<*> (x Data..:? "ResourceArn")
-            Prelude.<*> (x Data..:? "AmiAssociationScope")
+            Prelude.<*> (x Data..:? "ResourceOwnerId")
+            Prelude.<*> (x Data..:? "ResourceType")
       )
 
 instance
@@ -117,19 +117,19 @@ instance
   hashWithSalt
     _salt
     LicenseConfigurationAssociation' {..} =
-      _salt `Prelude.hashWithSalt` resourceType
-        `Prelude.hashWithSalt` resourceOwnerId
+      _salt `Prelude.hashWithSalt` amiAssociationScope
         `Prelude.hashWithSalt` associationTime
         `Prelude.hashWithSalt` resourceArn
-        `Prelude.hashWithSalt` amiAssociationScope
+        `Prelude.hashWithSalt` resourceOwnerId
+        `Prelude.hashWithSalt` resourceType
 
 instance
   Prelude.NFData
     LicenseConfigurationAssociation
   where
   rnf LicenseConfigurationAssociation' {..} =
-    Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf resourceOwnerId
+    Prelude.rnf amiAssociationScope
       `Prelude.seq` Prelude.rnf associationTime
       `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf amiAssociationScope
+      `Prelude.seq` Prelude.rnf resourceOwnerId
+      `Prelude.seq` Prelude.rnf resourceType

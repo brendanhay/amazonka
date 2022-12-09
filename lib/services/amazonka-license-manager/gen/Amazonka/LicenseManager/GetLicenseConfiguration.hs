@@ -34,23 +34,23 @@ module Amazonka.LicenseManager.GetLicenseConfiguration
     newGetLicenseConfigurationResponse,
 
     -- * Response Lenses
-    getLicenseConfigurationResponse_tags,
-    getLicenseConfigurationResponse_name,
-    getLicenseConfigurationResponse_productInformationList,
-    getLicenseConfigurationResponse_licenseCountingType,
-    getLicenseConfigurationResponse_licenseRules,
-    getLicenseConfigurationResponse_consumedLicenses,
-    getLicenseConfigurationResponse_licenseConfigurationArn,
-    getLicenseConfigurationResponse_status,
-    getLicenseConfigurationResponse_description,
-    getLicenseConfigurationResponse_licenseConfigurationId,
-    getLicenseConfigurationResponse_managedResourceSummaryList,
-    getLicenseConfigurationResponse_ownerAccountId,
-    getLicenseConfigurationResponse_licenseCount,
-    getLicenseConfigurationResponse_licenseCountHardLimit,
-    getLicenseConfigurationResponse_disassociateWhenNotFound,
     getLicenseConfigurationResponse_automatedDiscoveryInformation,
     getLicenseConfigurationResponse_consumedLicenseSummaryList,
+    getLicenseConfigurationResponse_consumedLicenses,
+    getLicenseConfigurationResponse_description,
+    getLicenseConfigurationResponse_disassociateWhenNotFound,
+    getLicenseConfigurationResponse_licenseConfigurationArn,
+    getLicenseConfigurationResponse_licenseConfigurationId,
+    getLicenseConfigurationResponse_licenseCount,
+    getLicenseConfigurationResponse_licenseCountHardLimit,
+    getLicenseConfigurationResponse_licenseCountingType,
+    getLicenseConfigurationResponse_licenseRules,
+    getLicenseConfigurationResponse_managedResourceSummaryList,
+    getLicenseConfigurationResponse_name,
+    getLicenseConfigurationResponse_ownerAccountId,
+    getLicenseConfigurationResponse_productInformationList,
+    getLicenseConfigurationResponse_status,
+    getLicenseConfigurationResponse_tags,
     getLicenseConfigurationResponse_httpStatus,
   )
 where
@@ -103,29 +103,29 @@ instance Core.AWSRequest GetLicenseConfiguration where
     Response.receiveJSON
       ( \s h x ->
           GetLicenseConfigurationResponse'
-            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "Name")
-            Prelude.<*> ( x Data..?> "ProductInformationList"
-                            Core..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Data..?> "LicenseCountingType")
-            Prelude.<*> (x Data..?> "LicenseRules" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "ConsumedLicenses")
-            Prelude.<*> (x Data..?> "LicenseConfigurationArn")
-            Prelude.<*> (x Data..?> "Status")
-            Prelude.<*> (x Data..?> "Description")
-            Prelude.<*> (x Data..?> "LicenseConfigurationId")
-            Prelude.<*> ( x Data..?> "ManagedResourceSummaryList"
-                            Core..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Data..?> "OwnerAccountId")
-            Prelude.<*> (x Data..?> "LicenseCount")
-            Prelude.<*> (x Data..?> "LicenseCountHardLimit")
-            Prelude.<*> (x Data..?> "DisassociateWhenNotFound")
-            Prelude.<*> (x Data..?> "AutomatedDiscoveryInformation")
+            Prelude.<$> (x Data..?> "AutomatedDiscoveryInformation")
             Prelude.<*> ( x Data..?> "ConsumedLicenseSummaryList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "ConsumedLicenses")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "DisassociateWhenNotFound")
+            Prelude.<*> (x Data..?> "LicenseConfigurationArn")
+            Prelude.<*> (x Data..?> "LicenseConfigurationId")
+            Prelude.<*> (x Data..?> "LicenseCount")
+            Prelude.<*> (x Data..?> "LicenseCountHardLimit")
+            Prelude.<*> (x Data..?> "LicenseCountingType")
+            Prelude.<*> (x Data..?> "LicenseRules" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "ManagedResourceSummaryList"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "OwnerAccountId")
+            Prelude.<*> ( x Data..?> "ProductInformationList"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -172,40 +172,40 @@ instance Data.ToQuery GetLicenseConfiguration where
 
 -- | /See:/ 'newGetLicenseConfigurationResponse' smart constructor.
 data GetLicenseConfigurationResponse = GetLicenseConfigurationResponse'
-  { -- | Tags for the license configuration.
-    tags :: Prelude.Maybe [Tag],
-    -- | Name of the license configuration.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Product information.
-    productInformationList :: Prelude.Maybe [ProductInformation],
-    -- | Dimension for which the licenses are counted.
-    licenseCountingType :: Prelude.Maybe LicenseCountingType,
-    -- | License rules.
-    licenseRules :: Prelude.Maybe [Prelude.Text],
+  { -- | Automated discovery information.
+    automatedDiscoveryInformation :: Prelude.Maybe AutomatedDiscoveryInformation,
+    -- | Summaries of the licenses consumed by resources.
+    consumedLicenseSummaryList :: Prelude.Maybe [ConsumedLicenseSummary],
     -- | Number of licenses assigned to resources.
     consumedLicenses :: Prelude.Maybe Prelude.Integer,
-    -- | Amazon Resource Name (ARN) of the license configuration.
-    licenseConfigurationArn :: Prelude.Maybe Prelude.Text,
-    -- | License configuration status.
-    status :: Prelude.Maybe Prelude.Text,
     -- | Description of the license configuration.
     description :: Prelude.Maybe Prelude.Text,
+    -- | When true, disassociates a resource when software is uninstalled.
+    disassociateWhenNotFound :: Prelude.Maybe Prelude.Bool,
+    -- | Amazon Resource Name (ARN) of the license configuration.
+    licenseConfigurationArn :: Prelude.Maybe Prelude.Text,
     -- | Unique ID for the license configuration.
     licenseConfigurationId :: Prelude.Maybe Prelude.Text,
-    -- | Summaries of the managed resources.
-    managedResourceSummaryList :: Prelude.Maybe [ManagedResourceSummary],
-    -- | Account ID of the owner of the license configuration.
-    ownerAccountId :: Prelude.Maybe Prelude.Text,
     -- | Number of available licenses.
     licenseCount :: Prelude.Maybe Prelude.Integer,
     -- | Sets the number of available licenses as a hard limit.
     licenseCountHardLimit :: Prelude.Maybe Prelude.Bool,
-    -- | When true, disassociates a resource when software is uninstalled.
-    disassociateWhenNotFound :: Prelude.Maybe Prelude.Bool,
-    -- | Automated discovery information.
-    automatedDiscoveryInformation :: Prelude.Maybe AutomatedDiscoveryInformation,
-    -- | Summaries of the licenses consumed by resources.
-    consumedLicenseSummaryList :: Prelude.Maybe [ConsumedLicenseSummary],
+    -- | Dimension for which the licenses are counted.
+    licenseCountingType :: Prelude.Maybe LicenseCountingType,
+    -- | License rules.
+    licenseRules :: Prelude.Maybe [Prelude.Text],
+    -- | Summaries of the managed resources.
+    managedResourceSummaryList :: Prelude.Maybe [ManagedResourceSummary],
+    -- | Name of the license configuration.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | Account ID of the owner of the license configuration.
+    ownerAccountId :: Prelude.Maybe Prelude.Text,
+    -- | Product information.
+    productInformationList :: Prelude.Maybe [ProductInformation],
+    -- | License configuration status.
+    status :: Prelude.Maybe Prelude.Text,
+    -- | Tags for the license configuration.
+    tags :: Prelude.Maybe [Tag],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -219,39 +219,39 @@ data GetLicenseConfigurationResponse = GetLicenseConfigurationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'getLicenseConfigurationResponse_tags' - Tags for the license configuration.
+-- 'automatedDiscoveryInformation', 'getLicenseConfigurationResponse_automatedDiscoveryInformation' - Automated discovery information.
 --
--- 'name', 'getLicenseConfigurationResponse_name' - Name of the license configuration.
---
--- 'productInformationList', 'getLicenseConfigurationResponse_productInformationList' - Product information.
---
--- 'licenseCountingType', 'getLicenseConfigurationResponse_licenseCountingType' - Dimension for which the licenses are counted.
---
--- 'licenseRules', 'getLicenseConfigurationResponse_licenseRules' - License rules.
+-- 'consumedLicenseSummaryList', 'getLicenseConfigurationResponse_consumedLicenseSummaryList' - Summaries of the licenses consumed by resources.
 --
 -- 'consumedLicenses', 'getLicenseConfigurationResponse_consumedLicenses' - Number of licenses assigned to resources.
 --
--- 'licenseConfigurationArn', 'getLicenseConfigurationResponse_licenseConfigurationArn' - Amazon Resource Name (ARN) of the license configuration.
---
--- 'status', 'getLicenseConfigurationResponse_status' - License configuration status.
---
 -- 'description', 'getLicenseConfigurationResponse_description' - Description of the license configuration.
 --
+-- 'disassociateWhenNotFound', 'getLicenseConfigurationResponse_disassociateWhenNotFound' - When true, disassociates a resource when software is uninstalled.
+--
+-- 'licenseConfigurationArn', 'getLicenseConfigurationResponse_licenseConfigurationArn' - Amazon Resource Name (ARN) of the license configuration.
+--
 -- 'licenseConfigurationId', 'getLicenseConfigurationResponse_licenseConfigurationId' - Unique ID for the license configuration.
---
--- 'managedResourceSummaryList', 'getLicenseConfigurationResponse_managedResourceSummaryList' - Summaries of the managed resources.
---
--- 'ownerAccountId', 'getLicenseConfigurationResponse_ownerAccountId' - Account ID of the owner of the license configuration.
 --
 -- 'licenseCount', 'getLicenseConfigurationResponse_licenseCount' - Number of available licenses.
 --
 -- 'licenseCountHardLimit', 'getLicenseConfigurationResponse_licenseCountHardLimit' - Sets the number of available licenses as a hard limit.
 --
--- 'disassociateWhenNotFound', 'getLicenseConfigurationResponse_disassociateWhenNotFound' - When true, disassociates a resource when software is uninstalled.
+-- 'licenseCountingType', 'getLicenseConfigurationResponse_licenseCountingType' - Dimension for which the licenses are counted.
 --
--- 'automatedDiscoveryInformation', 'getLicenseConfigurationResponse_automatedDiscoveryInformation' - Automated discovery information.
+-- 'licenseRules', 'getLicenseConfigurationResponse_licenseRules' - License rules.
 --
--- 'consumedLicenseSummaryList', 'getLicenseConfigurationResponse_consumedLicenseSummaryList' - Summaries of the licenses consumed by resources.
+-- 'managedResourceSummaryList', 'getLicenseConfigurationResponse_managedResourceSummaryList' - Summaries of the managed resources.
+--
+-- 'name', 'getLicenseConfigurationResponse_name' - Name of the license configuration.
+--
+-- 'ownerAccountId', 'getLicenseConfigurationResponse_ownerAccountId' - Account ID of the owner of the license configuration.
+--
+-- 'productInformationList', 'getLicenseConfigurationResponse_productInformationList' - Product information.
+--
+-- 'status', 'getLicenseConfigurationResponse_status' - License configuration status.
+--
+-- 'tags', 'getLicenseConfigurationResponse_tags' - Tags for the license configuration.
 --
 -- 'httpStatus', 'getLicenseConfigurationResponse_httpStatus' - The response's http status code.
 newGetLicenseConfigurationResponse ::
@@ -260,77 +260,56 @@ newGetLicenseConfigurationResponse ::
   GetLicenseConfigurationResponse
 newGetLicenseConfigurationResponse pHttpStatus_ =
   GetLicenseConfigurationResponse'
-    { tags =
-        Prelude.Nothing,
-      name = Prelude.Nothing,
-      productInformationList = Prelude.Nothing,
-      licenseCountingType = Prelude.Nothing,
-      licenseRules = Prelude.Nothing,
-      consumedLicenses = Prelude.Nothing,
-      licenseConfigurationArn = Prelude.Nothing,
-      status = Prelude.Nothing,
-      description = Prelude.Nothing,
-      licenseConfigurationId = Prelude.Nothing,
-      managedResourceSummaryList =
-        Prelude.Nothing,
-      ownerAccountId = Prelude.Nothing,
-      licenseCount = Prelude.Nothing,
-      licenseCountHardLimit = Prelude.Nothing,
-      disassociateWhenNotFound = Prelude.Nothing,
-      automatedDiscoveryInformation =
+    { automatedDiscoveryInformation =
         Prelude.Nothing,
       consumedLicenseSummaryList =
         Prelude.Nothing,
+      consumedLicenses = Prelude.Nothing,
+      description = Prelude.Nothing,
+      disassociateWhenNotFound = Prelude.Nothing,
+      licenseConfigurationArn = Prelude.Nothing,
+      licenseConfigurationId = Prelude.Nothing,
+      licenseCount = Prelude.Nothing,
+      licenseCountHardLimit = Prelude.Nothing,
+      licenseCountingType = Prelude.Nothing,
+      licenseRules = Prelude.Nothing,
+      managedResourceSummaryList =
+        Prelude.Nothing,
+      name = Prelude.Nothing,
+      ownerAccountId = Prelude.Nothing,
+      productInformationList = Prelude.Nothing,
+      status = Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | Tags for the license configuration.
-getLicenseConfigurationResponse_tags :: Lens.Lens' GetLicenseConfigurationResponse (Prelude.Maybe [Tag])
-getLicenseConfigurationResponse_tags = Lens.lens (\GetLicenseConfigurationResponse' {tags} -> tags) (\s@GetLicenseConfigurationResponse' {} a -> s {tags = a} :: GetLicenseConfigurationResponse) Prelude.. Lens.mapping Lens.coerced
+-- | Automated discovery information.
+getLicenseConfigurationResponse_automatedDiscoveryInformation :: Lens.Lens' GetLicenseConfigurationResponse (Prelude.Maybe AutomatedDiscoveryInformation)
+getLicenseConfigurationResponse_automatedDiscoveryInformation = Lens.lens (\GetLicenseConfigurationResponse' {automatedDiscoveryInformation} -> automatedDiscoveryInformation) (\s@GetLicenseConfigurationResponse' {} a -> s {automatedDiscoveryInformation = a} :: GetLicenseConfigurationResponse)
 
--- | Name of the license configuration.
-getLicenseConfigurationResponse_name :: Lens.Lens' GetLicenseConfigurationResponse (Prelude.Maybe Prelude.Text)
-getLicenseConfigurationResponse_name = Lens.lens (\GetLicenseConfigurationResponse' {name} -> name) (\s@GetLicenseConfigurationResponse' {} a -> s {name = a} :: GetLicenseConfigurationResponse)
-
--- | Product information.
-getLicenseConfigurationResponse_productInformationList :: Lens.Lens' GetLicenseConfigurationResponse (Prelude.Maybe [ProductInformation])
-getLicenseConfigurationResponse_productInformationList = Lens.lens (\GetLicenseConfigurationResponse' {productInformationList} -> productInformationList) (\s@GetLicenseConfigurationResponse' {} a -> s {productInformationList = a} :: GetLicenseConfigurationResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | Dimension for which the licenses are counted.
-getLicenseConfigurationResponse_licenseCountingType :: Lens.Lens' GetLicenseConfigurationResponse (Prelude.Maybe LicenseCountingType)
-getLicenseConfigurationResponse_licenseCountingType = Lens.lens (\GetLicenseConfigurationResponse' {licenseCountingType} -> licenseCountingType) (\s@GetLicenseConfigurationResponse' {} a -> s {licenseCountingType = a} :: GetLicenseConfigurationResponse)
-
--- | License rules.
-getLicenseConfigurationResponse_licenseRules :: Lens.Lens' GetLicenseConfigurationResponse (Prelude.Maybe [Prelude.Text])
-getLicenseConfigurationResponse_licenseRules = Lens.lens (\GetLicenseConfigurationResponse' {licenseRules} -> licenseRules) (\s@GetLicenseConfigurationResponse' {} a -> s {licenseRules = a} :: GetLicenseConfigurationResponse) Prelude.. Lens.mapping Lens.coerced
+-- | Summaries of the licenses consumed by resources.
+getLicenseConfigurationResponse_consumedLicenseSummaryList :: Lens.Lens' GetLicenseConfigurationResponse (Prelude.Maybe [ConsumedLicenseSummary])
+getLicenseConfigurationResponse_consumedLicenseSummaryList = Lens.lens (\GetLicenseConfigurationResponse' {consumedLicenseSummaryList} -> consumedLicenseSummaryList) (\s@GetLicenseConfigurationResponse' {} a -> s {consumedLicenseSummaryList = a} :: GetLicenseConfigurationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Number of licenses assigned to resources.
 getLicenseConfigurationResponse_consumedLicenses :: Lens.Lens' GetLicenseConfigurationResponse (Prelude.Maybe Prelude.Integer)
 getLicenseConfigurationResponse_consumedLicenses = Lens.lens (\GetLicenseConfigurationResponse' {consumedLicenses} -> consumedLicenses) (\s@GetLicenseConfigurationResponse' {} a -> s {consumedLicenses = a} :: GetLicenseConfigurationResponse)
 
--- | Amazon Resource Name (ARN) of the license configuration.
-getLicenseConfigurationResponse_licenseConfigurationArn :: Lens.Lens' GetLicenseConfigurationResponse (Prelude.Maybe Prelude.Text)
-getLicenseConfigurationResponse_licenseConfigurationArn = Lens.lens (\GetLicenseConfigurationResponse' {licenseConfigurationArn} -> licenseConfigurationArn) (\s@GetLicenseConfigurationResponse' {} a -> s {licenseConfigurationArn = a} :: GetLicenseConfigurationResponse)
-
--- | License configuration status.
-getLicenseConfigurationResponse_status :: Lens.Lens' GetLicenseConfigurationResponse (Prelude.Maybe Prelude.Text)
-getLicenseConfigurationResponse_status = Lens.lens (\GetLicenseConfigurationResponse' {status} -> status) (\s@GetLicenseConfigurationResponse' {} a -> s {status = a} :: GetLicenseConfigurationResponse)
-
 -- | Description of the license configuration.
 getLicenseConfigurationResponse_description :: Lens.Lens' GetLicenseConfigurationResponse (Prelude.Maybe Prelude.Text)
 getLicenseConfigurationResponse_description = Lens.lens (\GetLicenseConfigurationResponse' {description} -> description) (\s@GetLicenseConfigurationResponse' {} a -> s {description = a} :: GetLicenseConfigurationResponse)
 
+-- | When true, disassociates a resource when software is uninstalled.
+getLicenseConfigurationResponse_disassociateWhenNotFound :: Lens.Lens' GetLicenseConfigurationResponse (Prelude.Maybe Prelude.Bool)
+getLicenseConfigurationResponse_disassociateWhenNotFound = Lens.lens (\GetLicenseConfigurationResponse' {disassociateWhenNotFound} -> disassociateWhenNotFound) (\s@GetLicenseConfigurationResponse' {} a -> s {disassociateWhenNotFound = a} :: GetLicenseConfigurationResponse)
+
+-- | Amazon Resource Name (ARN) of the license configuration.
+getLicenseConfigurationResponse_licenseConfigurationArn :: Lens.Lens' GetLicenseConfigurationResponse (Prelude.Maybe Prelude.Text)
+getLicenseConfigurationResponse_licenseConfigurationArn = Lens.lens (\GetLicenseConfigurationResponse' {licenseConfigurationArn} -> licenseConfigurationArn) (\s@GetLicenseConfigurationResponse' {} a -> s {licenseConfigurationArn = a} :: GetLicenseConfigurationResponse)
+
 -- | Unique ID for the license configuration.
 getLicenseConfigurationResponse_licenseConfigurationId :: Lens.Lens' GetLicenseConfigurationResponse (Prelude.Maybe Prelude.Text)
 getLicenseConfigurationResponse_licenseConfigurationId = Lens.lens (\GetLicenseConfigurationResponse' {licenseConfigurationId} -> licenseConfigurationId) (\s@GetLicenseConfigurationResponse' {} a -> s {licenseConfigurationId = a} :: GetLicenseConfigurationResponse)
-
--- | Summaries of the managed resources.
-getLicenseConfigurationResponse_managedResourceSummaryList :: Lens.Lens' GetLicenseConfigurationResponse (Prelude.Maybe [ManagedResourceSummary])
-getLicenseConfigurationResponse_managedResourceSummaryList = Lens.lens (\GetLicenseConfigurationResponse' {managedResourceSummaryList} -> managedResourceSummaryList) (\s@GetLicenseConfigurationResponse' {} a -> s {managedResourceSummaryList = a} :: GetLicenseConfigurationResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | Account ID of the owner of the license configuration.
-getLicenseConfigurationResponse_ownerAccountId :: Lens.Lens' GetLicenseConfigurationResponse (Prelude.Maybe Prelude.Text)
-getLicenseConfigurationResponse_ownerAccountId = Lens.lens (\GetLicenseConfigurationResponse' {ownerAccountId} -> ownerAccountId) (\s@GetLicenseConfigurationResponse' {} a -> s {ownerAccountId = a} :: GetLicenseConfigurationResponse)
 
 -- | Number of available licenses.
 getLicenseConfigurationResponse_licenseCount :: Lens.Lens' GetLicenseConfigurationResponse (Prelude.Maybe Prelude.Integer)
@@ -340,17 +319,37 @@ getLicenseConfigurationResponse_licenseCount = Lens.lens (\GetLicenseConfigurati
 getLicenseConfigurationResponse_licenseCountHardLimit :: Lens.Lens' GetLicenseConfigurationResponse (Prelude.Maybe Prelude.Bool)
 getLicenseConfigurationResponse_licenseCountHardLimit = Lens.lens (\GetLicenseConfigurationResponse' {licenseCountHardLimit} -> licenseCountHardLimit) (\s@GetLicenseConfigurationResponse' {} a -> s {licenseCountHardLimit = a} :: GetLicenseConfigurationResponse)
 
--- | When true, disassociates a resource when software is uninstalled.
-getLicenseConfigurationResponse_disassociateWhenNotFound :: Lens.Lens' GetLicenseConfigurationResponse (Prelude.Maybe Prelude.Bool)
-getLicenseConfigurationResponse_disassociateWhenNotFound = Lens.lens (\GetLicenseConfigurationResponse' {disassociateWhenNotFound} -> disassociateWhenNotFound) (\s@GetLicenseConfigurationResponse' {} a -> s {disassociateWhenNotFound = a} :: GetLicenseConfigurationResponse)
+-- | Dimension for which the licenses are counted.
+getLicenseConfigurationResponse_licenseCountingType :: Lens.Lens' GetLicenseConfigurationResponse (Prelude.Maybe LicenseCountingType)
+getLicenseConfigurationResponse_licenseCountingType = Lens.lens (\GetLicenseConfigurationResponse' {licenseCountingType} -> licenseCountingType) (\s@GetLicenseConfigurationResponse' {} a -> s {licenseCountingType = a} :: GetLicenseConfigurationResponse)
 
--- | Automated discovery information.
-getLicenseConfigurationResponse_automatedDiscoveryInformation :: Lens.Lens' GetLicenseConfigurationResponse (Prelude.Maybe AutomatedDiscoveryInformation)
-getLicenseConfigurationResponse_automatedDiscoveryInformation = Lens.lens (\GetLicenseConfigurationResponse' {automatedDiscoveryInformation} -> automatedDiscoveryInformation) (\s@GetLicenseConfigurationResponse' {} a -> s {automatedDiscoveryInformation = a} :: GetLicenseConfigurationResponse)
+-- | License rules.
+getLicenseConfigurationResponse_licenseRules :: Lens.Lens' GetLicenseConfigurationResponse (Prelude.Maybe [Prelude.Text])
+getLicenseConfigurationResponse_licenseRules = Lens.lens (\GetLicenseConfigurationResponse' {licenseRules} -> licenseRules) (\s@GetLicenseConfigurationResponse' {} a -> s {licenseRules = a} :: GetLicenseConfigurationResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | Summaries of the licenses consumed by resources.
-getLicenseConfigurationResponse_consumedLicenseSummaryList :: Lens.Lens' GetLicenseConfigurationResponse (Prelude.Maybe [ConsumedLicenseSummary])
-getLicenseConfigurationResponse_consumedLicenseSummaryList = Lens.lens (\GetLicenseConfigurationResponse' {consumedLicenseSummaryList} -> consumedLicenseSummaryList) (\s@GetLicenseConfigurationResponse' {} a -> s {consumedLicenseSummaryList = a} :: GetLicenseConfigurationResponse) Prelude.. Lens.mapping Lens.coerced
+-- | Summaries of the managed resources.
+getLicenseConfigurationResponse_managedResourceSummaryList :: Lens.Lens' GetLicenseConfigurationResponse (Prelude.Maybe [ManagedResourceSummary])
+getLicenseConfigurationResponse_managedResourceSummaryList = Lens.lens (\GetLicenseConfigurationResponse' {managedResourceSummaryList} -> managedResourceSummaryList) (\s@GetLicenseConfigurationResponse' {} a -> s {managedResourceSummaryList = a} :: GetLicenseConfigurationResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Name of the license configuration.
+getLicenseConfigurationResponse_name :: Lens.Lens' GetLicenseConfigurationResponse (Prelude.Maybe Prelude.Text)
+getLicenseConfigurationResponse_name = Lens.lens (\GetLicenseConfigurationResponse' {name} -> name) (\s@GetLicenseConfigurationResponse' {} a -> s {name = a} :: GetLicenseConfigurationResponse)
+
+-- | Account ID of the owner of the license configuration.
+getLicenseConfigurationResponse_ownerAccountId :: Lens.Lens' GetLicenseConfigurationResponse (Prelude.Maybe Prelude.Text)
+getLicenseConfigurationResponse_ownerAccountId = Lens.lens (\GetLicenseConfigurationResponse' {ownerAccountId} -> ownerAccountId) (\s@GetLicenseConfigurationResponse' {} a -> s {ownerAccountId = a} :: GetLicenseConfigurationResponse)
+
+-- | Product information.
+getLicenseConfigurationResponse_productInformationList :: Lens.Lens' GetLicenseConfigurationResponse (Prelude.Maybe [ProductInformation])
+getLicenseConfigurationResponse_productInformationList = Lens.lens (\GetLicenseConfigurationResponse' {productInformationList} -> productInformationList) (\s@GetLicenseConfigurationResponse' {} a -> s {productInformationList = a} :: GetLicenseConfigurationResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | License configuration status.
+getLicenseConfigurationResponse_status :: Lens.Lens' GetLicenseConfigurationResponse (Prelude.Maybe Prelude.Text)
+getLicenseConfigurationResponse_status = Lens.lens (\GetLicenseConfigurationResponse' {status} -> status) (\s@GetLicenseConfigurationResponse' {} a -> s {status = a} :: GetLicenseConfigurationResponse)
+
+-- | Tags for the license configuration.
+getLicenseConfigurationResponse_tags :: Lens.Lens' GetLicenseConfigurationResponse (Prelude.Maybe [Tag])
+getLicenseConfigurationResponse_tags = Lens.lens (\GetLicenseConfigurationResponse' {tags} -> tags) (\s@GetLicenseConfigurationResponse' {} a -> s {tags = a} :: GetLicenseConfigurationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getLicenseConfigurationResponse_httpStatus :: Lens.Lens' GetLicenseConfigurationResponse Prelude.Int
@@ -361,23 +360,21 @@ instance
     GetLicenseConfigurationResponse
   where
   rnf GetLicenseConfigurationResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf productInformationList
-      `Prelude.seq` Prelude.rnf licenseCountingType
-      `Prelude.seq` Prelude.rnf licenseRules
+    Prelude.rnf automatedDiscoveryInformation
+      `Prelude.seq` Prelude.rnf consumedLicenseSummaryList
       `Prelude.seq` Prelude.rnf consumedLicenses
-      `Prelude.seq` Prelude.rnf licenseConfigurationArn
-      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf disassociateWhenNotFound
+      `Prelude.seq` Prelude.rnf licenseConfigurationArn
       `Prelude.seq` Prelude.rnf licenseConfigurationId
-      `Prelude.seq` Prelude.rnf managedResourceSummaryList
-      `Prelude.seq` Prelude.rnf ownerAccountId
       `Prelude.seq` Prelude.rnf licenseCount
       `Prelude.seq` Prelude.rnf licenseCountHardLimit
-      `Prelude.seq` Prelude.rnf disassociateWhenNotFound
-      `Prelude.seq` Prelude.rnf
-        automatedDiscoveryInformation
-      `Prelude.seq` Prelude.rnf
-        consumedLicenseSummaryList
+      `Prelude.seq` Prelude.rnf licenseCountingType
+      `Prelude.seq` Prelude.rnf licenseRules
+      `Prelude.seq` Prelude.rnf managedResourceSummaryList
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf ownerAccountId
+      `Prelude.seq` Prelude.rnf productInformationList
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

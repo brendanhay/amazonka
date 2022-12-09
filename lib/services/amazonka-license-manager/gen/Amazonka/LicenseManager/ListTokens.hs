@@ -27,10 +27,10 @@ module Amazonka.LicenseManager.ListTokens
     newListTokens,
 
     -- * Request Lenses
-    listTokens_nextToken,
     listTokens_filters,
-    listTokens_tokenIds,
     listTokens_maxResults,
+    listTokens_nextToken,
+    listTokens_tokenIds,
 
     -- * Destructuring the Response
     ListTokensResponse (..),
@@ -53,16 +53,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListTokens' smart constructor.
 data ListTokens = ListTokens'
-  { -- | Token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filters to scope the results. The following filter is supported:
+  { -- | Filters to scope the results. The following filter is supported:
     --
     -- -   @LicenseArns@
     filters :: Prelude.Maybe [Filter],
-    -- | Token IDs.
-    tokenIds :: Prelude.Maybe [Prelude.Text],
     -- | Maximum number of results to return in a single call.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Token IDs.
+    tokenIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,28 +74,24 @@ data ListTokens = ListTokens'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listTokens_nextToken' - Token for the next set of results.
---
 -- 'filters', 'listTokens_filters' - Filters to scope the results. The following filter is supported:
 --
 -- -   @LicenseArns@
 --
--- 'tokenIds', 'listTokens_tokenIds' - Token IDs.
---
 -- 'maxResults', 'listTokens_maxResults' - Maximum number of results to return in a single call.
+--
+-- 'nextToken', 'listTokens_nextToken' - Token for the next set of results.
+--
+-- 'tokenIds', 'listTokens_tokenIds' - Token IDs.
 newListTokens ::
   ListTokens
 newListTokens =
   ListTokens'
-    { nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      tokenIds = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      tokenIds = Prelude.Nothing
     }
-
--- | Token for the next set of results.
-listTokens_nextToken :: Lens.Lens' ListTokens (Prelude.Maybe Prelude.Text)
-listTokens_nextToken = Lens.lens (\ListTokens' {nextToken} -> nextToken) (\s@ListTokens' {} a -> s {nextToken = a} :: ListTokens)
 
 -- | Filters to scope the results. The following filter is supported:
 --
@@ -103,13 +99,17 @@ listTokens_nextToken = Lens.lens (\ListTokens' {nextToken} -> nextToken) (\s@Lis
 listTokens_filters :: Lens.Lens' ListTokens (Prelude.Maybe [Filter])
 listTokens_filters = Lens.lens (\ListTokens' {filters} -> filters) (\s@ListTokens' {} a -> s {filters = a} :: ListTokens) Prelude.. Lens.mapping Lens.coerced
 
--- | Token IDs.
-listTokens_tokenIds :: Lens.Lens' ListTokens (Prelude.Maybe [Prelude.Text])
-listTokens_tokenIds = Lens.lens (\ListTokens' {tokenIds} -> tokenIds) (\s@ListTokens' {} a -> s {tokenIds = a} :: ListTokens) Prelude.. Lens.mapping Lens.coerced
-
 -- | Maximum number of results to return in a single call.
 listTokens_maxResults :: Lens.Lens' ListTokens (Prelude.Maybe Prelude.Natural)
 listTokens_maxResults = Lens.lens (\ListTokens' {maxResults} -> maxResults) (\s@ListTokens' {} a -> s {maxResults = a} :: ListTokens)
+
+-- | Token for the next set of results.
+listTokens_nextToken :: Lens.Lens' ListTokens (Prelude.Maybe Prelude.Text)
+listTokens_nextToken = Lens.lens (\ListTokens' {nextToken} -> nextToken) (\s@ListTokens' {} a -> s {nextToken = a} :: ListTokens)
+
+-- | Token IDs.
+listTokens_tokenIds :: Lens.Lens' ListTokens (Prelude.Maybe [Prelude.Text])
+listTokens_tokenIds = Lens.lens (\ListTokens' {tokenIds} -> tokenIds) (\s@ListTokens' {} a -> s {tokenIds = a} :: ListTokens) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest ListTokens where
   type AWSResponse ListTokens = ListTokensResponse
@@ -126,17 +126,17 @@ instance Core.AWSRequest ListTokens where
 
 instance Prelude.Hashable ListTokens where
   hashWithSalt _salt ListTokens' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` tokenIds
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` tokenIds
 
 instance Prelude.NFData ListTokens where
   rnf ListTokens' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf tokenIds
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf tokenIds
 
 instance Data.ToHeaders ListTokens where
   toHeaders =
@@ -157,10 +157,10 @@ instance Data.ToJSON ListTokens where
   toJSON ListTokens' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
-            ("TokenIds" Data..=) Prelude.<$> tokenIds,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("TokenIds" Data..=) Prelude.<$> tokenIds
           ]
       )
 

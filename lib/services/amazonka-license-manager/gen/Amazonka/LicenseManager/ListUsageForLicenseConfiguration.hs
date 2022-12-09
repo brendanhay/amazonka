@@ -32,9 +32,9 @@ module Amazonka.LicenseManager.ListUsageForLicenseConfiguration
     newListUsageForLicenseConfiguration,
 
     -- * Request Lenses
-    listUsageForLicenseConfiguration_nextToken,
     listUsageForLicenseConfiguration_filters,
     listUsageForLicenseConfiguration_maxResults,
+    listUsageForLicenseConfiguration_nextToken,
     listUsageForLicenseConfiguration_licenseConfigurationArn,
 
     -- * Destructuring the Response
@@ -42,8 +42,8 @@ module Amazonka.LicenseManager.ListUsageForLicenseConfiguration
     newListUsageForLicenseConfigurationResponse,
 
     -- * Response Lenses
-    listUsageForLicenseConfigurationResponse_nextToken,
     listUsageForLicenseConfigurationResponse_licenseConfigurationUsageList,
+    listUsageForLicenseConfigurationResponse_nextToken,
     listUsageForLicenseConfigurationResponse_httpStatus,
   )
 where
@@ -58,9 +58,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListUsageForLicenseConfiguration' smart constructor.
 data ListUsageForLicenseConfiguration = ListUsageForLicenseConfiguration'
-  { -- | Token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filters to scope the results. The following filters and logical
+  { -- | Filters to scope the results. The following filters and logical
     -- operators are supported:
     --
     -- -   @resourceArn@ - The ARN of the license configuration resource.
@@ -75,6 +73,8 @@ data ListUsageForLicenseConfiguration = ListUsageForLicenseConfiguration'
     filters :: Prelude.Maybe [Filter],
     -- | Maximum number of results to return in a single call.
     maxResults :: Prelude.Maybe Prelude.Int,
+    -- | Token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Amazon Resource Name (ARN) of the license configuration.
     licenseConfigurationArn :: Prelude.Text
   }
@@ -87,8 +87,6 @@ data ListUsageForLicenseConfiguration = ListUsageForLicenseConfiguration'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'listUsageForLicenseConfiguration_nextToken' - Token for the next set of results.
 --
 -- 'filters', 'listUsageForLicenseConfiguration_filters' - Filters to scope the results. The following filters and logical
 -- operators are supported:
@@ -105,6 +103,8 @@ data ListUsageForLicenseConfiguration = ListUsageForLicenseConfiguration'
 --
 -- 'maxResults', 'listUsageForLicenseConfiguration_maxResults' - Maximum number of results to return in a single call.
 --
+-- 'nextToken', 'listUsageForLicenseConfiguration_nextToken' - Token for the next set of results.
+--
 -- 'licenseConfigurationArn', 'listUsageForLicenseConfiguration_licenseConfigurationArn' - Amazon Resource Name (ARN) of the license configuration.
 newListUsageForLicenseConfiguration ::
   -- | 'licenseConfigurationArn'
@@ -113,17 +113,13 @@ newListUsageForLicenseConfiguration ::
 newListUsageForLicenseConfiguration
   pLicenseConfigurationArn_ =
     ListUsageForLicenseConfiguration'
-      { nextToken =
+      { filters =
           Prelude.Nothing,
-        filters = Prelude.Nothing,
         maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         licenseConfigurationArn =
           pLicenseConfigurationArn_
       }
-
--- | Token for the next set of results.
-listUsageForLicenseConfiguration_nextToken :: Lens.Lens' ListUsageForLicenseConfiguration (Prelude.Maybe Prelude.Text)
-listUsageForLicenseConfiguration_nextToken = Lens.lens (\ListUsageForLicenseConfiguration' {nextToken} -> nextToken) (\s@ListUsageForLicenseConfiguration' {} a -> s {nextToken = a} :: ListUsageForLicenseConfiguration)
 
 -- | Filters to scope the results. The following filters and logical
 -- operators are supported:
@@ -143,6 +139,10 @@ listUsageForLicenseConfiguration_filters = Lens.lens (\ListUsageForLicenseConfig
 -- | Maximum number of results to return in a single call.
 listUsageForLicenseConfiguration_maxResults :: Lens.Lens' ListUsageForLicenseConfiguration (Prelude.Maybe Prelude.Int)
 listUsageForLicenseConfiguration_maxResults = Lens.lens (\ListUsageForLicenseConfiguration' {maxResults} -> maxResults) (\s@ListUsageForLicenseConfiguration' {} a -> s {maxResults = a} :: ListUsageForLicenseConfiguration)
+
+-- | Token for the next set of results.
+listUsageForLicenseConfiguration_nextToken :: Lens.Lens' ListUsageForLicenseConfiguration (Prelude.Maybe Prelude.Text)
+listUsageForLicenseConfiguration_nextToken = Lens.lens (\ListUsageForLicenseConfiguration' {nextToken} -> nextToken) (\s@ListUsageForLicenseConfiguration' {} a -> s {nextToken = a} :: ListUsageForLicenseConfiguration)
 
 -- | Amazon Resource Name (ARN) of the license configuration.
 listUsageForLicenseConfiguration_licenseConfigurationArn :: Lens.Lens' ListUsageForLicenseConfiguration Prelude.Text
@@ -186,10 +186,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListUsageForLicenseConfigurationResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "LicenseConfigurationUsageList"
+            Prelude.<$> ( x Data..?> "LicenseConfigurationUsageList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -200,9 +200,9 @@ instance
   hashWithSalt
     _salt
     ListUsageForLicenseConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` filters
+      _salt `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` licenseConfigurationArn
 
 instance
@@ -210,9 +210,9 @@ instance
     ListUsageForLicenseConfiguration
   where
   rnf ListUsageForLicenseConfiguration' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf licenseConfigurationArn
 
 instance
@@ -237,9 +237,9 @@ instance Data.ToJSON ListUsageForLicenseConfiguration where
   toJSON ListUsageForLicenseConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
+          [ ("Filters" Data..=) Prelude.<$> filters,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ( "LicenseConfigurationArn"
                   Data..= licenseConfigurationArn
@@ -258,10 +258,10 @@ instance
 
 -- | /See:/ 'newListUsageForLicenseConfigurationResponse' smart constructor.
 data ListUsageForLicenseConfigurationResponse = ListUsageForLicenseConfigurationResponse'
-  { -- | Token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the license configurations.
+  { -- | Information about the license configurations.
     licenseConfigurationUsageList :: Prelude.Maybe [LicenseConfigurationUsage],
+    -- | Token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -275,9 +275,9 @@ data ListUsageForLicenseConfigurationResponse = ListUsageForLicenseConfiguration
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listUsageForLicenseConfigurationResponse_nextToken' - Token for the next set of results.
---
 -- 'licenseConfigurationUsageList', 'listUsageForLicenseConfigurationResponse_licenseConfigurationUsageList' - Information about the license configurations.
+--
+-- 'nextToken', 'listUsageForLicenseConfigurationResponse_nextToken' - Token for the next set of results.
 --
 -- 'httpStatus', 'listUsageForLicenseConfigurationResponse_httpStatus' - The response's http status code.
 newListUsageForLicenseConfigurationResponse ::
@@ -287,20 +287,19 @@ newListUsageForLicenseConfigurationResponse ::
 newListUsageForLicenseConfigurationResponse
   pHttpStatus_ =
     ListUsageForLicenseConfigurationResponse'
-      { nextToken =
+      { licenseConfigurationUsageList =
           Prelude.Nothing,
-        licenseConfigurationUsageList =
-          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | Token for the next set of results.
-listUsageForLicenseConfigurationResponse_nextToken :: Lens.Lens' ListUsageForLicenseConfigurationResponse (Prelude.Maybe Prelude.Text)
-listUsageForLicenseConfigurationResponse_nextToken = Lens.lens (\ListUsageForLicenseConfigurationResponse' {nextToken} -> nextToken) (\s@ListUsageForLicenseConfigurationResponse' {} a -> s {nextToken = a} :: ListUsageForLicenseConfigurationResponse)
 
 -- | Information about the license configurations.
 listUsageForLicenseConfigurationResponse_licenseConfigurationUsageList :: Lens.Lens' ListUsageForLicenseConfigurationResponse (Prelude.Maybe [LicenseConfigurationUsage])
 listUsageForLicenseConfigurationResponse_licenseConfigurationUsageList = Lens.lens (\ListUsageForLicenseConfigurationResponse' {licenseConfigurationUsageList} -> licenseConfigurationUsageList) (\s@ListUsageForLicenseConfigurationResponse' {} a -> s {licenseConfigurationUsageList = a} :: ListUsageForLicenseConfigurationResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Token for the next set of results.
+listUsageForLicenseConfigurationResponse_nextToken :: Lens.Lens' ListUsageForLicenseConfigurationResponse (Prelude.Maybe Prelude.Text)
+listUsageForLicenseConfigurationResponse_nextToken = Lens.lens (\ListUsageForLicenseConfigurationResponse' {nextToken} -> nextToken) (\s@ListUsageForLicenseConfigurationResponse' {} a -> s {nextToken = a} :: ListUsageForLicenseConfigurationResponse)
 
 -- | The response's http status code.
 listUsageForLicenseConfigurationResponse_httpStatus :: Lens.Lens' ListUsageForLicenseConfigurationResponse Prelude.Int
@@ -311,6 +310,6 @@ instance
     ListUsageForLicenseConfigurationResponse
   where
   rnf ListUsageForLicenseConfigurationResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf licenseConfigurationUsageList
+    Prelude.rnf licenseConfigurationUsageList
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

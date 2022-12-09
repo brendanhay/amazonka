@@ -30,19 +30,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLicenseConfigurationUsage' smart constructor.
 data LicenseConfigurationUsage = LicenseConfigurationUsage'
-  { -- | Type of resource.
-    resourceType :: Prelude.Maybe ResourceType,
-    -- | ID of the account that owns the resource.
-    resourceOwnerId :: Prelude.Maybe Prelude.Text,
-    -- | Number of licenses consumed by the resource.
-    consumedLicenses :: Prelude.Maybe Prelude.Integer,
-    -- | Time when the license configuration was initially associated with the
+  { -- | Time when the license configuration was initially associated with the
     -- resource.
     associationTime :: Prelude.Maybe Data.POSIX,
+    -- | Number of licenses consumed by the resource.
+    consumedLicenses :: Prelude.Maybe Prelude.Integer,
     -- | Amazon Resource Name (ARN) of the resource.
     resourceArn :: Prelude.Maybe Prelude.Text,
+    -- | ID of the account that owns the resource.
+    resourceOwnerId :: Prelude.Maybe Prelude.Text,
     -- | Status of the resource.
-    resourceStatus :: Prelude.Maybe Prelude.Text
+    resourceStatus :: Prelude.Maybe Prelude.Text,
+    -- | Type of resource.
+    resourceType :: Prelude.Maybe ResourceType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,55 +54,55 @@ data LicenseConfigurationUsage = LicenseConfigurationUsage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceType', 'licenseConfigurationUsage_resourceType' - Type of resource.
---
--- 'resourceOwnerId', 'licenseConfigurationUsage_resourceOwnerId' - ID of the account that owns the resource.
---
--- 'consumedLicenses', 'licenseConfigurationUsage_consumedLicenses' - Number of licenses consumed by the resource.
---
 -- 'associationTime', 'licenseConfigurationUsage_associationTime' - Time when the license configuration was initially associated with the
 -- resource.
 --
+-- 'consumedLicenses', 'licenseConfigurationUsage_consumedLicenses' - Number of licenses consumed by the resource.
+--
 -- 'resourceArn', 'licenseConfigurationUsage_resourceArn' - Amazon Resource Name (ARN) of the resource.
 --
+-- 'resourceOwnerId', 'licenseConfigurationUsage_resourceOwnerId' - ID of the account that owns the resource.
+--
 -- 'resourceStatus', 'licenseConfigurationUsage_resourceStatus' - Status of the resource.
+--
+-- 'resourceType', 'licenseConfigurationUsage_resourceType' - Type of resource.
 newLicenseConfigurationUsage ::
   LicenseConfigurationUsage
 newLicenseConfigurationUsage =
   LicenseConfigurationUsage'
-    { resourceType =
+    { associationTime =
         Prelude.Nothing,
-      resourceOwnerId = Prelude.Nothing,
       consumedLicenses = Prelude.Nothing,
-      associationTime = Prelude.Nothing,
       resourceArn = Prelude.Nothing,
-      resourceStatus = Prelude.Nothing
+      resourceOwnerId = Prelude.Nothing,
+      resourceStatus = Prelude.Nothing,
+      resourceType = Prelude.Nothing
     }
-
--- | Type of resource.
-licenseConfigurationUsage_resourceType :: Lens.Lens' LicenseConfigurationUsage (Prelude.Maybe ResourceType)
-licenseConfigurationUsage_resourceType = Lens.lens (\LicenseConfigurationUsage' {resourceType} -> resourceType) (\s@LicenseConfigurationUsage' {} a -> s {resourceType = a} :: LicenseConfigurationUsage)
-
--- | ID of the account that owns the resource.
-licenseConfigurationUsage_resourceOwnerId :: Lens.Lens' LicenseConfigurationUsage (Prelude.Maybe Prelude.Text)
-licenseConfigurationUsage_resourceOwnerId = Lens.lens (\LicenseConfigurationUsage' {resourceOwnerId} -> resourceOwnerId) (\s@LicenseConfigurationUsage' {} a -> s {resourceOwnerId = a} :: LicenseConfigurationUsage)
-
--- | Number of licenses consumed by the resource.
-licenseConfigurationUsage_consumedLicenses :: Lens.Lens' LicenseConfigurationUsage (Prelude.Maybe Prelude.Integer)
-licenseConfigurationUsage_consumedLicenses = Lens.lens (\LicenseConfigurationUsage' {consumedLicenses} -> consumedLicenses) (\s@LicenseConfigurationUsage' {} a -> s {consumedLicenses = a} :: LicenseConfigurationUsage)
 
 -- | Time when the license configuration was initially associated with the
 -- resource.
 licenseConfigurationUsage_associationTime :: Lens.Lens' LicenseConfigurationUsage (Prelude.Maybe Prelude.UTCTime)
 licenseConfigurationUsage_associationTime = Lens.lens (\LicenseConfigurationUsage' {associationTime} -> associationTime) (\s@LicenseConfigurationUsage' {} a -> s {associationTime = a} :: LicenseConfigurationUsage) Prelude.. Lens.mapping Data._Time
 
+-- | Number of licenses consumed by the resource.
+licenseConfigurationUsage_consumedLicenses :: Lens.Lens' LicenseConfigurationUsage (Prelude.Maybe Prelude.Integer)
+licenseConfigurationUsage_consumedLicenses = Lens.lens (\LicenseConfigurationUsage' {consumedLicenses} -> consumedLicenses) (\s@LicenseConfigurationUsage' {} a -> s {consumedLicenses = a} :: LicenseConfigurationUsage)
+
 -- | Amazon Resource Name (ARN) of the resource.
 licenseConfigurationUsage_resourceArn :: Lens.Lens' LicenseConfigurationUsage (Prelude.Maybe Prelude.Text)
 licenseConfigurationUsage_resourceArn = Lens.lens (\LicenseConfigurationUsage' {resourceArn} -> resourceArn) (\s@LicenseConfigurationUsage' {} a -> s {resourceArn = a} :: LicenseConfigurationUsage)
 
+-- | ID of the account that owns the resource.
+licenseConfigurationUsage_resourceOwnerId :: Lens.Lens' LicenseConfigurationUsage (Prelude.Maybe Prelude.Text)
+licenseConfigurationUsage_resourceOwnerId = Lens.lens (\LicenseConfigurationUsage' {resourceOwnerId} -> resourceOwnerId) (\s@LicenseConfigurationUsage' {} a -> s {resourceOwnerId = a} :: LicenseConfigurationUsage)
+
 -- | Status of the resource.
 licenseConfigurationUsage_resourceStatus :: Lens.Lens' LicenseConfigurationUsage (Prelude.Maybe Prelude.Text)
 licenseConfigurationUsage_resourceStatus = Lens.lens (\LicenseConfigurationUsage' {resourceStatus} -> resourceStatus) (\s@LicenseConfigurationUsage' {} a -> s {resourceStatus = a} :: LicenseConfigurationUsage)
+
+-- | Type of resource.
+licenseConfigurationUsage_resourceType :: Lens.Lens' LicenseConfigurationUsage (Prelude.Maybe ResourceType)
+licenseConfigurationUsage_resourceType = Lens.lens (\LicenseConfigurationUsage' {resourceType} -> resourceType) (\s@LicenseConfigurationUsage' {} a -> s {resourceType = a} :: LicenseConfigurationUsage)
 
 instance Data.FromJSON LicenseConfigurationUsage where
   parseJSON =
@@ -110,28 +110,28 @@ instance Data.FromJSON LicenseConfigurationUsage where
       "LicenseConfigurationUsage"
       ( \x ->
           LicenseConfigurationUsage'
-            Prelude.<$> (x Data..:? "ResourceType")
-            Prelude.<*> (x Data..:? "ResourceOwnerId")
+            Prelude.<$> (x Data..:? "AssociationTime")
             Prelude.<*> (x Data..:? "ConsumedLicenses")
-            Prelude.<*> (x Data..:? "AssociationTime")
             Prelude.<*> (x Data..:? "ResourceArn")
+            Prelude.<*> (x Data..:? "ResourceOwnerId")
             Prelude.<*> (x Data..:? "ResourceStatus")
+            Prelude.<*> (x Data..:? "ResourceType")
       )
 
 instance Prelude.Hashable LicenseConfigurationUsage where
   hashWithSalt _salt LicenseConfigurationUsage' {..} =
-    _salt `Prelude.hashWithSalt` resourceType
-      `Prelude.hashWithSalt` resourceOwnerId
+    _salt `Prelude.hashWithSalt` associationTime
       `Prelude.hashWithSalt` consumedLicenses
-      `Prelude.hashWithSalt` associationTime
       `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` resourceOwnerId
       `Prelude.hashWithSalt` resourceStatus
+      `Prelude.hashWithSalt` resourceType
 
 instance Prelude.NFData LicenseConfigurationUsage where
   rnf LicenseConfigurationUsage' {..} =
-    Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf resourceOwnerId
+    Prelude.rnf associationTime
       `Prelude.seq` Prelude.rnf consumedLicenses
-      `Prelude.seq` Prelude.rnf associationTime
       `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf resourceOwnerId
       `Prelude.seq` Prelude.rnf resourceStatus
+      `Prelude.seq` Prelude.rnf resourceType

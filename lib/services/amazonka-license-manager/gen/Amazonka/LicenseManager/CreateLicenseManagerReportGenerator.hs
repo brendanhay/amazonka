@@ -27,8 +27,8 @@ module Amazonka.LicenseManager.CreateLicenseManagerReportGenerator
     newCreateLicenseManagerReportGenerator,
 
     -- * Request Lenses
-    createLicenseManagerReportGenerator_tags,
     createLicenseManagerReportGenerator_description,
+    createLicenseManagerReportGenerator_tags,
     createLicenseManagerReportGenerator_reportGeneratorName,
     createLicenseManagerReportGenerator_type,
     createLicenseManagerReportGenerator_reportContext,
@@ -55,10 +55,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateLicenseManagerReportGenerator' smart constructor.
 data CreateLicenseManagerReportGenerator = CreateLicenseManagerReportGenerator'
-  { -- | Tags to add to the report generator.
-    tags :: Prelude.Maybe [Tag],
-    -- | Description of the report generator.
+  { -- | Description of the report generator.
     description :: Prelude.Maybe Prelude.Text,
+    -- | Tags to add to the report generator.
+    tags :: Prelude.Maybe [Tag],
     -- | Name of the report generator.
     reportGeneratorName :: Prelude.Text,
     -- | Type of reports to generate. The following report types an be generated:
@@ -88,9 +88,9 @@ data CreateLicenseManagerReportGenerator = CreateLicenseManagerReportGenerator'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createLicenseManagerReportGenerator_tags' - Tags to add to the report generator.
---
 -- 'description', 'createLicenseManagerReportGenerator_description' - Description of the report generator.
+--
+-- 'tags', 'createLicenseManagerReportGenerator_tags' - Tags to add to the report generator.
 --
 -- 'reportGeneratorName', 'createLicenseManagerReportGenerator_reportGeneratorName' - Name of the report generator.
 --
@@ -125,9 +125,9 @@ newCreateLicenseManagerReportGenerator
   pReportFrequency_
   pClientToken_ =
     CreateLicenseManagerReportGenerator'
-      { tags =
+      { description =
           Prelude.Nothing,
-        description = Prelude.Nothing,
+        tags = Prelude.Nothing,
         reportGeneratorName =
           pReportGeneratorName_,
         type' = Prelude.mempty,
@@ -136,13 +136,13 @@ newCreateLicenseManagerReportGenerator
         clientToken = pClientToken_
       }
 
--- | Tags to add to the report generator.
-createLicenseManagerReportGenerator_tags :: Lens.Lens' CreateLicenseManagerReportGenerator (Prelude.Maybe [Tag])
-createLicenseManagerReportGenerator_tags = Lens.lens (\CreateLicenseManagerReportGenerator' {tags} -> tags) (\s@CreateLicenseManagerReportGenerator' {} a -> s {tags = a} :: CreateLicenseManagerReportGenerator) Prelude.. Lens.mapping Lens.coerced
-
 -- | Description of the report generator.
 createLicenseManagerReportGenerator_description :: Lens.Lens' CreateLicenseManagerReportGenerator (Prelude.Maybe Prelude.Text)
 createLicenseManagerReportGenerator_description = Lens.lens (\CreateLicenseManagerReportGenerator' {description} -> description) (\s@CreateLicenseManagerReportGenerator' {} a -> s {description = a} :: CreateLicenseManagerReportGenerator)
+
+-- | Tags to add to the report generator.
+createLicenseManagerReportGenerator_tags :: Lens.Lens' CreateLicenseManagerReportGenerator (Prelude.Maybe [Tag])
+createLicenseManagerReportGenerator_tags = Lens.lens (\CreateLicenseManagerReportGenerator' {tags} -> tags) (\s@CreateLicenseManagerReportGenerator' {} a -> s {tags = a} :: CreateLicenseManagerReportGenerator) Prelude.. Lens.mapping Lens.coerced
 
 -- | Name of the report generator.
 createLicenseManagerReportGenerator_reportGeneratorName :: Lens.Lens' CreateLicenseManagerReportGenerator Prelude.Text
@@ -196,8 +196,8 @@ instance
   hashWithSalt
     _salt
     CreateLicenseManagerReportGenerator' {..} =
-      _salt `Prelude.hashWithSalt` tags
-        `Prelude.hashWithSalt` description
+      _salt `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` reportGeneratorName
         `Prelude.hashWithSalt` type'
         `Prelude.hashWithSalt` reportContext
@@ -209,8 +209,8 @@ instance
     CreateLicenseManagerReportGenerator
   where
   rnf CreateLicenseManagerReportGenerator' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf reportGeneratorName
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf reportContext
@@ -242,8 +242,8 @@ instance
   toJSON CreateLicenseManagerReportGenerator' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("ReportGeneratorName" Data..= reportGeneratorName),
             Prelude.Just ("Type" Data..= type'),

@@ -27,18 +27,18 @@ module Amazonka.LicenseManager.ListReceivedGrants
     newListReceivedGrants,
 
     -- * Request Lenses
-    listReceivedGrants_nextToken,
     listReceivedGrants_filters,
     listReceivedGrants_grantArns,
     listReceivedGrants_maxResults,
+    listReceivedGrants_nextToken,
 
     -- * Destructuring the Response
     ListReceivedGrantsResponse (..),
     newListReceivedGrantsResponse,
 
     -- * Response Lenses
-    listReceivedGrantsResponse_nextToken,
     listReceivedGrantsResponse_grants,
+    listReceivedGrantsResponse_nextToken,
     listReceivedGrantsResponse_httpStatus,
   )
 where
@@ -53,9 +53,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListReceivedGrants' smart constructor.
 data ListReceivedGrants = ListReceivedGrants'
-  { -- | Token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filters to scope the results. The following filters are supported:
+  { -- | Filters to scope the results. The following filters are supported:
     --
     -- -   @ProductSKU@
     --
@@ -70,7 +68,9 @@ data ListReceivedGrants = ListReceivedGrants'
     -- | Amazon Resource Names (ARNs) of the grants.
     grantArns :: Prelude.Maybe [Prelude.Text],
     -- | Maximum number of results to return in a single call.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,8 +81,6 @@ data ListReceivedGrants = ListReceivedGrants'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'listReceivedGrants_nextToken' - Token for the next set of results.
 --
 -- 'filters', 'listReceivedGrants_filters' - Filters to scope the results. The following filters are supported:
 --
@@ -99,19 +97,17 @@ data ListReceivedGrants = ListReceivedGrants'
 -- 'grantArns', 'listReceivedGrants_grantArns' - Amazon Resource Names (ARNs) of the grants.
 --
 -- 'maxResults', 'listReceivedGrants_maxResults' - Maximum number of results to return in a single call.
+--
+-- 'nextToken', 'listReceivedGrants_nextToken' - Token for the next set of results.
 newListReceivedGrants ::
   ListReceivedGrants
 newListReceivedGrants =
   ListReceivedGrants'
-    { nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
+    { filters = Prelude.Nothing,
       grantArns = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | Token for the next set of results.
-listReceivedGrants_nextToken :: Lens.Lens' ListReceivedGrants (Prelude.Maybe Prelude.Text)
-listReceivedGrants_nextToken = Lens.lens (\ListReceivedGrants' {nextToken} -> nextToken) (\s@ListReceivedGrants' {} a -> s {nextToken = a} :: ListReceivedGrants)
 
 -- | Filters to scope the results. The following filters are supported:
 --
@@ -135,6 +131,10 @@ listReceivedGrants_grantArns = Lens.lens (\ListReceivedGrants' {grantArns} -> gr
 listReceivedGrants_maxResults :: Lens.Lens' ListReceivedGrants (Prelude.Maybe Prelude.Natural)
 listReceivedGrants_maxResults = Lens.lens (\ListReceivedGrants' {maxResults} -> maxResults) (\s@ListReceivedGrants' {} a -> s {maxResults = a} :: ListReceivedGrants)
 
+-- | Token for the next set of results.
+listReceivedGrants_nextToken :: Lens.Lens' ListReceivedGrants (Prelude.Maybe Prelude.Text)
+listReceivedGrants_nextToken = Lens.lens (\ListReceivedGrants' {nextToken} -> nextToken) (\s@ListReceivedGrants' {} a -> s {nextToken = a} :: ListReceivedGrants)
+
 instance Core.AWSRequest ListReceivedGrants where
   type
     AWSResponse ListReceivedGrants =
@@ -145,24 +145,24 @@ instance Core.AWSRequest ListReceivedGrants where
     Response.receiveJSON
       ( \s h x ->
           ListReceivedGrantsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Grants" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Grants" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListReceivedGrants where
   hashWithSalt _salt ListReceivedGrants' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` grantArns
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListReceivedGrants where
   rnf ListReceivedGrants' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf grantArns
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListReceivedGrants where
   toHeaders =
@@ -183,10 +183,10 @@ instance Data.ToJSON ListReceivedGrants where
   toJSON ListReceivedGrants' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
+          [ ("Filters" Data..=) Prelude.<$> filters,
             ("GrantArns" Data..=) Prelude.<$> grantArns,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -198,10 +198,10 @@ instance Data.ToQuery ListReceivedGrants where
 
 -- | /See:/ 'newListReceivedGrantsResponse' smart constructor.
 data ListReceivedGrantsResponse = ListReceivedGrantsResponse'
-  { -- | Token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Received grant details.
+  { -- | Received grant details.
     grants :: Prelude.Maybe [Grant],
+    -- | Token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -215,9 +215,9 @@ data ListReceivedGrantsResponse = ListReceivedGrantsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listReceivedGrantsResponse_nextToken' - Token for the next set of results.
---
 -- 'grants', 'listReceivedGrantsResponse_grants' - Received grant details.
+--
+-- 'nextToken', 'listReceivedGrantsResponse_nextToken' - Token for the next set of results.
 --
 -- 'httpStatus', 'listReceivedGrantsResponse_httpStatus' - The response's http status code.
 newListReceivedGrantsResponse ::
@@ -226,19 +226,19 @@ newListReceivedGrantsResponse ::
   ListReceivedGrantsResponse
 newListReceivedGrantsResponse pHttpStatus_ =
   ListReceivedGrantsResponse'
-    { nextToken =
+    { grants =
         Prelude.Nothing,
-      grants = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Token for the next set of results.
-listReceivedGrantsResponse_nextToken :: Lens.Lens' ListReceivedGrantsResponse (Prelude.Maybe Prelude.Text)
-listReceivedGrantsResponse_nextToken = Lens.lens (\ListReceivedGrantsResponse' {nextToken} -> nextToken) (\s@ListReceivedGrantsResponse' {} a -> s {nextToken = a} :: ListReceivedGrantsResponse)
 
 -- | Received grant details.
 listReceivedGrantsResponse_grants :: Lens.Lens' ListReceivedGrantsResponse (Prelude.Maybe [Grant])
 listReceivedGrantsResponse_grants = Lens.lens (\ListReceivedGrantsResponse' {grants} -> grants) (\s@ListReceivedGrantsResponse' {} a -> s {grants = a} :: ListReceivedGrantsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Token for the next set of results.
+listReceivedGrantsResponse_nextToken :: Lens.Lens' ListReceivedGrantsResponse (Prelude.Maybe Prelude.Text)
+listReceivedGrantsResponse_nextToken = Lens.lens (\ListReceivedGrantsResponse' {nextToken} -> nextToken) (\s@ListReceivedGrantsResponse' {} a -> s {nextToken = a} :: ListReceivedGrantsResponse)
 
 -- | The response's http status code.
 listReceivedGrantsResponse_httpStatus :: Lens.Lens' ListReceivedGrantsResponse Prelude.Int
@@ -246,6 +246,6 @@ listReceivedGrantsResponse_httpStatus = Lens.lens (\ListReceivedGrantsResponse' 
 
 instance Prelude.NFData ListReceivedGrantsResponse where
   rnf ListReceivedGrantsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf grants
+    Prelude.rnf grants
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

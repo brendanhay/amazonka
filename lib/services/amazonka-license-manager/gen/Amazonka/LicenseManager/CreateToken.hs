@@ -32,8 +32,8 @@ module Amazonka.LicenseManager.CreateToken
     newCreateToken,
 
     -- * Request Lenses
-    createToken_roleArns,
     createToken_expirationInDays,
+    createToken_roleArns,
     createToken_tokenProperties,
     createToken_licenseArn,
     createToken_clientToken,
@@ -43,9 +43,9 @@ module Amazonka.LicenseManager.CreateToken
     newCreateTokenResponse,
 
     -- * Response Lenses
+    createTokenResponse_token,
     createTokenResponse_tokenId,
     createTokenResponse_tokenType,
-    createTokenResponse_token,
     createTokenResponse_httpStatus,
   )
 where
@@ -60,12 +60,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateToken' smart constructor.
 data CreateToken = CreateToken'
-  { -- | Amazon Resource Name (ARN) of the IAM roles to embed in the token.
-    -- License Manager does not check whether the roles are in use.
-    roleArns :: Prelude.Maybe [Prelude.Text],
-    -- | Token expiration, in days, counted from token creation. The default is
+  { -- | Token expiration, in days, counted from token creation. The default is
     -- 365 days.
     expirationInDays :: Prelude.Maybe Prelude.Int,
+    -- | Amazon Resource Name (ARN) of the IAM roles to embed in the token.
+    -- License Manager does not check whether the roles are in use.
+    roleArns :: Prelude.Maybe [Prelude.Text],
     -- | Data specified by the caller to be included in the JWT token. The data
     -- is mapped to the amr claim of the JWT token.
     tokenProperties :: Prelude.Maybe [Prelude.Text],
@@ -85,11 +85,11 @@ data CreateToken = CreateToken'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArns', 'createToken_roleArns' - Amazon Resource Name (ARN) of the IAM roles to embed in the token.
--- License Manager does not check whether the roles are in use.
---
 -- 'expirationInDays', 'createToken_expirationInDays' - Token expiration, in days, counted from token creation. The default is
 -- 365 days.
+--
+-- 'roleArns', 'createToken_roleArns' - Amazon Resource Name (ARN) of the IAM roles to embed in the token.
+-- License Manager does not check whether the roles are in use.
 --
 -- 'tokenProperties', 'createToken_tokenProperties' - Data specified by the caller to be included in the JWT token. The data
 -- is mapped to the amr claim of the JWT token.
@@ -106,22 +106,22 @@ newCreateToken ::
   CreateToken
 newCreateToken pLicenseArn_ pClientToken_ =
   CreateToken'
-    { roleArns = Prelude.Nothing,
-      expirationInDays = Prelude.Nothing,
+    { expirationInDays = Prelude.Nothing,
+      roleArns = Prelude.Nothing,
       tokenProperties = Prelude.Nothing,
       licenseArn = pLicenseArn_,
       clientToken = pClientToken_
     }
 
--- | Amazon Resource Name (ARN) of the IAM roles to embed in the token.
--- License Manager does not check whether the roles are in use.
-createToken_roleArns :: Lens.Lens' CreateToken (Prelude.Maybe [Prelude.Text])
-createToken_roleArns = Lens.lens (\CreateToken' {roleArns} -> roleArns) (\s@CreateToken' {} a -> s {roleArns = a} :: CreateToken) Prelude.. Lens.mapping Lens.coerced
-
 -- | Token expiration, in days, counted from token creation. The default is
 -- 365 days.
 createToken_expirationInDays :: Lens.Lens' CreateToken (Prelude.Maybe Prelude.Int)
 createToken_expirationInDays = Lens.lens (\CreateToken' {expirationInDays} -> expirationInDays) (\s@CreateToken' {} a -> s {expirationInDays = a} :: CreateToken)
+
+-- | Amazon Resource Name (ARN) of the IAM roles to embed in the token.
+-- License Manager does not check whether the roles are in use.
+createToken_roleArns :: Lens.Lens' CreateToken (Prelude.Maybe [Prelude.Text])
+createToken_roleArns = Lens.lens (\CreateToken' {roleArns} -> roleArns) (\s@CreateToken' {} a -> s {roleArns = a} :: CreateToken) Prelude.. Lens.mapping Lens.coerced
 
 -- | Data specified by the caller to be included in the JWT token. The data
 -- is mapped to the amr claim of the JWT token.
@@ -145,24 +145,24 @@ instance Core.AWSRequest CreateToken where
     Response.receiveJSON
       ( \s h x ->
           CreateTokenResponse'
-            Prelude.<$> (x Data..?> "TokenId")
+            Prelude.<$> (x Data..?> "Token")
+            Prelude.<*> (x Data..?> "TokenId")
             Prelude.<*> (x Data..?> "TokenType")
-            Prelude.<*> (x Data..?> "Token")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateToken where
   hashWithSalt _salt CreateToken' {..} =
-    _salt `Prelude.hashWithSalt` roleArns
-      `Prelude.hashWithSalt` expirationInDays
+    _salt `Prelude.hashWithSalt` expirationInDays
+      `Prelude.hashWithSalt` roleArns
       `Prelude.hashWithSalt` tokenProperties
       `Prelude.hashWithSalt` licenseArn
       `Prelude.hashWithSalt` clientToken
 
 instance Prelude.NFData CreateToken where
   rnf CreateToken' {..} =
-    Prelude.rnf roleArns
-      `Prelude.seq` Prelude.rnf expirationInDays
+    Prelude.rnf expirationInDays
+      `Prelude.seq` Prelude.rnf roleArns
       `Prelude.seq` Prelude.rnf tokenProperties
       `Prelude.seq` Prelude.rnf licenseArn
       `Prelude.seq` Prelude.rnf clientToken
@@ -186,9 +186,9 @@ instance Data.ToJSON CreateToken where
   toJSON CreateToken' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("RoleArns" Data..=) Prelude.<$> roleArns,
-            ("ExpirationInDays" Data..=)
+          [ ("ExpirationInDays" Data..=)
               Prelude.<$> expirationInDays,
+            ("RoleArns" Data..=) Prelude.<$> roleArns,
             ("TokenProperties" Data..=)
               Prelude.<$> tokenProperties,
             Prelude.Just ("LicenseArn" Data..= licenseArn),
@@ -204,12 +204,12 @@ instance Data.ToQuery CreateToken where
 
 -- | /See:/ 'newCreateTokenResponse' smart constructor.
 data CreateTokenResponse = CreateTokenResponse'
-  { -- | Token ID.
+  { -- | Refresh token, encoded as a JWT token.
+    token :: Prelude.Maybe Prelude.Text,
+    -- | Token ID.
     tokenId :: Prelude.Maybe Prelude.Text,
     -- | Token type.
     tokenType :: Prelude.Maybe TokenType,
-    -- | Refresh token, encoded as a JWT token.
-    token :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -223,11 +223,11 @@ data CreateTokenResponse = CreateTokenResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'token', 'createTokenResponse_token' - Refresh token, encoded as a JWT token.
+--
 -- 'tokenId', 'createTokenResponse_tokenId' - Token ID.
 --
 -- 'tokenType', 'createTokenResponse_tokenType' - Token type.
---
--- 'token', 'createTokenResponse_token' - Refresh token, encoded as a JWT token.
 --
 -- 'httpStatus', 'createTokenResponse_httpStatus' - The response's http status code.
 newCreateTokenResponse ::
@@ -236,11 +236,15 @@ newCreateTokenResponse ::
   CreateTokenResponse
 newCreateTokenResponse pHttpStatus_ =
   CreateTokenResponse'
-    { tokenId = Prelude.Nothing,
+    { token = Prelude.Nothing,
+      tokenId = Prelude.Nothing,
       tokenType = Prelude.Nothing,
-      token = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Refresh token, encoded as a JWT token.
+createTokenResponse_token :: Lens.Lens' CreateTokenResponse (Prelude.Maybe Prelude.Text)
+createTokenResponse_token = Lens.lens (\CreateTokenResponse' {token} -> token) (\s@CreateTokenResponse' {} a -> s {token = a} :: CreateTokenResponse)
 
 -- | Token ID.
 createTokenResponse_tokenId :: Lens.Lens' CreateTokenResponse (Prelude.Maybe Prelude.Text)
@@ -250,17 +254,13 @@ createTokenResponse_tokenId = Lens.lens (\CreateTokenResponse' {tokenId} -> toke
 createTokenResponse_tokenType :: Lens.Lens' CreateTokenResponse (Prelude.Maybe TokenType)
 createTokenResponse_tokenType = Lens.lens (\CreateTokenResponse' {tokenType} -> tokenType) (\s@CreateTokenResponse' {} a -> s {tokenType = a} :: CreateTokenResponse)
 
--- | Refresh token, encoded as a JWT token.
-createTokenResponse_token :: Lens.Lens' CreateTokenResponse (Prelude.Maybe Prelude.Text)
-createTokenResponse_token = Lens.lens (\CreateTokenResponse' {token} -> token) (\s@CreateTokenResponse' {} a -> s {token = a} :: CreateTokenResponse)
-
 -- | The response's http status code.
 createTokenResponse_httpStatus :: Lens.Lens' CreateTokenResponse Prelude.Int
 createTokenResponse_httpStatus = Lens.lens (\CreateTokenResponse' {httpStatus} -> httpStatus) (\s@CreateTokenResponse' {} a -> s {httpStatus = a} :: CreateTokenResponse)
 
 instance Prelude.NFData CreateTokenResponse where
   rnf CreateTokenResponse' {..} =
-    Prelude.rnf tokenId
+    Prelude.rnf token
+      `Prelude.seq` Prelude.rnf tokenId
       `Prelude.seq` Prelude.rnf tokenType
-      `Prelude.seq` Prelude.rnf token
       `Prelude.seq` Prelude.rnf httpStatus

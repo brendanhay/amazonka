@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConsumedLicenseSummary' smart constructor.
 data ConsumedLicenseSummary = ConsumedLicenseSummary'
-  { -- | Resource type of the resource consuming a license.
-    resourceType :: Prelude.Maybe ResourceType,
-    -- | Number of licenses consumed by the resource.
-    consumedLicenses :: Prelude.Maybe Prelude.Integer
+  { -- | Number of licenses consumed by the resource.
+    consumedLicenses :: Prelude.Maybe Prelude.Integer,
+    -- | Resource type of the resource consuming a license.
+    resourceType :: Prelude.Maybe ResourceType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data ConsumedLicenseSummary = ConsumedLicenseSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceType', 'consumedLicenseSummary_resourceType' - Resource type of the resource consuming a license.
---
 -- 'consumedLicenses', 'consumedLicenseSummary_consumedLicenses' - Number of licenses consumed by the resource.
+--
+-- 'resourceType', 'consumedLicenseSummary_resourceType' - Resource type of the resource consuming a license.
 newConsumedLicenseSummary ::
   ConsumedLicenseSummary
 newConsumedLicenseSummary =
   ConsumedLicenseSummary'
-    { resourceType =
+    { consumedLicenses =
         Prelude.Nothing,
-      consumedLicenses = Prelude.Nothing
+      resourceType = Prelude.Nothing
     }
-
--- | Resource type of the resource consuming a license.
-consumedLicenseSummary_resourceType :: Lens.Lens' ConsumedLicenseSummary (Prelude.Maybe ResourceType)
-consumedLicenseSummary_resourceType = Lens.lens (\ConsumedLicenseSummary' {resourceType} -> resourceType) (\s@ConsumedLicenseSummary' {} a -> s {resourceType = a} :: ConsumedLicenseSummary)
 
 -- | Number of licenses consumed by the resource.
 consumedLicenseSummary_consumedLicenses :: Lens.Lens' ConsumedLicenseSummary (Prelude.Maybe Prelude.Integer)
 consumedLicenseSummary_consumedLicenses = Lens.lens (\ConsumedLicenseSummary' {consumedLicenses} -> consumedLicenses) (\s@ConsumedLicenseSummary' {} a -> s {consumedLicenses = a} :: ConsumedLicenseSummary)
+
+-- | Resource type of the resource consuming a license.
+consumedLicenseSummary_resourceType :: Lens.Lens' ConsumedLicenseSummary (Prelude.Maybe ResourceType)
+consumedLicenseSummary_resourceType = Lens.lens (\ConsumedLicenseSummary' {resourceType} -> resourceType) (\s@ConsumedLicenseSummary' {} a -> s {resourceType = a} :: ConsumedLicenseSummary)
 
 instance Data.FromJSON ConsumedLicenseSummary where
   parseJSON =
@@ -70,16 +70,16 @@ instance Data.FromJSON ConsumedLicenseSummary where
       "ConsumedLicenseSummary"
       ( \x ->
           ConsumedLicenseSummary'
-            Prelude.<$> (x Data..:? "ResourceType")
-            Prelude.<*> (x Data..:? "ConsumedLicenses")
+            Prelude.<$> (x Data..:? "ConsumedLicenses")
+            Prelude.<*> (x Data..:? "ResourceType")
       )
 
 instance Prelude.Hashable ConsumedLicenseSummary where
   hashWithSalt _salt ConsumedLicenseSummary' {..} =
-    _salt `Prelude.hashWithSalt` resourceType
-      `Prelude.hashWithSalt` consumedLicenses
+    _salt `Prelude.hashWithSalt` consumedLicenses
+      `Prelude.hashWithSalt` resourceType
 
 instance Prelude.NFData ConsumedLicenseSummary where
   rnf ConsumedLicenseSummary' {..} =
-    Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf consumedLicenses
+    Prelude.rnf consumedLicenses
+      `Prelude.seq` Prelude.rnf resourceType

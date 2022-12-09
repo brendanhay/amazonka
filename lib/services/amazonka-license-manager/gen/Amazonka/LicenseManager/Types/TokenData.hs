@@ -28,20 +28,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTokenData' smart constructor.
 data TokenData = TokenData'
-  { -- | Amazon Resource Name (ARN) of the license.
-    licenseArn :: Prelude.Maybe Prelude.Text,
-    -- | Token expiration time, in ISO8601-UTC format.
+  { -- | Token expiration time, in ISO8601-UTC format.
     expirationTime :: Prelude.Maybe Prelude.Text,
+    -- | Amazon Resource Name (ARN) of the license.
+    licenseArn :: Prelude.Maybe Prelude.Text,
     -- | Amazon Resource Names (ARN) of the roles included in the token.
     roleArns :: Prelude.Maybe [Prelude.Text],
     -- | Token status. The possible values are @AVAILABLE@ and @DELETED@.
     status :: Prelude.Maybe Prelude.Text,
     -- | Token ID.
     tokenId :: Prelude.Maybe Prelude.Text,
-    -- | Type of token generated. The supported value is @REFRESH_TOKEN@.
-    tokenType :: Prelude.Maybe Prelude.Text,
     -- | Data specified by the caller.
-    tokenProperties :: Prelude.Maybe [Prelude.Text]
+    tokenProperties :: Prelude.Maybe [Prelude.Text],
+    -- | Type of token generated. The supported value is @REFRESH_TOKEN@.
+    tokenType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,9 +53,9 @@ data TokenData = TokenData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'licenseArn', 'tokenData_licenseArn' - Amazon Resource Name (ARN) of the license.
---
 -- 'expirationTime', 'tokenData_expirationTime' - Token expiration time, in ISO8601-UTC format.
+--
+-- 'licenseArn', 'tokenData_licenseArn' - Amazon Resource Name (ARN) of the license.
 --
 -- 'roleArns', 'tokenData_roleArns' - Amazon Resource Names (ARN) of the roles included in the token.
 --
@@ -63,29 +63,29 @@ data TokenData = TokenData'
 --
 -- 'tokenId', 'tokenData_tokenId' - Token ID.
 --
--- 'tokenType', 'tokenData_tokenType' - Type of token generated. The supported value is @REFRESH_TOKEN@.
---
 -- 'tokenProperties', 'tokenData_tokenProperties' - Data specified by the caller.
+--
+-- 'tokenType', 'tokenData_tokenType' - Type of token generated. The supported value is @REFRESH_TOKEN@.
 newTokenData ::
   TokenData
 newTokenData =
   TokenData'
-    { licenseArn = Prelude.Nothing,
-      expirationTime = Prelude.Nothing,
+    { expirationTime = Prelude.Nothing,
+      licenseArn = Prelude.Nothing,
       roleArns = Prelude.Nothing,
       status = Prelude.Nothing,
       tokenId = Prelude.Nothing,
-      tokenType = Prelude.Nothing,
-      tokenProperties = Prelude.Nothing
+      tokenProperties = Prelude.Nothing,
+      tokenType = Prelude.Nothing
     }
-
--- | Amazon Resource Name (ARN) of the license.
-tokenData_licenseArn :: Lens.Lens' TokenData (Prelude.Maybe Prelude.Text)
-tokenData_licenseArn = Lens.lens (\TokenData' {licenseArn} -> licenseArn) (\s@TokenData' {} a -> s {licenseArn = a} :: TokenData)
 
 -- | Token expiration time, in ISO8601-UTC format.
 tokenData_expirationTime :: Lens.Lens' TokenData (Prelude.Maybe Prelude.Text)
 tokenData_expirationTime = Lens.lens (\TokenData' {expirationTime} -> expirationTime) (\s@TokenData' {} a -> s {expirationTime = a} :: TokenData)
+
+-- | Amazon Resource Name (ARN) of the license.
+tokenData_licenseArn :: Lens.Lens' TokenData (Prelude.Maybe Prelude.Text)
+tokenData_licenseArn = Lens.lens (\TokenData' {licenseArn} -> licenseArn) (\s@TokenData' {} a -> s {licenseArn = a} :: TokenData)
 
 -- | Amazon Resource Names (ARN) of the roles included in the token.
 tokenData_roleArns :: Lens.Lens' TokenData (Prelude.Maybe [Prelude.Text])
@@ -99,13 +99,13 @@ tokenData_status = Lens.lens (\TokenData' {status} -> status) (\s@TokenData' {} 
 tokenData_tokenId :: Lens.Lens' TokenData (Prelude.Maybe Prelude.Text)
 tokenData_tokenId = Lens.lens (\TokenData' {tokenId} -> tokenId) (\s@TokenData' {} a -> s {tokenId = a} :: TokenData)
 
--- | Type of token generated. The supported value is @REFRESH_TOKEN@.
-tokenData_tokenType :: Lens.Lens' TokenData (Prelude.Maybe Prelude.Text)
-tokenData_tokenType = Lens.lens (\TokenData' {tokenType} -> tokenType) (\s@TokenData' {} a -> s {tokenType = a} :: TokenData)
-
 -- | Data specified by the caller.
 tokenData_tokenProperties :: Lens.Lens' TokenData (Prelude.Maybe [Prelude.Text])
 tokenData_tokenProperties = Lens.lens (\TokenData' {tokenProperties} -> tokenProperties) (\s@TokenData' {} a -> s {tokenProperties = a} :: TokenData) Prelude.. Lens.mapping Lens.coerced
+
+-- | Type of token generated. The supported value is @REFRESH_TOKEN@.
+tokenData_tokenType :: Lens.Lens' TokenData (Prelude.Maybe Prelude.Text)
+tokenData_tokenType = Lens.lens (\TokenData' {tokenType} -> tokenType) (\s@TokenData' {} a -> s {tokenType = a} :: TokenData)
 
 instance Data.FromJSON TokenData where
   parseJSON =
@@ -113,33 +113,33 @@ instance Data.FromJSON TokenData where
       "TokenData"
       ( \x ->
           TokenData'
-            Prelude.<$> (x Data..:? "LicenseArn")
-            Prelude.<*> (x Data..:? "ExpirationTime")
+            Prelude.<$> (x Data..:? "ExpirationTime")
+            Prelude.<*> (x Data..:? "LicenseArn")
             Prelude.<*> (x Data..:? "RoleArns" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "Status")
             Prelude.<*> (x Data..:? "TokenId")
-            Prelude.<*> (x Data..:? "TokenType")
             Prelude.<*> ( x Data..:? "TokenProperties"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "TokenType")
       )
 
 instance Prelude.Hashable TokenData where
   hashWithSalt _salt TokenData' {..} =
-    _salt `Prelude.hashWithSalt` licenseArn
-      `Prelude.hashWithSalt` expirationTime
+    _salt `Prelude.hashWithSalt` expirationTime
+      `Prelude.hashWithSalt` licenseArn
       `Prelude.hashWithSalt` roleArns
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` tokenId
-      `Prelude.hashWithSalt` tokenType
       `Prelude.hashWithSalt` tokenProperties
+      `Prelude.hashWithSalt` tokenType
 
 instance Prelude.NFData TokenData where
   rnf TokenData' {..} =
-    Prelude.rnf licenseArn
-      `Prelude.seq` Prelude.rnf expirationTime
+    Prelude.rnf expirationTime
+      `Prelude.seq` Prelude.rnf licenseArn
       `Prelude.seq` Prelude.rnf roleArns
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf tokenId
-      `Prelude.seq` Prelude.rnf tokenType
       `Prelude.seq` Prelude.rnf tokenProperties
+      `Prelude.seq` Prelude.rnf tokenType

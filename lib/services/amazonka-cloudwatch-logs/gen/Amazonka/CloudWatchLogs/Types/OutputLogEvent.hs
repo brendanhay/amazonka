@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOutputLogEvent' smart constructor.
 data OutputLogEvent = OutputLogEvent'
-  { -- | The data contained in the log event.
+  { -- | The time the event was ingested, expressed as the number of milliseconds
+    -- after @Jan 1, 1970 00:00:00 UTC@.
+    ingestionTime :: Prelude.Maybe Prelude.Natural,
+    -- | The data contained in the log event.
     message :: Prelude.Maybe Prelude.Text,
     -- | The time the event occurred, expressed as the number of milliseconds
-    -- after Jan 1, 1970 00:00:00 UTC.
-    timestamp :: Prelude.Maybe Prelude.Natural,
-    -- | The time the event was ingested, expressed as the number of milliseconds
-    -- after Jan 1, 1970 00:00:00 UTC.
-    ingestionTime :: Prelude.Maybe Prelude.Natural
+    -- after @Jan 1, 1970 00:00:00 UTC@.
+    timestamp :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,35 +47,35 @@ data OutputLogEvent = OutputLogEvent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'ingestionTime', 'outputLogEvent_ingestionTime' - The time the event was ingested, expressed as the number of milliseconds
+-- after @Jan 1, 1970 00:00:00 UTC@.
+--
 -- 'message', 'outputLogEvent_message' - The data contained in the log event.
 --
 -- 'timestamp', 'outputLogEvent_timestamp' - The time the event occurred, expressed as the number of milliseconds
--- after Jan 1, 1970 00:00:00 UTC.
---
--- 'ingestionTime', 'outputLogEvent_ingestionTime' - The time the event was ingested, expressed as the number of milliseconds
--- after Jan 1, 1970 00:00:00 UTC.
+-- after @Jan 1, 1970 00:00:00 UTC@.
 newOutputLogEvent ::
   OutputLogEvent
 newOutputLogEvent =
   OutputLogEvent'
-    { message = Prelude.Nothing,
-      timestamp = Prelude.Nothing,
-      ingestionTime = Prelude.Nothing
+    { ingestionTime = Prelude.Nothing,
+      message = Prelude.Nothing,
+      timestamp = Prelude.Nothing
     }
+
+-- | The time the event was ingested, expressed as the number of milliseconds
+-- after @Jan 1, 1970 00:00:00 UTC@.
+outputLogEvent_ingestionTime :: Lens.Lens' OutputLogEvent (Prelude.Maybe Prelude.Natural)
+outputLogEvent_ingestionTime = Lens.lens (\OutputLogEvent' {ingestionTime} -> ingestionTime) (\s@OutputLogEvent' {} a -> s {ingestionTime = a} :: OutputLogEvent)
 
 -- | The data contained in the log event.
 outputLogEvent_message :: Lens.Lens' OutputLogEvent (Prelude.Maybe Prelude.Text)
 outputLogEvent_message = Lens.lens (\OutputLogEvent' {message} -> message) (\s@OutputLogEvent' {} a -> s {message = a} :: OutputLogEvent)
 
 -- | The time the event occurred, expressed as the number of milliseconds
--- after Jan 1, 1970 00:00:00 UTC.
+-- after @Jan 1, 1970 00:00:00 UTC@.
 outputLogEvent_timestamp :: Lens.Lens' OutputLogEvent (Prelude.Maybe Prelude.Natural)
 outputLogEvent_timestamp = Lens.lens (\OutputLogEvent' {timestamp} -> timestamp) (\s@OutputLogEvent' {} a -> s {timestamp = a} :: OutputLogEvent)
-
--- | The time the event was ingested, expressed as the number of milliseconds
--- after Jan 1, 1970 00:00:00 UTC.
-outputLogEvent_ingestionTime :: Lens.Lens' OutputLogEvent (Prelude.Maybe Prelude.Natural)
-outputLogEvent_ingestionTime = Lens.lens (\OutputLogEvent' {ingestionTime} -> ingestionTime) (\s@OutputLogEvent' {} a -> s {ingestionTime = a} :: OutputLogEvent)
 
 instance Data.FromJSON OutputLogEvent where
   parseJSON =
@@ -83,19 +83,19 @@ instance Data.FromJSON OutputLogEvent where
       "OutputLogEvent"
       ( \x ->
           OutputLogEvent'
-            Prelude.<$> (x Data..:? "message")
+            Prelude.<$> (x Data..:? "ingestionTime")
+            Prelude.<*> (x Data..:? "message")
             Prelude.<*> (x Data..:? "timestamp")
-            Prelude.<*> (x Data..:? "ingestionTime")
       )
 
 instance Prelude.Hashable OutputLogEvent where
   hashWithSalt _salt OutputLogEvent' {..} =
-    _salt `Prelude.hashWithSalt` message
+    _salt `Prelude.hashWithSalt` ingestionTime
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` timestamp
-      `Prelude.hashWithSalt` ingestionTime
 
 instance Prelude.NFData OutputLogEvent where
   rnf OutputLogEvent' {..} =
-    Prelude.rnf message
+    Prelude.rnf ingestionTime
+      `Prelude.seq` Prelude.rnf message
       `Prelude.seq` Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf ingestionTime

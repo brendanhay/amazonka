@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMetricFilterMatchRecord' smart constructor.
 data MetricFilterMatchRecord = MetricFilterMatchRecord'
-  { -- | The event number.
+  { -- | The raw event data.
+    eventMessage :: Prelude.Maybe Prelude.Text,
+    -- | The event number.
     eventNumber :: Prelude.Maybe Prelude.Integer,
     -- | The values extracted from the event data by the filter.
-    extractedValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The raw event data.
-    eventMessage :: Prelude.Maybe Prelude.Text
+    extractedValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,20 +45,24 @@ data MetricFilterMatchRecord = MetricFilterMatchRecord'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'eventMessage', 'metricFilterMatchRecord_eventMessage' - The raw event data.
+--
 -- 'eventNumber', 'metricFilterMatchRecord_eventNumber' - The event number.
 --
 -- 'extractedValues', 'metricFilterMatchRecord_extractedValues' - The values extracted from the event data by the filter.
---
--- 'eventMessage', 'metricFilterMatchRecord_eventMessage' - The raw event data.
 newMetricFilterMatchRecord ::
   MetricFilterMatchRecord
 newMetricFilterMatchRecord =
   MetricFilterMatchRecord'
-    { eventNumber =
+    { eventMessage =
         Prelude.Nothing,
-      extractedValues = Prelude.Nothing,
-      eventMessage = Prelude.Nothing
+      eventNumber = Prelude.Nothing,
+      extractedValues = Prelude.Nothing
     }
+
+-- | The raw event data.
+metricFilterMatchRecord_eventMessage :: Lens.Lens' MetricFilterMatchRecord (Prelude.Maybe Prelude.Text)
+metricFilterMatchRecord_eventMessage = Lens.lens (\MetricFilterMatchRecord' {eventMessage} -> eventMessage) (\s@MetricFilterMatchRecord' {} a -> s {eventMessage = a} :: MetricFilterMatchRecord)
 
 -- | The event number.
 metricFilterMatchRecord_eventNumber :: Lens.Lens' MetricFilterMatchRecord (Prelude.Maybe Prelude.Integer)
@@ -68,31 +72,27 @@ metricFilterMatchRecord_eventNumber = Lens.lens (\MetricFilterMatchRecord' {even
 metricFilterMatchRecord_extractedValues :: Lens.Lens' MetricFilterMatchRecord (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 metricFilterMatchRecord_extractedValues = Lens.lens (\MetricFilterMatchRecord' {extractedValues} -> extractedValues) (\s@MetricFilterMatchRecord' {} a -> s {extractedValues = a} :: MetricFilterMatchRecord) Prelude.. Lens.mapping Lens.coerced
 
--- | The raw event data.
-metricFilterMatchRecord_eventMessage :: Lens.Lens' MetricFilterMatchRecord (Prelude.Maybe Prelude.Text)
-metricFilterMatchRecord_eventMessage = Lens.lens (\MetricFilterMatchRecord' {eventMessage} -> eventMessage) (\s@MetricFilterMatchRecord' {} a -> s {eventMessage = a} :: MetricFilterMatchRecord)
-
 instance Data.FromJSON MetricFilterMatchRecord where
   parseJSON =
     Data.withObject
       "MetricFilterMatchRecord"
       ( \x ->
           MetricFilterMatchRecord'
-            Prelude.<$> (x Data..:? "eventNumber")
+            Prelude.<$> (x Data..:? "eventMessage")
+            Prelude.<*> (x Data..:? "eventNumber")
             Prelude.<*> ( x Data..:? "extractedValues"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "eventMessage")
       )
 
 instance Prelude.Hashable MetricFilterMatchRecord where
   hashWithSalt _salt MetricFilterMatchRecord' {..} =
-    _salt `Prelude.hashWithSalt` eventNumber
+    _salt `Prelude.hashWithSalt` eventMessage
+      `Prelude.hashWithSalt` eventNumber
       `Prelude.hashWithSalt` extractedValues
-      `Prelude.hashWithSalt` eventMessage
 
 instance Prelude.NFData MetricFilterMatchRecord where
   rnf MetricFilterMatchRecord' {..} =
-    Prelude.rnf eventNumber
+    Prelude.rnf eventMessage
+      `Prelude.seq` Prelude.rnf eventNumber
       `Prelude.seq` Prelude.rnf extractedValues
-      `Prelude.seq` Prelude.rnf eventMessage

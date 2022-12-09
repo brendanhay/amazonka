@@ -30,17 +30,17 @@ module Amazonka.CloudWatchLogs.DescribeDestinations
     newDescribeDestinations,
 
     -- * Request Lenses
-    describeDestinations_nextToken,
-    describeDestinations_limit,
     describeDestinations_destinationNamePrefix,
+    describeDestinations_limit,
+    describeDestinations_nextToken,
 
     -- * Destructuring the Response
     DescribeDestinationsResponse (..),
     newDescribeDestinationsResponse,
 
     -- * Response Lenses
-    describeDestinationsResponse_nextToken,
     describeDestinationsResponse_destinations,
+    describeDestinationsResponse_nextToken,
     describeDestinationsResponse_httpStatus,
   )
 where
@@ -55,15 +55,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeDestinations' smart constructor.
 data DescribeDestinations = DescribeDestinations'
-  { -- | The token for the next set of items to return. (You received this token
-    -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The prefix to match. If you don\'t specify a value, no prefix filter is
+    -- applied.
+    destinationNamePrefix :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items returned. If you don\'t specify a value, the
     -- default maximum value of 50 items is used.
     limit :: Prelude.Maybe Prelude.Natural,
-    -- | The prefix to match. If you don\'t specify a value, no prefix filter is
-    -- applied.
-    destinationNamePrefix :: Prelude.Maybe Prelude.Text
+    -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,37 +75,38 @@ data DescribeDestinations = DescribeDestinations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeDestinations_nextToken' - The token for the next set of items to return. (You received this token
--- from a previous call.)
+-- 'destinationNamePrefix', 'describeDestinations_destinationNamePrefix' - The prefix to match. If you don\'t specify a value, no prefix filter is
+-- applied.
 --
 -- 'limit', 'describeDestinations_limit' - The maximum number of items returned. If you don\'t specify a value, the
 -- default maximum value of 50 items is used.
 --
--- 'destinationNamePrefix', 'describeDestinations_destinationNamePrefix' - The prefix to match. If you don\'t specify a value, no prefix filter is
--- applied.
+-- 'nextToken', 'describeDestinations_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
 newDescribeDestinations ::
   DescribeDestinations
 newDescribeDestinations =
   DescribeDestinations'
-    { nextToken = Prelude.Nothing,
+    { destinationNamePrefix =
+        Prelude.Nothing,
       limit = Prelude.Nothing,
-      destinationNamePrefix = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
 
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
-describeDestinations_nextToken :: Lens.Lens' DescribeDestinations (Prelude.Maybe Prelude.Text)
-describeDestinations_nextToken = Lens.lens (\DescribeDestinations' {nextToken} -> nextToken) (\s@DescribeDestinations' {} a -> s {nextToken = a} :: DescribeDestinations)
+-- | The prefix to match. If you don\'t specify a value, no prefix filter is
+-- applied.
+describeDestinations_destinationNamePrefix :: Lens.Lens' DescribeDestinations (Prelude.Maybe Prelude.Text)
+describeDestinations_destinationNamePrefix = Lens.lens (\DescribeDestinations' {destinationNamePrefix} -> destinationNamePrefix) (\s@DescribeDestinations' {} a -> s {destinationNamePrefix = a} :: DescribeDestinations)
 
 -- | The maximum number of items returned. If you don\'t specify a value, the
 -- default maximum value of 50 items is used.
 describeDestinations_limit :: Lens.Lens' DescribeDestinations (Prelude.Maybe Prelude.Natural)
 describeDestinations_limit = Lens.lens (\DescribeDestinations' {limit} -> limit) (\s@DescribeDestinations' {} a -> s {limit = a} :: DescribeDestinations)
 
--- | The prefix to match. If you don\'t specify a value, no prefix filter is
--- applied.
-describeDestinations_destinationNamePrefix :: Lens.Lens' DescribeDestinations (Prelude.Maybe Prelude.Text)
-describeDestinations_destinationNamePrefix = Lens.lens (\DescribeDestinations' {destinationNamePrefix} -> destinationNamePrefix) (\s@DescribeDestinations' {} a -> s {destinationNamePrefix = a} :: DescribeDestinations)
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+describeDestinations_nextToken :: Lens.Lens' DescribeDestinations (Prelude.Maybe Prelude.Text)
+describeDestinations_nextToken = Lens.lens (\DescribeDestinations' {nextToken} -> nextToken) (\s@DescribeDestinations' {} a -> s {nextToken = a} :: DescribeDestinations)
 
 instance Core.AWSPager DescribeDestinations where
   page rq rs
@@ -139,22 +140,22 @@ instance Core.AWSRequest DescribeDestinations where
     Response.receiveJSON
       ( \s h x ->
           DescribeDestinationsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "destinations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "destinations" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeDestinations where
   hashWithSalt _salt DescribeDestinations' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` destinationNamePrefix
       `Prelude.hashWithSalt` limit
-      `Prelude.hashWithSalt` destinationNamePrefix
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeDestinations where
   rnf DescribeDestinations' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf destinationNamePrefix
       `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf destinationNamePrefix
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeDestinations where
   toHeaders =
@@ -175,10 +176,10 @@ instance Data.ToJSON DescribeDestinations where
   toJSON DescribeDestinations' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+          [ ("DestinationNamePrefix" Data..=)
+              Prelude.<$> destinationNamePrefix,
             ("limit" Data..=) Prelude.<$> limit,
-            ("DestinationNamePrefix" Data..=)
-              Prelude.<$> destinationNamePrefix
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -190,9 +191,9 @@ instance Data.ToQuery DescribeDestinations where
 
 -- | /See:/ 'newDescribeDestinationsResponse' smart constructor.
 data DescribeDestinationsResponse = DescribeDestinationsResponse'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The destinations.
+  { -- | The destinations.
     destinations :: Prelude.Maybe [Destination],
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -206,9 +207,9 @@ data DescribeDestinationsResponse = DescribeDestinationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeDestinationsResponse_nextToken' - Undocumented member.
---
 -- 'destinations', 'describeDestinationsResponse_destinations' - The destinations.
+--
+-- 'nextToken', 'describeDestinationsResponse_nextToken' - Undocumented member.
 --
 -- 'httpStatus', 'describeDestinationsResponse_httpStatus' - The response's http status code.
 newDescribeDestinationsResponse ::
@@ -217,19 +218,19 @@ newDescribeDestinationsResponse ::
   DescribeDestinationsResponse
 newDescribeDestinationsResponse pHttpStatus_ =
   DescribeDestinationsResponse'
-    { nextToken =
+    { destinations =
         Prelude.Nothing,
-      destinations = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Undocumented member.
-describeDestinationsResponse_nextToken :: Lens.Lens' DescribeDestinationsResponse (Prelude.Maybe Prelude.Text)
-describeDestinationsResponse_nextToken = Lens.lens (\DescribeDestinationsResponse' {nextToken} -> nextToken) (\s@DescribeDestinationsResponse' {} a -> s {nextToken = a} :: DescribeDestinationsResponse)
 
 -- | The destinations.
 describeDestinationsResponse_destinations :: Lens.Lens' DescribeDestinationsResponse (Prelude.Maybe [Destination])
 describeDestinationsResponse_destinations = Lens.lens (\DescribeDestinationsResponse' {destinations} -> destinations) (\s@DescribeDestinationsResponse' {} a -> s {destinations = a} :: DescribeDestinationsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+describeDestinationsResponse_nextToken :: Lens.Lens' DescribeDestinationsResponse (Prelude.Maybe Prelude.Text)
+describeDestinationsResponse_nextToken = Lens.lens (\DescribeDestinationsResponse' {nextToken} -> nextToken) (\s@DescribeDestinationsResponse' {} a -> s {nextToken = a} :: DescribeDestinationsResponse)
 
 -- | The response's http status code.
 describeDestinationsResponse_httpStatus :: Lens.Lens' DescribeDestinationsResponse Prelude.Int
@@ -237,6 +238,6 @@ describeDestinationsResponse_httpStatus = Lens.lens (\DescribeDestinationsRespon
 
 instance Prelude.NFData DescribeDestinationsResponse where
   rnf DescribeDestinationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf destinations
+    Prelude.rnf destinations
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

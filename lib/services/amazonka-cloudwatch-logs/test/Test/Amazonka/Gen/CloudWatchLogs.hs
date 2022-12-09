@@ -42,6 +42,9 @@ import Test.Tasty
 --         , requestCreateLogStream $
 --             newCreateLogStream
 --
+--         , requestDeleteDataProtectionPolicy $
+--             newDeleteDataProtectionPolicy
+--
 --         , requestDeleteDestination $
 --             newDeleteDestination
 --
@@ -99,6 +102,9 @@ import Test.Tasty
 --         , requestFilterLogEvents $
 --             newFilterLogEvents
 --
+--         , requestGetDataProtectionPolicy $
+--             newGetDataProtectionPolicy
+--
 --         , requestGetLogEvents $
 --             newGetLogEvents
 --
@@ -113,6 +119,9 @@ import Test.Tasty
 --
 --         , requestListTagsForResource $
 --             newListTagsForResource
+--
+--         , requestPutDataProtectionPolicy $
+--             newPutDataProtectionPolicy
 --
 --         , requestPutDestination $
 --             newPutDestination
@@ -171,6 +180,9 @@ import Test.Tasty
 --         , responseCreateLogStream $
 --             newCreateLogStreamResponse
 --
+--         , responseDeleteDataProtectionPolicy $
+--             newDeleteDataProtectionPolicyResponse
+--
 --         , responseDeleteDestination $
 --             newDeleteDestinationResponse
 --
@@ -228,6 +240,9 @@ import Test.Tasty
 --         , responseFilterLogEvents $
 --             newFilterLogEventsResponse
 --
+--         , responseGetDataProtectionPolicy $
+--             newGetDataProtectionPolicyResponse
+--
 --         , responseGetLogEvents $
 --             newGetLogEventsResponse
 --
@@ -242,6 +257,9 @@ import Test.Tasty
 --
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
+--
+--         , responsePutDataProtectionPolicy $
+--             newPutDataProtectionPolicyResponse
 --
 --         , responsePutDestination $
 --             newPutDestinationResponse
@@ -316,6 +334,12 @@ requestCreateLogStream =
   req
     "CreateLogStream"
     "fixture/CreateLogStream.yaml"
+
+requestDeleteDataProtectionPolicy :: DeleteDataProtectionPolicy -> TestTree
+requestDeleteDataProtectionPolicy =
+  req
+    "DeleteDataProtectionPolicy"
+    "fixture/DeleteDataProtectionPolicy.yaml"
 
 requestDeleteDestination :: DeleteDestination -> TestTree
 requestDeleteDestination =
@@ -431,6 +455,12 @@ requestFilterLogEvents =
     "FilterLogEvents"
     "fixture/FilterLogEvents.yaml"
 
+requestGetDataProtectionPolicy :: GetDataProtectionPolicy -> TestTree
+requestGetDataProtectionPolicy =
+  req
+    "GetDataProtectionPolicy"
+    "fixture/GetDataProtectionPolicy.yaml"
+
 requestGetLogEvents :: GetLogEvents -> TestTree
 requestGetLogEvents =
   req
@@ -460,6 +490,12 @@ requestListTagsForResource =
   req
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
+
+requestPutDataProtectionPolicy :: PutDataProtectionPolicy -> TestTree
+requestPutDataProtectionPolicy =
+  req
+    "PutDataProtectionPolicy"
+    "fixture/PutDataProtectionPolicy.yaml"
 
 requestPutDestination :: PutDestination -> TestTree
 requestPutDestination =
@@ -580,6 +616,14 @@ responseCreateLogStream =
     "fixture/CreateLogStreamResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateLogStream)
+
+responseDeleteDataProtectionPolicy :: DeleteDataProtectionPolicyResponse -> TestTree
+responseDeleteDataProtectionPolicy =
+  res
+    "DeleteDataProtectionPolicyResponse"
+    "fixture/DeleteDataProtectionPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteDataProtectionPolicy)
 
 responseDeleteDestination :: DeleteDestinationResponse -> TestTree
 responseDeleteDestination =
@@ -733,6 +777,14 @@ responseFilterLogEvents =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy FilterLogEvents)
 
+responseGetDataProtectionPolicy :: GetDataProtectionPolicyResponse -> TestTree
+responseGetDataProtectionPolicy =
+  res
+    "GetDataProtectionPolicyResponse"
+    "fixture/GetDataProtectionPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetDataProtectionPolicy)
+
 responseGetLogEvents :: GetLogEventsResponse -> TestTree
 responseGetLogEvents =
   res
@@ -772,6 +824,14 @@ responseListTagsForResource =
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responsePutDataProtectionPolicy :: PutDataProtectionPolicyResponse -> TestTree
+responsePutDataProtectionPolicy =
+  res
+    "PutDataProtectionPolicyResponse"
+    "fixture/PutDataProtectionPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutDataProtectionPolicy)
 
 responsePutDestination :: PutDestinationResponse -> TestTree
 responsePutDestination =

@@ -20,15 +20,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an export task, which allows you to efficiently export data from
--- a log group to an Amazon S3 bucket. When you perform a
--- @CreateExportTask@ operation, you must use credentials that have
--- permission to write to the S3 bucket that you specify as the
--- destination.
+-- Creates an export task so that you can efficiently export data from a
+-- log group to an Amazon S3 bucket. When you perform a @CreateExportTask@
+-- operation, you must use credentials that have permission to write to the
+-- S3 bucket that you specify as the destination.
 --
--- Exporting log data to Amazon S3 buckets that are encrypted by KMS is
--- supported. Exporting log data to Amazon S3 buckets that have S3 Object
--- Lock enabled with a retention period is also supported.
+-- Exporting log data to S3 buckets that are encrypted by KMS is supported.
+-- Exporting log data to Amazon S3 buckets that have S3 Object Lock enabled
+-- with a retention period is also supported.
 --
 -- Exporting to S3 buckets that are encrypted with AES-256 is supported.
 --
@@ -42,12 +41,11 @@
 -- <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CancelExportTask.html CancelExportTask>.
 --
 -- You can export logs from multiple log groups or multiple time ranges to
--- the same S3 bucket. To separate out log data for each export task, you
--- can specify a prefix to be used as the Amazon S3 key prefix for all
--- exported objects.
+-- the same S3 bucket. To separate log data for each export task, specify a
+-- prefix to be used as the Amazon S3 key prefix for all exported objects.
 --
 -- Time-based sorting on chunks of log data inside an exported file is not
--- guaranteed. You can sort the exported log fild data by using Linux
+-- guaranteed. You can sort the exported log field data by using Linux
 -- utilities.
 module Amazonka.CloudWatchLogs.CreateExportTask
   ( -- * Creating a Request
@@ -56,8 +54,8 @@ module Amazonka.CloudWatchLogs.CreateExportTask
 
     -- * Request Lenses
     createExportTask_destinationPrefix,
-    createExportTask_taskName,
     createExportTask_logStreamNamePrefix,
+    createExportTask_taskName,
     createExportTask_logGroupName,
     createExportTask_from,
     createExportTask_to,
@@ -86,26 +84,26 @@ data CreateExportTask = CreateExportTask'
   { -- | The prefix used as the start of the key for every object exported. If
     -- you don\'t specify a value, the default is @exportedlogs@.
     destinationPrefix :: Prelude.Maybe Prelude.Text,
-    -- | The name of the export task.
-    taskName :: Prelude.Maybe Prelude.Text,
     -- | Export only log streams that match the provided prefix. If you don\'t
     -- specify a value, no prefix filter is applied.
     logStreamNamePrefix :: Prelude.Maybe Prelude.Text,
+    -- | The name of the export task.
+    taskName :: Prelude.Maybe Prelude.Text,
     -- | The name of the log group.
     logGroupName :: Prelude.Text,
     -- | The start time of the range for the request, expressed as the number of
-    -- milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp
+    -- milliseconds after @Jan 1, 1970 00:00:00 UTC@. Events with a timestamp
     -- earlier than this time are not exported.
     from :: Prelude.Natural,
     -- | The end time of the range for the request, expressed as the number of
-    -- milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp
+    -- milliseconds after @Jan 1, 1970 00:00:00 UTC@. Events with a timestamp
     -- later than this time are not exported.
     --
     -- You must specify a time that is not earlier than when this log group was
     -- created.
     to :: Prelude.Natural,
     -- | The name of S3 bucket for the exported log data. The bucket must be in
-    -- the same Amazon Web Services region.
+    -- the same Amazon Web Services Region.
     destination :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -121,26 +119,26 @@ data CreateExportTask = CreateExportTask'
 -- 'destinationPrefix', 'createExportTask_destinationPrefix' - The prefix used as the start of the key for every object exported. If
 -- you don\'t specify a value, the default is @exportedlogs@.
 --
--- 'taskName', 'createExportTask_taskName' - The name of the export task.
---
 -- 'logStreamNamePrefix', 'createExportTask_logStreamNamePrefix' - Export only log streams that match the provided prefix. If you don\'t
 -- specify a value, no prefix filter is applied.
+--
+-- 'taskName', 'createExportTask_taskName' - The name of the export task.
 --
 -- 'logGroupName', 'createExportTask_logGroupName' - The name of the log group.
 --
 -- 'from', 'createExportTask_from' - The start time of the range for the request, expressed as the number of
--- milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp
+-- milliseconds after @Jan 1, 1970 00:00:00 UTC@. Events with a timestamp
 -- earlier than this time are not exported.
 --
 -- 'to', 'createExportTask_to' - The end time of the range for the request, expressed as the number of
--- milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp
+-- milliseconds after @Jan 1, 1970 00:00:00 UTC@. Events with a timestamp
 -- later than this time are not exported.
 --
 -- You must specify a time that is not earlier than when this log group was
 -- created.
 --
 -- 'destination', 'createExportTask_destination' - The name of S3 bucket for the exported log data. The bucket must be in
--- the same Amazon Web Services region.
+-- the same Amazon Web Services Region.
 newCreateExportTask ::
   -- | 'logGroupName'
   Prelude.Text ->
@@ -159,8 +157,8 @@ newCreateExportTask
     CreateExportTask'
       { destinationPrefix =
           Prelude.Nothing,
-        taskName = Prelude.Nothing,
         logStreamNamePrefix = Prelude.Nothing,
+        taskName = Prelude.Nothing,
         logGroupName = pLogGroupName_,
         from = pFrom_,
         to = pTo_,
@@ -172,27 +170,27 @@ newCreateExportTask
 createExportTask_destinationPrefix :: Lens.Lens' CreateExportTask (Prelude.Maybe Prelude.Text)
 createExportTask_destinationPrefix = Lens.lens (\CreateExportTask' {destinationPrefix} -> destinationPrefix) (\s@CreateExportTask' {} a -> s {destinationPrefix = a} :: CreateExportTask)
 
--- | The name of the export task.
-createExportTask_taskName :: Lens.Lens' CreateExportTask (Prelude.Maybe Prelude.Text)
-createExportTask_taskName = Lens.lens (\CreateExportTask' {taskName} -> taskName) (\s@CreateExportTask' {} a -> s {taskName = a} :: CreateExportTask)
-
 -- | Export only log streams that match the provided prefix. If you don\'t
 -- specify a value, no prefix filter is applied.
 createExportTask_logStreamNamePrefix :: Lens.Lens' CreateExportTask (Prelude.Maybe Prelude.Text)
 createExportTask_logStreamNamePrefix = Lens.lens (\CreateExportTask' {logStreamNamePrefix} -> logStreamNamePrefix) (\s@CreateExportTask' {} a -> s {logStreamNamePrefix = a} :: CreateExportTask)
+
+-- | The name of the export task.
+createExportTask_taskName :: Lens.Lens' CreateExportTask (Prelude.Maybe Prelude.Text)
+createExportTask_taskName = Lens.lens (\CreateExportTask' {taskName} -> taskName) (\s@CreateExportTask' {} a -> s {taskName = a} :: CreateExportTask)
 
 -- | The name of the log group.
 createExportTask_logGroupName :: Lens.Lens' CreateExportTask Prelude.Text
 createExportTask_logGroupName = Lens.lens (\CreateExportTask' {logGroupName} -> logGroupName) (\s@CreateExportTask' {} a -> s {logGroupName = a} :: CreateExportTask)
 
 -- | The start time of the range for the request, expressed as the number of
--- milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp
+-- milliseconds after @Jan 1, 1970 00:00:00 UTC@. Events with a timestamp
 -- earlier than this time are not exported.
 createExportTask_from :: Lens.Lens' CreateExportTask Prelude.Natural
 createExportTask_from = Lens.lens (\CreateExportTask' {from} -> from) (\s@CreateExportTask' {} a -> s {from = a} :: CreateExportTask)
 
 -- | The end time of the range for the request, expressed as the number of
--- milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp
+-- milliseconds after @Jan 1, 1970 00:00:00 UTC@. Events with a timestamp
 -- later than this time are not exported.
 --
 -- You must specify a time that is not earlier than when this log group was
@@ -201,7 +199,7 @@ createExportTask_to :: Lens.Lens' CreateExportTask Prelude.Natural
 createExportTask_to = Lens.lens (\CreateExportTask' {to} -> to) (\s@CreateExportTask' {} a -> s {to = a} :: CreateExportTask)
 
 -- | The name of S3 bucket for the exported log data. The bucket must be in
--- the same Amazon Web Services region.
+-- the same Amazon Web Services Region.
 createExportTask_destination :: Lens.Lens' CreateExportTask Prelude.Text
 createExportTask_destination = Lens.lens (\CreateExportTask' {destination} -> destination) (\s@CreateExportTask' {} a -> s {destination = a} :: CreateExportTask)
 
@@ -222,8 +220,8 @@ instance Core.AWSRequest CreateExportTask where
 instance Prelude.Hashable CreateExportTask where
   hashWithSalt _salt CreateExportTask' {..} =
     _salt `Prelude.hashWithSalt` destinationPrefix
-      `Prelude.hashWithSalt` taskName
       `Prelude.hashWithSalt` logStreamNamePrefix
+      `Prelude.hashWithSalt` taskName
       `Prelude.hashWithSalt` logGroupName
       `Prelude.hashWithSalt` from
       `Prelude.hashWithSalt` to
@@ -232,8 +230,8 @@ instance Prelude.Hashable CreateExportTask where
 instance Prelude.NFData CreateExportTask where
   rnf CreateExportTask' {..} =
     Prelude.rnf destinationPrefix
-      `Prelude.seq` Prelude.rnf taskName
       `Prelude.seq` Prelude.rnf logStreamNamePrefix
+      `Prelude.seq` Prelude.rnf taskName
       `Prelude.seq` Prelude.rnf logGroupName
       `Prelude.seq` Prelude.rnf from
       `Prelude.seq` Prelude.rnf to
@@ -260,9 +258,9 @@ instance Data.ToJSON CreateExportTask where
       ( Prelude.catMaybes
           [ ("destinationPrefix" Data..=)
               Prelude.<$> destinationPrefix,
-            ("taskName" Data..=) Prelude.<$> taskName,
             ("logStreamNamePrefix" Data..=)
               Prelude.<$> logStreamNamePrefix,
+            ("taskName" Data..=) Prelude.<$> taskName,
             Prelude.Just ("logGroupName" Data..= logGroupName),
             Prelude.Just ("from" Data..= from),
             Prelude.Just ("to" Data..= to),

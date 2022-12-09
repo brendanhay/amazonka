@@ -29,8 +29,8 @@ module Amazonka.CloudWatchLogs.DescribeResourcePolicies
     newDescribeResourcePolicies,
 
     -- * Request Lenses
-    describeResourcePolicies_nextToken,
     describeResourcePolicies_limit,
+    describeResourcePolicies_nextToken,
 
     -- * Destructuring the Response
     DescribeResourcePoliciesResponse (..),
@@ -53,10 +53,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeResourcePolicies' smart constructor.
 data DescribeResourcePolicies = DescribeResourcePolicies'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of resource policies to be displayed with one call of
+  { -- | The maximum number of resource policies to be displayed with one call of
     -- this API.
-    limit :: Prelude.Maybe Prelude.Natural
+    limit :: Prelude.Maybe Prelude.Natural,
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,27 +68,26 @@ data DescribeResourcePolicies = DescribeResourcePolicies'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeResourcePolicies_nextToken' - Undocumented member.
---
 -- 'limit', 'describeResourcePolicies_limit' - The maximum number of resource policies to be displayed with one call of
 -- this API.
+--
+-- 'nextToken', 'describeResourcePolicies_nextToken' - Undocumented member.
 newDescribeResourcePolicies ::
   DescribeResourcePolicies
 newDescribeResourcePolicies =
   DescribeResourcePolicies'
-    { nextToken =
-        Prelude.Nothing,
-      limit = Prelude.Nothing
+    { limit = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | Undocumented member.
-describeResourcePolicies_nextToken :: Lens.Lens' DescribeResourcePolicies (Prelude.Maybe Prelude.Text)
-describeResourcePolicies_nextToken = Lens.lens (\DescribeResourcePolicies' {nextToken} -> nextToken) (\s@DescribeResourcePolicies' {} a -> s {nextToken = a} :: DescribeResourcePolicies)
 
 -- | The maximum number of resource policies to be displayed with one call of
 -- this API.
 describeResourcePolicies_limit :: Lens.Lens' DescribeResourcePolicies (Prelude.Maybe Prelude.Natural)
 describeResourcePolicies_limit = Lens.lens (\DescribeResourcePolicies' {limit} -> limit) (\s@DescribeResourcePolicies' {} a -> s {limit = a} :: DescribeResourcePolicies)
+
+-- | Undocumented member.
+describeResourcePolicies_nextToken :: Lens.Lens' DescribeResourcePolicies (Prelude.Maybe Prelude.Text)
+describeResourcePolicies_nextToken = Lens.lens (\DescribeResourcePolicies' {nextToken} -> nextToken) (\s@DescribeResourcePolicies' {} a -> s {nextToken = a} :: DescribeResourcePolicies)
 
 instance Core.AWSPager DescribeResourcePolicies where
   page rq rs
@@ -131,13 +130,13 @@ instance Core.AWSRequest DescribeResourcePolicies where
 
 instance Prelude.Hashable DescribeResourcePolicies where
   hashWithSalt _salt DescribeResourcePolicies' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` limit
+    _salt `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeResourcePolicies where
   rnf DescribeResourcePolicies' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf limit
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeResourcePolicies where
   toHeaders =
@@ -158,8 +157,8 @@ instance Data.ToJSON DescribeResourcePolicies where
   toJSON DescribeResourcePolicies' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("limit" Data..=) Prelude.<$> limit
+          [ ("limit" Data..=) Prelude.<$> limit,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

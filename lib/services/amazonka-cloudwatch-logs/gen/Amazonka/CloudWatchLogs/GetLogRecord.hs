@@ -32,6 +32,7 @@ module Amazonka.CloudWatchLogs.GetLogRecord
     newGetLogRecord,
 
     -- * Request Lenses
+    getLogRecord_unmask,
     getLogRecord_logRecordPointer,
 
     -- * Destructuring the Response
@@ -54,7 +55,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetLogRecord' smart constructor.
 data GetLogRecord = GetLogRecord'
-  { -- | The pointer corresponding to the log event record you want to retrieve.
+  { -- | Specify @true@ to display the log event fields with all sensitive data
+    -- unmasked and visible. The default is @false@.
+    --
+    -- To use this operation with this parameter, you must be signed into an
+    -- account with the @logs:Unmask@ permission.
+    unmask :: Prelude.Maybe Prelude.Bool,
+    -- | The pointer corresponding to the log event record you want to retrieve.
     -- You get this from the response of a @GetQueryResults@ operation. In that
     -- response, the value of the @\@ptr@ field for a log event is the value to
     -- use as @logRecordPointer@ to retrieve that complete log event record.
@@ -70,6 +77,12 @@ data GetLogRecord = GetLogRecord'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'unmask', 'getLogRecord_unmask' - Specify @true@ to display the log event fields with all sensitive data
+-- unmasked and visible. The default is @false@.
+--
+-- To use this operation with this parameter, you must be signed into an
+-- account with the @logs:Unmask@ permission.
+--
 -- 'logRecordPointer', 'getLogRecord_logRecordPointer' - The pointer corresponding to the log event record you want to retrieve.
 -- You get this from the response of a @GetQueryResults@ operation. In that
 -- response, the value of the @\@ptr@ field for a log event is the value to
@@ -80,9 +93,17 @@ newGetLogRecord ::
   GetLogRecord
 newGetLogRecord pLogRecordPointer_ =
   GetLogRecord'
-    { logRecordPointer =
-        pLogRecordPointer_
+    { unmask = Prelude.Nothing,
+      logRecordPointer = pLogRecordPointer_
     }
+
+-- | Specify @true@ to display the log event fields with all sensitive data
+-- unmasked and visible. The default is @false@.
+--
+-- To use this operation with this parameter, you must be signed into an
+-- account with the @logs:Unmask@ permission.
+getLogRecord_unmask :: Lens.Lens' GetLogRecord (Prelude.Maybe Prelude.Bool)
+getLogRecord_unmask = Lens.lens (\GetLogRecord' {unmask} -> unmask) (\s@GetLogRecord' {} a -> s {unmask = a} :: GetLogRecord)
 
 -- | The pointer corresponding to the log event record you want to retrieve.
 -- You get this from the response of a @GetQueryResults@ operation. In that
@@ -105,10 +126,13 @@ instance Core.AWSRequest GetLogRecord where
 
 instance Prelude.Hashable GetLogRecord where
   hashWithSalt _salt GetLogRecord' {..} =
-    _salt `Prelude.hashWithSalt` logRecordPointer
+    _salt `Prelude.hashWithSalt` unmask
+      `Prelude.hashWithSalt` logRecordPointer
 
 instance Prelude.NFData GetLogRecord where
-  rnf GetLogRecord' {..} = Prelude.rnf logRecordPointer
+  rnf GetLogRecord' {..} =
+    Prelude.rnf unmask
+      `Prelude.seq` Prelude.rnf logRecordPointer
 
 instance Data.ToHeaders GetLogRecord where
   toHeaders =
@@ -127,7 +151,8 @@ instance Data.ToJSON GetLogRecord where
   toJSON GetLogRecord' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just
+          [ ("unmask" Data..=) Prelude.<$> unmask,
+            Prelude.Just
               ("logRecordPointer" Data..= logRecordPointer)
           ]
       )

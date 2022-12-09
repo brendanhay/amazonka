@@ -30,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newInputLogEvent' smart constructor.
 data InputLogEvent = InputLogEvent'
   { -- | The time the event occurred, expressed as the number of milliseconds
-    -- after Jan 1, 1970 00:00:00 UTC.
+    -- after @Jan 1, 1970 00:00:00 UTC@.
     timestamp :: Prelude.Natural,
     -- | The raw event message.
     message :: Prelude.Text
@@ -46,7 +46,7 @@ data InputLogEvent = InputLogEvent'
 -- for backwards compatibility:
 --
 -- 'timestamp', 'inputLogEvent_timestamp' - The time the event occurred, expressed as the number of milliseconds
--- after Jan 1, 1970 00:00:00 UTC.
+-- after @Jan 1, 1970 00:00:00 UTC@.
 --
 -- 'message', 'inputLogEvent_message' - The raw event message.
 newInputLogEvent ::
@@ -62,7 +62,7 @@ newInputLogEvent pTimestamp_ pMessage_ =
     }
 
 -- | The time the event occurred, expressed as the number of milliseconds
--- after Jan 1, 1970 00:00:00 UTC.
+-- after @Jan 1, 1970 00:00:00 UTC@.
 inputLogEvent_timestamp :: Lens.Lens' InputLogEvent Prelude.Natural
 inputLogEvent_timestamp = Lens.lens (\InputLogEvent' {timestamp} -> timestamp) (\s@InputLogEvent' {} a -> s {timestamp = a} :: InputLogEvent)
 

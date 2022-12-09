@@ -34,7 +34,7 @@
 --
 -- -   Log stream names can be between 1 and 512 characters long.
 --
--- -   The \':\' (colon) and \'*\' (asterisk) characters are not allowed.
+-- -   Don\'t use \':\' (colon) or \'*\' (asterisk) characters.
 module Amazonka.CloudWatchLogs.CreateLogStream
   ( -- * Creating a Request
     CreateLogStream (..),

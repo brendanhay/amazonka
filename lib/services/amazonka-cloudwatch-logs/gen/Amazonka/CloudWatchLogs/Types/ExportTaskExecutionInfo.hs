@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newExportTaskExecutionInfo' smart constructor.
 data ExportTaskExecutionInfo = ExportTaskExecutionInfo'
   { -- | The completion time of the export task, expressed as the number of
-    -- milliseconds after Jan 1, 1970 00:00:00 UTC.
+    -- milliseconds after @Jan 1, 1970 00:00:00 UTC@.
     completionTime :: Prelude.Maybe Prelude.Natural,
     -- | The creation time of the export task, expressed as the number of
-    -- milliseconds after Jan 1, 1970 00:00:00 UTC.
+    -- milliseconds after @Jan 1, 1970 00:00:00 UTC@.
     creationTime :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,10 +46,10 @@ data ExportTaskExecutionInfo = ExportTaskExecutionInfo'
 -- for backwards compatibility:
 --
 -- 'completionTime', 'exportTaskExecutionInfo_completionTime' - The completion time of the export task, expressed as the number of
--- milliseconds after Jan 1, 1970 00:00:00 UTC.
+-- milliseconds after @Jan 1, 1970 00:00:00 UTC@.
 --
 -- 'creationTime', 'exportTaskExecutionInfo_creationTime' - The creation time of the export task, expressed as the number of
--- milliseconds after Jan 1, 1970 00:00:00 UTC.
+-- milliseconds after @Jan 1, 1970 00:00:00 UTC@.
 newExportTaskExecutionInfo ::
   ExportTaskExecutionInfo
 newExportTaskExecutionInfo =
@@ -60,12 +60,12 @@ newExportTaskExecutionInfo =
     }
 
 -- | The completion time of the export task, expressed as the number of
--- milliseconds after Jan 1, 1970 00:00:00 UTC.
+-- milliseconds after @Jan 1, 1970 00:00:00 UTC@.
 exportTaskExecutionInfo_completionTime :: Lens.Lens' ExportTaskExecutionInfo (Prelude.Maybe Prelude.Natural)
 exportTaskExecutionInfo_completionTime = Lens.lens (\ExportTaskExecutionInfo' {completionTime} -> completionTime) (\s@ExportTaskExecutionInfo' {} a -> s {completionTime = a} :: ExportTaskExecutionInfo)
 
 -- | The creation time of the export task, expressed as the number of
--- milliseconds after Jan 1, 1970 00:00:00 UTC.
+-- milliseconds after @Jan 1, 1970 00:00:00 UTC@.
 exportTaskExecutionInfo_creationTime :: Lens.Lens' ExportTaskExecutionInfo (Prelude.Maybe Prelude.Natural)
 exportTaskExecutionInfo_creationTime = Lens.lens (\ExportTaskExecutionInfo' {creationTime} -> creationTime) (\s@ExportTaskExecutionInfo' {} a -> s {creationTime = a} :: ExportTaskExecutionInfo)
 

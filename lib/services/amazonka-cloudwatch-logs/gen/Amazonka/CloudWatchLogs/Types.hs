@@ -18,18 +18,21 @@ module Amazonka.CloudWatchLogs.Types
     defaultService,
 
     -- * Errors
-    _ResourceAlreadyExistsException,
-    _InvalidOperationException,
-    _InvalidSequenceTokenException,
-    _TooManyTagsException,
-    _OperationAbortedException,
-    _ServiceUnavailableException,
-    _ResourceNotFoundException,
-    _LimitExceededException,
-    _UnrecognizedClientException,
     _DataAlreadyAcceptedException,
-    _MalformedQueryException,
+    _InvalidOperationException,
     _InvalidParameterException,
+    _InvalidSequenceTokenException,
+    _LimitExceededException,
+    _MalformedQueryException,
+    _OperationAbortedException,
+    _ResourceAlreadyExistsException,
+    _ResourceNotFoundException,
+    _ServiceUnavailableException,
+    _TooManyTagsException,
+    _UnrecognizedClientException,
+
+    -- * DataProtectionStatus
+    DataProtectionStatus (..),
 
     -- * Distribution
     Distribution (..),
@@ -49,25 +52,25 @@ module Amazonka.CloudWatchLogs.Types
     -- * Destination
     Destination (..),
     newDestination,
-    destination_roleArn,
-    destination_destinationName,
-    destination_targetArn,
-    destination_arn,
     destination_accessPolicy,
+    destination_arn,
     destination_creationTime,
+    destination_destinationName,
+    destination_roleArn,
+    destination_targetArn,
 
     -- * ExportTask
     ExportTask (..),
     newExportTask,
     exportTask_destination,
     exportTask_destinationPrefix,
-    exportTask_from,
-    exportTask_taskName,
-    exportTask_taskId,
-    exportTask_to,
-    exportTask_status,
     exportTask_executionInfo,
+    exportTask_from,
     exportTask_logGroupName,
+    exportTask_status,
+    exportTask_taskId,
+    exportTask_taskName,
+    exportTask_to,
 
     -- * ExportTaskExecutionInfo
     ExportTaskExecutionInfo (..),
@@ -78,17 +81,17 @@ module Amazonka.CloudWatchLogs.Types
     -- * ExportTaskStatus
     ExportTaskStatus (..),
     newExportTaskStatus,
-    exportTaskStatus_message,
     exportTaskStatus_code,
+    exportTaskStatus_message,
 
     -- * FilteredLogEvent
     FilteredLogEvent (..),
     newFilteredLogEvent,
-    filteredLogEvent_message,
-    filteredLogEvent_timestamp,
     filteredLogEvent_eventId,
     filteredLogEvent_ingestionTime,
     filteredLogEvent_logStreamName,
+    filteredLogEvent_message,
+    filteredLogEvent_timestamp,
 
     -- * InputLogEvent
     InputLogEvent (..),
@@ -99,13 +102,14 @@ module Amazonka.CloudWatchLogs.Types
     -- * LogGroup
     LogGroup (..),
     newLogGroup,
-    logGroup_storedBytes,
     logGroup_arn,
-    logGroup_retentionInDays,
-    logGroup_kmsKeyId,
-    logGroup_metricFilterCount,
     logGroup_creationTime,
+    logGroup_dataProtectionStatus,
+    logGroup_kmsKeyId,
     logGroup_logGroupName,
+    logGroup_metricFilterCount,
+    logGroup_retentionInDays,
+    logGroup_storedBytes,
 
     -- * LogGroupField
     LogGroupField (..),
@@ -116,30 +120,30 @@ module Amazonka.CloudWatchLogs.Types
     -- * LogStream
     LogStream (..),
     newLogStream,
-    logStream_uploadSequenceToken,
-    logStream_storedBytes,
     logStream_arn,
+    logStream_creationTime,
     logStream_firstEventTimestamp,
     logStream_lastEventTimestamp,
-    logStream_creationTime,
-    logStream_logStreamName,
     logStream_lastIngestionTime,
+    logStream_logStreamName,
+    logStream_storedBytes,
+    logStream_uploadSequenceToken,
 
     -- * MetricFilter
     MetricFilter (..),
     newMetricFilter,
-    metricFilter_filterName,
     metricFilter_creationTime,
-    metricFilter_metricTransformations,
+    metricFilter_filterName,
     metricFilter_filterPattern,
     metricFilter_logGroupName,
+    metricFilter_metricTransformations,
 
     -- * MetricFilterMatchRecord
     MetricFilterMatchRecord (..),
     newMetricFilterMatchRecord,
+    metricFilterMatchRecord_eventMessage,
     metricFilterMatchRecord_eventNumber,
     metricFilterMatchRecord_extractedValues,
-    metricFilterMatchRecord_eventMessage,
 
     -- * MetricTransformation
     MetricTransformation (..),
@@ -154,48 +158,48 @@ module Amazonka.CloudWatchLogs.Types
     -- * OutputLogEvent
     OutputLogEvent (..),
     newOutputLogEvent,
+    outputLogEvent_ingestionTime,
     outputLogEvent_message,
     outputLogEvent_timestamp,
-    outputLogEvent_ingestionTime,
 
     -- * QueryDefinition
     QueryDefinition (..),
     newQueryDefinition,
+    queryDefinition_lastModified,
+    queryDefinition_logGroupNames,
     queryDefinition_name,
     queryDefinition_queryDefinitionId,
-    queryDefinition_logGroupNames,
-    queryDefinition_lastModified,
     queryDefinition_queryString,
 
     -- * QueryInfo
     QueryInfo (..),
     newQueryInfo,
-    queryInfo_queryId,
-    queryInfo_status,
-    queryInfo_queryString,
     queryInfo_createTime,
     queryInfo_logGroupName,
+    queryInfo_queryId,
+    queryInfo_queryString,
+    queryInfo_status,
 
     -- * QueryStatistics
     QueryStatistics (..),
     newQueryStatistics,
-    queryStatistics_recordsMatched,
     queryStatistics_bytesScanned,
+    queryStatistics_recordsMatched,
     queryStatistics_recordsScanned,
 
     -- * RejectedLogEventsInfo
     RejectedLogEventsInfo (..),
     newRejectedLogEventsInfo,
-    rejectedLogEventsInfo_tooNewLogEventStartIndex,
     rejectedLogEventsInfo_expiredLogEventEndIndex,
+    rejectedLogEventsInfo_tooNewLogEventStartIndex,
     rejectedLogEventsInfo_tooOldLogEventEndIndex,
 
     -- * ResourcePolicy
     ResourcePolicy (..),
     newResourcePolicy,
-    resourcePolicy_policyName,
     resourcePolicy_lastUpdatedTime,
     resourcePolicy_policyDocument,
+    resourcePolicy_policyName,
 
     -- * ResultField
     ResultField (..),
@@ -206,22 +210,23 @@ module Amazonka.CloudWatchLogs.Types
     -- * SearchedLogStream
     SearchedLogStream (..),
     newSearchedLogStream,
-    searchedLogStream_searchedCompletely,
     searchedLogStream_logStreamName,
+    searchedLogStream_searchedCompletely,
 
     -- * SubscriptionFilter
     SubscriptionFilter (..),
     newSubscriptionFilter,
-    subscriptionFilter_roleArn,
-    subscriptionFilter_filterName,
-    subscriptionFilter_distribution,
     subscriptionFilter_creationTime,
-    subscriptionFilter_filterPattern,
     subscriptionFilter_destinationArn,
+    subscriptionFilter_distribution,
+    subscriptionFilter_filterName,
+    subscriptionFilter_filterPattern,
     subscriptionFilter_logGroupName,
+    subscriptionFilter_roleArn,
   )
 where
 
+import Amazonka.CloudWatchLogs.Types.DataProtectionStatus
 import Amazonka.CloudWatchLogs.Types.Destination
 import Amazonka.CloudWatchLogs.Types.Distribution
 import Amazonka.CloudWatchLogs.Types.ExportTask
@@ -278,28 +283,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -307,13 +306,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -321,14 +324,16 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
--- | The specified resource already exists.
-_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceAlreadyExistsException =
+-- | The event was already logged.
+_DataAlreadyAcceptedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DataAlreadyAcceptedException =
   Core._MatchServiceError
     defaultService
-    "ResourceAlreadyExistsException"
+    "DataAlreadyAcceptedException"
 
 -- | The operation is not valid on the specified resource.
 _InvalidOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -336,6 +341,13 @@ _InvalidOperationException =
   Core._MatchServiceError
     defaultService
     "InvalidOperationException"
+
+-- | A parameter is specified incorrectly.
+_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidParameterException"
 
 -- | The sequence token is not valid. You can get the correct sequence token
 -- in the @expectedSequenceToken@ field in the
@@ -346,56 +358,12 @@ _InvalidSequenceTokenException =
     defaultService
     "InvalidSequenceTokenException"
 
--- | A resource can have no more than 50 tags.
-_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyTagsException =
-  Core._MatchServiceError
-    defaultService
-    "TooManyTagsException"
-
--- | Multiple concurrent requests to update the same resource were in
--- conflict.
-_OperationAbortedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_OperationAbortedException =
-  Core._MatchServiceError
-    defaultService
-    "OperationAbortedException"
-
--- | The service cannot complete the request.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceUnavailableException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceUnavailableException"
-
--- | The specified resource does not exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-
 -- | You have reached the maximum number of resources that can be created.
 _LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
     "LimitExceededException"
-
--- | The most likely cause is an invalid Amazon Web Services access key ID or
--- secret key.
-_UnrecognizedClientException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnrecognizedClientException =
-  Core._MatchServiceError
-    defaultService
-    "UnrecognizedClientException"
-
--- | The event was already logged.
-_DataAlreadyAcceptedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DataAlreadyAcceptedException =
-  Core._MatchServiceError
-    defaultService
-    "DataAlreadyAcceptedException"
 
 -- | The query string is not valid. Details about this error are displayed in
 -- a @QueryCompileError@ object. For more information, see
@@ -409,9 +377,46 @@ _MalformedQueryException =
     defaultService
     "MalformedQueryException"
 
--- | A parameter is specified incorrectly.
-_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidParameterException =
+-- | Multiple concurrent requests to update the same resource were in
+-- conflict.
+_OperationAbortedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OperationAbortedException =
   Core._MatchServiceError
     defaultService
-    "InvalidParameterException"
+    "OperationAbortedException"
+
+-- | The specified resource already exists.
+_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceAlreadyExistsException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceAlreadyExistsException"
+
+-- | The specified resource does not exist.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+
+-- | The service cannot complete the request.
+_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceUnavailableException"
+
+-- | A resource can have no more than 50 tags.
+_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyTagsException"
+
+-- | The most likely cause is an Amazon Web Services access key ID or secret
+-- key that\'s not valid.
+_UnrecognizedClientException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnrecognizedClientException =
+  Core._MatchServiceError
+    defaultService
+    "UnrecognizedClientException"

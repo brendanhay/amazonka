@@ -30,8 +30,8 @@ module Amazonka.CloudWatchLogs.PutResourcePolicy
     newPutResourcePolicy,
 
     -- * Request Lenses
-    putResourcePolicy_policyName,
     putResourcePolicy_policyDocument,
+    putResourcePolicy_policyName,
 
     -- * Destructuring the Response
     PutResourcePolicyResponse (..),
@@ -53,9 +53,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutResourcePolicy' smart constructor.
 data PutResourcePolicy = PutResourcePolicy'
-  { -- | Name of the new policy. This parameter is required.
-    policyName :: Prelude.Maybe Prelude.Text,
-    -- | Details of the new policy, including the identity of the principal that
+  { -- | Details of the new policy, including the identity of the principal that
     -- is enabled to put logs to this account. This is formatted as a JSON
     -- string. This parameter is required.
     --
@@ -72,11 +70,13 @@ data PutResourcePolicy = PutResourcePolicy'
     --
     -- In the example resource policy, you would replace the value of
     -- @SourceArn@ with the resource making the call from Route 53 to
-    -- CloudWatch Logs and replace the value of @SourceAccount@ with the Amazon
-    -- Web Services account ID making that call.
+    -- CloudWatch Logs. You would also replace the value of @SourceAccount@
+    -- with the Amazon Web Services account ID making that call.
     --
     -- @{ \"Version\": \"2012-10-17\", \"Statement\": [ { \"Sid\": \"Route53LogsToCloudWatchLogs\", \"Effect\": \"Allow\", \"Principal\": { \"Service\": [ \"route53.amazonaws.com\" ] }, \"Action\": \"logs:PutLogEvents\", \"Resource\": \"logArn\", \"Condition\": { \"ArnLike\": { \"aws:SourceArn\": \"myRoute53ResourceArn\" }, \"StringEquals\": { \"aws:SourceAccount\": \"myAwsAccountId\" } } } ] }@
-    policyDocument :: Prelude.Maybe Prelude.Text
+    policyDocument :: Prelude.Maybe Prelude.Text,
+    -- | Name of the new policy. This parameter is required.
+    policyName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -87,8 +87,6 @@ data PutResourcePolicy = PutResourcePolicy'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'policyName', 'putResourcePolicy_policyName' - Name of the new policy. This parameter is required.
 --
 -- 'policyDocument', 'putResourcePolicy_policyDocument' - Details of the new policy, including the identity of the principal that
 -- is enabled to put logs to this account. This is formatted as a JSON
@@ -107,21 +105,20 @@ data PutResourcePolicy = PutResourcePolicy'
 --
 -- In the example resource policy, you would replace the value of
 -- @SourceArn@ with the resource making the call from Route 53 to
--- CloudWatch Logs and replace the value of @SourceAccount@ with the Amazon
--- Web Services account ID making that call.
+-- CloudWatch Logs. You would also replace the value of @SourceAccount@
+-- with the Amazon Web Services account ID making that call.
 --
 -- @{ \"Version\": \"2012-10-17\", \"Statement\": [ { \"Sid\": \"Route53LogsToCloudWatchLogs\", \"Effect\": \"Allow\", \"Principal\": { \"Service\": [ \"route53.amazonaws.com\" ] }, \"Action\": \"logs:PutLogEvents\", \"Resource\": \"logArn\", \"Condition\": { \"ArnLike\": { \"aws:SourceArn\": \"myRoute53ResourceArn\" }, \"StringEquals\": { \"aws:SourceAccount\": \"myAwsAccountId\" } } } ] }@
+--
+-- 'policyName', 'putResourcePolicy_policyName' - Name of the new policy. This parameter is required.
 newPutResourcePolicy ::
   PutResourcePolicy
 newPutResourcePolicy =
   PutResourcePolicy'
-    { policyName = Prelude.Nothing,
-      policyDocument = Prelude.Nothing
+    { policyDocument =
+        Prelude.Nothing,
+      policyName = Prelude.Nothing
     }
-
--- | Name of the new policy. This parameter is required.
-putResourcePolicy_policyName :: Lens.Lens' PutResourcePolicy (Prelude.Maybe Prelude.Text)
-putResourcePolicy_policyName = Lens.lens (\PutResourcePolicy' {policyName} -> policyName) (\s@PutResourcePolicy' {} a -> s {policyName = a} :: PutResourcePolicy)
 
 -- | Details of the new policy, including the identity of the principal that
 -- is enabled to put logs to this account. This is formatted as a JSON
@@ -140,12 +137,16 @@ putResourcePolicy_policyName = Lens.lens (\PutResourcePolicy' {policyName} -> po
 --
 -- In the example resource policy, you would replace the value of
 -- @SourceArn@ with the resource making the call from Route 53 to
--- CloudWatch Logs and replace the value of @SourceAccount@ with the Amazon
--- Web Services account ID making that call.
+-- CloudWatch Logs. You would also replace the value of @SourceAccount@
+-- with the Amazon Web Services account ID making that call.
 --
 -- @{ \"Version\": \"2012-10-17\", \"Statement\": [ { \"Sid\": \"Route53LogsToCloudWatchLogs\", \"Effect\": \"Allow\", \"Principal\": { \"Service\": [ \"route53.amazonaws.com\" ] }, \"Action\": \"logs:PutLogEvents\", \"Resource\": \"logArn\", \"Condition\": { \"ArnLike\": { \"aws:SourceArn\": \"myRoute53ResourceArn\" }, \"StringEquals\": { \"aws:SourceAccount\": \"myAwsAccountId\" } } } ] }@
 putResourcePolicy_policyDocument :: Lens.Lens' PutResourcePolicy (Prelude.Maybe Prelude.Text)
 putResourcePolicy_policyDocument = Lens.lens (\PutResourcePolicy' {policyDocument} -> policyDocument) (\s@PutResourcePolicy' {} a -> s {policyDocument = a} :: PutResourcePolicy)
+
+-- | Name of the new policy. This parameter is required.
+putResourcePolicy_policyName :: Lens.Lens' PutResourcePolicy (Prelude.Maybe Prelude.Text)
+putResourcePolicy_policyName = Lens.lens (\PutResourcePolicy' {policyName} -> policyName) (\s@PutResourcePolicy' {} a -> s {policyName = a} :: PutResourcePolicy)
 
 instance Core.AWSRequest PutResourcePolicy where
   type
@@ -163,13 +164,13 @@ instance Core.AWSRequest PutResourcePolicy where
 
 instance Prelude.Hashable PutResourcePolicy where
   hashWithSalt _salt PutResourcePolicy' {..} =
-    _salt `Prelude.hashWithSalt` policyName
-      `Prelude.hashWithSalt` policyDocument
+    _salt `Prelude.hashWithSalt` policyDocument
+      `Prelude.hashWithSalt` policyName
 
 instance Prelude.NFData PutResourcePolicy where
   rnf PutResourcePolicy' {..} =
-    Prelude.rnf policyName
-      `Prelude.seq` Prelude.rnf policyDocument
+    Prelude.rnf policyDocument
+      `Prelude.seq` Prelude.rnf policyName
 
 instance Data.ToHeaders PutResourcePolicy where
   toHeaders =
@@ -190,9 +191,9 @@ instance Data.ToJSON PutResourcePolicy where
   toJSON PutResourcePolicy' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("policyName" Data..=) Prelude.<$> policyName,
-            ("policyDocument" Data..=)
-              Prelude.<$> policyDocument
+          [ ("policyDocument" Data..=)
+              Prelude.<$> policyDocument,
+            ("policyName" Data..=) Prelude.<$> policyName
           ]
       )
 

@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSearchedLogStream' smart constructor.
 data SearchedLogStream = SearchedLogStream'
-  { -- | Indicates whether all the events in this log stream were searched.
-    searchedCompletely :: Prelude.Maybe Prelude.Bool,
-    -- | The name of the log stream.
-    logStreamName :: Prelude.Maybe Prelude.Text
+  { -- | The name of the log stream.
+    logStreamName :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether all the events in this log stream were searched.
+    searchedCompletely :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,24 @@ data SearchedLogStream = SearchedLogStream'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'searchedCompletely', 'searchedLogStream_searchedCompletely' - Indicates whether all the events in this log stream were searched.
---
 -- 'logStreamName', 'searchedLogStream_logStreamName' - The name of the log stream.
+--
+-- 'searchedCompletely', 'searchedLogStream_searchedCompletely' - Indicates whether all the events in this log stream were searched.
 newSearchedLogStream ::
   SearchedLogStream
 newSearchedLogStream =
   SearchedLogStream'
-    { searchedCompletely =
-        Prelude.Nothing,
-      logStreamName = Prelude.Nothing
+    { logStreamName = Prelude.Nothing,
+      searchedCompletely = Prelude.Nothing
     }
-
--- | Indicates whether all the events in this log stream were searched.
-searchedLogStream_searchedCompletely :: Lens.Lens' SearchedLogStream (Prelude.Maybe Prelude.Bool)
-searchedLogStream_searchedCompletely = Lens.lens (\SearchedLogStream' {searchedCompletely} -> searchedCompletely) (\s@SearchedLogStream' {} a -> s {searchedCompletely = a} :: SearchedLogStream)
 
 -- | The name of the log stream.
 searchedLogStream_logStreamName :: Lens.Lens' SearchedLogStream (Prelude.Maybe Prelude.Text)
 searchedLogStream_logStreamName = Lens.lens (\SearchedLogStream' {logStreamName} -> logStreamName) (\s@SearchedLogStream' {} a -> s {logStreamName = a} :: SearchedLogStream)
+
+-- | Indicates whether all the events in this log stream were searched.
+searchedLogStream_searchedCompletely :: Lens.Lens' SearchedLogStream (Prelude.Maybe Prelude.Bool)
+searchedLogStream_searchedCompletely = Lens.lens (\SearchedLogStream' {searchedCompletely} -> searchedCompletely) (\s@SearchedLogStream' {} a -> s {searchedCompletely = a} :: SearchedLogStream)
 
 instance Data.FromJSON SearchedLogStream where
   parseJSON =
@@ -69,16 +68,16 @@ instance Data.FromJSON SearchedLogStream where
       "SearchedLogStream"
       ( \x ->
           SearchedLogStream'
-            Prelude.<$> (x Data..:? "searchedCompletely")
-            Prelude.<*> (x Data..:? "logStreamName")
+            Prelude.<$> (x Data..:? "logStreamName")
+            Prelude.<*> (x Data..:? "searchedCompletely")
       )
 
 instance Prelude.Hashable SearchedLogStream where
   hashWithSalt _salt SearchedLogStream' {..} =
-    _salt `Prelude.hashWithSalt` searchedCompletely
-      `Prelude.hashWithSalt` logStreamName
+    _salt `Prelude.hashWithSalt` logStreamName
+      `Prelude.hashWithSalt` searchedCompletely
 
 instance Prelude.NFData SearchedLogStream where
   rnf SearchedLogStream' {..} =
-    Prelude.rnf searchedCompletely
-      `Prelude.seq` Prelude.rnf logStreamName
+    Prelude.rnf logStreamName
+      `Prelude.seq` Prelude.rnf searchedCompletely

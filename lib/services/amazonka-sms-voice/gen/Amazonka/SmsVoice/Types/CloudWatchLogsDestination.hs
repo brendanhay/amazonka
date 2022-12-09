@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCloudWatchLogsDestination' smart constructor.
 data CloudWatchLogsDestination = CloudWatchLogsDestination'
-  { -- | The name of the Amazon CloudWatch Log Group that you want to record
-    -- events in.
-    logGroupArn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of an Amazon Identity and Access
+  { -- | The Amazon Resource Name (ARN) of an Amazon Identity and Access
     -- Management (IAM) role that is able to write event data to an Amazon
     -- CloudWatch destination.
-    iamRoleArn :: Prelude.Maybe Prelude.Text
+    iamRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the Amazon CloudWatch Log Group that you want to record
+    -- events in.
+    logGroupArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,25 +47,20 @@ data CloudWatchLogsDestination = CloudWatchLogsDestination'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'logGroupArn', 'cloudWatchLogsDestination_logGroupArn' - The name of the Amazon CloudWatch Log Group that you want to record
--- events in.
---
 -- 'iamRoleArn', 'cloudWatchLogsDestination_iamRoleArn' - The Amazon Resource Name (ARN) of an Amazon Identity and Access
 -- Management (IAM) role that is able to write event data to an Amazon
 -- CloudWatch destination.
+--
+-- 'logGroupArn', 'cloudWatchLogsDestination_logGroupArn' - The name of the Amazon CloudWatch Log Group that you want to record
+-- events in.
 newCloudWatchLogsDestination ::
   CloudWatchLogsDestination
 newCloudWatchLogsDestination =
   CloudWatchLogsDestination'
-    { logGroupArn =
+    { iamRoleArn =
         Prelude.Nothing,
-      iamRoleArn = Prelude.Nothing
+      logGroupArn = Prelude.Nothing
     }
-
--- | The name of the Amazon CloudWatch Log Group that you want to record
--- events in.
-cloudWatchLogsDestination_logGroupArn :: Lens.Lens' CloudWatchLogsDestination (Prelude.Maybe Prelude.Text)
-cloudWatchLogsDestination_logGroupArn = Lens.lens (\CloudWatchLogsDestination' {logGroupArn} -> logGroupArn) (\s@CloudWatchLogsDestination' {} a -> s {logGroupArn = a} :: CloudWatchLogsDestination)
 
 -- | The Amazon Resource Name (ARN) of an Amazon Identity and Access
 -- Management (IAM) role that is able to write event data to an Amazon
@@ -73,31 +68,36 @@ cloudWatchLogsDestination_logGroupArn = Lens.lens (\CloudWatchLogsDestination' {
 cloudWatchLogsDestination_iamRoleArn :: Lens.Lens' CloudWatchLogsDestination (Prelude.Maybe Prelude.Text)
 cloudWatchLogsDestination_iamRoleArn = Lens.lens (\CloudWatchLogsDestination' {iamRoleArn} -> iamRoleArn) (\s@CloudWatchLogsDestination' {} a -> s {iamRoleArn = a} :: CloudWatchLogsDestination)
 
+-- | The name of the Amazon CloudWatch Log Group that you want to record
+-- events in.
+cloudWatchLogsDestination_logGroupArn :: Lens.Lens' CloudWatchLogsDestination (Prelude.Maybe Prelude.Text)
+cloudWatchLogsDestination_logGroupArn = Lens.lens (\CloudWatchLogsDestination' {logGroupArn} -> logGroupArn) (\s@CloudWatchLogsDestination' {} a -> s {logGroupArn = a} :: CloudWatchLogsDestination)
+
 instance Data.FromJSON CloudWatchLogsDestination where
   parseJSON =
     Data.withObject
       "CloudWatchLogsDestination"
       ( \x ->
           CloudWatchLogsDestination'
-            Prelude.<$> (x Data..:? "LogGroupArn")
-            Prelude.<*> (x Data..:? "IamRoleArn")
+            Prelude.<$> (x Data..:? "IamRoleArn")
+            Prelude.<*> (x Data..:? "LogGroupArn")
       )
 
 instance Prelude.Hashable CloudWatchLogsDestination where
   hashWithSalt _salt CloudWatchLogsDestination' {..} =
-    _salt `Prelude.hashWithSalt` logGroupArn
-      `Prelude.hashWithSalt` iamRoleArn
+    _salt `Prelude.hashWithSalt` iamRoleArn
+      `Prelude.hashWithSalt` logGroupArn
 
 instance Prelude.NFData CloudWatchLogsDestination where
   rnf CloudWatchLogsDestination' {..} =
-    Prelude.rnf logGroupArn
-      `Prelude.seq` Prelude.rnf iamRoleArn
+    Prelude.rnf iamRoleArn
+      `Prelude.seq` Prelude.rnf logGroupArn
 
 instance Data.ToJSON CloudWatchLogsDestination where
   toJSON CloudWatchLogsDestination' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("LogGroupArn" Data..=) Prelude.<$> logGroupArn,
-            ("IamRoleArn" Data..=) Prelude.<$> iamRoleArn
+          [ ("IamRoleArn" Data..=) Prelude.<$> iamRoleArn,
+            ("LogGroupArn" Data..=) Prelude.<$> logGroupArn
           ]
       )

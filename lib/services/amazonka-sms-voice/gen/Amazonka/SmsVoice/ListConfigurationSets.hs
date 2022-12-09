@@ -36,8 +36,8 @@ module Amazonka.SmsVoice.ListConfigurationSets
     newListConfigurationSetsResponse,
 
     -- * Response Lenses
-    listConfigurationSetsResponse_nextToken,
     listConfigurationSetsResponse_configurationSets,
+    listConfigurationSetsResponse_nextToken,
     listConfigurationSetsResponse_httpStatus,
   )
 where
@@ -102,10 +102,10 @@ instance Core.AWSRequest ListConfigurationSets where
     Response.receiveJSON
       ( \s h x ->
           ListConfigurationSetsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ConfigurationSets"
+            Prelude.<$> ( x Data..?> "ConfigurationSets"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,12 +146,12 @@ instance Data.ToQuery ListConfigurationSets where
 --
 -- /See:/ 'newListConfigurationSetsResponse' smart constructor.
 data ListConfigurationSetsResponse = ListConfigurationSetsResponse'
-  { -- | A token returned from a previous call to ListConfigurationSets to
-    -- indicate the position in the list of configuration sets.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An object that contains a list of configuration sets for your account in
+  { -- | An object that contains a list of configuration sets for your account in
     -- the current region.
     configurationSets :: Prelude.Maybe [Prelude.Text],
+    -- | A token returned from a previous call to ListConfigurationSets to
+    -- indicate the position in the list of configuration sets.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -165,11 +165,11 @@ data ListConfigurationSetsResponse = ListConfigurationSetsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listConfigurationSetsResponse_nextToken' - A token returned from a previous call to ListConfigurationSets to
--- indicate the position in the list of configuration sets.
---
 -- 'configurationSets', 'listConfigurationSetsResponse_configurationSets' - An object that contains a list of configuration sets for your account in
 -- the current region.
+--
+-- 'nextToken', 'listConfigurationSetsResponse_nextToken' - A token returned from a previous call to ListConfigurationSets to
+-- indicate the position in the list of configuration sets.
 --
 -- 'httpStatus', 'listConfigurationSetsResponse_httpStatus' - The response's http status code.
 newListConfigurationSetsResponse ::
@@ -178,21 +178,21 @@ newListConfigurationSetsResponse ::
   ListConfigurationSetsResponse
 newListConfigurationSetsResponse pHttpStatus_ =
   ListConfigurationSetsResponse'
-    { nextToken =
+    { configurationSets =
         Prelude.Nothing,
-      configurationSets = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A token returned from a previous call to ListConfigurationSets to
--- indicate the position in the list of configuration sets.
-listConfigurationSetsResponse_nextToken :: Lens.Lens' ListConfigurationSetsResponse (Prelude.Maybe Prelude.Text)
-listConfigurationSetsResponse_nextToken = Lens.lens (\ListConfigurationSetsResponse' {nextToken} -> nextToken) (\s@ListConfigurationSetsResponse' {} a -> s {nextToken = a} :: ListConfigurationSetsResponse)
 
 -- | An object that contains a list of configuration sets for your account in
 -- the current region.
 listConfigurationSetsResponse_configurationSets :: Lens.Lens' ListConfigurationSetsResponse (Prelude.Maybe [Prelude.Text])
 listConfigurationSetsResponse_configurationSets = Lens.lens (\ListConfigurationSetsResponse' {configurationSets} -> configurationSets) (\s@ListConfigurationSetsResponse' {} a -> s {configurationSets = a} :: ListConfigurationSetsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A token returned from a previous call to ListConfigurationSets to
+-- indicate the position in the list of configuration sets.
+listConfigurationSetsResponse_nextToken :: Lens.Lens' ListConfigurationSetsResponse (Prelude.Maybe Prelude.Text)
+listConfigurationSetsResponse_nextToken = Lens.lens (\ListConfigurationSetsResponse' {nextToken} -> nextToken) (\s@ListConfigurationSetsResponse' {} a -> s {nextToken = a} :: ListConfigurationSetsResponse)
 
 -- | The response's http status code.
 listConfigurationSetsResponse_httpStatus :: Lens.Lens' ListConfigurationSetsResponse Prelude.Int
@@ -200,6 +200,6 @@ listConfigurationSetsResponse_httpStatus = Lens.lens (\ListConfigurationSetsResp
 
 instance Prelude.NFData ListConfigurationSetsResponse where
   rnf ListConfigurationSetsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf configurationSets
+    Prelude.rnf configurationSets
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

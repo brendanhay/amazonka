@@ -35,18 +35,18 @@ module Amazonka.ServerlessApplicationRepository.GetApplication
     newGetApplicationResponse,
 
     -- * Response Lenses
+    getApplicationResponse_applicationId,
     getApplicationResponse_author,
-    getApplicationResponse_name,
-    getApplicationResponse_isVerifiedAuthor,
-    getApplicationResponse_licenseUrl,
-    getApplicationResponse_verifiedAuthorUrl,
-    getApplicationResponse_readmeUrl,
-    getApplicationResponse_spdxLicenseId,
+    getApplicationResponse_creationTime,
     getApplicationResponse_description,
     getApplicationResponse_homePageUrl,
+    getApplicationResponse_isVerifiedAuthor,
     getApplicationResponse_labels,
-    getApplicationResponse_creationTime,
-    getApplicationResponse_applicationId,
+    getApplicationResponse_licenseUrl,
+    getApplicationResponse_name,
+    getApplicationResponse_readmeUrl,
+    getApplicationResponse_spdxLicenseId,
+    getApplicationResponse_verifiedAuthorUrl,
     getApplicationResponse_version,
     getApplicationResponse_httpStatus,
   )
@@ -108,18 +108,18 @@ instance Core.AWSRequest GetApplication where
     Response.receiveJSON
       ( \s h x ->
           GetApplicationResponse'
-            Prelude.<$> (x Data..?> "author")
-            Prelude.<*> (x Data..?> "name")
-            Prelude.<*> (x Data..?> "isVerifiedAuthor")
-            Prelude.<*> (x Data..?> "licenseUrl")
-            Prelude.<*> (x Data..?> "verifiedAuthorUrl")
-            Prelude.<*> (x Data..?> "readmeUrl")
-            Prelude.<*> (x Data..?> "spdxLicenseId")
+            Prelude.<$> (x Data..?> "applicationId")
+            Prelude.<*> (x Data..?> "author")
+            Prelude.<*> (x Data..?> "creationTime")
             Prelude.<*> (x Data..?> "description")
             Prelude.<*> (x Data..?> "homePageUrl")
+            Prelude.<*> (x Data..?> "isVerifiedAuthor")
             Prelude.<*> (x Data..?> "labels" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "creationTime")
-            Prelude.<*> (x Data..?> "applicationId")
+            Prelude.<*> (x Data..?> "licenseUrl")
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "readmeUrl")
+            Prelude.<*> (x Data..?> "spdxLicenseId")
+            Prelude.<*> (x Data..?> "verifiedAuthorUrl")
             Prelude.<*> (x Data..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -157,38 +157,16 @@ instance Data.ToQuery GetApplication where
 
 -- | /See:/ 'newGetApplicationResponse' smart constructor.
 data GetApplicationResponse = GetApplicationResponse'
-  { -- | The name of the author publishing the app.
+  { -- | The application Amazon Resource Name (ARN).
+    applicationId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the author publishing the app.
     --
     -- Minimum length=1. Maximum length=127.
     --
     -- Pattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";
     author :: Prelude.Maybe Prelude.Text,
-    -- | The name of the application.
-    --
-    -- Minimum length=1. Maximum length=140
-    --
-    -- Pattern: \"[a-zA-Z0-9\\\\-]+\";
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Whether the author of this application has been verified. This means
-    -- means that AWS has made a good faith review, as a reasonable and prudent
-    -- service provider, of the information provided by the requester and has
-    -- confirmed that the requester\'s identity is as claimed.
-    isVerifiedAuthor :: Prelude.Maybe Prelude.Bool,
-    -- | A link to a license file of the app that matches the spdxLicenseID value
-    -- of your application.
-    --
-    -- Maximum size 5 MB
-    licenseUrl :: Prelude.Maybe Prelude.Text,
-    -- | The URL to the public profile of a verified author. This URL is
-    -- submitted by the author.
-    verifiedAuthorUrl :: Prelude.Maybe Prelude.Text,
-    -- | A link to the readme file in Markdown language that contains a more
-    -- detailed description of the application and how it works.
-    --
-    -- Maximum size 5 MB
-    readmeUrl :: Prelude.Maybe Prelude.Text,
-    -- | A valid identifier from https:\/\/spdx.org\/licenses\/.
-    spdxLicenseId :: Prelude.Maybe Prelude.Text,
+    -- | The date and time this resource was created.
+    creationTime :: Prelude.Maybe Prelude.Text,
     -- | The description of the application.
     --
     -- Minimum length=1. Maximum length=256
@@ -196,16 +174,38 @@ data GetApplicationResponse = GetApplicationResponse'
     -- | A URL with more information about the application, for example the
     -- location of your GitHub repository for the application.
     homePageUrl :: Prelude.Maybe Prelude.Text,
+    -- | Whether the author of this application has been verified. This means
+    -- means that AWS has made a good faith review, as a reasonable and prudent
+    -- service provider, of the information provided by the requester and has
+    -- confirmed that the requester\'s identity is as claimed.
+    isVerifiedAuthor :: Prelude.Maybe Prelude.Bool,
     -- | Labels to improve discovery of apps in search results.
     --
     -- Minimum length=1. Maximum length=127. Maximum number of labels: 10
     --
     -- Pattern: \"^[a-zA-Z0-9+\\\\-_:\\\\\/\@]+$\";
     labels :: Prelude.Maybe [Prelude.Text],
-    -- | The date and time this resource was created.
-    creationTime :: Prelude.Maybe Prelude.Text,
-    -- | The application Amazon Resource Name (ARN).
-    applicationId :: Prelude.Maybe Prelude.Text,
+    -- | A link to a license file of the app that matches the spdxLicenseID value
+    -- of your application.
+    --
+    -- Maximum size 5 MB
+    licenseUrl :: Prelude.Maybe Prelude.Text,
+    -- | The name of the application.
+    --
+    -- Minimum length=1. Maximum length=140
+    --
+    -- Pattern: \"[a-zA-Z0-9\\\\-]+\";
+    name :: Prelude.Maybe Prelude.Text,
+    -- | A link to the readme file in Markdown language that contains a more
+    -- detailed description of the application and how it works.
+    --
+    -- Maximum size 5 MB
+    readmeUrl :: Prelude.Maybe Prelude.Text,
+    -- | A valid identifier from https:\/\/spdx.org\/licenses\/.
+    spdxLicenseId :: Prelude.Maybe Prelude.Text,
+    -- | The URL to the public profile of a verified author. This URL is
+    -- submitted by the author.
+    verifiedAuthorUrl :: Prelude.Maybe Prelude.Text,
     -- | Version information about the application.
     version :: Prelude.Maybe Version,
     -- | The response's http status code.
@@ -221,37 +221,15 @@ data GetApplicationResponse = GetApplicationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'applicationId', 'getApplicationResponse_applicationId' - The application Amazon Resource Name (ARN).
+--
 -- 'author', 'getApplicationResponse_author' - The name of the author publishing the app.
 --
 -- Minimum length=1. Maximum length=127.
 --
 -- Pattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";
 --
--- 'name', 'getApplicationResponse_name' - The name of the application.
---
--- Minimum length=1. Maximum length=140
---
--- Pattern: \"[a-zA-Z0-9\\\\-]+\";
---
--- 'isVerifiedAuthor', 'getApplicationResponse_isVerifiedAuthor' - Whether the author of this application has been verified. This means
--- means that AWS has made a good faith review, as a reasonable and prudent
--- service provider, of the information provided by the requester and has
--- confirmed that the requester\'s identity is as claimed.
---
--- 'licenseUrl', 'getApplicationResponse_licenseUrl' - A link to a license file of the app that matches the spdxLicenseID value
--- of your application.
---
--- Maximum size 5 MB
---
--- 'verifiedAuthorUrl', 'getApplicationResponse_verifiedAuthorUrl' - The URL to the public profile of a verified author. This URL is
--- submitted by the author.
---
--- 'readmeUrl', 'getApplicationResponse_readmeUrl' - A link to the readme file in Markdown language that contains a more
--- detailed description of the application and how it works.
---
--- Maximum size 5 MB
---
--- 'spdxLicenseId', 'getApplicationResponse_spdxLicenseId' - A valid identifier from https:\/\/spdx.org\/licenses\/.
+-- 'creationTime', 'getApplicationResponse_creationTime' - The date and time this resource was created.
 --
 -- 'description', 'getApplicationResponse_description' - The description of the application.
 --
@@ -260,15 +238,37 @@ data GetApplicationResponse = GetApplicationResponse'
 -- 'homePageUrl', 'getApplicationResponse_homePageUrl' - A URL with more information about the application, for example the
 -- location of your GitHub repository for the application.
 --
+-- 'isVerifiedAuthor', 'getApplicationResponse_isVerifiedAuthor' - Whether the author of this application has been verified. This means
+-- means that AWS has made a good faith review, as a reasonable and prudent
+-- service provider, of the information provided by the requester and has
+-- confirmed that the requester\'s identity is as claimed.
+--
 -- 'labels', 'getApplicationResponse_labels' - Labels to improve discovery of apps in search results.
 --
 -- Minimum length=1. Maximum length=127. Maximum number of labels: 10
 --
 -- Pattern: \"^[a-zA-Z0-9+\\\\-_:\\\\\/\@]+$\";
 --
--- 'creationTime', 'getApplicationResponse_creationTime' - The date and time this resource was created.
+-- 'licenseUrl', 'getApplicationResponse_licenseUrl' - A link to a license file of the app that matches the spdxLicenseID value
+-- of your application.
 --
--- 'applicationId', 'getApplicationResponse_applicationId' - The application Amazon Resource Name (ARN).
+-- Maximum size 5 MB
+--
+-- 'name', 'getApplicationResponse_name' - The name of the application.
+--
+-- Minimum length=1. Maximum length=140
+--
+-- Pattern: \"[a-zA-Z0-9\\\\-]+\";
+--
+-- 'readmeUrl', 'getApplicationResponse_readmeUrl' - A link to the readme file in Markdown language that contains a more
+-- detailed description of the application and how it works.
+--
+-- Maximum size 5 MB
+--
+-- 'spdxLicenseId', 'getApplicationResponse_spdxLicenseId' - A valid identifier from https:\/\/spdx.org\/licenses\/.
+--
+-- 'verifiedAuthorUrl', 'getApplicationResponse_verifiedAuthorUrl' - The URL to the public profile of a verified author. This URL is
+-- submitted by the author.
 --
 -- 'version', 'getApplicationResponse_version' - Version information about the application.
 --
@@ -279,21 +279,26 @@ newGetApplicationResponse ::
   GetApplicationResponse
 newGetApplicationResponse pHttpStatus_ =
   GetApplicationResponse'
-    { author = Prelude.Nothing,
-      name = Prelude.Nothing,
-      isVerifiedAuthor = Prelude.Nothing,
-      licenseUrl = Prelude.Nothing,
-      verifiedAuthorUrl = Prelude.Nothing,
-      readmeUrl = Prelude.Nothing,
-      spdxLicenseId = Prelude.Nothing,
+    { applicationId =
+        Prelude.Nothing,
+      author = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
       description = Prelude.Nothing,
       homePageUrl = Prelude.Nothing,
+      isVerifiedAuthor = Prelude.Nothing,
       labels = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
-      applicationId = Prelude.Nothing,
+      licenseUrl = Prelude.Nothing,
+      name = Prelude.Nothing,
+      readmeUrl = Prelude.Nothing,
+      spdxLicenseId = Prelude.Nothing,
+      verifiedAuthorUrl = Prelude.Nothing,
       version = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The application Amazon Resource Name (ARN).
+getApplicationResponse_applicationId :: Lens.Lens' GetApplicationResponse (Prelude.Maybe Prelude.Text)
+getApplicationResponse_applicationId = Lens.lens (\GetApplicationResponse' {applicationId} -> applicationId) (\s@GetApplicationResponse' {} a -> s {applicationId = a} :: GetApplicationResponse)
 
 -- | The name of the author publishing the app.
 --
@@ -303,43 +308,9 @@ newGetApplicationResponse pHttpStatus_ =
 getApplicationResponse_author :: Lens.Lens' GetApplicationResponse (Prelude.Maybe Prelude.Text)
 getApplicationResponse_author = Lens.lens (\GetApplicationResponse' {author} -> author) (\s@GetApplicationResponse' {} a -> s {author = a} :: GetApplicationResponse)
 
--- | The name of the application.
---
--- Minimum length=1. Maximum length=140
---
--- Pattern: \"[a-zA-Z0-9\\\\-]+\";
-getApplicationResponse_name :: Lens.Lens' GetApplicationResponse (Prelude.Maybe Prelude.Text)
-getApplicationResponse_name = Lens.lens (\GetApplicationResponse' {name} -> name) (\s@GetApplicationResponse' {} a -> s {name = a} :: GetApplicationResponse)
-
--- | Whether the author of this application has been verified. This means
--- means that AWS has made a good faith review, as a reasonable and prudent
--- service provider, of the information provided by the requester and has
--- confirmed that the requester\'s identity is as claimed.
-getApplicationResponse_isVerifiedAuthor :: Lens.Lens' GetApplicationResponse (Prelude.Maybe Prelude.Bool)
-getApplicationResponse_isVerifiedAuthor = Lens.lens (\GetApplicationResponse' {isVerifiedAuthor} -> isVerifiedAuthor) (\s@GetApplicationResponse' {} a -> s {isVerifiedAuthor = a} :: GetApplicationResponse)
-
--- | A link to a license file of the app that matches the spdxLicenseID value
--- of your application.
---
--- Maximum size 5 MB
-getApplicationResponse_licenseUrl :: Lens.Lens' GetApplicationResponse (Prelude.Maybe Prelude.Text)
-getApplicationResponse_licenseUrl = Lens.lens (\GetApplicationResponse' {licenseUrl} -> licenseUrl) (\s@GetApplicationResponse' {} a -> s {licenseUrl = a} :: GetApplicationResponse)
-
--- | The URL to the public profile of a verified author. This URL is
--- submitted by the author.
-getApplicationResponse_verifiedAuthorUrl :: Lens.Lens' GetApplicationResponse (Prelude.Maybe Prelude.Text)
-getApplicationResponse_verifiedAuthorUrl = Lens.lens (\GetApplicationResponse' {verifiedAuthorUrl} -> verifiedAuthorUrl) (\s@GetApplicationResponse' {} a -> s {verifiedAuthorUrl = a} :: GetApplicationResponse)
-
--- | A link to the readme file in Markdown language that contains a more
--- detailed description of the application and how it works.
---
--- Maximum size 5 MB
-getApplicationResponse_readmeUrl :: Lens.Lens' GetApplicationResponse (Prelude.Maybe Prelude.Text)
-getApplicationResponse_readmeUrl = Lens.lens (\GetApplicationResponse' {readmeUrl} -> readmeUrl) (\s@GetApplicationResponse' {} a -> s {readmeUrl = a} :: GetApplicationResponse)
-
--- | A valid identifier from https:\/\/spdx.org\/licenses\/.
-getApplicationResponse_spdxLicenseId :: Lens.Lens' GetApplicationResponse (Prelude.Maybe Prelude.Text)
-getApplicationResponse_spdxLicenseId = Lens.lens (\GetApplicationResponse' {spdxLicenseId} -> spdxLicenseId) (\s@GetApplicationResponse' {} a -> s {spdxLicenseId = a} :: GetApplicationResponse)
+-- | The date and time this resource was created.
+getApplicationResponse_creationTime :: Lens.Lens' GetApplicationResponse (Prelude.Maybe Prelude.Text)
+getApplicationResponse_creationTime = Lens.lens (\GetApplicationResponse' {creationTime} -> creationTime) (\s@GetApplicationResponse' {} a -> s {creationTime = a} :: GetApplicationResponse)
 
 -- | The description of the application.
 --
@@ -352,6 +323,13 @@ getApplicationResponse_description = Lens.lens (\GetApplicationResponse' {descri
 getApplicationResponse_homePageUrl :: Lens.Lens' GetApplicationResponse (Prelude.Maybe Prelude.Text)
 getApplicationResponse_homePageUrl = Lens.lens (\GetApplicationResponse' {homePageUrl} -> homePageUrl) (\s@GetApplicationResponse' {} a -> s {homePageUrl = a} :: GetApplicationResponse)
 
+-- | Whether the author of this application has been verified. This means
+-- means that AWS has made a good faith review, as a reasonable and prudent
+-- service provider, of the information provided by the requester and has
+-- confirmed that the requester\'s identity is as claimed.
+getApplicationResponse_isVerifiedAuthor :: Lens.Lens' GetApplicationResponse (Prelude.Maybe Prelude.Bool)
+getApplicationResponse_isVerifiedAuthor = Lens.lens (\GetApplicationResponse' {isVerifiedAuthor} -> isVerifiedAuthor) (\s@GetApplicationResponse' {} a -> s {isVerifiedAuthor = a} :: GetApplicationResponse)
+
 -- | Labels to improve discovery of apps in search results.
 --
 -- Minimum length=1. Maximum length=127. Maximum number of labels: 10
@@ -360,13 +338,36 @@ getApplicationResponse_homePageUrl = Lens.lens (\GetApplicationResponse' {homePa
 getApplicationResponse_labels :: Lens.Lens' GetApplicationResponse (Prelude.Maybe [Prelude.Text])
 getApplicationResponse_labels = Lens.lens (\GetApplicationResponse' {labels} -> labels) (\s@GetApplicationResponse' {} a -> s {labels = a} :: GetApplicationResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The date and time this resource was created.
-getApplicationResponse_creationTime :: Lens.Lens' GetApplicationResponse (Prelude.Maybe Prelude.Text)
-getApplicationResponse_creationTime = Lens.lens (\GetApplicationResponse' {creationTime} -> creationTime) (\s@GetApplicationResponse' {} a -> s {creationTime = a} :: GetApplicationResponse)
+-- | A link to a license file of the app that matches the spdxLicenseID value
+-- of your application.
+--
+-- Maximum size 5 MB
+getApplicationResponse_licenseUrl :: Lens.Lens' GetApplicationResponse (Prelude.Maybe Prelude.Text)
+getApplicationResponse_licenseUrl = Lens.lens (\GetApplicationResponse' {licenseUrl} -> licenseUrl) (\s@GetApplicationResponse' {} a -> s {licenseUrl = a} :: GetApplicationResponse)
 
--- | The application Amazon Resource Name (ARN).
-getApplicationResponse_applicationId :: Lens.Lens' GetApplicationResponse (Prelude.Maybe Prelude.Text)
-getApplicationResponse_applicationId = Lens.lens (\GetApplicationResponse' {applicationId} -> applicationId) (\s@GetApplicationResponse' {} a -> s {applicationId = a} :: GetApplicationResponse)
+-- | The name of the application.
+--
+-- Minimum length=1. Maximum length=140
+--
+-- Pattern: \"[a-zA-Z0-9\\\\-]+\";
+getApplicationResponse_name :: Lens.Lens' GetApplicationResponse (Prelude.Maybe Prelude.Text)
+getApplicationResponse_name = Lens.lens (\GetApplicationResponse' {name} -> name) (\s@GetApplicationResponse' {} a -> s {name = a} :: GetApplicationResponse)
+
+-- | A link to the readme file in Markdown language that contains a more
+-- detailed description of the application and how it works.
+--
+-- Maximum size 5 MB
+getApplicationResponse_readmeUrl :: Lens.Lens' GetApplicationResponse (Prelude.Maybe Prelude.Text)
+getApplicationResponse_readmeUrl = Lens.lens (\GetApplicationResponse' {readmeUrl} -> readmeUrl) (\s@GetApplicationResponse' {} a -> s {readmeUrl = a} :: GetApplicationResponse)
+
+-- | A valid identifier from https:\/\/spdx.org\/licenses\/.
+getApplicationResponse_spdxLicenseId :: Lens.Lens' GetApplicationResponse (Prelude.Maybe Prelude.Text)
+getApplicationResponse_spdxLicenseId = Lens.lens (\GetApplicationResponse' {spdxLicenseId} -> spdxLicenseId) (\s@GetApplicationResponse' {} a -> s {spdxLicenseId = a} :: GetApplicationResponse)
+
+-- | The URL to the public profile of a verified author. This URL is
+-- submitted by the author.
+getApplicationResponse_verifiedAuthorUrl :: Lens.Lens' GetApplicationResponse (Prelude.Maybe Prelude.Text)
+getApplicationResponse_verifiedAuthorUrl = Lens.lens (\GetApplicationResponse' {verifiedAuthorUrl} -> verifiedAuthorUrl) (\s@GetApplicationResponse' {} a -> s {verifiedAuthorUrl = a} :: GetApplicationResponse)
 
 -- | Version information about the application.
 getApplicationResponse_version :: Lens.Lens' GetApplicationResponse (Prelude.Maybe Version)
@@ -378,17 +379,17 @@ getApplicationResponse_httpStatus = Lens.lens (\GetApplicationResponse' {httpSta
 
 instance Prelude.NFData GetApplicationResponse where
   rnf GetApplicationResponse' {..} =
-    Prelude.rnf author
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf isVerifiedAuthor
-      `Prelude.seq` Prelude.rnf licenseUrl
-      `Prelude.seq` Prelude.rnf verifiedAuthorUrl
-      `Prelude.seq` Prelude.rnf readmeUrl
-      `Prelude.seq` Prelude.rnf spdxLicenseId
+    Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf author
+      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf homePageUrl
+      `Prelude.seq` Prelude.rnf isVerifiedAuthor
       `Prelude.seq` Prelude.rnf labels
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf licenseUrl
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf readmeUrl
+      `Prelude.seq` Prelude.rnf spdxLicenseId
+      `Prelude.seq` Prelude.rnf verifiedAuthorUrl
       `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf httpStatus

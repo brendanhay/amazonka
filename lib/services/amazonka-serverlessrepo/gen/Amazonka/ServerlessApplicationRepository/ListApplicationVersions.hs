@@ -29,8 +29,8 @@ module Amazonka.ServerlessApplicationRepository.ListApplicationVersions
     newListApplicationVersions,
 
     -- * Request Lenses
-    listApplicationVersions_nextToken,
     listApplicationVersions_maxItems,
+    listApplicationVersions_nextToken,
     listApplicationVersions_applicationId,
 
     -- * Destructuring the Response
@@ -54,10 +54,10 @@ import Amazonka.ServerlessApplicationRepository.Types
 
 -- | /See:/ 'newListApplicationVersions' smart constructor.
 data ListApplicationVersions = ListApplicationVersions'
-  { -- | A token to specify where to start paginating.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The total number of items to return.
+  { -- | The total number of items to return.
     maxItems :: Prelude.Maybe Prelude.Natural,
+    -- | A token to specify where to start paginating.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the application.
     applicationId :: Prelude.Text
   }
@@ -71,9 +71,9 @@ data ListApplicationVersions = ListApplicationVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listApplicationVersions_nextToken' - A token to specify where to start paginating.
---
 -- 'maxItems', 'listApplicationVersions_maxItems' - The total number of items to return.
+--
+-- 'nextToken', 'listApplicationVersions_nextToken' - A token to specify where to start paginating.
 --
 -- 'applicationId', 'listApplicationVersions_applicationId' - The Amazon Resource Name (ARN) of the application.
 newListApplicationVersions ::
@@ -82,19 +82,19 @@ newListApplicationVersions ::
   ListApplicationVersions
 newListApplicationVersions pApplicationId_ =
   ListApplicationVersions'
-    { nextToken =
+    { maxItems =
         Prelude.Nothing,
-      maxItems = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       applicationId = pApplicationId_
     }
-
--- | A token to specify where to start paginating.
-listApplicationVersions_nextToken :: Lens.Lens' ListApplicationVersions (Prelude.Maybe Prelude.Text)
-listApplicationVersions_nextToken = Lens.lens (\ListApplicationVersions' {nextToken} -> nextToken) (\s@ListApplicationVersions' {} a -> s {nextToken = a} :: ListApplicationVersions)
 
 -- | The total number of items to return.
 listApplicationVersions_maxItems :: Lens.Lens' ListApplicationVersions (Prelude.Maybe Prelude.Natural)
 listApplicationVersions_maxItems = Lens.lens (\ListApplicationVersions' {maxItems} -> maxItems) (\s@ListApplicationVersions' {} a -> s {maxItems = a} :: ListApplicationVersions)
+
+-- | A token to specify where to start paginating.
+listApplicationVersions_nextToken :: Lens.Lens' ListApplicationVersions (Prelude.Maybe Prelude.Text)
+listApplicationVersions_nextToken = Lens.lens (\ListApplicationVersions' {nextToken} -> nextToken) (\s@ListApplicationVersions' {} a -> s {nextToken = a} :: ListApplicationVersions)
 
 -- | The Amazon Resource Name (ARN) of the application.
 listApplicationVersions_applicationId :: Lens.Lens' ListApplicationVersions Prelude.Text
@@ -139,14 +139,14 @@ instance Core.AWSRequest ListApplicationVersions where
 
 instance Prelude.Hashable ListApplicationVersions where
   hashWithSalt _salt ListApplicationVersions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxItems
+    _salt `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` applicationId
 
 instance Prelude.NFData ListApplicationVersions where
   rnf ListApplicationVersions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxItems
+    Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf applicationId
 
 instance Data.ToHeaders ListApplicationVersions where
@@ -171,8 +171,8 @@ instance Data.ToPath ListApplicationVersions where
 instance Data.ToQuery ListApplicationVersions where
   toQuery ListApplicationVersions' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxItems" Data.=: maxItems
+      [ "maxItems" Data.=: maxItems,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListApplicationVersionsResponse' smart constructor.

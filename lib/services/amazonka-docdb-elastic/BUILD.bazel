@@ -1,0 +1,76 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from lib/services/amazonka-docdb-elastic/amazonka-docdb-elastic.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-docdb-elastic",
+    srcs = [
+        "gen/Amazonka/DocDbElastic.hs",
+        "gen/Amazonka/DocDbElastic/CreateCluster.hs",
+        "gen/Amazonka/DocDbElastic/CreateClusterSnapshot.hs",
+        "gen/Amazonka/DocDbElastic/DeleteCluster.hs",
+        "gen/Amazonka/DocDbElastic/DeleteClusterSnapshot.hs",
+        "gen/Amazonka/DocDbElastic/GetCluster.hs",
+        "gen/Amazonka/DocDbElastic/GetClusterSnapshot.hs",
+        "gen/Amazonka/DocDbElastic/Lens.hs",
+        "gen/Amazonka/DocDbElastic/ListClusterSnapshots.hs",
+        "gen/Amazonka/DocDbElastic/ListClusters.hs",
+        "gen/Amazonka/DocDbElastic/ListTagsForResource.hs",
+        "gen/Amazonka/DocDbElastic/RestoreClusterFromSnapshot.hs",
+        "gen/Amazonka/DocDbElastic/TagResource.hs",
+        "gen/Amazonka/DocDbElastic/Types.hs",
+        "gen/Amazonka/DocDbElastic/Types/Auth.hs",
+        "gen/Amazonka/DocDbElastic/Types/Cluster.hs",
+        "gen/Amazonka/DocDbElastic/Types/ClusterInList.hs",
+        "gen/Amazonka/DocDbElastic/Types/ClusterSnapshot.hs",
+        "gen/Amazonka/DocDbElastic/Types/ClusterSnapshotInList.hs",
+        "gen/Amazonka/DocDbElastic/Types/Status.hs",
+        "gen/Amazonka/DocDbElastic/UntagResource.hs",
+        "gen/Amazonka/DocDbElastic/UpdateCluster.hs",
+        "gen/Amazonka/DocDbElastic/Waiters.hs",
+    ],
+    ghcopts = [
+        "-DVERSION_amazonka_docdb_elastic=\"2.0\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//lib/amazonka-core",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from lib/services/amazonka-docdb-elastic/amazonka-docdb-elastic.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-docdb-elastic-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/Amazonka/DocDbElastic.hs",
+        "test/Test/Amazonka/DocDbElastic/Internal.hs",
+        "test/Test/Amazonka/Gen/DocDbElastic.hs",
+    ],
+    ghcopts = [
+        "-DVERSION_amazonka_docdb_elastic=\"2.0\"",
+        "-Wall",
+        "-threaded",
+    ],
+    main_file = "test/Main.hs",
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-docdb-elastic",
+        "//lib/amazonka-core",
+        "//lib/amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

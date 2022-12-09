@@ -30,18 +30,18 @@ import Amazonka.WorkDocs.Types.ShareStatusType
 --
 -- /See:/ 'newShareResult' smart constructor.
 data ShareResult = ShareResult'
-  { -- | The ID of the principal.
+  { -- | The ID of the invited user.
+    inviteePrincipalId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the principal.
     principalId :: Prelude.Maybe Prelude.Text,
-    -- | The status.
-    status :: Prelude.Maybe ShareStatusType,
-    -- | The ID of the resource that was shared.
-    shareId :: Prelude.Maybe Prelude.Text,
     -- | The role.
     role' :: Prelude.Maybe RoleType,
+    -- | The ID of the resource that was shared.
+    shareId :: Prelude.Maybe Prelude.Text,
+    -- | The status.
+    status :: Prelude.Maybe ShareStatusType,
     -- | The status message.
-    statusMessage :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The ID of the invited user.
-    inviteePrincipalId :: Prelude.Maybe Prelude.Text
+    statusMessage :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -53,52 +53,52 @@ data ShareResult = ShareResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'inviteePrincipalId', 'shareResult_inviteePrincipalId' - The ID of the invited user.
+--
 -- 'principalId', 'shareResult_principalId' - The ID of the principal.
---
--- 'status', 'shareResult_status' - The status.
---
--- 'shareId', 'shareResult_shareId' - The ID of the resource that was shared.
 --
 -- 'role'', 'shareResult_role' - The role.
 --
--- 'statusMessage', 'shareResult_statusMessage' - The status message.
+-- 'shareId', 'shareResult_shareId' - The ID of the resource that was shared.
 --
--- 'inviteePrincipalId', 'shareResult_inviteePrincipalId' - The ID of the invited user.
+-- 'status', 'shareResult_status' - The status.
+--
+-- 'statusMessage', 'shareResult_statusMessage' - The status message.
 newShareResult ::
   ShareResult
 newShareResult =
   ShareResult'
-    { principalId = Prelude.Nothing,
-      status = Prelude.Nothing,
-      shareId = Prelude.Nothing,
+    { inviteePrincipalId = Prelude.Nothing,
+      principalId = Prelude.Nothing,
       role' = Prelude.Nothing,
-      statusMessage = Prelude.Nothing,
-      inviteePrincipalId = Prelude.Nothing
+      shareId = Prelude.Nothing,
+      status = Prelude.Nothing,
+      statusMessage = Prelude.Nothing
     }
+
+-- | The ID of the invited user.
+shareResult_inviteePrincipalId :: Lens.Lens' ShareResult (Prelude.Maybe Prelude.Text)
+shareResult_inviteePrincipalId = Lens.lens (\ShareResult' {inviteePrincipalId} -> inviteePrincipalId) (\s@ShareResult' {} a -> s {inviteePrincipalId = a} :: ShareResult)
 
 -- | The ID of the principal.
 shareResult_principalId :: Lens.Lens' ShareResult (Prelude.Maybe Prelude.Text)
 shareResult_principalId = Lens.lens (\ShareResult' {principalId} -> principalId) (\s@ShareResult' {} a -> s {principalId = a} :: ShareResult)
 
--- | The status.
-shareResult_status :: Lens.Lens' ShareResult (Prelude.Maybe ShareStatusType)
-shareResult_status = Lens.lens (\ShareResult' {status} -> status) (\s@ShareResult' {} a -> s {status = a} :: ShareResult)
+-- | The role.
+shareResult_role :: Lens.Lens' ShareResult (Prelude.Maybe RoleType)
+shareResult_role = Lens.lens (\ShareResult' {role'} -> role') (\s@ShareResult' {} a -> s {role' = a} :: ShareResult)
 
 -- | The ID of the resource that was shared.
 shareResult_shareId :: Lens.Lens' ShareResult (Prelude.Maybe Prelude.Text)
 shareResult_shareId = Lens.lens (\ShareResult' {shareId} -> shareId) (\s@ShareResult' {} a -> s {shareId = a} :: ShareResult)
 
--- | The role.
-shareResult_role :: Lens.Lens' ShareResult (Prelude.Maybe RoleType)
-shareResult_role = Lens.lens (\ShareResult' {role'} -> role') (\s@ShareResult' {} a -> s {role' = a} :: ShareResult)
+-- | The status.
+shareResult_status :: Lens.Lens' ShareResult (Prelude.Maybe ShareStatusType)
+shareResult_status = Lens.lens (\ShareResult' {status} -> status) (\s@ShareResult' {} a -> s {status = a} :: ShareResult)
 
 -- | The status message.
 shareResult_statusMessage :: Lens.Lens' ShareResult (Prelude.Maybe Prelude.Text)
 shareResult_statusMessage = Lens.lens (\ShareResult' {statusMessage} -> statusMessage) (\s@ShareResult' {} a -> s {statusMessage = a} :: ShareResult) Prelude.. Lens.mapping Data._Sensitive
-
--- | The ID of the invited user.
-shareResult_inviteePrincipalId :: Lens.Lens' ShareResult (Prelude.Maybe Prelude.Text)
-shareResult_inviteePrincipalId = Lens.lens (\ShareResult' {inviteePrincipalId} -> inviteePrincipalId) (\s@ShareResult' {} a -> s {inviteePrincipalId = a} :: ShareResult)
 
 instance Data.FromJSON ShareResult where
   parseJSON =
@@ -106,28 +106,28 @@ instance Data.FromJSON ShareResult where
       "ShareResult"
       ( \x ->
           ShareResult'
-            Prelude.<$> (x Data..:? "PrincipalId")
-            Prelude.<*> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "ShareId")
+            Prelude.<$> (x Data..:? "InviteePrincipalId")
+            Prelude.<*> (x Data..:? "PrincipalId")
             Prelude.<*> (x Data..:? "Role")
+            Prelude.<*> (x Data..:? "ShareId")
+            Prelude.<*> (x Data..:? "Status")
             Prelude.<*> (x Data..:? "StatusMessage")
-            Prelude.<*> (x Data..:? "InviteePrincipalId")
       )
 
 instance Prelude.Hashable ShareResult where
   hashWithSalt _salt ShareResult' {..} =
-    _salt `Prelude.hashWithSalt` principalId
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` shareId
+    _salt `Prelude.hashWithSalt` inviteePrincipalId
+      `Prelude.hashWithSalt` principalId
       `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` shareId
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` statusMessage
-      `Prelude.hashWithSalt` inviteePrincipalId
 
 instance Prelude.NFData ShareResult where
   rnf ShareResult' {..} =
-    Prelude.rnf principalId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf shareId
+    Prelude.rnf inviteePrincipalId
+      `Prelude.seq` Prelude.rnf principalId
       `Prelude.seq` Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf shareId
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf inviteePrincipalId

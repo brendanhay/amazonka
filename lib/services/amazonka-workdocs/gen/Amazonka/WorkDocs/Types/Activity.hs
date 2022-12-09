@@ -36,12 +36,8 @@ data Activity = Activity'
   { -- | Metadata of the commenting activity. This is an optional field and is
     -- filled for commenting activities.
     commentMetadata :: Prelude.Maybe CommentMetadata,
-    -- | The activity type.
-    type' :: Prelude.Maybe ActivityType,
-    -- | The metadata of the resource involved in the user action.
-    resourceMetadata :: Prelude.Maybe ResourceMetadata,
-    -- | The timestamp when the action was performed.
-    timeStamp :: Prelude.Maybe Data.POSIX,
+    -- | The user who performed the action.
+    initiator :: Prelude.Maybe UserMetadata,
     -- | Indicates whether an activity is indirect or direct. An indirect
     -- activity results from a direct activity performed on a parent resource.
     -- For example, sharing a parent folder (the direct activity) shares all of
@@ -53,13 +49,17 @@ data Activity = Activity'
     -- | The original parent of the resource. This is an optional field and is
     -- filled for move activities.
     originalParent :: Prelude.Maybe ResourceMetadata,
-    -- | The user who performed the action.
-    initiator :: Prelude.Maybe UserMetadata,
     -- | The list of users or groups impacted by this action. This is an optional
     -- field and is filled for the following sharing activities:
     -- DOCUMENT_SHARED, DOCUMENT_SHARED, DOCUMENT_UNSHARED, FOLDER_SHARED,
     -- FOLDER_UNSHARED.
-    participants :: Prelude.Maybe Participants
+    participants :: Prelude.Maybe Participants,
+    -- | The metadata of the resource involved in the user action.
+    resourceMetadata :: Prelude.Maybe ResourceMetadata,
+    -- | The timestamp when the action was performed.
+    timeStamp :: Prelude.Maybe Data.POSIX,
+    -- | The activity type.
+    type' :: Prelude.Maybe ActivityType
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -74,11 +74,7 @@ data Activity = Activity'
 -- 'commentMetadata', 'activity_commentMetadata' - Metadata of the commenting activity. This is an optional field and is
 -- filled for commenting activities.
 --
--- 'type'', 'activity_type' - The activity type.
---
--- 'resourceMetadata', 'activity_resourceMetadata' - The metadata of the resource involved in the user action.
---
--- 'timeStamp', 'activity_timeStamp' - The timestamp when the action was performed.
+-- 'initiator', 'activity_initiator' - The user who performed the action.
 --
 -- 'isIndirectActivity', 'activity_isIndirectActivity' - Indicates whether an activity is indirect or direct. An indirect
 -- activity results from a direct activity performed on a parent resource.
@@ -91,25 +87,29 @@ data Activity = Activity'
 -- 'originalParent', 'activity_originalParent' - The original parent of the resource. This is an optional field and is
 -- filled for move activities.
 --
--- 'initiator', 'activity_initiator' - The user who performed the action.
---
 -- 'participants', 'activity_participants' - The list of users or groups impacted by this action. This is an optional
 -- field and is filled for the following sharing activities:
 -- DOCUMENT_SHARED, DOCUMENT_SHARED, DOCUMENT_UNSHARED, FOLDER_SHARED,
 -- FOLDER_UNSHARED.
+--
+-- 'resourceMetadata', 'activity_resourceMetadata' - The metadata of the resource involved in the user action.
+--
+-- 'timeStamp', 'activity_timeStamp' - The timestamp when the action was performed.
+--
+-- 'type'', 'activity_type' - The activity type.
 newActivity ::
   Activity
 newActivity =
   Activity'
     { commentMetadata = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      resourceMetadata = Prelude.Nothing,
-      timeStamp = Prelude.Nothing,
+      initiator = Prelude.Nothing,
       isIndirectActivity = Prelude.Nothing,
       organizationId = Prelude.Nothing,
       originalParent = Prelude.Nothing,
-      initiator = Prelude.Nothing,
-      participants = Prelude.Nothing
+      participants = Prelude.Nothing,
+      resourceMetadata = Prelude.Nothing,
+      timeStamp = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | Metadata of the commenting activity. This is an optional field and is
@@ -117,17 +117,9 @@ newActivity =
 activity_commentMetadata :: Lens.Lens' Activity (Prelude.Maybe CommentMetadata)
 activity_commentMetadata = Lens.lens (\Activity' {commentMetadata} -> commentMetadata) (\s@Activity' {} a -> s {commentMetadata = a} :: Activity)
 
--- | The activity type.
-activity_type :: Lens.Lens' Activity (Prelude.Maybe ActivityType)
-activity_type = Lens.lens (\Activity' {type'} -> type') (\s@Activity' {} a -> s {type' = a} :: Activity)
-
--- | The metadata of the resource involved in the user action.
-activity_resourceMetadata :: Lens.Lens' Activity (Prelude.Maybe ResourceMetadata)
-activity_resourceMetadata = Lens.lens (\Activity' {resourceMetadata} -> resourceMetadata) (\s@Activity' {} a -> s {resourceMetadata = a} :: Activity)
-
--- | The timestamp when the action was performed.
-activity_timeStamp :: Lens.Lens' Activity (Prelude.Maybe Prelude.UTCTime)
-activity_timeStamp = Lens.lens (\Activity' {timeStamp} -> timeStamp) (\s@Activity' {} a -> s {timeStamp = a} :: Activity) Prelude.. Lens.mapping Data._Time
+-- | The user who performed the action.
+activity_initiator :: Lens.Lens' Activity (Prelude.Maybe UserMetadata)
+activity_initiator = Lens.lens (\Activity' {initiator} -> initiator) (\s@Activity' {} a -> s {initiator = a} :: Activity)
 
 -- | Indicates whether an activity is indirect or direct. An indirect
 -- activity results from a direct activity performed on a parent resource.
@@ -146,16 +138,24 @@ activity_organizationId = Lens.lens (\Activity' {organizationId} -> organization
 activity_originalParent :: Lens.Lens' Activity (Prelude.Maybe ResourceMetadata)
 activity_originalParent = Lens.lens (\Activity' {originalParent} -> originalParent) (\s@Activity' {} a -> s {originalParent = a} :: Activity)
 
--- | The user who performed the action.
-activity_initiator :: Lens.Lens' Activity (Prelude.Maybe UserMetadata)
-activity_initiator = Lens.lens (\Activity' {initiator} -> initiator) (\s@Activity' {} a -> s {initiator = a} :: Activity)
-
 -- | The list of users or groups impacted by this action. This is an optional
 -- field and is filled for the following sharing activities:
 -- DOCUMENT_SHARED, DOCUMENT_SHARED, DOCUMENT_UNSHARED, FOLDER_SHARED,
 -- FOLDER_UNSHARED.
 activity_participants :: Lens.Lens' Activity (Prelude.Maybe Participants)
 activity_participants = Lens.lens (\Activity' {participants} -> participants) (\s@Activity' {} a -> s {participants = a} :: Activity)
+
+-- | The metadata of the resource involved in the user action.
+activity_resourceMetadata :: Lens.Lens' Activity (Prelude.Maybe ResourceMetadata)
+activity_resourceMetadata = Lens.lens (\Activity' {resourceMetadata} -> resourceMetadata) (\s@Activity' {} a -> s {resourceMetadata = a} :: Activity)
+
+-- | The timestamp when the action was performed.
+activity_timeStamp :: Lens.Lens' Activity (Prelude.Maybe Prelude.UTCTime)
+activity_timeStamp = Lens.lens (\Activity' {timeStamp} -> timeStamp) (\s@Activity' {} a -> s {timeStamp = a} :: Activity) Prelude.. Lens.mapping Data._Time
+
+-- | The activity type.
+activity_type :: Lens.Lens' Activity (Prelude.Maybe ActivityType)
+activity_type = Lens.lens (\Activity' {type'} -> type') (\s@Activity' {} a -> s {type' = a} :: Activity)
 
 instance Data.FromJSON Activity where
   parseJSON =
@@ -164,36 +164,36 @@ instance Data.FromJSON Activity where
       ( \x ->
           Activity'
             Prelude.<$> (x Data..:? "CommentMetadata")
-            Prelude.<*> (x Data..:? "Type")
-            Prelude.<*> (x Data..:? "ResourceMetadata")
-            Prelude.<*> (x Data..:? "TimeStamp")
+            Prelude.<*> (x Data..:? "Initiator")
             Prelude.<*> (x Data..:? "IsIndirectActivity")
             Prelude.<*> (x Data..:? "OrganizationId")
             Prelude.<*> (x Data..:? "OriginalParent")
-            Prelude.<*> (x Data..:? "Initiator")
             Prelude.<*> (x Data..:? "Participants")
+            Prelude.<*> (x Data..:? "ResourceMetadata")
+            Prelude.<*> (x Data..:? "TimeStamp")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable Activity where
   hashWithSalt _salt Activity' {..} =
     _salt `Prelude.hashWithSalt` commentMetadata
-      `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` resourceMetadata
-      `Prelude.hashWithSalt` timeStamp
+      `Prelude.hashWithSalt` initiator
       `Prelude.hashWithSalt` isIndirectActivity
       `Prelude.hashWithSalt` organizationId
       `Prelude.hashWithSalt` originalParent
-      `Prelude.hashWithSalt` initiator
       `Prelude.hashWithSalt` participants
+      `Prelude.hashWithSalt` resourceMetadata
+      `Prelude.hashWithSalt` timeStamp
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData Activity where
   rnf Activity' {..} =
     Prelude.rnf commentMetadata
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf resourceMetadata
-      `Prelude.seq` Prelude.rnf timeStamp
+      `Prelude.seq` Prelude.rnf initiator
       `Prelude.seq` Prelude.rnf isIndirectActivity
       `Prelude.seq` Prelude.rnf organizationId
       `Prelude.seq` Prelude.rnf originalParent
-      `Prelude.seq` Prelude.rnf initiator
       `Prelude.seq` Prelude.rnf participants
+      `Prelude.seq` Prelude.rnf resourceMetadata
+      `Prelude.seq` Prelude.rnf timeStamp
+      `Prelude.seq` Prelude.rnf type'

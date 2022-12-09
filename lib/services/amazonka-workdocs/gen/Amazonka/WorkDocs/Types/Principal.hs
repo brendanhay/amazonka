@@ -30,12 +30,12 @@ import Amazonka.WorkDocs.Types.PrincipalType
 --
 -- /See:/ 'newPrincipal' smart constructor.
 data Principal = Principal'
-  { -- | The type of resource.
-    type' :: Prelude.Maybe PrincipalType,
-    -- | The ID of the resource.
+  { -- | The ID of the resource.
     id :: Prelude.Maybe Prelude.Text,
     -- | The permission information for the resource.
-    roles :: Prelude.Maybe [PermissionInfo]
+    roles :: Prelude.Maybe [PermissionInfo],
+    -- | The type of resource.
+    type' :: Prelude.Maybe PrincipalType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,23 +47,19 @@ data Principal = Principal'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'principal_type' - The type of resource.
---
 -- 'id', 'principal_id' - The ID of the resource.
 --
 -- 'roles', 'principal_roles' - The permission information for the resource.
+--
+-- 'type'', 'principal_type' - The type of resource.
 newPrincipal ::
   Principal
 newPrincipal =
   Principal'
-    { type' = Prelude.Nothing,
-      id = Prelude.Nothing,
-      roles = Prelude.Nothing
+    { id = Prelude.Nothing,
+      roles = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
-
--- | The type of resource.
-principal_type :: Lens.Lens' Principal (Prelude.Maybe PrincipalType)
-principal_type = Lens.lens (\Principal' {type'} -> type') (\s@Principal' {} a -> s {type' = a} :: Principal)
 
 -- | The ID of the resource.
 principal_id :: Lens.Lens' Principal (Prelude.Maybe Prelude.Text)
@@ -73,25 +69,29 @@ principal_id = Lens.lens (\Principal' {id} -> id) (\s@Principal' {} a -> s {id =
 principal_roles :: Lens.Lens' Principal (Prelude.Maybe [PermissionInfo])
 principal_roles = Lens.lens (\Principal' {roles} -> roles) (\s@Principal' {} a -> s {roles = a} :: Principal) Prelude.. Lens.mapping Lens.coerced
 
+-- | The type of resource.
+principal_type :: Lens.Lens' Principal (Prelude.Maybe PrincipalType)
+principal_type = Lens.lens (\Principal' {type'} -> type') (\s@Principal' {} a -> s {type' = a} :: Principal)
+
 instance Data.FromJSON Principal where
   parseJSON =
     Data.withObject
       "Principal"
       ( \x ->
           Principal'
-            Prelude.<$> (x Data..:? "Type")
-            Prelude.<*> (x Data..:? "Id")
+            Prelude.<$> (x Data..:? "Id")
             Prelude.<*> (x Data..:? "Roles" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable Principal where
   hashWithSalt _salt Principal' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` id
+    _salt `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` roles
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData Principal where
   rnf Principal' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf id
       `Prelude.seq` Prelude.rnf roles
+      `Prelude.seq` Prelude.rnf type'

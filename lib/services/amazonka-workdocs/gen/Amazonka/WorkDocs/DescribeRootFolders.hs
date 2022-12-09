@@ -38,8 +38,8 @@ module Amazonka.WorkDocs.DescribeRootFolders
     newDescribeRootFolders,
 
     -- * Request Lenses
-    describeRootFolders_marker,
     describeRootFolders_limit,
+    describeRootFolders_marker,
     describeRootFolders_authenticationToken,
 
     -- * Destructuring the Response
@@ -47,8 +47,8 @@ module Amazonka.WorkDocs.DescribeRootFolders
     newDescribeRootFoldersResponse,
 
     -- * Response Lenses
-    describeRootFoldersResponse_marker,
     describeRootFoldersResponse_folders,
+    describeRootFoldersResponse_marker,
     describeRootFoldersResponse_httpStatus,
   )
 where
@@ -63,11 +63,11 @@ import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newDescribeRootFolders' smart constructor.
 data DescribeRootFolders = DescribeRootFolders'
-  { -- | The marker for the next set of results. (You received this marker from a
+  { -- | The maximum number of items to return.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | The marker for the next set of results. (You received this marker from a
     -- previous call.)
     marker :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return.
-    limit :: Prelude.Maybe Prelude.Natural,
     -- | Amazon WorkDocs authentication token.
     authenticationToken :: Data.Sensitive Prelude.Text
   }
@@ -81,10 +81,10 @@ data DescribeRootFolders = DescribeRootFolders'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'limit', 'describeRootFolders_limit' - The maximum number of items to return.
+--
 -- 'marker', 'describeRootFolders_marker' - The marker for the next set of results. (You received this marker from a
 -- previous call.)
---
--- 'limit', 'describeRootFolders_limit' - The maximum number of items to return.
 --
 -- 'authenticationToken', 'describeRootFolders_authenticationToken' - Amazon WorkDocs authentication token.
 newDescribeRootFolders ::
@@ -93,20 +93,20 @@ newDescribeRootFolders ::
   DescribeRootFolders
 newDescribeRootFolders pAuthenticationToken_ =
   DescribeRootFolders'
-    { marker = Prelude.Nothing,
-      limit = Prelude.Nothing,
+    { limit = Prelude.Nothing,
+      marker = Prelude.Nothing,
       authenticationToken =
         Data._Sensitive Lens.# pAuthenticationToken_
     }
+
+-- | The maximum number of items to return.
+describeRootFolders_limit :: Lens.Lens' DescribeRootFolders (Prelude.Maybe Prelude.Natural)
+describeRootFolders_limit = Lens.lens (\DescribeRootFolders' {limit} -> limit) (\s@DescribeRootFolders' {} a -> s {limit = a} :: DescribeRootFolders)
 
 -- | The marker for the next set of results. (You received this marker from a
 -- previous call.)
 describeRootFolders_marker :: Lens.Lens' DescribeRootFolders (Prelude.Maybe Prelude.Text)
 describeRootFolders_marker = Lens.lens (\DescribeRootFolders' {marker} -> marker) (\s@DescribeRootFolders' {} a -> s {marker = a} :: DescribeRootFolders)
-
--- | The maximum number of items to return.
-describeRootFolders_limit :: Lens.Lens' DescribeRootFolders (Prelude.Maybe Prelude.Natural)
-describeRootFolders_limit = Lens.lens (\DescribeRootFolders' {limit} -> limit) (\s@DescribeRootFolders' {} a -> s {limit = a} :: DescribeRootFolders)
 
 -- | Amazon WorkDocs authentication token.
 describeRootFolders_authenticationToken :: Lens.Lens' DescribeRootFolders Prelude.Text
@@ -144,21 +144,21 @@ instance Core.AWSRequest DescribeRootFolders where
     Response.receiveJSON
       ( \s h x ->
           DescribeRootFoldersResponse'
-            Prelude.<$> (x Data..?> "Marker")
-            Prelude.<*> (x Data..?> "Folders" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Folders" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeRootFolders where
   hashWithSalt _salt DescribeRootFolders' {..} =
-    _salt `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` limit
+    _salt `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` authenticationToken
 
 instance Prelude.NFData DescribeRootFolders where
   rnf DescribeRootFolders' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf limit
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf authenticationToken
 
 instance Data.ToHeaders DescribeRootFolders where
@@ -175,14 +175,14 @@ instance Data.ToPath DescribeRootFolders where
 instance Data.ToQuery DescribeRootFolders where
   toQuery DescribeRootFolders' {..} =
     Prelude.mconcat
-      ["marker" Data.=: marker, "limit" Data.=: limit]
+      ["limit" Data.=: limit, "marker" Data.=: marker]
 
 -- | /See:/ 'newDescribeRootFoldersResponse' smart constructor.
 data DescribeRootFoldersResponse = DescribeRootFoldersResponse'
-  { -- | The marker for the next set of results.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | The user\'s special folders.
+  { -- | The user\'s special folders.
     folders :: Prelude.Maybe [FolderMetadata],
+    -- | The marker for the next set of results.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -196,9 +196,9 @@ data DescribeRootFoldersResponse = DescribeRootFoldersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'marker', 'describeRootFoldersResponse_marker' - The marker for the next set of results.
---
 -- 'folders', 'describeRootFoldersResponse_folders' - The user\'s special folders.
+--
+-- 'marker', 'describeRootFoldersResponse_marker' - The marker for the next set of results.
 --
 -- 'httpStatus', 'describeRootFoldersResponse_httpStatus' - The response's http status code.
 newDescribeRootFoldersResponse ::
@@ -207,19 +207,19 @@ newDescribeRootFoldersResponse ::
   DescribeRootFoldersResponse
 newDescribeRootFoldersResponse pHttpStatus_ =
   DescribeRootFoldersResponse'
-    { marker =
+    { folders =
         Prelude.Nothing,
-      folders = Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The marker for the next set of results.
-describeRootFoldersResponse_marker :: Lens.Lens' DescribeRootFoldersResponse (Prelude.Maybe Prelude.Text)
-describeRootFoldersResponse_marker = Lens.lens (\DescribeRootFoldersResponse' {marker} -> marker) (\s@DescribeRootFoldersResponse' {} a -> s {marker = a} :: DescribeRootFoldersResponse)
 
 -- | The user\'s special folders.
 describeRootFoldersResponse_folders :: Lens.Lens' DescribeRootFoldersResponse (Prelude.Maybe [FolderMetadata])
 describeRootFoldersResponse_folders = Lens.lens (\DescribeRootFoldersResponse' {folders} -> folders) (\s@DescribeRootFoldersResponse' {} a -> s {folders = a} :: DescribeRootFoldersResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The marker for the next set of results.
+describeRootFoldersResponse_marker :: Lens.Lens' DescribeRootFoldersResponse (Prelude.Maybe Prelude.Text)
+describeRootFoldersResponse_marker = Lens.lens (\DescribeRootFoldersResponse' {marker} -> marker) (\s@DescribeRootFoldersResponse' {} a -> s {marker = a} :: DescribeRootFoldersResponse)
 
 -- | The response's http status code.
 describeRootFoldersResponse_httpStatus :: Lens.Lens' DescribeRootFoldersResponse Prelude.Int
@@ -227,6 +227,6 @@ describeRootFoldersResponse_httpStatus = Lens.lens (\DescribeRootFoldersResponse
 
 instance Prelude.NFData DescribeRootFoldersResponse where
   rnf DescribeRootFoldersResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf folders
+    Prelude.rnf folders
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf httpStatus

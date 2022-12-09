@@ -29,10 +29,10 @@ import Amazonka.WorkDocs.Types.StorageRuleType
 --
 -- /See:/ 'newUserStorageMetadata' smart constructor.
 data UserStorageMetadata = UserStorageMetadata'
-  { -- | The amount of storage used, in bytes.
-    storageUtilizedInBytes :: Prelude.Maybe Prelude.Integer,
-    -- | The storage for a user.
-    storageRule :: Prelude.Maybe StorageRuleType
+  { -- | The storage for a user.
+    storageRule :: Prelude.Maybe StorageRuleType,
+    -- | The amount of storage used, in bytes.
+    storageUtilizedInBytes :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,24 @@ data UserStorageMetadata = UserStorageMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'storageUtilizedInBytes', 'userStorageMetadata_storageUtilizedInBytes' - The amount of storage used, in bytes.
---
 -- 'storageRule', 'userStorageMetadata_storageRule' - The storage for a user.
+--
+-- 'storageUtilizedInBytes', 'userStorageMetadata_storageUtilizedInBytes' - The amount of storage used, in bytes.
 newUserStorageMetadata ::
   UserStorageMetadata
 newUserStorageMetadata =
   UserStorageMetadata'
-    { storageUtilizedInBytes =
-        Prelude.Nothing,
-      storageRule = Prelude.Nothing
+    { storageRule = Prelude.Nothing,
+      storageUtilizedInBytes = Prelude.Nothing
     }
-
--- | The amount of storage used, in bytes.
-userStorageMetadata_storageUtilizedInBytes :: Lens.Lens' UserStorageMetadata (Prelude.Maybe Prelude.Integer)
-userStorageMetadata_storageUtilizedInBytes = Lens.lens (\UserStorageMetadata' {storageUtilizedInBytes} -> storageUtilizedInBytes) (\s@UserStorageMetadata' {} a -> s {storageUtilizedInBytes = a} :: UserStorageMetadata)
 
 -- | The storage for a user.
 userStorageMetadata_storageRule :: Lens.Lens' UserStorageMetadata (Prelude.Maybe StorageRuleType)
 userStorageMetadata_storageRule = Lens.lens (\UserStorageMetadata' {storageRule} -> storageRule) (\s@UserStorageMetadata' {} a -> s {storageRule = a} :: UserStorageMetadata)
+
+-- | The amount of storage used, in bytes.
+userStorageMetadata_storageUtilizedInBytes :: Lens.Lens' UserStorageMetadata (Prelude.Maybe Prelude.Integer)
+userStorageMetadata_storageUtilizedInBytes = Lens.lens (\UserStorageMetadata' {storageUtilizedInBytes} -> storageUtilizedInBytes) (\s@UserStorageMetadata' {} a -> s {storageUtilizedInBytes = a} :: UserStorageMetadata)
 
 instance Data.FromJSON UserStorageMetadata where
   parseJSON =
@@ -70,16 +69,16 @@ instance Data.FromJSON UserStorageMetadata where
       "UserStorageMetadata"
       ( \x ->
           UserStorageMetadata'
-            Prelude.<$> (x Data..:? "StorageUtilizedInBytes")
-            Prelude.<*> (x Data..:? "StorageRule")
+            Prelude.<$> (x Data..:? "StorageRule")
+            Prelude.<*> (x Data..:? "StorageUtilizedInBytes")
       )
 
 instance Prelude.Hashable UserStorageMetadata where
   hashWithSalt _salt UserStorageMetadata' {..} =
-    _salt `Prelude.hashWithSalt` storageUtilizedInBytes
-      `Prelude.hashWithSalt` storageRule
+    _salt `Prelude.hashWithSalt` storageRule
+      `Prelude.hashWithSalt` storageUtilizedInBytes
 
 instance Prelude.NFData UserStorageMetadata where
   rnf UserStorageMetadata' {..} =
-    Prelude.rnf storageUtilizedInBytes
-      `Prelude.seq` Prelude.rnf storageRule
+    Prelude.rnf storageRule
+      `Prelude.seq` Prelude.rnf storageUtilizedInBytes

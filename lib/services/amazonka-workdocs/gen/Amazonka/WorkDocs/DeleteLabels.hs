@@ -27,8 +27,8 @@ module Amazonka.WorkDocs.DeleteLabels
     newDeleteLabels,
 
     -- * Request Lenses
-    deleteLabels_deleteAll,
     deleteLabels_authenticationToken,
+    deleteLabels_deleteAll,
     deleteLabels_labels,
     deleteLabels_resourceId,
 
@@ -51,11 +51,11 @@ import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newDeleteLabels' smart constructor.
 data DeleteLabels = DeleteLabels'
-  { -- | Flag to request removal of all labels from the specified resource.
-    deleteAll :: Prelude.Maybe Prelude.Bool,
-    -- | Amazon WorkDocs authentication token. Not required when using AWS
+  { -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | Flag to request removal of all labels from the specified resource.
+    deleteAll :: Prelude.Maybe Prelude.Bool,
     -- | List of labels to delete from the resource.
     labels :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the resource.
@@ -71,10 +71,10 @@ data DeleteLabels = DeleteLabels'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deleteAll', 'deleteLabels_deleteAll' - Flag to request removal of all labels from the specified resource.
---
 -- 'authenticationToken', 'deleteLabels_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
+--
+-- 'deleteAll', 'deleteLabels_deleteAll' - Flag to request removal of all labels from the specified resource.
 --
 -- 'labels', 'deleteLabels_labels' - List of labels to delete from the resource.
 --
@@ -85,20 +85,21 @@ newDeleteLabels ::
   DeleteLabels
 newDeleteLabels pResourceId_ =
   DeleteLabels'
-    { deleteAll = Prelude.Nothing,
-      authenticationToken = Prelude.Nothing,
+    { authenticationToken =
+        Prelude.Nothing,
+      deleteAll = Prelude.Nothing,
       labels = Prelude.Nothing,
       resourceId = pResourceId_
     }
-
--- | Flag to request removal of all labels from the specified resource.
-deleteLabels_deleteAll :: Lens.Lens' DeleteLabels (Prelude.Maybe Prelude.Bool)
-deleteLabels_deleteAll = Lens.lens (\DeleteLabels' {deleteAll} -> deleteAll) (\s@DeleteLabels' {} a -> s {deleteAll = a} :: DeleteLabels)
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 deleteLabels_authenticationToken :: Lens.Lens' DeleteLabels (Prelude.Maybe Prelude.Text)
 deleteLabels_authenticationToken = Lens.lens (\DeleteLabels' {authenticationToken} -> authenticationToken) (\s@DeleteLabels' {} a -> s {authenticationToken = a} :: DeleteLabels) Prelude.. Lens.mapping Data._Sensitive
+
+-- | Flag to request removal of all labels from the specified resource.
+deleteLabels_deleteAll :: Lens.Lens' DeleteLabels (Prelude.Maybe Prelude.Bool)
+deleteLabels_deleteAll = Lens.lens (\DeleteLabels' {deleteAll} -> deleteAll) (\s@DeleteLabels' {} a -> s {deleteAll = a} :: DeleteLabels)
 
 -- | List of labels to delete from the resource.
 deleteLabels_labels :: Lens.Lens' DeleteLabels (Prelude.Maybe [Prelude.Text])
@@ -121,15 +122,15 @@ instance Core.AWSRequest DeleteLabels where
 
 instance Prelude.Hashable DeleteLabels where
   hashWithSalt _salt DeleteLabels' {..} =
-    _salt `Prelude.hashWithSalt` deleteAll
-      `Prelude.hashWithSalt` authenticationToken
+    _salt `Prelude.hashWithSalt` authenticationToken
+      `Prelude.hashWithSalt` deleteAll
       `Prelude.hashWithSalt` labels
       `Prelude.hashWithSalt` resourceId
 
 instance Prelude.NFData DeleteLabels where
   rnf DeleteLabels' {..} =
-    Prelude.rnf deleteAll
-      `Prelude.seq` Prelude.rnf authenticationToken
+    Prelude.rnf authenticationToken
+      `Prelude.seq` Prelude.rnf deleteAll
       `Prelude.seq` Prelude.rnf labels
       `Prelude.seq` Prelude.rnf resourceId
 

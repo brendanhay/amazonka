@@ -28,9 +28,9 @@ module Amazonka.WorkDocs.UpdateDocument
     newUpdateDocument,
 
     -- * Request Lenses
+    updateDocument_authenticationToken,
     updateDocument_name,
     updateDocument_parentFolderId,
-    updateDocument_authenticationToken,
     updateDocument_resourceState,
     updateDocument_documentId,
 
@@ -50,13 +50,13 @@ import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newUpdateDocument' smart constructor.
 data UpdateDocument = UpdateDocument'
-  { -- | The name of the document.
+  { -- | Amazon WorkDocs authentication token. Not required when using AWS
+    -- administrator credentials to access the API.
+    authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The name of the document.
     name :: Prelude.Maybe Prelude.Text,
     -- | The ID of the parent folder.
     parentFolderId :: Prelude.Maybe Prelude.Text,
-    -- | Amazon WorkDocs authentication token. Not required when using AWS
-    -- administrator credentials to access the API.
-    authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The resource state of the document. Only ACTIVE and RECYCLED are
     -- supported.
     resourceState :: Prelude.Maybe ResourceStateType,
@@ -73,12 +73,12 @@ data UpdateDocument = UpdateDocument'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'authenticationToken', 'updateDocument_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
+-- administrator credentials to access the API.
+--
 -- 'name', 'updateDocument_name' - The name of the document.
 --
 -- 'parentFolderId', 'updateDocument_parentFolderId' - The ID of the parent folder.
---
--- 'authenticationToken', 'updateDocument_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
 --
 -- 'resourceState', 'updateDocument_resourceState' - The resource state of the document. Only ACTIVE and RECYCLED are
 -- supported.
@@ -90,12 +90,18 @@ newUpdateDocument ::
   UpdateDocument
 newUpdateDocument pDocumentId_ =
   UpdateDocument'
-    { name = Prelude.Nothing,
+    { authenticationToken =
+        Prelude.Nothing,
+      name = Prelude.Nothing,
       parentFolderId = Prelude.Nothing,
-      authenticationToken = Prelude.Nothing,
       resourceState = Prelude.Nothing,
       documentId = pDocumentId_
     }
+
+-- | Amazon WorkDocs authentication token. Not required when using AWS
+-- administrator credentials to access the API.
+updateDocument_authenticationToken :: Lens.Lens' UpdateDocument (Prelude.Maybe Prelude.Text)
+updateDocument_authenticationToken = Lens.lens (\UpdateDocument' {authenticationToken} -> authenticationToken) (\s@UpdateDocument' {} a -> s {authenticationToken = a} :: UpdateDocument) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the document.
 updateDocument_name :: Lens.Lens' UpdateDocument (Prelude.Maybe Prelude.Text)
@@ -104,11 +110,6 @@ updateDocument_name = Lens.lens (\UpdateDocument' {name} -> name) (\s@UpdateDocu
 -- | The ID of the parent folder.
 updateDocument_parentFolderId :: Lens.Lens' UpdateDocument (Prelude.Maybe Prelude.Text)
 updateDocument_parentFolderId = Lens.lens (\UpdateDocument' {parentFolderId} -> parentFolderId) (\s@UpdateDocument' {} a -> s {parentFolderId = a} :: UpdateDocument)
-
--- | Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
-updateDocument_authenticationToken :: Lens.Lens' UpdateDocument (Prelude.Maybe Prelude.Text)
-updateDocument_authenticationToken = Lens.lens (\UpdateDocument' {authenticationToken} -> authenticationToken) (\s@UpdateDocument' {} a -> s {authenticationToken = a} :: UpdateDocument) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The resource state of the document. Only ACTIVE and RECYCLED are
 -- supported.
@@ -130,17 +131,17 @@ instance Core.AWSRequest UpdateDocument where
 
 instance Prelude.Hashable UpdateDocument where
   hashWithSalt _salt UpdateDocument' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` authenticationToken
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` parentFolderId
-      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` resourceState
       `Prelude.hashWithSalt` documentId
 
 instance Prelude.NFData UpdateDocument where
   rnf UpdateDocument' {..} =
-    Prelude.rnf name
+    Prelude.rnf authenticationToken
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf parentFolderId
-      `Prelude.seq` Prelude.rnf authenticationToken
       `Prelude.seq` Prelude.rnf resourceState
       `Prelude.seq` Prelude.rnf documentId
 

@@ -29,16 +29,16 @@ module Amazonka.WorkDocs.DescribeActivities
     newDescribeActivities,
 
     -- * Request Lenses
-    describeActivities_resourceId,
-    describeActivities_marker,
+    describeActivities_activityTypes,
     describeActivities_authenticationToken,
     describeActivities_endTime,
-    describeActivities_activityTypes,
-    describeActivities_limit,
-    describeActivities_userId,
-    describeActivities_organizationId,
     describeActivities_includeIndirectActivities,
+    describeActivities_limit,
+    describeActivities_marker,
+    describeActivities_organizationId,
+    describeActivities_resourceId,
     describeActivities_startTime,
+    describeActivities_userId,
 
     -- * Destructuring the Response
     DescribeActivitiesResponse (..),
@@ -61,10 +61,9 @@ import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newDescribeActivities' smart constructor.
 data DescribeActivities = DescribeActivities'
-  { -- | The document or folder ID for which to describe activity types.
-    resourceId :: Prelude.Maybe Prelude.Text,
-    -- | The marker for the next set of results.
-    marker :: Prelude.Maybe Prelude.Text,
+  { -- | Specifies which activity types to include in the response. If this field
+    -- is left empty, all activity types are returned.
+    activityTypes :: Prelude.Maybe Prelude.Text,
     -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
@@ -72,27 +71,28 @@ data DescribeActivities = DescribeActivities'
     -- response includes the activities performed before the specified
     -- timestamp.
     endTime :: Prelude.Maybe Data.POSIX,
-    -- | Specifies which activity types to include in the response. If this field
-    -- is left empty, all activity types are returned.
-    activityTypes :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return.
-    limit :: Prelude.Maybe Prelude.Natural,
-    -- | The ID of the user who performed the action. The response includes
-    -- activities pertaining to this user. This is an optional parameter and is
-    -- only applicable for administrative API (SigV4) requests.
-    userId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the organization. This is a mandatory parameter when using
-    -- administrative API (SigV4) requests.
-    organizationId :: Prelude.Maybe Prelude.Text,
     -- | Includes indirect activities. An indirect activity results from a direct
     -- activity performed on a parent resource. For example, sharing a parent
     -- folder (the direct activity) shares all of the subfolders and documents
     -- within the parent folder (the indirect activity).
     includeIndirectActivities :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum number of items to return.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | The marker for the next set of results.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the organization. This is a mandatory parameter when using
+    -- administrative API (SigV4) requests.
+    organizationId :: Prelude.Maybe Prelude.Text,
+    -- | The document or folder ID for which to describe activity types.
+    resourceId :: Prelude.Maybe Prelude.Text,
     -- | The timestamp that determines the starting time of the activities. The
     -- response includes the activities performed after the specified
     -- timestamp.
-    startTime :: Prelude.Maybe Data.POSIX
+    startTime :: Prelude.Maybe Data.POSIX,
+    -- | The ID of the user who performed the action. The response includes
+    -- activities pertaining to this user. This is an optional parameter and is
+    -- only applicable for administrative API (SigV4) requests.
+    userId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -104,9 +104,8 @@ data DescribeActivities = DescribeActivities'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceId', 'describeActivities_resourceId' - The document or folder ID for which to describe activity types.
---
--- 'marker', 'describeActivities_marker' - The marker for the next set of results.
+-- 'activityTypes', 'describeActivities_activityTypes' - Specifies which activity types to include in the response. If this field
+-- is left empty, all activity types are returned.
 --
 -- 'authenticationToken', 'describeActivities_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
@@ -115,49 +114,48 @@ data DescribeActivities = DescribeActivities'
 -- response includes the activities performed before the specified
 -- timestamp.
 --
--- 'activityTypes', 'describeActivities_activityTypes' - Specifies which activity types to include in the response. If this field
--- is left empty, all activity types are returned.
---
--- 'limit', 'describeActivities_limit' - The maximum number of items to return.
---
--- 'userId', 'describeActivities_userId' - The ID of the user who performed the action. The response includes
--- activities pertaining to this user. This is an optional parameter and is
--- only applicable for administrative API (SigV4) requests.
---
--- 'organizationId', 'describeActivities_organizationId' - The ID of the organization. This is a mandatory parameter when using
--- administrative API (SigV4) requests.
---
 -- 'includeIndirectActivities', 'describeActivities_includeIndirectActivities' - Includes indirect activities. An indirect activity results from a direct
 -- activity performed on a parent resource. For example, sharing a parent
 -- folder (the direct activity) shares all of the subfolders and documents
 -- within the parent folder (the indirect activity).
 --
+-- 'limit', 'describeActivities_limit' - The maximum number of items to return.
+--
+-- 'marker', 'describeActivities_marker' - The marker for the next set of results.
+--
+-- 'organizationId', 'describeActivities_organizationId' - The ID of the organization. This is a mandatory parameter when using
+-- administrative API (SigV4) requests.
+--
+-- 'resourceId', 'describeActivities_resourceId' - The document or folder ID for which to describe activity types.
+--
 -- 'startTime', 'describeActivities_startTime' - The timestamp that determines the starting time of the activities. The
 -- response includes the activities performed after the specified
 -- timestamp.
+--
+-- 'userId', 'describeActivities_userId' - The ID of the user who performed the action. The response includes
+-- activities pertaining to this user. This is an optional parameter and is
+-- only applicable for administrative API (SigV4) requests.
 newDescribeActivities ::
   DescribeActivities
 newDescribeActivities =
   DescribeActivities'
-    { resourceId = Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { activityTypes =
+        Prelude.Nothing,
       authenticationToken = Prelude.Nothing,
       endTime = Prelude.Nothing,
-      activityTypes = Prelude.Nothing,
-      limit = Prelude.Nothing,
-      userId = Prelude.Nothing,
-      organizationId = Prelude.Nothing,
       includeIndirectActivities = Prelude.Nothing,
-      startTime = Prelude.Nothing
+      limit = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      organizationId = Prelude.Nothing,
+      resourceId = Prelude.Nothing,
+      startTime = Prelude.Nothing,
+      userId = Prelude.Nothing
     }
 
--- | The document or folder ID for which to describe activity types.
-describeActivities_resourceId :: Lens.Lens' DescribeActivities (Prelude.Maybe Prelude.Text)
-describeActivities_resourceId = Lens.lens (\DescribeActivities' {resourceId} -> resourceId) (\s@DescribeActivities' {} a -> s {resourceId = a} :: DescribeActivities)
-
--- | The marker for the next set of results.
-describeActivities_marker :: Lens.Lens' DescribeActivities (Prelude.Maybe Prelude.Text)
-describeActivities_marker = Lens.lens (\DescribeActivities' {marker} -> marker) (\s@DescribeActivities' {} a -> s {marker = a} :: DescribeActivities)
+-- | Specifies which activity types to include in the response. If this field
+-- is left empty, all activity types are returned.
+describeActivities_activityTypes :: Lens.Lens' DescribeActivities (Prelude.Maybe Prelude.Text)
+describeActivities_activityTypes = Lens.lens (\DescribeActivities' {activityTypes} -> activityTypes) (\s@DescribeActivities' {} a -> s {activityTypes = a} :: DescribeActivities)
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
@@ -170,26 +168,6 @@ describeActivities_authenticationToken = Lens.lens (\DescribeActivities' {authen
 describeActivities_endTime :: Lens.Lens' DescribeActivities (Prelude.Maybe Prelude.UTCTime)
 describeActivities_endTime = Lens.lens (\DescribeActivities' {endTime} -> endTime) (\s@DescribeActivities' {} a -> s {endTime = a} :: DescribeActivities) Prelude.. Lens.mapping Data._Time
 
--- | Specifies which activity types to include in the response. If this field
--- is left empty, all activity types are returned.
-describeActivities_activityTypes :: Lens.Lens' DescribeActivities (Prelude.Maybe Prelude.Text)
-describeActivities_activityTypes = Lens.lens (\DescribeActivities' {activityTypes} -> activityTypes) (\s@DescribeActivities' {} a -> s {activityTypes = a} :: DescribeActivities)
-
--- | The maximum number of items to return.
-describeActivities_limit :: Lens.Lens' DescribeActivities (Prelude.Maybe Prelude.Natural)
-describeActivities_limit = Lens.lens (\DescribeActivities' {limit} -> limit) (\s@DescribeActivities' {} a -> s {limit = a} :: DescribeActivities)
-
--- | The ID of the user who performed the action. The response includes
--- activities pertaining to this user. This is an optional parameter and is
--- only applicable for administrative API (SigV4) requests.
-describeActivities_userId :: Lens.Lens' DescribeActivities (Prelude.Maybe Prelude.Text)
-describeActivities_userId = Lens.lens (\DescribeActivities' {userId} -> userId) (\s@DescribeActivities' {} a -> s {userId = a} :: DescribeActivities)
-
--- | The ID of the organization. This is a mandatory parameter when using
--- administrative API (SigV4) requests.
-describeActivities_organizationId :: Lens.Lens' DescribeActivities (Prelude.Maybe Prelude.Text)
-describeActivities_organizationId = Lens.lens (\DescribeActivities' {organizationId} -> organizationId) (\s@DescribeActivities' {} a -> s {organizationId = a} :: DescribeActivities)
-
 -- | Includes indirect activities. An indirect activity results from a direct
 -- activity performed on a parent resource. For example, sharing a parent
 -- folder (the direct activity) shares all of the subfolders and documents
@@ -197,11 +175,34 @@ describeActivities_organizationId = Lens.lens (\DescribeActivities' {organizatio
 describeActivities_includeIndirectActivities :: Lens.Lens' DescribeActivities (Prelude.Maybe Prelude.Bool)
 describeActivities_includeIndirectActivities = Lens.lens (\DescribeActivities' {includeIndirectActivities} -> includeIndirectActivities) (\s@DescribeActivities' {} a -> s {includeIndirectActivities = a} :: DescribeActivities)
 
+-- | The maximum number of items to return.
+describeActivities_limit :: Lens.Lens' DescribeActivities (Prelude.Maybe Prelude.Natural)
+describeActivities_limit = Lens.lens (\DescribeActivities' {limit} -> limit) (\s@DescribeActivities' {} a -> s {limit = a} :: DescribeActivities)
+
+-- | The marker for the next set of results.
+describeActivities_marker :: Lens.Lens' DescribeActivities (Prelude.Maybe Prelude.Text)
+describeActivities_marker = Lens.lens (\DescribeActivities' {marker} -> marker) (\s@DescribeActivities' {} a -> s {marker = a} :: DescribeActivities)
+
+-- | The ID of the organization. This is a mandatory parameter when using
+-- administrative API (SigV4) requests.
+describeActivities_organizationId :: Lens.Lens' DescribeActivities (Prelude.Maybe Prelude.Text)
+describeActivities_organizationId = Lens.lens (\DescribeActivities' {organizationId} -> organizationId) (\s@DescribeActivities' {} a -> s {organizationId = a} :: DescribeActivities)
+
+-- | The document or folder ID for which to describe activity types.
+describeActivities_resourceId :: Lens.Lens' DescribeActivities (Prelude.Maybe Prelude.Text)
+describeActivities_resourceId = Lens.lens (\DescribeActivities' {resourceId} -> resourceId) (\s@DescribeActivities' {} a -> s {resourceId = a} :: DescribeActivities)
+
 -- | The timestamp that determines the starting time of the activities. The
 -- response includes the activities performed after the specified
 -- timestamp.
 describeActivities_startTime :: Lens.Lens' DescribeActivities (Prelude.Maybe Prelude.UTCTime)
 describeActivities_startTime = Lens.lens (\DescribeActivities' {startTime} -> startTime) (\s@DescribeActivities' {} a -> s {startTime = a} :: DescribeActivities) Prelude.. Lens.mapping Data._Time
+
+-- | The ID of the user who performed the action. The response includes
+-- activities pertaining to this user. This is an optional parameter and is
+-- only applicable for administrative API (SigV4) requests.
+describeActivities_userId :: Lens.Lens' DescribeActivities (Prelude.Maybe Prelude.Text)
+describeActivities_userId = Lens.lens (\DescribeActivities' {userId} -> userId) (\s@DescribeActivities' {} a -> s {userId = a} :: DescribeActivities)
 
 instance Core.AWSPager DescribeActivities where
   page rq rs
@@ -242,29 +243,29 @@ instance Core.AWSRequest DescribeActivities where
 
 instance Prelude.Hashable DescribeActivities where
   hashWithSalt _salt DescribeActivities' {..} =
-    _salt `Prelude.hashWithSalt` resourceId
-      `Prelude.hashWithSalt` marker
+    _salt `Prelude.hashWithSalt` activityTypes
       `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` endTime
-      `Prelude.hashWithSalt` activityTypes
-      `Prelude.hashWithSalt` limit
-      `Prelude.hashWithSalt` userId
-      `Prelude.hashWithSalt` organizationId
       `Prelude.hashWithSalt` includeIndirectActivities
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` organizationId
+      `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` userId
 
 instance Prelude.NFData DescribeActivities where
   rnf DescribeActivities' {..} =
-    Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf activityTypes
       `Prelude.seq` Prelude.rnf authenticationToken
       `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf activityTypes
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf organizationId
       `Prelude.seq` Prelude.rnf includeIndirectActivities
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf resourceId
       `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf userId
 
 instance Data.ToHeaders DescribeActivities where
   toHeaders DescribeActivities' {..} =
@@ -280,16 +281,16 @@ instance Data.ToPath DescribeActivities where
 instance Data.ToQuery DescribeActivities where
   toQuery DescribeActivities' {..} =
     Prelude.mconcat
-      [ "resourceId" Data.=: resourceId,
-        "marker" Data.=: marker,
+      [ "activityTypes" Data.=: activityTypes,
         "endTime" Data.=: endTime,
-        "activityTypes" Data.=: activityTypes,
-        "limit" Data.=: limit,
-        "userId" Data.=: userId,
-        "organizationId" Data.=: organizationId,
         "includeIndirectActivities"
           Data.=: includeIndirectActivities,
-        "startTime" Data.=: startTime
+        "limit" Data.=: limit,
+        "marker" Data.=: marker,
+        "organizationId" Data.=: organizationId,
+        "resourceId" Data.=: resourceId,
+        "startTime" Data.=: startTime,
+        "userId" Data.=: userId
       ]
 
 -- | /See:/ 'newDescribeActivitiesResponse' smart constructor.

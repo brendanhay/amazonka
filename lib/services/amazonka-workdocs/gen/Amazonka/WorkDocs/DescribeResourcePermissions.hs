@@ -29,10 +29,10 @@ module Amazonka.WorkDocs.DescribeResourcePermissions
     newDescribeResourcePermissions,
 
     -- * Request Lenses
-    describeResourcePermissions_principalId,
-    describeResourcePermissions_marker,
     describeResourcePermissions_authenticationToken,
     describeResourcePermissions_limit,
+    describeResourcePermissions_marker,
+    describeResourcePermissions_principalId,
     describeResourcePermissions_resourceId,
 
     -- * Destructuring the Response
@@ -56,16 +56,16 @@ import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newDescribeResourcePermissions' smart constructor.
 data DescribeResourcePermissions = DescribeResourcePermissions'
-  { -- | The ID of the principal to filter permissions by.
-    principalId :: Prelude.Maybe Prelude.Text,
-    -- | The marker for the next set of results. (You received this marker from a
-    -- previous call)
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | Amazon WorkDocs authentication token. Not required when using AWS
+  { -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The maximum number of items to return with this call.
     limit :: Prelude.Maybe Prelude.Natural,
+    -- | The marker for the next set of results. (You received this marker from a
+    -- previous call)
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the principal to filter permissions by.
+    principalId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the resource.
     resourceId :: Prelude.Text
   }
@@ -79,15 +79,15 @@ data DescribeResourcePermissions = DescribeResourcePermissions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'principalId', 'describeResourcePermissions_principalId' - The ID of the principal to filter permissions by.
---
--- 'marker', 'describeResourcePermissions_marker' - The marker for the next set of results. (You received this marker from a
--- previous call)
---
 -- 'authenticationToken', 'describeResourcePermissions_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 --
 -- 'limit', 'describeResourcePermissions_limit' - The maximum number of items to return with this call.
+--
+-- 'marker', 'describeResourcePermissions_marker' - The marker for the next set of results. (You received this marker from a
+-- previous call)
+--
+-- 'principalId', 'describeResourcePermissions_principalId' - The ID of the principal to filter permissions by.
 --
 -- 'resourceId', 'describeResourcePermissions_resourceId' - The ID of the resource.
 newDescribeResourcePermissions ::
@@ -96,22 +96,13 @@ newDescribeResourcePermissions ::
   DescribeResourcePermissions
 newDescribeResourcePermissions pResourceId_ =
   DescribeResourcePermissions'
-    { principalId =
+    { authenticationToken =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
-      authenticationToken = Prelude.Nothing,
       limit = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      principalId = Prelude.Nothing,
       resourceId = pResourceId_
     }
-
--- | The ID of the principal to filter permissions by.
-describeResourcePermissions_principalId :: Lens.Lens' DescribeResourcePermissions (Prelude.Maybe Prelude.Text)
-describeResourcePermissions_principalId = Lens.lens (\DescribeResourcePermissions' {principalId} -> principalId) (\s@DescribeResourcePermissions' {} a -> s {principalId = a} :: DescribeResourcePermissions)
-
--- | The marker for the next set of results. (You received this marker from a
--- previous call)
-describeResourcePermissions_marker :: Lens.Lens' DescribeResourcePermissions (Prelude.Maybe Prelude.Text)
-describeResourcePermissions_marker = Lens.lens (\DescribeResourcePermissions' {marker} -> marker) (\s@DescribeResourcePermissions' {} a -> s {marker = a} :: DescribeResourcePermissions)
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
@@ -121,6 +112,15 @@ describeResourcePermissions_authenticationToken = Lens.lens (\DescribeResourcePe
 -- | The maximum number of items to return with this call.
 describeResourcePermissions_limit :: Lens.Lens' DescribeResourcePermissions (Prelude.Maybe Prelude.Natural)
 describeResourcePermissions_limit = Lens.lens (\DescribeResourcePermissions' {limit} -> limit) (\s@DescribeResourcePermissions' {} a -> s {limit = a} :: DescribeResourcePermissions)
+
+-- | The marker for the next set of results. (You received this marker from a
+-- previous call)
+describeResourcePermissions_marker :: Lens.Lens' DescribeResourcePermissions (Prelude.Maybe Prelude.Text)
+describeResourcePermissions_marker = Lens.lens (\DescribeResourcePermissions' {marker} -> marker) (\s@DescribeResourcePermissions' {} a -> s {marker = a} :: DescribeResourcePermissions)
+
+-- | The ID of the principal to filter permissions by.
+describeResourcePermissions_principalId :: Lens.Lens' DescribeResourcePermissions (Prelude.Maybe Prelude.Text)
+describeResourcePermissions_principalId = Lens.lens (\DescribeResourcePermissions' {principalId} -> principalId) (\s@DescribeResourcePermissions' {} a -> s {principalId = a} :: DescribeResourcePermissions)
 
 -- | The ID of the resource.
 describeResourcePermissions_resourceId :: Lens.Lens' DescribeResourcePermissions Prelude.Text
@@ -165,18 +165,18 @@ instance Core.AWSRequest DescribeResourcePermissions where
 
 instance Prelude.Hashable DescribeResourcePermissions where
   hashWithSalt _salt DescribeResourcePermissions' {..} =
-    _salt `Prelude.hashWithSalt` principalId
-      `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` authenticationToken
+    _salt `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` principalId
       `Prelude.hashWithSalt` resourceId
 
 instance Prelude.NFData DescribeResourcePermissions where
   rnf DescribeResourcePermissions' {..} =
-    Prelude.rnf principalId
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf authenticationToken
+    Prelude.rnf authenticationToken
       `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf principalId
       `Prelude.seq` Prelude.rnf resourceId
 
 instance Data.ToHeaders DescribeResourcePermissions where
@@ -198,9 +198,9 @@ instance Data.ToPath DescribeResourcePermissions where
 instance Data.ToQuery DescribeResourcePermissions where
   toQuery DescribeResourcePermissions' {..} =
     Prelude.mconcat
-      [ "principalId" Data.=: principalId,
+      [ "limit" Data.=: limit,
         "marker" Data.=: marker,
-        "limit" Data.=: limit
+        "principalId" Data.=: principalId
       ]
 
 -- | /See:/ 'newDescribeResourcePermissionsResponse' smart constructor.

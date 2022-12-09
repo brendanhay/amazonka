@@ -30,10 +30,10 @@ import Amazonka.WorkDocs.Types.UserMetadata
 --
 -- /See:/ 'newParticipants' smart constructor.
 data Participants = Participants'
-  { -- | The list of users.
-    users :: Prelude.Maybe [UserMetadata],
-    -- | The list of user groups.
-    groups :: Prelude.Maybe [GroupMetadata]
+  { -- | The list of user groups.
+    groups :: Prelude.Maybe [GroupMetadata],
+    -- | The list of users.
+    users :: Prelude.Maybe [UserMetadata]
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,24 @@ data Participants = Participants'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'users', 'participants_users' - The list of users.
---
 -- 'groups', 'participants_groups' - The list of user groups.
+--
+-- 'users', 'participants_users' - The list of users.
 newParticipants ::
   Participants
 newParticipants =
   Participants'
-    { users = Prelude.Nothing,
-      groups = Prelude.Nothing
+    { groups = Prelude.Nothing,
+      users = Prelude.Nothing
     }
-
--- | The list of users.
-participants_users :: Lens.Lens' Participants (Prelude.Maybe [UserMetadata])
-participants_users = Lens.lens (\Participants' {users} -> users) (\s@Participants' {} a -> s {users = a} :: Participants) Prelude.. Lens.mapping Lens.coerced
 
 -- | The list of user groups.
 participants_groups :: Lens.Lens' Participants (Prelude.Maybe [GroupMetadata])
 participants_groups = Lens.lens (\Participants' {groups} -> groups) (\s@Participants' {} a -> s {groups = a} :: Participants) Prelude.. Lens.mapping Lens.coerced
+
+-- | The list of users.
+participants_users :: Lens.Lens' Participants (Prelude.Maybe [UserMetadata])
+participants_users = Lens.lens (\Participants' {users} -> users) (\s@Participants' {} a -> s {users = a} :: Participants) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON Participants where
   parseJSON =
@@ -70,15 +70,15 @@ instance Data.FromJSON Participants where
       "Participants"
       ( \x ->
           Participants'
-            Prelude.<$> (x Data..:? "Users" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "Groups" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Groups" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Users" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Participants where
   hashWithSalt _salt Participants' {..} =
-    _salt `Prelude.hashWithSalt` users
-      `Prelude.hashWithSalt` groups
+    _salt `Prelude.hashWithSalt` groups
+      `Prelude.hashWithSalt` users
 
 instance Prelude.NFData Participants where
   rnf Participants' {..} =
-    Prelude.rnf users `Prelude.seq` Prelude.rnf groups
+    Prelude.rnf groups `Prelude.seq` Prelude.rnf users

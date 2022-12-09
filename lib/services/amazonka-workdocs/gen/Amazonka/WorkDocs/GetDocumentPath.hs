@@ -33,10 +33,10 @@ module Amazonka.WorkDocs.GetDocumentPath
     newGetDocumentPath,
 
     -- * Request Lenses
-    getDocumentPath_marker,
     getDocumentPath_authenticationToken,
     getDocumentPath_fields,
     getDocumentPath_limit,
+    getDocumentPath_marker,
     getDocumentPath_documentId,
 
     -- * Destructuring the Response
@@ -59,9 +59,7 @@ import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newGetDocumentPath' smart constructor.
 data GetDocumentPath = GetDocumentPath'
-  { -- | This value is not supported.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | Amazon WorkDocs authentication token. Not required when using AWS
+  { -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A comma-separated list of values. Specify @NAME@ to include the names of
@@ -69,6 +67,8 @@ data GetDocumentPath = GetDocumentPath'
     fields :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of levels in the hierarchy to return.
     limit :: Prelude.Maybe Prelude.Natural,
+    -- | This value is not supported.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The ID of the document.
     documentId :: Prelude.Text
   }
@@ -82,8 +82,6 @@ data GetDocumentPath = GetDocumentPath'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'marker', 'getDocumentPath_marker' - This value is not supported.
---
 -- 'authenticationToken', 'getDocumentPath_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 --
@@ -92,6 +90,8 @@ data GetDocumentPath = GetDocumentPath'
 --
 -- 'limit', 'getDocumentPath_limit' - The maximum number of levels in the hierarchy to return.
 --
+-- 'marker', 'getDocumentPath_marker' - This value is not supported.
+--
 -- 'documentId', 'getDocumentPath_documentId' - The ID of the document.
 newGetDocumentPath ::
   -- | 'documentId'
@@ -99,16 +99,13 @@ newGetDocumentPath ::
   GetDocumentPath
 newGetDocumentPath pDocumentId_ =
   GetDocumentPath'
-    { marker = Prelude.Nothing,
-      authenticationToken = Prelude.Nothing,
+    { authenticationToken =
+        Prelude.Nothing,
       fields = Prelude.Nothing,
       limit = Prelude.Nothing,
+      marker = Prelude.Nothing,
       documentId = pDocumentId_
     }
-
--- | This value is not supported.
-getDocumentPath_marker :: Lens.Lens' GetDocumentPath (Prelude.Maybe Prelude.Text)
-getDocumentPath_marker = Lens.lens (\GetDocumentPath' {marker} -> marker) (\s@GetDocumentPath' {} a -> s {marker = a} :: GetDocumentPath)
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
@@ -123,6 +120,10 @@ getDocumentPath_fields = Lens.lens (\GetDocumentPath' {fields} -> fields) (\s@Ge
 -- | The maximum number of levels in the hierarchy to return.
 getDocumentPath_limit :: Lens.Lens' GetDocumentPath (Prelude.Maybe Prelude.Natural)
 getDocumentPath_limit = Lens.lens (\GetDocumentPath' {limit} -> limit) (\s@GetDocumentPath' {} a -> s {limit = a} :: GetDocumentPath)
+
+-- | This value is not supported.
+getDocumentPath_marker :: Lens.Lens' GetDocumentPath (Prelude.Maybe Prelude.Text)
+getDocumentPath_marker = Lens.lens (\GetDocumentPath' {marker} -> marker) (\s@GetDocumentPath' {} a -> s {marker = a} :: GetDocumentPath)
 
 -- | The ID of the document.
 getDocumentPath_documentId :: Lens.Lens' GetDocumentPath Prelude.Text
@@ -144,18 +145,18 @@ instance Core.AWSRequest GetDocumentPath where
 
 instance Prelude.Hashable GetDocumentPath where
   hashWithSalt _salt GetDocumentPath' {..} =
-    _salt `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` authenticationToken
+    _salt `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` fields
       `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` documentId
 
 instance Prelude.NFData GetDocumentPath where
   rnf GetDocumentPath' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf authenticationToken
+    Prelude.rnf authenticationToken
       `Prelude.seq` Prelude.rnf fields
       `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf documentId
 
 instance Data.ToHeaders GetDocumentPath where
@@ -174,9 +175,9 @@ instance Data.ToPath GetDocumentPath where
 instance Data.ToQuery GetDocumentPath where
   toQuery GetDocumentPath' {..} =
     Prelude.mconcat
-      [ "marker" Data.=: marker,
-        "fields" Data.=: fields,
-        "limit" Data.=: limit
+      [ "fields" Data.=: fields,
+        "limit" Data.=: limit,
+        "marker" Data.=: marker
       ]
 
 -- | /See:/ 'newGetDocumentPathResponse' smart constructor.

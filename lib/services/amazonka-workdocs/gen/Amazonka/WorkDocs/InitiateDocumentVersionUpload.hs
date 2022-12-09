@@ -35,14 +35,14 @@ module Amazonka.WorkDocs.InitiateDocumentVersionUpload
     newInitiateDocumentVersionUpload,
 
     -- * Request Lenses
-    initiateDocumentVersionUpload_name,
-    initiateDocumentVersionUpload_parentFolderId,
-    initiateDocumentVersionUpload_documentSizeInBytes,
     initiateDocumentVersionUpload_authenticationToken,
     initiateDocumentVersionUpload_contentCreatedTimestamp,
-    initiateDocumentVersionUpload_id,
     initiateDocumentVersionUpload_contentModifiedTimestamp,
     initiateDocumentVersionUpload_contentType,
+    initiateDocumentVersionUpload_documentSizeInBytes,
+    initiateDocumentVersionUpload_id,
+    initiateDocumentVersionUpload_name,
+    initiateDocumentVersionUpload_parentFolderId,
 
     -- * Destructuring the Response
     InitiateDocumentVersionUploadResponse (..),
@@ -65,23 +65,23 @@ import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newInitiateDocumentVersionUpload' smart constructor.
 data InitiateDocumentVersionUpload = InitiateDocumentVersionUpload'
-  { -- | The name of the document.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the parent folder.
-    parentFolderId :: Prelude.Maybe Prelude.Text,
-    -- | The size of the document, in bytes.
-    documentSizeInBytes :: Prelude.Maybe Prelude.Integer,
-    -- | Amazon WorkDocs authentication token. Not required when using AWS
+  { -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The timestamp when the content of the document was originally created.
     contentCreatedTimestamp :: Prelude.Maybe Data.POSIX,
-    -- | The ID of the document.
-    id :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the content of the document was modified.
     contentModifiedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The content type of the document.
-    contentType :: Prelude.Maybe Prelude.Text
+    contentType :: Prelude.Maybe Prelude.Text,
+    -- | The size of the document, in bytes.
+    documentSizeInBytes :: Prelude.Maybe Prelude.Integer,
+    -- | The ID of the document.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The name of the document.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the parent folder.
+    parentFolderId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -93,48 +93,36 @@ data InitiateDocumentVersionUpload = InitiateDocumentVersionUpload'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'initiateDocumentVersionUpload_name' - The name of the document.
---
--- 'parentFolderId', 'initiateDocumentVersionUpload_parentFolderId' - The ID of the parent folder.
---
--- 'documentSizeInBytes', 'initiateDocumentVersionUpload_documentSizeInBytes' - The size of the document, in bytes.
---
 -- 'authenticationToken', 'initiateDocumentVersionUpload_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 --
 -- 'contentCreatedTimestamp', 'initiateDocumentVersionUpload_contentCreatedTimestamp' - The timestamp when the content of the document was originally created.
 --
--- 'id', 'initiateDocumentVersionUpload_id' - The ID of the document.
---
 -- 'contentModifiedTimestamp', 'initiateDocumentVersionUpload_contentModifiedTimestamp' - The timestamp when the content of the document was modified.
 --
 -- 'contentType', 'initiateDocumentVersionUpload_contentType' - The content type of the document.
+--
+-- 'documentSizeInBytes', 'initiateDocumentVersionUpload_documentSizeInBytes' - The size of the document, in bytes.
+--
+-- 'id', 'initiateDocumentVersionUpload_id' - The ID of the document.
+--
+-- 'name', 'initiateDocumentVersionUpload_name' - The name of the document.
+--
+-- 'parentFolderId', 'initiateDocumentVersionUpload_parentFolderId' - The ID of the parent folder.
 newInitiateDocumentVersionUpload ::
   InitiateDocumentVersionUpload
 newInitiateDocumentVersionUpload =
   InitiateDocumentVersionUpload'
-    { name =
+    { authenticationToken =
         Prelude.Nothing,
-      parentFolderId = Prelude.Nothing,
-      documentSizeInBytes = Prelude.Nothing,
-      authenticationToken = Prelude.Nothing,
       contentCreatedTimestamp = Prelude.Nothing,
-      id = Prelude.Nothing,
       contentModifiedTimestamp = Prelude.Nothing,
-      contentType = Prelude.Nothing
+      contentType = Prelude.Nothing,
+      documentSizeInBytes = Prelude.Nothing,
+      id = Prelude.Nothing,
+      name = Prelude.Nothing,
+      parentFolderId = Prelude.Nothing
     }
-
--- | The name of the document.
-initiateDocumentVersionUpload_name :: Lens.Lens' InitiateDocumentVersionUpload (Prelude.Maybe Prelude.Text)
-initiateDocumentVersionUpload_name = Lens.lens (\InitiateDocumentVersionUpload' {name} -> name) (\s@InitiateDocumentVersionUpload' {} a -> s {name = a} :: InitiateDocumentVersionUpload)
-
--- | The ID of the parent folder.
-initiateDocumentVersionUpload_parentFolderId :: Lens.Lens' InitiateDocumentVersionUpload (Prelude.Maybe Prelude.Text)
-initiateDocumentVersionUpload_parentFolderId = Lens.lens (\InitiateDocumentVersionUpload' {parentFolderId} -> parentFolderId) (\s@InitiateDocumentVersionUpload' {} a -> s {parentFolderId = a} :: InitiateDocumentVersionUpload)
-
--- | The size of the document, in bytes.
-initiateDocumentVersionUpload_documentSizeInBytes :: Lens.Lens' InitiateDocumentVersionUpload (Prelude.Maybe Prelude.Integer)
-initiateDocumentVersionUpload_documentSizeInBytes = Lens.lens (\InitiateDocumentVersionUpload' {documentSizeInBytes} -> documentSizeInBytes) (\s@InitiateDocumentVersionUpload' {} a -> s {documentSizeInBytes = a} :: InitiateDocumentVersionUpload)
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
@@ -145,10 +133,6 @@ initiateDocumentVersionUpload_authenticationToken = Lens.lens (\InitiateDocument
 initiateDocumentVersionUpload_contentCreatedTimestamp :: Lens.Lens' InitiateDocumentVersionUpload (Prelude.Maybe Prelude.UTCTime)
 initiateDocumentVersionUpload_contentCreatedTimestamp = Lens.lens (\InitiateDocumentVersionUpload' {contentCreatedTimestamp} -> contentCreatedTimestamp) (\s@InitiateDocumentVersionUpload' {} a -> s {contentCreatedTimestamp = a} :: InitiateDocumentVersionUpload) Prelude.. Lens.mapping Data._Time
 
--- | The ID of the document.
-initiateDocumentVersionUpload_id :: Lens.Lens' InitiateDocumentVersionUpload (Prelude.Maybe Prelude.Text)
-initiateDocumentVersionUpload_id = Lens.lens (\InitiateDocumentVersionUpload' {id} -> id) (\s@InitiateDocumentVersionUpload' {} a -> s {id = a} :: InitiateDocumentVersionUpload)
-
 -- | The timestamp when the content of the document was modified.
 initiateDocumentVersionUpload_contentModifiedTimestamp :: Lens.Lens' InitiateDocumentVersionUpload (Prelude.Maybe Prelude.UTCTime)
 initiateDocumentVersionUpload_contentModifiedTimestamp = Lens.lens (\InitiateDocumentVersionUpload' {contentModifiedTimestamp} -> contentModifiedTimestamp) (\s@InitiateDocumentVersionUpload' {} a -> s {contentModifiedTimestamp = a} :: InitiateDocumentVersionUpload) Prelude.. Lens.mapping Data._Time
@@ -156,6 +140,22 @@ initiateDocumentVersionUpload_contentModifiedTimestamp = Lens.lens (\InitiateDoc
 -- | The content type of the document.
 initiateDocumentVersionUpload_contentType :: Lens.Lens' InitiateDocumentVersionUpload (Prelude.Maybe Prelude.Text)
 initiateDocumentVersionUpload_contentType = Lens.lens (\InitiateDocumentVersionUpload' {contentType} -> contentType) (\s@InitiateDocumentVersionUpload' {} a -> s {contentType = a} :: InitiateDocumentVersionUpload)
+
+-- | The size of the document, in bytes.
+initiateDocumentVersionUpload_documentSizeInBytes :: Lens.Lens' InitiateDocumentVersionUpload (Prelude.Maybe Prelude.Integer)
+initiateDocumentVersionUpload_documentSizeInBytes = Lens.lens (\InitiateDocumentVersionUpload' {documentSizeInBytes} -> documentSizeInBytes) (\s@InitiateDocumentVersionUpload' {} a -> s {documentSizeInBytes = a} :: InitiateDocumentVersionUpload)
+
+-- | The ID of the document.
+initiateDocumentVersionUpload_id :: Lens.Lens' InitiateDocumentVersionUpload (Prelude.Maybe Prelude.Text)
+initiateDocumentVersionUpload_id = Lens.lens (\InitiateDocumentVersionUpload' {id} -> id) (\s@InitiateDocumentVersionUpload' {} a -> s {id = a} :: InitiateDocumentVersionUpload)
+
+-- | The name of the document.
+initiateDocumentVersionUpload_name :: Lens.Lens' InitiateDocumentVersionUpload (Prelude.Maybe Prelude.Text)
+initiateDocumentVersionUpload_name = Lens.lens (\InitiateDocumentVersionUpload' {name} -> name) (\s@InitiateDocumentVersionUpload' {} a -> s {name = a} :: InitiateDocumentVersionUpload)
+
+-- | The ID of the parent folder.
+initiateDocumentVersionUpload_parentFolderId :: Lens.Lens' InitiateDocumentVersionUpload (Prelude.Maybe Prelude.Text)
+initiateDocumentVersionUpload_parentFolderId = Lens.lens (\InitiateDocumentVersionUpload' {parentFolderId} -> parentFolderId) (\s@InitiateDocumentVersionUpload' {} a -> s {parentFolderId = a} :: InitiateDocumentVersionUpload)
 
 instance
   Core.AWSRequest
@@ -180,25 +180,25 @@ instance
     InitiateDocumentVersionUpload
   where
   hashWithSalt _salt InitiateDocumentVersionUpload' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` parentFolderId
-      `Prelude.hashWithSalt` documentSizeInBytes
-      `Prelude.hashWithSalt` authenticationToken
+    _salt `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` contentCreatedTimestamp
-      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` contentModifiedTimestamp
       `Prelude.hashWithSalt` contentType
+      `Prelude.hashWithSalt` documentSizeInBytes
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` parentFolderId
 
 instance Prelude.NFData InitiateDocumentVersionUpload where
   rnf InitiateDocumentVersionUpload' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf parentFolderId
-      `Prelude.seq` Prelude.rnf documentSizeInBytes
-      `Prelude.seq` Prelude.rnf authenticationToken
+    Prelude.rnf authenticationToken
       `Prelude.seq` Prelude.rnf contentCreatedTimestamp
-      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf contentModifiedTimestamp
       `Prelude.seq` Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf documentSizeInBytes
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf parentFolderId
 
 instance Data.ToHeaders InitiateDocumentVersionUpload where
   toHeaders InitiateDocumentVersionUpload' {..} =
@@ -212,17 +212,17 @@ instance Data.ToJSON InitiateDocumentVersionUpload where
   toJSON InitiateDocumentVersionUpload' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
-            ("ParentFolderId" Data..=)
-              Prelude.<$> parentFolderId,
-            ("DocumentSizeInBytes" Data..=)
-              Prelude.<$> documentSizeInBytes,
-            ("ContentCreatedTimestamp" Data..=)
+          [ ("ContentCreatedTimestamp" Data..=)
               Prelude.<$> contentCreatedTimestamp,
-            ("Id" Data..=) Prelude.<$> id,
             ("ContentModifiedTimestamp" Data..=)
               Prelude.<$> contentModifiedTimestamp,
-            ("ContentType" Data..=) Prelude.<$> contentType
+            ("ContentType" Data..=) Prelude.<$> contentType,
+            ("DocumentSizeInBytes" Data..=)
+              Prelude.<$> documentSizeInBytes,
+            ("Id" Data..=) Prelude.<$> id,
+            ("Name" Data..=) Prelude.<$> name,
+            ("ParentFolderId" Data..=)
+              Prelude.<$> parentFolderId
           ]
       )
 

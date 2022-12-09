@@ -29,11 +29,11 @@ module Amazonka.PrivateNetworks
     -- ** InternalServerException
     _InternalServerException,
 
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
     -- ** LimitExceededException
     _LimitExceededException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- ** ThrottlingException
     _ThrottlingException,

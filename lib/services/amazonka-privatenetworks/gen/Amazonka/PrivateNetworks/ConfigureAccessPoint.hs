@@ -33,11 +33,11 @@ module Amazonka.PrivateNetworks.ConfigureAccessPoint
     newConfigureAccessPoint,
 
     -- * Request Lenses
+    configureAccessPoint_cpiSecretKey,
     configureAccessPoint_cpiUserId,
+    configureAccessPoint_cpiUserPassword,
     configureAccessPoint_cpiUsername,
     configureAccessPoint_position,
-    configureAccessPoint_cpiUserPassword,
-    configureAccessPoint_cpiSecretKey,
     configureAccessPoint_accessPointArn,
 
     -- * Destructuring the Response
@@ -60,19 +60,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newConfigureAccessPoint' smart constructor.
 data ConfigureAccessPoint = ConfigureAccessPoint'
-  { -- | The CPI user ID of the CPI user who is certifying the coordinates of the
+  { -- | A Base64 encoded string of the CPI certificate associated with the CPI
+    -- user who is certifying the coordinates of the network resource.
+    cpiSecretKey :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The CPI user ID of the CPI user who is certifying the coordinates of the
     -- network resource.
     cpiUserId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The CPI password associated with the CPI certificate in @cpiSecretKey@.
+    cpiUserPassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The CPI user name of the CPI user who is certifying the coordinates of
     -- the radio unit.
     cpiUsername :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The position of the network resource.
     position :: Prelude.Maybe Position,
-    -- | The CPI password associated with the CPI certificate in @cpiSecretKey@.
-    cpiUserPassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | A Base64 encoded string of the CPI certificate associated with the CPI
-    -- user who is certifying the coordinates of the network resource.
-    cpiSecretKey :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the network resource.
     accessPointArn :: Prelude.Text
   }
@@ -86,18 +86,18 @@ data ConfigureAccessPoint = ConfigureAccessPoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'cpiSecretKey', 'configureAccessPoint_cpiSecretKey' - A Base64 encoded string of the CPI certificate associated with the CPI
+-- user who is certifying the coordinates of the network resource.
+--
 -- 'cpiUserId', 'configureAccessPoint_cpiUserId' - The CPI user ID of the CPI user who is certifying the coordinates of the
 -- network resource.
+--
+-- 'cpiUserPassword', 'configureAccessPoint_cpiUserPassword' - The CPI password associated with the CPI certificate in @cpiSecretKey@.
 --
 -- 'cpiUsername', 'configureAccessPoint_cpiUsername' - The CPI user name of the CPI user who is certifying the coordinates of
 -- the radio unit.
 --
 -- 'position', 'configureAccessPoint_position' - The position of the network resource.
---
--- 'cpiUserPassword', 'configureAccessPoint_cpiUserPassword' - The CPI password associated with the CPI certificate in @cpiSecretKey@.
---
--- 'cpiSecretKey', 'configureAccessPoint_cpiSecretKey' - A Base64 encoded string of the CPI certificate associated with the CPI
--- user who is certifying the coordinates of the network resource.
 --
 -- 'accessPointArn', 'configureAccessPoint_accessPointArn' - The Amazon Resource Name (ARN) of the network resource.
 newConfigureAccessPoint ::
@@ -106,18 +106,28 @@ newConfigureAccessPoint ::
   ConfigureAccessPoint
 newConfigureAccessPoint pAccessPointArn_ =
   ConfigureAccessPoint'
-    { cpiUserId = Prelude.Nothing,
+    { cpiSecretKey =
+        Prelude.Nothing,
+      cpiUserId = Prelude.Nothing,
+      cpiUserPassword = Prelude.Nothing,
       cpiUsername = Prelude.Nothing,
       position = Prelude.Nothing,
-      cpiUserPassword = Prelude.Nothing,
-      cpiSecretKey = Prelude.Nothing,
       accessPointArn = pAccessPointArn_
     }
+
+-- | A Base64 encoded string of the CPI certificate associated with the CPI
+-- user who is certifying the coordinates of the network resource.
+configureAccessPoint_cpiSecretKey :: Lens.Lens' ConfigureAccessPoint (Prelude.Maybe Prelude.Text)
+configureAccessPoint_cpiSecretKey = Lens.lens (\ConfigureAccessPoint' {cpiSecretKey} -> cpiSecretKey) (\s@ConfigureAccessPoint' {} a -> s {cpiSecretKey = a} :: ConfigureAccessPoint) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The CPI user ID of the CPI user who is certifying the coordinates of the
 -- network resource.
 configureAccessPoint_cpiUserId :: Lens.Lens' ConfigureAccessPoint (Prelude.Maybe Prelude.Text)
 configureAccessPoint_cpiUserId = Lens.lens (\ConfigureAccessPoint' {cpiUserId} -> cpiUserId) (\s@ConfigureAccessPoint' {} a -> s {cpiUserId = a} :: ConfigureAccessPoint) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The CPI password associated with the CPI certificate in @cpiSecretKey@.
+configureAccessPoint_cpiUserPassword :: Lens.Lens' ConfigureAccessPoint (Prelude.Maybe Prelude.Text)
+configureAccessPoint_cpiUserPassword = Lens.lens (\ConfigureAccessPoint' {cpiUserPassword} -> cpiUserPassword) (\s@ConfigureAccessPoint' {} a -> s {cpiUserPassword = a} :: ConfigureAccessPoint) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The CPI user name of the CPI user who is certifying the coordinates of
 -- the radio unit.
@@ -127,15 +137,6 @@ configureAccessPoint_cpiUsername = Lens.lens (\ConfigureAccessPoint' {cpiUsernam
 -- | The position of the network resource.
 configureAccessPoint_position :: Lens.Lens' ConfigureAccessPoint (Prelude.Maybe Position)
 configureAccessPoint_position = Lens.lens (\ConfigureAccessPoint' {position} -> position) (\s@ConfigureAccessPoint' {} a -> s {position = a} :: ConfigureAccessPoint)
-
--- | The CPI password associated with the CPI certificate in @cpiSecretKey@.
-configureAccessPoint_cpiUserPassword :: Lens.Lens' ConfigureAccessPoint (Prelude.Maybe Prelude.Text)
-configureAccessPoint_cpiUserPassword = Lens.lens (\ConfigureAccessPoint' {cpiUserPassword} -> cpiUserPassword) (\s@ConfigureAccessPoint' {} a -> s {cpiUserPassword = a} :: ConfigureAccessPoint) Prelude.. Lens.mapping Data._Sensitive
-
--- | A Base64 encoded string of the CPI certificate associated with the CPI
--- user who is certifying the coordinates of the network resource.
-configureAccessPoint_cpiSecretKey :: Lens.Lens' ConfigureAccessPoint (Prelude.Maybe Prelude.Text)
-configureAccessPoint_cpiSecretKey = Lens.lens (\ConfigureAccessPoint' {cpiSecretKey} -> cpiSecretKey) (\s@ConfigureAccessPoint' {} a -> s {cpiSecretKey = a} :: ConfigureAccessPoint) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Amazon Resource Name (ARN) of the network resource.
 configureAccessPoint_accessPointArn :: Lens.Lens' ConfigureAccessPoint Prelude.Text
@@ -157,20 +158,20 @@ instance Core.AWSRequest ConfigureAccessPoint where
 
 instance Prelude.Hashable ConfigureAccessPoint where
   hashWithSalt _salt ConfigureAccessPoint' {..} =
-    _salt `Prelude.hashWithSalt` cpiUserId
+    _salt `Prelude.hashWithSalt` cpiSecretKey
+      `Prelude.hashWithSalt` cpiUserId
+      `Prelude.hashWithSalt` cpiUserPassword
       `Prelude.hashWithSalt` cpiUsername
       `Prelude.hashWithSalt` position
-      `Prelude.hashWithSalt` cpiUserPassword
-      `Prelude.hashWithSalt` cpiSecretKey
       `Prelude.hashWithSalt` accessPointArn
 
 instance Prelude.NFData ConfigureAccessPoint where
   rnf ConfigureAccessPoint' {..} =
-    Prelude.rnf cpiUserId
+    Prelude.rnf cpiSecretKey
+      `Prelude.seq` Prelude.rnf cpiUserId
+      `Prelude.seq` Prelude.rnf cpiUserPassword
       `Prelude.seq` Prelude.rnf cpiUsername
       `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf cpiUserPassword
-      `Prelude.seq` Prelude.rnf cpiSecretKey
       `Prelude.seq` Prelude.rnf accessPointArn
 
 instance Data.ToHeaders ConfigureAccessPoint where
@@ -188,12 +189,12 @@ instance Data.ToJSON ConfigureAccessPoint where
   toJSON ConfigureAccessPoint' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("cpiUserId" Data..=) Prelude.<$> cpiUserId,
-            ("cpiUsername" Data..=) Prelude.<$> cpiUsername,
-            ("position" Data..=) Prelude.<$> position,
+          [ ("cpiSecretKey" Data..=) Prelude.<$> cpiSecretKey,
+            ("cpiUserId" Data..=) Prelude.<$> cpiUserId,
             ("cpiUserPassword" Data..=)
               Prelude.<$> cpiUserPassword,
-            ("cpiSecretKey" Data..=) Prelude.<$> cpiSecretKey,
+            ("cpiUsername" Data..=) Prelude.<$> cpiUsername,
+            ("position" Data..=) Prelude.<$> position,
             Prelude.Just
               ("accessPointArn" Data..= accessPointArn)
           ]

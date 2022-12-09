@@ -34,8 +34,8 @@ module Amazonka.PrivateNetworks.GetDeviceIdentifier
     newGetDeviceIdentifierResponse,
 
     -- * Response Lenses
-    getDeviceIdentifierResponse_tags,
     getDeviceIdentifierResponse_deviceIdentifier,
+    getDeviceIdentifierResponse_tags,
     getDeviceIdentifierResponse_httpStatus,
   )
 where
@@ -88,8 +88,8 @@ instance Core.AWSRequest GetDeviceIdentifier where
     Response.receiveJSON
       ( \s h x ->
           GetDeviceIdentifierResponse'
-            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "deviceIdentifier")
+            Prelude.<$> (x Data..?> "deviceIdentifier")
+            Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -124,10 +124,10 @@ instance Data.ToQuery GetDeviceIdentifier where
 
 -- | /See:/ 'newGetDeviceIdentifierResponse' smart constructor.
 data GetDeviceIdentifierResponse = GetDeviceIdentifierResponse'
-  { -- | The device identifier tags.
-    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
-    -- | Information about the device identifier.
+  { -- | Information about the device identifier.
     deviceIdentifier :: Prelude.Maybe DeviceIdentifier,
+    -- | The device identifier tags.
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -141,9 +141,9 @@ data GetDeviceIdentifierResponse = GetDeviceIdentifierResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'getDeviceIdentifierResponse_tags' - The device identifier tags.
---
 -- 'deviceIdentifier', 'getDeviceIdentifierResponse_deviceIdentifier' - Information about the device identifier.
+--
+-- 'tags', 'getDeviceIdentifierResponse_tags' - The device identifier tags.
 --
 -- 'httpStatus', 'getDeviceIdentifierResponse_httpStatus' - The response's http status code.
 newGetDeviceIdentifierResponse ::
@@ -152,19 +152,19 @@ newGetDeviceIdentifierResponse ::
   GetDeviceIdentifierResponse
 newGetDeviceIdentifierResponse pHttpStatus_ =
   GetDeviceIdentifierResponse'
-    { tags =
+    { deviceIdentifier =
         Prelude.Nothing,
-      deviceIdentifier = Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The device identifier tags.
-getDeviceIdentifierResponse_tags :: Lens.Lens' GetDeviceIdentifierResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getDeviceIdentifierResponse_tags = Lens.lens (\GetDeviceIdentifierResponse' {tags} -> tags) (\s@GetDeviceIdentifierResponse' {} a -> s {tags = a} :: GetDeviceIdentifierResponse) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | Information about the device identifier.
 getDeviceIdentifierResponse_deviceIdentifier :: Lens.Lens' GetDeviceIdentifierResponse (Prelude.Maybe DeviceIdentifier)
 getDeviceIdentifierResponse_deviceIdentifier = Lens.lens (\GetDeviceIdentifierResponse' {deviceIdentifier} -> deviceIdentifier) (\s@GetDeviceIdentifierResponse' {} a -> s {deviceIdentifier = a} :: GetDeviceIdentifierResponse)
+
+-- | The device identifier tags.
+getDeviceIdentifierResponse_tags :: Lens.Lens' GetDeviceIdentifierResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getDeviceIdentifierResponse_tags = Lens.lens (\GetDeviceIdentifierResponse' {tags} -> tags) (\s@GetDeviceIdentifierResponse' {} a -> s {tags = a} :: GetDeviceIdentifierResponse) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The response's http status code.
 getDeviceIdentifierResponse_httpStatus :: Lens.Lens' GetDeviceIdentifierResponse Prelude.Int
@@ -172,6 +172,6 @@ getDeviceIdentifierResponse_httpStatus = Lens.lens (\GetDeviceIdentifierResponse
 
 instance Prelude.NFData GetDeviceIdentifierResponse where
   rnf GetDeviceIdentifierResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf deviceIdentifier
+    Prelude.rnf deviceIdentifier
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 data Address = Address'
   { -- | The company name for this address.
     company :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The third line of the street address.
-    street3 :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The phone number for this address.
     phoneNumber :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The second line of the street address.
     street2 :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The third line of the street address.
+    street3 :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The city for this address.
     city :: Data.Sensitive Prelude.Text,
     -- | The country for this address.
@@ -61,11 +61,11 @@ data Address = Address'
 --
 -- 'company', 'address_company' - The company name for this address.
 --
--- 'street3', 'address_street3' - The third line of the street address.
---
 -- 'phoneNumber', 'address_phoneNumber' - The phone number for this address.
 --
 -- 'street2', 'address_street2' - The second line of the street address.
+--
+-- 'street3', 'address_street3' - The third line of the street address.
 --
 -- 'city', 'address_city' - The city for this address.
 --
@@ -101,9 +101,9 @@ newAddress
   pStreet1_ =
     Address'
       { company = Prelude.Nothing,
-        street3 = Prelude.Nothing,
         phoneNumber = Prelude.Nothing,
         street2 = Prelude.Nothing,
+        street3 = Prelude.Nothing,
         city = Data._Sensitive Lens.# pCity_,
         country = Data._Sensitive Lens.# pCountry_,
         name = Data._Sensitive Lens.# pName_,
@@ -117,10 +117,6 @@ newAddress
 address_company :: Lens.Lens' Address (Prelude.Maybe Prelude.Text)
 address_company = Lens.lens (\Address' {company} -> company) (\s@Address' {} a -> s {company = a} :: Address) Prelude.. Lens.mapping Data._Sensitive
 
--- | The third line of the street address.
-address_street3 :: Lens.Lens' Address (Prelude.Maybe Prelude.Text)
-address_street3 = Lens.lens (\Address' {street3} -> street3) (\s@Address' {} a -> s {street3 = a} :: Address) Prelude.. Lens.mapping Data._Sensitive
-
 -- | The phone number for this address.
 address_phoneNumber :: Lens.Lens' Address (Prelude.Maybe Prelude.Text)
 address_phoneNumber = Lens.lens (\Address' {phoneNumber} -> phoneNumber) (\s@Address' {} a -> s {phoneNumber = a} :: Address) Prelude.. Lens.mapping Data._Sensitive
@@ -128,6 +124,10 @@ address_phoneNumber = Lens.lens (\Address' {phoneNumber} -> phoneNumber) (\s@Add
 -- | The second line of the street address.
 address_street2 :: Lens.Lens' Address (Prelude.Maybe Prelude.Text)
 address_street2 = Lens.lens (\Address' {street2} -> street2) (\s@Address' {} a -> s {street2 = a} :: Address) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The third line of the street address.
+address_street3 :: Lens.Lens' Address (Prelude.Maybe Prelude.Text)
+address_street3 = Lens.lens (\Address' {street3} -> street3) (\s@Address' {} a -> s {street3 = a} :: Address) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The city for this address.
 address_city :: Lens.Lens' Address Prelude.Text
@@ -160,9 +160,9 @@ instance Data.FromJSON Address where
       ( \x ->
           Address'
             Prelude.<$> (x Data..:? "company")
-            Prelude.<*> (x Data..:? "street3")
             Prelude.<*> (x Data..:? "phoneNumber")
             Prelude.<*> (x Data..:? "street2")
+            Prelude.<*> (x Data..:? "street3")
             Prelude.<*> (x Data..: "city")
             Prelude.<*> (x Data..: "country")
             Prelude.<*> (x Data..: "name")
@@ -174,9 +174,9 @@ instance Data.FromJSON Address where
 instance Prelude.Hashable Address where
   hashWithSalt _salt Address' {..} =
     _salt `Prelude.hashWithSalt` company
-      `Prelude.hashWithSalt` street3
       `Prelude.hashWithSalt` phoneNumber
       `Prelude.hashWithSalt` street2
+      `Prelude.hashWithSalt` street3
       `Prelude.hashWithSalt` city
       `Prelude.hashWithSalt` country
       `Prelude.hashWithSalt` name
@@ -187,9 +187,9 @@ instance Prelude.Hashable Address where
 instance Prelude.NFData Address where
   rnf Address' {..} =
     Prelude.rnf company
-      `Prelude.seq` Prelude.rnf street3
       `Prelude.seq` Prelude.rnf phoneNumber
       `Prelude.seq` Prelude.rnf street2
+      `Prelude.seq` Prelude.rnf street3
       `Prelude.seq` Prelude.rnf city
       `Prelude.seq` Prelude.rnf country
       `Prelude.seq` Prelude.rnf name
@@ -202,9 +202,9 @@ instance Data.ToJSON Address where
     Data.object
       ( Prelude.catMaybes
           [ ("company" Data..=) Prelude.<$> company,
-            ("street3" Data..=) Prelude.<$> street3,
             ("phoneNumber" Data..=) Prelude.<$> phoneNumber,
             ("street2" Data..=) Prelude.<$> street2,
+            ("street3" Data..=) Prelude.<$> street3,
             Prelude.Just ("city" Data..= city),
             Prelude.Just ("country" Data..= country),
             Prelude.Just ("name" Data..= name),

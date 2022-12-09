@@ -34,35 +34,35 @@ module Amazonka.PrivateNetworks.Lens
     activateNetworkSiteResponse_httpStatus,
 
     -- ** ConfigureAccessPoint
+    configureAccessPoint_cpiSecretKey,
     configureAccessPoint_cpiUserId,
+    configureAccessPoint_cpiUserPassword,
     configureAccessPoint_cpiUsername,
     configureAccessPoint_position,
-    configureAccessPoint_cpiUserPassword,
-    configureAccessPoint_cpiSecretKey,
     configureAccessPoint_accessPointArn,
     configureAccessPointResponse_httpStatus,
     configureAccessPointResponse_accessPoint,
 
     -- ** CreateNetwork
-    createNetwork_tags,
     createNetwork_clientToken,
     createNetwork_description,
+    createNetwork_tags,
     createNetwork_networkName,
     createNetworkResponse_tags,
     createNetworkResponse_httpStatus,
     createNetworkResponse_network,
 
     -- ** CreateNetworkSite
-    createNetworkSite_tags,
+    createNetworkSite_availabilityZone,
+    createNetworkSite_availabilityZoneId,
     createNetworkSite_clientToken,
     createNetworkSite_description,
-    createNetworkSite_availabilityZone,
     createNetworkSite_pendingPlan,
-    createNetworkSite_availabilityZoneId,
+    createNetworkSite_tags,
     createNetworkSite_networkArn,
     createNetworkSite_networkSiteName,
-    createNetworkSiteResponse_tags,
     createNetworkSiteResponse_networkSite,
+    createNetworkSiteResponse_tags,
     createNetworkSiteResponse_httpStatus,
 
     -- ** DeactivateDeviceIdentifier
@@ -85,8 +85,8 @@ module Amazonka.PrivateNetworks.Lens
 
     -- ** GetDeviceIdentifier
     getDeviceIdentifier_deviceIdentifierArn,
-    getDeviceIdentifierResponse_tags,
     getDeviceIdentifierResponse_deviceIdentifier,
+    getDeviceIdentifierResponse_tags,
     getDeviceIdentifierResponse_httpStatus,
 
     -- ** GetNetwork
@@ -103,8 +103,8 @@ module Amazonka.PrivateNetworks.Lens
 
     -- ** GetNetworkSite
     getNetworkSite_networkSiteArn,
-    getNetworkSiteResponse_tags,
     getNetworkSiteResponse_networkSite,
+    getNetworkSiteResponse_tags,
     getNetworkSiteResponse_httpStatus,
 
     -- ** GetOrder
@@ -118,8 +118,8 @@ module Amazonka.PrivateNetworks.Lens
     listDeviceIdentifiers_maxResults,
     listDeviceIdentifiers_startToken,
     listDeviceIdentifiers_networkArn,
-    listDeviceIdentifiersResponse_nextToken,
     listDeviceIdentifiersResponse_deviceIdentifiers,
+    listDeviceIdentifiersResponse_nextToken,
     listDeviceIdentifiersResponse_httpStatus,
 
     -- ** ListNetworkResources
@@ -127,8 +127,8 @@ module Amazonka.PrivateNetworks.Lens
     listNetworkResources_maxResults,
     listNetworkResources_startToken,
     listNetworkResources_networkArn,
-    listNetworkResourcesResponse_nextToken,
     listNetworkResourcesResponse_networkResources,
+    listNetworkResourcesResponse_nextToken,
     listNetworkResourcesResponse_httpStatus,
 
     -- ** ListNetworkSites
@@ -136,8 +136,8 @@ module Amazonka.PrivateNetworks.Lens
     listNetworkSites_maxResults,
     listNetworkSites_startToken,
     listNetworkSites_networkArn,
-    listNetworkSitesResponse_nextToken,
     listNetworkSitesResponse_networkSites,
+    listNetworkSitesResponse_nextToken,
     listNetworkSitesResponse_httpStatus,
 
     -- ** ListNetworks
@@ -180,23 +180,23 @@ module Amazonka.PrivateNetworks.Lens
     updateNetworkSite_clientToken,
     updateNetworkSite_description,
     updateNetworkSite_networkSiteArn,
-    updateNetworkSiteResponse_tags,
     updateNetworkSiteResponse_networkSite,
+    updateNetworkSiteResponse_tags,
 
     -- ** UpdateNetworkSitePlan
     updateNetworkSitePlan_clientToken,
     updateNetworkSitePlan_networkSiteArn,
     updateNetworkSitePlan_pendingPlan,
-    updateNetworkSiteResponse_tags,
     updateNetworkSiteResponse_networkSite,
+    updateNetworkSiteResponse_tags,
 
     -- * Types
 
     -- ** Address
     address_company,
-    address_street3,
     address_phoneNumber,
     address_street2,
+    address_street3,
     address_city,
     address_country,
     address_name,
@@ -205,44 +205,44 @@ module Amazonka.PrivateNetworks.Lens
     address_street1,
 
     -- ** DeviceIdentifier
-    deviceIdentifier_imsi,
-    deviceIdentifier_trafficGroupArn,
-    deviceIdentifier_networkArn,
-    deviceIdentifier_status,
-    deviceIdentifier_orderArn,
-    deviceIdentifier_vendor,
     deviceIdentifier_createdAt,
-    deviceIdentifier_iccid,
     deviceIdentifier_deviceIdentifierArn,
+    deviceIdentifier_iccid,
+    deviceIdentifier_imsi,
+    deviceIdentifier_networkArn,
+    deviceIdentifier_orderArn,
+    deviceIdentifier_status,
+    deviceIdentifier_trafficGroupArn,
+    deviceIdentifier_vendor,
 
     -- ** NameValuePair
     nameValuePair_value,
     nameValuePair_name,
 
     -- ** Network
-    network_statusReason,
-    network_description,
     network_createdAt,
+    network_description,
+    network_statusReason,
     network_networkArn,
     network_networkName,
     network_status,
 
     -- ** NetworkResource
-    networkResource_type,
-    networkResource_model,
-    networkResource_networkSiteArn,
-    networkResource_statusReason,
-    networkResource_networkArn,
-    networkResource_status,
-    networkResource_description,
-    networkResource_orderArn,
-    networkResource_health,
-    networkResource_serialNumber,
     networkResource_attributes,
-    networkResource_networkResourceArn,
-    networkResource_position,
-    networkResource_vendor,
     networkResource_createdAt,
+    networkResource_description,
+    networkResource_health,
+    networkResource_model,
+    networkResource_networkArn,
+    networkResource_networkResourceArn,
+    networkResource_networkSiteArn,
+    networkResource_orderArn,
+    networkResource_position,
+    networkResource_serialNumber,
+    networkResource_status,
+    networkResource_statusReason,
+    networkResource_type,
+    networkResource_vendor,
 
     -- ** NetworkResourceDefinition
     networkResourceDefinition_options,
@@ -250,44 +250,44 @@ module Amazonka.PrivateNetworks.Lens
     networkResourceDefinition_type,
 
     -- ** NetworkSite
-    networkSite_statusReason,
-    networkSite_description,
     networkSite_availabilityZone,
-    networkSite_pendingPlan,
-    networkSite_currentPlan,
-    networkSite_createdAt,
     networkSite_availabilityZoneId,
+    networkSite_createdAt,
+    networkSite_currentPlan,
+    networkSite_description,
+    networkSite_pendingPlan,
+    networkSite_statusReason,
     networkSite_networkArn,
     networkSite_networkSiteArn,
     networkSite_networkSiteName,
     networkSite_status,
 
     -- ** Order
-    order_shippingAddress,
     order_acknowledgmentStatus,
-    order_networkSiteArn,
-    order_networkArn,
-    order_orderArn,
-    order_trackingInformation,
     order_createdAt,
+    order_networkArn,
+    order_networkSiteArn,
+    order_orderArn,
+    order_shippingAddress,
+    order_trackingInformation,
 
     -- ** Position
-    position_longitude,
-    position_latitude,
     position_elevation,
     position_elevationReference,
     position_elevationUnit,
+    position_latitude,
+    position_longitude,
 
     -- ** SitePlan
-    sitePlan_resourceDefinitions,
     sitePlan_options,
+    sitePlan_resourceDefinitions,
 
     -- ** TrackingInformation
     trackingInformation_trackingNumber,
 
     -- ** UpdateNetworkSiteResponse
-    updateNetworkSiteResponse_tags,
     updateNetworkSiteResponse_networkSite,
+    updateNetworkSiteResponse_tags,
   )
 where
 

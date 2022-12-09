@@ -30,10 +30,10 @@ import Amazonka.PrivateNetworks.Types.NetworkResourceDefinition
 --
 -- /See:/ 'newSitePlan' smart constructor.
 data SitePlan = SitePlan'
-  { -- | The resource definitions of the plan.
-    resourceDefinitions :: Prelude.Maybe [NetworkResourceDefinition],
-    -- | The options of the plan.
-    options :: Prelude.Maybe [NameValuePair]
+  { -- | The options of the plan.
+    options :: Prelude.Maybe [NameValuePair],
+    -- | The resource definitions of the plan.
+    resourceDefinitions :: Prelude.Maybe [NetworkResourceDefinition]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,24 @@ data SitePlan = SitePlan'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceDefinitions', 'sitePlan_resourceDefinitions' - The resource definitions of the plan.
---
 -- 'options', 'sitePlan_options' - The options of the plan.
+--
+-- 'resourceDefinitions', 'sitePlan_resourceDefinitions' - The resource definitions of the plan.
 newSitePlan ::
   SitePlan
 newSitePlan =
   SitePlan'
-    { resourceDefinitions = Prelude.Nothing,
-      options = Prelude.Nothing
+    { options = Prelude.Nothing,
+      resourceDefinitions = Prelude.Nothing
     }
-
--- | The resource definitions of the plan.
-sitePlan_resourceDefinitions :: Lens.Lens' SitePlan (Prelude.Maybe [NetworkResourceDefinition])
-sitePlan_resourceDefinitions = Lens.lens (\SitePlan' {resourceDefinitions} -> resourceDefinitions) (\s@SitePlan' {} a -> s {resourceDefinitions = a} :: SitePlan) Prelude.. Lens.mapping Lens.coerced
 
 -- | The options of the plan.
 sitePlan_options :: Lens.Lens' SitePlan (Prelude.Maybe [NameValuePair])
 sitePlan_options = Lens.lens (\SitePlan' {options} -> options) (\s@SitePlan' {} a -> s {options = a} :: SitePlan) Prelude.. Lens.mapping Lens.coerced
+
+-- | The resource definitions of the plan.
+sitePlan_resourceDefinitions :: Lens.Lens' SitePlan (Prelude.Maybe [NetworkResourceDefinition])
+sitePlan_resourceDefinitions = Lens.lens (\SitePlan' {resourceDefinitions} -> resourceDefinitions) (\s@SitePlan' {} a -> s {resourceDefinitions = a} :: SitePlan) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON SitePlan where
   parseJSON =
@@ -70,28 +70,28 @@ instance Data.FromJSON SitePlan where
       "SitePlan"
       ( \x ->
           SitePlan'
-            Prelude.<$> ( x Data..:? "resourceDefinitions"
+            Prelude.<$> (x Data..:? "options" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "resourceDefinitions"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "options" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable SitePlan where
   hashWithSalt _salt SitePlan' {..} =
-    _salt `Prelude.hashWithSalt` resourceDefinitions
-      `Prelude.hashWithSalt` options
+    _salt `Prelude.hashWithSalt` options
+      `Prelude.hashWithSalt` resourceDefinitions
 
 instance Prelude.NFData SitePlan where
   rnf SitePlan' {..} =
-    Prelude.rnf resourceDefinitions
-      `Prelude.seq` Prelude.rnf options
+    Prelude.rnf options
+      `Prelude.seq` Prelude.rnf resourceDefinitions
 
 instance Data.ToJSON SitePlan where
   toJSON SitePlan' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("resourceDefinitions" Data..=)
-              Prelude.<$> resourceDefinitions,
-            ("options" Data..=) Prelude.<$> options
+          [ ("options" Data..=) Prelude.<$> options,
+            ("resourceDefinitions" Data..=)
+              Prelude.<$> resourceDefinitions
           ]
       )

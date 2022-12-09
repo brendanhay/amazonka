@@ -41,8 +41,8 @@ module Amazonka.PrivateNetworks.ListNetworkSites
     newListNetworkSitesResponse,
 
     -- * Response Lenses
-    listNetworkSitesResponse_nextToken,
     listNetworkSitesResponse_networkSites,
+    listNetworkSitesResponse_nextToken,
     listNetworkSitesResponse_httpStatus,
   )
 where
@@ -167,8 +167,8 @@ instance Core.AWSRequest ListNetworkSites where
     Response.receiveJSON
       ( \s h x ->
           ListNetworkSitesResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "networkSites" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "networkSites" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -216,10 +216,10 @@ instance Data.ToQuery ListNetworkSites where
 
 -- | /See:/ 'newListNetworkSitesResponse' smart constructor.
 data ListNetworkSitesResponse = ListNetworkSitesResponse'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the network sites.
+  { -- | Information about the network sites.
     networkSites :: Prelude.Maybe [NetworkSite],
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -233,9 +233,9 @@ data ListNetworkSitesResponse = ListNetworkSitesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listNetworkSitesResponse_nextToken' - The token for the next page of results.
---
 -- 'networkSites', 'listNetworkSitesResponse_networkSites' - Information about the network sites.
+--
+-- 'nextToken', 'listNetworkSitesResponse_nextToken' - The token for the next page of results.
 --
 -- 'httpStatus', 'listNetworkSitesResponse_httpStatus' - The response's http status code.
 newListNetworkSitesResponse ::
@@ -244,19 +244,19 @@ newListNetworkSitesResponse ::
   ListNetworkSitesResponse
 newListNetworkSitesResponse pHttpStatus_ =
   ListNetworkSitesResponse'
-    { nextToken =
+    { networkSites =
         Prelude.Nothing,
-      networkSites = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token for the next page of results.
-listNetworkSitesResponse_nextToken :: Lens.Lens' ListNetworkSitesResponse (Prelude.Maybe Prelude.Text)
-listNetworkSitesResponse_nextToken = Lens.lens (\ListNetworkSitesResponse' {nextToken} -> nextToken) (\s@ListNetworkSitesResponse' {} a -> s {nextToken = a} :: ListNetworkSitesResponse)
 
 -- | Information about the network sites.
 listNetworkSitesResponse_networkSites :: Lens.Lens' ListNetworkSitesResponse (Prelude.Maybe [NetworkSite])
 listNetworkSitesResponse_networkSites = Lens.lens (\ListNetworkSitesResponse' {networkSites} -> networkSites) (\s@ListNetworkSitesResponse' {} a -> s {networkSites = a} :: ListNetworkSitesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token for the next page of results.
+listNetworkSitesResponse_nextToken :: Lens.Lens' ListNetworkSitesResponse (Prelude.Maybe Prelude.Text)
+listNetworkSitesResponse_nextToken = Lens.lens (\ListNetworkSitesResponse' {nextToken} -> nextToken) (\s@ListNetworkSitesResponse' {} a -> s {nextToken = a} :: ListNetworkSitesResponse)
 
 -- | The response's http status code.
 listNetworkSitesResponse_httpStatus :: Lens.Lens' ListNetworkSitesResponse Prelude.Int
@@ -264,6 +264,6 @@ listNetworkSitesResponse_httpStatus = Lens.lens (\ListNetworkSitesResponse' {htt
 
 instance Prelude.NFData ListNetworkSitesResponse where
   rnf ListNetworkSitesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf networkSites
+    Prelude.rnf networkSites
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

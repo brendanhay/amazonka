@@ -44,8 +44,8 @@ module Amazonka.PrivateNetworks.ListNetworkResources
     newListNetworkResourcesResponse,
 
     -- * Response Lenses
-    listNetworkResourcesResponse_nextToken,
     listNetworkResourcesResponse_networkResources,
+    listNetworkResourcesResponse_nextToken,
     listNetworkResourcesResponse_httpStatus,
   )
 where
@@ -173,10 +173,10 @@ instance Core.AWSRequest ListNetworkResources where
     Response.receiveJSON
       ( \s h x ->
           ListNetworkResourcesResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "networkResources"
+            Prelude.<$> ( x Data..?> "networkResources"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -224,10 +224,10 @@ instance Data.ToQuery ListNetworkResources where
 
 -- | /See:/ 'newListNetworkResourcesResponse' smart constructor.
 data ListNetworkResourcesResponse = ListNetworkResourcesResponse'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about network resources.
+  { -- | Information about network resources.
     networkResources :: Prelude.Maybe [NetworkResource],
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -241,9 +241,9 @@ data ListNetworkResourcesResponse = ListNetworkResourcesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listNetworkResourcesResponse_nextToken' - The token for the next page of results.
---
 -- 'networkResources', 'listNetworkResourcesResponse_networkResources' - Information about network resources.
+--
+-- 'nextToken', 'listNetworkResourcesResponse_nextToken' - The token for the next page of results.
 --
 -- 'httpStatus', 'listNetworkResourcesResponse_httpStatus' - The response's http status code.
 newListNetworkResourcesResponse ::
@@ -252,19 +252,19 @@ newListNetworkResourcesResponse ::
   ListNetworkResourcesResponse
 newListNetworkResourcesResponse pHttpStatus_ =
   ListNetworkResourcesResponse'
-    { nextToken =
+    { networkResources =
         Prelude.Nothing,
-      networkResources = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token for the next page of results.
-listNetworkResourcesResponse_nextToken :: Lens.Lens' ListNetworkResourcesResponse (Prelude.Maybe Prelude.Text)
-listNetworkResourcesResponse_nextToken = Lens.lens (\ListNetworkResourcesResponse' {nextToken} -> nextToken) (\s@ListNetworkResourcesResponse' {} a -> s {nextToken = a} :: ListNetworkResourcesResponse)
 
 -- | Information about network resources.
 listNetworkResourcesResponse_networkResources :: Lens.Lens' ListNetworkResourcesResponse (Prelude.Maybe [NetworkResource])
 listNetworkResourcesResponse_networkResources = Lens.lens (\ListNetworkResourcesResponse' {networkResources} -> networkResources) (\s@ListNetworkResourcesResponse' {} a -> s {networkResources = a} :: ListNetworkResourcesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token for the next page of results.
+listNetworkResourcesResponse_nextToken :: Lens.Lens' ListNetworkResourcesResponse (Prelude.Maybe Prelude.Text)
+listNetworkResourcesResponse_nextToken = Lens.lens (\ListNetworkResourcesResponse' {nextToken} -> nextToken) (\s@ListNetworkResourcesResponse' {} a -> s {nextToken = a} :: ListNetworkResourcesResponse)
 
 -- | The response's http status code.
 listNetworkResourcesResponse_httpStatus :: Lens.Lens' ListNetworkResourcesResponse Prelude.Int
@@ -272,6 +272,6 @@ listNetworkResourcesResponse_httpStatus = Lens.lens (\ListNetworkResourcesRespon
 
 instance Prelude.NFData ListNetworkResourcesResponse where
   rnf ListNetworkResourcesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf networkResources
+    Prelude.rnf networkResources
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

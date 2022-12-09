@@ -36,8 +36,8 @@ module Amazonka.PrivateNetworks.UpdateNetworkSitePlan
     newUpdateNetworkSiteResponse,
 
     -- * Response Lenses
-    updateNetworkSiteResponse_tags,
     updateNetworkSiteResponse_networkSite,
+    updateNetworkSiteResponse_tags,
   )
 where
 

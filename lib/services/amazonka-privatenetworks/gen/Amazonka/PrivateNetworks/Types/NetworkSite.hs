@@ -30,20 +30,20 @@ import Amazonka.PrivateNetworks.Types.SitePlan
 --
 -- /See:/ 'newNetworkSite' smart constructor.
 data NetworkSite = NetworkSite'
-  { -- | The status reason of the network site.
-    statusReason :: Prelude.Maybe Prelude.Text,
-    -- | The description of the network site.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The parent Availability Zone for the network site.
+  { -- | The parent Availability Zone for the network site.
     availabilityZone :: Prelude.Maybe Prelude.Text,
-    -- | The pending plan of the network site.
-    pendingPlan :: Prelude.Maybe SitePlan,
-    -- | The current plan of the network site.
-    currentPlan :: Prelude.Maybe SitePlan,
-    -- | The creation time of the network site.
-    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The parent Availability Zone ID for the network site.
     availabilityZoneId :: Prelude.Maybe Prelude.Text,
+    -- | The creation time of the network site.
+    createdAt :: Prelude.Maybe Data.POSIX,
+    -- | The current plan of the network site.
+    currentPlan :: Prelude.Maybe SitePlan,
+    -- | The description of the network site.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The pending plan of the network site.
+    pendingPlan :: Prelude.Maybe SitePlan,
+    -- | The status reason of the network site.
+    statusReason :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the network to which the network site
     -- belongs.
     networkArn :: Prelude.Text,
@@ -64,19 +64,19 @@ data NetworkSite = NetworkSite'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'statusReason', 'networkSite_statusReason' - The status reason of the network site.
---
--- 'description', 'networkSite_description' - The description of the network site.
---
 -- 'availabilityZone', 'networkSite_availabilityZone' - The parent Availability Zone for the network site.
 --
--- 'pendingPlan', 'networkSite_pendingPlan' - The pending plan of the network site.
---
--- 'currentPlan', 'networkSite_currentPlan' - The current plan of the network site.
+-- 'availabilityZoneId', 'networkSite_availabilityZoneId' - The parent Availability Zone ID for the network site.
 --
 -- 'createdAt', 'networkSite_createdAt' - The creation time of the network site.
 --
--- 'availabilityZoneId', 'networkSite_availabilityZoneId' - The parent Availability Zone ID for the network site.
+-- 'currentPlan', 'networkSite_currentPlan' - The current plan of the network site.
+--
+-- 'description', 'networkSite_description' - The description of the network site.
+--
+-- 'pendingPlan', 'networkSite_pendingPlan' - The pending plan of the network site.
+--
+-- 'statusReason', 'networkSite_statusReason' - The status reason of the network site.
 --
 -- 'networkArn', 'networkSite_networkArn' - The Amazon Resource Name (ARN) of the network to which the network site
 -- belongs.
@@ -102,46 +102,46 @@ newNetworkSite
   pNetworkSiteName_
   pStatus_ =
     NetworkSite'
-      { statusReason = Prelude.Nothing,
-        description = Prelude.Nothing,
-        availabilityZone = Prelude.Nothing,
-        pendingPlan = Prelude.Nothing,
-        currentPlan = Prelude.Nothing,
-        createdAt = Prelude.Nothing,
+      { availabilityZone = Prelude.Nothing,
         availabilityZoneId = Prelude.Nothing,
+        createdAt = Prelude.Nothing,
+        currentPlan = Prelude.Nothing,
+        description = Prelude.Nothing,
+        pendingPlan = Prelude.Nothing,
+        statusReason = Prelude.Nothing,
         networkArn = pNetworkArn_,
         networkSiteArn = pNetworkSiteArn_,
         networkSiteName = pNetworkSiteName_,
         status = pStatus_
       }
 
--- | The status reason of the network site.
-networkSite_statusReason :: Lens.Lens' NetworkSite (Prelude.Maybe Prelude.Text)
-networkSite_statusReason = Lens.lens (\NetworkSite' {statusReason} -> statusReason) (\s@NetworkSite' {} a -> s {statusReason = a} :: NetworkSite)
-
--- | The description of the network site.
-networkSite_description :: Lens.Lens' NetworkSite (Prelude.Maybe Prelude.Text)
-networkSite_description = Lens.lens (\NetworkSite' {description} -> description) (\s@NetworkSite' {} a -> s {description = a} :: NetworkSite)
-
 -- | The parent Availability Zone for the network site.
 networkSite_availabilityZone :: Lens.Lens' NetworkSite (Prelude.Maybe Prelude.Text)
 networkSite_availabilityZone = Lens.lens (\NetworkSite' {availabilityZone} -> availabilityZone) (\s@NetworkSite' {} a -> s {availabilityZone = a} :: NetworkSite)
 
--- | The pending plan of the network site.
-networkSite_pendingPlan :: Lens.Lens' NetworkSite (Prelude.Maybe SitePlan)
-networkSite_pendingPlan = Lens.lens (\NetworkSite' {pendingPlan} -> pendingPlan) (\s@NetworkSite' {} a -> s {pendingPlan = a} :: NetworkSite)
-
--- | The current plan of the network site.
-networkSite_currentPlan :: Lens.Lens' NetworkSite (Prelude.Maybe SitePlan)
-networkSite_currentPlan = Lens.lens (\NetworkSite' {currentPlan} -> currentPlan) (\s@NetworkSite' {} a -> s {currentPlan = a} :: NetworkSite)
+-- | The parent Availability Zone ID for the network site.
+networkSite_availabilityZoneId :: Lens.Lens' NetworkSite (Prelude.Maybe Prelude.Text)
+networkSite_availabilityZoneId = Lens.lens (\NetworkSite' {availabilityZoneId} -> availabilityZoneId) (\s@NetworkSite' {} a -> s {availabilityZoneId = a} :: NetworkSite)
 
 -- | The creation time of the network site.
 networkSite_createdAt :: Lens.Lens' NetworkSite (Prelude.Maybe Prelude.UTCTime)
 networkSite_createdAt = Lens.lens (\NetworkSite' {createdAt} -> createdAt) (\s@NetworkSite' {} a -> s {createdAt = a} :: NetworkSite) Prelude.. Lens.mapping Data._Time
 
--- | The parent Availability Zone ID for the network site.
-networkSite_availabilityZoneId :: Lens.Lens' NetworkSite (Prelude.Maybe Prelude.Text)
-networkSite_availabilityZoneId = Lens.lens (\NetworkSite' {availabilityZoneId} -> availabilityZoneId) (\s@NetworkSite' {} a -> s {availabilityZoneId = a} :: NetworkSite)
+-- | The current plan of the network site.
+networkSite_currentPlan :: Lens.Lens' NetworkSite (Prelude.Maybe SitePlan)
+networkSite_currentPlan = Lens.lens (\NetworkSite' {currentPlan} -> currentPlan) (\s@NetworkSite' {} a -> s {currentPlan = a} :: NetworkSite)
+
+-- | The description of the network site.
+networkSite_description :: Lens.Lens' NetworkSite (Prelude.Maybe Prelude.Text)
+networkSite_description = Lens.lens (\NetworkSite' {description} -> description) (\s@NetworkSite' {} a -> s {description = a} :: NetworkSite)
+
+-- | The pending plan of the network site.
+networkSite_pendingPlan :: Lens.Lens' NetworkSite (Prelude.Maybe SitePlan)
+networkSite_pendingPlan = Lens.lens (\NetworkSite' {pendingPlan} -> pendingPlan) (\s@NetworkSite' {} a -> s {pendingPlan = a} :: NetworkSite)
+
+-- | The status reason of the network site.
+networkSite_statusReason :: Lens.Lens' NetworkSite (Prelude.Maybe Prelude.Text)
+networkSite_statusReason = Lens.lens (\NetworkSite' {statusReason} -> statusReason) (\s@NetworkSite' {} a -> s {statusReason = a} :: NetworkSite)
 
 -- | The Amazon Resource Name (ARN) of the network to which the network site
 -- belongs.
@@ -166,13 +166,13 @@ instance Data.FromJSON NetworkSite where
       "NetworkSite"
       ( \x ->
           NetworkSite'
-            Prelude.<$> (x Data..:? "statusReason")
-            Prelude.<*> (x Data..:? "description")
-            Prelude.<*> (x Data..:? "availabilityZone")
-            Prelude.<*> (x Data..:? "pendingPlan")
-            Prelude.<*> (x Data..:? "currentPlan")
-            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<$> (x Data..:? "availabilityZone")
             Prelude.<*> (x Data..:? "availabilityZoneId")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "currentPlan")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "pendingPlan")
+            Prelude.<*> (x Data..:? "statusReason")
             Prelude.<*> (x Data..: "networkArn")
             Prelude.<*> (x Data..: "networkSiteArn")
             Prelude.<*> (x Data..: "networkSiteName")
@@ -181,13 +181,13 @@ instance Data.FromJSON NetworkSite where
 
 instance Prelude.Hashable NetworkSite where
   hashWithSalt _salt NetworkSite' {..} =
-    _salt `Prelude.hashWithSalt` statusReason
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` availabilityZone
-      `Prelude.hashWithSalt` pendingPlan
-      `Prelude.hashWithSalt` currentPlan
-      `Prelude.hashWithSalt` createdAt
+    _salt `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` availabilityZoneId
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` currentPlan
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` pendingPlan
+      `Prelude.hashWithSalt` statusReason
       `Prelude.hashWithSalt` networkArn
       `Prelude.hashWithSalt` networkSiteArn
       `Prelude.hashWithSalt` networkSiteName
@@ -195,13 +195,13 @@ instance Prelude.Hashable NetworkSite where
 
 instance Prelude.NFData NetworkSite where
   rnf NetworkSite' {..} =
-    Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf pendingPlan
-      `Prelude.seq` Prelude.rnf currentPlan
-      `Prelude.seq` Prelude.rnf createdAt
+    Prelude.rnf availabilityZone
       `Prelude.seq` Prelude.rnf availabilityZoneId
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf currentPlan
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf pendingPlan
+      `Prelude.seq` Prelude.rnf statusReason
       `Prelude.seq` Prelude.rnf networkArn
       `Prelude.seq` Prelude.rnf networkSiteArn
       `Prelude.seq` Prelude.rnf networkSiteName

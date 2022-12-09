@@ -34,8 +34,8 @@ module Amazonka.PrivateNetworks.GetNetworkSite
     newGetNetworkSiteResponse,
 
     -- * Response Lenses
-    getNetworkSiteResponse_tags,
     getNetworkSiteResponse_networkSite,
+    getNetworkSiteResponse_tags,
     getNetworkSiteResponse_httpStatus,
   )
 where
@@ -85,8 +85,8 @@ instance Core.AWSRequest GetNetworkSite where
     Response.receiveJSON
       ( \s h x ->
           GetNetworkSiteResponse'
-            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "networkSite")
+            Prelude.<$> (x Data..?> "networkSite")
+            Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,10 +118,10 @@ instance Data.ToQuery GetNetworkSite where
 
 -- | /See:/ 'newGetNetworkSiteResponse' smart constructor.
 data GetNetworkSiteResponse = GetNetworkSiteResponse'
-  { -- | The network site tags.
-    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
-    -- | Information about the network site.
+  { -- | Information about the network site.
     networkSite :: Prelude.Maybe NetworkSite,
+    -- | The network site tags.
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -135,9 +135,9 @@ data GetNetworkSiteResponse = GetNetworkSiteResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'getNetworkSiteResponse_tags' - The network site tags.
---
 -- 'networkSite', 'getNetworkSiteResponse_networkSite' - Information about the network site.
+--
+-- 'tags', 'getNetworkSiteResponse_tags' - The network site tags.
 --
 -- 'httpStatus', 'getNetworkSiteResponse_httpStatus' - The response's http status code.
 newGetNetworkSiteResponse ::
@@ -146,18 +146,19 @@ newGetNetworkSiteResponse ::
   GetNetworkSiteResponse
 newGetNetworkSiteResponse pHttpStatus_ =
   GetNetworkSiteResponse'
-    { tags = Prelude.Nothing,
-      networkSite = Prelude.Nothing,
+    { networkSite =
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The network site tags.
-getNetworkSiteResponse_tags :: Lens.Lens' GetNetworkSiteResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getNetworkSiteResponse_tags = Lens.lens (\GetNetworkSiteResponse' {tags} -> tags) (\s@GetNetworkSiteResponse' {} a -> s {tags = a} :: GetNetworkSiteResponse) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | Information about the network site.
 getNetworkSiteResponse_networkSite :: Lens.Lens' GetNetworkSiteResponse (Prelude.Maybe NetworkSite)
 getNetworkSiteResponse_networkSite = Lens.lens (\GetNetworkSiteResponse' {networkSite} -> networkSite) (\s@GetNetworkSiteResponse' {} a -> s {networkSite = a} :: GetNetworkSiteResponse)
+
+-- | The network site tags.
+getNetworkSiteResponse_tags :: Lens.Lens' GetNetworkSiteResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getNetworkSiteResponse_tags = Lens.lens (\GetNetworkSiteResponse' {tags} -> tags) (\s@GetNetworkSiteResponse' {} a -> s {tags = a} :: GetNetworkSiteResponse) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The response's http status code.
 getNetworkSiteResponse_httpStatus :: Lens.Lens' GetNetworkSiteResponse Prelude.Int
@@ -165,6 +166,6 @@ getNetworkSiteResponse_httpStatus = Lens.lens (\GetNetworkSiteResponse' {httpSta
 
 instance Prelude.NFData GetNetworkSiteResponse where
   rnf GetNetworkSiteResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf networkSite
+    Prelude.rnf networkSite
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

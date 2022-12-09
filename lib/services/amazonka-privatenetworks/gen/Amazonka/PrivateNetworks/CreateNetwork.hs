@@ -27,9 +27,9 @@ module Amazonka.PrivateNetworks.CreateNetwork
     newCreateNetwork,
 
     -- * Request Lenses
-    createNetwork_tags,
     createNetwork_clientToken,
     createNetwork_description,
+    createNetwork_tags,
     createNetwork_networkName,
 
     -- * Destructuring the Response
@@ -53,14 +53,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateNetwork' smart constructor.
 data CreateNetwork = CreateNetwork'
-  { -- | The tags to apply to the network.
-    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
-    -- | Unique, case-sensitive identifier that you provide to ensure the
+  { -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to ensure idempotency>.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The description of the network.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The tags to apply to the network.
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The name of the network. You can\'t change the name after you create the
     -- network.
     networkName :: Prelude.Text
@@ -75,13 +75,13 @@ data CreateNetwork = CreateNetwork'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createNetwork_tags' - The tags to apply to the network.
---
 -- 'clientToken', 'createNetwork_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to ensure idempotency>.
 --
 -- 'description', 'createNetwork_description' - The description of the network.
+--
+-- 'tags', 'createNetwork_tags' - The tags to apply to the network.
 --
 -- 'networkName', 'createNetwork_networkName' - The name of the network. You can\'t change the name after you create the
 -- network.
@@ -91,15 +91,11 @@ newCreateNetwork ::
   CreateNetwork
 newCreateNetwork pNetworkName_ =
   CreateNetwork'
-    { tags = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
+    { clientToken = Prelude.Nothing,
       description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       networkName = pNetworkName_
     }
-
--- | The tags to apply to the network.
-createNetwork_tags :: Lens.Lens' CreateNetwork (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createNetwork_tags = Lens.lens (\CreateNetwork' {tags} -> tags) (\s@CreateNetwork' {} a -> s {tags = a} :: CreateNetwork) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
@@ -110,6 +106,10 @@ createNetwork_clientToken = Lens.lens (\CreateNetwork' {clientToken} -> clientTo
 -- | The description of the network.
 createNetwork_description :: Lens.Lens' CreateNetwork (Prelude.Maybe Prelude.Text)
 createNetwork_description = Lens.lens (\CreateNetwork' {description} -> description) (\s@CreateNetwork' {} a -> s {description = a} :: CreateNetwork)
+
+-- | The tags to apply to the network.
+createNetwork_tags :: Lens.Lens' CreateNetwork (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createNetwork_tags = Lens.lens (\CreateNetwork' {tags} -> tags) (\s@CreateNetwork' {} a -> s {tags = a} :: CreateNetwork) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The name of the network. You can\'t change the name after you create the
 -- network.
@@ -133,16 +133,16 @@ instance Core.AWSRequest CreateNetwork where
 
 instance Prelude.Hashable CreateNetwork where
   hashWithSalt _salt CreateNetwork' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` networkName
 
 instance Prelude.NFData CreateNetwork where
   rnf CreateNetwork' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf networkName
 
 instance Data.ToHeaders CreateNetwork where
@@ -160,9 +160,9 @@ instance Data.ToJSON CreateNetwork where
   toJSON CreateNetwork' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("clientToken" Data..=) Prelude.<$> clientToken,
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
             ("description" Data..=) Prelude.<$> description,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("networkName" Data..= networkName)
           ]
       )

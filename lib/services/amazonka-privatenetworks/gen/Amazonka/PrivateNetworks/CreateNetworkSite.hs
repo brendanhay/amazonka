@@ -27,12 +27,12 @@ module Amazonka.PrivateNetworks.CreateNetworkSite
     newCreateNetworkSite,
 
     -- * Request Lenses
-    createNetworkSite_tags,
+    createNetworkSite_availabilityZone,
+    createNetworkSite_availabilityZoneId,
     createNetworkSite_clientToken,
     createNetworkSite_description,
-    createNetworkSite_availabilityZone,
     createNetworkSite_pendingPlan,
-    createNetworkSite_availabilityZoneId,
+    createNetworkSite_tags,
     createNetworkSite_networkArn,
     createNetworkSite_networkSiteName,
 
@@ -41,8 +41,8 @@ module Amazonka.PrivateNetworks.CreateNetworkSite
     newCreateNetworkSiteResponse,
 
     -- * Response Lenses
-    createNetworkSiteResponse_tags,
     createNetworkSiteResponse_networkSite,
+    createNetworkSiteResponse_tags,
     createNetworkSiteResponse_httpStatus,
   )
 where
@@ -57,22 +57,22 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateNetworkSite' smart constructor.
 data CreateNetworkSite = CreateNetworkSite'
-  { -- | The tags to apply to the network site.
-    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+  { -- | The Availability Zone that is the parent of this site. You can\'t change
+    -- the Availability Zone after you create the site.
+    availabilityZone :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the Availability Zone that is the parent of this site. You
+    -- can\'t change the Availability Zone after you create the site.
+    availabilityZoneId :: Prelude.Maybe Prelude.Text,
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to ensure idempotency>.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The description of the site.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The Availability Zone that is the parent of this site. You can\'t change
-    -- the Availability Zone after you create the site.
-    availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | Information about the pending plan for this site.
     pendingPlan :: Prelude.Maybe SitePlan,
-    -- | The ID of the Availability Zone that is the parent of this site. You
-    -- can\'t change the Availability Zone after you create the site.
-    availabilityZoneId :: Prelude.Maybe Prelude.Text,
+    -- | The tags to apply to the network site.
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The Amazon Resource Name (ARN) of the network.
     networkArn :: Prelude.Text,
     -- | The name of the site. You can\'t change the name after you create the
@@ -89,7 +89,11 @@ data CreateNetworkSite = CreateNetworkSite'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createNetworkSite_tags' - The tags to apply to the network site.
+-- 'availabilityZone', 'createNetworkSite_availabilityZone' - The Availability Zone that is the parent of this site. You can\'t change
+-- the Availability Zone after you create the site.
+--
+-- 'availabilityZoneId', 'createNetworkSite_availabilityZoneId' - The ID of the Availability Zone that is the parent of this site. You
+-- can\'t change the Availability Zone after you create the site.
 --
 -- 'clientToken', 'createNetworkSite_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
@@ -97,13 +101,9 @@ data CreateNetworkSite = CreateNetworkSite'
 --
 -- 'description', 'createNetworkSite_description' - The description of the site.
 --
--- 'availabilityZone', 'createNetworkSite_availabilityZone' - The Availability Zone that is the parent of this site. You can\'t change
--- the Availability Zone after you create the site.
---
 -- 'pendingPlan', 'createNetworkSite_pendingPlan' - Information about the pending plan for this site.
 --
--- 'availabilityZoneId', 'createNetworkSite_availabilityZoneId' - The ID of the Availability Zone that is the parent of this site. You
--- can\'t change the Availability Zone after you create the site.
+-- 'tags', 'createNetworkSite_tags' - The tags to apply to the network site.
 --
 -- 'networkArn', 'createNetworkSite_networkArn' - The Amazon Resource Name (ARN) of the network.
 --
@@ -117,19 +117,26 @@ newCreateNetworkSite ::
   CreateNetworkSite
 newCreateNetworkSite pNetworkArn_ pNetworkSiteName_ =
   CreateNetworkSite'
-    { tags = Prelude.Nothing,
+    { availabilityZone =
+        Prelude.Nothing,
+      availabilityZoneId = Prelude.Nothing,
       clientToken = Prelude.Nothing,
       description = Prelude.Nothing,
-      availabilityZone = Prelude.Nothing,
       pendingPlan = Prelude.Nothing,
-      availabilityZoneId = Prelude.Nothing,
+      tags = Prelude.Nothing,
       networkArn = pNetworkArn_,
       networkSiteName = pNetworkSiteName_
     }
 
--- | The tags to apply to the network site.
-createNetworkSite_tags :: Lens.Lens' CreateNetworkSite (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createNetworkSite_tags = Lens.lens (\CreateNetworkSite' {tags} -> tags) (\s@CreateNetworkSite' {} a -> s {tags = a} :: CreateNetworkSite) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
+-- | The Availability Zone that is the parent of this site. You can\'t change
+-- the Availability Zone after you create the site.
+createNetworkSite_availabilityZone :: Lens.Lens' CreateNetworkSite (Prelude.Maybe Prelude.Text)
+createNetworkSite_availabilityZone = Lens.lens (\CreateNetworkSite' {availabilityZone} -> availabilityZone) (\s@CreateNetworkSite' {} a -> s {availabilityZone = a} :: CreateNetworkSite)
+
+-- | The ID of the Availability Zone that is the parent of this site. You
+-- can\'t change the Availability Zone after you create the site.
+createNetworkSite_availabilityZoneId :: Lens.Lens' CreateNetworkSite (Prelude.Maybe Prelude.Text)
+createNetworkSite_availabilityZoneId = Lens.lens (\CreateNetworkSite' {availabilityZoneId} -> availabilityZoneId) (\s@CreateNetworkSite' {} a -> s {availabilityZoneId = a} :: CreateNetworkSite)
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
@@ -141,19 +148,13 @@ createNetworkSite_clientToken = Lens.lens (\CreateNetworkSite' {clientToken} -> 
 createNetworkSite_description :: Lens.Lens' CreateNetworkSite (Prelude.Maybe Prelude.Text)
 createNetworkSite_description = Lens.lens (\CreateNetworkSite' {description} -> description) (\s@CreateNetworkSite' {} a -> s {description = a} :: CreateNetworkSite)
 
--- | The Availability Zone that is the parent of this site. You can\'t change
--- the Availability Zone after you create the site.
-createNetworkSite_availabilityZone :: Lens.Lens' CreateNetworkSite (Prelude.Maybe Prelude.Text)
-createNetworkSite_availabilityZone = Lens.lens (\CreateNetworkSite' {availabilityZone} -> availabilityZone) (\s@CreateNetworkSite' {} a -> s {availabilityZone = a} :: CreateNetworkSite)
-
 -- | Information about the pending plan for this site.
 createNetworkSite_pendingPlan :: Lens.Lens' CreateNetworkSite (Prelude.Maybe SitePlan)
 createNetworkSite_pendingPlan = Lens.lens (\CreateNetworkSite' {pendingPlan} -> pendingPlan) (\s@CreateNetworkSite' {} a -> s {pendingPlan = a} :: CreateNetworkSite)
 
--- | The ID of the Availability Zone that is the parent of this site. You
--- can\'t change the Availability Zone after you create the site.
-createNetworkSite_availabilityZoneId :: Lens.Lens' CreateNetworkSite (Prelude.Maybe Prelude.Text)
-createNetworkSite_availabilityZoneId = Lens.lens (\CreateNetworkSite' {availabilityZoneId} -> availabilityZoneId) (\s@CreateNetworkSite' {} a -> s {availabilityZoneId = a} :: CreateNetworkSite)
+-- | The tags to apply to the network site.
+createNetworkSite_tags :: Lens.Lens' CreateNetworkSite (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createNetworkSite_tags = Lens.lens (\CreateNetworkSite' {tags} -> tags) (\s@CreateNetworkSite' {} a -> s {tags = a} :: CreateNetworkSite) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The Amazon Resource Name (ARN) of the network.
 createNetworkSite_networkArn :: Lens.Lens' CreateNetworkSite Prelude.Text
@@ -174,30 +175,30 @@ instance Core.AWSRequest CreateNetworkSite where
     Response.receiveJSON
       ( \s h x ->
           CreateNetworkSiteResponse'
-            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "networkSite")
+            Prelude.<$> (x Data..?> "networkSite")
+            Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateNetworkSite where
   hashWithSalt _salt CreateNetworkSite' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` availabilityZoneId
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` pendingPlan
-      `Prelude.hashWithSalt` availabilityZoneId
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` networkArn
       `Prelude.hashWithSalt` networkSiteName
 
 instance Prelude.NFData CreateNetworkSite where
   rnf CreateNetworkSite' {..} =
-    Prelude.rnf tags
+    Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf availabilityZoneId
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf availabilityZone
       `Prelude.seq` Prelude.rnf pendingPlan
-      `Prelude.seq` Prelude.rnf availabilityZoneId
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf networkArn
       `Prelude.seq` Prelude.rnf networkSiteName
 
@@ -216,14 +217,14 @@ instance Data.ToJSON CreateNetworkSite where
   toJSON CreateNetworkSite' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("clientToken" Data..=) Prelude.<$> clientToken,
-            ("description" Data..=) Prelude.<$> description,
-            ("availabilityZone" Data..=)
+          [ ("availabilityZone" Data..=)
               Prelude.<$> availabilityZone,
-            ("pendingPlan" Data..=) Prelude.<$> pendingPlan,
             ("availabilityZoneId" Data..=)
               Prelude.<$> availabilityZoneId,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("description" Data..=) Prelude.<$> description,
+            ("pendingPlan" Data..=) Prelude.<$> pendingPlan,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("networkArn" Data..= networkArn),
             Prelude.Just
               ("networkSiteName" Data..= networkSiteName)
@@ -238,10 +239,10 @@ instance Data.ToQuery CreateNetworkSite where
 
 -- | /See:/ 'newCreateNetworkSiteResponse' smart constructor.
 data CreateNetworkSiteResponse = CreateNetworkSiteResponse'
-  { -- | The network site tags.
-    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
-    -- | Information about the network site.
+  { -- | Information about the network site.
     networkSite :: Prelude.Maybe NetworkSite,
+    -- | The network site tags.
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -255,9 +256,9 @@ data CreateNetworkSiteResponse = CreateNetworkSiteResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createNetworkSiteResponse_tags' - The network site tags.
---
 -- 'networkSite', 'createNetworkSiteResponse_networkSite' - Information about the network site.
+--
+-- 'tags', 'createNetworkSiteResponse_tags' - The network site tags.
 --
 -- 'httpStatus', 'createNetworkSiteResponse_httpStatus' - The response's http status code.
 newCreateNetworkSiteResponse ::
@@ -266,18 +267,19 @@ newCreateNetworkSiteResponse ::
   CreateNetworkSiteResponse
 newCreateNetworkSiteResponse pHttpStatus_ =
   CreateNetworkSiteResponse'
-    { tags = Prelude.Nothing,
-      networkSite = Prelude.Nothing,
+    { networkSite =
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The network site tags.
-createNetworkSiteResponse_tags :: Lens.Lens' CreateNetworkSiteResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createNetworkSiteResponse_tags = Lens.lens (\CreateNetworkSiteResponse' {tags} -> tags) (\s@CreateNetworkSiteResponse' {} a -> s {tags = a} :: CreateNetworkSiteResponse) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | Information about the network site.
 createNetworkSiteResponse_networkSite :: Lens.Lens' CreateNetworkSiteResponse (Prelude.Maybe NetworkSite)
 createNetworkSiteResponse_networkSite = Lens.lens (\CreateNetworkSiteResponse' {networkSite} -> networkSite) (\s@CreateNetworkSiteResponse' {} a -> s {networkSite = a} :: CreateNetworkSiteResponse)
+
+-- | The network site tags.
+createNetworkSiteResponse_tags :: Lens.Lens' CreateNetworkSiteResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createNetworkSiteResponse_tags = Lens.lens (\CreateNetworkSiteResponse' {tags} -> tags) (\s@CreateNetworkSiteResponse' {} a -> s {tags = a} :: CreateNetworkSiteResponse) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The response's http status code.
 createNetworkSiteResponse_httpStatus :: Lens.Lens' CreateNetworkSiteResponse Prelude.Int
@@ -285,6 +287,6 @@ createNetworkSiteResponse_httpStatus = Lens.lens (\CreateNetworkSiteResponse' {h
 
 instance Prelude.NFData CreateNetworkSiteResponse where
   rnf CreateNetworkSiteResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf networkSite
+    Prelude.rnf networkSite
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

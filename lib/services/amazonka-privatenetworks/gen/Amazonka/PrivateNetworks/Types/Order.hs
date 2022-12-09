@@ -31,22 +31,22 @@ import Amazonka.PrivateNetworks.Types.TrackingInformation
 --
 -- /See:/ 'newOrder' smart constructor.
 data Order = Order'
-  { -- | The shipping address of the order.
-    shippingAddress :: Prelude.Maybe Address,
-    -- | The acknowledgement status of the order.
+  { -- | The acknowledgement status of the order.
     acknowledgmentStatus :: Prelude.Maybe AcknowledgmentStatus,
-    -- | The Amazon Resource Name (ARN) of the network site associated with this
-    -- order.
-    networkSiteArn :: Prelude.Maybe Prelude.Text,
+    -- | The creation time of the order.
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the network associated with this
     -- order.
     networkArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the network site associated with this
+    -- order.
+    networkSiteArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the order.
     orderArn :: Prelude.Maybe Prelude.Text,
+    -- | The shipping address of the order.
+    shippingAddress :: Prelude.Maybe Address,
     -- | The tracking information of the order.
-    trackingInformation :: Prelude.Maybe [TrackingInformation],
-    -- | The creation time of the order.
-    createdAt :: Prelude.Maybe Data.POSIX
+    trackingInformation :: Prelude.Maybe [TrackingInformation]
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -58,63 +58,63 @@ data Order = Order'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'shippingAddress', 'order_shippingAddress' - The shipping address of the order.
---
 -- 'acknowledgmentStatus', 'order_acknowledgmentStatus' - The acknowledgement status of the order.
 --
--- 'networkSiteArn', 'order_networkSiteArn' - The Amazon Resource Name (ARN) of the network site associated with this
--- order.
+-- 'createdAt', 'order_createdAt' - The creation time of the order.
 --
 -- 'networkArn', 'order_networkArn' - The Amazon Resource Name (ARN) of the network associated with this
 -- order.
 --
+-- 'networkSiteArn', 'order_networkSiteArn' - The Amazon Resource Name (ARN) of the network site associated with this
+-- order.
+--
 -- 'orderArn', 'order_orderArn' - The Amazon Resource Name (ARN) of the order.
 --
--- 'trackingInformation', 'order_trackingInformation' - The tracking information of the order.
+-- 'shippingAddress', 'order_shippingAddress' - The shipping address of the order.
 --
--- 'createdAt', 'order_createdAt' - The creation time of the order.
+-- 'trackingInformation', 'order_trackingInformation' - The tracking information of the order.
 newOrder ::
   Order
 newOrder =
   Order'
-    { shippingAddress = Prelude.Nothing,
-      acknowledgmentStatus = Prelude.Nothing,
-      networkSiteArn = Prelude.Nothing,
+    { acknowledgmentStatus = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
       networkArn = Prelude.Nothing,
+      networkSiteArn = Prelude.Nothing,
       orderArn = Prelude.Nothing,
-      trackingInformation = Prelude.Nothing,
-      createdAt = Prelude.Nothing
+      shippingAddress = Prelude.Nothing,
+      trackingInformation = Prelude.Nothing
     }
-
--- | The shipping address of the order.
-order_shippingAddress :: Lens.Lens' Order (Prelude.Maybe Address)
-order_shippingAddress = Lens.lens (\Order' {shippingAddress} -> shippingAddress) (\s@Order' {} a -> s {shippingAddress = a} :: Order)
 
 -- | The acknowledgement status of the order.
 order_acknowledgmentStatus :: Lens.Lens' Order (Prelude.Maybe AcknowledgmentStatus)
 order_acknowledgmentStatus = Lens.lens (\Order' {acknowledgmentStatus} -> acknowledgmentStatus) (\s@Order' {} a -> s {acknowledgmentStatus = a} :: Order)
 
--- | The Amazon Resource Name (ARN) of the network site associated with this
--- order.
-order_networkSiteArn :: Lens.Lens' Order (Prelude.Maybe Prelude.Text)
-order_networkSiteArn = Lens.lens (\Order' {networkSiteArn} -> networkSiteArn) (\s@Order' {} a -> s {networkSiteArn = a} :: Order)
+-- | The creation time of the order.
+order_createdAt :: Lens.Lens' Order (Prelude.Maybe Prelude.UTCTime)
+order_createdAt = Lens.lens (\Order' {createdAt} -> createdAt) (\s@Order' {} a -> s {createdAt = a} :: Order) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the network associated with this
 -- order.
 order_networkArn :: Lens.Lens' Order (Prelude.Maybe Prelude.Text)
 order_networkArn = Lens.lens (\Order' {networkArn} -> networkArn) (\s@Order' {} a -> s {networkArn = a} :: Order)
 
+-- | The Amazon Resource Name (ARN) of the network site associated with this
+-- order.
+order_networkSiteArn :: Lens.Lens' Order (Prelude.Maybe Prelude.Text)
+order_networkSiteArn = Lens.lens (\Order' {networkSiteArn} -> networkSiteArn) (\s@Order' {} a -> s {networkSiteArn = a} :: Order)
+
 -- | The Amazon Resource Name (ARN) of the order.
 order_orderArn :: Lens.Lens' Order (Prelude.Maybe Prelude.Text)
 order_orderArn = Lens.lens (\Order' {orderArn} -> orderArn) (\s@Order' {} a -> s {orderArn = a} :: Order)
 
+-- | The shipping address of the order.
+order_shippingAddress :: Lens.Lens' Order (Prelude.Maybe Address)
+order_shippingAddress = Lens.lens (\Order' {shippingAddress} -> shippingAddress) (\s@Order' {} a -> s {shippingAddress = a} :: Order)
+
 -- | The tracking information of the order.
 order_trackingInformation :: Lens.Lens' Order (Prelude.Maybe [TrackingInformation])
 order_trackingInformation = Lens.lens (\Order' {trackingInformation} -> trackingInformation) (\s@Order' {} a -> s {trackingInformation = a} :: Order) Prelude.. Lens.mapping Lens.coerced
-
--- | The creation time of the order.
-order_createdAt :: Lens.Lens' Order (Prelude.Maybe Prelude.UTCTime)
-order_createdAt = Lens.lens (\Order' {createdAt} -> createdAt) (\s@Order' {} a -> s {createdAt = a} :: Order) Prelude.. Lens.mapping Data._Time
 
 instance Data.FromJSON Order where
   parseJSON =
@@ -122,33 +122,33 @@ instance Data.FromJSON Order where
       "Order"
       ( \x ->
           Order'
-            Prelude.<$> (x Data..:? "shippingAddress")
-            Prelude.<*> (x Data..:? "acknowledgmentStatus")
-            Prelude.<*> (x Data..:? "networkSiteArn")
+            Prelude.<$> (x Data..:? "acknowledgmentStatus")
+            Prelude.<*> (x Data..:? "createdAt")
             Prelude.<*> (x Data..:? "networkArn")
+            Prelude.<*> (x Data..:? "networkSiteArn")
             Prelude.<*> (x Data..:? "orderArn")
+            Prelude.<*> (x Data..:? "shippingAddress")
             Prelude.<*> ( x Data..:? "trackingInformation"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "createdAt")
       )
 
 instance Prelude.Hashable Order where
   hashWithSalt _salt Order' {..} =
-    _salt `Prelude.hashWithSalt` shippingAddress
-      `Prelude.hashWithSalt` acknowledgmentStatus
-      `Prelude.hashWithSalt` networkSiteArn
-      `Prelude.hashWithSalt` networkArn
-      `Prelude.hashWithSalt` orderArn
-      `Prelude.hashWithSalt` trackingInformation
+    _salt `Prelude.hashWithSalt` acknowledgmentStatus
       `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` networkArn
+      `Prelude.hashWithSalt` networkSiteArn
+      `Prelude.hashWithSalt` orderArn
+      `Prelude.hashWithSalt` shippingAddress
+      `Prelude.hashWithSalt` trackingInformation
 
 instance Prelude.NFData Order where
   rnf Order' {..} =
-    Prelude.rnf shippingAddress
-      `Prelude.seq` Prelude.rnf acknowledgmentStatus
-      `Prelude.seq` Prelude.rnf networkSiteArn
-      `Prelude.seq` Prelude.rnf networkArn
-      `Prelude.seq` Prelude.rnf orderArn
-      `Prelude.seq` Prelude.rnf trackingInformation
+    Prelude.rnf acknowledgmentStatus
       `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf networkArn
+      `Prelude.seq` Prelude.rnf networkSiteArn
+      `Prelude.seq` Prelude.rnf orderArn
+      `Prelude.seq` Prelude.rnf shippingAddress
+      `Prelude.seq` Prelude.rnf trackingInformation

@@ -30,16 +30,16 @@ import Amazonka.PrivateNetworks.Types.ElevationUnit
 --
 -- /See:/ 'newPosition' smart constructor.
 data Position = Position'
-  { -- | The longitude of the position.
-    longitude :: Prelude.Maybe Prelude.Double,
-    -- | The latitude of the position.
-    latitude :: Prelude.Maybe Prelude.Double,
-    -- | The elevation of the equipment at this position.
+  { -- | The elevation of the equipment at this position.
     elevation :: Prelude.Maybe Prelude.Double,
     -- | The reference point from which elevation is reported.
     elevationReference :: Prelude.Maybe ElevationReference,
     -- | The units used to measure the elevation of the position.
-    elevationUnit :: Prelude.Maybe ElevationUnit
+    elevationUnit :: Prelude.Maybe ElevationUnit,
+    -- | The latitude of the position.
+    latitude :: Prelude.Maybe Prelude.Double,
+    -- | The longitude of the position.
+    longitude :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,33 +51,25 @@ data Position = Position'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'longitude', 'position_longitude' - The longitude of the position.
---
--- 'latitude', 'position_latitude' - The latitude of the position.
---
 -- 'elevation', 'position_elevation' - The elevation of the equipment at this position.
 --
 -- 'elevationReference', 'position_elevationReference' - The reference point from which elevation is reported.
 --
 -- 'elevationUnit', 'position_elevationUnit' - The units used to measure the elevation of the position.
+--
+-- 'latitude', 'position_latitude' - The latitude of the position.
+--
+-- 'longitude', 'position_longitude' - The longitude of the position.
 newPosition ::
   Position
 newPosition =
   Position'
-    { longitude = Prelude.Nothing,
-      latitude = Prelude.Nothing,
-      elevation = Prelude.Nothing,
+    { elevation = Prelude.Nothing,
       elevationReference = Prelude.Nothing,
-      elevationUnit = Prelude.Nothing
+      elevationUnit = Prelude.Nothing,
+      latitude = Prelude.Nothing,
+      longitude = Prelude.Nothing
     }
-
--- | The longitude of the position.
-position_longitude :: Lens.Lens' Position (Prelude.Maybe Prelude.Double)
-position_longitude = Lens.lens (\Position' {longitude} -> longitude) (\s@Position' {} a -> s {longitude = a} :: Position)
-
--- | The latitude of the position.
-position_latitude :: Lens.Lens' Position (Prelude.Maybe Prelude.Double)
-position_latitude = Lens.lens (\Position' {latitude} -> latitude) (\s@Position' {} a -> s {latitude = a} :: Position)
 
 -- | The elevation of the equipment at this position.
 position_elevation :: Lens.Lens' Position (Prelude.Maybe Prelude.Double)
@@ -91,44 +83,52 @@ position_elevationReference = Lens.lens (\Position' {elevationReference} -> elev
 position_elevationUnit :: Lens.Lens' Position (Prelude.Maybe ElevationUnit)
 position_elevationUnit = Lens.lens (\Position' {elevationUnit} -> elevationUnit) (\s@Position' {} a -> s {elevationUnit = a} :: Position)
 
+-- | The latitude of the position.
+position_latitude :: Lens.Lens' Position (Prelude.Maybe Prelude.Double)
+position_latitude = Lens.lens (\Position' {latitude} -> latitude) (\s@Position' {} a -> s {latitude = a} :: Position)
+
+-- | The longitude of the position.
+position_longitude :: Lens.Lens' Position (Prelude.Maybe Prelude.Double)
+position_longitude = Lens.lens (\Position' {longitude} -> longitude) (\s@Position' {} a -> s {longitude = a} :: Position)
+
 instance Data.FromJSON Position where
   parseJSON =
     Data.withObject
       "Position"
       ( \x ->
           Position'
-            Prelude.<$> (x Data..:? "longitude")
-            Prelude.<*> (x Data..:? "latitude")
-            Prelude.<*> (x Data..:? "elevation")
+            Prelude.<$> (x Data..:? "elevation")
             Prelude.<*> (x Data..:? "elevationReference")
             Prelude.<*> (x Data..:? "elevationUnit")
+            Prelude.<*> (x Data..:? "latitude")
+            Prelude.<*> (x Data..:? "longitude")
       )
 
 instance Prelude.Hashable Position where
   hashWithSalt _salt Position' {..} =
-    _salt `Prelude.hashWithSalt` longitude
-      `Prelude.hashWithSalt` latitude
-      `Prelude.hashWithSalt` elevation
+    _salt `Prelude.hashWithSalt` elevation
       `Prelude.hashWithSalt` elevationReference
       `Prelude.hashWithSalt` elevationUnit
+      `Prelude.hashWithSalt` latitude
+      `Prelude.hashWithSalt` longitude
 
 instance Prelude.NFData Position where
   rnf Position' {..} =
-    Prelude.rnf longitude
-      `Prelude.seq` Prelude.rnf latitude
-      `Prelude.seq` Prelude.rnf elevation
+    Prelude.rnf elevation
       `Prelude.seq` Prelude.rnf elevationReference
       `Prelude.seq` Prelude.rnf elevationUnit
+      `Prelude.seq` Prelude.rnf latitude
+      `Prelude.seq` Prelude.rnf longitude
 
 instance Data.ToJSON Position where
   toJSON Position' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("longitude" Data..=) Prelude.<$> longitude,
-            ("latitude" Data..=) Prelude.<$> latitude,
-            ("elevation" Data..=) Prelude.<$> elevation,
+          [ ("elevation" Data..=) Prelude.<$> elevation,
             ("elevationReference" Data..=)
               Prelude.<$> elevationReference,
-            ("elevationUnit" Data..=) Prelude.<$> elevationUnit
+            ("elevationUnit" Data..=) Prelude.<$> elevationUnit,
+            ("latitude" Data..=) Prelude.<$> latitude,
+            ("longitude" Data..=) Prelude.<$> longitude
           ]
       )

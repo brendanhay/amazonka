@@ -37,16 +37,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newListAccountAssociationsFilter' smart constructor.
 data ListAccountAssociationsFilter = ListAccountAssociationsFilter'
-  { -- | @MONITORED@: linked accounts that are associated to billing groups.
+  { -- | The Amazon Web Services account ID to filter on.
+    accountId :: Prelude.Maybe Prelude.Text,
+    -- | @MONITORED@: linked accounts that are associated to billing groups.
     --
     -- @UNMONITORED@: linked accounts that are not associated to billing
     -- groups.
     --
     -- @Billing Group Arn@: linked accounts that are associated to the provided
     -- Billing Group Arn.
-    association :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services account ID to filter on.
-    accountId :: Prelude.Maybe Prelude.Text
+    association :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,6 +58,8 @@ data ListAccountAssociationsFilter = ListAccountAssociationsFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'accountId', 'listAccountAssociationsFilter_accountId' - The Amazon Web Services account ID to filter on.
+--
 -- 'association', 'listAccountAssociationsFilter_association' - @MONITORED@: linked accounts that are associated to billing groups.
 --
 -- @UNMONITORED@: linked accounts that are not associated to billing
@@ -65,16 +67,18 @@ data ListAccountAssociationsFilter = ListAccountAssociationsFilter'
 --
 -- @Billing Group Arn@: linked accounts that are associated to the provided
 -- Billing Group Arn.
---
--- 'accountId', 'listAccountAssociationsFilter_accountId' - The Amazon Web Services account ID to filter on.
 newListAccountAssociationsFilter ::
   ListAccountAssociationsFilter
 newListAccountAssociationsFilter =
   ListAccountAssociationsFilter'
-    { association =
+    { accountId =
         Prelude.Nothing,
-      accountId = Prelude.Nothing
+      association = Prelude.Nothing
     }
+
+-- | The Amazon Web Services account ID to filter on.
+listAccountAssociationsFilter_accountId :: Lens.Lens' ListAccountAssociationsFilter (Prelude.Maybe Prelude.Text)
+listAccountAssociationsFilter_accountId = Lens.lens (\ListAccountAssociationsFilter' {accountId} -> accountId) (\s@ListAccountAssociationsFilter' {} a -> s {accountId = a} :: ListAccountAssociationsFilter)
 
 -- | @MONITORED@: linked accounts that are associated to billing groups.
 --
@@ -86,28 +90,24 @@ newListAccountAssociationsFilter =
 listAccountAssociationsFilter_association :: Lens.Lens' ListAccountAssociationsFilter (Prelude.Maybe Prelude.Text)
 listAccountAssociationsFilter_association = Lens.lens (\ListAccountAssociationsFilter' {association} -> association) (\s@ListAccountAssociationsFilter' {} a -> s {association = a} :: ListAccountAssociationsFilter)
 
--- | The Amazon Web Services account ID to filter on.
-listAccountAssociationsFilter_accountId :: Lens.Lens' ListAccountAssociationsFilter (Prelude.Maybe Prelude.Text)
-listAccountAssociationsFilter_accountId = Lens.lens (\ListAccountAssociationsFilter' {accountId} -> accountId) (\s@ListAccountAssociationsFilter' {} a -> s {accountId = a} :: ListAccountAssociationsFilter)
-
 instance
   Prelude.Hashable
     ListAccountAssociationsFilter
   where
   hashWithSalt _salt ListAccountAssociationsFilter' {..} =
-    _salt `Prelude.hashWithSalt` association
-      `Prelude.hashWithSalt` accountId
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` association
 
 instance Prelude.NFData ListAccountAssociationsFilter where
   rnf ListAccountAssociationsFilter' {..} =
-    Prelude.rnf association
-      `Prelude.seq` Prelude.rnf accountId
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf association
 
 instance Data.ToJSON ListAccountAssociationsFilter where
   toJSON ListAccountAssociationsFilter' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Association" Data..=) Prelude.<$> association,
-            ("AccountId" Data..=) Prelude.<$> accountId
+          [ ("AccountId" Data..=) Prelude.<$> accountId,
+            ("Association" Data..=) Prelude.<$> association
           ]
       )

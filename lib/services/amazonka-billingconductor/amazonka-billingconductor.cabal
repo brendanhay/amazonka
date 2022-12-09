@@ -81,6 +81,8 @@ library
     Amazonka.BillingConductor.Types.BillingGroupListElement
     Amazonka.BillingConductor.Types.BillingGroupStatus
     Amazonka.BillingConductor.Types.ComputationPreference
+    Amazonka.BillingConductor.Types.CreateFreeTierConfig
+    Amazonka.BillingConductor.Types.CreateTieringInput
     Amazonka.BillingConductor.Types.CurrencyCode
     Amazonka.BillingConductor.Types.CustomLineItemBillingPeriodRange
     Amazonka.BillingConductor.Types.CustomLineItemChargeDetails
@@ -91,6 +93,7 @@ library
     Amazonka.BillingConductor.Types.CustomLineItemType
     Amazonka.BillingConductor.Types.CustomLineItemVersionListElement
     Amazonka.BillingConductor.Types.DisassociateResourceResponseElement
+    Amazonka.BillingConductor.Types.FreeTierConfig
     Amazonka.BillingConductor.Types.ListAccountAssociationsFilter
     Amazonka.BillingConductor.Types.ListBillingGroupCostReportsFilter
     Amazonka.BillingConductor.Types.ListBillingGroupsFilter
@@ -108,9 +111,12 @@ library
     Amazonka.BillingConductor.Types.PricingRuleListElement
     Amazonka.BillingConductor.Types.PricingRuleScope
     Amazonka.BillingConductor.Types.PricingRuleType
+    Amazonka.BillingConductor.Types.Tiering
     Amazonka.BillingConductor.Types.UpdateCustomLineItemChargeDetails
     Amazonka.BillingConductor.Types.UpdateCustomLineItemFlatChargeDetails
     Amazonka.BillingConductor.Types.UpdateCustomLineItemPercentageChargeDetails
+    Amazonka.BillingConductor.Types.UpdateFreeTierConfig
+    Amazonka.BillingConductor.Types.UpdateTieringInput
     Amazonka.BillingConductor.UntagResource
     Amazonka.BillingConductor.UpdateBillingGroup
     Amazonka.BillingConductor.UpdateCustomLineItem

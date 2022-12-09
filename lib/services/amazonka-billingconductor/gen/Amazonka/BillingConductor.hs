@@ -42,20 +42,20 @@ module Amazonka.BillingConductor
     -- ** AccessDeniedException
     _AccessDeniedException,
 
+    -- ** ConflictException
+    _ConflictException,
+
     -- ** InternalServerException
     _InternalServerException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
-    -- ** ConflictException
-    _ConflictException,
+    -- ** ServiceLimitExceededException
+    _ServiceLimitExceededException,
 
     -- ** ThrottlingException
     _ThrottlingException,
-
-    -- ** ServiceLimitExceededException
-    _ServiceLimitExceededException,
 
     -- ** ValidationException
     _ValidationException,
@@ -303,6 +303,14 @@ module Amazonka.BillingConductor
     ComputationPreference (ComputationPreference'),
     newComputationPreference,
 
+    -- ** CreateFreeTierConfig
+    CreateFreeTierConfig (CreateFreeTierConfig'),
+    newCreateFreeTierConfig,
+
+    -- ** CreateTieringInput
+    CreateTieringInput (CreateTieringInput'),
+    newCreateTieringInput,
+
     -- ** CustomLineItemBillingPeriodRange
     CustomLineItemBillingPeriodRange (CustomLineItemBillingPeriodRange'),
     newCustomLineItemBillingPeriodRange,
@@ -330,6 +338,10 @@ module Amazonka.BillingConductor
     -- ** DisassociateResourceResponseElement
     DisassociateResourceResponseElement (DisassociateResourceResponseElement'),
     newDisassociateResourceResponseElement,
+
+    -- ** FreeTierConfig
+    FreeTierConfig (FreeTierConfig'),
+    newFreeTierConfig,
 
     -- ** ListAccountAssociationsFilter
     ListAccountAssociationsFilter (ListAccountAssociationsFilter'),
@@ -391,6 +403,10 @@ module Amazonka.BillingConductor
     PricingRuleListElement (PricingRuleListElement'),
     newPricingRuleListElement,
 
+    -- ** Tiering
+    Tiering (Tiering'),
+    newTiering,
+
     -- ** UpdateCustomLineItemChargeDetails
     UpdateCustomLineItemChargeDetails (UpdateCustomLineItemChargeDetails'),
     newUpdateCustomLineItemChargeDetails,
@@ -402,6 +418,14 @@ module Amazonka.BillingConductor
     -- ** UpdateCustomLineItemPercentageChargeDetails
     UpdateCustomLineItemPercentageChargeDetails (UpdateCustomLineItemPercentageChargeDetails'),
     newUpdateCustomLineItemPercentageChargeDetails,
+
+    -- ** UpdateFreeTierConfig
+    UpdateFreeTierConfig (UpdateFreeTierConfig'),
+    newUpdateFreeTierConfig,
+
+    -- ** UpdateTieringInput
+    UpdateTieringInput (UpdateTieringInput'),
+    newUpdateTieringInput,
   )
 where
 

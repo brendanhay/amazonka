@@ -30,9 +30,9 @@ module Amazonka.BillingConductor.CreateCustomLineItem
     newCreateCustomLineItem,
 
     -- * Request Lenses
-    createCustomLineItem_tags,
-    createCustomLineItem_clientToken,
     createCustomLineItem_billingPeriodRange,
+    createCustomLineItem_clientToken,
+    createCustomLineItem_tags,
     createCustomLineItem_name,
     createCustomLineItem_description,
     createCustomLineItem_billingGroupArn,
@@ -58,14 +58,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateCustomLineItem' smart constructor.
 data CreateCustomLineItem = CreateCustomLineItem'
-  { -- | A map that contains tag keys and tag values that are attached to a
-    -- custom line item.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | A time range for which the custom line item is effective.
+    billingPeriodRange :: Prelude.Maybe CustomLineItemBillingPeriodRange,
     -- | The token that is needed to support idempotency. Idempotency isn\'t
     -- currently supported, but will be implemented in a future update.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | A time range for which the custom line item is effective.
-    billingPeriodRange :: Prelude.Maybe CustomLineItemBillingPeriodRange,
+    -- | A map that contains tag keys and tag values that are attached to a
+    -- custom line item.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the custom line item.
     name :: Data.Sensitive Prelude.Text,
     -- | The description of the custom line item. This is shown on the Bills page
@@ -88,13 +88,13 @@ data CreateCustomLineItem = CreateCustomLineItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createCustomLineItem_tags' - A map that contains tag keys and tag values that are attached to a
--- custom line item.
+-- 'billingPeriodRange', 'createCustomLineItem_billingPeriodRange' - A time range for which the custom line item is effective.
 --
 -- 'clientToken', 'createCustomLineItem_clientToken' - The token that is needed to support idempotency. Idempotency isn\'t
 -- currently supported, but will be implemented in a future update.
 --
--- 'billingPeriodRange', 'createCustomLineItem_billingPeriodRange' - A time range for which the custom line item is effective.
+-- 'tags', 'createCustomLineItem_tags' - A map that contains tag keys and tag values that are attached to a
+-- custom line item.
 --
 -- 'name', 'createCustomLineItem_name' - The name of the custom line item.
 --
@@ -122,28 +122,29 @@ newCreateCustomLineItem
   pBillingGroupArn_
   pChargeDetails_ =
     CreateCustomLineItem'
-      { tags = Prelude.Nothing,
+      { billingPeriodRange =
+          Prelude.Nothing,
         clientToken = Prelude.Nothing,
-        billingPeriodRange = Prelude.Nothing,
+        tags = Prelude.Nothing,
         name = Data._Sensitive Lens.# pName_,
         description = Data._Sensitive Lens.# pDescription_,
         billingGroupArn = pBillingGroupArn_,
         chargeDetails = pChargeDetails_
       }
 
--- | A map that contains tag keys and tag values that are attached to a
--- custom line item.
-createCustomLineItem_tags :: Lens.Lens' CreateCustomLineItem (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createCustomLineItem_tags = Lens.lens (\CreateCustomLineItem' {tags} -> tags) (\s@CreateCustomLineItem' {} a -> s {tags = a} :: CreateCustomLineItem) Prelude.. Lens.mapping Lens.coerced
+-- | A time range for which the custom line item is effective.
+createCustomLineItem_billingPeriodRange :: Lens.Lens' CreateCustomLineItem (Prelude.Maybe CustomLineItemBillingPeriodRange)
+createCustomLineItem_billingPeriodRange = Lens.lens (\CreateCustomLineItem' {billingPeriodRange} -> billingPeriodRange) (\s@CreateCustomLineItem' {} a -> s {billingPeriodRange = a} :: CreateCustomLineItem)
 
 -- | The token that is needed to support idempotency. Idempotency isn\'t
 -- currently supported, but will be implemented in a future update.
 createCustomLineItem_clientToken :: Lens.Lens' CreateCustomLineItem (Prelude.Maybe Prelude.Text)
 createCustomLineItem_clientToken = Lens.lens (\CreateCustomLineItem' {clientToken} -> clientToken) (\s@CreateCustomLineItem' {} a -> s {clientToken = a} :: CreateCustomLineItem)
 
--- | A time range for which the custom line item is effective.
-createCustomLineItem_billingPeriodRange :: Lens.Lens' CreateCustomLineItem (Prelude.Maybe CustomLineItemBillingPeriodRange)
-createCustomLineItem_billingPeriodRange = Lens.lens (\CreateCustomLineItem' {billingPeriodRange} -> billingPeriodRange) (\s@CreateCustomLineItem' {} a -> s {billingPeriodRange = a} :: CreateCustomLineItem)
+-- | A map that contains tag keys and tag values that are attached to a
+-- custom line item.
+createCustomLineItem_tags :: Lens.Lens' CreateCustomLineItem (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createCustomLineItem_tags = Lens.lens (\CreateCustomLineItem' {tags} -> tags) (\s@CreateCustomLineItem' {} a -> s {tags = a} :: CreateCustomLineItem) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the custom line item.
 createCustomLineItem_name :: Lens.Lens' CreateCustomLineItem Prelude.Text
@@ -180,9 +181,9 @@ instance Core.AWSRequest CreateCustomLineItem where
 
 instance Prelude.Hashable CreateCustomLineItem where
   hashWithSalt _salt CreateCustomLineItem' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` billingPeriodRange
       `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` billingPeriodRange
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` billingGroupArn
@@ -190,9 +191,9 @@ instance Prelude.Hashable CreateCustomLineItem where
 
 instance Prelude.NFData CreateCustomLineItem where
   rnf CreateCustomLineItem' {..} =
-    Prelude.rnf tags
+    Prelude.rnf billingPeriodRange
       `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf billingPeriodRange
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf billingGroupArn
@@ -210,9 +211,9 @@ instance Data.ToJSON CreateCustomLineItem where
   toJSON CreateCustomLineItem' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("BillingPeriodRange" Data..=)
+          [ ("BillingPeriodRange" Data..=)
               Prelude.<$> billingPeriodRange,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("Description" Data..= description),
             Prelude.Just

@@ -36,8 +36,8 @@ module Amazonka.BillingConductor.BatchAssociateResourcesToCustomLineItem
     newBatchAssociateResourcesToCustomLineItemResponse,
 
     -- * Response Lenses
-    batchAssociateResourcesToCustomLineItemResponse_successfullyAssociatedResources,
     batchAssociateResourcesToCustomLineItemResponse_failedAssociatedResources,
+    batchAssociateResourcesToCustomLineItemResponse_successfullyAssociatedResources,
     batchAssociateResourcesToCustomLineItemResponse_httpStatus,
   )
 where
@@ -117,10 +117,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           BatchAssociateResourcesToCustomLineItemResponse'
-            Prelude.<$> ( x Data..?> "SuccessfullyAssociatedResources"
+            Prelude.<$> ( x Data..?> "FailedAssociatedResources"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> ( x Data..?> "FailedAssociatedResources"
+              Prelude.<*> ( x Data..?> "SuccessfullyAssociatedResources"
                               Core..!@ Prelude.mempty
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -190,12 +190,12 @@ instance
 
 -- | /See:/ 'newBatchAssociateResourcesToCustomLineItemResponse' smart constructor.
 data BatchAssociateResourcesToCustomLineItemResponse = BatchAssociateResourcesToCustomLineItemResponse'
-  { -- | A list of @AssociateResourceResponseElement@ for each resource that\'s
-    -- been associated to a percentage custom line item successfully.
-    successfullyAssociatedResources :: Prelude.Maybe [AssociateResourceResponseElement],
-    -- | A list of @AssociateResourceResponseElement@ for each resource that
+  { -- | A list of @AssociateResourceResponseElement@ for each resource that
     -- failed association to a percentage custom line item.
     failedAssociatedResources :: Prelude.Maybe [AssociateResourceResponseElement],
+    -- | A list of @AssociateResourceResponseElement@ for each resource that\'s
+    -- been associated to a percentage custom line item successfully.
+    successfullyAssociatedResources :: Prelude.Maybe [AssociateResourceResponseElement],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -209,11 +209,11 @@ data BatchAssociateResourcesToCustomLineItemResponse = BatchAssociateResourcesTo
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'successfullyAssociatedResources', 'batchAssociateResourcesToCustomLineItemResponse_successfullyAssociatedResources' - A list of @AssociateResourceResponseElement@ for each resource that\'s
--- been associated to a percentage custom line item successfully.
---
 -- 'failedAssociatedResources', 'batchAssociateResourcesToCustomLineItemResponse_failedAssociatedResources' - A list of @AssociateResourceResponseElement@ for each resource that
 -- failed association to a percentage custom line item.
+--
+-- 'successfullyAssociatedResources', 'batchAssociateResourcesToCustomLineItemResponse_successfullyAssociatedResources' - A list of @AssociateResourceResponseElement@ for each resource that\'s
+-- been associated to a percentage custom line item successfully.
 --
 -- 'httpStatus', 'batchAssociateResourcesToCustomLineItemResponse_httpStatus' - The response's http status code.
 newBatchAssociateResourcesToCustomLineItemResponse ::
@@ -223,22 +223,22 @@ newBatchAssociateResourcesToCustomLineItemResponse ::
 newBatchAssociateResourcesToCustomLineItemResponse
   pHttpStatus_ =
     BatchAssociateResourcesToCustomLineItemResponse'
-      { successfullyAssociatedResources =
+      { failedAssociatedResources =
           Prelude.Nothing,
-        failedAssociatedResources =
+        successfullyAssociatedResources =
           Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | A list of @AssociateResourceResponseElement@ for each resource that\'s
--- been associated to a percentage custom line item successfully.
-batchAssociateResourcesToCustomLineItemResponse_successfullyAssociatedResources :: Lens.Lens' BatchAssociateResourcesToCustomLineItemResponse (Prelude.Maybe [AssociateResourceResponseElement])
-batchAssociateResourcesToCustomLineItemResponse_successfullyAssociatedResources = Lens.lens (\BatchAssociateResourcesToCustomLineItemResponse' {successfullyAssociatedResources} -> successfullyAssociatedResources) (\s@BatchAssociateResourcesToCustomLineItemResponse' {} a -> s {successfullyAssociatedResources = a} :: BatchAssociateResourcesToCustomLineItemResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of @AssociateResourceResponseElement@ for each resource that
 -- failed association to a percentage custom line item.
 batchAssociateResourcesToCustomLineItemResponse_failedAssociatedResources :: Lens.Lens' BatchAssociateResourcesToCustomLineItemResponse (Prelude.Maybe [AssociateResourceResponseElement])
 batchAssociateResourcesToCustomLineItemResponse_failedAssociatedResources = Lens.lens (\BatchAssociateResourcesToCustomLineItemResponse' {failedAssociatedResources} -> failedAssociatedResources) (\s@BatchAssociateResourcesToCustomLineItemResponse' {} a -> s {failedAssociatedResources = a} :: BatchAssociateResourcesToCustomLineItemResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of @AssociateResourceResponseElement@ for each resource that\'s
+-- been associated to a percentage custom line item successfully.
+batchAssociateResourcesToCustomLineItemResponse_successfullyAssociatedResources :: Lens.Lens' BatchAssociateResourcesToCustomLineItemResponse (Prelude.Maybe [AssociateResourceResponseElement])
+batchAssociateResourcesToCustomLineItemResponse_successfullyAssociatedResources = Lens.lens (\BatchAssociateResourcesToCustomLineItemResponse' {successfullyAssociatedResources} -> successfullyAssociatedResources) (\s@BatchAssociateResourcesToCustomLineItemResponse' {} a -> s {successfullyAssociatedResources = a} :: BatchAssociateResourcesToCustomLineItemResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchAssociateResourcesToCustomLineItemResponse_httpStatus :: Lens.Lens' BatchAssociateResourcesToCustomLineItemResponse Prelude.Int
@@ -250,6 +250,6 @@ instance
   where
   rnf
     BatchAssociateResourcesToCustomLineItemResponse' {..} =
-      Prelude.rnf successfullyAssociatedResources
-        `Prelude.seq` Prelude.rnf failedAssociatedResources
+      Prelude.rnf failedAssociatedResources
+        `Prelude.seq` Prelude.rnf successfullyAssociatedResources
         `Prelude.seq` Prelude.rnf httpStatus

@@ -29,10 +29,10 @@ module Amazonka.BillingConductor.CreateBillingGroup
     newCreateBillingGroup,
 
     -- * Request Lenses
-    createBillingGroup_tags,
     createBillingGroup_clientToken,
     createBillingGroup_description,
     createBillingGroup_primaryAccountId,
+    createBillingGroup_tags,
     createBillingGroup_name,
     createBillingGroup_accountGrouping,
     createBillingGroup_computationPreference,
@@ -57,16 +57,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateBillingGroup' smart constructor.
 data CreateBillingGroup = CreateBillingGroup'
-  { -- | A map that contains tag keys and tag values that are attached to a
-    -- billing group. This feature isn\'t available during the beta.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The token that is needed to support idempotency. Idempotency isn\'t
+  { -- | The token that is needed to support idempotency. Idempotency isn\'t
     -- currently supported, but will be implemented in a future update.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The description of the billing group.
     description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The account ID that serves as the main account in a billing group.
     primaryAccountId :: Prelude.Maybe Prelude.Text,
+    -- | A map that contains tag keys and tag values that are attached to a
+    -- billing group. This feature isn\'t available during the beta.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The billing group name. The names must be unique.
     name :: Data.Sensitive Prelude.Text,
     -- | The set of accounts that will be under the billing group. The set of
@@ -86,15 +86,15 @@ data CreateBillingGroup = CreateBillingGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createBillingGroup_tags' - A map that contains tag keys and tag values that are attached to a
--- billing group. This feature isn\'t available during the beta.
---
 -- 'clientToken', 'createBillingGroup_clientToken' - The token that is needed to support idempotency. Idempotency isn\'t
 -- currently supported, but will be implemented in a future update.
 --
 -- 'description', 'createBillingGroup_description' - The description of the billing group.
 --
 -- 'primaryAccountId', 'createBillingGroup_primaryAccountId' - The account ID that serves as the main account in a billing group.
+--
+-- 'tags', 'createBillingGroup_tags' - A map that contains tag keys and tag values that are attached to a
+-- billing group. This feature isn\'t available during the beta.
 --
 -- 'name', 'createBillingGroup_name' - The billing group name. The names must be unique.
 --
@@ -116,19 +116,14 @@ newCreateBillingGroup
   pAccountGrouping_
   pComputationPreference_ =
     CreateBillingGroup'
-      { tags = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
+      { clientToken = Prelude.Nothing,
         description = Prelude.Nothing,
         primaryAccountId = Prelude.Nothing,
+        tags = Prelude.Nothing,
         name = Data._Sensitive Lens.# pName_,
         accountGrouping = pAccountGrouping_,
         computationPreference = pComputationPreference_
       }
-
--- | A map that contains tag keys and tag values that are attached to a
--- billing group. This feature isn\'t available during the beta.
-createBillingGroup_tags :: Lens.Lens' CreateBillingGroup (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createBillingGroup_tags = Lens.lens (\CreateBillingGroup' {tags} -> tags) (\s@CreateBillingGroup' {} a -> s {tags = a} :: CreateBillingGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token that is needed to support idempotency. Idempotency isn\'t
 -- currently supported, but will be implemented in a future update.
@@ -142,6 +137,11 @@ createBillingGroup_description = Lens.lens (\CreateBillingGroup' {description} -
 -- | The account ID that serves as the main account in a billing group.
 createBillingGroup_primaryAccountId :: Lens.Lens' CreateBillingGroup (Prelude.Maybe Prelude.Text)
 createBillingGroup_primaryAccountId = Lens.lens (\CreateBillingGroup' {primaryAccountId} -> primaryAccountId) (\s@CreateBillingGroup' {} a -> s {primaryAccountId = a} :: CreateBillingGroup)
+
+-- | A map that contains tag keys and tag values that are attached to a
+-- billing group. This feature isn\'t available during the beta.
+createBillingGroup_tags :: Lens.Lens' CreateBillingGroup (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createBillingGroup_tags = Lens.lens (\CreateBillingGroup' {tags} -> tags) (\s@CreateBillingGroup' {} a -> s {tags = a} :: CreateBillingGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The billing group name. The names must be unique.
 createBillingGroup_name :: Lens.Lens' CreateBillingGroup Prelude.Text
@@ -173,20 +173,20 @@ instance Core.AWSRequest CreateBillingGroup where
 
 instance Prelude.Hashable CreateBillingGroup where
   hashWithSalt _salt CreateBillingGroup' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` primaryAccountId
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` accountGrouping
       `Prelude.hashWithSalt` computationPreference
 
 instance Prelude.NFData CreateBillingGroup where
   rnf CreateBillingGroup' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf primaryAccountId
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf accountGrouping
       `Prelude.seq` Prelude.rnf computationPreference
@@ -203,10 +203,10 @@ instance Data.ToJSON CreateBillingGroup where
   toJSON CreateBillingGroup' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
             ("PrimaryAccountId" Data..=)
               Prelude.<$> primaryAccountId,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just
               ("AccountGrouping" Data..= accountGrouping),

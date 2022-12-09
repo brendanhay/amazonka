@@ -27,10 +27,11 @@ module Amazonka.BillingConductor.UpdatePricingRule
     newUpdatePricingRule,
 
     -- * Request Lenses
+    updatePricingRule_description,
     updatePricingRule_modifierPercentage,
     updatePricingRule_name,
+    updatePricingRule_tiering,
     updatePricingRule_type,
-    updatePricingRule_description,
     updatePricingRule_arn,
 
     -- * Destructuring the Response
@@ -38,16 +39,17 @@ module Amazonka.BillingConductor.UpdatePricingRule
     newUpdatePricingRuleResponse,
 
     -- * Response Lenses
+    updatePricingRuleResponse_arn,
+    updatePricingRuleResponse_associatedPricingPlanCount,
+    updatePricingRuleResponse_billingEntity,
+    updatePricingRuleResponse_description,
+    updatePricingRuleResponse_lastModifiedTime,
     updatePricingRuleResponse_modifierPercentage,
     updatePricingRuleResponse_name,
-    updatePricingRuleResponse_billingEntity,
-    updatePricingRuleResponse_type,
-    updatePricingRuleResponse_arn,
-    updatePricingRuleResponse_description,
-    updatePricingRuleResponse_service,
-    updatePricingRuleResponse_lastModifiedTime,
     updatePricingRuleResponse_scope,
-    updatePricingRuleResponse_associatedPricingPlanCount,
+    updatePricingRuleResponse_service,
+    updatePricingRuleResponse_tiering,
+    updatePricingRuleResponse_type,
     updatePricingRuleResponse_httpStatus,
   )
 where
@@ -62,15 +64,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdatePricingRule' smart constructor.
 data UpdatePricingRule = UpdatePricingRule'
-  { -- | The new modifier to show pricing plan rates as a percentage.
+  { -- | The new description for the pricing rule.
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The new modifier to show pricing plan rates as a percentage.
     modifierPercentage :: Prelude.Maybe Prelude.Double,
     -- | The new name of the pricing rule. The name must be unique to each
     -- pricing rule.
     name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The set of tiering configurations for the pricing rule.
+    tiering :: Prelude.Maybe UpdateTieringInput,
     -- | The new pricing rule type.
     type' :: Prelude.Maybe PricingRuleType,
-    -- | The new description for the pricing rule.
-    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the pricing rule to update.
     arn :: Prelude.Text
   }
@@ -84,14 +88,16 @@ data UpdatePricingRule = UpdatePricingRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'updatePricingRule_description' - The new description for the pricing rule.
+--
 -- 'modifierPercentage', 'updatePricingRule_modifierPercentage' - The new modifier to show pricing plan rates as a percentage.
 --
 -- 'name', 'updatePricingRule_name' - The new name of the pricing rule. The name must be unique to each
 -- pricing rule.
 --
--- 'type'', 'updatePricingRule_type' - The new pricing rule type.
+-- 'tiering', 'updatePricingRule_tiering' - The set of tiering configurations for the pricing rule.
 --
--- 'description', 'updatePricingRule_description' - The new description for the pricing rule.
+-- 'type'', 'updatePricingRule_type' - The new pricing rule type.
 --
 -- 'arn', 'updatePricingRule_arn' - The Amazon Resource Name (ARN) of the pricing rule to update.
 newUpdatePricingRule ::
@@ -100,13 +106,17 @@ newUpdatePricingRule ::
   UpdatePricingRule
 newUpdatePricingRule pArn_ =
   UpdatePricingRule'
-    { modifierPercentage =
-        Prelude.Nothing,
+    { description = Prelude.Nothing,
+      modifierPercentage = Prelude.Nothing,
       name = Prelude.Nothing,
+      tiering = Prelude.Nothing,
       type' = Prelude.Nothing,
-      description = Prelude.Nothing,
       arn = pArn_
     }
+
+-- | The new description for the pricing rule.
+updatePricingRule_description :: Lens.Lens' UpdatePricingRule (Prelude.Maybe Prelude.Text)
+updatePricingRule_description = Lens.lens (\UpdatePricingRule' {description} -> description) (\s@UpdatePricingRule' {} a -> s {description = a} :: UpdatePricingRule) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The new modifier to show pricing plan rates as a percentage.
 updatePricingRule_modifierPercentage :: Lens.Lens' UpdatePricingRule (Prelude.Maybe Prelude.Double)
@@ -117,13 +127,13 @@ updatePricingRule_modifierPercentage = Lens.lens (\UpdatePricingRule' {modifierP
 updatePricingRule_name :: Lens.Lens' UpdatePricingRule (Prelude.Maybe Prelude.Text)
 updatePricingRule_name = Lens.lens (\UpdatePricingRule' {name} -> name) (\s@UpdatePricingRule' {} a -> s {name = a} :: UpdatePricingRule) Prelude.. Lens.mapping Data._Sensitive
 
+-- | The set of tiering configurations for the pricing rule.
+updatePricingRule_tiering :: Lens.Lens' UpdatePricingRule (Prelude.Maybe UpdateTieringInput)
+updatePricingRule_tiering = Lens.lens (\UpdatePricingRule' {tiering} -> tiering) (\s@UpdatePricingRule' {} a -> s {tiering = a} :: UpdatePricingRule)
+
 -- | The new pricing rule type.
 updatePricingRule_type :: Lens.Lens' UpdatePricingRule (Prelude.Maybe PricingRuleType)
 updatePricingRule_type = Lens.lens (\UpdatePricingRule' {type'} -> type') (\s@UpdatePricingRule' {} a -> s {type' = a} :: UpdatePricingRule)
-
--- | The new description for the pricing rule.
-updatePricingRule_description :: Lens.Lens' UpdatePricingRule (Prelude.Maybe Prelude.Text)
-updatePricingRule_description = Lens.lens (\UpdatePricingRule' {description} -> description) (\s@UpdatePricingRule' {} a -> s {description = a} :: UpdatePricingRule) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Amazon Resource Name (ARN) of the pricing rule to update.
 updatePricingRule_arn :: Lens.Lens' UpdatePricingRule Prelude.Text
@@ -139,33 +149,36 @@ instance Core.AWSRequest UpdatePricingRule where
     Response.receiveJSON
       ( \s h x ->
           UpdatePricingRuleResponse'
-            Prelude.<$> (x Data..?> "ModifierPercentage")
-            Prelude.<*> (x Data..?> "Name")
-            Prelude.<*> (x Data..?> "BillingEntity")
-            Prelude.<*> (x Data..?> "Type")
-            Prelude.<*> (x Data..?> "Arn")
-            Prelude.<*> (x Data..?> "Description")
-            Prelude.<*> (x Data..?> "Service")
-            Prelude.<*> (x Data..?> "LastModifiedTime")
-            Prelude.<*> (x Data..?> "Scope")
+            Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (x Data..?> "AssociatedPricingPlanCount")
+            Prelude.<*> (x Data..?> "BillingEntity")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "ModifierPercentage")
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "Scope")
+            Prelude.<*> (x Data..?> "Service")
+            Prelude.<*> (x Data..?> "Tiering")
+            Prelude.<*> (x Data..?> "Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdatePricingRule where
   hashWithSalt _salt UpdatePricingRule' {..} =
-    _salt `Prelude.hashWithSalt` modifierPercentage
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` modifierPercentage
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tiering
       `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData UpdatePricingRule where
   rnf UpdatePricingRule' {..} =
-    Prelude.rnf modifierPercentage
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf modifierPercentage
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tiering
       `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf arn
 
 instance Data.ToHeaders UpdatePricingRule where
@@ -183,11 +196,12 @@ instance Data.ToJSON UpdatePricingRule where
   toJSON UpdatePricingRule' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ModifierPercentage" Data..=)
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("ModifierPercentage" Data..=)
               Prelude.<$> modifierPercentage,
             ("Name" Data..=) Prelude.<$> name,
+            ("Tiering" Data..=) Prelude.<$> tiering,
             ("Type" Data..=) Prelude.<$> type',
-            ("Description" Data..=) Prelude.<$> description,
             Prelude.Just ("Arn" Data..= arn)
           ]
       )
@@ -200,31 +214,33 @@ instance Data.ToQuery UpdatePricingRule where
 
 -- | /See:/ 'newUpdatePricingRuleResponse' smart constructor.
 data UpdatePricingRuleResponse = UpdatePricingRuleResponse'
-  { -- | The new modifier to show pricing plan rates as a percentage.
-    modifierPercentage :: Prelude.Maybe Prelude.Double,
-    -- | The new name of the pricing rule. The name must be unique to each
-    -- pricing rule.
-    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+  { -- | The Amazon Resource Name (ARN) of the successfully updated pricing rule.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The pricing plans count that this pricing rule is associated with.
+    associatedPricingPlanCount :: Prelude.Maybe Prelude.Natural,
     -- | The seller of services provided by Amazon Web Services, their
     -- affiliates, or third-party providers selling services via Amazon Web
     -- Services Marketplace.
     billingEntity :: Prelude.Maybe Prelude.Text,
-    -- | The new pricing rule type.
-    type' :: Prelude.Maybe PricingRuleType,
-    -- | The Amazon Resource Name (ARN) of the successfully updated pricing rule.
-    arn :: Prelude.Maybe Prelude.Text,
     -- | The new description for the pricing rule.
     description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | If the @Scope@ attribute is set to @SERVICE@, the attribute indicates
-    -- which service the @PricingRule@ is applicable for.
-    service :: Prelude.Maybe Prelude.Text,
     -- | The most recent time the pricing rule was modified.
     lastModifiedTime :: Prelude.Maybe Prelude.Integer,
+    -- | The new modifier to show pricing plan rates as a percentage.
+    modifierPercentage :: Prelude.Maybe Prelude.Double,
+    -- | The new name of the pricing rule. The name must be unique to each
+    -- pricing rule.
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The scope of pricing rule that indicates if it\'s globally applicable,
     -- or it\'s service-specific.
     scope :: Prelude.Maybe PricingRuleScope,
-    -- | The pricing plans count that this pricing rule is associated with.
-    associatedPricingPlanCount :: Prelude.Maybe Prelude.Natural,
+    -- | If the @Scope@ attribute is set to @SERVICE@, the attribute indicates
+    -- which service the @PricingRule@ is applicable for.
+    service :: Prelude.Maybe Prelude.Text,
+    -- | The set of tiering configurations for the pricing rule.
+    tiering :: Prelude.Maybe UpdateTieringInput,
+    -- | The new pricing rule type.
+    type' :: Prelude.Maybe PricingRuleType,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -238,30 +254,32 @@ data UpdatePricingRuleResponse = UpdatePricingRuleResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'modifierPercentage', 'updatePricingRuleResponse_modifierPercentage' - The new modifier to show pricing plan rates as a percentage.
+-- 'arn', 'updatePricingRuleResponse_arn' - The Amazon Resource Name (ARN) of the successfully updated pricing rule.
 --
--- 'name', 'updatePricingRuleResponse_name' - The new name of the pricing rule. The name must be unique to each
--- pricing rule.
+-- 'associatedPricingPlanCount', 'updatePricingRuleResponse_associatedPricingPlanCount' - The pricing plans count that this pricing rule is associated with.
 --
 -- 'billingEntity', 'updatePricingRuleResponse_billingEntity' - The seller of services provided by Amazon Web Services, their
 -- affiliates, or third-party providers selling services via Amazon Web
 -- Services Marketplace.
 --
--- 'type'', 'updatePricingRuleResponse_type' - The new pricing rule type.
---
--- 'arn', 'updatePricingRuleResponse_arn' - The Amazon Resource Name (ARN) of the successfully updated pricing rule.
---
 -- 'description', 'updatePricingRuleResponse_description' - The new description for the pricing rule.
 --
--- 'service', 'updatePricingRuleResponse_service' - If the @Scope@ attribute is set to @SERVICE@, the attribute indicates
--- which service the @PricingRule@ is applicable for.
---
 -- 'lastModifiedTime', 'updatePricingRuleResponse_lastModifiedTime' - The most recent time the pricing rule was modified.
+--
+-- 'modifierPercentage', 'updatePricingRuleResponse_modifierPercentage' - The new modifier to show pricing plan rates as a percentage.
+--
+-- 'name', 'updatePricingRuleResponse_name' - The new name of the pricing rule. The name must be unique to each
+-- pricing rule.
 --
 -- 'scope', 'updatePricingRuleResponse_scope' - The scope of pricing rule that indicates if it\'s globally applicable,
 -- or it\'s service-specific.
 --
--- 'associatedPricingPlanCount', 'updatePricingRuleResponse_associatedPricingPlanCount' - The pricing plans count that this pricing rule is associated with.
+-- 'service', 'updatePricingRuleResponse_service' - If the @Scope@ attribute is set to @SERVICE@, the attribute indicates
+-- which service the @PricingRule@ is applicable for.
+--
+-- 'tiering', 'updatePricingRuleResponse_tiering' - The set of tiering configurations for the pricing rule.
+--
+-- 'type'', 'updatePricingRuleResponse_type' - The new pricing rule type.
 --
 -- 'httpStatus', 'updatePricingRuleResponse_httpStatus' - The response's http status code.
 newUpdatePricingRuleResponse ::
@@ -270,19 +288,41 @@ newUpdatePricingRuleResponse ::
   UpdatePricingRuleResponse
 newUpdatePricingRuleResponse pHttpStatus_ =
   UpdatePricingRuleResponse'
-    { modifierPercentage =
-        Prelude.Nothing,
-      name = Prelude.Nothing,
-      billingEntity = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      description = Prelude.Nothing,
-      service = Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
-      scope = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       associatedPricingPlanCount = Prelude.Nothing,
+      billingEntity = Prelude.Nothing,
+      description = Prelude.Nothing,
+      lastModifiedTime = Prelude.Nothing,
+      modifierPercentage = Prelude.Nothing,
+      name = Prelude.Nothing,
+      scope = Prelude.Nothing,
+      service = Prelude.Nothing,
+      tiering = Prelude.Nothing,
+      type' = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The Amazon Resource Name (ARN) of the successfully updated pricing rule.
+updatePricingRuleResponse_arn :: Lens.Lens' UpdatePricingRuleResponse (Prelude.Maybe Prelude.Text)
+updatePricingRuleResponse_arn = Lens.lens (\UpdatePricingRuleResponse' {arn} -> arn) (\s@UpdatePricingRuleResponse' {} a -> s {arn = a} :: UpdatePricingRuleResponse)
+
+-- | The pricing plans count that this pricing rule is associated with.
+updatePricingRuleResponse_associatedPricingPlanCount :: Lens.Lens' UpdatePricingRuleResponse (Prelude.Maybe Prelude.Natural)
+updatePricingRuleResponse_associatedPricingPlanCount = Lens.lens (\UpdatePricingRuleResponse' {associatedPricingPlanCount} -> associatedPricingPlanCount) (\s@UpdatePricingRuleResponse' {} a -> s {associatedPricingPlanCount = a} :: UpdatePricingRuleResponse)
+
+-- | The seller of services provided by Amazon Web Services, their
+-- affiliates, or third-party providers selling services via Amazon Web
+-- Services Marketplace.
+updatePricingRuleResponse_billingEntity :: Lens.Lens' UpdatePricingRuleResponse (Prelude.Maybe Prelude.Text)
+updatePricingRuleResponse_billingEntity = Lens.lens (\UpdatePricingRuleResponse' {billingEntity} -> billingEntity) (\s@UpdatePricingRuleResponse' {} a -> s {billingEntity = a} :: UpdatePricingRuleResponse)
+
+-- | The new description for the pricing rule.
+updatePricingRuleResponse_description :: Lens.Lens' UpdatePricingRuleResponse (Prelude.Maybe Prelude.Text)
+updatePricingRuleResponse_description = Lens.lens (\UpdatePricingRuleResponse' {description} -> description) (\s@UpdatePricingRuleResponse' {} a -> s {description = a} :: UpdatePricingRuleResponse) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The most recent time the pricing rule was modified.
+updatePricingRuleResponse_lastModifiedTime :: Lens.Lens' UpdatePricingRuleResponse (Prelude.Maybe Prelude.Integer)
+updatePricingRuleResponse_lastModifiedTime = Lens.lens (\UpdatePricingRuleResponse' {lastModifiedTime} -> lastModifiedTime) (\s@UpdatePricingRuleResponse' {} a -> s {lastModifiedTime = a} :: UpdatePricingRuleResponse)
 
 -- | The new modifier to show pricing plan rates as a percentage.
 updatePricingRuleResponse_modifierPercentage :: Lens.Lens' UpdatePricingRuleResponse (Prelude.Maybe Prelude.Double)
@@ -293,41 +333,23 @@ updatePricingRuleResponse_modifierPercentage = Lens.lens (\UpdatePricingRuleResp
 updatePricingRuleResponse_name :: Lens.Lens' UpdatePricingRuleResponse (Prelude.Maybe Prelude.Text)
 updatePricingRuleResponse_name = Lens.lens (\UpdatePricingRuleResponse' {name} -> name) (\s@UpdatePricingRuleResponse' {} a -> s {name = a} :: UpdatePricingRuleResponse) Prelude.. Lens.mapping Data._Sensitive
 
--- | The seller of services provided by Amazon Web Services, their
--- affiliates, or third-party providers selling services via Amazon Web
--- Services Marketplace.
-updatePricingRuleResponse_billingEntity :: Lens.Lens' UpdatePricingRuleResponse (Prelude.Maybe Prelude.Text)
-updatePricingRuleResponse_billingEntity = Lens.lens (\UpdatePricingRuleResponse' {billingEntity} -> billingEntity) (\s@UpdatePricingRuleResponse' {} a -> s {billingEntity = a} :: UpdatePricingRuleResponse)
-
--- | The new pricing rule type.
-updatePricingRuleResponse_type :: Lens.Lens' UpdatePricingRuleResponse (Prelude.Maybe PricingRuleType)
-updatePricingRuleResponse_type = Lens.lens (\UpdatePricingRuleResponse' {type'} -> type') (\s@UpdatePricingRuleResponse' {} a -> s {type' = a} :: UpdatePricingRuleResponse)
-
--- | The Amazon Resource Name (ARN) of the successfully updated pricing rule.
-updatePricingRuleResponse_arn :: Lens.Lens' UpdatePricingRuleResponse (Prelude.Maybe Prelude.Text)
-updatePricingRuleResponse_arn = Lens.lens (\UpdatePricingRuleResponse' {arn} -> arn) (\s@UpdatePricingRuleResponse' {} a -> s {arn = a} :: UpdatePricingRuleResponse)
-
--- | The new description for the pricing rule.
-updatePricingRuleResponse_description :: Lens.Lens' UpdatePricingRuleResponse (Prelude.Maybe Prelude.Text)
-updatePricingRuleResponse_description = Lens.lens (\UpdatePricingRuleResponse' {description} -> description) (\s@UpdatePricingRuleResponse' {} a -> s {description = a} :: UpdatePricingRuleResponse) Prelude.. Lens.mapping Data._Sensitive
+-- | The scope of pricing rule that indicates if it\'s globally applicable,
+-- or it\'s service-specific.
+updatePricingRuleResponse_scope :: Lens.Lens' UpdatePricingRuleResponse (Prelude.Maybe PricingRuleScope)
+updatePricingRuleResponse_scope = Lens.lens (\UpdatePricingRuleResponse' {scope} -> scope) (\s@UpdatePricingRuleResponse' {} a -> s {scope = a} :: UpdatePricingRuleResponse)
 
 -- | If the @Scope@ attribute is set to @SERVICE@, the attribute indicates
 -- which service the @PricingRule@ is applicable for.
 updatePricingRuleResponse_service :: Lens.Lens' UpdatePricingRuleResponse (Prelude.Maybe Prelude.Text)
 updatePricingRuleResponse_service = Lens.lens (\UpdatePricingRuleResponse' {service} -> service) (\s@UpdatePricingRuleResponse' {} a -> s {service = a} :: UpdatePricingRuleResponse)
 
--- | The most recent time the pricing rule was modified.
-updatePricingRuleResponse_lastModifiedTime :: Lens.Lens' UpdatePricingRuleResponse (Prelude.Maybe Prelude.Integer)
-updatePricingRuleResponse_lastModifiedTime = Lens.lens (\UpdatePricingRuleResponse' {lastModifiedTime} -> lastModifiedTime) (\s@UpdatePricingRuleResponse' {} a -> s {lastModifiedTime = a} :: UpdatePricingRuleResponse)
+-- | The set of tiering configurations for the pricing rule.
+updatePricingRuleResponse_tiering :: Lens.Lens' UpdatePricingRuleResponse (Prelude.Maybe UpdateTieringInput)
+updatePricingRuleResponse_tiering = Lens.lens (\UpdatePricingRuleResponse' {tiering} -> tiering) (\s@UpdatePricingRuleResponse' {} a -> s {tiering = a} :: UpdatePricingRuleResponse)
 
--- | The scope of pricing rule that indicates if it\'s globally applicable,
--- or it\'s service-specific.
-updatePricingRuleResponse_scope :: Lens.Lens' UpdatePricingRuleResponse (Prelude.Maybe PricingRuleScope)
-updatePricingRuleResponse_scope = Lens.lens (\UpdatePricingRuleResponse' {scope} -> scope) (\s@UpdatePricingRuleResponse' {} a -> s {scope = a} :: UpdatePricingRuleResponse)
-
--- | The pricing plans count that this pricing rule is associated with.
-updatePricingRuleResponse_associatedPricingPlanCount :: Lens.Lens' UpdatePricingRuleResponse (Prelude.Maybe Prelude.Natural)
-updatePricingRuleResponse_associatedPricingPlanCount = Lens.lens (\UpdatePricingRuleResponse' {associatedPricingPlanCount} -> associatedPricingPlanCount) (\s@UpdatePricingRuleResponse' {} a -> s {associatedPricingPlanCount = a} :: UpdatePricingRuleResponse)
+-- | The new pricing rule type.
+updatePricingRuleResponse_type :: Lens.Lens' UpdatePricingRuleResponse (Prelude.Maybe PricingRuleType)
+updatePricingRuleResponse_type = Lens.lens (\UpdatePricingRuleResponse' {type'} -> type') (\s@UpdatePricingRuleResponse' {} a -> s {type' = a} :: UpdatePricingRuleResponse)
 
 -- | The response's http status code.
 updatePricingRuleResponse_httpStatus :: Lens.Lens' UpdatePricingRuleResponse Prelude.Int
@@ -335,14 +357,15 @@ updatePricingRuleResponse_httpStatus = Lens.lens (\UpdatePricingRuleResponse' {h
 
 instance Prelude.NFData UpdatePricingRuleResponse where
   rnf UpdatePricingRuleResponse' {..} =
-    Prelude.rnf modifierPercentage
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf billingEntity
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf service
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf scope
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf associatedPricingPlanCount
+      `Prelude.seq` Prelude.rnf billingEntity
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf modifierPercentage
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf scope
+      `Prelude.seq` Prelude.rnf service
+      `Prelude.seq` Prelude.rnf tiering
+      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf httpStatus

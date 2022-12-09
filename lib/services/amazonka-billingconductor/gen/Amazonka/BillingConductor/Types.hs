@@ -19,11 +19,11 @@ module Amazonka.BillingConductor.Types
 
     -- * Errors
     _AccessDeniedException,
+    _ConflictException,
     _InternalServerException,
     _ResourceNotFoundException,
-    _ConflictException,
-    _ThrottlingException,
     _ServiceLimitExceededException,
+    _ThrottlingException,
     _ValidationException,
 
     -- * AssociateResourceErrorReason
@@ -50,10 +50,10 @@ module Amazonka.BillingConductor.Types
     -- * AccountAssociationsListElement
     AccountAssociationsListElement (..),
     newAccountAssociationsListElement,
-    accountAssociationsListElement_billingGroupArn,
+    accountAssociationsListElement_accountEmail,
     accountAssociationsListElement_accountId,
     accountAssociationsListElement_accountName,
-    accountAssociationsListElement_accountEmail,
+    accountAssociationsListElement_billingGroupArn,
 
     -- * AccountGrouping
     AccountGrouping (..),
@@ -75,31 +75,41 @@ module Amazonka.BillingConductor.Types
     -- * BillingGroupCostReportElement
     BillingGroupCostReportElement (..),
     newBillingGroupCostReportElement,
-    billingGroupCostReportElement_proformaCost,
-    billingGroupCostReportElement_marginPercentage,
     billingGroupCostReportElement_aWSCost,
     billingGroupCostReportElement_arn,
     billingGroupCostReportElement_currency,
     billingGroupCostReportElement_margin,
+    billingGroupCostReportElement_marginPercentage,
+    billingGroupCostReportElement_proformaCost,
 
     -- * BillingGroupListElement
     BillingGroupListElement (..),
     newBillingGroupListElement,
-    billingGroupListElement_name,
     billingGroupListElement_arn,
-    billingGroupListElement_statusReason,
-    billingGroupListElement_size,
-    billingGroupListElement_status,
+    billingGroupListElement_computationPreference,
+    billingGroupListElement_creationTime,
     billingGroupListElement_description,
     billingGroupListElement_lastModifiedTime,
-    billingGroupListElement_creationTime,
-    billingGroupListElement_computationPreference,
+    billingGroupListElement_name,
     billingGroupListElement_primaryAccountId,
+    billingGroupListElement_size,
+    billingGroupListElement_status,
+    billingGroupListElement_statusReason,
 
     -- * ComputationPreference
     ComputationPreference (..),
     newComputationPreference,
     computationPreference_pricingPlanArn,
+
+    -- * CreateFreeTierConfig
+    CreateFreeTierConfig (..),
+    newCreateFreeTierConfig,
+    createFreeTierConfig_activated,
+
+    -- * CreateTieringInput
+    CreateTieringInput (..),
+    newCreateTieringInput,
+    createTieringInput_freeTier,
 
     -- * CustomLineItemBillingPeriodRange
     CustomLineItemBillingPeriodRange (..),
@@ -122,16 +132,16 @@ module Amazonka.BillingConductor.Types
     -- * CustomLineItemListElement
     CustomLineItemListElement (..),
     newCustomLineItemListElement,
-    customLineItemListElement_name,
-    customLineItemListElement_chargeDetails,
-    customLineItemListElement_billingGroupArn,
     customLineItemListElement_arn,
     customLineItemListElement_associationSize,
-    customLineItemListElement_productCode,
-    customLineItemListElement_description,
-    customLineItemListElement_currencyCode,
-    customLineItemListElement_lastModifiedTime,
+    customLineItemListElement_billingGroupArn,
+    customLineItemListElement_chargeDetails,
     customLineItemListElement_creationTime,
+    customLineItemListElement_currencyCode,
+    customLineItemListElement_description,
+    customLineItemListElement_lastModifiedTime,
+    customLineItemListElement_name,
+    customLineItemListElement_productCode,
 
     -- * CustomLineItemPercentageChargeDetails
     CustomLineItemPercentageChargeDetails (..),
@@ -142,17 +152,17 @@ module Amazonka.BillingConductor.Types
     -- * CustomLineItemVersionListElement
     CustomLineItemVersionListElement (..),
     newCustomLineItemVersionListElement,
-    customLineItemVersionListElement_name,
-    customLineItemVersionListElement_chargeDetails,
-    customLineItemVersionListElement_billingGroupArn,
     customLineItemVersionListElement_associationSize,
-    customLineItemVersionListElement_productCode,
-    customLineItemVersionListElement_description,
-    customLineItemVersionListElement_currencyCode,
-    customLineItemVersionListElement_lastModifiedTime,
-    customLineItemVersionListElement_startBillingPeriod,
-    customLineItemVersionListElement_endBillingPeriod,
+    customLineItemVersionListElement_billingGroupArn,
+    customLineItemVersionListElement_chargeDetails,
     customLineItemVersionListElement_creationTime,
+    customLineItemVersionListElement_currencyCode,
+    customLineItemVersionListElement_description,
+    customLineItemVersionListElement_endBillingPeriod,
+    customLineItemVersionListElement_lastModifiedTime,
+    customLineItemVersionListElement_name,
+    customLineItemVersionListElement_productCode,
+    customLineItemVersionListElement_startBillingPeriod,
 
     -- * DisassociateResourceResponseElement
     DisassociateResourceResponseElement (..),
@@ -160,11 +170,16 @@ module Amazonka.BillingConductor.Types
     disassociateResourceResponseElement_arn,
     disassociateResourceResponseElement_error,
 
+    -- * FreeTierConfig
+    FreeTierConfig (..),
+    newFreeTierConfig,
+    freeTierConfig_activated,
+
     -- * ListAccountAssociationsFilter
     ListAccountAssociationsFilter (..),
     newListAccountAssociationsFilter,
-    listAccountAssociationsFilter_association,
     listAccountAssociationsFilter_accountId,
+    listAccountAssociationsFilter_association,
 
     -- * ListBillingGroupCostReportsFilter
     ListBillingGroupCostReportsFilter (..),
@@ -197,8 +212,8 @@ module Amazonka.BillingConductor.Types
     -- * ListCustomLineItemVersionsBillingPeriodRangeFilter
     ListCustomLineItemVersionsBillingPeriodRangeFilter (..),
     newListCustomLineItemVersionsBillingPeriodRangeFilter,
-    listCustomLineItemVersionsBillingPeriodRangeFilter_startBillingPeriod,
     listCustomLineItemVersionsBillingPeriodRangeFilter_endBillingPeriod,
+    listCustomLineItemVersionsBillingPeriodRangeFilter_startBillingPeriod,
 
     -- * ListCustomLineItemVersionsFilter
     ListCustomLineItemVersionsFilter (..),
@@ -209,8 +224,8 @@ module Amazonka.BillingConductor.Types
     ListCustomLineItemsFilter (..),
     newListCustomLineItemsFilter,
     listCustomLineItemsFilter_arns,
-    listCustomLineItemsFilter_names,
     listCustomLineItemsFilter_billingGroups,
+    listCustomLineItemsFilter_names,
 
     -- * ListPricingPlansFilter
     ListPricingPlansFilter (..),
@@ -230,34 +245,40 @@ module Amazonka.BillingConductor.Types
     -- * ListResourcesAssociatedToCustomLineItemResponseElement
     ListResourcesAssociatedToCustomLineItemResponseElement (..),
     newListResourcesAssociatedToCustomLineItemResponseElement,
-    listResourcesAssociatedToCustomLineItemResponseElement_relationship,
     listResourcesAssociatedToCustomLineItemResponseElement_arn,
     listResourcesAssociatedToCustomLineItemResponseElement_endBillingPeriod,
+    listResourcesAssociatedToCustomLineItemResponseElement_relationship,
 
     -- * PricingPlanListElement
     PricingPlanListElement (..),
     newPricingPlanListElement,
-    pricingPlanListElement_name,
     pricingPlanListElement_arn,
-    pricingPlanListElement_size,
+    pricingPlanListElement_creationTime,
     pricingPlanListElement_description,
     pricingPlanListElement_lastModifiedTime,
-    pricingPlanListElement_creationTime,
+    pricingPlanListElement_name,
+    pricingPlanListElement_size,
 
     -- * PricingRuleListElement
     PricingRuleListElement (..),
     newPricingRuleListElement,
+    pricingRuleListElement_arn,
+    pricingRuleListElement_associatedPricingPlanCount,
+    pricingRuleListElement_billingEntity,
+    pricingRuleListElement_creationTime,
+    pricingRuleListElement_description,
+    pricingRuleListElement_lastModifiedTime,
     pricingRuleListElement_modifierPercentage,
     pricingRuleListElement_name,
-    pricingRuleListElement_billingEntity,
-    pricingRuleListElement_type,
-    pricingRuleListElement_arn,
-    pricingRuleListElement_description,
-    pricingRuleListElement_service,
-    pricingRuleListElement_lastModifiedTime,
     pricingRuleListElement_scope,
-    pricingRuleListElement_associatedPricingPlanCount,
-    pricingRuleListElement_creationTime,
+    pricingRuleListElement_service,
+    pricingRuleListElement_tiering,
+    pricingRuleListElement_type,
+
+    -- * Tiering
+    Tiering (..),
+    newTiering,
+    tiering_freeTier,
 
     -- * UpdateCustomLineItemChargeDetails
     UpdateCustomLineItemChargeDetails (..),
@@ -274,6 +295,16 @@ module Amazonka.BillingConductor.Types
     UpdateCustomLineItemPercentageChargeDetails (..),
     newUpdateCustomLineItemPercentageChargeDetails,
     updateCustomLineItemPercentageChargeDetails_percentageValue,
+
+    -- * UpdateFreeTierConfig
+    UpdateFreeTierConfig (..),
+    newUpdateFreeTierConfig,
+    updateFreeTierConfig_activated,
+
+    -- * UpdateTieringInput
+    UpdateTieringInput (..),
+    newUpdateTieringInput,
+    updateTieringInput_freeTier,
   )
 where
 
@@ -286,6 +317,8 @@ import Amazonka.BillingConductor.Types.BillingGroupCostReportElement
 import Amazonka.BillingConductor.Types.BillingGroupListElement
 import Amazonka.BillingConductor.Types.BillingGroupStatus
 import Amazonka.BillingConductor.Types.ComputationPreference
+import Amazonka.BillingConductor.Types.CreateFreeTierConfig
+import Amazonka.BillingConductor.Types.CreateTieringInput
 import Amazonka.BillingConductor.Types.CurrencyCode
 import Amazonka.BillingConductor.Types.CustomLineItemBillingPeriodRange
 import Amazonka.BillingConductor.Types.CustomLineItemChargeDetails
@@ -296,6 +329,7 @@ import Amazonka.BillingConductor.Types.CustomLineItemRelationship
 import Amazonka.BillingConductor.Types.CustomLineItemType
 import Amazonka.BillingConductor.Types.CustomLineItemVersionListElement
 import Amazonka.BillingConductor.Types.DisassociateResourceResponseElement
+import Amazonka.BillingConductor.Types.FreeTierConfig
 import Amazonka.BillingConductor.Types.ListAccountAssociationsFilter
 import Amazonka.BillingConductor.Types.ListBillingGroupCostReportsFilter
 import Amazonka.BillingConductor.Types.ListBillingGroupsFilter
@@ -313,9 +347,12 @@ import Amazonka.BillingConductor.Types.PricingPlanListElement
 import Amazonka.BillingConductor.Types.PricingRuleListElement
 import Amazonka.BillingConductor.Types.PricingRuleScope
 import Amazonka.BillingConductor.Types.PricingRuleType
+import Amazonka.BillingConductor.Types.Tiering
 import Amazonka.BillingConductor.Types.UpdateCustomLineItemChargeDetails
 import Amazonka.BillingConductor.Types.UpdateCustomLineItemFlatChargeDetails
 import Amazonka.BillingConductor.Types.UpdateCustomLineItemPercentageChargeDetails
+import Amazonka.BillingConductor.Types.UpdateFreeTierConfig
+import Amazonka.BillingConductor.Types.UpdateTieringInput
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -346,28 +383,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -375,13 +406,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -389,6 +424,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient access to perform this action.
@@ -398,6 +435,14 @@ _AccessDeniedException =
     defaultService
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
+
+-- | You can cause an inconsistent state by updating or deleting a resource.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
 
 -- | An unexpected error occurred while processing a request.
 _InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -415,13 +460,13 @@ _ResourceNotFoundException =
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
 
--- | You can cause an inconsistent state by updating or deleting a resource.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
+-- | The request would cause a service limit to exceed.
+_ServiceLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceLimitExceededException =
   Core._MatchServiceError
     defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
+    "ServiceLimitExceededException"
+    Prelude.. Core.hasStatus 402
 
 -- | The request was denied due to request throttling.
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -430,14 +475,6 @@ _ThrottlingException =
     defaultService
     "ThrottlingException"
     Prelude.. Core.hasStatus 429
-
--- | The request would cause a service limit to exceed.
-_ServiceLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceLimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceLimitExceededException"
-    Prelude.. Core.hasStatus 402
 
 -- | The input doesn\'t match with the constraints specified by Amazon Web
 -- Services services.

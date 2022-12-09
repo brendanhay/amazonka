@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newListCustomLineItemVersionsBillingPeriodRangeFilter' smart constructor.
 data ListCustomLineItemVersionsBillingPeriodRangeFilter = ListCustomLineItemVersionsBillingPeriodRangeFilter'
-  { -- | The inclusive start billing period that defines a billing period range
+  { -- | The exclusive end billing period that defines a billing period range
     -- where a custom line item version is applied.
-    startBillingPeriod :: Prelude.Maybe Prelude.Text,
-    -- | The exclusive end billing period that defines a billing period range
+    endBillingPeriod :: Prelude.Maybe Prelude.Text,
+    -- | The inclusive start billing period that defines a billing period range
     -- where a custom line item version is applied.
-    endBillingPeriod :: Prelude.Maybe Prelude.Text
+    startBillingPeriod :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,30 +46,30 @@ data ListCustomLineItemVersionsBillingPeriodRangeFilter = ListCustomLineItemVers
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'startBillingPeriod', 'listCustomLineItemVersionsBillingPeriodRangeFilter_startBillingPeriod' - The inclusive start billing period that defines a billing period range
+-- 'endBillingPeriod', 'listCustomLineItemVersionsBillingPeriodRangeFilter_endBillingPeriod' - The exclusive end billing period that defines a billing period range
 -- where a custom line item version is applied.
 --
--- 'endBillingPeriod', 'listCustomLineItemVersionsBillingPeriodRangeFilter_endBillingPeriod' - The exclusive end billing period that defines a billing period range
+-- 'startBillingPeriod', 'listCustomLineItemVersionsBillingPeriodRangeFilter_startBillingPeriod' - The inclusive start billing period that defines a billing period range
 -- where a custom line item version is applied.
 newListCustomLineItemVersionsBillingPeriodRangeFilter ::
   ListCustomLineItemVersionsBillingPeriodRangeFilter
 newListCustomLineItemVersionsBillingPeriodRangeFilter =
   ListCustomLineItemVersionsBillingPeriodRangeFilter'
-    { startBillingPeriod =
+    { endBillingPeriod =
         Prelude.Nothing,
-      endBillingPeriod =
+      startBillingPeriod =
         Prelude.Nothing
     }
-
--- | The inclusive start billing period that defines a billing period range
--- where a custom line item version is applied.
-listCustomLineItemVersionsBillingPeriodRangeFilter_startBillingPeriod :: Lens.Lens' ListCustomLineItemVersionsBillingPeriodRangeFilter (Prelude.Maybe Prelude.Text)
-listCustomLineItemVersionsBillingPeriodRangeFilter_startBillingPeriod = Lens.lens (\ListCustomLineItemVersionsBillingPeriodRangeFilter' {startBillingPeriod} -> startBillingPeriod) (\s@ListCustomLineItemVersionsBillingPeriodRangeFilter' {} a -> s {startBillingPeriod = a} :: ListCustomLineItemVersionsBillingPeriodRangeFilter)
 
 -- | The exclusive end billing period that defines a billing period range
 -- where a custom line item version is applied.
 listCustomLineItemVersionsBillingPeriodRangeFilter_endBillingPeriod :: Lens.Lens' ListCustomLineItemVersionsBillingPeriodRangeFilter (Prelude.Maybe Prelude.Text)
 listCustomLineItemVersionsBillingPeriodRangeFilter_endBillingPeriod = Lens.lens (\ListCustomLineItemVersionsBillingPeriodRangeFilter' {endBillingPeriod} -> endBillingPeriod) (\s@ListCustomLineItemVersionsBillingPeriodRangeFilter' {} a -> s {endBillingPeriod = a} :: ListCustomLineItemVersionsBillingPeriodRangeFilter)
+
+-- | The inclusive start billing period that defines a billing period range
+-- where a custom line item version is applied.
+listCustomLineItemVersionsBillingPeriodRangeFilter_startBillingPeriod :: Lens.Lens' ListCustomLineItemVersionsBillingPeriodRangeFilter (Prelude.Maybe Prelude.Text)
+listCustomLineItemVersionsBillingPeriodRangeFilter_startBillingPeriod = Lens.lens (\ListCustomLineItemVersionsBillingPeriodRangeFilter' {startBillingPeriod} -> startBillingPeriod) (\s@ListCustomLineItemVersionsBillingPeriodRangeFilter' {} a -> s {startBillingPeriod = a} :: ListCustomLineItemVersionsBillingPeriodRangeFilter)
 
 instance
   Prelude.Hashable
@@ -78,8 +78,8 @@ instance
   hashWithSalt
     _salt
     ListCustomLineItemVersionsBillingPeriodRangeFilter' {..} =
-      _salt `Prelude.hashWithSalt` startBillingPeriod
-        `Prelude.hashWithSalt` endBillingPeriod
+      _salt `Prelude.hashWithSalt` endBillingPeriod
+        `Prelude.hashWithSalt` startBillingPeriod
 
 instance
   Prelude.NFData
@@ -87,8 +87,8 @@ instance
   where
   rnf
     ListCustomLineItemVersionsBillingPeriodRangeFilter' {..} =
-      Prelude.rnf startBillingPeriod
-        `Prelude.seq` Prelude.rnf endBillingPeriod
+      Prelude.rnf endBillingPeriod
+        `Prelude.seq` Prelude.rnf startBillingPeriod
 
 instance
   Data.ToJSON
@@ -98,9 +98,9 @@ instance
     ListCustomLineItemVersionsBillingPeriodRangeFilter' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ ("StartBillingPeriod" Data..=)
-                Prelude.<$> startBillingPeriod,
-              ("EndBillingPeriod" Data..=)
-                Prelude.<$> endBillingPeriod
+            [ ("EndBillingPeriod" Data..=)
+                Prelude.<$> endBillingPeriod,
+              ("StartBillingPeriod" Data..=)
+                Prelude.<$> startBillingPeriod
             ]
         )

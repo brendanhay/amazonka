@@ -29,10 +29,10 @@ module Amazonka.BillingConductor.ListResourcesAssociatedToCustomLineItem
     newListResourcesAssociatedToCustomLineItem,
 
     -- * Request Lenses
-    listResourcesAssociatedToCustomLineItem_nextToken,
     listResourcesAssociatedToCustomLineItem_billingPeriod,
     listResourcesAssociatedToCustomLineItem_filters,
     listResourcesAssociatedToCustomLineItem_maxResults,
+    listResourcesAssociatedToCustomLineItem_nextToken,
     listResourcesAssociatedToCustomLineItem_arn,
 
     -- * Destructuring the Response
@@ -40,9 +40,9 @@ module Amazonka.BillingConductor.ListResourcesAssociatedToCustomLineItem
     newListResourcesAssociatedToCustomLineItemResponse,
 
     -- * Response Lenses
-    listResourcesAssociatedToCustomLineItemResponse_nextToken,
-    listResourcesAssociatedToCustomLineItemResponse_associatedResources,
     listResourcesAssociatedToCustomLineItemResponse_arn,
+    listResourcesAssociatedToCustomLineItemResponse_associatedResources,
+    listResourcesAssociatedToCustomLineItemResponse_nextToken,
     listResourcesAssociatedToCustomLineItemResponse_httpStatus,
   )
 where
@@ -57,15 +57,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListResourcesAssociatedToCustomLineItem' smart constructor.
 data ListResourcesAssociatedToCustomLineItem = ListResourcesAssociatedToCustomLineItem'
-  { -- | (Optional) The pagination token that\'s returned by a previous request.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The billing period for which the resource associations will be listed.
+  { -- | The billing period for which the resource associations will be listed.
     billingPeriod :: Prelude.Maybe Prelude.Text,
     -- | (Optional) A @ListResourcesAssociatedToCustomLineItemFilter@ that can
     -- specify the types of resources that should be retrieved.
     filters :: Prelude.Maybe ListResourcesAssociatedToCustomLineItemFilter,
     -- | (Optional) The maximum number of resource associations to be retrieved.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | (Optional) The pagination token that\'s returned by a previous request.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the custom line item for which the resource associations will
     -- be listed.
     arn :: Prelude.Text
@@ -80,14 +80,14 @@ data ListResourcesAssociatedToCustomLineItem = ListResourcesAssociatedToCustomLi
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listResourcesAssociatedToCustomLineItem_nextToken' - (Optional) The pagination token that\'s returned by a previous request.
---
 -- 'billingPeriod', 'listResourcesAssociatedToCustomLineItem_billingPeriod' - The billing period for which the resource associations will be listed.
 --
 -- 'filters', 'listResourcesAssociatedToCustomLineItem_filters' - (Optional) A @ListResourcesAssociatedToCustomLineItemFilter@ that can
 -- specify the types of resources that should be retrieved.
 --
 -- 'maxResults', 'listResourcesAssociatedToCustomLineItem_maxResults' - (Optional) The maximum number of resource associations to be retrieved.
+--
+-- 'nextToken', 'listResourcesAssociatedToCustomLineItem_nextToken' - (Optional) The pagination token that\'s returned by a previous request.
 --
 -- 'arn', 'listResourcesAssociatedToCustomLineItem_arn' - The ARN of the custom line item for which the resource associations will
 -- be listed.
@@ -97,17 +97,13 @@ newListResourcesAssociatedToCustomLineItem ::
   ListResourcesAssociatedToCustomLineItem
 newListResourcesAssociatedToCustomLineItem pArn_ =
   ListResourcesAssociatedToCustomLineItem'
-    { nextToken =
+    { billingPeriod =
         Prelude.Nothing,
-      billingPeriod = Prelude.Nothing,
       filters = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       arn = pArn_
     }
-
--- | (Optional) The pagination token that\'s returned by a previous request.
-listResourcesAssociatedToCustomLineItem_nextToken :: Lens.Lens' ListResourcesAssociatedToCustomLineItem (Prelude.Maybe Prelude.Text)
-listResourcesAssociatedToCustomLineItem_nextToken = Lens.lens (\ListResourcesAssociatedToCustomLineItem' {nextToken} -> nextToken) (\s@ListResourcesAssociatedToCustomLineItem' {} a -> s {nextToken = a} :: ListResourcesAssociatedToCustomLineItem)
 
 -- | The billing period for which the resource associations will be listed.
 listResourcesAssociatedToCustomLineItem_billingPeriod :: Lens.Lens' ListResourcesAssociatedToCustomLineItem (Prelude.Maybe Prelude.Text)
@@ -121,6 +117,10 @@ listResourcesAssociatedToCustomLineItem_filters = Lens.lens (\ListResourcesAssoc
 -- | (Optional) The maximum number of resource associations to be retrieved.
 listResourcesAssociatedToCustomLineItem_maxResults :: Lens.Lens' ListResourcesAssociatedToCustomLineItem (Prelude.Maybe Prelude.Natural)
 listResourcesAssociatedToCustomLineItem_maxResults = Lens.lens (\ListResourcesAssociatedToCustomLineItem' {maxResults} -> maxResults) (\s@ListResourcesAssociatedToCustomLineItem' {} a -> s {maxResults = a} :: ListResourcesAssociatedToCustomLineItem)
+
+-- | (Optional) The pagination token that\'s returned by a previous request.
+listResourcesAssociatedToCustomLineItem_nextToken :: Lens.Lens' ListResourcesAssociatedToCustomLineItem (Prelude.Maybe Prelude.Text)
+listResourcesAssociatedToCustomLineItem_nextToken = Lens.lens (\ListResourcesAssociatedToCustomLineItem' {nextToken} -> nextToken) (\s@ListResourcesAssociatedToCustomLineItem' {} a -> s {nextToken = a} :: ListResourcesAssociatedToCustomLineItem)
 
 -- | The ARN of the custom line item for which the resource associations will
 -- be listed.
@@ -166,11 +166,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListResourcesAssociatedToCustomLineItemResponse'
-            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<$> (x Data..?> "Arn")
               Prelude.<*> ( x Data..?> "AssociatedResources"
                               Core..!@ Prelude.mempty
                           )
-              Prelude.<*> (x Data..?> "Arn")
+              Prelude.<*> (x Data..?> "NextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -181,10 +181,10 @@ instance
   hashWithSalt
     _salt
     ListResourcesAssociatedToCustomLineItem' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` billingPeriod
+      _salt `Prelude.hashWithSalt` billingPeriod
         `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` arn
 
 instance
@@ -192,10 +192,10 @@ instance
     ListResourcesAssociatedToCustomLineItem
   where
   rnf ListResourcesAssociatedToCustomLineItem' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf billingPeriod
+    Prelude.rnf billingPeriod
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf arn
 
 instance
@@ -219,10 +219,10 @@ instance
   toJSON ListResourcesAssociatedToCustomLineItem' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("BillingPeriod" Data..=) Prelude.<$> billingPeriod,
+          [ ("BillingPeriod" Data..=) Prelude.<$> billingPeriod,
             ("Filters" Data..=) Prelude.<$> filters,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("Arn" Data..= arn)
           ]
       )
@@ -243,14 +243,14 @@ instance
 
 -- | /See:/ 'newListResourcesAssociatedToCustomLineItemResponse' smart constructor.
 data ListResourcesAssociatedToCustomLineItemResponse = ListResourcesAssociatedToCustomLineItemResponse'
-  { -- | The pagination token to be used in subsequent requests to retrieve
-    -- additional results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The custom line item ARN for which the resource associations are listed.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | A list of @ListResourcesAssociatedToCustomLineItemResponseElement@ for
     -- each resource association retrieved.
     associatedResources :: Prelude.Maybe [ListResourcesAssociatedToCustomLineItemResponseElement],
-    -- | The custom line item ARN for which the resource associations are listed.
-    arn :: Prelude.Maybe Prelude.Text,
+    -- | The pagination token to be used in subsequent requests to retrieve
+    -- additional results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -264,13 +264,13 @@ data ListResourcesAssociatedToCustomLineItemResponse = ListResourcesAssociatedTo
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listResourcesAssociatedToCustomLineItemResponse_nextToken' - The pagination token to be used in subsequent requests to retrieve
--- additional results.
+-- 'arn', 'listResourcesAssociatedToCustomLineItemResponse_arn' - The custom line item ARN for which the resource associations are listed.
 --
 -- 'associatedResources', 'listResourcesAssociatedToCustomLineItemResponse_associatedResources' - A list of @ListResourcesAssociatedToCustomLineItemResponseElement@ for
 -- each resource association retrieved.
 --
--- 'arn', 'listResourcesAssociatedToCustomLineItemResponse_arn' - The custom line item ARN for which the resource associations are listed.
+-- 'nextToken', 'listResourcesAssociatedToCustomLineItemResponse_nextToken' - The pagination token to be used in subsequent requests to retrieve
+-- additional results.
 --
 -- 'httpStatus', 'listResourcesAssociatedToCustomLineItemResponse_httpStatus' - The response's http status code.
 newListResourcesAssociatedToCustomLineItemResponse ::
@@ -280,27 +280,28 @@ newListResourcesAssociatedToCustomLineItemResponse ::
 newListResourcesAssociatedToCustomLineItemResponse
   pHttpStatus_ =
     ListResourcesAssociatedToCustomLineItemResponse'
-      { nextToken =
+      { arn =
           Prelude.Nothing,
         associatedResources =
           Prelude.Nothing,
-        arn = Prelude.Nothing,
+        nextToken =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
--- | The pagination token to be used in subsequent requests to retrieve
--- additional results.
-listResourcesAssociatedToCustomLineItemResponse_nextToken :: Lens.Lens' ListResourcesAssociatedToCustomLineItemResponse (Prelude.Maybe Prelude.Text)
-listResourcesAssociatedToCustomLineItemResponse_nextToken = Lens.lens (\ListResourcesAssociatedToCustomLineItemResponse' {nextToken} -> nextToken) (\s@ListResourcesAssociatedToCustomLineItemResponse' {} a -> s {nextToken = a} :: ListResourcesAssociatedToCustomLineItemResponse)
+-- | The custom line item ARN for which the resource associations are listed.
+listResourcesAssociatedToCustomLineItemResponse_arn :: Lens.Lens' ListResourcesAssociatedToCustomLineItemResponse (Prelude.Maybe Prelude.Text)
+listResourcesAssociatedToCustomLineItemResponse_arn = Lens.lens (\ListResourcesAssociatedToCustomLineItemResponse' {arn} -> arn) (\s@ListResourcesAssociatedToCustomLineItemResponse' {} a -> s {arn = a} :: ListResourcesAssociatedToCustomLineItemResponse)
 
 -- | A list of @ListResourcesAssociatedToCustomLineItemResponseElement@ for
 -- each resource association retrieved.
 listResourcesAssociatedToCustomLineItemResponse_associatedResources :: Lens.Lens' ListResourcesAssociatedToCustomLineItemResponse (Prelude.Maybe [ListResourcesAssociatedToCustomLineItemResponseElement])
 listResourcesAssociatedToCustomLineItemResponse_associatedResources = Lens.lens (\ListResourcesAssociatedToCustomLineItemResponse' {associatedResources} -> associatedResources) (\s@ListResourcesAssociatedToCustomLineItemResponse' {} a -> s {associatedResources = a} :: ListResourcesAssociatedToCustomLineItemResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The custom line item ARN for which the resource associations are listed.
-listResourcesAssociatedToCustomLineItemResponse_arn :: Lens.Lens' ListResourcesAssociatedToCustomLineItemResponse (Prelude.Maybe Prelude.Text)
-listResourcesAssociatedToCustomLineItemResponse_arn = Lens.lens (\ListResourcesAssociatedToCustomLineItemResponse' {arn} -> arn) (\s@ListResourcesAssociatedToCustomLineItemResponse' {} a -> s {arn = a} :: ListResourcesAssociatedToCustomLineItemResponse)
+-- | The pagination token to be used in subsequent requests to retrieve
+-- additional results.
+listResourcesAssociatedToCustomLineItemResponse_nextToken :: Lens.Lens' ListResourcesAssociatedToCustomLineItemResponse (Prelude.Maybe Prelude.Text)
+listResourcesAssociatedToCustomLineItemResponse_nextToken = Lens.lens (\ListResourcesAssociatedToCustomLineItemResponse' {nextToken} -> nextToken) (\s@ListResourcesAssociatedToCustomLineItemResponse' {} a -> s {nextToken = a} :: ListResourcesAssociatedToCustomLineItemResponse)
 
 -- | The response's http status code.
 listResourcesAssociatedToCustomLineItemResponse_httpStatus :: Lens.Lens' ListResourcesAssociatedToCustomLineItemResponse Prelude.Int
@@ -312,7 +313,7 @@ instance
   where
   rnf
     ListResourcesAssociatedToCustomLineItemResponse' {..} =
-      Prelude.rnf nextToken
+      Prelude.rnf arn
         `Prelude.seq` Prelude.rnf associatedResources
-        `Prelude.seq` Prelude.rnf arn
+        `Prelude.seq` Prelude.rnf nextToken
         `Prelude.seq` Prelude.rnf httpStatus

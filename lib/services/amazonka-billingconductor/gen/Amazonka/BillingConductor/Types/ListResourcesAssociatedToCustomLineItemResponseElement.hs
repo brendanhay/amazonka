@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newListResourcesAssociatedToCustomLineItemResponseElement' smart constructor.
 data ListResourcesAssociatedToCustomLineItemResponseElement = ListResourcesAssociatedToCustomLineItemResponseElement'
-  { -- | The type of relationship between the custom line item and the associated
-    -- resource.
-    relationship :: Prelude.Maybe CustomLineItemRelationship,
-    -- | The ARN of the associated resource.
+  { -- | The ARN of the associated resource.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The end billing period of the associated resource.
-    endBillingPeriod :: Prelude.Maybe Prelude.Text
+    endBillingPeriod :: Prelude.Maybe Prelude.Text,
+    -- | The type of relationship between the custom line item and the associated
+    -- resource.
+    relationship :: Prelude.Maybe CustomLineItemRelationship
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,28 +47,23 @@ data ListResourcesAssociatedToCustomLineItemResponseElement = ListResourcesAssoc
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'relationship', 'listResourcesAssociatedToCustomLineItemResponseElement_relationship' - The type of relationship between the custom line item and the associated
--- resource.
---
 -- 'arn', 'listResourcesAssociatedToCustomLineItemResponseElement_arn' - The ARN of the associated resource.
 --
 -- 'endBillingPeriod', 'listResourcesAssociatedToCustomLineItemResponseElement_endBillingPeriod' - The end billing period of the associated resource.
+--
+-- 'relationship', 'listResourcesAssociatedToCustomLineItemResponseElement_relationship' - The type of relationship between the custom line item and the associated
+-- resource.
 newListResourcesAssociatedToCustomLineItemResponseElement ::
   ListResourcesAssociatedToCustomLineItemResponseElement
 newListResourcesAssociatedToCustomLineItemResponseElement =
   ListResourcesAssociatedToCustomLineItemResponseElement'
-    { relationship =
-        Prelude.Nothing,
-      arn =
+    { arn =
         Prelude.Nothing,
       endBillingPeriod =
+        Prelude.Nothing,
+      relationship =
         Prelude.Nothing
     }
-
--- | The type of relationship between the custom line item and the associated
--- resource.
-listResourcesAssociatedToCustomLineItemResponseElement_relationship :: Lens.Lens' ListResourcesAssociatedToCustomLineItemResponseElement (Prelude.Maybe CustomLineItemRelationship)
-listResourcesAssociatedToCustomLineItemResponseElement_relationship = Lens.lens (\ListResourcesAssociatedToCustomLineItemResponseElement' {relationship} -> relationship) (\s@ListResourcesAssociatedToCustomLineItemResponseElement' {} a -> s {relationship = a} :: ListResourcesAssociatedToCustomLineItemResponseElement)
 
 -- | The ARN of the associated resource.
 listResourcesAssociatedToCustomLineItemResponseElement_arn :: Lens.Lens' ListResourcesAssociatedToCustomLineItemResponseElement (Prelude.Maybe Prelude.Text)
@@ -77,6 +72,11 @@ listResourcesAssociatedToCustomLineItemResponseElement_arn = Lens.lens (\ListRes
 -- | The end billing period of the associated resource.
 listResourcesAssociatedToCustomLineItemResponseElement_endBillingPeriod :: Lens.Lens' ListResourcesAssociatedToCustomLineItemResponseElement (Prelude.Maybe Prelude.Text)
 listResourcesAssociatedToCustomLineItemResponseElement_endBillingPeriod = Lens.lens (\ListResourcesAssociatedToCustomLineItemResponseElement' {endBillingPeriod} -> endBillingPeriod) (\s@ListResourcesAssociatedToCustomLineItemResponseElement' {} a -> s {endBillingPeriod = a} :: ListResourcesAssociatedToCustomLineItemResponseElement)
+
+-- | The type of relationship between the custom line item and the associated
+-- resource.
+listResourcesAssociatedToCustomLineItemResponseElement_relationship :: Lens.Lens' ListResourcesAssociatedToCustomLineItemResponseElement (Prelude.Maybe CustomLineItemRelationship)
+listResourcesAssociatedToCustomLineItemResponseElement_relationship = Lens.lens (\ListResourcesAssociatedToCustomLineItemResponseElement' {relationship} -> relationship) (\s@ListResourcesAssociatedToCustomLineItemResponseElement' {} a -> s {relationship = a} :: ListResourcesAssociatedToCustomLineItemResponseElement)
 
 instance
   Data.FromJSON
@@ -87,9 +87,9 @@ instance
       "ListResourcesAssociatedToCustomLineItemResponseElement"
       ( \x ->
           ListResourcesAssociatedToCustomLineItemResponseElement'
-            Prelude.<$> (x Data..:? "Relationship")
-              Prelude.<*> (x Data..:? "Arn")
+            Prelude.<$> (x Data..:? "Arn")
               Prelude.<*> (x Data..:? "EndBillingPeriod")
+              Prelude.<*> (x Data..:? "Relationship")
       )
 
 instance
@@ -99,9 +99,9 @@ instance
   hashWithSalt
     _salt
     ListResourcesAssociatedToCustomLineItemResponseElement' {..} =
-      _salt `Prelude.hashWithSalt` relationship
-        `Prelude.hashWithSalt` arn
+      _salt `Prelude.hashWithSalt` arn
         `Prelude.hashWithSalt` endBillingPeriod
+        `Prelude.hashWithSalt` relationship
 
 instance
   Prelude.NFData
@@ -109,6 +109,6 @@ instance
   where
   rnf
     ListResourcesAssociatedToCustomLineItemResponseElement' {..} =
-      Prelude.rnf relationship
-        `Prelude.seq` Prelude.rnf arn
+      Prelude.rnf arn
         `Prelude.seq` Prelude.rnf endBillingPeriod
+        `Prelude.seq` Prelude.rnf relationship

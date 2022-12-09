@@ -29,9 +29,9 @@ module Amazonka.BillingConductor.ListPricingRulesAssociatedToPricingPlan
     newListPricingRulesAssociatedToPricingPlan,
 
     -- * Request Lenses
-    listPricingRulesAssociatedToPricingPlan_nextToken,
     listPricingRulesAssociatedToPricingPlan_billingPeriod,
     listPricingRulesAssociatedToPricingPlan_maxResults,
+    listPricingRulesAssociatedToPricingPlan_nextToken,
     listPricingRulesAssociatedToPricingPlan_pricingPlanArn,
 
     -- * Destructuring the Response
@@ -39,8 +39,8 @@ module Amazonka.BillingConductor.ListPricingRulesAssociatedToPricingPlan
     newListPricingRulesAssociatedToPricingPlanResponse,
 
     -- * Response Lenses
-    listPricingRulesAssociatedToPricingPlanResponse_nextToken,
     listPricingRulesAssociatedToPricingPlanResponse_billingPeriod,
+    listPricingRulesAssociatedToPricingPlanResponse_nextToken,
     listPricingRulesAssociatedToPricingPlanResponse_pricingPlanArn,
     listPricingRulesAssociatedToPricingPlanResponse_pricingRuleArns,
     listPricingRulesAssociatedToPricingPlanResponse_httpStatus,
@@ -57,13 +57,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPricingRulesAssociatedToPricingPlan' smart constructor.
 data ListPricingRulesAssociatedToPricingPlan = ListPricingRulesAssociatedToPricingPlan'
-  { -- | The optional pagination token returned by a previous call.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The billing period for which the pricing rule associations are to be
+  { -- | The billing period for which the pricing rule associations are to be
     -- listed.
     billingPeriod :: Prelude.Maybe Prelude.Text,
     -- | The optional maximum number of pricing rule associations to retrieve.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The optional pagination token returned by a previous call.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the pricing plan for which
     -- associations are to be listed.
     pricingPlanArn :: Prelude.Text
@@ -78,12 +78,12 @@ data ListPricingRulesAssociatedToPricingPlan = ListPricingRulesAssociatedToPrici
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPricingRulesAssociatedToPricingPlan_nextToken' - The optional pagination token returned by a previous call.
---
 -- 'billingPeriod', 'listPricingRulesAssociatedToPricingPlan_billingPeriod' - The billing period for which the pricing rule associations are to be
 -- listed.
 --
 -- 'maxResults', 'listPricingRulesAssociatedToPricingPlan_maxResults' - The optional maximum number of pricing rule associations to retrieve.
+--
+-- 'nextToken', 'listPricingRulesAssociatedToPricingPlan_nextToken' - The optional pagination token returned by a previous call.
 --
 -- 'pricingPlanArn', 'listPricingRulesAssociatedToPricingPlan_pricingPlanArn' - The Amazon Resource Name (ARN) of the pricing plan for which
 -- associations are to be listed.
@@ -94,16 +94,12 @@ newListPricingRulesAssociatedToPricingPlan ::
 newListPricingRulesAssociatedToPricingPlan
   pPricingPlanArn_ =
     ListPricingRulesAssociatedToPricingPlan'
-      { nextToken =
+      { billingPeriod =
           Prelude.Nothing,
-        billingPeriod = Prelude.Nothing,
         maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         pricingPlanArn = pPricingPlanArn_
       }
-
--- | The optional pagination token returned by a previous call.
-listPricingRulesAssociatedToPricingPlan_nextToken :: Lens.Lens' ListPricingRulesAssociatedToPricingPlan (Prelude.Maybe Prelude.Text)
-listPricingRulesAssociatedToPricingPlan_nextToken = Lens.lens (\ListPricingRulesAssociatedToPricingPlan' {nextToken} -> nextToken) (\s@ListPricingRulesAssociatedToPricingPlan' {} a -> s {nextToken = a} :: ListPricingRulesAssociatedToPricingPlan)
 
 -- | The billing period for which the pricing rule associations are to be
 -- listed.
@@ -113,6 +109,10 @@ listPricingRulesAssociatedToPricingPlan_billingPeriod = Lens.lens (\ListPricingR
 -- | The optional maximum number of pricing rule associations to retrieve.
 listPricingRulesAssociatedToPricingPlan_maxResults :: Lens.Lens' ListPricingRulesAssociatedToPricingPlan (Prelude.Maybe Prelude.Natural)
 listPricingRulesAssociatedToPricingPlan_maxResults = Lens.lens (\ListPricingRulesAssociatedToPricingPlan' {maxResults} -> maxResults) (\s@ListPricingRulesAssociatedToPricingPlan' {} a -> s {maxResults = a} :: ListPricingRulesAssociatedToPricingPlan)
+
+-- | The optional pagination token returned by a previous call.
+listPricingRulesAssociatedToPricingPlan_nextToken :: Lens.Lens' ListPricingRulesAssociatedToPricingPlan (Prelude.Maybe Prelude.Text)
+listPricingRulesAssociatedToPricingPlan_nextToken = Lens.lens (\ListPricingRulesAssociatedToPricingPlan' {nextToken} -> nextToken) (\s@ListPricingRulesAssociatedToPricingPlan' {} a -> s {nextToken = a} :: ListPricingRulesAssociatedToPricingPlan)
 
 -- | The Amazon Resource Name (ARN) of the pricing plan for which
 -- associations are to be listed.
@@ -159,8 +159,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListPricingRulesAssociatedToPricingPlanResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-              Prelude.<*> (x Data..?> "BillingPeriod")
+            Prelude.<$> (x Data..?> "BillingPeriod")
+              Prelude.<*> (x Data..?> "NextToken")
               Prelude.<*> (x Data..?> "PricingPlanArn")
               Prelude.<*> (x Data..?> "PricingRuleArns")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -173,9 +173,9 @@ instance
   hashWithSalt
     _salt
     ListPricingRulesAssociatedToPricingPlan' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` billingPeriod
+      _salt `Prelude.hashWithSalt` billingPeriod
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` pricingPlanArn
 
 instance
@@ -183,9 +183,9 @@ instance
     ListPricingRulesAssociatedToPricingPlan
   where
   rnf ListPricingRulesAssociatedToPricingPlan' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf billingPeriod
+    Prelude.rnf billingPeriod
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf pricingPlanArn
 
 instance
@@ -209,9 +209,9 @@ instance
   toJSON ListPricingRulesAssociatedToPricingPlan' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("BillingPeriod" Data..=) Prelude.<$> billingPeriod,
+          [ ("BillingPeriod" Data..=) Prelude.<$> billingPeriod,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("PricingPlanArn" Data..= pricingPlanArn)
           ]
@@ -233,10 +233,10 @@ instance
 
 -- | /See:/ 'newListPricingRulesAssociatedToPricingPlanResponse' smart constructor.
 data ListPricingRulesAssociatedToPricingPlanResponse = ListPricingRulesAssociatedToPricingPlanResponse'
-  { -- | The pagination token to be used on subsequent calls.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The billing period for which the pricing rule associations are listed.
+  { -- | The billing period for which the pricing rule associations are listed.
     billingPeriod :: Prelude.Maybe Prelude.Text,
+    -- | The pagination token to be used on subsequent calls.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the pricing plan for which
     -- associations are listed.
     pricingPlanArn :: Prelude.Maybe Prelude.Text,
@@ -256,9 +256,9 @@ data ListPricingRulesAssociatedToPricingPlanResponse = ListPricingRulesAssociate
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPricingRulesAssociatedToPricingPlanResponse_nextToken' - The pagination token to be used on subsequent calls.
---
 -- 'billingPeriod', 'listPricingRulesAssociatedToPricingPlanResponse_billingPeriod' - The billing period for which the pricing rule associations are listed.
+--
+-- 'nextToken', 'listPricingRulesAssociatedToPricingPlanResponse_nextToken' - The pagination token to be used on subsequent calls.
 --
 -- 'pricingPlanArn', 'listPricingRulesAssociatedToPricingPlanResponse_pricingPlanArn' - The Amazon Resource Name (ARN) of the pricing plan for which
 -- associations are listed.
@@ -274,9 +274,9 @@ newListPricingRulesAssociatedToPricingPlanResponse ::
 newListPricingRulesAssociatedToPricingPlanResponse
   pHttpStatus_ =
     ListPricingRulesAssociatedToPricingPlanResponse'
-      { nextToken =
+      { billingPeriod =
           Prelude.Nothing,
-        billingPeriod =
+        nextToken =
           Prelude.Nothing,
         pricingPlanArn =
           Prelude.Nothing,
@@ -285,13 +285,13 @@ newListPricingRulesAssociatedToPricingPlanResponse
         httpStatus = pHttpStatus_
       }
 
--- | The pagination token to be used on subsequent calls.
-listPricingRulesAssociatedToPricingPlanResponse_nextToken :: Lens.Lens' ListPricingRulesAssociatedToPricingPlanResponse (Prelude.Maybe Prelude.Text)
-listPricingRulesAssociatedToPricingPlanResponse_nextToken = Lens.lens (\ListPricingRulesAssociatedToPricingPlanResponse' {nextToken} -> nextToken) (\s@ListPricingRulesAssociatedToPricingPlanResponse' {} a -> s {nextToken = a} :: ListPricingRulesAssociatedToPricingPlanResponse)
-
 -- | The billing period for which the pricing rule associations are listed.
 listPricingRulesAssociatedToPricingPlanResponse_billingPeriod :: Lens.Lens' ListPricingRulesAssociatedToPricingPlanResponse (Prelude.Maybe Prelude.Text)
 listPricingRulesAssociatedToPricingPlanResponse_billingPeriod = Lens.lens (\ListPricingRulesAssociatedToPricingPlanResponse' {billingPeriod} -> billingPeriod) (\s@ListPricingRulesAssociatedToPricingPlanResponse' {} a -> s {billingPeriod = a} :: ListPricingRulesAssociatedToPricingPlanResponse)
+
+-- | The pagination token to be used on subsequent calls.
+listPricingRulesAssociatedToPricingPlanResponse_nextToken :: Lens.Lens' ListPricingRulesAssociatedToPricingPlanResponse (Prelude.Maybe Prelude.Text)
+listPricingRulesAssociatedToPricingPlanResponse_nextToken = Lens.lens (\ListPricingRulesAssociatedToPricingPlanResponse' {nextToken} -> nextToken) (\s@ListPricingRulesAssociatedToPricingPlanResponse' {} a -> s {nextToken = a} :: ListPricingRulesAssociatedToPricingPlanResponse)
 
 -- | The Amazon Resource Name (ARN) of the pricing plan for which
 -- associations are listed.
@@ -313,8 +313,8 @@ instance
   where
   rnf
     ListPricingRulesAssociatedToPricingPlanResponse' {..} =
-      Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf billingPeriod
+      Prelude.rnf billingPeriod
+        `Prelude.seq` Prelude.rnf nextToken
         `Prelude.seq` Prelude.rnf pricingPlanArn
         `Prelude.seq` Prelude.rnf pricingRuleArns
         `Prelude.seq` Prelude.rnf httpStatus

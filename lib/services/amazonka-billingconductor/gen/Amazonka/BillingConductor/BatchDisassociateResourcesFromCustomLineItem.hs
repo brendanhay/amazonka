@@ -36,8 +36,8 @@ module Amazonka.BillingConductor.BatchDisassociateResourcesFromCustomLineItem
     newBatchDisassociateResourcesFromCustomLineItemResponse,
 
     -- * Response Lenses
-    batchDisassociateResourcesFromCustomLineItemResponse_successfullyDisassociatedResources,
     batchDisassociateResourcesFromCustomLineItemResponse_failedDisassociatedResources,
+    batchDisassociateResourcesFromCustomLineItemResponse_successfullyDisassociatedResources,
     batchDisassociateResourcesFromCustomLineItemResponse_httpStatus,
   )
 where
@@ -117,10 +117,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           BatchDisassociateResourcesFromCustomLineItemResponse'
-            Prelude.<$> ( x Data..?> "SuccessfullyDisassociatedResources"
+            Prelude.<$> ( x Data..?> "FailedDisassociatedResources"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> ( x Data..?> "FailedDisassociatedResources"
+              Prelude.<*> ( x Data..?> "SuccessfullyDisassociatedResources"
                               Core..!@ Prelude.mempty
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -191,13 +191,13 @@ instance
 
 -- | /See:/ 'newBatchDisassociateResourcesFromCustomLineItemResponse' smart constructor.
 data BatchDisassociateResourcesFromCustomLineItemResponse = BatchDisassociateResourcesFromCustomLineItemResponse'
-  { -- | A list of @DisassociateResourceResponseElement@ for each resource
+  { -- | A list of @DisassociateResourceResponseElement@ for each resource that
+    -- failed disassociation from a percentage custom line item.
+    failedDisassociatedResources :: Prelude.Maybe [DisassociateResourceResponseElement],
+    -- | A list of @DisassociateResourceResponseElement@ for each resource
     -- that\'s been disassociated from a percentage custom line item
     -- successfully.
     successfullyDisassociatedResources :: Prelude.Maybe [DisassociateResourceResponseElement],
-    -- | A list of @DisassociateResourceResponseElement@ for each resource that
-    -- failed disassociation from a percentage custom line item.
-    failedDisassociatedResources :: Prelude.Maybe [DisassociateResourceResponseElement],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -211,12 +211,12 @@ data BatchDisassociateResourcesFromCustomLineItemResponse = BatchDisassociateRes
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'failedDisassociatedResources', 'batchDisassociateResourcesFromCustomLineItemResponse_failedDisassociatedResources' - A list of @DisassociateResourceResponseElement@ for each resource that
+-- failed disassociation from a percentage custom line item.
+--
 -- 'successfullyDisassociatedResources', 'batchDisassociateResourcesFromCustomLineItemResponse_successfullyDisassociatedResources' - A list of @DisassociateResourceResponseElement@ for each resource
 -- that\'s been disassociated from a percentage custom line item
 -- successfully.
---
--- 'failedDisassociatedResources', 'batchDisassociateResourcesFromCustomLineItemResponse_failedDisassociatedResources' - A list of @DisassociateResourceResponseElement@ for each resource that
--- failed disassociation from a percentage custom line item.
 --
 -- 'httpStatus', 'batchDisassociateResourcesFromCustomLineItemResponse_httpStatus' - The response's http status code.
 newBatchDisassociateResourcesFromCustomLineItemResponse ::
@@ -226,24 +226,24 @@ newBatchDisassociateResourcesFromCustomLineItemResponse ::
 newBatchDisassociateResourcesFromCustomLineItemResponse
   pHttpStatus_ =
     BatchDisassociateResourcesFromCustomLineItemResponse'
-      { successfullyDisassociatedResources =
+      { failedDisassociatedResources =
           Prelude.Nothing,
-        failedDisassociatedResources =
+        successfullyDisassociatedResources =
           Prelude.Nothing,
         httpStatus =
           pHttpStatus_
       }
+
+-- | A list of @DisassociateResourceResponseElement@ for each resource that
+-- failed disassociation from a percentage custom line item.
+batchDisassociateResourcesFromCustomLineItemResponse_failedDisassociatedResources :: Lens.Lens' BatchDisassociateResourcesFromCustomLineItemResponse (Prelude.Maybe [DisassociateResourceResponseElement])
+batchDisassociateResourcesFromCustomLineItemResponse_failedDisassociatedResources = Lens.lens (\BatchDisassociateResourcesFromCustomLineItemResponse' {failedDisassociatedResources} -> failedDisassociatedResources) (\s@BatchDisassociateResourcesFromCustomLineItemResponse' {} a -> s {failedDisassociatedResources = a} :: BatchDisassociateResourcesFromCustomLineItemResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of @DisassociateResourceResponseElement@ for each resource
 -- that\'s been disassociated from a percentage custom line item
 -- successfully.
 batchDisassociateResourcesFromCustomLineItemResponse_successfullyDisassociatedResources :: Lens.Lens' BatchDisassociateResourcesFromCustomLineItemResponse (Prelude.Maybe [DisassociateResourceResponseElement])
 batchDisassociateResourcesFromCustomLineItemResponse_successfullyDisassociatedResources = Lens.lens (\BatchDisassociateResourcesFromCustomLineItemResponse' {successfullyDisassociatedResources} -> successfullyDisassociatedResources) (\s@BatchDisassociateResourcesFromCustomLineItemResponse' {} a -> s {successfullyDisassociatedResources = a} :: BatchDisassociateResourcesFromCustomLineItemResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | A list of @DisassociateResourceResponseElement@ for each resource that
--- failed disassociation from a percentage custom line item.
-batchDisassociateResourcesFromCustomLineItemResponse_failedDisassociatedResources :: Lens.Lens' BatchDisassociateResourcesFromCustomLineItemResponse (Prelude.Maybe [DisassociateResourceResponseElement])
-batchDisassociateResourcesFromCustomLineItemResponse_failedDisassociatedResources = Lens.lens (\BatchDisassociateResourcesFromCustomLineItemResponse' {failedDisassociatedResources} -> failedDisassociatedResources) (\s@BatchDisassociateResourcesFromCustomLineItemResponse' {} a -> s {failedDisassociatedResources = a} :: BatchDisassociateResourcesFromCustomLineItemResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchDisassociateResourcesFromCustomLineItemResponse_httpStatus :: Lens.Lens' BatchDisassociateResourcesFromCustomLineItemResponse Prelude.Int
@@ -255,6 +255,6 @@ instance
   where
   rnf
     BatchDisassociateResourcesFromCustomLineItemResponse' {..} =
-      Prelude.rnf successfullyDisassociatedResources
-        `Prelude.seq` Prelude.rnf failedDisassociatedResources
+      Prelude.rnf failedDisassociatedResources
+        `Prelude.seq` Prelude.rnf successfullyDisassociatedResources
         `Prelude.seq` Prelude.rnf httpStatus

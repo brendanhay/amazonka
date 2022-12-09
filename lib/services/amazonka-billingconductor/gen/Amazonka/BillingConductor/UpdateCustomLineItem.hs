@@ -28,10 +28,10 @@ module Amazonka.BillingConductor.UpdateCustomLineItem
     newUpdateCustomLineItem,
 
     -- * Request Lenses
-    updateCustomLineItem_name,
-    updateCustomLineItem_chargeDetails,
     updateCustomLineItem_billingPeriodRange,
+    updateCustomLineItem_chargeDetails,
     updateCustomLineItem_description,
+    updateCustomLineItem_name,
     updateCustomLineItem_arn,
 
     -- * Destructuring the Response
@@ -39,13 +39,13 @@ module Amazonka.BillingConductor.UpdateCustomLineItem
     newUpdateCustomLineItemResponse,
 
     -- * Response Lenses
-    updateCustomLineItemResponse_name,
-    updateCustomLineItemResponse_chargeDetails,
-    updateCustomLineItemResponse_billingGroupArn,
     updateCustomLineItemResponse_arn,
     updateCustomLineItemResponse_associationSize,
+    updateCustomLineItemResponse_billingGroupArn,
+    updateCustomLineItemResponse_chargeDetails,
     updateCustomLineItemResponse_description,
     updateCustomLineItemResponse_lastModifiedTime,
+    updateCustomLineItemResponse_name,
     updateCustomLineItemResponse_httpStatus,
   )
 where
@@ -60,14 +60,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateCustomLineItem' smart constructor.
 data UpdateCustomLineItem = UpdateCustomLineItem'
-  { -- | The new name for the custom line item.
-    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+  { billingPeriodRange :: Prelude.Maybe CustomLineItemBillingPeriodRange,
     -- | A @ListCustomLineItemChargeDetails@ containing the new charge details
     -- for the custom line item.
     chargeDetails :: Prelude.Maybe UpdateCustomLineItemChargeDetails,
-    billingPeriodRange :: Prelude.Maybe CustomLineItemBillingPeriodRange,
     -- | The new line item description of the custom line item.
     description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The new name for the custom line item.
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ARN of the custom line item to be updated.
     arn :: Prelude.Text
   }
@@ -81,14 +81,14 @@ data UpdateCustomLineItem = UpdateCustomLineItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateCustomLineItem_name' - The new name for the custom line item.
+-- 'billingPeriodRange', 'updateCustomLineItem_billingPeriodRange' - Undocumented member.
 --
 -- 'chargeDetails', 'updateCustomLineItem_chargeDetails' - A @ListCustomLineItemChargeDetails@ containing the new charge details
 -- for the custom line item.
 --
--- 'billingPeriodRange', 'updateCustomLineItem_billingPeriodRange' - Undocumented member.
---
 -- 'description', 'updateCustomLineItem_description' - The new line item description of the custom line item.
+--
+-- 'name', 'updateCustomLineItem_name' - The new name for the custom line item.
 --
 -- 'arn', 'updateCustomLineItem_arn' - The ARN of the custom line item to be updated.
 newUpdateCustomLineItem ::
@@ -97,29 +97,30 @@ newUpdateCustomLineItem ::
   UpdateCustomLineItem
 newUpdateCustomLineItem pArn_ =
   UpdateCustomLineItem'
-    { name = Prelude.Nothing,
+    { billingPeriodRange =
+        Prelude.Nothing,
       chargeDetails = Prelude.Nothing,
-      billingPeriodRange = Prelude.Nothing,
       description = Prelude.Nothing,
+      name = Prelude.Nothing,
       arn = pArn_
     }
 
--- | The new name for the custom line item.
-updateCustomLineItem_name :: Lens.Lens' UpdateCustomLineItem (Prelude.Maybe Prelude.Text)
-updateCustomLineItem_name = Lens.lens (\UpdateCustomLineItem' {name} -> name) (\s@UpdateCustomLineItem' {} a -> s {name = a} :: UpdateCustomLineItem) Prelude.. Lens.mapping Data._Sensitive
+-- | Undocumented member.
+updateCustomLineItem_billingPeriodRange :: Lens.Lens' UpdateCustomLineItem (Prelude.Maybe CustomLineItemBillingPeriodRange)
+updateCustomLineItem_billingPeriodRange = Lens.lens (\UpdateCustomLineItem' {billingPeriodRange} -> billingPeriodRange) (\s@UpdateCustomLineItem' {} a -> s {billingPeriodRange = a} :: UpdateCustomLineItem)
 
 -- | A @ListCustomLineItemChargeDetails@ containing the new charge details
 -- for the custom line item.
 updateCustomLineItem_chargeDetails :: Lens.Lens' UpdateCustomLineItem (Prelude.Maybe UpdateCustomLineItemChargeDetails)
 updateCustomLineItem_chargeDetails = Lens.lens (\UpdateCustomLineItem' {chargeDetails} -> chargeDetails) (\s@UpdateCustomLineItem' {} a -> s {chargeDetails = a} :: UpdateCustomLineItem)
 
--- | Undocumented member.
-updateCustomLineItem_billingPeriodRange :: Lens.Lens' UpdateCustomLineItem (Prelude.Maybe CustomLineItemBillingPeriodRange)
-updateCustomLineItem_billingPeriodRange = Lens.lens (\UpdateCustomLineItem' {billingPeriodRange} -> billingPeriodRange) (\s@UpdateCustomLineItem' {} a -> s {billingPeriodRange = a} :: UpdateCustomLineItem)
-
 -- | The new line item description of the custom line item.
 updateCustomLineItem_description :: Lens.Lens' UpdateCustomLineItem (Prelude.Maybe Prelude.Text)
 updateCustomLineItem_description = Lens.lens (\UpdateCustomLineItem' {description} -> description) (\s@UpdateCustomLineItem' {} a -> s {description = a} :: UpdateCustomLineItem) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The new name for the custom line item.
+updateCustomLineItem_name :: Lens.Lens' UpdateCustomLineItem (Prelude.Maybe Prelude.Text)
+updateCustomLineItem_name = Lens.lens (\UpdateCustomLineItem' {name} -> name) (\s@UpdateCustomLineItem' {} a -> s {name = a} :: UpdateCustomLineItem) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ARN of the custom line item to be updated.
 updateCustomLineItem_arn :: Lens.Lens' UpdateCustomLineItem Prelude.Text
@@ -135,30 +136,30 @@ instance Core.AWSRequest UpdateCustomLineItem where
     Response.receiveJSON
       ( \s h x ->
           UpdateCustomLineItemResponse'
-            Prelude.<$> (x Data..?> "Name")
-            Prelude.<*> (x Data..?> "ChargeDetails")
-            Prelude.<*> (x Data..?> "BillingGroupArn")
-            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (x Data..?> "AssociationSize")
+            Prelude.<*> (x Data..?> "BillingGroupArn")
+            Prelude.<*> (x Data..?> "ChargeDetails")
             Prelude.<*> (x Data..?> "Description")
             Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "Name")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdateCustomLineItem where
   hashWithSalt _salt UpdateCustomLineItem' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` billingPeriodRange
       `Prelude.hashWithSalt` chargeDetails
-      `Prelude.hashWithSalt` billingPeriodRange
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData UpdateCustomLineItem where
   rnf UpdateCustomLineItem' {..} =
-    Prelude.rnf name
+    Prelude.rnf billingPeriodRange
       `Prelude.seq` Prelude.rnf chargeDetails
-      `Prelude.seq` Prelude.rnf billingPeriodRange
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf arn
 
 instance Data.ToHeaders UpdateCustomLineItem where
@@ -176,11 +177,11 @@ instance Data.ToJSON UpdateCustomLineItem where
   toJSON UpdateCustomLineItem' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
-            ("ChargeDetails" Data..=) Prelude.<$> chargeDetails,
-            ("BillingPeriodRange" Data..=)
+          [ ("BillingPeriodRange" Data..=)
               Prelude.<$> billingPeriodRange,
+            ("ChargeDetails" Data..=) Prelude.<$> chargeDetails,
             ("Description" Data..=) Prelude.<$> description,
+            ("Name" Data..=) Prelude.<$> name,
             Prelude.Just ("Arn" Data..= arn)
           ]
       )
@@ -193,21 +194,21 @@ instance Data.ToQuery UpdateCustomLineItem where
 
 -- | /See:/ 'newUpdateCustomLineItemResponse' smart constructor.
 data UpdateCustomLineItemResponse = UpdateCustomLineItemResponse'
-  { -- | The name of the successfully updated custom line item.
-    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | A @ListCustomLineItemChargeDetails@ containing the charge details of the
-    -- successfully updated custom line item.
-    chargeDetails :: Prelude.Maybe ListCustomLineItemChargeDetails,
-    -- | The ARN of the billing group that the custom line item is applied to.
-    billingGroupArn :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the successfully updated custom line item.
+  { -- | The ARN of the successfully updated custom line item.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The number of resources that are associated to the custom line item.
     associationSize :: Prelude.Maybe Prelude.Natural,
+    -- | The ARN of the billing group that the custom line item is applied to.
+    billingGroupArn :: Prelude.Maybe Prelude.Text,
+    -- | A @ListCustomLineItemChargeDetails@ containing the charge details of the
+    -- successfully updated custom line item.
+    chargeDetails :: Prelude.Maybe ListCustomLineItemChargeDetails,
     -- | The description of the successfully updated custom line item.
     description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The most recent time when the custom line item was modified.
     lastModifiedTime :: Prelude.Maybe Prelude.Integer,
+    -- | The name of the successfully updated custom line item.
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -221,20 +222,20 @@ data UpdateCustomLineItemResponse = UpdateCustomLineItemResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateCustomLineItemResponse_name' - The name of the successfully updated custom line item.
---
--- 'chargeDetails', 'updateCustomLineItemResponse_chargeDetails' - A @ListCustomLineItemChargeDetails@ containing the charge details of the
--- successfully updated custom line item.
---
--- 'billingGroupArn', 'updateCustomLineItemResponse_billingGroupArn' - The ARN of the billing group that the custom line item is applied to.
---
 -- 'arn', 'updateCustomLineItemResponse_arn' - The ARN of the successfully updated custom line item.
 --
 -- 'associationSize', 'updateCustomLineItemResponse_associationSize' - The number of resources that are associated to the custom line item.
 --
+-- 'billingGroupArn', 'updateCustomLineItemResponse_billingGroupArn' - The ARN of the billing group that the custom line item is applied to.
+--
+-- 'chargeDetails', 'updateCustomLineItemResponse_chargeDetails' - A @ListCustomLineItemChargeDetails@ containing the charge details of the
+-- successfully updated custom line item.
+--
 -- 'description', 'updateCustomLineItemResponse_description' - The description of the successfully updated custom line item.
 --
 -- 'lastModifiedTime', 'updateCustomLineItemResponse_lastModifiedTime' - The most recent time when the custom line item was modified.
+--
+-- 'name', 'updateCustomLineItemResponse_name' - The name of the successfully updated custom line item.
 --
 -- 'httpStatus', 'updateCustomLineItemResponse_httpStatus' - The response's http status code.
 newUpdateCustomLineItemResponse ::
@@ -243,29 +244,16 @@ newUpdateCustomLineItemResponse ::
   UpdateCustomLineItemResponse
 newUpdateCustomLineItemResponse pHttpStatus_ =
   UpdateCustomLineItemResponse'
-    { name =
+    { arn =
         Prelude.Nothing,
-      chargeDetails = Prelude.Nothing,
-      billingGroupArn = Prelude.Nothing,
-      arn = Prelude.Nothing,
       associationSize = Prelude.Nothing,
+      billingGroupArn = Prelude.Nothing,
+      chargeDetails = Prelude.Nothing,
       description = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
+      name = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The name of the successfully updated custom line item.
-updateCustomLineItemResponse_name :: Lens.Lens' UpdateCustomLineItemResponse (Prelude.Maybe Prelude.Text)
-updateCustomLineItemResponse_name = Lens.lens (\UpdateCustomLineItemResponse' {name} -> name) (\s@UpdateCustomLineItemResponse' {} a -> s {name = a} :: UpdateCustomLineItemResponse) Prelude.. Lens.mapping Data._Sensitive
-
--- | A @ListCustomLineItemChargeDetails@ containing the charge details of the
--- successfully updated custom line item.
-updateCustomLineItemResponse_chargeDetails :: Lens.Lens' UpdateCustomLineItemResponse (Prelude.Maybe ListCustomLineItemChargeDetails)
-updateCustomLineItemResponse_chargeDetails = Lens.lens (\UpdateCustomLineItemResponse' {chargeDetails} -> chargeDetails) (\s@UpdateCustomLineItemResponse' {} a -> s {chargeDetails = a} :: UpdateCustomLineItemResponse)
-
--- | The ARN of the billing group that the custom line item is applied to.
-updateCustomLineItemResponse_billingGroupArn :: Lens.Lens' UpdateCustomLineItemResponse (Prelude.Maybe Prelude.Text)
-updateCustomLineItemResponse_billingGroupArn = Lens.lens (\UpdateCustomLineItemResponse' {billingGroupArn} -> billingGroupArn) (\s@UpdateCustomLineItemResponse' {} a -> s {billingGroupArn = a} :: UpdateCustomLineItemResponse)
 
 -- | The ARN of the successfully updated custom line item.
 updateCustomLineItemResponse_arn :: Lens.Lens' UpdateCustomLineItemResponse (Prelude.Maybe Prelude.Text)
@@ -275,6 +263,15 @@ updateCustomLineItemResponse_arn = Lens.lens (\UpdateCustomLineItemResponse' {ar
 updateCustomLineItemResponse_associationSize :: Lens.Lens' UpdateCustomLineItemResponse (Prelude.Maybe Prelude.Natural)
 updateCustomLineItemResponse_associationSize = Lens.lens (\UpdateCustomLineItemResponse' {associationSize} -> associationSize) (\s@UpdateCustomLineItemResponse' {} a -> s {associationSize = a} :: UpdateCustomLineItemResponse)
 
+-- | The ARN of the billing group that the custom line item is applied to.
+updateCustomLineItemResponse_billingGroupArn :: Lens.Lens' UpdateCustomLineItemResponse (Prelude.Maybe Prelude.Text)
+updateCustomLineItemResponse_billingGroupArn = Lens.lens (\UpdateCustomLineItemResponse' {billingGroupArn} -> billingGroupArn) (\s@UpdateCustomLineItemResponse' {} a -> s {billingGroupArn = a} :: UpdateCustomLineItemResponse)
+
+-- | A @ListCustomLineItemChargeDetails@ containing the charge details of the
+-- successfully updated custom line item.
+updateCustomLineItemResponse_chargeDetails :: Lens.Lens' UpdateCustomLineItemResponse (Prelude.Maybe ListCustomLineItemChargeDetails)
+updateCustomLineItemResponse_chargeDetails = Lens.lens (\UpdateCustomLineItemResponse' {chargeDetails} -> chargeDetails) (\s@UpdateCustomLineItemResponse' {} a -> s {chargeDetails = a} :: UpdateCustomLineItemResponse)
+
 -- | The description of the successfully updated custom line item.
 updateCustomLineItemResponse_description :: Lens.Lens' UpdateCustomLineItemResponse (Prelude.Maybe Prelude.Text)
 updateCustomLineItemResponse_description = Lens.lens (\UpdateCustomLineItemResponse' {description} -> description) (\s@UpdateCustomLineItemResponse' {} a -> s {description = a} :: UpdateCustomLineItemResponse) Prelude.. Lens.mapping Data._Sensitive
@@ -283,17 +280,21 @@ updateCustomLineItemResponse_description = Lens.lens (\UpdateCustomLineItemRespo
 updateCustomLineItemResponse_lastModifiedTime :: Lens.Lens' UpdateCustomLineItemResponse (Prelude.Maybe Prelude.Integer)
 updateCustomLineItemResponse_lastModifiedTime = Lens.lens (\UpdateCustomLineItemResponse' {lastModifiedTime} -> lastModifiedTime) (\s@UpdateCustomLineItemResponse' {} a -> s {lastModifiedTime = a} :: UpdateCustomLineItemResponse)
 
+-- | The name of the successfully updated custom line item.
+updateCustomLineItemResponse_name :: Lens.Lens' UpdateCustomLineItemResponse (Prelude.Maybe Prelude.Text)
+updateCustomLineItemResponse_name = Lens.lens (\UpdateCustomLineItemResponse' {name} -> name) (\s@UpdateCustomLineItemResponse' {} a -> s {name = a} :: UpdateCustomLineItemResponse) Prelude.. Lens.mapping Data._Sensitive
+
 -- | The response's http status code.
 updateCustomLineItemResponse_httpStatus :: Lens.Lens' UpdateCustomLineItemResponse Prelude.Int
 updateCustomLineItemResponse_httpStatus = Lens.lens (\UpdateCustomLineItemResponse' {httpStatus} -> httpStatus) (\s@UpdateCustomLineItemResponse' {} a -> s {httpStatus = a} :: UpdateCustomLineItemResponse)
 
 instance Prelude.NFData UpdateCustomLineItemResponse where
   rnf UpdateCustomLineItemResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf chargeDetails
-      `Prelude.seq` Prelude.rnf billingGroupArn
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf associationSize
+      `Prelude.seq` Prelude.rnf billingGroupArn
+      `Prelude.seq` Prelude.rnf chargeDetails
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf httpStatus

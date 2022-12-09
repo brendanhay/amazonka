@@ -28,15 +28,16 @@ module Amazonka.BillingConductor.CreatePricingRule
     newCreatePricingRule,
 
     -- * Request Lenses
-    createPricingRule_tags,
-    createPricingRule_clientToken,
     createPricingRule_billingEntity,
+    createPricingRule_clientToken,
     createPricingRule_description,
+    createPricingRule_modifierPercentage,
     createPricingRule_service,
+    createPricingRule_tags,
+    createPricingRule_tiering,
     createPricingRule_name,
     createPricingRule_scope,
     createPricingRule_type,
-    createPricingRule_modifierPercentage,
 
     -- * Destructuring the Response
     CreatePricingRuleResponse (..),
@@ -58,30 +59,32 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreatePricingRule' smart constructor.
 data CreatePricingRule = CreatePricingRule'
-  { -- | A map that contains tag keys and tag values that are attached to a
-    -- pricing rule.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The token that\'s needed to support idempotency. Idempotency isn\'t
-    -- currently supported, but will be implemented in a future update.
-    clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The seller of services provided by Amazon Web Services, their
+  { -- | The seller of services provided by Amazon Web Services, their
     -- affiliates, or third-party providers selling services via Amazon Web
     -- Services Marketplace.
     billingEntity :: Prelude.Maybe Prelude.Text,
+    -- | The token that\'s needed to support idempotency. Idempotency isn\'t
+    -- currently supported, but will be implemented in a future update.
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The pricing rule description.
     description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | A percentage modifier that\'s applied on the public pricing rates.
+    modifierPercentage :: Prelude.Maybe Prelude.Double,
     -- | If the @Scope@ attribute is set to @SERVICE@, the attribute indicates
     -- which service the @PricingRule@ is applicable for.
     service :: Prelude.Maybe Prelude.Text,
+    -- | A map that contains tag keys and tag values that are attached to a
+    -- pricing rule.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The set of tiering configurations for the pricing rule.
+    tiering :: Prelude.Maybe CreateTieringInput,
     -- | The pricing rule name. The names must be unique to each pricing rule.
     name :: Data.Sensitive Prelude.Text,
     -- | The scope of pricing rule that indicates if it\'s globally applicable,
     -- or it\'s service-specific.
     scope :: PricingRuleScope,
     -- | The type of pricing rule.
-    type' :: PricingRuleType,
-    -- | A percentage modifier that\'s applied on the public pricing rates.
-    modifierPercentage :: Prelude.Double
+    type' :: PricingRuleType
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -93,20 +96,24 @@ data CreatePricingRule = CreatePricingRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createPricingRule_tags' - A map that contains tag keys and tag values that are attached to a
--- pricing rule.
---
--- 'clientToken', 'createPricingRule_clientToken' - The token that\'s needed to support idempotency. Idempotency isn\'t
--- currently supported, but will be implemented in a future update.
---
 -- 'billingEntity', 'createPricingRule_billingEntity' - The seller of services provided by Amazon Web Services, their
 -- affiliates, or third-party providers selling services via Amazon Web
 -- Services Marketplace.
 --
+-- 'clientToken', 'createPricingRule_clientToken' - The token that\'s needed to support idempotency. Idempotency isn\'t
+-- currently supported, but will be implemented in a future update.
+--
 -- 'description', 'createPricingRule_description' - The pricing rule description.
+--
+-- 'modifierPercentage', 'createPricingRule_modifierPercentage' - A percentage modifier that\'s applied on the public pricing rates.
 --
 -- 'service', 'createPricingRule_service' - If the @Scope@ attribute is set to @SERVICE@, the attribute indicates
 -- which service the @PricingRule@ is applicable for.
+--
+-- 'tags', 'createPricingRule_tags' - A map that contains tag keys and tag values that are attached to a
+-- pricing rule.
+--
+-- 'tiering', 'createPricingRule_tiering' - The set of tiering configurations for the pricing rule.
 --
 -- 'name', 'createPricingRule_name' - The pricing rule name. The names must be unique to each pricing rule.
 --
@@ -114,8 +121,6 @@ data CreatePricingRule = CreatePricingRule'
 -- or it\'s service-specific.
 --
 -- 'type'', 'createPricingRule_type' - The type of pricing rule.
---
--- 'modifierPercentage', 'createPricingRule_modifierPercentage' - A percentage modifier that\'s applied on the public pricing rates.
 newCreatePricingRule ::
   -- | 'name'
   Prelude.Text ->
@@ -123,35 +128,20 @@ newCreatePricingRule ::
   PricingRuleScope ->
   -- | 'type''
   PricingRuleType ->
-  -- | 'modifierPercentage'
-  Prelude.Double ->
   CreatePricingRule
-newCreatePricingRule
-  pName_
-  pScope_
-  pType_
-  pModifierPercentage_ =
-    CreatePricingRule'
-      { tags = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
-        billingEntity = Prelude.Nothing,
-        description = Prelude.Nothing,
-        service = Prelude.Nothing,
-        name = Data._Sensitive Lens.# pName_,
-        scope = pScope_,
-        type' = pType_,
-        modifierPercentage = pModifierPercentage_
-      }
-
--- | A map that contains tag keys and tag values that are attached to a
--- pricing rule.
-createPricingRule_tags :: Lens.Lens' CreatePricingRule (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createPricingRule_tags = Lens.lens (\CreatePricingRule' {tags} -> tags) (\s@CreatePricingRule' {} a -> s {tags = a} :: CreatePricingRule) Prelude.. Lens.mapping Lens.coerced
-
--- | The token that\'s needed to support idempotency. Idempotency isn\'t
--- currently supported, but will be implemented in a future update.
-createPricingRule_clientToken :: Lens.Lens' CreatePricingRule (Prelude.Maybe Prelude.Text)
-createPricingRule_clientToken = Lens.lens (\CreatePricingRule' {clientToken} -> clientToken) (\s@CreatePricingRule' {} a -> s {clientToken = a} :: CreatePricingRule)
+newCreatePricingRule pName_ pScope_ pType_ =
+  CreatePricingRule'
+    { billingEntity = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
+      description = Prelude.Nothing,
+      modifierPercentage = Prelude.Nothing,
+      service = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      tiering = Prelude.Nothing,
+      name = Data._Sensitive Lens.# pName_,
+      scope = pScope_,
+      type' = pType_
+    }
 
 -- | The seller of services provided by Amazon Web Services, their
 -- affiliates, or third-party providers selling services via Amazon Web
@@ -159,14 +149,32 @@ createPricingRule_clientToken = Lens.lens (\CreatePricingRule' {clientToken} -> 
 createPricingRule_billingEntity :: Lens.Lens' CreatePricingRule (Prelude.Maybe Prelude.Text)
 createPricingRule_billingEntity = Lens.lens (\CreatePricingRule' {billingEntity} -> billingEntity) (\s@CreatePricingRule' {} a -> s {billingEntity = a} :: CreatePricingRule)
 
+-- | The token that\'s needed to support idempotency. Idempotency isn\'t
+-- currently supported, but will be implemented in a future update.
+createPricingRule_clientToken :: Lens.Lens' CreatePricingRule (Prelude.Maybe Prelude.Text)
+createPricingRule_clientToken = Lens.lens (\CreatePricingRule' {clientToken} -> clientToken) (\s@CreatePricingRule' {} a -> s {clientToken = a} :: CreatePricingRule)
+
 -- | The pricing rule description.
 createPricingRule_description :: Lens.Lens' CreatePricingRule (Prelude.Maybe Prelude.Text)
 createPricingRule_description = Lens.lens (\CreatePricingRule' {description} -> description) (\s@CreatePricingRule' {} a -> s {description = a} :: CreatePricingRule) Prelude.. Lens.mapping Data._Sensitive
+
+-- | A percentage modifier that\'s applied on the public pricing rates.
+createPricingRule_modifierPercentage :: Lens.Lens' CreatePricingRule (Prelude.Maybe Prelude.Double)
+createPricingRule_modifierPercentage = Lens.lens (\CreatePricingRule' {modifierPercentage} -> modifierPercentage) (\s@CreatePricingRule' {} a -> s {modifierPercentage = a} :: CreatePricingRule)
 
 -- | If the @Scope@ attribute is set to @SERVICE@, the attribute indicates
 -- which service the @PricingRule@ is applicable for.
 createPricingRule_service :: Lens.Lens' CreatePricingRule (Prelude.Maybe Prelude.Text)
 createPricingRule_service = Lens.lens (\CreatePricingRule' {service} -> service) (\s@CreatePricingRule' {} a -> s {service = a} :: CreatePricingRule)
+
+-- | A map that contains tag keys and tag values that are attached to a
+-- pricing rule.
+createPricingRule_tags :: Lens.Lens' CreatePricingRule (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createPricingRule_tags = Lens.lens (\CreatePricingRule' {tags} -> tags) (\s@CreatePricingRule' {} a -> s {tags = a} :: CreatePricingRule) Prelude.. Lens.mapping Lens.coerced
+
+-- | The set of tiering configurations for the pricing rule.
+createPricingRule_tiering :: Lens.Lens' CreatePricingRule (Prelude.Maybe CreateTieringInput)
+createPricingRule_tiering = Lens.lens (\CreatePricingRule' {tiering} -> tiering) (\s@CreatePricingRule' {} a -> s {tiering = a} :: CreatePricingRule)
 
 -- | The pricing rule name. The names must be unique to each pricing rule.
 createPricingRule_name :: Lens.Lens' CreatePricingRule Prelude.Text
@@ -180,10 +188,6 @@ createPricingRule_scope = Lens.lens (\CreatePricingRule' {scope} -> scope) (\s@C
 -- | The type of pricing rule.
 createPricingRule_type :: Lens.Lens' CreatePricingRule PricingRuleType
 createPricingRule_type = Lens.lens (\CreatePricingRule' {type'} -> type') (\s@CreatePricingRule' {} a -> s {type' = a} :: CreatePricingRule)
-
--- | A percentage modifier that\'s applied on the public pricing rates.
-createPricingRule_modifierPercentage :: Lens.Lens' CreatePricingRule Prelude.Double
-createPricingRule_modifierPercentage = Lens.lens (\CreatePricingRule' {modifierPercentage} -> modifierPercentage) (\s@CreatePricingRule' {} a -> s {modifierPercentage = a} :: CreatePricingRule)
 
 instance Core.AWSRequest CreatePricingRule where
   type
@@ -201,27 +205,29 @@ instance Core.AWSRequest CreatePricingRule where
 
 instance Prelude.Hashable CreatePricingRule where
   hashWithSalt _salt CreatePricingRule' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` billingEntity
       `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` billingEntity
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` modifierPercentage
       `Prelude.hashWithSalt` service
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` tiering
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` scope
       `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` modifierPercentage
 
 instance Prelude.NFData CreatePricingRule where
   rnf CreatePricingRule' {..} =
-    Prelude.rnf tags
+    Prelude.rnf billingEntity
       `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf billingEntity
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf modifierPercentage
       `Prelude.seq` Prelude.rnf service
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf tiering
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf scope
       `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf modifierPercentage
 
 instance Data.ToHeaders CreatePricingRule where
   toHeaders CreatePricingRule' {..} =
@@ -235,15 +241,16 @@ instance Data.ToJSON CreatePricingRule where
   toJSON CreatePricingRule' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("BillingEntity" Data..=) Prelude.<$> billingEntity,
+          [ ("BillingEntity" Data..=) Prelude.<$> billingEntity,
             ("Description" Data..=) Prelude.<$> description,
+            ("ModifierPercentage" Data..=)
+              Prelude.<$> modifierPercentage,
             ("Service" Data..=) Prelude.<$> service,
+            ("Tags" Data..=) Prelude.<$> tags,
+            ("Tiering" Data..=) Prelude.<$> tiering,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("Scope" Data..= scope),
-            Prelude.Just ("Type" Data..= type'),
-            Prelude.Just
-              ("ModifierPercentage" Data..= modifierPercentage)
+            Prelude.Just ("Type" Data..= type')
           ]
       )
 

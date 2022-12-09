@@ -31,36 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstancePortState' smart constructor.
 data InstancePortState = InstancePortState'
-  { -- | The last port in a range of open ports on an instance.
-    --
-    -- Allowed ports:
-    --
-    -- -   TCP and UDP - @0@ to @65535@
-    --
-    -- -   ICMP - The ICMP code for IPv4 addresses. For example, specify @8@ as
-    --     the @fromPort@ (ICMP type), and @-1@ as the @toPort@ (ICMP code), to
-    --     enable ICMP Ping. For more information, see
-    --     <https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Control_messages Control Messages>
-    --     on /Wikipedia/.
-    --
-    -- -   ICMPv6 - The ICMP code for IPv6 addresses. For example, specify
-    --     @128@ as the @fromPort@ (ICMPv6 type), and @0@ as @toPort@ (ICMPv6
-    --     code). For more information, see
-    --     <https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol_for_IPv6 Internet Control Message Protocol for IPv6>.
-    toPort :: Prelude.Maybe Prelude.Int,
-    -- | The IPv6 address, or range of IPv6 addresses (in CIDR notation) that are
-    -- allowed to connect to an instance through the ports, and the protocol.
-    -- Only devices with an IPv6 address can connect to an instance through
-    -- IPv6; otherwise, IPv4 should be used.
-    --
-    -- The @cidrs@ parameter lists the IPv4 addresses that are allowed to
-    -- connect to an instance.
-    --
-    -- For more information about CIDR block notation, see
-    -- <https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation Classless Inter-Domain Routing>
-    -- on /Wikipedia/.
-    ipv6Cidrs :: Prelude.Maybe [Prelude.Text],
-    -- | An alias that defines access for a preconfigured range of IP addresses.
+  { -- | An alias that defines access for a preconfigured range of IP addresses.
     --
     -- The only alias currently supported is @lightsail-connect@, which allows
     -- IP addresses of the browser-based RDP\/SSH client in the Lightsail
@@ -76,10 +47,35 @@ data InstancePortState = InstancePortState'
     -- <https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation Classless Inter-Domain Routing>
     -- on /Wikipedia/.
     cidrs :: Prelude.Maybe [Prelude.Text],
-    -- | Specifies whether the instance port is @open@ or @closed@.
+    -- | The first port in a range of open ports on an instance.
     --
-    -- The port state for Lightsail instances is always @open@.
-    state :: Prelude.Maybe PortState,
+    -- Allowed ports:
+    --
+    -- -   TCP and UDP - @0@ to @65535@
+    --
+    -- -   ICMP - The ICMP type for IPv4 addresses. For example, specify @8@ as
+    --     the @fromPort@ (ICMP type), and @-1@ as the @toPort@ (ICMP code), to
+    --     enable ICMP Ping. For more information, see
+    --     <https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Control_messages Control Messages>
+    --     on /Wikipedia/.
+    --
+    -- -   ICMPv6 - The ICMP type for IPv6 addresses. For example, specify
+    --     @128@ as the @fromPort@ (ICMPv6 type), and @0@ as @toPort@ (ICMPv6
+    --     code). For more information, see
+    --     <https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol_for_IPv6 Internet Control Message Protocol for IPv6>.
+    fromPort :: Prelude.Maybe Prelude.Int,
+    -- | The IPv6 address, or range of IPv6 addresses (in CIDR notation) that are
+    -- allowed to connect to an instance through the ports, and the protocol.
+    -- Only devices with an IPv6 address can connect to an instance through
+    -- IPv6; otherwise, IPv4 should be used.
+    --
+    -- The @cidrs@ parameter lists the IPv4 addresses that are allowed to
+    -- connect to an instance.
+    --
+    -- For more information about CIDR block notation, see
+    -- <https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation Classless Inter-Domain Routing>
+    -- on /Wikipedia/.
+    ipv6Cidrs :: Prelude.Maybe [Prelude.Text],
     -- | The IP protocol name.
     --
     -- The name can be one of the following:
@@ -111,23 +107,27 @@ data InstancePortState = InstancePortState'
     --     @icmp@ as the @protocol@, you must specify the ICMP type using the
     --     @fromPort@ parameter, and ICMP code using the @toPort@ parameter.
     protocol :: Prelude.Maybe NetworkProtocol,
-    -- | The first port in a range of open ports on an instance.
+    -- | Specifies whether the instance port is @open@ or @closed@.
+    --
+    -- The port state for Lightsail instances is always @open@.
+    state :: Prelude.Maybe PortState,
+    -- | The last port in a range of open ports on an instance.
     --
     -- Allowed ports:
     --
     -- -   TCP and UDP - @0@ to @65535@
     --
-    -- -   ICMP - The ICMP type for IPv4 addresses. For example, specify @8@ as
+    -- -   ICMP - The ICMP code for IPv4 addresses. For example, specify @8@ as
     --     the @fromPort@ (ICMP type), and @-1@ as the @toPort@ (ICMP code), to
     --     enable ICMP Ping. For more information, see
     --     <https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Control_messages Control Messages>
     --     on /Wikipedia/.
     --
-    -- -   ICMPv6 - The ICMP type for IPv6 addresses. For example, specify
+    -- -   ICMPv6 - The ICMP code for IPv6 addresses. For example, specify
     --     @128@ as the @fromPort@ (ICMPv6 type), and @0@ as @toPort@ (ICMPv6
     --     code). For more information, see
     --     <https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol_for_IPv6 Internet Control Message Protocol for IPv6>.
-    fromPort :: Prelude.Maybe Prelude.Int
+    toPort :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -138,35 +138,6 @@ data InstancePortState = InstancePortState'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'toPort', 'instancePortState_toPort' - The last port in a range of open ports on an instance.
---
--- Allowed ports:
---
--- -   TCP and UDP - @0@ to @65535@
---
--- -   ICMP - The ICMP code for IPv4 addresses. For example, specify @8@ as
---     the @fromPort@ (ICMP type), and @-1@ as the @toPort@ (ICMP code), to
---     enable ICMP Ping. For more information, see
---     <https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Control_messages Control Messages>
---     on /Wikipedia/.
---
--- -   ICMPv6 - The ICMP code for IPv6 addresses. For example, specify
---     @128@ as the @fromPort@ (ICMPv6 type), and @0@ as @toPort@ (ICMPv6
---     code). For more information, see
---     <https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol_for_IPv6 Internet Control Message Protocol for IPv6>.
---
--- 'ipv6Cidrs', 'instancePortState_ipv6Cidrs' - The IPv6 address, or range of IPv6 addresses (in CIDR notation) that are
--- allowed to connect to an instance through the ports, and the protocol.
--- Only devices with an IPv6 address can connect to an instance through
--- IPv6; otherwise, IPv4 should be used.
---
--- The @cidrs@ parameter lists the IPv4 addresses that are allowed to
--- connect to an instance.
---
--- For more information about CIDR block notation, see
--- <https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation Classless Inter-Domain Routing>
--- on /Wikipedia/.
 --
 -- 'cidrListAliases', 'instancePortState_cidrListAliases' - An alias that defines access for a preconfigured range of IP addresses.
 --
@@ -184,9 +155,34 @@ data InstancePortState = InstancePortState'
 -- <https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation Classless Inter-Domain Routing>
 -- on /Wikipedia/.
 --
--- 'state', 'instancePortState_state' - Specifies whether the instance port is @open@ or @closed@.
+-- 'fromPort', 'instancePortState_fromPort' - The first port in a range of open ports on an instance.
 --
--- The port state for Lightsail instances is always @open@.
+-- Allowed ports:
+--
+-- -   TCP and UDP - @0@ to @65535@
+--
+-- -   ICMP - The ICMP type for IPv4 addresses. For example, specify @8@ as
+--     the @fromPort@ (ICMP type), and @-1@ as the @toPort@ (ICMP code), to
+--     enable ICMP Ping. For more information, see
+--     <https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Control_messages Control Messages>
+--     on /Wikipedia/.
+--
+-- -   ICMPv6 - The ICMP type for IPv6 addresses. For example, specify
+--     @128@ as the @fromPort@ (ICMPv6 type), and @0@ as @toPort@ (ICMPv6
+--     code). For more information, see
+--     <https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol_for_IPv6 Internet Control Message Protocol for IPv6>.
+--
+-- 'ipv6Cidrs', 'instancePortState_ipv6Cidrs' - The IPv6 address, or range of IPv6 addresses (in CIDR notation) that are
+-- allowed to connect to an instance through the ports, and the protocol.
+-- Only devices with an IPv6 address can connect to an instance through
+-- IPv6; otherwise, IPv4 should be used.
+--
+-- The @cidrs@ parameter lists the IPv4 addresses that are allowed to
+-- connect to an instance.
+--
+-- For more information about CIDR block notation, see
+-- <https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation Classless Inter-Domain Routing>
+-- on /Wikipedia/.
 --
 -- 'protocol', 'instancePortState_protocol' - The IP protocol name.
 --
@@ -219,36 +215,11 @@ data InstancePortState = InstancePortState'
 --     @icmp@ as the @protocol@, you must specify the ICMP type using the
 --     @fromPort@ parameter, and ICMP code using the @toPort@ parameter.
 --
--- 'fromPort', 'instancePortState_fromPort' - The first port in a range of open ports on an instance.
+-- 'state', 'instancePortState_state' - Specifies whether the instance port is @open@ or @closed@.
 --
--- Allowed ports:
+-- The port state for Lightsail instances is always @open@.
 --
--- -   TCP and UDP - @0@ to @65535@
---
--- -   ICMP - The ICMP type for IPv4 addresses. For example, specify @8@ as
---     the @fromPort@ (ICMP type), and @-1@ as the @toPort@ (ICMP code), to
---     enable ICMP Ping. For more information, see
---     <https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Control_messages Control Messages>
---     on /Wikipedia/.
---
--- -   ICMPv6 - The ICMP type for IPv6 addresses. For example, specify
---     @128@ as the @fromPort@ (ICMPv6 type), and @0@ as @toPort@ (ICMPv6
---     code). For more information, see
---     <https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol_for_IPv6 Internet Control Message Protocol for IPv6>.
-newInstancePortState ::
-  InstancePortState
-newInstancePortState =
-  InstancePortState'
-    { toPort = Prelude.Nothing,
-      ipv6Cidrs = Prelude.Nothing,
-      cidrListAliases = Prelude.Nothing,
-      cidrs = Prelude.Nothing,
-      state = Prelude.Nothing,
-      protocol = Prelude.Nothing,
-      fromPort = Prelude.Nothing
-    }
-
--- | The last port in a range of open ports on an instance.
+-- 'toPort', 'instancePortState_toPort' - The last port in a range of open ports on an instance.
 --
 -- Allowed ports:
 --
@@ -264,22 +235,19 @@ newInstancePortState =
 --     @128@ as the @fromPort@ (ICMPv6 type), and @0@ as @toPort@ (ICMPv6
 --     code). For more information, see
 --     <https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol_for_IPv6 Internet Control Message Protocol for IPv6>.
-instancePortState_toPort :: Lens.Lens' InstancePortState (Prelude.Maybe Prelude.Int)
-instancePortState_toPort = Lens.lens (\InstancePortState' {toPort} -> toPort) (\s@InstancePortState' {} a -> s {toPort = a} :: InstancePortState)
-
--- | The IPv6 address, or range of IPv6 addresses (in CIDR notation) that are
--- allowed to connect to an instance through the ports, and the protocol.
--- Only devices with an IPv6 address can connect to an instance through
--- IPv6; otherwise, IPv4 should be used.
---
--- The @cidrs@ parameter lists the IPv4 addresses that are allowed to
--- connect to an instance.
---
--- For more information about CIDR block notation, see
--- <https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation Classless Inter-Domain Routing>
--- on /Wikipedia/.
-instancePortState_ipv6Cidrs :: Lens.Lens' InstancePortState (Prelude.Maybe [Prelude.Text])
-instancePortState_ipv6Cidrs = Lens.lens (\InstancePortState' {ipv6Cidrs} -> ipv6Cidrs) (\s@InstancePortState' {} a -> s {ipv6Cidrs = a} :: InstancePortState) Prelude.. Lens.mapping Lens.coerced
+newInstancePortState ::
+  InstancePortState
+newInstancePortState =
+  InstancePortState'
+    { cidrListAliases =
+        Prelude.Nothing,
+      cidrs = Prelude.Nothing,
+      fromPort = Prelude.Nothing,
+      ipv6Cidrs = Prelude.Nothing,
+      protocol = Prelude.Nothing,
+      state = Prelude.Nothing,
+      toPort = Prelude.Nothing
+    }
 
 -- | An alias that defines access for a preconfigured range of IP addresses.
 --
@@ -301,11 +269,38 @@ instancePortState_cidrListAliases = Lens.lens (\InstancePortState' {cidrListAlia
 instancePortState_cidrs :: Lens.Lens' InstancePortState (Prelude.Maybe [Prelude.Text])
 instancePortState_cidrs = Lens.lens (\InstancePortState' {cidrs} -> cidrs) (\s@InstancePortState' {} a -> s {cidrs = a} :: InstancePortState) Prelude.. Lens.mapping Lens.coerced
 
--- | Specifies whether the instance port is @open@ or @closed@.
+-- | The first port in a range of open ports on an instance.
 --
--- The port state for Lightsail instances is always @open@.
-instancePortState_state :: Lens.Lens' InstancePortState (Prelude.Maybe PortState)
-instancePortState_state = Lens.lens (\InstancePortState' {state} -> state) (\s@InstancePortState' {} a -> s {state = a} :: InstancePortState)
+-- Allowed ports:
+--
+-- -   TCP and UDP - @0@ to @65535@
+--
+-- -   ICMP - The ICMP type for IPv4 addresses. For example, specify @8@ as
+--     the @fromPort@ (ICMP type), and @-1@ as the @toPort@ (ICMP code), to
+--     enable ICMP Ping. For more information, see
+--     <https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Control_messages Control Messages>
+--     on /Wikipedia/.
+--
+-- -   ICMPv6 - The ICMP type for IPv6 addresses. For example, specify
+--     @128@ as the @fromPort@ (ICMPv6 type), and @0@ as @toPort@ (ICMPv6
+--     code). For more information, see
+--     <https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol_for_IPv6 Internet Control Message Protocol for IPv6>.
+instancePortState_fromPort :: Lens.Lens' InstancePortState (Prelude.Maybe Prelude.Int)
+instancePortState_fromPort = Lens.lens (\InstancePortState' {fromPort} -> fromPort) (\s@InstancePortState' {} a -> s {fromPort = a} :: InstancePortState)
+
+-- | The IPv6 address, or range of IPv6 addresses (in CIDR notation) that are
+-- allowed to connect to an instance through the ports, and the protocol.
+-- Only devices with an IPv6 address can connect to an instance through
+-- IPv6; otherwise, IPv4 should be used.
+--
+-- The @cidrs@ parameter lists the IPv4 addresses that are allowed to
+-- connect to an instance.
+--
+-- For more information about CIDR block notation, see
+-- <https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation Classless Inter-Domain Routing>
+-- on /Wikipedia/.
+instancePortState_ipv6Cidrs :: Lens.Lens' InstancePortState (Prelude.Maybe [Prelude.Text])
+instancePortState_ipv6Cidrs = Lens.lens (\InstancePortState' {ipv6Cidrs} -> ipv6Cidrs) (\s@InstancePortState' {} a -> s {ipv6Cidrs = a} :: InstancePortState) Prelude.. Lens.mapping Lens.coerced
 
 -- | The IP protocol name.
 --
@@ -340,24 +335,30 @@ instancePortState_state = Lens.lens (\InstancePortState' {state} -> state) (\s@I
 instancePortState_protocol :: Lens.Lens' InstancePortState (Prelude.Maybe NetworkProtocol)
 instancePortState_protocol = Lens.lens (\InstancePortState' {protocol} -> protocol) (\s@InstancePortState' {} a -> s {protocol = a} :: InstancePortState)
 
--- | The first port in a range of open ports on an instance.
+-- | Specifies whether the instance port is @open@ or @closed@.
+--
+-- The port state for Lightsail instances is always @open@.
+instancePortState_state :: Lens.Lens' InstancePortState (Prelude.Maybe PortState)
+instancePortState_state = Lens.lens (\InstancePortState' {state} -> state) (\s@InstancePortState' {} a -> s {state = a} :: InstancePortState)
+
+-- | The last port in a range of open ports on an instance.
 --
 -- Allowed ports:
 --
 -- -   TCP and UDP - @0@ to @65535@
 --
--- -   ICMP - The ICMP type for IPv4 addresses. For example, specify @8@ as
+-- -   ICMP - The ICMP code for IPv4 addresses. For example, specify @8@ as
 --     the @fromPort@ (ICMP type), and @-1@ as the @toPort@ (ICMP code), to
 --     enable ICMP Ping. For more information, see
 --     <https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Control_messages Control Messages>
 --     on /Wikipedia/.
 --
--- -   ICMPv6 - The ICMP type for IPv6 addresses. For example, specify
+-- -   ICMPv6 - The ICMP code for IPv6 addresses. For example, specify
 --     @128@ as the @fromPort@ (ICMPv6 type), and @0@ as @toPort@ (ICMPv6
 --     code). For more information, see
 --     <https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol_for_IPv6 Internet Control Message Protocol for IPv6>.
-instancePortState_fromPort :: Lens.Lens' InstancePortState (Prelude.Maybe Prelude.Int)
-instancePortState_fromPort = Lens.lens (\InstancePortState' {fromPort} -> fromPort) (\s@InstancePortState' {} a -> s {fromPort = a} :: InstancePortState)
+instancePortState_toPort :: Lens.Lens' InstancePortState (Prelude.Maybe Prelude.Int)
+instancePortState_toPort = Lens.lens (\InstancePortState' {toPort} -> toPort) (\s@InstancePortState' {} a -> s {toPort = a} :: InstancePortState)
 
 instance Data.FromJSON InstancePortState where
   parseJSON =
@@ -365,33 +366,33 @@ instance Data.FromJSON InstancePortState where
       "InstancePortState"
       ( \x ->
           InstancePortState'
-            Prelude.<$> (x Data..:? "toPort")
-            Prelude.<*> (x Data..:? "ipv6Cidrs" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "cidrListAliases"
+            Prelude.<$> ( x Data..:? "cidrListAliases"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "cidrs" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "state")
-            Prelude.<*> (x Data..:? "protocol")
             Prelude.<*> (x Data..:? "fromPort")
+            Prelude.<*> (x Data..:? "ipv6Cidrs" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "protocol")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "toPort")
       )
 
 instance Prelude.Hashable InstancePortState where
   hashWithSalt _salt InstancePortState' {..} =
-    _salt `Prelude.hashWithSalt` toPort
-      `Prelude.hashWithSalt` ipv6Cidrs
-      `Prelude.hashWithSalt` cidrListAliases
+    _salt `Prelude.hashWithSalt` cidrListAliases
       `Prelude.hashWithSalt` cidrs
-      `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` protocol
       `Prelude.hashWithSalt` fromPort
+      `Prelude.hashWithSalt` ipv6Cidrs
+      `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` toPort
 
 instance Prelude.NFData InstancePortState where
   rnf InstancePortState' {..} =
-    Prelude.rnf toPort
-      `Prelude.seq` Prelude.rnf ipv6Cidrs
-      `Prelude.seq` Prelude.rnf cidrListAliases
+    Prelude.rnf cidrListAliases
       `Prelude.seq` Prelude.rnf cidrs
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf protocol
       `Prelude.seq` Prelude.rnf fromPort
+      `Prelude.seq` Prelude.rnf ipv6Cidrs
+      `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf toPort

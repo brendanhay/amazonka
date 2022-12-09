@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRelationalDatabaseEndpoint' smart constructor.
 data RelationalDatabaseEndpoint = RelationalDatabaseEndpoint'
-  { -- | Specifies the port that the database is listening on.
-    port :: Prelude.Maybe Prelude.Int,
-    -- | Specifies the DNS address of the database.
-    address :: Prelude.Maybe Prelude.Text
+  { -- | Specifies the DNS address of the database.
+    address :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the port that the database is listening on.
+    port :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,25 @@ data RelationalDatabaseEndpoint = RelationalDatabaseEndpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'port', 'relationalDatabaseEndpoint_port' - Specifies the port that the database is listening on.
---
 -- 'address', 'relationalDatabaseEndpoint_address' - Specifies the DNS address of the database.
+--
+-- 'port', 'relationalDatabaseEndpoint_port' - Specifies the port that the database is listening on.
 newRelationalDatabaseEndpoint ::
   RelationalDatabaseEndpoint
 newRelationalDatabaseEndpoint =
   RelationalDatabaseEndpoint'
-    { port = Prelude.Nothing,
-      address = Prelude.Nothing
+    { address =
+        Prelude.Nothing,
+      port = Prelude.Nothing
     }
-
--- | Specifies the port that the database is listening on.
-relationalDatabaseEndpoint_port :: Lens.Lens' RelationalDatabaseEndpoint (Prelude.Maybe Prelude.Int)
-relationalDatabaseEndpoint_port = Lens.lens (\RelationalDatabaseEndpoint' {port} -> port) (\s@RelationalDatabaseEndpoint' {} a -> s {port = a} :: RelationalDatabaseEndpoint)
 
 -- | Specifies the DNS address of the database.
 relationalDatabaseEndpoint_address :: Lens.Lens' RelationalDatabaseEndpoint (Prelude.Maybe Prelude.Text)
 relationalDatabaseEndpoint_address = Lens.lens (\RelationalDatabaseEndpoint' {address} -> address) (\s@RelationalDatabaseEndpoint' {} a -> s {address = a} :: RelationalDatabaseEndpoint)
+
+-- | Specifies the port that the database is listening on.
+relationalDatabaseEndpoint_port :: Lens.Lens' RelationalDatabaseEndpoint (Prelude.Maybe Prelude.Int)
+relationalDatabaseEndpoint_port = Lens.lens (\RelationalDatabaseEndpoint' {port} -> port) (\s@RelationalDatabaseEndpoint' {} a -> s {port = a} :: RelationalDatabaseEndpoint)
 
 instance Data.FromJSON RelationalDatabaseEndpoint where
   parseJSON =
@@ -68,15 +69,15 @@ instance Data.FromJSON RelationalDatabaseEndpoint where
       "RelationalDatabaseEndpoint"
       ( \x ->
           RelationalDatabaseEndpoint'
-            Prelude.<$> (x Data..:? "port")
-            Prelude.<*> (x Data..:? "address")
+            Prelude.<$> (x Data..:? "address")
+            Prelude.<*> (x Data..:? "port")
       )
 
 instance Prelude.Hashable RelationalDatabaseEndpoint where
   hashWithSalt _salt RelationalDatabaseEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` port
-      `Prelude.hashWithSalt` address
+    _salt `Prelude.hashWithSalt` address
+      `Prelude.hashWithSalt` port
 
 instance Prelude.NFData RelationalDatabaseEndpoint where
   rnf RelationalDatabaseEndpoint' {..} =
-    Prelude.rnf port `Prelude.seq` Prelude.rnf address
+    Prelude.rnf address `Prelude.seq` Prelude.rnf port

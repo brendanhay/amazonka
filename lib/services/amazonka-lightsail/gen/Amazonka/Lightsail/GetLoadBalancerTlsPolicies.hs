@@ -39,8 +39,8 @@ module Amazonka.Lightsail.GetLoadBalancerTlsPolicies
     newGetLoadBalancerTlsPoliciesResponse,
 
     -- * Response Lenses
-    getLoadBalancerTlsPoliciesResponse_tlsPolicies,
     getLoadBalancerTlsPoliciesResponse_nextPageToken,
+    getLoadBalancerTlsPoliciesResponse_tlsPolicies,
     getLoadBalancerTlsPoliciesResponse_httpStatus,
   )
 where
@@ -106,8 +106,8 @@ instance Core.AWSRequest GetLoadBalancerTlsPolicies where
     Response.receiveJSON
       ( \s h x ->
           GetLoadBalancerTlsPoliciesResponse'
-            Prelude.<$> (x Data..?> "tlsPolicies" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "nextPageToken")
+            Prelude.<$> (x Data..?> "nextPageToken")
+            Prelude.<*> (x Data..?> "tlsPolicies" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -149,10 +149,7 @@ instance Data.ToQuery GetLoadBalancerTlsPolicies where
 
 -- | /See:/ 'newGetLoadBalancerTlsPoliciesResponse' smart constructor.
 data GetLoadBalancerTlsPoliciesResponse = GetLoadBalancerTlsPoliciesResponse'
-  { -- | An array of objects that describe the TLS security policies that are
-    -- available.
-    tlsPolicies :: Prelude.Maybe [LoadBalancerTlsPolicy],
-    -- | The token to advance to the next page of results from your request.
+  { -- | The token to advance to the next page of results from your request.
     --
     -- A next page token is not returned if there are no more results to
     -- display.
@@ -161,6 +158,9 @@ data GetLoadBalancerTlsPoliciesResponse = GetLoadBalancerTlsPoliciesResponse'
     -- @GetLoadBalancerTlsPolicies@ request and specify the next page token
     -- using the @pageToken@ parameter.
     nextPageToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of objects that describe the TLS security policies that are
+    -- available.
+    tlsPolicies :: Prelude.Maybe [LoadBalancerTlsPolicy],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -174,9 +174,6 @@ data GetLoadBalancerTlsPoliciesResponse = GetLoadBalancerTlsPoliciesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tlsPolicies', 'getLoadBalancerTlsPoliciesResponse_tlsPolicies' - An array of objects that describe the TLS security policies that are
--- available.
---
 -- 'nextPageToken', 'getLoadBalancerTlsPoliciesResponse_nextPageToken' - The token to advance to the next page of results from your request.
 --
 -- A next page token is not returned if there are no more results to
@@ -186,6 +183,9 @@ data GetLoadBalancerTlsPoliciesResponse = GetLoadBalancerTlsPoliciesResponse'
 -- @GetLoadBalancerTlsPolicies@ request and specify the next page token
 -- using the @pageToken@ parameter.
 --
+-- 'tlsPolicies', 'getLoadBalancerTlsPoliciesResponse_tlsPolicies' - An array of objects that describe the TLS security policies that are
+-- available.
+--
 -- 'httpStatus', 'getLoadBalancerTlsPoliciesResponse_httpStatus' - The response's http status code.
 newGetLoadBalancerTlsPoliciesResponse ::
   -- | 'httpStatus'
@@ -193,16 +193,11 @@ newGetLoadBalancerTlsPoliciesResponse ::
   GetLoadBalancerTlsPoliciesResponse
 newGetLoadBalancerTlsPoliciesResponse pHttpStatus_ =
   GetLoadBalancerTlsPoliciesResponse'
-    { tlsPolicies =
+    { nextPageToken =
         Prelude.Nothing,
-      nextPageToken = Prelude.Nothing,
+      tlsPolicies = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of objects that describe the TLS security policies that are
--- available.
-getLoadBalancerTlsPoliciesResponse_tlsPolicies :: Lens.Lens' GetLoadBalancerTlsPoliciesResponse (Prelude.Maybe [LoadBalancerTlsPolicy])
-getLoadBalancerTlsPoliciesResponse_tlsPolicies = Lens.lens (\GetLoadBalancerTlsPoliciesResponse' {tlsPolicies} -> tlsPolicies) (\s@GetLoadBalancerTlsPoliciesResponse' {} a -> s {tlsPolicies = a} :: GetLoadBalancerTlsPoliciesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to advance to the next page of results from your request.
 --
@@ -215,6 +210,11 @@ getLoadBalancerTlsPoliciesResponse_tlsPolicies = Lens.lens (\GetLoadBalancerTlsP
 getLoadBalancerTlsPoliciesResponse_nextPageToken :: Lens.Lens' GetLoadBalancerTlsPoliciesResponse (Prelude.Maybe Prelude.Text)
 getLoadBalancerTlsPoliciesResponse_nextPageToken = Lens.lens (\GetLoadBalancerTlsPoliciesResponse' {nextPageToken} -> nextPageToken) (\s@GetLoadBalancerTlsPoliciesResponse' {} a -> s {nextPageToken = a} :: GetLoadBalancerTlsPoliciesResponse)
 
+-- | An array of objects that describe the TLS security policies that are
+-- available.
+getLoadBalancerTlsPoliciesResponse_tlsPolicies :: Lens.Lens' GetLoadBalancerTlsPoliciesResponse (Prelude.Maybe [LoadBalancerTlsPolicy])
+getLoadBalancerTlsPoliciesResponse_tlsPolicies = Lens.lens (\GetLoadBalancerTlsPoliciesResponse' {tlsPolicies} -> tlsPolicies) (\s@GetLoadBalancerTlsPoliciesResponse' {} a -> s {tlsPolicies = a} :: GetLoadBalancerTlsPoliciesResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 getLoadBalancerTlsPoliciesResponse_httpStatus :: Lens.Lens' GetLoadBalancerTlsPoliciesResponse Prelude.Int
 getLoadBalancerTlsPoliciesResponse_httpStatus = Lens.lens (\GetLoadBalancerTlsPoliciesResponse' {httpStatus} -> httpStatus) (\s@GetLoadBalancerTlsPoliciesResponse' {} a -> s {httpStatus = a} :: GetLoadBalancerTlsPoliciesResponse)
@@ -224,6 +224,6 @@ instance
     GetLoadBalancerTlsPoliciesResponse
   where
   rnf GetLoadBalancerTlsPoliciesResponse' {..} =
-    Prelude.rnf tlsPolicies
-      `Prelude.seq` Prelude.rnf nextPageToken
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf tlsPolicies
       `Prelude.seq` Prelude.rnf httpStatus

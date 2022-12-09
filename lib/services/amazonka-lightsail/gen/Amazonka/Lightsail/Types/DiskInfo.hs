@@ -28,15 +28,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDiskInfo' smart constructor.
 data DiskInfo = DiskInfo'
-  { -- | The disk name.
+  { -- | A Boolean value indicating whether this disk is a system disk (has an
+    -- operating system loaded on it).
+    isSystemDisk :: Prelude.Maybe Prelude.Bool,
+    -- | The disk name.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The size of the disk in GB (e.g., @32@).
-    sizeInGb :: Prelude.Maybe Prelude.Int,
     -- | The disk path.
     path :: Prelude.Maybe Prelude.Text,
-    -- | A Boolean value indicating whether this disk is a system disk (has an
-    -- operating system loaded on it).
-    isSystemDisk :: Prelude.Maybe Prelude.Bool
+    -- | The size of the disk in GB (e.g., @32@).
+    sizeInGb :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,40 +48,40 @@ data DiskInfo = DiskInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'diskInfo_name' - The disk name.
+-- 'isSystemDisk', 'diskInfo_isSystemDisk' - A Boolean value indicating whether this disk is a system disk (has an
+-- operating system loaded on it).
 --
--- 'sizeInGb', 'diskInfo_sizeInGb' - The size of the disk in GB (e.g., @32@).
+-- 'name', 'diskInfo_name' - The disk name.
 --
 -- 'path', 'diskInfo_path' - The disk path.
 --
--- 'isSystemDisk', 'diskInfo_isSystemDisk' - A Boolean value indicating whether this disk is a system disk (has an
--- operating system loaded on it).
+-- 'sizeInGb', 'diskInfo_sizeInGb' - The size of the disk in GB (e.g., @32@).
 newDiskInfo ::
   DiskInfo
 newDiskInfo =
   DiskInfo'
-    { name = Prelude.Nothing,
-      sizeInGb = Prelude.Nothing,
+    { isSystemDisk = Prelude.Nothing,
+      name = Prelude.Nothing,
       path = Prelude.Nothing,
-      isSystemDisk = Prelude.Nothing
+      sizeInGb = Prelude.Nothing
     }
-
--- | The disk name.
-diskInfo_name :: Lens.Lens' DiskInfo (Prelude.Maybe Prelude.Text)
-diskInfo_name = Lens.lens (\DiskInfo' {name} -> name) (\s@DiskInfo' {} a -> s {name = a} :: DiskInfo)
-
--- | The size of the disk in GB (e.g., @32@).
-diskInfo_sizeInGb :: Lens.Lens' DiskInfo (Prelude.Maybe Prelude.Int)
-diskInfo_sizeInGb = Lens.lens (\DiskInfo' {sizeInGb} -> sizeInGb) (\s@DiskInfo' {} a -> s {sizeInGb = a} :: DiskInfo)
-
--- | The disk path.
-diskInfo_path :: Lens.Lens' DiskInfo (Prelude.Maybe Prelude.Text)
-diskInfo_path = Lens.lens (\DiskInfo' {path} -> path) (\s@DiskInfo' {} a -> s {path = a} :: DiskInfo)
 
 -- | A Boolean value indicating whether this disk is a system disk (has an
 -- operating system loaded on it).
 diskInfo_isSystemDisk :: Lens.Lens' DiskInfo (Prelude.Maybe Prelude.Bool)
 diskInfo_isSystemDisk = Lens.lens (\DiskInfo' {isSystemDisk} -> isSystemDisk) (\s@DiskInfo' {} a -> s {isSystemDisk = a} :: DiskInfo)
+
+-- | The disk name.
+diskInfo_name :: Lens.Lens' DiskInfo (Prelude.Maybe Prelude.Text)
+diskInfo_name = Lens.lens (\DiskInfo' {name} -> name) (\s@DiskInfo' {} a -> s {name = a} :: DiskInfo)
+
+-- | The disk path.
+diskInfo_path :: Lens.Lens' DiskInfo (Prelude.Maybe Prelude.Text)
+diskInfo_path = Lens.lens (\DiskInfo' {path} -> path) (\s@DiskInfo' {} a -> s {path = a} :: DiskInfo)
+
+-- | The size of the disk in GB (e.g., @32@).
+diskInfo_sizeInGb :: Lens.Lens' DiskInfo (Prelude.Maybe Prelude.Int)
+diskInfo_sizeInGb = Lens.lens (\DiskInfo' {sizeInGb} -> sizeInGb) (\s@DiskInfo' {} a -> s {sizeInGb = a} :: DiskInfo)
 
 instance Data.FromJSON DiskInfo where
   parseJSON =
@@ -89,22 +89,22 @@ instance Data.FromJSON DiskInfo where
       "DiskInfo"
       ( \x ->
           DiskInfo'
-            Prelude.<$> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "sizeInGb")
+            Prelude.<$> (x Data..:? "isSystemDisk")
+            Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "path")
-            Prelude.<*> (x Data..:? "isSystemDisk")
+            Prelude.<*> (x Data..:? "sizeInGb")
       )
 
 instance Prelude.Hashable DiskInfo where
   hashWithSalt _salt DiskInfo' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` sizeInGb
+    _salt `Prelude.hashWithSalt` isSystemDisk
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` path
-      `Prelude.hashWithSalt` isSystemDisk
+      `Prelude.hashWithSalt` sizeInGb
 
 instance Prelude.NFData DiskInfo where
   rnf DiskInfo' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf sizeInGb
+    Prelude.rnf isSystemDisk
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf path
-      `Prelude.seq` Prelude.rnf isSystemDisk
+      `Prelude.seq` Prelude.rnf sizeInGb

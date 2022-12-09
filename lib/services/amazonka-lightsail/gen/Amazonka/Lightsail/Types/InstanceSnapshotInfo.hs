@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstanceSnapshotInfo' smart constructor.
 data InstanceSnapshotInfo = InstanceSnapshotInfo'
-  { -- | A list of objects describing the disks that were attached to the source
-    -- instance.
-    fromDiskInfo :: Prelude.Maybe [DiskInfo],
-    -- | The blueprint ID from which the source instance (e.g., @os_debian_8_3@).
+  { -- | The blueprint ID from which the source instance (e.g., @os_debian_8_3@).
     fromBlueprintId :: Prelude.Maybe Prelude.Text,
     -- | The bundle ID from which the source instance was created (e.g.,
     -- @micro_1_0@).
-    fromBundleId :: Prelude.Maybe Prelude.Text
+    fromBundleId :: Prelude.Maybe Prelude.Text,
+    -- | A list of objects describing the disks that were attached to the source
+    -- instance.
+    fromDiskInfo :: Prelude.Maybe [DiskInfo]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,27 +48,22 @@ data InstanceSnapshotInfo = InstanceSnapshotInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fromDiskInfo', 'instanceSnapshotInfo_fromDiskInfo' - A list of objects describing the disks that were attached to the source
--- instance.
---
 -- 'fromBlueprintId', 'instanceSnapshotInfo_fromBlueprintId' - The blueprint ID from which the source instance (e.g., @os_debian_8_3@).
 --
 -- 'fromBundleId', 'instanceSnapshotInfo_fromBundleId' - The bundle ID from which the source instance was created (e.g.,
 -- @micro_1_0@).
+--
+-- 'fromDiskInfo', 'instanceSnapshotInfo_fromDiskInfo' - A list of objects describing the disks that were attached to the source
+-- instance.
 newInstanceSnapshotInfo ::
   InstanceSnapshotInfo
 newInstanceSnapshotInfo =
   InstanceSnapshotInfo'
-    { fromDiskInfo =
+    { fromBlueprintId =
         Prelude.Nothing,
-      fromBlueprintId = Prelude.Nothing,
-      fromBundleId = Prelude.Nothing
+      fromBundleId = Prelude.Nothing,
+      fromDiskInfo = Prelude.Nothing
     }
-
--- | A list of objects describing the disks that were attached to the source
--- instance.
-instanceSnapshotInfo_fromDiskInfo :: Lens.Lens' InstanceSnapshotInfo (Prelude.Maybe [DiskInfo])
-instanceSnapshotInfo_fromDiskInfo = Lens.lens (\InstanceSnapshotInfo' {fromDiskInfo} -> fromDiskInfo) (\s@InstanceSnapshotInfo' {} a -> s {fromDiskInfo = a} :: InstanceSnapshotInfo) Prelude.. Lens.mapping Lens.coerced
 
 -- | The blueprint ID from which the source instance (e.g., @os_debian_8_3@).
 instanceSnapshotInfo_fromBlueprintId :: Lens.Lens' InstanceSnapshotInfo (Prelude.Maybe Prelude.Text)
@@ -79,25 +74,30 @@ instanceSnapshotInfo_fromBlueprintId = Lens.lens (\InstanceSnapshotInfo' {fromBl
 instanceSnapshotInfo_fromBundleId :: Lens.Lens' InstanceSnapshotInfo (Prelude.Maybe Prelude.Text)
 instanceSnapshotInfo_fromBundleId = Lens.lens (\InstanceSnapshotInfo' {fromBundleId} -> fromBundleId) (\s@InstanceSnapshotInfo' {} a -> s {fromBundleId = a} :: InstanceSnapshotInfo)
 
+-- | A list of objects describing the disks that were attached to the source
+-- instance.
+instanceSnapshotInfo_fromDiskInfo :: Lens.Lens' InstanceSnapshotInfo (Prelude.Maybe [DiskInfo])
+instanceSnapshotInfo_fromDiskInfo = Lens.lens (\InstanceSnapshotInfo' {fromDiskInfo} -> fromDiskInfo) (\s@InstanceSnapshotInfo' {} a -> s {fromDiskInfo = a} :: InstanceSnapshotInfo) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON InstanceSnapshotInfo where
   parseJSON =
     Data.withObject
       "InstanceSnapshotInfo"
       ( \x ->
           InstanceSnapshotInfo'
-            Prelude.<$> (x Data..:? "fromDiskInfo" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "fromBlueprintId")
+            Prelude.<$> (x Data..:? "fromBlueprintId")
             Prelude.<*> (x Data..:? "fromBundleId")
+            Prelude.<*> (x Data..:? "fromDiskInfo" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable InstanceSnapshotInfo where
   hashWithSalt _salt InstanceSnapshotInfo' {..} =
-    _salt `Prelude.hashWithSalt` fromDiskInfo
-      `Prelude.hashWithSalt` fromBlueprintId
+    _salt `Prelude.hashWithSalt` fromBlueprintId
       `Prelude.hashWithSalt` fromBundleId
+      `Prelude.hashWithSalt` fromDiskInfo
 
 instance Prelude.NFData InstanceSnapshotInfo where
   rnf InstanceSnapshotInfo' {..} =
-    Prelude.rnf fromDiskInfo
-      `Prelude.seq` Prelude.rnf fromBlueprintId
+    Prelude.rnf fromBlueprintId
       `Prelude.seq` Prelude.rnf fromBundleId
+      `Prelude.seq` Prelude.rnf fromDiskInfo

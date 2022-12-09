@@ -38,14 +38,14 @@ module Amazonka.Lightsail.CreateRelationalDatabaseFromSnapshot
     newCreateRelationalDatabaseFromSnapshot,
 
     -- * Request Lenses
-    createRelationalDatabaseFromSnapshot_relationalDatabaseBundleId,
-    createRelationalDatabaseFromSnapshot_tags,
-    createRelationalDatabaseFromSnapshot_restoreTime,
-    createRelationalDatabaseFromSnapshot_sourceRelationalDatabaseName,
     createRelationalDatabaseFromSnapshot_availabilityZone,
     createRelationalDatabaseFromSnapshot_publiclyAccessible,
-    createRelationalDatabaseFromSnapshot_useLatestRestorableTime,
+    createRelationalDatabaseFromSnapshot_relationalDatabaseBundleId,
     createRelationalDatabaseFromSnapshot_relationalDatabaseSnapshotName,
+    createRelationalDatabaseFromSnapshot_restoreTime,
+    createRelationalDatabaseFromSnapshot_sourceRelationalDatabaseName,
+    createRelationalDatabaseFromSnapshot_tags,
+    createRelationalDatabaseFromSnapshot_useLatestRestorableTime,
     createRelationalDatabaseFromSnapshot_relationalDatabaseName,
 
     -- * Destructuring the Response
@@ -68,7 +68,21 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateRelationalDatabaseFromSnapshot' smart constructor.
 data CreateRelationalDatabaseFromSnapshot = CreateRelationalDatabaseFromSnapshot'
-  { -- | The bundle ID for your new database. A bundle describes the performance
+  { -- | The Availability Zone in which to create your new database. Use the
+    -- @us-east-2a@ case-sensitive format.
+    --
+    -- You can get a list of Availability Zones by using the @get regions@
+    -- operation. Be sure to add the
+    -- @include relational database Availability Zones@ parameter to your
+    -- request.
+    availabilityZone :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the accessibility options for your new database. A value of
+    -- @true@ specifies a database that is available to resources outside of
+    -- your Lightsail account. A value of @false@ specifies a database that is
+    -- available only to your Lightsail resources in the same region as your
+    -- database.
+    publiclyAccessible :: Prelude.Maybe Prelude.Bool,
+    -- | The bundle ID for your new database. A bundle describes the performance
     -- specifications for your database.
     --
     -- You can get a list of database bundle IDs by using the
@@ -77,10 +91,9 @@ data CreateRelationalDatabaseFromSnapshot = CreateRelationalDatabaseFromSnapshot
     -- When creating a new database from a snapshot, you cannot choose a bundle
     -- that is smaller than the bundle of the source database.
     relationalDatabaseBundleId :: Prelude.Maybe Prelude.Text,
-    -- | The tag keys and optional values to add to the resource during create.
-    --
-    -- Use the @TagResource@ action to tag a resource after it\'s created.
-    tags :: Prelude.Maybe [Tag],
+    -- | The name of the database snapshot from which to create your new
+    -- database.
+    relationalDatabaseSnapshotName :: Prelude.Maybe Prelude.Text,
     -- | The date and time to restore your database from.
     --
     -- Constraints:
@@ -99,20 +112,10 @@ data CreateRelationalDatabaseFromSnapshot = CreateRelationalDatabaseFromSnapshot
     restoreTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the source database.
     sourceRelationalDatabaseName :: Prelude.Maybe Prelude.Text,
-    -- | The Availability Zone in which to create your new database. Use the
-    -- @us-east-2a@ case-sensitive format.
+    -- | The tag keys and optional values to add to the resource during create.
     --
-    -- You can get a list of Availability Zones by using the @get regions@
-    -- operation. Be sure to add the
-    -- @include relational database Availability Zones@ parameter to your
-    -- request.
-    availabilityZone :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the accessibility options for your new database. A value of
-    -- @true@ specifies a database that is available to resources outside of
-    -- your Lightsail account. A value of @false@ specifies a database that is
-    -- available only to your Lightsail resources in the same region as your
-    -- database.
-    publiclyAccessible :: Prelude.Maybe Prelude.Bool,
+    -- Use the @TagResource@ action to tag a resource after it\'s created.
+    tags :: Prelude.Maybe [Tag],
     -- | Specifies whether your database is restored from the latest backup time.
     -- A value of @true@ restores from the latest backup time.
     --
@@ -121,9 +124,6 @@ data CreateRelationalDatabaseFromSnapshot = CreateRelationalDatabaseFromSnapshot
     -- Constraints: Cannot be specified if the @restore time@ parameter is
     -- provided.
     useLatestRestorableTime :: Prelude.Maybe Prelude.Bool,
-    -- | The name of the database snapshot from which to create your new
-    -- database.
-    relationalDatabaseSnapshotName :: Prelude.Maybe Prelude.Text,
     -- | The name to use for your new Lightsail database resource.
     --
     -- Constraints:
@@ -143,6 +143,20 @@ data CreateRelationalDatabaseFromSnapshot = CreateRelationalDatabaseFromSnapshot
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'availabilityZone', 'createRelationalDatabaseFromSnapshot_availabilityZone' - The Availability Zone in which to create your new database. Use the
+-- @us-east-2a@ case-sensitive format.
+--
+-- You can get a list of Availability Zones by using the @get regions@
+-- operation. Be sure to add the
+-- @include relational database Availability Zones@ parameter to your
+-- request.
+--
+-- 'publiclyAccessible', 'createRelationalDatabaseFromSnapshot_publiclyAccessible' - Specifies the accessibility options for your new database. A value of
+-- @true@ specifies a database that is available to resources outside of
+-- your Lightsail account. A value of @false@ specifies a database that is
+-- available only to your Lightsail resources in the same region as your
+-- database.
+--
 -- 'relationalDatabaseBundleId', 'createRelationalDatabaseFromSnapshot_relationalDatabaseBundleId' - The bundle ID for your new database. A bundle describes the performance
 -- specifications for your database.
 --
@@ -152,9 +166,8 @@ data CreateRelationalDatabaseFromSnapshot = CreateRelationalDatabaseFromSnapshot
 -- When creating a new database from a snapshot, you cannot choose a bundle
 -- that is smaller than the bundle of the source database.
 --
--- 'tags', 'createRelationalDatabaseFromSnapshot_tags' - The tag keys and optional values to add to the resource during create.
---
--- Use the @TagResource@ action to tag a resource after it\'s created.
+-- 'relationalDatabaseSnapshotName', 'createRelationalDatabaseFromSnapshot_relationalDatabaseSnapshotName' - The name of the database snapshot from which to create your new
+-- database.
 --
 -- 'restoreTime', 'createRelationalDatabaseFromSnapshot_restoreTime' - The date and time to restore your database from.
 --
@@ -174,19 +187,9 @@ data CreateRelationalDatabaseFromSnapshot = CreateRelationalDatabaseFromSnapshot
 --
 -- 'sourceRelationalDatabaseName', 'createRelationalDatabaseFromSnapshot_sourceRelationalDatabaseName' - The name of the source database.
 --
--- 'availabilityZone', 'createRelationalDatabaseFromSnapshot_availabilityZone' - The Availability Zone in which to create your new database. Use the
--- @us-east-2a@ case-sensitive format.
+-- 'tags', 'createRelationalDatabaseFromSnapshot_tags' - The tag keys and optional values to add to the resource during create.
 --
--- You can get a list of Availability Zones by using the @get regions@
--- operation. Be sure to add the
--- @include relational database Availability Zones@ parameter to your
--- request.
---
--- 'publiclyAccessible', 'createRelationalDatabaseFromSnapshot_publiclyAccessible' - Specifies the accessibility options for your new database. A value of
--- @true@ specifies a database that is available to resources outside of
--- your Lightsail account. A value of @false@ specifies a database that is
--- available only to your Lightsail resources in the same region as your
--- database.
+-- Use the @TagResource@ action to tag a resource after it\'s created.
 --
 -- 'useLatestRestorableTime', 'createRelationalDatabaseFromSnapshot_useLatestRestorableTime' - Specifies whether your database is restored from the latest backup time.
 -- A value of @true@ restores from the latest backup time.
@@ -195,9 +198,6 @@ data CreateRelationalDatabaseFromSnapshot = CreateRelationalDatabaseFromSnapshot
 --
 -- Constraints: Cannot be specified if the @restore time@ parameter is
 -- provided.
---
--- 'relationalDatabaseSnapshotName', 'createRelationalDatabaseFromSnapshot_relationalDatabaseSnapshotName' - The name of the database snapshot from which to create your new
--- database.
 --
 -- 'relationalDatabaseName', 'createRelationalDatabaseFromSnapshot_relationalDatabaseName' - The name to use for your new Lightsail database resource.
 --
@@ -213,21 +213,40 @@ newCreateRelationalDatabaseFromSnapshot ::
 newCreateRelationalDatabaseFromSnapshot
   pRelationalDatabaseName_ =
     CreateRelationalDatabaseFromSnapshot'
-      { relationalDatabaseBundleId =
+      { availabilityZone =
           Prelude.Nothing,
-        tags = Prelude.Nothing,
+        publiclyAccessible = Prelude.Nothing,
+        relationalDatabaseBundleId =
+          Prelude.Nothing,
+        relationalDatabaseSnapshotName =
+          Prelude.Nothing,
         restoreTime = Prelude.Nothing,
         sourceRelationalDatabaseName =
           Prelude.Nothing,
-        availabilityZone = Prelude.Nothing,
-        publiclyAccessible = Prelude.Nothing,
+        tags = Prelude.Nothing,
         useLatestRestorableTime =
-          Prelude.Nothing,
-        relationalDatabaseSnapshotName =
           Prelude.Nothing,
         relationalDatabaseName =
           pRelationalDatabaseName_
       }
+
+-- | The Availability Zone in which to create your new database. Use the
+-- @us-east-2a@ case-sensitive format.
+--
+-- You can get a list of Availability Zones by using the @get regions@
+-- operation. Be sure to add the
+-- @include relational database Availability Zones@ parameter to your
+-- request.
+createRelationalDatabaseFromSnapshot_availabilityZone :: Lens.Lens' CreateRelationalDatabaseFromSnapshot (Prelude.Maybe Prelude.Text)
+createRelationalDatabaseFromSnapshot_availabilityZone = Lens.lens (\CreateRelationalDatabaseFromSnapshot' {availabilityZone} -> availabilityZone) (\s@CreateRelationalDatabaseFromSnapshot' {} a -> s {availabilityZone = a} :: CreateRelationalDatabaseFromSnapshot)
+
+-- | Specifies the accessibility options for your new database. A value of
+-- @true@ specifies a database that is available to resources outside of
+-- your Lightsail account. A value of @false@ specifies a database that is
+-- available only to your Lightsail resources in the same region as your
+-- database.
+createRelationalDatabaseFromSnapshot_publiclyAccessible :: Lens.Lens' CreateRelationalDatabaseFromSnapshot (Prelude.Maybe Prelude.Bool)
+createRelationalDatabaseFromSnapshot_publiclyAccessible = Lens.lens (\CreateRelationalDatabaseFromSnapshot' {publiclyAccessible} -> publiclyAccessible) (\s@CreateRelationalDatabaseFromSnapshot' {} a -> s {publiclyAccessible = a} :: CreateRelationalDatabaseFromSnapshot)
 
 -- | The bundle ID for your new database. A bundle describes the performance
 -- specifications for your database.
@@ -240,11 +259,10 @@ newCreateRelationalDatabaseFromSnapshot
 createRelationalDatabaseFromSnapshot_relationalDatabaseBundleId :: Lens.Lens' CreateRelationalDatabaseFromSnapshot (Prelude.Maybe Prelude.Text)
 createRelationalDatabaseFromSnapshot_relationalDatabaseBundleId = Lens.lens (\CreateRelationalDatabaseFromSnapshot' {relationalDatabaseBundleId} -> relationalDatabaseBundleId) (\s@CreateRelationalDatabaseFromSnapshot' {} a -> s {relationalDatabaseBundleId = a} :: CreateRelationalDatabaseFromSnapshot)
 
--- | The tag keys and optional values to add to the resource during create.
---
--- Use the @TagResource@ action to tag a resource after it\'s created.
-createRelationalDatabaseFromSnapshot_tags :: Lens.Lens' CreateRelationalDatabaseFromSnapshot (Prelude.Maybe [Tag])
-createRelationalDatabaseFromSnapshot_tags = Lens.lens (\CreateRelationalDatabaseFromSnapshot' {tags} -> tags) (\s@CreateRelationalDatabaseFromSnapshot' {} a -> s {tags = a} :: CreateRelationalDatabaseFromSnapshot) Prelude.. Lens.mapping Lens.coerced
+-- | The name of the database snapshot from which to create your new
+-- database.
+createRelationalDatabaseFromSnapshot_relationalDatabaseSnapshotName :: Lens.Lens' CreateRelationalDatabaseFromSnapshot (Prelude.Maybe Prelude.Text)
+createRelationalDatabaseFromSnapshot_relationalDatabaseSnapshotName = Lens.lens (\CreateRelationalDatabaseFromSnapshot' {relationalDatabaseSnapshotName} -> relationalDatabaseSnapshotName) (\s@CreateRelationalDatabaseFromSnapshot' {} a -> s {relationalDatabaseSnapshotName = a} :: CreateRelationalDatabaseFromSnapshot)
 
 -- | The date and time to restore your database from.
 --
@@ -268,23 +286,11 @@ createRelationalDatabaseFromSnapshot_restoreTime = Lens.lens (\CreateRelationalD
 createRelationalDatabaseFromSnapshot_sourceRelationalDatabaseName :: Lens.Lens' CreateRelationalDatabaseFromSnapshot (Prelude.Maybe Prelude.Text)
 createRelationalDatabaseFromSnapshot_sourceRelationalDatabaseName = Lens.lens (\CreateRelationalDatabaseFromSnapshot' {sourceRelationalDatabaseName} -> sourceRelationalDatabaseName) (\s@CreateRelationalDatabaseFromSnapshot' {} a -> s {sourceRelationalDatabaseName = a} :: CreateRelationalDatabaseFromSnapshot)
 
--- | The Availability Zone in which to create your new database. Use the
--- @us-east-2a@ case-sensitive format.
+-- | The tag keys and optional values to add to the resource during create.
 --
--- You can get a list of Availability Zones by using the @get regions@
--- operation. Be sure to add the
--- @include relational database Availability Zones@ parameter to your
--- request.
-createRelationalDatabaseFromSnapshot_availabilityZone :: Lens.Lens' CreateRelationalDatabaseFromSnapshot (Prelude.Maybe Prelude.Text)
-createRelationalDatabaseFromSnapshot_availabilityZone = Lens.lens (\CreateRelationalDatabaseFromSnapshot' {availabilityZone} -> availabilityZone) (\s@CreateRelationalDatabaseFromSnapshot' {} a -> s {availabilityZone = a} :: CreateRelationalDatabaseFromSnapshot)
-
--- | Specifies the accessibility options for your new database. A value of
--- @true@ specifies a database that is available to resources outside of
--- your Lightsail account. A value of @false@ specifies a database that is
--- available only to your Lightsail resources in the same region as your
--- database.
-createRelationalDatabaseFromSnapshot_publiclyAccessible :: Lens.Lens' CreateRelationalDatabaseFromSnapshot (Prelude.Maybe Prelude.Bool)
-createRelationalDatabaseFromSnapshot_publiclyAccessible = Lens.lens (\CreateRelationalDatabaseFromSnapshot' {publiclyAccessible} -> publiclyAccessible) (\s@CreateRelationalDatabaseFromSnapshot' {} a -> s {publiclyAccessible = a} :: CreateRelationalDatabaseFromSnapshot)
+-- Use the @TagResource@ action to tag a resource after it\'s created.
+createRelationalDatabaseFromSnapshot_tags :: Lens.Lens' CreateRelationalDatabaseFromSnapshot (Prelude.Maybe [Tag])
+createRelationalDatabaseFromSnapshot_tags = Lens.lens (\CreateRelationalDatabaseFromSnapshot' {tags} -> tags) (\s@CreateRelationalDatabaseFromSnapshot' {} a -> s {tags = a} :: CreateRelationalDatabaseFromSnapshot) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies whether your database is restored from the latest backup time.
 -- A value of @true@ restores from the latest backup time.
@@ -295,11 +301,6 @@ createRelationalDatabaseFromSnapshot_publiclyAccessible = Lens.lens (\CreateRela
 -- provided.
 createRelationalDatabaseFromSnapshot_useLatestRestorableTime :: Lens.Lens' CreateRelationalDatabaseFromSnapshot (Prelude.Maybe Prelude.Bool)
 createRelationalDatabaseFromSnapshot_useLatestRestorableTime = Lens.lens (\CreateRelationalDatabaseFromSnapshot' {useLatestRestorableTime} -> useLatestRestorableTime) (\s@CreateRelationalDatabaseFromSnapshot' {} a -> s {useLatestRestorableTime = a} :: CreateRelationalDatabaseFromSnapshot)
-
--- | The name of the database snapshot from which to create your new
--- database.
-createRelationalDatabaseFromSnapshot_relationalDatabaseSnapshotName :: Lens.Lens' CreateRelationalDatabaseFromSnapshot (Prelude.Maybe Prelude.Text)
-createRelationalDatabaseFromSnapshot_relationalDatabaseSnapshotName = Lens.lens (\CreateRelationalDatabaseFromSnapshot' {relationalDatabaseSnapshotName} -> relationalDatabaseSnapshotName) (\s@CreateRelationalDatabaseFromSnapshot' {} a -> s {relationalDatabaseSnapshotName = a} :: CreateRelationalDatabaseFromSnapshot)
 
 -- | The name to use for your new Lightsail database resource.
 --
@@ -335,15 +336,14 @@ instance
   hashWithSalt
     _salt
     CreateRelationalDatabaseFromSnapshot' {..} =
-      _salt
+      _salt `Prelude.hashWithSalt` availabilityZone
+        `Prelude.hashWithSalt` publiclyAccessible
         `Prelude.hashWithSalt` relationalDatabaseBundleId
-        `Prelude.hashWithSalt` tags
+        `Prelude.hashWithSalt` relationalDatabaseSnapshotName
         `Prelude.hashWithSalt` restoreTime
         `Prelude.hashWithSalt` sourceRelationalDatabaseName
-        `Prelude.hashWithSalt` availabilityZone
-        `Prelude.hashWithSalt` publiclyAccessible
+        `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` useLatestRestorableTime
-        `Prelude.hashWithSalt` relationalDatabaseSnapshotName
         `Prelude.hashWithSalt` relationalDatabaseName
 
 instance
@@ -351,14 +351,14 @@ instance
     CreateRelationalDatabaseFromSnapshot
   where
   rnf CreateRelationalDatabaseFromSnapshot' {..} =
-    Prelude.rnf relationalDatabaseBundleId
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf publiclyAccessible
+      `Prelude.seq` Prelude.rnf relationalDatabaseBundleId
+      `Prelude.seq` Prelude.rnf relationalDatabaseSnapshotName
       `Prelude.seq` Prelude.rnf restoreTime
       `Prelude.seq` Prelude.rnf sourceRelationalDatabaseName
-      `Prelude.seq` Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf publiclyAccessible
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf useLatestRestorableTime
-      `Prelude.seq` Prelude.rnf relationalDatabaseSnapshotName
       `Prelude.seq` Prelude.rnf relationalDatabaseName
 
 instance
@@ -386,20 +386,20 @@ instance
   toJSON CreateRelationalDatabaseFromSnapshot' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("relationalDatabaseBundleId" Data..=)
-              Prelude.<$> relationalDatabaseBundleId,
-            ("tags" Data..=) Prelude.<$> tags,
-            ("restoreTime" Data..=) Prelude.<$> restoreTime,
-            ("sourceRelationalDatabaseName" Data..=)
-              Prelude.<$> sourceRelationalDatabaseName,
-            ("availabilityZone" Data..=)
+          [ ("availabilityZone" Data..=)
               Prelude.<$> availabilityZone,
             ("publiclyAccessible" Data..=)
               Prelude.<$> publiclyAccessible,
-            ("useLatestRestorableTime" Data..=)
-              Prelude.<$> useLatestRestorableTime,
+            ("relationalDatabaseBundleId" Data..=)
+              Prelude.<$> relationalDatabaseBundleId,
             ("relationalDatabaseSnapshotName" Data..=)
               Prelude.<$> relationalDatabaseSnapshotName,
+            ("restoreTime" Data..=) Prelude.<$> restoreTime,
+            ("sourceRelationalDatabaseName" Data..=)
+              Prelude.<$> sourceRelationalDatabaseName,
+            ("tags" Data..=) Prelude.<$> tags,
+            ("useLatestRestorableTime" Data..=)
+              Prelude.<$> useLatestRestorableTime,
             Prelude.Just
               ( "relationalDatabaseName"
                   Data..= relationalDatabaseName

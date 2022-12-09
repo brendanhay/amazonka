@@ -45,8 +45,8 @@ module Amazonka.Lightsail.GetLoadBalancerMetricData
     newGetLoadBalancerMetricDataResponse,
 
     -- * Response Lenses
-    getLoadBalancerMetricDataResponse_metricName,
     getLoadBalancerMetricDataResponse_metricData,
+    getLoadBalancerMetricDataResponse_metricName,
     getLoadBalancerMetricDataResponse_httpStatus,
   )
 where
@@ -586,8 +586,8 @@ instance Core.AWSRequest GetLoadBalancerMetricData where
     Response.receiveJSON
       ( \s h x ->
           GetLoadBalancerMetricDataResponse'
-            Prelude.<$> (x Data..?> "metricName")
-            Prelude.<*> (x Data..?> "metricData" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "metricData" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "metricName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -649,10 +649,10 @@ instance Data.ToQuery GetLoadBalancerMetricData where
 
 -- | /See:/ 'newGetLoadBalancerMetricDataResponse' smart constructor.
 data GetLoadBalancerMetricDataResponse = GetLoadBalancerMetricDataResponse'
-  { -- | The name of the metric returned.
-    metricName :: Prelude.Maybe LoadBalancerMetricName,
-    -- | An array of objects that describe the metric data returned.
+  { -- | An array of objects that describe the metric data returned.
     metricData :: Prelude.Maybe [MetricDatapoint],
+    -- | The name of the metric returned.
+    metricName :: Prelude.Maybe LoadBalancerMetricName,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -666,9 +666,9 @@ data GetLoadBalancerMetricDataResponse = GetLoadBalancerMetricDataResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'metricName', 'getLoadBalancerMetricDataResponse_metricName' - The name of the metric returned.
---
 -- 'metricData', 'getLoadBalancerMetricDataResponse_metricData' - An array of objects that describe the metric data returned.
+--
+-- 'metricName', 'getLoadBalancerMetricDataResponse_metricName' - The name of the metric returned.
 --
 -- 'httpStatus', 'getLoadBalancerMetricDataResponse_httpStatus' - The response's http status code.
 newGetLoadBalancerMetricDataResponse ::
@@ -677,19 +677,19 @@ newGetLoadBalancerMetricDataResponse ::
   GetLoadBalancerMetricDataResponse
 newGetLoadBalancerMetricDataResponse pHttpStatus_ =
   GetLoadBalancerMetricDataResponse'
-    { metricName =
+    { metricData =
         Prelude.Nothing,
-      metricData = Prelude.Nothing,
+      metricName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The name of the metric returned.
-getLoadBalancerMetricDataResponse_metricName :: Lens.Lens' GetLoadBalancerMetricDataResponse (Prelude.Maybe LoadBalancerMetricName)
-getLoadBalancerMetricDataResponse_metricName = Lens.lens (\GetLoadBalancerMetricDataResponse' {metricName} -> metricName) (\s@GetLoadBalancerMetricDataResponse' {} a -> s {metricName = a} :: GetLoadBalancerMetricDataResponse)
 
 -- | An array of objects that describe the metric data returned.
 getLoadBalancerMetricDataResponse_metricData :: Lens.Lens' GetLoadBalancerMetricDataResponse (Prelude.Maybe [MetricDatapoint])
 getLoadBalancerMetricDataResponse_metricData = Lens.lens (\GetLoadBalancerMetricDataResponse' {metricData} -> metricData) (\s@GetLoadBalancerMetricDataResponse' {} a -> s {metricData = a} :: GetLoadBalancerMetricDataResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name of the metric returned.
+getLoadBalancerMetricDataResponse_metricName :: Lens.Lens' GetLoadBalancerMetricDataResponse (Prelude.Maybe LoadBalancerMetricName)
+getLoadBalancerMetricDataResponse_metricName = Lens.lens (\GetLoadBalancerMetricDataResponse' {metricName} -> metricName) (\s@GetLoadBalancerMetricDataResponse' {} a -> s {metricName = a} :: GetLoadBalancerMetricDataResponse)
 
 -- | The response's http status code.
 getLoadBalancerMetricDataResponse_httpStatus :: Lens.Lens' GetLoadBalancerMetricDataResponse Prelude.Int
@@ -700,6 +700,6 @@ instance
     GetLoadBalancerMetricDataResponse
   where
   rnf GetLoadBalancerMetricDataResponse' {..} =
-    Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf metricData
+    Prelude.rnf metricData
+      `Prelude.seq` Prelude.rnf metricName
       `Prelude.seq` Prelude.rnf httpStatus

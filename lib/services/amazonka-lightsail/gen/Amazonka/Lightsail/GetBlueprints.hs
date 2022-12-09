@@ -47,8 +47,8 @@ module Amazonka.Lightsail.GetBlueprints
     newGetBlueprintsResponse,
 
     -- * Response Lenses
-    getBlueprintsResponse_nextPageToken,
     getBlueprintsResponse_blueprints,
+    getBlueprintsResponse_nextPageToken,
     getBlueprintsResponse_httpStatus,
   )
 where
@@ -144,8 +144,8 @@ instance Core.AWSRequest GetBlueprints where
     Response.receiveJSON
       ( \s h x ->
           GetBlueprintsResponse'
-            Prelude.<$> (x Data..?> "nextPageToken")
-            Prelude.<*> (x Data..?> "blueprints" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "blueprints" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -192,7 +192,10 @@ instance Data.ToQuery GetBlueprints where
 
 -- | /See:/ 'newGetBlueprintsResponse' smart constructor.
 data GetBlueprintsResponse = GetBlueprintsResponse'
-  { -- | The token to advance to the next page of results from your request.
+  { -- | An array of key-value pairs that contains information about the
+    -- available blueprints.
+    blueprints :: Prelude.Maybe [Blueprint],
+    -- | The token to advance to the next page of results from your request.
     --
     -- A next page token is not returned if there are no more results to
     -- display.
@@ -200,9 +203,6 @@ data GetBlueprintsResponse = GetBlueprintsResponse'
     -- To get the next page of results, perform another @GetBlueprints@ request
     -- and specify the next page token using the @pageToken@ parameter.
     nextPageToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of key-value pairs that contains information about the
-    -- available blueprints.
-    blueprints :: Prelude.Maybe [Blueprint],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -216,6 +216,9 @@ data GetBlueprintsResponse = GetBlueprintsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'blueprints', 'getBlueprintsResponse_blueprints' - An array of key-value pairs that contains information about the
+-- available blueprints.
+--
 -- 'nextPageToken', 'getBlueprintsResponse_nextPageToken' - The token to advance to the next page of results from your request.
 --
 -- A next page token is not returned if there are no more results to
@@ -224,9 +227,6 @@ data GetBlueprintsResponse = GetBlueprintsResponse'
 -- To get the next page of results, perform another @GetBlueprints@ request
 -- and specify the next page token using the @pageToken@ parameter.
 --
--- 'blueprints', 'getBlueprintsResponse_blueprints' - An array of key-value pairs that contains information about the
--- available blueprints.
---
 -- 'httpStatus', 'getBlueprintsResponse_httpStatus' - The response's http status code.
 newGetBlueprintsResponse ::
   -- | 'httpStatus'
@@ -234,11 +234,16 @@ newGetBlueprintsResponse ::
   GetBlueprintsResponse
 newGetBlueprintsResponse pHttpStatus_ =
   GetBlueprintsResponse'
-    { nextPageToken =
+    { blueprints =
         Prelude.Nothing,
-      blueprints = Prelude.Nothing,
+      nextPageToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An array of key-value pairs that contains information about the
+-- available blueprints.
+getBlueprintsResponse_blueprints :: Lens.Lens' GetBlueprintsResponse (Prelude.Maybe [Blueprint])
+getBlueprintsResponse_blueprints = Lens.lens (\GetBlueprintsResponse' {blueprints} -> blueprints) (\s@GetBlueprintsResponse' {} a -> s {blueprints = a} :: GetBlueprintsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to advance to the next page of results from your request.
 --
@@ -250,17 +255,12 @@ newGetBlueprintsResponse pHttpStatus_ =
 getBlueprintsResponse_nextPageToken :: Lens.Lens' GetBlueprintsResponse (Prelude.Maybe Prelude.Text)
 getBlueprintsResponse_nextPageToken = Lens.lens (\GetBlueprintsResponse' {nextPageToken} -> nextPageToken) (\s@GetBlueprintsResponse' {} a -> s {nextPageToken = a} :: GetBlueprintsResponse)
 
--- | An array of key-value pairs that contains information about the
--- available blueprints.
-getBlueprintsResponse_blueprints :: Lens.Lens' GetBlueprintsResponse (Prelude.Maybe [Blueprint])
-getBlueprintsResponse_blueprints = Lens.lens (\GetBlueprintsResponse' {blueprints} -> blueprints) (\s@GetBlueprintsResponse' {} a -> s {blueprints = a} :: GetBlueprintsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 getBlueprintsResponse_httpStatus :: Lens.Lens' GetBlueprintsResponse Prelude.Int
 getBlueprintsResponse_httpStatus = Lens.lens (\GetBlueprintsResponse' {httpStatus} -> httpStatus) (\s@GetBlueprintsResponse' {} a -> s {httpStatus = a} :: GetBlueprintsResponse)
 
 instance Prelude.NFData GetBlueprintsResponse where
   rnf GetBlueprintsResponse' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf blueprints
+    Prelude.rnf blueprints
+      `Prelude.seq` Prelude.rnf nextPageToken
       `Prelude.seq` Prelude.rnf httpStatus

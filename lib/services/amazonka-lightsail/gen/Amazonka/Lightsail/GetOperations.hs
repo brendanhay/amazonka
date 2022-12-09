@@ -41,8 +41,8 @@ module Amazonka.Lightsail.GetOperations
     newGetOperationsResponse,
 
     -- * Response Lenses
-    getOperationsResponse_operations,
     getOperationsResponse_nextPageToken,
+    getOperationsResponse_operations,
     getOperationsResponse_httpStatus,
   )
 where
@@ -124,8 +124,8 @@ instance Core.AWSRequest GetOperations where
     Response.receiveJSON
       ( \s h x ->
           GetOperationsResponse'
-            Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "nextPageToken")
+            Prelude.<$> (x Data..?> "nextPageToken")
+            Prelude.<*> (x Data..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -166,11 +166,7 @@ instance Data.ToQuery GetOperations where
 
 -- | /See:/ 'newGetOperationsResponse' smart constructor.
 data GetOperationsResponse = GetOperationsResponse'
-  { -- | An array of objects that describe the result of the action, such as the
-    -- status of the request, the timestamp of the request, and the resources
-    -- affected by the request.
-    operations :: Prelude.Maybe [Operation],
-    -- | The token to advance to the next page of results from your request.
+  { -- | The token to advance to the next page of results from your request.
     --
     -- A next page token is not returned if there are no more results to
     -- display.
@@ -178,6 +174,10 @@ data GetOperationsResponse = GetOperationsResponse'
     -- To get the next page of results, perform another @GetOperations@ request
     -- and specify the next page token using the @pageToken@ parameter.
     nextPageToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of objects that describe the result of the action, such as the
+    -- status of the request, the timestamp of the request, and the resources
+    -- affected by the request.
+    operations :: Prelude.Maybe [Operation],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -191,10 +191,6 @@ data GetOperationsResponse = GetOperationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'operations', 'getOperationsResponse_operations' - An array of objects that describe the result of the action, such as the
--- status of the request, the timestamp of the request, and the resources
--- affected by the request.
---
 -- 'nextPageToken', 'getOperationsResponse_nextPageToken' - The token to advance to the next page of results from your request.
 --
 -- A next page token is not returned if there are no more results to
@@ -203,6 +199,10 @@ data GetOperationsResponse = GetOperationsResponse'
 -- To get the next page of results, perform another @GetOperations@ request
 -- and specify the next page token using the @pageToken@ parameter.
 --
+-- 'operations', 'getOperationsResponse_operations' - An array of objects that describe the result of the action, such as the
+-- status of the request, the timestamp of the request, and the resources
+-- affected by the request.
+--
 -- 'httpStatus', 'getOperationsResponse_httpStatus' - The response's http status code.
 newGetOperationsResponse ::
   -- | 'httpStatus'
@@ -210,17 +210,11 @@ newGetOperationsResponse ::
   GetOperationsResponse
 newGetOperationsResponse pHttpStatus_ =
   GetOperationsResponse'
-    { operations =
+    { nextPageToken =
         Prelude.Nothing,
-      nextPageToken = Prelude.Nothing,
+      operations = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of objects that describe the result of the action, such as the
--- status of the request, the timestamp of the request, and the resources
--- affected by the request.
-getOperationsResponse_operations :: Lens.Lens' GetOperationsResponse (Prelude.Maybe [Operation])
-getOperationsResponse_operations = Lens.lens (\GetOperationsResponse' {operations} -> operations) (\s@GetOperationsResponse' {} a -> s {operations = a} :: GetOperationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to advance to the next page of results from your request.
 --
@@ -232,12 +226,18 @@ getOperationsResponse_operations = Lens.lens (\GetOperationsResponse' {operation
 getOperationsResponse_nextPageToken :: Lens.Lens' GetOperationsResponse (Prelude.Maybe Prelude.Text)
 getOperationsResponse_nextPageToken = Lens.lens (\GetOperationsResponse' {nextPageToken} -> nextPageToken) (\s@GetOperationsResponse' {} a -> s {nextPageToken = a} :: GetOperationsResponse)
 
+-- | An array of objects that describe the result of the action, such as the
+-- status of the request, the timestamp of the request, and the resources
+-- affected by the request.
+getOperationsResponse_operations :: Lens.Lens' GetOperationsResponse (Prelude.Maybe [Operation])
+getOperationsResponse_operations = Lens.lens (\GetOperationsResponse' {operations} -> operations) (\s@GetOperationsResponse' {} a -> s {operations = a} :: GetOperationsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 getOperationsResponse_httpStatus :: Lens.Lens' GetOperationsResponse Prelude.Int
 getOperationsResponse_httpStatus = Lens.lens (\GetOperationsResponse' {httpStatus} -> httpStatus) (\s@GetOperationsResponse' {} a -> s {httpStatus = a} :: GetOperationsResponse)
 
 instance Prelude.NFData GetOperationsResponse where
   rnf GetOperationsResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf nextPageToken
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf operations
       `Prelude.seq` Prelude.rnf httpStatus

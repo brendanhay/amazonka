@@ -37,8 +37,8 @@ module Amazonka.Lightsail.GetDiskSnapshots
     newGetDiskSnapshotsResponse,
 
     -- * Response Lenses
-    getDiskSnapshotsResponse_nextPageToken,
     getDiskSnapshotsResponse_diskSnapshots,
+    getDiskSnapshotsResponse_nextPageToken,
     getDiskSnapshotsResponse_httpStatus,
   )
 where
@@ -120,8 +120,8 @@ instance Core.AWSRequest GetDiskSnapshots where
     Response.receiveJSON
       ( \s h x ->
           GetDiskSnapshotsResponse'
-            Prelude.<$> (x Data..?> "nextPageToken")
-            Prelude.<*> (x Data..?> "diskSnapshots" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "diskSnapshots" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -162,7 +162,10 @@ instance Data.ToQuery GetDiskSnapshots where
 
 -- | /See:/ 'newGetDiskSnapshotsResponse' smart constructor.
 data GetDiskSnapshotsResponse = GetDiskSnapshotsResponse'
-  { -- | The token to advance to the next page of results from your request.
+  { -- | An array of objects containing information about all block storage disk
+    -- snapshots.
+    diskSnapshots :: Prelude.Maybe [DiskSnapshot],
+    -- | The token to advance to the next page of results from your request.
     --
     -- A next page token is not returned if there are no more results to
     -- display.
@@ -170,9 +173,6 @@ data GetDiskSnapshotsResponse = GetDiskSnapshotsResponse'
     -- To get the next page of results, perform another @GetDiskSnapshots@
     -- request and specify the next page token using the @pageToken@ parameter.
     nextPageToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of objects containing information about all block storage disk
-    -- snapshots.
-    diskSnapshots :: Prelude.Maybe [DiskSnapshot],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -186,6 +186,9 @@ data GetDiskSnapshotsResponse = GetDiskSnapshotsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'diskSnapshots', 'getDiskSnapshotsResponse_diskSnapshots' - An array of objects containing information about all block storage disk
+-- snapshots.
+--
 -- 'nextPageToken', 'getDiskSnapshotsResponse_nextPageToken' - The token to advance to the next page of results from your request.
 --
 -- A next page token is not returned if there are no more results to
@@ -194,9 +197,6 @@ data GetDiskSnapshotsResponse = GetDiskSnapshotsResponse'
 -- To get the next page of results, perform another @GetDiskSnapshots@
 -- request and specify the next page token using the @pageToken@ parameter.
 --
--- 'diskSnapshots', 'getDiskSnapshotsResponse_diskSnapshots' - An array of objects containing information about all block storage disk
--- snapshots.
---
 -- 'httpStatus', 'getDiskSnapshotsResponse_httpStatus' - The response's http status code.
 newGetDiskSnapshotsResponse ::
   -- | 'httpStatus'
@@ -204,11 +204,16 @@ newGetDiskSnapshotsResponse ::
   GetDiskSnapshotsResponse
 newGetDiskSnapshotsResponse pHttpStatus_ =
   GetDiskSnapshotsResponse'
-    { nextPageToken =
+    { diskSnapshots =
         Prelude.Nothing,
-      diskSnapshots = Prelude.Nothing,
+      nextPageToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An array of objects containing information about all block storage disk
+-- snapshots.
+getDiskSnapshotsResponse_diskSnapshots :: Lens.Lens' GetDiskSnapshotsResponse (Prelude.Maybe [DiskSnapshot])
+getDiskSnapshotsResponse_diskSnapshots = Lens.lens (\GetDiskSnapshotsResponse' {diskSnapshots} -> diskSnapshots) (\s@GetDiskSnapshotsResponse' {} a -> s {diskSnapshots = a} :: GetDiskSnapshotsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to advance to the next page of results from your request.
 --
@@ -220,17 +225,12 @@ newGetDiskSnapshotsResponse pHttpStatus_ =
 getDiskSnapshotsResponse_nextPageToken :: Lens.Lens' GetDiskSnapshotsResponse (Prelude.Maybe Prelude.Text)
 getDiskSnapshotsResponse_nextPageToken = Lens.lens (\GetDiskSnapshotsResponse' {nextPageToken} -> nextPageToken) (\s@GetDiskSnapshotsResponse' {} a -> s {nextPageToken = a} :: GetDiskSnapshotsResponse)
 
--- | An array of objects containing information about all block storage disk
--- snapshots.
-getDiskSnapshotsResponse_diskSnapshots :: Lens.Lens' GetDiskSnapshotsResponse (Prelude.Maybe [DiskSnapshot])
-getDiskSnapshotsResponse_diskSnapshots = Lens.lens (\GetDiskSnapshotsResponse' {diskSnapshots} -> diskSnapshots) (\s@GetDiskSnapshotsResponse' {} a -> s {diskSnapshots = a} :: GetDiskSnapshotsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 getDiskSnapshotsResponse_httpStatus :: Lens.Lens' GetDiskSnapshotsResponse Prelude.Int
 getDiskSnapshotsResponse_httpStatus = Lens.lens (\GetDiskSnapshotsResponse' {httpStatus} -> httpStatus) (\s@GetDiskSnapshotsResponse' {} a -> s {httpStatus = a} :: GetDiskSnapshotsResponse)
 
 instance Prelude.NFData GetDiskSnapshotsResponse where
   rnf GetDiskSnapshotsResponse' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf diskSnapshots
+    Prelude.rnf diskSnapshots
+      `Prelude.seq` Prelude.rnf nextPageToken
       `Prelude.seq` Prelude.rnf httpStatus

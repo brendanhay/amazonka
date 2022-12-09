@@ -35,8 +35,8 @@ module Amazonka.Lightsail.CreateLoadBalancerTlsCertificate
     newCreateLoadBalancerTlsCertificate,
 
     -- * Request Lenses
-    createLoadBalancerTlsCertificate_tags,
     createLoadBalancerTlsCertificate_certificateAlternativeNames,
+    createLoadBalancerTlsCertificate_tags,
     createLoadBalancerTlsCertificate_loadBalancerName,
     createLoadBalancerTlsCertificate_certificateName,
     createLoadBalancerTlsCertificate_certificateDomainName,
@@ -61,15 +61,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateLoadBalancerTlsCertificate' smart constructor.
 data CreateLoadBalancerTlsCertificate = CreateLoadBalancerTlsCertificate'
-  { -- | The tag keys and optional values to add to the resource during create.
-    --
-    -- Use the @TagResource@ action to tag a resource after it\'s created.
-    tags :: Prelude.Maybe [Tag],
-    -- | An array of strings listing alternative domains and subdomains for your
+  { -- | An array of strings listing alternative domains and subdomains for your
     -- SSL\/TLS certificate. Lightsail will de-dupe the names for you. You can
     -- have a maximum of 9 alternative names (in addition to the 1 primary
     -- domain). We do not support wildcards (e.g., @*.example.com@).
     certificateAlternativeNames :: Prelude.Maybe [Prelude.Text],
+    -- | The tag keys and optional values to add to the resource during create.
+    --
+    -- Use the @TagResource@ action to tag a resource after it\'s created.
+    tags :: Prelude.Maybe [Tag],
     -- | The load balancer name where you want to create the SSL\/TLS
     -- certificate.
     loadBalancerName :: Prelude.Text,
@@ -95,14 +95,14 @@ data CreateLoadBalancerTlsCertificate = CreateLoadBalancerTlsCertificate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createLoadBalancerTlsCertificate_tags' - The tag keys and optional values to add to the resource during create.
---
--- Use the @TagResource@ action to tag a resource after it\'s created.
---
 -- 'certificateAlternativeNames', 'createLoadBalancerTlsCertificate_certificateAlternativeNames' - An array of strings listing alternative domains and subdomains for your
 -- SSL\/TLS certificate. Lightsail will de-dupe the names for you. You can
 -- have a maximum of 9 alternative names (in addition to the 1 primary
 -- domain). We do not support wildcards (e.g., @*.example.com@).
+--
+-- 'tags', 'createLoadBalancerTlsCertificate_tags' - The tag keys and optional values to add to the resource during create.
+--
+-- Use the @TagResource@ action to tag a resource after it\'s created.
 --
 -- 'loadBalancerName', 'createLoadBalancerTlsCertificate_loadBalancerName' - The load balancer name where you want to create the SSL\/TLS
 -- certificate.
@@ -130,21 +130,14 @@ newCreateLoadBalancerTlsCertificate
   pCertificateName_
   pCertificateDomainName_ =
     CreateLoadBalancerTlsCertificate'
-      { tags =
+      { certificateAlternativeNames =
           Prelude.Nothing,
-        certificateAlternativeNames =
-          Prelude.Nothing,
+        tags = Prelude.Nothing,
         loadBalancerName = pLoadBalancerName_,
         certificateName = pCertificateName_,
         certificateDomainName =
           pCertificateDomainName_
       }
-
--- | The tag keys and optional values to add to the resource during create.
---
--- Use the @TagResource@ action to tag a resource after it\'s created.
-createLoadBalancerTlsCertificate_tags :: Lens.Lens' CreateLoadBalancerTlsCertificate (Prelude.Maybe [Tag])
-createLoadBalancerTlsCertificate_tags = Lens.lens (\CreateLoadBalancerTlsCertificate' {tags} -> tags) (\s@CreateLoadBalancerTlsCertificate' {} a -> s {tags = a} :: CreateLoadBalancerTlsCertificate) Prelude.. Lens.mapping Lens.coerced
 
 -- | An array of strings listing alternative domains and subdomains for your
 -- SSL\/TLS certificate. Lightsail will de-dupe the names for you. You can
@@ -152,6 +145,12 @@ createLoadBalancerTlsCertificate_tags = Lens.lens (\CreateLoadBalancerTlsCertifi
 -- domain). We do not support wildcards (e.g., @*.example.com@).
 createLoadBalancerTlsCertificate_certificateAlternativeNames :: Lens.Lens' CreateLoadBalancerTlsCertificate (Prelude.Maybe [Prelude.Text])
 createLoadBalancerTlsCertificate_certificateAlternativeNames = Lens.lens (\CreateLoadBalancerTlsCertificate' {certificateAlternativeNames} -> certificateAlternativeNames) (\s@CreateLoadBalancerTlsCertificate' {} a -> s {certificateAlternativeNames = a} :: CreateLoadBalancerTlsCertificate) Prelude.. Lens.mapping Lens.coerced
+
+-- | The tag keys and optional values to add to the resource during create.
+--
+-- Use the @TagResource@ action to tag a resource after it\'s created.
+createLoadBalancerTlsCertificate_tags :: Lens.Lens' CreateLoadBalancerTlsCertificate (Prelude.Maybe [Tag])
+createLoadBalancerTlsCertificate_tags = Lens.lens (\CreateLoadBalancerTlsCertificate' {tags} -> tags) (\s@CreateLoadBalancerTlsCertificate' {} a -> s {tags = a} :: CreateLoadBalancerTlsCertificate) Prelude.. Lens.mapping Lens.coerced
 
 -- | The load balancer name where you want to create the SSL\/TLS
 -- certificate.
@@ -197,8 +196,9 @@ instance
   hashWithSalt
     _salt
     CreateLoadBalancerTlsCertificate' {..} =
-      _salt `Prelude.hashWithSalt` tags
+      _salt
         `Prelude.hashWithSalt` certificateAlternativeNames
+        `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` loadBalancerName
         `Prelude.hashWithSalt` certificateName
         `Prelude.hashWithSalt` certificateDomainName
@@ -208,8 +208,8 @@ instance
     CreateLoadBalancerTlsCertificate
   where
   rnf CreateLoadBalancerTlsCertificate' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf certificateAlternativeNames
+    Prelude.rnf certificateAlternativeNames
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf loadBalancerName
       `Prelude.seq` Prelude.rnf certificateName
       `Prelude.seq` Prelude.rnf certificateDomainName
@@ -236,9 +236,9 @@ instance Data.ToJSON CreateLoadBalancerTlsCertificate where
   toJSON CreateLoadBalancerTlsCertificate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("certificateAlternativeNames" Data..=)
+          [ ("certificateAlternativeNames" Data..=)
               Prelude.<$> certificateAlternativeNames,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("loadBalancerName" Data..= loadBalancerName),
             Prelude.Just

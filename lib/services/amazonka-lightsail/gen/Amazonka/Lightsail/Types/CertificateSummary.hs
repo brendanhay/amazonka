@@ -30,18 +30,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCertificateSummary' smart constructor.
 data CertificateSummary = CertificateSummary'
-  { -- | The tag keys and optional values for the resource. For more information
-    -- about tags in Lightsail, see the
-    -- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
-    tags :: Prelude.Maybe [Tag],
-    -- | The domain name of the certificate.
-    domainName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the certificate.
-    certificateName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the certificate.
+  { -- | The Amazon Resource Name (ARN) of the certificate.
     certificateArn :: Prelude.Maybe Prelude.Text,
     -- | An object that describes a certificate in detail.
-    certificateDetail :: Prelude.Maybe Certificate
+    certificateDetail :: Prelude.Maybe Certificate,
+    -- | The name of the certificate.
+    certificateName :: Prelude.Maybe Prelude.Text,
+    -- | The domain name of the certificate.
+    domainName :: Prelude.Maybe Prelude.Text,
+    -- | The tag keys and optional values for the resource. For more information
+    -- about tags in Lightsail, see the
+    -- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
+    tags :: Prelude.Maybe [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,41 +53,28 @@ data CertificateSummary = CertificateSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'certificateSummary_tags' - The tag keys and optional values for the resource. For more information
--- about tags in Lightsail, see the
--- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
---
--- 'domainName', 'certificateSummary_domainName' - The domain name of the certificate.
---
--- 'certificateName', 'certificateSummary_certificateName' - The name of the certificate.
---
 -- 'certificateArn', 'certificateSummary_certificateArn' - The Amazon Resource Name (ARN) of the certificate.
 --
 -- 'certificateDetail', 'certificateSummary_certificateDetail' - An object that describes a certificate in detail.
+--
+-- 'certificateName', 'certificateSummary_certificateName' - The name of the certificate.
+--
+-- 'domainName', 'certificateSummary_domainName' - The domain name of the certificate.
+--
+-- 'tags', 'certificateSummary_tags' - The tag keys and optional values for the resource. For more information
+-- about tags in Lightsail, see the
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
 newCertificateSummary ::
   CertificateSummary
 newCertificateSummary =
   CertificateSummary'
-    { tags = Prelude.Nothing,
-      domainName = Prelude.Nothing,
+    { certificateArn =
+        Prelude.Nothing,
+      certificateDetail = Prelude.Nothing,
       certificateName = Prelude.Nothing,
-      certificateArn = Prelude.Nothing,
-      certificateDetail = Prelude.Nothing
+      domainName = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
-
--- | The tag keys and optional values for the resource. For more information
--- about tags in Lightsail, see the
--- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
-certificateSummary_tags :: Lens.Lens' CertificateSummary (Prelude.Maybe [Tag])
-certificateSummary_tags = Lens.lens (\CertificateSummary' {tags} -> tags) (\s@CertificateSummary' {} a -> s {tags = a} :: CertificateSummary) Prelude.. Lens.mapping Lens.coerced
-
--- | The domain name of the certificate.
-certificateSummary_domainName :: Lens.Lens' CertificateSummary (Prelude.Maybe Prelude.Text)
-certificateSummary_domainName = Lens.lens (\CertificateSummary' {domainName} -> domainName) (\s@CertificateSummary' {} a -> s {domainName = a} :: CertificateSummary)
-
--- | The name of the certificate.
-certificateSummary_certificateName :: Lens.Lens' CertificateSummary (Prelude.Maybe Prelude.Text)
-certificateSummary_certificateName = Lens.lens (\CertificateSummary' {certificateName} -> certificateName) (\s@CertificateSummary' {} a -> s {certificateName = a} :: CertificateSummary)
 
 -- | The Amazon Resource Name (ARN) of the certificate.
 certificateSummary_certificateArn :: Lens.Lens' CertificateSummary (Prelude.Maybe Prelude.Text)
@@ -97,31 +84,45 @@ certificateSummary_certificateArn = Lens.lens (\CertificateSummary' {certificate
 certificateSummary_certificateDetail :: Lens.Lens' CertificateSummary (Prelude.Maybe Certificate)
 certificateSummary_certificateDetail = Lens.lens (\CertificateSummary' {certificateDetail} -> certificateDetail) (\s@CertificateSummary' {} a -> s {certificateDetail = a} :: CertificateSummary)
 
+-- | The name of the certificate.
+certificateSummary_certificateName :: Lens.Lens' CertificateSummary (Prelude.Maybe Prelude.Text)
+certificateSummary_certificateName = Lens.lens (\CertificateSummary' {certificateName} -> certificateName) (\s@CertificateSummary' {} a -> s {certificateName = a} :: CertificateSummary)
+
+-- | The domain name of the certificate.
+certificateSummary_domainName :: Lens.Lens' CertificateSummary (Prelude.Maybe Prelude.Text)
+certificateSummary_domainName = Lens.lens (\CertificateSummary' {domainName} -> domainName) (\s@CertificateSummary' {} a -> s {domainName = a} :: CertificateSummary)
+
+-- | The tag keys and optional values for the resource. For more information
+-- about tags in Lightsail, see the
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
+certificateSummary_tags :: Lens.Lens' CertificateSummary (Prelude.Maybe [Tag])
+certificateSummary_tags = Lens.lens (\CertificateSummary' {tags} -> tags) (\s@CertificateSummary' {} a -> s {tags = a} :: CertificateSummary) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON CertificateSummary where
   parseJSON =
     Data.withObject
       "CertificateSummary"
       ( \x ->
           CertificateSummary'
-            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "domainName")
-            Prelude.<*> (x Data..:? "certificateName")
-            Prelude.<*> (x Data..:? "certificateArn")
+            Prelude.<$> (x Data..:? "certificateArn")
             Prelude.<*> (x Data..:? "certificateDetail")
+            Prelude.<*> (x Data..:? "certificateName")
+            Prelude.<*> (x Data..:? "domainName")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable CertificateSummary where
   hashWithSalt _salt CertificateSummary' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` domainName
-      `Prelude.hashWithSalt` certificateName
-      `Prelude.hashWithSalt` certificateArn
+    _salt `Prelude.hashWithSalt` certificateArn
       `Prelude.hashWithSalt` certificateDetail
+      `Prelude.hashWithSalt` certificateName
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData CertificateSummary where
   rnf CertificateSummary' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf certificateName
-      `Prelude.seq` Prelude.rnf certificateArn
+    Prelude.rnf certificateArn
       `Prelude.seq` Prelude.rnf certificateDetail
+      `Prelude.seq` Prelude.rnf certificateName
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf tags

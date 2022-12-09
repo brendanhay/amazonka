@@ -29,18 +29,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMetricDatapoint' smart constructor.
 data MetricDatapoint = MetricDatapoint'
-  { -- | The minimum.
-    minimum :: Prelude.Maybe Prelude.Double,
-    -- | The average.
+  { -- | The average.
     average :: Prelude.Maybe Prelude.Double,
-    -- | The timestamp (e.g., @1479816991.349@).
-    timestamp :: Prelude.Maybe Data.POSIX,
+    -- | The maximum.
+    maximum :: Prelude.Maybe Prelude.Double,
+    -- | The minimum.
+    minimum :: Prelude.Maybe Prelude.Double,
     -- | The sample count.
     sampleCount :: Prelude.Maybe Prelude.Double,
     -- | The sum.
     sum :: Prelude.Maybe Prelude.Double,
-    -- | The maximum.
-    maximum :: Prelude.Maybe Prelude.Double,
+    -- | The timestamp (e.g., @1479816991.349@).
+    timestamp :: Prelude.Maybe Data.POSIX,
     -- | The unit.
     unit :: Prelude.Maybe MetricUnit
   }
@@ -54,43 +54,43 @@ data MetricDatapoint = MetricDatapoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'minimum', 'metricDatapoint_minimum' - The minimum.
---
 -- 'average', 'metricDatapoint_average' - The average.
 --
--- 'timestamp', 'metricDatapoint_timestamp' - The timestamp (e.g., @1479816991.349@).
+-- 'maximum', 'metricDatapoint_maximum' - The maximum.
+--
+-- 'minimum', 'metricDatapoint_minimum' - The minimum.
 --
 -- 'sampleCount', 'metricDatapoint_sampleCount' - The sample count.
 --
 -- 'sum', 'metricDatapoint_sum' - The sum.
 --
--- 'maximum', 'metricDatapoint_maximum' - The maximum.
+-- 'timestamp', 'metricDatapoint_timestamp' - The timestamp (e.g., @1479816991.349@).
 --
 -- 'unit', 'metricDatapoint_unit' - The unit.
 newMetricDatapoint ::
   MetricDatapoint
 newMetricDatapoint =
   MetricDatapoint'
-    { minimum = Prelude.Nothing,
-      average = Prelude.Nothing,
-      timestamp = Prelude.Nothing,
+    { average = Prelude.Nothing,
+      maximum = Prelude.Nothing,
+      minimum = Prelude.Nothing,
       sampleCount = Prelude.Nothing,
       sum = Prelude.Nothing,
-      maximum = Prelude.Nothing,
+      timestamp = Prelude.Nothing,
       unit = Prelude.Nothing
     }
-
--- | The minimum.
-metricDatapoint_minimum :: Lens.Lens' MetricDatapoint (Prelude.Maybe Prelude.Double)
-metricDatapoint_minimum = Lens.lens (\MetricDatapoint' {minimum} -> minimum) (\s@MetricDatapoint' {} a -> s {minimum = a} :: MetricDatapoint)
 
 -- | The average.
 metricDatapoint_average :: Lens.Lens' MetricDatapoint (Prelude.Maybe Prelude.Double)
 metricDatapoint_average = Lens.lens (\MetricDatapoint' {average} -> average) (\s@MetricDatapoint' {} a -> s {average = a} :: MetricDatapoint)
 
--- | The timestamp (e.g., @1479816991.349@).
-metricDatapoint_timestamp :: Lens.Lens' MetricDatapoint (Prelude.Maybe Prelude.UTCTime)
-metricDatapoint_timestamp = Lens.lens (\MetricDatapoint' {timestamp} -> timestamp) (\s@MetricDatapoint' {} a -> s {timestamp = a} :: MetricDatapoint) Prelude.. Lens.mapping Data._Time
+-- | The maximum.
+metricDatapoint_maximum :: Lens.Lens' MetricDatapoint (Prelude.Maybe Prelude.Double)
+metricDatapoint_maximum = Lens.lens (\MetricDatapoint' {maximum} -> maximum) (\s@MetricDatapoint' {} a -> s {maximum = a} :: MetricDatapoint)
+
+-- | The minimum.
+metricDatapoint_minimum :: Lens.Lens' MetricDatapoint (Prelude.Maybe Prelude.Double)
+metricDatapoint_minimum = Lens.lens (\MetricDatapoint' {minimum} -> minimum) (\s@MetricDatapoint' {} a -> s {minimum = a} :: MetricDatapoint)
 
 -- | The sample count.
 metricDatapoint_sampleCount :: Lens.Lens' MetricDatapoint (Prelude.Maybe Prelude.Double)
@@ -100,9 +100,9 @@ metricDatapoint_sampleCount = Lens.lens (\MetricDatapoint' {sampleCount} -> samp
 metricDatapoint_sum :: Lens.Lens' MetricDatapoint (Prelude.Maybe Prelude.Double)
 metricDatapoint_sum = Lens.lens (\MetricDatapoint' {sum} -> sum) (\s@MetricDatapoint' {} a -> s {sum = a} :: MetricDatapoint)
 
--- | The maximum.
-metricDatapoint_maximum :: Lens.Lens' MetricDatapoint (Prelude.Maybe Prelude.Double)
-metricDatapoint_maximum = Lens.lens (\MetricDatapoint' {maximum} -> maximum) (\s@MetricDatapoint' {} a -> s {maximum = a} :: MetricDatapoint)
+-- | The timestamp (e.g., @1479816991.349@).
+metricDatapoint_timestamp :: Lens.Lens' MetricDatapoint (Prelude.Maybe Prelude.UTCTime)
+metricDatapoint_timestamp = Lens.lens (\MetricDatapoint' {timestamp} -> timestamp) (\s@MetricDatapoint' {} a -> s {timestamp = a} :: MetricDatapoint) Prelude.. Lens.mapping Data._Time
 
 -- | The unit.
 metricDatapoint_unit :: Lens.Lens' MetricDatapoint (Prelude.Maybe MetricUnit)
@@ -114,31 +114,31 @@ instance Data.FromJSON MetricDatapoint where
       "MetricDatapoint"
       ( \x ->
           MetricDatapoint'
-            Prelude.<$> (x Data..:? "minimum")
-            Prelude.<*> (x Data..:? "average")
-            Prelude.<*> (x Data..:? "timestamp")
+            Prelude.<$> (x Data..:? "average")
+            Prelude.<*> (x Data..:? "maximum")
+            Prelude.<*> (x Data..:? "minimum")
             Prelude.<*> (x Data..:? "sampleCount")
             Prelude.<*> (x Data..:? "sum")
-            Prelude.<*> (x Data..:? "maximum")
+            Prelude.<*> (x Data..:? "timestamp")
             Prelude.<*> (x Data..:? "unit")
       )
 
 instance Prelude.Hashable MetricDatapoint where
   hashWithSalt _salt MetricDatapoint' {..} =
-    _salt `Prelude.hashWithSalt` minimum
-      `Prelude.hashWithSalt` average
-      `Prelude.hashWithSalt` timestamp
+    _salt `Prelude.hashWithSalt` average
+      `Prelude.hashWithSalt` maximum
+      `Prelude.hashWithSalt` minimum
       `Prelude.hashWithSalt` sampleCount
       `Prelude.hashWithSalt` sum
-      `Prelude.hashWithSalt` maximum
+      `Prelude.hashWithSalt` timestamp
       `Prelude.hashWithSalt` unit
 
 instance Prelude.NFData MetricDatapoint where
   rnf MetricDatapoint' {..} =
-    Prelude.rnf minimum
-      `Prelude.seq` Prelude.rnf average
-      `Prelude.seq` Prelude.rnf timestamp
+    Prelude.rnf average
+      `Prelude.seq` Prelude.rnf maximum
+      `Prelude.seq` Prelude.rnf minimum
       `Prelude.seq` Prelude.rnf sampleCount
       `Prelude.seq` Prelude.rnf sum
-      `Prelude.seq` Prelude.rnf maximum
+      `Prelude.seq` Prelude.rnf timestamp
       `Prelude.seq` Prelude.rnf unit

@@ -45,8 +45,8 @@ module Amazonka.Lightsail.GetInstanceMetricData
     newGetInstanceMetricDataResponse,
 
     -- * Response Lenses
-    getInstanceMetricDataResponse_metricName,
     getInstanceMetricDataResponse_metricData,
+    getInstanceMetricDataResponse_metricName,
     getInstanceMetricDataResponse_httpStatus,
   )
 where
@@ -580,8 +580,8 @@ instance Core.AWSRequest GetInstanceMetricData where
     Response.receiveJSON
       ( \s h x ->
           GetInstanceMetricDataResponse'
-            Prelude.<$> (x Data..?> "metricName")
-            Prelude.<*> (x Data..?> "metricData" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "metricData" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "metricName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -642,10 +642,10 @@ instance Data.ToQuery GetInstanceMetricData where
 
 -- | /See:/ 'newGetInstanceMetricDataResponse' smart constructor.
 data GetInstanceMetricDataResponse = GetInstanceMetricDataResponse'
-  { -- | The name of the metric returned.
-    metricName :: Prelude.Maybe InstanceMetricName,
-    -- | An array of objects that describe the metric data returned.
+  { -- | An array of objects that describe the metric data returned.
     metricData :: Prelude.Maybe [MetricDatapoint],
+    -- | The name of the metric returned.
+    metricName :: Prelude.Maybe InstanceMetricName,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -659,9 +659,9 @@ data GetInstanceMetricDataResponse = GetInstanceMetricDataResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'metricName', 'getInstanceMetricDataResponse_metricName' - The name of the metric returned.
---
 -- 'metricData', 'getInstanceMetricDataResponse_metricData' - An array of objects that describe the metric data returned.
+--
+-- 'metricName', 'getInstanceMetricDataResponse_metricName' - The name of the metric returned.
 --
 -- 'httpStatus', 'getInstanceMetricDataResponse_httpStatus' - The response's http status code.
 newGetInstanceMetricDataResponse ::
@@ -670,19 +670,19 @@ newGetInstanceMetricDataResponse ::
   GetInstanceMetricDataResponse
 newGetInstanceMetricDataResponse pHttpStatus_ =
   GetInstanceMetricDataResponse'
-    { metricName =
+    { metricData =
         Prelude.Nothing,
-      metricData = Prelude.Nothing,
+      metricName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The name of the metric returned.
-getInstanceMetricDataResponse_metricName :: Lens.Lens' GetInstanceMetricDataResponse (Prelude.Maybe InstanceMetricName)
-getInstanceMetricDataResponse_metricName = Lens.lens (\GetInstanceMetricDataResponse' {metricName} -> metricName) (\s@GetInstanceMetricDataResponse' {} a -> s {metricName = a} :: GetInstanceMetricDataResponse)
 
 -- | An array of objects that describe the metric data returned.
 getInstanceMetricDataResponse_metricData :: Lens.Lens' GetInstanceMetricDataResponse (Prelude.Maybe [MetricDatapoint])
 getInstanceMetricDataResponse_metricData = Lens.lens (\GetInstanceMetricDataResponse' {metricData} -> metricData) (\s@GetInstanceMetricDataResponse' {} a -> s {metricData = a} :: GetInstanceMetricDataResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name of the metric returned.
+getInstanceMetricDataResponse_metricName :: Lens.Lens' GetInstanceMetricDataResponse (Prelude.Maybe InstanceMetricName)
+getInstanceMetricDataResponse_metricName = Lens.lens (\GetInstanceMetricDataResponse' {metricName} -> metricName) (\s@GetInstanceMetricDataResponse' {} a -> s {metricName = a} :: GetInstanceMetricDataResponse)
 
 -- | The response's http status code.
 getInstanceMetricDataResponse_httpStatus :: Lens.Lens' GetInstanceMetricDataResponse Prelude.Int
@@ -690,6 +690,6 @@ getInstanceMetricDataResponse_httpStatus = Lens.lens (\GetInstanceMetricDataResp
 
 instance Prelude.NFData GetInstanceMetricDataResponse where
   rnf GetInstanceMetricDataResponse' {..} =
-    Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf metricData
+    Prelude.rnf metricData
+      `Prelude.seq` Prelude.rnf metricName
       `Prelude.seq` Prelude.rnf httpStatus

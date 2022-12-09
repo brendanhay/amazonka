@@ -34,10 +34,10 @@ module Amazonka.Lightsail.UpdateInstanceMetadataOptions
     newUpdateInstanceMetadataOptions,
 
     -- * Request Lenses
-    updateInstanceMetadataOptions_httpPutResponseHopLimit,
-    updateInstanceMetadataOptions_httpTokens,
     updateInstanceMetadataOptions_httpEndpoint,
     updateInstanceMetadataOptions_httpProtocolIpv6,
+    updateInstanceMetadataOptions_httpPutResponseHopLimit,
+    updateInstanceMetadataOptions_httpTokens,
     updateInstanceMetadataOptions_instanceName,
 
     -- * Destructuring the Response
@@ -60,7 +60,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateInstanceMetadataOptions' smart constructor.
 data UpdateInstanceMetadataOptions = UpdateInstanceMetadataOptions'
-  { -- | The desired HTTP PUT response hop limit for instance metadata requests.
+  { -- | Enables or disables the HTTP metadata endpoint on your instances. If
+    -- this parameter is not specified, the existing state is maintained.
+    --
+    -- If you specify a value of @disabled@, you cannot access your instance
+    -- metadata.
+    httpEndpoint :: Prelude.Maybe HttpEndpoint,
+    -- | Enables or disables the IPv6 endpoint for the instance metadata service.
+    -- This setting applies only when the HTTP metadata endpoint is enabled.
+    --
+    -- This parameter is available only for instances in the Europe (Stockholm)
+    -- Amazon Web Services Region (@eu-north-1@).
+    httpProtocolIpv6 :: Prelude.Maybe HttpProtocolIpv6,
+    -- | The desired HTTP PUT response hop limit for instance metadata requests.
     -- A larger number means that the instance metadata requests can travel
     -- farther. If no parameter is specified, the existing state is maintained.
     httpPutResponseHopLimit :: Prelude.Maybe Prelude.Int,
@@ -79,18 +91,6 @@ data UpdateInstanceMetadataOptions = UpdateInstanceMetadataOptions'
     -- role credential always returns the version 2.0 credentials. The version
     -- 1.0 credentials are not available.
     httpTokens :: Prelude.Maybe HttpTokens,
-    -- | Enables or disables the HTTP metadata endpoint on your instances. If
-    -- this parameter is not specified, the existing state is maintained.
-    --
-    -- If you specify a value of @disabled@, you cannot access your instance
-    -- metadata.
-    httpEndpoint :: Prelude.Maybe HttpEndpoint,
-    -- | Enables or disables the IPv6 endpoint for the instance metadata service.
-    -- This setting applies only when the HTTP metadata endpoint is enabled.
-    --
-    -- This parameter is available only for instances in the Europe (Stockholm)
-    -- Amazon Web Services Region (@eu-north-1@).
-    httpProtocolIpv6 :: Prelude.Maybe HttpProtocolIpv6,
     -- | The name of the instance for which to update metadata parameters.
     instanceName :: Prelude.Text
   }
@@ -103,6 +103,18 @@ data UpdateInstanceMetadataOptions = UpdateInstanceMetadataOptions'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'httpEndpoint', 'updateInstanceMetadataOptions_httpEndpoint' - Enables or disables the HTTP metadata endpoint on your instances. If
+-- this parameter is not specified, the existing state is maintained.
+--
+-- If you specify a value of @disabled@, you cannot access your instance
+-- metadata.
+--
+-- 'httpProtocolIpv6', 'updateInstanceMetadataOptions_httpProtocolIpv6' - Enables or disables the IPv6 endpoint for the instance metadata service.
+-- This setting applies only when the HTTP metadata endpoint is enabled.
+--
+-- This parameter is available only for instances in the Europe (Stockholm)
+-- Amazon Web Services Region (@eu-north-1@).
 --
 -- 'httpPutResponseHopLimit', 'updateInstanceMetadataOptions_httpPutResponseHopLimit' - The desired HTTP PUT response hop limit for instance metadata requests.
 -- A larger number means that the instance metadata requests can travel
@@ -123,18 +135,6 @@ data UpdateInstanceMetadataOptions = UpdateInstanceMetadataOptions'
 -- role credential always returns the version 2.0 credentials. The version
 -- 1.0 credentials are not available.
 --
--- 'httpEndpoint', 'updateInstanceMetadataOptions_httpEndpoint' - Enables or disables the HTTP metadata endpoint on your instances. If
--- this parameter is not specified, the existing state is maintained.
---
--- If you specify a value of @disabled@, you cannot access your instance
--- metadata.
---
--- 'httpProtocolIpv6', 'updateInstanceMetadataOptions_httpProtocolIpv6' - Enables or disables the IPv6 endpoint for the instance metadata service.
--- This setting applies only when the HTTP metadata endpoint is enabled.
---
--- This parameter is available only for instances in the Europe (Stockholm)
--- Amazon Web Services Region (@eu-north-1@).
---
 -- 'instanceName', 'updateInstanceMetadataOptions_instanceName' - The name of the instance for which to update metadata parameters.
 newUpdateInstanceMetadataOptions ::
   -- | 'instanceName'
@@ -142,13 +142,29 @@ newUpdateInstanceMetadataOptions ::
   UpdateInstanceMetadataOptions
 newUpdateInstanceMetadataOptions pInstanceName_ =
   UpdateInstanceMetadataOptions'
-    { httpPutResponseHopLimit =
+    { httpEndpoint =
         Prelude.Nothing,
-      httpTokens = Prelude.Nothing,
-      httpEndpoint = Prelude.Nothing,
       httpProtocolIpv6 = Prelude.Nothing,
+      httpPutResponseHopLimit = Prelude.Nothing,
+      httpTokens = Prelude.Nothing,
       instanceName = pInstanceName_
     }
+
+-- | Enables or disables the HTTP metadata endpoint on your instances. If
+-- this parameter is not specified, the existing state is maintained.
+--
+-- If you specify a value of @disabled@, you cannot access your instance
+-- metadata.
+updateInstanceMetadataOptions_httpEndpoint :: Lens.Lens' UpdateInstanceMetadataOptions (Prelude.Maybe HttpEndpoint)
+updateInstanceMetadataOptions_httpEndpoint = Lens.lens (\UpdateInstanceMetadataOptions' {httpEndpoint} -> httpEndpoint) (\s@UpdateInstanceMetadataOptions' {} a -> s {httpEndpoint = a} :: UpdateInstanceMetadataOptions)
+
+-- | Enables or disables the IPv6 endpoint for the instance metadata service.
+-- This setting applies only when the HTTP metadata endpoint is enabled.
+--
+-- This parameter is available only for instances in the Europe (Stockholm)
+-- Amazon Web Services Region (@eu-north-1@).
+updateInstanceMetadataOptions_httpProtocolIpv6 :: Lens.Lens' UpdateInstanceMetadataOptions (Prelude.Maybe HttpProtocolIpv6)
+updateInstanceMetadataOptions_httpProtocolIpv6 = Lens.lens (\UpdateInstanceMetadataOptions' {httpProtocolIpv6} -> httpProtocolIpv6) (\s@UpdateInstanceMetadataOptions' {} a -> s {httpProtocolIpv6 = a} :: UpdateInstanceMetadataOptions)
 
 -- | The desired HTTP PUT response hop limit for instance metadata requests.
 -- A larger number means that the instance metadata requests can travel
@@ -172,22 +188,6 @@ updateInstanceMetadataOptions_httpPutResponseHopLimit = Lens.lens (\UpdateInstan
 -- 1.0 credentials are not available.
 updateInstanceMetadataOptions_httpTokens :: Lens.Lens' UpdateInstanceMetadataOptions (Prelude.Maybe HttpTokens)
 updateInstanceMetadataOptions_httpTokens = Lens.lens (\UpdateInstanceMetadataOptions' {httpTokens} -> httpTokens) (\s@UpdateInstanceMetadataOptions' {} a -> s {httpTokens = a} :: UpdateInstanceMetadataOptions)
-
--- | Enables or disables the HTTP metadata endpoint on your instances. If
--- this parameter is not specified, the existing state is maintained.
---
--- If you specify a value of @disabled@, you cannot access your instance
--- metadata.
-updateInstanceMetadataOptions_httpEndpoint :: Lens.Lens' UpdateInstanceMetadataOptions (Prelude.Maybe HttpEndpoint)
-updateInstanceMetadataOptions_httpEndpoint = Lens.lens (\UpdateInstanceMetadataOptions' {httpEndpoint} -> httpEndpoint) (\s@UpdateInstanceMetadataOptions' {} a -> s {httpEndpoint = a} :: UpdateInstanceMetadataOptions)
-
--- | Enables or disables the IPv6 endpoint for the instance metadata service.
--- This setting applies only when the HTTP metadata endpoint is enabled.
---
--- This parameter is available only for instances in the Europe (Stockholm)
--- Amazon Web Services Region (@eu-north-1@).
-updateInstanceMetadataOptions_httpProtocolIpv6 :: Lens.Lens' UpdateInstanceMetadataOptions (Prelude.Maybe HttpProtocolIpv6)
-updateInstanceMetadataOptions_httpProtocolIpv6 = Lens.lens (\UpdateInstanceMetadataOptions' {httpProtocolIpv6} -> httpProtocolIpv6) (\s@UpdateInstanceMetadataOptions' {} a -> s {httpProtocolIpv6 = a} :: UpdateInstanceMetadataOptions)
 
 -- | The name of the instance for which to update metadata parameters.
 updateInstanceMetadataOptions_instanceName :: Lens.Lens' UpdateInstanceMetadataOptions Prelude.Text
@@ -215,19 +215,18 @@ instance
     UpdateInstanceMetadataOptions
   where
   hashWithSalt _salt UpdateInstanceMetadataOptions' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` httpEndpoint
+      `Prelude.hashWithSalt` httpProtocolIpv6
       `Prelude.hashWithSalt` httpPutResponseHopLimit
       `Prelude.hashWithSalt` httpTokens
-      `Prelude.hashWithSalt` httpEndpoint
-      `Prelude.hashWithSalt` httpProtocolIpv6
       `Prelude.hashWithSalt` instanceName
 
 instance Prelude.NFData UpdateInstanceMetadataOptions where
   rnf UpdateInstanceMetadataOptions' {..} =
-    Prelude.rnf httpPutResponseHopLimit
-      `Prelude.seq` Prelude.rnf httpTokens
-      `Prelude.seq` Prelude.rnf httpEndpoint
+    Prelude.rnf httpEndpoint
       `Prelude.seq` Prelude.rnf httpProtocolIpv6
+      `Prelude.seq` Prelude.rnf httpPutResponseHopLimit
+      `Prelude.seq` Prelude.rnf httpTokens
       `Prelude.seq` Prelude.rnf instanceName
 
 instance Data.ToHeaders UpdateInstanceMetadataOptions where
@@ -249,12 +248,12 @@ instance Data.ToJSON UpdateInstanceMetadataOptions where
   toJSON UpdateInstanceMetadataOptions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("httpPutResponseHopLimit" Data..=)
-              Prelude.<$> httpPutResponseHopLimit,
-            ("httpTokens" Data..=) Prelude.<$> httpTokens,
-            ("httpEndpoint" Data..=) Prelude.<$> httpEndpoint,
+          [ ("httpEndpoint" Data..=) Prelude.<$> httpEndpoint,
             ("httpProtocolIpv6" Data..=)
               Prelude.<$> httpProtocolIpv6,
+            ("httpPutResponseHopLimit" Data..=)
+              Prelude.<$> httpPutResponseHopLimit,
+            ("httpTokens" Data..=) Prelude.<$> httpTokens,
             Prelude.Just ("instanceName" Data..= instanceName)
           ]
       )

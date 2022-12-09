@@ -31,9 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLoadBalancerTlsCertificateDnsRecordCreationState' smart constructor.
 data LoadBalancerTlsCertificateDnsRecordCreationState = LoadBalancerTlsCertificateDnsRecordCreationState'
-  { -- | The message that describes the reason for the status code.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The status code for the automated DNS record creation.
+  { -- | The status code for the automated DNS record creation.
     --
     -- Following are the possible values:
     --
@@ -42,7 +40,9 @@ data LoadBalancerTlsCertificateDnsRecordCreationState = LoadBalancerTlsCertifica
     -- -   @STARTED@ - The automatic DNS record creation has started.
     --
     -- -   @FAILED@ - The validation record addition failed.
-    code :: Prelude.Maybe LoadBalancerTlsCertificateDnsRecordCreationStateCode
+    code :: Prelude.Maybe LoadBalancerTlsCertificateDnsRecordCreationStateCode,
+    -- | The message that describes the reason for the status code.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,8 +54,6 @@ data LoadBalancerTlsCertificateDnsRecordCreationState = LoadBalancerTlsCertifica
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'loadBalancerTlsCertificateDnsRecordCreationState_message' - The message that describes the reason for the status code.
---
 -- 'code', 'loadBalancerTlsCertificateDnsRecordCreationState_code' - The status code for the automated DNS record creation.
 --
 -- Following are the possible values:
@@ -65,18 +63,16 @@ data LoadBalancerTlsCertificateDnsRecordCreationState = LoadBalancerTlsCertifica
 -- -   @STARTED@ - The automatic DNS record creation has started.
 --
 -- -   @FAILED@ - The validation record addition failed.
+--
+-- 'message', 'loadBalancerTlsCertificateDnsRecordCreationState_message' - The message that describes the reason for the status code.
 newLoadBalancerTlsCertificateDnsRecordCreationState ::
   LoadBalancerTlsCertificateDnsRecordCreationState
 newLoadBalancerTlsCertificateDnsRecordCreationState =
   LoadBalancerTlsCertificateDnsRecordCreationState'
-    { message =
+    { code =
         Prelude.Nothing,
-      code = Prelude.Nothing
+      message = Prelude.Nothing
     }
-
--- | The message that describes the reason for the status code.
-loadBalancerTlsCertificateDnsRecordCreationState_message :: Lens.Lens' LoadBalancerTlsCertificateDnsRecordCreationState (Prelude.Maybe Prelude.Text)
-loadBalancerTlsCertificateDnsRecordCreationState_message = Lens.lens (\LoadBalancerTlsCertificateDnsRecordCreationState' {message} -> message) (\s@LoadBalancerTlsCertificateDnsRecordCreationState' {} a -> s {message = a} :: LoadBalancerTlsCertificateDnsRecordCreationState)
 
 -- | The status code for the automated DNS record creation.
 --
@@ -90,6 +86,10 @@ loadBalancerTlsCertificateDnsRecordCreationState_message = Lens.lens (\LoadBalan
 loadBalancerTlsCertificateDnsRecordCreationState_code :: Lens.Lens' LoadBalancerTlsCertificateDnsRecordCreationState (Prelude.Maybe LoadBalancerTlsCertificateDnsRecordCreationStateCode)
 loadBalancerTlsCertificateDnsRecordCreationState_code = Lens.lens (\LoadBalancerTlsCertificateDnsRecordCreationState' {code} -> code) (\s@LoadBalancerTlsCertificateDnsRecordCreationState' {} a -> s {code = a} :: LoadBalancerTlsCertificateDnsRecordCreationState)
 
+-- | The message that describes the reason for the status code.
+loadBalancerTlsCertificateDnsRecordCreationState_message :: Lens.Lens' LoadBalancerTlsCertificateDnsRecordCreationState (Prelude.Maybe Prelude.Text)
+loadBalancerTlsCertificateDnsRecordCreationState_message = Lens.lens (\LoadBalancerTlsCertificateDnsRecordCreationState' {message} -> message) (\s@LoadBalancerTlsCertificateDnsRecordCreationState' {} a -> s {message = a} :: LoadBalancerTlsCertificateDnsRecordCreationState)
+
 instance
   Data.FromJSON
     LoadBalancerTlsCertificateDnsRecordCreationState
@@ -99,8 +99,8 @@ instance
       "LoadBalancerTlsCertificateDnsRecordCreationState"
       ( \x ->
           LoadBalancerTlsCertificateDnsRecordCreationState'
-            Prelude.<$> (x Data..:? "message")
-              Prelude.<*> (x Data..:? "code")
+            Prelude.<$> (x Data..:? "code")
+              Prelude.<*> (x Data..:? "message")
       )
 
 instance
@@ -110,8 +110,8 @@ instance
   hashWithSalt
     _salt
     LoadBalancerTlsCertificateDnsRecordCreationState' {..} =
-      _salt `Prelude.hashWithSalt` message
-        `Prelude.hashWithSalt` code
+      _salt `Prelude.hashWithSalt` code
+        `Prelude.hashWithSalt` message
 
 instance
   Prelude.NFData
@@ -119,4 +119,4 @@ instance
   where
   rnf
     LoadBalancerTlsCertificateDnsRecordCreationState' {..} =
-      Prelude.rnf message `Prelude.seq` Prelude.rnf code
+      Prelude.rnf code `Prelude.seq` Prelude.rnf message

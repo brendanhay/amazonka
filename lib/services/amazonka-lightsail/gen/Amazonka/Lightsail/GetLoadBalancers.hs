@@ -36,8 +36,8 @@ module Amazonka.Lightsail.GetLoadBalancers
     newGetLoadBalancersResponse,
 
     -- * Response Lenses
-    getLoadBalancersResponse_nextPageToken,
     getLoadBalancersResponse_loadBalancers,
+    getLoadBalancersResponse_nextPageToken,
     getLoadBalancersResponse_httpStatus,
   )
 where
@@ -119,8 +119,8 @@ instance Core.AWSRequest GetLoadBalancers where
     Response.receiveJSON
       ( \s h x ->
           GetLoadBalancersResponse'
-            Prelude.<$> (x Data..?> "nextPageToken")
-            Prelude.<*> (x Data..?> "loadBalancers" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "loadBalancers" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,7 +161,9 @@ instance Data.ToQuery GetLoadBalancers where
 
 -- | /See:/ 'newGetLoadBalancersResponse' smart constructor.
 data GetLoadBalancersResponse = GetLoadBalancersResponse'
-  { -- | The token to advance to the next page of results from your request.
+  { -- | An array of LoadBalancer objects describing your load balancers.
+    loadBalancers :: Prelude.Maybe [LoadBalancer],
+    -- | The token to advance to the next page of results from your request.
     --
     -- A next page token is not returned if there are no more results to
     -- display.
@@ -169,8 +171,6 @@ data GetLoadBalancersResponse = GetLoadBalancersResponse'
     -- To get the next page of results, perform another @GetLoadBalancers@
     -- request and specify the next page token using the @pageToken@ parameter.
     nextPageToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of LoadBalancer objects describing your load balancers.
-    loadBalancers :: Prelude.Maybe [LoadBalancer],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -184,6 +184,8 @@ data GetLoadBalancersResponse = GetLoadBalancersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'loadBalancers', 'getLoadBalancersResponse_loadBalancers' - An array of LoadBalancer objects describing your load balancers.
+--
 -- 'nextPageToken', 'getLoadBalancersResponse_nextPageToken' - The token to advance to the next page of results from your request.
 --
 -- A next page token is not returned if there are no more results to
@@ -192,8 +194,6 @@ data GetLoadBalancersResponse = GetLoadBalancersResponse'
 -- To get the next page of results, perform another @GetLoadBalancers@
 -- request and specify the next page token using the @pageToken@ parameter.
 --
--- 'loadBalancers', 'getLoadBalancersResponse_loadBalancers' - An array of LoadBalancer objects describing your load balancers.
---
 -- 'httpStatus', 'getLoadBalancersResponse_httpStatus' - The response's http status code.
 newGetLoadBalancersResponse ::
   -- | 'httpStatus'
@@ -201,11 +201,15 @@ newGetLoadBalancersResponse ::
   GetLoadBalancersResponse
 newGetLoadBalancersResponse pHttpStatus_ =
   GetLoadBalancersResponse'
-    { nextPageToken =
+    { loadBalancers =
         Prelude.Nothing,
-      loadBalancers = Prelude.Nothing,
+      nextPageToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An array of LoadBalancer objects describing your load balancers.
+getLoadBalancersResponse_loadBalancers :: Lens.Lens' GetLoadBalancersResponse (Prelude.Maybe [LoadBalancer])
+getLoadBalancersResponse_loadBalancers = Lens.lens (\GetLoadBalancersResponse' {loadBalancers} -> loadBalancers) (\s@GetLoadBalancersResponse' {} a -> s {loadBalancers = a} :: GetLoadBalancersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to advance to the next page of results from your request.
 --
@@ -217,16 +221,12 @@ newGetLoadBalancersResponse pHttpStatus_ =
 getLoadBalancersResponse_nextPageToken :: Lens.Lens' GetLoadBalancersResponse (Prelude.Maybe Prelude.Text)
 getLoadBalancersResponse_nextPageToken = Lens.lens (\GetLoadBalancersResponse' {nextPageToken} -> nextPageToken) (\s@GetLoadBalancersResponse' {} a -> s {nextPageToken = a} :: GetLoadBalancersResponse)
 
--- | An array of LoadBalancer objects describing your load balancers.
-getLoadBalancersResponse_loadBalancers :: Lens.Lens' GetLoadBalancersResponse (Prelude.Maybe [LoadBalancer])
-getLoadBalancersResponse_loadBalancers = Lens.lens (\GetLoadBalancersResponse' {loadBalancers} -> loadBalancers) (\s@GetLoadBalancersResponse' {} a -> s {loadBalancers = a} :: GetLoadBalancersResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 getLoadBalancersResponse_httpStatus :: Lens.Lens' GetLoadBalancersResponse Prelude.Int
 getLoadBalancersResponse_httpStatus = Lens.lens (\GetLoadBalancersResponse' {httpStatus} -> httpStatus) (\s@GetLoadBalancersResponse' {} a -> s {httpStatus = a} :: GetLoadBalancersResponse)
 
 instance Prelude.NFData GetLoadBalancersResponse where
   rnf GetLoadBalancersResponse' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf loadBalancers
+    Prelude.rnf loadBalancers
+      `Prelude.seq` Prelude.rnf nextPageToken
       `Prelude.seq` Prelude.rnf httpStatus

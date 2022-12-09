@@ -35,8 +35,8 @@ module Amazonka.Lightsail.GetDistributionLatestCacheReset
     newGetDistributionLatestCacheResetResponse,
 
     -- * Response Lenses
-    getDistributionLatestCacheResetResponse_status,
     getDistributionLatestCacheResetResponse_createTime,
+    getDistributionLatestCacheResetResponse_status,
     getDistributionLatestCacheResetResponse_httpStatus,
   )
 where
@@ -111,8 +111,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetDistributionLatestCacheResetResponse'
-            Prelude.<$> (x Data..?> "status")
-            Prelude.<*> (x Data..?> "createTime")
+            Prelude.<$> (x Data..?> "createTime")
+            Prelude.<*> (x Data..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,11 +167,11 @@ instance Data.ToQuery GetDistributionLatestCacheReset where
 
 -- | /See:/ 'newGetDistributionLatestCacheResetResponse' smart constructor.
 data GetDistributionLatestCacheResetResponse = GetDistributionLatestCacheResetResponse'
-  { -- | The status of the last cache reset.
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp of the last cache reset (e.g., @1479734909.17@) in Unix
+  { -- | The timestamp of the last cache reset (e.g., @1479734909.17@) in Unix
     -- time format.
     createTime :: Prelude.Maybe Data.POSIX,
+    -- | The status of the last cache reset.
+    status :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -185,10 +185,10 @@ data GetDistributionLatestCacheResetResponse = GetDistributionLatestCacheResetRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'getDistributionLatestCacheResetResponse_status' - The status of the last cache reset.
---
 -- 'createTime', 'getDistributionLatestCacheResetResponse_createTime' - The timestamp of the last cache reset (e.g., @1479734909.17@) in Unix
 -- time format.
+--
+-- 'status', 'getDistributionLatestCacheResetResponse_status' - The status of the last cache reset.
 --
 -- 'httpStatus', 'getDistributionLatestCacheResetResponse_httpStatus' - The response's http status code.
 newGetDistributionLatestCacheResetResponse ::
@@ -198,20 +198,20 @@ newGetDistributionLatestCacheResetResponse ::
 newGetDistributionLatestCacheResetResponse
   pHttpStatus_ =
     GetDistributionLatestCacheResetResponse'
-      { status =
+      { createTime =
           Prelude.Nothing,
-        createTime = Prelude.Nothing,
+        status = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The status of the last cache reset.
-getDistributionLatestCacheResetResponse_status :: Lens.Lens' GetDistributionLatestCacheResetResponse (Prelude.Maybe Prelude.Text)
-getDistributionLatestCacheResetResponse_status = Lens.lens (\GetDistributionLatestCacheResetResponse' {status} -> status) (\s@GetDistributionLatestCacheResetResponse' {} a -> s {status = a} :: GetDistributionLatestCacheResetResponse)
 
 -- | The timestamp of the last cache reset (e.g., @1479734909.17@) in Unix
 -- time format.
 getDistributionLatestCacheResetResponse_createTime :: Lens.Lens' GetDistributionLatestCacheResetResponse (Prelude.Maybe Prelude.UTCTime)
 getDistributionLatestCacheResetResponse_createTime = Lens.lens (\GetDistributionLatestCacheResetResponse' {createTime} -> createTime) (\s@GetDistributionLatestCacheResetResponse' {} a -> s {createTime = a} :: GetDistributionLatestCacheResetResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The status of the last cache reset.
+getDistributionLatestCacheResetResponse_status :: Lens.Lens' GetDistributionLatestCacheResetResponse (Prelude.Maybe Prelude.Text)
+getDistributionLatestCacheResetResponse_status = Lens.lens (\GetDistributionLatestCacheResetResponse' {status} -> status) (\s@GetDistributionLatestCacheResetResponse' {} a -> s {status = a} :: GetDistributionLatestCacheResetResponse)
 
 -- | The response's http status code.
 getDistributionLatestCacheResetResponse_httpStatus :: Lens.Lens' GetDistributionLatestCacheResetResponse Prelude.Int
@@ -222,6 +222,6 @@ instance
     GetDistributionLatestCacheResetResponse
   where
   rnf GetDistributionLatestCacheResetResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf createTime
+    Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

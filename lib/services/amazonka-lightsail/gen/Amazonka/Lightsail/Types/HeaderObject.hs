@@ -40,7 +40,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHeaderObject' smart constructor.
 data HeaderObject = HeaderObject'
-  { -- | The headers that you want your distribution to forward to your origin
+  { -- | The specific headers to forward to your distribution\'s origin.
+    headersAllowList :: Prelude.Maybe [HeaderEnum],
+    -- | The headers that you want your distribution to forward to your origin
     -- and base caching on.
     --
     -- You can configure your distribution to do one of the following:
@@ -51,9 +53,7 @@ data HeaderObject = HeaderObject'
     --
     -- -   __@allow-list@__ - Forward only the headers you specify using the
     --     @headersAllowList@ parameter.
-    option :: Prelude.Maybe ForwardValues,
-    -- | The specific headers to forward to your distribution\'s origin.
-    headersAllowList :: Prelude.Maybe [HeaderEnum]
+    option :: Prelude.Maybe ForwardValues
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -64,6 +64,8 @@ data HeaderObject = HeaderObject'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'headersAllowList', 'headerObject_headersAllowList' - The specific headers to forward to your distribution\'s origin.
 --
 -- 'option', 'headerObject_option' - The headers that you want your distribution to forward to your origin
 -- and base caching on.
@@ -76,15 +78,17 @@ data HeaderObject = HeaderObject'
 --
 -- -   __@allow-list@__ - Forward only the headers you specify using the
 --     @headersAllowList@ parameter.
---
--- 'headersAllowList', 'headerObject_headersAllowList' - The specific headers to forward to your distribution\'s origin.
 newHeaderObject ::
   HeaderObject
 newHeaderObject =
   HeaderObject'
-    { option = Prelude.Nothing,
-      headersAllowList = Prelude.Nothing
+    { headersAllowList = Prelude.Nothing,
+      option = Prelude.Nothing
     }
+
+-- | The specific headers to forward to your distribution\'s origin.
+headerObject_headersAllowList :: Lens.Lens' HeaderObject (Prelude.Maybe [HeaderEnum])
+headerObject_headersAllowList = Lens.lens (\HeaderObject' {headersAllowList} -> headersAllowList) (\s@HeaderObject' {} a -> s {headersAllowList = a} :: HeaderObject) Prelude.. Lens.mapping Lens.coerced
 
 -- | The headers that you want your distribution to forward to your origin
 -- and base caching on.
@@ -100,38 +104,34 @@ newHeaderObject =
 headerObject_option :: Lens.Lens' HeaderObject (Prelude.Maybe ForwardValues)
 headerObject_option = Lens.lens (\HeaderObject' {option} -> option) (\s@HeaderObject' {} a -> s {option = a} :: HeaderObject)
 
--- | The specific headers to forward to your distribution\'s origin.
-headerObject_headersAllowList :: Lens.Lens' HeaderObject (Prelude.Maybe [HeaderEnum])
-headerObject_headersAllowList = Lens.lens (\HeaderObject' {headersAllowList} -> headersAllowList) (\s@HeaderObject' {} a -> s {headersAllowList = a} :: HeaderObject) Prelude.. Lens.mapping Lens.coerced
-
 instance Data.FromJSON HeaderObject where
   parseJSON =
     Data.withObject
       "HeaderObject"
       ( \x ->
           HeaderObject'
-            Prelude.<$> (x Data..:? "option")
-            Prelude.<*> ( x Data..:? "headersAllowList"
+            Prelude.<$> ( x Data..:? "headersAllowList"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "option")
       )
 
 instance Prelude.Hashable HeaderObject where
   hashWithSalt _salt HeaderObject' {..} =
-    _salt `Prelude.hashWithSalt` option
-      `Prelude.hashWithSalt` headersAllowList
+    _salt `Prelude.hashWithSalt` headersAllowList
+      `Prelude.hashWithSalt` option
 
 instance Prelude.NFData HeaderObject where
   rnf HeaderObject' {..} =
-    Prelude.rnf option
-      `Prelude.seq` Prelude.rnf headersAllowList
+    Prelude.rnf headersAllowList
+      `Prelude.seq` Prelude.rnf option
 
 instance Data.ToJSON HeaderObject where
   toJSON HeaderObject' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("option" Data..=) Prelude.<$> option,
-            ("headersAllowList" Data..=)
-              Prelude.<$> headersAllowList
+          [ ("headersAllowList" Data..=)
+              Prelude.<$> headersAllowList,
+            ("option" Data..=) Prelude.<$> option
           ]
       )

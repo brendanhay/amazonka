@@ -45,16 +45,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAccessKey' smart constructor.
 data AccessKey = AccessKey'
-  { -- | The status of the access key.
-    --
-    -- A status of @Active@ means that the key is valid, while @Inactive@ means
-    -- it is not.
-    status :: Prelude.Maybe StatusType,
-    -- | The secret access key used to sign requests.
-    --
-    -- You should store the secret access key in a safe location. We recommend
-    -- that you delete the access key if the secret access key is compromised.
-    secretAccessKey :: Prelude.Maybe Prelude.Text,
+  { -- | The ID of the access key.
+    accessKeyId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The timestamp when the access key was created.
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | An object that describes the last time the access key was used.
     --
     -- This object does not include data in the response of a
@@ -62,10 +56,16 @@ data AccessKey = AccessKey'
     -- action. If the access key has not been used, the @region@ and
     -- @serviceName@ values are @N\/A@, and the @lastUsedDate@ value is null.
     lastUsed :: Prelude.Maybe AccessKeyLastUsed,
-    -- | The timestamp when the access key was created.
-    createdAt :: Prelude.Maybe Data.POSIX,
-    -- | The ID of the access key.
-    accessKeyId :: Prelude.Maybe (Data.Sensitive Prelude.Text)
+    -- | The secret access key used to sign requests.
+    --
+    -- You should store the secret access key in a safe location. We recommend
+    -- that you delete the access key if the secret access key is compromised.
+    secretAccessKey :: Prelude.Maybe Prelude.Text,
+    -- | The status of the access key.
+    --
+    -- A status of @Active@ means that the key is valid, while @Inactive@ means
+    -- it is not.
+    status :: Prelude.Maybe StatusType
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -77,15 +77,9 @@ data AccessKey = AccessKey'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'accessKey_status' - The status of the access key.
+-- 'accessKeyId', 'accessKey_accessKeyId' - The ID of the access key.
 --
--- A status of @Active@ means that the key is valid, while @Inactive@ means
--- it is not.
---
--- 'secretAccessKey', 'accessKey_secretAccessKey' - The secret access key used to sign requests.
---
--- You should store the secret access key in a safe location. We recommend
--- that you delete the access key if the secret access key is compromised.
+-- 'createdAt', 'accessKey_createdAt' - The timestamp when the access key was created.
 --
 -- 'lastUsed', 'accessKey_lastUsed' - An object that describes the last time the access key was used.
 --
@@ -94,33 +88,33 @@ data AccessKey = AccessKey'
 -- action. If the access key has not been used, the @region@ and
 -- @serviceName@ values are @N\/A@, and the @lastUsedDate@ value is null.
 --
--- 'createdAt', 'accessKey_createdAt' - The timestamp when the access key was created.
+-- 'secretAccessKey', 'accessKey_secretAccessKey' - The secret access key used to sign requests.
 --
--- 'accessKeyId', 'accessKey_accessKeyId' - The ID of the access key.
+-- You should store the secret access key in a safe location. We recommend
+-- that you delete the access key if the secret access key is compromised.
+--
+-- 'status', 'accessKey_status' - The status of the access key.
+--
+-- A status of @Active@ means that the key is valid, while @Inactive@ means
+-- it is not.
 newAccessKey ::
   AccessKey
 newAccessKey =
   AccessKey'
-    { status = Prelude.Nothing,
-      secretAccessKey = Prelude.Nothing,
-      lastUsed = Prelude.Nothing,
+    { accessKeyId = Prelude.Nothing,
       createdAt = Prelude.Nothing,
-      accessKeyId = Prelude.Nothing
+      lastUsed = Prelude.Nothing,
+      secretAccessKey = Prelude.Nothing,
+      status = Prelude.Nothing
     }
 
--- | The status of the access key.
---
--- A status of @Active@ means that the key is valid, while @Inactive@ means
--- it is not.
-accessKey_status :: Lens.Lens' AccessKey (Prelude.Maybe StatusType)
-accessKey_status = Lens.lens (\AccessKey' {status} -> status) (\s@AccessKey' {} a -> s {status = a} :: AccessKey)
+-- | The ID of the access key.
+accessKey_accessKeyId :: Lens.Lens' AccessKey (Prelude.Maybe Prelude.Text)
+accessKey_accessKeyId = Lens.lens (\AccessKey' {accessKeyId} -> accessKeyId) (\s@AccessKey' {} a -> s {accessKeyId = a} :: AccessKey) Prelude.. Lens.mapping Data._Sensitive
 
--- | The secret access key used to sign requests.
---
--- You should store the secret access key in a safe location. We recommend
--- that you delete the access key if the secret access key is compromised.
-accessKey_secretAccessKey :: Lens.Lens' AccessKey (Prelude.Maybe Prelude.Text)
-accessKey_secretAccessKey = Lens.lens (\AccessKey' {secretAccessKey} -> secretAccessKey) (\s@AccessKey' {} a -> s {secretAccessKey = a} :: AccessKey)
+-- | The timestamp when the access key was created.
+accessKey_createdAt :: Lens.Lens' AccessKey (Prelude.Maybe Prelude.UTCTime)
+accessKey_createdAt = Lens.lens (\AccessKey' {createdAt} -> createdAt) (\s@AccessKey' {} a -> s {createdAt = a} :: AccessKey) Prelude.. Lens.mapping Data._Time
 
 -- | An object that describes the last time the access key was used.
 --
@@ -131,13 +125,19 @@ accessKey_secretAccessKey = Lens.lens (\AccessKey' {secretAccessKey} -> secretAc
 accessKey_lastUsed :: Lens.Lens' AccessKey (Prelude.Maybe AccessKeyLastUsed)
 accessKey_lastUsed = Lens.lens (\AccessKey' {lastUsed} -> lastUsed) (\s@AccessKey' {} a -> s {lastUsed = a} :: AccessKey)
 
--- | The timestamp when the access key was created.
-accessKey_createdAt :: Lens.Lens' AccessKey (Prelude.Maybe Prelude.UTCTime)
-accessKey_createdAt = Lens.lens (\AccessKey' {createdAt} -> createdAt) (\s@AccessKey' {} a -> s {createdAt = a} :: AccessKey) Prelude.. Lens.mapping Data._Time
+-- | The secret access key used to sign requests.
+--
+-- You should store the secret access key in a safe location. We recommend
+-- that you delete the access key if the secret access key is compromised.
+accessKey_secretAccessKey :: Lens.Lens' AccessKey (Prelude.Maybe Prelude.Text)
+accessKey_secretAccessKey = Lens.lens (\AccessKey' {secretAccessKey} -> secretAccessKey) (\s@AccessKey' {} a -> s {secretAccessKey = a} :: AccessKey)
 
--- | The ID of the access key.
-accessKey_accessKeyId :: Lens.Lens' AccessKey (Prelude.Maybe Prelude.Text)
-accessKey_accessKeyId = Lens.lens (\AccessKey' {accessKeyId} -> accessKeyId) (\s@AccessKey' {} a -> s {accessKeyId = a} :: AccessKey) Prelude.. Lens.mapping Data._Sensitive
+-- | The status of the access key.
+--
+-- A status of @Active@ means that the key is valid, while @Inactive@ means
+-- it is not.
+accessKey_status :: Lens.Lens' AccessKey (Prelude.Maybe StatusType)
+accessKey_status = Lens.lens (\AccessKey' {status} -> status) (\s@AccessKey' {} a -> s {status = a} :: AccessKey)
 
 instance Data.FromJSON AccessKey where
   parseJSON =
@@ -145,25 +145,25 @@ instance Data.FromJSON AccessKey where
       "AccessKey"
       ( \x ->
           AccessKey'
-            Prelude.<$> (x Data..:? "status")
-            Prelude.<*> (x Data..:? "secretAccessKey")
-            Prelude.<*> (x Data..:? "lastUsed")
+            Prelude.<$> (x Data..:? "accessKeyId")
             Prelude.<*> (x Data..:? "createdAt")
-            Prelude.<*> (x Data..:? "accessKeyId")
+            Prelude.<*> (x Data..:? "lastUsed")
+            Prelude.<*> (x Data..:? "secretAccessKey")
+            Prelude.<*> (x Data..:? "status")
       )
 
 instance Prelude.Hashable AccessKey where
   hashWithSalt _salt AccessKey' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` secretAccessKey
-      `Prelude.hashWithSalt` lastUsed
+    _salt `Prelude.hashWithSalt` accessKeyId
       `Prelude.hashWithSalt` createdAt
-      `Prelude.hashWithSalt` accessKeyId
+      `Prelude.hashWithSalt` lastUsed
+      `Prelude.hashWithSalt` secretAccessKey
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData AccessKey where
   rnf AccessKey' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf secretAccessKey
-      `Prelude.seq` Prelude.rnf lastUsed
+    Prelude.rnf accessKeyId
       `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf accessKeyId
+      `Prelude.seq` Prelude.rnf lastUsed
+      `Prelude.seq` Prelude.rnf secretAccessKey
+      `Prelude.seq` Prelude.rnf status

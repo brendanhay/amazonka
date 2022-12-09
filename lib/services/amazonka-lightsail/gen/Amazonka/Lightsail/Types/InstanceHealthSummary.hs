@@ -30,7 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstanceHealthSummary' smart constructor.
 data InstanceHealthSummary = InstanceHealthSummary'
-  { -- | More information about the instance health. If the @instanceHealth@ is
+  { -- | Describes the overall instance health. Valid values are below.
+    instanceHealth :: Prelude.Maybe InstanceHealthState,
+    -- | More information about the instance health. If the @instanceHealth@ is
     -- @healthy@, then an @instanceHealthReason@ value is not provided.
     --
     -- If __@instanceHealth@__ is @initial@, the __@instanceHealthReason@__
@@ -82,8 +84,6 @@ data InstanceHealthSummary = InstanceHealthSummary'
     --     the process of being deregistered and the deregistration delay
     --     period has not expired.
     instanceHealthReason :: Prelude.Maybe InstanceHealthReason,
-    -- | Describes the overall instance health. Valid values are below.
-    instanceHealth :: Prelude.Maybe InstanceHealthState,
     -- | The name of the Lightsail instance for which you are requesting health
     -- check data.
     instanceName :: Prelude.Maybe Prelude.Text
@@ -97,6 +97,8 @@ data InstanceHealthSummary = InstanceHealthSummary'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'instanceHealth', 'instanceHealthSummary_instanceHealth' - Describes the overall instance health. Valid values are below.
 --
 -- 'instanceHealthReason', 'instanceHealthSummary_instanceHealthReason' - More information about the instance health. If the @instanceHealth@ is
 -- @healthy@, then an @instanceHealthReason@ value is not provided.
@@ -150,19 +152,21 @@ data InstanceHealthSummary = InstanceHealthSummary'
 --     the process of being deregistered and the deregistration delay
 --     period has not expired.
 --
--- 'instanceHealth', 'instanceHealthSummary_instanceHealth' - Describes the overall instance health. Valid values are below.
---
 -- 'instanceName', 'instanceHealthSummary_instanceName' - The name of the Lightsail instance for which you are requesting health
 -- check data.
 newInstanceHealthSummary ::
   InstanceHealthSummary
 newInstanceHealthSummary =
   InstanceHealthSummary'
-    { instanceHealthReason =
+    { instanceHealth =
         Prelude.Nothing,
-      instanceHealth = Prelude.Nothing,
+      instanceHealthReason = Prelude.Nothing,
       instanceName = Prelude.Nothing
     }
+
+-- | Describes the overall instance health. Valid values are below.
+instanceHealthSummary_instanceHealth :: Lens.Lens' InstanceHealthSummary (Prelude.Maybe InstanceHealthState)
+instanceHealthSummary_instanceHealth = Lens.lens (\InstanceHealthSummary' {instanceHealth} -> instanceHealth) (\s@InstanceHealthSummary' {} a -> s {instanceHealth = a} :: InstanceHealthSummary)
 
 -- | More information about the instance health. If the @instanceHealth@ is
 -- @healthy@, then an @instanceHealthReason@ value is not provided.
@@ -218,10 +222,6 @@ newInstanceHealthSummary =
 instanceHealthSummary_instanceHealthReason :: Lens.Lens' InstanceHealthSummary (Prelude.Maybe InstanceHealthReason)
 instanceHealthSummary_instanceHealthReason = Lens.lens (\InstanceHealthSummary' {instanceHealthReason} -> instanceHealthReason) (\s@InstanceHealthSummary' {} a -> s {instanceHealthReason = a} :: InstanceHealthSummary)
 
--- | Describes the overall instance health. Valid values are below.
-instanceHealthSummary_instanceHealth :: Lens.Lens' InstanceHealthSummary (Prelude.Maybe InstanceHealthState)
-instanceHealthSummary_instanceHealth = Lens.lens (\InstanceHealthSummary' {instanceHealth} -> instanceHealth) (\s@InstanceHealthSummary' {} a -> s {instanceHealth = a} :: InstanceHealthSummary)
-
 -- | The name of the Lightsail instance for which you are requesting health
 -- check data.
 instanceHealthSummary_instanceName :: Lens.Lens' InstanceHealthSummary (Prelude.Maybe Prelude.Text)
@@ -233,19 +233,19 @@ instance Data.FromJSON InstanceHealthSummary where
       "InstanceHealthSummary"
       ( \x ->
           InstanceHealthSummary'
-            Prelude.<$> (x Data..:? "instanceHealthReason")
-            Prelude.<*> (x Data..:? "instanceHealth")
+            Prelude.<$> (x Data..:? "instanceHealth")
+            Prelude.<*> (x Data..:? "instanceHealthReason")
             Prelude.<*> (x Data..:? "instanceName")
       )
 
 instance Prelude.Hashable InstanceHealthSummary where
   hashWithSalt _salt InstanceHealthSummary' {..} =
-    _salt `Prelude.hashWithSalt` instanceHealthReason
-      `Prelude.hashWithSalt` instanceHealth
+    _salt `Prelude.hashWithSalt` instanceHealth
+      `Prelude.hashWithSalt` instanceHealthReason
       `Prelude.hashWithSalt` instanceName
 
 instance Prelude.NFData InstanceHealthSummary where
   rnf InstanceHealthSummary' {..} =
-    Prelude.rnf instanceHealthReason
-      `Prelude.seq` Prelude.rnf instanceHealth
+    Prelude.rnf instanceHealth
+      `Prelude.seq` Prelude.rnf instanceHealthReason
       `Prelude.seq` Prelude.rnf instanceName

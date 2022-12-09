@@ -32,20 +32,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstanceMetadataOptions' smart constructor.
 data InstanceMetadataOptions = InstanceMetadataOptions'
-  { -- | The desired HTTP PUT response hop limit for instance metadata requests.
+  { -- | Indicates whether the HTTP metadata endpoint on your instances is
+    -- enabled or disabled.
+    --
+    -- If the value is @disabled@, you cannot access your instance metadata.
+    httpEndpoint :: Prelude.Maybe HttpEndpoint,
+    -- | Indicates whether the IPv6 endpoint for the instance metadata service is
+    -- enabled or disabled.
+    httpProtocolIpv6 :: Prelude.Maybe HttpProtocolIpv6,
+    -- | The desired HTTP PUT response hop limit for instance metadata requests.
     -- A larger number means that the instance metadata requests can travel
     -- farther.
     httpPutResponseHopLimit :: Prelude.Maybe Prelude.Int,
-    -- | The state of the metadata option changes.
-    --
-    -- The following states are possible:
-    --
-    -- -   @pending@ - The metadata options are being updated. The instance is
-    --     not yet ready to process metadata traffic with the new selection.
-    --
-    -- -   @applied@ - The metadata options have been successfully applied to
-    --     the instance.
-    state :: Prelude.Maybe InstanceMetadataState,
     -- | The state of token usage for your instance metadata requests.
     --
     -- If the state is @optional@, you can choose whether to retrieve instance
@@ -66,14 +64,16 @@ data InstanceMetadataOptions = InstanceMetadataOptions'
     -- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-viewing-instance-health-metrics Viewing instance metrics in Amazon Lightsail>
     -- in the /Amazon Lightsail Developer Guide/.
     httpTokens :: Prelude.Maybe HttpTokens,
-    -- | Indicates whether the HTTP metadata endpoint on your instances is
-    -- enabled or disabled.
+    -- | The state of the metadata option changes.
     --
-    -- If the value is @disabled@, you cannot access your instance metadata.
-    httpEndpoint :: Prelude.Maybe HttpEndpoint,
-    -- | Indicates whether the IPv6 endpoint for the instance metadata service is
-    -- enabled or disabled.
-    httpProtocolIpv6 :: Prelude.Maybe HttpProtocolIpv6
+    -- The following states are possible:
+    --
+    -- -   @pending@ - The metadata options are being updated. The instance is
+    --     not yet ready to process metadata traffic with the new selection.
+    --
+    -- -   @applied@ - The metadata options have been successfully applied to
+    --     the instance.
+    state :: Prelude.Maybe InstanceMetadataState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,19 +85,17 @@ data InstanceMetadataOptions = InstanceMetadataOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'httpEndpoint', 'instanceMetadataOptions_httpEndpoint' - Indicates whether the HTTP metadata endpoint on your instances is
+-- enabled or disabled.
+--
+-- If the value is @disabled@, you cannot access your instance metadata.
+--
+-- 'httpProtocolIpv6', 'instanceMetadataOptions_httpProtocolIpv6' - Indicates whether the IPv6 endpoint for the instance metadata service is
+-- enabled or disabled.
+--
 -- 'httpPutResponseHopLimit', 'instanceMetadataOptions_httpPutResponseHopLimit' - The desired HTTP PUT response hop limit for instance metadata requests.
 -- A larger number means that the instance metadata requests can travel
 -- farther.
---
--- 'state', 'instanceMetadataOptions_state' - The state of the metadata option changes.
---
--- The following states are possible:
---
--- -   @pending@ - The metadata options are being updated. The instance is
---     not yet ready to process metadata traffic with the new selection.
---
--- -   @applied@ - The metadata options have been successfully applied to
---     the instance.
 --
 -- 'httpTokens', 'instanceMetadataOptions_httpTokens' - The state of token usage for your instance metadata requests.
 --
@@ -119,32 +117,7 @@ data InstanceMetadataOptions = InstanceMetadataOptions'
 -- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-viewing-instance-health-metrics Viewing instance metrics in Amazon Lightsail>
 -- in the /Amazon Lightsail Developer Guide/.
 --
--- 'httpEndpoint', 'instanceMetadataOptions_httpEndpoint' - Indicates whether the HTTP metadata endpoint on your instances is
--- enabled or disabled.
---
--- If the value is @disabled@, you cannot access your instance metadata.
---
--- 'httpProtocolIpv6', 'instanceMetadataOptions_httpProtocolIpv6' - Indicates whether the IPv6 endpoint for the instance metadata service is
--- enabled or disabled.
-newInstanceMetadataOptions ::
-  InstanceMetadataOptions
-newInstanceMetadataOptions =
-  InstanceMetadataOptions'
-    { httpPutResponseHopLimit =
-        Prelude.Nothing,
-      state = Prelude.Nothing,
-      httpTokens = Prelude.Nothing,
-      httpEndpoint = Prelude.Nothing,
-      httpProtocolIpv6 = Prelude.Nothing
-    }
-
--- | The desired HTTP PUT response hop limit for instance metadata requests.
--- A larger number means that the instance metadata requests can travel
--- farther.
-instanceMetadataOptions_httpPutResponseHopLimit :: Lens.Lens' InstanceMetadataOptions (Prelude.Maybe Prelude.Int)
-instanceMetadataOptions_httpPutResponseHopLimit = Lens.lens (\InstanceMetadataOptions' {httpPutResponseHopLimit} -> httpPutResponseHopLimit) (\s@InstanceMetadataOptions' {} a -> s {httpPutResponseHopLimit = a} :: InstanceMetadataOptions)
-
--- | The state of the metadata option changes.
+-- 'state', 'instanceMetadataOptions_state' - The state of the metadata option changes.
 --
 -- The following states are possible:
 --
@@ -153,8 +126,35 @@ instanceMetadataOptions_httpPutResponseHopLimit = Lens.lens (\InstanceMetadataOp
 --
 -- -   @applied@ - The metadata options have been successfully applied to
 --     the instance.
-instanceMetadataOptions_state :: Lens.Lens' InstanceMetadataOptions (Prelude.Maybe InstanceMetadataState)
-instanceMetadataOptions_state = Lens.lens (\InstanceMetadataOptions' {state} -> state) (\s@InstanceMetadataOptions' {} a -> s {state = a} :: InstanceMetadataOptions)
+newInstanceMetadataOptions ::
+  InstanceMetadataOptions
+newInstanceMetadataOptions =
+  InstanceMetadataOptions'
+    { httpEndpoint =
+        Prelude.Nothing,
+      httpProtocolIpv6 = Prelude.Nothing,
+      httpPutResponseHopLimit = Prelude.Nothing,
+      httpTokens = Prelude.Nothing,
+      state = Prelude.Nothing
+    }
+
+-- | Indicates whether the HTTP metadata endpoint on your instances is
+-- enabled or disabled.
+--
+-- If the value is @disabled@, you cannot access your instance metadata.
+instanceMetadataOptions_httpEndpoint :: Lens.Lens' InstanceMetadataOptions (Prelude.Maybe HttpEndpoint)
+instanceMetadataOptions_httpEndpoint = Lens.lens (\InstanceMetadataOptions' {httpEndpoint} -> httpEndpoint) (\s@InstanceMetadataOptions' {} a -> s {httpEndpoint = a} :: InstanceMetadataOptions)
+
+-- | Indicates whether the IPv6 endpoint for the instance metadata service is
+-- enabled or disabled.
+instanceMetadataOptions_httpProtocolIpv6 :: Lens.Lens' InstanceMetadataOptions (Prelude.Maybe HttpProtocolIpv6)
+instanceMetadataOptions_httpProtocolIpv6 = Lens.lens (\InstanceMetadataOptions' {httpProtocolIpv6} -> httpProtocolIpv6) (\s@InstanceMetadataOptions' {} a -> s {httpProtocolIpv6 = a} :: InstanceMetadataOptions)
+
+-- | The desired HTTP PUT response hop limit for instance metadata requests.
+-- A larger number means that the instance metadata requests can travel
+-- farther.
+instanceMetadataOptions_httpPutResponseHopLimit :: Lens.Lens' InstanceMetadataOptions (Prelude.Maybe Prelude.Int)
+instanceMetadataOptions_httpPutResponseHopLimit = Lens.lens (\InstanceMetadataOptions' {httpPutResponseHopLimit} -> httpPutResponseHopLimit) (\s@InstanceMetadataOptions' {} a -> s {httpPutResponseHopLimit = a} :: InstanceMetadataOptions)
 
 -- | The state of token usage for your instance metadata requests.
 --
@@ -178,17 +178,17 @@ instanceMetadataOptions_state = Lens.lens (\InstanceMetadataOptions' {state} -> 
 instanceMetadataOptions_httpTokens :: Lens.Lens' InstanceMetadataOptions (Prelude.Maybe HttpTokens)
 instanceMetadataOptions_httpTokens = Lens.lens (\InstanceMetadataOptions' {httpTokens} -> httpTokens) (\s@InstanceMetadataOptions' {} a -> s {httpTokens = a} :: InstanceMetadataOptions)
 
--- | Indicates whether the HTTP metadata endpoint on your instances is
--- enabled or disabled.
+-- | The state of the metadata option changes.
 --
--- If the value is @disabled@, you cannot access your instance metadata.
-instanceMetadataOptions_httpEndpoint :: Lens.Lens' InstanceMetadataOptions (Prelude.Maybe HttpEndpoint)
-instanceMetadataOptions_httpEndpoint = Lens.lens (\InstanceMetadataOptions' {httpEndpoint} -> httpEndpoint) (\s@InstanceMetadataOptions' {} a -> s {httpEndpoint = a} :: InstanceMetadataOptions)
-
--- | Indicates whether the IPv6 endpoint for the instance metadata service is
--- enabled or disabled.
-instanceMetadataOptions_httpProtocolIpv6 :: Lens.Lens' InstanceMetadataOptions (Prelude.Maybe HttpProtocolIpv6)
-instanceMetadataOptions_httpProtocolIpv6 = Lens.lens (\InstanceMetadataOptions' {httpProtocolIpv6} -> httpProtocolIpv6) (\s@InstanceMetadataOptions' {} a -> s {httpProtocolIpv6 = a} :: InstanceMetadataOptions)
+-- The following states are possible:
+--
+-- -   @pending@ - The metadata options are being updated. The instance is
+--     not yet ready to process metadata traffic with the new selection.
+--
+-- -   @applied@ - The metadata options have been successfully applied to
+--     the instance.
+instanceMetadataOptions_state :: Lens.Lens' InstanceMetadataOptions (Prelude.Maybe InstanceMetadataState)
+instanceMetadataOptions_state = Lens.lens (\InstanceMetadataOptions' {state} -> state) (\s@InstanceMetadataOptions' {} a -> s {state = a} :: InstanceMetadataOptions)
 
 instance Data.FromJSON InstanceMetadataOptions where
   parseJSON =
@@ -196,26 +196,25 @@ instance Data.FromJSON InstanceMetadataOptions where
       "InstanceMetadataOptions"
       ( \x ->
           InstanceMetadataOptions'
-            Prelude.<$> (x Data..:? "httpPutResponseHopLimit")
-            Prelude.<*> (x Data..:? "state")
-            Prelude.<*> (x Data..:? "httpTokens")
-            Prelude.<*> (x Data..:? "httpEndpoint")
+            Prelude.<$> (x Data..:? "httpEndpoint")
             Prelude.<*> (x Data..:? "httpProtocolIpv6")
+            Prelude.<*> (x Data..:? "httpPutResponseHopLimit")
+            Prelude.<*> (x Data..:? "httpTokens")
+            Prelude.<*> (x Data..:? "state")
       )
 
 instance Prelude.Hashable InstanceMetadataOptions where
   hashWithSalt _salt InstanceMetadataOptions' {..} =
-    _salt
-      `Prelude.hashWithSalt` httpPutResponseHopLimit
-      `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` httpTokens
-      `Prelude.hashWithSalt` httpEndpoint
+    _salt `Prelude.hashWithSalt` httpEndpoint
       `Prelude.hashWithSalt` httpProtocolIpv6
+      `Prelude.hashWithSalt` httpPutResponseHopLimit
+      `Prelude.hashWithSalt` httpTokens
+      `Prelude.hashWithSalt` state
 
 instance Prelude.NFData InstanceMetadataOptions where
   rnf InstanceMetadataOptions' {..} =
-    Prelude.rnf httpPutResponseHopLimit
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf httpTokens
-      `Prelude.seq` Prelude.rnf httpEndpoint
+    Prelude.rnf httpEndpoint
       `Prelude.seq` Prelude.rnf httpProtocolIpv6
+      `Prelude.seq` Prelude.rnf httpPutResponseHopLimit
+      `Prelude.seq` Prelude.rnf httpTokens
+      `Prelude.seq` Prelude.rnf state

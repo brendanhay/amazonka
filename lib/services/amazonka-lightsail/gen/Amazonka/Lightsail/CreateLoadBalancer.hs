@@ -38,12 +38,12 @@ module Amazonka.Lightsail.CreateLoadBalancer
     newCreateLoadBalancer,
 
     -- * Request Lenses
-    createLoadBalancer_tags,
-    createLoadBalancer_healthCheckPath,
     createLoadBalancer_certificateAlternativeNames,
-    createLoadBalancer_certificateName,
-    createLoadBalancer_ipAddressType,
     createLoadBalancer_certificateDomainName,
+    createLoadBalancer_certificateName,
+    createLoadBalancer_healthCheckPath,
+    createLoadBalancer_ipAddressType,
+    createLoadBalancer_tags,
     createLoadBalancer_tlsPolicyName,
     createLoadBalancer_loadBalancerName,
     createLoadBalancer_instancePort,
@@ -68,10 +68,21 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateLoadBalancer' smart constructor.
 data CreateLoadBalancer = CreateLoadBalancer'
-  { -- | The tag keys and optional values to add to the resource during create.
+  { -- | The optional alternative domains and subdomains to use with your
+    -- SSL\/TLS certificate (e.g., @www.example.com@, @example.com@,
+    -- @m.example.com@, @blog.example.com@).
+    certificateAlternativeNames :: Prelude.Maybe [Prelude.Text],
+    -- | The domain name with which your certificate is associated (e.g.,
+    -- @example.com@).
     --
-    -- Use the @TagResource@ action to tag a resource after it\'s created.
-    tags :: Prelude.Maybe [Tag],
+    -- If you specify @certificateDomainName@, then @certificateName@ is
+    -- required (and vice-versa).
+    certificateDomainName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the SSL\/TLS certificate.
+    --
+    -- If you specify @certificateName@, then @certificateDomainName@ is
+    -- required (and vice-versa).
+    certificateName :: Prelude.Maybe Prelude.Text,
     -- | The path you provided to perform the load balancer health check. If you
     -- didn\'t specify a health check path, Lightsail uses the root path of
     -- your website (e.g., @\"\/\"@).
@@ -80,15 +91,6 @@ data CreateLoadBalancer = CreateLoadBalancer'
     -- of your application if your home page loads slowly or has a lot of media
     -- or scripting on it.
     healthCheckPath :: Prelude.Maybe Prelude.Text,
-    -- | The optional alternative domains and subdomains to use with your
-    -- SSL\/TLS certificate (e.g., @www.example.com@, @example.com@,
-    -- @m.example.com@, @blog.example.com@).
-    certificateAlternativeNames :: Prelude.Maybe [Prelude.Text],
-    -- | The name of the SSL\/TLS certificate.
-    --
-    -- If you specify @certificateName@, then @certificateDomainName@ is
-    -- required (and vice-versa).
-    certificateName :: Prelude.Maybe Prelude.Text,
     -- | The IP address type for the load balancer.
     --
     -- The possible values are @ipv4@ for IPv4 only, and @dualstack@ for IPv4
@@ -96,12 +98,10 @@ data CreateLoadBalancer = CreateLoadBalancer'
     --
     -- The default value is @dualstack@.
     ipAddressType :: Prelude.Maybe IpAddressType,
-    -- | The domain name with which your certificate is associated (e.g.,
-    -- @example.com@).
+    -- | The tag keys and optional values to add to the resource during create.
     --
-    -- If you specify @certificateDomainName@, then @certificateName@ is
-    -- required (and vice-versa).
-    certificateDomainName :: Prelude.Maybe Prelude.Text,
+    -- Use the @TagResource@ action to tag a resource after it\'s created.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the TLS policy to apply to the load balancer.
     --
     -- Use the
@@ -127,9 +127,20 @@ data CreateLoadBalancer = CreateLoadBalancer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createLoadBalancer_tags' - The tag keys and optional values to add to the resource during create.
+-- 'certificateAlternativeNames', 'createLoadBalancer_certificateAlternativeNames' - The optional alternative domains and subdomains to use with your
+-- SSL\/TLS certificate (e.g., @www.example.com@, @example.com@,
+-- @m.example.com@, @blog.example.com@).
 --
--- Use the @TagResource@ action to tag a resource after it\'s created.
+-- 'certificateDomainName', 'createLoadBalancer_certificateDomainName' - The domain name with which your certificate is associated (e.g.,
+-- @example.com@).
+--
+-- If you specify @certificateDomainName@, then @certificateName@ is
+-- required (and vice-versa).
+--
+-- 'certificateName', 'createLoadBalancer_certificateName' - The name of the SSL\/TLS certificate.
+--
+-- If you specify @certificateName@, then @certificateDomainName@ is
+-- required (and vice-versa).
 --
 -- 'healthCheckPath', 'createLoadBalancer_healthCheckPath' - The path you provided to perform the load balancer health check. If you
 -- didn\'t specify a health check path, Lightsail uses the root path of
@@ -139,15 +150,6 @@ data CreateLoadBalancer = CreateLoadBalancer'
 -- of your application if your home page loads slowly or has a lot of media
 -- or scripting on it.
 --
--- 'certificateAlternativeNames', 'createLoadBalancer_certificateAlternativeNames' - The optional alternative domains and subdomains to use with your
--- SSL\/TLS certificate (e.g., @www.example.com@, @example.com@,
--- @m.example.com@, @blog.example.com@).
---
--- 'certificateName', 'createLoadBalancer_certificateName' - The name of the SSL\/TLS certificate.
---
--- If you specify @certificateName@, then @certificateDomainName@ is
--- required (and vice-versa).
---
 -- 'ipAddressType', 'createLoadBalancer_ipAddressType' - The IP address type for the load balancer.
 --
 -- The possible values are @ipv4@ for IPv4 only, and @dualstack@ for IPv4
@@ -155,11 +157,9 @@ data CreateLoadBalancer = CreateLoadBalancer'
 --
 -- The default value is @dualstack@.
 --
--- 'certificateDomainName', 'createLoadBalancer_certificateDomainName' - The domain name with which your certificate is associated (e.g.,
--- @example.com@).
+-- 'tags', 'createLoadBalancer_tags' - The tag keys and optional values to add to the resource during create.
 --
--- If you specify @certificateDomainName@, then @certificateName@ is
--- required (and vice-versa).
+-- Use the @TagResource@ action to tag a resource after it\'s created.
 --
 -- 'tlsPolicyName', 'createLoadBalancer_tlsPolicyName' - The name of the TLS policy to apply to the load balancer.
 --
@@ -184,22 +184,38 @@ newCreateLoadBalancer
   pLoadBalancerName_
   pInstancePort_ =
     CreateLoadBalancer'
-      { tags = Prelude.Nothing,
-        healthCheckPath = Prelude.Nothing,
-        certificateAlternativeNames = Prelude.Nothing,
-        certificateName = Prelude.Nothing,
-        ipAddressType = Prelude.Nothing,
+      { certificateAlternativeNames =
+          Prelude.Nothing,
         certificateDomainName = Prelude.Nothing,
+        certificateName = Prelude.Nothing,
+        healthCheckPath = Prelude.Nothing,
+        ipAddressType = Prelude.Nothing,
+        tags = Prelude.Nothing,
         tlsPolicyName = Prelude.Nothing,
         loadBalancerName = pLoadBalancerName_,
         instancePort = pInstancePort_
       }
 
--- | The tag keys and optional values to add to the resource during create.
+-- | The optional alternative domains and subdomains to use with your
+-- SSL\/TLS certificate (e.g., @www.example.com@, @example.com@,
+-- @m.example.com@, @blog.example.com@).
+createLoadBalancer_certificateAlternativeNames :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe [Prelude.Text])
+createLoadBalancer_certificateAlternativeNames = Lens.lens (\CreateLoadBalancer' {certificateAlternativeNames} -> certificateAlternativeNames) (\s@CreateLoadBalancer' {} a -> s {certificateAlternativeNames = a} :: CreateLoadBalancer) Prelude.. Lens.mapping Lens.coerced
+
+-- | The domain name with which your certificate is associated (e.g.,
+-- @example.com@).
 --
--- Use the @TagResource@ action to tag a resource after it\'s created.
-createLoadBalancer_tags :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe [Tag])
-createLoadBalancer_tags = Lens.lens (\CreateLoadBalancer' {tags} -> tags) (\s@CreateLoadBalancer' {} a -> s {tags = a} :: CreateLoadBalancer) Prelude.. Lens.mapping Lens.coerced
+-- If you specify @certificateDomainName@, then @certificateName@ is
+-- required (and vice-versa).
+createLoadBalancer_certificateDomainName :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe Prelude.Text)
+createLoadBalancer_certificateDomainName = Lens.lens (\CreateLoadBalancer' {certificateDomainName} -> certificateDomainName) (\s@CreateLoadBalancer' {} a -> s {certificateDomainName = a} :: CreateLoadBalancer)
+
+-- | The name of the SSL\/TLS certificate.
+--
+-- If you specify @certificateName@, then @certificateDomainName@ is
+-- required (and vice-versa).
+createLoadBalancer_certificateName :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe Prelude.Text)
+createLoadBalancer_certificateName = Lens.lens (\CreateLoadBalancer' {certificateName} -> certificateName) (\s@CreateLoadBalancer' {} a -> s {certificateName = a} :: CreateLoadBalancer)
 
 -- | The path you provided to perform the load balancer health check. If you
 -- didn\'t specify a health check path, Lightsail uses the root path of
@@ -211,19 +227,6 @@ createLoadBalancer_tags = Lens.lens (\CreateLoadBalancer' {tags} -> tags) (\s@Cr
 createLoadBalancer_healthCheckPath :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe Prelude.Text)
 createLoadBalancer_healthCheckPath = Lens.lens (\CreateLoadBalancer' {healthCheckPath} -> healthCheckPath) (\s@CreateLoadBalancer' {} a -> s {healthCheckPath = a} :: CreateLoadBalancer)
 
--- | The optional alternative domains and subdomains to use with your
--- SSL\/TLS certificate (e.g., @www.example.com@, @example.com@,
--- @m.example.com@, @blog.example.com@).
-createLoadBalancer_certificateAlternativeNames :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe [Prelude.Text])
-createLoadBalancer_certificateAlternativeNames = Lens.lens (\CreateLoadBalancer' {certificateAlternativeNames} -> certificateAlternativeNames) (\s@CreateLoadBalancer' {} a -> s {certificateAlternativeNames = a} :: CreateLoadBalancer) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the SSL\/TLS certificate.
---
--- If you specify @certificateName@, then @certificateDomainName@ is
--- required (and vice-versa).
-createLoadBalancer_certificateName :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe Prelude.Text)
-createLoadBalancer_certificateName = Lens.lens (\CreateLoadBalancer' {certificateName} -> certificateName) (\s@CreateLoadBalancer' {} a -> s {certificateName = a} :: CreateLoadBalancer)
-
 -- | The IP address type for the load balancer.
 --
 -- The possible values are @ipv4@ for IPv4 only, and @dualstack@ for IPv4
@@ -233,13 +236,11 @@ createLoadBalancer_certificateName = Lens.lens (\CreateLoadBalancer' {certificat
 createLoadBalancer_ipAddressType :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe IpAddressType)
 createLoadBalancer_ipAddressType = Lens.lens (\CreateLoadBalancer' {ipAddressType} -> ipAddressType) (\s@CreateLoadBalancer' {} a -> s {ipAddressType = a} :: CreateLoadBalancer)
 
--- | The domain name with which your certificate is associated (e.g.,
--- @example.com@).
+-- | The tag keys and optional values to add to the resource during create.
 --
--- If you specify @certificateDomainName@, then @certificateName@ is
--- required (and vice-versa).
-createLoadBalancer_certificateDomainName :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe Prelude.Text)
-createLoadBalancer_certificateDomainName = Lens.lens (\CreateLoadBalancer' {certificateDomainName} -> certificateDomainName) (\s@CreateLoadBalancer' {} a -> s {certificateDomainName = a} :: CreateLoadBalancer)
+-- Use the @TagResource@ action to tag a resource after it\'s created.
+createLoadBalancer_tags :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe [Tag])
+createLoadBalancer_tags = Lens.lens (\CreateLoadBalancer' {tags} -> tags) (\s@CreateLoadBalancer' {} a -> s {tags = a} :: CreateLoadBalancer) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the TLS policy to apply to the load balancer.
 --
@@ -277,24 +278,25 @@ instance Core.AWSRequest CreateLoadBalancer where
 
 instance Prelude.Hashable CreateLoadBalancer where
   hashWithSalt _salt CreateLoadBalancer' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` healthCheckPath
+    _salt
       `Prelude.hashWithSalt` certificateAlternativeNames
-      `Prelude.hashWithSalt` certificateName
-      `Prelude.hashWithSalt` ipAddressType
       `Prelude.hashWithSalt` certificateDomainName
+      `Prelude.hashWithSalt` certificateName
+      `Prelude.hashWithSalt` healthCheckPath
+      `Prelude.hashWithSalt` ipAddressType
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` tlsPolicyName
       `Prelude.hashWithSalt` loadBalancerName
       `Prelude.hashWithSalt` instancePort
 
 instance Prelude.NFData CreateLoadBalancer where
   rnf CreateLoadBalancer' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf healthCheckPath
-      `Prelude.seq` Prelude.rnf certificateAlternativeNames
-      `Prelude.seq` Prelude.rnf certificateName
-      `Prelude.seq` Prelude.rnf ipAddressType
+    Prelude.rnf certificateAlternativeNames
       `Prelude.seq` Prelude.rnf certificateDomainName
+      `Prelude.seq` Prelude.rnf certificateName
+      `Prelude.seq` Prelude.rnf healthCheckPath
+      `Prelude.seq` Prelude.rnf ipAddressType
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf tlsPolicyName
       `Prelude.seq` Prelude.rnf loadBalancerName
       `Prelude.seq` Prelude.rnf instancePort
@@ -318,16 +320,16 @@ instance Data.ToJSON CreateLoadBalancer where
   toJSON CreateLoadBalancer' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("healthCheckPath" Data..=)
-              Prelude.<$> healthCheckPath,
-            ("certificateAlternativeNames" Data..=)
+          [ ("certificateAlternativeNames" Data..=)
               Prelude.<$> certificateAlternativeNames,
-            ("certificateName" Data..=)
-              Prelude.<$> certificateName,
-            ("ipAddressType" Data..=) Prelude.<$> ipAddressType,
             ("certificateDomainName" Data..=)
               Prelude.<$> certificateDomainName,
+            ("certificateName" Data..=)
+              Prelude.<$> certificateName,
+            ("healthCheckPath" Data..=)
+              Prelude.<$> healthCheckPath,
+            ("ipAddressType" Data..=) Prelude.<$> ipAddressType,
+            ("tags" Data..=) Prelude.<$> tags,
             ("tlsPolicyName" Data..=) Prelude.<$> tlsPolicyName,
             Prelude.Just
               ("loadBalancerName" Data..= loadBalancerName),

@@ -40,12 +40,12 @@ module Amazonka.ELBV2.CreateListener
     newCreateListener,
 
     -- * Request Lenses
-    createListener_tags,
-    createListener_port,
+    createListener_alpnPolicy,
     createListener_certificates,
+    createListener_port,
     createListener_protocol,
     createListener_sslPolicy,
-    createListener_alpnPolicy,
+    createListener_tags,
     createListener_loadBalancerArn,
     createListener_defaultActions,
 
@@ -69,32 +69,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateListener' smart constructor.
 data CreateListener = CreateListener'
-  { -- | The tags to assign to the listener.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | The port on which the load balancer is listening. You cannot specify a
-    -- port for a Gateway Load Balancer.
-    port :: Prelude.Maybe Prelude.Natural,
-    -- | [HTTPS and TLS listeners] The default certificate for the listener. You
-    -- must provide exactly one certificate. Set @CertificateArn@ to the
-    -- certificate ARN but do not set @IsDefault@.
-    certificates :: Prelude.Maybe [Certificate],
-    -- | The protocol for connections from clients to the load balancer. For
-    -- Application Load Balancers, the supported protocols are HTTP and HTTPS.
-    -- For Network Load Balancers, the supported protocols are TCP, TLS, UDP,
-    -- and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack
-    -- mode is enabled. You cannot specify a protocol for a Gateway Load
-    -- Balancer.
-    protocol :: Prelude.Maybe ProtocolEnum,
-    -- | [HTTPS and TLS listeners] The security policy that defines which
-    -- protocols and ciphers are supported.
-    --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies Security policies>
-    -- in the /Application Load Balancers Guide/ and
-    -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies Security policies>
-    -- in the /Network Load Balancers Guide/.
-    sslPolicy :: Prelude.Maybe Prelude.Text,
-    -- | [TLS listeners] The name of the Application-Layer Protocol Negotiation
+  { -- | [TLS listeners] The name of the Application-Layer Protocol Negotiation
     -- (ALPN) policy. You can specify one policy name. The following are the
     -- possible values:
     --
@@ -112,6 +87,31 @@ data CreateListener = CreateListener'
     -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#alpn-policies ALPN policies>
     -- in the /Network Load Balancers Guide/.
     alpnPolicy :: Prelude.Maybe [Prelude.Text],
+    -- | [HTTPS and TLS listeners] The default certificate for the listener. You
+    -- must provide exactly one certificate. Set @CertificateArn@ to the
+    -- certificate ARN but do not set @IsDefault@.
+    certificates :: Prelude.Maybe [Certificate],
+    -- | The port on which the load balancer is listening. You cannot specify a
+    -- port for a Gateway Load Balancer.
+    port :: Prelude.Maybe Prelude.Natural,
+    -- | The protocol for connections from clients to the load balancer. For
+    -- Application Load Balancers, the supported protocols are HTTP and HTTPS.
+    -- For Network Load Balancers, the supported protocols are TCP, TLS, UDP,
+    -- and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack
+    -- mode is enabled. You cannot specify a protocol for a Gateway Load
+    -- Balancer.
+    protocol :: Prelude.Maybe ProtocolEnum,
+    -- | [HTTPS and TLS listeners] The security policy that defines which
+    -- protocols and ciphers are supported.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies Security policies>
+    -- in the /Application Load Balancers Guide/ and
+    -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies Security policies>
+    -- in the /Network Load Balancers Guide/.
+    sslPolicy :: Prelude.Maybe Prelude.Text,
+    -- | The tags to assign to the listener.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The Amazon Resource Name (ARN) of the load balancer.
     loadBalancerArn :: Prelude.Text,
     -- | The actions for the default rule.
@@ -126,31 +126,6 @@ data CreateListener = CreateListener'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'tags', 'createListener_tags' - The tags to assign to the listener.
---
--- 'port', 'createListener_port' - The port on which the load balancer is listening. You cannot specify a
--- port for a Gateway Load Balancer.
---
--- 'certificates', 'createListener_certificates' - [HTTPS and TLS listeners] The default certificate for the listener. You
--- must provide exactly one certificate. Set @CertificateArn@ to the
--- certificate ARN but do not set @IsDefault@.
---
--- 'protocol', 'createListener_protocol' - The protocol for connections from clients to the load balancer. For
--- Application Load Balancers, the supported protocols are HTTP and HTTPS.
--- For Network Load Balancers, the supported protocols are TCP, TLS, UDP,
--- and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack
--- mode is enabled. You cannot specify a protocol for a Gateway Load
--- Balancer.
---
--- 'sslPolicy', 'createListener_sslPolicy' - [HTTPS and TLS listeners] The security policy that defines which
--- protocols and ciphers are supported.
---
--- For more information, see
--- <https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies Security policies>
--- in the /Application Load Balancers Guide/ and
--- <https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies Security policies>
--- in the /Network Load Balancers Guide/.
 --
 -- 'alpnPolicy', 'createListener_alpnPolicy' - [TLS listeners] The name of the Application-Layer Protocol Negotiation
 -- (ALPN) policy. You can specify one policy name. The following are the
@@ -170,6 +145,31 @@ data CreateListener = CreateListener'
 -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#alpn-policies ALPN policies>
 -- in the /Network Load Balancers Guide/.
 --
+-- 'certificates', 'createListener_certificates' - [HTTPS and TLS listeners] The default certificate for the listener. You
+-- must provide exactly one certificate. Set @CertificateArn@ to the
+-- certificate ARN but do not set @IsDefault@.
+--
+-- 'port', 'createListener_port' - The port on which the load balancer is listening. You cannot specify a
+-- port for a Gateway Load Balancer.
+--
+-- 'protocol', 'createListener_protocol' - The protocol for connections from clients to the load balancer. For
+-- Application Load Balancers, the supported protocols are HTTP and HTTPS.
+-- For Network Load Balancers, the supported protocols are TCP, TLS, UDP,
+-- and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack
+-- mode is enabled. You cannot specify a protocol for a Gateway Load
+-- Balancer.
+--
+-- 'sslPolicy', 'createListener_sslPolicy' - [HTTPS and TLS listeners] The security policy that defines which
+-- protocols and ciphers are supported.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies Security policies>
+-- in the /Application Load Balancers Guide/ and
+-- <https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies Security policies>
+-- in the /Network Load Balancers Guide/.
+--
+-- 'tags', 'createListener_tags' - The tags to assign to the listener.
+--
 -- 'loadBalancerArn', 'createListener_loadBalancerArn' - The Amazon Resource Name (ARN) of the load balancer.
 --
 -- 'defaultActions', 'createListener_defaultActions' - The actions for the default rule.
@@ -179,30 +179,46 @@ newCreateListener ::
   CreateListener
 newCreateListener pLoadBalancerArn_ =
   CreateListener'
-    { tags = Prelude.Nothing,
-      port = Prelude.Nothing,
+    { alpnPolicy = Prelude.Nothing,
       certificates = Prelude.Nothing,
+      port = Prelude.Nothing,
       protocol = Prelude.Nothing,
       sslPolicy = Prelude.Nothing,
-      alpnPolicy = Prelude.Nothing,
+      tags = Prelude.Nothing,
       loadBalancerArn = pLoadBalancerArn_,
       defaultActions = Prelude.mempty
     }
 
--- | The tags to assign to the listener.
-createListener_tags :: Lens.Lens' CreateListener (Prelude.Maybe (Prelude.NonEmpty Tag))
-createListener_tags = Lens.lens (\CreateListener' {tags} -> tags) (\s@CreateListener' {} a -> s {tags = a} :: CreateListener) Prelude.. Lens.mapping Lens.coerced
-
--- | The port on which the load balancer is listening. You cannot specify a
--- port for a Gateway Load Balancer.
-createListener_port :: Lens.Lens' CreateListener (Prelude.Maybe Prelude.Natural)
-createListener_port = Lens.lens (\CreateListener' {port} -> port) (\s@CreateListener' {} a -> s {port = a} :: CreateListener)
+-- | [TLS listeners] The name of the Application-Layer Protocol Negotiation
+-- (ALPN) policy. You can specify one policy name. The following are the
+-- possible values:
+--
+-- -   @HTTP1Only@
+--
+-- -   @HTTP2Only@
+--
+-- -   @HTTP2Optional@
+--
+-- -   @HTTP2Preferred@
+--
+-- -   @None@
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#alpn-policies ALPN policies>
+-- in the /Network Load Balancers Guide/.
+createListener_alpnPolicy :: Lens.Lens' CreateListener (Prelude.Maybe [Prelude.Text])
+createListener_alpnPolicy = Lens.lens (\CreateListener' {alpnPolicy} -> alpnPolicy) (\s@CreateListener' {} a -> s {alpnPolicy = a} :: CreateListener) Prelude.. Lens.mapping Lens.coerced
 
 -- | [HTTPS and TLS listeners] The default certificate for the listener. You
 -- must provide exactly one certificate. Set @CertificateArn@ to the
 -- certificate ARN but do not set @IsDefault@.
 createListener_certificates :: Lens.Lens' CreateListener (Prelude.Maybe [Certificate])
 createListener_certificates = Lens.lens (\CreateListener' {certificates} -> certificates) (\s@CreateListener' {} a -> s {certificates = a} :: CreateListener) Prelude.. Lens.mapping Lens.coerced
+
+-- | The port on which the load balancer is listening. You cannot specify a
+-- port for a Gateway Load Balancer.
+createListener_port :: Lens.Lens' CreateListener (Prelude.Maybe Prelude.Natural)
+createListener_port = Lens.lens (\CreateListener' {port} -> port) (\s@CreateListener' {} a -> s {port = a} :: CreateListener)
 
 -- | The protocol for connections from clients to the load balancer. For
 -- Application Load Balancers, the supported protocols are HTTP and HTTPS.
@@ -224,25 +240,9 @@ createListener_protocol = Lens.lens (\CreateListener' {protocol} -> protocol) (\
 createListener_sslPolicy :: Lens.Lens' CreateListener (Prelude.Maybe Prelude.Text)
 createListener_sslPolicy = Lens.lens (\CreateListener' {sslPolicy} -> sslPolicy) (\s@CreateListener' {} a -> s {sslPolicy = a} :: CreateListener)
 
--- | [TLS listeners] The name of the Application-Layer Protocol Negotiation
--- (ALPN) policy. You can specify one policy name. The following are the
--- possible values:
---
--- -   @HTTP1Only@
---
--- -   @HTTP2Only@
---
--- -   @HTTP2Optional@
---
--- -   @HTTP2Preferred@
---
--- -   @None@
---
--- For more information, see
--- <https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#alpn-policies ALPN policies>
--- in the /Network Load Balancers Guide/.
-createListener_alpnPolicy :: Lens.Lens' CreateListener (Prelude.Maybe [Prelude.Text])
-createListener_alpnPolicy = Lens.lens (\CreateListener' {alpnPolicy} -> alpnPolicy) (\s@CreateListener' {} a -> s {alpnPolicy = a} :: CreateListener) Prelude.. Lens.mapping Lens.coerced
+-- | The tags to assign to the listener.
+createListener_tags :: Lens.Lens' CreateListener (Prelude.Maybe (Prelude.NonEmpty Tag))
+createListener_tags = Lens.lens (\CreateListener' {tags} -> tags) (\s@CreateListener' {} a -> s {tags = a} :: CreateListener) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the load balancer.
 createListener_loadBalancerArn :: Lens.Lens' CreateListener Prelude.Text
@@ -271,23 +271,23 @@ instance Core.AWSRequest CreateListener where
 
 instance Prelude.Hashable CreateListener where
   hashWithSalt _salt CreateListener' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` port
+    _salt `Prelude.hashWithSalt` alpnPolicy
       `Prelude.hashWithSalt` certificates
+      `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` protocol
       `Prelude.hashWithSalt` sslPolicy
-      `Prelude.hashWithSalt` alpnPolicy
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` loadBalancerArn
       `Prelude.hashWithSalt` defaultActions
 
 instance Prelude.NFData CreateListener where
   rnf CreateListener' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf port
+    Prelude.rnf alpnPolicy
       `Prelude.seq` Prelude.rnf certificates
+      `Prelude.seq` Prelude.rnf port
       `Prelude.seq` Prelude.rnf protocol
       `Prelude.seq` Prelude.rnf sslPolicy
-      `Prelude.seq` Prelude.rnf alpnPolicy
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf loadBalancerArn
       `Prelude.seq` Prelude.rnf defaultActions
 
@@ -304,18 +304,18 @@ instance Data.ToQuery CreateListener where
           Data.=: ("CreateListener" :: Prelude.ByteString),
         "Version"
           Data.=: ("2015-12-01" :: Prelude.ByteString),
-        "Tags"
-          Data.=: Data.toQuery
-            (Data.toQueryList "member" Prelude.<$> tags),
-        "Port" Data.=: port,
-        "Certificates"
-          Data.=: Data.toQuery
-            (Data.toQueryList "member" Prelude.<$> certificates),
-        "Protocol" Data.=: protocol,
-        "SslPolicy" Data.=: sslPolicy,
         "AlpnPolicy"
           Data.=: Data.toQuery
             (Data.toQueryList "member" Prelude.<$> alpnPolicy),
+        "Certificates"
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> certificates),
+        "Port" Data.=: port,
+        "Protocol" Data.=: protocol,
+        "SslPolicy" Data.=: sslPolicy,
+        "Tags"
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> tags),
         "LoadBalancerArn" Data.=: loadBalancerArn,
         "DefaultActions"
           Data.=: Data.toQueryList "member" defaultActions

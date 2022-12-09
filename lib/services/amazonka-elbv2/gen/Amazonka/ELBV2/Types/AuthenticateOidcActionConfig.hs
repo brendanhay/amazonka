@@ -30,17 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAuthenticateOidcActionConfig' smart constructor.
 data AuthenticateOidcActionConfig = AuthenticateOidcActionConfig'
-  { -- | The OAuth 2.0 client secret. This parameter is required if you are
+  { -- | The query parameters (up to 10) to include in the redirect request to
+    -- the authorization endpoint.
+    authenticationRequestExtraParams :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The OAuth 2.0 client secret. This parameter is required if you are
     -- creating a rule. If you are modifying a rule, you can omit this
     -- parameter if you set @UseExistingClientSecret@ to true.
     clientSecret :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether to use the existing client secret when modifying a
-    -- rule. If you are creating a rule, you can omit this parameter or set it
-    -- to false.
-    useExistingClientSecret :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum duration of the authentication session, in seconds. The
-    -- default is 604800 seconds (7 days).
-    sessionTimeout :: Prelude.Maybe Prelude.Integer,
     -- | The behavior if the user is not authenticated. The following are
     -- possible values:
     --
@@ -51,9 +47,6 @@ data AuthenticateOidcActionConfig = AuthenticateOidcActionConfig'
     -- -   authenticate@@ - Redirect the request to the IdP authorization
     --     endpoint. This is the default value.
     onUnauthenticatedRequest :: Prelude.Maybe AuthenticateOidcActionConditionalBehaviorEnum,
-    -- | The query parameters (up to 10) to include in the redirect request to
-    -- the authorization endpoint.
-    authenticationRequestExtraParams :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The set of user claims to be requested from the IdP. The default is
     -- @openid@.
     --
@@ -63,6 +56,13 @@ data AuthenticateOidcActionConfig = AuthenticateOidcActionConfig'
     -- | The name of the cookie used to maintain session information. The default
     -- is AWSELBAuthSessionCookie.
     sessionCookieName :: Prelude.Maybe Prelude.Text,
+    -- | The maximum duration of the authentication session, in seconds. The
+    -- default is 604800 seconds (7 days).
+    sessionTimeout :: Prelude.Maybe Prelude.Integer,
+    -- | Indicates whether to use the existing client secret when modifying a
+    -- rule. If you are creating a rule, you can omit this parameter or set it
+    -- to false.
+    useExistingClientSecret :: Prelude.Maybe Prelude.Bool,
     -- | The OIDC issuer identifier of the IdP. This must be a full URL,
     -- including the HTTPS protocol, the domain, and the path.
     issuer :: Prelude.Text,
@@ -88,16 +88,12 @@ data AuthenticateOidcActionConfig = AuthenticateOidcActionConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'authenticationRequestExtraParams', 'authenticateOidcActionConfig_authenticationRequestExtraParams' - The query parameters (up to 10) to include in the redirect request to
+-- the authorization endpoint.
+--
 -- 'clientSecret', 'authenticateOidcActionConfig_clientSecret' - The OAuth 2.0 client secret. This parameter is required if you are
 -- creating a rule. If you are modifying a rule, you can omit this
 -- parameter if you set @UseExistingClientSecret@ to true.
---
--- 'useExistingClientSecret', 'authenticateOidcActionConfig_useExistingClientSecret' - Indicates whether to use the existing client secret when modifying a
--- rule. If you are creating a rule, you can omit this parameter or set it
--- to false.
---
--- 'sessionTimeout', 'authenticateOidcActionConfig_sessionTimeout' - The maximum duration of the authentication session, in seconds. The
--- default is 604800 seconds (7 days).
 --
 -- 'onUnauthenticatedRequest', 'authenticateOidcActionConfig_onUnauthenticatedRequest' - The behavior if the user is not authenticated. The following are
 -- possible values:
@@ -109,9 +105,6 @@ data AuthenticateOidcActionConfig = AuthenticateOidcActionConfig'
 -- -   authenticate@@ - Redirect the request to the IdP authorization
 --     endpoint. This is the default value.
 --
--- 'authenticationRequestExtraParams', 'authenticateOidcActionConfig_authenticationRequestExtraParams' - The query parameters (up to 10) to include in the redirect request to
--- the authorization endpoint.
---
 -- 'scope', 'authenticateOidcActionConfig_scope' - The set of user claims to be requested from the IdP. The default is
 -- @openid@.
 --
@@ -120,6 +113,13 @@ data AuthenticateOidcActionConfig = AuthenticateOidcActionConfig'
 --
 -- 'sessionCookieName', 'authenticateOidcActionConfig_sessionCookieName' - The name of the cookie used to maintain session information. The default
 -- is AWSELBAuthSessionCookie.
+--
+-- 'sessionTimeout', 'authenticateOidcActionConfig_sessionTimeout' - The maximum duration of the authentication session, in seconds. The
+-- default is 604800 seconds (7 days).
+--
+-- 'useExistingClientSecret', 'authenticateOidcActionConfig_useExistingClientSecret' - Indicates whether to use the existing client secret when modifying a
+-- rule. If you are creating a rule, you can omit this parameter or set it
+-- to false.
 --
 -- 'issuer', 'authenticateOidcActionConfig_issuer' - The OIDC issuer identifier of the IdP. This must be a full URL,
 -- including the HTTPS protocol, the domain, and the path.
@@ -153,15 +153,14 @@ newAuthenticateOidcActionConfig
   pUserInfoEndpoint_
   pClientId_ =
     AuthenticateOidcActionConfig'
-      { clientSecret =
+      { authenticationRequestExtraParams =
           Prelude.Nothing,
-        useExistingClientSecret = Prelude.Nothing,
-        sessionTimeout = Prelude.Nothing,
+        clientSecret = Prelude.Nothing,
         onUnauthenticatedRequest = Prelude.Nothing,
-        authenticationRequestExtraParams =
-          Prelude.Nothing,
         scope = Prelude.Nothing,
         sessionCookieName = Prelude.Nothing,
+        sessionTimeout = Prelude.Nothing,
+        useExistingClientSecret = Prelude.Nothing,
         issuer = pIssuer_,
         authorizationEndpoint =
           pAuthorizationEndpoint_,
@@ -170,22 +169,16 @@ newAuthenticateOidcActionConfig
         clientId = pClientId_
       }
 
+-- | The query parameters (up to 10) to include in the redirect request to
+-- the authorization endpoint.
+authenticateOidcActionConfig_authenticationRequestExtraParams :: Lens.Lens' AuthenticateOidcActionConfig (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+authenticateOidcActionConfig_authenticationRequestExtraParams = Lens.lens (\AuthenticateOidcActionConfig' {authenticationRequestExtraParams} -> authenticationRequestExtraParams) (\s@AuthenticateOidcActionConfig' {} a -> s {authenticationRequestExtraParams = a} :: AuthenticateOidcActionConfig) Prelude.. Lens.mapping Lens.coerced
+
 -- | The OAuth 2.0 client secret. This parameter is required if you are
 -- creating a rule. If you are modifying a rule, you can omit this
 -- parameter if you set @UseExistingClientSecret@ to true.
 authenticateOidcActionConfig_clientSecret :: Lens.Lens' AuthenticateOidcActionConfig (Prelude.Maybe Prelude.Text)
 authenticateOidcActionConfig_clientSecret = Lens.lens (\AuthenticateOidcActionConfig' {clientSecret} -> clientSecret) (\s@AuthenticateOidcActionConfig' {} a -> s {clientSecret = a} :: AuthenticateOidcActionConfig)
-
--- | Indicates whether to use the existing client secret when modifying a
--- rule. If you are creating a rule, you can omit this parameter or set it
--- to false.
-authenticateOidcActionConfig_useExistingClientSecret :: Lens.Lens' AuthenticateOidcActionConfig (Prelude.Maybe Prelude.Bool)
-authenticateOidcActionConfig_useExistingClientSecret = Lens.lens (\AuthenticateOidcActionConfig' {useExistingClientSecret} -> useExistingClientSecret) (\s@AuthenticateOidcActionConfig' {} a -> s {useExistingClientSecret = a} :: AuthenticateOidcActionConfig)
-
--- | The maximum duration of the authentication session, in seconds. The
--- default is 604800 seconds (7 days).
-authenticateOidcActionConfig_sessionTimeout :: Lens.Lens' AuthenticateOidcActionConfig (Prelude.Maybe Prelude.Integer)
-authenticateOidcActionConfig_sessionTimeout = Lens.lens (\AuthenticateOidcActionConfig' {sessionTimeout} -> sessionTimeout) (\s@AuthenticateOidcActionConfig' {} a -> s {sessionTimeout = a} :: AuthenticateOidcActionConfig)
 
 -- | The behavior if the user is not authenticated. The following are
 -- possible values:
@@ -199,11 +192,6 @@ authenticateOidcActionConfig_sessionTimeout = Lens.lens (\AuthenticateOidcAction
 authenticateOidcActionConfig_onUnauthenticatedRequest :: Lens.Lens' AuthenticateOidcActionConfig (Prelude.Maybe AuthenticateOidcActionConditionalBehaviorEnum)
 authenticateOidcActionConfig_onUnauthenticatedRequest = Lens.lens (\AuthenticateOidcActionConfig' {onUnauthenticatedRequest} -> onUnauthenticatedRequest) (\s@AuthenticateOidcActionConfig' {} a -> s {onUnauthenticatedRequest = a} :: AuthenticateOidcActionConfig)
 
--- | The query parameters (up to 10) to include in the redirect request to
--- the authorization endpoint.
-authenticateOidcActionConfig_authenticationRequestExtraParams :: Lens.Lens' AuthenticateOidcActionConfig (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-authenticateOidcActionConfig_authenticationRequestExtraParams = Lens.lens (\AuthenticateOidcActionConfig' {authenticationRequestExtraParams} -> authenticationRequestExtraParams) (\s@AuthenticateOidcActionConfig' {} a -> s {authenticationRequestExtraParams = a} :: AuthenticateOidcActionConfig) Prelude.. Lens.mapping Lens.coerced
-
 -- | The set of user claims to be requested from the IdP. The default is
 -- @openid@.
 --
@@ -216,6 +204,17 @@ authenticateOidcActionConfig_scope = Lens.lens (\AuthenticateOidcActionConfig' {
 -- is AWSELBAuthSessionCookie.
 authenticateOidcActionConfig_sessionCookieName :: Lens.Lens' AuthenticateOidcActionConfig (Prelude.Maybe Prelude.Text)
 authenticateOidcActionConfig_sessionCookieName = Lens.lens (\AuthenticateOidcActionConfig' {sessionCookieName} -> sessionCookieName) (\s@AuthenticateOidcActionConfig' {} a -> s {sessionCookieName = a} :: AuthenticateOidcActionConfig)
+
+-- | The maximum duration of the authentication session, in seconds. The
+-- default is 604800 seconds (7 days).
+authenticateOidcActionConfig_sessionTimeout :: Lens.Lens' AuthenticateOidcActionConfig (Prelude.Maybe Prelude.Integer)
+authenticateOidcActionConfig_sessionTimeout = Lens.lens (\AuthenticateOidcActionConfig' {sessionTimeout} -> sessionTimeout) (\s@AuthenticateOidcActionConfig' {} a -> s {sessionTimeout = a} :: AuthenticateOidcActionConfig)
+
+-- | Indicates whether to use the existing client secret when modifying a
+-- rule. If you are creating a rule, you can omit this parameter or set it
+-- to false.
+authenticateOidcActionConfig_useExistingClientSecret :: Lens.Lens' AuthenticateOidcActionConfig (Prelude.Maybe Prelude.Bool)
+authenticateOidcActionConfig_useExistingClientSecret = Lens.lens (\AuthenticateOidcActionConfig' {useExistingClientSecret} -> useExistingClientSecret) (\s@AuthenticateOidcActionConfig' {} a -> s {useExistingClientSecret = a} :: AuthenticateOidcActionConfig)
 
 -- | The OIDC issuer identifier of the IdP. This must be a full URL,
 -- including the HTTPS protocol, the domain, and the path.
@@ -244,16 +243,16 @@ authenticateOidcActionConfig_clientId = Lens.lens (\AuthenticateOidcActionConfig
 instance Data.FromXML AuthenticateOidcActionConfig where
   parseXML x =
     AuthenticateOidcActionConfig'
-      Prelude.<$> (x Data..@? "ClientSecret")
-      Prelude.<*> (x Data..@? "UseExistingClientSecret")
-      Prelude.<*> (x Data..@? "SessionTimeout")
-      Prelude.<*> (x Data..@? "OnUnauthenticatedRequest")
-      Prelude.<*> ( x Data..@? "AuthenticationRequestExtraParams"
+      Prelude.<$> ( x Data..@? "AuthenticationRequestExtraParams"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLMap "entry" "key" "value")
                   )
+      Prelude.<*> (x Data..@? "ClientSecret")
+      Prelude.<*> (x Data..@? "OnUnauthenticatedRequest")
       Prelude.<*> (x Data..@? "Scope")
       Prelude.<*> (x Data..@? "SessionCookieName")
+      Prelude.<*> (x Data..@? "SessionTimeout")
+      Prelude.<*> (x Data..@? "UseExistingClientSecret")
       Prelude.<*> (x Data..@ "Issuer")
       Prelude.<*> (x Data..@ "AuthorizationEndpoint")
       Prelude.<*> (x Data..@ "TokenEndpoint")
@@ -265,13 +264,14 @@ instance
     AuthenticateOidcActionConfig
   where
   hashWithSalt _salt AuthenticateOidcActionConfig' {..} =
-    _salt `Prelude.hashWithSalt` clientSecret
-      `Prelude.hashWithSalt` useExistingClientSecret
-      `Prelude.hashWithSalt` sessionTimeout
-      `Prelude.hashWithSalt` onUnauthenticatedRequest
+    _salt
       `Prelude.hashWithSalt` authenticationRequestExtraParams
+      `Prelude.hashWithSalt` clientSecret
+      `Prelude.hashWithSalt` onUnauthenticatedRequest
       `Prelude.hashWithSalt` scope
       `Prelude.hashWithSalt` sessionCookieName
+      `Prelude.hashWithSalt` sessionTimeout
+      `Prelude.hashWithSalt` useExistingClientSecret
       `Prelude.hashWithSalt` issuer
       `Prelude.hashWithSalt` authorizationEndpoint
       `Prelude.hashWithSalt` tokenEndpoint
@@ -280,13 +280,13 @@ instance
 
 instance Prelude.NFData AuthenticateOidcActionConfig where
   rnf AuthenticateOidcActionConfig' {..} =
-    Prelude.rnf clientSecret
-      `Prelude.seq` Prelude.rnf useExistingClientSecret
-      `Prelude.seq` Prelude.rnf sessionTimeout
+    Prelude.rnf authenticationRequestExtraParams
+      `Prelude.seq` Prelude.rnf clientSecret
       `Prelude.seq` Prelude.rnf onUnauthenticatedRequest
-      `Prelude.seq` Prelude.rnf authenticationRequestExtraParams
       `Prelude.seq` Prelude.rnf scope
       `Prelude.seq` Prelude.rnf sessionCookieName
+      `Prelude.seq` Prelude.rnf sessionTimeout
+      `Prelude.seq` Prelude.rnf useExistingClientSecret
       `Prelude.seq` Prelude.rnf issuer
       `Prelude.seq` Prelude.rnf authorizationEndpoint
       `Prelude.seq` Prelude.rnf tokenEndpoint
@@ -296,19 +296,19 @@ instance Prelude.NFData AuthenticateOidcActionConfig where
 instance Data.ToQuery AuthenticateOidcActionConfig where
   toQuery AuthenticateOidcActionConfig' {..} =
     Prelude.mconcat
-      [ "ClientSecret" Data.=: clientSecret,
-        "UseExistingClientSecret"
-          Data.=: useExistingClientSecret,
-        "SessionTimeout" Data.=: sessionTimeout,
-        "OnUnauthenticatedRequest"
-          Data.=: onUnauthenticatedRequest,
-        "AuthenticationRequestExtraParams"
+      [ "AuthenticationRequestExtraParams"
           Data.=: Data.toQuery
             ( Data.toQueryMap "entry" "key" "value"
                 Prelude.<$> authenticationRequestExtraParams
             ),
+        "ClientSecret" Data.=: clientSecret,
+        "OnUnauthenticatedRequest"
+          Data.=: onUnauthenticatedRequest,
         "Scope" Data.=: scope,
         "SessionCookieName" Data.=: sessionCookieName,
+        "SessionTimeout" Data.=: sessionTimeout,
+        "UseExistingClientSecret"
+          Data.=: useExistingClientSecret,
         "Issuer" Data.=: issuer,
         "AuthorizationEndpoint"
           Data.=: authorizationEndpoint,

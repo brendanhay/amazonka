@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRulePriorityPair' smart constructor.
 data RulePriorityPair = RulePriorityPair'
-  { -- | The Amazon Resource Name (ARN) of the rule.
-    ruleArn :: Prelude.Maybe Prelude.Text,
-    -- | The rule priority.
-    priority :: Prelude.Maybe Prelude.Natural
+  { -- | The rule priority.
+    priority :: Prelude.Maybe Prelude.Natural,
+    -- | The Amazon Resource Name (ARN) of the rule.
+    ruleArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,38 +43,38 @@ data RulePriorityPair = RulePriorityPair'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ruleArn', 'rulePriorityPair_ruleArn' - The Amazon Resource Name (ARN) of the rule.
---
 -- 'priority', 'rulePriorityPair_priority' - The rule priority.
+--
+-- 'ruleArn', 'rulePriorityPair_ruleArn' - The Amazon Resource Name (ARN) of the rule.
 newRulePriorityPair ::
   RulePriorityPair
 newRulePriorityPair =
   RulePriorityPair'
-    { ruleArn = Prelude.Nothing,
-      priority = Prelude.Nothing
+    { priority = Prelude.Nothing,
+      ruleArn = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the rule.
-rulePriorityPair_ruleArn :: Lens.Lens' RulePriorityPair (Prelude.Maybe Prelude.Text)
-rulePriorityPair_ruleArn = Lens.lens (\RulePriorityPair' {ruleArn} -> ruleArn) (\s@RulePriorityPair' {} a -> s {ruleArn = a} :: RulePriorityPair)
 
 -- | The rule priority.
 rulePriorityPair_priority :: Lens.Lens' RulePriorityPair (Prelude.Maybe Prelude.Natural)
 rulePriorityPair_priority = Lens.lens (\RulePriorityPair' {priority} -> priority) (\s@RulePriorityPair' {} a -> s {priority = a} :: RulePriorityPair)
 
+-- | The Amazon Resource Name (ARN) of the rule.
+rulePriorityPair_ruleArn :: Lens.Lens' RulePriorityPair (Prelude.Maybe Prelude.Text)
+rulePriorityPair_ruleArn = Lens.lens (\RulePriorityPair' {ruleArn} -> ruleArn) (\s@RulePriorityPair' {} a -> s {ruleArn = a} :: RulePriorityPair)
+
 instance Prelude.Hashable RulePriorityPair where
   hashWithSalt _salt RulePriorityPair' {..} =
-    _salt `Prelude.hashWithSalt` ruleArn
-      `Prelude.hashWithSalt` priority
+    _salt `Prelude.hashWithSalt` priority
+      `Prelude.hashWithSalt` ruleArn
 
 instance Prelude.NFData RulePriorityPair where
   rnf RulePriorityPair' {..} =
-    Prelude.rnf ruleArn
-      `Prelude.seq` Prelude.rnf priority
+    Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf ruleArn
 
 instance Data.ToQuery RulePriorityPair where
   toQuery RulePriorityPair' {..} =
     Prelude.mconcat
-      [ "RuleArn" Data.=: ruleArn,
-        "Priority" Data.=: priority
+      [ "Priority" Data.=: priority,
+        "RuleArn" Data.=: ruleArn
       ]

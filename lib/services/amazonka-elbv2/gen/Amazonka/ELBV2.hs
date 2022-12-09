@@ -49,41 +49,95 @@ module Amazonka.ELBV2
     -- * Errors
     -- $errors
 
-    -- ** InvalidSchemeException
-    _InvalidSchemeException,
+    -- ** ALPNPolicyNotSupportedException
+    _ALPNPolicyNotSupportedException,
 
-    -- ** IncompatibleProtocolsException
-    _IncompatibleProtocolsException,
+    -- ** AllocationIdNotFoundException
+    _AllocationIdNotFoundException,
 
-    -- ** ListenerNotFoundException
-    _ListenerNotFoundException,
-
-    -- ** DuplicateTargetGroupNameException
-    _DuplicateTargetGroupNameException,
-
-    -- ** TooManyTargetGroupsException
-    _TooManyTargetGroupsException,
-
-    -- ** TargetGroupAssociationLimitException
-    _TargetGroupAssociationLimitException,
-
-    -- ** DuplicateTagKeysException
-    _DuplicateTagKeysException,
-
-    -- ** TooManyListenersException
-    _TooManyListenersException,
-
-    -- ** TooManyTargetsException
-    _TooManyTargetsException,
-
-    -- ** InvalidLoadBalancerActionException
-    _InvalidLoadBalancerActionException,
+    -- ** AvailabilityZoneNotSupportedException
+    _AvailabilityZoneNotSupportedException,
 
     -- ** CertificateNotFoundException
     _CertificateNotFoundException,
 
-    -- ** TooManyTagsException
-    _TooManyTagsException,
+    -- ** DuplicateListenerException
+    _DuplicateListenerException,
+
+    -- ** DuplicateLoadBalancerNameException
+    _DuplicateLoadBalancerNameException,
+
+    -- ** DuplicateTagKeysException
+    _DuplicateTagKeysException,
+
+    -- ** DuplicateTargetGroupNameException
+    _DuplicateTargetGroupNameException,
+
+    -- ** HealthUnavailableException
+    _HealthUnavailableException,
+
+    -- ** IncompatibleProtocolsException
+    _IncompatibleProtocolsException,
+
+    -- ** InvalidConfigurationRequestException
+    _InvalidConfigurationRequestException,
+
+    -- ** InvalidLoadBalancerActionException
+    _InvalidLoadBalancerActionException,
+
+    -- ** InvalidSchemeException
+    _InvalidSchemeException,
+
+    -- ** InvalidSecurityGroupException
+    _InvalidSecurityGroupException,
+
+    -- ** InvalidSubnetException
+    _InvalidSubnetException,
+
+    -- ** InvalidTargetException
+    _InvalidTargetException,
+
+    -- ** ListenerNotFoundException
+    _ListenerNotFoundException,
+
+    -- ** LoadBalancerNotFoundException
+    _LoadBalancerNotFoundException,
+
+    -- ** OperationNotPermittedException
+    _OperationNotPermittedException,
+
+    -- ** PriorityInUseException
+    _PriorityInUseException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
+
+    -- ** RuleNotFoundException
+    _RuleNotFoundException,
+
+    -- ** SSLPolicyNotFoundException
+    _SSLPolicyNotFoundException,
+
+    -- ** SubnetNotFoundException
+    _SubnetNotFoundException,
+
+    -- ** TargetGroupAssociationLimitException
+    _TargetGroupAssociationLimitException,
+
+    -- ** TargetGroupNotFoundException
+    _TargetGroupNotFoundException,
+
+    -- ** TooManyActionsException
+    _TooManyActionsException,
+
+    -- ** TooManyCertificatesException
+    _TooManyCertificatesException,
+
+    -- ** TooManyListenersException
+    _TooManyListenersException,
+
+    -- ** TooManyLoadBalancersException
+    _TooManyLoadBalancersException,
 
     -- ** TooManyRegistrationsForTargetIdException
     _TooManyRegistrationsForTargetIdException,
@@ -91,71 +145,17 @@ module Amazonka.ELBV2
     -- ** TooManyRulesException
     _TooManyRulesException,
 
+    -- ** TooManyTagsException
+    _TooManyTagsException,
+
+    -- ** TooManyTargetGroupsException
+    _TooManyTargetGroupsException,
+
+    -- ** TooManyTargetsException
+    _TooManyTargetsException,
+
     -- ** TooManyUniqueTargetGroupsPerLoadBalancerException
     _TooManyUniqueTargetGroupsPerLoadBalancerException,
-
-    -- ** InvalidSecurityGroupException
-    _InvalidSecurityGroupException,
-
-    -- ** SSLPolicyNotFoundException
-    _SSLPolicyNotFoundException,
-
-    -- ** ResourceInUseException
-    _ResourceInUseException,
-
-    -- ** TooManyActionsException
-    _TooManyActionsException,
-
-    -- ** LoadBalancerNotFoundException
-    _LoadBalancerNotFoundException,
-
-    -- ** HealthUnavailableException
-    _HealthUnavailableException,
-
-    -- ** InvalidTargetException
-    _InvalidTargetException,
-
-    -- ** TooManyLoadBalancersException
-    _TooManyLoadBalancersException,
-
-    -- ** AllocationIdNotFoundException
-    _AllocationIdNotFoundException,
-
-    -- ** DuplicateLoadBalancerNameException
-    _DuplicateLoadBalancerNameException,
-
-    -- ** PriorityInUseException
-    _PriorityInUseException,
-
-    -- ** AvailabilityZoneNotSupportedException
-    _AvailabilityZoneNotSupportedException,
-
-    -- ** TargetGroupNotFoundException
-    _TargetGroupNotFoundException,
-
-    -- ** InvalidSubnetException
-    _InvalidSubnetException,
-
-    -- ** OperationNotPermittedException
-    _OperationNotPermittedException,
-
-    -- ** InvalidConfigurationRequestException
-    _InvalidConfigurationRequestException,
-
-    -- ** DuplicateListenerException
-    _DuplicateListenerException,
-
-    -- ** RuleNotFoundException
-    _RuleNotFoundException,
-
-    -- ** TooManyCertificatesException
-    _TooManyCertificatesException,
-
-    -- ** ALPNPolicyNotSupportedException
-    _ALPNPolicyNotSupportedException,
-
-    -- ** SubnetNotFoundException
-    _SubnetNotFoundException,
 
     -- ** UnsupportedProtocolException
     _UnsupportedProtocolException,
@@ -163,20 +163,20 @@ module Amazonka.ELBV2
     -- * Waiters
     -- $waiters
 
-    -- ** TargetInService
-    newTargetInService,
+    -- ** LoadBalancerAvailable
+    newLoadBalancerAvailable,
 
     -- ** LoadBalancerExists
     newLoadBalancerExists,
 
-    -- ** LoadBalancerAvailable
-    newLoadBalancerAvailable,
+    -- ** LoadBalancersDeleted
+    newLoadBalancersDeleted,
 
     -- ** TargetDeregistered
     newTargetDeregistered,
 
-    -- ** LoadBalancersDeleted
-    newLoadBalancersDeleted,
+    -- ** TargetInService
+    newTargetInService,
 
     -- * Operations
     -- $operations

@@ -31,13 +31,13 @@ data SubnetMapping = SubnetMapping'
   { -- | [Network Load Balancers] The allocation ID of the Elastic IP address for
     -- an internet-facing load balancer.
     allocationId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the subnet.
-    subnetId :: Prelude.Maybe Prelude.Text,
     -- | [Network Load Balancers] The IPv6 address.
     iPv6Address :: Prelude.Maybe Prelude.Text,
     -- | [Network Load Balancers] The private IPv4 address for an internal load
     -- balancer.
-    privateIPv4Address :: Prelude.Maybe Prelude.Text
+    privateIPv4Address :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the subnet.
+    subnetId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,30 +52,26 @@ data SubnetMapping = SubnetMapping'
 -- 'allocationId', 'subnetMapping_allocationId' - [Network Load Balancers] The allocation ID of the Elastic IP address for
 -- an internet-facing load balancer.
 --
--- 'subnetId', 'subnetMapping_subnetId' - The ID of the subnet.
---
 -- 'iPv6Address', 'subnetMapping_iPv6Address' - [Network Load Balancers] The IPv6 address.
 --
 -- 'privateIPv4Address', 'subnetMapping_privateIPv4Address' - [Network Load Balancers] The private IPv4 address for an internal load
 -- balancer.
+--
+-- 'subnetId', 'subnetMapping_subnetId' - The ID of the subnet.
 newSubnetMapping ::
   SubnetMapping
 newSubnetMapping =
   SubnetMapping'
     { allocationId = Prelude.Nothing,
-      subnetId = Prelude.Nothing,
       iPv6Address = Prelude.Nothing,
-      privateIPv4Address = Prelude.Nothing
+      privateIPv4Address = Prelude.Nothing,
+      subnetId = Prelude.Nothing
     }
 
 -- | [Network Load Balancers] The allocation ID of the Elastic IP address for
 -- an internet-facing load balancer.
 subnetMapping_allocationId :: Lens.Lens' SubnetMapping (Prelude.Maybe Prelude.Text)
 subnetMapping_allocationId = Lens.lens (\SubnetMapping' {allocationId} -> allocationId) (\s@SubnetMapping' {} a -> s {allocationId = a} :: SubnetMapping)
-
--- | The ID of the subnet.
-subnetMapping_subnetId :: Lens.Lens' SubnetMapping (Prelude.Maybe Prelude.Text)
-subnetMapping_subnetId = Lens.lens (\SubnetMapping' {subnetId} -> subnetId) (\s@SubnetMapping' {} a -> s {subnetId = a} :: SubnetMapping)
 
 -- | [Network Load Balancers] The IPv6 address.
 subnetMapping_iPv6Address :: Lens.Lens' SubnetMapping (Prelude.Maybe Prelude.Text)
@@ -86,25 +82,29 @@ subnetMapping_iPv6Address = Lens.lens (\SubnetMapping' {iPv6Address} -> iPv6Addr
 subnetMapping_privateIPv4Address :: Lens.Lens' SubnetMapping (Prelude.Maybe Prelude.Text)
 subnetMapping_privateIPv4Address = Lens.lens (\SubnetMapping' {privateIPv4Address} -> privateIPv4Address) (\s@SubnetMapping' {} a -> s {privateIPv4Address = a} :: SubnetMapping)
 
+-- | The ID of the subnet.
+subnetMapping_subnetId :: Lens.Lens' SubnetMapping (Prelude.Maybe Prelude.Text)
+subnetMapping_subnetId = Lens.lens (\SubnetMapping' {subnetId} -> subnetId) (\s@SubnetMapping' {} a -> s {subnetId = a} :: SubnetMapping)
+
 instance Prelude.Hashable SubnetMapping where
   hashWithSalt _salt SubnetMapping' {..} =
     _salt `Prelude.hashWithSalt` allocationId
-      `Prelude.hashWithSalt` subnetId
       `Prelude.hashWithSalt` iPv6Address
       `Prelude.hashWithSalt` privateIPv4Address
+      `Prelude.hashWithSalt` subnetId
 
 instance Prelude.NFData SubnetMapping where
   rnf SubnetMapping' {..} =
     Prelude.rnf allocationId
-      `Prelude.seq` Prelude.rnf subnetId
       `Prelude.seq` Prelude.rnf iPv6Address
       `Prelude.seq` Prelude.rnf privateIPv4Address
+      `Prelude.seq` Prelude.rnf subnetId
 
 instance Data.ToQuery SubnetMapping where
   toQuery SubnetMapping' {..} =
     Prelude.mconcat
       [ "AllocationId" Data.=: allocationId,
-        "SubnetId" Data.=: subnetId,
         "IPv6Address" Data.=: iPv6Address,
-        "PrivateIPv4Address" Data.=: privateIPv4Address
+        "PrivateIPv4Address" Data.=: privateIPv4Address,
+        "SubnetId" Data.=: subnetId
       ]

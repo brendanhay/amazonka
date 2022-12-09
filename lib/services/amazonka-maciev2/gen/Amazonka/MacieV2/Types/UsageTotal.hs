@@ -33,15 +33,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUsageTotal' smart constructor.
 data UsageTotal = UsageTotal'
-  { -- | The name of the metric. Possible values are: DATA_INVENTORY_EVALUATION,
-    -- for monitoring S3 buckets; and, SENSITIVE_DATA_DISCOVERY, for analyzing
-    -- S3 objects to detect sensitive data.
-    type' :: Prelude.Maybe UsageType,
-    -- | The type of currency that the value for the metric (estimatedCost) is
+  { -- | The type of currency that the value for the metric (estimatedCost) is
     -- reported in.
     currency :: Prelude.Maybe Currency,
     -- | The estimated value for the metric.
-    estimatedCost :: Prelude.Maybe Prelude.Text
+    estimatedCost :: Prelude.Maybe Prelude.Text,
+    -- | The name of the metric. Possible values are:
+    -- AUTOMATED_OBJECT_MONITORING, to monitor S3 objects for automated
+    -- sensitive data discovery; AUTOMATED_SENSITIVE_DATA_DISCOVERY, to analyze
+    -- S3 objects for automated sensitive data discovery;
+    -- DATA_INVENTORY_EVALUATION, to monitor S3 buckets; and,
+    -- SENSITIVE_DATA_DISCOVERY, to run classification jobs.
+    type' :: Prelude.Maybe UsageType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,28 +56,25 @@ data UsageTotal = UsageTotal'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'usageTotal_type' - The name of the metric. Possible values are: DATA_INVENTORY_EVALUATION,
--- for monitoring S3 buckets; and, SENSITIVE_DATA_DISCOVERY, for analyzing
--- S3 objects to detect sensitive data.
---
 -- 'currency', 'usageTotal_currency' - The type of currency that the value for the metric (estimatedCost) is
 -- reported in.
 --
 -- 'estimatedCost', 'usageTotal_estimatedCost' - The estimated value for the metric.
+--
+-- 'type'', 'usageTotal_type' - The name of the metric. Possible values are:
+-- AUTOMATED_OBJECT_MONITORING, to monitor S3 objects for automated
+-- sensitive data discovery; AUTOMATED_SENSITIVE_DATA_DISCOVERY, to analyze
+-- S3 objects for automated sensitive data discovery;
+-- DATA_INVENTORY_EVALUATION, to monitor S3 buckets; and,
+-- SENSITIVE_DATA_DISCOVERY, to run classification jobs.
 newUsageTotal ::
   UsageTotal
 newUsageTotal =
   UsageTotal'
-    { type' = Prelude.Nothing,
-      currency = Prelude.Nothing,
-      estimatedCost = Prelude.Nothing
+    { currency = Prelude.Nothing,
+      estimatedCost = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
-
--- | The name of the metric. Possible values are: DATA_INVENTORY_EVALUATION,
--- for monitoring S3 buckets; and, SENSITIVE_DATA_DISCOVERY, for analyzing
--- S3 objects to detect sensitive data.
-usageTotal_type :: Lens.Lens' UsageTotal (Prelude.Maybe UsageType)
-usageTotal_type = Lens.lens (\UsageTotal' {type'} -> type') (\s@UsageTotal' {} a -> s {type' = a} :: UsageTotal)
 
 -- | The type of currency that the value for the metric (estimatedCost) is
 -- reported in.
@@ -85,25 +85,34 @@ usageTotal_currency = Lens.lens (\UsageTotal' {currency} -> currency) (\s@UsageT
 usageTotal_estimatedCost :: Lens.Lens' UsageTotal (Prelude.Maybe Prelude.Text)
 usageTotal_estimatedCost = Lens.lens (\UsageTotal' {estimatedCost} -> estimatedCost) (\s@UsageTotal' {} a -> s {estimatedCost = a} :: UsageTotal)
 
+-- | The name of the metric. Possible values are:
+-- AUTOMATED_OBJECT_MONITORING, to monitor S3 objects for automated
+-- sensitive data discovery; AUTOMATED_SENSITIVE_DATA_DISCOVERY, to analyze
+-- S3 objects for automated sensitive data discovery;
+-- DATA_INVENTORY_EVALUATION, to monitor S3 buckets; and,
+-- SENSITIVE_DATA_DISCOVERY, to run classification jobs.
+usageTotal_type :: Lens.Lens' UsageTotal (Prelude.Maybe UsageType)
+usageTotal_type = Lens.lens (\UsageTotal' {type'} -> type') (\s@UsageTotal' {} a -> s {type' = a} :: UsageTotal)
+
 instance Data.FromJSON UsageTotal where
   parseJSON =
     Data.withObject
       "UsageTotal"
       ( \x ->
           UsageTotal'
-            Prelude.<$> (x Data..:? "type")
-            Prelude.<*> (x Data..:? "currency")
+            Prelude.<$> (x Data..:? "currency")
             Prelude.<*> (x Data..:? "estimatedCost")
+            Prelude.<*> (x Data..:? "type")
       )
 
 instance Prelude.Hashable UsageTotal where
   hashWithSalt _salt UsageTotal' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` currency
+    _salt `Prelude.hashWithSalt` currency
       `Prelude.hashWithSalt` estimatedCost
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData UsageTotal where
   rnf UsageTotal' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf currency
+    Prelude.rnf currency
       `Prelude.seq` Prelude.rnf estimatedCost
+      `Prelude.seq` Prelude.rnf type'

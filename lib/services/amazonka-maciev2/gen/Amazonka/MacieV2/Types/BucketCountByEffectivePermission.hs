@@ -36,13 +36,13 @@ data BucketCountByEffectivePermission = BucketCountByEffectivePermission'
     -- | The total number of buckets that allow the general public to have read
     -- access to the bucket.
     publiclyReadable :: Prelude.Maybe Prelude.Integer,
+    -- | The total number of buckets that allow the general public to have write
+    -- access to the bucket.
+    publiclyWritable :: Prelude.Maybe Prelude.Integer,
     -- | The total number of buckets that Amazon Macie wasn\'t able to evaluate
     -- permissions settings for. Macie can\'t determine whether these buckets
     -- are publicly accessible.
-    unknown :: Prelude.Maybe Prelude.Integer,
-    -- | The total number of buckets that allow the general public to have write
-    -- access to the bucket.
-    publiclyWritable :: Prelude.Maybe Prelude.Integer
+    unknown :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,12 +60,12 @@ data BucketCountByEffectivePermission = BucketCountByEffectivePermission'
 -- 'publiclyReadable', 'bucketCountByEffectivePermission_publiclyReadable' - The total number of buckets that allow the general public to have read
 -- access to the bucket.
 --
+-- 'publiclyWritable', 'bucketCountByEffectivePermission_publiclyWritable' - The total number of buckets that allow the general public to have write
+-- access to the bucket.
+--
 -- 'unknown', 'bucketCountByEffectivePermission_unknown' - The total number of buckets that Amazon Macie wasn\'t able to evaluate
 -- permissions settings for. Macie can\'t determine whether these buckets
 -- are publicly accessible.
---
--- 'publiclyWritable', 'bucketCountByEffectivePermission_publiclyWritable' - The total number of buckets that allow the general public to have write
--- access to the bucket.
 newBucketCountByEffectivePermission ::
   BucketCountByEffectivePermission
 newBucketCountByEffectivePermission =
@@ -73,8 +73,8 @@ newBucketCountByEffectivePermission =
     { publiclyAccessible =
         Prelude.Nothing,
       publiclyReadable = Prelude.Nothing,
-      unknown = Prelude.Nothing,
-      publiclyWritable = Prelude.Nothing
+      publiclyWritable = Prelude.Nothing,
+      unknown = Prelude.Nothing
     }
 
 -- | The total number of buckets that allow the general public to have read
@@ -87,16 +87,16 @@ bucketCountByEffectivePermission_publiclyAccessible = Lens.lens (\BucketCountByE
 bucketCountByEffectivePermission_publiclyReadable :: Lens.Lens' BucketCountByEffectivePermission (Prelude.Maybe Prelude.Integer)
 bucketCountByEffectivePermission_publiclyReadable = Lens.lens (\BucketCountByEffectivePermission' {publiclyReadable} -> publiclyReadable) (\s@BucketCountByEffectivePermission' {} a -> s {publiclyReadable = a} :: BucketCountByEffectivePermission)
 
+-- | The total number of buckets that allow the general public to have write
+-- access to the bucket.
+bucketCountByEffectivePermission_publiclyWritable :: Lens.Lens' BucketCountByEffectivePermission (Prelude.Maybe Prelude.Integer)
+bucketCountByEffectivePermission_publiclyWritable = Lens.lens (\BucketCountByEffectivePermission' {publiclyWritable} -> publiclyWritable) (\s@BucketCountByEffectivePermission' {} a -> s {publiclyWritable = a} :: BucketCountByEffectivePermission)
+
 -- | The total number of buckets that Amazon Macie wasn\'t able to evaluate
 -- permissions settings for. Macie can\'t determine whether these buckets
 -- are publicly accessible.
 bucketCountByEffectivePermission_unknown :: Lens.Lens' BucketCountByEffectivePermission (Prelude.Maybe Prelude.Integer)
 bucketCountByEffectivePermission_unknown = Lens.lens (\BucketCountByEffectivePermission' {unknown} -> unknown) (\s@BucketCountByEffectivePermission' {} a -> s {unknown = a} :: BucketCountByEffectivePermission)
-
--- | The total number of buckets that allow the general public to have write
--- access to the bucket.
-bucketCountByEffectivePermission_publiclyWritable :: Lens.Lens' BucketCountByEffectivePermission (Prelude.Maybe Prelude.Integer)
-bucketCountByEffectivePermission_publiclyWritable = Lens.lens (\BucketCountByEffectivePermission' {publiclyWritable} -> publiclyWritable) (\s@BucketCountByEffectivePermission' {} a -> s {publiclyWritable = a} :: BucketCountByEffectivePermission)
 
 instance
   Data.FromJSON
@@ -109,8 +109,8 @@ instance
           BucketCountByEffectivePermission'
             Prelude.<$> (x Data..:? "publiclyAccessible")
             Prelude.<*> (x Data..:? "publiclyReadable")
-            Prelude.<*> (x Data..:? "unknown")
             Prelude.<*> (x Data..:? "publiclyWritable")
+            Prelude.<*> (x Data..:? "unknown")
       )
 
 instance
@@ -122,8 +122,8 @@ instance
     BucketCountByEffectivePermission' {..} =
       _salt `Prelude.hashWithSalt` publiclyAccessible
         `Prelude.hashWithSalt` publiclyReadable
-        `Prelude.hashWithSalt` unknown
         `Prelude.hashWithSalt` publiclyWritable
+        `Prelude.hashWithSalt` unknown
 
 instance
   Prelude.NFData
@@ -132,5 +132,5 @@ instance
   rnf BucketCountByEffectivePermission' {..} =
     Prelude.rnf publiclyAccessible
       `Prelude.seq` Prelude.rnf publiclyReadable
-      `Prelude.seq` Prelude.rnf unknown
       `Prelude.seq` Prelude.rnf publiclyWritable
+      `Prelude.seq` Prelude.rnf unknown

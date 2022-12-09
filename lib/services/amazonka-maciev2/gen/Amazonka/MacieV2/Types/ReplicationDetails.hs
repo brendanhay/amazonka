@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newReplicationDetails' smart constructor.
 data ReplicationDetails = ReplicationDetails'
   { -- | Specifies whether the bucket is configured to replicate one or more
+    -- objects to any destination.
+    replicated :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies whether the bucket is configured to replicate one or more
     -- objects to an Amazon Web Services account that isn\'t part of the same
     -- Amazon Macie organization.
     replicatedExternally :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies whether the bucket is configured to replicate one or more
-    -- objects to any destination.
-    replicated :: Prelude.Maybe Prelude.Bool,
     -- | An array of Amazon Web Services account IDs, one for each Amazon Web
     -- Services account that the bucket is configured to replicate one or more
     -- objects to.
@@ -52,12 +52,12 @@ data ReplicationDetails = ReplicationDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'replicated', 'replicationDetails_replicated' - Specifies whether the bucket is configured to replicate one or more
+-- objects to any destination.
+--
 -- 'replicatedExternally', 'replicationDetails_replicatedExternally' - Specifies whether the bucket is configured to replicate one or more
 -- objects to an Amazon Web Services account that isn\'t part of the same
 -- Amazon Macie organization.
---
--- 'replicated', 'replicationDetails_replicated' - Specifies whether the bucket is configured to replicate one or more
--- objects to any destination.
 --
 -- 'replicationAccounts', 'replicationDetails_replicationAccounts' - An array of Amazon Web Services account IDs, one for each Amazon Web
 -- Services account that the bucket is configured to replicate one or more
@@ -66,22 +66,21 @@ newReplicationDetails ::
   ReplicationDetails
 newReplicationDetails =
   ReplicationDetails'
-    { replicatedExternally =
-        Prelude.Nothing,
-      replicated = Prelude.Nothing,
+    { replicated = Prelude.Nothing,
+      replicatedExternally = Prelude.Nothing,
       replicationAccounts = Prelude.Nothing
     }
+
+-- | Specifies whether the bucket is configured to replicate one or more
+-- objects to any destination.
+replicationDetails_replicated :: Lens.Lens' ReplicationDetails (Prelude.Maybe Prelude.Bool)
+replicationDetails_replicated = Lens.lens (\ReplicationDetails' {replicated} -> replicated) (\s@ReplicationDetails' {} a -> s {replicated = a} :: ReplicationDetails)
 
 -- | Specifies whether the bucket is configured to replicate one or more
 -- objects to an Amazon Web Services account that isn\'t part of the same
 -- Amazon Macie organization.
 replicationDetails_replicatedExternally :: Lens.Lens' ReplicationDetails (Prelude.Maybe Prelude.Bool)
 replicationDetails_replicatedExternally = Lens.lens (\ReplicationDetails' {replicatedExternally} -> replicatedExternally) (\s@ReplicationDetails' {} a -> s {replicatedExternally = a} :: ReplicationDetails)
-
--- | Specifies whether the bucket is configured to replicate one or more
--- objects to any destination.
-replicationDetails_replicated :: Lens.Lens' ReplicationDetails (Prelude.Maybe Prelude.Bool)
-replicationDetails_replicated = Lens.lens (\ReplicationDetails' {replicated} -> replicated) (\s@ReplicationDetails' {} a -> s {replicated = a} :: ReplicationDetails)
 
 -- | An array of Amazon Web Services account IDs, one for each Amazon Web
 -- Services account that the bucket is configured to replicate one or more
@@ -95,8 +94,8 @@ instance Data.FromJSON ReplicationDetails where
       "ReplicationDetails"
       ( \x ->
           ReplicationDetails'
-            Prelude.<$> (x Data..:? "replicatedExternally")
-            Prelude.<*> (x Data..:? "replicated")
+            Prelude.<$> (x Data..:? "replicated")
+            Prelude.<*> (x Data..:? "replicatedExternally")
             Prelude.<*> ( x Data..:? "replicationAccounts"
                             Data..!= Prelude.mempty
                         )
@@ -104,12 +103,12 @@ instance Data.FromJSON ReplicationDetails where
 
 instance Prelude.Hashable ReplicationDetails where
   hashWithSalt _salt ReplicationDetails' {..} =
-    _salt `Prelude.hashWithSalt` replicatedExternally
-      `Prelude.hashWithSalt` replicated
+    _salt `Prelude.hashWithSalt` replicated
+      `Prelude.hashWithSalt` replicatedExternally
       `Prelude.hashWithSalt` replicationAccounts
 
 instance Prelude.NFData ReplicationDetails where
   rnf ReplicationDetails' {..} =
-    Prelude.rnf replicatedExternally
-      `Prelude.seq` Prelude.rnf replicated
+    Prelude.rnf replicated
+      `Prelude.seq` Prelude.rnf replicatedExternally
       `Prelude.seq` Prelude.rnf replicationAccounts

@@ -31,13 +31,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSearchResourcesCriteria' smart constructor.
 data SearchResourcesCriteria = SearchResourcesCriteria'
-  { -- | A tag-based condition that defines an operator and tag keys, tag values,
+  { -- | A property-based condition that defines a property, operator, and one or
+    -- more values for including or excluding resources from the results.
+    simpleCriterion :: Prelude.Maybe SearchResourcesSimpleCriterion,
+    -- | A tag-based condition that defines an operator and tag keys, tag values,
     -- or tag key and value pairs for including or excluding resources from the
     -- results.
-    tagCriterion :: Prelude.Maybe SearchResourcesTagCriterion,
-    -- | A property-based condition that defines a property, operator, and one or
-    -- more values for including or excluding resources from the results.
-    simpleCriterion :: Prelude.Maybe SearchResourcesSimpleCriterion
+    tagCriterion :: Prelude.Maybe SearchResourcesTagCriterion
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,20 +49,25 @@ data SearchResourcesCriteria = SearchResourcesCriteria'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'simpleCriterion', 'searchResourcesCriteria_simpleCriterion' - A property-based condition that defines a property, operator, and one or
+-- more values for including or excluding resources from the results.
+--
 -- 'tagCriterion', 'searchResourcesCriteria_tagCriterion' - A tag-based condition that defines an operator and tag keys, tag values,
 -- or tag key and value pairs for including or excluding resources from the
 -- results.
---
--- 'simpleCriterion', 'searchResourcesCriteria_simpleCriterion' - A property-based condition that defines a property, operator, and one or
--- more values for including or excluding resources from the results.
 newSearchResourcesCriteria ::
   SearchResourcesCriteria
 newSearchResourcesCriteria =
   SearchResourcesCriteria'
-    { tagCriterion =
+    { simpleCriterion =
         Prelude.Nothing,
-      simpleCriterion = Prelude.Nothing
+      tagCriterion = Prelude.Nothing
     }
+
+-- | A property-based condition that defines a property, operator, and one or
+-- more values for including or excluding resources from the results.
+searchResourcesCriteria_simpleCriterion :: Lens.Lens' SearchResourcesCriteria (Prelude.Maybe SearchResourcesSimpleCriterion)
+searchResourcesCriteria_simpleCriterion = Lens.lens (\SearchResourcesCriteria' {simpleCriterion} -> simpleCriterion) (\s@SearchResourcesCriteria' {} a -> s {simpleCriterion = a} :: SearchResourcesCriteria)
 
 -- | A tag-based condition that defines an operator and tag keys, tag values,
 -- or tag key and value pairs for including or excluding resources from the
@@ -70,27 +75,22 @@ newSearchResourcesCriteria =
 searchResourcesCriteria_tagCriterion :: Lens.Lens' SearchResourcesCriteria (Prelude.Maybe SearchResourcesTagCriterion)
 searchResourcesCriteria_tagCriterion = Lens.lens (\SearchResourcesCriteria' {tagCriterion} -> tagCriterion) (\s@SearchResourcesCriteria' {} a -> s {tagCriterion = a} :: SearchResourcesCriteria)
 
--- | A property-based condition that defines a property, operator, and one or
--- more values for including or excluding resources from the results.
-searchResourcesCriteria_simpleCriterion :: Lens.Lens' SearchResourcesCriteria (Prelude.Maybe SearchResourcesSimpleCriterion)
-searchResourcesCriteria_simpleCriterion = Lens.lens (\SearchResourcesCriteria' {simpleCriterion} -> simpleCriterion) (\s@SearchResourcesCriteria' {} a -> s {simpleCriterion = a} :: SearchResourcesCriteria)
-
 instance Prelude.Hashable SearchResourcesCriteria where
   hashWithSalt _salt SearchResourcesCriteria' {..} =
-    _salt `Prelude.hashWithSalt` tagCriterion
-      `Prelude.hashWithSalt` simpleCriterion
+    _salt `Prelude.hashWithSalt` simpleCriterion
+      `Prelude.hashWithSalt` tagCriterion
 
 instance Prelude.NFData SearchResourcesCriteria where
   rnf SearchResourcesCriteria' {..} =
-    Prelude.rnf tagCriterion
-      `Prelude.seq` Prelude.rnf simpleCriterion
+    Prelude.rnf simpleCriterion
+      `Prelude.seq` Prelude.rnf tagCriterion
 
 instance Data.ToJSON SearchResourcesCriteria where
   toJSON SearchResourcesCriteria' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tagCriterion" Data..=) Prelude.<$> tagCriterion,
-            ("simpleCriterion" Data..=)
-              Prelude.<$> simpleCriterion
+          [ ("simpleCriterion" Data..=)
+              Prelude.<$> simpleCriterion,
+            ("tagCriterion" Data..=) Prelude.<$> tagCriterion
           ]
       )

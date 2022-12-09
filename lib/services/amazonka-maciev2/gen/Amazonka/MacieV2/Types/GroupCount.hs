@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGroupCount' smart constructor.
 data GroupCount = GroupCount'
-  { -- | The name of the property that defines the group in the query results, as
+  { -- | The total number of findings in the group of query results.
+    count :: Prelude.Maybe Prelude.Integer,
+    -- | The name of the property that defines the group in the query results, as
     -- specified by the groupBy property in the query request.
-    groupKey :: Prelude.Maybe Prelude.Text,
-    -- | The total number of findings in the group of query results.
-    count :: Prelude.Maybe Prelude.Integer
+    groupKey :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,26 +45,26 @@ data GroupCount = GroupCount'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'count', 'groupCount_count' - The total number of findings in the group of query results.
+--
 -- 'groupKey', 'groupCount_groupKey' - The name of the property that defines the group in the query results, as
 -- specified by the groupBy property in the query request.
---
--- 'count', 'groupCount_count' - The total number of findings in the group of query results.
 newGroupCount ::
   GroupCount
 newGroupCount =
   GroupCount'
-    { groupKey = Prelude.Nothing,
-      count = Prelude.Nothing
+    { count = Prelude.Nothing,
+      groupKey = Prelude.Nothing
     }
+
+-- | The total number of findings in the group of query results.
+groupCount_count :: Lens.Lens' GroupCount (Prelude.Maybe Prelude.Integer)
+groupCount_count = Lens.lens (\GroupCount' {count} -> count) (\s@GroupCount' {} a -> s {count = a} :: GroupCount)
 
 -- | The name of the property that defines the group in the query results, as
 -- specified by the groupBy property in the query request.
 groupCount_groupKey :: Lens.Lens' GroupCount (Prelude.Maybe Prelude.Text)
 groupCount_groupKey = Lens.lens (\GroupCount' {groupKey} -> groupKey) (\s@GroupCount' {} a -> s {groupKey = a} :: GroupCount)
-
--- | The total number of findings in the group of query results.
-groupCount_count :: Lens.Lens' GroupCount (Prelude.Maybe Prelude.Integer)
-groupCount_count = Lens.lens (\GroupCount' {count} -> count) (\s@GroupCount' {} a -> s {count = a} :: GroupCount)
 
 instance Data.FromJSON GroupCount where
   parseJSON =
@@ -72,16 +72,16 @@ instance Data.FromJSON GroupCount where
       "GroupCount"
       ( \x ->
           GroupCount'
-            Prelude.<$> (x Data..:? "groupKey")
-            Prelude.<*> (x Data..:? "count")
+            Prelude.<$> (x Data..:? "count")
+            Prelude.<*> (x Data..:? "groupKey")
       )
 
 instance Prelude.Hashable GroupCount where
   hashWithSalt _salt GroupCount' {..} =
-    _salt `Prelude.hashWithSalt` groupKey
-      `Prelude.hashWithSalt` count
+    _salt `Prelude.hashWithSalt` count
+      `Prelude.hashWithSalt` groupKey
 
 instance Prelude.NFData GroupCount where
   rnf GroupCount' {..} =
-    Prelude.rnf groupKey
-      `Prelude.seq` Prelude.rnf count
+    Prelude.rnf count
+      `Prelude.seq` Prelude.rnf groupKey

@@ -26,8 +26,8 @@ import Amazonka.MacieV2.Types.S3Destination
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies where to store data classification results, and the encryption
--- settings to use when storing results in that location. Currently, you
--- can store classification results only in an S3 bucket.
+-- settings to use when storing results in that location. The location must
+-- be an S3 bucket.
 --
 -- /See:/ 'newClassificationExportConfiguration' smart constructor.
 data ClassificationExportConfiguration = ClassificationExportConfiguration'

@@ -30,8 +30,8 @@ module Amazonka.MacieV2.ListCustomDataIdentifiers
     newListCustomDataIdentifiers,
 
     -- * Request Lenses
-    listCustomDataIdentifiers_nextToken,
     listCustomDataIdentifiers_maxResults,
+    listCustomDataIdentifiers_nextToken,
 
     -- * Destructuring the Response
     ListCustomDataIdentifiersResponse (..),
@@ -54,11 +54,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListCustomDataIdentifiers' smart constructor.
 data ListCustomDataIdentifiers = ListCustomDataIdentifiers'
-  { -- | The nextToken string that specifies which page of results to return in a
+  { -- | The maximum number of items to include in each page of the response.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The nextToken string that specifies which page of results to return in a
     -- paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to include in each page of the response.
-    maxResults :: Prelude.Maybe Prelude.Int
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,27 +70,27 @@ data ListCustomDataIdentifiers = ListCustomDataIdentifiers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listCustomDataIdentifiers_maxResults' - The maximum number of items to include in each page of the response.
+--
 -- 'nextToken', 'listCustomDataIdentifiers_nextToken' - The nextToken string that specifies which page of results to return in a
 -- paginated response.
---
--- 'maxResults', 'listCustomDataIdentifiers_maxResults' - The maximum number of items to include in each page of the response.
 newListCustomDataIdentifiers ::
   ListCustomDataIdentifiers
 newListCustomDataIdentifiers =
   ListCustomDataIdentifiers'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of items to include in each page of the response.
+listCustomDataIdentifiers_maxResults :: Lens.Lens' ListCustomDataIdentifiers (Prelude.Maybe Prelude.Int)
+listCustomDataIdentifiers_maxResults = Lens.lens (\ListCustomDataIdentifiers' {maxResults} -> maxResults) (\s@ListCustomDataIdentifiers' {} a -> s {maxResults = a} :: ListCustomDataIdentifiers)
 
 -- | The nextToken string that specifies which page of results to return in a
 -- paginated response.
 listCustomDataIdentifiers_nextToken :: Lens.Lens' ListCustomDataIdentifiers (Prelude.Maybe Prelude.Text)
 listCustomDataIdentifiers_nextToken = Lens.lens (\ListCustomDataIdentifiers' {nextToken} -> nextToken) (\s@ListCustomDataIdentifiers' {} a -> s {nextToken = a} :: ListCustomDataIdentifiers)
-
--- | The maximum number of items to include in each page of the response.
-listCustomDataIdentifiers_maxResults :: Lens.Lens' ListCustomDataIdentifiers (Prelude.Maybe Prelude.Int)
-listCustomDataIdentifiers_maxResults = Lens.lens (\ListCustomDataIdentifiers' {maxResults} -> maxResults) (\s@ListCustomDataIdentifiers' {} a -> s {maxResults = a} :: ListCustomDataIdentifiers)
 
 instance Core.AWSPager ListCustomDataIdentifiers where
   page rq rs
@@ -131,13 +131,13 @@ instance Core.AWSRequest ListCustomDataIdentifiers where
 
 instance Prelude.Hashable ListCustomDataIdentifiers where
   hashWithSalt _salt ListCustomDataIdentifiers' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListCustomDataIdentifiers where
   rnf ListCustomDataIdentifiers' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListCustomDataIdentifiers where
   toHeaders =
@@ -154,8 +154,8 @@ instance Data.ToJSON ListCustomDataIdentifiers where
   toJSON ListCustomDataIdentifiers' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

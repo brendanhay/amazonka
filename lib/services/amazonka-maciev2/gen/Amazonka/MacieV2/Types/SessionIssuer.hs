@@ -29,7 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSessionIssuer' smart constructor.
 data SessionIssuer = SessionIssuer'
-  { -- | The unique identifier for the entity that was used to get the
+  { -- | The unique identifier for the Amazon Web Services account that owns the
+    -- entity that was used to get the credentials.
+    accountId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the source account, IAM user, or role
+    -- that was used to get the credentials.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier for the entity that was used to get the
     -- credentials.
     principalId :: Prelude.Maybe Prelude.Text,
     -- | The source of the temporary security credentials, such as Root, IAMUser,
@@ -38,13 +44,7 @@ data SessionIssuer = SessionIssuer'
     -- | The name or alias of the user or role that issued the session. This
     -- value is null if the credentials were obtained from a root account that
     -- doesn\'t have an alias.
-    userName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the source account, IAM user, or role
-    -- that was used to get the credentials.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for the Amazon Web Services account that owns the
-    -- entity that was used to get the credentials.
-    accountId :: Prelude.Maybe Prelude.Text
+    userName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,6 +56,12 @@ data SessionIssuer = SessionIssuer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'accountId', 'sessionIssuer_accountId' - The unique identifier for the Amazon Web Services account that owns the
+-- entity that was used to get the credentials.
+--
+-- 'arn', 'sessionIssuer_arn' - The Amazon Resource Name (ARN) of the source account, IAM user, or role
+-- that was used to get the credentials.
+--
 -- 'principalId', 'sessionIssuer_principalId' - The unique identifier for the entity that was used to get the
 -- credentials.
 --
@@ -65,22 +71,26 @@ data SessionIssuer = SessionIssuer'
 -- 'userName', 'sessionIssuer_userName' - The name or alias of the user or role that issued the session. This
 -- value is null if the credentials were obtained from a root account that
 -- doesn\'t have an alias.
---
--- 'arn', 'sessionIssuer_arn' - The Amazon Resource Name (ARN) of the source account, IAM user, or role
--- that was used to get the credentials.
---
--- 'accountId', 'sessionIssuer_accountId' - The unique identifier for the Amazon Web Services account that owns the
--- entity that was used to get the credentials.
 newSessionIssuer ::
   SessionIssuer
 newSessionIssuer =
   SessionIssuer'
-    { principalId = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      userName = Prelude.Nothing,
+    { accountId = Prelude.Nothing,
       arn = Prelude.Nothing,
-      accountId = Prelude.Nothing
+      principalId = Prelude.Nothing,
+      type' = Prelude.Nothing,
+      userName = Prelude.Nothing
     }
+
+-- | The unique identifier for the Amazon Web Services account that owns the
+-- entity that was used to get the credentials.
+sessionIssuer_accountId :: Lens.Lens' SessionIssuer (Prelude.Maybe Prelude.Text)
+sessionIssuer_accountId = Lens.lens (\SessionIssuer' {accountId} -> accountId) (\s@SessionIssuer' {} a -> s {accountId = a} :: SessionIssuer)
+
+-- | The Amazon Resource Name (ARN) of the source account, IAM user, or role
+-- that was used to get the credentials.
+sessionIssuer_arn :: Lens.Lens' SessionIssuer (Prelude.Maybe Prelude.Text)
+sessionIssuer_arn = Lens.lens (\SessionIssuer' {arn} -> arn) (\s@SessionIssuer' {} a -> s {arn = a} :: SessionIssuer)
 
 -- | The unique identifier for the entity that was used to get the
 -- credentials.
@@ -98,41 +108,31 @@ sessionIssuer_type = Lens.lens (\SessionIssuer' {type'} -> type') (\s@SessionIss
 sessionIssuer_userName :: Lens.Lens' SessionIssuer (Prelude.Maybe Prelude.Text)
 sessionIssuer_userName = Lens.lens (\SessionIssuer' {userName} -> userName) (\s@SessionIssuer' {} a -> s {userName = a} :: SessionIssuer)
 
--- | The Amazon Resource Name (ARN) of the source account, IAM user, or role
--- that was used to get the credentials.
-sessionIssuer_arn :: Lens.Lens' SessionIssuer (Prelude.Maybe Prelude.Text)
-sessionIssuer_arn = Lens.lens (\SessionIssuer' {arn} -> arn) (\s@SessionIssuer' {} a -> s {arn = a} :: SessionIssuer)
-
--- | The unique identifier for the Amazon Web Services account that owns the
--- entity that was used to get the credentials.
-sessionIssuer_accountId :: Lens.Lens' SessionIssuer (Prelude.Maybe Prelude.Text)
-sessionIssuer_accountId = Lens.lens (\SessionIssuer' {accountId} -> accountId) (\s@SessionIssuer' {} a -> s {accountId = a} :: SessionIssuer)
-
 instance Data.FromJSON SessionIssuer where
   parseJSON =
     Data.withObject
       "SessionIssuer"
       ( \x ->
           SessionIssuer'
-            Prelude.<$> (x Data..:? "principalId")
+            Prelude.<$> (x Data..:? "accountId")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "principalId")
             Prelude.<*> (x Data..:? "type")
             Prelude.<*> (x Data..:? "userName")
-            Prelude.<*> (x Data..:? "arn")
-            Prelude.<*> (x Data..:? "accountId")
       )
 
 instance Prelude.Hashable SessionIssuer where
   hashWithSalt _salt SessionIssuer' {..} =
-    _salt `Prelude.hashWithSalt` principalId
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` principalId
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` userName
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` accountId
 
 instance Prelude.NFData SessionIssuer where
   rnf SessionIssuer' {..} =
-    Prelude.rnf principalId
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf principalId
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf accountId

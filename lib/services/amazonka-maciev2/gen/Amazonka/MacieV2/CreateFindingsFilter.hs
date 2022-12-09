@@ -28,10 +28,10 @@ module Amazonka.MacieV2.CreateFindingsFilter
     newCreateFindingsFilter,
 
     -- * Request Lenses
-    createFindingsFilter_tags,
     createFindingsFilter_clientToken,
     createFindingsFilter_description,
     createFindingsFilter_position,
+    createFindingsFilter_tags,
     createFindingsFilter_action,
     createFindingsFilter_findingCriteria,
     createFindingsFilter_name,
@@ -57,14 +57,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateFindingsFilter' smart constructor.
 data CreateFindingsFilter = CreateFindingsFilter'
-  { -- | A map of key-value pairs that specifies the tags to associate with the
-    -- filter.
-    --
-    -- A findings filter can have a maximum of 50 tags. Each tag consists of a
-    -- tag key and an associated tag value. The maximum length of a tag key is
-    -- 128 characters. The maximum length of a tag value is 256 characters.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A unique, case-sensitive token that you provide to ensure the
+  { -- | A unique, case-sensitive token that you provide to ensure the
     -- idempotency of the request.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | A custom description of the filter. The description can contain as many
@@ -80,7 +73,14 @@ data CreateFindingsFilter = CreateFindingsFilter'
     -- is applied to findings, relative to other filters that are also applied
     -- to the findings.
     position :: Prelude.Maybe Prelude.Int,
-    -- | The action to perform on findings that meet the filter criteria
+    -- | A map of key-value pairs that specifies the tags to associate with the
+    -- filter.
+    --
+    -- A findings filter can have a maximum of 50 tags. Each tag consists of a
+    -- tag key and an associated tag value. The maximum length of a tag key is
+    -- 128 characters. The maximum length of a tag value is 256 characters.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The action to perform on findings that match the filter criteria
     -- (findingCriteria). Valid values are: ARCHIVE, suppress (automatically
     -- archive) the findings; and, NOOP, don\'t perform any action on the
     -- findings.
@@ -106,13 +106,6 @@ data CreateFindingsFilter = CreateFindingsFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createFindingsFilter_tags' - A map of key-value pairs that specifies the tags to associate with the
--- filter.
---
--- A findings filter can have a maximum of 50 tags. Each tag consists of a
--- tag key and an associated tag value. The maximum length of a tag key is
--- 128 characters. The maximum length of a tag value is 256 characters.
---
 -- 'clientToken', 'createFindingsFilter_clientToken' - A unique, case-sensitive token that you provide to ensure the
 -- idempotency of the request.
 --
@@ -129,7 +122,14 @@ data CreateFindingsFilter = CreateFindingsFilter'
 -- is applied to findings, relative to other filters that are also applied
 -- to the findings.
 --
--- 'action', 'createFindingsFilter_action' - The action to perform on findings that meet the filter criteria
+-- 'tags', 'createFindingsFilter_tags' - A map of key-value pairs that specifies the tags to associate with the
+-- filter.
+--
+-- A findings filter can have a maximum of 50 tags. Each tag consists of a
+-- tag key and an associated tag value. The maximum length of a tag key is
+-- 128 characters. The maximum length of a tag value is 256 characters.
+--
+-- 'action', 'createFindingsFilter_action' - The action to perform on findings that match the filter criteria
 -- (findingCriteria). Valid values are: ARCHIVE, suppress (automatically
 -- archive) the findings; and, NOOP, don\'t perform any action on the
 -- findings.
@@ -156,23 +156,15 @@ newCreateFindingsFilter
   pFindingCriteria_
   pName_ =
     CreateFindingsFilter'
-      { tags = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
+      { clientToken =
+          Prelude.Nothing,
         description = Prelude.Nothing,
         position = Prelude.Nothing,
+        tags = Prelude.Nothing,
         action = pAction_,
         findingCriteria = pFindingCriteria_,
         name = pName_
       }
-
--- | A map of key-value pairs that specifies the tags to associate with the
--- filter.
---
--- A findings filter can have a maximum of 50 tags. Each tag consists of a
--- tag key and an associated tag value. The maximum length of a tag key is
--- 128 characters. The maximum length of a tag value is 256 characters.
-createFindingsFilter_tags :: Lens.Lens' CreateFindingsFilter (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createFindingsFilter_tags = Lens.lens (\CreateFindingsFilter' {tags} -> tags) (\s@CreateFindingsFilter' {} a -> s {tags = a} :: CreateFindingsFilter) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique, case-sensitive token that you provide to ensure the
 -- idempotency of the request.
@@ -196,7 +188,16 @@ createFindingsFilter_description = Lens.lens (\CreateFindingsFilter' {descriptio
 createFindingsFilter_position :: Lens.Lens' CreateFindingsFilter (Prelude.Maybe Prelude.Int)
 createFindingsFilter_position = Lens.lens (\CreateFindingsFilter' {position} -> position) (\s@CreateFindingsFilter' {} a -> s {position = a} :: CreateFindingsFilter)
 
--- | The action to perform on findings that meet the filter criteria
+-- | A map of key-value pairs that specifies the tags to associate with the
+-- filter.
+--
+-- A findings filter can have a maximum of 50 tags. Each tag consists of a
+-- tag key and an associated tag value. The maximum length of a tag key is
+-- 128 characters. The maximum length of a tag value is 256 characters.
+createFindingsFilter_tags :: Lens.Lens' CreateFindingsFilter (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createFindingsFilter_tags = Lens.lens (\CreateFindingsFilter' {tags} -> tags) (\s@CreateFindingsFilter' {} a -> s {tags = a} :: CreateFindingsFilter) Prelude.. Lens.mapping Lens.coerced
+
+-- | The action to perform on findings that match the filter criteria
 -- (findingCriteria). Valid values are: ARCHIVE, suppress (automatically
 -- archive) the findings; and, NOOP, don\'t perform any action on the
 -- findings.
@@ -234,20 +235,20 @@ instance Core.AWSRequest CreateFindingsFilter where
 
 instance Prelude.Hashable CreateFindingsFilter where
   hashWithSalt _salt CreateFindingsFilter' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` position
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` findingCriteria
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateFindingsFilter where
   rnf CreateFindingsFilter' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf position
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf action
       `Prelude.seq` Prelude.rnf findingCriteria
       `Prelude.seq` Prelude.rnf name
@@ -267,10 +268,10 @@ instance Data.ToJSON CreateFindingsFilter where
   toJSON CreateFindingsFilter' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("clientToken" Data..=) Prelude.<$> clientToken,
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
             ("description" Data..=) Prelude.<$> description,
             ("position" Data..=) Prelude.<$> position,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("action" Data..= action),
             Prelude.Just
               ("findingCriteria" Data..= findingCriteria),

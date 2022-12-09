@@ -30,14 +30,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUserIdentityRoot' smart constructor.
 data UserIdentityRoot = UserIdentityRoot'
-  { -- | The unique identifier for the entity that performed the action.
-    principalId :: Prelude.Maybe Prelude.Text,
+  { -- | The unique identifier for the Amazon Web Services account.
+    accountId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the principal that performed the
     -- action. The last section of the ARN contains the name of the user or
     -- role that performed the action.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for the Amazon Web Services account.
-    accountId :: Prelude.Maybe Prelude.Text
+    -- | The unique identifier for the entity that performed the action.
+    principalId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,25 +49,25 @@ data UserIdentityRoot = UserIdentityRoot'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'principalId', 'userIdentityRoot_principalId' - The unique identifier for the entity that performed the action.
+-- 'accountId', 'userIdentityRoot_accountId' - The unique identifier for the Amazon Web Services account.
 --
 -- 'arn', 'userIdentityRoot_arn' - The Amazon Resource Name (ARN) of the principal that performed the
 -- action. The last section of the ARN contains the name of the user or
 -- role that performed the action.
 --
--- 'accountId', 'userIdentityRoot_accountId' - The unique identifier for the Amazon Web Services account.
+-- 'principalId', 'userIdentityRoot_principalId' - The unique identifier for the entity that performed the action.
 newUserIdentityRoot ::
   UserIdentityRoot
 newUserIdentityRoot =
   UserIdentityRoot'
-    { principalId = Prelude.Nothing,
+    { accountId = Prelude.Nothing,
       arn = Prelude.Nothing,
-      accountId = Prelude.Nothing
+      principalId = Prelude.Nothing
     }
 
--- | The unique identifier for the entity that performed the action.
-userIdentityRoot_principalId :: Lens.Lens' UserIdentityRoot (Prelude.Maybe Prelude.Text)
-userIdentityRoot_principalId = Lens.lens (\UserIdentityRoot' {principalId} -> principalId) (\s@UserIdentityRoot' {} a -> s {principalId = a} :: UserIdentityRoot)
+-- | The unique identifier for the Amazon Web Services account.
+userIdentityRoot_accountId :: Lens.Lens' UserIdentityRoot (Prelude.Maybe Prelude.Text)
+userIdentityRoot_accountId = Lens.lens (\UserIdentityRoot' {accountId} -> accountId) (\s@UserIdentityRoot' {} a -> s {accountId = a} :: UserIdentityRoot)
 
 -- | The Amazon Resource Name (ARN) of the principal that performed the
 -- action. The last section of the ARN contains the name of the user or
@@ -75,9 +75,9 @@ userIdentityRoot_principalId = Lens.lens (\UserIdentityRoot' {principalId} -> pr
 userIdentityRoot_arn :: Lens.Lens' UserIdentityRoot (Prelude.Maybe Prelude.Text)
 userIdentityRoot_arn = Lens.lens (\UserIdentityRoot' {arn} -> arn) (\s@UserIdentityRoot' {} a -> s {arn = a} :: UserIdentityRoot)
 
--- | The unique identifier for the Amazon Web Services account.
-userIdentityRoot_accountId :: Lens.Lens' UserIdentityRoot (Prelude.Maybe Prelude.Text)
-userIdentityRoot_accountId = Lens.lens (\UserIdentityRoot' {accountId} -> accountId) (\s@UserIdentityRoot' {} a -> s {accountId = a} :: UserIdentityRoot)
+-- | The unique identifier for the entity that performed the action.
+userIdentityRoot_principalId :: Lens.Lens' UserIdentityRoot (Prelude.Maybe Prelude.Text)
+userIdentityRoot_principalId = Lens.lens (\UserIdentityRoot' {principalId} -> principalId) (\s@UserIdentityRoot' {} a -> s {principalId = a} :: UserIdentityRoot)
 
 instance Data.FromJSON UserIdentityRoot where
   parseJSON =
@@ -85,19 +85,19 @@ instance Data.FromJSON UserIdentityRoot where
       "UserIdentityRoot"
       ( \x ->
           UserIdentityRoot'
-            Prelude.<$> (x Data..:? "principalId")
+            Prelude.<$> (x Data..:? "accountId")
             Prelude.<*> (x Data..:? "arn")
-            Prelude.<*> (x Data..:? "accountId")
+            Prelude.<*> (x Data..:? "principalId")
       )
 
 instance Prelude.Hashable UserIdentityRoot where
   hashWithSalt _salt UserIdentityRoot' {..} =
-    _salt `Prelude.hashWithSalt` principalId
+    _salt `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` principalId
 
 instance Prelude.NFData UserIdentityRoot where
   rnf UserIdentityRoot' {..} =
-    Prelude.rnf principalId
+    Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf principalId

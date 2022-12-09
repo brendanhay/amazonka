@@ -27,9 +27,9 @@ module Amazonka.MacieV2.GetFindingStatistics
     newGetFindingStatistics,
 
     -- * Request Lenses
-    getFindingStatistics_sortCriteria,
     getFindingStatistics_findingCriteria,
     getFindingStatistics_size,
+    getFindingStatistics_sortCriteria,
     getFindingStatistics_groupBy,
 
     -- * Destructuring the Response
@@ -52,12 +52,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetFindingStatistics' smart constructor.
 data GetFindingStatistics = GetFindingStatistics'
-  { -- | The criteria to use to sort the query results.
-    sortCriteria :: Prelude.Maybe FindingStatisticsSortCriteria,
-    -- | The criteria to use to filter the query results.
+  { -- | The criteria to use to filter the query results.
     findingCriteria :: Prelude.Maybe FindingCriteria,
     -- | The maximum number of items to include in each page of the response.
     size :: Prelude.Maybe Prelude.Int,
+    -- | The criteria to use to sort the query results.
+    sortCriteria :: Prelude.Maybe FindingStatisticsSortCriteria,
     -- | The finding property to use to group the query results. Valid values
     -- are:
     --
@@ -84,11 +84,11 @@ data GetFindingStatistics = GetFindingStatistics'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortCriteria', 'getFindingStatistics_sortCriteria' - The criteria to use to sort the query results.
---
 -- 'findingCriteria', 'getFindingStatistics_findingCriteria' - The criteria to use to filter the query results.
 --
 -- 'size', 'getFindingStatistics_size' - The maximum number of items to include in each page of the response.
+--
+-- 'sortCriteria', 'getFindingStatistics_sortCriteria' - The criteria to use to sort the query results.
 --
 -- 'groupBy', 'getFindingStatistics_groupBy' - The finding property to use to group the query results. Valid values
 -- are:
@@ -110,16 +110,12 @@ newGetFindingStatistics ::
   GetFindingStatistics
 newGetFindingStatistics pGroupBy_ =
   GetFindingStatistics'
-    { sortCriteria =
+    { findingCriteria =
         Prelude.Nothing,
-      findingCriteria = Prelude.Nothing,
       size = Prelude.Nothing,
+      sortCriteria = Prelude.Nothing,
       groupBy = pGroupBy_
     }
-
--- | The criteria to use to sort the query results.
-getFindingStatistics_sortCriteria :: Lens.Lens' GetFindingStatistics (Prelude.Maybe FindingStatisticsSortCriteria)
-getFindingStatistics_sortCriteria = Lens.lens (\GetFindingStatistics' {sortCriteria} -> sortCriteria) (\s@GetFindingStatistics' {} a -> s {sortCriteria = a} :: GetFindingStatistics)
 
 -- | The criteria to use to filter the query results.
 getFindingStatistics_findingCriteria :: Lens.Lens' GetFindingStatistics (Prelude.Maybe FindingCriteria)
@@ -128,6 +124,10 @@ getFindingStatistics_findingCriteria = Lens.lens (\GetFindingStatistics' {findin
 -- | The maximum number of items to include in each page of the response.
 getFindingStatistics_size :: Lens.Lens' GetFindingStatistics (Prelude.Maybe Prelude.Int)
 getFindingStatistics_size = Lens.lens (\GetFindingStatistics' {size} -> size) (\s@GetFindingStatistics' {} a -> s {size = a} :: GetFindingStatistics)
+
+-- | The criteria to use to sort the query results.
+getFindingStatistics_sortCriteria :: Lens.Lens' GetFindingStatistics (Prelude.Maybe FindingStatisticsSortCriteria)
+getFindingStatistics_sortCriteria = Lens.lens (\GetFindingStatistics' {sortCriteria} -> sortCriteria) (\s@GetFindingStatistics' {} a -> s {sortCriteria = a} :: GetFindingStatistics)
 
 -- | The finding property to use to group the query results. Valid values
 -- are:
@@ -162,16 +162,16 @@ instance Core.AWSRequest GetFindingStatistics where
 
 instance Prelude.Hashable GetFindingStatistics where
   hashWithSalt _salt GetFindingStatistics' {..} =
-    _salt `Prelude.hashWithSalt` sortCriteria
-      `Prelude.hashWithSalt` findingCriteria
+    _salt `Prelude.hashWithSalt` findingCriteria
       `Prelude.hashWithSalt` size
+      `Prelude.hashWithSalt` sortCriteria
       `Prelude.hashWithSalt` groupBy
 
 instance Prelude.NFData GetFindingStatistics where
   rnf GetFindingStatistics' {..} =
-    Prelude.rnf sortCriteria
-      `Prelude.seq` Prelude.rnf findingCriteria
+    Prelude.rnf findingCriteria
       `Prelude.seq` Prelude.rnf size
+      `Prelude.seq` Prelude.rnf sortCriteria
       `Prelude.seq` Prelude.rnf groupBy
 
 instance Data.ToHeaders GetFindingStatistics where
@@ -189,10 +189,10 @@ instance Data.ToJSON GetFindingStatistics where
   toJSON GetFindingStatistics' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("sortCriteria" Data..=) Prelude.<$> sortCriteria,
-            ("findingCriteria" Data..=)
+          [ ("findingCriteria" Data..=)
               Prelude.<$> findingCriteria,
             ("size" Data..=) Prelude.<$> size,
+            ("sortCriteria" Data..=) Prelude.<$> sortCriteria,
             Prelude.Just ("groupBy" Data..= groupBy)
           ]
       )
@@ -205,8 +205,8 @@ instance Data.ToQuery GetFindingStatistics where
 
 -- | /See:/ 'newGetFindingStatisticsResponse' smart constructor.
 data GetFindingStatisticsResponse = GetFindingStatisticsResponse'
-  { -- | An array of objects, one for each group of findings that meet the filter
-    -- criteria specified in the request.
+  { -- | An array of objects, one for each group of findings that matches the
+    -- filter criteria specified in the request.
     countsByGroup :: Prelude.Maybe [GroupCount],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -221,8 +221,8 @@ data GetFindingStatisticsResponse = GetFindingStatisticsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'countsByGroup', 'getFindingStatisticsResponse_countsByGroup' - An array of objects, one for each group of findings that meet the filter
--- criteria specified in the request.
+-- 'countsByGroup', 'getFindingStatisticsResponse_countsByGroup' - An array of objects, one for each group of findings that matches the
+-- filter criteria specified in the request.
 --
 -- 'httpStatus', 'getFindingStatisticsResponse_httpStatus' - The response's http status code.
 newGetFindingStatisticsResponse ::
@@ -236,8 +236,8 @@ newGetFindingStatisticsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | An array of objects, one for each group of findings that meet the filter
--- criteria specified in the request.
+-- | An array of objects, one for each group of findings that matches the
+-- filter criteria specified in the request.
 getFindingStatisticsResponse_countsByGroup :: Lens.Lens' GetFindingStatisticsResponse (Prelude.Maybe [GroupCount])
 getFindingStatisticsResponse_countsByGroup = Lens.lens (\GetFindingStatisticsResponse' {countsByGroup} -> countsByGroup) (\s@GetFindingStatisticsResponse' {} a -> s {countsByGroup = a} :: GetFindingStatisticsResponse) Prelude.. Lens.mapping Lens.coerced
 

@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSortCriteria' smart constructor.
 data SortCriteria = SortCriteria'
-  { -- | The sort order to apply to the results, based on the value for the
+  { -- | The name of the property to sort the results by. This value can be the
+    -- name of any property that Amazon Macie defines for a finding.
+    attributeName :: Prelude.Maybe Prelude.Text,
+    -- | The sort order to apply to the results, based on the value for the
     -- property specified by the attributeName property. Valid values are: ASC,
     -- sort the results in ascending order; and, DESC, sort the results in
     -- descending order.
-    orderBy :: Prelude.Maybe OrderBy,
-    -- | The name of the property to sort the results by. This value can be the
-    -- name of any property that Amazon Macie defines for a finding.
-    attributeName :: Prelude.Maybe Prelude.Text
+    orderBy :: Prelude.Maybe OrderBy
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,20 +48,25 @@ data SortCriteria = SortCriteria'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'attributeName', 'sortCriteria_attributeName' - The name of the property to sort the results by. This value can be the
+-- name of any property that Amazon Macie defines for a finding.
+--
 -- 'orderBy', 'sortCriteria_orderBy' - The sort order to apply to the results, based on the value for the
 -- property specified by the attributeName property. Valid values are: ASC,
 -- sort the results in ascending order; and, DESC, sort the results in
 -- descending order.
---
--- 'attributeName', 'sortCriteria_attributeName' - The name of the property to sort the results by. This value can be the
--- name of any property that Amazon Macie defines for a finding.
 newSortCriteria ::
   SortCriteria
 newSortCriteria =
   SortCriteria'
-    { orderBy = Prelude.Nothing,
-      attributeName = Prelude.Nothing
+    { attributeName = Prelude.Nothing,
+      orderBy = Prelude.Nothing
     }
+
+-- | The name of the property to sort the results by. This value can be the
+-- name of any property that Amazon Macie defines for a finding.
+sortCriteria_attributeName :: Lens.Lens' SortCriteria (Prelude.Maybe Prelude.Text)
+sortCriteria_attributeName = Lens.lens (\SortCriteria' {attributeName} -> attributeName) (\s@SortCriteria' {} a -> s {attributeName = a} :: SortCriteria)
 
 -- | The sort order to apply to the results, based on the value for the
 -- property specified by the attributeName property. Valid values are: ASC,
@@ -70,26 +75,21 @@ newSortCriteria =
 sortCriteria_orderBy :: Lens.Lens' SortCriteria (Prelude.Maybe OrderBy)
 sortCriteria_orderBy = Lens.lens (\SortCriteria' {orderBy} -> orderBy) (\s@SortCriteria' {} a -> s {orderBy = a} :: SortCriteria)
 
--- | The name of the property to sort the results by. This value can be the
--- name of any property that Amazon Macie defines for a finding.
-sortCriteria_attributeName :: Lens.Lens' SortCriteria (Prelude.Maybe Prelude.Text)
-sortCriteria_attributeName = Lens.lens (\SortCriteria' {attributeName} -> attributeName) (\s@SortCriteria' {} a -> s {attributeName = a} :: SortCriteria)
-
 instance Prelude.Hashable SortCriteria where
   hashWithSalt _salt SortCriteria' {..} =
-    _salt `Prelude.hashWithSalt` orderBy
-      `Prelude.hashWithSalt` attributeName
+    _salt `Prelude.hashWithSalt` attributeName
+      `Prelude.hashWithSalt` orderBy
 
 instance Prelude.NFData SortCriteria where
   rnf SortCriteria' {..} =
-    Prelude.rnf orderBy
-      `Prelude.seq` Prelude.rnf attributeName
+    Prelude.rnf attributeName
+      `Prelude.seq` Prelude.rnf orderBy
 
 instance Data.ToJSON SortCriteria where
   toJSON SortCriteria' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("orderBy" Data..=) Prelude.<$> orderBy,
-            ("attributeName" Data..=) Prelude.<$> attributeName
+          [ ("attributeName" Data..=) Prelude.<$> attributeName,
+            ("orderBy" Data..=) Prelude.<$> orderBy
           ]
       )

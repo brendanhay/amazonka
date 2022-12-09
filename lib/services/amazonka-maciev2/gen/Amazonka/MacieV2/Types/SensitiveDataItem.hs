@@ -31,18 +31,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSensitiveDataItem' smart constructor.
 data SensitiveDataItem = SensitiveDataItem'
-  { -- | An array of objects, one for each type of sensitive data that was
-    -- detected. Each object reports the number of occurrences of a specific
-    -- type of sensitive data that was detected, and the location of up to 15
-    -- of those occurrences.
-    detections :: Prelude.Maybe [DefaultDetection],
-    -- | The category of sensitive data that was detected. For example:
+  { -- | The category of sensitive data that was detected. For example:
     -- CREDENTIALS, for credentials data such as private keys or Amazon Web
     -- Services secret access keys; FINANCIAL_INFORMATION, for financial data
     -- such as credit card numbers; or, PERSONAL_INFORMATION, for personal
     -- health information, such as health insurance identification numbers, or
     -- personally identifiable information, such as passport numbers.
     category :: Prelude.Maybe SensitiveDataItemCategory,
+    -- | An array of objects, one for each type of sensitive data that was
+    -- detected. Each object reports the number of occurrences of a specific
+    -- type of sensitive data that was detected, and the location of up to 15
+    -- of those occurrences.
+    detections :: Prelude.Maybe [DefaultDetection],
     -- | The total number of occurrences of the sensitive data that was detected.
     totalCount :: Prelude.Maybe Prelude.Integer
   }
@@ -56,11 +56,6 @@ data SensitiveDataItem = SensitiveDataItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'detections', 'sensitiveDataItem_detections' - An array of objects, one for each type of sensitive data that was
--- detected. Each object reports the number of occurrences of a specific
--- type of sensitive data that was detected, and the location of up to 15
--- of those occurrences.
---
 -- 'category', 'sensitiveDataItem_category' - The category of sensitive data that was detected. For example:
 -- CREDENTIALS, for credentials data such as private keys or Amazon Web
 -- Services secret access keys; FINANCIAL_INFORMATION, for financial data
@@ -68,22 +63,20 @@ data SensitiveDataItem = SensitiveDataItem'
 -- health information, such as health insurance identification numbers, or
 -- personally identifiable information, such as passport numbers.
 --
+-- 'detections', 'sensitiveDataItem_detections' - An array of objects, one for each type of sensitive data that was
+-- detected. Each object reports the number of occurrences of a specific
+-- type of sensitive data that was detected, and the location of up to 15
+-- of those occurrences.
+--
 -- 'totalCount', 'sensitiveDataItem_totalCount' - The total number of occurrences of the sensitive data that was detected.
 newSensitiveDataItem ::
   SensitiveDataItem
 newSensitiveDataItem =
   SensitiveDataItem'
-    { detections = Prelude.Nothing,
-      category = Prelude.Nothing,
+    { category = Prelude.Nothing,
+      detections = Prelude.Nothing,
       totalCount = Prelude.Nothing
     }
-
--- | An array of objects, one for each type of sensitive data that was
--- detected. Each object reports the number of occurrences of a specific
--- type of sensitive data that was detected, and the location of up to 15
--- of those occurrences.
-sensitiveDataItem_detections :: Lens.Lens' SensitiveDataItem (Prelude.Maybe [DefaultDetection])
-sensitiveDataItem_detections = Lens.lens (\SensitiveDataItem' {detections} -> detections) (\s@SensitiveDataItem' {} a -> s {detections = a} :: SensitiveDataItem) Prelude.. Lens.mapping Lens.coerced
 
 -- | The category of sensitive data that was detected. For example:
 -- CREDENTIALS, for credentials data such as private keys or Amazon Web
@@ -93,6 +86,13 @@ sensitiveDataItem_detections = Lens.lens (\SensitiveDataItem' {detections} -> de
 -- personally identifiable information, such as passport numbers.
 sensitiveDataItem_category :: Lens.Lens' SensitiveDataItem (Prelude.Maybe SensitiveDataItemCategory)
 sensitiveDataItem_category = Lens.lens (\SensitiveDataItem' {category} -> category) (\s@SensitiveDataItem' {} a -> s {category = a} :: SensitiveDataItem)
+
+-- | An array of objects, one for each type of sensitive data that was
+-- detected. Each object reports the number of occurrences of a specific
+-- type of sensitive data that was detected, and the location of up to 15
+-- of those occurrences.
+sensitiveDataItem_detections :: Lens.Lens' SensitiveDataItem (Prelude.Maybe [DefaultDetection])
+sensitiveDataItem_detections = Lens.lens (\SensitiveDataItem' {detections} -> detections) (\s@SensitiveDataItem' {} a -> s {detections = a} :: SensitiveDataItem) Prelude.. Lens.mapping Lens.coerced
 
 -- | The total number of occurrences of the sensitive data that was detected.
 sensitiveDataItem_totalCount :: Lens.Lens' SensitiveDataItem (Prelude.Maybe Prelude.Integer)
@@ -104,19 +104,19 @@ instance Data.FromJSON SensitiveDataItem where
       "SensitiveDataItem"
       ( \x ->
           SensitiveDataItem'
-            Prelude.<$> (x Data..:? "detections" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "category")
+            Prelude.<$> (x Data..:? "category")
+            Prelude.<*> (x Data..:? "detections" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "totalCount")
       )
 
 instance Prelude.Hashable SensitiveDataItem where
   hashWithSalt _salt SensitiveDataItem' {..} =
-    _salt `Prelude.hashWithSalt` detections
-      `Prelude.hashWithSalt` category
+    _salt `Prelude.hashWithSalt` category
+      `Prelude.hashWithSalt` detections
       `Prelude.hashWithSalt` totalCount
 
 instance Prelude.NFData SensitiveDataItem where
   rnf SensitiveDataItem' {..} =
-    Prelude.rnf detections
-      `Prelude.seq` Prelude.rnf category
+    Prelude.rnf category
+      `Prelude.seq` Prelude.rnf detections
       `Prelude.seq` Prelude.rnf totalCount

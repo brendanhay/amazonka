@@ -28,17 +28,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAllowListSummary' smart constructor.
 data AllowListSummary = AllowListSummary'
-  { -- | The custom name of the allow list.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the allow list.
+  { -- | The Amazon Resource Name (ARN) of the allow list.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The date and time, in UTC and extended ISO 8601 format, when the allow
+    -- list was created in Amazon Macie.
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The custom description of the allow list.
     description :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the allow list.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The date and time, in UTC and extended ISO 8601 format, when the allow
-    -- list was created in Amazon Macie.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    -- | The custom name of the allow list.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The date and time, in UTC and extended ISO 8601 format, when the allow
     -- list\'s settings were most recently changed in Amazon Macie.
     updatedAt :: Prelude.Maybe Data.POSIX
@@ -53,16 +53,16 @@ data AllowListSummary = AllowListSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'allowListSummary_name' - The custom name of the allow list.
---
 -- 'arn', 'allowListSummary_arn' - The Amazon Resource Name (ARN) of the allow list.
+--
+-- 'createdAt', 'allowListSummary_createdAt' - The date and time, in UTC and extended ISO 8601 format, when the allow
+-- list was created in Amazon Macie.
 --
 -- 'description', 'allowListSummary_description' - The custom description of the allow list.
 --
 -- 'id', 'allowListSummary_id' - The unique identifier for the allow list.
 --
--- 'createdAt', 'allowListSummary_createdAt' - The date and time, in UTC and extended ISO 8601 format, when the allow
--- list was created in Amazon Macie.
+-- 'name', 'allowListSummary_name' - The custom name of the allow list.
 --
 -- 'updatedAt', 'allowListSummary_updatedAt' - The date and time, in UTC and extended ISO 8601 format, when the allow
 -- list\'s settings were most recently changed in Amazon Macie.
@@ -70,21 +70,22 @@ newAllowListSummary ::
   AllowListSummary
 newAllowListSummary =
   AllowListSummary'
-    { name = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
       description = Prelude.Nothing,
       id = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
+      name = Prelude.Nothing,
       updatedAt = Prelude.Nothing
     }
-
--- | The custom name of the allow list.
-allowListSummary_name :: Lens.Lens' AllowListSummary (Prelude.Maybe Prelude.Text)
-allowListSummary_name = Lens.lens (\AllowListSummary' {name} -> name) (\s@AllowListSummary' {} a -> s {name = a} :: AllowListSummary)
 
 -- | The Amazon Resource Name (ARN) of the allow list.
 allowListSummary_arn :: Lens.Lens' AllowListSummary (Prelude.Maybe Prelude.Text)
 allowListSummary_arn = Lens.lens (\AllowListSummary' {arn} -> arn) (\s@AllowListSummary' {} a -> s {arn = a} :: AllowListSummary)
+
+-- | The date and time, in UTC and extended ISO 8601 format, when the allow
+-- list was created in Amazon Macie.
+allowListSummary_createdAt :: Lens.Lens' AllowListSummary (Prelude.Maybe Prelude.UTCTime)
+allowListSummary_createdAt = Lens.lens (\AllowListSummary' {createdAt} -> createdAt) (\s@AllowListSummary' {} a -> s {createdAt = a} :: AllowListSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The custom description of the allow list.
 allowListSummary_description :: Lens.Lens' AllowListSummary (Prelude.Maybe Prelude.Text)
@@ -94,10 +95,9 @@ allowListSummary_description = Lens.lens (\AllowListSummary' {description} -> de
 allowListSummary_id :: Lens.Lens' AllowListSummary (Prelude.Maybe Prelude.Text)
 allowListSummary_id = Lens.lens (\AllowListSummary' {id} -> id) (\s@AllowListSummary' {} a -> s {id = a} :: AllowListSummary)
 
--- | The date and time, in UTC and extended ISO 8601 format, when the allow
--- list was created in Amazon Macie.
-allowListSummary_createdAt :: Lens.Lens' AllowListSummary (Prelude.Maybe Prelude.UTCTime)
-allowListSummary_createdAt = Lens.lens (\AllowListSummary' {createdAt} -> createdAt) (\s@AllowListSummary' {} a -> s {createdAt = a} :: AllowListSummary) Prelude.. Lens.mapping Data._Time
+-- | The custom name of the allow list.
+allowListSummary_name :: Lens.Lens' AllowListSummary (Prelude.Maybe Prelude.Text)
+allowListSummary_name = Lens.lens (\AllowListSummary' {name} -> name) (\s@AllowListSummary' {} a -> s {name = a} :: AllowListSummary)
 
 -- | The date and time, in UTC and extended ISO 8601 format, when the allow
 -- list\'s settings were most recently changed in Amazon Macie.
@@ -110,28 +110,28 @@ instance Data.FromJSON AllowListSummary where
       "AllowListSummary"
       ( \x ->
           AllowListSummary'
-            Prelude.<$> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "arn")
+            Prelude.<$> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "createdAt")
             Prelude.<*> (x Data..:? "description")
             Prelude.<*> (x Data..:? "id")
-            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "updatedAt")
       )
 
 instance Prelude.Hashable AllowListSummary where
   hashWithSalt _salt AllowListSummary' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` updatedAt
 
 instance Prelude.NFData AllowListSummary where
   rnf AllowListSummary' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf updatedAt

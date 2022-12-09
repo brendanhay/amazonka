@@ -30,8 +30,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | The action to perform on findings that meet the filter criteria. To
--- suppress (automatically archive) findings that meet the criteria, set
+-- | The action to perform on findings that match the filter criteria. To
+-- suppress (automatically archive) findings that match the criteria, set
 -- this value to ARCHIVE. Valid values are:
 newtype FindingsFilterAction = FindingsFilterAction'
   { fromFindingsFilterAction ::

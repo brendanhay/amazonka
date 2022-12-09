@@ -30,7 +30,8 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The error code for an error that prevented Amazon Macie from retrieving
--- and processing information about an S3 bucket and the bucket\'s objects.
+-- and processing metadata from Amazon S3 for an S3 bucket and the
+-- bucket\'s objects.
 newtype BucketMetadataErrorCode = BucketMetadataErrorCode'
   { fromBucketMetadataErrorCode ::
       Data.Text

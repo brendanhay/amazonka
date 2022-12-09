@@ -32,20 +32,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFederatedUser' smart constructor.
 data FederatedUser = FederatedUser'
-  { -- | The unique identifier for the entity that was used to get the
-    -- credentials.
-    principalId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the entity that was used to get the
-    -- credentials.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The details of the session that was created for the credentials,
-    -- including the entity that issued the session.
-    sessionContext :: Prelude.Maybe SessionContext,
+  { -- | The Amazon Web Services access key ID that identifies the credentials.
+    accessKeyId :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the Amazon Web Services account that owns the
     -- entity that was used to get the credentials.
     accountId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services access key ID that identifies the credentials.
-    accessKeyId :: Prelude.Maybe Prelude.Text
+    -- | The Amazon Resource Name (ARN) of the entity that was used to get the
+    -- credentials.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier for the entity that was used to get the
+    -- credentials.
+    principalId :: Prelude.Maybe Prelude.Text,
+    -- | The details of the session that was created for the credentials,
+    -- including the entity that issued the session.
+    sessionContext :: Prelude.Maybe SessionContext
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,53 +57,53 @@ data FederatedUser = FederatedUser'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'principalId', 'federatedUser_principalId' - The unique identifier for the entity that was used to get the
--- credentials.
---
--- 'arn', 'federatedUser_arn' - The Amazon Resource Name (ARN) of the entity that was used to get the
--- credentials.
---
--- 'sessionContext', 'federatedUser_sessionContext' - The details of the session that was created for the credentials,
--- including the entity that issued the session.
+-- 'accessKeyId', 'federatedUser_accessKeyId' - The Amazon Web Services access key ID that identifies the credentials.
 --
 -- 'accountId', 'federatedUser_accountId' - The unique identifier for the Amazon Web Services account that owns the
 -- entity that was used to get the credentials.
 --
--- 'accessKeyId', 'federatedUser_accessKeyId' - The Amazon Web Services access key ID that identifies the credentials.
+-- 'arn', 'federatedUser_arn' - The Amazon Resource Name (ARN) of the entity that was used to get the
+-- credentials.
+--
+-- 'principalId', 'federatedUser_principalId' - The unique identifier for the entity that was used to get the
+-- credentials.
+--
+-- 'sessionContext', 'federatedUser_sessionContext' - The details of the session that was created for the credentials,
+-- including the entity that issued the session.
 newFederatedUser ::
   FederatedUser
 newFederatedUser =
   FederatedUser'
-    { principalId = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      sessionContext = Prelude.Nothing,
+    { accessKeyId = Prelude.Nothing,
       accountId = Prelude.Nothing,
-      accessKeyId = Prelude.Nothing
+      arn = Prelude.Nothing,
+      principalId = Prelude.Nothing,
+      sessionContext = Prelude.Nothing
     }
 
--- | The unique identifier for the entity that was used to get the
--- credentials.
-federatedUser_principalId :: Lens.Lens' FederatedUser (Prelude.Maybe Prelude.Text)
-federatedUser_principalId = Lens.lens (\FederatedUser' {principalId} -> principalId) (\s@FederatedUser' {} a -> s {principalId = a} :: FederatedUser)
-
--- | The Amazon Resource Name (ARN) of the entity that was used to get the
--- credentials.
-federatedUser_arn :: Lens.Lens' FederatedUser (Prelude.Maybe Prelude.Text)
-federatedUser_arn = Lens.lens (\FederatedUser' {arn} -> arn) (\s@FederatedUser' {} a -> s {arn = a} :: FederatedUser)
-
--- | The details of the session that was created for the credentials,
--- including the entity that issued the session.
-federatedUser_sessionContext :: Lens.Lens' FederatedUser (Prelude.Maybe SessionContext)
-federatedUser_sessionContext = Lens.lens (\FederatedUser' {sessionContext} -> sessionContext) (\s@FederatedUser' {} a -> s {sessionContext = a} :: FederatedUser)
+-- | The Amazon Web Services access key ID that identifies the credentials.
+federatedUser_accessKeyId :: Lens.Lens' FederatedUser (Prelude.Maybe Prelude.Text)
+federatedUser_accessKeyId = Lens.lens (\FederatedUser' {accessKeyId} -> accessKeyId) (\s@FederatedUser' {} a -> s {accessKeyId = a} :: FederatedUser)
 
 -- | The unique identifier for the Amazon Web Services account that owns the
 -- entity that was used to get the credentials.
 federatedUser_accountId :: Lens.Lens' FederatedUser (Prelude.Maybe Prelude.Text)
 federatedUser_accountId = Lens.lens (\FederatedUser' {accountId} -> accountId) (\s@FederatedUser' {} a -> s {accountId = a} :: FederatedUser)
 
--- | The Amazon Web Services access key ID that identifies the credentials.
-federatedUser_accessKeyId :: Lens.Lens' FederatedUser (Prelude.Maybe Prelude.Text)
-federatedUser_accessKeyId = Lens.lens (\FederatedUser' {accessKeyId} -> accessKeyId) (\s@FederatedUser' {} a -> s {accessKeyId = a} :: FederatedUser)
+-- | The Amazon Resource Name (ARN) of the entity that was used to get the
+-- credentials.
+federatedUser_arn :: Lens.Lens' FederatedUser (Prelude.Maybe Prelude.Text)
+federatedUser_arn = Lens.lens (\FederatedUser' {arn} -> arn) (\s@FederatedUser' {} a -> s {arn = a} :: FederatedUser)
+
+-- | The unique identifier for the entity that was used to get the
+-- credentials.
+federatedUser_principalId :: Lens.Lens' FederatedUser (Prelude.Maybe Prelude.Text)
+federatedUser_principalId = Lens.lens (\FederatedUser' {principalId} -> principalId) (\s@FederatedUser' {} a -> s {principalId = a} :: FederatedUser)
+
+-- | The details of the session that was created for the credentials,
+-- including the entity that issued the session.
+federatedUser_sessionContext :: Lens.Lens' FederatedUser (Prelude.Maybe SessionContext)
+federatedUser_sessionContext = Lens.lens (\FederatedUser' {sessionContext} -> sessionContext) (\s@FederatedUser' {} a -> s {sessionContext = a} :: FederatedUser)
 
 instance Data.FromJSON FederatedUser where
   parseJSON =
@@ -111,25 +111,25 @@ instance Data.FromJSON FederatedUser where
       "FederatedUser"
       ( \x ->
           FederatedUser'
-            Prelude.<$> (x Data..:? "principalId")
-            Prelude.<*> (x Data..:? "arn")
-            Prelude.<*> (x Data..:? "sessionContext")
+            Prelude.<$> (x Data..:? "accessKeyId")
             Prelude.<*> (x Data..:? "accountId")
-            Prelude.<*> (x Data..:? "accessKeyId")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "principalId")
+            Prelude.<*> (x Data..:? "sessionContext")
       )
 
 instance Prelude.Hashable FederatedUser where
   hashWithSalt _salt FederatedUser' {..} =
-    _salt `Prelude.hashWithSalt` principalId
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` sessionContext
+    _salt `Prelude.hashWithSalt` accessKeyId
       `Prelude.hashWithSalt` accountId
-      `Prelude.hashWithSalt` accessKeyId
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` principalId
+      `Prelude.hashWithSalt` sessionContext
 
 instance Prelude.NFData FederatedUser where
   rnf FederatedUser' {..} =
-    Prelude.rnf principalId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf sessionContext
+    Prelude.rnf accessKeyId
       `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf accessKeyId
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf principalId
+      `Prelude.seq` Prelude.rnf sessionContext

@@ -28,8 +28,8 @@ module Amazonka.MacieV2.AcceptInvitation
     newAcceptInvitation,
 
     -- * Request Lenses
-    acceptInvitation_masterAccount,
     acceptInvitation_administratorAccountId,
+    acceptInvitation_masterAccount,
     acceptInvitation_invitationId,
 
     -- * Destructuring the Response
@@ -51,14 +51,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAcceptInvitation' smart constructor.
 data AcceptInvitation = AcceptInvitation'
-  { -- | (Deprecated) The Amazon Web Services account ID for the account that
+  { -- | The Amazon Web Services account ID for the account that sent the
+    -- invitation.
+    administratorAccountId :: Prelude.Maybe Prelude.Text,
+    -- | (Deprecated) The Amazon Web Services account ID for the account that
     -- sent the invitation. This property has been replaced by the
     -- administratorAccountId property and is retained only for backward
     -- compatibility.
     masterAccount :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services account ID for the account that sent the
-    -- invitation.
-    administratorAccountId :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the invitation to accept.
     invitationId :: Prelude.Text
   }
@@ -72,13 +72,13 @@ data AcceptInvitation = AcceptInvitation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'administratorAccountId', 'acceptInvitation_administratorAccountId' - The Amazon Web Services account ID for the account that sent the
+-- invitation.
+--
 -- 'masterAccount', 'acceptInvitation_masterAccount' - (Deprecated) The Amazon Web Services account ID for the account that
 -- sent the invitation. This property has been replaced by the
 -- administratorAccountId property and is retained only for backward
 -- compatibility.
---
--- 'administratorAccountId', 'acceptInvitation_administratorAccountId' - The Amazon Web Services account ID for the account that sent the
--- invitation.
 --
 -- 'invitationId', 'acceptInvitation_invitationId' - The unique identifier for the invitation to accept.
 newAcceptInvitation ::
@@ -87,10 +87,16 @@ newAcceptInvitation ::
   AcceptInvitation
 newAcceptInvitation pInvitationId_ =
   AcceptInvitation'
-    { masterAccount = Prelude.Nothing,
-      administratorAccountId = Prelude.Nothing,
+    { administratorAccountId =
+        Prelude.Nothing,
+      masterAccount = Prelude.Nothing,
       invitationId = pInvitationId_
     }
+
+-- | The Amazon Web Services account ID for the account that sent the
+-- invitation.
+acceptInvitation_administratorAccountId :: Lens.Lens' AcceptInvitation (Prelude.Maybe Prelude.Text)
+acceptInvitation_administratorAccountId = Lens.lens (\AcceptInvitation' {administratorAccountId} -> administratorAccountId) (\s@AcceptInvitation' {} a -> s {administratorAccountId = a} :: AcceptInvitation)
 
 -- | (Deprecated) The Amazon Web Services account ID for the account that
 -- sent the invitation. This property has been replaced by the
@@ -98,11 +104,6 @@ newAcceptInvitation pInvitationId_ =
 -- compatibility.
 acceptInvitation_masterAccount :: Lens.Lens' AcceptInvitation (Prelude.Maybe Prelude.Text)
 acceptInvitation_masterAccount = Lens.lens (\AcceptInvitation' {masterAccount} -> masterAccount) (\s@AcceptInvitation' {} a -> s {masterAccount = a} :: AcceptInvitation)
-
--- | The Amazon Web Services account ID for the account that sent the
--- invitation.
-acceptInvitation_administratorAccountId :: Lens.Lens' AcceptInvitation (Prelude.Maybe Prelude.Text)
-acceptInvitation_administratorAccountId = Lens.lens (\AcceptInvitation' {administratorAccountId} -> administratorAccountId) (\s@AcceptInvitation' {} a -> s {administratorAccountId = a} :: AcceptInvitation)
 
 -- | The unique identifier for the invitation to accept.
 acceptInvitation_invitationId :: Lens.Lens' AcceptInvitation Prelude.Text
@@ -123,14 +124,14 @@ instance Core.AWSRequest AcceptInvitation where
 
 instance Prelude.Hashable AcceptInvitation where
   hashWithSalt _salt AcceptInvitation' {..} =
-    _salt `Prelude.hashWithSalt` masterAccount
-      `Prelude.hashWithSalt` administratorAccountId
+    _salt `Prelude.hashWithSalt` administratorAccountId
+      `Prelude.hashWithSalt` masterAccount
       `Prelude.hashWithSalt` invitationId
 
 instance Prelude.NFData AcceptInvitation where
   rnf AcceptInvitation' {..} =
-    Prelude.rnf masterAccount
-      `Prelude.seq` Prelude.rnf administratorAccountId
+    Prelude.rnf administratorAccountId
+      `Prelude.seq` Prelude.rnf masterAccount
       `Prelude.seq` Prelude.rnf invitationId
 
 instance Data.ToHeaders AcceptInvitation where
@@ -148,9 +149,9 @@ instance Data.ToJSON AcceptInvitation where
   toJSON AcceptInvitation' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("masterAccount" Data..=) Prelude.<$> masterAccount,
-            ("administratorAccountId" Data..=)
+          [ ("administratorAccountId" Data..=)
               Prelude.<$> administratorAccountId,
+            ("masterAccount" Data..=) Prelude.<$> masterAccount,
             Prelude.Just ("invitationId" Data..= invitationId)
           ]
       )

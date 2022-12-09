@@ -22,22 +22,24 @@
 --
 -- Retrieves a subset of information about all the allow lists for an
 -- account.
+--
+-- This operation returns paginated results.
 module Amazonka.MacieV2.ListAllowLists
   ( -- * Creating a Request
     ListAllowLists (..),
     newListAllowLists,
 
     -- * Request Lenses
-    listAllowLists_nextToken,
     listAllowLists_maxResults,
+    listAllowLists_nextToken,
 
     -- * Destructuring the Response
     ListAllowListsResponse (..),
     newListAllowListsResponse,
 
     -- * Response Lenses
-    listAllowListsResponse_nextToken,
     listAllowListsResponse_allowLists,
+    listAllowListsResponse_nextToken,
     listAllowListsResponse_httpStatus,
   )
 where
@@ -52,12 +54,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAllowLists' smart constructor.
 data ListAllowLists = ListAllowLists'
-  { -- | The nextToken string that specifies which page of results to return in a
-    -- paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to include in each page of a paginated
+  { -- | The maximum number of items to include in each page of a paginated
     -- response.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The nextToken string that specifies which page of results to return in a
+    -- paginated response.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,28 +71,49 @@ data ListAllowLists = ListAllowLists'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAllowLists_nextToken' - The nextToken string that specifies which page of results to return in a
--- paginated response.
---
 -- 'maxResults', 'listAllowLists_maxResults' - The maximum number of items to include in each page of a paginated
 -- response.
+--
+-- 'nextToken', 'listAllowLists_nextToken' - The nextToken string that specifies which page of results to return in a
+-- paginated response.
 newListAllowLists ::
   ListAllowLists
 newListAllowLists =
   ListAllowLists'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of items to include in each page of a paginated
+-- response.
+listAllowLists_maxResults :: Lens.Lens' ListAllowLists (Prelude.Maybe Prelude.Natural)
+listAllowLists_maxResults = Lens.lens (\ListAllowLists' {maxResults} -> maxResults) (\s@ListAllowLists' {} a -> s {maxResults = a} :: ListAllowLists)
 
 -- | The nextToken string that specifies which page of results to return in a
 -- paginated response.
 listAllowLists_nextToken :: Lens.Lens' ListAllowLists (Prelude.Maybe Prelude.Text)
 listAllowLists_nextToken = Lens.lens (\ListAllowLists' {nextToken} -> nextToken) (\s@ListAllowLists' {} a -> s {nextToken = a} :: ListAllowLists)
 
--- | The maximum number of items to include in each page of a paginated
--- response.
-listAllowLists_maxResults :: Lens.Lens' ListAllowLists (Prelude.Maybe Prelude.Natural)
-listAllowLists_maxResults = Lens.lens (\ListAllowLists' {maxResults} -> maxResults) (\s@ListAllowLists' {} a -> s {maxResults = a} :: ListAllowLists)
+instance Core.AWSPager ListAllowLists where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listAllowListsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listAllowListsResponse_allowLists
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listAllowLists_nextToken
+          Lens..~ rs
+          Lens.^? listAllowListsResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAllowLists where
   type
@@ -102,20 +125,20 @@ instance Core.AWSRequest ListAllowLists where
     Response.receiveJSON
       ( \s h x ->
           ListAllowListsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "allowLists" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "allowLists" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListAllowLists where
   hashWithSalt _salt ListAllowLists' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListAllowLists where
   rnf ListAllowLists' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListAllowLists where
   toHeaders =
@@ -134,18 +157,18 @@ instance Data.ToPath ListAllowLists where
 instance Data.ToQuery ListAllowLists where
   toQuery ListAllowLists' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListAllowListsResponse' smart constructor.
 data ListAllowListsResponse = ListAllowListsResponse'
-  { -- | The string to use in a subsequent request to get the next page of
+  { -- | An array of objects, one for each allow list.
+    allowLists :: Prelude.Maybe [AllowListSummary],
+    -- | The string to use in a subsequent request to get the next page of
     -- results in a paginated response. This value is null if there are no
     -- additional pages.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of objects, one for each allow list.
-    allowLists :: Prelude.Maybe [AllowListSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -159,11 +182,11 @@ data ListAllowListsResponse = ListAllowListsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'allowLists', 'listAllowListsResponse_allowLists' - An array of objects, one for each allow list.
+--
 -- 'nextToken', 'listAllowListsResponse_nextToken' - The string to use in a subsequent request to get the next page of
 -- results in a paginated response. This value is null if there are no
 -- additional pages.
---
--- 'allowLists', 'listAllowListsResponse_allowLists' - An array of objects, one for each allow list.
 --
 -- 'httpStatus', 'listAllowListsResponse_httpStatus' - The response's http status code.
 newListAllowListsResponse ::
@@ -172,11 +195,15 @@ newListAllowListsResponse ::
   ListAllowListsResponse
 newListAllowListsResponse pHttpStatus_ =
   ListAllowListsResponse'
-    { nextToken =
+    { allowLists =
         Prelude.Nothing,
-      allowLists = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An array of objects, one for each allow list.
+listAllowListsResponse_allowLists :: Lens.Lens' ListAllowListsResponse (Prelude.Maybe [AllowListSummary])
+listAllowListsResponse_allowLists = Lens.lens (\ListAllowListsResponse' {allowLists} -> allowLists) (\s@ListAllowListsResponse' {} a -> s {allowLists = a} :: ListAllowListsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The string to use in a subsequent request to get the next page of
 -- results in a paginated response. This value is null if there are no
@@ -184,16 +211,12 @@ newListAllowListsResponse pHttpStatus_ =
 listAllowListsResponse_nextToken :: Lens.Lens' ListAllowListsResponse (Prelude.Maybe Prelude.Text)
 listAllowListsResponse_nextToken = Lens.lens (\ListAllowListsResponse' {nextToken} -> nextToken) (\s@ListAllowListsResponse' {} a -> s {nextToken = a} :: ListAllowListsResponse)
 
--- | An array of objects, one for each allow list.
-listAllowListsResponse_allowLists :: Lens.Lens' ListAllowListsResponse (Prelude.Maybe [AllowListSummary])
-listAllowListsResponse_allowLists = Lens.lens (\ListAllowListsResponse' {allowLists} -> allowLists) (\s@ListAllowListsResponse' {} a -> s {allowLists = a} :: ListAllowListsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listAllowListsResponse_httpStatus :: Lens.Lens' ListAllowListsResponse Prelude.Int
 listAllowListsResponse_httpStatus = Lens.lens (\ListAllowListsResponse' {httpStatus} -> httpStatus) (\s@ListAllowListsResponse' {} a -> s {httpStatus = a} :: ListAllowListsResponse)
 
 instance Prelude.NFData ListAllowListsResponse where
   rnf ListAllowListsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf allowLists
+    Prelude.rnf allowLists
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

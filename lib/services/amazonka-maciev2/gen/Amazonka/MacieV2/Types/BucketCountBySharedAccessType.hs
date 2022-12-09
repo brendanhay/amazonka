@@ -32,16 +32,16 @@ data BucketCountBySharedAccessType = BucketCountBySharedAccessType'
   { -- | The total number of buckets that are shared with an Amazon Web Services
     -- account that isn\'t part of the same Amazon Macie organization.
     external :: Prelude.Maybe Prelude.Integer,
-    -- | The total number of buckets that Amazon Macie wasn\'t able to evaluate
-    -- shared access settings for. Macie can\'t determine whether these buckets
-    -- are shared with other Amazon Web Services accounts.
-    unknown :: Prelude.Maybe Prelude.Integer,
+    -- | The total number of buckets that are shared with an Amazon Web Services
+    -- account that\'s part of the same Amazon Macie organization.
+    internal :: Prelude.Maybe Prelude.Integer,
     -- | The total number of buckets that aren\'t shared with other Amazon Web
     -- Services accounts.
     notShared :: Prelude.Maybe Prelude.Integer,
-    -- | The total number of buckets that are shared with an Amazon Web Services
-    -- account that\'s part of the same Amazon Macie organization.
-    internal :: Prelude.Maybe Prelude.Integer
+    -- | The total number of buckets that Amazon Macie wasn\'t able to evaluate
+    -- shared access settings for. Macie can\'t determine whether these buckets
+    -- are shared with other Amazon Web Services accounts.
+    unknown :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,24 +56,24 @@ data BucketCountBySharedAccessType = BucketCountBySharedAccessType'
 -- 'external', 'bucketCountBySharedAccessType_external' - The total number of buckets that are shared with an Amazon Web Services
 -- account that isn\'t part of the same Amazon Macie organization.
 --
--- 'unknown', 'bucketCountBySharedAccessType_unknown' - The total number of buckets that Amazon Macie wasn\'t able to evaluate
--- shared access settings for. Macie can\'t determine whether these buckets
--- are shared with other Amazon Web Services accounts.
+-- 'internal', 'bucketCountBySharedAccessType_internal' - The total number of buckets that are shared with an Amazon Web Services
+-- account that\'s part of the same Amazon Macie organization.
 --
 -- 'notShared', 'bucketCountBySharedAccessType_notShared' - The total number of buckets that aren\'t shared with other Amazon Web
 -- Services accounts.
 --
--- 'internal', 'bucketCountBySharedAccessType_internal' - The total number of buckets that are shared with an Amazon Web Services
--- account that\'s part of the same Amazon Macie organization.
+-- 'unknown', 'bucketCountBySharedAccessType_unknown' - The total number of buckets that Amazon Macie wasn\'t able to evaluate
+-- shared access settings for. Macie can\'t determine whether these buckets
+-- are shared with other Amazon Web Services accounts.
 newBucketCountBySharedAccessType ::
   BucketCountBySharedAccessType
 newBucketCountBySharedAccessType =
   BucketCountBySharedAccessType'
     { external =
         Prelude.Nothing,
-      unknown = Prelude.Nothing,
+      internal = Prelude.Nothing,
       notShared = Prelude.Nothing,
-      internal = Prelude.Nothing
+      unknown = Prelude.Nothing
     }
 
 -- | The total number of buckets that are shared with an Amazon Web Services
@@ -81,21 +81,21 @@ newBucketCountBySharedAccessType =
 bucketCountBySharedAccessType_external :: Lens.Lens' BucketCountBySharedAccessType (Prelude.Maybe Prelude.Integer)
 bucketCountBySharedAccessType_external = Lens.lens (\BucketCountBySharedAccessType' {external} -> external) (\s@BucketCountBySharedAccessType' {} a -> s {external = a} :: BucketCountBySharedAccessType)
 
--- | The total number of buckets that Amazon Macie wasn\'t able to evaluate
--- shared access settings for. Macie can\'t determine whether these buckets
--- are shared with other Amazon Web Services accounts.
-bucketCountBySharedAccessType_unknown :: Lens.Lens' BucketCountBySharedAccessType (Prelude.Maybe Prelude.Integer)
-bucketCountBySharedAccessType_unknown = Lens.lens (\BucketCountBySharedAccessType' {unknown} -> unknown) (\s@BucketCountBySharedAccessType' {} a -> s {unknown = a} :: BucketCountBySharedAccessType)
+-- | The total number of buckets that are shared with an Amazon Web Services
+-- account that\'s part of the same Amazon Macie organization.
+bucketCountBySharedAccessType_internal :: Lens.Lens' BucketCountBySharedAccessType (Prelude.Maybe Prelude.Integer)
+bucketCountBySharedAccessType_internal = Lens.lens (\BucketCountBySharedAccessType' {internal} -> internal) (\s@BucketCountBySharedAccessType' {} a -> s {internal = a} :: BucketCountBySharedAccessType)
 
 -- | The total number of buckets that aren\'t shared with other Amazon Web
 -- Services accounts.
 bucketCountBySharedAccessType_notShared :: Lens.Lens' BucketCountBySharedAccessType (Prelude.Maybe Prelude.Integer)
 bucketCountBySharedAccessType_notShared = Lens.lens (\BucketCountBySharedAccessType' {notShared} -> notShared) (\s@BucketCountBySharedAccessType' {} a -> s {notShared = a} :: BucketCountBySharedAccessType)
 
--- | The total number of buckets that are shared with an Amazon Web Services
--- account that\'s part of the same Amazon Macie organization.
-bucketCountBySharedAccessType_internal :: Lens.Lens' BucketCountBySharedAccessType (Prelude.Maybe Prelude.Integer)
-bucketCountBySharedAccessType_internal = Lens.lens (\BucketCountBySharedAccessType' {internal} -> internal) (\s@BucketCountBySharedAccessType' {} a -> s {internal = a} :: BucketCountBySharedAccessType)
+-- | The total number of buckets that Amazon Macie wasn\'t able to evaluate
+-- shared access settings for. Macie can\'t determine whether these buckets
+-- are shared with other Amazon Web Services accounts.
+bucketCountBySharedAccessType_unknown :: Lens.Lens' BucketCountBySharedAccessType (Prelude.Maybe Prelude.Integer)
+bucketCountBySharedAccessType_unknown = Lens.lens (\BucketCountBySharedAccessType' {unknown} -> unknown) (\s@BucketCountBySharedAccessType' {} a -> s {unknown = a} :: BucketCountBySharedAccessType)
 
 instance Data.FromJSON BucketCountBySharedAccessType where
   parseJSON =
@@ -104,9 +104,9 @@ instance Data.FromJSON BucketCountBySharedAccessType where
       ( \x ->
           BucketCountBySharedAccessType'
             Prelude.<$> (x Data..:? "external")
-            Prelude.<*> (x Data..:? "unknown")
-            Prelude.<*> (x Data..:? "notShared")
             Prelude.<*> (x Data..:? "internal")
+            Prelude.<*> (x Data..:? "notShared")
+            Prelude.<*> (x Data..:? "unknown")
       )
 
 instance
@@ -115,13 +115,13 @@ instance
   where
   hashWithSalt _salt BucketCountBySharedAccessType' {..} =
     _salt `Prelude.hashWithSalt` external
-      `Prelude.hashWithSalt` unknown
-      `Prelude.hashWithSalt` notShared
       `Prelude.hashWithSalt` internal
+      `Prelude.hashWithSalt` notShared
+      `Prelude.hashWithSalt` unknown
 
 instance Prelude.NFData BucketCountBySharedAccessType where
   rnf BucketCountBySharedAccessType' {..} =
     Prelude.rnf external
-      `Prelude.seq` Prelude.rnf unknown
-      `Prelude.seq` Prelude.rnf notShared
       `Prelude.seq` Prelude.rnf internal
+      `Prelude.seq` Prelude.rnf notShared
+      `Prelude.seq` Prelude.rnf unknown

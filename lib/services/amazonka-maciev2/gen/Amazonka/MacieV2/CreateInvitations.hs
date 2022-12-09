@@ -27,8 +27,8 @@ module Amazonka.MacieV2.CreateInvitations
     newCreateInvitations,
 
     -- * Request Lenses
-    createInvitations_message,
     createInvitations_disableEmailNotification,
+    createInvitations_message,
     createInvitations_accountIds,
 
     -- * Destructuring the Response
@@ -51,15 +51,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateInvitations' smart constructor.
 data CreateInvitations = CreateInvitations'
-  { -- | Custom text to include in the email message that contains the
-    -- invitation. The text can contain as many as 80 alphanumeric characters.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether to send the invitation as an email message. If this
+  { -- | Specifies whether to send the invitation as an email message. If this
     -- value is false, Amazon Macie sends the invitation (as an email message)
     -- to the email address that you specified for the recipient\'s account
     -- when you associated the account with your account. The default value is
     -- false.
     disableEmailNotification :: Prelude.Maybe Prelude.Bool,
+    -- | Custom text to include in the email message that contains the
+    -- invitation. The text can contain as many as 80 alphanumeric characters.
+    message :: Prelude.Maybe Prelude.Text,
     -- | An array that lists Amazon Web Services account IDs, one for each
     -- account to send the invitation to.
     accountIds :: [Prelude.Text]
@@ -74,14 +74,14 @@ data CreateInvitations = CreateInvitations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'createInvitations_message' - Custom text to include in the email message that contains the
--- invitation. The text can contain as many as 80 alphanumeric characters.
---
 -- 'disableEmailNotification', 'createInvitations_disableEmailNotification' - Specifies whether to send the invitation as an email message. If this
 -- value is false, Amazon Macie sends the invitation (as an email message)
 -- to the email address that you specified for the recipient\'s account
 -- when you associated the account with your account. The default value is
 -- false.
+--
+-- 'message', 'createInvitations_message' - Custom text to include in the email message that contains the
+-- invitation. The text can contain as many as 80 alphanumeric characters.
 --
 -- 'accountIds', 'createInvitations_accountIds' - An array that lists Amazon Web Services account IDs, one for each
 -- account to send the invitation to.
@@ -89,15 +89,11 @@ newCreateInvitations ::
   CreateInvitations
 newCreateInvitations =
   CreateInvitations'
-    { message = Prelude.Nothing,
-      disableEmailNotification = Prelude.Nothing,
+    { disableEmailNotification =
+        Prelude.Nothing,
+      message = Prelude.Nothing,
       accountIds = Prelude.mempty
     }
-
--- | Custom text to include in the email message that contains the
--- invitation. The text can contain as many as 80 alphanumeric characters.
-createInvitations_message :: Lens.Lens' CreateInvitations (Prelude.Maybe Prelude.Text)
-createInvitations_message = Lens.lens (\CreateInvitations' {message} -> message) (\s@CreateInvitations' {} a -> s {message = a} :: CreateInvitations)
 
 -- | Specifies whether to send the invitation as an email message. If this
 -- value is false, Amazon Macie sends the invitation (as an email message)
@@ -106,6 +102,11 @@ createInvitations_message = Lens.lens (\CreateInvitations' {message} -> message)
 -- false.
 createInvitations_disableEmailNotification :: Lens.Lens' CreateInvitations (Prelude.Maybe Prelude.Bool)
 createInvitations_disableEmailNotification = Lens.lens (\CreateInvitations' {disableEmailNotification} -> disableEmailNotification) (\s@CreateInvitations' {} a -> s {disableEmailNotification = a} :: CreateInvitations)
+
+-- | Custom text to include in the email message that contains the
+-- invitation. The text can contain as many as 80 alphanumeric characters.
+createInvitations_message :: Lens.Lens' CreateInvitations (Prelude.Maybe Prelude.Text)
+createInvitations_message = Lens.lens (\CreateInvitations' {message} -> message) (\s@CreateInvitations' {} a -> s {message = a} :: CreateInvitations)
 
 -- | An array that lists Amazon Web Services account IDs, one for each
 -- account to send the invitation to.
@@ -130,14 +131,15 @@ instance Core.AWSRequest CreateInvitations where
 
 instance Prelude.Hashable CreateInvitations where
   hashWithSalt _salt CreateInvitations' {..} =
-    _salt `Prelude.hashWithSalt` message
+    _salt
       `Prelude.hashWithSalt` disableEmailNotification
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` accountIds
 
 instance Prelude.NFData CreateInvitations where
   rnf CreateInvitations' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf disableEmailNotification
+    Prelude.rnf disableEmailNotification
+      `Prelude.seq` Prelude.rnf message
       `Prelude.seq` Prelude.rnf accountIds
 
 instance Data.ToHeaders CreateInvitations where
@@ -155,9 +157,9 @@ instance Data.ToJSON CreateInvitations where
   toJSON CreateInvitations' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("message" Data..=) Prelude.<$> message,
-            ("disableEmailNotification" Data..=)
+          [ ("disableEmailNotification" Data..=)
               Prelude.<$> disableEmailNotification,
+            ("message" Data..=) Prelude.<$> message,
             Prelude.Just ("accountIds" Data..= accountIds)
           ]
       )

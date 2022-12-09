@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTagCriterionForJob' smart constructor.
 data TagCriterionForJob = TagCriterionForJob'
-  { -- | The tag keys, tag values, or tag key and value pairs to use in the
-    -- condition.
-    tagValues :: Prelude.Maybe [TagCriterionPairForJob],
-    -- | The operator to use in the condition. Valid values are EQ (equals) and
+  { -- | The operator to use in the condition. Valid values are EQ (equals) and
     -- NE (not equals).
-    comparator :: Prelude.Maybe JobComparator
+    comparator :: Prelude.Maybe JobComparator,
+    -- | The tag keys, tag values, or tag key and value pairs to use in the
+    -- condition.
+    tagValues :: Prelude.Maybe [TagCriterionPairForJob]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,28 +48,28 @@ data TagCriterionForJob = TagCriterionForJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tagValues', 'tagCriterionForJob_tagValues' - The tag keys, tag values, or tag key and value pairs to use in the
--- condition.
---
 -- 'comparator', 'tagCriterionForJob_comparator' - The operator to use in the condition. Valid values are EQ (equals) and
 -- NE (not equals).
+--
+-- 'tagValues', 'tagCriterionForJob_tagValues' - The tag keys, tag values, or tag key and value pairs to use in the
+-- condition.
 newTagCriterionForJob ::
   TagCriterionForJob
 newTagCriterionForJob =
   TagCriterionForJob'
-    { tagValues = Prelude.Nothing,
-      comparator = Prelude.Nothing
+    { comparator = Prelude.Nothing,
+      tagValues = Prelude.Nothing
     }
-
--- | The tag keys, tag values, or tag key and value pairs to use in the
--- condition.
-tagCriterionForJob_tagValues :: Lens.Lens' TagCriterionForJob (Prelude.Maybe [TagCriterionPairForJob])
-tagCriterionForJob_tagValues = Lens.lens (\TagCriterionForJob' {tagValues} -> tagValues) (\s@TagCriterionForJob' {} a -> s {tagValues = a} :: TagCriterionForJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | The operator to use in the condition. Valid values are EQ (equals) and
 -- NE (not equals).
 tagCriterionForJob_comparator :: Lens.Lens' TagCriterionForJob (Prelude.Maybe JobComparator)
 tagCriterionForJob_comparator = Lens.lens (\TagCriterionForJob' {comparator} -> comparator) (\s@TagCriterionForJob' {} a -> s {comparator = a} :: TagCriterionForJob)
+
+-- | The tag keys, tag values, or tag key and value pairs to use in the
+-- condition.
+tagCriterionForJob_tagValues :: Lens.Lens' TagCriterionForJob (Prelude.Maybe [TagCriterionPairForJob])
+tagCriterionForJob_tagValues = Lens.lens (\TagCriterionForJob' {tagValues} -> tagValues) (\s@TagCriterionForJob' {} a -> s {tagValues = a} :: TagCriterionForJob) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON TagCriterionForJob where
   parseJSON =
@@ -77,25 +77,25 @@ instance Data.FromJSON TagCriterionForJob where
       "TagCriterionForJob"
       ( \x ->
           TagCriterionForJob'
-            Prelude.<$> (x Data..:? "tagValues" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "comparator")
+            Prelude.<$> (x Data..:? "comparator")
+            Prelude.<*> (x Data..:? "tagValues" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable TagCriterionForJob where
   hashWithSalt _salt TagCriterionForJob' {..} =
-    _salt `Prelude.hashWithSalt` tagValues
-      `Prelude.hashWithSalt` comparator
+    _salt `Prelude.hashWithSalt` comparator
+      `Prelude.hashWithSalt` tagValues
 
 instance Prelude.NFData TagCriterionForJob where
   rnf TagCriterionForJob' {..} =
-    Prelude.rnf tagValues
-      `Prelude.seq` Prelude.rnf comparator
+    Prelude.rnf comparator
+      `Prelude.seq` Prelude.rnf tagValues
 
 instance Data.ToJSON TagCriterionForJob where
   toJSON TagCriterionForJob' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tagValues" Data..=) Prelude.<$> tagValues,
-            ("comparator" Data..=) Prelude.<$> comparator
+          [ ("comparator" Data..=) Prelude.<$> comparator,
+            ("tagValues" Data..=) Prelude.<$> tagValues
           ]
       )

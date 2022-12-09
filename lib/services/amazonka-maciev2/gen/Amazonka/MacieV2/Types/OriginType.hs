@@ -20,6 +20,7 @@
 module Amazonka.MacieV2.Types.OriginType
   ( OriginType
       ( ..,
+        OriginType_AUTOMATED_SENSITIVE_DATA_DISCOVERY,
         OriginType_SENSITIVE_DATA_DISCOVERY_JOB
       ),
   )
@@ -30,7 +31,7 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies how Amazon Macie found the sensitive data that produced a
--- finding. The only possible value is:
+-- finding. Possible values are:
 newtype OriginType = OriginType'
   { fromOriginType ::
       Data.Text
@@ -59,10 +60,14 @@ newtype OriginType = OriginType'
       Data.ToXML
     )
 
+pattern OriginType_AUTOMATED_SENSITIVE_DATA_DISCOVERY :: OriginType
+pattern OriginType_AUTOMATED_SENSITIVE_DATA_DISCOVERY = OriginType' "AUTOMATED_SENSITIVE_DATA_DISCOVERY"
+
 pattern OriginType_SENSITIVE_DATA_DISCOVERY_JOB :: OriginType
 pattern OriginType_SENSITIVE_DATA_DISCOVERY_JOB = OriginType' "SENSITIVE_DATA_DISCOVERY_JOB"
 
 {-# COMPLETE
+  OriginType_AUTOMATED_SENSITIVE_DATA_DISCOVERY,
   OriginType_SENSITIVE_DATA_DISCOVERY_JOB,
   OriginType'
   #-}

@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newIpCountry' smart constructor.
 data IpCountry = IpCountry'
-  { -- | The name of the country that the IP address originated from.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The two-character code, in ISO 3166-1 alpha-2 format, for the country
+  { -- | The two-character code, in ISO 3166-1 alpha-2 format, for the country
     -- that the IP address originated from. For example, US for the United
     -- States.
-    code :: Prelude.Maybe Prelude.Text
+    code :: Prelude.Maybe Prelude.Text,
+    -- | The name of the country that the IP address originated from.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,22 +46,18 @@ data IpCountry = IpCountry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'ipCountry_name' - The name of the country that the IP address originated from.
---
 -- 'code', 'ipCountry_code' - The two-character code, in ISO 3166-1 alpha-2 format, for the country
 -- that the IP address originated from. For example, US for the United
 -- States.
+--
+-- 'name', 'ipCountry_name' - The name of the country that the IP address originated from.
 newIpCountry ::
   IpCountry
 newIpCountry =
   IpCountry'
-    { name = Prelude.Nothing,
-      code = Prelude.Nothing
+    { code = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | The name of the country that the IP address originated from.
-ipCountry_name :: Lens.Lens' IpCountry (Prelude.Maybe Prelude.Text)
-ipCountry_name = Lens.lens (\IpCountry' {name} -> name) (\s@IpCountry' {} a -> s {name = a} :: IpCountry)
 
 -- | The two-character code, in ISO 3166-1 alpha-2 format, for the country
 -- that the IP address originated from. For example, US for the United
@@ -69,20 +65,24 @@ ipCountry_name = Lens.lens (\IpCountry' {name} -> name) (\s@IpCountry' {} a -> s
 ipCountry_code :: Lens.Lens' IpCountry (Prelude.Maybe Prelude.Text)
 ipCountry_code = Lens.lens (\IpCountry' {code} -> code) (\s@IpCountry' {} a -> s {code = a} :: IpCountry)
 
+-- | The name of the country that the IP address originated from.
+ipCountry_name :: Lens.Lens' IpCountry (Prelude.Maybe Prelude.Text)
+ipCountry_name = Lens.lens (\IpCountry' {name} -> name) (\s@IpCountry' {} a -> s {name = a} :: IpCountry)
+
 instance Data.FromJSON IpCountry where
   parseJSON =
     Data.withObject
       "IpCountry"
       ( \x ->
           IpCountry'
-            Prelude.<$> (x Data..:? "name") Prelude.<*> (x Data..:? "code")
+            Prelude.<$> (x Data..:? "code") Prelude.<*> (x Data..:? "name")
       )
 
 instance Prelude.Hashable IpCountry where
   hashWithSalt _salt IpCountry' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` code
+    _salt `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData IpCountry where
   rnf IpCountry' {..} =
-    Prelude.rnf name `Prelude.seq` Prelude.rnf code
+    Prelude.rnf code `Prelude.seq` Prelude.rnf name

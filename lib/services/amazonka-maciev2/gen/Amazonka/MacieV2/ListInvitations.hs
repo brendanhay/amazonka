@@ -30,8 +30,8 @@ module Amazonka.MacieV2.ListInvitations
     newListInvitations,
 
     -- * Request Lenses
-    listInvitations_nextToken,
     listInvitations_maxResults,
+    listInvitations_nextToken,
 
     -- * Destructuring the Response
     ListInvitationsResponse (..),
@@ -54,12 +54,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListInvitations' smart constructor.
 data ListInvitations = ListInvitations'
-  { -- | The nextToken string that specifies which page of results to return in a
-    -- paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to include in each page of a paginated
+  { -- | The maximum number of items to include in each page of a paginated
     -- response.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The nextToken string that specifies which page of results to return in a
+    -- paginated response.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,28 +71,28 @@ data ListInvitations = ListInvitations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listInvitations_nextToken' - The nextToken string that specifies which page of results to return in a
--- paginated response.
---
 -- 'maxResults', 'listInvitations_maxResults' - The maximum number of items to include in each page of a paginated
 -- response.
+--
+-- 'nextToken', 'listInvitations_nextToken' - The nextToken string that specifies which page of results to return in a
+-- paginated response.
 newListInvitations ::
   ListInvitations
 newListInvitations =
   ListInvitations'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The nextToken string that specifies which page of results to return in a
--- paginated response.
-listInvitations_nextToken :: Lens.Lens' ListInvitations (Prelude.Maybe Prelude.Text)
-listInvitations_nextToken = Lens.lens (\ListInvitations' {nextToken} -> nextToken) (\s@ListInvitations' {} a -> s {nextToken = a} :: ListInvitations)
 
 -- | The maximum number of items to include in each page of a paginated
 -- response.
 listInvitations_maxResults :: Lens.Lens' ListInvitations (Prelude.Maybe Prelude.Natural)
 listInvitations_maxResults = Lens.lens (\ListInvitations' {maxResults} -> maxResults) (\s@ListInvitations' {} a -> s {maxResults = a} :: ListInvitations)
+
+-- | The nextToken string that specifies which page of results to return in a
+-- paginated response.
+listInvitations_nextToken :: Lens.Lens' ListInvitations (Prelude.Maybe Prelude.Text)
+listInvitations_nextToken = Lens.lens (\ListInvitations' {nextToken} -> nextToken) (\s@ListInvitations' {} a -> s {nextToken = a} :: ListInvitations)
 
 instance Core.AWSPager ListInvitations where
   page rq rs
@@ -133,13 +133,13 @@ instance Core.AWSRequest ListInvitations where
 
 instance Prelude.Hashable ListInvitations where
   hashWithSalt _salt ListInvitations' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListInvitations where
   rnf ListInvitations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListInvitations where
   toHeaders =
@@ -158,8 +158,8 @@ instance Data.ToPath ListInvitations where
 instance Data.ToQuery ListInvitations where
   toQuery ListInvitations' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListInvitationsResponse' smart constructor.

@@ -31,13 +31,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUsageStatisticsFilter' smart constructor.
 data UsageStatisticsFilter = UsageStatisticsFilter'
-  { -- | The field to use in the condition.
-    key :: Prelude.Maybe UsageStatisticsFilterKey,
-    -- | The operator to use in the condition. If the value for the key property
+  { -- | The operator to use in the condition. If the value for the key property
     -- is accountId, this value must be CONTAINS. If the value for the key
     -- property is any other supported field, this value can be EQ, GT, GTE,
     -- LT, LTE, or NE.
     comparator :: Prelude.Maybe UsageStatisticsFilterComparator,
+    -- | The field to use in the condition.
+    key :: Prelude.Maybe UsageStatisticsFilterKey,
     -- | An array that lists values to use in the condition, based on the value
     -- for the field specified by the key property. If the value for the key
     -- property is accountId, this array can specify multiple values.
@@ -49,7 +49,7 @@ data UsageStatisticsFilter = UsageStatisticsFilter'
     --     account.
     --
     -- -   freeTrialStartDate - The date and time, in UTC and extended ISO 8601
-    --     format, when the free trial started for an account.
+    --     format, when the Amazon Macie free trial started for an account.
     --
     -- -   serviceLimit - A Boolean (true or false) value that indicates
     --     whether an account has reached its monthly quota.
@@ -68,12 +68,12 @@ data UsageStatisticsFilter = UsageStatisticsFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'key', 'usageStatisticsFilter_key' - The field to use in the condition.
---
 -- 'comparator', 'usageStatisticsFilter_comparator' - The operator to use in the condition. If the value for the key property
 -- is accountId, this value must be CONTAINS. If the value for the key
 -- property is any other supported field, this value can be EQ, GT, GTE,
 -- LT, LTE, or NE.
+--
+-- 'key', 'usageStatisticsFilter_key' - The field to use in the condition.
 --
 -- 'values', 'usageStatisticsFilter_values' - An array that lists values to use in the condition, based on the value
 -- for the field specified by the key property. If the value for the key
@@ -86,7 +86,7 @@ data UsageStatisticsFilter = UsageStatisticsFilter'
 --     account.
 --
 -- -   freeTrialStartDate - The date and time, in UTC and extended ISO 8601
---     format, when the free trial started for an account.
+--     format, when the Amazon Macie free trial started for an account.
 --
 -- -   serviceLimit - A Boolean (true or false) value that indicates
 --     whether an account has reached its monthly quota.
@@ -97,14 +97,11 @@ newUsageStatisticsFilter ::
   UsageStatisticsFilter
 newUsageStatisticsFilter =
   UsageStatisticsFilter'
-    { key = Prelude.Nothing,
-      comparator = Prelude.Nothing,
+    { comparator =
+        Prelude.Nothing,
+      key = Prelude.Nothing,
       values = Prelude.Nothing
     }
-
--- | The field to use in the condition.
-usageStatisticsFilter_key :: Lens.Lens' UsageStatisticsFilter (Prelude.Maybe UsageStatisticsFilterKey)
-usageStatisticsFilter_key = Lens.lens (\UsageStatisticsFilter' {key} -> key) (\s@UsageStatisticsFilter' {} a -> s {key = a} :: UsageStatisticsFilter)
 
 -- | The operator to use in the condition. If the value for the key property
 -- is accountId, this value must be CONTAINS. If the value for the key
@@ -112,6 +109,10 @@ usageStatisticsFilter_key = Lens.lens (\UsageStatisticsFilter' {key} -> key) (\s
 -- LT, LTE, or NE.
 usageStatisticsFilter_comparator :: Lens.Lens' UsageStatisticsFilter (Prelude.Maybe UsageStatisticsFilterComparator)
 usageStatisticsFilter_comparator = Lens.lens (\UsageStatisticsFilter' {comparator} -> comparator) (\s@UsageStatisticsFilter' {} a -> s {comparator = a} :: UsageStatisticsFilter)
+
+-- | The field to use in the condition.
+usageStatisticsFilter_key :: Lens.Lens' UsageStatisticsFilter (Prelude.Maybe UsageStatisticsFilterKey)
+usageStatisticsFilter_key = Lens.lens (\UsageStatisticsFilter' {key} -> key) (\s@UsageStatisticsFilter' {} a -> s {key = a} :: UsageStatisticsFilter)
 
 -- | An array that lists values to use in the condition, based on the value
 -- for the field specified by the key property. If the value for the key
@@ -124,7 +125,7 @@ usageStatisticsFilter_comparator = Lens.lens (\UsageStatisticsFilter' {comparato
 --     account.
 --
 -- -   freeTrialStartDate - The date and time, in UTC and extended ISO 8601
---     format, when the free trial started for an account.
+--     format, when the Amazon Macie free trial started for an account.
 --
 -- -   serviceLimit - A Boolean (true or false) value that indicates
 --     whether an account has reached its monthly quota.
@@ -136,22 +137,22 @@ usageStatisticsFilter_values = Lens.lens (\UsageStatisticsFilter' {values} -> va
 
 instance Prelude.Hashable UsageStatisticsFilter where
   hashWithSalt _salt UsageStatisticsFilter' {..} =
-    _salt `Prelude.hashWithSalt` key
-      `Prelude.hashWithSalt` comparator
+    _salt `Prelude.hashWithSalt` comparator
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData UsageStatisticsFilter where
   rnf UsageStatisticsFilter' {..} =
-    Prelude.rnf key
-      `Prelude.seq` Prelude.rnf comparator
+    Prelude.rnf comparator
+      `Prelude.seq` Prelude.rnf key
       `Prelude.seq` Prelude.rnf values
 
 instance Data.ToJSON UsageStatisticsFilter where
   toJSON UsageStatisticsFilter' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("key" Data..=) Prelude.<$> key,
-            ("comparator" Data..=) Prelude.<$> comparator,
+          [ ("comparator" Data..=) Prelude.<$> comparator,
+            ("key" Data..=) Prelude.<$> key,
             ("values" Data..=) Prelude.<$> values
           ]
       )

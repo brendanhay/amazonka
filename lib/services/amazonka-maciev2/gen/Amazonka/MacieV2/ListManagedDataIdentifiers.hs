@@ -22,6 +22,8 @@
 --
 -- Retrieves information about all the managed data identifiers that Amazon
 -- Macie currently provides.
+--
+-- This operation returns paginated results.
 module Amazonka.MacieV2.ListManagedDataIdentifiers
   ( -- * Creating a Request
     ListManagedDataIdentifiers (..),
@@ -79,6 +81,28 @@ newListManagedDataIdentifiers =
 -- paginated response.
 listManagedDataIdentifiers_nextToken :: Lens.Lens' ListManagedDataIdentifiers (Prelude.Maybe Prelude.Text)
 listManagedDataIdentifiers_nextToken = Lens.lens (\ListManagedDataIdentifiers' {nextToken} -> nextToken) (\s@ListManagedDataIdentifiers' {} a -> s {nextToken = a} :: ListManagedDataIdentifiers)
+
+instance Core.AWSPager ListManagedDataIdentifiers where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listManagedDataIdentifiersResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listManagedDataIdentifiersResponse_items
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listManagedDataIdentifiers_nextToken
+          Lens..~ rs
+          Lens.^? listManagedDataIdentifiersResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListManagedDataIdentifiers where
   type

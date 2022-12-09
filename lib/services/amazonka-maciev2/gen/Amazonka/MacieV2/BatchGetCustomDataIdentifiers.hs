@@ -34,8 +34,8 @@ module Amazonka.MacieV2.BatchGetCustomDataIdentifiers
     newBatchGetCustomDataIdentifiersResponse,
 
     -- * Response Lenses
-    batchGetCustomDataIdentifiersResponse_notFoundIdentifierIds,
     batchGetCustomDataIdentifiersResponse_customDataIdentifiers,
+    batchGetCustomDataIdentifiersResponse_notFoundIdentifierIds,
     batchGetCustomDataIdentifiersResponse_httpStatus,
   )
 where
@@ -92,10 +92,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           BatchGetCustomDataIdentifiersResponse'
-            Prelude.<$> ( x Data..?> "notFoundIdentifierIds"
+            Prelude.<$> ( x Data..?> "customDataIdentifiers"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "customDataIdentifiers"
+            Prelude.<*> ( x Data..?> "notFoundIdentifierIds"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -136,13 +136,13 @@ instance Data.ToQuery BatchGetCustomDataIdentifiers where
 
 -- | /See:/ 'newBatchGetCustomDataIdentifiersResponse' smart constructor.
 data BatchGetCustomDataIdentifiersResponse = BatchGetCustomDataIdentifiersResponse'
-  { -- | An array of custom data identifier IDs, one for each custom data
+  { -- | An array of objects, one for each custom data identifier that matches
+    -- the criteria specified in the request.
+    customDataIdentifiers :: Prelude.Maybe [BatchGetCustomDataIdentifierSummary],
+    -- | An array of custom data identifier IDs, one for each custom data
     -- identifier that was specified in the request but doesn\'t correlate to
     -- an existing custom data identifier.
     notFoundIdentifierIds :: Prelude.Maybe [Prelude.Text],
-    -- | An array of objects, one for each custom data identifier that meets the
-    -- criteria specified in the request.
-    customDataIdentifiers :: Prelude.Maybe [BatchGetCustomDataIdentifierSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -156,12 +156,12 @@ data BatchGetCustomDataIdentifiersResponse = BatchGetCustomDataIdentifiersRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'customDataIdentifiers', 'batchGetCustomDataIdentifiersResponse_customDataIdentifiers' - An array of objects, one for each custom data identifier that matches
+-- the criteria specified in the request.
+--
 -- 'notFoundIdentifierIds', 'batchGetCustomDataIdentifiersResponse_notFoundIdentifierIds' - An array of custom data identifier IDs, one for each custom data
 -- identifier that was specified in the request but doesn\'t correlate to
 -- an existing custom data identifier.
---
--- 'customDataIdentifiers', 'batchGetCustomDataIdentifiersResponse_customDataIdentifiers' - An array of objects, one for each custom data identifier that meets the
--- criteria specified in the request.
 --
 -- 'httpStatus', 'batchGetCustomDataIdentifiersResponse_httpStatus' - The response's http status code.
 newBatchGetCustomDataIdentifiersResponse ::
@@ -170,23 +170,23 @@ newBatchGetCustomDataIdentifiersResponse ::
   BatchGetCustomDataIdentifiersResponse
 newBatchGetCustomDataIdentifiersResponse pHttpStatus_ =
   BatchGetCustomDataIdentifiersResponse'
-    { notFoundIdentifierIds =
+    { customDataIdentifiers =
         Prelude.Nothing,
-      customDataIdentifiers =
+      notFoundIdentifierIds =
         Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An array of objects, one for each custom data identifier that matches
+-- the criteria specified in the request.
+batchGetCustomDataIdentifiersResponse_customDataIdentifiers :: Lens.Lens' BatchGetCustomDataIdentifiersResponse (Prelude.Maybe [BatchGetCustomDataIdentifierSummary])
+batchGetCustomDataIdentifiersResponse_customDataIdentifiers = Lens.lens (\BatchGetCustomDataIdentifiersResponse' {customDataIdentifiers} -> customDataIdentifiers) (\s@BatchGetCustomDataIdentifiersResponse' {} a -> s {customDataIdentifiers = a} :: BatchGetCustomDataIdentifiersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An array of custom data identifier IDs, one for each custom data
 -- identifier that was specified in the request but doesn\'t correlate to
 -- an existing custom data identifier.
 batchGetCustomDataIdentifiersResponse_notFoundIdentifierIds :: Lens.Lens' BatchGetCustomDataIdentifiersResponse (Prelude.Maybe [Prelude.Text])
 batchGetCustomDataIdentifiersResponse_notFoundIdentifierIds = Lens.lens (\BatchGetCustomDataIdentifiersResponse' {notFoundIdentifierIds} -> notFoundIdentifierIds) (\s@BatchGetCustomDataIdentifiersResponse' {} a -> s {notFoundIdentifierIds = a} :: BatchGetCustomDataIdentifiersResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | An array of objects, one for each custom data identifier that meets the
--- criteria specified in the request.
-batchGetCustomDataIdentifiersResponse_customDataIdentifiers :: Lens.Lens' BatchGetCustomDataIdentifiersResponse (Prelude.Maybe [BatchGetCustomDataIdentifierSummary])
-batchGetCustomDataIdentifiersResponse_customDataIdentifiers = Lens.lens (\BatchGetCustomDataIdentifiersResponse' {customDataIdentifiers} -> customDataIdentifiers) (\s@BatchGetCustomDataIdentifiersResponse' {} a -> s {customDataIdentifiers = a} :: BatchGetCustomDataIdentifiersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchGetCustomDataIdentifiersResponse_httpStatus :: Lens.Lens' BatchGetCustomDataIdentifiersResponse Prelude.Int
@@ -197,6 +197,6 @@ instance
     BatchGetCustomDataIdentifiersResponse
   where
   rnf BatchGetCustomDataIdentifiersResponse' {..} =
-    Prelude.rnf notFoundIdentifierIds
-      `Prelude.seq` Prelude.rnf customDataIdentifiers
+    Prelude.rnf customDataIdentifiers
+      `Prelude.seq` Prelude.rnf notFoundIdentifierIds
       `Prelude.seq` Prelude.rnf httpStatus

@@ -32,14 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newJobDetails' smart constructor.
 data JobDetails = JobDetails'
-  { -- | The unique identifier for the job that ran most recently and is
-    -- configured to analyze data in the bucket, either the latest run of a
-    -- recurring job or the only run of a one-time job.
-    --
-    -- This value is typically null if the value for the isDefinedInJob
-    -- property is FALSE or UNKNOWN.
-    lastJobId :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether any one-time or recurring jobs are configured to
+  { -- | Specifies whether any one-time or recurring jobs are configured to
     -- analyze data in the bucket. Possible values are:
     --
     -- -   TRUE - The bucket is explicitly included in the bucket definition
@@ -57,13 +50,6 @@ data JobDetails = JobDetails'
     -- -   UNKNOWN - An exception occurred when Amazon Macie attempted to
     --     retrieve job data for the bucket.
     isDefinedInJob :: Prelude.Maybe IsDefinedInJob,
-    -- | The date and time, in UTC and extended ISO 8601 format, when the job
-    -- (lastJobId) started. If the job is a recurring job, this value indicates
-    -- when the most recent run started.
-    --
-    -- This value is typically null if the value for the isDefinedInJob
-    -- property is FALSE or UNKNOWN.
-    lastJobRunTime :: Prelude.Maybe Data.POSIX,
     -- | Specifies whether any recurring jobs are configured to analyze data in
     -- the bucket. Possible values are:
     --
@@ -81,7 +67,21 @@ data JobDetails = JobDetails'
     --
     -- -   UNKNOWN - An exception occurred when Amazon Macie attempted to
     --     retrieve job data for the bucket.
-    isMonitoredByJob :: Prelude.Maybe IsMonitoredByJob
+    isMonitoredByJob :: Prelude.Maybe IsMonitoredByJob,
+    -- | The unique identifier for the job that ran most recently and is
+    -- configured to analyze data in the bucket, either the latest run of a
+    -- recurring job or the only run of a one-time job.
+    --
+    -- This value is typically null if the value for the isDefinedInJob
+    -- property is FALSE or UNKNOWN.
+    lastJobId :: Prelude.Maybe Prelude.Text,
+    -- | The date and time, in UTC and extended ISO 8601 format, when the job
+    -- (lastJobId) started. If the job is a recurring job, this value indicates
+    -- when the most recent run started.
+    --
+    -- This value is typically null if the value for the isDefinedInJob
+    -- property is FALSE or UNKNOWN.
+    lastJobRunTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -92,13 +92,6 @@ data JobDetails = JobDetails'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'lastJobId', 'jobDetails_lastJobId' - The unique identifier for the job that ran most recently and is
--- configured to analyze data in the bucket, either the latest run of a
--- recurring job or the only run of a one-time job.
---
--- This value is typically null if the value for the isDefinedInJob
--- property is FALSE or UNKNOWN.
 --
 -- 'isDefinedInJob', 'jobDetails_isDefinedInJob' - Specifies whether any one-time or recurring jobs are configured to
 -- analyze data in the bucket. Possible values are:
@@ -118,13 +111,6 @@ data JobDetails = JobDetails'
 -- -   UNKNOWN - An exception occurred when Amazon Macie attempted to
 --     retrieve job data for the bucket.
 --
--- 'lastJobRunTime', 'jobDetails_lastJobRunTime' - The date and time, in UTC and extended ISO 8601 format, when the job
--- (lastJobId) started. If the job is a recurring job, this value indicates
--- when the most recent run started.
---
--- This value is typically null if the value for the isDefinedInJob
--- property is FALSE or UNKNOWN.
---
 -- 'isMonitoredByJob', 'jobDetails_isMonitoredByJob' - Specifies whether any recurring jobs are configured to analyze data in
 -- the bucket. Possible values are:
 --
@@ -142,24 +128,29 @@ data JobDetails = JobDetails'
 --
 -- -   UNKNOWN - An exception occurred when Amazon Macie attempted to
 --     retrieve job data for the bucket.
-newJobDetails ::
-  JobDetails
-newJobDetails =
-  JobDetails'
-    { lastJobId = Prelude.Nothing,
-      isDefinedInJob = Prelude.Nothing,
-      lastJobRunTime = Prelude.Nothing,
-      isMonitoredByJob = Prelude.Nothing
-    }
-
--- | The unique identifier for the job that ran most recently and is
+--
+-- 'lastJobId', 'jobDetails_lastJobId' - The unique identifier for the job that ran most recently and is
 -- configured to analyze data in the bucket, either the latest run of a
 -- recurring job or the only run of a one-time job.
 --
 -- This value is typically null if the value for the isDefinedInJob
 -- property is FALSE or UNKNOWN.
-jobDetails_lastJobId :: Lens.Lens' JobDetails (Prelude.Maybe Prelude.Text)
-jobDetails_lastJobId = Lens.lens (\JobDetails' {lastJobId} -> lastJobId) (\s@JobDetails' {} a -> s {lastJobId = a} :: JobDetails)
+--
+-- 'lastJobRunTime', 'jobDetails_lastJobRunTime' - The date and time, in UTC and extended ISO 8601 format, when the job
+-- (lastJobId) started. If the job is a recurring job, this value indicates
+-- when the most recent run started.
+--
+-- This value is typically null if the value for the isDefinedInJob
+-- property is FALSE or UNKNOWN.
+newJobDetails ::
+  JobDetails
+newJobDetails =
+  JobDetails'
+    { isDefinedInJob = Prelude.Nothing,
+      isMonitoredByJob = Prelude.Nothing,
+      lastJobId = Prelude.Nothing,
+      lastJobRunTime = Prelude.Nothing
+    }
 
 -- | Specifies whether any one-time or recurring jobs are configured to
 -- analyze data in the bucket. Possible values are:
@@ -181,15 +172,6 @@ jobDetails_lastJobId = Lens.lens (\JobDetails' {lastJobId} -> lastJobId) (\s@Job
 jobDetails_isDefinedInJob :: Lens.Lens' JobDetails (Prelude.Maybe IsDefinedInJob)
 jobDetails_isDefinedInJob = Lens.lens (\JobDetails' {isDefinedInJob} -> isDefinedInJob) (\s@JobDetails' {} a -> s {isDefinedInJob = a} :: JobDetails)
 
--- | The date and time, in UTC and extended ISO 8601 format, when the job
--- (lastJobId) started. If the job is a recurring job, this value indicates
--- when the most recent run started.
---
--- This value is typically null if the value for the isDefinedInJob
--- property is FALSE or UNKNOWN.
-jobDetails_lastJobRunTime :: Lens.Lens' JobDetails (Prelude.Maybe Prelude.UTCTime)
-jobDetails_lastJobRunTime = Lens.lens (\JobDetails' {lastJobRunTime} -> lastJobRunTime) (\s@JobDetails' {} a -> s {lastJobRunTime = a} :: JobDetails) Prelude.. Lens.mapping Data._Time
-
 -- | Specifies whether any recurring jobs are configured to analyze data in
 -- the bucket. Possible values are:
 --
@@ -210,28 +192,46 @@ jobDetails_lastJobRunTime = Lens.lens (\JobDetails' {lastJobRunTime} -> lastJobR
 jobDetails_isMonitoredByJob :: Lens.Lens' JobDetails (Prelude.Maybe IsMonitoredByJob)
 jobDetails_isMonitoredByJob = Lens.lens (\JobDetails' {isMonitoredByJob} -> isMonitoredByJob) (\s@JobDetails' {} a -> s {isMonitoredByJob = a} :: JobDetails)
 
+-- | The unique identifier for the job that ran most recently and is
+-- configured to analyze data in the bucket, either the latest run of a
+-- recurring job or the only run of a one-time job.
+--
+-- This value is typically null if the value for the isDefinedInJob
+-- property is FALSE or UNKNOWN.
+jobDetails_lastJobId :: Lens.Lens' JobDetails (Prelude.Maybe Prelude.Text)
+jobDetails_lastJobId = Lens.lens (\JobDetails' {lastJobId} -> lastJobId) (\s@JobDetails' {} a -> s {lastJobId = a} :: JobDetails)
+
+-- | The date and time, in UTC and extended ISO 8601 format, when the job
+-- (lastJobId) started. If the job is a recurring job, this value indicates
+-- when the most recent run started.
+--
+-- This value is typically null if the value for the isDefinedInJob
+-- property is FALSE or UNKNOWN.
+jobDetails_lastJobRunTime :: Lens.Lens' JobDetails (Prelude.Maybe Prelude.UTCTime)
+jobDetails_lastJobRunTime = Lens.lens (\JobDetails' {lastJobRunTime} -> lastJobRunTime) (\s@JobDetails' {} a -> s {lastJobRunTime = a} :: JobDetails) Prelude.. Lens.mapping Data._Time
+
 instance Data.FromJSON JobDetails where
   parseJSON =
     Data.withObject
       "JobDetails"
       ( \x ->
           JobDetails'
-            Prelude.<$> (x Data..:? "lastJobId")
-            Prelude.<*> (x Data..:? "isDefinedInJob")
-            Prelude.<*> (x Data..:? "lastJobRunTime")
+            Prelude.<$> (x Data..:? "isDefinedInJob")
             Prelude.<*> (x Data..:? "isMonitoredByJob")
+            Prelude.<*> (x Data..:? "lastJobId")
+            Prelude.<*> (x Data..:? "lastJobRunTime")
       )
 
 instance Prelude.Hashable JobDetails where
   hashWithSalt _salt JobDetails' {..} =
-    _salt `Prelude.hashWithSalt` lastJobId
-      `Prelude.hashWithSalt` isDefinedInJob
-      `Prelude.hashWithSalt` lastJobRunTime
+    _salt `Prelude.hashWithSalt` isDefinedInJob
       `Prelude.hashWithSalt` isMonitoredByJob
+      `Prelude.hashWithSalt` lastJobId
+      `Prelude.hashWithSalt` lastJobRunTime
 
 instance Prelude.NFData JobDetails where
   rnf JobDetails' {..} =
-    Prelude.rnf lastJobId
-      `Prelude.seq` Prelude.rnf isDefinedInJob
-      `Prelude.seq` Prelude.rnf lastJobRunTime
+    Prelude.rnf isDefinedInJob
       `Prelude.seq` Prelude.rnf isMonitoredByJob
+      `Prelude.seq` Prelude.rnf lastJobId
+      `Prelude.seq` Prelude.rnf lastJobRunTime

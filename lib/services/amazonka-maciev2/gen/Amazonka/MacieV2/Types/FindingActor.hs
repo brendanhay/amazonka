@@ -32,16 +32,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFindingActor' smart constructor.
 data FindingActor = FindingActor'
-  { -- | The type and other characteristics of the entity that performed the
-    -- action on the affected resource.
-    userIdentity :: Prelude.Maybe UserIdentity,
+  { -- | The domain name of the device that the entity used to perform the action
+    -- on the affected resource.
+    domainDetails :: Prelude.Maybe DomainDetails,
     -- | The IP address of the device that the entity used to perform the action
     -- on the affected resource. This object also provides information such as
     -- the owner and geographic location for the IP address.
     ipAddressDetails :: Prelude.Maybe IpAddressDetails,
-    -- | The domain name of the device that the entity used to perform the action
-    -- on the affected resource.
-    domainDetails :: Prelude.Maybe DomainDetails
+    -- | The type and other characteristics of the entity that performed the
+    -- action on the affected resource.
+    userIdentity :: Prelude.Maybe UserIdentity
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,28 +53,28 @@ data FindingActor = FindingActor'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'userIdentity', 'findingActor_userIdentity' - The type and other characteristics of the entity that performed the
--- action on the affected resource.
+-- 'domainDetails', 'findingActor_domainDetails' - The domain name of the device that the entity used to perform the action
+-- on the affected resource.
 --
 -- 'ipAddressDetails', 'findingActor_ipAddressDetails' - The IP address of the device that the entity used to perform the action
 -- on the affected resource. This object also provides information such as
 -- the owner and geographic location for the IP address.
 --
--- 'domainDetails', 'findingActor_domainDetails' - The domain name of the device that the entity used to perform the action
--- on the affected resource.
+-- 'userIdentity', 'findingActor_userIdentity' - The type and other characteristics of the entity that performed the
+-- action on the affected resource.
 newFindingActor ::
   FindingActor
 newFindingActor =
   FindingActor'
-    { userIdentity = Prelude.Nothing,
+    { domainDetails = Prelude.Nothing,
       ipAddressDetails = Prelude.Nothing,
-      domainDetails = Prelude.Nothing
+      userIdentity = Prelude.Nothing
     }
 
--- | The type and other characteristics of the entity that performed the
--- action on the affected resource.
-findingActor_userIdentity :: Lens.Lens' FindingActor (Prelude.Maybe UserIdentity)
-findingActor_userIdentity = Lens.lens (\FindingActor' {userIdentity} -> userIdentity) (\s@FindingActor' {} a -> s {userIdentity = a} :: FindingActor)
+-- | The domain name of the device that the entity used to perform the action
+-- on the affected resource.
+findingActor_domainDetails :: Lens.Lens' FindingActor (Prelude.Maybe DomainDetails)
+findingActor_domainDetails = Lens.lens (\FindingActor' {domainDetails} -> domainDetails) (\s@FindingActor' {} a -> s {domainDetails = a} :: FindingActor)
 
 -- | The IP address of the device that the entity used to perform the action
 -- on the affected resource. This object also provides information such as
@@ -82,10 +82,10 @@ findingActor_userIdentity = Lens.lens (\FindingActor' {userIdentity} -> userIden
 findingActor_ipAddressDetails :: Lens.Lens' FindingActor (Prelude.Maybe IpAddressDetails)
 findingActor_ipAddressDetails = Lens.lens (\FindingActor' {ipAddressDetails} -> ipAddressDetails) (\s@FindingActor' {} a -> s {ipAddressDetails = a} :: FindingActor)
 
--- | The domain name of the device that the entity used to perform the action
--- on the affected resource.
-findingActor_domainDetails :: Lens.Lens' FindingActor (Prelude.Maybe DomainDetails)
-findingActor_domainDetails = Lens.lens (\FindingActor' {domainDetails} -> domainDetails) (\s@FindingActor' {} a -> s {domainDetails = a} :: FindingActor)
+-- | The type and other characteristics of the entity that performed the
+-- action on the affected resource.
+findingActor_userIdentity :: Lens.Lens' FindingActor (Prelude.Maybe UserIdentity)
+findingActor_userIdentity = Lens.lens (\FindingActor' {userIdentity} -> userIdentity) (\s@FindingActor' {} a -> s {userIdentity = a} :: FindingActor)
 
 instance Data.FromJSON FindingActor where
   parseJSON =
@@ -93,19 +93,19 @@ instance Data.FromJSON FindingActor where
       "FindingActor"
       ( \x ->
           FindingActor'
-            Prelude.<$> (x Data..:? "userIdentity")
+            Prelude.<$> (x Data..:? "domainDetails")
             Prelude.<*> (x Data..:? "ipAddressDetails")
-            Prelude.<*> (x Data..:? "domainDetails")
+            Prelude.<*> (x Data..:? "userIdentity")
       )
 
 instance Prelude.Hashable FindingActor where
   hashWithSalt _salt FindingActor' {..} =
-    _salt `Prelude.hashWithSalt` userIdentity
+    _salt `Prelude.hashWithSalt` domainDetails
       `Prelude.hashWithSalt` ipAddressDetails
-      `Prelude.hashWithSalt` domainDetails
+      `Prelude.hashWithSalt` userIdentity
 
 instance Prelude.NFData FindingActor where
   rnf FindingActor' {..} =
-    Prelude.rnf userIdentity
+    Prelude.rnf domainDetails
       `Prelude.seq` Prelude.rnf ipAddressDetails
-      `Prelude.seq` Prelude.rnf domainDetails
+      `Prelude.seq` Prelude.rnf userIdentity

@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsAccount' smart constructor.
 data AwsAccount = AwsAccount'
-  { -- | The unique identifier for the entity that performed the action.
-    principalId :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for the Amazon Web Services account.
-    accountId :: Prelude.Maybe Prelude.Text
+  { -- | The unique identifier for the Amazon Web Services account.
+    accountId :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier for the entity that performed the action.
+    principalId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,24 +46,24 @@ data AwsAccount = AwsAccount'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'principalId', 'awsAccount_principalId' - The unique identifier for the entity that performed the action.
---
 -- 'accountId', 'awsAccount_accountId' - The unique identifier for the Amazon Web Services account.
+--
+-- 'principalId', 'awsAccount_principalId' - The unique identifier for the entity that performed the action.
 newAwsAccount ::
   AwsAccount
 newAwsAccount =
   AwsAccount'
-    { principalId = Prelude.Nothing,
-      accountId = Prelude.Nothing
+    { accountId = Prelude.Nothing,
+      principalId = Prelude.Nothing
     }
-
--- | The unique identifier for the entity that performed the action.
-awsAccount_principalId :: Lens.Lens' AwsAccount (Prelude.Maybe Prelude.Text)
-awsAccount_principalId = Lens.lens (\AwsAccount' {principalId} -> principalId) (\s@AwsAccount' {} a -> s {principalId = a} :: AwsAccount)
 
 -- | The unique identifier for the Amazon Web Services account.
 awsAccount_accountId :: Lens.Lens' AwsAccount (Prelude.Maybe Prelude.Text)
 awsAccount_accountId = Lens.lens (\AwsAccount' {accountId} -> accountId) (\s@AwsAccount' {} a -> s {accountId = a} :: AwsAccount)
+
+-- | The unique identifier for the entity that performed the action.
+awsAccount_principalId :: Lens.Lens' AwsAccount (Prelude.Maybe Prelude.Text)
+awsAccount_principalId = Lens.lens (\AwsAccount' {principalId} -> principalId) (\s@AwsAccount' {} a -> s {principalId = a} :: AwsAccount)
 
 instance Data.FromJSON AwsAccount where
   parseJSON =
@@ -71,16 +71,16 @@ instance Data.FromJSON AwsAccount where
       "AwsAccount"
       ( \x ->
           AwsAccount'
-            Prelude.<$> (x Data..:? "principalId")
-            Prelude.<*> (x Data..:? "accountId")
+            Prelude.<$> (x Data..:? "accountId")
+            Prelude.<*> (x Data..:? "principalId")
       )
 
 instance Prelude.Hashable AwsAccount where
   hashWithSalt _salt AwsAccount' {..} =
-    _salt `Prelude.hashWithSalt` principalId
-      `Prelude.hashWithSalt` accountId
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` principalId
 
 instance Prelude.NFData AwsAccount where
   rnf AwsAccount' {..} =
-    Prelude.rnf principalId
-      `Prelude.seq` Prelude.rnf accountId
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf principalId

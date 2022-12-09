@@ -37,10 +37,10 @@ module Amazonka.ResourceExplorer2.CreateView
     newCreateView,
 
     -- * Request Lenses
-    createView_tags,
     createView_clientToken,
     createView_filters,
     createView_includedProperties,
+    createView_tags,
     createView_viewName,
 
     -- * Destructuring the Response
@@ -63,9 +63,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateView' smart constructor.
 data CreateView = CreateView'
-  { -- | Tag key and value pairs that are attached to the view.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | This value helps ensure idempotency. Resource Explorer uses this value
+  { -- | This value helps ensure idempotency. Resource Explorer uses this value
     -- to prevent the accidental creation of duplicate versions. We recommend
     -- that you generate a
     -- <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type value>
@@ -96,6 +94,8 @@ data CreateView = CreateView'
     -- The default is an empty list, with no optional fields included in the
     -- results.
     includedProperties :: Prelude.Maybe [IncludedProperty],
+    -- | Tag key and value pairs that are attached to the view.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the new view. This name appears in the list of views in
     -- Resource Explorer.
     --
@@ -113,8 +113,6 @@ data CreateView = CreateView'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'tags', 'createView_tags' - Tag key and value pairs that are attached to the view.
 --
 -- 'clientToken', 'createView_clientToken' - This value helps ensure idempotency. Resource Explorer uses this value
 -- to prevent the accidental creation of duplicate versions. We recommend
@@ -147,6 +145,8 @@ data CreateView = CreateView'
 -- The default is an empty list, with no optional fields included in the
 -- results.
 --
+-- 'tags', 'createView_tags' - Tag key and value pairs that are attached to the view.
+--
 -- 'viewName', 'createView_viewName' - The name of the new view. This name appears in the list of views in
 -- Resource Explorer.
 --
@@ -159,16 +159,12 @@ newCreateView ::
   CreateView
 newCreateView pViewName_ =
   CreateView'
-    { tags = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
+    { clientToken = Prelude.Nothing,
       filters = Prelude.Nothing,
       includedProperties = Prelude.Nothing,
+      tags = Prelude.Nothing,
       viewName = pViewName_
     }
-
--- | Tag key and value pairs that are attached to the view.
-createView_tags :: Lens.Lens' CreateView (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createView_tags = Lens.lens (\CreateView' {tags} -> tags) (\s@CreateView' {} a -> s {tags = a} :: CreateView) Prelude.. Lens.mapping Lens.coerced
 
 -- | This value helps ensure idempotency. Resource Explorer uses this value
 -- to prevent the accidental creation of duplicate versions. We recommend
@@ -207,6 +203,10 @@ createView_filters = Lens.lens (\CreateView' {filters} -> filters) (\s@CreateVie
 createView_includedProperties :: Lens.Lens' CreateView (Prelude.Maybe [IncludedProperty])
 createView_includedProperties = Lens.lens (\CreateView' {includedProperties} -> includedProperties) (\s@CreateView' {} a -> s {includedProperties = a} :: CreateView) Prelude.. Lens.mapping Lens.coerced
 
+-- | Tag key and value pairs that are attached to the view.
+createView_tags :: Lens.Lens' CreateView (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createView_tags = Lens.lens (\CreateView' {tags} -> tags) (\s@CreateView' {} a -> s {tags = a} :: CreateView) Prelude.. Lens.mapping Lens.coerced
+
 -- | The name of the new view. This name appears in the list of views in
 -- Resource Explorer.
 --
@@ -230,18 +230,18 @@ instance Core.AWSRequest CreateView where
 
 instance Prelude.Hashable CreateView where
   hashWithSalt _salt CreateView' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` includedProperties
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` viewName
 
 instance Prelude.NFData CreateView where
   rnf CreateView' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf includedProperties
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf viewName
 
 instance Data.ToHeaders CreateView where
@@ -259,11 +259,11 @@ instance Data.ToJSON CreateView where
   toJSON CreateView' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ClientToken" Data..=) Prelude.<$> clientToken,
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
             ("Filters" Data..=) Prelude.<$> filters,
             ("IncludedProperties" Data..=)
               Prelude.<$> includedProperties,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("ViewName" Data..= viewName)
           ]
       )

@@ -41,7 +41,13 @@ import Amazonka.ResourceExplorer2.Types.IndexType
 --
 -- /See:/ 'newIndex' smart constructor.
 data Index = Index'
-  { -- | The type of index. It can be one of the following values:
+  { -- | The
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon resource name (ARN)>
+    -- of the index.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services Region in which the index exists.
+    region :: Prelude.Maybe Prelude.Text,
+    -- | The type of index. It can be one of the following values:
     --
     -- -   __LOCAL__ – The index contains information about resources from only
     --     the same Amazon Web Services Region.
@@ -51,13 +57,7 @@ data Index = Index'
     --     to the aggregator index. This lets search results in the Region with
     --     the aggregator index to include resources from all Regions in the
     --     account where Resource Explorer is turned on.
-    type' :: Prelude.Maybe IndexType,
-    -- | The
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon resource name (ARN)>
-    -- of the index.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services Region in which the index exists.
-    region :: Prelude.Maybe Prelude.Text
+    type' :: Prelude.Maybe IndexType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,6 +69,12 @@ data Index = Index'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'arn', 'index_arn' - The
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon resource name (ARN)>
+-- of the index.
+--
+-- 'region', 'index_region' - The Amazon Web Services Region in which the index exists.
+--
 -- 'type'', 'index_type' - The type of index. It can be one of the following values:
 --
 -- -   __LOCAL__ – The index contains information about resources from only
@@ -79,20 +85,24 @@ data Index = Index'
 --     to the aggregator index. This lets search results in the Region with
 --     the aggregator index to include resources from all Regions in the
 --     account where Resource Explorer is turned on.
---
--- 'arn', 'index_arn' - The
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon resource name (ARN)>
--- of the index.
---
--- 'region', 'index_region' - The Amazon Web Services Region in which the index exists.
 newIndex ::
   Index
 newIndex =
   Index'
-    { type' = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      region = Prelude.Nothing
+    { arn = Prelude.Nothing,
+      region = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
+
+-- | The
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon resource name (ARN)>
+-- of the index.
+index_arn :: Lens.Lens' Index (Prelude.Maybe Prelude.Text)
+index_arn = Lens.lens (\Index' {arn} -> arn) (\s@Index' {} a -> s {arn = a} :: Index)
+
+-- | The Amazon Web Services Region in which the index exists.
+index_region :: Lens.Lens' Index (Prelude.Maybe Prelude.Text)
+index_region = Lens.lens (\Index' {region} -> region) (\s@Index' {} a -> s {region = a} :: Index)
 
 -- | The type of index. It can be one of the following values:
 --
@@ -107,35 +117,25 @@ newIndex =
 index_type :: Lens.Lens' Index (Prelude.Maybe IndexType)
 index_type = Lens.lens (\Index' {type'} -> type') (\s@Index' {} a -> s {type' = a} :: Index)
 
--- | The
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon resource name (ARN)>
--- of the index.
-index_arn :: Lens.Lens' Index (Prelude.Maybe Prelude.Text)
-index_arn = Lens.lens (\Index' {arn} -> arn) (\s@Index' {} a -> s {arn = a} :: Index)
-
--- | The Amazon Web Services Region in which the index exists.
-index_region :: Lens.Lens' Index (Prelude.Maybe Prelude.Text)
-index_region = Lens.lens (\Index' {region} -> region) (\s@Index' {} a -> s {region = a} :: Index)
-
 instance Data.FromJSON Index where
   parseJSON =
     Data.withObject
       "Index"
       ( \x ->
           Index'
-            Prelude.<$> (x Data..:? "Type")
-            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<$> (x Data..:? "Arn")
             Prelude.<*> (x Data..:? "Region")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable Index where
   hashWithSalt _salt Index' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData Index where
   rnf Index' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf type'

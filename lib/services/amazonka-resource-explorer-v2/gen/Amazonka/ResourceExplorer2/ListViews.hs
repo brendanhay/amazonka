@@ -38,8 +38,8 @@ module Amazonka.ResourceExplorer2.ListViews
     newListViews,
 
     -- * Request Lenses
-    listViews_nextToken,
     listViews_maxResults,
+    listViews_nextToken,
 
     -- * Destructuring the Response
     ListViewsResponse (..),
@@ -62,13 +62,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListViews' smart constructor.
 data ListViews = ListViews'
-  { -- | The parameter for receiving additional results if you receive a
-    -- @NextToken@ response in a previous request. A @NextToken@ response
-    -- indicates that more output is available. Set this parameter to the value
-    -- of the previous call\'s @NextToken@ response to indicate where the
-    -- output should continue from.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results that you want included on each page of the
+  { -- | The maximum number of results that you want included on each page of the
     -- response. If you do not include this parameter, it defaults to a value
     -- appropriate to the operation. If additional items exist beyond those
     -- included in the current response, the @NextToken@ response element is
@@ -79,7 +73,13 @@ data ListViews = ListViews'
     -- An API operation can return fewer results than the maximum even when
     -- there are more results available. You should check @NextToken@ after
     -- every operation to ensure that you receive all of the results.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The parameter for receiving additional results if you receive a
+    -- @NextToken@ response in a previous request. A @NextToken@ response
+    -- indicates that more output is available. Set this parameter to the value
+    -- of the previous call\'s @NextToken@ response to indicate where the
+    -- output should continue from.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -90,12 +90,6 @@ data ListViews = ListViews'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'listViews_nextToken' - The parameter for receiving additional results if you receive a
--- @NextToken@ response in a previous request. A @NextToken@ response
--- indicates that more output is available. Set this parameter to the value
--- of the previous call\'s @NextToken@ response to indicate where the
--- output should continue from.
 --
 -- 'maxResults', 'listViews_maxResults' - The maximum number of results that you want included on each page of the
 -- response. If you do not include this parameter, it defaults to a value
@@ -108,21 +102,19 @@ data ListViews = ListViews'
 -- An API operation can return fewer results than the maximum even when
 -- there are more results available. You should check @NextToken@ after
 -- every operation to ensure that you receive all of the results.
-newListViews ::
-  ListViews
-newListViews =
-  ListViews'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
-    }
-
--- | The parameter for receiving additional results if you receive a
+--
+-- 'nextToken', 'listViews_nextToken' - The parameter for receiving additional results if you receive a
 -- @NextToken@ response in a previous request. A @NextToken@ response
 -- indicates that more output is available. Set this parameter to the value
 -- of the previous call\'s @NextToken@ response to indicate where the
 -- output should continue from.
-listViews_nextToken :: Lens.Lens' ListViews (Prelude.Maybe Prelude.Text)
-listViews_nextToken = Lens.lens (\ListViews' {nextToken} -> nextToken) (\s@ListViews' {} a -> s {nextToken = a} :: ListViews)
+newListViews ::
+  ListViews
+newListViews =
+  ListViews'
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
+    }
 
 -- | The maximum number of results that you want included on each page of the
 -- response. If you do not include this parameter, it defaults to a value
@@ -137,6 +129,14 @@ listViews_nextToken = Lens.lens (\ListViews' {nextToken} -> nextToken) (\s@ListV
 -- every operation to ensure that you receive all of the results.
 listViews_maxResults :: Lens.Lens' ListViews (Prelude.Maybe Prelude.Natural)
 listViews_maxResults = Lens.lens (\ListViews' {maxResults} -> maxResults) (\s@ListViews' {} a -> s {maxResults = a} :: ListViews)
+
+-- | The parameter for receiving additional results if you receive a
+-- @NextToken@ response in a previous request. A @NextToken@ response
+-- indicates that more output is available. Set this parameter to the value
+-- of the previous call\'s @NextToken@ response to indicate where the
+-- output should continue from.
+listViews_nextToken :: Lens.Lens' ListViews (Prelude.Maybe Prelude.Text)
+listViews_nextToken = Lens.lens (\ListViews' {nextToken} -> nextToken) (\s@ListViews' {} a -> s {nextToken = a} :: ListViews)
 
 instance Core.AWSPager ListViews where
   page rq rs
@@ -172,13 +172,13 @@ instance Core.AWSRequest ListViews where
 
 instance Prelude.Hashable ListViews where
   hashWithSalt _salt ListViews' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListViews where
   rnf ListViews' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListViews where
   toHeaders =
@@ -195,8 +195,8 @@ instance Data.ToJSON ListViews where
   toJSON ListViews' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

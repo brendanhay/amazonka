@@ -52,23 +52,23 @@ module Amazonka.ResourceExplorer2
     -- ** AccessDeniedException
     _AccessDeniedException,
 
+    -- ** ConflictException
+    _ConflictException,
+
     -- ** InternalServerException
     _InternalServerException,
-
-    -- ** UnauthorizedException
-    _UnauthorizedException,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
-    -- ** ConflictException
-    _ConflictException,
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
 
     -- ** ThrottlingException
     _ThrottlingException,
+
+    -- ** UnauthorizedException
+    _UnauthorizedException,
 
     -- ** ValidationException
     _ValidationException,

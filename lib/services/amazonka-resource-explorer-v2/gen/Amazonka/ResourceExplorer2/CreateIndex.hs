@@ -76,8 +76,8 @@ module Amazonka.ResourceExplorer2.CreateIndex
     newCreateIndex,
 
     -- * Request Lenses
-    createIndex_tags,
     createIndex_clientToken,
+    createIndex_tags,
 
     -- * Destructuring the Response
     CreateIndexResponse (..),
@@ -85,8 +85,8 @@ module Amazonka.ResourceExplorer2.CreateIndex
 
     -- * Response Lenses
     createIndexResponse_arn,
-    createIndexResponse_state,
     createIndexResponse_createdAt,
+    createIndexResponse_state,
     createIndexResponse_httpStatus,
   )
 where
@@ -101,16 +101,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateIndex' smart constructor.
 data CreateIndex = CreateIndex'
-  { -- | The specified tags are attached only to the index created in this Amazon
-    -- Web Services Region. The tags aren\'t attached to any of the resources
-    -- listed in the index.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | This value helps ensure idempotency. Resource Explorer uses this value
+  { -- | This value helps ensure idempotency. Resource Explorer uses this value
     -- to prevent the accidental creation of duplicate versions. We recommend
     -- that you generate a
     -- <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type value>
     -- to ensure the uniqueness of your views.
-    clientToken :: Prelude.Maybe Prelude.Text
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The specified tags are attached only to the index created in this Amazon
+    -- Web Services Region. The tags aren\'t attached to any of the resources
+    -- listed in the index.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -122,28 +122,22 @@ data CreateIndex = CreateIndex'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createIndex_tags' - The specified tags are attached only to the index created in this Amazon
--- Web Services Region. The tags aren\'t attached to any of the resources
--- listed in the index.
---
 -- 'clientToken', 'createIndex_clientToken' - This value helps ensure idempotency. Resource Explorer uses this value
 -- to prevent the accidental creation of duplicate versions. We recommend
 -- that you generate a
 -- <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type value>
 -- to ensure the uniqueness of your views.
+--
+-- 'tags', 'createIndex_tags' - The specified tags are attached only to the index created in this Amazon
+-- Web Services Region. The tags aren\'t attached to any of the resources
+-- listed in the index.
 newCreateIndex ::
   CreateIndex
 newCreateIndex =
   CreateIndex'
-    { tags = Prelude.Nothing,
-      clientToken = Prelude.Nothing
+    { clientToken = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
-
--- | The specified tags are attached only to the index created in this Amazon
--- Web Services Region. The tags aren\'t attached to any of the resources
--- listed in the index.
-createIndex_tags :: Lens.Lens' CreateIndex (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createIndex_tags = Lens.lens (\CreateIndex' {tags} -> tags) (\s@CreateIndex' {} a -> s {tags = a} :: CreateIndex) Prelude.. Lens.mapping Lens.coerced
 
 -- | This value helps ensure idempotency. Resource Explorer uses this value
 -- to prevent the accidental creation of duplicate versions. We recommend
@@ -152,6 +146,12 @@ createIndex_tags = Lens.lens (\CreateIndex' {tags} -> tags) (\s@CreateIndex' {} 
 -- to ensure the uniqueness of your views.
 createIndex_clientToken :: Lens.Lens' CreateIndex (Prelude.Maybe Prelude.Text)
 createIndex_clientToken = Lens.lens (\CreateIndex' {clientToken} -> clientToken) (\s@CreateIndex' {} a -> s {clientToken = a} :: CreateIndex)
+
+-- | The specified tags are attached only to the index created in this Amazon
+-- Web Services Region. The tags aren\'t attached to any of the resources
+-- listed in the index.
+createIndex_tags :: Lens.Lens' CreateIndex (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createIndex_tags = Lens.lens (\CreateIndex' {tags} -> tags) (\s@CreateIndex' {} a -> s {tags = a} :: CreateIndex) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest CreateIndex where
   type AWSResponse CreateIndex = CreateIndexResponse
@@ -162,20 +162,20 @@ instance Core.AWSRequest CreateIndex where
       ( \s h x ->
           CreateIndexResponse'
             Prelude.<$> (x Data..?> "Arn")
-            Prelude.<*> (x Data..?> "State")
             Prelude.<*> (x Data..?> "CreatedAt")
+            Prelude.<*> (x Data..?> "State")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateIndex where
   hashWithSalt _salt CreateIndex' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData CreateIndex where
   rnf CreateIndex' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf tags
 
 instance Data.ToHeaders CreateIndex where
   toHeaders =
@@ -192,8 +192,8 @@ instance Data.ToJSON CreateIndex where
   toJSON CreateIndex' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ClientToken" Data..=) Prelude.<$> clientToken
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("Tags" Data..=) Prelude.<$> tags
           ]
       )
 
@@ -209,6 +209,8 @@ data CreateIndexResponse = CreateIndexResponse'
     -- ARN in IAM permission policies to authorize the following operations:
     -- DeleteIndex | GetIndex | UpdateIndexType | CreateView
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The date and timestamp when the index was created.
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | Indicates the current state of the index. You can check for changes to
     -- the state for asynchronous operations by calling the GetIndex operation.
     --
@@ -216,8 +218,6 @@ data CreateIndexResponse = CreateIndexResponse'
     -- hours as Resource Explorer discovers the information about your
     -- resources and populates the index.
     state :: Prelude.Maybe IndexState,
-    -- | The date and timestamp when the index was created.
-    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -235,14 +235,14 @@ data CreateIndexResponse = CreateIndexResponse'
 -- ARN in IAM permission policies to authorize the following operations:
 -- DeleteIndex | GetIndex | UpdateIndexType | CreateView
 --
+-- 'createdAt', 'createIndexResponse_createdAt' - The date and timestamp when the index was created.
+--
 -- 'state', 'createIndexResponse_state' - Indicates the current state of the index. You can check for changes to
 -- the state for asynchronous operations by calling the GetIndex operation.
 --
 -- The state can remain in the @CREATING@ or @UPDATING@ state for several
 -- hours as Resource Explorer discovers the information about your
 -- resources and populates the index.
---
--- 'createdAt', 'createIndexResponse_createdAt' - The date and timestamp when the index was created.
 --
 -- 'httpStatus', 'createIndexResponse_httpStatus' - The response's http status code.
 newCreateIndexResponse ::
@@ -252,8 +252,8 @@ newCreateIndexResponse ::
 newCreateIndexResponse pHttpStatus_ =
   CreateIndexResponse'
     { arn = Prelude.Nothing,
-      state = Prelude.Nothing,
       createdAt = Prelude.Nothing,
+      state = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -262,6 +262,10 @@ newCreateIndexResponse pHttpStatus_ =
 -- DeleteIndex | GetIndex | UpdateIndexType | CreateView
 createIndexResponse_arn :: Lens.Lens' CreateIndexResponse (Prelude.Maybe Prelude.Text)
 createIndexResponse_arn = Lens.lens (\CreateIndexResponse' {arn} -> arn) (\s@CreateIndexResponse' {} a -> s {arn = a} :: CreateIndexResponse)
+
+-- | The date and timestamp when the index was created.
+createIndexResponse_createdAt :: Lens.Lens' CreateIndexResponse (Prelude.Maybe Prelude.UTCTime)
+createIndexResponse_createdAt = Lens.lens (\CreateIndexResponse' {createdAt} -> createdAt) (\s@CreateIndexResponse' {} a -> s {createdAt = a} :: CreateIndexResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates the current state of the index. You can check for changes to
 -- the state for asynchronous operations by calling the GetIndex operation.
@@ -272,10 +276,6 @@ createIndexResponse_arn = Lens.lens (\CreateIndexResponse' {arn} -> arn) (\s@Cre
 createIndexResponse_state :: Lens.Lens' CreateIndexResponse (Prelude.Maybe IndexState)
 createIndexResponse_state = Lens.lens (\CreateIndexResponse' {state} -> state) (\s@CreateIndexResponse' {} a -> s {state = a} :: CreateIndexResponse)
 
--- | The date and timestamp when the index was created.
-createIndexResponse_createdAt :: Lens.Lens' CreateIndexResponse (Prelude.Maybe Prelude.UTCTime)
-createIndexResponse_createdAt = Lens.lens (\CreateIndexResponse' {createdAt} -> createdAt) (\s@CreateIndexResponse' {} a -> s {createdAt = a} :: CreateIndexResponse) Prelude.. Lens.mapping Data._Time
-
 -- | The response's http status code.
 createIndexResponse_httpStatus :: Lens.Lens' CreateIndexResponse Prelude.Int
 createIndexResponse_httpStatus = Lens.lens (\CreateIndexResponse' {httpStatus} -> httpStatus) (\s@CreateIndexResponse' {} a -> s {httpStatus = a} :: CreateIndexResponse)
@@ -283,6 +283,6 @@ createIndexResponse_httpStatus = Lens.lens (\CreateIndexResponse' {httpStatus} -
 instance Prelude.NFData CreateIndexResponse where
   rnf CreateIndexResponse' {..} =
     Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf httpStatus

@@ -37,13 +37,13 @@ import Amazonka.ResourceExplorer2.Types.SearchFilter
 --
 -- /See:/ 'newView' smart constructor.
 data View = View'
-  { -- | The date and time when this view was last modified.
-    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
-    -- | An array of SearchFilter objects that specify which resources can be
+  { -- | An array of SearchFilter objects that specify which resources can be
     -- included in the results of queries made using this view.
     filters :: Prelude.Maybe (Data.Sensitive SearchFilter),
     -- | A structure that contains additional information about the view.
     includedProperties :: Prelude.Maybe [IncludedProperty],
+    -- | The date and time when this view was last modified.
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Web Services account that owns this view.
     owner :: Prelude.Maybe Prelude.Text,
     -- | An
@@ -71,12 +71,12 @@ data View = View'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastUpdatedAt', 'view_lastUpdatedAt' - The date and time when this view was last modified.
---
 -- 'filters', 'view_filters' - An array of SearchFilter objects that specify which resources can be
 -- included in the results of queries made using this view.
 --
 -- 'includedProperties', 'view_includedProperties' - A structure that contains additional information about the view.
+--
+-- 'lastUpdatedAt', 'view_lastUpdatedAt' - The date and time when this view was last modified.
 --
 -- 'owner', 'view_owner' - The Amazon Web Services account that owns this view.
 --
@@ -97,17 +97,13 @@ newView ::
   View
 newView =
   View'
-    { lastUpdatedAt = Prelude.Nothing,
-      filters = Prelude.Nothing,
+    { filters = Prelude.Nothing,
       includedProperties = Prelude.Nothing,
+      lastUpdatedAt = Prelude.Nothing,
       owner = Prelude.Nothing,
       scope = Prelude.Nothing,
       viewArn = Prelude.Nothing
     }
-
--- | The date and time when this view was last modified.
-view_lastUpdatedAt :: Lens.Lens' View (Prelude.Maybe Prelude.UTCTime)
-view_lastUpdatedAt = Lens.lens (\View' {lastUpdatedAt} -> lastUpdatedAt) (\s@View' {} a -> s {lastUpdatedAt = a} :: View) Prelude.. Lens.mapping Data._Time
 
 -- | An array of SearchFilter objects that specify which resources can be
 -- included in the results of queries made using this view.
@@ -117,6 +113,10 @@ view_filters = Lens.lens (\View' {filters} -> filters) (\s@View' {} a -> s {filt
 -- | A structure that contains additional information about the view.
 view_includedProperties :: Lens.Lens' View (Prelude.Maybe [IncludedProperty])
 view_includedProperties = Lens.lens (\View' {includedProperties} -> includedProperties) (\s@View' {} a -> s {includedProperties = a} :: View) Prelude.. Lens.mapping Lens.coerced
+
+-- | The date and time when this view was last modified.
+view_lastUpdatedAt :: Lens.Lens' View (Prelude.Maybe Prelude.UTCTime)
+view_lastUpdatedAt = Lens.lens (\View' {lastUpdatedAt} -> lastUpdatedAt) (\s@View' {} a -> s {lastUpdatedAt = a} :: View) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Web Services account that owns this view.
 view_owner :: Lens.Lens' View (Prelude.Maybe Prelude.Text)
@@ -146,11 +146,11 @@ instance Data.FromJSON View where
       "View"
       ( \x ->
           View'
-            Prelude.<$> (x Data..:? "LastUpdatedAt")
-            Prelude.<*> (x Data..:? "Filters")
+            Prelude.<$> (x Data..:? "Filters")
             Prelude.<*> ( x Data..:? "IncludedProperties"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "LastUpdatedAt")
             Prelude.<*> (x Data..:? "Owner")
             Prelude.<*> (x Data..:? "Scope")
             Prelude.<*> (x Data..:? "ViewArn")
@@ -158,18 +158,18 @@ instance Data.FromJSON View where
 
 instance Prelude.Hashable View where
   hashWithSalt _salt View' {..} =
-    _salt `Prelude.hashWithSalt` lastUpdatedAt
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` includedProperties
+      `Prelude.hashWithSalt` lastUpdatedAt
       `Prelude.hashWithSalt` owner
       `Prelude.hashWithSalt` scope
       `Prelude.hashWithSalt` viewArn
 
 instance Prelude.NFData View where
   rnf View' {..} =
-    Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf includedProperties
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
       `Prelude.seq` Prelude.rnf owner
       `Prelude.seq` Prelude.rnf scope
       `Prelude.seq` Prelude.rnf viewArn

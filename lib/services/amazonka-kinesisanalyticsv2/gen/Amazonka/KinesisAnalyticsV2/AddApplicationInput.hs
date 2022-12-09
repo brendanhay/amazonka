@@ -45,9 +45,9 @@ module Amazonka.KinesisAnalyticsV2.AddApplicationInput
     newAddApplicationInputResponse,
 
     -- * Response Lenses
-    addApplicationInputResponse_inputDescriptions,
     addApplicationInputResponse_applicationARN,
     addApplicationInputResponse_applicationVersionId,
+    addApplicationInputResponse_inputDescriptions,
     addApplicationInputResponse_httpStatus,
   )
 where
@@ -135,11 +135,11 @@ instance Core.AWSRequest AddApplicationInput where
     Response.receiveJSON
       ( \s h x ->
           AddApplicationInputResponse'
-            Prelude.<$> ( x Data..?> "InputDescriptions"
+            Prelude.<$> (x Data..?> "ApplicationARN")
+            Prelude.<*> (x Data..?> "ApplicationVersionId")
+            Prelude.<*> ( x Data..?> "InputDescriptions"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "ApplicationARN")
-            Prelude.<*> (x Data..?> "ApplicationVersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -192,12 +192,12 @@ instance Data.ToQuery AddApplicationInput where
 
 -- | /See:/ 'newAddApplicationInputResponse' smart constructor.
 data AddApplicationInputResponse = AddApplicationInputResponse'
-  { -- | Describes the application input configuration.
-    inputDescriptions :: Prelude.Maybe [InputDescription],
-    -- | The Amazon Resource Name (ARN) of the application.
+  { -- | The Amazon Resource Name (ARN) of the application.
     applicationARN :: Prelude.Maybe Prelude.Text,
     -- | Provides the current application version.
     applicationVersionId :: Prelude.Maybe Prelude.Natural,
+    -- | Describes the application input configuration.
+    inputDescriptions :: Prelude.Maybe [InputDescription],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -211,11 +211,11 @@ data AddApplicationInputResponse = AddApplicationInputResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'inputDescriptions', 'addApplicationInputResponse_inputDescriptions' - Describes the application input configuration.
---
 -- 'applicationARN', 'addApplicationInputResponse_applicationARN' - The Amazon Resource Name (ARN) of the application.
 --
 -- 'applicationVersionId', 'addApplicationInputResponse_applicationVersionId' - Provides the current application version.
+--
+-- 'inputDescriptions', 'addApplicationInputResponse_inputDescriptions' - Describes the application input configuration.
 --
 -- 'httpStatus', 'addApplicationInputResponse_httpStatus' - The response's http status code.
 newAddApplicationInputResponse ::
@@ -224,16 +224,12 @@ newAddApplicationInputResponse ::
   AddApplicationInputResponse
 newAddApplicationInputResponse pHttpStatus_ =
   AddApplicationInputResponse'
-    { inputDescriptions =
+    { applicationARN =
         Prelude.Nothing,
-      applicationARN = Prelude.Nothing,
       applicationVersionId = Prelude.Nothing,
+      inputDescriptions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Describes the application input configuration.
-addApplicationInputResponse_inputDescriptions :: Lens.Lens' AddApplicationInputResponse (Prelude.Maybe [InputDescription])
-addApplicationInputResponse_inputDescriptions = Lens.lens (\AddApplicationInputResponse' {inputDescriptions} -> inputDescriptions) (\s@AddApplicationInputResponse' {} a -> s {inputDescriptions = a} :: AddApplicationInputResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the application.
 addApplicationInputResponse_applicationARN :: Lens.Lens' AddApplicationInputResponse (Prelude.Maybe Prelude.Text)
@@ -243,13 +239,17 @@ addApplicationInputResponse_applicationARN = Lens.lens (\AddApplicationInputResp
 addApplicationInputResponse_applicationVersionId :: Lens.Lens' AddApplicationInputResponse (Prelude.Maybe Prelude.Natural)
 addApplicationInputResponse_applicationVersionId = Lens.lens (\AddApplicationInputResponse' {applicationVersionId} -> applicationVersionId) (\s@AddApplicationInputResponse' {} a -> s {applicationVersionId = a} :: AddApplicationInputResponse)
 
+-- | Describes the application input configuration.
+addApplicationInputResponse_inputDescriptions :: Lens.Lens' AddApplicationInputResponse (Prelude.Maybe [InputDescription])
+addApplicationInputResponse_inputDescriptions = Lens.lens (\AddApplicationInputResponse' {inputDescriptions} -> inputDescriptions) (\s@AddApplicationInputResponse' {} a -> s {inputDescriptions = a} :: AddApplicationInputResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 addApplicationInputResponse_httpStatus :: Lens.Lens' AddApplicationInputResponse Prelude.Int
 addApplicationInputResponse_httpStatus = Lens.lens (\AddApplicationInputResponse' {httpStatus} -> httpStatus) (\s@AddApplicationInputResponse' {} a -> s {httpStatus = a} :: AddApplicationInputResponse)
 
 instance Prelude.NFData AddApplicationInputResponse where
   rnf AddApplicationInputResponse' {..} =
-    Prelude.rnf inputDescriptions
-      `Prelude.seq` Prelude.rnf applicationARN
+    Prelude.rnf applicationARN
       `Prelude.seq` Prelude.rnf applicationVersionId
+      `Prelude.seq` Prelude.rnf inputDescriptions
       `Prelude.seq` Prelude.rnf httpStatus

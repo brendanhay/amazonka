@@ -32,9 +32,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCustomArtifactConfiguration' smart constructor.
 data CustomArtifactConfiguration = CustomArtifactConfiguration'
-  { s3ContentLocation :: Prelude.Maybe S3ContentLocation,
-    -- | The parameters required to fully specify a Maven reference.
+  { -- | The parameters required to fully specify a Maven reference.
     mavenReference :: Prelude.Maybe MavenReference,
+    s3ContentLocation :: Prelude.Maybe S3ContentLocation,
     -- | @UDF@ stands for user-defined functions. This type of artifact must be
     -- in an S3 bucket. A @DEPENDENCY_JAR@ can be in either Maven or an S3
     -- bucket.
@@ -50,9 +50,9 @@ data CustomArtifactConfiguration = CustomArtifactConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 's3ContentLocation', 'customArtifactConfiguration_s3ContentLocation' - Undocumented member.
---
 -- 'mavenReference', 'customArtifactConfiguration_mavenReference' - The parameters required to fully specify a Maven reference.
+--
+-- 's3ContentLocation', 'customArtifactConfiguration_s3ContentLocation' - Undocumented member.
 --
 -- 'artifactType', 'customArtifactConfiguration_artifactType' - @UDF@ stands for user-defined functions. This type of artifact must be
 -- in an S3 bucket. A @DEPENDENCY_JAR@ can be in either Maven or an S3
@@ -63,19 +63,19 @@ newCustomArtifactConfiguration ::
   CustomArtifactConfiguration
 newCustomArtifactConfiguration pArtifactType_ =
   CustomArtifactConfiguration'
-    { s3ContentLocation =
+    { mavenReference =
         Prelude.Nothing,
-      mavenReference = Prelude.Nothing,
+      s3ContentLocation = Prelude.Nothing,
       artifactType = pArtifactType_
     }
-
--- | Undocumented member.
-customArtifactConfiguration_s3ContentLocation :: Lens.Lens' CustomArtifactConfiguration (Prelude.Maybe S3ContentLocation)
-customArtifactConfiguration_s3ContentLocation = Lens.lens (\CustomArtifactConfiguration' {s3ContentLocation} -> s3ContentLocation) (\s@CustomArtifactConfiguration' {} a -> s {s3ContentLocation = a} :: CustomArtifactConfiguration)
 
 -- | The parameters required to fully specify a Maven reference.
 customArtifactConfiguration_mavenReference :: Lens.Lens' CustomArtifactConfiguration (Prelude.Maybe MavenReference)
 customArtifactConfiguration_mavenReference = Lens.lens (\CustomArtifactConfiguration' {mavenReference} -> mavenReference) (\s@CustomArtifactConfiguration' {} a -> s {mavenReference = a} :: CustomArtifactConfiguration)
+
+-- | Undocumented member.
+customArtifactConfiguration_s3ContentLocation :: Lens.Lens' CustomArtifactConfiguration (Prelude.Maybe S3ContentLocation)
+customArtifactConfiguration_s3ContentLocation = Lens.lens (\CustomArtifactConfiguration' {s3ContentLocation} -> s3ContentLocation) (\s@CustomArtifactConfiguration' {} a -> s {s3ContentLocation = a} :: CustomArtifactConfiguration)
 
 -- | @UDF@ stands for user-defined functions. This type of artifact must be
 -- in an S3 bucket. A @DEPENDENCY_JAR@ can be in either Maven or an S3
@@ -85,24 +85,24 @@ customArtifactConfiguration_artifactType = Lens.lens (\CustomArtifactConfigurati
 
 instance Prelude.Hashable CustomArtifactConfiguration where
   hashWithSalt _salt CustomArtifactConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` s3ContentLocation
-      `Prelude.hashWithSalt` mavenReference
+    _salt `Prelude.hashWithSalt` mavenReference
+      `Prelude.hashWithSalt` s3ContentLocation
       `Prelude.hashWithSalt` artifactType
 
 instance Prelude.NFData CustomArtifactConfiguration where
   rnf CustomArtifactConfiguration' {..} =
-    Prelude.rnf s3ContentLocation
-      `Prelude.seq` Prelude.rnf mavenReference
+    Prelude.rnf mavenReference
+      `Prelude.seq` Prelude.rnf s3ContentLocation
       `Prelude.seq` Prelude.rnf artifactType
 
 instance Data.ToJSON CustomArtifactConfiguration where
   toJSON CustomArtifactConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("S3ContentLocation" Data..=)
-              Prelude.<$> s3ContentLocation,
-            ("MavenReference" Data..=)
+          [ ("MavenReference" Data..=)
               Prelude.<$> mavenReference,
+            ("S3ContentLocation" Data..=)
+              Prelude.<$> s3ContentLocation,
             Prelude.Just ("ArtifactType" Data..= artifactType)
           ]
       )

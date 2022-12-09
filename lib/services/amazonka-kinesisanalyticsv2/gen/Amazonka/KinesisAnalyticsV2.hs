@@ -23,44 +23,44 @@ module Amazonka.KinesisAnalyticsV2
     -- * Errors
     -- $errors
 
-    -- ** InvalidArgumentException
-    _InvalidArgumentException,
-
-    -- ** InvalidApplicationConfigurationException
-    _InvalidApplicationConfigurationException,
-
-    -- ** UnsupportedOperationException
-    _UnsupportedOperationException,
+    -- ** CodeValidationException
+    _CodeValidationException,
 
     -- ** ConcurrentModificationException
     _ConcurrentModificationException,
 
-    -- ** TooManyTagsException
-    _TooManyTagsException,
+    -- ** InvalidApplicationConfigurationException
+    _InvalidApplicationConfigurationException,
 
-    -- ** CodeValidationException
-    _CodeValidationException,
+    -- ** InvalidArgumentException
+    _InvalidArgumentException,
 
-    -- ** ServiceUnavailableException
-    _ServiceUnavailableException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** ResourceInUseException
-    _ResourceInUseException,
+    -- ** InvalidRequestException
+    _InvalidRequestException,
 
     -- ** LimitExceededException
     _LimitExceededException,
 
-    -- ** UnableToDetectSchemaException
-    _UnableToDetectSchemaException,
+    -- ** ResourceInUseException
+    _ResourceInUseException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- ** ResourceProvisionedThroughputExceededException
     _ResourceProvisionedThroughputExceededException,
 
-    -- ** InvalidRequestException
-    _InvalidRequestException,
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
+
+    -- ** UnableToDetectSchemaException
+    _UnableToDetectSchemaException,
+
+    -- ** UnsupportedOperationException
+    _UnsupportedOperationException,
 
     -- * Waiters
     -- $waiters

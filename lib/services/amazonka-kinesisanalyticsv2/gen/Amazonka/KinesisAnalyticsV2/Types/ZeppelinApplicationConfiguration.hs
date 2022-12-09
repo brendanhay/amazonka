@@ -32,11 +32,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newZeppelinApplicationConfiguration' smart constructor.
 data ZeppelinApplicationConfiguration = ZeppelinApplicationConfiguration'
-  { -- | Custom artifacts are dependency JARs and user-defined functions (UDF).
-    customArtifactsConfiguration :: Prelude.Maybe [CustomArtifactConfiguration],
-    -- | The Amazon Glue Data Catalog that you use in queries in a Kinesis Data
+  { -- | The Amazon Glue Data Catalog that you use in queries in a Kinesis Data
     -- Analytics Studio notebook.
     catalogConfiguration :: Prelude.Maybe CatalogConfiguration,
+    -- | Custom artifacts are dependency JARs and user-defined functions (UDF).
+    customArtifactsConfiguration :: Prelude.Maybe [CustomArtifactConfiguration],
     -- | The information required to deploy a Kinesis Data Analytics Studio
     -- notebook as an application with durable state.
     deployAsApplicationConfiguration :: Prelude.Maybe DeployAsApplicationConfiguration,
@@ -54,10 +54,10 @@ data ZeppelinApplicationConfiguration = ZeppelinApplicationConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'customArtifactsConfiguration', 'zeppelinApplicationConfiguration_customArtifactsConfiguration' - Custom artifacts are dependency JARs and user-defined functions (UDF).
---
 -- 'catalogConfiguration', 'zeppelinApplicationConfiguration_catalogConfiguration' - The Amazon Glue Data Catalog that you use in queries in a Kinesis Data
 -- Analytics Studio notebook.
+--
+-- 'customArtifactsConfiguration', 'zeppelinApplicationConfiguration_customArtifactsConfiguration' - Custom artifacts are dependency JARs and user-defined functions (UDF).
 --
 -- 'deployAsApplicationConfiguration', 'zeppelinApplicationConfiguration_deployAsApplicationConfiguration' - The information required to deploy a Kinesis Data Analytics Studio
 -- notebook as an application with durable state.
@@ -68,22 +68,23 @@ newZeppelinApplicationConfiguration ::
   ZeppelinApplicationConfiguration
 newZeppelinApplicationConfiguration =
   ZeppelinApplicationConfiguration'
-    { customArtifactsConfiguration =
+    { catalogConfiguration =
         Prelude.Nothing,
-      catalogConfiguration = Prelude.Nothing,
+      customArtifactsConfiguration =
+        Prelude.Nothing,
       deployAsApplicationConfiguration =
         Prelude.Nothing,
       monitoringConfiguration = Prelude.Nothing
     }
 
--- | Custom artifacts are dependency JARs and user-defined functions (UDF).
-zeppelinApplicationConfiguration_customArtifactsConfiguration :: Lens.Lens' ZeppelinApplicationConfiguration (Prelude.Maybe [CustomArtifactConfiguration])
-zeppelinApplicationConfiguration_customArtifactsConfiguration = Lens.lens (\ZeppelinApplicationConfiguration' {customArtifactsConfiguration} -> customArtifactsConfiguration) (\s@ZeppelinApplicationConfiguration' {} a -> s {customArtifactsConfiguration = a} :: ZeppelinApplicationConfiguration) Prelude.. Lens.mapping Lens.coerced
-
 -- | The Amazon Glue Data Catalog that you use in queries in a Kinesis Data
 -- Analytics Studio notebook.
 zeppelinApplicationConfiguration_catalogConfiguration :: Lens.Lens' ZeppelinApplicationConfiguration (Prelude.Maybe CatalogConfiguration)
 zeppelinApplicationConfiguration_catalogConfiguration = Lens.lens (\ZeppelinApplicationConfiguration' {catalogConfiguration} -> catalogConfiguration) (\s@ZeppelinApplicationConfiguration' {} a -> s {catalogConfiguration = a} :: ZeppelinApplicationConfiguration)
+
+-- | Custom artifacts are dependency JARs and user-defined functions (UDF).
+zeppelinApplicationConfiguration_customArtifactsConfiguration :: Lens.Lens' ZeppelinApplicationConfiguration (Prelude.Maybe [CustomArtifactConfiguration])
+zeppelinApplicationConfiguration_customArtifactsConfiguration = Lens.lens (\ZeppelinApplicationConfiguration' {customArtifactsConfiguration} -> customArtifactsConfiguration) (\s@ZeppelinApplicationConfiguration' {} a -> s {customArtifactsConfiguration = a} :: ZeppelinApplicationConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The information required to deploy a Kinesis Data Analytics Studio
 -- notebook as an application with durable state.
@@ -102,9 +103,8 @@ instance
   hashWithSalt
     _salt
     ZeppelinApplicationConfiguration' {..} =
-      _salt
+      _salt `Prelude.hashWithSalt` catalogConfiguration
         `Prelude.hashWithSalt` customArtifactsConfiguration
-        `Prelude.hashWithSalt` catalogConfiguration
         `Prelude.hashWithSalt` deployAsApplicationConfiguration
         `Prelude.hashWithSalt` monitoringConfiguration
 
@@ -113,8 +113,8 @@ instance
     ZeppelinApplicationConfiguration
   where
   rnf ZeppelinApplicationConfiguration' {..} =
-    Prelude.rnf customArtifactsConfiguration
-      `Prelude.seq` Prelude.rnf catalogConfiguration
+    Prelude.rnf catalogConfiguration
+      `Prelude.seq` Prelude.rnf customArtifactsConfiguration
       `Prelude.seq` Prelude.rnf deployAsApplicationConfiguration
       `Prelude.seq` Prelude.rnf monitoringConfiguration
 
@@ -122,10 +122,10 @@ instance Data.ToJSON ZeppelinApplicationConfiguration where
   toJSON ZeppelinApplicationConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("CustomArtifactsConfiguration" Data..=)
-              Prelude.<$> customArtifactsConfiguration,
-            ("CatalogConfiguration" Data..=)
+          [ ("CatalogConfiguration" Data..=)
               Prelude.<$> catalogConfiguration,
+            ("CustomArtifactsConfiguration" Data..=)
+              Prelude.<$> customArtifactsConfiguration,
             ("DeployAsApplicationConfiguration" Data..=)
               Prelude.<$> deployAsApplicationConfiguration,
             ("MonitoringConfiguration" Data..=)

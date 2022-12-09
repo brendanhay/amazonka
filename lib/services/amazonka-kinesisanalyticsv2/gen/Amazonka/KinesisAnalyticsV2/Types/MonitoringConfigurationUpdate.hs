@@ -32,17 +32,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMonitoringConfigurationUpdate' smart constructor.
 data MonitoringConfigurationUpdate = MonitoringConfigurationUpdate'
-  { -- | Describes updates to the granularity of the CloudWatch Logs for an
-    -- application. The @Parallelism@ level is not recommended for applications
-    -- with a Parallelism over 64 due to excessive costs.
-    metricsLevelUpdate :: Prelude.Maybe MetricsLevel,
-    -- | Describes updates to whether to use the default CloudWatch logging
+  { -- | Describes updates to whether to use the default CloudWatch logging
     -- configuration for an application. You must set this property to @CUSTOM@
     -- in order to set the @LogLevel@ or @MetricsLevel@ parameters.
     configurationTypeUpdate :: Prelude.Maybe ConfigurationType,
     -- | Describes updates to the verbosity of the CloudWatch Logs for an
     -- application.
-    logLevelUpdate :: Prelude.Maybe LogLevel
+    logLevelUpdate :: Prelude.Maybe LogLevel,
+    -- | Describes updates to the granularity of the CloudWatch Logs for an
+    -- application. The @Parallelism@ level is not recommended for applications
+    -- with a Parallelism over 64 due to excessive costs.
+    metricsLevelUpdate :: Prelude.Maybe MetricsLevel
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,31 +54,25 @@ data MonitoringConfigurationUpdate = MonitoringConfigurationUpdate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'metricsLevelUpdate', 'monitoringConfigurationUpdate_metricsLevelUpdate' - Describes updates to the granularity of the CloudWatch Logs for an
--- application. The @Parallelism@ level is not recommended for applications
--- with a Parallelism over 64 due to excessive costs.
---
 -- 'configurationTypeUpdate', 'monitoringConfigurationUpdate_configurationTypeUpdate' - Describes updates to whether to use the default CloudWatch logging
 -- configuration for an application. You must set this property to @CUSTOM@
 -- in order to set the @LogLevel@ or @MetricsLevel@ parameters.
 --
 -- 'logLevelUpdate', 'monitoringConfigurationUpdate_logLevelUpdate' - Describes updates to the verbosity of the CloudWatch Logs for an
 -- application.
+--
+-- 'metricsLevelUpdate', 'monitoringConfigurationUpdate_metricsLevelUpdate' - Describes updates to the granularity of the CloudWatch Logs for an
+-- application. The @Parallelism@ level is not recommended for applications
+-- with a Parallelism over 64 due to excessive costs.
 newMonitoringConfigurationUpdate ::
   MonitoringConfigurationUpdate
 newMonitoringConfigurationUpdate =
   MonitoringConfigurationUpdate'
-    { metricsLevelUpdate =
+    { configurationTypeUpdate =
         Prelude.Nothing,
-      configurationTypeUpdate = Prelude.Nothing,
-      logLevelUpdate = Prelude.Nothing
+      logLevelUpdate = Prelude.Nothing,
+      metricsLevelUpdate = Prelude.Nothing
     }
-
--- | Describes updates to the granularity of the CloudWatch Logs for an
--- application. The @Parallelism@ level is not recommended for applications
--- with a Parallelism over 64 due to excessive costs.
-monitoringConfigurationUpdate_metricsLevelUpdate :: Lens.Lens' MonitoringConfigurationUpdate (Prelude.Maybe MetricsLevel)
-monitoringConfigurationUpdate_metricsLevelUpdate = Lens.lens (\MonitoringConfigurationUpdate' {metricsLevelUpdate} -> metricsLevelUpdate) (\s@MonitoringConfigurationUpdate' {} a -> s {metricsLevelUpdate = a} :: MonitoringConfigurationUpdate)
 
 -- | Describes updates to whether to use the default CloudWatch logging
 -- configuration for an application. You must set this property to @CUSTOM@
@@ -91,30 +85,37 @@ monitoringConfigurationUpdate_configurationTypeUpdate = Lens.lens (\MonitoringCo
 monitoringConfigurationUpdate_logLevelUpdate :: Lens.Lens' MonitoringConfigurationUpdate (Prelude.Maybe LogLevel)
 monitoringConfigurationUpdate_logLevelUpdate = Lens.lens (\MonitoringConfigurationUpdate' {logLevelUpdate} -> logLevelUpdate) (\s@MonitoringConfigurationUpdate' {} a -> s {logLevelUpdate = a} :: MonitoringConfigurationUpdate)
 
+-- | Describes updates to the granularity of the CloudWatch Logs for an
+-- application. The @Parallelism@ level is not recommended for applications
+-- with a Parallelism over 64 due to excessive costs.
+monitoringConfigurationUpdate_metricsLevelUpdate :: Lens.Lens' MonitoringConfigurationUpdate (Prelude.Maybe MetricsLevel)
+monitoringConfigurationUpdate_metricsLevelUpdate = Lens.lens (\MonitoringConfigurationUpdate' {metricsLevelUpdate} -> metricsLevelUpdate) (\s@MonitoringConfigurationUpdate' {} a -> s {metricsLevelUpdate = a} :: MonitoringConfigurationUpdate)
+
 instance
   Prelude.Hashable
     MonitoringConfigurationUpdate
   where
   hashWithSalt _salt MonitoringConfigurationUpdate' {..} =
-    _salt `Prelude.hashWithSalt` metricsLevelUpdate
+    _salt
       `Prelude.hashWithSalt` configurationTypeUpdate
       `Prelude.hashWithSalt` logLevelUpdate
+      `Prelude.hashWithSalt` metricsLevelUpdate
 
 instance Prelude.NFData MonitoringConfigurationUpdate where
   rnf MonitoringConfigurationUpdate' {..} =
-    Prelude.rnf metricsLevelUpdate
-      `Prelude.seq` Prelude.rnf configurationTypeUpdate
+    Prelude.rnf configurationTypeUpdate
       `Prelude.seq` Prelude.rnf logLevelUpdate
+      `Prelude.seq` Prelude.rnf metricsLevelUpdate
 
 instance Data.ToJSON MonitoringConfigurationUpdate where
   toJSON MonitoringConfigurationUpdate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("MetricsLevelUpdate" Data..=)
-              Prelude.<$> metricsLevelUpdate,
-            ("ConfigurationTypeUpdate" Data..=)
+          [ ("ConfigurationTypeUpdate" Data..=)
               Prelude.<$> configurationTypeUpdate,
             ("LogLevelUpdate" Data..=)
-              Prelude.<$> logLevelUpdate
+              Prelude.<$> logLevelUpdate,
+            ("MetricsLevelUpdate" Data..=)
+              Prelude.<$> metricsLevelUpdate
           ]
       )

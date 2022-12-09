@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCloudWatchLoggingOptionDescription' smart constructor.
 data CloudWatchLoggingOptionDescription = CloudWatchLoggingOptionDescription'
-  { -- | The IAM ARN of the role to use to send application messages.
+  { -- | The ID of the CloudWatch logging option description.
+    cloudWatchLoggingOptionId :: Prelude.Maybe Prelude.Text,
+    -- | The IAM ARN of the role to use to send application messages.
     --
     -- Provided for backward compatibility. Applications created with the
     -- current API version have an application-level service execution role
     -- rather than a resource-level role.
     roleARN :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the CloudWatch logging option description.
-    cloudWatchLoggingOptionId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the CloudWatch log to receive
     -- application messages.
     logStreamARN :: Prelude.Text
@@ -50,13 +50,13 @@ data CloudWatchLoggingOptionDescription = CloudWatchLoggingOptionDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'cloudWatchLoggingOptionId', 'cloudWatchLoggingOptionDescription_cloudWatchLoggingOptionId' - The ID of the CloudWatch logging option description.
+--
 -- 'roleARN', 'cloudWatchLoggingOptionDescription_roleARN' - The IAM ARN of the role to use to send application messages.
 --
 -- Provided for backward compatibility. Applications created with the
 -- current API version have an application-level service execution role
 -- rather than a resource-level role.
---
--- 'cloudWatchLoggingOptionId', 'cloudWatchLoggingOptionDescription_cloudWatchLoggingOptionId' - The ID of the CloudWatch logging option description.
 --
 -- 'logStreamARN', 'cloudWatchLoggingOptionDescription_logStreamARN' - The Amazon Resource Name (ARN) of the CloudWatch log to receive
 -- application messages.
@@ -66,12 +66,15 @@ newCloudWatchLoggingOptionDescription ::
   CloudWatchLoggingOptionDescription
 newCloudWatchLoggingOptionDescription pLogStreamARN_ =
   CloudWatchLoggingOptionDescription'
-    { roleARN =
+    { cloudWatchLoggingOptionId =
         Prelude.Nothing,
-      cloudWatchLoggingOptionId =
-        Prelude.Nothing,
+      roleARN = Prelude.Nothing,
       logStreamARN = pLogStreamARN_
     }
+
+-- | The ID of the CloudWatch logging option description.
+cloudWatchLoggingOptionDescription_cloudWatchLoggingOptionId :: Lens.Lens' CloudWatchLoggingOptionDescription (Prelude.Maybe Prelude.Text)
+cloudWatchLoggingOptionDescription_cloudWatchLoggingOptionId = Lens.lens (\CloudWatchLoggingOptionDescription' {cloudWatchLoggingOptionId} -> cloudWatchLoggingOptionId) (\s@CloudWatchLoggingOptionDescription' {} a -> s {cloudWatchLoggingOptionId = a} :: CloudWatchLoggingOptionDescription)
 
 -- | The IAM ARN of the role to use to send application messages.
 --
@@ -80,10 +83,6 @@ newCloudWatchLoggingOptionDescription pLogStreamARN_ =
 -- rather than a resource-level role.
 cloudWatchLoggingOptionDescription_roleARN :: Lens.Lens' CloudWatchLoggingOptionDescription (Prelude.Maybe Prelude.Text)
 cloudWatchLoggingOptionDescription_roleARN = Lens.lens (\CloudWatchLoggingOptionDescription' {roleARN} -> roleARN) (\s@CloudWatchLoggingOptionDescription' {} a -> s {roleARN = a} :: CloudWatchLoggingOptionDescription)
-
--- | The ID of the CloudWatch logging option description.
-cloudWatchLoggingOptionDescription_cloudWatchLoggingOptionId :: Lens.Lens' CloudWatchLoggingOptionDescription (Prelude.Maybe Prelude.Text)
-cloudWatchLoggingOptionDescription_cloudWatchLoggingOptionId = Lens.lens (\CloudWatchLoggingOptionDescription' {cloudWatchLoggingOptionId} -> cloudWatchLoggingOptionId) (\s@CloudWatchLoggingOptionDescription' {} a -> s {cloudWatchLoggingOptionId = a} :: CloudWatchLoggingOptionDescription)
 
 -- | The Amazon Resource Name (ARN) of the CloudWatch log to receive
 -- application messages.
@@ -99,8 +98,8 @@ instance
       "CloudWatchLoggingOptionDescription"
       ( \x ->
           CloudWatchLoggingOptionDescription'
-            Prelude.<$> (x Data..:? "RoleARN")
-            Prelude.<*> (x Data..:? "CloudWatchLoggingOptionId")
+            Prelude.<$> (x Data..:? "CloudWatchLoggingOptionId")
+            Prelude.<*> (x Data..:? "RoleARN")
             Prelude.<*> (x Data..: "LogStreamARN")
       )
 
@@ -111,8 +110,9 @@ instance
   hashWithSalt
     _salt
     CloudWatchLoggingOptionDescription' {..} =
-      _salt `Prelude.hashWithSalt` roleARN
+      _salt
         `Prelude.hashWithSalt` cloudWatchLoggingOptionId
+        `Prelude.hashWithSalt` roleARN
         `Prelude.hashWithSalt` logStreamARN
 
 instance
@@ -120,6 +120,6 @@ instance
     CloudWatchLoggingOptionDescription
   where
   rnf CloudWatchLoggingOptionDescription' {..} =
-    Prelude.rnf roleARN
-      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptionId
+    Prelude.rnf cloudWatchLoggingOptionId
+      `Prelude.seq` Prelude.rnf roleARN
       `Prelude.seq` Prelude.rnf logStreamARN

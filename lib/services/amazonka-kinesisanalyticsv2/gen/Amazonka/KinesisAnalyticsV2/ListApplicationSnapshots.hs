@@ -29,8 +29,8 @@ module Amazonka.KinesisAnalyticsV2.ListApplicationSnapshots
     newListApplicationSnapshots,
 
     -- * Request Lenses
-    listApplicationSnapshots_nextToken,
     listApplicationSnapshots_limit,
+    listApplicationSnapshots_nextToken,
     listApplicationSnapshots_applicationName,
 
     -- * Destructuring the Response
@@ -54,13 +54,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListApplicationSnapshots' smart constructor.
 data ListApplicationSnapshots = ListApplicationSnapshots'
-  { -- | Use this parameter if you receive a @NextToken@ response in a previous
+  { -- | The maximum number of application snapshots to list.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | Use this parameter if you receive a @NextToken@ response in a previous
     -- request that indicates that there is more output available. Set it to
     -- the value of the previous call\'s @NextToken@ response to indicate where
     -- the output should continue from.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of application snapshots to list.
-    limit :: Prelude.Maybe Prelude.Natural,
     -- | The name of an existing application.
     applicationName :: Prelude.Text
   }
@@ -74,12 +74,12 @@ data ListApplicationSnapshots = ListApplicationSnapshots'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'limit', 'listApplicationSnapshots_limit' - The maximum number of application snapshots to list.
+--
 -- 'nextToken', 'listApplicationSnapshots_nextToken' - Use this parameter if you receive a @NextToken@ response in a previous
 -- request that indicates that there is more output available. Set it to
 -- the value of the previous call\'s @NextToken@ response to indicate where
 -- the output should continue from.
---
--- 'limit', 'listApplicationSnapshots_limit' - The maximum number of application snapshots to list.
 --
 -- 'applicationName', 'listApplicationSnapshots_applicationName' - The name of an existing application.
 newListApplicationSnapshots ::
@@ -88,11 +88,14 @@ newListApplicationSnapshots ::
   ListApplicationSnapshots
 newListApplicationSnapshots pApplicationName_ =
   ListApplicationSnapshots'
-    { nextToken =
-        Prelude.Nothing,
-      limit = Prelude.Nothing,
+    { limit = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       applicationName = pApplicationName_
     }
+
+-- | The maximum number of application snapshots to list.
+listApplicationSnapshots_limit :: Lens.Lens' ListApplicationSnapshots (Prelude.Maybe Prelude.Natural)
+listApplicationSnapshots_limit = Lens.lens (\ListApplicationSnapshots' {limit} -> limit) (\s@ListApplicationSnapshots' {} a -> s {limit = a} :: ListApplicationSnapshots)
 
 -- | Use this parameter if you receive a @NextToken@ response in a previous
 -- request that indicates that there is more output available. Set it to
@@ -100,10 +103,6 @@ newListApplicationSnapshots pApplicationName_ =
 -- the output should continue from.
 listApplicationSnapshots_nextToken :: Lens.Lens' ListApplicationSnapshots (Prelude.Maybe Prelude.Text)
 listApplicationSnapshots_nextToken = Lens.lens (\ListApplicationSnapshots' {nextToken} -> nextToken) (\s@ListApplicationSnapshots' {} a -> s {nextToken = a} :: ListApplicationSnapshots)
-
--- | The maximum number of application snapshots to list.
-listApplicationSnapshots_limit :: Lens.Lens' ListApplicationSnapshots (Prelude.Maybe Prelude.Natural)
-listApplicationSnapshots_limit = Lens.lens (\ListApplicationSnapshots' {limit} -> limit) (\s@ListApplicationSnapshots' {} a -> s {limit = a} :: ListApplicationSnapshots)
 
 -- | The name of an existing application.
 listApplicationSnapshots_applicationName :: Lens.Lens' ListApplicationSnapshots Prelude.Text
@@ -150,14 +149,14 @@ instance Core.AWSRequest ListApplicationSnapshots where
 
 instance Prelude.Hashable ListApplicationSnapshots where
   hashWithSalt _salt ListApplicationSnapshots' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` limit
+    _salt `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` applicationName
 
 instance Prelude.NFData ListApplicationSnapshots where
   rnf ListApplicationSnapshots' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf limit
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf applicationName
 
 instance Data.ToHeaders ListApplicationSnapshots where
@@ -179,8 +178,8 @@ instance Data.ToJSON ListApplicationSnapshots where
   toJSON ListApplicationSnapshots' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Limit" Data..=) Prelude.<$> limit,
+          [ ("Limit" Data..=) Prelude.<$> limit,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("ApplicationName" Data..= applicationName)
           ]

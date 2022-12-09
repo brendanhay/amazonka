@@ -39,8 +39,8 @@ module Amazonka.KinesisAnalyticsV2.DeleteApplicationCloudWatchLoggingOption
 
     -- * Response Lenses
     deleteApplicationCloudWatchLoggingOptionResponse_applicationARN,
-    deleteApplicationCloudWatchLoggingOptionResponse_cloudWatchLoggingOptionDescriptions,
     deleteApplicationCloudWatchLoggingOptionResponse_applicationVersionId,
+    deleteApplicationCloudWatchLoggingOptionResponse_cloudWatchLoggingOptionDescriptions,
     deleteApplicationCloudWatchLoggingOptionResponse_httpStatus,
   )
 where
@@ -165,10 +165,10 @@ instance
       ( \s h x ->
           DeleteApplicationCloudWatchLoggingOptionResponse'
             Prelude.<$> (x Data..?> "ApplicationARN")
+              Prelude.<*> (x Data..?> "ApplicationVersionId")
               Prelude.<*> ( x Data..?> "CloudWatchLoggingOptionDescriptions"
                               Core..!@ Prelude.mempty
                           )
-              Prelude.<*> (x Data..?> "ApplicationVersionId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -248,13 +248,13 @@ instance
 data DeleteApplicationCloudWatchLoggingOptionResponse = DeleteApplicationCloudWatchLoggingOptionResponse'
   { -- | The application\'s Amazon Resource Name (ARN).
     applicationARN :: Prelude.Maybe Prelude.Text,
-    -- | The descriptions of the remaining CloudWatch logging options for the
-    -- application.
-    cloudWatchLoggingOptionDescriptions :: Prelude.Maybe [CloudWatchLoggingOptionDescription],
     -- | The version ID of the application. Kinesis Data Analytics updates the
     -- @ApplicationVersionId@ each time you change the CloudWatch logging
     -- options.
     applicationVersionId :: Prelude.Maybe Prelude.Natural,
+    -- | The descriptions of the remaining CloudWatch logging options for the
+    -- application.
+    cloudWatchLoggingOptionDescriptions :: Prelude.Maybe [CloudWatchLoggingOptionDescription],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -270,12 +270,12 @@ data DeleteApplicationCloudWatchLoggingOptionResponse = DeleteApplicationCloudWa
 --
 -- 'applicationARN', 'deleteApplicationCloudWatchLoggingOptionResponse_applicationARN' - The application\'s Amazon Resource Name (ARN).
 --
--- 'cloudWatchLoggingOptionDescriptions', 'deleteApplicationCloudWatchLoggingOptionResponse_cloudWatchLoggingOptionDescriptions' - The descriptions of the remaining CloudWatch logging options for the
--- application.
---
 -- 'applicationVersionId', 'deleteApplicationCloudWatchLoggingOptionResponse_applicationVersionId' - The version ID of the application. Kinesis Data Analytics updates the
 -- @ApplicationVersionId@ each time you change the CloudWatch logging
 -- options.
+--
+-- 'cloudWatchLoggingOptionDescriptions', 'deleteApplicationCloudWatchLoggingOptionResponse_cloudWatchLoggingOptionDescriptions' - The descriptions of the remaining CloudWatch logging options for the
+-- application.
 --
 -- 'httpStatus', 'deleteApplicationCloudWatchLoggingOptionResponse_httpStatus' - The response's http status code.
 newDeleteApplicationCloudWatchLoggingOptionResponse ::
@@ -287,9 +287,9 @@ newDeleteApplicationCloudWatchLoggingOptionResponse
     DeleteApplicationCloudWatchLoggingOptionResponse'
       { applicationARN =
           Prelude.Nothing,
-        cloudWatchLoggingOptionDescriptions =
-          Prelude.Nothing,
         applicationVersionId =
+          Prelude.Nothing,
+        cloudWatchLoggingOptionDescriptions =
           Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
@@ -298,16 +298,16 @@ newDeleteApplicationCloudWatchLoggingOptionResponse
 deleteApplicationCloudWatchLoggingOptionResponse_applicationARN :: Lens.Lens' DeleteApplicationCloudWatchLoggingOptionResponse (Prelude.Maybe Prelude.Text)
 deleteApplicationCloudWatchLoggingOptionResponse_applicationARN = Lens.lens (\DeleteApplicationCloudWatchLoggingOptionResponse' {applicationARN} -> applicationARN) (\s@DeleteApplicationCloudWatchLoggingOptionResponse' {} a -> s {applicationARN = a} :: DeleteApplicationCloudWatchLoggingOptionResponse)
 
--- | The descriptions of the remaining CloudWatch logging options for the
--- application.
-deleteApplicationCloudWatchLoggingOptionResponse_cloudWatchLoggingOptionDescriptions :: Lens.Lens' DeleteApplicationCloudWatchLoggingOptionResponse (Prelude.Maybe [CloudWatchLoggingOptionDescription])
-deleteApplicationCloudWatchLoggingOptionResponse_cloudWatchLoggingOptionDescriptions = Lens.lens (\DeleteApplicationCloudWatchLoggingOptionResponse' {cloudWatchLoggingOptionDescriptions} -> cloudWatchLoggingOptionDescriptions) (\s@DeleteApplicationCloudWatchLoggingOptionResponse' {} a -> s {cloudWatchLoggingOptionDescriptions = a} :: DeleteApplicationCloudWatchLoggingOptionResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The version ID of the application. Kinesis Data Analytics updates the
 -- @ApplicationVersionId@ each time you change the CloudWatch logging
 -- options.
 deleteApplicationCloudWatchLoggingOptionResponse_applicationVersionId :: Lens.Lens' DeleteApplicationCloudWatchLoggingOptionResponse (Prelude.Maybe Prelude.Natural)
 deleteApplicationCloudWatchLoggingOptionResponse_applicationVersionId = Lens.lens (\DeleteApplicationCloudWatchLoggingOptionResponse' {applicationVersionId} -> applicationVersionId) (\s@DeleteApplicationCloudWatchLoggingOptionResponse' {} a -> s {applicationVersionId = a} :: DeleteApplicationCloudWatchLoggingOptionResponse)
+
+-- | The descriptions of the remaining CloudWatch logging options for the
+-- application.
+deleteApplicationCloudWatchLoggingOptionResponse_cloudWatchLoggingOptionDescriptions :: Lens.Lens' DeleteApplicationCloudWatchLoggingOptionResponse (Prelude.Maybe [CloudWatchLoggingOptionDescription])
+deleteApplicationCloudWatchLoggingOptionResponse_cloudWatchLoggingOptionDescriptions = Lens.lens (\DeleteApplicationCloudWatchLoggingOptionResponse' {cloudWatchLoggingOptionDescriptions} -> cloudWatchLoggingOptionDescriptions) (\s@DeleteApplicationCloudWatchLoggingOptionResponse' {} a -> s {cloudWatchLoggingOptionDescriptions = a} :: DeleteApplicationCloudWatchLoggingOptionResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 deleteApplicationCloudWatchLoggingOptionResponse_httpStatus :: Lens.Lens' DeleteApplicationCloudWatchLoggingOptionResponse Prelude.Int
@@ -320,6 +320,6 @@ instance
   rnf
     DeleteApplicationCloudWatchLoggingOptionResponse' {..} =
       Prelude.rnf applicationARN
-        `Prelude.seq` Prelude.rnf cloudWatchLoggingOptionDescriptions
         `Prelude.seq` Prelude.rnf applicationVersionId
+        `Prelude.seq` Prelude.rnf cloudWatchLoggingOptionDescriptions
         `Prelude.seq` Prelude.rnf httpStatus

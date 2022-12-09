@@ -34,7 +34,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCheckpointConfiguration' smart constructor.
 data CheckpointConfiguration = CheckpointConfiguration'
-  { -- | Describes whether checkpointing is enabled for a Flink-based Kinesis
+  { -- | Describes the interval in milliseconds between checkpoint operations.
+    --
+    -- If @CheckpointConfiguration.ConfigurationType@ is @DEFAULT@, the
+    -- application will use a @CheckpointInterval@ value of 60000, even if this
+    -- value is set to another value using this API or in application code.
+    checkpointInterval :: Prelude.Maybe Prelude.Natural,
+    -- | Describes whether checkpointing is enabled for a Flink-based Kinesis
     -- Data Analytics application.
     --
     -- If @CheckpointConfiguration.ConfigurationType@ is @DEFAULT@, the
@@ -55,12 +61,6 @@ data CheckpointConfiguration = CheckpointConfiguration'
     -- application will use a @MinPauseBetweenCheckpoints@ value of 5000, even
     -- if this value is set using this API or in application code.
     minPauseBetweenCheckpoints :: Prelude.Maybe Prelude.Natural,
-    -- | Describes the interval in milliseconds between checkpoint operations.
-    --
-    -- If @CheckpointConfiguration.ConfigurationType@ is @DEFAULT@, the
-    -- application will use a @CheckpointInterval@ value of 60000, even if this
-    -- value is set to another value using this API or in application code.
-    checkpointInterval :: Prelude.Maybe Prelude.Natural,
     -- | Describes whether the application uses Kinesis Data Analytics\' default
     -- checkpointing behavior. You must set this property to @CUSTOM@ in order
     -- to set the @CheckpointingEnabled@, @CheckpointInterval@, or
@@ -87,6 +87,12 @@ data CheckpointConfiguration = CheckpointConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'checkpointInterval', 'checkpointConfiguration_checkpointInterval' - Describes the interval in milliseconds between checkpoint operations.
+--
+-- If @CheckpointConfiguration.ConfigurationType@ is @DEFAULT@, the
+-- application will use a @CheckpointInterval@ value of 60000, even if this
+-- value is set to another value using this API or in application code.
+--
 -- 'checkpointingEnabled', 'checkpointConfiguration_checkpointingEnabled' - Describes whether checkpointing is enabled for a Flink-based Kinesis
 -- Data Analytics application.
 --
@@ -108,12 +114,6 @@ data CheckpointConfiguration = CheckpointConfiguration'
 -- application will use a @MinPauseBetweenCheckpoints@ value of 5000, even
 -- if this value is set using this API or in application code.
 --
--- 'checkpointInterval', 'checkpointConfiguration_checkpointInterval' - Describes the interval in milliseconds between checkpoint operations.
---
--- If @CheckpointConfiguration.ConfigurationType@ is @DEFAULT@, the
--- application will use a @CheckpointInterval@ value of 60000, even if this
--- value is set to another value using this API or in application code.
---
 -- 'configurationType', 'checkpointConfiguration_configurationType' - Describes whether the application uses Kinesis Data Analytics\' default
 -- checkpointing behavior. You must set this property to @CUSTOM@ in order
 -- to set the @CheckpointingEnabled@, @CheckpointInterval@, or
@@ -134,12 +134,20 @@ newCheckpointConfiguration ::
   CheckpointConfiguration
 newCheckpointConfiguration pConfigurationType_ =
   CheckpointConfiguration'
-    { checkpointingEnabled =
+    { checkpointInterval =
         Prelude.Nothing,
+      checkpointingEnabled = Prelude.Nothing,
       minPauseBetweenCheckpoints = Prelude.Nothing,
-      checkpointInterval = Prelude.Nothing,
       configurationType = pConfigurationType_
     }
+
+-- | Describes the interval in milliseconds between checkpoint operations.
+--
+-- If @CheckpointConfiguration.ConfigurationType@ is @DEFAULT@, the
+-- application will use a @CheckpointInterval@ value of 60000, even if this
+-- value is set to another value using this API or in application code.
+checkpointConfiguration_checkpointInterval :: Lens.Lens' CheckpointConfiguration (Prelude.Maybe Prelude.Natural)
+checkpointConfiguration_checkpointInterval = Lens.lens (\CheckpointConfiguration' {checkpointInterval} -> checkpointInterval) (\s@CheckpointConfiguration' {} a -> s {checkpointInterval = a} :: CheckpointConfiguration)
 
 -- | Describes whether checkpointing is enabled for a Flink-based Kinesis
 -- Data Analytics application.
@@ -166,14 +174,6 @@ checkpointConfiguration_checkpointingEnabled = Lens.lens (\CheckpointConfigurati
 checkpointConfiguration_minPauseBetweenCheckpoints :: Lens.Lens' CheckpointConfiguration (Prelude.Maybe Prelude.Natural)
 checkpointConfiguration_minPauseBetweenCheckpoints = Lens.lens (\CheckpointConfiguration' {minPauseBetweenCheckpoints} -> minPauseBetweenCheckpoints) (\s@CheckpointConfiguration' {} a -> s {minPauseBetweenCheckpoints = a} :: CheckpointConfiguration)
 
--- | Describes the interval in milliseconds between checkpoint operations.
---
--- If @CheckpointConfiguration.ConfigurationType@ is @DEFAULT@, the
--- application will use a @CheckpointInterval@ value of 60000, even if this
--- value is set to another value using this API or in application code.
-checkpointConfiguration_checkpointInterval :: Lens.Lens' CheckpointConfiguration (Prelude.Maybe Prelude.Natural)
-checkpointConfiguration_checkpointInterval = Lens.lens (\CheckpointConfiguration' {checkpointInterval} -> checkpointInterval) (\s@CheckpointConfiguration' {} a -> s {checkpointInterval = a} :: CheckpointConfiguration)
-
 -- | Describes whether the application uses Kinesis Data Analytics\' default
 -- checkpointing behavior. You must set this property to @CUSTOM@ in order
 -- to set the @CheckpointingEnabled@, @CheckpointInterval@, or
@@ -193,28 +193,28 @@ checkpointConfiguration_configurationType = Lens.lens (\CheckpointConfiguration'
 
 instance Prelude.Hashable CheckpointConfiguration where
   hashWithSalt _salt CheckpointConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` checkpointingEnabled
+    _salt `Prelude.hashWithSalt` checkpointInterval
+      `Prelude.hashWithSalt` checkpointingEnabled
       `Prelude.hashWithSalt` minPauseBetweenCheckpoints
-      `Prelude.hashWithSalt` checkpointInterval
       `Prelude.hashWithSalt` configurationType
 
 instance Prelude.NFData CheckpointConfiguration where
   rnf CheckpointConfiguration' {..} =
-    Prelude.rnf checkpointingEnabled
+    Prelude.rnf checkpointInterval
+      `Prelude.seq` Prelude.rnf checkpointingEnabled
       `Prelude.seq` Prelude.rnf minPauseBetweenCheckpoints
-      `Prelude.seq` Prelude.rnf checkpointInterval
       `Prelude.seq` Prelude.rnf configurationType
 
 instance Data.ToJSON CheckpointConfiguration where
   toJSON CheckpointConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("CheckpointingEnabled" Data..=)
+          [ ("CheckpointInterval" Data..=)
+              Prelude.<$> checkpointInterval,
+            ("CheckpointingEnabled" Data..=)
               Prelude.<$> checkpointingEnabled,
             ("MinPauseBetweenCheckpoints" Data..=)
               Prelude.<$> minPauseBetweenCheckpoints,
-            ("CheckpointInterval" Data..=)
-              Prelude.<$> checkpointInterval,
             Prelude.Just
               ("ConfigurationType" Data..= configurationType)
           ]

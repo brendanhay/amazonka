@@ -31,9 +31,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRunConfigurationDescription' smart constructor.
 data RunConfigurationDescription = RunConfigurationDescription'
-  { flinkRunConfigurationDescription :: Prelude.Maybe FlinkRunConfiguration,
-    -- | Describes the restore behavior of a restarting application.
-    applicationRestoreConfigurationDescription :: Prelude.Maybe ApplicationRestoreConfiguration
+  { -- | Describes the restore behavior of a restarting application.
+    applicationRestoreConfigurationDescription :: Prelude.Maybe ApplicationRestoreConfiguration,
+    flinkRunConfigurationDescription :: Prelude.Maybe FlinkRunConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,26 +45,26 @@ data RunConfigurationDescription = RunConfigurationDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'flinkRunConfigurationDescription', 'runConfigurationDescription_flinkRunConfigurationDescription' - Undocumented member.
---
 -- 'applicationRestoreConfigurationDescription', 'runConfigurationDescription_applicationRestoreConfigurationDescription' - Describes the restore behavior of a restarting application.
+--
+-- 'flinkRunConfigurationDescription', 'runConfigurationDescription_flinkRunConfigurationDescription' - Undocumented member.
 newRunConfigurationDescription ::
   RunConfigurationDescription
 newRunConfigurationDescription =
   RunConfigurationDescription'
-    { flinkRunConfigurationDescription =
+    { applicationRestoreConfigurationDescription =
         Prelude.Nothing,
-      applicationRestoreConfigurationDescription =
+      flinkRunConfigurationDescription =
         Prelude.Nothing
     }
-
--- | Undocumented member.
-runConfigurationDescription_flinkRunConfigurationDescription :: Lens.Lens' RunConfigurationDescription (Prelude.Maybe FlinkRunConfiguration)
-runConfigurationDescription_flinkRunConfigurationDescription = Lens.lens (\RunConfigurationDescription' {flinkRunConfigurationDescription} -> flinkRunConfigurationDescription) (\s@RunConfigurationDescription' {} a -> s {flinkRunConfigurationDescription = a} :: RunConfigurationDescription)
 
 -- | Describes the restore behavior of a restarting application.
 runConfigurationDescription_applicationRestoreConfigurationDescription :: Lens.Lens' RunConfigurationDescription (Prelude.Maybe ApplicationRestoreConfiguration)
 runConfigurationDescription_applicationRestoreConfigurationDescription = Lens.lens (\RunConfigurationDescription' {applicationRestoreConfigurationDescription} -> applicationRestoreConfigurationDescription) (\s@RunConfigurationDescription' {} a -> s {applicationRestoreConfigurationDescription = a} :: RunConfigurationDescription)
+
+-- | Undocumented member.
+runConfigurationDescription_flinkRunConfigurationDescription :: Lens.Lens' RunConfigurationDescription (Prelude.Maybe FlinkRunConfiguration)
+runConfigurationDescription_flinkRunConfigurationDescription = Lens.lens (\RunConfigurationDescription' {flinkRunConfigurationDescription} -> flinkRunConfigurationDescription) (\s@RunConfigurationDescription' {} a -> s {flinkRunConfigurationDescription = a} :: RunConfigurationDescription)
 
 instance Data.FromJSON RunConfigurationDescription where
   parseJSON =
@@ -72,20 +72,20 @@ instance Data.FromJSON RunConfigurationDescription where
       "RunConfigurationDescription"
       ( \x ->
           RunConfigurationDescription'
-            Prelude.<$> (x Data..:? "FlinkRunConfigurationDescription")
-            Prelude.<*> ( x
+            Prelude.<$> ( x
                             Data..:? "ApplicationRestoreConfigurationDescription"
                         )
+            Prelude.<*> (x Data..:? "FlinkRunConfigurationDescription")
       )
 
 instance Prelude.Hashable RunConfigurationDescription where
   hashWithSalt _salt RunConfigurationDescription' {..} =
     _salt
-      `Prelude.hashWithSalt` flinkRunConfigurationDescription
       `Prelude.hashWithSalt` applicationRestoreConfigurationDescription
+      `Prelude.hashWithSalt` flinkRunConfigurationDescription
 
 instance Prelude.NFData RunConfigurationDescription where
   rnf RunConfigurationDescription' {..} =
-    Prelude.rnf flinkRunConfigurationDescription
-      `Prelude.seq` Prelude.rnf
-        applicationRestoreConfigurationDescription
+    Prelude.rnf
+      applicationRestoreConfigurationDescription
+      `Prelude.seq` Prelude.rnf flinkRunConfigurationDescription

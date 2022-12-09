@@ -35,8 +35,8 @@ module Amazonka.KinesisAnalyticsV2.ListApplicationVersions
     newListApplicationVersions,
 
     -- * Request Lenses
-    listApplicationVersions_nextToken,
     listApplicationVersions_limit,
+    listApplicationVersions_nextToken,
     listApplicationVersions_applicationName,
 
     -- * Destructuring the Response
@@ -60,14 +60,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListApplicationVersions' smart constructor.
 data ListApplicationVersions = ListApplicationVersions'
-  { -- | If a previous invocation of this operation returned a pagination token,
+  { -- | The maximum number of versions to list in this invocation of the
+    -- operation.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | If a previous invocation of this operation returned a pagination token,
     -- pass it into this value to retrieve the next set of results. For more
     -- information about pagination, see
     -- <https://docs.aws.amazon.com/cli/latest/userguide/pagination.html Using the Amazon Command Line Interface\'s Pagination Options>.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of versions to list in this invocation of the
-    -- operation.
-    limit :: Prelude.Maybe Prelude.Natural,
     -- | The name of the application for which you want to list all versions.
     applicationName :: Prelude.Text
   }
@@ -81,13 +81,13 @@ data ListApplicationVersions = ListApplicationVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'limit', 'listApplicationVersions_limit' - The maximum number of versions to list in this invocation of the
+-- operation.
+--
 -- 'nextToken', 'listApplicationVersions_nextToken' - If a previous invocation of this operation returned a pagination token,
 -- pass it into this value to retrieve the next set of results. For more
 -- information about pagination, see
 -- <https://docs.aws.amazon.com/cli/latest/userguide/pagination.html Using the Amazon Command Line Interface\'s Pagination Options>.
---
--- 'limit', 'listApplicationVersions_limit' - The maximum number of versions to list in this invocation of the
--- operation.
 --
 -- 'applicationName', 'listApplicationVersions_applicationName' - The name of the application for which you want to list all versions.
 newListApplicationVersions ::
@@ -96,11 +96,15 @@ newListApplicationVersions ::
   ListApplicationVersions
 newListApplicationVersions pApplicationName_ =
   ListApplicationVersions'
-    { nextToken =
-        Prelude.Nothing,
-      limit = Prelude.Nothing,
+    { limit = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       applicationName = pApplicationName_
     }
+
+-- | The maximum number of versions to list in this invocation of the
+-- operation.
+listApplicationVersions_limit :: Lens.Lens' ListApplicationVersions (Prelude.Maybe Prelude.Natural)
+listApplicationVersions_limit = Lens.lens (\ListApplicationVersions' {limit} -> limit) (\s@ListApplicationVersions' {} a -> s {limit = a} :: ListApplicationVersions)
 
 -- | If a previous invocation of this operation returned a pagination token,
 -- pass it into this value to retrieve the next set of results. For more
@@ -108,11 +112,6 @@ newListApplicationVersions pApplicationName_ =
 -- <https://docs.aws.amazon.com/cli/latest/userguide/pagination.html Using the Amazon Command Line Interface\'s Pagination Options>.
 listApplicationVersions_nextToken :: Lens.Lens' ListApplicationVersions (Prelude.Maybe Prelude.Text)
 listApplicationVersions_nextToken = Lens.lens (\ListApplicationVersions' {nextToken} -> nextToken) (\s@ListApplicationVersions' {} a -> s {nextToken = a} :: ListApplicationVersions)
-
--- | The maximum number of versions to list in this invocation of the
--- operation.
-listApplicationVersions_limit :: Lens.Lens' ListApplicationVersions (Prelude.Maybe Prelude.Natural)
-listApplicationVersions_limit = Lens.lens (\ListApplicationVersions' {limit} -> limit) (\s@ListApplicationVersions' {} a -> s {limit = a} :: ListApplicationVersions)
 
 -- | The name of the application for which you want to list all versions.
 listApplicationVersions_applicationName :: Lens.Lens' ListApplicationVersions Prelude.Text
@@ -137,14 +136,14 @@ instance Core.AWSRequest ListApplicationVersions where
 
 instance Prelude.Hashable ListApplicationVersions where
   hashWithSalt _salt ListApplicationVersions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` limit
+    _salt `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` applicationName
 
 instance Prelude.NFData ListApplicationVersions where
   rnf ListApplicationVersions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf limit
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf applicationName
 
 instance Data.ToHeaders ListApplicationVersions where
@@ -166,8 +165,8 @@ instance Data.ToJSON ListApplicationVersions where
   toJSON ListApplicationVersions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Limit" Data..=) Prelude.<$> limit,
+          [ ("Limit" Data..=) Prelude.<$> limit,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("ApplicationName" Data..= applicationName)
           ]

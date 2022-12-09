@@ -33,10 +33,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newS3ReferenceDataSource' smart constructor.
 data S3ReferenceDataSource = S3ReferenceDataSource'
-  { -- | The object key name containing the reference data.
-    fileKey :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the S3 bucket.
-    bucketARN :: Prelude.Maybe Prelude.Text
+  { -- | The Amazon Resource Name (ARN) of the S3 bucket.
+    bucketARN :: Prelude.Maybe Prelude.Text,
+    -- | The object key name containing the reference data.
+    fileKey :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,40 +48,40 @@ data S3ReferenceDataSource = S3ReferenceDataSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fileKey', 's3ReferenceDataSource_fileKey' - The object key name containing the reference data.
---
 -- 'bucketARN', 's3ReferenceDataSource_bucketARN' - The Amazon Resource Name (ARN) of the S3 bucket.
+--
+-- 'fileKey', 's3ReferenceDataSource_fileKey' - The object key name containing the reference data.
 newS3ReferenceDataSource ::
   S3ReferenceDataSource
 newS3ReferenceDataSource =
   S3ReferenceDataSource'
-    { fileKey = Prelude.Nothing,
-      bucketARN = Prelude.Nothing
+    { bucketARN = Prelude.Nothing,
+      fileKey = Prelude.Nothing
     }
-
--- | The object key name containing the reference data.
-s3ReferenceDataSource_fileKey :: Lens.Lens' S3ReferenceDataSource (Prelude.Maybe Prelude.Text)
-s3ReferenceDataSource_fileKey = Lens.lens (\S3ReferenceDataSource' {fileKey} -> fileKey) (\s@S3ReferenceDataSource' {} a -> s {fileKey = a} :: S3ReferenceDataSource)
 
 -- | The Amazon Resource Name (ARN) of the S3 bucket.
 s3ReferenceDataSource_bucketARN :: Lens.Lens' S3ReferenceDataSource (Prelude.Maybe Prelude.Text)
 s3ReferenceDataSource_bucketARN = Lens.lens (\S3ReferenceDataSource' {bucketARN} -> bucketARN) (\s@S3ReferenceDataSource' {} a -> s {bucketARN = a} :: S3ReferenceDataSource)
 
+-- | The object key name containing the reference data.
+s3ReferenceDataSource_fileKey :: Lens.Lens' S3ReferenceDataSource (Prelude.Maybe Prelude.Text)
+s3ReferenceDataSource_fileKey = Lens.lens (\S3ReferenceDataSource' {fileKey} -> fileKey) (\s@S3ReferenceDataSource' {} a -> s {fileKey = a} :: S3ReferenceDataSource)
+
 instance Prelude.Hashable S3ReferenceDataSource where
   hashWithSalt _salt S3ReferenceDataSource' {..} =
-    _salt `Prelude.hashWithSalt` fileKey
-      `Prelude.hashWithSalt` bucketARN
+    _salt `Prelude.hashWithSalt` bucketARN
+      `Prelude.hashWithSalt` fileKey
 
 instance Prelude.NFData S3ReferenceDataSource where
   rnf S3ReferenceDataSource' {..} =
-    Prelude.rnf fileKey
-      `Prelude.seq` Prelude.rnf bucketARN
+    Prelude.rnf bucketARN
+      `Prelude.seq` Prelude.rnf fileKey
 
 instance Data.ToJSON S3ReferenceDataSource where
   toJSON S3ReferenceDataSource' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("FileKey" Data..=) Prelude.<$> fileKey,
-            ("BucketARN" Data..=) Prelude.<$> bucketARN
+          [ ("BucketARN" Data..=) Prelude.<$> bucketARN,
+            ("FileKey" Data..=) Prelude.<$> fileKey
           ]
       )

@@ -57,11 +57,11 @@ module Amazonka.AuditManager
     -- ** InternalServerException
     _InternalServerException,
 
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
-
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
 
     -- ** ThrottlingException
     _ThrottlingException,

@@ -33,8 +33,8 @@ module Amazonka.AuditManager.ListControlInsightsByControlDomain
     newListControlInsightsByControlDomain,
 
     -- * Request Lenses
-    listControlInsightsByControlDomain_nextToken,
     listControlInsightsByControlDomain_maxResults,
+    listControlInsightsByControlDomain_nextToken,
     listControlInsightsByControlDomain_controlDomainId,
 
     -- * Destructuring the Response
@@ -42,8 +42,8 @@ module Amazonka.AuditManager.ListControlInsightsByControlDomain
     newListControlInsightsByControlDomainResponse,
 
     -- * Response Lenses
-    listControlInsightsByControlDomainResponse_nextToken,
     listControlInsightsByControlDomainResponse_controlInsightsMetadata,
+    listControlInsightsByControlDomainResponse_nextToken,
     listControlInsightsByControlDomainResponse_httpStatus,
   )
 where
@@ -58,11 +58,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListControlInsightsByControlDomain' smart constructor.
 data ListControlInsightsByControlDomain = ListControlInsightsByControlDomain'
-  { -- | The pagination token that\'s used to fetch the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Represents the maximum number of results on a page or for an API request
+  { -- | Represents the maximum number of results on a page or for an API request
     -- call.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token that\'s used to fetch the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the control domain.
     controlDomainId :: Prelude.Text
   }
@@ -76,10 +76,10 @@ data ListControlInsightsByControlDomain = ListControlInsightsByControlDomain'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listControlInsightsByControlDomain_nextToken' - The pagination token that\'s used to fetch the next set of results.
---
 -- 'maxResults', 'listControlInsightsByControlDomain_maxResults' - Represents the maximum number of results on a page or for an API request
 -- call.
+--
+-- 'nextToken', 'listControlInsightsByControlDomain_nextToken' - The pagination token that\'s used to fetch the next set of results.
 --
 -- 'controlDomainId', 'listControlInsightsByControlDomain_controlDomainId' - The unique identifier for the control domain.
 newListControlInsightsByControlDomain ::
@@ -89,20 +89,20 @@ newListControlInsightsByControlDomain ::
 newListControlInsightsByControlDomain
   pControlDomainId_ =
     ListControlInsightsByControlDomain'
-      { nextToken =
+      { maxResults =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         controlDomainId = pControlDomainId_
       }
-
--- | The pagination token that\'s used to fetch the next set of results.
-listControlInsightsByControlDomain_nextToken :: Lens.Lens' ListControlInsightsByControlDomain (Prelude.Maybe Prelude.Text)
-listControlInsightsByControlDomain_nextToken = Lens.lens (\ListControlInsightsByControlDomain' {nextToken} -> nextToken) (\s@ListControlInsightsByControlDomain' {} a -> s {nextToken = a} :: ListControlInsightsByControlDomain)
 
 -- | Represents the maximum number of results on a page or for an API request
 -- call.
 listControlInsightsByControlDomain_maxResults :: Lens.Lens' ListControlInsightsByControlDomain (Prelude.Maybe Prelude.Natural)
 listControlInsightsByControlDomain_maxResults = Lens.lens (\ListControlInsightsByControlDomain' {maxResults} -> maxResults) (\s@ListControlInsightsByControlDomain' {} a -> s {maxResults = a} :: ListControlInsightsByControlDomain)
+
+-- | The pagination token that\'s used to fetch the next set of results.
+listControlInsightsByControlDomain_nextToken :: Lens.Lens' ListControlInsightsByControlDomain (Prelude.Maybe Prelude.Text)
+listControlInsightsByControlDomain_nextToken = Lens.lens (\ListControlInsightsByControlDomain' {nextToken} -> nextToken) (\s@ListControlInsightsByControlDomain' {} a -> s {nextToken = a} :: ListControlInsightsByControlDomain)
 
 -- | The unique identifier for the control domain.
 listControlInsightsByControlDomain_controlDomainId :: Lens.Lens' ListControlInsightsByControlDomain Prelude.Text
@@ -121,10 +121,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListControlInsightsByControlDomainResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-              Prelude.<*> ( x Data..?> "controlInsightsMetadata"
-                              Core..!@ Prelude.mempty
-                          )
+            Prelude.<$> ( x Data..?> "controlInsightsMetadata"
+                            Core..!@ Prelude.mempty
+                        )
+              Prelude.<*> (x Data..?> "nextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -135,8 +135,8 @@ instance
   hashWithSalt
     _salt
     ListControlInsightsByControlDomain' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` controlDomainId
 
 instance
@@ -144,8 +144,8 @@ instance
     ListControlInsightsByControlDomain
   where
   rnf ListControlInsightsByControlDomain' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf controlDomainId
 
 instance
@@ -174,18 +174,18 @@ instance
   where
   toQuery ListControlInsightsByControlDomain' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults,
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
         "controlDomainId" Data.=: controlDomainId
       ]
 
 -- | /See:/ 'newListControlInsightsByControlDomainResponse' smart constructor.
 data ListControlInsightsByControlDomainResponse = ListControlInsightsByControlDomainResponse'
-  { -- | The pagination token that\'s used to fetch the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The control analytics data that the @ListControlInsightsByControlDomain@
+  { -- | The control analytics data that the @ListControlInsightsByControlDomain@
     -- API returned.
     controlInsightsMetadata :: Prelude.Maybe [ControlInsightsMetadataItem],
+    -- | The pagination token that\'s used to fetch the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -199,10 +199,10 @@ data ListControlInsightsByControlDomainResponse = ListControlInsightsByControlDo
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listControlInsightsByControlDomainResponse_nextToken' - The pagination token that\'s used to fetch the next set of results.
---
 -- 'controlInsightsMetadata', 'listControlInsightsByControlDomainResponse_controlInsightsMetadata' - The control analytics data that the @ListControlInsightsByControlDomain@
 -- API returned.
+--
+-- 'nextToken', 'listControlInsightsByControlDomainResponse_nextToken' - The pagination token that\'s used to fetch the next set of results.
 --
 -- 'httpStatus', 'listControlInsightsByControlDomainResponse_httpStatus' - The response's http status code.
 newListControlInsightsByControlDomainResponse ::
@@ -212,21 +212,20 @@ newListControlInsightsByControlDomainResponse ::
 newListControlInsightsByControlDomainResponse
   pHttpStatus_ =
     ListControlInsightsByControlDomainResponse'
-      { nextToken =
+      { controlInsightsMetadata =
           Prelude.Nothing,
-        controlInsightsMetadata =
-          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The pagination token that\'s used to fetch the next set of results.
-listControlInsightsByControlDomainResponse_nextToken :: Lens.Lens' ListControlInsightsByControlDomainResponse (Prelude.Maybe Prelude.Text)
-listControlInsightsByControlDomainResponse_nextToken = Lens.lens (\ListControlInsightsByControlDomainResponse' {nextToken} -> nextToken) (\s@ListControlInsightsByControlDomainResponse' {} a -> s {nextToken = a} :: ListControlInsightsByControlDomainResponse)
 
 -- | The control analytics data that the @ListControlInsightsByControlDomain@
 -- API returned.
 listControlInsightsByControlDomainResponse_controlInsightsMetadata :: Lens.Lens' ListControlInsightsByControlDomainResponse (Prelude.Maybe [ControlInsightsMetadataItem])
 listControlInsightsByControlDomainResponse_controlInsightsMetadata = Lens.lens (\ListControlInsightsByControlDomainResponse' {controlInsightsMetadata} -> controlInsightsMetadata) (\s@ListControlInsightsByControlDomainResponse' {} a -> s {controlInsightsMetadata = a} :: ListControlInsightsByControlDomainResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The pagination token that\'s used to fetch the next set of results.
+listControlInsightsByControlDomainResponse_nextToken :: Lens.Lens' ListControlInsightsByControlDomainResponse (Prelude.Maybe Prelude.Text)
+listControlInsightsByControlDomainResponse_nextToken = Lens.lens (\ListControlInsightsByControlDomainResponse' {nextToken} -> nextToken) (\s@ListControlInsightsByControlDomainResponse' {} a -> s {nextToken = a} :: ListControlInsightsByControlDomainResponse)
 
 -- | The response's http status code.
 listControlInsightsByControlDomainResponse_httpStatus :: Lens.Lens' ListControlInsightsByControlDomainResponse Prelude.Int
@@ -237,6 +236,6 @@ instance
     ListControlInsightsByControlDomainResponse
   where
   rnf ListControlInsightsByControlDomainResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf controlInsightsMetadata
+    Prelude.rnf controlInsightsMetadata
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

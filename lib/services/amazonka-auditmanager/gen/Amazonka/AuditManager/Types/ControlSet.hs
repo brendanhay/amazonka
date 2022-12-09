@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newControlSet' smart constructor.
 data ControlSet = ControlSet'
-  { -- | The name of the control set.
-    name :: Prelude.Maybe Prelude.Text,
+  { -- | The list of controls within the control set.
+    controls :: Prelude.Maybe (Prelude.NonEmpty Control),
     -- | The identifier of the control set in the assessment. This is the control
     -- set name in a plain string format.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The list of controls within the control set.
-    controls :: Prelude.Maybe (Prelude.NonEmpty Control)
+    -- | The name of the control set.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,33 +47,33 @@ data ControlSet = ControlSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'controlSet_name' - The name of the control set.
+-- 'controls', 'controlSet_controls' - The list of controls within the control set.
 --
 -- 'id', 'controlSet_id' - The identifier of the control set in the assessment. This is the control
 -- set name in a plain string format.
 --
--- 'controls', 'controlSet_controls' - The list of controls within the control set.
+-- 'name', 'controlSet_name' - The name of the control set.
 newControlSet ::
   ControlSet
 newControlSet =
   ControlSet'
-    { name = Prelude.Nothing,
+    { controls = Prelude.Nothing,
       id = Prelude.Nothing,
-      controls = Prelude.Nothing
+      name = Prelude.Nothing
     }
 
--- | The name of the control set.
-controlSet_name :: Lens.Lens' ControlSet (Prelude.Maybe Prelude.Text)
-controlSet_name = Lens.lens (\ControlSet' {name} -> name) (\s@ControlSet' {} a -> s {name = a} :: ControlSet)
+-- | The list of controls within the control set.
+controlSet_controls :: Lens.Lens' ControlSet (Prelude.Maybe (Prelude.NonEmpty Control))
+controlSet_controls = Lens.lens (\ControlSet' {controls} -> controls) (\s@ControlSet' {} a -> s {controls = a} :: ControlSet) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the control set in the assessment. This is the control
 -- set name in a plain string format.
 controlSet_id :: Lens.Lens' ControlSet (Prelude.Maybe Prelude.Text)
 controlSet_id = Lens.lens (\ControlSet' {id} -> id) (\s@ControlSet' {} a -> s {id = a} :: ControlSet)
 
--- | The list of controls within the control set.
-controlSet_controls :: Lens.Lens' ControlSet (Prelude.Maybe (Prelude.NonEmpty Control))
-controlSet_controls = Lens.lens (\ControlSet' {controls} -> controls) (\s@ControlSet' {} a -> s {controls = a} :: ControlSet) Prelude.. Lens.mapping Lens.coerced
+-- | The name of the control set.
+controlSet_name :: Lens.Lens' ControlSet (Prelude.Maybe Prelude.Text)
+controlSet_name = Lens.lens (\ControlSet' {name} -> name) (\s@ControlSet' {} a -> s {name = a} :: ControlSet)
 
 instance Data.FromJSON ControlSet where
   parseJSON =
@@ -81,19 +81,19 @@ instance Data.FromJSON ControlSet where
       "ControlSet"
       ( \x ->
           ControlSet'
-            Prelude.<$> (x Data..:? "name")
+            Prelude.<$> (x Data..:? "controls")
             Prelude.<*> (x Data..:? "id")
-            Prelude.<*> (x Data..:? "controls")
+            Prelude.<*> (x Data..:? "name")
       )
 
 instance Prelude.Hashable ControlSet where
   hashWithSalt _salt ControlSet' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` controls
       `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` controls
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData ControlSet where
   rnf ControlSet' {..} =
-    Prelude.rnf name
+    Prelude.rnf controls
       `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf controls
+      `Prelude.seq` Prelude.rnf name

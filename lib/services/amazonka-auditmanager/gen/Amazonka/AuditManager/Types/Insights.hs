@@ -50,17 +50,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInsights' smart constructor.
 data Insights = Insights'
-  { -- | The total number of controls across all active assessments.
-    totalAssessmentControlsCount :: Prelude.Maybe Prelude.Int,
+  { -- | The number of active assessments in Audit Manager.
+    activeAssessmentsCount :: Prelude.Maybe Prelude.Int,
+    -- | The number of assessment controls that collected non-compliant evidence
+    -- on the @lastUpdated@ date.
+    assessmentControlsCountByNoncompliantEvidence :: Prelude.Maybe Prelude.Int,
     -- | The number of compliance check evidence that Audit Manager classified as
     -- compliant on the @lastUpdated@ date. This includes evidence that was
     -- collected from Security Hub with a /Pass/ ruling, or collected from
     -- Config with a /Compliant/ ruling.
     compliantEvidenceCount :: Prelude.Maybe Prelude.Int,
-    -- | The time when the cross-assessment insights were last updated.
-    lastUpdated :: Prelude.Maybe Data.POSIX,
-    -- | The number of active assessments in Audit Manager.
-    activeAssessmentsCount :: Prelude.Maybe Prelude.Int,
     -- | The number of evidence without a compliance check ruling. Evidence is
     -- inconclusive when the associated control uses Security Hub or Config as
     -- a data source but you didn\'t enable those services. This is also the
@@ -70,14 +69,15 @@ data Insights = Insights'
     -- If evidence has a compliance check status of /not applicable/, it\'s
     -- classed as /inconclusive/ in @Insights@ data.
     inconclusiveEvidenceCount :: Prelude.Maybe Prelude.Int,
+    -- | The time when the cross-assessment insights were last updated.
+    lastUpdated :: Prelude.Maybe Data.POSIX,
     -- | The number of compliance check evidence that Audit Manager classified as
     -- non-compliant on the @lastUpdated@ date. This includes evidence that was
     -- collected from Security Hub with a /Fail/ ruling, or collected from
     -- Config with a /Non-compliant/ ruling.
     noncompliantEvidenceCount :: Prelude.Maybe Prelude.Int,
-    -- | The number of assessment controls that collected non-compliant evidence
-    -- on the @lastUpdated@ date.
-    assessmentControlsCountByNoncompliantEvidence :: Prelude.Maybe Prelude.Int
+    -- | The total number of controls across all active assessments.
+    totalAssessmentControlsCount :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -89,16 +89,15 @@ data Insights = Insights'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'totalAssessmentControlsCount', 'insights_totalAssessmentControlsCount' - The total number of controls across all active assessments.
+-- 'activeAssessmentsCount', 'insights_activeAssessmentsCount' - The number of active assessments in Audit Manager.
+--
+-- 'assessmentControlsCountByNoncompliantEvidence', 'insights_assessmentControlsCountByNoncompliantEvidence' - The number of assessment controls that collected non-compliant evidence
+-- on the @lastUpdated@ date.
 --
 -- 'compliantEvidenceCount', 'insights_compliantEvidenceCount' - The number of compliance check evidence that Audit Manager classified as
 -- compliant on the @lastUpdated@ date. This includes evidence that was
 -- collected from Security Hub with a /Pass/ ruling, or collected from
 -- Config with a /Compliant/ ruling.
---
--- 'lastUpdated', 'insights_lastUpdated' - The time when the cross-assessment insights were last updated.
---
--- 'activeAssessmentsCount', 'insights_activeAssessmentsCount' - The number of active assessments in Audit Manager.
 --
 -- 'inconclusiveEvidenceCount', 'insights_inconclusiveEvidenceCount' - The number of evidence without a compliance check ruling. Evidence is
 -- inconclusive when the associated control uses Security Hub or Config as
@@ -109,31 +108,36 @@ data Insights = Insights'
 -- If evidence has a compliance check status of /not applicable/, it\'s
 -- classed as /inconclusive/ in @Insights@ data.
 --
+-- 'lastUpdated', 'insights_lastUpdated' - The time when the cross-assessment insights were last updated.
+--
 -- 'noncompliantEvidenceCount', 'insights_noncompliantEvidenceCount' - The number of compliance check evidence that Audit Manager classified as
 -- non-compliant on the @lastUpdated@ date. This includes evidence that was
 -- collected from Security Hub with a /Fail/ ruling, or collected from
 -- Config with a /Non-compliant/ ruling.
 --
--- 'assessmentControlsCountByNoncompliantEvidence', 'insights_assessmentControlsCountByNoncompliantEvidence' - The number of assessment controls that collected non-compliant evidence
--- on the @lastUpdated@ date.
+-- 'totalAssessmentControlsCount', 'insights_totalAssessmentControlsCount' - The total number of controls across all active assessments.
 newInsights ::
   Insights
 newInsights =
   Insights'
-    { totalAssessmentControlsCount =
+    { activeAssessmentsCount = Prelude.Nothing,
+      assessmentControlsCountByNoncompliantEvidence =
         Prelude.Nothing,
       compliantEvidenceCount = Prelude.Nothing,
-      lastUpdated = Prelude.Nothing,
-      activeAssessmentsCount = Prelude.Nothing,
       inconclusiveEvidenceCount = Prelude.Nothing,
+      lastUpdated = Prelude.Nothing,
       noncompliantEvidenceCount = Prelude.Nothing,
-      assessmentControlsCountByNoncompliantEvidence =
-        Prelude.Nothing
+      totalAssessmentControlsCount = Prelude.Nothing
     }
 
--- | The total number of controls across all active assessments.
-insights_totalAssessmentControlsCount :: Lens.Lens' Insights (Prelude.Maybe Prelude.Int)
-insights_totalAssessmentControlsCount = Lens.lens (\Insights' {totalAssessmentControlsCount} -> totalAssessmentControlsCount) (\s@Insights' {} a -> s {totalAssessmentControlsCount = a} :: Insights)
+-- | The number of active assessments in Audit Manager.
+insights_activeAssessmentsCount :: Lens.Lens' Insights (Prelude.Maybe Prelude.Int)
+insights_activeAssessmentsCount = Lens.lens (\Insights' {activeAssessmentsCount} -> activeAssessmentsCount) (\s@Insights' {} a -> s {activeAssessmentsCount = a} :: Insights)
+
+-- | The number of assessment controls that collected non-compliant evidence
+-- on the @lastUpdated@ date.
+insights_assessmentControlsCountByNoncompliantEvidence :: Lens.Lens' Insights (Prelude.Maybe Prelude.Int)
+insights_assessmentControlsCountByNoncompliantEvidence = Lens.lens (\Insights' {assessmentControlsCountByNoncompliantEvidence} -> assessmentControlsCountByNoncompliantEvidence) (\s@Insights' {} a -> s {assessmentControlsCountByNoncompliantEvidence = a} :: Insights)
 
 -- | The number of compliance check evidence that Audit Manager classified as
 -- compliant on the @lastUpdated@ date. This includes evidence that was
@@ -141,14 +145,6 @@ insights_totalAssessmentControlsCount = Lens.lens (\Insights' {totalAssessmentCo
 -- Config with a /Compliant/ ruling.
 insights_compliantEvidenceCount :: Lens.Lens' Insights (Prelude.Maybe Prelude.Int)
 insights_compliantEvidenceCount = Lens.lens (\Insights' {compliantEvidenceCount} -> compliantEvidenceCount) (\s@Insights' {} a -> s {compliantEvidenceCount = a} :: Insights)
-
--- | The time when the cross-assessment insights were last updated.
-insights_lastUpdated :: Lens.Lens' Insights (Prelude.Maybe Prelude.UTCTime)
-insights_lastUpdated = Lens.lens (\Insights' {lastUpdated} -> lastUpdated) (\s@Insights' {} a -> s {lastUpdated = a} :: Insights) Prelude.. Lens.mapping Data._Time
-
--- | The number of active assessments in Audit Manager.
-insights_activeAssessmentsCount :: Lens.Lens' Insights (Prelude.Maybe Prelude.Int)
-insights_activeAssessmentsCount = Lens.lens (\Insights' {activeAssessmentsCount} -> activeAssessmentsCount) (\s@Insights' {} a -> s {activeAssessmentsCount = a} :: Insights)
 
 -- | The number of evidence without a compliance check ruling. Evidence is
 -- inconclusive when the associated control uses Security Hub or Config as
@@ -161,6 +157,10 @@ insights_activeAssessmentsCount = Lens.lens (\Insights' {activeAssessmentsCount}
 insights_inconclusiveEvidenceCount :: Lens.Lens' Insights (Prelude.Maybe Prelude.Int)
 insights_inconclusiveEvidenceCount = Lens.lens (\Insights' {inconclusiveEvidenceCount} -> inconclusiveEvidenceCount) (\s@Insights' {} a -> s {inconclusiveEvidenceCount = a} :: Insights)
 
+-- | The time when the cross-assessment insights were last updated.
+insights_lastUpdated :: Lens.Lens' Insights (Prelude.Maybe Prelude.UTCTime)
+insights_lastUpdated = Lens.lens (\Insights' {lastUpdated} -> lastUpdated) (\s@Insights' {} a -> s {lastUpdated = a} :: Insights) Prelude.. Lens.mapping Data._Time
+
 -- | The number of compliance check evidence that Audit Manager classified as
 -- non-compliant on the @lastUpdated@ date. This includes evidence that was
 -- collected from Security Hub with a /Fail/ ruling, or collected from
@@ -168,10 +168,9 @@ insights_inconclusiveEvidenceCount = Lens.lens (\Insights' {inconclusiveEvidence
 insights_noncompliantEvidenceCount :: Lens.Lens' Insights (Prelude.Maybe Prelude.Int)
 insights_noncompliantEvidenceCount = Lens.lens (\Insights' {noncompliantEvidenceCount} -> noncompliantEvidenceCount) (\s@Insights' {} a -> s {noncompliantEvidenceCount = a} :: Insights)
 
--- | The number of assessment controls that collected non-compliant evidence
--- on the @lastUpdated@ date.
-insights_assessmentControlsCountByNoncompliantEvidence :: Lens.Lens' Insights (Prelude.Maybe Prelude.Int)
-insights_assessmentControlsCountByNoncompliantEvidence = Lens.lens (\Insights' {assessmentControlsCountByNoncompliantEvidence} -> assessmentControlsCountByNoncompliantEvidence) (\s@Insights' {} a -> s {assessmentControlsCountByNoncompliantEvidence = a} :: Insights)
+-- | The total number of controls across all active assessments.
+insights_totalAssessmentControlsCount :: Lens.Lens' Insights (Prelude.Maybe Prelude.Int)
+insights_totalAssessmentControlsCount = Lens.lens (\Insights' {totalAssessmentControlsCount} -> totalAssessmentControlsCount) (\s@Insights' {} a -> s {totalAssessmentControlsCount = a} :: Insights)
 
 instance Data.FromJSON Insights where
   parseJSON =
@@ -179,35 +178,34 @@ instance Data.FromJSON Insights where
       "Insights"
       ( \x ->
           Insights'
-            Prelude.<$> (x Data..:? "totalAssessmentControlsCount")
-            Prelude.<*> (x Data..:? "compliantEvidenceCount")
-            Prelude.<*> (x Data..:? "lastUpdated")
-            Prelude.<*> (x Data..:? "activeAssessmentsCount")
-            Prelude.<*> (x Data..:? "inconclusiveEvidenceCount")
-            Prelude.<*> (x Data..:? "noncompliantEvidenceCount")
+            Prelude.<$> (x Data..:? "activeAssessmentsCount")
             Prelude.<*> ( x
                             Data..:? "assessmentControlsCountByNoncompliantEvidence"
                         )
+            Prelude.<*> (x Data..:? "compliantEvidenceCount")
+            Prelude.<*> (x Data..:? "inconclusiveEvidenceCount")
+            Prelude.<*> (x Data..:? "lastUpdated")
+            Prelude.<*> (x Data..:? "noncompliantEvidenceCount")
+            Prelude.<*> (x Data..:? "totalAssessmentControlsCount")
       )
 
 instance Prelude.Hashable Insights where
   hashWithSalt _salt Insights' {..} =
-    _salt
-      `Prelude.hashWithSalt` totalAssessmentControlsCount
-      `Prelude.hashWithSalt` compliantEvidenceCount
-      `Prelude.hashWithSalt` lastUpdated
-      `Prelude.hashWithSalt` activeAssessmentsCount
-      `Prelude.hashWithSalt` inconclusiveEvidenceCount
-      `Prelude.hashWithSalt` noncompliantEvidenceCount
+    _salt `Prelude.hashWithSalt` activeAssessmentsCount
       `Prelude.hashWithSalt` assessmentControlsCountByNoncompliantEvidence
+      `Prelude.hashWithSalt` compliantEvidenceCount
+      `Prelude.hashWithSalt` inconclusiveEvidenceCount
+      `Prelude.hashWithSalt` lastUpdated
+      `Prelude.hashWithSalt` noncompliantEvidenceCount
+      `Prelude.hashWithSalt` totalAssessmentControlsCount
 
 instance Prelude.NFData Insights where
   rnf Insights' {..} =
-    Prelude.rnf totalAssessmentControlsCount
-      `Prelude.seq` Prelude.rnf compliantEvidenceCount
-      `Prelude.seq` Prelude.rnf lastUpdated
-      `Prelude.seq` Prelude.rnf activeAssessmentsCount
-      `Prelude.seq` Prelude.rnf inconclusiveEvidenceCount
-      `Prelude.seq` Prelude.rnf noncompliantEvidenceCount
+    Prelude.rnf activeAssessmentsCount
       `Prelude.seq` Prelude.rnf
         assessmentControlsCountByNoncompliantEvidence
+      `Prelude.seq` Prelude.rnf compliantEvidenceCount
+      `Prelude.seq` Prelude.rnf inconclusiveEvidenceCount
+      `Prelude.seq` Prelude.rnf lastUpdated
+      `Prelude.seq` Prelude.rnf noncompliantEvidenceCount
+      `Prelude.seq` Prelude.rnf totalAssessmentControlsCount

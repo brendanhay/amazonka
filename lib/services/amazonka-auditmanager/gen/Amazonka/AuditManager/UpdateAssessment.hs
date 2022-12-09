@@ -27,8 +27,8 @@ module Amazonka.AuditManager.UpdateAssessment
     newUpdateAssessment,
 
     -- * Request Lenses
-    updateAssessment_assessmentName,
     updateAssessment_assessmentDescription,
+    updateAssessment_assessmentName,
     updateAssessment_assessmentReportsDestination,
     updateAssessment_roles,
     updateAssessment_assessmentId,
@@ -54,10 +54,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateAssessment' smart constructor.
 data UpdateAssessment = UpdateAssessment'
-  { -- | The name of the assessment to be updated.
-    assessmentName :: Prelude.Maybe Prelude.Text,
-    -- | The description of the assessment.
+  { -- | The description of the assessment.
     assessmentDescription :: Prelude.Maybe Prelude.Text,
+    -- | The name of the assessment to be updated.
+    assessmentName :: Prelude.Maybe Prelude.Text,
     -- | The assessment report storage destination for the assessment that\'s
     -- being updated.
     assessmentReportsDestination :: Prelude.Maybe AssessmentReportsDestination,
@@ -78,9 +78,9 @@ data UpdateAssessment = UpdateAssessment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'assessmentName', 'updateAssessment_assessmentName' - The name of the assessment to be updated.
---
 -- 'assessmentDescription', 'updateAssessment_assessmentDescription' - The description of the assessment.
+--
+-- 'assessmentName', 'updateAssessment_assessmentName' - The name of the assessment to be updated.
 --
 -- 'assessmentReportsDestination', 'updateAssessment_assessmentReportsDestination' - The assessment report storage destination for the assessment that\'s
 -- being updated.
@@ -98,21 +98,22 @@ newUpdateAssessment ::
   UpdateAssessment
 newUpdateAssessment pAssessmentId_ pScope_ =
   UpdateAssessment'
-    { assessmentName = Prelude.Nothing,
-      assessmentDescription = Prelude.Nothing,
+    { assessmentDescription =
+        Prelude.Nothing,
+      assessmentName = Prelude.Nothing,
       assessmentReportsDestination = Prelude.Nothing,
       roles = Prelude.Nothing,
       assessmentId = pAssessmentId_,
       scope = pScope_
     }
 
--- | The name of the assessment to be updated.
-updateAssessment_assessmentName :: Lens.Lens' UpdateAssessment (Prelude.Maybe Prelude.Text)
-updateAssessment_assessmentName = Lens.lens (\UpdateAssessment' {assessmentName} -> assessmentName) (\s@UpdateAssessment' {} a -> s {assessmentName = a} :: UpdateAssessment)
-
 -- | The description of the assessment.
 updateAssessment_assessmentDescription :: Lens.Lens' UpdateAssessment (Prelude.Maybe Prelude.Text)
 updateAssessment_assessmentDescription = Lens.lens (\UpdateAssessment' {assessmentDescription} -> assessmentDescription) (\s@UpdateAssessment' {} a -> s {assessmentDescription = a} :: UpdateAssessment)
+
+-- | The name of the assessment to be updated.
+updateAssessment_assessmentName :: Lens.Lens' UpdateAssessment (Prelude.Maybe Prelude.Text)
+updateAssessment_assessmentName = Lens.lens (\UpdateAssessment' {assessmentName} -> assessmentName) (\s@UpdateAssessment' {} a -> s {assessmentName = a} :: UpdateAssessment)
 
 -- | The assessment report storage destination for the assessment that\'s
 -- being updated.
@@ -147,8 +148,8 @@ instance Core.AWSRequest UpdateAssessment where
 
 instance Prelude.Hashable UpdateAssessment where
   hashWithSalt _salt UpdateAssessment' {..} =
-    _salt `Prelude.hashWithSalt` assessmentName
-      `Prelude.hashWithSalt` assessmentDescription
+    _salt `Prelude.hashWithSalt` assessmentDescription
+      `Prelude.hashWithSalt` assessmentName
       `Prelude.hashWithSalt` assessmentReportsDestination
       `Prelude.hashWithSalt` roles
       `Prelude.hashWithSalt` assessmentId
@@ -156,8 +157,8 @@ instance Prelude.Hashable UpdateAssessment where
 
 instance Prelude.NFData UpdateAssessment where
   rnf UpdateAssessment' {..} =
-    Prelude.rnf assessmentName
-      `Prelude.seq` Prelude.rnf assessmentDescription
+    Prelude.rnf assessmentDescription
+      `Prelude.seq` Prelude.rnf assessmentName
       `Prelude.seq` Prelude.rnf assessmentReportsDestination
       `Prelude.seq` Prelude.rnf roles
       `Prelude.seq` Prelude.rnf assessmentId
@@ -178,10 +179,10 @@ instance Data.ToJSON UpdateAssessment where
   toJSON UpdateAssessment' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("assessmentName" Data..=)
-              Prelude.<$> assessmentName,
-            ("assessmentDescription" Data..=)
+          [ ("assessmentDescription" Data..=)
               Prelude.<$> assessmentDescription,
+            ("assessmentName" Data..=)
+              Prelude.<$> assessmentName,
             ("assessmentReportsDestination" Data..=)
               Prelude.<$> assessmentReportsDestination,
             ("roles" Data..=) Prelude.<$> roles,

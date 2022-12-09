@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBatchImportEvidenceToAssessmentControlError' smart constructor.
 data BatchImportEvidenceToAssessmentControlError = BatchImportEvidenceToAssessmentControlError'
-  { -- | The error message that the @BatchImportEvidenceToAssessmentControl@ API
-    -- returned.
-    errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | The error code that the @BatchImportEvidenceToAssessmentControl@ API
+  { -- | The error code that the @BatchImportEvidenceToAssessmentControl@ API
     -- returned.
     errorCode :: Prelude.Maybe Prelude.Text,
+    -- | The error message that the @BatchImportEvidenceToAssessmentControl@ API
+    -- returned.
+    errorMessage :: Prelude.Maybe Prelude.Text,
     -- | Manual evidence that can\'t be collected automatically by Audit Manager.
     manualEvidence :: Prelude.Maybe ManualEvidence
   }
@@ -50,10 +50,10 @@ data BatchImportEvidenceToAssessmentControlError = BatchImportEvidenceToAssessme
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'errorMessage', 'batchImportEvidenceToAssessmentControlError_errorMessage' - The error message that the @BatchImportEvidenceToAssessmentControl@ API
+-- 'errorCode', 'batchImportEvidenceToAssessmentControlError_errorCode' - The error code that the @BatchImportEvidenceToAssessmentControl@ API
 -- returned.
 --
--- 'errorCode', 'batchImportEvidenceToAssessmentControlError_errorCode' - The error code that the @BatchImportEvidenceToAssessmentControl@ API
+-- 'errorMessage', 'batchImportEvidenceToAssessmentControlError_errorMessage' - The error message that the @BatchImportEvidenceToAssessmentControl@ API
 -- returned.
 --
 -- 'manualEvidence', 'batchImportEvidenceToAssessmentControlError_manualEvidence' - Manual evidence that can\'t be collected automatically by Audit Manager.
@@ -61,22 +61,22 @@ newBatchImportEvidenceToAssessmentControlError ::
   BatchImportEvidenceToAssessmentControlError
 newBatchImportEvidenceToAssessmentControlError =
   BatchImportEvidenceToAssessmentControlError'
-    { errorMessage =
+    { errorCode =
         Prelude.Nothing,
-      errorCode = Prelude.Nothing,
+      errorMessage = Prelude.Nothing,
       manualEvidence =
         Prelude.Nothing
     }
-
--- | The error message that the @BatchImportEvidenceToAssessmentControl@ API
--- returned.
-batchImportEvidenceToAssessmentControlError_errorMessage :: Lens.Lens' BatchImportEvidenceToAssessmentControlError (Prelude.Maybe Prelude.Text)
-batchImportEvidenceToAssessmentControlError_errorMessage = Lens.lens (\BatchImportEvidenceToAssessmentControlError' {errorMessage} -> errorMessage) (\s@BatchImportEvidenceToAssessmentControlError' {} a -> s {errorMessage = a} :: BatchImportEvidenceToAssessmentControlError)
 
 -- | The error code that the @BatchImportEvidenceToAssessmentControl@ API
 -- returned.
 batchImportEvidenceToAssessmentControlError_errorCode :: Lens.Lens' BatchImportEvidenceToAssessmentControlError (Prelude.Maybe Prelude.Text)
 batchImportEvidenceToAssessmentControlError_errorCode = Lens.lens (\BatchImportEvidenceToAssessmentControlError' {errorCode} -> errorCode) (\s@BatchImportEvidenceToAssessmentControlError' {} a -> s {errorCode = a} :: BatchImportEvidenceToAssessmentControlError)
+
+-- | The error message that the @BatchImportEvidenceToAssessmentControl@ API
+-- returned.
+batchImportEvidenceToAssessmentControlError_errorMessage :: Lens.Lens' BatchImportEvidenceToAssessmentControlError (Prelude.Maybe Prelude.Text)
+batchImportEvidenceToAssessmentControlError_errorMessage = Lens.lens (\BatchImportEvidenceToAssessmentControlError' {errorMessage} -> errorMessage) (\s@BatchImportEvidenceToAssessmentControlError' {} a -> s {errorMessage = a} :: BatchImportEvidenceToAssessmentControlError)
 
 -- | Manual evidence that can\'t be collected automatically by Audit Manager.
 batchImportEvidenceToAssessmentControlError_manualEvidence :: Lens.Lens' BatchImportEvidenceToAssessmentControlError (Prelude.Maybe ManualEvidence)
@@ -91,8 +91,8 @@ instance
       "BatchImportEvidenceToAssessmentControlError"
       ( \x ->
           BatchImportEvidenceToAssessmentControlError'
-            Prelude.<$> (x Data..:? "errorMessage")
-              Prelude.<*> (x Data..:? "errorCode")
+            Prelude.<$> (x Data..:? "errorCode")
+              Prelude.<*> (x Data..:? "errorMessage")
               Prelude.<*> (x Data..:? "manualEvidence")
       )
 
@@ -103,8 +103,8 @@ instance
   hashWithSalt
     _salt
     BatchImportEvidenceToAssessmentControlError' {..} =
-      _salt `Prelude.hashWithSalt` errorMessage
-        `Prelude.hashWithSalt` errorCode
+      _salt `Prelude.hashWithSalt` errorCode
+        `Prelude.hashWithSalt` errorMessage
         `Prelude.hashWithSalt` manualEvidence
 
 instance
@@ -112,6 +112,6 @@ instance
     BatchImportEvidenceToAssessmentControlError
   where
   rnf BatchImportEvidenceToAssessmentControlError' {..} =
-    Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf errorCode
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage
       `Prelude.seq` Prelude.rnf manualEvidence

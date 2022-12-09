@@ -28,8 +28,8 @@ module Amazonka.AuditManager.ListAssessmentFrameworks
     newListAssessmentFrameworks,
 
     -- * Request Lenses
-    listAssessmentFrameworks_nextToken,
     listAssessmentFrameworks_maxResults,
+    listAssessmentFrameworks_nextToken,
     listAssessmentFrameworks_frameworkType,
 
     -- * Destructuring the Response
@@ -37,8 +37,8 @@ module Amazonka.AuditManager.ListAssessmentFrameworks
     newListAssessmentFrameworksResponse,
 
     -- * Response Lenses
-    listAssessmentFrameworksResponse_nextToken,
     listAssessmentFrameworksResponse_frameworkMetadataList,
+    listAssessmentFrameworksResponse_nextToken,
     listAssessmentFrameworksResponse_httpStatus,
   )
 where
@@ -53,11 +53,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAssessmentFrameworks' smart constructor.
 data ListAssessmentFrameworks = ListAssessmentFrameworks'
-  { -- | The pagination token that\'s used to fetch the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Represents the maximum number of results on a page or for an API request
+  { -- | Represents the maximum number of results on a page or for an API request
     -- call.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token that\'s used to fetch the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The type of framework, such as a standard framework or a custom
     -- framework.
     frameworkType :: FrameworkType
@@ -72,10 +72,10 @@ data ListAssessmentFrameworks = ListAssessmentFrameworks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAssessmentFrameworks_nextToken' - The pagination token that\'s used to fetch the next set of results.
---
 -- 'maxResults', 'listAssessmentFrameworks_maxResults' - Represents the maximum number of results on a page or for an API request
 -- call.
+--
+-- 'nextToken', 'listAssessmentFrameworks_nextToken' - The pagination token that\'s used to fetch the next set of results.
 --
 -- 'frameworkType', 'listAssessmentFrameworks_frameworkType' - The type of framework, such as a standard framework or a custom
 -- framework.
@@ -85,20 +85,20 @@ newListAssessmentFrameworks ::
   ListAssessmentFrameworks
 newListAssessmentFrameworks pFrameworkType_ =
   ListAssessmentFrameworks'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       frameworkType = pFrameworkType_
     }
-
--- | The pagination token that\'s used to fetch the next set of results.
-listAssessmentFrameworks_nextToken :: Lens.Lens' ListAssessmentFrameworks (Prelude.Maybe Prelude.Text)
-listAssessmentFrameworks_nextToken = Lens.lens (\ListAssessmentFrameworks' {nextToken} -> nextToken) (\s@ListAssessmentFrameworks' {} a -> s {nextToken = a} :: ListAssessmentFrameworks)
 
 -- | Represents the maximum number of results on a page or for an API request
 -- call.
 listAssessmentFrameworks_maxResults :: Lens.Lens' ListAssessmentFrameworks (Prelude.Maybe Prelude.Natural)
 listAssessmentFrameworks_maxResults = Lens.lens (\ListAssessmentFrameworks' {maxResults} -> maxResults) (\s@ListAssessmentFrameworks' {} a -> s {maxResults = a} :: ListAssessmentFrameworks)
+
+-- | The pagination token that\'s used to fetch the next set of results.
+listAssessmentFrameworks_nextToken :: Lens.Lens' ListAssessmentFrameworks (Prelude.Maybe Prelude.Text)
+listAssessmentFrameworks_nextToken = Lens.lens (\ListAssessmentFrameworks' {nextToken} -> nextToken) (\s@ListAssessmentFrameworks' {} a -> s {nextToken = a} :: ListAssessmentFrameworks)
 
 -- | The type of framework, such as a standard framework or a custom
 -- framework.
@@ -115,23 +115,23 @@ instance Core.AWSRequest ListAssessmentFrameworks where
     Response.receiveJSON
       ( \s h x ->
           ListAssessmentFrameworksResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "frameworkMetadataList"
+            Prelude.<$> ( x Data..?> "frameworkMetadataList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListAssessmentFrameworks where
   hashWithSalt _salt ListAssessmentFrameworks' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` frameworkType
 
 instance Prelude.NFData ListAssessmentFrameworks where
   rnf ListAssessmentFrameworks' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf frameworkType
 
 instance Data.ToHeaders ListAssessmentFrameworks where
@@ -151,17 +151,17 @@ instance Data.ToPath ListAssessmentFrameworks where
 instance Data.ToQuery ListAssessmentFrameworks where
   toQuery ListAssessmentFrameworks' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults,
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
         "frameworkType" Data.=: frameworkType
       ]
 
 -- | /See:/ 'newListAssessmentFrameworksResponse' smart constructor.
 data ListAssessmentFrameworksResponse = ListAssessmentFrameworksResponse'
-  { -- | The pagination token that\'s used to fetch the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of metadata objects for the framework.
+  { -- | The list of metadata objects for the framework.
     frameworkMetadataList :: Prelude.Maybe [AssessmentFrameworkMetadata],
+    -- | The pagination token that\'s used to fetch the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -175,9 +175,9 @@ data ListAssessmentFrameworksResponse = ListAssessmentFrameworksResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAssessmentFrameworksResponse_nextToken' - The pagination token that\'s used to fetch the next set of results.
---
 -- 'frameworkMetadataList', 'listAssessmentFrameworksResponse_frameworkMetadataList' - The list of metadata objects for the framework.
+--
+-- 'nextToken', 'listAssessmentFrameworksResponse_nextToken' - The pagination token that\'s used to fetch the next set of results.
 --
 -- 'httpStatus', 'listAssessmentFrameworksResponse_httpStatus' - The response's http status code.
 newListAssessmentFrameworksResponse ::
@@ -186,19 +186,19 @@ newListAssessmentFrameworksResponse ::
   ListAssessmentFrameworksResponse
 newListAssessmentFrameworksResponse pHttpStatus_ =
   ListAssessmentFrameworksResponse'
-    { nextToken =
+    { frameworkMetadataList =
         Prelude.Nothing,
-      frameworkMetadataList = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The pagination token that\'s used to fetch the next set of results.
-listAssessmentFrameworksResponse_nextToken :: Lens.Lens' ListAssessmentFrameworksResponse (Prelude.Maybe Prelude.Text)
-listAssessmentFrameworksResponse_nextToken = Lens.lens (\ListAssessmentFrameworksResponse' {nextToken} -> nextToken) (\s@ListAssessmentFrameworksResponse' {} a -> s {nextToken = a} :: ListAssessmentFrameworksResponse)
 
 -- | The list of metadata objects for the framework.
 listAssessmentFrameworksResponse_frameworkMetadataList :: Lens.Lens' ListAssessmentFrameworksResponse (Prelude.Maybe [AssessmentFrameworkMetadata])
 listAssessmentFrameworksResponse_frameworkMetadataList = Lens.lens (\ListAssessmentFrameworksResponse' {frameworkMetadataList} -> frameworkMetadataList) (\s@ListAssessmentFrameworksResponse' {} a -> s {frameworkMetadataList = a} :: ListAssessmentFrameworksResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The pagination token that\'s used to fetch the next set of results.
+listAssessmentFrameworksResponse_nextToken :: Lens.Lens' ListAssessmentFrameworksResponse (Prelude.Maybe Prelude.Text)
+listAssessmentFrameworksResponse_nextToken = Lens.lens (\ListAssessmentFrameworksResponse' {nextToken} -> nextToken) (\s@ListAssessmentFrameworksResponse' {} a -> s {nextToken = a} :: ListAssessmentFrameworksResponse)
 
 -- | The response's http status code.
 listAssessmentFrameworksResponse_httpStatus :: Lens.Lens' ListAssessmentFrameworksResponse Prelude.Int
@@ -209,6 +209,6 @@ instance
     ListAssessmentFrameworksResponse
   where
   rnf ListAssessmentFrameworksResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf frameworkMetadataList
+    Prelude.rnf frameworkMetadataList
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

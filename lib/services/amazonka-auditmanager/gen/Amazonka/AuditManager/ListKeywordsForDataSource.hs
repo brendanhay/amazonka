@@ -28,8 +28,8 @@ module Amazonka.AuditManager.ListKeywordsForDataSource
     newListKeywordsForDataSource,
 
     -- * Request Lenses
-    listKeywordsForDataSource_nextToken,
     listKeywordsForDataSource_maxResults,
+    listKeywordsForDataSource_nextToken,
     listKeywordsForDataSource_source,
 
     -- * Destructuring the Response
@@ -37,8 +37,8 @@ module Amazonka.AuditManager.ListKeywordsForDataSource
     newListKeywordsForDataSourceResponse,
 
     -- * Response Lenses
-    listKeywordsForDataSourceResponse_nextToken,
     listKeywordsForDataSourceResponse_keywords,
+    listKeywordsForDataSourceResponse_nextToken,
     listKeywordsForDataSourceResponse_httpStatus,
   )
 where
@@ -53,11 +53,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListKeywordsForDataSource' smart constructor.
 data ListKeywordsForDataSource = ListKeywordsForDataSource'
-  { -- | The pagination token that\'s used to fetch the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Represents the maximum number of results on a page or for an API request
+  { -- | Represents the maximum number of results on a page or for an API request
     -- call.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token that\'s used to fetch the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The control mapping data source that the keywords apply to.
     source :: SourceType
   }
@@ -71,10 +71,10 @@ data ListKeywordsForDataSource = ListKeywordsForDataSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listKeywordsForDataSource_nextToken' - The pagination token that\'s used to fetch the next set of results.
---
 -- 'maxResults', 'listKeywordsForDataSource_maxResults' - Represents the maximum number of results on a page or for an API request
 -- call.
+--
+-- 'nextToken', 'listKeywordsForDataSource_nextToken' - The pagination token that\'s used to fetch the next set of results.
 --
 -- 'source', 'listKeywordsForDataSource_source' - The control mapping data source that the keywords apply to.
 newListKeywordsForDataSource ::
@@ -83,20 +83,20 @@ newListKeywordsForDataSource ::
   ListKeywordsForDataSource
 newListKeywordsForDataSource pSource_ =
   ListKeywordsForDataSource'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       source = pSource_
     }
-
--- | The pagination token that\'s used to fetch the next set of results.
-listKeywordsForDataSource_nextToken :: Lens.Lens' ListKeywordsForDataSource (Prelude.Maybe Prelude.Text)
-listKeywordsForDataSource_nextToken = Lens.lens (\ListKeywordsForDataSource' {nextToken} -> nextToken) (\s@ListKeywordsForDataSource' {} a -> s {nextToken = a} :: ListKeywordsForDataSource)
 
 -- | Represents the maximum number of results on a page or for an API request
 -- call.
 listKeywordsForDataSource_maxResults :: Lens.Lens' ListKeywordsForDataSource (Prelude.Maybe Prelude.Natural)
 listKeywordsForDataSource_maxResults = Lens.lens (\ListKeywordsForDataSource' {maxResults} -> maxResults) (\s@ListKeywordsForDataSource' {} a -> s {maxResults = a} :: ListKeywordsForDataSource)
+
+-- | The pagination token that\'s used to fetch the next set of results.
+listKeywordsForDataSource_nextToken :: Lens.Lens' ListKeywordsForDataSource (Prelude.Maybe Prelude.Text)
+listKeywordsForDataSource_nextToken = Lens.lens (\ListKeywordsForDataSource' {nextToken} -> nextToken) (\s@ListKeywordsForDataSource' {} a -> s {nextToken = a} :: ListKeywordsForDataSource)
 
 -- | The control mapping data source that the keywords apply to.
 listKeywordsForDataSource_source :: Lens.Lens' ListKeywordsForDataSource SourceType
@@ -112,21 +112,21 @@ instance Core.AWSRequest ListKeywordsForDataSource where
     Response.receiveJSON
       ( \s h x ->
           ListKeywordsForDataSourceResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "keywords" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "keywords" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListKeywordsForDataSource where
   hashWithSalt _salt ListKeywordsForDataSource' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` source
 
 instance Prelude.NFData ListKeywordsForDataSource where
   rnf ListKeywordsForDataSource' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf source
 
 instance Data.ToHeaders ListKeywordsForDataSource where
@@ -146,17 +146,17 @@ instance Data.ToPath ListKeywordsForDataSource where
 instance Data.ToQuery ListKeywordsForDataSource where
   toQuery ListKeywordsForDataSource' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults,
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
         "source" Data.=: source
       ]
 
 -- | /See:/ 'newListKeywordsForDataSourceResponse' smart constructor.
 data ListKeywordsForDataSourceResponse = ListKeywordsForDataSourceResponse'
-  { -- | The pagination token that\'s used to fetch the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of keywords for the event mapping source.
+  { -- | The list of keywords for the event mapping source.
     keywords :: Prelude.Maybe [Prelude.Text],
+    -- | The pagination token that\'s used to fetch the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -170,9 +170,9 @@ data ListKeywordsForDataSourceResponse = ListKeywordsForDataSourceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listKeywordsForDataSourceResponse_nextToken' - The pagination token that\'s used to fetch the next set of results.
---
 -- 'keywords', 'listKeywordsForDataSourceResponse_keywords' - The list of keywords for the event mapping source.
+--
+-- 'nextToken', 'listKeywordsForDataSourceResponse_nextToken' - The pagination token that\'s used to fetch the next set of results.
 --
 -- 'httpStatus', 'listKeywordsForDataSourceResponse_httpStatus' - The response's http status code.
 newListKeywordsForDataSourceResponse ::
@@ -181,19 +181,19 @@ newListKeywordsForDataSourceResponse ::
   ListKeywordsForDataSourceResponse
 newListKeywordsForDataSourceResponse pHttpStatus_ =
   ListKeywordsForDataSourceResponse'
-    { nextToken =
+    { keywords =
         Prelude.Nothing,
-      keywords = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The pagination token that\'s used to fetch the next set of results.
-listKeywordsForDataSourceResponse_nextToken :: Lens.Lens' ListKeywordsForDataSourceResponse (Prelude.Maybe Prelude.Text)
-listKeywordsForDataSourceResponse_nextToken = Lens.lens (\ListKeywordsForDataSourceResponse' {nextToken} -> nextToken) (\s@ListKeywordsForDataSourceResponse' {} a -> s {nextToken = a} :: ListKeywordsForDataSourceResponse)
 
 -- | The list of keywords for the event mapping source.
 listKeywordsForDataSourceResponse_keywords :: Lens.Lens' ListKeywordsForDataSourceResponse (Prelude.Maybe [Prelude.Text])
 listKeywordsForDataSourceResponse_keywords = Lens.lens (\ListKeywordsForDataSourceResponse' {keywords} -> keywords) (\s@ListKeywordsForDataSourceResponse' {} a -> s {keywords = a} :: ListKeywordsForDataSourceResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The pagination token that\'s used to fetch the next set of results.
+listKeywordsForDataSourceResponse_nextToken :: Lens.Lens' ListKeywordsForDataSourceResponse (Prelude.Maybe Prelude.Text)
+listKeywordsForDataSourceResponse_nextToken = Lens.lens (\ListKeywordsForDataSourceResponse' {nextToken} -> nextToken) (\s@ListKeywordsForDataSourceResponse' {} a -> s {nextToken = a} :: ListKeywordsForDataSourceResponse)
 
 -- | The response's http status code.
 listKeywordsForDataSourceResponse_httpStatus :: Lens.Lens' ListKeywordsForDataSourceResponse Prelude.Int
@@ -204,6 +204,6 @@ instance
     ListKeywordsForDataSourceResponse
   where
   rnf ListKeywordsForDataSourceResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf keywords
+    Prelude.rnf keywords
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

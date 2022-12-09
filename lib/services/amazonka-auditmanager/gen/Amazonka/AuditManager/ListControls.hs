@@ -27,8 +27,8 @@ module Amazonka.AuditManager.ListControls
     newListControls,
 
     -- * Request Lenses
-    listControls_nextToken,
     listControls_maxResults,
+    listControls_nextToken,
     listControls_controlType,
 
     -- * Destructuring the Response
@@ -36,8 +36,8 @@ module Amazonka.AuditManager.ListControls
     newListControlsResponse,
 
     -- * Response Lenses
-    listControlsResponse_nextToken,
     listControlsResponse_controlMetadataList,
+    listControlsResponse_nextToken,
     listControlsResponse_httpStatus,
   )
 where
@@ -52,11 +52,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListControls' smart constructor.
 data ListControls = ListControls'
-  { -- | The pagination token that\'s used to fetch the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Represents the maximum number of results on a page or for an API request
+  { -- | Represents the maximum number of results on a page or for an API request
     -- call.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token that\'s used to fetch the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The type of control, such as a standard control or a custom control.
     controlType :: ControlType
   }
@@ -70,10 +70,10 @@ data ListControls = ListControls'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listControls_nextToken' - The pagination token that\'s used to fetch the next set of results.
---
 -- 'maxResults', 'listControls_maxResults' - Represents the maximum number of results on a page or for an API request
 -- call.
+--
+-- 'nextToken', 'listControls_nextToken' - The pagination token that\'s used to fetch the next set of results.
 --
 -- 'controlType', 'listControls_controlType' - The type of control, such as a standard control or a custom control.
 newListControls ::
@@ -82,19 +82,19 @@ newListControls ::
   ListControls
 newListControls pControlType_ =
   ListControls'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       controlType = pControlType_
     }
-
--- | The pagination token that\'s used to fetch the next set of results.
-listControls_nextToken :: Lens.Lens' ListControls (Prelude.Maybe Prelude.Text)
-listControls_nextToken = Lens.lens (\ListControls' {nextToken} -> nextToken) (\s@ListControls' {} a -> s {nextToken = a} :: ListControls)
 
 -- | Represents the maximum number of results on a page or for an API request
 -- call.
 listControls_maxResults :: Lens.Lens' ListControls (Prelude.Maybe Prelude.Natural)
 listControls_maxResults = Lens.lens (\ListControls' {maxResults} -> maxResults) (\s@ListControls' {} a -> s {maxResults = a} :: ListControls)
+
+-- | The pagination token that\'s used to fetch the next set of results.
+listControls_nextToken :: Lens.Lens' ListControls (Prelude.Maybe Prelude.Text)
+listControls_nextToken = Lens.lens (\ListControls' {nextToken} -> nextToken) (\s@ListControls' {} a -> s {nextToken = a} :: ListControls)
 
 -- | The type of control, such as a standard control or a custom control.
 listControls_controlType :: Lens.Lens' ListControls ControlType
@@ -108,23 +108,23 @@ instance Core.AWSRequest ListControls where
     Response.receiveJSON
       ( \s h x ->
           ListControlsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "controlMetadataList"
+            Prelude.<$> ( x Data..?> "controlMetadataList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListControls where
   hashWithSalt _salt ListControls' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` controlType
 
 instance Prelude.NFData ListControls where
   rnf ListControls' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf controlType
 
 instance Data.ToHeaders ListControls where
@@ -144,18 +144,18 @@ instance Data.ToPath ListControls where
 instance Data.ToQuery ListControls where
   toQuery ListControls' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults,
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
         "controlType" Data.=: controlType
       ]
 
 -- | /See:/ 'newListControlsResponse' smart constructor.
 data ListControlsResponse = ListControlsResponse'
-  { -- | The pagination token that\'s used to fetch the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of control metadata objects that the @ListControls@ API
+  { -- | The list of control metadata objects that the @ListControls@ API
     -- returned.
     controlMetadataList :: Prelude.Maybe [ControlMetadata],
+    -- | The pagination token that\'s used to fetch the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -169,10 +169,10 @@ data ListControlsResponse = ListControlsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listControlsResponse_nextToken' - The pagination token that\'s used to fetch the next set of results.
---
 -- 'controlMetadataList', 'listControlsResponse_controlMetadataList' - The list of control metadata objects that the @ListControls@ API
 -- returned.
+--
+-- 'nextToken', 'listControlsResponse_nextToken' - The pagination token that\'s used to fetch the next set of results.
 --
 -- 'httpStatus', 'listControlsResponse_httpStatus' - The response's http status code.
 newListControlsResponse ::
@@ -181,19 +181,20 @@ newListControlsResponse ::
   ListControlsResponse
 newListControlsResponse pHttpStatus_ =
   ListControlsResponse'
-    { nextToken = Prelude.Nothing,
-      controlMetadataList = Prelude.Nothing,
+    { controlMetadataList =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The pagination token that\'s used to fetch the next set of results.
-listControlsResponse_nextToken :: Lens.Lens' ListControlsResponse (Prelude.Maybe Prelude.Text)
-listControlsResponse_nextToken = Lens.lens (\ListControlsResponse' {nextToken} -> nextToken) (\s@ListControlsResponse' {} a -> s {nextToken = a} :: ListControlsResponse)
 
 -- | The list of control metadata objects that the @ListControls@ API
 -- returned.
 listControlsResponse_controlMetadataList :: Lens.Lens' ListControlsResponse (Prelude.Maybe [ControlMetadata])
 listControlsResponse_controlMetadataList = Lens.lens (\ListControlsResponse' {controlMetadataList} -> controlMetadataList) (\s@ListControlsResponse' {} a -> s {controlMetadataList = a} :: ListControlsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The pagination token that\'s used to fetch the next set of results.
+listControlsResponse_nextToken :: Lens.Lens' ListControlsResponse (Prelude.Maybe Prelude.Text)
+listControlsResponse_nextToken = Lens.lens (\ListControlsResponse' {nextToken} -> nextToken) (\s@ListControlsResponse' {} a -> s {nextToken = a} :: ListControlsResponse)
 
 -- | The response's http status code.
 listControlsResponse_httpStatus :: Lens.Lens' ListControlsResponse Prelude.Int
@@ -201,6 +202,6 @@ listControlsResponse_httpStatus = Lens.lens (\ListControlsResponse' {httpStatus}
 
 instance Prelude.NFData ListControlsResponse where
   rnf ListControlsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf controlMetadataList
+    Prelude.rnf controlMetadataList
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

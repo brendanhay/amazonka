@@ -35,8 +35,8 @@ module Amazonka.AuditManager.BatchCreateDelegationByAssessment
     newBatchCreateDelegationByAssessmentResponse,
 
     -- * Response Lenses
-    batchCreateDelegationByAssessmentResponse_errors,
     batchCreateDelegationByAssessmentResponse_delegations,
+    batchCreateDelegationByAssessmentResponse_errors,
     batchCreateDelegationByAssessmentResponse_httpStatus,
   )
 where
@@ -106,8 +106,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           BatchCreateDelegationByAssessmentResponse'
-            Prelude.<$> (x Data..?> "errors" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Data..?> "delegations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "delegations" Core..!@ Prelude.mempty)
+              Prelude.<*> (x Data..?> "errors" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -177,11 +177,11 @@ instance
 
 -- | /See:/ 'newBatchCreateDelegationByAssessmentResponse' smart constructor.
 data BatchCreateDelegationByAssessmentResponse = BatchCreateDelegationByAssessmentResponse'
-  { -- | A list of errors that the @BatchCreateDelegationByAssessment@ API
+  { -- | The delegations that are associated with the assessment.
+    delegations :: Prelude.Maybe [Delegation],
+    -- | A list of errors that the @BatchCreateDelegationByAssessment@ API
     -- returned.
     errors :: Prelude.Maybe [BatchCreateDelegationByAssessmentError],
-    -- | The delegations that are associated with the assessment.
-    delegations :: Prelude.Maybe [Delegation],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -195,10 +195,10 @@ data BatchCreateDelegationByAssessmentResponse = BatchCreateDelegationByAssessme
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'delegations', 'batchCreateDelegationByAssessmentResponse_delegations' - The delegations that are associated with the assessment.
+--
 -- 'errors', 'batchCreateDelegationByAssessmentResponse_errors' - A list of errors that the @BatchCreateDelegationByAssessment@ API
 -- returned.
---
--- 'delegations', 'batchCreateDelegationByAssessmentResponse_delegations' - The delegations that are associated with the assessment.
 --
 -- 'httpStatus', 'batchCreateDelegationByAssessmentResponse_httpStatus' - The response's http status code.
 newBatchCreateDelegationByAssessmentResponse ::
@@ -208,20 +208,20 @@ newBatchCreateDelegationByAssessmentResponse ::
 newBatchCreateDelegationByAssessmentResponse
   pHttpStatus_ =
     BatchCreateDelegationByAssessmentResponse'
-      { errors =
+      { delegations =
           Prelude.Nothing,
-        delegations = Prelude.Nothing,
+        errors = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | The delegations that are associated with the assessment.
+batchCreateDelegationByAssessmentResponse_delegations :: Lens.Lens' BatchCreateDelegationByAssessmentResponse (Prelude.Maybe [Delegation])
+batchCreateDelegationByAssessmentResponse_delegations = Lens.lens (\BatchCreateDelegationByAssessmentResponse' {delegations} -> delegations) (\s@BatchCreateDelegationByAssessmentResponse' {} a -> s {delegations = a} :: BatchCreateDelegationByAssessmentResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of errors that the @BatchCreateDelegationByAssessment@ API
 -- returned.
 batchCreateDelegationByAssessmentResponse_errors :: Lens.Lens' BatchCreateDelegationByAssessmentResponse (Prelude.Maybe [BatchCreateDelegationByAssessmentError])
 batchCreateDelegationByAssessmentResponse_errors = Lens.lens (\BatchCreateDelegationByAssessmentResponse' {errors} -> errors) (\s@BatchCreateDelegationByAssessmentResponse' {} a -> s {errors = a} :: BatchCreateDelegationByAssessmentResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The delegations that are associated with the assessment.
-batchCreateDelegationByAssessmentResponse_delegations :: Lens.Lens' BatchCreateDelegationByAssessmentResponse (Prelude.Maybe [Delegation])
-batchCreateDelegationByAssessmentResponse_delegations = Lens.lens (\BatchCreateDelegationByAssessmentResponse' {delegations} -> delegations) (\s@BatchCreateDelegationByAssessmentResponse' {} a -> s {delegations = a} :: BatchCreateDelegationByAssessmentResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchCreateDelegationByAssessmentResponse_httpStatus :: Lens.Lens' BatchCreateDelegationByAssessmentResponse Prelude.Int
@@ -232,6 +232,6 @@ instance
     BatchCreateDelegationByAssessmentResponse
   where
   rnf BatchCreateDelegationByAssessmentResponse' {..} =
-    Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf delegations
+    Prelude.rnf delegations
+      `Prelude.seq` Prelude.rnf errors
       `Prelude.seq` Prelude.rnf httpStatus

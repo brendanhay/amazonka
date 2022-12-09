@@ -27,8 +27,8 @@ module Amazonka.AuditManager.UpdateAssessmentControl
     newUpdateAssessmentControl,
 
     -- * Request Lenses
-    updateAssessmentControl_controlStatus,
     updateAssessmentControl_commentBody,
+    updateAssessmentControl_controlStatus,
     updateAssessmentControl_assessmentId,
     updateAssessmentControl_controlSetId,
     updateAssessmentControl_controlId,
@@ -53,10 +53,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateAssessmentControl' smart constructor.
 data UpdateAssessmentControl = UpdateAssessmentControl'
-  { -- | The status of the control.
-    controlStatus :: Prelude.Maybe ControlStatus,
-    -- | The comment body text for the control.
+  { -- | The comment body text for the control.
     commentBody :: Prelude.Maybe Prelude.Text,
+    -- | The status of the control.
+    controlStatus :: Prelude.Maybe ControlStatus,
     -- | The unique identifier for the assessment.
     assessmentId :: Prelude.Text,
     -- | The unique identifier for the control set.
@@ -74,9 +74,9 @@ data UpdateAssessmentControl = UpdateAssessmentControl'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'controlStatus', 'updateAssessmentControl_controlStatus' - The status of the control.
---
 -- 'commentBody', 'updateAssessmentControl_commentBody' - The comment body text for the control.
+--
+-- 'controlStatus', 'updateAssessmentControl_controlStatus' - The status of the control.
 --
 -- 'assessmentId', 'updateAssessmentControl_assessmentId' - The unique identifier for the assessment.
 --
@@ -96,21 +96,21 @@ newUpdateAssessmentControl
   pControlSetId_
   pControlId_ =
     UpdateAssessmentControl'
-      { controlStatus =
+      { commentBody =
           Prelude.Nothing,
-        commentBody = Prelude.Nothing,
+        controlStatus = Prelude.Nothing,
         assessmentId = pAssessmentId_,
         controlSetId = pControlSetId_,
         controlId = pControlId_
       }
 
--- | The status of the control.
-updateAssessmentControl_controlStatus :: Lens.Lens' UpdateAssessmentControl (Prelude.Maybe ControlStatus)
-updateAssessmentControl_controlStatus = Lens.lens (\UpdateAssessmentControl' {controlStatus} -> controlStatus) (\s@UpdateAssessmentControl' {} a -> s {controlStatus = a} :: UpdateAssessmentControl)
-
 -- | The comment body text for the control.
 updateAssessmentControl_commentBody :: Lens.Lens' UpdateAssessmentControl (Prelude.Maybe Prelude.Text)
 updateAssessmentControl_commentBody = Lens.lens (\UpdateAssessmentControl' {commentBody} -> commentBody) (\s@UpdateAssessmentControl' {} a -> s {commentBody = a} :: UpdateAssessmentControl)
+
+-- | The status of the control.
+updateAssessmentControl_controlStatus :: Lens.Lens' UpdateAssessmentControl (Prelude.Maybe ControlStatus)
+updateAssessmentControl_controlStatus = Lens.lens (\UpdateAssessmentControl' {controlStatus} -> controlStatus) (\s@UpdateAssessmentControl' {} a -> s {controlStatus = a} :: UpdateAssessmentControl)
 
 -- | The unique identifier for the assessment.
 updateAssessmentControl_assessmentId :: Lens.Lens' UpdateAssessmentControl Prelude.Text
@@ -140,16 +140,16 @@ instance Core.AWSRequest UpdateAssessmentControl where
 
 instance Prelude.Hashable UpdateAssessmentControl where
   hashWithSalt _salt UpdateAssessmentControl' {..} =
-    _salt `Prelude.hashWithSalt` controlStatus
-      `Prelude.hashWithSalt` commentBody
+    _salt `Prelude.hashWithSalt` commentBody
+      `Prelude.hashWithSalt` controlStatus
       `Prelude.hashWithSalt` assessmentId
       `Prelude.hashWithSalt` controlSetId
       `Prelude.hashWithSalt` controlId
 
 instance Prelude.NFData UpdateAssessmentControl where
   rnf UpdateAssessmentControl' {..} =
-    Prelude.rnf controlStatus
-      `Prelude.seq` Prelude.rnf commentBody
+    Prelude.rnf commentBody
+      `Prelude.seq` Prelude.rnf controlStatus
       `Prelude.seq` Prelude.rnf assessmentId
       `Prelude.seq` Prelude.rnf controlSetId
       `Prelude.seq` Prelude.rnf controlId
@@ -169,8 +169,8 @@ instance Data.ToJSON UpdateAssessmentControl where
   toJSON UpdateAssessmentControl' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("controlStatus" Data..=) Prelude.<$> controlStatus,
-            ("commentBody" Data..=) Prelude.<$> commentBody
+          [ ("commentBody" Data..=) Prelude.<$> commentBody,
+            ("controlStatus" Data..=) Prelude.<$> controlStatus
           ]
       )
 

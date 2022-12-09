@@ -42,7 +42,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSourceKeyword' smart constructor.
 data SourceKeyword = SourceKeyword'
-  { -- | The value of the keyword that\'s used when mapping a control data
+  { -- | The input method for the keyword.
+    keywordInputType :: Prelude.Maybe KeywordInputType,
+    -- | The value of the keyword that\'s used when mapping a control data
     -- source. For example, this can be a CloudTrail event name, a rule name
     -- for Config, a Security Hub control, or the name of an Amazon Web
     -- Services API call.
@@ -86,9 +88,7 @@ data SourceKeyword = SourceKeyword'
     --
     --         @keywordValue@:
     --         @Custom_OrgConfigRule-s3-bucket-versioning-enabled@
-    keywordValue :: Prelude.Maybe Prelude.Text,
-    -- | The input method for the keyword.
-    keywordInputType :: Prelude.Maybe KeywordInputType
+    keywordValue :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -99,6 +99,8 @@ data SourceKeyword = SourceKeyword'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'keywordInputType', 'sourceKeyword_keywordInputType' - The input method for the keyword.
 --
 -- 'keywordValue', 'sourceKeyword_keywordValue' - The value of the keyword that\'s used when mapping a control data
 -- source. For example, this can be a CloudTrail event name, a rule name
@@ -144,15 +146,17 @@ data SourceKeyword = SourceKeyword'
 --
 --         @keywordValue@:
 --         @Custom_OrgConfigRule-s3-bucket-versioning-enabled@
---
--- 'keywordInputType', 'sourceKeyword_keywordInputType' - The input method for the keyword.
 newSourceKeyword ::
   SourceKeyword
 newSourceKeyword =
   SourceKeyword'
-    { keywordValue = Prelude.Nothing,
-      keywordInputType = Prelude.Nothing
+    { keywordInputType = Prelude.Nothing,
+      keywordValue = Prelude.Nothing
     }
+
+-- | The input method for the keyword.
+sourceKeyword_keywordInputType :: Lens.Lens' SourceKeyword (Prelude.Maybe KeywordInputType)
+sourceKeyword_keywordInputType = Lens.lens (\SourceKeyword' {keywordInputType} -> keywordInputType) (\s@SourceKeyword' {} a -> s {keywordInputType = a} :: SourceKeyword)
 
 -- | The value of the keyword that\'s used when mapping a control data
 -- source. For example, this can be a CloudTrail event name, a rule name
@@ -201,36 +205,32 @@ newSourceKeyword =
 sourceKeyword_keywordValue :: Lens.Lens' SourceKeyword (Prelude.Maybe Prelude.Text)
 sourceKeyword_keywordValue = Lens.lens (\SourceKeyword' {keywordValue} -> keywordValue) (\s@SourceKeyword' {} a -> s {keywordValue = a} :: SourceKeyword)
 
--- | The input method for the keyword.
-sourceKeyword_keywordInputType :: Lens.Lens' SourceKeyword (Prelude.Maybe KeywordInputType)
-sourceKeyword_keywordInputType = Lens.lens (\SourceKeyword' {keywordInputType} -> keywordInputType) (\s@SourceKeyword' {} a -> s {keywordInputType = a} :: SourceKeyword)
-
 instance Data.FromJSON SourceKeyword where
   parseJSON =
     Data.withObject
       "SourceKeyword"
       ( \x ->
           SourceKeyword'
-            Prelude.<$> (x Data..:? "keywordValue")
-            Prelude.<*> (x Data..:? "keywordInputType")
+            Prelude.<$> (x Data..:? "keywordInputType")
+            Prelude.<*> (x Data..:? "keywordValue")
       )
 
 instance Prelude.Hashable SourceKeyword where
   hashWithSalt _salt SourceKeyword' {..} =
-    _salt `Prelude.hashWithSalt` keywordValue
-      `Prelude.hashWithSalt` keywordInputType
+    _salt `Prelude.hashWithSalt` keywordInputType
+      `Prelude.hashWithSalt` keywordValue
 
 instance Prelude.NFData SourceKeyword where
   rnf SourceKeyword' {..} =
-    Prelude.rnf keywordValue
-      `Prelude.seq` Prelude.rnf keywordInputType
+    Prelude.rnf keywordInputType
+      `Prelude.seq` Prelude.rnf keywordValue
 
 instance Data.ToJSON SourceKeyword where
   toJSON SourceKeyword' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("keywordValue" Data..=) Prelude.<$> keywordValue,
-            ("keywordInputType" Data..=)
-              Prelude.<$> keywordInputType
+          [ ("keywordInputType" Data..=)
+              Prelude.<$> keywordInputType,
+            ("keywordValue" Data..=) Prelude.<$> keywordValue
           ]
       )
